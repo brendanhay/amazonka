@@ -66,13 +66,13 @@ library
     Network.AWS.Data.Headers
     Network.AWS.Data.JSON
     Network.AWS.Data.Query
-    Network.AWS.Hash
     Network.AWS.Data.Sensitive
     Network.AWS.Data.Text
     Network.AWS.Data.Time
     Network.AWS.Data.XML
     Network.AWS.Endpoint
     Network.AWS.Error
+    Network.AWS.Hash
     Network.AWS.Lens
     Network.AWS.Pager
     Network.AWS.Prelude

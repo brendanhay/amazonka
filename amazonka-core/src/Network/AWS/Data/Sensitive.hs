@@ -12,6 +12,7 @@
 module Network.AWS.Data.Sensitive where
 
 import Control.DeepSeq
+import qualified Control.Lens as Lens
 import Data.Hashable
 import Data.String
 import GHC.Generics (Generic)
@@ -20,7 +21,6 @@ import Network.AWS.Data.JSON
 import Network.AWS.Data.Query
 import Network.AWS.Data.Text as AWS.Text
 import Network.AWS.Data.XML
-import qualified Control.Lens as Lens
 import Network.AWS.Prelude
 
 newtype Sensitive a = Sensitive {fromSensitive :: a}
@@ -31,7 +31,7 @@ newtype Sensitive a = Sensitive {fromSensitive :: a}
       NFData,
       Semigroup,
       Monoid
-      ToText,
+        ToText,
       FromText,
       ToQuery,
       ToXML,

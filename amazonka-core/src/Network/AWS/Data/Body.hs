@@ -18,10 +18,12 @@ import qualified Data.Text.Encoding as Text
 import qualified Data.Text.Lazy as LText
 import qualified Data.Text.Lazy.Encoding as LText
 import Network.AWS.Data.ByteString
-import qualified Network.AWS.Hash as Hash
 import qualified Network.AWS.Data.Query as AWS.Query
 import qualified Network.AWS.Data.XML as AWS.XML
+import qualified Network.AWS.Hash as Hash
 -- import Network.AWS.Lens (AReview, Lens', lens, to, un)
+
+import Network.AWS.Prelude
 import qualified Network.HTTP.Conduit as HTTP.Conduit
 
 -- | A streaming, exception safe response body.
@@ -200,30 +202,31 @@ instance ToHashedBody LText.Text where
 class ToBody a where
   -- | Convert a value to a request body.
   toBody :: a -> RqBody
-  default toBody :: ToHashedBody a => a -> RqBody
-  toBody = Hashed . toHashed
+
+-- default toBody :: ToHashedBody a => a -> RqBody
+-- toBody = Hashed . toHashed
 
 instance ToBody RqBody where
   toBody = id
 
-instance ToBody HashedBody where
-  toBody = Hashed
+-- instance ToBody HashedBody where
+--   toBody = Hashed
 
-instance ToBody ChunkedBody where
-  toBody = Chunked
+-- instance ToBody ChunkedBody where
+--   toBody = Chunked
 
-instance ToHashedBody a => ToBody (Maybe a) where
-  toBody = Hashed . maybe (toHashed BS.empty) toHashed
+-- instance ToHashedBody a => ToBody (Maybe a) where
+--   toBody = Hashed . maybe (toHashed BS.empty) toHashed
 
-instance ToBody String
+-- instance ToBody String
 
-instance ToBody LBS.ByteString
+-- instance ToBody LBS.ByteString
 
-instance ToBody ByteString
+-- instance ToBody ByteString
 
-instance ToBody Text
+-- instance ToBody Text
 
-instance ToBody LText.Text
+-- instance ToBody LText.Text
 
 -- instance ToBody (HashMap Text Value)
 
@@ -233,17 +236,14 @@ instance ToBody LText.Text
 
 -- instance ToBody QueryString
 
-_Body :: ToBody a => AReview RqBody a
-_Body = un (to toBody)
+-- toJSONBody :: ToJSON a => a -> RqBody
+-- toJSONBody = toBody . encode
+-- {-# INLINEABLE toJSONBody #-}
 
-toJSONBody :: ToJSON a => a -> RqBody
-toJSONBody = toBody . encode
-{-# INLINEABLE toJSONBody #-}
+-- toXMLBody :: ToElement a => a -> RqBody
+-- toXMLBody = toBody . encodeXML
+-- {-# INLINEABLE toXMLBody #-}
 
-toXMLBody :: ToElement a => a -> RqBody
-toXMLBody = toBody . encodeXML
-{-# INLINEABLE toXMLBody #-}
-
-toQueryBody :: QueryString -> RqBody
-toQueryBody = toBody . toBS
-{-# INLINEABLE toQueryBody #-}
+-- toQueryBody :: QueryString -> RqBody
+-- toQueryBody = toBody . toBS
+-- {-# INLINEABLE toQueryBody #-}

@@ -37,9 +37,9 @@ where
 
 import qualified Data.Aeson as Aeson
 import qualified Data.ByteString.Char8 as ByteString.Char8
-import qualified Data.Text.Read as Text.Read
-import qualified Data.Hashable as Hashable 
+import qualified Data.Hashable as Hashable
 import qualified Data.Text as Text
+import qualified Data.Text.Read as Text.Read
 import Data.Time (Day (..), UTCTime (..))
 import qualified Data.Time as Time
 import qualified Data.Time.Clock.POSIX as Time.POSIX
@@ -119,7 +119,7 @@ formatTimestamp :: NominalDiffTime -> Integer
 formatTimestamp = floor . Time.nominalDiffTimeToSeconds
 
 parseTimestamp :: Text -> Either Text NominalDiffTime
-parseTimestamp text = 
+parseTimestamp text =
   case Text.Read.decimal text of
     Right (x, "") -> pure (fromInteger x)
     Right (x, rest) -> failure ("leftover input " <> rest)
@@ -128,14 +128,13 @@ parseTimestamp text =
         Right (x, "") -> pure (realToFrac x)
         Right (x, rest) -> failure ("leftover input " <> rest)
         Left err -> failure (Text.pack err)
-
- where
-   failure msg =
-     Left $
-      "(parseTimestamp) failure parsing unix timestamp from "
-       <> text
-       <> ", "
-       <> msg
+  where
+    failure msg =
+      Left $
+        "(parseTimestamp) failure parsing unix timestamp from "
+          <> text
+          <> ", "
+          <> msg
 
 -- instance ToText Timestamp where
 --   toText = toText . formatTimestamp

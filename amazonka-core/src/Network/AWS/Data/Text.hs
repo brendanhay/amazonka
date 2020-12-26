@@ -32,9 +32,9 @@ import qualified Data.Text.Lazy.Builder.RealFloat as Builder.RealFloat
 import qualified Data.Text.Lazy.Builder.Scientific as Builder.Scientific
 import Data.Time (Day (..), UTCTime (..))
 import qualified Network.AWS.Data.Time as AWS.Time
+import Network.AWS.Prelude
 import qualified Network.HTTP.Types as HTTP.Types
 import qualified Numeric
-import Network.AWS.Prelude
 
 -- 1. have a Network.AWS.Prelude (qualify as "Prelude")
 -- 2. have Network.AWS.Data (qualify as "Data")

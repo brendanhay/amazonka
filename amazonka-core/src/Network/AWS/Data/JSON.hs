@@ -24,7 +24,7 @@ module Network.AWS.Data.JSON
     (.:),
     (.:?),
     (.!=),
-    
+
     -- * Parsing response objects
     eitherParseJSON,
   )

@@ -44,9 +44,9 @@ import qualified Data.HashMap.Strict as HashMap
 import qualified Data.Map.Strict as Map
 import qualified Data.Text.Encoding as Text.Encoding
 import qualified Network.AWS.Data.Text as AWS.Text
+import Network.AWS.Prelude
 import Network.HTTP.Types (HeaderName)
 import qualified Network.HTTP.Types as HTTP.Types
-import Network.AWS.Prelude
 
 -- Note: Chose to use Map rather than HashMap so we can utilise the
 -- lexicographic ordering of keys for signing, without an additional sort pass.

@@ -159,9 +159,9 @@ import Data.Time
 import GHC.Generics (Generic)
 import Network.AWS.Data.Body
 import Network.AWS.Data.ByteString
+import Network.AWS.Data.Headers (Headers)
 import Network.AWS.Data.JSON
-import Network.AWS.Data.Headers  (Headers)
-import Network.AWS.Data.Query  (QueryBuilder)
+import Network.AWS.Data.Query (QueryBuilder)
 import Network.AWS.Data.Sensitive (Sensitive, _Sensitive)
 import Network.AWS.Data.Text as AWS.Text
 import Network.AWS.Data.XML
@@ -537,8 +537,9 @@ data Request a = Request
     _rqQuery :: QueryBuilder,
     _rqHeaders :: Headers,
     _rqBody :: RqBody
-  } deriving stock (Generic)
-    deriving anyclass (NFData)
+  }
+  deriving stock (Generic)
+  deriving anyclass (NFData)
 
 rqService :: Lens' (Request a) Service
 rqService = lens _rqService (\s a -> s {_rqService = a})

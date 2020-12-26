@@ -18,7 +18,6 @@
 -- the ones here exist to ease legacy code-migration.
 module Network.AWS.Prelude
   ( module Export,
-
     TextLazy,
     TextBuilder,
     ByteStringLazy,
@@ -27,6 +26,7 @@ module Network.AWS.Prelude
 where
 
 import Control.Applicative as Export (Alternative ((<|>)))
+import Control.DeepSeq as Export (NFData)
 import Control.Exception as Export (Exception, SomeException)
 import Control.Lens as Export
   ( Lens',
@@ -36,38 +36,37 @@ import Control.Lens as Export
 import Control.Monad.IO.Class as Export (MonadIO (liftIO))
 import Control.Monad.Trans as Export (MonadTrans (lift))
 import Data.Bifoldable as Export (Bifoldable)
-import Control.DeepSeq as Export (NFData)
 import Data.Bitraversable as Export (Bitraversable)
 import Data.ByteString as Export (ByteString)
 import qualified Data.ByteString.Builder as ByteString.Builder
 import qualified Data.ByteString.Lazy as ByteString.Lazy
 import Data.CaseInsensitive as Export (CI)
+import Data.Coerce as Export (Coercible)
+import Data.DList as Export (DList)
 import Data.Function as Export ((&))
 import Data.Functor as Export ((<&>))
 import Data.Functor.Contravariant as Export (Contravariant)
 import Data.Functor.Identity as Export (Identity (..))
 import Data.HashMap.Strict as Export (HashMap)
-import Data.Map.Strict as Export (Map)
-import Data.Set as Export (Set)
 import Data.HashSet as Export (HashSet)
 import Data.Hashable as Export (Hashable)
 import Data.Int as Export (Int16, Int32, Int64, Int8)
 import Data.List.NonEmpty as Export (NonEmpty ((:|)))
+import Data.Map.Strict as Export (Map)
 import Data.Proxy as Export (Proxy (Proxy))
 import Data.Scientific as Export (Scientific)
+import Data.Set as Export (Set)
 import Data.String as Export (IsString (fromString))
 import Data.Text as Export (Text)
 import qualified Data.Text.Lazy as Text.Lazy
 import qualified Data.Text.Lazy.Builder as Text.Lazy.Builder
-import Data.Time as Export (Day, DiffTime, UTCTime, NominalDiffTime)
+import Data.Time as Export (Day, DiffTime, NominalDiffTime, UTCTime)
 import Data.Void as Export (Void)
 import Data.Word as Export (Word16, Word32, Word64, Word8)
 import GHC.Generics as Export (Generic)
 import GHC.TypeLits as Export (KnownNat, KnownSymbol, Nat, Symbol)
 import Numeric.Natural as Export (Natural)
 import Prelude as Export
-import Data.Coerce as Export (Coercible)
-import Data.DList as Export (DList)
 
 type TextLazy = Text.Lazy.Text
 

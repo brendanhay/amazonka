@@ -15,6 +15,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
+--
+-- This XML parser is so relaxed it\'s horizontal.
 module Network.AWS.Data.XML where
 
 --   ( XMLNodes,
@@ -55,136 +57,116 @@ import qualified Data.ByteString.Lazy as ByteString.Lazy
 -- import Data.Conduit
 -- import Data.Conduit.Lazy (lazyConsume)
 import qualified Data.Conduit.List as Conduit
-import Data.DList (DList)
 import qualified Data.DList as DList
--- import System.IO.Unsafe (unsafePerformIO)
-
 -- import Text.XML.Unresolved (toEvents)
 import qualified Data.Either as Either
 import qualified Data.Function as Function
-import Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as HashMap
-import Data.Hashable (Hashable)
 import qualified Data.List as List
-import Data.List.NonEmpty (NonEmpty (..))
 import qualified Data.List.NonEmpty as NonEmpty
-import Data.Map.Strict (Map)
 import qualified Data.Map.Strict as Map
 import qualified Data.Maybe as Maybe
-import Data.Scientific (Scientific)
-import Data.Text (Text)
-import Data.Time (NominalDiffTime, UTCTime)
+import qualified Data.Text.Lazy as Text.Lazy
 import qualified Data.XML.Types as XML.Types
 import qualified Network.AWS.Data.Text as AWS.Text
-import Numeric.Natural (Natural)
+import Network.AWS.Prelude
 import qualified Text.XML as XML
 import qualified Text.XML.Stream.Render as XML.Stream.Render
-import Prelude
 
--- The current level (focused parent element) in the XML tree.
-data Cursor = Cursor
-  { cursorName :: Text,
-    cursorAttributes :: Map Text Text,
-    cursorElements :: Map Text (NonEmpty XML.Element),
-    cursorContents :: [Text]
-    -- FIXME: strip comments + concat non-adjacent text nodes.
-  }
+data XMLCursor
+  = XMLContent Text
+  | XMLElement (Map XML.Name Text) (Map XML.Name (NonEmpty XML.Element))
+  deriving stock (Show)
 
-fromElement :: XML.Element -> Cursor
-fromElement x =
-  Cursor
-    { cursorName =
-        XML.nameLocalName (XML.elementName x),
-      cursorAttributes =
-        Map.mapKeysMonotonic XML.nameLocalName (XML.elementAttributes x),
-      cursorElements =
-        Map.fromListWith
-          (<>)
-          [ (XML.nameLocalName (XML.elementName elem'), pure elem')
-            | XML.NodeElement elem' <- XML.elementNodes x
-          ],
-      cursorContents =
-        [ text
-          | XML.NodeContent text <- XML.elementNodes x
+getXMLElements :: XML.Name -> XMLCursor -> Maybe (NonEmpty XML.Element)
+getXMLElements name = \case
+  XMLContent {} -> Nothing
+  XMLElement _as cs -> Map.lookup name cs
+
+getXMLContents :: XMLCursor -> Maybe Text
+getXMLContents = \case
+  XMLContent x -> Just x
+  XMLElement {} -> Nothing
+
+newXMLCursor :: XML.Element -> XMLCursor
+newXMLCursor element
+  | Map.null children = XMLContent contents
+  | otherwise = XMLElement (XML.elementAttributes element) children
+  where
+    children =
+      Map.fromListWith
+        (<>)
+        [ (XML.elementName x, pure x)
+          | XML.NodeElement x <- XML.elementNodes element
         ]
+
+    contents =
+      Text.Lazy.toStrict $
+        Text.Lazy.fromChunks
+          [ x
+            | XML.NodeContent x <- XML.elementNodes element
+          ]
+{-# INLINEABLE newXMLCursor #-}
+
+fromXMLCursor :: XML.Name -> XMLCursor -> XML.Element
+fromXMLCursor name = \case
+  XMLContent text ->
+    XML.Element
+      { XML.elementName = name,
+        XML.elementAttributes = Map.empty,
+        XML.elementNodes = [XML.NodeContent text]
+      }
+  --
+  XMLElement attributes children ->
+    XML.Element
+      { XML.elementName = name,
+        XML.elementAttributes = attributes,
+        XML.elementNodes =
+          DList.toList
+            . foldMap (DList.fromList . map XML.NodeElement . NonEmpty.toList)
+            $ (Map.elems children :: [NonEmpty XML.Element])
+      }
+{-# INLINEABLE fromXMLCursor #-}
+
+newXMLDocument :: ToXML a => XML.Name -> a -> XML.Document
+newXMLDocument name x =
+  XML.Document
+    { XML.documentPrologue =
+        XML.Prologue
+          { XML.prologueDoctype = Nothing,
+            XML.prologueBefore = [],
+            XML.prologueAfter = []
+          },
+      XML.documentEpilogue = [],
+      XML.documentRoot = fromXMLCursor name (toXML x)
     }
-{-# INLINEABLE fromElement #-}
+{-# INLINEABLE newXMLDocument #-}
 
--- data XMLEncoding
---   = Attributes (Map XML.Name Text)
---   | Element XML.Element
---   | Content Text
---   deriving (Show, Eq)
+class ToXML a where
+  toXMLDocument :: a -> XML.Document
+  toXMLDocument = newXMLDocument "Document" . toXML
+  {-# INLINEABLE toXMLDocument #-}
 
--- type XMLNodes = [XMLEncoding]
+  toXML :: a -> XMLCursor
 
--- type XMLBuilder = DList XMLEncoding
+  default toXML :: AWS.Text.ToText a => a -> XMLCursor
+  toXML = XMLContent . AWS.Text.toText
+  {-# INLINEABLE toXML #-}
 
--- newXMLDocument :: ToXML a => XML.Name -> a -> XML.Document
--- newXMLDocument name x =
---   XML.Document
---     { XML.documentPrologue =
---         XML.Prologue
---           { XML.prologueDoctype = Nothing,
---             XML.prologueBefore = [],
---             XML.prologueAfter = []
---           },
---       XML.documentEpilogue = [],
---       XML.documentRoot = newXMLElement name (toXML x)
---     }
--- {-# INLINEABLE newXMLDocument #-}
+instance ToXML XMLCursor where
+  toXML = id
+  {-# INLINEABLE toXML #-}
 
--- newXMLNode :: XML.Name -> XMLBuilder -> XML.Node
--- newXMLNode name =
---   XML.NodeElement . newXMLElement name
--- {-# INLINEABLE newXMLNode #-}
-
--- newXMLElement :: XML.Name -> XMLBuilder -> XML.Element
--- newXMLElement name xs =
---   XML.Element
---     { XML.elementName = name,
---       XML.elementAttributes = Map.fromList attrs,
---       XML.elementNodes = nodes
---     }
---   where
---     (attrs, nodes) =
---       Either.partitionEithers $
---         flip map (DList.toList xs) $ \case
---           XAttr attr content ->
---             Left (attr, content)
---           XNode node ->
---             Right node
--- {-# INLINEABLE newXMLElement #-}
-
--- newXMLText :: AWS.Text.ToText a => a -> XML.Node
--- newXMLText = XML.NodeContent . AWS.Text.toText
--- {-# INLINEABLE newXMLText #-}
-
--- class ToXML a where
---   toXMLDocument :: a -> XML.Document
---   toXMLDocument = newXMLDocument "Document" . toXML
---   {-# INLINEABLE toXMLDocument #-}
-
---   toXML :: a -> XMLBuilder
-
---   default toXML :: AWS.Text.ToText a => a -> XMLBuilder
---   toXML = pure . XNode . newXMLText
---   {-# INLINEABLE toXML #-}
-
--- instance ToXML XMLBuilder where
---   toXML = id
---   {-# INLINEABLE toXML #-}
-
--- -- instance ToXML Char
--- -- instance ToXML Text
--- -- instance ToXML Int
--- -- instance ToXML Integer
--- -- instance ToXML Natural
--- -- instance ToXML Scientific
--- -- instance ToXML Double
--- -- instance ToXML Bool
--- -- instance ToXML UTCTime
--- -- instance ToXML NominalDiffTime
+instance ToXML Char
+instance ToXML Text 
+instance ToXML Int
+instance ToXML Integer
+instance ToXML Natural
+instance ToXML Scientific
+instance ToXML Double
+instance ToXML Bool
+instance ToXML UTCTime
+instance ToXML NominalDiffTime
 
 -- renderXML :: ToXML a => a -> ByteString
 -- renderXML =
@@ -211,7 +193,7 @@ fromElement x =
 -- {-# INLINEABLE toXMLList #-}
 
 class FromXML a where
-  parseXML :: Cursor -> Either Text a
+  parseXML :: XMLCursor -> Either Text a
 
 --   -- default parseXML :: AWS.Text.FromText a => XMLNodes -> Either Text a
 --   -- parseXML nodes =
@@ -480,53 +462,60 @@ class FromXML a where
 -- --         | otherwise -> listToMaybe (mapMaybe go (elementNodes e))
 -- --       _ -> Nothing
 
-(.@) :: FromXML a => XML.Name -> Cursor -> Either Text a
-name .@ xml =
-  name .@? xml
-    >>= annotate xml ".@" . \case
+(.@) :: FromXML a => XML.Name -> XMLCursor -> Either Text a
+name .@ cursor =
+  name .@? cursor
+    >>= annotate ".@" cursor . \case
       Nothing -> Left ("no " <> XML.nameLocalName name <> " element found")
       Just ok -> Right ok
 {-# INLINEABLE (.@) #-}
 
-(.@?) :: FromXML a => XML.Name -> Cursor -> Either Text (Maybe a)
-name .@? xml =
-  annotate xml ".@?" $
-    case Map.lookup (XML.nameLocalName name) (cursorElements xml) of
-      Just (x :| []) -> Just <$> parseXML (fromElement x)
+(.@?) :: FromXML a => XML.Name -> XMLCursor -> Either Text (Maybe a)
+name .@? cursor =
+  annotate ".@?" cursor $
+    case getXMLElements name cursor of
+      Just (x :| []) -> Just <$> parseXML (newXMLCursor x)
       Just _xs -> Left ("multiple " <> XML.nameLocalName name <> " elements found")
       Nothing -> Left "has no child elements"
 {-# INLINEABLE (.@?) #-}
 
-(.@@) :: AWS.Text.FromText a => XML.Name -> Cursor -> Either Text a
-name .@@ xml =
-  name .@@? xml
-    >>= annotate xml ".@@" . \case
+(.@@) :: AWS.Text.FromText a => XML.Name -> XMLCursor -> Either Text a
+name .@@ cursor =
+  name .@@? cursor
+    >>= annotate ".@@" cursor . \case
       Nothing -> Left ("no " <> XML.nameLocalName name <> " attribute found")
       Just ok -> Right ok
 {-# INLINEABLE (.@@) #-}
 
-(.@@?) :: AWS.Text.FromText a => XML.Name -> Cursor -> Either Text (Maybe a)
-name .@@? xml =
-  annotate xml ".@@?" $
+(.@@?) :: AWS.Text.FromText a => XML.Name -> XMLCursor -> Either Text (Maybe a)
+name .@@? cursor =
+  annotate ".@@?" cursor $
     traverse AWS.Text.parseText $
-      Map.lookup (XML.nameLocalName name) (cursorAttributes xml)
+      case cursor of
+        XMLContent {} -> Nothing
+        XMLElement attributes _children -> Map.lookup name attributes
 {-# INLINEABLE (.@@?) #-}
 
-annotate :: Bifunctor.Bifunctor p => Cursor -> Text -> p Text a -> p Text a
-annotate xml function =
+annotate :: Text -> XMLCursor -> Either Text a -> Either Text a
+annotate function cursor =
   Bifunctor.first $ \text ->
-    "(" <> function
-      <> "):"
-      <> cursorName xml
+    "("
+      <> function
+      <> ") cursor:"
+      <> context cursor
       <> " "
       <> text
+  where
+    context = \case
+      XMLContent {} -> "xml-content"
+      XMLElement {} -> "xml-element"
 {-# INLINEABLE annotate #-}
 
 -- throwError
 --   :: Cursor
 --   -> Text
 --   -> Either Text a
--- throwError xml msg =
+-- throwError cursor msg =
 --   ""
 
 -- -- A more generalised version of aeson\'s '.!='.

@@ -37,6 +37,7 @@ common base
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
+    DerivingVia
     DuplicateRecordFields
     FlexibleContexts
     FlexibleInstances
@@ -99,7 +100,6 @@ library
     , containers            >=0.6.0.1
     , cryptonite            >=0.4
     , deepseq               >=1.4
-    , dlist                 >=0.8
     , exceptions            >=0.10
     , generic-lens          >=1.1
     , hashable              >=1.2

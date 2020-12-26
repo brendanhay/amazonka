@@ -15,23 +15,17 @@
 module Network.AWS.Data.Time
   ( -- * Time
     UTCTime,
+    formatDateTime,
+    parseDateTime,
     NominalDiffTime,
-    -- Time (..),
-    -- _Time,
+    formatTimestamp,
+    parseTimestamp,
 
-    -- * Formats
+    -- ** Formats
     basicFormat,
     awsFormat,
     iso8601Format,
     rfc822Format,
-
-    -- * ISO8601 date time
-    formatDateTime,
-    parseDateTime,
-
-    -- * UNIX timestamps
-    formatTimestamp,
-    formatTimestamp,
   )
 where
 
@@ -69,19 +63,21 @@ awsFormat = "%Y%m%dT%H%M%SZ"
 iso8601Format = "%Y-%m-%dT%XZ"
 rfc822Format = "%a, %d %b %Y %H:%M:%S GMT"
 
-formatDateTime :: String -> UTCTime -> String
-formatDateTime format = Time.formatTime Time.defaultTimeLocale format
+formatDateTime :: String -> UTCTime -> Text
+formatDateTime format = Text.pack . Time.formatTime Time.defaultTimeLocale format
+{-# INLINEABLE formatDateTime #-}
 
-parseDateTime :: String -> String -> Either String UTCTime
+parseDateTime :: String -> String -> Either Text UTCTime
 parseDateTime format string =
   case Time.parseTimeM True Time.defaultTimeLocale format string of
     Just x -> Right x
     Nothing ->
       Left $
         "Unable to parse time format "
-          ++ show format
-          ++ " from "
-          ++ show string
+          <> Text.pack format
+          <> " from "
+          <> Text.pack string
+{-# INLINEABLE parseDateTime #-}
 
 -- instance ToText DateTime where
 --   toText = Text.pack . formatDateTime iso8601Format
@@ -117,6 +113,7 @@ parseDateTime format string =
 
 formatTimestamp :: NominalDiffTime -> Integer
 formatTimestamp = floor . Time.nominalDiffTimeToSeconds
+{-# INLINEABLE formatTimestamp #-}
 
 parseTimestamp :: Text -> Either Text NominalDiffTime
 parseTimestamp text =
@@ -135,6 +132,7 @@ parseTimestamp text =
           <> text
           <> ", "
           <> msg
+{-# INLINEABLE parseTimestamp #-}
 
 -- instance ToText Timestamp where
 --   toText = toText . formatTimestamp

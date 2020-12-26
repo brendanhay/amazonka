@@ -62,28 +62,42 @@ instance ToText Text where
   toText = id
   {-# INLINE toText #-}
 
+instance ToText Bool where
+  toText = \case
+    True -> "true"
+    False -> "false"
+  {-# INLINEABLE toText #-}
+
 instance ToText Int where
-  toText = buildStrictText . Builder.Int.decimal
+  toText = buildText . Builder.Int.decimal
   {-# INLINEABLE toText #-}
 
 instance ToText Integer where
-  toText = buildStrictText . Builder.Int.decimal
+  toText = buildText . Builder.Int.decimal
   {-# INLINEABLE toText #-}
 
 instance ToText Natural where
-  toText = buildStrictText . Builder.Int.decimal
+  toText = buildText . Builder.Int.decimal
   {-# INLINEABLE toText #-}
 
 instance ToText Scientific where
-  toText = buildStrictText . Builder.Scientific.scientificBuilder
+  toText = buildText . Builder.Scientific.scientificBuilder
   {-# INLINEABLE toText #-}
 
 instance ToText Double where
-  toText = buildStrictText . Builder.RealFloat.realFloat
+  toText = buildText . Builder.RealFloat.realFloat
   {-# INLINEABLE toText #-}
 
-buildStrictText :: TextBuilder -> Text
-buildStrictText = Text.Lazy.toStrict . Builder.toLazyText
+instance ToText UTCTime where
+  toText = AWS.Time.formatDateTime AWS.Time.iso8601Format
+  {-# INLINEABLE toText #-}
+
+instance ToText NominalDiffTime where
+  toText = toText . AWS.Time.formatTimestamp
+  {-# INLINEABLE toText #-}
+
+buildText :: TextBuilder -> Text
+buildText = Text.Lazy.toStrict . Builder.toLazyText
 
 class FromText a where
   parseText :: Text -> Either Text a
@@ -139,7 +153,7 @@ instance FromText Text where
 --   fromText = \case
 --     "true" -> pure True
 --     "false" -> pure False
---     e -> Left ("Failure parsing Bool from " ++ show e)
+--     e -> Left ("failure parsing Bool from " ++ show e)
 
 -- instance FromText StdMethod where
 --   fromText =

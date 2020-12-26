@@ -168,23 +168,17 @@ class ToHashedBody a where
   -- | Convert a value to a hashed request body.
   toHashed :: a -> HashedBody
 
-instance ToHashedBody ByteString where
-  toHashed x = HashedBytes (hash x) x
-
 instance ToHashedBody HashedBody where
   toHashed = id
+  {-# INLINE toHashed #-}
 
-instance ToHashedBody String where
-  toHashed = toHashed . LBS8.pack
-
-instance ToHashedBody LBS.ByteString where
-  toHashed = toHashed . toBS
+instance ToHashedBody ByteString where
+  toHashed x = HashedBytes (hash x) x
+  {-# INLINEABLE toHashed #-}
 
 instance ToHashedBody Text where
   toHashed = toHashed . Text.encodeUtf8
-
-instance ToHashedBody LText.Text where
-  toHashed = toHashed . LText.encodeUtf8
+  {-# INLINEABLE toHashed #-}
 
 -- instance ToHashedBody Value where
 --   toHashed = toHashed . encode

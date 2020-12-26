@@ -52,7 +52,13 @@ import Network.HTTP.Types (HeaderName)
 import qualified Network.HTTP.Types as HTTP.Types
 import Prelude
 
-type QueryBuilder = DList (ByteString, ByteString)
+-- type QueryBuilder = DList (ByteString, ByteString)
+
+newtype QueryBuilder = QueryBuilder (Pairs -> Pairs)
+
+data Pairs
+   | KeyValue ByteString ByteString ~Pairs
+   = End
 
 buildQuery :: QueryBuilder -> ByteString
 buildQuery =

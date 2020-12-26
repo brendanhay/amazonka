@@ -859,7 +859,7 @@ toXMLE protocol' = \case
       Exts.varE $
         if field ^. fieldRef . refXMLAttribute
           then "Core.toXMLAttribute"
-          else "Core.toXMLNode"
+          else "Core.toXMLElement"
 
 toJSONE :: Protocol -> [Field] -> Exts.Exp
 toJSONE protocol' =

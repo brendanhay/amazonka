@@ -42,7 +42,6 @@ import qualified Data.ByteString.Builder as ByteString.Builder
 import qualified Data.ByteString.Lazy as ByteString.Lazy
 import Data.CaseInsensitive as Export (CI)
 import Data.Coerce as Export (Coercible)
-import Data.DList as Export (DList)
 import Data.Function as Export ((&))
 import Data.Functor as Export ((<&>))
 import Data.Functor.Contravariant as Export (Contravariant)

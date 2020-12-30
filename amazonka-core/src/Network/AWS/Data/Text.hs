@@ -1,7 +1,3 @@
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 -- |
 -- Module      : Network.AWS.Data.Text
 -- Copyright   : (c) 2013-2020 Brendan Hay
@@ -22,7 +18,6 @@ where
 
 import qualified Data.Attoparsec.Text as Atto
 import qualified Data.Bifunctor as Bifunctor
-import qualified Data.ByteString.Char8 as ByteString.Char8
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text.Encoding
 import qualified Data.Text.Lazy as Text.Lazy
@@ -30,18 +25,13 @@ import qualified Data.Text.Lazy.Builder as Builder
 import qualified Data.Text.Lazy.Builder.Int as Builder.Int
 import qualified Data.Text.Lazy.Builder.RealFloat as Builder.RealFloat
 import qualified Data.Text.Lazy.Builder.Scientific as Builder.Scientific
-import Data.Time (Day (..), UTCTime (..))
 import qualified Network.AWS.Data.Time as AWS.Time
 import Network.AWS.Prelude
-import qualified Network.HTTP.Types as HTTP.Types
-import qualified Numeric
 
+-- FIXME:
 -- 1. have a Network.AWS.Prelude (qualify as "Prelude")
 -- 2. have Network.AWS.Data (qualify as "Data")
 -- 3. have Network.AWS.Lens (qualify as "Lens")
-
--- parseText :: Parser a -> Text -> Either Text a
--- parseText parser = A.parseOnly (parser <* A.endOfInput)
 
 class ToText a where
   toText :: a -> Text
@@ -80,10 +70,6 @@ instance ToText Natural where
   toText = buildText . Builder.Int.decimal
   {-# INLINEABLE toText #-}
 
-instance ToText Scientific where
-  toText = buildText . Builder.Scientific.scientificBuilder
-  {-# INLINEABLE toText #-}
-
 instance ToText Double where
   toText = buildText . Builder.RealFloat.realFloat
   {-# INLINEABLE toText #-}
@@ -95,6 +81,12 @@ instance ToText UTCTime where
 instance ToText NominalDiffTime where
   toText = toText . AWS.Time.formatTimestamp
   {-# INLINEABLE toText #-}
+
+-- instance ToText StdMethod where
+--   toText = toText . renderStdMethod
+
+-- instance ToText (Digest a) where
+--   toText = toText . digestToBase Base16
 
 buildText :: TextBuilder -> Text
 buildText = Text.Lazy.toStrict . Builder.toLazyText
@@ -108,90 +100,67 @@ parseUTF8 bytes = do
   parseText text
 {-# INLINEABLE parseUTF8 #-}
 
+instance FromText Char where
+  parseText = runTextParser "Char" Atto.anyChar
+  {-# INLINEABLE parseText #-}
+
 instance FromText Text where
   parseText = Right
+  {-# INLINE parseText #-}
+
+instance FromText Bool where
+  parseText =
+    annotate "Bool" . \case
+      "true" -> Right True
+      "false" -> Right False
+      other -> Left ("unrecognised boolean " <> other)
   {-# INLINEABLE parseText #-}
 
 -- instance FromText ByteString where
 --   parseText = Right . Text.Encoding.encodeUtf8
 --   {-# INLINEABLE parseText #-}
 
--- instance FromText Text where
---   fromText = pure
+instance FromText Int where
+  parseText = runTextParser "Int" (Atto.signed Atto.decimal)
+  {-# INLINEABLE parseText #-}
 
--- instance FromText String where
---   fromText = pure . Text.unpack
+instance FromText Integer where
+  parseText = runTextParser "Integer" (Atto.signed Atto.decimal)
+  {-# INLINEABLE parseText #-}
 
--- instance FromText ByteString where
---   fromText = pure . Text.encodeUtf8
+instance FromText Natural where
+  parseText = runTextParser "Natural" Atto.decimal
+  {-# INLINEABLE parseText #-}
 
--- instance FromText Char where
---   fromText = parseText A.anyChar
+instance FromText Scientific where
+  parseText = runTextParser "Scientific" (Atto.signed Atto.scientific)
+  {-# INLINEABLE parseText #-}
 
--- instance FromText Int where
---   fromText = parseText (A.signed A.decimal)
+instance FromText Double where
+  parseText = runTextParser "Double" (Atto.signed Atto.rational)
+  {-# INLINEABLE parseText #-}
 
--- instance FromText Int64 where
---   fromText = parseText (A.signed A.decimal)
+instance FromText UTCTime where
+  parseText = AWS.Time.parseDateTime AWS.Time.iso8601Format . Text.unpack
+  {-# INLINEABLE parseText #-}
 
--- instance FromText Integer where
---   fromText = parseText (A.signed A.decimal)
-
--- instance FromText Scientific where
---   fromText = parseText (A.signed A.scientific)
-
--- instance FromText Natural where
---   fromText = parseText A.decimal
-
--- instance FromText Double where
---   fromText = parseText (A.signed A.rational)
-
--- instance FromText UTCTime where
---   fromText = parseDateTime iso8601Format . Text.unpack
-
--- instance FromText Bool where
---   fromText = \case
---     "true" -> pure True
---     "false" -> pure False
---     e -> Left ("failure parsing Bool from " ++ show e)
+instance FromText NominalDiffTime where
+  parseText = AWS.Time.parseTimestamp
+  {-# INLINEABLE parseText #-}
 
 -- instance FromText StdMethod where
---   fromText =
+--   parseText =
 --     parseText $ do
---       bs <- Text.encodeUtf8 <$> A.takeText
+--       bs <- Text.encodeUtf8 <$> Atto.takeText
 --       either (fail . BS8.unpack) pure (parseMethod bs)
 
--- instance ToText ByteString where
---   toText = Text.decodeUtf8
+runTextParser :: Text -> Atto.Parser a -> Text -> Either Text a
+runTextParser ann parser =
+  annotate ann
+    . Bifunctor.first Text.pack
+    . Atto.parseOnly (parser <* Atto.endOfInput)
 
--- instance ToText Char where
---   toText = Text.singleton
-
--- instance ToText String where
---   toText = Text.pack
-
--- instance ToText Int where
---   toText = shortText . Build.decimal
-
--- instance ToText Int64 where
---   toText = shortText . Build.decimal
-
--- instance ToText Integer where
---   toText = shortText . Build.decimal
-
--- instance ToText Natural where
---   toText = shortText . Build.decimal
-
--- instance ToText StdMethod where
---   toText = toText . renderStdMethod
-
--- instance ToText (Digest a) where
---   toText = toText . digestToBase Base16
-
--- instance ToText UTCTime where
---   toText = Text.pack . formatDateTime iso8601Format
-
--- instance ToText Bool where
---   toText = \case
---     True -> "true"
---     False -> "false"
+annotate :: Text -> Either Text a -> Either Text a
+annotate ann =
+  Bifunctor.first $ \err ->
+    "parseText." <> ann <> ": " <> err

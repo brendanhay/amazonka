@@ -58,6 +58,7 @@ module Gen.Syntax.Exts
     fieldD,
     typeSigD,
     funBindD,
+    inlineD,
     Exts.noBinds,
     Exts.sfun,
     Exts.patBindWhere,
@@ -83,6 +84,7 @@ module Gen.Syntax.Exts
     punR,
 
     -- * Expressions
+    sigE,
     conE,
     varE,
     Exts.paren,
@@ -280,6 +282,10 @@ funBindD = Exts.InsDecl () . Exts.FunBind ()
 patBindD :: Pat -> Exp -> InstDecl
 patBindD pat = Exts.InsDecl () . Exts.patBind pat
 
+inlineD :: Text -> InstDecl
+inlineD = Exts.InsDecl () . Exts.InlineSig () True Nothing . nameQ
+
+
 -- Matches
 
 varsM :: Text -> [Text] -> Maybe Binds -> Rhs -> Match
@@ -347,6 +353,9 @@ punR name = Exts.FieldPun () (nameQ name)
 
 -- Expressions
 
+sigE :: Exp -> Type -> Exp
+sigE e = Exts.ExpTypeSig () e
+
 conE :: Text -> Exp
 conE = Exts.Con () . nameQ
 
@@ -380,7 +389,7 @@ mappendE a b = Exts.infixApp a (opQ "Core.<>") b
 applicativeE :: Exp -> [Exp] -> Exp
 applicativeE a = \case
   [] -> pureE a
-  b : bs -> a `fmapE` Foldable.foldl' apE (Exts.paren b) (map Exts.paren bs)
+  b : bs -> a `fmapE` Foldable.foldl' apE (Exts.paren b) bs -- (map Exts.paren bs)
 
 fmapE :: Exp -> Exp -> Exp
 fmapE f a = Exts.infixApp f (opQ "Core.<$>") a

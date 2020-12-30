@@ -1,11 +1,3 @@
-{-# LANGUAGE DefaultSignatures #-}
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TupleSections #-}
-{-# LANGUAGE ViewPatterns #-}
-
 -- |
 -- Module      : Network.AWS.Data.Headers
 -- Copyright   : (c) 2013-2020 Brendan Hay
@@ -15,7 +7,7 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Data.Headers
   ( Headers,
-    HeadersBuilder,
+    HeaderBuilder,
     buildHeaders,
 
     -- * Serialisation
@@ -38,8 +30,8 @@ import Data.ByteString (ByteString)
 import qualified Data.ByteString as ByteString
 import qualified Data.ByteString.Char8 as ByteString.Char8
 import qualified Data.CaseInsensitive as CI
+import qualified Data.Monoid as Monoid
 import qualified Data.Coerce as Coerce
-import qualified Data.DList as DList
 import qualified Data.HashMap.Strict as HashMap
 import qualified Data.Map.Strict as Map
 import qualified Data.Text.Encoding as Text.Encoding
@@ -54,20 +46,77 @@ import qualified Network.HTTP.Types as HTTP.Types
 -- This means when parsing a map of headers, we need to convert <-> HashMap.
 type Headers = Map HeaderName ByteString
 
-type HeadersBuilder = DList (HeaderName, ByteString)
+type HeaderPair = (HeaderName, ByteString)
 
-buildHeaders :: HeadersBuilder -> Headers
-buildHeaders = Map.fromList . DList.toList
+newtype HeaderBuilder = HeaderBuilder ([HeaderPair] -> [HeaderPair])
+  deriving (Semigroup, Monoid) via (Monoid.Endo [HeaderPair])
+
+instance Show HeaderBuilder where
+  showsPrec _ (HeaderBuilder builder) =
+    showString "HeaderBuilder "
+      . showsPrec 0 (builder [])
+  {-# INLINEABLE showsPrec #-}
+
+buildHeaders :: HeaderBuilder -> Headers
+buildHeaders (HeaderBuilder builder) = Map.fromList (builder [])
 {-# INLINEABLE buildHeaders #-}
 
 class ToHeaders a where
-  toHeaders :: HeaderName -> a -> HeadersBuilder
+  toHeaders :: HeaderName -> a -> HeaderBuilder
+
+-- instance AWS.Text.ToText a => ToHeaders (Maybe a) where
+--   toHeaders key = \case
+--     Nothing -> mempty
+--     Just val -> consPair key (AWS.Text.toUTF8 val)
+--   {-# INLINEABLE toHeaders #-}
+
+instance ToHeaders Char where
+  toHeaders key = consPair key . AWS.Text.toUTF8
+  {-# INLINEABLE toHeaders #-}
+ 
+instance ToHeaders Text where
+  toHeaders key = consPair key . AWS.Text.toUTF8
+  {-# INLINEABLE toHeaders #-}
+ 
+instance ToHeaders Bool where
+  toHeaders key = consPair key . AWS.Text.toUTF8
+  {-# INLINEABLE toHeaders #-}
+ 
+instance ToHeaders Int where
+  toHeaders key = consPair key . AWS.Text.toUTF8
+  {-# INLINEABLE toHeaders #-}
+ 
+instance ToHeaders Integer where
+  toHeaders key = consPair key . AWS.Text.toUTF8
+  {-# INLINEABLE toHeaders #-}
+ 
+instance ToHeaders Natural where
+  toHeaders key = consPair key . AWS.Text.toUTF8
+  {-# INLINEABLE toHeaders #-}
+ 
+instance ToHeaders Double where
+  toHeaders key = consPair key . AWS.Text.toUTF8
+  {-# INLINEABLE toHeaders #-}
+  
+instance ToHeaders UTCTime where
+  toHeaders key = consPair key . AWS.Text.toUTF8
+  {-# INLINEABLE toHeaders #-}
+  
+instance ToHeaders NominalDiffTime where
+  toHeaders key = consPair key . AWS.Text.toUTF8
+  {-# INLINEABLE toHeaders #-}
 
 class FromHeaders a where
   parseHeaders :: HeaderName -> Headers -> Either Text a
 
-parseHeadersMaybe :: HeaderName -> Headers -> Either Text (Maybe a)
-parseHeadersMaybe name headers = undefined
+parseHeadersMaybe ::
+  FromHeaders a =>
+  HeaderName ->
+  Headers ->
+  Either Text (Maybe a)
+parseHeadersMaybe name headers
+  | Map.member name headers = Right Nothing
+  | otherwise = Just <$> parseHeaders name headers
 {-# INLINEABLE parseHeadersMaybe #-}
 
 -- Parsing a header map is inherently optional
@@ -136,6 +185,9 @@ parseHeadersMap (CI.foldedCase -> prefix) =
 --   toRequestHeaders prefix =
 --     map (bimap (mappend prefix . CI.mk . toBS) toBS)
 --       . HashMap.toList
+
+consPair :: HeaderName -> ByteString -> HeaderBuilder
+consPair key val = HeaderBuilder ((key, val) :)
 
 hHost :: HeaderName
 hHost = "Host"

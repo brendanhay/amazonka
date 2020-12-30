@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- |
 -- Module      : Network.AWS.Data.JSON
 -- Copyright   : (c) 2013-2020 Brendan Hay

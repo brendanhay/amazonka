@@ -311,18 +311,23 @@ instancesD protocol' name xs =
   mapMaybe declare xs
   where
     declare = \case
-      FromJSON fields -> Just (classFromJSOND protocol' name fields)
-      ToJSON fields -> Just (classToJSOND protocol' name fields)
-      FromXML fields -> Just (classFromXMLD protocol' name fields)
+      FromJSON fields ->
+        Just (classFromJSOND protocol' name fields)
+      ToJSON fields ->
+        Just (classToJSOND protocol' name fields)
+      FromXML fields ->
+        Just (classFromXMLD protocol' name fields)
       ToXML fields ->
         Just $
           classToXMLD protocol' name fields $
             listToMaybe [(mns, root) | ToElement mns root <- xs]
+      ToHeaders fields ->
+        Just (classToHeadersD protocol' name fields)
+      ToQuery fields -> 
+        Just (classToQueryD protocol' name fields)
       -- Erasure
       ToElement {} -> Nothing
-      ToHeaders {} -> Nothing
       ToPath {} -> Nothing
-      ToQuery {} -> Nothing
       ToBody {} -> Nothing
 
 classToJSOND :: Protocol -> Id -> [Field] -> Exts.Decl
@@ -394,6 +399,38 @@ classFromXMLD protocol' name fields =
                 map (parseXMLE protocol') fields
         ]
     ]
+
+classToHeadersD :: Protocol -> Id -> [Either (Text, Text) Field] -> Exts.Decl
+classToHeadersD protocol' name fields =
+  Exts.instanceD
+    "Core.ToHeaders"
+    (typeId name)
+    [ Exts.funBindD
+        [ Exts.wildM "toHeaders" (typeId name) Nothing (null fields) Exts.noBinds $
+            Exts.unguardedRhs $
+              if isEmpty
+                then Exts.pureE Exts.memptyE
+                else toHeadersE protocol' fields
+        ]
+    ]
+  where
+    isEmpty = null fields
+    
+classToQueryD :: Protocol -> Id -> [Either (Text, Maybe Text) Field] -> Exts.Decl
+classToQueryD protocol' name fields =
+  Exts.instanceD
+    "Core.ToQuery"
+    (typeId name)
+    [ Exts.funBindD
+        [ Exts.wildM "toQuery" (typeId name) Nothing (null fields) Exts.noBinds $
+            Exts.unguardedRhs $
+              if isEmpty
+                then Exts.pureE Exts.memptyE
+                else toQueryE protocol' fields
+        ]
+    ]
+  where
+    isEmpty = null fields
 
 classAWSPagerD :: Id -> Pager Field -> Exts.Decl
 classAWSPagerD name pager =
@@ -481,7 +518,9 @@ classAWSRequestD cfg meta http (rqRef, rqInsts, rqFields) (rsRef, rsFields) =
     rqName
     [ Exts.associatedTypeD "Rs" rqName rsName,
       funRequestD cfg meta http rqRef rqInsts rqFields,
-      funResponseD (meta ^. protocol) rsRef rsFields
+      Exts.inlineD "toRequest",
+      funResponseD (meta ^. protocol) rsRef rsFields,
+      Exts.inlineD "parseResponse"
     ]
   where
     rqName =
@@ -495,7 +534,7 @@ classAWSRequestD cfg meta http (rqRef, rqInsts, rqFields) (rsRef, rsFields) =
 funResponseD :: Protocol -> Ref -> [Field] -> Exts.InstDecl
 funResponseD protocol' ref fields =
   Exts.funBindD
-    [ Exts.nullM "response" Exts.noBinds (Exts.unguardedRhs rhs)
+    [ Exts.nullM "parseResponse" Exts.noBinds (Exts.unguardedRhs rhs)
     ]
   where
     rhs = Exts.app responseFunction rhsBody
@@ -588,7 +627,7 @@ funRequestD ::
   Exts.InstDecl
 funRequestD cfg meta http ref instances fields =
   Exts.funBindD
-    [ Exts.wildM "request" "Core.Request" (Just "x") (null fields) Exts.noBinds $
+    [ Exts.wildM "toRequest" "Core.Request" (Just "x") (null fields) Exts.noBinds $
         Exts.unguardedRhs extendedRhs
     ]
   where
@@ -626,7 +665,7 @@ funRequestD cfg meta http ref instances fields =
           requestRecord
             queryVar
             (headersVar [])
-            (Exts.app (Exts.varE "Core.toXMLBody") (Exts.varE "x"))
+            (Exts.app (Exts.varE "Core.toXMLBody") xmlVar)
       --
       _other
         | method' == POST && (protocol' == Query || protocol' == Ec2) ->
@@ -647,7 +686,7 @@ funRequestD cfg meta http ref instances fields =
         "Core.Request"
         [ Exts.fieldR "Core._rqService" (Exts.varE ("Types." <> service')),
           Exts.fieldR "Core._rqMethod" (Exts.varE ("Request." <> methodToText method')),
-          Exts.fieldR "Core._rqPath" (Exts.app (Exts.varE "Core.rawPath") pathVar),
+          Exts.fieldR "Core._rqPath" pathVar, -- (Exts.app (Exts.varE "Core.rawPath") pathVar),
           Exts.fieldR "Core._rqQuery" query,
           Exts.fieldR "Core._rqHeaders" headers,
           Exts.fieldR "Core._rqBody" body
@@ -657,10 +696,16 @@ funRequestD cfg meta http ref instances fields =
       newVar [toPathE xs | ToPath xs <- instances]
 
     headersVar extra =
-      newVar [toHeadersE protocol' (extra ++ xs) | ToHeaders xs <- instances]
+      (case extra of
+        [] -> id
+        xs -> Exts.mappendE (newVar [toHeadersE protocol' xs])) $
+          Exts.app (Exts.varE "Core.toHeaders") (Exts.varE "x")
 
     queryVar =
-      newVar [toQueryE protocol' xs | ToQuery xs <- instances]
+      Exts.app (Exts.varE "Core.toQuery") (Exts.varE "x")
+
+    xmlVar =
+      Exts.app (Exts.varE "Core.toXMLDocument") (Exts.varE "x")
 
     newVar =
       fromMaybe Exts.memptyE
@@ -779,7 +824,7 @@ toPathE = \case
   x : xs -> Foldable.foldl' toPath (toText x) xs
     where
       toPath e a =
-        Exts.mappendE e (Exts.paren (toText a))
+        Exts.mappendE e (toText a)
 
       toText =
         either Exts.strE (Exts.app (Exts.varE "Core.toText") . fieldSelectE)
@@ -790,15 +835,19 @@ toQueryE protocol' = \case
   x : xs -> Foldable.foldl' toQuery (toValue x) xs
   where
     toQuery e a =
-      Exts.mappendE e (Exts.paren (toValue a))
+      Exts.mappendE e (toValue a)
 
     toValue = \case
       Left (k, v) ->
-        Exts.pureE (Exts.tuple [Exts.strE k, Exts.strE (fromMaybe "" v)])
+        Exts.appFun (Exts.varE "Core.toQueryPair")
+          [ Exts.strE k,
+            Exts.sigE (Exts.strE (fromMaybe "" v)) (Exts.conT "Core.Text")
+          ]
+      -- 
       Right field ->
         flatFieldEncoderE
           protocol'
-          (Exts.varE "Core.toQueryValue")
+          (Exts.varE "Core.toQueryPair")
           (Exts.varE "Core.toQueryMap")
           (Exts.varE "Core.toQueryList")
           field
@@ -809,7 +858,7 @@ toHeadersE protocol' = \case
   x : xs -> Foldable.foldl' toHeaders (toValue x) xs
   where
     toHeaders e a =
-      Exts.mappendE e (Exts.paren (toValue a))
+      Exts.mappendE e (toValue a)
 
     toValue = \case
       Left (k, v) -> Exts.pureE (Exts.tuple [Exts.strE k, Exts.strE v])
@@ -836,8 +885,8 @@ toXMLDocumentE protocol' mnamespace = \case
         ]
 
     qualifyName name
-      | Just ns <- mnamespace = Exts . "{" <> ns <> "}" <> name
-      | otherwise = name
+      | Just ns <- mnamespace = Exts.strE ("{" <> ns <> "}" <> name)
+      | otherwise = Exts.strE name
 
 toXMLE :: Protocol -> [Field] -> Exts.Exp
 toXMLE protocol' = \case
@@ -899,10 +948,11 @@ flatFieldEncoderE protocol' toItem toMap toList field =
     NMap mname itemPrefix keyPrefix valPrefix
       | isMaybe ->
         flatten mname $
-          Exts.appFun
+          maybeMonoid
+            (Exts.appFun
             toMap
-            [Exts.strE itemPrefix, Exts.strE keyPrefix, Exts.strE valPrefix]
-            `Exts.fmapE` selector
+            [Exts.strE itemPrefix, Exts.strE keyPrefix, Exts.strE valPrefix])
+            selector
       --
       | otherwise ->
         flatten mname $
@@ -913,8 +963,9 @@ flatFieldEncoderE protocol' toItem toMap toList field =
     NList mname itemPrefix
       | isMaybe ->
         flatten mname $
-          Exts.app toList (Exts.strE itemPrefix)
-            `Exts.fmapE` selector
+        maybeMonoid
+          (Exts.app toList (Exts.strE itemPrefix))
+           selector
       --
       | otherwise ->
         flatten mname $
@@ -922,8 +973,9 @@ flatFieldEncoderE protocol' toItem toMap toList field =
     --
     NName name
       | isMaybe ->
-        Exts.app toItem (Exts.strE name)
-          `Exts.fmapE` selector
+        maybeMonoid
+          (Exts.app toItem (Exts.strE name))
+          selector
       --
       | otherwise ->
         Exts.appFun toItem [Exts.strE name, selector]
@@ -933,6 +985,14 @@ flatFieldEncoderE protocol' toItem toMap toList field =
 
     selector =
       fieldSelectE field
+
+    maybeMonoid lhs rhs =
+      Exts.appFun
+         (Exts.varE "Core.maybe")
+         [ Exts.memptyE,
+           lhs,
+           rhs
+         ] 
 
     flatten = \case
       Just name -> Exts.app (Exts.app toItem (Exts.strE name))

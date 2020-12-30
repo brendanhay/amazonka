@@ -29,10 +29,10 @@ data Inst
   | ToJSON [Field]
   | FromXML [Field]
   | ToXML [Field]
-  | -- Erased request instances
-    ToElement (Maybe Text) (Either Text Field)
   | ToHeaders [Either (Text, Text) Field]
   | ToQuery [Either (Text, Maybe Text) Field]
+  | -- Erased request instances
+    ToElement (Maybe Text) (Either Text Field)
   | ToPath [Either Text Field]
   | ToBody Field
 

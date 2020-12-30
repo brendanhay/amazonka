@@ -236,7 +236,7 @@ newtypeStrings shapes =
             pure ref
 
     isSimpleName (memberId -> name) =
-      Text.toLower name == "String"
+      Text.toLower name == "string"
         || Text.isPrefixOf "__" name
 
     emptyEnum =

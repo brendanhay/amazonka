@@ -130,13 +130,18 @@ fieldLens, fieldAccessor :: Field -> Text
 fieldLens f = lensId (_fieldPrefix f) (_fieldId f)
 fieldAccessor f = accessorId (_fieldId f)
 
-lensDeprecated :: Field -> Text
-lensDeprecated f =
+lensPragmas :: Field -> [Text]
+lensPragmas f =
+  [ 
   "{-# DEPRECATED "
     <> fieldLens f
     <> " \"Use generic-lens or generic-optics with '"
     <> fieldAccessor f
-    <> "' instead.\" #-}"
+    <> "' instead.\" #-}",
+  "{-# INLINEABLE "
+    <> fieldLens f
+    <> " #-}"
+    ]
 
 fieldIsParam :: Field -> Bool
 fieldIsParam f = not (fieldMaybe f) && not (fieldMonoid f)

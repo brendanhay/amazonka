@@ -24,6 +24,7 @@
 {% endif %}
 {{ shape.constructor.signature }}
 {{ shape.constructor.declaration }}
+{-# INLINEABLE {{ shape.constructor.name }} #-}
 {% for lens in shape.lenses %}
 
 {% include "function.ede" with function = lens.value %}

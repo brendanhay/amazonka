@@ -120,8 +120,13 @@ errorData m s i = Fun mk
           _funDoc = h,
           _funSig = Exts.renderInline (Decl.sigErrorD p),
           _funDecl = Exts.renderBlock (Decl.funErrorD m p status code),
-          _funPragmas = [Text.Lazy.fromStrict deprecated]
+          _funPragmas = map Text.Lazy.fromStrict [inlineable, deprecated]
         }
+
+    inlineable =
+      "{-# INLINEABLE "
+        <> p
+        <> " #-}"
 
     deprecated =
       "{-# DEPRECATED "
@@ -235,7 +240,7 @@ prodData meta solved struct =
                       <> "<https://hackage.haskell.org/package/generic-optics generic-optics> instead.",
                   _funSig = Exts.renderInline (Decl.sigLensD meta name field),
                   _funDecl = Exts.renderInline (Decl.funLensD meta name field),
-                  _funPragmas = [Text.Lazy.fromStrict (lensDeprecated field)]
+                  _funPragmas = map Text.Lazy.fromStrict (lensPragmas field)
                 },
           _prodDeps =
             foldMap (typeNames stripOverrideType) fields

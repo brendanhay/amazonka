@@ -7,33 +7,44 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Data.JSON
   ( -- * Serialisation
-    ToJSONKey,
-    ToJSON (..),
-    Value (Object),
-    object,
-    (.=),
+    Aeson.ToJSONKey,
+    Aeson.ToJSON (..),
+    Aeson.Value (Object),
+    Aeson.object,
+    (Aeson..=),
 
     -- * Deserialisation
-    FromJSONKey,
-    FromJSON (..),
-    eitherDecode,
-    eitherDecode',
-    withObject,
-    (.:),
-    (.:?),
-    (.!=),
-
-    -- * Parsing response objects
+    Aeson.FromJSONKey,
+    Aeson.FromJSON (..),
+    Aeson.eitherDecode,
+    Aeson.eitherDecode',
     eitherParseJSON,
+    Aeson.withObject,
+    withJSONText,
+    (Aeson..:),
+    (Aeson..:?),
+    (Aeson..!=),
+
   )
 where
 
-import Data.Aeson (eitherDecode, eitherDecode')
-import Data.Aeson.Types
-import qualified Data.HashMap.Strict as HashMap
-import Data.Text (Text)
-import Network.AWS.Data.Text as AWS.Text
-import Prelude
+import qualified Data.Aeson as Aeson
+import qualified Data.Text as Text
+import qualified Data.Aeson.Types  as Aeson.Types
+import qualified Network.AWS.Data.Text as AWS.Text
+import Network.AWS.Prelude
 
-eitherParseJSON :: FromJSON a => Object -> Either String a
-eitherParseJSON = parseEither parseJSON . Object
+eitherParseJSON ::
+  Aeson.FromJSON a =>
+  Aeson.Object -> Either String a
+eitherParseJSON =
+  Aeson.Types.parseEither Aeson.parseJSON
+    . Aeson.Object
+
+withJSONText ::
+  AWS.Text.FromText a =>
+  String ->
+  Aeson.Value -> Aeson.Types.Parser a
+withJSONText name =
+  Aeson.withText ("withJSONText." ++ name) $ \text ->
+    either (fail . Text.unpack) pure (AWS.Text.parseText text)

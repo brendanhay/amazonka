@@ -112,37 +112,31 @@ errorData ::
   Solved ->
   Info ->
   SData
-errorData m s i = Fun mk
+errorData meta solved info = Fun mk
   where
     mk =
       Fun'
-        { _funName = p,
-          _funDoc = h,
-          _funSig = Exts.renderInline (Decl.sigErrorD p),
-          _funDecl = Exts.renderBlock (Decl.funErrorD m p status code),
-          _funPragmas = map Text.Lazy.fromStrict [inlineable, deprecated]
+        { _funName = prefixed,
+          _funDoc = doc,
+          _funDecls =
+            [ Exts.renderInline (Decl.sigErrorD prefixed),
+              Exts.renderBlock (Decl.funErrorD meta prefixed status code),
+              Exts.inlineableD prefixed,
+              Exts.renderInline $
+                Exts.deprecatedD [prefixed] "Use generic-lens or generic-optics instead"
+            ]
         }
 
-    inlineable =
-      "{-# INLINEABLE "
-        <> p
-        <> " #-}"
-
-    deprecated =
-      "{-# DEPRECATED "
-        <> p
-        <> " \"Use generic-lens or generic-optics instead.\" #-}"
-
-    h =
-      flip fromMaybe (i ^. infoDocumentation) $
+    doc =
+      flip fromMaybe (info ^. infoDocumentation) $
         fromString $
-          "Prism for '" ++ Text.unpack (memberId n) ++ "' errors."
+          "Prism for '" ++ Text.unpack (memberId name) ++ "' errors."
 
-    status = i ^? infoError . Lens._Just . errStatus
-    code = fromMaybe (memberId n) (i ^. infoError . Lens._Just . errCode)
+    status = info ^? infoError . Lens._Just . errStatus
+    code = fromMaybe (memberId name) (info ^. infoError . Lens._Just . errCode)
 
-    p = Text.cons '_' (typeId n)
-    n = s ^. annId
+    prefixed = Text.cons '_' (typeId name)
+    name = solved ^. annId
 
 patternData ::
   Protocol ->
@@ -213,13 +207,11 @@ prodData meta solved struct =
                     "Creates a '"
                       <> typeId name
                       <> "' value with any optional fields omitted.",
-                _funSig =
-                  addParamComments fields $
-                    Exts.renderInline (Decl.sigSmartCtorD meta name fields),
-                _funDecl =
-                  Exts.renderBlock (Decl.funSmartCtorD name fields),
-                _funPragmas =
-                  []
+                _funDecls =
+                  [ addParamComments fields $
+                      Exts.renderInline (Decl.sigSmartCtorD meta name fields),
+                    Exts.renderBlock (Decl.funSmartCtorD name fields)
+                  ]
               },
           _prodAccessors =
             flip map (Decl.fieldsD meta name fields) $ \(label, decl, help) ->
@@ -238,9 +230,10 @@ prodData meta solved struct =
                       <> Help (fieldAccessor field)
                       <> "' with <https://hackage.haskell.org/package/generic-lens generic-lens> or "
                       <> "<https://hackage.haskell.org/package/generic-optics generic-optics> instead.",
-                  _funSig = Exts.renderInline (Decl.sigLensD meta name field),
-                  _funDecl = Exts.renderInline (Decl.funLensD meta name field),
-                  _funPragmas = map Text.Lazy.fromStrict (lensPragmas field)
+                  _funDecls =
+                    Exts.renderInline (Decl.sigLensD meta name field) :
+                    Exts.renderInline (Decl.funLensD meta name field) :
+                    lensPragmas field
                 },
           _prodDeps =
             foldMap (typeNames stripOverrideType) fields
@@ -262,7 +255,7 @@ prodData meta solved struct =
     name = solved ^. annId
 
 -- FIXME: dirty hack to render interleaved smart ctor parameter comments.
-addParamComments :: [Field] -> Rendered -> Rendered
+addParamComments :: [Field] -> LazyText -> LazyText
 addParamComments fields =
   Text.Lazy.replace " :: " "\n    :: "
     . Text.Lazy.intercalate "\n    -> "
@@ -296,9 +289,10 @@ serviceData m r =
   Fun'
     { _funName = m ^. serviceConfig,
       _funDoc = Help help,
-      _funSig = Exts.renderInline (Decl.sigServiceD m),
-      _funDecl = Exts.renderBlock (Decl.funServiceD m r),
-      _funPragmas = []
+      _funDecls =
+        [ Exts.renderInline (Decl.sigServiceD m),
+          Exts.renderBlock (Decl.funServiceD m r)
+        ]
     }
   where
     help =
@@ -323,9 +317,10 @@ waiterData m os n w = do
         Fun'
           { _funName = smartCtorId n,
             _funDoc = Help help,
-            _funSig = Exts.renderInline (Decl.sigWaiterD n wf),
-            _funDecl = Exts.renderBlock (Decl.funWaiterD n wf),
-            _funPragmas = []
+            _funDecls =
+              [ Exts.renderInline (Decl.sigWaiterD n wf),
+                Exts.renderBlock (Decl.funWaiterD n wf)
+              ]
           }
 
   pure $! WData (typeId n) (_opName o) c

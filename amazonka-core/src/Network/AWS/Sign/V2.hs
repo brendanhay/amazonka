@@ -23,6 +23,7 @@ import Network.AWS.Data.Time
 import Network.AWS.Types
 import qualified Network.HTTP.Conduit as Client
 import Network.HTTP.Types hiding (toQuery)
+import Network.AWS.Prelude
 
 data V2 = V2
   { metaTime :: UTCTime,

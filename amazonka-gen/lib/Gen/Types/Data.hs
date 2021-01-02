@@ -27,14 +27,10 @@ import Gen.Types.Id
 import Gen.Types.Map
 import Gen.Types.TypeOf
 
-type Rendered = LazyText
-
 data Fun = Fun'
   { _funName :: Text,
     _funDoc :: Help,
-    _funSig :: Rendered,
-    _funDecl :: Rendered,
-    _funPragmas :: [Rendered]
+    _funDecls :: [LazyText]
   }
   deriving stock (Eq, Show)
 
@@ -44,14 +40,12 @@ instance ToJSON Fun where
       [ "type" .= Text.pack "function",
         "name" .= _funName,
         "documentation" .= _funDoc,
-        "signature" .= _funSig,
-        "declaration" .= _funDecl,
-        "pragmas" .= _funPragmas
+        "declarations" .= _funDecls
       ]
 
 data Accessor = Accessor'
   { _accessorName :: Text,
-    _accessorDecl :: Rendered,
+    _accessorDecl :: LazyText,
     _accessorDoc :: Maybe Help
   }
   deriving stock (Eq, Show)
@@ -67,8 +61,8 @@ instance ToJSON Accessor where
 data Prod = Prod'
   { _prodName :: Text,
     _prodDoc :: Maybe Help,
-    _prodDecl :: Rendered,
-    _prodDeriving :: [Rendered],
+    _prodDecl :: LazyText,
+    _prodDeriving :: [LazyText],
     _prodCtor :: Fun,
     _prodLenses :: [Fun],
     _prodAccessors :: [Accessor],
@@ -76,7 +70,7 @@ data Prod = Prod'
   }
   deriving stock (Eq, Show)
 
-prodToJSON :: Solved -> Prod -> [Rendered] -> [Pair]
+prodToJSON :: Solved -> Prod -> [LazyText] -> [Pair]
 prodToJSON s Prod' {..} is =
   [ "type" .= Text.pack "product",
     "name" .= _prodName,
@@ -107,13 +101,13 @@ instance ToJSON Pattern where
 data Sum = Sum'
   { _sumName :: Text,
     _sumDoc :: Maybe Help,
-    _sumDecl :: Rendered,
+    _sumDecl :: LazyText,
     _sumCtor :: Text,
     _sumPatterns :: [Pattern]
   }
   deriving stock (Eq, Show)
 
-sumToJSON :: Solved -> Sum -> [Rendered] -> [Pair]
+sumToJSON :: Solved -> Sum -> [LazyText] -> [Pair]
 sumToJSON s Sum' {..} is =
   [ "type" .= Text.pack "sum",
     "name" .= _sumName,
@@ -130,7 +124,7 @@ sumToJSON s Sum' {..} is =
 data Gen = Gen'
   { _genName :: Text,
     _genDoc :: Maybe Help,
-    _genDecl :: Rendered
+    _genDecl :: LazyText
   }
   deriving stock (Eq, Show)
 
@@ -145,9 +139,9 @@ instance ToJSON Gen where
 
 data SData
   = -- | A product type (record).
-    Prod !Solved Prod [Rendered]
+    Prod !Solved Prod [LazyText]
   | -- | A nullary sum type.
-    Sum !Solved Sum [Rendered]
+    Sum !Solved Sum [LazyText]
   | -- | A function declaration.
     Fun Fun
   deriving stock (Eq, Show)
@@ -173,7 +167,7 @@ instance HasId SData where
   identifier = \case
     Prod _ p _ -> mkId (_prodName p)
     Sum _ s _ -> mkId (_sumName s)
-    Fun (Fun' n _ _ _ _) -> mkId n
+    Fun (Fun' n _ _) -> mkId n
 
 data WData = WData
   { _waitName :: Text,

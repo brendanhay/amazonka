@@ -1,4 +1,3 @@
-
 -- |
 -- Module      : Network.AWS.Data.Base64
 -- Copyright   : (c) 2013-2020 Brendan Hay
@@ -8,63 +7,76 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Data.Base64
   ( Base64 (..),
-    _Base64,
   )
 where
 
-import Control.DeepSeq
-import Data.Aeson.Types
-import qualified Data.ByteArray.Encoding as BA
-import Data.Hashable
-import qualified Data.Text.Encoding as Text
-import GHC.Generics (Generic)
-import Network.AWS.Data.Body
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.JSON
-import Network.AWS.Data.Query
-import Network.AWS.Data.Text as AWS.Text
-import Network.AWS.Data.XML
-import Network.AWS.Lens (Iso', iso)
+import qualified Data.ByteArray.Encoding as ByteArray.Encoding
+import qualified Data.Text.Encoding as Text.Encoding
+import qualified Data.Text as Text
+import qualified Data.Bifunctor as Bifunctor
+import Network.AWS.Data.JSON (ToJSON, FromJSON)
+import Network.AWS.Data.Query (ToQuery (..))
+import Network.AWS.Data.Body (ToBody (..), ToHashedBody (..))
+import Network.AWS.Data.Text (ToText (..), FromText (..))
+import Network.AWS.Data.XML (ToXML, FromXML)
+import qualified Network.AWS.Data.XML  as AWS.XML
+import qualified Network.AWS.Data.JSON  as AWS.JSON
+import qualified Network.AWS.Data.Text  as AWS.Text
+import Network.AWS.Prelude
 
 -- | Base64 encoded binary data.
 --
 -- Encoding\/decoding is automatically deferred to serialisation and deserialisation
 -- respectively.
-newtype Base64 = Base64 {unBase64 :: ByteString}
-  deriving (Eq, Read, Ord, Generic)
+newtype Base64 = Base64 {fromBase64 :: ByteString}
+  deriving stock (Show, Eq, Read, Ord, Generic)
+  deriving newtype
+    ( Hashable,
+      NFData,
+      Semigroup, Monoid
+    )
 
-instance Hashable Base64
+instance ToText Base64 where
+  toText =
+    Text.Encoding.decodeUtf8
+      . ByteArray.Encoding.convertToBase ByteArray.Encoding.Base64
+      . fromBase64
+  {-# INLINEABLE toText #-}
 
-instance NFData Base64
-
-_Base64 :: Iso' Base64 ByteString
-_Base64 = iso unBase64 Base64
-
--- FIXME: probably a mistake to wrap a ByteString since
--- the underlying serialisers (JSON, XML) use Text internally.
 instance FromText Base64 where
-  fromText =
-    fmap Base64
-      . BA.convertFromBase BA.Base64
-      . Text.encodeUtf8
+  parseText =
+    Bifunctor.bimap Text.pack Base64
+      . ByteArray.Encoding.convertFromBase ByteArray.Encoding.Base64
+      . Text.Encoding.encodeUtf8
+  {-# INLINEABLE parseText #-}
 
-instance ToByteString Base64 where
-  toBS = BA.convertToBase BA.Base64 . unBase64
-
-instance Show Base64 where show = show . toBS
-
-instance ToText Base64 where toText = Text.decodeUtf8 . toBS
-
-instance ToQuery Base64 where toQuery = toQuery . toBS
-
-instance FromXML Base64 where parseXML = parseXMLText "Base64"
-
-instance ToXML Base64 where toXML = toXMLText
-
-instance FromJSON Base64 where parseJSON = parseJSONText "Base64"
-
-instance ToJSON Base64 where toJSON = toJSONText
-
-instance ToHashedBody Base64 where toHashed = toHashed . toBS
-
-instance ToBody Base64
+instance ToXML Base64 where
+  toXML = AWS.XML.toXML . toText
+  {-# INLINEABLE toXML #-}
+  
+instance FromXML Base64 where
+  parseXML = AWS.XML.withXMLText "Base64"
+  {-# INLINEABLE parseXML #-}
+  
+instance ToJSON Base64 where
+  toJSON = AWS.JSON.toJSON . toText
+  {-# INLINEABLE toJSON #-}
+  toEncoding = AWS.JSON.toEncoding . toText
+  {-# INLINEABLE toEncoding #-}
+  
+instance FromJSON Base64 where
+  parseJSON = AWS.JSON.withJSONText "Base64"
+  {-# INLINEABLE parseJSON #-}
+  
+instance ToQuery Base64 where
+  toQuery = toQuery . toText
+  {-# INLINEABLE toQuery #-}
+  
+instance ToHashedBody Base64 where
+  toHashed = toHashed . toText
+  {-# INLINEABLE toHashed #-}
+  
+instance ToBody Base64 where
+  toBody = toBody . toText
+  {-# INLINEABLE toBody #-}
+  

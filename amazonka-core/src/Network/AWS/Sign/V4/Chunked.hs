@@ -25,8 +25,8 @@ import Network.AWS.Sign.V4.Base hiding (algorithm)
 import Network.AWS.Types
 import Network.HTTP.Types.Header
 import Numeric (showHex)
+import Network.AWS.Prelude
 
-default (Builder, Integer)
 
 chunked :: ChunkedBody -> Algorithm a
 chunked c rq a r ts = signRequest meta (toRequestBody body) auth

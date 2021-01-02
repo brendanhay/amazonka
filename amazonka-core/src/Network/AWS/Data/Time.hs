@@ -1,9 +1,3 @@
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
 
 -- |
 -- Module      : Network.AWS.Data.Time
@@ -37,7 +31,7 @@ import qualified Data.Text.Read as Text.Read
 import Data.Time (Day (..), UTCTime (..))
 import qualified Data.Time as Time
 import qualified Data.Time.Clock.POSIX as Time.POSIX
-import Network.AWS.Lens (Iso', iso)
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Prelude
 
 -- newtype Time a = Time {fromTime :: a}

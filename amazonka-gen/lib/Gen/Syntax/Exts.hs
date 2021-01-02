@@ -59,6 +59,8 @@ module Gen.Syntax.Exts
     typeSigD,
     funBindD,
     inlineD,
+    inlineableD,
+    deprecatedD,
     Exts.noBinds,
     Exts.sfun,
     Exts.patBindWhere,
@@ -285,6 +287,12 @@ patBindD pat = Exts.InsDecl () . Exts.patBind pat
 inlineD :: Text -> InstDecl
 inlineD = Exts.InsDecl () . Exts.InlineSig () True Nothing . nameQ
 
+deprecatedD :: [Text] -> Text -> Decl
+deprecatedD names message =
+  Exts.DeprPragmaDecl () [(map nameN names, Text.unpack message)]
+
+inlineableD :: Text -> LazyText
+inlineableD name = "{-# INLINEABLE " <> Text.Lazy.fromStrict name <> " #-}"
 
 -- Matches
 

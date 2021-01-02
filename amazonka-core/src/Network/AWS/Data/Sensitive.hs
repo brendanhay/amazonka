@@ -1,7 +1,3 @@
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 -- |
 -- Module      : Network.AWS.Data.Sensitive
 -- Copyright   : (c) 2013-2020 Brendan Hay
@@ -11,26 +7,20 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Data.Sensitive where
 
-import Control.DeepSeq
-import qualified Control.Lens as Lens
-import Data.Hashable
-import Data.String
-import GHC.Generics (Generic)
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.JSON
-import Network.AWS.Data.Query
-import Network.AWS.Data.Text as AWS.Text
-import Network.AWS.Data.XML
+import Network.AWS.Data.JSON (ToJSON, FromJSON)
+import Network.AWS.Data.Query (ToQuery)
+import Network.AWS.Data.Text (ToText, FromText)
+import Network.AWS.Data.XML (ToXML, FromXML)
 import Network.AWS.Prelude
 
 newtype Sensitive a = Sensitive {fromSensitive :: a}
-  deriving stock (Show, Read, Eq, Ord, Generic)
+  deriving stock (Eq, Ord, Generic)
   deriving newtype
     ( IsString,
       Hashable,
       NFData,
       Semigroup,
-      Monoid
+      Monoid,
         ToText,
       FromText,
       ToQuery,
@@ -41,7 +31,5 @@ newtype Sensitive a = Sensitive {fromSensitive :: a}
     )
 
 instance Show (Sensitive a) where
-  showsPrec _ = showString "Sensitive {fromSensitive = ******}"
-
-_Sensitive :: Iso' (Sensitive a) a
-_Sensitive = Lens.iso fromSensitive Sensitive
+  showsPrec _ _ =
+    showString "Sensitive {fromSensitive = ******}"

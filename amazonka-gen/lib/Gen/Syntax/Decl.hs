@@ -323,7 +323,7 @@ instancesD protocol' name xs =
             listToMaybe [(mns, root) | ToElement mns root <- xs]
       ToHeaders fields ->
         Just (classToHeadersD protocol' name fields)
-      ToQuery fields -> 
+      ToQuery fields ->
         Just (classToQueryD protocol' name fields)
       -- Erasure
       ToElement {} -> Nothing
@@ -415,7 +415,7 @@ classToHeadersD protocol' name fields =
     ]
   where
     isEmpty = null fields
-    
+
 classToQueryD :: Protocol -> Id -> [Either (Text, Maybe Text) Field] -> Exts.Decl
 classToQueryD protocol' name fields =
   Exts.instanceD
@@ -696,10 +696,11 @@ funRequestD cfg meta http ref instances fields =
       newVar [toPathE xs | ToPath xs <- instances]
 
     headersVar extra =
-      (case extra of
-        [] -> id
-        xs -> Exts.mappendE (newVar [toHeadersE protocol' xs])) $
-          Exts.app (Exts.varE "Core.toHeaders") (Exts.varE "x")
+      ( case extra of
+          [] -> id
+          xs -> Exts.mappendE (newVar [toHeadersE protocol' xs])
+      )
+        $ Exts.app (Exts.varE "Core.toHeaders") (Exts.varE "x")
 
     queryVar =
       Exts.app (Exts.varE "Core.toQuery") (Exts.varE "x")
@@ -839,11 +840,12 @@ toQueryE protocol' = \case
 
     toValue = \case
       Left (k, v) ->
-        Exts.appFun (Exts.varE "Core.toQueryPair")
+        Exts.appFun
+          (Exts.varE "Core.toQueryPair")
           [ Exts.strE k,
             Exts.sigE (Exts.strE (fromMaybe "" v)) (Exts.conT "Core.Text")
           ]
-      -- 
+      --
       Right field ->
         flatFieldEncoderE
           protocol'
@@ -949,9 +951,10 @@ flatFieldEncoderE protocol' toItem toMap toList field =
       | isMaybe ->
         flatten mname $
           maybeMonoid
-            (Exts.appFun
-            toMap
-            [Exts.strE itemPrefix, Exts.strE keyPrefix, Exts.strE valPrefix])
+            ( Exts.appFun
+                toMap
+                [Exts.strE itemPrefix, Exts.strE keyPrefix, Exts.strE valPrefix]
+            )
             selector
       --
       | otherwise ->
@@ -963,9 +966,9 @@ flatFieldEncoderE protocol' toItem toMap toList field =
     NList mname itemPrefix
       | isMaybe ->
         flatten mname $
-        maybeMonoid
-          (Exts.app toList (Exts.strE itemPrefix))
-           selector
+          maybeMonoid
+            (Exts.app toList (Exts.strE itemPrefix))
+            selector
       --
       | otherwise ->
         flatten mname $
@@ -988,11 +991,11 @@ flatFieldEncoderE protocol' toItem toMap toList field =
 
     maybeMonoid lhs rhs =
       Exts.appFun
-         (Exts.varE "Core.maybe")
-         [ Exts.memptyE,
-           lhs,
-           rhs
-         ] 
+        (Exts.varE "Core.maybe")
+        [ Exts.memptyE,
+          lhs,
+          rhs
+        ]
 
     flatten = \case
       Just name -> Exts.app (Exts.app toItem (Exts.strE name))

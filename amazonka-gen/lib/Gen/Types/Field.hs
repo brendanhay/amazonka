@@ -21,6 +21,7 @@ import qualified Data.Maybe as Maybe
 import qualified Data.Text as Text
 import qualified Data.Text.Manipulate as Manipulate
 import Gen.Prelude
+import qualified Gen.Syntax.Exts as Exts
 import Gen.Types.Ann
 import Gen.Types.Help
 import Gen.Types.Id
@@ -130,18 +131,15 @@ fieldLens, fieldAccessor :: Field -> Text
 fieldLens f = lensId (_fieldPrefix f) (_fieldId f)
 fieldAccessor f = accessorId (_fieldId f)
 
-lensPragmas :: Field -> [Text]
+lensPragmas :: Field -> [LazyText]
 lensPragmas f =
-  [ 
-  "{-# DEPRECATED "
-    <> fieldLens f
-    <> " \"Use generic-lens or generic-optics with '"
-    <> fieldAccessor f
-    <> "' instead.\" #-}",
-  "{-# INLINEABLE "
-    <> fieldLens f
-    <> " #-}"
-    ]
+  [ Exts.inlineableD (fieldLens f),
+    Exts.renderInline $
+      Exts.deprecatedD [fieldAccessor f] $
+        "Use generic-lens or generic-optics with '"
+          <> fieldAccessor f
+          <> "' instead"
+  ]
 
 fieldIsParam :: Field -> Bool
 fieldIsParam f = not (fieldMaybe f) && not (fieldMonoid f)

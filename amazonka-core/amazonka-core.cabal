@@ -67,8 +67,9 @@ library
     Network.AWS.Data.Headers
     Network.AWS.Data.JSON
     Network.AWS.Data.Query
-    Network.AWS.Data.Sensitive
     Network.AWS.Data.Text
+    Network.AWS.Data
+    Network.AWS.Data.Sensitive
     Network.AWS.Data.Time
     Network.AWS.Data.XML
     Network.AWS.Endpoint
@@ -85,8 +86,6 @@ library
     Network.AWS.Sign.V4
     Network.AWS.Types
     Network.AWS.Waiter
-
-  other-modules:
     Network.AWS.Sign.V4.Base
     Network.AWS.Sign.V4.Chunked
 

@@ -24,7 +24,7 @@ import qualified Data.Text.Lazy as Text.Lazy
 import qualified Data.Text.Lazy.Builder as Builder
 import qualified Data.Text.Lazy.Builder.Int as Builder.Int
 import qualified Data.Text.Lazy.Builder.RealFloat as Builder.RealFloat
-import qualified Data.Text.Lazy.Builder.Scientific as Builder.Scientific
+-- import qualified Data.Text.Lazy.Builder.Scientific as Builder.Scientific
 import qualified Network.AWS.Data.Time as AWS.Time
 import Network.AWS.Prelude
 

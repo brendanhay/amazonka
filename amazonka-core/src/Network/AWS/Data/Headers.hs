@@ -25,16 +25,12 @@ module Network.AWS.Data.Headers
   )
 where
 
-import qualified Data.Bifunctor as Bifunctor
 import Data.ByteString (ByteString)
 import qualified Data.ByteString as ByteString
-import qualified Data.ByteString.Char8 as ByteString.Char8
 import qualified Data.CaseInsensitive as CI
-import qualified Data.Monoid as Monoid
-import qualified Data.Coerce as Coerce
 import qualified Data.HashMap.Strict as HashMap
 import qualified Data.Map.Strict as Map
-import qualified Data.Text.Encoding as Text.Encoding
+import qualified Data.Monoid as Monoid
 import qualified Network.AWS.Data.Text as AWS.Text
 import Network.AWS.Prelude
 import Network.HTTP.Types (HeaderName)
@@ -73,35 +69,35 @@ class ToHeaders a where
 instance ToHeaders Char where
   toHeaders key = consPair key . AWS.Text.toUTF8
   {-# INLINEABLE toHeaders #-}
- 
+
 instance ToHeaders Text where
   toHeaders key = consPair key . AWS.Text.toUTF8
   {-# INLINEABLE toHeaders #-}
- 
+
 instance ToHeaders Bool where
   toHeaders key = consPair key . AWS.Text.toUTF8
   {-# INLINEABLE toHeaders #-}
- 
+
 instance ToHeaders Int where
   toHeaders key = consPair key . AWS.Text.toUTF8
   {-# INLINEABLE toHeaders #-}
- 
+
 instance ToHeaders Integer where
   toHeaders key = consPair key . AWS.Text.toUTF8
   {-# INLINEABLE toHeaders #-}
- 
+
 instance ToHeaders Natural where
   toHeaders key = consPair key . AWS.Text.toUTF8
   {-# INLINEABLE toHeaders #-}
- 
+
 instance ToHeaders Double where
   toHeaders key = consPair key . AWS.Text.toUTF8
   {-# INLINEABLE toHeaders #-}
-  
+
 instance ToHeaders UTCTime where
   toHeaders key = consPair key . AWS.Text.toUTF8
   {-# INLINEABLE toHeaders #-}
-  
+
 instance ToHeaders NominalDiffTime where
   toHeaders key = consPair key . AWS.Text.toUTF8
   {-# INLINEABLE toHeaders #-}

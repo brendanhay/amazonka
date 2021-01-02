@@ -27,6 +27,7 @@ module Network.AWS.Data.XML
     parseXMLMap,
     parseXMLList,
     parseXMLNonEmpty,
+    withXMLText,
 
     -- ** Operators
     (.@),
@@ -45,6 +46,7 @@ import qualified Data.Map.Strict as Map
 import qualified Data.Maybe as Maybe
 import qualified Data.Monoid as Monoid
 import qualified Data.Text as Text
+import qualified Data.ByteString.Lazy as ByteString.Lazy
 import qualified Data.Text.Lazy as Text.Lazy
 import qualified Data.XML.Types as XML.Types
 import qualified Network.AWS.Data.Text as AWS.Text
@@ -140,7 +142,6 @@ class ToXML a where
   {-# INLINEABLE toXMLDocument #-}
 
   toXML :: a -> XMLBuilder
-  {-# MINIMAL toXML #-}
 
 instance ToXML XMLBuilder where
   toXML = id

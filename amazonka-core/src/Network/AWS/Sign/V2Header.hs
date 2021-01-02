@@ -27,6 +27,7 @@ import qualified Network.AWS.Sign.V2Header.Base as V2
 import Network.AWS.Types
 import qualified Network.HTTP.Conduit as Client
 import Network.HTTP.Types
+import Network.HTTP.Prelude
 
 data V2Header = V2Header
   { metaTime :: UTCTime,

@@ -32,6 +32,7 @@ import Control.Lens as Export
   ( Lens',
     Prism',
     Traversal',
+    Iso'
   )
 import Control.Monad.IO.Class as Export (MonadIO (liftIO))
 import Control.Monad.Trans as Export (MonadTrans (lift))

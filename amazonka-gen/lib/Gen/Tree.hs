@@ -54,7 +54,7 @@ fold g f (p :/ t) = (p :/) <$> go (p) t
         where
           d = x </> n
 
-type Touch = Either Rendered Rendered
+type Touch = Either LazyText LazyText
 
 populate ::
   FilePath ->
@@ -154,7 +154,7 @@ operation' ::
   Library ->
   Template ->
   Operation Identity SData a ->
-  DirTree (Either String Rendered)
+  DirTree (Either String LazyText)
 operation' l t o =
   module' n is t $ do
     x <- JSON.objectErr (show n) o
@@ -170,7 +170,7 @@ shape' ::
   Library ->
   Template ->
   SData ->
-  DirTree (Either String Rendered)
+  DirTree (Either String LazyText)
 shape' l t s =
   module' n (is s) t $ pure env
   where
@@ -188,7 +188,7 @@ module' ::
   [Text] ->
   Template ->
   Either String a ->
-  DirTree (Either String Rendered)
+  DirTree (Either String LazyText)
 module' ns is tmpl f =
   file' (FilePath.takeFileName (nsToPath ns)) tmpl $ do
     x <- f >>= JSON.objectErr (show ns)
@@ -206,7 +206,7 @@ file' ::
   FilePath ->
   Template ->
   Either String a ->
-  DirTree (Either String Rendered)
+  DirTree (Either String LazyText)
 file' (p) tmpl f =
   DirTree.File p $
     f >>= JSON.objectErr p

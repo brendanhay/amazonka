@@ -7,24 +7,19 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Data.Body where
 
-import qualified Control.Monad.Trans.Resource as Resource
-import qualified Data.Aeson as Aeson
+import Control.Monad.Trans.Resource (ResourceT)
 import qualified Data.ByteString as ByteString
 import qualified Data.ByteString.Char8 as ByteString.Char8
-import qualified Data.ByteString.Lazy as ByteString.Lazy
-import qualified Data.ByteString.Lazy.Char8 as ByteString.Lazy.Char8
 import qualified Data.Conduit as Conduit
-import qualified Data.Text.Encoding as Text
-import qualified Data.Text.Lazy as LText
-import qualified Data.Text.Lazy.Encoding as LText
-import Network.AWS.Data.ByteString
-import qualified Network.AWS.Data.Query as AWS.Query
-import qualified Network.AWS.Data.XML as AWS.XML
+import Data.Conduit (ConduitM)
+import qualified Data.Text.Encoding as Text.Encoding
 import qualified Network.AWS.Hash as Hash
--- import Network.AWS.Lens (AReview, Lens', lens, to, un)
-
+import Network.AWS.Hash (Digest, SHA256)
 import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
 import qualified Network.HTTP.Conduit as HTTP.Conduit
+import qualified Network.HTTP.Client as HTTP.Client
+import Network.HTTP.Client (RequestBody (..))
 
 -- | A streaming, exception safe response body.
 newtype RsBody = RsBody
@@ -32,22 +27,24 @@ newtype RsBody = RsBody
   } -- newtype for show/orhpan instance purposes.
 
 instance Show RsBody where
-  showsPrec _ = showString "RsBody { ConduitM () ByteString (ResourceT IO) () }"
+  showsPrec _ _ =
+    showString "RsBody { ConduitM () ByteString (ResourceT IO) () }"
 
 fuseStream ::
   RsBody ->
   ConduitM ByteString ByteString (ResourceT IO) () ->
   RsBody
-fuseStream b f = b {_streamBody = _streamBody b .| f}
+fuseStream b f = b {_streamBody = _streamBody b Conduit..| f}
 
 -- | Specifies the transmitted size of the 'Transfer-Encoding' chunks.
 --
 -- /See:/ 'defaultChunk'.
 newtype ChunkSize = ChunkSize Int
-  deriving (Eq, Ord, Show, Enum, Num, Real, Integral)
+  deriving stock (Eq, Ord)
+  deriving newtype (Show, Enum, Num, Real, Integral)
 
-instance ToLog ChunkSize where
-  build = build . show
+-- instance ToLog ChunkSize where
+--   build = build . show
 
 -- | The default chunk size of 128 KB. The minimum chunk size accepted by
 -- AWS is 8 KB, unless the entirety of the request is below this threshold.
@@ -69,30 +66,28 @@ data ChunkedBody = ChunkedBody
   }
 
 chunkedLength :: Lens' ChunkedBody Integer
-chunkedLength = lens _chunkedLength (\s a -> s {_chunkedLength = a})
+chunkedLength = Lens.lens _chunkedLength (\s a -> s {_chunkedLength = a})
 
 -- Maybe revert to using Source's, and then enforce the chunk size
 -- during conversion from HashedBody -> ChunkedBody
 
 instance Show ChunkedBody where
-  show c =
-    BS8.unpack . toBS $
-      build
-        "ChunkedBody { chunkSize = "
-        <> build (_chunkedSize c)
-        <> "<> originalLength = "
-        <> build (_chunkedLength c)
-        <> "<> fullChunks = "
-        <> build (fullChunks c)
-        <> "<> remainderBytes = "
-        <> build (remainderBytes c)
-        <> "}"
+  showsPrec _ chunked =
+     showString "ChunkedBody { chunkSize = "
+        . shows (_chunkedSize chunked)
+        . showString ", originalLength = "
+        . shows (_chunkedLength chunked)
+        . showString ", fullChunks = "
+        . shows (fullChunks chunked)
+        . showString ", remainderBytes = "
+        . shows (remainderBytes chunked)
+        . showString "}"
 
 fuseChunks ::
   ChunkedBody ->
   ConduitM ByteString ByteString (ResourceT IO) () ->
   ChunkedBody
-fuseChunks c f = c {_chunkedBody = _chunkedBody c .| f}
+fuseChunks c f = c {_chunkedBody = _chunkedBody c Conduit..| f}
 
 fullChunks :: ChunkedBody -> Integer
 fullChunks c = _chunkedLength c `div` fromIntegral (_chunkedSize c)
@@ -109,23 +104,23 @@ data HashedBody
   | HashedBytes (Digest SHA256) ByteString
 
 instance Show HashedBody where
-  show = \case
-    HashedStream h n _ -> str "HashedStream" h n
-    HashedBytes h x -> str "HashedBody" h (BS.length x)
+  showsPrec _ = \case
+    HashedStream h n _ -> showHash "HashedStream" h n
+    HashedBytes h x -> showHash "HashedBody" h (ByteString.length x)
     where
-      str c h n =
-        BS8.unpack . toBS $
-          c <> " { sha256 = "
-            <> build (digestToBase Base16 h)
-            <> ", length = "
-            <> build n
+      showHash name hash len =
+          showString name
+            . showString " { sha256 = "
+            . shows (Hash.digestToBase Hash.Base16 hash)
+            . showString  ", length = "
+            . shows len
 
 instance IsString HashedBody where
   fromString = toHashed
 
 sha256Base16 :: HashedBody -> ByteString
 sha256Base16 =
-  digestToBase Base16 . \case
+  Hash.digestToBase Hash.Base16 . \case
     HashedStream h _ _ -> h
     HashedBytes h _ -> h
 
@@ -134,26 +129,28 @@ sha256Base16 =
 data RqBody
   = Chunked ChunkedBody
   | Hashed HashedBody
-  deriving (Show)
+  deriving stock (Show)
 
 instance IsString RqBody where
   fromString = Hashed . fromString
 
 md5Base64 :: RqBody -> Maybe ByteString
 md5Base64 = \case
-  Hashed (HashedBytes _ x) -> Just . digestToBase Base64 $ hashMD5 x
-  _ -> Nothing
+  Hashed (HashedBytes _ x) ->
+    Just . Hash.digestToBase Hash.Base64 $ Hash.hashMD5 x
+  _ ->
+    Nothing
 
 isStreaming :: RqBody -> Bool
 isStreaming = \case
   Hashed (HashedStream {}) -> True
   _ -> False
 
-toRequestBody :: RqBody -> RequestBody
+toRequestBody :: RqBody -> HTTP.Client.RequestBody
 toRequestBody = \case
-  Chunked x -> requestBodySourceChunked (_chunkedBody x)
+  Chunked x -> HTTP.Conduit.requestBodySourceChunked (_chunkedBody x)
   Hashed x -> case x of
-    HashedStream _ n f -> requestBodySource (fromIntegral n) f
+    HashedStream _ n f -> HTTP.Conduit.requestBodySource (fromIntegral n) f
     HashedBytes _ b -> RequestBodyBS b
 
 contentLength :: RqBody -> Integer
@@ -161,7 +158,7 @@ contentLength = \case
   Chunked x -> _chunkedLength x
   Hashed x -> case x of
     HashedStream _ n _ -> n
-    HashedBytes _ b -> fromIntegral (BS.length b)
+    HashedBytes _ b -> fromIntegral (ByteString.length b)
 
 -- | Anything that can be safely converted to a 'HashedBody'.
 class ToHashedBody a where
@@ -173,11 +170,15 @@ instance ToHashedBody HashedBody where
   {-# INLINE toHashed #-}
 
 instance ToHashedBody ByteString where
-  toHashed x = HashedBytes (hash x) x
+  toHashed x = HashedBytes (Hash.hash x) x
+  {-# INLINEABLE toHashed #-}
+
+instance ToHashedBody String where
+  toHashed = toHashed . ByteString.Char8.pack 
   {-# INLINEABLE toHashed #-}
 
 instance ToHashedBody Text where
-  toHashed = toHashed . Text.encodeUtf8
+  toHashed = toHashed . Text.Encoding.encodeUtf8
   {-# INLINEABLE toHashed #-}
 
 -- instance ToHashedBody Value where
@@ -197,28 +198,41 @@ class ToBody a where
   -- | Convert a value to a request body.
   toBody :: a -> RqBody
 
--- default toBody :: ToHashedBody a => a -> RqBody
--- toBody = Hashed . toHashed
+  -- default toBody :: ToHashedBody a => a -> RqBody
+  -- toBody = Hashed . toHashed
+  -- {-# INLINEABLE toBody #-}
 
 instance ToBody RqBody where
   toBody = id
+  {-# INLINE toBody #-}
 
--- instance ToBody HashedBody where
---   toBody = Hashed
+instance ToBody HashedBody where
+  toBody = Hashed
+  {-# INLINE toBody #-}
 
--- instance ToBody ChunkedBody where
---   toBody = Chunked
+instance ToBody ChunkedBody where
+  toBody = Chunked
+  {-# INLINE toBody #-}
 
 -- instance ToHashedBody a => ToBody (Maybe a) where
---   toBody = Hashed . maybe (toHashed BS.empty) toHashed
+--   toBody = Hashed . maybe (toHashed ByteString.empty) toHashed
 
--- instance ToBody String
 
--- instance ToBody LBS.ByteString
+-- instance ToBody LByteString.ByteString
 
--- instance ToBody ByteString
+instance ToBody ByteString where
+  toBody = Hashed . toHashed
+  {-# INLINEABLE toBody #-}
 
--- instance ToBody Text
+instance ToBody String where
+  toBody = Hashed . toHashed
+  {-# INLINEABLE toBody #-}
+
+instance ToBody Text where
+  toBody = Hashed . toHashed
+  {-# INLINEABLE toBody #-}
+
+
 
 -- instance ToBody LText.Text
 

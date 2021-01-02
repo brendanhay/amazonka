@@ -142,44 +142,26 @@ module Network.AWS.Types
 where
 
 import Control.Concurrent (ThreadId)
-import Control.DeepSeq
-import Control.Exception
-import Control.Monad.IO.Class
-import Control.Monad.Trans.Resource
-import Data.Aeson hiding (Error)
-import Data.ByteString.Builder (Builder)
-import Data.Conduit
-import Data.Hashable
-import Data.IORef
-import Data.Maybe
-import Data.Proxy
-import Data.String
+-- import Control.Exception
+-- import Control.Monad.IO.Class
+-- import Control.Monad.Trans.Resource
+-- import Data.Aeson hiding (Error)
+-- import Data.ByteString.Builder (Builder)
+-- import Data.Conduit
+-- import Data.Hashable
+import Network.AWS.Data
+import qualified Data.IORef as IORef
+import qualified Data.Maybe as Maybe
 import qualified Data.Text as Text
-import Data.Time
-import GHC.Generics (Generic)
-import Network.AWS.Data.Body
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Headers (Headers)
-import Network.AWS.Data.JSON
-import Network.AWS.Data.Query (QueryBuilder)
-import Network.AWS.Data.Sensitive (Sensitive, _Sensitive)
-import Network.AWS.Data.Text as AWS.Text
-import Network.AWS.Data.XML
-import Network.AWS.Lens
-  ( Lens',
-    Prism',
-    Setter',
-    exception,
-    lens,
-    mapping,
-    prism,
-    sets,
-  )
-import Network.HTTP.Conduit hiding (Proxy, Request, Response)
-import qualified Network.HTTP.Conduit as Client
-import Network.HTTP.Types.Header
-import Network.HTTP.Types.Method
-import Network.HTTP.Types.Status (Status)
+import qualified Data.Time as Time
+import qualified Network.AWS.Lens as Lens
+-- import Network.HTTP.Conduit hiding (Proxy, Request, Response)
+-- import qualified Network.HTTP.Conduit as Client
+import qualified Network.HTTP.Client as Client
+-- import Network.HTTP.Types.Header
+-- import Network.HTTP.Types.Method
+import Network.AWS.Prelude
+-- import Network.HTTP.Types.Status (Status)
 
 -- | A convenience alias to avoid type ambiguity.
 type ClientRequest = Client.Request

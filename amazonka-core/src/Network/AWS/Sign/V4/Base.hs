@@ -1,14 +1,3 @@
-{-# LANGUAGE DataKinds #-}
-{-# LANGUAGE ExtendedDefaultRules #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE PackageImports #-}
-{-# LANGUAGE RankNTypes #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TupleSections #-}
-{-# LANGUAGE TypeFamilies #-}
-
 -- |
 -- Module      : Network.AWS.Sign.V4.Base
 -- Copyright   : (c) 2013-2020 Brendan Hay
@@ -37,6 +26,7 @@ import Network.AWS.Data.Time
 import Network.AWS.Lens ((%~), (<>~), (^.))
 import Network.AWS.Request
 import Network.AWS.Types
+import Network.AWS.Prelude
 import qualified Network.HTTP.Conduit as Client
 import qualified Network.HTTP.Types.Header as H
 

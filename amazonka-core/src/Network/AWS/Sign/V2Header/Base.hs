@@ -29,6 +29,7 @@ import qualified Data.List as List
 import qualified Network.AWS.Data.Query as Query
 import qualified Network.HTTP.Types as HTTP
 import Network.HTTP.Types.URI (urlEncode)
+import Network.AWS.Prelude
 
 -- | Construct a full header signer following the V2 Header scheme
 newSigner ::

@@ -1,13 +1,3 @@
-{-# LANGUAGE DataKinds #-}
-{-# LANGUAGE ExtendedDefaultRules #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE PackageImports #-}
-{-# LANGUAGE RankNTypes #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TupleSections #-}
-{-# LANGUAGE TypeFamilies #-}
 
 -- |
 -- Module      : Network.AWS.Sign.V4
@@ -32,8 +22,8 @@ import Network.AWS.Request
 import Network.AWS.Sign.V4.Base
 import Network.AWS.Sign.V4.Chunked
 import Network.AWS.Types
+import Network.AWS.Prelude
 
-default (ByteString)
 
 v4 :: Signer
 v4 = Signer sign presign

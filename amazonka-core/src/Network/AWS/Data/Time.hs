@@ -1,4 +1,3 @@
-
 -- |
 -- Module      : Network.AWS.Data.Time
 -- Copyright   : (c) 2013-2020 Brendan Hay

@@ -140,9 +140,8 @@ monoid = [DMonoid, DSemigroup]
 enum = [DEnum, DBounded]
 synonym =
   [ DIsString,
-    DToText,
-    DFromText,
-    DToByteString,
+    DToHttpApiData,
+    DFromHttpApiData,
     DToQuery,
     DToHeader,
     DToJSONKey,

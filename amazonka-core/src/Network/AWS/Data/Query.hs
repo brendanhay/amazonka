@@ -6,7 +6,9 @@
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Data.Query
-  ( QueryBuilder (..),
+  ( QueryString,
+    encodeQuery,
+    QueryBuilder (..),
     QueryPairs (..),
     buildQuery,
 
@@ -18,13 +20,38 @@ module Network.AWS.Data.Query
   )
 where
 
+import qualified Data.Bifunctor as Bifunctor
 import qualified Data.ByteString.Builder as Builder
 import qualified Data.ByteString.Lazy as ByteString.Lazy
+import qualified Data.DList as DList
 import qualified Data.HashMap.Strict as HashMap
+import qualified Data.List as List
 import qualified Data.Monoid as Monoid
 import qualified Network.AWS.Data.Text as AWS.Text
 import Network.AWS.Prelude
 import qualified Network.HTTP.Types as HTTP.Types
+
+type QueryString = [(ByteString, ByteString)]
+
+encodeQuery :: Bool -> QueryString -> ByteString
+encodeQuery allowEmpty =
+  ByteString.Lazy.toStrict
+    . Builder.toLazyByteString
+    . mconcat
+    . List.intersperse (Builder.shortByteString "&")
+    . map encodePair
+  where
+    encodePair = \case
+      ("", val) ->
+        encodeURL val
+      (key, "")
+        | not allowEmpty ->
+          encodeURL key
+      (key, val) ->
+        encodeURL key
+          <> Builder.shortByteString "="
+          <> encodeURL val
+{-# INLINEABLE encodeQuery #-}
 
 newtype QueryBuilder = QueryBuilder (QueryPairs -> QueryPairs)
   deriving (Semigroup, Monoid) via (Monoid.Endo QueryPairs)
@@ -41,85 +68,67 @@ data QueryPairs
   | QueryEnd
   deriving stock (Show)
 
-buildQuery :: QueryBuilder -> ByteString
-buildQuery (QueryBuilder query) =
-  ByteString.Lazy.toStrict
-    . Builder.toLazyByteString
-    $ go Nothing (query QueryEnd)
+buildQuery :: QueryBuilder -> QueryString
+buildQuery =
+  List.sort
+    . map (Bifunctor.first (ByteString.Lazy.toStrict . Builder.toLazyByteString))
+    . DList.toList
+    . buildList Nothing
   where
-    go mprefix = \case
-      QueryKey key (QueryBuilder nested) pairs ->
-        go (Just (encodeKey mprefix key)) (nested QueryEnd)
-          <> encodeAmp mprefix pairs
+    buildList mprefix (QueryBuilder builder) =
+      buildPairs mprefix (builder QueryEnd)
+
+    buildPairs mprefix = \case
+      QueryKey key builder pairs ->
+        buildList (Just (buildKey mprefix key)) builder
+          <> buildPairs mprefix pairs
       --
       QueryVal val pairs ->
-        encodeVal mprefix val
-          <> encodeAmp mprefix pairs
+        DList.cons (maybe (mempty, val) (,val) mprefix) $
+          buildPairs mprefix pairs
       --
       QueryEnd ->
         mempty
 
-    encodeKey mprefix key =
+    buildKey mprefix key =
       case mprefix of
-        Nothing -> encodeURL key
-        Just prefix -> prefix <> Builder.shortByteString "." <> encodeURL key
-
-    encodeVal mprefix val =
-      case mprefix of
-        Nothing -> encodeURL val
-        Just prefix -> prefix <> Builder.shortByteString "=" <> encodeURL val
-
-    encodeAmp mprefix = \case
-      QueryEnd -> mempty
-      continue -> Builder.shortByteString "&" <> go mprefix continue
+        Nothing -> Builder.byteString key
+        Just prefix ->
+          prefix
+            <> Builder.shortByteString "."
+            <> Builder.byteString key
 {-# INLINEABLE buildQuery #-}
 
 encodeURL :: ByteString -> ByteStringBuilder
 encodeURL = HTTP.Types.urlEncodeBuilder True
-{-# INLINE encodeURL #-}
 
 class ToQuery a where
   toQuery :: a -> QueryBuilder
-
-instance ToQuery QueryBuilder where
-  toQuery = id
-  {-# INLINE toQuery #-}
-
-instance ToQuery Char where
-  toQuery = toQuery . AWS.Text.toText
-  {-# INLINEABLE toQuery #-}
-
-instance ToQuery Text where
+  default toQuery :: AWS.Text.ToText a => a -> QueryBuilder
   toQuery = QueryBuilder . QueryVal . AWS.Text.toUTF8
   {-# INLINEABLE toQuery #-}
 
-instance ToQuery Bool where
-  toQuery = toQuery . AWS.Text.toText
+instance ToQuery QueryBuilder where
+  toQuery = id
   {-# INLINEABLE toQuery #-}
 
-instance ToQuery Int where
-  toQuery = toQuery . AWS.Text.toText
-  {-# INLINEABLE toQuery #-}
+instance ToQuery Char
 
-instance ToQuery Integer where
-  toQuery = toQuery . AWS.Text.toText
-  {-# INLINEABLE toQuery #-}
+instance ToQuery Text
 
-instance ToQuery Natural where
-  toQuery = toQuery . AWS.Text.toText
-  {-# INLINEABLE toQuery #-}
+instance ToQuery Bool
 
-instance ToQuery Double where
-  toQuery = toQuery . AWS.Text.toText
-  {-# INLINEABLE toQuery #-}
+instance ToQuery Int
 
-instance ToQuery UTCTime where
-  toQuery = toQuery . AWS.Text.toText
-  {-# INLINEABLE toQuery #-}
+instance ToQuery Integer
 
-instance ToQuery NominalDiffTime where
-  toQuery = toQuery . AWS.Text.toText
-  {-# INLINEABLE toQuery #-}
+instance ToQuery Natural
+
+instance ToQuery Double
+
+instance ToQuery UTCTime
+
+instance ToQuery NominalDiffTime
 
 toQueryPair ::
   ToQuery a =>

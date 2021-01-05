@@ -105,9 +105,8 @@ data Derive
   | DFromJSON
   | DToXML
   | DFromXML
-  | DToText
-  | DFromText
-  | DToByteString
+  | DToHttpApiData
+  | DFromHttpApiData
   | DToQuery
   | DToHeader
   deriving stock (Eq, Ord, Show, Generic)

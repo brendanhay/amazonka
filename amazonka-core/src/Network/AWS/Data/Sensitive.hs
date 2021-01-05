@@ -5,12 +5,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Data.Sensitive where
+module Network.AWS.Data.Sensitive
+  ( Sensitive (..)
+  ) where
 
-import Network.AWS.Data.JSON (ToJSON, FromJSON)
+import Network.AWS.Data.JSON (FromJSON, ToJSON)
 import Network.AWS.Data.Query (ToQuery)
-import Network.AWS.Data.Text (ToText, FromText)
-import Network.AWS.Data.XML (ToXML, FromXML)
+import Network.AWS.Data.Text (FromText, ToText)
+import Network.AWS.Data.XML (FromXML, ToXML)
 import Network.AWS.Prelude
 
 newtype Sensitive a = Sensitive {fromSensitive :: a}
@@ -21,7 +23,7 @@ newtype Sensitive a = Sensitive {fromSensitive :: a}
       NFData,
       Semigroup,
       Monoid,
-        ToText,
+      ToText,
       FromText,
       ToQuery,
       ToXML,

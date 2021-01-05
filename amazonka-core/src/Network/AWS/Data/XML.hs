@@ -40,13 +40,13 @@ module Network.AWS.Data.XML
 where
 
 import qualified Data.Bifunctor as Bifunctor
+import qualified Data.ByteString.Lazy as ByteString.Lazy
 import qualified Data.HashMap.Strict as HashMap
 import qualified Data.List.NonEmpty as NonEmpty
 import qualified Data.Map.Strict as Map
 import qualified Data.Maybe as Maybe
 import qualified Data.Monoid as Monoid
 import qualified Data.Text as Text
-import qualified Data.ByteString.Lazy as ByteString.Lazy
 import qualified Data.Text.Lazy as Text.Lazy
 import qualified Data.XML.Types as XML.Types
 import qualified Network.AWS.Data.Text as AWS.Text
@@ -142,46 +142,31 @@ class ToXML a where
   {-# INLINEABLE toXMLDocument #-}
 
   toXML :: a -> XMLBuilder
+  default toXML :: AWS.Text.ToText a => a -> XMLBuilder
+  toXML = XMLBuilder . XMLText . AWS.Text.toText
+  {-# INLINEABLE toXML #-}
 
 instance ToXML XMLBuilder where
   toXML = id
-  {-# INLINE toXML #-}
-
-instance ToXML Char where
-  toXML = toXML . AWS.Text.toText
   {-# INLINEABLE toXML #-}
 
-instance ToXML Text where
-  toXML = XMLBuilder . XMLText
-  {-# INLINE toXML #-}
+instance ToXML Char
 
-instance ToXML Bool where
-  toXML = toXML . AWS.Text.toText
-  {-# INLINEABLE toXML #-}
+instance ToXML Text
 
-instance ToXML Int where
-  toXML = toXML . AWS.Text.toText
-  {-# INLINEABLE toXML #-}
+instance ToXML Bool
 
-instance ToXML Integer where
-  toXML = toXML . AWS.Text.toText
-  {-# INLINEABLE toXML #-}
+instance ToXML Int
 
-instance ToXML Natural where
-  toXML = toXML . AWS.Text.toText
-  {-# INLINEABLE toXML #-}
+instance ToXML Integer
 
-instance ToXML Double where
-  toXML = toXML . AWS.Text.toText
-  {-# INLINEABLE toXML #-}
+instance ToXML Natural
 
-instance ToXML UTCTime where
-  toXML = toXML . AWS.Text.toText
-  {-# INLINEABLE toXML #-}
+instance ToXML Double
 
-instance ToXML NominalDiffTime where
-  toXML = toXML . AWS.Text.toText
-  {-# INLINEABLE toXML #-}
+instance ToXML UTCTime
+
+instance ToXML NominalDiffTime
 
 toXMLAttribute :: AWS.Text.ToText a => XML.Name -> a -> XMLBuilder
 toXMLAttribute name = XMLBuilder . XMLAttr name . AWS.Text.toText
@@ -275,6 +260,7 @@ withXMLText ann cursor =
     case cursorContents cursor of
       Nothing -> Left "no text node present"
       Just text -> AWS.Text.parseText text
+{-# INLINEABLE withXMLText #-}
 
 parseXMLMap ::
   (Eq k, Hashable k, FromXML k, FromXML v) =>

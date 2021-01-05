@@ -828,7 +828,7 @@ toPathE = \case
         Exts.mappendE e (toText a)
 
       toText =
-        either Exts.strE (Exts.app (Exts.varE "Core.toText") . fieldSelectE)
+        either Exts.strE (Exts.app (Exts.varE "Core.toUrlPiece") . fieldSelectE)
 
 toQueryE :: Protocol -> [Either (Text, Maybe Text) Field] -> Exts.Exp
 toQueryE protocol' = \case

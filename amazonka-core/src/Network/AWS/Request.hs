@@ -115,23 +115,23 @@ import qualified Network.HTTP.Types as HTTP
 --       _rqHeaders = hdr hContentType hFormEncoded headers
 --     }
 
-mkRequest ::
-  Service ->
-  StdMethod ->
-  ByteString ->
-  QueryString ->
-  [Header] ->
-  RqBody ->
-  Request a
-mkRequest service method path query headers body =
-  Request
-    { _rqService = service,
-      _rqMethod = method,
-      _rqPath = rawPath path,
-      _rqQuery = query,
-      _rqHeaders = headers,
-      _rqBody = body
-    }
+-- mkRequest ::
+--   Service ->
+--   StdMethod ->
+--   ByteString ->
+--   QueryString ->
+--   [Header] ->
+--   RqBody ->
+--   Request a
+-- mkRequest service method path query headers body =
+--   Request
+--     { _rqService = service,
+--       _rqMethod = method,
+--       _rqPath = path,
+--       _rqQuery = query,
+--       _rqHeaders = headers,
+--       _rqBody = body
+--     }
 
 -- postXML ::
 --    ToElement a => Service ->

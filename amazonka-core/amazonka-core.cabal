@@ -34,6 +34,7 @@ common base
   default-extensions:
     NoImplicitPrelude
     DataKinds
+    DefaultSignatures
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
@@ -62,14 +63,14 @@ library
   import:          base
   hs-source-dirs:  src
   exposed-modules:
+    Network.AWS.Data
     Network.AWS.Data.Base64
     Network.AWS.Data.Body
     Network.AWS.Data.Headers
     Network.AWS.Data.JSON
     Network.AWS.Data.Query
-    Network.AWS.Data.Text
-    Network.AWS.Data
     Network.AWS.Data.Sensitive
+    Network.AWS.Data.Text
     Network.AWS.Data.Time
     Network.AWS.Data.XML
     Network.AWS.Endpoint
@@ -84,10 +85,10 @@ library
     Network.AWS.Sign.V2Header
     Network.AWS.Sign.V2Header.Base
     Network.AWS.Sign.V4
-    Network.AWS.Types
-    Network.AWS.Waiter
     Network.AWS.Sign.V4.Base
     Network.AWS.Sign.V4.Chunked
+    Network.AWS.Types
+    Network.AWS.Waiter
 
   build-depends:
     , aeson                 >=1.2
@@ -99,6 +100,7 @@ library
     , containers            >=0.6.0.1
     , cryptonite            >=0.4
     , deepseq               >=1.4
+    , dlist                 >=0.8.0.5
     , exceptions            >=0.10
     , generic-lens          >=1.1
     , hashable              >=1.2

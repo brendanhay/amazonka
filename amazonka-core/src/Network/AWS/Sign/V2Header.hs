@@ -15,74 +15,79 @@ module Network.AWS.Sign.V2Header
   )
 where
 
-import qualified Data.ByteString.Char8 as BS8
-import Network.AWS.Data.Body
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Crypto
-import Network.AWS.Data.Headers
-import Network.AWS.Data.Log
-import Network.AWS.Data.Path
-import Network.AWS.Data.Time
+import qualified Data.Map.Strict as Map
+import qualified Data.ByteString.Char8 as ByteString.Char8
+import qualified Data.Text.Encoding as Text.Encoding
+import qualified Network.AWS.Hash as Hash
 import qualified Network.AWS.Sign.V2Header.Base as V2
 import Network.AWS.Types
-import qualified Network.HTTP.Conduit as Client
-import Network.HTTP.Types
-import Network.HTTP.Prelude
+import Network.AWS.Data 
+import qualified Network.HTTP.Client as Client
+import Network.AWS.Prelude
+import qualified Network.HTTP.Types as HTTP
 
 data V2Header = V2Header
   { metaTime :: UTCTime,
     metaEndpoint :: Endpoint,
     metaSignature :: ByteString,
-    headers :: Network.HTTP.Types.RequestHeaders,
-    signer :: ByteString
+    metaHeaders :: Headers,
+    metaSigner :: ByteString
   }
 
-instance ToLog V2Header where
-  build V2Header {..} =
-    buildLines
-      [ "[Version 2 Header Metadata] {",
-        "  time      = " <> build metaTime,
-        "  endpoint  = " <> build (_endpointHost metaEndpoint),
-        "  signature = " <> build metaSignature,
-        "  headers = " <> build headers,
-        "  signer = " <> build signer,
-        "}"
-      ]
+-- instance ToLog V2Header where
+--   build V2Header {..} =
+--     buildLines
+--       [ "[Version 2 Header Metadata] {",
+--         "  time      = " <> build metaTime,
+--         "  endpoint  = " <> build (_endpointHost metaEndpoint),
+--         "  signature = " <> build metaSignature,
+--         "  headers = " <> build headers,
+--         "  signer = " <> build signer,
+--         "}"
+--       ]
 
 v2Header :: Signer
 v2Header = Signer sign (const sign)
 
 sign :: Algorithm a
-sign Request {..} AuthEnv {..} r t = Signed meta rq
+sign Request {..} AuthEnv {..} region time =
+  Signed meta request
   where
-    meta = Meta (V2Header t end signature headers signer)
+    meta = Meta (V2Header time endpoint signature' headers signer)
 
-    signer = V2.newSigner headers meth path' _rqQuery
+    signer = V2.newSigner headers method _rqPath _rqQuery
 
-    rq =
-      (clientRequest end _svcTimeout)
-        { Client.method = meth,
-          Client.path = path',
-          Client.queryString = toBS _rqQuery,
-          Client.requestHeaders = headers,
+    request =
+      (clientRequest endpoint _svcTimeout)
+        { Client.method = method,
+          Client.path = _rqPath,
+          Client.queryString = encodeQuery True _rqQuery,
+          Client.requestHeaders = Map.toList headers,
           Client.requestBody = toRequestBody _rqBody
         }
 
-    meth = toBS _rqMethod
-    path' = toBS (escapePath _rqPath)
+    method = HTTP.renderStdMethod _rqMethod
 
-    end@Endpoint {} = _svcEndpoint r
+    endpoint = _svcEndpoint region
 
     Service {..} = _rqService
 
-    signature =
-      digestToBase Base64
-        . hmacSHA1 (toBS _authSecret)
-        $ signer
 
     headers =
-      hdr hDate time
-        . hdr hAuthorization ("AWS " <> toBS _authAccess <> ":" <> signature)
-        $ _rqHeaders
+        Map.insert HTTP.hDate date
+      . Map.insert HTTP.hAuthorization authorization
+      $ _rqHeaders
 
-    time = BS8.pack (formatDateTime rfc822Format t)
+    authorization =
+      "AWS "
+         <> Text.Encoding.encodeUtf8 (fromAccessKey _authAccess)
+         <> ":"
+          <> signature'
+
+    signature' =
+      Hash.digestToBase Hash.Base64
+        . Hash.hmacSHA1 (Text.Encoding.encodeUtf8 (fromSecretKey _authSecret))
+        $ signer
+
+    date =
+       Text.Encoding.encodeUtf8 (formatDateTime rfc822Format time)

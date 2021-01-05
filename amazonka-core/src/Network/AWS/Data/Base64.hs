@@ -10,18 +10,18 @@ module Network.AWS.Data.Base64
   )
 where
 
-import qualified Data.ByteArray.Encoding as ByteArray.Encoding
-import qualified Data.Text.Encoding as Text.Encoding
-import qualified Data.Text as Text
 import qualified Data.Bifunctor as Bifunctor
-import Network.AWS.Data.JSON (ToJSON, FromJSON)
-import Network.AWS.Data.Query (ToQuery (..))
+import qualified Data.ByteArray.Encoding as ByteArray.Encoding
+import qualified Data.Text as Text
+import qualified Data.Text.Encoding as Text.Encoding
 import Network.AWS.Data.Body (ToBody (..), ToHashedBody (..))
-import Network.AWS.Data.Text (ToText (..), FromText (..))
-import Network.AWS.Data.XML (ToXML, FromXML)
-import qualified Network.AWS.Data.XML  as AWS.XML
-import qualified Network.AWS.Data.JSON  as AWS.JSON
-import qualified Network.AWS.Data.Text  as AWS.Text
+import Network.AWS.Data.JSON (FromJSON, ToJSON)
+import qualified Network.AWS.Data.JSON as AWS.JSON
+import Network.AWS.Data.Query (ToQuery (..))
+import Network.AWS.Data.Text (FromText (..), ToText (..))
+import qualified Network.AWS.Data.Text as AWS.Text
+import Network.AWS.Data.XML (FromXML, ToXML)
+import qualified Network.AWS.Data.XML as AWS.XML
 import Network.AWS.Prelude
 
 -- | Base64 encoded binary data.
@@ -33,7 +33,8 @@ newtype Base64 = Base64 {fromBase64 :: ByteString}
   deriving newtype
     ( Hashable,
       NFData,
-      Semigroup, Monoid
+      Semigroup,
+      Monoid
     )
 
 instance ToText Base64 where
@@ -53,30 +54,29 @@ instance FromText Base64 where
 instance ToXML Base64 where
   toXML = AWS.XML.toXML . toText
   {-# INLINEABLE toXML #-}
-  
+
 instance FromXML Base64 where
   parseXML = AWS.XML.withXMLText "Base64"
   {-# INLINEABLE parseXML #-}
-  
+
 instance ToJSON Base64 where
   toJSON = AWS.JSON.toJSON . toText
   {-# INLINEABLE toJSON #-}
   toEncoding = AWS.JSON.toEncoding . toText
   {-# INLINEABLE toEncoding #-}
-  
+
 instance FromJSON Base64 where
   parseJSON = AWS.JSON.withJSONText "Base64"
   {-# INLINEABLE parseJSON #-}
-  
+
 instance ToQuery Base64 where
   toQuery = toQuery . toText
   {-# INLINEABLE toQuery #-}
-  
+
 instance ToHashedBody Base64 where
   toHashed = toHashed . toText
   {-# INLINEABLE toHashed #-}
-  
+
 instance ToBody Base64 where
   toBody = toBody . toText
   {-# INLINEABLE toBody #-}
-  

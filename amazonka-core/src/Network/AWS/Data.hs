@@ -10,12 +10,12 @@ module Network.AWS.Data
   )
 where
 
+import Network.AWS.Data.Base64 as Export
 import Network.AWS.Data.Body as Export
 import Network.AWS.Data.Headers as Export
 import Network.AWS.Data.JSON as Export
 import Network.AWS.Data.Query as Export
+import Network.AWS.Data.Sensitive as Export
 import Network.AWS.Data.Text as Export
 import Network.AWS.Data.Time as Export
 import Network.AWS.Data.XML as Export
-import Network.AWS.Data.Sensitive as Export
-import Network.AWS.Data.Base64 as Export

@@ -59,6 +59,9 @@ buildHeaders (HeaderBuilder builder) = Map.fromList (builder [])
 
 class ToHeaders a where
   toHeaders :: HeaderName -> a -> HeaderBuilder
+  default toHeaders :: AWS.Text.ToText a => HeaderName -> a -> HeaderBuilder
+  toHeaders key = consPair key . AWS.Text.toUTF8
+  {-# INLINEABLE toHeaders #-}
 
 -- instance AWS.Text.ToText a => ToHeaders (Maybe a) where
 --   toHeaders key = \case
@@ -66,41 +69,23 @@ class ToHeaders a where
 --     Just val -> consPair key (AWS.Text.toUTF8 val)
 --   {-# INLINEABLE toHeaders #-}
 
-instance ToHeaders Char where
-  toHeaders key = consPair key . AWS.Text.toUTF8
-  {-# INLINEABLE toHeaders #-}
+instance ToHeaders Char
 
-instance ToHeaders Text where
-  toHeaders key = consPair key . AWS.Text.toUTF8
-  {-# INLINEABLE toHeaders #-}
+instance ToHeaders Text
 
-instance ToHeaders Bool where
-  toHeaders key = consPair key . AWS.Text.toUTF8
-  {-# INLINEABLE toHeaders #-}
+instance ToHeaders Bool
 
-instance ToHeaders Int where
-  toHeaders key = consPair key . AWS.Text.toUTF8
-  {-# INLINEABLE toHeaders #-}
+instance ToHeaders Int
 
-instance ToHeaders Integer where
-  toHeaders key = consPair key . AWS.Text.toUTF8
-  {-# INLINEABLE toHeaders #-}
+instance ToHeaders Integer
 
-instance ToHeaders Natural where
-  toHeaders key = consPair key . AWS.Text.toUTF8
-  {-# INLINEABLE toHeaders #-}
+instance ToHeaders Natural
 
-instance ToHeaders Double where
-  toHeaders key = consPair key . AWS.Text.toUTF8
-  {-# INLINEABLE toHeaders #-}
+instance ToHeaders Double
 
-instance ToHeaders UTCTime where
-  toHeaders key = consPair key . AWS.Text.toUTF8
-  {-# INLINEABLE toHeaders #-}
+instance ToHeaders UTCTime
 
-instance ToHeaders NominalDiffTime where
-  toHeaders key = consPair key . AWS.Text.toUTF8
-  {-# INLINEABLE toHeaders #-}
+instance ToHeaders NominalDiffTime
 
 class FromHeaders a where
   parseHeaders :: HeaderName -> Headers -> Either Text a

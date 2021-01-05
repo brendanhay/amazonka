@@ -24,19 +24,19 @@ module Network.AWS.Data.JSON
     (Aeson..:),
     (Aeson..:?),
     (Aeson..!=),
-
   )
 where
 
 import qualified Data.Aeson as Aeson
+import qualified Data.Aeson.Types as Aeson.Types
 import qualified Data.Text as Text
-import qualified Data.Aeson.Types  as Aeson.Types
 import qualified Network.AWS.Data.Text as AWS.Text
 import Network.AWS.Prelude
 
 eitherParseJSON ::
   Aeson.FromJSON a =>
-  Aeson.Object -> Either String a
+  Aeson.Object ->
+  Either String a
 eitherParseJSON =
   Aeson.Types.parseEither Aeson.parseJSON
     . Aeson.Object
@@ -44,7 +44,8 @@ eitherParseJSON =
 withJSONText ::
   AWS.Text.FromText a =>
   String ->
-  Aeson.Value -> Aeson.Types.Parser a
+  Aeson.Value ->
+  Aeson.Types.Parser a
 withJSONText name =
   Aeson.withText ("withJSONText." ++ name) $ \text ->
     either (fail . Text.unpack) pure (AWS.Text.parseText text)

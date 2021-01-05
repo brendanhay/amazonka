@@ -29,10 +29,11 @@ import Control.Applicative as Export (Alternative ((<|>)))
 import Control.DeepSeq as Export (NFData)
 import Control.Exception as Export (Exception, SomeException)
 import Control.Lens as Export
-  ( Lens',
+  ( Iso',
+    Lens',
     Prism',
     Traversal',
-    Iso'
+    Setter',
   )
 import Control.Monad.IO.Class as Export (MonadIO (liftIO))
 import Control.Monad.Trans as Export (MonadTrans (lift))
@@ -43,6 +44,7 @@ import qualified Data.ByteString.Builder as ByteString.Builder
 import qualified Data.ByteString.Lazy as ByteString.Lazy
 import Data.CaseInsensitive as Export (CI)
 import Data.Coerce as Export (Coercible)
+import Data.DList as Export (DList)
 import Data.Function as Export ((&))
 import Data.Functor as Export ((<&>))
 import Data.Functor.Contravariant as Export (Contravariant)

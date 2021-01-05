@@ -1,4 +1,3 @@
-
 -- |
 -- Module      : Network.AWS.Sign.V4
 -- Copyright   : (c) 2013-2020 Brendan Hay
@@ -18,12 +17,11 @@ import Network.AWS.Data.ByteString
 import Network.AWS.Data.Headers
 import Network.AWS.Data.Query
 import Network.AWS.Lens ((%~), (<>~))
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Sign.V4.Base
 import Network.AWS.Sign.V4.Chunked
 import Network.AWS.Types
-import Network.AWS.Prelude
-
 
 v4 :: Signer
 v4 = Signer sign presign

@@ -18,71 +18,54 @@ module Network.AWS.Sign.V2Header.Base
   )
 where
 
-import Data.ByteString (ByteString)
-import Data.ByteString.Builder (Builder)
-import qualified Data.ByteString.Builder as Build
-import qualified Data.ByteString.Char8 as BS8
-import qualified Data.ByteString.Lazy as LBS
+import qualified Data.ByteString as ByteString
+import qualified Data.ByteString.Builder as Builder
+import qualified Data.ByteString.Char8 as ByteString.Char8
+import qualified Data.ByteString.Lazy as ByteString.Lazy
 import qualified Data.CaseInsensitive as CI
-import Data.Function (on)
+import qualified Data.DList as DList
+import qualified Data.Function as Function
 import qualified Data.List as List
+import qualified Data.Map.Strict as Map
+-- import Network.HTTP.Types.URI (urlEncode)
+
+import Network.AWS.Data
+import qualified Network.AWS.Data.Headers as Headers
 import qualified Network.AWS.Data.Query as Query
-import qualified Network.HTTP.Types as HTTP
-import Network.HTTP.Types.URI (urlEncode)
 import Network.AWS.Prelude
+import qualified Network.HTTP.Types as HTTP
 
 -- | Construct a full header signer following the V2 Header scheme
 newSigner ::
-  HTTP.RequestHeaders ->
+  Headers ->
   ByteString ->
   ByteString ->
-  Query.QueryString ->
+  QueryString ->
   ByteString
 newSigner headers method path query = signer
   where
     signer =
-      BS8.intercalate
-        "\n"
-        ( method :
-          map constructSigningHeader (List.sort filteredHeaders)
-            ++ [constructFullPath path (toSignerQueryBS filteredQuery)]
-        )
+      ByteString.Char8.intercalate "\n"
+        . DList.toList
+        $ DList.singleton method
+          <> fmap constructSigningHeader (DList.fromList filteredHeaders)
+          <> DList.singleton (constructFullPath path filteredQuery)
 
-    filteredHeaders = unionNecessaryHeaders (filter isInterestingHeader headers)
+    filteredHeaders =
+      Map.toList
+        . unionNecessaryHeaders
+        . Map.filterWithKey (const . isInterestingHeader)
+        $ headers
 
-    filteredQuery = constructSigningQuery query
+    filteredQuery =
+      encodeQuery False (constructSigningQuery query)
 
--- | The following function mostly follows the toBS in amazonka QueryString
--- except for single QValue or single QPair keys not being suffixed with
--- an equals.
-toSignerQueryBS :: Query.QueryString -> ByteString
-toSignerQueryBS =
-  LBS.toStrict . Build.toLazyByteString . cat . List.sort . enc Nothing
-  where
-    enc :: Maybe ByteString -> Query.QueryString -> [ByteString]
-    enc p = \case
-      Query.QList xs -> concatMap (enc p) xs
-      Query.QPair (urlEncode True -> k) x
-        | Just n <- p -> enc (Just (n <> kdelim <> k)) x -- <prev>.key <recur>
-        | otherwise -> enc (Just k) x -- key <recur>
-      Query.QValue (Just (urlEncode True -> v))
-        | Just n <- p -> [n <> vsep <> v] -- key=value
-        | otherwise -> [v]
-      _
-        | Just n <- p -> [n]
-        | otherwise -> []
+-- | Encode a QueryString without using @=@ for empty query values
+toSignerQueryBS :: QueryString -> ByteString
+toSignerQueryBS = encodeQuery False
 
-    cat :: [ByteString] -> Builder
-    cat [] = mempty
-    cat [x] = Build.byteString x
-    cat (x : xs) = Build.byteString x <> ksep <> cat xs
-
-    kdelim = "."
-    ksep = "&"
-    vsep = "="
-
-hasAWSPrefix :: CI.CI ByteString -> Bool
-hasAWSPrefix = BS8.isPrefixOf "aws-" . CI.foldedCase
+hasAWSPrefix :: CI ByteString -> Bool
+hasAWSPrefix = ByteString.Char8.isPrefixOf "aws-" . CI.foldedCase
 
 -- | Filter for 'interesting' keys within a QueryString
 isInterestingQueryKey :: ByteString -> Bool
@@ -118,8 +101,8 @@ isInterestingQueryKey = \case
   _ -> False
 
 -- | Filter for 'interesting' header fields
-isInterestingHeader :: HTTP.Header -> Bool
-isInterestingHeader (name, _)
+isInterestingHeader :: HeaderName -> Bool
+isInterestingHeader name
   | name == HTTP.hDate = True
   | name == HTTP.hContentMD5 = True
   | name == HTTP.hContentType = True
@@ -127,29 +110,24 @@ isInterestingHeader (name, _)
   | otherwise = False
 
 -- | Constructs a query string for signing
-constructSigningQuery :: Query.QueryString -> Query.QueryString
-constructSigningQuery = \case
-  Query.QValue {} -> Query.QValue Nothing
-  Query.QList qs -> Query.QList (map constructSigningQuery qs)
-  Query.QPair k v
-    | isInterestingQueryKey k -> Query.QPair k v
-    | otherwise -> Query.QValue Nothing
+constructSigningQuery :: QueryString -> QueryString
+constructSigningQuery = filter (isInterestingQueryKey . fst)
 
 -- | Construct a header string for signing
-constructSigningHeader :: HTTP.Header -> ByteString
+constructSigningHeader :: Header -> ByteString
 constructSigningHeader (name, value)
   | hasAWSPrefix name = CI.foldedCase name <> ":" <> value
   | otherwise = value
 
 constructFullPath :: ByteString -> ByteString -> ByteString
 constructFullPath path q
-  | BS8.null q = path
+  | ByteString.null q = path
   | otherwise = path <> "?" <> q
 
-unionNecessaryHeaders :: [HTTP.Header] -> [HTTP.Header]
+unionNecessaryHeaders :: Headers -> Headers
 unionNecessaryHeaders =
-  flip
-    (List.unionBy (on (==) fst))
-    [ (HTTP.hContentMD5, ""),
-      (HTTP.hContentType, "")
-    ]
+  Map.union $
+    Map.fromList
+      [ (HTTP.hContentMD5, ""),
+        (HTTP.hContentType, "")
+      ]

@@ -21,12 +21,11 @@ import Network.AWS.Data.Crypto
 import Network.AWS.Data.Headers
 import Network.AWS.Data.Sensitive (_Sensitive)
 import Network.AWS.Lens ((<>~), (^.))
+import Network.AWS.Prelude
 import Network.AWS.Sign.V4.Base hiding (algorithm)
 import Network.AWS.Types
 import Network.HTTP.Types.Header
 import Numeric (showHex)
-import Network.AWS.Prelude
-
 
 chunked :: ChunkedBody -> Algorithm a
 chunked c rq a r ts = signRequest meta (toRequestBody body) auth

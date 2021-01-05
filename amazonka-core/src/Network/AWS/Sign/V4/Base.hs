@@ -24,9 +24,9 @@ import Network.AWS.Data.Query
 import Network.AWS.Data.Sensitive (_Sensitive)
 import Network.AWS.Data.Time
 import Network.AWS.Lens ((%~), (<>~), (^.))
+import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Types
-import Network.AWS.Prelude
 import qualified Network.HTTP.Conduit as Client
 import qualified Network.HTTP.Types.Header as H
 

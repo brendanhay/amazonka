@@ -10,16 +10,16 @@ module Network.AWS.Data.Body where
 import Control.Monad.Trans.Resource (ResourceT)
 import qualified Data.ByteString as ByteString
 import qualified Data.ByteString.Char8 as ByteString.Char8
-import qualified Data.Conduit as Conduit
 import Data.Conduit (ConduitM)
+import qualified Data.Conduit as Conduit
 import qualified Data.Text.Encoding as Text.Encoding
-import qualified Network.AWS.Hash as Hash
 import Network.AWS.Hash (Digest, SHA256)
-import Network.AWS.Prelude
+import qualified Network.AWS.Hash as Hash
 import qualified Network.AWS.Lens as Lens
-import qualified Network.HTTP.Conduit as HTTP.Conduit
-import qualified Network.HTTP.Client as HTTP.Client
+import Network.AWS.Prelude
 import Network.HTTP.Client (RequestBody (..))
+import qualified Network.HTTP.Client as HTTP.Client
+import qualified Network.HTTP.Conduit as HTTP.Conduit
 
 -- | A streaming, exception safe response body.
 newtype RsBody = RsBody
@@ -73,15 +73,15 @@ chunkedLength = Lens.lens _chunkedLength (\s a -> s {_chunkedLength = a})
 
 instance Show ChunkedBody where
   showsPrec _ chunked =
-     showString "ChunkedBody { chunkSize = "
-        . shows (_chunkedSize chunked)
-        . showString ", originalLength = "
-        . shows (_chunkedLength chunked)
-        . showString ", fullChunks = "
-        . shows (fullChunks chunked)
-        . showString ", remainderBytes = "
-        . shows (remainderBytes chunked)
-        . showString "}"
+    showString "ChunkedBody { chunkSize = "
+      . shows (_chunkedSize chunked)
+      . showString ", originalLength = "
+      . shows (_chunkedLength chunked)
+      . showString ", fullChunks = "
+      . shows (fullChunks chunked)
+      . showString ", remainderBytes = "
+      . shows (remainderBytes chunked)
+      . showString "}"
 
 fuseChunks ::
   ChunkedBody ->
@@ -109,14 +109,15 @@ instance Show HashedBody where
     HashedBytes h x -> showHash "HashedBody" h (ByteString.length x)
     where
       showHash name hash len =
-          showString name
-            . showString " { sha256 = "
-            . shows (Hash.digestToBase Hash.Base16 hash)
-            . showString  ", length = "
-            . shows len
+        showString name
+          . showString " { sha256 = "
+          . shows (Hash.digestToBase Hash.Base16 hash)
+          . showString ", length = "
+          . shows len
 
 instance IsString HashedBody where
-  fromString = toHashed
+  fromString = toHashed . ByteString.Char8.pack
+  {-# INLINEABLE fromString #-}
 
 sha256Base16 :: HashedBody -> ByteString
 sha256Base16 =
@@ -167,15 +168,15 @@ class ToHashedBody a where
 
 instance ToHashedBody HashedBody where
   toHashed = id
-  {-# INLINE toHashed #-}
+  {-# INLINEABLE toHashed #-}
 
 instance ToHashedBody ByteString where
   toHashed x = HashedBytes (Hash.hash x) x
   {-# INLINEABLE toHashed #-}
 
-instance ToHashedBody String where
-  toHashed = toHashed . ByteString.Char8.pack 
-  {-# INLINEABLE toHashed #-}
+-- instance ToHashedBody String where
+--   toHashed = toHashed . ByteString.Char8.pack
+--   {-# INLINEABLE toHashed #-}
 
 instance ToHashedBody Text where
   toHashed = toHashed . Text.Encoding.encodeUtf8
@@ -197,42 +198,28 @@ instance ToHashedBody Text where
 class ToBody a where
   -- | Convert a value to a request body.
   toBody :: a -> RqBody
-
-  -- default toBody :: ToHashedBody a => a -> RqBody
-  -- toBody = Hashed . toHashed
-  -- {-# INLINEABLE toBody #-}
+  default toBody :: ToHashedBody a => a -> RqBody
+  toBody = Hashed . toHashed
+  {-# INLINEABLE toBody #-}
 
 instance ToBody RqBody where
   toBody = id
-  {-# INLINE toBody #-}
+  {-# INLINEABLE toBody #-}
 
 instance ToBody HashedBody where
   toBody = Hashed
-  {-# INLINE toBody #-}
+  {-# INLINEABLE toBody #-}
 
 instance ToBody ChunkedBody where
   toBody = Chunked
-  {-# INLINE toBody #-}
+  {-# INLINEABLE toBody #-}
 
 -- instance ToHashedBody a => ToBody (Maybe a) where
 --   toBody = Hashed . maybe (toHashed ByteString.empty) toHashed
 
+instance ToBody ByteString
 
--- instance ToBody LByteString.ByteString
-
-instance ToBody ByteString where
-  toBody = Hashed . toHashed
-  {-# INLINEABLE toBody #-}
-
-instance ToBody String where
-  toBody = Hashed . toHashed
-  {-# INLINEABLE toBody #-}
-
-instance ToBody Text where
-  toBody = Hashed . toHashed
-  {-# INLINEABLE toBody #-}
-
-
+instance ToBody Text
 
 -- instance ToBody LText.Text
 

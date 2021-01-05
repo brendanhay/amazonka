@@ -10,20 +10,17 @@ module Network.AWS.Sign.V2
   )
 where
 
-import qualified Data.ByteString.Char8 as BS8
-import Data.Time
-import Network.AWS.Data.Body
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Crypto
-import Network.AWS.Data.Headers
-import Network.AWS.Data.Log
-import Network.AWS.Data.Path
-import Network.AWS.Data.Query
-import Network.AWS.Data.Time
+import qualified Data.ByteString.Char8 as ByteString.Char8
+import qualified Data.Dynamic as Dynamic
+import qualified Data.Map.Strict as Map
+import qualified Data.Text.Encoding as Text.Encoding
+import Network.AWS.Data
+import qualified Network.AWS.Hash as Hash
 import Network.AWS.Prelude
+import qualified Network.AWS.Sign.V2Header.Base as V2
 import Network.AWS.Types
-import qualified Network.HTTP.Conduit as Client
-import Network.HTTP.Types hiding (toQuery)
+import qualified Network.HTTP.Client as Client
+import qualified Network.HTTP.Types as HTTP
 
 data V2 = V2
   { metaTime :: UTCTime,
@@ -31,63 +28,74 @@ data V2 = V2
     metaSignature :: ByteString
   }
 
-instance ToLog V2 where
-  build V2 {..} =
-    buildLines
-      [ "[Version 2 Metadata] {",
-        "  time      = " <> build metaTime,
-        "  endpoint  = " <> build (_endpointHost metaEndpoint),
-        "  signature = " <> build metaSignature,
-        "}"
-      ]
+-- instance ToLog V2 where
+--   build V2 {..} =
+--     buildLines
+--       [ "[Version 2 Metadata] {",
+--         "  time      = " <> build metaTime,
+--         "  endpoint  = " <> build (_endpointHost metaEndpoint),
+--         "  signature = " <> build metaSignature,
+--         "}"
+--       ]
 
 v2 :: Signer
-v2 = Signer sign (const sign) -- FIXME: revisit v2 presigning.
+v2 =
+  Signer
+   { runSigner = sign,
+     runPresigner = const sign -- FIXME: revisit v2 presigning.
+   }
 
-sign :: Algorithm a
-sign Request {..} AuthEnv {..} r t = Signed meta rq
+sign :: SigningAlgorithm request
+sign Request {..} AuthEnv {..} region time =
+  ( request,
+  Dynamic.toDyn metadata
+  )
   where
-    meta = Meta (V2 t end signature)
+    Service {..} = requestService
+    
+    metadata =
+      V2 { metaTime = time,
+           metaEndpoint = endpoint,
+           metaSignature = signature'
+         }
 
-    rq =
-      (clientRequest end _svcTimeout)
-        { Client.method = meth,
-          Client.path = path',
-          Client.queryString = toBS authorised,
-          Client.requestHeaders = headers,
-          Client.requestBody = toRequestBody _rqBody
+    request =
+      (newClientRequest endpoint serviceTimeout)
+        { Client.method = method,
+          Client.path = requestPath,
+          Client.queryString = encodeQueryBuilder True authorizedQuery,
+          Client.requestHeaders = Map.toList headers,
+          Client.requestBody = toRequestBody requestBody
         }
 
-    meth = toBS _rqMethod
-    path' = toBS (escapePath _rqPath)
+    method = HTTP.renderStdMethod requestMethod
+    
+    endpoint@Endpoint {endpointHost} = serviceEndpoint region
 
-    end@Endpoint {..} = _svcEndpoint r
+    authorizedQuery =
+      toQueryPair "Signature" signature'
+        <> canonicalQuery
 
-    Service {..} = _rqService
-
-    authorised = pair "Signature" (urlEncode True signature) query
-
-    signature =
-      digestToBase Base64
-        . hmacSHA256 (toBS _authSecret)
-        $ BS8.intercalate
+    signature' =
+      Hash.digestToBase Hash.Base64
+        . Hash.hmacSHA256 (toUTF8 authSecretAccessKey)
+        $ ByteString.Char8.intercalate
           "\n"
-          [ meth,
-            _endpointHost,
-            path',
-            toBS query
+          [ method,
+            endpointHost,
+            requestPath,
+            encodeQueryBuilder True canonicalQuery
           ]
 
-    query =
-      pair "Version" _svcVersion
-        . pair "SignatureVersion" ("2" :: ByteString)
-        . pair "SignatureMethod" ("HmacSHA256" :: ByteString)
-        . pair "Timestamp" time
-        . pair "AWSAccessKeyId" (toBS _authAccess)
-        $ _rqQuery <> maybe mempty toQuery token
+    canonicalQuery =
+      toQueryPair "Version" serviceVersion
+        <> toQueryPair "SignatureVersion" ("2" :: ByteString)
+        <> toQueryPair "SignatureMethod" ("HmacSHA256" :: ByteString)
+        <> toQueryPair "Timestamp" time
+        <> toQueryPair "AWSAccessKeyId" (toUTF8 authAccessKeyId)
+        <> requestQuery
+        <> maybe mempty (toQueryPair "SecurityToken" . toUTF8) authSessionToken
 
-    token = ("SecurityToken" :: ByteString,) . toBS <$> _authToken
+    headers = Map.insert HTTP.hDate date requestHeaders
 
-    headers = hdr hDate time _rqHeaders
-
-    time = toBS (formatDateTime iso8601Format t)
+    date = toUTF8 (formatDateTime iso8601Format time)

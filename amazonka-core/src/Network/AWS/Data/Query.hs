@@ -8,6 +8,7 @@
 module Network.AWS.Data.Query
   ( QueryString,
     encodeQuery,
+    encodeQueryBuilder,
     QueryBuilder (..),
     QueryPairs (..),
     buildQuery,
@@ -52,6 +53,10 @@ encodeQuery allowEmpty =
           <> Builder.shortByteString "="
           <> encodeURL val
 {-# INLINEABLE encodeQuery #-}
+
+encodeQueryBuilder :: Bool -> QueryBuilder -> ByteString
+encodeQueryBuilder allowEmpty = encodeQuery allowEmpty . buildQuery
+{-# INLINEABLE encodeQueryBuilder #-}
 
 newtype QueryBuilder = QueryBuilder (QueryPairs -> QueryPairs)
   deriving (Semigroup, Monoid) via (Monoid.Endo QueryPairs)
@@ -110,6 +115,10 @@ class ToQuery a where
 
 instance ToQuery QueryBuilder where
   toQuery = id
+  {-# INLINEABLE toQuery #-}
+
+instance ToQuery ByteString where
+  toQuery = QueryBuilder . QueryVal
   {-# INLINEABLE toQuery #-}
 
 instance ToQuery Char

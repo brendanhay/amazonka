@@ -378,6 +378,7 @@ isEC2 = do
       !p <- EC2.isEC2 m
       liftIO (atomicWriteIORef ref (Just p))
       return p
+{-# DEPRECATED isEC2 #-}
 
 -- | Retrieve the specified 'Dynamic' data.
 --

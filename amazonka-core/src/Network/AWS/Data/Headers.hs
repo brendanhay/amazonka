@@ -63,6 +63,10 @@ class ToHeaders a where
   toHeaders key = consPair key . AWS.Text.toUTF8
   {-# INLINEABLE toHeaders #-}
 
+instance ToHeaders ByteString where
+  toHeaders = consPair 
+  {-# INLINEABLE toHeaders #-}
+
 -- instance AWS.Text.ToText a => ToHeaders (Maybe a) where
 --   toHeaders key = \case
 --     Nothing -> mempty

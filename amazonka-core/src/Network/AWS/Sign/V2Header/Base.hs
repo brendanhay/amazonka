@@ -40,7 +40,7 @@ newSigner ::
   Headers ->
   ByteString ->
   ByteString ->
-  QueryString ->
+  QueryBuilder ->
   ByteString
 newSigner headers method path query = signer
   where
@@ -58,7 +58,7 @@ newSigner headers method path query = signer
         $ headers
 
     filteredQuery =
-      encodeQuery False (constructSigningQuery query)
+      toSignerQueryBS (constructSigningQuery (buildQuery query))
 
 -- | Encode a QueryString without using @=@ for empty query values
 toSignerQueryBS :: QueryString -> ByteString

@@ -6,8 +6,9 @@
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Data.Sensitive
-  ( Sensitive (..)
-  ) where
+  ( Sensitive (..),
+  )
+where
 
 import Network.AWS.Data.JSON (FromJSON, ToJSON)
 import Network.AWS.Data.Query (ToQuery)

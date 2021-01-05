@@ -27,24 +27,39 @@ module Network.AWS.Response
   )
 where
 
-import Control.Monad.Catch
-import Control.Monad.IO.Class
-import Control.Monad.Trans.Resource
-import Data.Aeson
-import qualified Data.ByteString.Lazy as LBS
-import Data.Conduit
-import qualified Data.Conduit.Binary as Conduit
-import Data.Proxy
-import Data.Text (Text)
-import Network.AWS.Data.Body
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Log
-import Network.AWS.Data.XML
+-- import Control.Monad.Catch
+-- import Control.Monad.IO.Class
+-- import Control.Monad.Trans.Resource
+-- import Data.Aeson
+-- import qualified Data.ByteString.Lazy as LBS
+-- import Data.Conduit
+-- import qualified Data.Conduit.Binary as Conduit
+-- import Data.Proxy
+-- import Data.Text (Text)
+-- import Network.AWS.Data.Body
+-- import Network.AWS.Data.ByteString
+-- import Network.AWS.Data.Log
+-- import Network.AWS.Data.XML
+-- import Network.AWS.Types
+-- import Network.HTTP.Client.Conduit (responseClose)
+-- import Network.HTTP.Conduit hiding (Proxy, Request, Response)
+-- import Network.HTTP.Types
+-- import Text.XML (Node)
+
+import Control.Concurrent (ThreadId)
+import Control.Monad.Trans.Resource (ResourceT)
+import Data.Conduit (ConduitM)
+import Data.Dynamic (Dynamic)
+import Data.IORef (IORef)
+import qualified Data.IORef as IORef
+import qualified Data.Maybe as Maybe
+import qualified Data.Text as Text
+import Network.AWS.Data
+import qualified Network.AWS.Lens as Lens
+import Network.AWS.Prelude
+import qualified Network.HTTP.Client as Client
+import qualified Network.HTTP.Types as HTTP
 import Network.AWS.Types
-import Network.HTTP.Client.Conduit (responseClose)
-import Network.HTTP.Conduit hiding (Proxy, Request, Response)
-import Network.HTTP.Types
-import Text.XML (Node)
 
 receiveNull ::
   (MonadResource m, MonadThrow m) =>

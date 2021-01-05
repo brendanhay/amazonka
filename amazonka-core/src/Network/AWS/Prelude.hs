@@ -32,8 +32,8 @@ import Control.Lens as Export
   ( Iso',
     Lens',
     Prism',
-    Traversal',
     Setter',
+    Traversal',
   )
 import Control.Monad.IO.Class as Export (MonadIO (liftIO))
 import Control.Monad.Trans as Export (MonadTrans (lift))
@@ -53,6 +53,7 @@ import Data.HashMap.Strict as Export (HashMap)
 import Data.HashSet as Export (HashSet)
 import Data.Hashable as Export (Hashable)
 import Data.Int as Export (Int16, Int32, Int64, Int8)
+import Data.Kind as Export (Type)
 import Data.List.NonEmpty as Export (NonEmpty ((:|)))
 import Data.Map.Strict as Export (Map)
 import Data.Proxy as Export (Proxy (Proxy))

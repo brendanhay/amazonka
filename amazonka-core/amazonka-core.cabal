@@ -36,7 +36,10 @@ common base
     DataKinds
     DefaultSignatures
     DeriveAnyClass
+    DeriveFoldable
+    DeriveFunctor
     DeriveGeneric
+    DeriveTraversable
     DerivingStrategies
     DerivingVia
     DuplicateRecordFields

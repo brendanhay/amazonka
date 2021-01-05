@@ -16,16 +16,16 @@ where
 import Control.Applicative
 import Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as HashMap
-import Data.Maybe (fromMaybe, isJust)
-import Data.Text (Text)
+import qualified Data.Maybe as Maybe
 import Network.AWS.Data.Text (ToText (..))
 import Network.AWS.Lens (Getter, to)
+import Network.AWS.Prelude
 import Network.AWS.Types
 
 -- | Specify how an 'AWSRequest' and it's associated 'Rs' response can
 -- generate a subsequent request, if available.
 class AWSRequest a => AWSPager a where
-  page :: a -> Rs a -> Maybe a
+  page :: a -> AWSResponse a -> Maybe a
 
 -- | Generalise IsTruncated and other optional/required
 -- response pagination fields.
@@ -34,21 +34,27 @@ class AWSTruncated a where
 
 instance AWSTruncated Bool where
   truncated = id
+  {-# INLINEABLE truncated #-}
 
 instance AWSTruncated [a] where
   truncated = not . null
+  {-# INLINEABLE truncated #-}
 
 instance AWSTruncated (HashMap k v) where
-  truncated = not . Map.null
+  truncated = not . HashMap.null
+  {-# INLINEABLE truncated #-}
 
 instance {-# OVERLAPPABLE #-} AWSTruncated (Maybe a) where
-  truncated = isJust
+  truncated = Maybe.isJust
+  {-# INLINEABLE truncated #-}
 
 instance {-# OVERLAPS #-} AWSTruncated (Maybe Bool) where
-  truncated = fromMaybe False
+  truncated = Maybe.fromMaybe False
+  {-# INLINEABLE truncated #-}
 
 stop :: AWSTruncated a => a -> Bool
 stop = not . truncated
+{-# INLINEABLE stop #-}
 
 choice ::
   (Alternative f, ToText a, ToText b) =>
@@ -56,3 +62,4 @@ choice ::
   (s -> f b) ->
   Getter s (f Text)
 choice f g = to $ \x -> (toText <$> f x) <|> (toText <$> g x)
+{-# INLINEABLE choice #-}

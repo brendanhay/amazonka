@@ -15,15 +15,15 @@ module Network.AWS.Sign.V2Header
   )
 where
 
+import qualified Data.Dynamic as Dynamic
 import qualified Data.Map.Strict as Map
-import qualified Data.ByteString.Char8 as ByteString.Char8
 import qualified Data.Text.Encoding as Text.Encoding
+import Network.AWS.Data
 import qualified Network.AWS.Hash as Hash
+import Network.AWS.Prelude
 import qualified Network.AWS.Sign.V2Header.Base as V2
 import Network.AWS.Types
-import Network.AWS.Data 
 import qualified Network.HTTP.Client as Client
-import Network.AWS.Prelude
 import qualified Network.HTTP.Types as HTTP
 
 data V2Header = V2Header
@@ -47,47 +47,55 @@ data V2Header = V2Header
 --       ]
 
 v2Header :: Signer
-v2Header = Signer sign (const sign)
+v2Header =
+  Signer
+    { runSigner = sign,
+      runPresigner = const sign
+    }
 
-sign :: Algorithm a
+sign :: SigningAlgorithm request
 sign Request {..} AuthEnv {..} region time =
-  Signed meta request
+  ( request,
+    Dynamic.toDyn metadata
+  )
   where
-    meta = Meta (V2Header time endpoint signature' headers signer)
+    Service {..} = requestService
 
-    signer = V2.newSigner headers method _rqPath _rqQuery
+    signer =
+      V2.newSigner headers method requestPath requestQuery
 
-    request =
-      (clientRequest endpoint _svcTimeout)
-        { Client.method = method,
-          Client.path = _rqPath,
-          Client.queryString = encodeQuery True _rqQuery,
-          Client.requestHeaders = Map.toList headers,
-          Client.requestBody = toRequestBody _rqBody
+    metadata =
+      V2Header
+        { metaTime = time,
+          metaEndpoint = endpoint,
+          metaSignature = signature',
+          metaHeaders = headers,
+          metaSigner = signer
         }
 
-    method = HTTP.renderStdMethod _rqMethod
+    request =
+      (newClientRequest endpoint serviceTimeout)
+        { Client.method = method,
+          Client.path = requestPath,
+          Client.queryString = encodeQueryBuilder True requestQuery,
+          Client.requestHeaders = Map.toList headers,
+          Client.requestBody = toRequestBody requestBody
+        }
+      
+    method = HTTP.renderStdMethod requestMethod
 
-    endpoint = _svcEndpoint region
-
-    Service {..} = _rqService
-
+    endpoint = serviceEndpoint region
 
     headers =
-        Map.insert HTTP.hDate date
-      . Map.insert HTTP.hAuthorization authorization
-      $ _rqHeaders
+      Map.insert HTTP.hDate date
+        . Map.insert HTTP.hAuthorization authorization
+        $ requestHeaders
 
-    authorization =
-      "AWS "
-         <> Text.Encoding.encodeUtf8 (fromAccessKey _authAccess)
-         <> ":"
-          <> signature'
-
+    authorization = "AWS " <> toUTF8 authAccessKeyId <> ":" <> signature'
+      
     signature' =
       Hash.digestToBase Hash.Base64
-        . Hash.hmacSHA1 (Text.Encoding.encodeUtf8 (fromSecretKey _authSecret))
+        . Hash.hmacSHA1 (toUTF8 authSecretAccessKey)
         $ signer
 
-    date =
-       Text.Encoding.encodeUtf8 (formatDateTime rfc822Format time)
+    date = toUTF8 (formatDateTime rfc822Format time)

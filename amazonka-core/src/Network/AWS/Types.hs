@@ -17,51 +17,26 @@ module Network.AWS.Types
     Auth (..),
     withAuth,
     AuthEnv (..),
-    accessKeyId,
-    secretAccessKey,
-    sessionToken,
-    expiration,
 
     -- * Logging
     LogLevel (..),
     Logger,
 
     -- * Signing
-    Algorithm,
-    Meta (..),
+    SigningAlgorithm,
     Signer (..),
-    Signed (..),
 
     -- * Service
     Abbrev,
     Service (..),
-    serviceSigner,
-    serviceEndpoint,
-    serviceTimeout,
-    serviceCheck,
-    serviceRetry,
 
     -- * Requests
-    AWSRequest (..),
     Request (..),
-    rqService,
-    rqMethod,
-    rqHeaders,
-    rqPath,
-    rqQuery,
-    rqBody,
-    rqSign,
-    rqPresign,
-
-    -- * Responses
     Response,
+    AWSRequest (..),
 
     -- * Retries
     Retry (..),
-    exponentBase,
-    exponentGrowth,
-    retryAttempts,
-    retryCheck,
 
     -- * Errors
     AsError (..),
@@ -70,24 +45,15 @@ module Network.AWS.Types
     -- ** HTTP Errors
     Client.HttpException,
 
-    -- ** Serialize Errors
+    -- ** Serialization Errors
     SerializeError (..),
-    serializeAbbrev,
-    serializeStatus,
-    serializeMessage,
 
     -- ** Service Errors
     ServiceError (..),
-    serviceAbbrev,
-    serviceStatus,
-    serviceHeaders,
-    serviceCode,
-    serviceMessage,
-    serviceRequestId,
 
     -- ** Error Types
     ErrorCode (..),
-    errorCode,
+    newErrorCode,
     ErrorMessage (..),
     RequestId (..),
 
@@ -125,9 +91,9 @@ module Network.AWS.Types
     Endpoint (..),
 
     -- * HTTP
-    ClientRequest,
-    ClientResponse,
     ResponseBody,
+    ClientResponse,
+    ClientRequest,
     newClientRequest,
 
     -- * Seconds
@@ -138,33 +104,36 @@ module Network.AWS.Types
 where
 
 import Control.Concurrent (ThreadId)
--- import Control.Exception
--- import Control.Monad.IO.Class
 import Control.Monad.Trans.Resource (ResourceT)
--- import Data.Aeson hiding (Error)
--- import Data.ByteString.Builder (Builder)
 import Data.Conduit (ConduitM)
--- import Data.Hashable
+import Data.Dynamic (Dynamic)
 import Data.IORef (IORef)
 import qualified Data.IORef as IORef
 import qualified Data.Maybe as Maybe
 import qualified Data.Text as Text
 import Network.AWS.Data
 import qualified Network.AWS.Lens as Lens
--- import Network.HTTP.Conduit hiding (Proxy, Request, Response)
--- import qualified Network.HTTP.Conduit as Client
-
--- import Network.HTTP.Types.Header
--- import Network.HTTP.Types.Method
-import qualified Network.HTTP.Types as HTTP
 import Network.AWS.Prelude
-import qualified Data.Coerce as Coerce
 import qualified Network.HTTP.Client as Client
-
--- import Network.HTTP.Types.Status (Status)
+import qualified Network.HTTP.Types as HTTP
 
 -- | A convenience alias to avoid type ambiguity.
 type ClientRequest = Client.Request
+
+-- | Construct a 'ClientRequest' using common parameters such as TLS and prevent
+-- throwing errors when receiving erroneous status codes in respones.
+newClientRequest :: Endpoint -> Maybe Seconds -> ClientRequest
+newClientRequest endpoint timeout =
+  Client.defaultRequest
+    { Client.secure = endpointSecure endpoint,
+      Client.host = endpointHost endpoint,
+      Client.port = endpointPort endpoint,
+      Client.redirectCount = 0,
+      Client.responseTimeout =
+        case timeout of
+          Nothing -> Client.responseTimeoutNone
+          Just n -> Client.responseTimeoutMicro (microseconds n)
+    }
 
 -- | A convenience alias encapsulating the common 'Response'.
 type ClientResponse = Client.Response ResponseBody
@@ -204,8 +173,8 @@ newtype ErrorCode = ErrorCode {fromErrorCode :: Text}
     )
 
 -- | Construct an 'ErrorCode'.
-stripErrorCode :: Text -> ErrorCode
-stripErrorCode = ErrorCode . strip . unNamespace
+newErrorCode :: Text -> ErrorCode
+newErrorCode = ErrorCode . strip . unNamespace
   where
     -- Common suffixes are stripped since the service definitions are ambigiuous
     -- as to whether the error shape's name, or the error code is present
@@ -406,67 +375,62 @@ data Service = Service
     serviceCheck :: HTTP.Status -> Bool,
     serviceError :: HTTP.Status -> [Header] -> ByteStringLazy -> Error,
     serviceRetry :: Retry
-  } deriving stock (Generic)
+  }
+  deriving stock (Generic)
 
--- | Construct a 'ClientRequest' using common parameters such as TLS and prevent
--- throwing errors when receiving erroneous status codes in respones.
-newClientRequest :: Endpoint -> Maybe Seconds -> ClientRequest
-newClientRequest endpoint timeout =
-  Client.defaultRequest
-    { Client.secure = endpointSecure endpoint,
-      Client.host = endpointHost endpoint,
-      Client.port = endpointPort endpoint,
-      Client.redirectCount = 0,
-      Client.responseTimeout =
-        case timeout of
-          Nothing -> Client.responseTimeoutNone
-          Just n -> Client.responseTimeoutMicro (microseconds n)
-    }
+-- -- | A signed 'ClientRequest' tagged with the initial request type.
+-- newtype SignedRequest request = SignedRequest
+--   { fromSignedRequest :: ClientRequest
+--   }
+--   deriving stock (Generic)
+
+-- Note: The signing metadata is used for testing and debugging.
+-- Additional information such as a V4 string-to-sign or V2 headers can be
+-- retrieved from the dynamic payload or the client request.
+type SigningAlgorithm request =
+  Request request ->
+  AuthEnv ->
+  Region ->
+  UTCTime ->
+  (ClientRequest, Dynamic)
+
+data Signer = Signer
+  { runSigner :: forall request. SigningAlgorithm request,
+    runPresigner :: forall request. Seconds -> SigningAlgorithm request
+  }
 
 -- | An unsigned request.
-data UnsignedRequest a = UnsignedRequest
+data Request request = Request
   { requestService :: Service,
     requestMethod :: HTTP.StdMethod,
     requestPath :: ByteString,
-    requestQuery :: QueryString,
+    requestQuery :: QueryBuilder,
     requestHeaders :: Headers,
     requestBody :: RqBody
   }
   deriving stock (Generic)
 
--- | A signed 'ClientRequest' and associated metadata specific
--- to the signing algorithm, tagged with the initial request type
--- to be able to obtain the associated response, 'Rs a'.
-newtype SignedRequest a = SignedRequest { fromSignedRequest :: ClientRequest }
-
-type SigningAlgorithm a =
-  UnsignedRequest a ->
-  AuthEnv ->
-  Region -> UTCTime -> SignedRequest a
-
-data Signer = Signer
-  { signerAlgorithm :: forall a. SigningAlgorithm a,
-    signerPresigner :: forall a. Seconds -> SigningAlgorithm a
+data Response response = Response
+  { responseStatus :: HTTP.Status,
+    responsePayload :: response
   }
-
--- data ServiceResponse a = ServiceResponse
---   { responseStatus :: HTTP.Status,
---     responsePayload :: AWSResponse a
---   }
+  deriving stock (Functor, Foldable, Traversable, Generic)
 
 -- | Specify how a request can be de/serialised.
-class AWSRequest a where
-  -- | The successful response payload associated with a given request.
-  type AWSResponse a :: *
+class AWSRequest request where
+  type AWSResponse request :: Type
 
-  toAWSRequest :: a -> UnsignedRequest a
-  parseAWSResponse ::
+  toRequest ::
+    request ->
+    Request request
+
+  parseResponse ::
     Monad m =>
     Logger ->
     Service ->
-    Proxy a ->
+    Proxy request ->
     ClientResponse ->
-    m (Either Error (HTTP.Status, AWSResponse a))
+    m (Either Error (Response (AWSResponse request)))
 
 -- | An access key ID.
 --
@@ -537,15 +501,14 @@ instance Show SessionToken where
 
 -- | The AuthN/AuthZ credential environment.
 data AuthEnv = AuthEnv
-  {
- -- | The access key ID that identifies the temporary security credentials.
-   authAccessKeyId :: AccessKey,
- -- | The secret access key that can be used to sign requests.
-   authSecretAccessKey :: SecretKey,
- -- | The token that users must pass to the service API to use the temporary
-   authSessionToken :: Maybe SessionToken,
- -- | The expiry time of the credentials.
-   authExpiration :: Maybe UTCTime
+  { -- | The access key ID that identifies the temporary security credentials.
+    authAccessKeyId :: AccessKey,
+    -- | The secret access key that can be used to sign requests.
+    authSecretAccessKey :: SecretKey,
+    -- | The token that users must pass to the service API to use the temporary
+    authSessionToken :: Maybe SessionToken,
+    -- | The expiry time of the credentials.
+    authExpiration :: Maybe UTCTime
   }
   deriving stock (Show, Eq, Generic)
   deriving anyclass (NFData)
@@ -592,7 +555,7 @@ withAuth (Ref _ r) f = liftIO (IORef.readIORef r) >>= f
 withAuth (Auth e) f = f e
 
 -- | The available AWS regions.
-newtype Region = Region' { fromRegion :: Text }
+newtype Region = Region' {fromRegion :: Text}
   deriving stock (Show, Read, Eq, Ord, Generic)
   deriving newtype
     ( IsString,

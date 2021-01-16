@@ -17,27 +17,28 @@ import Network.AWS.Hash (Digest, SHA256)
 import qualified Network.AWS.Hash as Hash
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Prelude
-import Network.HTTP.Client (RequestBody (..))
-import qualified Network.HTTP.Client as HTTP.Client
+import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Conduit as HTTP.Conduit
 
--- | A convenience alias encapsulating the common 'Response' body.
-type ResponseBody = ConduitM () ByteString (ResourceT IO) ()
+-- -- | A convenience alias encapsulating the common 'Response' body.
+-- type ResponseBody = ConduitM () ByteString (ResourceT IO) ()
 
 -- | A streaming, exception safe response body.
-newtype ResponseStream = ResponseStream
-  { _streamBody :: ResponseBody
+newtype ResponseBody = ResponseBody
+  { _streamBody :: ConduitM () ByteString (ResourceT IO) ()
   } -- newtype for show/orhpan instance purposes.
 
-instance Show ResponseStream where
+instance Show ResponseBody where
   showsPrec _ _ =
-    showString "ResponseStream { ConduitM () ByteString (ResourceT IO) () }"
+    showString "ResponseBody { ConduitM () ByteString (ResourceT IO) () }"
 
 fuseStream ::
-  ResponseStream ->
+  ResponseBody ->
   ConduitM ByteString ByteString (ResourceT IO) () ->
-  ResponseStream
-fuseStream b f = b {_streamBody = _streamBody b Conduit..| f}
+  ResponseBody
+fuseStream body f =
+  body { _streamBody = _streamBody body Conduit..| f
+       }
 
 -- | Specifies the transmitted size of the 'Transfer-Encoding' chunks.
 --
@@ -119,7 +120,7 @@ instance Show HashedBody where
           . shows len
 
 instance IsString HashedBody where
-  fromString = toHashed . ByteString.Char8.pack
+  fromString = toHashedBody . ByteString.Char8.pack
   {-# INLINEABLE fromString #-}
 
 sha256Base16 :: HashedBody -> ByteString
@@ -129,35 +130,35 @@ sha256Base16 =
     HashedBytes h _ -> h
 
 -- | Invariant: only services that support _both_ standard and
--- chunked signing expose 'RqBody' as a parameter.
-data RqBody
+-- chunked signing expose 'RequestBody' as a parameter.
+data RequestBody
   = Chunked ChunkedBody
   | Hashed HashedBody
   deriving stock (Show)
 
-instance IsString RqBody where
+instance IsString RequestBody where
   fromString = Hashed . fromString
 
-md5Base64 :: RqBody -> Maybe ByteString
+md5Base64 :: RequestBody -> Maybe ByteString
 md5Base64 = \case
   Hashed (HashedBytes _ x) ->
     Just . Hash.digestToBase Hash.Base64 $ Hash.hashMD5 x
   _ ->
     Nothing
 
-isStreaming :: RqBody -> Bool
+isStreaming :: RequestBody -> Bool
 isStreaming = \case
   Hashed (HashedStream {}) -> True
   _ -> False
 
-toRequestBody :: RqBody -> HTTP.Client.RequestBody
+toRequestBody :: RequestBody -> Client.RequestBody
 toRequestBody = \case
   Chunked x -> HTTP.Conduit.requestBodySourceChunked (_chunkedBody x)
   Hashed x -> case x of
     HashedStream _ n f -> HTTP.Conduit.requestBodySource (fromIntegral n) f
-    HashedBytes _ b -> RequestBodyBS b
+    HashedBytes _ b -> Client.RequestBodyBS b
 
-contentLength :: RqBody -> Integer
+contentLength :: RequestBody -> Integer
 contentLength = \case
   Chunked x -> _chunkedLength x
   Hashed x -> case x of
@@ -167,45 +168,45 @@ contentLength = \case
 -- | Anything that can be safely converted to a 'HashedBody'.
 class ToHashedBody a where
   -- | Convert a value to a hashed request body.
-  toHashed :: a -> HashedBody
+  toHashedBody :: a -> HashedBody
 
 instance ToHashedBody HashedBody where
-  toHashed = id
-  {-# INLINEABLE toHashed #-}
+  toHashedBody = id
+  {-# INLINEABLE toHashedBody #-}
 
 instance ToHashedBody ByteString where
-  toHashed x = HashedBytes (Hash.hash x) x
-  {-# INLINEABLE toHashed #-}
+  toHashedBody x = HashedBytes (Hash.hash x) x
+  {-# INLINEABLE toHashedBody #-}
 
 -- instance ToHashedBody String where
---   toHashed = toHashed . ByteString.Char8.pack
---   {-# INLINEABLE toHashed #-}
+--   toHashedBody = toHashedBody . ByteString.Char8.pack
+--   {-# INLINEABLE toHashedBody #-}
 
 instance ToHashedBody Text where
-  toHashed = toHashed . Text.Encoding.encodeUtf8
-  {-# INLINEABLE toHashed #-}
+  toHashedBody = toHashedBody . Text.Encoding.encodeUtf8
+  {-# INLINEABLE toHashedBody #-}
 
 -- instance ToHashedBody Value where
---   toHashed = toHashed . encode
+--   toHashedBody = toHashedBody . encode
 
 -- instance ToHashedBody Element where
---   toHashed = toHashed . encodeXML
+--   toHashedBody = toHashedBody . encodeXML
 
 -- instance ToHashedBody QueryString where
---   toHashed = toHashed . toBS
+--   toHashedBody = toHashedBody . toBS
 
 -- instance ToHashedBody (HashMap Text Value) where
---   toHashed = toHashed . Object
+--   toHashedBody = toHashedBody . Object
 
 -- | Anything that can be converted to a streaming request 'Body'.
 class ToBody a where
   -- | Convert a value to a request body.
-  toBody :: a -> RqBody
-  default toBody :: ToHashedBody a => a -> RqBody
-  toBody = Hashed . toHashed
+  toBody :: a -> RequestBody
+  default toBody :: ToHashedBody a => a -> RequestBody
+  toBody = Hashed . toHashedBody
   {-# INLINEABLE toBody #-}
 
-instance ToBody RqBody where
+instance ToBody RequestBody where
   toBody = id
   {-# INLINEABLE toBody #-}
 
@@ -218,7 +219,7 @@ instance ToBody ChunkedBody where
   {-# INLINEABLE toBody #-}
 
 -- instance ToHashedBody a => ToBody (Maybe a) where
---   toBody = Hashed . maybe (toHashed ByteString.empty) toHashed
+--   toBody = Hashed . maybe (toHashedBody ByteString.empty) toHashedBody
 
 instance ToBody ByteString
 
@@ -234,14 +235,14 @@ instance ToBody Text
 
 -- instance ToBody QueryString
 
--- toJSONBody :: ToJSON a => a -> RqBody
+-- toJSONBody :: ToJSON a => a -> RequestBody
 -- toJSONBody = toBody . encode
 -- {-# INLINEABLE toJSONBody #-}
 
--- toXMLBody :: ToElement a => a -> RqBody
+-- toXMLBody :: ToElement a => a -> RequestBody
 -- toXMLBody = toBody . encodeXML
 -- {-# INLINEABLE toXMLBody #-}
 
--- toQueryBody :: QueryString -> RqBody
+-- toQueryBody :: QueryString -> RequestBody
 -- toQueryBody = toBody . toBS
 -- {-# INLINEABLE toQueryBody #-}

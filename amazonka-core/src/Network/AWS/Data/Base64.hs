@@ -74,8 +74,8 @@ instance ToQuery Base64 where
   {-# INLINEABLE toQuery #-}
 
 instance ToHashedBody Base64 where
-  toHashed = toHashed . toText
-  {-# INLINEABLE toHashed #-}
+  toHashedBody = toHashedBody . toText
+  {-# INLINEABLE toHashedBody #-}
 
 instance ToBody Base64 where
   toBody = toBody . toText

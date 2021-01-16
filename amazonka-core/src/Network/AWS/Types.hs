@@ -21,19 +21,19 @@ module Network.AWS.Types
     -- * Logging
     LogLevel (..),
     Logger,
-
-    -- * Signing
-    SigningAlgorithm,
-    Signer (..),
-
+    
     -- * Service
     Abbrev,
     Service (..),
 
-    -- * Requests
-    Request (..),
-    Response,
+   -- * Requests
     AWSRequest (..),
+    Request (..),
+
+    -- * Signing
+    SignedRequest (..),
+    SigningAlgorithm,
+    Signer (..),
 
     -- * Retries
     Retry (..),
@@ -91,9 +91,10 @@ module Network.AWS.Types
     Endpoint (..),
 
     -- * HTTP
-    ClientResponse,
     ClientRequest,
     newClientRequest,
+    ClientResponse,
+    ClientBody,
 
     -- * Seconds
     Seconds (..),
@@ -102,9 +103,9 @@ module Network.AWS.Types
   )
 where
 
-import Control.Concurrent (ThreadId)
 import Control.Monad.Trans.Resource (ResourceT)
 import Data.Conduit (ConduitM)
+import Control.Concurrent (ThreadId)
 import Data.Dynamic (Dynamic)
 import Data.IORef (IORef)
 import qualified Data.IORef as IORef
@@ -116,11 +117,15 @@ import Network.AWS.Prelude
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Types as HTTP
 
--- | A convenience alias encapsulating the common 'Response'.
-type ClientResponse = Client.Response ResponseBody
-
 -- | A convenience alias to avoid type ambiguity.
 type ClientRequest = Client.Request
+
+-- | A convenience alias encapsulating the common 'Response'.
+type ClientResponse = Client.Response
+
+-- | A convenience alias for the initial (pre-parsing) response body.
+type ClientBody = ConduitM () ByteString (ResourceT IO) ()
+
 
 -- | Construct a 'ClientRequest' using common parameters such as TLS and prevent
 -- throwing errors when receiving erroneous status codes in respones.
@@ -236,7 +241,7 @@ data SerializeError = SerializeError'
     serializeErrorStatus :: HTTP.Status,
     -- | The response body, if the response was not streaming.
     serializeErrorBody :: Maybe ByteStringLazy,
-    serializeErrorMessage :: String
+    serializeErrorMessage :: Text
   }
   deriving stock (Show, Eq, Generic)
 
@@ -374,11 +379,21 @@ data Service = Service
   }
   deriving stock (Generic)
 
--- -- | A signed 'ClientRequest' tagged with the initial request type.
--- newtype SignedRequest request = SignedRequest
---   { fromSignedRequest :: ClientRequest
---   }
---   deriving stock (Generic)
+-- | An unsigned request.
+data Request a = Request
+  { requestService :: Service,
+    requestMethod :: HTTP.StdMethod,
+    requestPath :: ByteString,
+    requestQuery :: QueryBuilder,
+    requestHeaders :: Headers,
+    requestBody :: RequestBody
+  }
+  deriving stock (Generic)
+
+data SignedRequest a = SignedRequest
+  { signedMetadata :: Dynamic
+  , signedRequest :: ClientRequest
+  } deriving stock (Generic)
 
 -- Note: The signing metadata is used for testing and debugging.
 -- Additional information such as a V4 string-to-sign or V2 headers can be
@@ -388,29 +403,12 @@ type SigningAlgorithm request =
   AuthEnv ->
   Region ->
   UTCTime ->
-  (ClientRequest, Dynamic)
+  SignedRequest request
 
 data Signer = Signer
   { runSigner :: forall request. SigningAlgorithm request,
     runPresigner :: forall request. Seconds -> SigningAlgorithm request
   }
-
--- | An unsigned request.
-data Request request = Request
-  { requestService :: Service,
-    requestMethod :: HTTP.StdMethod,
-    requestPath :: ByteString,
-    requestQuery :: QueryBuilder,
-    requestHeaders :: Headers,
-    requestBody :: RqBody
-  }
-  deriving stock (Generic)
-
-data Response response = Response
-  { responseStatus :: HTTP.Status,
-    responsePayload :: response
-  }
-  deriving stock (Functor, Foldable, Traversable, Generic)
 
 -- | Specify how a request can be de/serialised.
 class AWSRequest request where
@@ -425,8 +423,8 @@ class AWSRequest request where
     Logger ->
     Service ->
     Proxy request ->
-    ClientResponse ->
-    m (Either Error (Response (AWSResponse request)))
+    ClientResponse ClientBody ->
+    m (Either Error (ClientResponse (AWSResponse request)))
 
 -- | An access key ID.
 --

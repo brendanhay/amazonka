@@ -55,9 +55,10 @@ v2Header =
 
 sign :: SigningAlgorithm request
 sign Request {..} AuthEnv {..} region time =
-  ( request,
-    Dynamic.toDyn metadata
-  )
+  SignedRequest
+    { signedMetadata = Dynamic.toDyn metadata,
+      signedRequest = request
+    }
   where
     Service {..} = requestService
 

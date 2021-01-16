@@ -7,30 +7,22 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Sign.V4.Base where
 
-import Data.Bifunctor
-import qualified Data.ByteString as BS
-import qualified Data.ByteString.Char8 as BS8
+import qualified Data.Bifunctor as Bifunctor
+import qualified Data.Dynamic as Dynamic 
+import qualified Data.ByteString as ByteString
+import qualified Data.ByteString.Char8 as ByteString.Char8
 import qualified Data.CaseInsensitive as CI
-import qualified Data.Foldable as Fold
+import qualified Data.Foldable as Foldable
 import Data.Function (on)
 import Data.List (nubBy, sortBy)
 import GHC.TypeLits
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Crypto
-import Network.AWS.Data.Headers
-import Network.AWS.Data.Log
-import Network.AWS.Data.Path
-import Network.AWS.Data.Query
-import Network.AWS.Data.Sensitive (_Sensitive)
-import Network.AWS.Data.Time
-import Network.AWS.Lens ((%~), (<>~), (^.))
+import Network.AWS.Data
+-- import Network.AWS.Lens ((%~), (<>~), (^.))
 import Network.AWS.Prelude
-import Network.AWS.Request
+import qualified Network.AWS.Request as Request
 import Network.AWS.Types
 import qualified Network.HTTP.Conduit as Client
-import qualified Network.HTTP.Types.Header as H
-
-default (ByteString)
+import qualified Network.HTTP.Types.Header as Header
 
 data V4 = V4
   { metaTime :: UTCTime,
@@ -48,23 +40,23 @@ data V4 = V4
     metaTimeout :: (Maybe Seconds)
   }
 
-instance ToLog V4 where
-  build V4 {..} =
-    buildLines
-      [ "[Version 4 Metadata] {",
-        "  time              = " <> build metaTime,
-        "  endpoint          = " <> build (_endpointHost metaEndpoint),
-        "  credential        = " <> build metaCredential,
-        "  signed headers    = " <> build metaSignedHeaders,
-        "  signature         = " <> build metaSignature,
-        "  string to sign    = {",
-        build metaStringToSign,
-        "}",
-        "  canonical request = {",
-        build metaCanonicalRequest,
-        "  }",
-        "}"
-      ]
+-- instance ToLog V4 where
+--   build V4 {..} =
+--     buildLines
+--       [ "[Version 4 Metadata] {",
+--         "  time              = " <> build metaTime,
+--         "  endpoint          = " <> build (_endpointHost metaEndpoint),
+--         "  credential        = " <> build metaCredential,
+--         "  signed headers    = " <> build metaSignedHeaders,
+--         "  signature         = " <> build metaSignature,
+--         "  string to sign    = {",
+--         build metaStringToSign,
+--         "}",
+--         "  canonical request = {",
+--         build metaCanonicalRequest,
+--         "  }",
+--         "}"
+--       ]
 
 base ::
   Hash ->
@@ -75,7 +67,8 @@ base ::
   (V4, ClientRequest -> ClientRequest)
 base h rq a r ts = (meta, auth)
   where
-    auth = requestHeaders <>~ [(H.hAuthorization, authorisation meta)]
+    auth =
+      requestHeaders <>~ [(Header.hAuthorization, authorisation meta)]
 
     meta = signMetadata a r ts presigner h (prepare rq)
 
@@ -99,12 +92,12 @@ base h rq a r ts = (meta, auth)
 -- the ToByteString instance.
 newtype Tag (s :: Symbol) a = Tag {unTag :: a} deriving (Show)
 
-instance ToByteString (Tag s ByteString) where toBS = unTag
+-- instance ToByteString (Tag s ByteString) where toBS = unTag
 
-instance ToLog (Tag s ByteString) where build = build . unTag
+-- instance ToLog (Tag s ByteString) where build = build . unTag
 
-instance ToByteString CredentialScope where
-  toBS = BS8.intercalate "/" . unTag
+-- instance ToByteString CredentialScope where
+--   toBS = ByteString.Char8.intercalate "/" . unTag
 
 type Hash = Tag "body-digest" ByteString
 
@@ -141,27 +134,31 @@ authorisation V4 {..} =
     <> toBS metaSignature
 
 signRequest ::
-  -- | Pre-signRequestd signing metadata.
+  -- | Pre-request signing metadata.
   V4 ->
   -- | The request body.
   Client.RequestBody ->
   -- | Insert authentication information.
   (ClientRequest -> ClientRequest) ->
-  Signed a
-signRequest m@V4 {..} b auth = Signed (Meta m) (auth rq)
+  SignedRequest a
+signRequest metadata@V4 {..} b auth =
+    SignedRequest
+    { signedMetadata = Dynamic.toDyn metadata,
+      signedRequest = request
+    }
   where
-    rq =
-      (clientRequest metaEndpoint metaTimeout)
-        { Client.method = toBS metaMethod,
-          Client.path = toBS metaPath,
-          Client.queryString = qry,
+    request =
+      (newClientRequest metaEndpoint metaTimeout)
+        { Client.method = unTag metaMethod,
+          Client.path = unTag metaPath,
+          Client.queryString = query,
           Client.requestHeaders = metaHeaders,
           Client.requestBody = b
         }
 
-    qry
-      | BS.null x = x
-      | otherwise = '?' `BS8.cons` x
+    query
+      | ByteString.null x = x
+      | otherwise = '?' `ByteString.Char8.cons` x
       where
         x = toBS metaCanonicalQuery
 
@@ -213,14 +210,14 @@ algorithm = "AWS4-HMAC-SHA256"
 signature :: SecretKey -> CredentialScope -> StringToSign -> Signature
 signature k c = Tag . digestToBase Base16 . hmacSHA256 signingKey . unTag
   where
-    signingKey = Fold.foldl' hmac ("AWS4" <> toBS k) (unTag c)
+    signingKey = Foldable.foldl' hmac ("AWS4" <> toBS k) (unTag c)
 
     hmac x y = digestToBS (hmacSHA256 x y)
 
 stringToSign :: UTCTime -> CredentialScope -> CanonicalRequest -> StringToSign
 stringToSign t c r =
   Tag $
-    BS8.intercalate
+    ByteString.Char8.intercalate
       "\n"
       [ algorithm,
         formatAWSTime t,
@@ -250,7 +247,7 @@ canonicalRequest ::
   CanonicalRequest
 canonicalRequest meth path digest query chs shs =
   Tag $
-    BS8.intercalate
+    ByteString.Char8.intercalate
       "\n"
       [ toBS meth,
         toBS path,
@@ -273,12 +270,12 @@ canonicalQuery = Tag . toBS
 -- all internal whitespace, replacing with a single space char,
 -- unless quoted with \"...\"
 canonicalHeaders :: NormalisedHeaders -> CanonicalHeaders
-canonicalHeaders = Tag . Fold.foldMap (uncurry f) . unTag
+canonicalHeaders = Tag . foldMap (uncurry f) . unTag
   where
     f k v = k <> ":" <> stripBS v <> "\n"
 
 signedHeaders :: NormalisedHeaders -> SignedHeaders
-signedHeaders = Tag . BS8.intercalate ";" . map fst . unTag
+signedHeaders = Tag . ByteString.Char8.intercalate ";" . map fst . unTag
 
 normaliseHeaders :: [Header] -> NormalisedHeaders
 normaliseHeaders =
@@ -290,5 +287,5 @@ normaliseHeaders =
     . filter ((/= "content-length") . fst)
 
 formatAWSTime, formatBasicTime :: UTCTime -> ByteString
-formatAWSTime = BS8.pack . formatDateTime awsFormat
-formatBasicTime = BS8.pack . formatDateTime basicFormat
+formatAWSTime = ByteString.Char8.pack . formatDateTime awsFormat
+formatBasicTime = ByteString.Char8.pack . formatDateTime basicFormat

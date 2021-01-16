@@ -7,31 +7,27 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Request
   ( -- * Plugins
-    contentMD5Header,
-    expectHeader,
+    addContentMD5Header,
+    addExpectHeader,
 
     -- * Lenses
-    requestHeaders,
-    queryString,
+    -- requestHeaders,
+    -- queryString,
     requestURL,
-    -- Re-exported types
-    StdMethod (..),
   )
 where
 
-import Data.Maybe
-import Network.AWS.Data.Body
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Headers
-import Network.AWS.Data.JSON
-import Network.AWS.Data.Path
-import Network.AWS.Data.Query
-import Network.AWS.Data.XML
-import Network.AWS.Lens (Lens', (%~), (&), (.~), (<&>))
+import qualified Data.ByteString.Lazy as ByteString.Lazy
+import qualified Data.ByteString.Builder as Builder
+import qualified Data.Maybe  as Maybe
+import Network.AWS.Data
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Types
-import qualified Network.HTTP.Conduit as Client
+import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types (StdMethod (..))
+import qualified Data.Map.Strict as Map
 import qualified Network.HTTP.Types as HTTP
+import Network.AWS.Prelude
 
 -- head' ::
 --    Service ->
@@ -42,7 +38,7 @@ import qualified Network.HTTP.Types as HTTP
 --    Request a
 -- head' service path query headers body =
 --   (get service path query headers)
---     { _rqMethod = HEAD
+--     { requestMethod = HEAD
 --     }
 
 -- delete ::
@@ -54,7 +50,7 @@ import qualified Network.HTTP.Types as HTTP
 --    Request a
 -- delete service path query headers body =
 --   (get service path query headers)
---     { _rqMethod = DELETE
+--     { requestMethod = DELETE
 --     }
 
 -- get ::
@@ -65,12 +61,12 @@ import qualified Network.HTTP.Types as HTTP
 --    Request a
 -- get service path query headers =
 --  Request
---     { _rqService = service,
---       _rqMethod = GET,
---       _rqPath = path,
---       _rqQuery = query,
---       _rqHeaders = headers,
---       _rqBody = ""
+--     { requestService = service,
+--       requestMethod = GET,
+--       requestPath = path,
+--       requestQuery = query,
+--       requestHeaders = headers,
+--       requestBody = ""
 --     }
 
 -- post ::
@@ -82,8 +78,8 @@ import qualified Network.HTTP.Types as HTTP
 --    Request a
 -- post service path query headers body =
 --   (get service path query headers)
---     { _rqMethod = POST,
---       _rqBody = body
+--     { requestMethod = POST,
+--       requestBody = body
 --     }
 
 -- put ::
@@ -95,7 +91,7 @@ import qualified Network.HTTP.Types as HTTP
 --    Request a
 -- put service path query headers body =
 --   (get service path query headers)
---    { _rqMethod = PUT
+--    { requestMethod = PUT
 --    }
 
 -- postForm ::
@@ -107,12 +103,12 @@ import qualified Network.HTTP.Types as HTTP
 --    Request a
 -- postForm service path query headers body =
 --   Request
---     { _rqService = s,
---       _rqMethod = POST,
---       _rqPath = rawPath x,
---       _rqQuery = mempty,
---       _rqBody = toBody (toQuery x),
---       _rqHeaders = hdr hContentType hFormEncoded headers
+--     { requestService = s,
+--       requestMethod = POST,
+--       requestPath = rawPath x,
+--       requestQuery = mempty,
+--       requestBody = toBody (toQuery x),
+--       requestHeaders = hdr hContentType hFormEncoded headers
 --     }
 
 -- mkRequest ::
@@ -125,12 +121,12 @@ import qualified Network.HTTP.Types as HTTP
 --   Request a
 -- mkRequest service method path query headers body =
 --   Request
---     { _rqService = service,
---       _rqMethod = method,
---       _rqPath = path,
---       _rqQuery = query,
---       _rqHeaders = headers,
---       _rqBody = body
+--     { requestService = service,
+--       requestMethod = method,
+--       requestPath = path,
+--       requestQuery = query,
+--       requestHeaders = headers,
+--       requestBody = body
 --     }
 
 -- postXML ::
@@ -142,7 +138,7 @@ import qualified Network.HTTP.Types as HTTP
 --    Request a
 -- postXML service path query headers body =
 --    (putXML service path query headers body)
---      { _rqMethod = POST
+--      { requestMethod = POST
 --      }
 
 -- putXML ::
@@ -154,8 +150,8 @@ import qualified Network.HTTP.Types as HTTP
 --    Request a
 -- putXML service path query headers body =
 --   (get service path query headers)
---     { _rqMethod = PUT
---     , _rqBody = maybe "" toBody (maybeElement x)
+--     { requestMethod = PUT
+--     , requestBody = maybe "" toBody (maybeElement x)
 --     }
 
 -- patchJSON ::
@@ -167,7 +163,7 @@ import qualified Network.HTTP.Types as HTTP
 --    Request a
 -- patchJSON service path query headers body =
 --    (putJSON service path query headers body)
---      { _rqMethod = PATCH
+--      { requestMethod = PATCH
 --      }
 
 -- postJSON ::
@@ -179,7 +175,7 @@ import qualified Network.HTTP.Types as HTTP
 --    Request a
 -- postJSON service path query headers body =
 --    (putJSON service path query headers body)
---      { _rqMethod = POST
+--      { requestMethod = POST
 --      }
 
 -- json ::
@@ -192,29 +188,31 @@ import qualified Network.HTTP.Types as HTTP
 --    Request a
 -- json service method path query headers body =
 --    Request
---     { _rqService = service,
---       _rqMethod = method,
---       _rqPath = path,
---       _rqQuery = query,
---       _rqHeaders = headers,
---       _rqBody = toBody (toJSON x)
+--     { requestService = service,
+--       requestMethod = method,
+--       requestPath = path,
+--       requestQuery = query,
+--       requestHeaders = headers,
+--       requestBody = toBody (toJSON x)
 --     }
 
-queryString :: Lens' Client.Request ByteString
-queryString f x =
-  f (Client.queryString x) <&> \y -> x {Client.queryString = y}
+-- queryString :: Lens' Client.Request ByteString
+-- queryString f x =
+--   f (Client.queryString x) <&> \y -> x {Client.queryString = y}
 
-requestHeaders :: Lens' Client.Request HTTP.RequestHeaders
-requestHeaders f x =
-  f (Client.requestHeaders x) <&> \y -> x {Client.requestHeaders = y}
+-- requestHeaders :: Lens' Client.Request HTTP.RequestHeaders
+-- requestHeaders f x =
+--   f (Client.requestHeaders x) <&> \y -> x {Client.requestHeaders = y}
 
 requestURL :: ClientRequest -> ByteString
 requestURL x =
-  scheme
-    <> toBS (Client.host x)
+  ByteString.Lazy.toStrict
+   . Builder.toLazyByteString
+   $ scheme
+    <> Builder.byteString (Client.host x)
     <> port (Client.port x)
-    <> toBS (Client.path x)
-    <> toBS (Client.queryString x)
+    <> Builder.byteString (Client.path x)
+    <> Builder.byteString (Client.queryString x)
   where
     scheme
       | secure = "https://"
@@ -223,21 +221,21 @@ requestURL x =
     port = \case
       80 -> ""
       443 | secure -> ""
-      n -> ":" <> toBS n
+      n -> ":" <> Builder.intDec n
 
-    secure = Client.secure x
+    secure =
+      Client.secure x
 
--- formEncodedHeader :: Request a -> Request a
--- formEncodedHeader rq =
---   rq & rqHeaders %~ hdr hContentType hFormEncoded
-
-contentMD5Header :: Request a -> Request a
-contentMD5Header rq
-  | missing, Just x <- md5 = rq & rqHeaders %~ hdr HTTP.hContentMD5 x
+addContentMD5Header :: Request a -> Request a
+addContentMD5Header rq
+  | Map.member HTTP.hContentMD5 (requestHeaders rq) = rq
+  | Just md5 <- md5Base64 (requestBody rq) = addHeader HTTP.hContentMD5 md5 rq
   | otherwise = rq
-  where
-    missing = isNothing $ lookup HTTP.hContentMD5 (_rqHeaders rq)
-    md5 = md5Base64 (_rqBody rq)
 
-expectHeader :: Request a -> Request a
-expectHeader = rqHeaders %~ hdr hExpect "100-continue"
+addExpectHeader :: Request a -> Request a
+addExpectHeader = addHeader hExpect "100-continue"
+
+addHeader :: HeaderName -> ByteString -> Request a -> Request a
+addHeader key val rq =
+  rq { requestHeaders = Map.insert key val (requestHeaders rq)
+     }

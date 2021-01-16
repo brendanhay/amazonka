@@ -18,6 +18,25 @@ module Network.AWS.Data.Headers
     parseHeadersMaybe,
     parseHeadersMap,
 
+    -- * Header names
+     hHost 
+    , hExpect 
+    , hAMZToken 
+    , hAMZTarget 
+    , hAMZAlgorithm 
+    , hAMZCredential 
+    , hAMZExpires 
+    , hAMZSignedHeaders 
+    , hAMZContentSHA256 
+    , hAMZDate 
+    , hMetaPrefix 
+    , hAMZRequestId 
+    , hAMZNRequestId 
+    , hAMZNErrorType 
+    , hAMZNAuth 
+    , hAMZDecodedContentLength 
+    , hTransferEncoding ,
+
     -- * Re-exported
     HTTP.Types.HeaderName,
     HTTP.Types.Header,

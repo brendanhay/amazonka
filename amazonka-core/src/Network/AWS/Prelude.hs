@@ -25,6 +25,7 @@ module Network.AWS.Prelude
   )
 where
 
+import Control.Monad.Trans.Resource as Export (MonadResource)
 import Control.Applicative as Export (Alternative ((<|>)))
 import Control.DeepSeq as Export (NFData)
 import Control.Exception as Export (Exception, SomeException)

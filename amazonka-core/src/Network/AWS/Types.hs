@@ -91,7 +91,6 @@ module Network.AWS.Types
     Endpoint (..),
 
     -- * HTTP
-    ResponseBody,
     ClientResponse,
     ClientRequest,
     newClientRequest,
@@ -117,6 +116,9 @@ import Network.AWS.Prelude
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Types as HTTP
 
+-- | A convenience alias encapsulating the common 'Response'.
+type ClientResponse = Client.Response ResponseBody
+
 -- | A convenience alias to avoid type ambiguity.
 type ClientRequest = Client.Request
 
@@ -134,12 +136,6 @@ newClientRequest endpoint timeout =
           Nothing -> Client.responseTimeoutNone
           Just n -> Client.responseTimeoutMicro (microseconds n)
     }
-
--- | A convenience alias encapsulating the common 'Response'.
-type ClientResponse = Client.Response ResponseBody
-
--- | A convenience alias encapsulating the common 'Response' body.
-type ResponseBody = ConduitM () ByteString (ResourceT IO) ()
 
 -- | Abbreviated service name.
 newtype Abbrev = Abbrev {fromAbbrev :: Text}

@@ -31,7 +31,6 @@ where
 -- import Control.Monad.IO.Class
 -- import Control.Monad.Trans.Resource
 -- import Data.Aeson
--- import qualified Data.ByteString.Lazy as LBS
 -- import Data.Conduit
 -- import qualified Data.Conduit.Binary as Conduit
 -- import Data.Proxy
@@ -46,11 +45,19 @@ where
 -- import Network.HTTP.Types
 -- import Text.XML (Node)
 
+import qualified Control.Monad.Trans.Resource as Resource
+import Control.Monad.Catch (throwM)
+import qualified Data.Aeson as Aeson
+import qualified Data.ByteString.Lazy as ByteString.Lazy
+import qualified Data.ByteString.Builder as Builder
+import qualified Data.Conduit.Binary as Conduit.Binary
+import qualified Data.Conduit as Conduit
 import Control.Concurrent (ThreadId)
-import Control.Monad.Trans.Resource (ResourceT)
+import Control.Monad.Trans.Resource (MonadResource, ResourceT)
 import Data.Conduit (ConduitM)
 import Data.Dynamic (Dynamic)
 import Data.IORef (IORef)
+import qualified Data.Bifunctor as Bifunctor
 import qualified Data.IORef as IORef
 import qualified Data.Maybe as Maybe
 import qualified Data.Text as Text
@@ -62,128 +69,145 @@ import qualified Network.HTTP.Types as HTTP
 import Network.AWS.Types
 
 receiveNull ::
-  (MonadResource m, MonadThrow m) =>
-  Rs a ->
+  MonadResource m =>
+  AWSResponse request ->
   Logger ->
   Service ->
-  Proxy a ->
+  Proxy request ->
   ClientResponse ->
-  m (Response a)
-receiveNull rs _ = stream $ \r _ _ _ ->
+  m (Response (AWSResponse request))
+receiveNull rs _ =
+ stream $ \r _ _ _ ->
   responseClose r *> pure (Right rs)
 
 receiveEmpty ::
-  (MonadResource m, MonadThrow m) =>
-  (Int -> ResponseHeaders -> () -> Either String (Rs a)) ->
+  MonadResource m =>
+  (Int -> HTTP.ResponseHeaders -> () -> Either String (AWSResponse request)) ->
   Logger ->
   Service ->
-  Proxy a ->
+  Proxy request ->
   ClientResponse ->
-  m (Response a)
-receiveEmpty f _ = stream $ \r s h _ ->
+  m (Response (AWSResponse request))
+receiveEmpty f _ =
+ stream $ \r s h _ ->
   responseClose r *> pure (f s h ())
 
 receiveXMLWrapper ::
-  (MonadResource m, MonadThrow m) =>
+  MonadResource m =>
   Text ->
-  (Int -> ResponseHeaders -> [Node] -> Either String (Rs a)) ->
+  (Int -> HTTP.ResponseHeaders -> XMLCursor -> Either String (AWSResponse request)) ->
   Logger ->
   Service ->
-  Proxy a ->
+  Proxy request ->
   ClientResponse ->
-  m (Response a)
-receiveXMLWrapper n f = receiveXML (\s h x -> x .@ n >>= f s h)
+  m (Response (AWSResponse request))
+receiveXMLWrapper n f =
+  receiveXML (\s h x -> x .@ n >>= f s h)
 
 receiveXML ::
-  (MonadResource m, MonadThrow m) =>
-  (Int -> ResponseHeaders -> [Node] -> Either String (Rs a)) ->
+  MonadResource m =>
+  (Int -> HTTP.ResponseHeaders -> XMLCursor -> Either String (AWSResponse request)) ->
   Logger ->
   Service ->
-  Proxy a ->
+  Proxy request ->
   ClientResponse ->
-  m (Response a)
-receiveXML = deserialise decodeXML
+  m (Response (AWSResponse request))
+receiveXML =
+  deserialise (Bifunctor.first Text.unpack . decodeXML)
 
 receiveJSON ::
-  (MonadResource m, MonadThrow m) =>
-  (Int -> ResponseHeaders -> Object -> Either String (Rs a)) ->
+  MonadResource m =>
+  (Int -> HTTP.ResponseHeaders -> Aeson.Object -> Either String (AWSResponse request)) ->
   Logger ->
   Service ->
-  Proxy a ->
+  Proxy request ->
   ClientResponse ->
-  m (Response a)
-receiveJSON = deserialise eitherDecode'
+  m (Response (AWSResponse request))
+receiveJSON =
+  deserialise Aeson.eitherDecode'
 
 receiveBytes ::
-  (MonadResource m, MonadThrow m) =>
-  (Int -> ResponseHeaders -> ByteString -> Either String (Rs a)) ->
+  MonadResource m =>
+  (Int -> HTTP.ResponseHeaders -> ByteString -> Either String (AWSResponse request)) ->
   Logger ->
   Service ->
-  Proxy a ->
+  Proxy request ->
   ClientResponse ->
-  m (Response a)
-receiveBytes = deserialise (Right . LBS.toStrict)
+  m (Response (AWSResponse request))
+receiveBytes =
+  deserialise (Right . ByteString.Lazy.toStrict)
 
 receiveBody ::
-  (MonadResource m, MonadThrow m) =>
-  (Int -> ResponseHeaders -> RsBody -> Either String (Rs a)) ->
+  MonadResource m =>
+  (Int -> HTTP.ResponseHeaders -> ResponseStream -> Either String (AWSResponse request)) ->
   Logger ->
   Service ->
-  Proxy a ->
+  Proxy request ->
   ClientResponse ->
-  m (Response a)
-receiveBody f _ = stream $ \_ s h x -> pure (f s h (RsBody x))
+  m (Response (AWSResponse request))
+receiveBody f _ =
+  stream $ \_ s h x ->
+    pure (f s h (ResponseStream x))
 
 -- | Deserialise an entire response body, such as an XML or JSON payload.
 deserialise ::
-  (MonadResource m, MonadThrow m) =>
-  (LazyByteString -> Either String b) ->
-  (Int -> ResponseHeaders -> b -> Either String (Rs a)) ->
+  MonadResource m =>
+  (ByteStringLazy -> Either String a) ->
+  (Int -> HTTP.ResponseHeaders -> a -> Either String (AWSResponse request)) ->
   Logger ->
   Service ->
-  Proxy a ->
+  Proxy request ->
   ClientResponse ->
-  m (Response a)
+  m (Response (AWSResponse request))
 deserialise g f l Service {..} _ rs = do
-  let s = responseStatus rs
-      h = responseHeaders rs
-      x = responseBody rs
-  b <- sinkLBS x
-  if not (_svcCheck s)
-    then throwM (_svcError s h b)
+  let s = Client.responseStatus rs
+      h = Client.responseHeaders rs
+      x = Client.responseBody rs
+      
+  bytes <- sinkLBS x
+  
+  if not (serviceCheck s)
+    then throwM (serviceError s h bytes)
     else do
-      liftIO . l Debug . build $ "[Raw Response Body] {\n" <> b <> "\n}"
-      case g b >>= f (fromEnum s) h of
+      liftIO $ l Debug $
+        "[Raw Response Body] {\n"
+          <> Builder.lazyByteString bytes
+          <> "\n}"
+      
+      case g bytes >>= f (fromEnum s) h of
         Right r -> pure (s, r)
         Left e ->
           throwM . SerializeError $
-            SerializeError' _svcAbbrev s (Just b) e
+            SerializeError' serviceAbbrev s (Just bytes) e
 
 -- | Stream a raw response body, such as an S3 object payload.
 stream ::
-  (MonadResource m, MonadThrow m) =>
+  MonadResource m =>
   ( ClientResponse ->
     Int ->
-    ResponseHeaders ->
+    HTTP.ResponseHeaders ->
     ResponseBody ->
-    m (Either String (Rs a))
+    m (Either String (AWSResponse request))
   ) ->
   Service ->
-  Proxy a ->
+  Proxy request ->
   ClientResponse ->
-  m (Response a)
+  m (Response (AWSResponse request))
 stream f Service {..} _ rs = do
-  let s = responseStatus rs
-      h = responseHeaders rs
-      x = responseBody rs
-  if not (_svcCheck s)
-    then sinkLBS x >>= throwM . _svcError s h
+  let s = Client.responseStatus rs
+      h = Client.responseHeaders rs
+      x = Client.responseBody rs
+ 
+  if not (serviceCheck s)
+    then sinkLBS x >>= throwM . serviceError s h
     else do
       e <- f rs (fromEnum s) h x
+      
       either
-        (throwM . SerializeError . SerializeError' _svcAbbrev s Nothing)
+        (throwM . SerializeError . SerializeError' serviceAbbrev s Nothing)
         (pure . (s,))
         e
 
-sinkLBS :: MonadResource m => ResponseBody -> m LazyByteString
-sinkLBS bdy = liftResourceT (bdy `connect` Conduit.sinkLbs)
+sinkLBS :: MonadResource m => ResponseBody -> m ByteStringLazy
+sinkLBS body =
+  Resource.liftResourceT (body `Conduit.connect` Conduit.Binary.sinkLbs)

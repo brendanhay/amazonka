@@ -21,19 +21,22 @@ import Network.HTTP.Client (RequestBody (..))
 import qualified Network.HTTP.Client as HTTP.Client
 import qualified Network.HTTP.Conduit as HTTP.Conduit
 
+-- | A convenience alias encapsulating the common 'Response' body.
+type ResponseBody = ConduitM () ByteString (ResourceT IO) ()
+
 -- | A streaming, exception safe response body.
-newtype RsBody = RsBody
-  { _streamBody :: ConduitM () ByteString (ResourceT IO) ()
+newtype ResponseStream = ResponseStream
+  { _streamBody :: ResponseBody
   } -- newtype for show/orhpan instance purposes.
 
-instance Show RsBody where
+instance Show ResponseStream where
   showsPrec _ _ =
-    showString "RsBody { ConduitM () ByteString (ResourceT IO) () }"
+    showString "ResponseStream { ConduitM () ByteString (ResourceT IO) () }"
 
 fuseStream ::
-  RsBody ->
+  ResponseStream ->
   ConduitM ByteString ByteString (ResourceT IO) () ->
-  RsBody
+  ResponseStream
 fuseStream b f = b {_streamBody = _streamBody b Conduit..| f}
 
 -- | Specifies the transmitted size of the 'Transfer-Encoding' chunks.

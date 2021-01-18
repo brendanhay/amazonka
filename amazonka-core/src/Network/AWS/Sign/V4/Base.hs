@@ -30,6 +30,7 @@ import qualified Network.AWS.Crypt as Crypt
 import qualified Network.AWS.Bytes as Bytes
 import qualified Network.HTTP.Conduit as Client
 import qualified Network.HTTP.Types.Header as Header
+import qualified Network.HTTP.Types as HTTP
 
 data V4 = V4
   { metaTime :: UTCTime,
@@ -43,7 +44,7 @@ data V4 = V4
     metaSignedHeaders :: SignedHeaders,
     metaStringToSign :: StringToSign,
     metaSignature :: Signature,
-    metaHeaders :: [Header],
+    metaHeaders :: Headers,
     metaTimeout :: (Maybe Seconds)
   }
 
@@ -72,37 +73,36 @@ base ::
   Region ->
   UTCTime ->
   (V4, ClientRequest -> ClientRequest)
-base hash Request{..} auth@AuthEnv {..} region time =
+base hash rq@Request{..} auth@AuthEnv {..} region time =
   (metadata,
    prepareRequest
   )
   where
     prepareRequest x =
       x { requestHeaders =
-          (Header.hAuthorization, authorisation metadata) : requestHeaders x
+          Map.insert Header.hAuthorization (authorisation metadata) $
+            requestHeaders x
         }
 
     metadata =
-      signMetadata auth region time presigner h $
+      signMetadata auth region time presigner hash $
         rq { requestHeaders =
-             addSigningHeaders (requestHeaders rq)
+      Map.insert Header.hHost endpointHost
+          . Map.insert hAMZDate (formatAWSTime time)
+          . hAMZContentSHA256 (fromTag hash)
+          . addTokenHeader
+          $ requestHeaders
            }
-      
-    signingHeaders headers =
-      (Header.hHost, endpointHost)
-          : (hAMZDate, formatAWSTime time)
-          : (hAMZContentSHA256, hash)
-          : addTokenHeader headers
 
     addTokenHeader =
-      case authToken of
+      case authSessionToken of
         Nothing -> id
-        Just token -> ((hAMZToken, token) :)
+        Just token -> Map.insert hAMZToken (fromSessionToken token)
  
     presigner _ _ = id
 
     endpoint@Endpoint {endpointHost} =
-      serviceEndpoint (requestService rq) region
+      serviceEndpoint requestService region
 
 -- | Used to tag provenance. This allows keeping the same layout as
 -- the signing documentation, passing 'ByteString's everywhere, with
@@ -110,8 +110,7 @@ base hash Request{..} auth@AuthEnv {..} region time =
 --
 -- Data.Tagged is not used for no reason other than syntactic length and
 -- the ToByteString instance.
-newtype Tag (s :: Symbol) a = Tag {fromTag :: a}
-  deriving (Show)
+newtype Tag (s :: Symbol) a = Tag {fromTag :: a} deriving (Show)
 
 -- instance ToByteString (Tag s ByteString) where = fromTag
 
@@ -173,7 +172,7 @@ signRequest metadata@V4 {..} b auth =
         { Client.method = fromTag metaMethod,
           Client.path = fromTag metaPath,
           Client.queryString = query,
-          Client.requestHeaders = metaHeaders,
+          Client.requestHeaders = Map.toList metaHeaders,
           Client.requestBody = b
         }
 
@@ -203,7 +202,7 @@ signMetadata AuthEnv{..} region time presign digest rq =
       metaCanonicalHeaders = chs,
       metaSignedHeaders = shs,
       metaStringToSign = sts,
-      metaSignature = signature (fromSensitive authSecret) scope sts,
+      metaSignature = signature authSecretAccessKey scope sts,
       metaHeaders = requestHeaders rq,
       metaTimeout = serviceTimeout service
     }
@@ -211,7 +210,7 @@ signMetadata AuthEnv{..} region time presign digest rq =
     query = canonicalQuery . presign cred shs $ requestQuery rq
 
     sts = stringToSign time scope crq
-    cred = credential authAccess scope
+    cred = credential authAccessKeyId scope
     scope = credentialScope service endpoint time
     crq = canonicalRequest method path digest query chs shs
 
@@ -220,7 +219,7 @@ signMetadata AuthEnv{..} region time presign digest rq =
     headers = normaliseHeaders (requestHeaders rq)
 
     endpoint = serviceEndpoint service region
-    method = Tag (requestMethod rq)
+    method = Tag (HTTP.renderStdMethod (requestMethod rq))
     path = escapedPath rq
     service = requestService rq
 
@@ -244,20 +243,23 @@ stringToSign time scope region =
       "\n"
       [ algorithm,
         formatAWSTime time,
-        fromTag scope,
+        scope,
         Bytes.encodeBase16 (Crypt.hashSHA256 region)
       ]
 
 credential :: AccessKey -> CredentialScope -> Credential
 credential key scope =
-  Tag (fromAccessKey key <> "/" <> fromTag scope)
-
+  Tag $
+     fromAccessKey key
+     <> "/"
+     <> ByteString.Char8.intercalate "/" (fromTag scope)
+  
 credentialScope :: Service -> Endpoint -> UTCTime -> CredentialScope
-credentialScope service endpoint time =
+credentialScope s e t =
   Tag
-    [ formatBasicTime time,
-      (endpointScope endpoint),
-      (servicePrefix service),
+    [ formatBasicTime t,
+      (endpointScope e),
+      (servicePrefix s),
       "aws4_request"
     ]
 
@@ -269,16 +271,16 @@ canonicalRequest ::
   CanonicalHeaders ->
   SignedHeaders ->
   CanonicalRequest
-canonicalRequest method path hash query chs shs =
+canonicalRequest meth path digest query chs shs =
   Tag $
     ByteString.Char8.intercalate
       "\n"
-      [ fromTag method,
-        fromTag path,
-        fromTag query,
-        fromTag chs,
-        fromTag shs,
-        fromTag hash 
+      [ meth,
+        path,
+        query,
+        chs,
+        shs,
+        digest
       ]
 
 escapedPath :: Request a -> Path

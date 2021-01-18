@@ -37,8 +37,9 @@ fuseStream ::
   ConduitM ByteString ByteString (ResourceT IO) () ->
   ResponseBody
 fuseStream body f =
-  body { _streamBody = _streamBody body Conduit..| f
-       }
+  body
+    { _streamBody = _streamBody body Conduit..| f
+    }
 
 -- | Specifies the transmitted size of the 'Transfer-Encoding' chunks.
 --

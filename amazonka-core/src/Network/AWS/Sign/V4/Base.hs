@@ -7,14 +7,16 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Sign.V4.Base where
 
+import qualified Data.Char as Char
 import qualified Data.Bifunctor as Bifunctor
 import qualified Data.Dynamic as Dynamic 
 import qualified Data.ByteString as ByteString
 import qualified Data.ByteString.Char8 as ByteString.Char8
 import qualified Data.CaseInsensitive as CI
 import qualified Data.Foldable as Foldable
-import Data.Function (on)
-import Data.List (nubBy, sortBy)
+import qualified Data.Function  as Function
+import qualified Data.List as List
+import qualified Data.Map.Strict as Map
 import GHC.TypeLits
 import Network.AWS.Data
 -- import Network.AWS.Lens ((%~), (<>~), (^.))
@@ -45,7 +47,7 @@ data V4 = V4
 --     buildLines
 --       [ "[Version 4 Metadata] {",
 --         "  time              = " <> build metaTime,
---         "  endpoint          = " <> build (_endpointHost metaEndpoint),
+--         "  endpoint          = " <> build (endpointHost metaEndpoint),
 --         "  credential        = " <> build metaCredential,
 --         "  signed headers    = " <> build metaSignedHeaders,
 --         "  signature         = " <> build metaSignature,
@@ -65,24 +67,37 @@ base ::
   Region ->
   UTCTime ->
   (V4, ClientRequest -> ClientRequest)
-base h rq a r ts = (meta, auth)
+base hash Request{..} auth@AuthEnv {..} region time =
+  (metadata,
+   prepareRequest
+  )
   where
-    auth =
-      requestHeaders <>~ [(Header.hAuthorization, authorisation meta)]
+    prepareRequest x =
+      x { requestHeaders =
+          (Header.hAuthorization, authorisation metadata) : requestHeaders x
+        }
 
-    meta = signMetadata a r ts presigner h (prepare rq)
+    metadata =
+      signMetadata auth region time presigner h $
+        rq { requestHeaders =
+             addSigningHeaders (requestHeaders rq)
+           }
+      
+    signingHeaders headers =
+      (Header.hHost, endpointHost)
+          : (hAMZDate, formatAWSTime time)
+          : (hAMZContentSHA256, hash)
+          : addTokenHeader headers
 
+    addTokenHeader =
+      case authToken of
+        Nothing -> id
+        Just token -> ((hAMZToken, token) :)
+ 
     presigner _ _ = id
 
-    prepare =
-      rqHeaders
-        %~ ( hdr hHost (_endpointHost end)
-               . hdr hAMZDate (formatAWSTime ts)
-               . hdr hAMZContentSHA256 (toBS h)
-               . maybe id (hdr hAMZToken . toBS) (_authToken a)
-           )
-
-    end = _svcEndpoint (_rqService rq) r
+    endpoint@Endpoint {endpointHost} =
+      serviceEndpoint (requestService rq) region
 
 -- | Used to tag provenance. This allows keeping the same layout as
 -- the signing documentation, passing 'ByteString's everywhere, with
@@ -92,12 +107,12 @@ base h rq a r ts = (meta, auth)
 -- the ToByteString instance.
 newtype Tag (s :: Symbol) a = Tag {unTag :: a} deriving (Show)
 
--- instance ToByteString (Tag s ByteString) where toBS = unTag
+-- instance ToByteString (Tag s ByteString) where = unTag
 
 -- instance ToLog (Tag s ByteString) where build = build . unTag
 
 -- instance ToByteString CredentialScope where
---   toBS = ByteString.Char8.intercalate "/" . unTag
+--   = ByteString.Char8.intercalate "/" . unTag
 
 type Hash = Tag "body-digest" ByteString
 
@@ -127,11 +142,11 @@ authorisation :: V4 -> ByteString
 authorisation V4 {..} =
   algorithm
     <> " Credential="
-    <> toBS metaCredential
+    <> metaCredential
     <> ", SignedHeaders="
-    <> toBS metaSignedHeaders
+    <> metaSignedHeaders
     <> ", Signature="
-    <> toBS metaSignature
+    <> metaSignature
 
 signRequest ::
   -- | Pre-request signing metadata.
@@ -160,7 +175,7 @@ signRequest metadata@V4 {..} b auth =
       | ByteString.null x = x
       | otherwise = '?' `ByteString.Char8.cons` x
       where
-        x = toBS metaCanonicalQuery
+        x = metaCanonicalQuery
 
 signMetadata ::
   AuthEnv ->
@@ -182,27 +197,27 @@ signMetadata a r ts presign digest rq =
       metaCanonicalHeaders = chs,
       metaSignedHeaders = shs,
       metaStringToSign = sts,
-      metaSignature = signature (_authSecret a ^. _Sensitive) scope sts,
-      metaHeaders = _rqHeaders rq,
-      metaTimeout = _svcTimeout svc
+      metaSignature = signature (authSecret a ^. _Sensitive) scope sts,
+      metaHeaders = requestHeaders rq,
+      metaTimeout = serviceTimeout svc
     }
   where
-    query = canonicalQuery . presign cred shs $ _rqQuery rq
+    query = canonicalQuery . presign cred shs $ requestQuery rq
 
     sts = stringToSign ts scope crq
-    cred = credential (_authAccess a) scope
+    cred = credential (authAccess a) scope
     scope = credentialScope svc end ts
     crq = canonicalRequest method path digest query chs shs
 
     chs = canonicalHeaders headers
     shs = signedHeaders headers
-    headers = normaliseHeaders (_rqHeaders rq)
+    headers = normaliseHeaders (requestHeaders rq)
 
-    end = _svcEndpoint svc r
-    method = Tag . toBS $ _rqMethod rq
+    end = serviceEndpoint svc r
+    method = Tag $ requestMethod rq
     path = escapedPath rq
 
-    svc = _rqService rq
+    svc = requestService rq
 
 algorithm :: ByteString
 algorithm = "AWS4-HMAC-SHA256"
@@ -210,7 +225,7 @@ algorithm = "AWS4-HMAC-SHA256"
 signature :: SecretKey -> CredentialScope -> StringToSign -> Signature
 signature k c = Tag . digestToBase Base16 . hmacSHA256 signingKey . unTag
   where
-    signingKey = Foldable.foldl' hmac ("AWS4" <> toBS k) (unTag c)
+    signingKey = Foldable.foldl' hmac ("AWS4" <> k) (unTag c)
 
     hmac x y = digestToBS (hmacSHA256 x y)
 
@@ -221,19 +236,19 @@ stringToSign t c r =
       "\n"
       [ algorithm,
         formatAWSTime t,
-        toBS c,
-        digestToBase Base16 . hashSHA256 $ toBS r
+        c,
+        digestToBase Base16 . hashSHA256 $ r
       ]
 
 credential :: AccessKey -> CredentialScope -> Credential
-credential k c = Tag (toBS k <> "/" <> toBS c)
+credential k c = Tag (k <> "/" <> c)
 
 credentialScope :: Service -> Endpoint -> UTCTime -> CredentialScope
 credentialScope s e t =
   Tag
     [ formatBasicTime t,
-      toBS (_endpointScope e),
-      toBS (_svcPrefix s),
+      (endpointScope e),
+      (servicePrefix s),
       "aws4_request"
     ]
 
@@ -249,22 +264,23 @@ canonicalRequest meth path digest query chs shs =
   Tag $
     ByteString.Char8.intercalate
       "\n"
-      [ toBS meth,
-        toBS path,
-        toBS query,
-        toBS chs,
-        toBS shs,
-        toBS digest
+      [ meth,
+        path,
+        query,
+        chs,
+        shs,
+        digest
       ]
 
 escapedPath :: Request a -> Path
-escapedPath r = Tag . toBS . escapePath $
-  case _svcAbbrev (_rqService r) of
-    "S3" -> _rqPath r
-    _ -> collapsePath (_rqPath r)
+escapedPath r =
+ Tag . escapePath $
+  case serviceAbbrev (requestService r) of
+    "S3" -> requestPath r
+    _ -> collapsePath (requestPath r)
 
 canonicalQuery :: QueryString -> CanonicalQuery
-canonicalQuery = Tag . toBS
+canonicalQuery = Tag . encodeQuery True
 
 -- FIXME: the following use of stripBS is too naive, should remove
 -- all internal whitespace, replacing with a single space char,
@@ -272,19 +288,24 @@ canonicalQuery = Tag . toBS
 canonicalHeaders :: NormalisedHeaders -> CanonicalHeaders
 canonicalHeaders = Tag . foldMap (uncurry f) . unTag
   where
-    f k v = k <> ":" <> stripBS v <> "\n"
+    f k v =
+      k <> ":" <> stripBS v <> "\n"
 
+    stripBS =
+      ByteString.Char8.dropWhile Char.isSpace
+        . fst
+        . ByteString.Char8.spanEnd Char.isSpace
+    
 signedHeaders :: NormalisedHeaders -> SignedHeaders
 signedHeaders = Tag . ByteString.Char8.intercalate ";" . map fst . unTag
 
-normaliseHeaders :: [Header] -> NormalisedHeaders
+normaliseHeaders :: Header -> NormalisedHeaders
 normaliseHeaders =
   Tag
-    . map (first CI.foldedCase)
-    . nubBy ((==) `on` fst)
-    . sortBy (compare `on` fst)
-    . filter ((/= "authorization") . fst)
-    . filter ((/= "content-length") . fst)
+    . map (Bifunctor.first CI.foldedCase)
+    . Map.toAscList
+    . Map.delete "authorization"
+    . Map.delete "content-length"
 
 formatAWSTime, formatBasicTime :: UTCTime -> ByteString
 formatAWSTime = ByteString.Char8.pack . formatDateTime awsFormat

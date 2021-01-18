@@ -21,12 +21,12 @@ module Network.AWS.Types
     -- * Logging
     LogLevel (..),
     Logger,
-    
+
     -- * Service
     Abbrev,
     Service (..),
 
-   -- * Requests
+    -- * Requests
     AWSRequest (..),
     Request (..),
 
@@ -103,9 +103,9 @@ module Network.AWS.Types
   )
 where
 
+import Control.Concurrent (ThreadId)
 import Control.Monad.Trans.Resource (ResourceT)
 import Data.Conduit (ConduitM)
-import Control.Concurrent (ThreadId)
 import Data.Dynamic (Dynamic)
 import Data.IORef (IORef)
 import qualified Data.IORef as IORef
@@ -125,7 +125,6 @@ type ClientResponse = Client.Response
 
 -- | A convenience alias for the initial (pre-parsing) response body.
 type ClientBody = ConduitM () ByteString (ResourceT IO) ()
-
 
 -- | Construct a 'ClientRequest' using common parameters such as TLS and prevent
 -- throwing errors when receiving erroneous status codes in respones.
@@ -391,9 +390,10 @@ data Request a = Request
   deriving stock (Generic)
 
 data SignedRequest a = SignedRequest
-  { signedMetadata :: Dynamic
-  , signedRequest :: ClientRequest
-  } deriving stock (Generic)
+  { signedMetadata :: Dynamic,
+    signedRequest :: ClientRequest
+  }
+  deriving stock (Generic)
 
 -- Note: The signing metadata is used for testing and debugging.
 -- Additional information such as a V4 string-to-sign or V2 headers can be

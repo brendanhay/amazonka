@@ -47,17 +47,17 @@ where
 
 import qualified Control.Monad.Trans.Resource as Resource
 import qualified Data.Aeson as Aeson
-import qualified Data.ByteString.Lazy as ByteString.Lazy
-import qualified Data.ByteString.Builder as Builder
-import qualified Data.Conduit.Binary as Conduit.Binary
-import qualified Data.Conduit as Conduit
 import qualified Data.Bifunctor as Bifunctor
+import qualified Data.ByteString.Builder as Builder
+import qualified Data.ByteString.Lazy as ByteString.Lazy
+import qualified Data.Conduit as Conduit
+import qualified Data.Conduit.Binary as Conduit.Binary
 import qualified Data.Text as Text
 import Network.AWS.Data
 import Network.AWS.Prelude
+import Network.AWS.Types
 import qualified Network.HTTP.Client as Client
 import qualified Network.HTTP.Types as HTTP
-import Network.AWS.Types
 import qualified Text.XML as XML
 
 receiveNull ::
@@ -69,9 +69,9 @@ receiveNull ::
   ClientResponse ClientBody ->
   m (Either Error (ClientResponse (AWSResponse request)))
 receiveNull rs _ =
- stream $ \r _ _ _ ->
-  liftIO (Client.responseClose r)
-    *> pure (Right rs)
+  stream $ \r _ _ _ ->
+    liftIO (Client.responseClose r)
+      *> pure (Right rs)
 
 receiveEmpty ::
   MonadResource m =>
@@ -82,9 +82,9 @@ receiveEmpty ::
   ClientResponse ClientBody ->
   m (Either Error (ClientResponse (AWSResponse request)))
 receiveEmpty f _ =
- stream $ \r s h _ ->
-  liftIO (Client.responseClose r)
-    *> pure (f s h ())
+  stream $ \r s h _ ->
+    liftIO (Client.responseClose r)
+      *> pure (f s h ())
 
 receiveXMLWrapper ::
   MonadResource m =>
@@ -141,7 +141,7 @@ receiveBody ::
   m (Either Error (ClientResponse (AWSResponse request)))
 receiveBody f _ =
   stream $ \_ s h x ->
-      pure $! f s h x
+    pure $! f s h x
 
 -- | Deserialise an entire response body, such as an XML or JSON payload.
 deserialise ::
@@ -157,19 +157,20 @@ deserialise g f l Service {..} _ rs = do
   let s = Client.responseStatus rs
       h = Client.responseHeaders rs
       x = Client.responseBody rs
-      
+
   bytes <- sinkLBS x
-  
+
   if not (serviceCheck s)
     then pure $! Left (serviceError s h bytes)
     else do
-      liftIO $ l Debug $
-        "[Raw Response Body] {\n"
-          <> Builder.lazyByteString bytes
-          <> "\n}"
+      liftIO $
+        l Debug $
+          "[Raw Response Body] {\n"
+            <> Builder.lazyByteString bytes
+            <> "\n}"
 
-      pure $!
-        Bifunctor.bimap
+      pure
+        $! Bifunctor.bimap
           (SerializeError . SerializeError' serviceAbbrev s (Just bytes))
           (<$ rs)
           (g bytes >>= f (fromEnum s) h)
@@ -191,16 +192,16 @@ stream f Service {..} _ rs = do
   let s = Client.responseStatus rs
       h = Client.responseHeaders rs
       x = Client.responseBody rs
- 
+
   if not (serviceCheck s)
     then do
       bytes <- sinkLBS x
       pure $! Left (serviceError s h bytes)
     else
-     f rs (fromEnum s) h (ResponseBody x) <&>
-      Bifunctor.bimap
-       (SerializeError . SerializeError' serviceAbbrev s Nothing)
-       (<$ rs)
+      f rs (fromEnum s) h (ResponseBody x)
+        <&> Bifunctor.bimap
+          (SerializeError . SerializeError' serviceAbbrev s Nothing)
+          (<$ rs)
 
 sinkLBS :: MonadResource m => ClientBody -> m ByteStringLazy
 sinkLBS body =

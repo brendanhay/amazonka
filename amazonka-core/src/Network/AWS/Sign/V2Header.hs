@@ -82,7 +82,7 @@ sign Request {..} AuthEnv {..} region time =
           Client.requestHeaders = Map.toList headers,
           Client.requestBody = toRequestBody requestBody
         }
-      
+
     method = HTTP.renderStdMethod requestMethod
 
     endpoint = serviceEndpoint region
@@ -93,7 +93,7 @@ sign Request {..} AuthEnv {..} region time =
         $ requestHeaders
 
     authorization = "AWS " <> toUTF8 authAccessKeyId <> ":" <> signature'
-      
+
     signature' =
       Hash.digestToBase Hash.Base64
         . Hash.hmacSHA1 (toUTF8 authSecretAccessKey)

@@ -41,24 +41,25 @@ data V2 = V2
 v2 :: Signer
 v2 =
   Signer
-   { runSigner = sign,
-     runPresigner = const sign -- FIXME: revisit v2 presigning.
-   }
+    { runSigner = sign,
+      runPresigner = const sign -- FIXME: revisit v2 presigning.
+    }
 
 sign :: SigningAlgorithm request
 sign Request {..} AuthEnv {..} region time =
-    SignedRequest
+  SignedRequest
     { signedMetadata = Dynamic.toDyn metadata,
       signedRequest = request
     }
   where
     Service {..} = requestService
-    
+
     metadata =
-      V2 { metaTime = time,
-           metaEndpoint = endpoint,
-           metaSignature = signature'
-         }
+      V2
+        { metaTime = time,
+          metaEndpoint = endpoint,
+          metaSignature = signature'
+        }
 
     request =
       (newClientRequest endpoint serviceTimeout)
@@ -70,8 +71,9 @@ sign Request {..} AuthEnv {..} region time =
         }
 
     method = HTTP.renderStdMethod requestMethod
-    
-    endpoint@Endpoint {endpointHost} = serviceEndpoint region
+
+    endpoint@Endpoint {endpointHost} =
+      serviceEndpoint region
 
     authorizedQuery =
       toQueryPair "Signature" signature'

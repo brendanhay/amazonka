@@ -11,23 +11,24 @@ module Network.AWS.Request
     addExpectHeader,
 
     -- * Lenses
+
     -- requestHeaders,
     -- queryString,
     requestURL,
   )
 where
 
-import qualified Data.ByteString.Lazy as ByteString.Lazy
 import qualified Data.ByteString.Builder as Builder
-import qualified Data.Maybe  as Maybe
+import qualified Data.ByteString.Lazy as ByteString.Lazy
+import qualified Data.Map.Strict as Map
+import qualified Data.Maybe as Maybe
 import Network.AWS.Data
 import qualified Network.AWS.Lens as Lens
+import Network.AWS.Prelude
 import Network.AWS.Types
 import qualified Network.HTTP.Client as Client
 import Network.HTTP.Types (StdMethod (..))
-import qualified Data.Map.Strict as Map
 import qualified Network.HTTP.Types as HTTP
-import Network.AWS.Prelude
 
 -- head' ::
 --    Service ->
@@ -207,12 +208,12 @@ import Network.AWS.Prelude
 requestURL :: ClientRequest -> ByteString
 requestURL x =
   ByteString.Lazy.toStrict
-   . Builder.toLazyByteString
-   $ scheme
-    <> Builder.byteString (Client.host x)
-    <> port (Client.port x)
-    <> Builder.byteString (Client.path x)
-    <> Builder.byteString (Client.queryString x)
+    . Builder.toLazyByteString
+    $ scheme
+      <> Builder.byteString (Client.host x)
+      <> port (Client.port x)
+      <> Builder.byteString (Client.path x)
+      <> Builder.byteString (Client.queryString x)
   where
     scheme
       | secure = "https://"
@@ -237,5 +238,6 @@ addExpectHeader = addHeader hExpect "100-continue"
 
 addHeader :: HeaderName -> ByteString -> Request a -> Request a
 addHeader key val rq =
-  rq { requestHeaders = Map.insert key val (requestHeaders rq)
-     }
+  rq
+    { requestHeaders = Map.insert key val (requestHeaders rq)
+    }

@@ -25,7 +25,6 @@ module Network.AWS.Prelude
   )
 where
 
-import Control.Monad.Trans.Resource as Export (MonadResource)
 import Control.Applicative as Export (Alternative ((<|>)))
 import Control.DeepSeq as Export (NFData)
 import Control.Exception as Export (Exception, SomeException)
@@ -38,6 +37,7 @@ import Control.Lens as Export
   )
 import Control.Monad.IO.Class as Export (MonadIO (liftIO))
 import Control.Monad.Trans as Export (MonadTrans (lift))
+import Control.Monad.Trans.Resource as Export (MonadResource)
 import Data.Bifoldable as Export (Bifoldable)
 import Data.Bitraversable as Export (Bitraversable)
 import Data.ByteString as Export (ByteString)

@@ -19,23 +19,23 @@ module Network.AWS.Data.Headers
     parseHeadersMap,
 
     -- * Header names
-     hHost 
-    , hExpect 
-    , hAMZToken 
-    , hAMZTarget 
-    , hAMZAlgorithm 
-    , hAMZCredential 
-    , hAMZExpires 
-    , hAMZSignedHeaders 
-    , hAMZContentSHA256 
-    , hAMZDate 
-    , hMetaPrefix 
-    , hAMZRequestId 
-    , hAMZNRequestId 
-    , hAMZNErrorType 
-    , hAMZNAuth 
-    , hAMZDecodedContentLength 
-    , hTransferEncoding ,
+    hHost,
+    hExpect,
+    hAMZToken,
+    hAMZTarget,
+    hAMZAlgorithm,
+    hAMZCredential,
+    hAMZExpires,
+    hAMZSignedHeaders,
+    hAMZContentSHA256,
+    hAMZDate,
+    hMetaPrefix,
+    hAMZRequestId,
+    hAMZNRequestId,
+    hAMZNErrorType,
+    hAMZNAuth,
+    hAMZDecodedContentLength,
+    hTransferEncoding,
 
     -- * Re-exported
     HTTP.Types.HeaderName,
@@ -79,17 +79,17 @@ buildHeaders (HeaderBuilder builder) = Map.fromList (builder [])
 class ToHeaders a where
   toHeaders :: HeaderName -> a -> HeaderBuilder
   default toHeaders :: AWS.Text.ToText a => HeaderName -> a -> HeaderBuilder
-  toHeaders key = consPair key . AWS.Text.toUTF8
+  toHeaders key = addPair key . AWS.Text.toUTF8
   {-# INLINEABLE toHeaders #-}
 
 instance ToHeaders ByteString where
-  toHeaders = consPair 
+  toHeaders = addPair
   {-# INLINEABLE toHeaders #-}
 
 -- instance AWS.Text.ToText a => ToHeaders (Maybe a) where
 --   toHeaders key = \case
 --     Nothing -> mempty
---     Just val -> consPair key (AWS.Text.toUTF8 val)
+--     Just val -> addPair key (AWS.Text.toUTF8 val)
 --   {-# INLINEABLE toHeaders #-}
 
 instance ToHeaders Char
@@ -190,8 +190,8 @@ parseHeadersMap (CI.foldedCase -> prefix) =
 --     map (bimap (mappend prefix . CI.mk . toBS) toBS)
 --       . HashMap.toList
 
-consPair :: HeaderName -> ByteString -> HeaderBuilder
-consPair key val = HeaderBuilder ((key, val) :)
+addPair :: HeaderName -> ByteString -> HeaderBuilder
+addPair key val = HeaderBuilder ((key, val) :)
 
 hHost :: HeaderName
 hHost = "Host"

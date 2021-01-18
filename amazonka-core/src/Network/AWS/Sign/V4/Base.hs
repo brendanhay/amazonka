@@ -5,7 +5,9 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
-module Network.AWS.Sign.V4.Base where
+module Network.AWS.Sign.V4.Base
+  ( )
+where
 
 import qualified Data.Char as Char
 import qualified Data.Bifunctor as Bifunctor
@@ -13,6 +15,7 @@ import qualified Data.Dynamic as Dynamic
 import qualified Data.ByteString as ByteString
 import qualified Data.ByteString.Char8 as ByteString.Char8
 import qualified Data.CaseInsensitive as CI
+import qualified Data.Text.Encoding as Text.Encoding
 import qualified Data.Foldable as Foldable
 import qualified Data.Function  as Function
 import qualified Data.List as List
@@ -23,6 +26,8 @@ import Network.AWS.Data
 import Network.AWS.Prelude
 import qualified Network.AWS.Request as Request
 import Network.AWS.Types
+import qualified Network.AWS.Crypt as Crypt
+import qualified Network.AWS.Bytes as Bytes
 import qualified Network.HTTP.Conduit as Client
 import qualified Network.HTTP.Types.Header as Header
 
@@ -105,14 +110,15 @@ base hash Request{..} auth@AuthEnv {..} region time =
 --
 -- Data.Tagged is not used for no reason other than syntactic length and
 -- the ToByteString instance.
-newtype Tag (s :: Symbol) a = Tag {unTag :: a} deriving (Show)
+newtype Tag (s :: Symbol) a = Tag {fromTag :: a}
+  deriving (Show)
 
--- instance ToByteString (Tag s ByteString) where = unTag
+-- instance ToByteString (Tag s ByteString) where = fromTag
 
--- instance ToLog (Tag s ByteString) where build = build . unTag
+-- instance ToLog (Tag s ByteString) where build = build . fromTag
 
 -- instance ToByteString CredentialScope where
---   = ByteString.Char8.intercalate "/" . unTag
+--   = ByteString.Char8.intercalate "/" . fromTag
 
 type Hash = Tag "body-digest" ByteString
 
@@ -164,8 +170,8 @@ signRequest metadata@V4 {..} b auth =
   where
     request =
       (newClientRequest metaEndpoint metaTimeout)
-        { Client.method = unTag metaMethod,
-          Client.path = unTag metaPath,
+        { Client.method = fromTag metaMethod,
+          Client.path = fromTag metaPath,
           Client.queryString = query,
           Client.requestHeaders = metaHeaders,
           Client.requestBody = b
@@ -185,70 +191,73 @@ signMetadata ::
   Hash ->
   Request a ->
   V4
-signMetadata a r ts presign digest rq =
+signMetadata AuthEnv{..} region time presign digest rq =
   V4
-    { metaTime = ts,
+    { metaTime = time,
       metaMethod = method,
       metaPath = path,
-      metaEndpoint = end,
+      metaEndpoint = endpoint,
       metaCredential = cred,
       metaCanonicalQuery = query,
       metaCanonicalRequest = crq,
       metaCanonicalHeaders = chs,
       metaSignedHeaders = shs,
       metaStringToSign = sts,
-      metaSignature = signature (authSecret a ^. _Sensitive) scope sts,
+      metaSignature = signature (fromSensitive authSecret) scope sts,
       metaHeaders = requestHeaders rq,
-      metaTimeout = serviceTimeout svc
+      metaTimeout = serviceTimeout service
     }
   where
     query = canonicalQuery . presign cred shs $ requestQuery rq
 
-    sts = stringToSign ts scope crq
-    cred = credential (authAccess a) scope
-    scope = credentialScope svc end ts
+    sts = stringToSign time scope crq
+    cred = credential authAccess scope
+    scope = credentialScope service endpoint time
     crq = canonicalRequest method path digest query chs shs
 
     chs = canonicalHeaders headers
     shs = signedHeaders headers
     headers = normaliseHeaders (requestHeaders rq)
 
-    end = serviceEndpoint svc r
-    method = Tag $ requestMethod rq
+    endpoint = serviceEndpoint service region
+    method = Tag (requestMethod rq)
     path = escapedPath rq
-
-    svc = requestService rq
+    service = requestService rq
 
 algorithm :: ByteString
 algorithm = "AWS4-HMAC-SHA256"
 
 signature :: SecretKey -> CredentialScope -> StringToSign -> Signature
-signature k c = Tag . digestToBase Base16 . hmacSHA256 signingKey . unTag
+signature key scope =
+    Tag . Bytes.encodeBase16 . Crypt.hmacSHA256 signingKey . fromTag
   where
-    signingKey = Foldable.foldl' hmac ("AWS4" <> k) (unTag c)
+    signingKey =
+       Crypt.Key (Foldable.foldl' hmac ("AWS4" <> key) (fromTag scope))
 
-    hmac x y = digestToBS (hmacSHA256 x y)
+    hmac key message =
+       Bytes.convert (Crypt.hmacSHA256 (Crypt.Key key) message)
 
 stringToSign :: UTCTime -> CredentialScope -> CanonicalRequest -> StringToSign
-stringToSign t c r =
+stringToSign time scope region =
   Tag $
     ByteString.Char8.intercalate
       "\n"
       [ algorithm,
-        formatAWSTime t,
-        c,
-        digestToBase Base16 . hashSHA256 $ r
+        formatAWSTime time,
+        fromTag scope,
+        Bytes.encodeBase16 (Crypt.hashSHA256 region)
       ]
 
 credential :: AccessKey -> CredentialScope -> Credential
-credential k c = Tag (k <> "/" <> c)
+credential key scope =
+  Tag (fromAccessKey key <> "/" <> fromTag scope)
 
 credentialScope :: Service -> Endpoint -> UTCTime -> CredentialScope
-credentialScope s e t =
+credentialScope service endpoint time =
   Tag
-    [ formatBasicTime t,
-      (endpointScope e),
-      (servicePrefix s),
+    [ formatBasicTime time,
+      (endpointScope endpoint),
+      (servicePrefix service),
       "aws4_request"
     ]
 
@@ -260,16 +269,16 @@ canonicalRequest ::
   CanonicalHeaders ->
   SignedHeaders ->
   CanonicalRequest
-canonicalRequest meth path digest query chs shs =
+canonicalRequest method path hash query chs shs =
   Tag $
     ByteString.Char8.intercalate
       "\n"
-      [ meth,
-        path,
-        query,
-        chs,
-        shs,
-        digest
+      [ fromTag method,
+        fromTag path,
+        fromTag query,
+        fromTag chs,
+        fromTag shs,
+        fromTag hash 
       ]
 
 escapedPath :: Request a -> Path
@@ -286,7 +295,7 @@ canonicalQuery = Tag . encodeQuery True
 -- all internal whitespace, replacing with a single space char,
 -- unless quoted with \"...\"
 canonicalHeaders :: NormalisedHeaders -> CanonicalHeaders
-canonicalHeaders = Tag . foldMap (uncurry f) . unTag
+canonicalHeaders = Tag . foldMap (uncurry f) . fromTag
   where
     f k v =
       k <> ":" <> stripBS v <> "\n"
@@ -297,9 +306,9 @@ canonicalHeaders = Tag . foldMap (uncurry f) . unTag
         . ByteString.Char8.spanEnd Char.isSpace
     
 signedHeaders :: NormalisedHeaders -> SignedHeaders
-signedHeaders = Tag . ByteString.Char8.intercalate ";" . map fst . unTag
+signedHeaders = Tag . ByteString.Char8.intercalate ";" . map fst . fromTag
 
-normaliseHeaders :: Header -> NormalisedHeaders
+normaliseHeaders :: Headers -> NormalisedHeaders
 normaliseHeaders =
   Tag
     . map (Bifunctor.first CI.foldedCase)
@@ -308,5 +317,5 @@ normaliseHeaders =
     . Map.delete "content-length"
 
 formatAWSTime, formatBasicTime :: UTCTime -> ByteString
-formatAWSTime = ByteString.Char8.pack . formatDateTime awsFormat
-formatBasicTime = ByteString.Char8.pack . formatDateTime basicFormat
+formatAWSTime = Text.Encoding.encodeUtf8 . formatDateTime awsFormat
+formatBasicTime = Text.Encoding.encodeUtf8 . formatDateTime basicFormat

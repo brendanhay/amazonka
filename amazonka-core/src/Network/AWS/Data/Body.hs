@@ -13,8 +13,9 @@ import qualified Data.ByteString.Char8 as ByteString.Char8
 import Data.Conduit (ConduitM)
 import qualified Data.Conduit as Conduit
 import qualified Data.Text.Encoding as Text.Encoding
-import Network.AWS.Hash (Digest, SHA256)
-import qualified Network.AWS.Hash as Hash
+import Network.AWS.Crypt (Digest, SHA256)
+import qualified Network.AWS.Crypt as Crypt
+import qualified Network.AWS.Bytes as Bytes
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Prelude
 import qualified Network.HTTP.Client as Client
@@ -116,7 +117,7 @@ instance Show HashedBody where
       showHash name hash len =
         showString name
           . showString " { sha256 = "
-          . shows (Hash.digestToBase Hash.Base16 hash)
+          . shows (Bytes.encodeBase16 hash)
           . showString ", length = "
           . shows len
 
@@ -126,7 +127,7 @@ instance IsString HashedBody where
 
 sha256Base16 :: HashedBody -> ByteString
 sha256Base16 =
-  Hash.digestToBase Hash.Base16 . \case
+  Bytes.encodeBase16 . \case
     HashedStream h _ _ -> h
     HashedBytes h _ -> h
 
@@ -143,7 +144,7 @@ instance IsString RequestBody where
 md5Base64 :: RequestBody -> Maybe ByteString
 md5Base64 = \case
   Hashed (HashedBytes _ x) ->
-    Just . Hash.digestToBase Hash.Base64 $ Hash.hashMD5 x
+    Just $! Bytes.encodeBase64 (Crypt.hashMD5 x)
   _ ->
     Nothing
 
@@ -176,7 +177,7 @@ instance ToHashedBody HashedBody where
   {-# INLINEABLE toHashedBody #-}
 
 instance ToHashedBody ByteString where
-  toHashedBody x = HashedBytes (Hash.hash x) x
+  toHashedBody x = HashedBytes (Crypt.hash x) x
   {-# INLINEABLE toHashedBody #-}
 
 -- instance ToHashedBody String where

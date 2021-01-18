@@ -11,7 +11,6 @@ module Network.AWS.Data.Base64
 where
 
 import qualified Data.Bifunctor as Bifunctor
-import qualified Data.ByteArray.Encoding as ByteArray.Encoding
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text.Encoding
 import Network.AWS.Data.Body (ToBody (..), ToHashedBody (..))
@@ -19,10 +18,10 @@ import Network.AWS.Data.JSON (FromJSON, ToJSON)
 import qualified Network.AWS.Data.JSON as AWS.JSON
 import Network.AWS.Data.Query (ToQuery (..))
 import Network.AWS.Data.Text (FromText (..), ToText (..))
-import qualified Network.AWS.Data.Text as AWS.Text
 import Network.AWS.Data.XML (FromXML, ToXML)
 import qualified Network.AWS.Data.XML as AWS.XML
 import Network.AWS.Prelude
+import qualified Network.AWS.Bytes as Bytes
 
 -- | Base64 encoded binary data.
 --
@@ -40,14 +39,14 @@ newtype Base64 = Base64 {fromBase64 :: ByteString}
 instance ToText Base64 where
   toText =
     Text.Encoding.decodeUtf8
-      . ByteArray.Encoding.convertToBase ByteArray.Encoding.Base64
+      . Bytes.encodeBase64
       . fromBase64
   {-# INLINEABLE toText #-}
 
 instance FromText Base64 where
   parseText =
     Bifunctor.bimap Text.pack Base64
-      . ByteArray.Encoding.convertFromBase ByteArray.Encoding.Base64
+      . Bytes.decodeBase64 
       . Text.Encoding.encodeUtf8
   {-# INLINEABLE parseText #-}
 

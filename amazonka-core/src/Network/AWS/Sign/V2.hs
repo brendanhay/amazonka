@@ -15,7 +15,8 @@ import qualified Data.Dynamic as Dynamic
 import qualified Data.Map.Strict as Map
 import qualified Data.Text.Encoding as Text.Encoding
 import Network.AWS.Data
-import qualified Network.AWS.Hash as Hash
+import qualified Network.AWS.Crypt as Crypt
+import qualified Network.AWS.Bytes as Bytes
 import Network.AWS.Prelude
 import qualified Network.AWS.Sign.V2Header.Base as V2
 import Network.AWS.Types
@@ -80,8 +81,8 @@ sign Request {..} AuthEnv {..} region time =
         <> canonicalQuery
 
     signature' =
-      Hash.digestToBase Hash.Base64
-        . Hash.hmacSHA256 (toUTF8 authSecretAccessKey)
+      Bytes.encodeBase64
+        . Crypt.hmacSHA256 (Crypt.Key (toUTF8 authSecretAccessKey))
         $ ByteString.Char8.intercalate
           "\n"
           [ method,

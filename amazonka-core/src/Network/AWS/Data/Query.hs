@@ -30,7 +30,7 @@ import qualified Data.List as List
 import qualified Data.Monoid as Monoid
 import qualified Network.AWS.Data.Text as AWS.Text
 import Network.AWS.Prelude
-import qualified Network.HTTP.Types as HTTP.Types
+import qualified Network.HTTP.Types as HTTP
 
 type QueryString = [(ByteString, ByteString)]
 
@@ -105,7 +105,7 @@ buildQuery =
 {-# INLINEABLE buildQuery #-}
 
 encodeURL :: ByteString -> ByteStringBuilder
-encodeURL = HTTP.Types.urlEncodeBuilder True
+encodeURL = HTTP.urlEncodeBuilder True
 
 class ToQuery a where
   toQuery :: a -> QueryBuilder

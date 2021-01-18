@@ -6,16 +6,17 @@
 -- Stability   : provisional
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Bytes
-   ( convert,
-     encodeBase16,
-     decodeBase16,
-     encodeBase64,
-     decodeBase64
-   ) where
+  ( convert,
+    encodeBase16,
+    decodeBase16,
+    encodeBase64,
+    decodeBase64,
+  )
+where
 
-import Network.AWS.Prelude
-import qualified Data.ByteArray.Encoding as ByteArray.Encoding
 import Data.ByteArray (ByteArrayAccess, convert)
+import qualified Data.ByteArray.Encoding as ByteArray.Encoding
+import Network.AWS.Prelude
 
 encodeBase16 :: ByteArrayAccess a => a -> ByteString
 encodeBase16 = ByteArray.Encoding.convertToBase ByteArray.Encoding.Base16

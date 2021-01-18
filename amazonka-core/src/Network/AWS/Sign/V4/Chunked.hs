@@ -10,22 +10,18 @@ module Network.AWS.Sign.V4.Chunked
   )
 where
 
-import qualified Data.ByteString as BS
-import Data.ByteString.Builder
-import qualified Data.ByteString.Char8 as BS8
-import Data.Conduit
-import Data.Maybe
-import Network.AWS.Data.Body
-import Network.AWS.Data.ByteString
-import Network.AWS.Data.Crypto
-import Network.AWS.Data.Headers
-import Network.AWS.Data.Sensitive (_Sensitive)
-import Network.AWS.Lens ((<>~), (^.))
+import qualified Data.ByteString as ByteString
+import qualified Data.ByteString.Builder as Builder
+import qualified Data.ByteString.Char8 as ByteString.Char8
+import qualified Data.Conduit as Conduit
+import qualified Data.Maybe as Maybe
+import qualified Network.AWS.Crypt as Crypt
+import Network.AWS.Data
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Prelude
-import Network.AWS.Sign.V4.Base hiding (algorithm)
+import qualified Network.AWS.Sign.V4.Base as V4
 import Network.AWS.Types
-import Network.HTTP.Types.Header
-import Numeric (showHex)
+import qualified Numeric
 
 chunked :: ChunkedBody -> Algorithm a
 chunked c rq a r ts = signRequest meta (toRequestBody body) auth

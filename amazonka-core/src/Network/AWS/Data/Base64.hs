@@ -13,6 +13,7 @@ where
 import qualified Data.Bifunctor as Bifunctor
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text.Encoding
+import qualified Network.AWS.Bytes as Bytes
 import Network.AWS.Data.Body (ToBody (..), ToHashedBody (..))
 import Network.AWS.Data.JSON (FromJSON, ToJSON)
 import qualified Network.AWS.Data.JSON as AWS.JSON
@@ -21,7 +22,6 @@ import Network.AWS.Data.Text (FromText (..), ToText (..))
 import Network.AWS.Data.XML (FromXML, ToXML)
 import qualified Network.AWS.Data.XML as AWS.XML
 import Network.AWS.Prelude
-import qualified Network.AWS.Bytes as Bytes
 
 -- | Base64 encoded binary data.
 --
@@ -46,7 +46,7 @@ instance ToText Base64 where
 instance FromText Base64 where
   parseText =
     Bifunctor.bimap Text.pack Base64
-      . Bytes.decodeBase64 
+      . Bytes.decodeBase64
       . Text.Encoding.encodeUtf8
   {-# INLINEABLE parseText #-}
 

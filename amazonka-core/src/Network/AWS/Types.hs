@@ -382,7 +382,7 @@ data Service = Service
 data Request a = Request
   { requestService :: Service,
     requestMethod :: HTTP.StdMethod,
-    requestPath :: ByteString,
+    requestPath :: [ByteString],
     requestQuery :: QueryBuilder,
     requestHeaders :: Headers,
     requestBody :: RequestBody

@@ -9,17 +9,15 @@ module Network.AWS.Request
   ( -- * Plugins
     addContentMD5Header,
     addExpectHeader,
-
-    -- * Lenses
-
-    -- requestHeaders,
-    -- queryString,
-    requestURL,
+    -- Paths
+    escapePath,
+    clientURL,
   )
 where
 
 import qualified Data.ByteString.Builder as Builder
 import qualified Data.ByteString.Lazy as ByteString.Lazy
+import qualified Data.List as List
 import qualified Data.Map.Strict as Map
 import qualified Data.Maybe as Maybe
 import Network.AWS.Data
@@ -205,8 +203,36 @@ import qualified Network.HTTP.Types as HTTP
 -- requestHeaders f x =
 --   f (Client.requestHeaders x) <&> \y -> x {Client.requestHeaders = y}
 
-requestURL :: ClientRequest -> ByteString
-requestURL x =
+escapePath :: Request a -> ByteString
+escapePath rq =
+  case serviceAbbrev (requestService rq) of
+    "S3" -> encodePath (requestPath rq)
+    _other -> encodePath (collapsePath (requestPath rq))
+
+encodePath :: [ByteString] -> ByteString
+encodePath =
+  ByteString.Lazy.toStrict
+    . Builder.toLazyByteString
+    . mappend (Builder.shortByteString "/")
+    . mconcat
+    . List.intersperse (Builder.shortByteString "/")
+    . map (HTTP.urlEncodeBuilder True)
+
+collapsePath :: [ByteString] -> [ByteString]
+collapsePath = reverse . collapse . reverse
+  where
+    collapse = \case
+      [] -> []
+      x : xs
+        | x == dot -> collapse xs
+        | x == dots -> drop 1 (collapse xs)
+        | otherwise -> x : collapse xs
+
+    dot = "."
+    dots = ".."
+
+clientURL :: ClientRequest -> ByteString
+clientURL x =
   ByteString.Lazy.toStrict
     . Builder.toLazyByteString
     $ scheme

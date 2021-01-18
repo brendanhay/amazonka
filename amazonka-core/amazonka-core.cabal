@@ -66,8 +66,9 @@ library
   import:          base
   hs-source-dirs:  src
   exposed-modules:
-    Network.AWS.Data
     Network.AWS.Bytes
+    Network.AWS.Crypt
+    Network.AWS.Data
     Network.AWS.Data.Base64
     Network.AWS.Data.Body
     Network.AWS.Data.Headers
@@ -79,7 +80,6 @@ library
     Network.AWS.Data.XML
     Network.AWS.Endpoint
     Network.AWS.Error
-    Network.AWS.Crypt
     Network.AWS.Lens
     Network.AWS.Pager
     Network.AWS.Prelude

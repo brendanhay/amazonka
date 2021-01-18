@@ -13,9 +13,9 @@ import qualified Data.ByteString.Char8 as ByteString.Char8
 import Data.Conduit (ConduitM)
 import qualified Data.Conduit as Conduit
 import qualified Data.Text.Encoding as Text.Encoding
+import qualified Network.AWS.Bytes as Bytes
 import Network.AWS.Crypt (Digest, SHA256)
 import qualified Network.AWS.Crypt as Crypt
-import qualified Network.AWS.Bytes as Bytes
 import qualified Network.AWS.Lens as Lens
 import Network.AWS.Prelude
 import qualified Network.HTTP.Client as Client

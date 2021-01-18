@@ -18,10 +18,11 @@ where
 import qualified Data.Dynamic as Dynamic
 import qualified Data.Map.Strict as Map
 import qualified Data.Text.Encoding as Text.Encoding
-import Network.AWS.Data
-import qualified Network.AWS.Crypt as Crypt
 import qualified Network.AWS.Bytes as Bytes
+import qualified Network.AWS.Crypt as Crypt
+import Network.AWS.Data
 import Network.AWS.Prelude
+import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Sign.V2Header.Base as V2
 import Network.AWS.Types
 import qualified Network.HTTP.Client as Client
@@ -78,7 +79,7 @@ sign Request {..} AuthEnv {..} region time =
     request =
       (newClientRequest endpoint serviceTimeout)
         { Client.method = method,
-          Client.path = requestPath,
+          Client.path = Request.escapePath requestPath,
           Client.queryString = encodeQueryBuilder True requestQuery,
           Client.requestHeaders = Map.toList headers,
           Client.requestBody = toRequestBody requestBody

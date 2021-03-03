@@ -30,10 +30,10 @@ fixtures =
         [ requestSendMessage $
             sendMessage url "This+is+a+test+message"
                 & smMessageAttributes .~ Map.fromList
-                    [ ("test_attribute_name_1", messageAttributeValue "String"
-                        & mavStringValue ?~ "test_attribute_value_1")
-                    , ("test_attribute_name_2", messageAttributeValue "String"
-                        & mavStringValue ?~ "test_attribute_value_2")
+                    [ ("test_attribute_foo", messageAttributeValue "String"
+                        & mavStringValue ?~ "test_attribute_foo_value")
+                    , ("test_attribute_bar", messageAttributeValue "String"
+                        & mavStringValue ?~ "test_attribute_bar_value")
                     ]
 
         , requestChangeMessageVisibility $

@@ -1,0 +1,8 @@
+{
+    "metadata": {
+        "serviceAbbreviation": "SES"
+    },
+    "waiters": {
+        "IdentityExists": null
+    }
+}

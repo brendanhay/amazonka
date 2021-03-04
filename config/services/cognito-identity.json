@@ -1,0 +1,8 @@
+{
+    "libraryName": "amazonka-cognito-identity",
+    "typeOverrides": {
+        "ErrorCode": {
+            "renamedTo": "CognitoErrorCode"
+        }
+    }
+}

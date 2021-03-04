@@ -1,0 +1,21 @@
+{
+    "libraryName": "amazonka-swf",
+    "typeOverrides": {
+        "ActivityTask": {
+            "optionalFields": [
+                "activityId",
+                "taskToken",
+                "workflowExecution",
+                "activityType"
+            ]
+        },
+        "DecisionTask": {
+            "optionalFields": [
+                "taskToken",
+                "workflowExecution",
+                "workflowType",
+                "events"
+            ]
+        }
+    }
+}

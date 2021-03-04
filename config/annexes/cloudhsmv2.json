@@ -1,0 +1,10 @@
+{
+    "metadata": {
+        "serviceAbbreviation": "CloudHSMv2"
+    },
+    "shapes": {
+        "TagList": {
+            "min": 0
+        }
+    }
+}

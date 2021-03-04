@@ -1,0 +1,16 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+{% include "_include/license.ede" %}
+--
+module Main (main) where
+
+import Test.Tasty
+{% for import in moduleImports %}
+import {{ import.value }}
+{% endfor %}
+
+main :: IO ()
+main = defaultMain $ testGroup "{{ serviceAbbrev }}"
+    [ testGroup "tests"    tests
+    , testGroup "fixtures" fixtures
+    ]

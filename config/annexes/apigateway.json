@@ -1,0 +1,11 @@
+{
+    "metadata": {
+        "serviceAbbreviation": "ApiGateway",
+        "protocol": "api-gateway"
+    },
+    "shapes": {
+        "Blob": {
+            "type": "json"
+        }
+    }
+}

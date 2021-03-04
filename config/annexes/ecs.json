@@ -1,0 +1,8 @@
+{
+    "metadata": {
+        "serviceAbbreviation": "ECS"
+    },
+    "waiters": {
+        "ServicesStable": null
+    }
+}

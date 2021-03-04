@@ -1,0 +1,8 @@
+{
+    "libraryName": "amazonka-codedeploy",
+    "typeOverrides": {
+        "ErrorCode": {
+            "renamedTo": "DeployErrorCode"
+        }
+    }
+}

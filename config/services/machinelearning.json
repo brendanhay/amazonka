@@ -1,0 +1,14 @@
+{
+    "libraryName": "amazonka-ml",
+    "typeOverrides": {
+        "BatchPredictionFilterVariable": {
+            "enumPrefix": "Batch"
+        },
+        "EvaluationFilterVariable": {
+            "enumPrefix": "Eval"
+        },
+        "DataSourceFilterVariable": {
+            "enumPrefix": "Data"
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "libraryName": "amazonka-opsworks",
+    "typeOverrides": {
+        "ServiceError": {
+            "renamedTo": "ServiceError'"
+        },
+        "OptionalValue": {
+            "replacedBy": {
+                "name": "Maybe Text",
+                "underive": []
+            }
+        },
+        "SslConfiguration": {
+            "optionalFields": [
+                "Certificate",
+                "PrivateKey"
+            ]
+        }
+    }
+}

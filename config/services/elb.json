@@ -1,0 +1,6 @@
+{
+    "libraryName": "amazonka-elb",
+    "typeModules": [
+        "Network.AWS.ELB.Internal"
+    ]
+}

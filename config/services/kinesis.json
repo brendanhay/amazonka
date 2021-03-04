@@ -1,0 +1,10 @@
+{
+    "libraryName": "amazonka-kinesis",
+    "typeOverrides": {
+        "PutRecordsInput": {
+            "renamedFields": {
+                "Records": "RecordEntries"
+            }
+        }
+    }
+}

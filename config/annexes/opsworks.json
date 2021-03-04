@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "serviceAbbreviation": "OpsWorks"
+    },
+    "shapes": {
+        "StackAttributes": {
+            "value": {
+                "shape": "OptionalValue"
+            }
+        },
+        "LayerAttributes": {
+            "value": {
+                "shape": "OptionalValue"
+            }
+        },
+        "OptionalValue": {
+            "type": "string"
+        }
+    }
+}

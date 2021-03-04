@@ -1,0 +1,14 @@
+{% include "_include/license.ede" %}
+--
+module {{ moduleName }}
+    ( tests
+    , fixtures
+    ) where
+
+import Test.Tasty (TestTree)
+
+tests :: [TestTree]
+tests = []
+
+fixtures :: [TestTree]
+fixtures = []

@@ -1,0 +1,10 @@
+{
+    "libraryName": "amazonka-sqs",
+    "typeOverrides": {
+        "GetQueueUrlResult": {
+            "requiredFields": [
+                "QueueUrl"
+            ]
+        }
+    }
+}

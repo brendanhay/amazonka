@@ -1,0 +1,10 @@
+{
+    "libraryName": "amazonka-rds",
+    "typeOverrides": {
+        "DescribeEngineDefaultParametersResult": {
+            "requiredFields": [
+                "EngineDefaults"
+            ]
+        }
+    }
+}

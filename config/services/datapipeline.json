@@ -1,0 +1,8 @@
+{
+    "libraryName": "amazonka-datapipeline",
+    "typeOverrides": {
+        "OperatorType": {
+            "enumPrefix": "Operator"
+        }
+    }
+}

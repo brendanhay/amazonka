@@ -1,0 +1,10 @@
+{
+    "libraryName": "amazonka-elasticache",
+    "typeOverrides": {
+        "DescribeEngineDefaultParametersResult": {
+            "requiredFields": [
+                "EngineDefaults"
+            ]
+        }
+    }
+}

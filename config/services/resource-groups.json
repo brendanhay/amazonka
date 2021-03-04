@@ -1,0 +1,10 @@
+{
+    "libraryName": "amazonka-resourcegroups",
+    "typeOverrides": {
+        "ResourceQuery": {
+            "renamedFields": {
+                "Query": "SearchQuery"
+            }
+        }
+    }
+}

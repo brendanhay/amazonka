@@ -1,0 +1,10 @@
+{
+    "libraryName": "amazonka-opsworks-cm",
+    "typeOverrides": {
+        "DescribeNodeAssociationStatusResponse": {
+            "requiredFields": [
+                "NodeAssociationStatus"
+            ]
+        }
+    }
+}

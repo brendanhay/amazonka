@@ -11,7 +11,7 @@
   # Overlays to apply to the last package set in cross compilation.
 , crossOverlays ? [ ]
   # The GHC version to use. (compiler-nix-name in haskell.nix)
-, ghcVersion ? "ghc8102" }:
+, ghcVersion ? "ghc8104" }:
 
 let
 

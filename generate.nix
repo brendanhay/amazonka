@@ -65,7 +65,7 @@ let
       '';
     # Report any unconfigured botocore service definitions.
   in lib.traceIf (audit && unconfigured != [ ]) ''
-    Unconfigured model(s): 
+    Unconfigured model(s):
      - ${lib.concatStringsSep "\n - " unconfigured}
   '' selected;
 
@@ -111,7 +111,7 @@ in pkgs.stdenvNoCC.mkDerivation {
 
     cd $out
 
-    for dir in amazonka*; do 
+    for dir in amazonka*; do
       echo " -> Formatting $dir"
 
       find $dir -type f -name '*.cabal' -print0 \
@@ -120,7 +120,7 @@ in pkgs.stdenvNoCC.mkDerivation {
       find $dir -type f -name '*.hs' -print0 \
         | xargs -0 ormolu --mode=inplace \
           --ghc-opt='-XPatternSynonyms' \
-          --ghc-opt='-XTypeApplications' 
+          --ghc-opt='-XTypeApplications'
     done
   '';
 }

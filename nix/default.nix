@@ -11,7 +11,7 @@
   # Overlays to apply to the last package set in cross compilation.
 , crossOverlays ? [ ]
   # The GHC version to use. (compiler-nix-name in haskell.nix)
-, ghcVersion ? "ghc8102" }:
+, ghcVersion ? "ghc8104" }:
 
 let
 
@@ -31,11 +31,11 @@ let
     (import ./overlays/local-lib.nix)
   ] ++ overlays;
 
-  pkgs = import finalSources.nixpkgs {
+  pkgs = import haskellNix.sources.nixpkgs-2009 (haskellNix.nixpkgsArgs // {
     inherit system crossSystem crossOverlays;
 
     config = haskellNix.config // config;
     overlays = finalOverlays;
-  };
+  });
 
 in pkgs

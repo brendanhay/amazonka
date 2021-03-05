@@ -5,10 +5,10 @@
         "homepage": null,
         "owner": "boto",
         "repo": "botocore",
-        "rev": "6e3ec4e8544ea32e130ac42b414a2819627c475b",
-        "sha256": "1jkmpsbdiyj4hv83fyigwkyl6551786p71323giaqskg62jg2snx",
+        "rev": "d87de3f166e902ecde19033723d26851d86d4fa9",
+        "sha256": "1z03dnpdwdqfmwjxmjva5z2y3z9l8rapj2vrc59ii34a3rvhfbjr",
         "type": "tarball",
-        "url": "https://github.com/boto/botocore/archive/6e3ec4e8544ea32e130ac42b414a2819627c475b.tar.gz",
+        "url": "https://github.com/boto/botocore/archive/d87de3f166e902ecde19033723d26851d86d4fa9.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "hackage.nix": {
@@ -17,10 +17,10 @@
         "homepage": "",
         "owner": "input-output-hk",
         "repo": "hackage.nix",
-        "rev": "a6bb58a63623c406e1fce0d6b9978f761ae283b7",
-        "sha256": "099k3gd5p5phkkvjdz4nlj2rarzl3icga9s85n8apbq3vv7agx64",
+        "rev": "9f61382fad98e24fe8678db2ffb0c51a863a6023",
+        "sha256": "19k4v7zb7bniwygmn4gnphhk2nwkmrbrhxzn9zbnj9fw0i1ywlvc",
         "type": "tarball",
-        "url": "https://github.com/input-output-hk/hackage.nix/archive/a6bb58a63623c406e1fce0d6b9978f761ae283b7.tar.gz",
+        "url": "https://github.com/input-output-hk/hackage.nix/archive/9f61382fad98e24fe8678db2ffb0c51a863a6023.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "haskell.nix": {
@@ -29,10 +29,10 @@
         "homepage": "https://input-output-hk.github.io/haskell.nix",
         "owner": "input-output-hk",
         "repo": "haskell.nix",
-        "rev": "07fb32cbd4764b0276e6d82988dccc83486d5112",
-        "sha256": "1mmz1si0irkrkcpq18cwhbhpq077mwbl58hdpi3kb4b3aizy4zl8",
+        "rev": "abe9243c255232a1ae1c93a03a0d3c79ed420ca0",
+        "sha256": "1vvwsr0klshzbvp88a45gpmx0lmm61cw8a046pmbbcsxyy08wf4m",
         "type": "tarball",
-        "url": "https://github.com/input-output-hk/haskell.nix/archive/07fb32cbd4764b0276e6d82988dccc83486d5112.tar.gz",
+        "url": "https://github.com/input-output-hk/haskell.nix/archive/abe9243c255232a1ae1c93a03a0d3c79ed420ca0.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -41,22 +41,10 @@
         "homepage": "https://github.com/nmattia/niv",
         "owner": "nmattia",
         "repo": "niv",
-        "rev": "20c899271f288d33114760bc298838575fc6c7f9",
-        "sha256": "07zswk6dhlydihl9g6skmy52grjvqpra8r98f2dmbgwzc1yhjhxq",
+        "rev": "af958e8057f345ee1aca714c1247ef3ba1c15f5e",
+        "sha256": "1qjavxabbrsh73yck5dcq8jggvh3r2jkbr6b5nlz5d9yrqm9255n",
         "type": "tarball",
-        "url": "https://github.com/nmattia/niv/archive/20c899271f288d33114760bc298838575fc6c7f9.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "nixpkgs": {
-        "branch": "master",
-        "description": "Nix Packages - Latest pin",
-        "homepage": null,
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "3b4b2a828f85ff1de2426c7f58f6883d5351d050",
-        "sha256": "11kikb940wwb2zg0z0c517b6zzkkyx923vqg31mkrskrgmih3ysa",
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/3b4b2a828f85ff1de2426c7f58f6883d5351d050.tar.gz",
+        "url": "https://github.com/nmattia/niv/archive/af958e8057f345ee1aca714c1247ef3ba1c15f5e.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

@@ -36,7 +36,7 @@ in cabalProject // {
   workflows = {
     core = components isCore;
     libs = components (name: !(isCore name));
-    docs = map (v: v.doc) ((components (_name: true)).library);
+    docs = builtins.mapAttrs (_: v: v.doc) ((components (_name: true)).library);
   };
 
   shell = cabalProject.shellFor {

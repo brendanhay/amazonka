@@ -132,6 +132,10 @@ credSecretKey = "aws_secret_access_key"
 credSessionToken :: Text -- ^ aws_session_token
 credSessionToken = "aws_session_token"
 
+-- | Credentials INI file region variable.
+credRegion :: Text -- ^ region
+credRegion = "region"
+
 -- | Credentials INI default profile section variable.
 credProfile :: Text -- ^ default
 credProfile = "default"
@@ -451,7 +455,8 @@ fromFilePath n f = do
         <*> (req credSecretKey    ini <&> Sensitive . SecretKey)
         <*> (opt credSessionToken ini <&> fmap (Sensitive . SessionToken))
         <*> return Nothing
-    return (Auth env, Nothing)
+    mRegion <- getRegion ini
+    return (Auth env, mRegion)
   where
     req k i =
         case INI.lookupValue n k i of
@@ -464,6 +469,21 @@ fromFilePath n f = do
         case INI.lookupValue n k i of
             Left  _ -> Nothing
             Right x -> Just (Text.encodeUtf8 x)
+
+    getRegion ini = case INI.lookupValue n credRegion ini >>= fromText of
+        Left _ -> getRegionFromConfigFile
+        Right x -> return $ Just x
+
+    -- get region value from ~/.aws/config
+    getRegionFromConfigFile = do
+      home <- liftIO getHomeDirectory
+      let configPath = home <> "/.aws/config"
+      p <- liftIO (doesFileExist configPath)
+      unless p $ throwM (MissingFileError f)
+      ini <- either (invalidErr Nothing) return =<< liftIO (INI.readIniFile configPath)
+      return $ case INI.lookupValue ("profile " <> n) credRegion ini >>= fromText of
+        Left _ -> Nothing
+        Right x -> Just x
 
     invalidErr Nothing  e = throwM $ InvalidFileError (Text.pack e)
     invalidErr (Just k) e = throwM $ InvalidFileError

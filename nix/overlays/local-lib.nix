@@ -6,7 +6,8 @@ final: prev: {
         # These functions pull out from the Haskell project either all the
         # components of a particular type, or all the checks.
 
-        pkgs = prev.haskell-nix.haskellLib.selectProjectPackages project;
+        pkgs = prev.lib.filterAttrs (name: _: predicate name)
+          (prev.haskell-nix.haskellLib.selectProjectPackages project);
 
         # recurseIntoAttrs is used so we can (more) easily run checks on CI.
         collectChecks = _:

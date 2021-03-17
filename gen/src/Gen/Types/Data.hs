@@ -81,6 +81,7 @@ data Sum = Sum'
     { _sumName  :: Text
     , _sumDoc   :: Maybe Help
     , _sumDecl  :: Rendered
+    , _sumCtor  :: Text
     , _sumCtors :: Map Text Text
     } deriving (Eq, Show)
 
@@ -88,6 +89,7 @@ sumToJSON :: Solved -> Sum -> [Text] -> [Pair]
 sumToJSON s Sum'{..} is =
     [ "type"          .= Text.pack "sum"
     , "name"          .= _sumName
+    , "constructor"   .= _sumCtor
     , "constructors"  .= _sumCtors
     , "documentation" .= _sumDoc
     , "declaration"   .= _sumDecl

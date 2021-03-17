@@ -57,6 +57,7 @@ library
     build-depends:
           amazonka-core == {{ coreVersion }}.*
         , base          >= 4.7     && < 5
+        , case-insensitive
       {% for dep in extraDependencies %}
         , {{ dep.value }}
       {% endfor %}
@@ -83,6 +84,7 @@ test-suite {{ libraryName }}-test
         , {{ libraryName }}
         , base
         , bytestring
+        , case-insensitive
         , tasty
         , tasty-hunit
         , text

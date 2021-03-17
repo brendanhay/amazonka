@@ -31,7 +31,6 @@ import Control.Lens           hiding ((:<), List, enum, mapping, (??))
 
 import Data.Foldable (foldr')
 import Data.List     (delete, intersect, nub, sort)
-import Data.Monoid
 
 import Gen.Types.Ann
 import Gen.Types.Id
@@ -54,7 +53,7 @@ instance HasId a => TypeOf (Shape a) where
         shape = \case
             Ptr _ t              -> t
             Struct st            -> TType  (typeId n) (struct st)
-            Enum   {}            -> TType  (typeId n) (enum <> derivingBase)
+            Enum   {}            -> TType  (typeId n) (ord <> derivingBase)
             List (ListF i e)
                 | nonEmpty i     -> TList1 (typeOf e)
                 | otherwise      -> TList  (typeOf e)
@@ -121,13 +120,14 @@ derivingOf = uniq . typ . typeOf
         Bool   -> derivingBase <> enum
         Json   -> [DEq, DShow, DData, DTypeable, DGeneric, DHashable, DNFData]
 
-stream, string, num, frac, monoid, enum :: [Derive]
+stream, string, num, frac, monoid, enum, ord :: [Derive]
 stream = [DShow, DGeneric]
 string = [DOrd, DIsString]
 num    = DNum : DIntegral : DReal : enum
 frac   = [DOrd, DRealFrac, DRealFloat]
 monoid = [DMonoid, DSemigroup]
 enum   = [DOrd, DEnum, DBounded]
+ord    = [DOrd]
 
 derivingBase :: [Derive]
 derivingBase = [DEq, DRead, DShow, DData, DTypeable, DGeneric, DHashable, DNFData]

@@ -25,7 +25,7 @@ import Control.Lens           hiding ((:<))
 import Data.Aeson
 import Data.Function (on)
 import Data.Hashable
-import Data.Monoid
+import Data.Semigroup (Semigroup)
 import Data.Text     (Text)
 
 import Gen.TH
@@ -50,11 +50,14 @@ data Mode
     | Uni !Direction
       deriving (Eq, Show)
 
-instance Monoid Mode where
-    mempty                  = Bi
-    mappend (Uni i) (Uni o)
+instance Semigroup Mode where
+    (Uni i) <> (Uni o)
         | i == o            = Uni o
-    mappend _       _       = Bi
+    _ <> _       = Bi
+
+instance Monoid Mode where
+    mempty  = Bi
+    mappend = (<>)
 
 data Relation = Relation
     { _relShared :: !Int -- FIXME: get around to using something more sensible.
@@ -63,14 +66,17 @@ data Relation = Relation
 
 makeClassy ''Relation
 
-instance Monoid Relation where
-    mempty      = Relation 0 mempty
-    mappend a b = Relation (on add _relShared b a) (on (<>) _relMode b a)
+instance Semigroup Relation where
+    a <> b = Relation (on add _relShared b a) (on (<>) _relMode b a)
       where
         add 0 0 = 2
         add 1 0 = 2
         add 0 1 = 2
         add x y = x + y
+
+instance Monoid Relation where
+    mempty = Relation 0 mempty
+    mappend = (<>)
 
 instance (Functor f, HasRelation a) => HasRelation (Cofree f a) where
     relation = lens extract (flip (:<) . unwrap) . relation

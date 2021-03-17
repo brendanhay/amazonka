@@ -34,7 +34,6 @@ import Control.Lens  hiding ((.=))
 
 import Data.Aeson
 import Data.List   (sort, sortOn, (\\))
-import Data.Monoid hiding (Product, Sum)
 import Data.Ord
 import Data.Text   (Text)
 import Data.Time
@@ -138,6 +137,7 @@ data Config = Config
     , _typeModules       :: [NS]
     , _typeOverrides     :: Map Id Override
     , _ignoredWaiters    :: Set Id
+    , _ignoredPaginators :: Set Id
     , _extraDependencies :: [Text]
     }
 
@@ -151,6 +151,7 @@ instance FromJSON Config where
         <*> o .:? "typeModules"       .!= mempty
         <*> o .:? "typeOverrides"     .!= mempty
         <*> o .:? "ignoredWaiters"    .!= mempty
+        <*> o .:? "ignoredPaginators" .!= mempty
         <*> o .:? "extraDependencies" .!= mempty
 
 data Library = Library
@@ -177,8 +178,10 @@ instance HasVersions Library where
 instance ToJSON Library where
     toJSON l = Object (x <> y)
       where
-        Object y = toJSON (l ^. metadata)
-        Object x = object
+        y = case toJSON (l ^. metadata) of
+          Object obj -> obj
+          oops -> error $ "metadata: expected JSON object, got " ++ show oops
+        x = mconcat
             [ "documentation"     .= (l ^. documentation)
             , "libraryName"       .= (l ^. libraryName)
             , "libraryNamespace"  .= (l ^. libraryNS)
@@ -198,21 +201,21 @@ instance ToJSON Library where
             ]
 
 -- FIXME: Remove explicit construction of getters, just use functions.
-libraryNS, typesNS, sumNS, productNS, waitersNS, fixturesNS :: Getter Library NS
+libraryNS, typesNS, waitersNS, fixturesNS :: Getter Library NS
 libraryNS  = serviceAbbrev . to (mappend "Network.AWS"  . mkNS)
 typesNS    = libraryNS     . to (<> "Types")
-sumNS      = typesNS       . to (<> "Sum")
-productNS  = typesNS       . to (<> "Product")
 waitersNS  = libraryNS     . to (<> "Waiters")
 fixturesNS = serviceAbbrev . to (mappend "Test.AWS.Gen" . mkNS)
 
 otherModules :: Getter Library [NS]
 otherModules = to f
   where
-    f x = x ^. sumNS
-        : x ^. productNS
-        : x ^. operationModules
+    f x = x ^. operationModules
        <> x ^. typeModules
+       <> mapMaybe (shapeNS x) (x ^.. shapes . each)
+    shapeNS x s@(Prod _ _ _) = Just $ (x ^. typesNS) <> ((mkNS . typeId) $ identifier s)
+    shapeNS x s@(Sum  _ _ _) = Just $ (x ^. typesNS) <> ((mkNS . typeId) $ identifier s)
+    shapeNS _   (Fun  _)     = Nothing
 
 exposedModules :: Getter Library [NS]
 exposedModules = to f

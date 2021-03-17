@@ -40,6 +40,7 @@ module Control.Monad.Trans.AWS
     , newEnv
     , Env
     , HasEnv       (..)
+    , askEnv
 
     -- ** Credential Discovery
     , Credentials  (..)
@@ -158,16 +159,21 @@ module Control.Monad.Trans.AWS
     ) where
 
 import Control.Applicative
+import Control.Monad
 import Control.Monad.Base
 import Control.Monad.Catch
 import Control.Monad.Error.Class    (MonadError (..))
 import Control.Monad.IO.Unlift
 import Control.Monad.Morph
+import Control.Monad.Primitive
 import Control.Monad.Reader
 import Control.Monad.State.Class
 import Control.Monad.Trans.Control
 import Control.Monad.Trans.Resource
 import Control.Monad.Writer.Class
+#if MIN_VERSION_base(4,9,0)
+import Control.Monad.Fail
+#endif
 
 import Data.Conduit      hiding (await)
 import Data.Conduit.Lazy (MonadActive (..))
@@ -179,7 +185,7 @@ import Network.AWS.Env
 import Network.AWS.Internal.Body
 import Network.AWS.Internal.HTTP
 import Network.AWS.Internal.Logger
-import Network.AWS.Lens            (catching, throwingM, trying, view)
+import Network.AWS.Lens            (catching, throwingM, trying, view, (^.))
 import Network.AWS.Pager           (AWSPager (..))
 import Network.AWS.Prelude         as AWS
 import Network.AWS.Request         (requestURL)
@@ -202,6 +208,9 @@ newtype AWST' r m a = AWST' { unAWST :: ReaderT r m a }
         , MonadIO
         , MonadActive
         , MonadTrans
+#if MIN_VERSION_base(4,9,0)
+        , MonadFail
+#endif
         )
 
 instance MonadThrow m => MonadThrow (AWST' r m) where
@@ -241,6 +250,19 @@ instance MonadBaseControl b m => MonadBaseControl b (AWST' r m) where
     liftBaseWith = defaultLiftBaseWith
     restoreM     = defaultRestoreM
 
+instance MonadUnliftIO m => MonadUnliftIO (AWST' r m) where
+#if MIN_VERSION_unliftio_core(0,2,0)
+    {-# INLINE withRunInIO #-}
+    withRunInIO inner =
+        AWST' $
+        withRunInIO $ \run ->
+        inner (run . unAWST)
+#else
+    {-# INLINE askUnliftIO #-}
+    askUnliftIO = AWST' $ (\(UnliftIO f) -> UnliftIO $ f . unAWST)
+        <$> askUnliftIO
+#endif
+
 instance MonadResource m => MonadResource (AWST' r m) where
     liftResourceT = lift . liftResourceT
 
@@ -266,9 +288,16 @@ instance MonadState s m => MonadState s (AWST' r m) where
 instance MFunctor (AWST' r) where
     hoist nat = AWST' . hoist nat . unAWST
 
+instance PrimMonad m => PrimMonad (AWST' r m) where
+    type PrimState (AWST' r m) = PrimState m
+    primitive = AWST' . primitive
+
 -- | Run an 'AWST' action with the specified environment.
 runAWST :: HasEnv r => r -> AWST' r m a -> m a
 runAWST r (AWST' m) = runReaderT m r
+
+askEnv :: (Monad m, HasEnv r) => AWST' r m Env
+askEnv = AWST' (asks (^. environment))
 
 -- | An alias for the constraints required to send requests,
 -- which 'AWST' implicitly fulfils.
@@ -553,6 +582,6 @@ library to output useful information and diagnostics.
 The 'newLogger' function can be used to construct a simple logger which writes
 output to a 'Handle', but in most production code you should probably consider
 using a more robust logging library such as
-<http://hackage.haskell.org/package/tiny-log tiny-log> or
+<http://hackage.haskell.org/package/tinylog tinylog> or
 <http://hackage.haskell.org/package/fast-logger fast-logger>.
 -}

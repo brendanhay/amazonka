@@ -31,7 +31,8 @@ import Control.Monad.Except
 import Data.Aeson            hiding (json)
 import Data.Bifunctor
 import Data.Functor.Identity
-import Data.Monoid
+import Data.Maybe            (mapMaybe)
+import Data.Monoid           hiding (Sum)
 import Data.Text             (Text)
 
 import Filesystem.Path.CurrentOS hiding (FilePath, root)
@@ -86,10 +87,8 @@ populate d Templates{..} l = (encodeString d :/) . dir lib <$> layout
             [ dir "Network"
                 [ dir "AWS"
                     [ dir svc $
-                        [ dir "Types"
-                            [ mod (l ^. sumNS) (sumImports l) sumTemplate
-                            , mod (l ^. productNS) (productImports l) productTemplate
-                            ]
+                        [ dir "Types" $
+                            mapMaybe shape (l ^.. shapes . each)
                         , mod (l ^. typesNS) (typeImports l) typesTemplate
                         , mod (l ^. waitersNS) (waiterImports l) waitersTemplate
                         ] ++ map op (l ^.. operations . each)
@@ -137,6 +136,13 @@ populate d Templates{..} l = (encodeString d :/) . dir lib <$> layout
     op :: Operation Identity SData a -> DirTree (Either Error Touch)
     op = write . operation' l operationTemplate
 
+    shape :: SData -> Maybe (DirTree (Either Error Touch))
+    shape s = (\t -> (write . shape' l t) s) <$> template s
+      where
+        template (Prod _ _ _) = Just productTemplate
+        template (Sum  _ _ _) = Just sumTemplate
+        template (Fun  _)     = Nothing
+
     fixture :: Operation Identity SData a -> [DirTree (Either Error Touch)]
     fixture o =
         [ touch (n <> "Response.proto") blankTemplate mempty
@@ -172,6 +178,20 @@ operation' l t o = module' n is t $ do
 
     is = operationImports l o
 
+shape' :: Library
+       -> Template
+       -> SData
+       -> DirTree (Either Error Rendered)
+shape' l t s = module' n (is s) t $ pure env
+  where
+    n = (l ^. typesNS) <> ((mkNS . typeId) $ identifier s)
+
+    is (Prod _ prod _) = productImports l prod
+    is (Sum  _ _    _) = sumImports l
+    is _               = []
+
+    env = object ["shape" .= s]
+
 module' :: ToJSON a
         => NS
         -> [NS]
@@ -184,7 +204,9 @@ module' ns is tmpl f =
         return $! x <> fromPairs
             [ "moduleName"    .= ns
             , "moduleImports" .= is
+            , "templateName"  .= (templateName ns)
             ]
+      where templateName (NS xs) = last xs
 
 file' :: ToJSON a
       => Path

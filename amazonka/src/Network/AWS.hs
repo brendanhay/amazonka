@@ -200,8 +200,10 @@ class ( Functor     m
     -- | Lift a computation to the 'AWS' monad.
     liftAWS :: AWS a -> m a
 
-instance MonadAWS AWS where
-    liftAWS = id
+instance (MonadResource m, MonadCatch m) => MonadAWS (AWST m) where
+    liftAWS action = do
+        env <- AWST.askEnv
+        liftResourceT (AWST.runAWST env action)
 
 instance MonadAWS m => MonadAWS (IdentityT   m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (ListT       m) where liftAWS = lift . liftAWS
@@ -525,6 +527,6 @@ library to output useful information and diagnostics.
 The 'newLogger' function can be used to construct a simple logger which writes
 output to a 'Handle', but in most production code you should probably consider
 using a more robust logging library such as
-<http://hackage.haskell.org/package/tiny-log tiny-log> or
+<http://hackage.haskell.org/package/tinylog tinylog> or
 <http://hackage.haskell.org/package/fast-logger fast-logger>.
 -}

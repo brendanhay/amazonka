@@ -18,9 +18,10 @@ import Control.Lens
 
 import Data.List   (sort)
 import Data.Maybe
-import Data.Monoid
 
 import Gen.Types
+
+import qualified Data.Set as Set
 
 operationImports :: Library -> Operation Identity SData a -> [NS]
 operationImports l o = sort $
@@ -29,7 +30,6 @@ operationImports l o = sort $
     : "Network.AWS.Lens"
     : "Network.AWS.Prelude"
     : l ^. typesNS
-    : l ^. productNS
     : l ^. operationModules
    ++ maybeToList (const "Network.AWS.Pager" <$> o ^. opPager)
 
@@ -38,21 +38,24 @@ typeImports l = sort $
       "Network.AWS.Lens"
     : "Network.AWS.Prelude"
     : signatureImport (l ^. signatureVersion)
-    : l ^. sumNS
-    : l ^. productNS
     : l ^. typeModules
 
 sumImports :: Library -> [NS]
 sumImports l = sort $
-      "Network.AWS.Prelude"
+      "Data.CaseInsensitive"
+    : "Network.AWS.Prelude"
     : l ^. typeModules
 
-productImports :: Library -> [NS]
-productImports l = sort $
+productImports :: Library -> Prod -> [NS]
+productImports l p = sort $
       "Network.AWS.Lens"
     : "Network.AWS.Prelude"
-    : l ^. sumNS
     : l ^. typeModules
+   ++ (Set.toList $ Set.map (l ^. typesNS <>) moduleDependencies)
+  where
+    moduleDependencies = Set.intersection dependencies moduleShapes
+    dependencies = Set.map mkNS $ _prodDeps p
+    moduleShapes = Set.fromList (mkNS . typeId . identifier <$> l ^.. shapes . each)
 
 waiterImports :: Library -> [NS]
 waiterImports l = sort $

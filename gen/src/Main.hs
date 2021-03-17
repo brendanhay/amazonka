@@ -25,7 +25,6 @@ import Control.Monad
 import Control.Monad.Except
 import Control.Monad.State
 
-import Data.Monoid
 import Data.String
 
 import Filesystem.Path.CurrentOS

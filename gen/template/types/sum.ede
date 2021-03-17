@@ -2,6 +2,7 @@
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE LambdaCase         #-}
 {-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE PatternSynonyms    #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -9,15 +10,17 @@
 
 {% include "_include/license.ede" %}
 --
-module {{ moduleName }} where
+module {{ moduleName }} (
+  {{ shape.name }} (
+    ..
+    {% for ctor in shape.constructors %}
+    , {{ ctor.key }}
+    {% endfor %}
+    )
+  ) where
 
 {% for import in moduleImports %}
 import {{ import.value }}
 {% endfor %}
-{% for shape in shapes %}
-  {% case shape.value.type %}
-  {% when "sum" %}
 
-{% include "_include/sum.ede" with shape = shape.value %}
-  {% endcase %}
-{% endfor %}
+{% include "_include/sum.ede" %}

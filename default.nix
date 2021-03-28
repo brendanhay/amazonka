@@ -19,27 +19,21 @@ let
     inherit system sources config overlays crossOverlays ghcVersion;
   };
 
-  inherit (pkgs) localLib localTools cabalProject;
+  projectPackages =
+    pkgs.haskell-nix.haskellLib.selectProjectPackages pkgs.cabalProject;
 
-  isCore = name:
-    builtins.elem name [
-      "amazonka"
-      "amazonka-core"
-      "amazonka-test"
-      "amazonka-gen"
-    ];
+  collectChecks = _:
+    pkgs.recurseIntoAttrs (builtins.mapAttrs (_: p: p.checks) projectPackages);
+  collectComponents = type:
+    pkgs.haskell-nix.haskellLib.collectComponents' type projectPackages;
 
-  components = predicate:
-    localLib.collectProjectComponents predicate cabalProject;
-
-in cabalProject // {
-  workflows = {
-    core = components isCore;
-    libs = components (name: !(isCore name));
-    docs = builtins.mapAttrs (_: v: v.doc) ((components (_name: true)).library);
+in projectPackages // {
+  ci = builtins.mapAttrs (type: f: f type) {
+    "library" = collectComponents;
+    "checks" = collectChecks;
   };
 
-  shell = cabalProject.shellFor {
+  shell = pkgs.cabalProject.shellFor {
     exactDeps = true;
     withHoogle = false;
 
@@ -51,16 +45,15 @@ in cabalProject // {
         amazonka-gen
       ];
 
-    # tools = { .. };
+    tools = {
+      cabal = "3.2.0.0";
+      cabal-fmt = "0.1.5.1";
+      shellcheck = "0.7.1";
+    };
 
     buildInputs = [
       pkgs.nixfmt
       pkgs.shfmt
-
-      localTools.cabal
-      localTools.cabal-fmt
-      localTools.ormolu
-      localTools.shellcheck
 
       (import pkgs.sources.niv { }).niv
     ];

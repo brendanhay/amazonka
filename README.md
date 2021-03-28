@@ -24,13 +24,11 @@ automatically kept up to date with Amazon's latest service APIs.
 An introductory blog post detailing some of the motivation and design decisions
 can be found [here](http://brendanhay.nz/amazonka-comprehensive-haskell-aws-client).
 
+
 ## Documentation
 
 You can find the latest stable release documentation for each respective library
 on Hackage under the [AWS section](http://hackage.haskell.org/packages/#cat:AWS).
-
-Haddock documentation which is built by CI from the `develop` branch
-can be found [here](http://brendanhay.nz/amazonka-doc).
 
 
 ## Organisation
@@ -43,8 +41,7 @@ This repository is organised into the following directory structure:
 * [`core`](core): The `amazonka-core` library upon which each of the services depends.
 * [`examples`](examples): A currently sparse collection of examples for the various services.
 * [`gen`](gen): The code generation binary, along with configuration, templates, and assets.
-* [`script`](script): CI scripts to manage the release lifecycle of the service libraries.
-* [`share`](share): Makefile plumbing common to all service libraries
+* [`scripts`](scripts): CI scripts to manage the release lifecycle of the service libraries.
 * [`test`](test): The `amazonka-test` library containing common test functionality.
 
 
@@ -59,13 +56,10 @@ For any problems, comments, or feedback please create an issue [here on GitHub](
 
 ### Package Names
 
-It is often desirable to provide supplemental functionality to `amazonka` as
-an additional library, for example providing S3 encryption via a package such
+It is often desirable to provide supplemental functionality to `amazonka` as an additional library, for example providing S3 encryption via a package such
 as `amazonka-s3-encryption`.
 
-I ask that authors of these packages carefully consider package naming
-and preferably do not prefix the package with `amazonka-*` to avoid potential
-collisions with generated package names.
+Authors of these packages carefully consider package naming and preferably do not prefix the package with `amazonka-*` to avoid potential collisions with generated package names.
 
 
 ## Licence

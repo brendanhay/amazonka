@@ -27,8 +27,6 @@ let
 
     (import ./overlays/haskell.nix)
     (import ./overlays/cabal-project.nix { inherit ghcVersion; })
-    (import ./overlays/local-tools.nix)
-    (import ./overlays/local-lib.nix)
   ] ++ overlays;
 
   pkgs = import haskellNix.sources.nixpkgs-2009 (haskellNix.nixpkgsArgs // {

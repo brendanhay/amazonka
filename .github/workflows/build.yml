@@ -2,18 +2,18 @@ name: build
 
 on:
   push:
-    branches: main
+    branches: bh/ci
   pull_request:
-    branches: main
+    branches: bh/ci
 
 jobs:
-  core:
+  build:
     strategy:
       fail-fast: false
       matrix:
         include:
-          - { os: ubuntu-latest, ghc: ghc8104 }
           - { os: ubuntu-latest, ghc: ghc884 }
+          - { os: ubuntu-latest, ghc: ghc8104 }
           - { os: macos-latest, ghc: ghc8104 }
 
     runs-on: ${{ matrix.os }}
@@ -26,25 +26,7 @@ jobs:
           name: amazonka
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
 
-      - run: nix-build -A workflows.core --argstr ghcVersion ${{ matrix.ghc }}
+      - if: ${{ matrix.os != 'macos-latest' }}
+        run: sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt &
 
-  libs:
-    needs:
-      - core
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - { os: ubuntu-latest, ghc: ghc8104 }
-
-    runs-on: ${{ matrix.os }}
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: cachix/install-nix-action@v12
-      - uses: cachix/cachix-action@v8
-        with:
-          name: amazonka
-          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-
-      - run: nix-build -A workflows.libs --argstr ghcVersion ${{ matrix.ghc }}
+      - run: nix-build -A ci.library -A ci.checks --argstr ghcVersion ${{ matrix.ghc }}

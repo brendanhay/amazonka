@@ -1,1479 +1,1365 @@
-cabal-version:      2.2
-name:               amazonka-ec2
-version:            2.0.0.0
-synopsis:           Amazon Elastic Compute Cloud SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-ec2
+version:               2.0.0.0
+synopsis:              Amazon Elastic Compute Cloud SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.EC2" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.EC2" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-ec2
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-ec2
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.EC2
-    Network.AWS.EC2.AcceptReservedInstancesExchangeQuote
-    Network.AWS.EC2.AcceptTransitGatewayPeeringAttachment
-    Network.AWS.EC2.AcceptTransitGatewayVpcAttachment
-    Network.AWS.EC2.AcceptVpcEndpointConnections
-    Network.AWS.EC2.AcceptVpcPeeringConnection
-    Network.AWS.EC2.AdvertiseByoipCidr
-    Network.AWS.EC2.AllocateAddress
-    Network.AWS.EC2.AllocateHosts
-    Network.AWS.EC2.ApplySecurityGroupsToClientVpnTargetNetwork
-    Network.AWS.EC2.AssignIpv6Addresses
-    Network.AWS.EC2.AssignPrivateIpAddresses
-    Network.AWS.EC2.AssociateAddress
-    Network.AWS.EC2.AssociateClientVpnTargetNetwork
-    Network.AWS.EC2.AssociateDhcpOptions
-    Network.AWS.EC2.AssociateEnclaveCertificateIamRole
-    Network.AWS.EC2.AssociateIamInstanceProfile
-    Network.AWS.EC2.AssociateRouteTable
-    Network.AWS.EC2.AssociateSubnetCidrBlock
-    Network.AWS.EC2.AssociateTransitGatewayMulticastDomain
-    Network.AWS.EC2.AssociateTransitGatewayRouteTable
-    Network.AWS.EC2.AssociateVpcCidrBlock
-    Network.AWS.EC2.AttachClassicLinkVpc
-    Network.AWS.EC2.AttachInternetGateway
-    Network.AWS.EC2.AttachNetworkInterface
-    Network.AWS.EC2.AttachVolume
-    Network.AWS.EC2.AttachVpnGateway
-    Network.AWS.EC2.AuthorizeClientVpnIngress
-    Network.AWS.EC2.AuthorizeSecurityGroupEgress
-    Network.AWS.EC2.AuthorizeSecurityGroupIngress
-    Network.AWS.EC2.BundleInstance
-    Network.AWS.EC2.CancelBundleTask
-    Network.AWS.EC2.CancelCapacityReservation
-    Network.AWS.EC2.CancelConversionTask
-    Network.AWS.EC2.CancelExportTask
-    Network.AWS.EC2.CancelImportTask
-    Network.AWS.EC2.CancelReservedInstancesListing
-    Network.AWS.EC2.CancelSpotFleetRequests
-    Network.AWS.EC2.CancelSpotInstanceRequests
-    Network.AWS.EC2.ConfirmProductInstance
-    Network.AWS.EC2.CopyFpgaImage
-    Network.AWS.EC2.CopyImage
-    Network.AWS.EC2.CopySnapshot
-    Network.AWS.EC2.CreateCapacityReservation
-    Network.AWS.EC2.CreateCarrierGateway
-    Network.AWS.EC2.CreateClientVpnEndpoint
-    Network.AWS.EC2.CreateClientVpnRoute
-    Network.AWS.EC2.CreateCustomerGateway
-    Network.AWS.EC2.CreateDefaultSubnet
-    Network.AWS.EC2.CreateDefaultVpc
-    Network.AWS.EC2.CreateDhcpOptions
-    Network.AWS.EC2.CreateEgressOnlyInternetGateway
-    Network.AWS.EC2.CreateFleet
-    Network.AWS.EC2.CreateFlowLogs
-    Network.AWS.EC2.CreateFpgaImage
-    Network.AWS.EC2.CreateImage
-    Network.AWS.EC2.CreateInstanceExportTask
-    Network.AWS.EC2.CreateInternetGateway
-    Network.AWS.EC2.CreateKeyPair
-    Network.AWS.EC2.CreateLaunchTemplate
-    Network.AWS.EC2.CreateLaunchTemplateVersion
-    Network.AWS.EC2.CreateLocalGatewayRoute
-    Network.AWS.EC2.CreateLocalGatewayRouteTableVpcAssociation
-    Network.AWS.EC2.CreateManagedPrefixList
-    Network.AWS.EC2.CreateNatGateway
-    Network.AWS.EC2.CreateNetworkAcl
-    Network.AWS.EC2.CreateNetworkAclEntry
-    Network.AWS.EC2.CreateNetworkInterface
-    Network.AWS.EC2.CreateNetworkInterfacePermission
-    Network.AWS.EC2.CreatePlacementGroup
-    Network.AWS.EC2.CreateReservedInstancesListing
-    Network.AWS.EC2.CreateRoute
-    Network.AWS.EC2.CreateRouteTable
-    Network.AWS.EC2.CreateSecurityGroup
-    Network.AWS.EC2.CreateSnapshot
-    Network.AWS.EC2.CreateSnapshots
-    Network.AWS.EC2.CreateSpotDatafeedSubscription
-    Network.AWS.EC2.CreateSubnet
-    Network.AWS.EC2.CreateTags
-    Network.AWS.EC2.CreateTrafficMirrorFilter
-    Network.AWS.EC2.CreateTrafficMirrorFilterRule
-    Network.AWS.EC2.CreateTrafficMirrorSession
-    Network.AWS.EC2.CreateTrafficMirrorTarget
-    Network.AWS.EC2.CreateTransitGateway
-    Network.AWS.EC2.CreateTransitGatewayMulticastDomain
-    Network.AWS.EC2.CreateTransitGatewayPeeringAttachment
-    Network.AWS.EC2.CreateTransitGatewayPrefixListReference
-    Network.AWS.EC2.CreateTransitGatewayRoute
-    Network.AWS.EC2.CreateTransitGatewayRouteTable
-    Network.AWS.EC2.CreateTransitGatewayVpcAttachment
-    Network.AWS.EC2.CreateVolume
-    Network.AWS.EC2.CreateVpc
-    Network.AWS.EC2.CreateVpcEndpoint
-    Network.AWS.EC2.CreateVpcEndpointConnectionNotification
-    Network.AWS.EC2.CreateVpcEndpointServiceConfiguration
-    Network.AWS.EC2.CreateVpcPeeringConnection
-    Network.AWS.EC2.CreateVpnConnection
-    Network.AWS.EC2.CreateVpnConnectionRoute
-    Network.AWS.EC2.CreateVpnGateway
-    Network.AWS.EC2.DeleteCarrierGateway
-    Network.AWS.EC2.DeleteClientVpnEndpoint
-    Network.AWS.EC2.DeleteClientVpnRoute
-    Network.AWS.EC2.DeleteCustomerGateway
-    Network.AWS.EC2.DeleteDhcpOptions
-    Network.AWS.EC2.DeleteEgressOnlyInternetGateway
-    Network.AWS.EC2.DeleteFleets
-    Network.AWS.EC2.DeleteFlowLogs
-    Network.AWS.EC2.DeleteFpgaImage
-    Network.AWS.EC2.DeleteInternetGateway
-    Network.AWS.EC2.DeleteKeyPair
-    Network.AWS.EC2.DeleteLaunchTemplate
-    Network.AWS.EC2.DeleteLaunchTemplateVersions
-    Network.AWS.EC2.DeleteLocalGatewayRoute
-    Network.AWS.EC2.DeleteLocalGatewayRouteTableVpcAssociation
-    Network.AWS.EC2.DeleteManagedPrefixList
-    Network.AWS.EC2.DeleteNatGateway
-    Network.AWS.EC2.DeleteNetworkAcl
-    Network.AWS.EC2.DeleteNetworkAclEntry
-    Network.AWS.EC2.DeleteNetworkInterface
-    Network.AWS.EC2.DeleteNetworkInterfacePermission
-    Network.AWS.EC2.DeletePlacementGroup
-    Network.AWS.EC2.DeleteQueuedReservedInstances
-    Network.AWS.EC2.DeleteRoute
-    Network.AWS.EC2.DeleteRouteTable
-    Network.AWS.EC2.DeleteSecurityGroup
-    Network.AWS.EC2.DeleteSnapshot
-    Network.AWS.EC2.DeleteSpotDatafeedSubscription
-    Network.AWS.EC2.DeleteSubnet
-    Network.AWS.EC2.DeleteTags
-    Network.AWS.EC2.DeleteTrafficMirrorFilter
-    Network.AWS.EC2.DeleteTrafficMirrorFilterRule
-    Network.AWS.EC2.DeleteTrafficMirrorSession
-    Network.AWS.EC2.DeleteTrafficMirrorTarget
-    Network.AWS.EC2.DeleteTransitGateway
-    Network.AWS.EC2.DeleteTransitGatewayMulticastDomain
-    Network.AWS.EC2.DeleteTransitGatewayPeeringAttachment
-    Network.AWS.EC2.DeleteTransitGatewayPrefixListReference
-    Network.AWS.EC2.DeleteTransitGatewayRoute
-    Network.AWS.EC2.DeleteTransitGatewayRouteTable
-    Network.AWS.EC2.DeleteTransitGatewayVpcAttachment
-    Network.AWS.EC2.DeleteVolume
-    Network.AWS.EC2.DeleteVpc
-    Network.AWS.EC2.DeleteVpcEndpointConnectionNotifications
-    Network.AWS.EC2.DeleteVpcEndpoints
-    Network.AWS.EC2.DeleteVpcEndpointServiceConfigurations
-    Network.AWS.EC2.DeleteVpcPeeringConnection
-    Network.AWS.EC2.DeleteVpnConnection
-    Network.AWS.EC2.DeleteVpnConnectionRoute
-    Network.AWS.EC2.DeleteVpnGateway
-    Network.AWS.EC2.DeprovisionByoipCidr
-    Network.AWS.EC2.DeregisterImage
-    Network.AWS.EC2.DeregisterInstanceEventNotificationAttributes
-    Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupMembers
-    Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources
-    Network.AWS.EC2.DescribeAccountAttributes
-    Network.AWS.EC2.DescribeAddresses
-    Network.AWS.EC2.DescribeAggregateIdFormat
-    Network.AWS.EC2.DescribeAvailabilityZones
-    Network.AWS.EC2.DescribeBundleTasks
-    Network.AWS.EC2.DescribeByoipCidrs
-    Network.AWS.EC2.DescribeCapacityReservations
-    Network.AWS.EC2.DescribeCarrierGateways
-    Network.AWS.EC2.DescribeClassicLinkInstances
-    Network.AWS.EC2.DescribeClientVpnAuthorizationRules
-    Network.AWS.EC2.DescribeClientVpnConnections
-    Network.AWS.EC2.DescribeClientVpnEndpoints
-    Network.AWS.EC2.DescribeClientVpnRoutes
-    Network.AWS.EC2.DescribeClientVpnTargetNetworks
-    Network.AWS.EC2.DescribeCoipPools
-    Network.AWS.EC2.DescribeConversionTasks
-    Network.AWS.EC2.DescribeCustomerGateways
-    Network.AWS.EC2.DescribeDhcpOptions
-    Network.AWS.EC2.DescribeEgressOnlyInternetGateways
-    Network.AWS.EC2.DescribeElasticGpus
-    Network.AWS.EC2.DescribeExportImageTasks
-    Network.AWS.EC2.DescribeExportTasks
-    Network.AWS.EC2.DescribeFastSnapshotRestores
-    Network.AWS.EC2.DescribeFleetHistory
-    Network.AWS.EC2.DescribeFleetInstances
-    Network.AWS.EC2.DescribeFleets
-    Network.AWS.EC2.DescribeFlowLogs
-    Network.AWS.EC2.DescribeFpgaImageAttribute
-    Network.AWS.EC2.DescribeFpgaImages
-    Network.AWS.EC2.DescribeHostReservationOfferings
-    Network.AWS.EC2.DescribeHostReservations
-    Network.AWS.EC2.DescribeHosts
-    Network.AWS.EC2.DescribeIamInstanceProfileAssociations
-    Network.AWS.EC2.DescribeIdentityIdFormat
-    Network.AWS.EC2.DescribeIdFormat
-    Network.AWS.EC2.DescribeImageAttribute
-    Network.AWS.EC2.DescribeImages
-    Network.AWS.EC2.DescribeImportImageTasks
-    Network.AWS.EC2.DescribeImportSnapshotTasks
-    Network.AWS.EC2.DescribeInstanceAttribute
-    Network.AWS.EC2.DescribeInstanceCreditSpecifications
-    Network.AWS.EC2.DescribeInstanceEventNotificationAttributes
-    Network.AWS.EC2.DescribeInstances
-    Network.AWS.EC2.DescribeInstanceStatus
-    Network.AWS.EC2.DescribeInstanceTypeOfferings
-    Network.AWS.EC2.DescribeInstanceTypes
-    Network.AWS.EC2.DescribeInternetGateways
-    Network.AWS.EC2.DescribeIpv6Pools
-    Network.AWS.EC2.DescribeKeyPairs
-    Network.AWS.EC2.DescribeLaunchTemplates
-    Network.AWS.EC2.DescribeLaunchTemplateVersions
-    Network.AWS.EC2.DescribeLocalGatewayRouteTables
-    Network.AWS.EC2.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
-    Network.AWS.EC2.DescribeLocalGatewayRouteTableVpcAssociations
-    Network.AWS.EC2.DescribeLocalGateways
-    Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups
-    Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaces
-    Network.AWS.EC2.DescribeManagedPrefixLists
-    Network.AWS.EC2.DescribeMovingAddresses
-    Network.AWS.EC2.DescribeNatGateways
-    Network.AWS.EC2.DescribeNetworkAcls
-    Network.AWS.EC2.DescribeNetworkInterfaceAttribute
-    Network.AWS.EC2.DescribeNetworkInterfacePermissions
-    Network.AWS.EC2.DescribeNetworkInterfaces
-    Network.AWS.EC2.DescribePlacementGroups
-    Network.AWS.EC2.DescribePrefixLists
-    Network.AWS.EC2.DescribePrincipalIdFormat
-    Network.AWS.EC2.DescribePublicIpv4Pools
-    Network.AWS.EC2.DescribeRegions
-    Network.AWS.EC2.DescribeReservedInstances
-    Network.AWS.EC2.DescribeReservedInstancesListings
-    Network.AWS.EC2.DescribeReservedInstancesModifications
-    Network.AWS.EC2.DescribeReservedInstancesOfferings
-    Network.AWS.EC2.DescribeRouteTables
-    Network.AWS.EC2.DescribeScheduledInstanceAvailability
-    Network.AWS.EC2.DescribeScheduledInstances
-    Network.AWS.EC2.DescribeSecurityGroupReferences
-    Network.AWS.EC2.DescribeSecurityGroups
-    Network.AWS.EC2.DescribeSnapshotAttribute
-    Network.AWS.EC2.DescribeSnapshots
-    Network.AWS.EC2.DescribeSpotDatafeedSubscription
-    Network.AWS.EC2.DescribeSpotFleetInstances
-    Network.AWS.EC2.DescribeSpotFleetRequestHistory
-    Network.AWS.EC2.DescribeSpotFleetRequests
-    Network.AWS.EC2.DescribeSpotInstanceRequests
-    Network.AWS.EC2.DescribeSpotPriceHistory
-    Network.AWS.EC2.DescribeStaleSecurityGroups
-    Network.AWS.EC2.DescribeSubnets
-    Network.AWS.EC2.DescribeTags
-    Network.AWS.EC2.DescribeTrafficMirrorFilters
-    Network.AWS.EC2.DescribeTrafficMirrorSessions
-    Network.AWS.EC2.DescribeTrafficMirrorTargets
-    Network.AWS.EC2.DescribeTransitGatewayAttachments
-    Network.AWS.EC2.DescribeTransitGatewayMulticastDomains
-    Network.AWS.EC2.DescribeTransitGatewayPeeringAttachments
-    Network.AWS.EC2.DescribeTransitGatewayRouteTables
-    Network.AWS.EC2.DescribeTransitGateways
-    Network.AWS.EC2.DescribeTransitGatewayVpcAttachments
-    Network.AWS.EC2.DescribeVolumeAttribute
-    Network.AWS.EC2.DescribeVolumes
-    Network.AWS.EC2.DescribeVolumesModifications
-    Network.AWS.EC2.DescribeVolumeStatus
-    Network.AWS.EC2.DescribeVpcAttribute
-    Network.AWS.EC2.DescribeVpcClassicLink
-    Network.AWS.EC2.DescribeVpcClassicLinkDnsSupport
-    Network.AWS.EC2.DescribeVpcEndpointConnectionNotifications
-    Network.AWS.EC2.DescribeVpcEndpointConnections
-    Network.AWS.EC2.DescribeVpcEndpoints
-    Network.AWS.EC2.DescribeVpcEndpointServiceConfigurations
-    Network.AWS.EC2.DescribeVpcEndpointServicePermissions
-    Network.AWS.EC2.DescribeVpcEndpointServices
-    Network.AWS.EC2.DescribeVpcPeeringConnections
-    Network.AWS.EC2.DescribeVpcs
-    Network.AWS.EC2.DescribeVpnConnections
-    Network.AWS.EC2.DescribeVpnGateways
-    Network.AWS.EC2.DetachClassicLinkVpc
-    Network.AWS.EC2.DetachInternetGateway
-    Network.AWS.EC2.DetachNetworkInterface
-    Network.AWS.EC2.DetachVolume
-    Network.AWS.EC2.DetachVpnGateway
-    Network.AWS.EC2.DisableEbsEncryptionByDefault
-    Network.AWS.EC2.DisableFastSnapshotRestores
-    Network.AWS.EC2.DisableTransitGatewayRouteTablePropagation
-    Network.AWS.EC2.DisableVgwRoutePropagation
-    Network.AWS.EC2.DisableVpcClassicLink
-    Network.AWS.EC2.DisableVpcClassicLinkDnsSupport
-    Network.AWS.EC2.DisassociateAddress
-    Network.AWS.EC2.DisassociateClientVpnTargetNetwork
-    Network.AWS.EC2.DisassociateEnclaveCertificateIamRole
-    Network.AWS.EC2.DisassociateIamInstanceProfile
-    Network.AWS.EC2.DisassociateRouteTable
-    Network.AWS.EC2.DisassociateSubnetCidrBlock
-    Network.AWS.EC2.DisassociateTransitGatewayMulticastDomain
-    Network.AWS.EC2.DisassociateTransitGatewayRouteTable
-    Network.AWS.EC2.DisassociateVpcCidrBlock
-    Network.AWS.EC2.EnableEbsEncryptionByDefault
-    Network.AWS.EC2.EnableFastSnapshotRestores
-    Network.AWS.EC2.EnableTransitGatewayRouteTablePropagation
-    Network.AWS.EC2.EnableVgwRoutePropagation
-    Network.AWS.EC2.EnableVolumeIO
-    Network.AWS.EC2.EnableVpcClassicLink
-    Network.AWS.EC2.EnableVpcClassicLinkDnsSupport
-    Network.AWS.EC2.ExportClientVpnClientCertificateRevocationList
-    Network.AWS.EC2.ExportClientVpnClientConfiguration
-    Network.AWS.EC2.ExportImage
-    Network.AWS.EC2.ExportTransitGatewayRoutes
-    Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles
-    Network.AWS.EC2.GetAssociatedIpv6PoolCidrs
-    Network.AWS.EC2.GetCapacityReservationUsage
-    Network.AWS.EC2.GetCoipPoolUsage
-    Network.AWS.EC2.GetConsoleOutput
-    Network.AWS.EC2.GetConsoleScreenshot
-    Network.AWS.EC2.GetDefaultCreditSpecification
-    Network.AWS.EC2.GetEbsDefaultKmsKeyId
-    Network.AWS.EC2.GetEbsEncryptionByDefault
-    Network.AWS.EC2.GetGroupsForCapacityReservation
-    Network.AWS.EC2.GetHostReservationPurchasePreview
-    Network.AWS.EC2.GetLaunchTemplateData
-    Network.AWS.EC2.GetManagedPrefixListAssociations
-    Network.AWS.EC2.GetManagedPrefixListEntries
-    Network.AWS.EC2.GetPasswordData
-    Network.AWS.EC2.GetReservedInstancesExchangeQuote
-    Network.AWS.EC2.GetTransitGatewayAttachmentPropagations
-    Network.AWS.EC2.GetTransitGatewayMulticastDomainAssociations
-    Network.AWS.EC2.GetTransitGatewayPrefixListReferences
-    Network.AWS.EC2.GetTransitGatewayRouteTableAssociations
-    Network.AWS.EC2.GetTransitGatewayRouteTablePropagations
-    Network.AWS.EC2.ImportClientVpnClientCertificateRevocationList
-    Network.AWS.EC2.ImportImage
-    Network.AWS.EC2.ImportInstance
-    Network.AWS.EC2.ImportKeyPair
-    Network.AWS.EC2.ImportSnapshot
-    Network.AWS.EC2.ImportVolume
-    Network.AWS.EC2.ModifyAvailabilityZoneGroup
-    Network.AWS.EC2.ModifyCapacityReservation
-    Network.AWS.EC2.ModifyClientVpnEndpoint
-    Network.AWS.EC2.ModifyDefaultCreditSpecification
-    Network.AWS.EC2.ModifyEbsDefaultKmsKeyId
-    Network.AWS.EC2.ModifyFleet
-    Network.AWS.EC2.ModifyFpgaImageAttribute
-    Network.AWS.EC2.ModifyHosts
-    Network.AWS.EC2.ModifyIdentityIdFormat
-    Network.AWS.EC2.ModifyIdFormat
-    Network.AWS.EC2.ModifyImageAttribute
-    Network.AWS.EC2.ModifyInstanceAttribute
-    Network.AWS.EC2.ModifyInstanceCapacityReservationAttributes
-    Network.AWS.EC2.ModifyInstanceCreditSpecification
-    Network.AWS.EC2.ModifyInstanceEventStartTime
-    Network.AWS.EC2.ModifyInstanceMetadataOptions
-    Network.AWS.EC2.ModifyInstancePlacement
-    Network.AWS.EC2.ModifyLaunchTemplate
-    Network.AWS.EC2.ModifyManagedPrefixList
-    Network.AWS.EC2.ModifyNetworkInterfaceAttribute
-    Network.AWS.EC2.ModifyReservedInstances
-    Network.AWS.EC2.ModifySnapshotAttribute
-    Network.AWS.EC2.ModifySpotFleetRequest
-    Network.AWS.EC2.ModifySubnetAttribute
-    Network.AWS.EC2.ModifyTrafficMirrorFilterNetworkServices
-    Network.AWS.EC2.ModifyTrafficMirrorFilterRule
-    Network.AWS.EC2.ModifyTrafficMirrorSession
-    Network.AWS.EC2.ModifyTransitGateway
-    Network.AWS.EC2.ModifyTransitGatewayPrefixListReference
-    Network.AWS.EC2.ModifyTransitGatewayVpcAttachment
-    Network.AWS.EC2.ModifyVolume
-    Network.AWS.EC2.ModifyVolumeAttribute
-    Network.AWS.EC2.ModifyVpcAttribute
-    Network.AWS.EC2.ModifyVpcEndpoint
-    Network.AWS.EC2.ModifyVpcEndpointConnectionNotification
-    Network.AWS.EC2.ModifyVpcEndpointServiceConfiguration
-    Network.AWS.EC2.ModifyVpcEndpointServicePermissions
-    Network.AWS.EC2.ModifyVpcPeeringConnectionOptions
-    Network.AWS.EC2.ModifyVpcTenancy
-    Network.AWS.EC2.ModifyVpnConnection
-    Network.AWS.EC2.ModifyVpnConnectionOptions
-    Network.AWS.EC2.ModifyVpnTunnelCertificate
-    Network.AWS.EC2.ModifyVpnTunnelOptions
-    Network.AWS.EC2.MonitorInstances
-    Network.AWS.EC2.MoveAddressToVpc
-    Network.AWS.EC2.ProvisionByoipCidr
-    Network.AWS.EC2.PurchaseHostReservation
-    Network.AWS.EC2.PurchaseReservedInstancesOffering
-    Network.AWS.EC2.PurchaseScheduledInstances
-    Network.AWS.EC2.RebootInstances
-    Network.AWS.EC2.RegisterImage
-    Network.AWS.EC2.RegisterInstanceEventNotificationAttributes
-    Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers
-    Network.AWS.EC2.RegisterTransitGatewayMulticastGroupSources
-    Network.AWS.EC2.RejectTransitGatewayPeeringAttachment
-    Network.AWS.EC2.RejectTransitGatewayVpcAttachment
-    Network.AWS.EC2.RejectVpcEndpointConnections
-    Network.AWS.EC2.RejectVpcPeeringConnection
-    Network.AWS.EC2.ReleaseAddress
-    Network.AWS.EC2.ReleaseHosts
-    Network.AWS.EC2.ReplaceIamInstanceProfileAssociation
-    Network.AWS.EC2.ReplaceNetworkAclAssociation
-    Network.AWS.EC2.ReplaceNetworkAclEntry
-    Network.AWS.EC2.ReplaceRoute
-    Network.AWS.EC2.ReplaceRouteTableAssociation
-    Network.AWS.EC2.ReplaceTransitGatewayRoute
-    Network.AWS.EC2.ReportInstanceStatus
-    Network.AWS.EC2.RequestSpotFleet
-    Network.AWS.EC2.RequestSpotInstances
-    Network.AWS.EC2.ResetEbsDefaultKmsKeyId
-    Network.AWS.EC2.ResetFpgaImageAttribute
-    Network.AWS.EC2.ResetImageAttribute
-    Network.AWS.EC2.ResetInstanceAttribute
-    Network.AWS.EC2.ResetNetworkInterfaceAttribute
-    Network.AWS.EC2.ResetSnapshotAttribute
-    Network.AWS.EC2.RestoreAddressToClassic
-    Network.AWS.EC2.RestoreManagedPrefixListVersion
-    Network.AWS.EC2.RevokeClientVpnIngress
-    Network.AWS.EC2.RevokeSecurityGroupEgress
-    Network.AWS.EC2.RevokeSecurityGroupIngress
-    Network.AWS.EC2.RunInstances
-    Network.AWS.EC2.RunScheduledInstances
-    Network.AWS.EC2.SearchLocalGatewayRoutes
-    Network.AWS.EC2.SearchTransitGatewayMulticastGroups
-    Network.AWS.EC2.SearchTransitGatewayRoutes
-    Network.AWS.EC2.SendDiagnosticInterrupt
-    Network.AWS.EC2.StartInstances
-    Network.AWS.EC2.StartVpcEndpointServicePrivateDnsVerification
-    Network.AWS.EC2.StopInstances
-    Network.AWS.EC2.TerminateClientVpnConnections
-    Network.AWS.EC2.TerminateInstances
-    Network.AWS.EC2.Types
-    Network.AWS.EC2.UnassignIpv6Addresses
-    Network.AWS.EC2.UnassignPrivateIpAddresses
-    Network.AWS.EC2.UnmonitorInstances
-    Network.AWS.EC2.UpdateSecurityGroupRuleDescriptionsEgress
-    Network.AWS.EC2.UpdateSecurityGroupRuleDescriptionsIngress
-    Network.AWS.EC2.Waiters
-    Network.AWS.EC2.WithdrawByoipCidr
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.EC2.Types.AccountAttribute
-    Network.AWS.EC2.Types.AccountAttributeName
-    Network.AWS.EC2.Types.AccountAttributeValue
-    Network.AWS.EC2.Types.ActiveInstance
-    Network.AWS.EC2.Types.ActivityStatus
-    Network.AWS.EC2.Types.AdditionalInfo
-    Network.AWS.EC2.Types.AddPrefixListEntry
-    Network.AWS.EC2.Types.Address
-    Network.AWS.EC2.Types.AddressFamily
-    Network.AWS.EC2.Types.AddressStatus
-    Network.AWS.EC2.Types.Affinity
-    Network.AWS.EC2.Types.AllocationId
-    Network.AWS.EC2.Types.AllocationState
-    Network.AWS.EC2.Types.AllocationStrategy
-    Network.AWS.EC2.Types.AllowedPrincipal
-    Network.AWS.EC2.Types.AllowsMultipleInstanceTypes
-    Network.AWS.EC2.Types.ApplianceModeSupportValue
-    Network.AWS.EC2.Types.ArchitectureType
-    Network.AWS.EC2.Types.ArchitectureValues
-    Network.AWS.EC2.Types.Arn
-    Network.AWS.EC2.Types.AssignedPrivateIpAddress
-    Network.AWS.EC2.Types.AssociatedNetworkType
-    Network.AWS.EC2.Types.AssociatedRole
-    Network.AWS.EC2.Types.AssociatedRoleArn
-    Network.AWS.EC2.Types.AssociatedTargetNetwork
-    Network.AWS.EC2.Types.AssociationDefaultRouteTableId
-    Network.AWS.EC2.Types.AssociationId
-    Network.AWS.EC2.Types.AssociationStatus
-    Network.AWS.EC2.Types.AssociationStatusCode
-    Network.AWS.EC2.Types.AttachmentId
-    Network.AWS.EC2.Types.AttachmentStatus
-    Network.AWS.EC2.Types.Attribute
-    Network.AWS.EC2.Types.AttributeBooleanValue
-    Network.AWS.EC2.Types.AttributeValue
-    Network.AWS.EC2.Types.AuthorizationRule
-    Network.AWS.EC2.Types.AutoAcceptSharedAttachmentsValue
-    Network.AWS.EC2.Types.AutoPlacement
-    Network.AWS.EC2.Types.AvailabilityZone
-    Network.AWS.EC2.Types.AvailabilityZoneGroup
-    Network.AWS.EC2.Types.AvailabilityZoneMessage
-    Network.AWS.EC2.Types.AvailabilityZoneOptInStatus
-    Network.AWS.EC2.Types.AvailabilityZoneState
-    Network.AWS.EC2.Types.AvailableCapacity
-    Network.AWS.EC2.Types.BatchState
-    Network.AWS.EC2.Types.BlobAttributeValue
-    Network.AWS.EC2.Types.BlockDeviceMapping
-    Network.AWS.EC2.Types.Bucket
-    Network.AWS.EC2.Types.BundleId
-    Network.AWS.EC2.Types.BundleTask
-    Network.AWS.EC2.Types.BundleTaskError
-    Network.AWS.EC2.Types.BundleTaskState
-    Network.AWS.EC2.Types.ByoipCidr
-    Network.AWS.EC2.Types.ByoipCidrState
-    Network.AWS.EC2.Types.CancelBatchErrorCode
-    Network.AWS.EC2.Types.CancelledSpotInstanceRequest
-    Network.AWS.EC2.Types.CancelSpotFleetRequestsError
-    Network.AWS.EC2.Types.CancelSpotFleetRequestsErrorItem
-    Network.AWS.EC2.Types.CancelSpotFleetRequestsSuccessItem
-    Network.AWS.EC2.Types.CancelSpotInstanceRequestState
-    Network.AWS.EC2.Types.CapacityReservation
-    Network.AWS.EC2.Types.CapacityReservationGroup
-    Network.AWS.EC2.Types.CapacityReservationId
-    Network.AWS.EC2.Types.CapacityReservationInstancePlatform
-    Network.AWS.EC2.Types.CapacityReservationOptions
-    Network.AWS.EC2.Types.CapacityReservationOptionsRequest
-    Network.AWS.EC2.Types.CapacityReservationPreference
-    Network.AWS.EC2.Types.CapacityReservationSpecification
-    Network.AWS.EC2.Types.CapacityReservationSpecificationResponse
-    Network.AWS.EC2.Types.CapacityReservationState
-    Network.AWS.EC2.Types.CapacityReservationTarget
-    Network.AWS.EC2.Types.CapacityReservationTargetResponse
-    Network.AWS.EC2.Types.CapacityReservationTenancy
-    Network.AWS.EC2.Types.CarrierGateway
-    Network.AWS.EC2.Types.CarrierGatewayId
-    Network.AWS.EC2.Types.CarrierGatewayState
-    Network.AWS.EC2.Types.CarrierIp
-    Network.AWS.EC2.Types.CertificateArn
-    Network.AWS.EC2.Types.CertificateAuthentication
-    Network.AWS.EC2.Types.CertificateAuthenticationRequest
-    Network.AWS.EC2.Types.CertificateS3BucketName
-    Network.AWS.EC2.Types.CertificateS3ObjectKey
-    Network.AWS.EC2.Types.Cidr
-    Network.AWS.EC2.Types.CidrAuthorizationContext
-    Network.AWS.EC2.Types.CidrBlock
-    Network.AWS.EC2.Types.CidrIp
-    Network.AWS.EC2.Types.ClassicLinkDnsSupport
-    Network.AWS.EC2.Types.ClassicLinkInstance
-    Network.AWS.EC2.Types.ClassicLoadBalancer
-    Network.AWS.EC2.Types.ClassicLoadBalancersConfig
-    Network.AWS.EC2.Types.ClientCertificateRevocationListStatus
-    Network.AWS.EC2.Types.ClientCertificateRevocationListStatusCode
-    Network.AWS.EC2.Types.ClientCidrBlock
-    Network.AWS.EC2.Types.ClientConnectOptions
-    Network.AWS.EC2.Types.ClientConnectResponseOptions
-    Network.AWS.EC2.Types.ClientData
-    Network.AWS.EC2.Types.ClientIp
-    Network.AWS.EC2.Types.ClientToken
-    Network.AWS.EC2.Types.ClientVpnAuthentication
-    Network.AWS.EC2.Types.ClientVpnAuthenticationRequest
-    Network.AWS.EC2.Types.ClientVpnAuthenticationType
-    Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus
-    Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatusCode
-    Network.AWS.EC2.Types.ClientVpnConnection
-    Network.AWS.EC2.Types.ClientVpnConnectionStatus
-    Network.AWS.EC2.Types.ClientVpnConnectionStatusCode
-    Network.AWS.EC2.Types.ClientVpnEndpoint
-    Network.AWS.EC2.Types.ClientVpnEndpointAttributeStatus
-    Network.AWS.EC2.Types.ClientVpnEndpointAttributeStatusCode
-    Network.AWS.EC2.Types.ClientVpnEndpointId
-    Network.AWS.EC2.Types.ClientVpnEndpointStatus
-    Network.AWS.EC2.Types.ClientVpnEndpointStatusCode
-    Network.AWS.EC2.Types.ClientVpnRoute
-    Network.AWS.EC2.Types.ClientVpnRouteStatus
-    Network.AWS.EC2.Types.ClientVpnRouteStatusCode
-    Network.AWS.EC2.Types.CloudwatchLogGroup
-    Network.AWS.EC2.Types.CloudwatchLogStream
-    Network.AWS.EC2.Types.Code
-    Network.AWS.EC2.Types.CoipAddressUsage
-    Network.AWS.EC2.Types.CoipPool
-    Network.AWS.EC2.Types.CoipPoolId
-    Network.AWS.EC2.Types.CommonName
-    Network.AWS.EC2.Types.ConnectionEndTime
-    Network.AWS.EC2.Types.ConnectionEstablishedTime
-    Network.AWS.EC2.Types.ConnectionId
-    Network.AWS.EC2.Types.ConnectionLogOptions
-    Network.AWS.EC2.Types.ConnectionLogResponseOptions
-    Network.AWS.EC2.Types.ConnectionNotification
-    Network.AWS.EC2.Types.ConnectionNotificationArn
-    Network.AWS.EC2.Types.ConnectionNotificationId
-    Network.AWS.EC2.Types.ConnectionNotificationState
-    Network.AWS.EC2.Types.ConnectionNotificationType
-    Network.AWS.EC2.Types.ContainerFormat
-    Network.AWS.EC2.Types.ConversionTask
-    Network.AWS.EC2.Types.ConversionTaskId
-    Network.AWS.EC2.Types.ConversionTaskState
-    Network.AWS.EC2.Types.CopyTagsFromSource
-    Network.AWS.EC2.Types.CpuCredits
-    Network.AWS.EC2.Types.CpuOptions
-    Network.AWS.EC2.Types.CpuOptionsRequest
-    Network.AWS.EC2.Types.CreateFleetError
-    Network.AWS.EC2.Types.CreateFleetInstance
-    Network.AWS.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions
-    Network.AWS.EC2.Types.CreateVolumePermission
-    Network.AWS.EC2.Types.CreateVolumePermissionModifications
-    Network.AWS.EC2.Types.CreationDate
-    Network.AWS.EC2.Types.CreationTime
-    Network.AWS.EC2.Types.CreditSpecification
-    Network.AWS.EC2.Types.CreditSpecificationRequest
-    Network.AWS.EC2.Types.CurrencyCodeValues
-    Network.AWS.EC2.Types.CustomerGateway
-    Network.AWS.EC2.Types.CustomerGatewayId
-    Network.AWS.EC2.Types.CustomerOwnedIp
-    Network.AWS.EC2.Types.CustomerOwnedIpv4Pool
-    Network.AWS.EC2.Types.DataEncryptionKeyId
-    Network.AWS.EC2.Types.DatafeedSubscriptionState
-    Network.AWS.EC2.Types.DedicatedHostId
-    Network.AWS.EC2.Types.DefaultRouteTableAssociationValue
-    Network.AWS.EC2.Types.DefaultRouteTablePropagationValue
-    Network.AWS.EC2.Types.DefaultTargetCapacityType
-    Network.AWS.EC2.Types.DefaultVersion
-    Network.AWS.EC2.Types.DeleteFleetError
-    Network.AWS.EC2.Types.DeleteFleetErrorCode
-    Network.AWS.EC2.Types.DeleteFleetErrorItem
-    Network.AWS.EC2.Types.DeleteFleetSuccessItem
-    Network.AWS.EC2.Types.DeleteLaunchTemplateVersionsResponseErrorItem
-    Network.AWS.EC2.Types.DeleteLaunchTemplateVersionsResponseSuccessItem
-    Network.AWS.EC2.Types.DeleteQueuedReservedInstancesError
-    Network.AWS.EC2.Types.DeleteQueuedReservedInstancesErrorCode
-    Network.AWS.EC2.Types.DeletionTime
-    Network.AWS.EC2.Types.DeregisterInstanceTagAttributeRequest
-    Network.AWS.EC2.Types.DescribeFastSnapshotRestoreSuccessItem
-    Network.AWS.EC2.Types.DescribeFleetError
-    Network.AWS.EC2.Types.DescribeFleetsInstances
-    Network.AWS.EC2.Types.Description
-    Network.AWS.EC2.Types.DestinationCidrBlock
-    Network.AWS.EC2.Types.DestinationIpv6CidrBlock
-    Network.AWS.EC2.Types.DestinationPrefixListId
-    Network.AWS.EC2.Types.Device
-    Network.AWS.EC2.Types.DeviceId
-    Network.AWS.EC2.Types.DeviceName
-    Network.AWS.EC2.Types.DeviceType
-    Network.AWS.EC2.Types.DhcpConfiguration
-    Network.AWS.EC2.Types.DhcpOptions
-    Network.AWS.EC2.Types.DhcpOptionsId
-    Network.AWS.EC2.Types.DirectoryId
-    Network.AWS.EC2.Types.DirectoryServiceAuthentication
-    Network.AWS.EC2.Types.DirectoryServiceAuthenticationRequest
-    Network.AWS.EC2.Types.DisableFastSnapshotRestoreErrorItem
-    Network.AWS.EC2.Types.DisableFastSnapshotRestoreStateError
-    Network.AWS.EC2.Types.DisableFastSnapshotRestoreStateErrorItem
-    Network.AWS.EC2.Types.DisableFastSnapshotRestoreSuccessItem
-    Network.AWS.EC2.Types.DiskImage
-    Network.AWS.EC2.Types.DiskImageDescription
-    Network.AWS.EC2.Types.DiskImageDetail
-    Network.AWS.EC2.Types.DiskImageFormat
-    Network.AWS.EC2.Types.DiskImageVolumeDescription
-    Network.AWS.EC2.Types.DiskInfo
-    Network.AWS.EC2.Types.DiskType
-    Network.AWS.EC2.Types.DnsEntry
-    Network.AWS.EC2.Types.DnsName
-    Network.AWS.EC2.Types.DnsNameState
-    Network.AWS.EC2.Types.DnsServersOptionsModifyStructure
-    Network.AWS.EC2.Types.DnsSupportValue
-    Network.AWS.EC2.Types.DomainType
-    Network.AWS.EC2.Types.EbsBlockDevice
-    Network.AWS.EC2.Types.EbsEncryptionSupport
-    Network.AWS.EC2.Types.EbsInfo
-    Network.AWS.EC2.Types.EbsInstanceBlockDevice
-    Network.AWS.EC2.Types.EbsInstanceBlockDeviceSpecification
-    Network.AWS.EC2.Types.EbsNvmeSupport
-    Network.AWS.EC2.Types.EbsOptimizedInfo
-    Network.AWS.EC2.Types.EbsOptimizedSupport
-    Network.AWS.EC2.Types.EgressBytes
-    Network.AWS.EC2.Types.EgressOnlyInternetGateway
-    Network.AWS.EC2.Types.EgressOnlyInternetGatewayId
-    Network.AWS.EC2.Types.EgressPackets
-    Network.AWS.EC2.Types.ElasticGpuAssociation
-    Network.AWS.EC2.Types.ElasticGpuHealth
-    Network.AWS.EC2.Types.ElasticGpuId
-    Network.AWS.EC2.Types.ElasticGpus
-    Network.AWS.EC2.Types.ElasticGpuSpecification
-    Network.AWS.EC2.Types.ElasticGpuSpecificationResponse
-    Network.AWS.EC2.Types.ElasticGpuState
-    Network.AWS.EC2.Types.ElasticGpuStatus
-    Network.AWS.EC2.Types.ElasticInferenceAccelerator
-    Network.AWS.EC2.Types.ElasticInferenceAcceleratorAssociation
-    Network.AWS.EC2.Types.EnableFastSnapshotRestoreErrorItem
-    Network.AWS.EC2.Types.EnableFastSnapshotRestoreStateError
-    Network.AWS.EC2.Types.EnableFastSnapshotRestoreStateErrorItem
-    Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem
-    Network.AWS.EC2.Types.EnaSupport
-    Network.AWS.EC2.Types.EnclaveOptions
-    Network.AWS.EC2.Types.EnclaveOptionsRequest
-    Network.AWS.EC2.Types.EncryptionKmsKeyId
-    Network.AWS.EC2.Types.EndDateType
-    Network.AWS.EC2.Types.EphemeralNvmeSupport
-    Network.AWS.EC2.Types.EventCode
-    Network.AWS.EC2.Types.EventInformation
-    Network.AWS.EC2.Types.EventType
-    Network.AWS.EC2.Types.ExcessCapacityTerminationPolicy
-    Network.AWS.EC2.Types.ExpirationTime
-    Network.AWS.EC2.Types.ExportEnvironment
-    Network.AWS.EC2.Types.ExportImageTask
-    Network.AWS.EC2.Types.ExportImageTaskId
-    Network.AWS.EC2.Types.ExportTask
-    Network.AWS.EC2.Types.ExportTaskId
-    Network.AWS.EC2.Types.ExportTaskS3Location
-    Network.AWS.EC2.Types.ExportTaskS3LocationRequest
-    Network.AWS.EC2.Types.ExportTaskState
-    Network.AWS.EC2.Types.ExportToS3Task
-    Network.AWS.EC2.Types.ExportToS3TaskSpecification
-    Network.AWS.EC2.Types.ExportVmTaskId
-    Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion
-    Network.AWS.EC2.Types.FastSnapshotRestoreStateCode
-    Network.AWS.EC2.Types.FederatedAuthentication
-    Network.AWS.EC2.Types.FederatedAuthenticationRequest
-    Network.AWS.EC2.Types.Filter
-    Network.AWS.EC2.Types.FleetActivityStatus
-    Network.AWS.EC2.Types.FleetCapacityReservationUsageStrategy
-    Network.AWS.EC2.Types.FleetData
-    Network.AWS.EC2.Types.FleetEventType
-    Network.AWS.EC2.Types.FleetExcessCapacityTerminationPolicy
-    Network.AWS.EC2.Types.FleetId
-    Network.AWS.EC2.Types.FleetLaunchTemplateConfig
-    Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest
-    Network.AWS.EC2.Types.FleetLaunchTemplateOverrides
-    Network.AWS.EC2.Types.FleetLaunchTemplateOverridesRequest
-    Network.AWS.EC2.Types.FleetLaunchTemplateSpecification
-    Network.AWS.EC2.Types.FleetLaunchTemplateSpecificationRequest
-    Network.AWS.EC2.Types.FleetOnDemandAllocationStrategy
-    Network.AWS.EC2.Types.FleetReplacementStrategy
-    Network.AWS.EC2.Types.FleetSpotCapacityRebalance
-    Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest
-    Network.AWS.EC2.Types.FleetSpotMaintenanceStrategies
-    Network.AWS.EC2.Types.FleetSpotMaintenanceStrategiesRequest
-    Network.AWS.EC2.Types.FleetStateCode
-    Network.AWS.EC2.Types.FleetType
-    Network.AWS.EC2.Types.FlowLog
-    Network.AWS.EC2.Types.FlowLogResourceId
-    Network.AWS.EC2.Types.FlowLogsResourceType
-    Network.AWS.EC2.Types.FpgaDeviceInfo
-    Network.AWS.EC2.Types.FpgaDeviceManufacturerName
-    Network.AWS.EC2.Types.FpgaDeviceMemoryInfo
-    Network.AWS.EC2.Types.FpgaDeviceName
-    Network.AWS.EC2.Types.FpgaImage
-    Network.AWS.EC2.Types.FpgaImageAttribute
-    Network.AWS.EC2.Types.FpgaImageAttributeName
-    Network.AWS.EC2.Types.FpgaImageGlobalId
-    Network.AWS.EC2.Types.FpgaImageId
-    Network.AWS.EC2.Types.FpgaImageState
-    Network.AWS.EC2.Types.FpgaImageStateCode
-    Network.AWS.EC2.Types.FpgaInfo
-    Network.AWS.EC2.Types.Frequency
-    Network.AWS.EC2.Types.GatewayId
-    Network.AWS.EC2.Types.GatewayType
-    Network.AWS.EC2.Types.GpuDeviceInfo
-    Network.AWS.EC2.Types.GpuDeviceManufacturerName
-    Network.AWS.EC2.Types.GpuDeviceMemoryInfo
-    Network.AWS.EC2.Types.GpuDeviceName
-    Network.AWS.EC2.Types.GpuInfo
-    Network.AWS.EC2.Types.GroupId
-    Network.AWS.EC2.Types.GroupIdentifier
-    Network.AWS.EC2.Types.GroupIpAddress
-    Network.AWS.EC2.Types.GroupName
-    Network.AWS.EC2.Types.HibernationOptions
-    Network.AWS.EC2.Types.HibernationOptionsRequest
-    Network.AWS.EC2.Types.HistoryRecord
-    Network.AWS.EC2.Types.HistoryRecordEntry
-    Network.AWS.EC2.Types.Host
-    Network.AWS.EC2.Types.HostId
-    Network.AWS.EC2.Types.HostInstance
-    Network.AWS.EC2.Types.HostOffering
-    Network.AWS.EC2.Types.HostProperties
-    Network.AWS.EC2.Types.HostRecovery
-    Network.AWS.EC2.Types.HostReservation
-    Network.AWS.EC2.Types.HostReservationId
-    Network.AWS.EC2.Types.HostTenancy
-    Network.AWS.EC2.Types.HttpTokensState
-    Network.AWS.EC2.Types.HypervisorType
-    Network.AWS.EC2.Types.IamInstanceProfile
-    Network.AWS.EC2.Types.IamInstanceProfileAssociation
-    Network.AWS.EC2.Types.IamInstanceProfileAssociationId
-    Network.AWS.EC2.Types.IamInstanceProfileAssociationState
-    Network.AWS.EC2.Types.IamInstanceProfileSpecification
-    Network.AWS.EC2.Types.IcmpTypeCode
-    Network.AWS.EC2.Types.IdFormat
-    Network.AWS.EC2.Types.IKEVersionsListValue
-    Network.AWS.EC2.Types.IKEVersionsRequestListValue
-    Network.AWS.EC2.Types.Image
-    Network.AWS.EC2.Types.ImageAttributeName
-    Network.AWS.EC2.Types.ImageDiskContainer
-    Network.AWS.EC2.Types.ImageId
-    Network.AWS.EC2.Types.ImageLocation
-    Network.AWS.EC2.Types.ImageOwnerAlias
-    Network.AWS.EC2.Types.ImageState
-    Network.AWS.EC2.Types.ImageTypeValues
-    Network.AWS.EC2.Types.ImportImageLicenseConfigurationRequest
-    Network.AWS.EC2.Types.ImportImageLicenseConfigurationResponse
-    Network.AWS.EC2.Types.ImportImageTask
-    Network.AWS.EC2.Types.ImportImageTaskId
-    Network.AWS.EC2.Types.ImportInstanceLaunchSpecification
-    Network.AWS.EC2.Types.ImportInstanceTaskDetails
-    Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem
-    Network.AWS.EC2.Types.ImportSnapshotTask
-    Network.AWS.EC2.Types.ImportSnapshotTaskId
-    Network.AWS.EC2.Types.ImportTaskId
-    Network.AWS.EC2.Types.ImportVolumeTaskDetails
-    Network.AWS.EC2.Types.InferenceAcceleratorInfo
-    Network.AWS.EC2.Types.InferenceDeviceInfo
-    Network.AWS.EC2.Types.InferenceDeviceManufacturerName
-    Network.AWS.EC2.Types.InferenceDeviceName
-    Network.AWS.EC2.Types.IngressBytes
-    Network.AWS.EC2.Types.IngressPackets
-    Network.AWS.EC2.Types.Instance
-    Network.AWS.EC2.Types.InstanceAttributeName
-    Network.AWS.EC2.Types.InstanceBlockDeviceMapping
-    Network.AWS.EC2.Types.InstanceBlockDeviceMappingSpecification
-    Network.AWS.EC2.Types.InstanceCapacity
-    Network.AWS.EC2.Types.InstanceCount
-    Network.AWS.EC2.Types.InstanceCreditSpecification
-    Network.AWS.EC2.Types.InstanceCreditSpecificationRequest
-    Network.AWS.EC2.Types.InstanceEventId
-    Network.AWS.EC2.Types.InstanceExportDetails
-    Network.AWS.EC2.Types.InstanceFamily
-    Network.AWS.EC2.Types.InstanceFamilyCreditSpecification
-    Network.AWS.EC2.Types.InstanceHealthStatus
-    Network.AWS.EC2.Types.InstanceId
-    Network.AWS.EC2.Types.InstanceInterruptionBehavior
-    Network.AWS.EC2.Types.InstanceIpv6Address
-    Network.AWS.EC2.Types.InstanceIpv6AddressRequest
-    Network.AWS.EC2.Types.InstanceLifecycle
-    Network.AWS.EC2.Types.InstanceLifecycleType
-    Network.AWS.EC2.Types.InstanceMarketOptionsRequest
-    Network.AWS.EC2.Types.InstanceMatchCriteria
-    Network.AWS.EC2.Types.InstanceMetadataEndpointState
-    Network.AWS.EC2.Types.InstanceMetadataOptionsRequest
-    Network.AWS.EC2.Types.InstanceMetadataOptionsResponse
-    Network.AWS.EC2.Types.InstanceMetadataOptionsState
-    Network.AWS.EC2.Types.InstanceMonitoring
-    Network.AWS.EC2.Types.InstanceNetworkInterface
-    Network.AWS.EC2.Types.InstanceNetworkInterfaceAssociation
-    Network.AWS.EC2.Types.InstanceNetworkInterfaceAttachment
-    Network.AWS.EC2.Types.InstanceNetworkInterfaceSpecification
-    Network.AWS.EC2.Types.InstanceOwnerId
-    Network.AWS.EC2.Types.InstancePrivateIpAddress
-    Network.AWS.EC2.Types.InstanceSpecification
-    Network.AWS.EC2.Types.InstanceState
-    Network.AWS.EC2.Types.InstanceStateChange
-    Network.AWS.EC2.Types.InstanceStateName
-    Network.AWS.EC2.Types.InstanceStatus
-    Network.AWS.EC2.Types.InstanceStatusDetails
-    Network.AWS.EC2.Types.InstanceStatusEvent
-    Network.AWS.EC2.Types.InstanceStatusSummary
-    Network.AWS.EC2.Types.InstanceStorageInfo
-    Network.AWS.EC2.Types.InstanceTagNotificationAttribute
-    Network.AWS.EC2.Types.InstanceType
-    Network.AWS.EC2.Types.InstanceTypeHypervisor
-    Network.AWS.EC2.Types.InstanceTypeInfo
-    Network.AWS.EC2.Types.InstanceTypeOffering
-    Network.AWS.EC2.Types.InstanceUsage
-    Network.AWS.EC2.Types.InterfacePermissionType
-    Network.AWS.EC2.Types.InterfaceType
-    Network.AWS.EC2.Types.InternetGateway
-    Network.AWS.EC2.Types.InternetGatewayAttachment
-    Network.AWS.EC2.Types.InternetGatewayId
-    Network.AWS.EC2.Types.IpOwnerId
-    Network.AWS.EC2.Types.IpPermission
-    Network.AWS.EC2.Types.IpProtocol
-    Network.AWS.EC2.Types.IpRange
-    Network.AWS.EC2.Types.Ipv4PoolEc2Id
-    Network.AWS.EC2.Types.Ipv6Address
-    Network.AWS.EC2.Types.Ipv6CidrAssociation
-    Network.AWS.EC2.Types.Ipv6CidrBlock
-    Network.AWS.EC2.Types.Ipv6Pool
-    Network.AWS.EC2.Types.Ipv6PoolEc2Id
-    Network.AWS.EC2.Types.Ipv6Range
-    Network.AWS.EC2.Types.Ipv6SupportValue
-    Network.AWS.EC2.Types.KernelId
-    Network.AWS.EC2.Types.Key
-    Network.AWS.EC2.Types.KeyName
-    Network.AWS.EC2.Types.KeyPairId
-    Network.AWS.EC2.Types.KeyPairInfo
-    Network.AWS.EC2.Types.KeyPairName
-    Network.AWS.EC2.Types.KmsKeyId
-    Network.AWS.EC2.Types.LambdaFunctionArn
-    Network.AWS.EC2.Types.LastError
-    Network.AWS.EC2.Types.LaunchGroup
-    Network.AWS.EC2.Types.LaunchPermission
-    Network.AWS.EC2.Types.LaunchPermissionModifications
-    Network.AWS.EC2.Types.LaunchSpecification
-    Network.AWS.EC2.Types.LaunchTemplate
-    Network.AWS.EC2.Types.LaunchTemplateAndOverridesResponse
-    Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMapping
-    Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest
-    Network.AWS.EC2.Types.LaunchTemplateCapacityReservationSpecificationRequest
-    Network.AWS.EC2.Types.LaunchTemplateCapacityReservationSpecificationResponse
-    Network.AWS.EC2.Types.LaunchTemplateConfig
-    Network.AWS.EC2.Types.LaunchTemplateCpuOptions
-    Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest
-    Network.AWS.EC2.Types.LaunchTemplateEbsBlockDevice
-    Network.AWS.EC2.Types.LaunchTemplateEbsBlockDeviceRequest
-    Network.AWS.EC2.Types.LaunchTemplateElasticInferenceAccelerator
-    Network.AWS.EC2.Types.LaunchTemplateElasticInferenceAcceleratorResponse
-    Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions
-    Network.AWS.EC2.Types.LaunchTemplateEnclaveOptionsRequest
-    Network.AWS.EC2.Types.LaunchTemplateErrorCode
-    Network.AWS.EC2.Types.LaunchTemplateHibernationOptions
-    Network.AWS.EC2.Types.LaunchTemplateHibernationOptionsRequest
-    Network.AWS.EC2.Types.LaunchTemplateHttpTokensState
-    Network.AWS.EC2.Types.LaunchTemplateIamInstanceProfileSpecification
-    Network.AWS.EC2.Types.LaunchTemplateIamInstanceProfileSpecificationRequest
-    Network.AWS.EC2.Types.LaunchTemplateId
-    Network.AWS.EC2.Types.LaunchTemplateInstanceMarketOptions
-    Network.AWS.EC2.Types.LaunchTemplateInstanceMarketOptionsRequest
-    Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState
-    Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataOptions
-    Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataOptionsRequest
-    Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataOptionsState
-    Network.AWS.EC2.Types.LaunchTemplateInstanceNetworkInterfaceSpecification
-    Network.AWS.EC2.Types.LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
-    Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration
-    Network.AWS.EC2.Types.LaunchTemplateLicenseConfigurationRequest
-    Network.AWS.EC2.Types.LaunchTemplateName
-    Network.AWS.EC2.Types.LaunchTemplateOverrides
-    Network.AWS.EC2.Types.LaunchTemplatePlacement
-    Network.AWS.EC2.Types.LaunchTemplatePlacementRequest
-    Network.AWS.EC2.Types.LaunchTemplatesMonitoring
-    Network.AWS.EC2.Types.LaunchTemplatesMonitoringRequest
-    Network.AWS.EC2.Types.LaunchTemplateSpecification
-    Network.AWS.EC2.Types.LaunchTemplateSpotMarketOptions
-    Network.AWS.EC2.Types.LaunchTemplateSpotMarketOptionsRequest
-    Network.AWS.EC2.Types.LaunchTemplateTagSpecification
-    Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest
-    Network.AWS.EC2.Types.LaunchTemplateVersion
-    Network.AWS.EC2.Types.LicenseConfiguration
-    Network.AWS.EC2.Types.LicenseConfigurationRequest
-    Network.AWS.EC2.Types.ListingState
-    Network.AWS.EC2.Types.ListingStatus
-    Network.AWS.EC2.Types.LoadBalancersConfig
-    Network.AWS.EC2.Types.LoadPermission
-    Network.AWS.EC2.Types.LoadPermissionModifications
-    Network.AWS.EC2.Types.LoadPermissionRequest
-    Network.AWS.EC2.Types.LocalGateway
-    Network.AWS.EC2.Types.LocalGatewayId
-    Network.AWS.EC2.Types.LocalGatewayRoute
-    Network.AWS.EC2.Types.LocalGatewayRouteState
-    Network.AWS.EC2.Types.LocalGatewayRouteTable
-    Network.AWS.EC2.Types.LocalGatewayRouteTableArn
-    Network.AWS.EC2.Types.LocalGatewayRoutetableId
-    Network.AWS.EC2.Types.LocalGatewayRouteTableId
-    Network.AWS.EC2.Types.LocalGatewayRouteTableVirtualInterfaceGroupAssociation
-    Network.AWS.EC2.Types.LocalGatewayRouteTableVirtualInterfaceGroupAssociationId
-    Network.AWS.EC2.Types.LocalGatewayRouteTableVpcAssociation
-    Network.AWS.EC2.Types.LocalGatewayRouteTableVpcAssociationId
-    Network.AWS.EC2.Types.LocalGatewayRouteType
-    Network.AWS.EC2.Types.LocalGatewayVirtualInterface
-    Network.AWS.EC2.Types.LocalGatewayVirtualInterfaceGroup
-    Network.AWS.EC2.Types.LocalGatewayVirtualInterfaceGroupId
-    Network.AWS.EC2.Types.LocalGatewayVirtualInterfaceId
-    Network.AWS.EC2.Types.Location
-    Network.AWS.EC2.Types.LocationType
-    Network.AWS.EC2.Types.LogDestinationType
-    Network.AWS.EC2.Types.ManagedPrefixList
-    Network.AWS.EC2.Types.MarketType
-    Network.AWS.EC2.Types.MaxPrice
-    Network.AWS.EC2.Types.MaxTotalPrice
-    Network.AWS.EC2.Types.MembershipType
-    Network.AWS.EC2.Types.MemoryInfo
-    Network.AWS.EC2.Types.Message
-    Network.AWS.EC2.Types.ModifyAvailabilityZoneOptInStatus
-    Network.AWS.EC2.Types.ModifyTransitGatewayOptions
-    Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions
-    Network.AWS.EC2.Types.ModifyVpnTunnelOptionsSpecification
-    Network.AWS.EC2.Types.Monitoring
-    Network.AWS.EC2.Types.MonitoringState
-    Network.AWS.EC2.Types.MoveStatus
-    Network.AWS.EC2.Types.MovingAddressStatus
-    Network.AWS.EC2.Types.MulticastSupportValue
-    Network.AWS.EC2.Types.Name
-    Network.AWS.EC2.Types.NatGateway
-    Network.AWS.EC2.Types.NatGatewayAddress
-    Network.AWS.EC2.Types.NatGatewayId
-    Network.AWS.EC2.Types.NatGatewayState
-    Network.AWS.EC2.Types.NetworkAcl
-    Network.AWS.EC2.Types.NetworkAclAssociation
-    Network.AWS.EC2.Types.NetworkAclEntry
-    Network.AWS.EC2.Types.NetworkAclId
-    Network.AWS.EC2.Types.NetworkBorderGroup
-    Network.AWS.EC2.Types.NetworkCardInfo
-    Network.AWS.EC2.Types.NetworkId
-    Network.AWS.EC2.Types.NetworkInfo
-    Network.AWS.EC2.Types.NetworkInterface
-    Network.AWS.EC2.Types.NetworkInterfaceAssociation
-    Network.AWS.EC2.Types.NetworkInterfaceAttachment
-    Network.AWS.EC2.Types.NetworkInterfaceAttachmentChanges
-    Network.AWS.EC2.Types.NetworkInterfaceAttachmentId
-    Network.AWS.EC2.Types.NetworkInterfaceAttribute
-    Network.AWS.EC2.Types.NetworkInterfaceCreationType
-    Network.AWS.EC2.Types.NetworkInterfaceId
-    Network.AWS.EC2.Types.NetworkInterfaceIpv6Address
-    Network.AWS.EC2.Types.NetworkInterfacePermission
-    Network.AWS.EC2.Types.NetworkInterfacePermissionId
-    Network.AWS.EC2.Types.NetworkInterfacePermissionState
-    Network.AWS.EC2.Types.NetworkInterfacePermissionStateCode
-    Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress
-    Network.AWS.EC2.Types.NetworkInterfaceStatus
-    Network.AWS.EC2.Types.NetworkInterfaceType
-    Network.AWS.EC2.Types.NetworkPerformance
-    Network.AWS.EC2.Types.NewAssociationId
-    Network.AWS.EC2.Types.NewDhcpConfiguration
-    Network.AWS.EC2.Types.NextToken
-    Network.AWS.EC2.Types.NoDevice
-    Network.AWS.EC2.Types.OccurrenceUnit
-    Network.AWS.EC2.Types.OfferingClassType
-    Network.AWS.EC2.Types.OfferingId
-    Network.AWS.EC2.Types.OfferingTypeValues
-    Network.AWS.EC2.Types.OnDemandAllocationStrategy
-    Network.AWS.EC2.Types.OnDemandOptions
-    Network.AWS.EC2.Types.OnDemandOptionsRequest
-    Network.AWS.EC2.Types.OperationType
-    Network.AWS.EC2.Types.OutpostArn
-    Network.AWS.EC2.Types.Output
-    Network.AWS.EC2.Types.OwnerAlias
-    Network.AWS.EC2.Types.OwnerId
-    Network.AWS.EC2.Types.PaymentOption
-    Network.AWS.EC2.Types.PciId
-    Network.AWS.EC2.Types.PeeringAttachmentStatus
-    Network.AWS.EC2.Types.PeeringConnectionOptions
-    Network.AWS.EC2.Types.PeeringConnectionOptionsRequest
-    Network.AWS.EC2.Types.PeeringTgwInfo
-    Network.AWS.EC2.Types.PeerOwnerId
-    Network.AWS.EC2.Types.PeerRegion
-    Network.AWS.EC2.Types.PeerVpcId
-    Network.AWS.EC2.Types.PermissionGroup
-    Network.AWS.EC2.Types.Phase1DHGroupNumbersListValue
-    Network.AWS.EC2.Types.Phase1DHGroupNumbersRequestListValue
-    Network.AWS.EC2.Types.Phase1EncryptionAlgorithmsListValue
-    Network.AWS.EC2.Types.Phase1EncryptionAlgorithmsRequestListValue
-    Network.AWS.EC2.Types.Phase1IntegrityAlgorithmsListValue
-    Network.AWS.EC2.Types.Phase1IntegrityAlgorithmsRequestListValue
-    Network.AWS.EC2.Types.Phase2DHGroupNumbersListValue
-    Network.AWS.EC2.Types.Phase2DHGroupNumbersRequestListValue
-    Network.AWS.EC2.Types.Phase2EncryptionAlgorithmsListValue
-    Network.AWS.EC2.Types.Phase2EncryptionAlgorithmsRequestListValue
-    Network.AWS.EC2.Types.Phase2IntegrityAlgorithmsListValue
-    Network.AWS.EC2.Types.Phase2IntegrityAlgorithmsRequestListValue
-    Network.AWS.EC2.Types.Placement
-    Network.AWS.EC2.Types.PlacementGroup
-    Network.AWS.EC2.Types.PlacementGroupId
-    Network.AWS.EC2.Types.PlacementGroupInfo
-    Network.AWS.EC2.Types.PlacementGroupName
-    Network.AWS.EC2.Types.PlacementGroupState
-    Network.AWS.EC2.Types.PlacementGroupStrategy
-    Network.AWS.EC2.Types.PlacementResponse
-    Network.AWS.EC2.Types.PlacementStrategy
-    Network.AWS.EC2.Types.PlatformDetails
-    Network.AWS.EC2.Types.PlatformValues
-    Network.AWS.EC2.Types.PolicyDocument
-    Network.AWS.EC2.Types.PoolArn
-    Network.AWS.EC2.Types.PoolCidrBlock
-    Network.AWS.EC2.Types.PoolId
-    Network.AWS.EC2.Types.PortRange
-    Network.AWS.EC2.Types.PrefixList
-    Network.AWS.EC2.Types.PrefixListArn
-    Network.AWS.EC2.Types.PrefixListAssociation
-    Network.AWS.EC2.Types.PrefixListEntry
-    Network.AWS.EC2.Types.PrefixListId
-    Network.AWS.EC2.Types.PrefixListName
-    Network.AWS.EC2.Types.PrefixListResourceId
-    Network.AWS.EC2.Types.PrefixListState
-    Network.AWS.EC2.Types.PreviousState
-    Network.AWS.EC2.Types.PriceSchedule
-    Network.AWS.EC2.Types.PriceScheduleSpecification
-    Network.AWS.EC2.Types.PricingDetail
-    Network.AWS.EC2.Types.Principal
-    Network.AWS.EC2.Types.PrincipalArn
-    Network.AWS.EC2.Types.PrincipalIdFormat
-    Network.AWS.EC2.Types.PrincipalType
-    Network.AWS.EC2.Types.PrivateDnsDetails
-    Network.AWS.EC2.Types.PrivateDnsNameConfiguration
-    Network.AWS.EC2.Types.PrivateIpAddress
-    Network.AWS.EC2.Types.PrivateIpAddressSpecification
-    Network.AWS.EC2.Types.ProcessorInfo
-    Network.AWS.EC2.Types.ProductCode
-    Network.AWS.EC2.Types.ProductCodeValues
-    Network.AWS.EC2.Types.Progress
-    Network.AWS.EC2.Types.PropagatingVgw
-    Network.AWS.EC2.Types.PropagationDefaultRouteTableId
-    Network.AWS.EC2.Types.Protocol
-    Network.AWS.EC2.Types.ProvisionedBandwidth
-    Network.AWS.EC2.Types.PublicDnsName
-    Network.AWS.EC2.Types.PublicIp
-    Network.AWS.EC2.Types.PublicIpAddress
-    Network.AWS.EC2.Types.PublicIpv4Pool
-    Network.AWS.EC2.Types.PublicIpv4PoolRange
-    Network.AWS.EC2.Types.Purchase
-    Network.AWS.EC2.Types.PurchaseRequest
-    Network.AWS.EC2.Types.RamdiskId
-    Network.AWS.EC2.Types.RamDiskId
-    Network.AWS.EC2.Types.ReasonMessage
-    Network.AWS.EC2.Types.RecurringCharge
-    Network.AWS.EC2.Types.RecurringChargeFrequency
-    Network.AWS.EC2.Types.RegionInfo
-    Network.AWS.EC2.Types.RegisterInstanceTagAttributeRequest
-    Network.AWS.EC2.Types.RemovePrefixListEntry
-    Network.AWS.EC2.Types.ReplacementStrategy
-    Network.AWS.EC2.Types.ReportInstanceReasonCodes
-    Network.AWS.EC2.Types.ReportStatusType
-    Network.AWS.EC2.Types.RequestLaunchTemplateData
-    Network.AWS.EC2.Types.RequestSpotLaunchSpecification
-    Network.AWS.EC2.Types.Reservation
-    Network.AWS.EC2.Types.ReservationId
-    Network.AWS.EC2.Types.ReservationState
-    Network.AWS.EC2.Types.ReservationValue
-    Network.AWS.EC2.Types.ReservedInstanceLimitPrice
-    Network.AWS.EC2.Types.ReservedInstanceReservationValue
-    Network.AWS.EC2.Types.ReservedInstances
-    Network.AWS.EC2.Types.ReservedInstancesConfiguration
-    Network.AWS.EC2.Types.ReservedInstancesId
-    Network.AWS.EC2.Types.ReservedInstancesListing
-    Network.AWS.EC2.Types.ReservedInstancesListingId
-    Network.AWS.EC2.Types.ReservedInstancesModification
-    Network.AWS.EC2.Types.ReservedInstancesModificationId
-    Network.AWS.EC2.Types.ReservedInstancesModificationResult
-    Network.AWS.EC2.Types.ReservedInstancesOffering
-    Network.AWS.EC2.Types.ReservedInstancesOfferingId
-    Network.AWS.EC2.Types.ReservedInstanceState
-    Network.AWS.EC2.Types.ResetFpgaImageAttributeName
-    Network.AWS.EC2.Types.ResetImageAttributeName
-    Network.AWS.EC2.Types.Resource
-    Network.AWS.EC2.Types.ResourceArn
-    Network.AWS.EC2.Types.ResourceId
-    Network.AWS.EC2.Types.ResourceType
-    Network.AWS.EC2.Types.ResponseError
-    Network.AWS.EC2.Types.ResponseLaunchTemplateData
-    Network.AWS.EC2.Types.RIProductDescription
-    Network.AWS.EC2.Types.RoleArn
-    Network.AWS.EC2.Types.RoleName
-    Network.AWS.EC2.Types.RootDeviceName
-    Network.AWS.EC2.Types.RootDeviceType
-    Network.AWS.EC2.Types.Route
-    Network.AWS.EC2.Types.RouteGatewayId
-    Network.AWS.EC2.Types.RouteOrigin
-    Network.AWS.EC2.Types.RouteState
-    Network.AWS.EC2.Types.RouteTable
-    Network.AWS.EC2.Types.RouteTableAssociation
-    Network.AWS.EC2.Types.RouteTableAssociationId
-    Network.AWS.EC2.Types.RouteTableAssociationState
-    Network.AWS.EC2.Types.RouteTableAssociationStateCode
-    Network.AWS.EC2.Types.RouteTableId
-    Network.AWS.EC2.Types.RuleAction
-    Network.AWS.EC2.Types.RunInstancesMonitoringEnabled
-    Network.AWS.EC2.Types.S3Bucket
-    Network.AWS.EC2.Types.S3Key
-    Network.AWS.EC2.Types.S3Prefix
-    Network.AWS.EC2.Types.S3Storage
-    Network.AWS.EC2.Types.SAMLProviderArn
-    Network.AWS.EC2.Types.ScheduledInstance
-    Network.AWS.EC2.Types.ScheduledInstanceAvailability
-    Network.AWS.EC2.Types.ScheduledInstanceId
-    Network.AWS.EC2.Types.ScheduledInstanceRecurrence
-    Network.AWS.EC2.Types.ScheduledInstanceRecurrenceRequest
-    Network.AWS.EC2.Types.ScheduledInstancesBlockDeviceMapping
-    Network.AWS.EC2.Types.ScheduledInstancesEbs
-    Network.AWS.EC2.Types.ScheduledInstancesIamInstanceProfile
-    Network.AWS.EC2.Types.ScheduledInstancesIpv6Address
-    Network.AWS.EC2.Types.ScheduledInstancesLaunchSpecification
-    Network.AWS.EC2.Types.ScheduledInstancesMonitoring
-    Network.AWS.EC2.Types.ScheduledInstancesNetworkInterface
-    Network.AWS.EC2.Types.ScheduledInstancesPlacement
-    Network.AWS.EC2.Types.ScheduledInstancesPrivateIpAddressConfig
-    Network.AWS.EC2.Types.Scope
-    Network.AWS.EC2.Types.SecurityGroup
-    Network.AWS.EC2.Types.SecurityGroupId
-    Network.AWS.EC2.Types.SecurityGroupIdentifier
-    Network.AWS.EC2.Types.SecurityGroupName
-    Network.AWS.EC2.Types.SecurityGroupReference
-    Network.AWS.EC2.Types.SelfServicePortal
-    Network.AWS.EC2.Types.SelfServicePortalUrl
-    Network.AWS.EC2.Types.SelfServiceSAMLProviderArn
-    Network.AWS.EC2.Types.SensitiveUserData
-    Network.AWS.EC2.Types.ServerCertificateArn
-    Network.AWS.EC2.Types.ServiceConfiguration
-    Network.AWS.EC2.Types.ServiceDetail
-    Network.AWS.EC2.Types.ServiceId
-    Network.AWS.EC2.Types.ServiceState
-    Network.AWS.EC2.Types.ServiceType
-    Network.AWS.EC2.Types.ServiceTypeDetail
-    Network.AWS.EC2.Types.ShutdownBehavior
-    Network.AWS.EC2.Types.SlotDateTimeRangeRequest
-    Network.AWS.EC2.Types.SlotStartTimeRangeRequest
-    Network.AWS.EC2.Types.Snapshot
-    Network.AWS.EC2.Types.SnapshotAttributeName
-    Network.AWS.EC2.Types.SnapshotDetail
-    Network.AWS.EC2.Types.SnapshotDiskContainer
-    Network.AWS.EC2.Types.SnapshotId
-    Network.AWS.EC2.Types.SnapshotInfo
-    Network.AWS.EC2.Types.SnapshotState
-    Network.AWS.EC2.Types.SnapshotTaskDetail
-    Network.AWS.EC2.Types.SourceCidrBlock
-    Network.AWS.EC2.Types.SourceSecurityGroupName
-    Network.AWS.EC2.Types.SourceSecurityGroupOwnerId
-    Network.AWS.EC2.Types.SourceVersion
-    Network.AWS.EC2.Types.SpotAllocationStrategy
-    Network.AWS.EC2.Types.SpotCapacityRebalance
-    Network.AWS.EC2.Types.SpotDatafeedSubscription
-    Network.AWS.EC2.Types.SpotFleetLaunchSpecification
-    Network.AWS.EC2.Types.SpotFleetMonitoring
-    Network.AWS.EC2.Types.SpotFleetRequestConfig
-    Network.AWS.EC2.Types.SpotFleetRequestConfigData
-    Network.AWS.EC2.Types.SpotFleetRequestId
-    Network.AWS.EC2.Types.SpotFleetTagSpecification
-    Network.AWS.EC2.Types.SpotInstanceInterruptionBehavior
-    Network.AWS.EC2.Types.SpotInstanceRequest
-    Network.AWS.EC2.Types.SpotInstanceRequestId
-    Network.AWS.EC2.Types.SpotInstanceState
-    Network.AWS.EC2.Types.SpotInstanceStateFault
-    Network.AWS.EC2.Types.SpotInstanceStatus
-    Network.AWS.EC2.Types.SpotInstanceType
-    Network.AWS.EC2.Types.SpotMaintenanceStrategies
-    Network.AWS.EC2.Types.SpotMarketOptions
-    Network.AWS.EC2.Types.SpotOptions
-    Network.AWS.EC2.Types.SpotOptionsRequest
-    Network.AWS.EC2.Types.SpotPlacement
-    Network.AWS.EC2.Types.SpotPrice
-    Network.AWS.EC2.Types.SriovNetSupport
-    Network.AWS.EC2.Types.StaleIpPermission
-    Network.AWS.EC2.Types.StaleSecurityGroup
-    Network.AWS.EC2.Types.State
-    Network.AWS.EC2.Types.StateMessage
-    Network.AWS.EC2.Types.StateReason
-    Network.AWS.EC2.Types.StatusMessage
-    Network.AWS.EC2.Types.StatusName
-    Network.AWS.EC2.Types.StatusType
-    Network.AWS.EC2.Types.Storage
-    Network.AWS.EC2.Types.StorageLocation
-    Network.AWS.EC2.Types.String
-    Network.AWS.EC2.Types.Subnet
-    Network.AWS.EC2.Types.SubnetAssociation
-    Network.AWS.EC2.Types.SubnetCidrAssociationId
-    Network.AWS.EC2.Types.SubnetCidrBlockState
-    Network.AWS.EC2.Types.SubnetCidrBlockStateCode
-    Network.AWS.EC2.Types.SubnetId
-    Network.AWS.EC2.Types.SubnetIpv6CidrBlockAssociation
-    Network.AWS.EC2.Types.SubnetState
-    Network.AWS.EC2.Types.SubsystemId
-    Network.AWS.EC2.Types.SubsystemVendorId
-    Network.AWS.EC2.Types.SuccessfulInstanceCreditSpecificationItem
-    Network.AWS.EC2.Types.SuccessfulQueuedPurchaseDeletion
-    Network.AWS.EC2.Types.SummaryStatus
-    Network.AWS.EC2.Types.Tag
-    Network.AWS.EC2.Types.TagDescription
-    Network.AWS.EC2.Types.TaggableResourceId
-    Network.AWS.EC2.Types.TagSpecification
-    Network.AWS.EC2.Types.TargetCapacitySpecification
-    Network.AWS.EC2.Types.TargetCapacitySpecificationRequest
-    Network.AWS.EC2.Types.TargetConfiguration
-    Network.AWS.EC2.Types.TargetConfigurationRequest
-    Network.AWS.EC2.Types.TargetGroup
-    Network.AWS.EC2.Types.TargetGroupsConfig
-    Network.AWS.EC2.Types.TargetNetwork
-    Network.AWS.EC2.Types.TargetReservationValue
-    Network.AWS.EC2.Types.TargetVpcSubnetId
-    Network.AWS.EC2.Types.TelemetryStatus
-    Network.AWS.EC2.Types.Tenancy
-    Network.AWS.EC2.Types.TerminateConnectionStatus
-    Network.AWS.EC2.Types.Timestamp
-    Network.AWS.EC2.Types.TrafficDirection
-    Network.AWS.EC2.Types.TrafficMirrorFilter
-    Network.AWS.EC2.Types.TrafficMirrorFilterId
-    Network.AWS.EC2.Types.TrafficMirrorFilterRule
-    Network.AWS.EC2.Types.TrafficMirrorFilterRuleField
-    Network.AWS.EC2.Types.TrafficMirrorFilterRuleId
-    Network.AWS.EC2.Types.TrafficMirrorNetworkService
-    Network.AWS.EC2.Types.TrafficMirrorPortRange
-    Network.AWS.EC2.Types.TrafficMirrorPortRangeRequest
-    Network.AWS.EC2.Types.TrafficMirrorRuleAction
-    Network.AWS.EC2.Types.TrafficMirrorSession
-    Network.AWS.EC2.Types.TrafficMirrorSessionField
-    Network.AWS.EC2.Types.TrafficMirrorSessionId
-    Network.AWS.EC2.Types.TrafficMirrorTarget
-    Network.AWS.EC2.Types.TrafficMirrorTargetId
-    Network.AWS.EC2.Types.TrafficMirrorTargetType
-    Network.AWS.EC2.Types.TrafficType
-    Network.AWS.EC2.Types.TransitAssociationGatewayId
-    Network.AWS.EC2.Types.TransitGateway
-    Network.AWS.EC2.Types.TransitGatewayArn
-    Network.AWS.EC2.Types.TransitGatewayAssociation
-    Network.AWS.EC2.Types.TransitGatewayAssociationState
-    Network.AWS.EC2.Types.TransitGatewayAttachment
-    Network.AWS.EC2.Types.TransitGatewayAttachmentAssociation
-    Network.AWS.EC2.Types.TransitGatewayAttachmentId
-    Network.AWS.EC2.Types.TransitGatewayAttachmentPropagation
-    Network.AWS.EC2.Types.TransitGatewayAttachmentResourceType
-    Network.AWS.EC2.Types.TransitGatewayAttachmentState
-    Network.AWS.EC2.Types.TransitGatewayId
-    Network.AWS.EC2.Types.TransitGatewayMulitcastDomainAssociationState
-    Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers
-    Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupSources
-    Network.AWS.EC2.Types.TransitGatewayMulticastDomain
-    Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation
-    Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociations
-    Network.AWS.EC2.Types.TransitGatewayMulticastDomainId
-    Network.AWS.EC2.Types.TransitGatewayMulticastDomainState
-    Network.AWS.EC2.Types.TransitGatewayMulticastGroup
-    Network.AWS.EC2.Types.TransitGatewayMulticastRegisteredGroupMembers
-    Network.AWS.EC2.Types.TransitGatewayMulticastRegisteredGroupSources
-    Network.AWS.EC2.Types.TransitGatewayOptions
-    Network.AWS.EC2.Types.TransitGatewayPeeringAttachment
-    Network.AWS.EC2.Types.TransitGatewayPrefixListAttachment
-    Network.AWS.EC2.Types.TransitGatewayPrefixListReference
-    Network.AWS.EC2.Types.TransitGatewayPrefixListReferenceState
-    Network.AWS.EC2.Types.TransitGatewayPropagation
-    Network.AWS.EC2.Types.TransitGatewayPropagationState
-    Network.AWS.EC2.Types.TransitGatewayRequestOptions
-    Network.AWS.EC2.Types.TransitGatewayRoute
-    Network.AWS.EC2.Types.TransitGatewayRouteAttachment
-    Network.AWS.EC2.Types.TransitGatewayRouteState
-    Network.AWS.EC2.Types.TransitGatewayRouteTable
-    Network.AWS.EC2.Types.TransitGatewayRouteTableAssociation
-    Network.AWS.EC2.Types.TransitGatewayRouteTableId
-    Network.AWS.EC2.Types.TransitGatewayRouteTablePropagation
-    Network.AWS.EC2.Types.TransitGatewayRouteTableState
-    Network.AWS.EC2.Types.TransitGatewayRouteType
-    Network.AWS.EC2.Types.TransitGatewayState
-    Network.AWS.EC2.Types.TransitGatewayVpcAttachment
-    Network.AWS.EC2.Types.TransitGatewayVpcAttachmentOptions
-    Network.AWS.EC2.Types.TransportProtocol
-    Network.AWS.EC2.Types.TunnelInsideIpVersion
-    Network.AWS.EC2.Types.TunnelOption
-    Network.AWS.EC2.Types.Type
-    Network.AWS.EC2.Types.UnlimitedSupportedInstanceFamily
-    Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationErrorCode
-    Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem
-    Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationItemError
-    Network.AWS.EC2.Types.UnsuccessfulItem
-    Network.AWS.EC2.Types.UnsuccessfulItemError
-    Network.AWS.EC2.Types.UsageClassType
-    Network.AWS.EC2.Types.UsageOperation
-    Network.AWS.EC2.Types.UserBucket
-    Network.AWS.EC2.Types.UserBucketDetails
-    Network.AWS.EC2.Types.UserData
-    Network.AWS.EC2.Types.UserId
-    Network.AWS.EC2.Types.UserIdGroupPair
-    Network.AWS.EC2.Types.Username
-    Network.AWS.EC2.Types.ValidationError
-    Network.AWS.EC2.Types.ValidationWarning
-    Network.AWS.EC2.Types.Value
-    Network.AWS.EC2.Types.VCpuInfo
-    Network.AWS.EC2.Types.VendorId
-    Network.AWS.EC2.Types.Version
-    Network.AWS.EC2.Types.VersionDescription
-    Network.AWS.EC2.Types.VgwTelemetry
-    Network.AWS.EC2.Types.VirtualizationType
-    Network.AWS.EC2.Types.VirtualName
-    Network.AWS.EC2.Types.Volume
-    Network.AWS.EC2.Types.VolumeAttachment
-    Network.AWS.EC2.Types.VolumeAttachmentState
-    Network.AWS.EC2.Types.VolumeAttributeName
-    Network.AWS.EC2.Types.VolumeDetail
-    Network.AWS.EC2.Types.VolumeId
-    Network.AWS.EC2.Types.VolumeModification
-    Network.AWS.EC2.Types.VolumeModificationState
-    Network.AWS.EC2.Types.VolumeState
-    Network.AWS.EC2.Types.VolumeStatusAction
-    Network.AWS.EC2.Types.VolumeStatusAttachmentStatus
-    Network.AWS.EC2.Types.VolumeStatusDetails
-    Network.AWS.EC2.Types.VolumeStatusEvent
-    Network.AWS.EC2.Types.VolumeStatusInfo
-    Network.AWS.EC2.Types.VolumeStatusInfoStatus
-    Network.AWS.EC2.Types.VolumeStatusItem
-    Network.AWS.EC2.Types.VolumeStatusName
-    Network.AWS.EC2.Types.VolumeType
-    Network.AWS.EC2.Types.Vpc
-    Network.AWS.EC2.Types.VpcAttachment
-    Network.AWS.EC2.Types.VpcAttributeName
-    Network.AWS.EC2.Types.VpcCidrBlockAssociation
-    Network.AWS.EC2.Types.VpcCidrBlockState
-    Network.AWS.EC2.Types.VpcCidrBlockStateCode
-    Network.AWS.EC2.Types.VpcClassicLink
-    Network.AWS.EC2.Types.VpcEndpoint
-    Network.AWS.EC2.Types.VpcEndpointConnection
-    Network.AWS.EC2.Types.VpcEndpointId
-    Network.AWS.EC2.Types.VpcEndpointServiceId
-    Network.AWS.EC2.Types.VpcEndpointType
-    Network.AWS.EC2.Types.VpcFlowLogId
-    Network.AWS.EC2.Types.VpcId
-    Network.AWS.EC2.Types.VpcIpv6CidrBlockAssociation
-    Network.AWS.EC2.Types.VpcPeeringConnection
-    Network.AWS.EC2.Types.VpcPeeringConnectionId
-    Network.AWS.EC2.Types.VpcPeeringConnectionOptionsDescription
-    Network.AWS.EC2.Types.VpcPeeringConnectionStateReason
-    Network.AWS.EC2.Types.VpcPeeringConnectionStateReasonCode
-    Network.AWS.EC2.Types.VpcPeeringConnectionVpcInfo
-    Network.AWS.EC2.Types.VpcState
-    Network.AWS.EC2.Types.VpcTenancy
-    Network.AWS.EC2.Types.VpnConnection
-    Network.AWS.EC2.Types.VpnConnectionId
-    Network.AWS.EC2.Types.VpnConnectionOptions
-    Network.AWS.EC2.Types.VpnConnectionOptionsSpecification
-    Network.AWS.EC2.Types.VpnEcmpSupportValue
-    Network.AWS.EC2.Types.VpnGateway
-    Network.AWS.EC2.Types.VpnGatewayId
-    Network.AWS.EC2.Types.VpnProtocol
-    Network.AWS.EC2.Types.VpnState
-    Network.AWS.EC2.Types.VpnStaticRoute
-    Network.AWS.EC2.Types.VpnStaticRouteSource
-    Network.AWS.EC2.Types.VpnTunnelOptionsSpecification
+    exposed-modules:
+          Network.AWS.EC2
+        , Network.AWS.EC2.Types
+        , Network.AWS.EC2.Waiters
+        , Network.AWS.EC2.ModifyCapacityReservation
+        , Network.AWS.EC2.GetAssociatedIpv6PoolCidrs
+        , Network.AWS.EC2.ImportInstance
+        , Network.AWS.EC2.RevokeSecurityGroupEgress
+        , Network.AWS.EC2.CreateNetworkInterfacePermission
+        , Network.AWS.EC2.SendDiagnosticInterrupt
+        , Network.AWS.EC2.DeleteLaunchTemplate
+        , Network.AWS.EC2.RejectVpcEndpointConnections
+        , Network.AWS.EC2.CreateVpnGateway
+        , Network.AWS.EC2.CreateNetworkAcl
+        , Network.AWS.EC2.DeleteKeyPair
+        , Network.AWS.EC2.DescribeSecurityGroupReferences
+        , Network.AWS.EC2.DeleteFleets
+        , Network.AWS.EC2.DescribeTags
+        , Network.AWS.EC2.CreateTransitGatewayRouteTable
+        , Network.AWS.EC2.ModifyInstanceMetadataOptions
+        , Network.AWS.EC2.UpdateSecurityGroupRuleDescriptionsIngress
+        , Network.AWS.EC2.DisassociateSubnetCidrBlock
+        , Network.AWS.EC2.DetachNetworkInterface
+        , Network.AWS.EC2.DetachInternetGateway
+        , Network.AWS.EC2.DeleteVpcEndpoints
+        , Network.AWS.EC2.DescribeClientVpnEndpoints
+        , Network.AWS.EC2.DeleteFlowLogs
+        , Network.AWS.EC2.DescribeVpcClassicLink
+        , Network.AWS.EC2.GetAssociatedEnclaveCertificateIamRoles
+        , Network.AWS.EC2.AssociateTransitGatewayMulticastDomain
+        , Network.AWS.EC2.ModifySubnetAttribute
+        , Network.AWS.EC2.DetachVolume
+        , Network.AWS.EC2.DescribeInstanceCreditSpecifications
+        , Network.AWS.EC2.CancelBundleTask
+        , Network.AWS.EC2.DescribeByoipCidrs
+        , Network.AWS.EC2.AcceptReservedInstancesExchangeQuote
+        , Network.AWS.EC2.ReleaseAddress
+        , Network.AWS.EC2.DescribeInstanceTypeOfferings
+        , Network.AWS.EC2.CreateInternetGateway
+        , Network.AWS.EC2.DeleteVpnConnection
+        , Network.AWS.EC2.DescribeBundleTasks
+        , Network.AWS.EC2.AuthorizeSecurityGroupEgress
+        , Network.AWS.EC2.EnableTransitGatewayRouteTablePropagation
+        , Network.AWS.EC2.DeregisterImage
+        , Network.AWS.EC2.DeleteVpcEndpointConnectionNotifications
+        , Network.AWS.EC2.DescribeCoipPools
+        , Network.AWS.EC2.GetTransitGatewayMulticastDomainAssociations
+        , Network.AWS.EC2.DeleteLocalGatewayRouteTableVpcAssociation
+        , Network.AWS.EC2.ModifyNetworkInterfaceAttribute
+        , Network.AWS.EC2.ModifyVpcTenancy
+        , Network.AWS.EC2.DescribeInstanceTypes
+        , Network.AWS.EC2.DescribeClientVpnAuthorizationRules
+        , Network.AWS.EC2.DeleteTransitGatewayVpcAttachment
+        , Network.AWS.EC2.DeleteTransitGatewayMulticastDomain
+        , Network.AWS.EC2.CancelReservedInstancesListing
+        , Network.AWS.EC2.AttachClassicLinkVpc
+        , Network.AWS.EC2.DisableTransitGatewayRouteTablePropagation
+        , Network.AWS.EC2.DescribeVpcClassicLinkDnsSupport
+        , Network.AWS.EC2.AssociateSubnetCidrBlock
+        , Network.AWS.EC2.RunScheduledInstances
+        , Network.AWS.EC2.CreateTransitGatewayRoute
+        , Network.AWS.EC2.CreateTransitGatewayPrefixListReference
+        , Network.AWS.EC2.CancelSpotFleetRequests
+        , Network.AWS.EC2.DescribeSpotPriceHistory
+        , Network.AWS.EC2.DescribeDhcpOptions
+        , Network.AWS.EC2.ImportImage
+        , Network.AWS.EC2.CreateLocalGatewayRouteTableVpcAssociation
+        , Network.AWS.EC2.CopyFpgaImage
+        , Network.AWS.EC2.ImportClientVpnClientCertificateRevocationList
+        , Network.AWS.EC2.StopInstances
+        , Network.AWS.EC2.EnableEbsEncryptionByDefault
+        , Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupSources
+        , Network.AWS.EC2.ModifyLaunchTemplate
+        , Network.AWS.EC2.ModifyVpcEndpointConnectionNotification
+        , Network.AWS.EC2.DescribeInternetGateways
+        , Network.AWS.EC2.DisableVpcClassicLink
+        , Network.AWS.EC2.GetGroupsForCapacityReservation
+        , Network.AWS.EC2.DeleteLaunchTemplateVersions
+        , Network.AWS.EC2.BundleInstance
+        , Network.AWS.EC2.DescribeNetworkInterfaces
+        , Network.AWS.EC2.ReplaceNetworkAclAssociation
+        , Network.AWS.EC2.DescribeNatGateways
+        , Network.AWS.EC2.DescribeAddresses
+        , Network.AWS.EC2.RestoreManagedPrefixListVersion
+        , Network.AWS.EC2.DescribeSnapshotAttribute
+        , Network.AWS.EC2.DescribeIdentityIdFormat
+        , Network.AWS.EC2.ReplaceRoute
+        , Network.AWS.EC2.DescribeVpcEndpointServices
+        , Network.AWS.EC2.DeleteLocalGatewayRoute
+        , Network.AWS.EC2.AuthorizeSecurityGroupIngress
+        , Network.AWS.EC2.CreateVpcPeeringConnection
+        , Network.AWS.EC2.DescribeSubnets
+        , Network.AWS.EC2.GetTransitGatewayAttachmentPropagations
+        , Network.AWS.EC2.CreateTags
+        , Network.AWS.EC2.PurchaseReservedInstancesOffering
+        , Network.AWS.EC2.DeleteNetworkAclEntry
+        , Network.AWS.EC2.ResetSnapshotAttribute
+        , Network.AWS.EC2.DescribeVpnConnections
+        , Network.AWS.EC2.ModifyInstanceEventStartTime
+        , Network.AWS.EC2.DeleteRoute
+        , Network.AWS.EC2.ReplaceNetworkAclEntry
+        , Network.AWS.EC2.DescribeVpcEndpoints
+        , Network.AWS.EC2.CreateTrafficMirrorFilter
+        , Network.AWS.EC2.ResetInstanceAttribute
+        , Network.AWS.EC2.ModifyIdentityIdFormat
+        , Network.AWS.EC2.AttachNetworkInterface
+        , Network.AWS.EC2.CreateCapacityReservation
+        , Network.AWS.EC2.DescribeInstanceStatus
+        , Network.AWS.EC2.ImportKeyPair
+        , Network.AWS.EC2.DeleteTags
+        , Network.AWS.EC2.ConfirmProductInstance
+        , Network.AWS.EC2.DescribeInstanceAttribute
+        , Network.AWS.EC2.DescribeReservedInstancesOfferings
+        , Network.AWS.EC2.CreateCustomerGateway
+        , Network.AWS.EC2.DescribeFleets
+        , Network.AWS.EC2.CreateTransitGatewayPeeringAttachment
+        , Network.AWS.EC2.DeleteSecurityGroup
+        , Network.AWS.EC2.DescribePublicIpv4Pools
+        , Network.AWS.EC2.DescribeClientVpnTargetNetworks
+        , Network.AWS.EC2.DeleteVpcPeeringConnection
+        , Network.AWS.EC2.AttachInternetGateway
+        , Network.AWS.EC2.ModifyInstancePlacement
+        , Network.AWS.EC2.DescribeFlowLogs
+        , Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaceGroups
+        , Network.AWS.EC2.DescribeLocalGatewayRouteTableVpcAssociations
+        , Network.AWS.EC2.DescribeVpcEndpointConnectionNotifications
+        , Network.AWS.EC2.GetManagedPrefixListEntries
+        , Network.AWS.EC2.RunInstances
+        , Network.AWS.EC2.CreateSnapshots
+        , Network.AWS.EC2.AssociateDhcpOptions
+        , Network.AWS.EC2.DeleteTrafficMirrorFilterRule
+        , Network.AWS.EC2.DescribeReservedInstances
+        , Network.AWS.EC2.DescribeIdFormat
+        , Network.AWS.EC2.DescribeVpcs
+        , Network.AWS.EC2.DescribeConversionTasks
+        , Network.AWS.EC2.CreateLaunchTemplateVersion
+        , Network.AWS.EC2.GetManagedPrefixListAssociations
+        , Network.AWS.EC2.DisableVpcClassicLinkDnsSupport
+        , Network.AWS.EC2.ApplySecurityGroupsToClientVpnTargetNetwork
+        , Network.AWS.EC2.DescribeTrafficMirrorTargets
+        , Network.AWS.EC2.DescribeVolumesModifications
+        , Network.AWS.EC2.ExportImage
+        , Network.AWS.EC2.CreateFpgaImage
+        , Network.AWS.EC2.AcceptVpcEndpointConnections
+        , Network.AWS.EC2.DeleteClientVpnEndpoint
+        , Network.AWS.EC2.SearchTransitGatewayRoutes
+        , Network.AWS.EC2.GetLaunchTemplateData
+        , Network.AWS.EC2.AllocateAddress
+        , Network.AWS.EC2.AcceptTransitGatewayVpcAttachment
+        , Network.AWS.EC2.CancelConversionTask
+        , Network.AWS.EC2.ModifyImageAttribute
+        , Network.AWS.EC2.CreateRouteTable
+        , Network.AWS.EC2.RejectTransitGatewayPeeringAttachment
+        , Network.AWS.EC2.ReportInstanceStatus
+        , Network.AWS.EC2.AttachVolume
+        , Network.AWS.EC2.RequestSpotInstances
+        , Network.AWS.EC2.WithdrawByoipCidr
+        , Network.AWS.EC2.DescribeHostReservationOfferings
+        , Network.AWS.EC2.ResetFpgaImageAttribute
+        , Network.AWS.EC2.ModifyVpnConnection
+        , Network.AWS.EC2.CreateTrafficMirrorFilterRule
+        , Network.AWS.EC2.DeleteTransitGateway
+        , Network.AWS.EC2.StartVpcEndpointServicePrivateDnsVerification
+        , Network.AWS.EC2.DescribeVolumes
+        , Network.AWS.EC2.RejectVpcPeeringConnection
+        , Network.AWS.EC2.DescribeClientVpnRoutes
+        , Network.AWS.EC2.DeleteVpnConnectionRoute
+        , Network.AWS.EC2.AssociateEnclaveCertificateIamRole
+        , Network.AWS.EC2.ModifyVpcEndpoint
+        , Network.AWS.EC2.DescribeFpgaImageAttribute
+        , Network.AWS.EC2.AllocateHosts
+        , Network.AWS.EC2.CreateClientVpnEndpoint
+        , Network.AWS.EC2.CreateTrafficMirrorSession
+        , Network.AWS.EC2.RegisterImage
+        , Network.AWS.EC2.AdvertiseByoipCidr
+        , Network.AWS.EC2.ModifyFleet
+        , Network.AWS.EC2.RevokeSecurityGroupIngress
+        , Network.AWS.EC2.GetEbsDefaultKmsKeyId
+        , Network.AWS.EC2.DescribeHostReservations
+        , Network.AWS.EC2.UpdateSecurityGroupRuleDescriptionsEgress
+        , Network.AWS.EC2.EnableVpcClassicLinkDnsSupport
+        , Network.AWS.EC2.DescribeVpcEndpointConnections
+        , Network.AWS.EC2.ModifyReservedInstances
+        , Network.AWS.EC2.DeleteFpgaImage
+        , Network.AWS.EC2.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
+        , Network.AWS.EC2.DescribeScheduledInstances
+        , Network.AWS.EC2.SearchTransitGatewayMulticastGroups
+        , Network.AWS.EC2.CreateFlowLogs
+        , Network.AWS.EC2.DescribeSpotFleetRequests
+        , Network.AWS.EC2.MoveAddressToVpc
+        , Network.AWS.EC2.DescribeFleetInstances
+        , Network.AWS.EC2.DescribeLaunchTemplateVersions
+        , Network.AWS.EC2.ModifyInstanceCreditSpecification
+        , Network.AWS.EC2.DescribePrincipalIdFormat
+        , Network.AWS.EC2.DescribeTransitGateways
+        , Network.AWS.EC2.DeleteNetworkAcl
+        , Network.AWS.EC2.DisassociateTransitGatewayMulticastDomain
+        , Network.AWS.EC2.DeleteTransitGatewayRouteTable
+        , Network.AWS.EC2.CreateLaunchTemplate
+        , Network.AWS.EC2.CreateVpcEndpointConnectionNotification
+        , Network.AWS.EC2.DeleteNetworkInterfacePermission
+        , Network.AWS.EC2.DeleteVpnGateway
+        , Network.AWS.EC2.CreateTrafficMirrorTarget
+        , Network.AWS.EC2.DescribeImportImageTasks
+        , Network.AWS.EC2.DescribeVolumeAttribute
+        , Network.AWS.EC2.DescribeMovingAddresses
+        , Network.AWS.EC2.ExportTransitGatewayRoutes
+        , Network.AWS.EC2.GetPasswordData
+        , Network.AWS.EC2.CreateVpc
+        , Network.AWS.EC2.ModifyVpcPeeringConnectionOptions
+        , Network.AWS.EC2.DescribeFpgaImages
+        , Network.AWS.EC2.CopySnapshot
+        , Network.AWS.EC2.AcceptTransitGatewayPeeringAttachment
+        , Network.AWS.EC2.DisassociateAddress
+        , Network.AWS.EC2.ModifyTrafficMirrorFilterNetworkServices
+        , Network.AWS.EC2.DescribeEgressOnlyInternetGateways
+        , Network.AWS.EC2.DeleteVpc
+        , Network.AWS.EC2.CreateInstanceExportTask
+        , Network.AWS.EC2.RejectTransitGatewayVpcAttachment
+        , Network.AWS.EC2.DescribeTrafficMirrorSessions
+        , Network.AWS.EC2.GetTransitGatewayRouteTableAssociations
+        , Network.AWS.EC2.AssociateVpcCidrBlock
+        , Network.AWS.EC2.DescribeVpcAttribute
+        , Network.AWS.EC2.CreateVolume
+        , Network.AWS.EC2.CreateDefaultSubnet
+        , Network.AWS.EC2.DescribeScheduledInstanceAvailability
+        , Network.AWS.EC2.DisassociateClientVpnTargetNetwork
+        , Network.AWS.EC2.CreateClientVpnRoute
+        , Network.AWS.EC2.ModifyVolumeAttribute
+        , Network.AWS.EC2.ExportClientVpnClientConfiguration
+        , Network.AWS.EC2.DeleteTrafficMirrorTarget
+        , Network.AWS.EC2.DescribeSpotDatafeedSubscription
+        , Network.AWS.EC2.DescribeLocalGatewayRouteTables
+        , Network.AWS.EC2.DescribePrefixLists
+        , Network.AWS.EC2.AssociateTransitGatewayRouteTable
+        , Network.AWS.EC2.DeletePlacementGroup
+        , Network.AWS.EC2.ModifyTransitGateway
+        , Network.AWS.EC2.DeleteTransitGatewayPrefixListReference
+        , Network.AWS.EC2.CreateTransitGatewayMulticastDomain
+        , Network.AWS.EC2.DeregisterInstanceEventNotificationAttributes
+        , Network.AWS.EC2.RequestSpotFleet
+        , Network.AWS.EC2.DeleteTransitGatewayRoute
+        , Network.AWS.EC2.DisableEbsEncryptionByDefault
+        , Network.AWS.EC2.DeregisterTransitGatewayMulticastGroupMembers
+        , Network.AWS.EC2.CreateSubnet
+        , Network.AWS.EC2.CreateNetworkInterface
+        , Network.AWS.EC2.DescribeSecurityGroups
+        , Network.AWS.EC2.GetCapacityReservationUsage
+        , Network.AWS.EC2.CreateTransitGatewayVpcAttachment
+        , Network.AWS.EC2.DescribeExportTasks
+        , Network.AWS.EC2.ModifySpotFleetRequest
+        , Network.AWS.EC2.DetachVpnGateway
+        , Network.AWS.EC2.ModifyManagedPrefixList
+        , Network.AWS.EC2.GetHostReservationPurchasePreview
+        , Network.AWS.EC2.EnableVolumeIO
+        , Network.AWS.EC2.DescribeInstances
+        , Network.AWS.EC2.CreateNatGateway
+        , Network.AWS.EC2.DescribeLocalGatewayVirtualInterfaces
+        , Network.AWS.EC2.DescribeVpcPeeringConnections
+        , Network.AWS.EC2.CancelExportTask
+        , Network.AWS.EC2.CreateVpcEndpointServiceConfiguration
+        , Network.AWS.EC2.CreateDefaultVpc
+        , Network.AWS.EC2.DisassociateVpcCidrBlock
+        , Network.AWS.EC2.DescribeTrafficMirrorFilters
+        , Network.AWS.EC2.DescribeFastSnapshotRestores
+        , Network.AWS.EC2.CancelCapacityReservation
+        , Network.AWS.EC2.DeleteNetworkInterface
+        , Network.AWS.EC2.DisassociateTransitGatewayRouteTable
+        , Network.AWS.EC2.ReplaceRouteTableAssociation
+        , Network.AWS.EC2.StartInstances
+        , Network.AWS.EC2.CreatePlacementGroup
+        , Network.AWS.EC2.DescribeInstanceEventNotificationAttributes
+        , Network.AWS.EC2.DescribeCapacityReservations
+        , Network.AWS.EC2.ModifyClientVpnEndpoint
+        , Network.AWS.EC2.ModifyInstanceCapacityReservationAttributes
+        , Network.AWS.EC2.DescribeAggregateIdFormat
+        , Network.AWS.EC2.DescribeSnapshots
+        , Network.AWS.EC2.AssociateAddress
+        , Network.AWS.EC2.ModifyTrafficMirrorFilterRule
+        , Network.AWS.EC2.DescribeNetworkInterfaceAttribute
+        , Network.AWS.EC2.ReplaceIamInstanceProfileAssociation
+        , Network.AWS.EC2.AssociateClientVpnTargetNetwork
+        , Network.AWS.EC2.ReleaseHosts
+        , Network.AWS.EC2.ResetNetworkInterfaceAttribute
+        , Network.AWS.EC2.DeleteInternetGateway
+        , Network.AWS.EC2.DescribeReservedInstancesListings
+        , Network.AWS.EC2.CreateVpnConnection
+        , Network.AWS.EC2.ReplaceTransitGatewayRoute
+        , Network.AWS.EC2.CreateFleet
+        , Network.AWS.EC2.DeleteNatGateway
+        , Network.AWS.EC2.DescribeImportSnapshotTasks
+        , Network.AWS.EC2.GetCoipPoolUsage
+        , Network.AWS.EC2.DescribeCustomerGateways
+        , Network.AWS.EC2.DeleteSubnet
+        , Network.AWS.EC2.CopyImage
+        , Network.AWS.EC2.CreateVpcEndpoint
+        , Network.AWS.EC2.ModifyTrafficMirrorSession
+        , Network.AWS.EC2.DescribeCarrierGateways
+        , Network.AWS.EC2.DescribeTransitGatewayPeeringAttachments
+        , Network.AWS.EC2.DeleteQueuedReservedInstances
+        , Network.AWS.EC2.DescribeTransitGatewayMulticastDomains
+        , Network.AWS.EC2.GetDefaultCreditSpecification
+        , Network.AWS.EC2.UnmonitorInstances
+        , Network.AWS.EC2.DescribeTransitGatewayVpcAttachments
+        , Network.AWS.EC2.CreateSecurityGroup
+        , Network.AWS.EC2.GetEbsEncryptionByDefault
+        , Network.AWS.EC2.ImportVolume
+        , Network.AWS.EC2.DeleteCarrierGateway
+        , Network.AWS.EC2.DisableVgwRoutePropagation
+        , Network.AWS.EC2.DeleteTrafficMirrorFilter
+        , Network.AWS.EC2.ModifyVpnTunnelCertificate
+        , Network.AWS.EC2.CreateSpotDatafeedSubscription
+        , Network.AWS.EC2.CancelSpotInstanceRequests
+        , Network.AWS.EC2.CreateRoute
+        , Network.AWS.EC2.DescribeVpcEndpointServiceConfigurations
+        , Network.AWS.EC2.DeleteSnapshot
+        , Network.AWS.EC2.AssignPrivateIpAddresses
+        , Network.AWS.EC2.AuthorizeClientVpnIngress
+        , Network.AWS.EC2.DeleteTransitGatewayPeeringAttachment
+        , Network.AWS.EC2.ModifyInstanceAttribute
+        , Network.AWS.EC2.DeleteCustomerGateway
+        , Network.AWS.EC2.DisassociateIamInstanceProfile
+        , Network.AWS.EC2.TerminateClientVpnConnections
+        , Network.AWS.EC2.DisassociateRouteTable
+        , Network.AWS.EC2.GetConsoleScreenshot
+        , Network.AWS.EC2.ResetEbsDefaultKmsKeyId
+        , Network.AWS.EC2.AssignIpv6Addresses
+        , Network.AWS.EC2.ModifyVpnTunnelOptions
+        , Network.AWS.EC2.ModifyEbsDefaultKmsKeyId
+        , Network.AWS.EC2.DeleteSpotDatafeedSubscription
+        , Network.AWS.EC2.ModifyVolume
+        , Network.AWS.EC2.EnableVpcClassicLink
+        , Network.AWS.EC2.DescribePlacementGroups
+        , Network.AWS.EC2.ProvisionByoipCidr
+        , Network.AWS.EC2.DisassociateEnclaveCertificateIamRole
+        , Network.AWS.EC2.ModifyAvailabilityZoneGroup
+        , Network.AWS.EC2.DescribeStaleSecurityGroups
+        , Network.AWS.EC2.CreateCarrierGateway
+        , Network.AWS.EC2.DescribeExportImageTasks
+        , Network.AWS.EC2.PurchaseScheduledInstances
+        , Network.AWS.EC2.EnableVgwRoutePropagation
+        , Network.AWS.EC2.DescribeSpotFleetRequestHistory
+        , Network.AWS.EC2.ModifySnapshotAttribute
+        , Network.AWS.EC2.DescribeIamInstanceProfileAssociations
+        , Network.AWS.EC2.CreateSnapshot
+        , Network.AWS.EC2.CreateLocalGatewayRoute
+        , Network.AWS.EC2.CreateNetworkAclEntry
+        , Network.AWS.EC2.DescribeTransitGatewayAttachments
+        , Network.AWS.EC2.CreateReservedInstancesListing
+        , Network.AWS.EC2.DescribeIpv6Pools
+        , Network.AWS.EC2.AttachVpnGateway
+        , Network.AWS.EC2.DescribeLocalGateways
+        , Network.AWS.EC2.ModifyVpcEndpointServicePermissions
+        , Network.AWS.EC2.ExportClientVpnClientCertificateRevocationList
+        , Network.AWS.EC2.CreateDhcpOptions
+        , Network.AWS.EC2.RegisterTransitGatewayMulticastGroupSources
+        , Network.AWS.EC2.DescribeAccountAttributes
+        , Network.AWS.EC2.GetTransitGatewayRouteTablePropagations
+        , Network.AWS.EC2.ModifyFpgaImageAttribute
+        , Network.AWS.EC2.ModifyHosts
+        , Network.AWS.EC2.RebootInstances
+        , Network.AWS.EC2.ModifyVpcEndpointServiceConfiguration
+        , Network.AWS.EC2.CreateTransitGateway
+        , Network.AWS.EC2.UnassignIpv6Addresses
+        , Network.AWS.EC2.DeleteTrafficMirrorSession
+        , Network.AWS.EC2.CreateManagedPrefixList
+        , Network.AWS.EC2.AssociateIamInstanceProfile
+        , Network.AWS.EC2.ModifyDefaultCreditSpecification
+        , Network.AWS.EC2.DeleteEgressOnlyInternetGateway
+        , Network.AWS.EC2.PurchaseHostReservation
+        , Network.AWS.EC2.ModifyTransitGatewayVpcAttachment
+        , Network.AWS.EC2.CreateImage
+        , Network.AWS.EC2.DescribeClassicLinkInstances
+        , Network.AWS.EC2.TerminateInstances
+        , Network.AWS.EC2.GetTransitGatewayPrefixListReferences
+        , Network.AWS.EC2.DescribeKeyPairs
+        , Network.AWS.EC2.DisableFastSnapshotRestores
+        , Network.AWS.EC2.DescribeLaunchTemplates
+        , Network.AWS.EC2.CreateVpnConnectionRoute
+        , Network.AWS.EC2.AssociateRouteTable
+        , Network.AWS.EC2.DescribeVpnGateways
+        , Network.AWS.EC2.ModifyVpnConnectionOptions
+        , Network.AWS.EC2.GetConsoleOutput
+        , Network.AWS.EC2.DescribeHosts
+        , Network.AWS.EC2.DescribeImageAttribute
+        , Network.AWS.EC2.ModifyIdFormat
+        , Network.AWS.EC2.RegisterTransitGatewayMulticastGroupMembers
+        , Network.AWS.EC2.DeleteManagedPrefixList
+        , Network.AWS.EC2.DeleteRouteTable
+        , Network.AWS.EC2.ResetImageAttribute
+        , Network.AWS.EC2.ModifyTransitGatewayPrefixListReference
+        , Network.AWS.EC2.DescribeTransitGatewayRouteTables
+        , Network.AWS.EC2.CreateEgressOnlyInternetGateway
+        , Network.AWS.EC2.DescribeReservedInstancesModifications
+        , Network.AWS.EC2.DescribeSpotInstanceRequests
+        , Network.AWS.EC2.RevokeClientVpnIngress
+        , Network.AWS.EC2.UnassignPrivateIpAddresses
+        , Network.AWS.EC2.DescribeNetworkInterfacePermissions
+        , Network.AWS.EC2.EnableFastSnapshotRestores
+        , Network.AWS.EC2.DescribeVpcEndpointServicePermissions
+        , Network.AWS.EC2.DeleteDhcpOptions
+        , Network.AWS.EC2.RegisterInstanceEventNotificationAttributes
+        , Network.AWS.EC2.DescribeNetworkAcls
+        , Network.AWS.EC2.CancelImportTask
+        , Network.AWS.EC2.DetachClassicLinkVpc
+        , Network.AWS.EC2.DescribeRegions
+        , Network.AWS.EC2.MonitorInstances
+        , Network.AWS.EC2.SearchLocalGatewayRoutes
+        , Network.AWS.EC2.DeleteClientVpnRoute
+        , Network.AWS.EC2.AcceptVpcPeeringConnection
+        , Network.AWS.EC2.ImportSnapshot
+        , Network.AWS.EC2.DescribeVolumeStatus
+        , Network.AWS.EC2.DescribeRouteTables
+        , Network.AWS.EC2.DescribeAvailabilityZones
+        , Network.AWS.EC2.ModifyVpcAttribute
+        , Network.AWS.EC2.DescribeClientVpnConnections
+        , Network.AWS.EC2.DescribeFleetHistory
+        , Network.AWS.EC2.DescribeImages
+        , Network.AWS.EC2.DescribeElasticGpus
+        , Network.AWS.EC2.RestoreAddressToClassic
+        , Network.AWS.EC2.DescribeManagedPrefixLists
+        , Network.AWS.EC2.CreateKeyPair
+        , Network.AWS.EC2.GetReservedInstancesExchangeQuote
+        , Network.AWS.EC2.DeleteVolume
+        , Network.AWS.EC2.DeprovisionByoipCidr
+        , Network.AWS.EC2.DeleteVpcEndpointServiceConfigurations
+        , Network.AWS.EC2.DescribeSpotFleetInstances
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.EC2.Types.CarrierGateway
+        , Network.AWS.EC2.Types.FleetCapacityReservationUsageStrategy
+        , Network.AWS.EC2.Types.InstanceMarketOptionsRequest
+        , Network.AWS.EC2.Types.ImageAttributeName
+        , Network.AWS.EC2.Types.VpcPeeringConnectionId
+        , Network.AWS.EC2.Types.FleetLaunchTemplateOverrides
+        , Network.AWS.EC2.Types.ExportTaskS3Location
+        , Network.AWS.EC2.Types.PrincipalIdFormat
+        , Network.AWS.EC2.Types.Ipv6CidrBlock
+        , Network.AWS.EC2.Types.PermissionGroup
+        , Network.AWS.EC2.Types.MarketType
+        , Network.AWS.EC2.Types.LocalGatewayVirtualInterfaceId
+        , Network.AWS.EC2.Types.TransitGatewayAttachmentResourceType
+        , Network.AWS.EC2.Types.StorageLocation
+        , Network.AWS.EC2.Types.InstanceId
+        , Network.AWS.EC2.Types.LoadPermissionRequest
+        , Network.AWS.EC2.Types.RouteTableAssociationStateCode
+        , Network.AWS.EC2.Types.ClientVpnRouteStatus
+        , Network.AWS.EC2.Types.ExportTaskId
+        , Network.AWS.EC2.Types.AddressStatus
+        , Network.AWS.EC2.Types.NetworkAclEntry
+        , Network.AWS.EC2.Types.CapacityReservationOptions
+        , Network.AWS.EC2.Types.Phase1DHGroupNumbersListValue
+        , Network.AWS.EC2.Types.BlobAttributeValue
+        , Network.AWS.EC2.Types.Phase1IntegrityAlgorithmsListValue
+        , Network.AWS.EC2.Types.ServiceTypeDetail
+        , Network.AWS.EC2.Types.LaunchTemplateElasticInferenceAccelerator
+        , Network.AWS.EC2.Types.TransitGatewayPrefixListAttachment
+        , Network.AWS.EC2.Types.ImportInstanceLaunchSpecification
+        , Network.AWS.EC2.Types.RequestLaunchTemplateData
+        , Network.AWS.EC2.Types.Snapshot
+        , Network.AWS.EC2.Types.ConnectionNotificationState
+        , Network.AWS.EC2.Types.SpotInstanceStateFault
+        , Network.AWS.EC2.Types.InferenceDeviceName
+        , Network.AWS.EC2.Types.PeeringConnectionOptions
+        , Network.AWS.EC2.Types.ClientConnectResponseOptions
+        , Network.AWS.EC2.Types.TagDescription
+        , Network.AWS.EC2.Types.ImportSnapshotTask
+        , Network.AWS.EC2.Types.GroupIdentifier
+        , Network.AWS.EC2.Types.RouteGatewayId
+        , Network.AWS.EC2.Types.VpnStaticRouteSource
+        , Network.AWS.EC2.Types.ScheduledInstanceRecurrence
+        , Network.AWS.EC2.Types.LocalGatewayRoute
+        , Network.AWS.EC2.Types.TrafficMirrorRuleAction
+        , Network.AWS.EC2.Types.Phase1EncryptionAlgorithmsListValue
+        , Network.AWS.EC2.Types.DirectoryServiceAuthentication
+        , Network.AWS.EC2.Types.AssociatedRole
+        , Network.AWS.EC2.Types.ReservedInstancesListing
+        , Network.AWS.EC2.Types.AssociatedTargetNetwork
+        , Network.AWS.EC2.Types.PciId
+        , Network.AWS.EC2.Types.InstanceLifecycleType
+        , Network.AWS.EC2.Types.ExportVmTaskId
+        , Network.AWS.EC2.Types.RegisterInstanceTagAttributeRequest
+        , Network.AWS.EC2.Types.ManagedPrefixList
+        , Network.AWS.EC2.Types.State
+        , Network.AWS.EC2.Types.EbsOptimizedInfo
+        , Network.AWS.EC2.Types.VirtualizationType
+        , Network.AWS.EC2.Types.PeeringAttachmentStatus
+        , Network.AWS.EC2.Types.NetworkInterfaceStatus
+        , Network.AWS.EC2.Types.PlatformValues
+        , Network.AWS.EC2.Types.Phase2EncryptionAlgorithmsListValue
+        , Network.AWS.EC2.Types.VpcPeeringConnectionOptionsDescription
+        , Network.AWS.EC2.Types.EgressOnlyInternetGatewayId
+        , Network.AWS.EC2.Types.EnclaveOptionsRequest
+        , Network.AWS.EC2.Types.TunnelInsideIpVersion
+        , Network.AWS.EC2.Types.AutoAcceptSharedAttachmentsValue
+        , Network.AWS.EC2.Types.VpnEcmpSupportValue
+        , Network.AWS.EC2.Types.TransitGatewayOptions
+        , Network.AWS.EC2.Types.CreateVolumePermission
+        , Network.AWS.EC2.Types.InstanceFamilyCreditSpecification
+        , Network.AWS.EC2.Types.EnableFastSnapshotRestoreStateErrorItem
+        , Network.AWS.EC2.Types.NetworkInterfaceAttachmentChanges
+        , Network.AWS.EC2.Types.MemoryInfo
+        , Network.AWS.EC2.Types.RecurringChargeFrequency
+        , Network.AWS.EC2.Types.ScheduledInstancesEbs
+        , Network.AWS.EC2.Types.ModifyAvailabilityZoneOptInStatus
+        , Network.AWS.EC2.Types.DhcpOptions
+        , Network.AWS.EC2.Types.SlotStartTimeRangeRequest
+        , Network.AWS.EC2.Types.InstanceNetworkInterfaceSpecification
+        , Network.AWS.EC2.Types.FleetLaunchTemplateSpecificationRequest
+        , Network.AWS.EC2.Types.OnDemandOptionsRequest
+        , Network.AWS.EC2.Types.InstanceTypeInfo
+        , Network.AWS.EC2.Types.Phase2DHGroupNumbersListValue
+        , Network.AWS.EC2.Types.ReservationState
+        , Network.AWS.EC2.Types.FpgaDeviceName
+        , Network.AWS.EC2.Types.TransitGateway
+        , Network.AWS.EC2.Types.VolumeState
+        , Network.AWS.EC2.Types.AddPrefixListEntry
+        , Network.AWS.EC2.Types.CpuOptionsRequest
+        , Network.AWS.EC2.Types.ClientCertificateRevocationListStatusCode
+        , Network.AWS.EC2.Types.TransitGatewayMulticastRegisteredGroupMembers
+        , Network.AWS.EC2.Types.VpcPeeringConnectionStateReasonCode
+        , Network.AWS.EC2.Types.AttributeValue
+        , Network.AWS.EC2.Types.LaunchTemplateElasticInferenceAcceleratorResponse
+        , Network.AWS.EC2.Types.ClientVpnConnection
+        , Network.AWS.EC2.Types.PrivateIpAddressSpecification
+        , Network.AWS.EC2.Types.Ipv6Address
+        , Network.AWS.EC2.Types.DeleteQueuedReservedInstancesErrorCode
+        , Network.AWS.EC2.Types.Image
+        , Network.AWS.EC2.Types.DhcpConfiguration
+        , Network.AWS.EC2.Types.CancelSpotFleetRequestsError
+        , Network.AWS.EC2.Types.InstanceTagNotificationAttribute
+        , Network.AWS.EC2.Types.Tag
+        , Network.AWS.EC2.Types.CapacityReservationSpecificationResponse
+        , Network.AWS.EC2.Types.NetworkInterfacePermissionStateCode
+        , Network.AWS.EC2.Types.DeleteFleetErrorItem
+        , Network.AWS.EC2.Types.AccountAttributeName
+        , Network.AWS.EC2.Types.LaunchTemplateAndOverridesResponse
+        , Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociation
+        , Network.AWS.EC2.Types.LaunchTemplateHibernationOptions
+        , Network.AWS.EC2.Types.NetworkInterfaceAttachment
+        , Network.AWS.EC2.Types.ConnectionLogOptions
+        , Network.AWS.EC2.Types.SpotFleetMonitoring
+        , Network.AWS.EC2.Types.RunInstancesMonitoringEnabled
+        , Network.AWS.EC2.Types.VolumeStatusInfo
+        , Network.AWS.EC2.Types.RouteTableId
+        , Network.AWS.EC2.Types.CapacityReservationInstancePlatform
+        , Network.AWS.EC2.Types.NetworkInterfaceAssociation
+        , Network.AWS.EC2.Types.LaunchTemplateOverrides
+        , Network.AWS.EC2.Types.SecurityGroupIdentifier
+        , Network.AWS.EC2.Types.TrafficMirrorSession
+        , Network.AWS.EC2.Types.DisableFastSnapshotRestoreStateErrorItem
+        , Network.AWS.EC2.Types.CreateVolumePermissionModifications
+        , Network.AWS.EC2.Types.SubnetAssociation
+        , Network.AWS.EC2.Types.SnapshotInfo
+        , Network.AWS.EC2.Types.ScheduledInstancesPlacement
+        , Network.AWS.EC2.Types.LocalGatewayRouteTable
+        , Network.AWS.EC2.Types.ModifyTransitGatewayVpcAttachmentRequestOptions
+        , Network.AWS.EC2.Types.ElasticGpuId
+        , Network.AWS.EC2.Types.LaunchTemplateName
+        , Network.AWS.EC2.Types.VpcState
+        , Network.AWS.EC2.Types.ResourceType
+        , Network.AWS.EC2.Types.ReportStatusType
+        , Network.AWS.EC2.Types.ImportImageTaskId
+        , Network.AWS.EC2.Types.TrafficMirrorFilterRule
+        , Network.AWS.EC2.Types.Affinity
+        , Network.AWS.EC2.Types.CurrencyCodeValues
+        , Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest
+        , Network.AWS.EC2.Types.IcmpTypeCode
+        , Network.AWS.EC2.Types.LaunchTemplateCpuOptionsRequest
+        , Network.AWS.EC2.Types.DeleteFleetErrorCode
+        , Network.AWS.EC2.Types.LaunchTemplateInstanceNetworkInterfaceSpecification
+        , Network.AWS.EC2.Types.AllowedPrincipal
+        , Network.AWS.EC2.Types.LaunchTemplatesMonitoring
+        , Network.AWS.EC2.Types.PrincipalType
+        , Network.AWS.EC2.Types.LaunchTemplateTagSpecification
+        , Network.AWS.EC2.Types.ClientVpnEndpoint
+        , Network.AWS.EC2.Types.HostTenancy
+        , Network.AWS.EC2.Types.GpuDeviceManufacturerName
+        , Network.AWS.EC2.Types.FpgaImageId
+        , Network.AWS.EC2.Types.InstanceCount
+        , Network.AWS.EC2.Types.ClientVpnEndpointAttributeStatus
+        , Network.AWS.EC2.Types.ExportToS3Task
+        , Network.AWS.EC2.Types.VpcCidrBlockStateCode
+        , Network.AWS.EC2.Types.PrefixList
+        , Network.AWS.EC2.Types.LaunchTemplateEnclaveOptionsRequest
+        , Network.AWS.EC2.Types.InstanceInterruptionBehavior
+        , Network.AWS.EC2.Types.Location
+        , Network.AWS.EC2.Types.FleetExcessCapacityTerminationPolicy
+        , Network.AWS.EC2.Types.InstanceMetadataOptionsRequest
+        , Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatusCode
+        , Network.AWS.EC2.Types.BlockDeviceMapping
+        , Network.AWS.EC2.Types.InstanceCapacity
+        , Network.AWS.EC2.Types.TransitGatewayRouteTableId
+        , Network.AWS.EC2.Types.DnsSupportValue
+        , Network.AWS.EC2.Types.NetworkAclId
+        , Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataEndpointState
+        , Network.AWS.EC2.Types.AllocationId
+        , Network.AWS.EC2.Types.SensitiveUserData
+        , Network.AWS.EC2.Types.ConversionTask
+        , Network.AWS.EC2.Types.AttachmentStatus
+        , Network.AWS.EC2.Types.SpotCapacityRebalance
+        , Network.AWS.EC2.Types.GpuDeviceName
+        , Network.AWS.EC2.Types.FederatedAuthenticationRequest
+        , Network.AWS.EC2.Types.ClassicLinkInstance
+        , Network.AWS.EC2.Types.TransportProtocol
+        , Network.AWS.EC2.Types.RouteOrigin
+        , Network.AWS.EC2.Types.PrefixListState
+        , Network.AWS.EC2.Types.ListingState
+        , Network.AWS.EC2.Types.SpotPrice
+        , Network.AWS.EC2.Types.ActiveInstance
+        , Network.AWS.EC2.Types.TrafficType
+        , Network.AWS.EC2.Types.LaunchTemplatePlacementRequest
+        , Network.AWS.EC2.Types.LaunchTemplateCapacityReservationSpecificationRequest
+        , Network.AWS.EC2.Types.VpnGatewayId
+        , Network.AWS.EC2.Types.SpotFleetRequestConfigData
+        , Network.AWS.EC2.Types.ReplacementStrategy
+        , Network.AWS.EC2.Types.ArchitectureType
+        , Network.AWS.EC2.Types.EnaSupport
+        , Network.AWS.EC2.Types.AvailableCapacity
+        , Network.AWS.EC2.Types.NatGatewayAddress
+        , Network.AWS.EC2.Types.InstanceMonitoring
+        , Network.AWS.EC2.Types.ScheduledInstanceId
+        , Network.AWS.EC2.Types.HostReservationId
+        , Network.AWS.EC2.Types.PlacementGroupStrategy
+        , Network.AWS.EC2.Types.TrafficMirrorTargetType
+        , Network.AWS.EC2.Types.CapacityReservationTarget
+        , Network.AWS.EC2.Types.ModifyVpnTunnelOptionsSpecification
+        , Network.AWS.EC2.Types.ServiceConfiguration
+        , Network.AWS.EC2.Types.LoadPermission
+        , Network.AWS.EC2.Types.NetworkInterfacePermissionId
+        , Network.AWS.EC2.Types.PriceScheduleSpecification
+        , Network.AWS.EC2.Types.StaleIpPermission
+        , Network.AWS.EC2.Types.SpotFleetRequestConfig
+        , Network.AWS.EC2.Types.PrefixListResourceId
+        , Network.AWS.EC2.Types.SpotInstanceStatus
+        , Network.AWS.EC2.Types.ElasticGpuState
+        , Network.AWS.EC2.Types.TargetCapacitySpecification
+        , Network.AWS.EC2.Types.SnapshotTaskDetail
+        , Network.AWS.EC2.Types.VpcIpv6CidrBlockAssociation
+        , Network.AWS.EC2.Types.EnableFastSnapshotRestoreErrorItem
+        , Network.AWS.EC2.Types.TrafficMirrorSessionField
+        , Network.AWS.EC2.Types.SpotOptions
+        , Network.AWS.EC2.Types.VpcId
+        , Network.AWS.EC2.Types.AvailabilityZoneState
+        , Network.AWS.EC2.Types.AllowsMultipleInstanceTypes
+        , Network.AWS.EC2.Types.InstanceMetadataEndpointState
+        , Network.AWS.EC2.Types.ElasticInferenceAcceleratorAssociation
+        , Network.AWS.EC2.Types.SpotInstanceRequest
+        , Network.AWS.EC2.Types.LaunchTemplateId
+        , Network.AWS.EC2.Types.AssociationStatusCode
+        , Network.AWS.EC2.Types.RemovePrefixListEntry
+        , Network.AWS.EC2.Types.PeeringTgwInfo
+        , Network.AWS.EC2.Types.ScheduledInstancesNetworkInterface
+        , Network.AWS.EC2.Types.LaunchSpecification
+        , Network.AWS.EC2.Types.TrafficDirection
+        , Network.AWS.EC2.Types.VolumeStatusEvent
+        , Network.AWS.EC2.Types.SpotMaintenanceStrategies
+        , Network.AWS.EC2.Types.Volume
+        , Network.AWS.EC2.Types.Reservation
+        , Network.AWS.EC2.Types.TrafficMirrorTargetId
+        , Network.AWS.EC2.Types.PlacementGroupInfo
+        , Network.AWS.EC2.Types.FpgaDeviceManufacturerName
+        , Network.AWS.EC2.Types.CidrAuthorizationContext
+        , Network.AWS.EC2.Types.ClientVpnRoute
+        , Network.AWS.EC2.Types.LaunchTemplateInstanceMarketOptions
+        , Network.AWS.EC2.Types.TrafficMirrorFilterRuleField
+        , Network.AWS.EC2.Types.LoadPermissionModifications
+        , Network.AWS.EC2.Types.LaunchTemplateEbsBlockDevice
+        , Network.AWS.EC2.Types.FpgaImageState
+        , Network.AWS.EC2.Types.EphemeralNvmeSupport
+        , Network.AWS.EC2.Types.MulticastSupportValue
+        , Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem
+        , Network.AWS.EC2.Types.LocalGatewayRouteTableVirtualInterfaceGroupAssociation
+        , Network.AWS.EC2.Types.LocalGatewayId
+        , Network.AWS.EC2.Types.SummaryStatus
+        , Network.AWS.EC2.Types.ReservedInstancesModification
+        , Network.AWS.EC2.Types.TransitGatewayAttachmentPropagation
+        , Network.AWS.EC2.Types.RuleAction
+        , Network.AWS.EC2.Types.CarrierGatewayState
+        , Network.AWS.EC2.Types.IamInstanceProfileAssociationId
+        , Network.AWS.EC2.Types.BatchState
+        , Network.AWS.EC2.Types.DiskInfo
+        , Network.AWS.EC2.Types.LocalGatewayRouteTableVpcAssociationId
+        , Network.AWS.EC2.Types.SubnetCidrAssociationId
+        , Network.AWS.EC2.Types.ConnectionNotificationType
+        , Network.AWS.EC2.Types.NetworkInterface
+        , Network.AWS.EC2.Types.EbsNvmeSupport
+        , Network.AWS.EC2.Types.ClientVpnConnectionStatus
+        , Network.AWS.EC2.Types.InferenceDeviceManufacturerName
+        , Network.AWS.EC2.Types.ExportImageTaskId
+        , Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem
+        , Network.AWS.EC2.Types.TransitAssociationGatewayId
+        , Network.AWS.EC2.Types.TelemetryStatus
+        , Network.AWS.EC2.Types.LaunchTemplateCpuOptions
+        , Network.AWS.EC2.Types.FleetSpotCapacityRebalance
+        , Network.AWS.EC2.Types.RouteTableAssociationId
+        , Network.AWS.EC2.Types.Subnet
+        , Network.AWS.EC2.Types.LocalGatewayRouteState
+        , Network.AWS.EC2.Types.TerminateConnectionStatus
+        , Network.AWS.EC2.Types.CreateFleetInstance
+        , Network.AWS.EC2.Types.FpgaImageAttribute
+        , Network.AWS.EC2.Types.KeyPairInfo
+        , Network.AWS.EC2.Types.LaunchTemplateEnclaveOptions
+        , Network.AWS.EC2.Types.TransitGatewayMulticastDomain
+        , Network.AWS.EC2.Types.NatGateway
+        , Network.AWS.EC2.Types.LaunchPermissionModifications
+        , Network.AWS.EC2.Types.TrafficMirrorPortRangeRequest
+        , Network.AWS.EC2.Types.TransitGatewayVpcAttachmentOptions
+        , Network.AWS.EC2.Types.ElasticGpuHealth
+        , Network.AWS.EC2.Types.LoadBalancersConfig
+        , Network.AWS.EC2.Types.ExcessCapacityTerminationPolicy
+        , Network.AWS.EC2.Types.SnapshotState
+        , Network.AWS.EC2.Types.InstanceNetworkInterfaceAssociation
+        , Network.AWS.EC2.Types.ReservationValue
+        , Network.AWS.EC2.Types.FleetReplacementStrategy
+        , Network.AWS.EC2.Types.DiskImageDetail
+        , Network.AWS.EC2.Types.ValidationError
+        , Network.AWS.EC2.Types.TransitGatewayVpcAttachment
+        , Network.AWS.EC2.Types.SpotAllocationStrategy
+        , Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationItemError
+        , Network.AWS.EC2.Types.InstancePrivateIpAddress
+        , Network.AWS.EC2.Types.CancelledSpotInstanceRequest
+        , Network.AWS.EC2.Types.VpnConnectionOptionsSpecification
+        , Network.AWS.EC2.Types.Address
+        , Network.AWS.EC2.Types.NatGatewayId
+        , Network.AWS.EC2.Types.FleetType
+        , Network.AWS.EC2.Types.TransitGatewayPrefixListReference
+        , Network.AWS.EC2.Types.VolumeAttachmentState
+        , Network.AWS.EC2.Types.TransitGatewayMulticastDomainId
+        , Network.AWS.EC2.Types.IamInstanceProfileAssociation
+        , Network.AWS.EC2.Types.EnclaveOptions
+        , Network.AWS.EC2.Types.PrivateDnsDetails
+        , Network.AWS.EC2.Types.CoipAddressUsage
+        , Network.AWS.EC2.Types.AssociatedNetworkType
+        , Network.AWS.EC2.Types.NetworkInterfaceId
+        , Network.AWS.EC2.Types.MovingAddressStatus
+        , Network.AWS.EC2.Types.LaunchPermission
+        , Network.AWS.EC2.Types.NetworkPerformance
+        , Network.AWS.EC2.Types.RouteState
+        , Network.AWS.EC2.Types.DefaultRouteTableAssociationValue
+        , Network.AWS.EC2.Types.OfferingClassType
+        , Network.AWS.EC2.Types.InterfacePermissionType
+        , Network.AWS.EC2.Types.SecurityGroupName
+        , Network.AWS.EC2.Types.ExportImageTask
+        , Network.AWS.EC2.Types.RouteTableAssociation
+        , Network.AWS.EC2.Types.VpcEndpointType
+        , Network.AWS.EC2.Types.RamdiskId
+        , Network.AWS.EC2.Types.TransitGatewayRequestOptions
+        , Network.AWS.EC2.Types.LocalGatewayRouteTableVpcAssociation
+        , Network.AWS.EC2.Types.FpgaDeviceInfo
+        , Network.AWS.EC2.Types.CpuOptions
+        , Network.AWS.EC2.Types.VpcEndpointServiceId
+        , Network.AWS.EC2.Types.BundleTaskState
+        , Network.AWS.EC2.Types.LaunchTemplateIamInstanceProfileSpecificationRequest
+        , Network.AWS.EC2.Types.FleetLaunchTemplateSpecification
+        , Network.AWS.EC2.Types.OnDemandOptions
+        , Network.AWS.EC2.Types.TransitGatewayRoute
+        , Network.AWS.EC2.Types.DeregisterInstanceTagAttributeRequest
+        , Network.AWS.EC2.Types.HibernationOptionsRequest
+        , Network.AWS.EC2.Types.PortRange
+        , Network.AWS.EC2.Types.VpcAttributeName
+        , Network.AWS.EC2.Types.TransitGatewayRouteTablePropagation
+        , Network.AWS.EC2.Types.IdFormat
+        , Network.AWS.EC2.Types.SubnetIpv6CidrBlockAssociation
+        , Network.AWS.EC2.Types.ReservedInstancesConfiguration
+        , Network.AWS.EC2.Types.EbsOptimizedSupport
+        , Network.AWS.EC2.Types.IKEVersionsRequestListValue
+        , Network.AWS.EC2.Types.FpgaInfo
+        , Network.AWS.EC2.Types.PublicIpv4Pool
+        , Network.AWS.EC2.Types.DefaultTargetCapacityType
+        , Network.AWS.EC2.Types.DisableFastSnapshotRestoreSuccessItem
+        , Network.AWS.EC2.Types.ResponseLaunchTemplateData
+        , Network.AWS.EC2.Types.ElasticGpuAssociation
+        , Network.AWS.EC2.Types.VpcFlowLogId
+        , Network.AWS.EC2.Types.VolumeStatusDetails
+        , Network.AWS.EC2.Types.SubnetId
+        , Network.AWS.EC2.Types.SpotInstanceState
+        , Network.AWS.EC2.Types.VpnConnectionOptions
+        , Network.AWS.EC2.Types.SpotFleetLaunchSpecification
+        , Network.AWS.EC2.Types.ClientVpnConnectionStatusCode
+        , Network.AWS.EC2.Types.PrefixListEntry
+        , Network.AWS.EC2.Types.Phase2IntegrityAlgorithmsRequestListValue
+        , Network.AWS.EC2.Types.KernelId
+        , Network.AWS.EC2.Types.ClientVpnAuthenticationType
+        , Network.AWS.EC2.Types.InstanceMatchCriteria
+        , Network.AWS.EC2.Types.VolumeModificationState
+        , Network.AWS.EC2.Types.UserIdGroupPair
+        , Network.AWS.EC2.Types.InstanceStatusSummary
+        , Network.AWS.EC2.Types.InstanceHealthStatus
+        , Network.AWS.EC2.Types.SpotPlacement
+        , Network.AWS.EC2.Types.PoolCidrBlock
+        , Network.AWS.EC2.Types.EbsInstanceBlockDeviceSpecification
+        , Network.AWS.EC2.Types.CapacityReservationId
+        , Network.AWS.EC2.Types.NetworkAclAssociation
+        , Network.AWS.EC2.Types.DeleteFleetSuccessItem
+        , Network.AWS.EC2.Types.InstanceTypeOffering
+        , Network.AWS.EC2.Types.BundleTask
+        , Network.AWS.EC2.Types.ElasticInferenceAccelerator
+        , Network.AWS.EC2.Types.InstanceStatusEvent
+        , Network.AWS.EC2.Types.SubnetCidrBlockState
+        , Network.AWS.EC2.Types.InstanceType
+        , Network.AWS.EC2.Types.TrafficMirrorFilterId
+        , Network.AWS.EC2.Types.HostInstance
+        , Network.AWS.EC2.Types.CapacityReservationSpecification
+        , Network.AWS.EC2.Types.CoipPool
+        , Network.AWS.EC2.Types.Route
+        , Network.AWS.EC2.Types.DnsNameState
+        , Network.AWS.EC2.Types.SpotDatafeedSubscription
+        , Network.AWS.EC2.Types.CreditSpecificationRequest
+        , Network.AWS.EC2.Types.TransitGatewayRouteTableAssociation
+        , Network.AWS.EC2.Types.HostProperties
+        , Network.AWS.EC2.Types.VolumeStatusAttachmentStatus
+        , Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMappingRequest
+        , Network.AWS.EC2.Types.SpotFleetTagSpecification
+        , Network.AWS.EC2.Types.BundleId
+        , Network.AWS.EC2.Types.VpcCidrBlockAssociation
+        , Network.AWS.EC2.Types.Storage
+        , Network.AWS.EC2.Types.SecurityGroup
+        , Network.AWS.EC2.Types.CancelSpotInstanceRequestState
+        , Network.AWS.EC2.Types.FlowLogResourceId
+        , Network.AWS.EC2.Types.TransitGatewayAttachmentState
+        , Network.AWS.EC2.Types.PlacementGroupState
+        , Network.AWS.EC2.Types.ReservedInstancesModificationResult
+        , Network.AWS.EC2.Types.InstanceBlockDeviceMappingSpecification
+        , Network.AWS.EC2.Types.PublicIpv4PoolRange
+        , Network.AWS.EC2.Types.ExportEnvironment
+        , Network.AWS.EC2.Types.CustomerGatewayId
+        , Network.AWS.EC2.Types.UserData
+        , Network.AWS.EC2.Types.ResetFpgaImageAttributeName
+        , Network.AWS.EC2.Types.FailedQueuedPurchaseDeletion
+        , Network.AWS.EC2.Types.TransitGatewayAssociationState
+        , Network.AWS.EC2.Types.VolumeAttachment
+        , Network.AWS.EC2.Types.ScheduledInstancesIpv6Address
+        , Network.AWS.EC2.Types.FpgaImageAttributeName
+        , Network.AWS.EC2.Types.GpuInfo
+        , Network.AWS.EC2.Types.SecurityGroupId
+        , Network.AWS.EC2.Types.NatGatewayState
+        , Network.AWS.EC2.Types.CustomerGateway
+        , Network.AWS.EC2.Types.TransitGatewayMulticastDomainState
+        , Network.AWS.EC2.Types.TransitGatewayPeeringAttachment
+        , Network.AWS.EC2.Types.InstanceUsage
+        , Network.AWS.EC2.Types.EbsInstanceBlockDevice
+        , Network.AWS.EC2.Types.CertificateAuthenticationRequest
+        , Network.AWS.EC2.Types.Ipv6CidrAssociation
+        , Network.AWS.EC2.Types.SubnetCidrBlockStateCode
+        , Network.AWS.EC2.Types.ShutdownBehavior
+        , Network.AWS.EC2.Types.DiskImageDescription
+        , Network.AWS.EC2.Types.ElasticGpus
+        , Network.AWS.EC2.Types.NextToken
+        , Network.AWS.EC2.Types.DiskImageVolumeDescription
+        , Network.AWS.EC2.Types.Monitoring
+        , Network.AWS.EC2.Types.CapacityReservation
+        , Network.AWS.EC2.Types.SubnetState
+        , Network.AWS.EC2.Types.VersionDescription
+        , Network.AWS.EC2.Types.CancelSpotFleetRequestsSuccessItem
+        , Network.AWS.EC2.Types.FederatedAuthentication
+        , Network.AWS.EC2.Types.NetworkCardInfo
+        , Network.AWS.EC2.Types.ContainerFormat
+        , Network.AWS.EC2.Types.TrafficMirrorFilter
+        , Network.AWS.EC2.Types.AvailabilityZoneMessage
+        , Network.AWS.EC2.Types.TransitGatewayMulticastGroup
+        , Network.AWS.EC2.Types.VpcAttachment
+        , Network.AWS.EC2.Types.EbsEncryptionSupport
+        , Network.AWS.EC2.Types.ScheduledInstancesIamInstanceProfile
+        , Network.AWS.EC2.Types.EventType
+        , Network.AWS.EC2.Types.LaunchTemplatePlacement
+        , Network.AWS.EC2.Types.LocalGatewayRouteType
+        , Network.AWS.EC2.Types.GpuDeviceInfo
+        , Network.AWS.EC2.Types.InstanceBlockDeviceMapping
+        , Network.AWS.EC2.Types.FleetStateCode
+        , Network.AWS.EC2.Types.SpotMarketOptions
+        , Network.AWS.EC2.Types.CoipPoolId
+        , Network.AWS.EC2.Types.ServiceDetail
+        , Network.AWS.EC2.Types.Ipv6PoolEc2Id
+        , Network.AWS.EC2.Types.InstanceSpecification
+        , Network.AWS.EC2.Types.StatusType
+        , Network.AWS.EC2.Types.NetworkInterfaceIpv6Address
+        , Network.AWS.EC2.Types.ExportToS3TaskSpecification
+        , Network.AWS.EC2.Types.InstanceMetadataOptionsResponse
+        , Network.AWS.EC2.Types.NetworkInterfacePermissionState
+        , Network.AWS.EC2.Types.FleetSpotMaintenanceStrategiesRequest
+        , Network.AWS.EC2.Types.LaunchTemplateIamInstanceProfileSpecification
+        , Network.AWS.EC2.Types.CancelBatchErrorCode
+        , Network.AWS.EC2.Types.FlowLogsResourceType
+        , Network.AWS.EC2.Types.VpcCidrBlockState
+        , Network.AWS.EC2.Types.HttpTokensState
+        , Network.AWS.EC2.Types.TrafficMirrorFilterRuleId
+        , Network.AWS.EC2.Types.TagSpecification
+        , Network.AWS.EC2.Types.AvailabilityZoneOptInStatus
+        , Network.AWS.EC2.Types.InstanceIpv6AddressRequest
+        , Network.AWS.EC2.Types.PrefixListId
+        , Network.AWS.EC2.Types.KmsKeyId
+        , Network.AWS.EC2.Types.CopyTagsFromSource
+        , Network.AWS.EC2.Types.ResourceArn
+        , Network.AWS.EC2.Types.NetworkInterfaceAttribute
+        , Network.AWS.EC2.Types.Phase2IntegrityAlgorithmsListValue
+        , Network.AWS.EC2.Types.LaunchTemplateVersion
+        , Network.AWS.EC2.Types.ClassicLoadBalancersConfig
+        , Network.AWS.EC2.Types.TransitGatewayRouteAttachment
+        , Network.AWS.EC2.Types.ModifyTransitGatewayOptions
+        , Network.AWS.EC2.Types.ScheduledInstancesMonitoring
+        , Network.AWS.EC2.Types.ImageTypeValues
+        , Network.AWS.EC2.Types.InstanceExportDetails
+        , Network.AWS.EC2.Types.SnapshotAttributeName
+        , Network.AWS.EC2.Types.HibernationOptions
+        , Network.AWS.EC2.Types.FpgaImage
+        , Network.AWS.EC2.Types.FpgaDeviceMemoryInfo
+        , Network.AWS.EC2.Types.CapacityReservationPreference
+        , Network.AWS.EC2.Types.LocalGatewayRoutetableId
+        , Network.AWS.EC2.Types.NetworkInterfaceAttachmentId
+        , Network.AWS.EC2.Types.IKEVersionsListValue
+        , Network.AWS.EC2.Types.DescribeFastSnapshotRestoreSuccessItem
+        , Network.AWS.EC2.Types.AvailabilityZone
+        , Network.AWS.EC2.Types.TargetNetwork
+        , Network.AWS.EC2.Types.TransitGatewayAttachmentAssociation
+        , Network.AWS.EC2.Types.DisableFastSnapshotRestoreStateError
+        , Network.AWS.EC2.Types.InstanceLifecycle
+        , Network.AWS.EC2.Types.HistoryRecord
+        , Network.AWS.EC2.Types.ClientVpnEndpointAttributeStatusCode
+        , Network.AWS.EC2.Types.ImportImageTask
+        , Network.AWS.EC2.Types.LaunchTemplateLicenseConfigurationRequest
+        , Network.AWS.EC2.Types.VpnState
+        , Network.AWS.EC2.Types.DeleteFleetError
+        , Network.AWS.EC2.Types.RouteTable
+        , Network.AWS.EC2.Types.UserBucket
+        , Network.AWS.EC2.Types.TrafficMirrorSessionId
+        , Network.AWS.EC2.Types.HypervisorType
+        , Network.AWS.EC2.Types.TargetGroupsConfig
+        , Network.AWS.EC2.Types.AllocationState
+        , Network.AWS.EC2.Types.VpcTenancy
+        , Network.AWS.EC2.Types.CancelSpotFleetRequestsErrorItem
+        , Network.AWS.EC2.Types.InstanceStatusDetails
+        , Network.AWS.EC2.Types.ProvisionedBandwidth
+        , Network.AWS.EC2.Types.FleetActivityStatus
+        , Network.AWS.EC2.Types.ClientVpnEndpointId
+        , Network.AWS.EC2.Types.IamInstanceProfile
+        , Network.AWS.EC2.Types.ClientConnectOptions
+        , Network.AWS.EC2.Types.LaunchTemplateConfig
+        , Network.AWS.EC2.Types.TrafficMirrorNetworkService
+        , Network.AWS.EC2.Types.TransitGatewayRouteTableState
+        , Network.AWS.EC2.Types.LaunchTemplateCapacityReservationSpecificationResponse
+        , Network.AWS.EC2.Types.UnsuccessfulItem
+        , Network.AWS.EC2.Types.ImportImageLicenseConfigurationResponse
+        , Network.AWS.EC2.Types.ElasticGpuSpecification
+        , Network.AWS.EC2.Types.InternetGatewayAttachment
+        , Network.AWS.EC2.Types.Scope
+        , Network.AWS.EC2.Types.ImageId
+        , Network.AWS.EC2.Types.LicenseConfigurationRequest
+        , Network.AWS.EC2.Types.PurchaseRequest
+        , Network.AWS.EC2.Types.EbsInfo
+        , Network.AWS.EC2.Types.ReservedInstanceState
+        , Network.AWS.EC2.Types.InstanceAttributeName
+        , Network.AWS.EC2.Types.IpPermission
+        , Network.AWS.EC2.Types.TrafficMirrorPortRange
+        , Network.AWS.EC2.Types.DeleteQueuedReservedInstancesError
+        , Network.AWS.EC2.Types.ConversionTaskState
+        , Network.AWS.EC2.Types.DiskImage
+        , Network.AWS.EC2.Types.ApplianceModeSupportValue
+        , Network.AWS.EC2.Types.NetworkInterfaceCreationType
+        , Network.AWS.EC2.Types.Tenancy
+        , Network.AWS.EC2.Types.ClientCertificateRevocationListStatus
+        , Network.AWS.EC2.Types.SecurityGroupReference
+        , Network.AWS.EC2.Types.SpotInstanceInterruptionBehavior
+        , Network.AWS.EC2.Types.UnsuccessfulItemError
+        , Network.AWS.EC2.Types.InferenceAcceleratorInfo
+        , Network.AWS.EC2.Types.DhcpOptionsId
+        , Network.AWS.EC2.Types.ClassicLinkDnsSupport
+        , Network.AWS.EC2.Types.KeyPairName
+        , Network.AWS.EC2.Types.EgressOnlyInternetGateway
+        , Network.AWS.EC2.Types.EnableFastSnapshotRestoreStateError
+        , Network.AWS.EC2.Types.CreateFleetError
+        , Network.AWS.EC2.Types.VpcPeeringConnectionStateReason
+        , Network.AWS.EC2.Types.LaunchTemplateHttpTokensState
+        , Network.AWS.EC2.Types.IamInstanceProfileSpecification
+        , Network.AWS.EC2.Types.ImportVolumeTaskDetails
+        , Network.AWS.EC2.Types.LastError
+        , Network.AWS.EC2.Types.PlacementStrategy
+        , Network.AWS.EC2.Types.DescribeFleetsInstances
+        , Network.AWS.EC2.Types.DnsServersOptionsModifyStructure
+        , Network.AWS.EC2.Types.InstanceNetworkInterface
+        , Network.AWS.EC2.Types.AssignedPrivateIpAddress
+        , Network.AWS.EC2.Types.TargetReservationValue
+        , Network.AWS.EC2.Types.SpotFleetRequestId
+        , Network.AWS.EC2.Types.MembershipType
+        , Network.AWS.EC2.Types.VolumeStatusAction
+        , Network.AWS.EC2.Types.PlacementResponse
+        , Network.AWS.EC2.Types.TransitGatewayId
+        , Network.AWS.EC2.Types.VpcPeeringConnectionVpcInfo
+        , Network.AWS.EC2.Types.ServiceState
+        , Network.AWS.EC2.Types.TransitGatewayMulticastRegisteredGroupSources
+        , Network.AWS.EC2.Types.FleetEventType
+        , Network.AWS.EC2.Types.Phase1IntegrityAlgorithmsRequestListValue
+        , Network.AWS.EC2.Types.ReservationId
+        , Network.AWS.EC2.Types.ServiceType
+        , Network.AWS.EC2.Types.ExportTaskS3LocationRequest
+        , Network.AWS.EC2.Types.UserBucketDetails
+        , Network.AWS.EC2.Types.VolumeId
+        , Network.AWS.EC2.Types.OfferingId
+        , Network.AWS.EC2.Types.SelfServicePortal
+        , Network.AWS.EC2.Types.DisableFastSnapshotRestoreErrorItem
+        , Network.AWS.EC2.Types.CidrBlock
+        , Network.AWS.EC2.Types.ReservedInstancesModificationId
+        , Network.AWS.EC2.Types.LaunchTemplate
+        , Network.AWS.EC2.Types.ReservedInstanceLimitPrice
+        , Network.AWS.EC2.Types.DnsEntry
+        , Network.AWS.EC2.Types.AssociationStatus
+        , Network.AWS.EC2.Types.DiskType
+        , Network.AWS.EC2.Types.Vpc
+        , Network.AWS.EC2.Types.AuthorizationRule
+        , Network.AWS.EC2.Types.DirectoryServiceAuthenticationRequest
+        , Network.AWS.EC2.Types.ImageDiskContainer
+        , Network.AWS.EC2.Types.Ipv6Pool
+        , Network.AWS.EC2.Types.OperationType
+        , Network.AWS.EC2.Types.LocalGatewayRouteTableVirtualInterfaceGroupAssociationId
+        , Network.AWS.EC2.Types.CertificateAuthentication
+        , Network.AWS.EC2.Types.InferenceDeviceInfo
+        , Network.AWS.EC2.Types.ImportTaskId
+        , Network.AWS.EC2.Types.OnDemandAllocationStrategy
+        , Network.AWS.EC2.Types.TrafficMirrorTarget
+        , Network.AWS.EC2.Types.Phase1EncryptionAlgorithmsRequestListValue
+        , Network.AWS.EC2.Types.InstanceStatus
+        , Network.AWS.EC2.Types.TransitGatewayMulitcastDomainAssociationState
+        , Network.AWS.EC2.Types.CapacityReservationOptionsRequest
+        , Network.AWS.EC2.Types.GpuDeviceMemoryInfo
+        , Network.AWS.EC2.Types.ArchitectureValues
+        , Network.AWS.EC2.Types.ReportInstanceReasonCodes
+        , Network.AWS.EC2.Types.LocationType
+        , Network.AWS.EC2.Types.PeeringConnectionOptionsRequest
+        , Network.AWS.EC2.Types.MoveStatus
+        , Network.AWS.EC2.Types.EbsBlockDevice
+        , Network.AWS.EC2.Types.VpnTunnelOptionsSpecification
+        , Network.AWS.EC2.Types.FleetLaunchTemplateOverridesRequest
+        , Network.AWS.EC2.Types.LocalGateway
+        , Network.AWS.EC2.Types.AccountAttribute
+        , Network.AWS.EC2.Types.FpgaImageStateCode
+        , Network.AWS.EC2.Types.Ipv6SupportValue
+        , Network.AWS.EC2.Types.Phase1DHGroupNumbersRequestListValue
+        , Network.AWS.EC2.Types.SnapshotDetail
+        , Network.AWS.EC2.Types.SpotInstanceRequestId
+        , Network.AWS.EC2.Types.ScheduledInstanceRecurrenceRequest
+        , Network.AWS.EC2.Types.VpcEndpointConnection
+        , Network.AWS.EC2.Types.PriceSchedule
+        , Network.AWS.EC2.Types.DeviceType
+        , Network.AWS.EC2.Types.DomainType
+        , Network.AWS.EC2.Types.RegionInfo
+        , Network.AWS.EC2.Types.TransitGatewayState
+        , Network.AWS.EC2.Types.CreditSpecification
+        , Network.AWS.EC2.Types.DeleteLaunchTemplateVersionsResponseSuccessItem
+        , Network.AWS.EC2.Types.TransitGatewayRouteTable
+        , Network.AWS.EC2.Types.ImportImageLicenseConfigurationRequest
+        , Network.AWS.EC2.Types.NetworkInfo
+        , Network.AWS.EC2.Types.LaunchTemplateSpecification
+        , Network.AWS.EC2.Types.LaunchTemplateBlockDeviceMapping
+        , Network.AWS.EC2.Types.InstanceEventId
+        , Network.AWS.EC2.Types.InstanceCreditSpecificationRequest
+        , Network.AWS.EC2.Types.Host
+        , Network.AWS.EC2.Types.PropagatingVgw
+        , Network.AWS.EC2.Types.ProcessorInfo
+        , Network.AWS.EC2.Types.ClientVpnAuthenticationRequest
+        , Network.AWS.EC2.Types.OfferingTypeValues
+        , Network.AWS.EC2.Types.TargetConfigurationRequest
+        , Network.AWS.EC2.Types.ScheduledInstance
+        , Network.AWS.EC2.Types.HostReservation
+        , Network.AWS.EC2.Types.NetworkInterfacePermission
+        , Network.AWS.EC2.Types.FleetLaunchTemplateConfigRequest
+        , Network.AWS.EC2.Types.VpnGateway
+        , Network.AWS.EC2.Types.EventInformation
+        , Network.AWS.EC2.Types.Filter
+        , Network.AWS.EC2.Types.LaunchTemplateErrorCode
+        , Network.AWS.EC2.Types.LaunchTemplateSpotMarketOptionsRequest
+        , Network.AWS.EC2.Types.VolumeType
+        , Network.AWS.EC2.Types.ConversionTaskId
+        , Network.AWS.EC2.Types.InstanceStateChange
+        , Network.AWS.EC2.Types.NetworkAcl
+        , Network.AWS.EC2.Types.LogDestinationType
+        , Network.AWS.EC2.Types.ImageState
+        , Network.AWS.EC2.Types.HostOffering
+        , Network.AWS.EC2.Types.SuccessfulInstanceCreditSpecificationItem
+        , Network.AWS.EC2.Types.TaggableResourceId
+        , Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus
+        , Network.AWS.EC2.Types.GatewayType
+        , Network.AWS.EC2.Types.KeyPairId
+        , Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataOptionsRequest
+        , Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationErrorCode
+        , Network.AWS.EC2.Types.InstanceNetworkInterfaceAttachment
+        , Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem
+        , Network.AWS.EC2.Types.EndDateType
+        , Network.AWS.EC2.Types.VpnConnectionId
+        , Network.AWS.EC2.Types.AttributeBooleanValue
+        , Network.AWS.EC2.Types.NetworkInterfaceType
+        , Network.AWS.EC2.Types.TunnelOption
+        , Network.AWS.EC2.Types.DeleteLaunchTemplateVersionsResponseErrorItem
+        , Network.AWS.EC2.Types.RecurringCharge
+        , Network.AWS.EC2.Types.ScheduledInstancesLaunchSpecification
+        , Network.AWS.EC2.Types.ConnectionNotification
+        , Network.AWS.EC2.Types.LaunchTemplateInstanceNetworkInterfaceSpecificationRequest
+        , Network.AWS.EC2.Types.UsageClassType
+        , Network.AWS.EC2.Types.LocalGatewayVirtualInterfaceGroupId
+        , Network.AWS.EC2.Types.LaunchTemplatesMonitoringRequest
+        , Network.AWS.EC2.Types.NewDhcpConfiguration
+        , Network.AWS.EC2.Types.InstanceMetadataOptionsState
+        , Network.AWS.EC2.Types.StateReason
+        , Network.AWS.EC2.Types.CapacityReservationState
+        , Network.AWS.EC2.Types.MonitoringState
+        , Network.AWS.EC2.Types.ElasticGpuStatus
+        , Network.AWS.EC2.Types.LicenseConfiguration
+        , Network.AWS.EC2.Types.HostRecovery
+        , Network.AWS.EC2.Types.FleetOnDemandAllocationStrategy
+        , Network.AWS.EC2.Types.SlotDateTimeRangeRequest
+        , Network.AWS.EC2.Types.Purchase
+        , Network.AWS.EC2.Types.ScheduledInstancesPrivateIpAddressConfig
+        , Network.AWS.EC2.Types.LaunchTemplateHibernationOptionsRequest
+        , Network.AWS.EC2.Types.TransitGatewayAttachmentId
+        , Network.AWS.EC2.Types.PrefixListAssociation
+        , Network.AWS.EC2.Types.FleetId
+        , Network.AWS.EC2.Types.ReservedInstancesId
+        , Network.AWS.EC2.Types.StatusName
+        , Network.AWS.EC2.Types.InternetGateway
+        , Network.AWS.EC2.Types.PlacementGroupId
+        , Network.AWS.EC2.Types.HistoryRecordEntry
+        , Network.AWS.EC2.Types.ResponseError
+        , Network.AWS.EC2.Types.VolumeStatusName
+        , Network.AWS.EC2.Types.ReservedInstancesOfferingId
+        , Network.AWS.EC2.Types.AllocationStrategy
+        , Network.AWS.EC2.Types.DescribeFleetError
+        , Network.AWS.EC2.Types.CapacityReservationGroup
+        , Network.AWS.EC2.Types.VolumeAttributeName
+        , Network.AWS.EC2.Types.VpcEndpointId
+        , Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupSources
+        , Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest
+        , Network.AWS.EC2.Types.PrivateDnsNameConfiguration
+        , Network.AWS.EC2.Types.ImportInstanceTaskDetails
+        , Network.AWS.EC2.Types.ClientVpnEndpointStatusCode
+        , Network.AWS.EC2.Types.PlacementGroup
+        , Network.AWS.EC2.Types.UnlimitedSupportedInstanceFamily
+        , Network.AWS.EC2.Types.AutoPlacement
+        , Network.AWS.EC2.Types.RootDeviceType
+        , Network.AWS.EC2.Types.ByoipCidrState
+        , Network.AWS.EC2.Types.VolumeModification
+        , Network.AWS.EC2.Types.TransitGatewayRouteType
+        , Network.AWS.EC2.Types.FleetSpotMaintenanceStrategies
+        , Network.AWS.EC2.Types.ProductCode
+        , Network.AWS.EC2.Types.TransitGatewayMulticastDeregisteredGroupMembers
+        , Network.AWS.EC2.Types.FlowLog
+        , Network.AWS.EC2.Types.VCpuInfo
+        , Network.AWS.EC2.Types.StaleSecurityGroup
+        , Network.AWS.EC2.Types.LaunchTemplateLicenseConfiguration
+        , Network.AWS.EC2.Types.ListingStatus
+        , Network.AWS.EC2.Types.CreateTransitGatewayVpcAttachmentRequestOptions
+        , Network.AWS.EC2.Types.Ipv4PoolEc2Id
+        , Network.AWS.EC2.Types.Phase2EncryptionAlgorithmsRequestListValue
+        , Network.AWS.EC2.Types.IpRange
+        , Network.AWS.EC2.Types.LocalGatewayVirtualInterfaceGroup
+        , Network.AWS.EC2.Types.VolumeStatusInfoStatus
+        , Network.AWS.EC2.Types.AccountAttributeValue
+        , Network.AWS.EC2.Types.TransitGatewayAttachment
+        , Network.AWS.EC2.Types.SnapshotDiskContainer
+        , Network.AWS.EC2.Types.Ipv6Range
+        , Network.AWS.EC2.Types.ReservedInstanceReservationValue
+        , Network.AWS.EC2.Types.ConnectionNotificationId
+        , Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataOptionsState
+        , Network.AWS.EC2.Types.InstanceStorageInfo
+        , Network.AWS.EC2.Types.FastSnapshotRestoreStateCode
+        , Network.AWS.EC2.Types.ClientVpnEndpointStatus
+        , Network.AWS.EC2.Types.RIProductDescription
+        , Network.AWS.EC2.Types.ReservedInstancesOffering
+        , Network.AWS.EC2.Types.TransitGatewayAssociation
+        , Network.AWS.EC2.Types.InstanceTypeHypervisor
+        , Network.AWS.EC2.Types.VpnProtocol
+        , Network.AWS.EC2.Types.ClassicLoadBalancer
+        , Network.AWS.EC2.Types.InstanceIpv6Address
+        , Network.AWS.EC2.Types.Phase2DHGroupNumbersRequestListValue
+        , Network.AWS.EC2.Types.ReservedInstances
+        , Network.AWS.EC2.Types.FleetData
+        , Network.AWS.EC2.Types.TransitGatewayPropagationState
+        , Network.AWS.EC2.Types.DedicatedHostId
+        , Network.AWS.EC2.Types.DatafeedSubscriptionState
+        , Network.AWS.EC2.Types.ExportTaskState
+        , Network.AWS.EC2.Types.ProductCodeValues
+        , Network.AWS.EC2.Types.CapacityReservationTargetResponse
+        , Network.AWS.EC2.Types.ScheduledInstancesBlockDeviceMapping
+        , Network.AWS.EC2.Types.VpnConnection
+        , Network.AWS.EC2.Types.CapacityReservationTenancy
+        , Network.AWS.EC2.Types.InstanceState
+        , Network.AWS.EC2.Types.InternetGatewayId
+        , Network.AWS.EC2.Types.VpcEndpoint
+        , Network.AWS.EC2.Types.PublicIpAddress
+        , Network.AWS.EC2.Types.TargetGroup
+        , Network.AWS.EC2.Types.SuccessfulQueuedPurchaseDeletion
+        , Network.AWS.EC2.Types.LaunchTemplateInstanceMarketOptionsRequest
+        , Network.AWS.EC2.Types.ConnectionLogResponseOptions
+        , Network.AWS.EC2.Types.TransitGatewayPropagation
+        , Network.AWS.EC2.Types.ClientData
+        , Network.AWS.EC2.Types.Placement
+        , Network.AWS.EC2.Types.TransitGatewayMulticastDomainAssociations
+        , Network.AWS.EC2.Types.EventCode
+        , Network.AWS.EC2.Types.SpotInstanceType
+        , Network.AWS.EC2.Types.VpcPeeringConnection
+        , Network.AWS.EC2.Types.LaunchTemplateInstanceMetadataOptions
+        , Network.AWS.EC2.Types.LaunchTemplateSpotMarketOptions
+        , Network.AWS.EC2.Types.ByoipCidr
+        , Network.AWS.EC2.Types.TargetCapacitySpecificationRequest
+        , Network.AWS.EC2.Types.S3Storage
+        , Network.AWS.EC2.Types.DefaultRouteTablePropagationValue
+        , Network.AWS.EC2.Types.PlacementGroupName
+        , Network.AWS.EC2.Types.VgwTelemetry
+        , Network.AWS.EC2.Types.VpnStaticRoute
+        , Network.AWS.EC2.Types.InstanceStateName
+        , Network.AWS.EC2.Types.Instance
+        , Network.AWS.EC2.Types.RouteTableAssociationState
+        , Network.AWS.EC2.Types.ImportSnapshotTaskId
+        , Network.AWS.EC2.Types.ExportTask
+        , Network.AWS.EC2.Types.InstanceCreditSpecification
+        , Network.AWS.EC2.Types.LaunchTemplateEbsBlockDeviceRequest
+        , Network.AWS.EC2.Types.CarrierGatewayId
+        , Network.AWS.EC2.Types.ResetImageAttributeName
+        , Network.AWS.EC2.Types.RequestSpotLaunchSpecification
+        , Network.AWS.EC2.Types.ClientVpnRouteStatusCode
+        , Network.AWS.EC2.Types.LocalGatewayVirtualInterface
+        , Network.AWS.EC2.Types.ValidationWarning
+        , Network.AWS.EC2.Types.SnapshotId
+        , Network.AWS.EC2.Types.VolumeDetail
+        , Network.AWS.EC2.Types.TargetConfiguration
+        , Network.AWS.EC2.Types.PaymentOption
+        , Network.AWS.EC2.Types.PricingDetail
+        , Network.AWS.EC2.Types.ClientVpnAuthentication
+        , Network.AWS.EC2.Types.TransitGatewayPrefixListReferenceState
+        , Network.AWS.EC2.Types.IamInstanceProfileAssociationState
+        , Network.AWS.EC2.Types.ReservedInstancesListingId
+        , Network.AWS.EC2.Types.NetworkInterfacePrivateIpAddress
+        , Network.AWS.EC2.Types.DiskImageFormat
+        , Network.AWS.EC2.Types.ActivityStatus
+        , Network.AWS.EC2.Types.TransitGatewayRouteState
+        , Network.AWS.EC2.Types.FleetLaunchTemplateConfig
+        , Network.AWS.EC2.Types.BundleTaskError
+        , Network.AWS.EC2.Types.VpcClassicLink
+        , Network.AWS.EC2.Types.SpotOptionsRequest
+        , Network.AWS.EC2.Types.VolumeStatusItem
+        , Network.AWS.EC2.Types.ScheduledInstanceAvailability
+        , Network.AWS.EC2.Types.ElasticGpuSpecificationResponse
+        , Network.AWS.EC2.Types.DestinationPrefixListId
+        , Network.AWS.EC2.Types.GatewayId
+        , Network.AWS.EC2.Types.AssociationId
+        , Network.AWS.EC2.Types.KeyName
+        , Network.AWS.EC2.Types.RamDiskId
+        , Network.AWS.EC2.Types.GroupId
+        , Network.AWS.EC2.Types.GroupName
+        , Network.AWS.EC2.Types.LocalGatewayRouteTableArn
+        , Network.AWS.EC2.Types.LocalGatewayRouteTableId
+        , Network.AWS.EC2.Types.AssociatedRoleArn
+        , Network.AWS.EC2.Types.PrefixListArn
+        , Network.AWS.EC2.Types.AttachmentId
+        , Network.AWS.EC2.Types.ServiceId
+        , Network.AWS.EC2.Types.CertificateArn
+        , Network.AWS.EC2.Types.RoleArn
+        , Network.AWS.EC2.Types.TargetVpcSubnetId
+        , Network.AWS.EC2.Types.HostId
+        , Network.AWS.EC2.Types.PoolId
+        , Network.AWS.EC2.Types.CustomerOwnedIpv4Pool
+        , Network.AWS.EC2.Types.PoolArn
+        , Network.AWS.EC2.Types.ConnectionId
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-ec2-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.EC2
-    Test.AWS.EC2.Internal
-    Test.AWS.Gen.EC2
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core         >=2.0.0.0 && <2.0.0.1
-    , amazonka-ec2
-    , amazonka-test         >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.EC2
+        , Test.AWS.Gen.EC2
+        , Test.AWS.EC2.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-ec2
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

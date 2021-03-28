@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.EC2.Types.SpotMaintenanceStrategies
-  ( SpotMaintenanceStrategies (..),
-
-    -- * Smart constructor
-    mkSpotMaintenanceStrategies,
-
-    -- * Lenses
-    smsCapacityRebalance,
-  )
-where
+  ( SpotMaintenanceStrategies (..)
+  -- * Smart constructor
+  , mkSpotMaintenanceStrategies
+  -- * Lenses
+  , smsCapacityRebalance
+  ) where
 
 import qualified Network.AWS.EC2.Types.SpotCapacityRebalance as Types
 import qualified Network.AWS.Lens as Lens
@@ -29,26 +27,32 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkSpotMaintenanceStrategies' smart constructor.
 newtype SpotMaintenanceStrategies = SpotMaintenanceStrategies'
-  { -- | The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
-    capacityRebalance :: Core.Maybe Types.SpotCapacityRebalance
+  { capacityRebalance :: Core.Maybe Types.SpotCapacityRebalance
+    -- ^ The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'SpotMaintenanceStrategies' value with any optional fields omitted.
-mkSpotMaintenanceStrategies ::
-  SpotMaintenanceStrategies
-mkSpotMaintenanceStrategies =
-  SpotMaintenanceStrategies' {capacityRebalance = Core.Nothing}
+mkSpotMaintenanceStrategies
+    :: SpotMaintenanceStrategies
+mkSpotMaintenanceStrategies
+  = SpotMaintenanceStrategies'{capacityRebalance = Core.Nothing}
 
 -- | The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
 --
 -- /Note:/ Consider using 'capacityRebalance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 smsCapacityRebalance :: Lens.Lens' SpotMaintenanceStrategies (Core.Maybe Types.SpotCapacityRebalance)
 smsCapacityRebalance = Lens.field @"capacityRebalance"
-{-# DEPRECATED smsCapacityRebalance "Use generic-lens or generic-optics with 'capacityRebalance' instead." #-}
+{-# INLINEABLE smsCapacityRebalance #-}
+{-# DEPRECATED capacityRebalance "Use generic-lens or generic-optics with 'capacityRebalance' instead"  #-}
+
+instance Core.ToQuery SpotMaintenanceStrategies where
+        toQuery SpotMaintenanceStrategies{..}
+          = Core.maybe Core.mempty (Core.toQueryPair "CapacityRebalance")
+              capacityRebalance
 
 instance Core.FromXML SpotMaintenanceStrategies where
-  parseXML x =
-    SpotMaintenanceStrategies'
-      Core.<$> (x Core..@? "capacityRebalance")
+        parseXML x
+          = SpotMaintenanceStrategies' Core.<$>
+              (x Core..@? "capacityRebalance")

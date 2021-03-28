@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,7 +13,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Writes multiple data records into a Kinesis data stream in a single call (also referred to as a @PutRecords@ request). Use this operation to send data into the stream for data ingestion and processing.
+-- Writes multiple data records into a Kinesis data stream in a single call (also referred to as a @PutRecords@ request). Use this operation to send data into the stream for data ingestion and processing. 
 --
 -- Each @PutRecords@ request can support up to 500 records. Each record in the request can be as large as 1 MiB, up to a limit of 5 MiB for the entire request, including partition keys. Each shard can support writes up to 1,000 records per second, up to a maximum data write total of 1 MiB per second.
 -- You must specify the name of the stream that captures, stores, and transports the data; and an array of request @Records@ , with each record in the array requiring a partition key and data blob. The record size limit applies to the total size of the partition key and data blob.
@@ -27,25 +27,23 @@
 -- /Important:/ After you write a record to a stream, you cannot modify that record or its order within the stream.
 -- By default, data records are accessible for 24 hours from the time that they are added to a stream. You can use 'IncreaseStreamRetentionPeriod' or 'DecreaseStreamRetentionPeriod' to modify this retention period.
 module Network.AWS.Kinesis.PutRecords
-  ( -- * Creating a request
-    PutRecords (..),
-    mkPutRecords,
-
+    (
+    -- * Creating a request
+      PutRecords (..)
+    , mkPutRecords
     -- ** Request lenses
-    pRecordEntries,
-    pStreamName,
+    , pRecordEntries
+    , pStreamName
 
     -- * Destructuring the response
-    PutRecordsResponse (..),
-    mkPutRecordsResponse,
-
+    , PutRecordsResponse (..)
+    , mkPutRecordsResponse
     -- ** Response lenses
-    prsRecords,
-    prsEncryptionType,
-    prsFailedRecordCount,
-    prsResponseStatus,
-  )
-where
+    , prsRecords
+    , prsEncryptionType
+    , prsFailedRecordCount
+    , prsResponseStatus
+    ) where
 
 import qualified Network.AWS.Kinesis.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -57,113 +55,112 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkPutRecords' smart constructor.
 data PutRecords = PutRecords'
-  { -- | The records associated with the request.
-    recordEntries :: Core.NonEmpty Types.PutRecordsRequestEntry,
-    -- | The stream name associated with the request.
-    streamName :: Types.StreamName
+  { recordEntries :: Core.NonEmpty Types.PutRecordsRequestEntry
+    -- ^ The records associated with the request.
+  , streamName :: Types.StreamName
+    -- ^ The stream name associated with the request.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'PutRecords' value with any optional fields omitted.
-mkPutRecords ::
-  -- | 'recordEntries'
-  Core.NonEmpty Types.PutRecordsRequestEntry ->
-  -- | 'streamName'
-  Types.StreamName ->
-  PutRecords
-mkPutRecords recordEntries streamName =
-  PutRecords' {recordEntries, streamName}
+mkPutRecords
+    :: Core.NonEmpty Types.PutRecordsRequestEntry -- ^ 'recordEntries'
+    -> Types.StreamName -- ^ 'streamName'
+    -> PutRecords
+mkPutRecords recordEntries streamName
+  = PutRecords'{recordEntries, streamName}
 
 -- | The records associated with the request.
 --
 -- /Note:/ Consider using 'recordEntries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pRecordEntries :: Lens.Lens' PutRecords (Core.NonEmpty Types.PutRecordsRequestEntry)
 pRecordEntries = Lens.field @"recordEntries"
-{-# DEPRECATED pRecordEntries "Use generic-lens or generic-optics with 'recordEntries' instead." #-}
+{-# INLINEABLE pRecordEntries #-}
+{-# DEPRECATED recordEntries "Use generic-lens or generic-optics with 'recordEntries' instead"  #-}
 
 -- | The stream name associated with the request.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pStreamName :: Lens.Lens' PutRecords Types.StreamName
 pStreamName = Lens.field @"streamName"
-{-# DEPRECATED pStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+{-# INLINEABLE pStreamName #-}
+{-# DEPRECATED streamName "Use generic-lens or generic-optics with 'streamName' instead"  #-}
+
+instance Core.ToQuery PutRecords where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders PutRecords where
+        toHeaders PutRecords{..}
+          = Core.pure ("X-Amz-Target", "Kinesis_20131202.PutRecords") Core.<>
+              Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON PutRecords where
-  toJSON PutRecords {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Records" Core..= recordEntries),
-            Core.Just ("StreamName" Core..= streamName)
-          ]
-      )
+        toJSON PutRecords{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("Records" Core..= recordEntries),
+                  Core.Just ("StreamName" Core..= streamName)])
 
 instance Core.AWSRequest PutRecords where
-  type Rs PutRecords = PutRecordsResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "Kinesis_20131202.PutRecords")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          PutRecordsResponse'
-            Core.<$> (x Core..: "Records")
-            Core.<*> (x Core..:? "EncryptionType")
-            Core.<*> (x Core..:? "FailedRecordCount")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs PutRecords = PutRecordsResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 PutRecordsResponse' Core.<$>
+                   (x Core..: "Records") Core.<*> x Core..:? "EncryptionType" Core.<*>
+                     x Core..:? "FailedRecordCount"
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | @PutRecords@ results.
 --
 -- /See:/ 'mkPutRecordsResponse' smart constructor.
 data PutRecordsResponse = PutRecordsResponse'
-  { -- | An array of successfully and unsuccessfully processed record results, correlated with the request by natural ordering. A record that is successfully added to a stream includes @SequenceNumber@ and @ShardId@ in the result. A record that fails to be added to a stream includes @ErrorCode@ and @ErrorMessage@ in the result.
-    records :: Core.NonEmpty Types.PutRecordsResultEntry,
-    -- | The encryption type used on the records. This parameter can be one of the following values:
-    --
-    --
-    --     * @NONE@ : Do not encrypt the records.
-    --
-    --
-    --     * @KMS@ : Use server-side encryption on the records using a customer-managed AWS KMS key.
-    encryptionType :: Core.Maybe Types.EncryptionType,
-    -- | The number of unsuccessfully processed records in a @PutRecords@ request.
-    failedRecordCount :: Core.Maybe Core.Natural,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { records :: Core.NonEmpty Types.PutRecordsResultEntry
+    -- ^ An array of successfully and unsuccessfully processed record results, correlated with the request by natural ordering. A record that is successfully added to a stream includes @SequenceNumber@ and @ShardId@ in the result. A record that fails to be added to a stream includes @ErrorCode@ and @ErrorMessage@ in the result.
+  , encryptionType :: Core.Maybe Types.EncryptionType
+    -- ^ The encryption type used on the records. This parameter can be one of the following values:
+--
+--
+--     * @NONE@ : Do not encrypt the records.
+--
+--
+--     * @KMS@ : Use server-side encryption on the records using a customer-managed AWS KMS key.
+--
+--
+  , failedRecordCount :: Core.Maybe Core.Natural
+    -- ^ The number of unsuccessfully processed records in a @PutRecords@ request.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'PutRecordsResponse' value with any optional fields omitted.
-mkPutRecordsResponse ::
-  -- | 'records'
-  Core.NonEmpty Types.PutRecordsResultEntry ->
-  -- | 'responseStatus'
-  Core.Int ->
-  PutRecordsResponse
-mkPutRecordsResponse records responseStatus =
-  PutRecordsResponse'
-    { records,
-      encryptionType = Core.Nothing,
-      failedRecordCount = Core.Nothing,
-      responseStatus
-    }
+mkPutRecordsResponse
+    :: Core.NonEmpty Types.PutRecordsResultEntry -- ^ 'records'
+    -> Core.Int -- ^ 'responseStatus'
+    -> PutRecordsResponse
+mkPutRecordsResponse records responseStatus
+  = PutRecordsResponse'{records, encryptionType = Core.Nothing,
+                        failedRecordCount = Core.Nothing, responseStatus}
 
 -- | An array of successfully and unsuccessfully processed record results, correlated with the request by natural ordering. A record that is successfully added to a stream includes @SequenceNumber@ and @ShardId@ in the result. A record that fails to be added to a stream includes @ErrorCode@ and @ErrorMessage@ in the result.
 --
 -- /Note:/ Consider using 'records' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 prsRecords :: Lens.Lens' PutRecordsResponse (Core.NonEmpty Types.PutRecordsResultEntry)
 prsRecords = Lens.field @"records"
-{-# DEPRECATED prsRecords "Use generic-lens or generic-optics with 'records' instead." #-}
+{-# INLINEABLE prsRecords #-}
+{-# DEPRECATED records "Use generic-lens or generic-optics with 'records' instead"  #-}
 
 -- | The encryption type used on the records. This parameter can be one of the following values:
 --
@@ -178,18 +175,21 @@ prsRecords = Lens.field @"records"
 -- /Note:/ Consider using 'encryptionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 prsEncryptionType :: Lens.Lens' PutRecordsResponse (Core.Maybe Types.EncryptionType)
 prsEncryptionType = Lens.field @"encryptionType"
-{-# DEPRECATED prsEncryptionType "Use generic-lens or generic-optics with 'encryptionType' instead." #-}
+{-# INLINEABLE prsEncryptionType #-}
+{-# DEPRECATED encryptionType "Use generic-lens or generic-optics with 'encryptionType' instead"  #-}
 
 -- | The number of unsuccessfully processed records in a @PutRecords@ request.
 --
 -- /Note:/ Consider using 'failedRecordCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 prsFailedRecordCount :: Lens.Lens' PutRecordsResponse (Core.Maybe Core.Natural)
 prsFailedRecordCount = Lens.field @"failedRecordCount"
-{-# DEPRECATED prsFailedRecordCount "Use generic-lens or generic-optics with 'failedRecordCount' instead." #-}
+{-# INLINEABLE prsFailedRecordCount #-}
+{-# DEPRECATED failedRecordCount "Use generic-lens or generic-optics with 'failedRecordCount' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 prsResponseStatus :: Lens.Lens' PutRecordsResponse Core.Int
 prsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED prsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE prsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

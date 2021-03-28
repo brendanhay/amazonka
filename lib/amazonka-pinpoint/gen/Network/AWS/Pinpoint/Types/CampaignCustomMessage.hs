@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Pinpoint.Types.CampaignCustomMessage
-  ( CampaignCustomMessage (..),
-
-    -- * Smart constructor
-    mkCampaignCustomMessage,
-
-    -- * Lenses
-    ccmData,
-  )
-where
+  ( CampaignCustomMessage (..)
+  -- * Smart constructor
+  , mkCampaignCustomMessage
+  -- * Lenses
+  , ccmData
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -28,30 +26,31 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkCampaignCustomMessage' smart constructor.
 newtype CampaignCustomMessage = CampaignCustomMessage'
-  { -- | The raw, JSON-formatted string to use as the payload for the message. The maximum size is 5 KB.
-    data' :: Core.Maybe Core.Text
+  { data' :: Core.Maybe Core.Text
+    -- ^ The raw, JSON-formatted string to use as the payload for the message. The maximum size is 5 KB.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CampaignCustomMessage' value with any optional fields omitted.
-mkCampaignCustomMessage ::
-  CampaignCustomMessage
-mkCampaignCustomMessage =
-  CampaignCustomMessage' {data' = Core.Nothing}
+mkCampaignCustomMessage
+    :: CampaignCustomMessage
+mkCampaignCustomMessage
+  = CampaignCustomMessage'{data' = Core.Nothing}
 
 -- | The raw, JSON-formatted string to use as the payload for the message. The maximum size is 5 KB.
 --
 -- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccmData :: Lens.Lens' CampaignCustomMessage (Core.Maybe Core.Text)
 ccmData = Lens.field @"data'"
-{-# DEPRECATED ccmData "Use generic-lens or generic-optics with 'data'' instead." #-}
+{-# INLINEABLE ccmData #-}
+{-# DEPRECATED data' "Use generic-lens or generic-optics with 'data'' instead"  #-}
 
 instance Core.FromJSON CampaignCustomMessage where
-  toJSON CampaignCustomMessage {..} =
-    Core.object (Core.catMaybes [("Data" Core..=) Core.<$> data'])
+        toJSON CampaignCustomMessage{..}
+          = Core.object (Core.catMaybes [("Data" Core..=) Core.<$> data'])
 
 instance Core.FromJSON CampaignCustomMessage where
-  parseJSON =
-    Core.withObject "CampaignCustomMessage" Core.$
-      \x -> CampaignCustomMessage' Core.<$> (x Core..:? "Data")
+        parseJSON
+          = Core.withObject "CampaignCustomMessage" Core.$
+              \ x -> CampaignCustomMessage' Core.<$> (x Core..:? "Data")

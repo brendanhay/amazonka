@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,21 +10,18 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration
-  ( CloudwatchLogsExportConfiguration (..),
-
-    -- * Smart constructor
-    mkCloudwatchLogsExportConfiguration,
-
-    -- * Lenses
-    clecDisableLogTypes,
-    clecEnableLogTypes,
-  )
-where
+  ( CloudwatchLogsExportConfiguration (..)
+  -- * Smart constructor
+  , mkCloudwatchLogsExportConfiguration
+  -- * Lenses
+  , clecDisableLogTypes
+  , clecEnableLogTypes
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
-import qualified Network.AWS.RDS.Types.String as Types
 
 -- | The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB instance or DB cluster.
 --
@@ -34,34 +31,43 @@ import qualified Network.AWS.RDS.Types.String as Types
 --
 -- /See:/ 'mkCloudwatchLogsExportConfiguration' smart constructor.
 data CloudwatchLogsExportConfiguration = CloudwatchLogsExportConfiguration'
-  { -- | The list of log types to disable.
-    disableLogTypes :: Core.Maybe [Types.String],
-    -- | The list of log types to enable.
-    enableLogTypes :: Core.Maybe [Types.String]
+  { disableLogTypes :: Core.Maybe [Core.Text]
+    -- ^ The list of log types to disable.
+  , enableLogTypes :: Core.Maybe [Core.Text]
+    -- ^ The list of log types to enable.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CloudwatchLogsExportConfiguration' value with any optional fields omitted.
-mkCloudwatchLogsExportConfiguration ::
-  CloudwatchLogsExportConfiguration
-mkCloudwatchLogsExportConfiguration =
-  CloudwatchLogsExportConfiguration'
-    { disableLogTypes =
-        Core.Nothing,
-      enableLogTypes = Core.Nothing
-    }
+mkCloudwatchLogsExportConfiguration
+    :: CloudwatchLogsExportConfiguration
+mkCloudwatchLogsExportConfiguration
+  = CloudwatchLogsExportConfiguration'{disableLogTypes =
+                                         Core.Nothing,
+                                       enableLogTypes = Core.Nothing}
 
 -- | The list of log types to disable.
 --
 -- /Note:/ Consider using 'disableLogTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clecDisableLogTypes :: Lens.Lens' CloudwatchLogsExportConfiguration (Core.Maybe [Types.String])
+clecDisableLogTypes :: Lens.Lens' CloudwatchLogsExportConfiguration (Core.Maybe [Core.Text])
 clecDisableLogTypes = Lens.field @"disableLogTypes"
-{-# DEPRECATED clecDisableLogTypes "Use generic-lens or generic-optics with 'disableLogTypes' instead." #-}
+{-# INLINEABLE clecDisableLogTypes #-}
+{-# DEPRECATED disableLogTypes "Use generic-lens or generic-optics with 'disableLogTypes' instead"  #-}
 
 -- | The list of log types to enable.
 --
 -- /Note:/ Consider using 'enableLogTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clecEnableLogTypes :: Lens.Lens' CloudwatchLogsExportConfiguration (Core.Maybe [Types.String])
+clecEnableLogTypes :: Lens.Lens' CloudwatchLogsExportConfiguration (Core.Maybe [Core.Text])
 clecEnableLogTypes = Lens.field @"enableLogTypes"
-{-# DEPRECATED clecEnableLogTypes "Use generic-lens or generic-optics with 'enableLogTypes' instead." #-}
+{-# INLINEABLE clecEnableLogTypes #-}
+{-# DEPRECATED enableLogTypes "Use generic-lens or generic-optics with 'enableLogTypes' instead"  #-}
+
+instance Core.ToQuery CloudwatchLogsExportConfiguration where
+        toQuery CloudwatchLogsExportConfiguration{..}
+          = Core.toQueryPair "DisableLogTypes"
+              (Core.maybe Core.mempty (Core.toQueryList "member")
+                 disableLogTypes)
+              Core.<>
+              Core.toQueryPair "EnableLogTypes"
+                (Core.maybe Core.mempty (Core.toQueryList "member") enableLogTypes)

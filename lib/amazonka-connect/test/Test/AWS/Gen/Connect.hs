@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.Connect where
 
 import Data.Proxy
-import Network.AWS.Connect
-import Test.AWS.Connect.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.Connect
+import Test.AWS.Connect.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -486,1052 +487,902 @@ import Test.Tasty
 -- Requests
 
 requestDescribeInstance :: DescribeInstance -> TestTree
-requestDescribeInstance =
-  req
+requestDescribeInstance = req
     "DescribeInstance"
     "fixture/DescribeInstance.yaml"
 
 requestListSecurityProfiles :: ListSecurityProfiles -> TestTree
-requestListSecurityProfiles =
-  req
+requestListSecurityProfiles = req
     "ListSecurityProfiles"
     "fixture/ListSecurityProfiles.yaml"
 
 requestAssociateLexBot :: AssociateLexBot -> TestTree
-requestAssociateLexBot =
-  req
+requestAssociateLexBot = req
     "AssociateLexBot"
     "fixture/AssociateLexBot.yaml"
 
 requestUpdateInstanceAttribute :: UpdateInstanceAttribute -> TestTree
-requestUpdateInstanceAttribute =
-  req
+requestUpdateInstanceAttribute = req
     "UpdateInstanceAttribute"
     "fixture/UpdateInstanceAttribute.yaml"
 
 requestUpdateRoutingProfileQueues :: UpdateRoutingProfileQueues -> TestTree
-requestUpdateRoutingProfileQueues =
-  req
+requestUpdateRoutingProfileQueues = req
     "UpdateRoutingProfileQueues"
     "fixture/UpdateRoutingProfileQueues.yaml"
 
 requestListInstanceAttributes :: ListInstanceAttributes -> TestTree
-requestListInstanceAttributes =
-  req
+requestListInstanceAttributes = req
     "ListInstanceAttributes"
     "fixture/ListInstanceAttributes.yaml"
 
 requestDescribeInstanceStorageConfig :: DescribeInstanceStorageConfig -> TestTree
-requestDescribeInstanceStorageConfig =
-  req
+requestDescribeInstanceStorageConfig = req
     "DescribeInstanceStorageConfig"
     "fixture/DescribeInstanceStorageConfig.yaml"
 
 requestDescribeContactFlow :: DescribeContactFlow -> TestTree
-requestDescribeContactFlow =
-  req
+requestDescribeContactFlow = req
     "DescribeContactFlow"
     "fixture/DescribeContactFlow.yaml"
 
 requestUpdateUserHierarchy :: UpdateUserHierarchy -> TestTree
-requestUpdateUserHierarchy =
-  req
+requestUpdateUserHierarchy = req
     "UpdateUserHierarchy"
     "fixture/UpdateUserHierarchy.yaml"
 
 requestUpdateUserRoutingProfile :: UpdateUserRoutingProfile -> TestTree
-requestUpdateUserRoutingProfile =
-  req
+requestUpdateUserRoutingProfile = req
     "UpdateUserRoutingProfile"
     "fixture/UpdateUserRoutingProfile.yaml"
 
 requestUpdateUserHierarchyGroupName :: UpdateUserHierarchyGroupName -> TestTree
-requestUpdateUserHierarchyGroupName =
-  req
+requestUpdateUserHierarchyGroupName = req
     "UpdateUserHierarchyGroupName"
     "fixture/UpdateUserHierarchyGroupName.yaml"
 
 requestDescribeRoutingProfile :: DescribeRoutingProfile -> TestTree
-requestDescribeRoutingProfile =
-  req
+requestDescribeRoutingProfile = req
     "DescribeRoutingProfile"
     "fixture/DescribeRoutingProfile.yaml"
 
 requestDisassociateLexBot :: DisassociateLexBot -> TestTree
-requestDisassociateLexBot =
-  req
+requestDisassociateLexBot = req
     "DisassociateLexBot"
     "fixture/DisassociateLexBot.yaml"
 
 requestStartOutboundVoiceContact :: StartOutboundVoiceContact -> TestTree
-requestStartOutboundVoiceContact =
-  req
+requestStartOutboundVoiceContact = req
     "StartOutboundVoiceContact"
     "fixture/StartOutboundVoiceContact.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
+requestListTagsForResource = req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
 requestGetMetricData :: GetMetricData -> TestTree
-requestGetMetricData =
-  req
+requestGetMetricData = req
     "GetMetricData"
     "fixture/GetMetricData.yaml"
 
 requestStartContactRecording :: StartContactRecording -> TestTree
-requestStartContactRecording =
-  req
+requestStartContactRecording = req
     "StartContactRecording"
     "fixture/StartContactRecording.yaml"
 
 requestCreateInstance :: CreateInstance -> TestTree
-requestCreateInstance =
-  req
+requestCreateInstance = req
     "CreateInstance"
     "fixture/CreateInstance.yaml"
 
 requestListUsers :: ListUsers -> TestTree
-requestListUsers =
-  req
+requestListUsers = req
     "ListUsers"
     "fixture/ListUsers.yaml"
 
 requestListUserHierarchyGroups :: ListUserHierarchyGroups -> TestTree
-requestListUserHierarchyGroups =
-  req
+requestListUserHierarchyGroups = req
     "ListUserHierarchyGroups"
     "fixture/ListUserHierarchyGroups.yaml"
 
 requestListQueues :: ListQueues -> TestTree
-requestListQueues =
-  req
+requestListQueues = req
     "ListQueues"
     "fixture/ListQueues.yaml"
 
 requestDescribeInstanceAttribute :: DescribeInstanceAttribute -> TestTree
-requestDescribeInstanceAttribute =
-  req
+requestDescribeInstanceAttribute = req
     "DescribeInstanceAttribute"
     "fixture/DescribeInstanceAttribute.yaml"
 
 requestDeleteInstance :: DeleteInstance -> TestTree
-requestDeleteInstance =
-  req
+requestDeleteInstance = req
     "DeleteInstance"
     "fixture/DeleteInstance.yaml"
 
 requestDisassociateInstanceStorageConfig :: DisassociateInstanceStorageConfig -> TestTree
-requestDisassociateInstanceStorageConfig =
-  req
+requestDisassociateInstanceStorageConfig = req
     "DisassociateInstanceStorageConfig"
     "fixture/DisassociateInstanceStorageConfig.yaml"
 
 requestCreateRoutingProfile :: CreateRoutingProfile -> TestTree
-requestCreateRoutingProfile =
-  req
+requestCreateRoutingProfile = req
     "CreateRoutingProfile"
     "fixture/CreateRoutingProfile.yaml"
 
 requestUpdateInstanceStorageConfig :: UpdateInstanceStorageConfig -> TestTree
-requestUpdateInstanceStorageConfig =
-  req
+requestUpdateInstanceStorageConfig = req
     "UpdateInstanceStorageConfig"
     "fixture/UpdateInstanceStorageConfig.yaml"
 
 requestGetCurrentMetricData :: GetCurrentMetricData -> TestTree
-requestGetCurrentMetricData =
-  req
+requestGetCurrentMetricData = req
     "GetCurrentMetricData"
     "fixture/GetCurrentMetricData.yaml"
 
 requestCreateContactFlow :: CreateContactFlow -> TestTree
-requestCreateContactFlow =
-  req
+requestCreateContactFlow = req
     "CreateContactFlow"
     "fixture/CreateContactFlow.yaml"
 
 requestListRoutingProfiles :: ListRoutingProfiles -> TestTree
-requestListRoutingProfiles =
-  req
+requestListRoutingProfiles = req
     "ListRoutingProfiles"
     "fixture/ListRoutingProfiles.yaml"
 
 requestUpdateUserPhoneConfig :: UpdateUserPhoneConfig -> TestTree
-requestUpdateUserPhoneConfig =
-  req
+requestUpdateUserPhoneConfig = req
     "UpdateUserPhoneConfig"
     "fixture/UpdateUserPhoneConfig.yaml"
 
 requestListApprovedOrigins :: ListApprovedOrigins -> TestTree
-requestListApprovedOrigins =
-  req
+requestListApprovedOrigins = req
     "ListApprovedOrigins"
     "fixture/ListApprovedOrigins.yaml"
 
 requestDescribeUserHierarchyStructure :: DescribeUserHierarchyStructure -> TestTree
-requestDescribeUserHierarchyStructure =
-  req
+requestDescribeUserHierarchyStructure = req
     "DescribeUserHierarchyStructure"
     "fixture/DescribeUserHierarchyStructure.yaml"
 
 requestListPhoneNumbers :: ListPhoneNumbers -> TestTree
-requestListPhoneNumbers =
-  req
+requestListPhoneNumbers = req
     "ListPhoneNumbers"
     "fixture/ListPhoneNumbers.yaml"
 
 requestUpdateContactAttributes :: UpdateContactAttributes -> TestTree
-requestUpdateContactAttributes =
-  req
+requestUpdateContactAttributes = req
     "UpdateContactAttributes"
     "fixture/UpdateContactAttributes.yaml"
 
 requestStartChatContact :: StartChatContact -> TestTree
-requestStartChatContact =
-  req
+requestStartChatContact = req
     "StartChatContact"
     "fixture/StartChatContact.yaml"
 
 requestUpdateUserSecurityProfiles :: UpdateUserSecurityProfiles -> TestTree
-requestUpdateUserSecurityProfiles =
-  req
+requestUpdateUserSecurityProfiles = req
     "UpdateUserSecurityProfiles"
     "fixture/UpdateUserSecurityProfiles.yaml"
 
 requestGetContactAttributes :: GetContactAttributes -> TestTree
-requestGetContactAttributes =
-  req
+requestGetContactAttributes = req
     "GetContactAttributes"
     "fixture/GetContactAttributes.yaml"
 
 requestListLambdaFunctions :: ListLambdaFunctions -> TestTree
-requestListLambdaFunctions =
-  req
+requestListLambdaFunctions = req
     "ListLambdaFunctions"
     "fixture/ListLambdaFunctions.yaml"
 
 requestDescribeUserHierarchyGroup :: DescribeUserHierarchyGroup -> TestTree
-requestDescribeUserHierarchyGroup =
-  req
+requestDescribeUserHierarchyGroup = req
     "DescribeUserHierarchyGroup"
     "fixture/DescribeUserHierarchyGroup.yaml"
 
 requestDescribeUser :: DescribeUser -> TestTree
-requestDescribeUser =
-  req
+requestDescribeUser = req
     "DescribeUser"
     "fixture/DescribeUser.yaml"
 
 requestResumeContactRecording :: ResumeContactRecording -> TestTree
-requestResumeContactRecording =
-  req
+requestResumeContactRecording = req
     "ResumeContactRecording"
     "fixture/ResumeContactRecording.yaml"
 
 requestUpdateContactFlowName :: UpdateContactFlowName -> TestTree
-requestUpdateContactFlowName =
-  req
+requestUpdateContactFlowName = req
     "UpdateContactFlowName"
     "fixture/UpdateContactFlowName.yaml"
 
 requestSuspendContactRecording :: SuspendContactRecording -> TestTree
-requestSuspendContactRecording =
-  req
+requestSuspendContactRecording = req
     "SuspendContactRecording"
     "fixture/SuspendContactRecording.yaml"
 
 requestListRoutingProfileQueues :: ListRoutingProfileQueues -> TestTree
-requestListRoutingProfileQueues =
-  req
+requestListRoutingProfileQueues = req
     "ListRoutingProfileQueues"
     "fixture/ListRoutingProfileQueues.yaml"
 
 requestDisassociateRoutingProfileQueues :: DisassociateRoutingProfileQueues -> TestTree
-requestDisassociateRoutingProfileQueues =
-  req
+requestDisassociateRoutingProfileQueues = req
     "DisassociateRoutingProfileQueues"
     "fixture/DisassociateRoutingProfileQueues.yaml"
 
 requestDisassociateLambdaFunction :: DisassociateLambdaFunction -> TestTree
-requestDisassociateLambdaFunction =
-  req
+requestDisassociateLambdaFunction = req
     "DisassociateLambdaFunction"
     "fixture/DisassociateLambdaFunction.yaml"
 
 requestUpdateContactFlowContent :: UpdateContactFlowContent -> TestTree
-requestUpdateContactFlowContent =
-  req
+requestUpdateContactFlowContent = req
     "UpdateContactFlowContent"
     "fixture/UpdateContactFlowContent.yaml"
 
 requestUpdateUserHierarchyStructure :: UpdateUserHierarchyStructure -> TestTree
-requestUpdateUserHierarchyStructure =
-  req
+requestUpdateUserHierarchyStructure = req
     "UpdateUserHierarchyStructure"
     "fixture/UpdateUserHierarchyStructure.yaml"
 
 requestCreateUserHierarchyGroup :: CreateUserHierarchyGroup -> TestTree
-requestCreateUserHierarchyGroup =
-  req
+requestCreateUserHierarchyGroup = req
     "CreateUserHierarchyGroup"
     "fixture/CreateUserHierarchyGroup.yaml"
 
 requestCreateUser :: CreateUser -> TestTree
-requestCreateUser =
-  req
+requestCreateUser = req
     "CreateUser"
     "fixture/CreateUser.yaml"
 
 requestListPrompts :: ListPrompts -> TestTree
-requestListPrompts =
-  req
+requestListPrompts = req
     "ListPrompts"
     "fixture/ListPrompts.yaml"
 
 requestAssociateSecurityKey :: AssociateSecurityKey -> TestTree
-requestAssociateSecurityKey =
-  req
+requestAssociateSecurityKey = req
     "AssociateSecurityKey"
     "fixture/AssociateSecurityKey.yaml"
 
 requestStopContactRecording :: StopContactRecording -> TestTree
-requestStopContactRecording =
-  req
+requestStopContactRecording = req
     "StopContactRecording"
     "fixture/StopContactRecording.yaml"
 
 requestDisassociateApprovedOrigin :: DisassociateApprovedOrigin -> TestTree
-requestDisassociateApprovedOrigin =
-  req
+requestDisassociateApprovedOrigin = req
     "DisassociateApprovedOrigin"
     "fixture/DisassociateApprovedOrigin.yaml"
 
 requestListSecurityKeys :: ListSecurityKeys -> TestTree
-requestListSecurityKeys =
-  req
+requestListSecurityKeys = req
     "ListSecurityKeys"
     "fixture/ListSecurityKeys.yaml"
 
 requestGetFederationToken :: GetFederationToken -> TestTree
-requestGetFederationToken =
-  req
+requestGetFederationToken = req
     "GetFederationToken"
     "fixture/GetFederationToken.yaml"
 
 requestStopContact :: StopContact -> TestTree
-requestStopContact =
-  req
+requestStopContact = req
     "StopContact"
     "fixture/StopContact.yaml"
 
 requestDeleteUser :: DeleteUser -> TestTree
-requestDeleteUser =
-  req
+requestDeleteUser = req
     "DeleteUser"
     "fixture/DeleteUser.yaml"
 
 requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
+requestTagResource = req
     "TagResource"
     "fixture/TagResource.yaml"
 
 requestUpdateUserIdentityInfo :: UpdateUserIdentityInfo -> TestTree
-requestUpdateUserIdentityInfo =
-  req
+requestUpdateUserIdentityInfo = req
     "UpdateUserIdentityInfo"
     "fixture/UpdateUserIdentityInfo.yaml"
 
 requestListInstances :: ListInstances -> TestTree
-requestListInstances =
-  req
+requestListInstances = req
     "ListInstances"
     "fixture/ListInstances.yaml"
 
 requestDeleteUserHierarchyGroup :: DeleteUserHierarchyGroup -> TestTree
-requestDeleteUserHierarchyGroup =
-  req
+requestDeleteUserHierarchyGroup = req
     "DeleteUserHierarchyGroup"
     "fixture/DeleteUserHierarchyGroup.yaml"
 
 requestUpdateRoutingProfileDefaultOutboundQueue :: UpdateRoutingProfileDefaultOutboundQueue -> TestTree
-requestUpdateRoutingProfileDefaultOutboundQueue =
-  req
+requestUpdateRoutingProfileDefaultOutboundQueue = req
     "UpdateRoutingProfileDefaultOutboundQueue"
     "fixture/UpdateRoutingProfileDefaultOutboundQueue.yaml"
 
 requestListContactFlows :: ListContactFlows -> TestTree
-requestListContactFlows =
-  req
+requestListContactFlows = req
     "ListContactFlows"
     "fixture/ListContactFlows.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
+requestUntagResource = req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
 requestAssociateApprovedOrigin :: AssociateApprovedOrigin -> TestTree
-requestAssociateApprovedOrigin =
-  req
+requestAssociateApprovedOrigin = req
     "AssociateApprovedOrigin"
     "fixture/AssociateApprovedOrigin.yaml"
 
 requestDisassociateSecurityKey :: DisassociateSecurityKey -> TestTree
-requestDisassociateSecurityKey =
-  req
+requestDisassociateSecurityKey = req
     "DisassociateSecurityKey"
     "fixture/DisassociateSecurityKey.yaml"
 
 requestUpdateRoutingProfileConcurrency :: UpdateRoutingProfileConcurrency -> TestTree
-requestUpdateRoutingProfileConcurrency =
-  req
+requestUpdateRoutingProfileConcurrency = req
     "UpdateRoutingProfileConcurrency"
     "fixture/UpdateRoutingProfileConcurrency.yaml"
 
 requestListInstanceStorageConfigs :: ListInstanceStorageConfigs -> TestTree
-requestListInstanceStorageConfigs =
-  req
+requestListInstanceStorageConfigs = req
     "ListInstanceStorageConfigs"
     "fixture/ListInstanceStorageConfigs.yaml"
 
 requestAssociateInstanceStorageConfig :: AssociateInstanceStorageConfig -> TestTree
-requestAssociateInstanceStorageConfig =
-  req
+requestAssociateInstanceStorageConfig = req
     "AssociateInstanceStorageConfig"
     "fixture/AssociateInstanceStorageConfig.yaml"
 
 requestListHoursOfOperations :: ListHoursOfOperations -> TestTree
-requestListHoursOfOperations =
-  req
+requestListHoursOfOperations = req
     "ListHoursOfOperations"
     "fixture/ListHoursOfOperations.yaml"
 
 requestUpdateRoutingProfileName :: UpdateRoutingProfileName -> TestTree
-requestUpdateRoutingProfileName =
-  req
+requestUpdateRoutingProfileName = req
     "UpdateRoutingProfileName"
     "fixture/UpdateRoutingProfileName.yaml"
 
 requestListLexBots :: ListLexBots -> TestTree
-requestListLexBots =
-  req
+requestListLexBots = req
     "ListLexBots"
     "fixture/ListLexBots.yaml"
 
 requestAssociateLambdaFunction :: AssociateLambdaFunction -> TestTree
-requestAssociateLambdaFunction =
-  req
+requestAssociateLambdaFunction = req
     "AssociateLambdaFunction"
     "fixture/AssociateLambdaFunction.yaml"
 
 requestAssociateRoutingProfileQueues :: AssociateRoutingProfileQueues -> TestTree
-requestAssociateRoutingProfileQueues =
-  req
+requestAssociateRoutingProfileQueues = req
     "AssociateRoutingProfileQueues"
     "fixture/AssociateRoutingProfileQueues.yaml"
 
 -- Responses
 
 responseDescribeInstance :: DescribeInstanceResponse -> TestTree
-responseDescribeInstance =
-  res
+responseDescribeInstance = res
     "DescribeInstanceResponse"
     "fixture/DescribeInstanceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeInstance)
 
 responseListSecurityProfiles :: ListSecurityProfilesResponse -> TestTree
-responseListSecurityProfiles =
-  res
+responseListSecurityProfiles = res
     "ListSecurityProfilesResponse"
     "fixture/ListSecurityProfilesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListSecurityProfiles)
 
 responseAssociateLexBot :: AssociateLexBotResponse -> TestTree
-responseAssociateLexBot =
-  res
+responseAssociateLexBot = res
     "AssociateLexBotResponse"
     "fixture/AssociateLexBotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateLexBot)
 
 responseUpdateInstanceAttribute :: UpdateInstanceAttributeResponse -> TestTree
-responseUpdateInstanceAttribute =
-  res
+responseUpdateInstanceAttribute = res
     "UpdateInstanceAttributeResponse"
     "fixture/UpdateInstanceAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateInstanceAttribute)
 
 responseUpdateRoutingProfileQueues :: UpdateRoutingProfileQueuesResponse -> TestTree
-responseUpdateRoutingProfileQueues =
-  res
+responseUpdateRoutingProfileQueues = res
     "UpdateRoutingProfileQueuesResponse"
     "fixture/UpdateRoutingProfileQueuesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateRoutingProfileQueues)
 
 responseListInstanceAttributes :: ListInstanceAttributesResponse -> TestTree
-responseListInstanceAttributes =
-  res
+responseListInstanceAttributes = res
     "ListInstanceAttributesResponse"
     "fixture/ListInstanceAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListInstanceAttributes)
 
 responseDescribeInstanceStorageConfig :: DescribeInstanceStorageConfigResponse -> TestTree
-responseDescribeInstanceStorageConfig =
-  res
+responseDescribeInstanceStorageConfig = res
     "DescribeInstanceStorageConfigResponse"
     "fixture/DescribeInstanceStorageConfigResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeInstanceStorageConfig)
 
 responseDescribeContactFlow :: DescribeContactFlowResponse -> TestTree
-responseDescribeContactFlow =
-  res
+responseDescribeContactFlow = res
     "DescribeContactFlowResponse"
     "fixture/DescribeContactFlowResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeContactFlow)
 
 responseUpdateUserHierarchy :: UpdateUserHierarchyResponse -> TestTree
-responseUpdateUserHierarchy =
-  res
+responseUpdateUserHierarchy = res
     "UpdateUserHierarchyResponse"
     "fixture/UpdateUserHierarchyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateUserHierarchy)
 
 responseUpdateUserRoutingProfile :: UpdateUserRoutingProfileResponse -> TestTree
-responseUpdateUserRoutingProfile =
-  res
+responseUpdateUserRoutingProfile = res
     "UpdateUserRoutingProfileResponse"
     "fixture/UpdateUserRoutingProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateUserRoutingProfile)
 
 responseUpdateUserHierarchyGroupName :: UpdateUserHierarchyGroupNameResponse -> TestTree
-responseUpdateUserHierarchyGroupName =
-  res
+responseUpdateUserHierarchyGroupName = res
     "UpdateUserHierarchyGroupNameResponse"
     "fixture/UpdateUserHierarchyGroupNameResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateUserHierarchyGroupName)
 
 responseDescribeRoutingProfile :: DescribeRoutingProfileResponse -> TestTree
-responseDescribeRoutingProfile =
-  res
+responseDescribeRoutingProfile = res
     "DescribeRoutingProfileResponse"
     "fixture/DescribeRoutingProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeRoutingProfile)
 
 responseDisassociateLexBot :: DisassociateLexBotResponse -> TestTree
-responseDisassociateLexBot =
-  res
+responseDisassociateLexBot = res
     "DisassociateLexBotResponse"
     "fixture/DisassociateLexBotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateLexBot)
 
 responseStartOutboundVoiceContact :: StartOutboundVoiceContactResponse -> TestTree
-responseStartOutboundVoiceContact =
-  res
+responseStartOutboundVoiceContact = res
     "StartOutboundVoiceContactResponse"
     "fixture/StartOutboundVoiceContactResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartOutboundVoiceContact)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
+responseListTagsForResource = res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseGetMetricData :: GetMetricDataResponse -> TestTree
-responseGetMetricData =
-  res
+responseGetMetricData = res
     "GetMetricDataResponse"
     "fixture/GetMetricDataResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetMetricData)
 
 responseStartContactRecording :: StartContactRecordingResponse -> TestTree
-responseStartContactRecording =
-  res
+responseStartContactRecording = res
     "StartContactRecordingResponse"
     "fixture/StartContactRecordingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartContactRecording)
 
 responseCreateInstance :: CreateInstanceResponse -> TestTree
-responseCreateInstance =
-  res
+responseCreateInstance = res
     "CreateInstanceResponse"
     "fixture/CreateInstanceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateInstance)
 
 responseListUsers :: ListUsersResponse -> TestTree
-responseListUsers =
-  res
+responseListUsers = res
     "ListUsersResponse"
     "fixture/ListUsersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListUsers)
 
 responseListUserHierarchyGroups :: ListUserHierarchyGroupsResponse -> TestTree
-responseListUserHierarchyGroups =
-  res
+responseListUserHierarchyGroups = res
     "ListUserHierarchyGroupsResponse"
     "fixture/ListUserHierarchyGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListUserHierarchyGroups)
 
 responseListQueues :: ListQueuesResponse -> TestTree
-responseListQueues =
-  res
+responseListQueues = res
     "ListQueuesResponse"
     "fixture/ListQueuesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListQueues)
 
 responseDescribeInstanceAttribute :: DescribeInstanceAttributeResponse -> TestTree
-responseDescribeInstanceAttribute =
-  res
+responseDescribeInstanceAttribute = res
     "DescribeInstanceAttributeResponse"
     "fixture/DescribeInstanceAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeInstanceAttribute)
 
 responseDeleteInstance :: DeleteInstanceResponse -> TestTree
-responseDeleteInstance =
-  res
+responseDeleteInstance = res
     "DeleteInstanceResponse"
     "fixture/DeleteInstanceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteInstance)
 
 responseDisassociateInstanceStorageConfig :: DisassociateInstanceStorageConfigResponse -> TestTree
-responseDisassociateInstanceStorageConfig =
-  res
+responseDisassociateInstanceStorageConfig = res
     "DisassociateInstanceStorageConfigResponse"
     "fixture/DisassociateInstanceStorageConfigResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateInstanceStorageConfig)
 
 responseCreateRoutingProfile :: CreateRoutingProfileResponse -> TestTree
-responseCreateRoutingProfile =
-  res
+responseCreateRoutingProfile = res
     "CreateRoutingProfileResponse"
     "fixture/CreateRoutingProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateRoutingProfile)
 
 responseUpdateInstanceStorageConfig :: UpdateInstanceStorageConfigResponse -> TestTree
-responseUpdateInstanceStorageConfig =
-  res
+responseUpdateInstanceStorageConfig = res
     "UpdateInstanceStorageConfigResponse"
     "fixture/UpdateInstanceStorageConfigResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateInstanceStorageConfig)
 
 responseGetCurrentMetricData :: GetCurrentMetricDataResponse -> TestTree
-responseGetCurrentMetricData =
-  res
+responseGetCurrentMetricData = res
     "GetCurrentMetricDataResponse"
     "fixture/GetCurrentMetricDataResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetCurrentMetricData)
 
 responseCreateContactFlow :: CreateContactFlowResponse -> TestTree
-responseCreateContactFlow =
-  res
+responseCreateContactFlow = res
     "CreateContactFlowResponse"
     "fixture/CreateContactFlowResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateContactFlow)
 
 responseListRoutingProfiles :: ListRoutingProfilesResponse -> TestTree
-responseListRoutingProfiles =
-  res
+responseListRoutingProfiles = res
     "ListRoutingProfilesResponse"
     "fixture/ListRoutingProfilesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListRoutingProfiles)
 
 responseUpdateUserPhoneConfig :: UpdateUserPhoneConfigResponse -> TestTree
-responseUpdateUserPhoneConfig =
-  res
+responseUpdateUserPhoneConfig = res
     "UpdateUserPhoneConfigResponse"
     "fixture/UpdateUserPhoneConfigResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateUserPhoneConfig)
 
 responseListApprovedOrigins :: ListApprovedOriginsResponse -> TestTree
-responseListApprovedOrigins =
-  res
+responseListApprovedOrigins = res
     "ListApprovedOriginsResponse"
     "fixture/ListApprovedOriginsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListApprovedOrigins)
 
 responseDescribeUserHierarchyStructure :: DescribeUserHierarchyStructureResponse -> TestTree
-responseDescribeUserHierarchyStructure =
-  res
+responseDescribeUserHierarchyStructure = res
     "DescribeUserHierarchyStructureResponse"
     "fixture/DescribeUserHierarchyStructureResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeUserHierarchyStructure)
 
 responseListPhoneNumbers :: ListPhoneNumbersResponse -> TestTree
-responseListPhoneNumbers =
-  res
+responseListPhoneNumbers = res
     "ListPhoneNumbersResponse"
     "fixture/ListPhoneNumbersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListPhoneNumbers)
 
 responseUpdateContactAttributes :: UpdateContactAttributesResponse -> TestTree
-responseUpdateContactAttributes =
-  res
+responseUpdateContactAttributes = res
     "UpdateContactAttributesResponse"
     "fixture/UpdateContactAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateContactAttributes)
 
 responseStartChatContact :: StartChatContactResponse -> TestTree
-responseStartChatContact =
-  res
+responseStartChatContact = res
     "StartChatContactResponse"
     "fixture/StartChatContactResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartChatContact)
 
 responseUpdateUserSecurityProfiles :: UpdateUserSecurityProfilesResponse -> TestTree
-responseUpdateUserSecurityProfiles =
-  res
+responseUpdateUserSecurityProfiles = res
     "UpdateUserSecurityProfilesResponse"
     "fixture/UpdateUserSecurityProfilesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateUserSecurityProfiles)
 
 responseGetContactAttributes :: GetContactAttributesResponse -> TestTree
-responseGetContactAttributes =
-  res
+responseGetContactAttributes = res
     "GetContactAttributesResponse"
     "fixture/GetContactAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetContactAttributes)
 
 responseListLambdaFunctions :: ListLambdaFunctionsResponse -> TestTree
-responseListLambdaFunctions =
-  res
+responseListLambdaFunctions = res
     "ListLambdaFunctionsResponse"
     "fixture/ListLambdaFunctionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListLambdaFunctions)
 
 responseDescribeUserHierarchyGroup :: DescribeUserHierarchyGroupResponse -> TestTree
-responseDescribeUserHierarchyGroup =
-  res
+responseDescribeUserHierarchyGroup = res
     "DescribeUserHierarchyGroupResponse"
     "fixture/DescribeUserHierarchyGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeUserHierarchyGroup)
 
 responseDescribeUser :: DescribeUserResponse -> TestTree
-responseDescribeUser =
-  res
+responseDescribeUser = res
     "DescribeUserResponse"
     "fixture/DescribeUserResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeUser)
 
 responseResumeContactRecording :: ResumeContactRecordingResponse -> TestTree
-responseResumeContactRecording =
-  res
+responseResumeContactRecording = res
     "ResumeContactRecordingResponse"
     "fixture/ResumeContactRecordingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ResumeContactRecording)
 
 responseUpdateContactFlowName :: UpdateContactFlowNameResponse -> TestTree
-responseUpdateContactFlowName =
-  res
+responseUpdateContactFlowName = res
     "UpdateContactFlowNameResponse"
     "fixture/UpdateContactFlowNameResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateContactFlowName)
 
 responseSuspendContactRecording :: SuspendContactRecordingResponse -> TestTree
-responseSuspendContactRecording =
-  res
+responseSuspendContactRecording = res
     "SuspendContactRecordingResponse"
     "fixture/SuspendContactRecordingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SuspendContactRecording)
 
 responseListRoutingProfileQueues :: ListRoutingProfileQueuesResponse -> TestTree
-responseListRoutingProfileQueues =
-  res
+responseListRoutingProfileQueues = res
     "ListRoutingProfileQueuesResponse"
     "fixture/ListRoutingProfileQueuesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListRoutingProfileQueues)
 
 responseDisassociateRoutingProfileQueues :: DisassociateRoutingProfileQueuesResponse -> TestTree
-responseDisassociateRoutingProfileQueues =
-  res
+responseDisassociateRoutingProfileQueues = res
     "DisassociateRoutingProfileQueuesResponse"
     "fixture/DisassociateRoutingProfileQueuesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateRoutingProfileQueues)
 
 responseDisassociateLambdaFunction :: DisassociateLambdaFunctionResponse -> TestTree
-responseDisassociateLambdaFunction =
-  res
+responseDisassociateLambdaFunction = res
     "DisassociateLambdaFunctionResponse"
     "fixture/DisassociateLambdaFunctionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateLambdaFunction)
 
 responseUpdateContactFlowContent :: UpdateContactFlowContentResponse -> TestTree
-responseUpdateContactFlowContent =
-  res
+responseUpdateContactFlowContent = res
     "UpdateContactFlowContentResponse"
     "fixture/UpdateContactFlowContentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateContactFlowContent)
 
 responseUpdateUserHierarchyStructure :: UpdateUserHierarchyStructureResponse -> TestTree
-responseUpdateUserHierarchyStructure =
-  res
+responseUpdateUserHierarchyStructure = res
     "UpdateUserHierarchyStructureResponse"
     "fixture/UpdateUserHierarchyStructureResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateUserHierarchyStructure)
 
 responseCreateUserHierarchyGroup :: CreateUserHierarchyGroupResponse -> TestTree
-responseCreateUserHierarchyGroup =
-  res
+responseCreateUserHierarchyGroup = res
     "CreateUserHierarchyGroupResponse"
     "fixture/CreateUserHierarchyGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateUserHierarchyGroup)
 
 responseCreateUser :: CreateUserResponse -> TestTree
-responseCreateUser =
-  res
+responseCreateUser = res
     "CreateUserResponse"
     "fixture/CreateUserResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateUser)
 
 responseListPrompts :: ListPromptsResponse -> TestTree
-responseListPrompts =
-  res
+responseListPrompts = res
     "ListPromptsResponse"
     "fixture/ListPromptsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListPrompts)
 
 responseAssociateSecurityKey :: AssociateSecurityKeyResponse -> TestTree
-responseAssociateSecurityKey =
-  res
+responseAssociateSecurityKey = res
     "AssociateSecurityKeyResponse"
     "fixture/AssociateSecurityKeyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateSecurityKey)
 
 responseStopContactRecording :: StopContactRecordingResponse -> TestTree
-responseStopContactRecording =
-  res
+responseStopContactRecording = res
     "StopContactRecordingResponse"
     "fixture/StopContactRecordingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StopContactRecording)
 
 responseDisassociateApprovedOrigin :: DisassociateApprovedOriginResponse -> TestTree
-responseDisassociateApprovedOrigin =
-  res
+responseDisassociateApprovedOrigin = res
     "DisassociateApprovedOriginResponse"
     "fixture/DisassociateApprovedOriginResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateApprovedOrigin)
 
 responseListSecurityKeys :: ListSecurityKeysResponse -> TestTree
-responseListSecurityKeys =
-  res
+responseListSecurityKeys = res
     "ListSecurityKeysResponse"
     "fixture/ListSecurityKeysResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListSecurityKeys)
 
 responseGetFederationToken :: GetFederationTokenResponse -> TestTree
-responseGetFederationToken =
-  res
+responseGetFederationToken = res
     "GetFederationTokenResponse"
     "fixture/GetFederationTokenResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetFederationToken)
 
 responseStopContact :: StopContactResponse -> TestTree
-responseStopContact =
-  res
+responseStopContact = res
     "StopContactResponse"
     "fixture/StopContactResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StopContact)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
-responseDeleteUser =
-  res
+responseDeleteUser = res
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteUser)
 
 responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
+responseTagResource = res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseUpdateUserIdentityInfo :: UpdateUserIdentityInfoResponse -> TestTree
-responseUpdateUserIdentityInfo =
-  res
+responseUpdateUserIdentityInfo = res
     "UpdateUserIdentityInfoResponse"
     "fixture/UpdateUserIdentityInfoResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateUserIdentityInfo)
 
 responseListInstances :: ListInstancesResponse -> TestTree
-responseListInstances =
-  res
+responseListInstances = res
     "ListInstancesResponse"
     "fixture/ListInstancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListInstances)
 
 responseDeleteUserHierarchyGroup :: DeleteUserHierarchyGroupResponse -> TestTree
-responseDeleteUserHierarchyGroup =
-  res
+responseDeleteUserHierarchyGroup = res
     "DeleteUserHierarchyGroupResponse"
     "fixture/DeleteUserHierarchyGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteUserHierarchyGroup)
 
 responseUpdateRoutingProfileDefaultOutboundQueue :: UpdateRoutingProfileDefaultOutboundQueueResponse -> TestTree
-responseUpdateRoutingProfileDefaultOutboundQueue =
-  res
+responseUpdateRoutingProfileDefaultOutboundQueue = res
     "UpdateRoutingProfileDefaultOutboundQueueResponse"
     "fixture/UpdateRoutingProfileDefaultOutboundQueueResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateRoutingProfileDefaultOutboundQueue)
 
 responseListContactFlows :: ListContactFlowsResponse -> TestTree
-responseListContactFlows =
-  res
+responseListContactFlows = res
     "ListContactFlowsResponse"
     "fixture/ListContactFlowsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListContactFlows)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
+responseUntagResource = res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseAssociateApprovedOrigin :: AssociateApprovedOriginResponse -> TestTree
-responseAssociateApprovedOrigin =
-  res
+responseAssociateApprovedOrigin = res
     "AssociateApprovedOriginResponse"
     "fixture/AssociateApprovedOriginResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateApprovedOrigin)
 
 responseDisassociateSecurityKey :: DisassociateSecurityKeyResponse -> TestTree
-responseDisassociateSecurityKey =
-  res
+responseDisassociateSecurityKey = res
     "DisassociateSecurityKeyResponse"
     "fixture/DisassociateSecurityKeyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateSecurityKey)
 
 responseUpdateRoutingProfileConcurrency :: UpdateRoutingProfileConcurrencyResponse -> TestTree
-responseUpdateRoutingProfileConcurrency =
-  res
+responseUpdateRoutingProfileConcurrency = res
     "UpdateRoutingProfileConcurrencyResponse"
     "fixture/UpdateRoutingProfileConcurrencyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateRoutingProfileConcurrency)
 
 responseListInstanceStorageConfigs :: ListInstanceStorageConfigsResponse -> TestTree
-responseListInstanceStorageConfigs =
-  res
+responseListInstanceStorageConfigs = res
     "ListInstanceStorageConfigsResponse"
     "fixture/ListInstanceStorageConfigsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListInstanceStorageConfigs)
 
 responseAssociateInstanceStorageConfig :: AssociateInstanceStorageConfigResponse -> TestTree
-responseAssociateInstanceStorageConfig =
-  res
+responseAssociateInstanceStorageConfig = res
     "AssociateInstanceStorageConfigResponse"
     "fixture/AssociateInstanceStorageConfigResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateInstanceStorageConfig)
 
 responseListHoursOfOperations :: ListHoursOfOperationsResponse -> TestTree
-responseListHoursOfOperations =
-  res
+responseListHoursOfOperations = res
     "ListHoursOfOperationsResponse"
     "fixture/ListHoursOfOperationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListHoursOfOperations)
 
 responseUpdateRoutingProfileName :: UpdateRoutingProfileNameResponse -> TestTree
-responseUpdateRoutingProfileName =
-  res
+responseUpdateRoutingProfileName = res
     "UpdateRoutingProfileNameResponse"
     "fixture/UpdateRoutingProfileNameResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateRoutingProfileName)
 
 responseListLexBots :: ListLexBotsResponse -> TestTree
-responseListLexBots =
-  res
+responseListLexBots = res
     "ListLexBotsResponse"
     "fixture/ListLexBotsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListLexBots)
 
 responseAssociateLambdaFunction :: AssociateLambdaFunctionResponse -> TestTree
-responseAssociateLambdaFunction =
-  res
+responseAssociateLambdaFunction = res
     "AssociateLambdaFunctionResponse"
     "fixture/AssociateLambdaFunctionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateLambdaFunction)
 
 responseAssociateRoutingProfileQueues :: AssociateRoutingProfileQueuesResponse -> TestTree
-responseAssociateRoutingProfileQueues =
-  res
+responseAssociateRoutingProfileQueues = res
     "AssociateRoutingProfileQueuesResponse"
     "fixture/AssociateRoutingProfileQueuesResponse.proto"
     mkServiceConfig

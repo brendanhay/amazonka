@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,61 +10,43 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Comprehend.Types.PartOfSpeechTagType
   ( PartOfSpeechTagType
-      ( PartOfSpeechTagType',
-        PartOfSpeechTagTypeAdj,
-        PartOfSpeechTagTypeAdp,
-        PartOfSpeechTagTypeAdv,
-        PartOfSpeechTagTypeAux,
-        PartOfSpeechTagTypeConj,
-        PartOfSpeechTagTypeCconj,
-        PartOfSpeechTagTypeDet,
-        PartOfSpeechTagTypeIntj,
-        PartOfSpeechTagTypeNoun,
-        PartOfSpeechTagTypeNum,
-        PartOfSpeechTagTypeO,
-        PartOfSpeechTagTypePart,
-        PartOfSpeechTagTypePron,
-        PartOfSpeechTagTypePropn,
-        PartOfSpeechTagTypePunct,
-        PartOfSpeechTagTypeSconj,
-        PartOfSpeechTagTypeSym,
-        PartOfSpeechTagTypeVerb,
-        fromPartOfSpeechTagType
-      ),
-  )
-where
+    ( PartOfSpeechTagType'
+    , PartOfSpeechTagTypeAdj
+    , PartOfSpeechTagTypeAdp
+    , PartOfSpeechTagTypeAdv
+    , PartOfSpeechTagTypeAux
+    , PartOfSpeechTagTypeConj
+    , PartOfSpeechTagTypeCconj
+    , PartOfSpeechTagTypeDet
+    , PartOfSpeechTagTypeIntj
+    , PartOfSpeechTagTypeNoun
+    , PartOfSpeechTagTypeNum
+    , PartOfSpeechTagTypeO
+    , PartOfSpeechTagTypePart
+    , PartOfSpeechTagTypePron
+    , PartOfSpeechTagTypePropn
+    , PartOfSpeechTagTypePunct
+    , PartOfSpeechTagTypeSconj
+    , PartOfSpeechTagTypeSym
+    , PartOfSpeechTagTypeVerb
+    , fromPartOfSpeechTagType
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype PartOfSpeechTagType = PartOfSpeechTagType'
-  { fromPartOfSpeechTagType ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype PartOfSpeechTagType = PartOfSpeechTagType'{fromPartOfSpeechTagType
+                                                   :: Core.Text}
+                                deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                Core.Generic)
+                                deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                  Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                  Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                  Core.ToText, Core.FromText, Core.ToByteString,
+                                                  Core.ToQuery, Core.ToHeader)
 
 pattern PartOfSpeechTagTypeAdj :: PartOfSpeechTagType
 pattern PartOfSpeechTagTypeAdj = PartOfSpeechTagType' "ADJ"
@@ -120,24 +102,41 @@ pattern PartOfSpeechTagTypeSym = PartOfSpeechTagType' "SYM"
 pattern PartOfSpeechTagTypeVerb :: PartOfSpeechTagType
 pattern PartOfSpeechTagTypeVerb = PartOfSpeechTagType' "VERB"
 
-{-# COMPLETE
+{-# COMPLETE 
   PartOfSpeechTagTypeAdj,
+
   PartOfSpeechTagTypeAdp,
+
   PartOfSpeechTagTypeAdv,
+
   PartOfSpeechTagTypeAux,
+
   PartOfSpeechTagTypeConj,
+
   PartOfSpeechTagTypeCconj,
+
   PartOfSpeechTagTypeDet,
+
   PartOfSpeechTagTypeIntj,
+
   PartOfSpeechTagTypeNoun,
+
   PartOfSpeechTagTypeNum,
+
   PartOfSpeechTagTypeO,
+
   PartOfSpeechTagTypePart,
+
   PartOfSpeechTagTypePron,
+
   PartOfSpeechTagTypePropn,
+
   PartOfSpeechTagTypePunct,
+
   PartOfSpeechTagTypeSconj,
+
   PartOfSpeechTagTypeSym,
+
   PartOfSpeechTagTypeVerb,
   PartOfSpeechTagType'
   #-}

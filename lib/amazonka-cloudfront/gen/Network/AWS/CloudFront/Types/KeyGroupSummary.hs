@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CloudFront.Types.KeyGroupSummary
-  ( KeyGroupSummary (..),
-
-    -- * Smart constructor
-    mkKeyGroupSummary,
-
-    -- * Lenses
-    kgsKeyGroup,
-  )
-where
+  ( KeyGroupSummary (..)
+  -- * Smart constructor
+  , mkKeyGroupSummary
+  -- * Lenses
+  , kgsKeyGroup
+  ) where
 
 import qualified Network.AWS.CloudFront.Types.KeyGroup as Types
 import qualified Network.AWS.Lens as Lens
@@ -29,25 +27,25 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkKeyGroupSummary' smart constructor.
 newtype KeyGroupSummary = KeyGroupSummary'
-  { -- | A key group.
-    keyGroup :: Types.KeyGroup
+  { keyGroup :: Types.KeyGroup
+    -- ^ A key group.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving newtype (Core.NFData)
+  deriving newtype Core.NFData
 
 -- | Creates a 'KeyGroupSummary' value with any optional fields omitted.
-mkKeyGroupSummary ::
-  -- | 'keyGroup'
-  Types.KeyGroup ->
-  KeyGroupSummary
-mkKeyGroupSummary keyGroup = KeyGroupSummary' {keyGroup}
+mkKeyGroupSummary
+    :: Types.KeyGroup -- ^ 'keyGroup'
+    -> KeyGroupSummary
+mkKeyGroupSummary keyGroup = KeyGroupSummary'{keyGroup}
 
 -- | A key group.
 --
 -- /Note:/ Consider using 'keyGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 kgsKeyGroup :: Lens.Lens' KeyGroupSummary Types.KeyGroup
 kgsKeyGroup = Lens.field @"keyGroup"
-{-# DEPRECATED kgsKeyGroup "Use generic-lens or generic-optics with 'keyGroup' instead." #-}
+{-# INLINEABLE kgsKeyGroup #-}
+{-# DEPRECATED keyGroup "Use generic-lens or generic-optics with 'keyGroup' instead"  #-}
 
 instance Core.FromXML KeyGroupSummary where
-  parseXML x = KeyGroupSummary' Core.<$> (x Core..@ "KeyGroup")
+        parseXML x = KeyGroupSummary' Core.<$> (x Core..@ "KeyGroup")

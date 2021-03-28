@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,19 +17,18 @@
 --
 -- After you push your container images to the container image registry of your Lightsail account, use the @RegisterContainerImage@ action to register the pushed images to a specific Lightsail container service.
 module Network.AWS.Lightsail.CreateContainerServiceRegistryLogin
-  ( -- * Creating a request
-    CreateContainerServiceRegistryLogin (..),
-    mkCreateContainerServiceRegistryLogin,
+    (
+    -- * Creating a request
+      CreateContainerServiceRegistryLogin (..)
+    , mkCreateContainerServiceRegistryLogin
 
     -- * Destructuring the response
-    CreateContainerServiceRegistryLoginResponse (..),
-    mkCreateContainerServiceRegistryLoginResponse,
-
+    , CreateContainerServiceRegistryLoginResponse (..)
+    , mkCreateContainerServiceRegistryLoginResponse
     -- ** Response lenses
-    ccsrlrrsRegistryLogin,
-    ccsrlrrsResponseStatus,
-  )
-where
+    , ccsrlrrsRegistryLogin
+    , ccsrlrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Lightsail.Types as Types
@@ -43,72 +42,73 @@ data CreateContainerServiceRegistryLogin = CreateContainerServiceRegistryLogin'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CreateContainerServiceRegistryLogin' value with any optional fields omitted.
-mkCreateContainerServiceRegistryLogin ::
-  CreateContainerServiceRegistryLogin
-mkCreateContainerServiceRegistryLogin =
-  CreateContainerServiceRegistryLogin'
+mkCreateContainerServiceRegistryLogin
+    :: CreateContainerServiceRegistryLogin
+mkCreateContainerServiceRegistryLogin
+  = CreateContainerServiceRegistryLogin'
+
+instance Core.ToQuery CreateContainerServiceRegistryLogin where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders CreateContainerServiceRegistryLogin where
+        toHeaders CreateContainerServiceRegistryLogin{..}
+          = Core.pure
+              ("X-Amz-Target",
+               "Lightsail_20161128.CreateContainerServiceRegistryLogin")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON CreateContainerServiceRegistryLogin where
-  toJSON _ = Core.Object Core.mempty
+        toJSON _ = Core.Object Core.mempty
 
 instance Core.AWSRequest CreateContainerServiceRegistryLogin where
-  type
-    Rs CreateContainerServiceRegistryLogin =
-      CreateContainerServiceRegistryLoginResponse
-  request x@_ =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "X-Amz-Target",
-              "Lightsail_20161128.CreateContainerServiceRegistryLogin"
-            )
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          CreateContainerServiceRegistryLoginResponse'
-            Core.<$> (x Core..:? "registryLogin")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs CreateContainerServiceRegistryLogin =
+             CreateContainerServiceRegistryLoginResponse
+        toRequest x@_
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 CreateContainerServiceRegistryLoginResponse' Core.<$>
+                   (x Core..:? "registryLogin") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkCreateContainerServiceRegistryLoginResponse' smart constructor.
 data CreateContainerServiceRegistryLoginResponse = CreateContainerServiceRegistryLoginResponse'
-  { -- | An object that describes the log in information for the container service registry of your Lightsail account.
-    registryLogin :: Core.Maybe Types.ContainerServiceRegistryLogin,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { registryLogin :: Core.Maybe Types.ContainerServiceRegistryLogin
+    -- ^ An object that describes the log in information for the container service registry of your Lightsail account.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'CreateContainerServiceRegistryLoginResponse' value with any optional fields omitted.
-mkCreateContainerServiceRegistryLoginResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  CreateContainerServiceRegistryLoginResponse
-mkCreateContainerServiceRegistryLoginResponse responseStatus =
-  CreateContainerServiceRegistryLoginResponse'
-    { registryLogin =
-        Core.Nothing,
-      responseStatus
-    }
+mkCreateContainerServiceRegistryLoginResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> CreateContainerServiceRegistryLoginResponse
+mkCreateContainerServiceRegistryLoginResponse responseStatus
+  = CreateContainerServiceRegistryLoginResponse'{registryLogin =
+                                                   Core.Nothing,
+                                                 responseStatus}
 
 -- | An object that describes the log in information for the container service registry of your Lightsail account.
 --
 -- /Note:/ Consider using 'registryLogin' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccsrlrrsRegistryLogin :: Lens.Lens' CreateContainerServiceRegistryLoginResponse (Core.Maybe Types.ContainerServiceRegistryLogin)
 ccsrlrrsRegistryLogin = Lens.field @"registryLogin"
-{-# DEPRECATED ccsrlrrsRegistryLogin "Use generic-lens or generic-optics with 'registryLogin' instead." #-}
+{-# INLINEABLE ccsrlrrsRegistryLogin #-}
+{-# DEPRECATED registryLogin "Use generic-lens or generic-optics with 'registryLogin' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccsrlrrsResponseStatus :: Lens.Lens' CreateContainerServiceRegistryLoginResponse Core.Int
 ccsrlrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED ccsrlrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE ccsrlrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

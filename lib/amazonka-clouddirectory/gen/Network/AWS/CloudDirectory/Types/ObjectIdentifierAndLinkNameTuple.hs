@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CloudDirectory.Types.ObjectIdentifierAndLinkNameTuple
-  ( ObjectIdentifierAndLinkNameTuple (..),
-
-    -- * Smart constructor
-    mkObjectIdentifierAndLinkNameTuple,
-
-    -- * Lenses
-    oialntLinkName,
-    oialntObjectIdentifier,
-  )
-where
+  ( ObjectIdentifierAndLinkNameTuple (..)
+  -- * Smart constructor
+  , mkObjectIdentifierAndLinkNameTuple
+  -- * Lenses
+  , oialntLinkName
+  , oialntObjectIdentifier
+  ) where
 
 import qualified Network.AWS.CloudDirectory.Types.LinkName as Types
 import qualified Network.AWS.CloudDirectory.Types.ObjectIdentifier as Types
@@ -31,40 +29,40 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkObjectIdentifierAndLinkNameTuple' smart constructor.
 data ObjectIdentifierAndLinkNameTuple = ObjectIdentifierAndLinkNameTuple'
-  { -- | The name of the link between the parent and the child object.
-    linkName :: Core.Maybe Types.LinkName,
-    -- | The ID that is associated with the object.
-    objectIdentifier :: Core.Maybe Types.ObjectIdentifier
+  { linkName :: Core.Maybe Types.LinkName
+    -- ^ The name of the link between the parent and the child object.
+  , objectIdentifier :: Core.Maybe Types.ObjectIdentifier
+    -- ^ The ID that is associated with the object.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ObjectIdentifierAndLinkNameTuple' value with any optional fields omitted.
-mkObjectIdentifierAndLinkNameTuple ::
-  ObjectIdentifierAndLinkNameTuple
-mkObjectIdentifierAndLinkNameTuple =
-  ObjectIdentifierAndLinkNameTuple'
-    { linkName = Core.Nothing,
-      objectIdentifier = Core.Nothing
-    }
+mkObjectIdentifierAndLinkNameTuple
+    :: ObjectIdentifierAndLinkNameTuple
+mkObjectIdentifierAndLinkNameTuple
+  = ObjectIdentifierAndLinkNameTuple'{linkName = Core.Nothing,
+                                      objectIdentifier = Core.Nothing}
 
 -- | The name of the link between the parent and the child object.
 --
 -- /Note:/ Consider using 'linkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 oialntLinkName :: Lens.Lens' ObjectIdentifierAndLinkNameTuple (Core.Maybe Types.LinkName)
 oialntLinkName = Lens.field @"linkName"
-{-# DEPRECATED oialntLinkName "Use generic-lens or generic-optics with 'linkName' instead." #-}
+{-# INLINEABLE oialntLinkName #-}
+{-# DEPRECATED linkName "Use generic-lens or generic-optics with 'linkName' instead"  #-}
 
 -- | The ID that is associated with the object.
 --
 -- /Note:/ Consider using 'objectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 oialntObjectIdentifier :: Lens.Lens' ObjectIdentifierAndLinkNameTuple (Core.Maybe Types.ObjectIdentifier)
 oialntObjectIdentifier = Lens.field @"objectIdentifier"
-{-# DEPRECATED oialntObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
+{-# INLINEABLE oialntObjectIdentifier #-}
+{-# DEPRECATED objectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead"  #-}
 
 instance Core.FromJSON ObjectIdentifierAndLinkNameTuple where
-  parseJSON =
-    Core.withObject "ObjectIdentifierAndLinkNameTuple" Core.$
-      \x ->
-        ObjectIdentifierAndLinkNameTuple'
-          Core.<$> (x Core..:? "LinkName") Core.<*> (x Core..:? "ObjectIdentifier")
+        parseJSON
+          = Core.withObject "ObjectIdentifierAndLinkNameTuple" Core.$
+              \ x ->
+                ObjectIdentifierAndLinkNameTuple' Core.<$>
+                  (x Core..:? "LinkName") Core.<*> x Core..:? "ObjectIdentifier"

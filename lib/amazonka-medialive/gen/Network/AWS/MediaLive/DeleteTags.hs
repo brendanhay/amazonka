@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,19 +15,18 @@
 --
 -- Removes tags for a resource
 module Network.AWS.MediaLive.DeleteTags
-  ( -- * Creating a request
-    DeleteTags (..),
-    mkDeleteTags,
-
+    (
+    -- * Creating a request
+      DeleteTags (..)
+    , mkDeleteTags
     -- ** Request lenses
-    dtTagKeys,
-    dtResourceArn,
+    , dtTagKeys
+    , dtResourceArn
 
     -- * Destructuring the response
-    DeleteTagsResponse (..),
-    mkDeleteTagsResponse,
-  )
-where
+    , DeleteTagsResponse (..)
+    , mkDeleteTagsResponse
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.MediaLive.Types as Types
@@ -39,50 +38,57 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkDeleteTags' smart constructor.
 data DeleteTags = DeleteTags'
-  { -- | An array of tag keys to delete
-    tagKeys :: [Core.Text],
-    resourceArn :: Core.Text
+  { tagKeys :: [Core.Text]
+    -- ^ An array of tag keys to delete
+  , resourceArn :: Core.Text
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteTags' value with any optional fields omitted.
-mkDeleteTags ::
-  -- | 'resourceArn'
-  Core.Text ->
-  DeleteTags
-mkDeleteTags resourceArn =
-  DeleteTags' {tagKeys = Core.mempty, resourceArn}
+mkDeleteTags
+    :: Core.Text -- ^ 'resourceArn'
+    -> DeleteTags
+mkDeleteTags resourceArn
+  = DeleteTags'{tagKeys = Core.mempty, resourceArn}
 
 -- | An array of tag keys to delete
 --
 -- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dtTagKeys :: Lens.Lens' DeleteTags [Core.Text]
 dtTagKeys = Lens.field @"tagKeys"
-{-# DEPRECATED dtTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+{-# INLINEABLE dtTagKeys #-}
+{-# DEPRECATED tagKeys "Use generic-lens or generic-optics with 'tagKeys' instead"  #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dtResourceArn :: Lens.Lens' DeleteTags Core.Text
 dtResourceArn = Lens.field @"resourceArn"
-{-# DEPRECATED dtResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
+{-# INLINEABLE dtResourceArn #-}
+{-# DEPRECATED resourceArn "Use generic-lens or generic-optics with 'resourceArn' instead"  #-}
+
+instance Core.ToQuery DeleteTags where
+        toQuery DeleteTags{..}
+          = Core.toQueryPair "tagKeys" (Core.toQueryList "member" tagKeys)
+
+instance Core.ToHeaders DeleteTags where
+        toHeaders DeleteTags{..}
+          = Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.AWSRequest DeleteTags where
-  type Rs DeleteTags = DeleteTagsResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.DELETE,
-        Core._rqPath =
-          Core.rawPath ("/prod/tags/" Core.<> (Core.toText resourceArn)),
-        Core._rqQuery =
-          Core.toQueryValue "tagKeys" (Core.toQueryList "member" tagKeys),
-        Core._rqHeaders =
-          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
-        Core._rqBody = ""
-      }
-  response = Response.receiveNull DeleteTagsResponse'
+        type Rs DeleteTags = DeleteTagsResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.DELETE,
+                         Core._rqPath = "/prod/tags/" Core.<> Core.toText resourceArn,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull DeleteTagsResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteTagsResponse' smart constructor.
 data DeleteTagsResponse = DeleteTagsResponse'
@@ -90,6 +96,6 @@ data DeleteTagsResponse = DeleteTagsResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteTagsResponse' value with any optional fields omitted.
-mkDeleteTagsResponse ::
-  DeleteTagsResponse
+mkDeleteTagsResponse
+    :: DeleteTagsResponse
 mkDeleteTagsResponse = DeleteTagsResponse'

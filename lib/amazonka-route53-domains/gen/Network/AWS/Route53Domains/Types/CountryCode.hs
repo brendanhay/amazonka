@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,269 +10,253 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Route53Domains.Types.CountryCode
   ( CountryCode
-      ( CountryCode',
-        CountryCodeAD,
-        CountryCodeAE,
-        CountryCodeAF,
-        CountryCodeAG,
-        CountryCodeAI,
-        CountryCodeAL,
-        CountryCodeAM,
-        CountryCodeAN,
-        CountryCodeAO,
-        CountryCodeAQ,
-        CountryCodeAR,
-        CountryCodeAS,
-        CountryCodeAT,
-        CountryCodeAU,
-        CountryCodeAW,
-        CountryCodeAZ,
-        CountryCodeBA,
-        CountryCodeBB,
-        CountryCodeBD,
-        CountryCodeBE,
-        CountryCodeBF,
-        CountryCodeBG,
-        CountryCodeBH,
-        CountryCodeBI,
-        CountryCodeBJ,
-        CountryCodeBL,
-        CountryCodeBM,
-        CountryCodeBN,
-        CountryCodeBO,
-        CountryCodeBR,
-        CountryCodeBS,
-        CountryCodeBT,
-        CountryCodeBW,
-        CountryCodeBY,
-        CountryCodeBZ,
-        CountryCodeCA,
-        CountryCodeCC,
-        CountryCodeCD,
-        CountryCodeCF,
-        CountryCodeCG,
-        CountryCodeCH,
-        CountryCodeCI,
-        CountryCodeCK,
-        CountryCodeCL,
-        CountryCodeCM,
-        CountryCodeCN,
-        CountryCodeCO,
-        CountryCodeCR,
-        CountryCodeCU,
-        CountryCodeCV,
-        CountryCodeCX,
-        CountryCodeCY,
-        CountryCodeCZ,
-        CountryCodeDE,
-        CountryCodeDJ,
-        CountryCodeDK,
-        CountryCodeDM,
-        CountryCodeDO,
-        CountryCodeDZ,
-        CountryCodeEC,
-        CountryCodeEE,
-        CountryCodeEG,
-        CountryCodeER,
-        CountryCodeES,
-        CountryCodeET,
-        CountryCodeFI,
-        CountryCodeFJ,
-        CountryCodeFK,
-        CountryCodeFM,
-        CountryCodeFO,
-        CountryCodeFR,
-        CountryCodeGA,
-        CountryCodeGB,
-        CountryCodeGD,
-        CountryCodeGE,
-        CountryCodeGH,
-        CountryCodeGI,
-        CountryCodeGL,
-        CountryCodeGM,
-        CountryCodeGN,
-        CountryCodeGQ,
-        CountryCodeGR,
-        CountryCodeGT,
-        CountryCodeGU,
-        CountryCodeGW,
-        CountryCodeGY,
-        CountryCodeHK,
-        CountryCodeHN,
-        CountryCodeHR,
-        CountryCodeHT,
-        CountryCodeHU,
-        CountryCodeID,
-        CountryCodeIE,
-        CountryCodeIL,
-        CountryCodeIM,
-        CountryCodeIN,
-        CountryCodeIQ,
-        CountryCodeIR,
-        CountryCodeIS,
-        CountryCodeIT,
-        CountryCodeJM,
-        CountryCodeJO,
-        CountryCodeJP,
-        CountryCodeKE,
-        CountryCodeKG,
-        CountryCodeKH,
-        CountryCodeKI,
-        CountryCodeKM,
-        CountryCodeKN,
-        CountryCodeKP,
-        CountryCodeKR,
-        CountryCodeKW,
-        CountryCodeKY,
-        CountryCodeKZ,
-        CountryCodeLA,
-        CountryCodeLB,
-        CountryCodeLC,
-        CountryCodeLI,
-        CountryCodeLK,
-        CountryCodeLR,
-        CountryCodeLS,
-        CountryCodeLT,
-        CountryCodeLU,
-        CountryCodeLV,
-        CountryCodeLY,
-        CountryCodeMA,
-        CountryCodeMC,
-        CountryCodeMD,
-        CountryCodeME,
-        CountryCodeMF,
-        CountryCodeMG,
-        CountryCodeMH,
-        CountryCodeMK,
-        CountryCodeML,
-        CountryCodeMM,
-        CountryCodeMN,
-        CountryCodeMO,
-        CountryCodeMP,
-        CountryCodeMR,
-        CountryCodeMS,
-        CountryCodeMT,
-        CountryCodeMU,
-        CountryCodeMV,
-        CountryCodeMW,
-        CountryCodeMX,
-        CountryCodeMY,
-        CountryCodeMZ,
-        CountryCodeNA,
-        CountryCodeNC,
-        CountryCodeNE,
-        CountryCodeNG,
-        CountryCodeNI,
-        CountryCodeNL,
-        CountryCodeNO,
-        CountryCodeNP,
-        CountryCodeNR,
-        CountryCodeNU,
-        CountryCodeNZ,
-        CountryCodeOM,
-        CountryCodePA,
-        CountryCodePE,
-        CountryCodePF,
-        CountryCodePG,
-        CountryCodePH,
-        CountryCodePK,
-        CountryCodePL,
-        CountryCodePM,
-        CountryCodePN,
-        CountryCodePR,
-        CountryCodePT,
-        CountryCodePW,
-        CountryCodePY,
-        CountryCodeQA,
-        CountryCodeRO,
-        CountryCodeRS,
-        CountryCodeRU,
-        CountryCodeRW,
-        CountryCodeSA,
-        CountryCodeSB,
-        CountryCodeSC,
-        CountryCodeSD,
-        CountryCodeSE,
-        CountryCodeSG,
-        CountryCodeSH,
-        CountryCodeSI,
-        CountryCodeSK,
-        CountryCodeSL,
-        CountryCodeSM,
-        CountryCodeSN,
-        CountryCodeSO,
-        CountryCodeSR,
-        CountryCodeST,
-        CountryCodeSV,
-        CountryCodeSY,
-        CountryCodeSZ,
-        CountryCodeTC,
-        CountryCodeTD,
-        CountryCodeTG,
-        CountryCodeTH,
-        CountryCodeTJ,
-        CountryCodeTK,
-        CountryCodeTL,
-        CountryCodeTM,
-        CountryCodeTN,
-        CountryCodeTO,
-        CountryCodeTR,
-        CountryCodeTT,
-        CountryCodeTV,
-        CountryCodeTW,
-        CountryCodeTZ,
-        CountryCodeUA,
-        CountryCodeUG,
-        CountryCodeUS,
-        CountryCodeUY,
-        CountryCodeUZ,
-        CountryCodeVA,
-        CountryCodeVC,
-        CountryCodeVE,
-        CountryCodeVG,
-        CountryCodeVI,
-        CountryCodeVN,
-        CountryCodeVU,
-        CountryCodeWF,
-        CountryCodeWS,
-        CountryCodeYE,
-        CountryCodeYT,
-        CountryCodeZA,
-        CountryCodeZM,
-        CountryCodeZW,
-        fromCountryCode
-      ),
-  )
-where
+    ( CountryCode'
+    , CountryCodeAD
+    , CountryCodeAE
+    , CountryCodeAF
+    , CountryCodeAG
+    , CountryCodeAI
+    , CountryCodeAL
+    , CountryCodeAM
+    , CountryCodeAN
+    , CountryCodeAO
+    , CountryCodeAQ
+    , CountryCodeAR
+    , CountryCodeAS
+    , CountryCodeAT
+    , CountryCodeAU
+    , CountryCodeAW
+    , CountryCodeAZ
+    , CountryCodeBA
+    , CountryCodeBB
+    , CountryCodeBD
+    , CountryCodeBE
+    , CountryCodeBF
+    , CountryCodeBG
+    , CountryCodeBH
+    , CountryCodeBI
+    , CountryCodeBJ
+    , CountryCodeBL
+    , CountryCodeBM
+    , CountryCodeBN
+    , CountryCodeBO
+    , CountryCodeBR
+    , CountryCodeBS
+    , CountryCodeBT
+    , CountryCodeBW
+    , CountryCodeBY
+    , CountryCodeBZ
+    , CountryCodeCA
+    , CountryCodeCC
+    , CountryCodeCD
+    , CountryCodeCF
+    , CountryCodeCG
+    , CountryCodeCH
+    , CountryCodeCI
+    , CountryCodeCK
+    , CountryCodeCL
+    , CountryCodeCM
+    , CountryCodeCN
+    , CountryCodeCO
+    , CountryCodeCR
+    , CountryCodeCU
+    , CountryCodeCV
+    , CountryCodeCX
+    , CountryCodeCY
+    , CountryCodeCZ
+    , CountryCodeDE
+    , CountryCodeDJ
+    , CountryCodeDK
+    , CountryCodeDM
+    , CountryCodeDO
+    , CountryCodeDZ
+    , CountryCodeEC
+    , CountryCodeEE
+    , CountryCodeEG
+    , CountryCodeER
+    , CountryCodeES
+    , CountryCodeET
+    , CountryCodeFI
+    , CountryCodeFJ
+    , CountryCodeFK
+    , CountryCodeFM
+    , CountryCodeFO
+    , CountryCodeFR
+    , CountryCodeGA
+    , CountryCodeGB
+    , CountryCodeGD
+    , CountryCodeGE
+    , CountryCodeGH
+    , CountryCodeGI
+    , CountryCodeGL
+    , CountryCodeGM
+    , CountryCodeGN
+    , CountryCodeGQ
+    , CountryCodeGR
+    , CountryCodeGT
+    , CountryCodeGU
+    , CountryCodeGW
+    , CountryCodeGY
+    , CountryCodeHK
+    , CountryCodeHN
+    , CountryCodeHR
+    , CountryCodeHT
+    , CountryCodeHU
+    , CountryCodeID
+    , CountryCodeIE
+    , CountryCodeIL
+    , CountryCodeIM
+    , CountryCodeIN
+    , CountryCodeIQ
+    , CountryCodeIR
+    , CountryCodeIS
+    , CountryCodeIT
+    , CountryCodeJM
+    , CountryCodeJO
+    , CountryCodeJP
+    , CountryCodeKE
+    , CountryCodeKG
+    , CountryCodeKH
+    , CountryCodeKI
+    , CountryCodeKM
+    , CountryCodeKN
+    , CountryCodeKP
+    , CountryCodeKR
+    , CountryCodeKW
+    , CountryCodeKY
+    , CountryCodeKZ
+    , CountryCodeLA
+    , CountryCodeLB
+    , CountryCodeLC
+    , CountryCodeLI
+    , CountryCodeLK
+    , CountryCodeLR
+    , CountryCodeLS
+    , CountryCodeLT
+    , CountryCodeLU
+    , CountryCodeLV
+    , CountryCodeLY
+    , CountryCodeMA
+    , CountryCodeMC
+    , CountryCodeMD
+    , CountryCodeME
+    , CountryCodeMF
+    , CountryCodeMG
+    , CountryCodeMH
+    , CountryCodeMK
+    , CountryCodeML
+    , CountryCodeMM
+    , CountryCodeMN
+    , CountryCodeMO
+    , CountryCodeMP
+    , CountryCodeMR
+    , CountryCodeMS
+    , CountryCodeMT
+    , CountryCodeMU
+    , CountryCodeMV
+    , CountryCodeMW
+    , CountryCodeMX
+    , CountryCodeMY
+    , CountryCodeMZ
+    , CountryCodeNA
+    , CountryCodeNC
+    , CountryCodeNE
+    , CountryCodeNG
+    , CountryCodeNI
+    , CountryCodeNL
+    , CountryCodeNO
+    , CountryCodeNP
+    , CountryCodeNR
+    , CountryCodeNU
+    , CountryCodeNZ
+    , CountryCodeOM
+    , CountryCodePA
+    , CountryCodePE
+    , CountryCodePF
+    , CountryCodePG
+    , CountryCodePH
+    , CountryCodePK
+    , CountryCodePL
+    , CountryCodePM
+    , CountryCodePN
+    , CountryCodePR
+    , CountryCodePT
+    , CountryCodePW
+    , CountryCodePY
+    , CountryCodeQA
+    , CountryCodeRO
+    , CountryCodeRS
+    , CountryCodeRU
+    , CountryCodeRW
+    , CountryCodeSA
+    , CountryCodeSB
+    , CountryCodeSC
+    , CountryCodeSD
+    , CountryCodeSE
+    , CountryCodeSG
+    , CountryCodeSH
+    , CountryCodeSI
+    , CountryCodeSK
+    , CountryCodeSL
+    , CountryCodeSM
+    , CountryCodeSN
+    , CountryCodeSO
+    , CountryCodeSR
+    , CountryCodeST
+    , CountryCodeSV
+    , CountryCodeSY
+    , CountryCodeSZ
+    , CountryCodeTC
+    , CountryCodeTD
+    , CountryCodeTG
+    , CountryCodeTH
+    , CountryCodeTJ
+    , CountryCodeTK
+    , CountryCodeTL
+    , CountryCodeTM
+    , CountryCodeTN
+    , CountryCodeTO
+    , CountryCodeTR
+    , CountryCodeTT
+    , CountryCodeTV
+    , CountryCodeTW
+    , CountryCodeTZ
+    , CountryCodeUA
+    , CountryCodeUG
+    , CountryCodeUS
+    , CountryCodeUY
+    , CountryCodeUZ
+    , CountryCodeVA
+    , CountryCodeVC
+    , CountryCodeVE
+    , CountryCodeVG
+    , CountryCodeVI
+    , CountryCodeVN
+    , CountryCodeVU
+    , CountryCodeWF
+    , CountryCodeWS
+    , CountryCodeYE
+    , CountryCodeYT
+    , CountryCodeZA
+    , CountryCodeZM
+    , CountryCodeZW
+    , fromCountryCode
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype CountryCode = CountryCode' {fromCountryCode :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype CountryCode = CountryCode'{fromCountryCode :: Core.Text}
+                        deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                        Core.Generic)
+                        deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                          Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                          Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                          Core.FromText, Core.ToByteString, Core.ToQuery,
+                                          Core.ToHeader)
 
 pattern CountryCodeAD :: CountryCode
 pattern CountryCodeAD = CountryCode' "AD"
@@ -961,235 +945,463 @@ pattern CountryCodeZM = CountryCode' "ZM"
 pattern CountryCodeZW :: CountryCode
 pattern CountryCodeZW = CountryCode' "ZW"
 
-{-# COMPLETE
+{-# COMPLETE 
   CountryCodeAD,
+
   CountryCodeAE,
+
   CountryCodeAF,
+
   CountryCodeAG,
+
   CountryCodeAI,
+
   CountryCodeAL,
+
   CountryCodeAM,
+
   CountryCodeAN,
+
   CountryCodeAO,
+
   CountryCodeAQ,
+
   CountryCodeAR,
+
   CountryCodeAS,
+
   CountryCodeAT,
+
   CountryCodeAU,
+
   CountryCodeAW,
+
   CountryCodeAZ,
+
   CountryCodeBA,
+
   CountryCodeBB,
+
   CountryCodeBD,
+
   CountryCodeBE,
+
   CountryCodeBF,
+
   CountryCodeBG,
+
   CountryCodeBH,
+
   CountryCodeBI,
+
   CountryCodeBJ,
+
   CountryCodeBL,
+
   CountryCodeBM,
+
   CountryCodeBN,
+
   CountryCodeBO,
+
   CountryCodeBR,
+
   CountryCodeBS,
+
   CountryCodeBT,
+
   CountryCodeBW,
+
   CountryCodeBY,
+
   CountryCodeBZ,
+
   CountryCodeCA,
+
   CountryCodeCC,
+
   CountryCodeCD,
+
   CountryCodeCF,
+
   CountryCodeCG,
+
   CountryCodeCH,
+
   CountryCodeCI,
+
   CountryCodeCK,
+
   CountryCodeCL,
+
   CountryCodeCM,
+
   CountryCodeCN,
+
   CountryCodeCO,
+
   CountryCodeCR,
+
   CountryCodeCU,
+
   CountryCodeCV,
+
   CountryCodeCX,
+
   CountryCodeCY,
+
   CountryCodeCZ,
+
   CountryCodeDE,
+
   CountryCodeDJ,
+
   CountryCodeDK,
+
   CountryCodeDM,
+
   CountryCodeDO,
+
   CountryCodeDZ,
+
   CountryCodeEC,
+
   CountryCodeEE,
+
   CountryCodeEG,
+
   CountryCodeER,
+
   CountryCodeES,
+
   CountryCodeET,
+
   CountryCodeFI,
+
   CountryCodeFJ,
+
   CountryCodeFK,
+
   CountryCodeFM,
+
   CountryCodeFO,
+
   CountryCodeFR,
+
   CountryCodeGA,
+
   CountryCodeGB,
+
   CountryCodeGD,
+
   CountryCodeGE,
+
   CountryCodeGH,
+
   CountryCodeGI,
+
   CountryCodeGL,
+
   CountryCodeGM,
+
   CountryCodeGN,
+
   CountryCodeGQ,
+
   CountryCodeGR,
+
   CountryCodeGT,
+
   CountryCodeGU,
+
   CountryCodeGW,
+
   CountryCodeGY,
+
   CountryCodeHK,
+
   CountryCodeHN,
+
   CountryCodeHR,
+
   CountryCodeHT,
+
   CountryCodeHU,
+
   CountryCodeID,
+
   CountryCodeIE,
+
   CountryCodeIL,
+
   CountryCodeIM,
+
   CountryCodeIN,
+
   CountryCodeIQ,
+
   CountryCodeIR,
+
   CountryCodeIS,
+
   CountryCodeIT,
+
   CountryCodeJM,
+
   CountryCodeJO,
+
   CountryCodeJP,
+
   CountryCodeKE,
+
   CountryCodeKG,
+
   CountryCodeKH,
+
   CountryCodeKI,
+
   CountryCodeKM,
+
   CountryCodeKN,
+
   CountryCodeKP,
+
   CountryCodeKR,
+
   CountryCodeKW,
+
   CountryCodeKY,
+
   CountryCodeKZ,
+
   CountryCodeLA,
+
   CountryCodeLB,
+
   CountryCodeLC,
+
   CountryCodeLI,
+
   CountryCodeLK,
+
   CountryCodeLR,
+
   CountryCodeLS,
+
   CountryCodeLT,
+
   CountryCodeLU,
+
   CountryCodeLV,
+
   CountryCodeLY,
+
   CountryCodeMA,
+
   CountryCodeMC,
+
   CountryCodeMD,
+
   CountryCodeME,
+
   CountryCodeMF,
+
   CountryCodeMG,
+
   CountryCodeMH,
+
   CountryCodeMK,
+
   CountryCodeML,
+
   CountryCodeMM,
+
   CountryCodeMN,
+
   CountryCodeMO,
+
   CountryCodeMP,
+
   CountryCodeMR,
+
   CountryCodeMS,
+
   CountryCodeMT,
+
   CountryCodeMU,
+
   CountryCodeMV,
+
   CountryCodeMW,
+
   CountryCodeMX,
+
   CountryCodeMY,
+
   CountryCodeMZ,
+
   CountryCodeNA,
+
   CountryCodeNC,
+
   CountryCodeNE,
+
   CountryCodeNG,
+
   CountryCodeNI,
+
   CountryCodeNL,
+
   CountryCodeNO,
+
   CountryCodeNP,
+
   CountryCodeNR,
+
   CountryCodeNU,
+
   CountryCodeNZ,
+
   CountryCodeOM,
+
   CountryCodePA,
+
   CountryCodePE,
+
   CountryCodePF,
+
   CountryCodePG,
+
   CountryCodePH,
+
   CountryCodePK,
+
   CountryCodePL,
+
   CountryCodePM,
+
   CountryCodePN,
+
   CountryCodePR,
+
   CountryCodePT,
+
   CountryCodePW,
+
   CountryCodePY,
+
   CountryCodeQA,
+
   CountryCodeRO,
+
   CountryCodeRS,
+
   CountryCodeRU,
+
   CountryCodeRW,
+
   CountryCodeSA,
+
   CountryCodeSB,
+
   CountryCodeSC,
+
   CountryCodeSD,
+
   CountryCodeSE,
+
   CountryCodeSG,
+
   CountryCodeSH,
+
   CountryCodeSI,
+
   CountryCodeSK,
+
   CountryCodeSL,
+
   CountryCodeSM,
+
   CountryCodeSN,
+
   CountryCodeSO,
+
   CountryCodeSR,
+
   CountryCodeST,
+
   CountryCodeSV,
+
   CountryCodeSY,
+
   CountryCodeSZ,
+
   CountryCodeTC,
+
   CountryCodeTD,
+
   CountryCodeTG,
+
   CountryCodeTH,
+
   CountryCodeTJ,
+
   CountryCodeTK,
+
   CountryCodeTL,
+
   CountryCodeTM,
+
   CountryCodeTN,
+
   CountryCodeTO,
+
   CountryCodeTR,
+
   CountryCodeTT,
+
   CountryCodeTV,
+
   CountryCodeTW,
+
   CountryCodeTZ,
+
   CountryCodeUA,
+
   CountryCodeUG,
+
   CountryCodeUS,
+
   CountryCodeUY,
+
   CountryCodeUZ,
+
   CountryCodeVA,
+
   CountryCodeVC,
+
   CountryCodeVE,
+
   CountryCodeVG,
+
   CountryCodeVI,
+
   CountryCodeVN,
+
   CountryCodeVU,
+
   CountryCodeWF,
+
   CountryCodeWS,
+
   CountryCodeYE,
+
   CountryCodeYT,
+
   CountryCodeZA,
+
   CountryCodeZM,
+
   CountryCodeZW,
   CountryCode'
   #-}

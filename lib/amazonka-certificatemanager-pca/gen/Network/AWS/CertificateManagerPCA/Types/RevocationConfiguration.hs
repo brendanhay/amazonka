@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration
-  ( RevocationConfiguration (..),
-
-    -- * Smart constructor
-    mkRevocationConfiguration,
-
-    -- * Lenses
-    rcCrlConfiguration,
-  )
-where
+  ( RevocationConfiguration (..)
+  -- * Smart constructor
+  , mkRevocationConfiguration
+  -- * Lenses
+  , rcCrlConfiguration
+  ) where
 
 import qualified Network.AWS.CertificateManagerPCA.Types.CrlConfiguration as Types
 import qualified Network.AWS.Lens as Lens
@@ -29,34 +27,34 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkRevocationConfiguration' smart constructor.
 newtype RevocationConfiguration = RevocationConfiguration'
-  { -- | Configuration of the certificate revocation list (CRL), if any, maintained by your private CA.
-    crlConfiguration :: Core.Maybe Types.CrlConfiguration
+  { crlConfiguration :: Core.Maybe Types.CrlConfiguration
+    -- ^ Configuration of the certificate revocation list (CRL), if any, maintained by your private CA.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'RevocationConfiguration' value with any optional fields omitted.
-mkRevocationConfiguration ::
-  RevocationConfiguration
-mkRevocationConfiguration =
-  RevocationConfiguration' {crlConfiguration = Core.Nothing}
+mkRevocationConfiguration
+    :: RevocationConfiguration
+mkRevocationConfiguration
+  = RevocationConfiguration'{crlConfiguration = Core.Nothing}
 
 -- | Configuration of the certificate revocation list (CRL), if any, maintained by your private CA.
 --
 -- /Note:/ Consider using 'crlConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rcCrlConfiguration :: Lens.Lens' RevocationConfiguration (Core.Maybe Types.CrlConfiguration)
 rcCrlConfiguration = Lens.field @"crlConfiguration"
-{-# DEPRECATED rcCrlConfiguration "Use generic-lens or generic-optics with 'crlConfiguration' instead." #-}
+{-# INLINEABLE rcCrlConfiguration #-}
+{-# DEPRECATED crlConfiguration "Use generic-lens or generic-optics with 'crlConfiguration' instead"  #-}
 
 instance Core.FromJSON RevocationConfiguration where
-  toJSON RevocationConfiguration {..} =
-    Core.object
-      ( Core.catMaybes
-          [("CrlConfiguration" Core..=) Core.<$> crlConfiguration]
-      )
+        toJSON RevocationConfiguration{..}
+          = Core.object
+              (Core.catMaybes
+                 [("CrlConfiguration" Core..=) Core.<$> crlConfiguration])
 
 instance Core.FromJSON RevocationConfiguration where
-  parseJSON =
-    Core.withObject "RevocationConfiguration" Core.$
-      \x ->
-        RevocationConfiguration' Core.<$> (x Core..:? "CrlConfiguration")
+        parseJSON
+          = Core.withObject "RevocationConfiguration" Core.$
+              \ x ->
+                RevocationConfiguration' Core.<$> (x Core..:? "CrlConfiguration")

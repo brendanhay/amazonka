@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,19 +17,18 @@
 --
 -- For an overview on tagging Amazon RDS resources, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources> .
 module Network.AWS.RDS.AddTagsToResource
-  ( -- * Creating a request
-    AddTagsToResource (..),
-    mkAddTagsToResource,
-
+    (
+    -- * Creating a request
+      AddTagsToResource (..)
+    , mkAddTagsToResource
     -- ** Request lenses
-    attrResourceName,
-    attrTags,
+    , attrResourceName
+    , attrTags
 
     -- * Destructuring the response
-    AddTagsToResourceResponse (..),
-    mkAddTagsToResourceResponse,
-  )
-where
+    , AddTagsToResourceResponse (..)
+    , mkAddTagsToResourceResponse
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -37,62 +36,68 @@ import qualified Network.AWS.RDS.Types as Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- |
+-- | 
 --
 -- /See:/ 'mkAddTagsToResource' smart constructor.
 data AddTagsToResource = AddTagsToResource'
-  { -- | The Amazon RDS resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .
-    resourceName :: Types.ResourceName,
-    -- | The tags to be assigned to the Amazon RDS resource.
-    tags :: [Types.Tag]
+  { resourceName :: Core.Text
+    -- ^ The Amazon RDS resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .
+  , tags :: [Types.Tag]
+    -- ^ The tags to be assigned to the Amazon RDS resource.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AddTagsToResource' value with any optional fields omitted.
-mkAddTagsToResource ::
-  -- | 'resourceName'
-  Types.ResourceName ->
-  AddTagsToResource
-mkAddTagsToResource resourceName =
-  AddTagsToResource' {resourceName, tags = Core.mempty}
+mkAddTagsToResource
+    :: Core.Text -- ^ 'resourceName'
+    -> AddTagsToResource
+mkAddTagsToResource resourceName
+  = AddTagsToResource'{resourceName, tags = Core.mempty}
 
 -- | The Amazon RDS resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .
 --
 -- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-attrResourceName :: Lens.Lens' AddTagsToResource Types.ResourceName
+attrResourceName :: Lens.Lens' AddTagsToResource Core.Text
 attrResourceName = Lens.field @"resourceName"
-{-# DEPRECATED attrResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
+{-# INLINEABLE attrResourceName #-}
+{-# DEPRECATED resourceName "Use generic-lens or generic-optics with 'resourceName' instead"  #-}
 
 -- | The tags to be assigned to the Amazon RDS resource.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 attrTags :: Lens.Lens' AddTagsToResource [Types.Tag]
 attrTags = Lens.field @"tags"
-{-# DEPRECATED attrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+{-# INLINEABLE attrTags #-}
+{-# DEPRECATED tags "Use generic-lens or generic-optics with 'tags' instead"  #-}
+
+instance Core.ToQuery AddTagsToResource where
+        toQuery AddTagsToResource{..}
+          = Core.toQueryPair "Action" ("AddTagsToResource" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2014-10-31" :: Core.Text)
+              Core.<> Core.toQueryPair "ResourceName" resourceName
+              Core.<> Core.toQueryPair "Tags" (Core.toQueryList "Tag" tags)
+
+instance Core.ToHeaders AddTagsToResource where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest AddTagsToResource where
-  type Rs AddTagsToResource = AddTagsToResourceResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "AddTagsToResource")
-                Core.<> (Core.pure ("Version", "2014-10-31"))
-                Core.<> (Core.toQueryValue "ResourceName" resourceName)
-                Core.<> (Core.toQueryValue "Tags" (Core.toQueryList "Tag" tags))
-            )
-      }
-  response = Response.receiveNull AddTagsToResourceResponse'
+        type Rs AddTagsToResource = AddTagsToResourceResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull AddTagsToResourceResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkAddTagsToResourceResponse' smart constructor.
 data AddTagsToResourceResponse = AddTagsToResourceResponse'
@@ -100,6 +105,6 @@ data AddTagsToResourceResponse = AddTagsToResourceResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AddTagsToResourceResponse' value with any optional fields omitted.
-mkAddTagsToResourceResponse ::
-  AddTagsToResourceResponse
+mkAddTagsToResourceResponse
+    :: AddTagsToResourceResponse
 mkAddTagsToResourceResponse = AddTagsToResourceResponse'

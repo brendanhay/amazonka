@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,21 +15,19 @@
 --
 -- Terminates the stack for the specified application.
 module Network.AWS.SMS.TerminateApp
-  ( -- * Creating a request
-    TerminateApp (..),
-    mkTerminateApp,
-
+    (
+    -- * Creating a request
+      TerminateApp (..)
+    , mkTerminateApp
     -- ** Request lenses
-    taAppId,
+    , taAppId
 
     -- * Destructuring the response
-    TerminateAppResponse (..),
-    mkTerminateAppResponse,
-
+    , TerminateAppResponse (..)
+    , mkTerminateAppResponse
     -- ** Response lenses
-    tarrsResponseStatus,
-  )
-where
+    , tarrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -39,69 +37,74 @@ import qualified Network.AWS.SMS.Types as Types
 
 -- | /See:/ 'mkTerminateApp' smart constructor.
 newtype TerminateApp = TerminateApp'
-  { -- | The ID of the application.
-    appId :: Core.Maybe Types.AppId
+  { appId :: Core.Maybe Types.AppId
+    -- ^ The ID of the application.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'TerminateApp' value with any optional fields omitted.
-mkTerminateApp ::
-  TerminateApp
-mkTerminateApp = TerminateApp' {appId = Core.Nothing}
+mkTerminateApp
+    :: TerminateApp
+mkTerminateApp = TerminateApp'{appId = Core.Nothing}
 
 -- | The ID of the application.
 --
 -- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 taAppId :: Lens.Lens' TerminateApp (Core.Maybe Types.AppId)
 taAppId = Lens.field @"appId"
-{-# DEPRECATED taAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
+{-# INLINEABLE taAppId #-}
+{-# DEPRECATED appId "Use generic-lens or generic-optics with 'appId' instead"  #-}
+
+instance Core.ToQuery TerminateApp where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders TerminateApp where
+        toHeaders TerminateApp{..}
+          = Core.pure
+              ("X-Amz-Target",
+               "AWSServerMigrationService_V2016_10_24.TerminateApp")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON TerminateApp where
-  toJSON TerminateApp {..} =
-    Core.object (Core.catMaybes [("appId" Core..=) Core.<$> appId])
+        toJSON TerminateApp{..}
+          = Core.object (Core.catMaybes [("appId" Core..=) Core.<$> appId])
 
 instance Core.AWSRequest TerminateApp where
-  type Rs TerminateApp = TerminateAppResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "X-Amz-Target",
-              "AWSServerMigrationService_V2016_10_24.TerminateApp"
-            )
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveEmpty
-      ( \s h x ->
-          TerminateAppResponse' Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs TerminateApp = TerminateAppResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveEmpty
+              (\ s h x ->
+                 TerminateAppResponse' Core.<$> (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkTerminateAppResponse' smart constructor.
 newtype TerminateAppResponse = TerminateAppResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'TerminateAppResponse' value with any optional fields omitted.
-mkTerminateAppResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  TerminateAppResponse
-mkTerminateAppResponse responseStatus =
-  TerminateAppResponse' {responseStatus}
+mkTerminateAppResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> TerminateAppResponse
+mkTerminateAppResponse responseStatus
+  = TerminateAppResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 tarrsResponseStatus :: Lens.Lens' TerminateAppResponse Core.Int
 tarrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED tarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE tarrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

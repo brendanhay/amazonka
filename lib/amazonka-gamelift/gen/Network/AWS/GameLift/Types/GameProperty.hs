@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.GameLift.Types.GameProperty
-  ( GameProperty (..),
-
-    -- * Smart constructor
-    mkGameProperty,
-
-    -- * Lenses
-    gpKey,
-    gpValue,
-  )
-where
+  ( GameProperty (..)
+  -- * Smart constructor
+  , mkGameProperty
+  -- * Lenses
+  , gpKey
+  , gpValue
+  ) where
 
 import qualified Network.AWS.GameLift.Types.GamePropertyKey as Types
 import qualified Network.AWS.GameLift.Types.GamePropertyValue as Types
@@ -31,47 +29,45 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkGameProperty' smart constructor.
 data GameProperty = GameProperty'
-  { -- | The game property identifier.
-    key :: Types.GamePropertyKey,
-    -- | The game property value.
-    value :: Types.GamePropertyValue
+  { key :: Types.GamePropertyKey
+    -- ^ The game property identifier.
+  , value :: Types.GamePropertyValue
+    -- ^ The game property value.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GameProperty' value with any optional fields omitted.
-mkGameProperty ::
-  -- | 'key'
-  Types.GamePropertyKey ->
-  -- | 'value'
-  Types.GamePropertyValue ->
-  GameProperty
-mkGameProperty key value = GameProperty' {key, value}
+mkGameProperty
+    :: Types.GamePropertyKey -- ^ 'key'
+    -> Types.GamePropertyValue -- ^ 'value'
+    -> GameProperty
+mkGameProperty key value = GameProperty'{key, value}
 
 -- | The game property identifier.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gpKey :: Lens.Lens' GameProperty Types.GamePropertyKey
 gpKey = Lens.field @"key"
-{-# DEPRECATED gpKey "Use generic-lens or generic-optics with 'key' instead." #-}
+{-# INLINEABLE gpKey #-}
+{-# DEPRECATED key "Use generic-lens or generic-optics with 'key' instead"  #-}
 
 -- | The game property value.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gpValue :: Lens.Lens' GameProperty Types.GamePropertyValue
 gpValue = Lens.field @"value"
-{-# DEPRECATED gpValue "Use generic-lens or generic-optics with 'value' instead." #-}
+{-# INLINEABLE gpValue #-}
+{-# DEPRECATED value "Use generic-lens or generic-optics with 'value' instead"  #-}
 
 instance Core.FromJSON GameProperty where
-  toJSON GameProperty {..} =
-    Core.object
-      ( Core.catMaybes
-          [Core.Just ("Key" Core..= key), Core.Just ("Value" Core..= value)]
-      )
+        toJSON GameProperty{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("Key" Core..= key), Core.Just ("Value" Core..= value)])
 
 instance Core.FromJSON GameProperty where
-  parseJSON =
-    Core.withObject "GameProperty" Core.$
-      \x ->
-        GameProperty'
-          Core.<$> (x Core..: "Key") Core.<*> (x Core..: "Value")
+        parseJSON
+          = Core.withObject "GameProperty" Core.$
+              \ x ->
+                GameProperty' Core.<$> (x Core..: "Key") Core.<*> x Core..: "Value"

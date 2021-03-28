@@ -1,201 +1,203 @@
-cabal-version:      2.2
-name:               amazonka-elb
-version:            2.0.0.0
-synopsis:           Amazon Elastic Load Balancing SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-elb
+version:               2.0.0.0
+synopsis:              Amazon Elastic Load Balancing SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.ELB" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.ELB" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-elb
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-elb
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen src
-  exposed-modules:
-    Network.AWS.ELB
-    Network.AWS.ELB.AddTags
-    Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
-    Network.AWS.ELB.AttachLoadBalancerToSubnets
-    Network.AWS.ELB.ConfigureHealthCheck
-    Network.AWS.ELB.CreateAppCookieStickinessPolicy
-    Network.AWS.ELB.CreateLBCookieStickinessPolicy
-    Network.AWS.ELB.CreateLoadBalancer
-    Network.AWS.ELB.CreateLoadBalancerListeners
-    Network.AWS.ELB.CreateLoadBalancerPolicy
-    Network.AWS.ELB.DeleteLoadBalancer
-    Network.AWS.ELB.DeleteLoadBalancerListeners
-    Network.AWS.ELB.DeleteLoadBalancerPolicy
-    Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
-    Network.AWS.ELB.DescribeAccountLimits
-    Network.AWS.ELB.DescribeInstanceHealth
-    Network.AWS.ELB.DescribeLoadBalancerAttributes
-    Network.AWS.ELB.DescribeLoadBalancerPolicies
-    Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
-    Network.AWS.ELB.DescribeLoadBalancers
-    Network.AWS.ELB.DescribeTags
-    Network.AWS.ELB.DetachLoadBalancerFromSubnets
-    Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
-    Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
-    Network.AWS.ELB.ModifyLoadBalancerAttributes
-    Network.AWS.ELB.RegisterInstancesWithLoadBalancer
-    Network.AWS.ELB.RemoveTags
-    Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
-    Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
-    Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
-    Network.AWS.ELB.Types
-    Network.AWS.ELB.Waiters
+    import:         base
+    hs-source-dirs: gen src
 
-  other-modules:
-    Network.AWS.ELB.Internal
-    Network.AWS.ELB.Types.AccessLog
-    Network.AWS.ELB.Types.AccessPointName
-    Network.AWS.ELB.Types.AdditionalAttribute
-    Network.AWS.ELB.Types.AdditionalAttributeKey
-    Network.AWS.ELB.Types.AppCookieStickinessPolicy
-    Network.AWS.ELB.Types.AttributeName
-    Network.AWS.ELB.Types.AttributeType
-    Network.AWS.ELB.Types.AttributeValue
-    Network.AWS.ELB.Types.AvailabilityZone
-    Network.AWS.ELB.Types.BackendServerDescription
-    Network.AWS.ELB.Types.CanonicalHostedZoneName
-    Network.AWS.ELB.Types.CanonicalHostedZoneNameID
-    Network.AWS.ELB.Types.Cardinality
-    Network.AWS.ELB.Types.ConnectionDraining
-    Network.AWS.ELB.Types.ConnectionSettings
-    Network.AWS.ELB.Types.CookieName
-    Network.AWS.ELB.Types.CrossZoneLoadBalancing
-    Network.AWS.ELB.Types.DefaultValue
-    Network.AWS.ELB.Types.Description
-    Network.AWS.ELB.Types.DNSName
-    Network.AWS.ELB.Types.GroupName
-    Network.AWS.ELB.Types.HealthCheck
-    Network.AWS.ELB.Types.Instance
-    Network.AWS.ELB.Types.InstanceId
-    Network.AWS.ELB.Types.InstanceState
-    Network.AWS.ELB.Types.Key
-    Network.AWS.ELB.Types.LBCookieStickinessPolicy
-    Network.AWS.ELB.Types.Limit
-    Network.AWS.ELB.Types.Listener
-    Network.AWS.ELB.Types.ListenerDescription
-    Network.AWS.ELB.Types.LoadBalancerAttributes
-    Network.AWS.ELB.Types.LoadBalancerDescription
-    Network.AWS.ELB.Types.LoadBalancerName
-    Network.AWS.ELB.Types.LoadBalancerScheme
-    Network.AWS.ELB.Types.Marker
-    Network.AWS.ELB.Types.Max
-    Network.AWS.ELB.Types.Name
-    Network.AWS.ELB.Types.NextMarker
-    Network.AWS.ELB.Types.OwnerAlias
-    Network.AWS.ELB.Types.Policies
-    Network.AWS.ELB.Types.PolicyAttribute
-    Network.AWS.ELB.Types.PolicyAttributeDescription
-    Network.AWS.ELB.Types.PolicyAttributeTypeDescription
-    Network.AWS.ELB.Types.PolicyDescription
-    Network.AWS.ELB.Types.PolicyName
-    Network.AWS.ELB.Types.PolicyTypeDescription
-    Network.AWS.ELB.Types.PolicyTypeName
-    Network.AWS.ELB.Types.Protocol
-    Network.AWS.ELB.Types.ReasonCode
-    Network.AWS.ELB.Types.S3BucketName
-    Network.AWS.ELB.Types.S3BucketPrefix
-    Network.AWS.ELB.Types.SecurityGroupId
-    Network.AWS.ELB.Types.SourceSecurityGroup
-    Network.AWS.ELB.Types.SSLCertificateId
-    Network.AWS.ELB.Types.State
-    Network.AWS.ELB.Types.SubnetId
-    Network.AWS.ELB.Types.Tag
-    Network.AWS.ELB.Types.TagDescription
-    Network.AWS.ELB.Types.TagKey
-    Network.AWS.ELB.Types.TagKeyOnly
-    Network.AWS.ELB.Types.Target
-    Network.AWS.ELB.Types.Value
-    Network.AWS.ELB.Types.VPCId
+    exposed-modules:
+          Network.AWS.ELB
+        , Network.AWS.ELB.Types
+        , Network.AWS.ELB.Waiters
+        , Network.AWS.ELB.DescribeLoadBalancers
+        , Network.AWS.ELB.DescribeTags
+        , Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
+        , Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
+        , Network.AWS.ELB.RemoveTags
+        , Network.AWS.ELB.CreateLBCookieStickinessPolicy
+        , Network.AWS.ELB.DeleteLoadBalancer
+        , Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
+        , Network.AWS.ELB.CreateLoadBalancerPolicy
+        , Network.AWS.ELB.DescribeLoadBalancerPolicies
+        , Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
+        , Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
+        , Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
+        , Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
+        , Network.AWS.ELB.DescribeAccountLimits
+        , Network.AWS.ELB.AttachLoadBalancerToSubnets
+        , Network.AWS.ELB.ConfigureHealthCheck
+        , Network.AWS.ELB.ModifyLoadBalancerAttributes
+        , Network.AWS.ELB.CreateAppCookieStickinessPolicy
+        , Network.AWS.ELB.DescribeInstanceHealth
+        , Network.AWS.ELB.AddTags
+        , Network.AWS.ELB.DescribeLoadBalancerAttributes
+        , Network.AWS.ELB.CreateLoadBalancerListeners
+        , Network.AWS.ELB.DeleteLoadBalancerPolicy
+        , Network.AWS.ELB.DetachLoadBalancerFromSubnets
+        , Network.AWS.ELB.RegisterInstancesWithLoadBalancer
+        , Network.AWS.ELB.CreateLoadBalancer
+        , Network.AWS.ELB.DeleteLoadBalancerListeners
+        , Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.ELB.Internal
+        , Network.AWS.ELB.Types.InstanceId
+        , Network.AWS.ELB.Types.SourceSecurityGroup
+        , Network.AWS.ELB.Types.TagDescription
+        , Network.AWS.ELB.Types.Max
+        , Network.AWS.ELB.Types.State
+        , Network.AWS.ELB.Types.AccessPointName
+        , Network.AWS.ELB.Types.LoadBalancerScheme
+        , Network.AWS.ELB.Types.AttributeValue
+        , Network.AWS.ELB.Types.PolicyName
+        , Network.AWS.ELB.Types.Tag
+        , Network.AWS.ELB.Types.PolicyAttributeTypeDescription
+        , Network.AWS.ELB.Types.HealthCheck
+        , Network.AWS.ELB.Types.CrossZoneLoadBalancing
+        , Network.AWS.ELB.Types.LoadBalancerAttributes
+        , Network.AWS.ELB.Types.AccessLog
+        , Network.AWS.ELB.Types.ListenerDescription
+        , Network.AWS.ELB.Types.VPCId
+        , Network.AWS.ELB.Types.Protocol
+        , Network.AWS.ELB.Types.LBCookieStickinessPolicy
+        , Network.AWS.ELB.Types.PolicyDescription
+        , Network.AWS.ELB.Types.SubnetId
+        , Network.AWS.ELB.Types.ReasonCode
+        , Network.AWS.ELB.Types.AppCookieStickinessPolicy
+        , Network.AWS.ELB.Types.SecurityGroupId
+        , Network.AWS.ELB.Types.PolicyAttribute
+        , Network.AWS.ELB.Types.LoadBalancerDescription
+        , Network.AWS.ELB.Types.SSLCertificateId
+        , Network.AWS.ELB.Types.AttributeType
+        , Network.AWS.ELB.Types.BackendServerDescription
+        , Network.AWS.ELB.Types.PolicyTypeName
+        , Network.AWS.ELB.Types.AvailabilityZone
+        , Network.AWS.ELB.Types.Name
+        , Network.AWS.ELB.Types.AdditionalAttributeKey
+        , Network.AWS.ELB.Types.PolicyAttributeDescription
+        , Network.AWS.ELB.Types.Marker
+        , Network.AWS.ELB.Types.Cardinality
+        , Network.AWS.ELB.Types.Limit
+        , Network.AWS.ELB.Types.AdditionalAttribute
+        , Network.AWS.ELB.Types.TagKey
+        , Network.AWS.ELB.Types.DefaultValue
+        , Network.AWS.ELB.Types.CookieName
+        , Network.AWS.ELB.Types.AttributeName
+        , Network.AWS.ELB.Types.ConnectionSettings
+        , Network.AWS.ELB.Types.PolicyTypeDescription
+        , Network.AWS.ELB.Types.Description
+        , Network.AWS.ELB.Types.DNSName
+        , Network.AWS.ELB.Types.Policies
+        , Network.AWS.ELB.Types.Listener
+        , Network.AWS.ELB.Types.ConnectionDraining
+        , Network.AWS.ELB.Types.InstanceState
+        , Network.AWS.ELB.Types.S3BucketName
+        , Network.AWS.ELB.Types.TagKeyOnly
+        , Network.AWS.ELB.Types.Instance
+        , Network.AWS.ELB.Types.LoadBalancerName
+        , Network.AWS.ELB.Types.GroupName
+        , Network.AWS.ELB.Types.OwnerAlias
+        , Network.AWS.ELB.Types.Key
+        , Network.AWS.ELB.Types.Value
+        , Network.AWS.ELB.Types.Target
+        , Network.AWS.ELB.Types.NextMarker
+        , Network.AWS.ELB.Types.S3BucketPrefix
+        , Network.AWS.ELB.Types.CanonicalHostedZoneName
+        , Network.AWS.ELB.Types.CanonicalHostedZoneNameID
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-elb-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.ELB
-    Test.AWS.ELB.Internal
-    Test.AWS.Gen.ELB
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core         >=2.0.0.0 && <2.0.0.1
-    , amazonka-elb
-    , amazonka-test         >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.ELB
+        , Test.AWS.Gen.ELB
+        , Test.AWS.ELB.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-elb
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

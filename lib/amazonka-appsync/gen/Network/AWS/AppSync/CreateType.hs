@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,24 +15,22 @@
 --
 -- Creates a @Type@ object.
 module Network.AWS.AppSync.CreateType
-  ( -- * Creating a request
-    CreateType (..),
-    mkCreateType,
-
+    (
+    -- * Creating a request
+      CreateType (..)
+    , mkCreateType
     -- ** Request lenses
-    ctApiId,
-    ctDefinition,
-    ctFormat,
+    , ctApiId
+    , ctDefinition
+    , ctFormat
 
     -- * Destructuring the response
-    CreateTypeResponse (..),
-    mkCreateTypeResponse,
-
+    , CreateTypeResponse (..)
+    , mkCreateTypeResponse
     -- ** Response lenses
-    ctrrsType,
-    ctrrsResponseStatus,
-  )
-where
+    , ctrrsType
+    , ctrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.AppSync.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -42,111 +40,115 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateType' smart constructor.
 data CreateType = CreateType'
-  { -- | The API ID.
-    apiId :: Types.String,
-    -- | The type definition, in GraphQL Schema Definition Language (SDL) format.
-    --
-    -- For more information, see the <http://graphql.org/learn/schema/ GraphQL SDL documentation> .
-    definition :: Types.String,
-    -- | The type format: SDL or JSON.
-    format :: Types.TypeDefinitionFormat
+  { apiId :: Core.Text
+    -- ^ The API ID.
+  , definition :: Core.Text
+    -- ^ The type definition, in GraphQL Schema Definition Language (SDL) format.
+--
+-- For more information, see the <http://graphql.org/learn/schema/ GraphQL SDL documentation> .
+  , format :: Types.TypeDefinitionFormat
+    -- ^ The type format: SDL or JSON.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CreateType' value with any optional fields omitted.
-mkCreateType ::
-  -- | 'apiId'
-  Types.String ->
-  -- | 'definition'
-  Types.String ->
-  -- | 'format'
-  Types.TypeDefinitionFormat ->
-  CreateType
-mkCreateType apiId definition format =
-  CreateType' {apiId, definition, format}
+mkCreateType
+    :: Core.Text -- ^ 'apiId'
+    -> Core.Text -- ^ 'definition'
+    -> Types.TypeDefinitionFormat -- ^ 'format'
+    -> CreateType
+mkCreateType apiId definition format
+  = CreateType'{apiId, definition, format}
 
 -- | The API ID.
 --
 -- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctApiId :: Lens.Lens' CreateType Types.String
+ctApiId :: Lens.Lens' CreateType Core.Text
 ctApiId = Lens.field @"apiId"
-{-# DEPRECATED ctApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
+{-# INLINEABLE ctApiId #-}
+{-# DEPRECATED apiId "Use generic-lens or generic-optics with 'apiId' instead"  #-}
 
 -- | The type definition, in GraphQL Schema Definition Language (SDL) format.
 --
 -- For more information, see the <http://graphql.org/learn/schema/ GraphQL SDL documentation> .
 --
 -- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctDefinition :: Lens.Lens' CreateType Types.String
+ctDefinition :: Lens.Lens' CreateType Core.Text
 ctDefinition = Lens.field @"definition"
-{-# DEPRECATED ctDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
+{-# INLINEABLE ctDefinition #-}
+{-# DEPRECATED definition "Use generic-lens or generic-optics with 'definition' instead"  #-}
 
 -- | The type format: SDL or JSON.
 --
 -- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ctFormat :: Lens.Lens' CreateType Types.TypeDefinitionFormat
 ctFormat = Lens.field @"format"
-{-# DEPRECATED ctFormat "Use generic-lens or generic-optics with 'format' instead." #-}
+{-# INLINEABLE ctFormat #-}
+{-# DEPRECATED format "Use generic-lens or generic-optics with 'format' instead"  #-}
+
+instance Core.ToQuery CreateType where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders CreateType where
+        toHeaders CreateType{..}
+          = Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON CreateType where
-  toJSON CreateType {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("definition" Core..= definition),
-            Core.Just ("format" Core..= format)
-          ]
-      )
+        toJSON CreateType{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("definition" Core..= definition),
+                  Core.Just ("format" Core..= format)])
 
 instance Core.AWSRequest CreateType where
-  type Rs CreateType = CreateTypeResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath =
-          Core.rawPath
-            ("/v1/apis/" Core.<> (Core.toText apiId) Core.<> ("/types")),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          CreateTypeResponse'
-            Core.<$> (x Core..:? "type") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs CreateType = CreateTypeResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST,
+                         Core._rqPath =
+                           "/v1/apis/" Core.<> Core.toText apiId Core.<> "/types",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 CreateTypeResponse' Core.<$>
+                   (x Core..:? "type") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkCreateTypeResponse' smart constructor.
 data CreateTypeResponse = CreateTypeResponse'
-  { -- | The @Type@ object.
-    type' :: Core.Maybe Types.Type,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { type' :: Core.Maybe Types.Type
+    -- ^ The @Type@ object.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CreateTypeResponse' value with any optional fields omitted.
-mkCreateTypeResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  CreateTypeResponse
-mkCreateTypeResponse responseStatus =
-  CreateTypeResponse' {type' = Core.Nothing, responseStatus}
+mkCreateTypeResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> CreateTypeResponse
+mkCreateTypeResponse responseStatus
+  = CreateTypeResponse'{type' = Core.Nothing, responseStatus}
 
 -- | The @Type@ object.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ctrrsType :: Lens.Lens' CreateTypeResponse (Core.Maybe Types.Type)
 ctrrsType = Lens.field @"type'"
-{-# DEPRECATED ctrrsType "Use generic-lens or generic-optics with 'type'' instead." #-}
+{-# INLINEABLE ctrrsType #-}
+{-# DEPRECATED type' "Use generic-lens or generic-optics with 'type'' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ctrrsResponseStatus :: Lens.Lens' CreateTypeResponse Core.Int
 ctrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED ctrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE ctrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -30,25 +30,23 @@
 -- A container instance has completed draining when it has no more @RUNNING@ tasks. You can verify this using 'ListTasks' .
 -- When a container instance has been drained, you can set a container instance to @ACTIVE@ status and once it has reached that status the Amazon ECS scheduler can begin scheduling tasks on the instance again.
 module Network.AWS.ECS.UpdateContainerInstancesState
-  ( -- * Creating a request
-    UpdateContainerInstancesState (..),
-    mkUpdateContainerInstancesState,
-
+    (
+    -- * Creating a request
+      UpdateContainerInstancesState (..)
+    , mkUpdateContainerInstancesState
     -- ** Request lenses
-    ucisContainerInstances,
-    ucisStatus,
-    ucisCluster,
+    , ucisContainerInstances
+    , ucisStatus
+    , ucisCluster
 
     -- * Destructuring the response
-    UpdateContainerInstancesStateResponse (..),
-    mkUpdateContainerInstancesStateResponse,
-
+    , UpdateContainerInstancesStateResponse (..)
+    , mkUpdateContainerInstancesStateResponse
     -- ** Response lenses
-    ucisrrsContainerInstances,
-    ucisrrsFailures,
-    ucisrrsResponseStatus,
-  )
-where
+    , ucisrrsContainerInstances
+    , ucisrrsFailures
+    , ucisrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.ECS.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -58,128 +56,126 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateContainerInstancesState' smart constructor.
 data UpdateContainerInstancesState = UpdateContainerInstancesState'
-  { -- | A list of container instance IDs or full ARN entries.
-    containerInstances :: [Types.String],
-    -- | The container instance state with which to update the container instance. The only valid values for this action are @ACTIVE@ and @DRAINING@ . A container instance can only be updated to @DRAINING@ status once it has reached an @ACTIVE@ state. If a container instance is in @REGISTERING@ , @DEREGISTERING@ , or @REGISTRATION_FAILED@ state you can describe the container instance but will be unable to update the container instance state.
-    status :: Types.ContainerInstanceStatus,
-    -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to update. If you do not specify a cluster, the default cluster is assumed.
-    cluster :: Core.Maybe Types.String
+  { containerInstances :: [Core.Text]
+    -- ^ A list of container instance IDs or full ARN entries.
+  , status :: Types.ContainerInstanceStatus
+    -- ^ The container instance state with which to update the container instance. The only valid values for this action are @ACTIVE@ and @DRAINING@ . A container instance can only be updated to @DRAINING@ status once it has reached an @ACTIVE@ state. If a container instance is in @REGISTERING@ , @DEREGISTERING@ , or @REGISTRATION_FAILED@ state you can describe the container instance but will be unable to update the container instance state.
+  , cluster :: Core.Maybe Core.Text
+    -- ^ The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to update. If you do not specify a cluster, the default cluster is assumed.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UpdateContainerInstancesState' value with any optional fields omitted.
-mkUpdateContainerInstancesState ::
-  -- | 'status'
-  Types.ContainerInstanceStatus ->
-  UpdateContainerInstancesState
-mkUpdateContainerInstancesState status =
-  UpdateContainerInstancesState'
-    { containerInstances = Core.mempty,
-      status,
-      cluster = Core.Nothing
-    }
+mkUpdateContainerInstancesState
+    :: Types.ContainerInstanceStatus -- ^ 'status'
+    -> UpdateContainerInstancesState
+mkUpdateContainerInstancesState status
+  = UpdateContainerInstancesState'{containerInstances = Core.mempty,
+                                   status, cluster = Core.Nothing}
 
 -- | A list of container instance IDs or full ARN entries.
 --
 -- /Note:/ Consider using 'containerInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucisContainerInstances :: Lens.Lens' UpdateContainerInstancesState [Types.String]
+ucisContainerInstances :: Lens.Lens' UpdateContainerInstancesState [Core.Text]
 ucisContainerInstances = Lens.field @"containerInstances"
-{-# DEPRECATED ucisContainerInstances "Use generic-lens or generic-optics with 'containerInstances' instead." #-}
+{-# INLINEABLE ucisContainerInstances #-}
+{-# DEPRECATED containerInstances "Use generic-lens or generic-optics with 'containerInstances' instead"  #-}
 
 -- | The container instance state with which to update the container instance. The only valid values for this action are @ACTIVE@ and @DRAINING@ . A container instance can only be updated to @DRAINING@ status once it has reached an @ACTIVE@ state. If a container instance is in @REGISTERING@ , @DEREGISTERING@ , or @REGISTRATION_FAILED@ state you can describe the container instance but will be unable to update the container instance state.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ucisStatus :: Lens.Lens' UpdateContainerInstancesState Types.ContainerInstanceStatus
 ucisStatus = Lens.field @"status"
-{-# DEPRECATED ucisStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+{-# INLINEABLE ucisStatus #-}
+{-# DEPRECATED status "Use generic-lens or generic-optics with 'status' instead"  #-}
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the container instance to update. If you do not specify a cluster, the default cluster is assumed.
 --
 -- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucisCluster :: Lens.Lens' UpdateContainerInstancesState (Core.Maybe Types.String)
+ucisCluster :: Lens.Lens' UpdateContainerInstancesState (Core.Maybe Core.Text)
 ucisCluster = Lens.field @"cluster"
-{-# DEPRECATED ucisCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
+{-# INLINEABLE ucisCluster #-}
+{-# DEPRECATED cluster "Use generic-lens or generic-optics with 'cluster' instead"  #-}
+
+instance Core.ToQuery UpdateContainerInstancesState where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders UpdateContainerInstancesState where
+        toHeaders UpdateContainerInstancesState{..}
+          = Core.pure
+              ("X-Amz-Target",
+               "AmazonEC2ContainerServiceV20141113.UpdateContainerInstancesState")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON UpdateContainerInstancesState where
-  toJSON UpdateContainerInstancesState {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("containerInstances" Core..= containerInstances),
-            Core.Just ("status" Core..= status),
-            ("cluster" Core..=) Core.<$> cluster
-          ]
-      )
+        toJSON UpdateContainerInstancesState{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("containerInstances" Core..= containerInstances),
+                  Core.Just ("status" Core..= status),
+                  ("cluster" Core..=) Core.<$> cluster])
 
 instance Core.AWSRequest UpdateContainerInstancesState where
-  type
-    Rs UpdateContainerInstancesState =
-      UpdateContainerInstancesStateResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "X-Amz-Target",
-              "AmazonEC2ContainerServiceV20141113.UpdateContainerInstancesState"
-            )
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          UpdateContainerInstancesStateResponse'
-            Core.<$> (x Core..:? "containerInstances")
-            Core.<*> (x Core..:? "failures")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs UpdateContainerInstancesState =
+             UpdateContainerInstancesStateResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 UpdateContainerInstancesStateResponse' Core.<$>
+                   (x Core..:? "containerInstances") Core.<*> x Core..:? "failures"
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkUpdateContainerInstancesStateResponse' smart constructor.
 data UpdateContainerInstancesStateResponse = UpdateContainerInstancesStateResponse'
-  { -- | The list of container instances.
-    containerInstances :: Core.Maybe [Types.ContainerInstance],
-    -- | Any failures associated with the call.
-    failures :: Core.Maybe [Types.Failure],
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { containerInstances :: Core.Maybe [Types.ContainerInstance]
+    -- ^ The list of container instances.
+  , failures :: Core.Maybe [Types.Failure]
+    -- ^ Any failures associated with the call.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'UpdateContainerInstancesStateResponse' value with any optional fields omitted.
-mkUpdateContainerInstancesStateResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  UpdateContainerInstancesStateResponse
-mkUpdateContainerInstancesStateResponse responseStatus =
-  UpdateContainerInstancesStateResponse'
-    { containerInstances =
-        Core.Nothing,
-      failures = Core.Nothing,
-      responseStatus
-    }
+mkUpdateContainerInstancesStateResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> UpdateContainerInstancesStateResponse
+mkUpdateContainerInstancesStateResponse responseStatus
+  = UpdateContainerInstancesStateResponse'{containerInstances =
+                                             Core.Nothing,
+                                           failures = Core.Nothing, responseStatus}
 
 -- | The list of container instances.
 --
 -- /Note:/ Consider using 'containerInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ucisrrsContainerInstances :: Lens.Lens' UpdateContainerInstancesStateResponse (Core.Maybe [Types.ContainerInstance])
 ucisrrsContainerInstances = Lens.field @"containerInstances"
-{-# DEPRECATED ucisrrsContainerInstances "Use generic-lens or generic-optics with 'containerInstances' instead." #-}
+{-# INLINEABLE ucisrrsContainerInstances #-}
+{-# DEPRECATED containerInstances "Use generic-lens or generic-optics with 'containerInstances' instead"  #-}
 
 -- | Any failures associated with the call.
 --
 -- /Note:/ Consider using 'failures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ucisrrsFailures :: Lens.Lens' UpdateContainerInstancesStateResponse (Core.Maybe [Types.Failure])
 ucisrrsFailures = Lens.field @"failures"
-{-# DEPRECATED ucisrrsFailures "Use generic-lens or generic-optics with 'failures' instead." #-}
+{-# INLINEABLE ucisrrsFailures #-}
+{-# DEPRECATED failures "Use generic-lens or generic-optics with 'failures' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ucisrrsResponseStatus :: Lens.Lens' UpdateContainerInstancesStateResponse Core.Int
 ucisrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED ucisrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE ucisrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

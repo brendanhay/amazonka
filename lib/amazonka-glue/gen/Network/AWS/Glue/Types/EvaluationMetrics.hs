@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Glue.Types.EvaluationMetrics
-  ( EvaluationMetrics (..),
-
-    -- * Smart constructor
-    mkEvaluationMetrics,
-
-    -- * Lenses
-    emTransformType,
-    emFindMatchesMetrics,
-  )
-where
+  ( EvaluationMetrics (..)
+  -- * Smart constructor
+  , mkEvaluationMetrics
+  -- * Lenses
+  , emTransformType
+  , emFindMatchesMetrics
+  ) where
 
 import qualified Network.AWS.Glue.Types.FindMatchesMetrics as Types
 import qualified Network.AWS.Glue.Types.TransformType as Types
@@ -31,43 +29,42 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkEvaluationMetrics' smart constructor.
 data EvaluationMetrics = EvaluationMetrics'
-  { -- | The type of machine learning transform.
-    transformType :: Types.TransformType,
-    -- | The evaluation metrics for the find matches algorithm.
-    findMatchesMetrics :: Core.Maybe Types.FindMatchesMetrics
+  { transformType :: Types.TransformType
+    -- ^ The type of machine learning transform.
+  , findMatchesMetrics :: Core.Maybe Types.FindMatchesMetrics
+    -- ^ The evaluation metrics for the find matches algorithm.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'EvaluationMetrics' value with any optional fields omitted.
-mkEvaluationMetrics ::
-  -- | 'transformType'
-  Types.TransformType ->
-  EvaluationMetrics
-mkEvaluationMetrics transformType =
-  EvaluationMetrics'
-    { transformType,
-      findMatchesMetrics = Core.Nothing
-    }
+mkEvaluationMetrics
+    :: Types.TransformType -- ^ 'transformType'
+    -> EvaluationMetrics
+mkEvaluationMetrics transformType
+  = EvaluationMetrics'{transformType,
+                       findMatchesMetrics = Core.Nothing}
 
 -- | The type of machine learning transform.
 --
 -- /Note:/ Consider using 'transformType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 emTransformType :: Lens.Lens' EvaluationMetrics Types.TransformType
 emTransformType = Lens.field @"transformType"
-{-# DEPRECATED emTransformType "Use generic-lens or generic-optics with 'transformType' instead." #-}
+{-# INLINEABLE emTransformType #-}
+{-# DEPRECATED transformType "Use generic-lens or generic-optics with 'transformType' instead"  #-}
 
 -- | The evaluation metrics for the find matches algorithm.
 --
 -- /Note:/ Consider using 'findMatchesMetrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 emFindMatchesMetrics :: Lens.Lens' EvaluationMetrics (Core.Maybe Types.FindMatchesMetrics)
 emFindMatchesMetrics = Lens.field @"findMatchesMetrics"
-{-# DEPRECATED emFindMatchesMetrics "Use generic-lens or generic-optics with 'findMatchesMetrics' instead." #-}
+{-# INLINEABLE emFindMatchesMetrics #-}
+{-# DEPRECATED findMatchesMetrics "Use generic-lens or generic-optics with 'findMatchesMetrics' instead"  #-}
 
 instance Core.FromJSON EvaluationMetrics where
-  parseJSON =
-    Core.withObject "EvaluationMetrics" Core.$
-      \x ->
-        EvaluationMetrics'
-          Core.<$> (x Core..: "TransformType")
-          Core.<*> (x Core..:? "FindMatchesMetrics")
+        parseJSON
+          = Core.withObject "EvaluationMetrics" Core.$
+              \ x ->
+                EvaluationMetrics' Core.<$>
+                  (x Core..: "TransformType") Core.<*>
+                    x Core..:? "FindMatchesMetrics"

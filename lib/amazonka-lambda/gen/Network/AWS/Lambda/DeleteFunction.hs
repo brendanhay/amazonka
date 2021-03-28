@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,19 +17,18 @@
 --
 -- To delete Lambda event source mappings that invoke a function, use 'DeleteEventSourceMapping' . For AWS services and resources that invoke your function directly, delete the trigger in the service where you originally configured it.
 module Network.AWS.Lambda.DeleteFunction
-  ( -- * Creating a request
-    DeleteFunction (..),
-    mkDeleteFunction,
-
+    (
+    -- * Creating a request
+      DeleteFunction (..)
+    , mkDeleteFunction
     -- ** Request lenses
-    dfFunctionName,
-    dfQualifier,
+    , dfFunctionName
+    , dfQualifier
 
     -- * Destructuring the response
-    DeleteFunctionResponse (..),
-    mkDeleteFunctionResponse,
-  )
-where
+    , DeleteFunctionResponse (..)
+    , mkDeleteFunctionResponse
+    ) where
 
 import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -39,38 +38,37 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteFunction' smart constructor.
 data DeleteFunction = DeleteFunction'
-  { -- | The name of the Lambda function or version.
-    --
-    -- __Name formats__
-    --
-    --     * __Function name__ - @my-function@ (name-only), @my-function:1@ (with version).
-    --
-    --
-    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
-    --
-    --
-    --     * __Partial ARN__ - @123456789012:function:my-function@ .
-    --
-    --
-    -- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-    functionName :: Types.FunctionName,
-    -- | Specify a version to delete. You can't delete a version that's referenced by an alias.
-    qualifier :: Core.Maybe Types.Qualifier
+  { functionName :: Types.FunctionName
+    -- ^ The name of the Lambda function or version.
+--
+-- __Name formats__ 
+--
+--     * __Function name__ - @my-function@ (name-only), @my-function:1@ (with version).
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
+--
+--
+-- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+  , qualifier :: Core.Maybe Types.Qualifier
+    -- ^ Specify a version to delete. You can't delete a version that's referenced by an alias.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteFunction' value with any optional fields omitted.
-mkDeleteFunction ::
-  -- | 'functionName'
-  Types.FunctionName ->
-  DeleteFunction
-mkDeleteFunction functionName =
-  DeleteFunction' {functionName, qualifier = Core.Nothing}
+mkDeleteFunction
+    :: Types.FunctionName -- ^ 'functionName'
+    -> DeleteFunction
+mkDeleteFunction functionName
+  = DeleteFunction'{functionName, qualifier = Core.Nothing}
 
 -- | The name of the Lambda function or version.
 --
--- __Name formats__
+-- __Name formats__ 
 --
 --     * __Function name__ - @my-function@ (name-only), @my-function:1@ (with version).
 --
@@ -86,29 +84,38 @@ mkDeleteFunction functionName =
 -- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dfFunctionName :: Lens.Lens' DeleteFunction Types.FunctionName
 dfFunctionName = Lens.field @"functionName"
-{-# DEPRECATED dfFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
+{-# INLINEABLE dfFunctionName #-}
+{-# DEPRECATED functionName "Use generic-lens or generic-optics with 'functionName' instead"  #-}
 
 -- | Specify a version to delete. You can't delete a version that's referenced by an alias.
 --
 -- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dfQualifier :: Lens.Lens' DeleteFunction (Core.Maybe Types.Qualifier)
 dfQualifier = Lens.field @"qualifier"
-{-# DEPRECATED dfQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
+{-# INLINEABLE dfQualifier #-}
+{-# DEPRECATED qualifier "Use generic-lens or generic-optics with 'qualifier' instead"  #-}
+
+instance Core.ToQuery DeleteFunction where
+        toQuery DeleteFunction{..}
+          = Core.maybe Core.mempty (Core.toQueryPair "Qualifier") qualifier
+
+instance Core.ToHeaders DeleteFunction where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest DeleteFunction where
-  type Rs DeleteFunction = DeleteFunctionResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.DELETE,
-        Core._rqPath =
-          Core.rawPath
-            ("/2015-03-31/functions/" Core.<> (Core.toText functionName)),
-        Core._rqQuery = Core.toQueryValue "Qualifier" Core.<$> qualifier,
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = ""
-      }
-  response = Response.receiveNull DeleteFunctionResponse'
+        type Rs DeleteFunction = DeleteFunctionResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.DELETE,
+                         Core._rqPath =
+                           "/2015-03-31/functions/" Core.<> Core.toText functionName,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull DeleteFunctionResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteFunctionResponse' smart constructor.
 data DeleteFunctionResponse = DeleteFunctionResponse'
@@ -116,6 +123,6 @@ data DeleteFunctionResponse = DeleteFunctionResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteFunctionResponse' value with any optional fields omitted.
-mkDeleteFunctionResponse ::
-  DeleteFunctionResponse
+mkDeleteFunctionResponse
+    :: DeleteFunctionResponse
 mkDeleteFunctionResponse = DeleteFunctionResponse'

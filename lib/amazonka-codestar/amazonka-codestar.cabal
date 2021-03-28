@@ -1,170 +1,172 @@
-cabal-version:      2.2
-name:               amazonka-codestar
-version:            2.0.0.0
-synopsis:           Amazon CodeStar SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-codestar
+version:               2.0.0.0
+synopsis:              Amazon CodeStar SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.CodeStar" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.CodeStar" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-codestar
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-codestar
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.CodeStar
-    Network.AWS.CodeStar.AssociateTeamMember
-    Network.AWS.CodeStar.CreateProject
-    Network.AWS.CodeStar.CreateUserProfile
-    Network.AWS.CodeStar.DeleteProject
-    Network.AWS.CodeStar.DeleteUserProfile
-    Network.AWS.CodeStar.DescribeProject
-    Network.AWS.CodeStar.DescribeUserProfile
-    Network.AWS.CodeStar.DisassociateTeamMember
-    Network.AWS.CodeStar.ListProjects
-    Network.AWS.CodeStar.ListResources
-    Network.AWS.CodeStar.ListTagsForProject
-    Network.AWS.CodeStar.ListTeamMembers
-    Network.AWS.CodeStar.ListUserProfiles
-    Network.AWS.CodeStar.TagProject
-    Network.AWS.CodeStar.Types
-    Network.AWS.CodeStar.UntagProject
-    Network.AWS.CodeStar.UpdateProject
-    Network.AWS.CodeStar.UpdateTeamMember
-    Network.AWS.CodeStar.UpdateUserProfile
-    Network.AWS.CodeStar.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.CodeStar.Types.Arn
-    Network.AWS.CodeStar.Types.BucketKey
-    Network.AWS.CodeStar.Types.BucketName
-    Network.AWS.CodeStar.Types.ClientRequestToken
-    Network.AWS.CodeStar.Types.Code
-    Network.AWS.CodeStar.Types.CodeCommitCodeDestination
-    Network.AWS.CodeStar.Types.CodeDestination
-    Network.AWS.CodeStar.Types.CodeSource
-    Network.AWS.CodeStar.Types.Description
-    Network.AWS.CodeStar.Types.DisplayName
-    Network.AWS.CodeStar.Types.Email
-    Network.AWS.CodeStar.Types.GitHubCodeDestination
-    Network.AWS.CodeStar.Types.Id
-    Network.AWS.CodeStar.Types.Name
-    Network.AWS.CodeStar.Types.Owner
-    Network.AWS.CodeStar.Types.PaginationToken
-    Network.AWS.CodeStar.Types.ProjectArn
-    Network.AWS.CodeStar.Types.ProjectId
-    Network.AWS.CodeStar.Types.ProjectName
-    Network.AWS.CodeStar.Types.ProjectRole
-    Network.AWS.CodeStar.Types.ProjectStatus
-    Network.AWS.CodeStar.Types.ProjectSummary
-    Network.AWS.CodeStar.Types.ProjectTemplateId
-    Network.AWS.CodeStar.Types.Reason
-    Network.AWS.CodeStar.Types.Resource
-    Network.AWS.CodeStar.Types.ResourceId
-    Network.AWS.CodeStar.Types.Role
-    Network.AWS.CodeStar.Types.RoleArn
-    Network.AWS.CodeStar.Types.S3Location
-    Network.AWS.CodeStar.Types.SshPublicKey
-    Network.AWS.CodeStar.Types.StackId
-    Network.AWS.CodeStar.Types.State
-    Network.AWS.CodeStar.Types.TagKey
-    Network.AWS.CodeStar.Types.TagValue
-    Network.AWS.CodeStar.Types.TeamMember
-    Network.AWS.CodeStar.Types.TemplateParameterKey
-    Network.AWS.CodeStar.Types.TemplateParameterValue
-    Network.AWS.CodeStar.Types.Token
-    Network.AWS.CodeStar.Types.Toolchain
-    Network.AWS.CodeStar.Types.ToolchainSource
-    Network.AWS.CodeStar.Types.Type
-    Network.AWS.CodeStar.Types.UserArn
-    Network.AWS.CodeStar.Types.UserProfileDisplayName
-    Network.AWS.CodeStar.Types.UserProfileSummary
+    exposed-modules:
+          Network.AWS.CodeStar
+        , Network.AWS.CodeStar.Types
+        , Network.AWS.CodeStar.Waiters
+        , Network.AWS.CodeStar.ListProjects
+        , Network.AWS.CodeStar.ListTeamMembers
+        , Network.AWS.CodeStar.DeleteProject
+        , Network.AWS.CodeStar.UpdateProject
+        , Network.AWS.CodeStar.DisassociateTeamMember
+        , Network.AWS.CodeStar.TagProject
+        , Network.AWS.CodeStar.DescribeProject
+        , Network.AWS.CodeStar.ListUserProfiles
+        , Network.AWS.CodeStar.ListResources
+        , Network.AWS.CodeStar.AssociateTeamMember
+        , Network.AWS.CodeStar.UntagProject
+        , Network.AWS.CodeStar.UpdateTeamMember
+        , Network.AWS.CodeStar.DescribeUserProfile
+        , Network.AWS.CodeStar.ListTagsForProject
+        , Network.AWS.CodeStar.DeleteUserProfile
+        , Network.AWS.CodeStar.UpdateUserProfile
+        , Network.AWS.CodeStar.CreateUserProfile
+        , Network.AWS.CodeStar.CreateProject
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.CodeStar.Types.GitHubCodeDestination
+        , Network.AWS.CodeStar.Types.Email
+        , Network.AWS.CodeStar.Types.PaginationToken
+        , Network.AWS.CodeStar.Types.State
+        , Network.AWS.CodeStar.Types.UserProfileDisplayName
+        , Network.AWS.CodeStar.Types.ResourceId
+        , Network.AWS.CodeStar.Types.TeamMember
+        , Network.AWS.CodeStar.Types.CodeCommitCodeDestination
+        , Network.AWS.CodeStar.Types.ToolchainSource
+        , Network.AWS.CodeStar.Types.CodeSource
+        , Network.AWS.CodeStar.Types.ProjectTemplateId
+        , Network.AWS.CodeStar.Types.UserProfileSummary
+        , Network.AWS.CodeStar.Types.SshPublicKey
+        , Network.AWS.CodeStar.Types.BucketKey
+        , Network.AWS.CodeStar.Types.ProjectStatus
+        , Network.AWS.CodeStar.Types.TagValue
+        , Network.AWS.CodeStar.Types.CodeDestination
+        , Network.AWS.CodeStar.Types.BucketName
+        , Network.AWS.CodeStar.Types.Reason
+        , Network.AWS.CodeStar.Types.UserArn
+        , Network.AWS.CodeStar.Types.Role
+        , Network.AWS.CodeStar.Types.TemplateParameterValue
+        , Network.AWS.CodeStar.Types.Resource
+        , Network.AWS.CodeStar.Types.ProjectName
+        , Network.AWS.CodeStar.Types.Toolchain
+        , Network.AWS.CodeStar.Types.Code
+        , Network.AWS.CodeStar.Types.TagKey
+        , Network.AWS.CodeStar.Types.S3Location
+        , Network.AWS.CodeStar.Types.ProjectId
+        , Network.AWS.CodeStar.Types.ProjectArn
+        , Network.AWS.CodeStar.Types.StackId
+        , Network.AWS.CodeStar.Types.ClientRequestToken
+        , Network.AWS.CodeStar.Types.TemplateParameterKey
+        , Network.AWS.CodeStar.Types.ProjectSummary
+        , Network.AWS.CodeStar.Types.RoleArn
+        , Network.AWS.CodeStar.Types.Name
+        , Network.AWS.CodeStar.Types.Type
+        , Network.AWS.CodeStar.Types.Owner
+        , Network.AWS.CodeStar.Types.Token
+        , Network.AWS.CodeStar.Types.Description
+        , Network.AWS.CodeStar.Types.DisplayName
+        , Network.AWS.CodeStar.Types.Id
+        , Network.AWS.CodeStar.Types.ProjectRole
+        , Network.AWS.CodeStar.Types.Arn
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-codestar-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.CodeStar
-    Test.AWS.CodeStar.Internal
-    Test.AWS.Gen.CodeStar
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-codestar
-    , amazonka-core         >=2.0.0.0 && <2.0.0.1
-    , amazonka-test         >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.CodeStar
+        , Test.AWS.Gen.CodeStar
+        , Test.AWS.CodeStar.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-codestar
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

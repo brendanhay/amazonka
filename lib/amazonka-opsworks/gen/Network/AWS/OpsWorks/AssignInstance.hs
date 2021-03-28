@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -27,19 +27,18 @@
 --
 -- __Required Permissions__ : To use this action, an AWS Identity and Access Management (IAM) user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.AssignInstance
-  ( -- * Creating a request
-    AssignInstance (..),
-    mkAssignInstance,
-
+    (
+    -- * Creating a request
+      AssignInstance (..)
+    , mkAssignInstance
     -- ** Request lenses
-    aiInstanceId,
-    aiLayerIds,
+    , aiInstanceId
+    , aiLayerIds
 
     -- * Destructuring the response
-    AssignInstanceResponse (..),
-    mkAssignInstanceResponse,
-  )
-where
+    , AssignInstanceResponse (..)
+    , mkAssignInstanceResponse
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.OpsWorks.Types as Types
@@ -49,59 +48,64 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAssignInstance' smart constructor.
 data AssignInstance = AssignInstance'
-  { -- | The instance ID.
-    instanceId :: Types.String,
-    -- | The layer ID, which must correspond to a custom layer. You cannot assign a registered instance to a built-in layer.
-    layerIds :: [Types.String]
+  { instanceId :: Core.Text
+    -- ^ The instance ID.
+  , layerIds :: [Core.Text]
+    -- ^ The layer ID, which must correspond to a custom layer. You cannot assign a registered instance to a built-in layer.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AssignInstance' value with any optional fields omitted.
-mkAssignInstance ::
-  -- | 'instanceId'
-  Types.String ->
-  AssignInstance
-mkAssignInstance instanceId =
-  AssignInstance' {instanceId, layerIds = Core.mempty}
+mkAssignInstance
+    :: Core.Text -- ^ 'instanceId'
+    -> AssignInstance
+mkAssignInstance instanceId
+  = AssignInstance'{instanceId, layerIds = Core.mempty}
 
 -- | The instance ID.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aiInstanceId :: Lens.Lens' AssignInstance Types.String
+aiInstanceId :: Lens.Lens' AssignInstance Core.Text
 aiInstanceId = Lens.field @"instanceId"
-{-# DEPRECATED aiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+{-# INLINEABLE aiInstanceId #-}
+{-# DEPRECATED instanceId "Use generic-lens or generic-optics with 'instanceId' instead"  #-}
 
 -- | The layer ID, which must correspond to a custom layer. You cannot assign a registered instance to a built-in layer.
 --
 -- /Note:/ Consider using 'layerIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aiLayerIds :: Lens.Lens' AssignInstance [Types.String]
+aiLayerIds :: Lens.Lens' AssignInstance [Core.Text]
 aiLayerIds = Lens.field @"layerIds"
-{-# DEPRECATED aiLayerIds "Use generic-lens or generic-optics with 'layerIds' instead." #-}
+{-# INLINEABLE aiLayerIds #-}
+{-# DEPRECATED layerIds "Use generic-lens or generic-optics with 'layerIds' instead"  #-}
+
+instance Core.ToQuery AssignInstance where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders AssignInstance where
+        toHeaders AssignInstance{..}
+          = Core.pure ("X-Amz-Target", "OpsWorks_20130218.AssignInstance")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON AssignInstance where
-  toJSON AssignInstance {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("InstanceId" Core..= instanceId),
-            Core.Just ("LayerIds" Core..= layerIds)
-          ]
-      )
+        toJSON AssignInstance{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("InstanceId" Core..= instanceId),
+                  Core.Just ("LayerIds" Core..= layerIds)])
 
 instance Core.AWSRequest AssignInstance where
-  type Rs AssignInstance = AssignInstanceResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "OpsWorks_20130218.AssignInstance")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response = Response.receiveNull AssignInstanceResponse'
+        type Rs AssignInstance = AssignInstanceResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull AssignInstanceResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkAssignInstanceResponse' smart constructor.
 data AssignInstanceResponse = AssignInstanceResponse'
@@ -109,6 +113,6 @@ data AssignInstanceResponse = AssignInstanceResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AssignInstanceResponse' value with any optional fields omitted.
-mkAssignInstanceResponse ::
-  AssignInstanceResponse
+mkAssignInstanceResponse
+    :: AssignInstanceResponse
 mkAssignInstanceResponse = AssignInstanceResponse'

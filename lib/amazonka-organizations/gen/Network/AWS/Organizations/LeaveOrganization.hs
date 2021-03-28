@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -16,7 +16,7 @@
 -- Removes a member account from its parent organization. This version of the operation is performed by the account that wants to leave. To remove a member account as a user in the management account, use 'RemoveAccountFromOrganization' instead.
 --
 -- This operation can be called only from a member account in the organization.
--- /Important:/
+-- /Important:/ 
 --     * The management account in an organization with all features enabled can set service control policies (SCPs) that can restrict what administrators of member accounts can do. This includes preventing them from successfully calling @LeaveOrganization@ and leaving the organization.
 --
 --
@@ -31,23 +31,25 @@
 --     * Provide a current payment method
 --
 --
--- AWS uses the payment method to charge for any billable (not free tier) AWS activity that occurs while the account isn't attached to an organization. Follow the steps at <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info To leave an organization when all required account information has not yet been provided> in the /AWS Organizations User Guide./
+-- AWS uses the payment method to charge for any billable (not free tier) AWS activity that occurs while the account isn't attached to an organization. Follow the steps at <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info To leave an organization when all required account information has not yet been provided> in the /AWS Organizations User Guide./ 
 --
 --
---     * You can leave an organization only after you enable IAM user access to billing in your account. For more information, see <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console> in the /AWS Billing and Cost Management User Guide./
+--     * You can leave an organization only after you enable IAM user access to billing in your account. For more information, see <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate Activating Access to the Billing and Cost Management Console> in the /AWS Billing and Cost Management User Guide./ 
 --
 --
 --     * After the account leaves the organization, all tags that were attached to the account object in the organization are deleted. AWS accounts outside of an organization do not support tags.
+--
+--
 module Network.AWS.Organizations.LeaveOrganization
-  ( -- * Creating a request
-    LeaveOrganization (..),
-    mkLeaveOrganization,
+    (
+    -- * Creating a request
+      LeaveOrganization (..)
+    , mkLeaveOrganization
 
     -- * Destructuring the response
-    LeaveOrganizationResponse (..),
-    mkLeaveOrganizationResponse,
-  )
-where
+    , LeaveOrganizationResponse (..)
+    , mkLeaveOrganizationResponse
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Organizations.Types as Types
@@ -61,28 +63,34 @@ data LeaveOrganization = LeaveOrganization'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'LeaveOrganization' value with any optional fields omitted.
-mkLeaveOrganization ::
-  LeaveOrganization
+mkLeaveOrganization
+    :: LeaveOrganization
 mkLeaveOrganization = LeaveOrganization'
 
+instance Core.ToQuery LeaveOrganization where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders LeaveOrganization where
+        toHeaders LeaveOrganization{..}
+          = Core.pure
+              ("X-Amz-Target", "AWSOrganizationsV20161128.LeaveOrganization")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
+
 instance Core.FromJSON LeaveOrganization where
-  toJSON _ = Core.Object Core.mempty
+        toJSON _ = Core.Object Core.mempty
 
 instance Core.AWSRequest LeaveOrganization where
-  type Rs LeaveOrganization = LeaveOrganizationResponse
-  request x@_ =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "AWSOrganizationsV20161128.LeaveOrganization")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response = Response.receiveNull LeaveOrganizationResponse'
+        type Rs LeaveOrganization = LeaveOrganizationResponse
+        toRequest x@_
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull LeaveOrganizationResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkLeaveOrganizationResponse' smart constructor.
 data LeaveOrganizationResponse = LeaveOrganizationResponse'
@@ -90,6 +98,6 @@ data LeaveOrganizationResponse = LeaveOrganizationResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'LeaveOrganizationResponse' value with any optional fields omitted.
-mkLeaveOrganizationResponse ::
-  LeaveOrganizationResponse
+mkLeaveOrganizationResponse
+    :: LeaveOrganizationResponse
 mkLeaveOrganizationResponse = LeaveOrganizationResponse'

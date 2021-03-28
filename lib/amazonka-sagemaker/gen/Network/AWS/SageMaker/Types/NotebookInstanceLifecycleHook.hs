@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SageMaker.Types.NotebookInstanceLifecycleHook
-  ( NotebookInstanceLifecycleHook (..),
-
-    -- * Smart constructor
-    mkNotebookInstanceLifecycleHook,
-
-    -- * Lenses
-    nilhContent,
-  )
-where
+  ( NotebookInstanceLifecycleHook (..)
+  -- * Smart constructor
+  , mkNotebookInstanceLifecycleHook
+  -- * Lenses
+  , nilhContent
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -35,32 +33,33 @@ import qualified Network.AWS.SageMaker.Types.NotebookInstanceLifecycleConfigCont
 --
 -- /See:/ 'mkNotebookInstanceLifecycleHook' smart constructor.
 newtype NotebookInstanceLifecycleHook = NotebookInstanceLifecycleHook'
-  { -- | A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
-    content :: Core.Maybe Types.NotebookInstanceLifecycleConfigContent
+  { content :: Core.Maybe Types.NotebookInstanceLifecycleConfigContent
+    -- ^ A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'NotebookInstanceLifecycleHook' value with any optional fields omitted.
-mkNotebookInstanceLifecycleHook ::
-  NotebookInstanceLifecycleHook
-mkNotebookInstanceLifecycleHook =
-  NotebookInstanceLifecycleHook' {content = Core.Nothing}
+mkNotebookInstanceLifecycleHook
+    :: NotebookInstanceLifecycleHook
+mkNotebookInstanceLifecycleHook
+  = NotebookInstanceLifecycleHook'{content = Core.Nothing}
 
 -- | A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
 --
 -- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 nilhContent :: Lens.Lens' NotebookInstanceLifecycleHook (Core.Maybe Types.NotebookInstanceLifecycleConfigContent)
 nilhContent = Lens.field @"content"
-{-# DEPRECATED nilhContent "Use generic-lens or generic-optics with 'content' instead." #-}
+{-# INLINEABLE nilhContent #-}
+{-# DEPRECATED content "Use generic-lens or generic-optics with 'content' instead"  #-}
 
 instance Core.FromJSON NotebookInstanceLifecycleHook where
-  toJSON NotebookInstanceLifecycleHook {..} =
-    Core.object
-      (Core.catMaybes [("Content" Core..=) Core.<$> content])
+        toJSON NotebookInstanceLifecycleHook{..}
+          = Core.object
+              (Core.catMaybes [("Content" Core..=) Core.<$> content])
 
 instance Core.FromJSON NotebookInstanceLifecycleHook where
-  parseJSON =
-    Core.withObject "NotebookInstanceLifecycleHook" Core.$
-      \x ->
-        NotebookInstanceLifecycleHook' Core.<$> (x Core..:? "Content")
+        parseJSON
+          = Core.withObject "NotebookInstanceLifecycleHook" Core.$
+              \ x ->
+                NotebookInstanceLifecycleHook' Core.<$> (x Core..:? "Content")

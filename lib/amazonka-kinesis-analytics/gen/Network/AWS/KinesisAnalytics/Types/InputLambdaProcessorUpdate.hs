@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorUpdate
-  ( InputLambdaProcessorUpdate (..),
-
-    -- * Smart constructor
-    mkInputLambdaProcessorUpdate,
-
-    -- * Lenses
-    ilpuResourceARNUpdate,
-    ilpuRoleARNUpdate,
-  )
-where
+  ( InputLambdaProcessorUpdate (..)
+  -- * Smart constructor
+  , mkInputLambdaProcessorUpdate
+  -- * Lenses
+  , ilpuResourceARNUpdate
+  , ilpuRoleARNUpdate
+  ) where
 
 import qualified Network.AWS.KinesisAnalytics.Types.ResourceARNUpdate as Types
 import qualified Network.AWS.KinesisAnalytics.Types.RoleARNUpdate as Types
@@ -31,42 +29,40 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkInputLambdaProcessorUpdate' smart constructor.
 data InputLambdaProcessorUpdate = InputLambdaProcessorUpdate'
-  { -- | The Amazon Resource Name (ARN) of the new <https://docs.aws.amazon.com/lambda/ AWS Lambda> function that is used to preprocess the records in the stream.
-    resourceARNUpdate :: Core.Maybe Types.ResourceARNUpdate,
-    -- | The ARN of the new IAM role that is used to access the AWS Lambda function.
-    roleARNUpdate :: Core.Maybe Types.RoleARNUpdate
+  { resourceARNUpdate :: Core.Maybe Types.ResourceARNUpdate
+    -- ^ The Amazon Resource Name (ARN) of the new <https://docs.aws.amazon.com/lambda/ AWS Lambda> function that is used to preprocess the records in the stream.
+  , roleARNUpdate :: Core.Maybe Types.RoleARNUpdate
+    -- ^ The ARN of the new IAM role that is used to access the AWS Lambda function.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'InputLambdaProcessorUpdate' value with any optional fields omitted.
-mkInputLambdaProcessorUpdate ::
-  InputLambdaProcessorUpdate
-mkInputLambdaProcessorUpdate =
-  InputLambdaProcessorUpdate'
-    { resourceARNUpdate = Core.Nothing,
-      roleARNUpdate = Core.Nothing
-    }
+mkInputLambdaProcessorUpdate
+    :: InputLambdaProcessorUpdate
+mkInputLambdaProcessorUpdate
+  = InputLambdaProcessorUpdate'{resourceARNUpdate = Core.Nothing,
+                                roleARNUpdate = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the new <https://docs.aws.amazon.com/lambda/ AWS Lambda> function that is used to preprocess the records in the stream.
 --
 -- /Note:/ Consider using 'resourceARNUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ilpuResourceARNUpdate :: Lens.Lens' InputLambdaProcessorUpdate (Core.Maybe Types.ResourceARNUpdate)
 ilpuResourceARNUpdate = Lens.field @"resourceARNUpdate"
-{-# DEPRECATED ilpuResourceARNUpdate "Use generic-lens or generic-optics with 'resourceARNUpdate' instead." #-}
+{-# INLINEABLE ilpuResourceARNUpdate #-}
+{-# DEPRECATED resourceARNUpdate "Use generic-lens or generic-optics with 'resourceARNUpdate' instead"  #-}
 
 -- | The ARN of the new IAM role that is used to access the AWS Lambda function.
 --
 -- /Note:/ Consider using 'roleARNUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ilpuRoleARNUpdate :: Lens.Lens' InputLambdaProcessorUpdate (Core.Maybe Types.RoleARNUpdate)
 ilpuRoleARNUpdate = Lens.field @"roleARNUpdate"
-{-# DEPRECATED ilpuRoleARNUpdate "Use generic-lens or generic-optics with 'roleARNUpdate' instead." #-}
+{-# INLINEABLE ilpuRoleARNUpdate #-}
+{-# DEPRECATED roleARNUpdate "Use generic-lens or generic-optics with 'roleARNUpdate' instead"  #-}
 
 instance Core.FromJSON InputLambdaProcessorUpdate where
-  toJSON InputLambdaProcessorUpdate {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("ResourceARNUpdate" Core..=) Core.<$> resourceARNUpdate,
-            ("RoleARNUpdate" Core..=) Core.<$> roleARNUpdate
-          ]
-      )
+        toJSON InputLambdaProcessorUpdate{..}
+          = Core.object
+              (Core.catMaybes
+                 [("ResourceARNUpdate" Core..=) Core.<$> resourceARNUpdate,
+                  ("RoleARNUpdate" Core..=) Core.<$> roleARNUpdate])

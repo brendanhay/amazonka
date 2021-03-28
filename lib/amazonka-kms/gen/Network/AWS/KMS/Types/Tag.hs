@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.KMS.Types.Tag
-  ( Tag (..),
-
-    -- * Smart constructor
-    mkTag,
-
-    -- * Lenses
-    tTagKey,
-    tTagValue,
-  )
-where
+  ( Tag (..)
+  -- * Smart constructor
+  , mkTag
+  -- * Lenses
+  , tTagKey
+  , tTagValue
+  ) where
 
 import qualified Network.AWS.KMS.Types.TagKey as Types
 import qualified Network.AWS.KMS.Types.TagValue as Types
@@ -33,48 +31,46 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkTag' smart constructor.
 data Tag = Tag'
-  { -- | The key of the tag.
-    tagKey :: Types.TagKey,
-    -- | The value of the tag.
-    tagValue :: Types.TagValue
+  { tagKey :: Types.TagKey
+    -- ^ The key of the tag.
+  , tagValue :: Types.TagValue
+    -- ^ The value of the tag.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'Tag' value with any optional fields omitted.
-mkTag ::
-  -- | 'tagKey'
-  Types.TagKey ->
-  -- | 'tagValue'
-  Types.TagValue ->
-  Tag
-mkTag tagKey tagValue = Tag' {tagKey, tagValue}
+mkTag
+    :: Types.TagKey -- ^ 'tagKey'
+    -> Types.TagValue -- ^ 'tagValue'
+    -> Tag
+mkTag tagKey tagValue = Tag'{tagKey, tagValue}
 
 -- | The key of the tag.
 --
 -- /Note:/ Consider using 'tagKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 tTagKey :: Lens.Lens' Tag Types.TagKey
 tTagKey = Lens.field @"tagKey"
-{-# DEPRECATED tTagKey "Use generic-lens or generic-optics with 'tagKey' instead." #-}
+{-# INLINEABLE tTagKey #-}
+{-# DEPRECATED tagKey "Use generic-lens or generic-optics with 'tagKey' instead"  #-}
 
 -- | The value of the tag.
 --
 -- /Note:/ Consider using 'tagValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 tTagValue :: Lens.Lens' Tag Types.TagValue
 tTagValue = Lens.field @"tagValue"
-{-# DEPRECATED tTagValue "Use generic-lens or generic-optics with 'tagValue' instead." #-}
+{-# INLINEABLE tTagValue #-}
+{-# DEPRECATED tagValue "Use generic-lens or generic-optics with 'tagValue' instead"  #-}
 
 instance Core.FromJSON Tag where
-  toJSON Tag {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("TagKey" Core..= tagKey),
-            Core.Just ("TagValue" Core..= tagValue)
-          ]
-      )
+        toJSON Tag{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("TagKey" Core..= tagKey),
+                  Core.Just ("TagValue" Core..= tagValue)])
 
 instance Core.FromJSON Tag where
-  parseJSON =
-    Core.withObject "Tag" Core.$
-      \x ->
-        Tag' Core.<$> (x Core..: "TagKey") Core.<*> (x Core..: "TagValue")
+        parseJSON
+          = Core.withObject "Tag" Core.$
+              \ x ->
+                Tag' Core.<$> (x Core..: "TagKey") Core.<*> x Core..: "TagValue"

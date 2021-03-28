@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -18,25 +18,23 @@
 -- If you specify more than one calendar in a request, the command returns the status of @OPEN@ only if all calendars in the request are open. If one or more calendars in the request are closed, the status returned is @CLOSED@ .
 -- For more information about Systems Manager Change Calendar, see <https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html AWS Systems Manager Change Calendar> in the /AWS Systems Manager User Guide/ .
 module Network.AWS.SSM.GetCalendarState
-  ( -- * Creating a request
-    GetCalendarState (..),
-    mkGetCalendarState,
-
+    (
+    -- * Creating a request
+      GetCalendarState (..)
+    , mkGetCalendarState
     -- ** Request lenses
-    gcsCalendarNames,
-    gcsAtTime,
+    , gcsCalendarNames
+    , gcsAtTime
 
     -- * Destructuring the response
-    GetCalendarStateResponse (..),
-    mkGetCalendarStateResponse,
-
+    , GetCalendarStateResponse (..)
+    , mkGetCalendarStateResponse
     -- ** Response lenses
-    grsAtTime,
-    grsNextTransitionTime,
-    grsState,
-    grsResponseStatus,
-  )
-where
+    , grsAtTime
+    , grsNextTransitionTime
+    , grsState
+    , grsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -46,120 +44,122 @@ import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkGetCalendarState' smart constructor.
 data GetCalendarState = GetCalendarState'
-  { -- | The names or Amazon Resource Names (ARNs) of the Systems Manager documents that represent the calendar entries for which you want to get the state.
-    calendarNames :: [Types.CalendarNameOrARN],
-    -- | (Optional) The specific time for which you want to get calendar state information, in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> format. If you do not add @AtTime@ , the current time is assumed.
-    atTime :: Core.Maybe Types.AtTime
+  { calendarNames :: [Types.CalendarNameOrARN]
+    -- ^ The names or Amazon Resource Names (ARNs) of the Systems Manager documents that represent the calendar entries for which you want to get the state.
+  , atTime :: Core.Maybe Types.AtTime
+    -- ^ (Optional) The specific time for which you want to get calendar state information, in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> format. If you do not add @AtTime@ , the current time is assumed.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetCalendarState' value with any optional fields omitted.
-mkGetCalendarState ::
-  GetCalendarState
-mkGetCalendarState =
-  GetCalendarState'
-    { calendarNames = Core.mempty,
-      atTime = Core.Nothing
-    }
+mkGetCalendarState
+    :: GetCalendarState
+mkGetCalendarState
+  = GetCalendarState'{calendarNames = Core.mempty,
+                      atTime = Core.Nothing}
 
 -- | The names or Amazon Resource Names (ARNs) of the Systems Manager documents that represent the calendar entries for which you want to get the state.
 --
 -- /Note:/ Consider using 'calendarNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gcsCalendarNames :: Lens.Lens' GetCalendarState [Types.CalendarNameOrARN]
 gcsCalendarNames = Lens.field @"calendarNames"
-{-# DEPRECATED gcsCalendarNames "Use generic-lens or generic-optics with 'calendarNames' instead." #-}
+{-# INLINEABLE gcsCalendarNames #-}
+{-# DEPRECATED calendarNames "Use generic-lens or generic-optics with 'calendarNames' instead"  #-}
 
 -- | (Optional) The specific time for which you want to get calendar state information, in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> format. If you do not add @AtTime@ , the current time is assumed.
 --
 -- /Note:/ Consider using 'atTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gcsAtTime :: Lens.Lens' GetCalendarState (Core.Maybe Types.AtTime)
 gcsAtTime = Lens.field @"atTime"
-{-# DEPRECATED gcsAtTime "Use generic-lens or generic-optics with 'atTime' instead." #-}
+{-# INLINEABLE gcsAtTime #-}
+{-# DEPRECATED atTime "Use generic-lens or generic-optics with 'atTime' instead"  #-}
+
+instance Core.ToQuery GetCalendarState where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders GetCalendarState where
+        toHeaders GetCalendarState{..}
+          = Core.pure ("X-Amz-Target", "AmazonSSM.GetCalendarState") Core.<>
+              Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON GetCalendarState where
-  toJSON GetCalendarState {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("CalendarNames" Core..= calendarNames),
-            ("AtTime" Core..=) Core.<$> atTime
-          ]
-      )
+        toJSON GetCalendarState{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("CalendarNames" Core..= calendarNames),
+                  ("AtTime" Core..=) Core.<$> atTime])
 
 instance Core.AWSRequest GetCalendarState where
-  type Rs GetCalendarState = GetCalendarStateResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "AmazonSSM.GetCalendarState")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          GetCalendarStateResponse'
-            Core.<$> (x Core..:? "AtTime")
-            Core.<*> (x Core..:? "NextTransitionTime")
-            Core.<*> (x Core..:? "State")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs GetCalendarState = GetCalendarStateResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 GetCalendarStateResponse' Core.<$>
+                   (x Core..:? "AtTime") Core.<*> x Core..:? "NextTransitionTime"
+                     Core.<*> x Core..:? "State"
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkGetCalendarStateResponse' smart constructor.
 data GetCalendarStateResponse = GetCalendarStateResponse'
-  { -- | The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> string, that you specified in your command. If you did not specify a time, @GetCalendarState@ uses the current time.
-    atTime :: Core.Maybe Types.AtTime,
-    -- | The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> string, that the calendar state will change. If the current calendar state is @OPEN@ , @NextTransitionTime@ indicates when the calendar state changes to @CLOSED@ , and vice-versa.
-    nextTransitionTime :: Core.Maybe Types.NextTransitionTime,
-    -- | The state of the calendar. An @OPEN@ calendar indicates that actions are allowed to proceed, and a @CLOSED@ calendar indicates that actions are not allowed to proceed.
-    state :: Core.Maybe Types.CalendarState,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { atTime :: Core.Maybe Types.AtTime
+    -- ^ The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> string, that you specified in your command. If you did not specify a time, @GetCalendarState@ uses the current time.
+  , nextTransitionTime :: Core.Maybe Types.NextTransitionTime
+    -- ^ The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> string, that the calendar state will change. If the current calendar state is @OPEN@ , @NextTransitionTime@ indicates when the calendar state changes to @CLOSED@ , and vice-versa.
+  , state :: Core.Maybe Types.CalendarState
+    -- ^ The state of the calendar. An @OPEN@ calendar indicates that actions are allowed to proceed, and a @CLOSED@ calendar indicates that actions are not allowed to proceed.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetCalendarStateResponse' value with any optional fields omitted.
-mkGetCalendarStateResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  GetCalendarStateResponse
-mkGetCalendarStateResponse responseStatus =
-  GetCalendarStateResponse'
-    { atTime = Core.Nothing,
-      nextTransitionTime = Core.Nothing,
-      state = Core.Nothing,
-      responseStatus
-    }
+mkGetCalendarStateResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> GetCalendarStateResponse
+mkGetCalendarStateResponse responseStatus
+  = GetCalendarStateResponse'{atTime = Core.Nothing,
+                              nextTransitionTime = Core.Nothing, state = Core.Nothing,
+                              responseStatus}
 
 -- | The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> string, that you specified in your command. If you did not specify a time, @GetCalendarState@ uses the current time.
 --
 -- /Note:/ Consider using 'atTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 grsAtTime :: Lens.Lens' GetCalendarStateResponse (Core.Maybe Types.AtTime)
 grsAtTime = Lens.field @"atTime"
-{-# DEPRECATED grsAtTime "Use generic-lens or generic-optics with 'atTime' instead." #-}
+{-# INLINEABLE grsAtTime #-}
+{-# DEPRECATED atTime "Use generic-lens or generic-optics with 'atTime' instead"  #-}
 
 -- | The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> string, that the calendar state will change. If the current calendar state is @OPEN@ , @NextTransitionTime@ indicates when the calendar state changes to @CLOSED@ , and vice-versa.
 --
 -- /Note:/ Consider using 'nextTransitionTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 grsNextTransitionTime :: Lens.Lens' GetCalendarStateResponse (Core.Maybe Types.NextTransitionTime)
 grsNextTransitionTime = Lens.field @"nextTransitionTime"
-{-# DEPRECATED grsNextTransitionTime "Use generic-lens or generic-optics with 'nextTransitionTime' instead." #-}
+{-# INLINEABLE grsNextTransitionTime #-}
+{-# DEPRECATED nextTransitionTime "Use generic-lens or generic-optics with 'nextTransitionTime' instead"  #-}
 
 -- | The state of the calendar. An @OPEN@ calendar indicates that actions are allowed to proceed, and a @CLOSED@ calendar indicates that actions are not allowed to proceed.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 grsState :: Lens.Lens' GetCalendarStateResponse (Core.Maybe Types.CalendarState)
 grsState = Lens.field @"state"
-{-# DEPRECATED grsState "Use generic-lens or generic-optics with 'state' instead." #-}
+{-# INLINEABLE grsState #-}
+{-# DEPRECATED state "Use generic-lens or generic-optics with 'state' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 grsResponseStatus :: Lens.Lens' GetCalendarStateResponse Core.Int
 grsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE grsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

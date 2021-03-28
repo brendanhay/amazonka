@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Route53.Types.HealthCheckObservation
-  ( HealthCheckObservation (..),
-
-    -- * Smart constructor
-    mkHealthCheckObservation,
-
-    -- * Lenses
-    hcoIPAddress,
-    hcoRegion,
-    hcoStatusReport,
-  )
-where
+  ( HealthCheckObservation (..)
+  -- * Smart constructor
+  , mkHealthCheckObservation
+  -- * Lenses
+  , hcoIPAddress
+  , hcoRegion
+  , hcoStatusReport
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -34,50 +32,49 @@ import qualified Network.AWS.Route53.Types.StatusReport as Types
 --
 -- /See:/ 'mkHealthCheckObservation' smart constructor.
 data HealthCheckObservation = HealthCheckObservation'
-  { -- | The IP address of the Amazon Route 53 health checker that provided the failure reason in @StatusReport@ .
-    iPAddress :: Core.Maybe Types.IPAddress,
-    -- | The region of the Amazon Route 53 health checker that provided the status in @StatusReport@ .
-    region :: Core.Maybe Types.HealthCheckRegion,
-    -- | A complex type that contains the last failure reason as reported by one Amazon Route 53 health checker and the time of the failed health check.
-    statusReport :: Core.Maybe Types.StatusReport
+  { iPAddress :: Core.Maybe Types.IPAddress
+    -- ^ The IP address of the Amazon Route 53 health checker that provided the failure reason in @StatusReport@ .
+  , region :: Core.Maybe Types.HealthCheckRegion
+    -- ^ The region of the Amazon Route 53 health checker that provided the status in @StatusReport@ .
+  , statusReport :: Core.Maybe Types.StatusReport
+    -- ^ A complex type that contains the last failure reason as reported by one Amazon Route 53 health checker and the time of the failed health check.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'HealthCheckObservation' value with any optional fields omitted.
-mkHealthCheckObservation ::
-  HealthCheckObservation
-mkHealthCheckObservation =
-  HealthCheckObservation'
-    { iPAddress = Core.Nothing,
-      region = Core.Nothing,
-      statusReport = Core.Nothing
-    }
+mkHealthCheckObservation
+    :: HealthCheckObservation
+mkHealthCheckObservation
+  = HealthCheckObservation'{iPAddress = Core.Nothing,
+                            region = Core.Nothing, statusReport = Core.Nothing}
 
 -- | The IP address of the Amazon Route 53 health checker that provided the failure reason in @StatusReport@ .
 --
 -- /Note:/ Consider using 'iPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 hcoIPAddress :: Lens.Lens' HealthCheckObservation (Core.Maybe Types.IPAddress)
 hcoIPAddress = Lens.field @"iPAddress"
-{-# DEPRECATED hcoIPAddress "Use generic-lens or generic-optics with 'iPAddress' instead." #-}
+{-# INLINEABLE hcoIPAddress #-}
+{-# DEPRECATED iPAddress "Use generic-lens or generic-optics with 'iPAddress' instead"  #-}
 
 -- | The region of the Amazon Route 53 health checker that provided the status in @StatusReport@ .
 --
 -- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 hcoRegion :: Lens.Lens' HealthCheckObservation (Core.Maybe Types.HealthCheckRegion)
 hcoRegion = Lens.field @"region"
-{-# DEPRECATED hcoRegion "Use generic-lens or generic-optics with 'region' instead." #-}
+{-# INLINEABLE hcoRegion #-}
+{-# DEPRECATED region "Use generic-lens or generic-optics with 'region' instead"  #-}
 
 -- | A complex type that contains the last failure reason as reported by one Amazon Route 53 health checker and the time of the failed health check.
 --
 -- /Note:/ Consider using 'statusReport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 hcoStatusReport :: Lens.Lens' HealthCheckObservation (Core.Maybe Types.StatusReport)
 hcoStatusReport = Lens.field @"statusReport"
-{-# DEPRECATED hcoStatusReport "Use generic-lens or generic-optics with 'statusReport' instead." #-}
+{-# INLINEABLE hcoStatusReport #-}
+{-# DEPRECATED statusReport "Use generic-lens or generic-optics with 'statusReport' instead"  #-}
 
 instance Core.FromXML HealthCheckObservation where
-  parseXML x =
-    HealthCheckObservation'
-      Core.<$> (x Core..@? "IPAddress")
-      Core.<*> (x Core..@? "Region")
-      Core.<*> (x Core..@? "StatusReport")
+        parseXML x
+          = HealthCheckObservation' Core.<$>
+              (x Core..@? "IPAddress") Core.<*> x Core..@? "Region" Core.<*>
+                x Core..@? "StatusReport"

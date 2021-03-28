@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SageMaker.Types.HyperParameterTuningJobObjective
-  ( HyperParameterTuningJobObjective (..),
-
-    -- * Smart constructor
-    mkHyperParameterTuningJobObjective,
-
-    -- * Lenses
-    hptjoType,
-    hptjoMetricName,
-  )
-where
+  ( HyperParameterTuningJobObjective (..)
+  -- * Smart constructor
+  , mkHyperParameterTuningJobObjective
+  -- * Lenses
+  , hptjoType
+  , hptjoMetricName
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -31,50 +29,48 @@ import qualified Network.AWS.SageMaker.Types.MetricName as Types
 --
 -- /See:/ 'mkHyperParameterTuningJobObjective' smart constructor.
 data HyperParameterTuningJobObjective = HyperParameterTuningJobObjective'
-  { -- | Whether to minimize or maximize the objective metric.
-    type' :: Types.HyperParameterTuningJobObjectiveType,
-    -- | The name of the metric to use for the objective metric.
-    metricName :: Types.MetricName
+  { type' :: Types.HyperParameterTuningJobObjectiveType
+    -- ^ Whether to minimize or maximize the objective metric.
+  , metricName :: Types.MetricName
+    -- ^ The name of the metric to use for the objective metric.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'HyperParameterTuningJobObjective' value with any optional fields omitted.
-mkHyperParameterTuningJobObjective ::
-  -- | 'type\''
-  Types.HyperParameterTuningJobObjectiveType ->
-  -- | 'metricName'
-  Types.MetricName ->
-  HyperParameterTuningJobObjective
-mkHyperParameterTuningJobObjective type' metricName =
-  HyperParameterTuningJobObjective' {type', metricName}
+mkHyperParameterTuningJobObjective
+    :: Types.HyperParameterTuningJobObjectiveType -- ^ 'type\''
+    -> Types.MetricName -- ^ 'metricName'
+    -> HyperParameterTuningJobObjective
+mkHyperParameterTuningJobObjective type' metricName
+  = HyperParameterTuningJobObjective'{type', metricName}
 
 -- | Whether to minimize or maximize the objective metric.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 hptjoType :: Lens.Lens' HyperParameterTuningJobObjective Types.HyperParameterTuningJobObjectiveType
 hptjoType = Lens.field @"type'"
-{-# DEPRECATED hptjoType "Use generic-lens or generic-optics with 'type'' instead." #-}
+{-# INLINEABLE hptjoType #-}
+{-# DEPRECATED type' "Use generic-lens or generic-optics with 'type'' instead"  #-}
 
 -- | The name of the metric to use for the objective metric.
 --
 -- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 hptjoMetricName :: Lens.Lens' HyperParameterTuningJobObjective Types.MetricName
 hptjoMetricName = Lens.field @"metricName"
-{-# DEPRECATED hptjoMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
+{-# INLINEABLE hptjoMetricName #-}
+{-# DEPRECATED metricName "Use generic-lens or generic-optics with 'metricName' instead"  #-}
 
 instance Core.FromJSON HyperParameterTuningJobObjective where
-  toJSON HyperParameterTuningJobObjective {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Type" Core..= type'),
-            Core.Just ("MetricName" Core..= metricName)
-          ]
-      )
+        toJSON HyperParameterTuningJobObjective{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("Type" Core..= type'),
+                  Core.Just ("MetricName" Core..= metricName)])
 
 instance Core.FromJSON HyperParameterTuningJobObjective where
-  parseJSON =
-    Core.withObject "HyperParameterTuningJobObjective" Core.$
-      \x ->
-        HyperParameterTuningJobObjective'
-          Core.<$> (x Core..: "Type") Core.<*> (x Core..: "MetricName")
+        parseJSON
+          = Core.withObject "HyperParameterTuningJobObjective" Core.$
+              \ x ->
+                HyperParameterTuningJobObjective' Core.<$>
+                  (x Core..: "Type") Core.<*> x Core..: "MetricName"

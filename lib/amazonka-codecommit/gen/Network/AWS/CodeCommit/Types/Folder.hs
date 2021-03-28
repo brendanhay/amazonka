@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CodeCommit.Types.Folder
-  ( Folder (..),
-
-    -- * Smart constructor
-    mkFolder,
-
-    -- * Lenses
-    ffAbsolutePath,
-    ffRelativePath,
-    ffTreeId,
-  )
-where
+  ( Folder (..)
+  -- * Smart constructor
+  , mkFolder
+  -- * Lenses
+  , ffAbsolutePath
+  , ffRelativePath
+  , ffTreeId
+  ) where
 
 import qualified Network.AWS.CodeCommit.Types.ObjectId as Types
 import qualified Network.AWS.CodeCommit.Types.Path as Types
@@ -32,52 +30,51 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkFolder' smart constructor.
 data Folder = Folder'
-  { -- | The fully qualified path of the folder in the repository.
-    absolutePath :: Core.Maybe Types.Path,
-    -- | The relative path of the specified folder from the folder where the query originated.
-    relativePath :: Core.Maybe Types.Path,
-    -- | The full SHA-1 pointer of the tree information for the commit that contains the folder.
-    treeId :: Core.Maybe Types.ObjectId
+  { absolutePath :: Core.Maybe Types.Path
+    -- ^ The fully qualified path of the folder in the repository.
+  , relativePath :: Core.Maybe Types.Path
+    -- ^ The relative path of the specified folder from the folder where the query originated.
+  , treeId :: Core.Maybe Types.ObjectId
+    -- ^ The full SHA-1 pointer of the tree information for the commit that contains the folder.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'Folder' value with any optional fields omitted.
-mkFolder ::
-  Folder
-mkFolder =
-  Folder'
-    { absolutePath = Core.Nothing,
-      relativePath = Core.Nothing,
-      treeId = Core.Nothing
-    }
+mkFolder
+    :: Folder
+mkFolder
+  = Folder'{absolutePath = Core.Nothing, relativePath = Core.Nothing,
+            treeId = Core.Nothing}
 
 -- | The fully qualified path of the folder in the repository.
 --
 -- /Note:/ Consider using 'absolutePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ffAbsolutePath :: Lens.Lens' Folder (Core.Maybe Types.Path)
 ffAbsolutePath = Lens.field @"absolutePath"
-{-# DEPRECATED ffAbsolutePath "Use generic-lens or generic-optics with 'absolutePath' instead." #-}
+{-# INLINEABLE ffAbsolutePath #-}
+{-# DEPRECATED absolutePath "Use generic-lens or generic-optics with 'absolutePath' instead"  #-}
 
 -- | The relative path of the specified folder from the folder where the query originated.
 --
 -- /Note:/ Consider using 'relativePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ffRelativePath :: Lens.Lens' Folder (Core.Maybe Types.Path)
 ffRelativePath = Lens.field @"relativePath"
-{-# DEPRECATED ffRelativePath "Use generic-lens or generic-optics with 'relativePath' instead." #-}
+{-# INLINEABLE ffRelativePath #-}
+{-# DEPRECATED relativePath "Use generic-lens or generic-optics with 'relativePath' instead"  #-}
 
 -- | The full SHA-1 pointer of the tree information for the commit that contains the folder.
 --
 -- /Note:/ Consider using 'treeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ffTreeId :: Lens.Lens' Folder (Core.Maybe Types.ObjectId)
 ffTreeId = Lens.field @"treeId"
-{-# DEPRECATED ffTreeId "Use generic-lens or generic-optics with 'treeId' instead." #-}
+{-# INLINEABLE ffTreeId #-}
+{-# DEPRECATED treeId "Use generic-lens or generic-optics with 'treeId' instead"  #-}
 
 instance Core.FromJSON Folder where
-  parseJSON =
-    Core.withObject "Folder" Core.$
-      \x ->
-        Folder'
-          Core.<$> (x Core..:? "absolutePath")
-          Core.<*> (x Core..:? "relativePath")
-          Core.<*> (x Core..:? "treeId")
+        parseJSON
+          = Core.withObject "Folder" Core.$
+              \ x ->
+                Folder' Core.<$>
+                  (x Core..:? "absolutePath") Core.<*> x Core..:? "relativePath"
+                    Core.<*> x Core..:? "treeId"

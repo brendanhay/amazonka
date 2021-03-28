@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,25 +17,23 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.Inspector.ListExclusions
-  ( -- * Creating a request
-    ListExclusions (..),
-    mkListExclusions,
-
+    (
+    -- * Creating a request
+      ListExclusions (..)
+    , mkListExclusions
     -- ** Request lenses
-    leAssessmentRunArn,
-    leMaxResults,
-    leNextToken,
+    , leAssessmentRunArn
+    , leMaxResults
+    , leNextToken
 
     -- * Destructuring the response
-    ListExclusionsResponse (..),
-    mkListExclusionsResponse,
-
+    , ListExclusionsResponse (..)
+    , mkListExclusionsResponse
     -- ** Response lenses
-    lerrsExclusionArns,
-    lerrsNextToken,
-    lerrsResponseStatus,
-  )
-where
+    , lerrsExclusionArns
+    , lerrsNextToken
+    , lerrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Inspector.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -46,133 +44,133 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListExclusions' smart constructor.
 data ListExclusions = ListExclusions'
-  { -- | The ARN of the assessment run that generated the exclusions that you want to list.
-    assessmentRunArn :: Types.Arn,
-    -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 100. The maximum value is 500.
-    maxResults :: Core.Maybe Core.Int,
-    -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the ListExclusionsRequest action. Subsequent calls to the action fill nextToken in the request with the value of nextToken from the previous response to continue listing data.
-    nextToken :: Core.Maybe Types.PaginationToken
+  { assessmentRunArn :: Types.Arn
+    -- ^ The ARN of the assessment run that generated the exclusions that you want to list.
+  , maxResults :: Core.Maybe Core.Int
+    -- ^ You can use this parameter to indicate the maximum number of items you want in the response. The default value is 100. The maximum value is 500.
+  , nextToken :: Core.Maybe Types.PaginationToken
+    -- ^ You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the ListExclusionsRequest action. Subsequent calls to the action fill nextToken in the request with the value of nextToken from the previous response to continue listing data.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ListExclusions' value with any optional fields omitted.
-mkListExclusions ::
-  -- | 'assessmentRunArn'
-  Types.Arn ->
-  ListExclusions
-mkListExclusions assessmentRunArn =
-  ListExclusions'
-    { assessmentRunArn,
-      maxResults = Core.Nothing,
-      nextToken = Core.Nothing
-    }
+mkListExclusions
+    :: Types.Arn -- ^ 'assessmentRunArn'
+    -> ListExclusions
+mkListExclusions assessmentRunArn
+  = ListExclusions'{assessmentRunArn, maxResults = Core.Nothing,
+                    nextToken = Core.Nothing}
 
 -- | The ARN of the assessment run that generated the exclusions that you want to list.
 --
 -- /Note:/ Consider using 'assessmentRunArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 leAssessmentRunArn :: Lens.Lens' ListExclusions Types.Arn
 leAssessmentRunArn = Lens.field @"assessmentRunArn"
-{-# DEPRECATED leAssessmentRunArn "Use generic-lens or generic-optics with 'assessmentRunArn' instead." #-}
+{-# INLINEABLE leAssessmentRunArn #-}
+{-# DEPRECATED assessmentRunArn "Use generic-lens or generic-optics with 'assessmentRunArn' instead"  #-}
 
 -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 100. The maximum value is 500.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 leMaxResults :: Lens.Lens' ListExclusions (Core.Maybe Core.Int)
 leMaxResults = Lens.field @"maxResults"
-{-# DEPRECATED leMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+{-# INLINEABLE leMaxResults #-}
+{-# DEPRECATED maxResults "Use generic-lens or generic-optics with 'maxResults' instead"  #-}
 
 -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the ListExclusionsRequest action. Subsequent calls to the action fill nextToken in the request with the value of nextToken from the previous response to continue listing data.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 leNextToken :: Lens.Lens' ListExclusions (Core.Maybe Types.PaginationToken)
 leNextToken = Lens.field @"nextToken"
-{-# DEPRECATED leNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE leNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
+
+instance Core.ToQuery ListExclusions where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders ListExclusions where
+        toHeaders ListExclusions{..}
+          = Core.pure ("X-Amz-Target", "InspectorService.ListExclusions")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON ListExclusions where
-  toJSON ListExclusions {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("assessmentRunArn" Core..= assessmentRunArn),
-            ("maxResults" Core..=) Core.<$> maxResults,
-            ("nextToken" Core..=) Core.<$> nextToken
-          ]
-      )
+        toJSON ListExclusions{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("assessmentRunArn" Core..= assessmentRunArn),
+                  ("maxResults" Core..=) Core.<$> maxResults,
+                  ("nextToken" Core..=) Core.<$> nextToken])
 
 instance Core.AWSRequest ListExclusions where
-  type Rs ListExclusions = ListExclusionsResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "InspectorService.ListExclusions")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          ListExclusionsResponse'
-            Core.<$> (x Core..:? "exclusionArns" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "nextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs ListExclusions = ListExclusionsResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 ListExclusionsResponse' Core.<$>
+                   (x Core..:? "exclusionArns" Core..!= Core.mempty) Core.<*>
+                     x Core..:? "nextToken"
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 instance Pager.AWSPager ListExclusions where
-  page rq rs
-    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
-    | Pager.stop (rs Lens.^. Lens.field @"exclusionArns") =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just
-        ( rq
-            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
-        )
+        page rq rs
+          | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+          | Pager.stop (rs Lens.^. Lens.field @"exclusionArns") =
+            Core.Nothing
+          | Core.otherwise =
+            Core.Just
+              (rq Core.&
+                 Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken")
 
 -- | /See:/ 'mkListExclusionsResponse' smart constructor.
 data ListExclusionsResponse = ListExclusionsResponse'
-  { -- | A list of exclusions' ARNs returned by the action.
-    exclusionArns :: [Types.Arn],
-    -- | When a response is generated, if there is more data to be listed, this parameters is present in the response and contains the value to use for the nextToken parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
-    nextToken :: Core.Maybe Types.PaginationToken,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { exclusionArns :: [Types.Arn]
+    -- ^ A list of exclusions' ARNs returned by the action.
+  , nextToken :: Core.Maybe Types.PaginationToken
+    -- ^ When a response is generated, if there is more data to be listed, this parameters is present in the response and contains the value to use for the nextToken parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ListExclusionsResponse' value with any optional fields omitted.
-mkListExclusionsResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  ListExclusionsResponse
-mkListExclusionsResponse responseStatus =
-  ListExclusionsResponse'
-    { exclusionArns = Core.mempty,
-      nextToken = Core.Nothing,
-      responseStatus
-    }
+mkListExclusionsResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> ListExclusionsResponse
+mkListExclusionsResponse responseStatus
+  = ListExclusionsResponse'{exclusionArns = Core.mempty,
+                            nextToken = Core.Nothing, responseStatus}
 
 -- | A list of exclusions' ARNs returned by the action.
 --
 -- /Note:/ Consider using 'exclusionArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lerrsExclusionArns :: Lens.Lens' ListExclusionsResponse [Types.Arn]
 lerrsExclusionArns = Lens.field @"exclusionArns"
-{-# DEPRECATED lerrsExclusionArns "Use generic-lens or generic-optics with 'exclusionArns' instead." #-}
+{-# INLINEABLE lerrsExclusionArns #-}
+{-# DEPRECATED exclusionArns "Use generic-lens or generic-optics with 'exclusionArns' instead"  #-}
 
 -- | When a response is generated, if there is more data to be listed, this parameters is present in the response and contains the value to use for the nextToken parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lerrsNextToken :: Lens.Lens' ListExclusionsResponse (Core.Maybe Types.PaginationToken)
 lerrsNextToken = Lens.field @"nextToken"
-{-# DEPRECATED lerrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE lerrsNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lerrsResponseStatus :: Lens.Lens' ListExclusionsResponse Core.Int
 lerrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED lerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE lerrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

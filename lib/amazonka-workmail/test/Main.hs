@@ -7,17 +7,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Main (main) where
 
+import Test.Tasty
 import Test.AWS.WorkMail
 import Test.AWS.WorkMail.Internal
-import Test.Tasty
 
 main :: IO ()
-main =
-  defaultMain $
-    testGroup
-      "WorkMail"
-      [ testGroup "tests" tests,
-        testGroup "fixtures" fixtures
-      ]
+main = defaultMain $ testGroup "WorkMail"
+    [ testGroup "tests"    tests
+    , testGroup "fixtures" fixtures
+    ]

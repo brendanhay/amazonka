@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,46 +10,28 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaConvert.Types.ReservationPlanStatus
   ( ReservationPlanStatus
-      ( ReservationPlanStatus',
-        ReservationPlanStatusActive,
-        ReservationPlanStatusExpired,
-        fromReservationPlanStatus
-      ),
-  )
-where
+    ( ReservationPlanStatus'
+    , ReservationPlanStatusActive
+    , ReservationPlanStatusExpired
+    , fromReservationPlanStatus
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
 -- | Specifies whether the pricing plan for your reserved queue is ACTIVE or EXPIRED.
-newtype ReservationPlanStatus = ReservationPlanStatus'
-  { fromReservationPlanStatus ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype ReservationPlanStatus = ReservationPlanStatus'{fromReservationPlanStatus
+                                                       :: Core.Text}
+                                  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                  Core.Generic)
+                                  deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                    Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                    Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                    Core.ToText, Core.FromText, Core.ToByteString,
+                                                    Core.ToQuery, Core.ToHeader)
 
 pattern ReservationPlanStatusActive :: ReservationPlanStatus
 pattern ReservationPlanStatusActive = ReservationPlanStatus' "ACTIVE"
@@ -57,8 +39,9 @@ pattern ReservationPlanStatusActive = ReservationPlanStatus' "ACTIVE"
 pattern ReservationPlanStatusExpired :: ReservationPlanStatus
 pattern ReservationPlanStatusExpired = ReservationPlanStatus' "EXPIRED"
 
-{-# COMPLETE
+{-# COMPLETE 
   ReservationPlanStatusActive,
+
   ReservationPlanStatusExpired,
   ReservationPlanStatus'
   #-}

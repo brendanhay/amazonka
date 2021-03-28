@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,46 +10,30 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaLive.Types.Scte35AposNoRegionalBlackoutBehavior
   ( Scte35AposNoRegionalBlackoutBehavior
-      ( Scte35AposNoRegionalBlackoutBehavior',
-        Scte35AposNoRegionalBlackoutBehaviorFollow,
-        Scte35AposNoRegionalBlackoutBehaviorIgnore,
-        fromScte35AposNoRegionalBlackoutBehavior
-      ),
-  )
-where
+    ( Scte35AposNoRegionalBlackoutBehavior'
+    , Scte35AposNoRegionalBlackoutBehaviorFollow
+    , Scte35AposNoRegionalBlackoutBehaviorIgnore
+    , fromScte35AposNoRegionalBlackoutBehavior
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
 -- | Scte35 Apos No Regional Blackout Behavior
-newtype Scte35AposNoRegionalBlackoutBehavior = Scte35AposNoRegionalBlackoutBehavior'
-  { fromScte35AposNoRegionalBlackoutBehavior ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype Scte35AposNoRegionalBlackoutBehavior = Scte35AposNoRegionalBlackoutBehavior'{fromScte35AposNoRegionalBlackoutBehavior
+                                                                                     :: Core.Text}
+                                                 deriving stock (Core.Eq, Core.Ord, Core.Read,
+                                                                 Core.Show, Core.Generic)
+                                                 deriving newtype (Core.IsString, Core.Hashable,
+                                                                   Core.NFData, Core.ToJSONKey,
+                                                                   Core.FromJSONKey, Core.ToJSON,
+                                                                   Core.FromJSON, Core.ToXML,
+                                                                   Core.FromXML, Core.ToText,
+                                                                   Core.FromText, Core.ToByteString,
+                                                                   Core.ToQuery, Core.ToHeader)
 
 pattern Scte35AposNoRegionalBlackoutBehaviorFollow :: Scte35AposNoRegionalBlackoutBehavior
 pattern Scte35AposNoRegionalBlackoutBehaviorFollow = Scte35AposNoRegionalBlackoutBehavior' "FOLLOW"
@@ -57,8 +41,9 @@ pattern Scte35AposNoRegionalBlackoutBehaviorFollow = Scte35AposNoRegionalBlackou
 pattern Scte35AposNoRegionalBlackoutBehaviorIgnore :: Scte35AposNoRegionalBlackoutBehavior
 pattern Scte35AposNoRegionalBlackoutBehaviorIgnore = Scte35AposNoRegionalBlackoutBehavior' "IGNORE"
 
-{-# COMPLETE
+{-# COMPLETE 
   Scte35AposNoRegionalBlackoutBehaviorFollow,
+
   Scte35AposNoRegionalBlackoutBehaviorIgnore,
   Scte35AposNoRegionalBlackoutBehavior'
   #-}

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.EC2.Types.LaunchTemplateHibernationOptions
-  ( LaunchTemplateHibernationOptions (..),
-
-    -- * Smart constructor
-    mkLaunchTemplateHibernationOptions,
-
-    -- * Lenses
-    lthoConfigured,
-  )
-where
+  ( LaunchTemplateHibernationOptions (..)
+  -- * Smart constructor
+  , mkLaunchTemplateHibernationOptions
+  -- * Lenses
+  , lthoConfigured
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -28,26 +26,27 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkLaunchTemplateHibernationOptions' smart constructor.
 newtype LaunchTemplateHibernationOptions = LaunchTemplateHibernationOptions'
-  { -- | If this parameter is set to @true@ , the instance is enabled for hibernation; otherwise, it is not enabled for hibernation.
-    configured :: Core.Maybe Core.Bool
+  { configured :: Core.Maybe Core.Bool
+    -- ^ If this parameter is set to @true@ , the instance is enabled for hibernation; otherwise, it is not enabled for hibernation.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'LaunchTemplateHibernationOptions' value with any optional fields omitted.
-mkLaunchTemplateHibernationOptions ::
-  LaunchTemplateHibernationOptions
-mkLaunchTemplateHibernationOptions =
-  LaunchTemplateHibernationOptions' {configured = Core.Nothing}
+mkLaunchTemplateHibernationOptions
+    :: LaunchTemplateHibernationOptions
+mkLaunchTemplateHibernationOptions
+  = LaunchTemplateHibernationOptions'{configured = Core.Nothing}
 
 -- | If this parameter is set to @true@ , the instance is enabled for hibernation; otherwise, it is not enabled for hibernation.
 --
 -- /Note:/ Consider using 'configured' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lthoConfigured :: Lens.Lens' LaunchTemplateHibernationOptions (Core.Maybe Core.Bool)
 lthoConfigured = Lens.field @"configured"
-{-# DEPRECATED lthoConfigured "Use generic-lens or generic-optics with 'configured' instead." #-}
+{-# INLINEABLE lthoConfigured #-}
+{-# DEPRECATED configured "Use generic-lens or generic-optics with 'configured' instead"  #-}
 
 instance Core.FromXML LaunchTemplateHibernationOptions where
-  parseXML x =
-    LaunchTemplateHibernationOptions'
-      Core.<$> (x Core..@? "configured")
+        parseXML x
+          = LaunchTemplateHibernationOptions' Core.<$>
+              (x Core..@? "configured")

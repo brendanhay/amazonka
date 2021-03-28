@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CloudWatch.Types.InsightRuleContributorDatapoint
-  ( InsightRuleContributorDatapoint (..),
-
-    -- * Smart constructor
-    mkInsightRuleContributorDatapoint,
-
-    -- * Lenses
-    ircdTimestamp,
-    ircdApproximateValue,
-  )
-where
+  ( InsightRuleContributorDatapoint (..)
+  -- * Smart constructor
+  , mkInsightRuleContributorDatapoint
+  -- * Lenses
+  , ircdTimestamp
+  , ircdApproximateValue
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -31,39 +29,39 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkInsightRuleContributorDatapoint' smart constructor.
 data InsightRuleContributorDatapoint = InsightRuleContributorDatapoint'
-  { -- | The timestamp of the data point.
-    timestamp :: Core.UTCTime,
-    -- | The approximate value that this contributor added during this timestamp.
-    approximateValue :: Core.Double
+  { timestamp :: Core.UTCTime
+    -- ^ The timestamp of the data point.
+  , approximateValue :: Core.Double
+    -- ^ The approximate value that this contributor added during this timestamp.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'InsightRuleContributorDatapoint' value with any optional fields omitted.
-mkInsightRuleContributorDatapoint ::
-  -- | 'timestamp'
-  Core.UTCTime ->
-  -- | 'approximateValue'
-  Core.Double ->
-  InsightRuleContributorDatapoint
-mkInsightRuleContributorDatapoint timestamp approximateValue =
-  InsightRuleContributorDatapoint' {timestamp, approximateValue}
+mkInsightRuleContributorDatapoint
+    :: Core.UTCTime -- ^ 'timestamp'
+    -> Core.Double -- ^ 'approximateValue'
+    -> InsightRuleContributorDatapoint
+mkInsightRuleContributorDatapoint timestamp approximateValue
+  = InsightRuleContributorDatapoint'{timestamp, approximateValue}
 
 -- | The timestamp of the data point.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ircdTimestamp :: Lens.Lens' InsightRuleContributorDatapoint Core.UTCTime
 ircdTimestamp = Lens.field @"timestamp"
-{-# DEPRECATED ircdTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
+{-# INLINEABLE ircdTimestamp #-}
+{-# DEPRECATED timestamp "Use generic-lens or generic-optics with 'timestamp' instead"  #-}
 
 -- | The approximate value that this contributor added during this timestamp.
 --
 -- /Note:/ Consider using 'approximateValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ircdApproximateValue :: Lens.Lens' InsightRuleContributorDatapoint Core.Double
 ircdApproximateValue = Lens.field @"approximateValue"
-{-# DEPRECATED ircdApproximateValue "Use generic-lens or generic-optics with 'approximateValue' instead." #-}
+{-# INLINEABLE ircdApproximateValue #-}
+{-# DEPRECATED approximateValue "Use generic-lens or generic-optics with 'approximateValue' instead"  #-}
 
 instance Core.FromXML InsightRuleContributorDatapoint where
-  parseXML x =
-    InsightRuleContributorDatapoint'
-      Core.<$> (x Core..@ "Timestamp") Core.<*> (x Core..@ "ApproximateValue")
+        parseXML x
+          = InsightRuleContributorDatapoint' Core.<$>
+              (x Core..@ "Timestamp") Core.<*> x Core..@ "ApproximateValue"

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.DynamoDB.Types.ReplicationGroupUpdate
-  ( ReplicationGroupUpdate (..),
-
-    -- * Smart constructor
-    mkReplicationGroupUpdate,
-
-    -- * Lenses
-    rguCreate,
-    rguDelete,
-    rguUpdate,
-  )
-where
+  ( ReplicationGroupUpdate (..)
+  -- * Smart constructor
+  , mkReplicationGroupUpdate
+  -- * Lenses
+  , rguCreate
+  , rguDelete
+  , rguUpdate
+  ) where
 
 import qualified Network.AWS.DynamoDB.Types.CreateReplicationGroupMemberAction as Types
 import qualified Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction as Types
@@ -44,53 +42,51 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkReplicationGroupUpdate' smart constructor.
 data ReplicationGroupUpdate = ReplicationGroupUpdate'
-  { -- | The parameters required for creating a replica for the table.
-    create :: Core.Maybe Types.CreateReplicationGroupMemberAction,
-    -- | The parameters required for deleting a replica for the table.
-    delete :: Core.Maybe Types.DeleteReplicationGroupMemberAction,
-    -- | The parameters required for updating a replica for the table.
-    update :: Core.Maybe Types.UpdateReplicationGroupMemberAction
+  { create :: Core.Maybe Types.CreateReplicationGroupMemberAction
+    -- ^ The parameters required for creating a replica for the table.
+  , delete :: Core.Maybe Types.DeleteReplicationGroupMemberAction
+    -- ^ The parameters required for deleting a replica for the table.
+  , update :: Core.Maybe Types.UpdateReplicationGroupMemberAction
+    -- ^ The parameters required for updating a replica for the table.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ReplicationGroupUpdate' value with any optional fields omitted.
-mkReplicationGroupUpdate ::
-  ReplicationGroupUpdate
-mkReplicationGroupUpdate =
-  ReplicationGroupUpdate'
-    { create = Core.Nothing,
-      delete = Core.Nothing,
-      update = Core.Nothing
-    }
+mkReplicationGroupUpdate
+    :: ReplicationGroupUpdate
+mkReplicationGroupUpdate
+  = ReplicationGroupUpdate'{create = Core.Nothing,
+                            delete = Core.Nothing, update = Core.Nothing}
 
 -- | The parameters required for creating a replica for the table.
 --
 -- /Note:/ Consider using 'create' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rguCreate :: Lens.Lens' ReplicationGroupUpdate (Core.Maybe Types.CreateReplicationGroupMemberAction)
 rguCreate = Lens.field @"create"
-{-# DEPRECATED rguCreate "Use generic-lens or generic-optics with 'create' instead." #-}
+{-# INLINEABLE rguCreate #-}
+{-# DEPRECATED create "Use generic-lens or generic-optics with 'create' instead"  #-}
 
 -- | The parameters required for deleting a replica for the table.
 --
 -- /Note:/ Consider using 'delete' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rguDelete :: Lens.Lens' ReplicationGroupUpdate (Core.Maybe Types.DeleteReplicationGroupMemberAction)
 rguDelete = Lens.field @"delete"
-{-# DEPRECATED rguDelete "Use generic-lens or generic-optics with 'delete' instead." #-}
+{-# INLINEABLE rguDelete #-}
+{-# DEPRECATED delete "Use generic-lens or generic-optics with 'delete' instead"  #-}
 
 -- | The parameters required for updating a replica for the table.
 --
 -- /Note:/ Consider using 'update' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rguUpdate :: Lens.Lens' ReplicationGroupUpdate (Core.Maybe Types.UpdateReplicationGroupMemberAction)
 rguUpdate = Lens.field @"update"
-{-# DEPRECATED rguUpdate "Use generic-lens or generic-optics with 'update' instead." #-}
+{-# INLINEABLE rguUpdate #-}
+{-# DEPRECATED update "Use generic-lens or generic-optics with 'update' instead"  #-}
 
 instance Core.FromJSON ReplicationGroupUpdate where
-  toJSON ReplicationGroupUpdate {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("Create" Core..=) Core.<$> create,
-            ("Delete" Core..=) Core.<$> delete,
-            ("Update" Core..=) Core.<$> update
-          ]
-      )
+        toJSON ReplicationGroupUpdate{..}
+          = Core.object
+              (Core.catMaybes
+                 [("Create" Core..=) Core.<$> create,
+                  ("Delete" Core..=) Core.<$> delete,
+                  ("Update" Core..=) Core.<$> update])

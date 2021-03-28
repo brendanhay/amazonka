@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,46 +10,28 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CodeDeploy.Types.FileExistsBehavior
   ( FileExistsBehavior
-      ( FileExistsBehavior',
-        FileExistsBehaviorDisallow,
-        FileExistsBehaviorOverwrite,
-        FileExistsBehaviorRetain,
-        fromFileExistsBehavior
-      ),
-  )
-where
+    ( FileExistsBehavior'
+    , FileExistsBehaviorDisallow
+    , FileExistsBehaviorOverwrite
+    , FileExistsBehaviorRetain
+    , fromFileExistsBehavior
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype FileExistsBehavior = FileExistsBehavior'
-  { fromFileExistsBehavior ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype FileExistsBehavior = FileExistsBehavior'{fromFileExistsBehavior
+                                                 :: Core.Text}
+                               deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                               Core.Generic)
+                               deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                 Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                 Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                 Core.ToText, Core.FromText, Core.ToByteString,
+                                                 Core.ToQuery, Core.ToHeader)
 
 pattern FileExistsBehaviorDisallow :: FileExistsBehavior
 pattern FileExistsBehaviorDisallow = FileExistsBehavior' "DISALLOW"
@@ -60,9 +42,11 @@ pattern FileExistsBehaviorOverwrite = FileExistsBehavior' "OVERWRITE"
 pattern FileExistsBehaviorRetain :: FileExistsBehavior
 pattern FileExistsBehaviorRetain = FileExistsBehavior' "RETAIN"
 
-{-# COMPLETE
+{-# COMPLETE 
   FileExistsBehaviorDisallow,
+
   FileExistsBehaviorOverwrite,
+
   FileExistsBehaviorRetain,
   FileExistsBehavior'
   #-}

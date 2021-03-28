@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -26,23 +26,23 @@
 --
 --
 --     * Use the @ListHostedZones@ action to get a list of the hosted zones associated with the current AWS account.
+--
+--
 module Network.AWS.Route53.DeleteHostedZone
-  ( -- * Creating a request
-    DeleteHostedZone (..),
-    mkDeleteHostedZone,
-
+    (
+    -- * Creating a request
+      DeleteHostedZone (..)
+    , mkDeleteHostedZone
     -- ** Request lenses
-    dhzId,
+    , dhzId
 
     -- * Destructuring the response
-    DeleteHostedZoneResponse (..),
-    mkDeleteHostedZoneResponse,
-
+    , DeleteHostedZoneResponse (..)
+    , mkDeleteHostedZoneResponse
     -- ** Response lenses
-    dhzrrsChangeInfo,
-    dhzrrsResponseStatus,
-  )
-where
+    , dhzrrsChangeInfo
+    , dhzrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -54,77 +54,82 @@ import qualified Network.AWS.Route53.Types as Types
 --
 -- /See:/ 'mkDeleteHostedZone' smart constructor.
 newtype DeleteHostedZone = DeleteHostedZone'
-  { -- | The ID of the hosted zone you want to delete.
-    id :: Types.ResourceId
+  { id :: Types.ResourceId
+    -- ^ The ID of the hosted zone you want to delete.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteHostedZone' value with any optional fields omitted.
-mkDeleteHostedZone ::
-  -- | 'id'
-  Types.ResourceId ->
-  DeleteHostedZone
-mkDeleteHostedZone id = DeleteHostedZone' {id}
+mkDeleteHostedZone
+    :: Types.ResourceId -- ^ 'id'
+    -> DeleteHostedZone
+mkDeleteHostedZone id = DeleteHostedZone'{id}
 
 -- | The ID of the hosted zone you want to delete.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dhzId :: Lens.Lens' DeleteHostedZone Types.ResourceId
 dhzId = Lens.field @"id"
-{-# DEPRECATED dhzId "Use generic-lens or generic-optics with 'id' instead." #-}
+{-# INLINEABLE dhzId #-}
+{-# DEPRECATED id "Use generic-lens or generic-optics with 'id' instead"  #-}
+
+instance Core.ToQuery DeleteHostedZone where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DeleteHostedZone where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest DeleteHostedZone where
-  type Rs DeleteHostedZone = DeleteHostedZoneResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.DELETE,
-        Core._rqPath =
-          Core.rawPath ("/2013-04-01/hostedzone/" Core.<> (Core.toText id)),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = ""
-      }
-  response =
-    Response.receiveXML
-      ( \s h x ->
-          DeleteHostedZoneResponse'
-            Core.<$> (x Core..@ "ChangeInfo") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DeleteHostedZone = DeleteHostedZoneResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.DELETE,
+                         Core._rqPath = "/2013-04-01/hostedzone/" Core.<> Core.toText id,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXML
+              (\ s h x ->
+                 DeleteHostedZoneResponse' Core.<$>
+                   (x Core..@ "ChangeInfo") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | A complex type that contains the response to a @DeleteHostedZone@ request.
 --
 -- /See:/ 'mkDeleteHostedZoneResponse' smart constructor.
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse'
-  { -- | A complex type that contains the ID, the status, and the date and time of a request to delete a hosted zone.
-    changeInfo :: Types.ChangeInfo,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { changeInfo :: Types.ChangeInfo
+    -- ^ A complex type that contains the ID, the status, and the date and time of a request to delete a hosted zone.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'DeleteHostedZoneResponse' value with any optional fields omitted.
-mkDeleteHostedZoneResponse ::
-  -- | 'changeInfo'
-  Types.ChangeInfo ->
-  -- | 'responseStatus'
-  Core.Int ->
-  DeleteHostedZoneResponse
-mkDeleteHostedZoneResponse changeInfo responseStatus =
-  DeleteHostedZoneResponse' {changeInfo, responseStatus}
+mkDeleteHostedZoneResponse
+    :: Types.ChangeInfo -- ^ 'changeInfo'
+    -> Core.Int -- ^ 'responseStatus'
+    -> DeleteHostedZoneResponse
+mkDeleteHostedZoneResponse changeInfo responseStatus
+  = DeleteHostedZoneResponse'{changeInfo, responseStatus}
 
 -- | A complex type that contains the ID, the status, and the date and time of a request to delete a hosted zone.
 --
 -- /Note:/ Consider using 'changeInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dhzrrsChangeInfo :: Lens.Lens' DeleteHostedZoneResponse Types.ChangeInfo
 dhzrrsChangeInfo = Lens.field @"changeInfo"
-{-# DEPRECATED dhzrrsChangeInfo "Use generic-lens or generic-optics with 'changeInfo' instead." #-}
+{-# INLINEABLE dhzrrsChangeInfo #-}
+{-# DEPRECATED changeInfo "Use generic-lens or generic-optics with 'changeInfo' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dhzrrsResponseStatus :: Lens.Lens' DeleteHostedZoneResponse Core.Int
 dhzrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED dhzrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE dhzrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

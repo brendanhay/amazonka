@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,46 +10,28 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaLive.Types.H264SubGopLength
   ( H264SubGopLength
-      ( H264SubGopLength',
-        H264SubGopLengthDynamic,
-        H264SubGopLengthFixed,
-        fromH264SubGopLength
-      ),
-  )
-where
+    ( H264SubGopLength'
+    , H264SubGopLengthDynamic
+    , H264SubGopLengthFixed
+    , fromH264SubGopLength
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
 -- | H264 Sub Gop Length
-newtype H264SubGopLength = H264SubGopLength'
-  { fromH264SubGopLength ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype H264SubGopLength = H264SubGopLength'{fromH264SubGopLength
+                                             :: Core.Text}
+                             deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                             Core.Generic)
+                             deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                               Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                               Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                               Core.FromText, Core.ToByteString, Core.ToQuery,
+                                               Core.ToHeader)
 
 pattern H264SubGopLengthDynamic :: H264SubGopLength
 pattern H264SubGopLengthDynamic = H264SubGopLength' "DYNAMIC"
@@ -57,8 +39,9 @@ pattern H264SubGopLengthDynamic = H264SubGopLength' "DYNAMIC"
 pattern H264SubGopLengthFixed :: H264SubGopLength
 pattern H264SubGopLengthFixed = H264SubGopLength' "FIXED"
 
-{-# COMPLETE
+{-# COMPLETE 
   H264SubGopLengthDynamic,
+
   H264SubGopLengthFixed,
   H264SubGopLength'
   #-}

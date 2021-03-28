@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,32 +15,30 @@
 --
 -- Creates a @DataSource@ from a database hosted on an Amazon Redshift cluster. A @DataSource@ references data that can be used to perform either @CreateMLModel@ , @CreateEvaluation@ , or @CreateBatchPrediction@ operations.
 --
--- @CreateDataSourceFromRedshift@ is an asynchronous operation. In response to @CreateDataSourceFromRedshift@ , Amazon Machine Learning (Amazon ML) immediately returns and sets the @DataSource@ status to @PENDING@ . After the @DataSource@ is created and ready for use, Amazon ML sets the @Status@ parameter to @COMPLETED@ . @DataSource@ in @COMPLETED@ or @PENDING@ states can be used to perform only @CreateMLModel@ , @CreateEvaluation@ , or @CreateBatchPrediction@ operations.
--- If Amazon ML can't accept the input source, it sets the @Status@ parameter to @FAILED@ and includes an error message in the @Message@ attribute of the @GetDataSource@ operation response.
+-- @CreateDataSourceFromRedshift@ is an asynchronous operation. In response to @CreateDataSourceFromRedshift@ , Amazon Machine Learning (Amazon ML) immediately returns and sets the @DataSource@ status to @PENDING@ . After the @DataSource@ is created and ready for use, Amazon ML sets the @Status@ parameter to @COMPLETED@ . @DataSource@ in @COMPLETED@ or @PENDING@ states can be used to perform only @CreateMLModel@ , @CreateEvaluation@ , or @CreateBatchPrediction@ operations. 
+-- If Amazon ML can't accept the input source, it sets the @Status@ parameter to @FAILED@ and includes an error message in the @Message@ attribute of the @GetDataSource@ operation response. 
 -- The observations should be contained in the database hosted on an Amazon Redshift cluster and should be specified by a @SelectSqlQuery@ query. Amazon ML executes an @Unload@ command in Amazon Redshift to transfer the result set of the @SelectSqlQuery@ query to @S3StagingLocation@ .
 -- After the @DataSource@ has been created, it's ready for use in evaluations and batch predictions. If you plan to use the @DataSource@ to train an @MLModel@ , the @DataSource@ also requires a recipe. A recipe describes how each input variable will be used in training an @MLModel@ . Will the variable be included or excluded from training? Will the variable be manipulated; for example, will it be combined with another variable or will it be split apart into word combinations? The recipe provides answers to these questions.
 -- You can't change an existing datasource, but you can copy and modify the settings from an existing Amazon Redshift datasource to create a new datasource. To do so, call @GetDataSource@ for an existing datasource and copy the values to a @CreateDataSource@ call. Change the settings that you want to change and make sure that all required fields have the appropriate values.
 module Network.AWS.MachineLearning.CreateDataSourceFromRedshift
-  ( -- * Creating a request
-    CreateDataSourceFromRedshift (..),
-    mkCreateDataSourceFromRedshift,
-
+    (
+    -- * Creating a request
+      CreateDataSourceFromRedshift (..)
+    , mkCreateDataSourceFromRedshift
     -- ** Request lenses
-    cdsfrDataSourceId,
-    cdsfrDataSpec,
-    cdsfrRoleARN,
-    cdsfrComputeStatistics,
-    cdsfrDataSourceName,
+    , cdsfrDataSourceId
+    , cdsfrDataSpec
+    , cdsfrRoleARN
+    , cdsfrComputeStatistics
+    , cdsfrDataSourceName
 
     -- * Destructuring the response
-    CreateDataSourceFromRedshiftResponse (..),
-    mkCreateDataSourceFromRedshiftResponse,
-
+    , CreateDataSourceFromRedshiftResponse (..)
+    , mkCreateDataSourceFromRedshiftResponse
     -- ** Response lenses
-    cdsfrrrsDataSourceId,
-    cdsfrrrsResponseStatus,
-  )
-where
+    , cdsfrrrsDataSourceId
+    , cdsfrrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.MachineLearning.Types as Types
@@ -50,83 +48,14 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateDataSourceFromRedshift' smart constructor.
 data CreateDataSourceFromRedshift = CreateDataSourceFromRedshift'
-  { -- | A user-supplied ID that uniquely identifies the @DataSource@ .
-    dataSourceId :: Types.DataSourceId,
-    -- | The data specification of an Amazon Redshift @DataSource@ :
-    --
-    --
-    --     * DatabaseInformation -
-    --     * @DatabaseName@ - The name of the Amazon Redshift database.
-    --
-    --     * @ClusterIdentifier@ - The unique ID for the Amazon Redshift cluster.
-    --
-    --
-    --
-    --
-    --     * DatabaseCredentials - The AWS Identity and Access Management (IAM) credentials that are used to connect to the Amazon Redshift database.
-    --
-    --
-    --     * SelectSqlQuery - The query that is used to retrieve the observation data for the @Datasource@ .
-    --
-    --
-    --     * S3StagingLocation - The Amazon Simple Storage Service (Amazon S3) location for staging Amazon Redshift data. The data retrieved from Amazon Redshift using the @SelectSqlQuery@ query is stored in this location.
-    --
-    --
-    --     * DataSchemaUri - The Amazon S3 location of the @DataSchema@ .
-    --
-    --
-    --     * DataSchema - A JSON string representing the schema. This is not required if @DataSchemaUri@ is specified.
-    --
-    --
-    --     * DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the @DataSource@ .
-    -- Sample - @"{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"@
-    dataSpec :: Types.RedshiftDataSpec,
-    -- | A fully specified role Amazon Resource Name (ARN). Amazon ML assumes the role on behalf of the user to create the following:
-    --
-    --
-    --     * A security group to allow Amazon ML to execute the @SelectSqlQuery@ query on an Amazon Redshift cluster
-    --
-    --
-    --     * An Amazon S3 bucket policy to grant Amazon ML read/write permissions on the @S3StagingLocation@
-    roleARN :: Types.RoleARN,
-    -- | The compute statistics for a @DataSource@ . The statistics are generated from the observation data referenced by a @DataSource@ . Amazon ML uses the statistics internally during @MLModel@ training. This parameter must be set to @true@ if the @DataSource@ needs to be used for @MLModel@ training.
-    computeStatistics :: Core.Maybe Core.Bool,
-    -- | A user-supplied name or description of the @DataSource@ .
-    dataSourceName :: Core.Maybe Types.EntityName
-  }
-  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.Hashable, Core.NFData)
-
--- | Creates a 'CreateDataSourceFromRedshift' value with any optional fields omitted.
-mkCreateDataSourceFromRedshift ::
-  -- | 'dataSourceId'
-  Types.DataSourceId ->
-  -- | 'dataSpec'
-  Types.RedshiftDataSpec ->
-  -- | 'roleARN'
-  Types.RoleARN ->
-  CreateDataSourceFromRedshift
-mkCreateDataSourceFromRedshift dataSourceId dataSpec roleARN =
-  CreateDataSourceFromRedshift'
-    { dataSourceId,
-      dataSpec,
-      roleARN,
-      computeStatistics = Core.Nothing,
-      dataSourceName = Core.Nothing
-    }
-
--- | A user-supplied ID that uniquely identifies the @DataSource@ .
---
--- /Note:/ Consider using 'dataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsfrDataSourceId :: Lens.Lens' CreateDataSourceFromRedshift Types.DataSourceId
-cdsfrDataSourceId = Lens.field @"dataSourceId"
-{-# DEPRECATED cdsfrDataSourceId "Use generic-lens or generic-optics with 'dataSourceId' instead." #-}
-
--- | The data specification of an Amazon Redshift @DataSource@ :
+  { dataSourceId :: Types.DataSourceId
+    -- ^ A user-supplied ID that uniquely identifies the @DataSource@ .
+  , dataSpec :: Types.RedshiftDataSpec
+    -- ^ The data specification of an Amazon Redshift @DataSource@ :
 --
 --
---     * DatabaseInformation -
---     * @DatabaseName@ - The name of the Amazon Redshift database.
+--     * DatabaseInformation - 
+--     * @DatabaseName@ - The name of the Amazon Redshift database. 
 --
 --     * @ClusterIdentifier@ - The unique ID for the Amazon Redshift cluster.
 --
@@ -145,26 +74,94 @@ cdsfrDataSourceId = Lens.field @"dataSourceId"
 --     * DataSchemaUri - The Amazon S3 location of the @DataSchema@ .
 --
 --
---     * DataSchema - A JSON string representing the schema. This is not required if @DataSchemaUri@ is specified.
+--     * DataSchema - A JSON string representing the schema. This is not required if @DataSchemaUri@ is specified. 
 --
 --
 --     * DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the @DataSource@ .
--- Sample - @"{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"@
+-- Sample - @"{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"@ 
+--
+--
+  , roleARN :: Types.RoleARN
+    -- ^ A fully specified role Amazon Resource Name (ARN). Amazon ML assumes the role on behalf of the user to create the following: 
+--
+--
+--     * A security group to allow Amazon ML to execute the @SelectSqlQuery@ query on an Amazon Redshift cluster
+--
+--
+--     * An Amazon S3 bucket policy to grant Amazon ML read/write permissions on the @S3StagingLocation@ 
+--
+--
+--
+  , computeStatistics :: Core.Maybe Core.Bool
+    -- ^ The compute statistics for a @DataSource@ . The statistics are generated from the observation data referenced by a @DataSource@ . Amazon ML uses the statistics internally during @MLModel@ training. This parameter must be set to @true@ if the @DataSource@ needs to be used for @MLModel@ training.
+  , dataSourceName :: Core.Maybe Types.EntityName
+    -- ^ A user-supplied name or description of the @DataSource@ . 
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
+
+-- | Creates a 'CreateDataSourceFromRedshift' value with any optional fields omitted.
+mkCreateDataSourceFromRedshift
+    :: Types.DataSourceId -- ^ 'dataSourceId'
+    -> Types.RedshiftDataSpec -- ^ 'dataSpec'
+    -> Types.RoleARN -- ^ 'roleARN'
+    -> CreateDataSourceFromRedshift
+mkCreateDataSourceFromRedshift dataSourceId dataSpec roleARN
+  = CreateDataSourceFromRedshift'{dataSourceId, dataSpec, roleARN,
+                                  computeStatistics = Core.Nothing, dataSourceName = Core.Nothing}
+
+-- | A user-supplied ID that uniquely identifies the @DataSource@ .
+--
+-- /Note:/ Consider using 'dataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsfrDataSourceId :: Lens.Lens' CreateDataSourceFromRedshift Types.DataSourceId
+cdsfrDataSourceId = Lens.field @"dataSourceId"
+{-# INLINEABLE cdsfrDataSourceId #-}
+{-# DEPRECATED dataSourceId "Use generic-lens or generic-optics with 'dataSourceId' instead"  #-}
+
+-- | The data specification of an Amazon Redshift @DataSource@ :
+--
+--
+--     * DatabaseInformation - 
+--     * @DatabaseName@ - The name of the Amazon Redshift database. 
+--
+--     * @ClusterIdentifier@ - The unique ID for the Amazon Redshift cluster.
+--
+--
+--
+--
+--     * DatabaseCredentials - The AWS Identity and Access Management (IAM) credentials that are used to connect to the Amazon Redshift database.
+--
+--
+--     * SelectSqlQuery - The query that is used to retrieve the observation data for the @Datasource@ .
+--
+--
+--     * S3StagingLocation - The Amazon Simple Storage Service (Amazon S3) location for staging Amazon Redshift data. The data retrieved from Amazon Redshift using the @SelectSqlQuery@ query is stored in this location.
+--
+--
+--     * DataSchemaUri - The Amazon S3 location of the @DataSchema@ .
+--
+--
+--     * DataSchema - A JSON string representing the schema. This is not required if @DataSchemaUri@ is specified. 
+--
+--
+--     * DataRearrangement - A JSON string that represents the splitting and rearrangement requirements for the @DataSource@ .
+-- Sample - @"{\"splitting\":{\"percentBegin\":10,\"percentEnd\":60}}"@ 
 --
 --
 --
 -- /Note:/ Consider using 'dataSpec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdsfrDataSpec :: Lens.Lens' CreateDataSourceFromRedshift Types.RedshiftDataSpec
 cdsfrDataSpec = Lens.field @"dataSpec"
-{-# DEPRECATED cdsfrDataSpec "Use generic-lens or generic-optics with 'dataSpec' instead." #-}
+{-# INLINEABLE cdsfrDataSpec #-}
+{-# DEPRECATED dataSpec "Use generic-lens or generic-optics with 'dataSpec' instead"  #-}
 
--- | A fully specified role Amazon Resource Name (ARN). Amazon ML assumes the role on behalf of the user to create the following:
+-- | A fully specified role Amazon Resource Name (ARN). Amazon ML assumes the role on behalf of the user to create the following: 
 --
 --
 --     * A security group to allow Amazon ML to execute the @SelectSqlQuery@ query on an Amazon Redshift cluster
 --
 --
---     * An Amazon S3 bucket policy to grant Amazon ML read/write permissions on the @S3StagingLocation@
+--     * An Amazon S3 bucket policy to grant Amazon ML read/write permissions on the @S3StagingLocation@ 
 --
 --
 --
@@ -172,93 +169,97 @@ cdsfrDataSpec = Lens.field @"dataSpec"
 -- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdsfrRoleARN :: Lens.Lens' CreateDataSourceFromRedshift Types.RoleARN
 cdsfrRoleARN = Lens.field @"roleARN"
-{-# DEPRECATED cdsfrRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+{-# INLINEABLE cdsfrRoleARN #-}
+{-# DEPRECATED roleARN "Use generic-lens or generic-optics with 'roleARN' instead"  #-}
 
 -- | The compute statistics for a @DataSource@ . The statistics are generated from the observation data referenced by a @DataSource@ . Amazon ML uses the statistics internally during @MLModel@ training. This parameter must be set to @true@ if the @DataSource@ needs to be used for @MLModel@ training.
 --
 -- /Note:/ Consider using 'computeStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdsfrComputeStatistics :: Lens.Lens' CreateDataSourceFromRedshift (Core.Maybe Core.Bool)
 cdsfrComputeStatistics = Lens.field @"computeStatistics"
-{-# DEPRECATED cdsfrComputeStatistics "Use generic-lens or generic-optics with 'computeStatistics' instead." #-}
+{-# INLINEABLE cdsfrComputeStatistics #-}
+{-# DEPRECATED computeStatistics "Use generic-lens or generic-optics with 'computeStatistics' instead"  #-}
 
--- | A user-supplied name or description of the @DataSource@ .
+-- | A user-supplied name or description of the @DataSource@ . 
 --
 -- /Note:/ Consider using 'dataSourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdsfrDataSourceName :: Lens.Lens' CreateDataSourceFromRedshift (Core.Maybe Types.EntityName)
 cdsfrDataSourceName = Lens.field @"dataSourceName"
-{-# DEPRECATED cdsfrDataSourceName "Use generic-lens or generic-optics with 'dataSourceName' instead." #-}
+{-# INLINEABLE cdsfrDataSourceName #-}
+{-# DEPRECATED dataSourceName "Use generic-lens or generic-optics with 'dataSourceName' instead"  #-}
+
+instance Core.ToQuery CreateDataSourceFromRedshift where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders CreateDataSourceFromRedshift where
+        toHeaders CreateDataSourceFromRedshift{..}
+          = Core.pure
+              ("X-Amz-Target", "AmazonML_20141212.CreateDataSourceFromRedshift")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON CreateDataSourceFromRedshift where
-  toJSON CreateDataSourceFromRedshift {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("DataSourceId" Core..= dataSourceId),
-            Core.Just ("DataSpec" Core..= dataSpec),
-            Core.Just ("RoleARN" Core..= roleARN),
-            ("ComputeStatistics" Core..=) Core.<$> computeStatistics,
-            ("DataSourceName" Core..=) Core.<$> dataSourceName
-          ]
-      )
+        toJSON CreateDataSourceFromRedshift{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("DataSourceId" Core..= dataSourceId),
+                  Core.Just ("DataSpec" Core..= dataSpec),
+                  Core.Just ("RoleARN" Core..= roleARN),
+                  ("ComputeStatistics" Core..=) Core.<$> computeStatistics,
+                  ("DataSourceName" Core..=) Core.<$> dataSourceName])
 
 instance Core.AWSRequest CreateDataSourceFromRedshift where
-  type
-    Rs CreateDataSourceFromRedshift =
-      CreateDataSourceFromRedshiftResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "AmazonML_20141212.CreateDataSourceFromRedshift")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          CreateDataSourceFromRedshiftResponse'
-            Core.<$> (x Core..:? "DataSourceId") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs CreateDataSourceFromRedshift =
+             CreateDataSourceFromRedshiftResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 CreateDataSourceFromRedshiftResponse' Core.<$>
+                   (x Core..:? "DataSourceId") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | Represents the output of a @CreateDataSourceFromRedshift@ operation, and is an acknowledgement that Amazon ML received the request.
 --
--- The @CreateDataSourceFromRedshift@ operation is asynchronous. You can poll for updates by using the @GetBatchPrediction@ operation and checking the @Status@ parameter.
+-- The @CreateDataSourceFromRedshift@ operation is asynchronous. You can poll for updates by using the @GetBatchPrediction@ operation and checking the @Status@ parameter. 
 --
 -- /See:/ 'mkCreateDataSourceFromRedshiftResponse' smart constructor.
 data CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse'
-  { -- | A user-supplied ID that uniquely identifies the datasource. This value should be identical to the value of the @DataSourceID@ in the request.
-    dataSourceId :: Core.Maybe Types.DataSourceId,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { dataSourceId :: Core.Maybe Types.DataSourceId
+    -- ^ A user-supplied ID that uniquely identifies the datasource. This value should be identical to the value of the @DataSourceID@ in the request. 
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CreateDataSourceFromRedshiftResponse' value with any optional fields omitted.
-mkCreateDataSourceFromRedshiftResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  CreateDataSourceFromRedshiftResponse
-mkCreateDataSourceFromRedshiftResponse responseStatus =
-  CreateDataSourceFromRedshiftResponse'
-    { dataSourceId =
-        Core.Nothing,
-      responseStatus
-    }
+mkCreateDataSourceFromRedshiftResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> CreateDataSourceFromRedshiftResponse
+mkCreateDataSourceFromRedshiftResponse responseStatus
+  = CreateDataSourceFromRedshiftResponse'{dataSourceId =
+                                            Core.Nothing,
+                                          responseStatus}
 
--- | A user-supplied ID that uniquely identifies the datasource. This value should be identical to the value of the @DataSourceID@ in the request.
+-- | A user-supplied ID that uniquely identifies the datasource. This value should be identical to the value of the @DataSourceID@ in the request. 
 --
 -- /Note:/ Consider using 'dataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdsfrrrsDataSourceId :: Lens.Lens' CreateDataSourceFromRedshiftResponse (Core.Maybe Types.DataSourceId)
 cdsfrrrsDataSourceId = Lens.field @"dataSourceId"
-{-# DEPRECATED cdsfrrrsDataSourceId "Use generic-lens or generic-optics with 'dataSourceId' instead." #-}
+{-# INLINEABLE cdsfrrrsDataSourceId #-}
+{-# DEPRECATED dataSourceId "Use generic-lens or generic-optics with 'dataSourceId' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdsfrrrsResponseStatus :: Lens.Lens' CreateDataSourceFromRedshiftResponse Core.Int
 cdsfrrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED cdsfrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE cdsfrrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

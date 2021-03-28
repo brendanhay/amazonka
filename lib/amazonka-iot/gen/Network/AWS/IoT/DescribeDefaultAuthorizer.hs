@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,19 +15,18 @@
 --
 -- Describes the default authorizer.
 module Network.AWS.IoT.DescribeDefaultAuthorizer
-  ( -- * Creating a request
-    DescribeDefaultAuthorizer (..),
-    mkDescribeDefaultAuthorizer,
+    (
+    -- * Creating a request
+      DescribeDefaultAuthorizer (..)
+    , mkDescribeDefaultAuthorizer
 
     -- * Destructuring the response
-    DescribeDefaultAuthorizerResponse (..),
-    mkDescribeDefaultAuthorizerResponse,
-
+    , DescribeDefaultAuthorizerResponse (..)
+    , mkDescribeDefaultAuthorizerResponse
     -- ** Response lenses
-    ddarrsAuthorizerDescription,
-    ddarrsResponseStatus,
-  )
-where
+    , ddarrsAuthorizerDescription
+    , ddarrsResponseStatus
+    ) where
 
 import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -41,63 +40,66 @@ data DescribeDefaultAuthorizer = DescribeDefaultAuthorizer'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DescribeDefaultAuthorizer' value with any optional fields omitted.
-mkDescribeDefaultAuthorizer ::
-  DescribeDefaultAuthorizer
+mkDescribeDefaultAuthorizer
+    :: DescribeDefaultAuthorizer
 mkDescribeDefaultAuthorizer = DescribeDefaultAuthorizer'
 
+instance Core.ToQuery DescribeDefaultAuthorizer where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DescribeDefaultAuthorizer where
+        toHeaders _ = Core.pure Core.mempty
+
 instance Core.AWSRequest DescribeDefaultAuthorizer where
-  type
-    Rs DescribeDefaultAuthorizer =
-      DescribeDefaultAuthorizerResponse
-  request x@_ =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.GET,
-        Core._rqPath = Core.rawPath "/default-authorizer",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = ""
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          DescribeDefaultAuthorizerResponse'
-            Core.<$> (x Core..:? "authorizerDescription")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DescribeDefaultAuthorizer =
+             DescribeDefaultAuthorizerResponse
+        toRequest x@_
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.GET, Core._rqPath = "/default-authorizer",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 DescribeDefaultAuthorizerResponse' Core.<$>
+                   (x Core..:? "authorizerDescription") Core.<*>
+                     Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDescribeDefaultAuthorizerResponse' smart constructor.
 data DescribeDefaultAuthorizerResponse = DescribeDefaultAuthorizerResponse'
-  { -- | The default authorizer's description.
-    authorizerDescription :: Core.Maybe Types.AuthorizerDescription,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { authorizerDescription :: Core.Maybe Types.AuthorizerDescription
+    -- ^ The default authorizer's description.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'DescribeDefaultAuthorizerResponse' value with any optional fields omitted.
-mkDescribeDefaultAuthorizerResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DescribeDefaultAuthorizerResponse
-mkDescribeDefaultAuthorizerResponse responseStatus =
-  DescribeDefaultAuthorizerResponse'
-    { authorizerDescription =
-        Core.Nothing,
-      responseStatus
-    }
+mkDescribeDefaultAuthorizerResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DescribeDefaultAuthorizerResponse
+mkDescribeDefaultAuthorizerResponse responseStatus
+  = DescribeDefaultAuthorizerResponse'{authorizerDescription =
+                                         Core.Nothing,
+                                       responseStatus}
 
 -- | The default authorizer's description.
 --
 -- /Note:/ Consider using 'authorizerDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ddarrsAuthorizerDescription :: Lens.Lens' DescribeDefaultAuthorizerResponse (Core.Maybe Types.AuthorizerDescription)
 ddarrsAuthorizerDescription = Lens.field @"authorizerDescription"
-{-# DEPRECATED ddarrsAuthorizerDescription "Use generic-lens or generic-optics with 'authorizerDescription' instead." #-}
+{-# INLINEABLE ddarrsAuthorizerDescription #-}
+{-# DEPRECATED authorizerDescription "Use generic-lens or generic-optics with 'authorizerDescription' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ddarrsResponseStatus :: Lens.Lens' DescribeDefaultAuthorizerResponse Core.Int
 ddarrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED ddarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE ddarrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

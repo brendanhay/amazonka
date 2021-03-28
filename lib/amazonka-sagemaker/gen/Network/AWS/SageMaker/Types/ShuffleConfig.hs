@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SageMaker.Types.ShuffleConfig
-  ( ShuffleConfig (..),
-
-    -- * Smart constructor
-    mkShuffleConfig,
-
-    -- * Lenses
-    scSeed,
-  )
-where
+  ( ShuffleConfig (..)
+  -- * Smart constructor
+  , mkShuffleConfig
+  -- * Lenses
+  , scSeed
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -30,31 +28,31 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkShuffleConfig' smart constructor.
 newtype ShuffleConfig = ShuffleConfig'
-  { -- | Determines the shuffling order in @ShuffleConfig@ value.
-    seed :: Core.Integer
+  { seed :: Core.Integer
+    -- ^ Determines the shuffling order in @ShuffleConfig@ value.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ShuffleConfig' value with any optional fields omitted.
-mkShuffleConfig ::
-  -- | 'seed'
-  Core.Integer ->
-  ShuffleConfig
-mkShuffleConfig seed = ShuffleConfig' {seed}
+mkShuffleConfig
+    :: Core.Integer -- ^ 'seed'
+    -> ShuffleConfig
+mkShuffleConfig seed = ShuffleConfig'{seed}
 
 -- | Determines the shuffling order in @ShuffleConfig@ value.
 --
 -- /Note:/ Consider using 'seed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 scSeed :: Lens.Lens' ShuffleConfig Core.Integer
 scSeed = Lens.field @"seed"
-{-# DEPRECATED scSeed "Use generic-lens or generic-optics with 'seed' instead." #-}
+{-# INLINEABLE scSeed #-}
+{-# DEPRECATED seed "Use generic-lens or generic-optics with 'seed' instead"  #-}
 
 instance Core.FromJSON ShuffleConfig where
-  toJSON ShuffleConfig {..} =
-    Core.object (Core.catMaybes [Core.Just ("Seed" Core..= seed)])
+        toJSON ShuffleConfig{..}
+          = Core.object (Core.catMaybes [Core.Just ("Seed" Core..= seed)])
 
 instance Core.FromJSON ShuffleConfig where
-  parseJSON =
-    Core.withObject "ShuffleConfig" Core.$
-      \x -> ShuffleConfig' Core.<$> (x Core..: "Seed")
+        parseJSON
+          = Core.withObject "ShuffleConfig" Core.$
+              \ x -> ShuffleConfig' Core.<$> (x Core..: "Seed")

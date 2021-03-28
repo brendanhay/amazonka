@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -35,32 +35,30 @@
 --
 -- Kinesis Data Firehose assumes the IAM role that is configured as part of the destination. The role should allow the Kinesis Data Firehose principal to assume the role, and the role should have permissions that allow the service to deliver the data. For more information, see <https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3 Grant Kinesis Data Firehose Access to an Amazon S3 Destination> in the /Amazon Kinesis Data Firehose Developer Guide/ .
 module Network.AWS.Firehose.CreateDeliveryStream
-  ( -- * Creating a request
-    CreateDeliveryStream (..),
-    mkCreateDeliveryStream,
-
+    (
+    -- * Creating a request
+      CreateDeliveryStream (..)
+    , mkCreateDeliveryStream
     -- ** Request lenses
-    cdsDeliveryStreamName,
-    cdsDeliveryStreamEncryptionConfigurationInput,
-    cdsDeliveryStreamType,
-    cdsElasticsearchDestinationConfiguration,
-    cdsExtendedS3DestinationConfiguration,
-    cdsHttpEndpointDestinationConfiguration,
-    cdsKinesisStreamSourceConfiguration,
-    cdsRedshiftDestinationConfiguration,
-    cdsS3DestinationConfiguration,
-    cdsSplunkDestinationConfiguration,
-    cdsTags,
+    , cdsDeliveryStreamName
+    , cdsDeliveryStreamEncryptionConfigurationInput
+    , cdsDeliveryStreamType
+    , cdsElasticsearchDestinationConfiguration
+    , cdsExtendedS3DestinationConfiguration
+    , cdsHttpEndpointDestinationConfiguration
+    , cdsKinesisStreamSourceConfiguration
+    , cdsRedshiftDestinationConfiguration
+    , cdsS3DestinationConfiguration
+    , cdsSplunkDestinationConfiguration
+    , cdsTags
 
     -- * Destructuring the response
-    CreateDeliveryStreamResponse (..),
-    mkCreateDeliveryStreamResponse,
-
+    , CreateDeliveryStreamResponse (..)
+    , mkCreateDeliveryStreamResponse
     -- ** Response lenses
-    cdsrrsDeliveryStreamARN,
-    cdsrrsResponseStatus,
-  )
-where
+    , cdsrrsDeliveryStreamARN
+    , cdsrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Firehose.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -70,73 +68,73 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateDeliveryStream' smart constructor.
 data CreateDeliveryStream = CreateDeliveryStream'
-  { -- | The name of the delivery stream. This name must be unique per AWS account in the same AWS Region. If the delivery streams are in different accounts or different Regions, you can have multiple delivery streams with the same name.
-    deliveryStreamName :: Types.DeliveryStreamName,
-    -- | Used to specify the type and Amazon Resource Name (ARN) of the KMS key needed for Server-Side Encryption (SSE).
-    deliveryStreamEncryptionConfigurationInput :: Core.Maybe Types.DeliveryStreamEncryptionConfigurationInput,
-    -- | The delivery stream type. This parameter can be one of the following values:
-    --
-    --
-    --     * @DirectPut@ : Provider applications access the delivery stream directly.
-    --
-    --
-    --     * @KinesisStreamAsSource@ : The delivery stream uses a Kinesis data stream as a source.
-    deliveryStreamType :: Core.Maybe Types.DeliveryStreamType,
-    -- | The destination in Amazon ES. You can specify only one destination.
-    elasticsearchDestinationConfiguration :: Core.Maybe Types.ElasticsearchDestinationConfiguration,
-    -- | The destination in Amazon S3. You can specify only one destination.
-    extendedS3DestinationConfiguration :: Core.Maybe Types.ExtendedS3DestinationConfiguration,
-    -- | Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination. You can specify only one destination.
-    httpEndpointDestinationConfiguration :: Core.Maybe Types.HttpEndpointDestinationConfiguration,
-    -- | When a Kinesis data stream is used as the source for the delivery stream, a 'KinesisStreamSourceConfiguration' containing the Kinesis data stream Amazon Resource Name (ARN) and the role ARN for the source stream.
-    kinesisStreamSourceConfiguration :: Core.Maybe Types.KinesisStreamSourceConfiguration,
-    -- | The destination in Amazon Redshift. You can specify only one destination.
-    redshiftDestinationConfiguration :: Core.Maybe Types.RedshiftDestinationConfiguration,
-    -- | [Deprecated] The destination in Amazon S3. You can specify only one destination.
-    s3DestinationConfiguration :: Core.Maybe Types.S3DestinationConfiguration,
-    -- | The destination in Splunk. You can specify only one destination.
-    splunkDestinationConfiguration :: Core.Maybe Types.SplunkDestinationConfiguration,
-    -- | A set of tags to assign to the delivery stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags> in the AWS Billing and Cost Management User Guide.
-    --
-    -- You can specify up to 50 tags when creating a delivery stream.
-    tags :: Core.Maybe (Core.NonEmpty Types.Tag)
+  { deliveryStreamName :: Types.DeliveryStreamName
+    -- ^ The name of the delivery stream. This name must be unique per AWS account in the same AWS Region. If the delivery streams are in different accounts or different Regions, you can have multiple delivery streams with the same name.
+  , deliveryStreamEncryptionConfigurationInput :: Core.Maybe Types.DeliveryStreamEncryptionConfigurationInput
+    -- ^ Used to specify the type and Amazon Resource Name (ARN) of the KMS key needed for Server-Side Encryption (SSE).
+  , deliveryStreamType :: Core.Maybe Types.DeliveryStreamType
+    -- ^ The delivery stream type. This parameter can be one of the following values:
+--
+--
+--     * @DirectPut@ : Provider applications access the delivery stream directly.
+--
+--
+--     * @KinesisStreamAsSource@ : The delivery stream uses a Kinesis data stream as a source.
+--
+--
+  , elasticsearchDestinationConfiguration :: Core.Maybe Types.ElasticsearchDestinationConfiguration
+    -- ^ The destination in Amazon ES. You can specify only one destination.
+  , extendedS3DestinationConfiguration :: Core.Maybe Types.ExtendedS3DestinationConfiguration
+    -- ^ The destination in Amazon S3. You can specify only one destination.
+  , httpEndpointDestinationConfiguration :: Core.Maybe Types.HttpEndpointDestinationConfiguration
+    -- ^ Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination. You can specify only one destination.
+  , kinesisStreamSourceConfiguration :: Core.Maybe Types.KinesisStreamSourceConfiguration
+    -- ^ When a Kinesis data stream is used as the source for the delivery stream, a 'KinesisStreamSourceConfiguration' containing the Kinesis data stream Amazon Resource Name (ARN) and the role ARN for the source stream.
+  , redshiftDestinationConfiguration :: Core.Maybe Types.RedshiftDestinationConfiguration
+    -- ^ The destination in Amazon Redshift. You can specify only one destination.
+  , s3DestinationConfiguration :: Core.Maybe Types.S3DestinationConfiguration
+    -- ^ [Deprecated] The destination in Amazon S3. You can specify only one destination.
+  , splunkDestinationConfiguration :: Core.Maybe Types.SplunkDestinationConfiguration
+    -- ^ The destination in Splunk. You can specify only one destination.
+  , tags :: Core.Maybe (Core.NonEmpty Types.Tag)
+    -- ^ A set of tags to assign to the delivery stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags> in the AWS Billing and Cost Management User Guide.
+--
+-- You can specify up to 50 tags when creating a delivery stream.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CreateDeliveryStream' value with any optional fields omitted.
-mkCreateDeliveryStream ::
-  -- | 'deliveryStreamName'
-  Types.DeliveryStreamName ->
-  CreateDeliveryStream
-mkCreateDeliveryStream deliveryStreamName =
-  CreateDeliveryStream'
-    { deliveryStreamName,
-      deliveryStreamEncryptionConfigurationInput = Core.Nothing,
-      deliveryStreamType = Core.Nothing,
-      elasticsearchDestinationConfiguration = Core.Nothing,
-      extendedS3DestinationConfiguration = Core.Nothing,
-      httpEndpointDestinationConfiguration = Core.Nothing,
-      kinesisStreamSourceConfiguration = Core.Nothing,
-      redshiftDestinationConfiguration = Core.Nothing,
-      s3DestinationConfiguration = Core.Nothing,
-      splunkDestinationConfiguration = Core.Nothing,
-      tags = Core.Nothing
-    }
+mkCreateDeliveryStream
+    :: Types.DeliveryStreamName -- ^ 'deliveryStreamName'
+    -> CreateDeliveryStream
+mkCreateDeliveryStream deliveryStreamName
+  = CreateDeliveryStream'{deliveryStreamName,
+                          deliveryStreamEncryptionConfigurationInput = Core.Nothing,
+                          deliveryStreamType = Core.Nothing,
+                          elasticsearchDestinationConfiguration = Core.Nothing,
+                          extendedS3DestinationConfiguration = Core.Nothing,
+                          httpEndpointDestinationConfiguration = Core.Nothing,
+                          kinesisStreamSourceConfiguration = Core.Nothing,
+                          redshiftDestinationConfiguration = Core.Nothing,
+                          s3DestinationConfiguration = Core.Nothing,
+                          splunkDestinationConfiguration = Core.Nothing, tags = Core.Nothing}
 
 -- | The name of the delivery stream. This name must be unique per AWS account in the same AWS Region. If the delivery streams are in different accounts or different Regions, you can have multiple delivery streams with the same name.
 --
 -- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdsDeliveryStreamName :: Lens.Lens' CreateDeliveryStream Types.DeliveryStreamName
 cdsDeliveryStreamName = Lens.field @"deliveryStreamName"
-{-# DEPRECATED cdsDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
+{-# INLINEABLE cdsDeliveryStreamName #-}
+{-# DEPRECATED deliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead"  #-}
 
 -- | Used to specify the type and Amazon Resource Name (ARN) of the KMS key needed for Server-Side Encryption (SSE).
 --
 -- /Note:/ Consider using 'deliveryStreamEncryptionConfigurationInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdsDeliveryStreamEncryptionConfigurationInput :: Lens.Lens' CreateDeliveryStream (Core.Maybe Types.DeliveryStreamEncryptionConfigurationInput)
 cdsDeliveryStreamEncryptionConfigurationInput = Lens.field @"deliveryStreamEncryptionConfigurationInput"
-{-# DEPRECATED cdsDeliveryStreamEncryptionConfigurationInput "Use generic-lens or generic-optics with 'deliveryStreamEncryptionConfigurationInput' instead." #-}
+{-# INLINEABLE cdsDeliveryStreamEncryptionConfigurationInput #-}
+{-# DEPRECATED deliveryStreamEncryptionConfigurationInput "Use generic-lens or generic-optics with 'deliveryStreamEncryptionConfigurationInput' instead"  #-}
 
 -- | The delivery stream type. This parameter can be one of the following values:
 --
@@ -151,56 +149,64 @@ cdsDeliveryStreamEncryptionConfigurationInput = Lens.field @"deliveryStreamEncry
 -- /Note:/ Consider using 'deliveryStreamType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdsDeliveryStreamType :: Lens.Lens' CreateDeliveryStream (Core.Maybe Types.DeliveryStreamType)
 cdsDeliveryStreamType = Lens.field @"deliveryStreamType"
-{-# DEPRECATED cdsDeliveryStreamType "Use generic-lens or generic-optics with 'deliveryStreamType' instead." #-}
+{-# INLINEABLE cdsDeliveryStreamType #-}
+{-# DEPRECATED deliveryStreamType "Use generic-lens or generic-optics with 'deliveryStreamType' instead"  #-}
 
 -- | The destination in Amazon ES. You can specify only one destination.
 --
 -- /Note:/ Consider using 'elasticsearchDestinationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdsElasticsearchDestinationConfiguration :: Lens.Lens' CreateDeliveryStream (Core.Maybe Types.ElasticsearchDestinationConfiguration)
 cdsElasticsearchDestinationConfiguration = Lens.field @"elasticsearchDestinationConfiguration"
-{-# DEPRECATED cdsElasticsearchDestinationConfiguration "Use generic-lens or generic-optics with 'elasticsearchDestinationConfiguration' instead." #-}
+{-# INLINEABLE cdsElasticsearchDestinationConfiguration #-}
+{-# DEPRECATED elasticsearchDestinationConfiguration "Use generic-lens or generic-optics with 'elasticsearchDestinationConfiguration' instead"  #-}
 
 -- | The destination in Amazon S3. You can specify only one destination.
 --
 -- /Note:/ Consider using 'extendedS3DestinationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdsExtendedS3DestinationConfiguration :: Lens.Lens' CreateDeliveryStream (Core.Maybe Types.ExtendedS3DestinationConfiguration)
 cdsExtendedS3DestinationConfiguration = Lens.field @"extendedS3DestinationConfiguration"
-{-# DEPRECATED cdsExtendedS3DestinationConfiguration "Use generic-lens or generic-optics with 'extendedS3DestinationConfiguration' instead." #-}
+{-# INLINEABLE cdsExtendedS3DestinationConfiguration #-}
+{-# DEPRECATED extendedS3DestinationConfiguration "Use generic-lens or generic-optics with 'extendedS3DestinationConfiguration' instead"  #-}
 
 -- | Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination. You can specify only one destination.
 --
 -- /Note:/ Consider using 'httpEndpointDestinationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdsHttpEndpointDestinationConfiguration :: Lens.Lens' CreateDeliveryStream (Core.Maybe Types.HttpEndpointDestinationConfiguration)
 cdsHttpEndpointDestinationConfiguration = Lens.field @"httpEndpointDestinationConfiguration"
-{-# DEPRECATED cdsHttpEndpointDestinationConfiguration "Use generic-lens or generic-optics with 'httpEndpointDestinationConfiguration' instead." #-}
+{-# INLINEABLE cdsHttpEndpointDestinationConfiguration #-}
+{-# DEPRECATED httpEndpointDestinationConfiguration "Use generic-lens or generic-optics with 'httpEndpointDestinationConfiguration' instead"  #-}
 
 -- | When a Kinesis data stream is used as the source for the delivery stream, a 'KinesisStreamSourceConfiguration' containing the Kinesis data stream Amazon Resource Name (ARN) and the role ARN for the source stream.
 --
 -- /Note:/ Consider using 'kinesisStreamSourceConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdsKinesisStreamSourceConfiguration :: Lens.Lens' CreateDeliveryStream (Core.Maybe Types.KinesisStreamSourceConfiguration)
 cdsKinesisStreamSourceConfiguration = Lens.field @"kinesisStreamSourceConfiguration"
-{-# DEPRECATED cdsKinesisStreamSourceConfiguration "Use generic-lens or generic-optics with 'kinesisStreamSourceConfiguration' instead." #-}
+{-# INLINEABLE cdsKinesisStreamSourceConfiguration #-}
+{-# DEPRECATED kinesisStreamSourceConfiguration "Use generic-lens or generic-optics with 'kinesisStreamSourceConfiguration' instead"  #-}
 
 -- | The destination in Amazon Redshift. You can specify only one destination.
 --
 -- /Note:/ Consider using 'redshiftDestinationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdsRedshiftDestinationConfiguration :: Lens.Lens' CreateDeliveryStream (Core.Maybe Types.RedshiftDestinationConfiguration)
 cdsRedshiftDestinationConfiguration = Lens.field @"redshiftDestinationConfiguration"
-{-# DEPRECATED cdsRedshiftDestinationConfiguration "Use generic-lens or generic-optics with 'redshiftDestinationConfiguration' instead." #-}
+{-# INLINEABLE cdsRedshiftDestinationConfiguration #-}
+{-# DEPRECATED redshiftDestinationConfiguration "Use generic-lens or generic-optics with 'redshiftDestinationConfiguration' instead"  #-}
 
 -- | [Deprecated] The destination in Amazon S3. You can specify only one destination.
 --
 -- /Note:/ Consider using 's3DestinationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdsS3DestinationConfiguration :: Lens.Lens' CreateDeliveryStream (Core.Maybe Types.S3DestinationConfiguration)
 cdsS3DestinationConfiguration = Lens.field @"s3DestinationConfiguration"
-{-# DEPRECATED cdsS3DestinationConfiguration "Use generic-lens or generic-optics with 's3DestinationConfiguration' instead." #-}
+{-# INLINEABLE cdsS3DestinationConfiguration #-}
+{-# DEPRECATED s3DestinationConfiguration "Use generic-lens or generic-optics with 's3DestinationConfiguration' instead"  #-}
 
 -- | The destination in Splunk. You can specify only one destination.
 --
 -- /Note:/ Consider using 'splunkDestinationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdsSplunkDestinationConfiguration :: Lens.Lens' CreateDeliveryStream (Core.Maybe Types.SplunkDestinationConfiguration)
 cdsSplunkDestinationConfiguration = Lens.field @"splunkDestinationConfiguration"
-{-# DEPRECATED cdsSplunkDestinationConfiguration "Use generic-lens or generic-optics with 'splunkDestinationConfiguration' instead." #-}
+{-# INLINEABLE cdsSplunkDestinationConfiguration #-}
+{-# DEPRECATED splunkDestinationConfiguration "Use generic-lens or generic-optics with 'splunkDestinationConfiguration' instead"  #-}
 
 -- | A set of tags to assign to the delivery stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags> in the AWS Billing and Cost Management User Guide.
 --
@@ -209,87 +215,90 @@ cdsSplunkDestinationConfiguration = Lens.field @"splunkDestinationConfiguration"
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdsTags :: Lens.Lens' CreateDeliveryStream (Core.Maybe (Core.NonEmpty Types.Tag))
 cdsTags = Lens.field @"tags"
-{-# DEPRECATED cdsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+{-# INLINEABLE cdsTags #-}
+{-# DEPRECATED tags "Use generic-lens or generic-optics with 'tags' instead"  #-}
+
+instance Core.ToQuery CreateDeliveryStream where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders CreateDeliveryStream where
+        toHeaders CreateDeliveryStream{..}
+          = Core.pure
+              ("X-Amz-Target", "Firehose_20150804.CreateDeliveryStream")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON CreateDeliveryStream where
-  toJSON CreateDeliveryStream {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("DeliveryStreamName" Core..= deliveryStreamName),
-            ("DeliveryStreamEncryptionConfigurationInput" Core..=)
-              Core.<$> deliveryStreamEncryptionConfigurationInput,
-            ("DeliveryStreamType" Core..=) Core.<$> deliveryStreamType,
-            ("ElasticsearchDestinationConfiguration" Core..=)
-              Core.<$> elasticsearchDestinationConfiguration,
-            ("ExtendedS3DestinationConfiguration" Core..=)
-              Core.<$> extendedS3DestinationConfiguration,
-            ("HttpEndpointDestinationConfiguration" Core..=)
-              Core.<$> httpEndpointDestinationConfiguration,
-            ("KinesisStreamSourceConfiguration" Core..=)
-              Core.<$> kinesisStreamSourceConfiguration,
-            ("RedshiftDestinationConfiguration" Core..=)
-              Core.<$> redshiftDestinationConfiguration,
-            ("S3DestinationConfiguration" Core..=)
-              Core.<$> s3DestinationConfiguration,
-            ("SplunkDestinationConfiguration" Core..=)
-              Core.<$> splunkDestinationConfiguration,
-            ("Tags" Core..=) Core.<$> tags
-          ]
-      )
+        toJSON CreateDeliveryStream{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("DeliveryStreamName" Core..= deliveryStreamName),
+                  ("DeliveryStreamEncryptionConfigurationInput" Core..=) Core.<$>
+                    deliveryStreamEncryptionConfigurationInput,
+                  ("DeliveryStreamType" Core..=) Core.<$> deliveryStreamType,
+                  ("ElasticsearchDestinationConfiguration" Core..=) Core.<$>
+                    elasticsearchDestinationConfiguration,
+                  ("ExtendedS3DestinationConfiguration" Core..=) Core.<$>
+                    extendedS3DestinationConfiguration,
+                  ("HttpEndpointDestinationConfiguration" Core..=) Core.<$>
+                    httpEndpointDestinationConfiguration,
+                  ("KinesisStreamSourceConfiguration" Core..=) Core.<$>
+                    kinesisStreamSourceConfiguration,
+                  ("RedshiftDestinationConfiguration" Core..=) Core.<$>
+                    redshiftDestinationConfiguration,
+                  ("S3DestinationConfiguration" Core..=) Core.<$>
+                    s3DestinationConfiguration,
+                  ("SplunkDestinationConfiguration" Core..=) Core.<$>
+                    splunkDestinationConfiguration,
+                  ("Tags" Core..=) Core.<$> tags])
 
 instance Core.AWSRequest CreateDeliveryStream where
-  type Rs CreateDeliveryStream = CreateDeliveryStreamResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "Firehose_20150804.CreateDeliveryStream")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          CreateDeliveryStreamResponse'
-            Core.<$> (x Core..:? "DeliveryStreamARN")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs CreateDeliveryStream = CreateDeliveryStreamResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 CreateDeliveryStreamResponse' Core.<$>
+                   (x Core..:? "DeliveryStreamARN") Core.<*>
+                     Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkCreateDeliveryStreamResponse' smart constructor.
 data CreateDeliveryStreamResponse = CreateDeliveryStreamResponse'
-  { -- | The ARN of the delivery stream.
-    deliveryStreamARN :: Core.Maybe Types.DeliveryStreamARN,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { deliveryStreamARN :: Core.Maybe Types.DeliveryStreamARN
+    -- ^ The ARN of the delivery stream.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CreateDeliveryStreamResponse' value with any optional fields omitted.
-mkCreateDeliveryStreamResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  CreateDeliveryStreamResponse
-mkCreateDeliveryStreamResponse responseStatus =
-  CreateDeliveryStreamResponse'
-    { deliveryStreamARN = Core.Nothing,
-      responseStatus
-    }
+mkCreateDeliveryStreamResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> CreateDeliveryStreamResponse
+mkCreateDeliveryStreamResponse responseStatus
+  = CreateDeliveryStreamResponse'{deliveryStreamARN = Core.Nothing,
+                                  responseStatus}
 
 -- | The ARN of the delivery stream.
 --
 -- /Note:/ Consider using 'deliveryStreamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdsrrsDeliveryStreamARN :: Lens.Lens' CreateDeliveryStreamResponse (Core.Maybe Types.DeliveryStreamARN)
 cdsrrsDeliveryStreamARN = Lens.field @"deliveryStreamARN"
-{-# DEPRECATED cdsrrsDeliveryStreamARN "Use generic-lens or generic-optics with 'deliveryStreamARN' instead." #-}
+{-# INLINEABLE cdsrrsDeliveryStreamARN #-}
+{-# DEPRECATED deliveryStreamARN "Use generic-lens or generic-optics with 'deliveryStreamARN' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cdsrrsResponseStatus :: Lens.Lens' CreateDeliveryStreamResponse Core.Int
 cdsrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED cdsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE cdsrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

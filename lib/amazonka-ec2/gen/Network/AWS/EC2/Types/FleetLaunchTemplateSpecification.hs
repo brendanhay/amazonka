@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,21 +10,18 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.EC2.Types.FleetLaunchTemplateSpecification
-  ( FleetLaunchTemplateSpecification (..),
-
-    -- * Smart constructor
-    mkFleetLaunchTemplateSpecification,
-
-    -- * Lenses
-    fltsLaunchTemplateId,
-    fltsLaunchTemplateName,
-    fltsVersion,
-  )
-where
+  ( FleetLaunchTemplateSpecification (..)
+  -- * Smart constructor
+  , mkFleetLaunchTemplateSpecification
+  -- * Lenses
+  , fltsLaunchTemplateId
+  , fltsLaunchTemplateName
+  , fltsVersion
+  ) where
 
 import qualified Network.AWS.EC2.Types.LaunchTemplateName as Types
-import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
 
@@ -32,43 +29,42 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkFleetLaunchTemplateSpecification' smart constructor.
 data FleetLaunchTemplateSpecification = FleetLaunchTemplateSpecification'
-  { -- | The ID of the launch template. If you specify the template ID, you can't specify the template name.
-    launchTemplateId :: Core.Maybe Types.String,
-    -- | The name of the launch template. If you specify the template name, you can't specify the template ID.
-    launchTemplateName :: Core.Maybe Types.LaunchTemplateName,
-    -- | The launch template version number, @> Latest@ , or @> Default@ . You must specify a value, otherwise the request fails.
-    --
-    -- If the value is @> Latest@ , Amazon EC2 uses the latest version of the launch template.
-    -- If the value is @> Default@ , Amazon EC2 uses the default version of the launch template.
-    version :: Core.Maybe Types.String
+  { launchTemplateId :: Core.Maybe Core.Text
+    -- ^ The ID of the launch template. If you specify the template ID, you can't specify the template name.
+  , launchTemplateName :: Core.Maybe Types.LaunchTemplateName
+    -- ^ The name of the launch template. If you specify the template name, you can't specify the template ID.
+  , version :: Core.Maybe Core.Text
+    -- ^ The launch template version number, @> Latest@ , or @> Default@ . You must specify a value, otherwise the request fails.
+--
+-- If the value is @> Latest@ , Amazon EC2 uses the latest version of the launch template.
+-- If the value is @> Default@ , Amazon EC2 uses the default version of the launch template.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'FleetLaunchTemplateSpecification' value with any optional fields omitted.
-mkFleetLaunchTemplateSpecification ::
-  FleetLaunchTemplateSpecification
-mkFleetLaunchTemplateSpecification =
-  FleetLaunchTemplateSpecification'
-    { launchTemplateId =
-        Core.Nothing,
-      launchTemplateName = Core.Nothing,
-      version = Core.Nothing
-    }
+mkFleetLaunchTemplateSpecification
+    :: FleetLaunchTemplateSpecification
+mkFleetLaunchTemplateSpecification
+  = FleetLaunchTemplateSpecification'{launchTemplateId =
+                                        Core.Nothing,
+                                      launchTemplateName = Core.Nothing, version = Core.Nothing}
 
 -- | The ID of the launch template. If you specify the template ID, you can't specify the template name.
 --
 -- /Note:/ Consider using 'launchTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fltsLaunchTemplateId :: Lens.Lens' FleetLaunchTemplateSpecification (Core.Maybe Types.String)
+fltsLaunchTemplateId :: Lens.Lens' FleetLaunchTemplateSpecification (Core.Maybe Core.Text)
 fltsLaunchTemplateId = Lens.field @"launchTemplateId"
-{-# DEPRECATED fltsLaunchTemplateId "Use generic-lens or generic-optics with 'launchTemplateId' instead." #-}
+{-# INLINEABLE fltsLaunchTemplateId #-}
+{-# DEPRECATED launchTemplateId "Use generic-lens or generic-optics with 'launchTemplateId' instead"  #-}
 
 -- | The name of the launch template. If you specify the template name, you can't specify the template ID.
 --
 -- /Note:/ Consider using 'launchTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 fltsLaunchTemplateName :: Lens.Lens' FleetLaunchTemplateSpecification (Core.Maybe Types.LaunchTemplateName)
 fltsLaunchTemplateName = Lens.field @"launchTemplateName"
-{-# DEPRECATED fltsLaunchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead." #-}
+{-# INLINEABLE fltsLaunchTemplateName #-}
+{-# DEPRECATED launchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead"  #-}
 
 -- | The launch template version number, @> Latest@ , or @> Default@ . You must specify a value, otherwise the request fails.
 --
@@ -76,13 +72,23 @@ fltsLaunchTemplateName = Lens.field @"launchTemplateName"
 -- If the value is @> Default@ , Amazon EC2 uses the default version of the launch template.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fltsVersion :: Lens.Lens' FleetLaunchTemplateSpecification (Core.Maybe Types.String)
+fltsVersion :: Lens.Lens' FleetLaunchTemplateSpecification (Core.Maybe Core.Text)
 fltsVersion = Lens.field @"version"
-{-# DEPRECATED fltsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+{-# INLINEABLE fltsVersion #-}
+{-# DEPRECATED version "Use generic-lens or generic-optics with 'version' instead"  #-}
+
+instance Core.ToQuery FleetLaunchTemplateSpecification where
+        toQuery FleetLaunchTemplateSpecification{..}
+          = Core.maybe Core.mempty (Core.toQueryPair "LaunchTemplateId")
+              launchTemplateId
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "LaunchTemplateName")
+                launchTemplateName
+              Core.<> Core.maybe Core.mempty (Core.toQueryPair "Version") version
 
 instance Core.FromXML FleetLaunchTemplateSpecification where
-  parseXML x =
-    FleetLaunchTemplateSpecification'
-      Core.<$> (x Core..@? "launchTemplateId")
-      Core.<*> (x Core..@? "launchTemplateName")
-      Core.<*> (x Core..@? "version")
+        parseXML x
+          = FleetLaunchTemplateSpecification' Core.<$>
+              (x Core..@? "launchTemplateId") Core.<*>
+                x Core..@? "launchTemplateName"
+                Core.<*> x Core..@? "version"

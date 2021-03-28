@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,21 +13,20 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Delete a distribution.
+-- Delete a distribution. 
 module Network.AWS.CloudFront.DeleteDistribution
-  ( -- * Creating a request
-    DeleteDistribution (..),
-    mkDeleteDistribution,
-
+    (
+    -- * Creating a request
+      DeleteDistribution (..)
+    , mkDeleteDistribution
     -- ** Request lenses
-    ddId,
-    ddIfMatch,
+    , ddId
+    , ddIfMatch
 
     -- * Destructuring the response
-    DeleteDistributionResponse (..),
-    mkDeleteDistributionResponse,
-  )
-where
+    , DeleteDistributionResponse (..)
+    , mkDeleteDistributionResponse
+    ) where
 
 import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -37,9 +36,9 @@ import qualified Network.AWS.Response as Response
 
 -- | This action deletes a web distribution. To delete a web distribution using the CloudFront API, perform the following steps.
 --
--- __To delete a web distribution using the CloudFront API:__
+-- __To delete a web distribution using the CloudFront API:__ 
 --
---     * Disable the web distribution
+--     * Disable the web distribution 
 --
 --
 --     * Submit a @GET Distribution Config@ request to get the current configuration and the @Etag@ header for the distribution.
@@ -67,50 +66,57 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkDeleteDistribution' smart constructor.
 data DeleteDistribution = DeleteDistribution'
-  { -- | The distribution ID.
-    id :: Types.String,
-    -- | The value of the @ETag@ header that you received when you disabled the distribution. For example: @E2QWRUHAPOMQZL@ .
-    ifMatch :: Core.Maybe Types.String
+  { id :: Core.Text
+    -- ^ The distribution ID. 
+  , ifMatch :: Core.Maybe Core.Text
+    -- ^ The value of the @ETag@ header that you received when you disabled the distribution. For example: @E2QWRUHAPOMQZL@ . 
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteDistribution' value with any optional fields omitted.
-mkDeleteDistribution ::
-  -- | 'id'
-  Types.String ->
-  DeleteDistribution
-mkDeleteDistribution id =
-  DeleteDistribution' {id, ifMatch = Core.Nothing}
+mkDeleteDistribution
+    :: Core.Text -- ^ 'id'
+    -> DeleteDistribution
+mkDeleteDistribution id
+  = DeleteDistribution'{id, ifMatch = Core.Nothing}
 
--- | The distribution ID.
+-- | The distribution ID. 
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddId :: Lens.Lens' DeleteDistribution Types.String
+ddId :: Lens.Lens' DeleteDistribution Core.Text
 ddId = Lens.field @"id"
-{-# DEPRECATED ddId "Use generic-lens or generic-optics with 'id' instead." #-}
+{-# INLINEABLE ddId #-}
+{-# DEPRECATED id "Use generic-lens or generic-optics with 'id' instead"  #-}
 
--- | The value of the @ETag@ header that you received when you disabled the distribution. For example: @E2QWRUHAPOMQZL@ .
+-- | The value of the @ETag@ header that you received when you disabled the distribution. For example: @E2QWRUHAPOMQZL@ . 
 --
 -- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddIfMatch :: Lens.Lens' DeleteDistribution (Core.Maybe Types.String)
+ddIfMatch :: Lens.Lens' DeleteDistribution (Core.Maybe Core.Text)
 ddIfMatch = Lens.field @"ifMatch"
-{-# DEPRECATED ddIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
+{-# INLINEABLE ddIfMatch #-}
+{-# DEPRECATED ifMatch "Use generic-lens or generic-optics with 'ifMatch' instead"  #-}
+
+instance Core.ToQuery DeleteDistribution where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DeleteDistribution where
+        toHeaders DeleteDistribution{..}
+          = Core.toHeaders "If-Match" ifMatch
 
 instance Core.AWSRequest DeleteDistribution where
-  type Rs DeleteDistribution = DeleteDistributionResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.DELETE,
-        Core._rqPath =
-          Core.rawPath
-            ("/2020-05-31/distribution/" Core.<> (Core.toText id)),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders = Core.toHeaders "If-Match" ifMatch,
-        Core._rqBody = ""
-      }
-  response = Response.receiveNull DeleteDistributionResponse'
+        type Rs DeleteDistribution = DeleteDistributionResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.DELETE,
+                         Core._rqPath = "/2020-05-31/distribution/" Core.<> Core.toText id,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull DeleteDistributionResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteDistributionResponse' smart constructor.
 data DeleteDistributionResponse = DeleteDistributionResponse'
@@ -118,6 +124,6 @@ data DeleteDistributionResponse = DeleteDistributionResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteDistributionResponse' value with any optional fields omitted.
-mkDeleteDistributionResponse ::
-  DeleteDistributionResponse
+mkDeleteDistributionResponse
+    :: DeleteDistributionResponse
 mkDeleteDistributionResponse = DeleteDistributionResponse'

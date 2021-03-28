@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.ELB where
 
 import Data.Proxy
-import Network.AWS.ELB
-import Test.AWS.ELB.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.ELB
+import Test.AWS.ELB.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -210,408 +211,350 @@ import Test.Tasty
 -- Requests
 
 requestDescribeLoadBalancers :: DescribeLoadBalancers -> TestTree
-requestDescribeLoadBalancers =
-  req
+requestDescribeLoadBalancers = req
     "DescribeLoadBalancers"
     "fixture/DescribeLoadBalancers.yaml"
 
 requestDescribeTags :: DescribeTags -> TestTree
-requestDescribeTags =
-  req
+requestDescribeTags = req
     "DescribeTags"
     "fixture/DescribeTags.yaml"
 
 requestDescribeLoadBalancerPolicyTypes :: DescribeLoadBalancerPolicyTypes -> TestTree
-requestDescribeLoadBalancerPolicyTypes =
-  req
+requestDescribeLoadBalancerPolicyTypes = req
     "DescribeLoadBalancerPolicyTypes"
     "fixture/DescribeLoadBalancerPolicyTypes.yaml"
 
 requestApplySecurityGroupsToLoadBalancer :: ApplySecurityGroupsToLoadBalancer -> TestTree
-requestApplySecurityGroupsToLoadBalancer =
-  req
+requestApplySecurityGroupsToLoadBalancer = req
     "ApplySecurityGroupsToLoadBalancer"
     "fixture/ApplySecurityGroupsToLoadBalancer.yaml"
 
 requestRemoveTags :: RemoveTags -> TestTree
-requestRemoveTags =
-  req
+requestRemoveTags = req
     "RemoveTags"
     "fixture/RemoveTags.yaml"
 
 requestCreateLBCookieStickinessPolicy :: CreateLBCookieStickinessPolicy -> TestTree
-requestCreateLBCookieStickinessPolicy =
-  req
+requestCreateLBCookieStickinessPolicy = req
     "CreateLBCookieStickinessPolicy"
     "fixture/CreateLBCookieStickinessPolicy.yaml"
 
 requestDeleteLoadBalancer :: DeleteLoadBalancer -> TestTree
-requestDeleteLoadBalancer =
-  req
+requestDeleteLoadBalancer = req
     "DeleteLoadBalancer"
     "fixture/DeleteLoadBalancer.yaml"
 
 requestDeregisterInstancesFromLoadBalancer :: DeregisterInstancesFromLoadBalancer -> TestTree
-requestDeregisterInstancesFromLoadBalancer =
-  req
+requestDeregisterInstancesFromLoadBalancer = req
     "DeregisterInstancesFromLoadBalancer"
     "fixture/DeregisterInstancesFromLoadBalancer.yaml"
 
 requestCreateLoadBalancerPolicy :: CreateLoadBalancerPolicy -> TestTree
-requestCreateLoadBalancerPolicy =
-  req
+requestCreateLoadBalancerPolicy = req
     "CreateLoadBalancerPolicy"
     "fixture/CreateLoadBalancerPolicy.yaml"
 
 requestDescribeLoadBalancerPolicies :: DescribeLoadBalancerPolicies -> TestTree
-requestDescribeLoadBalancerPolicies =
-  req
+requestDescribeLoadBalancerPolicies = req
     "DescribeLoadBalancerPolicies"
     "fixture/DescribeLoadBalancerPolicies.yaml"
 
 requestDisableAvailabilityZonesForLoadBalancer :: DisableAvailabilityZonesForLoadBalancer -> TestTree
-requestDisableAvailabilityZonesForLoadBalancer =
-  req
+requestDisableAvailabilityZonesForLoadBalancer = req
     "DisableAvailabilityZonesForLoadBalancer"
     "fixture/DisableAvailabilityZonesForLoadBalancer.yaml"
 
 requestEnableAvailabilityZonesForLoadBalancer :: EnableAvailabilityZonesForLoadBalancer -> TestTree
-requestEnableAvailabilityZonesForLoadBalancer =
-  req
+requestEnableAvailabilityZonesForLoadBalancer = req
     "EnableAvailabilityZonesForLoadBalancer"
     "fixture/EnableAvailabilityZonesForLoadBalancer.yaml"
 
 requestSetLoadBalancerPoliciesForBackendServer :: SetLoadBalancerPoliciesForBackendServer -> TestTree
-requestSetLoadBalancerPoliciesForBackendServer =
-  req
+requestSetLoadBalancerPoliciesForBackendServer = req
     "SetLoadBalancerPoliciesForBackendServer"
     "fixture/SetLoadBalancerPoliciesForBackendServer.yaml"
 
 requestSetLoadBalancerListenerSSLCertificate :: SetLoadBalancerListenerSSLCertificate -> TestTree
-requestSetLoadBalancerListenerSSLCertificate =
-  req
+requestSetLoadBalancerListenerSSLCertificate = req
     "SetLoadBalancerListenerSSLCertificate"
     "fixture/SetLoadBalancerListenerSSLCertificate.yaml"
 
 requestDescribeAccountLimits :: DescribeAccountLimits -> TestTree
-requestDescribeAccountLimits =
-  req
+requestDescribeAccountLimits = req
     "DescribeAccountLimits"
     "fixture/DescribeAccountLimits.yaml"
 
 requestAttachLoadBalancerToSubnets :: AttachLoadBalancerToSubnets -> TestTree
-requestAttachLoadBalancerToSubnets =
-  req
+requestAttachLoadBalancerToSubnets = req
     "AttachLoadBalancerToSubnets"
     "fixture/AttachLoadBalancerToSubnets.yaml"
 
 requestConfigureHealthCheck :: ConfigureHealthCheck -> TestTree
-requestConfigureHealthCheck =
-  req
+requestConfigureHealthCheck = req
     "ConfigureHealthCheck"
     "fixture/ConfigureHealthCheck.yaml"
 
 requestModifyLoadBalancerAttributes :: ModifyLoadBalancerAttributes -> TestTree
-requestModifyLoadBalancerAttributes =
-  req
+requestModifyLoadBalancerAttributes = req
     "ModifyLoadBalancerAttributes"
     "fixture/ModifyLoadBalancerAttributes.yaml"
 
 requestCreateAppCookieStickinessPolicy :: CreateAppCookieStickinessPolicy -> TestTree
-requestCreateAppCookieStickinessPolicy =
-  req
+requestCreateAppCookieStickinessPolicy = req
     "CreateAppCookieStickinessPolicy"
     "fixture/CreateAppCookieStickinessPolicy.yaml"
 
 requestDescribeInstanceHealth :: DescribeInstanceHealth -> TestTree
-requestDescribeInstanceHealth =
-  req
+requestDescribeInstanceHealth = req
     "DescribeInstanceHealth"
     "fixture/DescribeInstanceHealth.yaml"
 
 requestAddTags :: AddTags -> TestTree
-requestAddTags =
-  req
+requestAddTags = req
     "AddTags"
     "fixture/AddTags.yaml"
 
 requestDescribeLoadBalancerAttributes :: DescribeLoadBalancerAttributes -> TestTree
-requestDescribeLoadBalancerAttributes =
-  req
+requestDescribeLoadBalancerAttributes = req
     "DescribeLoadBalancerAttributes"
     "fixture/DescribeLoadBalancerAttributes.yaml"
 
 requestCreateLoadBalancerListeners :: CreateLoadBalancerListeners -> TestTree
-requestCreateLoadBalancerListeners =
-  req
+requestCreateLoadBalancerListeners = req
     "CreateLoadBalancerListeners"
     "fixture/CreateLoadBalancerListeners.yaml"
 
 requestDeleteLoadBalancerPolicy :: DeleteLoadBalancerPolicy -> TestTree
-requestDeleteLoadBalancerPolicy =
-  req
+requestDeleteLoadBalancerPolicy = req
     "DeleteLoadBalancerPolicy"
     "fixture/DeleteLoadBalancerPolicy.yaml"
 
 requestDetachLoadBalancerFromSubnets :: DetachLoadBalancerFromSubnets -> TestTree
-requestDetachLoadBalancerFromSubnets =
-  req
+requestDetachLoadBalancerFromSubnets = req
     "DetachLoadBalancerFromSubnets"
     "fixture/DetachLoadBalancerFromSubnets.yaml"
 
 requestRegisterInstancesWithLoadBalancer :: RegisterInstancesWithLoadBalancer -> TestTree
-requestRegisterInstancesWithLoadBalancer =
-  req
+requestRegisterInstancesWithLoadBalancer = req
     "RegisterInstancesWithLoadBalancer"
     "fixture/RegisterInstancesWithLoadBalancer.yaml"
 
 requestCreateLoadBalancer :: CreateLoadBalancer -> TestTree
-requestCreateLoadBalancer =
-  req
+requestCreateLoadBalancer = req
     "CreateLoadBalancer"
     "fixture/CreateLoadBalancer.yaml"
 
 requestDeleteLoadBalancerListeners :: DeleteLoadBalancerListeners -> TestTree
-requestDeleteLoadBalancerListeners =
-  req
+requestDeleteLoadBalancerListeners = req
     "DeleteLoadBalancerListeners"
     "fixture/DeleteLoadBalancerListeners.yaml"
 
 requestSetLoadBalancerPoliciesOfListener :: SetLoadBalancerPoliciesOfListener -> TestTree
-requestSetLoadBalancerPoliciesOfListener =
-  req
+requestSetLoadBalancerPoliciesOfListener = req
     "SetLoadBalancerPoliciesOfListener"
     "fixture/SetLoadBalancerPoliciesOfListener.yaml"
 
 -- Responses
 
 responseDescribeLoadBalancers :: DescribeLoadBalancersResponse -> TestTree
-responseDescribeLoadBalancers =
-  res
+responseDescribeLoadBalancers = res
     "DescribeLoadBalancersResponse"
     "fixture/DescribeLoadBalancersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeLoadBalancers)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
-responseDescribeTags =
-  res
+responseDescribeTags = res
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeTags)
 
 responseDescribeLoadBalancerPolicyTypes :: DescribeLoadBalancerPolicyTypesResponse -> TestTree
-responseDescribeLoadBalancerPolicyTypes =
-  res
+responseDescribeLoadBalancerPolicyTypes = res
     "DescribeLoadBalancerPolicyTypesResponse"
     "fixture/DescribeLoadBalancerPolicyTypesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeLoadBalancerPolicyTypes)
 
 responseApplySecurityGroupsToLoadBalancer :: ApplySecurityGroupsToLoadBalancerResponse -> TestTree
-responseApplySecurityGroupsToLoadBalancer =
-  res
+responseApplySecurityGroupsToLoadBalancer = res
     "ApplySecurityGroupsToLoadBalancerResponse"
     "fixture/ApplySecurityGroupsToLoadBalancerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ApplySecurityGroupsToLoadBalancer)
 
 responseRemoveTags :: RemoveTagsResponse -> TestTree
-responseRemoveTags =
-  res
+responseRemoveTags = res
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RemoveTags)
 
 responseCreateLBCookieStickinessPolicy :: CreateLBCookieStickinessPolicyResponse -> TestTree
-responseCreateLBCookieStickinessPolicy =
-  res
+responseCreateLBCookieStickinessPolicy = res
     "CreateLBCookieStickinessPolicyResponse"
     "fixture/CreateLBCookieStickinessPolicyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateLBCookieStickinessPolicy)
 
 responseDeleteLoadBalancer :: DeleteLoadBalancerResponse -> TestTree
-responseDeleteLoadBalancer =
-  res
+responseDeleteLoadBalancer = res
     "DeleteLoadBalancerResponse"
     "fixture/DeleteLoadBalancerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteLoadBalancer)
 
 responseDeregisterInstancesFromLoadBalancer :: DeregisterInstancesFromLoadBalancerResponse -> TestTree
-responseDeregisterInstancesFromLoadBalancer =
-  res
+responseDeregisterInstancesFromLoadBalancer = res
     "DeregisterInstancesFromLoadBalancerResponse"
     "fixture/DeregisterInstancesFromLoadBalancerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeregisterInstancesFromLoadBalancer)
 
 responseCreateLoadBalancerPolicy :: CreateLoadBalancerPolicyResponse -> TestTree
-responseCreateLoadBalancerPolicy =
-  res
+responseCreateLoadBalancerPolicy = res
     "CreateLoadBalancerPolicyResponse"
     "fixture/CreateLoadBalancerPolicyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateLoadBalancerPolicy)
 
 responseDescribeLoadBalancerPolicies :: DescribeLoadBalancerPoliciesResponse -> TestTree
-responseDescribeLoadBalancerPolicies =
-  res
+responseDescribeLoadBalancerPolicies = res
     "DescribeLoadBalancerPoliciesResponse"
     "fixture/DescribeLoadBalancerPoliciesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeLoadBalancerPolicies)
 
 responseDisableAvailabilityZonesForLoadBalancer :: DisableAvailabilityZonesForLoadBalancerResponse -> TestTree
-responseDisableAvailabilityZonesForLoadBalancer =
-  res
+responseDisableAvailabilityZonesForLoadBalancer = res
     "DisableAvailabilityZonesForLoadBalancerResponse"
     "fixture/DisableAvailabilityZonesForLoadBalancerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisableAvailabilityZonesForLoadBalancer)
 
 responseEnableAvailabilityZonesForLoadBalancer :: EnableAvailabilityZonesForLoadBalancerResponse -> TestTree
-responseEnableAvailabilityZonesForLoadBalancer =
-  res
+responseEnableAvailabilityZonesForLoadBalancer = res
     "EnableAvailabilityZonesForLoadBalancerResponse"
     "fixture/EnableAvailabilityZonesForLoadBalancerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy EnableAvailabilityZonesForLoadBalancer)
 
 responseSetLoadBalancerPoliciesForBackendServer :: SetLoadBalancerPoliciesForBackendServerResponse -> TestTree
-responseSetLoadBalancerPoliciesForBackendServer =
-  res
+responseSetLoadBalancerPoliciesForBackendServer = res
     "SetLoadBalancerPoliciesForBackendServerResponse"
     "fixture/SetLoadBalancerPoliciesForBackendServerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SetLoadBalancerPoliciesForBackendServer)
 
 responseSetLoadBalancerListenerSSLCertificate :: SetLoadBalancerListenerSSLCertificateResponse -> TestTree
-responseSetLoadBalancerListenerSSLCertificate =
-  res
+responseSetLoadBalancerListenerSSLCertificate = res
     "SetLoadBalancerListenerSSLCertificateResponse"
     "fixture/SetLoadBalancerListenerSSLCertificateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SetLoadBalancerListenerSSLCertificate)
 
 responseDescribeAccountLimits :: DescribeAccountLimitsResponse -> TestTree
-responseDescribeAccountLimits =
-  res
+responseDescribeAccountLimits = res
     "DescribeAccountLimitsResponse"
     "fixture/DescribeAccountLimitsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAccountLimits)
 
 responseAttachLoadBalancerToSubnets :: AttachLoadBalancerToSubnetsResponse -> TestTree
-responseAttachLoadBalancerToSubnets =
-  res
+responseAttachLoadBalancerToSubnets = res
     "AttachLoadBalancerToSubnetsResponse"
     "fixture/AttachLoadBalancerToSubnetsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AttachLoadBalancerToSubnets)
 
 responseConfigureHealthCheck :: ConfigureHealthCheckResponse -> TestTree
-responseConfigureHealthCheck =
-  res
+responseConfigureHealthCheck = res
     "ConfigureHealthCheckResponse"
     "fixture/ConfigureHealthCheckResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ConfigureHealthCheck)
 
 responseModifyLoadBalancerAttributes :: ModifyLoadBalancerAttributesResponse -> TestTree
-responseModifyLoadBalancerAttributes =
-  res
+responseModifyLoadBalancerAttributes = res
     "ModifyLoadBalancerAttributesResponse"
     "fixture/ModifyLoadBalancerAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyLoadBalancerAttributes)
 
 responseCreateAppCookieStickinessPolicy :: CreateAppCookieStickinessPolicyResponse -> TestTree
-responseCreateAppCookieStickinessPolicy =
-  res
+responseCreateAppCookieStickinessPolicy = res
     "CreateAppCookieStickinessPolicyResponse"
     "fixture/CreateAppCookieStickinessPolicyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateAppCookieStickinessPolicy)
 
 responseDescribeInstanceHealth :: DescribeInstanceHealthResponse -> TestTree
-responseDescribeInstanceHealth =
-  res
+responseDescribeInstanceHealth = res
     "DescribeInstanceHealthResponse"
     "fixture/DescribeInstanceHealthResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeInstanceHealth)
 
 responseAddTags :: AddTagsResponse -> TestTree
-responseAddTags =
-  res
+responseAddTags = res
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AddTags)
 
 responseDescribeLoadBalancerAttributes :: DescribeLoadBalancerAttributesResponse -> TestTree
-responseDescribeLoadBalancerAttributes =
-  res
+responseDescribeLoadBalancerAttributes = res
     "DescribeLoadBalancerAttributesResponse"
     "fixture/DescribeLoadBalancerAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeLoadBalancerAttributes)
 
 responseCreateLoadBalancerListeners :: CreateLoadBalancerListenersResponse -> TestTree
-responseCreateLoadBalancerListeners =
-  res
+responseCreateLoadBalancerListeners = res
     "CreateLoadBalancerListenersResponse"
     "fixture/CreateLoadBalancerListenersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateLoadBalancerListeners)
 
 responseDeleteLoadBalancerPolicy :: DeleteLoadBalancerPolicyResponse -> TestTree
-responseDeleteLoadBalancerPolicy =
-  res
+responseDeleteLoadBalancerPolicy = res
     "DeleteLoadBalancerPolicyResponse"
     "fixture/DeleteLoadBalancerPolicyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteLoadBalancerPolicy)
 
 responseDetachLoadBalancerFromSubnets :: DetachLoadBalancerFromSubnetsResponse -> TestTree
-responseDetachLoadBalancerFromSubnets =
-  res
+responseDetachLoadBalancerFromSubnets = res
     "DetachLoadBalancerFromSubnetsResponse"
     "fixture/DetachLoadBalancerFromSubnetsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DetachLoadBalancerFromSubnets)
 
 responseRegisterInstancesWithLoadBalancer :: RegisterInstancesWithLoadBalancerResponse -> TestTree
-responseRegisterInstancesWithLoadBalancer =
-  res
+responseRegisterInstancesWithLoadBalancer = res
     "RegisterInstancesWithLoadBalancerResponse"
     "fixture/RegisterInstancesWithLoadBalancerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RegisterInstancesWithLoadBalancer)
 
 responseCreateLoadBalancer :: CreateLoadBalancerResponse -> TestTree
-responseCreateLoadBalancer =
-  res
+responseCreateLoadBalancer = res
     "CreateLoadBalancerResponse"
     "fixture/CreateLoadBalancerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateLoadBalancer)
 
 responseDeleteLoadBalancerListeners :: DeleteLoadBalancerListenersResponse -> TestTree
-responseDeleteLoadBalancerListeners =
-  res
+responseDeleteLoadBalancerListeners = res
     "DeleteLoadBalancerListenersResponse"
     "fixture/DeleteLoadBalancerListenersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteLoadBalancerListeners)
 
 responseSetLoadBalancerPoliciesOfListener :: SetLoadBalancerPoliciesOfListenerResponse -> TestTree
-responseSetLoadBalancerPoliciesOfListener =
-  res
+responseSetLoadBalancerPoliciesOfListener = res
     "SetLoadBalancerPoliciesOfListenerResponse"
     "fixture/SetLoadBalancerPoliciesOfListenerResponse.proto"
     mkServiceConfig

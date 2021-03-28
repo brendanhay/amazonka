@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -12,14 +12,15 @@
 --
 -- Provides AWS Marketplace business intelligence data on-demand.
 module Network.AWS.MarketplaceAnalytics
-  ( -- * Service configuration
-    mkServiceConfig,
+    (
+    -- * Service configuration
+      mkServiceConfig
 
     -- * Errors
     -- $errors
 
     -- ** MarketplaceCommerceAnalyticsException
-    _MarketplaceCommerceAnalyticsException,
+    , _MarketplaceCommerceAnalyticsException
 
     -- * Waiters
     -- $waiters
@@ -27,80 +28,82 @@ module Network.AWS.MarketplaceAnalytics
     -- * Operations
     -- $operations
 
-    -- ** StartSupportDataExport
-    module Network.AWS.MarketplaceAnalytics.StartSupportDataExport,
+    -- ** StartSupportDataExport 
+    , module Network.AWS.MarketplaceAnalytics.StartSupportDataExport
 
-    -- ** GenerateDataSet
-    module Network.AWS.MarketplaceAnalytics.GenerateDataSet,
+    -- ** GenerateDataSet 
+    , module Network.AWS.MarketplaceAnalytics.GenerateDataSet
 
     -- * Types
 
     -- ** SnsTopicArn
-    SnsTopicArn (..),
+    , SnsTopicArn (..)
 
     -- ** SupportDataSetType
-    SupportDataSetType (..),
+    , SupportDataSetType (..)
 
     -- ** OptionalValue
-    OptionalValue (..),
+    , OptionalValue (..)
 
     -- ** RoleNameArn
-    RoleNameArn (..),
+    , RoleNameArn (..)
 
     -- ** DestinationS3Prefix
-    DestinationS3Prefix (..),
+    , DestinationS3Prefix (..)
 
     -- ** DataSetType
-    DataSetType (..),
+    , DataSetType (..)
 
     -- ** DestinationS3BucketName
-    DestinationS3BucketName (..),
+    , DestinationS3BucketName (..)
 
     -- ** DataSetRequestId
-    DataSetRequestId (..),
+    , DataSetRequestId (..)
 
     -- ** OptionalKey
-    OptionalKey (..),
+    , OptionalKey (..)
 
     -- * Serialization types
-    Lude.Base64 (..),
-    Lude._Base64,
-    Lude.Sensitive (..),
-    Lude._Sensitive,
-    Lude.UTCTime,
-    Lude.NominalDiffTime,
-  )
-where
+    , Lude.Base64 (..)
+    , Lude._Base64
+    , Lude.Sensitive (..)
+    , Lude._Sensitive
+    , Lude.UTCTime
+    , Lude.NominalDiffTime
+    ) where
 
-import Network.AWS.MarketplaceAnalytics.GenerateDataSet
-import Network.AWS.MarketplaceAnalytics.StartSupportDataExport
 import Network.AWS.MarketplaceAnalytics.Types
 import Network.AWS.MarketplaceAnalytics.Waiters
+import Network.AWS.MarketplaceAnalytics.StartSupportDataExport
+import Network.AWS.MarketplaceAnalytics.GenerateDataSet
 import qualified Network.AWS.Prelude as Lude
 
--- $errors
--- Error matchers are designed for use with the functions provided by
--- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
--- This allows catching (and rethrowing) service specific errors returned
--- by 'MarketplaceAnalytics'.
+{- $errors
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by 'MarketplaceAnalytics'.
+-}
 
--- $operations
--- Some AWS operations return results that are incomplete and require subsequent
--- requests in order to obtain the entire result set. The process of sending
--- subsequent requests to continue where a previous request left off is called
--- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
--- 1000 objects at a time, and you must send subsequent requests with the
--- appropriate Marker in order to retrieve the next page of results.
---
--- Operations that have an 'AWSPager' instance can transparently perform subsequent
--- requests, correctly setting Markers and other request facets to iterate through
--- the entire result set of a truncated API operation. Operations which support
--- this have an additional note in the documentation.
---
--- Many operations have the ability to filter results on the server side. See the
--- individual operation parameters for details.
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
 
--- $waiters
--- Waiters poll by repeatedly sending a request until some remote success condition
--- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
--- determines how many attempts should be made, in addition to delay and retry strategies.
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly sending a request until some remote success condition
+configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+determines how many attempts should be made, in addition to delay and retry strategies.
+-}

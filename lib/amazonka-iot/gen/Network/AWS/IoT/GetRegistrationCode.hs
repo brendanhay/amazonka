@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,19 +15,18 @@
 --
 -- Gets a registration code used to register a CA certificate with AWS IoT.
 module Network.AWS.IoT.GetRegistrationCode
-  ( -- * Creating a request
-    GetRegistrationCode (..),
-    mkGetRegistrationCode,
+    (
+    -- * Creating a request
+      GetRegistrationCode (..)
+    , mkGetRegistrationCode
 
     -- * Destructuring the response
-    GetRegistrationCodeResponse (..),
-    mkGetRegistrationCodeResponse,
-
+    , GetRegistrationCodeResponse (..)
+    , mkGetRegistrationCodeResponse
     -- ** Response lenses
-    grcrrsRegistrationCode,
-    grcrrsResponseStatus,
-  )
-where
+    , grcrrsRegistrationCode
+    , grcrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -43,62 +42,66 @@ data GetRegistrationCode = GetRegistrationCode'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetRegistrationCode' value with any optional fields omitted.
-mkGetRegistrationCode ::
-  GetRegistrationCode
+mkGetRegistrationCode
+    :: GetRegistrationCode
 mkGetRegistrationCode = GetRegistrationCode'
 
+instance Core.ToQuery GetRegistrationCode where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders GetRegistrationCode where
+        toHeaders _ = Core.pure Core.mempty
+
 instance Core.AWSRequest GetRegistrationCode where
-  type Rs GetRegistrationCode = GetRegistrationCodeResponse
-  request x@_ =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.GET,
-        Core._rqPath = Core.rawPath "/registrationcode",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = ""
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          GetRegistrationCodeResponse'
-            Core.<$> (x Core..:? "registrationCode")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs GetRegistrationCode = GetRegistrationCodeResponse
+        toRequest x@_
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.GET, Core._rqPath = "/registrationcode",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 GetRegistrationCodeResponse' Core.<$>
+                   (x Core..:? "registrationCode") Core.<*>
+                     Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | The output from the GetRegistrationCode operation.
 --
 -- /See:/ 'mkGetRegistrationCodeResponse' smart constructor.
 data GetRegistrationCodeResponse = GetRegistrationCodeResponse'
-  { -- | The CA certificate registration code.
-    registrationCode :: Core.Maybe Types.RegistrationCode,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { registrationCode :: Core.Maybe Types.RegistrationCode
+    -- ^ The CA certificate registration code.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetRegistrationCodeResponse' value with any optional fields omitted.
-mkGetRegistrationCodeResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  GetRegistrationCodeResponse
-mkGetRegistrationCodeResponse responseStatus =
-  GetRegistrationCodeResponse'
-    { registrationCode = Core.Nothing,
-      responseStatus
-    }
+mkGetRegistrationCodeResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> GetRegistrationCodeResponse
+mkGetRegistrationCodeResponse responseStatus
+  = GetRegistrationCodeResponse'{registrationCode = Core.Nothing,
+                                 responseStatus}
 
 -- | The CA certificate registration code.
 --
 -- /Note:/ Consider using 'registrationCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 grcrrsRegistrationCode :: Lens.Lens' GetRegistrationCodeResponse (Core.Maybe Types.RegistrationCode)
 grcrrsRegistrationCode = Lens.field @"registrationCode"
-{-# DEPRECATED grcrrsRegistrationCode "Use generic-lens or generic-optics with 'registrationCode' instead." #-}
+{-# INLINEABLE grcrrsRegistrationCode #-}
+{-# DEPRECATED registrationCode "Use generic-lens or generic-optics with 'registrationCode' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 grcrrsResponseStatus :: Lens.Lens' GetRegistrationCodeResponse Core.Int
 grcrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED grcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE grcrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

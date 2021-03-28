@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,24 +17,22 @@
 --
 -- The @create instance snapshot@ operation supports tag-based access control via request tags. For more information, see the <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide> .
 module Network.AWS.Lightsail.CreateInstanceSnapshot
-  ( -- * Creating a request
-    CreateInstanceSnapshot (..),
-    mkCreateInstanceSnapshot,
-
+    (
+    -- * Creating a request
+      CreateInstanceSnapshot (..)
+    , mkCreateInstanceSnapshot
     -- ** Request lenses
-    cisInstanceSnapshotName,
-    cisInstanceName,
-    cisTags,
+    , cisInstanceSnapshotName
+    , cisInstanceName
+    , cisTags
 
     -- * Destructuring the response
-    CreateInstanceSnapshotResponse (..),
-    mkCreateInstanceSnapshotResponse,
-
+    , CreateInstanceSnapshotResponse (..)
+    , mkCreateInstanceSnapshotResponse
     -- ** Response lenses
-    cisrrsOperations,
-    cisrrsResponseStatus,
-  )
-where
+    , cisrrsOperations
+    , cisrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Lightsail.Types as Types
@@ -44,45 +42,42 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateInstanceSnapshot' smart constructor.
 data CreateInstanceSnapshot = CreateInstanceSnapshot'
-  { -- | The name for your new snapshot.
-    instanceSnapshotName :: Types.ResourceName,
-    -- | The Lightsail instance on which to base your snapshot.
-    instanceName :: Types.ResourceName,
-    -- | The tag keys and optional values to add to the resource during create.
-    --
-    -- Use the @TagResource@ action to tag a resource after it's created.
-    tags :: Core.Maybe [Types.Tag]
+  { instanceSnapshotName :: Types.ResourceName
+    -- ^ The name for your new snapshot.
+  , instanceName :: Types.ResourceName
+    -- ^ The Lightsail instance on which to base your snapshot.
+  , tags :: Core.Maybe [Types.Tag]
+    -- ^ The tag keys and optional values to add to the resource during create.
+--
+-- Use the @TagResource@ action to tag a resource after it's created.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CreateInstanceSnapshot' value with any optional fields omitted.
-mkCreateInstanceSnapshot ::
-  -- | 'instanceSnapshotName'
-  Types.ResourceName ->
-  -- | 'instanceName'
-  Types.ResourceName ->
-  CreateInstanceSnapshot
-mkCreateInstanceSnapshot instanceSnapshotName instanceName =
-  CreateInstanceSnapshot'
-    { instanceSnapshotName,
-      instanceName,
-      tags = Core.Nothing
-    }
+mkCreateInstanceSnapshot
+    :: Types.ResourceName -- ^ 'instanceSnapshotName'
+    -> Types.ResourceName -- ^ 'instanceName'
+    -> CreateInstanceSnapshot
+mkCreateInstanceSnapshot instanceSnapshotName instanceName
+  = CreateInstanceSnapshot'{instanceSnapshotName, instanceName,
+                            tags = Core.Nothing}
 
 -- | The name for your new snapshot.
 --
 -- /Note:/ Consider using 'instanceSnapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cisInstanceSnapshotName :: Lens.Lens' CreateInstanceSnapshot Types.ResourceName
 cisInstanceSnapshotName = Lens.field @"instanceSnapshotName"
-{-# DEPRECATED cisInstanceSnapshotName "Use generic-lens or generic-optics with 'instanceSnapshotName' instead." #-}
+{-# INLINEABLE cisInstanceSnapshotName #-}
+{-# DEPRECATED instanceSnapshotName "Use generic-lens or generic-optics with 'instanceSnapshotName' instead"  #-}
 
 -- | The Lightsail instance on which to base your snapshot.
 --
 -- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cisInstanceName :: Lens.Lens' CreateInstanceSnapshot Types.ResourceName
 cisInstanceName = Lens.field @"instanceName"
-{-# DEPRECATED cisInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
+{-# INLINEABLE cisInstanceName #-}
+{-# DEPRECATED instanceName "Use generic-lens or generic-optics with 'instanceName' instead"  #-}
 
 -- | The tag keys and optional values to add to the resource during create.
 --
@@ -91,70 +86,73 @@ cisInstanceName = Lens.field @"instanceName"
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cisTags :: Lens.Lens' CreateInstanceSnapshot (Core.Maybe [Types.Tag])
 cisTags = Lens.field @"tags"
-{-# DEPRECATED cisTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+{-# INLINEABLE cisTags #-}
+{-# DEPRECATED tags "Use generic-lens or generic-optics with 'tags' instead"  #-}
+
+instance Core.ToQuery CreateInstanceSnapshot where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders CreateInstanceSnapshot where
+        toHeaders CreateInstanceSnapshot{..}
+          = Core.pure
+              ("X-Amz-Target", "Lightsail_20161128.CreateInstanceSnapshot")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON CreateInstanceSnapshot where
-  toJSON CreateInstanceSnapshot {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("instanceSnapshotName" Core..= instanceSnapshotName),
-            Core.Just ("instanceName" Core..= instanceName),
-            ("tags" Core..=) Core.<$> tags
-          ]
-      )
+        toJSON CreateInstanceSnapshot{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("instanceSnapshotName" Core..= instanceSnapshotName),
+                  Core.Just ("instanceName" Core..= instanceName),
+                  ("tags" Core..=) Core.<$> tags])
 
 instance Core.AWSRequest CreateInstanceSnapshot where
-  type Rs CreateInstanceSnapshot = CreateInstanceSnapshotResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "Lightsail_20161128.CreateInstanceSnapshot")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          CreateInstanceSnapshotResponse'
-            Core.<$> (x Core..:? "operations") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs CreateInstanceSnapshot = CreateInstanceSnapshotResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 CreateInstanceSnapshotResponse' Core.<$>
+                   (x Core..:? "operations") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkCreateInstanceSnapshotResponse' smart constructor.
 data CreateInstanceSnapshotResponse = CreateInstanceSnapshotResponse'
-  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operations :: Core.Maybe [Types.Operation],
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { operations :: Core.Maybe [Types.Operation]
+    -- ^ An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'CreateInstanceSnapshotResponse' value with any optional fields omitted.
-mkCreateInstanceSnapshotResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  CreateInstanceSnapshotResponse
-mkCreateInstanceSnapshotResponse responseStatus =
-  CreateInstanceSnapshotResponse'
-    { operations = Core.Nothing,
-      responseStatus
-    }
+mkCreateInstanceSnapshotResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> CreateInstanceSnapshotResponse
+mkCreateInstanceSnapshotResponse responseStatus
+  = CreateInstanceSnapshotResponse'{operations = Core.Nothing,
+                                    responseStatus}
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cisrrsOperations :: Lens.Lens' CreateInstanceSnapshotResponse (Core.Maybe [Types.Operation])
 cisrrsOperations = Lens.field @"operations"
-{-# DEPRECATED cisrrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+{-# INLINEABLE cisrrsOperations #-}
+{-# DEPRECATED operations "Use generic-lens or generic-optics with 'operations' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cisrrsResponseStatus :: Lens.Lens' CreateInstanceSnapshotResponse Core.Int
 cisrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED cisrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE cisrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

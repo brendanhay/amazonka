@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,26 +15,24 @@
 --
 -- Retrieves attributes within a facet that are associated with an object.
 module Network.AWS.CloudDirectory.GetObjectAttributes
-  ( -- * Creating a request
-    GetObjectAttributes (..),
-    mkGetObjectAttributes,
-
+    (
+    -- * Creating a request
+      GetObjectAttributes (..)
+    , mkGetObjectAttributes
     -- ** Request lenses
-    goaDirectoryArn,
-    goaObjectReference,
-    goaSchemaFacet,
-    goaAttributeNames,
-    goaConsistencyLevel,
+    , goaDirectoryArn
+    , goaObjectReference
+    , goaSchemaFacet
+    , goaAttributeNames
+    , goaConsistencyLevel
 
     -- * Destructuring the response
-    GetObjectAttributesResponse (..),
-    mkGetObjectAttributesResponse,
-
+    , GetObjectAttributesResponse (..)
+    , mkGetObjectAttributesResponse
     -- ** Response lenses
-    goarrsAttributes,
-    goarrsResponseStatus,
-  )
-where
+    , goarrsAttributes
+    , goarrsResponseStatus
+    ) where
 
 import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -44,136 +42,135 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetObjectAttributes' smart constructor.
 data GetObjectAttributes = GetObjectAttributes'
-  { -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides.
-    directoryArn :: Types.Arn,
-    -- | Reference that identifies the object whose attributes will be retrieved.
-    objectReference :: Types.ObjectReference,
-    -- | Identifier for the facet whose attributes will be retrieved. See 'SchemaFacet' for details.
-    schemaFacet :: Types.SchemaFacet,
-    -- | List of attribute names whose values will be retrieved.
-    attributeNames :: [Types.AttributeName],
-    -- | The consistency level at which to retrieve the attributes on an object.
-    consistencyLevel :: Core.Maybe Types.ConsistencyLevel
+  { directoryArn :: Types.Arn
+    -- ^ The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides.
+  , objectReference :: Types.ObjectReference
+    -- ^ Reference that identifies the object whose attributes will be retrieved.
+  , schemaFacet :: Types.SchemaFacet
+    -- ^ Identifier for the facet whose attributes will be retrieved. See 'SchemaFacet' for details.
+  , attributeNames :: [Types.AttributeName]
+    -- ^ List of attribute names whose values will be retrieved.
+  , consistencyLevel :: Core.Maybe Types.ConsistencyLevel
+    -- ^ The consistency level at which to retrieve the attributes on an object.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetObjectAttributes' value with any optional fields omitted.
-mkGetObjectAttributes ::
-  -- | 'directoryArn'
-  Types.Arn ->
-  -- | 'objectReference'
-  Types.ObjectReference ->
-  -- | 'schemaFacet'
-  Types.SchemaFacet ->
-  GetObjectAttributes
-mkGetObjectAttributes directoryArn objectReference schemaFacet =
-  GetObjectAttributes'
-    { directoryArn,
-      objectReference,
-      schemaFacet,
-      attributeNames = Core.mempty,
-      consistencyLevel = Core.Nothing
-    }
+mkGetObjectAttributes
+    :: Types.Arn -- ^ 'directoryArn'
+    -> Types.ObjectReference -- ^ 'objectReference'
+    -> Types.SchemaFacet -- ^ 'schemaFacet'
+    -> GetObjectAttributes
+mkGetObjectAttributes directoryArn objectReference schemaFacet
+  = GetObjectAttributes'{directoryArn, objectReference, schemaFacet,
+                         attributeNames = Core.mempty, consistencyLevel = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides.
 --
 -- /Note:/ Consider using 'directoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 goaDirectoryArn :: Lens.Lens' GetObjectAttributes Types.Arn
 goaDirectoryArn = Lens.field @"directoryArn"
-{-# DEPRECATED goaDirectoryArn "Use generic-lens or generic-optics with 'directoryArn' instead." #-}
+{-# INLINEABLE goaDirectoryArn #-}
+{-# DEPRECATED directoryArn "Use generic-lens or generic-optics with 'directoryArn' instead"  #-}
 
 -- | Reference that identifies the object whose attributes will be retrieved.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 goaObjectReference :: Lens.Lens' GetObjectAttributes Types.ObjectReference
 goaObjectReference = Lens.field @"objectReference"
-{-# DEPRECATED goaObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
+{-# INLINEABLE goaObjectReference #-}
+{-# DEPRECATED objectReference "Use generic-lens or generic-optics with 'objectReference' instead"  #-}
 
 -- | Identifier for the facet whose attributes will be retrieved. See 'SchemaFacet' for details.
 --
 -- /Note:/ Consider using 'schemaFacet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 goaSchemaFacet :: Lens.Lens' GetObjectAttributes Types.SchemaFacet
 goaSchemaFacet = Lens.field @"schemaFacet"
-{-# DEPRECATED goaSchemaFacet "Use generic-lens or generic-optics with 'schemaFacet' instead." #-}
+{-# INLINEABLE goaSchemaFacet #-}
+{-# DEPRECATED schemaFacet "Use generic-lens or generic-optics with 'schemaFacet' instead"  #-}
 
 -- | List of attribute names whose values will be retrieved.
 --
 -- /Note:/ Consider using 'attributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 goaAttributeNames :: Lens.Lens' GetObjectAttributes [Types.AttributeName]
 goaAttributeNames = Lens.field @"attributeNames"
-{-# DEPRECATED goaAttributeNames "Use generic-lens or generic-optics with 'attributeNames' instead." #-}
+{-# INLINEABLE goaAttributeNames #-}
+{-# DEPRECATED attributeNames "Use generic-lens or generic-optics with 'attributeNames' instead"  #-}
 
 -- | The consistency level at which to retrieve the attributes on an object.
 --
 -- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 goaConsistencyLevel :: Lens.Lens' GetObjectAttributes (Core.Maybe Types.ConsistencyLevel)
 goaConsistencyLevel = Lens.field @"consistencyLevel"
-{-# DEPRECATED goaConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
+{-# INLINEABLE goaConsistencyLevel #-}
+{-# DEPRECATED consistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead"  #-}
+
+instance Core.ToQuery GetObjectAttributes where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders GetObjectAttributes where
+        toHeaders GetObjectAttributes{..}
+          = Core.toHeaders "x-amz-data-partition" directoryArn Core.<>
+              Core.toHeaders "x-amz-consistency-level" consistencyLevel
 
 instance Core.FromJSON GetObjectAttributes where
-  toJSON GetObjectAttributes {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ObjectReference" Core..= objectReference),
-            Core.Just ("SchemaFacet" Core..= schemaFacet),
-            Core.Just ("AttributeNames" Core..= attributeNames)
-          ]
-      )
+        toJSON GetObjectAttributes{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("ObjectReference" Core..= objectReference),
+                  Core.Just ("SchemaFacet" Core..= schemaFacet),
+                  Core.Just ("AttributeNames" Core..= attributeNames)])
 
 instance Core.AWSRequest GetObjectAttributes where
-  type Rs GetObjectAttributes = GetObjectAttributesResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath =
-          Core.rawPath
-            "/amazonclouddirectory/2017-01-11/object/attributes/get",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.toHeaders "x-amz-data-partition" directoryArn
-            Core.<> (Core.toHeaders "x-amz-consistency-level" consistencyLevel),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          GetObjectAttributesResponse'
-            Core.<$> (x Core..:? "Attributes") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs GetObjectAttributes = GetObjectAttributesResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST,
+                         Core._rqPath =
+                           "/amazonclouddirectory/2017-01-11/object/attributes/get",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 GetObjectAttributesResponse' Core.<$>
+                   (x Core..:? "Attributes") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkGetObjectAttributesResponse' smart constructor.
 data GetObjectAttributesResponse = GetObjectAttributesResponse'
-  { -- | The attributes that are associated with the object.
-    attributes :: Core.Maybe [Types.AttributeKeyAndValue],
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { attributes :: Core.Maybe [Types.AttributeKeyAndValue]
+    -- ^ The attributes that are associated with the object.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'GetObjectAttributesResponse' value with any optional fields omitted.
-mkGetObjectAttributesResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  GetObjectAttributesResponse
-mkGetObjectAttributesResponse responseStatus =
-  GetObjectAttributesResponse'
-    { attributes = Core.Nothing,
-      responseStatus
-    }
+mkGetObjectAttributesResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> GetObjectAttributesResponse
+mkGetObjectAttributesResponse responseStatus
+  = GetObjectAttributesResponse'{attributes = Core.Nothing,
+                                 responseStatus}
 
 -- | The attributes that are associated with the object.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 goarrsAttributes :: Lens.Lens' GetObjectAttributesResponse (Core.Maybe [Types.AttributeKeyAndValue])
 goarrsAttributes = Lens.field @"attributes"
-{-# DEPRECATED goarrsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+{-# INLINEABLE goarrsAttributes #-}
+{-# DEPRECATED attributes "Use generic-lens or generic-optics with 'attributes' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 goarrsResponseStatus :: Lens.Lens' GetObjectAttributesResponse Core.Int
 goarrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED goarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE goarrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Config.Types.ComplianceByResource
-  ( ComplianceByResource (..),
-
-    -- * Smart constructor
-    mkComplianceByResource,
-
-    -- * Lenses
-    cbrCompliance,
-    cbrResourceId,
-    cbrResourceType,
-  )
-where
+  ( ComplianceByResource (..)
+  -- * Smart constructor
+  , mkComplianceByResource
+  -- * Lenses
+  , cbrCompliance
+  , cbrResourceId
+  , cbrResourceType
+  ) where
 
 import qualified Network.AWS.Config.Types.BaseResourceId as Types
 import qualified Network.AWS.Config.Types.Compliance as Types
@@ -33,52 +31,51 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkComplianceByResource' smart constructor.
 data ComplianceByResource = ComplianceByResource'
-  { -- | Indicates whether the AWS resource complies with all of the AWS Config rules that evaluated it.
-    compliance :: Core.Maybe Types.Compliance,
-    -- | The ID of the AWS resource that was evaluated.
-    resourceId :: Core.Maybe Types.BaseResourceId,
-    -- | The type of the AWS resource that was evaluated.
-    resourceType :: Core.Maybe Types.StringWithCharLimit256
+  { compliance :: Core.Maybe Types.Compliance
+    -- ^ Indicates whether the AWS resource complies with all of the AWS Config rules that evaluated it.
+  , resourceId :: Core.Maybe Types.BaseResourceId
+    -- ^ The ID of the AWS resource that was evaluated.
+  , resourceType :: Core.Maybe Types.StringWithCharLimit256
+    -- ^ The type of the AWS resource that was evaluated.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ComplianceByResource' value with any optional fields omitted.
-mkComplianceByResource ::
-  ComplianceByResource
-mkComplianceByResource =
-  ComplianceByResource'
-    { compliance = Core.Nothing,
-      resourceId = Core.Nothing,
-      resourceType = Core.Nothing
-    }
+mkComplianceByResource
+    :: ComplianceByResource
+mkComplianceByResource
+  = ComplianceByResource'{compliance = Core.Nothing,
+                          resourceId = Core.Nothing, resourceType = Core.Nothing}
 
 -- | Indicates whether the AWS resource complies with all of the AWS Config rules that evaluated it.
 --
 -- /Note:/ Consider using 'compliance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cbrCompliance :: Lens.Lens' ComplianceByResource (Core.Maybe Types.Compliance)
 cbrCompliance = Lens.field @"compliance"
-{-# DEPRECATED cbrCompliance "Use generic-lens or generic-optics with 'compliance' instead." #-}
+{-# INLINEABLE cbrCompliance #-}
+{-# DEPRECATED compliance "Use generic-lens or generic-optics with 'compliance' instead"  #-}
 
 -- | The ID of the AWS resource that was evaluated.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cbrResourceId :: Lens.Lens' ComplianceByResource (Core.Maybe Types.BaseResourceId)
 cbrResourceId = Lens.field @"resourceId"
-{-# DEPRECATED cbrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+{-# INLINEABLE cbrResourceId #-}
+{-# DEPRECATED resourceId "Use generic-lens or generic-optics with 'resourceId' instead"  #-}
 
 -- | The type of the AWS resource that was evaluated.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cbrResourceType :: Lens.Lens' ComplianceByResource (Core.Maybe Types.StringWithCharLimit256)
 cbrResourceType = Lens.field @"resourceType"
-{-# DEPRECATED cbrResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+{-# INLINEABLE cbrResourceType #-}
+{-# DEPRECATED resourceType "Use generic-lens or generic-optics with 'resourceType' instead"  #-}
 
 instance Core.FromJSON ComplianceByResource where
-  parseJSON =
-    Core.withObject "ComplianceByResource" Core.$
-      \x ->
-        ComplianceByResource'
-          Core.<$> (x Core..:? "Compliance")
-          Core.<*> (x Core..:? "ResourceId")
-          Core.<*> (x Core..:? "ResourceType")
+        parseJSON
+          = Core.withObject "ComplianceByResource" Core.$
+              \ x ->
+                ComplianceByResource' Core.<$>
+                  (x Core..:? "Compliance") Core.<*> x Core..:? "ResourceId" Core.<*>
+                    x Core..:? "ResourceType"

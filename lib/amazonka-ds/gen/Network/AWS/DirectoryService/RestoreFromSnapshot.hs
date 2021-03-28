@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -18,21 +18,19 @@
 -- When you restore a directory from a snapshot, any changes made to the directory after the snapshot date are overwritten.
 -- This action returns as soon as the restore operation is initiated. You can monitor the progress of the restore operation by calling the 'DescribeDirectories' operation with the directory identifier. When the __DirectoryDescription.Stage__ value changes to @Active@ , the restore operation is complete.
 module Network.AWS.DirectoryService.RestoreFromSnapshot
-  ( -- * Creating a request
-    RestoreFromSnapshot (..),
-    mkRestoreFromSnapshot,
-
+    (
+    -- * Creating a request
+      RestoreFromSnapshot (..)
+    , mkRestoreFromSnapshot
     -- ** Request lenses
-    rfsSnapshotId,
+    , rfsSnapshotId
 
     -- * Destructuring the response
-    RestoreFromSnapshotResponse (..),
-    mkRestoreFromSnapshotResponse,
-
+    , RestoreFromSnapshotResponse (..)
+    , mkRestoreFromSnapshotResponse
     -- ** Response lenses
-    rfsrrsResponseStatus,
-  )
-where
+    , rfsrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -44,73 +42,78 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkRestoreFromSnapshot' smart constructor.
 newtype RestoreFromSnapshot = RestoreFromSnapshot'
-  { -- | The identifier of the snapshot to restore from.
-    snapshotId :: Types.SnapshotId
+  { snapshotId :: Types.SnapshotId
+    -- ^ The identifier of the snapshot to restore from.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'RestoreFromSnapshot' value with any optional fields omitted.
-mkRestoreFromSnapshot ::
-  -- | 'snapshotId'
-  Types.SnapshotId ->
-  RestoreFromSnapshot
-mkRestoreFromSnapshot snapshotId = RestoreFromSnapshot' {snapshotId}
+mkRestoreFromSnapshot
+    :: Types.SnapshotId -- ^ 'snapshotId'
+    -> RestoreFromSnapshot
+mkRestoreFromSnapshot snapshotId = RestoreFromSnapshot'{snapshotId}
 
 -- | The identifier of the snapshot to restore from.
 --
 -- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rfsSnapshotId :: Lens.Lens' RestoreFromSnapshot Types.SnapshotId
 rfsSnapshotId = Lens.field @"snapshotId"
-{-# DEPRECATED rfsSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
+{-# INLINEABLE rfsSnapshotId #-}
+{-# DEPRECATED snapshotId "Use generic-lens or generic-optics with 'snapshotId' instead"  #-}
+
+instance Core.ToQuery RestoreFromSnapshot where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders RestoreFromSnapshot where
+        toHeaders RestoreFromSnapshot{..}
+          = Core.pure
+              ("X-Amz-Target", "DirectoryService_20150416.RestoreFromSnapshot")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON RestoreFromSnapshot where
-  toJSON RestoreFromSnapshot {..} =
-    Core.object
-      (Core.catMaybes [Core.Just ("SnapshotId" Core..= snapshotId)])
+        toJSON RestoreFromSnapshot{..}
+          = Core.object
+              (Core.catMaybes [Core.Just ("SnapshotId" Core..= snapshotId)])
 
 instance Core.AWSRequest RestoreFromSnapshot where
-  type Rs RestoreFromSnapshot = RestoreFromSnapshotResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "DirectoryService_20150416.RestoreFromSnapshot")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveEmpty
-      ( \s h x ->
-          RestoreFromSnapshotResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs RestoreFromSnapshot = RestoreFromSnapshotResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveEmpty
+              (\ s h x ->
+                 RestoreFromSnapshotResponse' Core.<$>
+                   (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | Contains the results of the 'RestoreFromSnapshot' operation.
 --
 -- /See:/ 'mkRestoreFromSnapshotResponse' smart constructor.
 newtype RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'RestoreFromSnapshotResponse' value with any optional fields omitted.
-mkRestoreFromSnapshotResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  RestoreFromSnapshotResponse
-mkRestoreFromSnapshotResponse responseStatus =
-  RestoreFromSnapshotResponse' {responseStatus}
+mkRestoreFromSnapshotResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> RestoreFromSnapshotResponse
+mkRestoreFromSnapshotResponse responseStatus
+  = RestoreFromSnapshotResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rfsrrsResponseStatus :: Lens.Lens' RestoreFromSnapshotResponse Core.Int
 rfsrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED rfsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE rfsrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

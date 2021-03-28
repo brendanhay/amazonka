@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.CodeStar where
 
 import Data.Proxy
-import Network.AWS.CodeStar
-import Test.AWS.CodeStar.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.CodeStar
+import Test.AWS.CodeStar.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -144,254 +145,218 @@ import Test.Tasty
 -- Requests
 
 requestListProjects :: ListProjects -> TestTree
-requestListProjects =
-  req
+requestListProjects = req
     "ListProjects"
     "fixture/ListProjects.yaml"
 
 requestListTeamMembers :: ListTeamMembers -> TestTree
-requestListTeamMembers =
-  req
+requestListTeamMembers = req
     "ListTeamMembers"
     "fixture/ListTeamMembers.yaml"
 
 requestDeleteProject :: DeleteProject -> TestTree
-requestDeleteProject =
-  req
+requestDeleteProject = req
     "DeleteProject"
     "fixture/DeleteProject.yaml"
 
 requestUpdateProject :: UpdateProject -> TestTree
-requestUpdateProject =
-  req
+requestUpdateProject = req
     "UpdateProject"
     "fixture/UpdateProject.yaml"
 
 requestDisassociateTeamMember :: DisassociateTeamMember -> TestTree
-requestDisassociateTeamMember =
-  req
+requestDisassociateTeamMember = req
     "DisassociateTeamMember"
     "fixture/DisassociateTeamMember.yaml"
 
 requestTagProject :: TagProject -> TestTree
-requestTagProject =
-  req
+requestTagProject = req
     "TagProject"
     "fixture/TagProject.yaml"
 
 requestDescribeProject :: DescribeProject -> TestTree
-requestDescribeProject =
-  req
+requestDescribeProject = req
     "DescribeProject"
     "fixture/DescribeProject.yaml"
 
 requestListUserProfiles :: ListUserProfiles -> TestTree
-requestListUserProfiles =
-  req
+requestListUserProfiles = req
     "ListUserProfiles"
     "fixture/ListUserProfiles.yaml"
 
 requestListResources :: ListResources -> TestTree
-requestListResources =
-  req
+requestListResources = req
     "ListResources"
     "fixture/ListResources.yaml"
 
 requestAssociateTeamMember :: AssociateTeamMember -> TestTree
-requestAssociateTeamMember =
-  req
+requestAssociateTeamMember = req
     "AssociateTeamMember"
     "fixture/AssociateTeamMember.yaml"
 
 requestUntagProject :: UntagProject -> TestTree
-requestUntagProject =
-  req
+requestUntagProject = req
     "UntagProject"
     "fixture/UntagProject.yaml"
 
 requestUpdateTeamMember :: UpdateTeamMember -> TestTree
-requestUpdateTeamMember =
-  req
+requestUpdateTeamMember = req
     "UpdateTeamMember"
     "fixture/UpdateTeamMember.yaml"
 
 requestDescribeUserProfile :: DescribeUserProfile -> TestTree
-requestDescribeUserProfile =
-  req
+requestDescribeUserProfile = req
     "DescribeUserProfile"
     "fixture/DescribeUserProfile.yaml"
 
 requestListTagsForProject :: ListTagsForProject -> TestTree
-requestListTagsForProject =
-  req
+requestListTagsForProject = req
     "ListTagsForProject"
     "fixture/ListTagsForProject.yaml"
 
 requestDeleteUserProfile :: DeleteUserProfile -> TestTree
-requestDeleteUserProfile =
-  req
+requestDeleteUserProfile = req
     "DeleteUserProfile"
     "fixture/DeleteUserProfile.yaml"
 
 requestUpdateUserProfile :: UpdateUserProfile -> TestTree
-requestUpdateUserProfile =
-  req
+requestUpdateUserProfile = req
     "UpdateUserProfile"
     "fixture/UpdateUserProfile.yaml"
 
 requestCreateUserProfile :: CreateUserProfile -> TestTree
-requestCreateUserProfile =
-  req
+requestCreateUserProfile = req
     "CreateUserProfile"
     "fixture/CreateUserProfile.yaml"
 
 requestCreateProject :: CreateProject -> TestTree
-requestCreateProject =
-  req
+requestCreateProject = req
     "CreateProject"
     "fixture/CreateProject.yaml"
 
 -- Responses
 
 responseListProjects :: ListProjectsResponse -> TestTree
-responseListProjects =
-  res
+responseListProjects = res
     "ListProjectsResponse"
     "fixture/ListProjectsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListProjects)
 
 responseListTeamMembers :: ListTeamMembersResponse -> TestTree
-responseListTeamMembers =
-  res
+responseListTeamMembers = res
     "ListTeamMembersResponse"
     "fixture/ListTeamMembersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTeamMembers)
 
 responseDeleteProject :: DeleteProjectResponse -> TestTree
-responseDeleteProject =
-  res
+responseDeleteProject = res
     "DeleteProjectResponse"
     "fixture/DeleteProjectResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteProject)
 
 responseUpdateProject :: UpdateProjectResponse -> TestTree
-responseUpdateProject =
-  res
+responseUpdateProject = res
     "UpdateProjectResponse"
     "fixture/UpdateProjectResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateProject)
 
 responseDisassociateTeamMember :: DisassociateTeamMemberResponse -> TestTree
-responseDisassociateTeamMember =
-  res
+responseDisassociateTeamMember = res
     "DisassociateTeamMemberResponse"
     "fixture/DisassociateTeamMemberResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateTeamMember)
 
 responseTagProject :: TagProjectResponse -> TestTree
-responseTagProject =
-  res
+responseTagProject = res
     "TagProjectResponse"
     "fixture/TagProjectResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TagProject)
 
 responseDescribeProject :: DescribeProjectResponse -> TestTree
-responseDescribeProject =
-  res
+responseDescribeProject = res
     "DescribeProjectResponse"
     "fixture/DescribeProjectResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeProject)
 
 responseListUserProfiles :: ListUserProfilesResponse -> TestTree
-responseListUserProfiles =
-  res
+responseListUserProfiles = res
     "ListUserProfilesResponse"
     "fixture/ListUserProfilesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListUserProfiles)
 
 responseListResources :: ListResourcesResponse -> TestTree
-responseListResources =
-  res
+responseListResources = res
     "ListResourcesResponse"
     "fixture/ListResourcesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListResources)
 
 responseAssociateTeamMember :: AssociateTeamMemberResponse -> TestTree
-responseAssociateTeamMember =
-  res
+responseAssociateTeamMember = res
     "AssociateTeamMemberResponse"
     "fixture/AssociateTeamMemberResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateTeamMember)
 
 responseUntagProject :: UntagProjectResponse -> TestTree
-responseUntagProject =
-  res
+responseUntagProject = res
     "UntagProjectResponse"
     "fixture/UntagProjectResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UntagProject)
 
 responseUpdateTeamMember :: UpdateTeamMemberResponse -> TestTree
-responseUpdateTeamMember =
-  res
+responseUpdateTeamMember = res
     "UpdateTeamMemberResponse"
     "fixture/UpdateTeamMemberResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateTeamMember)
 
 responseDescribeUserProfile :: DescribeUserProfileResponse -> TestTree
-responseDescribeUserProfile =
-  res
+responseDescribeUserProfile = res
     "DescribeUserProfileResponse"
     "fixture/DescribeUserProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeUserProfile)
 
 responseListTagsForProject :: ListTagsForProjectResponse -> TestTree
-responseListTagsForProject =
-  res
+responseListTagsForProject = res
     "ListTagsForProjectResponse"
     "fixture/ListTagsForProjectResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTagsForProject)
 
 responseDeleteUserProfile :: DeleteUserProfileResponse -> TestTree
-responseDeleteUserProfile =
-  res
+responseDeleteUserProfile = res
     "DeleteUserProfileResponse"
     "fixture/DeleteUserProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteUserProfile)
 
 responseUpdateUserProfile :: UpdateUserProfileResponse -> TestTree
-responseUpdateUserProfile =
-  res
+responseUpdateUserProfile = res
     "UpdateUserProfileResponse"
     "fixture/UpdateUserProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateUserProfile)
 
 responseCreateUserProfile :: CreateUserProfileResponse -> TestTree
-responseCreateUserProfile =
-  res
+responseCreateUserProfile = res
     "CreateUserProfileResponse"
     "fixture/CreateUserProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateUserProfile)
 
 responseCreateProject :: CreateProjectResponse -> TestTree
-responseCreateProject =
-  res
+responseCreateProject = res
     "CreateProjectResponse"
     "fixture/CreateProjectResponse.proto"
     mkServiceConfig

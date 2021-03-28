@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,23 +17,21 @@
 --
 -- In the request, you must provide the @StreamName@ or @StreamARN@ .
 module Network.AWS.KinesisVideo.UntagStream
-  ( -- * Creating a request
-    UntagStream (..),
-    mkUntagStream,
-
+    (
+    -- * Creating a request
+      UntagStream (..)
+    , mkUntagStream
     -- ** Request lenses
-    usTagKeyList,
-    usStreamARN,
-    usStreamName,
+    , usTagKeyList
+    , usStreamARN
+    , usStreamName
 
     -- * Destructuring the response
-    UntagStreamResponse (..),
-    mkUntagStreamResponse,
-
+    , UntagStreamResponse (..)
+    , mkUntagStreamResponse
     -- ** Response lenses
-    usrrsResponseStatus,
-  )
-where
+    , usrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.KinesisVideo.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -43,95 +41,97 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUntagStream' smart constructor.
 data UntagStream = UntagStream'
-  { -- | A list of the keys of the tags that you want to remove.
-    tagKeyList :: Core.NonEmpty Types.TagKey,
-    -- | The Amazon Resource Name (ARN) of the stream that you want to remove tags from.
-    streamARN :: Core.Maybe Types.StreamARN,
-    -- | The name of the stream that you want to remove tags from.
-    streamName :: Core.Maybe Types.StreamName
+  { tagKeyList :: Core.NonEmpty Types.TagKey
+    -- ^ A list of the keys of the tags that you want to remove.
+  , streamARN :: Core.Maybe Types.StreamARN
+    -- ^ The Amazon Resource Name (ARN) of the stream that you want to remove tags from.
+  , streamName :: Core.Maybe Types.StreamName
+    -- ^ The name of the stream that you want to remove tags from.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UntagStream' value with any optional fields omitted.
-mkUntagStream ::
-  -- | 'tagKeyList'
-  Core.NonEmpty Types.TagKey ->
-  UntagStream
-mkUntagStream tagKeyList =
-  UntagStream'
-    { tagKeyList,
-      streamARN = Core.Nothing,
-      streamName = Core.Nothing
-    }
+mkUntagStream
+    :: Core.NonEmpty Types.TagKey -- ^ 'tagKeyList'
+    -> UntagStream
+mkUntagStream tagKeyList
+  = UntagStream'{tagKeyList, streamARN = Core.Nothing,
+                 streamName = Core.Nothing}
 
 -- | A list of the keys of the tags that you want to remove.
 --
 -- /Note:/ Consider using 'tagKeyList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 usTagKeyList :: Lens.Lens' UntagStream (Core.NonEmpty Types.TagKey)
 usTagKeyList = Lens.field @"tagKeyList"
-{-# DEPRECATED usTagKeyList "Use generic-lens or generic-optics with 'tagKeyList' instead." #-}
+{-# INLINEABLE usTagKeyList #-}
+{-# DEPRECATED tagKeyList "Use generic-lens or generic-optics with 'tagKeyList' instead"  #-}
 
 -- | The Amazon Resource Name (ARN) of the stream that you want to remove tags from.
 --
 -- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 usStreamARN :: Lens.Lens' UntagStream (Core.Maybe Types.StreamARN)
 usStreamARN = Lens.field @"streamARN"
-{-# DEPRECATED usStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
+{-# INLINEABLE usStreamARN #-}
+{-# DEPRECATED streamARN "Use generic-lens or generic-optics with 'streamARN' instead"  #-}
 
 -- | The name of the stream that you want to remove tags from.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 usStreamName :: Lens.Lens' UntagStream (Core.Maybe Types.StreamName)
 usStreamName = Lens.field @"streamName"
-{-# DEPRECATED usStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+{-# INLINEABLE usStreamName #-}
+{-# DEPRECATED streamName "Use generic-lens or generic-optics with 'streamName' instead"  #-}
+
+instance Core.ToQuery UntagStream where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders UntagStream where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.FromJSON UntagStream where
-  toJSON UntagStream {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("TagKeyList" Core..= tagKeyList),
-            ("StreamARN" Core..=) Core.<$> streamARN,
-            ("StreamName" Core..=) Core.<$> streamName
-          ]
-      )
+        toJSON UntagStream{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("TagKeyList" Core..= tagKeyList),
+                  ("StreamARN" Core..=) Core.<$> streamARN,
+                  ("StreamName" Core..=) Core.<$> streamName])
 
 instance Core.AWSRequest UntagStream where
-  type Rs UntagStream = UntagStreamResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/untagStream",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveEmpty
-      ( \s h x ->
-          UntagStreamResponse' Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs UntagStream = UntagStreamResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/untagStream",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveEmpty
+              (\ s h x ->
+                 UntagStreamResponse' Core.<$> (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkUntagStreamResponse' smart constructor.
 newtype UntagStreamResponse = UntagStreamResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UntagStreamResponse' value with any optional fields omitted.
-mkUntagStreamResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  UntagStreamResponse
-mkUntagStreamResponse responseStatus =
-  UntagStreamResponse' {responseStatus}
+mkUntagStreamResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> UntagStreamResponse
+mkUntagStreamResponse responseStatus
+  = UntagStreamResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 usrrsResponseStatus :: Lens.Lens' UntagStreamResponse Core.Int
 usrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED usrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE usrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

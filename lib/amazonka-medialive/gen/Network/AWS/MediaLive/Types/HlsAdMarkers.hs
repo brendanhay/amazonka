@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,44 +10,28 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaLive.Types.HlsAdMarkers
   ( HlsAdMarkers
-      ( HlsAdMarkers',
-        HlsAdMarkersAdobe,
-        HlsAdMarkersElemental,
-        HlsAdMarkersElementalSCTE35,
-        fromHlsAdMarkers
-      ),
-  )
-where
+    ( HlsAdMarkers'
+    , HlsAdMarkersAdobe
+    , HlsAdMarkersElemental
+    , HlsAdMarkersElementalSCTE35
+    , fromHlsAdMarkers
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
 -- | Hls Ad Markers
-newtype HlsAdMarkers = HlsAdMarkers' {fromHlsAdMarkers :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype HlsAdMarkers = HlsAdMarkers'{fromHlsAdMarkers :: Core.Text}
+                         deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                         Core.Generic)
+                         deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                           Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                           Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                           Core.FromText, Core.ToByteString, Core.ToQuery,
+                                           Core.ToHeader)
 
 pattern HlsAdMarkersAdobe :: HlsAdMarkers
 pattern HlsAdMarkersAdobe = HlsAdMarkers' "ADOBE"
@@ -58,9 +42,11 @@ pattern HlsAdMarkersElemental = HlsAdMarkers' "ELEMENTAL"
 pattern HlsAdMarkersElementalSCTE35 :: HlsAdMarkers
 pattern HlsAdMarkersElementalSCTE35 = HlsAdMarkers' "ELEMENTAL_SCTE35"
 
-{-# COMPLETE
+{-# COMPLETE 
   HlsAdMarkersAdobe,
+
   HlsAdMarkersElemental,
+
   HlsAdMarkersElementalSCTE35,
   HlsAdMarkers'
   #-}

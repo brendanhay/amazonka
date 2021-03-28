@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,18 +17,17 @@
 --
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.StopStack
-  ( -- * Creating a request
-    StopStack (..),
-    mkStopStack,
-
+    (
+    -- * Creating a request
+      StopStack (..)
+    , mkStopStack
     -- ** Request lenses
-    ssfStackId,
+    , ssfStackId
 
     -- * Destructuring the response
-    StopStackResponse (..),
-    mkStopStackResponse,
-  )
-where
+    , StopStackResponse (..)
+    , mkStopStackResponse
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.OpsWorks.Types as Types
@@ -38,45 +37,51 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopStack' smart constructor.
 newtype StopStack = StopStack'
-  { -- | The stack ID.
-    stackId :: Types.StackId
+  { stackId :: Core.Text
+    -- ^ The stack ID.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'StopStack' value with any optional fields omitted.
-mkStopStack ::
-  -- | 'stackId'
-  Types.StackId ->
-  StopStack
-mkStopStack stackId = StopStack' {stackId}
+mkStopStack
+    :: Core.Text -- ^ 'stackId'
+    -> StopStack
+mkStopStack stackId = StopStack'{stackId}
 
 -- | The stack ID.
 --
 -- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssfStackId :: Lens.Lens' StopStack Types.StackId
+ssfStackId :: Lens.Lens' StopStack Core.Text
 ssfStackId = Lens.field @"stackId"
-{-# DEPRECATED ssfStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
+{-# INLINEABLE ssfStackId #-}
+{-# DEPRECATED stackId "Use generic-lens or generic-optics with 'stackId' instead"  #-}
+
+instance Core.ToQuery StopStack where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders StopStack where
+        toHeaders StopStack{..}
+          = Core.pure ("X-Amz-Target", "OpsWorks_20130218.StopStack") Core.<>
+              Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON StopStack where
-  toJSON StopStack {..} =
-    Core.object
-      (Core.catMaybes [Core.Just ("StackId" Core..= stackId)])
+        toJSON StopStack{..}
+          = Core.object
+              (Core.catMaybes [Core.Just ("StackId" Core..= stackId)])
 
 instance Core.AWSRequest StopStack where
-  type Rs StopStack = StopStackResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "OpsWorks_20130218.StopStack")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response = Response.receiveNull StopStackResponse'
+        type Rs StopStack = StopStackResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull StopStackResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkStopStackResponse' smart constructor.
 data StopStackResponse = StopStackResponse'
@@ -84,6 +89,6 @@ data StopStackResponse = StopStackResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'StopStackResponse' value with any optional fields omitted.
-mkStopStackResponse ::
-  StopStackResponse
+mkStopStackResponse
+    :: StopStackResponse
 mkStopStackResponse = StopStackResponse'

@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,25 +13,23 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all tags associated with a given Amazon Comprehend resource.
+-- Lists all tags associated with a given Amazon Comprehend resource. 
 module Network.AWS.Comprehend.ListTagsForResource
-  ( -- * Creating a request
-    ListTagsForResource (..),
-    mkListTagsForResource,
-
+    (
+    -- * Creating a request
+      ListTagsForResource (..)
+    , mkListTagsForResource
     -- ** Request lenses
-    ltfrResourceArn,
+    , ltfrResourceArn
 
     -- * Destructuring the response
-    ListTagsForResourceResponse (..),
-    mkListTagsForResourceResponse,
-
+    , ListTagsForResourceResponse (..)
+    , mkListTagsForResourceResponse
     -- ** Response lenses
-    ltfrrrsResourceArn,
-    ltfrrrsTags,
-    ltfrrrsResponseStatus,
-  )
-where
+    , ltfrrrsResourceArn
+    , ltfrrrsTags
+    , ltfrrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -41,96 +39,99 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListTagsForResource' smart constructor.
 newtype ListTagsForResource = ListTagsForResource'
-  { -- | The Amazon Resource Name (ARN) of the given Amazon Comprehend resource you are querying.
-    resourceArn :: Types.ComprehendArn
+  { resourceArn :: Types.ComprehendArn
+    -- ^ The Amazon Resource Name (ARN) of the given Amazon Comprehend resource you are querying. 
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ListTagsForResource' value with any optional fields omitted.
-mkListTagsForResource ::
-  -- | 'resourceArn'
-  Types.ComprehendArn ->
-  ListTagsForResource
-mkListTagsForResource resourceArn =
-  ListTagsForResource' {resourceArn}
+mkListTagsForResource
+    :: Types.ComprehendArn -- ^ 'resourceArn'
+    -> ListTagsForResource
+mkListTagsForResource resourceArn
+  = ListTagsForResource'{resourceArn}
 
--- | The Amazon Resource Name (ARN) of the given Amazon Comprehend resource you are querying.
+-- | The Amazon Resource Name (ARN) of the given Amazon Comprehend resource you are querying. 
 --
 -- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ltfrResourceArn :: Lens.Lens' ListTagsForResource Types.ComprehendArn
 ltfrResourceArn = Lens.field @"resourceArn"
-{-# DEPRECATED ltfrResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
+{-# INLINEABLE ltfrResourceArn #-}
+{-# DEPRECATED resourceArn "Use generic-lens or generic-optics with 'resourceArn' instead"  #-}
+
+instance Core.ToQuery ListTagsForResource where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders ListTagsForResource where
+        toHeaders ListTagsForResource{..}
+          = Core.pure
+              ("X-Amz-Target", "Comprehend_20171127.ListTagsForResource")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON ListTagsForResource where
-  toJSON ListTagsForResource {..} =
-    Core.object
-      (Core.catMaybes [Core.Just ("ResourceArn" Core..= resourceArn)])
+        toJSON ListTagsForResource{..}
+          = Core.object
+              (Core.catMaybes [Core.Just ("ResourceArn" Core..= resourceArn)])
 
 instance Core.AWSRequest ListTagsForResource where
-  type Rs ListTagsForResource = ListTagsForResourceResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "Comprehend_20171127.ListTagsForResource")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          ListTagsForResourceResponse'
-            Core.<$> (x Core..:? "ResourceArn")
-            Core.<*> (x Core..:? "Tags")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs ListTagsForResource = ListTagsForResourceResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 ListTagsForResourceResponse' Core.<$>
+                   (x Core..:? "ResourceArn") Core.<*> x Core..:? "Tags" Core.<*>
+                     Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-  { -- | The Amazon Resource Name (ARN) of the given Amazon Comprehend resource you are querying.
-    resourceArn :: Core.Maybe Types.ResourceArn,
-    -- | Tags associated with the Amazon Comprehend resource being queried. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
-    tags :: Core.Maybe [Types.Tag],
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { resourceArn :: Core.Maybe Types.ResourceArn
+    -- ^ The Amazon Resource Name (ARN) of the given Amazon Comprehend resource you are querying.
+  , tags :: Core.Maybe [Types.Tag]
+    -- ^ Tags associated with the Amazon Comprehend resource being queried. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department. 
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ListTagsForResourceResponse' value with any optional fields omitted.
-mkListTagsForResourceResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  ListTagsForResourceResponse
-mkListTagsForResourceResponse responseStatus =
-  ListTagsForResourceResponse'
-    { resourceArn = Core.Nothing,
-      tags = Core.Nothing,
-      responseStatus
-    }
+mkListTagsForResourceResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> ListTagsForResourceResponse
+mkListTagsForResourceResponse responseStatus
+  = ListTagsForResourceResponse'{resourceArn = Core.Nothing,
+                                 tags = Core.Nothing, responseStatus}
 
 -- | The Amazon Resource Name (ARN) of the given Amazon Comprehend resource you are querying.
 --
 -- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ltfrrrsResourceArn :: Lens.Lens' ListTagsForResourceResponse (Core.Maybe Types.ResourceArn)
 ltfrrrsResourceArn = Lens.field @"resourceArn"
-{-# DEPRECATED ltfrrrsResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
+{-# INLINEABLE ltfrrrsResourceArn #-}
+{-# DEPRECATED resourceArn "Use generic-lens or generic-optics with 'resourceArn' instead"  #-}
 
--- | Tags associated with the Amazon Comprehend resource being queried. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
+-- | Tags associated with the Amazon Comprehend resource being queried. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department. 
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ltfrrrsTags :: Lens.Lens' ListTagsForResourceResponse (Core.Maybe [Types.Tag])
 ltfrrrsTags = Lens.field @"tags"
-{-# DEPRECATED ltfrrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+{-# INLINEABLE ltfrrrsTags #-}
+{-# DEPRECATED tags "Use generic-lens or generic-optics with 'tags' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ltfrrrsResponseStatus :: Lens.Lens' ListTagsForResourceResponse Core.Int
 ltfrrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED ltfrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE ltfrrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

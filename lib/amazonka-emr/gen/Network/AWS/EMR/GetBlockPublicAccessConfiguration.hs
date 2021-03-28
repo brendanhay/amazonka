@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,20 +15,19 @@
 --
 -- Returns the Amazon EMR block public access configuration for your AWS account in the current Region. For more information see <https://docs.aws.amazon.com/emr/latest/ManagementGuide/configure-block-public-access.html Configure Block Public Access for Amazon EMR> in the /Amazon EMR Management Guide/ .
 module Network.AWS.EMR.GetBlockPublicAccessConfiguration
-  ( -- * Creating a request
-    GetBlockPublicAccessConfiguration (..),
-    mkGetBlockPublicAccessConfiguration,
+    (
+    -- * Creating a request
+      GetBlockPublicAccessConfiguration (..)
+    , mkGetBlockPublicAccessConfiguration
 
     -- * Destructuring the response
-    GetBlockPublicAccessConfigurationResponse (..),
-    mkGetBlockPublicAccessConfigurationResponse,
-
+    , GetBlockPublicAccessConfigurationResponse (..)
+    , mkGetBlockPublicAccessConfigurationResponse
     -- ** Response lenses
-    gbpacrrsBlockPublicAccessConfiguration,
-    gbpacrrsBlockPublicAccessConfigurationMetadata,
-    gbpacrrsResponseStatus,
-  )
-where
+    , gbpacrrsBlockPublicAccessConfiguration
+    , gbpacrrsBlockPublicAccessConfigurationMetadata
+    , gbpacrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -42,89 +41,89 @@ data GetBlockPublicAccessConfiguration = GetBlockPublicAccessConfiguration'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetBlockPublicAccessConfiguration' value with any optional fields omitted.
-mkGetBlockPublicAccessConfiguration ::
-  GetBlockPublicAccessConfiguration
-mkGetBlockPublicAccessConfiguration =
-  GetBlockPublicAccessConfiguration'
+mkGetBlockPublicAccessConfiguration
+    :: GetBlockPublicAccessConfiguration
+mkGetBlockPublicAccessConfiguration
+  = GetBlockPublicAccessConfiguration'
+
+instance Core.ToQuery GetBlockPublicAccessConfiguration where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders GetBlockPublicAccessConfiguration where
+        toHeaders GetBlockPublicAccessConfiguration{..}
+          = Core.pure
+              ("X-Amz-Target",
+               "ElasticMapReduce.GetBlockPublicAccessConfiguration")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON GetBlockPublicAccessConfiguration where
-  toJSON _ = Core.Object Core.mempty
+        toJSON _ = Core.Object Core.mempty
 
 instance Core.AWSRequest GetBlockPublicAccessConfiguration where
-  type
-    Rs GetBlockPublicAccessConfiguration =
-      GetBlockPublicAccessConfigurationResponse
-  request x@_ =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "X-Amz-Target",
-              "ElasticMapReduce.GetBlockPublicAccessConfiguration"
-            )
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          GetBlockPublicAccessConfigurationResponse'
-            Core.<$> (x Core..: "BlockPublicAccessConfiguration")
-            Core.<*> (x Core..: "BlockPublicAccessConfigurationMetadata")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs GetBlockPublicAccessConfiguration =
+             GetBlockPublicAccessConfigurationResponse
+        toRequest x@_
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 GetBlockPublicAccessConfigurationResponse' Core.<$>
+                   (x Core..: "BlockPublicAccessConfiguration") Core.<*>
+                     x Core..: "BlockPublicAccessConfigurationMetadata"
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkGetBlockPublicAccessConfigurationResponse' smart constructor.
 data GetBlockPublicAccessConfigurationResponse = GetBlockPublicAccessConfigurationResponse'
-  { -- | A configuration for Amazon EMR block public access. The configuration applies to all clusters created in your account for the current Region. The configuration specifies whether block public access is enabled. If block public access is enabled, security groups associated with the cluster cannot have rules that allow inbound traffic from 0.0.0.0/0 or ::/0 on a port, unless the port is specified as an exception using @PermittedPublicSecurityGroupRuleRanges@ in the @BlockPublicAccessConfiguration@ . By default, Port 22 (SSH) is an exception, and public access is allowed on this port. You can change this by updating the block public access configuration to remove the exception.
-    blockPublicAccessConfiguration :: Types.BlockPublicAccessConfiguration,
-    -- | Properties that describe the AWS principal that created the @BlockPublicAccessConfiguration@ using the @PutBlockPublicAccessConfiguration@ action as well as the date and time that the configuration was created. Each time a configuration for block public access is updated, Amazon EMR updates this metadata.
-    blockPublicAccessConfigurationMetadata :: Types.BlockPublicAccessConfigurationMetadata,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { blockPublicAccessConfiguration :: Types.BlockPublicAccessConfiguration
+    -- ^ A configuration for Amazon EMR block public access. The configuration applies to all clusters created in your account for the current Region. The configuration specifies whether block public access is enabled. If block public access is enabled, security groups associated with the cluster cannot have rules that allow inbound traffic from 0.0.0.0/0 or ::/0 on a port, unless the port is specified as an exception using @PermittedPublicSecurityGroupRuleRanges@ in the @BlockPublicAccessConfiguration@ . By default, Port 22 (SSH) is an exception, and public access is allowed on this port. You can change this by updating the block public access configuration to remove the exception.
+  , blockPublicAccessConfigurationMetadata :: Types.BlockPublicAccessConfigurationMetadata
+    -- ^ Properties that describe the AWS principal that created the @BlockPublicAccessConfiguration@ using the @PutBlockPublicAccessConfiguration@ action as well as the date and time that the configuration was created. Each time a configuration for block public access is updated, Amazon EMR updates this metadata.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'GetBlockPublicAccessConfigurationResponse' value with any optional fields omitted.
-mkGetBlockPublicAccessConfigurationResponse ::
-  -- | 'blockPublicAccessConfiguration'
-  Types.BlockPublicAccessConfiguration ->
-  -- | 'blockPublicAccessConfigurationMetadata'
-  Types.BlockPublicAccessConfigurationMetadata ->
-  -- | 'responseStatus'
-  Core.Int ->
-  GetBlockPublicAccessConfigurationResponse
+mkGetBlockPublicAccessConfigurationResponse
+    :: Types.BlockPublicAccessConfiguration -- ^ 'blockPublicAccessConfiguration'
+    -> Types.BlockPublicAccessConfigurationMetadata -- ^ 'blockPublicAccessConfigurationMetadata'
+    -> Core.Int -- ^ 'responseStatus'
+    -> GetBlockPublicAccessConfigurationResponse
 mkGetBlockPublicAccessConfigurationResponse
   blockPublicAccessConfiguration
-  blockPublicAccessConfigurationMetadata
-  responseStatus =
-    GetBlockPublicAccessConfigurationResponse'
-      { blockPublicAccessConfiguration,
-        blockPublicAccessConfigurationMetadata,
-        responseStatus
-      }
+  blockPublicAccessConfigurationMetadata responseStatus
+  = GetBlockPublicAccessConfigurationResponse'{blockPublicAccessConfiguration,
+                                               blockPublicAccessConfigurationMetadata,
+                                               responseStatus}
 
 -- | A configuration for Amazon EMR block public access. The configuration applies to all clusters created in your account for the current Region. The configuration specifies whether block public access is enabled. If block public access is enabled, security groups associated with the cluster cannot have rules that allow inbound traffic from 0.0.0.0/0 or ::/0 on a port, unless the port is specified as an exception using @PermittedPublicSecurityGroupRuleRanges@ in the @BlockPublicAccessConfiguration@ . By default, Port 22 (SSH) is an exception, and public access is allowed on this port. You can change this by updating the block public access configuration to remove the exception.
 --
 -- /Note:/ Consider using 'blockPublicAccessConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gbpacrrsBlockPublicAccessConfiguration :: Lens.Lens' GetBlockPublicAccessConfigurationResponse Types.BlockPublicAccessConfiguration
 gbpacrrsBlockPublicAccessConfiguration = Lens.field @"blockPublicAccessConfiguration"
-{-# DEPRECATED gbpacrrsBlockPublicAccessConfiguration "Use generic-lens or generic-optics with 'blockPublicAccessConfiguration' instead." #-}
+{-# INLINEABLE gbpacrrsBlockPublicAccessConfiguration #-}
+{-# DEPRECATED blockPublicAccessConfiguration "Use generic-lens or generic-optics with 'blockPublicAccessConfiguration' instead"  #-}
 
 -- | Properties that describe the AWS principal that created the @BlockPublicAccessConfiguration@ using the @PutBlockPublicAccessConfiguration@ action as well as the date and time that the configuration was created. Each time a configuration for block public access is updated, Amazon EMR updates this metadata.
 --
 -- /Note:/ Consider using 'blockPublicAccessConfigurationMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gbpacrrsBlockPublicAccessConfigurationMetadata :: Lens.Lens' GetBlockPublicAccessConfigurationResponse Types.BlockPublicAccessConfigurationMetadata
 gbpacrrsBlockPublicAccessConfigurationMetadata = Lens.field @"blockPublicAccessConfigurationMetadata"
-{-# DEPRECATED gbpacrrsBlockPublicAccessConfigurationMetadata "Use generic-lens or generic-optics with 'blockPublicAccessConfigurationMetadata' instead." #-}
+{-# INLINEABLE gbpacrrsBlockPublicAccessConfigurationMetadata #-}
+{-# DEPRECATED blockPublicAccessConfigurationMetadata "Use generic-lens or generic-optics with 'blockPublicAccessConfigurationMetadata' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gbpacrrsResponseStatus :: Lens.Lens' GetBlockPublicAccessConfigurationResponse Core.Int
 gbpacrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED gbpacrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE gbpacrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

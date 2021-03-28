@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,24 +17,27 @@
 -- The AWS Cost and Usage Report API provides the following endpoint:
 --
 --     * cur.us-east-1.amazonaws.com
+--
+--
 module Network.AWS.CostAndUsageReport
-  ( -- * Service configuration
-    mkServiceConfig,
+    (
+    -- * Service configuration
+      mkServiceConfig
 
     -- * Errors
     -- $errors
 
     -- ** ValidationException
-    _ValidationException,
+    , _ValidationException
 
     -- ** InternalErrorException
-    _InternalErrorException,
+    , _InternalErrorException
 
     -- ** DuplicateReportNameException
-    _DuplicateReportNameException,
+    , _DuplicateReportNameException
 
     -- ** ReportLimitReachedException
-    _ReportLimitReachedException,
+    , _ReportLimitReachedException
 
     -- * Waiters
     -- $waiters
@@ -42,115 +45,117 @@ module Network.AWS.CostAndUsageReport
     -- * Operations
     -- $operations
 
-    -- ** PutReportDefinition
-    module Network.AWS.CostAndUsageReport.PutReportDefinition,
+    -- ** PutReportDefinition 
+    , module Network.AWS.CostAndUsageReport.PutReportDefinition
 
-    -- ** DeleteReportDefinition
-    module Network.AWS.CostAndUsageReport.DeleteReportDefinition,
+    -- ** DeleteReportDefinition 
+    , module Network.AWS.CostAndUsageReport.DeleteReportDefinition
 
-    -- ** ModifyReportDefinition
-    module Network.AWS.CostAndUsageReport.ModifyReportDefinition,
+    -- ** ModifyReportDefinition 
+    , module Network.AWS.CostAndUsageReport.ModifyReportDefinition
 
     -- ** DescribeReportDefinitions (Paginated)
-    module Network.AWS.CostAndUsageReport.DescribeReportDefinitions,
+    , module Network.AWS.CostAndUsageReport.DescribeReportDefinitions
 
     -- * Types
 
     -- ** ReportVersioning
-    ReportVersioning (..),
+    , ReportVersioning (..)
 
     -- ** TimeUnit
-    TimeUnit (..),
+    , TimeUnit (..)
 
     -- ** ReportName
-    ReportName (..),
+    , ReportName (..)
 
     -- ** GenericString
-    GenericString (..),
+    , GenericString (..)
 
     -- ** SchemaElement
-    SchemaElement (..),
+    , SchemaElement (..)
 
     -- ** AdditionalArtifact
-    AdditionalArtifact (..),
+    , AdditionalArtifact (..)
 
     -- ** CompressionFormat
-    CompressionFormat (..),
+    , CompressionFormat (..)
 
     -- ** AWSRegion
-    AWSRegion (..),
+    , AWSRegion (..)
 
     -- ** ReportFormat
-    ReportFormat (..),
+    , ReportFormat (..)
 
     -- ** S3Prefix
-    S3Prefix (..),
+    , S3Prefix (..)
 
     -- ** ReportDefinition
-    ReportDefinition (..),
-    mkReportDefinition,
-    rdReportName,
-    rdTimeUnit,
-    rdFormat,
-    rdCompression,
-    rdAdditionalSchemaElements,
-    rdS3Bucket,
-    rdS3Prefix,
-    rdS3Region,
-    rdAdditionalArtifacts,
-    rdRefreshClosedReports,
-    rdReportVersioning,
+    , ReportDefinition (..)
+    , mkReportDefinition
+    , rdReportName
+    , rdTimeUnit
+    , rdFormat
+    , rdCompression
+    , rdAdditionalSchemaElements
+    , rdS3Bucket
+    , rdS3Prefix
+    , rdS3Region
+    , rdAdditionalArtifacts
+    , rdRefreshClosedReports
+    , rdReportVersioning
 
     -- ** S3Bucket
-    S3Bucket (..),
+    , S3Bucket (..)
 
     -- ** NextToken
-    NextToken (..),
+    , NextToken (..)
 
     -- ** ResponseMessage
-    ResponseMessage (..),
+    , ResponseMessage (..)
 
     -- * Serialization types
-    Lude.Base64 (..),
-    Lude._Base64,
-    Lude.Sensitive (..),
-    Lude._Sensitive,
-    Lude.UTCTime,
-    Lude.NominalDiffTime,
-  )
-where
+    , Lude.Base64 (..)
+    , Lude._Base64
+    , Lude.Sensitive (..)
+    , Lude._Sensitive
+    , Lude.UTCTime
+    , Lude.NominalDiffTime
+    ) where
 
-import Network.AWS.CostAndUsageReport.DeleteReportDefinition
-import Network.AWS.CostAndUsageReport.DescribeReportDefinitions
-import Network.AWS.CostAndUsageReport.ModifyReportDefinition
-import Network.AWS.CostAndUsageReport.PutReportDefinition
 import Network.AWS.CostAndUsageReport.Types
 import Network.AWS.CostAndUsageReport.Waiters
+import Network.AWS.CostAndUsageReport.PutReportDefinition
+import Network.AWS.CostAndUsageReport.DeleteReportDefinition
+import Network.AWS.CostAndUsageReport.ModifyReportDefinition
+import Network.AWS.CostAndUsageReport.DescribeReportDefinitions
 import qualified Network.AWS.Prelude as Lude
 
--- $errors
--- Error matchers are designed for use with the functions provided by
--- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
--- This allows catching (and rethrowing) service specific errors returned
--- by 'CostAndUsageReport'.
+{- $errors
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by 'CostAndUsageReport'.
+-}
 
--- $operations
--- Some AWS operations return results that are incomplete and require subsequent
--- requests in order to obtain the entire result set. The process of sending
--- subsequent requests to continue where a previous request left off is called
--- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
--- 1000 objects at a time, and you must send subsequent requests with the
--- appropriate Marker in order to retrieve the next page of results.
---
--- Operations that have an 'AWSPager' instance can transparently perform subsequent
--- requests, correctly setting Markers and other request facets to iterate through
--- the entire result set of a truncated API operation. Operations which support
--- this have an additional note in the documentation.
---
--- Many operations have the ability to filter results on the server side. See the
--- individual operation parameters for details.
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
 
--- $waiters
--- Waiters poll by repeatedly sending a request until some remote success condition
--- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
--- determines how many attempts should be made, in addition to delay and retry strategies.
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly sending a request until some remote success condition
+configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+determines how many attempts should be made, in addition to delay and retry strategies.
+-}

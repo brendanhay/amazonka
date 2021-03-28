@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,69 +10,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Connect.Types.HistoricalMetricName
   ( HistoricalMetricName
-      ( HistoricalMetricName',
-        HistoricalMetricNameContactsQueued,
-        HistoricalMetricNameContactsHandled,
-        HistoricalMetricNameContactsAbandoned,
-        HistoricalMetricNameContactsConsulted,
-        HistoricalMetricNameContactsAgentHungUpFirst,
-        HistoricalMetricNameContactsHandledIncoming,
-        HistoricalMetricNameContactsHandledOutbound,
-        HistoricalMetricNameContactsHoldAbandons,
-        HistoricalMetricNameContactsTransferredIn,
-        HistoricalMetricNameContactsTransferredOut,
-        HistoricalMetricNameContactsTransferredInFromQueue,
-        HistoricalMetricNameContactsTransferredOutFromQueue,
-        HistoricalMetricNameContactsMissed,
-        HistoricalMetricNameCallbackContactsHandled,
-        HistoricalMetricNameApiContactsHandled,
-        HistoricalMetricNameOccupancy,
-        HistoricalMetricNameHandleTime,
-        HistoricalMetricNameAfterContactWorkTime,
-        HistoricalMetricNameQueuedTime,
-        HistoricalMetricNameAbandonTime,
-        HistoricalMetricNameQueueAnswerTime,
-        HistoricalMetricNameHoldTime,
-        HistoricalMetricNameInteractionTime,
-        HistoricalMetricNameInteractionAndHoldTime,
-        HistoricalMetricNameServiceLevel,
-        fromHistoricalMetricName
-      ),
-  )
-where
+    ( HistoricalMetricName'
+    , HistoricalMetricNameContactsQueued
+    , HistoricalMetricNameContactsHandled
+    , HistoricalMetricNameContactsAbandoned
+    , HistoricalMetricNameContactsConsulted
+    , HistoricalMetricNameContactsAgentHungUpFirst
+    , HistoricalMetricNameContactsHandledIncoming
+    , HistoricalMetricNameContactsHandledOutbound
+    , HistoricalMetricNameContactsHoldAbandons
+    , HistoricalMetricNameContactsTransferredIn
+    , HistoricalMetricNameContactsTransferredOut
+    , HistoricalMetricNameContactsTransferredInFromQueue
+    , HistoricalMetricNameContactsTransferredOutFromQueue
+    , HistoricalMetricNameContactsMissed
+    , HistoricalMetricNameCallbackContactsHandled
+    , HistoricalMetricNameApiContactsHandled
+    , HistoricalMetricNameOccupancy
+    , HistoricalMetricNameHandleTime
+    , HistoricalMetricNameAfterContactWorkTime
+    , HistoricalMetricNameQueuedTime
+    , HistoricalMetricNameAbandonTime
+    , HistoricalMetricNameQueueAnswerTime
+    , HistoricalMetricNameHoldTime
+    , HistoricalMetricNameInteractionTime
+    , HistoricalMetricNameInteractionAndHoldTime
+    , HistoricalMetricNameServiceLevel
+    , fromHistoricalMetricName
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
 -- | The historical metric names.
-newtype HistoricalMetricName = HistoricalMetricName'
-  { fromHistoricalMetricName ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype HistoricalMetricName = HistoricalMetricName'{fromHistoricalMetricName
+                                                     :: Core.Text}
+                                 deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                 Core.Generic)
+                                 deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                   Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                   Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                   Core.ToText, Core.FromText, Core.ToByteString,
+                                                   Core.ToQuery, Core.ToHeader)
 
 pattern HistoricalMetricNameContactsQueued :: HistoricalMetricName
 pattern HistoricalMetricNameContactsQueued = HistoricalMetricName' "CONTACTS_QUEUED"
@@ -149,31 +131,55 @@ pattern HistoricalMetricNameInteractionAndHoldTime = HistoricalMetricName' "INTE
 pattern HistoricalMetricNameServiceLevel :: HistoricalMetricName
 pattern HistoricalMetricNameServiceLevel = HistoricalMetricName' "SERVICE_LEVEL"
 
-{-# COMPLETE
+{-# COMPLETE 
   HistoricalMetricNameContactsQueued,
+
   HistoricalMetricNameContactsHandled,
+
   HistoricalMetricNameContactsAbandoned,
+
   HistoricalMetricNameContactsConsulted,
+
   HistoricalMetricNameContactsAgentHungUpFirst,
+
   HistoricalMetricNameContactsHandledIncoming,
+
   HistoricalMetricNameContactsHandledOutbound,
+
   HistoricalMetricNameContactsHoldAbandons,
+
   HistoricalMetricNameContactsTransferredIn,
+
   HistoricalMetricNameContactsTransferredOut,
+
   HistoricalMetricNameContactsTransferredInFromQueue,
+
   HistoricalMetricNameContactsTransferredOutFromQueue,
+
   HistoricalMetricNameContactsMissed,
+
   HistoricalMetricNameCallbackContactsHandled,
+
   HistoricalMetricNameApiContactsHandled,
+
   HistoricalMetricNameOccupancy,
+
   HistoricalMetricNameHandleTime,
+
   HistoricalMetricNameAfterContactWorkTime,
+
   HistoricalMetricNameQueuedTime,
+
   HistoricalMetricNameAbandonTime,
+
   HistoricalMetricNameQueueAnswerTime,
+
   HistoricalMetricNameHoldTime,
+
   HistoricalMetricNameInteractionTime,
+
   HistoricalMetricNameInteractionAndHoldTime,
+
   HistoricalMetricNameServiceLevel,
   HistoricalMetricName'
   #-}

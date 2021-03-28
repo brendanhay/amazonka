@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,23 +15,21 @@
 --
 -- Retrieves resource metadata for a workflow.
 module Network.AWS.Glue.GetWorkflow
-  ( -- * Creating a request
-    GetWorkflow (..),
-    mkGetWorkflow,
-
+    (
+    -- * Creating a request
+      GetWorkflow (..)
+    , mkGetWorkflow
     -- ** Request lenses
-    gwName,
-    gwIncludeGraph,
+    , gwName
+    , gwIncludeGraph
 
     -- * Destructuring the response
-    GetWorkflowResponse (..),
-    mkGetWorkflowResponse,
-
+    , GetWorkflowResponse (..)
+    , mkGetWorkflowResponse
     -- ** Response lenses
-    gwrrsWorkflow,
-    gwrrsResponseStatus,
-  )
-where
+    , gwrrsWorkflow
+    , gwrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -41,93 +39,98 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetWorkflow' smart constructor.
 data GetWorkflow = GetWorkflow'
-  { -- | The name of the workflow to retrieve.
-    name :: Types.Name,
-    -- | Specifies whether to include a graph when returning the workflow resource metadata.
-    includeGraph :: Core.Maybe Core.Bool
+  { name :: Types.Name
+    -- ^ The name of the workflow to retrieve.
+  , includeGraph :: Core.Maybe Core.Bool
+    -- ^ Specifies whether to include a graph when returning the workflow resource metadata.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetWorkflow' value with any optional fields omitted.
-mkGetWorkflow ::
-  -- | 'name'
-  Types.Name ->
-  GetWorkflow
-mkGetWorkflow name =
-  GetWorkflow' {name, includeGraph = Core.Nothing}
+mkGetWorkflow
+    :: Types.Name -- ^ 'name'
+    -> GetWorkflow
+mkGetWorkflow name
+  = GetWorkflow'{name, includeGraph = Core.Nothing}
 
 -- | The name of the workflow to retrieve.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gwName :: Lens.Lens' GetWorkflow Types.Name
 gwName = Lens.field @"name"
-{-# DEPRECATED gwName "Use generic-lens or generic-optics with 'name' instead." #-}
+{-# INLINEABLE gwName #-}
+{-# DEPRECATED name "Use generic-lens or generic-optics with 'name' instead"  #-}
 
 -- | Specifies whether to include a graph when returning the workflow resource metadata.
 --
 -- /Note:/ Consider using 'includeGraph' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gwIncludeGraph :: Lens.Lens' GetWorkflow (Core.Maybe Core.Bool)
 gwIncludeGraph = Lens.field @"includeGraph"
-{-# DEPRECATED gwIncludeGraph "Use generic-lens or generic-optics with 'includeGraph' instead." #-}
+{-# INLINEABLE gwIncludeGraph #-}
+{-# DEPRECATED includeGraph "Use generic-lens or generic-optics with 'includeGraph' instead"  #-}
+
+instance Core.ToQuery GetWorkflow where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders GetWorkflow where
+        toHeaders GetWorkflow{..}
+          = Core.pure ("X-Amz-Target", "AWSGlue.GetWorkflow") Core.<>
+              Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON GetWorkflow where
-  toJSON GetWorkflow {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Name" Core..= name),
-            ("IncludeGraph" Core..=) Core.<$> includeGraph
-          ]
-      )
+        toJSON GetWorkflow{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("Name" Core..= name),
+                  ("IncludeGraph" Core..=) Core.<$> includeGraph])
 
 instance Core.AWSRequest GetWorkflow where
-  type Rs GetWorkflow = GetWorkflowResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "AWSGlue.GetWorkflow")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          GetWorkflowResponse'
-            Core.<$> (x Core..:? "Workflow") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs GetWorkflow = GetWorkflowResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 GetWorkflowResponse' Core.<$>
+                   (x Core..:? "Workflow") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkGetWorkflowResponse' smart constructor.
 data GetWorkflowResponse = GetWorkflowResponse'
-  { -- | The resource metadata for the workflow.
-    workflow :: Core.Maybe Types.Workflow,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { workflow :: Core.Maybe Types.Workflow
+    -- ^ The resource metadata for the workflow.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'GetWorkflowResponse' value with any optional fields omitted.
-mkGetWorkflowResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  GetWorkflowResponse
-mkGetWorkflowResponse responseStatus =
-  GetWorkflowResponse' {workflow = Core.Nothing, responseStatus}
+mkGetWorkflowResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> GetWorkflowResponse
+mkGetWorkflowResponse responseStatus
+  = GetWorkflowResponse'{workflow = Core.Nothing, responseStatus}
 
 -- | The resource metadata for the workflow.
 --
 -- /Note:/ Consider using 'workflow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gwrrsWorkflow :: Lens.Lens' GetWorkflowResponse (Core.Maybe Types.Workflow)
 gwrrsWorkflow = Lens.field @"workflow"
-{-# DEPRECATED gwrrsWorkflow "Use generic-lens or generic-optics with 'workflow' instead." #-}
+{-# INLINEABLE gwrrsWorkflow #-}
+{-# DEPRECATED workflow "Use generic-lens or generic-optics with 'workflow' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gwrrsResponseStatus :: Lens.Lens' GetWorkflowResponse Core.Int
 gwrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED gwrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE gwrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

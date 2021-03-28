@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,42 +10,26 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Rekognition.Types.GenderType
   ( GenderType
-      ( GenderType',
-        GenderTypeMale,
-        GenderTypeFemale,
-        fromGenderType
-      ),
-  )
-where
+    ( GenderType'
+    , GenderTypeMale
+    , GenderTypeFemale
+    , fromGenderType
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype GenderType = GenderType' {fromGenderType :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype GenderType = GenderType'{fromGenderType :: Core.Text}
+                       deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                       Core.Generic)
+                       deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                         Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                         Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                         Core.FromText, Core.ToByteString, Core.ToQuery,
+                                         Core.ToHeader)
 
 pattern GenderTypeMale :: GenderType
 pattern GenderTypeMale = GenderType' "Male"
@@ -53,8 +37,9 @@ pattern GenderTypeMale = GenderType' "Male"
 pattern GenderTypeFemale :: GenderType
 pattern GenderTypeFemale = GenderType' "Female"
 
-{-# COMPLETE
+{-# COMPLETE 
   GenderTypeMale,
+
   GenderTypeFemale,
   GenderType'
   #-}

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.StepFunctions where
 
 import Data.Proxy
-import Network.AWS.StepFunctions
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.AWS.StepFunctions.Internal
 import Test.Tasty
+import Network.AWS.StepFunctions
+import Test.AWS.StepFunctions.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -174,324 +175,278 @@ import Test.Tasty
 -- Requests
 
 requestDeleteActivity :: DeleteActivity -> TestTree
-requestDeleteActivity =
-  req
+requestDeleteActivity = req
     "DeleteActivity"
     "fixture/DeleteActivity.yaml"
 
 requestDescribeStateMachine :: DescribeStateMachine -> TestTree
-requestDescribeStateMachine =
-  req
+requestDescribeStateMachine = req
     "DescribeStateMachine"
     "fixture/DescribeStateMachine.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
+requestListTagsForResource = req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
 requestStopExecution :: StopExecution -> TestTree
-requestStopExecution =
-  req
+requestStopExecution = req
     "StopExecution"
     "fixture/StopExecution.yaml"
 
 requestDescribeActivity :: DescribeActivity -> TestTree
-requestDescribeActivity =
-  req
+requestDescribeActivity = req
     "DescribeActivity"
     "fixture/DescribeActivity.yaml"
 
 requestListStateMachines :: ListStateMachines -> TestTree
-requestListStateMachines =
-  req
+requestListStateMachines = req
     "ListStateMachines"
     "fixture/ListStateMachines.yaml"
 
 requestListExecutions :: ListExecutions -> TestTree
-requestListExecutions =
-  req
+requestListExecutions = req
     "ListExecutions"
     "fixture/ListExecutions.yaml"
 
 requestDeleteStateMachine :: DeleteStateMachine -> TestTree
-requestDeleteStateMachine =
-  req
+requestDeleteStateMachine = req
     "DeleteStateMachine"
     "fixture/DeleteStateMachine.yaml"
 
 requestUpdateStateMachine :: UpdateStateMachine -> TestTree
-requestUpdateStateMachine =
-  req
+requestUpdateStateMachine = req
     "UpdateStateMachine"
     "fixture/UpdateStateMachine.yaml"
 
 requestDescribeStateMachineForExecution :: DescribeStateMachineForExecution -> TestTree
-requestDescribeStateMachineForExecution =
-  req
+requestDescribeStateMachineForExecution = req
     "DescribeStateMachineForExecution"
     "fixture/DescribeStateMachineForExecution.yaml"
 
 requestGetActivityTask :: GetActivityTask -> TestTree
-requestGetActivityTask =
-  req
+requestGetActivityTask = req
     "GetActivityTask"
     "fixture/GetActivityTask.yaml"
 
 requestCreateActivity :: CreateActivity -> TestTree
-requestCreateActivity =
-  req
+requestCreateActivity = req
     "CreateActivity"
     "fixture/CreateActivity.yaml"
 
 requestListActivities :: ListActivities -> TestTree
-requestListActivities =
-  req
+requestListActivities = req
     "ListActivities"
     "fixture/ListActivities.yaml"
 
 requestSendTaskHeartbeat :: SendTaskHeartbeat -> TestTree
-requestSendTaskHeartbeat =
-  req
+requestSendTaskHeartbeat = req
     "SendTaskHeartbeat"
     "fixture/SendTaskHeartbeat.yaml"
 
 requestSendTaskFailure :: SendTaskFailure -> TestTree
-requestSendTaskFailure =
-  req
+requestSendTaskFailure = req
     "SendTaskFailure"
     "fixture/SendTaskFailure.yaml"
 
 requestDescribeExecution :: DescribeExecution -> TestTree
-requestDescribeExecution =
-  req
+requestDescribeExecution = req
     "DescribeExecution"
     "fixture/DescribeExecution.yaml"
 
 requestSendTaskSuccess :: SendTaskSuccess -> TestTree
-requestSendTaskSuccess =
-  req
+requestSendTaskSuccess = req
     "SendTaskSuccess"
     "fixture/SendTaskSuccess.yaml"
 
 requestStartExecution :: StartExecution -> TestTree
-requestStartExecution =
-  req
+requestStartExecution = req
     "StartExecution"
     "fixture/StartExecution.yaml"
 
 requestStartSyncExecution :: StartSyncExecution -> TestTree
-requestStartSyncExecution =
-  req
+requestStartSyncExecution = req
     "StartSyncExecution"
     "fixture/StartSyncExecution.yaml"
 
 requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
+requestTagResource = req
     "TagResource"
     "fixture/TagResource.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
+requestUntagResource = req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
 requestGetExecutionHistory :: GetExecutionHistory -> TestTree
-requestGetExecutionHistory =
-  req
+requestGetExecutionHistory = req
     "GetExecutionHistory"
     "fixture/GetExecutionHistory.yaml"
 
 requestCreateStateMachine :: CreateStateMachine -> TestTree
-requestCreateStateMachine =
-  req
+requestCreateStateMachine = req
     "CreateStateMachine"
     "fixture/CreateStateMachine.yaml"
 
 -- Responses
 
 responseDeleteActivity :: DeleteActivityResponse -> TestTree
-responseDeleteActivity =
-  res
+responseDeleteActivity = res
     "DeleteActivityResponse"
     "fixture/DeleteActivityResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteActivity)
 
 responseDescribeStateMachine :: DescribeStateMachineResponse -> TestTree
-responseDescribeStateMachine =
-  res
+responseDescribeStateMachine = res
     "DescribeStateMachineResponse"
     "fixture/DescribeStateMachineResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeStateMachine)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
+responseListTagsForResource = res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseStopExecution :: StopExecutionResponse -> TestTree
-responseStopExecution =
-  res
+responseStopExecution = res
     "StopExecutionResponse"
     "fixture/StopExecutionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StopExecution)
 
 responseDescribeActivity :: DescribeActivityResponse -> TestTree
-responseDescribeActivity =
-  res
+responseDescribeActivity = res
     "DescribeActivityResponse"
     "fixture/DescribeActivityResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeActivity)
 
 responseListStateMachines :: ListStateMachinesResponse -> TestTree
-responseListStateMachines =
-  res
+responseListStateMachines = res
     "ListStateMachinesResponse"
     "fixture/ListStateMachinesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListStateMachines)
 
 responseListExecutions :: ListExecutionsResponse -> TestTree
-responseListExecutions =
-  res
+responseListExecutions = res
     "ListExecutionsResponse"
     "fixture/ListExecutionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListExecutions)
 
 responseDeleteStateMachine :: DeleteStateMachineResponse -> TestTree
-responseDeleteStateMachine =
-  res
+responseDeleteStateMachine = res
     "DeleteStateMachineResponse"
     "fixture/DeleteStateMachineResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteStateMachine)
 
 responseUpdateStateMachine :: UpdateStateMachineResponse -> TestTree
-responseUpdateStateMachine =
-  res
+responseUpdateStateMachine = res
     "UpdateStateMachineResponse"
     "fixture/UpdateStateMachineResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateStateMachine)
 
 responseDescribeStateMachineForExecution :: DescribeStateMachineForExecutionResponse -> TestTree
-responseDescribeStateMachineForExecution =
-  res
+responseDescribeStateMachineForExecution = res
     "DescribeStateMachineForExecutionResponse"
     "fixture/DescribeStateMachineForExecutionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeStateMachineForExecution)
 
 responseGetActivityTask :: GetActivityTaskResponse -> TestTree
-responseGetActivityTask =
-  res
+responseGetActivityTask = res
     "GetActivityTaskResponse"
     "fixture/GetActivityTaskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetActivityTask)
 
 responseCreateActivity :: CreateActivityResponse -> TestTree
-responseCreateActivity =
-  res
+responseCreateActivity = res
     "CreateActivityResponse"
     "fixture/CreateActivityResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateActivity)
 
 responseListActivities :: ListActivitiesResponse -> TestTree
-responseListActivities =
-  res
+responseListActivities = res
     "ListActivitiesResponse"
     "fixture/ListActivitiesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListActivities)
 
 responseSendTaskHeartbeat :: SendTaskHeartbeatResponse -> TestTree
-responseSendTaskHeartbeat =
-  res
+responseSendTaskHeartbeat = res
     "SendTaskHeartbeatResponse"
     "fixture/SendTaskHeartbeatResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SendTaskHeartbeat)
 
 responseSendTaskFailure :: SendTaskFailureResponse -> TestTree
-responseSendTaskFailure =
-  res
+responseSendTaskFailure = res
     "SendTaskFailureResponse"
     "fixture/SendTaskFailureResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SendTaskFailure)
 
 responseDescribeExecution :: DescribeExecutionResponse -> TestTree
-responseDescribeExecution =
-  res
+responseDescribeExecution = res
     "DescribeExecutionResponse"
     "fixture/DescribeExecutionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeExecution)
 
 responseSendTaskSuccess :: SendTaskSuccessResponse -> TestTree
-responseSendTaskSuccess =
-  res
+responseSendTaskSuccess = res
     "SendTaskSuccessResponse"
     "fixture/SendTaskSuccessResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SendTaskSuccess)
 
 responseStartExecution :: StartExecutionResponse -> TestTree
-responseStartExecution =
-  res
+responseStartExecution = res
     "StartExecutionResponse"
     "fixture/StartExecutionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartExecution)
 
 responseStartSyncExecution :: StartSyncExecutionResponse -> TestTree
-responseStartSyncExecution =
-  res
+responseStartSyncExecution = res
     "StartSyncExecutionResponse"
     "fixture/StartSyncExecutionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartSyncExecution)
 
 responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
+responseTagResource = res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
+responseUntagResource = res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseGetExecutionHistory :: GetExecutionHistoryResponse -> TestTree
-responseGetExecutionHistory =
-  res
+responseGetExecutionHistory = res
     "GetExecutionHistoryResponse"
     "fixture/GetExecutionHistoryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetExecutionHistory)
 
 responseCreateStateMachine :: CreateStateMachineResponse -> TestTree
-responseCreateStateMachine =
-  res
+responseCreateStateMachine = res
     "CreateStateMachineResponse"
     "fixture/CreateStateMachineResponse.proto"
     mkServiceConfig

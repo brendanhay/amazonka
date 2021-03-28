@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,19 +15,18 @@
 --
 -- Deletes the specified user from a Simple AD or Microsoft AD directory.
 module Network.AWS.WorkDocs.DeleteUser
-  ( -- * Creating a request
-    DeleteUser (..),
-    mkDeleteUser,
-
+    (
+    -- * Creating a request
+      DeleteUser (..)
+    , mkDeleteUser
     -- ** Request lenses
-    dufUserId,
-    dufAuthenticationToken,
+    , dufUserId
+    , dufAuthenticationToken
 
     -- * Destructuring the response
-    DeleteUserResponse (..),
-    mkDeleteUserResponse,
-  )
-where
+    , DeleteUserResponse (..)
+    , mkDeleteUserResponse
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -37,51 +36,58 @@ import qualified Network.AWS.WorkDocs.Types as Types
 
 -- | /See:/ 'mkDeleteUser' smart constructor.
 data DeleteUser = DeleteUser'
-  { -- | The ID of the user.
-    userId :: Types.IdType,
-    -- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
-    authenticationToken :: Core.Maybe Types.AuthenticationHeaderType
+  { userId :: Types.IdType
+    -- ^ The ID of the user.
+  , authenticationToken :: Core.Maybe Types.AuthenticationHeaderType
+    -- ^ Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteUser' value with any optional fields omitted.
-mkDeleteUser ::
-  -- | 'userId'
-  Types.IdType ->
-  DeleteUser
-mkDeleteUser userId =
-  DeleteUser' {userId, authenticationToken = Core.Nothing}
+mkDeleteUser
+    :: Types.IdType -- ^ 'userId'
+    -> DeleteUser
+mkDeleteUser userId
+  = DeleteUser'{userId, authenticationToken = Core.Nothing}
 
 -- | The ID of the user.
 --
 -- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dufUserId :: Lens.Lens' DeleteUser Types.IdType
 dufUserId = Lens.field @"userId"
-{-# DEPRECATED dufUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+{-# INLINEABLE dufUserId #-}
+{-# DEPRECATED userId "Use generic-lens or generic-optics with 'userId' instead"  #-}
 
 -- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
 --
 -- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dufAuthenticationToken :: Lens.Lens' DeleteUser (Core.Maybe Types.AuthenticationHeaderType)
 dufAuthenticationToken = Lens.field @"authenticationToken"
-{-# DEPRECATED dufAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
+{-# INLINEABLE dufAuthenticationToken #-}
+{-# DEPRECATED authenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead"  #-}
+
+instance Core.ToQuery DeleteUser where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DeleteUser where
+        toHeaders DeleteUser{..}
+          = Core.toHeaders "Authentication" authenticationToken Core.<>
+              Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.AWSRequest DeleteUser where
-  type Rs DeleteUser = DeleteUserResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.DELETE,
-        Core._rqPath =
-          Core.rawPath ("/api/v1/users/" Core.<> (Core.toText userId)),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.toHeaders "Authentication" authenticationToken
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = ""
-      }
-  response = Response.receiveNull DeleteUserResponse'
+        type Rs DeleteUser = DeleteUserResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.DELETE,
+                         Core._rqPath = "/api/v1/users/" Core.<> Core.toText userId,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull DeleteUserResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteUserResponse' smart constructor.
 data DeleteUserResponse = DeleteUserResponse'
@@ -89,6 +95,6 @@ data DeleteUserResponse = DeleteUserResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteUserResponse' value with any optional fields omitted.
-mkDeleteUserResponse ::
-  DeleteUserResponse
+mkDeleteUserResponse
+    :: DeleteUserResponse
 mkDeleteUserResponse = DeleteUserResponse'

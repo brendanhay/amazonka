@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -20,23 +20,21 @@
 -- Amazon EMR executes each step in the order listed. For a step to be considered complete, the main function must exit with a zero exit code and all Hadoop jobs started while the step was running must have completed and run successfully.
 -- You can only add steps to a cluster that is in one of the following states: STARTING, BOOTSTRAPPING, RUNNING, or WAITING.
 module Network.AWS.EMR.AddJobFlowSteps
-  ( -- * Creating a request
-    AddJobFlowSteps (..),
-    mkAddJobFlowSteps,
-
+    (
+    -- * Creating a request
+      AddJobFlowSteps (..)
+    , mkAddJobFlowSteps
     -- ** Request lenses
-    ajfsJobFlowId,
-    ajfsSteps,
+    , ajfsJobFlowId
+    , ajfsSteps
 
     -- * Destructuring the response
-    AddJobFlowStepsResponse (..),
-    mkAddJobFlowStepsResponse,
-
+    , AddJobFlowStepsResponse (..)
+    , mkAddJobFlowStepsResponse
     -- ** Response lenses
-    ajfsrrsStepIds,
-    ajfsrrsResponseStatus,
-  )
-where
+    , ajfsrrsStepIds
+    , ajfsrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -44,99 +42,104 @@ import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- | The input argument to the 'AddJobFlowSteps' operation.
+-- | The input argument to the 'AddJobFlowSteps' operation. 
 --
 -- /See:/ 'mkAddJobFlowSteps' smart constructor.
 data AddJobFlowSteps = AddJobFlowSteps'
-  { -- | A string that uniquely identifies the job flow. This identifier is returned by 'RunJobFlow' and can also be obtained from 'ListClusters' .
-    jobFlowId :: Types.JobFlowId,
-    -- | A list of 'StepConfig' to be executed by the job flow.
-    steps :: [Types.StepConfig]
+  { jobFlowId :: Types.JobFlowId
+    -- ^ A string that uniquely identifies the job flow. This identifier is returned by 'RunJobFlow' and can also be obtained from 'ListClusters' . 
+  , steps :: [Types.StepConfig]
+    -- ^ A list of 'StepConfig' to be executed by the job flow. 
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AddJobFlowSteps' value with any optional fields omitted.
-mkAddJobFlowSteps ::
-  -- | 'jobFlowId'
-  Types.JobFlowId ->
-  AddJobFlowSteps
-mkAddJobFlowSteps jobFlowId =
-  AddJobFlowSteps' {jobFlowId, steps = Core.mempty}
+mkAddJobFlowSteps
+    :: Types.JobFlowId -- ^ 'jobFlowId'
+    -> AddJobFlowSteps
+mkAddJobFlowSteps jobFlowId
+  = AddJobFlowSteps'{jobFlowId, steps = Core.mempty}
 
--- | A string that uniquely identifies the job flow. This identifier is returned by 'RunJobFlow' and can also be obtained from 'ListClusters' .
+-- | A string that uniquely identifies the job flow. This identifier is returned by 'RunJobFlow' and can also be obtained from 'ListClusters' . 
 --
 -- /Note:/ Consider using 'jobFlowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ajfsJobFlowId :: Lens.Lens' AddJobFlowSteps Types.JobFlowId
 ajfsJobFlowId = Lens.field @"jobFlowId"
-{-# DEPRECATED ajfsJobFlowId "Use generic-lens or generic-optics with 'jobFlowId' instead." #-}
+{-# INLINEABLE ajfsJobFlowId #-}
+{-# DEPRECATED jobFlowId "Use generic-lens or generic-optics with 'jobFlowId' instead"  #-}
 
--- | A list of 'StepConfig' to be executed by the job flow.
+-- | A list of 'StepConfig' to be executed by the job flow. 
 --
 -- /Note:/ Consider using 'steps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ajfsSteps :: Lens.Lens' AddJobFlowSteps [Types.StepConfig]
 ajfsSteps = Lens.field @"steps"
-{-# DEPRECATED ajfsSteps "Use generic-lens or generic-optics with 'steps' instead." #-}
+{-# INLINEABLE ajfsSteps #-}
+{-# DEPRECATED steps "Use generic-lens or generic-optics with 'steps' instead"  #-}
+
+instance Core.ToQuery AddJobFlowSteps where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders AddJobFlowSteps where
+        toHeaders AddJobFlowSteps{..}
+          = Core.pure ("X-Amz-Target", "ElasticMapReduce.AddJobFlowSteps")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON AddJobFlowSteps where
-  toJSON AddJobFlowSteps {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("JobFlowId" Core..= jobFlowId),
-            Core.Just ("Steps" Core..= steps)
-          ]
-      )
+        toJSON AddJobFlowSteps{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("JobFlowId" Core..= jobFlowId),
+                  Core.Just ("Steps" Core..= steps)])
 
 instance Core.AWSRequest AddJobFlowSteps where
-  type Rs AddJobFlowSteps = AddJobFlowStepsResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "ElasticMapReduce.AddJobFlowSteps")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          AddJobFlowStepsResponse'
-            Core.<$> (x Core..:? "StepIds") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs AddJobFlowSteps = AddJobFlowStepsResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 AddJobFlowStepsResponse' Core.<$>
+                   (x Core..:? "StepIds") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
--- | The output for the 'AddJobFlowSteps' operation.
+-- | The output for the 'AddJobFlowSteps' operation. 
 --
 -- /See:/ 'mkAddJobFlowStepsResponse' smart constructor.
 data AddJobFlowStepsResponse = AddJobFlowStepsResponse'
-  { -- | The identifiers of the list of steps added to the job flow.
-    stepIds :: Core.Maybe [Types.XmlStringMaxLen256],
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { stepIds :: Core.Maybe [Types.XmlStringMaxLen256]
+    -- ^ The identifiers of the list of steps added to the job flow.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AddJobFlowStepsResponse' value with any optional fields omitted.
-mkAddJobFlowStepsResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  AddJobFlowStepsResponse
-mkAddJobFlowStepsResponse responseStatus =
-  AddJobFlowStepsResponse' {stepIds = Core.Nothing, responseStatus}
+mkAddJobFlowStepsResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> AddJobFlowStepsResponse
+mkAddJobFlowStepsResponse responseStatus
+  = AddJobFlowStepsResponse'{stepIds = Core.Nothing, responseStatus}
 
 -- | The identifiers of the list of steps added to the job flow.
 --
 -- /Note:/ Consider using 'stepIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ajfsrrsStepIds :: Lens.Lens' AddJobFlowStepsResponse (Core.Maybe [Types.XmlStringMaxLen256])
 ajfsrrsStepIds = Lens.field @"stepIds"
-{-# DEPRECATED ajfsrrsStepIds "Use generic-lens or generic-optics with 'stepIds' instead." #-}
+{-# INLINEABLE ajfsrrsStepIds #-}
+{-# DEPRECATED stepIds "Use generic-lens or generic-optics with 'stepIds' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ajfsrrsResponseStatus :: Lens.Lens' AddJobFlowStepsResponse Core.Int
 ajfsrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED ajfsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE ajfsrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

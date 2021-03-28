@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,49 +10,33 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Lightsail.Types.RelationalDatabaseMetricName
   ( RelationalDatabaseMetricName
-      ( RelationalDatabaseMetricName',
-        RelationalDatabaseMetricNameCPUUtilization,
-        RelationalDatabaseMetricNameDatabaseConnections,
-        RelationalDatabaseMetricNameDiskQueueDepth,
-        RelationalDatabaseMetricNameFreeStorageSpace,
-        RelationalDatabaseMetricNameNetworkReceiveThroughput,
-        RelationalDatabaseMetricNameNetworkTransmitThroughput,
-        fromRelationalDatabaseMetricName
-      ),
-  )
-where
+    ( RelationalDatabaseMetricName'
+    , RelationalDatabaseMetricNameCPUUtilization
+    , RelationalDatabaseMetricNameDatabaseConnections
+    , RelationalDatabaseMetricNameDiskQueueDepth
+    , RelationalDatabaseMetricNameFreeStorageSpace
+    , RelationalDatabaseMetricNameNetworkReceiveThroughput
+    , RelationalDatabaseMetricNameNetworkTransmitThroughput
+    , fromRelationalDatabaseMetricName
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype RelationalDatabaseMetricName = RelationalDatabaseMetricName'
-  { fromRelationalDatabaseMetricName ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype RelationalDatabaseMetricName = RelationalDatabaseMetricName'{fromRelationalDatabaseMetricName
+                                                                     :: Core.Text}
+                                         deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                         Core.Generic)
+                                         deriving newtype (Core.IsString, Core.Hashable,
+                                                           Core.NFData, Core.ToJSONKey,
+                                                           Core.FromJSONKey, Core.ToJSON,
+                                                           Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                           Core.ToText, Core.FromText,
+                                                           Core.ToByteString, Core.ToQuery,
+                                                           Core.ToHeader)
 
 pattern RelationalDatabaseMetricNameCPUUtilization :: RelationalDatabaseMetricName
 pattern RelationalDatabaseMetricNameCPUUtilization = RelationalDatabaseMetricName' "CPUUtilization"
@@ -72,12 +56,17 @@ pattern RelationalDatabaseMetricNameNetworkReceiveThroughput = RelationalDatabas
 pattern RelationalDatabaseMetricNameNetworkTransmitThroughput :: RelationalDatabaseMetricName
 pattern RelationalDatabaseMetricNameNetworkTransmitThroughput = RelationalDatabaseMetricName' "NetworkTransmitThroughput"
 
-{-# COMPLETE
+{-# COMPLETE 
   RelationalDatabaseMetricNameCPUUtilization,
+
   RelationalDatabaseMetricNameDatabaseConnections,
+
   RelationalDatabaseMetricNameDiskQueueDepth,
+
   RelationalDatabaseMetricNameFreeStorageSpace,
+
   RelationalDatabaseMetricNameNetworkReceiveThroughput,
+
   RelationalDatabaseMetricNameNetworkTransmitThroughput,
   RelationalDatabaseMetricName'
   #-}

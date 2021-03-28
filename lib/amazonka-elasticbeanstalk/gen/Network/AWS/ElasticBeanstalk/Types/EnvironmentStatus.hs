@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,51 +10,33 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.ElasticBeanstalk.Types.EnvironmentStatus
   ( EnvironmentStatus
-      ( EnvironmentStatus',
-        EnvironmentStatusAborting,
-        EnvironmentStatusLaunching,
-        EnvironmentStatusUpdating,
-        EnvironmentStatusLinkingFrom,
-        EnvironmentStatusLinkingTo,
-        EnvironmentStatusReady,
-        EnvironmentStatusTerminating,
-        EnvironmentStatusTerminated,
-        fromEnvironmentStatus
-      ),
-  )
-where
+    ( EnvironmentStatus'
+    , EnvironmentStatusAborting
+    , EnvironmentStatusLaunching
+    , EnvironmentStatusUpdating
+    , EnvironmentStatusLinkingFrom
+    , EnvironmentStatusLinkingTo
+    , EnvironmentStatusReady
+    , EnvironmentStatusTerminating
+    , EnvironmentStatusTerminated
+    , fromEnvironmentStatus
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype EnvironmentStatus = EnvironmentStatus'
-  { fromEnvironmentStatus ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype EnvironmentStatus = EnvironmentStatus'{fromEnvironmentStatus
+                                               :: Core.Text}
+                              deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                              Core.Generic)
+                              deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                Core.ToText, Core.FromText, Core.ToByteString,
+                                                Core.ToQuery, Core.ToHeader)
 
 pattern EnvironmentStatusAborting :: EnvironmentStatus
 pattern EnvironmentStatusAborting = EnvironmentStatus' "Aborting"
@@ -80,14 +62,21 @@ pattern EnvironmentStatusTerminating = EnvironmentStatus' "Terminating"
 pattern EnvironmentStatusTerminated :: EnvironmentStatus
 pattern EnvironmentStatusTerminated = EnvironmentStatus' "Terminated"
 
-{-# COMPLETE
+{-# COMPLETE 
   EnvironmentStatusAborting,
+
   EnvironmentStatusLaunching,
+
   EnvironmentStatusUpdating,
+
   EnvironmentStatusLinkingFrom,
+
   EnvironmentStatusLinkingTo,
+
   EnvironmentStatusReady,
+
   EnvironmentStatusTerminating,
+
   EnvironmentStatusTerminated,
   EnvironmentStatus'
   #-}

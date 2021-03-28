@@ -17,10 +17,10 @@
         "homepage": "",
         "owner": "input-output-hk",
         "repo": "hackage.nix",
-        "rev": "a6bb58a63623c406e1fce0d6b9978f761ae283b7",
-        "sha256": "099k3gd5p5phkkvjdz4nlj2rarzl3icga9s85n8apbq3vv7agx64",
+        "rev": "6732b499bfb997f6282d66de26792279392e0951",
+        "sha256": "1gqdziszhjkc95gr8l21d6gy84znwqg3x8p64qxsb1495i1mh3sn",
         "type": "tarball",
-        "url": "https://github.com/input-output-hk/hackage.nix/archive/a6bb58a63623c406e1fce0d6b9978f761ae283b7.tar.gz",
+        "url": "https://github.com/input-output-hk/hackage.nix/archive/6732b499bfb997f6282d66de26792279392e0951.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "haskell.nix": {
@@ -29,10 +29,10 @@
         "homepage": "https://input-output-hk.github.io/haskell.nix",
         "owner": "input-output-hk",
         "repo": "haskell.nix",
-        "rev": "07fb32cbd4764b0276e6d82988dccc83486d5112",
-        "sha256": "1mmz1si0irkrkcpq18cwhbhpq077mwbl58hdpi3kb4b3aizy4zl8",
+        "rev": "9cbb526f1f3896dfb449b5436bd1ab78f2b28749",
+        "sha256": "0954kn7nr5pbyzk2yh3v3xn2qq3321bpqb7mv5gdajqk7gr9yxq7",
         "type": "tarball",
-        "url": "https://github.com/input-output-hk/haskell.nix/archive/07fb32cbd4764b0276e6d82988dccc83486d5112.tar.gz",
+        "url": "https://github.com/input-output-hk/haskell.nix/archive/9cbb526f1f3896dfb449b5436bd1ab78f2b28749.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -49,14 +49,12 @@
     },
     "nixpkgs": {
         "branch": "master",
-        "description": "Nix Packages - Latest pin",
-        "homepage": null,
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "3b4b2a828f85ff1de2426c7f58f6883d5351d050",
-        "sha256": "11kikb940wwb2zg0z0c517b6zzkkyx923vqg31mkrskrgmih3ysa",
+        "rev": "07e5844fdf6fe99f41229d7392ce81cfe191bcfc",
+        "sha256": "0p2z6jidm4rlp2yjfl553q234swj1vxl8z0z8ra1hm61lfrlcmb9",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/3b4b2a828f85ff1de2426c7f58f6883d5351d050.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/07e5844fdf6fe99f41229d7392ce81cfe191bcfc.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

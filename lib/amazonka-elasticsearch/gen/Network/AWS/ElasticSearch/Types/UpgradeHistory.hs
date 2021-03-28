@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,19 +10,17 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.ElasticSearch.Types.UpgradeHistory
-  ( UpgradeHistory (..),
-
-    -- * Smart constructor
-    mkUpgradeHistory,
-
-    -- * Lenses
-    uhStartTimestamp,
-    uhStepsList,
-    uhUpgradeName,
-    uhUpgradeStatus,
-  )
-where
+  ( UpgradeHistory (..)
+  -- * Smart constructor
+  , mkUpgradeHistory
+  -- * Lenses
+  , uhStartTimestamp
+  , uhStepsList
+  , uhUpgradeName
+  , uhUpgradeStatus
+  ) where
 
 import qualified Network.AWS.ElasticSearch.Types.UpgradeName as Types
 import qualified Network.AWS.ElasticSearch.Types.UpgradeStatus as Types
@@ -34,59 +32,61 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkUpgradeHistory' smart constructor.
 data UpgradeHistory = UpgradeHistory'
-  { -- | UTC Timestamp at which the Upgrade API call was made in "yyyy-MM-ddTHH:mm:ssZ" format.
-    startTimestamp :: Core.Maybe Core.NominalDiffTime,
-    -- | A list of @'UpgradeStepItem' @ s representing information about each step performed as pard of a specific Upgrade or Upgrade Eligibility Check.
-    stepsList :: Core.Maybe [Types.UpgradeStepItem],
-    -- | A string that describes the update briefly
-    upgradeName :: Core.Maybe Types.UpgradeName,
-    -- | The overall status of the update. The status can take one of the following values:
-    --
-    --     * In Progress
-    --
-    --     * Succeeded
-    --
-    --     * Succeeded with Issues
-    --
-    --     * Failed
-    upgradeStatus :: Core.Maybe Types.UpgradeStatus
+  { startTimestamp :: Core.Maybe Core.NominalDiffTime
+    -- ^ UTC Timestamp at which the Upgrade API call was made in "yyyy-MM-ddTHH:mm:ssZ" format.
+  , stepsList :: Core.Maybe [Types.UpgradeStepItem]
+    -- ^ A list of @'UpgradeStepItem' @ s representing information about each step performed as pard of a specific Upgrade or Upgrade Eligibility Check. 
+  , upgradeName :: Core.Maybe Types.UpgradeName
+    -- ^ A string that describes the update briefly
+  , upgradeStatus :: Core.Maybe Types.UpgradeStatus
+    -- ^ The overall status of the update. The status can take one of the following values: 
+--
+--     * In Progress
+--
+--     * Succeeded
+--
+--     * Succeeded with Issues
+--
+--     * Failed
+--
+--
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'UpgradeHistory' value with any optional fields omitted.
-mkUpgradeHistory ::
-  UpgradeHistory
-mkUpgradeHistory =
-  UpgradeHistory'
-    { startTimestamp = Core.Nothing,
-      stepsList = Core.Nothing,
-      upgradeName = Core.Nothing,
-      upgradeStatus = Core.Nothing
-    }
+mkUpgradeHistory
+    :: UpgradeHistory
+mkUpgradeHistory
+  = UpgradeHistory'{startTimestamp = Core.Nothing,
+                    stepsList = Core.Nothing, upgradeName = Core.Nothing,
+                    upgradeStatus = Core.Nothing}
 
 -- | UTC Timestamp at which the Upgrade API call was made in "yyyy-MM-ddTHH:mm:ssZ" format.
 --
 -- /Note:/ Consider using 'startTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uhStartTimestamp :: Lens.Lens' UpgradeHistory (Core.Maybe Core.NominalDiffTime)
 uhStartTimestamp = Lens.field @"startTimestamp"
-{-# DEPRECATED uhStartTimestamp "Use generic-lens or generic-optics with 'startTimestamp' instead." #-}
+{-# INLINEABLE uhStartTimestamp #-}
+{-# DEPRECATED startTimestamp "Use generic-lens or generic-optics with 'startTimestamp' instead"  #-}
 
--- | A list of @'UpgradeStepItem' @ s representing information about each step performed as pard of a specific Upgrade or Upgrade Eligibility Check.
+-- | A list of @'UpgradeStepItem' @ s representing information about each step performed as pard of a specific Upgrade or Upgrade Eligibility Check. 
 --
 -- /Note:/ Consider using 'stepsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uhStepsList :: Lens.Lens' UpgradeHistory (Core.Maybe [Types.UpgradeStepItem])
 uhStepsList = Lens.field @"stepsList"
-{-# DEPRECATED uhStepsList "Use generic-lens or generic-optics with 'stepsList' instead." #-}
+{-# INLINEABLE uhStepsList #-}
+{-# DEPRECATED stepsList "Use generic-lens or generic-optics with 'stepsList' instead"  #-}
 
 -- | A string that describes the update briefly
 --
 -- /Note:/ Consider using 'upgradeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uhUpgradeName :: Lens.Lens' UpgradeHistory (Core.Maybe Types.UpgradeName)
 uhUpgradeName = Lens.field @"upgradeName"
-{-# DEPRECATED uhUpgradeName "Use generic-lens or generic-optics with 'upgradeName' instead." #-}
+{-# INLINEABLE uhUpgradeName #-}
+{-# DEPRECATED upgradeName "Use generic-lens or generic-optics with 'upgradeName' instead"  #-}
 
--- | The overall status of the update. The status can take one of the following values:
+-- | The overall status of the update. The status can take one of the following values: 
 --
 --     * In Progress
 --
@@ -101,14 +101,14 @@ uhUpgradeName = Lens.field @"upgradeName"
 -- /Note:/ Consider using 'upgradeStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uhUpgradeStatus :: Lens.Lens' UpgradeHistory (Core.Maybe Types.UpgradeStatus)
 uhUpgradeStatus = Lens.field @"upgradeStatus"
-{-# DEPRECATED uhUpgradeStatus "Use generic-lens or generic-optics with 'upgradeStatus' instead." #-}
+{-# INLINEABLE uhUpgradeStatus #-}
+{-# DEPRECATED upgradeStatus "Use generic-lens or generic-optics with 'upgradeStatus' instead"  #-}
 
 instance Core.FromJSON UpgradeHistory where
-  parseJSON =
-    Core.withObject "UpgradeHistory" Core.$
-      \x ->
-        UpgradeHistory'
-          Core.<$> (x Core..:? "StartTimestamp")
-          Core.<*> (x Core..:? "StepsList")
-          Core.<*> (x Core..:? "UpgradeName")
-          Core.<*> (x Core..:? "UpgradeStatus")
+        parseJSON
+          = Core.withObject "UpgradeHistory" Core.$
+              \ x ->
+                UpgradeHistory' Core.<$>
+                  (x Core..:? "StartTimestamp") Core.<*> x Core..:? "StepsList"
+                    Core.<*> x Core..:? "UpgradeName"
+                    Core.<*> x Core..:? "UpgradeStatus"

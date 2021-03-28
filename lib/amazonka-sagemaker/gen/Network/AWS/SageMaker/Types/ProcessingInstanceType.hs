@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,81 +10,63 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SageMaker.Types.ProcessingInstanceType
   ( ProcessingInstanceType
-      ( ProcessingInstanceType',
-        ProcessingInstanceTypeMl_T3_Medium,
-        ProcessingInstanceTypeMl_T3_Large,
-        ProcessingInstanceTypeMl_T3_Xlarge,
-        ProcessingInstanceTypeMl_T3_2xlarge,
-        ProcessingInstanceTypeMl_M4_Xlarge,
-        ProcessingInstanceTypeMl_M4_2xlarge,
-        ProcessingInstanceTypeMl_M4_4xlarge,
-        ProcessingInstanceTypeMl_M4_10xlarge,
-        ProcessingInstanceTypeMl_M4_16xlarge,
-        ProcessingInstanceTypeMl_C4_Xlarge,
-        ProcessingInstanceTypeMl_C4_2xlarge,
-        ProcessingInstanceTypeMl_C4_4xlarge,
-        ProcessingInstanceTypeMl_C4_8xlarge,
-        ProcessingInstanceTypeMl_P2_Xlarge,
-        ProcessingInstanceTypeMl_P2_8xlarge,
-        ProcessingInstanceTypeMl_P2_16xlarge,
-        ProcessingInstanceTypeMl_P3_2xlarge,
-        ProcessingInstanceTypeMl_P3_8xlarge,
-        ProcessingInstanceTypeMl_P3_16xlarge,
-        ProcessingInstanceTypeMl_C5_Xlarge,
-        ProcessingInstanceTypeMl_C5_2xlarge,
-        ProcessingInstanceTypeMl_C5_4xlarge,
-        ProcessingInstanceTypeMl_C5_9xlarge,
-        ProcessingInstanceTypeMl_C5_18xlarge,
-        ProcessingInstanceTypeMl_M5_Large,
-        ProcessingInstanceTypeMl_M5_Xlarge,
-        ProcessingInstanceTypeMl_M5_2xlarge,
-        ProcessingInstanceTypeMl_M5_4xlarge,
-        ProcessingInstanceTypeMl_M5_12xlarge,
-        ProcessingInstanceTypeMl_M5_24xlarge,
-        ProcessingInstanceTypeMl_R5_Large,
-        ProcessingInstanceTypeMl_R5_Xlarge,
-        ProcessingInstanceTypeMl_R5_2xlarge,
-        ProcessingInstanceTypeMl_R5_4xlarge,
-        ProcessingInstanceTypeMl_R5_8xlarge,
-        ProcessingInstanceTypeMl_R5_12xlarge,
-        ProcessingInstanceTypeMl_R5_16xlarge,
-        ProcessingInstanceTypeMl_R5_24xlarge,
-        fromProcessingInstanceType
-      ),
-  )
-where
+    ( ProcessingInstanceType'
+    , ProcessingInstanceTypeMl_T3_Medium
+    , ProcessingInstanceTypeMl_T3_Large
+    , ProcessingInstanceTypeMl_T3_Xlarge
+    , ProcessingInstanceTypeMl_T3_2xlarge
+    , ProcessingInstanceTypeMl_M4_Xlarge
+    , ProcessingInstanceTypeMl_M4_2xlarge
+    , ProcessingInstanceTypeMl_M4_4xlarge
+    , ProcessingInstanceTypeMl_M4_10xlarge
+    , ProcessingInstanceTypeMl_M4_16xlarge
+    , ProcessingInstanceTypeMl_C4_Xlarge
+    , ProcessingInstanceTypeMl_C4_2xlarge
+    , ProcessingInstanceTypeMl_C4_4xlarge
+    , ProcessingInstanceTypeMl_C4_8xlarge
+    , ProcessingInstanceTypeMl_P2_Xlarge
+    , ProcessingInstanceTypeMl_P2_8xlarge
+    , ProcessingInstanceTypeMl_P2_16xlarge
+    , ProcessingInstanceTypeMl_P3_2xlarge
+    , ProcessingInstanceTypeMl_P3_8xlarge
+    , ProcessingInstanceTypeMl_P3_16xlarge
+    , ProcessingInstanceTypeMl_C5_Xlarge
+    , ProcessingInstanceTypeMl_C5_2xlarge
+    , ProcessingInstanceTypeMl_C5_4xlarge
+    , ProcessingInstanceTypeMl_C5_9xlarge
+    , ProcessingInstanceTypeMl_C5_18xlarge
+    , ProcessingInstanceTypeMl_M5_Large
+    , ProcessingInstanceTypeMl_M5_Xlarge
+    , ProcessingInstanceTypeMl_M5_2xlarge
+    , ProcessingInstanceTypeMl_M5_4xlarge
+    , ProcessingInstanceTypeMl_M5_12xlarge
+    , ProcessingInstanceTypeMl_M5_24xlarge
+    , ProcessingInstanceTypeMl_R5_Large
+    , ProcessingInstanceTypeMl_R5_Xlarge
+    , ProcessingInstanceTypeMl_R5_2xlarge
+    , ProcessingInstanceTypeMl_R5_4xlarge
+    , ProcessingInstanceTypeMl_R5_8xlarge
+    , ProcessingInstanceTypeMl_R5_12xlarge
+    , ProcessingInstanceTypeMl_R5_16xlarge
+    , ProcessingInstanceTypeMl_R5_24xlarge
+    , fromProcessingInstanceType
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype ProcessingInstanceType = ProcessingInstanceType'
-  { fromProcessingInstanceType ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype ProcessingInstanceType = ProcessingInstanceType'{fromProcessingInstanceType
+                                                         :: Core.Text}
+                                   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                   Core.Generic)
+                                   deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                     Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                     Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                     Core.ToText, Core.FromText, Core.ToByteString,
+                                                     Core.ToQuery, Core.ToHeader)
 
 pattern ProcessingInstanceTypeMl_T3_Medium :: ProcessingInstanceType
 pattern ProcessingInstanceTypeMl_T3_Medium = ProcessingInstanceType' "ml.t3.medium"
@@ -200,44 +182,81 @@ pattern ProcessingInstanceTypeMl_R5_16xlarge = ProcessingInstanceType' "ml.r5.16
 pattern ProcessingInstanceTypeMl_R5_24xlarge :: ProcessingInstanceType
 pattern ProcessingInstanceTypeMl_R5_24xlarge = ProcessingInstanceType' "ml.r5.24xlarge"
 
-{-# COMPLETE
+{-# COMPLETE 
   ProcessingInstanceTypeMl_T3_Medium,
+
   ProcessingInstanceTypeMl_T3_Large,
+
   ProcessingInstanceTypeMl_T3_Xlarge,
+
   ProcessingInstanceTypeMl_T3_2xlarge,
+
   ProcessingInstanceTypeMl_M4_Xlarge,
+
   ProcessingInstanceTypeMl_M4_2xlarge,
+
   ProcessingInstanceTypeMl_M4_4xlarge,
+
   ProcessingInstanceTypeMl_M4_10xlarge,
+
   ProcessingInstanceTypeMl_M4_16xlarge,
+
   ProcessingInstanceTypeMl_C4_Xlarge,
+
   ProcessingInstanceTypeMl_C4_2xlarge,
+
   ProcessingInstanceTypeMl_C4_4xlarge,
+
   ProcessingInstanceTypeMl_C4_8xlarge,
+
   ProcessingInstanceTypeMl_P2_Xlarge,
+
   ProcessingInstanceTypeMl_P2_8xlarge,
+
   ProcessingInstanceTypeMl_P2_16xlarge,
+
   ProcessingInstanceTypeMl_P3_2xlarge,
+
   ProcessingInstanceTypeMl_P3_8xlarge,
+
   ProcessingInstanceTypeMl_P3_16xlarge,
+
   ProcessingInstanceTypeMl_C5_Xlarge,
+
   ProcessingInstanceTypeMl_C5_2xlarge,
+
   ProcessingInstanceTypeMl_C5_4xlarge,
+
   ProcessingInstanceTypeMl_C5_9xlarge,
+
   ProcessingInstanceTypeMl_C5_18xlarge,
+
   ProcessingInstanceTypeMl_M5_Large,
+
   ProcessingInstanceTypeMl_M5_Xlarge,
+
   ProcessingInstanceTypeMl_M5_2xlarge,
+
   ProcessingInstanceTypeMl_M5_4xlarge,
+
   ProcessingInstanceTypeMl_M5_12xlarge,
+
   ProcessingInstanceTypeMl_M5_24xlarge,
+
   ProcessingInstanceTypeMl_R5_Large,
+
   ProcessingInstanceTypeMl_R5_Xlarge,
+
   ProcessingInstanceTypeMl_R5_2xlarge,
+
   ProcessingInstanceTypeMl_R5_4xlarge,
+
   ProcessingInstanceTypeMl_R5_8xlarge,
+
   ProcessingInstanceTypeMl_R5_12xlarge,
+
   ProcessingInstanceTypeMl_R5_16xlarge,
+
   ProcessingInstanceTypeMl_R5_24xlarge,
   ProcessingInstanceType'
   #-}

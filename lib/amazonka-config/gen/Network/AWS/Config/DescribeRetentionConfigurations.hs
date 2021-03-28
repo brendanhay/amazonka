@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,24 +17,22 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.Config.DescribeRetentionConfigurations
-  ( -- * Creating a request
-    DescribeRetentionConfigurations (..),
-    mkDescribeRetentionConfigurations,
-
+    (
+    -- * Creating a request
+      DescribeRetentionConfigurations (..)
+    , mkDescribeRetentionConfigurations
     -- ** Request lenses
-    drcNextToken,
-    drcRetentionConfigurationNames,
+    , drcNextToken
+    , drcRetentionConfigurationNames
 
     -- * Destructuring the response
-    DescribeRetentionConfigurationsResponse (..),
-    mkDescribeRetentionConfigurationsResponse,
-
+    , DescribeRetentionConfigurationsResponse (..)
+    , mkDescribeRetentionConfigurationsResponse
     -- ** Response lenses
-    drsNextToken,
-    drsRetentionConfigurations,
-    drsResponseStatus,
-  )
-where
+    , drsNextToken
+    , drsRetentionConfigurations
+    , drsResponseStatus
+    ) where
 
 import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -45,130 +43,128 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeRetentionConfigurations' smart constructor.
 data DescribeRetentionConfigurations = DescribeRetentionConfigurations'
-  { -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-    nextToken :: Core.Maybe Types.NextToken,
-    -- | A list of names of retention configurations for which you want details. If you do not specify a name, AWS Config returns details for all the retention configurations for that account.
-    retentionConfigurationNames :: Core.Maybe [Types.RetentionConfigurationName]
+  { nextToken :: Core.Maybe Types.NextToken
+    -- ^ The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response. 
+  , retentionConfigurationNames :: Core.Maybe [Types.RetentionConfigurationName]
+    -- ^ A list of names of retention configurations for which you want details. If you do not specify a name, AWS Config returns details for all the retention configurations for that account.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DescribeRetentionConfigurations' value with any optional fields omitted.
-mkDescribeRetentionConfigurations ::
-  DescribeRetentionConfigurations
-mkDescribeRetentionConfigurations =
-  DescribeRetentionConfigurations'
-    { nextToken = Core.Nothing,
-      retentionConfigurationNames = Core.Nothing
-    }
+mkDescribeRetentionConfigurations
+    :: DescribeRetentionConfigurations
+mkDescribeRetentionConfigurations
+  = DescribeRetentionConfigurations'{nextToken = Core.Nothing,
+                                     retentionConfigurationNames = Core.Nothing}
 
--- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response. 
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 drcNextToken :: Lens.Lens' DescribeRetentionConfigurations (Core.Maybe Types.NextToken)
 drcNextToken = Lens.field @"nextToken"
-{-# DEPRECATED drcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE drcNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
 
 -- | A list of names of retention configurations for which you want details. If you do not specify a name, AWS Config returns details for all the retention configurations for that account.
 --
 -- /Note:/ Consider using 'retentionConfigurationNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 drcRetentionConfigurationNames :: Lens.Lens' DescribeRetentionConfigurations (Core.Maybe [Types.RetentionConfigurationName])
 drcRetentionConfigurationNames = Lens.field @"retentionConfigurationNames"
-{-# DEPRECATED drcRetentionConfigurationNames "Use generic-lens or generic-optics with 'retentionConfigurationNames' instead." #-}
+{-# INLINEABLE drcRetentionConfigurationNames #-}
+{-# DEPRECATED retentionConfigurationNames "Use generic-lens or generic-optics with 'retentionConfigurationNames' instead"  #-}
+
+instance Core.ToQuery DescribeRetentionConfigurations where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DescribeRetentionConfigurations where
+        toHeaders DescribeRetentionConfigurations{..}
+          = Core.pure
+              ("X-Amz-Target",
+               "StarlingDoveService.DescribeRetentionConfigurations")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON DescribeRetentionConfigurations where
-  toJSON DescribeRetentionConfigurations {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("NextToken" Core..=) Core.<$> nextToken,
-            ("RetentionConfigurationNames" Core..=)
-              Core.<$> retentionConfigurationNames
-          ]
-      )
+        toJSON DescribeRetentionConfigurations{..}
+          = Core.object
+              (Core.catMaybes
+                 [("NextToken" Core..=) Core.<$> nextToken,
+                  ("RetentionConfigurationNames" Core..=) Core.<$>
+                    retentionConfigurationNames])
 
 instance Core.AWSRequest DescribeRetentionConfigurations where
-  type
-    Rs DescribeRetentionConfigurations =
-      DescribeRetentionConfigurationsResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "X-Amz-Target",
-              "StarlingDoveService.DescribeRetentionConfigurations"
-            )
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          DescribeRetentionConfigurationsResponse'
-            Core.<$> (x Core..:? "NextToken")
-            Core.<*> (x Core..:? "RetentionConfigurations")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DescribeRetentionConfigurations =
+             DescribeRetentionConfigurationsResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 DescribeRetentionConfigurationsResponse' Core.<$>
+                   (x Core..:? "NextToken") Core.<*>
+                     x Core..:? "RetentionConfigurations"
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 instance Pager.AWSPager DescribeRetentionConfigurations where
-  page rq rs
-    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
-    | Pager.stop
-        ( rs
-            Lens.^? Lens.field @"retentionConfigurations" Core.. Lens._Just
-        ) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just
-        ( rq
-            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
-        )
+        page rq rs
+          | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+          | Pager.stop
+              (rs Lens.^?
+                 Lens.field @"retentionConfigurations" Core.. Lens._Just)
+            = Core.Nothing
+          | Core.otherwise =
+            Core.Just
+              (rq Core.&
+                 Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken")
 
 -- | /See:/ 'mkDescribeRetentionConfigurationsResponse' smart constructor.
 data DescribeRetentionConfigurationsResponse = DescribeRetentionConfigurationsResponse'
-  { -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-    nextToken :: Core.Maybe Types.NextToken,
-    -- | Returns a retention configuration object.
-    retentionConfigurations :: Core.Maybe [Types.RetentionConfiguration],
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { nextToken :: Core.Maybe Types.NextToken
+    -- ^ The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response. 
+  , retentionConfigurations :: Core.Maybe [Types.RetentionConfiguration]
+    -- ^ Returns a retention configuration object.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DescribeRetentionConfigurationsResponse' value with any optional fields omitted.
-mkDescribeRetentionConfigurationsResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DescribeRetentionConfigurationsResponse
-mkDescribeRetentionConfigurationsResponse responseStatus =
-  DescribeRetentionConfigurationsResponse'
-    { nextToken =
-        Core.Nothing,
-      retentionConfigurations = Core.Nothing,
-      responseStatus
-    }
+mkDescribeRetentionConfigurationsResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DescribeRetentionConfigurationsResponse
+mkDescribeRetentionConfigurationsResponse responseStatus
+  = DescribeRetentionConfigurationsResponse'{nextToken =
+                                               Core.Nothing,
+                                             retentionConfigurations = Core.Nothing, responseStatus}
 
--- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+-- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response. 
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 drsNextToken :: Lens.Lens' DescribeRetentionConfigurationsResponse (Core.Maybe Types.NextToken)
 drsNextToken = Lens.field @"nextToken"
-{-# DEPRECATED drsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE drsNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
 
 -- | Returns a retention configuration object.
 --
 -- /Note:/ Consider using 'retentionConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 drsRetentionConfigurations :: Lens.Lens' DescribeRetentionConfigurationsResponse (Core.Maybe [Types.RetentionConfiguration])
 drsRetentionConfigurations = Lens.field @"retentionConfigurations"
-{-# DEPRECATED drsRetentionConfigurations "Use generic-lens or generic-optics with 'retentionConfigurations' instead." #-}
+{-# INLINEABLE drsRetentionConfigurations #-}
+{-# DEPRECATED retentionConfigurations "Use generic-lens or generic-optics with 'retentionConfigurations' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 drsResponseStatus :: Lens.Lens' DescribeRetentionConfigurationsResponse Core.Int
 drsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE drsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

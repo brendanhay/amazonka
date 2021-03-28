@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -19,22 +19,20 @@
 -- A verification request is sent to the contact method when you initially create it. Use this action to send another verification request if a previous verification request was deleted, or has expired.
 -- /Important:/ Notifications are not sent to an email contact method until after it is verified, and confirmed as valid.
 module Network.AWS.Lightsail.SendContactMethodVerification
-  ( -- * Creating a request
-    SendContactMethodVerification (..),
-    mkSendContactMethodVerification,
-
+    (
+    -- * Creating a request
+      SendContactMethodVerification (..)
+    , mkSendContactMethodVerification
     -- ** Request lenses
-    scmvProtocol,
+    , scmvProtocol
 
     -- * Destructuring the response
-    SendContactMethodVerificationResponse (..),
-    mkSendContactMethodVerificationResponse,
-
+    , SendContactMethodVerificationResponse (..)
+    , mkSendContactMethodVerificationResponse
     -- ** Response lenses
-    scmvrrsOperations,
-    scmvrrsResponseStatus,
-  )
-where
+    , scmvrrsOperations
+    , scmvrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Lightsail.Types as Types
@@ -44,88 +42,90 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSendContactMethodVerification' smart constructor.
 newtype SendContactMethodVerification = SendContactMethodVerification'
-  { -- | The protocol to verify, such as @Email@ or @SMS@ (text messaging).
-    protocol :: Types.ContactMethodVerificationProtocol
+  { protocol :: Types.ContactMethodVerificationProtocol
+    -- ^ The protocol to verify, such as @Email@ or @SMS@ (text messaging).
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'SendContactMethodVerification' value with any optional fields omitted.
-mkSendContactMethodVerification ::
-  -- | 'protocol'
-  Types.ContactMethodVerificationProtocol ->
-  SendContactMethodVerification
-mkSendContactMethodVerification protocol =
-  SendContactMethodVerification' {protocol}
+mkSendContactMethodVerification
+    :: Types.ContactMethodVerificationProtocol -- ^ 'protocol'
+    -> SendContactMethodVerification
+mkSendContactMethodVerification protocol
+  = SendContactMethodVerification'{protocol}
 
 -- | The protocol to verify, such as @Email@ or @SMS@ (text messaging).
 --
 -- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 scmvProtocol :: Lens.Lens' SendContactMethodVerification Types.ContactMethodVerificationProtocol
 scmvProtocol = Lens.field @"protocol"
-{-# DEPRECATED scmvProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
+{-# INLINEABLE scmvProtocol #-}
+{-# DEPRECATED protocol "Use generic-lens or generic-optics with 'protocol' instead"  #-}
+
+instance Core.ToQuery SendContactMethodVerification where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders SendContactMethodVerification where
+        toHeaders SendContactMethodVerification{..}
+          = Core.pure
+              ("X-Amz-Target",
+               "Lightsail_20161128.SendContactMethodVerification")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON SendContactMethodVerification where
-  toJSON SendContactMethodVerification {..} =
-    Core.object
-      (Core.catMaybes [Core.Just ("protocol" Core..= protocol)])
+        toJSON SendContactMethodVerification{..}
+          = Core.object
+              (Core.catMaybes [Core.Just ("protocol" Core..= protocol)])
 
 instance Core.AWSRequest SendContactMethodVerification where
-  type
-    Rs SendContactMethodVerification =
-      SendContactMethodVerificationResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "X-Amz-Target",
-              "Lightsail_20161128.SendContactMethodVerification"
-            )
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          SendContactMethodVerificationResponse'
-            Core.<$> (x Core..:? "operations") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs SendContactMethodVerification =
+             SendContactMethodVerificationResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 SendContactMethodVerificationResponse' Core.<$>
+                   (x Core..:? "operations") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkSendContactMethodVerificationResponse' smart constructor.
 data SendContactMethodVerificationResponse = SendContactMethodVerificationResponse'
-  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operations :: Core.Maybe [Types.Operation],
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { operations :: Core.Maybe [Types.Operation]
+    -- ^ An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'SendContactMethodVerificationResponse' value with any optional fields omitted.
-mkSendContactMethodVerificationResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  SendContactMethodVerificationResponse
-mkSendContactMethodVerificationResponse responseStatus =
-  SendContactMethodVerificationResponse'
-    { operations = Core.Nothing,
-      responseStatus
-    }
+mkSendContactMethodVerificationResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> SendContactMethodVerificationResponse
+mkSendContactMethodVerificationResponse responseStatus
+  = SendContactMethodVerificationResponse'{operations = Core.Nothing,
+                                           responseStatus}
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 scmvrrsOperations :: Lens.Lens' SendContactMethodVerificationResponse (Core.Maybe [Types.Operation])
 scmvrrsOperations = Lens.field @"operations"
-{-# DEPRECATED scmvrrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+{-# INLINEABLE scmvrrsOperations #-}
+{-# DEPRECATED operations "Use generic-lens or generic-optics with 'operations' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 scmvrrsResponseStatus :: Lens.Lens' SendContactMethodVerificationResponse Core.Int
 scmvrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED scmvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE scmvrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -27,20 +27,21 @@
 --
 --
 --     * The @Min@ and @Max@ are equal, and @Sum@ is equal to @Min@ multiplied by @SampleCount@ .
+--
+--
 module Network.AWS.CloudWatch.PutMetricData
-  ( -- * Creating a request
-    PutMetricData (..),
-    mkPutMetricData,
-
+    (
+    -- * Creating a request
+      PutMetricData (..)
+    , mkPutMetricData
     -- ** Request lenses
-    pmdNamespace,
-    pmdMetricData,
+    , pmdNamespace
+    , pmdMetricData
 
     -- * Destructuring the response
-    PutMetricDataResponse (..),
-    mkPutMetricDataResponse,
-  )
-where
+    , PutMetricDataResponse (..)
+    , mkPutMetricDataResponse
+    ) where
 
 import qualified Network.AWS.CloudWatch.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -50,65 +51,70 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutMetricData' smart constructor.
 data PutMetricData = PutMetricData'
-  { -- | The namespace for the metric data.
-    --
-    -- To avoid conflicts with AWS service namespaces, you should not specify a namespace that begins with @AWS/@
-    namespace :: Types.Namespace,
-    -- | The data for the metric. The array can include no more than 20 metrics per call.
-    metricData :: [Types.MetricDatum]
+  { namespace :: Types.Namespace
+    -- ^ The namespace for the metric data.
+--
+-- To avoid conflicts with AWS service namespaces, you should not specify a namespace that begins with @AWS/@ 
+  , metricData :: [Types.MetricDatum]
+    -- ^ The data for the metric. The array can include no more than 20 metrics per call.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'PutMetricData' value with any optional fields omitted.
-mkPutMetricData ::
-  -- | 'namespace'
-  Types.Namespace ->
-  PutMetricData
-mkPutMetricData namespace =
-  PutMetricData' {namespace, metricData = Core.mempty}
+mkPutMetricData
+    :: Types.Namespace -- ^ 'namespace'
+    -> PutMetricData
+mkPutMetricData namespace
+  = PutMetricData'{namespace, metricData = Core.mempty}
 
 -- | The namespace for the metric data.
 --
--- To avoid conflicts with AWS service namespaces, you should not specify a namespace that begins with @AWS/@
+-- To avoid conflicts with AWS service namespaces, you should not specify a namespace that begins with @AWS/@ 
 --
 -- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pmdNamespace :: Lens.Lens' PutMetricData Types.Namespace
 pmdNamespace = Lens.field @"namespace"
-{-# DEPRECATED pmdNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
+{-# INLINEABLE pmdNamespace #-}
+{-# DEPRECATED namespace "Use generic-lens or generic-optics with 'namespace' instead"  #-}
 
 -- | The data for the metric. The array can include no more than 20 metrics per call.
 --
 -- /Note:/ Consider using 'metricData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pmdMetricData :: Lens.Lens' PutMetricData [Types.MetricDatum]
 pmdMetricData = Lens.field @"metricData"
-{-# DEPRECATED pmdMetricData "Use generic-lens or generic-optics with 'metricData' instead." #-}
+{-# INLINEABLE pmdMetricData #-}
+{-# DEPRECATED metricData "Use generic-lens or generic-optics with 'metricData' instead"  #-}
+
+instance Core.ToQuery PutMetricData where
+        toQuery PutMetricData{..}
+          = Core.toQueryPair "Action" ("PutMetricData" :: Core.Text) Core.<>
+              Core.toQueryPair "Version" ("2010-08-01" :: Core.Text)
+              Core.<> Core.toQueryPair "Namespace" namespace
+              Core.<>
+              Core.toQueryPair "MetricData"
+                (Core.toQueryList "member" metricData)
+
+instance Core.ToHeaders PutMetricData where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest PutMetricData where
-  type Rs PutMetricData = PutMetricDataResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "PutMetricData")
-                Core.<> (Core.pure ("Version", "2010-08-01"))
-                Core.<> (Core.toQueryValue "Namespace" namespace)
-                Core.<> ( Core.toQueryValue
-                            "MetricData"
-                            (Core.toQueryList "member" metricData)
-                        )
-            )
-      }
-  response = Response.receiveNull PutMetricDataResponse'
+        type Rs PutMetricData = PutMetricDataResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull PutMetricDataResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkPutMetricDataResponse' smart constructor.
 data PutMetricDataResponse = PutMetricDataResponse'
@@ -116,6 +122,6 @@ data PutMetricDataResponse = PutMetricDataResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'PutMetricDataResponse' value with any optional fields omitted.
-mkPutMetricDataResponse ::
-  PutMetricDataResponse
+mkPutMetricDataResponse
+    :: PutMetricDataResponse
 mkPutMetricDataResponse = PutMetricDataResponse'

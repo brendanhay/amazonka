@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -21,21 +21,19 @@
 -- If the operation succeeds, it returns a JSON object with no properties.
 -- This operation is part of the <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html Custom Key Store feature> feature in AWS KMS, which combines the convenience and extensive integration of AWS KMS with the isolation and control of a single-tenant key store.
 module Network.AWS.KMS.DeleteCustomKeyStore
-  ( -- * Creating a request
-    DeleteCustomKeyStore (..),
-    mkDeleteCustomKeyStore,
-
+    (
+    -- * Creating a request
+      DeleteCustomKeyStore (..)
+    , mkDeleteCustomKeyStore
     -- ** Request lenses
-    dcksCustomKeyStoreId,
+    , dcksCustomKeyStoreId
 
     -- * Destructuring the response
-    DeleteCustomKeyStoreResponse (..),
-    mkDeleteCustomKeyStoreResponse,
-
+    , DeleteCustomKeyStoreResponse (..)
+    , mkDeleteCustomKeyStoreResponse
     -- ** Response lenses
-    dcksrfrsResponseStatus,
-  )
-where
+    , dcksrfrsResponseStatus
+    ) where
 
 import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -45,73 +43,77 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteCustomKeyStore' smart constructor.
 newtype DeleteCustomKeyStore = DeleteCustomKeyStore'
-  { -- | Enter the ID of the custom key store you want to delete. To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
-    customKeyStoreId :: Types.CustomKeyStoreIdType
+  { customKeyStoreId :: Types.CustomKeyStoreIdType
+    -- ^ Enter the ID of the custom key store you want to delete. To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteCustomKeyStore' value with any optional fields omitted.
-mkDeleteCustomKeyStore ::
-  -- | 'customKeyStoreId'
-  Types.CustomKeyStoreIdType ->
-  DeleteCustomKeyStore
-mkDeleteCustomKeyStore customKeyStoreId =
-  DeleteCustomKeyStore' {customKeyStoreId}
+mkDeleteCustomKeyStore
+    :: Types.CustomKeyStoreIdType -- ^ 'customKeyStoreId'
+    -> DeleteCustomKeyStore
+mkDeleteCustomKeyStore customKeyStoreId
+  = DeleteCustomKeyStore'{customKeyStoreId}
 
 -- | Enter the ID of the custom key store you want to delete. To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
 --
 -- /Note:/ Consider using 'customKeyStoreId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dcksCustomKeyStoreId :: Lens.Lens' DeleteCustomKeyStore Types.CustomKeyStoreIdType
 dcksCustomKeyStoreId = Lens.field @"customKeyStoreId"
-{-# DEPRECATED dcksCustomKeyStoreId "Use generic-lens or generic-optics with 'customKeyStoreId' instead." #-}
+{-# INLINEABLE dcksCustomKeyStoreId #-}
+{-# DEPRECATED customKeyStoreId "Use generic-lens or generic-optics with 'customKeyStoreId' instead"  #-}
+
+instance Core.ToQuery DeleteCustomKeyStore where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DeleteCustomKeyStore where
+        toHeaders DeleteCustomKeyStore{..}
+          = Core.pure ("X-Amz-Target", "TrentService.DeleteCustomKeyStore")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON DeleteCustomKeyStore where
-  toJSON DeleteCustomKeyStore {..} =
-    Core.object
-      ( Core.catMaybes
-          [Core.Just ("CustomKeyStoreId" Core..= customKeyStoreId)]
-      )
+        toJSON DeleteCustomKeyStore{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("CustomKeyStoreId" Core..= customKeyStoreId)])
 
 instance Core.AWSRequest DeleteCustomKeyStore where
-  type Rs DeleteCustomKeyStore = DeleteCustomKeyStoreResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "TrentService.DeleteCustomKeyStore")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveEmpty
-      ( \s h x ->
-          DeleteCustomKeyStoreResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DeleteCustomKeyStore = DeleteCustomKeyStoreResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveEmpty
+              (\ s h x ->
+                 DeleteCustomKeyStoreResponse' Core.<$>
+                   (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteCustomKeyStoreResponse' smart constructor.
 newtype DeleteCustomKeyStoreResponse = DeleteCustomKeyStoreResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteCustomKeyStoreResponse' value with any optional fields omitted.
-mkDeleteCustomKeyStoreResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DeleteCustomKeyStoreResponse
-mkDeleteCustomKeyStoreResponse responseStatus =
-  DeleteCustomKeyStoreResponse' {responseStatus}
+mkDeleteCustomKeyStoreResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DeleteCustomKeyStoreResponse
+mkDeleteCustomKeyStoreResponse responseStatus
+  = DeleteCustomKeyStoreResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dcksrfrsResponseStatus :: Lens.Lens' DeleteCustomKeyStoreResponse Core.Int
 dcksrfrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED dcksrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE dcksrfrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

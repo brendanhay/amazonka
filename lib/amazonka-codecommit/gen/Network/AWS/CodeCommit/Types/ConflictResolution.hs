@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CodeCommit.Types.ConflictResolution
-  ( ConflictResolution (..),
-
-    -- * Smart constructor
-    mkConflictResolution,
-
-    -- * Lenses
-    crDeleteFiles,
-    crReplaceContents,
-    crSetFileModes,
-  )
-where
+  ( ConflictResolution (..)
+  -- * Smart constructor
+  , mkConflictResolution
+  -- * Lenses
+  , crDeleteFiles
+  , crReplaceContents
+  , crSetFileModes
+  ) where
 
 import qualified Network.AWS.CodeCommit.Types.DeleteFileEntry as Types
 import qualified Network.AWS.CodeCommit.Types.ReplaceContentEntry as Types
@@ -33,53 +31,51 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkConflictResolution' smart constructor.
 data ConflictResolution = ConflictResolution'
-  { -- | Files to be deleted as part of the merge conflict resolution.
-    deleteFiles :: Core.Maybe [Types.DeleteFileEntry],
-    -- | Files to have content replaced as part of the merge conflict resolution.
-    replaceContents :: Core.Maybe [Types.ReplaceContentEntry],
-    -- | File modes that are set as part of the merge conflict resolution.
-    setFileModes :: Core.Maybe [Types.SetFileModeEntry]
+  { deleteFiles :: Core.Maybe [Types.DeleteFileEntry]
+    -- ^ Files to be deleted as part of the merge conflict resolution.
+  , replaceContents :: Core.Maybe [Types.ReplaceContentEntry]
+    -- ^ Files to have content replaced as part of the merge conflict resolution.
+  , setFileModes :: Core.Maybe [Types.SetFileModeEntry]
+    -- ^ File modes that are set as part of the merge conflict resolution.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ConflictResolution' value with any optional fields omitted.
-mkConflictResolution ::
-  ConflictResolution
-mkConflictResolution =
-  ConflictResolution'
-    { deleteFiles = Core.Nothing,
-      replaceContents = Core.Nothing,
-      setFileModes = Core.Nothing
-    }
+mkConflictResolution
+    :: ConflictResolution
+mkConflictResolution
+  = ConflictResolution'{deleteFiles = Core.Nothing,
+                        replaceContents = Core.Nothing, setFileModes = Core.Nothing}
 
 -- | Files to be deleted as part of the merge conflict resolution.
 --
 -- /Note:/ Consider using 'deleteFiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 crDeleteFiles :: Lens.Lens' ConflictResolution (Core.Maybe [Types.DeleteFileEntry])
 crDeleteFiles = Lens.field @"deleteFiles"
-{-# DEPRECATED crDeleteFiles "Use generic-lens or generic-optics with 'deleteFiles' instead." #-}
+{-# INLINEABLE crDeleteFiles #-}
+{-# DEPRECATED deleteFiles "Use generic-lens or generic-optics with 'deleteFiles' instead"  #-}
 
 -- | Files to have content replaced as part of the merge conflict resolution.
 --
 -- /Note:/ Consider using 'replaceContents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 crReplaceContents :: Lens.Lens' ConflictResolution (Core.Maybe [Types.ReplaceContentEntry])
 crReplaceContents = Lens.field @"replaceContents"
-{-# DEPRECATED crReplaceContents "Use generic-lens or generic-optics with 'replaceContents' instead." #-}
+{-# INLINEABLE crReplaceContents #-}
+{-# DEPRECATED replaceContents "Use generic-lens or generic-optics with 'replaceContents' instead"  #-}
 
 -- | File modes that are set as part of the merge conflict resolution.
 --
 -- /Note:/ Consider using 'setFileModes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 crSetFileModes :: Lens.Lens' ConflictResolution (Core.Maybe [Types.SetFileModeEntry])
 crSetFileModes = Lens.field @"setFileModes"
-{-# DEPRECATED crSetFileModes "Use generic-lens or generic-optics with 'setFileModes' instead." #-}
+{-# INLINEABLE crSetFileModes #-}
+{-# DEPRECATED setFileModes "Use generic-lens or generic-optics with 'setFileModes' instead"  #-}
 
 instance Core.FromJSON ConflictResolution where
-  toJSON ConflictResolution {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("deleteFiles" Core..=) Core.<$> deleteFiles,
-            ("replaceContents" Core..=) Core.<$> replaceContents,
-            ("setFileModes" Core..=) Core.<$> setFileModes
-          ]
-      )
+        toJSON ConflictResolution{..}
+          = Core.object
+              (Core.catMaybes
+                 [("deleteFiles" Core..=) Core.<$> deleteFiles,
+                  ("replaceContents" Core..=) Core.<$> replaceContents,
+                  ("setFileModes" Core..=) Core.<$> setFileModes])

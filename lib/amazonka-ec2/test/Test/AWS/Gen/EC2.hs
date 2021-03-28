@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.EC2 where
 
 import Data.Proxy
-import Network.AWS.EC2
-import Test.AWS.EC2.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.EC2
+import Test.AWS.EC2.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -2574,5924 +2575,5078 @@ import Test.Tasty
 -- Requests
 
 requestModifyCapacityReservation :: ModifyCapacityReservation -> TestTree
-requestModifyCapacityReservation =
-  req
+requestModifyCapacityReservation = req
     "ModifyCapacityReservation"
     "fixture/ModifyCapacityReservation.yaml"
 
 requestGetAssociatedIpv6PoolCidrs :: GetAssociatedIpv6PoolCidrs -> TestTree
-requestGetAssociatedIpv6PoolCidrs =
-  req
+requestGetAssociatedIpv6PoolCidrs = req
     "GetAssociatedIpv6PoolCidrs"
     "fixture/GetAssociatedIpv6PoolCidrs.yaml"
 
 requestImportInstance :: ImportInstance -> TestTree
-requestImportInstance =
-  req
+requestImportInstance = req
     "ImportInstance"
     "fixture/ImportInstance.yaml"
 
 requestRevokeSecurityGroupEgress :: RevokeSecurityGroupEgress -> TestTree
-requestRevokeSecurityGroupEgress =
-  req
+requestRevokeSecurityGroupEgress = req
     "RevokeSecurityGroupEgress"
     "fixture/RevokeSecurityGroupEgress.yaml"
 
 requestCreateNetworkInterfacePermission :: CreateNetworkInterfacePermission -> TestTree
-requestCreateNetworkInterfacePermission =
-  req
+requestCreateNetworkInterfacePermission = req
     "CreateNetworkInterfacePermission"
     "fixture/CreateNetworkInterfacePermission.yaml"
 
 requestSendDiagnosticInterrupt :: SendDiagnosticInterrupt -> TestTree
-requestSendDiagnosticInterrupt =
-  req
+requestSendDiagnosticInterrupt = req
     "SendDiagnosticInterrupt"
     "fixture/SendDiagnosticInterrupt.yaml"
 
 requestDeleteLaunchTemplate :: DeleteLaunchTemplate -> TestTree
-requestDeleteLaunchTemplate =
-  req
+requestDeleteLaunchTemplate = req
     "DeleteLaunchTemplate"
     "fixture/DeleteLaunchTemplate.yaml"
 
 requestRejectVpcEndpointConnections :: RejectVpcEndpointConnections -> TestTree
-requestRejectVpcEndpointConnections =
-  req
+requestRejectVpcEndpointConnections = req
     "RejectVpcEndpointConnections"
     "fixture/RejectVpcEndpointConnections.yaml"
 
 requestCreateVpnGateway :: CreateVpnGateway -> TestTree
-requestCreateVpnGateway =
-  req
+requestCreateVpnGateway = req
     "CreateVpnGateway"
     "fixture/CreateVpnGateway.yaml"
 
 requestCreateNetworkAcl :: CreateNetworkAcl -> TestTree
-requestCreateNetworkAcl =
-  req
+requestCreateNetworkAcl = req
     "CreateNetworkAcl"
     "fixture/CreateNetworkAcl.yaml"
 
 requestDeleteKeyPair :: DeleteKeyPair -> TestTree
-requestDeleteKeyPair =
-  req
+requestDeleteKeyPair = req
     "DeleteKeyPair"
     "fixture/DeleteKeyPair.yaml"
 
 requestDescribeSecurityGroupReferences :: DescribeSecurityGroupReferences -> TestTree
-requestDescribeSecurityGroupReferences =
-  req
+requestDescribeSecurityGroupReferences = req
     "DescribeSecurityGroupReferences"
     "fixture/DescribeSecurityGroupReferences.yaml"
 
 requestDeleteFleets :: DeleteFleets -> TestTree
-requestDeleteFleets =
-  req
+requestDeleteFleets = req
     "DeleteFleets"
     "fixture/DeleteFleets.yaml"
 
 requestDescribeTags :: DescribeTags -> TestTree
-requestDescribeTags =
-  req
+requestDescribeTags = req
     "DescribeTags"
     "fixture/DescribeTags.yaml"
 
 requestCreateTransitGatewayRouteTable :: CreateTransitGatewayRouteTable -> TestTree
-requestCreateTransitGatewayRouteTable =
-  req
+requestCreateTransitGatewayRouteTable = req
     "CreateTransitGatewayRouteTable"
     "fixture/CreateTransitGatewayRouteTable.yaml"
 
 requestModifyInstanceMetadataOptions :: ModifyInstanceMetadataOptions -> TestTree
-requestModifyInstanceMetadataOptions =
-  req
+requestModifyInstanceMetadataOptions = req
     "ModifyInstanceMetadataOptions"
     "fixture/ModifyInstanceMetadataOptions.yaml"
 
 requestUpdateSecurityGroupRuleDescriptionsIngress :: UpdateSecurityGroupRuleDescriptionsIngress -> TestTree
-requestUpdateSecurityGroupRuleDescriptionsIngress =
-  req
+requestUpdateSecurityGroupRuleDescriptionsIngress = req
     "UpdateSecurityGroupRuleDescriptionsIngress"
     "fixture/UpdateSecurityGroupRuleDescriptionsIngress.yaml"
 
 requestDisassociateSubnetCidrBlock :: DisassociateSubnetCidrBlock -> TestTree
-requestDisassociateSubnetCidrBlock =
-  req
+requestDisassociateSubnetCidrBlock = req
     "DisassociateSubnetCidrBlock"
     "fixture/DisassociateSubnetCidrBlock.yaml"
 
 requestDetachNetworkInterface :: DetachNetworkInterface -> TestTree
-requestDetachNetworkInterface =
-  req
+requestDetachNetworkInterface = req
     "DetachNetworkInterface"
     "fixture/DetachNetworkInterface.yaml"
 
 requestDetachInternetGateway :: DetachInternetGateway -> TestTree
-requestDetachInternetGateway =
-  req
+requestDetachInternetGateway = req
     "DetachInternetGateway"
     "fixture/DetachInternetGateway.yaml"
 
 requestDeleteVpcEndpoints :: DeleteVpcEndpoints -> TestTree
-requestDeleteVpcEndpoints =
-  req
+requestDeleteVpcEndpoints = req
     "DeleteVpcEndpoints"
     "fixture/DeleteVpcEndpoints.yaml"
 
 requestDescribeClientVpnEndpoints :: DescribeClientVpnEndpoints -> TestTree
-requestDescribeClientVpnEndpoints =
-  req
+requestDescribeClientVpnEndpoints = req
     "DescribeClientVpnEndpoints"
     "fixture/DescribeClientVpnEndpoints.yaml"
 
 requestDeleteFlowLogs :: DeleteFlowLogs -> TestTree
-requestDeleteFlowLogs =
-  req
+requestDeleteFlowLogs = req
     "DeleteFlowLogs"
     "fixture/DeleteFlowLogs.yaml"
 
 requestDescribeVpcClassicLink :: DescribeVpcClassicLink -> TestTree
-requestDescribeVpcClassicLink =
-  req
+requestDescribeVpcClassicLink = req
     "DescribeVpcClassicLink"
     "fixture/DescribeVpcClassicLink.yaml"
 
 requestGetAssociatedEnclaveCertificateIamRoles :: GetAssociatedEnclaveCertificateIamRoles -> TestTree
-requestGetAssociatedEnclaveCertificateIamRoles =
-  req
+requestGetAssociatedEnclaveCertificateIamRoles = req
     "GetAssociatedEnclaveCertificateIamRoles"
     "fixture/GetAssociatedEnclaveCertificateIamRoles.yaml"
 
 requestAssociateTransitGatewayMulticastDomain :: AssociateTransitGatewayMulticastDomain -> TestTree
-requestAssociateTransitGatewayMulticastDomain =
-  req
+requestAssociateTransitGatewayMulticastDomain = req
     "AssociateTransitGatewayMulticastDomain"
     "fixture/AssociateTransitGatewayMulticastDomain.yaml"
 
 requestModifySubnetAttribute :: ModifySubnetAttribute -> TestTree
-requestModifySubnetAttribute =
-  req
+requestModifySubnetAttribute = req
     "ModifySubnetAttribute"
     "fixture/ModifySubnetAttribute.yaml"
 
 requestDetachVolume :: DetachVolume -> TestTree
-requestDetachVolume =
-  req
+requestDetachVolume = req
     "DetachVolume"
     "fixture/DetachVolume.yaml"
 
 requestDescribeInstanceCreditSpecifications :: DescribeInstanceCreditSpecifications -> TestTree
-requestDescribeInstanceCreditSpecifications =
-  req
+requestDescribeInstanceCreditSpecifications = req
     "DescribeInstanceCreditSpecifications"
     "fixture/DescribeInstanceCreditSpecifications.yaml"
 
 requestCancelBundleTask :: CancelBundleTask -> TestTree
-requestCancelBundleTask =
-  req
+requestCancelBundleTask = req
     "CancelBundleTask"
     "fixture/CancelBundleTask.yaml"
 
 requestDescribeByoipCidrs :: DescribeByoipCidrs -> TestTree
-requestDescribeByoipCidrs =
-  req
+requestDescribeByoipCidrs = req
     "DescribeByoipCidrs"
     "fixture/DescribeByoipCidrs.yaml"
 
 requestAcceptReservedInstancesExchangeQuote :: AcceptReservedInstancesExchangeQuote -> TestTree
-requestAcceptReservedInstancesExchangeQuote =
-  req
+requestAcceptReservedInstancesExchangeQuote = req
     "AcceptReservedInstancesExchangeQuote"
     "fixture/AcceptReservedInstancesExchangeQuote.yaml"
 
 requestReleaseAddress :: ReleaseAddress -> TestTree
-requestReleaseAddress =
-  req
+requestReleaseAddress = req
     "ReleaseAddress"
     "fixture/ReleaseAddress.yaml"
 
 requestDescribeInstanceTypeOfferings :: DescribeInstanceTypeOfferings -> TestTree
-requestDescribeInstanceTypeOfferings =
-  req
+requestDescribeInstanceTypeOfferings = req
     "DescribeInstanceTypeOfferings"
     "fixture/DescribeInstanceTypeOfferings.yaml"
 
 requestCreateInternetGateway :: CreateInternetGateway -> TestTree
-requestCreateInternetGateway =
-  req
+requestCreateInternetGateway = req
     "CreateInternetGateway"
     "fixture/CreateInternetGateway.yaml"
 
 requestDeleteVpnConnection :: DeleteVpnConnection -> TestTree
-requestDeleteVpnConnection =
-  req
+requestDeleteVpnConnection = req
     "DeleteVpnConnection"
     "fixture/DeleteVpnConnection.yaml"
 
 requestDescribeBundleTasks :: DescribeBundleTasks -> TestTree
-requestDescribeBundleTasks =
-  req
+requestDescribeBundleTasks = req
     "DescribeBundleTasks"
     "fixture/DescribeBundleTasks.yaml"
 
 requestAuthorizeSecurityGroupEgress :: AuthorizeSecurityGroupEgress -> TestTree
-requestAuthorizeSecurityGroupEgress =
-  req
+requestAuthorizeSecurityGroupEgress = req
     "AuthorizeSecurityGroupEgress"
     "fixture/AuthorizeSecurityGroupEgress.yaml"
 
 requestEnableTransitGatewayRouteTablePropagation :: EnableTransitGatewayRouteTablePropagation -> TestTree
-requestEnableTransitGatewayRouteTablePropagation =
-  req
+requestEnableTransitGatewayRouteTablePropagation = req
     "EnableTransitGatewayRouteTablePropagation"
     "fixture/EnableTransitGatewayRouteTablePropagation.yaml"
 
 requestDeregisterImage :: DeregisterImage -> TestTree
-requestDeregisterImage =
-  req
+requestDeregisterImage = req
     "DeregisterImage"
     "fixture/DeregisterImage.yaml"
 
 requestDeleteVpcEndpointConnectionNotifications :: DeleteVpcEndpointConnectionNotifications -> TestTree
-requestDeleteVpcEndpointConnectionNotifications =
-  req
+requestDeleteVpcEndpointConnectionNotifications = req
     "DeleteVpcEndpointConnectionNotifications"
     "fixture/DeleteVpcEndpointConnectionNotifications.yaml"
 
 requestDescribeCoipPools :: DescribeCoipPools -> TestTree
-requestDescribeCoipPools =
-  req
+requestDescribeCoipPools = req
     "DescribeCoipPools"
     "fixture/DescribeCoipPools.yaml"
 
 requestGetTransitGatewayMulticastDomainAssociations :: GetTransitGatewayMulticastDomainAssociations -> TestTree
-requestGetTransitGatewayMulticastDomainAssociations =
-  req
+requestGetTransitGatewayMulticastDomainAssociations = req
     "GetTransitGatewayMulticastDomainAssociations"
     "fixture/GetTransitGatewayMulticastDomainAssociations.yaml"
 
 requestDeleteLocalGatewayRouteTableVpcAssociation :: DeleteLocalGatewayRouteTableVpcAssociation -> TestTree
-requestDeleteLocalGatewayRouteTableVpcAssociation =
-  req
+requestDeleteLocalGatewayRouteTableVpcAssociation = req
     "DeleteLocalGatewayRouteTableVpcAssociation"
     "fixture/DeleteLocalGatewayRouteTableVpcAssociation.yaml"
 
 requestModifyNetworkInterfaceAttribute :: ModifyNetworkInterfaceAttribute -> TestTree
-requestModifyNetworkInterfaceAttribute =
-  req
+requestModifyNetworkInterfaceAttribute = req
     "ModifyNetworkInterfaceAttribute"
     "fixture/ModifyNetworkInterfaceAttribute.yaml"
 
 requestModifyVpcTenancy :: ModifyVpcTenancy -> TestTree
-requestModifyVpcTenancy =
-  req
+requestModifyVpcTenancy = req
     "ModifyVpcTenancy"
     "fixture/ModifyVpcTenancy.yaml"
 
 requestDescribeInstanceTypes :: DescribeInstanceTypes -> TestTree
-requestDescribeInstanceTypes =
-  req
+requestDescribeInstanceTypes = req
     "DescribeInstanceTypes"
     "fixture/DescribeInstanceTypes.yaml"
 
 requestDescribeClientVpnAuthorizationRules :: DescribeClientVpnAuthorizationRules -> TestTree
-requestDescribeClientVpnAuthorizationRules =
-  req
+requestDescribeClientVpnAuthorizationRules = req
     "DescribeClientVpnAuthorizationRules"
     "fixture/DescribeClientVpnAuthorizationRules.yaml"
 
 requestDeleteTransitGatewayVpcAttachment :: DeleteTransitGatewayVpcAttachment -> TestTree
-requestDeleteTransitGatewayVpcAttachment =
-  req
+requestDeleteTransitGatewayVpcAttachment = req
     "DeleteTransitGatewayVpcAttachment"
     "fixture/DeleteTransitGatewayVpcAttachment.yaml"
 
 requestDeleteTransitGatewayMulticastDomain :: DeleteTransitGatewayMulticastDomain -> TestTree
-requestDeleteTransitGatewayMulticastDomain =
-  req
+requestDeleteTransitGatewayMulticastDomain = req
     "DeleteTransitGatewayMulticastDomain"
     "fixture/DeleteTransitGatewayMulticastDomain.yaml"
 
 requestCancelReservedInstancesListing :: CancelReservedInstancesListing -> TestTree
-requestCancelReservedInstancesListing =
-  req
+requestCancelReservedInstancesListing = req
     "CancelReservedInstancesListing"
     "fixture/CancelReservedInstancesListing.yaml"
 
 requestAttachClassicLinkVpc :: AttachClassicLinkVpc -> TestTree
-requestAttachClassicLinkVpc =
-  req
+requestAttachClassicLinkVpc = req
     "AttachClassicLinkVpc"
     "fixture/AttachClassicLinkVpc.yaml"
 
 requestDisableTransitGatewayRouteTablePropagation :: DisableTransitGatewayRouteTablePropagation -> TestTree
-requestDisableTransitGatewayRouteTablePropagation =
-  req
+requestDisableTransitGatewayRouteTablePropagation = req
     "DisableTransitGatewayRouteTablePropagation"
     "fixture/DisableTransitGatewayRouteTablePropagation.yaml"
 
 requestDescribeVpcClassicLinkDnsSupport :: DescribeVpcClassicLinkDnsSupport -> TestTree
-requestDescribeVpcClassicLinkDnsSupport =
-  req
+requestDescribeVpcClassicLinkDnsSupport = req
     "DescribeVpcClassicLinkDnsSupport"
     "fixture/DescribeVpcClassicLinkDnsSupport.yaml"
 
 requestAssociateSubnetCidrBlock :: AssociateSubnetCidrBlock -> TestTree
-requestAssociateSubnetCidrBlock =
-  req
+requestAssociateSubnetCidrBlock = req
     "AssociateSubnetCidrBlock"
     "fixture/AssociateSubnetCidrBlock.yaml"
 
 requestRunScheduledInstances :: RunScheduledInstances -> TestTree
-requestRunScheduledInstances =
-  req
+requestRunScheduledInstances = req
     "RunScheduledInstances"
     "fixture/RunScheduledInstances.yaml"
 
 requestCreateTransitGatewayRoute :: CreateTransitGatewayRoute -> TestTree
-requestCreateTransitGatewayRoute =
-  req
+requestCreateTransitGatewayRoute = req
     "CreateTransitGatewayRoute"
     "fixture/CreateTransitGatewayRoute.yaml"
 
 requestCreateTransitGatewayPrefixListReference :: CreateTransitGatewayPrefixListReference -> TestTree
-requestCreateTransitGatewayPrefixListReference =
-  req
+requestCreateTransitGatewayPrefixListReference = req
     "CreateTransitGatewayPrefixListReference"
     "fixture/CreateTransitGatewayPrefixListReference.yaml"
 
 requestCancelSpotFleetRequests :: CancelSpotFleetRequests -> TestTree
-requestCancelSpotFleetRequests =
-  req
+requestCancelSpotFleetRequests = req
     "CancelSpotFleetRequests"
     "fixture/CancelSpotFleetRequests.yaml"
 
 requestDescribeSpotPriceHistory :: DescribeSpotPriceHistory -> TestTree
-requestDescribeSpotPriceHistory =
-  req
+requestDescribeSpotPriceHistory = req
     "DescribeSpotPriceHistory"
     "fixture/DescribeSpotPriceHistory.yaml"
 
 requestDescribeDhcpOptions :: DescribeDhcpOptions -> TestTree
-requestDescribeDhcpOptions =
-  req
+requestDescribeDhcpOptions = req
     "DescribeDhcpOptions"
     "fixture/DescribeDhcpOptions.yaml"
 
 requestImportImage :: ImportImage -> TestTree
-requestImportImage =
-  req
+requestImportImage = req
     "ImportImage"
     "fixture/ImportImage.yaml"
 
 requestCreateLocalGatewayRouteTableVpcAssociation :: CreateLocalGatewayRouteTableVpcAssociation -> TestTree
-requestCreateLocalGatewayRouteTableVpcAssociation =
-  req
+requestCreateLocalGatewayRouteTableVpcAssociation = req
     "CreateLocalGatewayRouteTableVpcAssociation"
     "fixture/CreateLocalGatewayRouteTableVpcAssociation.yaml"
 
 requestCopyFpgaImage :: CopyFpgaImage -> TestTree
-requestCopyFpgaImage =
-  req
+requestCopyFpgaImage = req
     "CopyFpgaImage"
     "fixture/CopyFpgaImage.yaml"
 
 requestImportClientVpnClientCertificateRevocationList :: ImportClientVpnClientCertificateRevocationList -> TestTree
-requestImportClientVpnClientCertificateRevocationList =
-  req
+requestImportClientVpnClientCertificateRevocationList = req
     "ImportClientVpnClientCertificateRevocationList"
     "fixture/ImportClientVpnClientCertificateRevocationList.yaml"
 
 requestStopInstances :: StopInstances -> TestTree
-requestStopInstances =
-  req
+requestStopInstances = req
     "StopInstances"
     "fixture/StopInstances.yaml"
 
 requestEnableEbsEncryptionByDefault :: EnableEbsEncryptionByDefault -> TestTree
-requestEnableEbsEncryptionByDefault =
-  req
+requestEnableEbsEncryptionByDefault = req
     "EnableEbsEncryptionByDefault"
     "fixture/EnableEbsEncryptionByDefault.yaml"
 
 requestDeregisterTransitGatewayMulticastGroupSources :: DeregisterTransitGatewayMulticastGroupSources -> TestTree
-requestDeregisterTransitGatewayMulticastGroupSources =
-  req
+requestDeregisterTransitGatewayMulticastGroupSources = req
     "DeregisterTransitGatewayMulticastGroupSources"
     "fixture/DeregisterTransitGatewayMulticastGroupSources.yaml"
 
 requestModifyLaunchTemplate :: ModifyLaunchTemplate -> TestTree
-requestModifyLaunchTemplate =
-  req
+requestModifyLaunchTemplate = req
     "ModifyLaunchTemplate"
     "fixture/ModifyLaunchTemplate.yaml"
 
 requestModifyVpcEndpointConnectionNotification :: ModifyVpcEndpointConnectionNotification -> TestTree
-requestModifyVpcEndpointConnectionNotification =
-  req
+requestModifyVpcEndpointConnectionNotification = req
     "ModifyVpcEndpointConnectionNotification"
     "fixture/ModifyVpcEndpointConnectionNotification.yaml"
 
 requestDescribeInternetGateways :: DescribeInternetGateways -> TestTree
-requestDescribeInternetGateways =
-  req
+requestDescribeInternetGateways = req
     "DescribeInternetGateways"
     "fixture/DescribeInternetGateways.yaml"
 
 requestDisableVpcClassicLink :: DisableVpcClassicLink -> TestTree
-requestDisableVpcClassicLink =
-  req
+requestDisableVpcClassicLink = req
     "DisableVpcClassicLink"
     "fixture/DisableVpcClassicLink.yaml"
 
 requestGetGroupsForCapacityReservation :: GetGroupsForCapacityReservation -> TestTree
-requestGetGroupsForCapacityReservation =
-  req
+requestGetGroupsForCapacityReservation = req
     "GetGroupsForCapacityReservation"
     "fixture/GetGroupsForCapacityReservation.yaml"
 
 requestDeleteLaunchTemplateVersions :: DeleteLaunchTemplateVersions -> TestTree
-requestDeleteLaunchTemplateVersions =
-  req
+requestDeleteLaunchTemplateVersions = req
     "DeleteLaunchTemplateVersions"
     "fixture/DeleteLaunchTemplateVersions.yaml"
 
 requestBundleInstance :: BundleInstance -> TestTree
-requestBundleInstance =
-  req
+requestBundleInstance = req
     "BundleInstance"
     "fixture/BundleInstance.yaml"
 
 requestDescribeNetworkInterfaces :: DescribeNetworkInterfaces -> TestTree
-requestDescribeNetworkInterfaces =
-  req
+requestDescribeNetworkInterfaces = req
     "DescribeNetworkInterfaces"
     "fixture/DescribeNetworkInterfaces.yaml"
 
 requestReplaceNetworkAclAssociation :: ReplaceNetworkAclAssociation -> TestTree
-requestReplaceNetworkAclAssociation =
-  req
+requestReplaceNetworkAclAssociation = req
     "ReplaceNetworkAclAssociation"
     "fixture/ReplaceNetworkAclAssociation.yaml"
 
 requestDescribeNatGateways :: DescribeNatGateways -> TestTree
-requestDescribeNatGateways =
-  req
+requestDescribeNatGateways = req
     "DescribeNatGateways"
     "fixture/DescribeNatGateways.yaml"
 
 requestDescribeAddresses :: DescribeAddresses -> TestTree
-requestDescribeAddresses =
-  req
+requestDescribeAddresses = req
     "DescribeAddresses"
     "fixture/DescribeAddresses.yaml"
 
 requestRestoreManagedPrefixListVersion :: RestoreManagedPrefixListVersion -> TestTree
-requestRestoreManagedPrefixListVersion =
-  req
+requestRestoreManagedPrefixListVersion = req
     "RestoreManagedPrefixListVersion"
     "fixture/RestoreManagedPrefixListVersion.yaml"
 
 requestDescribeSnapshotAttribute :: DescribeSnapshotAttribute -> TestTree
-requestDescribeSnapshotAttribute =
-  req
+requestDescribeSnapshotAttribute = req
     "DescribeSnapshotAttribute"
     "fixture/DescribeSnapshotAttribute.yaml"
 
 requestDescribeIdentityIdFormat :: DescribeIdentityIdFormat -> TestTree
-requestDescribeIdentityIdFormat =
-  req
+requestDescribeIdentityIdFormat = req
     "DescribeIdentityIdFormat"
     "fixture/DescribeIdentityIdFormat.yaml"
 
 requestReplaceRoute :: ReplaceRoute -> TestTree
-requestReplaceRoute =
-  req
+requestReplaceRoute = req
     "ReplaceRoute"
     "fixture/ReplaceRoute.yaml"
 
 requestDescribeVpcEndpointServices :: DescribeVpcEndpointServices -> TestTree
-requestDescribeVpcEndpointServices =
-  req
+requestDescribeVpcEndpointServices = req
     "DescribeVpcEndpointServices"
     "fixture/DescribeVpcEndpointServices.yaml"
 
 requestDeleteLocalGatewayRoute :: DeleteLocalGatewayRoute -> TestTree
-requestDeleteLocalGatewayRoute =
-  req
+requestDeleteLocalGatewayRoute = req
     "DeleteLocalGatewayRoute"
     "fixture/DeleteLocalGatewayRoute.yaml"
 
 requestAuthorizeSecurityGroupIngress :: AuthorizeSecurityGroupIngress -> TestTree
-requestAuthorizeSecurityGroupIngress =
-  req
+requestAuthorizeSecurityGroupIngress = req
     "AuthorizeSecurityGroupIngress"
     "fixture/AuthorizeSecurityGroupIngress.yaml"
 
 requestCreateVpcPeeringConnection :: CreateVpcPeeringConnection -> TestTree
-requestCreateVpcPeeringConnection =
-  req
+requestCreateVpcPeeringConnection = req
     "CreateVpcPeeringConnection"
     "fixture/CreateVpcPeeringConnection.yaml"
 
 requestDescribeSubnets :: DescribeSubnets -> TestTree
-requestDescribeSubnets =
-  req
+requestDescribeSubnets = req
     "DescribeSubnets"
     "fixture/DescribeSubnets.yaml"
 
 requestGetTransitGatewayAttachmentPropagations :: GetTransitGatewayAttachmentPropagations -> TestTree
-requestGetTransitGatewayAttachmentPropagations =
-  req
+requestGetTransitGatewayAttachmentPropagations = req
     "GetTransitGatewayAttachmentPropagations"
     "fixture/GetTransitGatewayAttachmentPropagations.yaml"
 
 requestCreateTags :: CreateTags -> TestTree
-requestCreateTags =
-  req
+requestCreateTags = req
     "CreateTags"
     "fixture/CreateTags.yaml"
 
 requestPurchaseReservedInstancesOffering :: PurchaseReservedInstancesOffering -> TestTree
-requestPurchaseReservedInstancesOffering =
-  req
+requestPurchaseReservedInstancesOffering = req
     "PurchaseReservedInstancesOffering"
     "fixture/PurchaseReservedInstancesOffering.yaml"
 
 requestDeleteNetworkAclEntry :: DeleteNetworkAclEntry -> TestTree
-requestDeleteNetworkAclEntry =
-  req
+requestDeleteNetworkAclEntry = req
     "DeleteNetworkAclEntry"
     "fixture/DeleteNetworkAclEntry.yaml"
 
 requestResetSnapshotAttribute :: ResetSnapshotAttribute -> TestTree
-requestResetSnapshotAttribute =
-  req
+requestResetSnapshotAttribute = req
     "ResetSnapshotAttribute"
     "fixture/ResetSnapshotAttribute.yaml"
 
 requestDescribeVpnConnections :: DescribeVpnConnections -> TestTree
-requestDescribeVpnConnections =
-  req
+requestDescribeVpnConnections = req
     "DescribeVpnConnections"
     "fixture/DescribeVpnConnections.yaml"
 
 requestModifyInstanceEventStartTime :: ModifyInstanceEventStartTime -> TestTree
-requestModifyInstanceEventStartTime =
-  req
+requestModifyInstanceEventStartTime = req
     "ModifyInstanceEventStartTime"
     "fixture/ModifyInstanceEventStartTime.yaml"
 
 requestDeleteRoute :: DeleteRoute -> TestTree
-requestDeleteRoute =
-  req
+requestDeleteRoute = req
     "DeleteRoute"
     "fixture/DeleteRoute.yaml"
 
 requestReplaceNetworkAclEntry :: ReplaceNetworkAclEntry -> TestTree
-requestReplaceNetworkAclEntry =
-  req
+requestReplaceNetworkAclEntry = req
     "ReplaceNetworkAclEntry"
     "fixture/ReplaceNetworkAclEntry.yaml"
 
 requestDescribeVpcEndpoints :: DescribeVpcEndpoints -> TestTree
-requestDescribeVpcEndpoints =
-  req
+requestDescribeVpcEndpoints = req
     "DescribeVpcEndpoints"
     "fixture/DescribeVpcEndpoints.yaml"
 
 requestCreateTrafficMirrorFilter :: CreateTrafficMirrorFilter -> TestTree
-requestCreateTrafficMirrorFilter =
-  req
+requestCreateTrafficMirrorFilter = req
     "CreateTrafficMirrorFilter"
     "fixture/CreateTrafficMirrorFilter.yaml"
 
 requestResetInstanceAttribute :: ResetInstanceAttribute -> TestTree
-requestResetInstanceAttribute =
-  req
+requestResetInstanceAttribute = req
     "ResetInstanceAttribute"
     "fixture/ResetInstanceAttribute.yaml"
 
 requestModifyIdentityIdFormat :: ModifyIdentityIdFormat -> TestTree
-requestModifyIdentityIdFormat =
-  req
+requestModifyIdentityIdFormat = req
     "ModifyIdentityIdFormat"
     "fixture/ModifyIdentityIdFormat.yaml"
 
 requestAttachNetworkInterface :: AttachNetworkInterface -> TestTree
-requestAttachNetworkInterface =
-  req
+requestAttachNetworkInterface = req
     "AttachNetworkInterface"
     "fixture/AttachNetworkInterface.yaml"
 
 requestCreateCapacityReservation :: CreateCapacityReservation -> TestTree
-requestCreateCapacityReservation =
-  req
+requestCreateCapacityReservation = req
     "CreateCapacityReservation"
     "fixture/CreateCapacityReservation.yaml"
 
 requestDescribeInstanceStatus :: DescribeInstanceStatus -> TestTree
-requestDescribeInstanceStatus =
-  req
+requestDescribeInstanceStatus = req
     "DescribeInstanceStatus"
     "fixture/DescribeInstanceStatus.yaml"
 
 requestImportKeyPair :: ImportKeyPair -> TestTree
-requestImportKeyPair =
-  req
+requestImportKeyPair = req
     "ImportKeyPair"
     "fixture/ImportKeyPair.yaml"
 
 requestDeleteTags :: DeleteTags -> TestTree
-requestDeleteTags =
-  req
+requestDeleteTags = req
     "DeleteTags"
     "fixture/DeleteTags.yaml"
 
 requestConfirmProductInstance :: ConfirmProductInstance -> TestTree
-requestConfirmProductInstance =
-  req
+requestConfirmProductInstance = req
     "ConfirmProductInstance"
     "fixture/ConfirmProductInstance.yaml"
 
 requestDescribeInstanceAttribute :: DescribeInstanceAttribute -> TestTree
-requestDescribeInstanceAttribute =
-  req
+requestDescribeInstanceAttribute = req
     "DescribeInstanceAttribute"
     "fixture/DescribeInstanceAttribute.yaml"
 
 requestDescribeReservedInstancesOfferings :: DescribeReservedInstancesOfferings -> TestTree
-requestDescribeReservedInstancesOfferings =
-  req
+requestDescribeReservedInstancesOfferings = req
     "DescribeReservedInstancesOfferings"
     "fixture/DescribeReservedInstancesOfferings.yaml"
 
 requestCreateCustomerGateway :: CreateCustomerGateway -> TestTree
-requestCreateCustomerGateway =
-  req
+requestCreateCustomerGateway = req
     "CreateCustomerGateway"
     "fixture/CreateCustomerGateway.yaml"
 
 requestDescribeFleets :: DescribeFleets -> TestTree
-requestDescribeFleets =
-  req
+requestDescribeFleets = req
     "DescribeFleets"
     "fixture/DescribeFleets.yaml"
 
 requestCreateTransitGatewayPeeringAttachment :: CreateTransitGatewayPeeringAttachment -> TestTree
-requestCreateTransitGatewayPeeringAttachment =
-  req
+requestCreateTransitGatewayPeeringAttachment = req
     "CreateTransitGatewayPeeringAttachment"
     "fixture/CreateTransitGatewayPeeringAttachment.yaml"
 
 requestDeleteSecurityGroup :: DeleteSecurityGroup -> TestTree
-requestDeleteSecurityGroup =
-  req
+requestDeleteSecurityGroup = req
     "DeleteSecurityGroup"
     "fixture/DeleteSecurityGroup.yaml"
 
 requestDescribePublicIpv4Pools :: DescribePublicIpv4Pools -> TestTree
-requestDescribePublicIpv4Pools =
-  req
+requestDescribePublicIpv4Pools = req
     "DescribePublicIpv4Pools"
     "fixture/DescribePublicIpv4Pools.yaml"
 
 requestDescribeClientVpnTargetNetworks :: DescribeClientVpnTargetNetworks -> TestTree
-requestDescribeClientVpnTargetNetworks =
-  req
+requestDescribeClientVpnTargetNetworks = req
     "DescribeClientVpnTargetNetworks"
     "fixture/DescribeClientVpnTargetNetworks.yaml"
 
 requestDeleteVpcPeeringConnection :: DeleteVpcPeeringConnection -> TestTree
-requestDeleteVpcPeeringConnection =
-  req
+requestDeleteVpcPeeringConnection = req
     "DeleteVpcPeeringConnection"
     "fixture/DeleteVpcPeeringConnection.yaml"
 
 requestAttachInternetGateway :: AttachInternetGateway -> TestTree
-requestAttachInternetGateway =
-  req
+requestAttachInternetGateway = req
     "AttachInternetGateway"
     "fixture/AttachInternetGateway.yaml"
 
 requestModifyInstancePlacement :: ModifyInstancePlacement -> TestTree
-requestModifyInstancePlacement =
-  req
+requestModifyInstancePlacement = req
     "ModifyInstancePlacement"
     "fixture/ModifyInstancePlacement.yaml"
 
 requestDescribeFlowLogs :: DescribeFlowLogs -> TestTree
-requestDescribeFlowLogs =
-  req
+requestDescribeFlowLogs = req
     "DescribeFlowLogs"
     "fixture/DescribeFlowLogs.yaml"
 
 requestDescribeLocalGatewayVirtualInterfaceGroups :: DescribeLocalGatewayVirtualInterfaceGroups -> TestTree
-requestDescribeLocalGatewayVirtualInterfaceGroups =
-  req
+requestDescribeLocalGatewayVirtualInterfaceGroups = req
     "DescribeLocalGatewayVirtualInterfaceGroups"
     "fixture/DescribeLocalGatewayVirtualInterfaceGroups.yaml"
 
 requestDescribeLocalGatewayRouteTableVpcAssociations :: DescribeLocalGatewayRouteTableVpcAssociations -> TestTree
-requestDescribeLocalGatewayRouteTableVpcAssociations =
-  req
+requestDescribeLocalGatewayRouteTableVpcAssociations = req
     "DescribeLocalGatewayRouteTableVpcAssociations"
     "fixture/DescribeLocalGatewayRouteTableVpcAssociations.yaml"
 
 requestDescribeVpcEndpointConnectionNotifications :: DescribeVpcEndpointConnectionNotifications -> TestTree
-requestDescribeVpcEndpointConnectionNotifications =
-  req
+requestDescribeVpcEndpointConnectionNotifications = req
     "DescribeVpcEndpointConnectionNotifications"
     "fixture/DescribeVpcEndpointConnectionNotifications.yaml"
 
 requestGetManagedPrefixListEntries :: GetManagedPrefixListEntries -> TestTree
-requestGetManagedPrefixListEntries =
-  req
+requestGetManagedPrefixListEntries = req
     "GetManagedPrefixListEntries"
     "fixture/GetManagedPrefixListEntries.yaml"
 
 requestRunInstances :: RunInstances -> TestTree
-requestRunInstances =
-  req
+requestRunInstances = req
     "RunInstances"
     "fixture/RunInstances.yaml"
 
 requestCreateSnapshots :: CreateSnapshots -> TestTree
-requestCreateSnapshots =
-  req
+requestCreateSnapshots = req
     "CreateSnapshots"
     "fixture/CreateSnapshots.yaml"
 
 requestAssociateDhcpOptions :: AssociateDhcpOptions -> TestTree
-requestAssociateDhcpOptions =
-  req
+requestAssociateDhcpOptions = req
     "AssociateDhcpOptions"
     "fixture/AssociateDhcpOptions.yaml"
 
 requestDeleteTrafficMirrorFilterRule :: DeleteTrafficMirrorFilterRule -> TestTree
-requestDeleteTrafficMirrorFilterRule =
-  req
+requestDeleteTrafficMirrorFilterRule = req
     "DeleteTrafficMirrorFilterRule"
     "fixture/DeleteTrafficMirrorFilterRule.yaml"
 
 requestDescribeReservedInstances :: DescribeReservedInstances -> TestTree
-requestDescribeReservedInstances =
-  req
+requestDescribeReservedInstances = req
     "DescribeReservedInstances"
     "fixture/DescribeReservedInstances.yaml"
 
 requestDescribeIdFormat :: DescribeIdFormat -> TestTree
-requestDescribeIdFormat =
-  req
+requestDescribeIdFormat = req
     "DescribeIdFormat"
     "fixture/DescribeIdFormat.yaml"
 
 requestDescribeVpcs :: DescribeVpcs -> TestTree
-requestDescribeVpcs =
-  req
+requestDescribeVpcs = req
     "DescribeVpcs"
     "fixture/DescribeVpcs.yaml"
 
 requestDescribeConversionTasks :: DescribeConversionTasks -> TestTree
-requestDescribeConversionTasks =
-  req
+requestDescribeConversionTasks = req
     "DescribeConversionTasks"
     "fixture/DescribeConversionTasks.yaml"
 
 requestCreateLaunchTemplateVersion :: CreateLaunchTemplateVersion -> TestTree
-requestCreateLaunchTemplateVersion =
-  req
+requestCreateLaunchTemplateVersion = req
     "CreateLaunchTemplateVersion"
     "fixture/CreateLaunchTemplateVersion.yaml"
 
 requestGetManagedPrefixListAssociations :: GetManagedPrefixListAssociations -> TestTree
-requestGetManagedPrefixListAssociations =
-  req
+requestGetManagedPrefixListAssociations = req
     "GetManagedPrefixListAssociations"
     "fixture/GetManagedPrefixListAssociations.yaml"
 
 requestDisableVpcClassicLinkDnsSupport :: DisableVpcClassicLinkDnsSupport -> TestTree
-requestDisableVpcClassicLinkDnsSupport =
-  req
+requestDisableVpcClassicLinkDnsSupport = req
     "DisableVpcClassicLinkDnsSupport"
     "fixture/DisableVpcClassicLinkDnsSupport.yaml"
 
 requestApplySecurityGroupsToClientVpnTargetNetwork :: ApplySecurityGroupsToClientVpnTargetNetwork -> TestTree
-requestApplySecurityGroupsToClientVpnTargetNetwork =
-  req
+requestApplySecurityGroupsToClientVpnTargetNetwork = req
     "ApplySecurityGroupsToClientVpnTargetNetwork"
     "fixture/ApplySecurityGroupsToClientVpnTargetNetwork.yaml"
 
 requestDescribeTrafficMirrorTargets :: DescribeTrafficMirrorTargets -> TestTree
-requestDescribeTrafficMirrorTargets =
-  req
+requestDescribeTrafficMirrorTargets = req
     "DescribeTrafficMirrorTargets"
     "fixture/DescribeTrafficMirrorTargets.yaml"
 
 requestDescribeVolumesModifications :: DescribeVolumesModifications -> TestTree
-requestDescribeVolumesModifications =
-  req
+requestDescribeVolumesModifications = req
     "DescribeVolumesModifications"
     "fixture/DescribeVolumesModifications.yaml"
 
 requestExportImage :: ExportImage -> TestTree
-requestExportImage =
-  req
+requestExportImage = req
     "ExportImage"
     "fixture/ExportImage.yaml"
 
 requestCreateFpgaImage :: CreateFpgaImage -> TestTree
-requestCreateFpgaImage =
-  req
+requestCreateFpgaImage = req
     "CreateFpgaImage"
     "fixture/CreateFpgaImage.yaml"
 
 requestAcceptVpcEndpointConnections :: AcceptVpcEndpointConnections -> TestTree
-requestAcceptVpcEndpointConnections =
-  req
+requestAcceptVpcEndpointConnections = req
     "AcceptVpcEndpointConnections"
     "fixture/AcceptVpcEndpointConnections.yaml"
 
 requestDeleteClientVpnEndpoint :: DeleteClientVpnEndpoint -> TestTree
-requestDeleteClientVpnEndpoint =
-  req
+requestDeleteClientVpnEndpoint = req
     "DeleteClientVpnEndpoint"
     "fixture/DeleteClientVpnEndpoint.yaml"
 
 requestSearchTransitGatewayRoutes :: SearchTransitGatewayRoutes -> TestTree
-requestSearchTransitGatewayRoutes =
-  req
+requestSearchTransitGatewayRoutes = req
     "SearchTransitGatewayRoutes"
     "fixture/SearchTransitGatewayRoutes.yaml"
 
 requestGetLaunchTemplateData :: GetLaunchTemplateData -> TestTree
-requestGetLaunchTemplateData =
-  req
+requestGetLaunchTemplateData = req
     "GetLaunchTemplateData"
     "fixture/GetLaunchTemplateData.yaml"
 
 requestAllocateAddress :: AllocateAddress -> TestTree
-requestAllocateAddress =
-  req
+requestAllocateAddress = req
     "AllocateAddress"
     "fixture/AllocateAddress.yaml"
 
 requestAcceptTransitGatewayVpcAttachment :: AcceptTransitGatewayVpcAttachment -> TestTree
-requestAcceptTransitGatewayVpcAttachment =
-  req
+requestAcceptTransitGatewayVpcAttachment = req
     "AcceptTransitGatewayVpcAttachment"
     "fixture/AcceptTransitGatewayVpcAttachment.yaml"
 
 requestCancelConversionTask :: CancelConversionTask -> TestTree
-requestCancelConversionTask =
-  req
+requestCancelConversionTask = req
     "CancelConversionTask"
     "fixture/CancelConversionTask.yaml"
 
 requestModifyImageAttribute :: ModifyImageAttribute -> TestTree
-requestModifyImageAttribute =
-  req
+requestModifyImageAttribute = req
     "ModifyImageAttribute"
     "fixture/ModifyImageAttribute.yaml"
 
 requestCreateRouteTable :: CreateRouteTable -> TestTree
-requestCreateRouteTable =
-  req
+requestCreateRouteTable = req
     "CreateRouteTable"
     "fixture/CreateRouteTable.yaml"
 
 requestRejectTransitGatewayPeeringAttachment :: RejectTransitGatewayPeeringAttachment -> TestTree
-requestRejectTransitGatewayPeeringAttachment =
-  req
+requestRejectTransitGatewayPeeringAttachment = req
     "RejectTransitGatewayPeeringAttachment"
     "fixture/RejectTransitGatewayPeeringAttachment.yaml"
 
 requestReportInstanceStatus :: ReportInstanceStatus -> TestTree
-requestReportInstanceStatus =
-  req
+requestReportInstanceStatus = req
     "ReportInstanceStatus"
     "fixture/ReportInstanceStatus.yaml"
 
 requestAttachVolume :: AttachVolume -> TestTree
-requestAttachVolume =
-  req
+requestAttachVolume = req
     "AttachVolume"
     "fixture/AttachVolume.yaml"
 
 requestRequestSpotInstances :: RequestSpotInstances -> TestTree
-requestRequestSpotInstances =
-  req
+requestRequestSpotInstances = req
     "RequestSpotInstances"
     "fixture/RequestSpotInstances.yaml"
 
 requestWithdrawByoipCidr :: WithdrawByoipCidr -> TestTree
-requestWithdrawByoipCidr =
-  req
+requestWithdrawByoipCidr = req
     "WithdrawByoipCidr"
     "fixture/WithdrawByoipCidr.yaml"
 
 requestDescribeHostReservationOfferings :: DescribeHostReservationOfferings -> TestTree
-requestDescribeHostReservationOfferings =
-  req
+requestDescribeHostReservationOfferings = req
     "DescribeHostReservationOfferings"
     "fixture/DescribeHostReservationOfferings.yaml"
 
 requestResetFpgaImageAttribute :: ResetFpgaImageAttribute -> TestTree
-requestResetFpgaImageAttribute =
-  req
+requestResetFpgaImageAttribute = req
     "ResetFpgaImageAttribute"
     "fixture/ResetFpgaImageAttribute.yaml"
 
 requestModifyVpnConnection :: ModifyVpnConnection -> TestTree
-requestModifyVpnConnection =
-  req
+requestModifyVpnConnection = req
     "ModifyVpnConnection"
     "fixture/ModifyVpnConnection.yaml"
 
 requestCreateTrafficMirrorFilterRule :: CreateTrafficMirrorFilterRule -> TestTree
-requestCreateTrafficMirrorFilterRule =
-  req
+requestCreateTrafficMirrorFilterRule = req
     "CreateTrafficMirrorFilterRule"
     "fixture/CreateTrafficMirrorFilterRule.yaml"
 
 requestDeleteTransitGateway :: DeleteTransitGateway -> TestTree
-requestDeleteTransitGateway =
-  req
+requestDeleteTransitGateway = req
     "DeleteTransitGateway"
     "fixture/DeleteTransitGateway.yaml"
 
 requestStartVpcEndpointServicePrivateDnsVerification :: StartVpcEndpointServicePrivateDnsVerification -> TestTree
-requestStartVpcEndpointServicePrivateDnsVerification =
-  req
+requestStartVpcEndpointServicePrivateDnsVerification = req
     "StartVpcEndpointServicePrivateDnsVerification"
     "fixture/StartVpcEndpointServicePrivateDnsVerification.yaml"
 
 requestDescribeVolumes :: DescribeVolumes -> TestTree
-requestDescribeVolumes =
-  req
+requestDescribeVolumes = req
     "DescribeVolumes"
     "fixture/DescribeVolumes.yaml"
 
 requestRejectVpcPeeringConnection :: RejectVpcPeeringConnection -> TestTree
-requestRejectVpcPeeringConnection =
-  req
+requestRejectVpcPeeringConnection = req
     "RejectVpcPeeringConnection"
     "fixture/RejectVpcPeeringConnection.yaml"
 
 requestDescribeClientVpnRoutes :: DescribeClientVpnRoutes -> TestTree
-requestDescribeClientVpnRoutes =
-  req
+requestDescribeClientVpnRoutes = req
     "DescribeClientVpnRoutes"
     "fixture/DescribeClientVpnRoutes.yaml"
 
 requestDeleteVpnConnectionRoute :: DeleteVpnConnectionRoute -> TestTree
-requestDeleteVpnConnectionRoute =
-  req
+requestDeleteVpnConnectionRoute = req
     "DeleteVpnConnectionRoute"
     "fixture/DeleteVpnConnectionRoute.yaml"
 
 requestAssociateEnclaveCertificateIamRole :: AssociateEnclaveCertificateIamRole -> TestTree
-requestAssociateEnclaveCertificateIamRole =
-  req
+requestAssociateEnclaveCertificateIamRole = req
     "AssociateEnclaveCertificateIamRole"
     "fixture/AssociateEnclaveCertificateIamRole.yaml"
 
 requestModifyVpcEndpoint :: ModifyVpcEndpoint -> TestTree
-requestModifyVpcEndpoint =
-  req
+requestModifyVpcEndpoint = req
     "ModifyVpcEndpoint"
     "fixture/ModifyVpcEndpoint.yaml"
 
 requestDescribeFpgaImageAttribute :: DescribeFpgaImageAttribute -> TestTree
-requestDescribeFpgaImageAttribute =
-  req
+requestDescribeFpgaImageAttribute = req
     "DescribeFpgaImageAttribute"
     "fixture/DescribeFpgaImageAttribute.yaml"
 
 requestAllocateHosts :: AllocateHosts -> TestTree
-requestAllocateHosts =
-  req
+requestAllocateHosts = req
     "AllocateHosts"
     "fixture/AllocateHosts.yaml"
 
 requestCreateClientVpnEndpoint :: CreateClientVpnEndpoint -> TestTree
-requestCreateClientVpnEndpoint =
-  req
+requestCreateClientVpnEndpoint = req
     "CreateClientVpnEndpoint"
     "fixture/CreateClientVpnEndpoint.yaml"
 
 requestCreateTrafficMirrorSession :: CreateTrafficMirrorSession -> TestTree
-requestCreateTrafficMirrorSession =
-  req
+requestCreateTrafficMirrorSession = req
     "CreateTrafficMirrorSession"
     "fixture/CreateTrafficMirrorSession.yaml"
 
 requestRegisterImage :: RegisterImage -> TestTree
-requestRegisterImage =
-  req
+requestRegisterImage = req
     "RegisterImage"
     "fixture/RegisterImage.yaml"
 
 requestAdvertiseByoipCidr :: AdvertiseByoipCidr -> TestTree
-requestAdvertiseByoipCidr =
-  req
+requestAdvertiseByoipCidr = req
     "AdvertiseByoipCidr"
     "fixture/AdvertiseByoipCidr.yaml"
 
 requestModifyFleet :: ModifyFleet -> TestTree
-requestModifyFleet =
-  req
+requestModifyFleet = req
     "ModifyFleet"
     "fixture/ModifyFleet.yaml"
 
 requestRevokeSecurityGroupIngress :: RevokeSecurityGroupIngress -> TestTree
-requestRevokeSecurityGroupIngress =
-  req
+requestRevokeSecurityGroupIngress = req
     "RevokeSecurityGroupIngress"
     "fixture/RevokeSecurityGroupIngress.yaml"
 
 requestGetEbsDefaultKmsKeyId :: GetEbsDefaultKmsKeyId -> TestTree
-requestGetEbsDefaultKmsKeyId =
-  req
+requestGetEbsDefaultKmsKeyId = req
     "GetEbsDefaultKmsKeyId"
     "fixture/GetEbsDefaultKmsKeyId.yaml"
 
 requestDescribeHostReservations :: DescribeHostReservations -> TestTree
-requestDescribeHostReservations =
-  req
+requestDescribeHostReservations = req
     "DescribeHostReservations"
     "fixture/DescribeHostReservations.yaml"
 
 requestUpdateSecurityGroupRuleDescriptionsEgress :: UpdateSecurityGroupRuleDescriptionsEgress -> TestTree
-requestUpdateSecurityGroupRuleDescriptionsEgress =
-  req
+requestUpdateSecurityGroupRuleDescriptionsEgress = req
     "UpdateSecurityGroupRuleDescriptionsEgress"
     "fixture/UpdateSecurityGroupRuleDescriptionsEgress.yaml"
 
 requestEnableVpcClassicLinkDnsSupport :: EnableVpcClassicLinkDnsSupport -> TestTree
-requestEnableVpcClassicLinkDnsSupport =
-  req
+requestEnableVpcClassicLinkDnsSupport = req
     "EnableVpcClassicLinkDnsSupport"
     "fixture/EnableVpcClassicLinkDnsSupport.yaml"
 
 requestDescribeVpcEndpointConnections :: DescribeVpcEndpointConnections -> TestTree
-requestDescribeVpcEndpointConnections =
-  req
+requestDescribeVpcEndpointConnections = req
     "DescribeVpcEndpointConnections"
     "fixture/DescribeVpcEndpointConnections.yaml"
 
 requestModifyReservedInstances :: ModifyReservedInstances -> TestTree
-requestModifyReservedInstances =
-  req
+requestModifyReservedInstances = req
     "ModifyReservedInstances"
     "fixture/ModifyReservedInstances.yaml"
 
 requestDeleteFpgaImage :: DeleteFpgaImage -> TestTree
-requestDeleteFpgaImage =
-  req
+requestDeleteFpgaImage = req
     "DeleteFpgaImage"
     "fixture/DeleteFpgaImage.yaml"
 
 requestDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations :: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations -> TestTree
-requestDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations =
-  req
+requestDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations = req
     "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations"
     "fixture/DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations.yaml"
 
 requestDescribeScheduledInstances :: DescribeScheduledInstances -> TestTree
-requestDescribeScheduledInstances =
-  req
+requestDescribeScheduledInstances = req
     "DescribeScheduledInstances"
     "fixture/DescribeScheduledInstances.yaml"
 
 requestSearchTransitGatewayMulticastGroups :: SearchTransitGatewayMulticastGroups -> TestTree
-requestSearchTransitGatewayMulticastGroups =
-  req
+requestSearchTransitGatewayMulticastGroups = req
     "SearchTransitGatewayMulticastGroups"
     "fixture/SearchTransitGatewayMulticastGroups.yaml"
 
 requestCreateFlowLogs :: CreateFlowLogs -> TestTree
-requestCreateFlowLogs =
-  req
+requestCreateFlowLogs = req
     "CreateFlowLogs"
     "fixture/CreateFlowLogs.yaml"
 
 requestDescribeSpotFleetRequests :: DescribeSpotFleetRequests -> TestTree
-requestDescribeSpotFleetRequests =
-  req
+requestDescribeSpotFleetRequests = req
     "DescribeSpotFleetRequests"
     "fixture/DescribeSpotFleetRequests.yaml"
 
 requestMoveAddressToVpc :: MoveAddressToVpc -> TestTree
-requestMoveAddressToVpc =
-  req
+requestMoveAddressToVpc = req
     "MoveAddressToVpc"
     "fixture/MoveAddressToVpc.yaml"
 
 requestDescribeFleetInstances :: DescribeFleetInstances -> TestTree
-requestDescribeFleetInstances =
-  req
+requestDescribeFleetInstances = req
     "DescribeFleetInstances"
     "fixture/DescribeFleetInstances.yaml"
 
 requestDescribeLaunchTemplateVersions :: DescribeLaunchTemplateVersions -> TestTree
-requestDescribeLaunchTemplateVersions =
-  req
+requestDescribeLaunchTemplateVersions = req
     "DescribeLaunchTemplateVersions"
     "fixture/DescribeLaunchTemplateVersions.yaml"
 
 requestModifyInstanceCreditSpecification :: ModifyInstanceCreditSpecification -> TestTree
-requestModifyInstanceCreditSpecification =
-  req
+requestModifyInstanceCreditSpecification = req
     "ModifyInstanceCreditSpecification"
     "fixture/ModifyInstanceCreditSpecification.yaml"
 
 requestDescribePrincipalIdFormat :: DescribePrincipalIdFormat -> TestTree
-requestDescribePrincipalIdFormat =
-  req
+requestDescribePrincipalIdFormat = req
     "DescribePrincipalIdFormat"
     "fixture/DescribePrincipalIdFormat.yaml"
 
 requestDescribeTransitGateways :: DescribeTransitGateways -> TestTree
-requestDescribeTransitGateways =
-  req
+requestDescribeTransitGateways = req
     "DescribeTransitGateways"
     "fixture/DescribeTransitGateways.yaml"
 
 requestDeleteNetworkAcl :: DeleteNetworkAcl -> TestTree
-requestDeleteNetworkAcl =
-  req
+requestDeleteNetworkAcl = req
     "DeleteNetworkAcl"
     "fixture/DeleteNetworkAcl.yaml"
 
 requestDisassociateTransitGatewayMulticastDomain :: DisassociateTransitGatewayMulticastDomain -> TestTree
-requestDisassociateTransitGatewayMulticastDomain =
-  req
+requestDisassociateTransitGatewayMulticastDomain = req
     "DisassociateTransitGatewayMulticastDomain"
     "fixture/DisassociateTransitGatewayMulticastDomain.yaml"
 
 requestDeleteTransitGatewayRouteTable :: DeleteTransitGatewayRouteTable -> TestTree
-requestDeleteTransitGatewayRouteTable =
-  req
+requestDeleteTransitGatewayRouteTable = req
     "DeleteTransitGatewayRouteTable"
     "fixture/DeleteTransitGatewayRouteTable.yaml"
 
 requestCreateLaunchTemplate :: CreateLaunchTemplate -> TestTree
-requestCreateLaunchTemplate =
-  req
+requestCreateLaunchTemplate = req
     "CreateLaunchTemplate"
     "fixture/CreateLaunchTemplate.yaml"
 
 requestCreateVpcEndpointConnectionNotification :: CreateVpcEndpointConnectionNotification -> TestTree
-requestCreateVpcEndpointConnectionNotification =
-  req
+requestCreateVpcEndpointConnectionNotification = req
     "CreateVpcEndpointConnectionNotification"
     "fixture/CreateVpcEndpointConnectionNotification.yaml"
 
 requestDeleteNetworkInterfacePermission :: DeleteNetworkInterfacePermission -> TestTree
-requestDeleteNetworkInterfacePermission =
-  req
+requestDeleteNetworkInterfacePermission = req
     "DeleteNetworkInterfacePermission"
     "fixture/DeleteNetworkInterfacePermission.yaml"
 
 requestDeleteVpnGateway :: DeleteVpnGateway -> TestTree
-requestDeleteVpnGateway =
-  req
+requestDeleteVpnGateway = req
     "DeleteVpnGateway"
     "fixture/DeleteVpnGateway.yaml"
 
 requestCreateTrafficMirrorTarget :: CreateTrafficMirrorTarget -> TestTree
-requestCreateTrafficMirrorTarget =
-  req
+requestCreateTrafficMirrorTarget = req
     "CreateTrafficMirrorTarget"
     "fixture/CreateTrafficMirrorTarget.yaml"
 
 requestDescribeImportImageTasks :: DescribeImportImageTasks -> TestTree
-requestDescribeImportImageTasks =
-  req
+requestDescribeImportImageTasks = req
     "DescribeImportImageTasks"
     "fixture/DescribeImportImageTasks.yaml"
 
 requestDescribeVolumeAttribute :: DescribeVolumeAttribute -> TestTree
-requestDescribeVolumeAttribute =
-  req
+requestDescribeVolumeAttribute = req
     "DescribeVolumeAttribute"
     "fixture/DescribeVolumeAttribute.yaml"
 
 requestDescribeMovingAddresses :: DescribeMovingAddresses -> TestTree
-requestDescribeMovingAddresses =
-  req
+requestDescribeMovingAddresses = req
     "DescribeMovingAddresses"
     "fixture/DescribeMovingAddresses.yaml"
 
 requestExportTransitGatewayRoutes :: ExportTransitGatewayRoutes -> TestTree
-requestExportTransitGatewayRoutes =
-  req
+requestExportTransitGatewayRoutes = req
     "ExportTransitGatewayRoutes"
     "fixture/ExportTransitGatewayRoutes.yaml"
 
 requestGetPasswordData :: GetPasswordData -> TestTree
-requestGetPasswordData =
-  req
+requestGetPasswordData = req
     "GetPasswordData"
     "fixture/GetPasswordData.yaml"
 
 requestCreateVpc :: CreateVpc -> TestTree
-requestCreateVpc =
-  req
+requestCreateVpc = req
     "CreateVpc"
     "fixture/CreateVpc.yaml"
 
 requestModifyVpcPeeringConnectionOptions :: ModifyVpcPeeringConnectionOptions -> TestTree
-requestModifyVpcPeeringConnectionOptions =
-  req
+requestModifyVpcPeeringConnectionOptions = req
     "ModifyVpcPeeringConnectionOptions"
     "fixture/ModifyVpcPeeringConnectionOptions.yaml"
 
 requestDescribeFpgaImages :: DescribeFpgaImages -> TestTree
-requestDescribeFpgaImages =
-  req
+requestDescribeFpgaImages = req
     "DescribeFpgaImages"
     "fixture/DescribeFpgaImages.yaml"
 
 requestCopySnapshot :: CopySnapshot -> TestTree
-requestCopySnapshot =
-  req
+requestCopySnapshot = req
     "CopySnapshot"
     "fixture/CopySnapshot.yaml"
 
 requestAcceptTransitGatewayPeeringAttachment :: AcceptTransitGatewayPeeringAttachment -> TestTree
-requestAcceptTransitGatewayPeeringAttachment =
-  req
+requestAcceptTransitGatewayPeeringAttachment = req
     "AcceptTransitGatewayPeeringAttachment"
     "fixture/AcceptTransitGatewayPeeringAttachment.yaml"
 
 requestDisassociateAddress :: DisassociateAddress -> TestTree
-requestDisassociateAddress =
-  req
+requestDisassociateAddress = req
     "DisassociateAddress"
     "fixture/DisassociateAddress.yaml"
 
 requestModifyTrafficMirrorFilterNetworkServices :: ModifyTrafficMirrorFilterNetworkServices -> TestTree
-requestModifyTrafficMirrorFilterNetworkServices =
-  req
+requestModifyTrafficMirrorFilterNetworkServices = req
     "ModifyTrafficMirrorFilterNetworkServices"
     "fixture/ModifyTrafficMirrorFilterNetworkServices.yaml"
 
 requestDescribeEgressOnlyInternetGateways :: DescribeEgressOnlyInternetGateways -> TestTree
-requestDescribeEgressOnlyInternetGateways =
-  req
+requestDescribeEgressOnlyInternetGateways = req
     "DescribeEgressOnlyInternetGateways"
     "fixture/DescribeEgressOnlyInternetGateways.yaml"
 
 requestDeleteVpc :: DeleteVpc -> TestTree
-requestDeleteVpc =
-  req
+requestDeleteVpc = req
     "DeleteVpc"
     "fixture/DeleteVpc.yaml"
 
 requestCreateInstanceExportTask :: CreateInstanceExportTask -> TestTree
-requestCreateInstanceExportTask =
-  req
+requestCreateInstanceExportTask = req
     "CreateInstanceExportTask"
     "fixture/CreateInstanceExportTask.yaml"
 
 requestRejectTransitGatewayVpcAttachment :: RejectTransitGatewayVpcAttachment -> TestTree
-requestRejectTransitGatewayVpcAttachment =
-  req
+requestRejectTransitGatewayVpcAttachment = req
     "RejectTransitGatewayVpcAttachment"
     "fixture/RejectTransitGatewayVpcAttachment.yaml"
 
 requestDescribeTrafficMirrorSessions :: DescribeTrafficMirrorSessions -> TestTree
-requestDescribeTrafficMirrorSessions =
-  req
+requestDescribeTrafficMirrorSessions = req
     "DescribeTrafficMirrorSessions"
     "fixture/DescribeTrafficMirrorSessions.yaml"
 
 requestGetTransitGatewayRouteTableAssociations :: GetTransitGatewayRouteTableAssociations -> TestTree
-requestGetTransitGatewayRouteTableAssociations =
-  req
+requestGetTransitGatewayRouteTableAssociations = req
     "GetTransitGatewayRouteTableAssociations"
     "fixture/GetTransitGatewayRouteTableAssociations.yaml"
 
 requestAssociateVpcCidrBlock :: AssociateVpcCidrBlock -> TestTree
-requestAssociateVpcCidrBlock =
-  req
+requestAssociateVpcCidrBlock = req
     "AssociateVpcCidrBlock"
     "fixture/AssociateVpcCidrBlock.yaml"
 
 requestDescribeVpcAttribute :: DescribeVpcAttribute -> TestTree
-requestDescribeVpcAttribute =
-  req
+requestDescribeVpcAttribute = req
     "DescribeVpcAttribute"
     "fixture/DescribeVpcAttribute.yaml"
 
 requestCreateVolume :: CreateVolume -> TestTree
-requestCreateVolume =
-  req
+requestCreateVolume = req
     "CreateVolume"
     "fixture/CreateVolume.yaml"
 
 requestCreateDefaultSubnet :: CreateDefaultSubnet -> TestTree
-requestCreateDefaultSubnet =
-  req
+requestCreateDefaultSubnet = req
     "CreateDefaultSubnet"
     "fixture/CreateDefaultSubnet.yaml"
 
 requestDescribeScheduledInstanceAvailability :: DescribeScheduledInstanceAvailability -> TestTree
-requestDescribeScheduledInstanceAvailability =
-  req
+requestDescribeScheduledInstanceAvailability = req
     "DescribeScheduledInstanceAvailability"
     "fixture/DescribeScheduledInstanceAvailability.yaml"
 
 requestDisassociateClientVpnTargetNetwork :: DisassociateClientVpnTargetNetwork -> TestTree
-requestDisassociateClientVpnTargetNetwork =
-  req
+requestDisassociateClientVpnTargetNetwork = req
     "DisassociateClientVpnTargetNetwork"
     "fixture/DisassociateClientVpnTargetNetwork.yaml"
 
 requestCreateClientVpnRoute :: CreateClientVpnRoute -> TestTree
-requestCreateClientVpnRoute =
-  req
+requestCreateClientVpnRoute = req
     "CreateClientVpnRoute"
     "fixture/CreateClientVpnRoute.yaml"
 
 requestModifyVolumeAttribute :: ModifyVolumeAttribute -> TestTree
-requestModifyVolumeAttribute =
-  req
+requestModifyVolumeAttribute = req
     "ModifyVolumeAttribute"
     "fixture/ModifyVolumeAttribute.yaml"
 
 requestExportClientVpnClientConfiguration :: ExportClientVpnClientConfiguration -> TestTree
-requestExportClientVpnClientConfiguration =
-  req
+requestExportClientVpnClientConfiguration = req
     "ExportClientVpnClientConfiguration"
     "fixture/ExportClientVpnClientConfiguration.yaml"
 
 requestDeleteTrafficMirrorTarget :: DeleteTrafficMirrorTarget -> TestTree
-requestDeleteTrafficMirrorTarget =
-  req
+requestDeleteTrafficMirrorTarget = req
     "DeleteTrafficMirrorTarget"
     "fixture/DeleteTrafficMirrorTarget.yaml"
 
 requestDescribeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscription -> TestTree
-requestDescribeSpotDatafeedSubscription =
-  req
+requestDescribeSpotDatafeedSubscription = req
     "DescribeSpotDatafeedSubscription"
     "fixture/DescribeSpotDatafeedSubscription.yaml"
 
 requestDescribeLocalGatewayRouteTables :: DescribeLocalGatewayRouteTables -> TestTree
-requestDescribeLocalGatewayRouteTables =
-  req
+requestDescribeLocalGatewayRouteTables = req
     "DescribeLocalGatewayRouteTables"
     "fixture/DescribeLocalGatewayRouteTables.yaml"
 
 requestDescribePrefixLists :: DescribePrefixLists -> TestTree
-requestDescribePrefixLists =
-  req
+requestDescribePrefixLists = req
     "DescribePrefixLists"
     "fixture/DescribePrefixLists.yaml"
 
 requestAssociateTransitGatewayRouteTable :: AssociateTransitGatewayRouteTable -> TestTree
-requestAssociateTransitGatewayRouteTable =
-  req
+requestAssociateTransitGatewayRouteTable = req
     "AssociateTransitGatewayRouteTable"
     "fixture/AssociateTransitGatewayRouteTable.yaml"
 
 requestDeletePlacementGroup :: DeletePlacementGroup -> TestTree
-requestDeletePlacementGroup =
-  req
+requestDeletePlacementGroup = req
     "DeletePlacementGroup"
     "fixture/DeletePlacementGroup.yaml"
 
 requestModifyTransitGateway :: ModifyTransitGateway -> TestTree
-requestModifyTransitGateway =
-  req
+requestModifyTransitGateway = req
     "ModifyTransitGateway"
     "fixture/ModifyTransitGateway.yaml"
 
 requestDeleteTransitGatewayPrefixListReference :: DeleteTransitGatewayPrefixListReference -> TestTree
-requestDeleteTransitGatewayPrefixListReference =
-  req
+requestDeleteTransitGatewayPrefixListReference = req
     "DeleteTransitGatewayPrefixListReference"
     "fixture/DeleteTransitGatewayPrefixListReference.yaml"
 
 requestCreateTransitGatewayMulticastDomain :: CreateTransitGatewayMulticastDomain -> TestTree
-requestCreateTransitGatewayMulticastDomain =
-  req
+requestCreateTransitGatewayMulticastDomain = req
     "CreateTransitGatewayMulticastDomain"
     "fixture/CreateTransitGatewayMulticastDomain.yaml"
 
 requestDeregisterInstanceEventNotificationAttributes :: DeregisterInstanceEventNotificationAttributes -> TestTree
-requestDeregisterInstanceEventNotificationAttributes =
-  req
+requestDeregisterInstanceEventNotificationAttributes = req
     "DeregisterInstanceEventNotificationAttributes"
     "fixture/DeregisterInstanceEventNotificationAttributes.yaml"
 
 requestRequestSpotFleet :: RequestSpotFleet -> TestTree
-requestRequestSpotFleet =
-  req
+requestRequestSpotFleet = req
     "RequestSpotFleet"
     "fixture/RequestSpotFleet.yaml"
 
 requestDeleteTransitGatewayRoute :: DeleteTransitGatewayRoute -> TestTree
-requestDeleteTransitGatewayRoute =
-  req
+requestDeleteTransitGatewayRoute = req
     "DeleteTransitGatewayRoute"
     "fixture/DeleteTransitGatewayRoute.yaml"
 
 requestDisableEbsEncryptionByDefault :: DisableEbsEncryptionByDefault -> TestTree
-requestDisableEbsEncryptionByDefault =
-  req
+requestDisableEbsEncryptionByDefault = req
     "DisableEbsEncryptionByDefault"
     "fixture/DisableEbsEncryptionByDefault.yaml"
 
 requestDeregisterTransitGatewayMulticastGroupMembers :: DeregisterTransitGatewayMulticastGroupMembers -> TestTree
-requestDeregisterTransitGatewayMulticastGroupMembers =
-  req
+requestDeregisterTransitGatewayMulticastGroupMembers = req
     "DeregisterTransitGatewayMulticastGroupMembers"
     "fixture/DeregisterTransitGatewayMulticastGroupMembers.yaml"
 
 requestCreateSubnet :: CreateSubnet -> TestTree
-requestCreateSubnet =
-  req
+requestCreateSubnet = req
     "CreateSubnet"
     "fixture/CreateSubnet.yaml"
 
 requestCreateNetworkInterface :: CreateNetworkInterface -> TestTree
-requestCreateNetworkInterface =
-  req
+requestCreateNetworkInterface = req
     "CreateNetworkInterface"
     "fixture/CreateNetworkInterface.yaml"
 
 requestDescribeSecurityGroups :: DescribeSecurityGroups -> TestTree
-requestDescribeSecurityGroups =
-  req
+requestDescribeSecurityGroups = req
     "DescribeSecurityGroups"
     "fixture/DescribeSecurityGroups.yaml"
 
 requestGetCapacityReservationUsage :: GetCapacityReservationUsage -> TestTree
-requestGetCapacityReservationUsage =
-  req
+requestGetCapacityReservationUsage = req
     "GetCapacityReservationUsage"
     "fixture/GetCapacityReservationUsage.yaml"
 
 requestCreateTransitGatewayVpcAttachment :: CreateTransitGatewayVpcAttachment -> TestTree
-requestCreateTransitGatewayVpcAttachment =
-  req
+requestCreateTransitGatewayVpcAttachment = req
     "CreateTransitGatewayVpcAttachment"
     "fixture/CreateTransitGatewayVpcAttachment.yaml"
 
 requestDescribeExportTasks :: DescribeExportTasks -> TestTree
-requestDescribeExportTasks =
-  req
+requestDescribeExportTasks = req
     "DescribeExportTasks"
     "fixture/DescribeExportTasks.yaml"
 
 requestModifySpotFleetRequest :: ModifySpotFleetRequest -> TestTree
-requestModifySpotFleetRequest =
-  req
+requestModifySpotFleetRequest = req
     "ModifySpotFleetRequest"
     "fixture/ModifySpotFleetRequest.yaml"
 
 requestDetachVpnGateway :: DetachVpnGateway -> TestTree
-requestDetachVpnGateway =
-  req
+requestDetachVpnGateway = req
     "DetachVpnGateway"
     "fixture/DetachVpnGateway.yaml"
 
 requestModifyManagedPrefixList :: ModifyManagedPrefixList -> TestTree
-requestModifyManagedPrefixList =
-  req
+requestModifyManagedPrefixList = req
     "ModifyManagedPrefixList"
     "fixture/ModifyManagedPrefixList.yaml"
 
 requestGetHostReservationPurchasePreview :: GetHostReservationPurchasePreview -> TestTree
-requestGetHostReservationPurchasePreview =
-  req
+requestGetHostReservationPurchasePreview = req
     "GetHostReservationPurchasePreview"
     "fixture/GetHostReservationPurchasePreview.yaml"
 
 requestEnableVolumeIO :: EnableVolumeIO -> TestTree
-requestEnableVolumeIO =
-  req
+requestEnableVolumeIO = req
     "EnableVolumeIO"
     "fixture/EnableVolumeIO.yaml"
 
 requestDescribeInstances :: DescribeInstances -> TestTree
-requestDescribeInstances =
-  req
+requestDescribeInstances = req
     "DescribeInstances"
     "fixture/DescribeInstances.yaml"
 
 requestCreateNatGateway :: CreateNatGateway -> TestTree
-requestCreateNatGateway =
-  req
+requestCreateNatGateway = req
     "CreateNatGateway"
     "fixture/CreateNatGateway.yaml"
 
 requestDescribeLocalGatewayVirtualInterfaces :: DescribeLocalGatewayVirtualInterfaces -> TestTree
-requestDescribeLocalGatewayVirtualInterfaces =
-  req
+requestDescribeLocalGatewayVirtualInterfaces = req
     "DescribeLocalGatewayVirtualInterfaces"
     "fixture/DescribeLocalGatewayVirtualInterfaces.yaml"
 
 requestDescribeVpcPeeringConnections :: DescribeVpcPeeringConnections -> TestTree
-requestDescribeVpcPeeringConnections =
-  req
+requestDescribeVpcPeeringConnections = req
     "DescribeVpcPeeringConnections"
     "fixture/DescribeVpcPeeringConnections.yaml"
 
 requestCancelExportTask :: CancelExportTask -> TestTree
-requestCancelExportTask =
-  req
+requestCancelExportTask = req
     "CancelExportTask"
     "fixture/CancelExportTask.yaml"
 
 requestCreateVpcEndpointServiceConfiguration :: CreateVpcEndpointServiceConfiguration -> TestTree
-requestCreateVpcEndpointServiceConfiguration =
-  req
+requestCreateVpcEndpointServiceConfiguration = req
     "CreateVpcEndpointServiceConfiguration"
     "fixture/CreateVpcEndpointServiceConfiguration.yaml"
 
 requestCreateDefaultVpc :: CreateDefaultVpc -> TestTree
-requestCreateDefaultVpc =
-  req
+requestCreateDefaultVpc = req
     "CreateDefaultVpc"
     "fixture/CreateDefaultVpc.yaml"
 
 requestDisassociateVpcCidrBlock :: DisassociateVpcCidrBlock -> TestTree
-requestDisassociateVpcCidrBlock =
-  req
+requestDisassociateVpcCidrBlock = req
     "DisassociateVpcCidrBlock"
     "fixture/DisassociateVpcCidrBlock.yaml"
 
 requestDescribeTrafficMirrorFilters :: DescribeTrafficMirrorFilters -> TestTree
-requestDescribeTrafficMirrorFilters =
-  req
+requestDescribeTrafficMirrorFilters = req
     "DescribeTrafficMirrorFilters"
     "fixture/DescribeTrafficMirrorFilters.yaml"
 
 requestDescribeFastSnapshotRestores :: DescribeFastSnapshotRestores -> TestTree
-requestDescribeFastSnapshotRestores =
-  req
+requestDescribeFastSnapshotRestores = req
     "DescribeFastSnapshotRestores"
     "fixture/DescribeFastSnapshotRestores.yaml"
 
 requestCancelCapacityReservation :: CancelCapacityReservation -> TestTree
-requestCancelCapacityReservation =
-  req
+requestCancelCapacityReservation = req
     "CancelCapacityReservation"
     "fixture/CancelCapacityReservation.yaml"
 
 requestDeleteNetworkInterface :: DeleteNetworkInterface -> TestTree
-requestDeleteNetworkInterface =
-  req
+requestDeleteNetworkInterface = req
     "DeleteNetworkInterface"
     "fixture/DeleteNetworkInterface.yaml"
 
 requestDisassociateTransitGatewayRouteTable :: DisassociateTransitGatewayRouteTable -> TestTree
-requestDisassociateTransitGatewayRouteTable =
-  req
+requestDisassociateTransitGatewayRouteTable = req
     "DisassociateTransitGatewayRouteTable"
     "fixture/DisassociateTransitGatewayRouteTable.yaml"
 
 requestReplaceRouteTableAssociation :: ReplaceRouteTableAssociation -> TestTree
-requestReplaceRouteTableAssociation =
-  req
+requestReplaceRouteTableAssociation = req
     "ReplaceRouteTableAssociation"
     "fixture/ReplaceRouteTableAssociation.yaml"
 
 requestStartInstances :: StartInstances -> TestTree
-requestStartInstances =
-  req
+requestStartInstances = req
     "StartInstances"
     "fixture/StartInstances.yaml"
 
 requestCreatePlacementGroup :: CreatePlacementGroup -> TestTree
-requestCreatePlacementGroup =
-  req
+requestCreatePlacementGroup = req
     "CreatePlacementGroup"
     "fixture/CreatePlacementGroup.yaml"
 
 requestDescribeInstanceEventNotificationAttributes :: DescribeInstanceEventNotificationAttributes -> TestTree
-requestDescribeInstanceEventNotificationAttributes =
-  req
+requestDescribeInstanceEventNotificationAttributes = req
     "DescribeInstanceEventNotificationAttributes"
     "fixture/DescribeInstanceEventNotificationAttributes.yaml"
 
 requestDescribeCapacityReservations :: DescribeCapacityReservations -> TestTree
-requestDescribeCapacityReservations =
-  req
+requestDescribeCapacityReservations = req
     "DescribeCapacityReservations"
     "fixture/DescribeCapacityReservations.yaml"
 
 requestModifyClientVpnEndpoint :: ModifyClientVpnEndpoint -> TestTree
-requestModifyClientVpnEndpoint =
-  req
+requestModifyClientVpnEndpoint = req
     "ModifyClientVpnEndpoint"
     "fixture/ModifyClientVpnEndpoint.yaml"
 
 requestModifyInstanceCapacityReservationAttributes :: ModifyInstanceCapacityReservationAttributes -> TestTree
-requestModifyInstanceCapacityReservationAttributes =
-  req
+requestModifyInstanceCapacityReservationAttributes = req
     "ModifyInstanceCapacityReservationAttributes"
     "fixture/ModifyInstanceCapacityReservationAttributes.yaml"
 
 requestDescribeAggregateIdFormat :: DescribeAggregateIdFormat -> TestTree
-requestDescribeAggregateIdFormat =
-  req
+requestDescribeAggregateIdFormat = req
     "DescribeAggregateIdFormat"
     "fixture/DescribeAggregateIdFormat.yaml"
 
 requestDescribeSnapshots :: DescribeSnapshots -> TestTree
-requestDescribeSnapshots =
-  req
+requestDescribeSnapshots = req
     "DescribeSnapshots"
     "fixture/DescribeSnapshots.yaml"
 
 requestAssociateAddress :: AssociateAddress -> TestTree
-requestAssociateAddress =
-  req
+requestAssociateAddress = req
     "AssociateAddress"
     "fixture/AssociateAddress.yaml"
 
 requestModifyTrafficMirrorFilterRule :: ModifyTrafficMirrorFilterRule -> TestTree
-requestModifyTrafficMirrorFilterRule =
-  req
+requestModifyTrafficMirrorFilterRule = req
     "ModifyTrafficMirrorFilterRule"
     "fixture/ModifyTrafficMirrorFilterRule.yaml"
 
 requestDescribeNetworkInterfaceAttribute :: DescribeNetworkInterfaceAttribute -> TestTree
-requestDescribeNetworkInterfaceAttribute =
-  req
+requestDescribeNetworkInterfaceAttribute = req
     "DescribeNetworkInterfaceAttribute"
     "fixture/DescribeNetworkInterfaceAttribute.yaml"
 
 requestReplaceIamInstanceProfileAssociation :: ReplaceIamInstanceProfileAssociation -> TestTree
-requestReplaceIamInstanceProfileAssociation =
-  req
+requestReplaceIamInstanceProfileAssociation = req
     "ReplaceIamInstanceProfileAssociation"
     "fixture/ReplaceIamInstanceProfileAssociation.yaml"
 
 requestAssociateClientVpnTargetNetwork :: AssociateClientVpnTargetNetwork -> TestTree
-requestAssociateClientVpnTargetNetwork =
-  req
+requestAssociateClientVpnTargetNetwork = req
     "AssociateClientVpnTargetNetwork"
     "fixture/AssociateClientVpnTargetNetwork.yaml"
 
 requestReleaseHosts :: ReleaseHosts -> TestTree
-requestReleaseHosts =
-  req
+requestReleaseHosts = req
     "ReleaseHosts"
     "fixture/ReleaseHosts.yaml"
 
 requestResetNetworkInterfaceAttribute :: ResetNetworkInterfaceAttribute -> TestTree
-requestResetNetworkInterfaceAttribute =
-  req
+requestResetNetworkInterfaceAttribute = req
     "ResetNetworkInterfaceAttribute"
     "fixture/ResetNetworkInterfaceAttribute.yaml"
 
 requestDeleteInternetGateway :: DeleteInternetGateway -> TestTree
-requestDeleteInternetGateway =
-  req
+requestDeleteInternetGateway = req
     "DeleteInternetGateway"
     "fixture/DeleteInternetGateway.yaml"
 
 requestDescribeReservedInstancesListings :: DescribeReservedInstancesListings -> TestTree
-requestDescribeReservedInstancesListings =
-  req
+requestDescribeReservedInstancesListings = req
     "DescribeReservedInstancesListings"
     "fixture/DescribeReservedInstancesListings.yaml"
 
 requestCreateVpnConnection :: CreateVpnConnection -> TestTree
-requestCreateVpnConnection =
-  req
+requestCreateVpnConnection = req
     "CreateVpnConnection"
     "fixture/CreateVpnConnection.yaml"
 
 requestReplaceTransitGatewayRoute :: ReplaceTransitGatewayRoute -> TestTree
-requestReplaceTransitGatewayRoute =
-  req
+requestReplaceTransitGatewayRoute = req
     "ReplaceTransitGatewayRoute"
     "fixture/ReplaceTransitGatewayRoute.yaml"
 
 requestCreateFleet :: CreateFleet -> TestTree
-requestCreateFleet =
-  req
+requestCreateFleet = req
     "CreateFleet"
     "fixture/CreateFleet.yaml"
 
 requestDeleteNatGateway :: DeleteNatGateway -> TestTree
-requestDeleteNatGateway =
-  req
+requestDeleteNatGateway = req
     "DeleteNatGateway"
     "fixture/DeleteNatGateway.yaml"
 
 requestDescribeImportSnapshotTasks :: DescribeImportSnapshotTasks -> TestTree
-requestDescribeImportSnapshotTasks =
-  req
+requestDescribeImportSnapshotTasks = req
     "DescribeImportSnapshotTasks"
     "fixture/DescribeImportSnapshotTasks.yaml"
 
 requestGetCoipPoolUsage :: GetCoipPoolUsage -> TestTree
-requestGetCoipPoolUsage =
-  req
+requestGetCoipPoolUsage = req
     "GetCoipPoolUsage"
     "fixture/GetCoipPoolUsage.yaml"
 
 requestDescribeCustomerGateways :: DescribeCustomerGateways -> TestTree
-requestDescribeCustomerGateways =
-  req
+requestDescribeCustomerGateways = req
     "DescribeCustomerGateways"
     "fixture/DescribeCustomerGateways.yaml"
 
 requestDeleteSubnet :: DeleteSubnet -> TestTree
-requestDeleteSubnet =
-  req
+requestDeleteSubnet = req
     "DeleteSubnet"
     "fixture/DeleteSubnet.yaml"
 
 requestCopyImage :: CopyImage -> TestTree
-requestCopyImage =
-  req
+requestCopyImage = req
     "CopyImage"
     "fixture/CopyImage.yaml"
 
 requestCreateVpcEndpoint :: CreateVpcEndpoint -> TestTree
-requestCreateVpcEndpoint =
-  req
+requestCreateVpcEndpoint = req
     "CreateVpcEndpoint"
     "fixture/CreateVpcEndpoint.yaml"
 
 requestModifyTrafficMirrorSession :: ModifyTrafficMirrorSession -> TestTree
-requestModifyTrafficMirrorSession =
-  req
+requestModifyTrafficMirrorSession = req
     "ModifyTrafficMirrorSession"
     "fixture/ModifyTrafficMirrorSession.yaml"
 
 requestDescribeCarrierGateways :: DescribeCarrierGateways -> TestTree
-requestDescribeCarrierGateways =
-  req
+requestDescribeCarrierGateways = req
     "DescribeCarrierGateways"
     "fixture/DescribeCarrierGateways.yaml"
 
 requestDescribeTransitGatewayPeeringAttachments :: DescribeTransitGatewayPeeringAttachments -> TestTree
-requestDescribeTransitGatewayPeeringAttachments =
-  req
+requestDescribeTransitGatewayPeeringAttachments = req
     "DescribeTransitGatewayPeeringAttachments"
     "fixture/DescribeTransitGatewayPeeringAttachments.yaml"
 
 requestDeleteQueuedReservedInstances :: DeleteQueuedReservedInstances -> TestTree
-requestDeleteQueuedReservedInstances =
-  req
+requestDeleteQueuedReservedInstances = req
     "DeleteQueuedReservedInstances"
     "fixture/DeleteQueuedReservedInstances.yaml"
 
 requestDescribeTransitGatewayMulticastDomains :: DescribeTransitGatewayMulticastDomains -> TestTree
-requestDescribeTransitGatewayMulticastDomains =
-  req
+requestDescribeTransitGatewayMulticastDomains = req
     "DescribeTransitGatewayMulticastDomains"
     "fixture/DescribeTransitGatewayMulticastDomains.yaml"
 
 requestGetDefaultCreditSpecification :: GetDefaultCreditSpecification -> TestTree
-requestGetDefaultCreditSpecification =
-  req
+requestGetDefaultCreditSpecification = req
     "GetDefaultCreditSpecification"
     "fixture/GetDefaultCreditSpecification.yaml"
 
 requestUnmonitorInstances :: UnmonitorInstances -> TestTree
-requestUnmonitorInstances =
-  req
+requestUnmonitorInstances = req
     "UnmonitorInstances"
     "fixture/UnmonitorInstances.yaml"
 
 requestDescribeTransitGatewayVpcAttachments :: DescribeTransitGatewayVpcAttachments -> TestTree
-requestDescribeTransitGatewayVpcAttachments =
-  req
+requestDescribeTransitGatewayVpcAttachments = req
     "DescribeTransitGatewayVpcAttachments"
     "fixture/DescribeTransitGatewayVpcAttachments.yaml"
 
 requestCreateSecurityGroup :: CreateSecurityGroup -> TestTree
-requestCreateSecurityGroup =
-  req
+requestCreateSecurityGroup = req
     "CreateSecurityGroup"
     "fixture/CreateSecurityGroup.yaml"
 
 requestGetEbsEncryptionByDefault :: GetEbsEncryptionByDefault -> TestTree
-requestGetEbsEncryptionByDefault =
-  req
+requestGetEbsEncryptionByDefault = req
     "GetEbsEncryptionByDefault"
     "fixture/GetEbsEncryptionByDefault.yaml"
 
 requestImportVolume :: ImportVolume -> TestTree
-requestImportVolume =
-  req
+requestImportVolume = req
     "ImportVolume"
     "fixture/ImportVolume.yaml"
 
 requestDeleteCarrierGateway :: DeleteCarrierGateway -> TestTree
-requestDeleteCarrierGateway =
-  req
+requestDeleteCarrierGateway = req
     "DeleteCarrierGateway"
     "fixture/DeleteCarrierGateway.yaml"
 
 requestDisableVgwRoutePropagation :: DisableVgwRoutePropagation -> TestTree
-requestDisableVgwRoutePropagation =
-  req
+requestDisableVgwRoutePropagation = req
     "DisableVgwRoutePropagation"
     "fixture/DisableVgwRoutePropagation.yaml"
 
 requestDeleteTrafficMirrorFilter :: DeleteTrafficMirrorFilter -> TestTree
-requestDeleteTrafficMirrorFilter =
-  req
+requestDeleteTrafficMirrorFilter = req
     "DeleteTrafficMirrorFilter"
     "fixture/DeleteTrafficMirrorFilter.yaml"
 
 requestModifyVpnTunnelCertificate :: ModifyVpnTunnelCertificate -> TestTree
-requestModifyVpnTunnelCertificate =
-  req
+requestModifyVpnTunnelCertificate = req
     "ModifyVpnTunnelCertificate"
     "fixture/ModifyVpnTunnelCertificate.yaml"
 
 requestCreateSpotDatafeedSubscription :: CreateSpotDatafeedSubscription -> TestTree
-requestCreateSpotDatafeedSubscription =
-  req
+requestCreateSpotDatafeedSubscription = req
     "CreateSpotDatafeedSubscription"
     "fixture/CreateSpotDatafeedSubscription.yaml"
 
 requestCancelSpotInstanceRequests :: CancelSpotInstanceRequests -> TestTree
-requestCancelSpotInstanceRequests =
-  req
+requestCancelSpotInstanceRequests = req
     "CancelSpotInstanceRequests"
     "fixture/CancelSpotInstanceRequests.yaml"
 
 requestCreateRoute :: CreateRoute -> TestTree
-requestCreateRoute =
-  req
+requestCreateRoute = req
     "CreateRoute"
     "fixture/CreateRoute.yaml"
 
 requestDescribeVpcEndpointServiceConfigurations :: DescribeVpcEndpointServiceConfigurations -> TestTree
-requestDescribeVpcEndpointServiceConfigurations =
-  req
+requestDescribeVpcEndpointServiceConfigurations = req
     "DescribeVpcEndpointServiceConfigurations"
     "fixture/DescribeVpcEndpointServiceConfigurations.yaml"
 
 requestDeleteSnapshot :: DeleteSnapshot -> TestTree
-requestDeleteSnapshot =
-  req
+requestDeleteSnapshot = req
     "DeleteSnapshot"
     "fixture/DeleteSnapshot.yaml"
 
 requestAssignPrivateIpAddresses :: AssignPrivateIpAddresses -> TestTree
-requestAssignPrivateIpAddresses =
-  req
+requestAssignPrivateIpAddresses = req
     "AssignPrivateIpAddresses"
     "fixture/AssignPrivateIpAddresses.yaml"
 
 requestAuthorizeClientVpnIngress :: AuthorizeClientVpnIngress -> TestTree
-requestAuthorizeClientVpnIngress =
-  req
+requestAuthorizeClientVpnIngress = req
     "AuthorizeClientVpnIngress"
     "fixture/AuthorizeClientVpnIngress.yaml"
 
 requestDeleteTransitGatewayPeeringAttachment :: DeleteTransitGatewayPeeringAttachment -> TestTree
-requestDeleteTransitGatewayPeeringAttachment =
-  req
+requestDeleteTransitGatewayPeeringAttachment = req
     "DeleteTransitGatewayPeeringAttachment"
     "fixture/DeleteTransitGatewayPeeringAttachment.yaml"
 
 requestModifyInstanceAttribute :: ModifyInstanceAttribute -> TestTree
-requestModifyInstanceAttribute =
-  req
+requestModifyInstanceAttribute = req
     "ModifyInstanceAttribute"
     "fixture/ModifyInstanceAttribute.yaml"
 
 requestDeleteCustomerGateway :: DeleteCustomerGateway -> TestTree
-requestDeleteCustomerGateway =
-  req
+requestDeleteCustomerGateway = req
     "DeleteCustomerGateway"
     "fixture/DeleteCustomerGateway.yaml"
 
 requestDisassociateIamInstanceProfile :: DisassociateIamInstanceProfile -> TestTree
-requestDisassociateIamInstanceProfile =
-  req
+requestDisassociateIamInstanceProfile = req
     "DisassociateIamInstanceProfile"
     "fixture/DisassociateIamInstanceProfile.yaml"
 
 requestTerminateClientVpnConnections :: TerminateClientVpnConnections -> TestTree
-requestTerminateClientVpnConnections =
-  req
+requestTerminateClientVpnConnections = req
     "TerminateClientVpnConnections"
     "fixture/TerminateClientVpnConnections.yaml"
 
 requestDisassociateRouteTable :: DisassociateRouteTable -> TestTree
-requestDisassociateRouteTable =
-  req
+requestDisassociateRouteTable = req
     "DisassociateRouteTable"
     "fixture/DisassociateRouteTable.yaml"
 
 requestGetConsoleScreenshot :: GetConsoleScreenshot -> TestTree
-requestGetConsoleScreenshot =
-  req
+requestGetConsoleScreenshot = req
     "GetConsoleScreenshot"
     "fixture/GetConsoleScreenshot.yaml"
 
 requestResetEbsDefaultKmsKeyId :: ResetEbsDefaultKmsKeyId -> TestTree
-requestResetEbsDefaultKmsKeyId =
-  req
+requestResetEbsDefaultKmsKeyId = req
     "ResetEbsDefaultKmsKeyId"
     "fixture/ResetEbsDefaultKmsKeyId.yaml"
 
 requestAssignIpv6Addresses :: AssignIpv6Addresses -> TestTree
-requestAssignIpv6Addresses =
-  req
+requestAssignIpv6Addresses = req
     "AssignIpv6Addresses"
     "fixture/AssignIpv6Addresses.yaml"
 
 requestModifyVpnTunnelOptions :: ModifyVpnTunnelOptions -> TestTree
-requestModifyVpnTunnelOptions =
-  req
+requestModifyVpnTunnelOptions = req
     "ModifyVpnTunnelOptions"
     "fixture/ModifyVpnTunnelOptions.yaml"
 
 requestModifyEbsDefaultKmsKeyId :: ModifyEbsDefaultKmsKeyId -> TestTree
-requestModifyEbsDefaultKmsKeyId =
-  req
+requestModifyEbsDefaultKmsKeyId = req
     "ModifyEbsDefaultKmsKeyId"
     "fixture/ModifyEbsDefaultKmsKeyId.yaml"
 
 requestDeleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscription -> TestTree
-requestDeleteSpotDatafeedSubscription =
-  req
+requestDeleteSpotDatafeedSubscription = req
     "DeleteSpotDatafeedSubscription"
     "fixture/DeleteSpotDatafeedSubscription.yaml"
 
 requestModifyVolume :: ModifyVolume -> TestTree
-requestModifyVolume =
-  req
+requestModifyVolume = req
     "ModifyVolume"
     "fixture/ModifyVolume.yaml"
 
 requestEnableVpcClassicLink :: EnableVpcClassicLink -> TestTree
-requestEnableVpcClassicLink =
-  req
+requestEnableVpcClassicLink = req
     "EnableVpcClassicLink"
     "fixture/EnableVpcClassicLink.yaml"
 
 requestDescribePlacementGroups :: DescribePlacementGroups -> TestTree
-requestDescribePlacementGroups =
-  req
+requestDescribePlacementGroups = req
     "DescribePlacementGroups"
     "fixture/DescribePlacementGroups.yaml"
 
 requestProvisionByoipCidr :: ProvisionByoipCidr -> TestTree
-requestProvisionByoipCidr =
-  req
+requestProvisionByoipCidr = req
     "ProvisionByoipCidr"
     "fixture/ProvisionByoipCidr.yaml"
 
 requestDisassociateEnclaveCertificateIamRole :: DisassociateEnclaveCertificateIamRole -> TestTree
-requestDisassociateEnclaveCertificateIamRole =
-  req
+requestDisassociateEnclaveCertificateIamRole = req
     "DisassociateEnclaveCertificateIamRole"
     "fixture/DisassociateEnclaveCertificateIamRole.yaml"
 
 requestModifyAvailabilityZoneGroup :: ModifyAvailabilityZoneGroup -> TestTree
-requestModifyAvailabilityZoneGroup =
-  req
+requestModifyAvailabilityZoneGroup = req
     "ModifyAvailabilityZoneGroup"
     "fixture/ModifyAvailabilityZoneGroup.yaml"
 
 requestDescribeStaleSecurityGroups :: DescribeStaleSecurityGroups -> TestTree
-requestDescribeStaleSecurityGroups =
-  req
+requestDescribeStaleSecurityGroups = req
     "DescribeStaleSecurityGroups"
     "fixture/DescribeStaleSecurityGroups.yaml"
 
 requestCreateCarrierGateway :: CreateCarrierGateway -> TestTree
-requestCreateCarrierGateway =
-  req
+requestCreateCarrierGateway = req
     "CreateCarrierGateway"
     "fixture/CreateCarrierGateway.yaml"
 
 requestDescribeExportImageTasks :: DescribeExportImageTasks -> TestTree
-requestDescribeExportImageTasks =
-  req
+requestDescribeExportImageTasks = req
     "DescribeExportImageTasks"
     "fixture/DescribeExportImageTasks.yaml"
 
 requestPurchaseScheduledInstances :: PurchaseScheduledInstances -> TestTree
-requestPurchaseScheduledInstances =
-  req
+requestPurchaseScheduledInstances = req
     "PurchaseScheduledInstances"
     "fixture/PurchaseScheduledInstances.yaml"
 
 requestEnableVgwRoutePropagation :: EnableVgwRoutePropagation -> TestTree
-requestEnableVgwRoutePropagation =
-  req
+requestEnableVgwRoutePropagation = req
     "EnableVgwRoutePropagation"
     "fixture/EnableVgwRoutePropagation.yaml"
 
 requestDescribeSpotFleetRequestHistory :: DescribeSpotFleetRequestHistory -> TestTree
-requestDescribeSpotFleetRequestHistory =
-  req
+requestDescribeSpotFleetRequestHistory = req
     "DescribeSpotFleetRequestHistory"
     "fixture/DescribeSpotFleetRequestHistory.yaml"
 
 requestModifySnapshotAttribute :: ModifySnapshotAttribute -> TestTree
-requestModifySnapshotAttribute =
-  req
+requestModifySnapshotAttribute = req
     "ModifySnapshotAttribute"
     "fixture/ModifySnapshotAttribute.yaml"
 
 requestDescribeIamInstanceProfileAssociations :: DescribeIamInstanceProfileAssociations -> TestTree
-requestDescribeIamInstanceProfileAssociations =
-  req
+requestDescribeIamInstanceProfileAssociations = req
     "DescribeIamInstanceProfileAssociations"
     "fixture/DescribeIamInstanceProfileAssociations.yaml"
 
 requestCreateSnapshot :: CreateSnapshot -> TestTree
-requestCreateSnapshot =
-  req
+requestCreateSnapshot = req
     "CreateSnapshot"
     "fixture/CreateSnapshot.yaml"
 
 requestCreateLocalGatewayRoute :: CreateLocalGatewayRoute -> TestTree
-requestCreateLocalGatewayRoute =
-  req
+requestCreateLocalGatewayRoute = req
     "CreateLocalGatewayRoute"
     "fixture/CreateLocalGatewayRoute.yaml"
 
 requestCreateNetworkAclEntry :: CreateNetworkAclEntry -> TestTree
-requestCreateNetworkAclEntry =
-  req
+requestCreateNetworkAclEntry = req
     "CreateNetworkAclEntry"
     "fixture/CreateNetworkAclEntry.yaml"
 
 requestDescribeTransitGatewayAttachments :: DescribeTransitGatewayAttachments -> TestTree
-requestDescribeTransitGatewayAttachments =
-  req
+requestDescribeTransitGatewayAttachments = req
     "DescribeTransitGatewayAttachments"
     "fixture/DescribeTransitGatewayAttachments.yaml"
 
 requestCreateReservedInstancesListing :: CreateReservedInstancesListing -> TestTree
-requestCreateReservedInstancesListing =
-  req
+requestCreateReservedInstancesListing = req
     "CreateReservedInstancesListing"
     "fixture/CreateReservedInstancesListing.yaml"
 
 requestDescribeIpv6Pools :: DescribeIpv6Pools -> TestTree
-requestDescribeIpv6Pools =
-  req
+requestDescribeIpv6Pools = req
     "DescribeIpv6Pools"
     "fixture/DescribeIpv6Pools.yaml"
 
 requestAttachVpnGateway :: AttachVpnGateway -> TestTree
-requestAttachVpnGateway =
-  req
+requestAttachVpnGateway = req
     "AttachVpnGateway"
     "fixture/AttachVpnGateway.yaml"
 
 requestDescribeLocalGateways :: DescribeLocalGateways -> TestTree
-requestDescribeLocalGateways =
-  req
+requestDescribeLocalGateways = req
     "DescribeLocalGateways"
     "fixture/DescribeLocalGateways.yaml"
 
 requestModifyVpcEndpointServicePermissions :: ModifyVpcEndpointServicePermissions -> TestTree
-requestModifyVpcEndpointServicePermissions =
-  req
+requestModifyVpcEndpointServicePermissions = req
     "ModifyVpcEndpointServicePermissions"
     "fixture/ModifyVpcEndpointServicePermissions.yaml"
 
 requestExportClientVpnClientCertificateRevocationList :: ExportClientVpnClientCertificateRevocationList -> TestTree
-requestExportClientVpnClientCertificateRevocationList =
-  req
+requestExportClientVpnClientCertificateRevocationList = req
     "ExportClientVpnClientCertificateRevocationList"
     "fixture/ExportClientVpnClientCertificateRevocationList.yaml"
 
 requestCreateDhcpOptions :: CreateDhcpOptions -> TestTree
-requestCreateDhcpOptions =
-  req
+requestCreateDhcpOptions = req
     "CreateDhcpOptions"
     "fixture/CreateDhcpOptions.yaml"
 
 requestRegisterTransitGatewayMulticastGroupSources :: RegisterTransitGatewayMulticastGroupSources -> TestTree
-requestRegisterTransitGatewayMulticastGroupSources =
-  req
+requestRegisterTransitGatewayMulticastGroupSources = req
     "RegisterTransitGatewayMulticastGroupSources"
     "fixture/RegisterTransitGatewayMulticastGroupSources.yaml"
 
 requestDescribeAccountAttributes :: DescribeAccountAttributes -> TestTree
-requestDescribeAccountAttributes =
-  req
+requestDescribeAccountAttributes = req
     "DescribeAccountAttributes"
     "fixture/DescribeAccountAttributes.yaml"
 
 requestGetTransitGatewayRouteTablePropagations :: GetTransitGatewayRouteTablePropagations -> TestTree
-requestGetTransitGatewayRouteTablePropagations =
-  req
+requestGetTransitGatewayRouteTablePropagations = req
     "GetTransitGatewayRouteTablePropagations"
     "fixture/GetTransitGatewayRouteTablePropagations.yaml"
 
 requestModifyFpgaImageAttribute :: ModifyFpgaImageAttribute -> TestTree
-requestModifyFpgaImageAttribute =
-  req
+requestModifyFpgaImageAttribute = req
     "ModifyFpgaImageAttribute"
     "fixture/ModifyFpgaImageAttribute.yaml"
 
 requestModifyHosts :: ModifyHosts -> TestTree
-requestModifyHosts =
-  req
+requestModifyHosts = req
     "ModifyHosts"
     "fixture/ModifyHosts.yaml"
 
 requestRebootInstances :: RebootInstances -> TestTree
-requestRebootInstances =
-  req
+requestRebootInstances = req
     "RebootInstances"
     "fixture/RebootInstances.yaml"
 
 requestModifyVpcEndpointServiceConfiguration :: ModifyVpcEndpointServiceConfiguration -> TestTree
-requestModifyVpcEndpointServiceConfiguration =
-  req
+requestModifyVpcEndpointServiceConfiguration = req
     "ModifyVpcEndpointServiceConfiguration"
     "fixture/ModifyVpcEndpointServiceConfiguration.yaml"
 
 requestCreateTransitGateway :: CreateTransitGateway -> TestTree
-requestCreateTransitGateway =
-  req
+requestCreateTransitGateway = req
     "CreateTransitGateway"
     "fixture/CreateTransitGateway.yaml"
 
 requestUnassignIpv6Addresses :: UnassignIpv6Addresses -> TestTree
-requestUnassignIpv6Addresses =
-  req
+requestUnassignIpv6Addresses = req
     "UnassignIpv6Addresses"
     "fixture/UnassignIpv6Addresses.yaml"
 
 requestDeleteTrafficMirrorSession :: DeleteTrafficMirrorSession -> TestTree
-requestDeleteTrafficMirrorSession =
-  req
+requestDeleteTrafficMirrorSession = req
     "DeleteTrafficMirrorSession"
     "fixture/DeleteTrafficMirrorSession.yaml"
 
 requestCreateManagedPrefixList :: CreateManagedPrefixList -> TestTree
-requestCreateManagedPrefixList =
-  req
+requestCreateManagedPrefixList = req
     "CreateManagedPrefixList"
     "fixture/CreateManagedPrefixList.yaml"
 
 requestAssociateIamInstanceProfile :: AssociateIamInstanceProfile -> TestTree
-requestAssociateIamInstanceProfile =
-  req
+requestAssociateIamInstanceProfile = req
     "AssociateIamInstanceProfile"
     "fixture/AssociateIamInstanceProfile.yaml"
 
 requestModifyDefaultCreditSpecification :: ModifyDefaultCreditSpecification -> TestTree
-requestModifyDefaultCreditSpecification =
-  req
+requestModifyDefaultCreditSpecification = req
     "ModifyDefaultCreditSpecification"
     "fixture/ModifyDefaultCreditSpecification.yaml"
 
 requestDeleteEgressOnlyInternetGateway :: DeleteEgressOnlyInternetGateway -> TestTree
-requestDeleteEgressOnlyInternetGateway =
-  req
+requestDeleteEgressOnlyInternetGateway = req
     "DeleteEgressOnlyInternetGateway"
     "fixture/DeleteEgressOnlyInternetGateway.yaml"
 
 requestPurchaseHostReservation :: PurchaseHostReservation -> TestTree
-requestPurchaseHostReservation =
-  req
+requestPurchaseHostReservation = req
     "PurchaseHostReservation"
     "fixture/PurchaseHostReservation.yaml"
 
 requestModifyTransitGatewayVpcAttachment :: ModifyTransitGatewayVpcAttachment -> TestTree
-requestModifyTransitGatewayVpcAttachment =
-  req
+requestModifyTransitGatewayVpcAttachment = req
     "ModifyTransitGatewayVpcAttachment"
     "fixture/ModifyTransitGatewayVpcAttachment.yaml"
 
 requestCreateImage :: CreateImage -> TestTree
-requestCreateImage =
-  req
+requestCreateImage = req
     "CreateImage"
     "fixture/CreateImage.yaml"
 
 requestDescribeClassicLinkInstances :: DescribeClassicLinkInstances -> TestTree
-requestDescribeClassicLinkInstances =
-  req
+requestDescribeClassicLinkInstances = req
     "DescribeClassicLinkInstances"
     "fixture/DescribeClassicLinkInstances.yaml"
 
 requestTerminateInstances :: TerminateInstances -> TestTree
-requestTerminateInstances =
-  req
+requestTerminateInstances = req
     "TerminateInstances"
     "fixture/TerminateInstances.yaml"
 
 requestGetTransitGatewayPrefixListReferences :: GetTransitGatewayPrefixListReferences -> TestTree
-requestGetTransitGatewayPrefixListReferences =
-  req
+requestGetTransitGatewayPrefixListReferences = req
     "GetTransitGatewayPrefixListReferences"
     "fixture/GetTransitGatewayPrefixListReferences.yaml"
 
 requestDescribeKeyPairs :: DescribeKeyPairs -> TestTree
-requestDescribeKeyPairs =
-  req
+requestDescribeKeyPairs = req
     "DescribeKeyPairs"
     "fixture/DescribeKeyPairs.yaml"
 
 requestDisableFastSnapshotRestores :: DisableFastSnapshotRestores -> TestTree
-requestDisableFastSnapshotRestores =
-  req
+requestDisableFastSnapshotRestores = req
     "DisableFastSnapshotRestores"
     "fixture/DisableFastSnapshotRestores.yaml"
 
 requestDescribeLaunchTemplates :: DescribeLaunchTemplates -> TestTree
-requestDescribeLaunchTemplates =
-  req
+requestDescribeLaunchTemplates = req
     "DescribeLaunchTemplates"
     "fixture/DescribeLaunchTemplates.yaml"
 
 requestCreateVpnConnectionRoute :: CreateVpnConnectionRoute -> TestTree
-requestCreateVpnConnectionRoute =
-  req
+requestCreateVpnConnectionRoute = req
     "CreateVpnConnectionRoute"
     "fixture/CreateVpnConnectionRoute.yaml"
 
 requestAssociateRouteTable :: AssociateRouteTable -> TestTree
-requestAssociateRouteTable =
-  req
+requestAssociateRouteTable = req
     "AssociateRouteTable"
     "fixture/AssociateRouteTable.yaml"
 
 requestDescribeVpnGateways :: DescribeVpnGateways -> TestTree
-requestDescribeVpnGateways =
-  req
+requestDescribeVpnGateways = req
     "DescribeVpnGateways"
     "fixture/DescribeVpnGateways.yaml"
 
 requestModifyVpnConnectionOptions :: ModifyVpnConnectionOptions -> TestTree
-requestModifyVpnConnectionOptions =
-  req
+requestModifyVpnConnectionOptions = req
     "ModifyVpnConnectionOptions"
     "fixture/ModifyVpnConnectionOptions.yaml"
 
 requestGetConsoleOutput :: GetConsoleOutput -> TestTree
-requestGetConsoleOutput =
-  req
+requestGetConsoleOutput = req
     "GetConsoleOutput"
     "fixture/GetConsoleOutput.yaml"
 
 requestDescribeHosts :: DescribeHosts -> TestTree
-requestDescribeHosts =
-  req
+requestDescribeHosts = req
     "DescribeHosts"
     "fixture/DescribeHosts.yaml"
 
 requestDescribeImageAttribute :: DescribeImageAttribute -> TestTree
-requestDescribeImageAttribute =
-  req
+requestDescribeImageAttribute = req
     "DescribeImageAttribute"
     "fixture/DescribeImageAttribute.yaml"
 
 requestModifyIdFormat :: ModifyIdFormat -> TestTree
-requestModifyIdFormat =
-  req
+requestModifyIdFormat = req
     "ModifyIdFormat"
     "fixture/ModifyIdFormat.yaml"
 
 requestRegisterTransitGatewayMulticastGroupMembers :: RegisterTransitGatewayMulticastGroupMembers -> TestTree
-requestRegisterTransitGatewayMulticastGroupMembers =
-  req
+requestRegisterTransitGatewayMulticastGroupMembers = req
     "RegisterTransitGatewayMulticastGroupMembers"
     "fixture/RegisterTransitGatewayMulticastGroupMembers.yaml"
 
 requestDeleteManagedPrefixList :: DeleteManagedPrefixList -> TestTree
-requestDeleteManagedPrefixList =
-  req
+requestDeleteManagedPrefixList = req
     "DeleteManagedPrefixList"
     "fixture/DeleteManagedPrefixList.yaml"
 
 requestDeleteRouteTable :: DeleteRouteTable -> TestTree
-requestDeleteRouteTable =
-  req
+requestDeleteRouteTable = req
     "DeleteRouteTable"
     "fixture/DeleteRouteTable.yaml"
 
 requestResetImageAttribute :: ResetImageAttribute -> TestTree
-requestResetImageAttribute =
-  req
+requestResetImageAttribute = req
     "ResetImageAttribute"
     "fixture/ResetImageAttribute.yaml"
 
 requestModifyTransitGatewayPrefixListReference :: ModifyTransitGatewayPrefixListReference -> TestTree
-requestModifyTransitGatewayPrefixListReference =
-  req
+requestModifyTransitGatewayPrefixListReference = req
     "ModifyTransitGatewayPrefixListReference"
     "fixture/ModifyTransitGatewayPrefixListReference.yaml"
 
 requestDescribeTransitGatewayRouteTables :: DescribeTransitGatewayRouteTables -> TestTree
-requestDescribeTransitGatewayRouteTables =
-  req
+requestDescribeTransitGatewayRouteTables = req
     "DescribeTransitGatewayRouteTables"
     "fixture/DescribeTransitGatewayRouteTables.yaml"
 
 requestCreateEgressOnlyInternetGateway :: CreateEgressOnlyInternetGateway -> TestTree
-requestCreateEgressOnlyInternetGateway =
-  req
+requestCreateEgressOnlyInternetGateway = req
     "CreateEgressOnlyInternetGateway"
     "fixture/CreateEgressOnlyInternetGateway.yaml"
 
 requestDescribeReservedInstancesModifications :: DescribeReservedInstancesModifications -> TestTree
-requestDescribeReservedInstancesModifications =
-  req
+requestDescribeReservedInstancesModifications = req
     "DescribeReservedInstancesModifications"
     "fixture/DescribeReservedInstancesModifications.yaml"
 
 requestDescribeSpotInstanceRequests :: DescribeSpotInstanceRequests -> TestTree
-requestDescribeSpotInstanceRequests =
-  req
+requestDescribeSpotInstanceRequests = req
     "DescribeSpotInstanceRequests"
     "fixture/DescribeSpotInstanceRequests.yaml"
 
 requestRevokeClientVpnIngress :: RevokeClientVpnIngress -> TestTree
-requestRevokeClientVpnIngress =
-  req
+requestRevokeClientVpnIngress = req
     "RevokeClientVpnIngress"
     "fixture/RevokeClientVpnIngress.yaml"
 
 requestUnassignPrivateIpAddresses :: UnassignPrivateIpAddresses -> TestTree
-requestUnassignPrivateIpAddresses =
-  req
+requestUnassignPrivateIpAddresses = req
     "UnassignPrivateIpAddresses"
     "fixture/UnassignPrivateIpAddresses.yaml"
 
 requestDescribeNetworkInterfacePermissions :: DescribeNetworkInterfacePermissions -> TestTree
-requestDescribeNetworkInterfacePermissions =
-  req
+requestDescribeNetworkInterfacePermissions = req
     "DescribeNetworkInterfacePermissions"
     "fixture/DescribeNetworkInterfacePermissions.yaml"
 
 requestEnableFastSnapshotRestores :: EnableFastSnapshotRestores -> TestTree
-requestEnableFastSnapshotRestores =
-  req
+requestEnableFastSnapshotRestores = req
     "EnableFastSnapshotRestores"
     "fixture/EnableFastSnapshotRestores.yaml"
 
 requestDescribeVpcEndpointServicePermissions :: DescribeVpcEndpointServicePermissions -> TestTree
-requestDescribeVpcEndpointServicePermissions =
-  req
+requestDescribeVpcEndpointServicePermissions = req
     "DescribeVpcEndpointServicePermissions"
     "fixture/DescribeVpcEndpointServicePermissions.yaml"
 
 requestDeleteDhcpOptions :: DeleteDhcpOptions -> TestTree
-requestDeleteDhcpOptions =
-  req
+requestDeleteDhcpOptions = req
     "DeleteDhcpOptions"
     "fixture/DeleteDhcpOptions.yaml"
 
 requestRegisterInstanceEventNotificationAttributes :: RegisterInstanceEventNotificationAttributes -> TestTree
-requestRegisterInstanceEventNotificationAttributes =
-  req
+requestRegisterInstanceEventNotificationAttributes = req
     "RegisterInstanceEventNotificationAttributes"
     "fixture/RegisterInstanceEventNotificationAttributes.yaml"
 
 requestDescribeNetworkAcls :: DescribeNetworkAcls -> TestTree
-requestDescribeNetworkAcls =
-  req
+requestDescribeNetworkAcls = req
     "DescribeNetworkAcls"
     "fixture/DescribeNetworkAcls.yaml"
 
 requestCancelImportTask :: CancelImportTask -> TestTree
-requestCancelImportTask =
-  req
+requestCancelImportTask = req
     "CancelImportTask"
     "fixture/CancelImportTask.yaml"
 
 requestDetachClassicLinkVpc :: DetachClassicLinkVpc -> TestTree
-requestDetachClassicLinkVpc =
-  req
+requestDetachClassicLinkVpc = req
     "DetachClassicLinkVpc"
     "fixture/DetachClassicLinkVpc.yaml"
 
 requestDescribeRegions :: DescribeRegions -> TestTree
-requestDescribeRegions =
-  req
+requestDescribeRegions = req
     "DescribeRegions"
     "fixture/DescribeRegions.yaml"
 
 requestMonitorInstances :: MonitorInstances -> TestTree
-requestMonitorInstances =
-  req
+requestMonitorInstances = req
     "MonitorInstances"
     "fixture/MonitorInstances.yaml"
 
 requestSearchLocalGatewayRoutes :: SearchLocalGatewayRoutes -> TestTree
-requestSearchLocalGatewayRoutes =
-  req
+requestSearchLocalGatewayRoutes = req
     "SearchLocalGatewayRoutes"
     "fixture/SearchLocalGatewayRoutes.yaml"
 
 requestDeleteClientVpnRoute :: DeleteClientVpnRoute -> TestTree
-requestDeleteClientVpnRoute =
-  req
+requestDeleteClientVpnRoute = req
     "DeleteClientVpnRoute"
     "fixture/DeleteClientVpnRoute.yaml"
 
 requestAcceptVpcPeeringConnection :: AcceptVpcPeeringConnection -> TestTree
-requestAcceptVpcPeeringConnection =
-  req
+requestAcceptVpcPeeringConnection = req
     "AcceptVpcPeeringConnection"
     "fixture/AcceptVpcPeeringConnection.yaml"
 
 requestImportSnapshot :: ImportSnapshot -> TestTree
-requestImportSnapshot =
-  req
+requestImportSnapshot = req
     "ImportSnapshot"
     "fixture/ImportSnapshot.yaml"
 
 requestDescribeVolumeStatus :: DescribeVolumeStatus -> TestTree
-requestDescribeVolumeStatus =
-  req
+requestDescribeVolumeStatus = req
     "DescribeVolumeStatus"
     "fixture/DescribeVolumeStatus.yaml"
 
 requestDescribeRouteTables :: DescribeRouteTables -> TestTree
-requestDescribeRouteTables =
-  req
+requestDescribeRouteTables = req
     "DescribeRouteTables"
     "fixture/DescribeRouteTables.yaml"
 
 requestDescribeAvailabilityZones :: DescribeAvailabilityZones -> TestTree
-requestDescribeAvailabilityZones =
-  req
+requestDescribeAvailabilityZones = req
     "DescribeAvailabilityZones"
     "fixture/DescribeAvailabilityZones.yaml"
 
 requestModifyVpcAttribute :: ModifyVpcAttribute -> TestTree
-requestModifyVpcAttribute =
-  req
+requestModifyVpcAttribute = req
     "ModifyVpcAttribute"
     "fixture/ModifyVpcAttribute.yaml"
 
 requestDescribeClientVpnConnections :: DescribeClientVpnConnections -> TestTree
-requestDescribeClientVpnConnections =
-  req
+requestDescribeClientVpnConnections = req
     "DescribeClientVpnConnections"
     "fixture/DescribeClientVpnConnections.yaml"
 
 requestDescribeFleetHistory :: DescribeFleetHistory -> TestTree
-requestDescribeFleetHistory =
-  req
+requestDescribeFleetHistory = req
     "DescribeFleetHistory"
     "fixture/DescribeFleetHistory.yaml"
 
 requestDescribeImages :: DescribeImages -> TestTree
-requestDescribeImages =
-  req
+requestDescribeImages = req
     "DescribeImages"
     "fixture/DescribeImages.yaml"
 
 requestDescribeElasticGpus :: DescribeElasticGpus -> TestTree
-requestDescribeElasticGpus =
-  req
+requestDescribeElasticGpus = req
     "DescribeElasticGpus"
     "fixture/DescribeElasticGpus.yaml"
 
 requestRestoreAddressToClassic :: RestoreAddressToClassic -> TestTree
-requestRestoreAddressToClassic =
-  req
+requestRestoreAddressToClassic = req
     "RestoreAddressToClassic"
     "fixture/RestoreAddressToClassic.yaml"
 
 requestDescribeManagedPrefixLists :: DescribeManagedPrefixLists -> TestTree
-requestDescribeManagedPrefixLists =
-  req
+requestDescribeManagedPrefixLists = req
     "DescribeManagedPrefixLists"
     "fixture/DescribeManagedPrefixLists.yaml"
 
 requestCreateKeyPair :: CreateKeyPair -> TestTree
-requestCreateKeyPair =
-  req
+requestCreateKeyPair = req
     "CreateKeyPair"
     "fixture/CreateKeyPair.yaml"
 
 requestGetReservedInstancesExchangeQuote :: GetReservedInstancesExchangeQuote -> TestTree
-requestGetReservedInstancesExchangeQuote =
-  req
+requestGetReservedInstancesExchangeQuote = req
     "GetReservedInstancesExchangeQuote"
     "fixture/GetReservedInstancesExchangeQuote.yaml"
 
 requestDeleteVolume :: DeleteVolume -> TestTree
-requestDeleteVolume =
-  req
+requestDeleteVolume = req
     "DeleteVolume"
     "fixture/DeleteVolume.yaml"
 
 requestDeprovisionByoipCidr :: DeprovisionByoipCidr -> TestTree
-requestDeprovisionByoipCidr =
-  req
+requestDeprovisionByoipCidr = req
     "DeprovisionByoipCidr"
     "fixture/DeprovisionByoipCidr.yaml"
 
 requestDeleteVpcEndpointServiceConfigurations :: DeleteVpcEndpointServiceConfigurations -> TestTree
-requestDeleteVpcEndpointServiceConfigurations =
-  req
+requestDeleteVpcEndpointServiceConfigurations = req
     "DeleteVpcEndpointServiceConfigurations"
     "fixture/DeleteVpcEndpointServiceConfigurations.yaml"
 
 requestDescribeSpotFleetInstances :: DescribeSpotFleetInstances -> TestTree
-requestDescribeSpotFleetInstances =
-  req
+requestDescribeSpotFleetInstances = req
     "DescribeSpotFleetInstances"
     "fixture/DescribeSpotFleetInstances.yaml"
 
 -- Responses
 
 responseModifyCapacityReservation :: ModifyCapacityReservationResponse -> TestTree
-responseModifyCapacityReservation =
-  res
+responseModifyCapacityReservation = res
     "ModifyCapacityReservationResponse"
     "fixture/ModifyCapacityReservationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyCapacityReservation)
 
 responseGetAssociatedIpv6PoolCidrs :: GetAssociatedIpv6PoolCidrsResponse -> TestTree
-responseGetAssociatedIpv6PoolCidrs =
-  res
+responseGetAssociatedIpv6PoolCidrs = res
     "GetAssociatedIpv6PoolCidrsResponse"
     "fixture/GetAssociatedIpv6PoolCidrsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetAssociatedIpv6PoolCidrs)
 
 responseImportInstance :: ImportInstanceResponse -> TestTree
-responseImportInstance =
-  res
+responseImportInstance = res
     "ImportInstanceResponse"
     "fixture/ImportInstanceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ImportInstance)
 
 responseRevokeSecurityGroupEgress :: RevokeSecurityGroupEgressResponse -> TestTree
-responseRevokeSecurityGroupEgress =
-  res
+responseRevokeSecurityGroupEgress = res
     "RevokeSecurityGroupEgressResponse"
     "fixture/RevokeSecurityGroupEgressResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RevokeSecurityGroupEgress)
 
 responseCreateNetworkInterfacePermission :: CreateNetworkInterfacePermissionResponse -> TestTree
-responseCreateNetworkInterfacePermission =
-  res
+responseCreateNetworkInterfacePermission = res
     "CreateNetworkInterfacePermissionResponse"
     "fixture/CreateNetworkInterfacePermissionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateNetworkInterfacePermission)
 
 responseSendDiagnosticInterrupt :: SendDiagnosticInterruptResponse -> TestTree
-responseSendDiagnosticInterrupt =
-  res
+responseSendDiagnosticInterrupt = res
     "SendDiagnosticInterruptResponse"
     "fixture/SendDiagnosticInterruptResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SendDiagnosticInterrupt)
 
 responseDeleteLaunchTemplate :: DeleteLaunchTemplateResponse -> TestTree
-responseDeleteLaunchTemplate =
-  res
+responseDeleteLaunchTemplate = res
     "DeleteLaunchTemplateResponse"
     "fixture/DeleteLaunchTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteLaunchTemplate)
 
 responseRejectVpcEndpointConnections :: RejectVpcEndpointConnectionsResponse -> TestTree
-responseRejectVpcEndpointConnections =
-  res
+responseRejectVpcEndpointConnections = res
     "RejectVpcEndpointConnectionsResponse"
     "fixture/RejectVpcEndpointConnectionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RejectVpcEndpointConnections)
 
 responseCreateVpnGateway :: CreateVpnGatewayResponse -> TestTree
-responseCreateVpnGateway =
-  res
+responseCreateVpnGateway = res
     "CreateVpnGatewayResponse"
     "fixture/CreateVpnGatewayResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateVpnGateway)
 
 responseCreateNetworkAcl :: CreateNetworkAclResponse -> TestTree
-responseCreateNetworkAcl =
-  res
+responseCreateNetworkAcl = res
     "CreateNetworkAclResponse"
     "fixture/CreateNetworkAclResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateNetworkAcl)
 
 responseDeleteKeyPair :: DeleteKeyPairResponse -> TestTree
-responseDeleteKeyPair =
-  res
+responseDeleteKeyPair = res
     "DeleteKeyPairResponse"
     "fixture/DeleteKeyPairResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteKeyPair)
 
 responseDescribeSecurityGroupReferences :: DescribeSecurityGroupReferencesResponse -> TestTree
-responseDescribeSecurityGroupReferences =
-  res
+responseDescribeSecurityGroupReferences = res
     "DescribeSecurityGroupReferencesResponse"
     "fixture/DescribeSecurityGroupReferencesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeSecurityGroupReferences)
 
 responseDeleteFleets :: DeleteFleetsResponse -> TestTree
-responseDeleteFleets =
-  res
+responseDeleteFleets = res
     "DeleteFleetsResponse"
     "fixture/DeleteFleetsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteFleets)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
-responseDescribeTags =
-  res
+responseDescribeTags = res
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeTags)
 
 responseCreateTransitGatewayRouteTable :: CreateTransitGatewayRouteTableResponse -> TestTree
-responseCreateTransitGatewayRouteTable =
-  res
+responseCreateTransitGatewayRouteTable = res
     "CreateTransitGatewayRouteTableResponse"
     "fixture/CreateTransitGatewayRouteTableResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateTransitGatewayRouteTable)
 
 responseModifyInstanceMetadataOptions :: ModifyInstanceMetadataOptionsResponse -> TestTree
-responseModifyInstanceMetadataOptions =
-  res
+responseModifyInstanceMetadataOptions = res
     "ModifyInstanceMetadataOptionsResponse"
     "fixture/ModifyInstanceMetadataOptionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyInstanceMetadataOptions)
 
 responseUpdateSecurityGroupRuleDescriptionsIngress :: UpdateSecurityGroupRuleDescriptionsIngressResponse -> TestTree
-responseUpdateSecurityGroupRuleDescriptionsIngress =
-  res
+responseUpdateSecurityGroupRuleDescriptionsIngress = res
     "UpdateSecurityGroupRuleDescriptionsIngressResponse"
     "fixture/UpdateSecurityGroupRuleDescriptionsIngressResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateSecurityGroupRuleDescriptionsIngress)
 
 responseDisassociateSubnetCidrBlock :: DisassociateSubnetCidrBlockResponse -> TestTree
-responseDisassociateSubnetCidrBlock =
-  res
+responseDisassociateSubnetCidrBlock = res
     "DisassociateSubnetCidrBlockResponse"
     "fixture/DisassociateSubnetCidrBlockResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateSubnetCidrBlock)
 
 responseDetachNetworkInterface :: DetachNetworkInterfaceResponse -> TestTree
-responseDetachNetworkInterface =
-  res
+responseDetachNetworkInterface = res
     "DetachNetworkInterfaceResponse"
     "fixture/DetachNetworkInterfaceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DetachNetworkInterface)
 
 responseDetachInternetGateway :: DetachInternetGatewayResponse -> TestTree
-responseDetachInternetGateway =
-  res
+responseDetachInternetGateway = res
     "DetachInternetGatewayResponse"
     "fixture/DetachInternetGatewayResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DetachInternetGateway)
 
 responseDeleteVpcEndpoints :: DeleteVpcEndpointsResponse -> TestTree
-responseDeleteVpcEndpoints =
-  res
+responseDeleteVpcEndpoints = res
     "DeleteVpcEndpointsResponse"
     "fixture/DeleteVpcEndpointsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteVpcEndpoints)
 
 responseDescribeClientVpnEndpoints :: DescribeClientVpnEndpointsResponse -> TestTree
-responseDescribeClientVpnEndpoints =
-  res
+responseDescribeClientVpnEndpoints = res
     "DescribeClientVpnEndpointsResponse"
     "fixture/DescribeClientVpnEndpointsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeClientVpnEndpoints)
 
 responseDeleteFlowLogs :: DeleteFlowLogsResponse -> TestTree
-responseDeleteFlowLogs =
-  res
+responseDeleteFlowLogs = res
     "DeleteFlowLogsResponse"
     "fixture/DeleteFlowLogsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteFlowLogs)
 
 responseDescribeVpcClassicLink :: DescribeVpcClassicLinkResponse -> TestTree
-responseDescribeVpcClassicLink =
-  res
+responseDescribeVpcClassicLink = res
     "DescribeVpcClassicLinkResponse"
     "fixture/DescribeVpcClassicLinkResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeVpcClassicLink)
 
 responseGetAssociatedEnclaveCertificateIamRoles :: GetAssociatedEnclaveCertificateIamRolesResponse -> TestTree
-responseGetAssociatedEnclaveCertificateIamRoles =
-  res
+responseGetAssociatedEnclaveCertificateIamRoles = res
     "GetAssociatedEnclaveCertificateIamRolesResponse"
     "fixture/GetAssociatedEnclaveCertificateIamRolesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetAssociatedEnclaveCertificateIamRoles)
 
 responseAssociateTransitGatewayMulticastDomain :: AssociateTransitGatewayMulticastDomainResponse -> TestTree
-responseAssociateTransitGatewayMulticastDomain =
-  res
+responseAssociateTransitGatewayMulticastDomain = res
     "AssociateTransitGatewayMulticastDomainResponse"
     "fixture/AssociateTransitGatewayMulticastDomainResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateTransitGatewayMulticastDomain)
 
 responseModifySubnetAttribute :: ModifySubnetAttributeResponse -> TestTree
-responseModifySubnetAttribute =
-  res
+responseModifySubnetAttribute = res
     "ModifySubnetAttributeResponse"
     "fixture/ModifySubnetAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifySubnetAttribute)
 
 responseDetachVolume :: VolumeAttachment -> TestTree
-responseDetachVolume =
-  res
+responseDetachVolume = res
     "DetachVolumeResponse"
     "fixture/DetachVolumeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DetachVolume)
 
 responseDescribeInstanceCreditSpecifications :: DescribeInstanceCreditSpecificationsResponse -> TestTree
-responseDescribeInstanceCreditSpecifications =
-  res
+responseDescribeInstanceCreditSpecifications = res
     "DescribeInstanceCreditSpecificationsResponse"
     "fixture/DescribeInstanceCreditSpecificationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeInstanceCreditSpecifications)
 
 responseCancelBundleTask :: CancelBundleTaskResponse -> TestTree
-responseCancelBundleTask =
-  res
+responseCancelBundleTask = res
     "CancelBundleTaskResponse"
     "fixture/CancelBundleTaskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CancelBundleTask)
 
 responseDescribeByoipCidrs :: DescribeByoipCidrsResponse -> TestTree
-responseDescribeByoipCidrs =
-  res
+responseDescribeByoipCidrs = res
     "DescribeByoipCidrsResponse"
     "fixture/DescribeByoipCidrsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeByoipCidrs)
 
 responseAcceptReservedInstancesExchangeQuote :: AcceptReservedInstancesExchangeQuoteResponse -> TestTree
-responseAcceptReservedInstancesExchangeQuote =
-  res
+responseAcceptReservedInstancesExchangeQuote = res
     "AcceptReservedInstancesExchangeQuoteResponse"
     "fixture/AcceptReservedInstancesExchangeQuoteResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AcceptReservedInstancesExchangeQuote)
 
 responseReleaseAddress :: ReleaseAddressResponse -> TestTree
-responseReleaseAddress =
-  res
+responseReleaseAddress = res
     "ReleaseAddressResponse"
     "fixture/ReleaseAddressResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ReleaseAddress)
 
 responseDescribeInstanceTypeOfferings :: DescribeInstanceTypeOfferingsResponse -> TestTree
-responseDescribeInstanceTypeOfferings =
-  res
+responseDescribeInstanceTypeOfferings = res
     "DescribeInstanceTypeOfferingsResponse"
     "fixture/DescribeInstanceTypeOfferingsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeInstanceTypeOfferings)
 
 responseCreateInternetGateway :: CreateInternetGatewayResponse -> TestTree
-responseCreateInternetGateway =
-  res
+responseCreateInternetGateway = res
     "CreateInternetGatewayResponse"
     "fixture/CreateInternetGatewayResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateInternetGateway)
 
 responseDeleteVpnConnection :: DeleteVpnConnectionResponse -> TestTree
-responseDeleteVpnConnection =
-  res
+responseDeleteVpnConnection = res
     "DeleteVpnConnectionResponse"
     "fixture/DeleteVpnConnectionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteVpnConnection)
 
 responseDescribeBundleTasks :: DescribeBundleTasksResponse -> TestTree
-responseDescribeBundleTasks =
-  res
+responseDescribeBundleTasks = res
     "DescribeBundleTasksResponse"
     "fixture/DescribeBundleTasksResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeBundleTasks)
 
 responseAuthorizeSecurityGroupEgress :: AuthorizeSecurityGroupEgressResponse -> TestTree
-responseAuthorizeSecurityGroupEgress =
-  res
+responseAuthorizeSecurityGroupEgress = res
     "AuthorizeSecurityGroupEgressResponse"
     "fixture/AuthorizeSecurityGroupEgressResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AuthorizeSecurityGroupEgress)
 
 responseEnableTransitGatewayRouteTablePropagation :: EnableTransitGatewayRouteTablePropagationResponse -> TestTree
-responseEnableTransitGatewayRouteTablePropagation =
-  res
+responseEnableTransitGatewayRouteTablePropagation = res
     "EnableTransitGatewayRouteTablePropagationResponse"
     "fixture/EnableTransitGatewayRouteTablePropagationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy EnableTransitGatewayRouteTablePropagation)
 
 responseDeregisterImage :: DeregisterImageResponse -> TestTree
-responseDeregisterImage =
-  res
+responseDeregisterImage = res
     "DeregisterImageResponse"
     "fixture/DeregisterImageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeregisterImage)
 
 responseDeleteVpcEndpointConnectionNotifications :: DeleteVpcEndpointConnectionNotificationsResponse -> TestTree
-responseDeleteVpcEndpointConnectionNotifications =
-  res
+responseDeleteVpcEndpointConnectionNotifications = res
     "DeleteVpcEndpointConnectionNotificationsResponse"
     "fixture/DeleteVpcEndpointConnectionNotificationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteVpcEndpointConnectionNotifications)
 
 responseDescribeCoipPools :: DescribeCoipPoolsResponse -> TestTree
-responseDescribeCoipPools =
-  res
+responseDescribeCoipPools = res
     "DescribeCoipPoolsResponse"
     "fixture/DescribeCoipPoolsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeCoipPools)
 
 responseGetTransitGatewayMulticastDomainAssociations :: GetTransitGatewayMulticastDomainAssociationsResponse -> TestTree
-responseGetTransitGatewayMulticastDomainAssociations =
-  res
+responseGetTransitGatewayMulticastDomainAssociations = res
     "GetTransitGatewayMulticastDomainAssociationsResponse"
     "fixture/GetTransitGatewayMulticastDomainAssociationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetTransitGatewayMulticastDomainAssociations)
 
 responseDeleteLocalGatewayRouteTableVpcAssociation :: DeleteLocalGatewayRouteTableVpcAssociationResponse -> TestTree
-responseDeleteLocalGatewayRouteTableVpcAssociation =
-  res
+responseDeleteLocalGatewayRouteTableVpcAssociation = res
     "DeleteLocalGatewayRouteTableVpcAssociationResponse"
     "fixture/DeleteLocalGatewayRouteTableVpcAssociationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteLocalGatewayRouteTableVpcAssociation)
 
 responseModifyNetworkInterfaceAttribute :: ModifyNetworkInterfaceAttributeResponse -> TestTree
-responseModifyNetworkInterfaceAttribute =
-  res
+responseModifyNetworkInterfaceAttribute = res
     "ModifyNetworkInterfaceAttributeResponse"
     "fixture/ModifyNetworkInterfaceAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyNetworkInterfaceAttribute)
 
 responseModifyVpcTenancy :: ModifyVpcTenancyResponse -> TestTree
-responseModifyVpcTenancy =
-  res
+responseModifyVpcTenancy = res
     "ModifyVpcTenancyResponse"
     "fixture/ModifyVpcTenancyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyVpcTenancy)
 
 responseDescribeInstanceTypes :: DescribeInstanceTypesResponse -> TestTree
-responseDescribeInstanceTypes =
-  res
+responseDescribeInstanceTypes = res
     "DescribeInstanceTypesResponse"
     "fixture/DescribeInstanceTypesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeInstanceTypes)
 
 responseDescribeClientVpnAuthorizationRules :: DescribeClientVpnAuthorizationRulesResponse -> TestTree
-responseDescribeClientVpnAuthorizationRules =
-  res
+responseDescribeClientVpnAuthorizationRules = res
     "DescribeClientVpnAuthorizationRulesResponse"
     "fixture/DescribeClientVpnAuthorizationRulesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeClientVpnAuthorizationRules)
 
 responseDeleteTransitGatewayVpcAttachment :: DeleteTransitGatewayVpcAttachmentResponse -> TestTree
-responseDeleteTransitGatewayVpcAttachment =
-  res
+responseDeleteTransitGatewayVpcAttachment = res
     "DeleteTransitGatewayVpcAttachmentResponse"
     "fixture/DeleteTransitGatewayVpcAttachmentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteTransitGatewayVpcAttachment)
 
 responseDeleteTransitGatewayMulticastDomain :: DeleteTransitGatewayMulticastDomainResponse -> TestTree
-responseDeleteTransitGatewayMulticastDomain =
-  res
+responseDeleteTransitGatewayMulticastDomain = res
     "DeleteTransitGatewayMulticastDomainResponse"
     "fixture/DeleteTransitGatewayMulticastDomainResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteTransitGatewayMulticastDomain)
 
 responseCancelReservedInstancesListing :: CancelReservedInstancesListingResponse -> TestTree
-responseCancelReservedInstancesListing =
-  res
+responseCancelReservedInstancesListing = res
     "CancelReservedInstancesListingResponse"
     "fixture/CancelReservedInstancesListingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CancelReservedInstancesListing)
 
 responseAttachClassicLinkVpc :: AttachClassicLinkVpcResponse -> TestTree
-responseAttachClassicLinkVpc =
-  res
+responseAttachClassicLinkVpc = res
     "AttachClassicLinkVpcResponse"
     "fixture/AttachClassicLinkVpcResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AttachClassicLinkVpc)
 
 responseDisableTransitGatewayRouteTablePropagation :: DisableTransitGatewayRouteTablePropagationResponse -> TestTree
-responseDisableTransitGatewayRouteTablePropagation =
-  res
+responseDisableTransitGatewayRouteTablePropagation = res
     "DisableTransitGatewayRouteTablePropagationResponse"
     "fixture/DisableTransitGatewayRouteTablePropagationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisableTransitGatewayRouteTablePropagation)
 
 responseDescribeVpcClassicLinkDnsSupport :: DescribeVpcClassicLinkDnsSupportResponse -> TestTree
-responseDescribeVpcClassicLinkDnsSupport =
-  res
+responseDescribeVpcClassicLinkDnsSupport = res
     "DescribeVpcClassicLinkDnsSupportResponse"
     "fixture/DescribeVpcClassicLinkDnsSupportResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeVpcClassicLinkDnsSupport)
 
 responseAssociateSubnetCidrBlock :: AssociateSubnetCidrBlockResponse -> TestTree
-responseAssociateSubnetCidrBlock =
-  res
+responseAssociateSubnetCidrBlock = res
     "AssociateSubnetCidrBlockResponse"
     "fixture/AssociateSubnetCidrBlockResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateSubnetCidrBlock)
 
 responseRunScheduledInstances :: RunScheduledInstancesResponse -> TestTree
-responseRunScheduledInstances =
-  res
+responseRunScheduledInstances = res
     "RunScheduledInstancesResponse"
     "fixture/RunScheduledInstancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RunScheduledInstances)
 
 responseCreateTransitGatewayRoute :: CreateTransitGatewayRouteResponse -> TestTree
-responseCreateTransitGatewayRoute =
-  res
+responseCreateTransitGatewayRoute = res
     "CreateTransitGatewayRouteResponse"
     "fixture/CreateTransitGatewayRouteResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateTransitGatewayRoute)
 
 responseCreateTransitGatewayPrefixListReference :: CreateTransitGatewayPrefixListReferenceResponse -> TestTree
-responseCreateTransitGatewayPrefixListReference =
-  res
+responseCreateTransitGatewayPrefixListReference = res
     "CreateTransitGatewayPrefixListReferenceResponse"
     "fixture/CreateTransitGatewayPrefixListReferenceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateTransitGatewayPrefixListReference)
 
 responseCancelSpotFleetRequests :: CancelSpotFleetRequestsResponse -> TestTree
-responseCancelSpotFleetRequests =
-  res
+responseCancelSpotFleetRequests = res
     "CancelSpotFleetRequestsResponse"
     "fixture/CancelSpotFleetRequestsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CancelSpotFleetRequests)
 
 responseDescribeSpotPriceHistory :: DescribeSpotPriceHistoryResponse -> TestTree
-responseDescribeSpotPriceHistory =
-  res
+responseDescribeSpotPriceHistory = res
     "DescribeSpotPriceHistoryResponse"
     "fixture/DescribeSpotPriceHistoryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeSpotPriceHistory)
 
 responseDescribeDhcpOptions :: DescribeDhcpOptionsResponse -> TestTree
-responseDescribeDhcpOptions =
-  res
+responseDescribeDhcpOptions = res
     "DescribeDhcpOptionsResponse"
     "fixture/DescribeDhcpOptionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeDhcpOptions)
 
 responseImportImage :: ImportImageResponse -> TestTree
-responseImportImage =
-  res
+responseImportImage = res
     "ImportImageResponse"
     "fixture/ImportImageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ImportImage)
 
 responseCreateLocalGatewayRouteTableVpcAssociation :: CreateLocalGatewayRouteTableVpcAssociationResponse -> TestTree
-responseCreateLocalGatewayRouteTableVpcAssociation =
-  res
+responseCreateLocalGatewayRouteTableVpcAssociation = res
     "CreateLocalGatewayRouteTableVpcAssociationResponse"
     "fixture/CreateLocalGatewayRouteTableVpcAssociationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateLocalGatewayRouteTableVpcAssociation)
 
 responseCopyFpgaImage :: CopyFpgaImageResponse -> TestTree
-responseCopyFpgaImage =
-  res
+responseCopyFpgaImage = res
     "CopyFpgaImageResponse"
     "fixture/CopyFpgaImageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CopyFpgaImage)
 
 responseImportClientVpnClientCertificateRevocationList :: ImportClientVpnClientCertificateRevocationListResponse -> TestTree
-responseImportClientVpnClientCertificateRevocationList =
-  res
+responseImportClientVpnClientCertificateRevocationList = res
     "ImportClientVpnClientCertificateRevocationListResponse"
     "fixture/ImportClientVpnClientCertificateRevocationListResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ImportClientVpnClientCertificateRevocationList)
 
 responseStopInstances :: StopInstancesResponse -> TestTree
-responseStopInstances =
-  res
+responseStopInstances = res
     "StopInstancesResponse"
     "fixture/StopInstancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StopInstances)
 
 responseEnableEbsEncryptionByDefault :: EnableEbsEncryptionByDefaultResponse -> TestTree
-responseEnableEbsEncryptionByDefault =
-  res
+responseEnableEbsEncryptionByDefault = res
     "EnableEbsEncryptionByDefaultResponse"
     "fixture/EnableEbsEncryptionByDefaultResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy EnableEbsEncryptionByDefault)
 
 responseDeregisterTransitGatewayMulticastGroupSources :: DeregisterTransitGatewayMulticastGroupSourcesResponse -> TestTree
-responseDeregisterTransitGatewayMulticastGroupSources =
-  res
+responseDeregisterTransitGatewayMulticastGroupSources = res
     "DeregisterTransitGatewayMulticastGroupSourcesResponse"
     "fixture/DeregisterTransitGatewayMulticastGroupSourcesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeregisterTransitGatewayMulticastGroupSources)
 
 responseModifyLaunchTemplate :: ModifyLaunchTemplateResponse -> TestTree
-responseModifyLaunchTemplate =
-  res
+responseModifyLaunchTemplate = res
     "ModifyLaunchTemplateResponse"
     "fixture/ModifyLaunchTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyLaunchTemplate)
 
 responseModifyVpcEndpointConnectionNotification :: ModifyVpcEndpointConnectionNotificationResponse -> TestTree
-responseModifyVpcEndpointConnectionNotification =
-  res
+responseModifyVpcEndpointConnectionNotification = res
     "ModifyVpcEndpointConnectionNotificationResponse"
     "fixture/ModifyVpcEndpointConnectionNotificationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyVpcEndpointConnectionNotification)
 
 responseDescribeInternetGateways :: DescribeInternetGatewaysResponse -> TestTree
-responseDescribeInternetGateways =
-  res
+responseDescribeInternetGateways = res
     "DescribeInternetGatewaysResponse"
     "fixture/DescribeInternetGatewaysResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeInternetGateways)
 
 responseDisableVpcClassicLink :: DisableVpcClassicLinkResponse -> TestTree
-responseDisableVpcClassicLink =
-  res
+responseDisableVpcClassicLink = res
     "DisableVpcClassicLinkResponse"
     "fixture/DisableVpcClassicLinkResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisableVpcClassicLink)
 
 responseGetGroupsForCapacityReservation :: GetGroupsForCapacityReservationResponse -> TestTree
-responseGetGroupsForCapacityReservation =
-  res
+responseGetGroupsForCapacityReservation = res
     "GetGroupsForCapacityReservationResponse"
     "fixture/GetGroupsForCapacityReservationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetGroupsForCapacityReservation)
 
 responseDeleteLaunchTemplateVersions :: DeleteLaunchTemplateVersionsResponse -> TestTree
-responseDeleteLaunchTemplateVersions =
-  res
+responseDeleteLaunchTemplateVersions = res
     "DeleteLaunchTemplateVersionsResponse"
     "fixture/DeleteLaunchTemplateVersionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteLaunchTemplateVersions)
 
 responseBundleInstance :: BundleInstanceResponse -> TestTree
-responseBundleInstance =
-  res
+responseBundleInstance = res
     "BundleInstanceResponse"
     "fixture/BundleInstanceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy BundleInstance)
 
 responseDescribeNetworkInterfaces :: DescribeNetworkInterfacesResponse -> TestTree
-responseDescribeNetworkInterfaces =
-  res
+responseDescribeNetworkInterfaces = res
     "DescribeNetworkInterfacesResponse"
     "fixture/DescribeNetworkInterfacesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeNetworkInterfaces)
 
 responseReplaceNetworkAclAssociation :: ReplaceNetworkAclAssociationResponse -> TestTree
-responseReplaceNetworkAclAssociation =
-  res
+responseReplaceNetworkAclAssociation = res
     "ReplaceNetworkAclAssociationResponse"
     "fixture/ReplaceNetworkAclAssociationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ReplaceNetworkAclAssociation)
 
 responseDescribeNatGateways :: DescribeNatGatewaysResponse -> TestTree
-responseDescribeNatGateways =
-  res
+responseDescribeNatGateways = res
     "DescribeNatGatewaysResponse"
     "fixture/DescribeNatGatewaysResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeNatGateways)
 
 responseDescribeAddresses :: DescribeAddressesResponse -> TestTree
-responseDescribeAddresses =
-  res
+responseDescribeAddresses = res
     "DescribeAddressesResponse"
     "fixture/DescribeAddressesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAddresses)
 
 responseRestoreManagedPrefixListVersion :: RestoreManagedPrefixListVersionResponse -> TestTree
-responseRestoreManagedPrefixListVersion =
-  res
+responseRestoreManagedPrefixListVersion = res
     "RestoreManagedPrefixListVersionResponse"
     "fixture/RestoreManagedPrefixListVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RestoreManagedPrefixListVersion)
 
 responseDescribeSnapshotAttribute :: DescribeSnapshotAttributeResponse -> TestTree
-responseDescribeSnapshotAttribute =
-  res
+responseDescribeSnapshotAttribute = res
     "DescribeSnapshotAttributeResponse"
     "fixture/DescribeSnapshotAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeSnapshotAttribute)
 
 responseDescribeIdentityIdFormat :: DescribeIdentityIdFormatResponse -> TestTree
-responseDescribeIdentityIdFormat =
-  res
+responseDescribeIdentityIdFormat = res
     "DescribeIdentityIdFormatResponse"
     "fixture/DescribeIdentityIdFormatResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeIdentityIdFormat)
 
 responseReplaceRoute :: ReplaceRouteResponse -> TestTree
-responseReplaceRoute =
-  res
+responseReplaceRoute = res
     "ReplaceRouteResponse"
     "fixture/ReplaceRouteResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ReplaceRoute)
 
 responseDescribeVpcEndpointServices :: DescribeVpcEndpointServicesResponse -> TestTree
-responseDescribeVpcEndpointServices =
-  res
+responseDescribeVpcEndpointServices = res
     "DescribeVpcEndpointServicesResponse"
     "fixture/DescribeVpcEndpointServicesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeVpcEndpointServices)
 
 responseDeleteLocalGatewayRoute :: DeleteLocalGatewayRouteResponse -> TestTree
-responseDeleteLocalGatewayRoute =
-  res
+responseDeleteLocalGatewayRoute = res
     "DeleteLocalGatewayRouteResponse"
     "fixture/DeleteLocalGatewayRouteResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteLocalGatewayRoute)
 
 responseAuthorizeSecurityGroupIngress :: AuthorizeSecurityGroupIngressResponse -> TestTree
-responseAuthorizeSecurityGroupIngress =
-  res
+responseAuthorizeSecurityGroupIngress = res
     "AuthorizeSecurityGroupIngressResponse"
     "fixture/AuthorizeSecurityGroupIngressResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AuthorizeSecurityGroupIngress)
 
 responseCreateVpcPeeringConnection :: CreateVpcPeeringConnectionResponse -> TestTree
-responseCreateVpcPeeringConnection =
-  res
+responseCreateVpcPeeringConnection = res
     "CreateVpcPeeringConnectionResponse"
     "fixture/CreateVpcPeeringConnectionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateVpcPeeringConnection)
 
 responseDescribeSubnets :: DescribeSubnetsResponse -> TestTree
-responseDescribeSubnets =
-  res
+responseDescribeSubnets = res
     "DescribeSubnetsResponse"
     "fixture/DescribeSubnetsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeSubnets)
 
 responseGetTransitGatewayAttachmentPropagations :: GetTransitGatewayAttachmentPropagationsResponse -> TestTree
-responseGetTransitGatewayAttachmentPropagations =
-  res
+responseGetTransitGatewayAttachmentPropagations = res
     "GetTransitGatewayAttachmentPropagationsResponse"
     "fixture/GetTransitGatewayAttachmentPropagationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetTransitGatewayAttachmentPropagations)
 
 responseCreateTags :: CreateTagsResponse -> TestTree
-responseCreateTags =
-  res
+responseCreateTags = res
     "CreateTagsResponse"
     "fixture/CreateTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateTags)
 
 responsePurchaseReservedInstancesOffering :: PurchaseReservedInstancesOfferingResponse -> TestTree
-responsePurchaseReservedInstancesOffering =
-  res
+responsePurchaseReservedInstancesOffering = res
     "PurchaseReservedInstancesOfferingResponse"
     "fixture/PurchaseReservedInstancesOfferingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PurchaseReservedInstancesOffering)
 
 responseDeleteNetworkAclEntry :: DeleteNetworkAclEntryResponse -> TestTree
-responseDeleteNetworkAclEntry =
-  res
+responseDeleteNetworkAclEntry = res
     "DeleteNetworkAclEntryResponse"
     "fixture/DeleteNetworkAclEntryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteNetworkAclEntry)
 
 responseResetSnapshotAttribute :: ResetSnapshotAttributeResponse -> TestTree
-responseResetSnapshotAttribute =
-  res
+responseResetSnapshotAttribute = res
     "ResetSnapshotAttributeResponse"
     "fixture/ResetSnapshotAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ResetSnapshotAttribute)
 
 responseDescribeVpnConnections :: DescribeVpnConnectionsResponse -> TestTree
-responseDescribeVpnConnections =
-  res
+responseDescribeVpnConnections = res
     "DescribeVpnConnectionsResponse"
     "fixture/DescribeVpnConnectionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeVpnConnections)
 
 responseModifyInstanceEventStartTime :: ModifyInstanceEventStartTimeResponse -> TestTree
-responseModifyInstanceEventStartTime =
-  res
+responseModifyInstanceEventStartTime = res
     "ModifyInstanceEventStartTimeResponse"
     "fixture/ModifyInstanceEventStartTimeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyInstanceEventStartTime)
 
 responseDeleteRoute :: DeleteRouteResponse -> TestTree
-responseDeleteRoute =
-  res
+responseDeleteRoute = res
     "DeleteRouteResponse"
     "fixture/DeleteRouteResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteRoute)
 
 responseReplaceNetworkAclEntry :: ReplaceNetworkAclEntryResponse -> TestTree
-responseReplaceNetworkAclEntry =
-  res
+responseReplaceNetworkAclEntry = res
     "ReplaceNetworkAclEntryResponse"
     "fixture/ReplaceNetworkAclEntryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ReplaceNetworkAclEntry)
 
 responseDescribeVpcEndpoints :: DescribeVpcEndpointsResponse -> TestTree
-responseDescribeVpcEndpoints =
-  res
+responseDescribeVpcEndpoints = res
     "DescribeVpcEndpointsResponse"
     "fixture/DescribeVpcEndpointsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeVpcEndpoints)
 
 responseCreateTrafficMirrorFilter :: CreateTrafficMirrorFilterResponse -> TestTree
-responseCreateTrafficMirrorFilter =
-  res
+responseCreateTrafficMirrorFilter = res
     "CreateTrafficMirrorFilterResponse"
     "fixture/CreateTrafficMirrorFilterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateTrafficMirrorFilter)
 
 responseResetInstanceAttribute :: ResetInstanceAttributeResponse -> TestTree
-responseResetInstanceAttribute =
-  res
+responseResetInstanceAttribute = res
     "ResetInstanceAttributeResponse"
     "fixture/ResetInstanceAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ResetInstanceAttribute)
 
 responseModifyIdentityIdFormat :: ModifyIdentityIdFormatResponse -> TestTree
-responseModifyIdentityIdFormat =
-  res
+responseModifyIdentityIdFormat = res
     "ModifyIdentityIdFormatResponse"
     "fixture/ModifyIdentityIdFormatResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyIdentityIdFormat)
 
 responseAttachNetworkInterface :: AttachNetworkInterfaceResponse -> TestTree
-responseAttachNetworkInterface =
-  res
+responseAttachNetworkInterface = res
     "AttachNetworkInterfaceResponse"
     "fixture/AttachNetworkInterfaceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AttachNetworkInterface)
 
 responseCreateCapacityReservation :: CreateCapacityReservationResponse -> TestTree
-responseCreateCapacityReservation =
-  res
+responseCreateCapacityReservation = res
     "CreateCapacityReservationResponse"
     "fixture/CreateCapacityReservationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateCapacityReservation)
 
 responseDescribeInstanceStatus :: DescribeInstanceStatusResponse -> TestTree
-responseDescribeInstanceStatus =
-  res
+responseDescribeInstanceStatus = res
     "DescribeInstanceStatusResponse"
     "fixture/DescribeInstanceStatusResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeInstanceStatus)
 
 responseImportKeyPair :: ImportKeyPairResponse -> TestTree
-responseImportKeyPair =
-  res
+responseImportKeyPair = res
     "ImportKeyPairResponse"
     "fixture/ImportKeyPairResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ImportKeyPair)
 
 responseDeleteTags :: DeleteTagsResponse -> TestTree
-responseDeleteTags =
-  res
+responseDeleteTags = res
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteTags)
 
 responseConfirmProductInstance :: ConfirmProductInstanceResponse -> TestTree
-responseConfirmProductInstance =
-  res
+responseConfirmProductInstance = res
     "ConfirmProductInstanceResponse"
     "fixture/ConfirmProductInstanceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ConfirmProductInstance)
 
 responseDescribeInstanceAttribute :: DescribeInstanceAttributeResponse -> TestTree
-responseDescribeInstanceAttribute =
-  res
+responseDescribeInstanceAttribute = res
     "DescribeInstanceAttributeResponse"
     "fixture/DescribeInstanceAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeInstanceAttribute)
 
 responseDescribeReservedInstancesOfferings :: DescribeReservedInstancesOfferingsResponse -> TestTree
-responseDescribeReservedInstancesOfferings =
-  res
+responseDescribeReservedInstancesOfferings = res
     "DescribeReservedInstancesOfferingsResponse"
     "fixture/DescribeReservedInstancesOfferingsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeReservedInstancesOfferings)
 
 responseCreateCustomerGateway :: CreateCustomerGatewayResponse -> TestTree
-responseCreateCustomerGateway =
-  res
+responseCreateCustomerGateway = res
     "CreateCustomerGatewayResponse"
     "fixture/CreateCustomerGatewayResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateCustomerGateway)
 
 responseDescribeFleets :: DescribeFleetsResponse -> TestTree
-responseDescribeFleets =
-  res
+responseDescribeFleets = res
     "DescribeFleetsResponse"
     "fixture/DescribeFleetsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeFleets)
 
 responseCreateTransitGatewayPeeringAttachment :: CreateTransitGatewayPeeringAttachmentResponse -> TestTree
-responseCreateTransitGatewayPeeringAttachment =
-  res
+responseCreateTransitGatewayPeeringAttachment = res
     "CreateTransitGatewayPeeringAttachmentResponse"
     "fixture/CreateTransitGatewayPeeringAttachmentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateTransitGatewayPeeringAttachment)
 
 responseDeleteSecurityGroup :: DeleteSecurityGroupResponse -> TestTree
-responseDeleteSecurityGroup =
-  res
+responseDeleteSecurityGroup = res
     "DeleteSecurityGroupResponse"
     "fixture/DeleteSecurityGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteSecurityGroup)
 
 responseDescribePublicIpv4Pools :: DescribePublicIpv4PoolsResponse -> TestTree
-responseDescribePublicIpv4Pools =
-  res
+responseDescribePublicIpv4Pools = res
     "DescribePublicIpv4PoolsResponse"
     "fixture/DescribePublicIpv4PoolsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribePublicIpv4Pools)
 
 responseDescribeClientVpnTargetNetworks :: DescribeClientVpnTargetNetworksResponse -> TestTree
-responseDescribeClientVpnTargetNetworks =
-  res
+responseDescribeClientVpnTargetNetworks = res
     "DescribeClientVpnTargetNetworksResponse"
     "fixture/DescribeClientVpnTargetNetworksResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeClientVpnTargetNetworks)
 
 responseDeleteVpcPeeringConnection :: DeleteVpcPeeringConnectionResponse -> TestTree
-responseDeleteVpcPeeringConnection =
-  res
+responseDeleteVpcPeeringConnection = res
     "DeleteVpcPeeringConnectionResponse"
     "fixture/DeleteVpcPeeringConnectionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteVpcPeeringConnection)
 
 responseAttachInternetGateway :: AttachInternetGatewayResponse -> TestTree
-responseAttachInternetGateway =
-  res
+responseAttachInternetGateway = res
     "AttachInternetGatewayResponse"
     "fixture/AttachInternetGatewayResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AttachInternetGateway)
 
 responseModifyInstancePlacement :: ModifyInstancePlacementResponse -> TestTree
-responseModifyInstancePlacement =
-  res
+responseModifyInstancePlacement = res
     "ModifyInstancePlacementResponse"
     "fixture/ModifyInstancePlacementResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyInstancePlacement)
 
 responseDescribeFlowLogs :: DescribeFlowLogsResponse -> TestTree
-responseDescribeFlowLogs =
-  res
+responseDescribeFlowLogs = res
     "DescribeFlowLogsResponse"
     "fixture/DescribeFlowLogsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeFlowLogs)
 
 responseDescribeLocalGatewayVirtualInterfaceGroups :: DescribeLocalGatewayVirtualInterfaceGroupsResponse -> TestTree
-responseDescribeLocalGatewayVirtualInterfaceGroups =
-  res
+responseDescribeLocalGatewayVirtualInterfaceGroups = res
     "DescribeLocalGatewayVirtualInterfaceGroupsResponse"
     "fixture/DescribeLocalGatewayVirtualInterfaceGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeLocalGatewayVirtualInterfaceGroups)
 
 responseDescribeLocalGatewayRouteTableVpcAssociations :: DescribeLocalGatewayRouteTableVpcAssociationsResponse -> TestTree
-responseDescribeLocalGatewayRouteTableVpcAssociations =
-  res
+responseDescribeLocalGatewayRouteTableVpcAssociations = res
     "DescribeLocalGatewayRouteTableVpcAssociationsResponse"
     "fixture/DescribeLocalGatewayRouteTableVpcAssociationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeLocalGatewayRouteTableVpcAssociations)
 
 responseDescribeVpcEndpointConnectionNotifications :: DescribeVpcEndpointConnectionNotificationsResponse -> TestTree
-responseDescribeVpcEndpointConnectionNotifications =
-  res
+responseDescribeVpcEndpointConnectionNotifications = res
     "DescribeVpcEndpointConnectionNotificationsResponse"
     "fixture/DescribeVpcEndpointConnectionNotificationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeVpcEndpointConnectionNotifications)
 
 responseGetManagedPrefixListEntries :: GetManagedPrefixListEntriesResponse -> TestTree
-responseGetManagedPrefixListEntries =
-  res
+responseGetManagedPrefixListEntries = res
     "GetManagedPrefixListEntriesResponse"
     "fixture/GetManagedPrefixListEntriesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetManagedPrefixListEntries)
 
 responseRunInstances :: Reservation -> TestTree
-responseRunInstances =
-  res
+responseRunInstances = res
     "RunInstancesResponse"
     "fixture/RunInstancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RunInstances)
 
 responseCreateSnapshots :: CreateSnapshotsResponse -> TestTree
-responseCreateSnapshots =
-  res
+responseCreateSnapshots = res
     "CreateSnapshotsResponse"
     "fixture/CreateSnapshotsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateSnapshots)
 
 responseAssociateDhcpOptions :: AssociateDhcpOptionsResponse -> TestTree
-responseAssociateDhcpOptions =
-  res
+responseAssociateDhcpOptions = res
     "AssociateDhcpOptionsResponse"
     "fixture/AssociateDhcpOptionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateDhcpOptions)
 
 responseDeleteTrafficMirrorFilterRule :: DeleteTrafficMirrorFilterRuleResponse -> TestTree
-responseDeleteTrafficMirrorFilterRule =
-  res
+responseDeleteTrafficMirrorFilterRule = res
     "DeleteTrafficMirrorFilterRuleResponse"
     "fixture/DeleteTrafficMirrorFilterRuleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteTrafficMirrorFilterRule)
 
 responseDescribeReservedInstances :: DescribeReservedInstancesResponse -> TestTree
-responseDescribeReservedInstances =
-  res
+responseDescribeReservedInstances = res
     "DescribeReservedInstancesResponse"
     "fixture/DescribeReservedInstancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeReservedInstances)
 
 responseDescribeIdFormat :: DescribeIdFormatResponse -> TestTree
-responseDescribeIdFormat =
-  res
+responseDescribeIdFormat = res
     "DescribeIdFormatResponse"
     "fixture/DescribeIdFormatResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeIdFormat)
 
 responseDescribeVpcs :: DescribeVpcsResponse -> TestTree
-responseDescribeVpcs =
-  res
+responseDescribeVpcs = res
     "DescribeVpcsResponse"
     "fixture/DescribeVpcsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeVpcs)
 
 responseDescribeConversionTasks :: DescribeConversionTasksResponse -> TestTree
-responseDescribeConversionTasks =
-  res
+responseDescribeConversionTasks = res
     "DescribeConversionTasksResponse"
     "fixture/DescribeConversionTasksResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeConversionTasks)
 
 responseCreateLaunchTemplateVersion :: CreateLaunchTemplateVersionResponse -> TestTree
-responseCreateLaunchTemplateVersion =
-  res
+responseCreateLaunchTemplateVersion = res
     "CreateLaunchTemplateVersionResponse"
     "fixture/CreateLaunchTemplateVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateLaunchTemplateVersion)
 
 responseGetManagedPrefixListAssociations :: GetManagedPrefixListAssociationsResponse -> TestTree
-responseGetManagedPrefixListAssociations =
-  res
+responseGetManagedPrefixListAssociations = res
     "GetManagedPrefixListAssociationsResponse"
     "fixture/GetManagedPrefixListAssociationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetManagedPrefixListAssociations)
 
 responseDisableVpcClassicLinkDnsSupport :: DisableVpcClassicLinkDnsSupportResponse -> TestTree
-responseDisableVpcClassicLinkDnsSupport =
-  res
+responseDisableVpcClassicLinkDnsSupport = res
     "DisableVpcClassicLinkDnsSupportResponse"
     "fixture/DisableVpcClassicLinkDnsSupportResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisableVpcClassicLinkDnsSupport)
 
 responseApplySecurityGroupsToClientVpnTargetNetwork :: ApplySecurityGroupsToClientVpnTargetNetworkResponse -> TestTree
-responseApplySecurityGroupsToClientVpnTargetNetwork =
-  res
+responseApplySecurityGroupsToClientVpnTargetNetwork = res
     "ApplySecurityGroupsToClientVpnTargetNetworkResponse"
     "fixture/ApplySecurityGroupsToClientVpnTargetNetworkResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ApplySecurityGroupsToClientVpnTargetNetwork)
 
 responseDescribeTrafficMirrorTargets :: DescribeTrafficMirrorTargetsResponse -> TestTree
-responseDescribeTrafficMirrorTargets =
-  res
+responseDescribeTrafficMirrorTargets = res
     "DescribeTrafficMirrorTargetsResponse"
     "fixture/DescribeTrafficMirrorTargetsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeTrafficMirrorTargets)
 
 responseDescribeVolumesModifications :: DescribeVolumesModificationsResponse -> TestTree
-responseDescribeVolumesModifications =
-  res
+responseDescribeVolumesModifications = res
     "DescribeVolumesModificationsResponse"
     "fixture/DescribeVolumesModificationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeVolumesModifications)
 
 responseExportImage :: ExportImageResponse -> TestTree
-responseExportImage =
-  res
+responseExportImage = res
     "ExportImageResponse"
     "fixture/ExportImageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ExportImage)
 
 responseCreateFpgaImage :: CreateFpgaImageResponse -> TestTree
-responseCreateFpgaImage =
-  res
+responseCreateFpgaImage = res
     "CreateFpgaImageResponse"
     "fixture/CreateFpgaImageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateFpgaImage)
 
 responseAcceptVpcEndpointConnections :: AcceptVpcEndpointConnectionsResponse -> TestTree
-responseAcceptVpcEndpointConnections =
-  res
+responseAcceptVpcEndpointConnections = res
     "AcceptVpcEndpointConnectionsResponse"
     "fixture/AcceptVpcEndpointConnectionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AcceptVpcEndpointConnections)
 
 responseDeleteClientVpnEndpoint :: DeleteClientVpnEndpointResponse -> TestTree
-responseDeleteClientVpnEndpoint =
-  res
+responseDeleteClientVpnEndpoint = res
     "DeleteClientVpnEndpointResponse"
     "fixture/DeleteClientVpnEndpointResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteClientVpnEndpoint)
 
 responseSearchTransitGatewayRoutes :: SearchTransitGatewayRoutesResponse -> TestTree
-responseSearchTransitGatewayRoutes =
-  res
+responseSearchTransitGatewayRoutes = res
     "SearchTransitGatewayRoutesResponse"
     "fixture/SearchTransitGatewayRoutesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SearchTransitGatewayRoutes)
 
 responseGetLaunchTemplateData :: GetLaunchTemplateDataResponse -> TestTree
-responseGetLaunchTemplateData =
-  res
+responseGetLaunchTemplateData = res
     "GetLaunchTemplateDataResponse"
     "fixture/GetLaunchTemplateDataResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetLaunchTemplateData)
 
 responseAllocateAddress :: AllocateAddressResponse -> TestTree
-responseAllocateAddress =
-  res
+responseAllocateAddress = res
     "AllocateAddressResponse"
     "fixture/AllocateAddressResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AllocateAddress)
 
 responseAcceptTransitGatewayVpcAttachment :: AcceptTransitGatewayVpcAttachmentResponse -> TestTree
-responseAcceptTransitGatewayVpcAttachment =
-  res
+responseAcceptTransitGatewayVpcAttachment = res
     "AcceptTransitGatewayVpcAttachmentResponse"
     "fixture/AcceptTransitGatewayVpcAttachmentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AcceptTransitGatewayVpcAttachment)
 
 responseCancelConversionTask :: CancelConversionTaskResponse -> TestTree
-responseCancelConversionTask =
-  res
+responseCancelConversionTask = res
     "CancelConversionTaskResponse"
     "fixture/CancelConversionTaskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CancelConversionTask)
 
 responseModifyImageAttribute :: ModifyImageAttributeResponse -> TestTree
-responseModifyImageAttribute =
-  res
+responseModifyImageAttribute = res
     "ModifyImageAttributeResponse"
     "fixture/ModifyImageAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyImageAttribute)
 
 responseCreateRouteTable :: CreateRouteTableResponse -> TestTree
-responseCreateRouteTable =
-  res
+responseCreateRouteTable = res
     "CreateRouteTableResponse"
     "fixture/CreateRouteTableResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateRouteTable)
 
 responseRejectTransitGatewayPeeringAttachment :: RejectTransitGatewayPeeringAttachmentResponse -> TestTree
-responseRejectTransitGatewayPeeringAttachment =
-  res
+responseRejectTransitGatewayPeeringAttachment = res
     "RejectTransitGatewayPeeringAttachmentResponse"
     "fixture/RejectTransitGatewayPeeringAttachmentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RejectTransitGatewayPeeringAttachment)
 
 responseReportInstanceStatus :: ReportInstanceStatusResponse -> TestTree
-responseReportInstanceStatus =
-  res
+responseReportInstanceStatus = res
     "ReportInstanceStatusResponse"
     "fixture/ReportInstanceStatusResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ReportInstanceStatus)
 
 responseAttachVolume :: VolumeAttachment -> TestTree
-responseAttachVolume =
-  res
+responseAttachVolume = res
     "AttachVolumeResponse"
     "fixture/AttachVolumeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AttachVolume)
 
 responseRequestSpotInstances :: RequestSpotInstancesResponse -> TestTree
-responseRequestSpotInstances =
-  res
+responseRequestSpotInstances = res
     "RequestSpotInstancesResponse"
     "fixture/RequestSpotInstancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RequestSpotInstances)
 
 responseWithdrawByoipCidr :: WithdrawByoipCidrResponse -> TestTree
-responseWithdrawByoipCidr =
-  res
+responseWithdrawByoipCidr = res
     "WithdrawByoipCidrResponse"
     "fixture/WithdrawByoipCidrResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy WithdrawByoipCidr)
 
 responseDescribeHostReservationOfferings :: DescribeHostReservationOfferingsResponse -> TestTree
-responseDescribeHostReservationOfferings =
-  res
+responseDescribeHostReservationOfferings = res
     "DescribeHostReservationOfferingsResponse"
     "fixture/DescribeHostReservationOfferingsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeHostReservationOfferings)
 
 responseResetFpgaImageAttribute :: ResetFpgaImageAttributeResponse -> TestTree
-responseResetFpgaImageAttribute =
-  res
+responseResetFpgaImageAttribute = res
     "ResetFpgaImageAttributeResponse"
     "fixture/ResetFpgaImageAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ResetFpgaImageAttribute)
 
 responseModifyVpnConnection :: ModifyVpnConnectionResponse -> TestTree
-responseModifyVpnConnection =
-  res
+responseModifyVpnConnection = res
     "ModifyVpnConnectionResponse"
     "fixture/ModifyVpnConnectionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyVpnConnection)
 
 responseCreateTrafficMirrorFilterRule :: CreateTrafficMirrorFilterRuleResponse -> TestTree
-responseCreateTrafficMirrorFilterRule =
-  res
+responseCreateTrafficMirrorFilterRule = res
     "CreateTrafficMirrorFilterRuleResponse"
     "fixture/CreateTrafficMirrorFilterRuleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateTrafficMirrorFilterRule)
 
 responseDeleteTransitGateway :: DeleteTransitGatewayResponse -> TestTree
-responseDeleteTransitGateway =
-  res
+responseDeleteTransitGateway = res
     "DeleteTransitGatewayResponse"
     "fixture/DeleteTransitGatewayResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteTransitGateway)
 
 responseStartVpcEndpointServicePrivateDnsVerification :: StartVpcEndpointServicePrivateDnsVerificationResponse -> TestTree
-responseStartVpcEndpointServicePrivateDnsVerification =
-  res
+responseStartVpcEndpointServicePrivateDnsVerification = res
     "StartVpcEndpointServicePrivateDnsVerificationResponse"
     "fixture/StartVpcEndpointServicePrivateDnsVerificationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartVpcEndpointServicePrivateDnsVerification)
 
 responseDescribeVolumes :: DescribeVolumesResponse -> TestTree
-responseDescribeVolumes =
-  res
+responseDescribeVolumes = res
     "DescribeVolumesResponse"
     "fixture/DescribeVolumesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeVolumes)
 
 responseRejectVpcPeeringConnection :: RejectVpcPeeringConnectionResponse -> TestTree
-responseRejectVpcPeeringConnection =
-  res
+responseRejectVpcPeeringConnection = res
     "RejectVpcPeeringConnectionResponse"
     "fixture/RejectVpcPeeringConnectionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RejectVpcPeeringConnection)
 
 responseDescribeClientVpnRoutes :: DescribeClientVpnRoutesResponse -> TestTree
-responseDescribeClientVpnRoutes =
-  res
+responseDescribeClientVpnRoutes = res
     "DescribeClientVpnRoutesResponse"
     "fixture/DescribeClientVpnRoutesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeClientVpnRoutes)
 
 responseDeleteVpnConnectionRoute :: DeleteVpnConnectionRouteResponse -> TestTree
-responseDeleteVpnConnectionRoute =
-  res
+responseDeleteVpnConnectionRoute = res
     "DeleteVpnConnectionRouteResponse"
     "fixture/DeleteVpnConnectionRouteResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteVpnConnectionRoute)
 
 responseAssociateEnclaveCertificateIamRole :: AssociateEnclaveCertificateIamRoleResponse -> TestTree
-responseAssociateEnclaveCertificateIamRole =
-  res
+responseAssociateEnclaveCertificateIamRole = res
     "AssociateEnclaveCertificateIamRoleResponse"
     "fixture/AssociateEnclaveCertificateIamRoleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateEnclaveCertificateIamRole)
 
 responseModifyVpcEndpoint :: ModifyVpcEndpointResponse -> TestTree
-responseModifyVpcEndpoint =
-  res
+responseModifyVpcEndpoint = res
     "ModifyVpcEndpointResponse"
     "fixture/ModifyVpcEndpointResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyVpcEndpoint)
 
 responseDescribeFpgaImageAttribute :: DescribeFpgaImageAttributeResponse -> TestTree
-responseDescribeFpgaImageAttribute =
-  res
+responseDescribeFpgaImageAttribute = res
     "DescribeFpgaImageAttributeResponse"
     "fixture/DescribeFpgaImageAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeFpgaImageAttribute)
 
 responseAllocateHosts :: AllocateHostsResponse -> TestTree
-responseAllocateHosts =
-  res
+responseAllocateHosts = res
     "AllocateHostsResponse"
     "fixture/AllocateHostsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AllocateHosts)
 
 responseCreateClientVpnEndpoint :: CreateClientVpnEndpointResponse -> TestTree
-responseCreateClientVpnEndpoint =
-  res
+responseCreateClientVpnEndpoint = res
     "CreateClientVpnEndpointResponse"
     "fixture/CreateClientVpnEndpointResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateClientVpnEndpoint)
 
 responseCreateTrafficMirrorSession :: CreateTrafficMirrorSessionResponse -> TestTree
-responseCreateTrafficMirrorSession =
-  res
+responseCreateTrafficMirrorSession = res
     "CreateTrafficMirrorSessionResponse"
     "fixture/CreateTrafficMirrorSessionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateTrafficMirrorSession)
 
 responseRegisterImage :: RegisterImageResponse -> TestTree
-responseRegisterImage =
-  res
+responseRegisterImage = res
     "RegisterImageResponse"
     "fixture/RegisterImageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RegisterImage)
 
 responseAdvertiseByoipCidr :: AdvertiseByoipCidrResponse -> TestTree
-responseAdvertiseByoipCidr =
-  res
+responseAdvertiseByoipCidr = res
     "AdvertiseByoipCidrResponse"
     "fixture/AdvertiseByoipCidrResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdvertiseByoipCidr)
 
 responseModifyFleet :: ModifyFleetResponse -> TestTree
-responseModifyFleet =
-  res
+responseModifyFleet = res
     "ModifyFleetResponse"
     "fixture/ModifyFleetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyFleet)
 
 responseRevokeSecurityGroupIngress :: RevokeSecurityGroupIngressResponse -> TestTree
-responseRevokeSecurityGroupIngress =
-  res
+responseRevokeSecurityGroupIngress = res
     "RevokeSecurityGroupIngressResponse"
     "fixture/RevokeSecurityGroupIngressResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RevokeSecurityGroupIngress)
 
 responseGetEbsDefaultKmsKeyId :: GetEbsDefaultKmsKeyIdResponse -> TestTree
-responseGetEbsDefaultKmsKeyId =
-  res
+responseGetEbsDefaultKmsKeyId = res
     "GetEbsDefaultKmsKeyIdResponse"
     "fixture/GetEbsDefaultKmsKeyIdResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetEbsDefaultKmsKeyId)
 
 responseDescribeHostReservations :: DescribeHostReservationsResponse -> TestTree
-responseDescribeHostReservations =
-  res
+responseDescribeHostReservations = res
     "DescribeHostReservationsResponse"
     "fixture/DescribeHostReservationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeHostReservations)
 
 responseUpdateSecurityGroupRuleDescriptionsEgress :: UpdateSecurityGroupRuleDescriptionsEgressResponse -> TestTree
-responseUpdateSecurityGroupRuleDescriptionsEgress =
-  res
+responseUpdateSecurityGroupRuleDescriptionsEgress = res
     "UpdateSecurityGroupRuleDescriptionsEgressResponse"
     "fixture/UpdateSecurityGroupRuleDescriptionsEgressResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateSecurityGroupRuleDescriptionsEgress)
 
 responseEnableVpcClassicLinkDnsSupport :: EnableVpcClassicLinkDnsSupportResponse -> TestTree
-responseEnableVpcClassicLinkDnsSupport =
-  res
+responseEnableVpcClassicLinkDnsSupport = res
     "EnableVpcClassicLinkDnsSupportResponse"
     "fixture/EnableVpcClassicLinkDnsSupportResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy EnableVpcClassicLinkDnsSupport)
 
 responseDescribeVpcEndpointConnections :: DescribeVpcEndpointConnectionsResponse -> TestTree
-responseDescribeVpcEndpointConnections =
-  res
+responseDescribeVpcEndpointConnections = res
     "DescribeVpcEndpointConnectionsResponse"
     "fixture/DescribeVpcEndpointConnectionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeVpcEndpointConnections)
 
 responseModifyReservedInstances :: ModifyReservedInstancesResponse -> TestTree
-responseModifyReservedInstances =
-  res
+responseModifyReservedInstances = res
     "ModifyReservedInstancesResponse"
     "fixture/ModifyReservedInstancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyReservedInstances)
 
 responseDeleteFpgaImage :: DeleteFpgaImageResponse -> TestTree
-responseDeleteFpgaImage =
-  res
+responseDeleteFpgaImage = res
     "DeleteFpgaImageResponse"
     "fixture/DeleteFpgaImageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteFpgaImage)
 
 responseDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations :: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse -> TestTree
-responseDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations =
-  res
+responseDescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations = res
     "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse"
     "fixture/DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations)
 
 responseDescribeScheduledInstances :: DescribeScheduledInstancesResponse -> TestTree
-responseDescribeScheduledInstances =
-  res
+responseDescribeScheduledInstances = res
     "DescribeScheduledInstancesResponse"
     "fixture/DescribeScheduledInstancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeScheduledInstances)
 
 responseSearchTransitGatewayMulticastGroups :: SearchTransitGatewayMulticastGroupsResponse -> TestTree
-responseSearchTransitGatewayMulticastGroups =
-  res
+responseSearchTransitGatewayMulticastGroups = res
     "SearchTransitGatewayMulticastGroupsResponse"
     "fixture/SearchTransitGatewayMulticastGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SearchTransitGatewayMulticastGroups)
 
 responseCreateFlowLogs :: CreateFlowLogsResponse -> TestTree
-responseCreateFlowLogs =
-  res
+responseCreateFlowLogs = res
     "CreateFlowLogsResponse"
     "fixture/CreateFlowLogsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateFlowLogs)
 
 responseDescribeSpotFleetRequests :: DescribeSpotFleetRequestsResponse -> TestTree
-responseDescribeSpotFleetRequests =
-  res
+responseDescribeSpotFleetRequests = res
     "DescribeSpotFleetRequestsResponse"
     "fixture/DescribeSpotFleetRequestsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeSpotFleetRequests)
 
 responseMoveAddressToVpc :: MoveAddressToVpcResponse -> TestTree
-responseMoveAddressToVpc =
-  res
+responseMoveAddressToVpc = res
     "MoveAddressToVpcResponse"
     "fixture/MoveAddressToVpcResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy MoveAddressToVpc)
 
 responseDescribeFleetInstances :: DescribeFleetInstancesResponse -> TestTree
-responseDescribeFleetInstances =
-  res
+responseDescribeFleetInstances = res
     "DescribeFleetInstancesResponse"
     "fixture/DescribeFleetInstancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeFleetInstances)
 
 responseDescribeLaunchTemplateVersions :: DescribeLaunchTemplateVersionsResponse -> TestTree
-responseDescribeLaunchTemplateVersions =
-  res
+responseDescribeLaunchTemplateVersions = res
     "DescribeLaunchTemplateVersionsResponse"
     "fixture/DescribeLaunchTemplateVersionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeLaunchTemplateVersions)
 
 responseModifyInstanceCreditSpecification :: ModifyInstanceCreditSpecificationResponse -> TestTree
-responseModifyInstanceCreditSpecification =
-  res
+responseModifyInstanceCreditSpecification = res
     "ModifyInstanceCreditSpecificationResponse"
     "fixture/ModifyInstanceCreditSpecificationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyInstanceCreditSpecification)
 
 responseDescribePrincipalIdFormat :: DescribePrincipalIdFormatResponse -> TestTree
-responseDescribePrincipalIdFormat =
-  res
+responseDescribePrincipalIdFormat = res
     "DescribePrincipalIdFormatResponse"
     "fixture/DescribePrincipalIdFormatResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribePrincipalIdFormat)
 
 responseDescribeTransitGateways :: DescribeTransitGatewaysResponse -> TestTree
-responseDescribeTransitGateways =
-  res
+responseDescribeTransitGateways = res
     "DescribeTransitGatewaysResponse"
     "fixture/DescribeTransitGatewaysResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeTransitGateways)
 
 responseDeleteNetworkAcl :: DeleteNetworkAclResponse -> TestTree
-responseDeleteNetworkAcl =
-  res
+responseDeleteNetworkAcl = res
     "DeleteNetworkAclResponse"
     "fixture/DeleteNetworkAclResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteNetworkAcl)
 
 responseDisassociateTransitGatewayMulticastDomain :: DisassociateTransitGatewayMulticastDomainResponse -> TestTree
-responseDisassociateTransitGatewayMulticastDomain =
-  res
+responseDisassociateTransitGatewayMulticastDomain = res
     "DisassociateTransitGatewayMulticastDomainResponse"
     "fixture/DisassociateTransitGatewayMulticastDomainResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateTransitGatewayMulticastDomain)
 
 responseDeleteTransitGatewayRouteTable :: DeleteTransitGatewayRouteTableResponse -> TestTree
-responseDeleteTransitGatewayRouteTable =
-  res
+responseDeleteTransitGatewayRouteTable = res
     "DeleteTransitGatewayRouteTableResponse"
     "fixture/DeleteTransitGatewayRouteTableResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteTransitGatewayRouteTable)
 
 responseCreateLaunchTemplate :: CreateLaunchTemplateResponse -> TestTree
-responseCreateLaunchTemplate =
-  res
+responseCreateLaunchTemplate = res
     "CreateLaunchTemplateResponse"
     "fixture/CreateLaunchTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateLaunchTemplate)
 
 responseCreateVpcEndpointConnectionNotification :: CreateVpcEndpointConnectionNotificationResponse -> TestTree
-responseCreateVpcEndpointConnectionNotification =
-  res
+responseCreateVpcEndpointConnectionNotification = res
     "CreateVpcEndpointConnectionNotificationResponse"
     "fixture/CreateVpcEndpointConnectionNotificationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateVpcEndpointConnectionNotification)
 
 responseDeleteNetworkInterfacePermission :: DeleteNetworkInterfacePermissionResponse -> TestTree
-responseDeleteNetworkInterfacePermission =
-  res
+responseDeleteNetworkInterfacePermission = res
     "DeleteNetworkInterfacePermissionResponse"
     "fixture/DeleteNetworkInterfacePermissionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteNetworkInterfacePermission)
 
 responseDeleteVpnGateway :: DeleteVpnGatewayResponse -> TestTree
-responseDeleteVpnGateway =
-  res
+responseDeleteVpnGateway = res
     "DeleteVpnGatewayResponse"
     "fixture/DeleteVpnGatewayResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteVpnGateway)
 
 responseCreateTrafficMirrorTarget :: CreateTrafficMirrorTargetResponse -> TestTree
-responseCreateTrafficMirrorTarget =
-  res
+responseCreateTrafficMirrorTarget = res
     "CreateTrafficMirrorTargetResponse"
     "fixture/CreateTrafficMirrorTargetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateTrafficMirrorTarget)
 
 responseDescribeImportImageTasks :: DescribeImportImageTasksResponse -> TestTree
-responseDescribeImportImageTasks =
-  res
+responseDescribeImportImageTasks = res
     "DescribeImportImageTasksResponse"
     "fixture/DescribeImportImageTasksResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeImportImageTasks)
 
 responseDescribeVolumeAttribute :: DescribeVolumeAttributeResponse -> TestTree
-responseDescribeVolumeAttribute =
-  res
+responseDescribeVolumeAttribute = res
     "DescribeVolumeAttributeResponse"
     "fixture/DescribeVolumeAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeVolumeAttribute)
 
 responseDescribeMovingAddresses :: DescribeMovingAddressesResponse -> TestTree
-responseDescribeMovingAddresses =
-  res
+responseDescribeMovingAddresses = res
     "DescribeMovingAddressesResponse"
     "fixture/DescribeMovingAddressesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeMovingAddresses)
 
 responseExportTransitGatewayRoutes :: ExportTransitGatewayRoutesResponse -> TestTree
-responseExportTransitGatewayRoutes =
-  res
+responseExportTransitGatewayRoutes = res
     "ExportTransitGatewayRoutesResponse"
     "fixture/ExportTransitGatewayRoutesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ExportTransitGatewayRoutes)
 
 responseGetPasswordData :: GetPasswordDataResponse -> TestTree
-responseGetPasswordData =
-  res
+responseGetPasswordData = res
     "GetPasswordDataResponse"
     "fixture/GetPasswordDataResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetPasswordData)
 
 responseCreateVpc :: CreateVpcResponse -> TestTree
-responseCreateVpc =
-  res
+responseCreateVpc = res
     "CreateVpcResponse"
     "fixture/CreateVpcResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateVpc)
 
 responseModifyVpcPeeringConnectionOptions :: ModifyVpcPeeringConnectionOptionsResponse -> TestTree
-responseModifyVpcPeeringConnectionOptions =
-  res
+responseModifyVpcPeeringConnectionOptions = res
     "ModifyVpcPeeringConnectionOptionsResponse"
     "fixture/ModifyVpcPeeringConnectionOptionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyVpcPeeringConnectionOptions)
 
 responseDescribeFpgaImages :: DescribeFpgaImagesResponse -> TestTree
-responseDescribeFpgaImages =
-  res
+responseDescribeFpgaImages = res
     "DescribeFpgaImagesResponse"
     "fixture/DescribeFpgaImagesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeFpgaImages)
 
 responseCopySnapshot :: CopySnapshotResponse -> TestTree
-responseCopySnapshot =
-  res
+responseCopySnapshot = res
     "CopySnapshotResponse"
     "fixture/CopySnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CopySnapshot)
 
 responseAcceptTransitGatewayPeeringAttachment :: AcceptTransitGatewayPeeringAttachmentResponse -> TestTree
-responseAcceptTransitGatewayPeeringAttachment =
-  res
+responseAcceptTransitGatewayPeeringAttachment = res
     "AcceptTransitGatewayPeeringAttachmentResponse"
     "fixture/AcceptTransitGatewayPeeringAttachmentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AcceptTransitGatewayPeeringAttachment)
 
 responseDisassociateAddress :: DisassociateAddressResponse -> TestTree
-responseDisassociateAddress =
-  res
+responseDisassociateAddress = res
     "DisassociateAddressResponse"
     "fixture/DisassociateAddressResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateAddress)
 
 responseModifyTrafficMirrorFilterNetworkServices :: ModifyTrafficMirrorFilterNetworkServicesResponse -> TestTree
-responseModifyTrafficMirrorFilterNetworkServices =
-  res
+responseModifyTrafficMirrorFilterNetworkServices = res
     "ModifyTrafficMirrorFilterNetworkServicesResponse"
     "fixture/ModifyTrafficMirrorFilterNetworkServicesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyTrafficMirrorFilterNetworkServices)
 
 responseDescribeEgressOnlyInternetGateways :: DescribeEgressOnlyInternetGatewaysResponse -> TestTree
-responseDescribeEgressOnlyInternetGateways =
-  res
+responseDescribeEgressOnlyInternetGateways = res
     "DescribeEgressOnlyInternetGatewaysResponse"
     "fixture/DescribeEgressOnlyInternetGatewaysResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeEgressOnlyInternetGateways)
 
 responseDeleteVpc :: DeleteVpcResponse -> TestTree
-responseDeleteVpc =
-  res
+responseDeleteVpc = res
     "DeleteVpcResponse"
     "fixture/DeleteVpcResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteVpc)
 
 responseCreateInstanceExportTask :: CreateInstanceExportTaskResponse -> TestTree
-responseCreateInstanceExportTask =
-  res
+responseCreateInstanceExportTask = res
     "CreateInstanceExportTaskResponse"
     "fixture/CreateInstanceExportTaskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateInstanceExportTask)
 
 responseRejectTransitGatewayVpcAttachment :: RejectTransitGatewayVpcAttachmentResponse -> TestTree
-responseRejectTransitGatewayVpcAttachment =
-  res
+responseRejectTransitGatewayVpcAttachment = res
     "RejectTransitGatewayVpcAttachmentResponse"
     "fixture/RejectTransitGatewayVpcAttachmentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RejectTransitGatewayVpcAttachment)
 
 responseDescribeTrafficMirrorSessions :: DescribeTrafficMirrorSessionsResponse -> TestTree
-responseDescribeTrafficMirrorSessions =
-  res
+responseDescribeTrafficMirrorSessions = res
     "DescribeTrafficMirrorSessionsResponse"
     "fixture/DescribeTrafficMirrorSessionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeTrafficMirrorSessions)
 
 responseGetTransitGatewayRouteTableAssociations :: GetTransitGatewayRouteTableAssociationsResponse -> TestTree
-responseGetTransitGatewayRouteTableAssociations =
-  res
+responseGetTransitGatewayRouteTableAssociations = res
     "GetTransitGatewayRouteTableAssociationsResponse"
     "fixture/GetTransitGatewayRouteTableAssociationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetTransitGatewayRouteTableAssociations)
 
 responseAssociateVpcCidrBlock :: AssociateVpcCidrBlockResponse -> TestTree
-responseAssociateVpcCidrBlock =
-  res
+responseAssociateVpcCidrBlock = res
     "AssociateVpcCidrBlockResponse"
     "fixture/AssociateVpcCidrBlockResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateVpcCidrBlock)
 
 responseDescribeVpcAttribute :: DescribeVpcAttributeResponse -> TestTree
-responseDescribeVpcAttribute =
-  res
+responseDescribeVpcAttribute = res
     "DescribeVpcAttributeResponse"
     "fixture/DescribeVpcAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeVpcAttribute)
 
 responseCreateVolume :: Volume -> TestTree
-responseCreateVolume =
-  res
+responseCreateVolume = res
     "CreateVolumeResponse"
     "fixture/CreateVolumeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateVolume)
 
 responseCreateDefaultSubnet :: CreateDefaultSubnetResponse -> TestTree
-responseCreateDefaultSubnet =
-  res
+responseCreateDefaultSubnet = res
     "CreateDefaultSubnetResponse"
     "fixture/CreateDefaultSubnetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateDefaultSubnet)
 
 responseDescribeScheduledInstanceAvailability :: DescribeScheduledInstanceAvailabilityResponse -> TestTree
-responseDescribeScheduledInstanceAvailability =
-  res
+responseDescribeScheduledInstanceAvailability = res
     "DescribeScheduledInstanceAvailabilityResponse"
     "fixture/DescribeScheduledInstanceAvailabilityResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeScheduledInstanceAvailability)
 
 responseDisassociateClientVpnTargetNetwork :: DisassociateClientVpnTargetNetworkResponse -> TestTree
-responseDisassociateClientVpnTargetNetwork =
-  res
+responseDisassociateClientVpnTargetNetwork = res
     "DisassociateClientVpnTargetNetworkResponse"
     "fixture/DisassociateClientVpnTargetNetworkResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateClientVpnTargetNetwork)
 
 responseCreateClientVpnRoute :: CreateClientVpnRouteResponse -> TestTree
-responseCreateClientVpnRoute =
-  res
+responseCreateClientVpnRoute = res
     "CreateClientVpnRouteResponse"
     "fixture/CreateClientVpnRouteResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateClientVpnRoute)
 
 responseModifyVolumeAttribute :: ModifyVolumeAttributeResponse -> TestTree
-responseModifyVolumeAttribute =
-  res
+responseModifyVolumeAttribute = res
     "ModifyVolumeAttributeResponse"
     "fixture/ModifyVolumeAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyVolumeAttribute)
 
 responseExportClientVpnClientConfiguration :: ExportClientVpnClientConfigurationResponse -> TestTree
-responseExportClientVpnClientConfiguration =
-  res
+responseExportClientVpnClientConfiguration = res
     "ExportClientVpnClientConfigurationResponse"
     "fixture/ExportClientVpnClientConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ExportClientVpnClientConfiguration)
 
 responseDeleteTrafficMirrorTarget :: DeleteTrafficMirrorTargetResponse -> TestTree
-responseDeleteTrafficMirrorTarget =
-  res
+responseDeleteTrafficMirrorTarget = res
     "DeleteTrafficMirrorTargetResponse"
     "fixture/DeleteTrafficMirrorTargetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteTrafficMirrorTarget)
 
 responseDescribeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscriptionResponse -> TestTree
-responseDescribeSpotDatafeedSubscription =
-  res
+responseDescribeSpotDatafeedSubscription = res
     "DescribeSpotDatafeedSubscriptionResponse"
     "fixture/DescribeSpotDatafeedSubscriptionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeSpotDatafeedSubscription)
 
 responseDescribeLocalGatewayRouteTables :: DescribeLocalGatewayRouteTablesResponse -> TestTree
-responseDescribeLocalGatewayRouteTables =
-  res
+responseDescribeLocalGatewayRouteTables = res
     "DescribeLocalGatewayRouteTablesResponse"
     "fixture/DescribeLocalGatewayRouteTablesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeLocalGatewayRouteTables)
 
 responseDescribePrefixLists :: DescribePrefixListsResponse -> TestTree
-responseDescribePrefixLists =
-  res
+responseDescribePrefixLists = res
     "DescribePrefixListsResponse"
     "fixture/DescribePrefixListsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribePrefixLists)
 
 responseAssociateTransitGatewayRouteTable :: AssociateTransitGatewayRouteTableResponse -> TestTree
-responseAssociateTransitGatewayRouteTable =
-  res
+responseAssociateTransitGatewayRouteTable = res
     "AssociateTransitGatewayRouteTableResponse"
     "fixture/AssociateTransitGatewayRouteTableResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateTransitGatewayRouteTable)
 
 responseDeletePlacementGroup :: DeletePlacementGroupResponse -> TestTree
-responseDeletePlacementGroup =
-  res
+responseDeletePlacementGroup = res
     "DeletePlacementGroupResponse"
     "fixture/DeletePlacementGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeletePlacementGroup)
 
 responseModifyTransitGateway :: ModifyTransitGatewayResponse -> TestTree
-responseModifyTransitGateway =
-  res
+responseModifyTransitGateway = res
     "ModifyTransitGatewayResponse"
     "fixture/ModifyTransitGatewayResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyTransitGateway)
 
 responseDeleteTransitGatewayPrefixListReference :: DeleteTransitGatewayPrefixListReferenceResponse -> TestTree
-responseDeleteTransitGatewayPrefixListReference =
-  res
+responseDeleteTransitGatewayPrefixListReference = res
     "DeleteTransitGatewayPrefixListReferenceResponse"
     "fixture/DeleteTransitGatewayPrefixListReferenceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteTransitGatewayPrefixListReference)
 
 responseCreateTransitGatewayMulticastDomain :: CreateTransitGatewayMulticastDomainResponse -> TestTree
-responseCreateTransitGatewayMulticastDomain =
-  res
+responseCreateTransitGatewayMulticastDomain = res
     "CreateTransitGatewayMulticastDomainResponse"
     "fixture/CreateTransitGatewayMulticastDomainResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateTransitGatewayMulticastDomain)
 
 responseDeregisterInstanceEventNotificationAttributes :: DeregisterInstanceEventNotificationAttributesResponse -> TestTree
-responseDeregisterInstanceEventNotificationAttributes =
-  res
+responseDeregisterInstanceEventNotificationAttributes = res
     "DeregisterInstanceEventNotificationAttributesResponse"
     "fixture/DeregisterInstanceEventNotificationAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeregisterInstanceEventNotificationAttributes)
 
 responseRequestSpotFleet :: RequestSpotFleetResponse -> TestTree
-responseRequestSpotFleet =
-  res
+responseRequestSpotFleet = res
     "RequestSpotFleetResponse"
     "fixture/RequestSpotFleetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RequestSpotFleet)
 
 responseDeleteTransitGatewayRoute :: DeleteTransitGatewayRouteResponse -> TestTree
-responseDeleteTransitGatewayRoute =
-  res
+responseDeleteTransitGatewayRoute = res
     "DeleteTransitGatewayRouteResponse"
     "fixture/DeleteTransitGatewayRouteResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteTransitGatewayRoute)
 
 responseDisableEbsEncryptionByDefault :: DisableEbsEncryptionByDefaultResponse -> TestTree
-responseDisableEbsEncryptionByDefault =
-  res
+responseDisableEbsEncryptionByDefault = res
     "DisableEbsEncryptionByDefaultResponse"
     "fixture/DisableEbsEncryptionByDefaultResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisableEbsEncryptionByDefault)
 
 responseDeregisterTransitGatewayMulticastGroupMembers :: DeregisterTransitGatewayMulticastGroupMembersResponse -> TestTree
-responseDeregisterTransitGatewayMulticastGroupMembers =
-  res
+responseDeregisterTransitGatewayMulticastGroupMembers = res
     "DeregisterTransitGatewayMulticastGroupMembersResponse"
     "fixture/DeregisterTransitGatewayMulticastGroupMembersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeregisterTransitGatewayMulticastGroupMembers)
 
 responseCreateSubnet :: CreateSubnetResponse -> TestTree
-responseCreateSubnet =
-  res
+responseCreateSubnet = res
     "CreateSubnetResponse"
     "fixture/CreateSubnetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateSubnet)
 
 responseCreateNetworkInterface :: CreateNetworkInterfaceResponse -> TestTree
-responseCreateNetworkInterface =
-  res
+responseCreateNetworkInterface = res
     "CreateNetworkInterfaceResponse"
     "fixture/CreateNetworkInterfaceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateNetworkInterface)
 
 responseDescribeSecurityGroups :: DescribeSecurityGroupsResponse -> TestTree
-responseDescribeSecurityGroups =
-  res
+responseDescribeSecurityGroups = res
     "DescribeSecurityGroupsResponse"
     "fixture/DescribeSecurityGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeSecurityGroups)
 
 responseGetCapacityReservationUsage :: GetCapacityReservationUsageResponse -> TestTree
-responseGetCapacityReservationUsage =
-  res
+responseGetCapacityReservationUsage = res
     "GetCapacityReservationUsageResponse"
     "fixture/GetCapacityReservationUsageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetCapacityReservationUsage)
 
 responseCreateTransitGatewayVpcAttachment :: CreateTransitGatewayVpcAttachmentResponse -> TestTree
-responseCreateTransitGatewayVpcAttachment =
-  res
+responseCreateTransitGatewayVpcAttachment = res
     "CreateTransitGatewayVpcAttachmentResponse"
     "fixture/CreateTransitGatewayVpcAttachmentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateTransitGatewayVpcAttachment)
 
 responseDescribeExportTasks :: DescribeExportTasksResponse -> TestTree
-responseDescribeExportTasks =
-  res
+responseDescribeExportTasks = res
     "DescribeExportTasksResponse"
     "fixture/DescribeExportTasksResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeExportTasks)
 
 responseModifySpotFleetRequest :: ModifySpotFleetRequestResponse -> TestTree
-responseModifySpotFleetRequest =
-  res
+responseModifySpotFleetRequest = res
     "ModifySpotFleetRequestResponse"
     "fixture/ModifySpotFleetRequestResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifySpotFleetRequest)
 
 responseDetachVpnGateway :: DetachVpnGatewayResponse -> TestTree
-responseDetachVpnGateway =
-  res
+responseDetachVpnGateway = res
     "DetachVpnGatewayResponse"
     "fixture/DetachVpnGatewayResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DetachVpnGateway)
 
 responseModifyManagedPrefixList :: ModifyManagedPrefixListResponse -> TestTree
-responseModifyManagedPrefixList =
-  res
+responseModifyManagedPrefixList = res
     "ModifyManagedPrefixListResponse"
     "fixture/ModifyManagedPrefixListResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyManagedPrefixList)
 
 responseGetHostReservationPurchasePreview :: GetHostReservationPurchasePreviewResponse -> TestTree
-responseGetHostReservationPurchasePreview =
-  res
+responseGetHostReservationPurchasePreview = res
     "GetHostReservationPurchasePreviewResponse"
     "fixture/GetHostReservationPurchasePreviewResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetHostReservationPurchasePreview)
 
 responseEnableVolumeIO :: EnableVolumeIOResponse -> TestTree
-responseEnableVolumeIO =
-  res
+responseEnableVolumeIO = res
     "EnableVolumeIOResponse"
     "fixture/EnableVolumeIOResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy EnableVolumeIO)
 
 responseDescribeInstances :: DescribeInstancesResponse -> TestTree
-responseDescribeInstances =
-  res
+responseDescribeInstances = res
     "DescribeInstancesResponse"
     "fixture/DescribeInstancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeInstances)
 
 responseCreateNatGateway :: CreateNatGatewayResponse -> TestTree
-responseCreateNatGateway =
-  res
+responseCreateNatGateway = res
     "CreateNatGatewayResponse"
     "fixture/CreateNatGatewayResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateNatGateway)
 
 responseDescribeLocalGatewayVirtualInterfaces :: DescribeLocalGatewayVirtualInterfacesResponse -> TestTree
-responseDescribeLocalGatewayVirtualInterfaces =
-  res
+responseDescribeLocalGatewayVirtualInterfaces = res
     "DescribeLocalGatewayVirtualInterfacesResponse"
     "fixture/DescribeLocalGatewayVirtualInterfacesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeLocalGatewayVirtualInterfaces)
 
 responseDescribeVpcPeeringConnections :: DescribeVpcPeeringConnectionsResponse -> TestTree
-responseDescribeVpcPeeringConnections =
-  res
+responseDescribeVpcPeeringConnections = res
     "DescribeVpcPeeringConnectionsResponse"
     "fixture/DescribeVpcPeeringConnectionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeVpcPeeringConnections)
 
 responseCancelExportTask :: CancelExportTaskResponse -> TestTree
-responseCancelExportTask =
-  res
+responseCancelExportTask = res
     "CancelExportTaskResponse"
     "fixture/CancelExportTaskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CancelExportTask)
 
 responseCreateVpcEndpointServiceConfiguration :: CreateVpcEndpointServiceConfigurationResponse -> TestTree
-responseCreateVpcEndpointServiceConfiguration =
-  res
+responseCreateVpcEndpointServiceConfiguration = res
     "CreateVpcEndpointServiceConfigurationResponse"
     "fixture/CreateVpcEndpointServiceConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateVpcEndpointServiceConfiguration)
 
 responseCreateDefaultVpc :: CreateDefaultVpcResponse -> TestTree
-responseCreateDefaultVpc =
-  res
+responseCreateDefaultVpc = res
     "CreateDefaultVpcResponse"
     "fixture/CreateDefaultVpcResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateDefaultVpc)
 
 responseDisassociateVpcCidrBlock :: DisassociateVpcCidrBlockResponse -> TestTree
-responseDisassociateVpcCidrBlock =
-  res
+responseDisassociateVpcCidrBlock = res
     "DisassociateVpcCidrBlockResponse"
     "fixture/DisassociateVpcCidrBlockResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateVpcCidrBlock)
 
 responseDescribeTrafficMirrorFilters :: DescribeTrafficMirrorFiltersResponse -> TestTree
-responseDescribeTrafficMirrorFilters =
-  res
+responseDescribeTrafficMirrorFilters = res
     "DescribeTrafficMirrorFiltersResponse"
     "fixture/DescribeTrafficMirrorFiltersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeTrafficMirrorFilters)
 
 responseDescribeFastSnapshotRestores :: DescribeFastSnapshotRestoresResponse -> TestTree
-responseDescribeFastSnapshotRestores =
-  res
+responseDescribeFastSnapshotRestores = res
     "DescribeFastSnapshotRestoresResponse"
     "fixture/DescribeFastSnapshotRestoresResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeFastSnapshotRestores)
 
 responseCancelCapacityReservation :: CancelCapacityReservationResponse -> TestTree
-responseCancelCapacityReservation =
-  res
+responseCancelCapacityReservation = res
     "CancelCapacityReservationResponse"
     "fixture/CancelCapacityReservationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CancelCapacityReservation)
 
 responseDeleteNetworkInterface :: DeleteNetworkInterfaceResponse -> TestTree
-responseDeleteNetworkInterface =
-  res
+responseDeleteNetworkInterface = res
     "DeleteNetworkInterfaceResponse"
     "fixture/DeleteNetworkInterfaceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteNetworkInterface)
 
 responseDisassociateTransitGatewayRouteTable :: DisassociateTransitGatewayRouteTableResponse -> TestTree
-responseDisassociateTransitGatewayRouteTable =
-  res
+responseDisassociateTransitGatewayRouteTable = res
     "DisassociateTransitGatewayRouteTableResponse"
     "fixture/DisassociateTransitGatewayRouteTableResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateTransitGatewayRouteTable)
 
 responseReplaceRouteTableAssociation :: ReplaceRouteTableAssociationResponse -> TestTree
-responseReplaceRouteTableAssociation =
-  res
+responseReplaceRouteTableAssociation = res
     "ReplaceRouteTableAssociationResponse"
     "fixture/ReplaceRouteTableAssociationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ReplaceRouteTableAssociation)
 
 responseStartInstances :: StartInstancesResponse -> TestTree
-responseStartInstances =
-  res
+responseStartInstances = res
     "StartInstancesResponse"
     "fixture/StartInstancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartInstances)
 
 responseCreatePlacementGroup :: CreatePlacementGroupResponse -> TestTree
-responseCreatePlacementGroup =
-  res
+responseCreatePlacementGroup = res
     "CreatePlacementGroupResponse"
     "fixture/CreatePlacementGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreatePlacementGroup)
 
 responseDescribeInstanceEventNotificationAttributes :: DescribeInstanceEventNotificationAttributesResponse -> TestTree
-responseDescribeInstanceEventNotificationAttributes =
-  res
+responseDescribeInstanceEventNotificationAttributes = res
     "DescribeInstanceEventNotificationAttributesResponse"
     "fixture/DescribeInstanceEventNotificationAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeInstanceEventNotificationAttributes)
 
 responseDescribeCapacityReservations :: DescribeCapacityReservationsResponse -> TestTree
-responseDescribeCapacityReservations =
-  res
+responseDescribeCapacityReservations = res
     "DescribeCapacityReservationsResponse"
     "fixture/DescribeCapacityReservationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeCapacityReservations)
 
 responseModifyClientVpnEndpoint :: ModifyClientVpnEndpointResponse -> TestTree
-responseModifyClientVpnEndpoint =
-  res
+responseModifyClientVpnEndpoint = res
     "ModifyClientVpnEndpointResponse"
     "fixture/ModifyClientVpnEndpointResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyClientVpnEndpoint)
 
 responseModifyInstanceCapacityReservationAttributes :: ModifyInstanceCapacityReservationAttributesResponse -> TestTree
-responseModifyInstanceCapacityReservationAttributes =
-  res
+responseModifyInstanceCapacityReservationAttributes = res
     "ModifyInstanceCapacityReservationAttributesResponse"
     "fixture/ModifyInstanceCapacityReservationAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyInstanceCapacityReservationAttributes)
 
 responseDescribeAggregateIdFormat :: DescribeAggregateIdFormatResponse -> TestTree
-responseDescribeAggregateIdFormat =
-  res
+responseDescribeAggregateIdFormat = res
     "DescribeAggregateIdFormatResponse"
     "fixture/DescribeAggregateIdFormatResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAggregateIdFormat)
 
 responseDescribeSnapshots :: DescribeSnapshotsResponse -> TestTree
-responseDescribeSnapshots =
-  res
+responseDescribeSnapshots = res
     "DescribeSnapshotsResponse"
     "fixture/DescribeSnapshotsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeSnapshots)
 
 responseAssociateAddress :: AssociateAddressResponse -> TestTree
-responseAssociateAddress =
-  res
+responseAssociateAddress = res
     "AssociateAddressResponse"
     "fixture/AssociateAddressResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateAddress)
 
 responseModifyTrafficMirrorFilterRule :: ModifyTrafficMirrorFilterRuleResponse -> TestTree
-responseModifyTrafficMirrorFilterRule =
-  res
+responseModifyTrafficMirrorFilterRule = res
     "ModifyTrafficMirrorFilterRuleResponse"
     "fixture/ModifyTrafficMirrorFilterRuleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyTrafficMirrorFilterRule)
 
 responseDescribeNetworkInterfaceAttribute :: DescribeNetworkInterfaceAttributeResponse -> TestTree
-responseDescribeNetworkInterfaceAttribute =
-  res
+responseDescribeNetworkInterfaceAttribute = res
     "DescribeNetworkInterfaceAttributeResponse"
     "fixture/DescribeNetworkInterfaceAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeNetworkInterfaceAttribute)
 
 responseReplaceIamInstanceProfileAssociation :: ReplaceIamInstanceProfileAssociationResponse -> TestTree
-responseReplaceIamInstanceProfileAssociation =
-  res
+responseReplaceIamInstanceProfileAssociation = res
     "ReplaceIamInstanceProfileAssociationResponse"
     "fixture/ReplaceIamInstanceProfileAssociationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ReplaceIamInstanceProfileAssociation)
 
 responseAssociateClientVpnTargetNetwork :: AssociateClientVpnTargetNetworkResponse -> TestTree
-responseAssociateClientVpnTargetNetwork =
-  res
+responseAssociateClientVpnTargetNetwork = res
     "AssociateClientVpnTargetNetworkResponse"
     "fixture/AssociateClientVpnTargetNetworkResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateClientVpnTargetNetwork)
 
 responseReleaseHosts :: ReleaseHostsResponse -> TestTree
-responseReleaseHosts =
-  res
+responseReleaseHosts = res
     "ReleaseHostsResponse"
     "fixture/ReleaseHostsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ReleaseHosts)
 
 responseResetNetworkInterfaceAttribute :: ResetNetworkInterfaceAttributeResponse -> TestTree
-responseResetNetworkInterfaceAttribute =
-  res
+responseResetNetworkInterfaceAttribute = res
     "ResetNetworkInterfaceAttributeResponse"
     "fixture/ResetNetworkInterfaceAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ResetNetworkInterfaceAttribute)
 
 responseDeleteInternetGateway :: DeleteInternetGatewayResponse -> TestTree
-responseDeleteInternetGateway =
-  res
+responseDeleteInternetGateway = res
     "DeleteInternetGatewayResponse"
     "fixture/DeleteInternetGatewayResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteInternetGateway)
 
 responseDescribeReservedInstancesListings :: DescribeReservedInstancesListingsResponse -> TestTree
-responseDescribeReservedInstancesListings =
-  res
+responseDescribeReservedInstancesListings = res
     "DescribeReservedInstancesListingsResponse"
     "fixture/DescribeReservedInstancesListingsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeReservedInstancesListings)
 
 responseCreateVpnConnection :: CreateVpnConnectionResponse -> TestTree
-responseCreateVpnConnection =
-  res
+responseCreateVpnConnection = res
     "CreateVpnConnectionResponse"
     "fixture/CreateVpnConnectionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateVpnConnection)
 
 responseReplaceTransitGatewayRoute :: ReplaceTransitGatewayRouteResponse -> TestTree
-responseReplaceTransitGatewayRoute =
-  res
+responseReplaceTransitGatewayRoute = res
     "ReplaceTransitGatewayRouteResponse"
     "fixture/ReplaceTransitGatewayRouteResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ReplaceTransitGatewayRoute)
 
 responseCreateFleet :: CreateFleetResponse -> TestTree
-responseCreateFleet =
-  res
+responseCreateFleet = res
     "CreateFleetResponse"
     "fixture/CreateFleetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateFleet)
 
 responseDeleteNatGateway :: DeleteNatGatewayResponse -> TestTree
-responseDeleteNatGateway =
-  res
+responseDeleteNatGateway = res
     "DeleteNatGatewayResponse"
     "fixture/DeleteNatGatewayResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteNatGateway)
 
 responseDescribeImportSnapshotTasks :: DescribeImportSnapshotTasksResponse -> TestTree
-responseDescribeImportSnapshotTasks =
-  res
+responseDescribeImportSnapshotTasks = res
     "DescribeImportSnapshotTasksResponse"
     "fixture/DescribeImportSnapshotTasksResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeImportSnapshotTasks)
 
 responseGetCoipPoolUsage :: GetCoipPoolUsageResponse -> TestTree
-responseGetCoipPoolUsage =
-  res
+responseGetCoipPoolUsage = res
     "GetCoipPoolUsageResponse"
     "fixture/GetCoipPoolUsageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetCoipPoolUsage)
 
 responseDescribeCustomerGateways :: DescribeCustomerGatewaysResponse -> TestTree
-responseDescribeCustomerGateways =
-  res
+responseDescribeCustomerGateways = res
     "DescribeCustomerGatewaysResponse"
     "fixture/DescribeCustomerGatewaysResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeCustomerGateways)
 
 responseDeleteSubnet :: DeleteSubnetResponse -> TestTree
-responseDeleteSubnet =
-  res
+responseDeleteSubnet = res
     "DeleteSubnetResponse"
     "fixture/DeleteSubnetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteSubnet)
 
 responseCopyImage :: CopyImageResponse -> TestTree
-responseCopyImage =
-  res
+responseCopyImage = res
     "CopyImageResponse"
     "fixture/CopyImageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CopyImage)
 
 responseCreateVpcEndpoint :: CreateVpcEndpointResponse -> TestTree
-responseCreateVpcEndpoint =
-  res
+responseCreateVpcEndpoint = res
     "CreateVpcEndpointResponse"
     "fixture/CreateVpcEndpointResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateVpcEndpoint)
 
 responseModifyTrafficMirrorSession :: ModifyTrafficMirrorSessionResponse -> TestTree
-responseModifyTrafficMirrorSession =
-  res
+responseModifyTrafficMirrorSession = res
     "ModifyTrafficMirrorSessionResponse"
     "fixture/ModifyTrafficMirrorSessionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyTrafficMirrorSession)
 
 responseDescribeCarrierGateways :: DescribeCarrierGatewaysResponse -> TestTree
-responseDescribeCarrierGateways =
-  res
+responseDescribeCarrierGateways = res
     "DescribeCarrierGatewaysResponse"
     "fixture/DescribeCarrierGatewaysResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeCarrierGateways)
 
 responseDescribeTransitGatewayPeeringAttachments :: DescribeTransitGatewayPeeringAttachmentsResponse -> TestTree
-responseDescribeTransitGatewayPeeringAttachments =
-  res
+responseDescribeTransitGatewayPeeringAttachments = res
     "DescribeTransitGatewayPeeringAttachmentsResponse"
     "fixture/DescribeTransitGatewayPeeringAttachmentsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeTransitGatewayPeeringAttachments)
 
 responseDeleteQueuedReservedInstances :: DeleteQueuedReservedInstancesResponse -> TestTree
-responseDeleteQueuedReservedInstances =
-  res
+responseDeleteQueuedReservedInstances = res
     "DeleteQueuedReservedInstancesResponse"
     "fixture/DeleteQueuedReservedInstancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteQueuedReservedInstances)
 
 responseDescribeTransitGatewayMulticastDomains :: DescribeTransitGatewayMulticastDomainsResponse -> TestTree
-responseDescribeTransitGatewayMulticastDomains =
-  res
+responseDescribeTransitGatewayMulticastDomains = res
     "DescribeTransitGatewayMulticastDomainsResponse"
     "fixture/DescribeTransitGatewayMulticastDomainsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeTransitGatewayMulticastDomains)
 
 responseGetDefaultCreditSpecification :: GetDefaultCreditSpecificationResponse -> TestTree
-responseGetDefaultCreditSpecification =
-  res
+responseGetDefaultCreditSpecification = res
     "GetDefaultCreditSpecificationResponse"
     "fixture/GetDefaultCreditSpecificationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetDefaultCreditSpecification)
 
 responseUnmonitorInstances :: UnmonitorInstancesResponse -> TestTree
-responseUnmonitorInstances =
-  res
+responseUnmonitorInstances = res
     "UnmonitorInstancesResponse"
     "fixture/UnmonitorInstancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UnmonitorInstances)
 
 responseDescribeTransitGatewayVpcAttachments :: DescribeTransitGatewayVpcAttachmentsResponse -> TestTree
-responseDescribeTransitGatewayVpcAttachments =
-  res
+responseDescribeTransitGatewayVpcAttachments = res
     "DescribeTransitGatewayVpcAttachmentsResponse"
     "fixture/DescribeTransitGatewayVpcAttachmentsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeTransitGatewayVpcAttachments)
 
 responseCreateSecurityGroup :: CreateSecurityGroupResponse -> TestTree
-responseCreateSecurityGroup =
-  res
+responseCreateSecurityGroup = res
     "CreateSecurityGroupResponse"
     "fixture/CreateSecurityGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateSecurityGroup)
 
 responseGetEbsEncryptionByDefault :: GetEbsEncryptionByDefaultResponse -> TestTree
-responseGetEbsEncryptionByDefault =
-  res
+responseGetEbsEncryptionByDefault = res
     "GetEbsEncryptionByDefaultResponse"
     "fixture/GetEbsEncryptionByDefaultResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetEbsEncryptionByDefault)
 
 responseImportVolume :: ImportVolumeResponse -> TestTree
-responseImportVolume =
-  res
+responseImportVolume = res
     "ImportVolumeResponse"
     "fixture/ImportVolumeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ImportVolume)
 
 responseDeleteCarrierGateway :: DeleteCarrierGatewayResponse -> TestTree
-responseDeleteCarrierGateway =
-  res
+responseDeleteCarrierGateway = res
     "DeleteCarrierGatewayResponse"
     "fixture/DeleteCarrierGatewayResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteCarrierGateway)
 
 responseDisableVgwRoutePropagation :: DisableVgwRoutePropagationResponse -> TestTree
-responseDisableVgwRoutePropagation =
-  res
+responseDisableVgwRoutePropagation = res
     "DisableVgwRoutePropagationResponse"
     "fixture/DisableVgwRoutePropagationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisableVgwRoutePropagation)
 
 responseDeleteTrafficMirrorFilter :: DeleteTrafficMirrorFilterResponse -> TestTree
-responseDeleteTrafficMirrorFilter =
-  res
+responseDeleteTrafficMirrorFilter = res
     "DeleteTrafficMirrorFilterResponse"
     "fixture/DeleteTrafficMirrorFilterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteTrafficMirrorFilter)
 
 responseModifyVpnTunnelCertificate :: ModifyVpnTunnelCertificateResponse -> TestTree
-responseModifyVpnTunnelCertificate =
-  res
+responseModifyVpnTunnelCertificate = res
     "ModifyVpnTunnelCertificateResponse"
     "fixture/ModifyVpnTunnelCertificateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyVpnTunnelCertificate)
 
 responseCreateSpotDatafeedSubscription :: CreateSpotDatafeedSubscriptionResponse -> TestTree
-responseCreateSpotDatafeedSubscription =
-  res
+responseCreateSpotDatafeedSubscription = res
     "CreateSpotDatafeedSubscriptionResponse"
     "fixture/CreateSpotDatafeedSubscriptionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateSpotDatafeedSubscription)
 
 responseCancelSpotInstanceRequests :: CancelSpotInstanceRequestsResponse -> TestTree
-responseCancelSpotInstanceRequests =
-  res
+responseCancelSpotInstanceRequests = res
     "CancelSpotInstanceRequestsResponse"
     "fixture/CancelSpotInstanceRequestsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CancelSpotInstanceRequests)
 
 responseCreateRoute :: CreateRouteResponse -> TestTree
-responseCreateRoute =
-  res
+responseCreateRoute = res
     "CreateRouteResponse"
     "fixture/CreateRouteResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateRoute)
 
 responseDescribeVpcEndpointServiceConfigurations :: DescribeVpcEndpointServiceConfigurationsResponse -> TestTree
-responseDescribeVpcEndpointServiceConfigurations =
-  res
+responseDescribeVpcEndpointServiceConfigurations = res
     "DescribeVpcEndpointServiceConfigurationsResponse"
     "fixture/DescribeVpcEndpointServiceConfigurationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeVpcEndpointServiceConfigurations)
 
 responseDeleteSnapshot :: DeleteSnapshotResponse -> TestTree
-responseDeleteSnapshot =
-  res
+responseDeleteSnapshot = res
     "DeleteSnapshotResponse"
     "fixture/DeleteSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteSnapshot)
 
 responseAssignPrivateIpAddresses :: AssignPrivateIpAddressesResponse -> TestTree
-responseAssignPrivateIpAddresses =
-  res
+responseAssignPrivateIpAddresses = res
     "AssignPrivateIpAddressesResponse"
     "fixture/AssignPrivateIpAddressesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssignPrivateIpAddresses)
 
 responseAuthorizeClientVpnIngress :: AuthorizeClientVpnIngressResponse -> TestTree
-responseAuthorizeClientVpnIngress =
-  res
+responseAuthorizeClientVpnIngress = res
     "AuthorizeClientVpnIngressResponse"
     "fixture/AuthorizeClientVpnIngressResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AuthorizeClientVpnIngress)
 
 responseDeleteTransitGatewayPeeringAttachment :: DeleteTransitGatewayPeeringAttachmentResponse -> TestTree
-responseDeleteTransitGatewayPeeringAttachment =
-  res
+responseDeleteTransitGatewayPeeringAttachment = res
     "DeleteTransitGatewayPeeringAttachmentResponse"
     "fixture/DeleteTransitGatewayPeeringAttachmentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteTransitGatewayPeeringAttachment)
 
 responseModifyInstanceAttribute :: ModifyInstanceAttributeResponse -> TestTree
-responseModifyInstanceAttribute =
-  res
+responseModifyInstanceAttribute = res
     "ModifyInstanceAttributeResponse"
     "fixture/ModifyInstanceAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyInstanceAttribute)
 
 responseDeleteCustomerGateway :: DeleteCustomerGatewayResponse -> TestTree
-responseDeleteCustomerGateway =
-  res
+responseDeleteCustomerGateway = res
     "DeleteCustomerGatewayResponse"
     "fixture/DeleteCustomerGatewayResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteCustomerGateway)
 
 responseDisassociateIamInstanceProfile :: DisassociateIamInstanceProfileResponse -> TestTree
-responseDisassociateIamInstanceProfile =
-  res
+responseDisassociateIamInstanceProfile = res
     "DisassociateIamInstanceProfileResponse"
     "fixture/DisassociateIamInstanceProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateIamInstanceProfile)
 
 responseTerminateClientVpnConnections :: TerminateClientVpnConnectionsResponse -> TestTree
-responseTerminateClientVpnConnections =
-  res
+responseTerminateClientVpnConnections = res
     "TerminateClientVpnConnectionsResponse"
     "fixture/TerminateClientVpnConnectionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TerminateClientVpnConnections)
 
 responseDisassociateRouteTable :: DisassociateRouteTableResponse -> TestTree
-responseDisassociateRouteTable =
-  res
+responseDisassociateRouteTable = res
     "DisassociateRouteTableResponse"
     "fixture/DisassociateRouteTableResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateRouteTable)
 
 responseGetConsoleScreenshot :: GetConsoleScreenshotResponse -> TestTree
-responseGetConsoleScreenshot =
-  res
+responseGetConsoleScreenshot = res
     "GetConsoleScreenshotResponse"
     "fixture/GetConsoleScreenshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetConsoleScreenshot)
 
 responseResetEbsDefaultKmsKeyId :: ResetEbsDefaultKmsKeyIdResponse -> TestTree
-responseResetEbsDefaultKmsKeyId =
-  res
+responseResetEbsDefaultKmsKeyId = res
     "ResetEbsDefaultKmsKeyIdResponse"
     "fixture/ResetEbsDefaultKmsKeyIdResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ResetEbsDefaultKmsKeyId)
 
 responseAssignIpv6Addresses :: AssignIpv6AddressesResponse -> TestTree
-responseAssignIpv6Addresses =
-  res
+responseAssignIpv6Addresses = res
     "AssignIpv6AddressesResponse"
     "fixture/AssignIpv6AddressesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssignIpv6Addresses)
 
 responseModifyVpnTunnelOptions :: ModifyVpnTunnelOptionsResponse -> TestTree
-responseModifyVpnTunnelOptions =
-  res
+responseModifyVpnTunnelOptions = res
     "ModifyVpnTunnelOptionsResponse"
     "fixture/ModifyVpnTunnelOptionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyVpnTunnelOptions)
 
 responseModifyEbsDefaultKmsKeyId :: ModifyEbsDefaultKmsKeyIdResponse -> TestTree
-responseModifyEbsDefaultKmsKeyId =
-  res
+responseModifyEbsDefaultKmsKeyId = res
     "ModifyEbsDefaultKmsKeyIdResponse"
     "fixture/ModifyEbsDefaultKmsKeyIdResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyEbsDefaultKmsKeyId)
 
 responseDeleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscriptionResponse -> TestTree
-responseDeleteSpotDatafeedSubscription =
-  res
+responseDeleteSpotDatafeedSubscription = res
     "DeleteSpotDatafeedSubscriptionResponse"
     "fixture/DeleteSpotDatafeedSubscriptionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteSpotDatafeedSubscription)
 
 responseModifyVolume :: ModifyVolumeResponse -> TestTree
-responseModifyVolume =
-  res
+responseModifyVolume = res
     "ModifyVolumeResponse"
     "fixture/ModifyVolumeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyVolume)
 
 responseEnableVpcClassicLink :: EnableVpcClassicLinkResponse -> TestTree
-responseEnableVpcClassicLink =
-  res
+responseEnableVpcClassicLink = res
     "EnableVpcClassicLinkResponse"
     "fixture/EnableVpcClassicLinkResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy EnableVpcClassicLink)
 
 responseDescribePlacementGroups :: DescribePlacementGroupsResponse -> TestTree
-responseDescribePlacementGroups =
-  res
+responseDescribePlacementGroups = res
     "DescribePlacementGroupsResponse"
     "fixture/DescribePlacementGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribePlacementGroups)
 
 responseProvisionByoipCidr :: ProvisionByoipCidrResponse -> TestTree
-responseProvisionByoipCidr =
-  res
+responseProvisionByoipCidr = res
     "ProvisionByoipCidrResponse"
     "fixture/ProvisionByoipCidrResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ProvisionByoipCidr)
 
 responseDisassociateEnclaveCertificateIamRole :: DisassociateEnclaveCertificateIamRoleResponse -> TestTree
-responseDisassociateEnclaveCertificateIamRole =
-  res
+responseDisassociateEnclaveCertificateIamRole = res
     "DisassociateEnclaveCertificateIamRoleResponse"
     "fixture/DisassociateEnclaveCertificateIamRoleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateEnclaveCertificateIamRole)
 
 responseModifyAvailabilityZoneGroup :: ModifyAvailabilityZoneGroupResponse -> TestTree
-responseModifyAvailabilityZoneGroup =
-  res
+responseModifyAvailabilityZoneGroup = res
     "ModifyAvailabilityZoneGroupResponse"
     "fixture/ModifyAvailabilityZoneGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyAvailabilityZoneGroup)
 
 responseDescribeStaleSecurityGroups :: DescribeStaleSecurityGroupsResponse -> TestTree
-responseDescribeStaleSecurityGroups =
-  res
+responseDescribeStaleSecurityGroups = res
     "DescribeStaleSecurityGroupsResponse"
     "fixture/DescribeStaleSecurityGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeStaleSecurityGroups)
 
 responseCreateCarrierGateway :: CreateCarrierGatewayResponse -> TestTree
-responseCreateCarrierGateway =
-  res
+responseCreateCarrierGateway = res
     "CreateCarrierGatewayResponse"
     "fixture/CreateCarrierGatewayResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateCarrierGateway)
 
 responseDescribeExportImageTasks :: DescribeExportImageTasksResponse -> TestTree
-responseDescribeExportImageTasks =
-  res
+responseDescribeExportImageTasks = res
     "DescribeExportImageTasksResponse"
     "fixture/DescribeExportImageTasksResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeExportImageTasks)
 
 responsePurchaseScheduledInstances :: PurchaseScheduledInstancesResponse -> TestTree
-responsePurchaseScheduledInstances =
-  res
+responsePurchaseScheduledInstances = res
     "PurchaseScheduledInstancesResponse"
     "fixture/PurchaseScheduledInstancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PurchaseScheduledInstances)
 
 responseEnableVgwRoutePropagation :: EnableVgwRoutePropagationResponse -> TestTree
-responseEnableVgwRoutePropagation =
-  res
+responseEnableVgwRoutePropagation = res
     "EnableVgwRoutePropagationResponse"
     "fixture/EnableVgwRoutePropagationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy EnableVgwRoutePropagation)
 
 responseDescribeSpotFleetRequestHistory :: DescribeSpotFleetRequestHistoryResponse -> TestTree
-responseDescribeSpotFleetRequestHistory =
-  res
+responseDescribeSpotFleetRequestHistory = res
     "DescribeSpotFleetRequestHistoryResponse"
     "fixture/DescribeSpotFleetRequestHistoryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeSpotFleetRequestHistory)
 
 responseModifySnapshotAttribute :: ModifySnapshotAttributeResponse -> TestTree
-responseModifySnapshotAttribute =
-  res
+responseModifySnapshotAttribute = res
     "ModifySnapshotAttributeResponse"
     "fixture/ModifySnapshotAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifySnapshotAttribute)
 
 responseDescribeIamInstanceProfileAssociations :: DescribeIamInstanceProfileAssociationsResponse -> TestTree
-responseDescribeIamInstanceProfileAssociations =
-  res
+responseDescribeIamInstanceProfileAssociations = res
     "DescribeIamInstanceProfileAssociationsResponse"
     "fixture/DescribeIamInstanceProfileAssociationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeIamInstanceProfileAssociations)
 
 responseCreateSnapshot :: Snapshot -> TestTree
-responseCreateSnapshot =
-  res
+responseCreateSnapshot = res
     "CreateSnapshotResponse"
     "fixture/CreateSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateSnapshot)
 
 responseCreateLocalGatewayRoute :: CreateLocalGatewayRouteResponse -> TestTree
-responseCreateLocalGatewayRoute =
-  res
+responseCreateLocalGatewayRoute = res
     "CreateLocalGatewayRouteResponse"
     "fixture/CreateLocalGatewayRouteResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateLocalGatewayRoute)
 
 responseCreateNetworkAclEntry :: CreateNetworkAclEntryResponse -> TestTree
-responseCreateNetworkAclEntry =
-  res
+responseCreateNetworkAclEntry = res
     "CreateNetworkAclEntryResponse"
     "fixture/CreateNetworkAclEntryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateNetworkAclEntry)
 
 responseDescribeTransitGatewayAttachments :: DescribeTransitGatewayAttachmentsResponse -> TestTree
-responseDescribeTransitGatewayAttachments =
-  res
+responseDescribeTransitGatewayAttachments = res
     "DescribeTransitGatewayAttachmentsResponse"
     "fixture/DescribeTransitGatewayAttachmentsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeTransitGatewayAttachments)
 
 responseCreateReservedInstancesListing :: CreateReservedInstancesListingResponse -> TestTree
-responseCreateReservedInstancesListing =
-  res
+responseCreateReservedInstancesListing = res
     "CreateReservedInstancesListingResponse"
     "fixture/CreateReservedInstancesListingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateReservedInstancesListing)
 
 responseDescribeIpv6Pools :: DescribeIpv6PoolsResponse -> TestTree
-responseDescribeIpv6Pools =
-  res
+responseDescribeIpv6Pools = res
     "DescribeIpv6PoolsResponse"
     "fixture/DescribeIpv6PoolsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeIpv6Pools)
 
 responseAttachVpnGateway :: AttachVpnGatewayResponse -> TestTree
-responseAttachVpnGateway =
-  res
+responseAttachVpnGateway = res
     "AttachVpnGatewayResponse"
     "fixture/AttachVpnGatewayResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AttachVpnGateway)
 
 responseDescribeLocalGateways :: DescribeLocalGatewaysResponse -> TestTree
-responseDescribeLocalGateways =
-  res
+responseDescribeLocalGateways = res
     "DescribeLocalGatewaysResponse"
     "fixture/DescribeLocalGatewaysResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeLocalGateways)
 
 responseModifyVpcEndpointServicePermissions :: ModifyVpcEndpointServicePermissionsResponse -> TestTree
-responseModifyVpcEndpointServicePermissions =
-  res
+responseModifyVpcEndpointServicePermissions = res
     "ModifyVpcEndpointServicePermissionsResponse"
     "fixture/ModifyVpcEndpointServicePermissionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyVpcEndpointServicePermissions)
 
 responseExportClientVpnClientCertificateRevocationList :: ExportClientVpnClientCertificateRevocationListResponse -> TestTree
-responseExportClientVpnClientCertificateRevocationList =
-  res
+responseExportClientVpnClientCertificateRevocationList = res
     "ExportClientVpnClientCertificateRevocationListResponse"
     "fixture/ExportClientVpnClientCertificateRevocationListResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ExportClientVpnClientCertificateRevocationList)
 
 responseCreateDhcpOptions :: CreateDhcpOptionsResponse -> TestTree
-responseCreateDhcpOptions =
-  res
+responseCreateDhcpOptions = res
     "CreateDhcpOptionsResponse"
     "fixture/CreateDhcpOptionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateDhcpOptions)
 
 responseRegisterTransitGatewayMulticastGroupSources :: RegisterTransitGatewayMulticastGroupSourcesResponse -> TestTree
-responseRegisterTransitGatewayMulticastGroupSources =
-  res
+responseRegisterTransitGatewayMulticastGroupSources = res
     "RegisterTransitGatewayMulticastGroupSourcesResponse"
     "fixture/RegisterTransitGatewayMulticastGroupSourcesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RegisterTransitGatewayMulticastGroupSources)
 
 responseDescribeAccountAttributes :: DescribeAccountAttributesResponse -> TestTree
-responseDescribeAccountAttributes =
-  res
+responseDescribeAccountAttributes = res
     "DescribeAccountAttributesResponse"
     "fixture/DescribeAccountAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAccountAttributes)
 
 responseGetTransitGatewayRouteTablePropagations :: GetTransitGatewayRouteTablePropagationsResponse -> TestTree
-responseGetTransitGatewayRouteTablePropagations =
-  res
+responseGetTransitGatewayRouteTablePropagations = res
     "GetTransitGatewayRouteTablePropagationsResponse"
     "fixture/GetTransitGatewayRouteTablePropagationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetTransitGatewayRouteTablePropagations)
 
 responseModifyFpgaImageAttribute :: ModifyFpgaImageAttributeResponse -> TestTree
-responseModifyFpgaImageAttribute =
-  res
+responseModifyFpgaImageAttribute = res
     "ModifyFpgaImageAttributeResponse"
     "fixture/ModifyFpgaImageAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyFpgaImageAttribute)
 
 responseModifyHosts :: ModifyHostsResponse -> TestTree
-responseModifyHosts =
-  res
+responseModifyHosts = res
     "ModifyHostsResponse"
     "fixture/ModifyHostsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyHosts)
 
 responseRebootInstances :: RebootInstancesResponse -> TestTree
-responseRebootInstances =
-  res
+responseRebootInstances = res
     "RebootInstancesResponse"
     "fixture/RebootInstancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RebootInstances)
 
 responseModifyVpcEndpointServiceConfiguration :: ModifyVpcEndpointServiceConfigurationResponse -> TestTree
-responseModifyVpcEndpointServiceConfiguration =
-  res
+responseModifyVpcEndpointServiceConfiguration = res
     "ModifyVpcEndpointServiceConfigurationResponse"
     "fixture/ModifyVpcEndpointServiceConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyVpcEndpointServiceConfiguration)
 
 responseCreateTransitGateway :: CreateTransitGatewayResponse -> TestTree
-responseCreateTransitGateway =
-  res
+responseCreateTransitGateway = res
     "CreateTransitGatewayResponse"
     "fixture/CreateTransitGatewayResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateTransitGateway)
 
 responseUnassignIpv6Addresses :: UnassignIpv6AddressesResponse -> TestTree
-responseUnassignIpv6Addresses =
-  res
+responseUnassignIpv6Addresses = res
     "UnassignIpv6AddressesResponse"
     "fixture/UnassignIpv6AddressesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UnassignIpv6Addresses)
 
 responseDeleteTrafficMirrorSession :: DeleteTrafficMirrorSessionResponse -> TestTree
-responseDeleteTrafficMirrorSession =
-  res
+responseDeleteTrafficMirrorSession = res
     "DeleteTrafficMirrorSessionResponse"
     "fixture/DeleteTrafficMirrorSessionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteTrafficMirrorSession)
 
 responseCreateManagedPrefixList :: CreateManagedPrefixListResponse -> TestTree
-responseCreateManagedPrefixList =
-  res
+responseCreateManagedPrefixList = res
     "CreateManagedPrefixListResponse"
     "fixture/CreateManagedPrefixListResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateManagedPrefixList)
 
 responseAssociateIamInstanceProfile :: AssociateIamInstanceProfileResponse -> TestTree
-responseAssociateIamInstanceProfile =
-  res
+responseAssociateIamInstanceProfile = res
     "AssociateIamInstanceProfileResponse"
     "fixture/AssociateIamInstanceProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateIamInstanceProfile)
 
 responseModifyDefaultCreditSpecification :: ModifyDefaultCreditSpecificationResponse -> TestTree
-responseModifyDefaultCreditSpecification =
-  res
+responseModifyDefaultCreditSpecification = res
     "ModifyDefaultCreditSpecificationResponse"
     "fixture/ModifyDefaultCreditSpecificationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyDefaultCreditSpecification)
 
 responseDeleteEgressOnlyInternetGateway :: DeleteEgressOnlyInternetGatewayResponse -> TestTree
-responseDeleteEgressOnlyInternetGateway =
-  res
+responseDeleteEgressOnlyInternetGateway = res
     "DeleteEgressOnlyInternetGatewayResponse"
     "fixture/DeleteEgressOnlyInternetGatewayResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteEgressOnlyInternetGateway)
 
 responsePurchaseHostReservation :: PurchaseHostReservationResponse -> TestTree
-responsePurchaseHostReservation =
-  res
+responsePurchaseHostReservation = res
     "PurchaseHostReservationResponse"
     "fixture/PurchaseHostReservationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PurchaseHostReservation)
 
 responseModifyTransitGatewayVpcAttachment :: ModifyTransitGatewayVpcAttachmentResponse -> TestTree
-responseModifyTransitGatewayVpcAttachment =
-  res
+responseModifyTransitGatewayVpcAttachment = res
     "ModifyTransitGatewayVpcAttachmentResponse"
     "fixture/ModifyTransitGatewayVpcAttachmentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyTransitGatewayVpcAttachment)
 
 responseCreateImage :: CreateImageResponse -> TestTree
-responseCreateImage =
-  res
+responseCreateImage = res
     "CreateImageResponse"
     "fixture/CreateImageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateImage)
 
 responseDescribeClassicLinkInstances :: DescribeClassicLinkInstancesResponse -> TestTree
-responseDescribeClassicLinkInstances =
-  res
+responseDescribeClassicLinkInstances = res
     "DescribeClassicLinkInstancesResponse"
     "fixture/DescribeClassicLinkInstancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeClassicLinkInstances)
 
 responseTerminateInstances :: TerminateInstancesResponse -> TestTree
-responseTerminateInstances =
-  res
+responseTerminateInstances = res
     "TerminateInstancesResponse"
     "fixture/TerminateInstancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TerminateInstances)
 
 responseGetTransitGatewayPrefixListReferences :: GetTransitGatewayPrefixListReferencesResponse -> TestTree
-responseGetTransitGatewayPrefixListReferences =
-  res
+responseGetTransitGatewayPrefixListReferences = res
     "GetTransitGatewayPrefixListReferencesResponse"
     "fixture/GetTransitGatewayPrefixListReferencesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetTransitGatewayPrefixListReferences)
 
 responseDescribeKeyPairs :: DescribeKeyPairsResponse -> TestTree
-responseDescribeKeyPairs =
-  res
+responseDescribeKeyPairs = res
     "DescribeKeyPairsResponse"
     "fixture/DescribeKeyPairsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeKeyPairs)
 
 responseDisableFastSnapshotRestores :: DisableFastSnapshotRestoresResponse -> TestTree
-responseDisableFastSnapshotRestores =
-  res
+responseDisableFastSnapshotRestores = res
     "DisableFastSnapshotRestoresResponse"
     "fixture/DisableFastSnapshotRestoresResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisableFastSnapshotRestores)
 
 responseDescribeLaunchTemplates :: DescribeLaunchTemplatesResponse -> TestTree
-responseDescribeLaunchTemplates =
-  res
+responseDescribeLaunchTemplates = res
     "DescribeLaunchTemplatesResponse"
     "fixture/DescribeLaunchTemplatesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeLaunchTemplates)
 
 responseCreateVpnConnectionRoute :: CreateVpnConnectionRouteResponse -> TestTree
-responseCreateVpnConnectionRoute =
-  res
+responseCreateVpnConnectionRoute = res
     "CreateVpnConnectionRouteResponse"
     "fixture/CreateVpnConnectionRouteResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateVpnConnectionRoute)
 
 responseAssociateRouteTable :: AssociateRouteTableResponse -> TestTree
-responseAssociateRouteTable =
-  res
+responseAssociateRouteTable = res
     "AssociateRouteTableResponse"
     "fixture/AssociateRouteTableResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateRouteTable)
 
 responseDescribeVpnGateways :: DescribeVpnGatewaysResponse -> TestTree
-responseDescribeVpnGateways =
-  res
+responseDescribeVpnGateways = res
     "DescribeVpnGatewaysResponse"
     "fixture/DescribeVpnGatewaysResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeVpnGateways)
 
 responseModifyVpnConnectionOptions :: ModifyVpnConnectionOptionsResponse -> TestTree
-responseModifyVpnConnectionOptions =
-  res
+responseModifyVpnConnectionOptions = res
     "ModifyVpnConnectionOptionsResponse"
     "fixture/ModifyVpnConnectionOptionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyVpnConnectionOptions)
 
 responseGetConsoleOutput :: GetConsoleOutputResponse -> TestTree
-responseGetConsoleOutput =
-  res
+responseGetConsoleOutput = res
     "GetConsoleOutputResponse"
     "fixture/GetConsoleOutputResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetConsoleOutput)
 
 responseDescribeHosts :: DescribeHostsResponse -> TestTree
-responseDescribeHosts =
-  res
+responseDescribeHosts = res
     "DescribeHostsResponse"
     "fixture/DescribeHostsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeHosts)
 
 responseDescribeImageAttribute :: DescribeImageAttributeResponse -> TestTree
-responseDescribeImageAttribute =
-  res
+responseDescribeImageAttribute = res
     "DescribeImageAttributeResponse"
     "fixture/DescribeImageAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeImageAttribute)
 
 responseModifyIdFormat :: ModifyIdFormatResponse -> TestTree
-responseModifyIdFormat =
-  res
+responseModifyIdFormat = res
     "ModifyIdFormatResponse"
     "fixture/ModifyIdFormatResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyIdFormat)
 
 responseRegisterTransitGatewayMulticastGroupMembers :: RegisterTransitGatewayMulticastGroupMembersResponse -> TestTree
-responseRegisterTransitGatewayMulticastGroupMembers =
-  res
+responseRegisterTransitGatewayMulticastGroupMembers = res
     "RegisterTransitGatewayMulticastGroupMembersResponse"
     "fixture/RegisterTransitGatewayMulticastGroupMembersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RegisterTransitGatewayMulticastGroupMembers)
 
 responseDeleteManagedPrefixList :: DeleteManagedPrefixListResponse -> TestTree
-responseDeleteManagedPrefixList =
-  res
+responseDeleteManagedPrefixList = res
     "DeleteManagedPrefixListResponse"
     "fixture/DeleteManagedPrefixListResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteManagedPrefixList)
 
 responseDeleteRouteTable :: DeleteRouteTableResponse -> TestTree
-responseDeleteRouteTable =
-  res
+responseDeleteRouteTable = res
     "DeleteRouteTableResponse"
     "fixture/DeleteRouteTableResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteRouteTable)
 
 responseResetImageAttribute :: ResetImageAttributeResponse -> TestTree
-responseResetImageAttribute =
-  res
+responseResetImageAttribute = res
     "ResetImageAttributeResponse"
     "fixture/ResetImageAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ResetImageAttribute)
 
 responseModifyTransitGatewayPrefixListReference :: ModifyTransitGatewayPrefixListReferenceResponse -> TestTree
-responseModifyTransitGatewayPrefixListReference =
-  res
+responseModifyTransitGatewayPrefixListReference = res
     "ModifyTransitGatewayPrefixListReferenceResponse"
     "fixture/ModifyTransitGatewayPrefixListReferenceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyTransitGatewayPrefixListReference)
 
 responseDescribeTransitGatewayRouteTables :: DescribeTransitGatewayRouteTablesResponse -> TestTree
-responseDescribeTransitGatewayRouteTables =
-  res
+responseDescribeTransitGatewayRouteTables = res
     "DescribeTransitGatewayRouteTablesResponse"
     "fixture/DescribeTransitGatewayRouteTablesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeTransitGatewayRouteTables)
 
 responseCreateEgressOnlyInternetGateway :: CreateEgressOnlyInternetGatewayResponse -> TestTree
-responseCreateEgressOnlyInternetGateway =
-  res
+responseCreateEgressOnlyInternetGateway = res
     "CreateEgressOnlyInternetGatewayResponse"
     "fixture/CreateEgressOnlyInternetGatewayResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateEgressOnlyInternetGateway)
 
 responseDescribeReservedInstancesModifications :: DescribeReservedInstancesModificationsResponse -> TestTree
-responseDescribeReservedInstancesModifications =
-  res
+responseDescribeReservedInstancesModifications = res
     "DescribeReservedInstancesModificationsResponse"
     "fixture/DescribeReservedInstancesModificationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeReservedInstancesModifications)
 
 responseDescribeSpotInstanceRequests :: DescribeSpotInstanceRequestsResponse -> TestTree
-responseDescribeSpotInstanceRequests =
-  res
+responseDescribeSpotInstanceRequests = res
     "DescribeSpotInstanceRequestsResponse"
     "fixture/DescribeSpotInstanceRequestsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeSpotInstanceRequests)
 
 responseRevokeClientVpnIngress :: RevokeClientVpnIngressResponse -> TestTree
-responseRevokeClientVpnIngress =
-  res
+responseRevokeClientVpnIngress = res
     "RevokeClientVpnIngressResponse"
     "fixture/RevokeClientVpnIngressResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RevokeClientVpnIngress)
 
 responseUnassignPrivateIpAddresses :: UnassignPrivateIpAddressesResponse -> TestTree
-responseUnassignPrivateIpAddresses =
-  res
+responseUnassignPrivateIpAddresses = res
     "UnassignPrivateIpAddressesResponse"
     "fixture/UnassignPrivateIpAddressesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UnassignPrivateIpAddresses)
 
 responseDescribeNetworkInterfacePermissions :: DescribeNetworkInterfacePermissionsResponse -> TestTree
-responseDescribeNetworkInterfacePermissions =
-  res
+responseDescribeNetworkInterfacePermissions = res
     "DescribeNetworkInterfacePermissionsResponse"
     "fixture/DescribeNetworkInterfacePermissionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeNetworkInterfacePermissions)
 
 responseEnableFastSnapshotRestores :: EnableFastSnapshotRestoresResponse -> TestTree
-responseEnableFastSnapshotRestores =
-  res
+responseEnableFastSnapshotRestores = res
     "EnableFastSnapshotRestoresResponse"
     "fixture/EnableFastSnapshotRestoresResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy EnableFastSnapshotRestores)
 
 responseDescribeVpcEndpointServicePermissions :: DescribeVpcEndpointServicePermissionsResponse -> TestTree
-responseDescribeVpcEndpointServicePermissions =
-  res
+responseDescribeVpcEndpointServicePermissions = res
     "DescribeVpcEndpointServicePermissionsResponse"
     "fixture/DescribeVpcEndpointServicePermissionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeVpcEndpointServicePermissions)
 
 responseDeleteDhcpOptions :: DeleteDhcpOptionsResponse -> TestTree
-responseDeleteDhcpOptions =
-  res
+responseDeleteDhcpOptions = res
     "DeleteDhcpOptionsResponse"
     "fixture/DeleteDhcpOptionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteDhcpOptions)
 
 responseRegisterInstanceEventNotificationAttributes :: RegisterInstanceEventNotificationAttributesResponse -> TestTree
-responseRegisterInstanceEventNotificationAttributes =
-  res
+responseRegisterInstanceEventNotificationAttributes = res
     "RegisterInstanceEventNotificationAttributesResponse"
     "fixture/RegisterInstanceEventNotificationAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RegisterInstanceEventNotificationAttributes)
 
 responseDescribeNetworkAcls :: DescribeNetworkAclsResponse -> TestTree
-responseDescribeNetworkAcls =
-  res
+responseDescribeNetworkAcls = res
     "DescribeNetworkAclsResponse"
     "fixture/DescribeNetworkAclsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeNetworkAcls)
 
 responseCancelImportTask :: CancelImportTaskResponse -> TestTree
-responseCancelImportTask =
-  res
+responseCancelImportTask = res
     "CancelImportTaskResponse"
     "fixture/CancelImportTaskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CancelImportTask)
 
 responseDetachClassicLinkVpc :: DetachClassicLinkVpcResponse -> TestTree
-responseDetachClassicLinkVpc =
-  res
+responseDetachClassicLinkVpc = res
     "DetachClassicLinkVpcResponse"
     "fixture/DetachClassicLinkVpcResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DetachClassicLinkVpc)
 
 responseDescribeRegions :: DescribeRegionsResponse -> TestTree
-responseDescribeRegions =
-  res
+responseDescribeRegions = res
     "DescribeRegionsResponse"
     "fixture/DescribeRegionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeRegions)
 
 responseMonitorInstances :: MonitorInstancesResponse -> TestTree
-responseMonitorInstances =
-  res
+responseMonitorInstances = res
     "MonitorInstancesResponse"
     "fixture/MonitorInstancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy MonitorInstances)
 
 responseSearchLocalGatewayRoutes :: SearchLocalGatewayRoutesResponse -> TestTree
-responseSearchLocalGatewayRoutes =
-  res
+responseSearchLocalGatewayRoutes = res
     "SearchLocalGatewayRoutesResponse"
     "fixture/SearchLocalGatewayRoutesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SearchLocalGatewayRoutes)
 
 responseDeleteClientVpnRoute :: DeleteClientVpnRouteResponse -> TestTree
-responseDeleteClientVpnRoute =
-  res
+responseDeleteClientVpnRoute = res
     "DeleteClientVpnRouteResponse"
     "fixture/DeleteClientVpnRouteResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteClientVpnRoute)
 
 responseAcceptVpcPeeringConnection :: AcceptVpcPeeringConnectionResponse -> TestTree
-responseAcceptVpcPeeringConnection =
-  res
+responseAcceptVpcPeeringConnection = res
     "AcceptVpcPeeringConnectionResponse"
     "fixture/AcceptVpcPeeringConnectionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AcceptVpcPeeringConnection)
 
 responseImportSnapshot :: ImportSnapshotResponse -> TestTree
-responseImportSnapshot =
-  res
+responseImportSnapshot = res
     "ImportSnapshotResponse"
     "fixture/ImportSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ImportSnapshot)
 
 responseDescribeVolumeStatus :: DescribeVolumeStatusResponse -> TestTree
-responseDescribeVolumeStatus =
-  res
+responseDescribeVolumeStatus = res
     "DescribeVolumeStatusResponse"
     "fixture/DescribeVolumeStatusResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeVolumeStatus)
 
 responseDescribeRouteTables :: DescribeRouteTablesResponse -> TestTree
-responseDescribeRouteTables =
-  res
+responseDescribeRouteTables = res
     "DescribeRouteTablesResponse"
     "fixture/DescribeRouteTablesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeRouteTables)
 
 responseDescribeAvailabilityZones :: DescribeAvailabilityZonesResponse -> TestTree
-responseDescribeAvailabilityZones =
-  res
+responseDescribeAvailabilityZones = res
     "DescribeAvailabilityZonesResponse"
     "fixture/DescribeAvailabilityZonesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAvailabilityZones)
 
 responseModifyVpcAttribute :: ModifyVpcAttributeResponse -> TestTree
-responseModifyVpcAttribute =
-  res
+responseModifyVpcAttribute = res
     "ModifyVpcAttributeResponse"
     "fixture/ModifyVpcAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyVpcAttribute)
 
 responseDescribeClientVpnConnections :: DescribeClientVpnConnectionsResponse -> TestTree
-responseDescribeClientVpnConnections =
-  res
+responseDescribeClientVpnConnections = res
     "DescribeClientVpnConnectionsResponse"
     "fixture/DescribeClientVpnConnectionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeClientVpnConnections)
 
 responseDescribeFleetHistory :: DescribeFleetHistoryResponse -> TestTree
-responseDescribeFleetHistory =
-  res
+responseDescribeFleetHistory = res
     "DescribeFleetHistoryResponse"
     "fixture/DescribeFleetHistoryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeFleetHistory)
 
 responseDescribeImages :: DescribeImagesResponse -> TestTree
-responseDescribeImages =
-  res
+responseDescribeImages = res
     "DescribeImagesResponse"
     "fixture/DescribeImagesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeImages)
 
 responseDescribeElasticGpus :: DescribeElasticGpusResponse -> TestTree
-responseDescribeElasticGpus =
-  res
+responseDescribeElasticGpus = res
     "DescribeElasticGpusResponse"
     "fixture/DescribeElasticGpusResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeElasticGpus)
 
 responseRestoreAddressToClassic :: RestoreAddressToClassicResponse -> TestTree
-responseRestoreAddressToClassic =
-  res
+responseRestoreAddressToClassic = res
     "RestoreAddressToClassicResponse"
     "fixture/RestoreAddressToClassicResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RestoreAddressToClassic)
 
 responseDescribeManagedPrefixLists :: DescribeManagedPrefixListsResponse -> TestTree
-responseDescribeManagedPrefixLists =
-  res
+responseDescribeManagedPrefixLists = res
     "DescribeManagedPrefixListsResponse"
     "fixture/DescribeManagedPrefixListsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeManagedPrefixLists)
 
 responseCreateKeyPair :: CreateKeyPairResponse -> TestTree
-responseCreateKeyPair =
-  res
+responseCreateKeyPair = res
     "CreateKeyPairResponse"
     "fixture/CreateKeyPairResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateKeyPair)
 
 responseGetReservedInstancesExchangeQuote :: GetReservedInstancesExchangeQuoteResponse -> TestTree
-responseGetReservedInstancesExchangeQuote =
-  res
+responseGetReservedInstancesExchangeQuote = res
     "GetReservedInstancesExchangeQuoteResponse"
     "fixture/GetReservedInstancesExchangeQuoteResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetReservedInstancesExchangeQuote)
 
 responseDeleteVolume :: DeleteVolumeResponse -> TestTree
-responseDeleteVolume =
-  res
+responseDeleteVolume = res
     "DeleteVolumeResponse"
     "fixture/DeleteVolumeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteVolume)
 
 responseDeprovisionByoipCidr :: DeprovisionByoipCidrResponse -> TestTree
-responseDeprovisionByoipCidr =
-  res
+responseDeprovisionByoipCidr = res
     "DeprovisionByoipCidrResponse"
     "fixture/DeprovisionByoipCidrResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeprovisionByoipCidr)
 
 responseDeleteVpcEndpointServiceConfigurations :: DeleteVpcEndpointServiceConfigurationsResponse -> TestTree
-responseDeleteVpcEndpointServiceConfigurations =
-  res
+responseDeleteVpcEndpointServiceConfigurations = res
     "DeleteVpcEndpointServiceConfigurationsResponse"
     "fixture/DeleteVpcEndpointServiceConfigurationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteVpcEndpointServiceConfigurations)
 
 responseDescribeSpotFleetInstances :: DescribeSpotFleetInstancesResponse -> TestTree
-responseDescribeSpotFleetInstances =
-  res
+responseDescribeSpotFleetInstances = res
     "DescribeSpotFleetInstancesResponse"
     "fixture/DescribeSpotFleetInstancesResponse.proto"
     mkServiceConfig

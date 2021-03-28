@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,22 +10,20 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CostExplorer.Types.CostCategory
-  ( CostCategory (..),
-
-    -- * Smart constructor
-    mkCostCategory,
-
-    -- * Lenses
-    ccCostCategoryArn,
-    ccEffectiveStart,
-    ccName,
-    ccRuleVersion,
-    ccRules,
-    ccEffectiveEnd,
-    ccProcessingStatus,
-  )
-where
+  ( CostCategory (..)
+  -- * Smart constructor
+  , mkCostCategory
+  -- * Lenses
+  , ccCostCategoryArn
+  , ccEffectiveStart
+  , ccName
+  , ccRuleVersion
+  , ccRules
+  , ccEffectiveEnd
+  , ccProcessingStatus
+  ) where
 
 import qualified Network.AWS.CostExplorer.Types.Arn as Types
 import qualified Network.AWS.CostExplorer.Types.CostCategoryProcessingStatus as Types
@@ -41,109 +39,100 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkCostCategory' smart constructor.
 data CostCategory = CostCategory'
-  { -- | The unique identifier for your Cost Category.
-    costCategoryArn :: Types.Arn,
-    -- | The Cost Category's effective start date.
-    effectiveStart :: Types.EffectiveStart,
-    name :: Types.Name,
-    ruleVersion :: Types.CostCategoryRuleVersion,
-    -- | Rules are processed in order. If there are multiple rules that match the line item, then the first rule to match is used to determine that Cost Category value.
-    rules :: Core.NonEmpty Types.CostCategoryRule,
-    -- | The Cost Category's effective end date.
-    effectiveEnd :: Core.Maybe Types.EffectiveEnd,
-    -- | The list of processing statuses for Cost Management products for a specific cost category.
-    processingStatus :: Core.Maybe [Types.CostCategoryProcessingStatus]
+  { costCategoryArn :: Types.Arn
+    -- ^ The unique identifier for your Cost Category. 
+  , effectiveStart :: Types.EffectiveStart
+    -- ^ The Cost Category's effective start date.
+  , name :: Types.Name
+  , ruleVersion :: Types.CostCategoryRuleVersion
+  , rules :: Core.NonEmpty Types.CostCategoryRule
+    -- ^ Rules are processed in order. If there are multiple rules that match the line item, then the first rule to match is used to determine that Cost Category value. 
+  , effectiveEnd :: Core.Maybe Types.EffectiveEnd
+    -- ^ The Cost Category's effective end date.
+  , processingStatus :: Core.Maybe [Types.CostCategoryProcessingStatus]
+    -- ^ The list of processing statuses for Cost Management products for a specific cost category. 
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CostCategory' value with any optional fields omitted.
-mkCostCategory ::
-  -- | 'costCategoryArn'
-  Types.Arn ->
-  -- | 'effectiveStart'
-  Types.EffectiveStart ->
-  -- | 'name'
-  Types.Name ->
-  -- | 'ruleVersion'
-  Types.CostCategoryRuleVersion ->
-  -- | 'rules'
-  Core.NonEmpty Types.CostCategoryRule ->
-  CostCategory
 mkCostCategory
-  costCategoryArn
-  effectiveStart
-  name
-  ruleVersion
-  rules =
-    CostCategory'
-      { costCategoryArn,
-        effectiveStart,
-        name,
-        ruleVersion,
-        rules,
-        effectiveEnd = Core.Nothing,
-        processingStatus = Core.Nothing
-      }
+    :: Types.Arn -- ^ 'costCategoryArn'
+    -> Types.EffectiveStart -- ^ 'effectiveStart'
+    -> Types.Name -- ^ 'name'
+    -> Types.CostCategoryRuleVersion -- ^ 'ruleVersion'
+    -> Core.NonEmpty Types.CostCategoryRule -- ^ 'rules'
+    -> CostCategory
+mkCostCategory costCategoryArn effectiveStart name ruleVersion
+  rules
+  = CostCategory'{costCategoryArn, effectiveStart, name, ruleVersion,
+                  rules, effectiveEnd = Core.Nothing,
+                  processingStatus = Core.Nothing}
 
--- | The unique identifier for your Cost Category.
+-- | The unique identifier for your Cost Category. 
 --
 -- /Note:/ Consider using 'costCategoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccCostCategoryArn :: Lens.Lens' CostCategory Types.Arn
 ccCostCategoryArn = Lens.field @"costCategoryArn"
-{-# DEPRECATED ccCostCategoryArn "Use generic-lens or generic-optics with 'costCategoryArn' instead." #-}
+{-# INLINEABLE ccCostCategoryArn #-}
+{-# DEPRECATED costCategoryArn "Use generic-lens or generic-optics with 'costCategoryArn' instead"  #-}
 
 -- | The Cost Category's effective start date.
 --
 -- /Note:/ Consider using 'effectiveStart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccEffectiveStart :: Lens.Lens' CostCategory Types.EffectiveStart
 ccEffectiveStart = Lens.field @"effectiveStart"
-{-# DEPRECATED ccEffectiveStart "Use generic-lens or generic-optics with 'effectiveStart' instead." #-}
+{-# INLINEABLE ccEffectiveStart #-}
+{-# DEPRECATED effectiveStart "Use generic-lens or generic-optics with 'effectiveStart' instead"  #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccName :: Lens.Lens' CostCategory Types.Name
 ccName = Lens.field @"name"
-{-# DEPRECATED ccName "Use generic-lens or generic-optics with 'name' instead." #-}
+{-# INLINEABLE ccName #-}
+{-# DEPRECATED name "Use generic-lens or generic-optics with 'name' instead"  #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'ruleVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccRuleVersion :: Lens.Lens' CostCategory Types.CostCategoryRuleVersion
 ccRuleVersion = Lens.field @"ruleVersion"
-{-# DEPRECATED ccRuleVersion "Use generic-lens or generic-optics with 'ruleVersion' instead." #-}
+{-# INLINEABLE ccRuleVersion #-}
+{-# DEPRECATED ruleVersion "Use generic-lens or generic-optics with 'ruleVersion' instead"  #-}
 
--- | Rules are processed in order. If there are multiple rules that match the line item, then the first rule to match is used to determine that Cost Category value.
+-- | Rules are processed in order. If there are multiple rules that match the line item, then the first rule to match is used to determine that Cost Category value. 
 --
 -- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccRules :: Lens.Lens' CostCategory (Core.NonEmpty Types.CostCategoryRule)
 ccRules = Lens.field @"rules"
-{-# DEPRECATED ccRules "Use generic-lens or generic-optics with 'rules' instead." #-}
+{-# INLINEABLE ccRules #-}
+{-# DEPRECATED rules "Use generic-lens or generic-optics with 'rules' instead"  #-}
 
 -- | The Cost Category's effective end date.
 --
 -- /Note:/ Consider using 'effectiveEnd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccEffectiveEnd :: Lens.Lens' CostCategory (Core.Maybe Types.EffectiveEnd)
 ccEffectiveEnd = Lens.field @"effectiveEnd"
-{-# DEPRECATED ccEffectiveEnd "Use generic-lens or generic-optics with 'effectiveEnd' instead." #-}
+{-# INLINEABLE ccEffectiveEnd #-}
+{-# DEPRECATED effectiveEnd "Use generic-lens or generic-optics with 'effectiveEnd' instead"  #-}
 
--- | The list of processing statuses for Cost Management products for a specific cost category.
+-- | The list of processing statuses for Cost Management products for a specific cost category. 
 --
 -- /Note:/ Consider using 'processingStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccProcessingStatus :: Lens.Lens' CostCategory (Core.Maybe [Types.CostCategoryProcessingStatus])
 ccProcessingStatus = Lens.field @"processingStatus"
-{-# DEPRECATED ccProcessingStatus "Use generic-lens or generic-optics with 'processingStatus' instead." #-}
+{-# INLINEABLE ccProcessingStatus #-}
+{-# DEPRECATED processingStatus "Use generic-lens or generic-optics with 'processingStatus' instead"  #-}
 
 instance Core.FromJSON CostCategory where
-  parseJSON =
-    Core.withObject "CostCategory" Core.$
-      \x ->
-        CostCategory'
-          Core.<$> (x Core..: "CostCategoryArn")
-          Core.<*> (x Core..: "EffectiveStart")
-          Core.<*> (x Core..: "Name")
-          Core.<*> (x Core..: "RuleVersion")
-          Core.<*> (x Core..: "Rules")
-          Core.<*> (x Core..:? "EffectiveEnd")
-          Core.<*> (x Core..:? "ProcessingStatus")
+        parseJSON
+          = Core.withObject "CostCategory" Core.$
+              \ x ->
+                CostCategory' Core.<$>
+                  (x Core..: "CostCategoryArn") Core.<*> x Core..: "EffectiveStart"
+                    Core.<*> x Core..: "Name"
+                    Core.<*> x Core..: "RuleVersion"
+                    Core.<*> x Core..: "Rules"
+                    Core.<*> x Core..:? "EffectiveEnd"
+                    Core.<*> x Core..:? "ProcessingStatus"

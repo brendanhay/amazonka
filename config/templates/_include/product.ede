@@ -19,12 +19,7 @@
   {{ deriving.value }}
 {% endfor %}
 
-{% if shape.constructor.documentation %}
--- | {{ shape.constructor.documentation }}
-{% endif %}
-{{ shape.constructor.signature }}
-{{ shape.constructor.declaration }}
-{-# INLINEABLE {{ shape.constructor.name }} #-}
+{% include "function.ede" with function = shape.constructor %}
 {% for lens in shape.lenses %}
 
 {% include "function.ede" with function = lens.value %}

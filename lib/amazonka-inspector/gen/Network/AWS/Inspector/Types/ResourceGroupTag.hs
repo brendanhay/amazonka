@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Inspector.Types.ResourceGroupTag
-  ( ResourceGroupTag (..),
-
-    -- * Smart constructor
-    mkResourceGroupTag,
-
-    -- * Lenses
-    rgtKey,
-    rgtValue,
-  )
-where
+  ( ResourceGroupTag (..)
+  -- * Smart constructor
+  , mkResourceGroupTag
+  -- * Lenses
+  , rgtKey
+  , rgtValue
+  ) where
 
 import qualified Network.AWS.Inspector.Types.Key as Types
 import qualified Network.AWS.Inspector.Types.Value as Types
@@ -31,46 +29,46 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkResourceGroupTag' smart constructor.
 data ResourceGroupTag = ResourceGroupTag'
-  { -- | A tag key.
-    key :: Types.Key,
-    -- | The value assigned to a tag key.
-    value :: Core.Maybe Types.Value
+  { key :: Types.Key
+    -- ^ A tag key.
+  , value :: Core.Maybe Types.Value
+    -- ^ The value assigned to a tag key.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ResourceGroupTag' value with any optional fields omitted.
-mkResourceGroupTag ::
-  -- | 'key'
-  Types.Key ->
-  ResourceGroupTag
-mkResourceGroupTag key =
-  ResourceGroupTag' {key, value = Core.Nothing}
+mkResourceGroupTag
+    :: Types.Key -- ^ 'key'
+    -> ResourceGroupTag
+mkResourceGroupTag key
+  = ResourceGroupTag'{key, value = Core.Nothing}
 
 -- | A tag key.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rgtKey :: Lens.Lens' ResourceGroupTag Types.Key
 rgtKey = Lens.field @"key"
-{-# DEPRECATED rgtKey "Use generic-lens or generic-optics with 'key' instead." #-}
+{-# INLINEABLE rgtKey #-}
+{-# DEPRECATED key "Use generic-lens or generic-optics with 'key' instead"  #-}
 
 -- | The value assigned to a tag key.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rgtValue :: Lens.Lens' ResourceGroupTag (Core.Maybe Types.Value)
 rgtValue = Lens.field @"value"
-{-# DEPRECATED rgtValue "Use generic-lens or generic-optics with 'value' instead." #-}
+{-# INLINEABLE rgtValue #-}
+{-# DEPRECATED value "Use generic-lens or generic-optics with 'value' instead"  #-}
 
 instance Core.FromJSON ResourceGroupTag where
-  toJSON ResourceGroupTag {..} =
-    Core.object
-      ( Core.catMaybes
-          [Core.Just ("key" Core..= key), ("value" Core..=) Core.<$> value]
-      )
+        toJSON ResourceGroupTag{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("key" Core..= key), ("value" Core..=) Core.<$> value])
 
 instance Core.FromJSON ResourceGroupTag where
-  parseJSON =
-    Core.withObject "ResourceGroupTag" Core.$
-      \x ->
-        ResourceGroupTag'
-          Core.<$> (x Core..: "key") Core.<*> (x Core..:? "value")
+        parseJSON
+          = Core.withObject "ResourceGroupTag" Core.$
+              \ x ->
+                ResourceGroupTag' Core.<$>
+                  (x Core..: "key") Core.<*> x Core..:? "value"

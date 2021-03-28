@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CodeDeploy.Types.TrafficRoutingConfig
-  ( TrafficRoutingConfig (..),
-
-    -- * Smart constructor
-    mkTrafficRoutingConfig,
-
-    -- * Lenses
-    trcTimeBasedCanary,
-    trcTimeBasedLinear,
-    trcType,
-  )
-where
+  ( TrafficRoutingConfig (..)
+  -- * Smart constructor
+  , mkTrafficRoutingConfig
+  -- * Lenses
+  , trcTimeBasedCanary
+  , trcTimeBasedLinear
+  , trcType
+  ) where
 
 import qualified Network.AWS.CodeDeploy.Types.TimeBasedCanary as Types
 import qualified Network.AWS.CodeDeploy.Types.TimeBasedLinear as Types
@@ -33,62 +31,60 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkTrafficRoutingConfig' smart constructor.
 data TrafficRoutingConfig = TrafficRoutingConfig'
-  { -- | A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
-    timeBasedCanary :: Core.Maybe Types.TimeBasedCanary,
-    -- | A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
-    timeBasedLinear :: Core.Maybe Types.TimeBasedLinear,
-    -- | The type of traffic shifting (@TimeBasedCanary@ or @TimeBasedLinear@ ) used by a deployment configuration.
-    type' :: Core.Maybe Types.TrafficRoutingType
+  { timeBasedCanary :: Core.Maybe Types.TimeBasedCanary
+    -- ^ A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+  , timeBasedLinear :: Core.Maybe Types.TimeBasedLinear
+    -- ^ A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+  , type' :: Core.Maybe Types.TrafficRoutingType
+    -- ^ The type of traffic shifting (@TimeBasedCanary@ or @TimeBasedLinear@ ) used by a deployment configuration.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'TrafficRoutingConfig' value with any optional fields omitted.
-mkTrafficRoutingConfig ::
-  TrafficRoutingConfig
-mkTrafficRoutingConfig =
-  TrafficRoutingConfig'
-    { timeBasedCanary = Core.Nothing,
-      timeBasedLinear = Core.Nothing,
-      type' = Core.Nothing
-    }
+mkTrafficRoutingConfig
+    :: TrafficRoutingConfig
+mkTrafficRoutingConfig
+  = TrafficRoutingConfig'{timeBasedCanary = Core.Nothing,
+                          timeBasedLinear = Core.Nothing, type' = Core.Nothing}
 
 -- | A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
 --
 -- /Note:/ Consider using 'timeBasedCanary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 trcTimeBasedCanary :: Lens.Lens' TrafficRoutingConfig (Core.Maybe Types.TimeBasedCanary)
 trcTimeBasedCanary = Lens.field @"timeBasedCanary"
-{-# DEPRECATED trcTimeBasedCanary "Use generic-lens or generic-optics with 'timeBasedCanary' instead." #-}
+{-# INLINEABLE trcTimeBasedCanary #-}
+{-# DEPRECATED timeBasedCanary "Use generic-lens or generic-optics with 'timeBasedCanary' instead"  #-}
 
 -- | A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
 --
 -- /Note:/ Consider using 'timeBasedLinear' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 trcTimeBasedLinear :: Lens.Lens' TrafficRoutingConfig (Core.Maybe Types.TimeBasedLinear)
 trcTimeBasedLinear = Lens.field @"timeBasedLinear"
-{-# DEPRECATED trcTimeBasedLinear "Use generic-lens or generic-optics with 'timeBasedLinear' instead." #-}
+{-# INLINEABLE trcTimeBasedLinear #-}
+{-# DEPRECATED timeBasedLinear "Use generic-lens or generic-optics with 'timeBasedLinear' instead"  #-}
 
 -- | The type of traffic shifting (@TimeBasedCanary@ or @TimeBasedLinear@ ) used by a deployment configuration.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 trcType :: Lens.Lens' TrafficRoutingConfig (Core.Maybe Types.TrafficRoutingType)
 trcType = Lens.field @"type'"
-{-# DEPRECATED trcType "Use generic-lens or generic-optics with 'type'' instead." #-}
+{-# INLINEABLE trcType #-}
+{-# DEPRECATED type' "Use generic-lens or generic-optics with 'type'' instead"  #-}
 
 instance Core.FromJSON TrafficRoutingConfig where
-  toJSON TrafficRoutingConfig {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("timeBasedCanary" Core..=) Core.<$> timeBasedCanary,
-            ("timeBasedLinear" Core..=) Core.<$> timeBasedLinear,
-            ("type" Core..=) Core.<$> type'
-          ]
-      )
+        toJSON TrafficRoutingConfig{..}
+          = Core.object
+              (Core.catMaybes
+                 [("timeBasedCanary" Core..=) Core.<$> timeBasedCanary,
+                  ("timeBasedLinear" Core..=) Core.<$> timeBasedLinear,
+                  ("type" Core..=) Core.<$> type'])
 
 instance Core.FromJSON TrafficRoutingConfig where
-  parseJSON =
-    Core.withObject "TrafficRoutingConfig" Core.$
-      \x ->
-        TrafficRoutingConfig'
-          Core.<$> (x Core..:? "timeBasedCanary")
-          Core.<*> (x Core..:? "timeBasedLinear")
-          Core.<*> (x Core..:? "type")
+        parseJSON
+          = Core.withObject "TrafficRoutingConfig" Core.$
+              \ x ->
+                TrafficRoutingConfig' Core.<$>
+                  (x Core..:? "timeBasedCanary") Core.<*>
+                    x Core..:? "timeBasedLinear"
+                    Core.<*> x Core..:? "type"

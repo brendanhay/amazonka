@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,25 +15,23 @@
 --
 -- Creates a bulk thing provisioning task.
 module Network.AWS.IoT.StartThingRegistrationTask
-  ( -- * Creating a request
-    StartThingRegistrationTask (..),
-    mkStartThingRegistrationTask,
-
+    (
+    -- * Creating a request
+      StartThingRegistrationTask (..)
+    , mkStartThingRegistrationTask
     -- ** Request lenses
-    strtTemplateBody,
-    strtInputFileBucket,
-    strtInputFileKey,
-    strtRoleArn,
+    , strtTemplateBody
+    , strtInputFileBucket
+    , strtInputFileKey
+    , strtRoleArn
 
     -- * Destructuring the response
-    StartThingRegistrationTaskResponse (..),
-    mkStartThingRegistrationTaskResponse,
-
+    , StartThingRegistrationTaskResponse (..)
+    , mkStartThingRegistrationTaskResponse
     -- ** Response lenses
-    strtrrsTaskId,
-    strtrrsResponseStatus,
-  )
-where
+    , strtrrsTaskId
+    , strtrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -43,131 +41,126 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartThingRegistrationTask' smart constructor.
 data StartThingRegistrationTask = StartThingRegistrationTask'
-  { -- | The provisioning template.
-    templateBody :: Types.TemplateBody,
-    -- | The S3 bucket that contains the input file.
-    inputFileBucket :: Types.RegistryS3BucketName,
-    -- | The name of input file within the S3 bucket. This file contains a newline delimited JSON file. Each line contains the parameter values to provision one device (thing).
-    inputFileKey :: Types.RegistryS3KeyName,
-    -- | The IAM role ARN that grants permission the input file.
-    roleArn :: Types.RoleArn
+  { templateBody :: Types.TemplateBody
+    -- ^ The provisioning template.
+  , inputFileBucket :: Types.RegistryS3BucketName
+    -- ^ The S3 bucket that contains the input file.
+  , inputFileKey :: Types.RegistryS3KeyName
+    -- ^ The name of input file within the S3 bucket. This file contains a newline delimited JSON file. Each line contains the parameter values to provision one device (thing).
+  , roleArn :: Types.RoleArn
+    -- ^ The IAM role ARN that grants permission the input file.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'StartThingRegistrationTask' value with any optional fields omitted.
-mkStartThingRegistrationTask ::
-  -- | 'templateBody'
-  Types.TemplateBody ->
-  -- | 'inputFileBucket'
-  Types.RegistryS3BucketName ->
-  -- | 'inputFileKey'
-  Types.RegistryS3KeyName ->
-  -- | 'roleArn'
-  Types.RoleArn ->
-  StartThingRegistrationTask
 mkStartThingRegistrationTask
-  templateBody
-  inputFileBucket
-  inputFileKey
-  roleArn =
-    StartThingRegistrationTask'
-      { templateBody,
-        inputFileBucket,
-        inputFileKey,
-        roleArn
-      }
+    :: Types.TemplateBody -- ^ 'templateBody'
+    -> Types.RegistryS3BucketName -- ^ 'inputFileBucket'
+    -> Types.RegistryS3KeyName -- ^ 'inputFileKey'
+    -> Types.RoleArn -- ^ 'roleArn'
+    -> StartThingRegistrationTask
+mkStartThingRegistrationTask templateBody inputFileBucket
+  inputFileKey roleArn
+  = StartThingRegistrationTask'{templateBody, inputFileBucket,
+                                inputFileKey, roleArn}
 
 -- | The provisioning template.
 --
 -- /Note:/ Consider using 'templateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 strtTemplateBody :: Lens.Lens' StartThingRegistrationTask Types.TemplateBody
 strtTemplateBody = Lens.field @"templateBody"
-{-# DEPRECATED strtTemplateBody "Use generic-lens or generic-optics with 'templateBody' instead." #-}
+{-# INLINEABLE strtTemplateBody #-}
+{-# DEPRECATED templateBody "Use generic-lens or generic-optics with 'templateBody' instead"  #-}
 
 -- | The S3 bucket that contains the input file.
 --
 -- /Note:/ Consider using 'inputFileBucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 strtInputFileBucket :: Lens.Lens' StartThingRegistrationTask Types.RegistryS3BucketName
 strtInputFileBucket = Lens.field @"inputFileBucket"
-{-# DEPRECATED strtInputFileBucket "Use generic-lens or generic-optics with 'inputFileBucket' instead." #-}
+{-# INLINEABLE strtInputFileBucket #-}
+{-# DEPRECATED inputFileBucket "Use generic-lens or generic-optics with 'inputFileBucket' instead"  #-}
 
 -- | The name of input file within the S3 bucket. This file contains a newline delimited JSON file. Each line contains the parameter values to provision one device (thing).
 --
 -- /Note:/ Consider using 'inputFileKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 strtInputFileKey :: Lens.Lens' StartThingRegistrationTask Types.RegistryS3KeyName
 strtInputFileKey = Lens.field @"inputFileKey"
-{-# DEPRECATED strtInputFileKey "Use generic-lens or generic-optics with 'inputFileKey' instead." #-}
+{-# INLINEABLE strtInputFileKey #-}
+{-# DEPRECATED inputFileKey "Use generic-lens or generic-optics with 'inputFileKey' instead"  #-}
 
 -- | The IAM role ARN that grants permission the input file.
 --
 -- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 strtRoleArn :: Lens.Lens' StartThingRegistrationTask Types.RoleArn
 strtRoleArn = Lens.field @"roleArn"
-{-# DEPRECATED strtRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
+{-# INLINEABLE strtRoleArn #-}
+{-# DEPRECATED roleArn "Use generic-lens or generic-optics with 'roleArn' instead"  #-}
+
+instance Core.ToQuery StartThingRegistrationTask where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders StartThingRegistrationTask where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.FromJSON StartThingRegistrationTask where
-  toJSON StartThingRegistrationTask {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("templateBody" Core..= templateBody),
-            Core.Just ("inputFileBucket" Core..= inputFileBucket),
-            Core.Just ("inputFileKey" Core..= inputFileKey),
-            Core.Just ("roleArn" Core..= roleArn)
-          ]
-      )
+        toJSON StartThingRegistrationTask{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("templateBody" Core..= templateBody),
+                  Core.Just ("inputFileBucket" Core..= inputFileBucket),
+                  Core.Just ("inputFileKey" Core..= inputFileKey),
+                  Core.Just ("roleArn" Core..= roleArn)])
 
 instance Core.AWSRequest StartThingRegistrationTask where
-  type
-    Rs StartThingRegistrationTask =
-      StartThingRegistrationTaskResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/thing-registration-tasks",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          StartThingRegistrationTaskResponse'
-            Core.<$> (x Core..:? "taskId") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs StartThingRegistrationTask =
+             StartThingRegistrationTaskResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST,
+                         Core._rqPath = "/thing-registration-tasks",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 StartThingRegistrationTaskResponse' Core.<$>
+                   (x Core..:? "taskId") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkStartThingRegistrationTaskResponse' smart constructor.
 data StartThingRegistrationTaskResponse = StartThingRegistrationTaskResponse'
-  { -- | The bulk thing provisioning task ID.
-    taskId :: Core.Maybe Types.TaskId,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { taskId :: Core.Maybe Types.TaskId
+    -- ^ The bulk thing provisioning task ID.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'StartThingRegistrationTaskResponse' value with any optional fields omitted.
-mkStartThingRegistrationTaskResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  StartThingRegistrationTaskResponse
-mkStartThingRegistrationTaskResponse responseStatus =
-  StartThingRegistrationTaskResponse'
-    { taskId = Core.Nothing,
-      responseStatus
-    }
+mkStartThingRegistrationTaskResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> StartThingRegistrationTaskResponse
+mkStartThingRegistrationTaskResponse responseStatus
+  = StartThingRegistrationTaskResponse'{taskId = Core.Nothing,
+                                        responseStatus}
 
 -- | The bulk thing provisioning task ID.
 --
 -- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 strtrrsTaskId :: Lens.Lens' StartThingRegistrationTaskResponse (Core.Maybe Types.TaskId)
 strtrrsTaskId = Lens.field @"taskId"
-{-# DEPRECATED strtrrsTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
+{-# INLINEABLE strtrrsTaskId #-}
+{-# DEPRECATED taskId "Use generic-lens or generic-optics with 'taskId' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 strtrrsResponseStatus :: Lens.Lens' StartThingRegistrationTaskResponse Core.Int
 strtrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED strtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE strtrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

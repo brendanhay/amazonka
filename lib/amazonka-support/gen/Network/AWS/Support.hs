@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,7 +10,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __AWS Support__
+-- __AWS Support__ 
 --
 -- The AWS Support API reference is intended for programmers who need detailed information about the AWS Support operations and data types. This service enables you to manage your AWS Support cases programmatically. It uses HTTP methods that return results in JSON format.
 -- The AWS Support service also exposes a set of <http://aws.amazon.com/premiumsupport/trustedadvisor/ AWS Trusted Advisor> features. You can retrieve a list of checks and their descriptions, get check results, specify checks to refresh, and get the refresh status of checks.
@@ -45,38 +45,39 @@
 -- For authentication of requests, AWS Support uses <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 Signing Process> .
 -- See <https://docs.aws.amazon.com/awssupport/latest/user/Welcome.html About the AWS Support API> in the /AWS Support User Guide/ for information about how to use this service to create and manage your support cases, and how to call Trusted Advisor for results of checks on your resources.
 module Network.AWS.Support
-  ( -- * Service configuration
-    mkServiceConfig,
+    (
+    -- * Service configuration
+      mkServiceConfig
 
     -- * Errors
     -- $errors
 
     -- ** AttachmentSetExpired
-    _AttachmentSetExpired,
+    , _AttachmentSetExpired
 
     -- ** AttachmentLimitExceeded
-    _AttachmentLimitExceeded,
+    , _AttachmentLimitExceeded
 
     -- ** DescribeAttachmentLimitExceeded
-    _DescribeAttachmentLimitExceeded,
+    , _DescribeAttachmentLimitExceeded
 
     -- ** CaseIdNotFound
-    _CaseIdNotFound,
+    , _CaseIdNotFound
 
     -- ** AttachmentSetIdNotFound
-    _AttachmentSetIdNotFound,
+    , _AttachmentSetIdNotFound
 
     -- ** AttachmentSetSizeLimitExceeded
-    _AttachmentSetSizeLimitExceeded,
+    , _AttachmentSetSizeLimitExceeded
 
     -- ** AttachmentIdNotFound
-    _AttachmentIdNotFound,
+    , _AttachmentIdNotFound
 
     -- ** InternalServerError
-    _InternalServerError,
+    , _InternalServerError
 
     -- ** CaseCreationLimitExceeded
-    _CaseCreationLimitExceeded,
+    , _CaseCreationLimitExceeded
 
     -- * Waiters
     -- $waiters
@@ -84,311 +85,310 @@ module Network.AWS.Support
     -- * Operations
     -- $operations
 
-    -- ** RefreshTrustedAdvisorCheck
-    module Network.AWS.Support.RefreshTrustedAdvisorCheck,
+    -- ** RefreshTrustedAdvisorCheck 
+    , module Network.AWS.Support.RefreshTrustedAdvisorCheck
 
     -- ** DescribeCases (Paginated)
-    module Network.AWS.Support.DescribeCases,
+    , module Network.AWS.Support.DescribeCases
 
-    -- ** DescribeTrustedAdvisorCheckRefreshStatuses
-    module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses,
+    -- ** DescribeTrustedAdvisorCheckRefreshStatuses 
+    , module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
 
-    -- ** DescribeTrustedAdvisorCheckSummaries
-    module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries,
+    -- ** DescribeTrustedAdvisorCheckSummaries 
+    , module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
 
-    -- ** CreateCase
-    module Network.AWS.Support.CreateCase,
+    -- ** CreateCase 
+    , module Network.AWS.Support.CreateCase
 
-    -- ** ResolveCase
-    module Network.AWS.Support.ResolveCase,
+    -- ** ResolveCase 
+    , module Network.AWS.Support.ResolveCase
 
-    -- ** DescribeSeverityLevels
-    module Network.AWS.Support.DescribeSeverityLevels,
+    -- ** DescribeSeverityLevels 
+    , module Network.AWS.Support.DescribeSeverityLevels
 
-    -- ** DescribeTrustedAdvisorChecks
-    module Network.AWS.Support.DescribeTrustedAdvisorChecks,
+    -- ** DescribeTrustedAdvisorChecks 
+    , module Network.AWS.Support.DescribeTrustedAdvisorChecks
 
-    -- ** DescribeAttachment
-    module Network.AWS.Support.DescribeAttachment,
+    -- ** DescribeAttachment 
+    , module Network.AWS.Support.DescribeAttachment
 
-    -- ** AddAttachmentsToSet
-    module Network.AWS.Support.AddAttachmentsToSet,
+    -- ** AddAttachmentsToSet 
+    , module Network.AWS.Support.AddAttachmentsToSet
 
-    -- ** DescribeTrustedAdvisorCheckResult
-    module Network.AWS.Support.DescribeTrustedAdvisorCheckResult,
+    -- ** DescribeTrustedAdvisorCheckResult 
+    , module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
 
-    -- ** DescribeServices
-    module Network.AWS.Support.DescribeServices,
+    -- ** DescribeServices 
+    , module Network.AWS.Support.DescribeServices
 
     -- ** DescribeCommunications (Paginated)
-    module Network.AWS.Support.DescribeCommunications,
+    , module Network.AWS.Support.DescribeCommunications
 
-    -- ** AddCommunicationToCase
-    module Network.AWS.Support.AddCommunicationToCase,
+    -- ** AddCommunicationToCase 
+    , module Network.AWS.Support.AddCommunicationToCase
 
     -- * Types
 
     -- ** Subject
-    Subject (..),
+    , Subject (..)
 
     -- ** TrustedAdvisorResourcesSummary
-    TrustedAdvisorResourcesSummary (..),
-    mkTrustedAdvisorResourcesSummary,
-    tarsResourcesProcessed,
-    tarsResourcesFlagged,
-    tarsResourcesIgnored,
-    tarsResourcesSuppressed,
+    , TrustedAdvisorResourcesSummary (..)
+    , mkTrustedAdvisorResourcesSummary
+    , tarsResourcesProcessed
+    , tarsResourcesFlagged
+    , tarsResourcesIgnored
+    , tarsResourcesSuppressed
 
     -- ** Status
-    Status (..),
+    , Status (..)
 
     -- ** SeverityLevelName
-    SeverityLevelName (..),
+    , SeverityLevelName (..)
 
     -- ** CcEmailAddress
-    CcEmailAddress (..),
+    , CcEmailAddress (..)
 
     -- ** ExpiryTime
-    ExpiryTime (..),
-
-    -- ** String
-    String (..),
+    , ExpiryTime (..)
 
     -- ** SupportService
-    SupportService (..),
-    mkSupportService,
-    ssCategories,
-    ssCode,
-    ssName,
+    , SupportService (..)
+    , mkSupportService
+    , ssCategories
+    , ssCode
+    , ssName
 
     -- ** TrustedAdvisorCategorySpecificSummary
-    TrustedAdvisorCategorySpecificSummary (..),
-    mkTrustedAdvisorCategorySpecificSummary,
-    tacssCostOptimizing,
+    , TrustedAdvisorCategorySpecificSummary (..)
+    , mkTrustedAdvisorCategorySpecificSummary
+    , tacssCostOptimizing
 
     -- ** Communication
-    Communication (..),
-    mkCommunication,
-    cAttachmentSet,
-    cBody,
-    cCaseId,
-    cSubmittedBy,
-    cTimeCreated,
+    , Communication (..)
+    , mkCommunication
+    , cAttachmentSet
+    , cBody
+    , cCaseId
+    , cSubmittedBy
+    , cTimeCreated
 
     -- ** CommunicationBody
-    CommunicationBody (..),
+    , CommunicationBody (..)
 
     -- ** Category
-    Category (..),
-    mkCategory,
-    cCode,
-    cName,
+    , Category (..)
+    , mkCategory
+    , cCode
+    , cName
 
     -- ** SeverityLevelCode
-    SeverityLevelCode (..),
+    , SeverityLevelCode (..)
 
     -- ** TrustedAdvisorCheckSummary
-    TrustedAdvisorCheckSummary (..),
-    mkTrustedAdvisorCheckSummary,
-    tacsCheckId,
-    tacsTimestamp,
-    tacsStatus,
-    tacsResourcesSummary,
-    tacsCategorySpecificSummary,
-    tacsHasFlaggedResources,
+    , TrustedAdvisorCheckSummary (..)
+    , mkTrustedAdvisorCheckSummary
+    , tacsCheckId
+    , tacsTimestamp
+    , tacsStatus
+    , tacsResourcesSummary
+    , tacsCategorySpecificSummary
+    , tacsHasFlaggedResources
 
     -- ** AttachmentDetails
-    AttachmentDetails (..),
-    mkAttachmentDetails,
-    adAttachmentId,
-    adFileName,
+    , AttachmentDetails (..)
+    , mkAttachmentDetails
+    , adAttachmentId
+    , adFileName
 
     -- ** TrustedAdvisorCheckResult
-    TrustedAdvisorCheckResult (..),
-    mkTrustedAdvisorCheckResult,
-    tacrCheckId,
-    tacrTimestamp,
-    tacrStatus,
-    tacrResourcesSummary,
-    tacrCategorySpecificSummary,
-    tacrFlaggedResources,
+    , TrustedAdvisorCheckResult (..)
+    , mkTrustedAdvisorCheckResult
+    , tacrCheckId
+    , tacrTimestamp
+    , tacrStatus
+    , tacrResourcesSummary
+    , tacrCategorySpecificSummary
+    , tacrFlaggedResources
 
     -- ** SeverityCode
-    SeverityCode (..),
+    , SeverityCode (..)
 
     -- ** CaseId
-    CaseId (..),
+    , CaseId (..)
 
     -- ** TrustedAdvisorCheckDescription
-    TrustedAdvisorCheckDescription (..),
-    mkTrustedAdvisorCheckDescription,
-    tacdId,
-    tacdName,
-    tacdDescription,
-    tacdCategory,
-    tacdMetadata,
+    , TrustedAdvisorCheckDescription (..)
+    , mkTrustedAdvisorCheckDescription
+    , tacdId
+    , tacdName
+    , tacdDescription
+    , tacdCategory
+    , tacdMetadata
 
     -- ** IssueType
-    IssueType (..),
+    , IssueType (..)
 
     -- ** AfterTime
-    AfterTime (..),
+    , AfterTime (..)
 
     -- ** Attachment
-    Attachment (..),
-    mkAttachment,
-    aData,
-    aFileName,
+    , Attachment (..)
+    , mkAttachment
+    , aData
+    , aFileName
 
     -- ** NextToken
-    NextToken (..),
+    , NextToken (..)
 
     -- ** RecentCaseCommunications
-    RecentCaseCommunications (..),
-    mkRecentCaseCommunications,
-    rccCommunications,
-    rccNextToken,
+    , RecentCaseCommunications (..)
+    , mkRecentCaseCommunications
+    , rccCommunications
+    , rccNextToken
 
     -- ** AttachmentId
-    AttachmentId (..),
+    , AttachmentId (..)
 
     -- ** BeforeTime
-    BeforeTime (..),
+    , BeforeTime (..)
 
     -- ** DisplayId
-    DisplayId (..),
+    , DisplayId (..)
 
     -- ** Language
-    Language (..),
+    , Language (..)
 
     -- ** TrustedAdvisorResourceDetail
-    TrustedAdvisorResourceDetail (..),
-    mkTrustedAdvisorResourceDetail,
-    tardStatus,
-    tardResourceId,
-    tardMetadata,
-    tardIsSuppressed,
-    tardRegion,
+    , TrustedAdvisorResourceDetail (..)
+    , mkTrustedAdvisorResourceDetail
+    , tardStatus
+    , tardResourceId
+    , tardMetadata
+    , tardIsSuppressed
+    , tardRegion
 
     -- ** TrustedAdvisorCostOptimizingSummary
-    TrustedAdvisorCostOptimizingSummary (..),
-    mkTrustedAdvisorCostOptimizingSummary,
-    tacosEstimatedMonthlySavings,
-    tacosEstimatedPercentMonthlySavings,
+    , TrustedAdvisorCostOptimizingSummary (..)
+    , mkTrustedAdvisorCostOptimizingSummary
+    , tacosEstimatedMonthlySavings
+    , tacosEstimatedPercentMonthlySavings
 
     -- ** SubmittedBy
-    SubmittedBy (..),
+    , SubmittedBy (..)
 
     -- ** CategoryCode
-    CategoryCode (..),
+    , CategoryCode (..)
 
     -- ** TimeCreated
-    TimeCreated (..),
+    , TimeCreated (..)
 
     -- ** SeverityLevel
-    SeverityLevel (..),
-    mkSeverityLevel,
-    slCode,
-    slName,
+    , SeverityLevel (..)
+    , mkSeverityLevel
+    , slCode
+    , slName
 
     -- ** ServiceCode
-    ServiceCode (..),
+    , ServiceCode (..)
 
     -- ** CaseDetails
-    CaseDetails (..),
-    mkCaseDetails,
-    cdCaseId,
-    cdCategoryCode,
-    cdCcEmailAddresses,
-    cdDisplayId,
-    cdLanguage,
-    cdRecentCommunications,
-    cdServiceCode,
-    cdSeverityCode,
-    cdStatus,
-    cdSubject,
-    cdSubmittedBy,
-    cdTimeCreated,
+    , CaseDetails (..)
+    , mkCaseDetails
+    , cdCaseId
+    , cdCategoryCode
+    , cdCcEmailAddresses
+    , cdDisplayId
+    , cdLanguage
+    , cdRecentCommunications
+    , cdServiceCode
+    , cdSeverityCode
+    , cdStatus
+    , cdSubject
+    , cdSubmittedBy
+    , cdTimeCreated
 
     -- ** AttachmentSetId
-    AttachmentSetId (..),
+    , AttachmentSetId (..)
 
     -- ** TrustedAdvisorCheckRefreshStatus
-    TrustedAdvisorCheckRefreshStatus (..),
-    mkTrustedAdvisorCheckRefreshStatus,
-    tacrsCheckId,
-    tacrsStatus,
-    tacrsMillisUntilNextRefreshable,
+    , TrustedAdvisorCheckRefreshStatus (..)
+    , mkTrustedAdvisorCheckRefreshStatus
+    , tacrsCheckId
+    , tacrsStatus
+    , tacrsMillisUntilNextRefreshable
 
     -- ** FileName
-    FileName (..),
+    , FileName (..)
 
     -- ** Code
-    Code (..),
+    , Code (..)
 
     -- ** Name
-    Name (..),
+    , Name (..)
 
     -- ** Body
-    Body (..),
+    , Body (..)
 
     -- ** FinalCaseStatus
-    FinalCaseStatus (..),
+    , FinalCaseStatus (..)
 
     -- ** InitialCaseStatus
-    InitialCaseStatus (..),
+    , InitialCaseStatus (..)
 
     -- * Serialization types
-    Lude.Base64 (..),
-    Lude._Base64,
-    Lude.Sensitive (..),
-    Lude._Sensitive,
-    Lude.UTCTime,
-    Lude.NominalDiffTime,
-  )
-where
+    , Lude.Base64 (..)
+    , Lude._Base64
+    , Lude.Sensitive (..)
+    , Lude._Sensitive
+    , Lude.UTCTime
+    , Lude.NominalDiffTime
+    ) where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Support.AddAttachmentsToSet
-import Network.AWS.Support.AddCommunicationToCase
-import Network.AWS.Support.CreateCase
-import Network.AWS.Support.DescribeAttachment
-import Network.AWS.Support.DescribeCases
-import Network.AWS.Support.DescribeCommunications
-import Network.AWS.Support.DescribeServices
-import Network.AWS.Support.DescribeSeverityLevels
-import Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
-import Network.AWS.Support.DescribeTrustedAdvisorCheckResult
-import Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
-import Network.AWS.Support.DescribeTrustedAdvisorChecks
-import Network.AWS.Support.RefreshTrustedAdvisorCheck
-import Network.AWS.Support.ResolveCase
 import Network.AWS.Support.Types
 import Network.AWS.Support.Waiters
+import Network.AWS.Support.RefreshTrustedAdvisorCheck
+import Network.AWS.Support.DescribeCases
+import Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
+import Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
+import Network.AWS.Support.CreateCase
+import Network.AWS.Support.ResolveCase
+import Network.AWS.Support.DescribeSeverityLevels
+import Network.AWS.Support.DescribeTrustedAdvisorChecks
+import Network.AWS.Support.DescribeAttachment
+import Network.AWS.Support.AddAttachmentsToSet
+import Network.AWS.Support.DescribeTrustedAdvisorCheckResult
+import Network.AWS.Support.DescribeServices
+import Network.AWS.Support.DescribeCommunications
+import Network.AWS.Support.AddCommunicationToCase
+import qualified Network.AWS.Prelude as Lude
 
--- $errors
--- Error matchers are designed for use with the functions provided by
--- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
--- This allows catching (and rethrowing) service specific errors returned
--- by 'Support'.
+{- $errors
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by 'Support'.
+-}
 
--- $operations
--- Some AWS operations return results that are incomplete and require subsequent
--- requests in order to obtain the entire result set. The process of sending
--- subsequent requests to continue where a previous request left off is called
--- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
--- 1000 objects at a time, and you must send subsequent requests with the
--- appropriate Marker in order to retrieve the next page of results.
---
--- Operations that have an 'AWSPager' instance can transparently perform subsequent
--- requests, correctly setting Markers and other request facets to iterate through
--- the entire result set of a truncated API operation. Operations which support
--- this have an additional note in the documentation.
---
--- Many operations have the ability to filter results on the server side. See the
--- individual operation parameters for details.
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
 
--- $waiters
--- Waiters poll by repeatedly sending a request until some remote success condition
--- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
--- determines how many attempts should be made, in addition to delay and retry strategies.
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly sending a request until some remote success condition
+configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+determines how many attempts should be made, in addition to delay and retry strategies.
+-}

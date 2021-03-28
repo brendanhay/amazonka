@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.S3.Types.NoncurrentVersionExpiration
-  ( NoncurrentVersionExpiration (..),
-
-    -- * Smart constructor
-    mkNoncurrentVersionExpiration,
-
-    -- * Lenses
-    nveNoncurrentDays,
-  )
-where
+  ( NoncurrentVersionExpiration (..)
+  -- * Smart constructor
+  , mkNoncurrentVersionExpiration
+  -- * Lenses
+  , nveNoncurrentDays
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -29,32 +27,32 @@ import qualified Network.AWS.S3.Internal as Types
 --
 -- /See:/ 'mkNoncurrentVersionExpiration' smart constructor.
 newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration'
-  { -- | Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations How Amazon S3 Calculates When an Object Became Noncurrent> in the /Amazon Simple Storage Service Developer Guide/ .
-    noncurrentDays :: Core.Int
+  { noncurrentDays :: Core.Int
+    -- ^ Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations How Amazon S3 Calculates When an Object Became Noncurrent> in the /Amazon Simple Storage Service Developer Guide/ .
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'NoncurrentVersionExpiration' value with any optional fields omitted.
-mkNoncurrentVersionExpiration ::
-  -- | 'noncurrentDays'
-  Core.Int ->
-  NoncurrentVersionExpiration
-mkNoncurrentVersionExpiration noncurrentDays =
-  NoncurrentVersionExpiration' {noncurrentDays}
+mkNoncurrentVersionExpiration
+    :: Core.Int -- ^ 'noncurrentDays'
+    -> NoncurrentVersionExpiration
+mkNoncurrentVersionExpiration noncurrentDays
+  = NoncurrentVersionExpiration'{noncurrentDays}
 
 -- | Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations How Amazon S3 Calculates When an Object Became Noncurrent> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'noncurrentDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 nveNoncurrentDays :: Lens.Lens' NoncurrentVersionExpiration Core.Int
 nveNoncurrentDays = Lens.field @"noncurrentDays"
-{-# DEPRECATED nveNoncurrentDays "Use generic-lens or generic-optics with 'noncurrentDays' instead." #-}
+{-# INLINEABLE nveNoncurrentDays #-}
+{-# DEPRECATED noncurrentDays "Use generic-lens or generic-optics with 'noncurrentDays' instead"  #-}
 
 instance Core.ToXML NoncurrentVersionExpiration where
-  toXML NoncurrentVersionExpiration {..} =
-    Core.toXMLNode "NoncurrentDays" noncurrentDays
+        toXML NoncurrentVersionExpiration{..}
+          = Core.toXMLElement "NoncurrentDays" noncurrentDays
 
 instance Core.FromXML NoncurrentVersionExpiration where
-  parseXML x =
-    NoncurrentVersionExpiration'
-      Core.<$> (x Core..@ "NoncurrentDays")
+        parseXML x
+          = NoncurrentVersionExpiration' Core.<$>
+              (x Core..@ "NoncurrentDays")

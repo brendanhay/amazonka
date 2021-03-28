@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CodePipeline.Types.ArtifactStore
-  ( ArtifactStore (..),
-
-    -- * Smart constructor
-    mkArtifactStore,
-
-    -- * Lenses
-    asType,
-    asLocation,
-    asEncryptionKey,
-  )
-where
+  ( ArtifactStore (..)
+  -- * Smart constructor
+  , mkArtifactStore
+  -- * Lenses
+  , asType
+  , asLocation
+  , asEncryptionKey
+  ) where
 
 import qualified Network.AWS.CodePipeline.Types.ArtifactStoreLocation as Types
 import qualified Network.AWS.CodePipeline.Types.ArtifactStoreType as Types
@@ -33,62 +31,60 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkArtifactStore' smart constructor.
 data ArtifactStore = ArtifactStore'
-  { -- | The type of the artifact store, such as S3.
-    type' :: Types.ArtifactStoreType,
-    -- | The S3 bucket used for storing the artifacts for a pipeline. You can specify the name of an S3 bucket but not a folder in the bucket. A folder to contain the pipeline artifacts is created for you based on the name of the pipeline. You can use any S3 bucket in the same AWS Region as the pipeline to store your pipeline artifacts.
-    location :: Types.ArtifactStoreLocation,
-    -- | The encryption key used to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If this is undefined, the default key for Amazon S3 is used.
-    encryptionKey :: Core.Maybe Types.EncryptionKey
+  { type' :: Types.ArtifactStoreType
+    -- ^ The type of the artifact store, such as S3.
+  , location :: Types.ArtifactStoreLocation
+    -- ^ The S3 bucket used for storing the artifacts for a pipeline. You can specify the name of an S3 bucket but not a folder in the bucket. A folder to contain the pipeline artifacts is created for you based on the name of the pipeline. You can use any S3 bucket in the same AWS Region as the pipeline to store your pipeline artifacts.
+  , encryptionKey :: Core.Maybe Types.EncryptionKey
+    -- ^ The encryption key used to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If this is undefined, the default key for Amazon S3 is used.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ArtifactStore' value with any optional fields omitted.
-mkArtifactStore ::
-  -- | 'type\''
-  Types.ArtifactStoreType ->
-  -- | 'location'
-  Types.ArtifactStoreLocation ->
-  ArtifactStore
-mkArtifactStore type' location =
-  ArtifactStore' {type', location, encryptionKey = Core.Nothing}
+mkArtifactStore
+    :: Types.ArtifactStoreType -- ^ 'type\''
+    -> Types.ArtifactStoreLocation -- ^ 'location'
+    -> ArtifactStore
+mkArtifactStore type' location
+  = ArtifactStore'{type', location, encryptionKey = Core.Nothing}
 
 -- | The type of the artifact store, such as S3.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 asType :: Lens.Lens' ArtifactStore Types.ArtifactStoreType
 asType = Lens.field @"type'"
-{-# DEPRECATED asType "Use generic-lens or generic-optics with 'type'' instead." #-}
+{-# INLINEABLE asType #-}
+{-# DEPRECATED type' "Use generic-lens or generic-optics with 'type'' instead"  #-}
 
 -- | The S3 bucket used for storing the artifacts for a pipeline. You can specify the name of an S3 bucket but not a folder in the bucket. A folder to contain the pipeline artifacts is created for you based on the name of the pipeline. You can use any S3 bucket in the same AWS Region as the pipeline to store your pipeline artifacts.
 --
 -- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 asLocation :: Lens.Lens' ArtifactStore Types.ArtifactStoreLocation
 asLocation = Lens.field @"location"
-{-# DEPRECATED asLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+{-# INLINEABLE asLocation #-}
+{-# DEPRECATED location "Use generic-lens or generic-optics with 'location' instead"  #-}
 
 -- | The encryption key used to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If this is undefined, the default key for Amazon S3 is used.
 --
 -- /Note:/ Consider using 'encryptionKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 asEncryptionKey :: Lens.Lens' ArtifactStore (Core.Maybe Types.EncryptionKey)
 asEncryptionKey = Lens.field @"encryptionKey"
-{-# DEPRECATED asEncryptionKey "Use generic-lens or generic-optics with 'encryptionKey' instead." #-}
+{-# INLINEABLE asEncryptionKey #-}
+{-# DEPRECATED encryptionKey "Use generic-lens or generic-optics with 'encryptionKey' instead"  #-}
 
 instance Core.FromJSON ArtifactStore where
-  toJSON ArtifactStore {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("type" Core..= type'),
-            Core.Just ("location" Core..= location),
-            ("encryptionKey" Core..=) Core.<$> encryptionKey
-          ]
-      )
+        toJSON ArtifactStore{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("type" Core..= type'),
+                  Core.Just ("location" Core..= location),
+                  ("encryptionKey" Core..=) Core.<$> encryptionKey])
 
 instance Core.FromJSON ArtifactStore where
-  parseJSON =
-    Core.withObject "ArtifactStore" Core.$
-      \x ->
-        ArtifactStore'
-          Core.<$> (x Core..: "type")
-          Core.<*> (x Core..: "location")
-          Core.<*> (x Core..:? "encryptionKey")
+        parseJSON
+          = Core.withObject "ArtifactStore" Core.$
+              \ x ->
+                ArtifactStore' Core.<$>
+                  (x Core..: "type") Core.<*> x Core..: "location" Core.<*>
+                    x Core..:? "encryptionKey"

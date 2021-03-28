@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CloudSearch.Types.SuggesterStatus
-  ( SuggesterStatus (..),
-
-    -- * Smart constructor
-    mkSuggesterStatus,
-
-    -- * Lenses
-    ssOptions,
-    ssStatus,
-  )
-where
+  ( SuggesterStatus (..)
+  -- * Smart constructor
+  , mkSuggesterStatus
+  -- * Lenses
+  , ssOptions
+  , ssStatus
+  ) where
 
 import qualified Network.AWS.CloudSearch.Types.OptionStatus as Types
 import qualified Network.AWS.CloudSearch.Types.Suggester as Types
@@ -31,37 +29,37 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkSuggesterStatus' smart constructor.
 data SuggesterStatus = SuggesterStatus'
-  { options :: Types.Suggester,
-    status :: Types.OptionStatus
+  { options :: Types.Suggester
+  , status :: Types.OptionStatus
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'SuggesterStatus' value with any optional fields omitted.
-mkSuggesterStatus ::
-  -- | 'options'
-  Types.Suggester ->
-  -- | 'status'
-  Types.OptionStatus ->
-  SuggesterStatus
-mkSuggesterStatus options status =
-  SuggesterStatus' {options, status}
+mkSuggesterStatus
+    :: Types.Suggester -- ^ 'options'
+    -> Types.OptionStatus -- ^ 'status'
+    -> SuggesterStatus
+mkSuggesterStatus options status
+  = SuggesterStatus'{options, status}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ssOptions :: Lens.Lens' SuggesterStatus Types.Suggester
 ssOptions = Lens.field @"options"
-{-# DEPRECATED ssOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+{-# INLINEABLE ssOptions #-}
+{-# DEPRECATED options "Use generic-lens or generic-optics with 'options' instead"  #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ssStatus :: Lens.Lens' SuggesterStatus Types.OptionStatus
 ssStatus = Lens.field @"status"
-{-# DEPRECATED ssStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+{-# INLINEABLE ssStatus #-}
+{-# DEPRECATED status "Use generic-lens or generic-optics with 'status' instead"  #-}
 
 instance Core.FromXML SuggesterStatus where
-  parseXML x =
-    SuggesterStatus'
-      Core.<$> (x Core..@ "Options") Core.<*> (x Core..@ "Status")
+        parseXML x
+          = SuggesterStatus' Core.<$>
+              (x Core..@ "Options") Core.<*> x Core..@ "Status"

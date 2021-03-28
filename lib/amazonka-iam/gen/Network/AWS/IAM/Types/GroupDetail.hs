@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,22 +10,20 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.IAM.Types.GroupDetail
-  ( GroupDetail (..),
-
-    -- * Smart constructor
-    mkGroupDetail,
-
-    -- * Lenses
-    gdArn,
-    gdAttachedManagedPolicies,
-    gdCreateDate,
-    gdGroupId,
-    gdGroupName,
-    gdGroupPolicyList,
-    gdPath,
-  )
-where
+  ( GroupDetail (..)
+  -- * Smart constructor
+  , mkGroupDetail
+  -- * Lenses
+  , gdArn
+  , gdAttachedManagedPolicies
+  , gdCreateDate
+  , gdGroupId
+  , gdGroupName
+  , gdGroupPolicyList
+  , gdPath
+  ) where
 
 import qualified Network.AWS.IAM.Types.Arn as Types
 import qualified Network.AWS.IAM.Types.AttachedPolicy as Types
@@ -42,95 +40,97 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkGroupDetail' smart constructor.
 data GroupDetail = GroupDetail'
-  { arn :: Core.Maybe Types.Arn,
-    -- | A list of the managed policies attached to the group.
-    attachedManagedPolicies :: Core.Maybe [Types.AttachedPolicy],
-    -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the group was created.
-    createDate :: Core.Maybe Core.UTCTime,
-    -- | The stable and unique string identifying the group. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
-    groupId :: Core.Maybe Types.IdType,
-    -- | The friendly name that identifies the group.
-    groupName :: Core.Maybe Types.GroupNameType,
-    -- | A list of the inline policies embedded in the group.
-    groupPolicyList :: Core.Maybe [Types.PolicyDetail],
-    -- | The path to the group. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
-    path :: Core.Maybe Types.Path
+  { arn :: Core.Maybe Types.Arn
+  , attachedManagedPolicies :: Core.Maybe [Types.AttachedPolicy]
+    -- ^ A list of the managed policies attached to the group.
+  , createDate :: Core.Maybe Core.UTCTime
+    -- ^ The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the group was created.
+  , groupId :: Core.Maybe Types.IdType
+    -- ^ The stable and unique string identifying the group. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+  , groupName :: Core.Maybe Types.GroupNameType
+    -- ^ The friendly name that identifies the group.
+  , groupPolicyList :: Core.Maybe [Types.PolicyDetail]
+    -- ^ A list of the inline policies embedded in the group.
+  , path :: Core.Maybe Types.Path
+    -- ^ The path to the group. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'GroupDetail' value with any optional fields omitted.
-mkGroupDetail ::
-  GroupDetail
-mkGroupDetail =
-  GroupDetail'
-    { arn = Core.Nothing,
-      attachedManagedPolicies = Core.Nothing,
-      createDate = Core.Nothing,
-      groupId = Core.Nothing,
-      groupName = Core.Nothing,
-      groupPolicyList = Core.Nothing,
-      path = Core.Nothing
-    }
+mkGroupDetail
+    :: GroupDetail
+mkGroupDetail
+  = GroupDetail'{arn = Core.Nothing,
+                 attachedManagedPolicies = Core.Nothing, createDate = Core.Nothing,
+                 groupId = Core.Nothing, groupName = Core.Nothing,
+                 groupPolicyList = Core.Nothing, path = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gdArn :: Lens.Lens' GroupDetail (Core.Maybe Types.Arn)
 gdArn = Lens.field @"arn"
-{-# DEPRECATED gdArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+{-# INLINEABLE gdArn #-}
+{-# DEPRECATED arn "Use generic-lens or generic-optics with 'arn' instead"  #-}
 
 -- | A list of the managed policies attached to the group.
 --
 -- /Note:/ Consider using 'attachedManagedPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gdAttachedManagedPolicies :: Lens.Lens' GroupDetail (Core.Maybe [Types.AttachedPolicy])
 gdAttachedManagedPolicies = Lens.field @"attachedManagedPolicies"
-{-# DEPRECATED gdAttachedManagedPolicies "Use generic-lens or generic-optics with 'attachedManagedPolicies' instead." #-}
+{-# INLINEABLE gdAttachedManagedPolicies #-}
+{-# DEPRECATED attachedManagedPolicies "Use generic-lens or generic-optics with 'attachedManagedPolicies' instead"  #-}
 
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the group was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gdCreateDate :: Lens.Lens' GroupDetail (Core.Maybe Core.UTCTime)
 gdCreateDate = Lens.field @"createDate"
-{-# DEPRECATED gdCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
+{-# INLINEABLE gdCreateDate #-}
+{-# DEPRECATED createDate "Use generic-lens or generic-optics with 'createDate' instead"  #-}
 
 -- | The stable and unique string identifying the group. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 --
 -- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gdGroupId :: Lens.Lens' GroupDetail (Core.Maybe Types.IdType)
 gdGroupId = Lens.field @"groupId"
-{-# DEPRECATED gdGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
+{-# INLINEABLE gdGroupId #-}
+{-# DEPRECATED groupId "Use generic-lens or generic-optics with 'groupId' instead"  #-}
 
 -- | The friendly name that identifies the group.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gdGroupName :: Lens.Lens' GroupDetail (Core.Maybe Types.GroupNameType)
 gdGroupName = Lens.field @"groupName"
-{-# DEPRECATED gdGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
+{-# INLINEABLE gdGroupName #-}
+{-# DEPRECATED groupName "Use generic-lens or generic-optics with 'groupName' instead"  #-}
 
 -- | A list of the inline policies embedded in the group.
 --
 -- /Note:/ Consider using 'groupPolicyList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gdGroupPolicyList :: Lens.Lens' GroupDetail (Core.Maybe [Types.PolicyDetail])
 gdGroupPolicyList = Lens.field @"groupPolicyList"
-{-# DEPRECATED gdGroupPolicyList "Use generic-lens or generic-optics with 'groupPolicyList' instead." #-}
+{-# INLINEABLE gdGroupPolicyList #-}
+{-# DEPRECATED groupPolicyList "Use generic-lens or generic-optics with 'groupPolicyList' instead"  #-}
 
 -- | The path to the group. For more information about paths, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 --
 -- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gdPath :: Lens.Lens' GroupDetail (Core.Maybe Types.Path)
 gdPath = Lens.field @"path"
-{-# DEPRECATED gdPath "Use generic-lens or generic-optics with 'path' instead." #-}
+{-# INLINEABLE gdPath #-}
+{-# DEPRECATED path "Use generic-lens or generic-optics with 'path' instead"  #-}
 
 instance Core.FromXML GroupDetail where
-  parseXML x =
-    GroupDetail'
-      Core.<$> (x Core..@? "Arn")
-      Core.<*> ( x Core..@? "AttachedManagedPolicies"
-                   Core..<@> Core.parseXMLList "member"
-               )
-      Core.<*> (x Core..@? "CreateDate")
-      Core.<*> (x Core..@? "GroupId")
-      Core.<*> (x Core..@? "GroupName")
-      Core.<*> (x Core..@? "GroupPolicyList" Core..<@> Core.parseXMLList "member")
-      Core.<*> (x Core..@? "Path")
+        parseXML x
+          = GroupDetail' Core.<$>
+              (x Core..@? "Arn") Core.<*>
+                x Core..@? "AttachedManagedPolicies" Core..<@>
+                  Core.parseXMLList "member"
+                Core.<*> x Core..@? "CreateDate"
+                Core.<*> x Core..@? "GroupId"
+                Core.<*> x Core..@? "GroupName"
+                Core.<*>
+                x Core..@? "GroupPolicyList" Core..<@> Core.parseXMLList "member"
+                Core.<*> x Core..@? "Path"

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaLive.Types.KeyProviderSettings
-  ( KeyProviderSettings (..),
-
-    -- * Smart constructor
-    mkKeyProviderSettings,
-
-    -- * Lenses
-    kpsStaticKeySettings,
-  )
-where
+  ( KeyProviderSettings (..)
+  -- * Smart constructor
+  , mkKeyProviderSettings
+  -- * Lenses
+  , kpsStaticKeySettings
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.MediaLive.Types.StaticKeySettings as Types
@@ -35,27 +33,27 @@ newtype KeyProviderSettings = KeyProviderSettings'
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'KeyProviderSettings' value with any optional fields omitted.
-mkKeyProviderSettings ::
-  KeyProviderSettings
-mkKeyProviderSettings =
-  KeyProviderSettings' {staticKeySettings = Core.Nothing}
+mkKeyProviderSettings
+    :: KeyProviderSettings
+mkKeyProviderSettings
+  = KeyProviderSettings'{staticKeySettings = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'staticKeySettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 kpsStaticKeySettings :: Lens.Lens' KeyProviderSettings (Core.Maybe Types.StaticKeySettings)
 kpsStaticKeySettings = Lens.field @"staticKeySettings"
-{-# DEPRECATED kpsStaticKeySettings "Use generic-lens or generic-optics with 'staticKeySettings' instead." #-}
+{-# INLINEABLE kpsStaticKeySettings #-}
+{-# DEPRECATED staticKeySettings "Use generic-lens or generic-optics with 'staticKeySettings' instead"  #-}
 
 instance Core.FromJSON KeyProviderSettings where
-  toJSON KeyProviderSettings {..} =
-    Core.object
-      ( Core.catMaybes
-          [("staticKeySettings" Core..=) Core.<$> staticKeySettings]
-      )
+        toJSON KeyProviderSettings{..}
+          = Core.object
+              (Core.catMaybes
+                 [("staticKeySettings" Core..=) Core.<$> staticKeySettings])
 
 instance Core.FromJSON KeyProviderSettings where
-  parseJSON =
-    Core.withObject "KeyProviderSettings" Core.$
-      \x ->
-        KeyProviderSettings' Core.<$> (x Core..:? "staticKeySettings")
+        parseJSON
+          = Core.withObject "KeyProviderSettings" Core.$
+              \ x ->
+                KeyProviderSettings' Core.<$> (x Core..:? "staticKeySettings")

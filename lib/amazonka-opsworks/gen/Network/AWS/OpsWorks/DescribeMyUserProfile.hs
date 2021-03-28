@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,19 +17,18 @@
 --
 -- __Required Permissions__ : To use this action, an IAM user must have self-management enabled or an attached policy that explicitly grants permissions. For more information about user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.DescribeMyUserProfile
-  ( -- * Creating a request
-    DescribeMyUserProfile (..),
-    mkDescribeMyUserProfile,
+    (
+    -- * Creating a request
+      DescribeMyUserProfile (..)
+    , mkDescribeMyUserProfile
 
     -- * Destructuring the response
-    DescribeMyUserProfileResponse (..),
-    mkDescribeMyUserProfileResponse,
-
+    , DescribeMyUserProfileResponse (..)
+    , mkDescribeMyUserProfileResponse
     -- ** Response lenses
-    dmuprrsUserProfile,
-    dmuprrsResponseStatus,
-  )
-where
+    , dmuprrsUserProfile
+    , dmuprrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.OpsWorks.Types as Types
@@ -43,67 +42,71 @@ data DescribeMyUserProfile = DescribeMyUserProfile'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DescribeMyUserProfile' value with any optional fields omitted.
-mkDescribeMyUserProfile ::
-  DescribeMyUserProfile
+mkDescribeMyUserProfile
+    :: DescribeMyUserProfile
 mkDescribeMyUserProfile = DescribeMyUserProfile'
 
+instance Core.ToQuery DescribeMyUserProfile where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DescribeMyUserProfile where
+        toHeaders DescribeMyUserProfile{..}
+          = Core.pure
+              ("X-Amz-Target", "OpsWorks_20130218.DescribeMyUserProfile")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
+
 instance Core.FromJSON DescribeMyUserProfile where
-  toJSON _ = Core.Object Core.mempty
+        toJSON _ = Core.Object Core.mempty
 
 instance Core.AWSRequest DescribeMyUserProfile where
-  type Rs DescribeMyUserProfile = DescribeMyUserProfileResponse
-  request x@_ =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "OpsWorks_20130218.DescribeMyUserProfile")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          DescribeMyUserProfileResponse'
-            Core.<$> (x Core..:? "UserProfile") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DescribeMyUserProfile = DescribeMyUserProfileResponse
+        toRequest x@_
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 DescribeMyUserProfileResponse' Core.<$>
+                   (x Core..:? "UserProfile") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | Contains the response to a @DescribeMyUserProfile@ request.
 --
 -- /See:/ 'mkDescribeMyUserProfileResponse' smart constructor.
 data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'
-  { -- | A @UserProfile@ object that describes the user's SSH information.
-    userProfile :: Core.Maybe Types.SelfUserProfile,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { userProfile :: Core.Maybe Types.SelfUserProfile
+    -- ^ A @UserProfile@ object that describes the user's SSH information.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DescribeMyUserProfileResponse' value with any optional fields omitted.
-mkDescribeMyUserProfileResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DescribeMyUserProfileResponse
-mkDescribeMyUserProfileResponse responseStatus =
-  DescribeMyUserProfileResponse'
-    { userProfile = Core.Nothing,
-      responseStatus
-    }
+mkDescribeMyUserProfileResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DescribeMyUserProfileResponse
+mkDescribeMyUserProfileResponse responseStatus
+  = DescribeMyUserProfileResponse'{userProfile = Core.Nothing,
+                                   responseStatus}
 
 -- | A @UserProfile@ object that describes the user's SSH information.
 --
 -- /Note:/ Consider using 'userProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dmuprrsUserProfile :: Lens.Lens' DescribeMyUserProfileResponse (Core.Maybe Types.SelfUserProfile)
 dmuprrsUserProfile = Lens.field @"userProfile"
-{-# DEPRECATED dmuprrsUserProfile "Use generic-lens or generic-optics with 'userProfile' instead." #-}
+{-# INLINEABLE dmuprrsUserProfile #-}
+{-# DEPRECATED userProfile "Use generic-lens or generic-optics with 'userProfile' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dmuprrsResponseStatus :: Lens.Lens' DescribeMyUserProfileResponse Core.Int
 dmuprrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED dmuprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE dmuprrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

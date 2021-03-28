@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,23 +17,21 @@
 --
 -- For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html GetThingShadow> in the AWS IoT Developer Guide.
 module Network.AWS.IoTData.GetThingShadow
-  ( -- * Creating a request
-    GetThingShadow (..),
-    mkGetThingShadow,
-
+    (
+    -- * Creating a request
+      GetThingShadow (..)
+    , mkGetThingShadow
     -- ** Request lenses
-    gtsThingName,
-    gtsShadowName,
+    , gtsThingName
+    , gtsShadowName
 
     -- * Destructuring the response
-    GetThingShadowResponse (..),
-    mkGetThingShadowResponse,
-
+    , GetThingShadowResponse (..)
+    , mkGetThingShadowResponse
     -- ** Response lenses
-    gtsrrsPayload,
-    gtsrrsResponseStatus,
-  )
-where
+    , gtsrrsPayload
+    , gtsrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.IoTData.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -45,86 +43,94 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkGetThingShadow' smart constructor.
 data GetThingShadow = GetThingShadow'
-  { -- | The name of the thing.
-    thingName :: Types.ThingName,
-    -- | The name of the shadow.
-    shadowName :: Core.Maybe Types.ShadowName
+  { thingName :: Types.ThingName
+    -- ^ The name of the thing.
+  , shadowName :: Core.Maybe Types.ShadowName
+    -- ^ The name of the shadow.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetThingShadow' value with any optional fields omitted.
-mkGetThingShadow ::
-  -- | 'thingName'
-  Types.ThingName ->
-  GetThingShadow
-mkGetThingShadow thingName =
-  GetThingShadow' {thingName, shadowName = Core.Nothing}
+mkGetThingShadow
+    :: Types.ThingName -- ^ 'thingName'
+    -> GetThingShadow
+mkGetThingShadow thingName
+  = GetThingShadow'{thingName, shadowName = Core.Nothing}
 
 -- | The name of the thing.
 --
 -- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gtsThingName :: Lens.Lens' GetThingShadow Types.ThingName
 gtsThingName = Lens.field @"thingName"
-{-# DEPRECATED gtsThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
+{-# INLINEABLE gtsThingName #-}
+{-# DEPRECATED thingName "Use generic-lens or generic-optics with 'thingName' instead"  #-}
 
 -- | The name of the shadow.
 --
 -- /Note:/ Consider using 'shadowName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gtsShadowName :: Lens.Lens' GetThingShadow (Core.Maybe Types.ShadowName)
 gtsShadowName = Lens.field @"shadowName"
-{-# DEPRECATED gtsShadowName "Use generic-lens or generic-optics with 'shadowName' instead." #-}
+{-# INLINEABLE gtsShadowName #-}
+{-# DEPRECATED shadowName "Use generic-lens or generic-optics with 'shadowName' instead"  #-}
+
+instance Core.ToQuery GetThingShadow where
+        toQuery GetThingShadow{..}
+          = Core.maybe Core.mempty (Core.toQueryPair "name") shadowName
+
+instance Core.ToHeaders GetThingShadow where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest GetThingShadow where
-  type Rs GetThingShadow = GetThingShadowResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.GET,
-        Core._rqPath =
-          Core.rawPath
-            ("/things/" Core.<> (Core.toText thingName) Core.<> ("/shadow")),
-        Core._rqQuery = Core.toQueryValue "name" Core.<$> shadowName,
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = ""
-      }
-  response =
-    Response.receiveBytes
-      ( \s h x ->
-          GetThingShadowResponse'
-            Core.<$> (Core.pure x) Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs GetThingShadow = GetThingShadowResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.GET,
+                         Core._rqPath =
+                           "/things/" Core.<> Core.toText thingName Core.<> "/shadow",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveBytes
+              (\ s h x ->
+                 GetThingShadowResponse' Core.<$>
+                   (Core.pure x) Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | The output from the GetThingShadow operation.
 --
 -- /See:/ 'mkGetThingShadowResponse' smart constructor.
 data GetThingShadowResponse = GetThingShadowResponse'
-  { -- | The state information, in JSON format.
-    payload :: Core.Maybe Core.ByteString,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { payload :: Core.Maybe Core.ByteString
+    -- ^ The state information, in JSON format.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetThingShadowResponse' value with any optional fields omitted.
-mkGetThingShadowResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  GetThingShadowResponse
-mkGetThingShadowResponse responseStatus =
-  GetThingShadowResponse' {payload = Core.Nothing, responseStatus}
+mkGetThingShadowResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> GetThingShadowResponse
+mkGetThingShadowResponse responseStatus
+  = GetThingShadowResponse'{payload = Core.Nothing, responseStatus}
 
 -- | The state information, in JSON format.
 --
 -- /Note:/ Consider using 'payload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gtsrrsPayload :: Lens.Lens' GetThingShadowResponse (Core.Maybe Core.ByteString)
 gtsrrsPayload = Lens.field @"payload"
-{-# DEPRECATED gtsrrsPayload "Use generic-lens or generic-optics with 'payload' instead." #-}
+{-# INLINEABLE gtsrrsPayload #-}
+{-# DEPRECATED payload "Use generic-lens or generic-optics with 'payload' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gtsrrsResponseStatus :: Lens.Lens' GetThingShadowResponse Core.Int
 gtsrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED gtsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE gtsrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

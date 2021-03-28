@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,22 +15,20 @@
 --
 -- Attempts to stop running a build.
 module Network.AWS.CodeBuild.StopBuild
-  ( -- * Creating a request
-    StopBuild (..),
-    mkStopBuild,
-
+    (
+    -- * Creating a request
+      StopBuild (..)
+    , mkStopBuild
     -- ** Request lenses
-    sbId,
+    , sbId
 
     -- * Destructuring the response
-    StopBuildResponse (..),
-    mkStopBuildResponse,
-
+    , StopBuildResponse (..)
+    , mkStopBuildResponse
     -- ** Response lenses
-    sbrfrsBuild,
-    sbrfrsResponseStatus,
-  )
-where
+    , sbrfrsBuild
+    , sbrfrsResponseStatus
+    ) where
 
 import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -40,78 +38,84 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopBuild' smart constructor.
 newtype StopBuild = StopBuild'
-  { -- | The ID of the build.
-    id :: Types.NonEmptyString
+  { id :: Types.NonEmptyString
+    -- ^ The ID of the build.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'StopBuild' value with any optional fields omitted.
-mkStopBuild ::
-  -- | 'id'
-  Types.NonEmptyString ->
-  StopBuild
-mkStopBuild id = StopBuild' {id}
+mkStopBuild
+    :: Types.NonEmptyString -- ^ 'id'
+    -> StopBuild
+mkStopBuild id = StopBuild'{id}
 
 -- | The ID of the build.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sbId :: Lens.Lens' StopBuild Types.NonEmptyString
 sbId = Lens.field @"id"
-{-# DEPRECATED sbId "Use generic-lens or generic-optics with 'id' instead." #-}
+{-# INLINEABLE sbId #-}
+{-# DEPRECATED id "Use generic-lens or generic-optics with 'id' instead"  #-}
+
+instance Core.ToQuery StopBuild where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders StopBuild where
+        toHeaders StopBuild{..}
+          = Core.pure ("X-Amz-Target", "CodeBuild_20161006.StopBuild")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON StopBuild where
-  toJSON StopBuild {..} =
-    Core.object (Core.catMaybes [Core.Just ("id" Core..= id)])
+        toJSON StopBuild{..}
+          = Core.object (Core.catMaybes [Core.Just ("id" Core..= id)])
 
 instance Core.AWSRequest StopBuild where
-  type Rs StopBuild = StopBuildResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "CodeBuild_20161006.StopBuild")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          StopBuildResponse'
-            Core.<$> (x Core..:? "build") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs StopBuild = StopBuildResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 StopBuildResponse' Core.<$>
+                   (x Core..:? "build") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkStopBuildResponse' smart constructor.
 data StopBuildResponse = StopBuildResponse'
-  { -- | Information about the build.
-    build :: Core.Maybe Types.Build,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { build :: Core.Maybe Types.Build
+    -- ^ Information about the build.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'StopBuildResponse' value with any optional fields omitted.
-mkStopBuildResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  StopBuildResponse
-mkStopBuildResponse responseStatus =
-  StopBuildResponse' {build = Core.Nothing, responseStatus}
+mkStopBuildResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> StopBuildResponse
+mkStopBuildResponse responseStatus
+  = StopBuildResponse'{build = Core.Nothing, responseStatus}
 
 -- | Information about the build.
 --
 -- /Note:/ Consider using 'build' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sbrfrsBuild :: Lens.Lens' StopBuildResponse (Core.Maybe Types.Build)
 sbrfrsBuild = Lens.field @"build"
-{-# DEPRECATED sbrfrsBuild "Use generic-lens or generic-optics with 'build' instead." #-}
+{-# INLINEABLE sbrfrsBuild #-}
+{-# DEPRECATED build "Use generic-lens or generic-optics with 'build' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sbrfrsResponseStatus :: Lens.Lens' StopBuildResponse Core.Int
 sbrfrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED sbrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE sbrfrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

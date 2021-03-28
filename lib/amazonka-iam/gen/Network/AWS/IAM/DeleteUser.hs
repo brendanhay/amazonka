@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -41,19 +41,20 @@
 --
 --
 --     * Group memberships ('RemoveUserFromGroup' )
+--
+--
 module Network.AWS.IAM.DeleteUser
-  ( -- * Creating a request
-    DeleteUser (..),
-    mkDeleteUser,
-
+    (
+    -- * Creating a request
+      DeleteUser (..)
+    , mkDeleteUser
     -- ** Request lenses
-    duUserName,
+    , duUserName
 
     -- * Destructuring the response
-    DeleteUserResponse (..),
-    mkDeleteUserResponse,
-  )
-where
+    , DeleteUserResponse (..)
+    , mkDeleteUserResponse
+    ) where
 
 import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -63,20 +64,19 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteUser' smart constructor.
 newtype DeleteUser = DeleteUser'
-  { -- | The name of the user to delete.
-    --
-    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    userName :: Types.UserName
+  { userName :: Types.UserName
+    -- ^ The name of the user to delete.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteUser' value with any optional fields omitted.
-mkDeleteUser ::
-  -- | 'userName'
-  Types.UserName ->
-  DeleteUser
-mkDeleteUser userName = DeleteUser' {userName}
+mkDeleteUser
+    :: Types.UserName -- ^ 'userName'
+    -> DeleteUser
+mkDeleteUser userName = DeleteUser'{userName}
 
 -- | The name of the user to delete.
 --
@@ -85,29 +85,35 @@ mkDeleteUser userName = DeleteUser' {userName}
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 duUserName :: Lens.Lens' DeleteUser Types.UserName
 duUserName = Lens.field @"userName"
-{-# DEPRECATED duUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+{-# INLINEABLE duUserName #-}
+{-# DEPRECATED userName "Use generic-lens or generic-optics with 'userName' instead"  #-}
+
+instance Core.ToQuery DeleteUser where
+        toQuery DeleteUser{..}
+          = Core.toQueryPair "Action" ("DeleteUser" :: Core.Text) Core.<>
+              Core.toQueryPair "Version" ("2010-05-08" :: Core.Text)
+              Core.<> Core.toQueryPair "UserName" userName
+
+instance Core.ToHeaders DeleteUser where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest DeleteUser where
-  type Rs DeleteUser = DeleteUserResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "DeleteUser")
-                Core.<> (Core.pure ("Version", "2010-05-08"))
-                Core.<> (Core.toQueryValue "UserName" userName)
-            )
-      }
-  response = Response.receiveNull DeleteUserResponse'
+        type Rs DeleteUser = DeleteUserResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull DeleteUserResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteUserResponse' smart constructor.
 data DeleteUserResponse = DeleteUserResponse'
@@ -115,6 +121,6 @@ data DeleteUserResponse = DeleteUserResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteUserResponse' value with any optional fields omitted.
-mkDeleteUserResponse ::
-  DeleteUserResponse
+mkDeleteUserResponse
+    :: DeleteUserResponse
 mkDeleteUserResponse = DeleteUserResponse'

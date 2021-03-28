@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -12,29 +12,30 @@
 --
 -- Pending
 module Network.AWS.Route53Domains
-  ( -- * Service configuration
-    mkServiceConfig,
+    (
+    -- * Service configuration
+      mkServiceConfig
 
     -- * Errors
     -- $errors
 
     -- ** InvalidInput
-    _InvalidInput,
+    , _InvalidInput
 
     -- ** OperationLimitExceeded
-    _OperationLimitExceeded,
+    , _OperationLimitExceeded
 
     -- ** DomainLimitExceeded
-    _DomainLimitExceeded,
+    , _DomainLimitExceeded
 
     -- ** UnsupportedTLD
-    _UnsupportedTLD,
+    , _UnsupportedTLD
 
     -- ** TLDRulesViolation
-    _TLDRulesViolation,
+    , _TLDRulesViolation
 
     -- ** DuplicateRequest
-    _DuplicateRequest,
+    , _DuplicateRequest
 
     -- * Waiters
     -- $waiters
@@ -43,354 +44,350 @@ module Network.AWS.Route53Domains
     -- $operations
 
     -- ** ListOperations (Paginated)
-    module Network.AWS.Route53Domains.ListOperations,
+    , module Network.AWS.Route53Domains.ListOperations
 
-    -- ** GetDomainDetail
-    module Network.AWS.Route53Domains.GetDomainDetail,
+    -- ** GetDomainDetail 
+    , module Network.AWS.Route53Domains.GetDomainDetail
 
-    -- ** CheckDomainTransferability
-    module Network.AWS.Route53Domains.CheckDomainTransferability,
+    -- ** CheckDomainTransferability 
+    , module Network.AWS.Route53Domains.CheckDomainTransferability
 
-    -- ** UpdateDomainContactPrivacy
-    module Network.AWS.Route53Domains.UpdateDomainContactPrivacy,
+    -- ** UpdateDomainContactPrivacy 
+    , module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
 
-    -- ** GetOperationDetail
-    module Network.AWS.Route53Domains.GetOperationDetail,
+    -- ** GetOperationDetail 
+    , module Network.AWS.Route53Domains.GetOperationDetail
 
-    -- ** RejectDomainTransferFromAnotherAwsAccount
-    module Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount,
+    -- ** RejectDomainTransferFromAnotherAwsAccount 
+    , module Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount
 
-    -- ** EnableDomainAutoRenew
-    module Network.AWS.Route53Domains.EnableDomainAutoRenew,
+    -- ** EnableDomainAutoRenew 
+    , module Network.AWS.Route53Domains.EnableDomainAutoRenew
 
-    -- ** ResendContactReachabilityEmail
-    module Network.AWS.Route53Domains.ResendContactReachabilityEmail,
+    -- ** ResendContactReachabilityEmail 
+    , module Network.AWS.Route53Domains.ResendContactReachabilityEmail
 
-    -- ** DisableDomainAutoRenew
-    module Network.AWS.Route53Domains.DisableDomainAutoRenew,
+    -- ** DisableDomainAutoRenew 
+    , module Network.AWS.Route53Domains.DisableDomainAutoRenew
 
-    -- ** RenewDomain
-    module Network.AWS.Route53Domains.RenewDomain,
+    -- ** RenewDomain 
+    , module Network.AWS.Route53Domains.RenewDomain
 
     -- ** ViewBilling (Paginated)
-    module Network.AWS.Route53Domains.ViewBilling,
+    , module Network.AWS.Route53Domains.ViewBilling
 
-    -- ** UpdateDomainContact
-    module Network.AWS.Route53Domains.UpdateDomainContact,
+    -- ** UpdateDomainContact 
+    , module Network.AWS.Route53Domains.UpdateDomainContact
 
-    -- ** EnableDomainTransferLock
-    module Network.AWS.Route53Domains.EnableDomainTransferLock,
+    -- ** EnableDomainTransferLock 
+    , module Network.AWS.Route53Domains.EnableDomainTransferLock
 
-    -- ** RegisterDomain
-    module Network.AWS.Route53Domains.RegisterDomain,
+    -- ** RegisterDomain 
+    , module Network.AWS.Route53Domains.RegisterDomain
 
-    -- ** GetDomainSuggestions
-    module Network.AWS.Route53Domains.GetDomainSuggestions,
+    -- ** GetDomainSuggestions 
+    , module Network.AWS.Route53Domains.GetDomainSuggestions
 
-    -- ** DisableDomainTransferLock
-    module Network.AWS.Route53Domains.DisableDomainTransferLock,
+    -- ** DisableDomainTransferLock 
+    , module Network.AWS.Route53Domains.DisableDomainTransferLock
 
-    -- ** CheckDomainAvailability
-    module Network.AWS.Route53Domains.CheckDomainAvailability,
+    -- ** CheckDomainAvailability 
+    , module Network.AWS.Route53Domains.CheckDomainAvailability
 
-    -- ** TransferDomainToAnotherAwsAccount
-    module Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount,
+    -- ** TransferDomainToAnotherAwsAccount 
+    , module Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount
 
-    -- ** AcceptDomainTransferFromAnotherAwsAccount
-    module Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount,
+    -- ** AcceptDomainTransferFromAnotherAwsAccount 
+    , module Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount
 
-    -- ** GetContactReachabilityStatus
-    module Network.AWS.Route53Domains.GetContactReachabilityStatus,
+    -- ** GetContactReachabilityStatus 
+    , module Network.AWS.Route53Domains.GetContactReachabilityStatus
 
-    -- ** ListTagsForDomain
-    module Network.AWS.Route53Domains.ListTagsForDomain,
+    -- ** ListTagsForDomain 
+    , module Network.AWS.Route53Domains.ListTagsForDomain
 
-    -- ** UpdateDomainNameservers
-    module Network.AWS.Route53Domains.UpdateDomainNameservers,
+    -- ** UpdateDomainNameservers 
+    , module Network.AWS.Route53Domains.UpdateDomainNameservers
 
-    -- ** DeleteTagsForDomain
-    module Network.AWS.Route53Domains.DeleteTagsForDomain,
+    -- ** DeleteTagsForDomain 
+    , module Network.AWS.Route53Domains.DeleteTagsForDomain
 
-    -- ** UpdateTagsForDomain
-    module Network.AWS.Route53Domains.UpdateTagsForDomain,
+    -- ** UpdateTagsForDomain 
+    , module Network.AWS.Route53Domains.UpdateTagsForDomain
 
-    -- ** RetrieveDomainAuthCode
-    module Network.AWS.Route53Domains.RetrieveDomainAuthCode,
+    -- ** RetrieveDomainAuthCode 
+    , module Network.AWS.Route53Domains.RetrieveDomainAuthCode
 
-    -- ** TransferDomain
-    module Network.AWS.Route53Domains.TransferDomain,
+    -- ** TransferDomain 
+    , module Network.AWS.Route53Domains.TransferDomain
 
     -- ** ListDomains (Paginated)
-    module Network.AWS.Route53Domains.ListDomains,
+    , module Network.AWS.Route53Domains.ListDomains
 
-    -- ** CancelDomainTransferToAnotherAwsAccount
-    module Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount,
+    -- ** CancelDomainTransferToAnotherAwsAccount 
+    , module Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount
 
     -- * Types
 
     -- ** DomainSummary
-    DomainSummary (..),
-    mkDomainSummary,
-    dsDomainName,
-    dsAutoRenew,
-    dsExpiry,
-    dsTransferLock,
+    , DomainSummary (..)
+    , mkDomainSummary
+    , dsDomainName
+    , dsAutoRenew
+    , dsExpiry
+    , dsTransferLock
 
     -- ** DomainStatus
-    DomainStatus (..),
+    , DomainStatus (..)
 
     -- ** DNSSec
-    DNSSec (..),
+    , DNSSec (..)
 
     -- ** DomainSuggestion
-    DomainSuggestion (..),
-    mkDomainSuggestion,
-    dAvailability,
-    dDomainName,
+    , DomainSuggestion (..)
+    , mkDomainSuggestion
+    , dAvailability
+    , dDomainName
 
     -- ** Email
-    Email (..),
+    , Email (..)
 
     -- ** State
-    State (..),
+    , State (..)
 
     -- ** HostName
-    HostName (..),
+    , HostName (..)
 
     -- ** GlueIp
-    GlueIp (..),
+    , GlueIp (..)
 
     -- ** Tag
-    Tag (..),
-    mkTag,
-    tKey,
-    tValue,
+    , Tag (..)
+    , mkTag
+    , tKey
+    , tValue
 
     -- ** ExtraParamName
-    ExtraParamName (..),
+    , ExtraParamName (..)
 
     -- ** Nameserver
-    Nameserver (..),
-    mkNameserver,
-    nName,
-    nGlueIps,
-
-    -- ** String
-    String (..),
+    , Nameserver (..)
+    , mkNameserver
+    , nName
+    , nGlueIps
 
     -- ** AddressLine
-    AddressLine (..),
+    , AddressLine (..)
 
     -- ** RegistryDomainId
-    RegistryDomainId (..),
+    , RegistryDomainId (..)
 
     -- ** ReachabilityStatus
-    ReachabilityStatus (..),
+    , ReachabilityStatus (..)
 
     -- ** ZipCode
-    ZipCode (..),
+    , ZipCode (..)
 
     -- ** OperationStatus
-    OperationStatus (..),
+    , OperationStatus (..)
 
     -- ** LangCode
-    LangCode (..),
+    , LangCode (..)
 
     -- ** DomainAvailability
-    DomainAvailability (..),
+    , DomainAvailability (..)
 
     -- ** Transferable
-    Transferable (..),
+    , Transferable (..)
 
     -- ** AccountId
-    AccountId (..),
+    , AccountId (..)
 
     -- ** RegistrarUrl
-    RegistrarUrl (..),
+    , RegistrarUrl (..)
 
     -- ** InvoiceId
-    InvoiceId (..),
+    , InvoiceId (..)
 
     -- ** City
-    City (..),
+    , City (..)
 
     -- ** DomainName
-    DomainName (..),
+    , DomainName (..)
 
     -- ** ContactName
-    ContactName (..),
+    , ContactName (..)
 
     -- ** OperationType
-    OperationType (..),
+    , OperationType (..)
 
     -- ** CountryCode
-    CountryCode (..),
+    , CountryCode (..)
 
     -- ** DomainAuthCode
-    DomainAuthCode (..),
+    , DomainAuthCode (..)
 
     -- ** TagKey
-    TagKey (..),
+    , TagKey (..)
 
     -- ** ExtraParam
-    ExtraParam (..),
-    mkExtraParam,
-    epName,
-    epValue,
+    , ExtraParam (..)
+    , mkExtraParam
+    , epName
+    , epValue
 
     -- ** ContactType
-    ContactType (..),
+    , ContactType (..)
 
     -- ** OperationId
-    OperationId (..),
+    , OperationId (..)
 
     -- ** FIAuthKey
-    FIAuthKey (..),
+    , FIAuthKey (..)
 
     -- ** RegistrarName
-    RegistrarName (..),
+    , RegistrarName (..)
 
     -- ** ContactNumber
-    ContactNumber (..),
+    , ContactNumber (..)
 
     -- ** Reseller
-    Reseller (..),
+    , Reseller (..)
 
     -- ** BillingRecord
-    BillingRecord (..),
-    mkBillingRecord,
-    brBillDate,
-    brDomainName,
-    brInvoiceId,
-    brOperation,
-    brPrice,
+    , BillingRecord (..)
+    , mkBillingRecord
+    , brBillDate
+    , brDomainName
+    , brInvoiceId
+    , brOperation
+    , brPrice
 
     -- ** ContactDetail
-    ContactDetail (..),
-    mkContactDetail,
-    cdAddressLine1,
-    cdAddressLine2,
-    cdCity,
-    cdContactType,
-    cdCountryCode,
-    cdEmail,
-    cdExtraParams,
-    cdFax,
-    cdFirstName,
-    cdLastName,
-    cdOrganizationName,
-    cdPhoneNumber,
-    cdState,
-    cdZipCode,
+    , ContactDetail (..)
+    , mkContactDetail
+    , cdAddressLine1
+    , cdAddressLine2
+    , cdCity
+    , cdContactType
+    , cdCountryCode
+    , cdEmail
+    , cdExtraParams
+    , cdFax
+    , cdFirstName
+    , cdLastName
+    , cdOrganizationName
+    , cdPhoneNumber
+    , cdState
+    , cdZipCode
 
     -- ** OperationSummary
-    OperationSummary (..),
-    mkOperationSummary,
-    osOperationId,
-    osStatus,
-    osType,
-    osSubmittedDate,
+    , OperationSummary (..)
+    , mkOperationSummary
+    , osOperationId
+    , osStatus
+    , osType
+    , osSubmittedDate
 
     -- ** DomainTransferability
-    DomainTransferability (..),
-    mkDomainTransferability,
-    dtTransferable,
-
-    -- ** Availability
-    Availability (..),
+    , DomainTransferability (..)
+    , mkDomainTransferability
+    , dtTransferable
 
     -- ** AbuseContactPhone
-    AbuseContactPhone (..),
+    , AbuseContactPhone (..)
 
     -- ** WhoIsServer
-    WhoIsServer (..),
+    , WhoIsServer (..)
 
     -- ** NextPageMarker
-    NextPageMarker (..),
+    , NextPageMarker (..)
 
     -- ** Marker
-    Marker (..),
+    , Marker (..)
 
     -- ** Message
-    Message (..),
+    , Message (..)
 
     -- ** Key
-    Key (..),
+    , Key (..)
 
     -- ** Value
-    Value (..),
+    , Value (..)
 
     -- ** IdnLangCode
-    IdnLangCode (..),
+    , IdnLangCode (..)
 
     -- ** AuthCode
-    AuthCode (..),
+    , AuthCode (..)
 
     -- * Serialization types
-    Lude.Base64 (..),
-    Lude._Base64,
-    Lude.Sensitive (..),
-    Lude._Sensitive,
-    Lude.UTCTime,
-    Lude.NominalDiffTime,
-  )
-where
+    , Lude.Base64 (..)
+    , Lude._Base64
+    , Lude.Sensitive (..)
+    , Lude._Sensitive
+    , Lude.UTCTime
+    , Lude.NominalDiffTime
+    ) where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount
-import Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount
-import Network.AWS.Route53Domains.CheckDomainAvailability
-import Network.AWS.Route53Domains.CheckDomainTransferability
-import Network.AWS.Route53Domains.DeleteTagsForDomain
-import Network.AWS.Route53Domains.DisableDomainAutoRenew
-import Network.AWS.Route53Domains.DisableDomainTransferLock
-import Network.AWS.Route53Domains.EnableDomainAutoRenew
-import Network.AWS.Route53Domains.EnableDomainTransferLock
-import Network.AWS.Route53Domains.GetContactReachabilityStatus
-import Network.AWS.Route53Domains.GetDomainDetail
-import Network.AWS.Route53Domains.GetDomainSuggestions
-import Network.AWS.Route53Domains.GetOperationDetail
-import Network.AWS.Route53Domains.ListDomains
+import Network.AWS.Route53Domains.Types
+import Network.AWS.Route53Domains.Waiters
 import Network.AWS.Route53Domains.ListOperations
-import Network.AWS.Route53Domains.ListTagsForDomain
-import Network.AWS.Route53Domains.RegisterDomain
+import Network.AWS.Route53Domains.GetDomainDetail
+import Network.AWS.Route53Domains.CheckDomainTransferability
+import Network.AWS.Route53Domains.UpdateDomainContactPrivacy
+import Network.AWS.Route53Domains.GetOperationDetail
 import Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount
-import Network.AWS.Route53Domains.RenewDomain
+import Network.AWS.Route53Domains.EnableDomainAutoRenew
 import Network.AWS.Route53Domains.ResendContactReachabilityEmail
+import Network.AWS.Route53Domains.DisableDomainAutoRenew
+import Network.AWS.Route53Domains.RenewDomain
+import Network.AWS.Route53Domains.ViewBilling
+import Network.AWS.Route53Domains.UpdateDomainContact
+import Network.AWS.Route53Domains.EnableDomainTransferLock
+import Network.AWS.Route53Domains.RegisterDomain
+import Network.AWS.Route53Domains.GetDomainSuggestions
+import Network.AWS.Route53Domains.DisableDomainTransferLock
+import Network.AWS.Route53Domains.CheckDomainAvailability
+import Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount
+import Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount
+import Network.AWS.Route53Domains.GetContactReachabilityStatus
+import Network.AWS.Route53Domains.ListTagsForDomain
+import Network.AWS.Route53Domains.UpdateDomainNameservers
+import Network.AWS.Route53Domains.DeleteTagsForDomain
+import Network.AWS.Route53Domains.UpdateTagsForDomain
 import Network.AWS.Route53Domains.RetrieveDomainAuthCode
 import Network.AWS.Route53Domains.TransferDomain
-import Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount
-import Network.AWS.Route53Domains.Types
-import Network.AWS.Route53Domains.UpdateDomainContact
-import Network.AWS.Route53Domains.UpdateDomainContactPrivacy
-import Network.AWS.Route53Domains.UpdateDomainNameservers
-import Network.AWS.Route53Domains.UpdateTagsForDomain
-import Network.AWS.Route53Domains.ViewBilling
-import Network.AWS.Route53Domains.Waiters
+import Network.AWS.Route53Domains.ListDomains
+import Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount
+import qualified Network.AWS.Prelude as Lude
 
--- $errors
--- Error matchers are designed for use with the functions provided by
--- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
--- This allows catching (and rethrowing) service specific errors returned
--- by 'Route53Domains'.
+{- $errors
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by 'Route53Domains'.
+-}
 
--- $operations
--- Some AWS operations return results that are incomplete and require subsequent
--- requests in order to obtain the entire result set. The process of sending
--- subsequent requests to continue where a previous request left off is called
--- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
--- 1000 objects at a time, and you must send subsequent requests with the
--- appropriate Marker in order to retrieve the next page of results.
---
--- Operations that have an 'AWSPager' instance can transparently perform subsequent
--- requests, correctly setting Markers and other request facets to iterate through
--- the entire result set of a truncated API operation. Operations which support
--- this have an additional note in the documentation.
---
--- Many operations have the ability to filter results on the server side. See the
--- individual operation parameters for details.
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
 
--- $waiters
--- Waiters poll by repeatedly sending a request until some remote success condition
--- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
--- determines how many attempts should be made, in addition to delay and retry strategies.
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly sending a request until some remote success condition
+configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+determines how many attempts should be made, in addition to delay and retry strategies.
+-}

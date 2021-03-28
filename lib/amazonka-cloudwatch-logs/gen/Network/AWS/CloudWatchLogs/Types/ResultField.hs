@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CloudWatchLogs.Types.ResultField
-  ( ResultField (..),
-
-    -- * Smart constructor
-    mkResultField,
-
-    -- * Lenses
-    rfField,
-    rfValue,
-  )
-where
+  ( ResultField (..)
+  -- * Smart constructor
+  , mkResultField
+  -- * Lenses
+  , rfField
+  , rfValue
+  ) where
 
 import qualified Network.AWS.CloudWatchLogs.Types.Field as Types
 import qualified Network.AWS.CloudWatchLogs.Types.Value as Types
@@ -33,37 +31,39 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkResultField' smart constructor.
 data ResultField = ResultField'
-  { -- | The log event field.
-    field :: Core.Maybe Types.Field,
-    -- | The value of this field.
-    value :: Core.Maybe Types.Value
+  { field :: Core.Maybe Types.Field
+    -- ^ The log event field.
+  , value :: Core.Maybe Types.Value
+    -- ^ The value of this field.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ResultField' value with any optional fields omitted.
-mkResultField ::
-  ResultField
-mkResultField =
-  ResultField' {field = Core.Nothing, value = Core.Nothing}
+mkResultField
+    :: ResultField
+mkResultField
+  = ResultField'{field = Core.Nothing, value = Core.Nothing}
 
 -- | The log event field.
 --
 -- /Note:/ Consider using 'field' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rfField :: Lens.Lens' ResultField (Core.Maybe Types.Field)
 rfField = Lens.field @"field"
-{-# DEPRECATED rfField "Use generic-lens or generic-optics with 'field' instead." #-}
+{-# INLINEABLE rfField #-}
+{-# DEPRECATED field "Use generic-lens or generic-optics with 'field' instead"  #-}
 
 -- | The value of this field.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rfValue :: Lens.Lens' ResultField (Core.Maybe Types.Value)
 rfValue = Lens.field @"value"
-{-# DEPRECATED rfValue "Use generic-lens or generic-optics with 'value' instead." #-}
+{-# INLINEABLE rfValue #-}
+{-# DEPRECATED value "Use generic-lens or generic-optics with 'value' instead"  #-}
 
 instance Core.FromJSON ResultField where
-  parseJSON =
-    Core.withObject "ResultField" Core.$
-      \x ->
-        ResultField'
-          Core.<$> (x Core..:? "field") Core.<*> (x Core..:? "value")
+        parseJSON
+          = Core.withObject "ResultField" Core.$
+              \ x ->
+                ResultField' Core.<$>
+                  (x Core..:? "field") Core.<*> x Core..:? "value"

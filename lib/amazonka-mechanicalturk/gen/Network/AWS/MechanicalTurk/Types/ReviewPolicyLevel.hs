@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,45 +10,27 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MechanicalTurk.Types.ReviewPolicyLevel
   ( ReviewPolicyLevel
-      ( ReviewPolicyLevel',
-        ReviewPolicyLevelAssignment,
-        ReviewPolicyLevelHit,
-        fromReviewPolicyLevel
-      ),
-  )
-where
+    ( ReviewPolicyLevel'
+    , ReviewPolicyLevelAssignment
+    , ReviewPolicyLevelHit
+    , fromReviewPolicyLevel
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype ReviewPolicyLevel = ReviewPolicyLevel'
-  { fromReviewPolicyLevel ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype ReviewPolicyLevel = ReviewPolicyLevel'{fromReviewPolicyLevel
+                                               :: Core.Text}
+                              deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                              Core.Generic)
+                              deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                Core.ToText, Core.FromText, Core.ToByteString,
+                                                Core.ToQuery, Core.ToHeader)
 
 pattern ReviewPolicyLevelAssignment :: ReviewPolicyLevel
 pattern ReviewPolicyLevelAssignment = ReviewPolicyLevel' "Assignment"
@@ -56,8 +38,9 @@ pattern ReviewPolicyLevelAssignment = ReviewPolicyLevel' "Assignment"
 pattern ReviewPolicyLevelHit :: ReviewPolicyLevel
 pattern ReviewPolicyLevelHit = ReviewPolicyLevel' "HIT"
 
-{-# COMPLETE
+{-# COMPLETE 
   ReviewPolicyLevelAssignment,
+
   ReviewPolicyLevelHit,
   ReviewPolicyLevel'
   #-}

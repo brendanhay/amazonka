@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,47 +10,31 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.IoT.Types.AuditMitigationActionsTaskStatus
   ( AuditMitigationActionsTaskStatus
-      ( AuditMitigationActionsTaskStatus',
-        AuditMitigationActionsTaskStatusInProgress,
-        AuditMitigationActionsTaskStatusCompleted,
-        AuditMitigationActionsTaskStatusFailed,
-        AuditMitigationActionsTaskStatusCanceled,
-        fromAuditMitigationActionsTaskStatus
-      ),
-  )
-where
+    ( AuditMitigationActionsTaskStatus'
+    , AuditMitigationActionsTaskStatusInProgress
+    , AuditMitigationActionsTaskStatusCompleted
+    , AuditMitigationActionsTaskStatusFailed
+    , AuditMitigationActionsTaskStatusCanceled
+    , fromAuditMitigationActionsTaskStatus
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype AuditMitigationActionsTaskStatus = AuditMitigationActionsTaskStatus'
-  { fromAuditMitigationActionsTaskStatus ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype AuditMitigationActionsTaskStatus = AuditMitigationActionsTaskStatus'{fromAuditMitigationActionsTaskStatus
+                                                                             :: Core.Text}
+                                             deriving stock (Core.Eq, Core.Ord, Core.Read,
+                                                             Core.Show, Core.Generic)
+                                             deriving newtype (Core.IsString, Core.Hashable,
+                                                               Core.NFData, Core.ToJSONKey,
+                                                               Core.FromJSONKey, Core.ToJSON,
+                                                               Core.FromJSON, Core.ToXML,
+                                                               Core.FromXML, Core.ToText,
+                                                               Core.FromText, Core.ToByteString,
+                                                               Core.ToQuery, Core.ToHeader)
 
 pattern AuditMitigationActionsTaskStatusInProgress :: AuditMitigationActionsTaskStatus
 pattern AuditMitigationActionsTaskStatusInProgress = AuditMitigationActionsTaskStatus' "IN_PROGRESS"
@@ -64,10 +48,13 @@ pattern AuditMitigationActionsTaskStatusFailed = AuditMitigationActionsTaskStatu
 pattern AuditMitigationActionsTaskStatusCanceled :: AuditMitigationActionsTaskStatus
 pattern AuditMitigationActionsTaskStatusCanceled = AuditMitigationActionsTaskStatus' "CANCELED"
 
-{-# COMPLETE
+{-# COMPLETE 
   AuditMitigationActionsTaskStatusInProgress,
+
   AuditMitigationActionsTaskStatusCompleted,
+
   AuditMitigationActionsTaskStatusFailed,
+
   AuditMitigationActionsTaskStatusCanceled,
   AuditMitigationActionsTaskStatus'
   #-}

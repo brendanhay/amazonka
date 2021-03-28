@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -21,19 +21,18 @@
 -- You can use the 'DescribeStream' operation to check the state of the stream, which is returned in @StreamStatus@ .
 -- 'DeleteStream' has a limit of five transactions per second per account.
 module Network.AWS.Kinesis.DeleteStream
-  ( -- * Creating a request
-    DeleteStream (..),
-    mkDeleteStream,
-
+    (
+    -- * Creating a request
+      DeleteStream (..)
+    , mkDeleteStream
     -- ** Request lenses
-    dsStreamName,
-    dsEnforceConsumerDeletion,
+    , dsStreamName
+    , dsEnforceConsumerDeletion
 
     -- * Destructuring the response
-    DeleteStreamResponse (..),
-    mkDeleteStreamResponse,
-  )
-where
+    , DeleteStreamResponse (..)
+    , mkDeleteStreamResponse
+    ) where
 
 import qualified Network.AWS.Kinesis.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -45,60 +44,65 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkDeleteStream' smart constructor.
 data DeleteStream = DeleteStream'
-  { -- | The name of the stream to delete.
-    streamName :: Types.StreamName,
-    -- | If this parameter is unset (@null@ ) or if you set it to @false@ , and the stream has registered consumers, the call to @DeleteStream@ fails with a @ResourceInUseException@ .
-    enforceConsumerDeletion :: Core.Maybe Core.Bool
+  { streamName :: Types.StreamName
+    -- ^ The name of the stream to delete.
+  , enforceConsumerDeletion :: Core.Maybe Core.Bool
+    -- ^ If this parameter is unset (@null@ ) or if you set it to @false@ , and the stream has registered consumers, the call to @DeleteStream@ fails with a @ResourceInUseException@ . 
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteStream' value with any optional fields omitted.
-mkDeleteStream ::
-  -- | 'streamName'
-  Types.StreamName ->
-  DeleteStream
-mkDeleteStream streamName =
-  DeleteStream' {streamName, enforceConsumerDeletion = Core.Nothing}
+mkDeleteStream
+    :: Types.StreamName -- ^ 'streamName'
+    -> DeleteStream
+mkDeleteStream streamName
+  = DeleteStream'{streamName, enforceConsumerDeletion = Core.Nothing}
 
 -- | The name of the stream to delete.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dsStreamName :: Lens.Lens' DeleteStream Types.StreamName
 dsStreamName = Lens.field @"streamName"
-{-# DEPRECATED dsStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+{-# INLINEABLE dsStreamName #-}
+{-# DEPRECATED streamName "Use generic-lens or generic-optics with 'streamName' instead"  #-}
 
--- | If this parameter is unset (@null@ ) or if you set it to @false@ , and the stream has registered consumers, the call to @DeleteStream@ fails with a @ResourceInUseException@ .
+-- | If this parameter is unset (@null@ ) or if you set it to @false@ , and the stream has registered consumers, the call to @DeleteStream@ fails with a @ResourceInUseException@ . 
 --
 -- /Note:/ Consider using 'enforceConsumerDeletion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dsEnforceConsumerDeletion :: Lens.Lens' DeleteStream (Core.Maybe Core.Bool)
 dsEnforceConsumerDeletion = Lens.field @"enforceConsumerDeletion"
-{-# DEPRECATED dsEnforceConsumerDeletion "Use generic-lens or generic-optics with 'enforceConsumerDeletion' instead." #-}
+{-# INLINEABLE dsEnforceConsumerDeletion #-}
+{-# DEPRECATED enforceConsumerDeletion "Use generic-lens or generic-optics with 'enforceConsumerDeletion' instead"  #-}
+
+instance Core.ToQuery DeleteStream where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DeleteStream where
+        toHeaders DeleteStream{..}
+          = Core.pure ("X-Amz-Target", "Kinesis_20131202.DeleteStream")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON DeleteStream where
-  toJSON DeleteStream {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("StreamName" Core..= streamName),
-            ("EnforceConsumerDeletion" Core..=)
-              Core.<$> enforceConsumerDeletion
-          ]
-      )
+        toJSON DeleteStream{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("StreamName" Core..= streamName),
+                  ("EnforceConsumerDeletion" Core..=) Core.<$>
+                    enforceConsumerDeletion])
 
 instance Core.AWSRequest DeleteStream where
-  type Rs DeleteStream = DeleteStreamResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "Kinesis_20131202.DeleteStream")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response = Response.receiveNull DeleteStreamResponse'
+        type Rs DeleteStream = DeleteStreamResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull DeleteStreamResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteStreamResponse' smart constructor.
 data DeleteStreamResponse = DeleteStreamResponse'
@@ -106,6 +110,6 @@ data DeleteStreamResponse = DeleteStreamResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteStreamResponse' value with any optional fields omitted.
-mkDeleteStreamResponse ::
-  DeleteStreamResponse
+mkDeleteStreamResponse
+    :: DeleteStreamResponse
 mkDeleteStreamResponse = DeleteStreamResponse'

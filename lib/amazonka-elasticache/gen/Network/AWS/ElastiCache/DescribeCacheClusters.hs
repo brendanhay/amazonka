@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -23,27 +23,25 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.ElastiCache.DescribeCacheClusters
-  ( -- * Creating a request
-    DescribeCacheClusters (..),
-    mkDescribeCacheClusters,
-
+    (
+    -- * Creating a request
+      DescribeCacheClusters (..)
+    , mkDescribeCacheClusters
     -- ** Request lenses
-    dCacheClusterId,
-    dMarker,
-    dMaxRecords,
-    dShowCacheClustersNotInReplicationGroups,
-    dShowCacheNodeInfo,
+    , dCacheClusterId
+    , dMarker
+    , dMaxRecords
+    , dShowCacheClustersNotInReplicationGroups
+    , dShowCacheNodeInfo
 
     -- * Destructuring the response
-    DescribeCacheClustersResponse (..),
-    mkDescribeCacheClustersResponse,
-
+    , DescribeCacheClustersResponse (..)
+    , mkDescribeCacheClustersResponse
     -- ** Response lenses
-    drsCacheClusters,
-    drsMarker,
-    drsResponseStatus,
-  )
-where
+    , drsCacheClusters
+    , drsMarker
+    , drsResponseStatus
+    ) where
 
 import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -56,48 +54,47 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkDescribeCacheClusters' smart constructor.
 data DescribeCacheClusters = DescribeCacheClusters'
-  { -- | The user-supplied cluster identifier. If this parameter is specified, only information about that specific cluster is returned. This parameter isn't case sensitive.
-    cacheClusterId :: Core.Maybe Types.String,
-    -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Core.Maybe Types.String,
-    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
-    --
-    -- Default: 100
-    -- Constraints: minimum 20; maximum 100.
-    maxRecords :: Core.Maybe Core.Int,
-    -- | An optional flag that can be included in the @DescribeCacheCluster@ request to show only nodes (API/CLI: clusters) that are not members of a replication group. In practice, this mean Memcached and single node Redis clusters.
-    showCacheClustersNotInReplicationGroups :: Core.Maybe Core.Bool,
-    -- | An optional flag that can be included in the @DescribeCacheCluster@ request to retrieve information about the individual cache nodes.
-    showCacheNodeInfo :: Core.Maybe Core.Bool
+  { cacheClusterId :: Core.Maybe Core.Text
+    -- ^ The user-supplied cluster identifier. If this parameter is specified, only information about that specific cluster is returned. This parameter isn't case sensitive.
+  , marker :: Core.Maybe Core.Text
+    -- ^ An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+  , maxRecords :: Core.Maybe Core.Int
+    -- ^ The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
+--
+-- Default: 100
+-- Constraints: minimum 20; maximum 100.
+  , showCacheClustersNotInReplicationGroups :: Core.Maybe Core.Bool
+    -- ^ An optional flag that can be included in the @DescribeCacheCluster@ request to show only nodes (API/CLI: clusters) that are not members of a replication group. In practice, this mean Memcached and single node Redis clusters.
+  , showCacheNodeInfo :: Core.Maybe Core.Bool
+    -- ^ An optional flag that can be included in the @DescribeCacheCluster@ request to retrieve information about the individual cache nodes.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DescribeCacheClusters' value with any optional fields omitted.
-mkDescribeCacheClusters ::
-  DescribeCacheClusters
-mkDescribeCacheClusters =
-  DescribeCacheClusters'
-    { cacheClusterId = Core.Nothing,
-      marker = Core.Nothing,
-      maxRecords = Core.Nothing,
-      showCacheClustersNotInReplicationGroups = Core.Nothing,
-      showCacheNodeInfo = Core.Nothing
-    }
+mkDescribeCacheClusters
+    :: DescribeCacheClusters
+mkDescribeCacheClusters
+  = DescribeCacheClusters'{cacheClusterId = Core.Nothing,
+                           marker = Core.Nothing, maxRecords = Core.Nothing,
+                           showCacheClustersNotInReplicationGroups = Core.Nothing,
+                           showCacheNodeInfo = Core.Nothing}
 
 -- | The user-supplied cluster identifier. If this parameter is specified, only information about that specific cluster is returned. This parameter isn't case sensitive.
 --
 -- /Note:/ Consider using 'cacheClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCacheClusterId :: Lens.Lens' DescribeCacheClusters (Core.Maybe Types.String)
+dCacheClusterId :: Lens.Lens' DescribeCacheClusters (Core.Maybe Core.Text)
 dCacheClusterId = Lens.field @"cacheClusterId"
-{-# DEPRECATED dCacheClusterId "Use generic-lens or generic-optics with 'cacheClusterId' instead." #-}
+{-# INLINEABLE dCacheClusterId #-}
+{-# DEPRECATED cacheClusterId "Use generic-lens or generic-optics with 'cacheClusterId' instead"  #-}
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dMarker :: Lens.Lens' DescribeCacheClusters (Core.Maybe Types.String)
+dMarker :: Lens.Lens' DescribeCacheClusters (Core.Maybe Core.Text)
 dMarker = Lens.field @"marker"
-{-# DEPRECATED dMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+{-# INLINEABLE dMarker #-}
+{-# DEPRECATED marker "Use generic-lens or generic-optics with 'marker' instead"  #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
 --
@@ -107,117 +104,124 @@ dMarker = Lens.field @"marker"
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dMaxRecords :: Lens.Lens' DescribeCacheClusters (Core.Maybe Core.Int)
 dMaxRecords = Lens.field @"maxRecords"
-{-# DEPRECATED dMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+{-# INLINEABLE dMaxRecords #-}
+{-# DEPRECATED maxRecords "Use generic-lens or generic-optics with 'maxRecords' instead"  #-}
 
 -- | An optional flag that can be included in the @DescribeCacheCluster@ request to show only nodes (API/CLI: clusters) that are not members of a replication group. In practice, this mean Memcached and single node Redis clusters.
 --
 -- /Note:/ Consider using 'showCacheClustersNotInReplicationGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dShowCacheClustersNotInReplicationGroups :: Lens.Lens' DescribeCacheClusters (Core.Maybe Core.Bool)
 dShowCacheClustersNotInReplicationGroups = Lens.field @"showCacheClustersNotInReplicationGroups"
-{-# DEPRECATED dShowCacheClustersNotInReplicationGroups "Use generic-lens or generic-optics with 'showCacheClustersNotInReplicationGroups' instead." #-}
+{-# INLINEABLE dShowCacheClustersNotInReplicationGroups #-}
+{-# DEPRECATED showCacheClustersNotInReplicationGroups "Use generic-lens or generic-optics with 'showCacheClustersNotInReplicationGroups' instead"  #-}
 
 -- | An optional flag that can be included in the @DescribeCacheCluster@ request to retrieve information about the individual cache nodes.
 --
 -- /Note:/ Consider using 'showCacheNodeInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dShowCacheNodeInfo :: Lens.Lens' DescribeCacheClusters (Core.Maybe Core.Bool)
 dShowCacheNodeInfo = Lens.field @"showCacheNodeInfo"
-{-# DEPRECATED dShowCacheNodeInfo "Use generic-lens or generic-optics with 'showCacheNodeInfo' instead." #-}
+{-# INLINEABLE dShowCacheNodeInfo #-}
+{-# DEPRECATED showCacheNodeInfo "Use generic-lens or generic-optics with 'showCacheNodeInfo' instead"  #-}
+
+instance Core.ToQuery DescribeCacheClusters where
+        toQuery DescribeCacheClusters{..}
+          = Core.toQueryPair "Action" ("DescribeCacheClusters" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2015-02-02" :: Core.Text)
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "CacheClusterId")
+                cacheClusterId
+              Core.<> Core.maybe Core.mempty (Core.toQueryPair "Marker") marker
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "MaxRecords") maxRecords
+              Core.<>
+              Core.maybe Core.mempty
+                (Core.toQueryPair "ShowCacheClustersNotInReplicationGroups")
+                showCacheClustersNotInReplicationGroups
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "ShowCacheNodeInfo")
+                showCacheNodeInfo
+
+instance Core.ToHeaders DescribeCacheClusters where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest DescribeCacheClusters where
-  type Rs DescribeCacheClusters = DescribeCacheClustersResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "DescribeCacheClusters")
-                Core.<> (Core.pure ("Version", "2015-02-02"))
-                Core.<> (Core.toQueryValue "CacheClusterId" Core.<$> cacheClusterId)
-                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
-                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
-                Core.<> ( Core.toQueryValue "ShowCacheClustersNotInReplicationGroups"
-                            Core.<$> showCacheClustersNotInReplicationGroups
-                        )
-                Core.<> ( Core.toQueryValue "ShowCacheNodeInfo"
-                            Core.<$> showCacheNodeInfo
-                        )
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "DescribeCacheClustersResult"
-      ( \s h x ->
-          DescribeCacheClustersResponse'
-            Core.<$> ( x Core..@? "CacheClusters"
-                         Core..<@> Core.parseXMLList "CacheCluster"
-                     )
-            Core.<*> (x Core..@? "Marker")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DescribeCacheClusters = DescribeCacheClustersResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "DescribeCacheClustersResult"
+              (\ s h x ->
+                 DescribeCacheClustersResponse' Core.<$>
+                   (x Core..@? "CacheClusters" Core..<@>
+                      Core.parseXMLList "CacheCluster")
+                     Core.<*> x Core..@? "Marker"
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 instance Pager.AWSPager DescribeCacheClusters where
-  page rq rs
-    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
-    | Pager.stop
-        (rs Lens.^? Lens.field @"cacheClusters" Core.. Lens._Just) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just
-        ( rq
-            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
-        )
+        page rq rs
+          | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+          | Pager.stop
+              (rs Lens.^? Lens.field @"cacheClusters" Core.. Lens._Just)
+            = Core.Nothing
+          | Core.otherwise =
+            Core.Just
+              (rq Core.&
+                 Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker")
 
 -- | Represents the output of a @DescribeCacheClusters@ operation.
 --
 -- /See:/ 'mkDescribeCacheClustersResponse' smart constructor.
 data DescribeCacheClustersResponse = DescribeCacheClustersResponse'
-  { -- | A list of clusters. Each item in the list contains detailed information about one cluster.
-    cacheClusters :: Core.Maybe [Types.CacheCluster],
-    -- | Provides an identifier to allow retrieval of paginated results.
-    marker :: Core.Maybe Types.Marker,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { cacheClusters :: Core.Maybe [Types.CacheCluster]
+    -- ^ A list of clusters. Each item in the list contains detailed information about one cluster.
+  , marker :: Core.Maybe Core.Text
+    -- ^ Provides an identifier to allow retrieval of paginated results.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'DescribeCacheClustersResponse' value with any optional fields omitted.
-mkDescribeCacheClustersResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DescribeCacheClustersResponse
-mkDescribeCacheClustersResponse responseStatus =
-  DescribeCacheClustersResponse'
-    { cacheClusters = Core.Nothing,
-      marker = Core.Nothing,
-      responseStatus
-    }
+mkDescribeCacheClustersResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DescribeCacheClustersResponse
+mkDescribeCacheClustersResponse responseStatus
+  = DescribeCacheClustersResponse'{cacheClusters = Core.Nothing,
+                                   marker = Core.Nothing, responseStatus}
 
 -- | A list of clusters. Each item in the list contains detailed information about one cluster.
 --
 -- /Note:/ Consider using 'cacheClusters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 drsCacheClusters :: Lens.Lens' DescribeCacheClustersResponse (Core.Maybe [Types.CacheCluster])
 drsCacheClusters = Lens.field @"cacheClusters"
-{-# DEPRECATED drsCacheClusters "Use generic-lens or generic-optics with 'cacheClusters' instead." #-}
+{-# INLINEABLE drsCacheClusters #-}
+{-# DEPRECATED cacheClusters "Use generic-lens or generic-optics with 'cacheClusters' instead"  #-}
 
 -- | Provides an identifier to allow retrieval of paginated results.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsMarker :: Lens.Lens' DescribeCacheClustersResponse (Core.Maybe Types.Marker)
+drsMarker :: Lens.Lens' DescribeCacheClustersResponse (Core.Maybe Core.Text)
 drsMarker = Lens.field @"marker"
-{-# DEPRECATED drsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+{-# INLINEABLE drsMarker #-}
+{-# DEPRECATED marker "Use generic-lens or generic-optics with 'marker' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 drsResponseStatus :: Lens.Lens' DescribeCacheClustersResponse Core.Int
 drsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE drsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

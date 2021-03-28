@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.EC2.Types.CapacityReservationOptionsRequest
-  ( CapacityReservationOptionsRequest (..),
-
-    -- * Smart constructor
-    mkCapacityReservationOptionsRequest,
-
-    -- * Lenses
-    crorUsageStrategy,
-  )
-where
+  ( CapacityReservationOptionsRequest (..)
+  -- * Smart constructor
+  , mkCapacityReservationOptionsRequest
+  -- * Lenses
+  , crorUsageStrategy
+  ) where
 
 import qualified Network.AWS.EC2.Types.FleetCapacityReservationUsageStrategy as Types
 import qualified Network.AWS.Lens as Lens
@@ -31,20 +29,20 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkCapacityReservationOptionsRequest' smart constructor.
 newtype CapacityReservationOptionsRequest = CapacityReservationOptionsRequest'
-  { -- | Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
-    --
-    -- If you specify @use-capacity-reservations-first@ , the fleet uses unused Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity. If multiple instance pools have unused Capacity Reservations, the On-Demand allocation strategy (@lowest-price@ or @prioritized@ ) is applied. If the number of unused Capacity Reservations is less than the On-Demand target capacity, the remaining On-Demand target capacity is launched according to the On-Demand allocation strategy (@lowest-price@ or @prioritized@ ).
-    -- If you do not specify a value, the fleet fulfils the On-Demand capacity according to the chosen On-Demand allocation strategy.
-    usageStrategy :: Core.Maybe Types.FleetCapacityReservationUsageStrategy
+  { usageStrategy :: Core.Maybe Types.FleetCapacityReservationUsageStrategy
+    -- ^ Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
+--
+-- If you specify @use-capacity-reservations-first@ , the fleet uses unused Capacity Reservations to fulfill On-Demand capacity up to the target On-Demand capacity. If multiple instance pools have unused Capacity Reservations, the On-Demand allocation strategy (@lowest-price@ or @prioritized@ ) is applied. If the number of unused Capacity Reservations is less than the On-Demand target capacity, the remaining On-Demand target capacity is launched according to the On-Demand allocation strategy (@lowest-price@ or @prioritized@ ).
+-- If you do not specify a value, the fleet fulfils the On-Demand capacity according to the chosen On-Demand allocation strategy.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CapacityReservationOptionsRequest' value with any optional fields omitted.
-mkCapacityReservationOptionsRequest ::
-  CapacityReservationOptionsRequest
-mkCapacityReservationOptionsRequest =
-  CapacityReservationOptionsRequest' {usageStrategy = Core.Nothing}
+mkCapacityReservationOptionsRequest
+    :: CapacityReservationOptionsRequest
+mkCapacityReservationOptionsRequest
+  = CapacityReservationOptionsRequest'{usageStrategy = Core.Nothing}
 
 -- | Indicates whether to use unused Capacity Reservations for fulfilling On-Demand capacity.
 --
@@ -54,4 +52,10 @@ mkCapacityReservationOptionsRequest =
 -- /Note:/ Consider using 'usageStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 crorUsageStrategy :: Lens.Lens' CapacityReservationOptionsRequest (Core.Maybe Types.FleetCapacityReservationUsageStrategy)
 crorUsageStrategy = Lens.field @"usageStrategy"
-{-# DEPRECATED crorUsageStrategy "Use generic-lens or generic-optics with 'usageStrategy' instead." #-}
+{-# INLINEABLE crorUsageStrategy #-}
+{-# DEPRECATED usageStrategy "Use generic-lens or generic-optics with 'usageStrategy' instead"  #-}
+
+instance Core.ToQuery CapacityReservationOptionsRequest where
+        toQuery CapacityReservationOptionsRequest{..}
+          = Core.maybe Core.mempty (Core.toQueryPair "UsageStrategy")
+              usageStrategy

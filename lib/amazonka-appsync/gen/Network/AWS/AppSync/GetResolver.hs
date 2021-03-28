@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,24 +15,22 @@
 --
 -- Retrieves a @Resolver@ object.
 module Network.AWS.AppSync.GetResolver
-  ( -- * Creating a request
-    GetResolver (..),
-    mkGetResolver,
-
+    (
+    -- * Creating a request
+      GetResolver (..)
+    , mkGetResolver
     -- ** Request lenses
-    grApiId,
-    grTypeName,
-    grFieldName,
+    , grApiId
+    , grTypeName
+    , grFieldName
 
     -- * Destructuring the response
-    GetResolverResponse (..),
-    mkGetResolverResponse,
-
+    , GetResolverResponse (..)
+    , mkGetResolverResponse
     -- ** Response lenses
-    grrrsResolver,
-    grrrsResponseStatus,
-  )
-where
+    , grrrsResolver
+    , grrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.AppSync.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -42,102 +40,107 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetResolver' smart constructor.
 data GetResolver = GetResolver'
-  { -- | The API ID.
-    apiId :: Types.String,
-    -- | The resolver type name.
-    typeName :: Types.ResourceName,
-    -- | The resolver field name.
-    fieldName :: Types.ResourceName
+  { apiId :: Core.Text
+    -- ^ The API ID.
+  , typeName :: Types.ResourceName
+    -- ^ The resolver type name.
+  , fieldName :: Types.ResourceName
+    -- ^ The resolver field name.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetResolver' value with any optional fields omitted.
-mkGetResolver ::
-  -- | 'apiId'
-  Types.String ->
-  -- | 'typeName'
-  Types.ResourceName ->
-  -- | 'fieldName'
-  Types.ResourceName ->
-  GetResolver
-mkGetResolver apiId typeName fieldName =
-  GetResolver' {apiId, typeName, fieldName}
+mkGetResolver
+    :: Core.Text -- ^ 'apiId'
+    -> Types.ResourceName -- ^ 'typeName'
+    -> Types.ResourceName -- ^ 'fieldName'
+    -> GetResolver
+mkGetResolver apiId typeName fieldName
+  = GetResolver'{apiId, typeName, fieldName}
 
 -- | The API ID.
 --
 -- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grApiId :: Lens.Lens' GetResolver Types.String
+grApiId :: Lens.Lens' GetResolver Core.Text
 grApiId = Lens.field @"apiId"
-{-# DEPRECATED grApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
+{-# INLINEABLE grApiId #-}
+{-# DEPRECATED apiId "Use generic-lens or generic-optics with 'apiId' instead"  #-}
 
 -- | The resolver type name.
 --
 -- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 grTypeName :: Lens.Lens' GetResolver Types.ResourceName
 grTypeName = Lens.field @"typeName"
-{-# DEPRECATED grTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
+{-# INLINEABLE grTypeName #-}
+{-# DEPRECATED typeName "Use generic-lens or generic-optics with 'typeName' instead"  #-}
 
 -- | The resolver field name.
 --
 -- /Note:/ Consider using 'fieldName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 grFieldName :: Lens.Lens' GetResolver Types.ResourceName
 grFieldName = Lens.field @"fieldName"
-{-# DEPRECATED grFieldName "Use generic-lens or generic-optics with 'fieldName' instead." #-}
+{-# INLINEABLE grFieldName #-}
+{-# DEPRECATED fieldName "Use generic-lens or generic-optics with 'fieldName' instead"  #-}
+
+instance Core.ToQuery GetResolver where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders GetResolver where
+        toHeaders GetResolver{..}
+          = Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.AWSRequest GetResolver where
-  type Rs GetResolver = GetResolverResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.GET,
-        Core._rqPath =
-          Core.rawPath
-            ( "/v1/apis/" Core.<> (Core.toText apiId) Core.<> ("/types/")
-                Core.<> (Core.toText typeName)
-                Core.<> ("/resolvers/")
-                Core.<> (Core.toText fieldName)
-            ),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
-        Core._rqBody = ""
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          GetResolverResponse'
-            Core.<$> (x Core..:? "resolver") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs GetResolver = GetResolverResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.GET,
+                         Core._rqPath =
+                           "/v1/apis/" Core.<> Core.toText apiId Core.<> "/types/" Core.<>
+                             Core.toText typeName
+                             Core.<> "/resolvers/"
+                             Core.<> Core.toText fieldName,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 GetResolverResponse' Core.<$>
+                   (x Core..:? "resolver") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkGetResolverResponse' smart constructor.
 data GetResolverResponse = GetResolverResponse'
-  { -- | The @Resolver@ object.
-    resolver :: Core.Maybe Types.Resolver,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { resolver :: Core.Maybe Types.Resolver
+    -- ^ The @Resolver@ object.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetResolverResponse' value with any optional fields omitted.
-mkGetResolverResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  GetResolverResponse
-mkGetResolverResponse responseStatus =
-  GetResolverResponse' {resolver = Core.Nothing, responseStatus}
+mkGetResolverResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> GetResolverResponse
+mkGetResolverResponse responseStatus
+  = GetResolverResponse'{resolver = Core.Nothing, responseStatus}
 
 -- | The @Resolver@ object.
 --
 -- /Note:/ Consider using 'resolver' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 grrrsResolver :: Lens.Lens' GetResolverResponse (Core.Maybe Types.Resolver)
 grrrsResolver = Lens.field @"resolver"
-{-# DEPRECATED grrrsResolver "Use generic-lens or generic-optics with 'resolver' instead." #-}
+{-# INLINEABLE grrrsResolver #-}
+{-# DEPRECATED resolver "Use generic-lens or generic-optics with 'resolver' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 grrrsResponseStatus :: Lens.Lens' GetResolverResponse Core.Int
 grrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED grrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE grrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

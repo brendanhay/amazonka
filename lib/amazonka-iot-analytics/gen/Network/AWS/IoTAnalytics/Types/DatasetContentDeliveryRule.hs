@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryRule
-  ( DatasetContentDeliveryRule (..),
-
-    -- * Smart constructor
-    mkDatasetContentDeliveryRule,
-
-    -- * Lenses
-    dcdrDestination,
-    dcdrEntryName,
-  )
-where
+  ( DatasetContentDeliveryRule (..)
+  -- * Smart constructor
+  , mkDatasetContentDeliveryRule
+  -- * Lenses
+  , dcdrDestination
+  , dcdrEntryName
+  ) where
 
 import qualified Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination as Types
 import qualified Network.AWS.IoTAnalytics.Types.EntryName as Types
@@ -31,51 +29,48 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkDatasetContentDeliveryRule' smart constructor.
 data DatasetContentDeliveryRule = DatasetContentDeliveryRule'
-  { -- | The destination to which dataset contents are delivered.
-    destination :: Types.DatasetContentDeliveryDestination,
-    -- | The name of the dataset content delivery rules entry.
-    entryName :: Core.Maybe Types.EntryName
+  { destination :: Types.DatasetContentDeliveryDestination
+    -- ^ The destination to which dataset contents are delivered.
+  , entryName :: Core.Maybe Types.EntryName
+    -- ^ The name of the dataset content delivery rules entry.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DatasetContentDeliveryRule' value with any optional fields omitted.
-mkDatasetContentDeliveryRule ::
-  -- | 'destination'
-  Types.DatasetContentDeliveryDestination ->
-  DatasetContentDeliveryRule
-mkDatasetContentDeliveryRule destination =
-  DatasetContentDeliveryRule'
-    { destination,
-      entryName = Core.Nothing
-    }
+mkDatasetContentDeliveryRule
+    :: Types.DatasetContentDeliveryDestination -- ^ 'destination'
+    -> DatasetContentDeliveryRule
+mkDatasetContentDeliveryRule destination
+  = DatasetContentDeliveryRule'{destination,
+                                entryName = Core.Nothing}
 
 -- | The destination to which dataset contents are delivered.
 --
 -- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dcdrDestination :: Lens.Lens' DatasetContentDeliveryRule Types.DatasetContentDeliveryDestination
 dcdrDestination = Lens.field @"destination"
-{-# DEPRECATED dcdrDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
+{-# INLINEABLE dcdrDestination #-}
+{-# DEPRECATED destination "Use generic-lens or generic-optics with 'destination' instead"  #-}
 
 -- | The name of the dataset content delivery rules entry.
 --
 -- /Note:/ Consider using 'entryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dcdrEntryName :: Lens.Lens' DatasetContentDeliveryRule (Core.Maybe Types.EntryName)
 dcdrEntryName = Lens.field @"entryName"
-{-# DEPRECATED dcdrEntryName "Use generic-lens or generic-optics with 'entryName' instead." #-}
+{-# INLINEABLE dcdrEntryName #-}
+{-# DEPRECATED entryName "Use generic-lens or generic-optics with 'entryName' instead"  #-}
 
 instance Core.FromJSON DatasetContentDeliveryRule where
-  toJSON DatasetContentDeliveryRule {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("destination" Core..= destination),
-            ("entryName" Core..=) Core.<$> entryName
-          ]
-      )
+        toJSON DatasetContentDeliveryRule{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("destination" Core..= destination),
+                  ("entryName" Core..=) Core.<$> entryName])
 
 instance Core.FromJSON DatasetContentDeliveryRule where
-  parseJSON =
-    Core.withObject "DatasetContentDeliveryRule" Core.$
-      \x ->
-        DatasetContentDeliveryRule'
-          Core.<$> (x Core..: "destination") Core.<*> (x Core..:? "entryName")
+        parseJSON
+          = Core.withObject "DatasetContentDeliveryRule" Core.$
+              \ x ->
+                DatasetContentDeliveryRule' Core.<$>
+                  (x Core..: "destination") Core.<*> x Core..:? "entryName"

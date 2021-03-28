@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,45 +10,27 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CodeBuild.Types.LogsConfigStatusType
   ( LogsConfigStatusType
-      ( LogsConfigStatusType',
-        LogsConfigStatusTypeEnabled,
-        LogsConfigStatusTypeDisabled,
-        fromLogsConfigStatusType
-      ),
-  )
-where
+    ( LogsConfigStatusType'
+    , LogsConfigStatusTypeEnabled
+    , LogsConfigStatusTypeDisabled
+    , fromLogsConfigStatusType
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype LogsConfigStatusType = LogsConfigStatusType'
-  { fromLogsConfigStatusType ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype LogsConfigStatusType = LogsConfigStatusType'{fromLogsConfigStatusType
+                                                     :: Core.Text}
+                                 deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                 Core.Generic)
+                                 deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                   Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                   Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                   Core.ToText, Core.FromText, Core.ToByteString,
+                                                   Core.ToQuery, Core.ToHeader)
 
 pattern LogsConfigStatusTypeEnabled :: LogsConfigStatusType
 pattern LogsConfigStatusTypeEnabled = LogsConfigStatusType' "ENABLED"
@@ -56,8 +38,9 @@ pattern LogsConfigStatusTypeEnabled = LogsConfigStatusType' "ENABLED"
 pattern LogsConfigStatusTypeDisabled :: LogsConfigStatusType
 pattern LogsConfigStatusTypeDisabled = LogsConfigStatusType' "DISABLED"
 
-{-# COMPLETE
+{-# COMPLETE 
   LogsConfigStatusTypeEnabled,
+
   LogsConfigStatusTypeDisabled,
   LogsConfigStatusType'
   #-}

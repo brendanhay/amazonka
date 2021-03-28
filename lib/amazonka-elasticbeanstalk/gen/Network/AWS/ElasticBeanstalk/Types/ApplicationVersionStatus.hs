@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,48 +10,31 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.ElasticBeanstalk.Types.ApplicationVersionStatus
   ( ApplicationVersionStatus
-      ( ApplicationVersionStatus',
-        ApplicationVersionStatusProcessed,
-        ApplicationVersionStatusUnprocessed,
-        ApplicationVersionStatusFailed,
-        ApplicationVersionStatusProcessing,
-        ApplicationVersionStatusBuilding,
-        fromApplicationVersionStatus
-      ),
-  )
-where
+    ( ApplicationVersionStatus'
+    , ApplicationVersionStatusProcessed
+    , ApplicationVersionStatusUnprocessed
+    , ApplicationVersionStatusFailed
+    , ApplicationVersionStatusProcessing
+    , ApplicationVersionStatusBuilding
+    , fromApplicationVersionStatus
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype ApplicationVersionStatus = ApplicationVersionStatus'
-  { fromApplicationVersionStatus ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype ApplicationVersionStatus = ApplicationVersionStatus'{fromApplicationVersionStatus
+                                                             :: Core.Text}
+                                     deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                     Core.Generic)
+                                     deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                       Core.ToJSONKey, Core.FromJSONKey,
+                                                       Core.ToJSON, Core.FromJSON, Core.ToXML,
+                                                       Core.FromXML, Core.ToText, Core.FromText,
+                                                       Core.ToByteString, Core.ToQuery,
+                                                       Core.ToHeader)
 
 pattern ApplicationVersionStatusProcessed :: ApplicationVersionStatus
 pattern ApplicationVersionStatusProcessed = ApplicationVersionStatus' "Processed"
@@ -68,11 +51,15 @@ pattern ApplicationVersionStatusProcessing = ApplicationVersionStatus' "Processi
 pattern ApplicationVersionStatusBuilding :: ApplicationVersionStatus
 pattern ApplicationVersionStatusBuilding = ApplicationVersionStatus' "Building"
 
-{-# COMPLETE
+{-# COMPLETE 
   ApplicationVersionStatusProcessed,
+
   ApplicationVersionStatusUnprocessed,
+
   ApplicationVersionStatusFailed,
+
   ApplicationVersionStatusProcessing,
+
   ApplicationVersionStatusBuilding,
   ApplicationVersionStatus'
   #-}

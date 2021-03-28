@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.CloudTrail where
 
 import Data.Proxy
-import Network.AWS.CloudTrail
-import Test.AWS.CloudTrail.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.CloudTrail
+import Test.AWS.CloudTrail.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -144,254 +145,218 @@ import Test.Tasty
 -- Requests
 
 requestDescribeTrails :: DescribeTrails -> TestTree
-requestDescribeTrails =
-  req
+requestDescribeTrails = req
     "DescribeTrails"
     "fixture/DescribeTrails.yaml"
 
 requestListPublicKeys :: ListPublicKeys -> TestTree
-requestListPublicKeys =
-  req
+requestListPublicKeys = req
     "ListPublicKeys"
     "fixture/ListPublicKeys.yaml"
 
 requestRemoveTags :: RemoveTags -> TestTree
-requestRemoveTags =
-  req
+requestRemoveTags = req
     "RemoveTags"
     "fixture/RemoveTags.yaml"
 
 requestLookupEvents :: LookupEvents -> TestTree
-requestLookupEvents =
-  req
+requestLookupEvents = req
     "LookupEvents"
     "fixture/LookupEvents.yaml"
 
 requestStopLogging :: StopLogging -> TestTree
-requestStopLogging =
-  req
+requestStopLogging = req
     "StopLogging"
     "fixture/StopLogging.yaml"
 
 requestDeleteTrail :: DeleteTrail -> TestTree
-requestDeleteTrail =
-  req
+requestDeleteTrail = req
     "DeleteTrail"
     "fixture/DeleteTrail.yaml"
 
 requestUpdateTrail :: UpdateTrail -> TestTree
-requestUpdateTrail =
-  req
+requestUpdateTrail = req
     "UpdateTrail"
     "fixture/UpdateTrail.yaml"
 
 requestCreateTrail :: CreateTrail -> TestTree
-requestCreateTrail =
-  req
+requestCreateTrail = req
     "CreateTrail"
     "fixture/CreateTrail.yaml"
 
 requestPutInsightSelectors :: PutInsightSelectors -> TestTree
-requestPutInsightSelectors =
-  req
+requestPutInsightSelectors = req
     "PutInsightSelectors"
     "fixture/PutInsightSelectors.yaml"
 
 requestGetEventSelectors :: GetEventSelectors -> TestTree
-requestGetEventSelectors =
-  req
+requestGetEventSelectors = req
     "GetEventSelectors"
     "fixture/GetEventSelectors.yaml"
 
 requestGetTrail :: GetTrail -> TestTree
-requestGetTrail =
-  req
+requestGetTrail = req
     "GetTrail"
     "fixture/GetTrail.yaml"
 
 requestGetTrailStatus :: GetTrailStatus -> TestTree
-requestGetTrailStatus =
-  req
+requestGetTrailStatus = req
     "GetTrailStatus"
     "fixture/GetTrailStatus.yaml"
 
 requestAddTags :: AddTags -> TestTree
-requestAddTags =
-  req
+requestAddTags = req
     "AddTags"
     "fixture/AddTags.yaml"
 
 requestListTags :: ListTags -> TestTree
-requestListTags =
-  req
+requestListTags = req
     "ListTags"
     "fixture/ListTags.yaml"
 
 requestPutEventSelectors :: PutEventSelectors -> TestTree
-requestPutEventSelectors =
-  req
+requestPutEventSelectors = req
     "PutEventSelectors"
     "fixture/PutEventSelectors.yaml"
 
 requestStartLogging :: StartLogging -> TestTree
-requestStartLogging =
-  req
+requestStartLogging = req
     "StartLogging"
     "fixture/StartLogging.yaml"
 
 requestListTrails :: ListTrails -> TestTree
-requestListTrails =
-  req
+requestListTrails = req
     "ListTrails"
     "fixture/ListTrails.yaml"
 
 requestGetInsightSelectors :: GetInsightSelectors -> TestTree
-requestGetInsightSelectors =
-  req
+requestGetInsightSelectors = req
     "GetInsightSelectors"
     "fixture/GetInsightSelectors.yaml"
 
 -- Responses
 
 responseDescribeTrails :: DescribeTrailsResponse -> TestTree
-responseDescribeTrails =
-  res
+responseDescribeTrails = res
     "DescribeTrailsResponse"
     "fixture/DescribeTrailsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeTrails)
 
 responseListPublicKeys :: ListPublicKeysResponse -> TestTree
-responseListPublicKeys =
-  res
+responseListPublicKeys = res
     "ListPublicKeysResponse"
     "fixture/ListPublicKeysResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListPublicKeys)
 
 responseRemoveTags :: RemoveTagsResponse -> TestTree
-responseRemoveTags =
-  res
+responseRemoveTags = res
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RemoveTags)
 
 responseLookupEvents :: LookupEventsResponse -> TestTree
-responseLookupEvents =
-  res
+responseLookupEvents = res
     "LookupEventsResponse"
     "fixture/LookupEventsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy LookupEvents)
 
 responseStopLogging :: StopLoggingResponse -> TestTree
-responseStopLogging =
-  res
+responseStopLogging = res
     "StopLoggingResponse"
     "fixture/StopLoggingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StopLogging)
 
 responseDeleteTrail :: DeleteTrailResponse -> TestTree
-responseDeleteTrail =
-  res
+responseDeleteTrail = res
     "DeleteTrailResponse"
     "fixture/DeleteTrailResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteTrail)
 
 responseUpdateTrail :: UpdateTrailResponse -> TestTree
-responseUpdateTrail =
-  res
+responseUpdateTrail = res
     "UpdateTrailResponse"
     "fixture/UpdateTrailResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateTrail)
 
 responseCreateTrail :: CreateTrailResponse -> TestTree
-responseCreateTrail =
-  res
+responseCreateTrail = res
     "CreateTrailResponse"
     "fixture/CreateTrailResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateTrail)
 
 responsePutInsightSelectors :: PutInsightSelectorsResponse -> TestTree
-responsePutInsightSelectors =
-  res
+responsePutInsightSelectors = res
     "PutInsightSelectorsResponse"
     "fixture/PutInsightSelectorsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutInsightSelectors)
 
 responseGetEventSelectors :: GetEventSelectorsResponse -> TestTree
-responseGetEventSelectors =
-  res
+responseGetEventSelectors = res
     "GetEventSelectorsResponse"
     "fixture/GetEventSelectorsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetEventSelectors)
 
 responseGetTrail :: GetTrailResponse -> TestTree
-responseGetTrail =
-  res
+responseGetTrail = res
     "GetTrailResponse"
     "fixture/GetTrailResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetTrail)
 
 responseGetTrailStatus :: GetTrailStatusResponse -> TestTree
-responseGetTrailStatus =
-  res
+responseGetTrailStatus = res
     "GetTrailStatusResponse"
     "fixture/GetTrailStatusResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetTrailStatus)
 
 responseAddTags :: AddTagsResponse -> TestTree
-responseAddTags =
-  res
+responseAddTags = res
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AddTags)
 
 responseListTags :: ListTagsResponse -> TestTree
-responseListTags =
-  res
+responseListTags = res
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTags)
 
 responsePutEventSelectors :: PutEventSelectorsResponse -> TestTree
-responsePutEventSelectors =
-  res
+responsePutEventSelectors = res
     "PutEventSelectorsResponse"
     "fixture/PutEventSelectorsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutEventSelectors)
 
 responseStartLogging :: StartLoggingResponse -> TestTree
-responseStartLogging =
-  res
+responseStartLogging = res
     "StartLoggingResponse"
     "fixture/StartLoggingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartLogging)
 
 responseListTrails :: ListTrailsResponse -> TestTree
-responseListTrails =
-  res
+responseListTrails = res
     "ListTrailsResponse"
     "fixture/ListTrailsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTrails)
 
 responseGetInsightSelectors :: GetInsightSelectorsResponse -> TestTree
-responseGetInsightSelectors =
-  res
+responseGetInsightSelectors = res
     "GetInsightSelectorsResponse"
     "fixture/GetInsightSelectorsResponse.proto"
     mkServiceConfig

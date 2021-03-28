@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Rekognition.Types.RegionOfInterest
-  ( RegionOfInterest (..),
-
-    -- * Smart constructor
-    mkRegionOfInterest,
-
-    -- * Lenses
-    roiBoundingBox,
-  )
-where
+  ( RegionOfInterest (..)
+  -- * Smart constructor
+  , mkRegionOfInterest
+  -- * Lenses
+  , roiBoundingBox
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -31,25 +29,26 @@ import qualified Network.AWS.Rekognition.Types.BoundingBox as Types
 --
 -- /See:/ 'mkRegionOfInterest' smart constructor.
 newtype RegionOfInterest = RegionOfInterest'
-  { -- | The box representing a region of interest on screen.
-    boundingBox :: Core.Maybe Types.BoundingBox
+  { boundingBox :: Core.Maybe Types.BoundingBox
+    -- ^ The box representing a region of interest on screen.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'RegionOfInterest' value with any optional fields omitted.
-mkRegionOfInterest ::
-  RegionOfInterest
-mkRegionOfInterest = RegionOfInterest' {boundingBox = Core.Nothing}
+mkRegionOfInterest
+    :: RegionOfInterest
+mkRegionOfInterest = RegionOfInterest'{boundingBox = Core.Nothing}
 
 -- | The box representing a region of interest on screen.
 --
 -- /Note:/ Consider using 'boundingBox' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 roiBoundingBox :: Lens.Lens' RegionOfInterest (Core.Maybe Types.BoundingBox)
 roiBoundingBox = Lens.field @"boundingBox"
-{-# DEPRECATED roiBoundingBox "Use generic-lens or generic-optics with 'boundingBox' instead." #-}
+{-# INLINEABLE roiBoundingBox #-}
+{-# DEPRECATED boundingBox "Use generic-lens or generic-optics with 'boundingBox' instead"  #-}
 
 instance Core.FromJSON RegionOfInterest where
-  toJSON RegionOfInterest {..} =
-    Core.object
-      (Core.catMaybes [("BoundingBox" Core..=) Core.<$> boundingBox])
+        toJSON RegionOfInterest{..}
+          = Core.object
+              (Core.catMaybes [("BoundingBox" Core..=) Core.<$> boundingBox])

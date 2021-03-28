@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.ResourceGroupsTagging where
 
 import Data.Proxy
-import Network.AWS.ResourceGroupsTagging
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.AWS.ResourceGroupsTagging.Internal
 import Test.Tasty
+import Network.AWS.ResourceGroupsTagging
+import Test.AWS.ResourceGroupsTagging.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -84,114 +85,98 @@ import Test.Tasty
 -- Requests
 
 requestGetComplianceSummary :: GetComplianceSummary -> TestTree
-requestGetComplianceSummary =
-  req
+requestGetComplianceSummary = req
     "GetComplianceSummary"
     "fixture/GetComplianceSummary.yaml"
 
 requestDescribeReportCreation :: DescribeReportCreation -> TestTree
-requestDescribeReportCreation =
-  req
+requestDescribeReportCreation = req
     "DescribeReportCreation"
     "fixture/DescribeReportCreation.yaml"
 
 requestGetTagKeys :: GetTagKeys -> TestTree
-requestGetTagKeys =
-  req
+requestGetTagKeys = req
     "GetTagKeys"
     "fixture/GetTagKeys.yaml"
 
 requestTagResources :: TagResources -> TestTree
-requestTagResources =
-  req
+requestTagResources = req
     "TagResources"
     "fixture/TagResources.yaml"
 
 requestGetTagValues :: GetTagValues -> TestTree
-requestGetTagValues =
-  req
+requestGetTagValues = req
     "GetTagValues"
     "fixture/GetTagValues.yaml"
 
 requestStartReportCreation :: StartReportCreation -> TestTree
-requestStartReportCreation =
-  req
+requestStartReportCreation = req
     "StartReportCreation"
     "fixture/StartReportCreation.yaml"
 
 requestGetResources :: GetResources -> TestTree
-requestGetResources =
-  req
+requestGetResources = req
     "GetResources"
     "fixture/GetResources.yaml"
 
 requestUntagResources :: UntagResources -> TestTree
-requestUntagResources =
-  req
+requestUntagResources = req
     "UntagResources"
     "fixture/UntagResources.yaml"
 
 -- Responses
 
 responseGetComplianceSummary :: GetComplianceSummaryResponse -> TestTree
-responseGetComplianceSummary =
-  res
+responseGetComplianceSummary = res
     "GetComplianceSummaryResponse"
     "fixture/GetComplianceSummaryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetComplianceSummary)
 
 responseDescribeReportCreation :: DescribeReportCreationResponse -> TestTree
-responseDescribeReportCreation =
-  res
+responseDescribeReportCreation = res
     "DescribeReportCreationResponse"
     "fixture/DescribeReportCreationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeReportCreation)
 
 responseGetTagKeys :: GetTagKeysResponse -> TestTree
-responseGetTagKeys =
-  res
+responseGetTagKeys = res
     "GetTagKeysResponse"
     "fixture/GetTagKeysResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetTagKeys)
 
 responseTagResources :: TagResourcesResponse -> TestTree
-responseTagResources =
-  res
+responseTagResources = res
     "TagResourcesResponse"
     "fixture/TagResourcesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TagResources)
 
 responseGetTagValues :: GetTagValuesResponse -> TestTree
-responseGetTagValues =
-  res
+responseGetTagValues = res
     "GetTagValuesResponse"
     "fixture/GetTagValuesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetTagValues)
 
 responseStartReportCreation :: StartReportCreationResponse -> TestTree
-responseStartReportCreation =
-  res
+responseStartReportCreation = res
     "StartReportCreationResponse"
     "fixture/StartReportCreationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartReportCreation)
 
 responseGetResources :: GetResourcesResponse -> TestTree
-responseGetResources =
-  res
+responseGetResources = res
     "GetResourcesResponse"
     "fixture/GetResourcesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetResources)
 
 responseUntagResources :: UntagResourcesResponse -> TestTree
-responseUntagResources =
-  res
+responseUntagResources = res
     "UntagResourcesResponse"
     "fixture/UntagResourcesResponse.proto"
     mkServiceConfig

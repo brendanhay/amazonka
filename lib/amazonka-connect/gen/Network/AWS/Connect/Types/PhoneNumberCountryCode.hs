@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,280 +10,262 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Connect.Types.PhoneNumberCountryCode
   ( PhoneNumberCountryCode
-      ( PhoneNumberCountryCode',
-        PhoneNumberCountryCodeAF,
-        PhoneNumberCountryCodeAL,
-        PhoneNumberCountryCodeDZ,
-        PhoneNumberCountryCodeAS,
-        PhoneNumberCountryCodeAD,
-        PhoneNumberCountryCodeAO,
-        PhoneNumberCountryCodeAI,
-        PhoneNumberCountryCodeAQ,
-        PhoneNumberCountryCodeAG,
-        PhoneNumberCountryCodeAR,
-        PhoneNumberCountryCodeAM,
-        PhoneNumberCountryCodeAW,
-        PhoneNumberCountryCodeAU,
-        PhoneNumberCountryCodeAT,
-        PhoneNumberCountryCodeAZ,
-        PhoneNumberCountryCodeBS,
-        PhoneNumberCountryCodeBH,
-        PhoneNumberCountryCodeBD,
-        PhoneNumberCountryCodeBB,
-        PhoneNumberCountryCodeBY,
-        PhoneNumberCountryCodeBE,
-        PhoneNumberCountryCodeBZ,
-        PhoneNumberCountryCodeBJ,
-        PhoneNumberCountryCodeBM,
-        PhoneNumberCountryCodeBT,
-        PhoneNumberCountryCodeBO,
-        PhoneNumberCountryCodeBA,
-        PhoneNumberCountryCodeBW,
-        PhoneNumberCountryCodeBR,
-        PhoneNumberCountryCodeIO,
-        PhoneNumberCountryCodeVG,
-        PhoneNumberCountryCodeBN,
-        PhoneNumberCountryCodeBG,
-        PhoneNumberCountryCodeBF,
-        PhoneNumberCountryCodeBI,
-        PhoneNumberCountryCodeKH,
-        PhoneNumberCountryCodeCM,
-        PhoneNumberCountryCodeCA,
-        PhoneNumberCountryCodeCV,
-        PhoneNumberCountryCodeKY,
-        PhoneNumberCountryCodeCF,
-        PhoneNumberCountryCodeTD,
-        PhoneNumberCountryCodeCL,
-        PhoneNumberCountryCodeCN,
-        PhoneNumberCountryCodeCX,
-        PhoneNumberCountryCodeCC,
-        PhoneNumberCountryCodeCO,
-        PhoneNumberCountryCodeKM,
-        PhoneNumberCountryCodeCK,
-        PhoneNumberCountryCodeCR,
-        PhoneNumberCountryCodeHR,
-        PhoneNumberCountryCodeCU,
-        PhoneNumberCountryCodeCW,
-        PhoneNumberCountryCodeCY,
-        PhoneNumberCountryCodeCZ,
-        PhoneNumberCountryCodeCD,
-        PhoneNumberCountryCodeDK,
-        PhoneNumberCountryCodeDJ,
-        PhoneNumberCountryCodeDM,
-        PhoneNumberCountryCodeDO,
-        PhoneNumberCountryCodeTL,
-        PhoneNumberCountryCodeEC,
-        PhoneNumberCountryCodeEG,
-        PhoneNumberCountryCodeSV,
-        PhoneNumberCountryCodeGQ,
-        PhoneNumberCountryCodeER,
-        PhoneNumberCountryCodeEE,
-        PhoneNumberCountryCodeET,
-        PhoneNumberCountryCodeFK,
-        PhoneNumberCountryCodeFO,
-        PhoneNumberCountryCodeFJ,
-        PhoneNumberCountryCodeFI,
-        PhoneNumberCountryCodeFR,
-        PhoneNumberCountryCodePF,
-        PhoneNumberCountryCodeGA,
-        PhoneNumberCountryCodeGM,
-        PhoneNumberCountryCodeGE,
-        PhoneNumberCountryCodeDE,
-        PhoneNumberCountryCodeGH,
-        PhoneNumberCountryCodeGI,
-        PhoneNumberCountryCodeGR,
-        PhoneNumberCountryCodeGL,
-        PhoneNumberCountryCodeGD,
-        PhoneNumberCountryCodeGU,
-        PhoneNumberCountryCodeGT,
-        PhoneNumberCountryCodeGG,
-        PhoneNumberCountryCodeGN,
-        PhoneNumberCountryCodeGW,
-        PhoneNumberCountryCodeGY,
-        PhoneNumberCountryCodeHT,
-        PhoneNumberCountryCodeHN,
-        PhoneNumberCountryCodeHK,
-        PhoneNumberCountryCodeHU,
-        PhoneNumberCountryCodeIS,
-        PhoneNumberCountryCodeIN,
-        PhoneNumberCountryCodeID,
-        PhoneNumberCountryCodeIR,
-        PhoneNumberCountryCodeIQ,
-        PhoneNumberCountryCodeIE,
-        PhoneNumberCountryCodeIM,
-        PhoneNumberCountryCodeIL,
-        PhoneNumberCountryCodeIT,
-        PhoneNumberCountryCodeCI,
-        PhoneNumberCountryCodeJM,
-        PhoneNumberCountryCodeJP,
-        PhoneNumberCountryCodeJE,
-        PhoneNumberCountryCodeJO,
-        PhoneNumberCountryCodeKZ,
-        PhoneNumberCountryCodeKE,
-        PhoneNumberCountryCodeKI,
-        PhoneNumberCountryCodeKW,
-        PhoneNumberCountryCodeKG,
-        PhoneNumberCountryCodeLA,
-        PhoneNumberCountryCodeLV,
-        PhoneNumberCountryCodeLB,
-        PhoneNumberCountryCodeLS,
-        PhoneNumberCountryCodeLR,
-        PhoneNumberCountryCodeLY,
-        PhoneNumberCountryCodeLI,
-        PhoneNumberCountryCodeLT,
-        PhoneNumberCountryCodeLU,
-        PhoneNumberCountryCodeMO,
-        PhoneNumberCountryCodeMK,
-        PhoneNumberCountryCodeMG,
-        PhoneNumberCountryCodeMW,
-        PhoneNumberCountryCodeMY,
-        PhoneNumberCountryCodeMV,
-        PhoneNumberCountryCodeML,
-        PhoneNumberCountryCodeMT,
-        PhoneNumberCountryCodeMH,
-        PhoneNumberCountryCodeMR,
-        PhoneNumberCountryCodeMU,
-        PhoneNumberCountryCodeYT,
-        PhoneNumberCountryCodeMX,
-        PhoneNumberCountryCodeFM,
-        PhoneNumberCountryCodeMD,
-        PhoneNumberCountryCodeMC,
-        PhoneNumberCountryCodeMN,
-        PhoneNumberCountryCodeME,
-        PhoneNumberCountryCodeMS,
-        PhoneNumberCountryCodeMA,
-        PhoneNumberCountryCodeMZ,
-        PhoneNumberCountryCodeMM,
-        PhoneNumberCountryCodeNA,
-        PhoneNumberCountryCodeNR,
-        PhoneNumberCountryCodeNP,
-        PhoneNumberCountryCodeNL,
-        PhoneNumberCountryCodeAN,
-        PhoneNumberCountryCodeNC,
-        PhoneNumberCountryCodeNZ,
-        PhoneNumberCountryCodeNI,
-        PhoneNumberCountryCodeNE,
-        PhoneNumberCountryCodeNG,
-        PhoneNumberCountryCodeNU,
-        PhoneNumberCountryCodeKP,
-        PhoneNumberCountryCodeMP,
-        PhoneNumberCountryCodeNO,
-        PhoneNumberCountryCodeOM,
-        PhoneNumberCountryCodePK,
-        PhoneNumberCountryCodePW,
-        PhoneNumberCountryCodePA,
-        PhoneNumberCountryCodePG,
-        PhoneNumberCountryCodePY,
-        PhoneNumberCountryCodePE,
-        PhoneNumberCountryCodePH,
-        PhoneNumberCountryCodePN,
-        PhoneNumberCountryCodePL,
-        PhoneNumberCountryCodePT,
-        PhoneNumberCountryCodePR,
-        PhoneNumberCountryCodeQA,
-        PhoneNumberCountryCodeCG,
-        PhoneNumberCountryCodeRE,
-        PhoneNumberCountryCodeRO,
-        PhoneNumberCountryCodeRU,
-        PhoneNumberCountryCodeRW,
-        PhoneNumberCountryCodeBL,
-        PhoneNumberCountryCodeSH,
-        PhoneNumberCountryCodeKN,
-        PhoneNumberCountryCodeLC,
-        PhoneNumberCountryCodeMF,
-        PhoneNumberCountryCodePM,
-        PhoneNumberCountryCodeVC,
-        PhoneNumberCountryCodeWS,
-        PhoneNumberCountryCodeSM,
-        PhoneNumberCountryCodeST,
-        PhoneNumberCountryCodeSA,
-        PhoneNumberCountryCodeSN,
-        PhoneNumberCountryCodeRS,
-        PhoneNumberCountryCodeSC,
-        PhoneNumberCountryCodeSL,
-        PhoneNumberCountryCodeSG,
-        PhoneNumberCountryCodeSX,
-        PhoneNumberCountryCodeSK,
-        PhoneNumberCountryCodeSI,
-        PhoneNumberCountryCodeSB,
-        PhoneNumberCountryCodeSO,
-        PhoneNumberCountryCodeZA,
-        PhoneNumberCountryCodeKR,
-        PhoneNumberCountryCodeES,
-        PhoneNumberCountryCodeLK,
-        PhoneNumberCountryCodeSD,
-        PhoneNumberCountryCodeSR,
-        PhoneNumberCountryCodeSJ,
-        PhoneNumberCountryCodeSZ,
-        PhoneNumberCountryCodeSE,
-        PhoneNumberCountryCodeCH,
-        PhoneNumberCountryCodeSY,
-        PhoneNumberCountryCodeTW,
-        PhoneNumberCountryCodeTJ,
-        PhoneNumberCountryCodeTZ,
-        PhoneNumberCountryCodeTH,
-        PhoneNumberCountryCodeTG,
-        PhoneNumberCountryCodeTK,
-        PhoneNumberCountryCodeTO,
-        PhoneNumberCountryCodeTT,
-        PhoneNumberCountryCodeTN,
-        PhoneNumberCountryCodeTR,
-        PhoneNumberCountryCodeTM,
-        PhoneNumberCountryCodeTC,
-        PhoneNumberCountryCodeTV,
-        PhoneNumberCountryCodeVI,
-        PhoneNumberCountryCodeUG,
-        PhoneNumberCountryCodeUA,
-        PhoneNumberCountryCodeAE,
-        PhoneNumberCountryCodeGB,
-        PhoneNumberCountryCodeUS,
-        PhoneNumberCountryCodeUY,
-        PhoneNumberCountryCodeUZ,
-        PhoneNumberCountryCodeVU,
-        PhoneNumberCountryCodeVA,
-        PhoneNumberCountryCodeVE,
-        PhoneNumberCountryCodeVN,
-        PhoneNumberCountryCodeWF,
-        PhoneNumberCountryCodeEH,
-        PhoneNumberCountryCodeYE,
-        PhoneNumberCountryCodeZM,
-        PhoneNumberCountryCodeZW,
-        fromPhoneNumberCountryCode
-      ),
-  )
-where
+    ( PhoneNumberCountryCode'
+    , PhoneNumberCountryCodeAF
+    , PhoneNumberCountryCodeAL
+    , PhoneNumberCountryCodeDZ
+    , PhoneNumberCountryCodeAS
+    , PhoneNumberCountryCodeAD
+    , PhoneNumberCountryCodeAO
+    , PhoneNumberCountryCodeAI
+    , PhoneNumberCountryCodeAQ
+    , PhoneNumberCountryCodeAG
+    , PhoneNumberCountryCodeAR
+    , PhoneNumberCountryCodeAM
+    , PhoneNumberCountryCodeAW
+    , PhoneNumberCountryCodeAU
+    , PhoneNumberCountryCodeAT
+    , PhoneNumberCountryCodeAZ
+    , PhoneNumberCountryCodeBS
+    , PhoneNumberCountryCodeBH
+    , PhoneNumberCountryCodeBD
+    , PhoneNumberCountryCodeBB
+    , PhoneNumberCountryCodeBY
+    , PhoneNumberCountryCodeBE
+    , PhoneNumberCountryCodeBZ
+    , PhoneNumberCountryCodeBJ
+    , PhoneNumberCountryCodeBM
+    , PhoneNumberCountryCodeBT
+    , PhoneNumberCountryCodeBO
+    , PhoneNumberCountryCodeBA
+    , PhoneNumberCountryCodeBW
+    , PhoneNumberCountryCodeBR
+    , PhoneNumberCountryCodeIO
+    , PhoneNumberCountryCodeVG
+    , PhoneNumberCountryCodeBN
+    , PhoneNumberCountryCodeBG
+    , PhoneNumberCountryCodeBF
+    , PhoneNumberCountryCodeBI
+    , PhoneNumberCountryCodeKH
+    , PhoneNumberCountryCodeCM
+    , PhoneNumberCountryCodeCA
+    , PhoneNumberCountryCodeCV
+    , PhoneNumberCountryCodeKY
+    , PhoneNumberCountryCodeCF
+    , PhoneNumberCountryCodeTD
+    , PhoneNumberCountryCodeCL
+    , PhoneNumberCountryCodeCN
+    , PhoneNumberCountryCodeCX
+    , PhoneNumberCountryCodeCC
+    , PhoneNumberCountryCodeCO
+    , PhoneNumberCountryCodeKM
+    , PhoneNumberCountryCodeCK
+    , PhoneNumberCountryCodeCR
+    , PhoneNumberCountryCodeHR
+    , PhoneNumberCountryCodeCU
+    , PhoneNumberCountryCodeCW
+    , PhoneNumberCountryCodeCY
+    , PhoneNumberCountryCodeCZ
+    , PhoneNumberCountryCodeCD
+    , PhoneNumberCountryCodeDK
+    , PhoneNumberCountryCodeDJ
+    , PhoneNumberCountryCodeDM
+    , PhoneNumberCountryCodeDO
+    , PhoneNumberCountryCodeTL
+    , PhoneNumberCountryCodeEC
+    , PhoneNumberCountryCodeEG
+    , PhoneNumberCountryCodeSV
+    , PhoneNumberCountryCodeGQ
+    , PhoneNumberCountryCodeER
+    , PhoneNumberCountryCodeEE
+    , PhoneNumberCountryCodeET
+    , PhoneNumberCountryCodeFK
+    , PhoneNumberCountryCodeFO
+    , PhoneNumberCountryCodeFJ
+    , PhoneNumberCountryCodeFI
+    , PhoneNumberCountryCodeFR
+    , PhoneNumberCountryCodePF
+    , PhoneNumberCountryCodeGA
+    , PhoneNumberCountryCodeGM
+    , PhoneNumberCountryCodeGE
+    , PhoneNumberCountryCodeDE
+    , PhoneNumberCountryCodeGH
+    , PhoneNumberCountryCodeGI
+    , PhoneNumberCountryCodeGR
+    , PhoneNumberCountryCodeGL
+    , PhoneNumberCountryCodeGD
+    , PhoneNumberCountryCodeGU
+    , PhoneNumberCountryCodeGT
+    , PhoneNumberCountryCodeGG
+    , PhoneNumberCountryCodeGN
+    , PhoneNumberCountryCodeGW
+    , PhoneNumberCountryCodeGY
+    , PhoneNumberCountryCodeHT
+    , PhoneNumberCountryCodeHN
+    , PhoneNumberCountryCodeHK
+    , PhoneNumberCountryCodeHU
+    , PhoneNumberCountryCodeIS
+    , PhoneNumberCountryCodeIN
+    , PhoneNumberCountryCodeID
+    , PhoneNumberCountryCodeIR
+    , PhoneNumberCountryCodeIQ
+    , PhoneNumberCountryCodeIE
+    , PhoneNumberCountryCodeIM
+    , PhoneNumberCountryCodeIL
+    , PhoneNumberCountryCodeIT
+    , PhoneNumberCountryCodeCI
+    , PhoneNumberCountryCodeJM
+    , PhoneNumberCountryCodeJP
+    , PhoneNumberCountryCodeJE
+    , PhoneNumberCountryCodeJO
+    , PhoneNumberCountryCodeKZ
+    , PhoneNumberCountryCodeKE
+    , PhoneNumberCountryCodeKI
+    , PhoneNumberCountryCodeKW
+    , PhoneNumberCountryCodeKG
+    , PhoneNumberCountryCodeLA
+    , PhoneNumberCountryCodeLV
+    , PhoneNumberCountryCodeLB
+    , PhoneNumberCountryCodeLS
+    , PhoneNumberCountryCodeLR
+    , PhoneNumberCountryCodeLY
+    , PhoneNumberCountryCodeLI
+    , PhoneNumberCountryCodeLT
+    , PhoneNumberCountryCodeLU
+    , PhoneNumberCountryCodeMO
+    , PhoneNumberCountryCodeMK
+    , PhoneNumberCountryCodeMG
+    , PhoneNumberCountryCodeMW
+    , PhoneNumberCountryCodeMY
+    , PhoneNumberCountryCodeMV
+    , PhoneNumberCountryCodeML
+    , PhoneNumberCountryCodeMT
+    , PhoneNumberCountryCodeMH
+    , PhoneNumberCountryCodeMR
+    , PhoneNumberCountryCodeMU
+    , PhoneNumberCountryCodeYT
+    , PhoneNumberCountryCodeMX
+    , PhoneNumberCountryCodeFM
+    , PhoneNumberCountryCodeMD
+    , PhoneNumberCountryCodeMC
+    , PhoneNumberCountryCodeMN
+    , PhoneNumberCountryCodeME
+    , PhoneNumberCountryCodeMS
+    , PhoneNumberCountryCodeMA
+    , PhoneNumberCountryCodeMZ
+    , PhoneNumberCountryCodeMM
+    , PhoneNumberCountryCodeNA
+    , PhoneNumberCountryCodeNR
+    , PhoneNumberCountryCodeNP
+    , PhoneNumberCountryCodeNL
+    , PhoneNumberCountryCodeAN
+    , PhoneNumberCountryCodeNC
+    , PhoneNumberCountryCodeNZ
+    , PhoneNumberCountryCodeNI
+    , PhoneNumberCountryCodeNE
+    , PhoneNumberCountryCodeNG
+    , PhoneNumberCountryCodeNU
+    , PhoneNumberCountryCodeKP
+    , PhoneNumberCountryCodeMP
+    , PhoneNumberCountryCodeNO
+    , PhoneNumberCountryCodeOM
+    , PhoneNumberCountryCodePK
+    , PhoneNumberCountryCodePW
+    , PhoneNumberCountryCodePA
+    , PhoneNumberCountryCodePG
+    , PhoneNumberCountryCodePY
+    , PhoneNumberCountryCodePE
+    , PhoneNumberCountryCodePH
+    , PhoneNumberCountryCodePN
+    , PhoneNumberCountryCodePL
+    , PhoneNumberCountryCodePT
+    , PhoneNumberCountryCodePR
+    , PhoneNumberCountryCodeQA
+    , PhoneNumberCountryCodeCG
+    , PhoneNumberCountryCodeRE
+    , PhoneNumberCountryCodeRO
+    , PhoneNumberCountryCodeRU
+    , PhoneNumberCountryCodeRW
+    , PhoneNumberCountryCodeBL
+    , PhoneNumberCountryCodeSH
+    , PhoneNumberCountryCodeKN
+    , PhoneNumberCountryCodeLC
+    , PhoneNumberCountryCodeMF
+    , PhoneNumberCountryCodePM
+    , PhoneNumberCountryCodeVC
+    , PhoneNumberCountryCodeWS
+    , PhoneNumberCountryCodeSM
+    , PhoneNumberCountryCodeST
+    , PhoneNumberCountryCodeSA
+    , PhoneNumberCountryCodeSN
+    , PhoneNumberCountryCodeRS
+    , PhoneNumberCountryCodeSC
+    , PhoneNumberCountryCodeSL
+    , PhoneNumberCountryCodeSG
+    , PhoneNumberCountryCodeSX
+    , PhoneNumberCountryCodeSK
+    , PhoneNumberCountryCodeSI
+    , PhoneNumberCountryCodeSB
+    , PhoneNumberCountryCodeSO
+    , PhoneNumberCountryCodeZA
+    , PhoneNumberCountryCodeKR
+    , PhoneNumberCountryCodeES
+    , PhoneNumberCountryCodeLK
+    , PhoneNumberCountryCodeSD
+    , PhoneNumberCountryCodeSR
+    , PhoneNumberCountryCodeSJ
+    , PhoneNumberCountryCodeSZ
+    , PhoneNumberCountryCodeSE
+    , PhoneNumberCountryCodeCH
+    , PhoneNumberCountryCodeSY
+    , PhoneNumberCountryCodeTW
+    , PhoneNumberCountryCodeTJ
+    , PhoneNumberCountryCodeTZ
+    , PhoneNumberCountryCodeTH
+    , PhoneNumberCountryCodeTG
+    , PhoneNumberCountryCodeTK
+    , PhoneNumberCountryCodeTO
+    , PhoneNumberCountryCodeTT
+    , PhoneNumberCountryCodeTN
+    , PhoneNumberCountryCodeTR
+    , PhoneNumberCountryCodeTM
+    , PhoneNumberCountryCodeTC
+    , PhoneNumberCountryCodeTV
+    , PhoneNumberCountryCodeVI
+    , PhoneNumberCountryCodeUG
+    , PhoneNumberCountryCodeUA
+    , PhoneNumberCountryCodeAE
+    , PhoneNumberCountryCodeGB
+    , PhoneNumberCountryCodeUS
+    , PhoneNumberCountryCodeUY
+    , PhoneNumberCountryCodeUZ
+    , PhoneNumberCountryCodeVU
+    , PhoneNumberCountryCodeVA
+    , PhoneNumberCountryCodeVE
+    , PhoneNumberCountryCodeVN
+    , PhoneNumberCountryCodeWF
+    , PhoneNumberCountryCodeEH
+    , PhoneNumberCountryCodeYE
+    , PhoneNumberCountryCodeZM
+    , PhoneNumberCountryCodeZW
+    , fromPhoneNumberCountryCode
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype PhoneNumberCountryCode = PhoneNumberCountryCode'
-  { fromPhoneNumberCountryCode ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype PhoneNumberCountryCode = PhoneNumberCountryCode'{fromPhoneNumberCountryCode
+                                                         :: Core.Text}
+                                   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                   Core.Generic)
+                                   deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                     Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                     Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                     Core.ToText, Core.FromText, Core.ToByteString,
+                                                     Core.ToQuery, Core.ToHeader)
 
 pattern PhoneNumberCountryCodeAF :: PhoneNumberCountryCode
 pattern PhoneNumberCountryCodeAF = PhoneNumberCountryCode' "AF"
@@ -996,243 +978,479 @@ pattern PhoneNumberCountryCodeZM = PhoneNumberCountryCode' "ZM"
 pattern PhoneNumberCountryCodeZW :: PhoneNumberCountryCode
 pattern PhoneNumberCountryCodeZW = PhoneNumberCountryCode' "ZW"
 
-{-# COMPLETE
+{-# COMPLETE 
   PhoneNumberCountryCodeAF,
+
   PhoneNumberCountryCodeAL,
+
   PhoneNumberCountryCodeDZ,
+
   PhoneNumberCountryCodeAS,
+
   PhoneNumberCountryCodeAD,
+
   PhoneNumberCountryCodeAO,
+
   PhoneNumberCountryCodeAI,
+
   PhoneNumberCountryCodeAQ,
+
   PhoneNumberCountryCodeAG,
+
   PhoneNumberCountryCodeAR,
+
   PhoneNumberCountryCodeAM,
+
   PhoneNumberCountryCodeAW,
+
   PhoneNumberCountryCodeAU,
+
   PhoneNumberCountryCodeAT,
+
   PhoneNumberCountryCodeAZ,
+
   PhoneNumberCountryCodeBS,
+
   PhoneNumberCountryCodeBH,
+
   PhoneNumberCountryCodeBD,
+
   PhoneNumberCountryCodeBB,
+
   PhoneNumberCountryCodeBY,
+
   PhoneNumberCountryCodeBE,
+
   PhoneNumberCountryCodeBZ,
+
   PhoneNumberCountryCodeBJ,
+
   PhoneNumberCountryCodeBM,
+
   PhoneNumberCountryCodeBT,
+
   PhoneNumberCountryCodeBO,
+
   PhoneNumberCountryCodeBA,
+
   PhoneNumberCountryCodeBW,
+
   PhoneNumberCountryCodeBR,
+
   PhoneNumberCountryCodeIO,
+
   PhoneNumberCountryCodeVG,
+
   PhoneNumberCountryCodeBN,
+
   PhoneNumberCountryCodeBG,
+
   PhoneNumberCountryCodeBF,
+
   PhoneNumberCountryCodeBI,
+
   PhoneNumberCountryCodeKH,
+
   PhoneNumberCountryCodeCM,
+
   PhoneNumberCountryCodeCA,
+
   PhoneNumberCountryCodeCV,
+
   PhoneNumberCountryCodeKY,
+
   PhoneNumberCountryCodeCF,
+
   PhoneNumberCountryCodeTD,
+
   PhoneNumberCountryCodeCL,
+
   PhoneNumberCountryCodeCN,
+
   PhoneNumberCountryCodeCX,
+
   PhoneNumberCountryCodeCC,
+
   PhoneNumberCountryCodeCO,
+
   PhoneNumberCountryCodeKM,
+
   PhoneNumberCountryCodeCK,
+
   PhoneNumberCountryCodeCR,
+
   PhoneNumberCountryCodeHR,
+
   PhoneNumberCountryCodeCU,
+
   PhoneNumberCountryCodeCW,
+
   PhoneNumberCountryCodeCY,
+
   PhoneNumberCountryCodeCZ,
+
   PhoneNumberCountryCodeCD,
+
   PhoneNumberCountryCodeDK,
+
   PhoneNumberCountryCodeDJ,
+
   PhoneNumberCountryCodeDM,
+
   PhoneNumberCountryCodeDO,
+
   PhoneNumberCountryCodeTL,
+
   PhoneNumberCountryCodeEC,
+
   PhoneNumberCountryCodeEG,
+
   PhoneNumberCountryCodeSV,
+
   PhoneNumberCountryCodeGQ,
+
   PhoneNumberCountryCodeER,
+
   PhoneNumberCountryCodeEE,
+
   PhoneNumberCountryCodeET,
+
   PhoneNumberCountryCodeFK,
+
   PhoneNumberCountryCodeFO,
+
   PhoneNumberCountryCodeFJ,
+
   PhoneNumberCountryCodeFI,
+
   PhoneNumberCountryCodeFR,
+
   PhoneNumberCountryCodePF,
+
   PhoneNumberCountryCodeGA,
+
   PhoneNumberCountryCodeGM,
+
   PhoneNumberCountryCodeGE,
+
   PhoneNumberCountryCodeDE,
+
   PhoneNumberCountryCodeGH,
+
   PhoneNumberCountryCodeGI,
+
   PhoneNumberCountryCodeGR,
+
   PhoneNumberCountryCodeGL,
+
   PhoneNumberCountryCodeGD,
+
   PhoneNumberCountryCodeGU,
+
   PhoneNumberCountryCodeGT,
+
   PhoneNumberCountryCodeGG,
+
   PhoneNumberCountryCodeGN,
+
   PhoneNumberCountryCodeGW,
+
   PhoneNumberCountryCodeGY,
+
   PhoneNumberCountryCodeHT,
+
   PhoneNumberCountryCodeHN,
+
   PhoneNumberCountryCodeHK,
+
   PhoneNumberCountryCodeHU,
+
   PhoneNumberCountryCodeIS,
+
   PhoneNumberCountryCodeIN,
+
   PhoneNumberCountryCodeID,
+
   PhoneNumberCountryCodeIR,
+
   PhoneNumberCountryCodeIQ,
+
   PhoneNumberCountryCodeIE,
+
   PhoneNumberCountryCodeIM,
+
   PhoneNumberCountryCodeIL,
+
   PhoneNumberCountryCodeIT,
+
   PhoneNumberCountryCodeCI,
+
   PhoneNumberCountryCodeJM,
+
   PhoneNumberCountryCodeJP,
+
   PhoneNumberCountryCodeJE,
+
   PhoneNumberCountryCodeJO,
+
   PhoneNumberCountryCodeKZ,
+
   PhoneNumberCountryCodeKE,
+
   PhoneNumberCountryCodeKI,
+
   PhoneNumberCountryCodeKW,
+
   PhoneNumberCountryCodeKG,
+
   PhoneNumberCountryCodeLA,
+
   PhoneNumberCountryCodeLV,
+
   PhoneNumberCountryCodeLB,
+
   PhoneNumberCountryCodeLS,
+
   PhoneNumberCountryCodeLR,
+
   PhoneNumberCountryCodeLY,
+
   PhoneNumberCountryCodeLI,
+
   PhoneNumberCountryCodeLT,
+
   PhoneNumberCountryCodeLU,
+
   PhoneNumberCountryCodeMO,
+
   PhoneNumberCountryCodeMK,
+
   PhoneNumberCountryCodeMG,
+
   PhoneNumberCountryCodeMW,
+
   PhoneNumberCountryCodeMY,
+
   PhoneNumberCountryCodeMV,
+
   PhoneNumberCountryCodeML,
+
   PhoneNumberCountryCodeMT,
+
   PhoneNumberCountryCodeMH,
+
   PhoneNumberCountryCodeMR,
+
   PhoneNumberCountryCodeMU,
+
   PhoneNumberCountryCodeYT,
+
   PhoneNumberCountryCodeMX,
+
   PhoneNumberCountryCodeFM,
+
   PhoneNumberCountryCodeMD,
+
   PhoneNumberCountryCodeMC,
+
   PhoneNumberCountryCodeMN,
+
   PhoneNumberCountryCodeME,
+
   PhoneNumberCountryCodeMS,
+
   PhoneNumberCountryCodeMA,
+
   PhoneNumberCountryCodeMZ,
+
   PhoneNumberCountryCodeMM,
+
   PhoneNumberCountryCodeNA,
+
   PhoneNumberCountryCodeNR,
+
   PhoneNumberCountryCodeNP,
+
   PhoneNumberCountryCodeNL,
+
   PhoneNumberCountryCodeAN,
+
   PhoneNumberCountryCodeNC,
+
   PhoneNumberCountryCodeNZ,
+
   PhoneNumberCountryCodeNI,
+
   PhoneNumberCountryCodeNE,
+
   PhoneNumberCountryCodeNG,
+
   PhoneNumberCountryCodeNU,
+
   PhoneNumberCountryCodeKP,
+
   PhoneNumberCountryCodeMP,
+
   PhoneNumberCountryCodeNO,
+
   PhoneNumberCountryCodeOM,
+
   PhoneNumberCountryCodePK,
+
   PhoneNumberCountryCodePW,
+
   PhoneNumberCountryCodePA,
+
   PhoneNumberCountryCodePG,
+
   PhoneNumberCountryCodePY,
+
   PhoneNumberCountryCodePE,
+
   PhoneNumberCountryCodePH,
+
   PhoneNumberCountryCodePN,
+
   PhoneNumberCountryCodePL,
+
   PhoneNumberCountryCodePT,
+
   PhoneNumberCountryCodePR,
+
   PhoneNumberCountryCodeQA,
+
   PhoneNumberCountryCodeCG,
+
   PhoneNumberCountryCodeRE,
+
   PhoneNumberCountryCodeRO,
+
   PhoneNumberCountryCodeRU,
+
   PhoneNumberCountryCodeRW,
+
   PhoneNumberCountryCodeBL,
+
   PhoneNumberCountryCodeSH,
+
   PhoneNumberCountryCodeKN,
+
   PhoneNumberCountryCodeLC,
+
   PhoneNumberCountryCodeMF,
+
   PhoneNumberCountryCodePM,
+
   PhoneNumberCountryCodeVC,
+
   PhoneNumberCountryCodeWS,
+
   PhoneNumberCountryCodeSM,
+
   PhoneNumberCountryCodeST,
+
   PhoneNumberCountryCodeSA,
+
   PhoneNumberCountryCodeSN,
+
   PhoneNumberCountryCodeRS,
+
   PhoneNumberCountryCodeSC,
+
   PhoneNumberCountryCodeSL,
+
   PhoneNumberCountryCodeSG,
+
   PhoneNumberCountryCodeSX,
+
   PhoneNumberCountryCodeSK,
+
   PhoneNumberCountryCodeSI,
+
   PhoneNumberCountryCodeSB,
+
   PhoneNumberCountryCodeSO,
+
   PhoneNumberCountryCodeZA,
+
   PhoneNumberCountryCodeKR,
+
   PhoneNumberCountryCodeES,
+
   PhoneNumberCountryCodeLK,
+
   PhoneNumberCountryCodeSD,
+
   PhoneNumberCountryCodeSR,
+
   PhoneNumberCountryCodeSJ,
+
   PhoneNumberCountryCodeSZ,
+
   PhoneNumberCountryCodeSE,
+
   PhoneNumberCountryCodeCH,
+
   PhoneNumberCountryCodeSY,
+
   PhoneNumberCountryCodeTW,
+
   PhoneNumberCountryCodeTJ,
+
   PhoneNumberCountryCodeTZ,
+
   PhoneNumberCountryCodeTH,
+
   PhoneNumberCountryCodeTG,
+
   PhoneNumberCountryCodeTK,
+
   PhoneNumberCountryCodeTO,
+
   PhoneNumberCountryCodeTT,
+
   PhoneNumberCountryCodeTN,
+
   PhoneNumberCountryCodeTR,
+
   PhoneNumberCountryCodeTM,
+
   PhoneNumberCountryCodeTC,
+
   PhoneNumberCountryCodeTV,
+
   PhoneNumberCountryCodeVI,
+
   PhoneNumberCountryCodeUG,
+
   PhoneNumberCountryCodeUA,
+
   PhoneNumberCountryCodeAE,
+
   PhoneNumberCountryCodeGB,
+
   PhoneNumberCountryCodeUS,
+
   PhoneNumberCountryCodeUY,
+
   PhoneNumberCountryCodeUZ,
+
   PhoneNumberCountryCodeVU,
+
   PhoneNumberCountryCodeVA,
+
   PhoneNumberCountryCodeVE,
+
   PhoneNumberCountryCodeVN,
+
   PhoneNumberCountryCodeWF,
+
   PhoneNumberCountryCodeEH,
+
   PhoneNumberCountryCodeYE,
+
   PhoneNumberCountryCodeZM,
+
   PhoneNumberCountryCodeZW,
   PhoneNumberCountryCode'
   #-}

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Rekognition.Types.NotificationChannel
-  ( NotificationChannel (..),
-
-    -- * Smart constructor
-    mkNotificationChannel,
-
-    -- * Lenses
-    ncSNSTopicArn,
-    ncRoleArn,
-  )
-where
+  ( NotificationChannel (..)
+  -- * Smart constructor
+  , mkNotificationChannel
+  -- * Lenses
+  , ncSNSTopicArn
+  , ncRoleArn
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -31,43 +29,41 @@ import qualified Network.AWS.Rekognition.Types.SNSTopicArn as Types
 --
 -- /See:/ 'mkNotificationChannel' smart constructor.
 data NotificationChannel = NotificationChannel'
-  { -- | The Amazon SNS topic to which Amazon Rekognition to posts the completion status.
-    sNSTopicArn :: Types.SNSTopicArn,
-    -- | The ARN of an IAM role that gives Amazon Rekognition publishing permissions to the Amazon SNS topic.
-    roleArn :: Types.RoleArn
+  { sNSTopicArn :: Types.SNSTopicArn
+    -- ^ The Amazon SNS topic to which Amazon Rekognition to posts the completion status.
+  , roleArn :: Types.RoleArn
+    -- ^ The ARN of an IAM role that gives Amazon Rekognition publishing permissions to the Amazon SNS topic. 
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'NotificationChannel' value with any optional fields omitted.
-mkNotificationChannel ::
-  -- | 'sNSTopicArn'
-  Types.SNSTopicArn ->
-  -- | 'roleArn'
-  Types.RoleArn ->
-  NotificationChannel
-mkNotificationChannel sNSTopicArn roleArn =
-  NotificationChannel' {sNSTopicArn, roleArn}
+mkNotificationChannel
+    :: Types.SNSTopicArn -- ^ 'sNSTopicArn'
+    -> Types.RoleArn -- ^ 'roleArn'
+    -> NotificationChannel
+mkNotificationChannel sNSTopicArn roleArn
+  = NotificationChannel'{sNSTopicArn, roleArn}
 
 -- | The Amazon SNS topic to which Amazon Rekognition to posts the completion status.
 --
 -- /Note:/ Consider using 'sNSTopicArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ncSNSTopicArn :: Lens.Lens' NotificationChannel Types.SNSTopicArn
 ncSNSTopicArn = Lens.field @"sNSTopicArn"
-{-# DEPRECATED ncSNSTopicArn "Use generic-lens or generic-optics with 'sNSTopicArn' instead." #-}
+{-# INLINEABLE ncSNSTopicArn #-}
+{-# DEPRECATED sNSTopicArn "Use generic-lens or generic-optics with 'sNSTopicArn' instead"  #-}
 
--- | The ARN of an IAM role that gives Amazon Rekognition publishing permissions to the Amazon SNS topic.
+-- | The ARN of an IAM role that gives Amazon Rekognition publishing permissions to the Amazon SNS topic. 
 --
 -- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ncRoleArn :: Lens.Lens' NotificationChannel Types.RoleArn
 ncRoleArn = Lens.field @"roleArn"
-{-# DEPRECATED ncRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
+{-# INLINEABLE ncRoleArn #-}
+{-# DEPRECATED roleArn "Use generic-lens or generic-optics with 'roleArn' instead"  #-}
 
 instance Core.FromJSON NotificationChannel where
-  toJSON NotificationChannel {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("SNSTopicArn" Core..= sNSTopicArn),
-            Core.Just ("RoleArn" Core..= roleArn)
-          ]
-      )
+        toJSON NotificationChannel{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("SNSTopicArn" Core..= sNSTopicArn),
+                  Core.Just ("RoleArn" Core..= roleArn)])

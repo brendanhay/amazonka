@@ -1,201 +1,181 @@
-cabal-version:      2.2
-name:               amazonka-glacier
-version:            2.0.0.0
-synopsis:           Amazon Glacier SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-glacier
+version:               2.0.0.0
+synopsis:              Amazon Glacier SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.Glacier" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.Glacier" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-glacier
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-glacier
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.Glacier
-    Network.AWS.Glacier.AbortMultipartUpload
-    Network.AWS.Glacier.AbortVaultLock
-    Network.AWS.Glacier.AddTagsToVault
-    Network.AWS.Glacier.CompleteMultipartUpload
-    Network.AWS.Glacier.CompleteVaultLock
-    Network.AWS.Glacier.CreateVault
-    Network.AWS.Glacier.DeleteArchive
-    Network.AWS.Glacier.DeleteVault
-    Network.AWS.Glacier.DeleteVaultAccessPolicy
-    Network.AWS.Glacier.DeleteVaultNotifications
-    Network.AWS.Glacier.DescribeJob
-    Network.AWS.Glacier.DescribeVault
-    Network.AWS.Glacier.GetDataRetrievalPolicy
-    Network.AWS.Glacier.GetJobOutput
-    Network.AWS.Glacier.GetVaultAccessPolicy
-    Network.AWS.Glacier.GetVaultLock
-    Network.AWS.Glacier.GetVaultNotifications
-    Network.AWS.Glacier.InitiateJob
-    Network.AWS.Glacier.InitiateMultipartUpload
-    Network.AWS.Glacier.InitiateVaultLock
-    Network.AWS.Glacier.ListJobs
-    Network.AWS.Glacier.ListMultipartUploads
-    Network.AWS.Glacier.ListParts
-    Network.AWS.Glacier.ListProvisionedCapacity
-    Network.AWS.Glacier.ListTagsForVault
-    Network.AWS.Glacier.ListVaults
-    Network.AWS.Glacier.PurchaseProvisionedCapacity
-    Network.AWS.Glacier.RemoveTagsFromVault
-    Network.AWS.Glacier.SetDataRetrievalPolicy
-    Network.AWS.Glacier.SetVaultAccessPolicy
-    Network.AWS.Glacier.SetVaultNotifications
-    Network.AWS.Glacier.Types
-    Network.AWS.Glacier.UploadArchive
-    Network.AWS.Glacier.UploadMultipartPart
-    Network.AWS.Glacier.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.Glacier.Types.AccountId
-    Network.AWS.Glacier.Types.ActionCode
-    Network.AWS.Glacier.Types.ArchiveCreationOutput
-    Network.AWS.Glacier.Types.ArchiveDescription
-    Network.AWS.Glacier.Types.ArchiveId
-    Network.AWS.Glacier.Types.ArchiveSize
-    Network.AWS.Glacier.Types.CannedACL
-    Network.AWS.Glacier.Types.Checksum
-    Network.AWS.Glacier.Types.CreationDate
-    Network.AWS.Glacier.Types.CSVInput
-    Network.AWS.Glacier.Types.CSVOutput
-    Network.AWS.Glacier.Types.DataRetrievalPolicy
-    Network.AWS.Glacier.Types.DataRetrievalRule
-    Network.AWS.Glacier.Types.DescribeVaultOutput
-    Network.AWS.Glacier.Types.Description
-    Network.AWS.Glacier.Types.Encryption
-    Network.AWS.Glacier.Types.EncryptionType
-    Network.AWS.Glacier.Types.EndDate
-    Network.AWS.Glacier.Types.Expression
-    Network.AWS.Glacier.Types.ExpressionType
-    Network.AWS.Glacier.Types.FileHeaderInfo
-    Network.AWS.Glacier.Types.Format
-    Network.AWS.Glacier.Types.GlacierJobDescription
-    Network.AWS.Glacier.Types.Grant
-    Network.AWS.Glacier.Types.Grantee
-    Network.AWS.Glacier.Types.InputSerialization
-    Network.AWS.Glacier.Types.InventoryRetrievalJobDescription
-    Network.AWS.Glacier.Types.InventoryRetrievalJobInput
-    Network.AWS.Glacier.Types.JobId
-    Network.AWS.Glacier.Types.JobParameters
-    Network.AWS.Glacier.Types.Limit
-    Network.AWS.Glacier.Types.Location
-    Network.AWS.Glacier.Types.LockId
-    Network.AWS.Glacier.Types.Marker
-    Network.AWS.Glacier.Types.MultipartUploadId
-    Network.AWS.Glacier.Types.OutputLocation
-    Network.AWS.Glacier.Types.OutputSerialization
-    Network.AWS.Glacier.Types.PartListElement
-    Network.AWS.Glacier.Types.Permission
-    Network.AWS.Glacier.Types.ProvisionedCapacityDescription
-    Network.AWS.Glacier.Types.QuoteFields
-    Network.AWS.Glacier.Types.RetrievalByteRange
-    Network.AWS.Glacier.Types.S3Location
-    Network.AWS.Glacier.Types.SelectParameters
-    Network.AWS.Glacier.Types.SNSTopic
-    Network.AWS.Glacier.Types.StartDate
-    Network.AWS.Glacier.Types.StatusCode
-    Network.AWS.Glacier.Types.StorageClass
-    Network.AWS.Glacier.Types.String
-    Network.AWS.Glacier.Types.TagKey
-    Network.AWS.Glacier.Types.TagValue
-    Network.AWS.Glacier.Types.Tier
-    Network.AWS.Glacier.Types.Type
-    Network.AWS.Glacier.Types.UploadId
-    Network.AWS.Glacier.Types.UploadListElement
-    Network.AWS.Glacier.Types.VaultAccessPolicy
-    Network.AWS.Glacier.Types.VaultARN
-    Network.AWS.Glacier.Types.VaultLockPolicy
-    Network.AWS.Glacier.Types.VaultName
-    Network.AWS.Glacier.Types.VaultNotificationConfig
+    exposed-modules:
+          Network.AWS.Glacier
+        , Network.AWS.Glacier.Types
+        , Network.AWS.Glacier.Waiters
+        , Network.AWS.Glacier.SetVaultAccessPolicy
+        , Network.AWS.Glacier.InitiateJob
+        , Network.AWS.Glacier.SetDataRetrievalPolicy
+        , Network.AWS.Glacier.DeleteVaultAccessPolicy
+        , Network.AWS.Glacier.GetVaultNotifications
+        , Network.AWS.Glacier.ListTagsForVault
+        , Network.AWS.Glacier.UploadMultipartPart
+        , Network.AWS.Glacier.DeleteVaultNotifications
+        , Network.AWS.Glacier.CompleteVaultLock
+        , Network.AWS.Glacier.AbortVaultLock
+        , Network.AWS.Glacier.ListVaults
+        , Network.AWS.Glacier.ListProvisionedCapacity
+        , Network.AWS.Glacier.ListJobs
+        , Network.AWS.Glacier.SetVaultNotifications
+        , Network.AWS.Glacier.GetJobOutput
+        , Network.AWS.Glacier.CompleteMultipartUpload
+        , Network.AWS.Glacier.ListMultipartUploads
+        , Network.AWS.Glacier.AbortMultipartUpload
+        , Network.AWS.Glacier.PurchaseProvisionedCapacity
+        , Network.AWS.Glacier.DescribeVault
+        , Network.AWS.Glacier.GetVaultLock
+        , Network.AWS.Glacier.DescribeJob
+        , Network.AWS.Glacier.InitiateVaultLock
+        , Network.AWS.Glacier.GetVaultAccessPolicy
+        , Network.AWS.Glacier.GetDataRetrievalPolicy
+        , Network.AWS.Glacier.RemoveTagsFromVault
+        , Network.AWS.Glacier.DeleteVault
+        , Network.AWS.Glacier.DeleteArchive
+        , Network.AWS.Glacier.CreateVault
+        , Network.AWS.Glacier.InitiateMultipartUpload
+        , Network.AWS.Glacier.ListParts
+        , Network.AWS.Glacier.AddTagsToVault
+        , Network.AWS.Glacier.UploadArchive
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.Glacier.Types.ArchiveCreationOutput
+        , Network.AWS.Glacier.Types.EncryptionType
+        , Network.AWS.Glacier.Types.UploadListElement
+        , Network.AWS.Glacier.Types.ExpressionType
+        , Network.AWS.Glacier.Types.SelectParameters
+        , Network.AWS.Glacier.Types.InventoryRetrievalJobDescription
+        , Network.AWS.Glacier.Types.CannedACL
+        , Network.AWS.Glacier.Types.JobParameters
+        , Network.AWS.Glacier.Types.DescribeVaultOutput
+        , Network.AWS.Glacier.Types.CSVInput
+        , Network.AWS.Glacier.Types.DataRetrievalRule
+        , Network.AWS.Glacier.Types.QuoteFields
+        , Network.AWS.Glacier.Types.ActionCode
+        , Network.AWS.Glacier.Types.Grant
+        , Network.AWS.Glacier.Types.TagValue
+        , Network.AWS.Glacier.Types.OutputSerialization
+        , Network.AWS.Glacier.Types.CSVOutput
+        , Network.AWS.Glacier.Types.Encryption
+        , Network.AWS.Glacier.Types.FileHeaderInfo
+        , Network.AWS.Glacier.Types.StorageClass
+        , Network.AWS.Glacier.Types.OutputLocation
+        , Network.AWS.Glacier.Types.ProvisionedCapacityDescription
+        , Network.AWS.Glacier.Types.VaultNotificationConfig
+        , Network.AWS.Glacier.Types.InventoryRetrievalJobInput
+        , Network.AWS.Glacier.Types.TagKey
+        , Network.AWS.Glacier.Types.S3Location
+        , Network.AWS.Glacier.Types.Type
+        , Network.AWS.Glacier.Types.InputSerialization
+        , Network.AWS.Glacier.Types.PartListElement
+        , Network.AWS.Glacier.Types.Permission
+        , Network.AWS.Glacier.Types.Grantee
+        , Network.AWS.Glacier.Types.DataRetrievalPolicy
+        , Network.AWS.Glacier.Types.GlacierJobDescription
+        , Network.AWS.Glacier.Types.VaultAccessPolicy
+        , Network.AWS.Glacier.Types.VaultLockPolicy
+        , Network.AWS.Glacier.Types.StatusCode
+        , Network.AWS.Glacier.Types.EndDate
+        , Network.AWS.Glacier.Types.StartDate
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-glacier-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.Gen.Glacier
-    Test.AWS.Glacier
-    Test.AWS.Glacier.Internal
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core         >=2.0.0.0 && <2.0.0.1
-    , amazonka-glacier
-    , amazonka-test         >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.Glacier
+        , Test.AWS.Gen.Glacier
+        , Test.AWS.Glacier.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-glacier
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

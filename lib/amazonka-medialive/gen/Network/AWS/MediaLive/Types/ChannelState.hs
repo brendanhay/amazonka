@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,52 +10,36 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaLive.Types.ChannelState
   ( ChannelState
-      ( ChannelState',
-        ChannelStateCreating,
-        ChannelStateCreateFailed,
-        ChannelStateIdle,
-        ChannelStateStarting,
-        ChannelStateRunning,
-        ChannelStateRecovering,
-        ChannelStateStopping,
-        ChannelStateDeleting,
-        ChannelStateDeleted,
-        ChannelStateUpdating,
-        ChannelStateUpdateFailed,
-        fromChannelState
-      ),
-  )
-where
+    ( ChannelState'
+    , ChannelStateCreating
+    , ChannelStateCreateFailed
+    , ChannelStateIdle
+    , ChannelStateStarting
+    , ChannelStateRunning
+    , ChannelStateRecovering
+    , ChannelStateStopping
+    , ChannelStateDeleting
+    , ChannelStateDeleted
+    , ChannelStateUpdating
+    , ChannelStateUpdateFailed
+    , fromChannelState
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
 -- | Placeholder documentation for ChannelState
-newtype ChannelState = ChannelState' {fromChannelState :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype ChannelState = ChannelState'{fromChannelState :: Core.Text}
+                         deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                         Core.Generic)
+                         deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                           Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                           Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                           Core.FromText, Core.ToByteString, Core.ToQuery,
+                                           Core.ToHeader)
 
 pattern ChannelStateCreating :: ChannelState
 pattern ChannelStateCreating = ChannelState' "CREATING"
@@ -90,17 +74,27 @@ pattern ChannelStateUpdating = ChannelState' "UPDATING"
 pattern ChannelStateUpdateFailed :: ChannelState
 pattern ChannelStateUpdateFailed = ChannelState' "UPDATE_FAILED"
 
-{-# COMPLETE
+{-# COMPLETE 
   ChannelStateCreating,
+
   ChannelStateCreateFailed,
+
   ChannelStateIdle,
+
   ChannelStateStarting,
+
   ChannelStateRunning,
+
   ChannelStateRecovering,
+
   ChannelStateStopping,
+
   ChannelStateDeleting,
+
   ChannelStateDeleted,
+
   ChannelStateUpdating,
+
   ChannelStateUpdateFailed,
   ChannelState'
   #-}

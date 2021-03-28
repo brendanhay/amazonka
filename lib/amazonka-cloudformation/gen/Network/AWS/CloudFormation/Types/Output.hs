@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,19 +10,17 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CloudFormation.Types.Output
-  ( Output (..),
-
-    -- * Smart constructor
-    mkOutput,
-
-    -- * Lenses
-    oDescription,
-    oExportName,
-    oOutputKey,
-    oOutputValue,
-  )
-where
+  ( Output (..)
+  -- * Smart constructor
+  , mkOutput
+  -- * Lenses
+  , oDescription
+  , oExportName
+  , oOutputKey
+  , oOutputValue
+  ) where
 
 import qualified Network.AWS.CloudFormation.Types.Description as Types
 import qualified Network.AWS.CloudFormation.Types.ExportName as Types
@@ -35,61 +33,60 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkOutput' smart constructor.
 data Output = Output'
-  { -- | User defined description associated with the output.
-    description :: Core.Maybe Types.Description,
-    -- | The name of the export associated with the output.
-    exportName :: Core.Maybe Types.ExportName,
-    -- | The key associated with the output.
-    outputKey :: Core.Maybe Types.OutputKey,
-    -- | The value associated with the output.
-    outputValue :: Core.Maybe Types.OutputValue
+  { description :: Core.Maybe Types.Description
+    -- ^ User defined description associated with the output.
+  , exportName :: Core.Maybe Types.ExportName
+    -- ^ The name of the export associated with the output.
+  , outputKey :: Core.Maybe Types.OutputKey
+    -- ^ The key associated with the output.
+  , outputValue :: Core.Maybe Types.OutputValue
+    -- ^ The value associated with the output.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'Output' value with any optional fields omitted.
-mkOutput ::
-  Output
-mkOutput =
-  Output'
-    { description = Core.Nothing,
-      exportName = Core.Nothing,
-      outputKey = Core.Nothing,
-      outputValue = Core.Nothing
-    }
+mkOutput
+    :: Output
+mkOutput
+  = Output'{description = Core.Nothing, exportName = Core.Nothing,
+            outputKey = Core.Nothing, outputValue = Core.Nothing}
 
 -- | User defined description associated with the output.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 oDescription :: Lens.Lens' Output (Core.Maybe Types.Description)
 oDescription = Lens.field @"description"
-{-# DEPRECATED oDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+{-# INLINEABLE oDescription #-}
+{-# DEPRECATED description "Use generic-lens or generic-optics with 'description' instead"  #-}
 
 -- | The name of the export associated with the output.
 --
 -- /Note:/ Consider using 'exportName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 oExportName :: Lens.Lens' Output (Core.Maybe Types.ExportName)
 oExportName = Lens.field @"exportName"
-{-# DEPRECATED oExportName "Use generic-lens or generic-optics with 'exportName' instead." #-}
+{-# INLINEABLE oExportName #-}
+{-# DEPRECATED exportName "Use generic-lens or generic-optics with 'exportName' instead"  #-}
 
 -- | The key associated with the output.
 --
 -- /Note:/ Consider using 'outputKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 oOutputKey :: Lens.Lens' Output (Core.Maybe Types.OutputKey)
 oOutputKey = Lens.field @"outputKey"
-{-# DEPRECATED oOutputKey "Use generic-lens or generic-optics with 'outputKey' instead." #-}
+{-# INLINEABLE oOutputKey #-}
+{-# DEPRECATED outputKey "Use generic-lens or generic-optics with 'outputKey' instead"  #-}
 
 -- | The value associated with the output.
 --
 -- /Note:/ Consider using 'outputValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 oOutputValue :: Lens.Lens' Output (Core.Maybe Types.OutputValue)
 oOutputValue = Lens.field @"outputValue"
-{-# DEPRECATED oOutputValue "Use generic-lens or generic-optics with 'outputValue' instead." #-}
+{-# INLINEABLE oOutputValue #-}
+{-# DEPRECATED outputValue "Use generic-lens or generic-optics with 'outputValue' instead"  #-}
 
 instance Core.FromXML Output where
-  parseXML x =
-    Output'
-      Core.<$> (x Core..@? "Description")
-      Core.<*> (x Core..@? "ExportName")
-      Core.<*> (x Core..@? "OutputKey")
-      Core.<*> (x Core..@? "OutputValue")
+        parseXML x
+          = Output' Core.<$>
+              (x Core..@? "Description") Core.<*> x Core..@? "ExportName"
+                Core.<*> x Core..@? "OutputKey"
+                Core.<*> x Core..@? "OutputValue"

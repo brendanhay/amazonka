@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -9,39 +9,42 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
+-- 
 module Network.AWS.KinesisVideoArchivedMedia
-  ( -- * Service configuration
-    mkServiceConfig,
+    (
+    -- * Service configuration
+      mkServiceConfig
 
     -- * Errors
     -- $errors
 
     -- ** InvalidMediaFrameException
-    _InvalidMediaFrameException,
+    , _InvalidMediaFrameException
 
     -- ** NoDataRetentionException
-    _NoDataRetentionException,
+    , _NoDataRetentionException
 
     -- ** InvalidArgumentException
-    _InvalidArgumentException,
+    , _InvalidArgumentException
 
     -- ** NotAuthorizedException
-    _NotAuthorizedException,
+    , _NotAuthorizedException
 
     -- ** ClientLimitExceededException
-    _ClientLimitExceededException,
+    , _ClientLimitExceededException
 
     -- ** UnsupportedStreamMediaTypeException
-    _UnsupportedStreamMediaTypeException,
+    , _UnsupportedStreamMediaTypeException
 
     -- ** InvalidCodecPrivateDataException
-    _InvalidCodecPrivateDataException,
+    , _InvalidCodecPrivateDataException
 
     -- ** MissingCodecPrivateDataException
-    _MissingCodecPrivateDataException,
+    , _MissingCodecPrivateDataException
 
     -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    , _ResourceNotFoundException
 
     -- * Waiters
     -- $waiters
@@ -49,182 +52,184 @@ module Network.AWS.KinesisVideoArchivedMedia
     -- * Operations
     -- $operations
 
-    -- ** GetHLSStreamingSessionURL
-    module Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL,
+    -- ** GetHLSStreamingSessionURL 
+    , module Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL
 
-    -- ** GetClip
-    module Network.AWS.KinesisVideoArchivedMedia.GetClip,
+    -- ** GetClip 
+    , module Network.AWS.KinesisVideoArchivedMedia.GetClip
 
-    -- ** GetMediaForFragmentList
-    module Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList,
+    -- ** GetMediaForFragmentList 
+    , module Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList
 
     -- ** ListFragments (Paginated)
-    module Network.AWS.KinesisVideoArchivedMedia.ListFragments,
+    , module Network.AWS.KinesisVideoArchivedMedia.ListFragments
 
-    -- ** GetDASHStreamingSessionURL
-    module Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL,
+    -- ** GetDASHStreamingSessionURL 
+    , module Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
 
     -- * Types
 
     -- ** DASHStreamingSessionURL
-    DASHStreamingSessionURL (..),
+    , DASHStreamingSessionURL (..)
 
     -- ** HLSDiscontinuityMode
-    HLSDiscontinuityMode (..),
+    , HLSDiscontinuityMode (..)
 
     -- ** DASHDisplayFragmentTimestamp
-    DASHDisplayFragmentTimestamp (..),
+    , DASHDisplayFragmentTimestamp (..)
 
     -- ** HLSFragmentSelector
-    HLSFragmentSelector (..),
-    mkHLSFragmentSelector,
-    hlsfsFragmentSelectorType,
-    hlsfsTimestampRange,
+    , HLSFragmentSelector (..)
+    , mkHLSFragmentSelector
+    , hlsfsFragmentSelectorType
+    , hlsfsTimestampRange
 
     -- ** FragmentSelector
-    FragmentSelector (..),
-    mkFragmentSelector,
-    fsFragmentSelectorType,
-    fsTimestampRange,
+    , FragmentSelector (..)
+    , mkFragmentSelector
+    , fsFragmentSelectorType
+    , fsTimestampRange
 
     -- ** Fragment
-    Fragment (..),
-    mkFragment,
-    fFragmentLengthInMilliseconds,
-    fFragmentNumber,
-    fFragmentSizeInBytes,
-    fProducerTimestamp,
-    fServerTimestamp,
+    , Fragment (..)
+    , mkFragment
+    , fFragmentLengthInMilliseconds
+    , fFragmentNumber
+    , fFragmentSizeInBytes
+    , fProducerTimestamp
+    , fServerTimestamp
 
     -- ** HLSDisplayFragmentTimestamp
-    HLSDisplayFragmentTimestamp (..),
+    , HLSDisplayFragmentTimestamp (..)
 
     -- ** DASHFragmentSelector
-    DASHFragmentSelector (..),
-    mkDASHFragmentSelector,
-    dashfsFragmentSelectorType,
-    dashfsTimestampRange,
+    , DASHFragmentSelector (..)
+    , mkDASHFragmentSelector
+    , dashfsFragmentSelectorType
+    , dashfsTimestampRange
 
     -- ** ClipFragmentSelector
-    ClipFragmentSelector (..),
-    mkClipFragmentSelector,
-    cfsFragmentSelectorType,
-    cfsTimestampRange,
+    , ClipFragmentSelector (..)
+    , mkClipFragmentSelector
+    , cfsFragmentSelectorType
+    , cfsTimestampRange
 
     -- ** HLSTimestampRange
-    HLSTimestampRange (..),
-    mkHLSTimestampRange,
-    hlstrEndTimestamp,
-    hlstrStartTimestamp,
+    , HLSTimestampRange (..)
+    , mkHLSTimestampRange
+    , hlstrEndTimestamp
+    , hlstrStartTimestamp
 
     -- ** FragmentNumberString
-    FragmentNumberString (..),
+    , FragmentNumberString (..)
 
     -- ** HLSStreamingSessionURL
-    HLSStreamingSessionURL (..),
+    , HLSStreamingSessionURL (..)
 
     -- ** NextToken
-    NextToken (..),
+    , NextToken (..)
 
     -- ** ContainerFormat
-    ContainerFormat (..),
+    , ContainerFormat (..)
 
     -- ** ResourceARN
-    ResourceARN (..),
+    , ResourceARN (..)
 
     -- ** DASHTimestampRange
-    DASHTimestampRange (..),
-    mkDASHTimestampRange,
-    dashtrEndTimestamp,
-    dashtrStartTimestamp,
+    , DASHTimestampRange (..)
+    , mkDASHTimestampRange
+    , dashtrEndTimestamp
+    , dashtrStartTimestamp
 
     -- ** ClipTimestampRange
-    ClipTimestampRange (..),
-    mkClipTimestampRange,
-    ctrStartTimestamp,
-    ctrEndTimestamp,
+    , ClipTimestampRange (..)
+    , mkClipTimestampRange
+    , ctrStartTimestamp
+    , ctrEndTimestamp
 
     -- ** DASHDisplayFragmentNumber
-    DASHDisplayFragmentNumber (..),
+    , DASHDisplayFragmentNumber (..)
 
     -- ** HLSFragmentSelectorType
-    HLSFragmentSelectorType (..),
+    , HLSFragmentSelectorType (..)
 
     -- ** DASHPlaybackMode
-    DASHPlaybackMode (..),
+    , DASHPlaybackMode (..)
 
     -- ** FragmentSelectorType
-    FragmentSelectorType (..),
+    , FragmentSelectorType (..)
 
     -- ** DASHFragmentSelectorType
-    DASHFragmentSelectorType (..),
+    , DASHFragmentSelectorType (..)
 
     -- ** HLSPlaybackMode
-    HLSPlaybackMode (..),
+    , HLSPlaybackMode (..)
 
     -- ** StreamName
-    StreamName (..),
+    , StreamName (..)
 
     -- ** ClipFragmentSelectorType
-    ClipFragmentSelectorType (..),
+    , ClipFragmentSelectorType (..)
 
     -- ** ContentType
-    ContentType (..),
+    , ContentType (..)
 
     -- ** TimestampRange
-    TimestampRange (..),
-    mkTimestampRange,
-    trStartTimestamp,
-    trEndTimestamp,
+    , TimestampRange (..)
+    , mkTimestampRange
+    , trStartTimestamp
+    , trEndTimestamp
 
     -- ** FragmentNumber
-    FragmentNumber (..),
+    , FragmentNumber (..)
 
     -- ** StreamARN
-    StreamARN (..),
+    , StreamARN (..)
 
     -- * Serialization types
-    Lude.Base64 (..),
-    Lude._Base64,
-    Lude.Sensitive (..),
-    Lude._Sensitive,
-    Lude.UTCTime,
-    Lude.NominalDiffTime,
-  )
-where
+    , Lude.Base64 (..)
+    , Lude._Base64
+    , Lude.Sensitive (..)
+    , Lude._Sensitive
+    , Lude.UTCTime
+    , Lude.NominalDiffTime
+    ) where
 
-import Network.AWS.KinesisVideoArchivedMedia.GetClip
-import Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
-import Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL
-import Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList
-import Network.AWS.KinesisVideoArchivedMedia.ListFragments
 import Network.AWS.KinesisVideoArchivedMedia.Types
 import Network.AWS.KinesisVideoArchivedMedia.Waiters
+import Network.AWS.KinesisVideoArchivedMedia.GetHLSStreamingSessionURL
+import Network.AWS.KinesisVideoArchivedMedia.GetClip
+import Network.AWS.KinesisVideoArchivedMedia.GetMediaForFragmentList
+import Network.AWS.KinesisVideoArchivedMedia.ListFragments
+import Network.AWS.KinesisVideoArchivedMedia.GetDASHStreamingSessionURL
 import qualified Network.AWS.Prelude as Lude
 
--- $errors
--- Error matchers are designed for use with the functions provided by
--- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
--- This allows catching (and rethrowing) service specific errors returned
--- by 'KinesisVideoArchivedMedia'.
+{- $errors
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by 'KinesisVideoArchivedMedia'.
+-}
 
--- $operations
--- Some AWS operations return results that are incomplete and require subsequent
--- requests in order to obtain the entire result set. The process of sending
--- subsequent requests to continue where a previous request left off is called
--- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
--- 1000 objects at a time, and you must send subsequent requests with the
--- appropriate Marker in order to retrieve the next page of results.
---
--- Operations that have an 'AWSPager' instance can transparently perform subsequent
--- requests, correctly setting Markers and other request facets to iterate through
--- the entire result set of a truncated API operation. Operations which support
--- this have an additional note in the documentation.
---
--- Many operations have the ability to filter results on the server side. See the
--- individual operation parameters for details.
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
 
--- $waiters
--- Waiters poll by repeatedly sending a request until some remote success condition
--- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
--- determines how many attempts should be made, in addition to delay and retry strategies.
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly sending a request until some remote success condition
+configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+determines how many attempts should be made, in addition to delay and retry strategies.
+-}

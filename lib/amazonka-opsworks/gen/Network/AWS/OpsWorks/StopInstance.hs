@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,19 +17,18 @@
 --
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.StopInstance
-  ( -- * Creating a request
-    StopInstance (..),
-    mkStopInstance,
-
+    (
+    -- * Creating a request
+      StopInstance (..)
+    , mkStopInstance
     -- ** Request lenses
-    siInstanceId,
-    siForce,
+    , siInstanceId
+    , siForce
 
     -- * Destructuring the response
-    StopInstanceResponse (..),
-    mkStopInstanceResponse,
-  )
-where
+    , StopInstanceResponse (..)
+    , mkStopInstanceResponse
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.OpsWorks.Types as Types
@@ -39,59 +38,64 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopInstance' smart constructor.
 data StopInstance = StopInstance'
-  { -- | The instance ID.
-    instanceId :: Types.String,
-    -- | Specifies whether to force an instance to stop. If the instance's root device type is @ebs@ , or EBS-backed, adding the @Force@ parameter to the @StopInstances@ API call disassociates the AWS OpsWorks Stacks instance from EC2, and forces deletion of /only/ the OpsWorks Stacks instance. You must also delete the formerly-associated instance in EC2 after troubleshooting and replacing the AWS OpsWorks Stacks instance with a new one.
-    force :: Core.Maybe Core.Bool
+  { instanceId :: Core.Text
+    -- ^ The instance ID.
+  , force :: Core.Maybe Core.Bool
+    -- ^ Specifies whether to force an instance to stop. If the instance's root device type is @ebs@ , or EBS-backed, adding the @Force@ parameter to the @StopInstances@ API call disassociates the AWS OpsWorks Stacks instance from EC2, and forces deletion of /only/ the OpsWorks Stacks instance. You must also delete the formerly-associated instance in EC2 after troubleshooting and replacing the AWS OpsWorks Stacks instance with a new one.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'StopInstance' value with any optional fields omitted.
-mkStopInstance ::
-  -- | 'instanceId'
-  Types.String ->
-  StopInstance
-mkStopInstance instanceId =
-  StopInstance' {instanceId, force = Core.Nothing}
+mkStopInstance
+    :: Core.Text -- ^ 'instanceId'
+    -> StopInstance
+mkStopInstance instanceId
+  = StopInstance'{instanceId, force = Core.Nothing}
 
 -- | The instance ID.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siInstanceId :: Lens.Lens' StopInstance Types.String
+siInstanceId :: Lens.Lens' StopInstance Core.Text
 siInstanceId = Lens.field @"instanceId"
-{-# DEPRECATED siInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+{-# INLINEABLE siInstanceId #-}
+{-# DEPRECATED instanceId "Use generic-lens or generic-optics with 'instanceId' instead"  #-}
 
 -- | Specifies whether to force an instance to stop. If the instance's root device type is @ebs@ , or EBS-backed, adding the @Force@ parameter to the @StopInstances@ API call disassociates the AWS OpsWorks Stacks instance from EC2, and forces deletion of /only/ the OpsWorks Stacks instance. You must also delete the formerly-associated instance in EC2 after troubleshooting and replacing the AWS OpsWorks Stacks instance with a new one.
 --
 -- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 siForce :: Lens.Lens' StopInstance (Core.Maybe Core.Bool)
 siForce = Lens.field @"force"
-{-# DEPRECATED siForce "Use generic-lens or generic-optics with 'force' instead." #-}
+{-# INLINEABLE siForce #-}
+{-# DEPRECATED force "Use generic-lens or generic-optics with 'force' instead"  #-}
+
+instance Core.ToQuery StopInstance where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders StopInstance where
+        toHeaders StopInstance{..}
+          = Core.pure ("X-Amz-Target", "OpsWorks_20130218.StopInstance")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON StopInstance where
-  toJSON StopInstance {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("InstanceId" Core..= instanceId),
-            ("Force" Core..=) Core.<$> force
-          ]
-      )
+        toJSON StopInstance{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("InstanceId" Core..= instanceId),
+                  ("Force" Core..=) Core.<$> force])
 
 instance Core.AWSRequest StopInstance where
-  type Rs StopInstance = StopInstanceResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "OpsWorks_20130218.StopInstance")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response = Response.receiveNull StopInstanceResponse'
+        type Rs StopInstance = StopInstanceResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull StopInstanceResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkStopInstanceResponse' smart constructor.
 data StopInstanceResponse = StopInstanceResponse'
@@ -99,6 +103,6 @@ data StopInstanceResponse = StopInstanceResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'StopInstanceResponse' value with any optional fields omitted.
-mkStopInstanceResponse ::
-  StopInstanceResponse
+mkStopInstanceResponse
+    :: StopInstanceResponse
 mkStopInstanceResponse = StopInstanceResponse'

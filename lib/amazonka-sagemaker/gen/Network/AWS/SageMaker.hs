@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,3547 +10,3543 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides APIs for creating and managing Amazon SageMaker resources.
+-- Provides APIs for creating and managing Amazon SageMaker resources. 
 --
 -- Other Resources:
 --
---     * <https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html#first-time-user Amazon SageMaker Developer Guide>
+--     * <https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html#first-time-user Amazon SageMaker Developer Guide> 
 --
 --
---     * <https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/Welcome.html Amazon Augmented AI Runtime API Reference>
+--     * <https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/Welcome.html Amazon Augmented AI Runtime API Reference> 
+--
+--
 module Network.AWS.SageMaker
-  ( -- * Service configuration
-    mkServiceConfig,
+    (
+    -- * Service configuration
+      mkServiceConfig
 
     -- * Errors
     -- $errors
 
     -- ** ResourceLimitExceeded
-    _ResourceLimitExceeded,
+    , _ResourceLimitExceeded
 
     -- ** ResourceInUse
-    _ResourceInUse,
+    , _ResourceInUse
 
     -- ** ConflictException
-    _ConflictException,
+    , _ConflictException
 
     -- ** ResourceNotFound
-    _ResourceNotFound,
+    , _ResourceNotFound
 
     -- * Waiters
     -- $waiters
 
     -- ** NotebookInstanceDeleted
-    mkNotebookInstanceDeleted,
+    , mkNotebookInstanceDeleted
 
     -- ** EndpointDeleted
-    mkEndpointDeleted,
+    , mkEndpointDeleted
 
     -- ** EndpointInService
-    mkEndpointInService,
+    , mkEndpointInService
 
     -- ** TransformJobCompletedOrStopped
-    mkTransformJobCompletedOrStopped,
+    , mkTransformJobCompletedOrStopped
 
     -- ** NotebookInstanceInService
-    mkNotebookInstanceInService,
+    , mkNotebookInstanceInService
 
     -- ** ProcessingJobCompletedOrStopped
-    mkProcessingJobCompletedOrStopped,
+    , mkProcessingJobCompletedOrStopped
 
     -- ** TrainingJobCompletedOrStopped
-    mkTrainingJobCompletedOrStopped,
+    , mkTrainingJobCompletedOrStopped
 
     -- ** NotebookInstanceStopped
-    mkNotebookInstanceStopped,
+    , mkNotebookInstanceStopped
 
     -- * Operations
     -- $operations
 
-    -- ** CreateNotebookInstance
-    module Network.AWS.SageMaker.CreateNotebookInstance,
+    -- ** CreateNotebookInstance 
+    , module Network.AWS.SageMaker.CreateNotebookInstance
 
-    -- ** DeleteModelPackage
-    module Network.AWS.SageMaker.DeleteModelPackage,
+    -- ** DeleteModelPackage 
+    , module Network.AWS.SageMaker.DeleteModelPackage
 
-    -- ** DescribeMonitoringSchedule
-    module Network.AWS.SageMaker.DescribeMonitoringSchedule,
+    -- ** DescribeMonitoringSchedule 
+    , module Network.AWS.SageMaker.DescribeMonitoringSchedule
 
     -- ** ListTrialComponents (Paginated)
-    module Network.AWS.SageMaker.ListTrialComponents,
+    , module Network.AWS.SageMaker.ListTrialComponents
 
-    -- ** DescribeEndpointConfig
-    module Network.AWS.SageMaker.DescribeEndpointConfig,
+    -- ** DescribeEndpointConfig 
+    , module Network.AWS.SageMaker.DescribeEndpointConfig
 
-    -- ** DescribeApp
-    module Network.AWS.SageMaker.DescribeApp,
+    -- ** DescribeApp 
+    , module Network.AWS.SageMaker.DescribeApp
 
     -- ** ListImageVersions (Paginated)
-    module Network.AWS.SageMaker.ListImageVersions,
+    , module Network.AWS.SageMaker.ListImageVersions
 
-    -- ** DescribeAutoMLJob
-    module Network.AWS.SageMaker.DescribeAutoMLJob,
+    -- ** DescribeAutoMLJob 
+    , module Network.AWS.SageMaker.DescribeAutoMLJob
 
-    -- ** StopProcessingJob
-    module Network.AWS.SageMaker.StopProcessingJob,
+    -- ** StopProcessingJob 
+    , module Network.AWS.SageMaker.StopProcessingJob
 
     -- ** ListLabelingJobsForWorkteam (Paginated)
-    module Network.AWS.SageMaker.ListLabelingJobsForWorkteam,
+    , module Network.AWS.SageMaker.ListLabelingJobsForWorkteam
 
-    -- ** CreateTransformJob
-    module Network.AWS.SageMaker.CreateTransformJob,
+    -- ** CreateTransformJob 
+    , module Network.AWS.SageMaker.CreateTransformJob
 
     -- ** ListCompilationJobs (Paginated)
-    module Network.AWS.SageMaker.ListCompilationJobs,
+    , module Network.AWS.SageMaker.ListCompilationJobs
 
-    -- ** DisassociateTrialComponent
-    module Network.AWS.SageMaker.DisassociateTrialComponent,
+    -- ** DisassociateTrialComponent 
+    , module Network.AWS.SageMaker.DisassociateTrialComponent
 
-    -- ** StopHyperParameterTuningJob
-    module Network.AWS.SageMaker.StopHyperParameterTuningJob,
+    -- ** StopHyperParameterTuningJob 
+    , module Network.AWS.SageMaker.StopHyperParameterTuningJob
 
     -- ** ListHumanTaskUis (Paginated)
-    module Network.AWS.SageMaker.ListHumanTaskUis,
+    , module Network.AWS.SageMaker.ListHumanTaskUis
 
-    -- ** CreateEndpoint
-    module Network.AWS.SageMaker.CreateEndpoint,
+    -- ** CreateEndpoint 
+    , module Network.AWS.SageMaker.CreateEndpoint
 
-    -- ** GetSearchSuggestions
-    module Network.AWS.SageMaker.GetSearchSuggestions,
+    -- ** GetSearchSuggestions 
+    , module Network.AWS.SageMaker.GetSearchSuggestions
 
-    -- ** DescribeTrial
-    module Network.AWS.SageMaker.DescribeTrial,
+    -- ** DescribeTrial 
+    , module Network.AWS.SageMaker.DescribeTrial
 
-    -- ** CreatePresignedDomainUrl
-    module Network.AWS.SageMaker.CreatePresignedDomainUrl,
+    -- ** CreatePresignedDomainUrl 
+    , module Network.AWS.SageMaker.CreatePresignedDomainUrl
 
-    -- ** DescribeCodeRepository
-    module Network.AWS.SageMaker.DescribeCodeRepository,
+    -- ** DescribeCodeRepository 
+    , module Network.AWS.SageMaker.DescribeCodeRepository
 
-    -- ** DescribeImage
-    module Network.AWS.SageMaker.DescribeImage,
+    -- ** DescribeImage 
+    , module Network.AWS.SageMaker.DescribeImage
 
-    -- ** DescribeTrainingJob
-    module Network.AWS.SageMaker.DescribeTrainingJob,
+    -- ** DescribeTrainingJob 
+    , module Network.AWS.SageMaker.DescribeTrainingJob
 
-    -- ** DeleteEndpoint
-    module Network.AWS.SageMaker.DeleteEndpoint,
+    -- ** DeleteEndpoint 
+    , module Network.AWS.SageMaker.DeleteEndpoint
 
-    -- ** UpdateEndpoint
-    module Network.AWS.SageMaker.UpdateEndpoint,
+    -- ** UpdateEndpoint 
+    , module Network.AWS.SageMaker.UpdateEndpoint
 
-    -- ** CreateHumanTaskUi
-    module Network.AWS.SageMaker.CreateHumanTaskUi,
+    -- ** CreateHumanTaskUi 
+    , module Network.AWS.SageMaker.CreateHumanTaskUi
 
-    -- ** CreateCompilationJob
-    module Network.AWS.SageMaker.CreateCompilationJob,
+    -- ** CreateCompilationJob 
+    , module Network.AWS.SageMaker.CreateCompilationJob
 
-    -- ** DeleteAppImageConfig
-    module Network.AWS.SageMaker.DeleteAppImageConfig,
+    -- ** DeleteAppImageConfig 
+    , module Network.AWS.SageMaker.DeleteAppImageConfig
 
-    -- ** UpdateAppImageConfig
-    module Network.AWS.SageMaker.UpdateAppImageConfig,
+    -- ** UpdateAppImageConfig 
+    , module Network.AWS.SageMaker.UpdateAppImageConfig
 
-    -- ** DeleteNotebookInstanceLifecycleConfig
-    module Network.AWS.SageMaker.DeleteNotebookInstanceLifecycleConfig,
+    -- ** DeleteNotebookInstanceLifecycleConfig 
+    , module Network.AWS.SageMaker.DeleteNotebookInstanceLifecycleConfig
 
-    -- ** UpdateNotebookInstanceLifecycleConfig
-    module Network.AWS.SageMaker.UpdateNotebookInstanceLifecycleConfig,
+    -- ** UpdateNotebookInstanceLifecycleConfig 
+    , module Network.AWS.SageMaker.UpdateNotebookInstanceLifecycleConfig
 
-    -- ** DeleteWorkforce
-    module Network.AWS.SageMaker.DeleteWorkforce,
+    -- ** DeleteWorkforce 
+    , module Network.AWS.SageMaker.DeleteWorkforce
 
-    -- ** UpdateWorkforce
-    module Network.AWS.SageMaker.UpdateWorkforce,
+    -- ** UpdateWorkforce 
+    , module Network.AWS.SageMaker.UpdateWorkforce
 
     -- ** ListProcessingJobs (Paginated)
-    module Network.AWS.SageMaker.ListProcessingJobs,
+    , module Network.AWS.SageMaker.ListProcessingJobs
 
-    -- ** CreateLabelingJob
-    module Network.AWS.SageMaker.CreateLabelingJob,
+    -- ** CreateLabelingJob 
+    , module Network.AWS.SageMaker.CreateLabelingJob
 
-    -- ** DescribeNotebookInstance
-    module Network.AWS.SageMaker.DescribeNotebookInstance,
+    -- ** DescribeNotebookInstance 
+    , module Network.AWS.SageMaker.DescribeNotebookInstance
 
-    -- ** CreateMonitoringSchedule
-    module Network.AWS.SageMaker.CreateMonitoringSchedule,
+    -- ** CreateMonitoringSchedule 
+    , module Network.AWS.SageMaker.CreateMonitoringSchedule
 
-    -- ** ListAppImageConfigs
-    module Network.AWS.SageMaker.ListAppImageConfigs,
+    -- ** ListAppImageConfigs 
+    , module Network.AWS.SageMaker.ListAppImageConfigs
 
-    -- ** CreateEndpointConfig
-    module Network.AWS.SageMaker.CreateEndpointConfig,
+    -- ** CreateEndpointConfig 
+    , module Network.AWS.SageMaker.CreateEndpointConfig
 
-    -- ** StopNotebookInstance
-    module Network.AWS.SageMaker.StopNotebookInstance,
+    -- ** StopNotebookInstance 
+    , module Network.AWS.SageMaker.StopNotebookInstance
 
-    -- ** UpdateEndpointWeightsAndCapacities
-    module Network.AWS.SageMaker.UpdateEndpointWeightsAndCapacities,
+    -- ** UpdateEndpointWeightsAndCapacities 
+    , module Network.AWS.SageMaker.UpdateEndpointWeightsAndCapacities
 
-    -- ** CreateAppImageConfig
-    module Network.AWS.SageMaker.CreateAppImageConfig,
+    -- ** CreateAppImageConfig 
+    , module Network.AWS.SageMaker.CreateAppImageConfig
 
-    -- ** DeleteTags
-    module Network.AWS.SageMaker.DeleteTags,
+    -- ** DeleteTags 
+    , module Network.AWS.SageMaker.DeleteTags
 
     -- ** ListExperiments (Paginated)
-    module Network.AWS.SageMaker.ListExperiments,
+    , module Network.AWS.SageMaker.ListExperiments
 
     -- ** ListAutoMLJobs (Paginated)
-    module Network.AWS.SageMaker.ListAutoMLJobs,
+    , module Network.AWS.SageMaker.ListAutoMLJobs
 
     -- ** ListApps (Paginated)
-    module Network.AWS.SageMaker.ListApps,
+    , module Network.AWS.SageMaker.ListApps
 
-    -- ** CreateProcessingJob
-    module Network.AWS.SageMaker.CreateProcessingJob,
+    -- ** CreateProcessingJob 
+    , module Network.AWS.SageMaker.CreateProcessingJob
 
-    -- ** DeleteMonitoringSchedule
-    module Network.AWS.SageMaker.DeleteMonitoringSchedule,
+    -- ** DeleteMonitoringSchedule 
+    , module Network.AWS.SageMaker.DeleteMonitoringSchedule
 
-    -- ** DescribeModelPackage
-    module Network.AWS.SageMaker.DescribeModelPackage,
+    -- ** DescribeModelPackage 
+    , module Network.AWS.SageMaker.DescribeModelPackage
 
-    -- ** DeleteEndpointConfig
-    module Network.AWS.SageMaker.DeleteEndpointConfig,
+    -- ** DeleteEndpointConfig 
+    , module Network.AWS.SageMaker.DeleteEndpointConfig
 
-    -- ** UpdateMonitoringSchedule
-    module Network.AWS.SageMaker.UpdateMonitoringSchedule,
+    -- ** UpdateMonitoringSchedule 
+    , module Network.AWS.SageMaker.UpdateMonitoringSchedule
 
-    -- ** DeleteApp
-    module Network.AWS.SageMaker.DeleteApp,
+    -- ** DeleteApp 
+    , module Network.AWS.SageMaker.DeleteApp
 
-    -- ** CreateAlgorithm
-    module Network.AWS.SageMaker.CreateAlgorithm,
+    -- ** CreateAlgorithm 
+    , module Network.AWS.SageMaker.CreateAlgorithm
 
-    -- ** StopTransformJob
-    module Network.AWS.SageMaker.StopTransformJob,
+    -- ** StopTransformJob 
+    , module Network.AWS.SageMaker.StopTransformJob
 
-    -- ** CreateModel
-    module Network.AWS.SageMaker.CreateModel,
+    -- ** CreateModel 
+    , module Network.AWS.SageMaker.CreateModel
 
     -- ** ListUserProfiles (Paginated)
-    module Network.AWS.SageMaker.ListUserProfiles,
+    , module Network.AWS.SageMaker.ListUserProfiles
 
-    -- ** CreateCodeRepository
-    module Network.AWS.SageMaker.CreateCodeRepository,
+    -- ** CreateCodeRepository 
+    , module Network.AWS.SageMaker.CreateCodeRepository
 
-    -- ** CreateHyperParameterTuningJob
-    module Network.AWS.SageMaker.CreateHyperParameterTuningJob,
+    -- ** CreateHyperParameterTuningJob 
+    , module Network.AWS.SageMaker.CreateHyperParameterTuningJob
 
-    -- ** DeleteTrial
-    module Network.AWS.SageMaker.DeleteTrial,
+    -- ** DeleteTrial 
+    , module Network.AWS.SageMaker.DeleteTrial
 
-    -- ** UpdateTrial
-    module Network.AWS.SageMaker.UpdateTrial,
+    -- ** UpdateTrial 
+    , module Network.AWS.SageMaker.UpdateTrial
 
     -- ** ListCodeRepositories (Paginated)
-    module Network.AWS.SageMaker.ListCodeRepositories,
+    , module Network.AWS.SageMaker.ListCodeRepositories
 
-    -- ** DescribeCompilationJob
-    module Network.AWS.SageMaker.DescribeCompilationJob,
+    -- ** DescribeCompilationJob 
+    , module Network.AWS.SageMaker.DescribeCompilationJob
 
     -- ** ListHyperParameterTuningJobs (Paginated)
-    module Network.AWS.SageMaker.ListHyperParameterTuningJobs,
+    , module Network.AWS.SageMaker.ListHyperParameterTuningJobs
 
     -- ** ListAlgorithms (Paginated)
-    module Network.AWS.SageMaker.ListAlgorithms,
+    , module Network.AWS.SageMaker.ListAlgorithms
 
-    -- ** RenderUiTemplate
-    module Network.AWS.SageMaker.RenderUiTemplate,
+    -- ** RenderUiTemplate 
+    , module Network.AWS.SageMaker.RenderUiTemplate
 
-    -- ** DeleteFlowDefinition
-    module Network.AWS.SageMaker.DeleteFlowDefinition,
+    -- ** DeleteFlowDefinition 
+    , module Network.AWS.SageMaker.DeleteFlowDefinition
 
-    -- ** CreateTrial
-    module Network.AWS.SageMaker.CreateTrial,
+    -- ** CreateTrial 
+    , module Network.AWS.SageMaker.CreateTrial
 
-    -- ** DeleteModel
-    module Network.AWS.SageMaker.DeleteModel,
+    -- ** DeleteModel 
+    , module Network.AWS.SageMaker.DeleteModel
 
     -- ** ListModels (Paginated)
-    module Network.AWS.SageMaker.ListModels,
+    , module Network.AWS.SageMaker.ListModels
 
-    -- ** DeleteAlgorithm
-    module Network.AWS.SageMaker.DeleteAlgorithm,
+    -- ** DeleteAlgorithm 
+    , module Network.AWS.SageMaker.DeleteAlgorithm
 
-    -- ** AssociateTrialComponent
-    module Network.AWS.SageMaker.AssociateTrialComponent,
+    -- ** AssociateTrialComponent 
+    , module Network.AWS.SageMaker.AssociateTrialComponent
 
-    -- ** DescribeNotebookInstanceLifecycleConfig
-    module Network.AWS.SageMaker.DescribeNotebookInstanceLifecycleConfig,
+    -- ** DescribeNotebookInstanceLifecycleConfig 
+    , module Network.AWS.SageMaker.DescribeNotebookInstanceLifecycleConfig
 
-    -- ** DescribeWorkforce
-    module Network.AWS.SageMaker.DescribeWorkforce,
+    -- ** DescribeWorkforce 
+    , module Network.AWS.SageMaker.DescribeWorkforce
 
-    -- ** CreateModelPackage
-    module Network.AWS.SageMaker.CreateModelPackage,
+    -- ** CreateModelPackage 
+    , module Network.AWS.SageMaker.CreateModelPackage
 
-    -- ** StopMonitoringSchedule
-    module Network.AWS.SageMaker.StopMonitoringSchedule,
+    -- ** StopMonitoringSchedule 
+    , module Network.AWS.SageMaker.StopMonitoringSchedule
 
-    -- ** DescribeAppImageConfig
-    module Network.AWS.SageMaker.DescribeAppImageConfig,
+    -- ** DescribeAppImageConfig 
+    , module Network.AWS.SageMaker.DescribeAppImageConfig
 
     -- ** ListNotebookInstances (Paginated)
-    module Network.AWS.SageMaker.ListNotebookInstances,
+    , module Network.AWS.SageMaker.ListNotebookInstances
 
-    -- ** StopLabelingJob
-    module Network.AWS.SageMaker.StopLabelingJob,
+    -- ** StopLabelingJob 
+    , module Network.AWS.SageMaker.StopLabelingJob
 
-    -- ** DeleteNotebookInstance
-    module Network.AWS.SageMaker.DeleteNotebookInstance,
+    -- ** DeleteNotebookInstance 
+    , module Network.AWS.SageMaker.DeleteNotebookInstance
 
-    -- ** UpdateNotebookInstance
-    module Network.AWS.SageMaker.UpdateNotebookInstance,
+    -- ** UpdateNotebookInstance 
+    , module Network.AWS.SageMaker.UpdateNotebookInstance
 
     -- ** ListModelPackages (Paginated)
-    module Network.AWS.SageMaker.ListModelPackages,
+    , module Network.AWS.SageMaker.ListModelPackages
 
-    -- ** DeleteImageVersion
-    module Network.AWS.SageMaker.DeleteImageVersion,
+    -- ** DeleteImageVersion 
+    , module Network.AWS.SageMaker.DeleteImageVersion
 
-    -- ** DescribeExperiment
-    module Network.AWS.SageMaker.DescribeExperiment,
+    -- ** DescribeExperiment 
+    , module Network.AWS.SageMaker.DescribeExperiment
 
-    -- ** DeleteTrialComponent
-    module Network.AWS.SageMaker.DeleteTrialComponent,
+    -- ** DeleteTrialComponent 
+    , module Network.AWS.SageMaker.DeleteTrialComponent
 
-    -- ** UpdateTrialComponent
-    module Network.AWS.SageMaker.UpdateTrialComponent,
+    -- ** UpdateTrialComponent 
+    , module Network.AWS.SageMaker.UpdateTrialComponent
 
-    -- ** DescribeLabelingJob
-    module Network.AWS.SageMaker.DescribeLabelingJob,
+    -- ** DescribeLabelingJob 
+    , module Network.AWS.SageMaker.DescribeLabelingJob
 
-    -- ** CreateDomain
-    module Network.AWS.SageMaker.CreateDomain,
+    -- ** CreateDomain 
+    , module Network.AWS.SageMaker.CreateDomain
 
-    -- ** DescribeUserProfile
-    module Network.AWS.SageMaker.DescribeUserProfile,
+    -- ** DescribeUserProfile 
+    , module Network.AWS.SageMaker.DescribeUserProfile
 
     -- ** ListMonitoringExecutions (Paginated)
-    module Network.AWS.SageMaker.ListMonitoringExecutions,
+    , module Network.AWS.SageMaker.ListMonitoringExecutions
 
-    -- ** DeleteHumanTaskUi
-    module Network.AWS.SageMaker.DeleteHumanTaskUi,
+    -- ** DeleteHumanTaskUi 
+    , module Network.AWS.SageMaker.DeleteHumanTaskUi
 
-    -- ** StopTrainingJob
-    module Network.AWS.SageMaker.StopTrainingJob,
+    -- ** StopTrainingJob 
+    , module Network.AWS.SageMaker.StopTrainingJob
 
-    -- ** DescribeAlgorithm
-    module Network.AWS.SageMaker.DescribeAlgorithm,
+    -- ** DescribeAlgorithm 
+    , module Network.AWS.SageMaker.DescribeAlgorithm
 
-    -- ** DescribeModel
-    module Network.AWS.SageMaker.DescribeModel,
+    -- ** DescribeModel 
+    , module Network.AWS.SageMaker.DescribeModel
 
     -- ** ListTransformJobs (Paginated)
-    module Network.AWS.SageMaker.ListTransformJobs,
+    , module Network.AWS.SageMaker.ListTransformJobs
 
-    -- ** DescribeHyperParameterTuningJob
-    module Network.AWS.SageMaker.DescribeHyperParameterTuningJob,
+    -- ** DescribeHyperParameterTuningJob 
+    , module Network.AWS.SageMaker.DescribeHyperParameterTuningJob
 
     -- ** ListEndpoints (Paginated)
-    module Network.AWS.SageMaker.ListEndpoints,
+    , module Network.AWS.SageMaker.ListEndpoints
 
-    -- ** DescribeFlowDefinition
-    module Network.AWS.SageMaker.DescribeFlowDefinition,
+    -- ** DescribeFlowDefinition 
+    , module Network.AWS.SageMaker.DescribeFlowDefinition
 
-    -- ** CreatePresignedNotebookInstanceUrl
-    module Network.AWS.SageMaker.CreatePresignedNotebookInstanceUrl,
+    -- ** CreatePresignedNotebookInstanceUrl 
+    , module Network.AWS.SageMaker.CreatePresignedNotebookInstanceUrl
 
     -- ** ListTrainingJobsForHyperParameterTuningJob (Paginated)
-    module Network.AWS.SageMaker.ListTrainingJobsForHyperParameterTuningJob,
+    , module Network.AWS.SageMaker.ListTrainingJobsForHyperParameterTuningJob
 
-    -- ** DescribeDomain
-    module Network.AWS.SageMaker.DescribeDomain,
+    -- ** DescribeDomain 
+    , module Network.AWS.SageMaker.DescribeDomain
 
-    -- ** UpdateWorkteam
-    module Network.AWS.SageMaker.UpdateWorkteam,
+    -- ** UpdateWorkteam 
+    , module Network.AWS.SageMaker.UpdateWorkteam
 
-    -- ** DeleteWorkteam
-    module Network.AWS.SageMaker.DeleteWorkteam,
+    -- ** DeleteWorkteam 
+    , module Network.AWS.SageMaker.DeleteWorkteam
 
     -- ** ListWorkteams (Paginated)
-    module Network.AWS.SageMaker.ListWorkteams,
+    , module Network.AWS.SageMaker.ListWorkteams
 
-    -- ** CreateAutoMLJob
-    module Network.AWS.SageMaker.CreateAutoMLJob,
+    -- ** CreateAutoMLJob 
+    , module Network.AWS.SageMaker.CreateAutoMLJob
 
-    -- ** CreateApp
-    module Network.AWS.SageMaker.CreateApp,
+    -- ** CreateApp 
+    , module Network.AWS.SageMaker.CreateApp
 
-    -- ** CreateExperiment
-    module Network.AWS.SageMaker.CreateExperiment,
+    -- ** CreateExperiment 
+    , module Network.AWS.SageMaker.CreateExperiment
 
     -- ** ListNotebookInstanceLifecycleConfigs (Paginated)
-    module Network.AWS.SageMaker.ListNotebookInstanceLifecycleConfigs,
+    , module Network.AWS.SageMaker.ListNotebookInstanceLifecycleConfigs
 
     -- ** ListWorkforces (Paginated)
-    module Network.AWS.SageMaker.ListWorkforces,
+    , module Network.AWS.SageMaker.ListWorkforces
 
-    -- ** DescribeSubscribedWorkteam
-    module Network.AWS.SageMaker.DescribeSubscribedWorkteam,
+    -- ** DescribeSubscribedWorkteam 
+    , module Network.AWS.SageMaker.DescribeSubscribedWorkteam
 
-    -- ** CreateWorkteam
-    module Network.AWS.SageMaker.CreateWorkteam,
+    -- ** CreateWorkteam 
+    , module Network.AWS.SageMaker.CreateWorkteam
 
-    -- ** CreateNotebookInstanceLifecycleConfig
-    module Network.AWS.SageMaker.CreateNotebookInstanceLifecycleConfig,
+    -- ** CreateNotebookInstanceLifecycleConfig 
+    , module Network.AWS.SageMaker.CreateNotebookInstanceLifecycleConfig
 
     -- ** ListMonitoringSchedules (Paginated)
-    module Network.AWS.SageMaker.ListMonitoringSchedules,
+    , module Network.AWS.SageMaker.ListMonitoringSchedules
 
     -- ** ListLabelingJobs (Paginated)
-    module Network.AWS.SageMaker.ListLabelingJobs,
+    , module Network.AWS.SageMaker.ListLabelingJobs
 
-    -- ** StartNotebookInstance
-    module Network.AWS.SageMaker.StartNotebookInstance,
+    -- ** StartNotebookInstance 
+    , module Network.AWS.SageMaker.StartNotebookInstance
 
-    -- ** UpdateExperiment
-    module Network.AWS.SageMaker.UpdateExperiment,
+    -- ** UpdateExperiment 
+    , module Network.AWS.SageMaker.UpdateExperiment
 
-    -- ** DeleteExperiment
-    module Network.AWS.SageMaker.DeleteExperiment,
+    -- ** DeleteExperiment 
+    , module Network.AWS.SageMaker.DeleteExperiment
 
-    -- ** AddTags
-    module Network.AWS.SageMaker.AddTags,
+    -- ** AddTags 
+    , module Network.AWS.SageMaker.AddTags
 
-    -- ** CreateWorkforce
-    module Network.AWS.SageMaker.CreateWorkforce,
+    -- ** CreateWorkforce 
+    , module Network.AWS.SageMaker.CreateWorkforce
 
-    -- ** DescribeTrialComponent
-    module Network.AWS.SageMaker.DescribeTrialComponent,
+    -- ** DescribeTrialComponent 
+    , module Network.AWS.SageMaker.DescribeTrialComponent
 
-    -- ** DescribeImageVersion
-    module Network.AWS.SageMaker.DescribeImageVersion,
+    -- ** DescribeImageVersion 
+    , module Network.AWS.SageMaker.DescribeImageVersion
 
     -- ** ListEndpointConfigs (Paginated)
-    module Network.AWS.SageMaker.ListEndpointConfigs,
+    , module Network.AWS.SageMaker.ListEndpointConfigs
 
-    -- ** CreateFlowDefinition
-    module Network.AWS.SageMaker.CreateFlowDefinition,
+    -- ** CreateFlowDefinition 
+    , module Network.AWS.SageMaker.CreateFlowDefinition
 
     -- ** ListTags (Paginated)
-    module Network.AWS.SageMaker.ListTags,
+    , module Network.AWS.SageMaker.ListTags
 
-    -- ** DescribeHumanTaskUi
-    module Network.AWS.SageMaker.DescribeHumanTaskUi,
+    -- ** DescribeHumanTaskUi 
+    , module Network.AWS.SageMaker.DescribeHumanTaskUi
 
-    -- ** CreateTrainingJob
-    module Network.AWS.SageMaker.CreateTrainingJob,
+    -- ** CreateTrainingJob 
+    , module Network.AWS.SageMaker.CreateTrainingJob
 
-    -- ** DeleteUserProfile
-    module Network.AWS.SageMaker.DeleteUserProfile,
+    -- ** DeleteUserProfile 
+    , module Network.AWS.SageMaker.DeleteUserProfile
 
-    -- ** UpdateUserProfile
-    module Network.AWS.SageMaker.UpdateUserProfile,
+    -- ** UpdateUserProfile 
+    , module Network.AWS.SageMaker.UpdateUserProfile
 
-    -- ** CreateImage
-    module Network.AWS.SageMaker.CreateImage,
+    -- ** CreateImage 
+    , module Network.AWS.SageMaker.CreateImage
 
     -- ** ListTrials (Paginated)
-    module Network.AWS.SageMaker.ListTrials,
+    , module Network.AWS.SageMaker.ListTrials
 
-    -- ** StopCompilationJob
-    module Network.AWS.SageMaker.StopCompilationJob,
+    -- ** StopCompilationJob 
+    , module Network.AWS.SageMaker.StopCompilationJob
 
     -- ** ListImages (Paginated)
-    module Network.AWS.SageMaker.ListImages,
+    , module Network.AWS.SageMaker.ListImages
 
-    -- ** CreateUserProfile
-    module Network.AWS.SageMaker.CreateUserProfile,
+    -- ** CreateUserProfile 
+    , module Network.AWS.SageMaker.CreateUserProfile
 
     -- ** Search (Paginated)
-    module Network.AWS.SageMaker.Search,
+    , module Network.AWS.SageMaker.Search
 
-    -- ** UpdateCodeRepository
-    module Network.AWS.SageMaker.UpdateCodeRepository,
+    -- ** UpdateCodeRepository 
+    , module Network.AWS.SageMaker.UpdateCodeRepository
 
-    -- ** DeleteCodeRepository
-    module Network.AWS.SageMaker.DeleteCodeRepository,
+    -- ** DeleteCodeRepository 
+    , module Network.AWS.SageMaker.DeleteCodeRepository
 
-    -- ** DescribeTransformJob
-    module Network.AWS.SageMaker.DescribeTransformJob,
+    -- ** DescribeTransformJob 
+    , module Network.AWS.SageMaker.DescribeTransformJob
 
     -- ** ListCandidatesForAutoMLJob (Paginated)
-    module Network.AWS.SageMaker.ListCandidatesForAutoMLJob,
+    , module Network.AWS.SageMaker.ListCandidatesForAutoMLJob
 
-    -- ** DeleteImage
-    module Network.AWS.SageMaker.DeleteImage,
+    -- ** DeleteImage 
+    , module Network.AWS.SageMaker.DeleteImage
 
-    -- ** UpdateImage
-    module Network.AWS.SageMaker.UpdateImage,
+    -- ** UpdateImage 
+    , module Network.AWS.SageMaker.UpdateImage
 
     -- ** ListFlowDefinitions (Paginated)
-    module Network.AWS.SageMaker.ListFlowDefinitions,
+    , module Network.AWS.SageMaker.ListFlowDefinitions
 
-    -- ** DescribeEndpoint
-    module Network.AWS.SageMaker.DescribeEndpoint,
+    -- ** DescribeEndpoint 
+    , module Network.AWS.SageMaker.DescribeEndpoint
 
     -- ** ListTrainingJobs (Paginated)
-    module Network.AWS.SageMaker.ListTrainingJobs,
+    , module Network.AWS.SageMaker.ListTrainingJobs
 
-    -- ** DescribeWorkteam
-    module Network.AWS.SageMaker.DescribeWorkteam,
+    -- ** DescribeWorkteam 
+    , module Network.AWS.SageMaker.DescribeWorkteam
 
     -- ** ListSubscribedWorkteams (Paginated)
-    module Network.AWS.SageMaker.ListSubscribedWorkteams,
+    , module Network.AWS.SageMaker.ListSubscribedWorkteams
 
-    -- ** DeleteDomain
-    module Network.AWS.SageMaker.DeleteDomain,
+    -- ** DeleteDomain 
+    , module Network.AWS.SageMaker.DeleteDomain
 
-    -- ** UpdateDomain
-    module Network.AWS.SageMaker.UpdateDomain,
+    -- ** UpdateDomain 
+    , module Network.AWS.SageMaker.UpdateDomain
 
     -- ** ListDomains (Paginated)
-    module Network.AWS.SageMaker.ListDomains,
+    , module Network.AWS.SageMaker.ListDomains
 
-    -- ** CreateImageVersion
-    module Network.AWS.SageMaker.CreateImageVersion,
+    -- ** CreateImageVersion 
+    , module Network.AWS.SageMaker.CreateImageVersion
 
-    -- ** StartMonitoringSchedule
-    module Network.AWS.SageMaker.StartMonitoringSchedule,
+    -- ** StartMonitoringSchedule 
+    , module Network.AWS.SageMaker.StartMonitoringSchedule
 
-    -- ** StopAutoMLJob
-    module Network.AWS.SageMaker.StopAutoMLJob,
+    -- ** StopAutoMLJob 
+    , module Network.AWS.SageMaker.StopAutoMLJob
 
-    -- ** CreateTrialComponent
-    module Network.AWS.SageMaker.CreateTrialComponent,
+    -- ** CreateTrialComponent 
+    , module Network.AWS.SageMaker.CreateTrialComponent
 
-    -- ** DescribeProcessingJob
-    module Network.AWS.SageMaker.DescribeProcessingJob,
+    -- ** DescribeProcessingJob 
+    , module Network.AWS.SageMaker.DescribeProcessingJob
 
     -- * Types
 
     -- ** EndpointConfigArn
-    EndpointConfigArn (..),
+    , EndpointConfigArn (..)
 
     -- ** DomainStatus
-    DomainStatus (..),
+    , DomainStatus (..)
 
     -- ** Parent
-    Parent (..),
-    mkParent,
-    pExperimentName,
-    pTrialName,
+    , Parent (..)
+    , mkParent
+    , pExperimentName
+    , pTrialName
 
     -- ** TrainingJobStatusCounters
-    TrainingJobStatusCounters (..),
-    mkTrainingJobStatusCounters,
-    tjscCompleted,
-    tjscInProgress,
-    tjscNonRetryableError,
-    tjscRetryableError,
-    tjscStopped,
+    , TrainingJobStatusCounters (..)
+    , mkTrainingJobStatusCounters
+    , tjscCompleted
+    , tjscInProgress
+    , tjscNonRetryableError
+    , tjscRetryableError
+    , tjscStopped
 
     -- ** UiTemplate
-    UiTemplate (..),
-    mkUiTemplate,
-    utContent,
+    , UiTemplate (..)
+    , mkUiTemplate
+    , utContent
 
     -- ** LabelingJobArn
-    LabelingJobArn (..),
+    , LabelingJobArn (..)
 
     -- ** CodeRepositoryContains
-    CodeRepositoryContains (..),
+    , CodeRepositoryContains (..)
 
     -- ** MonitoringScheduleSortKey
-    MonitoringScheduleSortKey (..),
+    , MonitoringScheduleSortKey (..)
 
     -- ** HyperParameterValue
-    HyperParameterValue (..),
+    , HyperParameterValue (..)
 
     -- ** TransformJobName
-    TransformJobName (..),
+    , TransformJobName (..)
 
     -- ** CandidateDefinitionNotebookLocation
-    CandidateDefinitionNotebookLocation (..),
+    , CandidateDefinitionNotebookLocation (..)
 
     -- ** NameContains
-    NameContains (..),
+    , NameContains (..)
 
     -- ** UserSettings
-    UserSettings (..),
-    mkUserSettings,
-    usExecutionRole,
-    usJupyterServerAppSettings,
-    usKernelGatewayAppSettings,
-    usSecurityGroups,
-    usSharingSettings,
-    usTensorBoardAppSettings,
+    , UserSettings (..)
+    , mkUserSettings
+    , usExecutionRole
+    , usJupyterServerAppSettings
+    , usKernelGatewayAppSettings
+    , usSecurityGroups
+    , usSharingSettings
+    , usTensorBoardAppSettings
 
     -- ** NotebookInstanceSortOrder
-    NotebookInstanceSortOrder (..),
+    , NotebookInstanceSortOrder (..)
 
     -- ** ModelPackageSortBy
-    ModelPackageSortBy (..),
+    , ModelPackageSortBy (..)
 
     -- ** FailureReason
-    FailureReason (..),
+    , FailureReason (..)
 
     -- ** ModelPackageStatusItem
-    ModelPackageStatusItem (..),
-    mkModelPackageStatusItem,
-    mpsiName,
-    mpsiStatus,
-    mpsiFailureReason,
+    , ModelPackageStatusItem (..)
+    , mkModelPackageStatusItem
+    , mpsiName
+    , mpsiStatus
+    , mpsiFailureReason
 
     -- ** ProcessingOutput
-    ProcessingOutput (..),
-    mkProcessingOutput,
-    poOutputName,
-    poS3Output,
+    , ProcessingOutput (..)
+    , mkProcessingOutput
+    , poOutputName
+    , poS3Output
 
     -- ** MonitoringScheduleArn
-    MonitoringScheduleArn (..),
+    , MonitoringScheduleArn (..)
 
     -- ** LabelingJobOutputConfig
-    LabelingJobOutputConfig (..),
-    mkLabelingJobOutputConfig,
-    ljocS3OutputPath,
-    ljocKmsKeyId,
-    ljocSnsTopicArn,
+    , LabelingJobOutputConfig (..)
+    , mkLabelingJobOutputConfig
+    , ljocS3OutputPath
+    , ljocKmsKeyId
+    , ljocSnsTopicArn
 
     -- ** HyperParameterTuningJobStrategyType
-    HyperParameterTuningJobStrategyType (..),
+    , HyperParameterTuningJobStrategyType (..)
 
     -- ** Workforce
-    Workforce (..),
-    mkWorkforce,
-    wWorkforceName,
-    wWorkforceArn,
-    wCognitoConfig,
-    wCreateDate,
-    wLastUpdatedDate,
-    wOidcConfig,
-    wSourceIpConfig,
-    wSubDomain,
+    , Workforce (..)
+    , mkWorkforce
+    , wWorkforceName
+    , wWorkforceArn
+    , wCognitoConfig
+    , wCreateDate
+    , wLastUpdatedDate
+    , wOidcConfig
+    , wSourceIpConfig
+    , wSubDomain
 
     -- ** OidcMemberDefinition
-    OidcMemberDefinition (..),
-    mkOidcMemberDefinition,
-    omdGroups,
+    , OidcMemberDefinition (..)
+    , mkOidcMemberDefinition
+    , omdGroups
 
     -- ** ResourceLimits
-    ResourceLimits (..),
-    mkResourceLimits,
-    rlMaxNumberOfTrainingJobs,
-    rlMaxParallelTrainingJobs,
+    , ResourceLimits (..)
+    , mkResourceLimits
+    , rlMaxNumberOfTrainingJobs
+    , rlMaxParallelTrainingJobs
 
     -- ** Framework
-    Framework (..),
+    , Framework (..)
 
     -- ** ModelClientConfig
-    ModelClientConfig (..),
-    mkModelClientConfig,
-    mccInvocationsMaxRetries,
-    mccInvocationsTimeoutInSeconds,
+    , ModelClientConfig (..)
+    , mkModelClientConfig
+    , mccInvocationsMaxRetries
+    , mccInvocationsTimeoutInSeconds
 
     -- ** HyperParameterTrainingJobSummary
-    HyperParameterTrainingJobSummary (..),
-    mkHyperParameterTrainingJobSummary,
-    hptjsTrainingJobName,
-    hptjsTrainingJobArn,
-    hptjsCreationTime,
-    hptjsTrainingJobStatus,
-    hptjsTunedHyperParameters,
-    hptjsFailureReason,
-    hptjsFinalHyperParameterTuningJobObjectiveMetric,
-    hptjsObjectiveStatus,
-    hptjsTrainingEndTime,
-    hptjsTrainingJobDefinitionName,
-    hptjsTrainingStartTime,
-    hptjsTuningJobName,
+    , HyperParameterTrainingJobSummary (..)
+    , mkHyperParameterTrainingJobSummary
+    , hptjsTrainingJobName
+    , hptjsTrainingJobArn
+    , hptjsCreationTime
+    , hptjsTrainingJobStatus
+    , hptjsTunedHyperParameters
+    , hptjsFailureReason
+    , hptjsFinalHyperParameterTuningJobObjectiveMetric
+    , hptjsObjectiveStatus
+    , hptjsTrainingEndTime
+    , hptjsTrainingJobDefinitionName
+    , hptjsTrainingStartTime
+    , hptjsTuningJobName
 
     -- ** AppSpecification
-    AppSpecification (..),
-    mkAppSpecification,
-    asImageUri,
-    asContainerArguments,
-    asContainerEntrypoint,
+    , AppSpecification (..)
+    , mkAppSpecification
+    , asImageUri
+    , asContainerArguments
+    , asContainerEntrypoint
 
     -- ** MediaType
-    MediaType (..),
+    , MediaType (..)
 
     -- ** EndpointConfigSortKey
-    EndpointConfigSortKey (..),
+    , EndpointConfigSortKey (..)
 
     -- ** ObjectiveStatusCounters
-    ObjectiveStatusCounters (..),
-    mkObjectiveStatusCounters,
-    oscFailed,
-    oscPending,
-    oscSucceeded,
+    , ObjectiveStatusCounters (..)
+    , mkObjectiveStatusCounters
+    , oscFailed
+    , oscPending
+    , oscSucceeded
 
     -- ** FileSystemAccessMode
-    FileSystemAccessMode (..),
+    , FileSystemAccessMode (..)
 
     -- ** String256
-    String256 (..),
+    , String256 (..)
 
     -- ** LabelingJobDataSource
-    LabelingJobDataSource (..),
-    mkLabelingJobDataSource,
-    ljdsS3DataSource,
-    ljdsSnsDataSource,
+    , LabelingJobDataSource (..)
+    , mkLabelingJobDataSource
+    , ljdsS3DataSource
+    , ljdsSnsDataSource
 
     -- ** EndpointName
-    EndpointName (..),
+    , EndpointName (..)
 
     -- ** ClientId
-    ClientId (..),
+    , ClientId (..)
 
     -- ** Workteam
-    Workteam (..),
-    mkWorkteam,
-    wfWorkteamName,
-    wfMemberDefinitions,
-    wfWorkteamArn,
-    wfDescription,
-    wfCreateDate,
-    wfLastUpdatedDate,
-    wfNotificationConfiguration,
-    wfProductListingIds,
-    wfSubDomain,
-    wfWorkforceArn,
+    , Workteam (..)
+    , mkWorkteam
+    , wfWorkteamName
+    , wfMemberDefinitions
+    , wfWorkteamArn
+    , wfDescription
+    , wfCreateDate
+    , wfLastUpdatedDate
+    , wfNotificationConfiguration
+    , wfProductListingIds
+    , wfSubDomain
+    , wfWorkforceArn
 
     -- ** EntityName
-    EntityName (..),
+    , EntityName (..)
 
     -- ** AutoMLContainerDefinition
-    AutoMLContainerDefinition (..),
-    mkAutoMLContainerDefinition,
-    amlcdImage,
-    amlcdModelDataUrl,
-    amlcdEnvironment,
+    , AutoMLContainerDefinition (..)
+    , mkAutoMLContainerDefinition
+    , amlcdImage
+    , amlcdModelDataUrl
+    , amlcdEnvironment
 
     -- ** CsvContentType
-    CsvContentType (..),
+    , CsvContentType (..)
 
     -- ** PaginationToken
-    PaginationToken (..),
+    , PaginationToken (..)
 
     -- ** BatchStrategy
-    BatchStrategy (..),
+    , BatchStrategy (..)
 
     -- ** TrialComponentParameterValue
-    TrialComponentParameterValue (..),
-    mkTrialComponentParameterValue,
-    tcpvNumberValue,
-    tcpvStringValue,
+    , TrialComponentParameterValue (..)
+    , mkTrialComponentParameterValue
+    , tcpvNumberValue
+    , tcpvStringValue
 
     -- ** AlgorithmValidationProfile
-    AlgorithmValidationProfile (..),
-    mkAlgorithmValidationProfile,
-    avpProfileName,
-    avpTrainingJobDefinition,
-    avpTransformJobDefinition,
+    , AlgorithmValidationProfile (..)
+    , mkAlgorithmValidationProfile
+    , avpProfileName
+    , avpTrainingJobDefinition
+    , avpTransformJobDefinition
 
     -- ** EndpointSummary
-    EndpointSummary (..),
-    mkEndpointSummary,
-    esEndpointName,
-    esEndpointArn,
-    esCreationTime,
-    esLastModifiedTime,
-    esEndpointStatus,
+    , EndpointSummary (..)
+    , mkEndpointSummary
+    , esEndpointName
+    , esEndpointArn
+    , esCreationTime
+    , esLastModifiedTime
+    , esEndpointStatus
 
     -- ** Group
-    Group (..),
+    , Group (..)
 
     -- ** ScheduleConfig
-    ScheduleConfig (..),
-    mkScheduleConfig,
-    scScheduleExpression,
+    , ScheduleConfig (..)
+    , mkScheduleConfig
+    , scScheduleExpression
 
     -- ** SourceAlgorithmSpecification
-    SourceAlgorithmSpecification (..),
-    mkSourceAlgorithmSpecification,
-    sasSourceAlgorithms,
+    , SourceAlgorithmSpecification (..)
+    , mkSourceAlgorithmSpecification
+    , sasSourceAlgorithms
 
     -- ** String200
-    String200 (..),
+    , String200 (..)
 
     -- ** TuningJobCompletionCriteria
-    TuningJobCompletionCriteria (..),
-    mkTuningJobCompletionCriteria,
-    tjccTargetObjectiveMetricValue,
+    , TuningJobCompletionCriteria (..)
+    , mkTuningJobCompletionCriteria
+    , tjccTargetObjectiveMetricValue
 
     -- ** ClientSecret
-    ClientSecret (..),
+    , ClientSecret (..)
 
     -- ** NotebookInstanceName
-    NotebookInstanceName (..),
+    , NotebookInstanceName (..)
 
     -- ** TensorBoardAppSettings
-    TensorBoardAppSettings (..),
-    mkTensorBoardAppSettings,
-    tbasDefaultResourceSpec,
+    , TensorBoardAppSettings (..)
+    , mkTensorBoardAppSettings
+    , tbasDefaultResourceSpec
 
     -- ** KernelGatewayAppSettings
-    KernelGatewayAppSettings (..),
-    mkKernelGatewayAppSettings,
-    kgasCustomImages,
-    kgasDefaultResourceSpec,
+    , KernelGatewayAppSettings (..)
+    , mkKernelGatewayAppSettings
+    , kgasCustomImages
+    , kgasDefaultResourceSpec
 
     -- ** AwsManagedHumanLoopRequestSource
-    AwsManagedHumanLoopRequestSource (..),
+    , AwsManagedHumanLoopRequestSource (..)
 
     -- ** TrainingJob
-    TrainingJob (..),
-    mkTrainingJob,
-    tjAlgorithmSpecification,
-    tjAutoMLJobArn,
-    tjBillableTimeInSeconds,
-    tjCheckpointConfig,
-    tjCreationTime,
-    tjDebugHookConfig,
-    tjDebugRuleConfigurations,
-    tjDebugRuleEvaluationStatuses,
-    tjEnableInterContainerTrafficEncryption,
-    tjEnableManagedSpotTraining,
-    tjEnableNetworkIsolation,
-    tjExperimentConfig,
-    tjFailureReason,
-    tjFinalMetricDataList,
-    tjHyperParameters,
-    tjInputDataConfig,
-    tjLabelingJobArn,
-    tjLastModifiedTime,
-    tjModelArtifacts,
-    tjOutputDataConfig,
-    tjResourceConfig,
-    tjRoleArn,
-    tjSecondaryStatus,
-    tjSecondaryStatusTransitions,
-    tjStoppingCondition,
-    tjTags,
-    tjTensorBoardOutputConfig,
-    tjTrainingEndTime,
-    tjTrainingJobArn,
-    tjTrainingJobName,
-    tjTrainingJobStatus,
-    tjTrainingStartTime,
-    tjTrainingTimeInSeconds,
-    tjTuningJobArn,
-    tjVpcConfig,
+    , TrainingJob (..)
+    , mkTrainingJob
+    , tjAlgorithmSpecification
+    , tjAutoMLJobArn
+    , tjBillableTimeInSeconds
+    , tjCheckpointConfig
+    , tjCreationTime
+    , tjDebugHookConfig
+    , tjDebugRuleConfigurations
+    , tjDebugRuleEvaluationStatuses
+    , tjEnableInterContainerTrafficEncryption
+    , tjEnableManagedSpotTraining
+    , tjEnableNetworkIsolation
+    , tjExperimentConfig
+    , tjFailureReason
+    , tjFinalMetricDataList
+    , tjHyperParameters
+    , tjInputDataConfig
+    , tjLabelingJobArn
+    , tjLastModifiedTime
+    , tjModelArtifacts
+    , tjOutputDataConfig
+    , tjResourceConfig
+    , tjRoleArn
+    , tjSecondaryStatus
+    , tjSecondaryStatusTransitions
+    , tjStoppingCondition
+    , tjTags
+    , tjTensorBoardOutputConfig
+    , tjTrainingEndTime
+    , tjTrainingJobArn
+    , tjTrainingJobName
+    , tjTrainingJobStatus
+    , tjTrainingStartTime
+    , tjTrainingTimeInSeconds
+    , tjTuningJobArn
+    , tjVpcConfig
 
     -- ** CaptureMode
-    CaptureMode (..),
+    , CaptureMode (..)
 
     -- ** ImageContainerImage
-    ImageContainerImage (..),
+    , ImageContainerImage (..)
 
     -- ** AutoMLSortBy
-    AutoMLSortBy (..),
+    , AutoMLSortBy (..)
 
     -- ** ArnOrName
-    ArnOrName (..),
+    , ArnOrName (..)
 
     -- ** CandidateStepType
-    CandidateStepType (..),
+    , CandidateStepType (..)
 
     -- ** TransformJobSummary
-    TransformJobSummary (..),
-    mkTransformJobSummary,
-    tjsTransformJobName,
-    tjsTransformJobArn,
-    tjsCreationTime,
-    tjsTransformJobStatus,
-    tjsFailureReason,
-    tjsLastModifiedTime,
-    tjsTransformEndTime,
+    , TransformJobSummary (..)
+    , mkTransformJobSummary
+    , tjsTransformJobName
+    , tjsTransformJobArn
+    , tjsCreationTime
+    , tjsTransformJobStatus
+    , tjsFailureReason
+    , tjsLastModifiedTime
+    , tjsTransformEndTime
 
     -- ** LabelingJobAlgorithmsConfig
-    LabelingJobAlgorithmsConfig (..),
-    mkLabelingJobAlgorithmsConfig,
-    ljacLabelingJobAlgorithmSpecificationArn,
-    ljacInitialActiveLearningModelArn,
-    ljacLabelingJobResourceConfig,
+    , LabelingJobAlgorithmsConfig (..)
+    , mkLabelingJobAlgorithmsConfig
+    , ljacLabelingJobAlgorithmSpecificationArn
+    , ljacInitialActiveLearningModelArn
+    , ljacLabelingJobResourceConfig
 
     -- ** ResourceSpec
-    ResourceSpec (..),
-    mkResourceSpec,
-    rsInstanceType,
-    rsSageMakerImageArn,
-    rsSageMakerImageVersionArn,
+    , ResourceSpec (..)
+    , mkResourceSpec
+    , rsInstanceType
+    , rsSageMakerImageArn
+    , rsSageMakerImageVersionArn
 
     -- ** ResourceId
-    ResourceId (..),
+    , ResourceId (..)
 
     -- ** TrialArn
-    TrialArn (..),
+    , TrialArn (..)
 
     -- ** HumanLoopActivationConditions
-    HumanLoopActivationConditions (..),
+    , HumanLoopActivationConditions (..)
 
     -- ** TrialComponentSimpleSummary
-    TrialComponentSimpleSummary (..),
-    mkTrialComponentSimpleSummary,
-    tcssCreatedBy,
-    tcssCreationTime,
-    tcssTrialComponentArn,
-    tcssTrialComponentName,
-    tcssTrialComponentSource,
+    , TrialComponentSimpleSummary (..)
+    , mkTrialComponentSimpleSummary
+    , tcssCreatedBy
+    , tcssCreationTime
+    , tcssTrialComponentArn
+    , tcssTrialComponentName
+    , tcssTrialComponentSource
 
     -- ** Image
-    Image (..),
-    mkImage,
-    iCreationTime,
-    iImageArn,
-    iImageName,
-    iImageStatus,
-    iLastModifiedTime,
-    iDescription,
-    iDisplayName,
-    iFailureReason,
+    , Image (..)
+    , mkImage
+    , iCreationTime
+    , iImageArn
+    , iImageName
+    , iImageStatus
+    , iLastModifiedTime
+    , iDescription
+    , iDisplayName
+    , iFailureReason
 
     -- ** MonitoringInput
-    MonitoringInput (..),
-    mkMonitoringInput,
-    miEndpointInput,
+    , MonitoringInput (..)
+    , mkMonitoringInput
+    , miEndpointInput
 
     -- ** CaptureContentTypeHeader
-    CaptureContentTypeHeader (..),
-    mkCaptureContentTypeHeader,
-    ccthCsvContentTypes,
-    ccthJsonContentTypes,
+    , CaptureContentTypeHeader (..)
+    , mkCaptureContentTypeHeader
+    , ccthCsvContentTypes
+    , ccthJsonContentTypes
 
     -- ** Tag
-    Tag (..),
-    mkTag,
-    tKey,
-    tValue,
+    , Tag (..)
+    , mkTag
+    , tKey
+    , tValue
 
     -- ** TrialComponentStatusMessage
-    TrialComponentStatusMessage (..),
+    , TrialComponentStatusMessage (..)
 
     -- ** DataCaptureConfigSummary
-    DataCaptureConfigSummary (..),
-    mkDataCaptureConfigSummary,
-    dccsEnableCapture,
-    dccsCaptureStatus,
-    dccsCurrentSamplingPercentage,
-    dccsDestinationS3Uri,
-    dccsKmsKeyId,
+    , DataCaptureConfigSummary (..)
+    , mkDataCaptureConfigSummary
+    , dccsEnableCapture
+    , dccsCaptureStatus
+    , dccsCurrentSamplingPercentage
+    , dccsDestinationS3Uri
+    , dccsKmsKeyId
 
     -- ** PropertyNameQuery
-    PropertyNameQuery (..),
-    mkPropertyNameQuery,
-    pnqPropertyNameHint,
+    , PropertyNameQuery (..)
+    , mkPropertyNameQuery
+    , pnqPropertyNameHint
 
     -- ** FlowDefinitionTaskTitle
-    FlowDefinitionTaskTitle (..),
+    , FlowDefinitionTaskTitle (..)
 
     -- ** CodeRepositoryArn
-    CodeRepositoryArn (..),
+    , CodeRepositoryArn (..)
 
     -- ** ProcessingResources
-    ProcessingResources (..),
-    mkProcessingResources,
-    prClusterConfig,
+    , ProcessingResources (..)
+    , mkProcessingResources
+    , prClusterConfig
 
     -- ** ImageDisplayName
-    ImageDisplayName (..),
+    , ImageDisplayName (..)
 
     -- ** ModelArn
-    ModelArn (..),
+    , ModelArn (..)
 
     -- ** Trial
-    Trial (..),
-    mkTrial,
-    tCreatedBy,
-    tCreationTime,
-    tDisplayName,
-    tExperimentName,
-    tLastModifiedBy,
-    tLastModifiedTime,
-    tSource,
-    tTags,
-    tTrialArn,
-    tTrialComponentSummaries,
-    tTrialName,
+    , Trial (..)
+    , mkTrial
+    , tCreatedBy
+    , tCreationTime
+    , tDisplayName
+    , tExperimentName
+    , tLastModifiedBy
+    , tLastModifiedTime
+    , tSource
+    , tTags
+    , tTrialArn
+    , tTrialComponentSummaries
+    , tTrialName
 
     -- ** SnsTopicArn
-    SnsTopicArn (..),
+    , SnsTopicArn (..)
 
     -- ** HyperParameterTuningJobArn
-    HyperParameterTuningJobArn (..),
+    , HyperParameterTuningJobArn (..)
 
     -- ** ModelArtifacts
-    ModelArtifacts (..),
-    mkModelArtifacts,
-    maS3ModelArtifacts,
+    , ModelArtifacts (..)
+    , mkModelArtifacts
+    , maS3ModelArtifacts
 
     -- ** HyperParameterScalingType
-    HyperParameterScalingType (..),
+    , HyperParameterScalingType (..)
 
     -- ** USD
-    USD (..),
-    mkUSD,
-    usdCents,
-    usdDollars,
-    usdTenthFractionsOfACent,
+    , USD (..)
+    , mkUSD
+    , usdCents
+    , usdDollars
+    , usdTenthFractionsOfACent
 
     -- ** CognitoMemberDefinition
-    CognitoMemberDefinition (..),
-    mkCognitoMemberDefinition,
-    cmdUserPool,
-    cmdUserGroup,
-    cmdClientId,
+    , CognitoMemberDefinition (..)
+    , mkCognitoMemberDefinition
+    , cmdUserPool
+    , cmdUserGroup
+    , cmdClientId
 
     -- ** TemplateContentSha256
-    TemplateContentSha256 (..),
+    , TemplateContentSha256 (..)
 
     -- ** DestinationS3Uri
-    DestinationS3Uri (..),
+    , DestinationS3Uri (..)
 
     -- ** ModelSortKey
-    ModelSortKey (..),
+    , ModelSortKey (..)
 
     -- ** CandidateStepArn
-    CandidateStepArn (..),
+    , CandidateStepArn (..)
 
     -- ** CognitoUserPool
-    CognitoUserPool (..),
+    , CognitoUserPool (..)
 
     -- ** ResourceType
-    ResourceType (..),
+    , ResourceType (..)
 
     -- ** OidcEndpoint
-    OidcEndpoint (..),
+    , OidcEndpoint (..)
 
     -- ** AutoMLSortOrder
-    AutoMLSortOrder (..),
+    , AutoMLSortOrder (..)
 
     -- ** AlgorithmArn
-    AlgorithmArn (..),
+    , AlgorithmArn (..)
 
     -- ** EnvironmentKey
-    EnvironmentKey (..),
+    , EnvironmentKey (..)
 
     -- ** JobReferenceCodeContains
-    JobReferenceCodeContains (..),
+    , JobReferenceCodeContains (..)
 
     -- ** ClientToken
-    ClientToken (..),
+    , ClientToken (..)
 
     -- ** ParameterValue
-    ParameterValue (..),
+    , ParameterValue (..)
 
     -- ** ResourcePropertyName
-    ResourcePropertyName (..),
+    , ResourcePropertyName (..)
 
     -- ** LabelingJobSnsDataSource
-    LabelingJobSnsDataSource (..),
-    mkLabelingJobSnsDataSource,
-    ljsdsSnsTopicArn,
+    , LabelingJobSnsDataSource (..)
+    , mkLabelingJobSnsDataSource
+    , ljsdsSnsTopicArn
 
     -- ** TargetPlatformOs
-    TargetPlatformOs (..),
+    , TargetPlatformOs (..)
 
     -- ** TrainingJobDefinition
-    TrainingJobDefinition (..),
-    mkTrainingJobDefinition,
-    tjdTrainingInputMode,
-    tjdInputDataConfig,
-    tjdOutputDataConfig,
-    tjdResourceConfig,
-    tjdStoppingCondition,
-    tjdHyperParameters,
+    , TrainingJobDefinition (..)
+    , mkTrainingJobDefinition
+    , tjdTrainingInputMode
+    , tjdInputDataConfig
+    , tjdOutputDataConfig
+    , tjdResourceConfig
+    , tjdStoppingCondition
+    , tjdHyperParameters
 
     -- ** TrialSourceArn
-    TrialSourceArn (..),
+    , TrialSourceArn (..)
 
     -- ** UiTemplateInfo
-    UiTemplateInfo (..),
-    mkUiTemplateInfo,
-    utiContentSha256,
-    utiUrl,
+    , UiTemplateInfo (..)
+    , mkUiTemplateInfo
+    , utiContentSha256
+    , utiUrl
 
     -- ** MonitoringExecutionSummary
-    MonitoringExecutionSummary (..),
-    mkMonitoringExecutionSummary,
-    mesMonitoringScheduleName,
-    mesScheduledTime,
-    mesCreationTime,
-    mesLastModifiedTime,
-    mesMonitoringExecutionStatus,
-    mesEndpointName,
-    mesFailureReason,
-    mesProcessingJobArn,
+    , MonitoringExecutionSummary (..)
+    , mkMonitoringExecutionSummary
+    , mesMonitoringScheduleName
+    , mesScheduledTime
+    , mesCreationTime
+    , mesLastModifiedTime
+    , mesMonitoringExecutionStatus
+    , mesEndpointName
+    , mesFailureReason
+    , mesProcessingJobArn
 
     -- ** MonitoringScheduleSummary
-    MonitoringScheduleSummary (..),
-    mkMonitoringScheduleSummary,
-    mssMonitoringScheduleName,
-    mssMonitoringScheduleArn,
-    mssCreationTime,
-    mssLastModifiedTime,
-    mssMonitoringScheduleStatus,
-    mssEndpointName,
+    , MonitoringScheduleSummary (..)
+    , mkMonitoringScheduleSummary
+    , mssMonitoringScheduleName
+    , mssMonitoringScheduleArn
+    , mssCreationTime
+    , mssLastModifiedTime
+    , mssMonitoringScheduleStatus
+    , mssEndpointName
 
     -- ** NotificationConfiguration
-    NotificationConfiguration (..),
-    mkNotificationConfiguration,
-    ncNotificationTopicArn,
+    , NotificationConfiguration (..)
+    , mkNotificationConfiguration
+    , ncNotificationTopicArn
 
     -- ** ShuffleConfig
-    ShuffleConfig (..),
-    mkShuffleConfig,
-    scSeed,
+    , ShuffleConfig (..)
+    , mkShuffleConfig
+    , scSeed
 
     -- ** ParameterRanges
-    ParameterRanges (..),
-    mkParameterRanges,
-    prCategoricalParameterRanges,
-    prContinuousParameterRanges,
-    prIntegerParameterRanges,
+    , ParameterRanges (..)
+    , mkParameterRanges
+    , prCategoricalParameterRanges
+    , prContinuousParameterRanges
+    , prIntegerParameterRanges
 
     -- ** EntityDescription
-    EntityDescription (..),
+    , EntityDescription (..)
 
     -- ** HyperParameterAlgorithmSpecification
-    HyperParameterAlgorithmSpecification (..),
-    mkHyperParameterAlgorithmSpecification,
-    hpasTrainingInputMode,
-    hpasAlgorithmName,
-    hpasMetricDefinitions,
-    hpasTrainingImage,
+    , HyperParameterAlgorithmSpecification (..)
+    , mkHyperParameterAlgorithmSpecification
+    , hpasTrainingInputMode
+    , hpasAlgorithmName
+    , hpasMetricDefinitions
+    , hpasTrainingImage
 
     -- ** DeployedImage
-    DeployedImage (..),
-    mkDeployedImage,
-    diResolutionTime,
-    diResolvedImage,
-    diSpecifiedImage,
+    , DeployedImage (..)
+    , mkDeployedImage
+    , diResolutionTime
+    , diResolvedImage
+    , diSpecifiedImage
 
     -- ** HyperParameterTrainingJobDefinition
-    HyperParameterTrainingJobDefinition (..),
-    mkHyperParameterTrainingJobDefinition,
-    hptjdAlgorithmSpecification,
-    hptjdRoleArn,
-    hptjdOutputDataConfig,
-    hptjdResourceConfig,
-    hptjdStoppingCondition,
-    hptjdCheckpointConfig,
-    hptjdDefinitionName,
-    hptjdEnableInterContainerTrafficEncryption,
-    hptjdEnableManagedSpotTraining,
-    hptjdEnableNetworkIsolation,
-    hptjdHyperParameterRanges,
-    hptjdInputDataConfig,
-    hptjdStaticHyperParameters,
-    hptjdTuningObjective,
-    hptjdVpcConfig,
+    , HyperParameterTrainingJobDefinition (..)
+    , mkHyperParameterTrainingJobDefinition
+    , hptjdAlgorithmSpecification
+    , hptjdRoleArn
+    , hptjdOutputDataConfig
+    , hptjdResourceConfig
+    , hptjdStoppingCondition
+    , hptjdCheckpointConfig
+    , hptjdDefinitionName
+    , hptjdEnableInterContainerTrafficEncryption
+    , hptjdEnableManagedSpotTraining
+    , hptjdEnableNetworkIsolation
+    , hptjdHyperParameterRanges
+    , hptjdInputDataConfig
+    , hptjdStaticHyperParameters
+    , hptjdTuningObjective
+    , hptjdVpcConfig
 
     -- ** UserProfileName
-    UserProfileName (..),
+    , UserProfileName (..)
 
     -- ** TrialComponent
-    TrialComponent (..),
-    mkTrialComponent,
-    tcCreatedBy,
-    tcCreationTime,
-    tcDisplayName,
-    tcEndTime,
-    tcInputArtifacts,
-    tcLastModifiedBy,
-    tcLastModifiedTime,
-    tcMetrics,
-    tcOutputArtifacts,
-    tcParameters,
-    tcParents,
-    tcSource,
-    tcSourceDetail,
-    tcStartTime,
-    tcStatus,
-    tcTags,
-    tcTrialComponentArn,
-    tcTrialComponentName,
+    , TrialComponent (..)
+    , mkTrialComponent
+    , tcCreatedBy
+    , tcCreationTime
+    , tcDisplayName
+    , tcEndTime
+    , tcInputArtifacts
+    , tcLastModifiedBy
+    , tcLastModifiedTime
+    , tcMetrics
+    , tcOutputArtifacts
+    , tcParameters
+    , tcParents
+    , tcSource
+    , tcSourceDetail
+    , tcStartTime
+    , tcStatus
+    , tcTags
+    , tcTrialComponentArn
+    , tcTrialComponentName
 
     -- ** TrainingInputMode
-    TrainingInputMode (..),
+    , TrainingInputMode (..)
 
     -- ** ImageConfig
-    ImageConfig (..),
-    mkImageConfig,
-    icRepositoryAccessMode,
+    , ImageConfig (..)
+    , mkImageConfig
+    , icRepositoryAccessMode
 
     -- ** ModelPackageValidationProfile
-    ModelPackageValidationProfile (..),
-    mkModelPackageValidationProfile,
-    mpvpProfileName,
-    mpvpTransformJobDefinition,
+    , ModelPackageValidationProfile (..)
+    , mkModelPackageValidationProfile
+    , mpvpProfileName
+    , mpvpTransformJobDefinition
 
     -- ** NotebookInstanceLifecycleConfigContent
-    NotebookInstanceLifecycleConfigContent (..),
+    , NotebookInstanceLifecycleConfigContent (..)
 
     -- ** EndpointConfigSummary
-    EndpointConfigSummary (..),
-    mkEndpointConfigSummary,
-    ecsEndpointConfigName,
-    ecsEndpointConfigArn,
-    ecsCreationTime,
+    , EndpointConfigSummary (..)
+    , mkEndpointConfigSummary
+    , ecsEndpointConfigName
+    , ecsEndpointConfigArn
+    , ecsCreationTime
 
     -- ** AutoMLJobStatus
-    AutoMLJobStatus (..),
+    , AutoMLJobStatus (..)
 
     -- ** HumanLoopActivationConditionsConfig
-    HumanLoopActivationConditionsConfig (..),
-    mkHumanLoopActivationConditionsConfig,
-    hlaccHumanLoopActivationConditions,
-
-    -- ** String
-    String (..),
+    , HumanLoopActivationConditionsConfig (..)
+    , mkHumanLoopActivationConditionsConfig
+    , hlaccHumanLoopActivationConditions
 
     -- ** TransformResources
-    TransformResources (..),
-    mkTransformResources,
-    trInstanceType,
-    trInstanceCount,
-    trVolumeKmsKeyId,
+    , TransformResources (..)
+    , mkTransformResources
+    , trInstanceType
+    , trInstanceCount
+    , trVolumeKmsKeyId
 
     -- ** LabelingJobSummary
-    LabelingJobSummary (..),
-    mkLabelingJobSummary,
-    ljsLabelingJobName,
-    ljsLabelingJobArn,
-    ljsCreationTime,
-    ljsLastModifiedTime,
-    ljsLabelingJobStatus,
-    ljsLabelCounters,
-    ljsWorkteamArn,
-    ljsPreHumanTaskLambdaArn,
-    ljsAnnotationConsolidationLambdaArn,
-    ljsFailureReason,
-    ljsInputConfig,
-    ljsLabelingJobOutput,
+    , LabelingJobSummary (..)
+    , mkLabelingJobSummary
+    , ljsLabelingJobName
+    , ljsLabelingJobArn
+    , ljsCreationTime
+    , ljsLastModifiedTime
+    , ljsLabelingJobStatus
+    , ljsLabelCounters
+    , ljsWorkteamArn
+    , ljsPreHumanTaskLambdaArn
+    , ljsAnnotationConsolidationLambdaArn
+    , ljsFailureReason
+    , ljsInputConfig
+    , ljsLabelingJobOutput
 
     -- ** TrialComponentPrimaryStatus
-    TrialComponentPrimaryStatus (..),
+    , TrialComponentPrimaryStatus (..)
 
     -- ** ProcessingEnvironmentValue
-    ProcessingEnvironmentValue (..),
+    , ProcessingEnvironmentValue (..)
 
     -- ** SourceType
-    SourceType (..),
+    , SourceType (..)
 
     -- ** TrainingSpecification
-    TrainingSpecification (..),
-    mkTrainingSpecification,
-    tsTrainingImage,
-    tsSupportedTrainingInstanceTypes,
-    tsTrainingChannels,
-    tsMetricDefinitions,
-    tsSupportedHyperParameters,
-    tsSupportedTuningJobObjectiveMetrics,
-    tsSupportsDistributedTraining,
-    tsTrainingImageDigest,
+    , TrainingSpecification (..)
+    , mkTrainingSpecification
+    , tsTrainingImage
+    , tsSupportedTrainingInstanceTypes
+    , tsTrainingChannels
+    , tsMetricDefinitions
+    , tsSupportedHyperParameters
+    , tsSupportedTuningJobObjectiveMetrics
+    , tsSupportsDistributedTraining
+    , tsTrainingImageDigest
 
     -- ** AppStatus
-    AppStatus (..),
+    , AppStatus (..)
 
     -- ** ImageBaseImage
-    ImageBaseImage (..),
+    , ImageBaseImage (..)
 
     -- ** RepositoryAccessMode
-    RepositoryAccessMode (..),
+    , RepositoryAccessMode (..)
 
     -- ** JsonPath
-    JsonPath (..),
+    , JsonPath (..)
 
     -- ** NotebookOutputOption
-    NotebookOutputOption (..),
+    , NotebookOutputOption (..)
 
     -- ** PublicWorkforceTaskPrice
-    PublicWorkforceTaskPrice (..),
-    mkPublicWorkforceTaskPrice,
-    pwtpAmountInUsd,
+    , PublicWorkforceTaskPrice (..)
+    , mkPublicWorkforceTaskPrice
+    , pwtpAmountInUsd
 
     -- ** ProcessingS3Input
-    ProcessingS3Input (..),
-    mkProcessingS3Input,
-    psiS3Uri,
-    psiLocalPath,
-    psiS3DataType,
-    psiS3InputMode,
-    psiS3CompressionType,
-    psiS3DataDistributionType,
+    , ProcessingS3Input (..)
+    , mkProcessingS3Input
+    , psiS3Uri
+    , psiLocalPath
+    , psiS3DataType
+    , psiS3InputMode
+    , psiS3CompressionType
+    , psiS3DataDistributionType
 
     -- ** CategoricalParameterRangeSpecification
-    CategoricalParameterRangeSpecification (..),
-    mkCategoricalParameterRangeSpecification,
-    cprsValues,
+    , CategoricalParameterRangeSpecification (..)
+    , mkCategoricalParameterRangeSpecification
+    , cprsValues
 
     -- ** DomainArn
-    DomainArn (..),
+    , DomainArn (..)
 
     -- ** ImageVersion
-    ImageVersion (..),
-    mkImageVersion,
-    ivCreationTime,
-    ivImageArn,
-    ivImageVersionArn,
-    ivImageVersionStatus,
-    ivLastModifiedTime,
-    ivVersion,
-    ivFailureReason,
+    , ImageVersion (..)
+    , mkImageVersion
+    , ivCreationTime
+    , ivImageArn
+    , ivImageVersionArn
+    , ivImageVersionStatus
+    , ivLastModifiedTime
+    , ivVersion
+    , ivFailureReason
 
     -- ** S3DataSource
-    S3DataSource (..),
-    mkS3DataSource,
-    sdsS3DataType,
-    sdsS3Uri,
-    sdsAttributeNames,
-    sdsS3DataDistributionType,
+    , S3DataSource (..)
+    , mkS3DataSource
+    , sdsS3DataType
+    , sdsS3Uri
+    , sdsAttributeNames
+    , sdsS3DataDistributionType
 
     -- ** NotebookInstanceLifecycleHook
-    NotebookInstanceLifecycleHook (..),
-    mkNotebookInstanceLifecycleHook,
-    nilhContent,
+    , NotebookInstanceLifecycleHook (..)
+    , mkNotebookInstanceLifecycleHook
+    , nilhContent
 
     -- ** IntegerParameterRangeSpecification
-    IntegerParameterRangeSpecification (..),
-    mkIntegerParameterRangeSpecification,
-    iprsMinValue,
-    iprsMaxValue,
+    , IntegerParameterRangeSpecification (..)
+    , mkIntegerParameterRangeSpecification
+    , iprsMinValue
+    , iprsMaxValue
 
     -- ** TransformInstanceType
-    TransformInstanceType (..),
+    , TransformInstanceType (..)
 
     -- ** TrialComponentMetricSummary
-    TrialComponentMetricSummary (..),
-    mkTrialComponentMetricSummary,
-    tcmsAvg,
-    tcmsCount,
-    tcmsLast,
-    tcmsMax,
-    tcmsMetricName,
-    tcmsMin,
-    tcmsSourceArn,
-    tcmsStdDev,
-    tcmsTimeStamp,
+    , TrialComponentMetricSummary (..)
+    , mkTrialComponentMetricSummary
+    , tcmsAvg
+    , tcmsCount
+    , tcmsLast
+    , tcmsMax
+    , tcmsMetricName
+    , tcmsMin
+    , tcmsSourceArn
+    , tcmsStdDev
+    , tcmsTimeStamp
 
     -- ** MonitoringBaselineConfig
-    MonitoringBaselineConfig (..),
-    mkMonitoringBaselineConfig,
-    mbcConstraintsResource,
-    mbcStatisticsResource,
+    , MonitoringBaselineConfig (..)
+    , mkMonitoringBaselineConfig
+    , mbcConstraintsResource
+    , mbcStatisticsResource
 
     -- ** ExperimentEntityName
-    ExperimentEntityName (..),
+    , ExperimentEntityName (..)
 
     -- ** ModelName
-    ModelName (..),
+    , ModelName (..)
 
     -- ** UserProfileDetails
-    UserProfileDetails (..),
-    mkUserProfileDetails,
-    updCreationTime,
-    updDomainId,
-    updLastModifiedTime,
-    updStatus,
-    updUserProfileName,
+    , UserProfileDetails (..)
+    , mkUserProfileDetails
+    , updCreationTime
+    , updDomainId
+    , updLastModifiedTime
+    , updStatus
+    , updUserProfileName
 
     -- ** HyperParameterTuningJobName
-    HyperParameterTuningJobName (..),
+    , HyperParameterTuningJobName (..)
 
     -- ** VpcId
-    VpcId (..),
+    , VpcId (..)
 
     -- ** HyperParameterTuningJobObjective
-    HyperParameterTuningJobObjective (..),
-    mkHyperParameterTuningJobObjective,
-    hptjoType,
-    hptjoMetricName,
+    , HyperParameterTuningJobObjective (..)
+    , mkHyperParameterTuningJobObjective
+    , hptjoType
+    , hptjoMetricName
 
     -- ** NotebookInstanceLifecycleConfigNameContains
-    NotebookInstanceLifecycleConfigNameContains (..),
+    , NotebookInstanceLifecycleConfigNameContains (..)
 
     -- ** NotebookInstanceLifecycleConfigSummary
-    NotebookInstanceLifecycleConfigSummary (..),
-    mkNotebookInstanceLifecycleConfigSummary,
-    nilcsNotebookInstanceLifecycleConfigName,
-    nilcsNotebookInstanceLifecycleConfigArn,
-    nilcsCreationTime,
-    nilcsLastModifiedTime,
+    , NotebookInstanceLifecycleConfigSummary (..)
+    , mkNotebookInstanceLifecycleConfigSummary
+    , nilcsNotebookInstanceLifecycleConfigName
+    , nilcsNotebookInstanceLifecycleConfigArn
+    , nilcsCreationTime
+    , nilcsLastModifiedTime
 
     -- ** ModelPackageArn
-    ModelPackageArn (..),
+    , ModelPackageArn (..)
 
     -- ** CaptureStatus
-    CaptureStatus (..),
+    , CaptureStatus (..)
 
     -- ** EfsUid
-    EfsUid (..),
+    , EfsUid (..)
 
     -- ** S3DataType
-    S3DataType (..),
+    , S3DataType (..)
 
     -- ** VariantProperty
-    VariantProperty (..),
-    mkVariantProperty,
-    vpVariantPropertyType,
+    , VariantProperty (..)
+    , mkVariantProperty
+    , vpVariantPropertyType
 
     -- ** HumanTaskConfig
-    HumanTaskConfig (..),
-    mkHumanTaskConfig,
-    htcWorkteamArn,
-    htcUiConfig,
-    htcPreHumanTaskLambdaArn,
-    htcTaskTitle,
-    htcTaskDescription,
-    htcNumberOfHumanWorkersPerDataObject,
-    htcTaskTimeLimitInSeconds,
-    htcAnnotationConsolidationConfig,
-    htcMaxConcurrentTaskCount,
-    htcPublicWorkforceTaskPrice,
-    htcTaskAvailabilityLifetimeInSeconds,
-    htcTaskKeywords,
+    , HumanTaskConfig (..)
+    , mkHumanTaskConfig
+    , htcWorkteamArn
+    , htcUiConfig
+    , htcPreHumanTaskLambdaArn
+    , htcTaskTitle
+    , htcTaskDescription
+    , htcNumberOfHumanWorkersPerDataObject
+    , htcTaskTimeLimitInSeconds
+    , htcAnnotationConsolidationConfig
+    , htcMaxConcurrentTaskCount
+    , htcPublicWorkforceTaskPrice
+    , htcTaskAvailabilityLifetimeInSeconds
+    , htcTaskKeywords
 
     -- ** LambdaFunctionArn
-    LambdaFunctionArn (..),
+    , LambdaFunctionArn (..)
 
     -- ** Accept
-    Accept (..),
+    , Accept (..)
 
     -- ** TrialComponentArtifactValue
-    TrialComponentArtifactValue (..),
+    , TrialComponentArtifactValue (..)
 
     -- ** Operator
-    Operator (..),
+    , Operator (..)
 
     -- ** ContainerImage
-    ContainerImage (..),
+    , ContainerImage (..)
 
     -- ** ProcessingStoppingCondition
-    ProcessingStoppingCondition (..),
-    mkProcessingStoppingCondition,
-    pscMaxRuntimeInSeconds,
+    , ProcessingStoppingCondition (..)
+    , mkProcessingStoppingCondition
+    , pscMaxRuntimeInSeconds
 
     -- ** SubscribedWorkteam
-    SubscribedWorkteam (..),
-    mkSubscribedWorkteam,
-    swWorkteamArn,
-    swListingId,
-    swMarketplaceDescription,
-    swMarketplaceTitle,
-    swSellerName,
+    , SubscribedWorkteam (..)
+    , mkSubscribedWorkteam
+    , swWorkteamArn
+    , swListingId
+    , swMarketplaceDescription
+    , swMarketplaceTitle
+    , swSellerName
 
     -- ** AppInstanceType
-    AppInstanceType (..),
+    , AppInstanceType (..)
 
     -- ** SortTrialsBy
-    SortTrialsBy (..),
+    , SortTrialsBy (..)
 
     -- ** CandidateStepName
-    CandidateStepName (..),
+    , CandidateStepName (..)
 
     -- ** AlgorithmImage
-    AlgorithmImage (..),
+    , AlgorithmImage (..)
 
     -- ** DebugHookConfig
-    DebugHookConfig (..),
-    mkDebugHookConfig,
-    dhcS3OutputPath,
-    dhcCollectionConfigurations,
-    dhcHookParameters,
-    dhcLocalPath,
+    , DebugHookConfig (..)
+    , mkDebugHookConfig
+    , dhcS3OutputPath
+    , dhcCollectionConfigurations
+    , dhcHookParameters
+    , dhcLocalPath
 
     -- ** CheckpointConfig
-    CheckpointConfig (..),
-    mkCheckpointConfig,
-    ccS3Uri,
-    ccLocalPath,
+    , CheckpointConfig (..)
+    , mkCheckpointConfig
+    , ccS3Uri
+    , ccLocalPath
 
     -- ** ModelSummary
-    ModelSummary (..),
-    mkModelSummary,
-    msModelName,
-    msModelArn,
-    msCreationTime,
+    , ModelSummary (..)
+    , mkModelSummary
+    , msModelName
+    , msModelArn
+    , msCreationTime
 
     -- ** CodeRepositorySummary
-    CodeRepositorySummary (..),
-    mkCodeRepositorySummary,
-    crsCodeRepositoryName,
-    crsCodeRepositoryArn,
-    crsCreationTime,
-    crsLastModifiedTime,
-    crsGitConfig,
+    , CodeRepositorySummary (..)
+    , mkCodeRepositorySummary
+    , crsCodeRepositoryName
+    , crsCodeRepositoryArn
+    , crsCreationTime
+    , crsLastModifiedTime
+    , crsGitConfig
 
     -- ** MetricName
-    MetricName (..),
+    , MetricName (..)
 
     -- ** ProcessingJobName
-    ProcessingJobName (..),
+    , ProcessingJobName (..)
 
     -- ** HyperParameterTuningJobSummary
-    HyperParameterTuningJobSummary (..),
-    mkHyperParameterTuningJobSummary,
-    hHyperParameterTuningJobName,
-    hHyperParameterTuningJobArn,
-    hHyperParameterTuningJobStatus,
-    hStrategy,
-    hCreationTime,
-    hTrainingJobStatusCounters,
-    hObjectiveStatusCounters,
-    hHyperParameterTuningEndTime,
-    hLastModifiedTime,
-    hResourceLimits,
+    , HyperParameterTuningJobSummary (..)
+    , mkHyperParameterTuningJobSummary
+    , hHyperParameterTuningJobName
+    , hHyperParameterTuningJobArn
+    , hHyperParameterTuningJobStatus
+    , hStrategy
+    , hCreationTime
+    , hTrainingJobStatusCounters
+    , hObjectiveStatusCounters
+    , hHyperParameterTuningEndTime
+    , hLastModifiedTime
+    , hResourceLimits
 
     -- ** ImageStatus
-    ImageStatus (..),
+    , ImageStatus (..)
 
     -- ** ProcessingClusterConfig
-    ProcessingClusterConfig (..),
-    mkProcessingClusterConfig,
-    pccInstanceCount,
-    pccInstanceType,
-    pccVolumeSizeInGB,
-    pccVolumeKmsKeyId,
+    , ProcessingClusterConfig (..)
+    , mkProcessingClusterConfig
+    , pccInstanceCount
+    , pccInstanceType
+    , pccVolumeSizeInGB
+    , pccVolumeKmsKeyId
 
     -- ** ProcessingLocalPath
-    ProcessingLocalPath (..),
+    , ProcessingLocalPath (..)
 
     -- ** MonitoringOutput
-    MonitoringOutput (..),
-    mkMonitoringOutput,
-    moS3Output,
+    , MonitoringOutput (..)
+    , mkMonitoringOutput
+    , moS3Output
 
     -- ** ImageNameContains
-    ImageNameContains (..),
+    , ImageNameContains (..)
 
     -- ** AppDetails
-    AppDetails (..),
-    mkAppDetails,
-    adAppName,
-    adAppType,
-    adCreationTime,
-    adDomainId,
-    adStatus,
-    adUserProfileName,
+    , AppDetails (..)
+    , mkAppDetails
+    , adAppName
+    , adAppType
+    , adCreationTime
+    , adDomainId
+    , adStatus
+    , adUserProfileName
 
     -- ** StoppingCondition
-    StoppingCondition (..),
-    mkStoppingCondition,
-    scMaxRuntimeInSeconds,
-    scMaxWaitTimeInSeconds,
+    , StoppingCondition (..)
+    , mkStoppingCondition
+    , scMaxRuntimeInSeconds
+    , scMaxWaitTimeInSeconds
 
     -- ** AlgorithmSummary
-    AlgorithmSummary (..),
-    mkAlgorithmSummary,
-    aAlgorithmName,
-    aAlgorithmArn,
-    aCreationTime,
-    aAlgorithmStatus,
-    aAlgorithmDescription,
+    , AlgorithmSummary (..)
+    , mkAlgorithmSummary
+    , aAlgorithmName
+    , aAlgorithmArn
+    , aCreationTime
+    , aAlgorithmStatus
+    , aAlgorithmDescription
 
     -- ** ImageSortOrder
-    ImageSortOrder (..),
+    , ImageSortOrder (..)
 
     -- ** MonitoringExecutionSortKey
-    MonitoringExecutionSortKey (..),
+    , MonitoringExecutionSortKey (..)
 
     -- ** ProblemType
-    ProblemType (..),
+    , ProblemType (..)
 
     -- ** AutoMLOutputDataConfig
-    AutoMLOutputDataConfig (..),
-    mkAutoMLOutputDataConfig,
-    amlodcS3OutputPath,
-    amlodcKmsKeyId,
+    , AutoMLOutputDataConfig (..)
+    , mkAutoMLOutputDataConfig
+    , amlodcS3OutputPath
+    , amlodcKmsKeyId
 
     -- ** Url
-    Url (..),
+    , Url (..)
 
     -- ** AutoMLJobConfig
-    AutoMLJobConfig (..),
-    mkAutoMLJobConfig,
-    amljcCompletionCriteria,
-    amljcSecurityConfig,
+    , AutoMLJobConfig (..)
+    , mkAutoMLJobConfig
+    , amljcCompletionCriteria
+    , amljcSecurityConfig
 
     -- ** AppImageConfigName
-    AppImageConfigName (..),
+    , AppImageConfigName (..)
 
     -- ** AuthMode
-    AuthMode (..),
+    , AuthMode (..)
 
     -- ** AutoMLDataSource
-    AutoMLDataSource (..),
-    mkAutoMLDataSource,
-    amldsS3DataSource,
+    , AutoMLDataSource (..)
+    , mkAutoMLDataSource
+    , amldsS3DataSource
 
     -- ** Channel
-    Channel (..),
-    mkChannel,
-    cChannelName,
-    cDataSource,
-    cCompressionType,
-    cContentType,
-    cInputMode,
-    cRecordWrapperType,
-    cShuffleConfig,
+    , Channel (..)
+    , mkChannel
+    , cChannelName
+    , cDataSource
+    , cCompressionType
+    , cContentType
+    , cInputMode
+    , cRecordWrapperType
+    , cShuffleConfig
 
     -- ** ObjectiveStatus
-    ObjectiveStatus (..),
+    , ObjectiveStatus (..)
 
     -- ** FlowDefinitionTaskKeyword
-    FlowDefinitionTaskKeyword (..),
+    , FlowDefinitionTaskKeyword (..)
 
     -- ** TrainingJobStatus
-    TrainingJobStatus (..),
+    , TrainingJobStatus (..)
 
     -- ** TaskDescription
-    TaskDescription (..),
+    , TaskDescription (..)
 
     -- ** FlowDefinitionStatus
-    FlowDefinitionStatus (..),
+    , FlowDefinitionStatus (..)
 
     -- ** ExperimentConfig
-    ExperimentConfig (..),
-    mkExperimentConfig,
-    ecExperimentName,
-    ecTrialComponentDisplayName,
-    ecTrialName,
+    , ExperimentConfig (..)
+    , mkExperimentConfig
+    , ecExperimentName
+    , ecTrialComponentDisplayName
+    , ecTrialName
 
     -- ** AppName
-    AppName (..),
+    , AppName (..)
 
     -- ** NetworkInterfaceId
-    NetworkInterfaceId (..),
+    , NetworkInterfaceId (..)
 
     -- ** UiConfig
-    UiConfig (..),
-    mkUiConfig,
-    ucHumanTaskUiArn,
-    ucUiTemplateS3Uri,
+    , UiConfig (..)
+    , mkUiConfig
+    , ucHumanTaskUiArn
+    , ucUiTemplateS3Uri
 
     -- ** NestedFilters
-    NestedFilters (..),
-    mkNestedFilters,
-    nfNestedPropertyName,
-    nfFilters,
+    , NestedFilters (..)
+    , mkNestedFilters
+    , nfNestedPropertyName
+    , nfFilters
 
     -- ** ImageSortBy
-    ImageSortBy (..),
+    , ImageSortBy (..)
 
     -- ** SuggestionQuery
-    SuggestionQuery (..),
-    mkSuggestionQuery,
-    sqPropertyNameQuery,
+    , SuggestionQuery (..)
+    , mkSuggestionQuery
+    , sqPropertyNameQuery
 
     -- ** LabelingJobAlgorithmSpecificationArn
-    LabelingJobAlgorithmSpecificationArn (..),
+    , LabelingJobAlgorithmSpecificationArn (..)
 
     -- ** AutoMLJobName
-    AutoMLJobName (..),
+    , AutoMLJobName (..)
 
     -- ** UserContext
-    UserContext (..),
-    mkUserContext,
-    ucDomainId,
-    ucUserProfileArn,
-    ucUserProfileName,
+    , UserContext (..)
+    , mkUserContext
+    , ucDomainId
+    , ucUserProfileArn
+    , ucUserProfileName
 
     -- ** AssemblyType
-    AssemblyType (..),
+    , AssemblyType (..)
 
     -- ** AutoMLJobCompletionCriteria
-    AutoMLJobCompletionCriteria (..),
-    mkAutoMLJobCompletionCriteria,
-    amljccMaxAutoMLJobRuntimeInSeconds,
-    amljccMaxCandidates,
-    amljccMaxRuntimePerTrainingJobInSeconds,
+    , AutoMLJobCompletionCriteria (..)
+    , mkAutoMLJobCompletionCriteria
+    , amljccMaxAutoMLJobRuntimeInSeconds
+    , amljccMaxCandidates
+    , amljccMaxRuntimePerTrainingJobInSeconds
 
     -- ** ExecutionStatus
-    ExecutionStatus (..),
+    , ExecutionStatus (..)
 
     -- ** ParameterKey
-    ParameterKey (..),
+    , ParameterKey (..)
 
     -- ** FileSystemId
-    FileSystemId (..),
+    , FileSystemId (..)
 
     -- ** InferenceSpecification
-    InferenceSpecification (..),
-    mkInferenceSpecification,
-    isContainers,
-    isSupportedTransformInstanceTypes,
-    isSupportedRealtimeInferenceInstanceTypes,
-    isSupportedContentTypes,
-    isSupportedResponseMIMETypes,
+    , InferenceSpecification (..)
+    , mkInferenceSpecification
+    , isContainers
+    , isSupportedTransformInstanceTypes
+    , isSupportedRealtimeInferenceInstanceTypes
+    , isSupportedContentTypes
+    , isSupportedResponseMIMETypes
 
     -- ** TargetPlatform
-    TargetPlatform (..),
-    mkTargetPlatform,
-    tpOs,
-    tpArch,
-    tpAccelerator,
+    , TargetPlatform (..)
+    , mkTargetPlatform
+    , tpOs
+    , tpArch
+    , tpAccelerator
 
     -- ** FileSystemDataSource
-    FileSystemDataSource (..),
-    mkFileSystemDataSource,
-    fsdsFileSystemId,
-    fsdsFileSystemAccessMode,
-    fsdsFileSystemType,
-    fsdsDirectoryPath,
+    , FileSystemDataSource (..)
+    , mkFileSystemDataSource
+    , fsdsFileSystemId
+    , fsdsFileSystemAccessMode
+    , fsdsFileSystemType
+    , fsdsDirectoryPath
 
     -- ** SourceIpConfig
-    SourceIpConfig (..),
-    mkSourceIpConfig,
-    sicCidrs,
+    , SourceIpConfig (..)
+    , mkSourceIpConfig
+    , sicCidrs
 
     -- ** PresignedDomainUrl
-    PresignedDomainUrl (..),
+    , PresignedDomainUrl (..)
 
     -- ** ParameterRange
-    ParameterRange (..),
-    mkParameterRange,
-    prCategoricalParameterRangeSpecification,
-    prContinuousParameterRangeSpecification,
-    prIntegerParameterRangeSpecification,
+    , ParameterRange (..)
+    , mkParameterRange
+    , prCategoricalParameterRangeSpecification
+    , prContinuousParameterRangeSpecification
+    , prIntegerParameterRangeSpecification
 
     -- ** HyperParameterTuningJobSortByOptions
-    HyperParameterTuningJobSortByOptions (..),
+    , HyperParameterTuningJobSortByOptions (..)
 
     -- ** ListCompilationJobsSortBy
-    ListCompilationJobsSortBy (..),
+    , ListCompilationJobsSortBy (..)
 
     -- ** TransformJobDefinition
-    TransformJobDefinition (..),
-    mkTransformJobDefinition,
-    tjdTransformInput,
-    tjdTransformOutput,
-    tjdTransformResources,
-    tjdBatchStrategy,
-    tjdEnvironment,
-    tjdMaxConcurrentTransforms,
-    tjdMaxPayloadInMB,
+    , TransformJobDefinition (..)
+    , mkTransformJobDefinition
+    , tjdTransformInput
+    , tjdTransformOutput
+    , tjdTransformResources
+    , tjdBatchStrategy
+    , tjdEnvironment
+    , tjdMaxConcurrentTransforms
+    , tjdMaxPayloadInMB
 
     -- ** ContentClassifier
-    ContentClassifier (..),
+    , ContentClassifier (..)
 
     -- ** EnvironmentValue
-    EnvironmentValue (..),
+    , EnvironmentValue (..)
 
     -- ** KernelSpec
-    KernelSpec (..),
-    mkKernelSpec,
-    ksName,
-    ksDisplayName,
+    , KernelSpec (..)
+    , mkKernelSpec
+    , ksName
+    , ksDisplayName
 
     -- ** AutoMLJobObjective
-    AutoMLJobObjective (..),
-    mkAutoMLJobObjective,
-    amljoMetricName,
+    , AutoMLJobObjective (..)
+    , mkAutoMLJobObjective
+    , amljoMetricName
 
     -- ** UserProfileStatus
-    UserProfileStatus (..),
+    , UserProfileStatus (..)
 
     -- ** AutoMLS3DataType
-    AutoMLS3DataType (..),
+    , AutoMLS3DataType (..)
 
     -- ** SubnetId
-    SubnetId (..),
+    , SubnetId (..)
 
     -- ** ContinuousParameterRangeSpecification
-    ContinuousParameterRangeSpecification (..),
-    mkContinuousParameterRangeSpecification,
-    cprsMinValue,
-    cprsMaxValue,
+    , ContinuousParameterRangeSpecification (..)
+    , mkContinuousParameterRangeSpecification
+    , cprsMinValue
+    , cprsMaxValue
 
     -- ** StatusDetails
-    StatusDetails (..),
+    , StatusDetails (..)
 
     -- ** WorkforceArn
-    WorkforceArn (..),
+    , WorkforceArn (..)
 
     -- ** SecondaryStatusTransition
-    SecondaryStatusTransition (..),
-    mkSecondaryStatusTransition,
-    sstStatus,
-    sstStartTime,
-    sstEndTime,
-    sstStatusMessage,
+    , SecondaryStatusTransition (..)
+    , mkSecondaryStatusTransition
+    , sstStatus
+    , sstStartTime
+    , sstEndTime
+    , sstStatusMessage
 
     -- ** CollectionName
-    CollectionName (..),
+    , CollectionName (..)
 
     -- ** WorkteamArn
-    WorkteamArn (..),
+    , WorkteamArn (..)
 
     -- ** AutoMLCandidateStep
-    AutoMLCandidateStep (..),
-    mkAutoMLCandidateStep,
-    amlcsCandidateStepType,
-    amlcsCandidateStepArn,
-    amlcsCandidateStepName,
+    , AutoMLCandidateStep (..)
+    , mkAutoMLCandidateStep
+    , amlcsCandidateStepType
+    , amlcsCandidateStepArn
+    , amlcsCandidateStepName
 
     -- ** HumanLoopConfig
-    HumanLoopConfig (..),
-    mkHumanLoopConfig,
-    hlcWorkteamArn,
-    hlcHumanTaskUiArn,
-    hlcTaskTitle,
-    hlcTaskDescription,
-    hlcTaskCount,
-    hlcPublicWorkforceTaskPrice,
-    hlcTaskAvailabilityLifetimeInSeconds,
-    hlcTaskKeywords,
-    hlcTaskTimeLimitInSeconds,
+    , HumanLoopConfig (..)
+    , mkHumanLoopConfig
+    , hlcWorkteamArn
+    , hlcHumanTaskUiArn
+    , hlcTaskTitle
+    , hlcTaskDescription
+    , hlcTaskCount
+    , hlcPublicWorkforceTaskPrice
+    , hlcTaskAvailabilityLifetimeInSeconds
+    , hlcTaskKeywords
+    , hlcTaskTimeLimitInSeconds
 
     -- ** TrialComponentStatus
-    TrialComponentStatus (..),
-    mkTrialComponentStatus,
-    tcsMessage,
-    tcsPrimaryStatus,
+    , TrialComponentStatus (..)
+    , mkTrialComponentStatus
+    , tcsMessage
+    , tcsPrimaryStatus
 
     -- ** LabelCounters
-    LabelCounters (..),
-    mkLabelCounters,
-    lcFailedNonRetryableError,
-    lcHumanLabeled,
-    lcMachineLabeled,
-    lcTotalLabeled,
-    lcUnlabeled,
+    , LabelCounters (..)
+    , mkLabelCounters
+    , lcFailedNonRetryableError
+    , lcHumanLabeled
+    , lcMachineLabeled
+    , lcTotalLabeled
+    , lcUnlabeled
 
     -- ** ScheduleStatus
-    ScheduleStatus (..),
+    , ScheduleStatus (..)
 
     -- ** ParameterType
-    ParameterType (..),
+    , ParameterType (..)
 
     -- ** ImageVersionStatus
-    ImageVersionStatus (..),
+    , ImageVersionStatus (..)
 
     -- ** LabelingJobResourceConfig
-    LabelingJobResourceConfig (..),
-    mkLabelingJobResourceConfig,
-    ljrcVolumeKmsKeyId,
+    , LabelingJobResourceConfig (..)
+    , mkLabelingJobResourceConfig
+    , ljrcVolumeKmsKeyId
 
     -- ** MonitoringOutputConfig
-    MonitoringOutputConfig (..),
-    mkMonitoringOutputConfig,
-    mocMonitoringOutputs,
-    mocKmsKeyId,
+    , MonitoringOutputConfig (..)
+    , mkMonitoringOutputConfig
+    , mocMonitoringOutputs
+    , mocKmsKeyId
 
     -- ** InstanceType
-    InstanceType (..),
+    , InstanceType (..)
 
     -- ** ImageVersionSortOrder
-    ImageVersionSortOrder (..),
+    , ImageVersionSortOrder (..)
 
     -- ** NotebookInstanceLifecycleConfigSortKey
-    NotebookInstanceLifecycleConfigSortKey (..),
+    , NotebookInstanceLifecycleConfigSortKey (..)
 
     -- ** TransformS3DataSource
-    TransformS3DataSource (..),
-    mkTransformS3DataSource,
-    tsdsS3DataType,
-    tsdsS3Uri,
+    , TransformS3DataSource (..)
+    , mkTransformS3DataSource
+    , tsdsS3DataType
+    , tsdsS3Uri
 
     -- ** ModelPackageSummary
-    ModelPackageSummary (..),
-    mkModelPackageSummary,
-    mpsModelPackageName,
-    mpsModelPackageArn,
-    mpsCreationTime,
-    mpsModelPackageStatus,
-    mpsModelPackageDescription,
+    , ModelPackageSummary (..)
+    , mkModelPackageSummary
+    , mpsModelPackageName
+    , mpsModelPackageArn
+    , mpsCreationTime
+    , mpsModelPackageStatus
+    , mpsModelPackageDescription
 
     -- ** ConfigValue
-    ConfigValue (..),
+    , ConfigValue (..)
 
     -- ** HumanTaskUiName
-    HumanTaskUiName (..),
+    , HumanTaskUiName (..)
 
     -- ** NotebookInstanceLifecycleConfigArn
-    NotebookInstanceLifecycleConfigArn (..),
+    , NotebookInstanceLifecycleConfigArn (..)
 
     -- ** CandidateStatus
-    CandidateStatus (..),
+    , CandidateStatus (..)
 
     -- ** ImageUri
-    ImageUri (..),
+    , ImageUri (..)
 
     -- ** TrialComponentSourceDetail
-    TrialComponentSourceDetail (..),
-    mkTrialComponentSourceDetail,
-    tcsdProcessingJob,
-    tcsdSourceArn,
-    tcsdTrainingJob,
-    tcsdTransformJob,
+    , TrialComponentSourceDetail (..)
+    , mkTrialComponentSourceDetail
+    , tcsdProcessingJob
+    , tcsdSourceArn
+    , tcsdTrainingJob
+    , tcsdTransformJob
 
     -- ** Experiment
-    Experiment (..),
-    mkExperiment,
-    eCreatedBy,
-    eCreationTime,
-    eDescription,
-    eDisplayName,
-    eExperimentArn,
-    eExperimentName,
-    eLastModifiedBy,
-    eLastModifiedTime,
-    eSource,
-    eTags,
+    , Experiment (..)
+    , mkExperiment
+    , eCreatedBy
+    , eCreationTime
+    , eDescription
+    , eDisplayName
+    , eExperimentArn
+    , eExperimentName
+    , eLastModifiedBy
+    , eLastModifiedTime
+    , eSource
+    , eTags
 
     -- ** TargetPlatformAccelerator
-    TargetPlatformAccelerator (..),
+    , TargetPlatformAccelerator (..)
 
     -- ** FileSystemConfig
-    FileSystemConfig (..),
-    mkFileSystemConfig,
-    fscDefaultGid,
-    fscDefaultUid,
-    fscMountPath,
+    , FileSystemConfig (..)
+    , mkFileSystemConfig
+    , fscDefaultGid
+    , fscDefaultUid
+    , fscMountPath
 
     -- ** InputConfig
-    InputConfig (..),
-    mkInputConfig,
-    icS3Uri,
-    icDataInputConfig,
-    icFramework,
+    , InputConfig (..)
+    , mkInputConfig
+    , icS3Uri
+    , icDataInputConfig
+    , icFramework
 
     -- ** SecurityGroupId
-    SecurityGroupId (..),
+    , SecurityGroupId (..)
 
     -- ** NetworkConfig
-    NetworkConfig (..),
-    mkNetworkConfig,
-    ncEnableInterContainerTrafficEncryption,
-    ncEnableNetworkIsolation,
-    ncVpcConfig,
+    , NetworkConfig (..)
+    , mkNetworkConfig
+    , ncEnableInterContainerTrafficEncryption
+    , ncEnableNetworkIsolation
+    , ncVpcConfig
 
     -- ** AccountId
-    AccountId (..),
+    , AccountId (..)
 
     -- ** ProductionVariant
-    ProductionVariant (..),
-    mkProductionVariant,
-    pvVariantName,
-    pvModelName,
-    pvInitialInstanceCount,
-    pvInstanceType,
-    pvAcceleratorType,
-    pvInitialVariantWeight,
+    , ProductionVariant (..)
+    , mkProductionVariant
+    , pvVariantName
+    , pvModelName
+    , pvInitialInstanceCount
+    , pvInstanceType
+    , pvAcceleratorType
+    , pvInitialVariantWeight
 
     -- ** NotebookInstanceStatus
-    NotebookInstanceStatus (..),
+    , NotebookInstanceStatus (..)
 
     -- ** PropertyNameSuggestion
-    PropertyNameSuggestion (..),
-    mkPropertyNameSuggestion,
-    pnsPropertyName,
+    , PropertyNameSuggestion (..)
+    , mkPropertyNameSuggestion
+    , pnsPropertyName
 
     -- ** Branch
-    Branch (..),
+    , Branch (..)
 
     -- ** ProcessingS3Output
-    ProcessingS3Output (..),
-    mkProcessingS3Output,
-    psoS3Uri,
-    psoLocalPath,
-    psoS3UploadMode,
+    , ProcessingS3Output (..)
+    , mkProcessingS3Output
+    , psoS3Uri
+    , psoLocalPath
+    , psoS3UploadMode
 
     -- ** ExperimentSource
-    ExperimentSource (..),
-    mkExperimentSource,
-    esSourceArn,
-    esSourceType,
+    , ExperimentSource (..)
+    , mkExperimentSource
+    , esSourceArn
+    , esSourceType
 
     -- ** ListWorkforcesSortByOptions
-    ListWorkforcesSortByOptions (..),
+    , ListWorkforcesSortByOptions (..)
 
     -- ** NextToken
-    NextToken (..),
+    , NextToken (..)
 
     -- ** RetentionPolicy
-    RetentionPolicy (..),
-    mkRetentionPolicy,
-    rpHomeEfsFileSystem,
+    , RetentionPolicy (..)
+    , mkRetentionPolicy
+    , rpHomeEfsFileSystem
 
     -- ** VersionedArnOrName
-    VersionedArnOrName (..),
+    , VersionedArnOrName (..)
 
     -- ** RetentionType
-    RetentionType (..),
+    , RetentionType (..)
 
     -- ** BooleanOperator
-    BooleanOperator (..),
+    , BooleanOperator (..)
 
     -- ** AppSortKey
-    AppSortKey (..),
+    , AppSortKey (..)
 
     -- ** CandidateSortBy
-    CandidateSortBy (..),
+    , CandidateSortBy (..)
 
     -- ** ChannelName
-    ChannelName (..),
+    , ChannelName (..)
 
     -- ** DirectoryPath
-    DirectoryPath (..),
+    , DirectoryPath (..)
 
     -- ** Cidr
-    Cidr (..),
+    , Cidr (..)
 
     -- ** SearchExpression
-    SearchExpression (..),
-    mkSearchExpression,
-    seFilters,
-    seNestedFilters,
-    seOperator,
-    seSubExpressions,
+    , SearchExpression (..)
+    , mkSearchExpression
+    , seFilters
+    , seNestedFilters
+    , seOperator
+    , seSubExpressions
 
     -- ** JupyterServerAppSettings
-    JupyterServerAppSettings (..),
-    mkJupyterServerAppSettings,
-    jsasDefaultResourceSpec,
+    , JupyterServerAppSettings (..)
+    , mkJupyterServerAppSettings
+    , jsasDefaultResourceSpec
 
     -- ** ContainerArgument
-    ContainerArgument (..),
+    , ContainerArgument (..)
 
     -- ** LabelingJobS3DataSource
-    LabelingJobS3DataSource (..),
-    mkLabelingJobS3DataSource,
-    ljsdsManifestS3Uri,
+    , LabelingJobS3DataSource (..)
+    , mkLabelingJobS3DataSource
+    , ljsdsManifestS3Uri
 
     -- ** RuleEvaluationStatus
-    RuleEvaluationStatus (..),
+    , RuleEvaluationStatus (..)
 
     -- ** ExperimentArn
-    ExperimentArn (..),
+    , ExperimentArn (..)
 
     -- ** ListWorkteamsSortByOptions
-    ListWorkteamsSortByOptions (..),
+    , ListWorkteamsSortByOptions (..)
 
     -- ** CustomImage
-    CustomImage (..),
-    mkCustomImage,
-    ciImageName,
-    ciAppImageConfigName,
-    ciImageVersionNumber,
+    , CustomImage (..)
+    , mkCustomImage
+    , ciImageName
+    , ciAppImageConfigName
+    , ciImageVersionNumber
 
     -- ** ProcessingJob
-    ProcessingJob (..),
-    mkProcessingJob,
-    pjAppSpecification,
-    pjAutoMLJobArn,
-    pjCreationTime,
-    pjEnvironment,
-    pjExitMessage,
-    pjExperimentConfig,
-    pjFailureReason,
-    pjLastModifiedTime,
-    pjMonitoringScheduleArn,
-    pjNetworkConfig,
-    pjProcessingEndTime,
-    pjProcessingInputs,
-    pjProcessingJobArn,
-    pjProcessingJobName,
-    pjProcessingJobStatus,
-    pjProcessingOutputConfig,
-    pjProcessingResources,
-    pjProcessingStartTime,
-    pjRoleArn,
-    pjStoppingCondition,
-    pjTags,
-    pjTrainingJobArn,
+    , ProcessingJob (..)
+    , mkProcessingJob
+    , pjAppSpecification
+    , pjAutoMLJobArn
+    , pjCreationTime
+    , pjEnvironment
+    , pjExitMessage
+    , pjExperimentConfig
+    , pjFailureReason
+    , pjLastModifiedTime
+    , pjMonitoringScheduleArn
+    , pjNetworkConfig
+    , pjProcessingEndTime
+    , pjProcessingInputs
+    , pjProcessingJobArn
+    , pjProcessingJobName
+    , pjProcessingJobStatus
+    , pjProcessingOutputConfig
+    , pjProcessingResources
+    , pjProcessingStartTime
+    , pjRoleArn
+    , pjStoppingCondition
+    , pjTags
+    , pjTrainingJobArn
 
     -- ** DataInputConfig
-    DataInputConfig (..),
+    , DataInputConfig (..)
 
     -- ** AutoMLJobArtifacts
-    AutoMLJobArtifacts (..),
-    mkAutoMLJobArtifacts,
-    amljaCandidateDefinitionNotebookLocation,
-    amljaDataExplorationNotebookLocation,
+    , AutoMLJobArtifacts (..)
+    , mkAutoMLJobArtifacts
+    , amljaCandidateDefinitionNotebookLocation
+    , amljaDataExplorationNotebookLocation
 
     -- ** HyperParameterTuningJobWarmStartConfig
-    HyperParameterTuningJobWarmStartConfig (..),
-    mkHyperParameterTuningJobWarmStartConfig,
-    hptjwscParentHyperParameterTuningJobs,
-    hptjwscWarmStartType,
+    , HyperParameterTuningJobWarmStartConfig (..)
+    , mkHyperParameterTuningJobWarmStartConfig
+    , hptjwscParentHyperParameterTuningJobs
+    , hptjwscWarmStartType
 
     -- ** AppArn
-    AppArn (..),
+    , AppArn (..)
 
     -- ** NotebookInstanceSummary
-    NotebookInstanceSummary (..),
-    mkNotebookInstanceSummary,
-    nisNotebookInstanceName,
-    nisNotebookInstanceArn,
-    nisAdditionalCodeRepositories,
-    nisCreationTime,
-    nisDefaultCodeRepository,
-    nisInstanceType,
-    nisLastModifiedTime,
-    nisNotebookInstanceLifecycleConfigName,
-    nisNotebookInstanceStatus,
-    nisUrl,
+    , NotebookInstanceSummary (..)
+    , mkNotebookInstanceSummary
+    , nisNotebookInstanceName
+    , nisNotebookInstanceArn
+    , nisAdditionalCodeRepositories
+    , nisCreationTime
+    , nisDefaultCodeRepository
+    , nisInstanceType
+    , nisLastModifiedTime
+    , nisNotebookInstanceLifecycleConfigName
+    , nisNotebookInstanceStatus
+    , nisUrl
 
     -- ** MetricData
-    MetricData (..),
-    mkMetricData,
-    mdMetricName,
-    mdTimestamp,
-    mdValue,
+    , MetricData (..)
+    , mkMetricData
+    , mdMetricName
+    , mdTimestamp
+    , mdValue
 
     -- ** AutoMLJobArn
-    AutoMLJobArn (..),
+    , AutoMLJobArn (..)
 
     -- ** SortOrder
-    SortOrder (..),
+    , SortOrder (..)
 
     -- ** TaskKeyword
-    TaskKeyword (..),
+    , TaskKeyword (..)
 
     -- ** TrainingJobEarlyStoppingType
-    TrainingJobEarlyStoppingType (..),
+    , TrainingJobEarlyStoppingType (..)
 
     -- ** ContainerMode
-    ContainerMode (..),
+    , ContainerMode (..)
 
     -- ** ImageVersionSortBy
-    ImageVersionSortBy (..),
+    , ImageVersionSortBy (..)
 
     -- ** MonitoringClusterConfig
-    MonitoringClusterConfig (..),
-    mkMonitoringClusterConfig,
-    mccInstanceCount,
-    mccInstanceType,
-    mccVolumeSizeInGB,
-    mccVolumeKmsKeyId,
+    , MonitoringClusterConfig (..)
+    , mkMonitoringClusterConfig
+    , mccInstanceCount
+    , mccInstanceType
+    , mccVolumeSizeInGB
+    , mccVolumeKmsKeyId
 
     -- ** VpcConfig
-    VpcConfig (..),
-    mkVpcConfig,
-    vcSecurityGroupIds,
-    vcSubnets,
+    , VpcConfig (..)
+    , mkVpcConfig
+    , vcSecurityGroupIds
+    , vcSubnets
 
     -- ** ImageDigest
-    ImageDigest (..),
+    , ImageDigest (..)
 
     -- ** AutoMLJobSecondaryStatus
-    AutoMLJobSecondaryStatus (..),
+    , AutoMLJobSecondaryStatus (..)
 
     -- ** TrialSource
-    TrialSource (..),
-    mkTrialSource,
-    tsSourceArn,
-    tsSourceType,
+    , TrialSource (..)
+    , mkTrialSource
+    , tsSourceArn
+    , tsSourceType
 
     -- ** NotebookInstanceAcceleratorType
-    NotebookInstanceAcceleratorType (..),
+    , NotebookInstanceAcceleratorType (..)
 
     -- ** KmsKeyId
-    KmsKeyId (..),
+    , KmsKeyId (..)
 
     -- ** ResourceArn
-    ResourceArn (..),
+    , ResourceArn (..)
 
     -- ** ResponseMIMEType
-    ResponseMIMEType (..),
+    , ResponseMIMEType (..)
 
     -- ** DomainName
-    DomainName (..),
+    , DomainName (..)
 
     -- ** TransformJobStatus
-    TransformJobStatus (..),
+    , TransformJobStatus (..)
 
     -- ** ModelPackageContainerDefinition
-    ModelPackageContainerDefinition (..),
-    mkModelPackageContainerDefinition,
-    mpcdImage,
-    mpcdContainerHostname,
-    mpcdImageDigest,
-    mpcdModelDataUrl,
-    mpcdProductId,
+    , ModelPackageContainerDefinition (..)
+    , mkModelPackageContainerDefinition
+    , mpcdImage
+    , mpcdContainerHostname
+    , mpcdImageDigest
+    , mpcdModelDataUrl
+    , mpcdProductId
 
     -- ** DebugRuleConfiguration
-    DebugRuleConfiguration (..),
-    mkDebugRuleConfiguration,
-    drcRuleConfigurationName,
-    drcRuleEvaluatorImage,
-    drcInstanceType,
-    drcLocalPath,
-    drcRuleParameters,
-    drcS3OutputPath,
-    drcVolumeSizeInGB,
+    , DebugRuleConfiguration (..)
+    , mkDebugRuleConfiguration
+    , drcRuleConfigurationName
+    , drcRuleEvaluatorImage
+    , drcInstanceType
+    , drcLocalPath
+    , drcRuleParameters
+    , drcS3OutputPath
+    , drcVolumeSizeInGB
 
     -- ** StatusMessage
-    StatusMessage (..),
+    , StatusMessage (..)
 
     -- ** ScheduleExpression
-    ScheduleExpression (..),
+    , ScheduleExpression (..)
 
     -- ** DesiredWeightAndCapacity
-    DesiredWeightAndCapacity (..),
-    mkDesiredWeightAndCapacity,
-    dwacVariantName,
-    dwacDesiredInstanceCount,
-    dwacDesiredWeight,
+    , DesiredWeightAndCapacity (..)
+    , mkDesiredWeightAndCapacity
+    , dwacVariantName
+    , dwacDesiredInstanceCount
+    , dwacDesiredWeight
 
     -- ** HumanLoopRequestSource
-    HumanLoopRequestSource (..),
-    mkHumanLoopRequestSource,
-    hlrsAwsManagedHumanLoopRequestSource,
+    , HumanLoopRequestSource (..)
+    , mkHumanLoopRequestSource
+    , hlrsAwsManagedHumanLoopRequestSource
 
     -- ** AnnotationConsolidationConfig
-    AnnotationConsolidationConfig (..),
-    mkAnnotationConsolidationConfig,
-    accAnnotationConsolidationLambdaArn,
+    , AnnotationConsolidationConfig (..)
+    , mkAnnotationConsolidationConfig
+    , accAnnotationConsolidationLambdaArn
 
     -- ** SortTrialComponentsBy
-    SortTrialComponentsBy (..),
+    , SortTrialComponentsBy (..)
 
     -- ** EndpointStatus
-    EndpointStatus (..),
+    , EndpointStatus (..)
 
     -- ** UserProfileSortKey
-    UserProfileSortKey (..),
+    , UserProfileSortKey (..)
 
     -- ** JoinSource
-    JoinSource (..),
+    , JoinSource (..)
 
     -- ** CaptureOption
-    CaptureOption (..),
-    mkCaptureOption,
-    coCaptureMode,
+    , CaptureOption (..)
+    , mkCaptureOption
+    , coCaptureMode
 
     -- ** ResolvedAttributes
-    ResolvedAttributes (..),
-    mkResolvedAttributes,
-    raAutoMLJobObjective,
-    raCompletionCriteria,
-    raProblemType,
+    , ResolvedAttributes (..)
+    , mkResolvedAttributes
+    , raAutoMLJobObjective
+    , raCompletionCriteria
+    , raProblemType
 
     -- ** MonitoringStoppingCondition
-    MonitoringStoppingCondition (..),
-    mkMonitoringStoppingCondition,
-    mscMaxRuntimeInSeconds,
+    , MonitoringStoppingCondition (..)
+    , mkMonitoringStoppingCondition
+    , mscMaxRuntimeInSeconds
 
     -- ** UserProfileArn
-    UserProfileArn (..),
+    , UserProfileArn (..)
 
     -- ** MonitoringS3Uri
-    MonitoringS3Uri (..),
+    , MonitoringS3Uri (..)
 
     -- ** SourceAlgorithm
-    SourceAlgorithm (..),
-    mkSourceAlgorithm,
-    saAlgorithmName,
-    saModelDataUrl,
+    , SourceAlgorithm (..)
+    , mkSourceAlgorithm
+    , saAlgorithmName
+    , saModelDataUrl
 
     -- ** SearchSortOrder
-    SearchSortOrder (..),
+    , SearchSortOrder (..)
 
     -- ** CompilationJobStatus
-    CompilationJobStatus (..),
+    , CompilationJobStatus (..)
 
     -- ** FlowDefinitionArn
-    FlowDefinitionArn (..),
+    , FlowDefinitionArn (..)
 
     -- ** DomainDetails
-    DomainDetails (..),
-    mkDomainDetails,
-    ddCreationTime,
-    ddDomainArn,
-    ddDomainId,
-    ddDomainName,
-    ddLastModifiedTime,
-    ddStatus,
-    ddUrl,
+    , DomainDetails (..)
+    , mkDomainDetails
+    , ddCreationTime
+    , ddDomainArn
+    , ddDomainId
+    , ddDomainName
+    , ddLastModifiedTime
+    , ddStatus
+    , ddUrl
 
     -- ** TransformInput
-    TransformInput (..),
-    mkTransformInput,
-    tiDataSource,
-    tiCompressionType,
-    tiContentType,
-    tiSplitType,
+    , TransformInput (..)
+    , mkTransformInput
+    , tiDataSource
+    , tiCompressionType
+    , tiContentType
+    , tiSplitType
 
     -- ** RootAccess
-    RootAccess (..),
+    , RootAccess (..)
 
     -- ** HumanTaskUiSummary
-    HumanTaskUiSummary (..),
-    mkHumanTaskUiSummary,
-    htusHumanTaskUiName,
-    htusHumanTaskUiArn,
-    htusCreationTime,
+    , HumanTaskUiSummary (..)
+    , mkHumanTaskUiSummary
+    , htusHumanTaskUiName
+    , htusHumanTaskUiArn
+    , htusCreationTime
 
     -- ** TrainingJobArn
-    TrainingJobArn (..),
+    , TrainingJobArn (..)
 
     -- ** AlgorithmSpecification
-    AlgorithmSpecification (..),
-    mkAlgorithmSpecification,
-    asTrainingInputMode,
-    asAlgorithmName,
-    asEnableSageMakerMetricsTimeSeries,
-    asMetricDefinitions,
-    asTrainingImage,
+    , AlgorithmSpecification (..)
+    , mkAlgorithmSpecification
+    , asTrainingInputMode
+    , asAlgorithmName
+    , asEnableSageMakerMetricsTimeSeries
+    , asMetricDefinitions
+    , asTrainingImage
 
     -- ** AutoMLNameContains
-    AutoMLNameContains (..),
+    , AutoMLNameContains (..)
 
     -- ** TargetAttributeName
-    TargetAttributeName (..),
+    , TargetAttributeName (..)
 
     -- ** GitConfigForUpdate
-    GitConfigForUpdate (..),
-    mkGitConfigForUpdate,
-    gcfuSecretArn,
+    , GitConfigForUpdate (..)
+    , mkGitConfigForUpdate
+    , gcfuSecretArn
 
     -- ** LabelingJobForWorkteamSummary
-    LabelingJobForWorkteamSummary (..),
-    mkLabelingJobForWorkteamSummary,
-    ljfwsJobReferenceCode,
-    ljfwsWorkRequesterAccountId,
-    ljfwsCreationTime,
-    ljfwsLabelCounters,
-    ljfwsLabelingJobName,
-    ljfwsNumberOfHumanWorkersPerDataObject,
+    , LabelingJobForWorkteamSummary (..)
+    , mkLabelingJobForWorkteamSummary
+    , ljfwsJobReferenceCode
+    , ljfwsWorkRequesterAccountId
+    , ljfwsCreationTime
+    , ljfwsLabelCounters
+    , ljfwsLabelingJobName
+    , ljfwsNumberOfHumanWorkersPerDataObject
 
     -- ** FlowDefinitionOutputConfig
-    FlowDefinitionOutputConfig (..),
-    mkFlowDefinitionOutputConfig,
-    fdocS3OutputPath,
-    fdocKmsKeyId,
+    , FlowDefinitionOutputConfig (..)
+    , mkFlowDefinitionOutputConfig
+    , fdocS3OutputPath
+    , fdocKmsKeyId
 
     -- ** CandidateName
-    CandidateName (..),
+    , CandidateName (..)
 
     -- ** TransformEnvironmentValue
-    TransformEnvironmentValue (..),
+    , TransformEnvironmentValue (..)
 
     -- ** ContainerDefinition
-    ContainerDefinition (..),
-    mkContainerDefinition,
-    cdContainerHostname,
-    cdEnvironment,
-    cdImage,
-    cdImageConfig,
-    cdMode,
-    cdModelDataUrl,
-    cdModelPackageName,
+    , ContainerDefinition (..)
+    , mkContainerDefinition
+    , cdContainerHostname
+    , cdEnvironment
+    , cdImage
+    , cdImageConfig
+    , cdMode
+    , cdModelDataUrl
+    , cdModelPackageName
 
     -- ** SplitType
-    SplitType (..),
+    , SplitType (..)
 
     -- ** AutoMLFailureReason
-    AutoMLFailureReason (..),
+    , AutoMLFailureReason (..)
 
     -- ** HyperParameterSpecification
-    HyperParameterSpecification (..),
-    mkHyperParameterSpecification,
-    hpsName,
-    hpsType,
-    hpsDefaultValue,
-    hpsDescription,
-    hpsIsRequired,
-    hpsIsTunable,
-    hpsRange,
+    , HyperParameterSpecification (..)
+    , mkHyperParameterSpecification
+    , hpsName
+    , hpsType
+    , hpsDefaultValue
+    , hpsDescription
+    , hpsIsRequired
+    , hpsIsTunable
+    , hpsRange
 
     -- ** RenderingError
-    RenderingError (..),
-    mkRenderingError,
-    reCode,
-    reMessage,
+    , RenderingError (..)
+    , mkRenderingError
+    , reCode
+    , reMessage
 
     -- ** AutoMLSecurityConfig
-    AutoMLSecurityConfig (..),
-    mkAutoMLSecurityConfig,
-    amlscEnableInterContainerTrafficEncryption,
-    amlscVolumeKmsKeyId,
-    amlscVpcConfig,
+    , AutoMLSecurityConfig (..)
+    , mkAutoMLSecurityConfig
+    , amlscEnableInterContainerTrafficEncryption
+    , amlscVolumeKmsKeyId
+    , amlscVpcConfig
 
     -- ** DirectInternetAccess
-    DirectInternetAccess (..),
+    , DirectInternetAccess (..)
 
     -- ** ProcessingInstanceType
-    ProcessingInstanceType (..),
+    , ProcessingInstanceType (..)
 
     -- ** HumanTaskUiStatus
-    HumanTaskUiStatus (..),
+    , HumanTaskUiStatus (..)
 
     -- ** CompilationJobSummary
-    CompilationJobSummary (..),
-    mkCompilationJobSummary,
-    cjsCompilationJobName,
-    cjsCompilationJobArn,
-    cjsCreationTime,
-    cjsCompilationJobStatus,
-    cjsCompilationEndTime,
-    cjsCompilationStartTime,
-    cjsCompilationTargetDevice,
-    cjsCompilationTargetPlatformAccelerator,
-    cjsCompilationTargetPlatformArch,
-    cjsCompilationTargetPlatformOs,
-    cjsLastModifiedTime,
+    , CompilationJobSummary (..)
+    , mkCompilationJobSummary
+    , cjsCompilationJobName
+    , cjsCompilationJobArn
+    , cjsCreationTime
+    , cjsCompilationJobStatus
+    , cjsCompilationEndTime
+    , cjsCompilationStartTime
+    , cjsCompilationTargetDevice
+    , cjsCompilationTargetPlatformAccelerator
+    , cjsCompilationTargetPlatformArch
+    , cjsCompilationTargetPlatformOs
+    , cjsLastModifiedTime
 
     -- ** ContainerEntrypointString
-    ContainerEntrypointString (..),
+    , ContainerEntrypointString (..)
 
     -- ** S3DataDistribution
-    S3DataDistribution (..),
+    , S3DataDistribution (..)
 
     -- ** SingleSignOnUserIdentifier
-    SingleSignOnUserIdentifier (..),
+    , SingleSignOnUserIdentifier (..)
 
     -- ** ImageArn
-    ImageArn (..),
+    , ImageArn (..)
 
     -- ** LabelAttributeName
-    LabelAttributeName (..),
+    , LabelAttributeName (..)
 
     -- ** SharingSettings
-    SharingSettings (..),
-    mkSharingSettings,
-    ssNotebookOutputOption,
-    ssS3KmsKeyId,
-    ssS3OutputPath,
+    , SharingSettings (..)
+    , mkSharingSettings
+    , ssNotebookOutputOption
+    , ssS3KmsKeyId
+    , ssS3OutputPath
 
     -- ** LabelingJobStatus
-    LabelingJobStatus (..),
+    , LabelingJobStatus (..)
 
     -- ** MonitoringResources
-    MonitoringResources (..),
-    mkMonitoringResources,
-    mrClusterConfig,
+    , MonitoringResources (..)
+    , mkMonitoringResources
+    , mrClusterConfig
 
     -- ** RenderableTask
-    RenderableTask (..),
-    mkRenderableTask,
-    rtInput,
+    , RenderableTask (..)
+    , mkRenderableTask
+    , rtInput
 
     -- ** OutputConfig
-    OutputConfig (..),
-    mkOutputConfig,
-    ocS3OutputLocation,
-    ocCompilerOptions,
-    ocTargetDevice,
-    ocTargetPlatform,
+    , OutputConfig (..)
+    , mkOutputConfig
+    , ocS3OutputLocation
+    , ocCompilerOptions
+    , ocTargetDevice
+    , ocTargetPlatform
 
     -- ** ProcessingInput
-    ProcessingInput (..),
-    mkProcessingInput,
-    piInputName,
-    piS3Input,
+    , ProcessingInput (..)
+    , mkProcessingInput
+    , piInputName
+    , piS3Input
 
     -- ** DebugRuleEvaluationStatus
-    DebugRuleEvaluationStatus (..),
-    mkDebugRuleEvaluationStatus,
-    dresLastModifiedTime,
-    dresRuleConfigurationName,
-    dresRuleEvaluationJobArn,
-    dresRuleEvaluationStatus,
-    dresStatusDetails,
+    , DebugRuleEvaluationStatus (..)
+    , mkDebugRuleEvaluationStatus
+    , dresLastModifiedTime
+    , dresRuleConfigurationName
+    , dresRuleEvaluationJobArn
+    , dresRuleEvaluationStatus
+    , dresStatusDetails
 
     -- ** DataSource
-    DataSource (..),
-    mkDataSource,
-    dsFileSystemDataSource,
-    dsS3DataSource,
+    , DataSource (..)
+    , mkDataSource
+    , dsFileSystemDataSource
+    , dsS3DataSource
 
     -- ** CognitoConfig
-    CognitoConfig (..),
-    mkCognitoConfig,
-    ccUserPool,
-    ccClientId,
+    , CognitoConfig (..)
+    , mkCognitoConfig
+    , ccUserPool
+    , ccClientId
 
     -- ** OutputDataConfig
-    OutputDataConfig (..),
-    mkOutputDataConfig,
-    odcS3OutputPath,
-    odcKmsKeyId,
+    , OutputDataConfig (..)
+    , mkOutputDataConfig
+    , odcS3OutputPath
+    , odcKmsKeyId
 
     -- ** NotebookInstanceSortKey
-    NotebookInstanceSortKey (..),
+    , NotebookInstanceSortKey (..)
 
     -- ** MemberDefinition
-    MemberDefinition (..),
-    mkMemberDefinition,
-    mdCognitoMemberDefinition,
-    mdOidcMemberDefinition,
+    , MemberDefinition (..)
+    , mkMemberDefinition
+    , mdCognitoMemberDefinition
+    , mdOidcMemberDefinition
 
     -- ** TaskTitle
-    TaskTitle (..),
+    , TaskTitle (..)
 
     -- ** ConfigKey
-    ConfigKey (..),
+    , ConfigKey (..)
 
     -- ** EndpointConfigNameContains
-    EndpointConfigNameContains (..),
+    , EndpointConfigNameContains (..)
 
     -- ** ExperimentSummary
-    ExperimentSummary (..),
-    mkExperimentSummary,
-    esfCreationTime,
-    esfDisplayName,
-    esfExperimentArn,
-    esfExperimentName,
-    esfExperimentSource,
-    esfLastModifiedTime,
+    , ExperimentSummary (..)
+    , mkExperimentSummary
+    , esfCreationTime
+    , esfDisplayName
+    , esfExperimentArn
+    , esfExperimentName
+    , esfExperimentSource
+    , esfLastModifiedTime
 
     -- ** ProductionVariantInstanceType
-    ProductionVariantInstanceType (..),
+    , ProductionVariantInstanceType (..)
 
     -- ** LabelingJobInputConfig
-    LabelingJobInputConfig (..),
-    mkLabelingJobInputConfig,
-    ljicDataSource,
-    ljicDataAttributes,
+    , LabelingJobInputConfig (..)
+    , mkLabelingJobInputConfig
+    , ljicDataSource
+    , ljicDataAttributes
 
     -- ** AutoMLJobSummary
-    AutoMLJobSummary (..),
-    mkAutoMLJobSummary,
-    amljsAutoMLJobName,
-    amljsAutoMLJobArn,
-    amljsAutoMLJobStatus,
-    amljsAutoMLJobSecondaryStatus,
-    amljsCreationTime,
-    amljsLastModifiedTime,
-    amljsEndTime,
-    amljsFailureReason,
+    , AutoMLJobSummary (..)
+    , mkAutoMLJobSummary
+    , amljsAutoMLJobName
+    , amljsAutoMLJobArn
+    , amljsAutoMLJobStatus
+    , amljsAutoMLJobSecondaryStatus
+    , amljsCreationTime
+    , amljsLastModifiedTime
+    , amljsEndTime
+    , amljsFailureReason
 
     -- ** HyperParameterTuningJobConfig
-    HyperParameterTuningJobConfig (..),
-    mkHyperParameterTuningJobConfig,
-    hptjcStrategy,
-    hptjcResourceLimits,
-    hptjcHyperParameterTuningJobObjective,
-    hptjcParameterRanges,
-    hptjcTrainingJobEarlyStoppingType,
-    hptjcTuningJobCompletionCriteria,
+    , HyperParameterTuningJobConfig (..)
+    , mkHyperParameterTuningJobConfig
+    , hptjcStrategy
+    , hptjcResourceLimits
+    , hptjcHyperParameterTuningJobObjective
+    , hptjcParameterRanges
+    , hptjcTrainingJobEarlyStoppingType
+    , hptjcTuningJobCompletionCriteria
 
     -- ** EndpointInput
-    EndpointInput (..),
-    mkEndpointInput,
-    eiEndpointName,
-    eiLocalPath,
-    eiS3DataDistributionType,
-    eiS3InputMode,
+    , EndpointInput (..)
+    , mkEndpointInput
+    , eiEndpointName
+    , eiLocalPath
+    , eiS3DataDistributionType
+    , eiS3InputMode
 
     -- ** NotebookInstanceArn
-    NotebookInstanceArn (..),
+    , NotebookInstanceArn (..)
 
     -- ** ProcessingS3CompressionType
-    ProcessingS3CompressionType (..),
+    , ProcessingS3CompressionType (..)
 
     -- ** TrialComponentSourceArn
-    TrialComponentSourceArn (..),
+    , TrialComponentSourceArn (..)
 
     -- ** AutoMLChannel
-    AutoMLChannel (..),
-    mkAutoMLChannel,
-    amlcDataSource,
-    amlcTargetAttributeName,
-    amlcCompressionType,
+    , AutoMLChannel (..)
+    , mkAutoMLChannel
+    , amlcDataSource
+    , amlcTargetAttributeName
+    , amlcCompressionType
 
     -- ** DataExplorationNotebookLocation
-    DataExplorationNotebookLocation (..),
+    , DataExplorationNotebookLocation (..)
 
     -- ** DomainId
-    DomainId (..),
+    , DomainId (..)
 
     -- ** HumanLoopActivationConfig
-    HumanLoopActivationConfig (..),
-    mkHumanLoopActivationConfig,
-    hlacHumanLoopActivationConditionsConfig,
+    , HumanLoopActivationConfig (..)
+    , mkHumanLoopActivationConfig
+    , hlacHumanLoopActivationConditionsConfig
 
     -- ** TagKey
-    TagKey (..),
+    , TagKey (..)
 
     -- ** ContainerHostname
-    ContainerHostname (..),
+    , ContainerHostname (..)
 
     -- ** VariantPropertyType
-    VariantPropertyType (..),
+    , VariantPropertyType (..)
 
     -- ** IntegerParameterRange
-    IntegerParameterRange (..),
-    mkIntegerParameterRange,
-    iprName,
-    iprMinValue,
-    iprMaxValue,
-    iprScalingType,
+    , IntegerParameterRange (..)
+    , mkIntegerParameterRange
+    , iprName
+    , iprMinValue
+    , iprMaxValue
+    , iprScalingType
 
     -- ** HyperParameterTuningJobObjectiveType
-    HyperParameterTuningJobObjectiveType (..),
+    , HyperParameterTuningJobObjectiveType (..)
 
     -- ** TrainingJobName
-    TrainingJobName (..),
+    , TrainingJobName (..)
 
     -- ** ProcessingJobSummary
-    ProcessingJobSummary (..),
-    mkProcessingJobSummary,
-    pjsProcessingJobName,
-    pjsProcessingJobArn,
-    pjsCreationTime,
-    pjsProcessingJobStatus,
-    pjsExitMessage,
-    pjsFailureReason,
-    pjsLastModifiedTime,
-    pjsProcessingEndTime,
+    , ProcessingJobSummary (..)
+    , mkProcessingJobSummary
+    , pjsProcessingJobName
+    , pjsProcessingJobArn
+    , pjsCreationTime
+    , pjsProcessingJobStatus
+    , pjsExitMessage
+    , pjsFailureReason
+    , pjsLastModifiedTime
+    , pjsProcessingEndTime
 
     -- ** ProductionVariantSummary
-    ProductionVariantSummary (..),
-    mkProductionVariantSummary,
-    pvsVariantName,
-    pvsCurrentInstanceCount,
-    pvsCurrentWeight,
-    pvsDeployedImages,
-    pvsDesiredInstanceCount,
-    pvsDesiredWeight,
+    , ProductionVariantSummary (..)
+    , mkProductionVariantSummary
+    , pvsVariantName
+    , pvsCurrentInstanceCount
+    , pvsCurrentWeight
+    , pvsDeployedImages
+    , pvsDesiredInstanceCount
+    , pvsDesiredWeight
 
     -- ** CategoricalParameterRange
-    CategoricalParameterRange (..),
-    mkCategoricalParameterRange,
-    cprName,
-    cprValues,
+    , CategoricalParameterRange (..)
+    , mkCategoricalParameterRange
+    , cprName
+    , cprValues
 
     -- ** MonitoringAppSpecification
-    MonitoringAppSpecification (..),
-    mkMonitoringAppSpecification,
-    masImageUri,
-    masContainerArguments,
-    masContainerEntrypoint,
-    masPostAnalyticsProcessorSourceUri,
-    masRecordPreprocessorSourceUri,
+    , MonitoringAppSpecification (..)
+    , mkMonitoringAppSpecification
+    , masImageUri
+    , masContainerArguments
+    , masContainerEntrypoint
+    , masPostAnalyticsProcessorSourceUri
+    , masRecordPreprocessorSourceUri
 
     -- ** MountPath
-    MountPath (..),
+    , MountPath (..)
 
     -- ** TrialComponentKey64
-    TrialComponentKey64 (..),
+    , TrialComponentKey64 (..)
 
     -- ** NotebookInstanceLifecycleConfigSortOrder
-    NotebookInstanceLifecycleConfigSortOrder (..),
+    , NotebookInstanceLifecycleConfigSortOrder (..)
 
     -- ** VariantName
-    VariantName (..),
+    , VariantName (..)
 
     -- ** ImageVersionArn
-    ImageVersionArn (..),
+    , ImageVersionArn (..)
 
     -- ** ResourceConfig
-    ResourceConfig (..),
-    mkResourceConfig,
-    rcInstanceType,
-    rcInstanceCount,
-    rcVolumeSizeInGB,
-    rcVolumeKmsKeyId,
+    , ResourceConfig (..)
+    , mkResourceConfig
+    , rcInstanceType
+    , rcInstanceCount
+    , rcVolumeSizeInGB
+    , rcVolumeKmsKeyId
 
     -- ** Filter
-    Filter (..),
-    mkFilter,
-    fName,
-    fOperator,
-    fValue,
+    , Filter (..)
+    , mkFilter
+    , fName
+    , fOperator
+    , fValue
 
     -- ** FlowDefinitionName
-    FlowDefinitionName (..),
+    , FlowDefinitionName (..)
 
     -- ** FinalHyperParameterTuningJobObjectiveMetric
-    FinalHyperParameterTuningJobObjectiveMetric (..),
-    mkFinalHyperParameterTuningJobObjectiveMetric,
-    fhptjomMetricName,
-    fhptjomValue,
-    fhptjomType,
+    , FinalHyperParameterTuningJobObjectiveMetric (..)
+    , mkFinalHyperParameterTuningJobObjectiveMetric
+    , fhptjomMetricName
+    , fhptjomValue
+    , fhptjomType
 
     -- ** TrialComponentArn
-    TrialComponentArn (..),
+    , TrialComponentArn (..)
 
     -- ** GitConfig
-    GitConfig (..),
-    mkGitConfig,
-    gcRepositoryUrl,
-    gcBranch,
-    gcSecretArn,
+    , GitConfig (..)
+    , mkGitConfig
+    , gcRepositoryUrl
+    , gcBranch
+    , gcSecretArn
 
     -- ** ImageName
-    ImageName (..),
+    , ImageName (..)
 
     -- ** HyperParameterKey
-    HyperParameterKey (..),
+    , HyperParameterKey (..)
 
     -- ** MonitoringConstraintsResource
-    MonitoringConstraintsResource (..),
-    mkMonitoringConstraintsResource,
-    mcrS3Uri,
+    , MonitoringConstraintsResource (..)
+    , mkMonitoringConstraintsResource
+    , mcrS3Uri
 
     -- ** ProcessingJobStatus
-    ProcessingJobStatus (..),
+    , ProcessingJobStatus (..)
 
     -- ** TrialComponentSource
-    TrialComponentSource (..),
-    mkTrialComponentSource,
-    tcsSourceArn,
-    tcsSourceType,
+    , TrialComponentSource (..)
+    , mkTrialComponentSource
+    , tcsSourceArn
+    , tcsSourceType
 
     -- ** WorkteamName
-    WorkteamName (..),
+    , WorkteamName (..)
 
     -- ** ContinuousParameterRange
-    ContinuousParameterRange (..),
-    mkContinuousParameterRange,
-    cName,
-    cMinValue,
-    cMaxValue,
-    cScalingType,
+    , ContinuousParameterRange (..)
+    , mkContinuousParameterRange
+    , cName
+    , cMinValue
+    , cMaxValue
+    , cScalingType
 
     -- ** DetailedAlgorithmStatus
-    DetailedAlgorithmStatus (..),
+    , DetailedAlgorithmStatus (..)
 
     -- ** TemplateUrl
-    TemplateUrl (..),
+    , TemplateUrl (..)
 
     -- ** MonitoringStatisticsResource
-    MonitoringStatisticsResource (..),
-    mkMonitoringStatisticsResource,
-    msrS3Uri,
+    , MonitoringStatisticsResource (..)
+    , mkMonitoringStatisticsResource
+    , msrS3Uri
 
     -- ** TrialComponentKey256
-    TrialComponentKey256 (..),
+    , TrialComponentKey256 (..)
 
     -- ** AlgorithmStatus
-    AlgorithmStatus (..),
+    , AlgorithmStatus (..)
 
     -- ** ProductionVariantAcceleratorType
-    ProductionVariantAcceleratorType (..),
+    , ProductionVariantAcceleratorType (..)
 
     -- ** FlowDefinitionSummary
-    FlowDefinitionSummary (..),
-    mkFlowDefinitionSummary,
-    fdsFlowDefinitionName,
-    fdsFlowDefinitionArn,
-    fdsFlowDefinitionStatus,
-    fdsCreationTime,
-    fdsFailureReason,
+    , FlowDefinitionSummary (..)
+    , mkFlowDefinitionSummary
+    , fdsFlowDefinitionName
+    , fdsFlowDefinitionArn
+    , fdsFlowDefinitionStatus
+    , fdsCreationTime
+    , fdsFailureReason
 
     -- ** PropertyNameHint
-    PropertyNameHint (..),
+    , PropertyNameHint (..)
 
     -- ** TransformOutput
-    TransformOutput (..),
-    mkTransformOutput,
-    toS3OutputPath,
-    toAccept,
-    toAssembleWith,
-    toKmsKeyId,
+    , TransformOutput (..)
+    , mkTransformOutput
+    , toS3OutputPath
+    , toAccept
+    , toAssembleWith
+    , toKmsKeyId
 
     -- ** ExitMessage
-    ExitMessage (..),
+    , ExitMessage (..)
 
     -- ** ParentHyperParameterTuningJob
-    ParentHyperParameterTuningJob (..),
-    mkParentHyperParameterTuningJob,
-    phptjHyperParameterTuningJobName,
+    , ParentHyperParameterTuningJob (..)
+    , mkParentHyperParameterTuningJob
+    , phptjHyperParameterTuningJobName
 
     -- ** AppNetworkAccessType
-    AppNetworkAccessType (..),
+    , AppNetworkAccessType (..)
 
     -- ** CodeRepositorySortOrder
-    CodeRepositorySortOrder (..),
+    , CodeRepositorySortOrder (..)
 
     -- ** OidcConfig
-    OidcConfig (..),
-    mkOidcConfig,
-    ocClientId,
-    ocClientSecret,
-    ocIssuer,
-    ocAuthorizationEndpoint,
-    ocTokenEndpoint,
-    ocUserInfoEndpoint,
-    ocLogoutEndpoint,
-    ocJwksUri,
+    , OidcConfig (..)
+    , mkOidcConfig
+    , ocClientId
+    , ocClientSecret
+    , ocIssuer
+    , ocAuthorizationEndpoint
+    , ocTokenEndpoint
+    , ocUserInfoEndpoint
+    , ocLogoutEndpoint
+    , ocJwksUri
 
     -- ** CompilationJobArn
-    CompilationJobArn (..),
+    , CompilationJobArn (..)
 
     -- ** SearchRecord
-    SearchRecord (..),
-    mkSearchRecord,
-    srExperiment,
-    srTrainingJob,
-    srTrial,
-    srTrialComponent,
+    , SearchRecord (..)
+    , mkSearchRecord
+    , srExperiment
+    , srTrainingJob
+    , srTrial
+    , srTrialComponent
 
     -- ** HyperParameterTuningJobStatus
-    HyperParameterTuningJobStatus (..),
+    , HyperParameterTuningJobStatus (..)
 
     -- ** ModelPackageStatusDetails
-    ModelPackageStatusDetails (..),
-    mkModelPackageStatusDetails,
-    mpsdValidationStatuses,
-    mpsdImageScanStatuses,
+    , ModelPackageStatusDetails (..)
+    , mkModelPackageStatusDetails
+    , mpsdValidationStatuses
+    , mpsdImageScanStatuses
 
     -- ** MonitoringS3Output
-    MonitoringS3Output (..),
-    mkMonitoringS3Output,
-    msoS3Uri,
-    msoLocalPath,
-    msoS3UploadMode,
+    , MonitoringS3Output (..)
+    , mkMonitoringS3Output
+    , msoS3Uri
+    , msoLocalPath
+    , msoS3UploadMode
 
     -- ** AttributeName
-    AttributeName (..),
+    , AttributeName (..)
 
     -- ** TrainingJobSummary
-    TrainingJobSummary (..),
-    mkTrainingJobSummary,
-    tjsfTrainingJobName,
-    tjsfTrainingJobArn,
-    tjsfCreationTime,
-    tjsfTrainingJobStatus,
-    tjsfLastModifiedTime,
-    tjsfTrainingEndTime,
+    , TrainingJobSummary (..)
+    , mkTrainingJobSummary
+    , tjsfTrainingJobName
+    , tjsfTrainingJobArn
+    , tjsfCreationTime
+    , tjsfTrainingJobStatus
+    , tjsfLastModifiedTime
+    , tjsfTrainingEndTime
 
     -- ** TrialComponentArtifact
-    TrialComponentArtifact (..),
-    mkTrialComponentArtifact,
-    tcaValue,
-    tcaMediaType,
+    , TrialComponentArtifact (..)
+    , mkTrialComponentArtifact
+    , tcaValue
+    , tcaMediaType
 
     -- ** WorkforceName
-    WorkforceName (..),
+    , WorkforceName (..)
 
     -- ** OidcConfigForResponse
-    OidcConfigForResponse (..),
-    mkOidcConfigForResponse,
-    ocfrAuthorizationEndpoint,
-    ocfrClientId,
-    ocfrIssuer,
-    ocfrJwksUri,
-    ocfrLogoutEndpoint,
-    ocfrTokenEndpoint,
-    ocfrUserInfoEndpoint,
+    , OidcConfigForResponse (..)
+    , mkOidcConfigForResponse
+    , ocfrAuthorizationEndpoint
+    , ocfrClientId
+    , ocfrIssuer
+    , ocfrJwksUri
+    , ocfrLogoutEndpoint
+    , ocfrTokenEndpoint
+    , ocfrUserInfoEndpoint
 
     -- ** DataProcessing
-    DataProcessing (..),
-    mkDataProcessing,
-    dpInputFilter,
-    dpJoinSource,
-    dpOutputFilter,
+    , DataProcessing (..)
+    , mkDataProcessing
+    , dpInputFilter
+    , dpJoinSource
+    , dpOutputFilter
 
     -- ** ProcessingS3UploadMode
-    ProcessingS3UploadMode (..),
+    , ProcessingS3UploadMode (..)
 
     -- ** HumanTaskUiArn
-    HumanTaskUiArn (..),
+    , HumanTaskUiArn (..)
 
     -- ** AutoMLCandidate
-    AutoMLCandidate (..),
-    mkAutoMLCandidate,
-    amlcCandidateName,
-    amlcObjectiveStatus,
-    amlcCandidateSteps,
-    amlcCandidateStatus,
-    amlcCreationTime,
-    amlcLastModifiedTime,
-    amlcEndTime,
-    amlcFailureReason,
-    amlcFinalAutoMLJobObjectiveMetric,
-    amlcInferenceContainers,
+    , AutoMLCandidate (..)
+    , mkAutoMLCandidate
+    , amlcCandidateName
+    , amlcObjectiveStatus
+    , amlcCandidateSteps
+    , amlcCandidateStatus
+    , amlcCreationTime
+    , amlcLastModifiedTime
+    , amlcEndTime
+    , amlcFailureReason
+    , amlcFinalAutoMLJobObjectiveMetric
+    , amlcInferenceContainers
 
     -- ** SecretArn
-    SecretArn (..),
+    , SecretArn (..)
 
     -- ** SortExperimentsBy
-    SortExperimentsBy (..),
+    , SortExperimentsBy (..)
 
     -- ** ProcessingS3DataType
-    ProcessingS3DataType (..),
+    , ProcessingS3DataType (..)
 
     -- ** TransformJob
-    TransformJob (..),
-    mkTransformJob,
-    tjfAutoMLJobArn,
-    tjfBatchStrategy,
-    tjfCreationTime,
-    tjfDataProcessing,
-    tjfEnvironment,
-    tjfExperimentConfig,
-    tjfFailureReason,
-    tjfLabelingJobArn,
-    tjfMaxConcurrentTransforms,
-    tjfMaxPayloadInMB,
-    tjfModelClientConfig,
-    tjfModelName,
-    tjfTags,
-    tjfTransformEndTime,
-    tjfTransformInput,
-    tjfTransformJobArn,
-    tjfTransformJobName,
-    tjfTransformJobStatus,
-    tjfTransformOutput,
-    tjfTransformResources,
-    tjfTransformStartTime,
+    , TransformJob (..)
+    , mkTransformJob
+    , tjfAutoMLJobArn
+    , tjfBatchStrategy
+    , tjfCreationTime
+    , tjfDataProcessing
+    , tjfEnvironment
+    , tjfExperimentConfig
+    , tjfFailureReason
+    , tjfLabelingJobArn
+    , tjfMaxConcurrentTransforms
+    , tjfMaxPayloadInMB
+    , tjfModelClientConfig
+    , tjfModelName
+    , tjfTags
+    , tjfTransformEndTime
+    , tjfTransformInput
+    , tjfTransformJobArn
+    , tjfTransformJobName
+    , tjfTransformJobStatus
+    , tjfTransformOutput
+    , tjfTransformResources
+    , tjfTransformStartTime
 
     -- ** NotebookInstanceLifecycleConfigName
-    NotebookInstanceLifecycleConfigName (..),
+    , NotebookInstanceLifecycleConfigName (..)
 
     -- ** MonitoringScheduleConfig
-    MonitoringScheduleConfig (..),
-    mkMonitoringScheduleConfig,
-    mscMonitoringJobDefinition,
-    mscScheduleConfig,
+    , MonitoringScheduleConfig (..)
+    , mkMonitoringScheduleConfig
+    , mscMonitoringJobDefinition
+    , mscScheduleConfig
 
     -- ** CompilerOptions
-    CompilerOptions (..),
+    , CompilerOptions (..)
 
     -- ** FileSystemType
-    FileSystemType (..),
+    , FileSystemType (..)
 
     -- ** ModelPackageValidationSpecification
-    ModelPackageValidationSpecification (..),
-    mkModelPackageValidationSpecification,
-    mpvsValidationRole,
-    mpvsValidationProfiles,
+    , ModelPackageValidationSpecification (..)
+    , mkModelPackageValidationSpecification
+    , mpvsValidationRole
+    , mpvsValidationProfiles
 
     -- ** AutoMLS3DataSource
-    AutoMLS3DataSource (..),
-    mkAutoMLS3DataSource,
-    amlsdsS3DataType,
-    amlsdsS3Uri,
+    , AutoMLS3DataSource (..)
+    , mkAutoMLS3DataSource
+    , amlsdsS3DataType
+    , amlsdsS3Uri
 
     -- ** TargetPlatformArch
-    TargetPlatformArch (..),
+    , TargetPlatformArch (..)
 
     -- ** LabelingJobName
-    LabelingJobName (..),
+    , LabelingJobName (..)
 
     -- ** CompressionType
-    CompressionType (..),
+    , CompressionType (..)
 
     -- ** KernelGatewayImageConfig
-    KernelGatewayImageConfig (..),
-    mkKernelGatewayImageConfig,
-    kgicKernelSpecs,
-    kgicFileSystemConfig,
+    , KernelGatewayImageConfig (..)
+    , mkKernelGatewayImageConfig
+    , kgicKernelSpecs
+    , kgicFileSystemConfig
 
     -- ** AlgorithmStatusItem
-    AlgorithmStatusItem (..),
-    mkAlgorithmStatusItem,
-    asiName,
-    asiStatus,
-    asiFailureReason,
+    , AlgorithmStatusItem (..)
+    , mkAlgorithmStatusItem
+    , asiName
+    , asiStatus
+    , asiFailureReason
 
     -- ** ChannelSpecification
-    ChannelSpecification (..),
-    mkChannelSpecification,
-    csName,
-    csSupportedContentTypes,
-    csSupportedInputModes,
-    csDescription,
-    csIsRequired,
-    csSupportedCompressionTypes,
+    , ChannelSpecification (..)
+    , mkChannelSpecification
+    , csName
+    , csSupportedContentTypes
+    , csSupportedInputModes
+    , csDescription
+    , csIsRequired
+    , csSupportedCompressionTypes
 
     -- ** TransformEnvironmentKey
-    TransformEnvironmentKey (..),
+    , TransformEnvironmentKey (..)
 
     -- ** EndpointConfigName
-    EndpointConfigName (..),
+    , EndpointConfigName (..)
 
     -- ** ProcessingOutputConfig
-    ProcessingOutputConfig (..),
-    mkProcessingOutputConfig,
-    pocOutputs,
-    pocKmsKeyId,
+    , ProcessingOutputConfig (..)
+    , mkProcessingOutputConfig
+    , pocOutputs
+    , pocKmsKeyId
 
     -- ** AlgorithmSortBy
-    AlgorithmSortBy (..),
+    , AlgorithmSortBy (..)
 
     -- ** AppImageConfigDetails
-    AppImageConfigDetails (..),
-    mkAppImageConfigDetails,
-    aicdAppImageConfigArn,
-    aicdAppImageConfigName,
-    aicdCreationTime,
-    aicdKernelGatewayImageConfig,
-    aicdLastModifiedTime,
+    , AppImageConfigDetails (..)
+    , mkAppImageConfigDetails
+    , aicdAppImageConfigArn
+    , aicdAppImageConfigName
+    , aicdCreationTime
+    , aicdKernelGatewayImageConfig
+    , aicdLastModifiedTime
 
     -- ** S3Uri
-    S3Uri (..),
+    , S3Uri (..)
 
     -- ** AutoMLJobObjectiveType
-    AutoMLJobObjectiveType (..),
+    , AutoMLJobObjectiveType (..)
 
     -- ** TensorBoardOutputConfig
-    TensorBoardOutputConfig (..),
-    mkTensorBoardOutputConfig,
-    tbocS3OutputPath,
-    tbocLocalPath,
+    , TensorBoardOutputConfig (..)
+    , mkTensorBoardOutputConfig
+    , tbocS3OutputPath
+    , tbocLocalPath
 
     -- ** MonitoringScheduleName
-    MonitoringScheduleName (..),
+    , MonitoringScheduleName (..)
 
     -- ** TrialSummary
-    TrialSummary (..),
-    mkTrialSummary,
-    tsCreationTime,
-    tsDisplayName,
-    tsLastModifiedTime,
-    tsTrialArn,
-    tsTrialName,
-    tsTrialSource,
+    , TrialSummary (..)
+    , mkTrialSummary
+    , tsCreationTime
+    , tsDisplayName
+    , tsLastModifiedTime
+    , tsTrialArn
+    , tsTrialName
+    , tsTrialSource
 
     -- ** CodeRepositoryNameOrUrl
-    CodeRepositoryNameOrUrl (..),
+    , CodeRepositoryNameOrUrl (..)
 
     -- ** MonitoringJobDefinition
-    MonitoringJobDefinition (..),
-    mkMonitoringJobDefinition,
-    mjdMonitoringInputs,
-    mjdMonitoringOutputConfig,
-    mjdMonitoringResources,
-    mjdMonitoringAppSpecification,
-    mjdRoleArn,
-    mjdBaselineConfig,
-    mjdEnvironment,
-    mjdNetworkConfig,
-    mjdStoppingCondition,
+    , MonitoringJobDefinition (..)
+    , mkMonitoringJobDefinition
+    , mjdMonitoringInputs
+    , mjdMonitoringOutputConfig
+    , mjdMonitoringResources
+    , mjdMonitoringAppSpecification
+    , mjdRoleArn
+    , mjdBaselineConfig
+    , mjdEnvironment
+    , mjdNetworkConfig
+    , mjdStoppingCondition
 
     -- ** LabelingJobDataAttributes
-    LabelingJobDataAttributes (..),
-    mkLabelingJobDataAttributes,
-    ljdaContentClassifiers,
+    , LabelingJobDataAttributes (..)
+    , mkLabelingJobDataAttributes
+    , ljdaContentClassifiers
 
     -- ** FinalAutoMLJobObjectiveMetric
-    FinalAutoMLJobObjectiveMetric (..),
-    mkFinalAutoMLJobObjectiveMetric,
-    famljomMetricName,
-    famljomValue,
-    famljomType,
+    , FinalAutoMLJobObjectiveMetric (..)
+    , mkFinalAutoMLJobObjectiveMetric
+    , famljomMetricName
+    , famljomValue
+    , famljomType
 
     -- ** EndpointArn
-    EndpointArn (..),
+    , EndpointArn (..)
 
     -- ** ListLabelingJobsForWorkteamSortByOptions
-    ListLabelingJobsForWorkteamSortByOptions (..),
+    , ListLabelingJobsForWorkteamSortByOptions (..)
 
     -- ** CodeRepositorySortBy
-    CodeRepositorySortBy (..),
+    , CodeRepositorySortBy (..)
 
     -- ** HyperParameterTuningJobWarmStartType
-    HyperParameterTuningJobWarmStartType (..),
+    , HyperParameterTuningJobWarmStartType (..)
 
     -- ** CollectionConfiguration
-    CollectionConfiguration (..),
-    mkCollectionConfiguration,
-    ccCollectionName,
-    ccCollectionParameters,
+    , CollectionConfiguration (..)
+    , mkCollectionConfiguration
+    , ccCollectionName
+    , ccCollectionParameters
 
     -- ** RecordWrapper
-    RecordWrapper (..),
+    , RecordWrapper (..)
 
     -- ** SecondaryStatus
-    SecondaryStatus (..),
+    , SecondaryStatus (..)
 
     -- ** LabelingJobOutput
-    LabelingJobOutput (..),
-    mkLabelingJobOutput,
-    ljoOutputDatasetS3Uri,
-    ljoFinalActiveLearningModelArn,
+    , LabelingJobOutput (..)
+    , mkLabelingJobOutput
+    , ljoOutputDatasetS3Uri
+    , ljoFinalActiveLearningModelArn
 
     -- ** EndpointSortKey
-    EndpointSortKey (..),
+    , EndpointSortKey (..)
 
     -- ** TransformJobArn
-    TransformJobArn (..),
+    , TransformJobArn (..)
 
     -- ** ProductId
-    ProductId (..),
+    , ProductId (..)
 
     -- ** LabelCountersForWorkteam
-    LabelCountersForWorkteam (..),
-    mkLabelCountersForWorkteam,
-    lcfwHumanLabeled,
-    lcfwPendingHuman,
-    lcfwTotal,
+    , LabelCountersForWorkteam (..)
+    , mkLabelCountersForWorkteam
+    , lcfwHumanLabeled
+    , lcfwPendingHuman
+    , lcfwTotal
 
     -- ** DataCaptureConfig
-    DataCaptureConfig (..),
-    mkDataCaptureConfig,
-    dccInitialSamplingPercentage,
-    dccDestinationS3Uri,
-    dccCaptureOptions,
-    dccCaptureContentTypeHeader,
-    dccEnableCapture,
-    dccKmsKeyId,
+    , DataCaptureConfig (..)
+    , mkDataCaptureConfig
+    , dccInitialSamplingPercentage
+    , dccDestinationS3Uri
+    , dccCaptureOptions
+    , dccCaptureContentTypeHeader
+    , dccEnableCapture
+    , dccKmsKeyId
 
     -- ** TrainingJobSortByOptions
-    TrainingJobSortByOptions (..),
+    , TrainingJobSortByOptions (..)
 
     -- ** ProcessingS3InputMode
-    ProcessingS3InputMode (..),
+    , ProcessingS3InputMode (..)
 
     -- ** AlgorithmValidationSpecification
-    AlgorithmValidationSpecification (..),
-    mkAlgorithmValidationSpecification,
-    avsValidationRole,
-    avsValidationProfiles,
+    , AlgorithmValidationSpecification (..)
+    , mkAlgorithmValidationSpecification
+    , avsValidationRole
+    , avsValidationProfiles
 
     -- ** NotificationTopicArn
-    NotificationTopicArn (..),
+    , NotificationTopicArn (..)
 
     -- ** AppImageConfigSortKey
-    AppImageConfigSortKey (..),
+    , AppImageConfigSortKey (..)
 
     -- ** TargetDevice
-    TargetDevice (..),
+    , TargetDevice (..)
 
     -- ** TransformDataSource
-    TransformDataSource (..),
-    mkTransformDataSource,
-    tdsS3DataSource,
+    , TransformDataSource (..)
+    , mkTransformDataSource
+    , tdsS3DataSource
 
     -- ** AutoMLMetricEnum
-    AutoMLMetricEnum (..),
+    , AutoMLMetricEnum (..)
 
     -- ** SortBy
-    SortBy (..),
+    , SortBy (..)
 
     -- ** RuleConfigurationName
-    RuleConfigurationName (..),
+    , RuleConfigurationName (..)
 
     -- ** ProcessingS3DataDistributionType
-    ProcessingS3DataDistributionType (..),
+    , ProcessingS3DataDistributionType (..)
 
     -- ** AlgorithmStatusDetails
-    AlgorithmStatusDetails (..),
-    mkAlgorithmStatusDetails,
-    asdImageScanStatuses,
-    asdValidationStatuses,
+    , AlgorithmStatusDetails (..)
+    , mkAlgorithmStatusDetails
+    , asdImageScanStatuses
+    , asdValidationStatuses
 
     -- ** MetricRegex
-    MetricRegex (..),
+    , MetricRegex (..)
 
     -- ** ContentType
-    ContentType (..),
+    , ContentType (..)
 
     -- ** ProcessingJobArn
-    ProcessingJobArn (..),
+    , ProcessingJobArn (..)
 
     -- ** LabelingJobStoppingConditions
-    LabelingJobStoppingConditions (..),
-    mkLabelingJobStoppingConditions,
-    ljscMaxHumanLabeledObjectCount,
-    ljscMaxPercentageOfInputDatasetLabeled,
+    , LabelingJobStoppingConditions (..)
+    , mkLabelingJobStoppingConditions
+    , ljscMaxHumanLabeledObjectCount
+    , ljscMaxPercentageOfInputDatasetLabeled
 
     -- ** DetailedModelPackageStatus
-    DetailedModelPackageStatus (..),
+    , DetailedModelPackageStatus (..)
 
     -- ** ModelPackageStatus
-    ModelPackageStatus (..),
+    , ModelPackageStatus (..)
 
     -- ** JobReferenceCode
-    JobReferenceCode (..),
+    , JobReferenceCode (..)
 
     -- ** TrialComponentSummary
-    TrialComponentSummary (..),
-    mkTrialComponentSummary,
-    tcsCreatedBy,
-    tcsCreationTime,
-    tcsDisplayName,
-    tcsEndTime,
-    tcsLastModifiedBy,
-    tcsLastModifiedTime,
-    tcsStartTime,
-    tcsStatus,
-    tcsTrialComponentArn,
-    tcsTrialComponentName,
-    tcsTrialComponentSource,
+    , TrialComponentSummary (..)
+    , mkTrialComponentSummary
+    , tcsCreatedBy
+    , tcsCreationTime
+    , tcsDisplayName
+    , tcsEndTime
+    , tcsLastModifiedBy
+    , tcsLastModifiedTime
+    , tcsStartTime
+    , tcsStatus
+    , tcsTrialComponentArn
+    , tcsTrialComponentName
+    , tcsTrialComponentSource
 
     -- ** MetricDefinition
-    MetricDefinition (..),
-    mkMetricDefinition,
-    mdName,
-    mdRegex,
+    , MetricDefinition (..)
+    , mkMetricDefinition
+    , mdName
+    , mdRegex
 
     -- ** ImageDeleteProperty
-    ImageDeleteProperty (..),
+    , ImageDeleteProperty (..)
 
     -- ** JsonContentType
-    JsonContentType (..),
+    , JsonContentType (..)
 
     -- ** TrainingInstanceType
-    TrainingInstanceType (..),
+    , TrainingInstanceType (..)
 
     -- ** AppType
-    AppType (..),
+    , AppType (..)
 
     -- ** AppImageConfigArn
-    AppImageConfigArn (..),
+    , AppImageConfigArn (..)
 
     -- ** RoleArn
-    RoleArn (..),
+    , RoleArn (..)
 
     -- ** ProcessingEnvironmentKey
-    ProcessingEnvironmentKey (..),
+    , ProcessingEnvironmentKey (..)
 
     -- ** OrderKey
-    OrderKey (..),
+    , OrderKey (..)
 
     -- ** AlgorithmName
-    AlgorithmName (..),
+    , AlgorithmName (..)
 
     -- ** ExperimentName
-    ExperimentName (..),
+    , ExperimentName (..)
 
     -- ** TrialName
-    TrialName (..),
+    , TrialName (..)
 
     -- ** Content
-    Content (..),
+    , Content (..)
 
     -- ** LabelCategoryConfigS3Uri
-    LabelCategoryConfigS3Uri (..),
+    , LabelCategoryConfigS3Uri (..)
 
     -- ** ExecutionRole
-    ExecutionRole (..),
+    , ExecutionRole (..)
 
     -- ** Name
-    Name (..),
-
-    -- ** OutputName
-    OutputName (..),
+    , Name (..)
 
     -- ** S3OutputPath
-    S3OutputPath (..),
+    , S3OutputPath (..)
 
     -- ** DisplayName
-    DisplayName (..),
-
-    -- ** SubDomain
-    SubDomain (..),
+    , DisplayName (..)
 
     -- ** TrainingJobDefinitionName
-    TrainingJobDefinitionName (..),
+    , TrainingJobDefinitionName (..)
 
     -- ** TuningJobName
-    TuningJobName (..),
+    , TuningJobName (..)
 
     -- ** Description
-    Description (..),
+    , Description (..)
 
     -- ** ModelDataUrl
-    ModelDataUrl (..),
+    , ModelDataUrl (..)
 
     -- ** DefaultCodeRepository
-    DefaultCodeRepository (..),
+    , DefaultCodeRepository (..)
 
     -- ** LifecycleConfigName
-    LifecycleConfigName (..),
+    , LifecycleConfigName (..)
 
     -- ** ModelPackageDescription
-    ModelPackageDescription (..),
+    , ModelPackageDescription (..)
 
     -- ** StringValue
-    StringValue (..),
+    , StringValue (..)
 
     -- ** TuningJobArn
-    TuningJobArn (..),
+    , TuningJobArn (..)
 
     -- ** InitialActiveLearningModelArn
-    InitialActiveLearningModelArn (..),
+    , InitialActiveLearningModelArn (..)
 
     -- ** SageMakerImageArn
-    SageMakerImageArn (..),
+    , SageMakerImageArn (..)
 
     -- ** SageMakerImageVersionArn
-    SageMakerImageVersionArn (..),
+    , SageMakerImageVersionArn (..)
 
     -- ** TrialComponentName
-    TrialComponentName (..),
+    , TrialComponentName (..)
 
     -- ** AdditionalCodeRepositoryEquals
-    AdditionalCodeRepositoryEquals (..),
+    , AdditionalCodeRepositoryEquals (..)
 
     -- ** Key
-    Key (..),
+    , Key (..)
 
     -- ** Value
-    Value (..),
+    , Value (..)
 
     -- ** S3ModelArtifacts
-    S3ModelArtifacts (..),
+    , S3ModelArtifacts (..)
 
     -- ** UserPool
-    UserPool (..),
+    , UserPool (..)
 
     -- ** UserGroup
-    UserGroup (..),
+    , UserGroup (..)
 
     -- ** DomainIdEquals
-    DomainIdEquals (..),
+    , DomainIdEquals (..)
 
     -- ** UserProfileNameContains
-    UserProfileNameContains (..),
+    , UserProfileNameContains (..)
 
     -- ** TrainingImage
-    TrainingImage (..),
+    , TrainingImage (..)
 
     -- ** ResolvedImage
-    ResolvedImage (..),
+    , ResolvedImage (..)
 
     -- ** SpecifiedImage
-    SpecifiedImage (..),
+    , SpecifiedImage (..)
 
     -- ** DefinitionName
-    DefinitionName (..),
+    , DefinitionName (..)
 
     -- ** AuthorizedUrl
-    AuthorizedUrl (..),
+    , AuthorizedUrl (..)
 
     -- ** ExecutionRoleArn
-    ExecutionRoleArn (..),
+    , ExecutionRoleArn (..)
 
     -- ** HomeEfsFileSystemKmsKeyId
-    HomeEfsFileSystemKmsKeyId (..),
+    , HomeEfsFileSystemKmsKeyId (..)
 
     -- ** VolumeKmsKeyId
-    VolumeKmsKeyId (..),
+    , VolumeKmsKeyId (..)
 
     -- ** PreHumanTaskLambdaArn
-    PreHumanTaskLambdaArn (..),
+    , PreHumanTaskLambdaArn (..)
 
     -- ** AnnotationConsolidationLambdaArn
-    AnnotationConsolidationLambdaArn (..),
+    , AnnotationConsolidationLambdaArn (..)
 
     -- ** TrainingImageDigest
-    TrainingImageDigest (..),
+    , TrainingImageDigest (..)
 
     -- ** LocalPath
-    LocalPath (..),
+    , LocalPath (..)
 
     -- ** SourceArn
-    SourceArn (..),
+    , SourceArn (..)
 
     -- ** UiTemplateS3Uri
-    UiTemplateS3Uri (..),
+    , UiTemplateS3Uri (..)
 
     -- ** ModelPackageName
-    ModelPackageName (..),
+    , ModelPackageName (..)
 
     -- ** ManifestS3Uri
-    ManifestS3Uri (..),
+    , ManifestS3Uri (..)
 
     -- ** CandidateNameEquals
-    CandidateNameEquals (..),
+    , CandidateNameEquals (..)
 
     -- ** Input
-    Input (..),
+    , Input (..)
 
     -- ** S3OutputLocation
-    S3OutputLocation (..),
+    , S3OutputLocation (..)
 
     -- ** RuleEvaluationJobArn
-    RuleEvaluationJobArn (..),
+    , RuleEvaluationJobArn (..)
 
     -- ** PostAnalyticsProcessorSourceUri
-    PostAnalyticsProcessorSourceUri (..),
+    , PostAnalyticsProcessorSourceUri (..)
 
     -- ** RecordPreprocessorSourceUri
-    RecordPreprocessorSourceUri (..),
+    , RecordPreprocessorSourceUri (..)
 
     -- ** RepositoryUrl
-    RepositoryUrl (..),
+    , RepositoryUrl (..)
 
     -- ** ValidationRole
-    ValidationRole (..),
+    , ValidationRole (..)
 
     -- * Serialization types
-    Lude.Base64 (..),
-    Lude._Base64,
-    Lude.Sensitive (..),
-    Lude._Sensitive,
-    Lude.UTCTime,
-    Lude.NominalDiffTime,
-  )
-where
+    , Lude.Base64 (..)
+    , Lude._Base64
+    , Lude.Sensitive (..)
+    , Lude._Sensitive
+    , Lude.UTCTime
+    , Lude.NominalDiffTime
+    ) where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.AddTags
-import Network.AWS.SageMaker.AssociateTrialComponent
-import Network.AWS.SageMaker.CreateAlgorithm
-import Network.AWS.SageMaker.CreateApp
-import Network.AWS.SageMaker.CreateAppImageConfig
-import Network.AWS.SageMaker.CreateAutoMLJob
-import Network.AWS.SageMaker.CreateCodeRepository
-import Network.AWS.SageMaker.CreateCompilationJob
-import Network.AWS.SageMaker.CreateDomain
-import Network.AWS.SageMaker.CreateEndpoint
-import Network.AWS.SageMaker.CreateEndpointConfig
-import Network.AWS.SageMaker.CreateExperiment
-import Network.AWS.SageMaker.CreateFlowDefinition
-import Network.AWS.SageMaker.CreateHumanTaskUi
-import Network.AWS.SageMaker.CreateHyperParameterTuningJob
-import Network.AWS.SageMaker.CreateImage
-import Network.AWS.SageMaker.CreateImageVersion
-import Network.AWS.SageMaker.CreateLabelingJob
-import Network.AWS.SageMaker.CreateModel
-import Network.AWS.SageMaker.CreateModelPackage
-import Network.AWS.SageMaker.CreateMonitoringSchedule
-import Network.AWS.SageMaker.CreateNotebookInstance
-import Network.AWS.SageMaker.CreateNotebookInstanceLifecycleConfig
-import Network.AWS.SageMaker.CreatePresignedDomainUrl
-import Network.AWS.SageMaker.CreatePresignedNotebookInstanceUrl
-import Network.AWS.SageMaker.CreateProcessingJob
-import Network.AWS.SageMaker.CreateTrainingJob
-import Network.AWS.SageMaker.CreateTransformJob
-import Network.AWS.SageMaker.CreateTrial
-import Network.AWS.SageMaker.CreateTrialComponent
-import Network.AWS.SageMaker.CreateUserProfile
-import Network.AWS.SageMaker.CreateWorkforce
-import Network.AWS.SageMaker.CreateWorkteam
-import Network.AWS.SageMaker.DeleteAlgorithm
-import Network.AWS.SageMaker.DeleteApp
-import Network.AWS.SageMaker.DeleteAppImageConfig
-import Network.AWS.SageMaker.DeleteCodeRepository
-import Network.AWS.SageMaker.DeleteDomain
-import Network.AWS.SageMaker.DeleteEndpoint
-import Network.AWS.SageMaker.DeleteEndpointConfig
-import Network.AWS.SageMaker.DeleteExperiment
-import Network.AWS.SageMaker.DeleteFlowDefinition
-import Network.AWS.SageMaker.DeleteHumanTaskUi
-import Network.AWS.SageMaker.DeleteImage
-import Network.AWS.SageMaker.DeleteImageVersion
-import Network.AWS.SageMaker.DeleteModel
-import Network.AWS.SageMaker.DeleteModelPackage
-import Network.AWS.SageMaker.DeleteMonitoringSchedule
-import Network.AWS.SageMaker.DeleteNotebookInstance
-import Network.AWS.SageMaker.DeleteNotebookInstanceLifecycleConfig
-import Network.AWS.SageMaker.DeleteTags
-import Network.AWS.SageMaker.DeleteTrial
-import Network.AWS.SageMaker.DeleteTrialComponent
-import Network.AWS.SageMaker.DeleteUserProfile
-import Network.AWS.SageMaker.DeleteWorkforce
-import Network.AWS.SageMaker.DeleteWorkteam
-import Network.AWS.SageMaker.DescribeAlgorithm
-import Network.AWS.SageMaker.DescribeApp
-import Network.AWS.SageMaker.DescribeAppImageConfig
-import Network.AWS.SageMaker.DescribeAutoMLJob
-import Network.AWS.SageMaker.DescribeCodeRepository
-import Network.AWS.SageMaker.DescribeCompilationJob
-import Network.AWS.SageMaker.DescribeDomain
-import Network.AWS.SageMaker.DescribeEndpoint
-import Network.AWS.SageMaker.DescribeEndpointConfig
-import Network.AWS.SageMaker.DescribeExperiment
-import Network.AWS.SageMaker.DescribeFlowDefinition
-import Network.AWS.SageMaker.DescribeHumanTaskUi
-import Network.AWS.SageMaker.DescribeHyperParameterTuningJob
-import Network.AWS.SageMaker.DescribeImage
-import Network.AWS.SageMaker.DescribeImageVersion
-import Network.AWS.SageMaker.DescribeLabelingJob
-import Network.AWS.SageMaker.DescribeModel
-import Network.AWS.SageMaker.DescribeModelPackage
-import Network.AWS.SageMaker.DescribeMonitoringSchedule
-import Network.AWS.SageMaker.DescribeNotebookInstance
-import Network.AWS.SageMaker.DescribeNotebookInstanceLifecycleConfig
-import Network.AWS.SageMaker.DescribeProcessingJob
-import Network.AWS.SageMaker.DescribeSubscribedWorkteam
-import Network.AWS.SageMaker.DescribeTrainingJob
-import Network.AWS.SageMaker.DescribeTransformJob
-import Network.AWS.SageMaker.DescribeTrial
-import Network.AWS.SageMaker.DescribeTrialComponent
-import Network.AWS.SageMaker.DescribeUserProfile
-import Network.AWS.SageMaker.DescribeWorkforce
-import Network.AWS.SageMaker.DescribeWorkteam
-import Network.AWS.SageMaker.DisassociateTrialComponent
-import Network.AWS.SageMaker.GetSearchSuggestions
-import Network.AWS.SageMaker.ListAlgorithms
-import Network.AWS.SageMaker.ListAppImageConfigs
-import Network.AWS.SageMaker.ListApps
-import Network.AWS.SageMaker.ListAutoMLJobs
-import Network.AWS.SageMaker.ListCandidatesForAutoMLJob
-import Network.AWS.SageMaker.ListCodeRepositories
-import Network.AWS.SageMaker.ListCompilationJobs
-import Network.AWS.SageMaker.ListDomains
-import Network.AWS.SageMaker.ListEndpointConfigs
-import Network.AWS.SageMaker.ListEndpoints
-import Network.AWS.SageMaker.ListExperiments
-import Network.AWS.SageMaker.ListFlowDefinitions
-import Network.AWS.SageMaker.ListHumanTaskUis
-import Network.AWS.SageMaker.ListHyperParameterTuningJobs
-import Network.AWS.SageMaker.ListImageVersions
-import Network.AWS.SageMaker.ListImages
-import Network.AWS.SageMaker.ListLabelingJobs
-import Network.AWS.SageMaker.ListLabelingJobsForWorkteam
-import Network.AWS.SageMaker.ListModelPackages
-import Network.AWS.SageMaker.ListModels
-import Network.AWS.SageMaker.ListMonitoringExecutions
-import Network.AWS.SageMaker.ListMonitoringSchedules
-import Network.AWS.SageMaker.ListNotebookInstanceLifecycleConfigs
-import Network.AWS.SageMaker.ListNotebookInstances
-import Network.AWS.SageMaker.ListProcessingJobs
-import Network.AWS.SageMaker.ListSubscribedWorkteams
-import Network.AWS.SageMaker.ListTags
-import Network.AWS.SageMaker.ListTrainingJobs
-import Network.AWS.SageMaker.ListTrainingJobsForHyperParameterTuningJob
-import Network.AWS.SageMaker.ListTransformJobs
-import Network.AWS.SageMaker.ListTrialComponents
-import Network.AWS.SageMaker.ListTrials
-import Network.AWS.SageMaker.ListUserProfiles
-import Network.AWS.SageMaker.ListWorkforces
-import Network.AWS.SageMaker.ListWorkteams
-import Network.AWS.SageMaker.RenderUiTemplate
-import Network.AWS.SageMaker.Search
-import Network.AWS.SageMaker.StartMonitoringSchedule
-import Network.AWS.SageMaker.StartNotebookInstance
-import Network.AWS.SageMaker.StopAutoMLJob
-import Network.AWS.SageMaker.StopCompilationJob
-import Network.AWS.SageMaker.StopHyperParameterTuningJob
-import Network.AWS.SageMaker.StopLabelingJob
-import Network.AWS.SageMaker.StopMonitoringSchedule
-import Network.AWS.SageMaker.StopNotebookInstance
-import Network.AWS.SageMaker.StopProcessingJob
-import Network.AWS.SageMaker.StopTrainingJob
-import Network.AWS.SageMaker.StopTransformJob
 import Network.AWS.SageMaker.Types
-import Network.AWS.SageMaker.UpdateAppImageConfig
-import Network.AWS.SageMaker.UpdateCodeRepository
-import Network.AWS.SageMaker.UpdateDomain
-import Network.AWS.SageMaker.UpdateEndpoint
-import Network.AWS.SageMaker.UpdateEndpointWeightsAndCapacities
-import Network.AWS.SageMaker.UpdateExperiment
-import Network.AWS.SageMaker.UpdateImage
-import Network.AWS.SageMaker.UpdateMonitoringSchedule
-import Network.AWS.SageMaker.UpdateNotebookInstance
-import Network.AWS.SageMaker.UpdateNotebookInstanceLifecycleConfig
-import Network.AWS.SageMaker.UpdateTrial
-import Network.AWS.SageMaker.UpdateTrialComponent
-import Network.AWS.SageMaker.UpdateUserProfile
-import Network.AWS.SageMaker.UpdateWorkforce
-import Network.AWS.SageMaker.UpdateWorkteam
 import Network.AWS.SageMaker.Waiters
+import Network.AWS.SageMaker.CreateNotebookInstance
+import Network.AWS.SageMaker.DeleteModelPackage
+import Network.AWS.SageMaker.DescribeMonitoringSchedule
+import Network.AWS.SageMaker.ListTrialComponents
+import Network.AWS.SageMaker.DescribeEndpointConfig
+import Network.AWS.SageMaker.DescribeApp
+import Network.AWS.SageMaker.ListImageVersions
+import Network.AWS.SageMaker.DescribeAutoMLJob
+import Network.AWS.SageMaker.StopProcessingJob
+import Network.AWS.SageMaker.ListLabelingJobsForWorkteam
+import Network.AWS.SageMaker.CreateTransformJob
+import Network.AWS.SageMaker.ListCompilationJobs
+import Network.AWS.SageMaker.DisassociateTrialComponent
+import Network.AWS.SageMaker.StopHyperParameterTuningJob
+import Network.AWS.SageMaker.ListHumanTaskUis
+import Network.AWS.SageMaker.CreateEndpoint
+import Network.AWS.SageMaker.GetSearchSuggestions
+import Network.AWS.SageMaker.DescribeTrial
+import Network.AWS.SageMaker.CreatePresignedDomainUrl
+import Network.AWS.SageMaker.DescribeCodeRepository
+import Network.AWS.SageMaker.DescribeImage
+import Network.AWS.SageMaker.DescribeTrainingJob
+import Network.AWS.SageMaker.DeleteEndpoint
+import Network.AWS.SageMaker.UpdateEndpoint
+import Network.AWS.SageMaker.CreateHumanTaskUi
+import Network.AWS.SageMaker.CreateCompilationJob
+import Network.AWS.SageMaker.DeleteAppImageConfig
+import Network.AWS.SageMaker.UpdateAppImageConfig
+import Network.AWS.SageMaker.DeleteNotebookInstanceLifecycleConfig
+import Network.AWS.SageMaker.UpdateNotebookInstanceLifecycleConfig
+import Network.AWS.SageMaker.DeleteWorkforce
+import Network.AWS.SageMaker.UpdateWorkforce
+import Network.AWS.SageMaker.ListProcessingJobs
+import Network.AWS.SageMaker.CreateLabelingJob
+import Network.AWS.SageMaker.DescribeNotebookInstance
+import Network.AWS.SageMaker.CreateMonitoringSchedule
+import Network.AWS.SageMaker.ListAppImageConfigs
+import Network.AWS.SageMaker.CreateEndpointConfig
+import Network.AWS.SageMaker.StopNotebookInstance
+import Network.AWS.SageMaker.UpdateEndpointWeightsAndCapacities
+import Network.AWS.SageMaker.CreateAppImageConfig
+import Network.AWS.SageMaker.DeleteTags
+import Network.AWS.SageMaker.ListExperiments
+import Network.AWS.SageMaker.ListAutoMLJobs
+import Network.AWS.SageMaker.ListApps
+import Network.AWS.SageMaker.CreateProcessingJob
+import Network.AWS.SageMaker.DeleteMonitoringSchedule
+import Network.AWS.SageMaker.DescribeModelPackage
+import Network.AWS.SageMaker.DeleteEndpointConfig
+import Network.AWS.SageMaker.UpdateMonitoringSchedule
+import Network.AWS.SageMaker.DeleteApp
+import Network.AWS.SageMaker.CreateAlgorithm
+import Network.AWS.SageMaker.StopTransformJob
+import Network.AWS.SageMaker.CreateModel
+import Network.AWS.SageMaker.ListUserProfiles
+import Network.AWS.SageMaker.CreateCodeRepository
+import Network.AWS.SageMaker.CreateHyperParameterTuningJob
+import Network.AWS.SageMaker.DeleteTrial
+import Network.AWS.SageMaker.UpdateTrial
+import Network.AWS.SageMaker.ListCodeRepositories
+import Network.AWS.SageMaker.DescribeCompilationJob
+import Network.AWS.SageMaker.ListHyperParameterTuningJobs
+import Network.AWS.SageMaker.ListAlgorithms
+import Network.AWS.SageMaker.RenderUiTemplate
+import Network.AWS.SageMaker.DeleteFlowDefinition
+import Network.AWS.SageMaker.CreateTrial
+import Network.AWS.SageMaker.DeleteModel
+import Network.AWS.SageMaker.ListModels
+import Network.AWS.SageMaker.DeleteAlgorithm
+import Network.AWS.SageMaker.AssociateTrialComponent
+import Network.AWS.SageMaker.DescribeNotebookInstanceLifecycleConfig
+import Network.AWS.SageMaker.DescribeWorkforce
+import Network.AWS.SageMaker.CreateModelPackage
+import Network.AWS.SageMaker.StopMonitoringSchedule
+import Network.AWS.SageMaker.DescribeAppImageConfig
+import Network.AWS.SageMaker.ListNotebookInstances
+import Network.AWS.SageMaker.StopLabelingJob
+import Network.AWS.SageMaker.DeleteNotebookInstance
+import Network.AWS.SageMaker.UpdateNotebookInstance
+import Network.AWS.SageMaker.ListModelPackages
+import Network.AWS.SageMaker.DeleteImageVersion
+import Network.AWS.SageMaker.DescribeExperiment
+import Network.AWS.SageMaker.DeleteTrialComponent
+import Network.AWS.SageMaker.UpdateTrialComponent
+import Network.AWS.SageMaker.DescribeLabelingJob
+import Network.AWS.SageMaker.CreateDomain
+import Network.AWS.SageMaker.DescribeUserProfile
+import Network.AWS.SageMaker.ListMonitoringExecutions
+import Network.AWS.SageMaker.DeleteHumanTaskUi
+import Network.AWS.SageMaker.StopTrainingJob
+import Network.AWS.SageMaker.DescribeAlgorithm
+import Network.AWS.SageMaker.DescribeModel
+import Network.AWS.SageMaker.ListTransformJobs
+import Network.AWS.SageMaker.DescribeHyperParameterTuningJob
+import Network.AWS.SageMaker.ListEndpoints
+import Network.AWS.SageMaker.DescribeFlowDefinition
+import Network.AWS.SageMaker.CreatePresignedNotebookInstanceUrl
+import Network.AWS.SageMaker.ListTrainingJobsForHyperParameterTuningJob
+import Network.AWS.SageMaker.DescribeDomain
+import Network.AWS.SageMaker.UpdateWorkteam
+import Network.AWS.SageMaker.DeleteWorkteam
+import Network.AWS.SageMaker.ListWorkteams
+import Network.AWS.SageMaker.CreateAutoMLJob
+import Network.AWS.SageMaker.CreateApp
+import Network.AWS.SageMaker.CreateExperiment
+import Network.AWS.SageMaker.ListNotebookInstanceLifecycleConfigs
+import Network.AWS.SageMaker.ListWorkforces
+import Network.AWS.SageMaker.DescribeSubscribedWorkteam
+import Network.AWS.SageMaker.CreateWorkteam
+import Network.AWS.SageMaker.CreateNotebookInstanceLifecycleConfig
+import Network.AWS.SageMaker.ListMonitoringSchedules
+import Network.AWS.SageMaker.ListLabelingJobs
+import Network.AWS.SageMaker.StartNotebookInstance
+import Network.AWS.SageMaker.UpdateExperiment
+import Network.AWS.SageMaker.DeleteExperiment
+import Network.AWS.SageMaker.AddTags
+import Network.AWS.SageMaker.CreateWorkforce
+import Network.AWS.SageMaker.DescribeTrialComponent
+import Network.AWS.SageMaker.DescribeImageVersion
+import Network.AWS.SageMaker.ListEndpointConfigs
+import Network.AWS.SageMaker.CreateFlowDefinition
+import Network.AWS.SageMaker.ListTags
+import Network.AWS.SageMaker.DescribeHumanTaskUi
+import Network.AWS.SageMaker.CreateTrainingJob
+import Network.AWS.SageMaker.DeleteUserProfile
+import Network.AWS.SageMaker.UpdateUserProfile
+import Network.AWS.SageMaker.CreateImage
+import Network.AWS.SageMaker.ListTrials
+import Network.AWS.SageMaker.StopCompilationJob
+import Network.AWS.SageMaker.ListImages
+import Network.AWS.SageMaker.CreateUserProfile
+import Network.AWS.SageMaker.Search
+import Network.AWS.SageMaker.UpdateCodeRepository
+import Network.AWS.SageMaker.DeleteCodeRepository
+import Network.AWS.SageMaker.DescribeTransformJob
+import Network.AWS.SageMaker.ListCandidatesForAutoMLJob
+import Network.AWS.SageMaker.DeleteImage
+import Network.AWS.SageMaker.UpdateImage
+import Network.AWS.SageMaker.ListFlowDefinitions
+import Network.AWS.SageMaker.DescribeEndpoint
+import Network.AWS.SageMaker.ListTrainingJobs
+import Network.AWS.SageMaker.DescribeWorkteam
+import Network.AWS.SageMaker.ListSubscribedWorkteams
+import Network.AWS.SageMaker.DeleteDomain
+import Network.AWS.SageMaker.UpdateDomain
+import Network.AWS.SageMaker.ListDomains
+import Network.AWS.SageMaker.CreateImageVersion
+import Network.AWS.SageMaker.StartMonitoringSchedule
+import Network.AWS.SageMaker.StopAutoMLJob
+import Network.AWS.SageMaker.CreateTrialComponent
+import Network.AWS.SageMaker.DescribeProcessingJob
+import qualified Network.AWS.Prelude as Lude
 
--- $errors
--- Error matchers are designed for use with the functions provided by
--- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
--- This allows catching (and rethrowing) service specific errors returned
--- by 'SageMaker'.
+{- $errors
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by 'SageMaker'.
+-}
 
--- $operations
--- Some AWS operations return results that are incomplete and require subsequent
--- requests in order to obtain the entire result set. The process of sending
--- subsequent requests to continue where a previous request left off is called
--- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
--- 1000 objects at a time, and you must send subsequent requests with the
--- appropriate Marker in order to retrieve the next page of results.
---
--- Operations that have an 'AWSPager' instance can transparently perform subsequent
--- requests, correctly setting Markers and other request facets to iterate through
--- the entire result set of a truncated API operation. Operations which support
--- this have an additional note in the documentation.
---
--- Many operations have the ability to filter results on the server side. See the
--- individual operation parameters for details.
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
 
--- $waiters
--- Waiters poll by repeatedly sending a request until some remote success condition
--- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
--- determines how many attempts should be made, in addition to delay and retry strategies.
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly sending a request until some remote success condition
+configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+determines how many attempts should be made, in addition to delay and retry strategies.
+-}

@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,19 +15,18 @@
 --
 -- Retrieves the existing conference preferences.
 module Network.AWS.AlexaBusiness.GetConferencePreference
-  ( -- * Creating a request
-    GetConferencePreference (..),
-    mkGetConferencePreference,
+    (
+    -- * Creating a request
+      GetConferencePreference (..)
+    , mkGetConferencePreference
 
     -- * Destructuring the response
-    GetConferencePreferenceResponse (..),
-    mkGetConferencePreferenceResponse,
-
+    , GetConferencePreferenceResponse (..)
+    , mkGetConferencePreferenceResponse
     -- ** Response lenses
-    gcprrsPreference,
-    gcprrsResponseStatus,
-  )
-where
+    , gcprrsPreference
+    , gcprrsResponseStatus
+    ) where
 
 import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -41,65 +40,69 @@ data GetConferencePreference = GetConferencePreference'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetConferencePreference' value with any optional fields omitted.
-mkGetConferencePreference ::
-  GetConferencePreference
+mkGetConferencePreference
+    :: GetConferencePreference
 mkGetConferencePreference = GetConferencePreference'
 
+instance Core.ToQuery GetConferencePreference where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders GetConferencePreference where
+        toHeaders GetConferencePreference{..}
+          = Core.pure
+              ("X-Amz-Target", "AlexaForBusiness.GetConferencePreference")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
+
 instance Core.FromJSON GetConferencePreference where
-  toJSON _ = Core.Object Core.mempty
+        toJSON _ = Core.Object Core.mempty
 
 instance Core.AWSRequest GetConferencePreference where
-  type Rs GetConferencePreference = GetConferencePreferenceResponse
-  request x@_ =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "AlexaForBusiness.GetConferencePreference")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          GetConferencePreferenceResponse'
-            Core.<$> (x Core..:? "Preference") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs GetConferencePreference = GetConferencePreferenceResponse
+        toRequest x@_
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 GetConferencePreferenceResponse' Core.<$>
+                   (x Core..:? "Preference") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkGetConferencePreferenceResponse' smart constructor.
 data GetConferencePreferenceResponse = GetConferencePreferenceResponse'
-  { -- | The conference preference.
-    preference :: Core.Maybe Types.ConferencePreference,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { preference :: Core.Maybe Types.ConferencePreference
+    -- ^ The conference preference.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetConferencePreferenceResponse' value with any optional fields omitted.
-mkGetConferencePreferenceResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  GetConferencePreferenceResponse
-mkGetConferencePreferenceResponse responseStatus =
-  GetConferencePreferenceResponse'
-    { preference = Core.Nothing,
-      responseStatus
-    }
+mkGetConferencePreferenceResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> GetConferencePreferenceResponse
+mkGetConferencePreferenceResponse responseStatus
+  = GetConferencePreferenceResponse'{preference = Core.Nothing,
+                                     responseStatus}
 
 -- | The conference preference.
 --
 -- /Note:/ Consider using 'preference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gcprrsPreference :: Lens.Lens' GetConferencePreferenceResponse (Core.Maybe Types.ConferencePreference)
 gcprrsPreference = Lens.field @"preference"
-{-# DEPRECATED gcprrsPreference "Use generic-lens or generic-optics with 'preference' instead." #-}
+{-# INLINEABLE gcprrsPreference #-}
+{-# DEPRECATED preference "Use generic-lens or generic-optics with 'preference' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gcprrsResponseStatus :: Lens.Lens' GetConferencePreferenceResponse Core.Int
 gcprrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED gcprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE gcprrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

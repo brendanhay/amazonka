@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CloudWatchEvents.Types.KinesisParameters
-  ( KinesisParameters (..),
-
-    -- * Smart constructor
-    mkKinesisParameters,
-
-    -- * Lenses
-    kpPartitionKeyPath,
-  )
-where
+  ( KinesisParameters (..)
+  -- * Smart constructor
+  , mkKinesisParameters
+  -- * Lenses
+  , kpPartitionKeyPath
+  ) where
 
 import qualified Network.AWS.CloudWatchEvents.Types.PartitionKeyPath as Types
 import qualified Network.AWS.Lens as Lens
@@ -29,35 +27,34 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkKinesisParameters' smart constructor.
 newtype KinesisParameters = KinesisParameters'
-  { -- | The JSON path to be extracted from the event and used as the partition key. For more information, see <https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key Amazon Kinesis Streams Key Concepts> in the /Amazon Kinesis Streams Developer Guide/ .
-    partitionKeyPath :: Types.PartitionKeyPath
+  { partitionKeyPath :: Types.PartitionKeyPath
+    -- ^ The JSON path to be extracted from the event and used as the partition key. For more information, see <https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key Amazon Kinesis Streams Key Concepts> in the /Amazon Kinesis Streams Developer Guide/ .
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'KinesisParameters' value with any optional fields omitted.
-mkKinesisParameters ::
-  -- | 'partitionKeyPath'
-  Types.PartitionKeyPath ->
-  KinesisParameters
-mkKinesisParameters partitionKeyPath =
-  KinesisParameters' {partitionKeyPath}
+mkKinesisParameters
+    :: Types.PartitionKeyPath -- ^ 'partitionKeyPath'
+    -> KinesisParameters
+mkKinesisParameters partitionKeyPath
+  = KinesisParameters'{partitionKeyPath}
 
 -- | The JSON path to be extracted from the event and used as the partition key. For more information, see <https://docs.aws.amazon.com/streams/latest/dev/key-concepts.html#partition-key Amazon Kinesis Streams Key Concepts> in the /Amazon Kinesis Streams Developer Guide/ .
 --
 -- /Note:/ Consider using 'partitionKeyPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 kpPartitionKeyPath :: Lens.Lens' KinesisParameters Types.PartitionKeyPath
 kpPartitionKeyPath = Lens.field @"partitionKeyPath"
-{-# DEPRECATED kpPartitionKeyPath "Use generic-lens or generic-optics with 'partitionKeyPath' instead." #-}
+{-# INLINEABLE kpPartitionKeyPath #-}
+{-# DEPRECATED partitionKeyPath "Use generic-lens or generic-optics with 'partitionKeyPath' instead"  #-}
 
 instance Core.FromJSON KinesisParameters where
-  toJSON KinesisParameters {..} =
-    Core.object
-      ( Core.catMaybes
-          [Core.Just ("PartitionKeyPath" Core..= partitionKeyPath)]
-      )
+        toJSON KinesisParameters{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("PartitionKeyPath" Core..= partitionKeyPath)])
 
 instance Core.FromJSON KinesisParameters where
-  parseJSON =
-    Core.withObject "KinesisParameters" Core.$
-      \x -> KinesisParameters' Core.<$> (x Core..: "PartitionKeyPath")
+        parseJSON
+          = Core.withObject "KinesisParameters" Core.$
+              \ x -> KinesisParameters' Core.<$> (x Core..: "PartitionKeyPath")

@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -20,23 +20,21 @@
 -- When creating a IPv6 BGP peer, omit the Amazon address and customer address. IPv6 addresses are automatically assigned from the Amazon pool of IPv6 addresses; you cannot specify custom IPv6 addresses.
 -- For a public virtual interface, the Autonomous System Number (ASN) must be private or already whitelisted for the virtual interface.
 module Network.AWS.DirectConnect.CreateBGPPeer
-  ( -- * Creating a request
-    CreateBGPPeer (..),
-    mkCreateBGPPeer,
-
+    (
+    -- * Creating a request
+      CreateBGPPeer (..)
+    , mkCreateBGPPeer
     -- ** Request lenses
-    cbgppNewBGPPeer,
-    cbgppVirtualInterfaceId,
+    , cbgppNewBGPPeer
+    , cbgppVirtualInterfaceId
 
     -- * Destructuring the response
-    CreateBGPPeerResponse (..),
-    mkCreateBGPPeerResponse,
-
+    , CreateBGPPeerResponse (..)
+    , mkCreateBGPPeerResponse
     -- ** Response lenses
-    cbgpprrsVirtualInterface,
-    cbgpprrsResponseStatus,
-  )
-where
+    , cbgpprrsVirtualInterface
+    , cbgpprrsResponseStatus
+    ) where
 
 import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -46,98 +44,100 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateBGPPeer' smart constructor.
 data CreateBGPPeer = CreateBGPPeer'
-  { -- | Information about the BGP peer.
-    newBGPPeer :: Core.Maybe Types.NewBGPPeer,
-    -- | The ID of the virtual interface.
-    virtualInterfaceId :: Core.Maybe Types.VirtualInterfaceId
+  { newBGPPeer :: Core.Maybe Types.NewBGPPeer
+    -- ^ Information about the BGP peer.
+  , virtualInterfaceId :: Core.Maybe Types.VirtualInterfaceId
+    -- ^ The ID of the virtual interface.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CreateBGPPeer' value with any optional fields omitted.
-mkCreateBGPPeer ::
-  CreateBGPPeer
-mkCreateBGPPeer =
-  CreateBGPPeer'
-    { newBGPPeer = Core.Nothing,
-      virtualInterfaceId = Core.Nothing
-    }
+mkCreateBGPPeer
+    :: CreateBGPPeer
+mkCreateBGPPeer
+  = CreateBGPPeer'{newBGPPeer = Core.Nothing,
+                   virtualInterfaceId = Core.Nothing}
 
 -- | Information about the BGP peer.
 --
 -- /Note:/ Consider using 'newBGPPeer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cbgppNewBGPPeer :: Lens.Lens' CreateBGPPeer (Core.Maybe Types.NewBGPPeer)
 cbgppNewBGPPeer = Lens.field @"newBGPPeer"
-{-# DEPRECATED cbgppNewBGPPeer "Use generic-lens or generic-optics with 'newBGPPeer' instead." #-}
+{-# INLINEABLE cbgppNewBGPPeer #-}
+{-# DEPRECATED newBGPPeer "Use generic-lens or generic-optics with 'newBGPPeer' instead"  #-}
 
 -- | The ID of the virtual interface.
 --
 -- /Note:/ Consider using 'virtualInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cbgppVirtualInterfaceId :: Lens.Lens' CreateBGPPeer (Core.Maybe Types.VirtualInterfaceId)
 cbgppVirtualInterfaceId = Lens.field @"virtualInterfaceId"
-{-# DEPRECATED cbgppVirtualInterfaceId "Use generic-lens or generic-optics with 'virtualInterfaceId' instead." #-}
+{-# INLINEABLE cbgppVirtualInterfaceId #-}
+{-# DEPRECATED virtualInterfaceId "Use generic-lens or generic-optics with 'virtualInterfaceId' instead"  #-}
+
+instance Core.ToQuery CreateBGPPeer where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders CreateBGPPeer where
+        toHeaders CreateBGPPeer{..}
+          = Core.pure ("X-Amz-Target", "OvertureService.CreateBGPPeer")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON CreateBGPPeer where
-  toJSON CreateBGPPeer {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("newBGPPeer" Core..=) Core.<$> newBGPPeer,
-            ("virtualInterfaceId" Core..=) Core.<$> virtualInterfaceId
-          ]
-      )
+        toJSON CreateBGPPeer{..}
+          = Core.object
+              (Core.catMaybes
+                 [("newBGPPeer" Core..=) Core.<$> newBGPPeer,
+                  ("virtualInterfaceId" Core..=) Core.<$> virtualInterfaceId])
 
 instance Core.AWSRequest CreateBGPPeer where
-  type Rs CreateBGPPeer = CreateBGPPeerResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "OvertureService.CreateBGPPeer")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          CreateBGPPeerResponse'
-            Core.<$> (x Core..:? "virtualInterface")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs CreateBGPPeer = CreateBGPPeerResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 CreateBGPPeerResponse' Core.<$>
+                   (x Core..:? "virtualInterface") Core.<*>
+                     Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkCreateBGPPeerResponse' smart constructor.
 data CreateBGPPeerResponse = CreateBGPPeerResponse'
-  { -- | The virtual interface.
-    virtualInterface :: Core.Maybe Types.VirtualInterface,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { virtualInterface :: Core.Maybe Types.VirtualInterface
+    -- ^ The virtual interface.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CreateBGPPeerResponse' value with any optional fields omitted.
-mkCreateBGPPeerResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  CreateBGPPeerResponse
-mkCreateBGPPeerResponse responseStatus =
-  CreateBGPPeerResponse'
-    { virtualInterface = Core.Nothing,
-      responseStatus
-    }
+mkCreateBGPPeerResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> CreateBGPPeerResponse
+mkCreateBGPPeerResponse responseStatus
+  = CreateBGPPeerResponse'{virtualInterface = Core.Nothing,
+                           responseStatus}
 
 -- | The virtual interface.
 --
 -- /Note:/ Consider using 'virtualInterface' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cbgpprrsVirtualInterface :: Lens.Lens' CreateBGPPeerResponse (Core.Maybe Types.VirtualInterface)
 cbgpprrsVirtualInterface = Lens.field @"virtualInterface"
-{-# DEPRECATED cbgpprrsVirtualInterface "Use generic-lens or generic-optics with 'virtualInterface' instead." #-}
+{-# INLINEABLE cbgpprrsVirtualInterface #-}
+{-# DEPRECATED virtualInterface "Use generic-lens or generic-optics with 'virtualInterface' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cbgpprrsResponseStatus :: Lens.Lens' CreateBGPPeerResponse Core.Int
 cbgpprrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED cbgpprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE cbgpprrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

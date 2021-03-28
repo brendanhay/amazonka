@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -29,22 +29,20 @@
 -- This operation is throttled at one request per second and can only get DKIM attributes for up to 100 identities at a time.
 -- For more information about creating DNS records using DKIM tokens, go to the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide> .
 module Network.AWS.SES.GetIdentityDkimAttributes
-  ( -- * Creating a request
-    GetIdentityDkimAttributes (..),
-    mkGetIdentityDkimAttributes,
-
+    (
+    -- * Creating a request
+      GetIdentityDkimAttributes (..)
+    , mkGetIdentityDkimAttributes
     -- ** Request lenses
-    gidaIdentities,
+    , gidaIdentities
 
     -- * Destructuring the response
-    GetIdentityDkimAttributesResponse (..),
-    mkGetIdentityDkimAttributesResponse,
-
+    , GetIdentityDkimAttributesResponse (..)
+    , mkGetIdentityDkimAttributesResponse
     -- ** Response lenses
-    gidarrsDkimAttributes,
-    gidarrsResponseStatus,
-  )
-where
+    , gidarrsDkimAttributes
+    , gidarrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -56,94 +54,95 @@ import qualified Network.AWS.SES.Types as Types
 --
 -- /See:/ 'mkGetIdentityDkimAttributes' smart constructor.
 newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes'
-  { -- | A list of one or more verified identities - email addresses, domains, or both.
-    identities :: [Types.Identity]
+  { identities :: [Types.Identity]
+    -- ^ A list of one or more verified identities - email addresses, domains, or both.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetIdentityDkimAttributes' value with any optional fields omitted.
-mkGetIdentityDkimAttributes ::
-  GetIdentityDkimAttributes
-mkGetIdentityDkimAttributes =
-  GetIdentityDkimAttributes' {identities = Core.mempty}
+mkGetIdentityDkimAttributes
+    :: GetIdentityDkimAttributes
+mkGetIdentityDkimAttributes
+  = GetIdentityDkimAttributes'{identities = Core.mempty}
 
 -- | A list of one or more verified identities - email addresses, domains, or both.
 --
 -- /Note:/ Consider using 'identities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gidaIdentities :: Lens.Lens' GetIdentityDkimAttributes [Types.Identity]
 gidaIdentities = Lens.field @"identities"
-{-# DEPRECATED gidaIdentities "Use generic-lens or generic-optics with 'identities' instead." #-}
+{-# INLINEABLE gidaIdentities #-}
+{-# DEPRECATED identities "Use generic-lens or generic-optics with 'identities' instead"  #-}
+
+instance Core.ToQuery GetIdentityDkimAttributes where
+        toQuery GetIdentityDkimAttributes{..}
+          = Core.toQueryPair "Action"
+              ("GetIdentityDkimAttributes" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2010-12-01" :: Core.Text)
+              Core.<>
+              Core.toQueryPair "Identities"
+                (Core.toQueryList "member" identities)
+
+instance Core.ToHeaders GetIdentityDkimAttributes where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest GetIdentityDkimAttributes where
-  type
-    Rs GetIdentityDkimAttributes =
-      GetIdentityDkimAttributesResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "GetIdentityDkimAttributes")
-                Core.<> (Core.pure ("Version", "2010-12-01"))
-                Core.<> ( Core.toQueryValue
-                            "Identities"
-                            (Core.toQueryList "member" identities)
-                        )
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "GetIdentityDkimAttributesResult"
-      ( \s h x ->
-          GetIdentityDkimAttributesResponse'
-            Core.<$> ( x Core..@? "DkimAttributes" Core..@! Core.mempty
-                         Core..<@> Core.parseXMLMap "entry" "key" "value"
-                     )
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs GetIdentityDkimAttributes =
+             GetIdentityDkimAttributesResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "GetIdentityDkimAttributesResult"
+              (\ s h x ->
+                 GetIdentityDkimAttributesResponse' Core.<$>
+                   (x Core..@ "DkimAttributes" Core..@! Core.mempty Core..<@>
+                      Core.parseXMLMap "entry" "key" "value")
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | Represents the status of Amazon SES Easy DKIM signing for an identity. For domain identities, this response also contains the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES successfully verified that these tokens were published.
 --
 -- /See:/ 'mkGetIdentityDkimAttributesResponse' smart constructor.
 data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'
-  { -- | The DKIM attributes for an email address or a domain.
-    dkimAttributes :: Core.HashMap Types.Identity Types.IdentityDkimAttributes,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { dkimAttributes :: Core.HashMap Types.Identity Types.IdentityDkimAttributes
+    -- ^ The DKIM attributes for an email address or a domain.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetIdentityDkimAttributesResponse' value with any optional fields omitted.
-mkGetIdentityDkimAttributesResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  GetIdentityDkimAttributesResponse
-mkGetIdentityDkimAttributesResponse responseStatus =
-  GetIdentityDkimAttributesResponse'
-    { dkimAttributes = Core.mempty,
-      responseStatus
-    }
+mkGetIdentityDkimAttributesResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> GetIdentityDkimAttributesResponse
+mkGetIdentityDkimAttributesResponse responseStatus
+  = GetIdentityDkimAttributesResponse'{dkimAttributes = Core.mempty,
+                                       responseStatus}
 
 -- | The DKIM attributes for an email address or a domain.
 --
 -- /Note:/ Consider using 'dkimAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gidarrsDkimAttributes :: Lens.Lens' GetIdentityDkimAttributesResponse (Core.HashMap Types.Identity Types.IdentityDkimAttributes)
 gidarrsDkimAttributes = Lens.field @"dkimAttributes"
-{-# DEPRECATED gidarrsDkimAttributes "Use generic-lens or generic-optics with 'dkimAttributes' instead." #-}
+{-# INLINEABLE gidarrsDkimAttributes #-}
+{-# DEPRECATED dkimAttributes "Use generic-lens or generic-optics with 'dkimAttributes' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gidarrsResponseStatus :: Lens.Lens' GetIdentityDkimAttributesResponse Core.Int
 gidarrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED gidarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE gidarrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

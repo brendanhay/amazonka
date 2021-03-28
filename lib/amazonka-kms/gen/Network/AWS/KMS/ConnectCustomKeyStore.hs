@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -23,21 +23,19 @@
 -- To fix the failure, use the 'DisconnectCustomKeyStore' operation to disconnect the custom key store, correct the error, use the 'UpdateCustomKeyStore' operation if necessary, and then use @ConnectCustomKeyStore@ again.
 -- If you are having trouble connecting or disconnecting a custom key store, see <https://docs.aws.amazon.com/kms/latest/developerguide/fix-keystore.html Troubleshooting a Custom Key Store> in the /AWS Key Management Service Developer Guide/ .
 module Network.AWS.KMS.ConnectCustomKeyStore
-  ( -- * Creating a request
-    ConnectCustomKeyStore (..),
-    mkConnectCustomKeyStore,
-
+    (
+    -- * Creating a request
+      ConnectCustomKeyStore (..)
+    , mkConnectCustomKeyStore
     -- ** Request lenses
-    ccksCustomKeyStoreId,
+    , ccksCustomKeyStoreId
 
     -- * Destructuring the response
-    ConnectCustomKeyStoreResponse (..),
-    mkConnectCustomKeyStoreResponse,
-
+    , ConnectCustomKeyStoreResponse (..)
+    , mkConnectCustomKeyStoreResponse
     -- ** Response lenses
-    crsResponseStatus,
-  )
-where
+    , crsResponseStatus
+    ) where
 
 import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -47,73 +45,77 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkConnectCustomKeyStore' smart constructor.
 newtype ConnectCustomKeyStore = ConnectCustomKeyStore'
-  { -- | Enter the key store ID of the custom key store that you want to connect. To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
-    customKeyStoreId :: Types.CustomKeyStoreId
+  { customKeyStoreId :: Types.CustomKeyStoreId
+    -- ^ Enter the key store ID of the custom key store that you want to connect. To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ConnectCustomKeyStore' value with any optional fields omitted.
-mkConnectCustomKeyStore ::
-  -- | 'customKeyStoreId'
-  Types.CustomKeyStoreId ->
-  ConnectCustomKeyStore
-mkConnectCustomKeyStore customKeyStoreId =
-  ConnectCustomKeyStore' {customKeyStoreId}
+mkConnectCustomKeyStore
+    :: Types.CustomKeyStoreId -- ^ 'customKeyStoreId'
+    -> ConnectCustomKeyStore
+mkConnectCustomKeyStore customKeyStoreId
+  = ConnectCustomKeyStore'{customKeyStoreId}
 
 -- | Enter the key store ID of the custom key store that you want to connect. To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
 --
 -- /Note:/ Consider using 'customKeyStoreId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccksCustomKeyStoreId :: Lens.Lens' ConnectCustomKeyStore Types.CustomKeyStoreId
 ccksCustomKeyStoreId = Lens.field @"customKeyStoreId"
-{-# DEPRECATED ccksCustomKeyStoreId "Use generic-lens or generic-optics with 'customKeyStoreId' instead." #-}
+{-# INLINEABLE ccksCustomKeyStoreId #-}
+{-# DEPRECATED customKeyStoreId "Use generic-lens or generic-optics with 'customKeyStoreId' instead"  #-}
+
+instance Core.ToQuery ConnectCustomKeyStore where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders ConnectCustomKeyStore where
+        toHeaders ConnectCustomKeyStore{..}
+          = Core.pure ("X-Amz-Target", "TrentService.ConnectCustomKeyStore")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON ConnectCustomKeyStore where
-  toJSON ConnectCustomKeyStore {..} =
-    Core.object
-      ( Core.catMaybes
-          [Core.Just ("CustomKeyStoreId" Core..= customKeyStoreId)]
-      )
+        toJSON ConnectCustomKeyStore{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("CustomKeyStoreId" Core..= customKeyStoreId)])
 
 instance Core.AWSRequest ConnectCustomKeyStore where
-  type Rs ConnectCustomKeyStore = ConnectCustomKeyStoreResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "TrentService.ConnectCustomKeyStore")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveEmpty
-      ( \s h x ->
-          ConnectCustomKeyStoreResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs ConnectCustomKeyStore = ConnectCustomKeyStoreResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveEmpty
+              (\ s h x ->
+                 ConnectCustomKeyStoreResponse' Core.<$>
+                   (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkConnectCustomKeyStoreResponse' smart constructor.
 newtype ConnectCustomKeyStoreResponse = ConnectCustomKeyStoreResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ConnectCustomKeyStoreResponse' value with any optional fields omitted.
-mkConnectCustomKeyStoreResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  ConnectCustomKeyStoreResponse
-mkConnectCustomKeyStoreResponse responseStatus =
-  ConnectCustomKeyStoreResponse' {responseStatus}
+mkConnectCustomKeyStoreResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> ConnectCustomKeyStoreResponse
+mkConnectCustomKeyStoreResponse responseStatus
+  = ConnectCustomKeyStoreResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 crsResponseStatus :: Lens.Lens' ConnectCustomKeyStoreResponse Core.Int
 crsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE crsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

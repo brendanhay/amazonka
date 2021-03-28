@@ -1,278 +1,274 @@
-cabal-version:      2.2
-name:               amazonka-elasticsearch
-version:            2.0.0.0
-synopsis:           Amazon Elasticsearch Service SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-elasticsearch
+version:               2.0.0.0
+synopsis:              Amazon Elasticsearch Service SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.ElasticSearch" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.ElasticSearch" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-elasticsearch
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-elasticsearch
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.ElasticSearch
-    Network.AWS.ElasticSearch.AcceptInboundCrossClusterSearchConnection
-    Network.AWS.ElasticSearch.AddTags
-    Network.AWS.ElasticSearch.AssociatePackage
-    Network.AWS.ElasticSearch.CancelElasticsearchServiceSoftwareUpdate
-    Network.AWS.ElasticSearch.CreateElasticsearchDomain
-    Network.AWS.ElasticSearch.CreateOutboundCrossClusterSearchConnection
-    Network.AWS.ElasticSearch.CreatePackage
-    Network.AWS.ElasticSearch.DeleteElasticsearchDomain
-    Network.AWS.ElasticSearch.DeleteElasticsearchServiceRole
-    Network.AWS.ElasticSearch.DeleteInboundCrossClusterSearchConnection
-    Network.AWS.ElasticSearch.DeleteOutboundCrossClusterSearchConnection
-    Network.AWS.ElasticSearch.DeletePackage
-    Network.AWS.ElasticSearch.DescribeElasticsearchDomain
-    Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
-    Network.AWS.ElasticSearch.DescribeElasticsearchDomains
-    Network.AWS.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
-    Network.AWS.ElasticSearch.DescribeInboundCrossClusterSearchConnections
-    Network.AWS.ElasticSearch.DescribeOutboundCrossClusterSearchConnections
-    Network.AWS.ElasticSearch.DescribePackages
-    Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstanceOfferings
-    Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstances
-    Network.AWS.ElasticSearch.DissociatePackage
-    Network.AWS.ElasticSearch.GetCompatibleElasticsearchVersions
-    Network.AWS.ElasticSearch.GetPackageVersionHistory
-    Network.AWS.ElasticSearch.GetUpgradeHistory
-    Network.AWS.ElasticSearch.GetUpgradeStatus
-    Network.AWS.ElasticSearch.ListDomainNames
-    Network.AWS.ElasticSearch.ListDomainsForPackage
-    Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
-    Network.AWS.ElasticSearch.ListElasticsearchVersions
-    Network.AWS.ElasticSearch.ListPackagesForDomain
-    Network.AWS.ElasticSearch.ListTags
-    Network.AWS.ElasticSearch.PurchaseReservedElasticsearchInstanceOffering
-    Network.AWS.ElasticSearch.RejectInboundCrossClusterSearchConnection
-    Network.AWS.ElasticSearch.RemoveTags
-    Network.AWS.ElasticSearch.StartElasticsearchServiceSoftwareUpdate
-    Network.AWS.ElasticSearch.Types
-    Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
-    Network.AWS.ElasticSearch.UpdatePackage
-    Network.AWS.ElasticSearch.UpgradeElasticsearchDomain
-    Network.AWS.ElasticSearch.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.ElasticSearch.Types.AccessPoliciesStatus
-    Network.AWS.ElasticSearch.Types.AdditionalLimit
-    Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus
-    Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions
-    Network.AWS.ElasticSearch.Types.AdvancedSecurityOptionsInput
-    Network.AWS.ElasticSearch.Types.AdvancedSecurityOptionsStatus
-    Network.AWS.ElasticSearch.Types.ARN
-    Network.AWS.ElasticSearch.Types.BackendRole
-    Network.AWS.ElasticSearch.Types.CloudWatchLogsLogGroupArn
-    Network.AWS.ElasticSearch.Types.CognitoOptions
-    Network.AWS.ElasticSearch.Types.CognitoOptionsStatus
-    Network.AWS.ElasticSearch.Types.CommitMessage
-    Network.AWS.ElasticSearch.Types.CompatibleVersionsMap
-    Network.AWS.ElasticSearch.Types.ConnectionAlias
-    Network.AWS.ElasticSearch.Types.CrossClusterSearchConnectionId
-    Network.AWS.ElasticSearch.Types.CrossClusterSearchConnectionStatusMessage
-    Network.AWS.ElasticSearch.Types.CurrentVersion
-    Network.AWS.ElasticSearch.Types.DeploymentStatus
-    Network.AWS.ElasticSearch.Types.DescribePackagesFilter
-    Network.AWS.ElasticSearch.Types.DescribePackagesFilterName
-    Network.AWS.ElasticSearch.Types.DescribePackagesFilterValue
-    Network.AWS.ElasticSearch.Types.Description
-    Network.AWS.ElasticSearch.Types.DomainEndpointOptions
-    Network.AWS.ElasticSearch.Types.DomainEndpointOptionsStatus
-    Network.AWS.ElasticSearch.Types.DomainId
-    Network.AWS.ElasticSearch.Types.DomainInfo
-    Network.AWS.ElasticSearch.Types.DomainInformation
-    Network.AWS.ElasticSearch.Types.DomainName
-    Network.AWS.ElasticSearch.Types.DomainNameFqdn
-    Network.AWS.ElasticSearch.Types.DomainPackageDetails
-    Network.AWS.ElasticSearch.Types.DomainPackageStatus
-    Network.AWS.ElasticSearch.Types.EBSOptions
-    Network.AWS.ElasticSearch.Types.EBSOptionsStatus
-    Network.AWS.ElasticSearch.Types.ElasticsearchClusterConfig
-    Network.AWS.ElasticSearch.Types.ElasticsearchClusterConfigStatus
-    Network.AWS.ElasticSearch.Types.ElasticsearchDomainConfig
-    Network.AWS.ElasticSearch.Types.ElasticsearchDomainStatus
-    Network.AWS.ElasticSearch.Types.ElasticsearchVersion
-    Network.AWS.ElasticSearch.Types.ElasticsearchVersionStatus
-    Network.AWS.ElasticSearch.Types.ElasticsearchVersionString
-    Network.AWS.ElasticSearch.Types.EncryptionAtRestOptions
-    Network.AWS.ElasticSearch.Types.EncryptionAtRestOptionsStatus
-    Network.AWS.ElasticSearch.Types.ErrorDetails
-    Network.AWS.ElasticSearch.Types.ErrorMessage
-    Network.AWS.ElasticSearch.Types.ErrorType
-    Network.AWS.ElasticSearch.Types.ESPartitionInstanceType
-    Network.AWS.ElasticSearch.Types.ESWarmPartitionInstanceType
-    Network.AWS.ElasticSearch.Types.Filter
-    Network.AWS.ElasticSearch.Types.IdentityPoolId
-    Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnection
-    Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatus
-    Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatusCode
-    Network.AWS.ElasticSearch.Types.InstanceCountLimits
-    Network.AWS.ElasticSearch.Types.InstanceLimits
-    Network.AWS.ElasticSearch.Types.InstanceRole
-    Network.AWS.ElasticSearch.Types.Issue
-    Network.AWS.ElasticSearch.Types.Key
-    Network.AWS.ElasticSearch.Types.KmsKeyId
-    Network.AWS.ElasticSearch.Types.LimitName
-    Network.AWS.ElasticSearch.Types.Limits
-    Network.AWS.ElasticSearch.Types.LimitValue
-    Network.AWS.ElasticSearch.Types.LogPublishingOption
-    Network.AWS.ElasticSearch.Types.LogPublishingOptionsStatus
-    Network.AWS.ElasticSearch.Types.LogType
-    Network.AWS.ElasticSearch.Types.MasterUserOptions
-    Network.AWS.ElasticSearch.Types.NewVersion
-    Network.AWS.ElasticSearch.Types.NextToken
-    Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptions
-    Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptionsStatus
-    Network.AWS.ElasticSearch.Types.NonEmptyString
-    Network.AWS.ElasticSearch.Types.OptionState
-    Network.AWS.ElasticSearch.Types.OptionStatus
-    Network.AWS.ElasticSearch.Types.OutboundCrossClusterSearchConnection
-    Network.AWS.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatus
-    Network.AWS.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatusCode
-    Network.AWS.ElasticSearch.Types.OwnerId
-    Network.AWS.ElasticSearch.Types.PackageDescription
-    Network.AWS.ElasticSearch.Types.PackageDetails
-    Network.AWS.ElasticSearch.Types.PackageID
-    Network.AWS.ElasticSearch.Types.PackageName
-    Network.AWS.ElasticSearch.Types.PackageSource
-    Network.AWS.ElasticSearch.Types.PackageStatus
-    Network.AWS.ElasticSearch.Types.PackageType
-    Network.AWS.ElasticSearch.Types.PackageVersion
-    Network.AWS.ElasticSearch.Types.PackageVersionHistory
-    Network.AWS.ElasticSearch.Types.Password
-    Network.AWS.ElasticSearch.Types.PolicyDocument
-    Network.AWS.ElasticSearch.Types.RecurringCharge
-    Network.AWS.ElasticSearch.Types.ReferencePath
-    Network.AWS.ElasticSearch.Types.Region
-    Network.AWS.ElasticSearch.Types.ReservationToken
-    Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstance
-    Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceId
-    Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering
-    Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOfferingId
-    Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstancePaymentOption
-    Network.AWS.ElasticSearch.Types.RoleArn
-    Network.AWS.ElasticSearch.Types.RolesKey
-    Network.AWS.ElasticSearch.Types.S3BucketName
-    Network.AWS.ElasticSearch.Types.S3Key
-    Network.AWS.ElasticSearch.Types.SAMLEntityId
-    Network.AWS.ElasticSearch.Types.SAMLIdp
-    Network.AWS.ElasticSearch.Types.SAMLMetadata
-    Network.AWS.ElasticSearch.Types.SAMLOptionsInput
-    Network.AWS.ElasticSearch.Types.SAMLOptionsOutput
-    Network.AWS.ElasticSearch.Types.ServiceSoftwareOptions
-    Network.AWS.ElasticSearch.Types.ServiceUrl
-    Network.AWS.ElasticSearch.Types.SnapshotOptions
-    Network.AWS.ElasticSearch.Types.SnapshotOptionsStatus
-    Network.AWS.ElasticSearch.Types.SourceVersion
-    Network.AWS.ElasticSearch.Types.StorageSubTypeName
-    Network.AWS.ElasticSearch.Types.StorageType
-    Network.AWS.ElasticSearch.Types.StorageTypeLimit
-    Network.AWS.ElasticSearch.Types.StorageTypeName
-    Network.AWS.ElasticSearch.Types.String
-    Network.AWS.ElasticSearch.Types.SubjectKey
-    Network.AWS.ElasticSearch.Types.Tag
-    Network.AWS.ElasticSearch.Types.TLSSecurityPolicy
-    Network.AWS.ElasticSearch.Types.UpgradeHistory
-    Network.AWS.ElasticSearch.Types.UpgradeName
-    Network.AWS.ElasticSearch.Types.UpgradeStatus
-    Network.AWS.ElasticSearch.Types.UpgradeStep
-    Network.AWS.ElasticSearch.Types.UpgradeStepItem
-    Network.AWS.ElasticSearch.Types.Username
-    Network.AWS.ElasticSearch.Types.UserPoolId
-    Network.AWS.ElasticSearch.Types.Value
-    Network.AWS.ElasticSearch.Types.VolumeType
-    Network.AWS.ElasticSearch.Types.VPCDerivedInfo
-    Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus
-    Network.AWS.ElasticSearch.Types.VPCOptions
-    Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig
+    exposed-modules:
+          Network.AWS.ElasticSearch
+        , Network.AWS.ElasticSearch.Types
+        , Network.AWS.ElasticSearch.Waiters
+        , Network.AWS.ElasticSearch.CreateOutboundCrossClusterSearchConnection
+        , Network.AWS.ElasticSearch.DescribeInboundCrossClusterSearchConnections
+        , Network.AWS.ElasticSearch.CreateElasticsearchDomain
+        , Network.AWS.ElasticSearch.RemoveTags
+        , Network.AWS.ElasticSearch.GetCompatibleElasticsearchVersions
+        , Network.AWS.ElasticSearch.DescribeElasticsearchDomains
+        , Network.AWS.ElasticSearch.ListDomainsForPackage
+        , Network.AWS.ElasticSearch.ListPackagesForDomain
+        , Network.AWS.ElasticSearch.StartElasticsearchServiceSoftwareUpdate
+        , Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
+        , Network.AWS.ElasticSearch.DeleteElasticsearchServiceRole
+        , Network.AWS.ElasticSearch.DescribeElasticsearchDomain
+        , Network.AWS.ElasticSearch.ListDomainNames
+        , Network.AWS.ElasticSearch.AssociatePackage
+        , Network.AWS.ElasticSearch.DeleteOutboundCrossClusterSearchConnection
+        , Network.AWS.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
+        , Network.AWS.ElasticSearch.GetPackageVersionHistory
+        , Network.AWS.ElasticSearch.GetUpgradeHistory
+        , Network.AWS.ElasticSearch.DescribePackages
+        , Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
+        , Network.AWS.ElasticSearch.GetUpgradeStatus
+        , Network.AWS.ElasticSearch.DeleteElasticsearchDomain
+        , Network.AWS.ElasticSearch.DissociatePackage
+        , Network.AWS.ElasticSearch.PurchaseReservedElasticsearchInstanceOffering
+        , Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstances
+        , Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
+        , Network.AWS.ElasticSearch.ListElasticsearchVersions
+        , Network.AWS.ElasticSearch.AddTags
+        , Network.AWS.ElasticSearch.DeleteInboundCrossClusterSearchConnection
+        , Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstanceOfferings
+        , Network.AWS.ElasticSearch.UpgradeElasticsearchDomain
+        , Network.AWS.ElasticSearch.ListTags
+        , Network.AWS.ElasticSearch.DeletePackage
+        , Network.AWS.ElasticSearch.UpdatePackage
+        , Network.AWS.ElasticSearch.CancelElasticsearchServiceSoftwareUpdate
+        , Network.AWS.ElasticSearch.CreatePackage
+        , Network.AWS.ElasticSearch.RejectInboundCrossClusterSearchConnection
+        , Network.AWS.ElasticSearch.DescribeOutboundCrossClusterSearchConnections
+        , Network.AWS.ElasticSearch.AcceptInboundCrossClusterSearchConnection
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.ElasticSearch.Types.AdvancedSecurityOptionsStatus
+        , Network.AWS.ElasticSearch.Types.EBSOptions
+        , Network.AWS.ElasticSearch.Types.SAMLOptionsOutput
+        , Network.AWS.ElasticSearch.Types.UpgradeStatus
+        , Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptions
+        , Network.AWS.ElasticSearch.Types.AdditionalLimit
+        , Network.AWS.ElasticSearch.Types.OptionState
+        , Network.AWS.ElasticSearch.Types.DescribePackagesFilter
+        , Network.AWS.ElasticSearch.Types.PackageSource
+        , Network.AWS.ElasticSearch.Types.PolicyDocument
+        , Network.AWS.ElasticSearch.Types.UpgradeStepItem
+        , Network.AWS.ElasticSearch.Types.InstanceLimits
+        , Network.AWS.ElasticSearch.Types.ElasticsearchClusterConfigStatus
+        , Network.AWS.ElasticSearch.Types.DescribePackagesFilterValue
+        , Network.AWS.ElasticSearch.Types.PackageID
+        , Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstancePaymentOption
+        , Network.AWS.ElasticSearch.Types.IdentityPoolId
+        , Network.AWS.ElasticSearch.Types.S3Key
+        , Network.AWS.ElasticSearch.Types.PackageType
+        , Network.AWS.ElasticSearch.Types.ServiceSoftwareOptions
+        , Network.AWS.ElasticSearch.Types.Tag
+        , Network.AWS.ElasticSearch.Types.PackageVersionHistory
+        , Network.AWS.ElasticSearch.Types.LimitName
+        , Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus
+        , Network.AWS.ElasticSearch.Types.UpgradeHistory
+        , Network.AWS.ElasticSearch.Types.InstanceRole
+        , Network.AWS.ElasticSearch.Types.ARN
+        , Network.AWS.ElasticSearch.Types.ESPartitionInstanceType
+        , Network.AWS.ElasticSearch.Types.PackageName
+        , Network.AWS.ElasticSearch.Types.PackageVersion
+        , Network.AWS.ElasticSearch.Types.PackageDetails
+        , Network.AWS.ElasticSearch.Types.EBSOptionsStatus
+        , Network.AWS.ElasticSearch.Types.UserPoolId
+        , Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatusCode
+        , Network.AWS.ElasticSearch.Types.ConnectionAlias
+        , Network.AWS.ElasticSearch.Types.BackendRole
+        , Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions
+        , Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptionsStatus
+        , Network.AWS.ElasticSearch.Types.DomainPackageDetails
+        , Network.AWS.ElasticSearch.Types.CrossClusterSearchConnectionStatusMessage
+        , Network.AWS.ElasticSearch.Types.ReservationToken
+        , Network.AWS.ElasticSearch.Types.ElasticsearchClusterConfig
+        , Network.AWS.ElasticSearch.Types.CompatibleVersionsMap
+        , Network.AWS.ElasticSearch.Types.DomainPackageStatus
+        , Network.AWS.ElasticSearch.Types.ServiceUrl
+        , Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering
+        , Network.AWS.ElasticSearch.Types.Limits
+        , Network.AWS.ElasticSearch.Types.LogPublishingOption
+        , Network.AWS.ElasticSearch.Types.EncryptionAtRestOptionsStatus
+        , Network.AWS.ElasticSearch.Types.Username
+        , Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstance
+        , Network.AWS.ElasticSearch.Types.AdvancedSecurityOptionsInput
+        , Network.AWS.ElasticSearch.Types.PackageStatus
+        , Network.AWS.ElasticSearch.Types.VPCDerivedInfo
+        , Network.AWS.ElasticSearch.Types.CloudWatchLogsLogGroupArn
+        , Network.AWS.ElasticSearch.Types.CrossClusterSearchConnectionId
+        , Network.AWS.ElasticSearch.Types.LogPublishingOptionsStatus
+        , Network.AWS.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatusCode
+        , Network.AWS.ElasticSearch.Types.LogType
+        , Network.AWS.ElasticSearch.Types.DomainInformation
+        , Network.AWS.ElasticSearch.Types.PackageDescription
+        , Network.AWS.ElasticSearch.Types.OwnerId
+        , Network.AWS.ElasticSearch.Types.NextToken
+        , Network.AWS.ElasticSearch.Types.StorageTypeLimit
+        , Network.AWS.ElasticSearch.Types.InstanceCountLimits
+        , Network.AWS.ElasticSearch.Types.ESWarmPartitionInstanceType
+        , Network.AWS.ElasticSearch.Types.SnapshotOptions
+        , Network.AWS.ElasticSearch.Types.ElasticsearchVersionString
+        , Network.AWS.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatus
+        , Network.AWS.ElasticSearch.Types.NonEmptyString
+        , Network.AWS.ElasticSearch.Types.UpgradeName
+        , Network.AWS.ElasticSearch.Types.KmsKeyId
+        , Network.AWS.ElasticSearch.Types.DomainName
+        , Network.AWS.ElasticSearch.Types.OptionStatus
+        , Network.AWS.ElasticSearch.Types.ElasticsearchDomainStatus
+        , Network.AWS.ElasticSearch.Types.CognitoOptions
+        , Network.AWS.ElasticSearch.Types.Password
+        , Network.AWS.ElasticSearch.Types.DomainEndpointOptionsStatus
+        , Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig
+        , Network.AWS.ElasticSearch.Types.CommitMessage
+        , Network.AWS.ElasticSearch.Types.StorageSubTypeName
+        , Network.AWS.ElasticSearch.Types.EncryptionAtRestOptions
+        , Network.AWS.ElasticSearch.Types.DomainNameFqdn
+        , Network.AWS.ElasticSearch.Types.UpgradeStep
+        , Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus
+        , Network.AWS.ElasticSearch.Types.ErrorDetails
+        , Network.AWS.ElasticSearch.Types.MasterUserOptions
+        , Network.AWS.ElasticSearch.Types.ElasticsearchVersionStatus
+        , Network.AWS.ElasticSearch.Types.SAMLEntityId
+        , Network.AWS.ElasticSearch.Types.TLSSecurityPolicy
+        , Network.AWS.ElasticSearch.Types.SAMLOptionsInput
+        , Network.AWS.ElasticSearch.Types.VPCOptions
+        , Network.AWS.ElasticSearch.Types.DomainId
+        , Network.AWS.ElasticSearch.Types.DeploymentStatus
+        , Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatus
+        , Network.AWS.ElasticSearch.Types.Region
+        , Network.AWS.ElasticSearch.Types.OutboundCrossClusterSearchConnection
+        , Network.AWS.ElasticSearch.Types.SnapshotOptionsStatus
+        , Network.AWS.ElasticSearch.Types.Filter
+        , Network.AWS.ElasticSearch.Types.VolumeType
+        , Network.AWS.ElasticSearch.Types.ErrorType
+        , Network.AWS.ElasticSearch.Types.DescribePackagesFilterName
+        , Network.AWS.ElasticSearch.Types.RecurringCharge
+        , Network.AWS.ElasticSearch.Types.ErrorMessage
+        , Network.AWS.ElasticSearch.Types.CognitoOptionsStatus
+        , Network.AWS.ElasticSearch.Types.DomainEndpointOptions
+        , Network.AWS.ElasticSearch.Types.DomainInfo
+        , Network.AWS.ElasticSearch.Types.ReferencePath
+        , Network.AWS.ElasticSearch.Types.SAMLMetadata
+        , Network.AWS.ElasticSearch.Types.StorageTypeName
+        , Network.AWS.ElasticSearch.Types.LimitValue
+        , Network.AWS.ElasticSearch.Types.SAMLIdp
+        , Network.AWS.ElasticSearch.Types.AccessPoliciesStatus
+        , Network.AWS.ElasticSearch.Types.S3BucketName
+        , Network.AWS.ElasticSearch.Types.ElasticsearchDomainConfig
+        , Network.AWS.ElasticSearch.Types.Issue
+        , Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnection
+        , Network.AWS.ElasticSearch.Types.StorageType
+        , Network.AWS.ElasticSearch.Types.RoleArn
+        , Network.AWS.ElasticSearch.Types.Key
+        , Network.AWS.ElasticSearch.Types.Value
+        , Network.AWS.ElasticSearch.Types.ElasticsearchVersion
+        , Network.AWS.ElasticSearch.Types.SourceVersion
+        , Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceId
+        , Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOfferingId
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-elasticsearch-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.ElasticSearch
-    Test.AWS.ElasticSearch.Internal
-    Test.AWS.Gen.ElasticSearch
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core           >=2.0.0.0 && <2.0.0.1
-    , amazonka-elasticsearch
-    , amazonka-test           >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.ElasticSearch
+        , Test.AWS.Gen.ElasticSearch
+        , Test.AWS.ElasticSearch.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-elasticsearch
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

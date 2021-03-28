@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -18,22 +18,20 @@
 -- Concurrency settings apply to the function as a whole, including all published versions and the unpublished version. Reserving concurrency both ensures that your function has capacity to process the specified number of events simultaneously, and prevents it from scaling beyond that level. Use 'GetFunction' to see the current setting for a function.
 -- Use 'GetAccountSettings' to see your Regional concurrency limit. You can reserve concurrency for as many functions as you like, as long as you leave at least 100 simultaneous executions unreserved for functions that aren't configured with a per-function limit. For more information, see <https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html Managing Concurrency> .
 module Network.AWS.Lambda.PutFunctionConcurrency
-  ( -- * Creating a request
-    PutFunctionConcurrency (..),
-    mkPutFunctionConcurrency,
-
+    (
+    -- * Creating a request
+      PutFunctionConcurrency (..)
+    , mkPutFunctionConcurrency
     -- ** Request lenses
-    pfcFunctionName,
-    pfcReservedConcurrentExecutions,
+    , pfcFunctionName
+    , pfcReservedConcurrentExecutions
 
-    -- * Destructuring the response
-    Types.Concurrency (..),
-    Types.mkConcurrency,
-
+     -- * Destructuring the response
+    , Types.Concurrency (..)
+    , Types.mkConcurrency
     -- ** Response lenses
-    Types.cReservedConcurrentExecutions,
-  )
-where
+    , Types.cReservedConcurrentExecutions
+    ) where
 
 import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -43,43 +41,39 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutFunctionConcurrency' smart constructor.
 data PutFunctionConcurrency = PutFunctionConcurrency'
-  { -- | The name of the Lambda function.
-    --
-    -- __Name formats__
-    --
-    --     * __Function name__ - @my-function@ .
-    --
-    --
-    --     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
-    --
-    --
-    --     * __Partial ARN__ - @123456789012:function:my-function@ .
-    --
-    --
-    -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-    functionName :: Types.FunctionName,
-    -- | The number of simultaneous executions to reserve for the function.
-    reservedConcurrentExecutions :: Core.Natural
+  { functionName :: Types.FunctionName
+    -- ^ The name of the Lambda function.
+--
+-- __Name formats__ 
+--
+--     * __Function name__ - @my-function@ .
+--
+--
+--     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
+--
+--
+--     * __Partial ARN__ - @123456789012:function:my-function@ .
+--
+--
+-- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+  , reservedConcurrentExecutions :: Core.Natural
+    -- ^ The number of simultaneous executions to reserve for the function.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'PutFunctionConcurrency' value with any optional fields omitted.
-mkPutFunctionConcurrency ::
-  -- | 'functionName'
-  Types.FunctionName ->
-  -- | 'reservedConcurrentExecutions'
-  Core.Natural ->
-  PutFunctionConcurrency
-mkPutFunctionConcurrency functionName reservedConcurrentExecutions =
-  PutFunctionConcurrency'
-    { functionName,
-      reservedConcurrentExecutions
-    }
+mkPutFunctionConcurrency
+    :: Types.FunctionName -- ^ 'functionName'
+    -> Core.Natural -- ^ 'reservedConcurrentExecutions'
+    -> PutFunctionConcurrency
+mkPutFunctionConcurrency functionName reservedConcurrentExecutions
+  = PutFunctionConcurrency'{functionName,
+                            reservedConcurrentExecutions}
 
 -- | The name of the Lambda function.
 --
--- __Name formats__
+-- __Name formats__ 
 --
 --     * __Function name__ - @my-function@ .
 --
@@ -95,39 +89,44 @@ mkPutFunctionConcurrency functionName reservedConcurrentExecutions =
 -- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pfcFunctionName :: Lens.Lens' PutFunctionConcurrency Types.FunctionName
 pfcFunctionName = Lens.field @"functionName"
-{-# DEPRECATED pfcFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
+{-# INLINEABLE pfcFunctionName #-}
+{-# DEPRECATED functionName "Use generic-lens or generic-optics with 'functionName' instead"  #-}
 
 -- | The number of simultaneous executions to reserve for the function.
 --
 -- /Note:/ Consider using 'reservedConcurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pfcReservedConcurrentExecutions :: Lens.Lens' PutFunctionConcurrency Core.Natural
 pfcReservedConcurrentExecutions = Lens.field @"reservedConcurrentExecutions"
-{-# DEPRECATED pfcReservedConcurrentExecutions "Use generic-lens or generic-optics with 'reservedConcurrentExecutions' instead." #-}
+{-# INLINEABLE pfcReservedConcurrentExecutions #-}
+{-# DEPRECATED reservedConcurrentExecutions "Use generic-lens or generic-optics with 'reservedConcurrentExecutions' instead"  #-}
+
+instance Core.ToQuery PutFunctionConcurrency where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders PutFunctionConcurrency where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.FromJSON PutFunctionConcurrency where
-  toJSON PutFunctionConcurrency {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just
-              ( "ReservedConcurrentExecutions"
-                  Core..= reservedConcurrentExecutions
-              )
-          ]
-      )
+        toJSON PutFunctionConcurrency{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just
+                    ("ReservedConcurrentExecutions" Core..=
+                       reservedConcurrentExecutions)])
 
 instance Core.AWSRequest PutFunctionConcurrency where
-  type Rs PutFunctionConcurrency = Types.Concurrency
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.PUT,
-        Core._rqPath =
-          Core.rawPath
-            ( "/2017-10-31/functions/" Core.<> (Core.toText functionName)
-                Core.<> ("/concurrency")
-            ),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = Core.toJSONBody x
-      }
-  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)
+        type Rs PutFunctionConcurrency = Types.Concurrency
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.PUT,
+                         Core._rqPath =
+                           "/2017-10-31/functions/" Core.<> Core.toText functionName Core.<>
+                             "/concurrency",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON (\ s h x -> Core.eitherParseJSON x)
+        
+        {-# INLINE parseResponse #-}

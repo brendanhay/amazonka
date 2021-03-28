@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SES.Types.TrackingOptions
-  ( TrackingOptions (..),
-
-    -- * Smart constructor
-    mkTrackingOptions,
-
-    -- * Lenses
-    toCustomRedirectDomain,
-  )
-where
+  ( TrackingOptions (..)
+  -- * Smart constructor
+  , mkTrackingOptions
+  -- * Lenses
+  , toCustomRedirectDomain
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -31,25 +29,31 @@ import qualified Network.AWS.SES.Types.CustomRedirectDomain as Types
 --
 -- /See:/ 'mkTrackingOptions' smart constructor.
 newtype TrackingOptions = TrackingOptions'
-  { -- | The custom subdomain that will be used to redirect email recipients to the Amazon SES event tracking domain.
-    customRedirectDomain :: Core.Maybe Types.CustomRedirectDomain
+  { customRedirectDomain :: Core.Maybe Types.CustomRedirectDomain
+    -- ^ The custom subdomain that will be used to redirect email recipients to the Amazon SES event tracking domain.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'TrackingOptions' value with any optional fields omitted.
-mkTrackingOptions ::
-  TrackingOptions
-mkTrackingOptions =
-  TrackingOptions' {customRedirectDomain = Core.Nothing}
+mkTrackingOptions
+    :: TrackingOptions
+mkTrackingOptions
+  = TrackingOptions'{customRedirectDomain = Core.Nothing}
 
 -- | The custom subdomain that will be used to redirect email recipients to the Amazon SES event tracking domain.
 --
 -- /Note:/ Consider using 'customRedirectDomain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 toCustomRedirectDomain :: Lens.Lens' TrackingOptions (Core.Maybe Types.CustomRedirectDomain)
 toCustomRedirectDomain = Lens.field @"customRedirectDomain"
-{-# DEPRECATED toCustomRedirectDomain "Use generic-lens or generic-optics with 'customRedirectDomain' instead." #-}
+{-# INLINEABLE toCustomRedirectDomain #-}
+{-# DEPRECATED customRedirectDomain "Use generic-lens or generic-optics with 'customRedirectDomain' instead"  #-}
+
+instance Core.ToQuery TrackingOptions where
+        toQuery TrackingOptions{..}
+          = Core.maybe Core.mempty (Core.toQueryPair "CustomRedirectDomain")
+              customRedirectDomain
 
 instance Core.FromXML TrackingOptions where
-  parseXML x =
-    TrackingOptions' Core.<$> (x Core..@? "CustomRedirectDomain")
+        parseXML x
+          = TrackingOptions' Core.<$> (x Core..@? "CustomRedirectDomain")

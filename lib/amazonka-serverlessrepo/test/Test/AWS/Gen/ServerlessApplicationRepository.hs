@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.ServerlessApplicationRepository where
 
 import Data.Proxy
-import Network.AWS.ServerlessApplicationRepository
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.AWS.ServerlessApplicationRepository.Internal
 import Test.Tasty
+import Network.AWS.ServerlessApplicationRepository
+import Test.AWS.ServerlessApplicationRepository.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -120,198 +121,170 @@ import Test.Tasty
 -- Requests
 
 requestGetApplicationPolicy :: GetApplicationPolicy -> TestTree
-requestGetApplicationPolicy =
-  req
+requestGetApplicationPolicy = req
     "GetApplicationPolicy"
     "fixture/GetApplicationPolicy.yaml"
 
 requestCreateApplicationVersion :: CreateApplicationVersion -> TestTree
-requestCreateApplicationVersion =
-  req
+requestCreateApplicationVersion = req
     "CreateApplicationVersion"
     "fixture/CreateApplicationVersion.yaml"
 
 requestUnshareApplication :: UnshareApplication -> TestTree
-requestUnshareApplication =
-  req
+requestUnshareApplication = req
     "UnshareApplication"
     "fixture/UnshareApplication.yaml"
 
 requestDeleteApplication :: DeleteApplication -> TestTree
-requestDeleteApplication =
-  req
+requestDeleteApplication = req
     "DeleteApplication"
     "fixture/DeleteApplication.yaml"
 
 requestUpdateApplication :: UpdateApplication -> TestTree
-requestUpdateApplication =
-  req
+requestUpdateApplication = req
     "UpdateApplication"
     "fixture/UpdateApplication.yaml"
 
 requestCreateCloudFormationTemplate :: CreateCloudFormationTemplate -> TestTree
-requestCreateCloudFormationTemplate =
-  req
+requestCreateCloudFormationTemplate = req
     "CreateCloudFormationTemplate"
     "fixture/CreateCloudFormationTemplate.yaml"
 
 requestCreateApplication :: CreateApplication -> TestTree
-requestCreateApplication =
-  req
+requestCreateApplication = req
     "CreateApplication"
     "fixture/CreateApplication.yaml"
 
 requestListApplicationDependencies :: ListApplicationDependencies -> TestTree
-requestListApplicationDependencies =
-  req
+requestListApplicationDependencies = req
     "ListApplicationDependencies"
     "fixture/ListApplicationDependencies.yaml"
 
 requestListApplicationVersions :: ListApplicationVersions -> TestTree
-requestListApplicationVersions =
-  req
+requestListApplicationVersions = req
     "ListApplicationVersions"
     "fixture/ListApplicationVersions.yaml"
 
 requestGetApplication :: GetApplication -> TestTree
-requestGetApplication =
-  req
+requestGetApplication = req
     "GetApplication"
     "fixture/GetApplication.yaml"
 
 requestGetCloudFormationTemplate :: GetCloudFormationTemplate -> TestTree
-requestGetCloudFormationTemplate =
-  req
+requestGetCloudFormationTemplate = req
     "GetCloudFormationTemplate"
     "fixture/GetCloudFormationTemplate.yaml"
 
 requestCreateCloudFormationChangeSet :: CreateCloudFormationChangeSet -> TestTree
-requestCreateCloudFormationChangeSet =
-  req
+requestCreateCloudFormationChangeSet = req
     "CreateCloudFormationChangeSet"
     "fixture/CreateCloudFormationChangeSet.yaml"
 
 requestPutApplicationPolicy :: PutApplicationPolicy -> TestTree
-requestPutApplicationPolicy =
-  req
+requestPutApplicationPolicy = req
     "PutApplicationPolicy"
     "fixture/PutApplicationPolicy.yaml"
 
 requestListApplications :: ListApplications -> TestTree
-requestListApplications =
-  req
+requestListApplications = req
     "ListApplications"
     "fixture/ListApplications.yaml"
 
 -- Responses
 
 responseGetApplicationPolicy :: GetApplicationPolicyResponse -> TestTree
-responseGetApplicationPolicy =
-  res
+responseGetApplicationPolicy = res
     "GetApplicationPolicyResponse"
     "fixture/GetApplicationPolicyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetApplicationPolicy)
 
 responseCreateApplicationVersion :: CreateApplicationVersionResponse -> TestTree
-responseCreateApplicationVersion =
-  res
+responseCreateApplicationVersion = res
     "CreateApplicationVersionResponse"
     "fixture/CreateApplicationVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateApplicationVersion)
 
 responseUnshareApplication :: UnshareApplicationResponse -> TestTree
-responseUnshareApplication =
-  res
+responseUnshareApplication = res
     "UnshareApplicationResponse"
     "fixture/UnshareApplicationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UnshareApplication)
 
 responseDeleteApplication :: DeleteApplicationResponse -> TestTree
-responseDeleteApplication =
-  res
+responseDeleteApplication = res
     "DeleteApplicationResponse"
     "fixture/DeleteApplicationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteApplication)
 
 responseUpdateApplication :: UpdateApplicationResponse -> TestTree
-responseUpdateApplication =
-  res
+responseUpdateApplication = res
     "UpdateApplicationResponse"
     "fixture/UpdateApplicationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateApplication)
 
 responseCreateCloudFormationTemplate :: CreateCloudFormationTemplateResponse -> TestTree
-responseCreateCloudFormationTemplate =
-  res
+responseCreateCloudFormationTemplate = res
     "CreateCloudFormationTemplateResponse"
     "fixture/CreateCloudFormationTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateCloudFormationTemplate)
 
 responseCreateApplication :: CreateApplicationResponse -> TestTree
-responseCreateApplication =
-  res
+responseCreateApplication = res
     "CreateApplicationResponse"
     "fixture/CreateApplicationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateApplication)
 
 responseListApplicationDependencies :: ListApplicationDependenciesResponse -> TestTree
-responseListApplicationDependencies =
-  res
+responseListApplicationDependencies = res
     "ListApplicationDependenciesResponse"
     "fixture/ListApplicationDependenciesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListApplicationDependencies)
 
 responseListApplicationVersions :: ListApplicationVersionsResponse -> TestTree
-responseListApplicationVersions =
-  res
+responseListApplicationVersions = res
     "ListApplicationVersionsResponse"
     "fixture/ListApplicationVersionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListApplicationVersions)
 
 responseGetApplication :: GetApplicationResponse -> TestTree
-responseGetApplication =
-  res
+responseGetApplication = res
     "GetApplicationResponse"
     "fixture/GetApplicationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetApplication)
 
 responseGetCloudFormationTemplate :: GetCloudFormationTemplateResponse -> TestTree
-responseGetCloudFormationTemplate =
-  res
+responseGetCloudFormationTemplate = res
     "GetCloudFormationTemplateResponse"
     "fixture/GetCloudFormationTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetCloudFormationTemplate)
 
 responseCreateCloudFormationChangeSet :: CreateCloudFormationChangeSetResponse -> TestTree
-responseCreateCloudFormationChangeSet =
-  res
+responseCreateCloudFormationChangeSet = res
     "CreateCloudFormationChangeSetResponse"
     "fixture/CreateCloudFormationChangeSetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateCloudFormationChangeSet)
 
 responsePutApplicationPolicy :: PutApplicationPolicyResponse -> TestTree
-responsePutApplicationPolicy =
-  res
+responsePutApplicationPolicy = res
     "PutApplicationPolicyResponse"
     "fixture/PutApplicationPolicyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutApplicationPolicy)
 
 responseListApplications :: ListApplicationsResponse -> TestTree
-responseListApplications =
-  res
+responseListApplications = res
     "ListApplicationsResponse"
     "fixture/ListApplicationsResponse.proto"
     mkServiceConfig

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaConvert.Types.AudioChannelTaggingSettings
-  ( AudioChannelTaggingSettings (..),
-
-    -- * Smart constructor
-    mkAudioChannelTaggingSettings,
-
-    -- * Lenses
-    actsChannelTag,
-  )
-where
+  ( AudioChannelTaggingSettings (..)
+  -- * Smart constructor
+  , mkAudioChannelTaggingSettings
+  -- * Lenses
+  , actsChannelTag
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.MediaConvert.Types.AudioChannelTag as Types
@@ -29,32 +27,33 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkAudioChannelTaggingSettings' smart constructor.
 newtype AudioChannelTaggingSettings = AudioChannelTaggingSettings'
-  { -- | You can add a tag for this mono-channel audio track to mimic its placement in a multi-channel layout.  For example, if this track is the left surround channel, choose Left surround (LS).
-    channelTag :: Core.Maybe Types.AudioChannelTag
+  { channelTag :: Core.Maybe Types.AudioChannelTag
+    -- ^ You can add a tag for this mono-channel audio track to mimic its placement in a multi-channel layout.  For example, if this track is the left surround channel, choose Left surround (LS).
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AudioChannelTaggingSettings' value with any optional fields omitted.
-mkAudioChannelTaggingSettings ::
-  AudioChannelTaggingSettings
-mkAudioChannelTaggingSettings =
-  AudioChannelTaggingSettings' {channelTag = Core.Nothing}
+mkAudioChannelTaggingSettings
+    :: AudioChannelTaggingSettings
+mkAudioChannelTaggingSettings
+  = AudioChannelTaggingSettings'{channelTag = Core.Nothing}
 
 -- | You can add a tag for this mono-channel audio track to mimic its placement in a multi-channel layout.  For example, if this track is the left surround channel, choose Left surround (LS).
 --
 -- /Note:/ Consider using 'channelTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 actsChannelTag :: Lens.Lens' AudioChannelTaggingSettings (Core.Maybe Types.AudioChannelTag)
 actsChannelTag = Lens.field @"channelTag"
-{-# DEPRECATED actsChannelTag "Use generic-lens or generic-optics with 'channelTag' instead." #-}
+{-# INLINEABLE actsChannelTag #-}
+{-# DEPRECATED channelTag "Use generic-lens or generic-optics with 'channelTag' instead"  #-}
 
 instance Core.FromJSON AudioChannelTaggingSettings where
-  toJSON AudioChannelTaggingSettings {..} =
-    Core.object
-      (Core.catMaybes [("channelTag" Core..=) Core.<$> channelTag])
+        toJSON AudioChannelTaggingSettings{..}
+          = Core.object
+              (Core.catMaybes [("channelTag" Core..=) Core.<$> channelTag])
 
 instance Core.FromJSON AudioChannelTaggingSettings where
-  parseJSON =
-    Core.withObject "AudioChannelTaggingSettings" Core.$
-      \x ->
-        AudioChannelTaggingSettings' Core.<$> (x Core..:? "channelTag")
+        parseJSON
+          = Core.withObject "AudioChannelTaggingSettings" Core.$
+              \ x ->
+                AudioChannelTaggingSettings' Core.<$> (x Core..:? "channelTag")

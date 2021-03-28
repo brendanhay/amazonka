@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,22 +15,20 @@
 --
 -- Rejects a directory sharing request that was sent from the directory owner account.
 module Network.AWS.DirectoryService.RejectSharedDirectory
-  ( -- * Creating a request
-    RejectSharedDirectory (..),
-    mkRejectSharedDirectory,
-
+    (
+    -- * Creating a request
+      RejectSharedDirectory (..)
+    , mkRejectSharedDirectory
     -- ** Request lenses
-    rsdSharedDirectoryId,
+    , rsdSharedDirectoryId
 
     -- * Destructuring the response
-    RejectSharedDirectoryResponse (..),
-    mkRejectSharedDirectoryResponse,
-
+    , RejectSharedDirectoryResponse (..)
+    , mkRejectSharedDirectoryResponse
     -- ** Response lenses
-    rsdrrsSharedDirectoryId,
-    rsdrrsResponseStatus,
-  )
-where
+    , rsdrrsSharedDirectoryId
+    , rsdrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -40,87 +38,90 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRejectSharedDirectory' smart constructor.
 newtype RejectSharedDirectory = RejectSharedDirectory'
-  { -- | Identifier of the shared directory in the directory consumer account. This identifier is different for each directory owner account.
-    sharedDirectoryId :: Types.DirectoryId
+  { sharedDirectoryId :: Types.DirectoryId
+    -- ^ Identifier of the shared directory in the directory consumer account. This identifier is different for each directory owner account.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'RejectSharedDirectory' value with any optional fields omitted.
-mkRejectSharedDirectory ::
-  -- | 'sharedDirectoryId'
-  Types.DirectoryId ->
-  RejectSharedDirectory
-mkRejectSharedDirectory sharedDirectoryId =
-  RejectSharedDirectory' {sharedDirectoryId}
+mkRejectSharedDirectory
+    :: Types.DirectoryId -- ^ 'sharedDirectoryId'
+    -> RejectSharedDirectory
+mkRejectSharedDirectory sharedDirectoryId
+  = RejectSharedDirectory'{sharedDirectoryId}
 
 -- | Identifier of the shared directory in the directory consumer account. This identifier is different for each directory owner account.
 --
 -- /Note:/ Consider using 'sharedDirectoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rsdSharedDirectoryId :: Lens.Lens' RejectSharedDirectory Types.DirectoryId
 rsdSharedDirectoryId = Lens.field @"sharedDirectoryId"
-{-# DEPRECATED rsdSharedDirectoryId "Use generic-lens or generic-optics with 'sharedDirectoryId' instead." #-}
+{-# INLINEABLE rsdSharedDirectoryId #-}
+{-# DEPRECATED sharedDirectoryId "Use generic-lens or generic-optics with 'sharedDirectoryId' instead"  #-}
+
+instance Core.ToQuery RejectSharedDirectory where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders RejectSharedDirectory where
+        toHeaders RejectSharedDirectory{..}
+          = Core.pure
+              ("X-Amz-Target", "DirectoryService_20150416.RejectSharedDirectory")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON RejectSharedDirectory where
-  toJSON RejectSharedDirectory {..} =
-    Core.object
-      ( Core.catMaybes
-          [Core.Just ("SharedDirectoryId" Core..= sharedDirectoryId)]
-      )
+        toJSON RejectSharedDirectory{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("SharedDirectoryId" Core..= sharedDirectoryId)])
 
 instance Core.AWSRequest RejectSharedDirectory where
-  type Rs RejectSharedDirectory = RejectSharedDirectoryResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "DirectoryService_20150416.RejectSharedDirectory")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          RejectSharedDirectoryResponse'
-            Core.<$> (x Core..:? "SharedDirectoryId")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs RejectSharedDirectory = RejectSharedDirectoryResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 RejectSharedDirectoryResponse' Core.<$>
+                   (x Core..:? "SharedDirectoryId") Core.<*>
+                     Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkRejectSharedDirectoryResponse' smart constructor.
 data RejectSharedDirectoryResponse = RejectSharedDirectoryResponse'
-  { -- | Identifier of the shared directory in the directory consumer account.
-    sharedDirectoryId :: Core.Maybe Types.DirectoryId,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { sharedDirectoryId :: Core.Maybe Types.DirectoryId
+    -- ^ Identifier of the shared directory in the directory consumer account.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'RejectSharedDirectoryResponse' value with any optional fields omitted.
-mkRejectSharedDirectoryResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  RejectSharedDirectoryResponse
-mkRejectSharedDirectoryResponse responseStatus =
-  RejectSharedDirectoryResponse'
-    { sharedDirectoryId = Core.Nothing,
-      responseStatus
-    }
+mkRejectSharedDirectoryResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> RejectSharedDirectoryResponse
+mkRejectSharedDirectoryResponse responseStatus
+  = RejectSharedDirectoryResponse'{sharedDirectoryId = Core.Nothing,
+                                   responseStatus}
 
 -- | Identifier of the shared directory in the directory consumer account.
 --
 -- /Note:/ Consider using 'sharedDirectoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rsdrrsSharedDirectoryId :: Lens.Lens' RejectSharedDirectoryResponse (Core.Maybe Types.DirectoryId)
 rsdrrsSharedDirectoryId = Lens.field @"sharedDirectoryId"
-{-# DEPRECATED rsdrrsSharedDirectoryId "Use generic-lens or generic-optics with 'sharedDirectoryId' instead." #-}
+{-# INLINEABLE rsdrrsSharedDirectoryId #-}
+{-# DEPRECATED sharedDirectoryId "Use generic-lens or generic-optics with 'sharedDirectoryId' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rsdrrsResponseStatus :: Lens.Lens' RejectSharedDirectoryResponse Core.Int
 rsdrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED rsdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE rsdrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

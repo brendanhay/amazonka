@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,21 +15,19 @@
 --
 -- The CancelJob operation cancels an unfinished job.
 module Network.AWS.ElasticTranscoder.CancelJob
-  ( -- * Creating a request
-    CancelJob (..),
-    mkCancelJob,
-
+    (
+    -- * Creating a request
+      CancelJob (..)
+    , mkCancelJob
     -- ** Request lenses
-    cjId,
+    , cjId
 
     -- * Destructuring the response
-    CancelJobResponse (..),
-    mkCancelJobResponse,
-
+    , CancelJobResponse (..)
+    , mkCancelJobResponse
     -- ** Response lenses
-    cjrfrsResponseStatus,
-  )
-where
+    , cjrfrsResponseStatus
+    ) where
 
 import qualified Network.AWS.ElasticTranscoder.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -41,20 +39,19 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkCancelJob' smart constructor.
 newtype CancelJob = CancelJob'
-  { -- | The identifier of the job that you want to cancel.
-    --
-    -- To get a list of the jobs (including their @jobId@ ) that have a status of @Submitted@ , use the 'ListJobsByStatus' API action.
-    id :: Types.Id
+  { id :: Types.Id
+    -- ^ The identifier of the job that you want to cancel.
+--
+-- To get a list of the jobs (including their @jobId@ ) that have a status of @Submitted@ , use the 'ListJobsByStatus' API action.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CancelJob' value with any optional fields omitted.
-mkCancelJob ::
-  -- | 'id'
-  Types.Id ->
-  CancelJob
-mkCancelJob id = CancelJob' {id}
+mkCancelJob
+    :: Types.Id -- ^ 'id'
+    -> CancelJob
+mkCancelJob id = CancelJob'{id}
 
 -- | The identifier of the job that you want to cancel.
 --
@@ -63,47 +60,53 @@ mkCancelJob id = CancelJob' {id}
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cjId :: Lens.Lens' CancelJob Types.Id
 cjId = Lens.field @"id"
-{-# DEPRECATED cjId "Use generic-lens or generic-optics with 'id' instead." #-}
+{-# INLINEABLE cjId #-}
+{-# DEPRECATED id "Use generic-lens or generic-optics with 'id' instead"  #-}
+
+instance Core.ToQuery CancelJob where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders CancelJob where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest CancelJob where
-  type Rs CancelJob = CancelJobResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.DELETE,
-        Core._rqPath =
-          Core.rawPath ("/2012-09-25/jobs/" Core.<> (Core.toText id)),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = ""
-      }
-  response =
-    Response.receiveEmpty
-      ( \s h x ->
-          CancelJobResponse' Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs CancelJob = CancelJobResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.DELETE,
+                         Core._rqPath = "/2012-09-25/jobs/" Core.<> Core.toText id,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveEmpty
+              (\ s h x ->
+                 CancelJobResponse' Core.<$> (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | The response body contains a JSON object. If the job is successfully canceled, the value of @Success@ is @true@ .
 --
 -- /See:/ 'mkCancelJobResponse' smart constructor.
 newtype CancelJobResponse = CancelJobResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CancelJobResponse' value with any optional fields omitted.
-mkCancelJobResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  CancelJobResponse
-mkCancelJobResponse responseStatus =
-  CancelJobResponse' {responseStatus}
+mkCancelJobResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> CancelJobResponse
+mkCancelJobResponse responseStatus
+  = CancelJobResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cjrfrsResponseStatus :: Lens.Lens' CancelJobResponse Core.Int
 cjrfrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED cjrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE cjrfrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

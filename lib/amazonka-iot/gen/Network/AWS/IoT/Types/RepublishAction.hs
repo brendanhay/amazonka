@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.IoT.Types.RepublishAction
-  ( RepublishAction (..),
-
-    -- * Smart constructor
-    mkRepublishAction,
-
-    -- * Lenses
-    raRoleArn,
-    raTopic,
-    raQos,
-  )
-where
+  ( RepublishAction (..)
+  -- * Smart constructor
+  , mkRepublishAction
+  -- * Lenses
+  , raRoleArn
+  , raTopic
+  , raQos
+  ) where
 
 import qualified Network.AWS.IoT.Types.AwsArn as Types
 import qualified Network.AWS.IoT.Types.Topic as Types
@@ -32,62 +30,59 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkRepublishAction' smart constructor.
 data RepublishAction = RepublishAction'
-  { -- | The ARN of the IAM role that grants access.
-    roleArn :: Types.AwsArn,
-    -- | The name of the MQTT topic.
-    topic :: Types.Topic,
-    -- | The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
-    qos :: Core.Maybe Core.Natural
+  { roleArn :: Types.AwsArn
+    -- ^ The ARN of the IAM role that grants access.
+  , topic :: Types.Topic
+    -- ^ The name of the MQTT topic.
+  , qos :: Core.Maybe Core.Natural
+    -- ^ The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'RepublishAction' value with any optional fields omitted.
-mkRepublishAction ::
-  -- | 'roleArn'
-  Types.AwsArn ->
-  -- | 'topic'
-  Types.Topic ->
-  RepublishAction
-mkRepublishAction roleArn topic =
-  RepublishAction' {roleArn, topic, qos = Core.Nothing}
+mkRepublishAction
+    :: Types.AwsArn -- ^ 'roleArn'
+    -> Types.Topic -- ^ 'topic'
+    -> RepublishAction
+mkRepublishAction roleArn topic
+  = RepublishAction'{roleArn, topic, qos = Core.Nothing}
 
 -- | The ARN of the IAM role that grants access.
 --
 -- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 raRoleArn :: Lens.Lens' RepublishAction Types.AwsArn
 raRoleArn = Lens.field @"roleArn"
-{-# DEPRECATED raRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
+{-# INLINEABLE raRoleArn #-}
+{-# DEPRECATED roleArn "Use generic-lens or generic-optics with 'roleArn' instead"  #-}
 
 -- | The name of the MQTT topic.
 --
 -- /Note:/ Consider using 'topic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 raTopic :: Lens.Lens' RepublishAction Types.Topic
 raTopic = Lens.field @"topic"
-{-# DEPRECATED raTopic "Use generic-lens or generic-optics with 'topic' instead." #-}
+{-# INLINEABLE raTopic #-}
+{-# DEPRECATED topic "Use generic-lens or generic-optics with 'topic' instead"  #-}
 
 -- | The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
 --
 -- /Note:/ Consider using 'qos' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 raQos :: Lens.Lens' RepublishAction (Core.Maybe Core.Natural)
 raQos = Lens.field @"qos"
-{-# DEPRECATED raQos "Use generic-lens or generic-optics with 'qos' instead." #-}
+{-# INLINEABLE raQos #-}
+{-# DEPRECATED qos "Use generic-lens or generic-optics with 'qos' instead"  #-}
 
 instance Core.FromJSON RepublishAction where
-  toJSON RepublishAction {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("roleArn" Core..= roleArn),
-            Core.Just ("topic" Core..= topic),
-            ("qos" Core..=) Core.<$> qos
-          ]
-      )
+        toJSON RepublishAction{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("roleArn" Core..= roleArn),
+                  Core.Just ("topic" Core..= topic), ("qos" Core..=) Core.<$> qos])
 
 instance Core.FromJSON RepublishAction where
-  parseJSON =
-    Core.withObject "RepublishAction" Core.$
-      \x ->
-        RepublishAction'
-          Core.<$> (x Core..: "roleArn")
-          Core.<*> (x Core..: "topic")
-          Core.<*> (x Core..:? "qos")
+        parseJSON
+          = Core.withObject "RepublishAction" Core.$
+              \ x ->
+                RepublishAction' Core.<$>
+                  (x Core..: "roleArn") Core.<*> x Core..: "topic" Core.<*>
+                    x Core..:? "qos"

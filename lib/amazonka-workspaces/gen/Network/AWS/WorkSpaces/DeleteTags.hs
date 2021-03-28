@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,22 +15,20 @@
 --
 -- Deletes the specified tags from the specified WorkSpaces resource.
 module Network.AWS.WorkSpaces.DeleteTags
-  ( -- * Creating a request
-    DeleteTags (..),
-    mkDeleteTags,
-
+    (
+    -- * Creating a request
+      DeleteTags (..)
+    , mkDeleteTags
     -- ** Request lenses
-    dResourceId,
-    dTagKeys,
+    , dResourceId
+    , dTagKeys
 
     -- * Destructuring the response
-    DeleteTagsResponse (..),
-    mkDeleteTagsResponse,
-
+    , DeleteTagsResponse (..)
+    , mkDeleteTagsResponse
     -- ** Response lenses
-    dtrfrsResponseStatus,
-  )
-where
+    , dtrfrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -40,83 +38,87 @@ import qualified Network.AWS.WorkSpaces.Types as Types
 
 -- | /See:/ 'mkDeleteTags' smart constructor.
 data DeleteTags = DeleteTags'
-  { -- | The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, IP access control groups, and connection aliases.
-    resourceId :: Types.NonEmptyString,
-    -- | The tag keys.
-    tagKeys :: [Types.NonEmptyString]
+  { resourceId :: Types.NonEmptyString
+    -- ^ The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, IP access control groups, and connection aliases.
+  , tagKeys :: [Types.NonEmptyString]
+    -- ^ The tag keys.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteTags' value with any optional fields omitted.
-mkDeleteTags ::
-  -- | 'resourceId'
-  Types.NonEmptyString ->
-  DeleteTags
-mkDeleteTags resourceId =
-  DeleteTags' {resourceId, tagKeys = Core.mempty}
+mkDeleteTags
+    :: Types.NonEmptyString -- ^ 'resourceId'
+    -> DeleteTags
+mkDeleteTags resourceId
+  = DeleteTags'{resourceId, tagKeys = Core.mempty}
 
 -- | The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces, registered directories, images, custom bundles, IP access control groups, and connection aliases.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dResourceId :: Lens.Lens' DeleteTags Types.NonEmptyString
 dResourceId = Lens.field @"resourceId"
-{-# DEPRECATED dResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+{-# INLINEABLE dResourceId #-}
+{-# DEPRECATED resourceId "Use generic-lens or generic-optics with 'resourceId' instead"  #-}
 
 -- | The tag keys.
 --
 -- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dTagKeys :: Lens.Lens' DeleteTags [Types.NonEmptyString]
 dTagKeys = Lens.field @"tagKeys"
-{-# DEPRECATED dTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+{-# INLINEABLE dTagKeys #-}
+{-# DEPRECATED tagKeys "Use generic-lens or generic-optics with 'tagKeys' instead"  #-}
+
+instance Core.ToQuery DeleteTags where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DeleteTags where
+        toHeaders DeleteTags{..}
+          = Core.pure ("X-Amz-Target", "WorkspacesService.DeleteTags")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON DeleteTags where
-  toJSON DeleteTags {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ResourceId" Core..= resourceId),
-            Core.Just ("TagKeys" Core..= tagKeys)
-          ]
-      )
+        toJSON DeleteTags{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("ResourceId" Core..= resourceId),
+                  Core.Just ("TagKeys" Core..= tagKeys)])
 
 instance Core.AWSRequest DeleteTags where
-  type Rs DeleteTags = DeleteTagsResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "WorkspacesService.DeleteTags")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveEmpty
-      ( \s h x ->
-          DeleteTagsResponse' Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DeleteTags = DeleteTagsResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveEmpty
+              (\ s h x ->
+                 DeleteTagsResponse' Core.<$> (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteTagsResponse' smart constructor.
 newtype DeleteTagsResponse = DeleteTagsResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteTagsResponse' value with any optional fields omitted.
-mkDeleteTagsResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DeleteTagsResponse
-mkDeleteTagsResponse responseStatus =
-  DeleteTagsResponse' {responseStatus}
+mkDeleteTagsResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DeleteTagsResponse
+mkDeleteTagsResponse responseStatus
+  = DeleteTagsResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dtrfrsResponseStatus :: Lens.Lens' DeleteTagsResponse Core.Int
 dtrfrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED dtrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE dtrfrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

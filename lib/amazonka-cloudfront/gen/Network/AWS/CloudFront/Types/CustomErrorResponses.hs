@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CloudFront.Types.CustomErrorResponses
-  ( CustomErrorResponses (..),
-
-    -- * Smart constructor
-    mkCustomErrorResponses,
-
-    -- * Lenses
-    cerQuantity,
-    cerItems,
-  )
-where
+  ( CustomErrorResponses (..)
+  -- * Smart constructor
+  , mkCustomErrorResponses
+  -- * Lenses
+  , cerQuantity
+  , cerItems
+  ) where
 
 import qualified Network.AWS.CloudFront.Types.CustomErrorResponse as Types
 import qualified Network.AWS.Lens as Lens
@@ -39,47 +37,47 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkCustomErrorResponses' smart constructor.
 data CustomErrorResponses = CustomErrorResponses'
-  { -- | The number of HTTP status codes for which you want to specify a custom error page and/or a caching duration. If @Quantity@ is @0@ , you can omit @Items@ .
-    quantity :: Core.Int,
-    -- | A complex type that contains a @CustomErrorResponse@ element for each HTTP status code for which you want to specify a custom error page and/or a caching duration.
-    items :: Core.Maybe [Types.CustomErrorResponse]
+  { quantity :: Core.Int
+    -- ^ The number of HTTP status codes for which you want to specify a custom error page and/or a caching duration. If @Quantity@ is @0@ , you can omit @Items@ .
+  , items :: Core.Maybe [Types.CustomErrorResponse]
+    -- ^ A complex type that contains a @CustomErrorResponse@ element for each HTTP status code for which you want to specify a custom error page and/or a caching duration. 
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CustomErrorResponses' value with any optional fields omitted.
-mkCustomErrorResponses ::
-  -- | 'quantity'
-  Core.Int ->
-  CustomErrorResponses
-mkCustomErrorResponses quantity =
-  CustomErrorResponses' {quantity, items = Core.Nothing}
+mkCustomErrorResponses
+    :: Core.Int -- ^ 'quantity'
+    -> CustomErrorResponses
+mkCustomErrorResponses quantity
+  = CustomErrorResponses'{quantity, items = Core.Nothing}
 
 -- | The number of HTTP status codes for which you want to specify a custom error page and/or a caching duration. If @Quantity@ is @0@ , you can omit @Items@ .
 --
 -- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cerQuantity :: Lens.Lens' CustomErrorResponses Core.Int
 cerQuantity = Lens.field @"quantity"
-{-# DEPRECATED cerQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
+{-# INLINEABLE cerQuantity #-}
+{-# DEPRECATED quantity "Use generic-lens or generic-optics with 'quantity' instead"  #-}
 
--- | A complex type that contains a @CustomErrorResponse@ element for each HTTP status code for which you want to specify a custom error page and/or a caching duration.
+-- | A complex type that contains a @CustomErrorResponse@ element for each HTTP status code for which you want to specify a custom error page and/or a caching duration. 
 --
 -- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cerItems :: Lens.Lens' CustomErrorResponses (Core.Maybe [Types.CustomErrorResponse])
 cerItems = Lens.field @"items"
-{-# DEPRECATED cerItems "Use generic-lens or generic-optics with 'items' instead." #-}
+{-# INLINEABLE cerItems #-}
+{-# DEPRECATED items "Use generic-lens or generic-optics with 'items' instead"  #-}
 
 instance Core.ToXML CustomErrorResponses where
-  toXML CustomErrorResponses {..} =
-    Core.toXMLNode "Quantity" quantity
-      Core.<> Core.toXMLNode
-        "Items"
-        (Core.toXMLList "CustomErrorResponse" Core.<$> items)
+        toXML CustomErrorResponses{..}
+          = Core.toXMLElement "Quantity" quantity Core.<>
+              Core.toXMLElement "Items"
+                (Core.maybe Core.mempty (Core.toXMLList "CustomErrorResponse")
+                   items)
 
 instance Core.FromXML CustomErrorResponses where
-  parseXML x =
-    CustomErrorResponses'
-      Core.<$> (x Core..@ "Quantity")
-      Core.<*> ( x Core..@? "Items"
-                   Core..<@> Core.parseXMLList "CustomErrorResponse"
-               )
+        parseXML x
+          = CustomErrorResponses' Core.<$>
+              (x Core..@ "Quantity") Core.<*>
+                x Core..@? "Items" Core..<@>
+                  Core.parseXMLList "CustomErrorResponse"

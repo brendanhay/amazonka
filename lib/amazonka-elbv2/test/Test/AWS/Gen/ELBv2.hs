@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.ELBv2 where
 
 import Data.Proxy
-import Network.AWS.ELBv2
-import Test.AWS.ELBv2.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.ELBv2
+import Test.AWS.ELBv2.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -240,478 +241,410 @@ import Test.Tasty
 -- Requests
 
 requestDescribeLoadBalancers :: DescribeLoadBalancers -> TestTree
-requestDescribeLoadBalancers =
-  req
+requestDescribeLoadBalancers = req
     "DescribeLoadBalancers"
     "fixture/DescribeLoadBalancers.yaml"
 
 requestDescribeTags :: DescribeTags -> TestTree
-requestDescribeTags =
-  req
+requestDescribeTags = req
     "DescribeTags"
     "fixture/DescribeTags.yaml"
 
 requestDeleteRule :: DeleteRule -> TestTree
-requestDeleteRule =
-  req
+requestDeleteRule = req
     "DeleteRule"
     "fixture/DeleteRule.yaml"
 
 requestRemoveTags :: RemoveTags -> TestTree
-requestRemoveTags =
-  req
+requestRemoveTags = req
     "RemoveTags"
     "fixture/RemoveTags.yaml"
 
 requestDeleteTargetGroup :: DeleteTargetGroup -> TestTree
-requestDeleteTargetGroup =
-  req
+requestDeleteTargetGroup = req
     "DeleteTargetGroup"
     "fixture/DeleteTargetGroup.yaml"
 
 requestSetSubnets :: SetSubnets -> TestTree
-requestSetSubnets =
-  req
+requestSetSubnets = req
     "SetSubnets"
     "fixture/SetSubnets.yaml"
 
 requestCreateRule :: CreateRule -> TestTree
-requestCreateRule =
-  req
+requestCreateRule = req
     "CreateRule"
     "fixture/CreateRule.yaml"
 
 requestDescribeListenerCertificates :: DescribeListenerCertificates -> TestTree
-requestDescribeListenerCertificates =
-  req
+requestDescribeListenerCertificates = req
     "DescribeListenerCertificates"
     "fixture/DescribeListenerCertificates.yaml"
 
 requestSetSecurityGroups :: SetSecurityGroups -> TestTree
-requestSetSecurityGroups =
-  req
+requestSetSecurityGroups = req
     "SetSecurityGroups"
     "fixture/SetSecurityGroups.yaml"
 
 requestSetRulePriorities :: SetRulePriorities -> TestTree
-requestSetRulePriorities =
-  req
+requestSetRulePriorities = req
     "SetRulePriorities"
     "fixture/SetRulePriorities.yaml"
 
 requestDescribeTargetGroups :: DescribeTargetGroups -> TestTree
-requestDescribeTargetGroups =
-  req
+requestDescribeTargetGroups = req
     "DescribeTargetGroups"
     "fixture/DescribeTargetGroups.yaml"
 
 requestDescribeRules :: DescribeRules -> TestTree
-requestDescribeRules =
-  req
+requestDescribeRules = req
     "DescribeRules"
     "fixture/DescribeRules.yaml"
 
 requestDeleteLoadBalancer :: DeleteLoadBalancer -> TestTree
-requestDeleteLoadBalancer =
-  req
+requestDeleteLoadBalancer = req
     "DeleteLoadBalancer"
     "fixture/DeleteLoadBalancer.yaml"
 
 requestRegisterTargets :: RegisterTargets -> TestTree
-requestRegisterTargets =
-  req
+requestRegisterTargets = req
     "RegisterTargets"
     "fixture/RegisterTargets.yaml"
 
 requestModifyListener :: ModifyListener -> TestTree
-requestModifyListener =
-  req
+requestModifyListener = req
     "ModifyListener"
     "fixture/ModifyListener.yaml"
 
 requestModifyTargetGroup :: ModifyTargetGroup -> TestTree
-requestModifyTargetGroup =
-  req
+requestModifyTargetGroup = req
     "ModifyTargetGroup"
     "fixture/ModifyTargetGroup.yaml"
 
 requestModifyTargetGroupAttributes :: ModifyTargetGroupAttributes -> TestTree
-requestModifyTargetGroupAttributes =
-  req
+requestModifyTargetGroupAttributes = req
     "ModifyTargetGroupAttributes"
     "fixture/ModifyTargetGroupAttributes.yaml"
 
 requestDescribeTargetGroupAttributes :: DescribeTargetGroupAttributes -> TestTree
-requestDescribeTargetGroupAttributes =
-  req
+requestDescribeTargetGroupAttributes = req
     "DescribeTargetGroupAttributes"
     "fixture/DescribeTargetGroupAttributes.yaml"
 
 requestDeleteListener :: DeleteListener -> TestTree
-requestDeleteListener =
-  req
+requestDeleteListener = req
     "DeleteListener"
     "fixture/DeleteListener.yaml"
 
 requestDescribeSSLPolicies :: DescribeSSLPolicies -> TestTree
-requestDescribeSSLPolicies =
-  req
+requestDescribeSSLPolicies = req
     "DescribeSSLPolicies"
     "fixture/DescribeSSLPolicies.yaml"
 
 requestDescribeAccountLimits :: DescribeAccountLimits -> TestTree
-requestDescribeAccountLimits =
-  req
+requestDescribeAccountLimits = req
     "DescribeAccountLimits"
     "fixture/DescribeAccountLimits.yaml"
 
 requestDeregisterTargets :: DeregisterTargets -> TestTree
-requestDeregisterTargets =
-  req
+requestDeregisterTargets = req
     "DeregisterTargets"
     "fixture/DeregisterTargets.yaml"
 
 requestCreateListener :: CreateListener -> TestTree
-requestCreateListener =
-  req
+requestCreateListener = req
     "CreateListener"
     "fixture/CreateListener.yaml"
 
 requestCreateTargetGroup :: CreateTargetGroup -> TestTree
-requestCreateTargetGroup =
-  req
+requestCreateTargetGroup = req
     "CreateTargetGroup"
     "fixture/CreateTargetGroup.yaml"
 
 requestModifyLoadBalancerAttributes :: ModifyLoadBalancerAttributes -> TestTree
-requestModifyLoadBalancerAttributes =
-  req
+requestModifyLoadBalancerAttributes = req
     "ModifyLoadBalancerAttributes"
     "fixture/ModifyLoadBalancerAttributes.yaml"
 
 requestSetIpAddressType :: SetIpAddressType -> TestTree
-requestSetIpAddressType =
-  req
+requestSetIpAddressType = req
     "SetIpAddressType"
     "fixture/SetIpAddressType.yaml"
 
 requestAddTags :: AddTags -> TestTree
-requestAddTags =
-  req
+requestAddTags = req
     "AddTags"
     "fixture/AddTags.yaml"
 
 requestDescribeLoadBalancerAttributes :: DescribeLoadBalancerAttributes -> TestTree
-requestDescribeLoadBalancerAttributes =
-  req
+requestDescribeLoadBalancerAttributes = req
     "DescribeLoadBalancerAttributes"
     "fixture/DescribeLoadBalancerAttributes.yaml"
 
 requestDescribeListeners :: DescribeListeners -> TestTree
-requestDescribeListeners =
-  req
+requestDescribeListeners = req
     "DescribeListeners"
     "fixture/DescribeListeners.yaml"
 
 requestDescribeTargetHealth :: DescribeTargetHealth -> TestTree
-requestDescribeTargetHealth =
-  req
+requestDescribeTargetHealth = req
     "DescribeTargetHealth"
     "fixture/DescribeTargetHealth.yaml"
 
 requestCreateLoadBalancer :: CreateLoadBalancer -> TestTree
-requestCreateLoadBalancer =
-  req
+requestCreateLoadBalancer = req
     "CreateLoadBalancer"
     "fixture/CreateLoadBalancer.yaml"
 
 requestRemoveListenerCertificates :: RemoveListenerCertificates -> TestTree
-requestRemoveListenerCertificates =
-  req
+requestRemoveListenerCertificates = req
     "RemoveListenerCertificates"
     "fixture/RemoveListenerCertificates.yaml"
 
 requestModifyRule :: ModifyRule -> TestTree
-requestModifyRule =
-  req
+requestModifyRule = req
     "ModifyRule"
     "fixture/ModifyRule.yaml"
 
 requestAddListenerCertificates :: AddListenerCertificates -> TestTree
-requestAddListenerCertificates =
-  req
+requestAddListenerCertificates = req
     "AddListenerCertificates"
     "fixture/AddListenerCertificates.yaml"
 
 -- Responses
 
 responseDescribeLoadBalancers :: DescribeLoadBalancersResponse -> TestTree
-responseDescribeLoadBalancers =
-  res
+responseDescribeLoadBalancers = res
     "DescribeLoadBalancersResponse"
     "fixture/DescribeLoadBalancersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeLoadBalancers)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
-responseDescribeTags =
-  res
+responseDescribeTags = res
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeTags)
 
 responseDeleteRule :: DeleteRuleResponse -> TestTree
-responseDeleteRule =
-  res
+responseDeleteRule = res
     "DeleteRuleResponse"
     "fixture/DeleteRuleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteRule)
 
 responseRemoveTags :: RemoveTagsResponse -> TestTree
-responseRemoveTags =
-  res
+responseRemoveTags = res
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RemoveTags)
 
 responseDeleteTargetGroup :: DeleteTargetGroupResponse -> TestTree
-responseDeleteTargetGroup =
-  res
+responseDeleteTargetGroup = res
     "DeleteTargetGroupResponse"
     "fixture/DeleteTargetGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteTargetGroup)
 
 responseSetSubnets :: SetSubnetsResponse -> TestTree
-responseSetSubnets =
-  res
+responseSetSubnets = res
     "SetSubnetsResponse"
     "fixture/SetSubnetsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SetSubnets)
 
 responseCreateRule :: CreateRuleResponse -> TestTree
-responseCreateRule =
-  res
+responseCreateRule = res
     "CreateRuleResponse"
     "fixture/CreateRuleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateRule)
 
 responseDescribeListenerCertificates :: DescribeListenerCertificatesResponse -> TestTree
-responseDescribeListenerCertificates =
-  res
+responseDescribeListenerCertificates = res
     "DescribeListenerCertificatesResponse"
     "fixture/DescribeListenerCertificatesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeListenerCertificates)
 
 responseSetSecurityGroups :: SetSecurityGroupsResponse -> TestTree
-responseSetSecurityGroups =
-  res
+responseSetSecurityGroups = res
     "SetSecurityGroupsResponse"
     "fixture/SetSecurityGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SetSecurityGroups)
 
 responseSetRulePriorities :: SetRulePrioritiesResponse -> TestTree
-responseSetRulePriorities =
-  res
+responseSetRulePriorities = res
     "SetRulePrioritiesResponse"
     "fixture/SetRulePrioritiesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SetRulePriorities)
 
 responseDescribeTargetGroups :: DescribeTargetGroupsResponse -> TestTree
-responseDescribeTargetGroups =
-  res
+responseDescribeTargetGroups = res
     "DescribeTargetGroupsResponse"
     "fixture/DescribeTargetGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeTargetGroups)
 
 responseDescribeRules :: DescribeRulesResponse -> TestTree
-responseDescribeRules =
-  res
+responseDescribeRules = res
     "DescribeRulesResponse"
     "fixture/DescribeRulesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeRules)
 
 responseDeleteLoadBalancer :: DeleteLoadBalancerResponse -> TestTree
-responseDeleteLoadBalancer =
-  res
+responseDeleteLoadBalancer = res
     "DeleteLoadBalancerResponse"
     "fixture/DeleteLoadBalancerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteLoadBalancer)
 
 responseRegisterTargets :: RegisterTargetsResponse -> TestTree
-responseRegisterTargets =
-  res
+responseRegisterTargets = res
     "RegisterTargetsResponse"
     "fixture/RegisterTargetsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RegisterTargets)
 
 responseModifyListener :: ModifyListenerResponse -> TestTree
-responseModifyListener =
-  res
+responseModifyListener = res
     "ModifyListenerResponse"
     "fixture/ModifyListenerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyListener)
 
 responseModifyTargetGroup :: ModifyTargetGroupResponse -> TestTree
-responseModifyTargetGroup =
-  res
+responseModifyTargetGroup = res
     "ModifyTargetGroupResponse"
     "fixture/ModifyTargetGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyTargetGroup)
 
 responseModifyTargetGroupAttributes :: ModifyTargetGroupAttributesResponse -> TestTree
-responseModifyTargetGroupAttributes =
-  res
+responseModifyTargetGroupAttributes = res
     "ModifyTargetGroupAttributesResponse"
     "fixture/ModifyTargetGroupAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyTargetGroupAttributes)
 
 responseDescribeTargetGroupAttributes :: DescribeTargetGroupAttributesResponse -> TestTree
-responseDescribeTargetGroupAttributes =
-  res
+responseDescribeTargetGroupAttributes = res
     "DescribeTargetGroupAttributesResponse"
     "fixture/DescribeTargetGroupAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeTargetGroupAttributes)
 
 responseDeleteListener :: DeleteListenerResponse -> TestTree
-responseDeleteListener =
-  res
+responseDeleteListener = res
     "DeleteListenerResponse"
     "fixture/DeleteListenerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteListener)
 
 responseDescribeSSLPolicies :: DescribeSSLPoliciesResponse -> TestTree
-responseDescribeSSLPolicies =
-  res
+responseDescribeSSLPolicies = res
     "DescribeSSLPoliciesResponse"
     "fixture/DescribeSSLPoliciesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeSSLPolicies)
 
 responseDescribeAccountLimits :: DescribeAccountLimitsResponse -> TestTree
-responseDescribeAccountLimits =
-  res
+responseDescribeAccountLimits = res
     "DescribeAccountLimitsResponse"
     "fixture/DescribeAccountLimitsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAccountLimits)
 
 responseDeregisterTargets :: DeregisterTargetsResponse -> TestTree
-responseDeregisterTargets =
-  res
+responseDeregisterTargets = res
     "DeregisterTargetsResponse"
     "fixture/DeregisterTargetsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeregisterTargets)
 
 responseCreateListener :: CreateListenerResponse -> TestTree
-responseCreateListener =
-  res
+responseCreateListener = res
     "CreateListenerResponse"
     "fixture/CreateListenerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateListener)
 
 responseCreateTargetGroup :: CreateTargetGroupResponse -> TestTree
-responseCreateTargetGroup =
-  res
+responseCreateTargetGroup = res
     "CreateTargetGroupResponse"
     "fixture/CreateTargetGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateTargetGroup)
 
 responseModifyLoadBalancerAttributes :: ModifyLoadBalancerAttributesResponse -> TestTree
-responseModifyLoadBalancerAttributes =
-  res
+responseModifyLoadBalancerAttributes = res
     "ModifyLoadBalancerAttributesResponse"
     "fixture/ModifyLoadBalancerAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyLoadBalancerAttributes)
 
 responseSetIpAddressType :: SetIpAddressTypeResponse -> TestTree
-responseSetIpAddressType =
-  res
+responseSetIpAddressType = res
     "SetIpAddressTypeResponse"
     "fixture/SetIpAddressTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SetIpAddressType)
 
 responseAddTags :: AddTagsResponse -> TestTree
-responseAddTags =
-  res
+responseAddTags = res
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AddTags)
 
 responseDescribeLoadBalancerAttributes :: DescribeLoadBalancerAttributesResponse -> TestTree
-responseDescribeLoadBalancerAttributes =
-  res
+responseDescribeLoadBalancerAttributes = res
     "DescribeLoadBalancerAttributesResponse"
     "fixture/DescribeLoadBalancerAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeLoadBalancerAttributes)
 
 responseDescribeListeners :: DescribeListenersResponse -> TestTree
-responseDescribeListeners =
-  res
+responseDescribeListeners = res
     "DescribeListenersResponse"
     "fixture/DescribeListenersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeListeners)
 
 responseDescribeTargetHealth :: DescribeTargetHealthResponse -> TestTree
-responseDescribeTargetHealth =
-  res
+responseDescribeTargetHealth = res
     "DescribeTargetHealthResponse"
     "fixture/DescribeTargetHealthResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeTargetHealth)
 
 responseCreateLoadBalancer :: CreateLoadBalancerResponse -> TestTree
-responseCreateLoadBalancer =
-  res
+responseCreateLoadBalancer = res
     "CreateLoadBalancerResponse"
     "fixture/CreateLoadBalancerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateLoadBalancer)
 
 responseRemoveListenerCertificates :: RemoveListenerCertificatesResponse -> TestTree
-responseRemoveListenerCertificates =
-  res
+responseRemoveListenerCertificates = res
     "RemoveListenerCertificatesResponse"
     "fixture/RemoveListenerCertificatesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RemoveListenerCertificates)
 
 responseModifyRule :: ModifyRuleResponse -> TestTree
-responseModifyRule =
-  res
+responseModifyRule = res
     "ModifyRuleResponse"
     "fixture/ModifyRuleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyRule)
 
 responseAddListenerCertificates :: AddListenerCertificatesResponse -> TestTree
-responseAddListenerCertificates =
-  res
+responseAddListenerCertificates = res
     "AddListenerCertificatesResponse"
     "fixture/AddListenerCertificatesResponse.proto"
     mkServiceConfig

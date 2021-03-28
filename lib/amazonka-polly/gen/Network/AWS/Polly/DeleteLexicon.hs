@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,21 +17,19 @@
 --
 -- For more information, see <https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html Managing Lexicons> .
 module Network.AWS.Polly.DeleteLexicon
-  ( -- * Creating a request
-    DeleteLexicon (..),
-    mkDeleteLexicon,
-
+    (
+    -- * Creating a request
+      DeleteLexicon (..)
+    , mkDeleteLexicon
     -- ** Request lenses
-    dlName,
+    , dlName
 
     -- * Destructuring the response
-    DeleteLexiconResponse (..),
-    mkDeleteLexiconResponse,
-
+    , DeleteLexiconResponse (..)
+    , mkDeleteLexiconResponse
     -- ** Response lenses
-    dlrrsResponseStatus,
-  )
-where
+    , dlrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Polly.Types as Types
@@ -41,63 +39,68 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteLexicon' smart constructor.
 newtype DeleteLexicon = DeleteLexicon'
-  { -- | The name of the lexicon to delete. Must be an existing lexicon in the region.
-    name :: Types.LexiconName
+  { name :: Types.LexiconName
+    -- ^ The name of the lexicon to delete. Must be an existing lexicon in the region.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteLexicon' value with any optional fields omitted.
-mkDeleteLexicon ::
-  -- | 'name'
-  Types.LexiconName ->
-  DeleteLexicon
-mkDeleteLexicon name = DeleteLexicon' {name}
+mkDeleteLexicon
+    :: Types.LexiconName -- ^ 'name'
+    -> DeleteLexicon
+mkDeleteLexicon name = DeleteLexicon'{name}
 
 -- | The name of the lexicon to delete. Must be an existing lexicon in the region.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dlName :: Lens.Lens' DeleteLexicon Types.LexiconName
 dlName = Lens.field @"name"
-{-# DEPRECATED dlName "Use generic-lens or generic-optics with 'name' instead." #-}
+{-# INLINEABLE dlName #-}
+{-# DEPRECATED name "Use generic-lens or generic-optics with 'name' instead"  #-}
+
+instance Core.ToQuery DeleteLexicon where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DeleteLexicon where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest DeleteLexicon where
-  type Rs DeleteLexicon = DeleteLexiconResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.DELETE,
-        Core._rqPath =
-          Core.rawPath ("/v1/lexicons/" Core.<> (Core.toText name)),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = ""
-      }
-  response =
-    Response.receiveEmpty
-      ( \s h x ->
-          DeleteLexiconResponse' Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DeleteLexicon = DeleteLexiconResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.DELETE,
+                         Core._rqPath = "/v1/lexicons/" Core.<> Core.toText name,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveEmpty
+              (\ s h x ->
+                 DeleteLexiconResponse' Core.<$> (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteLexiconResponse' smart constructor.
 newtype DeleteLexiconResponse = DeleteLexiconResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteLexiconResponse' value with any optional fields omitted.
-mkDeleteLexiconResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DeleteLexiconResponse
-mkDeleteLexiconResponse responseStatus =
-  DeleteLexiconResponse' {responseStatus}
+mkDeleteLexiconResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DeleteLexiconResponse
+mkDeleteLexiconResponse responseStatus
+  = DeleteLexiconResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dlrrsResponseStatus :: Lens.Lens' DeleteLexiconResponse Core.Int
 dlrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED dlrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE dlrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

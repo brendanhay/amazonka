@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.EMR.Types.AutoScalingPolicy
-  ( AutoScalingPolicy (..),
-
-    -- * Smart constructor
-    mkAutoScalingPolicy,
-
-    -- * Lenses
-    aspConstraints,
-    aspRules,
-  )
-where
+  ( AutoScalingPolicy (..)
+  -- * Smart constructor
+  , mkAutoScalingPolicy
+  -- * Lenses
+  , aspConstraints
+  , aspRules
+  ) where
 
 import qualified Network.AWS.EMR.Types.ScalingConstraints as Types
 import qualified Network.AWS.EMR.Types.ScalingRule as Types
@@ -31,41 +29,40 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkAutoScalingPolicy' smart constructor.
 data AutoScalingPolicy = AutoScalingPolicy'
-  { -- | The upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
-    constraints :: Types.ScalingConstraints,
-    -- | The scale-in and scale-out rules that comprise the automatic scaling policy.
-    rules :: [Types.ScalingRule]
+  { constraints :: Types.ScalingConstraints
+    -- ^ The upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
+  , rules :: [Types.ScalingRule]
+    -- ^ The scale-in and scale-out rules that comprise the automatic scaling policy.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AutoScalingPolicy' value with any optional fields omitted.
-mkAutoScalingPolicy ::
-  -- | 'constraints'
-  Types.ScalingConstraints ->
-  AutoScalingPolicy
-mkAutoScalingPolicy constraints =
-  AutoScalingPolicy' {constraints, rules = Core.mempty}
+mkAutoScalingPolicy
+    :: Types.ScalingConstraints -- ^ 'constraints'
+    -> AutoScalingPolicy
+mkAutoScalingPolicy constraints
+  = AutoScalingPolicy'{constraints, rules = Core.mempty}
 
 -- | The upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activity will not cause an instance group to grow above or below these limits.
 --
 -- /Note:/ Consider using 'constraints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 aspConstraints :: Lens.Lens' AutoScalingPolicy Types.ScalingConstraints
 aspConstraints = Lens.field @"constraints"
-{-# DEPRECATED aspConstraints "Use generic-lens or generic-optics with 'constraints' instead." #-}
+{-# INLINEABLE aspConstraints #-}
+{-# DEPRECATED constraints "Use generic-lens or generic-optics with 'constraints' instead"  #-}
 
 -- | The scale-in and scale-out rules that comprise the automatic scaling policy.
 --
 -- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 aspRules :: Lens.Lens' AutoScalingPolicy [Types.ScalingRule]
 aspRules = Lens.field @"rules"
-{-# DEPRECATED aspRules "Use generic-lens or generic-optics with 'rules' instead." #-}
+{-# INLINEABLE aspRules #-}
+{-# DEPRECATED rules "Use generic-lens or generic-optics with 'rules' instead"  #-}
 
 instance Core.FromJSON AutoScalingPolicy where
-  toJSON AutoScalingPolicy {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Constraints" Core..= constraints),
-            Core.Just ("Rules" Core..= rules)
-          ]
-      )
+        toJSON AutoScalingPolicy{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("Constraints" Core..= constraints),
+                  Core.Just ("Rules" Core..= rules)])

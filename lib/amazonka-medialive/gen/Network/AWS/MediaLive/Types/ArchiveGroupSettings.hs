@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaLive.Types.ArchiveGroupSettings
-  ( ArchiveGroupSettings (..),
-
-    -- * Smart constructor
-    mkArchiveGroupSettings,
-
-    -- * Lenses
-    agsDestination,
-    agsRolloverInterval,
-  )
-where
+  ( ArchiveGroupSettings (..)
+  -- * Smart constructor
+  , mkArchiveGroupSettings
+  -- * Lenses
+  , agsDestination
+  , agsRolloverInterval
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.MediaLive.Types.OutputLocationRef as Types
@@ -30,51 +28,48 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkArchiveGroupSettings' smart constructor.
 data ArchiveGroupSettings = ArchiveGroupSettings'
-  { -- | A directory and base filename where archive files should be written.
-    destination :: Types.OutputLocationRef,
-    -- | Number of seconds to write to archive file before closing and starting a new one.
-    rolloverInterval :: Core.Maybe Core.Natural
+  { destination :: Types.OutputLocationRef
+    -- ^ A directory and base filename where archive files should be written.
+  , rolloverInterval :: Core.Maybe Core.Natural
+    -- ^ Number of seconds to write to archive file before closing and starting a new one.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ArchiveGroupSettings' value with any optional fields omitted.
-mkArchiveGroupSettings ::
-  -- | 'destination'
-  Types.OutputLocationRef ->
-  ArchiveGroupSettings
-mkArchiveGroupSettings destination =
-  ArchiveGroupSettings'
-    { destination,
-      rolloverInterval = Core.Nothing
-    }
+mkArchiveGroupSettings
+    :: Types.OutputLocationRef -- ^ 'destination'
+    -> ArchiveGroupSettings
+mkArchiveGroupSettings destination
+  = ArchiveGroupSettings'{destination,
+                          rolloverInterval = Core.Nothing}
 
 -- | A directory and base filename where archive files should be written.
 --
 -- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 agsDestination :: Lens.Lens' ArchiveGroupSettings Types.OutputLocationRef
 agsDestination = Lens.field @"destination"
-{-# DEPRECATED agsDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
+{-# INLINEABLE agsDestination #-}
+{-# DEPRECATED destination "Use generic-lens or generic-optics with 'destination' instead"  #-}
 
 -- | Number of seconds to write to archive file before closing and starting a new one.
 --
 -- /Note:/ Consider using 'rolloverInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 agsRolloverInterval :: Lens.Lens' ArchiveGroupSettings (Core.Maybe Core.Natural)
 agsRolloverInterval = Lens.field @"rolloverInterval"
-{-# DEPRECATED agsRolloverInterval "Use generic-lens or generic-optics with 'rolloverInterval' instead." #-}
+{-# INLINEABLE agsRolloverInterval #-}
+{-# DEPRECATED rolloverInterval "Use generic-lens or generic-optics with 'rolloverInterval' instead"  #-}
 
 instance Core.FromJSON ArchiveGroupSettings where
-  toJSON ArchiveGroupSettings {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("destination" Core..= destination),
-            ("rolloverInterval" Core..=) Core.<$> rolloverInterval
-          ]
-      )
+        toJSON ArchiveGroupSettings{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("destination" Core..= destination),
+                  ("rolloverInterval" Core..=) Core.<$> rolloverInterval])
 
 instance Core.FromJSON ArchiveGroupSettings where
-  parseJSON =
-    Core.withObject "ArchiveGroupSettings" Core.$
-      \x ->
-        ArchiveGroupSettings'
-          Core.<$> (x Core..: "destination") Core.<*> (x Core..:? "rolloverInterval")
+        parseJSON
+          = Core.withObject "ArchiveGroupSettings" Core.$
+              \ x ->
+                ArchiveGroupSettings' Core.<$>
+                  (x Core..: "destination") Core.<*> x Core..:? "rolloverInterval"

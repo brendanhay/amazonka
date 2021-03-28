@@ -7,1253 +7,1437 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CodePipeline.Types
-  ( -- * Service configuration
-    mkServiceConfig,
+    (
+    -- * Service configuration
+      mkServiceConfig
 
     -- * Errors
-    _InvalidClientTokenException,
-    _ValidationException,
-    _InvalidNonceException,
-    _ActionNotFoundException,
-    _InvalidApprovalTokenException,
-    _PipelineExecutionNotStoppableException,
-    _InvalidBlockerDeclarationException,
-    _OutputVariablesSizeExceededException,
-    _InvalidJobStateException,
-    _TooManyTagsException,
-    _ConflictException,
-    _InvalidJobException,
-    _PipelineVersionNotFoundException,
-    _StageNotRetryableException,
-    _PipelineExecutionNotFoundException,
-    _InvalidWebhookAuthenticationParametersException,
-    _WebhookNotFoundException,
-    _InvalidTagsException,
-    _ActionTypeNotFoundException,
-    _ConcurrentModificationException,
-    _InvalidNextTokenException,
-    _InvalidStageDeclarationException,
-    _DuplicatedStopRequestException,
-    _InvalidWebhookFilterPatternException,
-    _InvalidActionDeclarationException,
-    _StageNotFoundException,
-    _InvalidStructureException,
-    _JobNotFoundException,
-    _ApprovalAlreadyCompletedException,
-    _InvalidArnException,
-    _PipelineNameInUseException,
-    _PipelineNotFoundException,
-    _ResourceNotFoundException,
-    _LimitExceededException,
-    _NotLatestPipelineExecutionException,
+    , _InvalidClientTokenException
+    , _ValidationException
+    , _InvalidNonceException
+    , _ActionNotFoundException
+    , _InvalidApprovalTokenException
+    , _PipelineExecutionNotStoppableException
+    , _InvalidBlockerDeclarationException
+    , _OutputVariablesSizeExceededException
+    , _InvalidJobStateException
+    , _TooManyTagsException
+    , _ConflictException
+    , _InvalidJobException
+    , _PipelineVersionNotFoundException
+    , _StageNotRetryableException
+    , _PipelineExecutionNotFoundException
+    , _InvalidWebhookAuthenticationParametersException
+    , _WebhookNotFoundException
+    , _InvalidTagsException
+    , _ActionTypeNotFoundException
+    , _ConcurrentModificationException
+    , _InvalidNextTokenException
+    , _InvalidStageDeclarationException
+    , _DuplicatedStopRequestException
+    , _InvalidWebhookFilterPatternException
+    , _InvalidActionDeclarationException
+    , _StageNotFoundException
+    , _InvalidStructureException
+    , _JobNotFoundException
+    , _ApprovalAlreadyCompletedException
+    , _InvalidArnException
+    , _PipelineNameInUseException
+    , _PipelineNotFoundException
+    , _ResourceNotFoundException
+    , _LimitExceededException
+    , _NotLatestPipelineExecutionException
 
     -- * PipelineExecutionStatus
-    PipelineExecutionStatus (..),
+    , PipelineExecutionStatus (..)
 
     -- * LastUpdatedBy
-    LastUpdatedBy (..),
+    , LastUpdatedBy (..)
 
     -- * ListWebhookItem
-    ListWebhookItem (..),
-    mkListWebhookItem,
-    lwiDefinition,
-    lwiUrl,
-    lwiArn,
-    lwiErrorCode,
-    lwiErrorMessage,
-    lwiLastTriggered,
-    lwiTags,
+    , ListWebhookItem (..)
+    , mkListWebhookItem
+    , lwiDefinition
+    , lwiUrl
+    , lwiArn
+    , lwiErrorCode
+    , lwiErrorMessage
+    , lwiLastTriggered
+    , lwiTags
 
     -- * ApprovalToken
-    ApprovalToken (..),
+    , ApprovalToken (..)
 
     -- * ActionExecution
-    ActionExecution (..),
-    mkActionExecution,
-    aeActionExecutionId,
-    aeErrorDetails,
-    aeExternalExecutionId,
-    aeExternalExecutionUrl,
-    aeLastStatusChange,
-    aeLastUpdatedBy,
-    aePercentComplete,
-    aeStatus,
-    aeSummary,
-    aeToken,
+    , ActionExecution (..)
+    , mkActionExecution
+    , aeActionExecutionId
+    , aeErrorDetails
+    , aeExternalExecutionId
+    , aeExternalExecutionUrl
+    , aeLastStatusChange
+    , aeLastUpdatedBy
+    , aePercentComplete
+    , aeStatus
+    , aeSummary
+    , aeToken
 
     -- * WebhookName
-    WebhookName (..),
+    , WebhookName (..)
 
     -- * StopPipelineExecutionReason
-    StopPipelineExecutionReason (..),
+    , StopPipelineExecutionReason (..)
 
     -- * ArtifactDetails
-    ArtifactDetails (..),
-    mkArtifactDetails,
-    adMinimumCount,
-    adMaximumCount,
+    , ArtifactDetails (..)
+    , mkArtifactDetails
+    , adMinimumCount
+    , adMaximumCount
 
     -- * MatchEquals
-    MatchEquals (..),
+    , MatchEquals (..)
 
     -- * PipelineExecutionSummary
-    PipelineExecutionSummary (..),
-    mkPipelineExecutionSummary,
-    pesLastUpdateTime,
-    pesPipelineExecutionId,
-    pesSourceRevisions,
-    pesStartTime,
-    pesStatus,
-    pesStopTrigger,
-    pesTrigger,
+    , PipelineExecutionSummary (..)
+    , mkPipelineExecutionSummary
+    , pesLastUpdateTime
+    , pesPipelineExecutionId
+    , pesSourceRevisions
+    , pesStartTime
+    , pesStatus
+    , pesStopTrigger
+    , pesTrigger
 
     -- * ClientId
-    ClientId (..),
+    , ClientId (..)
 
     -- * StageDeclaration
-    StageDeclaration (..),
-    mkStageDeclaration,
-    sdName,
-    sdActions,
-    sdBlockers,
+    , StageDeclaration (..)
+    , mkStageDeclaration
+    , sdName
+    , sdActions
+    , sdBlockers
 
     -- * ArtifactStoreLocation
-    ArtifactStoreLocation (..),
+    , ArtifactStoreLocation (..)
 
     -- * ArtifactDetail
-    ArtifactDetail (..),
-    mkArtifactDetail,
-    aName,
-    aS3location,
+    , ArtifactDetail (..)
+    , mkArtifactDetail
+    , aName
+    , aS3location
 
     -- * ActionProvider
-    ActionProvider (..),
+    , ActionProvider (..)
 
     -- * StageRetryMode
-    StageRetryMode (..),
+    , StageRetryMode (..)
 
     -- * RevisionSummary
-    RevisionSummary (..),
+    , RevisionSummary (..)
 
     -- * ExecutionId
-    ExecutionId (..),
+    , ExecutionId (..)
 
     -- * PipelineMetadata
-    PipelineMetadata (..),
-    mkPipelineMetadata,
-    pmCreated,
-    pmPipelineArn,
-    pmUpdated,
+    , PipelineMetadata (..)
+    , mkPipelineMetadata
+    , pmCreated
+    , pmPipelineArn
+    , pmUpdated
 
     -- * S3Key
-    S3Key (..),
+    , S3Key (..)
 
     -- * Tag
-    Tag (..),
-    mkTag,
-    tKey,
-    tValue,
+    , Tag (..)
+    , mkTag
+    , tKey
+    , tValue
 
     -- * ThirdPartyJobData
-    ThirdPartyJobData (..),
-    mkThirdPartyJobData,
-    tpjdActionConfiguration,
-    tpjdActionTypeId,
-    tpjdArtifactCredentials,
-    tpjdContinuationToken,
-    tpjdEncryptionKey,
-    tpjdInputArtifacts,
-    tpjdOutputArtifacts,
-    tpjdPipelineContext,
+    , ThirdPartyJobData (..)
+    , mkThirdPartyJobData
+    , tpjdActionConfiguration
+    , tpjdActionTypeId
+    , tpjdArtifactCredentials
+    , tpjdContinuationToken
+    , tpjdEncryptionKey
+    , tpjdInputArtifacts
+    , tpjdOutputArtifacts
+    , tpjdPipelineContext
 
     -- * ExecutionTrigger
-    ExecutionTrigger (..),
-    mkExecutionTrigger,
-    etTriggerDetail,
-    etTriggerType,
+    , ExecutionTrigger (..)
+    , mkExecutionTrigger
+    , etTriggerDetail
+    , etTriggerType
 
     -- * S3ObjectKey
-    S3ObjectKey (..),
+    , S3ObjectKey (..)
 
     -- * ThirdPartyJob
-    ThirdPartyJob (..),
-    mkThirdPartyJob,
-    tpjClientId,
-    tpjJobId,
+    , ThirdPartyJob (..)
+    , mkThirdPartyJob
+    , tpjClientId
+    , tpjJobId
 
     -- * FailureDetails
-    FailureDetails (..),
-    mkFailureDetails,
-    fdType,
-    fdMessage,
-    fdExternalExecutionId,
+    , FailureDetails (..)
+    , mkFailureDetails
+    , fdType
+    , fdMessage
+    , fdExternalExecutionId
 
     -- * ClientToken
-    ClientToken (..),
+    , ClientToken (..)
 
     -- * JobId
-    JobId (..),
+    , JobId (..)
 
     -- * ContinuationToken
-    ContinuationToken (..),
+    , ContinuationToken (..)
 
     -- * AWSRegionName
-    AWSRegionName (..),
+    , AWSRegionName (..)
 
     -- * ActionRevision
-    ActionRevision (..),
-    mkActionRevision,
-    aRevisionId,
-    aRevisionChangeId,
-    aCreated,
+    , ActionRevision (..)
+    , mkActionRevision
+    , aRevisionId
+    , aRevisionChangeId
+    , aCreated
 
     -- * PipelineName
-    PipelineName (..),
+    , PipelineName (..)
 
     -- * ActionConfigurationValue
-    ActionConfigurationValue (..),
+    , ActionConfigurationValue (..)
 
     -- * SecretAccessKey
-    SecretAccessKey (..),
-
-    -- * String
-    String (..),
+    , SecretAccessKey (..)
 
     -- * ActionConfigurationQueryableValue
-    ActionConfigurationQueryableValue (..),
+    , ActionConfigurationQueryableValue (..)
 
     -- * SessionToken
-    SessionToken (..),
+    , SessionToken (..)
 
     -- * EncryptionKeyId
-    EncryptionKeyId (..),
+    , EncryptionKeyId (..)
 
     -- * ArtifactRevision
-    ArtifactRevision (..),
-    mkArtifactRevision,
-    arCreated,
-    arName,
-    arRevisionChangeIdentifier,
-    arRevisionId,
-    arRevisionSummary,
-    arRevisionUrl,
+    , ArtifactRevision (..)
+    , mkArtifactRevision
+    , arCreated
+    , arName
+    , arRevisionChangeIdentifier
+    , arRevisionId
+    , arRevisionSummary
+    , arRevisionUrl
 
     -- * ActionExecutionResult
-    ActionExecutionResult (..),
-    mkActionExecutionResult,
-    aerExternalExecutionId,
-    aerExternalExecutionSummary,
-    aerExternalExecutionUrl,
+    , ActionExecutionResult (..)
+    , mkActionExecutionResult
+    , aerExternalExecutionId
+    , aerExternalExecutionSummary
+    , aerExternalExecutionUrl
 
     -- * JsonPath
-    JsonPath (..),
+    , JsonPath (..)
 
     -- * WebhookAuthConfigurationAllowedIPRange
-    WebhookAuthConfigurationAllowedIPRange (..),
+    , WebhookAuthConfigurationAllowedIPRange (..)
 
     -- * FailureType
-    FailureType (..),
+    , FailureType (..)
 
     -- * ActionExecutionStatus
-    ActionExecutionStatus (..),
+    , ActionExecutionStatus (..)
 
     -- * PipelineExecution
-    PipelineExecution (..),
-    mkPipelineExecution,
-    peArtifactRevisions,
-    pePipelineExecutionId,
-    pePipelineName,
-    pePipelineVersion,
-    peStatus,
+    , PipelineExecution (..)
+    , mkPipelineExecution
+    , peArtifactRevisions
+    , pePipelineExecutionId
+    , pePipelineName
+    , pePipelineVersion
+    , peStatus
 
     -- * WebhookUrl
-    WebhookUrl (..),
+    , WebhookUrl (..)
 
     -- * EncryptionKeyType
-    EncryptionKeyType (..),
+    , EncryptionKeyType (..)
 
     -- * ExecutionDetails
-    ExecutionDetails (..),
-    mkExecutionDetails,
-    edExternalExecutionId,
-    edPercentComplete,
-    edSummary,
+    , ExecutionDetails (..)
+    , mkExecutionDetails
+    , edExternalExecutionId
+    , edPercentComplete
+    , edSummary
 
     -- * InputArtifact
-    InputArtifact (..),
-    mkInputArtifact,
-    iaName,
+    , InputArtifact (..)
+    , mkInputArtifact
+    , iaName
 
     -- * TriggerType
-    TriggerType (..),
+    , TriggerType (..)
 
     -- * S3ArtifactLocation
-    S3ArtifactLocation (..),
-    mkS3ArtifactLocation,
-    salBucketName,
-    salObjectKey,
+    , S3ArtifactLocation (..)
+    , mkS3ArtifactLocation
+    , salBucketName
+    , salObjectKey
 
     -- * WebhookAuthenticationType
-    WebhookAuthenticationType (..),
+    , WebhookAuthenticationType (..)
 
     -- * ActionTypeSettings
-    ActionTypeSettings (..),
-    mkActionTypeSettings,
-    atsEntityUrlTemplate,
-    atsExecutionUrlTemplate,
-    atsRevisionUrlTemplate,
-    atsThirdPartyConfigurationUrl,
+    , ActionTypeSettings (..)
+    , mkActionTypeSettings
+    , atsEntityUrlTemplate
+    , atsExecutionUrlTemplate
+    , atsRevisionUrlTemplate
+    , atsThirdPartyConfigurationUrl
 
     -- * ApprovalSummary
-    ApprovalSummary (..),
+    , ApprovalSummary (..)
 
     -- * StageState
-    StageState (..),
-    mkStageState,
-    ssActionStates,
-    ssInboundExecution,
-    ssInboundTransitionState,
-    ssLatestExecution,
-    ssStageName,
+    , StageState (..)
+    , mkStageState
+    , ssActionStates
+    , ssInboundExecution
+    , ssInboundTransitionState
+    , ssLatestExecution
+    , ssStageName
 
     -- * Url
-    Url (..),
+    , Url (..)
 
     -- * StageContext
-    StageContext (..),
-    mkStageContext,
-    scName,
+    , StageContext (..)
+    , mkStageContext
+    , scName
 
     -- * ArtifactLocationType
-    ArtifactLocationType (..),
+    , ArtifactLocationType (..)
 
     -- * AWSSessionCredentials
-    AWSSessionCredentials (..),
-    mkAWSSessionCredentials,
-    awsscAccessKeyId,
-    awsscSecretAccessKey,
-    awsscSessionToken,
+    , AWSSessionCredentials (..)
+    , mkAWSSessionCredentials
+    , awsscAccessKeyId
+    , awsscSecretAccessKey
+    , awsscSessionToken
 
     -- * ApprovalResult
-    ApprovalResult (..),
-    mkApprovalResult,
-    arSummary,
-    arStatus,
+    , ApprovalResult (..)
+    , mkApprovalResult
+    , arSummary
+    , arStatus
 
     -- * BlockerDeclaration
-    BlockerDeclaration (..),
-    mkBlockerDeclaration,
-    bdName,
-    bdType,
+    , BlockerDeclaration (..)
+    , mkBlockerDeclaration
+    , bdName
+    , bdType
 
     -- * StageExecution
-    StageExecution (..),
-    mkStageExecution,
-    sePipelineExecutionId,
-    seStatus,
+    , StageExecution (..)
+    , mkStageExecution
+    , sePipelineExecutionId
+    , seStatus
 
     -- * ActionCategory
-    ActionCategory (..),
+    , ActionCategory (..)
 
     -- * ActionDeclaration
-    ActionDeclaration (..),
-    mkActionDeclaration,
-    adName,
-    adActionTypeId,
-    adConfiguration,
-    adInputArtifacts,
-    adNamespace,
-    adOutputArtifacts,
-    adRegion,
-    adRoleArn,
-    adRunOrder,
+    , ActionDeclaration (..)
+    , mkActionDeclaration
+    , adName
+    , adActionTypeId
+    , adConfiguration
+    , adInputArtifacts
+    , adNamespace
+    , adOutputArtifacts
+    , adRegion
+    , adRoleArn
+    , adRunOrder
 
     -- * PipelineSummary
-    PipelineSummary (..),
-    mkPipelineSummary,
-    psCreated,
-    psName,
-    psUpdated,
-    psVersion,
+    , PipelineSummary (..)
+    , mkPipelineSummary
+    , psCreated
+    , psName
+    , psUpdated
+    , psVersion
 
     -- * Artifact
-    Artifact (..),
-    mkArtifact,
-    afLocation,
-    afName,
-    afRevision,
+    , Artifact (..)
+    , mkArtifact
+    , afLocation
+    , afName
+    , afRevision
 
     -- * WebhookDefinition
-    WebhookDefinition (..),
-    mkWebhookDefinition,
-    wdName,
-    wdTargetPipeline,
-    wdTargetAction,
-    wdFilters,
-    wdAuthentication,
-    wdAuthenticationConfiguration,
+    , WebhookDefinition (..)
+    , mkWebhookDefinition
+    , wdName
+    , wdTargetPipeline
+    , wdTargetAction
+    , wdFilters
+    , wdAuthentication
+    , wdAuthenticationConfiguration
 
     -- * WebhookAuthConfigurationSecretToken
-    WebhookAuthConfigurationSecretToken (..),
+    , WebhookAuthConfigurationSecretToken (..)
 
     -- * ArtifactStore
-    ArtifactStore (..),
-    mkArtifactStore,
-    asType,
-    asLocation,
-    asEncryptionKey,
+    , ArtifactStore (..)
+    , mkArtifactStore
+    , asType
+    , asLocation
+    , asEncryptionKey
 
     -- * ActionConfigurationProperty
-    ActionConfigurationProperty (..),
-    mkActionConfigurationProperty,
-    acpName,
-    acpRequired,
-    acpKey,
-    acpSecret,
-    acpDescription,
-    acpQueryable,
-    acpType,
+    , ActionConfigurationProperty (..)
+    , mkActionConfigurationProperty
+    , acpName
+    , acpRequired
+    , acpKey
+    , acpSecret
+    , acpDescription
+    , acpQueryable
+    , acpType
 
     -- * ArtifactName
-    ArtifactName (..),
+    , ArtifactName (..)
 
     -- * TriggerDetail
-    TriggerDetail (..),
+    , TriggerDetail (..)
 
     -- * OutputVariablesValue
-    OutputVariablesValue (..),
+    , OutputVariablesValue (..)
 
     -- * OutputArtifact
-    OutputArtifact (..),
-    mkOutputArtifact,
-    oaName,
+    , OutputArtifact (..)
+    , mkOutputArtifact
+    , oaName
 
     -- * ActionName
-    ActionName (..),
+    , ActionName (..)
 
     -- * AccountId
-    AccountId (..),
+    , AccountId (..)
 
     -- * NextToken
-    NextToken (..),
+    , NextToken (..)
 
     -- * DisabledReason
-    DisabledReason (..),
+    , DisabledReason (..)
 
     -- * ActionExecutionFilter
-    ActionExecutionFilter (..),
-    mkActionExecutionFilter,
-    aefPipelineExecutionId,
+    , ActionExecutionFilter (..)
+    , mkActionExecutionFilter
+    , aefPipelineExecutionId
 
     -- * JobData
-    JobData (..),
-    mkJobData,
-    jdActionConfiguration,
-    jdActionTypeId,
-    jdArtifactCredentials,
-    jdContinuationToken,
-    jdEncryptionKey,
-    jdInputArtifacts,
-    jdOutputArtifacts,
-    jdPipelineContext,
+    , JobData (..)
+    , mkJobData
+    , jdActionConfiguration
+    , jdActionTypeId
+    , jdArtifactCredentials
+    , jdContinuationToken
+    , jdEncryptionKey
+    , jdInputArtifacts
+    , jdOutputArtifacts
+    , jdPipelineContext
 
     -- * Job
-    Job (..),
-    mkJob,
-    jAccountId,
-    jData,
-    jId,
-    jNonce,
+    , Job (..)
+    , mkJob
+    , jAccountId
+    , jData
+    , jId
+    , jNonce
 
     -- * ResourceArn
-    ResourceArn (..),
+    , ResourceArn (..)
 
     -- * ActionOwner
-    ActionOwner (..),
+    , ActionOwner (..)
 
     -- * ThirdPartyJobId
-    ThirdPartyJobId (..),
+    , ThirdPartyJobId (..)
 
     -- * PipelineArn
-    PipelineArn (..),
+    , PipelineArn (..)
 
     -- * ExternalExecutionId
-    ExternalExecutionId (..),
+    , ExternalExecutionId (..)
 
     -- * CurrentRevision
-    CurrentRevision (..),
-    mkCurrentRevision,
-    crRevision,
-    crChangeIdentifier,
-    crCreated,
-    crRevisionSummary,
+    , CurrentRevision (..)
+    , mkCurrentRevision
+    , crRevision
+    , crChangeIdentifier
+    , crCreated
+    , crRevisionSummary
 
     -- * StopExecutionTrigger
-    StopExecutionTrigger (..),
-    mkStopExecutionTrigger,
-    setReason,
+    , StopExecutionTrigger (..)
+    , mkStopExecutionTrigger
+    , setReason
 
     -- * Version
-    Version (..),
+    , Version (..)
 
     -- * PipelineDeclaration
-    PipelineDeclaration (..),
-    mkPipelineDeclaration,
-    pdName,
-    pdRoleArn,
-    pdStages,
-    pdArtifactStore,
-    pdArtifactStores,
-    pdVersion,
+    , PipelineDeclaration (..)
+    , mkPipelineDeclaration
+    , pdName
+    , pdRoleArn
+    , pdStages
+    , pdArtifactStore
+    , pdArtifactStores
+    , pdVersion
 
     -- * ActionExecutionInput
-    ActionExecutionInput (..),
-    mkActionExecutionInput,
-    aeiActionTypeId,
-    aeiConfiguration,
-    aeiInputArtifacts,
-    aeiNamespace,
-    aeiRegion,
-    aeiResolvedConfiguration,
-    aeiRoleArn,
+    , ActionExecutionInput (..)
+    , mkActionExecutionInput
+    , aeiActionTypeId
+    , aeiConfiguration
+    , aeiInputArtifacts
+    , aeiNamespace
+    , aeiRegion
+    , aeiResolvedConfiguration
+    , aeiRoleArn
 
     -- * ErrorDetails
-    ErrorDetails (..),
-    mkErrorDetails,
-    edCode,
-    edMessage,
+    , ErrorDetails (..)
+    , mkErrorDetails
+    , edCode
+    , edMessage
 
     -- * StageExecutionStatus
-    StageExecutionStatus (..),
+    , StageExecutionStatus (..)
 
     -- * OutputVariablesKey
-    OutputVariablesKey (..),
+    , OutputVariablesKey (..)
 
     -- * PipelineContext
-    PipelineContext (..),
-    mkPipelineContext,
-    pcAction,
-    pcPipelineArn,
-    pcPipelineExecutionId,
-    pcPipelineName,
-    pcStage,
+    , PipelineContext (..)
+    , mkPipelineContext
+    , pcAction
+    , pcPipelineArn
+    , pcPipelineExecutionId
+    , pcPipelineName
+    , pcStage
 
     -- * WebhookFilterRule
-    WebhookFilterRule (..),
-    mkWebhookFilterRule,
-    wfrJsonPath,
-    wfrMatchEquals,
+    , WebhookFilterRule (..)
+    , mkWebhookFilterRule
+    , wfrJsonPath
+    , wfrMatchEquals
 
     -- * JobDetails
-    JobDetails (..),
-    mkJobDetails,
-    jdAccountId,
-    jdData,
-    jdId,
+    , JobDetails (..)
+    , mkJobDetails
+    , jdAccountId
+    , jdData
+    , jdId
 
     -- * ActionExecutionDetail
-    ActionExecutionDetail (..),
-    mkActionExecutionDetail,
-    aedActionExecutionId,
-    aedActionName,
-    aedInput,
-    aedLastUpdateTime,
-    aedOutput,
-    aedPipelineExecutionId,
-    aedPipelineVersion,
-    aedStageName,
-    aedStartTime,
-    aedStatus,
+    , ActionExecutionDetail (..)
+    , mkActionExecutionDetail
+    , aedActionExecutionId
+    , aedActionName
+    , aedInput
+    , aedLastUpdateTime
+    , aedOutput
+    , aedPipelineExecutionId
+    , aedPipelineVersion
+    , aedStageName
+    , aedStartTime
+    , aedStatus
 
     -- * PipelineExecutionId
-    PipelineExecutionId (..),
+    , PipelineExecutionId (..)
 
     -- * Code
-    Code (..),
+    , Code (..)
 
     -- * TagKey
-    TagKey (..),
+    , TagKey (..)
 
     -- * S3Location
-    S3Location (..),
-    mkS3Location,
-    slBucket,
-    slKey,
+    , S3Location (..)
+    , mkS3Location
+    , slBucket
+    , slKey
 
     -- * TransitionState
-    TransitionState (..),
-    mkTransitionState,
-    tsDisabledReason,
-    tsEnabled,
-    tsLastChangedAt,
-    tsLastChangedBy,
+    , TransitionState (..)
+    , mkTransitionState
+    , tsDisabledReason
+    , tsEnabled
+    , tsLastChangedAt
+    , tsLastChangedBy
 
     -- * EncryptionKey
-    EncryptionKey (..),
-    mkEncryptionKey,
-    ekId,
-    ekType,
+    , EncryptionKey (..)
+    , mkEncryptionKey
+    , ekId
+    , ekType
 
     -- * ThirdPartyJobDetails
-    ThirdPartyJobDetails (..),
-    mkThirdPartyJobDetails,
-    tpjdData,
-    tpjdId,
-    tpjdNonce,
+    , ThirdPartyJobDetails (..)
+    , mkThirdPartyJobDetails
+    , tpjdData
+    , tpjdId
+    , tpjdNonce
 
     -- * JobStatus
-    JobStatus (..),
+    , JobStatus (..)
 
     -- * StageName
-    StageName (..),
+    , StageName (..)
 
     -- * StageTransitionType
-    StageTransitionType (..),
+    , StageTransitionType (..)
 
     -- * LastChangedBy
-    LastChangedBy (..),
+    , LastChangedBy (..)
 
     -- * ExternalExecutionSummary
-    ExternalExecutionSummary (..),
+    , ExternalExecutionSummary (..)
 
     -- * WebhookAuthConfiguration
-    WebhookAuthConfiguration (..),
-    mkWebhookAuthConfiguration,
-    wacAllowedIPRange,
-    wacSecretToken,
+    , WebhookAuthConfiguration (..)
+    , mkWebhookAuthConfiguration
+    , wacAllowedIPRange
+    , wacSecretToken
 
     -- * Revision
-    Revision (..),
+    , Revision (..)
 
     -- * ArtifactLocation
-    ArtifactLocation (..),
-    mkArtifactLocation,
-    alS3Location,
-    alType,
+    , ArtifactLocation (..)
+    , mkArtifactLocation
+    , alS3Location
+    , alType
 
     -- * ApprovalStatus
-    ApprovalStatus (..),
+    , ApprovalStatus (..)
 
     -- * Message
-    Message (..),
+    , Message (..)
 
     -- * ActionTypeId
-    ActionTypeId (..),
-    mkActionTypeId,
-    atiCategory,
-    atiOwner,
-    atiProvider,
-    atiVersion,
+    , ActionTypeId (..)
+    , mkActionTypeId
+    , atiCategory
+    , atiOwner
+    , atiProvider
+    , atiVersion
 
     -- * ClientRequestToken
-    ClientRequestToken (..),
+    , ClientRequestToken (..)
 
     -- * ActionExecutionOutput
-    ActionExecutionOutput (..),
-    mkActionExecutionOutput,
-    aeoExecutionResult,
-    aeoOutputArtifacts,
-    aeoOutputVariables,
+    , ActionExecutionOutput (..)
+    , mkActionExecutionOutput
+    , aeoExecutionResult
+    , aeoOutputArtifacts
+    , aeoOutputVariables
 
     -- * Description
-    Description (..),
+    , Description (..)
 
     -- * ActionType
-    ActionType (..),
-    mkActionType,
-    atId,
-    atInputArtifactDetails,
-    atOutputArtifactDetails,
-    atActionConfigurationProperties,
-    atSettings,
+    , ActionType (..)
+    , mkActionType
+    , atId
+    , atInputArtifactDetails
+    , atOutputArtifactDetails
+    , atActionConfigurationProperties
+    , atSettings
 
     -- * BlockerType
-    BlockerType (..),
+    , BlockerType (..)
 
     -- * ActionConfiguration
-    ActionConfiguration (..),
-    mkActionConfiguration,
-    acConfiguration,
+    , ActionConfiguration (..)
+    , mkActionConfiguration
+    , acConfiguration
 
     -- * RevisionChangeIdentifier
-    RevisionChangeIdentifier (..),
+    , RevisionChangeIdentifier (..)
 
     -- * AccessKeyId
-    AccessKeyId (..),
+    , AccessKeyId (..)
 
     -- * SourceRevision
-    SourceRevision (..),
-    mkSourceRevision,
-    srActionName,
-    srRevisionId,
-    srRevisionSummary,
-    srRevisionUrl,
+    , SourceRevision (..)
+    , mkSourceRevision
+    , srActionName
+    , srRevisionId
+    , srRevisionSummary
+    , srRevisionUrl
 
     -- * Nonce
-    Nonce (..),
+    , Nonce (..)
 
     -- * ArtifactStoreType
-    ArtifactStoreType (..),
+    , ArtifactStoreType (..)
 
     -- * ActionConfigurationPropertyType
-    ActionConfigurationPropertyType (..),
+    , ActionConfigurationPropertyType (..)
 
     -- * ActionState
-    ActionState (..),
-    mkActionState,
-    asActionName,
-    asCurrentRevision,
-    asEntityUrl,
-    asLatestExecution,
-    asRevisionUrl,
+    , ActionState (..)
+    , mkActionState
+    , asActionName
+    , asCurrentRevision
+    , asEntityUrl
+    , asLatestExecution
+    , asRevisionUrl
 
     -- * ActionConfigurationKey
-    ActionConfigurationKey (..),
+    , ActionConfigurationKey (..)
 
     -- * ActionContext
-    ActionContext (..),
-    mkActionContext,
-    acActionExecutionId,
-    acName,
+    , ActionContext (..)
+    , mkActionContext
+    , acActionExecutionId
+    , acName
 
     -- * ActionExecutionId
-    ActionExecutionId (..),
+    , ActionExecutionId (..)
 
     -- * RoleArn
-    RoleArn (..),
+    , RoleArn (..)
 
     -- * Arn
-    Arn (..),
+    , Arn (..)
 
     -- * ErrorCode
-    ErrorCode (..),
+    , ErrorCode (..)
 
     -- * ErrorMessage
-    ErrorMessage (..),
+    , ErrorMessage (..)
 
     -- * ExternalExecutionUrl
-    ExternalExecutionUrl (..),
+    , ExternalExecutionUrl (..)
 
     -- * Summary
-    Summary (..),
+    , Summary (..)
 
     -- * Token
-    Token (..),
+    , Token (..)
 
     -- * Name
-    Name (..),
+    , Name (..)
 
     -- * Key
-    Key (..),
+    , Key (..)
 
     -- * Value
-    Value (..),
+    , Value (..)
 
     -- * RevisionId
-    RevisionId (..),
+    , RevisionId (..)
 
     -- * RevisionChangeId
-    RevisionChangeId (..),
+    , RevisionChangeId (..)
 
     -- * RevisionUrl
-    RevisionUrl (..),
+    , RevisionUrl (..)
 
     -- * BucketName
-    BucketName (..),
+    , BucketName (..)
 
     -- * EntityUrlTemplate
-    EntityUrlTemplate (..),
+    , EntityUrlTemplate (..)
 
     -- * ExecutionUrlTemplate
-    ExecutionUrlTemplate (..),
+    , ExecutionUrlTemplate (..)
 
     -- * RevisionUrlTemplate
-    RevisionUrlTemplate (..),
+    , RevisionUrlTemplate (..)
 
     -- * ThirdPartyConfigurationUrl
-    ThirdPartyConfigurationUrl (..),
+    , ThirdPartyConfigurationUrl (..)
 
     -- * Namespace
-    Namespace (..),
+    , Namespace (..)
 
     -- * TargetAction
-    TargetAction (..),
+    , TargetAction (..)
 
     -- * ChangeIdentifier
-    ChangeIdentifier (..),
+    , ChangeIdentifier (..)
 
     -- * Bucket
-    Bucket (..),
-  )
-where
+    , Bucket (..)
+    ) where
 
-import Network.AWS.CodePipeline.Types.AWSRegionName
-import Network.AWS.CodePipeline.Types.AWSSessionCredentials
-import Network.AWS.CodePipeline.Types.AccessKeyId
-import Network.AWS.CodePipeline.Types.AccountId
-import Network.AWS.CodePipeline.Types.ActionCategory
-import Network.AWS.CodePipeline.Types.ActionConfiguration
-import Network.AWS.CodePipeline.Types.ActionConfigurationKey
-import Network.AWS.CodePipeline.Types.ActionConfigurationProperty
-import Network.AWS.CodePipeline.Types.ActionConfigurationPropertyType
-import Network.AWS.CodePipeline.Types.ActionConfigurationQueryableValue
-import Network.AWS.CodePipeline.Types.ActionConfigurationValue
-import Network.AWS.CodePipeline.Types.ActionContext
-import Network.AWS.CodePipeline.Types.ActionDeclaration
-import Network.AWS.CodePipeline.Types.ActionExecution
-import Network.AWS.CodePipeline.Types.ActionExecutionDetail
-import Network.AWS.CodePipeline.Types.ActionExecutionFilter
-import Network.AWS.CodePipeline.Types.ActionExecutionId
-import Network.AWS.CodePipeline.Types.ActionExecutionInput
-import Network.AWS.CodePipeline.Types.ActionExecutionOutput
-import Network.AWS.CodePipeline.Types.ActionExecutionResult
-import Network.AWS.CodePipeline.Types.ActionExecutionStatus
-import Network.AWS.CodePipeline.Types.ActionName
-import Network.AWS.CodePipeline.Types.ActionOwner
-import Network.AWS.CodePipeline.Types.ActionProvider
-import Network.AWS.CodePipeline.Types.ActionRevision
-import Network.AWS.CodePipeline.Types.ActionState
-import Network.AWS.CodePipeline.Types.ActionType
-import Network.AWS.CodePipeline.Types.ActionTypeId
-import Network.AWS.CodePipeline.Types.ActionTypeSettings
-import Network.AWS.CodePipeline.Types.ApprovalResult
-import Network.AWS.CodePipeline.Types.ApprovalStatus
-import Network.AWS.CodePipeline.Types.ApprovalSummary
-import Network.AWS.CodePipeline.Types.ApprovalToken
-import Network.AWS.CodePipeline.Types.Arn
-import Network.AWS.CodePipeline.Types.Artifact
-import Network.AWS.CodePipeline.Types.ArtifactDetail
-import Network.AWS.CodePipeline.Types.ArtifactDetails
-import Network.AWS.CodePipeline.Types.ArtifactLocation
-import Network.AWS.CodePipeline.Types.ArtifactLocationType
-import Network.AWS.CodePipeline.Types.ArtifactName
-import Network.AWS.CodePipeline.Types.ArtifactRevision
-import Network.AWS.CodePipeline.Types.ArtifactStore
-import Network.AWS.CodePipeline.Types.ArtifactStoreLocation
-import Network.AWS.CodePipeline.Types.ArtifactStoreType
-import Network.AWS.CodePipeline.Types.BlockerDeclaration
-import Network.AWS.CodePipeline.Types.BlockerType
-import Network.AWS.CodePipeline.Types.Bucket
-import Network.AWS.CodePipeline.Types.BucketName
-import Network.AWS.CodePipeline.Types.ChangeIdentifier
-import Network.AWS.CodePipeline.Types.ClientId
-import Network.AWS.CodePipeline.Types.ClientRequestToken
-import Network.AWS.CodePipeline.Types.ClientToken
-import Network.AWS.CodePipeline.Types.Code
-import Network.AWS.CodePipeline.Types.ContinuationToken
-import Network.AWS.CodePipeline.Types.CurrentRevision
-import Network.AWS.CodePipeline.Types.Description
-import Network.AWS.CodePipeline.Types.DisabledReason
-import Network.AWS.CodePipeline.Types.EncryptionKey
-import Network.AWS.CodePipeline.Types.EncryptionKeyId
-import Network.AWS.CodePipeline.Types.EncryptionKeyType
-import Network.AWS.CodePipeline.Types.EntityUrlTemplate
-import Network.AWS.CodePipeline.Types.ErrorCode
-import Network.AWS.CodePipeline.Types.ErrorDetails
-import Network.AWS.CodePipeline.Types.ErrorMessage
-import Network.AWS.CodePipeline.Types.ExecutionDetails
-import Network.AWS.CodePipeline.Types.ExecutionId
-import Network.AWS.CodePipeline.Types.ExecutionTrigger
-import Network.AWS.CodePipeline.Types.ExecutionUrlTemplate
-import Network.AWS.CodePipeline.Types.ExternalExecutionId
-import Network.AWS.CodePipeline.Types.ExternalExecutionSummary
-import Network.AWS.CodePipeline.Types.ExternalExecutionUrl
-import Network.AWS.CodePipeline.Types.FailureDetails
-import Network.AWS.CodePipeline.Types.FailureType
-import Network.AWS.CodePipeline.Types.InputArtifact
-import Network.AWS.CodePipeline.Types.Job
-import Network.AWS.CodePipeline.Types.JobData
-import Network.AWS.CodePipeline.Types.JobDetails
-import Network.AWS.CodePipeline.Types.JobId
-import Network.AWS.CodePipeline.Types.JobStatus
-import Network.AWS.CodePipeline.Types.JsonPath
-import Network.AWS.CodePipeline.Types.Key
-import Network.AWS.CodePipeline.Types.LastChangedBy
-import Network.AWS.CodePipeline.Types.LastUpdatedBy
-import Network.AWS.CodePipeline.Types.ListWebhookItem
-import Network.AWS.CodePipeline.Types.MatchEquals
-import Network.AWS.CodePipeline.Types.Message
-import Network.AWS.CodePipeline.Types.Name
-import Network.AWS.CodePipeline.Types.Namespace
-import Network.AWS.CodePipeline.Types.NextToken
-import Network.AWS.CodePipeline.Types.Nonce
-import Network.AWS.CodePipeline.Types.OutputArtifact
-import Network.AWS.CodePipeline.Types.OutputVariablesKey
-import Network.AWS.CodePipeline.Types.OutputVariablesValue
-import Network.AWS.CodePipeline.Types.PipelineArn
-import Network.AWS.CodePipeline.Types.PipelineContext
-import Network.AWS.CodePipeline.Types.PipelineDeclaration
-import Network.AWS.CodePipeline.Types.PipelineExecution
-import Network.AWS.CodePipeline.Types.PipelineExecutionId
-import Network.AWS.CodePipeline.Types.PipelineExecutionStatus
-import Network.AWS.CodePipeline.Types.PipelineExecutionSummary
-import Network.AWS.CodePipeline.Types.PipelineMetadata
-import Network.AWS.CodePipeline.Types.PipelineName
-import Network.AWS.CodePipeline.Types.PipelineSummary
-import Network.AWS.CodePipeline.Types.ResourceArn
-import Network.AWS.CodePipeline.Types.Revision
-import Network.AWS.CodePipeline.Types.RevisionChangeId
-import Network.AWS.CodePipeline.Types.RevisionChangeIdentifier
-import Network.AWS.CodePipeline.Types.RevisionId
-import Network.AWS.CodePipeline.Types.RevisionSummary
-import Network.AWS.CodePipeline.Types.RevisionUrl
-import Network.AWS.CodePipeline.Types.RevisionUrlTemplate
-import Network.AWS.CodePipeline.Types.RoleArn
-import Network.AWS.CodePipeline.Types.S3ArtifactLocation
-import Network.AWS.CodePipeline.Types.S3Key
-import Network.AWS.CodePipeline.Types.S3Location
-import Network.AWS.CodePipeline.Types.S3ObjectKey
-import Network.AWS.CodePipeline.Types.SecretAccessKey
-import Network.AWS.CodePipeline.Types.SessionToken
-import Network.AWS.CodePipeline.Types.SourceRevision
-import Network.AWS.CodePipeline.Types.StageContext
-import Network.AWS.CodePipeline.Types.StageDeclaration
-import Network.AWS.CodePipeline.Types.StageExecution
-import Network.AWS.CodePipeline.Types.StageExecutionStatus
-import Network.AWS.CodePipeline.Types.StageName
-import Network.AWS.CodePipeline.Types.StageRetryMode
-import Network.AWS.CodePipeline.Types.StageState
-import Network.AWS.CodePipeline.Types.StageTransitionType
-import Network.AWS.CodePipeline.Types.StopExecutionTrigger
-import Network.AWS.CodePipeline.Types.StopPipelineExecutionReason
-import Network.AWS.CodePipeline.Types.String
-import Network.AWS.CodePipeline.Types.Summary
-import Network.AWS.CodePipeline.Types.Tag
-import Network.AWS.CodePipeline.Types.TagKey
-import Network.AWS.CodePipeline.Types.TargetAction
-import Network.AWS.CodePipeline.Types.ThirdPartyConfigurationUrl
-import Network.AWS.CodePipeline.Types.ThirdPartyJob
-import Network.AWS.CodePipeline.Types.ThirdPartyJobData
-import Network.AWS.CodePipeline.Types.ThirdPartyJobDetails
-import Network.AWS.CodePipeline.Types.ThirdPartyJobId
-import Network.AWS.CodePipeline.Types.Token
-import Network.AWS.CodePipeline.Types.TransitionState
-import Network.AWS.CodePipeline.Types.TriggerDetail
-import Network.AWS.CodePipeline.Types.TriggerType
-import Network.AWS.CodePipeline.Types.Url
-import Network.AWS.CodePipeline.Types.Value
-import Network.AWS.CodePipeline.Types.Version
-import Network.AWS.CodePipeline.Types.WebhookAuthConfiguration
-import Network.AWS.CodePipeline.Types.WebhookAuthConfigurationAllowedIPRange
-import Network.AWS.CodePipeline.Types.WebhookAuthConfigurationSecretToken
-import Network.AWS.CodePipeline.Types.WebhookAuthenticationType
-import Network.AWS.CodePipeline.Types.WebhookDefinition
-import Network.AWS.CodePipeline.Types.WebhookFilterRule
-import Network.AWS.CodePipeline.Types.WebhookName
-import Network.AWS.CodePipeline.Types.WebhookUrl
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Sign.V4 as Sign
+import Network.AWS.CodePipeline.Types.PipelineExecutionStatus
+  
+import Network.AWS.CodePipeline.Types.LastUpdatedBy
+  
+import Network.AWS.CodePipeline.Types.ListWebhookItem
+  
+import Network.AWS.CodePipeline.Types.ApprovalToken
+  
+import Network.AWS.CodePipeline.Types.ActionExecution
+  
+import Network.AWS.CodePipeline.Types.WebhookName
+  
+import Network.AWS.CodePipeline.Types.StopPipelineExecutionReason
+  
+  
+import Network.AWS.CodePipeline.Types.ArtifactDetails
+  
+import Network.AWS.CodePipeline.Types.MatchEquals
+  
+  
+import Network.AWS.CodePipeline.Types.PipelineExecutionSummary
+  
+import Network.AWS.CodePipeline.Types.ClientId
+  
+import Network.AWS.CodePipeline.Types.StageDeclaration
+  
+import Network.AWS.CodePipeline.Types.ArtifactStoreLocation
+  
+import Network.AWS.CodePipeline.Types.ArtifactDetail
+  
+import Network.AWS.CodePipeline.Types.ActionProvider
+  
+import Network.AWS.CodePipeline.Types.StageRetryMode
+  
+import Network.AWS.CodePipeline.Types.RevisionSummary
+  
+  
+import Network.AWS.CodePipeline.Types.ExecutionId
+  
+import Network.AWS.CodePipeline.Types.PipelineMetadata
+  
+import Network.AWS.CodePipeline.Types.S3Key
+  
+import Network.AWS.CodePipeline.Types.Tag
+  
+import Network.AWS.CodePipeline.Types.ThirdPartyJobData
+  
+import Network.AWS.CodePipeline.Types.ExecutionTrigger
+  
+import Network.AWS.CodePipeline.Types.S3ObjectKey
+  
+import Network.AWS.CodePipeline.Types.ThirdPartyJob
+  
+  
+import Network.AWS.CodePipeline.Types.FailureDetails
+  
+import Network.AWS.CodePipeline.Types.ClientToken
+  
+import Network.AWS.CodePipeline.Types.JobId
+  
+import Network.AWS.CodePipeline.Types.ContinuationToken
+  
+import Network.AWS.CodePipeline.Types.AWSRegionName
+  
+  
+import Network.AWS.CodePipeline.Types.ActionRevision
+  
+import Network.AWS.CodePipeline.Types.PipelineName
+  
+import Network.AWS.CodePipeline.Types.ActionConfigurationValue
+  
+import Network.AWS.CodePipeline.Types.SecretAccessKey
+  
+import Network.AWS.CodePipeline.Types.ActionConfigurationQueryableValue
+  
+import Network.AWS.CodePipeline.Types.SessionToken
+  
+import Network.AWS.CodePipeline.Types.EncryptionKeyId
+  
+import Network.AWS.CodePipeline.Types.ArtifactRevision
+  
+import Network.AWS.CodePipeline.Types.ActionExecutionResult
+  
+import Network.AWS.CodePipeline.Types.JsonPath
+  
+import Network.AWS.CodePipeline.Types.WebhookAuthConfigurationAllowedIPRange
+  
+import Network.AWS.CodePipeline.Types.FailureType
+  
+import Network.AWS.CodePipeline.Types.ActionExecutionStatus
+  
+import Network.AWS.CodePipeline.Types.PipelineExecution
+  
+import Network.AWS.CodePipeline.Types.WebhookUrl
+  
+import Network.AWS.CodePipeline.Types.EncryptionKeyType
+  
+import Network.AWS.CodePipeline.Types.ExecutionDetails
+  
+  
+import Network.AWS.CodePipeline.Types.InputArtifact
+  
+import Network.AWS.CodePipeline.Types.TriggerType
+  
+  
+import Network.AWS.CodePipeline.Types.S3ArtifactLocation
+  
+import Network.AWS.CodePipeline.Types.WebhookAuthenticationType
+  
+import Network.AWS.CodePipeline.Types.ActionTypeSettings
+  
+import Network.AWS.CodePipeline.Types.ApprovalSummary
+  
+import Network.AWS.CodePipeline.Types.StageState
+  
+import Network.AWS.CodePipeline.Types.Url
+  
+import Network.AWS.CodePipeline.Types.StageContext
+  
+  
+import Network.AWS.CodePipeline.Types.ArtifactLocationType
+  
+import Network.AWS.CodePipeline.Types.AWSSessionCredentials
+  
+import Network.AWS.CodePipeline.Types.ApprovalResult
+  
+import Network.AWS.CodePipeline.Types.BlockerDeclaration
+  
+import Network.AWS.CodePipeline.Types.StageExecution
+  
+import Network.AWS.CodePipeline.Types.ActionCategory
+  
+import Network.AWS.CodePipeline.Types.ActionDeclaration
+  
+  
+import Network.AWS.CodePipeline.Types.PipelineSummary
+  
+import Network.AWS.CodePipeline.Types.Artifact
+  
+import Network.AWS.CodePipeline.Types.WebhookDefinition
+  
+import Network.AWS.CodePipeline.Types.WebhookAuthConfigurationSecretToken
+  
+import Network.AWS.CodePipeline.Types.ArtifactStore
+  
+  
+import Network.AWS.CodePipeline.Types.ActionConfigurationProperty
+  
+  
+import Network.AWS.CodePipeline.Types.ArtifactName
+  
+  
+import Network.AWS.CodePipeline.Types.TriggerDetail
+  
+import Network.AWS.CodePipeline.Types.OutputVariablesValue
+  
+import Network.AWS.CodePipeline.Types.OutputArtifact
+  
+import Network.AWS.CodePipeline.Types.ActionName
+  
+import Network.AWS.CodePipeline.Types.AccountId
+  
+import Network.AWS.CodePipeline.Types.NextToken
+  
+import Network.AWS.CodePipeline.Types.DisabledReason
+  
+  
+import Network.AWS.CodePipeline.Types.ActionExecutionFilter
+  
+  
+  
+import Network.AWS.CodePipeline.Types.JobData
+  
+import Network.AWS.CodePipeline.Types.Job
+  
+  
+import Network.AWS.CodePipeline.Types.ResourceArn
+  
+import Network.AWS.CodePipeline.Types.ActionOwner
+  
+  
+  
+import Network.AWS.CodePipeline.Types.ThirdPartyJobId
+  
+import Network.AWS.CodePipeline.Types.PipelineArn
+  
+import Network.AWS.CodePipeline.Types.ExternalExecutionId
+  
+import Network.AWS.CodePipeline.Types.CurrentRevision
+  
+  
+import Network.AWS.CodePipeline.Types.StopExecutionTrigger
+  
+  
+import Network.AWS.CodePipeline.Types.Version
+  
+import Network.AWS.CodePipeline.Types.PipelineDeclaration
+  
+  
+  
+import Network.AWS.CodePipeline.Types.ActionExecutionInput
+  
+import Network.AWS.CodePipeline.Types.ErrorDetails
+  
+import Network.AWS.CodePipeline.Types.StageExecutionStatus
+  
+import Network.AWS.CodePipeline.Types.OutputVariablesKey
+  
+import Network.AWS.CodePipeline.Types.PipelineContext
+  
+import Network.AWS.CodePipeline.Types.WebhookFilterRule
+  
+import Network.AWS.CodePipeline.Types.JobDetails
+  
+  
+import Network.AWS.CodePipeline.Types.ActionExecutionDetail
+  
+  
+import Network.AWS.CodePipeline.Types.PipelineExecutionId
+  
+import Network.AWS.CodePipeline.Types.Code
+  
+import Network.AWS.CodePipeline.Types.TagKey
+  
+import Network.AWS.CodePipeline.Types.S3Location
+  
+import Network.AWS.CodePipeline.Types.TransitionState
+  
+import Network.AWS.CodePipeline.Types.EncryptionKey
+  
+import Network.AWS.CodePipeline.Types.ThirdPartyJobDetails
+  
+  
+  
+import Network.AWS.CodePipeline.Types.JobStatus
+  
+import Network.AWS.CodePipeline.Types.StageName
+  
+import Network.AWS.CodePipeline.Types.StageTransitionType
+  
+import Network.AWS.CodePipeline.Types.LastChangedBy
+  
+import Network.AWS.CodePipeline.Types.ExternalExecutionSummary
+  
+import Network.AWS.CodePipeline.Types.WebhookAuthConfiguration
+  
+import Network.AWS.CodePipeline.Types.Revision
+  
+import Network.AWS.CodePipeline.Types.ArtifactLocation
+  
+import Network.AWS.CodePipeline.Types.ApprovalStatus
+  
+import Network.AWS.CodePipeline.Types.Message
+  
+import Network.AWS.CodePipeline.Types.ActionTypeId
+  
+  
+  
+  
+import Network.AWS.CodePipeline.Types.ClientRequestToken
+  
+import Network.AWS.CodePipeline.Types.ActionExecutionOutput
+  
+  
+import Network.AWS.CodePipeline.Types.Description
+  
+import Network.AWS.CodePipeline.Types.ActionType
+  
+  
+import Network.AWS.CodePipeline.Types.BlockerType
+  
+  
+import Network.AWS.CodePipeline.Types.ActionConfiguration
+  
+import Network.AWS.CodePipeline.Types.RevisionChangeIdentifier
+  
+import Network.AWS.CodePipeline.Types.AccessKeyId
+  
+import Network.AWS.CodePipeline.Types.SourceRevision
+  
+  
+import Network.AWS.CodePipeline.Types.Nonce
+  
+import Network.AWS.CodePipeline.Types.ArtifactStoreType
+  
+import Network.AWS.CodePipeline.Types.ActionConfigurationPropertyType
+  
+import Network.AWS.CodePipeline.Types.ActionState
+  
+import Network.AWS.CodePipeline.Types.ActionConfigurationKey
+  
+import Network.AWS.CodePipeline.Types.ActionContext
+  
+import Network.AWS.CodePipeline.Types.ActionExecutionId
+  
+  
+import Network.AWS.CodePipeline.Types.RoleArn
+  
+  
+import Network.AWS.CodePipeline.Types.Arn
+  
+import Network.AWS.CodePipeline.Types.ErrorCode
+  
+import Network.AWS.CodePipeline.Types.ErrorMessage
+  
+import Network.AWS.CodePipeline.Types.ExternalExecutionUrl
+  
+import Network.AWS.CodePipeline.Types.Summary
+  
+import Network.AWS.CodePipeline.Types.Token
+  
+import Network.AWS.CodePipeline.Types.Name
+  
+import Network.AWS.CodePipeline.Types.Key
+  
+import Network.AWS.CodePipeline.Types.Value
+  
+import Network.AWS.CodePipeline.Types.RevisionId
+  
+import Network.AWS.CodePipeline.Types.RevisionChangeId
+  
+import Network.AWS.CodePipeline.Types.RevisionUrl
+  
+import Network.AWS.CodePipeline.Types.BucketName
+  
+import Network.AWS.CodePipeline.Types.EntityUrlTemplate
+  
+import Network.AWS.CodePipeline.Types.ExecutionUrlTemplate
+  
+import Network.AWS.CodePipeline.Types.RevisionUrlTemplate
+  
+import Network.AWS.CodePipeline.Types.ThirdPartyConfigurationUrl
+  
+import Network.AWS.CodePipeline.Types.Namespace
+  
+import Network.AWS.CodePipeline.Types.TargetAction
+  
+import Network.AWS.CodePipeline.Types.ChangeIdentifier
+  
+import Network.AWS.CodePipeline.Types.Bucket
+  
 
 -- | API version @2015-07-09@ of the Amazon CodePipeline SDK configuration.
 mkServiceConfig :: Core.Service
-mkServiceConfig =
-  Core.Service
-    { Core._svcAbbrev = "CodePipeline",
-      Core._svcSigner = Sign.v4,
-      Core._svcPrefix = "codepipeline",
-      Core._svcVersion = "2015-07-09",
-      Core._svcTimeout = Core.Just 70,
-      Core._svcCheck = Core.statusSuccess,
-      Core._svcRetry = retry,
-      Core._svcError = Core.parseJSONError "CodePipeline",
-      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
-    }
-  where
-    retry =
-      Core.Exponential
-        { Core._retryBase = 5.0e-2,
-          Core._retryGrowth = 2,
-          Core._retryAttempts = 5,
-          Core._retryCheck = check
-        }
-    check e
-      | Lens.has
-          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
-          e =
-        Core.Just "throttled_exception"
-      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
-      | Lens.has
-          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
-          e =
-        Core.Just "throttling_exception"
-      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
-        Core.Just "throttling"
-      | Lens.has
-          ( Core.hasCode "ProvisionedThroughputExceededException"
-              Core.. Core.hasStatus 400
-          )
-          e =
-        Core.Just "throughput_exceeded"
-      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
-      | Lens.has
-          ( Core.hasCode "RequestThrottledException"
-              Core.. Core.hasStatus 400
-          )
-          e =
-        Core.Just "request_throttled_exception"
-      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
-      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
-      | Lens.has (Core.hasStatus 500) e =
-        Core.Just "general_server_error"
-      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
-      | Core.otherwise = Core.Nothing
+mkServiceConfig
+  = Core.Service{Core._svcAbbrev = "CodePipeline",
+                 Core._svcSigner = Sign.v4, Core._svcPrefix = "codepipeline",
+                 Core._svcVersion = "2015-07-09", Core._svcTimeout = Core.Just 70,
+                 Core._svcCheck = Core.statusSuccess, Core._svcRetry = retry,
+                 Core._svcError = Core.parseJSONError "CodePipeline",
+                 Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig}
+  where retry
+          = Core.Exponential{Core._retryBase = 5.0e-2, Core._retryGrowth = 2,
+                             Core._retryAttempts = 5, Core._retryCheck = check}
+        check e
+          | Lens.has
+              (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
+              e
+            = Core.Just "throttled_exception"
+          | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
+          | Lens.has
+              (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
+              e
+            = Core.Just "throttling_exception"
+          | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e
+            = Core.Just "throttling"
+          | Lens.has
+              (Core.hasCode "ProvisionedThroughputExceededException" Core..
+                 Core.hasStatus 400)
+              e
+            = Core.Just "throughput_exceeded"
+          | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
+          | Lens.has
+              (Core.hasCode "RequestThrottledException" Core..
+                 Core.hasStatus 400)
+              e
+            = Core.Just "request_throttled_exception"
+          | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+          | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+          | Lens.has (Core.hasStatus 500) e =
+            Core.Just "general_server_error"
+          | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+          | Core.otherwise = Core.Nothing
 
 -- | The client token was specified in an invalid format
 _InvalidClientTokenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_InvalidClientTokenException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "InvalidClientTokenException"
-{-# DEPRECATED _InvalidClientTokenException "Use generic-lens or generic-optics instead." #-}
+_InvalidClientTokenException
+  = Core._MatchServiceError mkServiceConfig
+      "InvalidClientTokenException"
+{-# INLINEABLE _InvalidClientTokenException #-}
+{-# DEPRECATED _InvalidClientTokenException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The validation was specified in an invalid format.
 _ValidationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_ValidationException =
-  Core._MatchServiceError mkServiceConfig "ValidationException"
-{-# DEPRECATED _ValidationException "Use generic-lens or generic-optics instead." #-}
+_ValidationException
+  = Core._MatchServiceError mkServiceConfig "ValidationException"
+{-# INLINEABLE _ValidationException #-}
+{-# DEPRECATED _ValidationException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The nonce was specified in an invalid format.
 _InvalidNonceException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_InvalidNonceException =
-  Core._MatchServiceError mkServiceConfig "InvalidNonceException"
-{-# DEPRECATED _InvalidNonceException "Use generic-lens or generic-optics instead." #-}
+_InvalidNonceException
+  = Core._MatchServiceError mkServiceConfig "InvalidNonceException"
+{-# INLINEABLE _InvalidNonceException #-}
+{-# DEPRECATED _InvalidNonceException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The specified action cannot be found.
 _ActionNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_ActionNotFoundException =
-  Core._MatchServiceError mkServiceConfig "ActionNotFoundException"
-{-# DEPRECATED _ActionNotFoundException "Use generic-lens or generic-optics instead." #-}
+_ActionNotFoundException
+  = Core._MatchServiceError mkServiceConfig "ActionNotFoundException"
+{-# INLINEABLE _ActionNotFoundException #-}
+{-# DEPRECATED _ActionNotFoundException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The approval request already received a response or has expired.
 _InvalidApprovalTokenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_InvalidApprovalTokenException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "InvalidApprovalTokenException"
-{-# DEPRECATED _InvalidApprovalTokenException "Use generic-lens or generic-optics instead." #-}
+_InvalidApprovalTokenException
+  = Core._MatchServiceError mkServiceConfig
+      "InvalidApprovalTokenException"
+{-# INLINEABLE _InvalidApprovalTokenException #-}
+{-# DEPRECATED _InvalidApprovalTokenException "Use generic-lens or generic-optics instead"  #-}
 
 -- | Unable to stop the pipeline execution. The execution might already be in a @Stopped@ state, or it might no longer be in progress.
 _PipelineExecutionNotStoppableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_PipelineExecutionNotStoppableException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "PipelineExecutionNotStoppableException"
-{-# DEPRECATED _PipelineExecutionNotStoppableException "Use generic-lens or generic-optics instead." #-}
+_PipelineExecutionNotStoppableException
+  = Core._MatchServiceError mkServiceConfig
+      "PipelineExecutionNotStoppableException"
+{-# INLINEABLE _PipelineExecutionNotStoppableException #-}
+{-# DEPRECATED _PipelineExecutionNotStoppableException "Use generic-lens or generic-optics instead"  #-}
 
 -- | Reserved for future use.
 _InvalidBlockerDeclarationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_InvalidBlockerDeclarationException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "InvalidBlockerDeclarationException"
-{-# DEPRECATED _InvalidBlockerDeclarationException "Use generic-lens or generic-optics instead." #-}
+_InvalidBlockerDeclarationException
+  = Core._MatchServiceError mkServiceConfig
+      "InvalidBlockerDeclarationException"
+{-# INLINEABLE _InvalidBlockerDeclarationException #-}
+{-# DEPRECATED _InvalidBlockerDeclarationException "Use generic-lens or generic-optics instead"  #-}
 
 -- | Exceeded the total size limit for all variables in the pipeline.
 _OutputVariablesSizeExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_OutputVariablesSizeExceededException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "OutputVariablesSizeExceededException"
-{-# DEPRECATED _OutputVariablesSizeExceededException "Use generic-lens or generic-optics instead." #-}
+_OutputVariablesSizeExceededException
+  = Core._MatchServiceError mkServiceConfig
+      "OutputVariablesSizeExceededException"
+{-# INLINEABLE _OutputVariablesSizeExceededException #-}
+{-# DEPRECATED _OutputVariablesSizeExceededException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The job state was specified in an invalid format.
 _InvalidJobStateException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_InvalidJobStateException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "InvalidJobStateException"
-{-# DEPRECATED _InvalidJobStateException "Use generic-lens or generic-optics instead." #-}
+_InvalidJobStateException
+  = Core._MatchServiceError mkServiceConfig
+      "InvalidJobStateException"
+{-# INLINEABLE _InvalidJobStateException #-}
+{-# DEPRECATED _InvalidJobStateException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The tags limit for a resource has been exceeded.
 _TooManyTagsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_TooManyTagsException =
-  Core._MatchServiceError mkServiceConfig "TooManyTagsException"
-{-# DEPRECATED _TooManyTagsException "Use generic-lens or generic-optics instead." #-}
+_TooManyTagsException
+  = Core._MatchServiceError mkServiceConfig "TooManyTagsException"
+{-# INLINEABLE _TooManyTagsException #-}
+{-# DEPRECATED _TooManyTagsException "Use generic-lens or generic-optics instead"  #-}
 
 -- | Your request cannot be handled because the pipeline is busy handling ongoing activities. Try again later.
 _ConflictException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_ConflictException =
-  Core._MatchServiceError mkServiceConfig "ConflictException"
-{-# DEPRECATED _ConflictException "Use generic-lens or generic-optics instead." #-}
+_ConflictException
+  = Core._MatchServiceError mkServiceConfig "ConflictException"
+{-# INLINEABLE _ConflictException #-}
+{-# DEPRECATED _ConflictException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The job was specified in an invalid format or cannot be found.
 _InvalidJobException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_InvalidJobException =
-  Core._MatchServiceError mkServiceConfig "InvalidJobException"
-{-# DEPRECATED _InvalidJobException "Use generic-lens or generic-optics instead." #-}
+_InvalidJobException
+  = Core._MatchServiceError mkServiceConfig "InvalidJobException"
+{-# INLINEABLE _InvalidJobException #-}
+{-# DEPRECATED _InvalidJobException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The pipeline version was specified in an invalid format or cannot be found.
 _PipelineVersionNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_PipelineVersionNotFoundException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "PipelineVersionNotFoundException"
-{-# DEPRECATED _PipelineVersionNotFoundException "Use generic-lens or generic-optics instead." #-}
+_PipelineVersionNotFoundException
+  = Core._MatchServiceError mkServiceConfig
+      "PipelineVersionNotFoundException"
+{-# INLINEABLE _PipelineVersionNotFoundException #-}
+{-# DEPRECATED _PipelineVersionNotFoundException "Use generic-lens or generic-optics instead"  #-}
 
 -- | Unable to retry. The pipeline structure or stage state might have changed while actions awaited retry, or the stage contains no failed actions.
 _StageNotRetryableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_StageNotRetryableException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "StageNotRetryableException"
-{-# DEPRECATED _StageNotRetryableException "Use generic-lens or generic-optics instead." #-}
+_StageNotRetryableException
+  = Core._MatchServiceError mkServiceConfig
+      "StageNotRetryableException"
+{-# INLINEABLE _StageNotRetryableException #-}
+{-# DEPRECATED _StageNotRetryableException "Use generic-lens or generic-optics instead"  #-}
 
--- | The pipeline execution was specified in an invalid format or cannot be found, or an execution ID does not belong to the specified pipeline.
+-- | The pipeline execution was specified in an invalid format or cannot be found, or an execution ID does not belong to the specified pipeline. 
 _PipelineExecutionNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_PipelineExecutionNotFoundException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "PipelineExecutionNotFoundException"
-{-# DEPRECATED _PipelineExecutionNotFoundException "Use generic-lens or generic-optics instead." #-}
+_PipelineExecutionNotFoundException
+  = Core._MatchServiceError mkServiceConfig
+      "PipelineExecutionNotFoundException"
+{-# INLINEABLE _PipelineExecutionNotFoundException #-}
+{-# DEPRECATED _PipelineExecutionNotFoundException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The specified authentication type is in an invalid format.
 _InvalidWebhookAuthenticationParametersException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_InvalidWebhookAuthenticationParametersException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "InvalidWebhookAuthenticationParametersException"
-{-# DEPRECATED _InvalidWebhookAuthenticationParametersException "Use generic-lens or generic-optics instead." #-}
+_InvalidWebhookAuthenticationParametersException
+  = Core._MatchServiceError mkServiceConfig
+      "InvalidWebhookAuthenticationParametersException"
+{-# INLINEABLE _InvalidWebhookAuthenticationParametersException #-}
+{-# DEPRECATED _InvalidWebhookAuthenticationParametersException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The specified webhook was entered in an invalid format or cannot be found.
 _WebhookNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_WebhookNotFoundException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "WebhookNotFoundException"
-{-# DEPRECATED _WebhookNotFoundException "Use generic-lens or generic-optics instead." #-}
+_WebhookNotFoundException
+  = Core._MatchServiceError mkServiceConfig
+      "WebhookNotFoundException"
+{-# INLINEABLE _WebhookNotFoundException #-}
+{-# DEPRECATED _WebhookNotFoundException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The specified resource tags are invalid.
 _InvalidTagsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_InvalidTagsException =
-  Core._MatchServiceError mkServiceConfig "InvalidTagsException"
-{-# DEPRECATED _InvalidTagsException "Use generic-lens or generic-optics instead." #-}
+_InvalidTagsException
+  = Core._MatchServiceError mkServiceConfig "InvalidTagsException"
+{-# INLINEABLE _InvalidTagsException #-}
+{-# DEPRECATED _InvalidTagsException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The specified action type cannot be found.
 _ActionTypeNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_ActionTypeNotFoundException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "ActionTypeNotFoundException"
-{-# DEPRECATED _ActionTypeNotFoundException "Use generic-lens or generic-optics instead." #-}
+_ActionTypeNotFoundException
+  = Core._MatchServiceError mkServiceConfig
+      "ActionTypeNotFoundException"
+{-# INLINEABLE _ActionTypeNotFoundException #-}
+{-# DEPRECATED _ActionTypeNotFoundException "Use generic-lens or generic-optics instead"  #-}
 
 -- | Unable to modify the tag due to a simultaneous update request.
 _ConcurrentModificationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_ConcurrentModificationException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "ConcurrentModificationException"
-{-# DEPRECATED _ConcurrentModificationException "Use generic-lens or generic-optics instead." #-}
+_ConcurrentModificationException
+  = Core._MatchServiceError mkServiceConfig
+      "ConcurrentModificationException"
+{-# INLINEABLE _ConcurrentModificationException #-}
+{-# DEPRECATED _ConcurrentModificationException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The next token was specified in an invalid format. Make sure that the next token you provide is the token returned by a previous call.
 _InvalidNextTokenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_InvalidNextTokenException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "InvalidNextTokenException"
-{-# DEPRECATED _InvalidNextTokenException "Use generic-lens or generic-optics instead." #-}
+_InvalidNextTokenException
+  = Core._MatchServiceError mkServiceConfig
+      "InvalidNextTokenException"
+{-# INLINEABLE _InvalidNextTokenException #-}
+{-# DEPRECATED _InvalidNextTokenException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The stage declaration was specified in an invalid format.
 _InvalidStageDeclarationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_InvalidStageDeclarationException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "InvalidStageDeclarationException"
-{-# DEPRECATED _InvalidStageDeclarationException "Use generic-lens or generic-optics instead." #-}
+_InvalidStageDeclarationException
+  = Core._MatchServiceError mkServiceConfig
+      "InvalidStageDeclarationException"
+{-# INLINEABLE _InvalidStageDeclarationException #-}
+{-# DEPRECATED _InvalidStageDeclarationException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The pipeline execution is already in a @Stopping@ state. If you already chose to stop and wait, you cannot make that request again. You can choose to stop and abandon now, but be aware that this option can lead to failed tasks or out of sequence tasks. If you already chose to stop and abandon, you cannot make that request again.
 _DuplicatedStopRequestException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_DuplicatedStopRequestException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "DuplicatedStopRequestException"
-{-# DEPRECATED _DuplicatedStopRequestException "Use generic-lens or generic-optics instead." #-}
+_DuplicatedStopRequestException
+  = Core._MatchServiceError mkServiceConfig
+      "DuplicatedStopRequestException"
+{-# INLINEABLE _DuplicatedStopRequestException #-}
+{-# DEPRECATED _DuplicatedStopRequestException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The specified event filter rule is in an invalid format.
 _InvalidWebhookFilterPatternException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_InvalidWebhookFilterPatternException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "InvalidWebhookFilterPatternException"
-{-# DEPRECATED _InvalidWebhookFilterPatternException "Use generic-lens or generic-optics instead." #-}
+_InvalidWebhookFilterPatternException
+  = Core._MatchServiceError mkServiceConfig
+      "InvalidWebhookFilterPatternException"
+{-# INLINEABLE _InvalidWebhookFilterPatternException #-}
+{-# DEPRECATED _InvalidWebhookFilterPatternException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The action declaration was specified in an invalid format.
 _InvalidActionDeclarationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_InvalidActionDeclarationException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "InvalidActionDeclarationException"
-{-# DEPRECATED _InvalidActionDeclarationException "Use generic-lens or generic-optics instead." #-}
+_InvalidActionDeclarationException
+  = Core._MatchServiceError mkServiceConfig
+      "InvalidActionDeclarationException"
+{-# INLINEABLE _InvalidActionDeclarationException #-}
+{-# DEPRECATED _InvalidActionDeclarationException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The stage was specified in an invalid format or cannot be found.
 _StageNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_StageNotFoundException =
-  Core._MatchServiceError mkServiceConfig "StageNotFoundException"
-{-# DEPRECATED _StageNotFoundException "Use generic-lens or generic-optics instead." #-}
+_StageNotFoundException
+  = Core._MatchServiceError mkServiceConfig "StageNotFoundException"
+{-# INLINEABLE _StageNotFoundException #-}
+{-# DEPRECATED _StageNotFoundException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The structure was specified in an invalid format.
 _InvalidStructureException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_InvalidStructureException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "InvalidStructureException"
-{-# DEPRECATED _InvalidStructureException "Use generic-lens or generic-optics instead." #-}
+_InvalidStructureException
+  = Core._MatchServiceError mkServiceConfig
+      "InvalidStructureException"
+{-# INLINEABLE _InvalidStructureException #-}
+{-# DEPRECATED _InvalidStructureException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The job was specified in an invalid format or cannot be found.
 _JobNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_JobNotFoundException =
-  Core._MatchServiceError mkServiceConfig "JobNotFoundException"
-{-# DEPRECATED _JobNotFoundException "Use generic-lens or generic-optics instead." #-}
+_JobNotFoundException
+  = Core._MatchServiceError mkServiceConfig "JobNotFoundException"
+{-# INLINEABLE _JobNotFoundException #-}
+{-# DEPRECATED _JobNotFoundException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The approval action has already been approved or rejected.
 _ApprovalAlreadyCompletedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_ApprovalAlreadyCompletedException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "ApprovalAlreadyCompletedException"
-{-# DEPRECATED _ApprovalAlreadyCompletedException "Use generic-lens or generic-optics instead." #-}
+_ApprovalAlreadyCompletedException
+  = Core._MatchServiceError mkServiceConfig
+      "ApprovalAlreadyCompletedException"
+{-# INLINEABLE _ApprovalAlreadyCompletedException #-}
+{-# DEPRECATED _ApprovalAlreadyCompletedException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The specified resource ARN is invalid.
 _InvalidArnException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_InvalidArnException =
-  Core._MatchServiceError mkServiceConfig "InvalidArnException"
-{-# DEPRECATED _InvalidArnException "Use generic-lens or generic-optics instead." #-}
+_InvalidArnException
+  = Core._MatchServiceError mkServiceConfig "InvalidArnException"
+{-# INLINEABLE _InvalidArnException #-}
+{-# DEPRECATED _InvalidArnException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The specified pipeline name is already in use.
 _PipelineNameInUseException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_PipelineNameInUseException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "PipelineNameInUseException"
-{-# DEPRECATED _PipelineNameInUseException "Use generic-lens or generic-optics instead." #-}
+_PipelineNameInUseException
+  = Core._MatchServiceError mkServiceConfig
+      "PipelineNameInUseException"
+{-# INLINEABLE _PipelineNameInUseException #-}
+{-# DEPRECATED _PipelineNameInUseException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The pipeline was specified in an invalid format or cannot be found.
 _PipelineNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_PipelineNotFoundException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "PipelineNotFoundException"
-{-# DEPRECATED _PipelineNotFoundException "Use generic-lens or generic-optics instead." #-}
+_PipelineNotFoundException
+  = Core._MatchServiceError mkServiceConfig
+      "PipelineNotFoundException"
+{-# INLINEABLE _PipelineNotFoundException #-}
+{-# DEPRECATED _PipelineNotFoundException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The resource was specified in an invalid format.
 _ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_ResourceNotFoundException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "ResourceNotFoundException"
-{-# DEPRECATED _ResourceNotFoundException "Use generic-lens or generic-optics instead." #-}
+_ResourceNotFoundException
+  = Core._MatchServiceError mkServiceConfig
+      "ResourceNotFoundException"
+{-# INLINEABLE _ResourceNotFoundException #-}
+{-# DEPRECATED _ResourceNotFoundException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The number of pipelines associated with the AWS account has exceeded the limit allowed for the account.
 _LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_LimitExceededException =
-  Core._MatchServiceError mkServiceConfig "LimitExceededException"
-{-# DEPRECATED _LimitExceededException "Use generic-lens or generic-optics instead." #-}
+_LimitExceededException
+  = Core._MatchServiceError mkServiceConfig "LimitExceededException"
+{-# INLINEABLE _LimitExceededException #-}
+{-# DEPRECATED _LimitExceededException "Use generic-lens or generic-optics instead"  #-}
 
 -- | The stage has failed in a later run of the pipeline and the pipelineExecutionId associated with the request is out of date.
 _NotLatestPipelineExecutionException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
-_NotLatestPipelineExecutionException =
-  Core._MatchServiceError
-    mkServiceConfig
-    "NotLatestPipelineExecutionException"
-{-# DEPRECATED _NotLatestPipelineExecutionException "Use generic-lens or generic-optics instead." #-}
+_NotLatestPipelineExecutionException
+  = Core._MatchServiceError mkServiceConfig
+      "NotLatestPipelineExecutionException"
+{-# INLINEABLE _NotLatestPipelineExecutionException #-}
+{-# DEPRECATED _NotLatestPipelineExecutionException "Use generic-lens or generic-optics instead"  #-}

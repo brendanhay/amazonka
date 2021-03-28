@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,42 +10,26 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SageMaker.Types.CaptureMode
   ( CaptureMode
-      ( CaptureMode',
-        CaptureModeInput,
-        CaptureModeOutput,
-        fromCaptureMode
-      ),
-  )
-where
+    ( CaptureMode'
+    , CaptureModeInput
+    , CaptureModeOutput
+    , fromCaptureMode
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype CaptureMode = CaptureMode' {fromCaptureMode :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype CaptureMode = CaptureMode'{fromCaptureMode :: Core.Text}
+                        deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                        Core.Generic)
+                        deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                          Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                          Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                          Core.FromText, Core.ToByteString, Core.ToQuery,
+                                          Core.ToHeader)
 
 pattern CaptureModeInput :: CaptureMode
 pattern CaptureModeInput = CaptureMode' "Input"
@@ -53,8 +37,9 @@ pattern CaptureModeInput = CaptureMode' "Input"
 pattern CaptureModeOutput :: CaptureMode
 pattern CaptureModeOutput = CaptureMode' "Output"
 
-{-# COMPLETE
+{-# COMPLETE 
   CaptureModeInput,
+
   CaptureModeOutput,
   CaptureMode'
   #-}

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.ElasticSearch.Types.PackageVersionHistory
-  ( PackageVersionHistory (..),
-
-    -- * Smart constructor
-    mkPackageVersionHistory,
-
-    -- * Lenses
-    pvhCommitMessage,
-    pvhCreatedAt,
-    pvhPackageVersion,
-  )
-where
+  ( PackageVersionHistory (..)
+  -- * Smart constructor
+  , mkPackageVersionHistory
+  -- * Lenses
+  , pvhCommitMessage
+  , pvhCreatedAt
+  , pvhPackageVersion
+  ) where
 
 import qualified Network.AWS.ElasticSearch.Types.CommitMessage as Types
 import qualified Network.AWS.ElasticSearch.Types.PackageVersion as Types
@@ -32,52 +30,51 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkPackageVersionHistory' smart constructor.
 data PackageVersionHistory = PackageVersionHistory'
-  { -- | A message associated with the version.
-    commitMessage :: Core.Maybe Types.CommitMessage,
-    -- | Timestamp which tells creation time of the package version.
-    createdAt :: Core.Maybe Core.NominalDiffTime,
-    -- | Version of the package.
-    packageVersion :: Core.Maybe Types.PackageVersion
+  { commitMessage :: Core.Maybe Types.CommitMessage
+    -- ^ A message associated with the version.
+  , createdAt :: Core.Maybe Core.NominalDiffTime
+    -- ^ Timestamp which tells creation time of the package version.
+  , packageVersion :: Core.Maybe Types.PackageVersion
+    -- ^ Version of the package.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'PackageVersionHistory' value with any optional fields omitted.
-mkPackageVersionHistory ::
-  PackageVersionHistory
-mkPackageVersionHistory =
-  PackageVersionHistory'
-    { commitMessage = Core.Nothing,
-      createdAt = Core.Nothing,
-      packageVersion = Core.Nothing
-    }
+mkPackageVersionHistory
+    :: PackageVersionHistory
+mkPackageVersionHistory
+  = PackageVersionHistory'{commitMessage = Core.Nothing,
+                           createdAt = Core.Nothing, packageVersion = Core.Nothing}
 
 -- | A message associated with the version.
 --
 -- /Note:/ Consider using 'commitMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pvhCommitMessage :: Lens.Lens' PackageVersionHistory (Core.Maybe Types.CommitMessage)
 pvhCommitMessage = Lens.field @"commitMessage"
-{-# DEPRECATED pvhCommitMessage "Use generic-lens or generic-optics with 'commitMessage' instead." #-}
+{-# INLINEABLE pvhCommitMessage #-}
+{-# DEPRECATED commitMessage "Use generic-lens or generic-optics with 'commitMessage' instead"  #-}
 
 -- | Timestamp which tells creation time of the package version.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pvhCreatedAt :: Lens.Lens' PackageVersionHistory (Core.Maybe Core.NominalDiffTime)
 pvhCreatedAt = Lens.field @"createdAt"
-{-# DEPRECATED pvhCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+{-# INLINEABLE pvhCreatedAt #-}
+{-# DEPRECATED createdAt "Use generic-lens or generic-optics with 'createdAt' instead"  #-}
 
 -- | Version of the package.
 --
 -- /Note:/ Consider using 'packageVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pvhPackageVersion :: Lens.Lens' PackageVersionHistory (Core.Maybe Types.PackageVersion)
 pvhPackageVersion = Lens.field @"packageVersion"
-{-# DEPRECATED pvhPackageVersion "Use generic-lens or generic-optics with 'packageVersion' instead." #-}
+{-# INLINEABLE pvhPackageVersion #-}
+{-# DEPRECATED packageVersion "Use generic-lens or generic-optics with 'packageVersion' instead"  #-}
 
 instance Core.FromJSON PackageVersionHistory where
-  parseJSON =
-    Core.withObject "PackageVersionHistory" Core.$
-      \x ->
-        PackageVersionHistory'
-          Core.<$> (x Core..:? "CommitMessage")
-          Core.<*> (x Core..:? "CreatedAt")
-          Core.<*> (x Core..:? "PackageVersion")
+        parseJSON
+          = Core.withObject "PackageVersionHistory" Core.$
+              \ x ->
+                PackageVersionHistory' Core.<$>
+                  (x Core..:? "CommitMessage") Core.<*> x Core..:? "CreatedAt"
+                    Core.<*> x Core..:? "PackageVersion"

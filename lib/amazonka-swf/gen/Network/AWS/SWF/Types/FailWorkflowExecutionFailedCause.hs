@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,45 +10,29 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SWF.Types.FailWorkflowExecutionFailedCause
   ( FailWorkflowExecutionFailedCause
-      ( FailWorkflowExecutionFailedCause',
-        FailWorkflowExecutionFailedCauseUnhandledDecision,
-        FailWorkflowExecutionFailedCauseOperationNotPermitted,
-        fromFailWorkflowExecutionFailedCause
-      ),
-  )
-where
+    ( FailWorkflowExecutionFailedCause'
+    , FailWorkflowExecutionFailedCauseUnhandledDecision
+    , FailWorkflowExecutionFailedCauseOperationNotPermitted
+    , fromFailWorkflowExecutionFailedCause
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype FailWorkflowExecutionFailedCause = FailWorkflowExecutionFailedCause'
-  { fromFailWorkflowExecutionFailedCause ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype FailWorkflowExecutionFailedCause = FailWorkflowExecutionFailedCause'{fromFailWorkflowExecutionFailedCause
+                                                                             :: Core.Text}
+                                             deriving stock (Core.Eq, Core.Ord, Core.Read,
+                                                             Core.Show, Core.Generic)
+                                             deriving newtype (Core.IsString, Core.Hashable,
+                                                               Core.NFData, Core.ToJSONKey,
+                                                               Core.FromJSONKey, Core.ToJSON,
+                                                               Core.FromJSON, Core.ToXML,
+                                                               Core.FromXML, Core.ToText,
+                                                               Core.FromText, Core.ToByteString,
+                                                               Core.ToQuery, Core.ToHeader)
 
 pattern FailWorkflowExecutionFailedCauseUnhandledDecision :: FailWorkflowExecutionFailedCause
 pattern FailWorkflowExecutionFailedCauseUnhandledDecision = FailWorkflowExecutionFailedCause' "UNHANDLED_DECISION"
@@ -56,8 +40,9 @@ pattern FailWorkflowExecutionFailedCauseUnhandledDecision = FailWorkflowExecutio
 pattern FailWorkflowExecutionFailedCauseOperationNotPermitted :: FailWorkflowExecutionFailedCause
 pattern FailWorkflowExecutionFailedCauseOperationNotPermitted = FailWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
 
-{-# COMPLETE
+{-# COMPLETE 
   FailWorkflowExecutionFailedCauseUnhandledDecision,
+
   FailWorkflowExecutionFailedCauseOperationNotPermitted,
   FailWorkflowExecutionFailedCause'
   #-}

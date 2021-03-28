@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -20,25 +20,23 @@
 -- The password is encrypted using the key pair that you specified when you launched the instance. You must provide the corresponding key pair file.
 -- When you launch an instance, password generation and encryption may take a few minutes. If you try to retrieve the password before it's available, the output returns an empty string. We recommend that you wait up to 15 minutes after launching an instance before trying to retrieve the generated password.
 module Network.AWS.EC2.GetPasswordData
-  ( -- * Creating a request
-    GetPasswordData (..),
-    mkGetPasswordData,
-
+    (
+    -- * Creating a request
+      GetPasswordData (..)
+    , mkGetPasswordData
     -- ** Request lenses
-    gpdInstanceId,
-    gpdDryRun,
+    , gpdInstanceId
+    , gpdDryRun
 
     -- * Destructuring the response
-    GetPasswordDataResponse (..),
-    mkGetPasswordDataResponse,
-
+    , GetPasswordDataResponse (..)
+    , mkGetPasswordDataResponse
     -- ** Response lenses
-    gpdrrsInstanceId,
-    gpdrrsPasswordData,
-    gpdrrsTimestamp,
-    gpdrrsResponseStatus,
-  )
-where
+    , gpdrrsInstanceId
+    , gpdrrsPasswordData
+    , gpdrrsTimestamp
+    , gpdrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -48,128 +46,125 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetPasswordData' smart constructor.
 data GetPasswordData = GetPasswordData'
-  { -- | The ID of the Windows instance.
-    instanceId :: Types.InstanceId,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Core.Maybe Core.Bool
+  { instanceId :: Types.InstanceId
+    -- ^ The ID of the Windows instance.
+  , dryRun :: Core.Maybe Core.Bool
+    -- ^ Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetPasswordData' value with any optional fields omitted.
-mkGetPasswordData ::
-  -- | 'instanceId'
-  Types.InstanceId ->
-  GetPasswordData
-mkGetPasswordData instanceId =
-  GetPasswordData' {instanceId, dryRun = Core.Nothing}
+mkGetPasswordData
+    :: Types.InstanceId -- ^ 'instanceId'
+    -> GetPasswordData
+mkGetPasswordData instanceId
+  = GetPasswordData'{instanceId, dryRun = Core.Nothing}
 
 -- | The ID of the Windows instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gpdInstanceId :: Lens.Lens' GetPasswordData Types.InstanceId
 gpdInstanceId = Lens.field @"instanceId"
-{-# DEPRECATED gpdInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+{-# INLINEABLE gpdInstanceId #-}
+{-# DEPRECATED instanceId "Use generic-lens or generic-optics with 'instanceId' instead"  #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gpdDryRun :: Lens.Lens' GetPasswordData (Core.Maybe Core.Bool)
 gpdDryRun = Lens.field @"dryRun"
-{-# DEPRECATED gpdDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+{-# INLINEABLE gpdDryRun #-}
+{-# DEPRECATED dryRun "Use generic-lens or generic-optics with 'dryRun' instead"  #-}
+
+instance Core.ToQuery GetPasswordData where
+        toQuery GetPasswordData{..}
+          = Core.toQueryPair "Action" ("GetPasswordData" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2016-11-15" :: Core.Text)
+              Core.<> Core.toQueryPair "InstanceId" instanceId
+              Core.<> Core.maybe Core.mempty (Core.toQueryPair "DryRun") dryRun
+
+instance Core.ToHeaders GetPasswordData where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest GetPasswordData where
-  type Rs GetPasswordData = GetPasswordDataResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "GetPasswordData")
-                Core.<> (Core.pure ("Version", "2016-11-15"))
-                Core.<> (Core.toQueryValue "InstanceId" instanceId)
-                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
-            )
-      }
-  response =
-    Response.receiveXML
-      ( \s h x ->
-          GetPasswordDataResponse'
-            Core.<$> (x Core..@ "instanceId")
-            Core.<*> (x Core..@ "passwordData")
-            Core.<*> (x Core..@ "timestamp")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs GetPasswordData = GetPasswordDataResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXML
+              (\ s h x ->
+                 GetPasswordDataResponse' Core.<$>
+                   (x Core..@ "instanceId") Core.<*> x Core..@ "passwordData" Core.<*>
+                     x Core..@ "timestamp"
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkGetPasswordDataResponse' smart constructor.
 data GetPasswordDataResponse = GetPasswordDataResponse'
-  { -- | The ID of the Windows instance.
-    instanceId :: Types.String,
-    -- | The password of the instance. Returns an empty string if the password is not available.
-    passwordData :: Types.String,
-    -- | The time the data was last updated.
-    timestamp :: Core.UTCTime,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { instanceId :: Core.Text
+    -- ^ The ID of the Windows instance.
+  , passwordData :: Core.Text
+    -- ^ The password of the instance. Returns an empty string if the password is not available.
+  , timestamp :: Core.UTCTime
+    -- ^ The time the data was last updated.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'GetPasswordDataResponse' value with any optional fields omitted.
-mkGetPasswordDataResponse ::
-  -- | 'instanceId'
-  Types.String ->
-  -- | 'passwordData'
-  Types.String ->
-  -- | 'timestamp'
-  Core.UTCTime ->
-  -- | 'responseStatus'
-  Core.Int ->
-  GetPasswordDataResponse
 mkGetPasswordDataResponse
-  instanceId
-  passwordData
-  timestamp
-  responseStatus =
-    GetPasswordDataResponse'
-      { instanceId,
-        passwordData,
-        timestamp,
-        responseStatus
-      }
+    :: Core.Text -- ^ 'instanceId'
+    -> Core.Text -- ^ 'passwordData'
+    -> Core.UTCTime -- ^ 'timestamp'
+    -> Core.Int -- ^ 'responseStatus'
+    -> GetPasswordDataResponse
+mkGetPasswordDataResponse instanceId passwordData timestamp
+  responseStatus
+  = GetPasswordDataResponse'{instanceId, passwordData, timestamp,
+                             responseStatus}
 
 -- | The ID of the Windows instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpdrrsInstanceId :: Lens.Lens' GetPasswordDataResponse Types.String
+gpdrrsInstanceId :: Lens.Lens' GetPasswordDataResponse Core.Text
 gpdrrsInstanceId = Lens.field @"instanceId"
-{-# DEPRECATED gpdrrsInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+{-# INLINEABLE gpdrrsInstanceId #-}
+{-# DEPRECATED instanceId "Use generic-lens or generic-optics with 'instanceId' instead"  #-}
 
 -- | The password of the instance. Returns an empty string if the password is not available.
 --
 -- /Note:/ Consider using 'passwordData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpdrrsPasswordData :: Lens.Lens' GetPasswordDataResponse Types.String
+gpdrrsPasswordData :: Lens.Lens' GetPasswordDataResponse Core.Text
 gpdrrsPasswordData = Lens.field @"passwordData"
-{-# DEPRECATED gpdrrsPasswordData "Use generic-lens or generic-optics with 'passwordData' instead." #-}
+{-# INLINEABLE gpdrrsPasswordData #-}
+{-# DEPRECATED passwordData "Use generic-lens or generic-optics with 'passwordData' instead"  #-}
 
 -- | The time the data was last updated.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gpdrrsTimestamp :: Lens.Lens' GetPasswordDataResponse Core.UTCTime
 gpdrrsTimestamp = Lens.field @"timestamp"
-{-# DEPRECATED gpdrrsTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
+{-# INLINEABLE gpdrrsTimestamp #-}
+{-# DEPRECATED timestamp "Use generic-lens or generic-optics with 'timestamp' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gpdrrsResponseStatus :: Lens.Lens' GetPasswordDataResponse Core.Int
 gpdrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED gpdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE gpdrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

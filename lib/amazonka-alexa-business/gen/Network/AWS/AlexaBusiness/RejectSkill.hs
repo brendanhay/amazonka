@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,23 +13,21 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates a skill from the organization under a user's AWS account. If the skill is a private skill, it moves to an AcceptStatus of PENDING. Any private or public skill that is rejected can be added later by calling the ApproveSkill API.
+-- Disassociates a skill from the organization under a user's AWS account. If the skill is a private skill, it moves to an AcceptStatus of PENDING. Any private or public skill that is rejected can be added later by calling the ApproveSkill API. 
 module Network.AWS.AlexaBusiness.RejectSkill
-  ( -- * Creating a request
-    RejectSkill (..),
-    mkRejectSkill,
-
+    (
+    -- * Creating a request
+      RejectSkill (..)
+    , mkRejectSkill
     -- ** Request lenses
-    rsSkillId,
+    , rsSkillId
 
     -- * Destructuring the response
-    RejectSkillResponse (..),
-    mkRejectSkillResponse,
-
+    , RejectSkillResponse (..)
+    , mkRejectSkillResponse
     -- ** Response lenses
-    rsrrsResponseStatus,
-  )
-where
+    , rsrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -39,69 +37,74 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRejectSkill' smart constructor.
 newtype RejectSkill = RejectSkill'
-  { -- | The unique identifier of the skill.
-    skillId :: Types.SkillId
+  { skillId :: Types.SkillId
+    -- ^ The unique identifier of the skill.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'RejectSkill' value with any optional fields omitted.
-mkRejectSkill ::
-  -- | 'skillId'
-  Types.SkillId ->
-  RejectSkill
-mkRejectSkill skillId = RejectSkill' {skillId}
+mkRejectSkill
+    :: Types.SkillId -- ^ 'skillId'
+    -> RejectSkill
+mkRejectSkill skillId = RejectSkill'{skillId}
 
 -- | The unique identifier of the skill.
 --
 -- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rsSkillId :: Lens.Lens' RejectSkill Types.SkillId
 rsSkillId = Lens.field @"skillId"
-{-# DEPRECATED rsSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
+{-# INLINEABLE rsSkillId #-}
+{-# DEPRECATED skillId "Use generic-lens or generic-optics with 'skillId' instead"  #-}
+
+instance Core.ToQuery RejectSkill where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders RejectSkill where
+        toHeaders RejectSkill{..}
+          = Core.pure ("X-Amz-Target", "AlexaForBusiness.RejectSkill")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON RejectSkill where
-  toJSON RejectSkill {..} =
-    Core.object
-      (Core.catMaybes [Core.Just ("SkillId" Core..= skillId)])
+        toJSON RejectSkill{..}
+          = Core.object
+              (Core.catMaybes [Core.Just ("SkillId" Core..= skillId)])
 
 instance Core.AWSRequest RejectSkill where
-  type Rs RejectSkill = RejectSkillResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "AlexaForBusiness.RejectSkill")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveEmpty
-      ( \s h x ->
-          RejectSkillResponse' Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs RejectSkill = RejectSkillResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveEmpty
+              (\ s h x ->
+                 RejectSkillResponse' Core.<$> (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkRejectSkillResponse' smart constructor.
 newtype RejectSkillResponse = RejectSkillResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'RejectSkillResponse' value with any optional fields omitted.
-mkRejectSkillResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  RejectSkillResponse
-mkRejectSkillResponse responseStatus =
-  RejectSkillResponse' {responseStatus}
+mkRejectSkillResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> RejectSkillResponse
+mkRejectSkillResponse responseStatus
+  = RejectSkillResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rsrrsResponseStatus :: Lens.Lens' RejectSkillResponse Core.Int
 rsrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED rsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE rsrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,24 +15,22 @@
 --
 -- Starts an Amazon Aurora DB cluster that was stopped using the AWS console, the stop-db-cluster AWS CLI command, or the StopDBCluster action.
 --
--- For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html Stopping and Starting an Aurora Cluster> in the /Amazon Aurora User Guide./
+-- For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html Stopping and Starting an Aurora Cluster> in the /Amazon Aurora User Guide./ 
 module Network.AWS.RDS.StartDBCluster
-  ( -- * Creating a request
-    StartDBCluster (..),
-    mkStartDBCluster,
-
+    (
+    -- * Creating a request
+      StartDBCluster (..)
+    , mkStartDBCluster
     -- ** Request lenses
-    sdbcDBClusterIdentifier,
+    , sdbcDBClusterIdentifier
 
     -- * Destructuring the response
-    StartDBClusterResponse (..),
-    mkStartDBClusterResponse,
-
+    , StartDBClusterResponse (..)
+    , mkStartDBClusterResponse
     -- ** Response lenses
-    sdbcrrsDBCluster,
-    sdbcrrsResponseStatus,
-  )
-where
+    , sdbcrrsDBCluster
+    , sdbcrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -42,82 +40,86 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartDBCluster' smart constructor.
 newtype StartDBCluster = StartDBCluster'
-  { -- | The DB cluster identifier of the Amazon Aurora DB cluster to be started. This parameter is stored as a lowercase string.
-    dBClusterIdentifier :: Types.String
+  { dBClusterIdentifier :: Core.Text
+    -- ^ The DB cluster identifier of the Amazon Aurora DB cluster to be started. This parameter is stored as a lowercase string.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'StartDBCluster' value with any optional fields omitted.
-mkStartDBCluster ::
-  -- | 'dBClusterIdentifier'
-  Types.String ->
-  StartDBCluster
-mkStartDBCluster dBClusterIdentifier =
-  StartDBCluster' {dBClusterIdentifier}
+mkStartDBCluster
+    :: Core.Text -- ^ 'dBClusterIdentifier'
+    -> StartDBCluster
+mkStartDBCluster dBClusterIdentifier
+  = StartDBCluster'{dBClusterIdentifier}
 
 -- | The DB cluster identifier of the Amazon Aurora DB cluster to be started. This parameter is stored as a lowercase string.
 --
 -- /Note:/ Consider using 'dBClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdbcDBClusterIdentifier :: Lens.Lens' StartDBCluster Types.String
+sdbcDBClusterIdentifier :: Lens.Lens' StartDBCluster Core.Text
 sdbcDBClusterIdentifier = Lens.field @"dBClusterIdentifier"
-{-# DEPRECATED sdbcDBClusterIdentifier "Use generic-lens or generic-optics with 'dBClusterIdentifier' instead." #-}
+{-# INLINEABLE sdbcDBClusterIdentifier #-}
+{-# DEPRECATED dBClusterIdentifier "Use generic-lens or generic-optics with 'dBClusterIdentifier' instead"  #-}
+
+instance Core.ToQuery StartDBCluster where
+        toQuery StartDBCluster{..}
+          = Core.toQueryPair "Action" ("StartDBCluster" :: Core.Text) Core.<>
+              Core.toQueryPair "Version" ("2014-10-31" :: Core.Text)
+              Core.<> Core.toQueryPair "DBClusterIdentifier" dBClusterIdentifier
+
+instance Core.ToHeaders StartDBCluster where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest StartDBCluster where
-  type Rs StartDBCluster = StartDBClusterResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "StartDBCluster")
-                Core.<> (Core.pure ("Version", "2014-10-31"))
-                Core.<> (Core.toQueryValue "DBClusterIdentifier" dBClusterIdentifier)
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "StartDBClusterResult"
-      ( \s h x ->
-          StartDBClusterResponse'
-            Core.<$> (x Core..@? "DBCluster") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs StartDBCluster = StartDBClusterResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "StartDBClusterResult"
+              (\ s h x ->
+                 StartDBClusterResponse' Core.<$>
+                   (x Core..@? "DBCluster") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkStartDBClusterResponse' smart constructor.
 data StartDBClusterResponse = StartDBClusterResponse'
-  { dBCluster :: Core.Maybe Types.DBCluster,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { dBCluster :: Core.Maybe Types.DBCluster
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'StartDBClusterResponse' value with any optional fields omitted.
-mkStartDBClusterResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  StartDBClusterResponse
-mkStartDBClusterResponse responseStatus =
-  StartDBClusterResponse' {dBCluster = Core.Nothing, responseStatus}
+mkStartDBClusterResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> StartDBClusterResponse
+mkStartDBClusterResponse responseStatus
+  = StartDBClusterResponse'{dBCluster = Core.Nothing, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'dBCluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sdbcrrsDBCluster :: Lens.Lens' StartDBClusterResponse (Core.Maybe Types.DBCluster)
 sdbcrrsDBCluster = Lens.field @"dBCluster"
-{-# DEPRECATED sdbcrrsDBCluster "Use generic-lens or generic-optics with 'dBCluster' instead." #-}
+{-# INLINEABLE sdbcrrsDBCluster #-}
+{-# DEPRECATED dBCluster "Use generic-lens or generic-optics with 'dBCluster' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sdbcrrsResponseStatus :: Lens.Lens' StartDBClusterResponse Core.Int
 sdbcrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED sdbcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE sdbcrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

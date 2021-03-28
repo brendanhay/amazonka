@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.Lightsail where
 
 import Data.Proxy
-import Network.AWS.Lightsail
 import Test.AWS.Fixture
-import Test.AWS.Lightsail.Internal
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.Lightsail
+import Test.AWS.Lightsail.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -882,1976 +883,1694 @@ import Test.Tasty
 -- Requests
 
 requestCloseInstancePublicPorts :: CloseInstancePublicPorts -> TestTree
-requestCloseInstancePublicPorts =
-  req
+requestCloseInstancePublicPorts = req
     "CloseInstancePublicPorts"
     "fixture/CloseInstancePublicPorts.yaml"
 
 requestGetRelationalDatabaseMetricData :: GetRelationalDatabaseMetricData -> TestTree
-requestGetRelationalDatabaseMetricData =
-  req
+requestGetRelationalDatabaseMetricData = req
     "GetRelationalDatabaseMetricData"
     "fixture/GetRelationalDatabaseMetricData.yaml"
 
 requestAllocateStaticIp :: AllocateStaticIp -> TestTree
-requestAllocateStaticIp =
-  req
+requestAllocateStaticIp = req
     "AllocateStaticIp"
     "fixture/AllocateStaticIp.yaml"
 
 requestDeleteKeyPair :: DeleteKeyPair -> TestTree
-requestDeleteKeyPair =
-  req
+requestDeleteKeyPair = req
     "DeleteKeyPair"
     "fixture/DeleteKeyPair.yaml"
 
 requestDeleteInstanceSnapshot :: DeleteInstanceSnapshot -> TestTree
-requestDeleteInstanceSnapshot =
-  req
+requestDeleteInstanceSnapshot = req
     "DeleteInstanceSnapshot"
     "fixture/DeleteInstanceSnapshot.yaml"
 
 requestGetInstances :: GetInstances -> TestTree
-requestGetInstances =
-  req
+requestGetInstances = req
     "GetInstances"
     "fixture/GetInstances.yaml"
 
 requestGetLoadBalancer :: GetLoadBalancer -> TestTree
-requestGetLoadBalancer =
-  req
+requestGetLoadBalancer = req
     "GetLoadBalancer"
     "fixture/GetLoadBalancer.yaml"
 
 requestDisableAddOn :: DisableAddOn -> TestTree
-requestDisableAddOn =
-  req
+requestDisableAddOn = req
     "DisableAddOn"
     "fixture/DisableAddOn.yaml"
 
 requestGetDistributions :: GetDistributions -> TestTree
-requestGetDistributions =
-  req
+requestGetDistributions = req
     "GetDistributions"
     "fixture/GetDistributions.yaml"
 
 requestCreateContainerServiceDeployment :: CreateContainerServiceDeployment -> TestTree
-requestCreateContainerServiceDeployment =
-  req
+requestCreateContainerServiceDeployment = req
     "CreateContainerServiceDeployment"
     "fixture/CreateContainerServiceDeployment.yaml"
 
 requestGetInstance :: GetInstance -> TestTree
-requestGetInstance =
-  req
+requestGetInstance = req
     "GetInstance"
     "fixture/GetInstance.yaml"
 
 requestGetRelationalDatabaseEvents :: GetRelationalDatabaseEvents -> TestTree
-requestGetRelationalDatabaseEvents =
-  req
+requestGetRelationalDatabaseEvents = req
     "GetRelationalDatabaseEvents"
     "fixture/GetRelationalDatabaseEvents.yaml"
 
 requestAttachCertificateToDistribution :: AttachCertificateToDistribution -> TestTree
-requestAttachCertificateToDistribution =
-  req
+requestAttachCertificateToDistribution = req
     "AttachCertificateToDistribution"
     "fixture/AttachCertificateToDistribution.yaml"
 
 requestGetContainerServices :: GetContainerServices -> TestTree
-requestGetContainerServices =
-  req
+requestGetContainerServices = req
     "GetContainerServices"
     "fixture/GetContainerServices.yaml"
 
 requestUpdateDistributionBundle :: UpdateDistributionBundle -> TestTree
-requestUpdateDistributionBundle =
-  req
+requestUpdateDistributionBundle = req
     "UpdateDistributionBundle"
     "fixture/UpdateDistributionBundle.yaml"
 
 requestGetRelationalDatabaseSnapshots :: GetRelationalDatabaseSnapshots -> TestTree
-requestGetRelationalDatabaseSnapshots =
-  req
+requestGetRelationalDatabaseSnapshots = req
     "GetRelationalDatabaseSnapshots"
     "fixture/GetRelationalDatabaseSnapshots.yaml"
 
 requestAttachStaticIp :: AttachStaticIp -> TestTree
-requestAttachStaticIp =
-  req
+requestAttachStaticIp = req
     "AttachStaticIp"
     "fixture/AttachStaticIp.yaml"
 
 requestGetRelationalDatabaseParameters :: GetRelationalDatabaseParameters -> TestTree
-requestGetRelationalDatabaseParameters =
-  req
+requestGetRelationalDatabaseParameters = req
     "GetRelationalDatabaseParameters"
     "fixture/GetRelationalDatabaseParameters.yaml"
 
 requestDetachDisk :: DetachDisk -> TestTree
-requestDetachDisk =
-  req
+requestDetachDisk = req
     "DetachDisk"
     "fixture/DetachDisk.yaml"
 
 requestGetContactMethods :: GetContactMethods -> TestTree
-requestGetContactMethods =
-  req
+requestGetContactMethods = req
     "GetContactMethods"
     "fixture/GetContactMethods.yaml"
 
 requestDownloadDefaultKeyPair :: DownloadDefaultKeyPair -> TestTree
-requestDownloadDefaultKeyPair =
-  req
+requestDownloadDefaultKeyPair = req
     "DownloadDefaultKeyPair"
     "fixture/DownloadDefaultKeyPair.yaml"
 
 requestDeleteLoadBalancerTlsCertificate :: DeleteLoadBalancerTlsCertificate -> TestTree
-requestDeleteLoadBalancerTlsCertificate =
-  req
+requestDeleteLoadBalancerTlsCertificate = req
     "DeleteLoadBalancerTlsCertificate"
     "fixture/DeleteLoadBalancerTlsCertificate.yaml"
 
 requestTestAlarm :: TestAlarm -> TestTree
-requestTestAlarm =
-  req
+requestTestAlarm = req
     "TestAlarm"
     "fixture/TestAlarm.yaml"
 
 requestGetDomains :: GetDomains -> TestTree
-requestGetDomains =
-  req
+requestGetDomains = req
     "GetDomains"
     "fixture/GetDomains.yaml"
 
 requestGetContainerImages :: GetContainerImages -> TestTree
-requestGetContainerImages =
-  req
+requestGetContainerImages = req
     "GetContainerImages"
     "fixture/GetContainerImages.yaml"
 
 requestUpdateRelationalDatabaseParameters :: UpdateRelationalDatabaseParameters -> TestTree
-requestUpdateRelationalDatabaseParameters =
-  req
+requestUpdateRelationalDatabaseParameters = req
     "UpdateRelationalDatabaseParameters"
     "fixture/UpdateRelationalDatabaseParameters.yaml"
 
 requestCreateLoadBalancerTlsCertificate :: CreateLoadBalancerTlsCertificate -> TestTree
-requestCreateLoadBalancerTlsCertificate =
-  req
+requestCreateLoadBalancerTlsCertificate = req
     "CreateLoadBalancerTlsCertificate"
     "fixture/CreateLoadBalancerTlsCertificate.yaml"
 
 requestCreateDomainEntry :: CreateDomainEntry -> TestTree
-requestCreateDomainEntry =
-  req
+requestCreateDomainEntry = req
     "CreateDomainEntry"
     "fixture/CreateDomainEntry.yaml"
 
 requestGetContainerServicePowers :: GetContainerServicePowers -> TestTree
-requestGetContainerServicePowers =
-  req
+requestGetContainerServicePowers = req
     "GetContainerServicePowers"
     "fixture/GetContainerServicePowers.yaml"
 
 requestImportKeyPair :: ImportKeyPair -> TestTree
-requestImportKeyPair =
-  req
+requestImportKeyPair = req
     "ImportKeyPair"
     "fixture/ImportKeyPair.yaml"
 
 requestGetInstanceSnapshots :: GetInstanceSnapshots -> TestTree
-requestGetInstanceSnapshots =
-  req
+requestGetInstanceSnapshots = req
     "GetInstanceSnapshots"
     "fixture/GetInstanceSnapshots.yaml"
 
 requestExportSnapshot :: ExportSnapshot -> TestTree
-requestExportSnapshot =
-  req
+requestExportSnapshot = req
     "ExportSnapshot"
     "fixture/ExportSnapshot.yaml"
 
 requestCreateRelationalDatabaseFromSnapshot :: CreateRelationalDatabaseFromSnapshot -> TestTree
-requestCreateRelationalDatabaseFromSnapshot =
-  req
+requestCreateRelationalDatabaseFromSnapshot = req
     "CreateRelationalDatabaseFromSnapshot"
     "fixture/CreateRelationalDatabaseFromSnapshot.yaml"
 
 requestCreateCloudFormationStack :: CreateCloudFormationStack -> TestTree
-requestCreateCloudFormationStack =
-  req
+requestCreateCloudFormationStack = req
     "CreateCloudFormationStack"
     "fixture/CreateCloudFormationStack.yaml"
 
 requestGetExportSnapshotRecords :: GetExportSnapshotRecords -> TestTree
-requestGetExportSnapshotRecords =
-  req
+requestGetExportSnapshotRecords = req
     "GetExportSnapshotRecords"
     "fixture/GetExportSnapshotRecords.yaml"
 
 requestReleaseStaticIp :: ReleaseStaticIp -> TestTree
-requestReleaseStaticIp =
-  req
+requestReleaseStaticIp = req
     "ReleaseStaticIp"
     "fixture/ReleaseStaticIp.yaml"
 
 requestDeleteInstance :: DeleteInstance -> TestTree
-requestDeleteInstance =
-  req
+requestDeleteInstance = req
     "DeleteInstance"
     "fixture/DeleteInstance.yaml"
 
 requestCreateContainerServiceRegistryLogin :: CreateContainerServiceRegistryLogin -> TestTree
-requestCreateContainerServiceRegistryLogin =
-  req
+requestCreateContainerServiceRegistryLogin = req
     "CreateContainerServiceRegistryLogin"
     "fixture/CreateContainerServiceRegistryLogin.yaml"
 
 requestGetCertificates :: GetCertificates -> TestTree
-requestGetCertificates =
-  req
+requestGetCertificates = req
     "GetCertificates"
     "fixture/GetCertificates.yaml"
 
 requestGetContainerServiceMetricData :: GetContainerServiceMetricData -> TestTree
-requestGetContainerServiceMetricData =
-  req
+requestGetContainerServiceMetricData = req
     "GetContainerServiceMetricData"
     "fixture/GetContainerServiceMetricData.yaml"
 
 requestGetDistributionMetricData :: GetDistributionMetricData -> TestTree
-requestGetDistributionMetricData =
-  req
+requestGetDistributionMetricData = req
     "GetDistributionMetricData"
     "fixture/GetDistributionMetricData.yaml"
 
 requestRebootInstance :: RebootInstance -> TestTree
-requestRebootInstance =
-  req
+requestRebootInstance = req
     "RebootInstance"
     "fixture/RebootInstance.yaml"
 
 requestDeleteLoadBalancer :: DeleteLoadBalancer -> TestTree
-requestDeleteLoadBalancer =
-  req
+requestDeleteLoadBalancer = req
     "DeleteLoadBalancer"
     "fixture/DeleteLoadBalancer.yaml"
 
 requestCreateDiskFromSnapshot :: CreateDiskFromSnapshot -> TestTree
-requestCreateDiskFromSnapshot =
-  req
+requestCreateDiskFromSnapshot = req
     "CreateDiskFromSnapshot"
     "fixture/CreateDiskFromSnapshot.yaml"
 
 requestGetRelationalDatabases :: GetRelationalDatabases -> TestTree
-requestGetRelationalDatabases =
-  req
+requestGetRelationalDatabases = req
     "GetRelationalDatabases"
     "fixture/GetRelationalDatabases.yaml"
 
 requestGetInstanceSnapshot :: GetInstanceSnapshot -> TestTree
-requestGetInstanceSnapshot =
-  req
+requestGetInstanceSnapshot = req
     "GetInstanceSnapshot"
     "fixture/GetInstanceSnapshot.yaml"
 
 requestGetRelationalDatabaseLogEvents :: GetRelationalDatabaseLogEvents -> TestTree
-requestGetRelationalDatabaseLogEvents =
-  req
+requestGetRelationalDatabaseLogEvents = req
     "GetRelationalDatabaseLogEvents"
     "fixture/GetRelationalDatabaseLogEvents.yaml"
 
 requestCreateContactMethod :: CreateContactMethod -> TestTree
-requestCreateContactMethod =
-  req
+requestCreateContactMethod = req
     "CreateContactMethod"
     "fixture/CreateContactMethod.yaml"
 
 requestGetRelationalDatabaseLogStreams :: GetRelationalDatabaseLogStreams -> TestTree
-requestGetRelationalDatabaseLogStreams =
-  req
+requestGetRelationalDatabaseLogStreams = req
     "GetRelationalDatabaseLogStreams"
     "fixture/GetRelationalDatabaseLogStreams.yaml"
 
 requestGetDomain :: GetDomain -> TestTree
-requestGetDomain =
-  req
+requestGetDomain = req
     "GetDomain"
     "fixture/GetDomain.yaml"
 
 requestGetAutoSnapshots :: GetAutoSnapshots -> TestTree
-requestGetAutoSnapshots =
-  req
+requestGetAutoSnapshots = req
     "GetAutoSnapshots"
     "fixture/GetAutoSnapshots.yaml"
 
 requestGetActiveNames :: GetActiveNames -> TestTree
-requestGetActiveNames =
-  req
+requestGetActiveNames = req
     "GetActiveNames"
     "fixture/GetActiveNames.yaml"
 
 requestDeleteContactMethod :: DeleteContactMethod -> TestTree
-requestDeleteContactMethod =
-  req
+requestDeleteContactMethod = req
     "DeleteContactMethod"
     "fixture/DeleteContactMethod.yaml"
 
 requestCreateDistribution :: CreateDistribution -> TestTree
-requestCreateDistribution =
-  req
+requestCreateDistribution = req
     "CreateDistribution"
     "fixture/CreateDistribution.yaml"
 
 requestStopRelationalDatabase :: StopRelationalDatabase -> TestTree
-requestStopRelationalDatabase =
-  req
+requestStopRelationalDatabase = req
     "StopRelationalDatabase"
     "fixture/StopRelationalDatabase.yaml"
 
 requestCreateRelationalDatabaseSnapshot :: CreateRelationalDatabaseSnapshot -> TestTree
-requestCreateRelationalDatabaseSnapshot =
-  req
+requestCreateRelationalDatabaseSnapshot = req
     "CreateRelationalDatabaseSnapshot"
     "fixture/CreateRelationalDatabaseSnapshot.yaml"
 
 requestDetachCertificateFromDistribution :: DetachCertificateFromDistribution -> TestTree
-requestDetachCertificateFromDistribution =
-  req
+requestDetachCertificateFromDistribution = req
     "DetachCertificateFromDistribution"
     "fixture/DetachCertificateFromDistribution.yaml"
 
 requestCreateContainerService :: CreateContainerService -> TestTree
-requestCreateContainerService =
-  req
+requestCreateContainerService = req
     "CreateContainerService"
     "fixture/CreateContainerService.yaml"
 
 requestGetInstanceAccessDetails :: GetInstanceAccessDetails -> TestTree
-requestGetInstanceAccessDetails =
-  req
+requestGetInstanceAccessDetails = req
     "GetInstanceAccessDetails"
     "fixture/GetInstanceAccessDetails.yaml"
 
 requestEnableAddOn :: EnableAddOn -> TestTree
-requestEnableAddOn =
-  req
+requestEnableAddOn = req
     "EnableAddOn"
     "fixture/EnableAddOn.yaml"
 
 requestStopInstance :: StopInstance -> TestTree
-requestStopInstance =
-  req
+requestStopInstance = req
     "StopInstance"
     "fixture/StopInstance.yaml"
 
 requestDetachInstancesFromLoadBalancer :: DetachInstancesFromLoadBalancer -> TestTree
-requestDetachInstancesFromLoadBalancer =
-  req
+requestDetachInstancesFromLoadBalancer = req
     "DetachInstancesFromLoadBalancer"
     "fixture/DetachInstancesFromLoadBalancer.yaml"
 
 requestRegisterContainerImage :: RegisterContainerImage -> TestTree
-requestRegisterContainerImage =
-  req
+requestRegisterContainerImage = req
     "RegisterContainerImage"
     "fixture/RegisterContainerImage.yaml"
 
 requestCreateCertificate :: CreateCertificate -> TestTree
-requestCreateCertificate =
-  req
+requestCreateCertificate = req
     "CreateCertificate"
     "fixture/CreateCertificate.yaml"
 
 requestCreateInstanceSnapshot :: CreateInstanceSnapshot -> TestTree
-requestCreateInstanceSnapshot =
-  req
+requestCreateInstanceSnapshot = req
     "CreateInstanceSnapshot"
     "fixture/CreateInstanceSnapshot.yaml"
 
 requestCopySnapshot :: CopySnapshot -> TestTree
-requestCopySnapshot =
-  req
+requestCopySnapshot = req
     "CopySnapshot"
     "fixture/CopySnapshot.yaml"
 
 requestGetRelationalDatabaseSnapshot :: GetRelationalDatabaseSnapshot -> TestTree
-requestGetRelationalDatabaseSnapshot =
-  req
+requestGetRelationalDatabaseSnapshot = req
     "GetRelationalDatabaseSnapshot"
     "fixture/GetRelationalDatabaseSnapshot.yaml"
 
 requestIsVpcPeered :: IsVpcPeered -> TestTree
-requestIsVpcPeered =
-  req
+requestIsVpcPeered = req
     "IsVpcPeered"
     "fixture/IsVpcPeered.yaml"
 
 requestGetStaticIps :: GetStaticIps -> TestTree
-requestGetStaticIps =
-  req
+requestGetStaticIps = req
     "GetStaticIps"
     "fixture/GetStaticIps.yaml"
 
 requestUnpeerVpc :: UnpeerVpc -> TestTree
-requestUnpeerVpc =
-  req
+requestUnpeerVpc = req
     "UnpeerVpc"
     "fixture/UnpeerVpc.yaml"
 
 requestDeleteDisk :: DeleteDisk -> TestTree
-requestDeleteDisk =
-  req
+requestDeleteDisk = req
     "DeleteDisk"
     "fixture/DeleteDisk.yaml"
 
 requestCreateInstancesFromSnapshot :: CreateInstancesFromSnapshot -> TestTree
-requestCreateInstancesFromSnapshot =
-  req
+requestCreateInstancesFromSnapshot = req
     "CreateInstancesFromSnapshot"
     "fixture/CreateInstancesFromSnapshot.yaml"
 
 requestGetCloudFormationStackRecords :: GetCloudFormationStackRecords -> TestTree
-requestGetCloudFormationStackRecords =
-  req
+requestGetCloudFormationStackRecords = req
     "GetCloudFormationStackRecords"
     "fixture/GetCloudFormationStackRecords.yaml"
 
 requestCreateDomain :: CreateDomain -> TestTree
-requestCreateDomain =
-  req
+requestCreateDomain = req
     "CreateDomain"
     "fixture/CreateDomain.yaml"
 
 requestGetRelationalDatabaseBlueprints :: GetRelationalDatabaseBlueprints -> TestTree
-requestGetRelationalDatabaseBlueprints =
-  req
+requestGetRelationalDatabaseBlueprints = req
     "GetRelationalDatabaseBlueprints"
     "fixture/GetRelationalDatabaseBlueprints.yaml"
 
 requestDeleteCertificate :: DeleteCertificate -> TestTree
-requestDeleteCertificate =
-  req
+requestDeleteCertificate = req
     "DeleteCertificate"
     "fixture/DeleteCertificate.yaml"
 
 requestGetDiskSnapshots :: GetDiskSnapshots -> TestTree
-requestGetDiskSnapshots =
-  req
+requestGetDiskSnapshots = req
     "GetDiskSnapshots"
     "fixture/GetDiskSnapshots.yaml"
 
 requestGetContainerAPIMetadata :: GetContainerAPIMetadata -> TestTree
-requestGetContainerAPIMetadata =
-  req
+requestGetContainerAPIMetadata = req
     "GetContainerAPIMetadata"
     "fixture/GetContainerAPIMetadata.yaml"
 
 requestPeerVpc :: PeerVpc -> TestTree
-requestPeerVpc =
-  req
+requestPeerVpc = req
     "PeerVpc"
     "fixture/PeerVpc.yaml"
 
 requestGetRelationalDatabaseBundles :: GetRelationalDatabaseBundles -> TestTree
-requestGetRelationalDatabaseBundles =
-  req
+requestGetRelationalDatabaseBundles = req
     "GetRelationalDatabaseBundles"
     "fixture/GetRelationalDatabaseBundles.yaml"
 
 requestGetLoadBalancers :: GetLoadBalancers -> TestTree
-requestGetLoadBalancers =
-  req
+requestGetLoadBalancers = req
     "GetLoadBalancers"
     "fixture/GetLoadBalancers.yaml"
 
 requestRebootRelationalDatabase :: RebootRelationalDatabase -> TestTree
-requestRebootRelationalDatabase =
-  req
+requestRebootRelationalDatabase = req
     "RebootRelationalDatabase"
     "fixture/RebootRelationalDatabase.yaml"
 
 requestAttachLoadBalancerTlsCertificate :: AttachLoadBalancerTlsCertificate -> TestTree
-requestAttachLoadBalancerTlsCertificate =
-  req
+requestAttachLoadBalancerTlsCertificate = req
     "AttachLoadBalancerTlsCertificate"
     "fixture/AttachLoadBalancerTlsCertificate.yaml"
 
 requestUpdateLoadBalancerAttribute :: UpdateLoadBalancerAttribute -> TestTree
-requestUpdateLoadBalancerAttribute =
-  req
+requestUpdateLoadBalancerAttribute = req
     "UpdateLoadBalancerAttribute"
     "fixture/UpdateLoadBalancerAttribute.yaml"
 
 requestDeleteRelationalDatabase :: DeleteRelationalDatabase -> TestTree
-requestDeleteRelationalDatabase =
-  req
+requestDeleteRelationalDatabase = req
     "DeleteRelationalDatabase"
     "fixture/DeleteRelationalDatabase.yaml"
 
 requestGetDiskSnapshot :: GetDiskSnapshot -> TestTree
-requestGetDiskSnapshot =
-  req
+requestGetDiskSnapshot = req
     "GetDiskSnapshot"
     "fixture/GetDiskSnapshot.yaml"
 
 requestUpdateRelationalDatabase :: UpdateRelationalDatabase -> TestTree
-requestUpdateRelationalDatabase =
-  req
+requestUpdateRelationalDatabase = req
     "UpdateRelationalDatabase"
     "fixture/UpdateRelationalDatabase.yaml"
 
 requestGetStaticIp :: GetStaticIp -> TestTree
-requestGetStaticIp =
-  req
+requestGetStaticIp = req
     "GetStaticIp"
     "fixture/GetStaticIp.yaml"
 
 requestGetRelationalDatabaseMasterUserPassword :: GetRelationalDatabaseMasterUserPassword -> TestTree
-requestGetRelationalDatabaseMasterUserPassword =
-  req
+requestGetRelationalDatabaseMasterUserPassword = req
     "GetRelationalDatabaseMasterUserPassword"
     "fixture/GetRelationalDatabaseMasterUserPassword.yaml"
 
 requestGetBlueprints :: GetBlueprints -> TestTree
-requestGetBlueprints =
-  req
+requestGetBlueprints = req
     "GetBlueprints"
     "fixture/GetBlueprints.yaml"
 
 requestPutAlarm :: PutAlarm -> TestTree
-requestPutAlarm =
-  req
+requestPutAlarm = req
     "PutAlarm"
     "fixture/PutAlarm.yaml"
 
 requestDeleteAlarm :: DeleteAlarm -> TestTree
-requestDeleteAlarm =
-  req
+requestDeleteAlarm = req
     "DeleteAlarm"
     "fixture/DeleteAlarm.yaml"
 
 requestGetInstancePortStates :: GetInstancePortStates -> TestTree
-requestGetInstancePortStates =
-  req
+requestGetInstancePortStates = req
     "GetInstancePortStates"
     "fixture/GetInstancePortStates.yaml"
 
 requestDeleteAutoSnapshot :: DeleteAutoSnapshot -> TestTree
-requestDeleteAutoSnapshot =
-  req
+requestDeleteAutoSnapshot = req
     "DeleteAutoSnapshot"
     "fixture/DeleteAutoSnapshot.yaml"
 
 requestCreateRelationalDatabase :: CreateRelationalDatabase -> TestTree
-requestCreateRelationalDatabase =
-  req
+requestCreateRelationalDatabase = req
     "CreateRelationalDatabase"
     "fixture/CreateRelationalDatabase.yaml"
 
 requestSendContactMethodVerification :: SendContactMethodVerification -> TestTree
-requestSendContactMethodVerification =
-  req
+requestSendContactMethodVerification = req
     "SendContactMethodVerification"
     "fixture/SendContactMethodVerification.yaml"
 
 requestGetContainerLog :: GetContainerLog -> TestTree
-requestGetContainerLog =
-  req
+requestGetContainerLog = req
     "GetContainerLog"
     "fixture/GetContainerLog.yaml"
 
 requestCreateDiskSnapshot :: CreateDiskSnapshot -> TestTree
-requestCreateDiskSnapshot =
-  req
+requestCreateDiskSnapshot = req
     "CreateDiskSnapshot"
     "fixture/CreateDiskSnapshot.yaml"
 
 requestDeleteDomainEntry :: DeleteDomainEntry -> TestTree
-requestDeleteDomainEntry =
-  req
+requestDeleteDomainEntry = req
     "DeleteDomainEntry"
     "fixture/DeleteDomainEntry.yaml"
 
 requestUpdateDomainEntry :: UpdateDomainEntry -> TestTree
-requestUpdateDomainEntry =
-  req
+requestUpdateDomainEntry = req
     "UpdateDomainEntry"
     "fixture/UpdateDomainEntry.yaml"
 
 requestGetRegions :: GetRegions -> TestTree
-requestGetRegions =
-  req
+requestGetRegions = req
     "GetRegions"
     "fixture/GetRegions.yaml"
 
 requestDeleteDiskSnapshot :: DeleteDiskSnapshot -> TestTree
-requestDeleteDiskSnapshot =
-  req
+requestDeleteDiskSnapshot = req
     "DeleteDiskSnapshot"
     "fixture/DeleteDiskSnapshot.yaml"
 
 requestGetLoadBalancerMetricData :: GetLoadBalancerMetricData -> TestTree
-requestGetLoadBalancerMetricData =
-  req
+requestGetLoadBalancerMetricData = req
     "GetLoadBalancerMetricData"
     "fixture/GetLoadBalancerMetricData.yaml"
 
 requestGetInstanceState :: GetInstanceState -> TestTree
-requestGetInstanceState =
-  req
+requestGetInstanceState = req
     "GetInstanceState"
     "fixture/GetInstanceState.yaml"
 
 requestGetKeyPairs :: GetKeyPairs -> TestTree
-requestGetKeyPairs =
-  req
+requestGetKeyPairs = req
     "GetKeyPairs"
     "fixture/GetKeyPairs.yaml"
 
 requestGetOperations :: GetOperations -> TestTree
-requestGetOperations =
-  req
+requestGetOperations = req
     "GetOperations"
     "fixture/GetOperations.yaml"
 
 requestGetDisks :: GetDisks -> TestTree
-requestGetDisks =
-  req
+requestGetDisks = req
     "GetDisks"
     "fixture/GetDisks.yaml"
 
 requestGetRelationalDatabase :: GetRelationalDatabase -> TestTree
-requestGetRelationalDatabase =
-  req
+requestGetRelationalDatabase = req
     "GetRelationalDatabase"
     "fixture/GetRelationalDatabase.yaml"
 
 requestAttachInstancesToLoadBalancer :: AttachInstancesToLoadBalancer -> TestTree
-requestAttachInstancesToLoadBalancer =
-  req
+requestAttachInstancesToLoadBalancer = req
     "AttachInstancesToLoadBalancer"
     "fixture/AttachInstancesToLoadBalancer.yaml"
 
 requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
+requestTagResource = req
     "TagResource"
     "fixture/TagResource.yaml"
 
 requestGetOperation :: GetOperation -> TestTree
-requestGetOperation =
-  req
+requestGetOperation = req
     "GetOperation"
     "fixture/GetOperation.yaml"
 
 requestResetDistributionCache :: ResetDistributionCache -> TestTree
-requestResetDistributionCache =
-  req
+requestResetDistributionCache = req
     "ResetDistributionCache"
     "fixture/ResetDistributionCache.yaml"
 
 requestUpdateDistribution :: UpdateDistribution -> TestTree
-requestUpdateDistribution =
-  req
+requestUpdateDistribution = req
     "UpdateDistribution"
     "fixture/UpdateDistribution.yaml"
 
 requestDeleteDistribution :: DeleteDistribution -> TestTree
-requestDeleteDistribution =
-  req
+requestDeleteDistribution = req
     "DeleteDistribution"
     "fixture/DeleteDistribution.yaml"
 
 requestUpdateContainerService :: UpdateContainerService -> TestTree
-requestUpdateContainerService =
-  req
+requestUpdateContainerService = req
     "UpdateContainerService"
     "fixture/UpdateContainerService.yaml"
 
 requestDeleteRelationalDatabaseSnapshot :: DeleteRelationalDatabaseSnapshot -> TestTree
-requestDeleteRelationalDatabaseSnapshot =
-  req
+requestDeleteRelationalDatabaseSnapshot = req
     "DeleteRelationalDatabaseSnapshot"
     "fixture/DeleteRelationalDatabaseSnapshot.yaml"
 
 requestDeleteContainerService :: DeleteContainerService -> TestTree
-requestDeleteContainerService =
-  req
+requestDeleteContainerService = req
     "DeleteContainerService"
     "fixture/DeleteContainerService.yaml"
 
 requestGetInstanceMetricData :: GetInstanceMetricData -> TestTree
-requestGetInstanceMetricData =
-  req
+requestGetInstanceMetricData = req
     "GetInstanceMetricData"
     "fixture/GetInstanceMetricData.yaml"
 
 requestGetKeyPair :: GetKeyPair -> TestTree
-requestGetKeyPair =
-  req
+requestGetKeyPair = req
     "GetKeyPair"
     "fixture/GetKeyPair.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
+requestUntagResource = req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
 requestPutInstancePublicPorts :: PutInstancePublicPorts -> TestTree
-requestPutInstancePublicPorts =
-  req
+requestPutInstancePublicPorts = req
     "PutInstancePublicPorts"
     "fixture/PutInstancePublicPorts.yaml"
 
 requestGetDistributionBundles :: GetDistributionBundles -> TestTree
-requestGetDistributionBundles =
-  req
+requestGetDistributionBundles = req
     "GetDistributionBundles"
     "fixture/GetDistributionBundles.yaml"
 
 requestGetDisk :: GetDisk -> TestTree
-requestGetDisk =
-  req
+requestGetDisk = req
     "GetDisk"
     "fixture/GetDisk.yaml"
 
 requestGetDistributionLatestCacheReset :: GetDistributionLatestCacheReset -> TestTree
-requestGetDistributionLatestCacheReset =
-  req
+requestGetDistributionLatestCacheReset = req
     "GetDistributionLatestCacheReset"
     "fixture/GetDistributionLatestCacheReset.yaml"
 
 requestCreateLoadBalancer :: CreateLoadBalancer -> TestTree
-requestCreateLoadBalancer =
-  req
+requestCreateLoadBalancer = req
     "CreateLoadBalancer"
     "fixture/CreateLoadBalancer.yaml"
 
 requestGetContainerServiceDeployments :: GetContainerServiceDeployments -> TestTree
-requestGetContainerServiceDeployments =
-  req
+requestGetContainerServiceDeployments = req
     "GetContainerServiceDeployments"
     "fixture/GetContainerServiceDeployments.yaml"
 
 requestDeleteKnownHostKeys :: DeleteKnownHostKeys -> TestTree
-requestDeleteKnownHostKeys =
-  req
+requestDeleteKnownHostKeys = req
     "DeleteKnownHostKeys"
     "fixture/DeleteKnownHostKeys.yaml"
 
 requestAttachDisk :: AttachDisk -> TestTree
-requestAttachDisk =
-  req
+requestAttachDisk = req
     "AttachDisk"
     "fixture/AttachDisk.yaml"
 
 requestDetachStaticIp :: DetachStaticIp -> TestTree
-requestDetachStaticIp =
-  req
+requestDetachStaticIp = req
     "DetachStaticIp"
     "fixture/DetachStaticIp.yaml"
 
 requestCreateInstances :: CreateInstances -> TestTree
-requestCreateInstances =
-  req
+requestCreateInstances = req
     "CreateInstances"
     "fixture/CreateInstances.yaml"
 
 requestGetAlarms :: GetAlarms -> TestTree
-requestGetAlarms =
-  req
+requestGetAlarms = req
     "GetAlarms"
     "fixture/GetAlarms.yaml"
 
 requestOpenInstancePublicPorts :: OpenInstancePublicPorts -> TestTree
-requestOpenInstancePublicPorts =
-  req
+requestOpenInstancePublicPorts = req
     "OpenInstancePublicPorts"
     "fixture/OpenInstancePublicPorts.yaml"
 
 requestStartRelationalDatabase :: StartRelationalDatabase -> TestTree
-requestStartRelationalDatabase =
-  req
+requestStartRelationalDatabase = req
     "StartRelationalDatabase"
     "fixture/StartRelationalDatabase.yaml"
 
 requestDeleteContainerImage :: DeleteContainerImage -> TestTree
-requestDeleteContainerImage =
-  req
+requestDeleteContainerImage = req
     "DeleteContainerImage"
     "fixture/DeleteContainerImage.yaml"
 
 requestGetBundles :: GetBundles -> TestTree
-requestGetBundles =
-  req
+requestGetBundles = req
     "GetBundles"
     "fixture/GetBundles.yaml"
 
 requestDeleteDomain :: DeleteDomain -> TestTree
-requestDeleteDomain =
-  req
+requestDeleteDomain = req
     "DeleteDomain"
     "fixture/DeleteDomain.yaml"
 
 requestGetLoadBalancerTlsCertificates :: GetLoadBalancerTlsCertificates -> TestTree
-requestGetLoadBalancerTlsCertificates =
-  req
+requestGetLoadBalancerTlsCertificates = req
     "GetLoadBalancerTlsCertificates"
     "fixture/GetLoadBalancerTlsCertificates.yaml"
 
 requestCreateDisk :: CreateDisk -> TestTree
-requestCreateDisk =
-  req
+requestCreateDisk = req
     "CreateDisk"
     "fixture/CreateDisk.yaml"
 
 requestGetOperationsForResource :: GetOperationsForResource -> TestTree
-requestGetOperationsForResource =
-  req
+requestGetOperationsForResource = req
     "GetOperationsForResource"
     "fixture/GetOperationsForResource.yaml"
 
 requestCreateKeyPair :: CreateKeyPair -> TestTree
-requestCreateKeyPair =
-  req
+requestCreateKeyPair = req
     "CreateKeyPair"
     "fixture/CreateKeyPair.yaml"
 
 requestStartInstance :: StartInstance -> TestTree
-requestStartInstance =
-  req
+requestStartInstance = req
     "StartInstance"
     "fixture/StartInstance.yaml"
 
 -- Responses
 
 responseCloseInstancePublicPorts :: CloseInstancePublicPortsResponse -> TestTree
-responseCloseInstancePublicPorts =
-  res
+responseCloseInstancePublicPorts = res
     "CloseInstancePublicPortsResponse"
     "fixture/CloseInstancePublicPortsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CloseInstancePublicPorts)
 
 responseGetRelationalDatabaseMetricData :: GetRelationalDatabaseMetricDataResponse -> TestTree
-responseGetRelationalDatabaseMetricData =
-  res
+responseGetRelationalDatabaseMetricData = res
     "GetRelationalDatabaseMetricDataResponse"
     "fixture/GetRelationalDatabaseMetricDataResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetRelationalDatabaseMetricData)
 
 responseAllocateStaticIp :: AllocateStaticIpResponse -> TestTree
-responseAllocateStaticIp =
-  res
+responseAllocateStaticIp = res
     "AllocateStaticIpResponse"
     "fixture/AllocateStaticIpResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AllocateStaticIp)
 
 responseDeleteKeyPair :: DeleteKeyPairResponse -> TestTree
-responseDeleteKeyPair =
-  res
+responseDeleteKeyPair = res
     "DeleteKeyPairResponse"
     "fixture/DeleteKeyPairResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteKeyPair)
 
 responseDeleteInstanceSnapshot :: DeleteInstanceSnapshotResponse -> TestTree
-responseDeleteInstanceSnapshot =
-  res
+responseDeleteInstanceSnapshot = res
     "DeleteInstanceSnapshotResponse"
     "fixture/DeleteInstanceSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteInstanceSnapshot)
 
 responseGetInstances :: GetInstancesResponse -> TestTree
-responseGetInstances =
-  res
+responseGetInstances = res
     "GetInstancesResponse"
     "fixture/GetInstancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetInstances)
 
 responseGetLoadBalancer :: GetLoadBalancerResponse -> TestTree
-responseGetLoadBalancer =
-  res
+responseGetLoadBalancer = res
     "GetLoadBalancerResponse"
     "fixture/GetLoadBalancerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetLoadBalancer)
 
 responseDisableAddOn :: DisableAddOnResponse -> TestTree
-responseDisableAddOn =
-  res
+responseDisableAddOn = res
     "DisableAddOnResponse"
     "fixture/DisableAddOnResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisableAddOn)
 
 responseGetDistributions :: GetDistributionsResponse -> TestTree
-responseGetDistributions =
-  res
+responseGetDistributions = res
     "GetDistributionsResponse"
     "fixture/GetDistributionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetDistributions)
 
 responseCreateContainerServiceDeployment :: CreateContainerServiceDeploymentResponse -> TestTree
-responseCreateContainerServiceDeployment =
-  res
+responseCreateContainerServiceDeployment = res
     "CreateContainerServiceDeploymentResponse"
     "fixture/CreateContainerServiceDeploymentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateContainerServiceDeployment)
 
 responseGetInstance :: GetInstanceResponse -> TestTree
-responseGetInstance =
-  res
+responseGetInstance = res
     "GetInstanceResponse"
     "fixture/GetInstanceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetInstance)
 
 responseGetRelationalDatabaseEvents :: GetRelationalDatabaseEventsResponse -> TestTree
-responseGetRelationalDatabaseEvents =
-  res
+responseGetRelationalDatabaseEvents = res
     "GetRelationalDatabaseEventsResponse"
     "fixture/GetRelationalDatabaseEventsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetRelationalDatabaseEvents)
 
 responseAttachCertificateToDistribution :: AttachCertificateToDistributionResponse -> TestTree
-responseAttachCertificateToDistribution =
-  res
+responseAttachCertificateToDistribution = res
     "AttachCertificateToDistributionResponse"
     "fixture/AttachCertificateToDistributionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AttachCertificateToDistribution)
 
 responseGetContainerServices :: GetContainerServicesResponse -> TestTree
-responseGetContainerServices =
-  res
+responseGetContainerServices = res
     "GetContainerServicesResponse"
     "fixture/GetContainerServicesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetContainerServices)
 
 responseUpdateDistributionBundle :: UpdateDistributionBundleResponse -> TestTree
-responseUpdateDistributionBundle =
-  res
+responseUpdateDistributionBundle = res
     "UpdateDistributionBundleResponse"
     "fixture/UpdateDistributionBundleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateDistributionBundle)
 
 responseGetRelationalDatabaseSnapshots :: GetRelationalDatabaseSnapshotsResponse -> TestTree
-responseGetRelationalDatabaseSnapshots =
-  res
+responseGetRelationalDatabaseSnapshots = res
     "GetRelationalDatabaseSnapshotsResponse"
     "fixture/GetRelationalDatabaseSnapshotsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetRelationalDatabaseSnapshots)
 
 responseAttachStaticIp :: AttachStaticIpResponse -> TestTree
-responseAttachStaticIp =
-  res
+responseAttachStaticIp = res
     "AttachStaticIpResponse"
     "fixture/AttachStaticIpResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AttachStaticIp)
 
 responseGetRelationalDatabaseParameters :: GetRelationalDatabaseParametersResponse -> TestTree
-responseGetRelationalDatabaseParameters =
-  res
+responseGetRelationalDatabaseParameters = res
     "GetRelationalDatabaseParametersResponse"
     "fixture/GetRelationalDatabaseParametersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetRelationalDatabaseParameters)
 
 responseDetachDisk :: DetachDiskResponse -> TestTree
-responseDetachDisk =
-  res
+responseDetachDisk = res
     "DetachDiskResponse"
     "fixture/DetachDiskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DetachDisk)
 
 responseGetContactMethods :: GetContactMethodsResponse -> TestTree
-responseGetContactMethods =
-  res
+responseGetContactMethods = res
     "GetContactMethodsResponse"
     "fixture/GetContactMethodsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetContactMethods)
 
 responseDownloadDefaultKeyPair :: DownloadDefaultKeyPairResponse -> TestTree
-responseDownloadDefaultKeyPair =
-  res
+responseDownloadDefaultKeyPair = res
     "DownloadDefaultKeyPairResponse"
     "fixture/DownloadDefaultKeyPairResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DownloadDefaultKeyPair)
 
 responseDeleteLoadBalancerTlsCertificate :: DeleteLoadBalancerTlsCertificateResponse -> TestTree
-responseDeleteLoadBalancerTlsCertificate =
-  res
+responseDeleteLoadBalancerTlsCertificate = res
     "DeleteLoadBalancerTlsCertificateResponse"
     "fixture/DeleteLoadBalancerTlsCertificateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteLoadBalancerTlsCertificate)
 
 responseTestAlarm :: TestAlarmResponse -> TestTree
-responseTestAlarm =
-  res
+responseTestAlarm = res
     "TestAlarmResponse"
     "fixture/TestAlarmResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TestAlarm)
 
 responseGetDomains :: GetDomainsResponse -> TestTree
-responseGetDomains =
-  res
+responseGetDomains = res
     "GetDomainsResponse"
     "fixture/GetDomainsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetDomains)
 
 responseGetContainerImages :: GetContainerImagesResponse -> TestTree
-responseGetContainerImages =
-  res
+responseGetContainerImages = res
     "GetContainerImagesResponse"
     "fixture/GetContainerImagesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetContainerImages)
 
 responseUpdateRelationalDatabaseParameters :: UpdateRelationalDatabaseParametersResponse -> TestTree
-responseUpdateRelationalDatabaseParameters =
-  res
+responseUpdateRelationalDatabaseParameters = res
     "UpdateRelationalDatabaseParametersResponse"
     "fixture/UpdateRelationalDatabaseParametersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateRelationalDatabaseParameters)
 
 responseCreateLoadBalancerTlsCertificate :: CreateLoadBalancerTlsCertificateResponse -> TestTree
-responseCreateLoadBalancerTlsCertificate =
-  res
+responseCreateLoadBalancerTlsCertificate = res
     "CreateLoadBalancerTlsCertificateResponse"
     "fixture/CreateLoadBalancerTlsCertificateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateLoadBalancerTlsCertificate)
 
 responseCreateDomainEntry :: CreateDomainEntryResponse -> TestTree
-responseCreateDomainEntry =
-  res
+responseCreateDomainEntry = res
     "CreateDomainEntryResponse"
     "fixture/CreateDomainEntryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateDomainEntry)
 
 responseGetContainerServicePowers :: GetContainerServicePowersResponse -> TestTree
-responseGetContainerServicePowers =
-  res
+responseGetContainerServicePowers = res
     "GetContainerServicePowersResponse"
     "fixture/GetContainerServicePowersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetContainerServicePowers)
 
 responseImportKeyPair :: ImportKeyPairResponse -> TestTree
-responseImportKeyPair =
-  res
+responseImportKeyPair = res
     "ImportKeyPairResponse"
     "fixture/ImportKeyPairResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ImportKeyPair)
 
 responseGetInstanceSnapshots :: GetInstanceSnapshotsResponse -> TestTree
-responseGetInstanceSnapshots =
-  res
+responseGetInstanceSnapshots = res
     "GetInstanceSnapshotsResponse"
     "fixture/GetInstanceSnapshotsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetInstanceSnapshots)
 
 responseExportSnapshot :: ExportSnapshotResponse -> TestTree
-responseExportSnapshot =
-  res
+responseExportSnapshot = res
     "ExportSnapshotResponse"
     "fixture/ExportSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ExportSnapshot)
 
 responseCreateRelationalDatabaseFromSnapshot :: CreateRelationalDatabaseFromSnapshotResponse -> TestTree
-responseCreateRelationalDatabaseFromSnapshot =
-  res
+responseCreateRelationalDatabaseFromSnapshot = res
     "CreateRelationalDatabaseFromSnapshotResponse"
     "fixture/CreateRelationalDatabaseFromSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateRelationalDatabaseFromSnapshot)
 
 responseCreateCloudFormationStack :: CreateCloudFormationStackResponse -> TestTree
-responseCreateCloudFormationStack =
-  res
+responseCreateCloudFormationStack = res
     "CreateCloudFormationStackResponse"
     "fixture/CreateCloudFormationStackResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateCloudFormationStack)
 
 responseGetExportSnapshotRecords :: GetExportSnapshotRecordsResponse -> TestTree
-responseGetExportSnapshotRecords =
-  res
+responseGetExportSnapshotRecords = res
     "GetExportSnapshotRecordsResponse"
     "fixture/GetExportSnapshotRecordsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetExportSnapshotRecords)
 
 responseReleaseStaticIp :: ReleaseStaticIpResponse -> TestTree
-responseReleaseStaticIp =
-  res
+responseReleaseStaticIp = res
     "ReleaseStaticIpResponse"
     "fixture/ReleaseStaticIpResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ReleaseStaticIp)
 
 responseDeleteInstance :: DeleteInstanceResponse -> TestTree
-responseDeleteInstance =
-  res
+responseDeleteInstance = res
     "DeleteInstanceResponse"
     "fixture/DeleteInstanceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteInstance)
 
 responseCreateContainerServiceRegistryLogin :: CreateContainerServiceRegistryLoginResponse -> TestTree
-responseCreateContainerServiceRegistryLogin =
-  res
+responseCreateContainerServiceRegistryLogin = res
     "CreateContainerServiceRegistryLoginResponse"
     "fixture/CreateContainerServiceRegistryLoginResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateContainerServiceRegistryLogin)
 
 responseGetCertificates :: GetCertificatesResponse -> TestTree
-responseGetCertificates =
-  res
+responseGetCertificates = res
     "GetCertificatesResponse"
     "fixture/GetCertificatesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetCertificates)
 
 responseGetContainerServiceMetricData :: GetContainerServiceMetricDataResponse -> TestTree
-responseGetContainerServiceMetricData =
-  res
+responseGetContainerServiceMetricData = res
     "GetContainerServiceMetricDataResponse"
     "fixture/GetContainerServiceMetricDataResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetContainerServiceMetricData)
 
 responseGetDistributionMetricData :: GetDistributionMetricDataResponse -> TestTree
-responseGetDistributionMetricData =
-  res
+responseGetDistributionMetricData = res
     "GetDistributionMetricDataResponse"
     "fixture/GetDistributionMetricDataResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetDistributionMetricData)
 
 responseRebootInstance :: RebootInstanceResponse -> TestTree
-responseRebootInstance =
-  res
+responseRebootInstance = res
     "RebootInstanceResponse"
     "fixture/RebootInstanceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RebootInstance)
 
 responseDeleteLoadBalancer :: DeleteLoadBalancerResponse -> TestTree
-responseDeleteLoadBalancer =
-  res
+responseDeleteLoadBalancer = res
     "DeleteLoadBalancerResponse"
     "fixture/DeleteLoadBalancerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteLoadBalancer)
 
 responseCreateDiskFromSnapshot :: CreateDiskFromSnapshotResponse -> TestTree
-responseCreateDiskFromSnapshot =
-  res
+responseCreateDiskFromSnapshot = res
     "CreateDiskFromSnapshotResponse"
     "fixture/CreateDiskFromSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateDiskFromSnapshot)
 
 responseGetRelationalDatabases :: GetRelationalDatabasesResponse -> TestTree
-responseGetRelationalDatabases =
-  res
+responseGetRelationalDatabases = res
     "GetRelationalDatabasesResponse"
     "fixture/GetRelationalDatabasesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetRelationalDatabases)
 
 responseGetInstanceSnapshot :: GetInstanceSnapshotResponse -> TestTree
-responseGetInstanceSnapshot =
-  res
+responseGetInstanceSnapshot = res
     "GetInstanceSnapshotResponse"
     "fixture/GetInstanceSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetInstanceSnapshot)
 
 responseGetRelationalDatabaseLogEvents :: GetRelationalDatabaseLogEventsResponse -> TestTree
-responseGetRelationalDatabaseLogEvents =
-  res
+responseGetRelationalDatabaseLogEvents = res
     "GetRelationalDatabaseLogEventsResponse"
     "fixture/GetRelationalDatabaseLogEventsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetRelationalDatabaseLogEvents)
 
 responseCreateContactMethod :: CreateContactMethodResponse -> TestTree
-responseCreateContactMethod =
-  res
+responseCreateContactMethod = res
     "CreateContactMethodResponse"
     "fixture/CreateContactMethodResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateContactMethod)
 
 responseGetRelationalDatabaseLogStreams :: GetRelationalDatabaseLogStreamsResponse -> TestTree
-responseGetRelationalDatabaseLogStreams =
-  res
+responseGetRelationalDatabaseLogStreams = res
     "GetRelationalDatabaseLogStreamsResponse"
     "fixture/GetRelationalDatabaseLogStreamsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetRelationalDatabaseLogStreams)
 
 responseGetDomain :: GetDomainResponse -> TestTree
-responseGetDomain =
-  res
+responseGetDomain = res
     "GetDomainResponse"
     "fixture/GetDomainResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetDomain)
 
 responseGetAutoSnapshots :: GetAutoSnapshotsResponse -> TestTree
-responseGetAutoSnapshots =
-  res
+responseGetAutoSnapshots = res
     "GetAutoSnapshotsResponse"
     "fixture/GetAutoSnapshotsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetAutoSnapshots)
 
 responseGetActiveNames :: GetActiveNamesResponse -> TestTree
-responseGetActiveNames =
-  res
+responseGetActiveNames = res
     "GetActiveNamesResponse"
     "fixture/GetActiveNamesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetActiveNames)
 
 responseDeleteContactMethod :: DeleteContactMethodResponse -> TestTree
-responseDeleteContactMethod =
-  res
+responseDeleteContactMethod = res
     "DeleteContactMethodResponse"
     "fixture/DeleteContactMethodResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteContactMethod)
 
 responseCreateDistribution :: CreateDistributionResponse -> TestTree
-responseCreateDistribution =
-  res
+responseCreateDistribution = res
     "CreateDistributionResponse"
     "fixture/CreateDistributionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateDistribution)
 
 responseStopRelationalDatabase :: StopRelationalDatabaseResponse -> TestTree
-responseStopRelationalDatabase =
-  res
+responseStopRelationalDatabase = res
     "StopRelationalDatabaseResponse"
     "fixture/StopRelationalDatabaseResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StopRelationalDatabase)
 
 responseCreateRelationalDatabaseSnapshot :: CreateRelationalDatabaseSnapshotResponse -> TestTree
-responseCreateRelationalDatabaseSnapshot =
-  res
+responseCreateRelationalDatabaseSnapshot = res
     "CreateRelationalDatabaseSnapshotResponse"
     "fixture/CreateRelationalDatabaseSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateRelationalDatabaseSnapshot)
 
 responseDetachCertificateFromDistribution :: DetachCertificateFromDistributionResponse -> TestTree
-responseDetachCertificateFromDistribution =
-  res
+responseDetachCertificateFromDistribution = res
     "DetachCertificateFromDistributionResponse"
     "fixture/DetachCertificateFromDistributionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DetachCertificateFromDistribution)
 
 responseCreateContainerService :: CreateContainerServiceResponse -> TestTree
-responseCreateContainerService =
-  res
+responseCreateContainerService = res
     "CreateContainerServiceResponse"
     "fixture/CreateContainerServiceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateContainerService)
 
 responseGetInstanceAccessDetails :: GetInstanceAccessDetailsResponse -> TestTree
-responseGetInstanceAccessDetails =
-  res
+responseGetInstanceAccessDetails = res
     "GetInstanceAccessDetailsResponse"
     "fixture/GetInstanceAccessDetailsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetInstanceAccessDetails)
 
 responseEnableAddOn :: EnableAddOnResponse -> TestTree
-responseEnableAddOn =
-  res
+responseEnableAddOn = res
     "EnableAddOnResponse"
     "fixture/EnableAddOnResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy EnableAddOn)
 
 responseStopInstance :: StopInstanceResponse -> TestTree
-responseStopInstance =
-  res
+responseStopInstance = res
     "StopInstanceResponse"
     "fixture/StopInstanceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StopInstance)
 
 responseDetachInstancesFromLoadBalancer :: DetachInstancesFromLoadBalancerResponse -> TestTree
-responseDetachInstancesFromLoadBalancer =
-  res
+responseDetachInstancesFromLoadBalancer = res
     "DetachInstancesFromLoadBalancerResponse"
     "fixture/DetachInstancesFromLoadBalancerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DetachInstancesFromLoadBalancer)
 
 responseRegisterContainerImage :: RegisterContainerImageResponse -> TestTree
-responseRegisterContainerImage =
-  res
+responseRegisterContainerImage = res
     "RegisterContainerImageResponse"
     "fixture/RegisterContainerImageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RegisterContainerImage)
 
 responseCreateCertificate :: CreateCertificateResponse -> TestTree
-responseCreateCertificate =
-  res
+responseCreateCertificate = res
     "CreateCertificateResponse"
     "fixture/CreateCertificateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateCertificate)
 
 responseCreateInstanceSnapshot :: CreateInstanceSnapshotResponse -> TestTree
-responseCreateInstanceSnapshot =
-  res
+responseCreateInstanceSnapshot = res
     "CreateInstanceSnapshotResponse"
     "fixture/CreateInstanceSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateInstanceSnapshot)
 
 responseCopySnapshot :: CopySnapshotResponse -> TestTree
-responseCopySnapshot =
-  res
+responseCopySnapshot = res
     "CopySnapshotResponse"
     "fixture/CopySnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CopySnapshot)
 
 responseGetRelationalDatabaseSnapshot :: GetRelationalDatabaseSnapshotResponse -> TestTree
-responseGetRelationalDatabaseSnapshot =
-  res
+responseGetRelationalDatabaseSnapshot = res
     "GetRelationalDatabaseSnapshotResponse"
     "fixture/GetRelationalDatabaseSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetRelationalDatabaseSnapshot)
 
 responseIsVpcPeered :: IsVpcPeeredResponse -> TestTree
-responseIsVpcPeered =
-  res
+responseIsVpcPeered = res
     "IsVpcPeeredResponse"
     "fixture/IsVpcPeeredResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy IsVpcPeered)
 
 responseGetStaticIps :: GetStaticIpsResponse -> TestTree
-responseGetStaticIps =
-  res
+responseGetStaticIps = res
     "GetStaticIpsResponse"
     "fixture/GetStaticIpsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetStaticIps)
 
 responseUnpeerVpc :: UnpeerVpcResponse -> TestTree
-responseUnpeerVpc =
-  res
+responseUnpeerVpc = res
     "UnpeerVpcResponse"
     "fixture/UnpeerVpcResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UnpeerVpc)
 
 responseDeleteDisk :: DeleteDiskResponse -> TestTree
-responseDeleteDisk =
-  res
+responseDeleteDisk = res
     "DeleteDiskResponse"
     "fixture/DeleteDiskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteDisk)
 
 responseCreateInstancesFromSnapshot :: CreateInstancesFromSnapshotResponse -> TestTree
-responseCreateInstancesFromSnapshot =
-  res
+responseCreateInstancesFromSnapshot = res
     "CreateInstancesFromSnapshotResponse"
     "fixture/CreateInstancesFromSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateInstancesFromSnapshot)
 
 responseGetCloudFormationStackRecords :: GetCloudFormationStackRecordsResponse -> TestTree
-responseGetCloudFormationStackRecords =
-  res
+responseGetCloudFormationStackRecords = res
     "GetCloudFormationStackRecordsResponse"
     "fixture/GetCloudFormationStackRecordsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetCloudFormationStackRecords)
 
 responseCreateDomain :: CreateDomainResponse -> TestTree
-responseCreateDomain =
-  res
+responseCreateDomain = res
     "CreateDomainResponse"
     "fixture/CreateDomainResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateDomain)
 
 responseGetRelationalDatabaseBlueprints :: GetRelationalDatabaseBlueprintsResponse -> TestTree
-responseGetRelationalDatabaseBlueprints =
-  res
+responseGetRelationalDatabaseBlueprints = res
     "GetRelationalDatabaseBlueprintsResponse"
     "fixture/GetRelationalDatabaseBlueprintsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetRelationalDatabaseBlueprints)
 
 responseDeleteCertificate :: DeleteCertificateResponse -> TestTree
-responseDeleteCertificate =
-  res
+responseDeleteCertificate = res
     "DeleteCertificateResponse"
     "fixture/DeleteCertificateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteCertificate)
 
 responseGetDiskSnapshots :: GetDiskSnapshotsResponse -> TestTree
-responseGetDiskSnapshots =
-  res
+responseGetDiskSnapshots = res
     "GetDiskSnapshotsResponse"
     "fixture/GetDiskSnapshotsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetDiskSnapshots)
 
 responseGetContainerAPIMetadata :: GetContainerAPIMetadataResponse -> TestTree
-responseGetContainerAPIMetadata =
-  res
+responseGetContainerAPIMetadata = res
     "GetContainerAPIMetadataResponse"
     "fixture/GetContainerAPIMetadataResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetContainerAPIMetadata)
 
 responsePeerVpc :: PeerVpcResponse -> TestTree
-responsePeerVpc =
-  res
+responsePeerVpc = res
     "PeerVpcResponse"
     "fixture/PeerVpcResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PeerVpc)
 
 responseGetRelationalDatabaseBundles :: GetRelationalDatabaseBundlesResponse -> TestTree
-responseGetRelationalDatabaseBundles =
-  res
+responseGetRelationalDatabaseBundles = res
     "GetRelationalDatabaseBundlesResponse"
     "fixture/GetRelationalDatabaseBundlesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetRelationalDatabaseBundles)
 
 responseGetLoadBalancers :: GetLoadBalancersResponse -> TestTree
-responseGetLoadBalancers =
-  res
+responseGetLoadBalancers = res
     "GetLoadBalancersResponse"
     "fixture/GetLoadBalancersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetLoadBalancers)
 
 responseRebootRelationalDatabase :: RebootRelationalDatabaseResponse -> TestTree
-responseRebootRelationalDatabase =
-  res
+responseRebootRelationalDatabase = res
     "RebootRelationalDatabaseResponse"
     "fixture/RebootRelationalDatabaseResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RebootRelationalDatabase)
 
 responseAttachLoadBalancerTlsCertificate :: AttachLoadBalancerTlsCertificateResponse -> TestTree
-responseAttachLoadBalancerTlsCertificate =
-  res
+responseAttachLoadBalancerTlsCertificate = res
     "AttachLoadBalancerTlsCertificateResponse"
     "fixture/AttachLoadBalancerTlsCertificateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AttachLoadBalancerTlsCertificate)
 
 responseUpdateLoadBalancerAttribute :: UpdateLoadBalancerAttributeResponse -> TestTree
-responseUpdateLoadBalancerAttribute =
-  res
+responseUpdateLoadBalancerAttribute = res
     "UpdateLoadBalancerAttributeResponse"
     "fixture/UpdateLoadBalancerAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateLoadBalancerAttribute)
 
 responseDeleteRelationalDatabase :: DeleteRelationalDatabaseResponse -> TestTree
-responseDeleteRelationalDatabase =
-  res
+responseDeleteRelationalDatabase = res
     "DeleteRelationalDatabaseResponse"
     "fixture/DeleteRelationalDatabaseResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteRelationalDatabase)
 
 responseGetDiskSnapshot :: GetDiskSnapshotResponse -> TestTree
-responseGetDiskSnapshot =
-  res
+responseGetDiskSnapshot = res
     "GetDiskSnapshotResponse"
     "fixture/GetDiskSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetDiskSnapshot)
 
 responseUpdateRelationalDatabase :: UpdateRelationalDatabaseResponse -> TestTree
-responseUpdateRelationalDatabase =
-  res
+responseUpdateRelationalDatabase = res
     "UpdateRelationalDatabaseResponse"
     "fixture/UpdateRelationalDatabaseResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateRelationalDatabase)
 
 responseGetStaticIp :: GetStaticIpResponse -> TestTree
-responseGetStaticIp =
-  res
+responseGetStaticIp = res
     "GetStaticIpResponse"
     "fixture/GetStaticIpResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetStaticIp)
 
 responseGetRelationalDatabaseMasterUserPassword :: GetRelationalDatabaseMasterUserPasswordResponse -> TestTree
-responseGetRelationalDatabaseMasterUserPassword =
-  res
+responseGetRelationalDatabaseMasterUserPassword = res
     "GetRelationalDatabaseMasterUserPasswordResponse"
     "fixture/GetRelationalDatabaseMasterUserPasswordResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetRelationalDatabaseMasterUserPassword)
 
 responseGetBlueprints :: GetBlueprintsResponse -> TestTree
-responseGetBlueprints =
-  res
+responseGetBlueprints = res
     "GetBlueprintsResponse"
     "fixture/GetBlueprintsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetBlueprints)
 
 responsePutAlarm :: PutAlarmResponse -> TestTree
-responsePutAlarm =
-  res
+responsePutAlarm = res
     "PutAlarmResponse"
     "fixture/PutAlarmResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutAlarm)
 
 responseDeleteAlarm :: DeleteAlarmResponse -> TestTree
-responseDeleteAlarm =
-  res
+responseDeleteAlarm = res
     "DeleteAlarmResponse"
     "fixture/DeleteAlarmResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteAlarm)
 
 responseGetInstancePortStates :: GetInstancePortStatesResponse -> TestTree
-responseGetInstancePortStates =
-  res
+responseGetInstancePortStates = res
     "GetInstancePortStatesResponse"
     "fixture/GetInstancePortStatesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetInstancePortStates)
 
 responseDeleteAutoSnapshot :: DeleteAutoSnapshotResponse -> TestTree
-responseDeleteAutoSnapshot =
-  res
+responseDeleteAutoSnapshot = res
     "DeleteAutoSnapshotResponse"
     "fixture/DeleteAutoSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteAutoSnapshot)
 
 responseCreateRelationalDatabase :: CreateRelationalDatabaseResponse -> TestTree
-responseCreateRelationalDatabase =
-  res
+responseCreateRelationalDatabase = res
     "CreateRelationalDatabaseResponse"
     "fixture/CreateRelationalDatabaseResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateRelationalDatabase)
 
 responseSendContactMethodVerification :: SendContactMethodVerificationResponse -> TestTree
-responseSendContactMethodVerification =
-  res
+responseSendContactMethodVerification = res
     "SendContactMethodVerificationResponse"
     "fixture/SendContactMethodVerificationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SendContactMethodVerification)
 
 responseGetContainerLog :: GetContainerLogResponse -> TestTree
-responseGetContainerLog =
-  res
+responseGetContainerLog = res
     "GetContainerLogResponse"
     "fixture/GetContainerLogResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetContainerLog)
 
 responseCreateDiskSnapshot :: CreateDiskSnapshotResponse -> TestTree
-responseCreateDiskSnapshot =
-  res
+responseCreateDiskSnapshot = res
     "CreateDiskSnapshotResponse"
     "fixture/CreateDiskSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateDiskSnapshot)
 
 responseDeleteDomainEntry :: DeleteDomainEntryResponse -> TestTree
-responseDeleteDomainEntry =
-  res
+responseDeleteDomainEntry = res
     "DeleteDomainEntryResponse"
     "fixture/DeleteDomainEntryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteDomainEntry)
 
 responseUpdateDomainEntry :: UpdateDomainEntryResponse -> TestTree
-responseUpdateDomainEntry =
-  res
+responseUpdateDomainEntry = res
     "UpdateDomainEntryResponse"
     "fixture/UpdateDomainEntryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateDomainEntry)
 
 responseGetRegions :: GetRegionsResponse -> TestTree
-responseGetRegions =
-  res
+responseGetRegions = res
     "GetRegionsResponse"
     "fixture/GetRegionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetRegions)
 
 responseDeleteDiskSnapshot :: DeleteDiskSnapshotResponse -> TestTree
-responseDeleteDiskSnapshot =
-  res
+responseDeleteDiskSnapshot = res
     "DeleteDiskSnapshotResponse"
     "fixture/DeleteDiskSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteDiskSnapshot)
 
 responseGetLoadBalancerMetricData :: GetLoadBalancerMetricDataResponse -> TestTree
-responseGetLoadBalancerMetricData =
-  res
+responseGetLoadBalancerMetricData = res
     "GetLoadBalancerMetricDataResponse"
     "fixture/GetLoadBalancerMetricDataResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetLoadBalancerMetricData)
 
 responseGetInstanceState :: GetInstanceStateResponse -> TestTree
-responseGetInstanceState =
-  res
+responseGetInstanceState = res
     "GetInstanceStateResponse"
     "fixture/GetInstanceStateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetInstanceState)
 
 responseGetKeyPairs :: GetKeyPairsResponse -> TestTree
-responseGetKeyPairs =
-  res
+responseGetKeyPairs = res
     "GetKeyPairsResponse"
     "fixture/GetKeyPairsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetKeyPairs)
 
 responseGetOperations :: GetOperationsResponse -> TestTree
-responseGetOperations =
-  res
+responseGetOperations = res
     "GetOperationsResponse"
     "fixture/GetOperationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetOperations)
 
 responseGetDisks :: GetDisksResponse -> TestTree
-responseGetDisks =
-  res
+responseGetDisks = res
     "GetDisksResponse"
     "fixture/GetDisksResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetDisks)
 
 responseGetRelationalDatabase :: GetRelationalDatabaseResponse -> TestTree
-responseGetRelationalDatabase =
-  res
+responseGetRelationalDatabase = res
     "GetRelationalDatabaseResponse"
     "fixture/GetRelationalDatabaseResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetRelationalDatabase)
 
 responseAttachInstancesToLoadBalancer :: AttachInstancesToLoadBalancerResponse -> TestTree
-responseAttachInstancesToLoadBalancer =
-  res
+responseAttachInstancesToLoadBalancer = res
     "AttachInstancesToLoadBalancerResponse"
     "fixture/AttachInstancesToLoadBalancerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AttachInstancesToLoadBalancer)
 
 responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
+responseTagResource = res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseGetOperation :: GetOperationResponse -> TestTree
-responseGetOperation =
-  res
+responseGetOperation = res
     "GetOperationResponse"
     "fixture/GetOperationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetOperation)
 
 responseResetDistributionCache :: ResetDistributionCacheResponse -> TestTree
-responseResetDistributionCache =
-  res
+responseResetDistributionCache = res
     "ResetDistributionCacheResponse"
     "fixture/ResetDistributionCacheResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ResetDistributionCache)
 
 responseUpdateDistribution :: UpdateDistributionResponse -> TestTree
-responseUpdateDistribution =
-  res
+responseUpdateDistribution = res
     "UpdateDistributionResponse"
     "fixture/UpdateDistributionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateDistribution)
 
 responseDeleteDistribution :: DeleteDistributionResponse -> TestTree
-responseDeleteDistribution =
-  res
+responseDeleteDistribution = res
     "DeleteDistributionResponse"
     "fixture/DeleteDistributionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteDistribution)
 
 responseUpdateContainerService :: UpdateContainerServiceResponse -> TestTree
-responseUpdateContainerService =
-  res
+responseUpdateContainerService = res
     "UpdateContainerServiceResponse"
     "fixture/UpdateContainerServiceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateContainerService)
 
 responseDeleteRelationalDatabaseSnapshot :: DeleteRelationalDatabaseSnapshotResponse -> TestTree
-responseDeleteRelationalDatabaseSnapshot =
-  res
+responseDeleteRelationalDatabaseSnapshot = res
     "DeleteRelationalDatabaseSnapshotResponse"
     "fixture/DeleteRelationalDatabaseSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteRelationalDatabaseSnapshot)
 
 responseDeleteContainerService :: DeleteContainerServiceResponse -> TestTree
-responseDeleteContainerService =
-  res
+responseDeleteContainerService = res
     "DeleteContainerServiceResponse"
     "fixture/DeleteContainerServiceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteContainerService)
 
 responseGetInstanceMetricData :: GetInstanceMetricDataResponse -> TestTree
-responseGetInstanceMetricData =
-  res
+responseGetInstanceMetricData = res
     "GetInstanceMetricDataResponse"
     "fixture/GetInstanceMetricDataResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetInstanceMetricData)
 
 responseGetKeyPair :: GetKeyPairResponse -> TestTree
-responseGetKeyPair =
-  res
+responseGetKeyPair = res
     "GetKeyPairResponse"
     "fixture/GetKeyPairResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetKeyPair)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
+responseUntagResource = res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responsePutInstancePublicPorts :: PutInstancePublicPortsResponse -> TestTree
-responsePutInstancePublicPorts =
-  res
+responsePutInstancePublicPorts = res
     "PutInstancePublicPortsResponse"
     "fixture/PutInstancePublicPortsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutInstancePublicPorts)
 
 responseGetDistributionBundles :: GetDistributionBundlesResponse -> TestTree
-responseGetDistributionBundles =
-  res
+responseGetDistributionBundles = res
     "GetDistributionBundlesResponse"
     "fixture/GetDistributionBundlesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetDistributionBundles)
 
 responseGetDisk :: GetDiskResponse -> TestTree
-responseGetDisk =
-  res
+responseGetDisk = res
     "GetDiskResponse"
     "fixture/GetDiskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetDisk)
 
 responseGetDistributionLatestCacheReset :: GetDistributionLatestCacheResetResponse -> TestTree
-responseGetDistributionLatestCacheReset =
-  res
+responseGetDistributionLatestCacheReset = res
     "GetDistributionLatestCacheResetResponse"
     "fixture/GetDistributionLatestCacheResetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetDistributionLatestCacheReset)
 
 responseCreateLoadBalancer :: CreateLoadBalancerResponse -> TestTree
-responseCreateLoadBalancer =
-  res
+responseCreateLoadBalancer = res
     "CreateLoadBalancerResponse"
     "fixture/CreateLoadBalancerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateLoadBalancer)
 
 responseGetContainerServiceDeployments :: GetContainerServiceDeploymentsResponse -> TestTree
-responseGetContainerServiceDeployments =
-  res
+responseGetContainerServiceDeployments = res
     "GetContainerServiceDeploymentsResponse"
     "fixture/GetContainerServiceDeploymentsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetContainerServiceDeployments)
 
 responseDeleteKnownHostKeys :: DeleteKnownHostKeysResponse -> TestTree
-responseDeleteKnownHostKeys =
-  res
+responseDeleteKnownHostKeys = res
     "DeleteKnownHostKeysResponse"
     "fixture/DeleteKnownHostKeysResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteKnownHostKeys)
 
 responseAttachDisk :: AttachDiskResponse -> TestTree
-responseAttachDisk =
-  res
+responseAttachDisk = res
     "AttachDiskResponse"
     "fixture/AttachDiskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AttachDisk)
 
 responseDetachStaticIp :: DetachStaticIpResponse -> TestTree
-responseDetachStaticIp =
-  res
+responseDetachStaticIp = res
     "DetachStaticIpResponse"
     "fixture/DetachStaticIpResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DetachStaticIp)
 
 responseCreateInstances :: CreateInstancesResponse -> TestTree
-responseCreateInstances =
-  res
+responseCreateInstances = res
     "CreateInstancesResponse"
     "fixture/CreateInstancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateInstances)
 
 responseGetAlarms :: GetAlarmsResponse -> TestTree
-responseGetAlarms =
-  res
+responseGetAlarms = res
     "GetAlarmsResponse"
     "fixture/GetAlarmsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetAlarms)
 
 responseOpenInstancePublicPorts :: OpenInstancePublicPortsResponse -> TestTree
-responseOpenInstancePublicPorts =
-  res
+responseOpenInstancePublicPorts = res
     "OpenInstancePublicPortsResponse"
     "fixture/OpenInstancePublicPortsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy OpenInstancePublicPorts)
 
 responseStartRelationalDatabase :: StartRelationalDatabaseResponse -> TestTree
-responseStartRelationalDatabase =
-  res
+responseStartRelationalDatabase = res
     "StartRelationalDatabaseResponse"
     "fixture/StartRelationalDatabaseResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartRelationalDatabase)
 
 responseDeleteContainerImage :: DeleteContainerImageResponse -> TestTree
-responseDeleteContainerImage =
-  res
+responseDeleteContainerImage = res
     "DeleteContainerImageResponse"
     "fixture/DeleteContainerImageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteContainerImage)
 
 responseGetBundles :: GetBundlesResponse -> TestTree
-responseGetBundles =
-  res
+responseGetBundles = res
     "GetBundlesResponse"
     "fixture/GetBundlesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetBundles)
 
 responseDeleteDomain :: DeleteDomainResponse -> TestTree
-responseDeleteDomain =
-  res
+responseDeleteDomain = res
     "DeleteDomainResponse"
     "fixture/DeleteDomainResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteDomain)
 
 responseGetLoadBalancerTlsCertificates :: GetLoadBalancerTlsCertificatesResponse -> TestTree
-responseGetLoadBalancerTlsCertificates =
-  res
+responseGetLoadBalancerTlsCertificates = res
     "GetLoadBalancerTlsCertificatesResponse"
     "fixture/GetLoadBalancerTlsCertificatesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetLoadBalancerTlsCertificates)
 
 responseCreateDisk :: CreateDiskResponse -> TestTree
-responseCreateDisk =
-  res
+responseCreateDisk = res
     "CreateDiskResponse"
     "fixture/CreateDiskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateDisk)
 
 responseGetOperationsForResource :: GetOperationsForResourceResponse -> TestTree
-responseGetOperationsForResource =
-  res
+responseGetOperationsForResource = res
     "GetOperationsForResourceResponse"
     "fixture/GetOperationsForResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetOperationsForResource)
 
 responseCreateKeyPair :: CreateKeyPairResponse -> TestTree
-responseCreateKeyPair =
-  res
+responseCreateKeyPair = res
     "CreateKeyPairResponse"
     "fixture/CreateKeyPairResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateKeyPair)
 
 responseStartInstance :: StartInstanceResponse -> TestTree
-responseStartInstance =
-  res
+responseStartInstance = res
     "StartInstanceResponse"
     "fixture/StartInstanceResponse.proto"
     mkServiceConfig

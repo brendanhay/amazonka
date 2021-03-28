@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,46 +10,28 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.EC2.Types.PlacementStrategy
   ( PlacementStrategy
-      ( PlacementStrategy',
-        PlacementStrategyCluster,
-        PlacementStrategySpread,
-        PlacementStrategyPartition,
-        fromPlacementStrategy
-      ),
-  )
-where
+    ( PlacementStrategy'
+    , PlacementStrategyCluster
+    , PlacementStrategySpread
+    , PlacementStrategyPartition
+    , fromPlacementStrategy
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype PlacementStrategy = PlacementStrategy'
-  { fromPlacementStrategy ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype PlacementStrategy = PlacementStrategy'{fromPlacementStrategy
+                                               :: Core.Text}
+                              deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                              Core.Generic)
+                              deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                Core.ToText, Core.FromText, Core.ToByteString,
+                                                Core.ToQuery, Core.ToHeader)
 
 pattern PlacementStrategyCluster :: PlacementStrategy
 pattern PlacementStrategyCluster = PlacementStrategy' "cluster"
@@ -60,9 +42,11 @@ pattern PlacementStrategySpread = PlacementStrategy' "spread"
 pattern PlacementStrategyPartition :: PlacementStrategy
 pattern PlacementStrategyPartition = PlacementStrategy' "partition"
 
-{-# COMPLETE
+{-# COMPLETE 
   PlacementStrategyCluster,
+
   PlacementStrategySpread,
+
   PlacementStrategyPartition,
   PlacementStrategy'
   #-}

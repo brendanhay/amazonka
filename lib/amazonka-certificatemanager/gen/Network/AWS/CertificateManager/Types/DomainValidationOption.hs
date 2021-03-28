@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CertificateManager.Types.DomainValidationOption
-  ( DomainValidationOption (..),
-
-    -- * Smart constructor
-    mkDomainValidationOption,
-
-    -- * Lenses
-    dvoDomainName,
-    dvoValidationDomain,
-  )
-where
+  ( DomainValidationOption (..)
+  -- * Smart constructor
+  , mkDomainValidationOption
+  -- * Lenses
+  , dvoDomainName
+  , dvoValidationDomain
+  ) where
 
 import qualified Network.AWS.CertificateManager.Types.DomainName as Types
 import qualified Network.AWS.CertificateManager.Types.ValidationDomain as Types
@@ -31,45 +29,46 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkDomainValidationOption' smart constructor.
 data DomainValidationOption = DomainValidationOption'
-  { -- | A fully qualified domain name (FQDN) in the certificate request.
-    domainName :: Types.DomainName,
-    -- | The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the @DomainName@ value or a superdomain of the @DomainName@ value. For example, if you request a certificate for @testing.example.com@ , you can specify @example.com@ for this value. In that case, ACM sends domain validation emails to the following five addresses:
-    --
-    --
-    --     * admin@example.com
-    --
-    --
-    --     * administrator@example.com
-    --
-    --
-    --     * hostmaster@example.com
-    --
-    --
-    --     * postmaster@example.com
-    --
-    --
-    --     * webmaster@example.com
-    validationDomain :: Types.ValidationDomain
+  { domainName :: Types.DomainName
+    -- ^ A fully qualified domain name (FQDN) in the certificate request.
+  , validationDomain :: Types.ValidationDomain
+    -- ^ The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the @DomainName@ value or a superdomain of the @DomainName@ value. For example, if you request a certificate for @testing.example.com@ , you can specify @example.com@ for this value. In that case, ACM sends domain validation emails to the following five addresses:
+--
+--
+--     * admin@example.com
+--
+--
+--     * administrator@example.com
+--
+--
+--     * hostmaster@example.com
+--
+--
+--     * postmaster@example.com
+--
+--
+--     * webmaster@example.com
+--
+--
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DomainValidationOption' value with any optional fields omitted.
-mkDomainValidationOption ::
-  -- | 'domainName'
-  Types.DomainName ->
-  -- | 'validationDomain'
-  Types.ValidationDomain ->
-  DomainValidationOption
-mkDomainValidationOption domainName validationDomain =
-  DomainValidationOption' {domainName, validationDomain}
+mkDomainValidationOption
+    :: Types.DomainName -- ^ 'domainName'
+    -> Types.ValidationDomain -- ^ 'validationDomain'
+    -> DomainValidationOption
+mkDomainValidationOption domainName validationDomain
+  = DomainValidationOption'{domainName, validationDomain}
 
 -- | A fully qualified domain name (FQDN) in the certificate request.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dvoDomainName :: Lens.Lens' DomainValidationOption Types.DomainName
 dvoDomainName = Lens.field @"domainName"
-{-# DEPRECATED dvoDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+{-# INLINEABLE dvoDomainName #-}
+{-# DEPRECATED domainName "Use generic-lens or generic-optics with 'domainName' instead"  #-}
 
 -- | The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the @DomainName@ value or a superdomain of the @DomainName@ value. For example, if you request a certificate for @testing.example.com@ , you can specify @example.com@ for this value. In that case, ACM sends domain validation emails to the following five addresses:
 --
@@ -93,13 +92,12 @@ dvoDomainName = Lens.field @"domainName"
 -- /Note:/ Consider using 'validationDomain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dvoValidationDomain :: Lens.Lens' DomainValidationOption Types.ValidationDomain
 dvoValidationDomain = Lens.field @"validationDomain"
-{-# DEPRECATED dvoValidationDomain "Use generic-lens or generic-optics with 'validationDomain' instead." #-}
+{-# INLINEABLE dvoValidationDomain #-}
+{-# DEPRECATED validationDomain "Use generic-lens or generic-optics with 'validationDomain' instead"  #-}
 
 instance Core.FromJSON DomainValidationOption where
-  toJSON DomainValidationOption {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("DomainName" Core..= domainName),
-            Core.Just ("ValidationDomain" Core..= validationDomain)
-          ]
-      )
+        toJSON DomainValidationOption{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("DomainName" Core..= domainName),
+                  Core.Just ("ValidationDomain" Core..= validationDomain)])

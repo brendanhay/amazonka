@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,24 +17,22 @@
 --
 -- To create a key group, you must specify at least one public key for the key group. After you create a key group, you can reference it from one or more cache behaviors. When you reference a key group in a cache behavior, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with a private key whose corresponding public key is in the key group. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html Serving private content> in the /Amazon CloudFront Developer Guide/ .
 module Network.AWS.CloudFront.CreateKeyGroup
-  ( -- * Creating a request
-    CreateKeyGroup (..),
-    mkCreateKeyGroup,
-
+    (
+    -- * Creating a request
+      CreateKeyGroup (..)
+    , mkCreateKeyGroup
     -- ** Request lenses
-    ckgKeyGroupConfig,
+    , ckgKeyGroupConfig
 
     -- * Destructuring the response
-    CreateKeyGroupResponse (..),
-    mkCreateKeyGroupResponse,
-
+    , CreateKeyGroupResponse (..)
+    , mkCreateKeyGroupResponse
     -- ** Response lenses
-    ckgrrsETag,
-    ckgrrsKeyGroup,
-    ckgrrsLocation,
-    ckgrrsResponseStatus,
-  )
-where
+    , ckgrrsETag
+    , ckgrrsKeyGroup
+    , ckgrrsLocation
+    , ckgrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -44,98 +42,102 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateKeyGroup' smart constructor.
 newtype CreateKeyGroup = CreateKeyGroup'
-  { -- | A key group configuration.
-    keyGroupConfig :: Types.KeyGroupConfig
+  { keyGroupConfig :: Types.KeyGroupConfig
+    -- ^ A key group configuration.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CreateKeyGroup' value with any optional fields omitted.
-mkCreateKeyGroup ::
-  -- | 'keyGroupConfig'
-  Types.KeyGroupConfig ->
-  CreateKeyGroup
-mkCreateKeyGroup keyGroupConfig = CreateKeyGroup' {keyGroupConfig}
+mkCreateKeyGroup
+    :: Types.KeyGroupConfig -- ^ 'keyGroupConfig'
+    -> CreateKeyGroup
+mkCreateKeyGroup keyGroupConfig = CreateKeyGroup'{keyGroupConfig}
 
 -- | A key group configuration.
 --
 -- /Note:/ Consider using 'keyGroupConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ckgKeyGroupConfig :: Lens.Lens' CreateKeyGroup Types.KeyGroupConfig
 ckgKeyGroupConfig = Lens.field @"keyGroupConfig"
-{-# DEPRECATED ckgKeyGroupConfig "Use generic-lens or generic-optics with 'keyGroupConfig' instead." #-}
+{-# INLINEABLE ckgKeyGroupConfig #-}
+{-# DEPRECATED keyGroupConfig "Use generic-lens or generic-optics with 'keyGroupConfig' instead"  #-}
+
+instance Core.ToQuery CreateKeyGroup where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders CreateKeyGroup where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest CreateKeyGroup where
-  type Rs CreateKeyGroup = CreateKeyGroupResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/2020-05-31/key-group",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = Core.toXMLBody x
-      }
-  response =
-    Response.receiveXML
-      ( \s h x ->
-          CreateKeyGroupResponse'
-            Core.<$> (Core.parseHeaderMaybe "ETag" h)
-            Core.<*> (Core.parseXML x)
-            Core.<*> (Core.parseHeaderMaybe "Location" h)
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs CreateKeyGroup = CreateKeyGroupResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST,
+                         Core._rqPath = "/2020-05-31/key-group",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toXMLBody (Core.toXMLDocument x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXML
+              (\ s h x ->
+                 CreateKeyGroupResponse' Core.<$>
+                   (Core.parseHeaderMaybe "ETag" h) Core.<*> Core.parseXML x Core.<*>
+                     Core.parseHeaderMaybe "Location" h
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkCreateKeyGroupResponse' smart constructor.
 data CreateKeyGroupResponse = CreateKeyGroupResponse'
-  { -- | The identifier for this version of the key group.
-    eTag :: Core.Maybe Types.String,
-    -- | The key group that was just created.
-    keyGroup :: Core.Maybe Types.KeyGroup,
-    -- | The URL of the key group.
-    location :: Core.Maybe Types.String,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { eTag :: Core.Maybe Core.Text
+    -- ^ The identifier for this version of the key group.
+  , keyGroup :: Core.Maybe Types.KeyGroup
+    -- ^ The key group that was just created.
+  , location :: Core.Maybe Core.Text
+    -- ^ The URL of the key group.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'CreateKeyGroupResponse' value with any optional fields omitted.
-mkCreateKeyGroupResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  CreateKeyGroupResponse
-mkCreateKeyGroupResponse responseStatus =
-  CreateKeyGroupResponse'
-    { eTag = Core.Nothing,
-      keyGroup = Core.Nothing,
-      location = Core.Nothing,
-      responseStatus
-    }
+mkCreateKeyGroupResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> CreateKeyGroupResponse
+mkCreateKeyGroupResponse responseStatus
+  = CreateKeyGroupResponse'{eTag = Core.Nothing,
+                            keyGroup = Core.Nothing, location = Core.Nothing, responseStatus}
 
 -- | The identifier for this version of the key group.
 --
 -- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckgrrsETag :: Lens.Lens' CreateKeyGroupResponse (Core.Maybe Types.String)
+ckgrrsETag :: Lens.Lens' CreateKeyGroupResponse (Core.Maybe Core.Text)
 ckgrrsETag = Lens.field @"eTag"
-{-# DEPRECATED ckgrrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
+{-# INLINEABLE ckgrrsETag #-}
+{-# DEPRECATED eTag "Use generic-lens or generic-optics with 'eTag' instead"  #-}
 
 -- | The key group that was just created.
 --
 -- /Note:/ Consider using 'keyGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ckgrrsKeyGroup :: Lens.Lens' CreateKeyGroupResponse (Core.Maybe Types.KeyGroup)
 ckgrrsKeyGroup = Lens.field @"keyGroup"
-{-# DEPRECATED ckgrrsKeyGroup "Use generic-lens or generic-optics with 'keyGroup' instead." #-}
+{-# INLINEABLE ckgrrsKeyGroup #-}
+{-# DEPRECATED keyGroup "Use generic-lens or generic-optics with 'keyGroup' instead"  #-}
 
 -- | The URL of the key group.
 --
 -- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckgrrsLocation :: Lens.Lens' CreateKeyGroupResponse (Core.Maybe Types.String)
+ckgrrsLocation :: Lens.Lens' CreateKeyGroupResponse (Core.Maybe Core.Text)
 ckgrrsLocation = Lens.field @"location"
-{-# DEPRECATED ckgrrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+{-# INLINEABLE ckgrrsLocation #-}
+{-# DEPRECATED location "Use generic-lens or generic-optics with 'location' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ckgrrsResponseStatus :: Lens.Lens' CreateKeyGroupResponse Core.Int
 ckgrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED ckgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE ckgrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

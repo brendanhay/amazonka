@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SES.Types.StopAction
-  ( StopAction (..),
-
-    -- * Smart constructor
-    mkStopAction,
-
-    -- * Lenses
-    sScope,
-    sTopicArn,
-  )
-where
+  ( StopAction (..)
+  -- * Smart constructor
+  , mkStopAction
+  -- * Lenses
+  , sScope
+  , sTopicArn
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -33,36 +31,42 @@ import qualified Network.AWS.SES.Types.StopScope as Types
 --
 -- /See:/ 'mkStopAction' smart constructor.
 data StopAction = StopAction'
-  { -- | The scope of the StopAction. The only acceptable value is @RuleSet@ .
-    scope :: Types.StopScope,
-    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
-    topicArn :: Core.Maybe Types.AmazonResourceName
+  { scope :: Types.StopScope
+    -- ^ The scope of the StopAction. The only acceptable value is @RuleSet@ .
+  , topicArn :: Core.Maybe Types.AmazonResourceName
+    -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'StopAction' value with any optional fields omitted.
-mkStopAction ::
-  -- | 'scope'
-  Types.StopScope ->
-  StopAction
-mkStopAction scope = StopAction' {scope, topicArn = Core.Nothing}
+mkStopAction
+    :: Types.StopScope -- ^ 'scope'
+    -> StopAction
+mkStopAction scope = StopAction'{scope, topicArn = Core.Nothing}
 
 -- | The scope of the StopAction. The only acceptable value is @RuleSet@ .
 --
 -- /Note:/ Consider using 'scope' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sScope :: Lens.Lens' StopAction Types.StopScope
 sScope = Lens.field @"scope"
-{-# DEPRECATED sScope "Use generic-lens or generic-optics with 'scope' instead." #-}
+{-# INLINEABLE sScope #-}
+{-# DEPRECATED scope "Use generic-lens or generic-optics with 'scope' instead"  #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 --
 -- /Note:/ Consider using 'topicArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sTopicArn :: Lens.Lens' StopAction (Core.Maybe Types.AmazonResourceName)
 sTopicArn = Lens.field @"topicArn"
-{-# DEPRECATED sTopicArn "Use generic-lens or generic-optics with 'topicArn' instead." #-}
+{-# INLINEABLE sTopicArn #-}
+{-# DEPRECATED topicArn "Use generic-lens or generic-optics with 'topicArn' instead"  #-}
+
+instance Core.ToQuery StopAction where
+        toQuery StopAction{..}
+          = Core.toQueryPair "Scope" scope Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "TopicArn") topicArn
 
 instance Core.FromXML StopAction where
-  parseXML x =
-    StopAction'
-      Core.<$> (x Core..@ "Scope") Core.<*> (x Core..@? "TopicArn")
+        parseXML x
+          = StopAction' Core.<$>
+              (x Core..@ "Scope") Core.<*> x Core..@? "TopicArn"

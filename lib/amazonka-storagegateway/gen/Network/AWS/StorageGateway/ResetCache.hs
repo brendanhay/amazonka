@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,22 +17,20 @@
 --
 -- /Important:/ If the cache disk you are resetting contains data that has not been uploaded to Amazon S3 yet, that data can be lost. After you reset cache disks, there will be no configured cache disks left in the gateway, so you must configure at least one new cache disk for your gateway to function properly.
 module Network.AWS.StorageGateway.ResetCache
-  ( -- * Creating a request
-    ResetCache (..),
-    mkResetCache,
-
+    (
+    -- * Creating a request
+      ResetCache (..)
+    , mkResetCache
     -- ** Request lenses
-    rcGatewayARN,
+    , rcGatewayARN
 
     -- * Destructuring the response
-    ResetCacheResponse (..),
-    mkResetCacheResponse,
-
+    , ResetCacheResponse (..)
+    , mkResetCacheResponse
     -- ** Response lenses
-    rrsGatewayARN,
-    rrsResponseStatus,
-  )
-where
+    , rrsGatewayARN
+    , rrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -48,71 +46,77 @@ newtype ResetCache = ResetCache'
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ResetCache' value with any optional fields omitted.
-mkResetCache ::
-  -- | 'gatewayARN'
-  Types.GatewayARN ->
-  ResetCache
-mkResetCache gatewayARN = ResetCache' {gatewayARN}
+mkResetCache
+    :: Types.GatewayARN -- ^ 'gatewayARN'
+    -> ResetCache
+mkResetCache gatewayARN = ResetCache'{gatewayARN}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rcGatewayARN :: Lens.Lens' ResetCache Types.GatewayARN
 rcGatewayARN = Lens.field @"gatewayARN"
-{-# DEPRECATED rcGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+{-# INLINEABLE rcGatewayARN #-}
+{-# DEPRECATED gatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead"  #-}
+
+instance Core.ToQuery ResetCache where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders ResetCache where
+        toHeaders ResetCache{..}
+          = Core.pure ("X-Amz-Target", "StorageGateway_20130630.ResetCache")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON ResetCache where
-  toJSON ResetCache {..} =
-    Core.object
-      (Core.catMaybes [Core.Just ("GatewayARN" Core..= gatewayARN)])
+        toJSON ResetCache{..}
+          = Core.object
+              (Core.catMaybes [Core.Just ("GatewayARN" Core..= gatewayARN)])
 
 instance Core.AWSRequest ResetCache where
-  type Rs ResetCache = ResetCacheResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "StorageGateway_20130630.ResetCache")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          ResetCacheResponse'
-            Core.<$> (x Core..:? "GatewayARN") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs ResetCache = ResetCacheResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 ResetCacheResponse' Core.<$>
+                   (x Core..:? "GatewayARN") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkResetCacheResponse' smart constructor.
 data ResetCacheResponse = ResetCacheResponse'
-  { gatewayARN :: Core.Maybe Types.GatewayARN,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { gatewayARN :: Core.Maybe Types.GatewayARN
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ResetCacheResponse' value with any optional fields omitted.
-mkResetCacheResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  ResetCacheResponse
-mkResetCacheResponse responseStatus =
-  ResetCacheResponse' {gatewayARN = Core.Nothing, responseStatus}
+mkResetCacheResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> ResetCacheResponse
+mkResetCacheResponse responseStatus
+  = ResetCacheResponse'{gatewayARN = Core.Nothing, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rrsGatewayARN :: Lens.Lens' ResetCacheResponse (Core.Maybe Types.GatewayARN)
 rrsGatewayARN = Lens.field @"gatewayARN"
-{-# DEPRECATED rrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+{-# INLINEABLE rrsGatewayARN #-}
+{-# DEPRECATED gatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rrsResponseStatus :: Lens.Lens' ResetCacheResponse Core.Int
 rrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED rrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE rrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

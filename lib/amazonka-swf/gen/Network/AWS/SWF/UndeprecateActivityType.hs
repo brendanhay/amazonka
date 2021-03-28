@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,7 +15,7 @@
 --
 -- Undeprecates a previously deprecated /activity type/ . After an activity type has been undeprecated, you can create new tasks of that activity type.
 --
--- __Access Control__
+-- __Access Control__ 
 -- You can use IAM policies to control this action's access to Amazon SWF resources as follows:
 --
 --     * Use a @Resource@ element with the domain name to limit the action to only specified domains.
@@ -36,19 +36,18 @@
 --
 -- If the caller doesn't have sufficient permissions to invoke the action, or the parameter values fall outside the specified constraints, the action fails. The associated event attribute's @cause@ parameter is set to @OPERATION_NOT_PERMITTED@ . For details and example IAM policies, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/swf-dev-iam.html Using IAM to Manage Access to Amazon SWF Workflows> in the /Amazon SWF Developer Guide/ .
 module Network.AWS.SWF.UndeprecateActivityType
-  ( -- * Creating a request
-    UndeprecateActivityType (..),
-    mkUndeprecateActivityType,
-
+    (
+    -- * Creating a request
+      UndeprecateActivityType (..)
+    , mkUndeprecateActivityType
     -- ** Request lenses
-    uatDomain,
-    uatActivityType,
+    , uatDomain
+    , uatActivityType
 
     -- * Destructuring the response
-    UndeprecateActivityTypeResponse (..),
-    mkUndeprecateActivityTypeResponse,
-  )
-where
+    , UndeprecateActivityTypeResponse (..)
+    , mkUndeprecateActivityTypeResponse
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -58,62 +57,67 @@ import qualified Network.AWS.SWF.Types as Types
 
 -- | /See:/ 'mkUndeprecateActivityType' smart constructor.
 data UndeprecateActivityType = UndeprecateActivityType'
-  { -- | The name of the domain of the deprecated activity type.
-    domain :: Types.DomainName,
-    -- | The activity type to undeprecate.
-    activityType :: Types.ActivityType
+  { domain :: Types.DomainName
+    -- ^ The name of the domain of the deprecated activity type.
+  , activityType :: Types.ActivityType
+    -- ^ The activity type to undeprecate.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UndeprecateActivityType' value with any optional fields omitted.
-mkUndeprecateActivityType ::
-  -- | 'domain'
-  Types.DomainName ->
-  -- | 'activityType'
-  Types.ActivityType ->
-  UndeprecateActivityType
-mkUndeprecateActivityType domain activityType =
-  UndeprecateActivityType' {domain, activityType}
+mkUndeprecateActivityType
+    :: Types.DomainName -- ^ 'domain'
+    -> Types.ActivityType -- ^ 'activityType'
+    -> UndeprecateActivityType
+mkUndeprecateActivityType domain activityType
+  = UndeprecateActivityType'{domain, activityType}
 
 -- | The name of the domain of the deprecated activity type.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uatDomain :: Lens.Lens' UndeprecateActivityType Types.DomainName
 uatDomain = Lens.field @"domain"
-{-# DEPRECATED uatDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
+{-# INLINEABLE uatDomain #-}
+{-# DEPRECATED domain "Use generic-lens or generic-optics with 'domain' instead"  #-}
 
 -- | The activity type to undeprecate.
 --
 -- /Note:/ Consider using 'activityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uatActivityType :: Lens.Lens' UndeprecateActivityType Types.ActivityType
 uatActivityType = Lens.field @"activityType"
-{-# DEPRECATED uatActivityType "Use generic-lens or generic-optics with 'activityType' instead." #-}
+{-# INLINEABLE uatActivityType #-}
+{-# DEPRECATED activityType "Use generic-lens or generic-optics with 'activityType' instead"  #-}
+
+instance Core.ToQuery UndeprecateActivityType where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders UndeprecateActivityType where
+        toHeaders UndeprecateActivityType{..}
+          = Core.pure
+              ("X-Amz-Target", "SimpleWorkflowService.UndeprecateActivityType")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.0")
 
 instance Core.FromJSON UndeprecateActivityType where
-  toJSON UndeprecateActivityType {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("domain" Core..= domain),
-            Core.Just ("activityType" Core..= activityType)
-          ]
-      )
+        toJSON UndeprecateActivityType{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("domain" Core..= domain),
+                  Core.Just ("activityType" Core..= activityType)])
 
 instance Core.AWSRequest UndeprecateActivityType where
-  type Rs UndeprecateActivityType = UndeprecateActivityTypeResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "SimpleWorkflowService.UndeprecateActivityType")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response = Response.receiveNull UndeprecateActivityTypeResponse'
+        type Rs UndeprecateActivityType = UndeprecateActivityTypeResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveNull UndeprecateActivityTypeResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkUndeprecateActivityTypeResponse' smart constructor.
 data UndeprecateActivityTypeResponse = UndeprecateActivityTypeResponse'
@@ -121,7 +125,7 @@ data UndeprecateActivityTypeResponse = UndeprecateActivityTypeResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UndeprecateActivityTypeResponse' value with any optional fields omitted.
-mkUndeprecateActivityTypeResponse ::
-  UndeprecateActivityTypeResponse
-mkUndeprecateActivityTypeResponse =
-  UndeprecateActivityTypeResponse'
+mkUndeprecateActivityTypeResponse
+    :: UndeprecateActivityTypeResponse
+mkUndeprecateActivityTypeResponse
+  = UndeprecateActivityTypeResponse'

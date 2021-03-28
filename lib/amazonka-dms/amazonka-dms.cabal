@@ -1,269 +1,234 @@
-cabal-version:      2.2
-name:               amazonka-dms
-version:            2.0.0.0
-synopsis:           Amazon Database Migration Service SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-dms
+version:               2.0.0.0
+synopsis:              Amazon Database Migration Service SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.DMS" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.DMS" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-dms
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-dms
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.DMS
-    Network.AWS.DMS.AddTagsToResource
-    Network.AWS.DMS.ApplyPendingMaintenanceAction
-    Network.AWS.DMS.CancelReplicationTaskAssessmentRun
-    Network.AWS.DMS.CreateEndpoint
-    Network.AWS.DMS.CreateEventSubscription
-    Network.AWS.DMS.CreateReplicationInstance
-    Network.AWS.DMS.CreateReplicationSubnetGroup
-    Network.AWS.DMS.CreateReplicationTask
-    Network.AWS.DMS.DeleteCertificate
-    Network.AWS.DMS.DeleteConnection
-    Network.AWS.DMS.DeleteEndpoint
-    Network.AWS.DMS.DeleteEventSubscription
-    Network.AWS.DMS.DeleteReplicationInstance
-    Network.AWS.DMS.DeleteReplicationSubnetGroup
-    Network.AWS.DMS.DeleteReplicationTask
-    Network.AWS.DMS.DeleteReplicationTaskAssessmentRun
-    Network.AWS.DMS.DescribeAccountAttributes
-    Network.AWS.DMS.DescribeApplicableIndividualAssessments
-    Network.AWS.DMS.DescribeCertificates
-    Network.AWS.DMS.DescribeConnections
-    Network.AWS.DMS.DescribeEndpoints
-    Network.AWS.DMS.DescribeEndpointTypes
-    Network.AWS.DMS.DescribeEventCategories
-    Network.AWS.DMS.DescribeEvents
-    Network.AWS.DMS.DescribeEventSubscriptions
-    Network.AWS.DMS.DescribeOrderableReplicationInstances
-    Network.AWS.DMS.DescribePendingMaintenanceActions
-    Network.AWS.DMS.DescribeRefreshSchemasStatus
-    Network.AWS.DMS.DescribeReplicationInstances
-    Network.AWS.DMS.DescribeReplicationInstanceTaskLogs
-    Network.AWS.DMS.DescribeReplicationSubnetGroups
-    Network.AWS.DMS.DescribeReplicationTaskAssessmentResults
-    Network.AWS.DMS.DescribeReplicationTaskAssessmentRuns
-    Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments
-    Network.AWS.DMS.DescribeReplicationTasks
-    Network.AWS.DMS.DescribeSchemas
-    Network.AWS.DMS.DescribeTableStatistics
-    Network.AWS.DMS.ImportCertificate
-    Network.AWS.DMS.ListTagsForResource
-    Network.AWS.DMS.ModifyEndpoint
-    Network.AWS.DMS.ModifyEventSubscription
-    Network.AWS.DMS.ModifyReplicationInstance
-    Network.AWS.DMS.ModifyReplicationSubnetGroup
-    Network.AWS.DMS.ModifyReplicationTask
-    Network.AWS.DMS.MoveReplicationTask
-    Network.AWS.DMS.RebootReplicationInstance
-    Network.AWS.DMS.RefreshSchemas
-    Network.AWS.DMS.ReloadTables
-    Network.AWS.DMS.RemoveTagsFromResource
-    Network.AWS.DMS.StartReplicationTask
-    Network.AWS.DMS.StartReplicationTaskAssessment
-    Network.AWS.DMS.StartReplicationTaskAssessmentRun
-    Network.AWS.DMS.StopReplicationTask
-    Network.AWS.DMS.TestConnection
-    Network.AWS.DMS.Types
-    Network.AWS.DMS.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.DMS.Types.AccountQuota
-    Network.AWS.DMS.Types.Action
-    Network.AWS.DMS.Types.AfterConnectScript
-    Network.AWS.DMS.Types.AsmPassword
-    Network.AWS.DMS.Types.AuthMechanismValue
-    Network.AWS.DMS.Types.AuthTypeValue
-    Network.AWS.DMS.Types.AvailabilityZone
-    Network.AWS.DMS.Types.BucketName
-    Network.AWS.DMS.Types.CdcStartPosition
-    Network.AWS.DMS.Types.CdcStopPosition
-    Network.AWS.DMS.Types.Certificate
-    Network.AWS.DMS.Types.CertificateArn
-    Network.AWS.DMS.Types.CharLengthSemantics
-    Network.AWS.DMS.Types.CompressionTypeValue
-    Network.AWS.DMS.Types.Connection
-    Network.AWS.DMS.Types.ControlTablesFileGroup
-    Network.AWS.DMS.Types.DatabaseName
-    Network.AWS.DMS.Types.DataFormatValue
-    Network.AWS.DMS.Types.DatePartitionDelimiterValue
-    Network.AWS.DMS.Types.DatePartitionSequenceValue
-    Network.AWS.DMS.Types.Description
-    Network.AWS.DMS.Types.DmsSslModeValue
-    Network.AWS.DMS.Types.DmsTransferSettings
-    Network.AWS.DMS.Types.DocDbSettings
-    Network.AWS.DMS.Types.DynamoDbSettings
-    Network.AWS.DMS.Types.ElasticsearchSettings
-    Network.AWS.DMS.Types.EncodingTypeValue
-    Network.AWS.DMS.Types.EncryptionModeValue
-    Network.AWS.DMS.Types.Endpoint
-    Network.AWS.DMS.Types.EndpointArn
-    Network.AWS.DMS.Types.EndpointIdentifier
-    Network.AWS.DMS.Types.EngineName
-    Network.AWS.DMS.Types.Event
-    Network.AWS.DMS.Types.EventCategoryGroup
-    Network.AWS.DMS.Types.EventSubscription
-    Network.AWS.DMS.Types.ExternalTableDefinition
-    Network.AWS.DMS.Types.ExtraConnectionAttributes
-    Network.AWS.DMS.Types.Filter
-    Network.AWS.DMS.Types.IBMDb2Settings
-    Network.AWS.DMS.Types.KafkaSettings
-    Network.AWS.DMS.Types.Key
-    Network.AWS.DMS.Types.KinesisSettings
-    Network.AWS.DMS.Types.KmsKeyId
-    Network.AWS.DMS.Types.Marker
-    Network.AWS.DMS.Types.Message
-    Network.AWS.DMS.Types.MessageFormatValue
-    Network.AWS.DMS.Types.MicrosoftSQLServerSettings
-    Network.AWS.DMS.Types.MigrationTypeValue
-    Network.AWS.DMS.Types.MongoDbSettings
-    Network.AWS.DMS.Types.MySQLSettings
-    Network.AWS.DMS.Types.NeptuneSettings
-    Network.AWS.DMS.Types.NestingLevelValue
-    Network.AWS.DMS.Types.OptInStatus
-    Network.AWS.DMS.Types.OracleSettings
-    Network.AWS.DMS.Types.OrderableReplicationInstance
-    Network.AWS.DMS.Types.ParquetVersionValue
-    Network.AWS.DMS.Types.Password
-    Network.AWS.DMS.Types.PendingMaintenanceAction
-    Network.AWS.DMS.Types.PostgreSQLSettings
-    Network.AWS.DMS.Types.RedshiftSettings
-    Network.AWS.DMS.Types.RefreshSchemasStatus
-    Network.AWS.DMS.Types.RefreshSchemasStatusTypeValue
-    Network.AWS.DMS.Types.ReleaseStatusValues
-    Network.AWS.DMS.Types.ReloadOptionValue
-    Network.AWS.DMS.Types.ReplicationEndpointTypeValue
-    Network.AWS.DMS.Types.ReplicationInstance
-    Network.AWS.DMS.Types.ReplicationInstanceArn
-    Network.AWS.DMS.Types.ReplicationInstanceTaskLog
-    Network.AWS.DMS.Types.ReplicationPendingModifiedValues
-    Network.AWS.DMS.Types.ReplicationSubnetGroup
-    Network.AWS.DMS.Types.ReplicationSubnetGroupDescription
-    Network.AWS.DMS.Types.ReplicationSubnetGroupIdentifier
-    Network.AWS.DMS.Types.ReplicationTask
-    Network.AWS.DMS.Types.ReplicationTaskArn
-    Network.AWS.DMS.Types.ReplicationTaskAssessmentResult
-    Network.AWS.DMS.Types.ReplicationTaskAssessmentRun
-    Network.AWS.DMS.Types.ReplicationTaskAssessmentRunArn
-    Network.AWS.DMS.Types.ReplicationTaskAssessmentRunProgress
-    Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment
-    Network.AWS.DMS.Types.ReplicationTaskStats
-    Network.AWS.DMS.Types.ResourceArn
-    Network.AWS.DMS.Types.ResourceIdentifier
-    Network.AWS.DMS.Types.ResourcePendingMaintenanceActions
-    Network.AWS.DMS.Types.S3Settings
-    Network.AWS.DMS.Types.SafeguardPolicy
-    Network.AWS.DMS.Types.SecurityDbEncryption
-    Network.AWS.DMS.Types.ServerName
-    Network.AWS.DMS.Types.ServerTimezone
-    Network.AWS.DMS.Types.ServiceAccessRoleArn
-    Network.AWS.DMS.Types.SnsTopicArn
-    Network.AWS.DMS.Types.SourceEngineName
-    Network.AWS.DMS.Types.SourceIdentifier
-    Network.AWS.DMS.Types.SourceType
-    Network.AWS.DMS.Types.StartReplicationTaskTypeValue
-    Network.AWS.DMS.Types.String
-    Network.AWS.DMS.Types.Subnet
-    Network.AWS.DMS.Types.SubscriptionName
-    Network.AWS.DMS.Types.SupportedEndpointType
-    Network.AWS.DMS.Types.SybaseSettings
-    Network.AWS.DMS.Types.TableStatistics
-    Network.AWS.DMS.Types.TableToReload
-    Network.AWS.DMS.Types.Tag
-    Network.AWS.DMS.Types.TargetDbType
-    Network.AWS.DMS.Types.TargetEngineName
-    Network.AWS.DMS.Types.Username
-    Network.AWS.DMS.Types.Value
-    Network.AWS.DMS.Types.VpcSecurityGroupMembership
+    exposed-modules:
+          Network.AWS.DMS
+        , Network.AWS.DMS.Types
+        , Network.AWS.DMS.Waiters
+        , Network.AWS.DMS.DeleteReplicationInstance
+        , Network.AWS.DMS.RebootReplicationInstance
+        , Network.AWS.DMS.ReloadTables
+        , Network.AWS.DMS.StartReplicationTaskAssessment
+        , Network.AWS.DMS.DeleteReplicationTaskAssessmentRun
+        , Network.AWS.DMS.CreateEndpoint
+        , Network.AWS.DMS.DescribeSchemas
+        , Network.AWS.DMS.DeleteConnection
+        , Network.AWS.DMS.ModifyEventSubscription
+        , Network.AWS.DMS.DescribeReplicationInstanceTaskLogs
+        , Network.AWS.DMS.DescribeEvents
+        , Network.AWS.DMS.DeleteEndpoint
+        , Network.AWS.DMS.ListTagsForResource
+        , Network.AWS.DMS.DescribeEndpointTypes
+        , Network.AWS.DMS.DeleteReplicationTask
+        , Network.AWS.DMS.DescribeReplicationTaskAssessmentRuns
+        , Network.AWS.DMS.DescribeReplicationTaskAssessmentResults
+        , Network.AWS.DMS.TestConnection
+        , Network.AWS.DMS.DescribeConnections
+        , Network.AWS.DMS.MoveReplicationTask
+        , Network.AWS.DMS.RemoveTagsFromResource
+        , Network.AWS.DMS.ModifyEndpoint
+        , Network.AWS.DMS.CreateEventSubscription
+        , Network.AWS.DMS.DescribeCertificates
+        , Network.AWS.DMS.StartReplicationTaskAssessmentRun
+        , Network.AWS.DMS.DeleteEventSubscription
+        , Network.AWS.DMS.DescribeTableStatistics
+        , Network.AWS.DMS.DescribeReplicationSubnetGroups
+        , Network.AWS.DMS.StartReplicationTask
+        , Network.AWS.DMS.DescribeEventSubscriptions
+        , Network.AWS.DMS.AddTagsToResource
+        , Network.AWS.DMS.CreateReplicationSubnetGroup
+        , Network.AWS.DMS.DescribeApplicableIndividualAssessments
+        , Network.AWS.DMS.DeleteCertificate
+        , Network.AWS.DMS.RefreshSchemas
+        , Network.AWS.DMS.DescribeReplicationTasks
+        , Network.AWS.DMS.DescribeEventCategories
+        , Network.AWS.DMS.DescribeOrderableReplicationInstances
+        , Network.AWS.DMS.DescribePendingMaintenanceActions
+        , Network.AWS.DMS.CreateReplicationTask
+        , Network.AWS.DMS.DescribeEndpoints
+        , Network.AWS.DMS.ModifyReplicationInstance
+        , Network.AWS.DMS.ImportCertificate
+        , Network.AWS.DMS.CancelReplicationTaskAssessmentRun
+        , Network.AWS.DMS.ModifyReplicationSubnetGroup
+        , Network.AWS.DMS.DescribeReplicationTaskIndividualAssessments
+        , Network.AWS.DMS.ApplyPendingMaintenanceAction
+        , Network.AWS.DMS.DescribeAccountAttributes
+        , Network.AWS.DMS.DescribeReplicationInstances
+        , Network.AWS.DMS.DescribeRefreshSchemasStatus
+        , Network.AWS.DMS.StopReplicationTask
+        , Network.AWS.DMS.ModifyReplicationTask
+        , Network.AWS.DMS.CreateReplicationInstance
+        , Network.AWS.DMS.DeleteReplicationSubnetGroup
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.DMS.Types.ReplicationEndpointTypeValue
+        , Network.AWS.DMS.Types.PendingMaintenanceAction
+        , Network.AWS.DMS.Types.DmsTransferSettings
+        , Network.AWS.DMS.Types.Event
+        , Network.AWS.DMS.Types.ParquetVersionValue
+        , Network.AWS.DMS.Types.MySQLSettings
+        , Network.AWS.DMS.Types.TargetDbType
+        , Network.AWS.DMS.Types.Tag
+        , Network.AWS.DMS.Types.DatePartitionSequenceValue
+        , Network.AWS.DMS.Types.StartReplicationTaskTypeValue
+        , Network.AWS.DMS.Types.MicrosoftSQLServerSettings
+        , Network.AWS.DMS.Types.ReleaseStatusValues
+        , Network.AWS.DMS.Types.SourceType
+        , Network.AWS.DMS.Types.ReplicationInstance
+        , Network.AWS.DMS.Types.CompressionTypeValue
+        , Network.AWS.DMS.Types.ResourcePendingMaintenanceActions
+        , Network.AWS.DMS.Types.ReplicationSubnetGroup
+        , Network.AWS.DMS.Types.Subnet
+        , Network.AWS.DMS.Types.DocDbSettings
+        , Network.AWS.DMS.Types.EventCategoryGroup
+        , Network.AWS.DMS.Types.PostgreSQLSettings
+        , Network.AWS.DMS.Types.KafkaSettings
+        , Network.AWS.DMS.Types.OracleSettings
+        , Network.AWS.DMS.Types.RedshiftSettings
+        , Network.AWS.DMS.Types.ElasticsearchSettings
+        , Network.AWS.DMS.Types.DmsSslModeValue
+        , Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment
+        , Network.AWS.DMS.Types.ReplicationTaskAssessmentRun
+        , Network.AWS.DMS.Types.Connection
+        , Network.AWS.DMS.Types.ReplicationTask
+        , Network.AWS.DMS.Types.ReloadOptionValue
+        , Network.AWS.DMS.Types.ReplicationInstanceTaskLog
+        , Network.AWS.DMS.Types.TableToReload
+        , Network.AWS.DMS.Types.SafeguardPolicy
+        , Network.AWS.DMS.Types.NeptuneSettings
+        , Network.AWS.DMS.Types.IBMDb2Settings
+        , Network.AWS.DMS.Types.MongoDbSettings
+        , Network.AWS.DMS.Types.AccountQuota
+        , Network.AWS.DMS.Types.MigrationTypeValue
+        , Network.AWS.DMS.Types.AvailabilityZone
+        , Network.AWS.DMS.Types.EncryptionModeValue
+        , Network.AWS.DMS.Types.EventSubscription
+        , Network.AWS.DMS.Types.SybaseSettings
+        , Network.AWS.DMS.Types.ReplicationPendingModifiedValues
+        , Network.AWS.DMS.Types.Certificate
+        , Network.AWS.DMS.Types.CharLengthSemantics
+        , Network.AWS.DMS.Types.S3Settings
+        , Network.AWS.DMS.Types.SupportedEndpointType
+        , Network.AWS.DMS.Types.KinesisSettings
+        , Network.AWS.DMS.Types.EncodingTypeValue
+        , Network.AWS.DMS.Types.ReplicationTaskStats
+        , Network.AWS.DMS.Types.DataFormatValue
+        , Network.AWS.DMS.Types.Filter
+        , Network.AWS.DMS.Types.AuthMechanismValue
+        , Network.AWS.DMS.Types.RefreshSchemasStatusTypeValue
+        , Network.AWS.DMS.Types.AuthTypeValue
+        , Network.AWS.DMS.Types.TableStatistics
+        , Network.AWS.DMS.Types.ReplicationTaskAssessmentRunProgress
+        , Network.AWS.DMS.Types.DynamoDbSettings
+        , Network.AWS.DMS.Types.RefreshSchemasStatus
+        , Network.AWS.DMS.Types.Endpoint
+        , Network.AWS.DMS.Types.MessageFormatValue
+        , Network.AWS.DMS.Types.ReplicationTaskAssessmentResult
+        , Network.AWS.DMS.Types.VpcSecurityGroupMembership
+        , Network.AWS.DMS.Types.DatePartitionDelimiterValue
+        , Network.AWS.DMS.Types.OrderableReplicationInstance
+        , Network.AWS.DMS.Types.NestingLevelValue
+        , Network.AWS.DMS.Types.Password
+        , Network.AWS.DMS.Types.AsmPassword
+        , Network.AWS.DMS.Types.SecurityDbEncryption
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-dms-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.DMS
-    Test.AWS.DMS.Internal
-    Test.AWS.Gen.DMS
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core         >=2.0.0.0 && <2.0.0.1
-    , amazonka-dms
-    , amazonka-test         >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.DMS
+        , Test.AWS.Gen.DMS
+        , Test.AWS.DMS.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-dms
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

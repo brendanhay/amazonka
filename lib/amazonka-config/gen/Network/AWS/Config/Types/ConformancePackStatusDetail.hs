@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,23 +10,21 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Config.Types.ConformancePackStatusDetail
-  ( ConformancePackStatusDetail (..),
-
-    -- * Smart constructor
-    mkConformancePackStatusDetail,
-
-    -- * Lenses
-    cpsdConformancePackName,
-    cpsdConformancePackId,
-    cpsdConformancePackArn,
-    cpsdConformancePackState,
-    cpsdStackArn,
-    cpsdLastUpdateRequestedTime,
-    cpsdConformancePackStatusReason,
-    cpsdLastUpdateCompletedTime,
-  )
-where
+  ( ConformancePackStatusDetail (..)
+  -- * Smart constructor
+  , mkConformancePackStatusDetail
+  -- * Lenses
+  , cpsdConformancePackName
+  , cpsdConformancePackId
+  , cpsdConformancePackArn
+  , cpsdConformancePackState
+  , cpsdStackArn
+  , cpsdLastUpdateRequestedTime
+  , cpsdConformancePackStatusReason
+  , cpsdLastUpdateCompletedTime
+  ) where
 
 import qualified Network.AWS.Config.Types.ConformancePackArn as Types
 import qualified Network.AWS.Config.Types.ConformancePackId as Types
@@ -41,95 +39,85 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkConformancePackStatusDetail' smart constructor.
 data ConformancePackStatusDetail = ConformancePackStatusDetail'
-  { -- | Name of the conformance pack.
-    conformancePackName :: Types.ConformancePackName,
-    -- | ID of the conformance pack.
-    conformancePackId :: Types.ConformancePackId,
-    -- | Amazon Resource Name (ARN) of comformance pack.
-    conformancePackArn :: Types.ConformancePackArn,
-    -- | Indicates deployment status of conformance pack.
-    --
-    -- AWS Config sets the state of the conformance pack to:
-    --
-    --     * CREATE_IN_PROGRESS when a conformance pack creation is in progress for an account.
-    --
-    --
-    --     * CREATE_COMPLETE when a conformance pack has been successfully created in your account.
-    --
-    --
-    --     * CREATE_FAILED when a conformance pack creation failed in your account.
-    --
-    --
-    --     * DELETE_IN_PROGRESS when a conformance pack deletion is in progress.
-    --
-    --
-    --     * DELETE_FAILED when a conformance pack deletion failed in your account.
-    conformancePackState :: Types.ConformancePackState,
-    -- | Amazon Resource Name (ARN) of AWS CloudFormation stack.
-    stackArn :: Types.StackArn,
-    -- | Last time when conformation pack creation and update was requested.
-    lastUpdateRequestedTime :: Core.NominalDiffTime,
-    -- | The reason of conformance pack creation failure.
-    conformancePackStatusReason :: Core.Maybe Types.ConformancePackStatusReason,
-    -- | Last time when conformation pack creation and update was successful.
-    lastUpdateCompletedTime :: Core.Maybe Core.NominalDiffTime
+  { conformancePackName :: Types.ConformancePackName
+    -- ^ Name of the conformance pack.
+  , conformancePackId :: Types.ConformancePackId
+    -- ^ ID of the conformance pack.
+  , conformancePackArn :: Types.ConformancePackArn
+    -- ^ Amazon Resource Name (ARN) of comformance pack.
+  , conformancePackState :: Types.ConformancePackState
+    -- ^ Indicates deployment status of conformance pack.
+--
+-- AWS Config sets the state of the conformance pack to:
+--
+--     * CREATE_IN_PROGRESS when a conformance pack creation is in progress for an account.
+--
+--
+--     * CREATE_COMPLETE when a conformance pack has been successfully created in your account.
+--
+--
+--     * CREATE_FAILED when a conformance pack creation failed in your account.
+--
+--
+--     * DELETE_IN_PROGRESS when a conformance pack deletion is in progress. 
+--
+--
+--     * DELETE_FAILED when a conformance pack deletion failed in your account.
+--
+--
+  , stackArn :: Types.StackArn
+    -- ^ Amazon Resource Name (ARN) of AWS CloudFormation stack. 
+  , lastUpdateRequestedTime :: Core.NominalDiffTime
+    -- ^ Last time when conformation pack creation and update was requested.
+  , conformancePackStatusReason :: Core.Maybe Types.ConformancePackStatusReason
+    -- ^ The reason of conformance pack creation failure.
+  , lastUpdateCompletedTime :: Core.Maybe Core.NominalDiffTime
+    -- ^ Last time when conformation pack creation and update was successful.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'ConformancePackStatusDetail' value with any optional fields omitted.
-mkConformancePackStatusDetail ::
-  -- | 'conformancePackName'
-  Types.ConformancePackName ->
-  -- | 'conformancePackId'
-  Types.ConformancePackId ->
-  -- | 'conformancePackArn'
-  Types.ConformancePackArn ->
-  -- | 'conformancePackState'
-  Types.ConformancePackState ->
-  -- | 'stackArn'
-  Types.StackArn ->
-  -- | 'lastUpdateRequestedTime'
-  Core.NominalDiffTime ->
-  ConformancePackStatusDetail
 mkConformancePackStatusDetail
-  conformancePackName
-  conformancePackId
-  conformancePackArn
-  conformancePackState
-  stackArn
-  lastUpdateRequestedTime =
-    ConformancePackStatusDetail'
-      { conformancePackName,
-        conformancePackId,
-        conformancePackArn,
-        conformancePackState,
-        stackArn,
-        lastUpdateRequestedTime,
-        conformancePackStatusReason = Core.Nothing,
-        lastUpdateCompletedTime = Core.Nothing
-      }
+    :: Types.ConformancePackName -- ^ 'conformancePackName'
+    -> Types.ConformancePackId -- ^ 'conformancePackId'
+    -> Types.ConformancePackArn -- ^ 'conformancePackArn'
+    -> Types.ConformancePackState -- ^ 'conformancePackState'
+    -> Types.StackArn -- ^ 'stackArn'
+    -> Core.NominalDiffTime -- ^ 'lastUpdateRequestedTime'
+    -> ConformancePackStatusDetail
+mkConformancePackStatusDetail conformancePackName conformancePackId
+  conformancePackArn conformancePackState stackArn
+  lastUpdateRequestedTime
+  = ConformancePackStatusDetail'{conformancePackName,
+                                 conformancePackId, conformancePackArn, conformancePackState,
+                                 stackArn, lastUpdateRequestedTime,
+                                 conformancePackStatusReason = Core.Nothing,
+                                 lastUpdateCompletedTime = Core.Nothing}
 
 -- | Name of the conformance pack.
 --
 -- /Note:/ Consider using 'conformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cpsdConformancePackName :: Lens.Lens' ConformancePackStatusDetail Types.ConformancePackName
 cpsdConformancePackName = Lens.field @"conformancePackName"
-{-# DEPRECATED cpsdConformancePackName "Use generic-lens or generic-optics with 'conformancePackName' instead." #-}
+{-# INLINEABLE cpsdConformancePackName #-}
+{-# DEPRECATED conformancePackName "Use generic-lens or generic-optics with 'conformancePackName' instead"  #-}
 
 -- | ID of the conformance pack.
 --
 -- /Note:/ Consider using 'conformancePackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cpsdConformancePackId :: Lens.Lens' ConformancePackStatusDetail Types.ConformancePackId
 cpsdConformancePackId = Lens.field @"conformancePackId"
-{-# DEPRECATED cpsdConformancePackId "Use generic-lens or generic-optics with 'conformancePackId' instead." #-}
+{-# INLINEABLE cpsdConformancePackId #-}
+{-# DEPRECATED conformancePackId "Use generic-lens or generic-optics with 'conformancePackId' instead"  #-}
 
 -- | Amazon Resource Name (ARN) of comformance pack.
 --
 -- /Note:/ Consider using 'conformancePackArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cpsdConformancePackArn :: Lens.Lens' ConformancePackStatusDetail Types.ConformancePackArn
 cpsdConformancePackArn = Lens.field @"conformancePackArn"
-{-# DEPRECATED cpsdConformancePackArn "Use generic-lens or generic-optics with 'conformancePackArn' instead." #-}
+{-# INLINEABLE cpsdConformancePackArn #-}
+{-# DEPRECATED conformancePackArn "Use generic-lens or generic-optics with 'conformancePackArn' instead"  #-}
 
 -- | Indicates deployment status of conformance pack.
 --
@@ -144,7 +132,7 @@ cpsdConformancePackArn = Lens.field @"conformancePackArn"
 --     * CREATE_FAILED when a conformance pack creation failed in your account.
 --
 --
---     * DELETE_IN_PROGRESS when a conformance pack deletion is in progress.
+--     * DELETE_IN_PROGRESS when a conformance pack deletion is in progress. 
 --
 --
 --     * DELETE_FAILED when a conformance pack deletion failed in your account.
@@ -154,46 +142,51 @@ cpsdConformancePackArn = Lens.field @"conformancePackArn"
 -- /Note:/ Consider using 'conformancePackState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cpsdConformancePackState :: Lens.Lens' ConformancePackStatusDetail Types.ConformancePackState
 cpsdConformancePackState = Lens.field @"conformancePackState"
-{-# DEPRECATED cpsdConformancePackState "Use generic-lens or generic-optics with 'conformancePackState' instead." #-}
+{-# INLINEABLE cpsdConformancePackState #-}
+{-# DEPRECATED conformancePackState "Use generic-lens or generic-optics with 'conformancePackState' instead"  #-}
 
--- | Amazon Resource Name (ARN) of AWS CloudFormation stack.
+-- | Amazon Resource Name (ARN) of AWS CloudFormation stack. 
 --
 -- /Note:/ Consider using 'stackArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cpsdStackArn :: Lens.Lens' ConformancePackStatusDetail Types.StackArn
 cpsdStackArn = Lens.field @"stackArn"
-{-# DEPRECATED cpsdStackArn "Use generic-lens or generic-optics with 'stackArn' instead." #-}
+{-# INLINEABLE cpsdStackArn #-}
+{-# DEPRECATED stackArn "Use generic-lens or generic-optics with 'stackArn' instead"  #-}
 
 -- | Last time when conformation pack creation and update was requested.
 --
 -- /Note:/ Consider using 'lastUpdateRequestedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cpsdLastUpdateRequestedTime :: Lens.Lens' ConformancePackStatusDetail Core.NominalDiffTime
 cpsdLastUpdateRequestedTime = Lens.field @"lastUpdateRequestedTime"
-{-# DEPRECATED cpsdLastUpdateRequestedTime "Use generic-lens or generic-optics with 'lastUpdateRequestedTime' instead." #-}
+{-# INLINEABLE cpsdLastUpdateRequestedTime #-}
+{-# DEPRECATED lastUpdateRequestedTime "Use generic-lens or generic-optics with 'lastUpdateRequestedTime' instead"  #-}
 
 -- | The reason of conformance pack creation failure.
 --
 -- /Note:/ Consider using 'conformancePackStatusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cpsdConformancePackStatusReason :: Lens.Lens' ConformancePackStatusDetail (Core.Maybe Types.ConformancePackStatusReason)
 cpsdConformancePackStatusReason = Lens.field @"conformancePackStatusReason"
-{-# DEPRECATED cpsdConformancePackStatusReason "Use generic-lens or generic-optics with 'conformancePackStatusReason' instead." #-}
+{-# INLINEABLE cpsdConformancePackStatusReason #-}
+{-# DEPRECATED conformancePackStatusReason "Use generic-lens or generic-optics with 'conformancePackStatusReason' instead"  #-}
 
 -- | Last time when conformation pack creation and update was successful.
 --
 -- /Note:/ Consider using 'lastUpdateCompletedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cpsdLastUpdateCompletedTime :: Lens.Lens' ConformancePackStatusDetail (Core.Maybe Core.NominalDiffTime)
 cpsdLastUpdateCompletedTime = Lens.field @"lastUpdateCompletedTime"
-{-# DEPRECATED cpsdLastUpdateCompletedTime "Use generic-lens or generic-optics with 'lastUpdateCompletedTime' instead." #-}
+{-# INLINEABLE cpsdLastUpdateCompletedTime #-}
+{-# DEPRECATED lastUpdateCompletedTime "Use generic-lens or generic-optics with 'lastUpdateCompletedTime' instead"  #-}
 
 instance Core.FromJSON ConformancePackStatusDetail where
-  parseJSON =
-    Core.withObject "ConformancePackStatusDetail" Core.$
-      \x ->
-        ConformancePackStatusDetail'
-          Core.<$> (x Core..: "ConformancePackName")
-          Core.<*> (x Core..: "ConformancePackId")
-          Core.<*> (x Core..: "ConformancePackArn")
-          Core.<*> (x Core..: "ConformancePackState")
-          Core.<*> (x Core..: "StackArn")
-          Core.<*> (x Core..: "LastUpdateRequestedTime")
-          Core.<*> (x Core..:? "ConformancePackStatusReason")
-          Core.<*> (x Core..:? "LastUpdateCompletedTime")
+        parseJSON
+          = Core.withObject "ConformancePackStatusDetail" Core.$
+              \ x ->
+                ConformancePackStatusDetail' Core.<$>
+                  (x Core..: "ConformancePackName") Core.<*>
+                    x Core..: "ConformancePackId"
+                    Core.<*> x Core..: "ConformancePackArn"
+                    Core.<*> x Core..: "ConformancePackState"
+                    Core.<*> x Core..: "StackArn"
+                    Core.<*> x Core..: "LastUpdateRequestedTime"
+                    Core.<*> x Core..:? "ConformancePackStatusReason"
+                    Core.<*> x Core..:? "LastUpdateCompletedTime"

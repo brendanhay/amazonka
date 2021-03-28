@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,19 +10,17 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Config.Types.AggregateComplianceByConfigRule
-  ( AggregateComplianceByConfigRule (..),
-
-    -- * Smart constructor
-    mkAggregateComplianceByConfigRule,
-
-    -- * Lenses
-    acbcrAccountId,
-    acbcrAwsRegion,
-    acbcrCompliance,
-    acbcrConfigRuleName,
-  )
-where
+  ( AggregateComplianceByConfigRule (..)
+  -- * Smart constructor
+  , mkAggregateComplianceByConfigRule
+  -- * Lenses
+  , acbcrAccountId
+  , acbcrAwsRegion
+  , acbcrCompliance
+  , acbcrConfigRuleName
+  ) where
 
 import qualified Network.AWS.Config.Types.AccountId as Types
 import qualified Network.AWS.Config.Types.AwsRegion as Types
@@ -37,63 +35,63 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkAggregateComplianceByConfigRule' smart constructor.
 data AggregateComplianceByConfigRule = AggregateComplianceByConfigRule'
-  { -- | The 12-digit account ID of the source account.
-    accountId :: Core.Maybe Types.AccountId,
-    -- | The source region from where the data is aggregated.
-    awsRegion :: Core.Maybe Types.AwsRegion,
-    -- | Indicates whether an AWS resource or AWS Config rule is compliant and provides the number of contributors that affect the compliance.
-    compliance :: Core.Maybe Types.Compliance,
-    -- | The name of the AWS Config rule.
-    configRuleName :: Core.Maybe Types.ConfigRuleName
+  { accountId :: Core.Maybe Types.AccountId
+    -- ^ The 12-digit account ID of the source account.
+  , awsRegion :: Core.Maybe Types.AwsRegion
+    -- ^ The source region from where the data is aggregated.
+  , compliance :: Core.Maybe Types.Compliance
+    -- ^ Indicates whether an AWS resource or AWS Config rule is compliant and provides the number of contributors that affect the compliance.
+  , configRuleName :: Core.Maybe Types.ConfigRuleName
+    -- ^ The name of the AWS Config rule.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AggregateComplianceByConfigRule' value with any optional fields omitted.
-mkAggregateComplianceByConfigRule ::
-  AggregateComplianceByConfigRule
-mkAggregateComplianceByConfigRule =
-  AggregateComplianceByConfigRule'
-    { accountId = Core.Nothing,
-      awsRegion = Core.Nothing,
-      compliance = Core.Nothing,
-      configRuleName = Core.Nothing
-    }
+mkAggregateComplianceByConfigRule
+    :: AggregateComplianceByConfigRule
+mkAggregateComplianceByConfigRule
+  = AggregateComplianceByConfigRule'{accountId = Core.Nothing,
+                                     awsRegion = Core.Nothing, compliance = Core.Nothing,
+                                     configRuleName = Core.Nothing}
 
 -- | The 12-digit account ID of the source account.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 acbcrAccountId :: Lens.Lens' AggregateComplianceByConfigRule (Core.Maybe Types.AccountId)
 acbcrAccountId = Lens.field @"accountId"
-{-# DEPRECATED acbcrAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+{-# INLINEABLE acbcrAccountId #-}
+{-# DEPRECATED accountId "Use generic-lens or generic-optics with 'accountId' instead"  #-}
 
 -- | The source region from where the data is aggregated.
 --
 -- /Note:/ Consider using 'awsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 acbcrAwsRegion :: Lens.Lens' AggregateComplianceByConfigRule (Core.Maybe Types.AwsRegion)
 acbcrAwsRegion = Lens.field @"awsRegion"
-{-# DEPRECATED acbcrAwsRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
+{-# INLINEABLE acbcrAwsRegion #-}
+{-# DEPRECATED awsRegion "Use generic-lens or generic-optics with 'awsRegion' instead"  #-}
 
 -- | Indicates whether an AWS resource or AWS Config rule is compliant and provides the number of contributors that affect the compliance.
 --
 -- /Note:/ Consider using 'compliance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 acbcrCompliance :: Lens.Lens' AggregateComplianceByConfigRule (Core.Maybe Types.Compliance)
 acbcrCompliance = Lens.field @"compliance"
-{-# DEPRECATED acbcrCompliance "Use generic-lens or generic-optics with 'compliance' instead." #-}
+{-# INLINEABLE acbcrCompliance #-}
+{-# DEPRECATED compliance "Use generic-lens or generic-optics with 'compliance' instead"  #-}
 
 -- | The name of the AWS Config rule.
 --
 -- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 acbcrConfigRuleName :: Lens.Lens' AggregateComplianceByConfigRule (Core.Maybe Types.ConfigRuleName)
 acbcrConfigRuleName = Lens.field @"configRuleName"
-{-# DEPRECATED acbcrConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
+{-# INLINEABLE acbcrConfigRuleName #-}
+{-# DEPRECATED configRuleName "Use generic-lens or generic-optics with 'configRuleName' instead"  #-}
 
 instance Core.FromJSON AggregateComplianceByConfigRule where
-  parseJSON =
-    Core.withObject "AggregateComplianceByConfigRule" Core.$
-      \x ->
-        AggregateComplianceByConfigRule'
-          Core.<$> (x Core..:? "AccountId")
-          Core.<*> (x Core..:? "AwsRegion")
-          Core.<*> (x Core..:? "Compliance")
-          Core.<*> (x Core..:? "ConfigRuleName")
+        parseJSON
+          = Core.withObject "AggregateComplianceByConfigRule" Core.$
+              \ x ->
+                AggregateComplianceByConfigRule' Core.<$>
+                  (x Core..:? "AccountId") Core.<*> x Core..:? "AwsRegion" Core.<*>
+                    x Core..:? "Compliance"
+                    Core.<*> x Core..:? "ConfigRuleName"

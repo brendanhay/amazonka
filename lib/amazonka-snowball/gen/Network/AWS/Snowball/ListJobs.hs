@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,24 +17,22 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.Snowball.ListJobs
-  ( -- * Creating a request
-    ListJobs (..),
-    mkListJobs,
-
+    (
+    -- * Creating a request
+      ListJobs (..)
+    , mkListJobs
     -- ** Request lenses
-    ljMaxResults,
-    ljNextToken,
+    , ljMaxResults
+    , ljNextToken
 
     -- * Destructuring the response
-    ListJobsResponse (..),
-    mkListJobsResponse,
-
+    , ListJobsResponse (..)
+    , mkListJobsResponse
     -- ** Response lenses
-    ljrrsJobListEntries,
-    ljrrsNextToken,
-    ljrrsResponseStatus,
-  )
-where
+    , ljrrsJobListEntries
+    , ljrrsNextToken
+    , ljrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Pager as Pager
@@ -45,119 +43,121 @@ import qualified Network.AWS.Snowball.Types as Types
 
 -- | /See:/ 'mkListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { -- | The number of @JobListEntry@ objects to return.
-    maxResults :: Core.Maybe Core.Natural,
-    -- | HTTP requests are stateless. To identify what object comes "next" in the list of @JobListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
-    nextToken :: Core.Maybe Types.NextToken
+  { maxResults :: Core.Maybe Core.Natural
+    -- ^ The number of @JobListEntry@ objects to return.
+  , nextToken :: Core.Maybe Core.Text
+    -- ^ HTTP requests are stateless. To identify what object comes "next" in the list of @JobListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ListJobs' value with any optional fields omitted.
-mkListJobs ::
-  ListJobs
-mkListJobs =
-  ListJobs' {maxResults = Core.Nothing, nextToken = Core.Nothing}
+mkListJobs
+    :: ListJobs
+mkListJobs
+  = ListJobs'{maxResults = Core.Nothing, nextToken = Core.Nothing}
 
 -- | The number of @JobListEntry@ objects to return.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ljMaxResults :: Lens.Lens' ListJobs (Core.Maybe Core.Natural)
 ljMaxResults = Lens.field @"maxResults"
-{-# DEPRECATED ljMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+{-# INLINEABLE ljMaxResults #-}
+{-# DEPRECATED maxResults "Use generic-lens or generic-optics with 'maxResults' instead"  #-}
 
 -- | HTTP requests are stateless. To identify what object comes "next" in the list of @JobListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljNextToken :: Lens.Lens' ListJobs (Core.Maybe Types.NextToken)
+ljNextToken :: Lens.Lens' ListJobs (Core.Maybe Core.Text)
 ljNextToken = Lens.field @"nextToken"
-{-# DEPRECATED ljNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE ljNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
+
+instance Core.ToQuery ListJobs where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders ListJobs where
+        toHeaders ListJobs{..}
+          = Core.pure
+              ("X-Amz-Target", "AWSIESnowballJobManagementService.ListJobs")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON ListJobs where
-  toJSON ListJobs {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("MaxResults" Core..=) Core.<$> maxResults,
-            ("NextToken" Core..=) Core.<$> nextToken
-          ]
-      )
+        toJSON ListJobs{..}
+          = Core.object
+              (Core.catMaybes
+                 [("MaxResults" Core..=) Core.<$> maxResults,
+                  ("NextToken" Core..=) Core.<$> nextToken])
 
 instance Core.AWSRequest ListJobs where
-  type Rs ListJobs = ListJobsResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "AWSIESnowballJobManagementService.ListJobs")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          ListJobsResponse'
-            Core.<$> (x Core..:? "JobListEntries")
-            Core.<*> (x Core..:? "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs ListJobs = ListJobsResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 ListJobsResponse' Core.<$>
+                   (x Core..:? "JobListEntries") Core.<*> x Core..:? "NextToken"
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 instance Pager.AWSPager ListJobs where
-  page rq rs
-    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
-    | Pager.stop
-        (rs Lens.^? Lens.field @"jobListEntries" Core.. Lens._Just) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just
-        ( rq
-            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
-        )
+        page rq rs
+          | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+          | Pager.stop
+              (rs Lens.^? Lens.field @"jobListEntries" Core.. Lens._Just)
+            = Core.Nothing
+          | Core.otherwise =
+            Core.Just
+              (rq Core.&
+                 Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken")
 
 -- | /See:/ 'mkListJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-  { -- | Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs.
-    jobListEntries :: Core.Maybe [Types.JobListEntry],
-    -- | HTTP requests are stateless. If you use this automatically generated @NextToken@ value in your next @ListJobs@ call, your returned @JobListEntry@ objects will start from this point in the array.
-    nextToken :: Core.Maybe Types.String,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { jobListEntries :: Core.Maybe [Types.JobListEntry]
+    -- ^ Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs. 
+  , nextToken :: Core.Maybe Core.Text
+    -- ^ HTTP requests are stateless. If you use this automatically generated @NextToken@ value in your next @ListJobs@ call, your returned @JobListEntry@ objects will start from this point in the array.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'ListJobsResponse' value with any optional fields omitted.
-mkListJobsResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  ListJobsResponse
-mkListJobsResponse responseStatus =
-  ListJobsResponse'
-    { jobListEntries = Core.Nothing,
-      nextToken = Core.Nothing,
-      responseStatus
-    }
+mkListJobsResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> ListJobsResponse
+mkListJobsResponse responseStatus
+  = ListJobsResponse'{jobListEntries = Core.Nothing,
+                      nextToken = Core.Nothing, responseStatus}
 
--- | Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs.
+-- | Each @JobListEntry@ object contains a job's state, a job's ID, and a value that indicates whether the job is a job part, in the case of export jobs. 
 --
 -- /Note:/ Consider using 'jobListEntries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ljrrsJobListEntries :: Lens.Lens' ListJobsResponse (Core.Maybe [Types.JobListEntry])
 ljrrsJobListEntries = Lens.field @"jobListEntries"
-{-# DEPRECATED ljrrsJobListEntries "Use generic-lens or generic-optics with 'jobListEntries' instead." #-}
+{-# INLINEABLE ljrrsJobListEntries #-}
+{-# DEPRECATED jobListEntries "Use generic-lens or generic-optics with 'jobListEntries' instead"  #-}
 
 -- | HTTP requests are stateless. If you use this automatically generated @NextToken@ value in your next @ListJobs@ call, your returned @JobListEntry@ objects will start from this point in the array.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljrrsNextToken :: Lens.Lens' ListJobsResponse (Core.Maybe Types.String)
+ljrrsNextToken :: Lens.Lens' ListJobsResponse (Core.Maybe Core.Text)
 ljrrsNextToken = Lens.field @"nextToken"
-{-# DEPRECATED ljrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE ljrrsNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ljrrsResponseStatus :: Lens.Lens' ListJobsResponse Core.Int
 ljrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED ljrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE ljrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

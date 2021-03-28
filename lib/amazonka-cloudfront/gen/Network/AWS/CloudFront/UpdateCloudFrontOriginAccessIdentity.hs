@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,27 +13,25 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Update an origin access identity.
+-- Update an origin access identity. 
 module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
-  ( -- * Creating a request
-    UpdateCloudFrontOriginAccessIdentity (..),
-    mkUpdateCloudFrontOriginAccessIdentity,
-
+    (
+    -- * Creating a request
+      UpdateCloudFrontOriginAccessIdentity (..)
+    , mkUpdateCloudFrontOriginAccessIdentity
     -- ** Request lenses
-    ucfoaiCloudFrontOriginAccessIdentityConfig,
-    ucfoaiId,
-    ucfoaiIfMatch,
+    , ucfoaiCloudFrontOriginAccessIdentityConfig
+    , ucfoaiId
+    , ucfoaiIfMatch
 
     -- * Destructuring the response
-    UpdateCloudFrontOriginAccessIdentityResponse (..),
-    mkUpdateCloudFrontOriginAccessIdentityResponse,
-
+    , UpdateCloudFrontOriginAccessIdentityResponse (..)
+    , mkUpdateCloudFrontOriginAccessIdentityResponse
     -- ** Response lenses
-    ucfoairrsCloudFrontOriginAccessIdentity,
-    ucfoairrsETag,
-    ucfoairrsResponseStatus,
-  )
-where
+    , ucfoairrsCloudFrontOriginAccessIdentity
+    , ucfoairrsETag
+    , ucfoairrsResponseStatus
+    ) where
 
 import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -45,124 +43,123 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkUpdateCloudFrontOriginAccessIdentity' smart constructor.
 data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity'
-  { -- | The identity's configuration information.
-    cloudFrontOriginAccessIdentityConfig :: Types.CloudFrontOriginAccessIdentityConfig,
-    -- | The identity's id.
-    id :: Types.String,
-    -- | The value of the @ETag@ header that you received when retrieving the identity's configuration. For example: @E2QWRUHAPOMQZL@ .
-    ifMatch :: Core.Maybe Types.String
+  { cloudFrontOriginAccessIdentityConfig :: Types.CloudFrontOriginAccessIdentityConfig
+    -- ^ The identity's configuration information.
+  , id :: Core.Text
+    -- ^ The identity's id.
+  , ifMatch :: Core.Maybe Core.Text
+    -- ^ The value of the @ETag@ header that you received when retrieving the identity's configuration. For example: @E2QWRUHAPOMQZL@ .
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UpdateCloudFrontOriginAccessIdentity' value with any optional fields omitted.
-mkUpdateCloudFrontOriginAccessIdentity ::
-  -- | 'cloudFrontOriginAccessIdentityConfig'
-  Types.CloudFrontOriginAccessIdentityConfig ->
-  -- | 'id'
-  Types.String ->
-  UpdateCloudFrontOriginAccessIdentity
 mkUpdateCloudFrontOriginAccessIdentity
-  cloudFrontOriginAccessIdentityConfig
-  id =
-    UpdateCloudFrontOriginAccessIdentity'
-      { cloudFrontOriginAccessIdentityConfig,
-        id,
-        ifMatch = Core.Nothing
-      }
+    :: Types.CloudFrontOriginAccessIdentityConfig -- ^ 'cloudFrontOriginAccessIdentityConfig'
+    -> Core.Text -- ^ 'id'
+    -> UpdateCloudFrontOriginAccessIdentity
+mkUpdateCloudFrontOriginAccessIdentity
+  cloudFrontOriginAccessIdentityConfig id
+  = UpdateCloudFrontOriginAccessIdentity'{cloudFrontOriginAccessIdentityConfig,
+                                          id, ifMatch = Core.Nothing}
 
 -- | The identity's configuration information.
 --
 -- /Note:/ Consider using 'cloudFrontOriginAccessIdentityConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ucfoaiCloudFrontOriginAccessIdentityConfig :: Lens.Lens' UpdateCloudFrontOriginAccessIdentity Types.CloudFrontOriginAccessIdentityConfig
 ucfoaiCloudFrontOriginAccessIdentityConfig = Lens.field @"cloudFrontOriginAccessIdentityConfig"
-{-# DEPRECATED ucfoaiCloudFrontOriginAccessIdentityConfig "Use generic-lens or generic-optics with 'cloudFrontOriginAccessIdentityConfig' instead." #-}
+{-# INLINEABLE ucfoaiCloudFrontOriginAccessIdentityConfig #-}
+{-# DEPRECATED cloudFrontOriginAccessIdentityConfig "Use generic-lens or generic-optics with 'cloudFrontOriginAccessIdentityConfig' instead"  #-}
 
 -- | The identity's id.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucfoaiId :: Lens.Lens' UpdateCloudFrontOriginAccessIdentity Types.String
+ucfoaiId :: Lens.Lens' UpdateCloudFrontOriginAccessIdentity Core.Text
 ucfoaiId = Lens.field @"id"
-{-# DEPRECATED ucfoaiId "Use generic-lens or generic-optics with 'id' instead." #-}
+{-# INLINEABLE ucfoaiId #-}
+{-# DEPRECATED id "Use generic-lens or generic-optics with 'id' instead"  #-}
 
 -- | The value of the @ETag@ header that you received when retrieving the identity's configuration. For example: @E2QWRUHAPOMQZL@ .
 --
 -- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucfoaiIfMatch :: Lens.Lens' UpdateCloudFrontOriginAccessIdentity (Core.Maybe Types.String)
+ucfoaiIfMatch :: Lens.Lens' UpdateCloudFrontOriginAccessIdentity (Core.Maybe Core.Text)
 ucfoaiIfMatch = Lens.field @"ifMatch"
-{-# DEPRECATED ucfoaiIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
+{-# INLINEABLE ucfoaiIfMatch #-}
+{-# DEPRECATED ifMatch "Use generic-lens or generic-optics with 'ifMatch' instead"  #-}
+
+instance Core.ToQuery UpdateCloudFrontOriginAccessIdentity where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders UpdateCloudFrontOriginAccessIdentity where
+        toHeaders UpdateCloudFrontOriginAccessIdentity{..}
+          = Core.toHeaders "If-Match" ifMatch
 
 instance Core.AWSRequest UpdateCloudFrontOriginAccessIdentity where
-  type
-    Rs UpdateCloudFrontOriginAccessIdentity =
-      UpdateCloudFrontOriginAccessIdentityResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.PUT,
-        Core._rqPath =
-          Core.rawPath
-            ( "/2020-05-31/origin-access-identity/cloudfront/"
-                Core.<> (Core.toText id)
-                Core.<> ("/config")
-            ),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders = Core.toHeaders "If-Match" ifMatch,
-        Core._rqBody = Core.toXMLBody x
-      }
-  response =
-    Response.receiveXML
-      ( \s h x ->
-          UpdateCloudFrontOriginAccessIdentityResponse'
-            Core.<$> (Core.parseXML x)
-            Core.<*> (Core.parseHeaderMaybe "ETag" h)
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs UpdateCloudFrontOriginAccessIdentity =
+             UpdateCloudFrontOriginAccessIdentityResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.PUT,
+                         Core._rqPath =
+                           "/2020-05-31/origin-access-identity/cloudfront/" Core.<>
+                             Core.toText id
+                             Core.<> "/config",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toXMLBody (Core.toXMLDocument x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXML
+              (\ s h x ->
+                 UpdateCloudFrontOriginAccessIdentityResponse' Core.<$>
+                   (Core.parseXML x) Core.<*> Core.parseHeaderMaybe "ETag" h Core.<*>
+                     Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'mkUpdateCloudFrontOriginAccessIdentityResponse' smart constructor.
 data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse'
-  { -- | The origin access identity's information.
-    cloudFrontOriginAccessIdentity :: Core.Maybe Types.CloudFrontOriginAccessIdentity,
-    -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
-    eTag :: Core.Maybe Types.String,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { cloudFrontOriginAccessIdentity :: Core.Maybe Types.CloudFrontOriginAccessIdentity
+    -- ^ The origin access identity's information.
+  , eTag :: Core.Maybe Core.Text
+    -- ^ The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UpdateCloudFrontOriginAccessIdentityResponse' value with any optional fields omitted.
-mkUpdateCloudFrontOriginAccessIdentityResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  UpdateCloudFrontOriginAccessIdentityResponse
-mkUpdateCloudFrontOriginAccessIdentityResponse responseStatus =
-  UpdateCloudFrontOriginAccessIdentityResponse'
-    { cloudFrontOriginAccessIdentity =
-        Core.Nothing,
-      eTag = Core.Nothing,
-      responseStatus
-    }
+mkUpdateCloudFrontOriginAccessIdentityResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> UpdateCloudFrontOriginAccessIdentityResponse
+mkUpdateCloudFrontOriginAccessIdentityResponse responseStatus
+  = UpdateCloudFrontOriginAccessIdentityResponse'{cloudFrontOriginAccessIdentity
+                                                    = Core.Nothing,
+                                                  eTag = Core.Nothing, responseStatus}
 
 -- | The origin access identity's information.
 --
 -- /Note:/ Consider using 'cloudFrontOriginAccessIdentity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ucfoairrsCloudFrontOriginAccessIdentity :: Lens.Lens' UpdateCloudFrontOriginAccessIdentityResponse (Core.Maybe Types.CloudFrontOriginAccessIdentity)
 ucfoairrsCloudFrontOriginAccessIdentity = Lens.field @"cloudFrontOriginAccessIdentity"
-{-# DEPRECATED ucfoairrsCloudFrontOriginAccessIdentity "Use generic-lens or generic-optics with 'cloudFrontOriginAccessIdentity' instead." #-}
+{-# INLINEABLE ucfoairrsCloudFrontOriginAccessIdentity #-}
+{-# DEPRECATED cloudFrontOriginAccessIdentity "Use generic-lens or generic-optics with 'cloudFrontOriginAccessIdentity' instead"  #-}
 
 -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 --
 -- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucfoairrsETag :: Lens.Lens' UpdateCloudFrontOriginAccessIdentityResponse (Core.Maybe Types.String)
+ucfoairrsETag :: Lens.Lens' UpdateCloudFrontOriginAccessIdentityResponse (Core.Maybe Core.Text)
 ucfoairrsETag = Lens.field @"eTag"
-{-# DEPRECATED ucfoairrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
+{-# INLINEABLE ucfoairrsETag #-}
+{-# DEPRECATED eTag "Use generic-lens or generic-optics with 'eTag' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ucfoairrsResponseStatus :: Lens.Lens' UpdateCloudFrontOriginAccessIdentityResponse Core.Int
 ucfoairrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED ucfoairrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE ucfoairrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

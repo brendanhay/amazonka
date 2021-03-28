@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CloudSearch.Types.IndexFieldStatus
-  ( IndexFieldStatus (..),
-
-    -- * Smart constructor
-    mkIndexFieldStatus,
-
-    -- * Lenses
-    ifsOptions,
-    ifsStatus,
-  )
-where
+  ( IndexFieldStatus (..)
+  -- * Smart constructor
+  , mkIndexFieldStatus
+  -- * Lenses
+  , ifsOptions
+  , ifsStatus
+  ) where
 
 import qualified Network.AWS.CloudSearch.Types.IndexField as Types
 import qualified Network.AWS.CloudSearch.Types.OptionStatus as Types
@@ -31,37 +29,37 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkIndexFieldStatus' smart constructor.
 data IndexFieldStatus = IndexFieldStatus'
-  { options :: Types.IndexField,
-    status :: Types.OptionStatus
+  { options :: Types.IndexField
+  , status :: Types.OptionStatus
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'IndexFieldStatus' value with any optional fields omitted.
-mkIndexFieldStatus ::
-  -- | 'options'
-  Types.IndexField ->
-  -- | 'status'
-  Types.OptionStatus ->
-  IndexFieldStatus
-mkIndexFieldStatus options status =
-  IndexFieldStatus' {options, status}
+mkIndexFieldStatus
+    :: Types.IndexField -- ^ 'options'
+    -> Types.OptionStatus -- ^ 'status'
+    -> IndexFieldStatus
+mkIndexFieldStatus options status
+  = IndexFieldStatus'{options, status}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ifsOptions :: Lens.Lens' IndexFieldStatus Types.IndexField
 ifsOptions = Lens.field @"options"
-{-# DEPRECATED ifsOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+{-# INLINEABLE ifsOptions #-}
+{-# DEPRECATED options "Use generic-lens or generic-optics with 'options' instead"  #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ifsStatus :: Lens.Lens' IndexFieldStatus Types.OptionStatus
 ifsStatus = Lens.field @"status"
-{-# DEPRECATED ifsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+{-# INLINEABLE ifsStatus #-}
+{-# DEPRECATED status "Use generic-lens or generic-optics with 'status' instead"  #-}
 
 instance Core.FromXML IndexFieldStatus where
-  parseXML x =
-    IndexFieldStatus'
-      Core.<$> (x Core..@ "Options") Core.<*> (x Core..@ "Status")
+        parseXML x
+          = IndexFieldStatus' Core.<$>
+              (x Core..@ "Options") Core.<*> x Core..@ "Status"

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,20 +10,17 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.AppSync.Types.CognitoUserPoolConfig
-  ( CognitoUserPoolConfig (..),
+  ( CognitoUserPoolConfig (..)
+  -- * Smart constructor
+  , mkCognitoUserPoolConfig
+  -- * Lenses
+  , cupcUserPoolId
+  , cupcAwsRegion
+  , cupcAppIdClientRegex
+  ) where
 
-    -- * Smart constructor
-    mkCognitoUserPoolConfig,
-
-    -- * Lenses
-    cupcUserPoolId,
-    cupcAwsRegion,
-    cupcAppIdClientRegex,
-  )
-where
-
-import qualified Network.AWS.AppSync.Types.String as Types
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
 
@@ -31,66 +28,61 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkCognitoUserPoolConfig' smart constructor.
 data CognitoUserPoolConfig = CognitoUserPoolConfig'
-  { -- | The user pool ID.
-    userPoolId :: Types.String,
-    -- | The AWS Region in which the user pool was created.
-    awsRegion :: Types.String,
-    -- | A regular expression for validating the incoming Amazon Cognito user pool app client ID.
-    appIdClientRegex :: Core.Maybe Types.String
+  { userPoolId :: Core.Text
+    -- ^ The user pool ID.
+  , awsRegion :: Core.Text
+    -- ^ The AWS Region in which the user pool was created.
+  , appIdClientRegex :: Core.Maybe Core.Text
+    -- ^ A regular expression for validating the incoming Amazon Cognito user pool app client ID.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CognitoUserPoolConfig' value with any optional fields omitted.
-mkCognitoUserPoolConfig ::
-  -- | 'userPoolId'
-  Types.String ->
-  -- | 'awsRegion'
-  Types.String ->
-  CognitoUserPoolConfig
-mkCognitoUserPoolConfig userPoolId awsRegion =
-  CognitoUserPoolConfig'
-    { userPoolId,
-      awsRegion,
-      appIdClientRegex = Core.Nothing
-    }
+mkCognitoUserPoolConfig
+    :: Core.Text -- ^ 'userPoolId'
+    -> Core.Text -- ^ 'awsRegion'
+    -> CognitoUserPoolConfig
+mkCognitoUserPoolConfig userPoolId awsRegion
+  = CognitoUserPoolConfig'{userPoolId, awsRegion,
+                           appIdClientRegex = Core.Nothing}
 
 -- | The user pool ID.
 --
 -- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cupcUserPoolId :: Lens.Lens' CognitoUserPoolConfig Types.String
+cupcUserPoolId :: Lens.Lens' CognitoUserPoolConfig Core.Text
 cupcUserPoolId = Lens.field @"userPoolId"
-{-# DEPRECATED cupcUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+{-# INLINEABLE cupcUserPoolId #-}
+{-# DEPRECATED userPoolId "Use generic-lens or generic-optics with 'userPoolId' instead"  #-}
 
 -- | The AWS Region in which the user pool was created.
 --
 -- /Note:/ Consider using 'awsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cupcAwsRegion :: Lens.Lens' CognitoUserPoolConfig Types.String
+cupcAwsRegion :: Lens.Lens' CognitoUserPoolConfig Core.Text
 cupcAwsRegion = Lens.field @"awsRegion"
-{-# DEPRECATED cupcAwsRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
+{-# INLINEABLE cupcAwsRegion #-}
+{-# DEPRECATED awsRegion "Use generic-lens or generic-optics with 'awsRegion' instead"  #-}
 
 -- | A regular expression for validating the incoming Amazon Cognito user pool app client ID.
 --
 -- /Note:/ Consider using 'appIdClientRegex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cupcAppIdClientRegex :: Lens.Lens' CognitoUserPoolConfig (Core.Maybe Types.String)
+cupcAppIdClientRegex :: Lens.Lens' CognitoUserPoolConfig (Core.Maybe Core.Text)
 cupcAppIdClientRegex = Lens.field @"appIdClientRegex"
-{-# DEPRECATED cupcAppIdClientRegex "Use generic-lens or generic-optics with 'appIdClientRegex' instead." #-}
+{-# INLINEABLE cupcAppIdClientRegex #-}
+{-# DEPRECATED appIdClientRegex "Use generic-lens or generic-optics with 'appIdClientRegex' instead"  #-}
 
 instance Core.FromJSON CognitoUserPoolConfig where
-  toJSON CognitoUserPoolConfig {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("userPoolId" Core..= userPoolId),
-            Core.Just ("awsRegion" Core..= awsRegion),
-            ("appIdClientRegex" Core..=) Core.<$> appIdClientRegex
-          ]
-      )
+        toJSON CognitoUserPoolConfig{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("userPoolId" Core..= userPoolId),
+                  Core.Just ("awsRegion" Core..= awsRegion),
+                  ("appIdClientRegex" Core..=) Core.<$> appIdClientRegex])
 
 instance Core.FromJSON CognitoUserPoolConfig where
-  parseJSON =
-    Core.withObject "CognitoUserPoolConfig" Core.$
-      \x ->
-        CognitoUserPoolConfig'
-          Core.<$> (x Core..: "userPoolId")
-          Core.<*> (x Core..: "awsRegion")
-          Core.<*> (x Core..:? "appIdClientRegex")
+        parseJSON
+          = Core.withObject "CognitoUserPoolConfig" Core.$
+              \ x ->
+                CognitoUserPoolConfig' Core.<$>
+                  (x Core..: "userPoolId") Core.<*> x Core..: "awsRegion" Core.<*>
+                    x Core..:? "appIdClientRegex"

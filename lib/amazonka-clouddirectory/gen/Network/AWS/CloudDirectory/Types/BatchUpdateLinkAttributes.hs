@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CloudDirectory.Types.BatchUpdateLinkAttributes
-  ( BatchUpdateLinkAttributes (..),
-
-    -- * Smart constructor
-    mkBatchUpdateLinkAttributes,
-
-    -- * Lenses
-    bulaTypedLinkSpecifier,
-    bulaAttributeUpdates,
-  )
-where
+  ( BatchUpdateLinkAttributes (..)
+  -- * Smart constructor
+  , mkBatchUpdateLinkAttributes
+  -- * Lenses
+  , bulaTypedLinkSpecifier
+  , bulaAttributeUpdates
+  ) where
 
 import qualified Network.AWS.CloudDirectory.Types.LinkAttributeUpdate as Types
 import qualified Network.AWS.CloudDirectory.Types.TypedLinkSpecifier as Types
@@ -31,44 +29,41 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkBatchUpdateLinkAttributes' smart constructor.
 data BatchUpdateLinkAttributes = BatchUpdateLinkAttributes'
-  { -- | Allows a typed link specifier to be accepted as input.
-    typedLinkSpecifier :: Types.TypedLinkSpecifier,
-    -- | The attributes update structure.
-    attributeUpdates :: [Types.LinkAttributeUpdate]
+  { typedLinkSpecifier :: Types.TypedLinkSpecifier
+    -- ^ Allows a typed link specifier to be accepted as input.
+  , attributeUpdates :: [Types.LinkAttributeUpdate]
+    -- ^ The attributes update structure.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'BatchUpdateLinkAttributes' value with any optional fields omitted.
-mkBatchUpdateLinkAttributes ::
-  -- | 'typedLinkSpecifier'
-  Types.TypedLinkSpecifier ->
-  BatchUpdateLinkAttributes
-mkBatchUpdateLinkAttributes typedLinkSpecifier =
-  BatchUpdateLinkAttributes'
-    { typedLinkSpecifier,
-      attributeUpdates = Core.mempty
-    }
+mkBatchUpdateLinkAttributes
+    :: Types.TypedLinkSpecifier -- ^ 'typedLinkSpecifier'
+    -> BatchUpdateLinkAttributes
+mkBatchUpdateLinkAttributes typedLinkSpecifier
+  = BatchUpdateLinkAttributes'{typedLinkSpecifier,
+                               attributeUpdates = Core.mempty}
 
 -- | Allows a typed link specifier to be accepted as input.
 --
 -- /Note:/ Consider using 'typedLinkSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 bulaTypedLinkSpecifier :: Lens.Lens' BatchUpdateLinkAttributes Types.TypedLinkSpecifier
 bulaTypedLinkSpecifier = Lens.field @"typedLinkSpecifier"
-{-# DEPRECATED bulaTypedLinkSpecifier "Use generic-lens or generic-optics with 'typedLinkSpecifier' instead." #-}
+{-# INLINEABLE bulaTypedLinkSpecifier #-}
+{-# DEPRECATED typedLinkSpecifier "Use generic-lens or generic-optics with 'typedLinkSpecifier' instead"  #-}
 
 -- | The attributes update structure.
 --
 -- /Note:/ Consider using 'attributeUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 bulaAttributeUpdates :: Lens.Lens' BatchUpdateLinkAttributes [Types.LinkAttributeUpdate]
 bulaAttributeUpdates = Lens.field @"attributeUpdates"
-{-# DEPRECATED bulaAttributeUpdates "Use generic-lens or generic-optics with 'attributeUpdates' instead." #-}
+{-# INLINEABLE bulaAttributeUpdates #-}
+{-# DEPRECATED attributeUpdates "Use generic-lens or generic-optics with 'attributeUpdates' instead"  #-}
 
 instance Core.FromJSON BatchUpdateLinkAttributes where
-  toJSON BatchUpdateLinkAttributes {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("TypedLinkSpecifier" Core..= typedLinkSpecifier),
-            Core.Just ("AttributeUpdates" Core..= attributeUpdates)
-          ]
-      )
+        toJSON BatchUpdateLinkAttributes{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("TypedLinkSpecifier" Core..= typedLinkSpecifier),
+                  Core.Just ("AttributeUpdates" Core..= attributeUpdates)])

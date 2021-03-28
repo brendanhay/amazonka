@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,19 +10,17 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CostExplorer.Types.CoverageNormalizedUnits
-  ( CoverageNormalizedUnits (..),
-
-    -- * Smart constructor
-    mkCoverageNormalizedUnits,
-
-    -- * Lenses
-    cnuCoverageNormalizedUnitsPercentage,
-    cnuOnDemandNormalizedUnits,
-    cnuReservedNormalizedUnits,
-    cnuTotalRunningNormalizedUnits,
-  )
-where
+  ( CoverageNormalizedUnits (..)
+  -- * Smart constructor
+  , mkCoverageNormalizedUnits
+  -- * Lenses
+  , cnuCoverageNormalizedUnitsPercentage
+  , cnuOnDemandNormalizedUnits
+  , cnuReservedNormalizedUnits
+  , cnuTotalRunningNormalizedUnits
+  ) where
 
 import qualified Network.AWS.CostExplorer.Types.CoverageNormalizedUnitsPercentage as Types
 import qualified Network.AWS.CostExplorer.Types.OnDemandNormalizedUnits as Types
@@ -37,64 +35,66 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkCoverageNormalizedUnits' smart constructor.
 data CoverageNormalizedUnits = CoverageNormalizedUnits'
-  { -- | The percentage of your used instance normalized units that a reservation covers.
-    coverageNormalizedUnitsPercentage :: Core.Maybe Types.CoverageNormalizedUnitsPercentage,
-    -- | The number of normalized units that are covered by On-Demand Instances instead of a reservation.
-    onDemandNormalizedUnits :: Core.Maybe Types.OnDemandNormalizedUnits,
-    -- | The number of normalized units that a reservation covers.
-    reservedNormalizedUnits :: Core.Maybe Types.ReservedNormalizedUnits,
-    -- | The total number of normalized units that you used.
-    totalRunningNormalizedUnits :: Core.Maybe Types.TotalRunningNormalizedUnits
+  { coverageNormalizedUnitsPercentage :: Core.Maybe Types.CoverageNormalizedUnitsPercentage
+    -- ^ The percentage of your used instance normalized units that a reservation covers.
+  , onDemandNormalizedUnits :: Core.Maybe Types.OnDemandNormalizedUnits
+    -- ^ The number of normalized units that are covered by On-Demand Instances instead of a reservation.
+  , reservedNormalizedUnits :: Core.Maybe Types.ReservedNormalizedUnits
+    -- ^ The number of normalized units that a reservation covers.
+  , totalRunningNormalizedUnits :: Core.Maybe Types.TotalRunningNormalizedUnits
+    -- ^ The total number of normalized units that you used.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CoverageNormalizedUnits' value with any optional fields omitted.
-mkCoverageNormalizedUnits ::
-  CoverageNormalizedUnits
-mkCoverageNormalizedUnits =
-  CoverageNormalizedUnits'
-    { coverageNormalizedUnitsPercentage =
-        Core.Nothing,
-      onDemandNormalizedUnits = Core.Nothing,
-      reservedNormalizedUnits = Core.Nothing,
-      totalRunningNormalizedUnits = Core.Nothing
-    }
+mkCoverageNormalizedUnits
+    :: CoverageNormalizedUnits
+mkCoverageNormalizedUnits
+  = CoverageNormalizedUnits'{coverageNormalizedUnitsPercentage =
+                               Core.Nothing,
+                             onDemandNormalizedUnits = Core.Nothing,
+                             reservedNormalizedUnits = Core.Nothing,
+                             totalRunningNormalizedUnits = Core.Nothing}
 
 -- | The percentage of your used instance normalized units that a reservation covers.
 --
 -- /Note:/ Consider using 'coverageNormalizedUnitsPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cnuCoverageNormalizedUnitsPercentage :: Lens.Lens' CoverageNormalizedUnits (Core.Maybe Types.CoverageNormalizedUnitsPercentage)
 cnuCoverageNormalizedUnitsPercentage = Lens.field @"coverageNormalizedUnitsPercentage"
-{-# DEPRECATED cnuCoverageNormalizedUnitsPercentage "Use generic-lens or generic-optics with 'coverageNormalizedUnitsPercentage' instead." #-}
+{-# INLINEABLE cnuCoverageNormalizedUnitsPercentage #-}
+{-# DEPRECATED coverageNormalizedUnitsPercentage "Use generic-lens or generic-optics with 'coverageNormalizedUnitsPercentage' instead"  #-}
 
 -- | The number of normalized units that are covered by On-Demand Instances instead of a reservation.
 --
 -- /Note:/ Consider using 'onDemandNormalizedUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cnuOnDemandNormalizedUnits :: Lens.Lens' CoverageNormalizedUnits (Core.Maybe Types.OnDemandNormalizedUnits)
 cnuOnDemandNormalizedUnits = Lens.field @"onDemandNormalizedUnits"
-{-# DEPRECATED cnuOnDemandNormalizedUnits "Use generic-lens or generic-optics with 'onDemandNormalizedUnits' instead." #-}
+{-# INLINEABLE cnuOnDemandNormalizedUnits #-}
+{-# DEPRECATED onDemandNormalizedUnits "Use generic-lens or generic-optics with 'onDemandNormalizedUnits' instead"  #-}
 
 -- | The number of normalized units that a reservation covers.
 --
 -- /Note:/ Consider using 'reservedNormalizedUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cnuReservedNormalizedUnits :: Lens.Lens' CoverageNormalizedUnits (Core.Maybe Types.ReservedNormalizedUnits)
 cnuReservedNormalizedUnits = Lens.field @"reservedNormalizedUnits"
-{-# DEPRECATED cnuReservedNormalizedUnits "Use generic-lens or generic-optics with 'reservedNormalizedUnits' instead." #-}
+{-# INLINEABLE cnuReservedNormalizedUnits #-}
+{-# DEPRECATED reservedNormalizedUnits "Use generic-lens or generic-optics with 'reservedNormalizedUnits' instead"  #-}
 
 -- | The total number of normalized units that you used.
 --
 -- /Note:/ Consider using 'totalRunningNormalizedUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cnuTotalRunningNormalizedUnits :: Lens.Lens' CoverageNormalizedUnits (Core.Maybe Types.TotalRunningNormalizedUnits)
 cnuTotalRunningNormalizedUnits = Lens.field @"totalRunningNormalizedUnits"
-{-# DEPRECATED cnuTotalRunningNormalizedUnits "Use generic-lens or generic-optics with 'totalRunningNormalizedUnits' instead." #-}
+{-# INLINEABLE cnuTotalRunningNormalizedUnits #-}
+{-# DEPRECATED totalRunningNormalizedUnits "Use generic-lens or generic-optics with 'totalRunningNormalizedUnits' instead"  #-}
 
 instance Core.FromJSON CoverageNormalizedUnits where
-  parseJSON =
-    Core.withObject "CoverageNormalizedUnits" Core.$
-      \x ->
-        CoverageNormalizedUnits'
-          Core.<$> (x Core..:? "CoverageNormalizedUnitsPercentage")
-          Core.<*> (x Core..:? "OnDemandNormalizedUnits")
-          Core.<*> (x Core..:? "ReservedNormalizedUnits")
-          Core.<*> (x Core..:? "TotalRunningNormalizedUnits")
+        parseJSON
+          = Core.withObject "CoverageNormalizedUnits" Core.$
+              \ x ->
+                CoverageNormalizedUnits' Core.<$>
+                  (x Core..:? "CoverageNormalizedUnitsPercentage") Core.<*>
+                    x Core..:? "OnDemandNormalizedUnits"
+                    Core.<*> x Core..:? "ReservedNormalizedUnits"
+                    Core.<*> x Core..:? "TotalRunningNormalizedUnits"

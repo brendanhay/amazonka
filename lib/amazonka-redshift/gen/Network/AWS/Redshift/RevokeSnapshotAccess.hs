@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,24 +17,22 @@
 --
 -- For more information about working with snapshots, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon Redshift Snapshots> in the /Amazon Redshift Cluster Management Guide/ .
 module Network.AWS.Redshift.RevokeSnapshotAccess
-  ( -- * Creating a request
-    RevokeSnapshotAccess (..),
-    mkRevokeSnapshotAccess,
-
+    (
+    -- * Creating a request
+      RevokeSnapshotAccess (..)
+    , mkRevokeSnapshotAccess
     -- ** Request lenses
-    rsaSnapshotIdentifier,
-    rsaAccountWithRestoreAccess,
-    rsaSnapshotClusterIdentifier,
+    , rsaSnapshotIdentifier
+    , rsaAccountWithRestoreAccess
+    , rsaSnapshotClusterIdentifier
 
     -- * Destructuring the response
-    RevokeSnapshotAccessResponse (..),
-    mkRevokeSnapshotAccessResponse,
-
+    , RevokeSnapshotAccessResponse (..)
+    , mkRevokeSnapshotAccessResponse
     -- ** Response lenses
-    rsarrsSnapshot,
-    rsarrsResponseStatus,
-  )
-where
+    , rsarrsSnapshot
+    , rsarrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -42,120 +40,120 @@ import qualified Network.AWS.Redshift.Types as Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- |
+-- | 
 --
 -- /See:/ 'mkRevokeSnapshotAccess' smart constructor.
 data RevokeSnapshotAccess = RevokeSnapshotAccess'
-  { -- | The identifier of the snapshot that the account can no longer access.
-    snapshotIdentifier :: Types.String,
-    -- | The identifier of the AWS customer account that can no longer restore the specified snapshot.
-    accountWithRestoreAccess :: Types.String,
-    -- | The identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
-    snapshotClusterIdentifier :: Core.Maybe Types.String
+  { snapshotIdentifier :: Core.Text
+    -- ^ The identifier of the snapshot that the account can no longer access.
+  , accountWithRestoreAccess :: Core.Text
+    -- ^ The identifier of the AWS customer account that can no longer restore the specified snapshot.
+  , snapshotClusterIdentifier :: Core.Maybe Core.Text
+    -- ^ The identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'RevokeSnapshotAccess' value with any optional fields omitted.
-mkRevokeSnapshotAccess ::
-  -- | 'snapshotIdentifier'
-  Types.String ->
-  -- | 'accountWithRestoreAccess'
-  Types.String ->
-  RevokeSnapshotAccess
-mkRevokeSnapshotAccess snapshotIdentifier accountWithRestoreAccess =
-  RevokeSnapshotAccess'
-    { snapshotIdentifier,
-      accountWithRestoreAccess,
-      snapshotClusterIdentifier = Core.Nothing
-    }
+mkRevokeSnapshotAccess
+    :: Core.Text -- ^ 'snapshotIdentifier'
+    -> Core.Text -- ^ 'accountWithRestoreAccess'
+    -> RevokeSnapshotAccess
+mkRevokeSnapshotAccess snapshotIdentifier accountWithRestoreAccess
+  = RevokeSnapshotAccess'{snapshotIdentifier,
+                          accountWithRestoreAccess, snapshotClusterIdentifier = Core.Nothing}
 
 -- | The identifier of the snapshot that the account can no longer access.
 --
 -- /Note:/ Consider using 'snapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsaSnapshotIdentifier :: Lens.Lens' RevokeSnapshotAccess Types.String
+rsaSnapshotIdentifier :: Lens.Lens' RevokeSnapshotAccess Core.Text
 rsaSnapshotIdentifier = Lens.field @"snapshotIdentifier"
-{-# DEPRECATED rsaSnapshotIdentifier "Use generic-lens or generic-optics with 'snapshotIdentifier' instead." #-}
+{-# INLINEABLE rsaSnapshotIdentifier #-}
+{-# DEPRECATED snapshotIdentifier "Use generic-lens or generic-optics with 'snapshotIdentifier' instead"  #-}
 
 -- | The identifier of the AWS customer account that can no longer restore the specified snapshot.
 --
 -- /Note:/ Consider using 'accountWithRestoreAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsaAccountWithRestoreAccess :: Lens.Lens' RevokeSnapshotAccess Types.String
+rsaAccountWithRestoreAccess :: Lens.Lens' RevokeSnapshotAccess Core.Text
 rsaAccountWithRestoreAccess = Lens.field @"accountWithRestoreAccess"
-{-# DEPRECATED rsaAccountWithRestoreAccess "Use generic-lens or generic-optics with 'accountWithRestoreAccess' instead." #-}
+{-# INLINEABLE rsaAccountWithRestoreAccess #-}
+{-# DEPRECATED accountWithRestoreAccess "Use generic-lens or generic-optics with 'accountWithRestoreAccess' instead"  #-}
 
 -- | The identifier of the cluster the snapshot was created from. This parameter is required if your IAM user has a policy containing a snapshot resource element that specifies anything other than * for the cluster name.
 --
 -- /Note:/ Consider using 'snapshotClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsaSnapshotClusterIdentifier :: Lens.Lens' RevokeSnapshotAccess (Core.Maybe Types.String)
+rsaSnapshotClusterIdentifier :: Lens.Lens' RevokeSnapshotAccess (Core.Maybe Core.Text)
 rsaSnapshotClusterIdentifier = Lens.field @"snapshotClusterIdentifier"
-{-# DEPRECATED rsaSnapshotClusterIdentifier "Use generic-lens or generic-optics with 'snapshotClusterIdentifier' instead." #-}
+{-# INLINEABLE rsaSnapshotClusterIdentifier #-}
+{-# DEPRECATED snapshotClusterIdentifier "Use generic-lens or generic-optics with 'snapshotClusterIdentifier' instead"  #-}
+
+instance Core.ToQuery RevokeSnapshotAccess where
+        toQuery RevokeSnapshotAccess{..}
+          = Core.toQueryPair "Action" ("RevokeSnapshotAccess" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2012-12-01" :: Core.Text)
+              Core.<> Core.toQueryPair "SnapshotIdentifier" snapshotIdentifier
+              Core.<>
+              Core.toQueryPair "AccountWithRestoreAccess"
+                accountWithRestoreAccess
+              Core.<>
+              Core.maybe Core.mempty
+                (Core.toQueryPair "SnapshotClusterIdentifier")
+                snapshotClusterIdentifier
+
+instance Core.ToHeaders RevokeSnapshotAccess where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest RevokeSnapshotAccess where
-  type Rs RevokeSnapshotAccess = RevokeSnapshotAccessResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "RevokeSnapshotAccess")
-                Core.<> (Core.pure ("Version", "2012-12-01"))
-                Core.<> (Core.toQueryValue "SnapshotIdentifier" snapshotIdentifier)
-                Core.<> ( Core.toQueryValue
-                            "AccountWithRestoreAccess"
-                            accountWithRestoreAccess
-                        )
-                Core.<> ( Core.toQueryValue "SnapshotClusterIdentifier"
-                            Core.<$> snapshotClusterIdentifier
-                        )
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "RevokeSnapshotAccessResult"
-      ( \s h x ->
-          RevokeSnapshotAccessResponse'
-            Core.<$> (x Core..@? "Snapshot") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs RevokeSnapshotAccess = RevokeSnapshotAccessResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "RevokeSnapshotAccessResult"
+              (\ s h x ->
+                 RevokeSnapshotAccessResponse' Core.<$>
+                   (x Core..@? "Snapshot") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkRevokeSnapshotAccessResponse' smart constructor.
 data RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse'
-  { snapshot :: Core.Maybe Types.Snapshot,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { snapshot :: Core.Maybe Types.Snapshot
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'RevokeSnapshotAccessResponse' value with any optional fields omitted.
-mkRevokeSnapshotAccessResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  RevokeSnapshotAccessResponse
-mkRevokeSnapshotAccessResponse responseStatus =
-  RevokeSnapshotAccessResponse'
-    { snapshot = Core.Nothing,
-      responseStatus
-    }
+mkRevokeSnapshotAccessResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> RevokeSnapshotAccessResponse
+mkRevokeSnapshotAccessResponse responseStatus
+  = RevokeSnapshotAccessResponse'{snapshot = Core.Nothing,
+                                  responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'snapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rsarrsSnapshot :: Lens.Lens' RevokeSnapshotAccessResponse (Core.Maybe Types.Snapshot)
 rsarrsSnapshot = Lens.field @"snapshot"
-{-# DEPRECATED rsarrsSnapshot "Use generic-lens or generic-optics with 'snapshot' instead." #-}
+{-# INLINEABLE rsarrsSnapshot #-}
+{-# DEPRECATED snapshot "Use generic-lens or generic-optics with 'snapshot' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rsarrsResponseStatus :: Lens.Lens' RevokeSnapshotAccessResponse Core.Int
 rsarrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED rsarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE rsarrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

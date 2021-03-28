@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,24 +17,22 @@
 --
 -- For more information, see <http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html UpdateThingShadow> in the AWS IoT Developer Guide.
 module Network.AWS.IoTData.UpdateThingShadow
-  ( -- * Creating a request
-    UpdateThingShadow (..),
-    mkUpdateThingShadow,
-
+    (
+    -- * Creating a request
+      UpdateThingShadow (..)
+    , mkUpdateThingShadow
     -- ** Request lenses
-    utsThingName,
-    utsPayload,
-    utsShadowName,
+    , utsThingName
+    , utsPayload
+    , utsShadowName
 
     -- * Destructuring the response
-    UpdateThingShadowResponse (..),
-    mkUpdateThingShadowResponse,
-
+    , UpdateThingShadowResponse (..)
+    , mkUpdateThingShadowResponse
     -- ** Response lenses
-    utsrrsPayload,
-    utsrrsResponseStatus,
-  )
-where
+    , utsrrsPayload
+    , utsrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.IoTData.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -46,100 +44,106 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkUpdateThingShadow' smart constructor.
 data UpdateThingShadow = UpdateThingShadow'
-  { -- | The name of the thing.
-    thingName :: Types.ThingName,
-    -- | The state information, in JSON format.
-    payload :: Core.ByteString,
-    -- | The name of the shadow.
-    shadowName :: Core.Maybe Types.ShadowName
+  { thingName :: Types.ThingName
+    -- ^ The name of the thing.
+  , payload :: Core.ByteString
+    -- ^ The state information, in JSON format.
+  , shadowName :: Core.Maybe Types.ShadowName
+    -- ^ The name of the shadow.
   }
   deriving stock (Core.Eq, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UpdateThingShadow' value with any optional fields omitted.
-mkUpdateThingShadow ::
-  -- | 'thingName'
-  Types.ThingName ->
-  -- | 'payload'
-  Core.ByteString ->
-  UpdateThingShadow
-mkUpdateThingShadow thingName payload =
-  UpdateThingShadow' {thingName, payload, shadowName = Core.Nothing}
+mkUpdateThingShadow
+    :: Types.ThingName -- ^ 'thingName'
+    -> Core.ByteString -- ^ 'payload'
+    -> UpdateThingShadow
+mkUpdateThingShadow thingName payload
+  = UpdateThingShadow'{thingName, payload, shadowName = Core.Nothing}
 
 -- | The name of the thing.
 --
 -- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 utsThingName :: Lens.Lens' UpdateThingShadow Types.ThingName
 utsThingName = Lens.field @"thingName"
-{-# DEPRECATED utsThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
+{-# INLINEABLE utsThingName #-}
+{-# DEPRECATED thingName "Use generic-lens or generic-optics with 'thingName' instead"  #-}
 
 -- | The state information, in JSON format.
 --
 -- /Note:/ Consider using 'payload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 utsPayload :: Lens.Lens' UpdateThingShadow Core.ByteString
 utsPayload = Lens.field @"payload"
-{-# DEPRECATED utsPayload "Use generic-lens or generic-optics with 'payload' instead." #-}
+{-# INLINEABLE utsPayload #-}
+{-# DEPRECATED payload "Use generic-lens or generic-optics with 'payload' instead"  #-}
 
 -- | The name of the shadow.
 --
 -- /Note:/ Consider using 'shadowName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 utsShadowName :: Lens.Lens' UpdateThingShadow (Core.Maybe Types.ShadowName)
 utsShadowName = Lens.field @"shadowName"
-{-# DEPRECATED utsShadowName "Use generic-lens or generic-optics with 'shadowName' instead." #-}
+{-# INLINEABLE utsShadowName #-}
+{-# DEPRECATED shadowName "Use generic-lens or generic-optics with 'shadowName' instead"  #-}
+
+instance Core.ToQuery UpdateThingShadow where
+        toQuery UpdateThingShadow{..}
+          = Core.maybe Core.mempty (Core.toQueryPair "name") shadowName
+
+instance Core.ToHeaders UpdateThingShadow where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest UpdateThingShadow where
-  type Rs UpdateThingShadow = UpdateThingShadowResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath =
-          Core.rawPath
-            ("/things/" Core.<> (Core.toText thingName) Core.<> ("/shadow")),
-        Core._rqQuery = Core.toQueryValue "name" Core.<$> shadowName,
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = Core.toBody payload
-      }
-  response =
-    Response.receiveBytes
-      ( \s h x ->
-          UpdateThingShadowResponse'
-            Core.<$> (Core.pure x) Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs UpdateThingShadow = UpdateThingShadowResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST,
+                         Core._rqPath =
+                           "/things/" Core.<> Core.toText thingName Core.<> "/shadow",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toBody payload}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveBytes
+              (\ s h x ->
+                 UpdateThingShadowResponse' Core.<$>
+                   (Core.pure x) Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | The output from the UpdateThingShadow operation.
 --
 -- /See:/ 'mkUpdateThingShadowResponse' smart constructor.
 data UpdateThingShadowResponse = UpdateThingShadowResponse'
-  { -- | The state information, in JSON format.
-    payload :: Core.Maybe Core.ByteString,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { payload :: Core.Maybe Core.ByteString
+    -- ^ The state information, in JSON format.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UpdateThingShadowResponse' value with any optional fields omitted.
-mkUpdateThingShadowResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  UpdateThingShadowResponse
-mkUpdateThingShadowResponse responseStatus =
-  UpdateThingShadowResponse'
-    { payload = Core.Nothing,
-      responseStatus
-    }
+mkUpdateThingShadowResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> UpdateThingShadowResponse
+mkUpdateThingShadowResponse responseStatus
+  = UpdateThingShadowResponse'{payload = Core.Nothing,
+                               responseStatus}
 
 -- | The state information, in JSON format.
 --
 -- /Note:/ Consider using 'payload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 utsrrsPayload :: Lens.Lens' UpdateThingShadowResponse (Core.Maybe Core.ByteString)
 utsrrsPayload = Lens.field @"payload"
-{-# DEPRECATED utsrrsPayload "Use generic-lens or generic-optics with 'payload' instead." #-}
+{-# INLINEABLE utsrrsPayload #-}
+{-# DEPRECATED payload "Use generic-lens or generic-optics with 'payload' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 utsrrsResponseStatus :: Lens.Lens' UpdateThingShadowResponse Core.Int
 utsrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED utsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE utsrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

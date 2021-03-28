@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,18 +15,17 @@
 --
 -- Deprecated. Use the @VerifyEmailIdentity@ operation to verify a new email address.
 module Network.AWS.SES.VerifyEmailAddress
-  ( -- * Creating a request
-    VerifyEmailAddress (..),
-    mkVerifyEmailAddress,
-
+    (
+    -- * Creating a request
+      VerifyEmailAddress (..)
+    , mkVerifyEmailAddress
     -- ** Request lenses
-    veaEmailAddress,
+    , veaEmailAddress
 
     -- * Destructuring the response
-    VerifyEmailAddressResponse (..),
-    mkVerifyEmailAddressResponse,
-  )
-where
+    , VerifyEmailAddressResponse (..)
+    , mkVerifyEmailAddressResponse
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -38,48 +37,53 @@ import qualified Network.AWS.SES.Types as Types
 --
 -- /See:/ 'mkVerifyEmailAddress' smart constructor.
 newtype VerifyEmailAddress = VerifyEmailAddress'
-  { -- | The email address to be verified.
-    emailAddress :: Types.Address
+  { emailAddress :: Types.Address
+    -- ^ The email address to be verified.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'VerifyEmailAddress' value with any optional fields omitted.
-mkVerifyEmailAddress ::
-  -- | 'emailAddress'
-  Types.Address ->
-  VerifyEmailAddress
-mkVerifyEmailAddress emailAddress =
-  VerifyEmailAddress' {emailAddress}
+mkVerifyEmailAddress
+    :: Types.Address -- ^ 'emailAddress'
+    -> VerifyEmailAddress
+mkVerifyEmailAddress emailAddress
+  = VerifyEmailAddress'{emailAddress}
 
 -- | The email address to be verified.
 --
 -- /Note:/ Consider using 'emailAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 veaEmailAddress :: Lens.Lens' VerifyEmailAddress Types.Address
 veaEmailAddress = Lens.field @"emailAddress"
-{-# DEPRECATED veaEmailAddress "Use generic-lens or generic-optics with 'emailAddress' instead." #-}
+{-# INLINEABLE veaEmailAddress #-}
+{-# DEPRECATED emailAddress "Use generic-lens or generic-optics with 'emailAddress' instead"  #-}
+
+instance Core.ToQuery VerifyEmailAddress where
+        toQuery VerifyEmailAddress{..}
+          = Core.toQueryPair "Action" ("VerifyEmailAddress" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2010-12-01" :: Core.Text)
+              Core.<> Core.toQueryPair "EmailAddress" emailAddress
+
+instance Core.ToHeaders VerifyEmailAddress where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest VerifyEmailAddress where
-  type Rs VerifyEmailAddress = VerifyEmailAddressResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "VerifyEmailAddress")
-                Core.<> (Core.pure ("Version", "2010-12-01"))
-                Core.<> (Core.toQueryValue "EmailAddress" emailAddress)
-            )
-      }
-  response = Response.receiveNull VerifyEmailAddressResponse'
+        type Rs VerifyEmailAddress = VerifyEmailAddressResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull VerifyEmailAddressResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkVerifyEmailAddressResponse' smart constructor.
 data VerifyEmailAddressResponse = VerifyEmailAddressResponse'
@@ -87,6 +91,6 @@ data VerifyEmailAddressResponse = VerifyEmailAddressResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'VerifyEmailAddressResponse' value with any optional fields omitted.
-mkVerifyEmailAddressResponse ::
-  VerifyEmailAddressResponse
+mkVerifyEmailAddressResponse
+    :: VerifyEmailAddressResponse
 mkVerifyEmailAddressResponse = VerifyEmailAddressResponse'

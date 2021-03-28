@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -29,23 +29,23 @@
 --
 --
 --     * Once the stream and all of its resources are deleted, @CreateProgressUpdateStream@ for a stream of the same name will succeed, and that stream will be an entirely new logical resource (without any resources associated with the old stream).
+--
+--
 module Network.AWS.MigrationHub.DeleteProgressUpdateStream
-  ( -- * Creating a request
-    DeleteProgressUpdateStream (..),
-    mkDeleteProgressUpdateStream,
-
+    (
+    -- * Creating a request
+      DeleteProgressUpdateStream (..)
+    , mkDeleteProgressUpdateStream
     -- ** Request lenses
-    dpusProgressUpdateStreamName,
-    dpusDryRun,
+    , dpusProgressUpdateStreamName
+    , dpusDryRun
 
     -- * Destructuring the response
-    DeleteProgressUpdateStreamResponse (..),
-    mkDeleteProgressUpdateStreamResponse,
-
+    , DeleteProgressUpdateStreamResponse (..)
+    , mkDeleteProgressUpdateStreamResponse
     -- ** Response lenses
-    dpusrrsResponseStatus,
-  )
-where
+    , dpusrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.MigrationHub.Types as Types
@@ -55,91 +55,92 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteProgressUpdateStream' smart constructor.
 data DeleteProgressUpdateStream = DeleteProgressUpdateStream'
-  { -- | The name of the ProgressUpdateStream. /Do not store personal data in this field./
-    progressUpdateStreamName :: Types.ProgressUpdateStreamName,
-    -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
-    dryRun :: Core.Maybe Core.Bool
+  { progressUpdateStreamName :: Types.ProgressUpdateStreamName
+    -- ^ The name of the ProgressUpdateStream. /Do not store personal data in this field./ 
+  , dryRun :: Core.Maybe Core.Bool
+    -- ^ Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteProgressUpdateStream' value with any optional fields omitted.
-mkDeleteProgressUpdateStream ::
-  -- | 'progressUpdateStreamName'
-  Types.ProgressUpdateStreamName ->
-  DeleteProgressUpdateStream
-mkDeleteProgressUpdateStream progressUpdateStreamName =
-  DeleteProgressUpdateStream'
-    { progressUpdateStreamName,
-      dryRun = Core.Nothing
-    }
+mkDeleteProgressUpdateStream
+    :: Types.ProgressUpdateStreamName -- ^ 'progressUpdateStreamName'
+    -> DeleteProgressUpdateStream
+mkDeleteProgressUpdateStream progressUpdateStreamName
+  = DeleteProgressUpdateStream'{progressUpdateStreamName,
+                                dryRun = Core.Nothing}
 
--- | The name of the ProgressUpdateStream. /Do not store personal data in this field./
+-- | The name of the ProgressUpdateStream. /Do not store personal data in this field./ 
 --
 -- /Note:/ Consider using 'progressUpdateStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dpusProgressUpdateStreamName :: Lens.Lens' DeleteProgressUpdateStream Types.ProgressUpdateStreamName
 dpusProgressUpdateStreamName = Lens.field @"progressUpdateStreamName"
-{-# DEPRECATED dpusProgressUpdateStreamName "Use generic-lens or generic-optics with 'progressUpdateStreamName' instead." #-}
+{-# INLINEABLE dpusProgressUpdateStreamName #-}
+{-# DEPRECATED progressUpdateStreamName "Use generic-lens or generic-optics with 'progressUpdateStreamName' instead"  #-}
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dpusDryRun :: Lens.Lens' DeleteProgressUpdateStream (Core.Maybe Core.Bool)
 dpusDryRun = Lens.field @"dryRun"
-{-# DEPRECATED dpusDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+{-# INLINEABLE dpusDryRun #-}
+{-# DEPRECATED dryRun "Use generic-lens or generic-optics with 'dryRun' instead"  #-}
+
+instance Core.ToQuery DeleteProgressUpdateStream where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DeleteProgressUpdateStream where
+        toHeaders DeleteProgressUpdateStream{..}
+          = Core.pure
+              ("X-Amz-Target", "AWSMigrationHub.DeleteProgressUpdateStream")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON DeleteProgressUpdateStream where
-  toJSON DeleteProgressUpdateStream {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just
-              ("ProgressUpdateStreamName" Core..= progressUpdateStreamName),
-            ("DryRun" Core..=) Core.<$> dryRun
-          ]
-      )
+        toJSON DeleteProgressUpdateStream{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just
+                    ("ProgressUpdateStreamName" Core..= progressUpdateStreamName),
+                  ("DryRun" Core..=) Core.<$> dryRun])
 
 instance Core.AWSRequest DeleteProgressUpdateStream where
-  type
-    Rs DeleteProgressUpdateStream =
-      DeleteProgressUpdateStreamResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "AWSMigrationHub.DeleteProgressUpdateStream")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveEmpty
-      ( \s h x ->
-          DeleteProgressUpdateStreamResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DeleteProgressUpdateStream =
+             DeleteProgressUpdateStreamResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveEmpty
+              (\ s h x ->
+                 DeleteProgressUpdateStreamResponse' Core.<$>
+                   (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteProgressUpdateStreamResponse' smart constructor.
 newtype DeleteProgressUpdateStreamResponse = DeleteProgressUpdateStreamResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteProgressUpdateStreamResponse' value with any optional fields omitted.
-mkDeleteProgressUpdateStreamResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DeleteProgressUpdateStreamResponse
-mkDeleteProgressUpdateStreamResponse responseStatus =
-  DeleteProgressUpdateStreamResponse' {responseStatus}
+mkDeleteProgressUpdateStreamResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DeleteProgressUpdateStreamResponse
+mkDeleteProgressUpdateStreamResponse responseStatus
+  = DeleteProgressUpdateStreamResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dpusrrsResponseStatus :: Lens.Lens' DeleteProgressUpdateStreamResponse Core.Int
 dpusrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED dpusrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE dpusrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

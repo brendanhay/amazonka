@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,23 +17,21 @@
 --
 -- To get a real-time log configuration, you can provide the configuration’s name or its Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront uses the name to identify the real-time log configuration to get.
 module Network.AWS.CloudFront.GetRealtimeLogConfig
-  ( -- * Creating a request
-    GetRealtimeLogConfig (..),
-    mkGetRealtimeLogConfig,
-
+    (
+    -- * Creating a request
+      GetRealtimeLogConfig (..)
+    , mkGetRealtimeLogConfig
     -- ** Request lenses
-    grlcARN,
-    grlcName,
+    , grlcARN
+    , grlcName
 
     -- * Destructuring the response
-    GetRealtimeLogConfigResponse (..),
-    mkGetRealtimeLogConfigResponse,
-
+    , GetRealtimeLogConfigResponse (..)
+    , mkGetRealtimeLogConfigResponse
     -- ** Response lenses
-    grlcrrsRealtimeLogConfig,
-    grlcrrsResponseStatus,
-  )
-where
+    , grlcrrsRealtimeLogConfig
+    , grlcrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -43,92 +41,99 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetRealtimeLogConfig' smart constructor.
 data GetRealtimeLogConfig = GetRealtimeLogConfig'
-  { -- | The Amazon Resource Name (ARN) of the real-time log configuration to get.
-    arn :: Core.Maybe Types.String,
-    -- | The name of the real-time log configuration to get.
-    name :: Core.Maybe Types.String
+  { arn :: Core.Maybe Core.Text
+    -- ^ The Amazon Resource Name (ARN) of the real-time log configuration to get.
+  , name :: Core.Maybe Core.Text
+    -- ^ The name of the real-time log configuration to get.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetRealtimeLogConfig' value with any optional fields omitted.
-mkGetRealtimeLogConfig ::
-  GetRealtimeLogConfig
-mkGetRealtimeLogConfig =
-  GetRealtimeLogConfig' {arn = Core.Nothing, name = Core.Nothing}
+mkGetRealtimeLogConfig
+    :: GetRealtimeLogConfig
+mkGetRealtimeLogConfig
+  = GetRealtimeLogConfig'{arn = Core.Nothing, name = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the real-time log configuration to get.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grlcARN :: Lens.Lens' GetRealtimeLogConfig (Core.Maybe Types.String)
+grlcARN :: Lens.Lens' GetRealtimeLogConfig (Core.Maybe Core.Text)
 grlcARN = Lens.field @"arn"
-{-# DEPRECATED grlcARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+{-# INLINEABLE grlcARN #-}
+{-# DEPRECATED arn "Use generic-lens or generic-optics with 'arn' instead"  #-}
 
 -- | The name of the real-time log configuration to get.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grlcName :: Lens.Lens' GetRealtimeLogConfig (Core.Maybe Types.String)
+grlcName :: Lens.Lens' GetRealtimeLogConfig (Core.Maybe Core.Text)
 grlcName = Lens.field @"name"
-{-# DEPRECATED grlcName "Use generic-lens or generic-optics with 'name' instead." #-}
+{-# INLINEABLE grlcName #-}
+{-# DEPRECATED name "Use generic-lens or generic-optics with 'name' instead"  #-}
+
+instance Core.ToQuery GetRealtimeLogConfig where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders GetRealtimeLogConfig where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.ToXML GetRealtimeLogConfig where
-  toXML GetRealtimeLogConfig {..} =
-    Core.toXMLNode "ARN" Core.<$> arn
-      Core.<> Core.toXMLNode "Name" Core.<$> name
-  toXMLDocument =
-    Core.mkXMLElement
-      "{http://cloudfront.amazonaws.com/doc/2020-05-31/}GetRealtimeLogConfigRequest"
+        toXML GetRealtimeLogConfig{..}
+          = Core.maybe Core.mempty (Core.toXMLElement "ARN") arn Core.<>
+              Core.maybe Core.mempty (Core.toXMLElement "Name") name
+        toXMLDocument
+          = Core.newXMLDocument
+              "{http://cloudfront.amazonaws.com/doc/2020-05-31/}GetRealtimeLogConfigRequest"
 
 instance Core.AWSRequest GetRealtimeLogConfig where
-  type Rs GetRealtimeLogConfig = GetRealtimeLogConfigResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/2020-05-31/get-realtime-log-config/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = Core.toXMLBody x
-      }
-  response =
-    Response.receiveXML
-      ( \s h x ->
-          GetRealtimeLogConfigResponse'
-            Core.<$> (x Core..@? "RealtimeLogConfig")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs GetRealtimeLogConfig = GetRealtimeLogConfigResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST,
+                         Core._rqPath = "/2020-05-31/get-realtime-log-config/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toXMLBody (Core.toXMLDocument x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXML
+              (\ s h x ->
+                 GetRealtimeLogConfigResponse' Core.<$>
+                   (x Core..@? "RealtimeLogConfig") Core.<*>
+                     Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkGetRealtimeLogConfigResponse' smart constructor.
 data GetRealtimeLogConfigResponse = GetRealtimeLogConfigResponse'
-  { -- | A real-time log configuration.
-    realtimeLogConfig :: Core.Maybe Types.RealtimeLogConfig,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { realtimeLogConfig :: Core.Maybe Types.RealtimeLogConfig
+    -- ^ A real-time log configuration.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetRealtimeLogConfigResponse' value with any optional fields omitted.
-mkGetRealtimeLogConfigResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  GetRealtimeLogConfigResponse
-mkGetRealtimeLogConfigResponse responseStatus =
-  GetRealtimeLogConfigResponse'
-    { realtimeLogConfig = Core.Nothing,
-      responseStatus
-    }
+mkGetRealtimeLogConfigResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> GetRealtimeLogConfigResponse
+mkGetRealtimeLogConfigResponse responseStatus
+  = GetRealtimeLogConfigResponse'{realtimeLogConfig = Core.Nothing,
+                                  responseStatus}
 
 -- | A real-time log configuration.
 --
 -- /Note:/ Consider using 'realtimeLogConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 grlcrrsRealtimeLogConfig :: Lens.Lens' GetRealtimeLogConfigResponse (Core.Maybe Types.RealtimeLogConfig)
 grlcrrsRealtimeLogConfig = Lens.field @"realtimeLogConfig"
-{-# DEPRECATED grlcrrsRealtimeLogConfig "Use generic-lens or generic-optics with 'realtimeLogConfig' instead." #-}
+{-# INLINEABLE grlcrrsRealtimeLogConfig #-}
+{-# DEPRECATED realtimeLogConfig "Use generic-lens or generic-optics with 'realtimeLogConfig' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 grlcrrsResponseStatus :: Lens.Lens' GetRealtimeLogConfigResponse Core.Int
 grlcrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED grlcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE grlcrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

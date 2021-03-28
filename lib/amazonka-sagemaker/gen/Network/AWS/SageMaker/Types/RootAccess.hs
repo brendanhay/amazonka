@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,42 +10,26 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SageMaker.Types.RootAccess
   ( RootAccess
-      ( RootAccess',
-        RootAccessEnabled,
-        RootAccessDisabled,
-        fromRootAccess
-      ),
-  )
-where
+    ( RootAccess'
+    , RootAccessEnabled
+    , RootAccessDisabled
+    , fromRootAccess
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype RootAccess = RootAccess' {fromRootAccess :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype RootAccess = RootAccess'{fromRootAccess :: Core.Text}
+                       deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                       Core.Generic)
+                       deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                         Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                         Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                         Core.FromText, Core.ToByteString, Core.ToQuery,
+                                         Core.ToHeader)
 
 pattern RootAccessEnabled :: RootAccess
 pattern RootAccessEnabled = RootAccess' "Enabled"
@@ -53,8 +37,9 @@ pattern RootAccessEnabled = RootAccess' "Enabled"
 pattern RootAccessDisabled :: RootAccess
 pattern RootAccessDisabled = RootAccess' "Disabled"
 
-{-# COMPLETE
+{-# COMPLETE 
   RootAccessEnabled,
+
   RootAccessDisabled,
   RootAccess'
   #-}

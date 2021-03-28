@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.EC2.Types.ElasticGpuHealth
-  ( ElasticGpuHealth (..),
-
-    -- * Smart constructor
-    mkElasticGpuHealth,
-
-    -- * Lenses
-    eghStatus,
-  )
-where
+  ( ElasticGpuHealth (..)
+  -- * Smart constructor
+  , mkElasticGpuHealth
+  -- * Lenses
+  , eghStatus
+  ) where
 
 import qualified Network.AWS.EC2.Types.ElasticGpuStatus as Types
 import qualified Network.AWS.Lens as Lens
@@ -29,23 +27,24 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkElasticGpuHealth' smart constructor.
 newtype ElasticGpuHealth = ElasticGpuHealth'
-  { -- | The health status.
-    status :: Core.Maybe Types.ElasticGpuStatus
+  { status :: Core.Maybe Types.ElasticGpuStatus
+    -- ^ The health status.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ElasticGpuHealth' value with any optional fields omitted.
-mkElasticGpuHealth ::
-  ElasticGpuHealth
-mkElasticGpuHealth = ElasticGpuHealth' {status = Core.Nothing}
+mkElasticGpuHealth
+    :: ElasticGpuHealth
+mkElasticGpuHealth = ElasticGpuHealth'{status = Core.Nothing}
 
 -- | The health status.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 eghStatus :: Lens.Lens' ElasticGpuHealth (Core.Maybe Types.ElasticGpuStatus)
 eghStatus = Lens.field @"status"
-{-# DEPRECATED eghStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+{-# INLINEABLE eghStatus #-}
+{-# DEPRECATED status "Use generic-lens or generic-optics with 'status' instead"  #-}
 
 instance Core.FromXML ElasticGpuHealth where
-  parseXML x = ElasticGpuHealth' Core.<$> (x Core..@? "status")
+        parseXML x = ElasticGpuHealth' Core.<$> (x Core..@? "status")

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,114 +10,96 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Lightsail.Types.OperationType
   ( OperationType
-      ( OperationType',
-        OperationTypeDeleteKnownHostKeys,
-        OperationTypeDeleteInstance,
-        OperationTypeCreateInstance,
-        OperationTypeStopInstance,
-        OperationTypeStartInstance,
-        OperationTypeRebootInstance,
-        OperationTypeOpenInstancePublicPorts,
-        OperationTypePutInstancePublicPorts,
-        OperationTypeCloseInstancePublicPorts,
-        OperationTypeAllocateStaticIp,
-        OperationTypeReleaseStaticIp,
-        OperationTypeAttachStaticIp,
-        OperationTypeDetachStaticIp,
-        OperationTypeUpdateDomainEntry,
-        OperationTypeDeleteDomainEntry,
-        OperationTypeCreateDomain,
-        OperationTypeDeleteDomain,
-        OperationTypeCreateInstanceSnapshot,
-        OperationTypeDeleteInstanceSnapshot,
-        OperationTypeCreateInstancesFromSnapshot,
-        OperationTypeCreateLoadBalancer,
-        OperationTypeDeleteLoadBalancer,
-        OperationTypeAttachInstancesToLoadBalancer,
-        OperationTypeDetachInstancesFromLoadBalancer,
-        OperationTypeUpdateLoadBalancerAttribute,
-        OperationTypeCreateLoadBalancerTlsCertificate,
-        OperationTypeDeleteLoadBalancerTlsCertificate,
-        OperationTypeAttachLoadBalancerTlsCertificate,
-        OperationTypeCreateDisk,
-        OperationTypeDeleteDisk,
-        OperationTypeAttachDisk,
-        OperationTypeDetachDisk,
-        OperationTypeCreateDiskSnapshot,
-        OperationTypeDeleteDiskSnapshot,
-        OperationTypeCreateDiskFromSnapshot,
-        OperationTypeCreateRelationalDatabase,
-        OperationTypeUpdateRelationalDatabase,
-        OperationTypeDeleteRelationalDatabase,
-        OperationTypeCreateRelationalDatabaseFromSnapshot,
-        OperationTypeCreateRelationalDatabaseSnapshot,
-        OperationTypeDeleteRelationalDatabaseSnapshot,
-        OperationTypeUpdateRelationalDatabaseParameters,
-        OperationTypeStartRelationalDatabase,
-        OperationTypeRebootRelationalDatabase,
-        OperationTypeStopRelationalDatabase,
-        OperationTypeEnableAddOn,
-        OperationTypeDisableAddOn,
-        OperationTypePutAlarm,
-        OperationTypeGetAlarms,
-        OperationTypeDeleteAlarm,
-        OperationTypeTestAlarm,
-        OperationTypeCreateContactMethod,
-        OperationTypeGetContactMethods,
-        OperationTypeSendContactMethodVerification,
-        OperationTypeDeleteContactMethod,
-        OperationTypeCreateDistribution,
-        OperationTypeUpdateDistribution,
-        OperationTypeDeleteDistribution,
-        OperationTypeResetDistributionCache,
-        OperationTypeAttachCertificateToDistribution,
-        OperationTypeDetachCertificateFromDistribution,
-        OperationTypeUpdateDistributionBundle,
-        OperationTypeCreateCertificate,
-        OperationTypeDeleteCertificate,
-        OperationTypeCreateContainerService,
-        OperationTypeUpdateContainerService,
-        OperationTypeDeleteContainerService,
-        OperationTypeCreateContainerServiceDeployment,
-        OperationTypeCreateContainerServiceRegistryLogin,
-        OperationTypeRegisterContainerImage,
-        OperationTypeDeleteContainerImage,
-        fromOperationType
-      ),
-  )
-where
+    ( OperationType'
+    , OperationTypeDeleteKnownHostKeys
+    , OperationTypeDeleteInstance
+    , OperationTypeCreateInstance
+    , OperationTypeStopInstance
+    , OperationTypeStartInstance
+    , OperationTypeRebootInstance
+    , OperationTypeOpenInstancePublicPorts
+    , OperationTypePutInstancePublicPorts
+    , OperationTypeCloseInstancePublicPorts
+    , OperationTypeAllocateStaticIp
+    , OperationTypeReleaseStaticIp
+    , OperationTypeAttachStaticIp
+    , OperationTypeDetachStaticIp
+    , OperationTypeUpdateDomainEntry
+    , OperationTypeDeleteDomainEntry
+    , OperationTypeCreateDomain
+    , OperationTypeDeleteDomain
+    , OperationTypeCreateInstanceSnapshot
+    , OperationTypeDeleteInstanceSnapshot
+    , OperationTypeCreateInstancesFromSnapshot
+    , OperationTypeCreateLoadBalancer
+    , OperationTypeDeleteLoadBalancer
+    , OperationTypeAttachInstancesToLoadBalancer
+    , OperationTypeDetachInstancesFromLoadBalancer
+    , OperationTypeUpdateLoadBalancerAttribute
+    , OperationTypeCreateLoadBalancerTlsCertificate
+    , OperationTypeDeleteLoadBalancerTlsCertificate
+    , OperationTypeAttachLoadBalancerTlsCertificate
+    , OperationTypeCreateDisk
+    , OperationTypeDeleteDisk
+    , OperationTypeAttachDisk
+    , OperationTypeDetachDisk
+    , OperationTypeCreateDiskSnapshot
+    , OperationTypeDeleteDiskSnapshot
+    , OperationTypeCreateDiskFromSnapshot
+    , OperationTypeCreateRelationalDatabase
+    , OperationTypeUpdateRelationalDatabase
+    , OperationTypeDeleteRelationalDatabase
+    , OperationTypeCreateRelationalDatabaseFromSnapshot
+    , OperationTypeCreateRelationalDatabaseSnapshot
+    , OperationTypeDeleteRelationalDatabaseSnapshot
+    , OperationTypeUpdateRelationalDatabaseParameters
+    , OperationTypeStartRelationalDatabase
+    , OperationTypeRebootRelationalDatabase
+    , OperationTypeStopRelationalDatabase
+    , OperationTypeEnableAddOn
+    , OperationTypeDisableAddOn
+    , OperationTypePutAlarm
+    , OperationTypeGetAlarms
+    , OperationTypeDeleteAlarm
+    , OperationTypeTestAlarm
+    , OperationTypeCreateContactMethod
+    , OperationTypeGetContactMethods
+    , OperationTypeSendContactMethodVerification
+    , OperationTypeDeleteContactMethod
+    , OperationTypeCreateDistribution
+    , OperationTypeUpdateDistribution
+    , OperationTypeDeleteDistribution
+    , OperationTypeResetDistributionCache
+    , OperationTypeAttachCertificateToDistribution
+    , OperationTypeDetachCertificateFromDistribution
+    , OperationTypeUpdateDistributionBundle
+    , OperationTypeCreateCertificate
+    , OperationTypeDeleteCertificate
+    , OperationTypeCreateContainerService
+    , OperationTypeUpdateContainerService
+    , OperationTypeDeleteContainerService
+    , OperationTypeCreateContainerServiceDeployment
+    , OperationTypeCreateContainerServiceRegistryLogin
+    , OperationTypeRegisterContainerImage
+    , OperationTypeDeleteContainerImage
+    , fromOperationType
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype OperationType = OperationType'
-  { fromOperationType ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype OperationType = OperationType'{fromOperationType ::
+                                       Core.Text}
+                          deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                          Core.Generic)
+                          deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                            Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                            Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                            Core.FromText, Core.ToByteString, Core.ToQuery,
+                                            Core.ToHeader)
 
 pattern OperationTypeDeleteKnownHostKeys :: OperationType
 pattern OperationTypeDeleteKnownHostKeys = OperationType' "DeleteKnownHostKeys"
@@ -332,77 +314,147 @@ pattern OperationTypeRegisterContainerImage = OperationType' "RegisterContainerI
 pattern OperationTypeDeleteContainerImage :: OperationType
 pattern OperationTypeDeleteContainerImage = OperationType' "DeleteContainerImage"
 
-{-# COMPLETE
+{-# COMPLETE 
   OperationTypeDeleteKnownHostKeys,
+
   OperationTypeDeleteInstance,
+
   OperationTypeCreateInstance,
+
   OperationTypeStopInstance,
+
   OperationTypeStartInstance,
+
   OperationTypeRebootInstance,
+
   OperationTypeOpenInstancePublicPorts,
+
   OperationTypePutInstancePublicPorts,
+
   OperationTypeCloseInstancePublicPorts,
+
   OperationTypeAllocateStaticIp,
+
   OperationTypeReleaseStaticIp,
+
   OperationTypeAttachStaticIp,
+
   OperationTypeDetachStaticIp,
+
   OperationTypeUpdateDomainEntry,
+
   OperationTypeDeleteDomainEntry,
+
   OperationTypeCreateDomain,
+
   OperationTypeDeleteDomain,
+
   OperationTypeCreateInstanceSnapshot,
+
   OperationTypeDeleteInstanceSnapshot,
+
   OperationTypeCreateInstancesFromSnapshot,
+
   OperationTypeCreateLoadBalancer,
+
   OperationTypeDeleteLoadBalancer,
+
   OperationTypeAttachInstancesToLoadBalancer,
+
   OperationTypeDetachInstancesFromLoadBalancer,
+
   OperationTypeUpdateLoadBalancerAttribute,
+
   OperationTypeCreateLoadBalancerTlsCertificate,
+
   OperationTypeDeleteLoadBalancerTlsCertificate,
+
   OperationTypeAttachLoadBalancerTlsCertificate,
+
   OperationTypeCreateDisk,
+
   OperationTypeDeleteDisk,
+
   OperationTypeAttachDisk,
+
   OperationTypeDetachDisk,
+
   OperationTypeCreateDiskSnapshot,
+
   OperationTypeDeleteDiskSnapshot,
+
   OperationTypeCreateDiskFromSnapshot,
+
   OperationTypeCreateRelationalDatabase,
+
   OperationTypeUpdateRelationalDatabase,
+
   OperationTypeDeleteRelationalDatabase,
+
   OperationTypeCreateRelationalDatabaseFromSnapshot,
+
   OperationTypeCreateRelationalDatabaseSnapshot,
+
   OperationTypeDeleteRelationalDatabaseSnapshot,
+
   OperationTypeUpdateRelationalDatabaseParameters,
+
   OperationTypeStartRelationalDatabase,
+
   OperationTypeRebootRelationalDatabase,
+
   OperationTypeStopRelationalDatabase,
+
   OperationTypeEnableAddOn,
+
   OperationTypeDisableAddOn,
+
   OperationTypePutAlarm,
+
   OperationTypeGetAlarms,
+
   OperationTypeDeleteAlarm,
+
   OperationTypeTestAlarm,
+
   OperationTypeCreateContactMethod,
+
   OperationTypeGetContactMethods,
+
   OperationTypeSendContactMethodVerification,
+
   OperationTypeDeleteContactMethod,
+
   OperationTypeCreateDistribution,
+
   OperationTypeUpdateDistribution,
+
   OperationTypeDeleteDistribution,
+
   OperationTypeResetDistributionCache,
+
   OperationTypeAttachCertificateToDistribution,
+
   OperationTypeDetachCertificateFromDistribution,
+
   OperationTypeUpdateDistributionBundle,
+
   OperationTypeCreateCertificate,
+
   OperationTypeDeleteCertificate,
+
   OperationTypeCreateContainerService,
+
   OperationTypeUpdateContainerService,
+
   OperationTypeDeleteContainerService,
+
   OperationTypeCreateContainerServiceDeployment,
+
   OperationTypeCreateContainerServiceRegistryLogin,
+
   OperationTypeRegisterContainerImage,
+
   OperationTypeDeleteContainerImage,
   OperationType'
   #-}

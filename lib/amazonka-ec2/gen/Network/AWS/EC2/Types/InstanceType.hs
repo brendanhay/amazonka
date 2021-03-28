@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,390 +10,374 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.EC2.Types.InstanceType
   ( InstanceType
-      ( InstanceType',
-        InstanceTypeT1_Micro,
-        InstanceTypeT2_Nano,
-        InstanceTypeT2_Micro,
-        InstanceTypeT2_Small,
-        InstanceTypeT2_Medium,
-        InstanceTypeT2_Large,
-        InstanceTypeT2_Xlarge,
-        InstanceTypeT2_2xlarge,
-        InstanceTypeT3_Nano,
-        InstanceTypeT3_Micro,
-        InstanceTypeT3_Small,
-        InstanceTypeT3_Medium,
-        InstanceTypeT3_Large,
-        InstanceTypeT3_Xlarge,
-        InstanceTypeT3_2xlarge,
-        InstanceTypeT3a_Nano,
-        InstanceTypeT3a_Micro,
-        InstanceTypeT3a_Small,
-        InstanceTypeT3a_Medium,
-        InstanceTypeT3a_Large,
-        InstanceTypeT3a_Xlarge,
-        InstanceTypeT3a_2xlarge,
-        InstanceTypeT4g_Nano,
-        InstanceTypeT4g_Micro,
-        InstanceTypeT4g_Small,
-        InstanceTypeT4g_Medium,
-        InstanceTypeT4g_Large,
-        InstanceTypeT4g_Xlarge,
-        InstanceTypeT4g_2xlarge,
-        InstanceTypeM1_Small,
-        InstanceTypeM1_Medium,
-        InstanceTypeM1_Large,
-        InstanceTypeM1_Xlarge,
-        InstanceTypeM3_Medium,
-        InstanceTypeM3_Large,
-        InstanceTypeM3_Xlarge,
-        InstanceTypeM3_2xlarge,
-        InstanceTypeM4_Large,
-        InstanceTypeM4_Xlarge,
-        InstanceTypeM4_2xlarge,
-        InstanceTypeM4_4xlarge,
-        InstanceTypeM4_10xlarge,
-        InstanceTypeM4_16xlarge,
-        InstanceTypeM2_Xlarge,
-        InstanceTypeM2_2xlarge,
-        InstanceTypeM2_4xlarge,
-        InstanceTypeCR1_8xlarge,
-        InstanceTypeR3_Large,
-        InstanceTypeR3_Xlarge,
-        InstanceTypeR3_2xlarge,
-        InstanceTypeR3_4xlarge,
-        InstanceTypeR3_8xlarge,
-        InstanceTypeR4_Large,
-        InstanceTypeR4_Xlarge,
-        InstanceTypeR4_2xlarge,
-        InstanceTypeR4_4xlarge,
-        InstanceTypeR4_8xlarge,
-        InstanceTypeR4_16xlarge,
-        InstanceTypeR5_Large,
-        InstanceTypeR5_Xlarge,
-        InstanceTypeR5_2xlarge,
-        InstanceTypeR5_4xlarge,
-        InstanceTypeR5_8xlarge,
-        InstanceTypeR5_12xlarge,
-        InstanceTypeR5_16xlarge,
-        InstanceTypeR5_24xlarge,
-        InstanceTypeR5_Metal,
-        InstanceTypeR5a_Large,
-        InstanceTypeR5a_Xlarge,
-        InstanceTypeR5a_2xlarge,
-        InstanceTypeR5a_4xlarge,
-        InstanceTypeR5a_8xlarge,
-        InstanceTypeR5a_12xlarge,
-        InstanceTypeR5a_16xlarge,
-        InstanceTypeR5a_24xlarge,
-        InstanceTypeR5d_Large,
-        InstanceTypeR5d_Xlarge,
-        InstanceTypeR5d_2xlarge,
-        InstanceTypeR5d_4xlarge,
-        InstanceTypeR5d_8xlarge,
-        InstanceTypeR5d_12xlarge,
-        InstanceTypeR5d_16xlarge,
-        InstanceTypeR5d_24xlarge,
-        InstanceTypeR5d_Metal,
-        InstanceTypeR5ad_Large,
-        InstanceTypeR5ad_Xlarge,
-        InstanceTypeR5ad_2xlarge,
-        InstanceTypeR5ad_4xlarge,
-        InstanceTypeR5ad_8xlarge,
-        InstanceTypeR5ad_12xlarge,
-        InstanceTypeR5ad_16xlarge,
-        InstanceTypeR5ad_24xlarge,
-        InstanceTypeR6g_Metal,
-        InstanceTypeR6g_Medium,
-        InstanceTypeR6g_Large,
-        InstanceTypeR6g_Xlarge,
-        InstanceTypeR6g_2xlarge,
-        InstanceTypeR6g_4xlarge,
-        InstanceTypeR6g_8xlarge,
-        InstanceTypeR6g_12xlarge,
-        InstanceTypeR6g_16xlarge,
-        InstanceTypeR6gd_Metal,
-        InstanceTypeR6gd_Medium,
-        InstanceTypeR6gd_Large,
-        InstanceTypeR6gd_Xlarge,
-        InstanceTypeR6gd_2xlarge,
-        InstanceTypeR6gd_4xlarge,
-        InstanceTypeR6gd_8xlarge,
-        InstanceTypeR6gd_12xlarge,
-        InstanceTypeR6gd_16xlarge,
-        InstanceTypeX1_16xlarge,
-        InstanceTypeX1_32xlarge,
-        InstanceTypeX1e_Xlarge,
-        InstanceTypeX1e_2xlarge,
-        InstanceTypeX1e_4xlarge,
-        InstanceTypeX1e_8xlarge,
-        InstanceTypeX1e_16xlarge,
-        InstanceTypeX1e_32xlarge,
-        InstanceTypeI2_Xlarge,
-        InstanceTypeI2_2xlarge,
-        InstanceTypeI2_4xlarge,
-        InstanceTypeI2_8xlarge,
-        InstanceTypeI3_Large,
-        InstanceTypeI3_Xlarge,
-        InstanceTypeI3_2xlarge,
-        InstanceTypeI3_4xlarge,
-        InstanceTypeI3_8xlarge,
-        InstanceTypeI3_16xlarge,
-        InstanceTypeI3_Metal,
-        InstanceTypeI3en_Large,
-        InstanceTypeI3en_Xlarge,
-        InstanceTypeI3en_2xlarge,
-        InstanceTypeI3en_3xlarge,
-        InstanceTypeI3en_6xlarge,
-        InstanceTypeI3en_12xlarge,
-        InstanceTypeI3en_24xlarge,
-        InstanceTypeI3en_Metal,
-        InstanceTypeHI1_4xlarge,
-        InstanceTypeHS1_8xlarge,
-        InstanceTypeC1_Medium,
-        InstanceTypeC1_Xlarge,
-        InstanceTypeC3_Large,
-        InstanceTypeC3_Xlarge,
-        InstanceTypeC3_2xlarge,
-        InstanceTypeC3_4xlarge,
-        InstanceTypeC3_8xlarge,
-        InstanceTypeC4_Large,
-        InstanceTypeC4_Xlarge,
-        InstanceTypeC4_2xlarge,
-        InstanceTypeC4_4xlarge,
-        InstanceTypeC4_8xlarge,
-        InstanceTypeC5_Large,
-        InstanceTypeC5_Xlarge,
-        InstanceTypeC5_2xlarge,
-        InstanceTypeC5_4xlarge,
-        InstanceTypeC5_9xlarge,
-        InstanceTypeC5_12xlarge,
-        InstanceTypeC5_18xlarge,
-        InstanceTypeC5_24xlarge,
-        InstanceTypeC5_Metal,
-        InstanceTypeC5a_Large,
-        InstanceTypeC5a_Xlarge,
-        InstanceTypeC5a_2xlarge,
-        InstanceTypeC5a_4xlarge,
-        InstanceTypeC5a_8xlarge,
-        InstanceTypeC5a_12xlarge,
-        InstanceTypeC5a_16xlarge,
-        InstanceTypeC5a_24xlarge,
-        InstanceTypeC5ad_Large,
-        InstanceTypeC5ad_Xlarge,
-        InstanceTypeC5ad_2xlarge,
-        InstanceTypeC5ad_4xlarge,
-        InstanceTypeC5ad_8xlarge,
-        InstanceTypeC5ad_12xlarge,
-        InstanceTypeC5ad_16xlarge,
-        InstanceTypeC5ad_24xlarge,
-        InstanceTypeC5d_Large,
-        InstanceTypeC5d_Xlarge,
-        InstanceTypeC5d_2xlarge,
-        InstanceTypeC5d_4xlarge,
-        InstanceTypeC5d_9xlarge,
-        InstanceTypeC5d_12xlarge,
-        InstanceTypeC5d_18xlarge,
-        InstanceTypeC5d_24xlarge,
-        InstanceTypeC5d_Metal,
-        InstanceTypeC5n_Large,
-        InstanceTypeC5n_Xlarge,
-        InstanceTypeC5n_2xlarge,
-        InstanceTypeC5n_4xlarge,
-        InstanceTypeC5n_9xlarge,
-        InstanceTypeC5n_18xlarge,
-        InstanceTypeC6g_Metal,
-        InstanceTypeC6g_Medium,
-        InstanceTypeC6g_Large,
-        InstanceTypeC6g_Xlarge,
-        InstanceTypeC6g_2xlarge,
-        InstanceTypeC6g_4xlarge,
-        InstanceTypeC6g_8xlarge,
-        InstanceTypeC6g_12xlarge,
-        InstanceTypeC6g_16xlarge,
-        InstanceTypeC6gd_Metal,
-        InstanceTypeC6gd_Medium,
-        InstanceTypeC6gd_Large,
-        InstanceTypeC6gd_Xlarge,
-        InstanceTypeC6gd_2xlarge,
-        InstanceTypeC6gd_4xlarge,
-        InstanceTypeC6gd_8xlarge,
-        InstanceTypeC6gd_12xlarge,
-        InstanceTypeC6gd_16xlarge,
-        InstanceTypeCC1_4xlarge,
-        InstanceTypeCC2_8xlarge,
-        InstanceTypeG2_2xlarge,
-        InstanceTypeG2_8xlarge,
-        InstanceTypeG3_4xlarge,
-        InstanceTypeG3_8xlarge,
-        InstanceTypeG3_16xlarge,
-        InstanceTypeG3s_Xlarge,
-        InstanceTypeG4dn_Xlarge,
-        InstanceTypeG4dn_2xlarge,
-        InstanceTypeG4dn_4xlarge,
-        InstanceTypeG4dn_8xlarge,
-        InstanceTypeG4dn_12xlarge,
-        InstanceTypeG4dn_16xlarge,
-        InstanceTypeG4dn_Metal,
-        InstanceTypeCG1_4xlarge,
-        InstanceTypeP2_Xlarge,
-        InstanceTypeP2_8xlarge,
-        InstanceTypeP2_16xlarge,
-        InstanceTypeP3_2xlarge,
-        InstanceTypeP3_8xlarge,
-        InstanceTypeP3_16xlarge,
-        InstanceTypeP3dn_24xlarge,
-        InstanceTypeP4d_24xlarge,
-        InstanceTypeD2_Xlarge,
-        InstanceTypeD2_2xlarge,
-        InstanceTypeD2_4xlarge,
-        InstanceTypeD2_8xlarge,
-        InstanceTypeF1_2xlarge,
-        InstanceTypeF1_4xlarge,
-        InstanceTypeF1_16xlarge,
-        InstanceTypeM5_Large,
-        InstanceTypeM5_Xlarge,
-        InstanceTypeM5_2xlarge,
-        InstanceTypeM5_4xlarge,
-        InstanceTypeM5_8xlarge,
-        InstanceTypeM5_12xlarge,
-        InstanceTypeM5_16xlarge,
-        InstanceTypeM5_24xlarge,
-        InstanceTypeM5_Metal,
-        InstanceTypeM5a_Large,
-        InstanceTypeM5a_Xlarge,
-        InstanceTypeM5a_2xlarge,
-        InstanceTypeM5a_4xlarge,
-        InstanceTypeM5a_8xlarge,
-        InstanceTypeM5a_12xlarge,
-        InstanceTypeM5a_16xlarge,
-        InstanceTypeM5a_24xlarge,
-        InstanceTypeM5d_Large,
-        InstanceTypeM5d_Xlarge,
-        InstanceTypeM5d_2xlarge,
-        InstanceTypeM5d_4xlarge,
-        InstanceTypeM5d_8xlarge,
-        InstanceTypeM5d_12xlarge,
-        InstanceTypeM5d_16xlarge,
-        InstanceTypeM5d_24xlarge,
-        InstanceTypeM5d_Metal,
-        InstanceTypeM5ad_Large,
-        InstanceTypeM5ad_Xlarge,
-        InstanceTypeM5ad_2xlarge,
-        InstanceTypeM5ad_4xlarge,
-        InstanceTypeM5ad_8xlarge,
-        InstanceTypeM5ad_12xlarge,
-        InstanceTypeM5ad_16xlarge,
-        InstanceTypeM5ad_24xlarge,
-        InstanceTypeH1_2xlarge,
-        InstanceTypeH1_4xlarge,
-        InstanceTypeH1_8xlarge,
-        InstanceTypeH1_16xlarge,
-        InstanceTypeZ1d_Large,
-        InstanceTypeZ1d_Xlarge,
-        InstanceTypeZ1d_2xlarge,
-        InstanceTypeZ1d_3xlarge,
-        InstanceTypeZ1d_6xlarge,
-        InstanceTypeZ1d_12xlarge,
-        InstanceTypeZ1d_Metal,
-        InstanceTypeU6TB1_Metal,
-        InstanceTypeU9TB1_Metal,
-        InstanceTypeU12TB1_Metal,
-        InstanceTypeU18TB1_Metal,
-        InstanceTypeU24TB1_Metal,
-        InstanceTypeA1_Medium,
-        InstanceTypeA1_Large,
-        InstanceTypeA1_Xlarge,
-        InstanceTypeA1_2xlarge,
-        InstanceTypeA1_4xlarge,
-        InstanceTypeA1_Metal,
-        InstanceTypeM5dn_Large,
-        InstanceTypeM5dn_Xlarge,
-        InstanceTypeM5dn_2xlarge,
-        InstanceTypeM5dn_4xlarge,
-        InstanceTypeM5dn_8xlarge,
-        InstanceTypeM5dn_12xlarge,
-        InstanceTypeM5dn_16xlarge,
-        InstanceTypeM5dn_24xlarge,
-        InstanceTypeM5n_Large,
-        InstanceTypeM5n_Xlarge,
-        InstanceTypeM5n_2xlarge,
-        InstanceTypeM5n_4xlarge,
-        InstanceTypeM5n_8xlarge,
-        InstanceTypeM5n_12xlarge,
-        InstanceTypeM5n_16xlarge,
-        InstanceTypeM5n_24xlarge,
-        InstanceTypeR5dn_Large,
-        InstanceTypeR5dn_Xlarge,
-        InstanceTypeR5dn_2xlarge,
-        InstanceTypeR5dn_4xlarge,
-        InstanceTypeR5dn_8xlarge,
-        InstanceTypeR5dn_12xlarge,
-        InstanceTypeR5dn_16xlarge,
-        InstanceTypeR5dn_24xlarge,
-        InstanceTypeR5n_Large,
-        InstanceTypeR5n_Xlarge,
-        InstanceTypeR5n_2xlarge,
-        InstanceTypeR5n_4xlarge,
-        InstanceTypeR5n_8xlarge,
-        InstanceTypeR5n_12xlarge,
-        InstanceTypeR5n_16xlarge,
-        InstanceTypeR5n_24xlarge,
-        InstanceTypeINF1_Xlarge,
-        InstanceTypeINF1_2xlarge,
-        InstanceTypeINF1_6xlarge,
-        InstanceTypeINF1_24xlarge,
-        InstanceTypeM6g_Metal,
-        InstanceTypeM6g_Medium,
-        InstanceTypeM6g_Large,
-        InstanceTypeM6g_Xlarge,
-        InstanceTypeM6g_2xlarge,
-        InstanceTypeM6g_4xlarge,
-        InstanceTypeM6g_8xlarge,
-        InstanceTypeM6g_12xlarge,
-        InstanceTypeM6g_16xlarge,
-        InstanceTypeM6gd_Metal,
-        InstanceTypeM6gd_Medium,
-        InstanceTypeM6gd_Large,
-        InstanceTypeM6gd_Xlarge,
-        InstanceTypeM6gd_2xlarge,
-        InstanceTypeM6gd_4xlarge,
-        InstanceTypeM6gd_8xlarge,
-        InstanceTypeM6gd_12xlarge,
-        InstanceTypeM6gd_16xlarge,
-        fromInstanceType
-      ),
-  )
-where
+    ( InstanceType'
+    , InstanceTypeT1_Micro
+    , InstanceTypeT2_Nano
+    , InstanceTypeT2_Micro
+    , InstanceTypeT2_Small
+    , InstanceTypeT2_Medium
+    , InstanceTypeT2_Large
+    , InstanceTypeT2_Xlarge
+    , InstanceTypeT2_2xlarge
+    , InstanceTypeT3_Nano
+    , InstanceTypeT3_Micro
+    , InstanceTypeT3_Small
+    , InstanceTypeT3_Medium
+    , InstanceTypeT3_Large
+    , InstanceTypeT3_Xlarge
+    , InstanceTypeT3_2xlarge
+    , InstanceTypeT3a_Nano
+    , InstanceTypeT3a_Micro
+    , InstanceTypeT3a_Small
+    , InstanceTypeT3a_Medium
+    , InstanceTypeT3a_Large
+    , InstanceTypeT3a_Xlarge
+    , InstanceTypeT3a_2xlarge
+    , InstanceTypeT4g_Nano
+    , InstanceTypeT4g_Micro
+    , InstanceTypeT4g_Small
+    , InstanceTypeT4g_Medium
+    , InstanceTypeT4g_Large
+    , InstanceTypeT4g_Xlarge
+    , InstanceTypeT4g_2xlarge
+    , InstanceTypeM1_Small
+    , InstanceTypeM1_Medium
+    , InstanceTypeM1_Large
+    , InstanceTypeM1_Xlarge
+    , InstanceTypeM3_Medium
+    , InstanceTypeM3_Large
+    , InstanceTypeM3_Xlarge
+    , InstanceTypeM3_2xlarge
+    , InstanceTypeM4_Large
+    , InstanceTypeM4_Xlarge
+    , InstanceTypeM4_2xlarge
+    , InstanceTypeM4_4xlarge
+    , InstanceTypeM4_10xlarge
+    , InstanceTypeM4_16xlarge
+    , InstanceTypeM2_Xlarge
+    , InstanceTypeM2_2xlarge
+    , InstanceTypeM2_4xlarge
+    , InstanceTypeCR1_8xlarge
+    , InstanceTypeR3_Large
+    , InstanceTypeR3_Xlarge
+    , InstanceTypeR3_2xlarge
+    , InstanceTypeR3_4xlarge
+    , InstanceTypeR3_8xlarge
+    , InstanceTypeR4_Large
+    , InstanceTypeR4_Xlarge
+    , InstanceTypeR4_2xlarge
+    , InstanceTypeR4_4xlarge
+    , InstanceTypeR4_8xlarge
+    , InstanceTypeR4_16xlarge
+    , InstanceTypeR5_Large
+    , InstanceTypeR5_Xlarge
+    , InstanceTypeR5_2xlarge
+    , InstanceTypeR5_4xlarge
+    , InstanceTypeR5_8xlarge
+    , InstanceTypeR5_12xlarge
+    , InstanceTypeR5_16xlarge
+    , InstanceTypeR5_24xlarge
+    , InstanceTypeR5_Metal
+    , InstanceTypeR5a_Large
+    , InstanceTypeR5a_Xlarge
+    , InstanceTypeR5a_2xlarge
+    , InstanceTypeR5a_4xlarge
+    , InstanceTypeR5a_8xlarge
+    , InstanceTypeR5a_12xlarge
+    , InstanceTypeR5a_16xlarge
+    , InstanceTypeR5a_24xlarge
+    , InstanceTypeR5d_Large
+    , InstanceTypeR5d_Xlarge
+    , InstanceTypeR5d_2xlarge
+    , InstanceTypeR5d_4xlarge
+    , InstanceTypeR5d_8xlarge
+    , InstanceTypeR5d_12xlarge
+    , InstanceTypeR5d_16xlarge
+    , InstanceTypeR5d_24xlarge
+    , InstanceTypeR5d_Metal
+    , InstanceTypeR5ad_Large
+    , InstanceTypeR5ad_Xlarge
+    , InstanceTypeR5ad_2xlarge
+    , InstanceTypeR5ad_4xlarge
+    , InstanceTypeR5ad_8xlarge
+    , InstanceTypeR5ad_12xlarge
+    , InstanceTypeR5ad_16xlarge
+    , InstanceTypeR5ad_24xlarge
+    , InstanceTypeR6g_Metal
+    , InstanceTypeR6g_Medium
+    , InstanceTypeR6g_Large
+    , InstanceTypeR6g_Xlarge
+    , InstanceTypeR6g_2xlarge
+    , InstanceTypeR6g_4xlarge
+    , InstanceTypeR6g_8xlarge
+    , InstanceTypeR6g_12xlarge
+    , InstanceTypeR6g_16xlarge
+    , InstanceTypeR6gd_Metal
+    , InstanceTypeR6gd_Medium
+    , InstanceTypeR6gd_Large
+    , InstanceTypeR6gd_Xlarge
+    , InstanceTypeR6gd_2xlarge
+    , InstanceTypeR6gd_4xlarge
+    , InstanceTypeR6gd_8xlarge
+    , InstanceTypeR6gd_12xlarge
+    , InstanceTypeR6gd_16xlarge
+    , InstanceTypeX1_16xlarge
+    , InstanceTypeX1_32xlarge
+    , InstanceTypeX1e_Xlarge
+    , InstanceTypeX1e_2xlarge
+    , InstanceTypeX1e_4xlarge
+    , InstanceTypeX1e_8xlarge
+    , InstanceTypeX1e_16xlarge
+    , InstanceTypeX1e_32xlarge
+    , InstanceTypeI2_Xlarge
+    , InstanceTypeI2_2xlarge
+    , InstanceTypeI2_4xlarge
+    , InstanceTypeI2_8xlarge
+    , InstanceTypeI3_Large
+    , InstanceTypeI3_Xlarge
+    , InstanceTypeI3_2xlarge
+    , InstanceTypeI3_4xlarge
+    , InstanceTypeI3_8xlarge
+    , InstanceTypeI3_16xlarge
+    , InstanceTypeI3_Metal
+    , InstanceTypeI3en_Large
+    , InstanceTypeI3en_Xlarge
+    , InstanceTypeI3en_2xlarge
+    , InstanceTypeI3en_3xlarge
+    , InstanceTypeI3en_6xlarge
+    , InstanceTypeI3en_12xlarge
+    , InstanceTypeI3en_24xlarge
+    , InstanceTypeI3en_Metal
+    , InstanceTypeHI1_4xlarge
+    , InstanceTypeHS1_8xlarge
+    , InstanceTypeC1_Medium
+    , InstanceTypeC1_Xlarge
+    , InstanceTypeC3_Large
+    , InstanceTypeC3_Xlarge
+    , InstanceTypeC3_2xlarge
+    , InstanceTypeC3_4xlarge
+    , InstanceTypeC3_8xlarge
+    , InstanceTypeC4_Large
+    , InstanceTypeC4_Xlarge
+    , InstanceTypeC4_2xlarge
+    , InstanceTypeC4_4xlarge
+    , InstanceTypeC4_8xlarge
+    , InstanceTypeC5_Large
+    , InstanceTypeC5_Xlarge
+    , InstanceTypeC5_2xlarge
+    , InstanceTypeC5_4xlarge
+    , InstanceTypeC5_9xlarge
+    , InstanceTypeC5_12xlarge
+    , InstanceTypeC5_18xlarge
+    , InstanceTypeC5_24xlarge
+    , InstanceTypeC5_Metal
+    , InstanceTypeC5a_Large
+    , InstanceTypeC5a_Xlarge
+    , InstanceTypeC5a_2xlarge
+    , InstanceTypeC5a_4xlarge
+    , InstanceTypeC5a_8xlarge
+    , InstanceTypeC5a_12xlarge
+    , InstanceTypeC5a_16xlarge
+    , InstanceTypeC5a_24xlarge
+    , InstanceTypeC5ad_Large
+    , InstanceTypeC5ad_Xlarge
+    , InstanceTypeC5ad_2xlarge
+    , InstanceTypeC5ad_4xlarge
+    , InstanceTypeC5ad_8xlarge
+    , InstanceTypeC5ad_12xlarge
+    , InstanceTypeC5ad_16xlarge
+    , InstanceTypeC5ad_24xlarge
+    , InstanceTypeC5d_Large
+    , InstanceTypeC5d_Xlarge
+    , InstanceTypeC5d_2xlarge
+    , InstanceTypeC5d_4xlarge
+    , InstanceTypeC5d_9xlarge
+    , InstanceTypeC5d_12xlarge
+    , InstanceTypeC5d_18xlarge
+    , InstanceTypeC5d_24xlarge
+    , InstanceTypeC5d_Metal
+    , InstanceTypeC5n_Large
+    , InstanceTypeC5n_Xlarge
+    , InstanceTypeC5n_2xlarge
+    , InstanceTypeC5n_4xlarge
+    , InstanceTypeC5n_9xlarge
+    , InstanceTypeC5n_18xlarge
+    , InstanceTypeC6g_Metal
+    , InstanceTypeC6g_Medium
+    , InstanceTypeC6g_Large
+    , InstanceTypeC6g_Xlarge
+    , InstanceTypeC6g_2xlarge
+    , InstanceTypeC6g_4xlarge
+    , InstanceTypeC6g_8xlarge
+    , InstanceTypeC6g_12xlarge
+    , InstanceTypeC6g_16xlarge
+    , InstanceTypeC6gd_Metal
+    , InstanceTypeC6gd_Medium
+    , InstanceTypeC6gd_Large
+    , InstanceTypeC6gd_Xlarge
+    , InstanceTypeC6gd_2xlarge
+    , InstanceTypeC6gd_4xlarge
+    , InstanceTypeC6gd_8xlarge
+    , InstanceTypeC6gd_12xlarge
+    , InstanceTypeC6gd_16xlarge
+    , InstanceTypeCC1_4xlarge
+    , InstanceTypeCC2_8xlarge
+    , InstanceTypeG2_2xlarge
+    , InstanceTypeG2_8xlarge
+    , InstanceTypeG3_4xlarge
+    , InstanceTypeG3_8xlarge
+    , InstanceTypeG3_16xlarge
+    , InstanceTypeG3s_Xlarge
+    , InstanceTypeG4dn_Xlarge
+    , InstanceTypeG4dn_2xlarge
+    , InstanceTypeG4dn_4xlarge
+    , InstanceTypeG4dn_8xlarge
+    , InstanceTypeG4dn_12xlarge
+    , InstanceTypeG4dn_16xlarge
+    , InstanceTypeG4dn_Metal
+    , InstanceTypeCG1_4xlarge
+    , InstanceTypeP2_Xlarge
+    , InstanceTypeP2_8xlarge
+    , InstanceTypeP2_16xlarge
+    , InstanceTypeP3_2xlarge
+    , InstanceTypeP3_8xlarge
+    , InstanceTypeP3_16xlarge
+    , InstanceTypeP3dn_24xlarge
+    , InstanceTypeP4d_24xlarge
+    , InstanceTypeD2_Xlarge
+    , InstanceTypeD2_2xlarge
+    , InstanceTypeD2_4xlarge
+    , InstanceTypeD2_8xlarge
+    , InstanceTypeF1_2xlarge
+    , InstanceTypeF1_4xlarge
+    , InstanceTypeF1_16xlarge
+    , InstanceTypeM5_Large
+    , InstanceTypeM5_Xlarge
+    , InstanceTypeM5_2xlarge
+    , InstanceTypeM5_4xlarge
+    , InstanceTypeM5_8xlarge
+    , InstanceTypeM5_12xlarge
+    , InstanceTypeM5_16xlarge
+    , InstanceTypeM5_24xlarge
+    , InstanceTypeM5_Metal
+    , InstanceTypeM5a_Large
+    , InstanceTypeM5a_Xlarge
+    , InstanceTypeM5a_2xlarge
+    , InstanceTypeM5a_4xlarge
+    , InstanceTypeM5a_8xlarge
+    , InstanceTypeM5a_12xlarge
+    , InstanceTypeM5a_16xlarge
+    , InstanceTypeM5a_24xlarge
+    , InstanceTypeM5d_Large
+    , InstanceTypeM5d_Xlarge
+    , InstanceTypeM5d_2xlarge
+    , InstanceTypeM5d_4xlarge
+    , InstanceTypeM5d_8xlarge
+    , InstanceTypeM5d_12xlarge
+    , InstanceTypeM5d_16xlarge
+    , InstanceTypeM5d_24xlarge
+    , InstanceTypeM5d_Metal
+    , InstanceTypeM5ad_Large
+    , InstanceTypeM5ad_Xlarge
+    , InstanceTypeM5ad_2xlarge
+    , InstanceTypeM5ad_4xlarge
+    , InstanceTypeM5ad_8xlarge
+    , InstanceTypeM5ad_12xlarge
+    , InstanceTypeM5ad_16xlarge
+    , InstanceTypeM5ad_24xlarge
+    , InstanceTypeH1_2xlarge
+    , InstanceTypeH1_4xlarge
+    , InstanceTypeH1_8xlarge
+    , InstanceTypeH1_16xlarge
+    , InstanceTypeZ1d_Large
+    , InstanceTypeZ1d_Xlarge
+    , InstanceTypeZ1d_2xlarge
+    , InstanceTypeZ1d_3xlarge
+    , InstanceTypeZ1d_6xlarge
+    , InstanceTypeZ1d_12xlarge
+    , InstanceTypeZ1d_Metal
+    , InstanceTypeU6TB1_Metal
+    , InstanceTypeU9TB1_Metal
+    , InstanceTypeU12TB1_Metal
+    , InstanceTypeU18TB1_Metal
+    , InstanceTypeU24TB1_Metal
+    , InstanceTypeA1_Medium
+    , InstanceTypeA1_Large
+    , InstanceTypeA1_Xlarge
+    , InstanceTypeA1_2xlarge
+    , InstanceTypeA1_4xlarge
+    , InstanceTypeA1_Metal
+    , InstanceTypeM5dn_Large
+    , InstanceTypeM5dn_Xlarge
+    , InstanceTypeM5dn_2xlarge
+    , InstanceTypeM5dn_4xlarge
+    , InstanceTypeM5dn_8xlarge
+    , InstanceTypeM5dn_12xlarge
+    , InstanceTypeM5dn_16xlarge
+    , InstanceTypeM5dn_24xlarge
+    , InstanceTypeM5n_Large
+    , InstanceTypeM5n_Xlarge
+    , InstanceTypeM5n_2xlarge
+    , InstanceTypeM5n_4xlarge
+    , InstanceTypeM5n_8xlarge
+    , InstanceTypeM5n_12xlarge
+    , InstanceTypeM5n_16xlarge
+    , InstanceTypeM5n_24xlarge
+    , InstanceTypeR5dn_Large
+    , InstanceTypeR5dn_Xlarge
+    , InstanceTypeR5dn_2xlarge
+    , InstanceTypeR5dn_4xlarge
+    , InstanceTypeR5dn_8xlarge
+    , InstanceTypeR5dn_12xlarge
+    , InstanceTypeR5dn_16xlarge
+    , InstanceTypeR5dn_24xlarge
+    , InstanceTypeR5n_Large
+    , InstanceTypeR5n_Xlarge
+    , InstanceTypeR5n_2xlarge
+    , InstanceTypeR5n_4xlarge
+    , InstanceTypeR5n_8xlarge
+    , InstanceTypeR5n_12xlarge
+    , InstanceTypeR5n_16xlarge
+    , InstanceTypeR5n_24xlarge
+    , InstanceTypeINF1_Xlarge
+    , InstanceTypeINF1_2xlarge
+    , InstanceTypeINF1_6xlarge
+    , InstanceTypeINF1_24xlarge
+    , InstanceTypeM6g_Metal
+    , InstanceTypeM6g_Medium
+    , InstanceTypeM6g_Large
+    , InstanceTypeM6g_Xlarge
+    , InstanceTypeM6g_2xlarge
+    , InstanceTypeM6g_4xlarge
+    , InstanceTypeM6g_8xlarge
+    , InstanceTypeM6g_12xlarge
+    , InstanceTypeM6g_16xlarge
+    , InstanceTypeM6gd_Metal
+    , InstanceTypeM6gd_Medium
+    , InstanceTypeM6gd_Large
+    , InstanceTypeM6gd_Xlarge
+    , InstanceTypeM6gd_2xlarge
+    , InstanceTypeM6gd_4xlarge
+    , InstanceTypeM6gd_8xlarge
+    , InstanceTypeM6gd_12xlarge
+    , InstanceTypeM6gd_16xlarge
+    , fromInstanceType
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype InstanceType = InstanceType' {fromInstanceType :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype InstanceType = InstanceType'{fromInstanceType :: Core.Text}
+                         deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                         Core.Generic)
+                         deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                           Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                           Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                           Core.FromText, Core.ToByteString, Core.ToQuery,
+                                           Core.ToHeader)
 
 pattern InstanceTypeT1_Micro :: InstanceType
 pattern InstanceTypeT1_Micro = InstanceType' "t1.micro"
@@ -1445,356 +1429,705 @@ pattern InstanceTypeM6gd_12xlarge = InstanceType' "m6gd.12xlarge"
 pattern InstanceTypeM6gd_16xlarge :: InstanceType
 pattern InstanceTypeM6gd_16xlarge = InstanceType' "m6gd.16xlarge"
 
-{-# COMPLETE
+{-# COMPLETE 
   InstanceTypeT1_Micro,
+
   InstanceTypeT2_Nano,
+
   InstanceTypeT2_Micro,
+
   InstanceTypeT2_Small,
+
   InstanceTypeT2_Medium,
+
   InstanceTypeT2_Large,
+
   InstanceTypeT2_Xlarge,
+
   InstanceTypeT2_2xlarge,
+
   InstanceTypeT3_Nano,
+
   InstanceTypeT3_Micro,
+
   InstanceTypeT3_Small,
+
   InstanceTypeT3_Medium,
+
   InstanceTypeT3_Large,
+
   InstanceTypeT3_Xlarge,
+
   InstanceTypeT3_2xlarge,
+
   InstanceTypeT3a_Nano,
+
   InstanceTypeT3a_Micro,
+
   InstanceTypeT3a_Small,
+
   InstanceTypeT3a_Medium,
+
   InstanceTypeT3a_Large,
+
   InstanceTypeT3a_Xlarge,
+
   InstanceTypeT3a_2xlarge,
+
   InstanceTypeT4g_Nano,
+
   InstanceTypeT4g_Micro,
+
   InstanceTypeT4g_Small,
+
   InstanceTypeT4g_Medium,
+
   InstanceTypeT4g_Large,
+
   InstanceTypeT4g_Xlarge,
+
   InstanceTypeT4g_2xlarge,
+
   InstanceTypeM1_Small,
+
   InstanceTypeM1_Medium,
+
   InstanceTypeM1_Large,
+
   InstanceTypeM1_Xlarge,
+
   InstanceTypeM3_Medium,
+
   InstanceTypeM3_Large,
+
   InstanceTypeM3_Xlarge,
+
   InstanceTypeM3_2xlarge,
+
   InstanceTypeM4_Large,
+
   InstanceTypeM4_Xlarge,
+
   InstanceTypeM4_2xlarge,
+
   InstanceTypeM4_4xlarge,
+
   InstanceTypeM4_10xlarge,
+
   InstanceTypeM4_16xlarge,
+
   InstanceTypeM2_Xlarge,
+
   InstanceTypeM2_2xlarge,
+
   InstanceTypeM2_4xlarge,
+
   InstanceTypeCR1_8xlarge,
+
   InstanceTypeR3_Large,
+
   InstanceTypeR3_Xlarge,
+
   InstanceTypeR3_2xlarge,
+
   InstanceTypeR3_4xlarge,
+
   InstanceTypeR3_8xlarge,
+
   InstanceTypeR4_Large,
+
   InstanceTypeR4_Xlarge,
+
   InstanceTypeR4_2xlarge,
+
   InstanceTypeR4_4xlarge,
+
   InstanceTypeR4_8xlarge,
+
   InstanceTypeR4_16xlarge,
+
   InstanceTypeR5_Large,
+
   InstanceTypeR5_Xlarge,
+
   InstanceTypeR5_2xlarge,
+
   InstanceTypeR5_4xlarge,
+
   InstanceTypeR5_8xlarge,
+
   InstanceTypeR5_12xlarge,
+
   InstanceTypeR5_16xlarge,
+
   InstanceTypeR5_24xlarge,
+
   InstanceTypeR5_Metal,
+
   InstanceTypeR5a_Large,
+
   InstanceTypeR5a_Xlarge,
+
   InstanceTypeR5a_2xlarge,
+
   InstanceTypeR5a_4xlarge,
+
   InstanceTypeR5a_8xlarge,
+
   InstanceTypeR5a_12xlarge,
+
   InstanceTypeR5a_16xlarge,
+
   InstanceTypeR5a_24xlarge,
+
   InstanceTypeR5d_Large,
+
   InstanceTypeR5d_Xlarge,
+
   InstanceTypeR5d_2xlarge,
+
   InstanceTypeR5d_4xlarge,
+
   InstanceTypeR5d_8xlarge,
+
   InstanceTypeR5d_12xlarge,
+
   InstanceTypeR5d_16xlarge,
+
   InstanceTypeR5d_24xlarge,
+
   InstanceTypeR5d_Metal,
+
   InstanceTypeR5ad_Large,
+
   InstanceTypeR5ad_Xlarge,
+
   InstanceTypeR5ad_2xlarge,
+
   InstanceTypeR5ad_4xlarge,
+
   InstanceTypeR5ad_8xlarge,
+
   InstanceTypeR5ad_12xlarge,
+
   InstanceTypeR5ad_16xlarge,
+
   InstanceTypeR5ad_24xlarge,
+
   InstanceTypeR6g_Metal,
+
   InstanceTypeR6g_Medium,
+
   InstanceTypeR6g_Large,
+
   InstanceTypeR6g_Xlarge,
+
   InstanceTypeR6g_2xlarge,
+
   InstanceTypeR6g_4xlarge,
+
   InstanceTypeR6g_8xlarge,
+
   InstanceTypeR6g_12xlarge,
+
   InstanceTypeR6g_16xlarge,
+
   InstanceTypeR6gd_Metal,
+
   InstanceTypeR6gd_Medium,
+
   InstanceTypeR6gd_Large,
+
   InstanceTypeR6gd_Xlarge,
+
   InstanceTypeR6gd_2xlarge,
+
   InstanceTypeR6gd_4xlarge,
+
   InstanceTypeR6gd_8xlarge,
+
   InstanceTypeR6gd_12xlarge,
+
   InstanceTypeR6gd_16xlarge,
+
   InstanceTypeX1_16xlarge,
+
   InstanceTypeX1_32xlarge,
+
   InstanceTypeX1e_Xlarge,
+
   InstanceTypeX1e_2xlarge,
+
   InstanceTypeX1e_4xlarge,
+
   InstanceTypeX1e_8xlarge,
+
   InstanceTypeX1e_16xlarge,
+
   InstanceTypeX1e_32xlarge,
+
   InstanceTypeI2_Xlarge,
+
   InstanceTypeI2_2xlarge,
+
   InstanceTypeI2_4xlarge,
+
   InstanceTypeI2_8xlarge,
+
   InstanceTypeI3_Large,
+
   InstanceTypeI3_Xlarge,
+
   InstanceTypeI3_2xlarge,
+
   InstanceTypeI3_4xlarge,
+
   InstanceTypeI3_8xlarge,
+
   InstanceTypeI3_16xlarge,
+
   InstanceTypeI3_Metal,
+
   InstanceTypeI3en_Large,
+
   InstanceTypeI3en_Xlarge,
+
   InstanceTypeI3en_2xlarge,
+
   InstanceTypeI3en_3xlarge,
+
   InstanceTypeI3en_6xlarge,
+
   InstanceTypeI3en_12xlarge,
+
   InstanceTypeI3en_24xlarge,
+
   InstanceTypeI3en_Metal,
+
   InstanceTypeHI1_4xlarge,
+
   InstanceTypeHS1_8xlarge,
+
   InstanceTypeC1_Medium,
+
   InstanceTypeC1_Xlarge,
+
   InstanceTypeC3_Large,
+
   InstanceTypeC3_Xlarge,
+
   InstanceTypeC3_2xlarge,
+
   InstanceTypeC3_4xlarge,
+
   InstanceTypeC3_8xlarge,
+
   InstanceTypeC4_Large,
+
   InstanceTypeC4_Xlarge,
+
   InstanceTypeC4_2xlarge,
+
   InstanceTypeC4_4xlarge,
+
   InstanceTypeC4_8xlarge,
+
   InstanceTypeC5_Large,
+
   InstanceTypeC5_Xlarge,
+
   InstanceTypeC5_2xlarge,
+
   InstanceTypeC5_4xlarge,
+
   InstanceTypeC5_9xlarge,
+
   InstanceTypeC5_12xlarge,
+
   InstanceTypeC5_18xlarge,
+
   InstanceTypeC5_24xlarge,
+
   InstanceTypeC5_Metal,
+
   InstanceTypeC5a_Large,
+
   InstanceTypeC5a_Xlarge,
+
   InstanceTypeC5a_2xlarge,
+
   InstanceTypeC5a_4xlarge,
+
   InstanceTypeC5a_8xlarge,
+
   InstanceTypeC5a_12xlarge,
+
   InstanceTypeC5a_16xlarge,
+
   InstanceTypeC5a_24xlarge,
+
   InstanceTypeC5ad_Large,
+
   InstanceTypeC5ad_Xlarge,
+
   InstanceTypeC5ad_2xlarge,
+
   InstanceTypeC5ad_4xlarge,
+
   InstanceTypeC5ad_8xlarge,
+
   InstanceTypeC5ad_12xlarge,
+
   InstanceTypeC5ad_16xlarge,
+
   InstanceTypeC5ad_24xlarge,
+
   InstanceTypeC5d_Large,
+
   InstanceTypeC5d_Xlarge,
+
   InstanceTypeC5d_2xlarge,
+
   InstanceTypeC5d_4xlarge,
+
   InstanceTypeC5d_9xlarge,
+
   InstanceTypeC5d_12xlarge,
+
   InstanceTypeC5d_18xlarge,
+
   InstanceTypeC5d_24xlarge,
+
   InstanceTypeC5d_Metal,
+
   InstanceTypeC5n_Large,
+
   InstanceTypeC5n_Xlarge,
+
   InstanceTypeC5n_2xlarge,
+
   InstanceTypeC5n_4xlarge,
+
   InstanceTypeC5n_9xlarge,
+
   InstanceTypeC5n_18xlarge,
+
   InstanceTypeC6g_Metal,
+
   InstanceTypeC6g_Medium,
+
   InstanceTypeC6g_Large,
+
   InstanceTypeC6g_Xlarge,
+
   InstanceTypeC6g_2xlarge,
+
   InstanceTypeC6g_4xlarge,
+
   InstanceTypeC6g_8xlarge,
+
   InstanceTypeC6g_12xlarge,
+
   InstanceTypeC6g_16xlarge,
+
   InstanceTypeC6gd_Metal,
+
   InstanceTypeC6gd_Medium,
+
   InstanceTypeC6gd_Large,
+
   InstanceTypeC6gd_Xlarge,
+
   InstanceTypeC6gd_2xlarge,
+
   InstanceTypeC6gd_4xlarge,
+
   InstanceTypeC6gd_8xlarge,
+
   InstanceTypeC6gd_12xlarge,
+
   InstanceTypeC6gd_16xlarge,
+
   InstanceTypeCC1_4xlarge,
+
   InstanceTypeCC2_8xlarge,
+
   InstanceTypeG2_2xlarge,
+
   InstanceTypeG2_8xlarge,
+
   InstanceTypeG3_4xlarge,
+
   InstanceTypeG3_8xlarge,
+
   InstanceTypeG3_16xlarge,
+
   InstanceTypeG3s_Xlarge,
+
   InstanceTypeG4dn_Xlarge,
+
   InstanceTypeG4dn_2xlarge,
+
   InstanceTypeG4dn_4xlarge,
+
   InstanceTypeG4dn_8xlarge,
+
   InstanceTypeG4dn_12xlarge,
+
   InstanceTypeG4dn_16xlarge,
+
   InstanceTypeG4dn_Metal,
+
   InstanceTypeCG1_4xlarge,
+
   InstanceTypeP2_Xlarge,
+
   InstanceTypeP2_8xlarge,
+
   InstanceTypeP2_16xlarge,
+
   InstanceTypeP3_2xlarge,
+
   InstanceTypeP3_8xlarge,
+
   InstanceTypeP3_16xlarge,
+
   InstanceTypeP3dn_24xlarge,
+
   InstanceTypeP4d_24xlarge,
+
   InstanceTypeD2_Xlarge,
+
   InstanceTypeD2_2xlarge,
+
   InstanceTypeD2_4xlarge,
+
   InstanceTypeD2_8xlarge,
+
   InstanceTypeF1_2xlarge,
+
   InstanceTypeF1_4xlarge,
+
   InstanceTypeF1_16xlarge,
+
   InstanceTypeM5_Large,
+
   InstanceTypeM5_Xlarge,
+
   InstanceTypeM5_2xlarge,
+
   InstanceTypeM5_4xlarge,
+
   InstanceTypeM5_8xlarge,
+
   InstanceTypeM5_12xlarge,
+
   InstanceTypeM5_16xlarge,
+
   InstanceTypeM5_24xlarge,
+
   InstanceTypeM5_Metal,
+
   InstanceTypeM5a_Large,
+
   InstanceTypeM5a_Xlarge,
+
   InstanceTypeM5a_2xlarge,
+
   InstanceTypeM5a_4xlarge,
+
   InstanceTypeM5a_8xlarge,
+
   InstanceTypeM5a_12xlarge,
+
   InstanceTypeM5a_16xlarge,
+
   InstanceTypeM5a_24xlarge,
+
   InstanceTypeM5d_Large,
+
   InstanceTypeM5d_Xlarge,
+
   InstanceTypeM5d_2xlarge,
+
   InstanceTypeM5d_4xlarge,
+
   InstanceTypeM5d_8xlarge,
+
   InstanceTypeM5d_12xlarge,
+
   InstanceTypeM5d_16xlarge,
+
   InstanceTypeM5d_24xlarge,
+
   InstanceTypeM5d_Metal,
+
   InstanceTypeM5ad_Large,
+
   InstanceTypeM5ad_Xlarge,
+
   InstanceTypeM5ad_2xlarge,
+
   InstanceTypeM5ad_4xlarge,
+
   InstanceTypeM5ad_8xlarge,
+
   InstanceTypeM5ad_12xlarge,
+
   InstanceTypeM5ad_16xlarge,
+
   InstanceTypeM5ad_24xlarge,
+
   InstanceTypeH1_2xlarge,
+
   InstanceTypeH1_4xlarge,
+
   InstanceTypeH1_8xlarge,
+
   InstanceTypeH1_16xlarge,
+
   InstanceTypeZ1d_Large,
+
   InstanceTypeZ1d_Xlarge,
+
   InstanceTypeZ1d_2xlarge,
+
   InstanceTypeZ1d_3xlarge,
+
   InstanceTypeZ1d_6xlarge,
+
   InstanceTypeZ1d_12xlarge,
+
   InstanceTypeZ1d_Metal,
+
   InstanceTypeU6TB1_Metal,
+
   InstanceTypeU9TB1_Metal,
+
   InstanceTypeU12TB1_Metal,
+
   InstanceTypeU18TB1_Metal,
+
   InstanceTypeU24TB1_Metal,
+
   InstanceTypeA1_Medium,
+
   InstanceTypeA1_Large,
+
   InstanceTypeA1_Xlarge,
+
   InstanceTypeA1_2xlarge,
+
   InstanceTypeA1_4xlarge,
+
   InstanceTypeA1_Metal,
+
   InstanceTypeM5dn_Large,
+
   InstanceTypeM5dn_Xlarge,
+
   InstanceTypeM5dn_2xlarge,
+
   InstanceTypeM5dn_4xlarge,
+
   InstanceTypeM5dn_8xlarge,
+
   InstanceTypeM5dn_12xlarge,
+
   InstanceTypeM5dn_16xlarge,
+
   InstanceTypeM5dn_24xlarge,
+
   InstanceTypeM5n_Large,
+
   InstanceTypeM5n_Xlarge,
+
   InstanceTypeM5n_2xlarge,
+
   InstanceTypeM5n_4xlarge,
+
   InstanceTypeM5n_8xlarge,
+
   InstanceTypeM5n_12xlarge,
+
   InstanceTypeM5n_16xlarge,
+
   InstanceTypeM5n_24xlarge,
+
   InstanceTypeR5dn_Large,
+
   InstanceTypeR5dn_Xlarge,
+
   InstanceTypeR5dn_2xlarge,
+
   InstanceTypeR5dn_4xlarge,
+
   InstanceTypeR5dn_8xlarge,
+
   InstanceTypeR5dn_12xlarge,
+
   InstanceTypeR5dn_16xlarge,
+
   InstanceTypeR5dn_24xlarge,
+
   InstanceTypeR5n_Large,
+
   InstanceTypeR5n_Xlarge,
+
   InstanceTypeR5n_2xlarge,
+
   InstanceTypeR5n_4xlarge,
+
   InstanceTypeR5n_8xlarge,
+
   InstanceTypeR5n_12xlarge,
+
   InstanceTypeR5n_16xlarge,
+
   InstanceTypeR5n_24xlarge,
+
   InstanceTypeINF1_Xlarge,
+
   InstanceTypeINF1_2xlarge,
+
   InstanceTypeINF1_6xlarge,
+
   InstanceTypeINF1_24xlarge,
+
   InstanceTypeM6g_Metal,
+
   InstanceTypeM6g_Medium,
+
   InstanceTypeM6g_Large,
+
   InstanceTypeM6g_Xlarge,
+
   InstanceTypeM6g_2xlarge,
+
   InstanceTypeM6g_4xlarge,
+
   InstanceTypeM6g_8xlarge,
+
   InstanceTypeM6g_12xlarge,
+
   InstanceTypeM6g_16xlarge,
+
   InstanceTypeM6gd_Metal,
+
   InstanceTypeM6gd_Medium,
+
   InstanceTypeM6gd_Large,
+
   InstanceTypeM6gd_Xlarge,
+
   InstanceTypeM6gd_2xlarge,
+
   InstanceTypeM6gd_4xlarge,
+
   InstanceTypeM6gd_8xlarge,
+
   InstanceTypeM6gd_12xlarge,
+
   InstanceTypeM6gd_16xlarge,
   InstanceType'
   #-}

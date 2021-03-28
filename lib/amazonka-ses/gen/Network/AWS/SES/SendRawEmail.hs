@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -46,45 +46,45 @@
 --
 --     * If you are using sending authorization to send on behalf of another user, @SendRawEmail@ enables you to specify the cross-account identity for the email's Source, From, and Return-Path parameters in one of two ways: you can pass optional parameters @SourceArn@ , @FromArn@ , and/or @ReturnPathArn@ to the API, or you can include the following X-headers in the header of your raw email:
 --
---     * @X-SES-SOURCE-ARN@
+--     * @X-SES-SOURCE-ARN@ 
 --
 --
---     * @X-SES-FROM-ARN@
+--     * @X-SES-FROM-ARN@ 
 --
 --
---     * @X-SES-RETURN-PATH-ARN@
+--     * @X-SES-RETURN-PATH-ARN@ 
 --
 --
 -- /Important:/ Don't include these X-headers in the DKIM signature. Amazon SES removes these before it sends the email.
 -- If you only specify the @SourceIdentityArn@ parameter, Amazon SES sets the From and Return-Path addresses to the same identity that you specified.
--- For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Using Sending Authorization with Amazon SES> in the /Amazon SES Developer Guide./
+-- For more information about sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Using Sending Authorization with Amazon SES> in the /Amazon SES Developer Guide./ 
 --
 --
---     * For every message that you send, the total number of recipients (including each recipient in the To:, CC: and BCC: fields) is counted against the maximum number of emails you can send in a 24-hour period (your /sending quota/ ). For more information about sending quotas in Amazon SES, see <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html Managing Your Amazon SES Sending Limits> in the /Amazon SES Developer Guide./
+--     * For every message that you send, the total number of recipients (including each recipient in the To:, CC: and BCC: fields) is counted against the maximum number of emails you can send in a 24-hour period (your /sending quota/ ). For more information about sending quotas in Amazon SES, see <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html Managing Your Amazon SES Sending Limits> in the /Amazon SES Developer Guide./ 
+--
+--
 module Network.AWS.SES.SendRawEmail
-  ( -- * Creating a request
-    SendRawEmail (..),
-    mkSendRawEmail,
-
+    (
+    -- * Creating a request
+      SendRawEmail (..)
+    , mkSendRawEmail
     -- ** Request lenses
-    sreRawMessage,
-    sreConfigurationSetName,
-    sreDestinations,
-    sreFromArn,
-    sreReturnPathArn,
-    sreSource,
-    sreSourceArn,
-    sreTags,
+    , sreRawMessage
+    , sreConfigurationSetName
+    , sreDestinations
+    , sreFromArn
+    , sreReturnPathArn
+    , sreSource
+    , sreSourceArn
+    , sreTags
 
     -- * Destructuring the response
-    SendRawEmailResponse (..),
-    mkSendRawEmailResponse,
-
+    , SendRawEmailResponse (..)
+    , mkSendRawEmailResponse
     -- ** Response lenses
-    srerrsMessageId,
-    srerrsResponseStatus,
-  )
-where
+    , srerrsMessageId
+    , srerrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -96,73 +96,68 @@ import qualified Network.AWS.SES.Types as Types
 --
 -- /See:/ 'mkSendRawEmail' smart constructor.
 data SendRawEmail = SendRawEmail'
-  { -- | The raw email message itself. The message has to meet the following criteria:
-    --
-    --
-    --     * The message has to contain a header and a body, separated by a blank line.
-    --
-    --
-    --     * All of the required header fields must be present in the message.
-    --
-    --
-    --     * Each part of a multipart MIME message must be formatted properly.
-    --
-    --
-    --     * Attachments must be of a content type that Amazon SES supports. For a list on unsupported content types, see <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Unsupported Attachment Types> in the /Amazon SES Developer Guide/ .
-    --
-    --
-    --     * The entire message must be base64-encoded.
-    --
-    --
-    --     * If any of the MIME parts in your message contain content that is outside of the 7-bit ASCII character range, we highly recommend that you encode that content. For more information, see <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Sending Raw Email> in the /Amazon SES Developer Guide/ .
-    --
-    --
-    --     * Per <https://tools.ietf.org/html/rfc5321#section-4.5.3.1.6 RFC 5321> , the maximum length of each line of text, including the <CRLF>, must not exceed 1,000 characters.
-    rawMessage :: Types.RawMessage,
-    -- | The name of the configuration set to use when you send an email using @SendRawEmail@ .
-    configurationSetName :: Core.Maybe Types.ConfigurationSetName,
-    -- | A list of destinations for the message, consisting of To:, CC:, and BCC: addresses.
-    destinations :: Core.Maybe [Types.Address],
-    -- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to specify a particular "From" address in the header of the raw email.
-    --
-    -- Instead of using this parameter, you can use the X-header @X-SES-FROM-ARN@ in the raw message of the email. If you use both the @FromArn@ parameter and the corresponding X-header, Amazon SES uses the value of the @FromArn@ parameter.
-    fromArn :: Core.Maybe Types.FromArn,
-    -- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the @ReturnPath@ parameter.
-    --
-    -- For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to use @feedback@example.com@ , then you would specify the @ReturnPathArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @ReturnPath@ to be @feedback@example.com@ .
-    -- Instead of using this parameter, you can use the X-header @X-SES-RETURN-PATH-ARN@ in the raw message of the email. If you use both the @ReturnPathArn@ parameter and the corresponding X-header, Amazon SES uses the value of the @ReturnPathArn@ parameter.
-    returnPathArn :: Core.Maybe Types.ReturnPathArn,
-    -- | The identity's email address. If you do not provide a value for this parameter, you must specify a "From" address in the raw text of the message. (You can also specify both.)
-    --
-    -- If you specify the @Source@ parameter and have feedback forwarding enabled, then bounces and complaints will be sent to this email address. This takes precedence over any Return-Path header that you might include in the raw text of the message.
-    source :: Core.Maybe Types.Source,
-    -- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the @Source@ parameter.
-    --
-    -- For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to send from @user@example.com@ , then you would specify the @SourceArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @Source@ to be @user@example.com@ .
-    -- Instead of using this parameter, you can use the X-header @X-SES-SOURCE-ARN@ in the raw message of the email. If you use both the @SourceArn@ parameter and the corresponding X-header, Amazon SES uses the value of the @SourceArn@ parameter.
-    sourceArn :: Core.Maybe Types.SourceArn,
-    -- | A list of tags, in the form of name/value pairs, to apply to an email that you send using @SendRawEmail@ . Tags correspond to characteristics of the email that you define, so that you can publish email sending events.
-    tags :: Core.Maybe [Types.MessageTag]
+  { rawMessage :: Types.RawMessage
+    -- ^ The raw email message itself. The message has to meet the following criteria:
+--
+--
+--     * The message has to contain a header and a body, separated by a blank line.
+--
+--
+--     * All of the required header fields must be present in the message.
+--
+--
+--     * Each part of a multipart MIME message must be formatted properly.
+--
+--
+--     * Attachments must be of a content type that Amazon SES supports. For a list on unsupported content types, see <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html Unsupported Attachment Types> in the /Amazon SES Developer Guide/ .
+--
+--
+--     * The entire message must be base64-encoded.
+--
+--
+--     * If any of the MIME parts in your message contain content that is outside of the 7-bit ASCII character range, we highly recommend that you encode that content. For more information, see <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Sending Raw Email> in the /Amazon SES Developer Guide/ .
+--
+--
+--     * Per <https://tools.ietf.org/html/rfc5321#section-4.5.3.1.6 RFC 5321> , the maximum length of each line of text, including the <CRLF>, must not exceed 1,000 characters.
+--
+--
+  , configurationSetName :: Core.Maybe Types.ConfigurationSetName
+    -- ^ The name of the configuration set to use when you send an email using @SendRawEmail@ .
+  , destinations :: Core.Maybe [Types.Address]
+    -- ^ A list of destinations for the message, consisting of To:, CC:, and BCC: addresses.
+  , fromArn :: Core.Maybe Types.FromArn
+    -- ^ This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to specify a particular "From" address in the header of the raw email.
+--
+-- Instead of using this parameter, you can use the X-header @X-SES-FROM-ARN@ in the raw message of the email. If you use both the @FromArn@ parameter and the corresponding X-header, Amazon SES uses the value of the @FromArn@ parameter.
+  , returnPathArn :: Core.Maybe Types.ReturnPathArn
+    -- ^ This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the @ReturnPath@ parameter.
+--
+-- For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to use @feedback@example.com@ , then you would specify the @ReturnPathArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @ReturnPath@ to be @feedback@example.com@ .
+-- Instead of using this parameter, you can use the X-header @X-SES-RETURN-PATH-ARN@ in the raw message of the email. If you use both the @ReturnPathArn@ parameter and the corresponding X-header, Amazon SES uses the value of the @ReturnPathArn@ parameter.
+  , source :: Core.Maybe Types.Source
+    -- ^ The identity's email address. If you do not provide a value for this parameter, you must specify a "From" address in the raw text of the message. (You can also specify both.)
+--
+-- If you specify the @Source@ parameter and have feedback forwarding enabled, then bounces and complaints will be sent to this email address. This takes precedence over any Return-Path header that you might include in the raw text of the message.
+  , sourceArn :: Core.Maybe Types.SourceArn
+    -- ^ This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the @Source@ parameter.
+--
+-- For example, if the owner of @example.com@ (which has ARN @arn:aws:ses:us-east-1:123456789012:identity/example.com@ ) attaches a policy to it that authorizes you to send from @user@example.com@ , then you would specify the @SourceArn@ to be @arn:aws:ses:us-east-1:123456789012:identity/example.com@ , and the @Source@ to be @user@example.com@ .
+-- Instead of using this parameter, you can use the X-header @X-SES-SOURCE-ARN@ in the raw message of the email. If you use both the @SourceArn@ parameter and the corresponding X-header, Amazon SES uses the value of the @SourceArn@ parameter.
+  , tags :: Core.Maybe [Types.MessageTag]
+    -- ^ A list of tags, in the form of name/value pairs, to apply to an email that you send using @SendRawEmail@ . Tags correspond to characteristics of the email that you define, so that you can publish email sending events.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'SendRawEmail' value with any optional fields omitted.
-mkSendRawEmail ::
-  -- | 'rawMessage'
-  Types.RawMessage ->
-  SendRawEmail
-mkSendRawEmail rawMessage =
-  SendRawEmail'
-    { rawMessage,
-      configurationSetName = Core.Nothing,
-      destinations = Core.Nothing,
-      fromArn = Core.Nothing,
-      returnPathArn = Core.Nothing,
-      source = Core.Nothing,
-      sourceArn = Core.Nothing,
-      tags = Core.Nothing
-    }
+mkSendRawEmail
+    :: Types.RawMessage -- ^ 'rawMessage'
+    -> SendRawEmail
+mkSendRawEmail rawMessage
+  = SendRawEmail'{rawMessage, configurationSetName = Core.Nothing,
+                  destinations = Core.Nothing, fromArn = Core.Nothing,
+                  returnPathArn = Core.Nothing, source = Core.Nothing,
+                  sourceArn = Core.Nothing, tags = Core.Nothing}
 
 -- | The raw email message itself. The message has to meet the following criteria:
 --
@@ -192,21 +187,24 @@ mkSendRawEmail rawMessage =
 -- /Note:/ Consider using 'rawMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sreRawMessage :: Lens.Lens' SendRawEmail Types.RawMessage
 sreRawMessage = Lens.field @"rawMessage"
-{-# DEPRECATED sreRawMessage "Use generic-lens or generic-optics with 'rawMessage' instead." #-}
+{-# INLINEABLE sreRawMessage #-}
+{-# DEPRECATED rawMessage "Use generic-lens or generic-optics with 'rawMessage' instead"  #-}
 
 -- | The name of the configuration set to use when you send an email using @SendRawEmail@ .
 --
 -- /Note:/ Consider using 'configurationSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sreConfigurationSetName :: Lens.Lens' SendRawEmail (Core.Maybe Types.ConfigurationSetName)
 sreConfigurationSetName = Lens.field @"configurationSetName"
-{-# DEPRECATED sreConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
+{-# INLINEABLE sreConfigurationSetName #-}
+{-# DEPRECATED configurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead"  #-}
 
 -- | A list of destinations for the message, consisting of To:, CC:, and BCC: addresses.
 --
 -- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sreDestinations :: Lens.Lens' SendRawEmail (Core.Maybe [Types.Address])
 sreDestinations = Lens.field @"destinations"
-{-# DEPRECATED sreDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
+{-# INLINEABLE sreDestinations #-}
+{-# DEPRECATED destinations "Use generic-lens or generic-optics with 'destinations' instead"  #-}
 
 -- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to specify a particular "From" address in the header of the raw email.
 --
@@ -215,7 +213,8 @@ sreDestinations = Lens.field @"destinations"
 -- /Note:/ Consider using 'fromArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sreFromArn :: Lens.Lens' SendRawEmail (Core.Maybe Types.FromArn)
 sreFromArn = Lens.field @"fromArn"
-{-# DEPRECATED sreFromArn "Use generic-lens or generic-optics with 'fromArn' instead." #-}
+{-# INLINEABLE sreFromArn #-}
+{-# DEPRECATED fromArn "Use generic-lens or generic-optics with 'fromArn' instead"  #-}
 
 -- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the @ReturnPath@ parameter.
 --
@@ -225,7 +224,8 @@ sreFromArn = Lens.field @"fromArn"
 -- /Note:/ Consider using 'returnPathArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sreReturnPathArn :: Lens.Lens' SendRawEmail (Core.Maybe Types.ReturnPathArn)
 sreReturnPathArn = Lens.field @"returnPathArn"
-{-# DEPRECATED sreReturnPathArn "Use generic-lens or generic-optics with 'returnPathArn' instead." #-}
+{-# INLINEABLE sreReturnPathArn #-}
+{-# DEPRECATED returnPathArn "Use generic-lens or generic-optics with 'returnPathArn' instead"  #-}
 
 -- | The identity's email address. If you do not provide a value for this parameter, you must specify a "From" address in the raw text of the message. (You can also specify both.)
 --
@@ -234,7 +234,8 @@ sreReturnPathArn = Lens.field @"returnPathArn"
 -- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sreSource :: Lens.Lens' SendRawEmail (Core.Maybe Types.Source)
 sreSource = Lens.field @"source"
-{-# DEPRECATED sreSource "Use generic-lens or generic-optics with 'source' instead." #-}
+{-# INLINEABLE sreSource #-}
+{-# DEPRECATED source "Use generic-lens or generic-optics with 'source' instead"  #-}
 
 -- | This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the @Source@ parameter.
 --
@@ -244,90 +245,96 @@ sreSource = Lens.field @"source"
 -- /Note:/ Consider using 'sourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sreSourceArn :: Lens.Lens' SendRawEmail (Core.Maybe Types.SourceArn)
 sreSourceArn = Lens.field @"sourceArn"
-{-# DEPRECATED sreSourceArn "Use generic-lens or generic-optics with 'sourceArn' instead." #-}
+{-# INLINEABLE sreSourceArn #-}
+{-# DEPRECATED sourceArn "Use generic-lens or generic-optics with 'sourceArn' instead"  #-}
 
 -- | A list of tags, in the form of name/value pairs, to apply to an email that you send using @SendRawEmail@ . Tags correspond to characteristics of the email that you define, so that you can publish email sending events.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sreTags :: Lens.Lens' SendRawEmail (Core.Maybe [Types.MessageTag])
 sreTags = Lens.field @"tags"
-{-# DEPRECATED sreTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+{-# INLINEABLE sreTags #-}
+{-# DEPRECATED tags "Use generic-lens or generic-optics with 'tags' instead"  #-}
+
+instance Core.ToQuery SendRawEmail where
+        toQuery SendRawEmail{..}
+          = Core.toQueryPair "Action" ("SendRawEmail" :: Core.Text) Core.<>
+              Core.toQueryPair "Version" ("2010-12-01" :: Core.Text)
+              Core.<> Core.toQueryPair "RawMessage" rawMessage
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "ConfigurationSetName")
+                configurationSetName
+              Core.<>
+              Core.toQueryPair "Destinations"
+                (Core.maybe Core.mempty (Core.toQueryList "member") destinations)
+              Core.<> Core.maybe Core.mempty (Core.toQueryPair "FromArn") fromArn
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "ReturnPathArn")
+                returnPathArn
+              Core.<> Core.maybe Core.mempty (Core.toQueryPair "Source") source
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "SourceArn") sourceArn
+              Core.<>
+              Core.toQueryPair "Tags"
+                (Core.maybe Core.mempty (Core.toQueryList "member") tags)
+
+instance Core.ToHeaders SendRawEmail where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest SendRawEmail where
-  type Rs SendRawEmail = SendRawEmailResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "SendRawEmail")
-                Core.<> (Core.pure ("Version", "2010-12-01"))
-                Core.<> (Core.toQueryValue "RawMessage" rawMessage)
-                Core.<> ( Core.toQueryValue "ConfigurationSetName"
-                            Core.<$> configurationSetName
-                        )
-                Core.<> ( Core.toQueryValue
-                            "Destinations"
-                            (Core.toQueryList "member" Core.<$> destinations)
-                        )
-                Core.<> (Core.toQueryValue "FromArn" Core.<$> fromArn)
-                Core.<> (Core.toQueryValue "ReturnPathArn" Core.<$> returnPathArn)
-                Core.<> (Core.toQueryValue "Source" Core.<$> source)
-                Core.<> (Core.toQueryValue "SourceArn" Core.<$> sourceArn)
-                Core.<> ( Core.toQueryValue
-                            "Tags"
-                            (Core.toQueryList "member" Core.<$> tags)
-                        )
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "SendRawEmailResult"
-      ( \s h x ->
-          SendRawEmailResponse'
-            Core.<$> (x Core..@ "MessageId") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs SendRawEmail = SendRawEmailResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "SendRawEmailResult"
+              (\ s h x ->
+                 SendRawEmailResponse' Core.<$>
+                   (x Core..@ "MessageId") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | Represents a unique message ID.
 --
 -- /See:/ 'mkSendRawEmailResponse' smart constructor.
 data SendRawEmailResponse = SendRawEmailResponse'
-  { -- | The unique message identifier returned from the @SendRawEmail@ action.
-    messageId :: Types.MessageId,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { messageId :: Types.MessageId
+    -- ^ The unique message identifier returned from the @SendRawEmail@ action. 
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'SendRawEmailResponse' value with any optional fields omitted.
-mkSendRawEmailResponse ::
-  -- | 'messageId'
-  Types.MessageId ->
-  -- | 'responseStatus'
-  Core.Int ->
-  SendRawEmailResponse
-mkSendRawEmailResponse messageId responseStatus =
-  SendRawEmailResponse' {messageId, responseStatus}
+mkSendRawEmailResponse
+    :: Types.MessageId -- ^ 'messageId'
+    -> Core.Int -- ^ 'responseStatus'
+    -> SendRawEmailResponse
+mkSendRawEmailResponse messageId responseStatus
+  = SendRawEmailResponse'{messageId, responseStatus}
 
--- | The unique message identifier returned from the @SendRawEmail@ action.
+-- | The unique message identifier returned from the @SendRawEmail@ action. 
 --
 -- /Note:/ Consider using 'messageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 srerrsMessageId :: Lens.Lens' SendRawEmailResponse Types.MessageId
 srerrsMessageId = Lens.field @"messageId"
-{-# DEPRECATED srerrsMessageId "Use generic-lens or generic-optics with 'messageId' instead." #-}
+{-# INLINEABLE srerrsMessageId #-}
+{-# DEPRECATED messageId "Use generic-lens or generic-optics with 'messageId' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 srerrsResponseStatus :: Lens.Lens' SendRawEmailResponse Core.Int
 srerrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED srerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE srerrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

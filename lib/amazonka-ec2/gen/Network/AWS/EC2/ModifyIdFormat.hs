@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -19,19 +19,18 @@
 -- This setting applies to the IAM user who makes the request; it does not apply to the entire AWS account. By default, an IAM user defaults to the same settings as the root user. If you're using this action as the root user, then these settings apply to the entire account, unless an IAM user explicitly overrides these settings for themselves. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html Resource IDs> in the /Amazon Elastic Compute Cloud User Guide/ .
 -- Resources created with longer IDs are visible to all IAM roles and users, regardless of these settings and provided that they have permission to use the relevant @Describe@ command for the resource type.
 module Network.AWS.EC2.ModifyIdFormat
-  ( -- * Creating a request
-    ModifyIdFormat (..),
-    mkModifyIdFormat,
-
+    (
+    -- * Creating a request
+      ModifyIdFormat (..)
+    , mkModifyIdFormat
     -- ** Request lenses
-    mifResource,
-    mifUseLongIds,
+    , mifResource
+    , mifUseLongIds
 
     -- * Destructuring the response
-    ModifyIdFormatResponse (..),
-    mkModifyIdFormatResponse,
-  )
-where
+    , ModifyIdFormatResponse (..)
+    , mkModifyIdFormatResponse
+    ) where
 
 import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -41,64 +40,69 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkModifyIdFormat' smart constructor.
 data ModifyIdFormat = ModifyIdFormat'
-  { -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @route-table@ | @route-table-association@ | @security-group@ | @subnet@ | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ .
-    --
-    -- Alternatively, use the @all-current@ option to include all resource types that are currently within their opt-in period for longer IDs.
-    resource :: Types.String,
-    -- | Indicate whether the resource should use longer IDs (17-character IDs).
-    useLongIds :: Core.Bool
+  { resource :: Core.Text
+    -- ^ The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @route-table@ | @route-table-association@ | @security-group@ | @subnet@ | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ .
+--
+-- Alternatively, use the @all-current@ option to include all resource types that are currently within their opt-in period for longer IDs.
+  , useLongIds :: Core.Bool
+    -- ^ Indicate whether the resource should use longer IDs (17-character IDs).
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ModifyIdFormat' value with any optional fields omitted.
-mkModifyIdFormat ::
-  -- | 'resource'
-  Types.String ->
-  -- | 'useLongIds'
-  Core.Bool ->
-  ModifyIdFormat
-mkModifyIdFormat resource useLongIds =
-  ModifyIdFormat' {resource, useLongIds}
+mkModifyIdFormat
+    :: Core.Text -- ^ 'resource'
+    -> Core.Bool -- ^ 'useLongIds'
+    -> ModifyIdFormat
+mkModifyIdFormat resource useLongIds
+  = ModifyIdFormat'{resource, useLongIds}
 
 -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @route-table@ | @route-table-association@ | @security-group@ | @subnet@ | @subnet-cidr-block-association@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ .
 --
 -- Alternatively, use the @all-current@ option to include all resource types that are currently within their opt-in period for longer IDs.
 --
 -- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mifResource :: Lens.Lens' ModifyIdFormat Types.String
+mifResource :: Lens.Lens' ModifyIdFormat Core.Text
 mifResource = Lens.field @"resource"
-{-# DEPRECATED mifResource "Use generic-lens or generic-optics with 'resource' instead." #-}
+{-# INLINEABLE mifResource #-}
+{-# DEPRECATED resource "Use generic-lens or generic-optics with 'resource' instead"  #-}
 
 -- | Indicate whether the resource should use longer IDs (17-character IDs).
 --
 -- /Note:/ Consider using 'useLongIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mifUseLongIds :: Lens.Lens' ModifyIdFormat Core.Bool
 mifUseLongIds = Lens.field @"useLongIds"
-{-# DEPRECATED mifUseLongIds "Use generic-lens or generic-optics with 'useLongIds' instead." #-}
+{-# INLINEABLE mifUseLongIds #-}
+{-# DEPRECATED useLongIds "Use generic-lens or generic-optics with 'useLongIds' instead"  #-}
+
+instance Core.ToQuery ModifyIdFormat where
+        toQuery ModifyIdFormat{..}
+          = Core.toQueryPair "Action" ("ModifyIdFormat" :: Core.Text) Core.<>
+              Core.toQueryPair "Version" ("2016-11-15" :: Core.Text)
+              Core.<> Core.toQueryPair "Resource" resource
+              Core.<> Core.toQueryPair "UseLongIds" useLongIds
+
+instance Core.ToHeaders ModifyIdFormat where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest ModifyIdFormat where
-  type Rs ModifyIdFormat = ModifyIdFormatResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "ModifyIdFormat")
-                Core.<> (Core.pure ("Version", "2016-11-15"))
-                Core.<> (Core.toQueryValue "Resource" resource)
-                Core.<> (Core.toQueryValue "UseLongIds" useLongIds)
-            )
-      }
-  response = Response.receiveNull ModifyIdFormatResponse'
+        type Rs ModifyIdFormat = ModifyIdFormatResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull ModifyIdFormatResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkModifyIdFormatResponse' smart constructor.
 data ModifyIdFormatResponse = ModifyIdFormatResponse'
@@ -106,6 +110,6 @@ data ModifyIdFormatResponse = ModifyIdFormatResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ModifyIdFormatResponse' value with any optional fields omitted.
-mkModifyIdFormatResponse ::
-  ModifyIdFormatResponse
+mkModifyIdFormatResponse
+    :: ModifyIdFormatResponse
 mkModifyIdFormatResponse = ModifyIdFormatResponse'

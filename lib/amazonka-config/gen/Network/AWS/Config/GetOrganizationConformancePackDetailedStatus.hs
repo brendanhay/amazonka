@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,26 +17,24 @@
 --
 -- Only a master account and a delegated administrator account can call this API. When calling this API with a delegated administrator, you must ensure AWS Organizations @ListDelegatedAdministrator@ permissions are added.
 module Network.AWS.Config.GetOrganizationConformancePackDetailedStatus
-  ( -- * Creating a request
-    GetOrganizationConformancePackDetailedStatus (..),
-    mkGetOrganizationConformancePackDetailedStatus,
-
+    (
+    -- * Creating a request
+      GetOrganizationConformancePackDetailedStatus (..)
+    , mkGetOrganizationConformancePackDetailedStatus
     -- ** Request lenses
-    gocpdsOrganizationConformancePackName,
-    gocpdsFilters,
-    gocpdsLimit,
-    gocpdsNextToken,
+    , gocpdsOrganizationConformancePackName
+    , gocpdsFilters
+    , gocpdsLimit
+    , gocpdsNextToken
 
     -- * Destructuring the response
-    GetOrganizationConformancePackDetailedStatusResponse (..),
-    mkGetOrganizationConformancePackDetailedStatusResponse,
-
+    , GetOrganizationConformancePackDetailedStatusResponse (..)
+    , mkGetOrganizationConformancePackDetailedStatusResponse
     -- ** Response lenses
-    gocpdsrrsNextToken,
-    gocpdsrrsOrganizationConformancePackDetailedStatuses,
-    gocpdsrrsResponseStatus,
-  )
-where
+    , gocpdsrrsNextToken
+    , gocpdsrrsOrganizationConformancePackDetailedStatuses
+    , gocpdsrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -46,148 +44,151 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetOrganizationConformancePackDetailedStatus' smart constructor.
 data GetOrganizationConformancePackDetailedStatus = GetOrganizationConformancePackDetailedStatus'
-  { -- | The name of organization conformance pack for which you want status details for member accounts.
-    organizationConformancePackName :: Types.OrganizationConformancePackName,
-    -- | An @OrganizationResourceDetailedStatusFilters@ object.
-    filters :: Core.Maybe Types.OrganizationResourceDetailedStatusFilters,
-    -- | The maximum number of @OrganizationConformancePackDetailedStatuses@ returned on each page. If you do not specify a number, AWS Config uses the default. The default is 100.
-    limit :: Core.Maybe Core.Natural,
-    -- | The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
-    nextToken :: Core.Maybe Types.NextToken
+  { organizationConformancePackName :: Types.OrganizationConformancePackName
+    -- ^ The name of organization conformance pack for which you want status details for member accounts.
+  , filters :: Core.Maybe Types.OrganizationResourceDetailedStatusFilters
+    -- ^ An @OrganizationResourceDetailedStatusFilters@ object.
+  , limit :: Core.Maybe Core.Natural
+    -- ^ The maximum number of @OrganizationConformancePackDetailedStatuses@ returned on each page. If you do not specify a number, AWS Config uses the default. The default is 100. 
+  , nextToken :: Core.Maybe Core.Text
+    -- ^ The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. 
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetOrganizationConformancePackDetailedStatus' value with any optional fields omitted.
-mkGetOrganizationConformancePackDetailedStatus ::
-  -- | 'organizationConformancePackName'
-  Types.OrganizationConformancePackName ->
-  GetOrganizationConformancePackDetailedStatus
 mkGetOrganizationConformancePackDetailedStatus
-  organizationConformancePackName =
-    GetOrganizationConformancePackDetailedStatus'
-      { organizationConformancePackName,
-        filters = Core.Nothing,
-        limit = Core.Nothing,
-        nextToken = Core.Nothing
-      }
+    :: Types.OrganizationConformancePackName -- ^ 'organizationConformancePackName'
+    -> GetOrganizationConformancePackDetailedStatus
+mkGetOrganizationConformancePackDetailedStatus
+  organizationConformancePackName
+  = GetOrganizationConformancePackDetailedStatus'{organizationConformancePackName,
+                                                  filters = Core.Nothing, limit = Core.Nothing,
+                                                  nextToken = Core.Nothing}
 
 -- | The name of organization conformance pack for which you want status details for member accounts.
 --
 -- /Note:/ Consider using 'organizationConformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gocpdsOrganizationConformancePackName :: Lens.Lens' GetOrganizationConformancePackDetailedStatus Types.OrganizationConformancePackName
 gocpdsOrganizationConformancePackName = Lens.field @"organizationConformancePackName"
-{-# DEPRECATED gocpdsOrganizationConformancePackName "Use generic-lens or generic-optics with 'organizationConformancePackName' instead." #-}
+{-# INLINEABLE gocpdsOrganizationConformancePackName #-}
+{-# DEPRECATED organizationConformancePackName "Use generic-lens or generic-optics with 'organizationConformancePackName' instead"  #-}
 
 -- | An @OrganizationResourceDetailedStatusFilters@ object.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gocpdsFilters :: Lens.Lens' GetOrganizationConformancePackDetailedStatus (Core.Maybe Types.OrganizationResourceDetailedStatusFilters)
 gocpdsFilters = Lens.field @"filters"
-{-# DEPRECATED gocpdsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+{-# INLINEABLE gocpdsFilters #-}
+{-# DEPRECATED filters "Use generic-lens or generic-optics with 'filters' instead"  #-}
 
--- | The maximum number of @OrganizationConformancePackDetailedStatuses@ returned on each page. If you do not specify a number, AWS Config uses the default. The default is 100.
+-- | The maximum number of @OrganizationConformancePackDetailedStatuses@ returned on each page. If you do not specify a number, AWS Config uses the default. The default is 100. 
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gocpdsLimit :: Lens.Lens' GetOrganizationConformancePackDetailedStatus (Core.Maybe Core.Natural)
 gocpdsLimit = Lens.field @"limit"
-{-# DEPRECATED gocpdsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+{-# INLINEABLE gocpdsLimit #-}
+{-# DEPRECATED limit "Use generic-lens or generic-optics with 'limit' instead"  #-}
 
--- | The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+-- | The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. 
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gocpdsNextToken :: Lens.Lens' GetOrganizationConformancePackDetailedStatus (Core.Maybe Types.NextToken)
+gocpdsNextToken :: Lens.Lens' GetOrganizationConformancePackDetailedStatus (Core.Maybe Core.Text)
 gocpdsNextToken = Lens.field @"nextToken"
-{-# DEPRECATED gocpdsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE gocpdsNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
 
-instance Core.FromJSON GetOrganizationConformancePackDetailedStatus where
-  toJSON GetOrganizationConformancePackDetailedStatus {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just
-              ( "OrganizationConformancePackName"
-                  Core..= organizationConformancePackName
-              ),
-            ("Filters" Core..=) Core.<$> filters,
-            ("Limit" Core..=) Core.<$> limit,
-            ("NextToken" Core..=) Core.<$> nextToken
-          ]
-      )
+instance Core.ToQuery GetOrganizationConformancePackDetailedStatus
+         where
+        toQuery _ = Core.pure Core.mempty
 
-instance
-  Core.AWSRequest
-    GetOrganizationConformancePackDetailedStatus
-  where
-  type
-    Rs GetOrganizationConformancePackDetailedStatus =
-      GetOrganizationConformancePackDetailedStatusResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "X-Amz-Target",
-              "StarlingDoveService.GetOrganizationConformancePackDetailedStatus"
-            )
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          GetOrganizationConformancePackDetailedStatusResponse'
-            Core.<$> (x Core..:? "NextToken")
-            Core.<*> (x Core..:? "OrganizationConformancePackDetailedStatuses")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+instance Core.ToHeaders
+           GetOrganizationConformancePackDetailedStatus
+         where
+        toHeaders GetOrganizationConformancePackDetailedStatus{..}
+          = Core.pure
+              ("X-Amz-Target",
+               "StarlingDoveService.GetOrganizationConformancePackDetailedStatus")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
+
+instance Core.FromJSON GetOrganizationConformancePackDetailedStatus
+         where
+        toJSON GetOrganizationConformancePackDetailedStatus{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just
+                    ("OrganizationConformancePackName" Core..=
+                       organizationConformancePackName),
+                  ("Filters" Core..=) Core.<$> filters,
+                  ("Limit" Core..=) Core.<$> limit,
+                  ("NextToken" Core..=) Core.<$> nextToken])
+
+instance Core.AWSRequest
+           GetOrganizationConformancePackDetailedStatus
+         where
+        type Rs GetOrganizationConformancePackDetailedStatus =
+             GetOrganizationConformancePackDetailedStatusResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 GetOrganizationConformancePackDetailedStatusResponse' Core.<$>
+                   (x Core..:? "NextToken") Core.<*>
+                     x Core..:? "OrganizationConformancePackDetailedStatuses"
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkGetOrganizationConformancePackDetailedStatusResponse' smart constructor.
 data GetOrganizationConformancePackDetailedStatusResponse = GetOrganizationConformancePackDetailedStatusResponse'
-  { -- | The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
-    nextToken :: Core.Maybe Types.String,
-    -- | A list of @OrganizationConformancePackDetailedStatus@ objects.
-    organizationConformancePackDetailedStatuses :: Core.Maybe [Types.OrganizationConformancePackDetailedStatus],
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { nextToken :: Core.Maybe Core.Text
+    -- ^ The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. 
+  , organizationConformancePackDetailedStatuses :: Core.Maybe [Types.OrganizationConformancePackDetailedStatus]
+    -- ^ A list of @OrganizationConformancePackDetailedStatus@ objects. 
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'GetOrganizationConformancePackDetailedStatusResponse' value with any optional fields omitted.
-mkGetOrganizationConformancePackDetailedStatusResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  GetOrganizationConformancePackDetailedStatusResponse
 mkGetOrganizationConformancePackDetailedStatusResponse
-  responseStatus =
-    GetOrganizationConformancePackDetailedStatusResponse'
-      { nextToken =
-          Core.Nothing,
-        organizationConformancePackDetailedStatuses =
-          Core.Nothing,
-        responseStatus
-      }
+    :: Core.Int -- ^ 'responseStatus'
+    -> GetOrganizationConformancePackDetailedStatusResponse
+mkGetOrganizationConformancePackDetailedStatusResponse
+  responseStatus
+  = GetOrganizationConformancePackDetailedStatusResponse'{nextToken =
+                                                            Core.Nothing,
+                                                          organizationConformancePackDetailedStatuses
+                                                            = Core.Nothing,
+                                                          responseStatus}
 
--- | The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+-- | The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. 
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gocpdsrrsNextToken :: Lens.Lens' GetOrganizationConformancePackDetailedStatusResponse (Core.Maybe Types.String)
+gocpdsrrsNextToken :: Lens.Lens' GetOrganizationConformancePackDetailedStatusResponse (Core.Maybe Core.Text)
 gocpdsrrsNextToken = Lens.field @"nextToken"
-{-# DEPRECATED gocpdsrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE gocpdsrrsNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
 
--- | A list of @OrganizationConformancePackDetailedStatus@ objects.
+-- | A list of @OrganizationConformancePackDetailedStatus@ objects. 
 --
 -- /Note:/ Consider using 'organizationConformancePackDetailedStatuses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gocpdsrrsOrganizationConformancePackDetailedStatuses :: Lens.Lens' GetOrganizationConformancePackDetailedStatusResponse (Core.Maybe [Types.OrganizationConformancePackDetailedStatus])
 gocpdsrrsOrganizationConformancePackDetailedStatuses = Lens.field @"organizationConformancePackDetailedStatuses"
-{-# DEPRECATED gocpdsrrsOrganizationConformancePackDetailedStatuses "Use generic-lens or generic-optics with 'organizationConformancePackDetailedStatuses' instead." #-}
+{-# INLINEABLE gocpdsrrsOrganizationConformancePackDetailedStatuses #-}
+{-# DEPRECATED organizationConformancePackDetailedStatuses "Use generic-lens or generic-optics with 'organizationConformancePackDetailedStatuses' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gocpdsrrsResponseStatus :: Lens.Lens' GetOrganizationConformancePackDetailedStatusResponse Core.Int
 gocpdsrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED gocpdsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE gocpdsrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

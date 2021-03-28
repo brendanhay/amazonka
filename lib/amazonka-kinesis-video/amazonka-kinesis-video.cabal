@@ -1,160 +1,162 @@
-cabal-version:      2.2
-name:               amazonka-kinesis-video
-version:            2.0.0.0
-synopsis:           Amazon Kinesis Video Streams SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-kinesis-video
+version:               2.0.0.0
+synopsis:              Amazon Kinesis Video Streams SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.KinesisVideo" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.KinesisVideo" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-kinesis-video
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-kinesis-video
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.KinesisVideo
-    Network.AWS.KinesisVideo.CreateSignalingChannel
-    Network.AWS.KinesisVideo.CreateStream
-    Network.AWS.KinesisVideo.DeleteSignalingChannel
-    Network.AWS.KinesisVideo.DeleteStream
-    Network.AWS.KinesisVideo.DescribeSignalingChannel
-    Network.AWS.KinesisVideo.DescribeStream
-    Network.AWS.KinesisVideo.GetDataEndpoint
-    Network.AWS.KinesisVideo.GetSignalingChannelEndpoint
-    Network.AWS.KinesisVideo.ListSignalingChannels
-    Network.AWS.KinesisVideo.ListStreams
-    Network.AWS.KinesisVideo.ListTagsForResource
-    Network.AWS.KinesisVideo.ListTagsForStream
-    Network.AWS.KinesisVideo.TagResource
-    Network.AWS.KinesisVideo.TagStream
-    Network.AWS.KinesisVideo.Types
-    Network.AWS.KinesisVideo.UntagResource
-    Network.AWS.KinesisVideo.UntagStream
-    Network.AWS.KinesisVideo.UpdateDataRetention
-    Network.AWS.KinesisVideo.UpdateSignalingChannel
-    Network.AWS.KinesisVideo.UpdateStream
-    Network.AWS.KinesisVideo.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.KinesisVideo.Types.APIName
-    Network.AWS.KinesisVideo.Types.ChannelARN
-    Network.AWS.KinesisVideo.Types.ChannelInfo
-    Network.AWS.KinesisVideo.Types.ChannelName
-    Network.AWS.KinesisVideo.Types.ChannelNameCondition
-    Network.AWS.KinesisVideo.Types.ChannelProtocol
-    Network.AWS.KinesisVideo.Types.ChannelRole
-    Network.AWS.KinesisVideo.Types.ChannelType
-    Network.AWS.KinesisVideo.Types.ComparisonOperator
-    Network.AWS.KinesisVideo.Types.ComparisonValue
-    Network.AWS.KinesisVideo.Types.CurrentVersion
-    Network.AWS.KinesisVideo.Types.DataEndpoint
-    Network.AWS.KinesisVideo.Types.DeviceName
-    Network.AWS.KinesisVideo.Types.Key
-    Network.AWS.KinesisVideo.Types.KmsKeyId
-    Network.AWS.KinesisVideo.Types.MediaType
-    Network.AWS.KinesisVideo.Types.NextToken
-    Network.AWS.KinesisVideo.Types.ResourceARN
-    Network.AWS.KinesisVideo.Types.ResourceEndpoint
-    Network.AWS.KinesisVideo.Types.ResourceEndpointListItem
-    Network.AWS.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration
-    Network.AWS.KinesisVideo.Types.SingleMasterConfiguration
-    Network.AWS.KinesisVideo.Types.StreamARN
-    Network.AWS.KinesisVideo.Types.StreamInfo
-    Network.AWS.KinesisVideo.Types.StreamName
-    Network.AWS.KinesisVideo.Types.StreamNameCondition
-    Network.AWS.KinesisVideo.Types.StreamStatus
-    Network.AWS.KinesisVideo.Types.Tag
-    Network.AWS.KinesisVideo.Types.TagKey
-    Network.AWS.KinesisVideo.Types.TagValue
-    Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation
-    Network.AWS.KinesisVideo.Types.Value
-    Network.AWS.KinesisVideo.Types.Version
+    exposed-modules:
+          Network.AWS.KinesisVideo
+        , Network.AWS.KinesisVideo.Types
+        , Network.AWS.KinesisVideo.Waiters
+        , Network.AWS.KinesisVideo.ListSignalingChannels
+        , Network.AWS.KinesisVideo.ListTagsForResource
+        , Network.AWS.KinesisVideo.UntagStream
+        , Network.AWS.KinesisVideo.UpdateDataRetention
+        , Network.AWS.KinesisVideo.GetDataEndpoint
+        , Network.AWS.KinesisVideo.GetSignalingChannelEndpoint
+        , Network.AWS.KinesisVideo.ListTagsForStream
+        , Network.AWS.KinesisVideo.DeleteSignalingChannel
+        , Network.AWS.KinesisVideo.UpdateSignalingChannel
+        , Network.AWS.KinesisVideo.UpdateStream
+        , Network.AWS.KinesisVideo.DeleteStream
+        , Network.AWS.KinesisVideo.ListStreams
+        , Network.AWS.KinesisVideo.CreateStream
+        , Network.AWS.KinesisVideo.DescribeSignalingChannel
+        , Network.AWS.KinesisVideo.TagResource
+        , Network.AWS.KinesisVideo.UntagResource
+        , Network.AWS.KinesisVideo.TagStream
+        , Network.AWS.KinesisVideo.CreateSignalingChannel
+        , Network.AWS.KinesisVideo.DescribeStream
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.KinesisVideo.Types.StreamStatus
+        , Network.AWS.KinesisVideo.Types.MediaType
+        , Network.AWS.KinesisVideo.Types.ChannelNameCondition
+        , Network.AWS.KinesisVideo.Types.APIName
+        , Network.AWS.KinesisVideo.Types.Tag
+        , Network.AWS.KinesisVideo.Types.StreamInfo
+        , Network.AWS.KinesisVideo.Types.ChannelInfo
+        , Network.AWS.KinesisVideo.Types.ResourceEndpointListItem
+        , Network.AWS.KinesisVideo.Types.SingleMasterConfiguration
+        , Network.AWS.KinesisVideo.Types.TagValue
+        , Network.AWS.KinesisVideo.Types.ComparisonOperator
+        , Network.AWS.KinesisVideo.Types.ResourceEndpoint
+        , Network.AWS.KinesisVideo.Types.NextToken
+        , Network.AWS.KinesisVideo.Types.ChannelName
+        , Network.AWS.KinesisVideo.Types.ChannelRole
+        , Network.AWS.KinesisVideo.Types.ResourceARN
+        , Network.AWS.KinesisVideo.Types.KmsKeyId
+        , Network.AWS.KinesisVideo.Types.DeviceName
+        , Network.AWS.KinesisVideo.Types.Version
+        , Network.AWS.KinesisVideo.Types.ChannelProtocol
+        , Network.AWS.KinesisVideo.Types.TagKey
+        , Network.AWS.KinesisVideo.Types.StreamNameCondition
+        , Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation
+        , Network.AWS.KinesisVideo.Types.DataEndpoint
+        , Network.AWS.KinesisVideo.Types.StreamName
+        , Network.AWS.KinesisVideo.Types.ChannelType
+        , Network.AWS.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration
+        , Network.AWS.KinesisVideo.Types.StreamARN
+        , Network.AWS.KinesisVideo.Types.ComparisonValue
+        , Network.AWS.KinesisVideo.Types.Key
+        , Network.AWS.KinesisVideo.Types.Value
+        , Network.AWS.KinesisVideo.Types.ChannelARN
+        , Network.AWS.KinesisVideo.Types.CurrentVersion
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-kinesis-video-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.Gen.KinesisVideo
-    Test.AWS.KinesisVideo
-    Test.AWS.KinesisVideo.Internal
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core           >=2.0.0.0 && <2.0.0.1
-    , amazonka-kinesis-video
-    , amazonka-test           >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.KinesisVideo
+        , Test.AWS.Gen.KinesisVideo
+        , Test.AWS.KinesisVideo.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-kinesis-video
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CodeCommit.Types.ApprovalRuleEventMetadata
-  ( ApprovalRuleEventMetadata (..),
-
-    -- * Smart constructor
-    mkApprovalRuleEventMetadata,
-
-    -- * Lenses
-    aremApprovalRuleContent,
-    aremApprovalRuleId,
-    aremApprovalRuleName,
-  )
-where
+  ( ApprovalRuleEventMetadata (..)
+  -- * Smart constructor
+  , mkApprovalRuleEventMetadata
+  -- * Lenses
+  , aremApprovalRuleContent
+  , aremApprovalRuleId
+  , aremApprovalRuleName
+  ) where
 
 import qualified Network.AWS.CodeCommit.Types.ApprovalRuleContent as Types
 import qualified Network.AWS.CodeCommit.Types.ApprovalRuleId as Types
@@ -33,52 +31,52 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkApprovalRuleEventMetadata' smart constructor.
 data ApprovalRuleEventMetadata = ApprovalRuleEventMetadata'
-  { -- | The content of the approval rule.
-    approvalRuleContent :: Core.Maybe Types.ApprovalRuleContent,
-    -- | The system-generated ID of the approval rule.
-    approvalRuleId :: Core.Maybe Types.ApprovalRuleId,
-    -- | The name of the approval rule.
-    approvalRuleName :: Core.Maybe Types.ApprovalRuleName
+  { approvalRuleContent :: Core.Maybe Types.ApprovalRuleContent
+    -- ^ The content of the approval rule.
+  , approvalRuleId :: Core.Maybe Types.ApprovalRuleId
+    -- ^ The system-generated ID of the approval rule.
+  , approvalRuleName :: Core.Maybe Types.ApprovalRuleName
+    -- ^ The name of the approval rule.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ApprovalRuleEventMetadata' value with any optional fields omitted.
-mkApprovalRuleEventMetadata ::
-  ApprovalRuleEventMetadata
-mkApprovalRuleEventMetadata =
-  ApprovalRuleEventMetadata'
-    { approvalRuleContent = Core.Nothing,
-      approvalRuleId = Core.Nothing,
-      approvalRuleName = Core.Nothing
-    }
+mkApprovalRuleEventMetadata
+    :: ApprovalRuleEventMetadata
+mkApprovalRuleEventMetadata
+  = ApprovalRuleEventMetadata'{approvalRuleContent = Core.Nothing,
+                               approvalRuleId = Core.Nothing, approvalRuleName = Core.Nothing}
 
 -- | The content of the approval rule.
 --
 -- /Note:/ Consider using 'approvalRuleContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 aremApprovalRuleContent :: Lens.Lens' ApprovalRuleEventMetadata (Core.Maybe Types.ApprovalRuleContent)
 aremApprovalRuleContent = Lens.field @"approvalRuleContent"
-{-# DEPRECATED aremApprovalRuleContent "Use generic-lens or generic-optics with 'approvalRuleContent' instead." #-}
+{-# INLINEABLE aremApprovalRuleContent #-}
+{-# DEPRECATED approvalRuleContent "Use generic-lens or generic-optics with 'approvalRuleContent' instead"  #-}
 
 -- | The system-generated ID of the approval rule.
 --
 -- /Note:/ Consider using 'approvalRuleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 aremApprovalRuleId :: Lens.Lens' ApprovalRuleEventMetadata (Core.Maybe Types.ApprovalRuleId)
 aremApprovalRuleId = Lens.field @"approvalRuleId"
-{-# DEPRECATED aremApprovalRuleId "Use generic-lens or generic-optics with 'approvalRuleId' instead." #-}
+{-# INLINEABLE aremApprovalRuleId #-}
+{-# DEPRECATED approvalRuleId "Use generic-lens or generic-optics with 'approvalRuleId' instead"  #-}
 
 -- | The name of the approval rule.
 --
 -- /Note:/ Consider using 'approvalRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 aremApprovalRuleName :: Lens.Lens' ApprovalRuleEventMetadata (Core.Maybe Types.ApprovalRuleName)
 aremApprovalRuleName = Lens.field @"approvalRuleName"
-{-# DEPRECATED aremApprovalRuleName "Use generic-lens or generic-optics with 'approvalRuleName' instead." #-}
+{-# INLINEABLE aremApprovalRuleName #-}
+{-# DEPRECATED approvalRuleName "Use generic-lens or generic-optics with 'approvalRuleName' instead"  #-}
 
 instance Core.FromJSON ApprovalRuleEventMetadata where
-  parseJSON =
-    Core.withObject "ApprovalRuleEventMetadata" Core.$
-      \x ->
-        ApprovalRuleEventMetadata'
-          Core.<$> (x Core..:? "approvalRuleContent")
-          Core.<*> (x Core..:? "approvalRuleId")
-          Core.<*> (x Core..:? "approvalRuleName")
+        parseJSON
+          = Core.withObject "ApprovalRuleEventMetadata" Core.$
+              \ x ->
+                ApprovalRuleEventMetadata' Core.<$>
+                  (x Core..:? "approvalRuleContent") Core.<*>
+                    x Core..:? "approvalRuleId"
+                    Core.<*> x Core..:? "approvalRuleName"

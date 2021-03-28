@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.XRay.Types.Segment
-  ( Segment (..),
-
-    -- * Smart constructor
-    mkSegment,
-
-    -- * Lenses
-    sDocument,
-    sId,
-  )
-where
+  ( Segment (..)
+  -- * Smart constructor
+  , mkSegment
+  -- * Lenses
+  , sDocument
+  , sId
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -33,36 +31,37 @@ import qualified Network.AWS.XRay.Types.SegmentDocument as Types
 --
 -- /See:/ 'mkSegment' smart constructor.
 data Segment = Segment'
-  { -- | The segment document.
-    document :: Core.Maybe Types.SegmentDocument,
-    -- | The segment's ID.
-    id :: Core.Maybe Types.Id
+  { document :: Core.Maybe Types.SegmentDocument
+    -- ^ The segment document.
+  , id :: Core.Maybe Types.Id
+    -- ^ The segment's ID.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'Segment' value with any optional fields omitted.
-mkSegment ::
-  Segment
-mkSegment = Segment' {document = Core.Nothing, id = Core.Nothing}
+mkSegment
+    :: Segment
+mkSegment = Segment'{document = Core.Nothing, id = Core.Nothing}
 
 -- | The segment document.
 --
 -- /Note:/ Consider using 'document' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sDocument :: Lens.Lens' Segment (Core.Maybe Types.SegmentDocument)
 sDocument = Lens.field @"document"
-{-# DEPRECATED sDocument "Use generic-lens or generic-optics with 'document' instead." #-}
+{-# INLINEABLE sDocument #-}
+{-# DEPRECATED document "Use generic-lens or generic-optics with 'document' instead"  #-}
 
 -- | The segment's ID.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sId :: Lens.Lens' Segment (Core.Maybe Types.Id)
 sId = Lens.field @"id"
-{-# DEPRECATED sId "Use generic-lens or generic-optics with 'id' instead." #-}
+{-# INLINEABLE sId #-}
+{-# DEPRECATED id "Use generic-lens or generic-optics with 'id' instead"  #-}
 
 instance Core.FromJSON Segment where
-  parseJSON =
-    Core.withObject "Segment" Core.$
-      \x ->
-        Segment'
-          Core.<$> (x Core..:? "Document") Core.<*> (x Core..:? "Id")
+        parseJSON
+          = Core.withObject "Segment" Core.$
+              \ x ->
+                Segment' Core.<$> (x Core..:? "Document") Core.<*> x Core..:? "Id"

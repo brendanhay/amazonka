@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,29 +17,27 @@
 --
 -- To revoke permission, call 'RemoveLayerVersionPermission' with the statement ID that you specified when you added it.
 module Network.AWS.Lambda.AddLayerVersionPermission
-  ( -- * Creating a request
-    AddLayerVersionPermission (..),
-    mkAddLayerVersionPermission,
-
+    (
+    -- * Creating a request
+      AddLayerVersionPermission (..)
+    , mkAddLayerVersionPermission
     -- ** Request lenses
-    alvpLayerName,
-    alvpVersionNumber,
-    alvpStatementId,
-    alvpAction,
-    alvpPrincipal,
-    alvpOrganizationId,
-    alvpRevisionId,
+    , alvpLayerName
+    , alvpVersionNumber
+    , alvpStatementId
+    , alvpAction
+    , alvpPrincipal
+    , alvpOrganizationId
+    , alvpRevisionId
 
     -- * Destructuring the response
-    AddLayerVersionPermissionResponse (..),
-    mkAddLayerVersionPermissionResponse,
-
+    , AddLayerVersionPermissionResponse (..)
+    , mkAddLayerVersionPermissionResponse
     -- ** Response lenses
-    alvprrsRevisionId,
-    alvprrsStatement,
-    alvprrsResponseStatus,
-  )
-where
+    , alvprrsRevisionId
+    , alvprrsStatement
+    , alvprrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -49,182 +47,174 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAddLayerVersionPermission' smart constructor.
 data AddLayerVersionPermission = AddLayerVersionPermission'
-  { -- | The name or Amazon Resource Name (ARN) of the layer.
-    layerName :: Types.LayerName,
-    -- | The version number.
-    versionNumber :: Core.Integer,
-    -- | An identifier that distinguishes the policy from others on the same layer version.
-    statementId :: Types.StatementId,
-    -- | The API action that grants access to the layer. For example, @lambda:GetLayerVersion@ .
-    action :: Types.LayerPermissionAllowedAction,
-    -- | An account ID, or @*@ to grant permission to all AWS accounts.
-    principal :: Types.LayerPermissionAllowedPrincipal,
-    -- | With the principal set to @*@ , grant permission to all accounts in the specified organization.
-    organizationId :: Core.Maybe Types.OrganizationId,
-    -- | Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a policy that has changed since you last read it.
-    revisionId :: Core.Maybe Types.RevisionId
+  { layerName :: Types.LayerName
+    -- ^ The name or Amazon Resource Name (ARN) of the layer.
+  , versionNumber :: Core.Integer
+    -- ^ The version number.
+  , statementId :: Types.StatementId
+    -- ^ An identifier that distinguishes the policy from others on the same layer version.
+  , action :: Types.LayerPermissionAllowedAction
+    -- ^ The API action that grants access to the layer. For example, @lambda:GetLayerVersion@ .
+  , principal :: Types.LayerPermissionAllowedPrincipal
+    -- ^ An account ID, or @*@ to grant permission to all AWS accounts.
+  , organizationId :: Core.Maybe Types.OrganizationId
+    -- ^ With the principal set to @*@ , grant permission to all accounts in the specified organization.
+  , revisionId :: Core.Maybe Core.Text
+    -- ^ Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a policy that has changed since you last read it.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AddLayerVersionPermission' value with any optional fields omitted.
-mkAddLayerVersionPermission ::
-  -- | 'layerName'
-  Types.LayerName ->
-  -- | 'versionNumber'
-  Core.Integer ->
-  -- | 'statementId'
-  Types.StatementId ->
-  -- | 'action'
-  Types.LayerPermissionAllowedAction ->
-  -- | 'principal'
-  Types.LayerPermissionAllowedPrincipal ->
-  AddLayerVersionPermission
 mkAddLayerVersionPermission
-  layerName
-  versionNumber
-  statementId
-  action
-  principal =
-    AddLayerVersionPermission'
-      { layerName,
-        versionNumber,
-        statementId,
-        action,
-        principal,
-        organizationId = Core.Nothing,
-        revisionId = Core.Nothing
-      }
+    :: Types.LayerName -- ^ 'layerName'
+    -> Core.Integer -- ^ 'versionNumber'
+    -> Types.StatementId -- ^ 'statementId'
+    -> Types.LayerPermissionAllowedAction -- ^ 'action'
+    -> Types.LayerPermissionAllowedPrincipal -- ^ 'principal'
+    -> AddLayerVersionPermission
+mkAddLayerVersionPermission layerName versionNumber statementId
+  action principal
+  = AddLayerVersionPermission'{layerName, versionNumber, statementId,
+                               action, principal, organizationId = Core.Nothing,
+                               revisionId = Core.Nothing}
 
 -- | The name or Amazon Resource Name (ARN) of the layer.
 --
 -- /Note:/ Consider using 'layerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 alvpLayerName :: Lens.Lens' AddLayerVersionPermission Types.LayerName
 alvpLayerName = Lens.field @"layerName"
-{-# DEPRECATED alvpLayerName "Use generic-lens or generic-optics with 'layerName' instead." #-}
+{-# INLINEABLE alvpLayerName #-}
+{-# DEPRECATED layerName "Use generic-lens or generic-optics with 'layerName' instead"  #-}
 
 -- | The version number.
 --
 -- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 alvpVersionNumber :: Lens.Lens' AddLayerVersionPermission Core.Integer
 alvpVersionNumber = Lens.field @"versionNumber"
-{-# DEPRECATED alvpVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
+{-# INLINEABLE alvpVersionNumber #-}
+{-# DEPRECATED versionNumber "Use generic-lens or generic-optics with 'versionNumber' instead"  #-}
 
 -- | An identifier that distinguishes the policy from others on the same layer version.
 --
 -- /Note:/ Consider using 'statementId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 alvpStatementId :: Lens.Lens' AddLayerVersionPermission Types.StatementId
 alvpStatementId = Lens.field @"statementId"
-{-# DEPRECATED alvpStatementId "Use generic-lens or generic-optics with 'statementId' instead." #-}
+{-# INLINEABLE alvpStatementId #-}
+{-# DEPRECATED statementId "Use generic-lens or generic-optics with 'statementId' instead"  #-}
 
 -- | The API action that grants access to the layer. For example, @lambda:GetLayerVersion@ .
 --
 -- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 alvpAction :: Lens.Lens' AddLayerVersionPermission Types.LayerPermissionAllowedAction
 alvpAction = Lens.field @"action"
-{-# DEPRECATED alvpAction "Use generic-lens or generic-optics with 'action' instead." #-}
+{-# INLINEABLE alvpAction #-}
+{-# DEPRECATED action "Use generic-lens or generic-optics with 'action' instead"  #-}
 
 -- | An account ID, or @*@ to grant permission to all AWS accounts.
 --
 -- /Note:/ Consider using 'principal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 alvpPrincipal :: Lens.Lens' AddLayerVersionPermission Types.LayerPermissionAllowedPrincipal
 alvpPrincipal = Lens.field @"principal"
-{-# DEPRECATED alvpPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
+{-# INLINEABLE alvpPrincipal #-}
+{-# DEPRECATED principal "Use generic-lens or generic-optics with 'principal' instead"  #-}
 
 -- | With the principal set to @*@ , grant permission to all accounts in the specified organization.
 --
 -- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 alvpOrganizationId :: Lens.Lens' AddLayerVersionPermission (Core.Maybe Types.OrganizationId)
 alvpOrganizationId = Lens.field @"organizationId"
-{-# DEPRECATED alvpOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+{-# INLINEABLE alvpOrganizationId #-}
+{-# DEPRECATED organizationId "Use generic-lens or generic-optics with 'organizationId' instead"  #-}
 
 -- | Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a policy that has changed since you last read it.
 --
 -- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alvpRevisionId :: Lens.Lens' AddLayerVersionPermission (Core.Maybe Types.RevisionId)
+alvpRevisionId :: Lens.Lens' AddLayerVersionPermission (Core.Maybe Core.Text)
 alvpRevisionId = Lens.field @"revisionId"
-{-# DEPRECATED alvpRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
+{-# INLINEABLE alvpRevisionId #-}
+{-# DEPRECATED revisionId "Use generic-lens or generic-optics with 'revisionId' instead"  #-}
+
+instance Core.ToQuery AddLayerVersionPermission where
+        toQuery AddLayerVersionPermission{..}
+          = Core.maybe Core.mempty (Core.toQueryPair "RevisionId") revisionId
+
+instance Core.ToHeaders AddLayerVersionPermission where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.FromJSON AddLayerVersionPermission where
-  toJSON AddLayerVersionPermission {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("StatementId" Core..= statementId),
-            Core.Just ("Action" Core..= action),
-            Core.Just ("Principal" Core..= principal),
-            ("OrganizationId" Core..=) Core.<$> organizationId
-          ]
-      )
+        toJSON AddLayerVersionPermission{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("StatementId" Core..= statementId),
+                  Core.Just ("Action" Core..= action),
+                  Core.Just ("Principal" Core..= principal),
+                  ("OrganizationId" Core..=) Core.<$> organizationId])
 
 instance Core.AWSRequest AddLayerVersionPermission where
-  type
-    Rs AddLayerVersionPermission =
-      AddLayerVersionPermissionResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath =
-          Core.rawPath
-            ( "/2018-10-31/layers/" Core.<> (Core.toText layerName)
-                Core.<> ("/versions/")
-                Core.<> (Core.toText versionNumber)
-                Core.<> ("/policy")
-            ),
-        Core._rqQuery = Core.toQueryValue "RevisionId" Core.<$> revisionId,
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          AddLayerVersionPermissionResponse'
-            Core.<$> (x Core..:? "RevisionId")
-            Core.<*> (x Core..:? "Statement")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs AddLayerVersionPermission =
+             AddLayerVersionPermissionResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST,
+                         Core._rqPath =
+                           "/2018-10-31/layers/" Core.<> Core.toText layerName Core.<>
+                             "/versions/"
+                             Core.<> Core.toText versionNumber
+                             Core.<> "/policy",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 AddLayerVersionPermissionResponse' Core.<$>
+                   (x Core..:? "RevisionId") Core.<*> x Core..:? "Statement" Core.<*>
+                     Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkAddLayerVersionPermissionResponse' smart constructor.
 data AddLayerVersionPermissionResponse = AddLayerVersionPermissionResponse'
-  { -- | A unique identifier for the current revision of the policy.
-    revisionId :: Core.Maybe Types.String,
-    -- | The permission statement.
-    statement :: Core.Maybe Types.String,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { revisionId :: Core.Maybe Core.Text
+    -- ^ A unique identifier for the current revision of the policy.
+  , statement :: Core.Maybe Core.Text
+    -- ^ The permission statement.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AddLayerVersionPermissionResponse' value with any optional fields omitted.
-mkAddLayerVersionPermissionResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  AddLayerVersionPermissionResponse
-mkAddLayerVersionPermissionResponse responseStatus =
-  AddLayerVersionPermissionResponse'
-    { revisionId = Core.Nothing,
-      statement = Core.Nothing,
-      responseStatus
-    }
+mkAddLayerVersionPermissionResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> AddLayerVersionPermissionResponse
+mkAddLayerVersionPermissionResponse responseStatus
+  = AddLayerVersionPermissionResponse'{revisionId = Core.Nothing,
+                                       statement = Core.Nothing, responseStatus}
 
 -- | A unique identifier for the current revision of the policy.
 --
 -- /Note:/ Consider using 'revisionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alvprrsRevisionId :: Lens.Lens' AddLayerVersionPermissionResponse (Core.Maybe Types.String)
+alvprrsRevisionId :: Lens.Lens' AddLayerVersionPermissionResponse (Core.Maybe Core.Text)
 alvprrsRevisionId = Lens.field @"revisionId"
-{-# DEPRECATED alvprrsRevisionId "Use generic-lens or generic-optics with 'revisionId' instead." #-}
+{-# INLINEABLE alvprrsRevisionId #-}
+{-# DEPRECATED revisionId "Use generic-lens or generic-optics with 'revisionId' instead"  #-}
 
 -- | The permission statement.
 --
 -- /Note:/ Consider using 'statement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alvprrsStatement :: Lens.Lens' AddLayerVersionPermissionResponse (Core.Maybe Types.String)
+alvprrsStatement :: Lens.Lens' AddLayerVersionPermissionResponse (Core.Maybe Core.Text)
 alvprrsStatement = Lens.field @"statement"
-{-# DEPRECATED alvprrsStatement "Use generic-lens or generic-optics with 'statement' instead." #-}
+{-# INLINEABLE alvprrsStatement #-}
+{-# DEPRECATED statement "Use generic-lens or generic-optics with 'statement' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 alvprrsResponseStatus :: Lens.Lens' AddLayerVersionPermissionResponse Core.Int
 alvprrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED alvprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE alvprrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

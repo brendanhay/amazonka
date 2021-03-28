@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,45 +10,27 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.GameLift.Types.AcceptanceType
   ( AcceptanceType
-      ( AcceptanceType',
-        AcceptanceTypeAccept,
-        AcceptanceTypeReject,
-        fromAcceptanceType
-      ),
-  )
-where
+    ( AcceptanceType'
+    , AcceptanceTypeAccept
+    , AcceptanceTypeReject
+    , fromAcceptanceType
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype AcceptanceType = AcceptanceType'
-  { fromAcceptanceType ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype AcceptanceType = AcceptanceType'{fromAcceptanceType ::
+                                         Core.Text}
+                           deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                           Core.Generic)
+                           deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                             Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                             Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                             Core.FromText, Core.ToByteString, Core.ToQuery,
+                                             Core.ToHeader)
 
 pattern AcceptanceTypeAccept :: AcceptanceType
 pattern AcceptanceTypeAccept = AcceptanceType' "ACCEPT"
@@ -56,8 +38,9 @@ pattern AcceptanceTypeAccept = AcceptanceType' "ACCEPT"
 pattern AcceptanceTypeReject :: AcceptanceType
 pattern AcceptanceTypeReject = AcceptanceType' "REJECT"
 
-{-# COMPLETE
+{-# COMPLETE 
   AcceptanceTypeAccept,
+
   AcceptanceTypeReject,
   AcceptanceType'
   #-}

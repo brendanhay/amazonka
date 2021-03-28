@@ -1,349 +1,351 @@
-cabal-version:      2.2
-name:               amazonka-cost-explorer
-version:            2.0.0.0
-synopsis:           Amazon Cost Explorer Service SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-cost-explorer
+version:               2.0.0.0
+synopsis:              Amazon Cost Explorer Service SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.CostExplorer" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.CostExplorer" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-cost-explorer
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-cost-explorer
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.CostExplorer
-    Network.AWS.CostExplorer.CreateAnomalyMonitor
-    Network.AWS.CostExplorer.CreateAnomalySubscription
-    Network.AWS.CostExplorer.CreateCostCategoryDefinition
-    Network.AWS.CostExplorer.DeleteAnomalyMonitor
-    Network.AWS.CostExplorer.DeleteAnomalySubscription
-    Network.AWS.CostExplorer.DeleteCostCategoryDefinition
-    Network.AWS.CostExplorer.DescribeCostCategoryDefinition
-    Network.AWS.CostExplorer.GetAnomalies
-    Network.AWS.CostExplorer.GetAnomalyMonitors
-    Network.AWS.CostExplorer.GetAnomalySubscriptions
-    Network.AWS.CostExplorer.GetCostAndUsage
-    Network.AWS.CostExplorer.GetCostAndUsageWithResources
-    Network.AWS.CostExplorer.GetCostForecast
-    Network.AWS.CostExplorer.GetDimensionValues
-    Network.AWS.CostExplorer.GetReservationCoverage
-    Network.AWS.CostExplorer.GetReservationPurchaseRecommendation
-    Network.AWS.CostExplorer.GetReservationUtilization
-    Network.AWS.CostExplorer.GetRightsizingRecommendation
-    Network.AWS.CostExplorer.GetSavingsPlansCoverage
-    Network.AWS.CostExplorer.GetSavingsPlansPurchaseRecommendation
-    Network.AWS.CostExplorer.GetSavingsPlansUtilization
-    Network.AWS.CostExplorer.GetSavingsPlansUtilizationDetails
-    Network.AWS.CostExplorer.GetTags
-    Network.AWS.CostExplorer.GetUsageForecast
-    Network.AWS.CostExplorer.ListCostCategoryDefinitions
-    Network.AWS.CostExplorer.ProvideAnomalyFeedback
-    Network.AWS.CostExplorer.Types
-    Network.AWS.CostExplorer.UpdateAnomalyMonitor
-    Network.AWS.CostExplorer.UpdateAnomalySubscription
-    Network.AWS.CostExplorer.UpdateCostCategoryDefinition
-    Network.AWS.CostExplorer.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.CostExplorer.Types.AccountId
-    Network.AWS.CostExplorer.Types.AccountScope
-    Network.AWS.CostExplorer.Types.Address
-    Network.AWS.CostExplorer.Types.AmortizedRecurringFee
-    Network.AWS.CostExplorer.Types.AmortizedUpfrontFee
-    Network.AWS.CostExplorer.Types.Amount
-    Network.AWS.CostExplorer.Types.Anomaly
-    Network.AWS.CostExplorer.Types.AnomalyDateInterval
-    Network.AWS.CostExplorer.Types.AnomalyEndDate
-    Network.AWS.CostExplorer.Types.AnomalyFeedbackType
-    Network.AWS.CostExplorer.Types.AnomalyId
-    Network.AWS.CostExplorer.Types.AnomalyMonitor
-    Network.AWS.CostExplorer.Types.AnomalyScore
-    Network.AWS.CostExplorer.Types.AnomalyStartDate
-    Network.AWS.CostExplorer.Types.AnomalySubscription
-    Network.AWS.CostExplorer.Types.AnomalySubscriptionFrequency
-    Network.AWS.CostExplorer.Types.Arn
-    Network.AWS.CostExplorer.Types.AttributeType
-    Network.AWS.CostExplorer.Types.AttributeValue
-    Network.AWS.CostExplorer.Types.Context
-    Network.AWS.CostExplorer.Types.CostCategory
-    Network.AWS.CostExplorer.Types.CostCategoryName
-    Network.AWS.CostExplorer.Types.CostCategoryProcessingStatus
-    Network.AWS.CostExplorer.Types.CostCategoryReference
-    Network.AWS.CostExplorer.Types.CostCategoryRule
-    Network.AWS.CostExplorer.Types.CostCategoryRuleVersion
-    Network.AWS.CostExplorer.Types.CostCategoryStatus
-    Network.AWS.CostExplorer.Types.CostCategoryStatusComponent
-    Network.AWS.CostExplorer.Types.CostCategoryValue
-    Network.AWS.CostExplorer.Types.CostCategoryValues
-    Network.AWS.CostExplorer.Types.Coverage
-    Network.AWS.CostExplorer.Types.CoverageByTime
-    Network.AWS.CostExplorer.Types.CoverageCost
-    Network.AWS.CostExplorer.Types.CoverageHours
-    Network.AWS.CostExplorer.Types.CoverageHoursPercentage
-    Network.AWS.CostExplorer.Types.CoverageNormalizedUnits
-    Network.AWS.CostExplorer.Types.CoverageNormalizedUnitsPercentage
-    Network.AWS.CostExplorer.Types.CreationDate
-    Network.AWS.CostExplorer.Types.CurrencyCode
-    Network.AWS.CostExplorer.Types.CurrentAverageHourlyOnDemandSpend
-    Network.AWS.CostExplorer.Types.CurrentInstance
-    Network.AWS.CostExplorer.Types.CurrentMaximumHourlyOnDemandSpend
-    Network.AWS.CostExplorer.Types.CurrentMinimumHourlyOnDemandSpend
-    Network.AWS.CostExplorer.Types.DatabaseEdition
-    Network.AWS.CostExplorer.Types.DatabaseEngine
-    Network.AWS.CostExplorer.Types.DateInterval
-    Network.AWS.CostExplorer.Types.DeploymentOption
-    Network.AWS.CostExplorer.Types.Dimension
-    Network.AWS.CostExplorer.Types.DimensionValue
-    Network.AWS.CostExplorer.Types.DimensionValues
-    Network.AWS.CostExplorer.Types.DimensionValuesWithAttributes
-    Network.AWS.CostExplorer.Types.EBSResourceUtilization
-    Network.AWS.CostExplorer.Types.EC2InstanceDetails
-    Network.AWS.CostExplorer.Types.EC2ResourceDetails
-    Network.AWS.CostExplorer.Types.EC2ResourceUtilization
-    Network.AWS.CostExplorer.Types.EC2Specification
-    Network.AWS.CostExplorer.Types.EffectiveEnd
-    Network.AWS.CostExplorer.Types.EffectiveOn
-    Network.AWS.CostExplorer.Types.EffectiveStart
-    Network.AWS.CostExplorer.Types.ElastiCacheInstanceDetails
-    Network.AWS.CostExplorer.Types.End
-    Network.AWS.CostExplorer.Types.EndDate
-    Network.AWS.CostExplorer.Types.Entity
-    Network.AWS.CostExplorer.Types.ESInstanceDetails
-    Network.AWS.CostExplorer.Types.EstimatedAverageUtilization
-    Network.AWS.CostExplorer.Types.EstimatedMonthlyCost
-    Network.AWS.CostExplorer.Types.EstimatedMonthlySavings
-    Network.AWS.CostExplorer.Types.EstimatedMonthlySavingsAmount
-    Network.AWS.CostExplorer.Types.EstimatedOnDemandCost
-    Network.AWS.CostExplorer.Types.EstimatedOnDemandCostWithCurrentCommitment
-    Network.AWS.CostExplorer.Types.EstimatedROI
-    Network.AWS.CostExplorer.Types.EstimatedSavingsAmount
-    Network.AWS.CostExplorer.Types.EstimatedSavingsPercentage
-    Network.AWS.CostExplorer.Types.EstimatedSPCost
-    Network.AWS.CostExplorer.Types.EstimatedTotalMonthlySavingsAmount
-    Network.AWS.CostExplorer.Types.Expression
-    Network.AWS.CostExplorer.Types.Family
-    Network.AWS.CostExplorer.Types.ForecastResult
-    Network.AWS.CostExplorer.Types.GenerationTimestamp
-    Network.AWS.CostExplorer.Types.GenericString
-    Network.AWS.CostExplorer.Types.Granularity
-    Network.AWS.CostExplorer.Types.Group
-    Network.AWS.CostExplorer.Types.GroupDefinition
-    Network.AWS.CostExplorer.Types.GroupDefinitionType
-    Network.AWS.CostExplorer.Types.HourlyCommitmentToPurchase
-    Network.AWS.CostExplorer.Types.HourlyOnDemandRate
-    Network.AWS.CostExplorer.Types.Impact
-    Network.AWS.CostExplorer.Types.InstanceClass
-    Network.AWS.CostExplorer.Types.InstanceDetails
-    Network.AWS.CostExplorer.Types.InstanceFamily
-    Network.AWS.CostExplorer.Types.InstanceSize
-    Network.AWS.CostExplorer.Types.InstanceType
-    Network.AWS.CostExplorer.Types.Key
-    Network.AWS.CostExplorer.Types.LastEvaluatedDate
-    Network.AWS.CostExplorer.Types.LastUpdatedDate
-    Network.AWS.CostExplorer.Types.LicenseModel
-    Network.AWS.CostExplorer.Types.LookbackPeriodInDays
-    Network.AWS.CostExplorer.Types.MatchOption
-    Network.AWS.CostExplorer.Types.MaxCpuUtilizationPercentage
-    Network.AWS.CostExplorer.Types.MaxMemoryUtilizationPercentage
-    Network.AWS.CostExplorer.Types.MaxStorageUtilizationPercentage
-    Network.AWS.CostExplorer.Types.MeanValue
-    Network.AWS.CostExplorer.Types.Memory
-    Network.AWS.CostExplorer.Types.Metric
-    Network.AWS.CostExplorer.Types.MetricName
-    Network.AWS.CostExplorer.Types.MetricValue
-    Network.AWS.CostExplorer.Types.ModifyRecommendationDetail
-    Network.AWS.CostExplorer.Types.MonitorArn
-    Network.AWS.CostExplorer.Types.MonitorDimension
-    Network.AWS.CostExplorer.Types.MonitorName
-    Network.AWS.CostExplorer.Types.MonitorType
-    Network.AWS.CostExplorer.Types.Name
-    Network.AWS.CostExplorer.Types.NetRISavings
-    Network.AWS.CostExplorer.Types.NetSavings
-    Network.AWS.CostExplorer.Types.NetworkPerformance
-    Network.AWS.CostExplorer.Types.NextPageToken
-    Network.AWS.CostExplorer.Types.NextToken
-    Network.AWS.CostExplorer.Types.NodeType
-    Network.AWS.CostExplorer.Types.NumericOperator
-    Network.AWS.CostExplorer.Types.OfferingClass
-    Network.AWS.CostExplorer.Types.OfferingId
-    Network.AWS.CostExplorer.Types.OnDemandCost
-    Network.AWS.CostExplorer.Types.OnDemandCostEquivalent
-    Network.AWS.CostExplorer.Types.OnDemandCostOfRIHoursUsed
-    Network.AWS.CostExplorer.Types.OnDemandHours
-    Network.AWS.CostExplorer.Types.OnDemandNormalizedUnits
-    Network.AWS.CostExplorer.Types.PaymentOption
-    Network.AWS.CostExplorer.Types.Platform
-    Network.AWS.CostExplorer.Types.PredictionIntervalLowerBound
-    Network.AWS.CostExplorer.Types.PredictionIntervalUpperBound
-    Network.AWS.CostExplorer.Types.ProductDescription
-    Network.AWS.CostExplorer.Types.PurchasedHours
-    Network.AWS.CostExplorer.Types.PurchasedUnits
-    Network.AWS.CostExplorer.Types.RDSInstanceDetails
-    Network.AWS.CostExplorer.Types.RecommendationId
-    Network.AWS.CostExplorer.Types.RecommendationTarget
-    Network.AWS.CostExplorer.Types.RedshiftInstanceDetails
-    Network.AWS.CostExplorer.Types.Region
-    Network.AWS.CostExplorer.Types.ReservationAggregates
-    Network.AWS.CostExplorer.Types.ReservationCoverageGroup
-    Network.AWS.CostExplorer.Types.ReservationGroupKey
-    Network.AWS.CostExplorer.Types.ReservationGroupValue
-    Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation
-    Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationDetail
-    Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationMetadata
-    Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationSummary
-    Network.AWS.CostExplorer.Types.ReservationUtilizationGroup
-    Network.AWS.CostExplorer.Types.ReservedHours
-    Network.AWS.CostExplorer.Types.ReservedNormalizedUnits
-    Network.AWS.CostExplorer.Types.ResourceDetails
-    Network.AWS.CostExplorer.Types.ResourceUtilization
-    Network.AWS.CostExplorer.Types.ResultByTime
-    Network.AWS.CostExplorer.Types.RightsizingRecommendation
-    Network.AWS.CostExplorer.Types.RightsizingRecommendationConfiguration
-    Network.AWS.CostExplorer.Types.RightsizingRecommendationMetadata
-    Network.AWS.CostExplorer.Types.RightsizingRecommendationSummary
-    Network.AWS.CostExplorer.Types.RightsizingType
-    Network.AWS.CostExplorer.Types.RootCause
-    Network.AWS.CostExplorer.Types.SavingsCurrencyCode
-    Network.AWS.CostExplorer.Types.SavingsPercentage
-    Network.AWS.CostExplorer.Types.SavingsPlanArn
-    Network.AWS.CostExplorer.Types.SavingsPlansAmortizedCommitment
-    Network.AWS.CostExplorer.Types.SavingsPlansCoverage
-    Network.AWS.CostExplorer.Types.SavingsPlansCoverageData
-    Network.AWS.CostExplorer.Types.SavingsPlansDetails
-    Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendation
-    Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendationDetail
-    Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendationMetadata
-    Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendationSummary
-    Network.AWS.CostExplorer.Types.SavingsPlansSavings
-    Network.AWS.CostExplorer.Types.SavingsPlansUtilization
-    Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates
-    Network.AWS.CostExplorer.Types.SavingsPlansUtilizationByTime
-    Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail
-    Network.AWS.CostExplorer.Types.SearchString
-    Network.AWS.CostExplorer.Types.Service
-    Network.AWS.CostExplorer.Types.ServiceSpecification
-    Network.AWS.CostExplorer.Types.Sku
-    Network.AWS.CostExplorer.Types.Start
-    Network.AWS.CostExplorer.Types.StartDate
-    Network.AWS.CostExplorer.Types.Storage
-    Network.AWS.CostExplorer.Types.Subscriber
-    Network.AWS.CostExplorer.Types.SubscriberStatus
-    Network.AWS.CostExplorer.Types.SubscriberType
-    Network.AWS.CostExplorer.Types.SubscriptionArn
-    Network.AWS.CostExplorer.Types.SupportedSavingsPlansType
-    Network.AWS.CostExplorer.Types.TagKey
-    Network.AWS.CostExplorer.Types.TagValues
-    Network.AWS.CostExplorer.Types.TargetInstance
-    Network.AWS.CostExplorer.Types.TerminateRecommendationDetail
-    Network.AWS.CostExplorer.Types.TermInYears
-    Network.AWS.CostExplorer.Types.TotalActualHours
-    Network.AWS.CostExplorer.Types.TotalActualUnits
-    Network.AWS.CostExplorer.Types.TotalAmortizedFee
-    Network.AWS.CostExplorer.Types.TotalCommitment
-    Network.AWS.CostExplorer.Types.TotalImpactFilter
-    Network.AWS.CostExplorer.Types.TotalPotentialRISavings
-    Network.AWS.CostExplorer.Types.TotalRecommendationCount
-    Network.AWS.CostExplorer.Types.TotalRunningHours
-    Network.AWS.CostExplorer.Types.TotalRunningNormalizedUnits
-    Network.AWS.CostExplorer.Types.Unit
-    Network.AWS.CostExplorer.Types.UnusedCommitment
-    Network.AWS.CostExplorer.Types.UnusedHours
-    Network.AWS.CostExplorer.Types.UnusedUnits
-    Network.AWS.CostExplorer.Types.UpfrontCost
-    Network.AWS.CostExplorer.Types.UsedCommitment
-    Network.AWS.CostExplorer.Types.UtilizationByTime
-    Network.AWS.CostExplorer.Types.UtilizationPercentage
-    Network.AWS.CostExplorer.Types.UtilizationPercentageInUnits
-    Network.AWS.CostExplorer.Types.Value
-    Network.AWS.CostExplorer.Types.Vcpu
-    Network.AWS.CostExplorer.Types.ZonedDateTime
+    exposed-modules:
+          Network.AWS.CostExplorer
+        , Network.AWS.CostExplorer.Types
+        , Network.AWS.CostExplorer.Waiters
+        , Network.AWS.CostExplorer.GetReservationUtilization
+        , Network.AWS.CostExplorer.GetSavingsPlansCoverage
+        , Network.AWS.CostExplorer.GetTags
+        , Network.AWS.CostExplorer.GetRightsizingRecommendation
+        , Network.AWS.CostExplorer.GetCostAndUsageWithResources
+        , Network.AWS.CostExplorer.GetUsageForecast
+        , Network.AWS.CostExplorer.GetReservationCoverage
+        , Network.AWS.CostExplorer.GetCostForecast
+        , Network.AWS.CostExplorer.GetDimensionValues
+        , Network.AWS.CostExplorer.GetAnomalies
+        , Network.AWS.CostExplorer.GetReservationPurchaseRecommendation
+        , Network.AWS.CostExplorer.DeleteAnomalyMonitor
+        , Network.AWS.CostExplorer.UpdateAnomalyMonitor
+        , Network.AWS.CostExplorer.ListCostCategoryDefinitions
+        , Network.AWS.CostExplorer.UpdateCostCategoryDefinition
+        , Network.AWS.CostExplorer.DeleteCostCategoryDefinition
+        , Network.AWS.CostExplorer.GetAnomalySubscriptions
+        , Network.AWS.CostExplorer.CreateCostCategoryDefinition
+        , Network.AWS.CostExplorer.GetAnomalyMonitors
+        , Network.AWS.CostExplorer.DeleteAnomalySubscription
+        , Network.AWS.CostExplorer.UpdateAnomalySubscription
+        , Network.AWS.CostExplorer.GetCostAndUsage
+        , Network.AWS.CostExplorer.GetSavingsPlansPurchaseRecommendation
+        , Network.AWS.CostExplorer.ProvideAnomalyFeedback
+        , Network.AWS.CostExplorer.GetSavingsPlansUtilization
+        , Network.AWS.CostExplorer.DescribeCostCategoryDefinition
+        , Network.AWS.CostExplorer.CreateAnomalySubscription
+        , Network.AWS.CostExplorer.CreateAnomalyMonitor
+        , Network.AWS.CostExplorer.GetSavingsPlansUtilizationDetails
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.CostExplorer.Types.PurchasedHours
+        , Network.AWS.CostExplorer.Types.EC2ResourceUtilization
+        , Network.AWS.CostExplorer.Types.EC2ResourceDetails
+        , Network.AWS.CostExplorer.Types.MonitorType
+        , Network.AWS.CostExplorer.Types.RightsizingRecommendationMetadata
+        , Network.AWS.CostExplorer.Types.NextPageToken
+        , Network.AWS.CostExplorer.Types.TotalActualHours
+        , Network.AWS.CostExplorer.Types.Context
+        , Network.AWS.CostExplorer.Types.CostCategoryStatus
+        , Network.AWS.CostExplorer.Types.Group
+        , Network.AWS.CostExplorer.Types.SavingsPlansUtilizationAggregates
+        , Network.AWS.CostExplorer.Types.ResultByTime
+        , Network.AWS.CostExplorer.Types.AttributeValue
+        , Network.AWS.CostExplorer.Types.UtilizationPercentage
+        , Network.AWS.CostExplorer.Types.CoverageNormalizedUnits
+        , Network.AWS.CostExplorer.Types.ForecastResult
+        , Network.AWS.CostExplorer.Types.ReservationAggregates
+        , Network.AWS.CostExplorer.Types.TagValues
+        , Network.AWS.CostExplorer.Types.GroupDefinition
+        , Network.AWS.CostExplorer.Types.AnomalyDateInterval
+        , Network.AWS.CostExplorer.Types.Subscriber
+        , Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendation
+        , Network.AWS.CostExplorer.Types.CoverageHoursPercentage
+        , Network.AWS.CostExplorer.Types.ESInstanceDetails
+        , Network.AWS.CostExplorer.Types.OnDemandHours
+        , Network.AWS.CostExplorer.Types.OnDemandCost
+        , Network.AWS.CostExplorer.Types.TermInYears
+        , Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendation
+        , Network.AWS.CostExplorer.Types.Arn
+        , Network.AWS.CostExplorer.Types.RightsizingRecommendationSummary
+        , Network.AWS.CostExplorer.Types.SavingsPlansDetails
+        , Network.AWS.CostExplorer.Types.SavingsPlansUtilization
+        , Network.AWS.CostExplorer.Types.AnomalyMonitor
+        , Network.AWS.CostExplorer.Types.AnomalyFeedbackType
+        , Network.AWS.CostExplorer.Types.ResourceUtilization
+        , Network.AWS.CostExplorer.Types.ResourceDetails
+        , Network.AWS.CostExplorer.Types.ReservationGroupKey
+        , Network.AWS.CostExplorer.Types.DimensionValues
+        , Network.AWS.CostExplorer.Types.TargetInstance
+        , Network.AWS.CostExplorer.Types.ServiceSpecification
+        , Network.AWS.CostExplorer.Types.SavingsPlansSavings
+        , Network.AWS.CostExplorer.Types.ReservedNormalizedUnits
+        , Network.AWS.CostExplorer.Types.MatchOption
+        , Network.AWS.CostExplorer.Types.Dimension
+        , Network.AWS.CostExplorer.Types.RecommendationTarget
+        , Network.AWS.CostExplorer.Types.SavingsPlansUtilizationByTime
+        , Network.AWS.CostExplorer.Types.MetricName
+        , Network.AWS.CostExplorer.Types.CostCategoryValues
+        , Network.AWS.CostExplorer.Types.SearchString
+        , Network.AWS.CostExplorer.Types.DateInterval
+        , Network.AWS.CostExplorer.Types.AccountScope
+        , Network.AWS.CostExplorer.Types.CostCategory
+        , Network.AWS.CostExplorer.Types.Value
+        , Network.AWS.CostExplorer.Types.TotalAmortizedFee
+        , Network.AWS.CostExplorer.Types.AnomalySubscriptionFrequency
+        , Network.AWS.CostExplorer.Types.Coverage
+        , Network.AWS.CostExplorer.Types.RDSInstanceDetails
+        , Network.AWS.CostExplorer.Types.TotalRunningHours
+        , Network.AWS.CostExplorer.Types.TotalRunningNormalizedUnits
+        , Network.AWS.CostExplorer.Types.UnusedUnits
+        , Network.AWS.CostExplorer.Types.ElastiCacheInstanceDetails
+        , Network.AWS.CostExplorer.Types.SupportedSavingsPlansType
+        , Network.AWS.CostExplorer.Types.Anomaly
+        , Network.AWS.CostExplorer.Types.CostCategoryName
+        , Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendationDetail
+        , Network.AWS.CostExplorer.Types.Granularity
+        , Network.AWS.CostExplorer.Types.UtilizationByTime
+        , Network.AWS.CostExplorer.Types.ReservationGroupValue
+        , Network.AWS.CostExplorer.Types.GenericString
+        , Network.AWS.CostExplorer.Types.CostCategoryProcessingStatus
+        , Network.AWS.CostExplorer.Types.MonitorDimension
+        , Network.AWS.CostExplorer.Types.SavingsPlansUtilizationDetail
+        , Network.AWS.CostExplorer.Types.Metric
+        , Network.AWS.CostExplorer.Types.AttributeType
+        , Network.AWS.CostExplorer.Types.EBSResourceUtilization
+        , Network.AWS.CostExplorer.Types.ReservedHours
+        , Network.AWS.CostExplorer.Types.RootCause
+        , Network.AWS.CostExplorer.Types.UnusedHours
+        , Network.AWS.CostExplorer.Types.Key
+        , Network.AWS.CostExplorer.Types.CostCategoryRuleVersion
+        , Network.AWS.CostExplorer.Types.EC2InstanceDetails
+        , Network.AWS.CostExplorer.Types.MetricValue
+        , Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationMetadata
+        , Network.AWS.CostExplorer.Types.SubscriberType
+        , Network.AWS.CostExplorer.Types.AnomalySubscription
+        , Network.AWS.CostExplorer.Types.GroupDefinitionType
+        , Network.AWS.CostExplorer.Types.CoverageNormalizedUnitsPercentage
+        , Network.AWS.CostExplorer.Types.Impact
+        , Network.AWS.CostExplorer.Types.Expression
+        , Network.AWS.CostExplorer.Types.PurchasedUnits
+        , Network.AWS.CostExplorer.Types.OnDemandNormalizedUnits
+        , Network.AWS.CostExplorer.Types.CoverageHours
+        , Network.AWS.CostExplorer.Types.ReservationUtilizationGroup
+        , Network.AWS.CostExplorer.Types.AmortizedUpfrontFee
+        , Network.AWS.CostExplorer.Types.CoverageCost
+        , Network.AWS.CostExplorer.Types.CostCategoryRule
+        , Network.AWS.CostExplorer.Types.DimensionValuesWithAttributes
+        , Network.AWS.CostExplorer.Types.TagKey
+        , Network.AWS.CostExplorer.Types.ModifyRecommendationDetail
+        , Network.AWS.CostExplorer.Types.AmortizedRecurringFee
+        , Network.AWS.CostExplorer.Types.CostCategoryValue
+        , Network.AWS.CostExplorer.Types.CoverageByTime
+        , Network.AWS.CostExplorer.Types.TotalImpactFilter
+        , Network.AWS.CostExplorer.Types.CurrentInstance
+        , Network.AWS.CostExplorer.Types.CostCategoryStatusComponent
+        , Network.AWS.CostExplorer.Types.RightsizingType
+        , Network.AWS.CostExplorer.Types.UtilizationPercentageInUnits
+        , Network.AWS.CostExplorer.Types.RedshiftInstanceDetails
+        , Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendationMetadata
+        , Network.AWS.CostExplorer.Types.CostCategoryReference
+        , Network.AWS.CostExplorer.Types.SavingsPlansAmortizedCommitment
+        , Network.AWS.CostExplorer.Types.NetRISavings
+        , Network.AWS.CostExplorer.Types.InstanceDetails
+        , Network.AWS.CostExplorer.Types.OnDemandCostOfRIHoursUsed
+        , Network.AWS.CostExplorer.Types.Entity
+        , Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationDetail
+        , Network.AWS.CostExplorer.Types.NumericOperator
+        , Network.AWS.CostExplorer.Types.ZonedDateTime
+        , Network.AWS.CostExplorer.Types.OfferingClass
+        , Network.AWS.CostExplorer.Types.ReservationPurchaseRecommendationSummary
+        , Network.AWS.CostExplorer.Types.TotalPotentialRISavings
+        , Network.AWS.CostExplorer.Types.SubscriberStatus
+        , Network.AWS.CostExplorer.Types.AnomalyScore
+        , Network.AWS.CostExplorer.Types.RightsizingRecommendationConfiguration
+        , Network.AWS.CostExplorer.Types.SavingsPlansCoverage
+        , Network.AWS.CostExplorer.Types.SavingsPlanArn
+        , Network.AWS.CostExplorer.Types.LookbackPeriodInDays
+        , Network.AWS.CostExplorer.Types.SavingsPlansCoverageData
+        , Network.AWS.CostExplorer.Types.RightsizingRecommendation
+        , Network.AWS.CostExplorer.Types.PaymentOption
+        , Network.AWS.CostExplorer.Types.SavingsPlansPurchaseRecommendationSummary
+        , Network.AWS.CostExplorer.Types.EC2Specification
+        , Network.AWS.CostExplorer.Types.ReservationCoverageGroup
+        , Network.AWS.CostExplorer.Types.TotalActualUnits
+        , Network.AWS.CostExplorer.Types.TerminateRecommendationDetail
+        , Network.AWS.CostExplorer.Types.MaxCpuUtilizationPercentage
+        , Network.AWS.CostExplorer.Types.MaxMemoryUtilizationPercentage
+        , Network.AWS.CostExplorer.Types.MaxStorageUtilizationPercentage
+        , Network.AWS.CostExplorer.Types.HourlyOnDemandRate
+        , Network.AWS.CostExplorer.Types.InstanceType
+        , Network.AWS.CostExplorer.Types.Memory
+        , Network.AWS.CostExplorer.Types.NetworkPerformance
+        , Network.AWS.CostExplorer.Types.Platform
+        , Network.AWS.CostExplorer.Types.Region
+        , Network.AWS.CostExplorer.Types.Sku
+        , Network.AWS.CostExplorer.Types.Storage
+        , Network.AWS.CostExplorer.Types.Vcpu
+        , Network.AWS.CostExplorer.Types.GenerationTimestamp
+        , Network.AWS.CostExplorer.Types.RecommendationId
+        , Network.AWS.CostExplorer.Types.NextToken
+        , Network.AWS.CostExplorer.Types.MeanValue
+        , Network.AWS.CostExplorer.Types.PredictionIntervalLowerBound
+        , Network.AWS.CostExplorer.Types.PredictionIntervalUpperBound
+        , Network.AWS.CostExplorer.Types.StartDate
+        , Network.AWS.CostExplorer.Types.EndDate
+        , Network.AWS.CostExplorer.Types.Address
+        , Network.AWS.CostExplorer.Types.InstanceClass
+        , Network.AWS.CostExplorer.Types.InstanceSize
+        , Network.AWS.CostExplorer.Types.Service
+        , Network.AWS.CostExplorer.Types.AccountId
+        , Network.AWS.CostExplorer.Types.EstimatedTotalMonthlySavingsAmount
+        , Network.AWS.CostExplorer.Types.SavingsCurrencyCode
+        , Network.AWS.CostExplorer.Types.SavingsPercentage
+        , Network.AWS.CostExplorer.Types.TotalRecommendationCount
+        , Network.AWS.CostExplorer.Types.InstanceFamily
+        , Network.AWS.CostExplorer.Types.OfferingId
+        , Network.AWS.CostExplorer.Types.MonitorArn
+        , Network.AWS.CostExplorer.Types.MonitorName
+        , Network.AWS.CostExplorer.Types.SubscriptionArn
+        , Network.AWS.CostExplorer.Types.TotalCommitment
+        , Network.AWS.CostExplorer.Types.UnusedCommitment
+        , Network.AWS.CostExplorer.Types.UsedCommitment
+        , Network.AWS.CostExplorer.Types.CreationDate
+        , Network.AWS.CostExplorer.Types.LastEvaluatedDate
+        , Network.AWS.CostExplorer.Types.LastUpdatedDate
+        , Network.AWS.CostExplorer.Types.CurrencyCode
+        , Network.AWS.CostExplorer.Types.EstimatedMonthlyCost
+        , Network.AWS.CostExplorer.Types.EstimatedMonthlySavings
+        , Network.AWS.CostExplorer.Types.NetSavings
+        , Network.AWS.CostExplorer.Types.OnDemandCostEquivalent
+        , Network.AWS.CostExplorer.Types.Start
+        , Network.AWS.CostExplorer.Types.End
+        , Network.AWS.CostExplorer.Types.EffectiveStart
+        , Network.AWS.CostExplorer.Types.Name
+        , Network.AWS.CostExplorer.Types.EffectiveEnd
+        , Network.AWS.CostExplorer.Types.EffectiveOn
+        , Network.AWS.CostExplorer.Types.DatabaseEdition
+        , Network.AWS.CostExplorer.Types.DatabaseEngine
+        , Network.AWS.CostExplorer.Types.DeploymentOption
+        , Network.AWS.CostExplorer.Types.Family
+        , Network.AWS.CostExplorer.Types.LicenseModel
+        , Network.AWS.CostExplorer.Types.NodeType
+        , Network.AWS.CostExplorer.Types.ProductDescription
+        , Network.AWS.CostExplorer.Types.AnomalyId
+        , Network.AWS.CostExplorer.Types.AnomalyEndDate
+        , Network.AWS.CostExplorer.Types.AnomalyStartDate
+        , Network.AWS.CostExplorer.Types.DimensionValue
+        , Network.AWS.CostExplorer.Types.CurrentAverageHourlyOnDemandSpend
+        , Network.AWS.CostExplorer.Types.CurrentMaximumHourlyOnDemandSpend
+        , Network.AWS.CostExplorer.Types.CurrentMinimumHourlyOnDemandSpend
+        , Network.AWS.CostExplorer.Types.EstimatedAverageUtilization
+        , Network.AWS.CostExplorer.Types.EstimatedMonthlySavingsAmount
+        , Network.AWS.CostExplorer.Types.EstimatedOnDemandCost
+        , Network.AWS.CostExplorer.Types.EstimatedOnDemandCostWithCurrentCommitment
+        , Network.AWS.CostExplorer.Types.EstimatedROI
+        , Network.AWS.CostExplorer.Types.EstimatedSPCost
+        , Network.AWS.CostExplorer.Types.EstimatedSavingsAmount
+        , Network.AWS.CostExplorer.Types.EstimatedSavingsPercentage
+        , Network.AWS.CostExplorer.Types.HourlyCommitmentToPurchase
+        , Network.AWS.CostExplorer.Types.UpfrontCost
+        , Network.AWS.CostExplorer.Types.Amount
+        , Network.AWS.CostExplorer.Types.Unit
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-cost-explorer-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.CostExplorer
-    Test.AWS.CostExplorer.Internal
-    Test.AWS.Gen.CostExplorer
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core           >=2.0.0.0 && <2.0.0.1
-    , amazonka-cost-explorer
-    , amazonka-test           >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.CostExplorer
+        , Test.AWS.Gen.CostExplorer
+        , Test.AWS.CostExplorer.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-cost-explorer
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

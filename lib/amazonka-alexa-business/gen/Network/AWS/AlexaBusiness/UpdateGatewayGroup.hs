@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,23 +15,21 @@
 --
 -- Updates the details of a gateway group. If any optional field is not provided, the existing corresponding value is left unmodified.
 module Network.AWS.AlexaBusiness.UpdateGatewayGroup
-  ( -- * Creating a request
-    UpdateGatewayGroup (..),
-    mkUpdateGatewayGroup,
-
+    (
+    -- * Creating a request
+      UpdateGatewayGroup (..)
+    , mkUpdateGatewayGroup
     -- ** Request lenses
-    uggGatewayGroupArn,
-    uggDescription,
-    uggName,
+    , uggGatewayGroupArn
+    , uggDescription
+    , uggName
 
     -- * Destructuring the response
-    UpdateGatewayGroupResponse (..),
-    mkUpdateGatewayGroupResponse,
-
+    , UpdateGatewayGroupResponse (..)
+    , mkUpdateGatewayGroupResponse
     -- ** Response lenses
-    uggrrsResponseStatus,
-  )
-where
+    , uggrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -41,97 +39,99 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateGatewayGroup' smart constructor.
 data UpdateGatewayGroup = UpdateGatewayGroup'
-  { -- | The ARN of the gateway group to update.
-    gatewayGroupArn :: Types.GatewayGroupArn,
-    -- | The updated description of the gateway group.
-    description :: Core.Maybe Types.Description,
-    -- | The updated name of the gateway group.
-    name :: Core.Maybe Types.Name
+  { gatewayGroupArn :: Types.GatewayGroupArn
+    -- ^ The ARN of the gateway group to update.
+  , description :: Core.Maybe Types.Description
+    -- ^ The updated description of the gateway group.
+  , name :: Core.Maybe Types.Name
+    -- ^ The updated name of the gateway group.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UpdateGatewayGroup' value with any optional fields omitted.
-mkUpdateGatewayGroup ::
-  -- | 'gatewayGroupArn'
-  Types.GatewayGroupArn ->
-  UpdateGatewayGroup
-mkUpdateGatewayGroup gatewayGroupArn =
-  UpdateGatewayGroup'
-    { gatewayGroupArn,
-      description = Core.Nothing,
-      name = Core.Nothing
-    }
+mkUpdateGatewayGroup
+    :: Types.GatewayGroupArn -- ^ 'gatewayGroupArn'
+    -> UpdateGatewayGroup
+mkUpdateGatewayGroup gatewayGroupArn
+  = UpdateGatewayGroup'{gatewayGroupArn, description = Core.Nothing,
+                        name = Core.Nothing}
 
 -- | The ARN of the gateway group to update.
 --
 -- /Note:/ Consider using 'gatewayGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uggGatewayGroupArn :: Lens.Lens' UpdateGatewayGroup Types.GatewayGroupArn
 uggGatewayGroupArn = Lens.field @"gatewayGroupArn"
-{-# DEPRECATED uggGatewayGroupArn "Use generic-lens or generic-optics with 'gatewayGroupArn' instead." #-}
+{-# INLINEABLE uggGatewayGroupArn #-}
+{-# DEPRECATED gatewayGroupArn "Use generic-lens or generic-optics with 'gatewayGroupArn' instead"  #-}
 
 -- | The updated description of the gateway group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uggDescription :: Lens.Lens' UpdateGatewayGroup (Core.Maybe Types.Description)
 uggDescription = Lens.field @"description"
-{-# DEPRECATED uggDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+{-# INLINEABLE uggDescription #-}
+{-# DEPRECATED description "Use generic-lens or generic-optics with 'description' instead"  #-}
 
 -- | The updated name of the gateway group.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uggName :: Lens.Lens' UpdateGatewayGroup (Core.Maybe Types.Name)
 uggName = Lens.field @"name"
-{-# DEPRECATED uggName "Use generic-lens or generic-optics with 'name' instead." #-}
+{-# INLINEABLE uggName #-}
+{-# DEPRECATED name "Use generic-lens or generic-optics with 'name' instead"  #-}
+
+instance Core.ToQuery UpdateGatewayGroup where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders UpdateGatewayGroup where
+        toHeaders UpdateGatewayGroup{..}
+          = Core.pure ("X-Amz-Target", "AlexaForBusiness.UpdateGatewayGroup")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON UpdateGatewayGroup where
-  toJSON UpdateGatewayGroup {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("GatewayGroupArn" Core..= gatewayGroupArn),
-            ("Description" Core..=) Core.<$> description,
-            ("Name" Core..=) Core.<$> name
-          ]
-      )
+        toJSON UpdateGatewayGroup{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("GatewayGroupArn" Core..= gatewayGroupArn),
+                  ("Description" Core..=) Core.<$> description,
+                  ("Name" Core..=) Core.<$> name])
 
 instance Core.AWSRequest UpdateGatewayGroup where
-  type Rs UpdateGatewayGroup = UpdateGatewayGroupResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "AlexaForBusiness.UpdateGatewayGroup")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveEmpty
-      ( \s h x ->
-          UpdateGatewayGroupResponse' Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs UpdateGatewayGroup = UpdateGatewayGroupResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveEmpty
+              (\ s h x ->
+                 UpdateGatewayGroupResponse' Core.<$> (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkUpdateGatewayGroupResponse' smart constructor.
 newtype UpdateGatewayGroupResponse = UpdateGatewayGroupResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UpdateGatewayGroupResponse' value with any optional fields omitted.
-mkUpdateGatewayGroupResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  UpdateGatewayGroupResponse
-mkUpdateGatewayGroupResponse responseStatus =
-  UpdateGatewayGroupResponse' {responseStatus}
+mkUpdateGatewayGroupResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> UpdateGatewayGroupResponse
+mkUpdateGatewayGroupResponse responseStatus
+  = UpdateGatewayGroupResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uggrrsResponseStatus :: Lens.Lens' UpdateGatewayGroupResponse Core.Int
 uggrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED uggrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE uggrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

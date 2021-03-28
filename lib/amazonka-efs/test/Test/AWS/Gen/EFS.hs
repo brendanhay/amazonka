@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.EFS where
 
 import Data.Proxy
-import Network.AWS.EFS
-import Test.AWS.EFS.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.EFS
+import Test.AWS.EFS.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -168,310 +169,266 @@ import Test.Tasty
 -- Requests
 
 requestCreateAccessPoint :: CreateAccessPoint -> TestTree
-requestCreateAccessPoint =
-  req
+requestCreateAccessPoint = req
     "CreateAccessPoint"
     "fixture/CreateAccessPoint.yaml"
 
 requestDescribeMountTargets :: DescribeMountTargets -> TestTree
-requestDescribeMountTargets =
-  req
+requestDescribeMountTargets = req
     "DescribeMountTargets"
     "fixture/DescribeMountTargets.yaml"
 
 requestDeleteFileSystemPolicy :: DeleteFileSystemPolicy -> TestTree
-requestDeleteFileSystemPolicy =
-  req
+requestDeleteFileSystemPolicy = req
     "DeleteFileSystemPolicy"
     "fixture/DeleteFileSystemPolicy.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
+requestListTagsForResource = req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
 requestPutFileSystemPolicy :: PutFileSystemPolicy -> TestTree
-requestPutFileSystemPolicy =
-  req
+requestPutFileSystemPolicy = req
     "PutFileSystemPolicy"
     "fixture/PutFileSystemPolicy.yaml"
 
 requestDescribeFileSystems :: DescribeFileSystems -> TestTree
-requestDescribeFileSystems =
-  req
+requestDescribeFileSystems = req
     "DescribeFileSystems"
     "fixture/DescribeFileSystems.yaml"
 
 requestDeleteMountTarget :: DeleteMountTarget -> TestTree
-requestDeleteMountTarget =
-  req
+requestDeleteMountTarget = req
     "DeleteMountTarget"
     "fixture/DeleteMountTarget.yaml"
 
 requestDescribeMountTargetSecurityGroups :: DescribeMountTargetSecurityGroups -> TestTree
-requestDescribeMountTargetSecurityGroups =
-  req
+requestDescribeMountTargetSecurityGroups = req
     "DescribeMountTargetSecurityGroups"
     "fixture/DescribeMountTargetSecurityGroups.yaml"
 
 requestDescribeAccessPoints :: DescribeAccessPoints -> TestTree
-requestDescribeAccessPoints =
-  req
+requestDescribeAccessPoints = req
     "DescribeAccessPoints"
     "fixture/DescribeAccessPoints.yaml"
 
 requestModifyMountTargetSecurityGroups :: ModifyMountTargetSecurityGroups -> TestTree
-requestModifyMountTargetSecurityGroups =
-  req
+requestModifyMountTargetSecurityGroups = req
     "ModifyMountTargetSecurityGroups"
     "fixture/ModifyMountTargetSecurityGroups.yaml"
 
 requestCreateFileSystem :: CreateFileSystem -> TestTree
-requestCreateFileSystem =
-  req
+requestCreateFileSystem = req
     "CreateFileSystem"
     "fixture/CreateFileSystem.yaml"
 
 requestPutLifecycleConfiguration :: PutLifecycleConfiguration -> TestTree
-requestPutLifecycleConfiguration =
-  req
+requestPutLifecycleConfiguration = req
     "PutLifecycleConfiguration"
     "fixture/PutLifecycleConfiguration.yaml"
 
 requestPutBackupPolicy :: PutBackupPolicy -> TestTree
-requestPutBackupPolicy =
-  req
+requestPutBackupPolicy = req
     "PutBackupPolicy"
     "fixture/PutBackupPolicy.yaml"
 
 requestDeleteFileSystem :: DeleteFileSystem -> TestTree
-requestDeleteFileSystem =
-  req
+requestDeleteFileSystem = req
     "DeleteFileSystem"
     "fixture/DeleteFileSystem.yaml"
 
 requestUpdateFileSystem :: UpdateFileSystem -> TestTree
-requestUpdateFileSystem =
-  req
+requestUpdateFileSystem = req
     "UpdateFileSystem"
     "fixture/UpdateFileSystem.yaml"
 
 requestCreateMountTarget :: CreateMountTarget -> TestTree
-requestCreateMountTarget =
-  req
+requestCreateMountTarget = req
     "CreateMountTarget"
     "fixture/CreateMountTarget.yaml"
 
 requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
+requestTagResource = req
     "TagResource"
     "fixture/TagResource.yaml"
 
 requestDescribeBackupPolicy :: DescribeBackupPolicy -> TestTree
-requestDescribeBackupPolicy =
-  req
+requestDescribeBackupPolicy = req
     "DescribeBackupPolicy"
     "fixture/DescribeBackupPolicy.yaml"
 
 requestDescribeLifecycleConfiguration :: DescribeLifecycleConfiguration -> TestTree
-requestDescribeLifecycleConfiguration =
-  req
+requestDescribeLifecycleConfiguration = req
     "DescribeLifecycleConfiguration"
     "fixture/DescribeLifecycleConfiguration.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
+requestUntagResource = req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
 requestDescribeFileSystemPolicy :: DescribeFileSystemPolicy -> TestTree
-requestDescribeFileSystemPolicy =
-  req
+requestDescribeFileSystemPolicy = req
     "DescribeFileSystemPolicy"
     "fixture/DescribeFileSystemPolicy.yaml"
 
 requestDeleteAccessPoint :: DeleteAccessPoint -> TestTree
-requestDeleteAccessPoint =
-  req
+requestDeleteAccessPoint = req
     "DeleteAccessPoint"
     "fixture/DeleteAccessPoint.yaml"
 
 -- Responses
 
 responseCreateAccessPoint :: AccessPointDescription -> TestTree
-responseCreateAccessPoint =
-  res
+responseCreateAccessPoint = res
     "CreateAccessPointResponse"
     "fixture/CreateAccessPointResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateAccessPoint)
 
 responseDescribeMountTargets :: DescribeMountTargetsResponse -> TestTree
-responseDescribeMountTargets =
-  res
+responseDescribeMountTargets = res
     "DescribeMountTargetsResponse"
     "fixture/DescribeMountTargetsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeMountTargets)
 
 responseDeleteFileSystemPolicy :: DeleteFileSystemPolicyResponse -> TestTree
-responseDeleteFileSystemPolicy =
-  res
+responseDeleteFileSystemPolicy = res
     "DeleteFileSystemPolicyResponse"
     "fixture/DeleteFileSystemPolicyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteFileSystemPolicy)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
+responseListTagsForResource = res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responsePutFileSystemPolicy :: FileSystemPolicyDescription -> TestTree
-responsePutFileSystemPolicy =
-  res
+responsePutFileSystemPolicy = res
     "PutFileSystemPolicyResponse"
     "fixture/PutFileSystemPolicyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutFileSystemPolicy)
 
 responseDescribeFileSystems :: DescribeFileSystemsResponse -> TestTree
-responseDescribeFileSystems =
-  res
+responseDescribeFileSystems = res
     "DescribeFileSystemsResponse"
     "fixture/DescribeFileSystemsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeFileSystems)
 
 responseDeleteMountTarget :: DeleteMountTargetResponse -> TestTree
-responseDeleteMountTarget =
-  res
+responseDeleteMountTarget = res
     "DeleteMountTargetResponse"
     "fixture/DeleteMountTargetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteMountTarget)
 
 responseDescribeMountTargetSecurityGroups :: DescribeMountTargetSecurityGroupsResponse -> TestTree
-responseDescribeMountTargetSecurityGroups =
-  res
+responseDescribeMountTargetSecurityGroups = res
     "DescribeMountTargetSecurityGroupsResponse"
     "fixture/DescribeMountTargetSecurityGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeMountTargetSecurityGroups)
 
 responseDescribeAccessPoints :: DescribeAccessPointsResponse -> TestTree
-responseDescribeAccessPoints =
-  res
+responseDescribeAccessPoints = res
     "DescribeAccessPointsResponse"
     "fixture/DescribeAccessPointsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAccessPoints)
 
 responseModifyMountTargetSecurityGroups :: ModifyMountTargetSecurityGroupsResponse -> TestTree
-responseModifyMountTargetSecurityGroups =
-  res
+responseModifyMountTargetSecurityGroups = res
     "ModifyMountTargetSecurityGroupsResponse"
     "fixture/ModifyMountTargetSecurityGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyMountTargetSecurityGroups)
 
 responseCreateFileSystem :: FileSystemDescription -> TestTree
-responseCreateFileSystem =
-  res
+responseCreateFileSystem = res
     "CreateFileSystemResponse"
     "fixture/CreateFileSystemResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateFileSystem)
 
 responsePutLifecycleConfiguration :: LifecycleConfigurationDescription -> TestTree
-responsePutLifecycleConfiguration =
-  res
+responsePutLifecycleConfiguration = res
     "PutLifecycleConfigurationResponse"
     "fixture/PutLifecycleConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutLifecycleConfiguration)
 
 responsePutBackupPolicy :: BackupPolicyDescription -> TestTree
-responsePutBackupPolicy =
-  res
+responsePutBackupPolicy = res
     "PutBackupPolicyResponse"
     "fixture/PutBackupPolicyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutBackupPolicy)
 
 responseDeleteFileSystem :: DeleteFileSystemResponse -> TestTree
-responseDeleteFileSystem =
-  res
+responseDeleteFileSystem = res
     "DeleteFileSystemResponse"
     "fixture/DeleteFileSystemResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteFileSystem)
 
 responseUpdateFileSystem :: FileSystemDescription -> TestTree
-responseUpdateFileSystem =
-  res
+responseUpdateFileSystem = res
     "UpdateFileSystemResponse"
     "fixture/UpdateFileSystemResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateFileSystem)
 
 responseCreateMountTarget :: MountTargetDescription -> TestTree
-responseCreateMountTarget =
-  res
+responseCreateMountTarget = res
     "CreateMountTargetResponse"
     "fixture/CreateMountTargetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateMountTarget)
 
 responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
+responseTagResource = res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseDescribeBackupPolicy :: BackupPolicyDescription -> TestTree
-responseDescribeBackupPolicy =
-  res
+responseDescribeBackupPolicy = res
     "DescribeBackupPolicyResponse"
     "fixture/DescribeBackupPolicyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeBackupPolicy)
 
 responseDescribeLifecycleConfiguration :: LifecycleConfigurationDescription -> TestTree
-responseDescribeLifecycleConfiguration =
-  res
+responseDescribeLifecycleConfiguration = res
     "DescribeLifecycleConfigurationResponse"
     "fixture/DescribeLifecycleConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeLifecycleConfiguration)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
+responseUntagResource = res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseDescribeFileSystemPolicy :: FileSystemPolicyDescription -> TestTree
-responseDescribeFileSystemPolicy =
-  res
+responseDescribeFileSystemPolicy = res
     "DescribeFileSystemPolicyResponse"
     "fixture/DescribeFileSystemPolicyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeFileSystemPolicy)
 
 responseDeleteAccessPoint :: DeleteAccessPointResponse -> TestTree
-responseDeleteAccessPoint =
-  res
+responseDeleteAccessPoint = res
     "DeleteAccessPointResponse"
     "fixture/DeleteAccessPointResponse.proto"
     mkServiceConfig

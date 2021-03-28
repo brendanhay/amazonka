@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Route53AutoNaming.Types.HealthCheckCustomConfig
-  ( HealthCheckCustomConfig (..),
-
-    -- * Smart constructor
-    mkHealthCheckCustomConfig,
-
-    -- * Lenses
-    hcccFailureThreshold,
-  )
-where
+  ( HealthCheckCustomConfig (..)
+  -- * Smart constructor
+  , mkHealthCheckCustomConfig
+  -- * Lenses
+  , hcccFailureThreshold
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -37,14 +35,14 @@ import qualified Network.AWS.Prelude as Core
 -- To change the status of a custom health check, submit an @UpdateInstanceCustomHealthStatus@ request. AWS Cloud Map doesn't monitor the status of the resource, it just keeps a record of the status specified in the most recent @UpdateInstanceCustomHealthStatus@ request.
 -- Here's how custom health checks work:
 --
---     * You create a service and specify a value for @FailureThreshold@ .
+--     * You create a service and specify a value for @FailureThreshold@ . 
 -- The failure threshold indicates the number of 30-second intervals you want AWS Cloud Map to wait between the time that your application sends an <https://docs.aws.amazon.com/cloud-map/latest/api/API_UpdateInstanceCustomHealthStatus.html UpdateInstanceCustomHealthStatus> request and the time that AWS Cloud Map stops routing internet traffic to the corresponding resource.
 --
 --
 --     * You register an instance.
 --
 --
---     * You configure a third-party health checker to monitor the resource that is associated with the new instance.
+--     * You configure a third-party health checker to monitor the resource that is associated with the new instance. 
 --
 --
 --     * The third-party health-checker determines that the resource is unhealthy and notifies your application.
@@ -62,20 +60,20 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkHealthCheckCustomConfig' smart constructor.
 newtype HealthCheckCustomConfig = HealthCheckCustomConfig'
-  { -- | /Important:/ This parameter has been deprecated and is always set to 1. AWS Cloud Map waits for approximately 30 seconds after receiving an @UpdateInstanceCustomHealthStatus@ request before changing the status of the service instance.
-    --
-    -- The number of 30-second intervals that you want AWS Cloud Map to wait after receiving an @UpdateInstanceCustomHealthStatus@ request before it changes the health status of a service instance.
-    -- Sending a second or subsequent @UpdateInstanceCustomHealthStatus@ request with the same value before 30 seconds has passed doesn't accelerate the change. AWS Cloud Map still waits @30@ seconds after the first request to make the change.
-    failureThreshold :: Core.Maybe Core.Natural
+  { failureThreshold :: Core.Maybe Core.Natural
+    -- ^ /Important:/ This parameter has been deprecated and is always set to 1. AWS Cloud Map waits for approximately 30 seconds after receiving an @UpdateInstanceCustomHealthStatus@ request before changing the status of the service instance.
+--
+-- The number of 30-second intervals that you want AWS Cloud Map to wait after receiving an @UpdateInstanceCustomHealthStatus@ request before it changes the health status of a service instance.
+-- Sending a second or subsequent @UpdateInstanceCustomHealthStatus@ request with the same value before 30 seconds has passed doesn't accelerate the change. AWS Cloud Map still waits @30@ seconds after the first request to make the change.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'HealthCheckCustomConfig' value with any optional fields omitted.
-mkHealthCheckCustomConfig ::
-  HealthCheckCustomConfig
-mkHealthCheckCustomConfig =
-  HealthCheckCustomConfig' {failureThreshold = Core.Nothing}
+mkHealthCheckCustomConfig
+    :: HealthCheckCustomConfig
+mkHealthCheckCustomConfig
+  = HealthCheckCustomConfig'{failureThreshold = Core.Nothing}
 
 -- | /Important:/ This parameter has been deprecated and is always set to 1. AWS Cloud Map waits for approximately 30 seconds after receiving an @UpdateInstanceCustomHealthStatus@ request before changing the status of the service instance.
 --
@@ -85,17 +83,17 @@ mkHealthCheckCustomConfig =
 -- /Note:/ Consider using 'failureThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 hcccFailureThreshold :: Lens.Lens' HealthCheckCustomConfig (Core.Maybe Core.Natural)
 hcccFailureThreshold = Lens.field @"failureThreshold"
-{-# DEPRECATED hcccFailureThreshold "Use generic-lens or generic-optics with 'failureThreshold' instead." #-}
+{-# INLINEABLE hcccFailureThreshold #-}
+{-# DEPRECATED failureThreshold "Use generic-lens or generic-optics with 'failureThreshold' instead"  #-}
 
 instance Core.FromJSON HealthCheckCustomConfig where
-  toJSON HealthCheckCustomConfig {..} =
-    Core.object
-      ( Core.catMaybes
-          [("FailureThreshold" Core..=) Core.<$> failureThreshold]
-      )
+        toJSON HealthCheckCustomConfig{..}
+          = Core.object
+              (Core.catMaybes
+                 [("FailureThreshold" Core..=) Core.<$> failureThreshold])
 
 instance Core.FromJSON HealthCheckCustomConfig where
-  parseJSON =
-    Core.withObject "HealthCheckCustomConfig" Core.$
-      \x ->
-        HealthCheckCustomConfig' Core.<$> (x Core..:? "FailureThreshold")
+        parseJSON
+          = Core.withObject "HealthCheckCustomConfig" Core.$
+              \ x ->
+                HealthCheckCustomConfig' Core.<$> (x Core..:? "FailureThreshold")

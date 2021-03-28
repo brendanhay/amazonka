@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,46 +10,29 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Batch.Types.CEStatus
   ( CEStatus
-      ( CEStatus',
-        CEStatusCreating,
-        CEStatusUpdating,
-        CEStatusDeleting,
-        CEStatusDeleted,
-        CEStatusValid,
-        CEStatusInvalid,
-        fromCEStatus
-      ),
-  )
-where
+    ( CEStatus'
+    , CEStatusCreating
+    , CEStatusUpdating
+    , CEStatusDeleting
+    , CEStatusDeleted
+    , CEStatusValid
+    , CEStatusInvalid
+    , fromCEStatus
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype CEStatus = CEStatus' {fromCEStatus :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype CEStatus = CEStatus'{fromCEStatus :: Core.Text}
+                     deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                     Core.Generic)
+                     deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                       Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON, Core.FromJSON,
+                                       Core.ToXML, Core.FromXML, Core.ToText, Core.FromText,
+                                       Core.ToByteString, Core.ToQuery, Core.ToHeader)
 
 pattern CEStatusCreating :: CEStatus
 pattern CEStatusCreating = CEStatus' "CREATING"
@@ -69,12 +52,17 @@ pattern CEStatusValid = CEStatus' "VALID"
 pattern CEStatusInvalid :: CEStatus
 pattern CEStatusInvalid = CEStatus' "INVALID"
 
-{-# COMPLETE
+{-# COMPLETE 
   CEStatusCreating,
+
   CEStatusUpdating,
+
   CEStatusDeleting,
+
   CEStatusDeleted,
+
   CEStatusValid,
+
   CEStatusInvalid,
   CEStatus'
   #-}

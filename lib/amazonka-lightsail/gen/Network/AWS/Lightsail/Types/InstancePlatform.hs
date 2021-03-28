@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,45 +10,27 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Lightsail.Types.InstancePlatform
   ( InstancePlatform
-      ( InstancePlatform',
-        InstancePlatformLinuxUnix,
-        InstancePlatformWindows,
-        fromInstancePlatform
-      ),
-  )
-where
+    ( InstancePlatform'
+    , InstancePlatformLinuxUnix
+    , InstancePlatformWindows
+    , fromInstancePlatform
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype InstancePlatform = InstancePlatform'
-  { fromInstancePlatform ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype InstancePlatform = InstancePlatform'{fromInstancePlatform
+                                             :: Core.Text}
+                             deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                             Core.Generic)
+                             deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                               Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                               Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                               Core.FromText, Core.ToByteString, Core.ToQuery,
+                                               Core.ToHeader)
 
 pattern InstancePlatformLinuxUnix :: InstancePlatform
 pattern InstancePlatformLinuxUnix = InstancePlatform' "LINUX_UNIX"
@@ -56,8 +38,9 @@ pattern InstancePlatformLinuxUnix = InstancePlatform' "LINUX_UNIX"
 pattern InstancePlatformWindows :: InstancePlatform
 pattern InstancePlatformWindows = InstancePlatform' "WINDOWS"
 
-{-# COMPLETE
+{-# COMPLETE 
   InstancePlatformLinuxUnix,
+
   InstancePlatformWindows,
   InstancePlatform'
   #-}

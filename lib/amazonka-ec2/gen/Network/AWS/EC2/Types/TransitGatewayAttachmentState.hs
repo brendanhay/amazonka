@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,56 +10,40 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.EC2.Types.TransitGatewayAttachmentState
   ( TransitGatewayAttachmentState
-      ( TransitGatewayAttachmentState',
-        TransitGatewayAttachmentStateInitiating,
-        TransitGatewayAttachmentStateInitiatingRequest,
-        TransitGatewayAttachmentStatePendingAcceptance,
-        TransitGatewayAttachmentStateRollingBack,
-        TransitGatewayAttachmentStatePending,
-        TransitGatewayAttachmentStateAvailable,
-        TransitGatewayAttachmentStateModifying,
-        TransitGatewayAttachmentStateDeleting,
-        TransitGatewayAttachmentStateDeleted,
-        TransitGatewayAttachmentStateFailed,
-        TransitGatewayAttachmentStateRejected,
-        TransitGatewayAttachmentStateRejecting,
-        TransitGatewayAttachmentStateFailing,
-        fromTransitGatewayAttachmentState
-      ),
-  )
-where
+    ( TransitGatewayAttachmentState'
+    , TransitGatewayAttachmentStateInitiating
+    , TransitGatewayAttachmentStateInitiatingRequest
+    , TransitGatewayAttachmentStatePendingAcceptance
+    , TransitGatewayAttachmentStateRollingBack
+    , TransitGatewayAttachmentStatePending
+    , TransitGatewayAttachmentStateAvailable
+    , TransitGatewayAttachmentStateModifying
+    , TransitGatewayAttachmentStateDeleting
+    , TransitGatewayAttachmentStateDeleted
+    , TransitGatewayAttachmentStateFailed
+    , TransitGatewayAttachmentStateRejected
+    , TransitGatewayAttachmentStateRejecting
+    , TransitGatewayAttachmentStateFailing
+    , fromTransitGatewayAttachmentState
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype TransitGatewayAttachmentState = TransitGatewayAttachmentState'
-  { fromTransitGatewayAttachmentState ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype TransitGatewayAttachmentState = TransitGatewayAttachmentState'{fromTransitGatewayAttachmentState
+                                                                       :: Core.Text}
+                                          deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                          Core.Generic)
+                                          deriving newtype (Core.IsString, Core.Hashable,
+                                                            Core.NFData, Core.ToJSONKey,
+                                                            Core.FromJSONKey, Core.ToJSON,
+                                                            Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                            Core.ToText, Core.FromText,
+                                                            Core.ToByteString, Core.ToQuery,
+                                                            Core.ToHeader)
 
 pattern TransitGatewayAttachmentStateInitiating :: TransitGatewayAttachmentState
 pattern TransitGatewayAttachmentStateInitiating = TransitGatewayAttachmentState' "initiating"
@@ -100,19 +84,31 @@ pattern TransitGatewayAttachmentStateRejecting = TransitGatewayAttachmentState' 
 pattern TransitGatewayAttachmentStateFailing :: TransitGatewayAttachmentState
 pattern TransitGatewayAttachmentStateFailing = TransitGatewayAttachmentState' "failing"
 
-{-# COMPLETE
+{-# COMPLETE 
   TransitGatewayAttachmentStateInitiating,
+
   TransitGatewayAttachmentStateInitiatingRequest,
+
   TransitGatewayAttachmentStatePendingAcceptance,
+
   TransitGatewayAttachmentStateRollingBack,
+
   TransitGatewayAttachmentStatePending,
+
   TransitGatewayAttachmentStateAvailable,
+
   TransitGatewayAttachmentStateModifying,
+
   TransitGatewayAttachmentStateDeleting,
+
   TransitGatewayAttachmentStateDeleted,
+
   TransitGatewayAttachmentStateFailed,
+
   TransitGatewayAttachmentStateRejected,
+
   TransitGatewayAttachmentStateRejecting,
+
   TransitGatewayAttachmentStateFailing,
   TransitGatewayAttachmentState'
   #-}

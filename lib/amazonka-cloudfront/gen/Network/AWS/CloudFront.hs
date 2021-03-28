@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -12,1719 +12,1659 @@
 --
 -- Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, for example, .html, .css, .php, image, and media files, to end users. CloudFront delivers your content through a worldwide network of edge locations. When an end user requests content that you're serving with CloudFront, the user is routed to the edge location that provides the lowest latency, so content is delivered with the best possible performance. If the content is already in that edge location, CloudFront delivers it immediately. If the content is not currently in that edge location, CloudFront retrieves it from an Amazon S3 bucket or an HTTP server (for example, a web server) that you have identified as the source for the definitive version of your content.
 module Network.AWS.CloudFront
-  ( -- * Service configuration
-    mkServiceConfig,
+    (
+    -- * Service configuration
+      mkServiceConfig
 
     -- * Errors
     -- $errors
 
     -- ** TooManyOriginCustomHeaders
-    _TooManyOriginCustomHeaders,
+    , _TooManyOriginCustomHeaders
 
     -- ** InvalidTagging
-    _InvalidTagging,
+    , _InvalidTagging
 
     -- ** InvalidErrorCode
-    _InvalidErrorCode,
+    , _InvalidErrorCode
 
     -- ** NoSuchFieldLevelEncryptionProfile
-    _NoSuchFieldLevelEncryptionProfile,
+    , _NoSuchFieldLevelEncryptionProfile
 
     -- ** FieldLevelEncryptionProfileInUse
-    _FieldLevelEncryptionProfileInUse,
+    , _FieldLevelEncryptionProfileInUse
 
     -- ** InvalidOriginReadTimeout
-    _InvalidOriginReadTimeout,
+    , _InvalidOriginReadTimeout
 
     -- ** TooManyFieldLevelEncryptionProfiles
-    _TooManyFieldLevelEncryptionProfiles,
+    , _TooManyFieldLevelEncryptionProfiles
 
     -- ** TooManyCacheBehaviors
-    _TooManyCacheBehaviors,
+    , _TooManyCacheBehaviors
 
     -- ** TooManyCloudFrontOriginAccessIdentities
-    _TooManyCloudFrontOriginAccessIdentities,
+    , _TooManyCloudFrontOriginAccessIdentities
 
     -- ** RealtimeLogConfigAlreadyExists
-    _RealtimeLogConfigAlreadyExists,
+    , _RealtimeLogConfigAlreadyExists
 
     -- ** InvalidOriginAccessIdentity
-    _InvalidOriginAccessIdentity,
+    , _InvalidOriginAccessIdentity
 
     -- ** DistributionNotDisabled
-    _DistributionNotDisabled,
+    , _DistributionNotDisabled
 
     -- ** NoSuchStreamingDistribution
-    _NoSuchStreamingDistribution,
+    , _NoSuchStreamingDistribution
 
     -- ** InconsistentQuantities
-    _InconsistentQuantities,
+    , _InconsistentQuantities
 
     -- ** InvalidArgument
-    _InvalidArgument,
+    , _InvalidArgument
 
     -- ** InvalidOriginKeepaliveTimeout
-    _InvalidOriginKeepaliveTimeout,
+    , _InvalidOriginKeepaliveTimeout
 
     -- ** TooManyInvalidationsInProgress
-    _TooManyInvalidationsInProgress,
+    , _TooManyInvalidationsInProgress
 
     -- ** InvalidWebACLId
-    _InvalidWebACLId,
+    , _InvalidWebACLId
 
     -- ** TooManyQueryStringParameters
-    _TooManyQueryStringParameters,
+    , _TooManyQueryStringParameters
 
     -- ** TooManyFieldLevelEncryptionQueryArgProfiles
-    _TooManyFieldLevelEncryptionQueryArgProfiles,
+    , _TooManyFieldLevelEncryptionQueryArgProfiles
 
     -- ** TooManyDistributionCNAMEs
-    _TooManyDistributionCNAMEs,
+    , _TooManyDistributionCNAMEs
 
     -- ** NoSuchCloudFrontOriginAccessIdentity
-    _NoSuchCloudFrontOriginAccessIdentity,
+    , _NoSuchCloudFrontOriginAccessIdentity
 
     -- ** CloudFrontOriginAccessIdentityInUse
-    _CloudFrontOriginAccessIdentityInUse,
+    , _CloudFrontOriginAccessIdentityInUse
 
     -- ** TooManyStreamingDistributions
-    _TooManyStreamingDistributions,
+    , _TooManyStreamingDistributions
 
     -- ** CannotChangeImmutablePublicKeyFields
-    _CannotChangeImmutablePublicKeyFields,
+    , _CannotChangeImmutablePublicKeyFields
 
     -- ** BatchTooLarge
-    _BatchTooLarge,
+    , _BatchTooLarge
 
     -- ** TooManyCookieNamesInWhiteList
-    _TooManyCookieNamesInWhiteList,
+    , _TooManyCookieNamesInWhiteList
 
     -- ** TooManyPublicKeysInKeyGroup
-    _TooManyPublicKeysInKeyGroup,
+    , _TooManyPublicKeysInKeyGroup
 
     -- ** InvalidLambdaFunctionAssociation
-    _InvalidLambdaFunctionAssociation,
+    , _InvalidLambdaFunctionAssociation
 
     -- ** TooManyKeyGroupsAssociatedToDistribution
-    _TooManyKeyGroupsAssociatedToDistribution,
+    , _TooManyKeyGroupsAssociatedToDistribution
 
     -- ** NoSuchRealtimeLogConfig
-    _NoSuchRealtimeLogConfig,
+    , _NoSuchRealtimeLogConfig
 
     -- ** InvalidForwardCookies
-    _InvalidForwardCookies,
+    , _InvalidForwardCookies
 
     -- ** FieldLevelEncryptionConfigInUse
-    _FieldLevelEncryptionConfigInUse,
+    , _FieldLevelEncryptionConfigInUse
 
     -- ** TooManyTrustedSigners
-    _TooManyTrustedSigners,
+    , _TooManyTrustedSigners
 
     -- ** TooManyDistributionsAssociatedToKeyGroup
-    _TooManyDistributionsAssociatedToKeyGroup,
+    , _TooManyDistributionsAssociatedToKeyGroup
 
     -- ** InvalidOrigin
-    _InvalidOrigin,
+    , _InvalidOrigin
 
     -- ** CachePolicyInUse
-    _CachePolicyInUse,
+    , _CachePolicyInUse
 
     -- ** NoSuchInvalidation
-    _NoSuchInvalidation,
+    , _NoSuchInvalidation
 
     -- ** PublicKeyAlreadyExists
-    _PublicKeyAlreadyExists,
+    , _PublicKeyAlreadyExists
 
     -- ** NoSuchOrigin
-    _NoSuchOrigin,
+    , _NoSuchOrigin
 
     -- ** TooManyHeadersInCachePolicy
-    _TooManyHeadersInCachePolicy,
+    , _TooManyHeadersInCachePolicy
 
     -- ** NoSuchCachePolicy
-    _NoSuchCachePolicy,
+    , _NoSuchCachePolicy
 
     -- ** InvalidTTLOrder
-    _InvalidTTLOrder,
+    , _InvalidTTLOrder
 
     -- ** StreamingDistributionNotDisabled
-    _StreamingDistributionNotDisabled,
+    , _StreamingDistributionNotDisabled
 
     -- ** OriginRequestPolicyAlreadyExists
-    _OriginRequestPolicyAlreadyExists,
+    , _OriginRequestPolicyAlreadyExists
 
     -- ** TooManyHeadersInForwardedValues
-    _TooManyHeadersInForwardedValues,
+    , _TooManyHeadersInForwardedValues
 
     -- ** NoSuchResource
-    _NoSuchResource,
+    , _NoSuchResource
 
     -- ** TooManyFieldLevelEncryptionEncryptionEntities
-    _TooManyFieldLevelEncryptionEncryptionEntities,
+    , _TooManyFieldLevelEncryptionEncryptionEntities
 
     -- ** TooManyStreamingDistributionCNAMEs
-    _TooManyStreamingDistributionCNAMEs,
+    , _TooManyStreamingDistributionCNAMEs
 
     -- ** FieldLevelEncryptionProfileAlreadyExists
-    _FieldLevelEncryptionProfileAlreadyExists,
+    , _FieldLevelEncryptionProfileAlreadyExists
 
     -- ** KeyGroupAlreadyExists
-    _KeyGroupAlreadyExists,
+    , _KeyGroupAlreadyExists
 
     -- ** TrustedKeyGroupDoesNotExist
-    _TrustedKeyGroupDoesNotExist,
+    , _TrustedKeyGroupDoesNotExist
 
     -- ** ResourceInUse
-    _ResourceInUse,
+    , _ResourceInUse
 
     -- ** InvalidRequiredProtocol
-    _InvalidRequiredProtocol,
+    , _InvalidRequiredProtocol
 
     -- ** TooManyDistributions
-    _TooManyDistributions,
+    , _TooManyDistributions
 
     -- ** TooManyDistributionsWithSingleFunctionARN
-    _TooManyDistributionsWithSingleFunctionARN,
+    , _TooManyDistributionsWithSingleFunctionARN
 
     -- ** TooManyHeadersInOriginRequestPolicy
-    _TooManyHeadersInOriginRequestPolicy,
+    , _TooManyHeadersInOriginRequestPolicy
 
     -- ** TooManyCertificates
-    _TooManyCertificates,
+    , _TooManyCertificates
 
     -- ** NoSuchOriginRequestPolicy
-    _NoSuchOriginRequestPolicy,
+    , _NoSuchOriginRequestPolicy
 
     -- ** DistributionAlreadyExists
-    _DistributionAlreadyExists,
+    , _DistributionAlreadyExists
 
     -- ** TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
-    _TooManyDistributionsAssociatedToFieldLevelEncryptionConfig,
+    , _TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
 
     -- ** TooManyKeyGroups
-    _TooManyKeyGroups,
+    , _TooManyKeyGroups
 
     -- ** InvalidQueryStringParameters
-    _InvalidQueryStringParameters,
+    , _InvalidQueryStringParameters
 
     -- ** MissingBody
-    _MissingBody,
+    , _MissingBody
 
     -- ** IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
-    _IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior,
+    , _IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
 
     -- ** TooManyOriginRequestPolicies
-    _TooManyOriginRequestPolicies,
+    , _TooManyOriginRequestPolicies
 
     -- ** IllegalDelete
-    _IllegalDelete,
+    , _IllegalDelete
 
     -- ** IllegalUpdate
-    _IllegalUpdate,
+    , _IllegalUpdate
 
     -- ** InvalidIfMatchVersion
-    _InvalidIfMatchVersion,
+    , _InvalidIfMatchVersion
 
     -- ** FieldLevelEncryptionConfigAlreadyExists
-    _FieldLevelEncryptionConfigAlreadyExists,
+    , _FieldLevelEncryptionConfigAlreadyExists
 
     -- ** PreconditionFailed
-    _PreconditionFailed,
+    , _PreconditionFailed
 
     -- ** InvalidResponseCode
-    _InvalidResponseCode,
+    , _InvalidResponseCode
 
     -- ** InvalidHeadersForS3Origin
-    _InvalidHeadersForS3Origin,
+    , _InvalidHeadersForS3Origin
 
     -- ** CNAMEAlreadyExists
-    _CNAMEAlreadyExists,
+    , _CNAMEAlreadyExists
 
     -- ** NoSuchPublicKey
-    _NoSuchPublicKey,
+    , _NoSuchPublicKey
 
     -- ** PublicKeyInUse
-    _PublicKeyInUse,
+    , _PublicKeyInUse
 
     -- ** TrustedSignerDoesNotExist
-    _TrustedSignerDoesNotExist,
+    , _TrustedSignerDoesNotExist
 
     -- ** InvalidProtocolSettings
-    _InvalidProtocolSettings,
+    , _InvalidProtocolSettings
 
     -- ** CachePolicyAlreadyExists
-    _CachePolicyAlreadyExists,
+    , _CachePolicyAlreadyExists
 
     -- ** TooManyCookiesInOriginRequestPolicy
-    _TooManyCookiesInOriginRequestPolicy,
+    , _TooManyCookiesInOriginRequestPolicy
 
     -- ** TooManyOriginGroupsPerDistribution
-    _TooManyOriginGroupsPerDistribution,
+    , _TooManyOriginGroupsPerDistribution
 
     -- ** TooManyPublicKeys
-    _TooManyPublicKeys,
+    , _TooManyPublicKeys
 
     -- ** NoSuchFieldLevelEncryptionConfig
-    _NoSuchFieldLevelEncryptionConfig,
+    , _NoSuchFieldLevelEncryptionConfig
 
     -- ** TooManyRealtimeLogConfigs
-    _TooManyRealtimeLogConfigs,
+    , _TooManyRealtimeLogConfigs
 
     -- ** RealtimeLogConfigInUse
-    _RealtimeLogConfigInUse,
+    , _RealtimeLogConfigInUse
 
     -- ** TooManyCachePolicies
-    _TooManyCachePolicies,
+    , _TooManyCachePolicies
 
     -- ** TooManyFieldLevelEncryptionContentTypeProfiles
-    _TooManyFieldLevelEncryptionContentTypeProfiles,
+    , _TooManyFieldLevelEncryptionContentTypeProfiles
 
     -- ** TooManyFieldLevelEncryptionFieldPatterns
-    _TooManyFieldLevelEncryptionFieldPatterns,
+    , _TooManyFieldLevelEncryptionFieldPatterns
 
     -- ** TooManyFieldLevelEncryptionConfigs
-    _TooManyFieldLevelEncryptionConfigs,
+    , _TooManyFieldLevelEncryptionConfigs
 
     -- ** TooManyLambdaFunctionAssociations
-    _TooManyLambdaFunctionAssociations,
+    , _TooManyLambdaFunctionAssociations
 
     -- ** CloudFrontOriginAccessIdentityAlreadyExists
-    _CloudFrontOriginAccessIdentityAlreadyExists,
+    , _CloudFrontOriginAccessIdentityAlreadyExists
 
     -- ** TooManyQueryStringsInCachePolicy
-    _TooManyQueryStringsInCachePolicy,
+    , _TooManyQueryStringsInCachePolicy
 
     -- ** TooManyOrigins
-    _TooManyOrigins,
+    , _TooManyOrigins
 
     -- ** InvalidRelativePath
-    _InvalidRelativePath,
+    , _InvalidRelativePath
 
     -- ** StreamingDistributionAlreadyExists
-    _StreamingDistributionAlreadyExists,
+    , _StreamingDistributionAlreadyExists
 
     -- ** TooManyDistributionsAssociatedToOriginRequestPolicy
-    _TooManyDistributionsAssociatedToOriginRequestPolicy,
+    , _TooManyDistributionsAssociatedToOriginRequestPolicy
 
     -- ** QueryArgProfileEmpty
-    _QueryArgProfileEmpty,
+    , _QueryArgProfileEmpty
 
     -- ** TooManyCookiesInCachePolicy
-    _TooManyCookiesInCachePolicy,
+    , _TooManyCookiesInCachePolicy
 
     -- ** InvalidMinimumProtocolVersion
-    _InvalidMinimumProtocolVersion,
+    , _InvalidMinimumProtocolVersion
 
     -- ** AccessDenied
-    _AccessDenied,
+    , _AccessDenied
 
     -- ** InvalidViewerCertificate
-    _InvalidViewerCertificate,
+    , _InvalidViewerCertificate
 
     -- ** NoSuchDistribution
-    _NoSuchDistribution,
+    , _NoSuchDistribution
 
     -- ** FieldLevelEncryptionProfileSizeExceeded
-    _FieldLevelEncryptionProfileSizeExceeded,
+    , _FieldLevelEncryptionProfileSizeExceeded
 
     -- ** TooManyQueryStringsInOriginRequestPolicy
-    _TooManyQueryStringsInOriginRequestPolicy,
+    , _TooManyQueryStringsInOriginRequestPolicy
 
     -- ** InvalidDefaultRootObject
-    _InvalidDefaultRootObject,
+    , _InvalidDefaultRootObject
 
     -- ** TooManyDistributionsWithLambdaAssociations
-    _TooManyDistributionsWithLambdaAssociations,
+    , _TooManyDistributionsWithLambdaAssociations
 
     -- ** TooManyDistributionsAssociatedToCachePolicy
-    _TooManyDistributionsAssociatedToCachePolicy,
+    , _TooManyDistributionsAssociatedToCachePolicy
 
     -- ** InvalidGeoRestrictionParameter
-    _InvalidGeoRestrictionParameter,
+    , _InvalidGeoRestrictionParameter
 
     -- ** OriginRequestPolicyInUse
-    _OriginRequestPolicyInUse,
+    , _OriginRequestPolicyInUse
 
     -- ** InvalidLocationCode
-    _InvalidLocationCode,
+    , _InvalidLocationCode
 
     -- * Waiters
     -- $waiters
 
     -- ** StreamingDistributionDeployed
-    mkStreamingDistributionDeployed,
+    , mkStreamingDistributionDeployed
 
     -- ** DistributionDeployed
-    mkDistributionDeployed,
+    , mkDistributionDeployed
 
     -- ** InvalidationCompleted
-    mkInvalidationCompleted,
+    , mkInvalidationCompleted
 
     -- * Operations
     -- $operations
 
-    -- ** DeleteOriginRequestPolicy
-    module Network.AWS.CloudFront.DeleteOriginRequestPolicy,
+    -- ** DeleteOriginRequestPolicy 
+    , module Network.AWS.CloudFront.DeleteOriginRequestPolicy
 
-    -- ** UpdateOriginRequestPolicy
-    module Network.AWS.CloudFront.UpdateOriginRequestPolicy,
+    -- ** UpdateOriginRequestPolicy 
+    , module Network.AWS.CloudFront.UpdateOriginRequestPolicy
 
-    -- ** DeleteStreamingDistribution
-    module Network.AWS.CloudFront.DeleteStreamingDistribution,
+    -- ** DeleteStreamingDistribution 
+    , module Network.AWS.CloudFront.DeleteStreamingDistribution
 
-    -- ** UpdateStreamingDistribution
-    module Network.AWS.CloudFront.UpdateStreamingDistribution,
+    -- ** UpdateStreamingDistribution 
+    , module Network.AWS.CloudFront.UpdateStreamingDistribution
 
-    -- ** ListPublicKeys
-    module Network.AWS.CloudFront.ListPublicKeys,
+    -- ** ListPublicKeys 
+    , module Network.AWS.CloudFront.ListPublicKeys
 
-    -- ** GetFieldLevelEncryptionConfig
-    module Network.AWS.CloudFront.GetFieldLevelEncryptionConfig,
+    -- ** GetFieldLevelEncryptionConfig 
+    , module Network.AWS.CloudFront.GetFieldLevelEncryptionConfig
 
-    -- ** ListTagsForResource
-    module Network.AWS.CloudFront.ListTagsForResource,
+    -- ** ListTagsForResource 
+    , module Network.AWS.CloudFront.ListTagsForResource
 
-    -- ** CreatePublicKey
-    module Network.AWS.CloudFront.CreatePublicKey,
+    -- ** CreatePublicKey 
+    , module Network.AWS.CloudFront.CreatePublicKey
 
-    -- ** GetPublicKeyConfig
-    module Network.AWS.CloudFront.GetPublicKeyConfig,
+    -- ** GetPublicKeyConfig 
+    , module Network.AWS.CloudFront.GetPublicKeyConfig
 
-    -- ** CreateDistributionWithTags
-    module Network.AWS.CloudFront.CreateDistributionWithTags,
+    -- ** CreateDistributionWithTags 
+    , module Network.AWS.CloudFront.CreateDistributionWithTags
 
-    -- ** CreateFieldLevelEncryptionConfig
-    module Network.AWS.CloudFront.CreateFieldLevelEncryptionConfig,
+    -- ** CreateFieldLevelEncryptionConfig 
+    , module Network.AWS.CloudFront.CreateFieldLevelEncryptionConfig
 
-    -- ** DeleteCachePolicy
-    module Network.AWS.CloudFront.DeleteCachePolicy,
+    -- ** DeleteCachePolicy 
+    , module Network.AWS.CloudFront.DeleteCachePolicy
 
-    -- ** UpdateCachePolicy
-    module Network.AWS.CloudFront.UpdateCachePolicy,
+    -- ** UpdateCachePolicy 
+    , module Network.AWS.CloudFront.UpdateCachePolicy
 
-    -- ** GetFieldLevelEncryption
-    module Network.AWS.CloudFront.GetFieldLevelEncryption,
+    -- ** GetFieldLevelEncryption 
+    , module Network.AWS.CloudFront.GetFieldLevelEncryption
 
-    -- ** ListRealtimeLogConfigs
-    module Network.AWS.CloudFront.ListRealtimeLogConfigs,
+    -- ** ListRealtimeLogConfigs 
+    , module Network.AWS.CloudFront.ListRealtimeLogConfigs
 
-    -- ** GetPublicKey
-    module Network.AWS.CloudFront.GetPublicKey,
+    -- ** GetPublicKey 
+    , module Network.AWS.CloudFront.GetPublicKey
 
-    -- ** DeleteRealtimeLogConfig
-    module Network.AWS.CloudFront.DeleteRealtimeLogConfig,
+    -- ** DeleteRealtimeLogConfig 
+    , module Network.AWS.CloudFront.DeleteRealtimeLogConfig
 
-    -- ** UpdateRealtimeLogConfig
-    module Network.AWS.CloudFront.UpdateRealtimeLogConfig,
+    -- ** UpdateRealtimeLogConfig 
+    , module Network.AWS.CloudFront.UpdateRealtimeLogConfig
 
-    -- ** ListDistributionsByOriginRequestPolicyId
-    module Network.AWS.CloudFront.ListDistributionsByOriginRequestPolicyId,
+    -- ** ListDistributionsByOriginRequestPolicyId 
+    , module Network.AWS.CloudFront.ListDistributionsByOriginRequestPolicyId
 
-    -- ** DeleteFieldLevelEncryptionConfig
-    module Network.AWS.CloudFront.DeleteFieldLevelEncryptionConfig,
+    -- ** DeleteFieldLevelEncryptionConfig 
+    , module Network.AWS.CloudFront.DeleteFieldLevelEncryptionConfig
 
-    -- ** UpdateFieldLevelEncryptionConfig
-    module Network.AWS.CloudFront.UpdateFieldLevelEncryptionConfig,
+    -- ** UpdateFieldLevelEncryptionConfig 
+    , module Network.AWS.CloudFront.UpdateFieldLevelEncryptionConfig
 
-    -- ** GetKeyGroup
-    module Network.AWS.CloudFront.GetKeyGroup,
+    -- ** GetKeyGroup 
+    , module Network.AWS.CloudFront.GetKeyGroup
 
-    -- ** CreateDistribution
-    module Network.AWS.CloudFront.CreateDistribution,
+    -- ** CreateDistribution 
+    , module Network.AWS.CloudFront.CreateDistribution
 
-    -- ** GetFieldLevelEncryptionProfile
-    module Network.AWS.CloudFront.GetFieldLevelEncryptionProfile,
+    -- ** GetFieldLevelEncryptionProfile 
+    , module Network.AWS.CloudFront.GetFieldLevelEncryptionProfile
 
-    -- ** DeleteMonitoringSubscription
-    module Network.AWS.CloudFront.DeleteMonitoringSubscription,
+    -- ** DeleteMonitoringSubscription 
+    , module Network.AWS.CloudFront.DeleteMonitoringSubscription
 
-    -- ** GetDistributionConfig
-    module Network.AWS.CloudFront.GetDistributionConfig,
+    -- ** GetDistributionConfig 
+    , module Network.AWS.CloudFront.GetDistributionConfig
 
-    -- ** CreateStreamingDistributionWithTags
-    module Network.AWS.CloudFront.CreateStreamingDistributionWithTags,
+    -- ** CreateStreamingDistributionWithTags 
+    , module Network.AWS.CloudFront.CreateStreamingDistributionWithTags
 
-    -- ** DeleteFieldLevelEncryptionProfile
-    module Network.AWS.CloudFront.DeleteFieldLevelEncryptionProfile,
+    -- ** DeleteFieldLevelEncryptionProfile 
+    , module Network.AWS.CloudFront.DeleteFieldLevelEncryptionProfile
 
-    -- ** UpdateFieldLevelEncryptionProfile
-    module Network.AWS.CloudFront.UpdateFieldLevelEncryptionProfile,
+    -- ** UpdateFieldLevelEncryptionProfile 
+    , module Network.AWS.CloudFront.UpdateFieldLevelEncryptionProfile
 
-    -- ** ListDistributionsByCachePolicyId
-    module Network.AWS.CloudFront.ListDistributionsByCachePolicyId,
+    -- ** ListDistributionsByCachePolicyId 
+    , module Network.AWS.CloudFront.ListDistributionsByCachePolicyId
 
-    -- ** CreateFieldLevelEncryptionProfile
-    module Network.AWS.CloudFront.CreateFieldLevelEncryptionProfile,
+    -- ** CreateFieldLevelEncryptionProfile 
+    , module Network.AWS.CloudFront.CreateFieldLevelEncryptionProfile
 
-    -- ** GetKeyGroupConfig
-    module Network.AWS.CloudFront.GetKeyGroupConfig,
+    -- ** GetKeyGroupConfig 
+    , module Network.AWS.CloudFront.GetKeyGroupConfig
 
-    -- ** GetDistribution
-    module Network.AWS.CloudFront.GetDistribution,
+    -- ** GetDistribution 
+    , module Network.AWS.CloudFront.GetDistribution
 
-    -- ** GetFieldLevelEncryptionProfileConfig
-    module Network.AWS.CloudFront.GetFieldLevelEncryptionProfileConfig,
+    -- ** GetFieldLevelEncryptionProfileConfig 
+    , module Network.AWS.CloudFront.GetFieldLevelEncryptionProfileConfig
 
-    -- ** CreateKeyGroup
-    module Network.AWS.CloudFront.CreateKeyGroup,
+    -- ** CreateKeyGroup 
+    , module Network.AWS.CloudFront.CreateKeyGroup
 
-    -- ** UpdateCloudFrontOriginAccessIdentity
-    module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity,
+    -- ** UpdateCloudFrontOriginAccessIdentity 
+    , module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
 
-    -- ** DeleteCloudFrontOriginAccessIdentity
-    module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity,
+    -- ** DeleteCloudFrontOriginAccessIdentity 
+    , module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
 
     -- ** ListStreamingDistributions (Paginated)
-    module Network.AWS.CloudFront.ListStreamingDistributions,
+    , module Network.AWS.CloudFront.ListStreamingDistributions
 
-    -- ** DeletePublicKey
-    module Network.AWS.CloudFront.DeletePublicKey,
+    -- ** DeletePublicKey 
+    , module Network.AWS.CloudFront.DeletePublicKey
 
-    -- ** UpdatePublicKey
-    module Network.AWS.CloudFront.UpdatePublicKey,
+    -- ** UpdatePublicKey 
+    , module Network.AWS.CloudFront.UpdatePublicKey
 
-    -- ** GetRealtimeLogConfig
-    module Network.AWS.CloudFront.GetRealtimeLogConfig,
+    -- ** GetRealtimeLogConfig 
+    , module Network.AWS.CloudFront.GetRealtimeLogConfig
 
-    -- ** GetStreamingDistributionConfig
-    module Network.AWS.CloudFront.GetStreamingDistributionConfig,
+    -- ** GetStreamingDistributionConfig 
+    , module Network.AWS.CloudFront.GetStreamingDistributionConfig
 
-    -- ** GetCloudFrontOriginAccessIdentityConfig
-    module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig,
+    -- ** GetCloudFrontOriginAccessIdentityConfig 
+    , module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
 
-    -- ** CreateStreamingDistribution
-    module Network.AWS.CloudFront.CreateStreamingDistribution,
+    -- ** CreateStreamingDistribution 
+    , module Network.AWS.CloudFront.CreateStreamingDistribution
 
-    -- ** CreateCloudFrontOriginAccessIdentity
-    module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity,
+    -- ** CreateCloudFrontOriginAccessIdentity 
+    , module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
 
     -- ** ListCloudFrontOriginAccessIdentities (Paginated)
-    module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities,
+    , module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
 
-    -- ** GetInvalidation
-    module Network.AWS.CloudFront.GetInvalidation,
+    -- ** GetInvalidation 
+    , module Network.AWS.CloudFront.GetInvalidation
 
-    -- ** GetCachePolicy
-    module Network.AWS.CloudFront.GetCachePolicy,
+    -- ** GetCachePolicy 
+    , module Network.AWS.CloudFront.GetCachePolicy
 
-    -- ** CreateRealtimeLogConfig
-    module Network.AWS.CloudFront.CreateRealtimeLogConfig,
+    -- ** CreateRealtimeLogConfig 
+    , module Network.AWS.CloudFront.CreateRealtimeLogConfig
 
     -- ** ListInvalidations (Paginated)
-    module Network.AWS.CloudFront.ListInvalidations,
+    , module Network.AWS.CloudFront.ListInvalidations
 
-    -- ** CreateInvalidation
-    module Network.AWS.CloudFront.CreateInvalidation,
+    -- ** CreateInvalidation 
+    , module Network.AWS.CloudFront.CreateInvalidation
 
-    -- ** GetCloudFrontOriginAccessIdentity
-    module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity,
+    -- ** GetCloudFrontOriginAccessIdentity 
+    , module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
 
-    -- ** ListCachePolicies
-    module Network.AWS.CloudFront.ListCachePolicies,
+    -- ** ListCachePolicies 
+    , module Network.AWS.CloudFront.ListCachePolicies
 
-    -- ** CreateCachePolicy
-    module Network.AWS.CloudFront.CreateCachePolicy,
+    -- ** CreateCachePolicy 
+    , module Network.AWS.CloudFront.CreateCachePolicy
 
-    -- ** GetCachePolicyConfig
-    module Network.AWS.CloudFront.GetCachePolicyConfig,
+    -- ** GetCachePolicyConfig 
+    , module Network.AWS.CloudFront.GetCachePolicyConfig
 
-    -- ** ListFieldLevelEncryptionConfigs
-    module Network.AWS.CloudFront.ListFieldLevelEncryptionConfigs,
+    -- ** ListFieldLevelEncryptionConfigs 
+    , module Network.AWS.CloudFront.ListFieldLevelEncryptionConfigs
 
-    -- ** ListDistributionsByKeyGroup
-    module Network.AWS.CloudFront.ListDistributionsByKeyGroup,
+    -- ** ListDistributionsByKeyGroup 
+    , module Network.AWS.CloudFront.ListDistributionsByKeyGroup
 
-    -- ** TagResource
-    module Network.AWS.CloudFront.TagResource,
+    -- ** TagResource 
+    , module Network.AWS.CloudFront.TagResource
 
-    -- ** GetStreamingDistribution
-    module Network.AWS.CloudFront.GetStreamingDistribution,
+    -- ** GetStreamingDistribution 
+    , module Network.AWS.CloudFront.GetStreamingDistribution
 
-    -- ** UpdateDistribution
-    module Network.AWS.CloudFront.UpdateDistribution,
+    -- ** UpdateDistribution 
+    , module Network.AWS.CloudFront.UpdateDistribution
 
-    -- ** DeleteDistribution
-    module Network.AWS.CloudFront.DeleteDistribution,
+    -- ** DeleteDistribution 
+    , module Network.AWS.CloudFront.DeleteDistribution
 
-    -- ** GetOriginRequestPolicy
-    module Network.AWS.CloudFront.GetOriginRequestPolicy,
+    -- ** GetOriginRequestPolicy 
+    , module Network.AWS.CloudFront.GetOriginRequestPolicy
 
-    -- ** UntagResource
-    module Network.AWS.CloudFront.UntagResource,
+    -- ** UntagResource 
+    , module Network.AWS.CloudFront.UntagResource
 
-    -- ** CreateMonitoringSubscription
-    module Network.AWS.CloudFront.CreateMonitoringSubscription,
+    -- ** CreateMonitoringSubscription 
+    , module Network.AWS.CloudFront.CreateMonitoringSubscription
 
-    -- ** ListDistributionsByWebACLId
-    module Network.AWS.CloudFront.ListDistributionsByWebACLId,
+    -- ** ListDistributionsByWebACLId 
+    , module Network.AWS.CloudFront.ListDistributionsByWebACLId
 
     -- ** ListDistributions (Paginated)
-    module Network.AWS.CloudFront.ListDistributions,
+    , module Network.AWS.CloudFront.ListDistributions
 
-    -- ** ListDistributionsByRealtimeLogConfig
-    module Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig,
+    -- ** ListDistributionsByRealtimeLogConfig 
+    , module Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig
 
-    -- ** CreateOriginRequestPolicy
-    module Network.AWS.CloudFront.CreateOriginRequestPolicy,
+    -- ** CreateOriginRequestPolicy 
+    , module Network.AWS.CloudFront.CreateOriginRequestPolicy
 
-    -- ** ListKeyGroups
-    module Network.AWS.CloudFront.ListKeyGroups,
+    -- ** ListKeyGroups 
+    , module Network.AWS.CloudFront.ListKeyGroups
 
-    -- ** ListFieldLevelEncryptionProfiles
-    module Network.AWS.CloudFront.ListFieldLevelEncryptionProfiles,
+    -- ** ListFieldLevelEncryptionProfiles 
+    , module Network.AWS.CloudFront.ListFieldLevelEncryptionProfiles
 
-    -- ** GetMonitoringSubscription
-    module Network.AWS.CloudFront.GetMonitoringSubscription,
+    -- ** GetMonitoringSubscription 
+    , module Network.AWS.CloudFront.GetMonitoringSubscription
 
-    -- ** UpdateKeyGroup
-    module Network.AWS.CloudFront.UpdateKeyGroup,
+    -- ** UpdateKeyGroup 
+    , module Network.AWS.CloudFront.UpdateKeyGroup
 
-    -- ** DeleteKeyGroup
-    module Network.AWS.CloudFront.DeleteKeyGroup,
+    -- ** DeleteKeyGroup 
+    , module Network.AWS.CloudFront.DeleteKeyGroup
 
-    -- ** ListOriginRequestPolicies
-    module Network.AWS.CloudFront.ListOriginRequestPolicies,
+    -- ** ListOriginRequestPolicies 
+    , module Network.AWS.CloudFront.ListOriginRequestPolicies
 
-    -- ** GetOriginRequestPolicyConfig
-    module Network.AWS.CloudFront.GetOriginRequestPolicyConfig,
+    -- ** GetOriginRequestPolicyConfig 
+    , module Network.AWS.CloudFront.GetOriginRequestPolicyConfig
 
     -- * Types
 
     -- ** EncryptionEntity
-    EncryptionEntity (..),
-    mkEncryptionEntity,
-    eePublicKeyId,
-    eeProviderId,
-    eeFieldPatterns,
+    , EncryptionEntity (..)
+    , mkEncryptionEntity
+    , eePublicKeyId
+    , eeProviderId
+    , eeFieldPatterns
 
     -- ** CloudFrontOriginAccessIdentityList
-    CloudFrontOriginAccessIdentityList (..),
-    mkCloudFrontOriginAccessIdentityList,
-    cfoailMarker,
-    cfoailMaxItems,
-    cfoailIsTruncated,
-    cfoailQuantity,
-    cfoailItems,
-    cfoailNextMarker,
+    , CloudFrontOriginAccessIdentityList (..)
+    , mkCloudFrontOriginAccessIdentityList
+    , cfoailMarker
+    , cfoailMaxItems
+    , cfoailIsTruncated
+    , cfoailQuantity
+    , cfoailItems
+    , cfoailNextMarker
 
     -- ** CachePolicy
-    CachePolicy (..),
-    mkCachePolicy,
-    cpId,
-    cpLastModifiedTime,
-    cpCachePolicyConfig,
+    , CachePolicy (..)
+    , mkCachePolicy
+    , cpId
+    , cpLastModifiedTime
+    , cpCachePolicyConfig
 
     -- ** Invalidation
-    Invalidation (..),
-    mkInvalidation,
-    iId,
-    iStatus,
-    iCreateTime,
-    iInvalidationBatch,
+    , Invalidation (..)
+    , mkInvalidation
+    , iId
+    , iStatus
+    , iCreateTime
+    , iInvalidationBatch
 
     -- ** SSLSupportMethod
-    SSLSupportMethod (..),
+    , SSLSupportMethod (..)
 
     -- ** AllowedMethods
-    AllowedMethods (..),
-    mkAllowedMethods,
-    amQuantity,
-    amItems,
-    amCachedMethods,
+    , AllowedMethods (..)
+    , mkAllowedMethods
+    , amQuantity
+    , amItems
+    , amCachedMethods
 
     -- ** OriginGroupFailoverCriteria
-    OriginGroupFailoverCriteria (..),
-    mkOriginGroupFailoverCriteria,
-    ogfcStatusCodes,
+    , OriginGroupFailoverCriteria (..)
+    , mkOriginGroupFailoverCriteria
+    , ogfcStatusCodes
 
     -- ** AliasICPRecordal
-    AliasICPRecordal (..),
-    mkAliasICPRecordal,
-    aicprCNAME,
-    aicprICPRecordalStatus,
+    , AliasICPRecordal (..)
+    , mkAliasICPRecordal
+    , aicprCNAME
+    , aicprICPRecordalStatus
 
     -- ** CloudFrontOriginAccessIdentityConfig
-    CloudFrontOriginAccessIdentityConfig (..),
-    mkCloudFrontOriginAccessIdentityConfig,
-    cfoaicCallerReference,
-    cfoaicComment,
+    , CloudFrontOriginAccessIdentityConfig (..)
+    , mkCloudFrontOriginAccessIdentityConfig
+    , cfoaicCallerReference
+    , cfoaicComment
 
     -- ** Origin
-    Origin (..),
-    mkOrigin,
-    oId,
-    oDomainName,
-    oConnectionAttempts,
-    oConnectionTimeout,
-    oCustomHeaders,
-    oCustomOriginConfig,
-    oOriginPath,
-    oOriginShield,
-    oS3OriginConfig,
+    , Origin (..)
+    , mkOrigin
+    , oId
+    , oDomainName
+    , oConnectionAttempts
+    , oConnectionTimeout
+    , oCustomHeaders
+    , oCustomOriginConfig
+    , oOriginPath
+    , oOriginShield
+    , oS3OriginConfig
 
     -- ** FieldLevelEncryptionProfileSummary
-    FieldLevelEncryptionProfileSummary (..),
-    mkFieldLevelEncryptionProfileSummary,
-    flepsId,
-    flepsLastModifiedTime,
-    flepsName,
-    flepsEncryptionEntities,
-    flepsComment,
+    , FieldLevelEncryptionProfileSummary (..)
+    , mkFieldLevelEncryptionProfileSummary
+    , flepsId
+    , flepsLastModifiedTime
+    , flepsName
+    , flepsEncryptionEntities
+    , flepsComment
 
     -- ** ViewerProtocolPolicy
-    ViewerProtocolPolicy (..),
+    , ViewerProtocolPolicy (..)
 
     -- ** StreamingDistributionList
-    StreamingDistributionList (..),
-    mkStreamingDistributionList,
-    sdlMarker,
-    sdlMaxItems,
-    sdlIsTruncated,
-    sdlQuantity,
-    sdlItems,
-    sdlNextMarker,
+    , StreamingDistributionList (..)
+    , mkStreamingDistributionList
+    , sdlMarker
+    , sdlMaxItems
+    , sdlIsTruncated
+    , sdlQuantity
+    , sdlItems
+    , sdlNextMarker
 
     -- ** KeyGroupSummary
-    KeyGroupSummary (..),
-    mkKeyGroupSummary,
-    kgsKeyGroup,
+    , KeyGroupSummary (..)
+    , mkKeyGroupSummary
+    , kgsKeyGroup
 
     -- ** StreamingDistributionConfig
-    StreamingDistributionConfig (..),
-    mkStreamingDistributionConfig,
-    sdcCallerReference,
-    sdcS3Origin,
-    sdcComment,
-    sdcTrustedSigners,
-    sdcEnabled,
-    sdcAliases,
-    sdcLogging,
-    sdcPriceClass,
+    , StreamingDistributionConfig (..)
+    , mkStreamingDistributionConfig
+    , sdcCallerReference
+    , sdcS3Origin
+    , sdcComment
+    , sdcTrustedSigners
+    , sdcEnabled
+    , sdcAliases
+    , sdcLogging
+    , sdcPriceClass
 
     -- ** Signer
-    Signer (..),
-    mkSigner,
-    sAwsAccountNumber,
-    sKeyPairIds,
+    , Signer (..)
+    , mkSigner
+    , sAwsAccountNumber
+    , sKeyPairIds
 
     -- ** CookiePreference
-    CookiePreference (..),
-    mkCookiePreference,
-    cpForward,
-    cpWhitelistedNames,
+    , CookiePreference (..)
+    , mkCookiePreference
+    , cpForward
+    , cpWhitelistedNames
 
     -- ** QueryArgProfileConfig
-    QueryArgProfileConfig (..),
-    mkQueryArgProfileConfig,
-    qapcForwardWhenQueryArgProfileIsUnknown,
-    qapcQueryArgProfiles,
+    , QueryArgProfileConfig (..)
+    , mkQueryArgProfileConfig
+    , qapcForwardWhenQueryArgProfileIsUnknown
+    , qapcQueryArgProfiles
 
     -- ** CustomHeaders
-    CustomHeaders (..),
-    mkCustomHeaders,
-    chQuantity,
-    chItems,
+    , CustomHeaders (..)
+    , mkCustomHeaders
+    , chQuantity
+    , chItems
 
     -- ** CachePolicyHeaderBehavior
-    CachePolicyHeaderBehavior (..),
+    , CachePolicyHeaderBehavior (..)
 
     -- ** LambdaFunctionAssociations
-    LambdaFunctionAssociations (..),
-    mkLambdaFunctionAssociations,
-    lfaQuantity,
-    lfaItems,
+    , LambdaFunctionAssociations (..)
+    , mkLambdaFunctionAssociations
+    , lfaQuantity
+    , lfaItems
 
     -- ** QueryStringCacheKeys
-    QueryStringCacheKeys (..),
-    mkQueryStringCacheKeys,
-    qsckQuantity,
-    qsckItems,
+    , QueryStringCacheKeys (..)
+    , mkQueryStringCacheKeys
+    , qsckQuantity
+    , qsckItems
 
     -- ** CachePolicyQueryStringBehavior
-    CachePolicyQueryStringBehavior (..),
+    , CachePolicyQueryStringBehavior (..)
 
     -- ** OriginRequestPolicyList
-    OriginRequestPolicyList (..),
-    mkOriginRequestPolicyList,
-    orplMaxItems,
-    orplQuantity,
-    orplItems,
-    orplNextMarker,
+    , OriginRequestPolicyList (..)
+    , mkOriginRequestPolicyList
+    , orplMaxItems
+    , orplQuantity
+    , orplItems
+    , orplNextMarker
 
     -- ** FieldLevelEncryptionSummary
-    FieldLevelEncryptionSummary (..),
-    mkFieldLevelEncryptionSummary,
-    flesId,
-    flesLastModifiedTime,
-    flesComment,
-    flesContentTypeProfileConfig,
-    flesQueryArgProfileConfig,
+    , FieldLevelEncryptionSummary (..)
+    , mkFieldLevelEncryptionSummary
+    , flesId
+    , flesLastModifiedTime
+    , flesComment
+    , flesContentTypeProfileConfig
+    , flesQueryArgProfileConfig
 
     -- ** OriginRequestPolicyConfig
-    OriginRequestPolicyConfig (..),
-    mkOriginRequestPolicyConfig,
-    orpcName,
-    orpcHeadersConfig,
-    orpcCookiesConfig,
-    orpcQueryStringsConfig,
-    orpcComment,
+    , OriginRequestPolicyConfig (..)
+    , mkOriginRequestPolicyConfig
+    , orpcName
+    , orpcHeadersConfig
+    , orpcCookiesConfig
+    , orpcQueryStringsConfig
+    , orpcComment
 
     -- ** MonitoringSubscription
-    MonitoringSubscription (..),
-    mkMonitoringSubscription,
-    msRealtimeMetricsSubscriptionConfig,
+    , MonitoringSubscription (..)
+    , mkMonitoringSubscription
+    , msRealtimeMetricsSubscriptionConfig
 
     -- ** ActiveTrustedKeyGroups
-    ActiveTrustedKeyGroups (..),
-    mkActiveTrustedKeyGroups,
-    atkgEnabled,
-    atkgQuantity,
-    atkgItems,
+    , ActiveTrustedKeyGroups (..)
+    , mkActiveTrustedKeyGroups
+    , atkgEnabled
+    , atkgQuantity
+    , atkgItems
 
     -- ** OriginProtocolPolicy
-    OriginProtocolPolicy (..),
+    , OriginProtocolPolicy (..)
 
     -- ** Tag
-    Tag (..),
-    mkTag,
-    tKey,
-    tValue,
+    , Tag (..)
+    , mkTag
+    , tKey
+    , tValue
 
     -- ** ContentTypeProfile
-    ContentTypeProfile (..),
-    mkContentTypeProfile,
-    ctpFormat,
-    ctpContentType,
-    ctpProfileId,
+    , ContentTypeProfile (..)
+    , mkContentTypeProfile
+    , ctpFormat
+    , ctpContentType
+    , ctpProfileId
 
     -- ** Distribution
-    Distribution (..),
-    mkDistribution,
-    dId,
-    dARN,
-    dStatus,
-    dLastModifiedTime,
-    dInProgressInvalidationBatches,
-    dDomainName,
-    dDistributionConfig,
-    dActiveTrustedKeyGroups,
-    dActiveTrustedSigners,
-    dAliasICPRecordals,
+    , Distribution (..)
+    , mkDistribution
+    , dId
+    , dARN
+    , dStatus
+    , dLastModifiedTime
+    , dInProgressInvalidationBatches
+    , dDomainName
+    , dDistributionConfig
+    , dActiveTrustedKeyGroups
+    , dActiveTrustedSigners
+    , dAliasICPRecordals
 
     -- ** HttpVersion
-    HttpVersion (..),
+    , HttpVersion (..)
 
     -- ** FieldLevelEncryptionProfileList
-    FieldLevelEncryptionProfileList (..),
-    mkFieldLevelEncryptionProfileList,
-    fleplMaxItems,
-    fleplQuantity,
-    fleplItems,
-    fleplNextMarker,
+    , FieldLevelEncryptionProfileList (..)
+    , mkFieldLevelEncryptionProfileList
+    , fleplMaxItems
+    , fleplQuantity
+    , fleplItems
+    , fleplNextMarker
 
     -- ** SslProtocol
-    SslProtocol (..),
+    , SslProtocol (..)
 
     -- ** KeyGroupConfig
-    KeyGroupConfig (..),
-    mkKeyGroupConfig,
-    kgcName,
-    kgcItems,
-    kgcComment,
+    , KeyGroupConfig (..)
+    , mkKeyGroupConfig
+    , kgcName
+    , kgcItems
+    , kgcComment
 
     -- ** RealtimeLogConfigs
-    RealtimeLogConfigs (..),
-    mkRealtimeLogConfigs,
-    rlcMaxItems,
-    rlcIsTruncated,
-    rlcMarker,
-    rlcItems,
-    rlcNextMarker,
+    , RealtimeLogConfigs (..)
+    , mkRealtimeLogConfigs
+    , rlcMaxItems
+    , rlcIsTruncated
+    , rlcMarker
+    , rlcItems
+    , rlcNextMarker
 
     -- ** FieldLevelEncryptionProfileConfig
-    FieldLevelEncryptionProfileConfig (..),
-    mkFieldLevelEncryptionProfileConfig,
-    flepcName,
-    flepcCallerReference,
-    flepcEncryptionEntities,
-    flepcComment,
+    , FieldLevelEncryptionProfileConfig (..)
+    , mkFieldLevelEncryptionProfileConfig
+    , flepcName
+    , flepcCallerReference
+    , flepcEncryptionEntities
+    , flepcComment
 
     -- ** CloudFrontOriginAccessIdentitySummary
-    CloudFrontOriginAccessIdentitySummary (..),
-    mkCloudFrontOriginAccessIdentitySummary,
-    cfoaisId,
-    cfoaisS3CanonicalUserId,
-    cfoaisComment,
+    , CloudFrontOriginAccessIdentitySummary (..)
+    , mkCloudFrontOriginAccessIdentitySummary
+    , cfoaisId
+    , cfoaisS3CanonicalUserId
+    , cfoaisComment
 
     -- ** KeyGroupList
-    KeyGroupList (..),
-    mkKeyGroupList,
-    kglMaxItems,
-    kglQuantity,
-    kglItems,
-    kglNextMarker,
+    , KeyGroupList (..)
+    , mkKeyGroupList
+    , kglMaxItems
+    , kglQuantity
+    , kglItems
+    , kglNextMarker
 
     -- ** StreamingDistributionSummary
-    StreamingDistributionSummary (..),
-    mkStreamingDistributionSummary,
-    sdsId,
-    sdsARN,
-    sdsStatus,
-    sdsLastModifiedTime,
-    sdsDomainName,
-    sdsS3Origin,
-    sdsAliases,
-    sdsTrustedSigners,
-    sdsComment,
-    sdsPriceClass,
-    sdsEnabled,
+    , StreamingDistributionSummary (..)
+    , mkStreamingDistributionSummary
+    , sdsId
+    , sdsARN
+    , sdsStatus
+    , sdsLastModifiedTime
+    , sdsDomainName
+    , sdsS3Origin
+    , sdsAliases
+    , sdsTrustedSigners
+    , sdsComment
+    , sdsPriceClass
+    , sdsEnabled
 
     -- ** OriginRequestPolicy
-    OriginRequestPolicy (..),
-    mkOriginRequestPolicy,
-    orpId,
-    orpLastModifiedTime,
-    orpOriginRequestPolicyConfig,
+    , OriginRequestPolicy (..)
+    , mkOriginRequestPolicy
+    , orpId
+    , orpLastModifiedTime
+    , orpOriginRequestPolicyConfig
 
     -- ** CustomOriginConfig
-    CustomOriginConfig (..),
-    mkCustomOriginConfig,
-    cocHTTPPort,
-    cocHTTPSPort,
-    cocOriginProtocolPolicy,
-    cocOriginKeepaliveTimeout,
-    cocOriginReadTimeout,
-    cocOriginSslProtocols,
-
-    -- ** String
-    String (..),
+    , CustomOriginConfig (..)
+    , mkCustomOriginConfig
+    , cocHTTPPort
+    , cocHTTPSPort
+    , cocOriginProtocolPolicy
+    , cocOriginKeepaliveTimeout
+    , cocOriginReadTimeout
+    , cocOriginSslProtocols
 
     -- ** QueryArgProfile
-    QueryArgProfile (..),
-    mkQueryArgProfile,
-    qapQueryArg,
-    qapProfileId,
+    , QueryArgProfile (..)
+    , mkQueryArgProfile
+    , qapQueryArg
+    , qapProfileId
 
     -- ** FieldLevelEncryptionProfile
-    FieldLevelEncryptionProfile (..),
-    mkFieldLevelEncryptionProfile,
-    flepId,
-    flepLastModifiedTime,
-    flepFieldLevelEncryptionProfileConfig,
+    , FieldLevelEncryptionProfile (..)
+    , mkFieldLevelEncryptionProfile
+    , flepId
+    , flepLastModifiedTime
+    , flepFieldLevelEncryptionProfileConfig
 
     -- ** OriginRequestPolicyCookiesConfig
-    OriginRequestPolicyCookiesConfig (..),
-    mkOriginRequestPolicyCookiesConfig,
-    orpccCookieBehavior,
-    orpccCookies,
+    , OriginRequestPolicyCookiesConfig (..)
+    , mkOriginRequestPolicyCookiesConfig
+    , orpccCookieBehavior
+    , orpccCookies
 
     -- ** OriginGroups
-    OriginGroups (..),
-    mkOriginGroups,
-    ogQuantity,
-    ogItems,
+    , OriginGroups (..)
+    , mkOriginGroups
+    , ogQuantity
+    , ogItems
 
     -- ** Aliases
-    Aliases (..),
-    mkAliases,
-    aQuantity,
-    aItems,
+    , Aliases (..)
+    , mkAliases
+    , aQuantity
+    , aItems
 
     -- ** InvalidationBatch
-    InvalidationBatch (..),
-    mkInvalidationBatch,
-    ibPaths,
-    ibCallerReference,
+    , InvalidationBatch (..)
+    , mkInvalidationBatch
+    , ibPaths
+    , ibCallerReference
 
     -- ** CertificateSource
-    CertificateSource (..),
+    , CertificateSource (..)
 
     -- ** InvalidationSummary
-    InvalidationSummary (..),
-    mkInvalidationSummary,
-    isId,
-    isCreateTime,
-    isStatus,
+    , InvalidationSummary (..)
+    , mkInvalidationSummary
+    , isId
+    , isCreateTime
+    , isStatus
 
     -- ** LambdaFunctionARN
-    LambdaFunctionARN (..),
+    , LambdaFunctionARN (..)
 
     -- ** DistributionConfig
-    DistributionConfig (..),
-    mkDistributionConfig,
-    dcCallerReference,
-    dcOrigins,
-    dcDefaultCacheBehavior,
-    dcComment,
-    dcEnabled,
-    dcAliases,
-    dcCacheBehaviors,
-    dcCustomErrorResponses,
-    dcDefaultRootObject,
-    dcHttpVersion,
-    dcIsIPV6Enabled,
-    dcLogging,
-    dcOriginGroups,
-    dcPriceClass,
-    dcRestrictions,
-    dcViewerCertificate,
-    dcWebACLId,
+    , DistributionConfig (..)
+    , mkDistributionConfig
+    , dcCallerReference
+    , dcOrigins
+    , dcDefaultCacheBehavior
+    , dcComment
+    , dcEnabled
+    , dcAliases
+    , dcCacheBehaviors
+    , dcCustomErrorResponses
+    , dcDefaultRootObject
+    , dcHttpVersion
+    , dcIsIPV6Enabled
+    , dcLogging
+    , dcOriginGroups
+    , dcPriceClass
+    , dcRestrictions
+    , dcViewerCertificate
+    , dcWebACLId
 
     -- ** CachePolicySummary
-    CachePolicySummary (..),
-    mkCachePolicySummary,
-    cpsType,
-    cpsCachePolicy,
+    , CachePolicySummary (..)
+    , mkCachePolicySummary
+    , cpsType
+    , cpsCachePolicy
 
     -- ** CacheBehavior
-    CacheBehavior (..),
-    mkCacheBehavior,
-    cbPathPattern,
-    cbTargetOriginId,
-    cbViewerProtocolPolicy,
-    cbAllowedMethods,
-    cbCachePolicyId,
-    cbCompress,
-    cbDefaultTTL,
-    cbFieldLevelEncryptionId,
-    cbForwardedValues,
-    cbLambdaFunctionAssociations,
-    cbMaxTTL,
-    cbMinTTL,
-    cbOriginRequestPolicyId,
-    cbRealtimeLogConfigArn,
-    cbSmoothStreaming,
-    cbTrustedKeyGroups,
-    cbTrustedSigners,
+    , CacheBehavior (..)
+    , mkCacheBehavior
+    , cbPathPattern
+    , cbTargetOriginId
+    , cbViewerProtocolPolicy
+    , cbAllowedMethods
+    , cbCachePolicyId
+    , cbCompress
+    , cbDefaultTTL
+    , cbFieldLevelEncryptionId
+    , cbForwardedValues
+    , cbLambdaFunctionAssociations
+    , cbMaxTTL
+    , cbMinTTL
+    , cbOriginRequestPolicyId
+    , cbRealtimeLogConfigArn
+    , cbSmoothStreaming
+    , cbTrustedKeyGroups
+    , cbTrustedSigners
 
     -- ** KeyGroup
-    KeyGroup (..),
-    mkKeyGroup,
-    kgId,
-    kgLastModifiedTime,
-    kgKeyGroupConfig,
+    , KeyGroup (..)
+    , mkKeyGroup
+    , kgId
+    , kgLastModifiedTime
+    , kgKeyGroupConfig
 
     -- ** ContentTypeProfileConfig
-    ContentTypeProfileConfig (..),
-    mkContentTypeProfileConfig,
-    ctpcForwardWhenContentTypeIsUnknown,
-    ctpcContentTypeProfiles,
+    , ContentTypeProfileConfig (..)
+    , mkContentTypeProfileConfig
+    , ctpcForwardWhenContentTypeIsUnknown
+    , ctpcContentTypeProfiles
 
     -- ** ParametersInCacheKeyAndForwardedToOrigin
-    ParametersInCacheKeyAndForwardedToOrigin (..),
-    mkParametersInCacheKeyAndForwardedToOrigin,
-    pickaftoEnableAcceptEncodingGzip,
-    pickaftoHeadersConfig,
-    pickaftoCookiesConfig,
-    pickaftoQueryStringsConfig,
-    pickaftoEnableAcceptEncodingBrotli,
+    , ParametersInCacheKeyAndForwardedToOrigin (..)
+    , mkParametersInCacheKeyAndForwardedToOrigin
+    , pickaftoEnableAcceptEncodingGzip
+    , pickaftoHeadersConfig
+    , pickaftoCookiesConfig
+    , pickaftoQueryStringsConfig
+    , pickaftoEnableAcceptEncodingBrotli
 
     -- ** DistributionList
-    DistributionList (..),
-    mkDistributionList,
-    dlMarker,
-    dlMaxItems,
-    dlIsTruncated,
-    dlQuantity,
-    dlItems,
-    dlNextMarker,
+    , DistributionList (..)
+    , mkDistributionList
+    , dlMarker
+    , dlMaxItems
+    , dlIsTruncated
+    , dlQuantity
+    , dlItems
+    , dlNextMarker
 
     -- ** Format
-    Format (..),
+    , Format (..)
 
     -- ** KeyPairIds
-    KeyPairIds (..),
-    mkKeyPairIds,
-    kpiQuantity,
-    kpiItems,
+    , KeyPairIds (..)
+    , mkKeyPairIds
+    , kpiQuantity
+    , kpiItems
 
     -- ** PriceClass
-    PriceClass (..),
+    , PriceClass (..)
 
     -- ** OriginShieldRegion
-    OriginShieldRegion (..),
+    , OriginShieldRegion (..)
 
     -- ** OriginGroup
-    OriginGroup (..),
-    mkOriginGroup,
-    ogId,
-    ogFailoverCriteria,
-    ogMembers,
+    , OriginGroup (..)
+    , mkOriginGroup
+    , ogId
+    , ogFailoverCriteria
+    , ogMembers
 
     -- ** CustomErrorResponses
-    CustomErrorResponses (..),
-    mkCustomErrorResponses,
-    cerQuantity,
-    cerItems,
+    , CustomErrorResponses (..)
+    , mkCustomErrorResponses
+    , cerQuantity
+    , cerItems
 
     -- ** OriginRequestPolicyHeadersConfig
-    OriginRequestPolicyHeadersConfig (..),
-    mkOriginRequestPolicyHeadersConfig,
-    orphcHeaderBehavior,
-    orphcHeaders,
+    , OriginRequestPolicyHeadersConfig (..)
+    , mkOriginRequestPolicyHeadersConfig
+    , orphcHeaderBehavior
+    , orphcHeaders
 
     -- ** ICPRecordalStatus
-    ICPRecordalStatus (..),
+    , ICPRecordalStatus (..)
 
     -- ** TagKeys
-    TagKeys (..),
-    mkTagKeys,
-    tkItems,
+    , TagKeys (..)
+    , mkTagKeys
+    , tkItems
 
     -- ** PublicKey
-    PublicKey (..),
-    mkPublicKey,
-    pkId,
-    pkCreatedTime,
-    pkPublicKeyConfig,
+    , PublicKey (..)
+    , mkPublicKey
+    , pkId
+    , pkCreatedTime
+    , pkPublicKeyConfig
 
     -- ** S3OriginConfig
-    S3OriginConfig (..),
-    mkS3OriginConfig,
-    socOriginAccessIdentity,
+    , S3OriginConfig (..)
+    , mkS3OriginConfig
+    , socOriginAccessIdentity
 
     -- ** OriginRequestPolicyQueryStringBehavior
-    OriginRequestPolicyQueryStringBehavior (..),
+    , OriginRequestPolicyQueryStringBehavior (..)
 
     -- ** KinesisStreamConfig
-    KinesisStreamConfig (..),
-    mkKinesisStreamConfig,
-    kscRoleARN,
-    kscStreamARN,
+    , KinesisStreamConfig (..)
+    , mkKinesisStreamConfig
+    , kscRoleARN
+    , kscStreamARN
 
     -- ** TrustedKeyGroups
-    TrustedKeyGroups (..),
-    mkTrustedKeyGroups,
-    tkgEnabled,
-    tkgQuantity,
-    tkgItems,
+    , TrustedKeyGroups (..)
+    , mkTrustedKeyGroups
+    , tkgEnabled
+    , tkgQuantity
+    , tkgItems
 
     -- ** GeoRestriction
-    GeoRestriction (..),
-    mkGeoRestriction,
-    grRestrictionType,
-    grQuantity,
-    grItems,
+    , GeoRestriction (..)
+    , mkGeoRestriction
+    , grRestrictionType
+    , grQuantity
+    , grItems
 
     -- ** RealtimeLogConfig
-    RealtimeLogConfig (..),
-    mkRealtimeLogConfig,
-    rlcARN,
-    rlcName,
-    rlcSamplingRate,
-    rlcEndPoints,
-    rlcFields,
+    , RealtimeLogConfig (..)
+    , mkRealtimeLogConfig
+    , rlcARN
+    , rlcName
+    , rlcSamplingRate
+    , rlcEndPoints
+    , rlcFields
 
     -- ** S3Origin
-    S3Origin (..),
-    mkS3Origin,
-    soDomainName,
-    soOriginAccessIdentity,
+    , S3Origin (..)
+    , mkS3Origin
+    , soDomainName
+    , soOriginAccessIdentity
 
     -- ** PublicKeyList
-    PublicKeyList (..),
-    mkPublicKeyList,
-    pklMaxItems,
-    pklQuantity,
-    pklItems,
-    pklNextMarker,
+    , PublicKeyList (..)
+    , mkPublicKeyList
+    , pklMaxItems
+    , pklQuantity
+    , pklItems
+    , pklNextMarker
 
     -- ** Headers
-    Headers (..),
-    mkHeaders,
-    hQuantity,
-    hItems,
+    , Headers (..)
+    , mkHeaders
+    , hQuantity
+    , hItems
 
     -- ** CachePolicyCookieBehavior
-    CachePolicyCookieBehavior (..),
+    , CachePolicyCookieBehavior (..)
 
     -- ** PublicKeyConfig
-    PublicKeyConfig (..),
-    mkPublicKeyConfig,
-    pkcCallerReference,
-    pkcName,
-    pkcEncodedKey,
-    pkcComment,
+    , PublicKeyConfig (..)
+    , mkPublicKeyConfig
+    , pkcCallerReference
+    , pkcName
+    , pkcEncodedKey
+    , pkcComment
 
     -- ** LambdaFunctionAssociation
-    LambdaFunctionAssociation (..),
-    mkLambdaFunctionAssociation,
-    lfaLambdaFunctionARN,
-    lfaEventType,
-    lfaIncludeBody,
+    , LambdaFunctionAssociation (..)
+    , mkLambdaFunctionAssociation
+    , lfaLambdaFunctionARN
+    , lfaEventType
+    , lfaIncludeBody
 
     -- ** EventType
-    EventType (..),
+    , EventType (..)
 
     -- ** CachedMethods
-    CachedMethods (..),
-    mkCachedMethods,
-    cmQuantity,
-    cmItems,
+    , CachedMethods (..)
+    , mkCachedMethods
+    , cmQuantity
+    , cmItems
 
     -- ** CachePolicyType
-    CachePolicyType (..),
+    , CachePolicyType (..)
 
     -- ** ViewerCertificate
-    ViewerCertificate (..),
-    mkViewerCertificate,
-    vcACMCertificateArn,
-    vcCertificate,
-    vcCertificateSource,
-    vcCloudFrontDefaultCertificate,
-    vcIAMCertificateId,
-    vcMinimumProtocolVersion,
-    vcSSLSupportMethod,
+    , ViewerCertificate (..)
+    , mkViewerCertificate
+    , vcACMCertificateArn
+    , vcCertificate
+    , vcCertificateSource
+    , vcCloudFrontDefaultCertificate
+    , vcIAMCertificateId
+    , vcMinimumProtocolVersion
+    , vcSSLSupportMethod
 
     -- ** RealtimeMetricsSubscriptionStatus
-    RealtimeMetricsSubscriptionStatus (..),
+    , RealtimeMetricsSubscriptionStatus (..)
 
     -- ** ResourceARN
-    ResourceARN (..),
+    , ResourceARN (..)
 
     -- ** Restrictions
-    Restrictions (..),
-    mkRestrictions,
-    rGeoRestriction,
+    , Restrictions (..)
+    , mkRestrictions
+    , rGeoRestriction
 
     -- ** KGKeyPairIds
-    KGKeyPairIds (..),
-    mkKGKeyPairIds,
-    kgkpiKeyGroupId,
-    kgkpiKeyPairIds,
+    , KGKeyPairIds (..)
+    , mkKGKeyPairIds
+    , kgkpiKeyGroupId
+    , kgkpiKeyPairIds
 
     -- ** Origins
-    Origins (..),
-    mkOrigins,
-    oQuantity,
-    oItems,
+    , Origins (..)
+    , mkOrigins
+    , oQuantity
+    , oItems
 
     -- ** Method
-    Method (..),
+    , Method (..)
 
     -- ** StreamingDistributionConfigWithTags
-    StreamingDistributionConfigWithTags (..),
-    mkStreamingDistributionConfigWithTags,
-    sdcwtStreamingDistributionConfig,
-    sdcwtTags,
+    , StreamingDistributionConfigWithTags (..)
+    , mkStreamingDistributionConfigWithTags
+    , sdcwtStreamingDistributionConfig
+    , sdcwtTags
 
     -- ** MinimumProtocolVersion
-    MinimumProtocolVersion (..),
+    , MinimumProtocolVersion (..)
 
     -- ** ForwardedValues
-    ForwardedValues (..),
-    mkForwardedValues,
-    fvQueryString,
-    fvCookies,
-    fvHeaders,
-    fvQueryStringCacheKeys,
+    , ForwardedValues (..)
+    , mkForwardedValues
+    , fvQueryString
+    , fvCookies
+    , fvHeaders
+    , fvQueryStringCacheKeys
 
     -- ** EncryptionEntities
-    EncryptionEntities (..),
-    mkEncryptionEntities,
-    eeQuantity,
-    eeItems,
+    , EncryptionEntities (..)
+    , mkEncryptionEntities
+    , eeQuantity
+    , eeItems
 
     -- ** StatusCodes
-    StatusCodes (..),
-    mkStatusCodes,
-    scQuantity,
-    scItems,
+    , StatusCodes (..)
+    , mkStatusCodes
+    , scQuantity
+    , scItems
 
     -- ** TrustedSigners
-    TrustedSigners (..),
-    mkTrustedSigners,
-    tsEnabled,
-    tsQuantity,
-    tsItems,
+    , TrustedSigners (..)
+    , mkTrustedSigners
+    , tsEnabled
+    , tsQuantity
+    , tsItems
 
     -- ** PublicKeySummary
-    PublicKeySummary (..),
-    mkPublicKeySummary,
-    pksId,
-    pksName,
-    pksCreatedTime,
-    pksEncodedKey,
-    pksComment,
+    , PublicKeySummary (..)
+    , mkPublicKeySummary
+    , pksId
+    , pksName
+    , pksCreatedTime
+    , pksEncodedKey
+    , pksComment
 
     -- ** CachePolicyQueryStringsConfig
-    CachePolicyQueryStringsConfig (..),
-    mkCachePolicyQueryStringsConfig,
-    cpqscQueryStringBehavior,
-    cpqscQueryStrings,
+    , CachePolicyQueryStringsConfig (..)
+    , mkCachePolicyQueryStringsConfig
+    , cpqscQueryStringBehavior
+    , cpqscQueryStrings
 
     -- ** CachePolicyHeadersConfig
-    CachePolicyHeadersConfig (..),
-    mkCachePolicyHeadersConfig,
-    cphcHeaderBehavior,
-    cphcHeaders,
+    , CachePolicyHeadersConfig (..)
+    , mkCachePolicyHeadersConfig
+    , cphcHeaderBehavior
+    , cphcHeaders
 
     -- ** ItemSelection
-    ItemSelection (..),
+    , ItemSelection (..)
 
     -- ** OriginRequestPolicyCookieBehavior
-    OriginRequestPolicyCookieBehavior (..),
+    , OriginRequestPolicyCookieBehavior (..)
 
     -- ** OriginSslProtocols
-    OriginSslProtocols (..),
-    mkOriginSslProtocols,
-    ospQuantity,
-    ospItems,
+    , OriginSslProtocols (..)
+    , mkOriginSslProtocols
+    , ospQuantity
+    , ospItems
 
     -- ** DistributionIdList
-    DistributionIdList (..),
-    mkDistributionIdList,
-    dilMarker,
-    dilMaxItems,
-    dilIsTruncated,
-    dilQuantity,
-    dilItems,
-    dilNextMarker,
+    , DistributionIdList (..)
+    , mkDistributionIdList
+    , dilMarker
+    , dilMaxItems
+    , dilIsTruncated
+    , dilQuantity
+    , dilItems
+    , dilNextMarker
 
     -- ** OriginRequestPolicyType
-    OriginRequestPolicyType (..),
+    , OriginRequestPolicyType (..)
 
     -- ** TagKey
-    TagKey (..),
+    , TagKey (..)
 
     -- ** StreamingLoggingConfig
-    StreamingLoggingConfig (..),
-    mkStreamingLoggingConfig,
-    slcEnabled,
-    slcBucket,
-    slcPrefix,
+    , StreamingLoggingConfig (..)
+    , mkStreamingLoggingConfig
+    , slcEnabled
+    , slcBucket
+    , slcPrefix
 
     -- ** OriginGroupMembers
-    OriginGroupMembers (..),
-    mkOriginGroupMembers,
-    ogmQuantity,
-    ogmItems,
+    , OriginGroupMembers (..)
+    , mkOriginGroupMembers
+    , ogmQuantity
+    , ogmItems
 
     -- ** OriginCustomHeader
-    OriginCustomHeader (..),
-    mkOriginCustomHeader,
-    ochHeaderName,
-    ochHeaderValue,
+    , OriginCustomHeader (..)
+    , mkOriginCustomHeader
+    , ochHeaderName
+    , ochHeaderValue
 
     -- ** CookieNames
-    CookieNames (..),
-    mkCookieNames,
-    cnQuantity,
-    cnItems,
+    , CookieNames (..)
+    , mkCookieNames
+    , cnQuantity
+    , cnItems
 
     -- ** CustomErrorResponse
-    CustomErrorResponse (..),
-    mkCustomErrorResponse,
-    cerErrorCode,
-    cerErrorCachingMinTTL,
-    cerResponseCode,
-    cerResponsePagePath,
+    , CustomErrorResponse (..)
+    , mkCustomErrorResponse
+    , cerErrorCode
+    , cerErrorCachingMinTTL
+    , cerResponseCode
+    , cerResponsePagePath
 
     -- ** EndPoint
-    EndPoint (..),
-    mkEndPoint,
-    epStreamType,
-    epKinesisStreamConfig,
+    , EndPoint (..)
+    , mkEndPoint
+    , epStreamType
+    , epKinesisStreamConfig
 
     -- ** QueryStringNames
-    QueryStringNames (..),
-    mkQueryStringNames,
-    qsnQuantity,
-    qsnItems,
+    , QueryStringNames (..)
+    , mkQueryStringNames
+    , qsnQuantity
+    , qsnItems
 
     -- ** FieldLevelEncryption
-    FieldLevelEncryption (..),
-    mkFieldLevelEncryption,
-    fleId,
-    fleLastModifiedTime,
-    fleFieldLevelEncryptionConfig,
+    , FieldLevelEncryption (..)
+    , mkFieldLevelEncryption
+    , fleId
+    , fleLastModifiedTime
+    , fleFieldLevelEncryptionConfig
 
     -- ** DistributionConfigWithTags
-    DistributionConfigWithTags (..),
-    mkDistributionConfigWithTags,
-    dcwtDistributionConfig,
-    dcwtTags,
+    , DistributionConfigWithTags (..)
+    , mkDistributionConfigWithTags
+    , dcwtDistributionConfig
+    , dcwtTags
 
     -- ** OriginRequestPolicyQueryStringsConfig
-    OriginRequestPolicyQueryStringsConfig (..),
-    mkOriginRequestPolicyQueryStringsConfig,
-    orpqscQueryStringBehavior,
-    orpqscQueryStrings,
+    , OriginRequestPolicyQueryStringsConfig (..)
+    , mkOriginRequestPolicyQueryStringsConfig
+    , orpqscQueryStringBehavior
+    , orpqscQueryStrings
 
     -- ** OriginGroupMember
-    OriginGroupMember (..),
-    mkOriginGroupMember,
-    ogmOriginId,
+    , OriginGroupMember (..)
+    , mkOriginGroupMember
+    , ogmOriginId
 
     -- ** OriginShield
-    OriginShield (..),
-    mkOriginShield,
-    osEnabled,
-    osOriginShieldRegion,
+    , OriginShield (..)
+    , mkOriginShield
+    , osEnabled
+    , osOriginShieldRegion
 
     -- ** CacheBehaviors
-    CacheBehaviors (..),
-    mkCacheBehaviors,
-    cbQuantity,
-    cbItems,
+    , CacheBehaviors (..)
+    , mkCacheBehaviors
+    , cbQuantity
+    , cbItems
 
     -- ** DefaultCacheBehavior
-    DefaultCacheBehavior (..),
-    mkDefaultCacheBehavior,
-    dcbTargetOriginId,
-    dcbViewerProtocolPolicy,
-    dcbAllowedMethods,
-    dcbCachePolicyId,
-    dcbCompress,
-    dcbDefaultTTL,
-    dcbFieldLevelEncryptionId,
-    dcbForwardedValues,
-    dcbLambdaFunctionAssociations,
-    dcbMaxTTL,
-    dcbMinTTL,
-    dcbOriginRequestPolicyId,
-    dcbRealtimeLogConfigArn,
-    dcbSmoothStreaming,
-    dcbTrustedKeyGroups,
-    dcbTrustedSigners,
+    , DefaultCacheBehavior (..)
+    , mkDefaultCacheBehavior
+    , dcbTargetOriginId
+    , dcbViewerProtocolPolicy
+    , dcbAllowedMethods
+    , dcbCachePolicyId
+    , dcbCompress
+    , dcbDefaultTTL
+    , dcbFieldLevelEncryptionId
+    , dcbForwardedValues
+    , dcbLambdaFunctionAssociations
+    , dcbMaxTTL
+    , dcbMinTTL
+    , dcbOriginRequestPolicyId
+    , dcbRealtimeLogConfigArn
+    , dcbSmoothStreaming
+    , dcbTrustedKeyGroups
+    , dcbTrustedSigners
 
     -- ** InvalidationList
-    InvalidationList (..),
-    mkInvalidationList,
-    ilMarker,
-    ilMaxItems,
-    ilIsTruncated,
-    ilQuantity,
-    ilItems,
-    ilNextMarker,
+    , InvalidationList (..)
+    , mkInvalidationList
+    , ilMarker
+    , ilMaxItems
+    , ilIsTruncated
+    , ilQuantity
+    , ilItems
+    , ilNextMarker
 
     -- ** QueryArgProfiles
-    QueryArgProfiles (..),
-    mkQueryArgProfiles,
-    qapQuantity,
-    qapItems,
+    , QueryArgProfiles (..)
+    , mkQueryArgProfiles
+    , qapQuantity
+    , qapItems
 
     -- ** CachePolicyConfig
-    CachePolicyConfig (..),
-    mkCachePolicyConfig,
-    cpcName,
-    cpcMinTTL,
-    cpcComment,
-    cpcDefaultTTL,
-    cpcMaxTTL,
-    cpcParametersInCacheKeyAndForwardedToOrigin,
+    , CachePolicyConfig (..)
+    , mkCachePolicyConfig
+    , cpcName
+    , cpcMinTTL
+    , cpcComment
+    , cpcDefaultTTL
+    , cpcMaxTTL
+    , cpcParametersInCacheKeyAndForwardedToOrigin
 
     -- ** StreamingDistribution
-    StreamingDistribution (..),
-    mkStreamingDistribution,
-    sdId,
-    sdARN,
-    sdStatus,
-    sdDomainName,
-    sdActiveTrustedSigners,
-    sdStreamingDistributionConfig,
-    sdLastModifiedTime,
+    , StreamingDistribution (..)
+    , mkStreamingDistribution
+    , sdId
+    , sdARN
+    , sdStatus
+    , sdDomainName
+    , sdActiveTrustedSigners
+    , sdStreamingDistributionConfig
+    , sdLastModifiedTime
 
     -- ** CachePolicyList
-    CachePolicyList (..),
-    mkCachePolicyList,
-    cplMaxItems,
-    cplQuantity,
-    cplItems,
-    cplNextMarker,
+    , CachePolicyList (..)
+    , mkCachePolicyList
+    , cplMaxItems
+    , cplQuantity
+    , cplItems
+    , cplNextMarker
 
     -- ** Paths
-    Paths (..),
-    mkPaths,
-    pQuantity,
-    pItems,
+    , Paths (..)
+    , mkPaths
+    , pQuantity
+    , pItems
 
     -- ** CloudFrontOriginAccessIdentity
-    CloudFrontOriginAccessIdentity (..),
-    mkCloudFrontOriginAccessIdentity,
-    cfoaiId,
-    cfoaiS3CanonicalUserId,
-    cfoaiCloudFrontOriginAccessIdentityConfig,
+    , CloudFrontOriginAccessIdentity (..)
+    , mkCloudFrontOriginAccessIdentity
+    , cfoaiId
+    , cfoaiS3CanonicalUserId
+    , cfoaiCloudFrontOriginAccessIdentityConfig
 
     -- ** OriginRequestPolicyHeaderBehavior
-    OriginRequestPolicyHeaderBehavior (..),
+    , OriginRequestPolicyHeaderBehavior (..)
 
     -- ** ActiveTrustedSigners
-    ActiveTrustedSigners (..),
-    mkActiveTrustedSigners,
-    atsEnabled,
-    atsQuantity,
-    atsItems,
+    , ActiveTrustedSigners (..)
+    , mkActiveTrustedSigners
+    , atsEnabled
+    , atsQuantity
+    , atsItems
 
     -- ** DistributionSummary
-    DistributionSummary (..),
-    mkDistributionSummary,
-    dsId,
-    dsARN,
-    dsStatus,
-    dsLastModifiedTime,
-    dsDomainName,
-    dsAliases,
-    dsOrigins,
-    dsDefaultCacheBehavior,
-    dsCacheBehaviors,
-    dsCustomErrorResponses,
-    dsComment,
-    dsPriceClass,
-    dsEnabled,
-    dsViewerCertificate,
-    dsRestrictions,
-    dsWebACLId,
-    dsHttpVersion,
-    dsIsIPV6Enabled,
-    dsAliasICPRecordals,
-    dsOriginGroups,
+    , DistributionSummary (..)
+    , mkDistributionSummary
+    , dsId
+    , dsARN
+    , dsStatus
+    , dsLastModifiedTime
+    , dsDomainName
+    , dsAliases
+    , dsOrigins
+    , dsDefaultCacheBehavior
+    , dsCacheBehaviors
+    , dsCustomErrorResponses
+    , dsComment
+    , dsPriceClass
+    , dsEnabled
+    , dsViewerCertificate
+    , dsRestrictions
+    , dsWebACLId
+    , dsHttpVersion
+    , dsIsIPV6Enabled
+    , dsAliasICPRecordals
+    , dsOriginGroups
 
     -- ** OriginRequestPolicySummary
-    OriginRequestPolicySummary (..),
-    mkOriginRequestPolicySummary,
-    orpsType,
-    orpsOriginRequestPolicy,
+    , OriginRequestPolicySummary (..)
+    , mkOriginRequestPolicySummary
+    , orpsType
+    , orpsOriginRequestPolicy
 
     -- ** ContentTypeProfiles
-    ContentTypeProfiles (..),
-    mkContentTypeProfiles,
-    ctpQuantity,
-    ctpItems,
+    , ContentTypeProfiles (..)
+    , mkContentTypeProfiles
+    , ctpQuantity
+    , ctpItems
 
     -- ** Tags
-    Tags (..),
-    mkTags,
-    tItems,
+    , Tags (..)
+    , mkTags
+    , tItems
 
     -- ** CachePolicyCookiesConfig
-    CachePolicyCookiesConfig (..),
-    mkCachePolicyCookiesConfig,
-    cpccCookieBehavior,
-    cpccCookies,
+    , CachePolicyCookiesConfig (..)
+    , mkCachePolicyCookiesConfig
+    , cpccCookieBehavior
+    , cpccCookies
 
     -- ** GeoRestrictionType
-    GeoRestrictionType (..),
+    , GeoRestrictionType (..)
 
     -- ** LoggingConfig
-    LoggingConfig (..),
-    mkLoggingConfig,
-    lcEnabled,
-    lcIncludeCookies,
-    lcBucket,
-    lcPrefix,
+    , LoggingConfig (..)
+    , mkLoggingConfig
+    , lcEnabled
+    , lcIncludeCookies
+    , lcBucket
+    , lcPrefix
 
     -- ** FieldLevelEncryptionConfig
-    FieldLevelEncryptionConfig (..),
-    mkFieldLevelEncryptionConfig,
-    flecCallerReference,
-    flecComment,
-    flecContentTypeProfileConfig,
-    flecQueryArgProfileConfig,
+    , FieldLevelEncryptionConfig (..)
+    , mkFieldLevelEncryptionConfig
+    , flecCallerReference
+    , flecComment
+    , flecContentTypeProfileConfig
+    , flecQueryArgProfileConfig
 
     -- ** FieldLevelEncryptionList
-    FieldLevelEncryptionList (..),
-    mkFieldLevelEncryptionList,
-    flelMaxItems,
-    flelQuantity,
-    flelItems,
-    flelNextMarker,
+    , FieldLevelEncryptionList (..)
+    , mkFieldLevelEncryptionList
+    , flelMaxItems
+    , flelQuantity
+    , flelItems
+    , flelNextMarker
 
     -- ** FieldPatterns
-    FieldPatterns (..),
-    mkFieldPatterns,
-    fpQuantity,
-    fpItems,
+    , FieldPatterns (..)
+    , mkFieldPatterns
+    , fpQuantity
+    , fpItems
 
     -- ** RealtimeMetricsSubscriptionConfig
-    RealtimeMetricsSubscriptionConfig (..),
-    mkRealtimeMetricsSubscriptionConfig,
-    rmscRealtimeMetricsSubscriptionStatus,
-
-    -- ** PublicKeyId
-    PublicKeyId (..),
-
-    -- ** ProviderId
-    ProviderId (..),
-
-    -- ** Id
-    Id (..),
-
-    -- ** ETag
-    ETag (..),
-
-    -- ** Location
-    Location (..),
-
-    -- ** Marker
-    Marker (..),
-
-    -- ** NextMarker
-    NextMarker (..),
-
-    -- ** Status
-    Status (..),
-
-    -- ** CNAME
-    CNAME (..),
-
-    -- ** CallerReference
-    CallerReference (..),
-
-    -- ** Comment
-    Comment (..),
-
-    -- ** DomainName
-    DomainName (..),
-
-    -- ** OriginPath
-    OriginPath (..),
-
-    -- ** Name
-    Name (..),
-
-    -- ** IfMatch
-    IfMatch (..),
-
-    -- ** AwsAccountNumber
-    AwsAccountNumber (..),
-
-    -- ** DistributionId
-    DistributionId (..),
+    , RealtimeMetricsSubscriptionConfig (..)
+    , mkRealtimeMetricsSubscriptionConfig
+    , rmscRealtimeMetricsSubscriptionStatus
 
     -- ** Key
-    Key (..),
+    , Key (..)
 
     -- ** Value
-    Value (..),
+    , Value (..)
 
-    -- ** ContentType
-    ContentType (..),
-
-    -- ** ProfileId
-    ProfileId (..),
-
-    -- ** ARN
-    ARN (..),
-
-    -- ** S3CanonicalUserId
-    S3CanonicalUserId (..),
+    -- ** Comment
+    , Comment (..)
 
     -- ** Resource
-    Resource (..),
+    , Resource (..)
 
     -- * Serialization types
-    Lude.Base64 (..),
-    Lude._Base64,
-    Lude.Sensitive (..),
-    Lude._Sensitive,
-    Lude.UTCTime,
-    Lude.NominalDiffTime,
-  )
-where
+    , Lude.Base64 (..)
+    , Lude._Base64
+    , Lude.Sensitive (..)
+    , Lude._Sensitive
+    , Lude.UTCTime
+    , Lude.NominalDiffTime
+    ) where
 
-import Network.AWS.CloudFront.CreateCachePolicy
-import Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
-import Network.AWS.CloudFront.CreateDistribution
+import Network.AWS.CloudFront.Types
+import Network.AWS.CloudFront.Waiters
+import Network.AWS.CloudFront.DeleteOriginRequestPolicy
+import Network.AWS.CloudFront.UpdateOriginRequestPolicy
+import Network.AWS.CloudFront.DeleteStreamingDistribution
+import Network.AWS.CloudFront.UpdateStreamingDistribution
+import Network.AWS.CloudFront.ListPublicKeys
+import Network.AWS.CloudFront.GetFieldLevelEncryptionConfig
+import Network.AWS.CloudFront.ListTagsForResource
+import Network.AWS.CloudFront.CreatePublicKey
+import Network.AWS.CloudFront.GetPublicKeyConfig
 import Network.AWS.CloudFront.CreateDistributionWithTags
 import Network.AWS.CloudFront.CreateFieldLevelEncryptionConfig
-import Network.AWS.CloudFront.CreateFieldLevelEncryptionProfile
-import Network.AWS.CloudFront.CreateInvalidation
-import Network.AWS.CloudFront.CreateKeyGroup
-import Network.AWS.CloudFront.CreateMonitoringSubscription
-import Network.AWS.CloudFront.CreateOriginRequestPolicy
-import Network.AWS.CloudFront.CreatePublicKey
-import Network.AWS.CloudFront.CreateRealtimeLogConfig
-import Network.AWS.CloudFront.CreateStreamingDistribution
-import Network.AWS.CloudFront.CreateStreamingDistributionWithTags
 import Network.AWS.CloudFront.DeleteCachePolicy
-import Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
-import Network.AWS.CloudFront.DeleteDistribution
-import Network.AWS.CloudFront.DeleteFieldLevelEncryptionConfig
-import Network.AWS.CloudFront.DeleteFieldLevelEncryptionProfile
-import Network.AWS.CloudFront.DeleteKeyGroup
-import Network.AWS.CloudFront.DeleteMonitoringSubscription
-import Network.AWS.CloudFront.DeleteOriginRequestPolicy
-import Network.AWS.CloudFront.DeletePublicKey
-import Network.AWS.CloudFront.DeleteRealtimeLogConfig
-import Network.AWS.CloudFront.DeleteStreamingDistribution
-import Network.AWS.CloudFront.GetCachePolicy
-import Network.AWS.CloudFront.GetCachePolicyConfig
-import Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
-import Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
-import Network.AWS.CloudFront.GetDistribution
-import Network.AWS.CloudFront.GetDistributionConfig
-import Network.AWS.CloudFront.GetFieldLevelEncryption
-import Network.AWS.CloudFront.GetFieldLevelEncryptionConfig
-import Network.AWS.CloudFront.GetFieldLevelEncryptionProfile
-import Network.AWS.CloudFront.GetFieldLevelEncryptionProfileConfig
-import Network.AWS.CloudFront.GetInvalidation
-import Network.AWS.CloudFront.GetKeyGroup
-import Network.AWS.CloudFront.GetKeyGroupConfig
-import Network.AWS.CloudFront.GetMonitoringSubscription
-import Network.AWS.CloudFront.GetOriginRequestPolicy
-import Network.AWS.CloudFront.GetOriginRequestPolicyConfig
-import Network.AWS.CloudFront.GetPublicKey
-import Network.AWS.CloudFront.GetPublicKeyConfig
-import Network.AWS.CloudFront.GetRealtimeLogConfig
-import Network.AWS.CloudFront.GetStreamingDistribution
-import Network.AWS.CloudFront.GetStreamingDistributionConfig
-import Network.AWS.CloudFront.ListCachePolicies
-import Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
-import Network.AWS.CloudFront.ListDistributions
-import Network.AWS.CloudFront.ListDistributionsByCachePolicyId
-import Network.AWS.CloudFront.ListDistributionsByKeyGroup
-import Network.AWS.CloudFront.ListDistributionsByOriginRequestPolicyId
-import Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig
-import Network.AWS.CloudFront.ListDistributionsByWebACLId
-import Network.AWS.CloudFront.ListFieldLevelEncryptionConfigs
-import Network.AWS.CloudFront.ListFieldLevelEncryptionProfiles
-import Network.AWS.CloudFront.ListInvalidations
-import Network.AWS.CloudFront.ListKeyGroups
-import Network.AWS.CloudFront.ListOriginRequestPolicies
-import Network.AWS.CloudFront.ListPublicKeys
-import Network.AWS.CloudFront.ListRealtimeLogConfigs
-import Network.AWS.CloudFront.ListStreamingDistributions
-import Network.AWS.CloudFront.ListTagsForResource
-import Network.AWS.CloudFront.TagResource
-import Network.AWS.CloudFront.Types
-import Network.AWS.CloudFront.UntagResource
 import Network.AWS.CloudFront.UpdateCachePolicy
-import Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
-import Network.AWS.CloudFront.UpdateDistribution
-import Network.AWS.CloudFront.UpdateFieldLevelEncryptionConfig
-import Network.AWS.CloudFront.UpdateFieldLevelEncryptionProfile
-import Network.AWS.CloudFront.UpdateKeyGroup
-import Network.AWS.CloudFront.UpdateOriginRequestPolicy
-import Network.AWS.CloudFront.UpdatePublicKey
+import Network.AWS.CloudFront.GetFieldLevelEncryption
+import Network.AWS.CloudFront.ListRealtimeLogConfigs
+import Network.AWS.CloudFront.GetPublicKey
+import Network.AWS.CloudFront.DeleteRealtimeLogConfig
 import Network.AWS.CloudFront.UpdateRealtimeLogConfig
-import Network.AWS.CloudFront.UpdateStreamingDistribution
-import Network.AWS.CloudFront.Waiters
+import Network.AWS.CloudFront.ListDistributionsByOriginRequestPolicyId
+import Network.AWS.CloudFront.DeleteFieldLevelEncryptionConfig
+import Network.AWS.CloudFront.UpdateFieldLevelEncryptionConfig
+import Network.AWS.CloudFront.GetKeyGroup
+import Network.AWS.CloudFront.CreateDistribution
+import Network.AWS.CloudFront.GetFieldLevelEncryptionProfile
+import Network.AWS.CloudFront.DeleteMonitoringSubscription
+import Network.AWS.CloudFront.GetDistributionConfig
+import Network.AWS.CloudFront.CreateStreamingDistributionWithTags
+import Network.AWS.CloudFront.DeleteFieldLevelEncryptionProfile
+import Network.AWS.CloudFront.UpdateFieldLevelEncryptionProfile
+import Network.AWS.CloudFront.ListDistributionsByCachePolicyId
+import Network.AWS.CloudFront.CreateFieldLevelEncryptionProfile
+import Network.AWS.CloudFront.GetKeyGroupConfig
+import Network.AWS.CloudFront.GetDistribution
+import Network.AWS.CloudFront.GetFieldLevelEncryptionProfileConfig
+import Network.AWS.CloudFront.CreateKeyGroup
+import Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
+import Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
+import Network.AWS.CloudFront.ListStreamingDistributions
+import Network.AWS.CloudFront.DeletePublicKey
+import Network.AWS.CloudFront.UpdatePublicKey
+import Network.AWS.CloudFront.GetRealtimeLogConfig
+import Network.AWS.CloudFront.GetStreamingDistributionConfig
+import Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
+import Network.AWS.CloudFront.CreateStreamingDistribution
+import Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
+import Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
+import Network.AWS.CloudFront.GetInvalidation
+import Network.AWS.CloudFront.GetCachePolicy
+import Network.AWS.CloudFront.CreateRealtimeLogConfig
+import Network.AWS.CloudFront.ListInvalidations
+import Network.AWS.CloudFront.CreateInvalidation
+import Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
+import Network.AWS.CloudFront.ListCachePolicies
+import Network.AWS.CloudFront.CreateCachePolicy
+import Network.AWS.CloudFront.GetCachePolicyConfig
+import Network.AWS.CloudFront.ListFieldLevelEncryptionConfigs
+import Network.AWS.CloudFront.ListDistributionsByKeyGroup
+import Network.AWS.CloudFront.TagResource
+import Network.AWS.CloudFront.GetStreamingDistribution
+import Network.AWS.CloudFront.UpdateDistribution
+import Network.AWS.CloudFront.DeleteDistribution
+import Network.AWS.CloudFront.GetOriginRequestPolicy
+import Network.AWS.CloudFront.UntagResource
+import Network.AWS.CloudFront.CreateMonitoringSubscription
+import Network.AWS.CloudFront.ListDistributionsByWebACLId
+import Network.AWS.CloudFront.ListDistributions
+import Network.AWS.CloudFront.ListDistributionsByRealtimeLogConfig
+import Network.AWS.CloudFront.CreateOriginRequestPolicy
+import Network.AWS.CloudFront.ListKeyGroups
+import Network.AWS.CloudFront.ListFieldLevelEncryptionProfiles
+import Network.AWS.CloudFront.GetMonitoringSubscription
+import Network.AWS.CloudFront.UpdateKeyGroup
+import Network.AWS.CloudFront.DeleteKeyGroup
+import Network.AWS.CloudFront.ListOriginRequestPolicies
+import Network.AWS.CloudFront.GetOriginRequestPolicyConfig
 import qualified Network.AWS.Prelude as Lude
 
--- $errors
--- Error matchers are designed for use with the functions provided by
--- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
--- This allows catching (and rethrowing) service specific errors returned
--- by 'CloudFront'.
+{- $errors
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by 'CloudFront'.
+-}
 
--- $operations
--- Some AWS operations return results that are incomplete and require subsequent
--- requests in order to obtain the entire result set. The process of sending
--- subsequent requests to continue where a previous request left off is called
--- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
--- 1000 objects at a time, and you must send subsequent requests with the
--- appropriate Marker in order to retrieve the next page of results.
---
--- Operations that have an 'AWSPager' instance can transparently perform subsequent
--- requests, correctly setting Markers and other request facets to iterate through
--- the entire result set of a truncated API operation. Operations which support
--- this have an additional note in the documentation.
---
--- Many operations have the ability to filter results on the server side. See the
--- individual operation parameters for details.
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
 
--- $waiters
--- Waiters poll by repeatedly sending a request until some remote success condition
--- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
--- determines how many attempts should be made, in addition to delay and retry strategies.
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly sending a request until some remote success condition
+configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+determines how many attempts should be made, in addition to delay and retry strategies.
+-}

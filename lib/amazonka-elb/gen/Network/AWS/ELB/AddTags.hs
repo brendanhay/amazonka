@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -18,22 +18,20 @@
 -- Each tag consists of a key and an optional value. If a tag with the same key is already associated with the load balancer, @AddTags@ updates its value.
 -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
 module Network.AWS.ELB.AddTags
-  ( -- * Creating a request
-    AddTags (..),
-    mkAddTags,
-
+    (
+    -- * Creating a request
+      AddTags (..)
+    , mkAddTags
     -- ** Request lenses
-    atLoadBalancerNames,
-    atTags,
+    , atLoadBalancerNames
+    , atTags
 
     -- * Destructuring the response
-    AddTagsResponse (..),
-    mkAddTagsResponse,
-
+    , AddTagsResponse (..)
+    , mkAddTagsResponse
     -- ** Response lenses
-    atrrsResponseStatus,
-  )
-where
+    , atrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.ELB.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -45,86 +43,89 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkAddTags' smart constructor.
 data AddTags = AddTags'
-  { -- | The name of the load balancer. You can specify one load balancer only.
-    loadBalancerNames :: [Types.AccessPointName],
-    -- | The tags.
-    tags :: Core.NonEmpty Types.Tag
+  { loadBalancerNames :: [Types.AccessPointName]
+    -- ^ The name of the load balancer. You can specify one load balancer only.
+  , tags :: Core.NonEmpty Types.Tag
+    -- ^ The tags.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AddTags' value with any optional fields omitted.
-mkAddTags ::
-  -- | 'tags'
-  Core.NonEmpty Types.Tag ->
-  AddTags
-mkAddTags tags = AddTags' {loadBalancerNames = Core.mempty, tags}
+mkAddTags
+    :: Core.NonEmpty Types.Tag -- ^ 'tags'
+    -> AddTags
+mkAddTags tags = AddTags'{loadBalancerNames = Core.mempty, tags}
 
 -- | The name of the load balancer. You can specify one load balancer only.
 --
 -- /Note:/ Consider using 'loadBalancerNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 atLoadBalancerNames :: Lens.Lens' AddTags [Types.AccessPointName]
 atLoadBalancerNames = Lens.field @"loadBalancerNames"
-{-# DEPRECATED atLoadBalancerNames "Use generic-lens or generic-optics with 'loadBalancerNames' instead." #-}
+{-# INLINEABLE atLoadBalancerNames #-}
+{-# DEPRECATED loadBalancerNames "Use generic-lens or generic-optics with 'loadBalancerNames' instead"  #-}
 
 -- | The tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 atTags :: Lens.Lens' AddTags (Core.NonEmpty Types.Tag)
 atTags = Lens.field @"tags"
-{-# DEPRECATED atTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+{-# INLINEABLE atTags #-}
+{-# DEPRECATED tags "Use generic-lens or generic-optics with 'tags' instead"  #-}
+
+instance Core.ToQuery AddTags where
+        toQuery AddTags{..}
+          = Core.toQueryPair "Action" ("AddTags" :: Core.Text) Core.<>
+              Core.toQueryPair "Version" ("2012-06-01" :: Core.Text)
+              Core.<>
+              Core.toQueryPair "LoadBalancerNames"
+                (Core.toQueryList "member" loadBalancerNames)
+              Core.<> Core.toQueryPair "Tags" (Core.toQueryList "member" tags)
+
+instance Core.ToHeaders AddTags where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest AddTags where
-  type Rs AddTags = AddTagsResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "AddTags")
-                Core.<> (Core.pure ("Version", "2012-06-01"))
-                Core.<> ( Core.toQueryValue
-                            "LoadBalancerNames"
-                            (Core.toQueryList "member" loadBalancerNames)
-                        )
-                Core.<> (Core.toQueryValue "Tags" (Core.toQueryList "member" tags))
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "AddTagsResult"
-      ( \s h x ->
-          AddTagsResponse' Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs AddTags = AddTagsResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "AddTagsResult"
+              (\ s h x ->
+                 AddTagsResponse' Core.<$> (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | Contains the output of AddTags.
 --
 -- /See:/ 'mkAddTagsResponse' smart constructor.
 newtype AddTagsResponse = AddTagsResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AddTagsResponse' value with any optional fields omitted.
-mkAddTagsResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  AddTagsResponse
-mkAddTagsResponse responseStatus = AddTagsResponse' {responseStatus}
+mkAddTagsResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> AddTagsResponse
+mkAddTagsResponse responseStatus = AddTagsResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 atrrsResponseStatus :: Lens.Lens' AddTagsResponse Core.Int
 atrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED atrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE atrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

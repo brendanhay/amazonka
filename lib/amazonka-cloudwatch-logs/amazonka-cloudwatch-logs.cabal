@@ -1,217 +1,219 @@
-cabal-version:      2.2
-name:               amazonka-cloudwatch-logs
-version:            2.0.0.0
-synopsis:           Amazon CloudWatch Logs SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-cloudwatch-logs
+version:               2.0.0.0
+synopsis:              Amazon CloudWatch Logs SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.CloudWatchLogs" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.CloudWatchLogs" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-cloudwatch-logs
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-cloudwatch-logs
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.CloudWatchLogs
-    Network.AWS.CloudWatchLogs.AssociateKmsKey
-    Network.AWS.CloudWatchLogs.CancelExportTask
-    Network.AWS.CloudWatchLogs.CreateExportTask
-    Network.AWS.CloudWatchLogs.CreateLogGroup
-    Network.AWS.CloudWatchLogs.CreateLogStream
-    Network.AWS.CloudWatchLogs.DeleteDestination
-    Network.AWS.CloudWatchLogs.DeleteLogGroup
-    Network.AWS.CloudWatchLogs.DeleteLogStream
-    Network.AWS.CloudWatchLogs.DeleteMetricFilter
-    Network.AWS.CloudWatchLogs.DeleteQueryDefinition
-    Network.AWS.CloudWatchLogs.DeleteResourcePolicy
-    Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
-    Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
-    Network.AWS.CloudWatchLogs.DescribeDestinations
-    Network.AWS.CloudWatchLogs.DescribeExportTasks
-    Network.AWS.CloudWatchLogs.DescribeLogGroups
-    Network.AWS.CloudWatchLogs.DescribeLogStreams
-    Network.AWS.CloudWatchLogs.DescribeMetricFilters
-    Network.AWS.CloudWatchLogs.DescribeQueries
-    Network.AWS.CloudWatchLogs.DescribeQueryDefinitions
-    Network.AWS.CloudWatchLogs.DescribeResourcePolicies
-    Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
-    Network.AWS.CloudWatchLogs.DisassociateKmsKey
-    Network.AWS.CloudWatchLogs.FilterLogEvents
-    Network.AWS.CloudWatchLogs.GetLogEvents
-    Network.AWS.CloudWatchLogs.GetLogGroupFields
-    Network.AWS.CloudWatchLogs.GetLogRecord
-    Network.AWS.CloudWatchLogs.GetQueryResults
-    Network.AWS.CloudWatchLogs.ListTagsLogGroup
-    Network.AWS.CloudWatchLogs.PutDestination
-    Network.AWS.CloudWatchLogs.PutDestinationPolicy
-    Network.AWS.CloudWatchLogs.PutLogEvents
-    Network.AWS.CloudWatchLogs.PutMetricFilter
-    Network.AWS.CloudWatchLogs.PutQueryDefinition
-    Network.AWS.CloudWatchLogs.PutResourcePolicy
-    Network.AWS.CloudWatchLogs.PutRetentionPolicy
-    Network.AWS.CloudWatchLogs.PutSubscriptionFilter
-    Network.AWS.CloudWatchLogs.StartQuery
-    Network.AWS.CloudWatchLogs.StopQuery
-    Network.AWS.CloudWatchLogs.TagLogGroup
-    Network.AWS.CloudWatchLogs.TestMetricFilter
-    Network.AWS.CloudWatchLogs.Types
-    Network.AWS.CloudWatchLogs.UntagLogGroup
-    Network.AWS.CloudWatchLogs.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.CloudWatchLogs.Types.AccessPolicy
-    Network.AWS.CloudWatchLogs.Types.Arn
-    Network.AWS.CloudWatchLogs.Types.Destination
-    Network.AWS.CloudWatchLogs.Types.DestinationArn
-    Network.AWS.CloudWatchLogs.Types.DestinationName
-    Network.AWS.CloudWatchLogs.Types.DestinationPrefix
-    Network.AWS.CloudWatchLogs.Types.Distribution
-    Network.AWS.CloudWatchLogs.Types.EventId
-    Network.AWS.CloudWatchLogs.Types.EventMessage
-    Network.AWS.CloudWatchLogs.Types.ExportDestinationBucket
-    Network.AWS.CloudWatchLogs.Types.ExportDestinationPrefix
-    Network.AWS.CloudWatchLogs.Types.ExportTask
-    Network.AWS.CloudWatchLogs.Types.ExportTaskExecutionInfo
-    Network.AWS.CloudWatchLogs.Types.ExportTaskId
-    Network.AWS.CloudWatchLogs.Types.ExportTaskName
-    Network.AWS.CloudWatchLogs.Types.ExportTaskStatus
-    Network.AWS.CloudWatchLogs.Types.ExportTaskStatusCode
-    Network.AWS.CloudWatchLogs.Types.ExportTaskStatusMessage
-    Network.AWS.CloudWatchLogs.Types.Field
-    Network.AWS.CloudWatchLogs.Types.FilteredLogEvent
-    Network.AWS.CloudWatchLogs.Types.FilterName
-    Network.AWS.CloudWatchLogs.Types.FilterNamePrefix
-    Network.AWS.CloudWatchLogs.Types.FilterPattern
-    Network.AWS.CloudWatchLogs.Types.InputLogEvent
-    Network.AWS.CloudWatchLogs.Types.KmsKeyId
-    Network.AWS.CloudWatchLogs.Types.LogGroup
-    Network.AWS.CloudWatchLogs.Types.LogGroupField
-    Network.AWS.CloudWatchLogs.Types.LogGroupName
-    Network.AWS.CloudWatchLogs.Types.LogGroupNamePrefix
-    Network.AWS.CloudWatchLogs.Types.LogRecordPointer
-    Network.AWS.CloudWatchLogs.Types.LogStream
-    Network.AWS.CloudWatchLogs.Types.LogStreamName
-    Network.AWS.CloudWatchLogs.Types.LogStreamNamePrefix
-    Network.AWS.CloudWatchLogs.Types.Message
-    Network.AWS.CloudWatchLogs.Types.MetricFilter
-    Network.AWS.CloudWatchLogs.Types.MetricFilterMatchRecord
-    Network.AWS.CloudWatchLogs.Types.MetricName
-    Network.AWS.CloudWatchLogs.Types.MetricNamespace
-    Network.AWS.CloudWatchLogs.Types.MetricTransformation
-    Network.AWS.CloudWatchLogs.Types.MetricValue
-    Network.AWS.CloudWatchLogs.Types.Name
-    Network.AWS.CloudWatchLogs.Types.NextToken
-    Network.AWS.CloudWatchLogs.Types.OrderBy
-    Network.AWS.CloudWatchLogs.Types.OutputLogEvent
-    Network.AWS.CloudWatchLogs.Types.PolicyDocument
-    Network.AWS.CloudWatchLogs.Types.PolicyName
-    Network.AWS.CloudWatchLogs.Types.QueryDefinition
-    Network.AWS.CloudWatchLogs.Types.QueryDefinitionName
-    Network.AWS.CloudWatchLogs.Types.QueryDefinitionString
-    Network.AWS.CloudWatchLogs.Types.QueryId
-    Network.AWS.CloudWatchLogs.Types.QueryInfo
-    Network.AWS.CloudWatchLogs.Types.QueryStatistics
-    Network.AWS.CloudWatchLogs.Types.QueryStatus
-    Network.AWS.CloudWatchLogs.Types.QueryString
-    Network.AWS.CloudWatchLogs.Types.RejectedLogEventsInfo
-    Network.AWS.CloudWatchLogs.Types.ResourcePolicy
-    Network.AWS.CloudWatchLogs.Types.ResultField
-    Network.AWS.CloudWatchLogs.Types.RoleArn
-    Network.AWS.CloudWatchLogs.Types.SearchedLogStream
-    Network.AWS.CloudWatchLogs.Types.SequenceToken
-    Network.AWS.CloudWatchLogs.Types.SubscriptionFilter
-    Network.AWS.CloudWatchLogs.Types.TagKey
-    Network.AWS.CloudWatchLogs.Types.TagValue
-    Network.AWS.CloudWatchLogs.Types.TargetArn
-    Network.AWS.CloudWatchLogs.Types.TaskName
-    Network.AWS.CloudWatchLogs.Types.Token
-    Network.AWS.CloudWatchLogs.Types.Value
+    exposed-modules:
+          Network.AWS.CloudWatchLogs
+        , Network.AWS.CloudWatchLogs.Types
+        , Network.AWS.CloudWatchLogs.Waiters
+        , Network.AWS.CloudWatchLogs.GetLogGroupFields
+        , Network.AWS.CloudWatchLogs.GetLogRecord
+        , Network.AWS.CloudWatchLogs.DescribeDestinations
+        , Network.AWS.CloudWatchLogs.UntagLogGroup
+        , Network.AWS.CloudWatchLogs.StopQuery
+        , Network.AWS.CloudWatchLogs.CreateExportTask
+        , Network.AWS.CloudWatchLogs.PutDestination
+        , Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
+        , Network.AWS.CloudWatchLogs.GetLogEvents
+        , Network.AWS.CloudWatchLogs.DescribeLogGroups
+        , Network.AWS.CloudWatchLogs.DeleteDestination
+        , Network.AWS.CloudWatchLogs.DisassociateKmsKey
+        , Network.AWS.CloudWatchLogs.FilterLogEvents
+        , Network.AWS.CloudWatchLogs.DeleteQueryDefinition
+        , Network.AWS.CloudWatchLogs.PutQueryDefinition
+        , Network.AWS.CloudWatchLogs.TagLogGroup
+        , Network.AWS.CloudWatchLogs.DescribeResourcePolicies
+        , Network.AWS.CloudWatchLogs.DescribeQueryDefinitions
+        , Network.AWS.CloudWatchLogs.DeleteLogStream
+        , Network.AWS.CloudWatchLogs.DescribeQueries
+        , Network.AWS.CloudWatchLogs.CreateLogStream
+        , Network.AWS.CloudWatchLogs.CreateLogGroup
+        , Network.AWS.CloudWatchLogs.DescribeExportTasks
+        , Network.AWS.CloudWatchLogs.CancelExportTask
+        , Network.AWS.CloudWatchLogs.PutSubscriptionFilter
+        , Network.AWS.CloudWatchLogs.StartQuery
+        , Network.AWS.CloudWatchLogs.DeleteLogGroup
+        , Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
+        , Network.AWS.CloudWatchLogs.PutLogEvents
+        , Network.AWS.CloudWatchLogs.DescribeMetricFilters
+        , Network.AWS.CloudWatchLogs.TestMetricFilter
+        , Network.AWS.CloudWatchLogs.PutDestinationPolicy
+        , Network.AWS.CloudWatchLogs.PutMetricFilter
+        , Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
+        , Network.AWS.CloudWatchLogs.DeleteMetricFilter
+        , Network.AWS.CloudWatchLogs.PutRetentionPolicy
+        , Network.AWS.CloudWatchLogs.ListTagsLogGroup
+        , Network.AWS.CloudWatchLogs.PutResourcePolicy
+        , Network.AWS.CloudWatchLogs.DeleteResourcePolicy
+        , Network.AWS.CloudWatchLogs.AssociateKmsKey
+        , Network.AWS.CloudWatchLogs.GetQueryResults
+        , Network.AWS.CloudWatchLogs.DescribeLogStreams
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.CloudWatchLogs.Types.MetricFilter
+        , Network.AWS.CloudWatchLogs.Types.SequenceToken
+        , Network.AWS.CloudWatchLogs.Types.ExportTaskId
+        , Network.AWS.CloudWatchLogs.Types.TargetArn
+        , Network.AWS.CloudWatchLogs.Types.Destination
+        , Network.AWS.CloudWatchLogs.Types.QueryId
+        , Network.AWS.CloudWatchLogs.Types.PolicyDocument
+        , Network.AWS.CloudWatchLogs.Types.FilterName
+        , Network.AWS.CloudWatchLogs.Types.QueryStatistics
+        , Network.AWS.CloudWatchLogs.Types.SearchedLogStream
+        , Network.AWS.CloudWatchLogs.Types.PolicyName
+        , Network.AWS.CloudWatchLogs.Types.MetricFilterMatchRecord
+        , Network.AWS.CloudWatchLogs.Types.Field
+        , Network.AWS.CloudWatchLogs.Types.ResourcePolicy
+        , Network.AWS.CloudWatchLogs.Types.Distribution
+        , Network.AWS.CloudWatchLogs.Types.LogRecordPointer
+        , Network.AWS.CloudWatchLogs.Types.Arn
+        , Network.AWS.CloudWatchLogs.Types.MetricTransformation
+        , Network.AWS.CloudWatchLogs.Types.OrderBy
+        , Network.AWS.CloudWatchLogs.Types.QueryDefinitionName
+        , Network.AWS.CloudWatchLogs.Types.ExportTaskStatusCode
+        , Network.AWS.CloudWatchLogs.Types.LogStream
+        , Network.AWS.CloudWatchLogs.Types.ExportDestinationPrefix
+        , Network.AWS.CloudWatchLogs.Types.Token
+        , Network.AWS.CloudWatchLogs.Types.MetricName
+        , Network.AWS.CloudWatchLogs.Types.LogGroup
+        , Network.AWS.CloudWatchLogs.Types.SubscriptionFilter
+        , Network.AWS.CloudWatchLogs.Types.RejectedLogEventsInfo
+        , Network.AWS.CloudWatchLogs.Types.Value
+        , Network.AWS.CloudWatchLogs.Types.ExportTaskStatusMessage
+        , Network.AWS.CloudWatchLogs.Types.ExportDestinationBucket
+        , Network.AWS.CloudWatchLogs.Types.QueryStatus
+        , Network.AWS.CloudWatchLogs.Types.InputLogEvent
+        , Network.AWS.CloudWatchLogs.Types.TagValue
+        , Network.AWS.CloudWatchLogs.Types.FilteredLogEvent
+        , Network.AWS.CloudWatchLogs.Types.DestinationArn
+        , Network.AWS.CloudWatchLogs.Types.LogGroupName
+        , Network.AWS.CloudWatchLogs.Types.QueryInfo
+        , Network.AWS.CloudWatchLogs.Types.NextToken
+        , Network.AWS.CloudWatchLogs.Types.AccessPolicy
+        , Network.AWS.CloudWatchLogs.Types.LogStreamName
+        , Network.AWS.CloudWatchLogs.Types.MetricNamespace
+        , Network.AWS.CloudWatchLogs.Types.KmsKeyId
+        , Network.AWS.CloudWatchLogs.Types.MetricValue
+        , Network.AWS.CloudWatchLogs.Types.EventMessage
+        , Network.AWS.CloudWatchLogs.Types.QueryString
+        , Network.AWS.CloudWatchLogs.Types.OutputLogEvent
+        , Network.AWS.CloudWatchLogs.Types.QueryDefinition
+        , Network.AWS.CloudWatchLogs.Types.QueryDefinitionString
+        , Network.AWS.CloudWatchLogs.Types.ExportTaskStatus
+        , Network.AWS.CloudWatchLogs.Types.ExportTaskExecutionInfo
+        , Network.AWS.CloudWatchLogs.Types.TagKey
+        , Network.AWS.CloudWatchLogs.Types.FilterPattern
+        , Network.AWS.CloudWatchLogs.Types.DestinationName
+        , Network.AWS.CloudWatchLogs.Types.Message
+        , Network.AWS.CloudWatchLogs.Types.ResultField
+        , Network.AWS.CloudWatchLogs.Types.ExportTaskName
+        , Network.AWS.CloudWatchLogs.Types.ExportTask
+        , Network.AWS.CloudWatchLogs.Types.EventId
+        , Network.AWS.CloudWatchLogs.Types.LogGroupField
+        , Network.AWS.CloudWatchLogs.Types.RoleArn
+        , Network.AWS.CloudWatchLogs.Types.DestinationPrefix
+        , Network.AWS.CloudWatchLogs.Types.LogStreamNamePrefix
+        , Network.AWS.CloudWatchLogs.Types.TaskName
+        , Network.AWS.CloudWatchLogs.Types.FilterNamePrefix
+        , Network.AWS.CloudWatchLogs.Types.LogGroupNamePrefix
+        , Network.AWS.CloudWatchLogs.Types.Name
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-cloudwatch-logs-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.CloudWatchLogs
-    Test.AWS.CloudWatchLogs.Internal
-    Test.AWS.Gen.CloudWatchLogs
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-cloudwatch-logs
-    , amazonka-core             >=2.0.0.0 && <2.0.0.1
-    , amazonka-test             >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.CloudWatchLogs
+        , Test.AWS.Gen.CloudWatchLogs
+        , Test.AWS.CloudWatchLogs.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-cloudwatch-logs
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,7 +10,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __AWS Resource Groups__
+-- __AWS Resource Groups__ 
 --
 -- AWS Resource Groups lets you organize AWS resources such as Amazon EC2 instances, Amazon Relational Database Service databases, and Amazon S3 buckets into groups using criteria that you define as tags. A resource group is a collection of resources that match the resource types specified in a query, and share one or more tags or portions of tags. You can create a group of resources based on their roles in your cloud infrastructure, lifecycle stages, regions, application layers, or virtually any criteria. Resource Groups enable you to automate management tasks, such as those in AWS Systems Manager Automation documents, on tag-related resources in AWS Systems Manager. Groups of tagged resources also let you quickly view a custom console in AWS Systems Manager that shows AWS Config compliance and other monitoring data about member resources.
 -- To create a resource group, build a resource query, and specify tags that identify the criteria that members of the group have in common. Tags are key-value pairs.
@@ -30,33 +30,36 @@
 --
 --
 --     * Searching AWS resources based on a resource query
+--
+--
 module Network.AWS.ResourceGroups
-  ( -- * Service configuration
-    mkServiceConfig,
+    (
+    -- * Service configuration
+      mkServiceConfig
 
     -- * Errors
     -- $errors
 
     -- ** ForbiddenException
-    _ForbiddenException,
+    , _ForbiddenException
 
     -- ** NotFoundException
-    _NotFoundException,
+    , _NotFoundException
 
     -- ** TooManyRequestsException
-    _TooManyRequestsException,
+    , _TooManyRequestsException
 
     -- ** InternalServerErrorException
-    _InternalServerErrorException,
+    , _InternalServerErrorException
 
     -- ** MethodNotAllowedException
-    _MethodNotAllowedException,
+    , _MethodNotAllowedException
 
     -- ** UnauthorizedException
-    _UnauthorizedException,
+    , _UnauthorizedException
 
     -- ** BadRequestException
-    _BadRequestException,
+    , _BadRequestException
 
     -- * Waiters
     -- $waiters
@@ -65,255 +68,257 @@ module Network.AWS.ResourceGroups
     -- $operations
 
     -- ** SearchResources (Paginated)
-    module Network.AWS.ResourceGroups.SearchResources,
+    , module Network.AWS.ResourceGroups.SearchResources
 
-    -- ** GetTags
-    module Network.AWS.ResourceGroups.GetTags,
+    -- ** GetTags 
+    , module Network.AWS.ResourceGroups.GetTags
 
-    -- ** Tag
-    module Network.AWS.ResourceGroups.Tag,
+    -- ** Tag 
+    , module Network.AWS.ResourceGroups.Tag
 
-    -- ** UngroupResources
-    module Network.AWS.ResourceGroups.UngroupResources,
+    -- ** UngroupResources 
+    , module Network.AWS.ResourceGroups.UngroupResources
 
-    -- ** GroupResources
-    module Network.AWS.ResourceGroups.GroupResources,
+    -- ** GroupResources 
+    , module Network.AWS.ResourceGroups.GroupResources
 
-    -- ** Untag
-    module Network.AWS.ResourceGroups.Untag,
+    -- ** Untag 
+    , module Network.AWS.ResourceGroups.Untag
 
-    -- ** UpdateGroupQuery
-    module Network.AWS.ResourceGroups.UpdateGroupQuery,
+    -- ** UpdateGroupQuery 
+    , module Network.AWS.ResourceGroups.UpdateGroupQuery
 
     -- ** ListGroupResources (Paginated)
-    module Network.AWS.ResourceGroups.ListGroupResources,
+    , module Network.AWS.ResourceGroups.ListGroupResources
 
-    -- ** GetGroupQuery
-    module Network.AWS.ResourceGroups.GetGroupQuery,
+    -- ** GetGroupQuery 
+    , module Network.AWS.ResourceGroups.GetGroupQuery
 
-    -- ** CreateGroup
-    module Network.AWS.ResourceGroups.CreateGroup,
+    -- ** CreateGroup 
+    , module Network.AWS.ResourceGroups.CreateGroup
 
-    -- ** DeleteGroup
-    module Network.AWS.ResourceGroups.DeleteGroup,
+    -- ** DeleteGroup 
+    , module Network.AWS.ResourceGroups.DeleteGroup
 
-    -- ** UpdateGroup
-    module Network.AWS.ResourceGroups.UpdateGroup,
+    -- ** UpdateGroup 
+    , module Network.AWS.ResourceGroups.UpdateGroup
 
     -- ** ListGroups (Paginated)
-    module Network.AWS.ResourceGroups.ListGroups,
+    , module Network.AWS.ResourceGroups.ListGroups
 
-    -- ** GetGroup
-    module Network.AWS.ResourceGroups.GetGroup,
+    -- ** GetGroup 
+    , module Network.AWS.ResourceGroups.GetGroup
 
-    -- ** GetGroupConfiguration
-    module Network.AWS.ResourceGroups.GetGroupConfiguration,
+    -- ** GetGroupConfiguration 
+    , module Network.AWS.ResourceGroups.GetGroupConfiguration
 
     -- * Types
 
     -- ** GroupFilterValue
-    GroupFilterValue (..),
+    , GroupFilterValue (..)
 
     -- ** GroupIdentifier
-    GroupIdentifier (..),
-    mkGroupIdentifier,
-    giGroupArn,
-    giGroupName,
+    , GroupIdentifier (..)
+    , mkGroupIdentifier
+    , giGroupArn
+    , giGroupName
 
     -- ** QueryErrorCode
-    QueryErrorCode (..),
+    , QueryErrorCode (..)
 
     -- ** Group
-    Group (..),
-    mkGroup,
-    gGroupArn,
-    gName,
-    gDescription,
+    , Group (..)
+    , mkGroup
+    , gGroupArn
+    , gName
+    , gDescription
 
     -- ** GroupConfiguration
-    GroupConfiguration (..),
-    mkGroupConfiguration,
-    gcConfiguration,
-    gcFailureReason,
-    gcProposedConfiguration,
-    gcStatus,
+    , GroupConfiguration (..)
+    , mkGroupConfiguration
+    , gcConfiguration
+    , gcFailureReason
+    , gcProposedConfiguration
+    , gcStatus
 
     -- ** ResourceFilter
-    ResourceFilter (..),
-    mkResourceFilter,
-    rfName,
-    rfValues,
+    , ResourceFilter (..)
+    , mkResourceFilter
+    , rfName
+    , rfValues
 
     -- ** ResourceType
-    ResourceType (..),
+    , ResourceType (..)
 
     -- ** QueryType
-    QueryType (..),
+    , QueryType (..)
 
     -- ** GroupString
-    GroupString (..),
+    , GroupString (..)
 
     -- ** GroupQuery
-    GroupQuery (..),
-    mkGroupQuery,
-    gqGroupName,
-    gqResourceQuery,
+    , GroupQuery (..)
+    , mkGroupQuery
+    , gqGroupName
+    , gqResourceQuery
 
     -- ** GroupConfigurationParameterValue
-    GroupConfigurationParameterValue (..),
+    , GroupConfigurationParameterValue (..)
 
     -- ** GroupFilterName
-    GroupFilterName (..),
+    , GroupFilterName (..)
 
     -- ** ResourceQuery
-    ResourceQuery (..),
-    mkResourceQuery,
-    rqType,
-    rqSearchQuery,
+    , ResourceQuery (..)
+    , mkResourceQuery
+    , rqType
+    , rqSearchQuery
 
     -- ** GroupConfigurationStatus
-    GroupConfigurationStatus (..),
+    , GroupConfigurationStatus (..)
 
     -- ** FailedResource
-    FailedResource (..),
-    mkFailedResource,
-    frErrorCode,
-    frErrorMessage,
-    frResourceArn,
+    , FailedResource (..)
+    , mkFailedResource
+    , frErrorCode
+    , frErrorMessage
+    , frResourceArn
 
     -- ** TagValue
-    TagValue (..),
+    , TagValue (..)
 
     -- ** QueryErrorMessage
-    QueryErrorMessage (..),
+    , QueryErrorMessage (..)
 
     -- ** ResourceFilterValue
-    ResourceFilterValue (..),
+    , ResourceFilterValue (..)
 
     -- ** NextToken
-    NextToken (..),
+    , NextToken (..)
 
     -- ** GroupFilter
-    GroupFilter (..),
-    mkGroupFilter,
-    gfName,
-    gfValues,
+    , GroupFilter (..)
+    , mkGroupFilter
+    , gfName
+    , gfValues
 
     -- ** ResourceArn
-    ResourceArn (..),
+    , ResourceArn (..)
 
     -- ** GroupConfigurationType
-    GroupConfigurationType (..),
+    , GroupConfigurationType (..)
 
     -- ** GroupConfigurationItem
-    GroupConfigurationItem (..),
-    mkGroupConfigurationItem,
-    gciType,
-    gciParameters,
+    , GroupConfigurationItem (..)
+    , mkGroupConfigurationItem
+    , gciType
+    , gciParameters
 
     -- ** QueryError
-    QueryError (..),
-    mkQueryError,
-    qeErrorCode,
-    qeMessage,
+    , QueryError (..)
+    , mkQueryError
+    , qeErrorCode
+    , qeMessage
 
     -- ** Query
-    Query (..),
+    , Query (..)
 
     -- ** GroupArn
-    GroupArn (..),
+    , GroupArn (..)
 
     -- ** ErrorCode
-    ErrorCode (..),
+    , ErrorCode (..)
 
     -- ** ResourceFilterName
-    ResourceFilterName (..),
+    , ResourceFilterName (..)
 
     -- ** TagKey
-    TagKey (..),
+    , TagKey (..)
 
     -- ** GroupName
-    GroupName (..),
+    , GroupName (..)
 
     -- ** ErrorMessage
-    ErrorMessage (..),
+    , ErrorMessage (..)
 
     -- ** Description
-    Description (..),
+    , Description (..)
 
     -- ** GroupConfigurationParameter
-    GroupConfigurationParameter (..),
-    mkGroupConfigurationParameter,
-    gcpName,
-    gcpValues,
+    , GroupConfigurationParameter (..)
+    , mkGroupConfigurationParameter
+    , gcpName
+    , gcpValues
 
     -- ** ResourceIdentifier
-    ResourceIdentifier (..),
-    mkResourceIdentifier,
-    riResourceArn,
-    riResourceType,
+    , ResourceIdentifier (..)
+    , mkResourceIdentifier
+    , riResourceArn
+    , riResourceType
 
     -- ** Name
-    Name (..),
+    , Name (..)
 
     -- ** FailureReason
-    FailureReason (..),
+    , FailureReason (..)
 
     -- ** Arn
-    Arn (..),
+    , Arn (..)
 
     -- * Serialization types
-    Lude.Base64 (..),
-    Lude._Base64,
-    Lude.Sensitive (..),
-    Lude._Sensitive,
-    Lude.UTCTime,
-    Lude.NominalDiffTime,
-  )
-where
+    , Lude.Base64 (..)
+    , Lude._Base64
+    , Lude.Sensitive (..)
+    , Lude._Sensitive
+    , Lude.UTCTime
+    , Lude.NominalDiffTime
+    ) where
 
-import qualified Network.AWS.Prelude as Lude
+import Network.AWS.ResourceGroups.Types
+import Network.AWS.ResourceGroups.Waiters
+import Network.AWS.ResourceGroups.SearchResources
+import Network.AWS.ResourceGroups.GetTags
+import Network.AWS.ResourceGroups.Tag
+import Network.AWS.ResourceGroups.UngroupResources
+import Network.AWS.ResourceGroups.GroupResources
+import Network.AWS.ResourceGroups.Untag
+import Network.AWS.ResourceGroups.UpdateGroupQuery
+import Network.AWS.ResourceGroups.ListGroupResources
+import Network.AWS.ResourceGroups.GetGroupQuery
 import Network.AWS.ResourceGroups.CreateGroup
 import Network.AWS.ResourceGroups.DeleteGroup
+import Network.AWS.ResourceGroups.UpdateGroup
+import Network.AWS.ResourceGroups.ListGroups
 import Network.AWS.ResourceGroups.GetGroup
 import Network.AWS.ResourceGroups.GetGroupConfiguration
-import Network.AWS.ResourceGroups.GetGroupQuery
-import Network.AWS.ResourceGroups.GetTags
-import Network.AWS.ResourceGroups.GroupResources
-import Network.AWS.ResourceGroups.ListGroupResources
-import Network.AWS.ResourceGroups.ListGroups
-import Network.AWS.ResourceGroups.SearchResources
-import Network.AWS.ResourceGroups.Tag
-import Network.AWS.ResourceGroups.Types
-import Network.AWS.ResourceGroups.UngroupResources
-import Network.AWS.ResourceGroups.Untag
-import Network.AWS.ResourceGroups.UpdateGroup
-import Network.AWS.ResourceGroups.UpdateGroupQuery
-import Network.AWS.ResourceGroups.Waiters
+import qualified Network.AWS.Prelude as Lude
 
--- $errors
--- Error matchers are designed for use with the functions provided by
--- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
--- This allows catching (and rethrowing) service specific errors returned
--- by 'ResourceGroups'.
+{- $errors
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by 'ResourceGroups'.
+-}
 
--- $operations
--- Some AWS operations return results that are incomplete and require subsequent
--- requests in order to obtain the entire result set. The process of sending
--- subsequent requests to continue where a previous request left off is called
--- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
--- 1000 objects at a time, and you must send subsequent requests with the
--- appropriate Marker in order to retrieve the next page of results.
---
--- Operations that have an 'AWSPager' instance can transparently perform subsequent
--- requests, correctly setting Markers and other request facets to iterate through
--- the entire result set of a truncated API operation. Operations which support
--- this have an additional note in the documentation.
---
--- Many operations have the ability to filter results on the server side. See the
--- individual operation parameters for details.
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
 
--- $waiters
--- Waiters poll by repeatedly sending a request until some remote success condition
--- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
--- determines how many attempts should be made, in addition to delay and retry strategies.
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly sending a request until some remote success condition
+configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+determines how many attempts should be made, in addition to delay and retry strategies.
+-}

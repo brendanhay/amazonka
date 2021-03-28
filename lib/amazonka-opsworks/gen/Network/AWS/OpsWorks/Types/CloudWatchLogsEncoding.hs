@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,136 +10,118 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.OpsWorks.Types.CloudWatchLogsEncoding
   ( CloudWatchLogsEncoding
-      ( CloudWatchLogsEncoding',
-        CloudWatchLogsEncodingAscii,
-        CloudWatchLogsEncodingBIG5,
-        CloudWatchLogsEncodingBig5hkscs,
-        CloudWatchLogsEncodingCP037,
-        CloudWatchLogsEncodingCP424,
-        CloudWatchLogsEncodingCP437,
-        CloudWatchLogsEncodingCP500,
-        CloudWatchLogsEncodingCP720,
-        CloudWatchLogsEncodingCP737,
-        CloudWatchLogsEncodingCP775,
-        CloudWatchLogsEncodingCP850,
-        CloudWatchLogsEncodingCP852,
-        CloudWatchLogsEncodingCP855,
-        CloudWatchLogsEncodingCP856,
-        CloudWatchLogsEncodingCP857,
-        CloudWatchLogsEncodingCP858,
-        CloudWatchLogsEncodingCP860,
-        CloudWatchLogsEncodingCP861,
-        CloudWatchLogsEncodingCP862,
-        CloudWatchLogsEncodingCP863,
-        CloudWatchLogsEncodingCP864,
-        CloudWatchLogsEncodingCP865,
-        CloudWatchLogsEncodingCP866,
-        CloudWatchLogsEncodingCP869,
-        CloudWatchLogsEncodingCP874,
-        CloudWatchLogsEncodingCP875,
-        CloudWatchLogsEncodingCP932,
-        CloudWatchLogsEncodingCP949,
-        CloudWatchLogsEncodingCP950,
-        CloudWatchLogsEncodingCP1006,
-        CloudWatchLogsEncodingCP1026,
-        CloudWatchLogsEncodingCP1140,
-        CloudWatchLogsEncodingCP1250,
-        CloudWatchLogsEncodingCP1251,
-        CloudWatchLogsEncodingCP1252,
-        CloudWatchLogsEncodingCP1253,
-        CloudWatchLogsEncodingCP1254,
-        CloudWatchLogsEncodingCP1255,
-        CloudWatchLogsEncodingCP1256,
-        CloudWatchLogsEncodingCP1257,
-        CloudWatchLogsEncodingCP1258,
-        CloudWatchLogsEncodingEucJp,
-        CloudWatchLogsEncodingEucJis2004,
-        CloudWatchLogsEncodingEucJISX0213,
-        CloudWatchLogsEncodingEucKr,
-        CloudWatchLogsEncodingGB2312,
-        CloudWatchLogsEncodingGbk,
-        CloudWatchLogsEncodingGB18030,
-        CloudWatchLogsEncodingHZ,
-        CloudWatchLogsEncodingISO2022Jp,
-        CloudWatchLogsEncodingISO2022Jp1,
-        CloudWatchLogsEncodingISO2022Jp2,
-        CloudWatchLogsEncodingISO2022Jp2004,
-        CloudWatchLogsEncodingISO2022Jp3,
-        CloudWatchLogsEncodingISO2022JpExt,
-        CloudWatchLogsEncodingISO2022Kr,
-        CloudWatchLogsEncodingLatin1,
-        CloudWatchLogsEncodingISO88592,
-        CloudWatchLogsEncodingISO88593,
-        CloudWatchLogsEncodingISO88594,
-        CloudWatchLogsEncodingISO88595,
-        CloudWatchLogsEncodingISO88596,
-        CloudWatchLogsEncodingISO88597,
-        CloudWatchLogsEncodingISO88598,
-        CloudWatchLogsEncodingISO88599,
-        CloudWatchLogsEncodingISO885910,
-        CloudWatchLogsEncodingISO885913,
-        CloudWatchLogsEncodingISO885914,
-        CloudWatchLogsEncodingISO885915,
-        CloudWatchLogsEncodingISO885916,
-        CloudWatchLogsEncodingJohab,
-        CloudWatchLogsEncodingKOI8r,
-        CloudWatchLogsEncodingKOI8u,
-        CloudWatchLogsEncodingMacCyrillic,
-        CloudWatchLogsEncodingMacGreek,
-        CloudWatchLogsEncodingMacIceland,
-        CloudWatchLogsEncodingMacLATIN2,
-        CloudWatchLogsEncodingMacRoman,
-        CloudWatchLogsEncodingMacTurkish,
-        CloudWatchLogsEncodingPTCP154,
-        CloudWatchLogsEncodingShiftJis,
-        CloudWatchLogsEncodingShiftJis2004,
-        CloudWatchLogsEncodingShiftJISX0213,
-        CloudWatchLogsEncodingUtf32,
-        CloudWatchLogsEncodingUtf32Be,
-        CloudWatchLogsEncodingUtf32Le,
-        CloudWatchLogsEncodingUtf16,
-        CloudWatchLogsEncodingUtf16Be,
-        CloudWatchLogsEncodingUtf16Le,
-        CloudWatchLogsEncodingUtf7,
-        CloudWatchLogsEncodingUtf8,
-        CloudWatchLogsEncodingUtf8Sig,
-        fromCloudWatchLogsEncoding
-      ),
-  )
-where
+    ( CloudWatchLogsEncoding'
+    , CloudWatchLogsEncodingAscii
+    , CloudWatchLogsEncodingBIG5
+    , CloudWatchLogsEncodingBig5hkscs
+    , CloudWatchLogsEncodingCP037
+    , CloudWatchLogsEncodingCP424
+    , CloudWatchLogsEncodingCP437
+    , CloudWatchLogsEncodingCP500
+    , CloudWatchLogsEncodingCP720
+    , CloudWatchLogsEncodingCP737
+    , CloudWatchLogsEncodingCP775
+    , CloudWatchLogsEncodingCP850
+    , CloudWatchLogsEncodingCP852
+    , CloudWatchLogsEncodingCP855
+    , CloudWatchLogsEncodingCP856
+    , CloudWatchLogsEncodingCP857
+    , CloudWatchLogsEncodingCP858
+    , CloudWatchLogsEncodingCP860
+    , CloudWatchLogsEncodingCP861
+    , CloudWatchLogsEncodingCP862
+    , CloudWatchLogsEncodingCP863
+    , CloudWatchLogsEncodingCP864
+    , CloudWatchLogsEncodingCP865
+    , CloudWatchLogsEncodingCP866
+    , CloudWatchLogsEncodingCP869
+    , CloudWatchLogsEncodingCP874
+    , CloudWatchLogsEncodingCP875
+    , CloudWatchLogsEncodingCP932
+    , CloudWatchLogsEncodingCP949
+    , CloudWatchLogsEncodingCP950
+    , CloudWatchLogsEncodingCP1006
+    , CloudWatchLogsEncodingCP1026
+    , CloudWatchLogsEncodingCP1140
+    , CloudWatchLogsEncodingCP1250
+    , CloudWatchLogsEncodingCP1251
+    , CloudWatchLogsEncodingCP1252
+    , CloudWatchLogsEncodingCP1253
+    , CloudWatchLogsEncodingCP1254
+    , CloudWatchLogsEncodingCP1255
+    , CloudWatchLogsEncodingCP1256
+    , CloudWatchLogsEncodingCP1257
+    , CloudWatchLogsEncodingCP1258
+    , CloudWatchLogsEncodingEucJp
+    , CloudWatchLogsEncodingEucJis2004
+    , CloudWatchLogsEncodingEucJISX0213
+    , CloudWatchLogsEncodingEucKr
+    , CloudWatchLogsEncodingGB2312
+    , CloudWatchLogsEncodingGbk
+    , CloudWatchLogsEncodingGB18030
+    , CloudWatchLogsEncodingHZ
+    , CloudWatchLogsEncodingISO2022Jp
+    , CloudWatchLogsEncodingISO2022Jp1
+    , CloudWatchLogsEncodingISO2022Jp2
+    , CloudWatchLogsEncodingISO2022Jp2004
+    , CloudWatchLogsEncodingISO2022Jp3
+    , CloudWatchLogsEncodingISO2022JpExt
+    , CloudWatchLogsEncodingISO2022Kr
+    , CloudWatchLogsEncodingLatin1
+    , CloudWatchLogsEncodingISO88592
+    , CloudWatchLogsEncodingISO88593
+    , CloudWatchLogsEncodingISO88594
+    , CloudWatchLogsEncodingISO88595
+    , CloudWatchLogsEncodingISO88596
+    , CloudWatchLogsEncodingISO88597
+    , CloudWatchLogsEncodingISO88598
+    , CloudWatchLogsEncodingISO88599
+    , CloudWatchLogsEncodingISO885910
+    , CloudWatchLogsEncodingISO885913
+    , CloudWatchLogsEncodingISO885914
+    , CloudWatchLogsEncodingISO885915
+    , CloudWatchLogsEncodingISO885916
+    , CloudWatchLogsEncodingJohab
+    , CloudWatchLogsEncodingKOI8r
+    , CloudWatchLogsEncodingKOI8u
+    , CloudWatchLogsEncodingMacCyrillic
+    , CloudWatchLogsEncodingMacGreek
+    , CloudWatchLogsEncodingMacIceland
+    , CloudWatchLogsEncodingMacLATIN2
+    , CloudWatchLogsEncodingMacRoman
+    , CloudWatchLogsEncodingMacTurkish
+    , CloudWatchLogsEncodingPTCP154
+    , CloudWatchLogsEncodingShiftJis
+    , CloudWatchLogsEncodingShiftJis2004
+    , CloudWatchLogsEncodingShiftJISX0213
+    , CloudWatchLogsEncodingUtf32
+    , CloudWatchLogsEncodingUtf32Be
+    , CloudWatchLogsEncodingUtf32Le
+    , CloudWatchLogsEncodingUtf16
+    , CloudWatchLogsEncodingUtf16Be
+    , CloudWatchLogsEncodingUtf16Le
+    , CloudWatchLogsEncodingUtf7
+    , CloudWatchLogsEncodingUtf8
+    , CloudWatchLogsEncodingUtf8Sig
+    , fromCloudWatchLogsEncoding
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the encoding of the log file so that the file can be read correctly. The default is @utf_8@ . Encodings supported by Python @codecs.decode()@ can be used here.
-newtype CloudWatchLogsEncoding = CloudWatchLogsEncoding'
-  { fromCloudWatchLogsEncoding ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype CloudWatchLogsEncoding = CloudWatchLogsEncoding'{fromCloudWatchLogsEncoding
+                                                         :: Core.Text}
+                                   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                   Core.Generic)
+                                   deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                     Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                     Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                     Core.ToText, Core.FromText, Core.ToByteString,
+                                                     Core.ToQuery, Core.ToHeader)
 
 pattern CloudWatchLogsEncodingAscii :: CloudWatchLogsEncoding
 pattern CloudWatchLogsEncodingAscii = CloudWatchLogsEncoding' "ascii"
@@ -417,98 +399,189 @@ pattern CloudWatchLogsEncodingUtf8 = CloudWatchLogsEncoding' "utf_8"
 pattern CloudWatchLogsEncodingUtf8Sig :: CloudWatchLogsEncoding
 pattern CloudWatchLogsEncodingUtf8Sig = CloudWatchLogsEncoding' "utf_8_sig"
 
-{-# COMPLETE
+{-# COMPLETE 
   CloudWatchLogsEncodingAscii,
+
   CloudWatchLogsEncodingBIG5,
+
   CloudWatchLogsEncodingBig5hkscs,
+
   CloudWatchLogsEncodingCP037,
+
   CloudWatchLogsEncodingCP424,
+
   CloudWatchLogsEncodingCP437,
+
   CloudWatchLogsEncodingCP500,
+
   CloudWatchLogsEncodingCP720,
+
   CloudWatchLogsEncodingCP737,
+
   CloudWatchLogsEncodingCP775,
+
   CloudWatchLogsEncodingCP850,
+
   CloudWatchLogsEncodingCP852,
+
   CloudWatchLogsEncodingCP855,
+
   CloudWatchLogsEncodingCP856,
+
   CloudWatchLogsEncodingCP857,
+
   CloudWatchLogsEncodingCP858,
+
   CloudWatchLogsEncodingCP860,
+
   CloudWatchLogsEncodingCP861,
+
   CloudWatchLogsEncodingCP862,
+
   CloudWatchLogsEncodingCP863,
+
   CloudWatchLogsEncodingCP864,
+
   CloudWatchLogsEncodingCP865,
+
   CloudWatchLogsEncodingCP866,
+
   CloudWatchLogsEncodingCP869,
+
   CloudWatchLogsEncodingCP874,
+
   CloudWatchLogsEncodingCP875,
+
   CloudWatchLogsEncodingCP932,
+
   CloudWatchLogsEncodingCP949,
+
   CloudWatchLogsEncodingCP950,
+
   CloudWatchLogsEncodingCP1006,
+
   CloudWatchLogsEncodingCP1026,
+
   CloudWatchLogsEncodingCP1140,
+
   CloudWatchLogsEncodingCP1250,
+
   CloudWatchLogsEncodingCP1251,
+
   CloudWatchLogsEncodingCP1252,
+
   CloudWatchLogsEncodingCP1253,
+
   CloudWatchLogsEncodingCP1254,
+
   CloudWatchLogsEncodingCP1255,
+
   CloudWatchLogsEncodingCP1256,
+
   CloudWatchLogsEncodingCP1257,
+
   CloudWatchLogsEncodingCP1258,
+
   CloudWatchLogsEncodingEucJp,
+
   CloudWatchLogsEncodingEucJis2004,
+
   CloudWatchLogsEncodingEucJISX0213,
+
   CloudWatchLogsEncodingEucKr,
+
   CloudWatchLogsEncodingGB2312,
+
   CloudWatchLogsEncodingGbk,
+
   CloudWatchLogsEncodingGB18030,
+
   CloudWatchLogsEncodingHZ,
+
   CloudWatchLogsEncodingISO2022Jp,
+
   CloudWatchLogsEncodingISO2022Jp1,
+
   CloudWatchLogsEncodingISO2022Jp2,
+
   CloudWatchLogsEncodingISO2022Jp2004,
+
   CloudWatchLogsEncodingISO2022Jp3,
+
   CloudWatchLogsEncodingISO2022JpExt,
+
   CloudWatchLogsEncodingISO2022Kr,
+
   CloudWatchLogsEncodingLatin1,
+
   CloudWatchLogsEncodingISO88592,
+
   CloudWatchLogsEncodingISO88593,
+
   CloudWatchLogsEncodingISO88594,
+
   CloudWatchLogsEncodingISO88595,
+
   CloudWatchLogsEncodingISO88596,
+
   CloudWatchLogsEncodingISO88597,
+
   CloudWatchLogsEncodingISO88598,
+
   CloudWatchLogsEncodingISO88599,
+
   CloudWatchLogsEncodingISO885910,
+
   CloudWatchLogsEncodingISO885913,
+
   CloudWatchLogsEncodingISO885914,
+
   CloudWatchLogsEncodingISO885915,
+
   CloudWatchLogsEncodingISO885916,
+
   CloudWatchLogsEncodingJohab,
+
   CloudWatchLogsEncodingKOI8r,
+
   CloudWatchLogsEncodingKOI8u,
+
   CloudWatchLogsEncodingMacCyrillic,
+
   CloudWatchLogsEncodingMacGreek,
+
   CloudWatchLogsEncodingMacIceland,
+
   CloudWatchLogsEncodingMacLATIN2,
+
   CloudWatchLogsEncodingMacRoman,
+
   CloudWatchLogsEncodingMacTurkish,
+
   CloudWatchLogsEncodingPTCP154,
+
   CloudWatchLogsEncodingShiftJis,
+
   CloudWatchLogsEncodingShiftJis2004,
+
   CloudWatchLogsEncodingShiftJISX0213,
+
   CloudWatchLogsEncodingUtf32,
+
   CloudWatchLogsEncodingUtf32Be,
+
   CloudWatchLogsEncodingUtf32Le,
+
   CloudWatchLogsEncodingUtf16,
+
   CloudWatchLogsEncodingUtf16Be,
+
   CloudWatchLogsEncodingUtf16Le,
+
   CloudWatchLogsEncodingUtf7,
+
   CloudWatchLogsEncodingUtf8,
+
   CloudWatchLogsEncodingUtf8Sig,
   CloudWatchLogsEncoding'
   #-}

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.DynamoDB.Types.WriteRequest
-  ( WriteRequest (..),
-
-    -- * Smart constructor
-    mkWriteRequest,
-
-    -- * Lenses
-    wrDeleteRequest,
-    wrPutRequest,
-  )
-where
+  ( WriteRequest (..)
+  -- * Smart constructor
+  , mkWriteRequest
+  -- * Lenses
+  , wrDeleteRequest
+  , wrPutRequest
+  ) where
 
 import qualified Network.AWS.DynamoDB.Types.DeleteRequest as Types
 import qualified Network.AWS.DynamoDB.Types.PutRequest as Types
@@ -31,49 +29,47 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkWriteRequest' smart constructor.
 data WriteRequest = WriteRequest'
-  { -- | A request to perform a @DeleteItem@ operation.
-    deleteRequest :: Core.Maybe Types.DeleteRequest,
-    -- | A request to perform a @PutItem@ operation.
-    putRequest :: Core.Maybe Types.PutRequest
+  { deleteRequest :: Core.Maybe Types.DeleteRequest
+    -- ^ A request to perform a @DeleteItem@ operation.
+  , putRequest :: Core.Maybe Types.PutRequest
+    -- ^ A request to perform a @PutItem@ operation.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'WriteRequest' value with any optional fields omitted.
-mkWriteRequest ::
-  WriteRequest
-mkWriteRequest =
-  WriteRequest'
-    { deleteRequest = Core.Nothing,
-      putRequest = Core.Nothing
-    }
+mkWriteRequest
+    :: WriteRequest
+mkWriteRequest
+  = WriteRequest'{deleteRequest = Core.Nothing,
+                  putRequest = Core.Nothing}
 
 -- | A request to perform a @DeleteItem@ operation.
 --
 -- /Note:/ Consider using 'deleteRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 wrDeleteRequest :: Lens.Lens' WriteRequest (Core.Maybe Types.DeleteRequest)
 wrDeleteRequest = Lens.field @"deleteRequest"
-{-# DEPRECATED wrDeleteRequest "Use generic-lens or generic-optics with 'deleteRequest' instead." #-}
+{-# INLINEABLE wrDeleteRequest #-}
+{-# DEPRECATED deleteRequest "Use generic-lens or generic-optics with 'deleteRequest' instead"  #-}
 
 -- | A request to perform a @PutItem@ operation.
 --
 -- /Note:/ Consider using 'putRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 wrPutRequest :: Lens.Lens' WriteRequest (Core.Maybe Types.PutRequest)
 wrPutRequest = Lens.field @"putRequest"
-{-# DEPRECATED wrPutRequest "Use generic-lens or generic-optics with 'putRequest' instead." #-}
+{-# INLINEABLE wrPutRequest #-}
+{-# DEPRECATED putRequest "Use generic-lens or generic-optics with 'putRequest' instead"  #-}
 
 instance Core.FromJSON WriteRequest where
-  toJSON WriteRequest {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("DeleteRequest" Core..=) Core.<$> deleteRequest,
-            ("PutRequest" Core..=) Core.<$> putRequest
-          ]
-      )
+        toJSON WriteRequest{..}
+          = Core.object
+              (Core.catMaybes
+                 [("DeleteRequest" Core..=) Core.<$> deleteRequest,
+                  ("PutRequest" Core..=) Core.<$> putRequest])
 
 instance Core.FromJSON WriteRequest where
-  parseJSON =
-    Core.withObject "WriteRequest" Core.$
-      \x ->
-        WriteRequest'
-          Core.<$> (x Core..:? "DeleteRequest") Core.<*> (x Core..:? "PutRequest")
+        parseJSON
+          = Core.withObject "WriteRequest" Core.$
+              \ x ->
+                WriteRequest' Core.<$>
+                  (x Core..:? "DeleteRequest") Core.<*> x Core..:? "PutRequest"

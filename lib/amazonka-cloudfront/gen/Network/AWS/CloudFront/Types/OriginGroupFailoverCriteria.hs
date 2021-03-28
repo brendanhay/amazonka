@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CloudFront.Types.OriginGroupFailoverCriteria
-  ( OriginGroupFailoverCriteria (..),
-
-    -- * Smart constructor
-    mkOriginGroupFailoverCriteria,
-
-    -- * Lenses
-    ogfcStatusCodes,
-  )
-where
+  ( OriginGroupFailoverCriteria (..)
+  -- * Smart constructor
+  , mkOriginGroupFailoverCriteria
+  -- * Lenses
+  , ogfcStatusCodes
+  ) where
 
 import qualified Network.AWS.CloudFront.Types.StatusCodes as Types
 import qualified Network.AWS.Lens as Lens
@@ -29,31 +27,31 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkOriginGroupFailoverCriteria' smart constructor.
 newtype OriginGroupFailoverCriteria = OriginGroupFailoverCriteria'
-  { -- | The status codes that, when returned from the primary origin, will trigger CloudFront to failover to the second origin.
-    statusCodes :: Types.StatusCodes
+  { statusCodes :: Types.StatusCodes
+    -- ^ The status codes that, when returned from the primary origin, will trigger CloudFront to failover to the second origin.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'OriginGroupFailoverCriteria' value with any optional fields omitted.
-mkOriginGroupFailoverCriteria ::
-  -- | 'statusCodes'
-  Types.StatusCodes ->
-  OriginGroupFailoverCriteria
-mkOriginGroupFailoverCriteria statusCodes =
-  OriginGroupFailoverCriteria' {statusCodes}
+mkOriginGroupFailoverCriteria
+    :: Types.StatusCodes -- ^ 'statusCodes'
+    -> OriginGroupFailoverCriteria
+mkOriginGroupFailoverCriteria statusCodes
+  = OriginGroupFailoverCriteria'{statusCodes}
 
 -- | The status codes that, when returned from the primary origin, will trigger CloudFront to failover to the second origin.
 --
 -- /Note:/ Consider using 'statusCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ogfcStatusCodes :: Lens.Lens' OriginGroupFailoverCriteria Types.StatusCodes
 ogfcStatusCodes = Lens.field @"statusCodes"
-{-# DEPRECATED ogfcStatusCodes "Use generic-lens or generic-optics with 'statusCodes' instead." #-}
+{-# INLINEABLE ogfcStatusCodes #-}
+{-# DEPRECATED statusCodes "Use generic-lens or generic-optics with 'statusCodes' instead"  #-}
 
 instance Core.ToXML OriginGroupFailoverCriteria where
-  toXML OriginGroupFailoverCriteria {..} =
-    Core.toXMLNode "StatusCodes" statusCodes
+        toXML OriginGroupFailoverCriteria{..}
+          = Core.toXMLElement "StatusCodes" statusCodes
 
 instance Core.FromXML OriginGroupFailoverCriteria where
-  parseXML x =
-    OriginGroupFailoverCriteria' Core.<$> (x Core..@ "StatusCodes")
+        parseXML x
+          = OriginGroupFailoverCriteria' Core.<$> (x Core..@ "StatusCodes")

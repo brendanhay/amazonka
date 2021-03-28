@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,19 +15,18 @@
 --
 -- Remove a field-level encryption profile.
 module Network.AWS.CloudFront.DeleteFieldLevelEncryptionProfile
-  ( -- * Creating a request
-    DeleteFieldLevelEncryptionProfile (..),
-    mkDeleteFieldLevelEncryptionProfile,
-
+    (
+    -- * Creating a request
+      DeleteFieldLevelEncryptionProfile (..)
+    , mkDeleteFieldLevelEncryptionProfile
     -- ** Request lenses
-    dflepId,
-    dflepIfMatch,
+    , dflepId
+    , dflepIfMatch
 
     -- * Destructuring the response
-    DeleteFieldLevelEncryptionProfileResponse (..),
-    mkDeleteFieldLevelEncryptionProfileResponse,
-  )
-where
+    , DeleteFieldLevelEncryptionProfileResponse (..)
+    , mkDeleteFieldLevelEncryptionProfileResponse
+    ) where
 
 import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -37,55 +36,61 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteFieldLevelEncryptionProfile' smart constructor.
 data DeleteFieldLevelEncryptionProfile = DeleteFieldLevelEncryptionProfile'
-  { -- | Request the ID of the profile you want to delete from CloudFront.
-    id :: Types.String,
-    -- | The value of the @ETag@ header that you received when retrieving the profile to delete. For example: @E2QWRUHAPOMQZL@ .
-    ifMatch :: Core.Maybe Types.String
+  { id :: Core.Text
+    -- ^ Request the ID of the profile you want to delete from CloudFront.
+  , ifMatch :: Core.Maybe Core.Text
+    -- ^ The value of the @ETag@ header that you received when retrieving the profile to delete. For example: @E2QWRUHAPOMQZL@ .
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteFieldLevelEncryptionProfile' value with any optional fields omitted.
-mkDeleteFieldLevelEncryptionProfile ::
-  -- | 'id'
-  Types.String ->
-  DeleteFieldLevelEncryptionProfile
-mkDeleteFieldLevelEncryptionProfile id =
-  DeleteFieldLevelEncryptionProfile' {id, ifMatch = Core.Nothing}
+mkDeleteFieldLevelEncryptionProfile
+    :: Core.Text -- ^ 'id'
+    -> DeleteFieldLevelEncryptionProfile
+mkDeleteFieldLevelEncryptionProfile id
+  = DeleteFieldLevelEncryptionProfile'{id, ifMatch = Core.Nothing}
 
 -- | Request the ID of the profile you want to delete from CloudFront.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dflepId :: Lens.Lens' DeleteFieldLevelEncryptionProfile Types.String
+dflepId :: Lens.Lens' DeleteFieldLevelEncryptionProfile Core.Text
 dflepId = Lens.field @"id"
-{-# DEPRECATED dflepId "Use generic-lens or generic-optics with 'id' instead." #-}
+{-# INLINEABLE dflepId #-}
+{-# DEPRECATED id "Use generic-lens or generic-optics with 'id' instead"  #-}
 
 -- | The value of the @ETag@ header that you received when retrieving the profile to delete. For example: @E2QWRUHAPOMQZL@ .
 --
 -- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dflepIfMatch :: Lens.Lens' DeleteFieldLevelEncryptionProfile (Core.Maybe Types.String)
+dflepIfMatch :: Lens.Lens' DeleteFieldLevelEncryptionProfile (Core.Maybe Core.Text)
 dflepIfMatch = Lens.field @"ifMatch"
-{-# DEPRECATED dflepIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
+{-# INLINEABLE dflepIfMatch #-}
+{-# DEPRECATED ifMatch "Use generic-lens or generic-optics with 'ifMatch' instead"  #-}
+
+instance Core.ToQuery DeleteFieldLevelEncryptionProfile where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DeleteFieldLevelEncryptionProfile where
+        toHeaders DeleteFieldLevelEncryptionProfile{..}
+          = Core.toHeaders "If-Match" ifMatch
 
 instance Core.AWSRequest DeleteFieldLevelEncryptionProfile where
-  type
-    Rs DeleteFieldLevelEncryptionProfile =
-      DeleteFieldLevelEncryptionProfileResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.DELETE,
-        Core._rqPath =
-          Core.rawPath
-            ( "/2020-05-31/field-level-encryption-profile/"
-                Core.<> (Core.toText id)
-            ),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders = Core.toHeaders "If-Match" ifMatch,
-        Core._rqBody = ""
-      }
-  response =
-    Response.receiveNull DeleteFieldLevelEncryptionProfileResponse'
+        type Rs DeleteFieldLevelEncryptionProfile =
+             DeleteFieldLevelEncryptionProfileResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.DELETE,
+                         Core._rqPath =
+                           "/2020-05-31/field-level-encryption-profile/" Core.<>
+                             Core.toText id,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveNull DeleteFieldLevelEncryptionProfileResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteFieldLevelEncryptionProfileResponse' smart constructor.
 data DeleteFieldLevelEncryptionProfileResponse = DeleteFieldLevelEncryptionProfileResponse'
@@ -93,7 +98,7 @@ data DeleteFieldLevelEncryptionProfileResponse = DeleteFieldLevelEncryptionProfi
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteFieldLevelEncryptionProfileResponse' value with any optional fields omitted.
-mkDeleteFieldLevelEncryptionProfileResponse ::
-  DeleteFieldLevelEncryptionProfileResponse
-mkDeleteFieldLevelEncryptionProfileResponse =
-  DeleteFieldLevelEncryptionProfileResponse'
+mkDeleteFieldLevelEncryptionProfileResponse
+    :: DeleteFieldLevelEncryptionProfileResponse
+mkDeleteFieldLevelEncryptionProfileResponse
+  = DeleteFieldLevelEncryptionProfileResponse'

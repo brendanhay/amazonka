@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -18,22 +18,20 @@
 -- Sending authorization is a feature that enables an identity owner to authorize other senders to use its identities. For information about using sending authorization, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide> .
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.DeleteIdentityPolicy
-  ( -- * Creating a request
-    DeleteIdentityPolicy (..),
-    mkDeleteIdentityPolicy,
-
+    (
+    -- * Creating a request
+      DeleteIdentityPolicy (..)
+    , mkDeleteIdentityPolicy
     -- ** Request lenses
-    dipIdentity,
-    dipPolicyName,
+    , dipIdentity
+    , dipPolicyName
 
     -- * Destructuring the response
-    DeleteIdentityPolicyResponse (..),
-    mkDeleteIdentityPolicyResponse,
-
+    , DeleteIdentityPolicyResponse (..)
+    , mkDeleteIdentityPolicyResponse
     -- ** Response lenses
-    diprrsResponseStatus,
-  )
-where
+    , diprrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -45,25 +43,23 @@ import qualified Network.AWS.SES.Types as Types
 --
 -- /See:/ 'mkDeleteIdentityPolicy' smart constructor.
 data DeleteIdentityPolicy = DeleteIdentityPolicy'
-  { -- | The identity that is associated with the policy that you want to delete. You can specify the identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
-    --
-    -- To successfully call this API, you must own the identity.
-    identity :: Types.Identity,
-    -- | The name of the policy to be deleted.
-    policyName :: Types.PolicyName
+  { identity :: Types.Identity
+    -- ^ The identity that is associated with the policy that you want to delete. You can specify the identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
+--
+-- To successfully call this API, you must own the identity.
+  , policyName :: Types.PolicyName
+    -- ^ The name of the policy to be deleted.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteIdentityPolicy' value with any optional fields omitted.
-mkDeleteIdentityPolicy ::
-  -- | 'identity'
-  Types.Identity ->
-  -- | 'policyName'
-  Types.PolicyName ->
-  DeleteIdentityPolicy
-mkDeleteIdentityPolicy identity policyName =
-  DeleteIdentityPolicy' {identity, policyName}
+mkDeleteIdentityPolicy
+    :: Types.Identity -- ^ 'identity'
+    -> Types.PolicyName -- ^ 'policyName'
+    -> DeleteIdentityPolicy
+mkDeleteIdentityPolicy identity policyName
+  = DeleteIdentityPolicy'{identity, policyName}
 
 -- | The identity that is associated with the policy that you want to delete. You can specify the identity by using its name or by using its Amazon Resource Name (ARN). Examples: @user@example.com@ , @example.com@ , @arn:aws:ses:us-east-1:123456789012:identity/example.com@ .
 --
@@ -72,65 +68,70 @@ mkDeleteIdentityPolicy identity policyName =
 -- /Note:/ Consider using 'identity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dipIdentity :: Lens.Lens' DeleteIdentityPolicy Types.Identity
 dipIdentity = Lens.field @"identity"
-{-# DEPRECATED dipIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
+{-# INLINEABLE dipIdentity #-}
+{-# DEPRECATED identity "Use generic-lens or generic-optics with 'identity' instead"  #-}
 
 -- | The name of the policy to be deleted.
 --
 -- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dipPolicyName :: Lens.Lens' DeleteIdentityPolicy Types.PolicyName
 dipPolicyName = Lens.field @"policyName"
-{-# DEPRECATED dipPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+{-# INLINEABLE dipPolicyName #-}
+{-# DEPRECATED policyName "Use generic-lens or generic-optics with 'policyName' instead"  #-}
+
+instance Core.ToQuery DeleteIdentityPolicy where
+        toQuery DeleteIdentityPolicy{..}
+          = Core.toQueryPair "Action" ("DeleteIdentityPolicy" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2010-12-01" :: Core.Text)
+              Core.<> Core.toQueryPair "Identity" identity
+              Core.<> Core.toQueryPair "PolicyName" policyName
+
+instance Core.ToHeaders DeleteIdentityPolicy where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest DeleteIdentityPolicy where
-  type Rs DeleteIdentityPolicy = DeleteIdentityPolicyResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "DeleteIdentityPolicy")
-                Core.<> (Core.pure ("Version", "2010-12-01"))
-                Core.<> (Core.toQueryValue "Identity" identity)
-                Core.<> (Core.toQueryValue "PolicyName" policyName)
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "DeleteIdentityPolicyResult"
-      ( \s h x ->
-          DeleteIdentityPolicyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DeleteIdentityPolicy = DeleteIdentityPolicyResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "DeleteIdentityPolicyResult"
+              (\ s h x ->
+                 DeleteIdentityPolicyResponse' Core.<$>
+                   (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkDeleteIdentityPolicyResponse' smart constructor.
 newtype DeleteIdentityPolicyResponse = DeleteIdentityPolicyResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteIdentityPolicyResponse' value with any optional fields omitted.
-mkDeleteIdentityPolicyResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DeleteIdentityPolicyResponse
-mkDeleteIdentityPolicyResponse responseStatus =
-  DeleteIdentityPolicyResponse' {responseStatus}
+mkDeleteIdentityPolicyResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DeleteIdentityPolicyResponse
+mkDeleteIdentityPolicyResponse responseStatus
+  = DeleteIdentityPolicyResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 diprrsResponseStatus :: Lens.Lens' DeleteIdentityPolicyResponse Core.Int
 diprrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED diprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE diprrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

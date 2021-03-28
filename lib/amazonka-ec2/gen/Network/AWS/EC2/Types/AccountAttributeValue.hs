@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.EC2.Types.AccountAttributeValue
-  ( AccountAttributeValue (..),
+  ( AccountAttributeValue (..)
+  -- * Smart constructor
+  , mkAccountAttributeValue
+  -- * Lenses
+  , aavAttributeValue
+  ) where
 
-    -- * Smart constructor
-    mkAccountAttributeValue,
-
-    -- * Lenses
-    aavAttributeValue,
-  )
-where
-
-import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
 
@@ -29,25 +26,26 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkAccountAttributeValue' smart constructor.
 newtype AccountAttributeValue = AccountAttributeValue'
-  { -- | The value of the attribute.
-    attributeValue :: Core.Maybe Types.String
+  { attributeValue :: Core.Maybe Core.Text
+    -- ^ The value of the attribute.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AccountAttributeValue' value with any optional fields omitted.
-mkAccountAttributeValue ::
-  AccountAttributeValue
-mkAccountAttributeValue =
-  AccountAttributeValue' {attributeValue = Core.Nothing}
+mkAccountAttributeValue
+    :: AccountAttributeValue
+mkAccountAttributeValue
+  = AccountAttributeValue'{attributeValue = Core.Nothing}
 
 -- | The value of the attribute.
 --
 -- /Note:/ Consider using 'attributeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aavAttributeValue :: Lens.Lens' AccountAttributeValue (Core.Maybe Types.String)
+aavAttributeValue :: Lens.Lens' AccountAttributeValue (Core.Maybe Core.Text)
 aavAttributeValue = Lens.field @"attributeValue"
-{-# DEPRECATED aavAttributeValue "Use generic-lens or generic-optics with 'attributeValue' instead." #-}
+{-# INLINEABLE aavAttributeValue #-}
+{-# DEPRECATED attributeValue "Use generic-lens or generic-optics with 'attributeValue' instead"  #-}
 
 instance Core.FromXML AccountAttributeValue where
-  parseXML x =
-    AccountAttributeValue' Core.<$> (x Core..@? "attributeValue")
+        parseXML x
+          = AccountAttributeValue' Core.<$> (x Core..@? "attributeValue")

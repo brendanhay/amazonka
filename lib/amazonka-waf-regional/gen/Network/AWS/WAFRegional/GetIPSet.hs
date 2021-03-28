@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,22 +15,20 @@
 --
 -- Returns the 'IPSet' that is specified by @IPSetId@ .
 module Network.AWS.WAFRegional.GetIPSet
-  ( -- * Creating a request
-    GetIPSet (..),
-    mkGetIPSet,
-
+    (
+    -- * Creating a request
+      GetIPSet (..)
+    , mkGetIPSet
     -- ** Request lenses
-    gipsIPSetId,
+    , gipsIPSetId
 
     -- * Destructuring the response
-    GetIPSetResponse (..),
-    mkGetIPSetResponse,
-
+    , GetIPSetResponse (..)
+    , mkGetIPSetResponse
     -- ** Response lenses
-    gipsrrsIPSet,
-    gipsrrsResponseStatus,
-  )
-where
+    , gipsrrsIPSet
+    , gipsrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -40,93 +38,101 @@ import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkGetIPSet' smart constructor.
 newtype GetIPSet = GetIPSet'
-  { -- | The @IPSetId@ of the 'IPSet' that you want to get. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
-    iPSetId :: Types.IPSetId
+  { iPSetId :: Types.IPSetId
+    -- ^ The @IPSetId@ of the 'IPSet' that you want to get. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetIPSet' value with any optional fields omitted.
-mkGetIPSet ::
-  -- | 'iPSetId'
-  Types.IPSetId ->
-  GetIPSet
-mkGetIPSet iPSetId = GetIPSet' {iPSetId}
+mkGetIPSet
+    :: Types.IPSetId -- ^ 'iPSetId'
+    -> GetIPSet
+mkGetIPSet iPSetId = GetIPSet'{iPSetId}
 
 -- | The @IPSetId@ of the 'IPSet' that you want to get. @IPSetId@ is returned by 'CreateIPSet' and by 'ListIPSets' .
 --
 -- /Note:/ Consider using 'iPSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gipsIPSetId :: Lens.Lens' GetIPSet Types.IPSetId
 gipsIPSetId = Lens.field @"iPSetId"
-{-# DEPRECATED gipsIPSetId "Use generic-lens or generic-optics with 'iPSetId' instead." #-}
+{-# INLINEABLE gipsIPSetId #-}
+{-# DEPRECATED iPSetId "Use generic-lens or generic-optics with 'iPSetId' instead"  #-}
+
+instance Core.ToQuery GetIPSet where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders GetIPSet where
+        toHeaders GetIPSet{..}
+          = Core.pure ("X-Amz-Target", "AWSWAF_Regional_20161128.GetIPSet")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON GetIPSet where
-  toJSON GetIPSet {..} =
-    Core.object
-      (Core.catMaybes [Core.Just ("IPSetId" Core..= iPSetId)])
+        toJSON GetIPSet{..}
+          = Core.object
+              (Core.catMaybes [Core.Just ("IPSetId" Core..= iPSetId)])
 
 instance Core.AWSRequest GetIPSet where
-  type Rs GetIPSet = GetIPSetResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "AWSWAF_Regional_20161128.GetIPSet")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          GetIPSetResponse'
-            Core.<$> (x Core..:? "IPSet") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs GetIPSet = GetIPSetResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 GetIPSetResponse' Core.<$>
+                   (x Core..:? "IPSet") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkGetIPSetResponse' smart constructor.
 data GetIPSetResponse = GetIPSetResponse'
-  { -- | Information about the 'IPSet' that you specified in the @GetIPSet@ request. For more information, see the following topics:
-    --
-    --
-    --     * 'IPSet' : Contains @IPSetDescriptors@ , @IPSetId@ , and @Name@
-    --
-    --
-    --     * @IPSetDescriptors@ : Contains an array of 'IPSetDescriptor' objects. Each @IPSetDescriptor@ object contains @Type@ and @Value@
-    iPSet :: Core.Maybe Types.IPSet,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { iPSet :: Core.Maybe Types.IPSet
+    -- ^ Information about the 'IPSet' that you specified in the @GetIPSet@ request. For more information, see the following topics:
+--
+--
+--     * 'IPSet' : Contains @IPSetDescriptors@ , @IPSetId@ , and @Name@ 
+--
+--
+--     * @IPSetDescriptors@ : Contains an array of 'IPSetDescriptor' objects. Each @IPSetDescriptor@ object contains @Type@ and @Value@ 
+--
+--
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetIPSetResponse' value with any optional fields omitted.
-mkGetIPSetResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  GetIPSetResponse
-mkGetIPSetResponse responseStatus =
-  GetIPSetResponse' {iPSet = Core.Nothing, responseStatus}
+mkGetIPSetResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> GetIPSetResponse
+mkGetIPSetResponse responseStatus
+  = GetIPSetResponse'{iPSet = Core.Nothing, responseStatus}
 
 -- | Information about the 'IPSet' that you specified in the @GetIPSet@ request. For more information, see the following topics:
 --
 --
---     * 'IPSet' : Contains @IPSetDescriptors@ , @IPSetId@ , and @Name@
+--     * 'IPSet' : Contains @IPSetDescriptors@ , @IPSetId@ , and @Name@ 
 --
 --
---     * @IPSetDescriptors@ : Contains an array of 'IPSetDescriptor' objects. Each @IPSetDescriptor@ object contains @Type@ and @Value@
+--     * @IPSetDescriptors@ : Contains an array of 'IPSetDescriptor' objects. Each @IPSetDescriptor@ object contains @Type@ and @Value@ 
 --
 --
 --
 -- /Note:/ Consider using 'iPSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gipsrrsIPSet :: Lens.Lens' GetIPSetResponse (Core.Maybe Types.IPSet)
 gipsrrsIPSet = Lens.field @"iPSet"
-{-# DEPRECATED gipsrrsIPSet "Use generic-lens or generic-optics with 'iPSet' instead." #-}
+{-# INLINEABLE gipsrrsIPSet #-}
+{-# DEPRECATED iPSet "Use generic-lens or generic-optics with 'iPSet' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gipsrrsResponseStatus :: Lens.Lens' GetIPSetResponse Core.Int
 gipsrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED gipsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE gipsrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

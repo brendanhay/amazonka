@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,58 +15,58 @@
 --
 -- Updates port settings for a fleet. To update settings, specify the fleet ID to be updated and list the permissions you want to update. List the permissions you want to add in @InboundPermissionAuthorizations@ , and permissions you want to remove in @InboundPermissionRevocations@ . Permissions to be removed must match existing fleet permissions. If successful, the fleet ID for the updated fleet is returned.
 --
--- __Learn more__
--- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift Fleets>
--- __Related operations__
+-- __Learn more__ 
+-- <https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html Setting up GameLift Fleets> 
+-- __Related operations__ 
 --
---     * 'CreateFleet'
---
---
---     * 'ListFleets'
+--     * 'CreateFleet' 
 --
 --
---     * 'DeleteFleet'
+--     * 'ListFleets' 
 --
 --
---     * 'DescribeFleetAttributes'
+--     * 'DeleteFleet' 
+--
+--
+--     * 'DescribeFleetAttributes' 
 --
 --
 --     * Update fleets:
 --
---     * 'UpdateFleetAttributes'
+--     * 'UpdateFleetAttributes' 
 --
 --
---     * 'UpdateFleetCapacity'
+--     * 'UpdateFleetCapacity' 
 --
 --
---     * 'UpdateFleetPortSettings'
+--     * 'UpdateFleetPortSettings' 
 --
 --
---     * 'UpdateRuntimeConfiguration'
+--     * 'UpdateRuntimeConfiguration' 
 --
 --
 --
 --
---     * 'StartFleetActions' or 'StopFleetActions'
+--     * 'StartFleetActions' or 'StopFleetActions' 
+--
+--
 module Network.AWS.GameLift.UpdateFleetPortSettings
-  ( -- * Creating a request
-    UpdateFleetPortSettings (..),
-    mkUpdateFleetPortSettings,
-
+    (
+    -- * Creating a request
+      UpdateFleetPortSettings (..)
+    , mkUpdateFleetPortSettings
     -- ** Request lenses
-    ufpsFleetId,
-    ufpsInboundPermissionAuthorizations,
-    ufpsInboundPermissionRevocations,
+    , ufpsFleetId
+    , ufpsInboundPermissionAuthorizations
+    , ufpsInboundPermissionRevocations
 
     -- * Destructuring the response
-    UpdateFleetPortSettingsResponse (..),
-    mkUpdateFleetPortSettingsResponse,
-
+    , UpdateFleetPortSettingsResponse (..)
+    , mkUpdateFleetPortSettingsResponse
     -- ** Response lenses
-    ufpsrrsFleetId,
-    ufpsrrsResponseStatus,
-  )
-where
+    , ufpsrrsFleetId
+    , ufpsrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -78,114 +78,116 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkUpdateFleetPortSettings' smart constructor.
 data UpdateFleetPortSettings = UpdateFleetPortSettings'
-  { -- | A unique identifier for a fleet to update port settings for. You can use either the fleet ID or ARN value.
-    fleetId :: Types.FleetIdOrArn,
-    -- | A collection of port settings to be added to the fleet resource.
-    inboundPermissionAuthorizations :: Core.Maybe [Types.IpPermission],
-    -- | A collection of port settings to be removed from the fleet resource.
-    inboundPermissionRevocations :: Core.Maybe [Types.IpPermission]
+  { fleetId :: Types.FleetIdOrArn
+    -- ^ A unique identifier for a fleet to update port settings for. You can use either the fleet ID or ARN value.
+  , inboundPermissionAuthorizations :: Core.Maybe [Types.IpPermission]
+    -- ^ A collection of port settings to be added to the fleet resource.
+  , inboundPermissionRevocations :: Core.Maybe [Types.IpPermission]
+    -- ^ A collection of port settings to be removed from the fleet resource.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UpdateFleetPortSettings' value with any optional fields omitted.
-mkUpdateFleetPortSettings ::
-  -- | 'fleetId'
-  Types.FleetIdOrArn ->
-  UpdateFleetPortSettings
-mkUpdateFleetPortSettings fleetId =
-  UpdateFleetPortSettings'
-    { fleetId,
-      inboundPermissionAuthorizations = Core.Nothing,
-      inboundPermissionRevocations = Core.Nothing
-    }
+mkUpdateFleetPortSettings
+    :: Types.FleetIdOrArn -- ^ 'fleetId'
+    -> UpdateFleetPortSettings
+mkUpdateFleetPortSettings fleetId
+  = UpdateFleetPortSettings'{fleetId,
+                             inboundPermissionAuthorizations = Core.Nothing,
+                             inboundPermissionRevocations = Core.Nothing}
 
 -- | A unique identifier for a fleet to update port settings for. You can use either the fleet ID or ARN value.
 --
 -- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ufpsFleetId :: Lens.Lens' UpdateFleetPortSettings Types.FleetIdOrArn
 ufpsFleetId = Lens.field @"fleetId"
-{-# DEPRECATED ufpsFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
+{-# INLINEABLE ufpsFleetId #-}
+{-# DEPRECATED fleetId "Use generic-lens or generic-optics with 'fleetId' instead"  #-}
 
 -- | A collection of port settings to be added to the fleet resource.
 --
 -- /Note:/ Consider using 'inboundPermissionAuthorizations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ufpsInboundPermissionAuthorizations :: Lens.Lens' UpdateFleetPortSettings (Core.Maybe [Types.IpPermission])
 ufpsInboundPermissionAuthorizations = Lens.field @"inboundPermissionAuthorizations"
-{-# DEPRECATED ufpsInboundPermissionAuthorizations "Use generic-lens or generic-optics with 'inboundPermissionAuthorizations' instead." #-}
+{-# INLINEABLE ufpsInboundPermissionAuthorizations #-}
+{-# DEPRECATED inboundPermissionAuthorizations "Use generic-lens or generic-optics with 'inboundPermissionAuthorizations' instead"  #-}
 
 -- | A collection of port settings to be removed from the fleet resource.
 --
 -- /Note:/ Consider using 'inboundPermissionRevocations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ufpsInboundPermissionRevocations :: Lens.Lens' UpdateFleetPortSettings (Core.Maybe [Types.IpPermission])
 ufpsInboundPermissionRevocations = Lens.field @"inboundPermissionRevocations"
-{-# DEPRECATED ufpsInboundPermissionRevocations "Use generic-lens or generic-optics with 'inboundPermissionRevocations' instead." #-}
+{-# INLINEABLE ufpsInboundPermissionRevocations #-}
+{-# DEPRECATED inboundPermissionRevocations "Use generic-lens or generic-optics with 'inboundPermissionRevocations' instead"  #-}
+
+instance Core.ToQuery UpdateFleetPortSettings where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders UpdateFleetPortSettings where
+        toHeaders UpdateFleetPortSettings{..}
+          = Core.pure ("X-Amz-Target", "GameLift.UpdateFleetPortSettings")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON UpdateFleetPortSettings where
-  toJSON UpdateFleetPortSettings {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("FleetId" Core..= fleetId),
-            ("InboundPermissionAuthorizations" Core..=)
-              Core.<$> inboundPermissionAuthorizations,
-            ("InboundPermissionRevocations" Core..=)
-              Core.<$> inboundPermissionRevocations
-          ]
-      )
+        toJSON UpdateFleetPortSettings{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("FleetId" Core..= fleetId),
+                  ("InboundPermissionAuthorizations" Core..=) Core.<$>
+                    inboundPermissionAuthorizations,
+                  ("InboundPermissionRevocations" Core..=) Core.<$>
+                    inboundPermissionRevocations])
 
 instance Core.AWSRequest UpdateFleetPortSettings where
-  type Rs UpdateFleetPortSettings = UpdateFleetPortSettingsResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "GameLift.UpdateFleetPortSettings")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          UpdateFleetPortSettingsResponse'
-            Core.<$> (x Core..:? "FleetId") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs UpdateFleetPortSettings = UpdateFleetPortSettingsResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 UpdateFleetPortSettingsResponse' Core.<$>
+                   (x Core..:? "FleetId") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'mkUpdateFleetPortSettingsResponse' smart constructor.
 data UpdateFleetPortSettingsResponse = UpdateFleetPortSettingsResponse'
-  { -- | A unique identifier for a fleet that was updated.
-    fleetId :: Core.Maybe Types.FleetId,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { fleetId :: Core.Maybe Types.FleetId
+    -- ^ A unique identifier for a fleet that was updated.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UpdateFleetPortSettingsResponse' value with any optional fields omitted.
-mkUpdateFleetPortSettingsResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  UpdateFleetPortSettingsResponse
-mkUpdateFleetPortSettingsResponse responseStatus =
-  UpdateFleetPortSettingsResponse'
-    { fleetId = Core.Nothing,
-      responseStatus
-    }
+mkUpdateFleetPortSettingsResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> UpdateFleetPortSettingsResponse
+mkUpdateFleetPortSettingsResponse responseStatus
+  = UpdateFleetPortSettingsResponse'{fleetId = Core.Nothing,
+                                     responseStatus}
 
 -- | A unique identifier for a fleet that was updated.
 --
 -- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ufpsrrsFleetId :: Lens.Lens' UpdateFleetPortSettingsResponse (Core.Maybe Types.FleetId)
 ufpsrrsFleetId = Lens.field @"fleetId"
-{-# DEPRECATED ufpsrrsFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
+{-# INLINEABLE ufpsrrsFleetId #-}
+{-# DEPRECATED fleetId "Use generic-lens or generic-optics with 'fleetId' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ufpsrrsResponseStatus :: Lens.Lens' UpdateFleetPortSettingsResponse Core.Int
 ufpsrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED ufpsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE ufpsrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

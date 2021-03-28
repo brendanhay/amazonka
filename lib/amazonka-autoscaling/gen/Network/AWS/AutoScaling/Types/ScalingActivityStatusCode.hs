@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,55 +10,38 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.AutoScaling.Types.ScalingActivityStatusCode
   ( ScalingActivityStatusCode
-      ( ScalingActivityStatusCode',
-        ScalingActivityStatusCodePendingSpotBidPlacement,
-        ScalingActivityStatusCodeWaitingForSpotInstanceRequestId,
-        ScalingActivityStatusCodeWaitingForSpotInstanceId,
-        ScalingActivityStatusCodeWaitingForInstanceId,
-        ScalingActivityStatusCodePreInService,
-        ScalingActivityStatusCodeInProgress,
-        ScalingActivityStatusCodeWaitingForELBConnectionDraining,
-        ScalingActivityStatusCodeMidLifecycleAction,
-        ScalingActivityStatusCodeWaitingForInstanceWarmup,
-        ScalingActivityStatusCodeSuccessful,
-        ScalingActivityStatusCodeFailed,
-        ScalingActivityStatusCodeCancelled,
-        fromScalingActivityStatusCode
-      ),
-  )
-where
+    ( ScalingActivityStatusCode'
+    , ScalingActivityStatusCodePendingSpotBidPlacement
+    , ScalingActivityStatusCodeWaitingForSpotInstanceRequestId
+    , ScalingActivityStatusCodeWaitingForSpotInstanceId
+    , ScalingActivityStatusCodeWaitingForInstanceId
+    , ScalingActivityStatusCodePreInService
+    , ScalingActivityStatusCodeInProgress
+    , ScalingActivityStatusCodeWaitingForELBConnectionDraining
+    , ScalingActivityStatusCodeMidLifecycleAction
+    , ScalingActivityStatusCodeWaitingForInstanceWarmup
+    , ScalingActivityStatusCodeSuccessful
+    , ScalingActivityStatusCodeFailed
+    , ScalingActivityStatusCodeCancelled
+    , fromScalingActivityStatusCode
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype ScalingActivityStatusCode = ScalingActivityStatusCode'
-  { fromScalingActivityStatusCode ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype ScalingActivityStatusCode = ScalingActivityStatusCode'{fromScalingActivityStatusCode
+                                                               :: Core.Text}
+                                      deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                      Core.Generic)
+                                      deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                        Core.ToJSONKey, Core.FromJSONKey,
+                                                        Core.ToJSON, Core.FromJSON, Core.ToXML,
+                                                        Core.FromXML, Core.ToText, Core.FromText,
+                                                        Core.ToByteString, Core.ToQuery,
+                                                        Core.ToHeader)
 
 pattern ScalingActivityStatusCodePendingSpotBidPlacement :: ScalingActivityStatusCode
 pattern ScalingActivityStatusCodePendingSpotBidPlacement = ScalingActivityStatusCode' "PendingSpotBidPlacement"
@@ -96,18 +79,29 @@ pattern ScalingActivityStatusCodeFailed = ScalingActivityStatusCode' "Failed"
 pattern ScalingActivityStatusCodeCancelled :: ScalingActivityStatusCode
 pattern ScalingActivityStatusCodeCancelled = ScalingActivityStatusCode' "Cancelled"
 
-{-# COMPLETE
+{-# COMPLETE 
   ScalingActivityStatusCodePendingSpotBidPlacement,
+
   ScalingActivityStatusCodeWaitingForSpotInstanceRequestId,
+
   ScalingActivityStatusCodeWaitingForSpotInstanceId,
+
   ScalingActivityStatusCodeWaitingForInstanceId,
+
   ScalingActivityStatusCodePreInService,
+
   ScalingActivityStatusCodeInProgress,
+
   ScalingActivityStatusCodeWaitingForELBConnectionDraining,
+
   ScalingActivityStatusCodeMidLifecycleAction,
+
   ScalingActivityStatusCodeWaitingForInstanceWarmup,
+
   ScalingActivityStatusCodeSuccessful,
+
   ScalingActivityStatusCodeFailed,
+
   ScalingActivityStatusCodeCancelled,
   ScalingActivityStatusCode'
   #-}

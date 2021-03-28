@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SageMaker.Types.DeployedImage
-  ( DeployedImage (..),
-
-    -- * Smart constructor
-    mkDeployedImage,
-
-    -- * Lenses
-    diResolutionTime,
-    diResolvedImage,
-    diSpecifiedImage,
-  )
-where
+  ( DeployedImage (..)
+  -- * Smart constructor
+  , mkDeployedImage
+  -- * Lenses
+  , diResolutionTime
+  , diResolvedImage
+  , diSpecifiedImage
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -34,52 +32,51 @@ import qualified Network.AWS.SageMaker.Types.SpecifiedImage as Types
 --
 -- /See:/ 'mkDeployedImage' smart constructor.
 data DeployedImage = DeployedImage'
-  { -- | The date and time when the image path for the model resolved to the @ResolvedImage@
-    resolutionTime :: Core.Maybe Core.NominalDiffTime,
-    -- | The specific digest path of the image hosted in this @ProductionVariant@ .
-    resolvedImage :: Core.Maybe Types.ResolvedImage,
-    -- | The image path you specified when you created the model.
-    specifiedImage :: Core.Maybe Types.SpecifiedImage
+  { resolutionTime :: Core.Maybe Core.NominalDiffTime
+    -- ^ The date and time when the image path for the model resolved to the @ResolvedImage@ 
+  , resolvedImage :: Core.Maybe Types.ResolvedImage
+    -- ^ The specific digest path of the image hosted in this @ProductionVariant@ .
+  , specifiedImage :: Core.Maybe Types.SpecifiedImage
+    -- ^ The image path you specified when you created the model.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'DeployedImage' value with any optional fields omitted.
-mkDeployedImage ::
-  DeployedImage
-mkDeployedImage =
-  DeployedImage'
-    { resolutionTime = Core.Nothing,
-      resolvedImage = Core.Nothing,
-      specifiedImage = Core.Nothing
-    }
+mkDeployedImage
+    :: DeployedImage
+mkDeployedImage
+  = DeployedImage'{resolutionTime = Core.Nothing,
+                   resolvedImage = Core.Nothing, specifiedImage = Core.Nothing}
 
--- | The date and time when the image path for the model resolved to the @ResolvedImage@
+-- | The date and time when the image path for the model resolved to the @ResolvedImage@ 
 --
 -- /Note:/ Consider using 'resolutionTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 diResolutionTime :: Lens.Lens' DeployedImage (Core.Maybe Core.NominalDiffTime)
 diResolutionTime = Lens.field @"resolutionTime"
-{-# DEPRECATED diResolutionTime "Use generic-lens or generic-optics with 'resolutionTime' instead." #-}
+{-# INLINEABLE diResolutionTime #-}
+{-# DEPRECATED resolutionTime "Use generic-lens or generic-optics with 'resolutionTime' instead"  #-}
 
 -- | The specific digest path of the image hosted in this @ProductionVariant@ .
 --
 -- /Note:/ Consider using 'resolvedImage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 diResolvedImage :: Lens.Lens' DeployedImage (Core.Maybe Types.ResolvedImage)
 diResolvedImage = Lens.field @"resolvedImage"
-{-# DEPRECATED diResolvedImage "Use generic-lens or generic-optics with 'resolvedImage' instead." #-}
+{-# INLINEABLE diResolvedImage #-}
+{-# DEPRECATED resolvedImage "Use generic-lens or generic-optics with 'resolvedImage' instead"  #-}
 
 -- | The image path you specified when you created the model.
 --
 -- /Note:/ Consider using 'specifiedImage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 diSpecifiedImage :: Lens.Lens' DeployedImage (Core.Maybe Types.SpecifiedImage)
 diSpecifiedImage = Lens.field @"specifiedImage"
-{-# DEPRECATED diSpecifiedImage "Use generic-lens or generic-optics with 'specifiedImage' instead." #-}
+{-# INLINEABLE diSpecifiedImage #-}
+{-# DEPRECATED specifiedImage "Use generic-lens or generic-optics with 'specifiedImage' instead"  #-}
 
 instance Core.FromJSON DeployedImage where
-  parseJSON =
-    Core.withObject "DeployedImage" Core.$
-      \x ->
-        DeployedImage'
-          Core.<$> (x Core..:? "ResolutionTime")
-          Core.<*> (x Core..:? "ResolvedImage")
-          Core.<*> (x Core..:? "SpecifiedImage")
+        parseJSON
+          = Core.withObject "DeployedImage" Core.$
+              \ x ->
+                DeployedImage' Core.<$>
+                  (x Core..:? "ResolutionTime") Core.<*> x Core..:? "ResolvedImage"
+                    Core.<*> x Core..:? "SpecifiedImage"

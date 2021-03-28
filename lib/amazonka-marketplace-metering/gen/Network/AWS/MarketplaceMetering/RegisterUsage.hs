@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -20,26 +20,26 @@
 --
 --
 --     * /Metering/ : RegisterUsage meters software use per ECS task, per hour, or per pod for Amazon EKS with usage prorated to the second. A minimum of 1 minute of usage applies to tasks that are short lived. For example, if a customer has a 10 node Amazon ECS or Amazon EKS cluster and a service configured as a Daemon Set, then Amazon ECS or Amazon EKS will launch a task on all 10 cluster nodes and the customer will be charged: (10 * hourly_rate). Metering for software use is automatically handled by the AWS Marketplace Metering Control Plane -- your software is not required to perform any metering specific actions, other than call RegisterUsage once for metering of software use to commence. The AWS Marketplace Metering Control Plane will also continue to bill customers for running ECS tasks and Amazon EKS pods, regardless of the customers subscription state, removing the need for your software to perform entitlement checks at runtime.
+--
+--
 module Network.AWS.MarketplaceMetering.RegisterUsage
-  ( -- * Creating a request
-    RegisterUsage (..),
-    mkRegisterUsage,
-
+    (
+    -- * Creating a request
+      RegisterUsage (..)
+    , mkRegisterUsage
     -- ** Request lenses
-    ruProductCode,
-    ruPublicKeyVersion,
-    ruNonce,
+    , ruProductCode
+    , ruPublicKeyVersion
+    , ruNonce
 
     -- * Destructuring the response
-    RegisterUsageResponse (..),
-    mkRegisterUsageResponse,
-
+    , RegisterUsageResponse (..)
+    , mkRegisterUsageResponse
     -- ** Response lenses
-    rurrsPublicKeyRotationTimestamp,
-    rurrsSignature,
-    rurrsResponseStatus,
-  )
-where
+    , rurrsPublicKeyRotationTimestamp
+    , rurrsSignature
+    , rurrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.MarketplaceMetering.Types as Types
@@ -49,124 +49,124 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRegisterUsage' smart constructor.
 data RegisterUsage = RegisterUsage'
-  { -- | Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
-    productCode :: Types.ProductCode,
-    -- | Public Key Version provided by AWS Marketplace
-    publicKeyVersion :: Core.Natural,
-    -- | (Optional) To scope down the registration to a specific running software instance and guard against replay attacks.
-    nonce :: Core.Maybe Types.Nonce
+  { productCode :: Types.ProductCode
+    -- ^ Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
+  , publicKeyVersion :: Core.Natural
+    -- ^ Public Key Version provided by AWS Marketplace
+  , nonce :: Core.Maybe Types.Nonce
+    -- ^ (Optional) To scope down the registration to a specific running software instance and guard against replay attacks.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'RegisterUsage' value with any optional fields omitted.
-mkRegisterUsage ::
-  -- | 'productCode'
-  Types.ProductCode ->
-  -- | 'publicKeyVersion'
-  Core.Natural ->
-  RegisterUsage
-mkRegisterUsage productCode publicKeyVersion =
-  RegisterUsage'
-    { productCode,
-      publicKeyVersion,
-      nonce = Core.Nothing
-    }
+mkRegisterUsage
+    :: Types.ProductCode -- ^ 'productCode'
+    -> Core.Natural -- ^ 'publicKeyVersion'
+    -> RegisterUsage
+mkRegisterUsage productCode publicKeyVersion
+  = RegisterUsage'{productCode, publicKeyVersion,
+                   nonce = Core.Nothing}
 
 -- | Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
 --
 -- /Note:/ Consider using 'productCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ruProductCode :: Lens.Lens' RegisterUsage Types.ProductCode
 ruProductCode = Lens.field @"productCode"
-{-# DEPRECATED ruProductCode "Use generic-lens or generic-optics with 'productCode' instead." #-}
+{-# INLINEABLE ruProductCode #-}
+{-# DEPRECATED productCode "Use generic-lens or generic-optics with 'productCode' instead"  #-}
 
 -- | Public Key Version provided by AWS Marketplace
 --
 -- /Note:/ Consider using 'publicKeyVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ruPublicKeyVersion :: Lens.Lens' RegisterUsage Core.Natural
 ruPublicKeyVersion = Lens.field @"publicKeyVersion"
-{-# DEPRECATED ruPublicKeyVersion "Use generic-lens or generic-optics with 'publicKeyVersion' instead." #-}
+{-# INLINEABLE ruPublicKeyVersion #-}
+{-# DEPRECATED publicKeyVersion "Use generic-lens or generic-optics with 'publicKeyVersion' instead"  #-}
 
 -- | (Optional) To scope down the registration to a specific running software instance and guard against replay attacks.
 --
 -- /Note:/ Consider using 'nonce' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ruNonce :: Lens.Lens' RegisterUsage (Core.Maybe Types.Nonce)
 ruNonce = Lens.field @"nonce"
-{-# DEPRECATED ruNonce "Use generic-lens or generic-optics with 'nonce' instead." #-}
+{-# INLINEABLE ruNonce #-}
+{-# DEPRECATED nonce "Use generic-lens or generic-optics with 'nonce' instead"  #-}
+
+instance Core.ToQuery RegisterUsage where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders RegisterUsage where
+        toHeaders RegisterUsage{..}
+          = Core.pure ("X-Amz-Target", "AWSMPMeteringService.RegisterUsage")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON RegisterUsage where
-  toJSON RegisterUsage {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ProductCode" Core..= productCode),
-            Core.Just ("PublicKeyVersion" Core..= publicKeyVersion),
-            ("Nonce" Core..=) Core.<$> nonce
-          ]
-      )
+        toJSON RegisterUsage{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("ProductCode" Core..= productCode),
+                  Core.Just ("PublicKeyVersion" Core..= publicKeyVersion),
+                  ("Nonce" Core..=) Core.<$> nonce])
 
 instance Core.AWSRequest RegisterUsage where
-  type Rs RegisterUsage = RegisterUsageResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "AWSMPMeteringService.RegisterUsage")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          RegisterUsageResponse'
-            Core.<$> (x Core..:? "PublicKeyRotationTimestamp")
-            Core.<*> (x Core..:? "Signature")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs RegisterUsage = RegisterUsageResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 RegisterUsageResponse' Core.<$>
+                   (x Core..:? "PublicKeyRotationTimestamp") Core.<*>
+                     x Core..:? "Signature"
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkRegisterUsageResponse' smart constructor.
 data RegisterUsageResponse = RegisterUsageResponse'
-  { -- | (Optional) Only included when public key version has expired
-    publicKeyRotationTimestamp :: Core.Maybe Core.NominalDiffTime,
-    -- | JWT Token
-    signature :: Core.Maybe Types.Signature,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { publicKeyRotationTimestamp :: Core.Maybe Core.NominalDiffTime
+    -- ^ (Optional) Only included when public key version has expired
+  , signature :: Core.Maybe Types.Signature
+    -- ^ JWT Token
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'RegisterUsageResponse' value with any optional fields omitted.
-mkRegisterUsageResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  RegisterUsageResponse
-mkRegisterUsageResponse responseStatus =
-  RegisterUsageResponse'
-    { publicKeyRotationTimestamp = Core.Nothing,
-      signature = Core.Nothing,
-      responseStatus
-    }
+mkRegisterUsageResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> RegisterUsageResponse
+mkRegisterUsageResponse responseStatus
+  = RegisterUsageResponse'{publicKeyRotationTimestamp = Core.Nothing,
+                           signature = Core.Nothing, responseStatus}
 
 -- | (Optional) Only included when public key version has expired
 --
 -- /Note:/ Consider using 'publicKeyRotationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rurrsPublicKeyRotationTimestamp :: Lens.Lens' RegisterUsageResponse (Core.Maybe Core.NominalDiffTime)
 rurrsPublicKeyRotationTimestamp = Lens.field @"publicKeyRotationTimestamp"
-{-# DEPRECATED rurrsPublicKeyRotationTimestamp "Use generic-lens or generic-optics with 'publicKeyRotationTimestamp' instead." #-}
+{-# INLINEABLE rurrsPublicKeyRotationTimestamp #-}
+{-# DEPRECATED publicKeyRotationTimestamp "Use generic-lens or generic-optics with 'publicKeyRotationTimestamp' instead"  #-}
 
 -- | JWT Token
 --
 -- /Note:/ Consider using 'signature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rurrsSignature :: Lens.Lens' RegisterUsageResponse (Core.Maybe Types.Signature)
 rurrsSignature = Lens.field @"signature"
-{-# DEPRECATED rurrsSignature "Use generic-lens or generic-optics with 'signature' instead." #-}
+{-# INLINEABLE rurrsSignature #-}
+{-# DEPRECATED signature "Use generic-lens or generic-optics with 'signature' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rurrsResponseStatus :: Lens.Lens' RegisterUsageResponse Core.Int
 rurrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED rurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE rurrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

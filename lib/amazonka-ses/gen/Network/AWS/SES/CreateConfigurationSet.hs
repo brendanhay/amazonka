@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -18,21 +18,19 @@
 -- Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.CreateConfigurationSet
-  ( -- * Creating a request
-    CreateConfigurationSet (..),
-    mkCreateConfigurationSet,
-
+    (
+    -- * Creating a request
+      CreateConfigurationSet (..)
+    , mkCreateConfigurationSet
     -- ** Request lenses
-    ccsConfigurationSet,
+    , ccsConfigurationSet
 
     -- * Destructuring the response
-    CreateConfigurationSetResponse (..),
-    mkCreateConfigurationSetResponse,
-
+    , CreateConfigurationSetResponse (..)
+    , mkCreateConfigurationSetResponse
     -- ** Response lenses
-    ccsrrsResponseStatus,
-  )
-where
+    , ccsrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -44,76 +42,79 @@ import qualified Network.AWS.SES.Types as Types
 --
 -- /See:/ 'mkCreateConfigurationSet' smart constructor.
 newtype CreateConfigurationSet = CreateConfigurationSet'
-  { -- | A data structure that contains the name of the configuration set.
-    configurationSet :: Types.ConfigurationSet
+  { configurationSet :: Types.ConfigurationSet
+    -- ^ A data structure that contains the name of the configuration set.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CreateConfigurationSet' value with any optional fields omitted.
-mkCreateConfigurationSet ::
-  -- | 'configurationSet'
-  Types.ConfigurationSet ->
-  CreateConfigurationSet
-mkCreateConfigurationSet configurationSet =
-  CreateConfigurationSet' {configurationSet}
+mkCreateConfigurationSet
+    :: Types.ConfigurationSet -- ^ 'configurationSet'
+    -> CreateConfigurationSet
+mkCreateConfigurationSet configurationSet
+  = CreateConfigurationSet'{configurationSet}
 
 -- | A data structure that contains the name of the configuration set.
 --
 -- /Note:/ Consider using 'configurationSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccsConfigurationSet :: Lens.Lens' CreateConfigurationSet Types.ConfigurationSet
 ccsConfigurationSet = Lens.field @"configurationSet"
-{-# DEPRECATED ccsConfigurationSet "Use generic-lens or generic-optics with 'configurationSet' instead." #-}
+{-# INLINEABLE ccsConfigurationSet #-}
+{-# DEPRECATED configurationSet "Use generic-lens or generic-optics with 'configurationSet' instead"  #-}
+
+instance Core.ToQuery CreateConfigurationSet where
+        toQuery CreateConfigurationSet{..}
+          = Core.toQueryPair "Action" ("CreateConfigurationSet" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2010-12-01" :: Core.Text)
+              Core.<> Core.toQueryPair "ConfigurationSet" configurationSet
+
+instance Core.ToHeaders CreateConfigurationSet where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest CreateConfigurationSet where
-  type Rs CreateConfigurationSet = CreateConfigurationSetResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "CreateConfigurationSet")
-                Core.<> (Core.pure ("Version", "2010-12-01"))
-                Core.<> (Core.toQueryValue "ConfigurationSet" configurationSet)
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "CreateConfigurationSetResult"
-      ( \s h x ->
-          CreateConfigurationSetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs CreateConfigurationSet = CreateConfigurationSetResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "CreateConfigurationSetResult"
+              (\ s h x ->
+                 CreateConfigurationSetResponse' Core.<$>
+                   (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkCreateConfigurationSetResponse' smart constructor.
 newtype CreateConfigurationSetResponse = CreateConfigurationSetResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CreateConfigurationSetResponse' value with any optional fields omitted.
-mkCreateConfigurationSetResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  CreateConfigurationSetResponse
-mkCreateConfigurationSetResponse responseStatus =
-  CreateConfigurationSetResponse' {responseStatus}
+mkCreateConfigurationSetResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> CreateConfigurationSetResponse
+mkCreateConfigurationSetResponse responseStatus
+  = CreateConfigurationSetResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccsrrsResponseStatus :: Lens.Lens' CreateConfigurationSetResponse Core.Int
 ccsrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED ccsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE ccsrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

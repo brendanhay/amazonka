@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -18,38 +18,36 @@
 -- Any virtual interfaces that are directly associated with the connection are automatically re-associated with the LAG. If the connection was originally associated with a different LAG, the virtual interfaces remain associated with the original LAG.
 -- For interconnects, any hosted connections are automatically re-associated with the LAG. If the interconnect was originally associated with a different LAG, the hosted connections remain associated with the original LAG.
 module Network.AWS.DirectConnect.AssociateConnectionWithLag
-  ( -- * Creating a request
-    AssociateConnectionWithLag (..),
-    mkAssociateConnectionWithLag,
-
+    (
+    -- * Creating a request
+      AssociateConnectionWithLag (..)
+    , mkAssociateConnectionWithLag
     -- ** Request lenses
-    acwlConnectionId,
-    acwlLagId,
+    , acwlConnectionId
+    , acwlLagId
 
-    -- * Destructuring the response
-    Types.Connection (..),
-    Types.mkConnection,
-
+     -- * Destructuring the response
+    , Types.Connection (..)
+    , Types.mkConnection
     -- ** Response lenses
-    Types.cAwsDevice,
-    Types.cAwsDeviceV2,
-    Types.cBandwidth,
-    Types.cConnectionId,
-    Types.cConnectionName,
-    Types.cConnectionState,
-    Types.cHasLogicalRedundancy,
-    Types.cJumboFrameCapable,
-    Types.cLagId,
-    Types.cLoaIssueTime,
-    Types.cLocation,
-    Types.cOwnerAccount,
-    Types.cPartnerName,
-    Types.cProviderName,
-    Types.cRegion,
-    Types.cTags,
-    Types.cVlan,
-  )
-where
+    , Types.cAwsDevice
+    , Types.cAwsDeviceV2
+    , Types.cBandwidth
+    , Types.cConnectionId
+    , Types.cConnectionName
+    , Types.cConnectionState
+    , Types.cHasLogicalRedundancy
+    , Types.cJumboFrameCapable
+    , Types.cLagId
+    , Types.cLoaIssueTime
+    , Types.cLocation
+    , Types.cOwnerAccount
+    , Types.cPartnerName
+    , Types.cProviderName
+    , Types.cRegion
+    , Types.cTags
+    , Types.cVlan
+    ) where
 
 import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -59,59 +57,64 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAssociateConnectionWithLag' smart constructor.
 data AssociateConnectionWithLag = AssociateConnectionWithLag'
-  { -- | The ID of the connection.
-    connectionId :: Types.ConnectionId,
-    -- | The ID of the LAG with which to associate the connection.
-    lagId :: Types.LagId
+  { connectionId :: Types.ConnectionId
+    -- ^ The ID of the connection.
+  , lagId :: Types.LagId
+    -- ^ The ID of the LAG with which to associate the connection.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AssociateConnectionWithLag' value with any optional fields omitted.
-mkAssociateConnectionWithLag ::
-  -- | 'connectionId'
-  Types.ConnectionId ->
-  -- | 'lagId'
-  Types.LagId ->
-  AssociateConnectionWithLag
-mkAssociateConnectionWithLag connectionId lagId =
-  AssociateConnectionWithLag' {connectionId, lagId}
+mkAssociateConnectionWithLag
+    :: Types.ConnectionId -- ^ 'connectionId'
+    -> Types.LagId -- ^ 'lagId'
+    -> AssociateConnectionWithLag
+mkAssociateConnectionWithLag connectionId lagId
+  = AssociateConnectionWithLag'{connectionId, lagId}
 
 -- | The ID of the connection.
 --
 -- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 acwlConnectionId :: Lens.Lens' AssociateConnectionWithLag Types.ConnectionId
 acwlConnectionId = Lens.field @"connectionId"
-{-# DEPRECATED acwlConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
+{-# INLINEABLE acwlConnectionId #-}
+{-# DEPRECATED connectionId "Use generic-lens or generic-optics with 'connectionId' instead"  #-}
 
 -- | The ID of the LAG with which to associate the connection.
 --
 -- /Note:/ Consider using 'lagId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 acwlLagId :: Lens.Lens' AssociateConnectionWithLag Types.LagId
 acwlLagId = Lens.field @"lagId"
-{-# DEPRECATED acwlLagId "Use generic-lens or generic-optics with 'lagId' instead." #-}
+{-# INLINEABLE acwlLagId #-}
+{-# DEPRECATED lagId "Use generic-lens or generic-optics with 'lagId' instead"  #-}
+
+instance Core.ToQuery AssociateConnectionWithLag where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders AssociateConnectionWithLag where
+        toHeaders AssociateConnectionWithLag{..}
+          = Core.pure
+              ("X-Amz-Target", "OvertureService.AssociateConnectionWithLag")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON AssociateConnectionWithLag where
-  toJSON AssociateConnectionWithLag {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("connectionId" Core..= connectionId),
-            Core.Just ("lagId" Core..= lagId)
-          ]
-      )
+        toJSON AssociateConnectionWithLag{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("connectionId" Core..= connectionId),
+                  Core.Just ("lagId" Core..= lagId)])
 
 instance Core.AWSRequest AssociateConnectionWithLag where
-  type Rs AssociateConnectionWithLag = Types.Connection
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "OvertureService.AssociateConnectionWithLag")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)
+        type Rs AssociateConnectionWithLag = Types.Connection
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON (\ s h x -> Core.eitherParseJSON x)
+        
+        {-# INLINE parseResponse #-}

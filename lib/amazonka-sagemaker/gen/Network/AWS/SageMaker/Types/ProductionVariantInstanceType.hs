@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,109 +10,93 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SageMaker.Types.ProductionVariantInstanceType
   ( ProductionVariantInstanceType
-      ( ProductionVariantInstanceType',
-        ProductionVariantInstanceTypeMl_T2_Medium,
-        ProductionVariantInstanceTypeMl_T2_Large,
-        ProductionVariantInstanceTypeMl_T2_Xlarge,
-        ProductionVariantInstanceTypeMl_T2_2xlarge,
-        ProductionVariantInstanceTypeMl_M4_Xlarge,
-        ProductionVariantInstanceTypeMl_M4_2xlarge,
-        ProductionVariantInstanceTypeMl_M4_4xlarge,
-        ProductionVariantInstanceTypeMl_M4_10xlarge,
-        ProductionVariantInstanceTypeMl_M4_16xlarge,
-        ProductionVariantInstanceTypeMl_M5_Large,
-        ProductionVariantInstanceTypeMl_M5_Xlarge,
-        ProductionVariantInstanceTypeMl_M5_2xlarge,
-        ProductionVariantInstanceTypeMl_M5_4xlarge,
-        ProductionVariantInstanceTypeMl_M5_12xlarge,
-        ProductionVariantInstanceTypeMl_M5_24xlarge,
-        ProductionVariantInstanceTypeMl_M5d_Large,
-        ProductionVariantInstanceTypeMl_M5d_Xlarge,
-        ProductionVariantInstanceTypeMl_M5d_2xlarge,
-        ProductionVariantInstanceTypeMl_M5d_4xlarge,
-        ProductionVariantInstanceTypeMl_M5d_12xlarge,
-        ProductionVariantInstanceTypeMl_M5d_24xlarge,
-        ProductionVariantInstanceTypeMl_C4_Large,
-        ProductionVariantInstanceTypeMl_C4_Xlarge,
-        ProductionVariantInstanceTypeMl_C4_2xlarge,
-        ProductionVariantInstanceTypeMl_C4_4xlarge,
-        ProductionVariantInstanceTypeMl_C4_8xlarge,
-        ProductionVariantInstanceTypeMl_P2_Xlarge,
-        ProductionVariantInstanceTypeMl_P2_8xlarge,
-        ProductionVariantInstanceTypeMl_P2_16xlarge,
-        ProductionVariantInstanceTypeMl_P3_2xlarge,
-        ProductionVariantInstanceTypeMl_P3_8xlarge,
-        ProductionVariantInstanceTypeMl_P3_16xlarge,
-        ProductionVariantInstanceTypeMl_C5_Large,
-        ProductionVariantInstanceTypeMl_C5_Xlarge,
-        ProductionVariantInstanceTypeMl_C5_2xlarge,
-        ProductionVariantInstanceTypeMl_C5_4xlarge,
-        ProductionVariantInstanceTypeMl_C5_9xlarge,
-        ProductionVariantInstanceTypeMl_C5_18xlarge,
-        ProductionVariantInstanceTypeMl_C5d_Large,
-        ProductionVariantInstanceTypeMl_C5d_Xlarge,
-        ProductionVariantInstanceTypeMl_C5d_2xlarge,
-        ProductionVariantInstanceTypeMl_C5d_4xlarge,
-        ProductionVariantInstanceTypeMl_C5d_9xlarge,
-        ProductionVariantInstanceTypeMl_C5d_18xlarge,
-        ProductionVariantInstanceTypeMl_G4dn_Xlarge,
-        ProductionVariantInstanceTypeMl_G4dn_2xlarge,
-        ProductionVariantInstanceTypeMl_G4dn_4xlarge,
-        ProductionVariantInstanceTypeMl_G4dn_8xlarge,
-        ProductionVariantInstanceTypeMl_G4dn_12xlarge,
-        ProductionVariantInstanceTypeMl_G4dn_16xlarge,
-        ProductionVariantInstanceTypeMl_R5_Large,
-        ProductionVariantInstanceTypeMl_R5_Xlarge,
-        ProductionVariantInstanceTypeMl_R5_2xlarge,
-        ProductionVariantInstanceTypeMl_R5_4xlarge,
-        ProductionVariantInstanceTypeMl_R5_12xlarge,
-        ProductionVariantInstanceTypeMl_R5_24xlarge,
-        ProductionVariantInstanceTypeMl_R5d_Large,
-        ProductionVariantInstanceTypeMl_R5d_Xlarge,
-        ProductionVariantInstanceTypeMl_R5d_2xlarge,
-        ProductionVariantInstanceTypeMl_R5d_4xlarge,
-        ProductionVariantInstanceTypeMl_R5d_12xlarge,
-        ProductionVariantInstanceTypeMl_R5d_24xlarge,
-        ProductionVariantInstanceTypeMl_INF1_Xlarge,
-        ProductionVariantInstanceTypeMl_INF1_2xlarge,
-        ProductionVariantInstanceTypeMl_INF1_6xlarge,
-        ProductionVariantInstanceTypeMl_INF1_24xlarge,
-        fromProductionVariantInstanceType
-      ),
-  )
-where
+    ( ProductionVariantInstanceType'
+    , ProductionVariantInstanceTypeMl_T2_Medium
+    , ProductionVariantInstanceTypeMl_T2_Large
+    , ProductionVariantInstanceTypeMl_T2_Xlarge
+    , ProductionVariantInstanceTypeMl_T2_2xlarge
+    , ProductionVariantInstanceTypeMl_M4_Xlarge
+    , ProductionVariantInstanceTypeMl_M4_2xlarge
+    , ProductionVariantInstanceTypeMl_M4_4xlarge
+    , ProductionVariantInstanceTypeMl_M4_10xlarge
+    , ProductionVariantInstanceTypeMl_M4_16xlarge
+    , ProductionVariantInstanceTypeMl_M5_Large
+    , ProductionVariantInstanceTypeMl_M5_Xlarge
+    , ProductionVariantInstanceTypeMl_M5_2xlarge
+    , ProductionVariantInstanceTypeMl_M5_4xlarge
+    , ProductionVariantInstanceTypeMl_M5_12xlarge
+    , ProductionVariantInstanceTypeMl_M5_24xlarge
+    , ProductionVariantInstanceTypeMl_M5d_Large
+    , ProductionVariantInstanceTypeMl_M5d_Xlarge
+    , ProductionVariantInstanceTypeMl_M5d_2xlarge
+    , ProductionVariantInstanceTypeMl_M5d_4xlarge
+    , ProductionVariantInstanceTypeMl_M5d_12xlarge
+    , ProductionVariantInstanceTypeMl_M5d_24xlarge
+    , ProductionVariantInstanceTypeMl_C4_Large
+    , ProductionVariantInstanceTypeMl_C4_Xlarge
+    , ProductionVariantInstanceTypeMl_C4_2xlarge
+    , ProductionVariantInstanceTypeMl_C4_4xlarge
+    , ProductionVariantInstanceTypeMl_C4_8xlarge
+    , ProductionVariantInstanceTypeMl_P2_Xlarge
+    , ProductionVariantInstanceTypeMl_P2_8xlarge
+    , ProductionVariantInstanceTypeMl_P2_16xlarge
+    , ProductionVariantInstanceTypeMl_P3_2xlarge
+    , ProductionVariantInstanceTypeMl_P3_8xlarge
+    , ProductionVariantInstanceTypeMl_P3_16xlarge
+    , ProductionVariantInstanceTypeMl_C5_Large
+    , ProductionVariantInstanceTypeMl_C5_Xlarge
+    , ProductionVariantInstanceTypeMl_C5_2xlarge
+    , ProductionVariantInstanceTypeMl_C5_4xlarge
+    , ProductionVariantInstanceTypeMl_C5_9xlarge
+    , ProductionVariantInstanceTypeMl_C5_18xlarge
+    , ProductionVariantInstanceTypeMl_C5d_Large
+    , ProductionVariantInstanceTypeMl_C5d_Xlarge
+    , ProductionVariantInstanceTypeMl_C5d_2xlarge
+    , ProductionVariantInstanceTypeMl_C5d_4xlarge
+    , ProductionVariantInstanceTypeMl_C5d_9xlarge
+    , ProductionVariantInstanceTypeMl_C5d_18xlarge
+    , ProductionVariantInstanceTypeMl_G4dn_Xlarge
+    , ProductionVariantInstanceTypeMl_G4dn_2xlarge
+    , ProductionVariantInstanceTypeMl_G4dn_4xlarge
+    , ProductionVariantInstanceTypeMl_G4dn_8xlarge
+    , ProductionVariantInstanceTypeMl_G4dn_12xlarge
+    , ProductionVariantInstanceTypeMl_G4dn_16xlarge
+    , ProductionVariantInstanceTypeMl_R5_Large
+    , ProductionVariantInstanceTypeMl_R5_Xlarge
+    , ProductionVariantInstanceTypeMl_R5_2xlarge
+    , ProductionVariantInstanceTypeMl_R5_4xlarge
+    , ProductionVariantInstanceTypeMl_R5_12xlarge
+    , ProductionVariantInstanceTypeMl_R5_24xlarge
+    , ProductionVariantInstanceTypeMl_R5d_Large
+    , ProductionVariantInstanceTypeMl_R5d_Xlarge
+    , ProductionVariantInstanceTypeMl_R5d_2xlarge
+    , ProductionVariantInstanceTypeMl_R5d_4xlarge
+    , ProductionVariantInstanceTypeMl_R5d_12xlarge
+    , ProductionVariantInstanceTypeMl_R5d_24xlarge
+    , ProductionVariantInstanceTypeMl_INF1_Xlarge
+    , ProductionVariantInstanceTypeMl_INF1_2xlarge
+    , ProductionVariantInstanceTypeMl_INF1_6xlarge
+    , ProductionVariantInstanceTypeMl_INF1_24xlarge
+    , fromProductionVariantInstanceType
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype ProductionVariantInstanceType = ProductionVariantInstanceType'
-  { fromProductionVariantInstanceType ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype ProductionVariantInstanceType = ProductionVariantInstanceType'{fromProductionVariantInstanceType
+                                                                       :: Core.Text}
+                                          deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                          Core.Generic)
+                                          deriving newtype (Core.IsString, Core.Hashable,
+                                                            Core.NFData, Core.ToJSONKey,
+                                                            Core.FromJSONKey, Core.ToJSON,
+                                                            Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                            Core.ToText, Core.FromText,
+                                                            Core.ToByteString, Core.ToQuery,
+                                                            Core.ToHeader)
 
 pattern ProductionVariantInstanceTypeMl_T2_Medium :: ProductionVariantInstanceType
 pattern ProductionVariantInstanceTypeMl_T2_Medium = ProductionVariantInstanceType' "ml.t2.medium"
@@ -312,72 +296,137 @@ pattern ProductionVariantInstanceTypeMl_INF1_6xlarge = ProductionVariantInstance
 pattern ProductionVariantInstanceTypeMl_INF1_24xlarge :: ProductionVariantInstanceType
 pattern ProductionVariantInstanceTypeMl_INF1_24xlarge = ProductionVariantInstanceType' "ml.inf1.24xlarge"
 
-{-# COMPLETE
+{-# COMPLETE 
   ProductionVariantInstanceTypeMl_T2_Medium,
+
   ProductionVariantInstanceTypeMl_T2_Large,
+
   ProductionVariantInstanceTypeMl_T2_Xlarge,
+
   ProductionVariantInstanceTypeMl_T2_2xlarge,
+
   ProductionVariantInstanceTypeMl_M4_Xlarge,
+
   ProductionVariantInstanceTypeMl_M4_2xlarge,
+
   ProductionVariantInstanceTypeMl_M4_4xlarge,
+
   ProductionVariantInstanceTypeMl_M4_10xlarge,
+
   ProductionVariantInstanceTypeMl_M4_16xlarge,
+
   ProductionVariantInstanceTypeMl_M5_Large,
+
   ProductionVariantInstanceTypeMl_M5_Xlarge,
+
   ProductionVariantInstanceTypeMl_M5_2xlarge,
+
   ProductionVariantInstanceTypeMl_M5_4xlarge,
+
   ProductionVariantInstanceTypeMl_M5_12xlarge,
+
   ProductionVariantInstanceTypeMl_M5_24xlarge,
+
   ProductionVariantInstanceTypeMl_M5d_Large,
+
   ProductionVariantInstanceTypeMl_M5d_Xlarge,
+
   ProductionVariantInstanceTypeMl_M5d_2xlarge,
+
   ProductionVariantInstanceTypeMl_M5d_4xlarge,
+
   ProductionVariantInstanceTypeMl_M5d_12xlarge,
+
   ProductionVariantInstanceTypeMl_M5d_24xlarge,
+
   ProductionVariantInstanceTypeMl_C4_Large,
+
   ProductionVariantInstanceTypeMl_C4_Xlarge,
+
   ProductionVariantInstanceTypeMl_C4_2xlarge,
+
   ProductionVariantInstanceTypeMl_C4_4xlarge,
+
   ProductionVariantInstanceTypeMl_C4_8xlarge,
+
   ProductionVariantInstanceTypeMl_P2_Xlarge,
+
   ProductionVariantInstanceTypeMl_P2_8xlarge,
+
   ProductionVariantInstanceTypeMl_P2_16xlarge,
+
   ProductionVariantInstanceTypeMl_P3_2xlarge,
+
   ProductionVariantInstanceTypeMl_P3_8xlarge,
+
   ProductionVariantInstanceTypeMl_P3_16xlarge,
+
   ProductionVariantInstanceTypeMl_C5_Large,
+
   ProductionVariantInstanceTypeMl_C5_Xlarge,
+
   ProductionVariantInstanceTypeMl_C5_2xlarge,
+
   ProductionVariantInstanceTypeMl_C5_4xlarge,
+
   ProductionVariantInstanceTypeMl_C5_9xlarge,
+
   ProductionVariantInstanceTypeMl_C5_18xlarge,
+
   ProductionVariantInstanceTypeMl_C5d_Large,
+
   ProductionVariantInstanceTypeMl_C5d_Xlarge,
+
   ProductionVariantInstanceTypeMl_C5d_2xlarge,
+
   ProductionVariantInstanceTypeMl_C5d_4xlarge,
+
   ProductionVariantInstanceTypeMl_C5d_9xlarge,
+
   ProductionVariantInstanceTypeMl_C5d_18xlarge,
+
   ProductionVariantInstanceTypeMl_G4dn_Xlarge,
+
   ProductionVariantInstanceTypeMl_G4dn_2xlarge,
+
   ProductionVariantInstanceTypeMl_G4dn_4xlarge,
+
   ProductionVariantInstanceTypeMl_G4dn_8xlarge,
+
   ProductionVariantInstanceTypeMl_G4dn_12xlarge,
+
   ProductionVariantInstanceTypeMl_G4dn_16xlarge,
+
   ProductionVariantInstanceTypeMl_R5_Large,
+
   ProductionVariantInstanceTypeMl_R5_Xlarge,
+
   ProductionVariantInstanceTypeMl_R5_2xlarge,
+
   ProductionVariantInstanceTypeMl_R5_4xlarge,
+
   ProductionVariantInstanceTypeMl_R5_12xlarge,
+
   ProductionVariantInstanceTypeMl_R5_24xlarge,
+
   ProductionVariantInstanceTypeMl_R5d_Large,
+
   ProductionVariantInstanceTypeMl_R5d_Xlarge,
+
   ProductionVariantInstanceTypeMl_R5d_2xlarge,
+
   ProductionVariantInstanceTypeMl_R5d_4xlarge,
+
   ProductionVariantInstanceTypeMl_R5d_12xlarge,
+
   ProductionVariantInstanceTypeMl_R5d_24xlarge,
+
   ProductionVariantInstanceTypeMl_INF1_Xlarge,
+
   ProductionVariantInstanceTypeMl_INF1_2xlarge,
+
   ProductionVariantInstanceTypeMl_INF1_6xlarge,
+
   ProductionVariantInstanceTypeMl_INF1_24xlarge,
   ProductionVariantInstanceType'
   #-}

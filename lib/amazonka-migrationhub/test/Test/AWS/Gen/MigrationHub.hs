@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.MigrationHub where
 
 import Data.Proxy
-import Network.AWS.MigrationHub
 import Test.AWS.Fixture
-import Test.AWS.MigrationHub.Internal
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.MigrationHub
+import Test.AWS.MigrationHub.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -138,240 +139,206 @@ import Test.Tasty
 -- Requests
 
 requestAssociateDiscoveredResource :: AssociateDiscoveredResource -> TestTree
-requestAssociateDiscoveredResource =
-  req
+requestAssociateDiscoveredResource = req
     "AssociateDiscoveredResource"
     "fixture/AssociateDiscoveredResource.yaml"
 
 requestCreateProgressUpdateStream :: CreateProgressUpdateStream -> TestTree
-requestCreateProgressUpdateStream =
-  req
+requestCreateProgressUpdateStream = req
     "CreateProgressUpdateStream"
     "fixture/CreateProgressUpdateStream.yaml"
 
 requestListApplicationStates :: ListApplicationStates -> TestTree
-requestListApplicationStates =
-  req
+requestListApplicationStates = req
     "ListApplicationStates"
     "fixture/ListApplicationStates.yaml"
 
 requestListCreatedArtifacts :: ListCreatedArtifacts -> TestTree
-requestListCreatedArtifacts =
-  req
+requestListCreatedArtifacts = req
     "ListCreatedArtifacts"
     "fixture/ListCreatedArtifacts.yaml"
 
 requestDisassociateDiscoveredResource :: DisassociateDiscoveredResource -> TestTree
-requestDisassociateDiscoveredResource =
-  req
+requestDisassociateDiscoveredResource = req
     "DisassociateDiscoveredResource"
     "fixture/DisassociateDiscoveredResource.yaml"
 
 requestNotifyApplicationState :: NotifyApplicationState -> TestTree
-requestNotifyApplicationState =
-  req
+requestNotifyApplicationState = req
     "NotifyApplicationState"
     "fixture/NotifyApplicationState.yaml"
 
 requestDeleteProgressUpdateStream :: DeleteProgressUpdateStream -> TestTree
-requestDeleteProgressUpdateStream =
-  req
+requestDeleteProgressUpdateStream = req
     "DeleteProgressUpdateStream"
     "fixture/DeleteProgressUpdateStream.yaml"
 
 requestListProgressUpdateStreams :: ListProgressUpdateStreams -> TestTree
-requestListProgressUpdateStreams =
-  req
+requestListProgressUpdateStreams = req
     "ListProgressUpdateStreams"
     "fixture/ListProgressUpdateStreams.yaml"
 
 requestDisassociateCreatedArtifact :: DisassociateCreatedArtifact -> TestTree
-requestDisassociateCreatedArtifact =
-  req
+requestDisassociateCreatedArtifact = req
     "DisassociateCreatedArtifact"
     "fixture/DisassociateCreatedArtifact.yaml"
 
 requestImportMigrationTask :: ImportMigrationTask -> TestTree
-requestImportMigrationTask =
-  req
+requestImportMigrationTask = req
     "ImportMigrationTask"
     "fixture/ImportMigrationTask.yaml"
 
 requestDescribeMigrationTask :: DescribeMigrationTask -> TestTree
-requestDescribeMigrationTask =
-  req
+requestDescribeMigrationTask = req
     "DescribeMigrationTask"
     "fixture/DescribeMigrationTask.yaml"
 
 requestPutResourceAttributes :: PutResourceAttributes -> TestTree
-requestPutResourceAttributes =
-  req
+requestPutResourceAttributes = req
     "PutResourceAttributes"
     "fixture/PutResourceAttributes.yaml"
 
 requestAssociateCreatedArtifact :: AssociateCreatedArtifact -> TestTree
-requestAssociateCreatedArtifact =
-  req
+requestAssociateCreatedArtifact = req
     "AssociateCreatedArtifact"
     "fixture/AssociateCreatedArtifact.yaml"
 
 requestNotifyMigrationTaskState :: NotifyMigrationTaskState -> TestTree
-requestNotifyMigrationTaskState =
-  req
+requestNotifyMigrationTaskState = req
     "NotifyMigrationTaskState"
     "fixture/NotifyMigrationTaskState.yaml"
 
 requestDescribeApplicationState :: DescribeApplicationState -> TestTree
-requestDescribeApplicationState =
-  req
+requestDescribeApplicationState = req
     "DescribeApplicationState"
     "fixture/DescribeApplicationState.yaml"
 
 requestListMigrationTasks :: ListMigrationTasks -> TestTree
-requestListMigrationTasks =
-  req
+requestListMigrationTasks = req
     "ListMigrationTasks"
     "fixture/ListMigrationTasks.yaml"
 
 requestListDiscoveredResources :: ListDiscoveredResources -> TestTree
-requestListDiscoveredResources =
-  req
+requestListDiscoveredResources = req
     "ListDiscoveredResources"
     "fixture/ListDiscoveredResources.yaml"
 
 -- Responses
 
 responseAssociateDiscoveredResource :: AssociateDiscoveredResourceResponse -> TestTree
-responseAssociateDiscoveredResource =
-  res
+responseAssociateDiscoveredResource = res
     "AssociateDiscoveredResourceResponse"
     "fixture/AssociateDiscoveredResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateDiscoveredResource)
 
 responseCreateProgressUpdateStream :: CreateProgressUpdateStreamResponse -> TestTree
-responseCreateProgressUpdateStream =
-  res
+responseCreateProgressUpdateStream = res
     "CreateProgressUpdateStreamResponse"
     "fixture/CreateProgressUpdateStreamResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateProgressUpdateStream)
 
 responseListApplicationStates :: ListApplicationStatesResponse -> TestTree
-responseListApplicationStates =
-  res
+responseListApplicationStates = res
     "ListApplicationStatesResponse"
     "fixture/ListApplicationStatesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListApplicationStates)
 
 responseListCreatedArtifacts :: ListCreatedArtifactsResponse -> TestTree
-responseListCreatedArtifacts =
-  res
+responseListCreatedArtifacts = res
     "ListCreatedArtifactsResponse"
     "fixture/ListCreatedArtifactsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListCreatedArtifacts)
 
 responseDisassociateDiscoveredResource :: DisassociateDiscoveredResourceResponse -> TestTree
-responseDisassociateDiscoveredResource =
-  res
+responseDisassociateDiscoveredResource = res
     "DisassociateDiscoveredResourceResponse"
     "fixture/DisassociateDiscoveredResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateDiscoveredResource)
 
 responseNotifyApplicationState :: NotifyApplicationStateResponse -> TestTree
-responseNotifyApplicationState =
-  res
+responseNotifyApplicationState = res
     "NotifyApplicationStateResponse"
     "fixture/NotifyApplicationStateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy NotifyApplicationState)
 
 responseDeleteProgressUpdateStream :: DeleteProgressUpdateStreamResponse -> TestTree
-responseDeleteProgressUpdateStream =
-  res
+responseDeleteProgressUpdateStream = res
     "DeleteProgressUpdateStreamResponse"
     "fixture/DeleteProgressUpdateStreamResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteProgressUpdateStream)
 
 responseListProgressUpdateStreams :: ListProgressUpdateStreamsResponse -> TestTree
-responseListProgressUpdateStreams =
-  res
+responseListProgressUpdateStreams = res
     "ListProgressUpdateStreamsResponse"
     "fixture/ListProgressUpdateStreamsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListProgressUpdateStreams)
 
 responseDisassociateCreatedArtifact :: DisassociateCreatedArtifactResponse -> TestTree
-responseDisassociateCreatedArtifact =
-  res
+responseDisassociateCreatedArtifact = res
     "DisassociateCreatedArtifactResponse"
     "fixture/DisassociateCreatedArtifactResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateCreatedArtifact)
 
 responseImportMigrationTask :: ImportMigrationTaskResponse -> TestTree
-responseImportMigrationTask =
-  res
+responseImportMigrationTask = res
     "ImportMigrationTaskResponse"
     "fixture/ImportMigrationTaskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ImportMigrationTask)
 
 responseDescribeMigrationTask :: DescribeMigrationTaskResponse -> TestTree
-responseDescribeMigrationTask =
-  res
+responseDescribeMigrationTask = res
     "DescribeMigrationTaskResponse"
     "fixture/DescribeMigrationTaskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeMigrationTask)
 
 responsePutResourceAttributes :: PutResourceAttributesResponse -> TestTree
-responsePutResourceAttributes =
-  res
+responsePutResourceAttributes = res
     "PutResourceAttributesResponse"
     "fixture/PutResourceAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutResourceAttributes)
 
 responseAssociateCreatedArtifact :: AssociateCreatedArtifactResponse -> TestTree
-responseAssociateCreatedArtifact =
-  res
+responseAssociateCreatedArtifact = res
     "AssociateCreatedArtifactResponse"
     "fixture/AssociateCreatedArtifactResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateCreatedArtifact)
 
 responseNotifyMigrationTaskState :: NotifyMigrationTaskStateResponse -> TestTree
-responseNotifyMigrationTaskState =
-  res
+responseNotifyMigrationTaskState = res
     "NotifyMigrationTaskStateResponse"
     "fixture/NotifyMigrationTaskStateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy NotifyMigrationTaskState)
 
 responseDescribeApplicationState :: DescribeApplicationStateResponse -> TestTree
-responseDescribeApplicationState =
-  res
+responseDescribeApplicationState = res
     "DescribeApplicationStateResponse"
     "fixture/DescribeApplicationStateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeApplicationState)
 
 responseListMigrationTasks :: ListMigrationTasksResponse -> TestTree
-responseListMigrationTasks =
-  res
+responseListMigrationTasks = res
     "ListMigrationTasksResponse"
     "fixture/ListMigrationTasksResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListMigrationTasks)
 
 responseListDiscoveredResources :: ListDiscoveredResourcesResponse -> TestTree
-responseListDiscoveredResources =
-  res
+responseListDiscoveredResources = res
     "ListDiscoveredResourcesResponse"
     "fixture/ListDiscoveredResourcesResponse.proto"
     mkServiceConfig

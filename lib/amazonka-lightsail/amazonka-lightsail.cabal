@@ -1,487 +1,462 @@
-cabal-version:      2.2
-name:               amazonka-lightsail
-version:            2.0.0.0
-synopsis:           Amazon Lightsail SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-lightsail
+version:               2.0.0.0
+synopsis:              Amazon Lightsail SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.Lightsail" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.Lightsail" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-lightsail
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-lightsail
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.Lightsail
-    Network.AWS.Lightsail.AllocateStaticIp
-    Network.AWS.Lightsail.AttachCertificateToDistribution
-    Network.AWS.Lightsail.AttachDisk
-    Network.AWS.Lightsail.AttachInstancesToLoadBalancer
-    Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate
-    Network.AWS.Lightsail.AttachStaticIp
-    Network.AWS.Lightsail.CloseInstancePublicPorts
-    Network.AWS.Lightsail.CopySnapshot
-    Network.AWS.Lightsail.CreateCertificate
-    Network.AWS.Lightsail.CreateCloudFormationStack
-    Network.AWS.Lightsail.CreateContactMethod
-    Network.AWS.Lightsail.CreateContainerService
-    Network.AWS.Lightsail.CreateContainerServiceDeployment
-    Network.AWS.Lightsail.CreateContainerServiceRegistryLogin
-    Network.AWS.Lightsail.CreateDisk
-    Network.AWS.Lightsail.CreateDiskFromSnapshot
-    Network.AWS.Lightsail.CreateDiskSnapshot
-    Network.AWS.Lightsail.CreateDistribution
-    Network.AWS.Lightsail.CreateDomain
-    Network.AWS.Lightsail.CreateDomainEntry
-    Network.AWS.Lightsail.CreateInstances
-    Network.AWS.Lightsail.CreateInstancesFromSnapshot
-    Network.AWS.Lightsail.CreateInstanceSnapshot
-    Network.AWS.Lightsail.CreateKeyPair
-    Network.AWS.Lightsail.CreateLoadBalancer
-    Network.AWS.Lightsail.CreateLoadBalancerTlsCertificate
-    Network.AWS.Lightsail.CreateRelationalDatabase
-    Network.AWS.Lightsail.CreateRelationalDatabaseFromSnapshot
-    Network.AWS.Lightsail.CreateRelationalDatabaseSnapshot
-    Network.AWS.Lightsail.DeleteAlarm
-    Network.AWS.Lightsail.DeleteAutoSnapshot
-    Network.AWS.Lightsail.DeleteCertificate
-    Network.AWS.Lightsail.DeleteContactMethod
-    Network.AWS.Lightsail.DeleteContainerImage
-    Network.AWS.Lightsail.DeleteContainerService
-    Network.AWS.Lightsail.DeleteDisk
-    Network.AWS.Lightsail.DeleteDiskSnapshot
-    Network.AWS.Lightsail.DeleteDistribution
-    Network.AWS.Lightsail.DeleteDomain
-    Network.AWS.Lightsail.DeleteDomainEntry
-    Network.AWS.Lightsail.DeleteInstance
-    Network.AWS.Lightsail.DeleteInstanceSnapshot
-    Network.AWS.Lightsail.DeleteKeyPair
-    Network.AWS.Lightsail.DeleteKnownHostKeys
-    Network.AWS.Lightsail.DeleteLoadBalancer
-    Network.AWS.Lightsail.DeleteLoadBalancerTlsCertificate
-    Network.AWS.Lightsail.DeleteRelationalDatabase
-    Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot
-    Network.AWS.Lightsail.DetachCertificateFromDistribution
-    Network.AWS.Lightsail.DetachDisk
-    Network.AWS.Lightsail.DetachInstancesFromLoadBalancer
-    Network.AWS.Lightsail.DetachStaticIp
-    Network.AWS.Lightsail.DisableAddOn
-    Network.AWS.Lightsail.DownloadDefaultKeyPair
-    Network.AWS.Lightsail.EnableAddOn
-    Network.AWS.Lightsail.ExportSnapshot
-    Network.AWS.Lightsail.GetActiveNames
-    Network.AWS.Lightsail.GetAlarms
-    Network.AWS.Lightsail.GetAutoSnapshots
-    Network.AWS.Lightsail.GetBlueprints
-    Network.AWS.Lightsail.GetBundles
-    Network.AWS.Lightsail.GetCertificates
-    Network.AWS.Lightsail.GetCloudFormationStackRecords
-    Network.AWS.Lightsail.GetContactMethods
-    Network.AWS.Lightsail.GetContainerAPIMetadata
-    Network.AWS.Lightsail.GetContainerImages
-    Network.AWS.Lightsail.GetContainerLog
-    Network.AWS.Lightsail.GetContainerServiceDeployments
-    Network.AWS.Lightsail.GetContainerServiceMetricData
-    Network.AWS.Lightsail.GetContainerServicePowers
-    Network.AWS.Lightsail.GetContainerServices
-    Network.AWS.Lightsail.GetDisk
-    Network.AWS.Lightsail.GetDisks
-    Network.AWS.Lightsail.GetDiskSnapshot
-    Network.AWS.Lightsail.GetDiskSnapshots
-    Network.AWS.Lightsail.GetDistributionBundles
-    Network.AWS.Lightsail.GetDistributionLatestCacheReset
-    Network.AWS.Lightsail.GetDistributionMetricData
-    Network.AWS.Lightsail.GetDistributions
-    Network.AWS.Lightsail.GetDomain
-    Network.AWS.Lightsail.GetDomains
-    Network.AWS.Lightsail.GetExportSnapshotRecords
-    Network.AWS.Lightsail.GetInstance
-    Network.AWS.Lightsail.GetInstanceAccessDetails
-    Network.AWS.Lightsail.GetInstanceMetricData
-    Network.AWS.Lightsail.GetInstancePortStates
-    Network.AWS.Lightsail.GetInstances
-    Network.AWS.Lightsail.GetInstanceSnapshot
-    Network.AWS.Lightsail.GetInstanceSnapshots
-    Network.AWS.Lightsail.GetInstanceState
-    Network.AWS.Lightsail.GetKeyPair
-    Network.AWS.Lightsail.GetKeyPairs
-    Network.AWS.Lightsail.GetLoadBalancer
-    Network.AWS.Lightsail.GetLoadBalancerMetricData
-    Network.AWS.Lightsail.GetLoadBalancers
-    Network.AWS.Lightsail.GetLoadBalancerTlsCertificates
-    Network.AWS.Lightsail.GetOperation
-    Network.AWS.Lightsail.GetOperations
-    Network.AWS.Lightsail.GetOperationsForResource
-    Network.AWS.Lightsail.GetRegions
-    Network.AWS.Lightsail.GetRelationalDatabase
-    Network.AWS.Lightsail.GetRelationalDatabaseBlueprints
-    Network.AWS.Lightsail.GetRelationalDatabaseBundles
-    Network.AWS.Lightsail.GetRelationalDatabaseEvents
-    Network.AWS.Lightsail.GetRelationalDatabaseLogEvents
-    Network.AWS.Lightsail.GetRelationalDatabaseLogStreams
-    Network.AWS.Lightsail.GetRelationalDatabaseMasterUserPassword
-    Network.AWS.Lightsail.GetRelationalDatabaseMetricData
-    Network.AWS.Lightsail.GetRelationalDatabaseParameters
-    Network.AWS.Lightsail.GetRelationalDatabases
-    Network.AWS.Lightsail.GetRelationalDatabaseSnapshot
-    Network.AWS.Lightsail.GetRelationalDatabaseSnapshots
-    Network.AWS.Lightsail.GetStaticIp
-    Network.AWS.Lightsail.GetStaticIps
-    Network.AWS.Lightsail.ImportKeyPair
-    Network.AWS.Lightsail.IsVpcPeered
-    Network.AWS.Lightsail.OpenInstancePublicPorts
-    Network.AWS.Lightsail.PeerVpc
-    Network.AWS.Lightsail.PutAlarm
-    Network.AWS.Lightsail.PutInstancePublicPorts
-    Network.AWS.Lightsail.RebootInstance
-    Network.AWS.Lightsail.RebootRelationalDatabase
-    Network.AWS.Lightsail.RegisterContainerImage
-    Network.AWS.Lightsail.ReleaseStaticIp
-    Network.AWS.Lightsail.ResetDistributionCache
-    Network.AWS.Lightsail.SendContactMethodVerification
-    Network.AWS.Lightsail.StartInstance
-    Network.AWS.Lightsail.StartRelationalDatabase
-    Network.AWS.Lightsail.StopInstance
-    Network.AWS.Lightsail.StopRelationalDatabase
-    Network.AWS.Lightsail.TagResource
-    Network.AWS.Lightsail.TestAlarm
-    Network.AWS.Lightsail.Types
-    Network.AWS.Lightsail.UnpeerVpc
-    Network.AWS.Lightsail.UntagResource
-    Network.AWS.Lightsail.UpdateContainerService
-    Network.AWS.Lightsail.UpdateDistribution
-    Network.AWS.Lightsail.UpdateDistributionBundle
-    Network.AWS.Lightsail.UpdateDomainEntry
-    Network.AWS.Lightsail.UpdateLoadBalancerAttribute
-    Network.AWS.Lightsail.UpdateRelationalDatabase
-    Network.AWS.Lightsail.UpdateRelationalDatabaseParameters
-    Network.AWS.Lightsail.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.Lightsail.Types.AccessDirection
-    Network.AWS.Lightsail.Types.Action
-    Network.AWS.Lightsail.Types.AddOn
-    Network.AWS.Lightsail.Types.AddOnRequest
-    Network.AWS.Lightsail.Types.AddOnType
-    Network.AWS.Lightsail.Types.Alarm
-    Network.AWS.Lightsail.Types.AlarmName
-    Network.AWS.Lightsail.Types.AlarmState
-    Network.AWS.Lightsail.Types.Arn
-    Network.AWS.Lightsail.Types.AttachedDisk
-    Network.AWS.Lightsail.Types.AttachedTo
-    Network.AWS.Lightsail.Types.AttachmentState
-    Network.AWS.Lightsail.Types.AttributeValue
-    Network.AWS.Lightsail.Types.AutoSnapshotAddOnRequest
-    Network.AWS.Lightsail.Types.AutoSnapshotDetails
-    Network.AWS.Lightsail.Types.AutoSnapshotStatus
-    Network.AWS.Lightsail.Types.AvailabilityZone
-    Network.AWS.Lightsail.Types.Base64
-    Network.AWS.Lightsail.Types.BehaviorEnum
-    Network.AWS.Lightsail.Types.Blueprint
-    Network.AWS.Lightsail.Types.BlueprintId
-    Network.AWS.Lightsail.Types.BlueprintType
-    Network.AWS.Lightsail.Types.Bundle
-    Network.AWS.Lightsail.Types.BundleId
-    Network.AWS.Lightsail.Types.CacheBehavior
-    Network.AWS.Lightsail.Types.CacheBehaviorPerPath
-    Network.AWS.Lightsail.Types.CacheSettings
-    Network.AWS.Lightsail.Types.Certificate
-    Network.AWS.Lightsail.Types.CertificateArn
-    Network.AWS.Lightsail.Types.CertificateName
-    Network.AWS.Lightsail.Types.CertificateStatus
-    Network.AWS.Lightsail.Types.CertificateSummary
-    Network.AWS.Lightsail.Types.CloudFormationStackRecord
-    Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceInfo
-    Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceType
-    Network.AWS.Lightsail.Types.ComparisonOperator
-    Network.AWS.Lightsail.Types.ContactEndpoint
-    Network.AWS.Lightsail.Types.ContactMethod
-    Network.AWS.Lightsail.Types.ContactMethodStatus
-    Network.AWS.Lightsail.Types.ContactMethodVerificationProtocol
-    Network.AWS.Lightsail.Types.ContactProtocol
-    Network.AWS.Lightsail.Types.Container
-    Network.AWS.Lightsail.Types.ContainerImage
-    Network.AWS.Lightsail.Types.ContainerName
-    Network.AWS.Lightsail.Types.ContainerService
-    Network.AWS.Lightsail.Types.ContainerServiceDeployment
-    Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest
-    Network.AWS.Lightsail.Types.ContainerServiceDeploymentState
-    Network.AWS.Lightsail.Types.ContainerServiceEndpoint
-    Network.AWS.Lightsail.Types.ContainerServiceHealthCheckConfig
-    Network.AWS.Lightsail.Types.ContainerServiceLogEvent
-    Network.AWS.Lightsail.Types.ContainerServiceMetricName
-    Network.AWS.Lightsail.Types.ContainerServiceName
-    Network.AWS.Lightsail.Types.ContainerServicePower
-    Network.AWS.Lightsail.Types.ContainerServicePowerName
-    Network.AWS.Lightsail.Types.ContainerServiceProtocol
-    Network.AWS.Lightsail.Types.ContainerServiceRegistryLogin
-    Network.AWS.Lightsail.Types.ContainerServiceState
-    Network.AWS.Lightsail.Types.CookieObject
-    Network.AWS.Lightsail.Types.Date
-    Network.AWS.Lightsail.Types.Description
-    Network.AWS.Lightsail.Types.DestinationInfo
-    Network.AWS.Lightsail.Types.Disk
-    Network.AWS.Lightsail.Types.DiskInfo
-    Network.AWS.Lightsail.Types.DiskMap
-    Network.AWS.Lightsail.Types.DiskName
-    Network.AWS.Lightsail.Types.DiskSnapshot
-    Network.AWS.Lightsail.Types.DiskSnapshotInfo
-    Network.AWS.Lightsail.Types.DiskSnapshotName
-    Network.AWS.Lightsail.Types.DiskSnapshotState
-    Network.AWS.Lightsail.Types.DiskState
-    Network.AWS.Lightsail.Types.DistributionBundle
-    Network.AWS.Lightsail.Types.DistributionMetricName
-    Network.AWS.Lightsail.Types.DistributionName
-    Network.AWS.Lightsail.Types.Domain
-    Network.AWS.Lightsail.Types.DomainEntry
-    Network.AWS.Lightsail.Types.DomainEntryOptionsKeys
-    Network.AWS.Lightsail.Types.DomainEntryType
-    Network.AWS.Lightsail.Types.DomainName
-    Network.AWS.Lightsail.Types.DomainValidationRecord
-    Network.AWS.Lightsail.Types.EligibleToRenew
-    Network.AWS.Lightsail.Types.EndpointRequest
-    Network.AWS.Lightsail.Types.Engine
-    Network.AWS.Lightsail.Types.EngineVersion
-    Network.AWS.Lightsail.Types.ErrorCode
-    Network.AWS.Lightsail.Types.ErrorDetails
-    Network.AWS.Lightsail.Types.ExportSnapshotRecord
-    Network.AWS.Lightsail.Types.ExportSnapshotRecordSourceInfo
-    Network.AWS.Lightsail.Types.ExportSnapshotRecordSourceType
-    Network.AWS.Lightsail.Types.Fingerprint
-    Network.AWS.Lightsail.Types.ForwardValues
-    Network.AWS.Lightsail.Types.FromDiskArn
-    Network.AWS.Lightsail.Types.FromInstanceArn
-    Network.AWS.Lightsail.Types.FromRelationalDatabaseArn
-    Network.AWS.Lightsail.Types.FromRelationalDatabaseBlueprintId
-    Network.AWS.Lightsail.Types.FromRelationalDatabaseBundleId
-    Network.AWS.Lightsail.Types.FromRelationalDatabaseName
-    Network.AWS.Lightsail.Types.Group
-    Network.AWS.Lightsail.Types.HeaderEnum
-    Network.AWS.Lightsail.Types.HeaderObject
-    Network.AWS.Lightsail.Types.HostKeyAttributes
-    Network.AWS.Lightsail.Types.Id
-    Network.AWS.Lightsail.Types.InputOrigin
-    Network.AWS.Lightsail.Types.Instance
-    Network.AWS.Lightsail.Types.InstanceAccessDetails
-    Network.AWS.Lightsail.Types.InstanceAccessProtocol
-    Network.AWS.Lightsail.Types.InstanceEntry
-    Network.AWS.Lightsail.Types.InstanceHardware
-    Network.AWS.Lightsail.Types.InstanceHealthReason
-    Network.AWS.Lightsail.Types.InstanceHealthState
-    Network.AWS.Lightsail.Types.InstanceHealthSummary
-    Network.AWS.Lightsail.Types.InstanceMetricName
-    Network.AWS.Lightsail.Types.InstanceNetworking
-    Network.AWS.Lightsail.Types.InstancePlatform
-    Network.AWS.Lightsail.Types.InstancePortInfo
-    Network.AWS.Lightsail.Types.InstancePortState
-    Network.AWS.Lightsail.Types.InstanceSnapshot
-    Network.AWS.Lightsail.Types.InstanceSnapshotInfo
-    Network.AWS.Lightsail.Types.InstanceSnapshotName
-    Network.AWS.Lightsail.Types.InstanceSnapshotState
-    Network.AWS.Lightsail.Types.InstanceState
-    Network.AWS.Lightsail.Types.IpAddress
-    Network.AWS.Lightsail.Types.IpV6Address
-    Network.AWS.Lightsail.Types.Issuer
-    Network.AWS.Lightsail.Types.IssuerCA
-    Network.AWS.Lightsail.Types.Key
-    Network.AWS.Lightsail.Types.KeyAlgorithm
-    Network.AWS.Lightsail.Types.KeyPair
-    Network.AWS.Lightsail.Types.Label
-    Network.AWS.Lightsail.Types.LicenseUrl
-    Network.AWS.Lightsail.Types.LightsailDistribution
-    Network.AWS.Lightsail.Types.LoadBalancer
-    Network.AWS.Lightsail.Types.LoadBalancerAttributeName
-    Network.AWS.Lightsail.Types.LoadBalancerMetricName
-    Network.AWS.Lightsail.Types.LoadBalancerName
-    Network.AWS.Lightsail.Types.LoadBalancerProtocol
-    Network.AWS.Lightsail.Types.LoadBalancerState
-    Network.AWS.Lightsail.Types.LoadBalancerTlsCertificate
-    Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateDomainStatus
-    Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateDomainValidationOption
-    Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateDomainValidationRecord
-    Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateFailureReason
-    Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateRenewalStatus
-    Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateRenewalSummary
-    Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateRevocationReason
-    Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateStatus
-    Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateSummary
-    Network.AWS.Lightsail.Types.LogEvent
-    Network.AWS.Lightsail.Types.LogStreamName
-    Network.AWS.Lightsail.Types.MasterUserPassword
-    Network.AWS.Lightsail.Types.Message
-    Network.AWS.Lightsail.Types.MetricDatapoint
-    Network.AWS.Lightsail.Types.MetricName
-    Network.AWS.Lightsail.Types.MetricStatistic
-    Network.AWS.Lightsail.Types.MetricUnit
-    Network.AWS.Lightsail.Types.MonitoredResourceInfo
-    Network.AWS.Lightsail.Types.MonthlyTransfer
-    Network.AWS.Lightsail.Types.Name
-    Network.AWS.Lightsail.Types.NetworkProtocol
-    Network.AWS.Lightsail.Types.NextBackwardToken
-    Network.AWS.Lightsail.Types.NextForwardToken
-    Network.AWS.Lightsail.Types.NextPageToken
-    Network.AWS.Lightsail.Types.NonEmptyString
-    Network.AWS.Lightsail.Types.Operation
-    Network.AWS.Lightsail.Types.OperationDetails
-    Network.AWS.Lightsail.Types.OperationStatus
-    Network.AWS.Lightsail.Types.OperationType
-    Network.AWS.Lightsail.Types.Origin
-    Network.AWS.Lightsail.Types.OriginalDiskPath
-    Network.AWS.Lightsail.Types.OriginProtocolPolicyEnum
-    Network.AWS.Lightsail.Types.PageToken
-    Network.AWS.Lightsail.Types.PasswordData
-    Network.AWS.Lightsail.Types.Path
-    Network.AWS.Lightsail.Types.PendingMaintenanceAction
-    Network.AWS.Lightsail.Types.PendingModifiedRelationalDatabaseValues
-    Network.AWS.Lightsail.Types.PortAccessType
-    Network.AWS.Lightsail.Types.PortInfo
-    Network.AWS.Lightsail.Types.PortInfoSourceType
-    Network.AWS.Lightsail.Types.PortState
-    Network.AWS.Lightsail.Types.PowerId
-    Network.AWS.Lightsail.Types.PrincipalArn
-    Network.AWS.Lightsail.Types.PrivateDomainName
-    Network.AWS.Lightsail.Types.PrivateKeyBase64
-    Network.AWS.Lightsail.Types.ProductUrl
-    Network.AWS.Lightsail.Types.PublicKeyBase64
-    Network.AWS.Lightsail.Types.QueryStringObject
-    Network.AWS.Lightsail.Types.RecordState
-    Network.AWS.Lightsail.Types.RegionInfo
-    Network.AWS.Lightsail.Types.RegionName
-    Network.AWS.Lightsail.Types.RelationalDatabase
-    Network.AWS.Lightsail.Types.RelationalDatabaseBlueprint
-    Network.AWS.Lightsail.Types.RelationalDatabaseBundle
-    Network.AWS.Lightsail.Types.RelationalDatabaseEndpoint
-    Network.AWS.Lightsail.Types.RelationalDatabaseEngine
-    Network.AWS.Lightsail.Types.RelationalDatabaseEvent
-    Network.AWS.Lightsail.Types.RelationalDatabaseHardware
-    Network.AWS.Lightsail.Types.RelationalDatabaseMetricName
-    Network.AWS.Lightsail.Types.RelationalDatabaseName
-    Network.AWS.Lightsail.Types.RelationalDatabaseParameter
-    Network.AWS.Lightsail.Types.RelationalDatabasePasswordVersion
-    Network.AWS.Lightsail.Types.RelationalDatabaseSnapshot
-    Network.AWS.Lightsail.Types.RelationalDatabaseSnapshotName
-    Network.AWS.Lightsail.Types.RenewalStatus
-    Network.AWS.Lightsail.Types.RenewalStatusReason
-    Network.AWS.Lightsail.Types.RenewalSummary
-    Network.AWS.Lightsail.Types.RequestFailureReason
-    Network.AWS.Lightsail.Types.Resource
-    Network.AWS.Lightsail.Types.ResourceArn
-    Network.AWS.Lightsail.Types.ResourceLocation
-    Network.AWS.Lightsail.Types.ResourceName
-    Network.AWS.Lightsail.Types.ResourceRecord
-    Network.AWS.Lightsail.Types.ResourceType
-    Network.AWS.Lightsail.Types.RestoreDate
-    Network.AWS.Lightsail.Types.RevocationReason
-    Network.AWS.Lightsail.Types.SensitiveString
-    Network.AWS.Lightsail.Types.Serial
-    Network.AWS.Lightsail.Types.SerialNumber
-    Network.AWS.Lightsail.Types.Service
-    Network.AWS.Lightsail.Types.ServiceName
-    Network.AWS.Lightsail.Types.SignatureAlgorithm
-    Network.AWS.Lightsail.Types.SnapshotTimeOfDay
-    Network.AWS.Lightsail.Types.SourceDiskName
-    Network.AWS.Lightsail.Types.State
-    Network.AWS.Lightsail.Types.StaticIp
-    Network.AWS.Lightsail.Types.Status
-    Network.AWS.Lightsail.Types.String
-    Network.AWS.Lightsail.Types.Subject
-    Network.AWS.Lightsail.Types.SuccessCodes
-    Network.AWS.Lightsail.Types.SupportCode
-    Network.AWS.Lightsail.Types.Tag
-    Network.AWS.Lightsail.Types.TagKey
-    Network.AWS.Lightsail.Types.TimeOfDay
-    Network.AWS.Lightsail.Types.TreatMissingData
-    Network.AWS.Lightsail.Types.Type
-    Network.AWS.Lightsail.Types.Url
-    Network.AWS.Lightsail.Types.Value
-    Network.AWS.Lightsail.Types.Version
-    Network.AWS.Lightsail.Types.VersionCode
+    exposed-modules:
+          Network.AWS.Lightsail
+        , Network.AWS.Lightsail.Types
+        , Network.AWS.Lightsail.Waiters
+        , Network.AWS.Lightsail.CloseInstancePublicPorts
+        , Network.AWS.Lightsail.GetRelationalDatabaseMetricData
+        , Network.AWS.Lightsail.AllocateStaticIp
+        , Network.AWS.Lightsail.DeleteKeyPair
+        , Network.AWS.Lightsail.DeleteInstanceSnapshot
+        , Network.AWS.Lightsail.GetInstances
+        , Network.AWS.Lightsail.GetLoadBalancer
+        , Network.AWS.Lightsail.DisableAddOn
+        , Network.AWS.Lightsail.GetDistributions
+        , Network.AWS.Lightsail.CreateContainerServiceDeployment
+        , Network.AWS.Lightsail.GetInstance
+        , Network.AWS.Lightsail.GetRelationalDatabaseEvents
+        , Network.AWS.Lightsail.AttachCertificateToDistribution
+        , Network.AWS.Lightsail.GetContainerServices
+        , Network.AWS.Lightsail.UpdateDistributionBundle
+        , Network.AWS.Lightsail.GetRelationalDatabaseSnapshots
+        , Network.AWS.Lightsail.AttachStaticIp
+        , Network.AWS.Lightsail.GetRelationalDatabaseParameters
+        , Network.AWS.Lightsail.DetachDisk
+        , Network.AWS.Lightsail.GetContactMethods
+        , Network.AWS.Lightsail.DownloadDefaultKeyPair
+        , Network.AWS.Lightsail.DeleteLoadBalancerTlsCertificate
+        , Network.AWS.Lightsail.TestAlarm
+        , Network.AWS.Lightsail.GetDomains
+        , Network.AWS.Lightsail.GetContainerImages
+        , Network.AWS.Lightsail.UpdateRelationalDatabaseParameters
+        , Network.AWS.Lightsail.CreateLoadBalancerTlsCertificate
+        , Network.AWS.Lightsail.CreateDomainEntry
+        , Network.AWS.Lightsail.GetContainerServicePowers
+        , Network.AWS.Lightsail.ImportKeyPair
+        , Network.AWS.Lightsail.GetInstanceSnapshots
+        , Network.AWS.Lightsail.ExportSnapshot
+        , Network.AWS.Lightsail.CreateRelationalDatabaseFromSnapshot
+        , Network.AWS.Lightsail.CreateCloudFormationStack
+        , Network.AWS.Lightsail.GetExportSnapshotRecords
+        , Network.AWS.Lightsail.ReleaseStaticIp
+        , Network.AWS.Lightsail.DeleteInstance
+        , Network.AWS.Lightsail.CreateContainerServiceRegistryLogin
+        , Network.AWS.Lightsail.GetCertificates
+        , Network.AWS.Lightsail.GetContainerServiceMetricData
+        , Network.AWS.Lightsail.GetDistributionMetricData
+        , Network.AWS.Lightsail.RebootInstance
+        , Network.AWS.Lightsail.DeleteLoadBalancer
+        , Network.AWS.Lightsail.CreateDiskFromSnapshot
+        , Network.AWS.Lightsail.GetRelationalDatabases
+        , Network.AWS.Lightsail.GetInstanceSnapshot
+        , Network.AWS.Lightsail.GetRelationalDatabaseLogEvents
+        , Network.AWS.Lightsail.CreateContactMethod
+        , Network.AWS.Lightsail.GetRelationalDatabaseLogStreams
+        , Network.AWS.Lightsail.GetDomain
+        , Network.AWS.Lightsail.GetAutoSnapshots
+        , Network.AWS.Lightsail.GetActiveNames
+        , Network.AWS.Lightsail.DeleteContactMethod
+        , Network.AWS.Lightsail.CreateDistribution
+        , Network.AWS.Lightsail.StopRelationalDatabase
+        , Network.AWS.Lightsail.CreateRelationalDatabaseSnapshot
+        , Network.AWS.Lightsail.DetachCertificateFromDistribution
+        , Network.AWS.Lightsail.CreateContainerService
+        , Network.AWS.Lightsail.GetInstanceAccessDetails
+        , Network.AWS.Lightsail.EnableAddOn
+        , Network.AWS.Lightsail.StopInstance
+        , Network.AWS.Lightsail.DetachInstancesFromLoadBalancer
+        , Network.AWS.Lightsail.RegisterContainerImage
+        , Network.AWS.Lightsail.CreateCertificate
+        , Network.AWS.Lightsail.CreateInstanceSnapshot
+        , Network.AWS.Lightsail.CopySnapshot
+        , Network.AWS.Lightsail.GetRelationalDatabaseSnapshot
+        , Network.AWS.Lightsail.IsVpcPeered
+        , Network.AWS.Lightsail.GetStaticIps
+        , Network.AWS.Lightsail.UnpeerVpc
+        , Network.AWS.Lightsail.DeleteDisk
+        , Network.AWS.Lightsail.CreateInstancesFromSnapshot
+        , Network.AWS.Lightsail.GetCloudFormationStackRecords
+        , Network.AWS.Lightsail.CreateDomain
+        , Network.AWS.Lightsail.GetRelationalDatabaseBlueprints
+        , Network.AWS.Lightsail.DeleteCertificate
+        , Network.AWS.Lightsail.GetDiskSnapshots
+        , Network.AWS.Lightsail.GetContainerAPIMetadata
+        , Network.AWS.Lightsail.PeerVpc
+        , Network.AWS.Lightsail.GetRelationalDatabaseBundles
+        , Network.AWS.Lightsail.GetLoadBalancers
+        , Network.AWS.Lightsail.RebootRelationalDatabase
+        , Network.AWS.Lightsail.AttachLoadBalancerTlsCertificate
+        , Network.AWS.Lightsail.UpdateLoadBalancerAttribute
+        , Network.AWS.Lightsail.DeleteRelationalDatabase
+        , Network.AWS.Lightsail.GetDiskSnapshot
+        , Network.AWS.Lightsail.UpdateRelationalDatabase
+        , Network.AWS.Lightsail.GetStaticIp
+        , Network.AWS.Lightsail.GetRelationalDatabaseMasterUserPassword
+        , Network.AWS.Lightsail.GetBlueprints
+        , Network.AWS.Lightsail.PutAlarm
+        , Network.AWS.Lightsail.DeleteAlarm
+        , Network.AWS.Lightsail.GetInstancePortStates
+        , Network.AWS.Lightsail.DeleteAutoSnapshot
+        , Network.AWS.Lightsail.CreateRelationalDatabase
+        , Network.AWS.Lightsail.SendContactMethodVerification
+        , Network.AWS.Lightsail.GetContainerLog
+        , Network.AWS.Lightsail.CreateDiskSnapshot
+        , Network.AWS.Lightsail.DeleteDomainEntry
+        , Network.AWS.Lightsail.UpdateDomainEntry
+        , Network.AWS.Lightsail.GetRegions
+        , Network.AWS.Lightsail.DeleteDiskSnapshot
+        , Network.AWS.Lightsail.GetLoadBalancerMetricData
+        , Network.AWS.Lightsail.GetInstanceState
+        , Network.AWS.Lightsail.GetKeyPairs
+        , Network.AWS.Lightsail.GetOperations
+        , Network.AWS.Lightsail.GetDisks
+        , Network.AWS.Lightsail.GetRelationalDatabase
+        , Network.AWS.Lightsail.AttachInstancesToLoadBalancer
+        , Network.AWS.Lightsail.TagResource
+        , Network.AWS.Lightsail.GetOperation
+        , Network.AWS.Lightsail.ResetDistributionCache
+        , Network.AWS.Lightsail.UpdateDistribution
+        , Network.AWS.Lightsail.DeleteDistribution
+        , Network.AWS.Lightsail.UpdateContainerService
+        , Network.AWS.Lightsail.DeleteRelationalDatabaseSnapshot
+        , Network.AWS.Lightsail.DeleteContainerService
+        , Network.AWS.Lightsail.GetInstanceMetricData
+        , Network.AWS.Lightsail.GetKeyPair
+        , Network.AWS.Lightsail.UntagResource
+        , Network.AWS.Lightsail.PutInstancePublicPorts
+        , Network.AWS.Lightsail.GetDistributionBundles
+        , Network.AWS.Lightsail.GetDisk
+        , Network.AWS.Lightsail.GetDistributionLatestCacheReset
+        , Network.AWS.Lightsail.CreateLoadBalancer
+        , Network.AWS.Lightsail.GetContainerServiceDeployments
+        , Network.AWS.Lightsail.DeleteKnownHostKeys
+        , Network.AWS.Lightsail.AttachDisk
+        , Network.AWS.Lightsail.DetachStaticIp
+        , Network.AWS.Lightsail.CreateInstances
+        , Network.AWS.Lightsail.GetAlarms
+        , Network.AWS.Lightsail.OpenInstancePublicPorts
+        , Network.AWS.Lightsail.StartRelationalDatabase
+        , Network.AWS.Lightsail.DeleteContainerImage
+        , Network.AWS.Lightsail.GetBundles
+        , Network.AWS.Lightsail.DeleteDomain
+        , Network.AWS.Lightsail.GetLoadBalancerTlsCertificates
+        , Network.AWS.Lightsail.CreateDisk
+        , Network.AWS.Lightsail.GetOperationsForResource
+        , Network.AWS.Lightsail.CreateKeyPair
+        , Network.AWS.Lightsail.StartInstance
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.Lightsail.Types.AlarmState
+        , Network.AWS.Lightsail.Types.HeaderEnum
+        , Network.AWS.Lightsail.Types.DomainEntryType
+        , Network.AWS.Lightsail.Types.PendingMaintenanceAction
+        , Network.AWS.Lightsail.Types.LoadBalancerProtocol
+        , Network.AWS.Lightsail.Types.Origin
+        , Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceType
+        , Network.AWS.Lightsail.Types.ContainerServiceDeploymentState
+        , Network.AWS.Lightsail.Types.IpV6Address
+        , Network.AWS.Lightsail.Types.AutoSnapshotStatus
+        , Network.AWS.Lightsail.Types.BehaviorEnum
+        , Network.AWS.Lightsail.Types.Blueprint
+        , Network.AWS.Lightsail.Types.InstancePortState
+        , Network.AWS.Lightsail.Types.InstanceNetworking
+        , Network.AWS.Lightsail.Types.IpAddress
+        , Network.AWS.Lightsail.Types.ResourceRecord
+        , Network.AWS.Lightsail.Types.RegionName
+        , Network.AWS.Lightsail.Types.DiskSnapshotInfo
+        , Network.AWS.Lightsail.Types.InstanceSnapshotState
+        , Network.AWS.Lightsail.Types.Tag
+        , Network.AWS.Lightsail.Types.TreatMissingData
+        , Network.AWS.Lightsail.Types.ContainerService
+        , Network.AWS.Lightsail.Types.CertificateName
+        , Network.AWS.Lightsail.Types.ContainerServiceHealthCheckConfig
+        , Network.AWS.Lightsail.Types.RecordState
+        , Network.AWS.Lightsail.Types.RelationalDatabaseEvent
+        , Network.AWS.Lightsail.Types.AutoSnapshotAddOnRequest
+        , Network.AWS.Lightsail.Types.HeaderObject
+        , Network.AWS.Lightsail.Types.ResourceType
+        , Network.AWS.Lightsail.Types.DestinationInfo
+        , Network.AWS.Lightsail.Types.QueryStringObject
+        , Network.AWS.Lightsail.Types.RelationalDatabaseSnapshot
+        , Network.AWS.Lightsail.Types.ContainerServiceLogEvent
+        , Network.AWS.Lightsail.Types.ContainerServicePowerName
+        , Network.AWS.Lightsail.Types.PortAccessType
+        , Network.AWS.Lightsail.Types.Disk
+        , Network.AWS.Lightsail.Types.EligibleToRenew
+        , Network.AWS.Lightsail.Types.ContainerServiceState
+        , Network.AWS.Lightsail.Types.ResourceName
+        , Network.AWS.Lightsail.Types.RelationalDatabaseMetricName
+        , Network.AWS.Lightsail.Types.KeyPair
+        , Network.AWS.Lightsail.Types.RequestFailureReason
+        , Network.AWS.Lightsail.Types.Operation
+        , Network.AWS.Lightsail.Types.ContainerName
+        , Network.AWS.Lightsail.Types.MetricDatapoint
+        , Network.AWS.Lightsail.Types.LogEvent
+        , Network.AWS.Lightsail.Types.RelationalDatabaseHardware
+        , Network.AWS.Lightsail.Types.NetworkProtocol
+        , Network.AWS.Lightsail.Types.PendingModifiedRelationalDatabaseValues
+        , Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateRevocationReason
+        , Network.AWS.Lightsail.Types.Domain
+        , Network.AWS.Lightsail.Types.ContainerImage
+        , Network.AWS.Lightsail.Types.AddOnType
+        , Network.AWS.Lightsail.Types.CacheBehavior
+        , Network.AWS.Lightsail.Types.MetricName
+        , Network.AWS.Lightsail.Types.DiskInfo
+        , Network.AWS.Lightsail.Types.LightsailDistribution
+        , Network.AWS.Lightsail.Types.ForwardValues
+        , Network.AWS.Lightsail.Types.InstanceAccessProtocol
+        , Network.AWS.Lightsail.Types.DiskSnapshotState
+        , Network.AWS.Lightsail.Types.InstancePlatform
+        , Network.AWS.Lightsail.Types.ContactProtocol
+        , Network.AWS.Lightsail.Types.DistributionBundle
+        , Network.AWS.Lightsail.Types.MonthlyTransfer
+        , Network.AWS.Lightsail.Types.LoadBalancerAttributeName
+        , Network.AWS.Lightsail.Types.ContainerServiceMetricName
+        , Network.AWS.Lightsail.Types.OperationStatus
+        , Network.AWS.Lightsail.Types.ComparisonOperator
+        , Network.AWS.Lightsail.Types.DistributionMetricName
+        , Network.AWS.Lightsail.Types.AutoSnapshotDetails
+        , Network.AWS.Lightsail.Types.DiskMap
+        , Network.AWS.Lightsail.Types.RelationalDatabaseBlueprint
+        , Network.AWS.Lightsail.Types.AddOnRequest
+        , Network.AWS.Lightsail.Types.DiskSnapshot
+        , Network.AWS.Lightsail.Types.StaticIp
+        , Network.AWS.Lightsail.Types.SensitiveString
+        , Network.AWS.Lightsail.Types.CertificateSummary
+        , Network.AWS.Lightsail.Types.CloudFormationStackRecord
+        , Network.AWS.Lightsail.Types.AccessDirection
+        , Network.AWS.Lightsail.Types.ContainerServiceRegistryLogin
+        , Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateDomainValidationOption
+        , Network.AWS.Lightsail.Types.DomainEntry
+        , Network.AWS.Lightsail.Types.ContainerServiceProtocol
+        , Network.AWS.Lightsail.Types.Bundle
+        , Network.AWS.Lightsail.Types.RevocationReason
+        , Network.AWS.Lightsail.Types.LoadBalancerTlsCertificate
+        , Network.AWS.Lightsail.Types.NonEmptyString
+        , Network.AWS.Lightsail.Types.PortInfo
+        , Network.AWS.Lightsail.Types.ResourceArn
+        , Network.AWS.Lightsail.Types.DomainName
+        , Network.AWS.Lightsail.Types.InstanceHardware
+        , Network.AWS.Lightsail.Types.AttachedDisk
+        , Network.AWS.Lightsail.Types.RelationalDatabaseParameter
+        , Network.AWS.Lightsail.Types.ResourceLocation
+        , Network.AWS.Lightsail.Types.PasswordData
+        , Network.AWS.Lightsail.Types.Base64
+        , Network.AWS.Lightsail.Types.AvailabilityZone
+        , Network.AWS.Lightsail.Types.InstanceAccessDetails
+        , Network.AWS.Lightsail.Types.ContactMethod
+        , Network.AWS.Lightsail.Types.BlueprintType
+        , Network.AWS.Lightsail.Types.Container
+        , Network.AWS.Lightsail.Types.MetricUnit
+        , Network.AWS.Lightsail.Types.LoadBalancer
+        , Network.AWS.Lightsail.Types.MetricStatistic
+        , Network.AWS.Lightsail.Types.DiskState
+        , Network.AWS.Lightsail.Types.InstanceMetricName
+        , Network.AWS.Lightsail.Types.EndpointRequest
+        , Network.AWS.Lightsail.Types.RenewalStatus
+        , Network.AWS.Lightsail.Types.PortInfoSourceType
+        , Network.AWS.Lightsail.Types.RelationalDatabaseBundle
+        , Network.AWS.Lightsail.Types.CacheBehaviorPerPath
+        , Network.AWS.Lightsail.Types.InputOrigin
+        , Network.AWS.Lightsail.Types.RenewalSummary
+        , Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest
+        , Network.AWS.Lightsail.Types.InstanceHealthState
+        , Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateDomainValidationRecord
+        , Network.AWS.Lightsail.Types.CloudFormationStackRecordSourceInfo
+        , Network.AWS.Lightsail.Types.Certificate
+        , Network.AWS.Lightsail.Types.InstanceEntry
+        , Network.AWS.Lightsail.Types.LoadBalancerState
+        , Network.AWS.Lightsail.Types.OperationType
+        , Network.AWS.Lightsail.Types.ContainerServiceName
+        , Network.AWS.Lightsail.Types.ExportSnapshotRecord
+        , Network.AWS.Lightsail.Types.InstanceSnapshot
+        , Network.AWS.Lightsail.Types.ContainerServicePower
+        , Network.AWS.Lightsail.Types.RelationalDatabaseEndpoint
+        , Network.AWS.Lightsail.Types.TagKey
+        , Network.AWS.Lightsail.Types.RegionInfo
+        , Network.AWS.Lightsail.Types.ContactMethodVerificationProtocol
+        , Network.AWS.Lightsail.Types.HostKeyAttributes
+        , Network.AWS.Lightsail.Types.DomainEntryOptionsKeys
+        , Network.AWS.Lightsail.Types.KeyAlgorithm
+        , Network.AWS.Lightsail.Types.RelationalDatabaseEngine
+        , Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateDomainStatus
+        , Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateSummary
+        , Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateFailureReason
+        , Network.AWS.Lightsail.Types.ExportSnapshotRecordSourceType
+        , Network.AWS.Lightsail.Types.TimeOfDay
+        , Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateStatus
+        , Network.AWS.Lightsail.Types.AddOn
+        , Network.AWS.Lightsail.Types.ContainerServiceDeployment
+        , Network.AWS.Lightsail.Types.InstanceSnapshotInfo
+        , Network.AWS.Lightsail.Types.SerialNumber
+        , Network.AWS.Lightsail.Types.ContactMethodStatus
+        , Network.AWS.Lightsail.Types.Alarm
+        , Network.AWS.Lightsail.Types.RelationalDatabasePasswordVersion
+        , Network.AWS.Lightsail.Types.PortState
+        , Network.AWS.Lightsail.Types.RenewalStatusReason
+        , Network.AWS.Lightsail.Types.InstancePortInfo
+        , Network.AWS.Lightsail.Types.DomainValidationRecord
+        , Network.AWS.Lightsail.Types.RelationalDatabase
+        , Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateRenewalSummary
+        , Network.AWS.Lightsail.Types.ExportSnapshotRecordSourceInfo
+        , Network.AWS.Lightsail.Types.LoadBalancerTlsCertificateRenewalStatus
+        , Network.AWS.Lightsail.Types.InstanceState
+        , Network.AWS.Lightsail.Types.CertificateStatus
+        , Network.AWS.Lightsail.Types.IssuerCA
+        , Network.AWS.Lightsail.Types.CacheSettings
+        , Network.AWS.Lightsail.Types.InstanceHealthReason
+        , Network.AWS.Lightsail.Types.Instance
+        , Network.AWS.Lightsail.Types.MonitoredResourceInfo
+        , Network.AWS.Lightsail.Types.ContainerServiceEndpoint
+        , Network.AWS.Lightsail.Types.OriginProtocolPolicyEnum
+        , Network.AWS.Lightsail.Types.CookieObject
+        , Network.AWS.Lightsail.Types.LoadBalancerMetricName
+        , Network.AWS.Lightsail.Types.InstanceHealthSummary
+        , Network.AWS.Lightsail.Types.LoadBalancerName
+        , Network.AWS.Lightsail.Types.ServiceName
+        , Network.AWS.Lightsail.Types.Action
+        , Network.AWS.Lightsail.Types.Description
+        , Network.AWS.Lightsail.Types.Name
+        , Network.AWS.Lightsail.Types.RelationalDatabaseName
+        , Network.AWS.Lightsail.Types.AlarmName
+        , Network.AWS.Lightsail.Types.DistributionName
+        , Network.AWS.Lightsail.Types.RelationalDatabaseSnapshotName
+        , Network.AWS.Lightsail.Types.BlueprintId
+        , Network.AWS.Lightsail.Types.Group
+        , Network.AWS.Lightsail.Types.Key
+        , Network.AWS.Lightsail.Types.Value
+        , Network.AWS.Lightsail.Types.DiskName
+        , Network.AWS.Lightsail.Types.DiskSnapshotName
+        , Network.AWS.Lightsail.Types.Arn
+        , Network.AWS.Lightsail.Types.InstanceSnapshotName
+        , Network.AWS.Lightsail.Types.Resource
+        , Network.AWS.Lightsail.Types.SnapshotTimeOfDay
+        , Network.AWS.Lightsail.Types.Id
+        , Network.AWS.Lightsail.Types.Service
+        , Network.AWS.Lightsail.Types.Engine
+        , Network.AWS.Lightsail.Types.EngineVersion
+        , Network.AWS.Lightsail.Types.FromRelationalDatabaseArn
+        , Network.AWS.Lightsail.Types.FromRelationalDatabaseName
+        , Network.AWS.Lightsail.Types.State
+        , Network.AWS.Lightsail.Types.ContactEndpoint
+        , Network.AWS.Lightsail.Types.AttachedTo
+        , Network.AWS.Lightsail.Types.Fingerprint
+        , Network.AWS.Lightsail.Types.BundleId
+        , Network.AWS.Lightsail.Types.Label
+        , Network.AWS.Lightsail.Types.MasterUserPassword
+        , Network.AWS.Lightsail.Types.Path
+        , Network.AWS.Lightsail.Types.Date
+        , Network.AWS.Lightsail.Types.PrivateKeyBase64
+        , Network.AWS.Lightsail.Types.PublicKeyBase64
+        , Network.AWS.Lightsail.Types.AttributeValue
+        , Network.AWS.Lightsail.Types.OriginalDiskPath
+        , Network.AWS.Lightsail.Types.FromDiskArn
+        , Network.AWS.Lightsail.Types.FromInstanceArn
+        , Network.AWS.Lightsail.Types.CertificateArn
+        , Network.AWS.Lightsail.Types.Issuer
+        , Network.AWS.Lightsail.Types.Serial
+        , Network.AWS.Lightsail.Types.SignatureAlgorithm
+        , Network.AWS.Lightsail.Types.Subject
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-lightsail-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.Gen.Lightsail
-    Test.AWS.Lightsail
-    Test.AWS.Lightsail.Internal
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core         >=2.0.0.0 && <2.0.0.1
-    , amazonka-lightsail
-    , amazonka-test         >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.Lightsail
+        , Test.AWS.Gen.Lightsail
+        , Test.AWS.Lightsail.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-lightsail
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.AutoScaling.Types.StepAdjustment
-  ( StepAdjustment (..),
-
-    -- * Smart constructor
-    mkStepAdjustment,
-
-    -- * Lenses
-    saScalingAdjustment,
-    saMetricIntervalLowerBound,
-    saMetricIntervalUpperBound,
-  )
-where
+  ( StepAdjustment (..)
+  -- * Smart constructor
+  , mkStepAdjustment
+  -- * Lenses
+  , saScalingAdjustment
+  , saMetricIntervalLowerBound
+  , saMetricIntervalUpperBound
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -54,43 +52,42 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkStepAdjustment' smart constructor.
 data StepAdjustment = StepAdjustment'
-  { -- | The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity.
-    scalingAdjustment :: Core.Int,
-    -- | The lower bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the lower bound is inclusive (the metric must be greater than or equal to the threshold plus the lower bound). Otherwise, it is exclusive (the metric must be greater than the threshold plus the lower bound). A null value indicates negative infinity.
-    metricIntervalLowerBound :: Core.Maybe Core.Double,
-    -- | The upper bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the upper bound is exclusive (the metric must be less than the threshold plus the upper bound). Otherwise, it is inclusive (the metric must be less than or equal to the threshold plus the upper bound). A null value indicates positive infinity.
-    --
-    -- The upper bound must be greater than the lower bound.
-    metricIntervalUpperBound :: Core.Maybe Core.Double
+  { scalingAdjustment :: Core.Int
+    -- ^ The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity.
+  , metricIntervalLowerBound :: Core.Maybe Core.Double
+    -- ^ The lower bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the lower bound is inclusive (the metric must be greater than or equal to the threshold plus the lower bound). Otherwise, it is exclusive (the metric must be greater than the threshold plus the lower bound). A null value indicates negative infinity.
+  , metricIntervalUpperBound :: Core.Maybe Core.Double
+    -- ^ The upper bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the upper bound is exclusive (the metric must be less than the threshold plus the upper bound). Otherwise, it is inclusive (the metric must be less than or equal to the threshold plus the upper bound). A null value indicates positive infinity.
+--
+-- The upper bound must be greater than the lower bound.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'StepAdjustment' value with any optional fields omitted.
-mkStepAdjustment ::
-  -- | 'scalingAdjustment'
-  Core.Int ->
-  StepAdjustment
-mkStepAdjustment scalingAdjustment =
-  StepAdjustment'
-    { scalingAdjustment,
-      metricIntervalLowerBound = Core.Nothing,
-      metricIntervalUpperBound = Core.Nothing
-    }
+mkStepAdjustment
+    :: Core.Int -- ^ 'scalingAdjustment'
+    -> StepAdjustment
+mkStepAdjustment scalingAdjustment
+  = StepAdjustment'{scalingAdjustment,
+                    metricIntervalLowerBound = Core.Nothing,
+                    metricIntervalUpperBound = Core.Nothing}
 
 -- | The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity.
 --
 -- /Note:/ Consider using 'scalingAdjustment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 saScalingAdjustment :: Lens.Lens' StepAdjustment Core.Int
 saScalingAdjustment = Lens.field @"scalingAdjustment"
-{-# DEPRECATED saScalingAdjustment "Use generic-lens or generic-optics with 'scalingAdjustment' instead." #-}
+{-# INLINEABLE saScalingAdjustment #-}
+{-# DEPRECATED scalingAdjustment "Use generic-lens or generic-optics with 'scalingAdjustment' instead"  #-}
 
 -- | The lower bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the lower bound is inclusive (the metric must be greater than or equal to the threshold plus the lower bound). Otherwise, it is exclusive (the metric must be greater than the threshold plus the lower bound). A null value indicates negative infinity.
 --
 -- /Note:/ Consider using 'metricIntervalLowerBound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 saMetricIntervalLowerBound :: Lens.Lens' StepAdjustment (Core.Maybe Core.Double)
 saMetricIntervalLowerBound = Lens.field @"metricIntervalLowerBound"
-{-# DEPRECATED saMetricIntervalLowerBound "Use generic-lens or generic-optics with 'metricIntervalLowerBound' instead." #-}
+{-# INLINEABLE saMetricIntervalLowerBound #-}
+{-# DEPRECATED metricIntervalLowerBound "Use generic-lens or generic-optics with 'metricIntervalLowerBound' instead"  #-}
 
 -- | The upper bound for the difference between the alarm threshold and the CloudWatch metric. If the metric value is above the breach threshold, the upper bound is exclusive (the metric must be less than the threshold plus the upper bound). Otherwise, it is inclusive (the metric must be less than or equal to the threshold plus the upper bound). A null value indicates positive infinity.
 --
@@ -99,11 +96,23 @@ saMetricIntervalLowerBound = Lens.field @"metricIntervalLowerBound"
 -- /Note:/ Consider using 'metricIntervalUpperBound' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 saMetricIntervalUpperBound :: Lens.Lens' StepAdjustment (Core.Maybe Core.Double)
 saMetricIntervalUpperBound = Lens.field @"metricIntervalUpperBound"
-{-# DEPRECATED saMetricIntervalUpperBound "Use generic-lens or generic-optics with 'metricIntervalUpperBound' instead." #-}
+{-# INLINEABLE saMetricIntervalUpperBound #-}
+{-# DEPRECATED metricIntervalUpperBound "Use generic-lens or generic-optics with 'metricIntervalUpperBound' instead"  #-}
+
+instance Core.ToQuery StepAdjustment where
+        toQuery StepAdjustment{..}
+          = Core.toQueryPair "ScalingAdjustment" scalingAdjustment Core.<>
+              Core.maybe Core.mempty
+                (Core.toQueryPair "MetricIntervalLowerBound")
+                metricIntervalLowerBound
+              Core.<>
+              Core.maybe Core.mempty
+                (Core.toQueryPair "MetricIntervalUpperBound")
+                metricIntervalUpperBound
 
 instance Core.FromXML StepAdjustment where
-  parseXML x =
-    StepAdjustment'
-      Core.<$> (x Core..@ "ScalingAdjustment")
-      Core.<*> (x Core..@? "MetricIntervalLowerBound")
-      Core.<*> (x Core..@? "MetricIntervalUpperBound")
+        parseXML x
+          = StepAdjustment' Core.<$>
+              (x Core..@ "ScalingAdjustment") Core.<*>
+                x Core..@? "MetricIntervalLowerBound"
+                Core.<*> x Core..@? "MetricIntervalUpperBound"

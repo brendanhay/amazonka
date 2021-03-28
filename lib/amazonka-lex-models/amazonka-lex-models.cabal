@@ -1,242 +1,241 @@
-cabal-version:      2.2
-name:               amazonka-lex-models
-version:            2.0.0.0
-synopsis:           Amazon Lex Model Building Service SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-lex-models
+version:               2.0.0.0
+synopsis:              Amazon Lex Model Building Service SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.LexModels" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.LexModels" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-lex-models
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-lex-models
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.LexModels
-    Network.AWS.LexModels.CreateBotVersion
-    Network.AWS.LexModels.CreateIntentVersion
-    Network.AWS.LexModels.CreateSlotTypeVersion
-    Network.AWS.LexModels.DeleteBot
-    Network.AWS.LexModels.DeleteBotAlias
-    Network.AWS.LexModels.DeleteBotChannelAssociation
-    Network.AWS.LexModels.DeleteBotVersion
-    Network.AWS.LexModels.DeleteIntent
-    Network.AWS.LexModels.DeleteIntentVersion
-    Network.AWS.LexModels.DeleteSlotType
-    Network.AWS.LexModels.DeleteSlotTypeVersion
-    Network.AWS.LexModels.DeleteUtterances
-    Network.AWS.LexModels.GetBot
-    Network.AWS.LexModels.GetBotAlias
-    Network.AWS.LexModels.GetBotAliases
-    Network.AWS.LexModels.GetBotChannelAssociation
-    Network.AWS.LexModels.GetBotChannelAssociations
-    Network.AWS.LexModels.GetBots
-    Network.AWS.LexModels.GetBotVersions
-    Network.AWS.LexModels.GetBuiltinIntent
-    Network.AWS.LexModels.GetBuiltinIntents
-    Network.AWS.LexModels.GetBuiltinSlotTypes
-    Network.AWS.LexModels.GetExport
-    Network.AWS.LexModels.GetImport
-    Network.AWS.LexModels.GetIntent
-    Network.AWS.LexModels.GetIntents
-    Network.AWS.LexModels.GetIntentVersions
-    Network.AWS.LexModels.GetSlotType
-    Network.AWS.LexModels.GetSlotTypes
-    Network.AWS.LexModels.GetSlotTypeVersions
-    Network.AWS.LexModels.GetUtterancesView
-    Network.AWS.LexModels.ListTagsForResource
-    Network.AWS.LexModels.PutBot
-    Network.AWS.LexModels.PutBotAlias
-    Network.AWS.LexModels.PutIntent
-    Network.AWS.LexModels.PutSlotType
-    Network.AWS.LexModels.StartImport
-    Network.AWS.LexModels.TagResource
-    Network.AWS.LexModels.Types
-    Network.AWS.LexModels.UntagResource
-    Network.AWS.LexModels.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.LexModels.Types.AliasName
-    Network.AWS.LexModels.Types.AmazonResourceName
-    Network.AWS.LexModels.Types.BotAlias
-    Network.AWS.LexModels.Types.BotAliasMetadata
-    Network.AWS.LexModels.Types.BotChannelAssociation
-    Network.AWS.LexModels.Types.BotChannelName
-    Network.AWS.LexModels.Types.BotMetadata
-    Network.AWS.LexModels.Types.BotName
-    Network.AWS.LexModels.Types.BotVersion
-    Network.AWS.LexModels.Types.BuiltinIntentMetadata
-    Network.AWS.LexModels.Types.BuiltinIntentSignature
-    Network.AWS.LexModels.Types.BuiltinIntentSlot
-    Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata
-    Network.AWS.LexModels.Types.ChannelStatus
-    Network.AWS.LexModels.Types.ChannelType
-    Network.AWS.LexModels.Types.Checksum
-    Network.AWS.LexModels.Types.CodeHook
-    Network.AWS.LexModels.Types.ContentString
-    Network.AWS.LexModels.Types.ContentType
-    Network.AWS.LexModels.Types.ConversationLogsRequest
-    Network.AWS.LexModels.Types.ConversationLogsResponse
-    Network.AWS.LexModels.Types.CustomOrBuiltinSlotTypeName
-    Network.AWS.LexModels.Types.DefaultValue
-    Network.AWS.LexModels.Types.Description
-    Network.AWS.LexModels.Types.Destination
-    Network.AWS.LexModels.Types.EnumerationValue
-    Network.AWS.LexModels.Types.ExportStatus
-    Network.AWS.LexModels.Types.ExportType
-    Network.AWS.LexModels.Types.FollowUpPrompt
-    Network.AWS.LexModels.Types.FulfillmentActivity
-    Network.AWS.LexModels.Types.FulfillmentActivityType
-    Network.AWS.LexModels.Types.IamRoleArn
-    Network.AWS.LexModels.Types.ImportId
-    Network.AWS.LexModels.Types.ImportStatus
-    Network.AWS.LexModels.Types.InputContext
-    Network.AWS.LexModels.Types.InputContextName
-    Network.AWS.LexModels.Types.Intent
-    Network.AWS.LexModels.Types.IntentMetadata
-    Network.AWS.LexModels.Types.IntentName
-    Network.AWS.LexModels.Types.IntentVersion
-    Network.AWS.LexModels.Types.KendraConfiguration
-    Network.AWS.LexModels.Types.KendraIndexArn
-    Network.AWS.LexModels.Types.Key
-    Network.AWS.LexModels.Types.KmsKeyArn
-    Network.AWS.LexModels.Types.LambdaARN
-    Network.AWS.LexModels.Types.LexStatus
-    Network.AWS.LexModels.Types.Locale
-    Network.AWS.LexModels.Types.LogSettingsRequest
-    Network.AWS.LexModels.Types.LogSettingsResponse
-    Network.AWS.LexModels.Types.LogType
-    Network.AWS.LexModels.Types.MergeStrategy
-    Network.AWS.LexModels.Types.Message
-    Network.AWS.LexModels.Types.MessageVersion
-    Network.AWS.LexModels.Types.Name
-    Network.AWS.LexModels.Types.NameContains
-    Network.AWS.LexModels.Types.NextToken
-    Network.AWS.LexModels.Types.NumericalVersion
-    Network.AWS.LexModels.Types.ObfuscationSetting
-    Network.AWS.LexModels.Types.OutputContext
-    Network.AWS.LexModels.Types.OutputContextName
-    Network.AWS.LexModels.Types.ParentIntentSignature
-    Network.AWS.LexModels.Types.Pattern
-    Network.AWS.LexModels.Types.ProcessBehavior
-    Network.AWS.LexModels.Types.Prompt
-    Network.AWS.LexModels.Types.QueryFilterString
-    Network.AWS.LexModels.Types.ResourceArn
-    Network.AWS.LexModels.Types.ResourcePrefix
-    Network.AWS.LexModels.Types.ResourceType
-    Network.AWS.LexModels.Types.ResponseCard
-    Network.AWS.LexModels.Types.Role
-    Network.AWS.LexModels.Types.Signature
-    Network.AWS.LexModels.Types.Slot
-    Network.AWS.LexModels.Types.SlotConstraint
-    Network.AWS.LexModels.Types.SlotDefaultValue
-    Network.AWS.LexModels.Types.SlotDefaultValueSpec
-    Network.AWS.LexModels.Types.SlotName
-    Network.AWS.LexModels.Types.SlotTypeConfiguration
-    Network.AWS.LexModels.Types.SlotTypeMetadata
-    Network.AWS.LexModels.Types.SlotTypeName
-    Network.AWS.LexModels.Types.SlotTypeRegexConfiguration
-    Network.AWS.LexModels.Types.SlotTypeVersion
-    Network.AWS.LexModels.Types.SlotValueSelectionStrategy
-    Network.AWS.LexModels.Types.Statement
-    Network.AWS.LexModels.Types.StatusType
-    Network.AWS.LexModels.Types.String
-    Network.AWS.LexModels.Types.Tag
-    Network.AWS.LexModels.Types.TagKey
-    Network.AWS.LexModels.Types.TagValue
-    Network.AWS.LexModels.Types.UserId
-    Network.AWS.LexModels.Types.Utterance
-    Network.AWS.LexModels.Types.UtteranceData
-    Network.AWS.LexModels.Types.UtteranceList
-    Network.AWS.LexModels.Types.UtteranceString
-    Network.AWS.LexModels.Types.Value
-    Network.AWS.LexModels.Types.Version
+    exposed-modules:
+          Network.AWS.LexModels
+        , Network.AWS.LexModels.Types
+        , Network.AWS.LexModels.Waiters
+        , Network.AWS.LexModels.DeleteIntentVersion
+        , Network.AWS.LexModels.GetBotAliases
+        , Network.AWS.LexModels.DeleteBotChannelAssociation
+        , Network.AWS.LexModels.CreateSlotTypeVersion
+        , Network.AWS.LexModels.ListTagsForResource
+        , Network.AWS.LexModels.GetIntent
+        , Network.AWS.LexModels.PutIntent
+        , Network.AWS.LexModels.DeleteIntent
+        , Network.AWS.LexModels.GetBuiltinIntents
+        , Network.AWS.LexModels.PutBot
+        , Network.AWS.LexModels.DeleteBot
+        , Network.AWS.LexModels.GetImport
+        , Network.AWS.LexModels.GetIntentVersions
+        , Network.AWS.LexModels.GetBuiltinIntent
+        , Network.AWS.LexModels.PutBotAlias
+        , Network.AWS.LexModels.GetBotVersions
+        , Network.AWS.LexModels.GetBotChannelAssociations
+        , Network.AWS.LexModels.DeleteBotAlias
+        , Network.AWS.LexModels.GetSlotTypes
+        , Network.AWS.LexModels.DeleteUtterances
+        , Network.AWS.LexModels.GetBots
+        , Network.AWS.LexModels.GetBot
+        , Network.AWS.LexModels.CreateBotVersion
+        , Network.AWS.LexModels.DeleteSlotTypeVersion
+        , Network.AWS.LexModels.DeleteBotVersion
+        , Network.AWS.LexModels.GetSlotType
+        , Network.AWS.LexModels.GetExport
+        , Network.AWS.LexModels.CreateIntentVersion
+        , Network.AWS.LexModels.DeleteSlotType
+        , Network.AWS.LexModels.StartImport
+        , Network.AWS.LexModels.GetBotChannelAssociation
+        , Network.AWS.LexModels.PutSlotType
+        , Network.AWS.LexModels.GetBuiltinSlotTypes
+        , Network.AWS.LexModels.TagResource
+        , Network.AWS.LexModels.GetUtterancesView
+        , Network.AWS.LexModels.GetSlotTypeVersions
+        , Network.AWS.LexModels.UntagResource
+        , Network.AWS.LexModels.GetIntents
+        , Network.AWS.LexModels.GetBotAlias
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.LexModels.Types.SlotDefaultValue
+        , Network.AWS.LexModels.Types.LexStatus
+        , Network.AWS.LexModels.Types.IamRoleArn
+        , Network.AWS.LexModels.Types.ContentString
+        , Network.AWS.LexModels.Types.CustomOrBuiltinSlotTypeName
+        , Network.AWS.LexModels.Types.Prompt
+        , Network.AWS.LexModels.Types.Destination
+        , Network.AWS.LexModels.Types.FulfillmentActivity
+        , Network.AWS.LexModels.Types.QueryFilterString
+        , Network.AWS.LexModels.Types.ResponseCard
+        , Network.AWS.LexModels.Types.KmsKeyArn
+        , Network.AWS.LexModels.Types.ChannelStatus
+        , Network.AWS.LexModels.Types.Tag
+        , Network.AWS.LexModels.Types.LambdaARN
+        , Network.AWS.LexModels.Types.EnumerationValue
+        , Network.AWS.LexModels.Types.ResourceType
+        , Network.AWS.LexModels.Types.LogSettingsResponse
+        , Network.AWS.LexModels.Types.ObfuscationSetting
+        , Network.AWS.LexModels.Types.Statement
+        , Network.AWS.LexModels.Types.BotChannelName
+        , Network.AWS.LexModels.Types.ExportStatus
+        , Network.AWS.LexModels.Types.Locale
+        , Network.AWS.LexModels.Types.OutputContext
+        , Network.AWS.LexModels.Types.LogSettingsRequest
+        , Network.AWS.LexModels.Types.BuiltinIntentMetadata
+        , Network.AWS.LexModels.Types.BotChannelAssociation
+        , Network.AWS.LexModels.Types.SlotName
+        , Network.AWS.LexModels.Types.IntentName
+        , Network.AWS.LexModels.Types.ConversationLogsRequest
+        , Network.AWS.LexModels.Types.Value
+        , Network.AWS.LexModels.Types.CodeHook
+        , Network.AWS.LexModels.Types.UtteranceString
+        , Network.AWS.LexModels.Types.BotName
+        , Network.AWS.LexModels.Types.TagValue
+        , Network.AWS.LexModels.Types.SlotConstraint
+        , Network.AWS.LexModels.Types.BuiltinIntentSlot
+        , Network.AWS.LexModels.Types.AliasName
+        , Network.AWS.LexModels.Types.SlotTypeRegexConfiguration
+        , Network.AWS.LexModels.Types.IntentMetadata
+        , Network.AWS.LexModels.Types.BuiltinIntentSignature
+        , Network.AWS.LexModels.Types.LogType
+        , Network.AWS.LexModels.Types.SlotValueSelectionStrategy
+        , Network.AWS.LexModels.Types.UserId
+        , Network.AWS.LexModels.Types.ExportType
+        , Network.AWS.LexModels.Types.NextToken
+        , Network.AWS.LexModels.Types.NumericalVersion
+        , Network.AWS.LexModels.Types.SlotTypeConfiguration
+        , Network.AWS.LexModels.Types.BotMetadata
+        , Network.AWS.LexModels.Types.Slot
+        , Network.AWS.LexModels.Types.Intent
+        , Network.AWS.LexModels.Types.KendraIndexArn
+        , Network.AWS.LexModels.Types.StatusType
+        , Network.AWS.LexModels.Types.ProcessBehavior
+        , Network.AWS.LexModels.Types.FulfillmentActivityType
+        , Network.AWS.LexModels.Types.ResourceArn
+        , Network.AWS.LexModels.Types.KendraConfiguration
+        , Network.AWS.LexModels.Types.Name
+        , Network.AWS.LexModels.Types.OutputContextName
+        , Network.AWS.LexModels.Types.Version
+        , Network.AWS.LexModels.Types.BotAliasMetadata
+        , Network.AWS.LexModels.Types.ResourcePrefix
+        , Network.AWS.LexModels.Types.TagKey
+        , Network.AWS.LexModels.Types.BuiltinSlotTypeMetadata
+        , Network.AWS.LexModels.Types.FollowUpPrompt
+        , Network.AWS.LexModels.Types.UtteranceData
+        , Network.AWS.LexModels.Types.MergeStrategy
+        , Network.AWS.LexModels.Types.Message
+        , Network.AWS.LexModels.Types.AmazonResourceName
+        , Network.AWS.LexModels.Types.SlotTypeName
+        , Network.AWS.LexModels.Types.Utterance
+        , Network.AWS.LexModels.Types.ChannelType
+        , Network.AWS.LexModels.Types.Description
+        , Network.AWS.LexModels.Types.InputContextName
+        , Network.AWS.LexModels.Types.MessageVersion
+        , Network.AWS.LexModels.Types.SlotTypeMetadata
+        , Network.AWS.LexModels.Types.ContentType
+        , Network.AWS.LexModels.Types.InputContext
+        , Network.AWS.LexModels.Types.UtteranceList
+        , Network.AWS.LexModels.Types.ImportStatus
+        , Network.AWS.LexModels.Types.SlotDefaultValueSpec
+        , Network.AWS.LexModels.Types.ConversationLogsResponse
+        , Network.AWS.LexModels.Types.DefaultValue
+        , Network.AWS.LexModels.Types.ParentIntentSignature
+        , Network.AWS.LexModels.Types.BotAlias
+        , Network.AWS.LexModels.Types.NameContains
+        , Network.AWS.LexModels.Types.BotVersion
+        , Network.AWS.LexModels.Types.Key
+        , Network.AWS.LexModels.Types.Signature
+        , Network.AWS.LexModels.Types.Pattern
+        , Network.AWS.LexModels.Types.SlotTypeVersion
+        , Network.AWS.LexModels.Types.IntentVersion
+        , Network.AWS.LexModels.Types.Role
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-lex-models-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.Gen.LexModels
-    Test.AWS.LexModels
-    Test.AWS.LexModels.Internal
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core         >=2.0.0.0 && <2.0.0.1
-    , amazonka-lex-models
-    , amazonka-test         >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.LexModels
+        , Test.AWS.Gen.LexModels
+        , Test.AWS.LexModels.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-lex-models
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,73 +10,74 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __AWS Import/Export Service__
+-- __AWS Import/Export Service__ 
 module Network.AWS.ImportExport
-  ( -- * Service configuration
-    mkServiceConfig,
+    (
+    -- * Service configuration
+      mkServiceConfig
 
     -- * Errors
     -- $errors
 
     -- ** InvalidJobIdException
-    _InvalidJobIdException,
+    , _InvalidJobIdException
 
     -- ** InvalidParameterException
-    _InvalidParameterException,
+    , _InvalidParameterException
 
     -- ** ExpiredJobIdException
-    _ExpiredJobIdException,
+    , _ExpiredJobIdException
 
     -- ** InvalidFileSystemException
-    _InvalidFileSystemException,
+    , _InvalidFileSystemException
 
     -- ** InvalidAccessKeyIdException
-    _InvalidAccessKeyIdException,
+    , _InvalidAccessKeyIdException
 
     -- ** UnableToUpdateJobIdException
-    _UnableToUpdateJobIdException,
+    , _UnableToUpdateJobIdException
 
     -- ** UnableToCancelJobIdException
-    _UnableToCancelJobIdException,
+    , _UnableToCancelJobIdException
 
     -- ** MultipleRegionsException
-    _MultipleRegionsException,
+    , _MultipleRegionsException
 
     -- ** InvalidVersionException
-    _InvalidVersionException,
+    , _InvalidVersionException
 
     -- ** MalformedManifestException
-    _MalformedManifestException,
+    , _MalformedManifestException
 
     -- ** MissingParameterException
-    _MissingParameterException,
+    , _MissingParameterException
 
     -- ** CanceledJobIdException
-    _CanceledJobIdException,
+    , _CanceledJobIdException
 
     -- ** BucketPermissionException
-    _BucketPermissionException,
+    , _BucketPermissionException
 
     -- ** NoSuchBucketException
-    _NoSuchBucketException,
+    , _NoSuchBucketException
 
     -- ** InvalidAddressException
-    _InvalidAddressException,
+    , _InvalidAddressException
 
     -- ** MissingCustomsException
-    _MissingCustomsException,
+    , _MissingCustomsException
 
     -- ** InvalidManifestFieldException
-    _InvalidManifestFieldException,
+    , _InvalidManifestFieldException
 
     -- ** InvalidCustomsException
-    _InvalidCustomsException,
+    , _InvalidCustomsException
 
     -- ** MissingManifestFieldException
-    _MissingManifestFieldException,
+    , _MissingManifestFieldException
 
     -- ** CreateJobQuotaExceededException
-    _CreateJobQuotaExceededException,
+    , _CreateJobQuotaExceededException
 
     -- * Waiters
     -- $waiters
@@ -84,176 +85,178 @@ module Network.AWS.ImportExport
     -- * Operations
     -- $operations
 
-    -- ** GetShippingLabel
-    module Network.AWS.ImportExport.GetShippingLabel,
+    -- ** GetShippingLabel 
+    , module Network.AWS.ImportExport.GetShippingLabel
 
-    -- ** CreateJob
-    module Network.AWS.ImportExport.CreateJob,
+    -- ** CreateJob 
+    , module Network.AWS.ImportExport.CreateJob
 
     -- ** ListJobs (Paginated)
-    module Network.AWS.ImportExport.ListJobs,
+    , module Network.AWS.ImportExport.ListJobs
 
-    -- ** UpdateJob
-    module Network.AWS.ImportExport.UpdateJob,
+    -- ** UpdateJob 
+    , module Network.AWS.ImportExport.UpdateJob
 
-    -- ** GetStatus
-    module Network.AWS.ImportExport.GetStatus,
+    -- ** GetStatus 
+    , module Network.AWS.ImportExport.GetStatus
 
-    -- ** CancelJob
-    module Network.AWS.ImportExport.CancelJob,
+    -- ** CancelJob 
+    , module Network.AWS.ImportExport.CancelJob
 
     -- * Types
 
     -- ** Carrier
-    Carrier (..),
+    , Carrier (..)
 
     -- ** TrackingNumber
-    TrackingNumber (..),
+    , TrackingNumber (..)
 
     -- ** Signature
-    Signature (..),
+    , Signature (..)
 
     -- ** JobType
-    JobType (..),
+    , JobType (..)
 
     -- ** Street3
-    Street3 (..),
+    , Street3 (..)
 
     -- ** APIVersion
-    APIVersion (..),
+    , APIVersion (..)
 
     -- ** JobId
-    JobId (..),
+    , JobId (..)
 
     -- ** Country
-    Country (..),
+    , Country (..)
 
     -- ** StateOrProvince
-    StateOrProvince (..),
+    , StateOrProvince (..)
 
     -- ** SignatureFileContents
-    SignatureFileContents (..),
+    , SignatureFileContents (..)
 
     -- ** PostalCode
-    PostalCode (..),
+    , PostalCode (..)
 
     -- ** URL
-    URL (..),
+    , URL (..)
 
     -- ** Street2
-    Street2 (..),
+    , Street2 (..)
 
     -- ** Artifact
-    Artifact (..),
-    mkArtifact,
-    aDescription,
-    aURL,
+    , Artifact (..)
+    , mkArtifact
+    , aDescription
+    , aURL
 
     -- ** CurrentManifest
-    CurrentManifest (..),
+    , CurrentManifest (..)
 
     -- ** WarningMessage
-    WarningMessage (..),
+    , WarningMessage (..)
 
     -- ** GenericString
-    GenericString (..),
+    , GenericString (..)
 
     -- ** Job
-    Job (..),
-    mkJob,
-    jCreationDate,
-    jIsCanceled,
-    jJobId,
-    jJobType,
+    , Job (..)
+    , mkJob
+    , jCreationDate
+    , jIsCanceled
+    , jJobId
+    , jJobType
 
     -- ** Manifest
-    Manifest (..),
+    , Manifest (..)
 
     -- ** LogBucket
-    LogBucket (..),
+    , LogBucket (..)
 
     -- ** Marker
-    Marker (..),
+    , Marker (..)
 
     -- ** ProgressCode
-    ProgressCode (..),
+    , ProgressCode (..)
 
     -- ** LocationCode
-    LocationCode (..),
+    , LocationCode (..)
 
     -- ** LogKey
-    LogKey (..),
+    , LogKey (..)
 
     -- ** Description
-    Description (..),
+    , Description (..)
 
     -- ** LocationMessage
-    LocationMessage (..),
+    , LocationMessage (..)
 
     -- ** ProgressMessage
-    ProgressMessage (..),
+    , ProgressMessage (..)
 
     -- ** ManifestAddendum
-    ManifestAddendum (..),
+    , ManifestAddendum (..)
 
     -- ** City
-    City (..),
+    , City (..)
 
     -- ** Company
-    Company (..),
+    , Company (..)
 
     -- ** Name
-    Name (..),
+    , Name (..)
 
     -- ** PhoneNumber
-    PhoneNumber (..),
+    , PhoneNumber (..)
 
     -- ** Street1
-    Street1 (..),
+    , Street1 (..)
 
     -- * Serialization types
-    Lude.Base64 (..),
-    Lude._Base64,
-    Lude.Sensitive (..),
-    Lude._Sensitive,
-    Lude.UTCTime,
-    Lude.NominalDiffTime,
-  )
-where
+    , Lude.Base64 (..)
+    , Lude._Base64
+    , Lude.Sensitive (..)
+    , Lude._Sensitive
+    , Lude.UTCTime
+    , Lude.NominalDiffTime
+    ) where
 
-import Network.AWS.ImportExport.CancelJob
-import Network.AWS.ImportExport.CreateJob
-import Network.AWS.ImportExport.GetShippingLabel
-import Network.AWS.ImportExport.GetStatus
-import Network.AWS.ImportExport.ListJobs
 import Network.AWS.ImportExport.Types
-import Network.AWS.ImportExport.UpdateJob
 import Network.AWS.ImportExport.Waiters
+import Network.AWS.ImportExport.GetShippingLabel
+import Network.AWS.ImportExport.CreateJob
+import Network.AWS.ImportExport.ListJobs
+import Network.AWS.ImportExport.UpdateJob
+import Network.AWS.ImportExport.GetStatus
+import Network.AWS.ImportExport.CancelJob
 import qualified Network.AWS.Prelude as Lude
 
--- $errors
--- Error matchers are designed for use with the functions provided by
--- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
--- This allows catching (and rethrowing) service specific errors returned
--- by 'ImportExport'.
+{- $errors
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by 'ImportExport'.
+-}
 
--- $operations
--- Some AWS operations return results that are incomplete and require subsequent
--- requests in order to obtain the entire result set. The process of sending
--- subsequent requests to continue where a previous request left off is called
--- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
--- 1000 objects at a time, and you must send subsequent requests with the
--- appropriate Marker in order to retrieve the next page of results.
---
--- Operations that have an 'AWSPager' instance can transparently perform subsequent
--- requests, correctly setting Markers and other request facets to iterate through
--- the entire result set of a truncated API operation. Operations which support
--- this have an additional note in the documentation.
---
--- Many operations have the ability to filter results on the server side. See the
--- individual operation parameters for details.
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
 
--- $waiters
--- Waiters poll by repeatedly sending a request until some remote success condition
--- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
--- determines how many attempts should be made, in addition to delay and retry strategies.
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly sending a request until some remote success condition
+configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+determines how many attempts should be made, in addition to delay and retry strategies.
+-}

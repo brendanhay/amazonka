@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,22 +15,20 @@
 --
 -- Returns the 'SizeConstraintSet' specified by @SizeConstraintSetId@ .
 module Network.AWS.WAFRegional.GetSizeConstraintSet
-  ( -- * Creating a request
-    GetSizeConstraintSet (..),
-    mkGetSizeConstraintSet,
-
+    (
+    -- * Creating a request
+      GetSizeConstraintSet (..)
+    , mkGetSizeConstraintSet
     -- ** Request lenses
-    gscsSizeConstraintSetId,
+    , gscsSizeConstraintSetId
 
     -- * Destructuring the response
-    GetSizeConstraintSetResponse (..),
-    mkGetSizeConstraintSetResponse,
-
+    , GetSizeConstraintSetResponse (..)
+    , mkGetSizeConstraintSetResponse
     -- ** Response lenses
-    gscsrrsSizeConstraintSet,
-    gscsrrsResponseStatus,
-  )
-where
+    , gscsrrsSizeConstraintSet
+    , gscsrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -40,107 +38,112 @@ import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkGetSizeConstraintSet' smart constructor.
 newtype GetSizeConstraintSet = GetSizeConstraintSet'
-  { -- | The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to get. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
-    sizeConstraintSetId :: Types.ResourceId
+  { sizeConstraintSetId :: Types.ResourceId
+    -- ^ The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to get. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetSizeConstraintSet' value with any optional fields omitted.
-mkGetSizeConstraintSet ::
-  -- | 'sizeConstraintSetId'
-  Types.ResourceId ->
-  GetSizeConstraintSet
-mkGetSizeConstraintSet sizeConstraintSetId =
-  GetSizeConstraintSet' {sizeConstraintSetId}
+mkGetSizeConstraintSet
+    :: Types.ResourceId -- ^ 'sizeConstraintSetId'
+    -> GetSizeConstraintSet
+mkGetSizeConstraintSet sizeConstraintSetId
+  = GetSizeConstraintSet'{sizeConstraintSetId}
 
 -- | The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to get. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
 --
 -- /Note:/ Consider using 'sizeConstraintSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gscsSizeConstraintSetId :: Lens.Lens' GetSizeConstraintSet Types.ResourceId
 gscsSizeConstraintSetId = Lens.field @"sizeConstraintSetId"
-{-# DEPRECATED gscsSizeConstraintSetId "Use generic-lens or generic-optics with 'sizeConstraintSetId' instead." #-}
+{-# INLINEABLE gscsSizeConstraintSetId #-}
+{-# DEPRECATED sizeConstraintSetId "Use generic-lens or generic-optics with 'sizeConstraintSetId' instead"  #-}
+
+instance Core.ToQuery GetSizeConstraintSet where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders GetSizeConstraintSet where
+        toHeaders GetSizeConstraintSet{..}
+          = Core.pure
+              ("X-Amz-Target", "AWSWAF_Regional_20161128.GetSizeConstraintSet")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON GetSizeConstraintSet where
-  toJSON GetSizeConstraintSet {..} =
-    Core.object
-      ( Core.catMaybes
-          [Core.Just ("SizeConstraintSetId" Core..= sizeConstraintSetId)]
-      )
+        toJSON GetSizeConstraintSet{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("SizeConstraintSetId" Core..= sizeConstraintSetId)])
 
 instance Core.AWSRequest GetSizeConstraintSet where
-  type Rs GetSizeConstraintSet = GetSizeConstraintSetResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "AWSWAF_Regional_20161128.GetSizeConstraintSet")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          GetSizeConstraintSetResponse'
-            Core.<$> (x Core..:? "SizeConstraintSet")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs GetSizeConstraintSet = GetSizeConstraintSetResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 GetSizeConstraintSetResponse' Core.<$>
+                   (x Core..:? "SizeConstraintSet") Core.<*>
+                     Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkGetSizeConstraintSetResponse' smart constructor.
 data GetSizeConstraintSetResponse = GetSizeConstraintSetResponse'
-  { -- | Information about the 'SizeConstraintSet' that you specified in the @GetSizeConstraintSet@ request. For more information, see the following topics:
-    --
-    --
-    --     * 'SizeConstraintSet' : Contains @SizeConstraintSetId@ , @SizeConstraints@ , and @Name@
-    --
-    --
-    --     * @SizeConstraints@ : Contains an array of 'SizeConstraint' objects. Each @SizeConstraint@ object contains 'FieldToMatch' , @TextTransformation@ , @ComparisonOperator@ , and @Size@
-    --
-    --
-    --     * 'FieldToMatch' : Contains @Data@ and @Type@
-    sizeConstraintSet :: Core.Maybe Types.SizeConstraintSet,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { sizeConstraintSet :: Core.Maybe Types.SizeConstraintSet
+    -- ^ Information about the 'SizeConstraintSet' that you specified in the @GetSizeConstraintSet@ request. For more information, see the following topics:
+--
+--
+--     * 'SizeConstraintSet' : Contains @SizeConstraintSetId@ , @SizeConstraints@ , and @Name@ 
+--
+--
+--     * @SizeConstraints@ : Contains an array of 'SizeConstraint' objects. Each @SizeConstraint@ object contains 'FieldToMatch' , @TextTransformation@ , @ComparisonOperator@ , and @Size@ 
+--
+--
+--     * 'FieldToMatch' : Contains @Data@ and @Type@ 
+--
+--
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetSizeConstraintSetResponse' value with any optional fields omitted.
-mkGetSizeConstraintSetResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  GetSizeConstraintSetResponse
-mkGetSizeConstraintSetResponse responseStatus =
-  GetSizeConstraintSetResponse'
-    { sizeConstraintSet = Core.Nothing,
-      responseStatus
-    }
+mkGetSizeConstraintSetResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> GetSizeConstraintSetResponse
+mkGetSizeConstraintSetResponse responseStatus
+  = GetSizeConstraintSetResponse'{sizeConstraintSet = Core.Nothing,
+                                  responseStatus}
 
 -- | Information about the 'SizeConstraintSet' that you specified in the @GetSizeConstraintSet@ request. For more information, see the following topics:
 --
 --
---     * 'SizeConstraintSet' : Contains @SizeConstraintSetId@ , @SizeConstraints@ , and @Name@
+--     * 'SizeConstraintSet' : Contains @SizeConstraintSetId@ , @SizeConstraints@ , and @Name@ 
 --
 --
---     * @SizeConstraints@ : Contains an array of 'SizeConstraint' objects. Each @SizeConstraint@ object contains 'FieldToMatch' , @TextTransformation@ , @ComparisonOperator@ , and @Size@
+--     * @SizeConstraints@ : Contains an array of 'SizeConstraint' objects. Each @SizeConstraint@ object contains 'FieldToMatch' , @TextTransformation@ , @ComparisonOperator@ , and @Size@ 
 --
 --
---     * 'FieldToMatch' : Contains @Data@ and @Type@
+--     * 'FieldToMatch' : Contains @Data@ and @Type@ 
 --
 --
 --
 -- /Note:/ Consider using 'sizeConstraintSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gscsrrsSizeConstraintSet :: Lens.Lens' GetSizeConstraintSetResponse (Core.Maybe Types.SizeConstraintSet)
 gscsrrsSizeConstraintSet = Lens.field @"sizeConstraintSet"
-{-# DEPRECATED gscsrrsSizeConstraintSet "Use generic-lens or generic-optics with 'sizeConstraintSet' instead." #-}
+{-# INLINEABLE gscsrrsSizeConstraintSet #-}
+{-# DEPRECATED sizeConstraintSet "Use generic-lens or generic-optics with 'sizeConstraintSet' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gscsrrsResponseStatus :: Lens.Lens' GetSizeConstraintSetResponse Core.Int
 gscsrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED gscsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE gscsrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

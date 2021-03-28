@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CloudFront.Types.OriginGroupMember
-  ( OriginGroupMember (..),
+  ( OriginGroupMember (..)
+  -- * Smart constructor
+  , mkOriginGroupMember
+  -- * Lenses
+  , ogmOriginId
+  ) where
 
-    -- * Smart constructor
-    mkOriginGroupMember,
-
-    -- * Lenses
-    ogmOriginId,
-  )
-where
-
-import qualified Network.AWS.CloudFront.Types.String as Types
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
 
@@ -29,28 +26,28 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkOriginGroupMember' smart constructor.
 newtype OriginGroupMember = OriginGroupMember'
-  { -- | The ID for an origin in an origin group.
-    originId :: Types.String
+  { originId :: Core.Text
+    -- ^ The ID for an origin in an origin group.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'OriginGroupMember' value with any optional fields omitted.
-mkOriginGroupMember ::
-  -- | 'originId'
-  Types.String ->
-  OriginGroupMember
-mkOriginGroupMember originId = OriginGroupMember' {originId}
+mkOriginGroupMember
+    :: Core.Text -- ^ 'originId'
+    -> OriginGroupMember
+mkOriginGroupMember originId = OriginGroupMember'{originId}
 
 -- | The ID for an origin in an origin group.
 --
 -- /Note:/ Consider using 'originId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogmOriginId :: Lens.Lens' OriginGroupMember Types.String
+ogmOriginId :: Lens.Lens' OriginGroupMember Core.Text
 ogmOriginId = Lens.field @"originId"
-{-# DEPRECATED ogmOriginId "Use generic-lens or generic-optics with 'originId' instead." #-}
+{-# INLINEABLE ogmOriginId #-}
+{-# DEPRECATED originId "Use generic-lens or generic-optics with 'originId' instead"  #-}
 
 instance Core.ToXML OriginGroupMember where
-  toXML OriginGroupMember {..} = Core.toXMLNode "OriginId" originId
+        toXML OriginGroupMember{..} = Core.toXMLElement "OriginId" originId
 
 instance Core.FromXML OriginGroupMember where
-  parseXML x = OriginGroupMember' Core.<$> (x Core..@ "OriginId")
+        parseXML x = OriginGroupMember' Core.<$> (x Core..@ "OriginId")

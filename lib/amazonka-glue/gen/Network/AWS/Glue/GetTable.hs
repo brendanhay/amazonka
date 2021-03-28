@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,24 +15,22 @@
 --
 -- Retrieves the @Table@ definition in a Data Catalog for a specified table.
 module Network.AWS.Glue.GetTable
-  ( -- * Creating a request
-    GetTable (..),
-    mkGetTable,
-
+    (
+    -- * Creating a request
+      GetTable (..)
+    , mkGetTable
     -- ** Request lenses
-    gtfDatabaseName,
-    gtfName,
-    gtfCatalogId,
+    , gtfDatabaseName
+    , gtfName
+    , gtfCatalogId
 
     -- * Destructuring the response
-    GetTableResponse (..),
-    mkGetTableResponse,
-
+    , GetTableResponse (..)
+    , mkGetTableResponse
     -- ** Response lenses
-    gtrlrsTable,
-    gtrlrsResponseStatus,
-  )
-where
+    , gtrlrsTable
+    , gtrlrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -42,105 +40,110 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetTable' smart constructor.
 data GetTable = GetTable'
-  { -- | The name of the database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
-    databaseName :: Types.DatabaseName,
-    -- | The name of the table for which to retrieve the definition. For Hive compatibility, this name is entirely lowercase.
-    name :: Types.Name,
-    -- | The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
-    catalogId :: Core.Maybe Types.CatalogId
+  { databaseName :: Types.DatabaseName
+    -- ^ The name of the database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
+  , name :: Types.Name
+    -- ^ The name of the table for which to retrieve the definition. For Hive compatibility, this name is entirely lowercase.
+  , catalogId :: Core.Maybe Types.CatalogId
+    -- ^ The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetTable' value with any optional fields omitted.
-mkGetTable ::
-  -- | 'databaseName'
-  Types.DatabaseName ->
-  -- | 'name'
-  Types.Name ->
-  GetTable
-mkGetTable databaseName name =
-  GetTable' {databaseName, name, catalogId = Core.Nothing}
+mkGetTable
+    :: Types.DatabaseName -- ^ 'databaseName'
+    -> Types.Name -- ^ 'name'
+    -> GetTable
+mkGetTable databaseName name
+  = GetTable'{databaseName, name, catalogId = Core.Nothing}
 
 -- | The name of the database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gtfDatabaseName :: Lens.Lens' GetTable Types.DatabaseName
 gtfDatabaseName = Lens.field @"databaseName"
-{-# DEPRECATED gtfDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
+{-# INLINEABLE gtfDatabaseName #-}
+{-# DEPRECATED databaseName "Use generic-lens or generic-optics with 'databaseName' instead"  #-}
 
 -- | The name of the table for which to retrieve the definition. For Hive compatibility, this name is entirely lowercase.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gtfName :: Lens.Lens' GetTable Types.Name
 gtfName = Lens.field @"name"
-{-# DEPRECATED gtfName "Use generic-lens or generic-optics with 'name' instead." #-}
+{-# INLINEABLE gtfName #-}
+{-# DEPRECATED name "Use generic-lens or generic-optics with 'name' instead"  #-}
 
 -- | The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
 --
 -- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gtfCatalogId :: Lens.Lens' GetTable (Core.Maybe Types.CatalogId)
 gtfCatalogId = Lens.field @"catalogId"
-{-# DEPRECATED gtfCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+{-# INLINEABLE gtfCatalogId #-}
+{-# DEPRECATED catalogId "Use generic-lens or generic-optics with 'catalogId' instead"  #-}
+
+instance Core.ToQuery GetTable where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders GetTable where
+        toHeaders GetTable{..}
+          = Core.pure ("X-Amz-Target", "AWSGlue.GetTable") Core.<>
+              Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON GetTable where
-  toJSON GetTable {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("DatabaseName" Core..= databaseName),
-            Core.Just ("Name" Core..= name),
-            ("CatalogId" Core..=) Core.<$> catalogId
-          ]
-      )
+        toJSON GetTable{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("DatabaseName" Core..= databaseName),
+                  Core.Just ("Name" Core..= name),
+                  ("CatalogId" Core..=) Core.<$> catalogId])
 
 instance Core.AWSRequest GetTable where
-  type Rs GetTable = GetTableResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "AWSGlue.GetTable")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          GetTableResponse'
-            Core.<$> (x Core..:? "Table") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs GetTable = GetTableResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 GetTableResponse' Core.<$>
+                   (x Core..:? "Table") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkGetTableResponse' smart constructor.
 data GetTableResponse = GetTableResponse'
-  { -- | The @Table@ object that defines the specified table.
-    table :: Core.Maybe Types.Table,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { table :: Core.Maybe Types.Table
+    -- ^ The @Table@ object that defines the specified table.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'GetTableResponse' value with any optional fields omitted.
-mkGetTableResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  GetTableResponse
-mkGetTableResponse responseStatus =
-  GetTableResponse' {table = Core.Nothing, responseStatus}
+mkGetTableResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> GetTableResponse
+mkGetTableResponse responseStatus
+  = GetTableResponse'{table = Core.Nothing, responseStatus}
 
 -- | The @Table@ object that defines the specified table.
 --
 -- /Note:/ Consider using 'table' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gtrlrsTable :: Lens.Lens' GetTableResponse (Core.Maybe Types.Table)
 gtrlrsTable = Lens.field @"table"
-{-# DEPRECATED gtrlrsTable "Use generic-lens or generic-optics with 'table' instead." #-}
+{-# INLINEABLE gtrlrsTable #-}
+{-# DEPRECATED table "Use generic-lens or generic-optics with 'table' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gtrlrsResponseStatus :: Lens.Lens' GetTableResponse Core.Int
 gtrlrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED gtrlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE gtrlrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

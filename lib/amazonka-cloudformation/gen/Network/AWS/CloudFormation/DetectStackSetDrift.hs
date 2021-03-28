@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -27,28 +27,26 @@
 --     * Use @'DescribeStackInstance' @ to return detailed information about a specific stack instance, including its drift status and last drift time checked.
 --
 --
--- For more information on performing a drift detection operation on a stack set, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html Detecting Unmanaged Changes in Stack Sets> .
--- You can only run a single drift detection operation on a given stack set at one time.
+-- For more information on performing a drift detection operation on a stack set, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html Detecting Unmanaged Changes in Stack Sets> . 
+-- You can only run a single drift detection operation on a given stack set at one time. 
 -- To stop a drift detection stack set operation, use @'StopStackSetOperation' @ .
 module Network.AWS.CloudFormation.DetectStackSetDrift
-  ( -- * Creating a request
-    DetectStackSetDrift (..),
-    mkDetectStackSetDrift,
-
+    (
+    -- * Creating a request
+      DetectStackSetDrift (..)
+    , mkDetectStackSetDrift
     -- ** Request lenses
-    dssdStackSetName,
-    dssdOperationId,
-    dssdOperationPreferences,
+    , dssdStackSetName
+    , dssdOperationId
+    , dssdOperationPreferences
 
     -- * Destructuring the response
-    DetectStackSetDriftResponse (..),
-    mkDetectStackSetDriftResponse,
-
+    , DetectStackSetDriftResponse (..)
+    , mkDetectStackSetDriftResponse
     -- ** Response lenses
-    dssdrrsOperationId,
-    dssdrrsResponseStatus,
-  )
-where
+    , dssdrrsOperationId
+    , dssdrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.CloudFormation.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -58,115 +56,117 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDetectStackSetDrift' smart constructor.
 data DetectStackSetDrift = DetectStackSetDrift'
-  { -- | The name of the stack set on which to perform the drift detection operation.
-    stackSetName :: Types.StackSetName,
-    -- | /The ID of the stack set operation./
-    operationId :: Core.Maybe Types.OperationId,
-    operationPreferences :: Core.Maybe Types.StackSetOperationPreferences
+  { stackSetName :: Types.StackSetName
+    -- ^ The name of the stack set on which to perform the drift detection operation.
+  , operationId :: Core.Maybe Types.OperationId
+    -- ^ /The ID of the stack set operation./ 
+  , operationPreferences :: Core.Maybe Types.StackSetOperationPreferences
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DetectStackSetDrift' value with any optional fields omitted.
-mkDetectStackSetDrift ::
-  -- | 'stackSetName'
-  Types.StackSetName ->
-  DetectStackSetDrift
-mkDetectStackSetDrift stackSetName =
-  DetectStackSetDrift'
-    { stackSetName,
-      operationId = Core.Nothing,
-      operationPreferences = Core.Nothing
-    }
+mkDetectStackSetDrift
+    :: Types.StackSetName -- ^ 'stackSetName'
+    -> DetectStackSetDrift
+mkDetectStackSetDrift stackSetName
+  = DetectStackSetDrift'{stackSetName, operationId = Core.Nothing,
+                         operationPreferences = Core.Nothing}
 
 -- | The name of the stack set on which to perform the drift detection operation.
 --
 -- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dssdStackSetName :: Lens.Lens' DetectStackSetDrift Types.StackSetName
 dssdStackSetName = Lens.field @"stackSetName"
-{-# DEPRECATED dssdStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
+{-# INLINEABLE dssdStackSetName #-}
+{-# DEPRECATED stackSetName "Use generic-lens or generic-optics with 'stackSetName' instead"  #-}
 
--- | /The ID of the stack set operation./
+-- | /The ID of the stack set operation./ 
 --
 -- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dssdOperationId :: Lens.Lens' DetectStackSetDrift (Core.Maybe Types.OperationId)
 dssdOperationId = Lens.field @"operationId"
-{-# DEPRECATED dssdOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
+{-# INLINEABLE dssdOperationId #-}
+{-# DEPRECATED operationId "Use generic-lens or generic-optics with 'operationId' instead"  #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'operationPreferences' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dssdOperationPreferences :: Lens.Lens' DetectStackSetDrift (Core.Maybe Types.StackSetOperationPreferences)
 dssdOperationPreferences = Lens.field @"operationPreferences"
-{-# DEPRECATED dssdOperationPreferences "Use generic-lens or generic-optics with 'operationPreferences' instead." #-}
+{-# INLINEABLE dssdOperationPreferences #-}
+{-# DEPRECATED operationPreferences "Use generic-lens or generic-optics with 'operationPreferences' instead"  #-}
+
+instance Core.ToQuery DetectStackSetDrift where
+        toQuery DetectStackSetDrift{..}
+          = Core.toQueryPair "Action" ("DetectStackSetDrift" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2010-05-15" :: Core.Text)
+              Core.<> Core.toQueryPair "StackSetName" stackSetName
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "OperationId") operationId
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "OperationPreferences")
+                operationPreferences
+
+instance Core.ToHeaders DetectStackSetDrift where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest DetectStackSetDrift where
-  type Rs DetectStackSetDrift = DetectStackSetDriftResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "DetectStackSetDrift")
-                Core.<> (Core.pure ("Version", "2010-05-15"))
-                Core.<> (Core.toQueryValue "StackSetName" stackSetName)
-                Core.<> (Core.toQueryValue "OperationId" Core.<$> operationId)
-                Core.<> ( Core.toQueryValue "OperationPreferences"
-                            Core.<$> operationPreferences
-                        )
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "DetectStackSetDriftResult"
-      ( \s h x ->
-          DetectStackSetDriftResponse'
-            Core.<$> (x Core..@? "OperationId") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DetectStackSetDrift = DetectStackSetDriftResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "DetectStackSetDriftResult"
+              (\ s h x ->
+                 DetectStackSetDriftResponse' Core.<$>
+                   (x Core..@? "OperationId") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDetectStackSetDriftResponse' smart constructor.
 data DetectStackSetDriftResponse = DetectStackSetDriftResponse'
-  { -- | The ID of the drift detection stack set operation.
-    --
-    -- you can use this operation id with @'DescribeStackSetOperation' @ to monitor the progress of the drift detection operation.
-    operationId :: Core.Maybe Types.ClientRequestToken,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { operationId :: Core.Maybe Types.ClientRequestToken
+    -- ^ The ID of the drift detection stack set operation. 
+--
+-- you can use this operation id with @'DescribeStackSetOperation' @ to monitor the progress of the drift detection operation. 
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DetectStackSetDriftResponse' value with any optional fields omitted.
-mkDetectStackSetDriftResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DetectStackSetDriftResponse
-mkDetectStackSetDriftResponse responseStatus =
-  DetectStackSetDriftResponse'
-    { operationId = Core.Nothing,
-      responseStatus
-    }
+mkDetectStackSetDriftResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DetectStackSetDriftResponse
+mkDetectStackSetDriftResponse responseStatus
+  = DetectStackSetDriftResponse'{operationId = Core.Nothing,
+                                 responseStatus}
 
--- | The ID of the drift detection stack set operation.
+-- | The ID of the drift detection stack set operation. 
 --
--- you can use this operation id with @'DescribeStackSetOperation' @ to monitor the progress of the drift detection operation.
+-- you can use this operation id with @'DescribeStackSetOperation' @ to monitor the progress of the drift detection operation. 
 --
 -- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dssdrrsOperationId :: Lens.Lens' DetectStackSetDriftResponse (Core.Maybe Types.ClientRequestToken)
 dssdrrsOperationId = Lens.field @"operationId"
-{-# DEPRECATED dssdrrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
+{-# INLINEABLE dssdrrsOperationId #-}
+{-# DEPRECATED operationId "Use generic-lens or generic-optics with 'operationId' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dssdrrsResponseStatus :: Lens.Lens' DetectStackSetDriftResponse Core.Int
 dssdrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED dssdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE dssdrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

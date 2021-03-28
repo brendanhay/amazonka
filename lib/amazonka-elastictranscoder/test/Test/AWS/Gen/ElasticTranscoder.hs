@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.ElasticTranscoder where
 
 import Data.Proxy
-import Network.AWS.ElasticTranscoder
-import Test.AWS.ElasticTranscoder.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.ElasticTranscoder
+import Test.AWS.ElasticTranscoder.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -132,226 +133,194 @@ import Test.Tasty
 -- Requests
 
 requestDeletePreset :: DeletePreset -> TestTree
-requestDeletePreset =
-  req
+requestDeletePreset = req
     "DeletePreset"
     "fixture/DeletePreset.yaml"
 
 requestUpdatePipelineStatus :: UpdatePipelineStatus -> TestTree
-requestUpdatePipelineStatus =
-  req
+requestUpdatePipelineStatus = req
     "UpdatePipelineStatus"
     "fixture/UpdatePipelineStatus.yaml"
 
 requestListJobsByPipeline :: ListJobsByPipeline -> TestTree
-requestListJobsByPipeline =
-  req
+requestListJobsByPipeline = req
     "ListJobsByPipeline"
     "fixture/ListJobsByPipeline.yaml"
 
 requestUpdatePipeline :: UpdatePipeline -> TestTree
-requestUpdatePipeline =
-  req
+requestUpdatePipeline = req
     "UpdatePipeline"
     "fixture/UpdatePipeline.yaml"
 
 requestDeletePipeline :: DeletePipeline -> TestTree
-requestDeletePipeline =
-  req
+requestDeletePipeline = req
     "DeletePipeline"
     "fixture/DeletePipeline.yaml"
 
 requestCreateJob :: CreateJob -> TestTree
-requestCreateJob =
-  req
+requestCreateJob = req
     "CreateJob"
     "fixture/CreateJob.yaml"
 
 requestListPipelines :: ListPipelines -> TestTree
-requestListPipelines =
-  req
+requestListPipelines = req
     "ListPipelines"
     "fixture/ListPipelines.yaml"
 
 requestCreatePreset :: CreatePreset -> TestTree
-requestCreatePreset =
-  req
+requestCreatePreset = req
     "CreatePreset"
     "fixture/CreatePreset.yaml"
 
 requestListPresets :: ListPresets -> TestTree
-requestListPresets =
-  req
+requestListPresets = req
     "ListPresets"
     "fixture/ListPresets.yaml"
 
 requestReadPreset :: ReadPreset -> TestTree
-requestReadPreset =
-  req
+requestReadPreset = req
     "ReadPreset"
     "fixture/ReadPreset.yaml"
 
 requestReadJob :: ReadJob -> TestTree
-requestReadJob =
-  req
+requestReadJob = req
     "ReadJob"
     "fixture/ReadJob.yaml"
 
 requestUpdatePipelineNotifications :: UpdatePipelineNotifications -> TestTree
-requestUpdatePipelineNotifications =
-  req
+requestUpdatePipelineNotifications = req
     "UpdatePipelineNotifications"
     "fixture/UpdatePipelineNotifications.yaml"
 
 requestReadPipeline :: ReadPipeline -> TestTree
-requestReadPipeline =
-  req
+requestReadPipeline = req
     "ReadPipeline"
     "fixture/ReadPipeline.yaml"
 
 requestCreatePipeline :: CreatePipeline -> TestTree
-requestCreatePipeline =
-  req
+requestCreatePipeline = req
     "CreatePipeline"
     "fixture/CreatePipeline.yaml"
 
 requestListJobsByStatus :: ListJobsByStatus -> TestTree
-requestListJobsByStatus =
-  req
+requestListJobsByStatus = req
     "ListJobsByStatus"
     "fixture/ListJobsByStatus.yaml"
 
 requestCancelJob :: CancelJob -> TestTree
-requestCancelJob =
-  req
+requestCancelJob = req
     "CancelJob"
     "fixture/CancelJob.yaml"
 
 -- Responses
 
 responseDeletePreset :: DeletePresetResponse -> TestTree
-responseDeletePreset =
-  res
+responseDeletePreset = res
     "DeletePresetResponse"
     "fixture/DeletePresetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeletePreset)
 
 responseUpdatePipelineStatus :: UpdatePipelineStatusResponse -> TestTree
-responseUpdatePipelineStatus =
-  res
+responseUpdatePipelineStatus = res
     "UpdatePipelineStatusResponse"
     "fixture/UpdatePipelineStatusResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdatePipelineStatus)
 
 responseListJobsByPipeline :: ListJobsByPipelineResponse -> TestTree
-responseListJobsByPipeline =
-  res
+responseListJobsByPipeline = res
     "ListJobsByPipelineResponse"
     "fixture/ListJobsByPipelineResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListJobsByPipeline)
 
 responseUpdatePipeline :: UpdatePipelineResponse -> TestTree
-responseUpdatePipeline =
-  res
+responseUpdatePipeline = res
     "UpdatePipelineResponse"
     "fixture/UpdatePipelineResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdatePipeline)
 
 responseDeletePipeline :: DeletePipelineResponse -> TestTree
-responseDeletePipeline =
-  res
+responseDeletePipeline = res
     "DeletePipelineResponse"
     "fixture/DeletePipelineResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeletePipeline)
 
 responseCreateJob :: CreateJobResponse -> TestTree
-responseCreateJob =
-  res
+responseCreateJob = res
     "CreateJobResponse"
     "fixture/CreateJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateJob)
 
 responseListPipelines :: ListPipelinesResponse -> TestTree
-responseListPipelines =
-  res
+responseListPipelines = res
     "ListPipelinesResponse"
     "fixture/ListPipelinesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListPipelines)
 
 responseCreatePreset :: CreatePresetResponse -> TestTree
-responseCreatePreset =
-  res
+responseCreatePreset = res
     "CreatePresetResponse"
     "fixture/CreatePresetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreatePreset)
 
 responseListPresets :: ListPresetsResponse -> TestTree
-responseListPresets =
-  res
+responseListPresets = res
     "ListPresetsResponse"
     "fixture/ListPresetsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListPresets)
 
 responseReadPreset :: ReadPresetResponse -> TestTree
-responseReadPreset =
-  res
+responseReadPreset = res
     "ReadPresetResponse"
     "fixture/ReadPresetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ReadPreset)
 
 responseReadJob :: ReadJobResponse -> TestTree
-responseReadJob =
-  res
+responseReadJob = res
     "ReadJobResponse"
     "fixture/ReadJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ReadJob)
 
 responseUpdatePipelineNotifications :: UpdatePipelineNotificationsResponse -> TestTree
-responseUpdatePipelineNotifications =
-  res
+responseUpdatePipelineNotifications = res
     "UpdatePipelineNotificationsResponse"
     "fixture/UpdatePipelineNotificationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdatePipelineNotifications)
 
 responseReadPipeline :: ReadPipelineResponse -> TestTree
-responseReadPipeline =
-  res
+responseReadPipeline = res
     "ReadPipelineResponse"
     "fixture/ReadPipelineResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ReadPipeline)
 
 responseCreatePipeline :: CreatePipelineResponse -> TestTree
-responseCreatePipeline =
-  res
+responseCreatePipeline = res
     "CreatePipelineResponse"
     "fixture/CreatePipelineResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreatePipeline)
 
 responseListJobsByStatus :: ListJobsByStatusResponse -> TestTree
-responseListJobsByStatus =
-  res
+responseListJobsByStatus = res
     "ListJobsByStatusResponse"
     "fixture/ListJobsByStatusResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListJobsByStatus)
 
 responseCancelJob :: CancelJobResponse -> TestTree
-responseCancelJob =
-  res
+responseCancelJob = res
     "CancelJobResponse"
     "fixture/CancelJobResponse.proto"
     mkServiceConfig

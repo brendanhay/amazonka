@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.IAM.Types.AttachedPermissionsBoundary
-  ( AttachedPermissionsBoundary (..),
-
-    -- * Smart constructor
-    mkAttachedPermissionsBoundary,
-
-    -- * Lenses
-    apbPermissionsBoundaryArn,
-    apbPermissionsBoundaryType,
-  )
-where
+  ( AttachedPermissionsBoundary (..)
+  -- * Smart constructor
+  , mkAttachedPermissionsBoundary
+  -- * Lenses
+  , apbPermissionsBoundaryArn
+  , apbPermissionsBoundaryType
+  ) where
 
 import qualified Network.AWS.IAM.Types.PermissionsBoundaryArn as Types
 import qualified Network.AWS.IAM.Types.PermissionsBoundaryAttachmentType as Types
@@ -34,40 +32,40 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkAttachedPermissionsBoundary' smart constructor.
 data AttachedPermissionsBoundary = AttachedPermissionsBoundary'
-  { -- | The ARN of the policy used to set the permissions boundary for the user or role.
-    permissionsBoundaryArn :: Core.Maybe Types.PermissionsBoundaryArn,
-    -- | The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of @Policy@ .
-    permissionsBoundaryType :: Core.Maybe Types.PermissionsBoundaryAttachmentType
+  { permissionsBoundaryArn :: Core.Maybe Types.PermissionsBoundaryArn
+    -- ^ The ARN of the policy used to set the permissions boundary for the user or role.
+  , permissionsBoundaryType :: Core.Maybe Types.PermissionsBoundaryAttachmentType
+    -- ^ The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of @Policy@ .
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AttachedPermissionsBoundary' value with any optional fields omitted.
-mkAttachedPermissionsBoundary ::
-  AttachedPermissionsBoundary
-mkAttachedPermissionsBoundary =
-  AttachedPermissionsBoundary'
-    { permissionsBoundaryArn =
-        Core.Nothing,
-      permissionsBoundaryType = Core.Nothing
-    }
+mkAttachedPermissionsBoundary
+    :: AttachedPermissionsBoundary
+mkAttachedPermissionsBoundary
+  = AttachedPermissionsBoundary'{permissionsBoundaryArn =
+                                   Core.Nothing,
+                                 permissionsBoundaryType = Core.Nothing}
 
 -- | The ARN of the policy used to set the permissions boundary for the user or role.
 --
 -- /Note:/ Consider using 'permissionsBoundaryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 apbPermissionsBoundaryArn :: Lens.Lens' AttachedPermissionsBoundary (Core.Maybe Types.PermissionsBoundaryArn)
 apbPermissionsBoundaryArn = Lens.field @"permissionsBoundaryArn"
-{-# DEPRECATED apbPermissionsBoundaryArn "Use generic-lens or generic-optics with 'permissionsBoundaryArn' instead." #-}
+{-# INLINEABLE apbPermissionsBoundaryArn #-}
+{-# DEPRECATED permissionsBoundaryArn "Use generic-lens or generic-optics with 'permissionsBoundaryArn' instead"  #-}
 
 -- | The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of @Policy@ .
 --
 -- /Note:/ Consider using 'permissionsBoundaryType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 apbPermissionsBoundaryType :: Lens.Lens' AttachedPermissionsBoundary (Core.Maybe Types.PermissionsBoundaryAttachmentType)
 apbPermissionsBoundaryType = Lens.field @"permissionsBoundaryType"
-{-# DEPRECATED apbPermissionsBoundaryType "Use generic-lens or generic-optics with 'permissionsBoundaryType' instead." #-}
+{-# INLINEABLE apbPermissionsBoundaryType #-}
+{-# DEPRECATED permissionsBoundaryType "Use generic-lens or generic-optics with 'permissionsBoundaryType' instead"  #-}
 
 instance Core.FromXML AttachedPermissionsBoundary where
-  parseXML x =
-    AttachedPermissionsBoundary'
-      Core.<$> (x Core..@? "PermissionsBoundaryArn")
-      Core.<*> (x Core..@? "PermissionsBoundaryType")
+        parseXML x
+          = AttachedPermissionsBoundary' Core.<$>
+              (x Core..@? "PermissionsBoundaryArn") Core.<*>
+                x Core..@? "PermissionsBoundaryType"

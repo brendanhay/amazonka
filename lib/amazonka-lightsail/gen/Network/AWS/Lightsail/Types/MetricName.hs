@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,65 +10,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Lightsail.Types.MetricName
   ( MetricName
-      ( MetricName',
-        MetricNameCPUUtilization,
-        MetricNameNetworkIn,
-        MetricNameNetworkOut,
-        MetricNameStatusCheckFailed,
-        MetricNameStatusCheckFailedInstance,
-        MetricNameStatusCheckFailedSystem,
-        MetricNameClientTLSNegotiationErrorCount,
-        MetricNameHealthyHostCount,
-        MetricNameUnhealthyHostCount,
-        MetricNameHTTPCodeLb4XXCount,
-        MetricNameHTTPCodeLb5XXCount,
-        MetricNameHTTPCodeInstance2XXCount,
-        MetricNameHTTPCodeInstance3XXCount,
-        MetricNameHTTPCodeInstance4XXCount,
-        MetricNameHTTPCodeInstance5XXCount,
-        MetricNameInstanceResponseTime,
-        MetricNameRejectedConnectionCount,
-        MetricNameRequestCount,
-        MetricNameDatabaseConnections,
-        MetricNameDiskQueueDepth,
-        MetricNameFreeStorageSpace,
-        MetricNameNetworkReceiveThroughput,
-        MetricNameNetworkTransmitThroughput,
-        MetricNameBurstCapacityTime,
-        MetricNameBurstCapacityPercentage,
-        fromMetricName
-      ),
-  )
-where
+    ( MetricName'
+    , MetricNameCPUUtilization
+    , MetricNameNetworkIn
+    , MetricNameNetworkOut
+    , MetricNameStatusCheckFailed
+    , MetricNameStatusCheckFailedInstance
+    , MetricNameStatusCheckFailedSystem
+    , MetricNameClientTLSNegotiationErrorCount
+    , MetricNameHealthyHostCount
+    , MetricNameUnhealthyHostCount
+    , MetricNameHTTPCodeLb4XXCount
+    , MetricNameHTTPCodeLb5XXCount
+    , MetricNameHTTPCodeInstance2XXCount
+    , MetricNameHTTPCodeInstance3XXCount
+    , MetricNameHTTPCodeInstance4XXCount
+    , MetricNameHTTPCodeInstance5XXCount
+    , MetricNameInstanceResponseTime
+    , MetricNameRejectedConnectionCount
+    , MetricNameRequestCount
+    , MetricNameDatabaseConnections
+    , MetricNameDiskQueueDepth
+    , MetricNameFreeStorageSpace
+    , MetricNameNetworkReceiveThroughput
+    , MetricNameNetworkTransmitThroughput
+    , MetricNameBurstCapacityTime
+    , MetricNameBurstCapacityPercentage
+    , fromMetricName
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype MetricName = MetricName' {fromMetricName :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype MetricName = MetricName'{fromMetricName :: Core.Text}
+                       deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                       Core.Generic)
+                       deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                         Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                         Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                         Core.FromText, Core.ToByteString, Core.ToQuery,
+                                         Core.ToHeader)
 
 pattern MetricNameCPUUtilization :: MetricName
 pattern MetricNameCPUUtilization = MetricName' "CPUUtilization"
@@ -145,31 +129,55 @@ pattern MetricNameBurstCapacityTime = MetricName' "BurstCapacityTime"
 pattern MetricNameBurstCapacityPercentage :: MetricName
 pattern MetricNameBurstCapacityPercentage = MetricName' "BurstCapacityPercentage"
 
-{-# COMPLETE
+{-# COMPLETE 
   MetricNameCPUUtilization,
+
   MetricNameNetworkIn,
+
   MetricNameNetworkOut,
+
   MetricNameStatusCheckFailed,
+
   MetricNameStatusCheckFailedInstance,
+
   MetricNameStatusCheckFailedSystem,
+
   MetricNameClientTLSNegotiationErrorCount,
+
   MetricNameHealthyHostCount,
+
   MetricNameUnhealthyHostCount,
+
   MetricNameHTTPCodeLb4XXCount,
+
   MetricNameHTTPCodeLb5XXCount,
+
   MetricNameHTTPCodeInstance2XXCount,
+
   MetricNameHTTPCodeInstance3XXCount,
+
   MetricNameHTTPCodeInstance4XXCount,
+
   MetricNameHTTPCodeInstance5XXCount,
+
   MetricNameInstanceResponseTime,
+
   MetricNameRejectedConnectionCount,
+
   MetricNameRequestCount,
+
   MetricNameDatabaseConnections,
+
   MetricNameDiskQueueDepth,
+
   MetricNameFreeStorageSpace,
+
   MetricNameNetworkReceiveThroughput,
+
   MetricNameNetworkTransmitThroughput,
+
   MetricNameBurstCapacityTime,
+
   MetricNameBurstCapacityPercentage,
   MetricName'
   #-}

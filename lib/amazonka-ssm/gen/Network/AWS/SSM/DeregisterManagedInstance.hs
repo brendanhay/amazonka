@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,21 +15,19 @@
 --
 -- Removes the server or virtual machine from the list of registered servers. You can reregister the instance again at any time. If you don't plan to use Run Command on the server, we suggest uninstalling SSM Agent first.
 module Network.AWS.SSM.DeregisterManagedInstance
-  ( -- * Creating a request
-    DeregisterManagedInstance (..),
-    mkDeregisterManagedInstance,
-
+    (
+    -- * Creating a request
+      DeregisterManagedInstance (..)
+    , mkDeregisterManagedInstance
     -- ** Request lenses
-    dmiInstanceId,
+    , dmiInstanceId
 
     -- * Destructuring the response
-    DeregisterManagedInstanceResponse (..),
-    mkDeregisterManagedInstanceResponse,
-
+    , DeregisterManagedInstanceResponse (..)
+    , mkDeregisterManagedInstanceResponse
     -- ** Response lenses
-    dmirrsResponseStatus,
-  )
-where
+    , dmirrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -39,73 +37,77 @@ import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkDeregisterManagedInstance' smart constructor.
 newtype DeregisterManagedInstance = DeregisterManagedInstance'
-  { -- | The ID assigned to the managed instance when you registered it using the activation process.
-    instanceId :: Types.InstanceId
+  { instanceId :: Types.InstanceId
+    -- ^ The ID assigned to the managed instance when you registered it using the activation process. 
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeregisterManagedInstance' value with any optional fields omitted.
-mkDeregisterManagedInstance ::
-  -- | 'instanceId'
-  Types.InstanceId ->
-  DeregisterManagedInstance
-mkDeregisterManagedInstance instanceId =
-  DeregisterManagedInstance' {instanceId}
+mkDeregisterManagedInstance
+    :: Types.InstanceId -- ^ 'instanceId'
+    -> DeregisterManagedInstance
+mkDeregisterManagedInstance instanceId
+  = DeregisterManagedInstance'{instanceId}
 
--- | The ID assigned to the managed instance when you registered it using the activation process.
+-- | The ID assigned to the managed instance when you registered it using the activation process. 
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dmiInstanceId :: Lens.Lens' DeregisterManagedInstance Types.InstanceId
 dmiInstanceId = Lens.field @"instanceId"
-{-# DEPRECATED dmiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+{-# INLINEABLE dmiInstanceId #-}
+{-# DEPRECATED instanceId "Use generic-lens or generic-optics with 'instanceId' instead"  #-}
+
+instance Core.ToQuery DeregisterManagedInstance where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DeregisterManagedInstance where
+        toHeaders DeregisterManagedInstance{..}
+          = Core.pure ("X-Amz-Target", "AmazonSSM.DeregisterManagedInstance")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON DeregisterManagedInstance where
-  toJSON DeregisterManagedInstance {..} =
-    Core.object
-      (Core.catMaybes [Core.Just ("InstanceId" Core..= instanceId)])
+        toJSON DeregisterManagedInstance{..}
+          = Core.object
+              (Core.catMaybes [Core.Just ("InstanceId" Core..= instanceId)])
 
 instance Core.AWSRequest DeregisterManagedInstance where
-  type
-    Rs DeregisterManagedInstance =
-      DeregisterManagedInstanceResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "AmazonSSM.DeregisterManagedInstance")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveEmpty
-      ( \s h x ->
-          DeregisterManagedInstanceResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DeregisterManagedInstance =
+             DeregisterManagedInstanceResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveEmpty
+              (\ s h x ->
+                 DeregisterManagedInstanceResponse' Core.<$>
+                   (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeregisterManagedInstanceResponse' smart constructor.
 newtype DeregisterManagedInstanceResponse = DeregisterManagedInstanceResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeregisterManagedInstanceResponse' value with any optional fields omitted.
-mkDeregisterManagedInstanceResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DeregisterManagedInstanceResponse
-mkDeregisterManagedInstanceResponse responseStatus =
-  DeregisterManagedInstanceResponse' {responseStatus}
+mkDeregisterManagedInstanceResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DeregisterManagedInstanceResponse
+mkDeregisterManagedInstanceResponse responseStatus
+  = DeregisterManagedInstanceResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dmirrsResponseStatus :: Lens.Lens' DeregisterManagedInstanceResponse Core.Int
 dmirrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED dmirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE dmirrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

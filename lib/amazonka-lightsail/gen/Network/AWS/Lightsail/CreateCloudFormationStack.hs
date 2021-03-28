@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,22 +17,20 @@
 --
 -- /Important:/ Wait until after your new Amazon EC2 instance is created before running the @create cloud formation stack@ operation again with the same export snapshot record.
 module Network.AWS.Lightsail.CreateCloudFormationStack
-  ( -- * Creating a request
-    CreateCloudFormationStack (..),
-    mkCreateCloudFormationStack,
-
+    (
+    -- * Creating a request
+      CreateCloudFormationStack (..)
+    , mkCreateCloudFormationStack
     -- ** Request lenses
-    ccfsInstances,
+    , ccfsInstances
 
     -- * Destructuring the response
-    CreateCloudFormationStackResponse (..),
-    mkCreateCloudFormationStackResponse,
-
+    , CreateCloudFormationStackResponse (..)
+    , mkCreateCloudFormationStackResponse
     -- ** Response lenses
-    ccfsrrsOperations,
-    ccfsrrsResponseStatus,
-  )
-where
+    , ccfsrrsOperations
+    , ccfsrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Lightsail.Types as Types
@@ -42,84 +40,88 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateCloudFormationStack' smart constructor.
 newtype CreateCloudFormationStack = CreateCloudFormationStack'
-  { -- | An array of parameters that will be used to create the new Amazon EC2 instance. You can only pass one instance entry at a time in this array. You will get an invalid parameter error if you pass more than one instance entry in this array.
-    instances :: [Types.InstanceEntry]
+  { instances :: [Types.InstanceEntry]
+    -- ^ An array of parameters that will be used to create the new Amazon EC2 instance. You can only pass one instance entry at a time in this array. You will get an invalid parameter error if you pass more than one instance entry in this array.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CreateCloudFormationStack' value with any optional fields omitted.
-mkCreateCloudFormationStack ::
-  CreateCloudFormationStack
-mkCreateCloudFormationStack =
-  CreateCloudFormationStack' {instances = Core.mempty}
+mkCreateCloudFormationStack
+    :: CreateCloudFormationStack
+mkCreateCloudFormationStack
+  = CreateCloudFormationStack'{instances = Core.mempty}
 
 -- | An array of parameters that will be used to create the new Amazon EC2 instance. You can only pass one instance entry at a time in this array. You will get an invalid parameter error if you pass more than one instance entry in this array.
 --
 -- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccfsInstances :: Lens.Lens' CreateCloudFormationStack [Types.InstanceEntry]
 ccfsInstances = Lens.field @"instances"
-{-# DEPRECATED ccfsInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
+{-# INLINEABLE ccfsInstances #-}
+{-# DEPRECATED instances "Use generic-lens or generic-optics with 'instances' instead"  #-}
+
+instance Core.ToQuery CreateCloudFormationStack where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders CreateCloudFormationStack where
+        toHeaders CreateCloudFormationStack{..}
+          = Core.pure
+              ("X-Amz-Target", "Lightsail_20161128.CreateCloudFormationStack")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON CreateCloudFormationStack where
-  toJSON CreateCloudFormationStack {..} =
-    Core.object
-      (Core.catMaybes [Core.Just ("instances" Core..= instances)])
+        toJSON CreateCloudFormationStack{..}
+          = Core.object
+              (Core.catMaybes [Core.Just ("instances" Core..= instances)])
 
 instance Core.AWSRequest CreateCloudFormationStack where
-  type
-    Rs CreateCloudFormationStack =
-      CreateCloudFormationStackResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "Lightsail_20161128.CreateCloudFormationStack")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          CreateCloudFormationStackResponse'
-            Core.<$> (x Core..:? "operations") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs CreateCloudFormationStack =
+             CreateCloudFormationStackResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 CreateCloudFormationStackResponse' Core.<$>
+                   (x Core..:? "operations") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkCreateCloudFormationStackResponse' smart constructor.
 data CreateCloudFormationStackResponse = CreateCloudFormationStackResponse'
-  { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operations :: Core.Maybe [Types.Operation],
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { operations :: Core.Maybe [Types.Operation]
+    -- ^ An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'CreateCloudFormationStackResponse' value with any optional fields omitted.
-mkCreateCloudFormationStackResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  CreateCloudFormationStackResponse
-mkCreateCloudFormationStackResponse responseStatus =
-  CreateCloudFormationStackResponse'
-    { operations = Core.Nothing,
-      responseStatus
-    }
+mkCreateCloudFormationStackResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> CreateCloudFormationStackResponse
+mkCreateCloudFormationStackResponse responseStatus
+  = CreateCloudFormationStackResponse'{operations = Core.Nothing,
+                                       responseStatus}
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccfsrrsOperations :: Lens.Lens' CreateCloudFormationStackResponse (Core.Maybe [Types.Operation])
 ccfsrrsOperations = Lens.field @"operations"
-{-# DEPRECATED ccfsrrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+{-# INLINEABLE ccfsrrsOperations #-}
+{-# DEPRECATED operations "Use generic-lens or generic-optics with 'operations' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccfsrrsResponseStatus :: Lens.Lens' CreateCloudFormationStackResponse Core.Int
 ccfsrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED ccfsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE ccfsrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

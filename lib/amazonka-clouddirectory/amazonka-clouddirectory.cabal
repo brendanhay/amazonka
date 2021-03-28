@@ -1,311 +1,313 @@
-cabal-version:      2.2
-name:               amazonka-clouddirectory
-version:            2.0.0.0
-synopsis:           Amazon CloudDirectory SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-clouddirectory
+version:               2.0.0.0
+synopsis:              Amazon CloudDirectory SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.CloudDirectory" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.CloudDirectory" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-clouddirectory
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-clouddirectory
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.CloudDirectory
-    Network.AWS.CloudDirectory.AddFacetToObject
-    Network.AWS.CloudDirectory.ApplySchema
-    Network.AWS.CloudDirectory.AttachObject
-    Network.AWS.CloudDirectory.AttachPolicy
-    Network.AWS.CloudDirectory.AttachToIndex
-    Network.AWS.CloudDirectory.AttachTypedLink
-    Network.AWS.CloudDirectory.BatchRead
-    Network.AWS.CloudDirectory.BatchWrite
-    Network.AWS.CloudDirectory.CreateDirectory
-    Network.AWS.CloudDirectory.CreateFacet
-    Network.AWS.CloudDirectory.CreateIndex
-    Network.AWS.CloudDirectory.CreateObject
-    Network.AWS.CloudDirectory.CreateSchema
-    Network.AWS.CloudDirectory.CreateTypedLinkFacet
-    Network.AWS.CloudDirectory.DeleteDirectory
-    Network.AWS.CloudDirectory.DeleteFacet
-    Network.AWS.CloudDirectory.DeleteObject
-    Network.AWS.CloudDirectory.DeleteSchema
-    Network.AWS.CloudDirectory.DeleteTypedLinkFacet
-    Network.AWS.CloudDirectory.DetachFromIndex
-    Network.AWS.CloudDirectory.DetachObject
-    Network.AWS.CloudDirectory.DetachPolicy
-    Network.AWS.CloudDirectory.DetachTypedLink
-    Network.AWS.CloudDirectory.DisableDirectory
-    Network.AWS.CloudDirectory.EnableDirectory
-    Network.AWS.CloudDirectory.GetAppliedSchemaVersion
-    Network.AWS.CloudDirectory.GetDirectory
-    Network.AWS.CloudDirectory.GetFacet
-    Network.AWS.CloudDirectory.GetLinkAttributes
-    Network.AWS.CloudDirectory.GetObjectAttributes
-    Network.AWS.CloudDirectory.GetObjectInformation
-    Network.AWS.CloudDirectory.GetSchemaAsJson
-    Network.AWS.CloudDirectory.GetTypedLinkFacetInformation
-    Network.AWS.CloudDirectory.ListAppliedSchemaArns
-    Network.AWS.CloudDirectory.ListAttachedIndices
-    Network.AWS.CloudDirectory.ListDevelopmentSchemaArns
-    Network.AWS.CloudDirectory.ListDirectories
-    Network.AWS.CloudDirectory.ListFacetAttributes
-    Network.AWS.CloudDirectory.ListFacetNames
-    Network.AWS.CloudDirectory.ListIncomingTypedLinks
-    Network.AWS.CloudDirectory.ListIndex
-    Network.AWS.CloudDirectory.ListManagedSchemaArns
-    Network.AWS.CloudDirectory.ListObjectAttributes
-    Network.AWS.CloudDirectory.ListObjectChildren
-    Network.AWS.CloudDirectory.ListObjectParentPaths
-    Network.AWS.CloudDirectory.ListObjectParents
-    Network.AWS.CloudDirectory.ListObjectPolicies
-    Network.AWS.CloudDirectory.ListOutgoingTypedLinks
-    Network.AWS.CloudDirectory.ListPolicyAttachments
-    Network.AWS.CloudDirectory.ListPublishedSchemaArns
-    Network.AWS.CloudDirectory.ListTagsForResource
-    Network.AWS.CloudDirectory.ListTypedLinkFacetAttributes
-    Network.AWS.CloudDirectory.ListTypedLinkFacetNames
-    Network.AWS.CloudDirectory.LookupPolicy
-    Network.AWS.CloudDirectory.PublishSchema
-    Network.AWS.CloudDirectory.PutSchemaFromJson
-    Network.AWS.CloudDirectory.RemoveFacetFromObject
-    Network.AWS.CloudDirectory.TagResource
-    Network.AWS.CloudDirectory.Types
-    Network.AWS.CloudDirectory.UntagResource
-    Network.AWS.CloudDirectory.UpdateFacet
-    Network.AWS.CloudDirectory.UpdateLinkAttributes
-    Network.AWS.CloudDirectory.UpdateObjectAttributes
-    Network.AWS.CloudDirectory.UpdateSchema
-    Network.AWS.CloudDirectory.UpdateTypedLinkFacet
-    Network.AWS.CloudDirectory.UpgradeAppliedSchema
-    Network.AWS.CloudDirectory.UpgradePublishedSchema
-    Network.AWS.CloudDirectory.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.CloudDirectory.Types.Arn
-    Network.AWS.CloudDirectory.Types.AttachedObjectIdentifier
-    Network.AWS.CloudDirectory.Types.AttributeKey
-    Network.AWS.CloudDirectory.Types.AttributeKeyAndValue
-    Network.AWS.CloudDirectory.Types.AttributeName
-    Network.AWS.CloudDirectory.Types.AttributeNameAndValue
-    Network.AWS.CloudDirectory.Types.BatchAddFacetToObject
-    Network.AWS.CloudDirectory.Types.BatchAddFacetToObjectResponse
-    Network.AWS.CloudDirectory.Types.BatchAttachObject
-    Network.AWS.CloudDirectory.Types.BatchAttachObjectResponse
-    Network.AWS.CloudDirectory.Types.BatchAttachPolicy
-    Network.AWS.CloudDirectory.Types.BatchAttachPolicyResponse
-    Network.AWS.CloudDirectory.Types.BatchAttachToIndex
-    Network.AWS.CloudDirectory.Types.BatchAttachToIndexResponse
-    Network.AWS.CloudDirectory.Types.BatchAttachTypedLink
-    Network.AWS.CloudDirectory.Types.BatchAttachTypedLinkResponse
-    Network.AWS.CloudDirectory.Types.BatchCreateIndex
-    Network.AWS.CloudDirectory.Types.BatchCreateIndexResponse
-    Network.AWS.CloudDirectory.Types.BatchCreateObject
-    Network.AWS.CloudDirectory.Types.BatchCreateObjectResponse
-    Network.AWS.CloudDirectory.Types.BatchDeleteObject
-    Network.AWS.CloudDirectory.Types.BatchDeleteObjectResponse
-    Network.AWS.CloudDirectory.Types.BatchDetachFromIndex
-    Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse
-    Network.AWS.CloudDirectory.Types.BatchDetachObject
-    Network.AWS.CloudDirectory.Types.BatchDetachObjectResponse
-    Network.AWS.CloudDirectory.Types.BatchDetachPolicy
-    Network.AWS.CloudDirectory.Types.BatchDetachPolicyResponse
-    Network.AWS.CloudDirectory.Types.BatchDetachTypedLink
-    Network.AWS.CloudDirectory.Types.BatchDetachTypedLinkResponse
-    Network.AWS.CloudDirectory.Types.BatchGetLinkAttributes
-    Network.AWS.CloudDirectory.Types.BatchGetLinkAttributesResponse
-    Network.AWS.CloudDirectory.Types.BatchGetObjectAttributes
-    Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse
-    Network.AWS.CloudDirectory.Types.BatchGetObjectInformation
-    Network.AWS.CloudDirectory.Types.BatchGetObjectInformationResponse
-    Network.AWS.CloudDirectory.Types.BatchListAttachedIndices
-    Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse
-    Network.AWS.CloudDirectory.Types.BatchListIncomingTypedLinks
-    Network.AWS.CloudDirectory.Types.BatchListIncomingTypedLinksResponse
-    Network.AWS.CloudDirectory.Types.BatchListIndex
-    Network.AWS.CloudDirectory.Types.BatchListIndexResponse
-    Network.AWS.CloudDirectory.Types.BatchListObjectAttributes
-    Network.AWS.CloudDirectory.Types.BatchListObjectAttributesResponse
-    Network.AWS.CloudDirectory.Types.BatchListObjectChildren
-    Network.AWS.CloudDirectory.Types.BatchListObjectChildrenResponse
-    Network.AWS.CloudDirectory.Types.BatchListObjectParentPaths
-    Network.AWS.CloudDirectory.Types.BatchListObjectParentPathsResponse
-    Network.AWS.CloudDirectory.Types.BatchListObjectParents
-    Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse
-    Network.AWS.CloudDirectory.Types.BatchListObjectPolicies
-    Network.AWS.CloudDirectory.Types.BatchListObjectPoliciesResponse
-    Network.AWS.CloudDirectory.Types.BatchListOutgoingTypedLinks
-    Network.AWS.CloudDirectory.Types.BatchListOutgoingTypedLinksResponse
-    Network.AWS.CloudDirectory.Types.BatchListPolicyAttachments
-    Network.AWS.CloudDirectory.Types.BatchListPolicyAttachmentsResponse
-    Network.AWS.CloudDirectory.Types.BatchLookupPolicy
-    Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse
-    Network.AWS.CloudDirectory.Types.BatchReadException
-    Network.AWS.CloudDirectory.Types.BatchReadExceptionType
-    Network.AWS.CloudDirectory.Types.BatchReadOperation
-    Network.AWS.CloudDirectory.Types.BatchReadOperationResponse
-    Network.AWS.CloudDirectory.Types.BatchReadSuccessfulResponse
-    Network.AWS.CloudDirectory.Types.BatchReferenceName
-    Network.AWS.CloudDirectory.Types.BatchRemoveFacetFromObject
-    Network.AWS.CloudDirectory.Types.BatchRemoveFacetFromObjectResponse
-    Network.AWS.CloudDirectory.Types.BatchUpdateLinkAttributes
-    Network.AWS.CloudDirectory.Types.BatchUpdateLinkAttributesResponse
-    Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributes
-    Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse
-    Network.AWS.CloudDirectory.Types.BatchWriteOperation
-    Network.AWS.CloudDirectory.Types.BatchWriteOperationResponse
-    Network.AWS.CloudDirectory.Types.ConsistencyLevel
-    Network.AWS.CloudDirectory.Types.DetachedObjectIdentifier
-    Network.AWS.CloudDirectory.Types.Directory
-    Network.AWS.CloudDirectory.Types.DirectoryArn
-    Network.AWS.CloudDirectory.Types.DirectoryName
-    Network.AWS.CloudDirectory.Types.DirectoryState
-    Network.AWS.CloudDirectory.Types.ExceptionMessage
-    Network.AWS.CloudDirectory.Types.Facet
-    Network.AWS.CloudDirectory.Types.FacetAttribute
-    Network.AWS.CloudDirectory.Types.FacetAttributeDefinition
-    Network.AWS.CloudDirectory.Types.FacetAttributeReference
-    Network.AWS.CloudDirectory.Types.FacetAttributeType
-    Network.AWS.CloudDirectory.Types.FacetAttributeUpdate
-    Network.AWS.CloudDirectory.Types.FacetName
-    Network.AWS.CloudDirectory.Types.FacetStyle
-    Network.AWS.CloudDirectory.Types.IndexAttachment
-    Network.AWS.CloudDirectory.Types.Key
-    Network.AWS.CloudDirectory.Types.LinkAttributeAction
-    Network.AWS.CloudDirectory.Types.LinkAttributeUpdate
-    Network.AWS.CloudDirectory.Types.LinkName
-    Network.AWS.CloudDirectory.Types.MinorVersion
-    Network.AWS.CloudDirectory.Types.Name
-    Network.AWS.CloudDirectory.Types.NextToken
-    Network.AWS.CloudDirectory.Types.NumberValue
-    Network.AWS.CloudDirectory.Types.ObjectAttributeAction
-    Network.AWS.CloudDirectory.Types.ObjectAttributeRange
-    Network.AWS.CloudDirectory.Types.ObjectAttributeUpdate
-    Network.AWS.CloudDirectory.Types.ObjectIdentifier
-    Network.AWS.CloudDirectory.Types.ObjectIdentifierAndLinkNameTuple
-    Network.AWS.CloudDirectory.Types.ObjectReference
-    Network.AWS.CloudDirectory.Types.ObjectType
-    Network.AWS.CloudDirectory.Types.PathString
-    Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers
-    Network.AWS.CloudDirectory.Types.PolicyAttachment
-    Network.AWS.CloudDirectory.Types.PolicyToPath
-    Network.AWS.CloudDirectory.Types.PolicyType
-    Network.AWS.CloudDirectory.Types.RangeMode
-    Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior
-    Network.AWS.CloudDirectory.Types.Rule
-    Network.AWS.CloudDirectory.Types.RuleKey
-    Network.AWS.CloudDirectory.Types.RuleParameterKey
-    Network.AWS.CloudDirectory.Types.RuleParameterValue
-    Network.AWS.CloudDirectory.Types.RuleType
-    Network.AWS.CloudDirectory.Types.SchemaArn
-    Network.AWS.CloudDirectory.Types.SchemaFacet
-    Network.AWS.CloudDirectory.Types.SchemaJsonDocument
-    Network.AWS.CloudDirectory.Types.SchemaName
-    Network.AWS.CloudDirectory.Types.SelectorObjectReference
-    Network.AWS.CloudDirectory.Types.StringAttributeValue
-    Network.AWS.CloudDirectory.Types.Tag
-    Network.AWS.CloudDirectory.Types.TagKey
-    Network.AWS.CloudDirectory.Types.TargetAttributeName
-    Network.AWS.CloudDirectory.Types.TypedAttributeValue
-    Network.AWS.CloudDirectory.Types.TypedAttributeValueRange
-    Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition
-    Network.AWS.CloudDirectory.Types.TypedLinkAttributeRange
-    Network.AWS.CloudDirectory.Types.TypedLinkFacet
-    Network.AWS.CloudDirectory.Types.TypedLinkFacetAttributeUpdate
-    Network.AWS.CloudDirectory.Types.TypedLinkName
-    Network.AWS.CloudDirectory.Types.TypedLinkSchemaAndFacetName
-    Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
-    Network.AWS.CloudDirectory.Types.UpdateActionType
-    Network.AWS.CloudDirectory.Types.UpgradedSchemaArn
-    Network.AWS.CloudDirectory.Types.Value
-    Network.AWS.CloudDirectory.Types.Version
+    exposed-modules:
+          Network.AWS.CloudDirectory
+        , Network.AWS.CloudDirectory.Types
+        , Network.AWS.CloudDirectory.Waiters
+        , Network.AWS.CloudDirectory.ListTypedLinkFacetAttributes
+        , Network.AWS.CloudDirectory.DeleteObject
+        , Network.AWS.CloudDirectory.ListIndex
+        , Network.AWS.CloudDirectory.UpgradeAppliedSchema
+        , Network.AWS.CloudDirectory.GetDirectory
+        , Network.AWS.CloudDirectory.GetObjectInformation
+        , Network.AWS.CloudDirectory.ListAttachedIndices
+        , Network.AWS.CloudDirectory.DetachFromIndex
+        , Network.AWS.CloudDirectory.LookupPolicy
+        , Network.AWS.CloudDirectory.ListTagsForResource
+        , Network.AWS.CloudDirectory.ListPublishedSchemaArns
+        , Network.AWS.CloudDirectory.ListDirectories
+        , Network.AWS.CloudDirectory.CreateTypedLinkFacet
+        , Network.AWS.CloudDirectory.ListObjectParentPaths
+        , Network.AWS.CloudDirectory.DisableDirectory
+        , Network.AWS.CloudDirectory.CreateDirectory
+        , Network.AWS.CloudDirectory.ListFacetAttributes
+        , Network.AWS.CloudDirectory.ListManagedSchemaArns
+        , Network.AWS.CloudDirectory.UpdateTypedLinkFacet
+        , Network.AWS.CloudDirectory.DeleteTypedLinkFacet
+        , Network.AWS.CloudDirectory.GetAppliedSchemaVersion
+        , Network.AWS.CloudDirectory.RemoveFacetFromObject
+        , Network.AWS.CloudDirectory.EnableDirectory
+        , Network.AWS.CloudDirectory.ListObjectAttributes
+        , Network.AWS.CloudDirectory.ListAppliedSchemaArns
+        , Network.AWS.CloudDirectory.ListIncomingTypedLinks
+        , Network.AWS.CloudDirectory.GetFacet
+        , Network.AWS.CloudDirectory.GetTypedLinkFacetInformation
+        , Network.AWS.CloudDirectory.ListDevelopmentSchemaArns
+        , Network.AWS.CloudDirectory.AttachObject
+        , Network.AWS.CloudDirectory.BatchWrite
+        , Network.AWS.CloudDirectory.CreateObject
+        , Network.AWS.CloudDirectory.UpgradePublishedSchema
+        , Network.AWS.CloudDirectory.CreateFacet
+        , Network.AWS.CloudDirectory.GetLinkAttributes
+        , Network.AWS.CloudDirectory.GetObjectAttributes
+        , Network.AWS.CloudDirectory.DeleteFacet
+        , Network.AWS.CloudDirectory.UpdateFacet
+        , Network.AWS.CloudDirectory.ListObjectChildren
+        , Network.AWS.CloudDirectory.ListTypedLinkFacetNames
+        , Network.AWS.CloudDirectory.AttachTypedLink
+        , Network.AWS.CloudDirectory.DetachPolicy
+        , Network.AWS.CloudDirectory.CreateIndex
+        , Network.AWS.CloudDirectory.DetachObject
+        , Network.AWS.CloudDirectory.AddFacetToObject
+        , Network.AWS.CloudDirectory.ApplySchema
+        , Network.AWS.CloudDirectory.CreateSchema
+        , Network.AWS.CloudDirectory.GetSchemaAsJson
+        , Network.AWS.CloudDirectory.PublishSchema
+        , Network.AWS.CloudDirectory.DeleteDirectory
+        , Network.AWS.CloudDirectory.ListObjectParents
+        , Network.AWS.CloudDirectory.ListPolicyAttachments
+        , Network.AWS.CloudDirectory.TagResource
+        , Network.AWS.CloudDirectory.UpdateSchema
+        , Network.AWS.CloudDirectory.DeleteSchema
+        , Network.AWS.CloudDirectory.DetachTypedLink
+        , Network.AWS.CloudDirectory.ListFacetNames
+        , Network.AWS.CloudDirectory.UntagResource
+        , Network.AWS.CloudDirectory.ListOutgoingTypedLinks
+        , Network.AWS.CloudDirectory.UpdateObjectAttributes
+        , Network.AWS.CloudDirectory.AttachPolicy
+        , Network.AWS.CloudDirectory.BatchRead
+        , Network.AWS.CloudDirectory.PutSchemaFromJson
+        , Network.AWS.CloudDirectory.UpdateLinkAttributes
+        , Network.AWS.CloudDirectory.AttachToIndex
+        , Network.AWS.CloudDirectory.ListObjectPolicies
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.CloudDirectory.Types.BatchListObjectAttributes
+        , Network.AWS.CloudDirectory.Types.BatchListIncomingTypedLinksResponse
+        , Network.AWS.CloudDirectory.Types.DirectoryArn
+        , Network.AWS.CloudDirectory.Types.ExceptionMessage
+        , Network.AWS.CloudDirectory.Types.TypedAttributeValueRange
+        , Network.AWS.CloudDirectory.Types.FacetAttributeDefinition
+        , Network.AWS.CloudDirectory.Types.SchemaFacet
+        , Network.AWS.CloudDirectory.Types.BatchRemoveFacetFromObject
+        , Network.AWS.CloudDirectory.Types.BatchListObjectAttributesResponse
+        , Network.AWS.CloudDirectory.Types.IndexAttachment
+        , Network.AWS.CloudDirectory.Types.BatchRemoveFacetFromObjectResponse
+        , Network.AWS.CloudDirectory.Types.BatchListIncomingTypedLinks
+        , Network.AWS.CloudDirectory.Types.Tag
+        , Network.AWS.CloudDirectory.Types.StringAttributeValue
+        , Network.AWS.CloudDirectory.Types.FacetStyle
+        , Network.AWS.CloudDirectory.Types.BatchUpdateLinkAttributes
+        , Network.AWS.CloudDirectory.Types.FacetName
+        , Network.AWS.CloudDirectory.Types.BatchListObjectParentPathsResponse
+        , Network.AWS.CloudDirectory.Types.BatchAttachToIndex
+        , Network.AWS.CloudDirectory.Types.ObjectIdentifierAndLinkNameTuple
+        , Network.AWS.CloudDirectory.Types.ObjectType
+        , Network.AWS.CloudDirectory.Types.TypedLinkAttributeDefinition
+        , Network.AWS.CloudDirectory.Types.BatchCreateObject
+        , Network.AWS.CloudDirectory.Types.Arn
+        , Network.AWS.CloudDirectory.Types.BatchGetLinkAttributes
+        , Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse
+        , Network.AWS.CloudDirectory.Types.BatchGetObjectInformationResponse
+        , Network.AWS.CloudDirectory.Types.BatchDeleteObject
+        , Network.AWS.CloudDirectory.Types.BatchListAttachedIndicesResponse
+        , Network.AWS.CloudDirectory.Types.ConsistencyLevel
+        , Network.AWS.CloudDirectory.Types.RuleParameterKey
+        , Network.AWS.CloudDirectory.Types.BatchListIndex
+        , Network.AWS.CloudDirectory.Types.BatchReadOperationResponse
+        , Network.AWS.CloudDirectory.Types.PolicyType
+        , Network.AWS.CloudDirectory.Types.PathString
+        , Network.AWS.CloudDirectory.Types.BatchDetachFromIndexResponse
+        , Network.AWS.CloudDirectory.Types.BatchDetachFromIndex
+        , Network.AWS.CloudDirectory.Types.AttributeNameAndValue
+        , Network.AWS.CloudDirectory.Types.BatchListAttachedIndices
+        , Network.AWS.CloudDirectory.Types.BatchListIndexResponse
+        , Network.AWS.CloudDirectory.Types.BatchDeleteObjectResponse
+        , Network.AWS.CloudDirectory.Types.TypedAttributeValue
+        , Network.AWS.CloudDirectory.Types.PathToObjectIdentifiers
+        , Network.AWS.CloudDirectory.Types.BatchReadOperation
+        , Network.AWS.CloudDirectory.Types.AttributeKeyAndValue
+        , Network.AWS.CloudDirectory.Types.BatchGetObjectInformation
+        , Network.AWS.CloudDirectory.Types.ObjectIdentifier
+        , Network.AWS.CloudDirectory.Types.SchemaJsonDocument
+        , Network.AWS.CloudDirectory.Types.BatchListObjectPoliciesResponse
+        , Network.AWS.CloudDirectory.Types.PolicyToPath
+        , Network.AWS.CloudDirectory.Types.SchemaName
+        , Network.AWS.CloudDirectory.Types.BatchCreateIndex
+        , Network.AWS.CloudDirectory.Types.BatchDetachObject
+        , Network.AWS.CloudDirectory.Types.Rule
+        , Network.AWS.CloudDirectory.Types.BatchAddFacetToObject
+        , Network.AWS.CloudDirectory.Types.FacetAttribute
+        , Network.AWS.CloudDirectory.Types.RuleKey
+        , Network.AWS.CloudDirectory.Types.BatchAttachToIndexResponse
+        , Network.AWS.CloudDirectory.Types.BatchUpdateLinkAttributesResponse
+        , Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior
+        , Network.AWS.CloudDirectory.Types.BatchReadException
+        , Network.AWS.CloudDirectory.Types.BatchListObjectParentPaths
+        , Network.AWS.CloudDirectory.Types.BatchAttachPolicyResponse
+        , Network.AWS.CloudDirectory.Types.TypedLinkSchemaAndFacetName
+        , Network.AWS.CloudDirectory.Types.RangeMode
+        , Network.AWS.CloudDirectory.Types.NextToken
+        , Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributesResponse
+        , Network.AWS.CloudDirectory.Types.TypedLinkFacetAttributeUpdate
+        , Network.AWS.CloudDirectory.Types.BatchListPolicyAttachments
+        , Network.AWS.CloudDirectory.Types.BatchDetachTypedLinkResponse
+        , Network.AWS.CloudDirectory.Types.BatchListObjectParents
+        , Network.AWS.CloudDirectory.Types.BatchWriteOperation
+        , Network.AWS.CloudDirectory.Types.RuleParameterValue
+        , Network.AWS.CloudDirectory.Types.BatchListOutgoingTypedLinksResponse
+        , Network.AWS.CloudDirectory.Types.BatchDetachTypedLink
+        , Network.AWS.CloudDirectory.Types.BatchAttachPolicy
+        , Network.AWS.CloudDirectory.Types.ObjectAttributeAction
+        , Network.AWS.CloudDirectory.Types.BatchListOutgoingTypedLinks
+        , Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse
+        , Network.AWS.CloudDirectory.Types.BatchListPolicyAttachmentsResponse
+        , Network.AWS.CloudDirectory.Types.UpdateActionType
+        , Network.AWS.CloudDirectory.Types.BatchUpdateObjectAttributes
+        , Network.AWS.CloudDirectory.Types.TypedLinkAttributeRange
+        , Network.AWS.CloudDirectory.Types.LinkName
+        , Network.AWS.CloudDirectory.Types.BatchWriteOperationResponse
+        , Network.AWS.CloudDirectory.Types.BatchAttachObject
+        , Network.AWS.CloudDirectory.Types.Version
+        , Network.AWS.CloudDirectory.Types.LinkAttributeAction
+        , Network.AWS.CloudDirectory.Types.FacetAttributeReference
+        , Network.AWS.CloudDirectory.Types.BatchListObjectPolicies
+        , Network.AWS.CloudDirectory.Types.BatchAddFacetToObjectResponse
+        , Network.AWS.CloudDirectory.Types.Facet
+        , Network.AWS.CloudDirectory.Types.LinkAttributeUpdate
+        , Network.AWS.CloudDirectory.Types.BatchDetachObjectResponse
+        , Network.AWS.CloudDirectory.Types.BatchCreateIndexResponse
+        , Network.AWS.CloudDirectory.Types.TagKey
+        , Network.AWS.CloudDirectory.Types.BatchReferenceName
+        , Network.AWS.CloudDirectory.Types.BatchListObjectChildren
+        , Network.AWS.CloudDirectory.Types.ObjectAttributeUpdate
+        , Network.AWS.CloudDirectory.Types.FacetAttributeUpdate
+        , Network.AWS.CloudDirectory.Types.BatchAttachTypedLinkResponse
+        , Network.AWS.CloudDirectory.Types.BatchDetachPolicyResponse
+        , Network.AWS.CloudDirectory.Types.TypedLinkSpecifier
+        , Network.AWS.CloudDirectory.Types.BatchGetObjectAttributes
+        , Network.AWS.CloudDirectory.Types.TypedLinkName
+        , Network.AWS.CloudDirectory.Types.SelectorObjectReference
+        , Network.AWS.CloudDirectory.Types.AttributeKey
+        , Network.AWS.CloudDirectory.Types.BatchAttachTypedLink
+        , Network.AWS.CloudDirectory.Types.BatchGetObjectAttributesResponse
+        , Network.AWS.CloudDirectory.Types.AttributeName
+        , Network.AWS.CloudDirectory.Types.BatchListObjectChildrenResponse
+        , Network.AWS.CloudDirectory.Types.BatchDetachPolicy
+        , Network.AWS.CloudDirectory.Types.BatchLookupPolicy
+        , Network.AWS.CloudDirectory.Types.BatchCreateObjectResponse
+        , Network.AWS.CloudDirectory.Types.RuleType
+        , Network.AWS.CloudDirectory.Types.DirectoryName
+        , Network.AWS.CloudDirectory.Types.ObjectAttributeRange
+        , Network.AWS.CloudDirectory.Types.BatchGetLinkAttributesResponse
+        , Network.AWS.CloudDirectory.Types.DirectoryState
+        , Network.AWS.CloudDirectory.Types.ObjectReference
+        , Network.AWS.CloudDirectory.Types.BatchReadSuccessfulResponse
+        , Network.AWS.CloudDirectory.Types.BatchAttachObjectResponse
+        , Network.AWS.CloudDirectory.Types.FacetAttributeType
+        , Network.AWS.CloudDirectory.Types.Directory
+        , Network.AWS.CloudDirectory.Types.BatchReadExceptionType
+        , Network.AWS.CloudDirectory.Types.TypedLinkFacet
+        , Network.AWS.CloudDirectory.Types.PolicyAttachment
+        , Network.AWS.CloudDirectory.Types.SchemaArn
+        , Network.AWS.CloudDirectory.Types.Name
+        , Network.AWS.CloudDirectory.Types.DetachedObjectIdentifier
+        , Network.AWS.CloudDirectory.Types.UpgradedSchemaArn
+        , Network.AWS.CloudDirectory.Types.Key
+        , Network.AWS.CloudDirectory.Types.Value
+        , Network.AWS.CloudDirectory.Types.AttachedObjectIdentifier
+        , Network.AWS.CloudDirectory.Types.MinorVersion
+        , Network.AWS.CloudDirectory.Types.NumberValue
+        , Network.AWS.CloudDirectory.Types.TargetAttributeName
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-clouddirectory-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.CloudDirectory
-    Test.AWS.CloudDirectory.Internal
-    Test.AWS.Gen.CloudDirectory
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-clouddirectory
-    , amazonka-core            >=2.0.0.0 && <2.0.0.1
-    , amazonka-test            >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.CloudDirectory
+        , Test.AWS.Gen.CloudDirectory
+        , Test.AWS.CloudDirectory.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-clouddirectory
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

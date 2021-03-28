@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,22 +15,20 @@
 --
 -- Deletes invitations sent to the current member account by AWS accounts specified by their account IDs.
 module Network.AWS.GuardDuty.DeleteInvitations
-  ( -- * Creating a request
-    DeleteInvitations (..),
-    mkDeleteInvitations,
-
+    (
+    -- * Creating a request
+      DeleteInvitations (..)
+    , mkDeleteInvitations
     -- ** Request lenses
-    diAccountIds,
+    , diAccountIds
 
     -- * Destructuring the response
-    DeleteInvitationsResponse (..),
-    mkDeleteInvitationsResponse,
-
+    , DeleteInvitationsResponse (..)
+    , mkDeleteInvitationsResponse
     -- ** Response lenses
-    dirrsUnprocessedAccounts,
-    dirrsResponseStatus,
-  )
-where
+    , dirrsUnprocessedAccounts
+    , dirrsResponseStatus
+    ) where
 
 import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -40,82 +38,86 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteInvitations' smart constructor.
 newtype DeleteInvitations = DeleteInvitations'
-  { -- | A list of account IDs of the AWS accounts that sent invitations to the current member account that you want to delete invitations from.
-    accountIds :: Core.NonEmpty Types.AccountId
+  { accountIds :: Core.NonEmpty Types.AccountId
+    -- ^ A list of account IDs of the AWS accounts that sent invitations to the current member account that you want to delete invitations from.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteInvitations' value with any optional fields omitted.
-mkDeleteInvitations ::
-  -- | 'accountIds'
-  Core.NonEmpty Types.AccountId ->
-  DeleteInvitations
-mkDeleteInvitations accountIds = DeleteInvitations' {accountIds}
+mkDeleteInvitations
+    :: Core.NonEmpty Types.AccountId -- ^ 'accountIds'
+    -> DeleteInvitations
+mkDeleteInvitations accountIds = DeleteInvitations'{accountIds}
 
 -- | A list of account IDs of the AWS accounts that sent invitations to the current member account that you want to delete invitations from.
 --
 -- /Note:/ Consider using 'accountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 diAccountIds :: Lens.Lens' DeleteInvitations (Core.NonEmpty Types.AccountId)
 diAccountIds = Lens.field @"accountIds"
-{-# DEPRECATED diAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
+{-# INLINEABLE diAccountIds #-}
+{-# DEPRECATED accountIds "Use generic-lens or generic-optics with 'accountIds' instead"  #-}
+
+instance Core.ToQuery DeleteInvitations where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DeleteInvitations where
+        toHeaders DeleteInvitations{..}
+          = Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON DeleteInvitations where
-  toJSON DeleteInvitations {..} =
-    Core.object
-      (Core.catMaybes [Core.Just ("accountIds" Core..= accountIds)])
+        toJSON DeleteInvitations{..}
+          = Core.object
+              (Core.catMaybes [Core.Just ("accountIds" Core..= accountIds)])
 
 instance Core.AWSRequest DeleteInvitations where
-  type Rs DeleteInvitations = DeleteInvitationsResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/invitation/delete",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          DeleteInvitationsResponse'
-            Core.<$> (x Core..:? "unprocessedAccounts" Core..!= Core.mempty)
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DeleteInvitations = DeleteInvitationsResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/invitation/delete",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 DeleteInvitationsResponse' Core.<$>
+                   (x Core..:? "unprocessedAccounts" Core..!= Core.mempty) Core.<*>
+                     Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteInvitationsResponse' smart constructor.
 data DeleteInvitationsResponse = DeleteInvitationsResponse'
-  { -- | A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
-    unprocessedAccounts :: [Types.UnprocessedAccount],
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { unprocessedAccounts :: [Types.UnprocessedAccount]
+    -- ^ A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteInvitationsResponse' value with any optional fields omitted.
-mkDeleteInvitationsResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DeleteInvitationsResponse
-mkDeleteInvitationsResponse responseStatus =
-  DeleteInvitationsResponse'
-    { unprocessedAccounts = Core.mempty,
-      responseStatus
-    }
+mkDeleteInvitationsResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DeleteInvitationsResponse
+mkDeleteInvitationsResponse responseStatus
+  = DeleteInvitationsResponse'{unprocessedAccounts = Core.mempty,
+                               responseStatus}
 
 -- | A list of objects that contain the unprocessed account and a result string that explains why it was unprocessed.
 --
 -- /Note:/ Consider using 'unprocessedAccounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dirrsUnprocessedAccounts :: Lens.Lens' DeleteInvitationsResponse [Types.UnprocessedAccount]
 dirrsUnprocessedAccounts = Lens.field @"unprocessedAccounts"
-{-# DEPRECATED dirrsUnprocessedAccounts "Use generic-lens or generic-optics with 'unprocessedAccounts' instead." #-}
+{-# INLINEABLE dirrsUnprocessedAccounts #-}
+{-# DEPRECATED unprocessedAccounts "Use generic-lens or generic-optics with 'unprocessedAccounts' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dirrsResponseStatus :: Lens.Lens' DeleteInvitationsResponse Core.Int
 dirrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED dirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE dirrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

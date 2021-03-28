@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,55 +10,37 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.ELBv2.Types.TargetHealthReasonEnum
   ( TargetHealthReasonEnum
-      ( TargetHealthReasonEnum',
-        TargetHealthReasonEnumElb_RegistrationInProgress,
-        TargetHealthReasonEnumElb_InitialHealthChecking,
-        TargetHealthReasonEnumTarget_ResponseCodeMismatch,
-        TargetHealthReasonEnumTarget_Timeout,
-        TargetHealthReasonEnumTarget_FailedHealthChecks,
-        TargetHealthReasonEnumTarget_NotRegistered,
-        TargetHealthReasonEnumTarget_NotInUse,
-        TargetHealthReasonEnumTarget_DeregistrationInProgress,
-        TargetHealthReasonEnumTarget_InvalidState,
-        TargetHealthReasonEnumTarget_IpUnusable,
-        TargetHealthReasonEnumTarget_HealthCheckDisabled,
-        TargetHealthReasonEnumElb_InternalError,
-        fromTargetHealthReasonEnum
-      ),
-  )
-where
+    ( TargetHealthReasonEnum'
+    , TargetHealthReasonEnumElb_RegistrationInProgress
+    , TargetHealthReasonEnumElb_InitialHealthChecking
+    , TargetHealthReasonEnumTarget_ResponseCodeMismatch
+    , TargetHealthReasonEnumTarget_Timeout
+    , TargetHealthReasonEnumTarget_FailedHealthChecks
+    , TargetHealthReasonEnumTarget_NotRegistered
+    , TargetHealthReasonEnumTarget_NotInUse
+    , TargetHealthReasonEnumTarget_DeregistrationInProgress
+    , TargetHealthReasonEnumTarget_InvalidState
+    , TargetHealthReasonEnumTarget_IpUnusable
+    , TargetHealthReasonEnumTarget_HealthCheckDisabled
+    , TargetHealthReasonEnumElb_InternalError
+    , fromTargetHealthReasonEnum
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype TargetHealthReasonEnum = TargetHealthReasonEnum'
-  { fromTargetHealthReasonEnum ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype TargetHealthReasonEnum = TargetHealthReasonEnum'{fromTargetHealthReasonEnum
+                                                         :: Core.Text}
+                                   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                   Core.Generic)
+                                   deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                     Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                     Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                     Core.ToText, Core.FromText, Core.ToByteString,
+                                                     Core.ToQuery, Core.ToHeader)
 
 pattern TargetHealthReasonEnumElb_RegistrationInProgress :: TargetHealthReasonEnum
 pattern TargetHealthReasonEnumElb_RegistrationInProgress = TargetHealthReasonEnum' "Elb.RegistrationInProgress"
@@ -96,18 +78,29 @@ pattern TargetHealthReasonEnumTarget_HealthCheckDisabled = TargetHealthReasonEnu
 pattern TargetHealthReasonEnumElb_InternalError :: TargetHealthReasonEnum
 pattern TargetHealthReasonEnumElb_InternalError = TargetHealthReasonEnum' "Elb.InternalError"
 
-{-# COMPLETE
+{-# COMPLETE 
   TargetHealthReasonEnumElb_RegistrationInProgress,
+
   TargetHealthReasonEnumElb_InitialHealthChecking,
+
   TargetHealthReasonEnumTarget_ResponseCodeMismatch,
+
   TargetHealthReasonEnumTarget_Timeout,
+
   TargetHealthReasonEnumTarget_FailedHealthChecks,
+
   TargetHealthReasonEnumTarget_NotRegistered,
+
   TargetHealthReasonEnumTarget_NotInUse,
+
   TargetHealthReasonEnumTarget_DeregistrationInProgress,
+
   TargetHealthReasonEnumTarget_InvalidState,
+
   TargetHealthReasonEnumTarget_IpUnusable,
+
   TargetHealthReasonEnumTarget_HealthCheckDisabled,
+
   TargetHealthReasonEnumElb_InternalError,
   TargetHealthReasonEnum'
   #-}

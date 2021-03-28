@@ -1,608 +1,610 @@
-cabal-version:      2.2
-name:               amazonka-medialive
-version:            2.0.0.0
-synopsis:           Amazon Elemental MediaLive SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-medialive
+version:               2.0.0.0
+synopsis:              Amazon Elemental MediaLive SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.MediaLive" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.MediaLive" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-medialive
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-medialive
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.MediaLive
-    Network.AWS.MediaLive.AcceptInputDeviceTransfer
-    Network.AWS.MediaLive.BatchDelete
-    Network.AWS.MediaLive.BatchStart
-    Network.AWS.MediaLive.BatchStop
-    Network.AWS.MediaLive.BatchUpdateSchedule
-    Network.AWS.MediaLive.CancelInputDeviceTransfer
-    Network.AWS.MediaLive.CreateChannel
-    Network.AWS.MediaLive.CreateInput
-    Network.AWS.MediaLive.CreateInputSecurityGroup
-    Network.AWS.MediaLive.CreateMultiplex
-    Network.AWS.MediaLive.CreateMultiplexProgram
-    Network.AWS.MediaLive.CreateTags
-    Network.AWS.MediaLive.DeleteChannel
-    Network.AWS.MediaLive.DeleteInput
-    Network.AWS.MediaLive.DeleteInputSecurityGroup
-    Network.AWS.MediaLive.DeleteMultiplex
-    Network.AWS.MediaLive.DeleteMultiplexProgram
-    Network.AWS.MediaLive.DeleteReservation
-    Network.AWS.MediaLive.DeleteSchedule
-    Network.AWS.MediaLive.DeleteTags
-    Network.AWS.MediaLive.DescribeChannel
-    Network.AWS.MediaLive.DescribeInput
-    Network.AWS.MediaLive.DescribeInputDevice
-    Network.AWS.MediaLive.DescribeInputDeviceThumbnail
-    Network.AWS.MediaLive.DescribeInputSecurityGroup
-    Network.AWS.MediaLive.DescribeMultiplex
-    Network.AWS.MediaLive.DescribeMultiplexProgram
-    Network.AWS.MediaLive.DescribeOffering
-    Network.AWS.MediaLive.DescribeReservation
-    Network.AWS.MediaLive.DescribeSchedule
-    Network.AWS.MediaLive.ListChannels
-    Network.AWS.MediaLive.ListInputDevices
-    Network.AWS.MediaLive.ListInputDeviceTransfers
-    Network.AWS.MediaLive.ListInputs
-    Network.AWS.MediaLive.ListInputSecurityGroups
-    Network.AWS.MediaLive.ListMultiplexes
-    Network.AWS.MediaLive.ListMultiplexPrograms
-    Network.AWS.MediaLive.ListOfferings
-    Network.AWS.MediaLive.ListReservations
-    Network.AWS.MediaLive.ListTagsForResource
-    Network.AWS.MediaLive.PurchaseOffering
-    Network.AWS.MediaLive.RejectInputDeviceTransfer
-    Network.AWS.MediaLive.StartChannel
-    Network.AWS.MediaLive.StartMultiplex
-    Network.AWS.MediaLive.StopChannel
-    Network.AWS.MediaLive.StopMultiplex
-    Network.AWS.MediaLive.TransferInputDevice
-    Network.AWS.MediaLive.Types
-    Network.AWS.MediaLive.UpdateChannel
-    Network.AWS.MediaLive.UpdateChannelClass
-    Network.AWS.MediaLive.UpdateInput
-    Network.AWS.MediaLive.UpdateInputDevice
-    Network.AWS.MediaLive.UpdateInputSecurityGroup
-    Network.AWS.MediaLive.UpdateMultiplex
-    Network.AWS.MediaLive.UpdateMultiplexProgram
-    Network.AWS.MediaLive.UpdateReservation
-    Network.AWS.MediaLive.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.MediaLive.Types.AacCodingMode
-    Network.AWS.MediaLive.Types.AacInputType
-    Network.AWS.MediaLive.Types.AacProfile
-    Network.AWS.MediaLive.Types.AacRateControlMode
-    Network.AWS.MediaLive.Types.AacRawFormat
-    Network.AWS.MediaLive.Types.AacSettings
-    Network.AWS.MediaLive.Types.AacSpec
-    Network.AWS.MediaLive.Types.AacVbrQuality
-    Network.AWS.MediaLive.Types.Ac3BitstreamMode
-    Network.AWS.MediaLive.Types.Ac3CodingMode
-    Network.AWS.MediaLive.Types.Ac3DrcProfile
-    Network.AWS.MediaLive.Types.Ac3LfeFilter
-    Network.AWS.MediaLive.Types.Ac3MetadataControl
-    Network.AWS.MediaLive.Types.Ac3Settings
-    Network.AWS.MediaLive.Types.AcceptHeader
-    Network.AWS.MediaLive.Types.AfdSignaling
-    Network.AWS.MediaLive.Types.AncillarySourceSettings
-    Network.AWS.MediaLive.Types.ArchiveContainerSettings
-    Network.AWS.MediaLive.Types.ArchiveGroupSettings
-    Network.AWS.MediaLive.Types.ArchiveOutputSettings
-    Network.AWS.MediaLive.Types.AribDestinationSettings
-    Network.AWS.MediaLive.Types.AribSourceSettings
-    Network.AWS.MediaLive.Types.AudioChannelMapping
-    Network.AWS.MediaLive.Types.AudioCodecSettings
-    Network.AWS.MediaLive.Types.AudioDescription
-    Network.AWS.MediaLive.Types.AudioDescriptionAudioTypeControl
-    Network.AWS.MediaLive.Types.AudioDescriptionLanguageCodeControl
-    Network.AWS.MediaLive.Types.AudioLanguageSelection
-    Network.AWS.MediaLive.Types.AudioLanguageSelectionPolicy
-    Network.AWS.MediaLive.Types.AudioNormalizationAlgorithm
-    Network.AWS.MediaLive.Types.AudioNormalizationAlgorithmControl
-    Network.AWS.MediaLive.Types.AudioNormalizationSettings
-    Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType
-    Network.AWS.MediaLive.Types.AudioOnlyHlsSettings
-    Network.AWS.MediaLive.Types.AudioOnlyHlsTrackType
-    Network.AWS.MediaLive.Types.AudioPidSelection
-    Network.AWS.MediaLive.Types.AudioSelector
-    Network.AWS.MediaLive.Types.AudioSelectorSettings
-    Network.AWS.MediaLive.Types.AudioTrack
-    Network.AWS.MediaLive.Types.AudioTrackSelection
-    Network.AWS.MediaLive.Types.AudioType
-    Network.AWS.MediaLive.Types.AuthenticationScheme
-    Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings
-    Network.AWS.MediaLive.Types.AvailBlanking
-    Network.AWS.MediaLive.Types.AvailBlankingState
-    Network.AWS.MediaLive.Types.AvailConfiguration
-    Network.AWS.MediaLive.Types.AvailSettings
-    Network.AWS.MediaLive.Types.BatchFailedResultModel
-    Network.AWS.MediaLive.Types.BatchScheduleActionCreateRequest
-    Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult
-    Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest
-    Network.AWS.MediaLive.Types.BatchScheduleActionDeleteResult
-    Network.AWS.MediaLive.Types.BatchSuccessfulResultModel
-    Network.AWS.MediaLive.Types.BlackoutSlate
-    Network.AWS.MediaLive.Types.BlackoutSlateNetworkEndBlackout
-    Network.AWS.MediaLive.Types.BlackoutSlateState
-    Network.AWS.MediaLive.Types.BurnInAlignment
-    Network.AWS.MediaLive.Types.BurnInBackgroundColor
-    Network.AWS.MediaLive.Types.BurnInDestinationSettings
-    Network.AWS.MediaLive.Types.BurnInFontColor
-    Network.AWS.MediaLive.Types.BurnInOutlineColor
-    Network.AWS.MediaLive.Types.BurnInShadowColor
-    Network.AWS.MediaLive.Types.BurnInTeletextGridControl
-    Network.AWS.MediaLive.Types.CaptionDescription
-    Network.AWS.MediaLive.Types.CaptionDestinationSettings
-    Network.AWS.MediaLive.Types.CaptionLanguageMapping
-    Network.AWS.MediaLive.Types.CaptionSelector
-    Network.AWS.MediaLive.Types.CaptionSelectorSettings
-    Network.AWS.MediaLive.Types.CdiInputResolution
-    Network.AWS.MediaLive.Types.CdiInputSpecification
-    Network.AWS.MediaLive.Types.Channel
-    Network.AWS.MediaLive.Types.ChannelClass
-    Network.AWS.MediaLive.Types.ChannelEgressEndpoint
-    Network.AWS.MediaLive.Types.ChannelState
-    Network.AWS.MediaLive.Types.ChannelSummary
-    Network.AWS.MediaLive.Types.ColorSpacePassthroughSettings
-    Network.AWS.MediaLive.Types.ContentType
-    Network.AWS.MediaLive.Types.DeviceSettingsSyncState
-    Network.AWS.MediaLive.Types.DeviceUpdateStatus
-    Network.AWS.MediaLive.Types.DvbNitSettings
-    Network.AWS.MediaLive.Types.DvbSdtOutputSdt
-    Network.AWS.MediaLive.Types.DvbSdtSettings
-    Network.AWS.MediaLive.Types.DvbSubDestinationAlignment
-    Network.AWS.MediaLive.Types.DvbSubDestinationBackgroundColor
-    Network.AWS.MediaLive.Types.DvbSubDestinationFontColor
-    Network.AWS.MediaLive.Types.DvbSubDestinationOutlineColor
-    Network.AWS.MediaLive.Types.DvbSubDestinationSettings
-    Network.AWS.MediaLive.Types.DvbSubDestinationShadowColor
-    Network.AWS.MediaLive.Types.DvbSubDestinationTeletextGridControl
-    Network.AWS.MediaLive.Types.DvbSubSourceSettings
-    Network.AWS.MediaLive.Types.DvbTdtSettings
-    Network.AWS.MediaLive.Types.Eac3AttenuationControl
-    Network.AWS.MediaLive.Types.Eac3BitstreamMode
-    Network.AWS.MediaLive.Types.Eac3CodingMode
-    Network.AWS.MediaLive.Types.Eac3DcFilter
-    Network.AWS.MediaLive.Types.Eac3DrcLine
-    Network.AWS.MediaLive.Types.Eac3DrcRf
-    Network.AWS.MediaLive.Types.Eac3LfeControl
-    Network.AWS.MediaLive.Types.Eac3LfeFilter
-    Network.AWS.MediaLive.Types.Eac3MetadataControl
-    Network.AWS.MediaLive.Types.Eac3PassthroughControl
-    Network.AWS.MediaLive.Types.Eac3PhaseControl
-    Network.AWS.MediaLive.Types.Eac3Settings
-    Network.AWS.MediaLive.Types.Eac3StereoDownmix
-    Network.AWS.MediaLive.Types.Eac3SurroundExMode
-    Network.AWS.MediaLive.Types.Eac3SurroundMode
-    Network.AWS.MediaLive.Types.EbuTtDDestinationSettings
-    Network.AWS.MediaLive.Types.EbuTtDDestinationStyleControl
-    Network.AWS.MediaLive.Types.EbuTtDFillLineGapControl
-    Network.AWS.MediaLive.Types.EmbeddedConvert608To708
-    Network.AWS.MediaLive.Types.EmbeddedDestinationSettings
-    Network.AWS.MediaLive.Types.EmbeddedPlusScte20DestinationSettings
-    Network.AWS.MediaLive.Types.EmbeddedScte20Detection
-    Network.AWS.MediaLive.Types.EmbeddedSourceSettings
-    Network.AWS.MediaLive.Types.EncoderSettings
-    Network.AWS.MediaLive.Types.FailoverCondition
-    Network.AWS.MediaLive.Types.FailoverConditionSettings
-    Network.AWS.MediaLive.Types.FeatureActivations
-    Network.AWS.MediaLive.Types.FeatureActivationsInputPrepareScheduleActions
-    Network.AWS.MediaLive.Types.FecOutputIncludeFec
-    Network.AWS.MediaLive.Types.FecOutputSettings
-    Network.AWS.MediaLive.Types.FixedAfd
-    Network.AWS.MediaLive.Types.FixedModeScheduleActionStartSettings
-    Network.AWS.MediaLive.Types.Fmp4HlsSettings
-    Network.AWS.MediaLive.Types.Fmp4NielsenId3Behavior
-    Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior
-    Network.AWS.MediaLive.Types.FollowModeScheduleActionStartSettings
-    Network.AWS.MediaLive.Types.FollowPoint
-    Network.AWS.MediaLive.Types.FrameCaptureGroupSettings
-    Network.AWS.MediaLive.Types.FrameCaptureIntervalUnit
-    Network.AWS.MediaLive.Types.FrameCaptureOutputSettings
-    Network.AWS.MediaLive.Types.FrameCaptureSettings
-    Network.AWS.MediaLive.Types.GlobalConfiguration
-    Network.AWS.MediaLive.Types.GlobalConfigurationInputEndAction
-    Network.AWS.MediaLive.Types.GlobalConfigurationLowFramerateInputs
-    Network.AWS.MediaLive.Types.GlobalConfigurationOutputLockingMode
-    Network.AWS.MediaLive.Types.GlobalConfigurationOutputTimingSource
-    Network.AWS.MediaLive.Types.H264AdaptiveQuantization
-    Network.AWS.MediaLive.Types.H264ColorMetadata
-    Network.AWS.MediaLive.Types.H264ColorSpaceSettings
-    Network.AWS.MediaLive.Types.H264EntropyEncoding
-    Network.AWS.MediaLive.Types.H264FilterSettings
-    Network.AWS.MediaLive.Types.H264FlickerAq
-    Network.AWS.MediaLive.Types.H264ForceFieldPictures
-    Network.AWS.MediaLive.Types.H264FramerateControl
-    Network.AWS.MediaLive.Types.H264GopBReference
-    Network.AWS.MediaLive.Types.H264GopSizeUnits
-    Network.AWS.MediaLive.Types.H264Level
-    Network.AWS.MediaLive.Types.H264LookAheadRateControl
-    Network.AWS.MediaLive.Types.H264ParControl
-    Network.AWS.MediaLive.Types.H264Profile
-    Network.AWS.MediaLive.Types.H264QualityLevel
-    Network.AWS.MediaLive.Types.H264RateControlMode
-    Network.AWS.MediaLive.Types.H264ScanType
-    Network.AWS.MediaLive.Types.H264SceneChangeDetect
-    Network.AWS.MediaLive.Types.H264Settings
-    Network.AWS.MediaLive.Types.H264SpatialAq
-    Network.AWS.MediaLive.Types.H264SubGopLength
-    Network.AWS.MediaLive.Types.H264Syntax
-    Network.AWS.MediaLive.Types.H264TemporalAq
-    Network.AWS.MediaLive.Types.H264TimecodeInsertionBehavior
-    Network.AWS.MediaLive.Types.H265AdaptiveQuantization
-    Network.AWS.MediaLive.Types.H265AlternativeTransferFunction
-    Network.AWS.MediaLive.Types.H265ColorMetadata
-    Network.AWS.MediaLive.Types.H265ColorSpaceSettings
-    Network.AWS.MediaLive.Types.H265FilterSettings
-    Network.AWS.MediaLive.Types.H265FlickerAq
-    Network.AWS.MediaLive.Types.H265GopSizeUnits
-    Network.AWS.MediaLive.Types.H265Level
-    Network.AWS.MediaLive.Types.H265LookAheadRateControl
-    Network.AWS.MediaLive.Types.H265Profile
-    Network.AWS.MediaLive.Types.H265RateControlMode
-    Network.AWS.MediaLive.Types.H265ScanType
-    Network.AWS.MediaLive.Types.H265SceneChangeDetect
-    Network.AWS.MediaLive.Types.H265Settings
-    Network.AWS.MediaLive.Types.H265Tier
-    Network.AWS.MediaLive.Types.H265TimecodeInsertionBehavior
-    Network.AWS.MediaLive.Types.Hdr10Settings
-    Network.AWS.MediaLive.Types.HlsAdMarkers
-    Network.AWS.MediaLive.Types.HlsAkamaiHttpTransferMode
-    Network.AWS.MediaLive.Types.HlsAkamaiSettings
-    Network.AWS.MediaLive.Types.HlsBasicPutSettings
-    Network.AWS.MediaLive.Types.HlsCaptionLanguageSetting
-    Network.AWS.MediaLive.Types.HlsCdnSettings
-    Network.AWS.MediaLive.Types.HlsClientCache
-    Network.AWS.MediaLive.Types.HlsCodecSpecification
-    Network.AWS.MediaLive.Types.HlsDirectoryStructure
-    Network.AWS.MediaLive.Types.HlsDiscontinuityTags
-    Network.AWS.MediaLive.Types.HlsEncryptionType
-    Network.AWS.MediaLive.Types.HlsGroupSettings
-    Network.AWS.MediaLive.Types.HlsH265PackagingType
-    Network.AWS.MediaLive.Types.HlsId3SegmentTaggingScheduleActionSettings
-    Network.AWS.MediaLive.Types.HlsId3SegmentTaggingState
-    Network.AWS.MediaLive.Types.HlsIncompleteSegmentBehavior
-    Network.AWS.MediaLive.Types.HlsInputSettings
-    Network.AWS.MediaLive.Types.HlsIvInManifest
-    Network.AWS.MediaLive.Types.HlsIvSource
-    Network.AWS.MediaLive.Types.HlsManifestCompression
-    Network.AWS.MediaLive.Types.HlsManifestDurationFormat
-    Network.AWS.MediaLive.Types.HlsMediaStoreSettings
-    Network.AWS.MediaLive.Types.HlsMediaStoreStorageClass
-    Network.AWS.MediaLive.Types.HlsMode
-    Network.AWS.MediaLive.Types.HlsOutputSelection
-    Network.AWS.MediaLive.Types.HlsOutputSettings
-    Network.AWS.MediaLive.Types.HlsProgramDateTime
-    Network.AWS.MediaLive.Types.HlsRedundantManifest
-    Network.AWS.MediaLive.Types.HlsSegmentationMode
-    Network.AWS.MediaLive.Types.HlsSettings
-    Network.AWS.MediaLive.Types.HlsStreamInfResolution
-    Network.AWS.MediaLive.Types.HlsTimedMetadataId3Frame
-    Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings
-    Network.AWS.MediaLive.Types.HlsTsFileMode
-    Network.AWS.MediaLive.Types.HlsWebdavHttpTransferMode
-    Network.AWS.MediaLive.Types.HlsWebdavSettings
-    Network.AWS.MediaLive.Types.IFrameOnlyPlaylistType
-    Network.AWS.MediaLive.Types.ImmediateModeScheduleActionStartSettings
-    Network.AWS.MediaLive.Types.Input
-    Network.AWS.MediaLive.Types.InputAttachment
-    Network.AWS.MediaLive.Types.InputChannelLevel
-    Network.AWS.MediaLive.Types.InputClass
-    Network.AWS.MediaLive.Types.InputClippingSettings
-    Network.AWS.MediaLive.Types.InputCodec
-    Network.AWS.MediaLive.Types.InputDeblockFilter
-    Network.AWS.MediaLive.Types.InputDenoiseFilter
-    Network.AWS.MediaLive.Types.InputDestination
-    Network.AWS.MediaLive.Types.InputDestinationRequest
-    Network.AWS.MediaLive.Types.InputDestinationVpc
-    Network.AWS.MediaLive.Types.InputDeviceActiveInput
-    Network.AWS.MediaLive.Types.InputDeviceConfigurableSettings
-    Network.AWS.MediaLive.Types.InputDeviceConfiguredInput
-    Network.AWS.MediaLive.Types.InputDeviceConnectionState
-    Network.AWS.MediaLive.Types.InputDeviceHdSettings
-    Network.AWS.MediaLive.Types.InputDeviceIpScheme
-    Network.AWS.MediaLive.Types.InputDeviceNetworkSettings
-    Network.AWS.MediaLive.Types.InputDeviceRequest
-    Network.AWS.MediaLive.Types.InputDeviceScanType
-    Network.AWS.MediaLive.Types.InputDeviceSettings
-    Network.AWS.MediaLive.Types.InputDeviceState
-    Network.AWS.MediaLive.Types.InputDeviceSummary
-    Network.AWS.MediaLive.Types.InputDeviceTransferType
-    Network.AWS.MediaLive.Types.InputDeviceType
-    Network.AWS.MediaLive.Types.InputFilter
-    Network.AWS.MediaLive.Types.InputLocation
-    Network.AWS.MediaLive.Types.InputLossActionForHlsOut
-    Network.AWS.MediaLive.Types.InputLossActionForMsSmoothOut
-    Network.AWS.MediaLive.Types.InputLossActionForRtmpOut
-    Network.AWS.MediaLive.Types.InputLossActionForUdpOut
-    Network.AWS.MediaLive.Types.InputLossBehavior
-    Network.AWS.MediaLive.Types.InputLossFailoverSettings
-    Network.AWS.MediaLive.Types.InputLossImageType
-    Network.AWS.MediaLive.Types.InputMaximumBitrate
-    Network.AWS.MediaLive.Types.InputPreference
-    Network.AWS.MediaLive.Types.InputPrepareScheduleActionSettings
-    Network.AWS.MediaLive.Types.InputResolution
-    Network.AWS.MediaLive.Types.InputSecurityGroup
-    Network.AWS.MediaLive.Types.InputSecurityGroupState
-    Network.AWS.MediaLive.Types.InputSettings
-    Network.AWS.MediaLive.Types.InputSource
-    Network.AWS.MediaLive.Types.InputSourceEndBehavior
-    Network.AWS.MediaLive.Types.InputSourceRequest
-    Network.AWS.MediaLive.Types.InputSourceType
-    Network.AWS.MediaLive.Types.InputSpecification
-    Network.AWS.MediaLive.Types.InputState
-    Network.AWS.MediaLive.Types.InputSwitchScheduleActionSettings
-    Network.AWS.MediaLive.Types.InputTimecodeSource
-    Network.AWS.MediaLive.Types.InputType
-    Network.AWS.MediaLive.Types.InputVpcRequest
-    Network.AWS.MediaLive.Types.InputWhitelistRule
-    Network.AWS.MediaLive.Types.InputWhitelistRuleCidr
-    Network.AWS.MediaLive.Types.KeyProviderSettings
-    Network.AWS.MediaLive.Types.LastFrameClippingBehavior
-    Network.AWS.MediaLive.Types.LogLevel
-    Network.AWS.MediaLive.Types.M2tsAbsentInputAudioBehavior
-    Network.AWS.MediaLive.Types.M2tsArib
-    Network.AWS.MediaLive.Types.M2tsAribCaptionsPidControl
-    Network.AWS.MediaLive.Types.M2tsAudioBufferModel
-    Network.AWS.MediaLive.Types.M2tsAudioInterval
-    Network.AWS.MediaLive.Types.M2tsAudioStreamType
-    Network.AWS.MediaLive.Types.M2tsBufferModel
-    Network.AWS.MediaLive.Types.M2tsCcDescriptor
-    Network.AWS.MediaLive.Types.M2tsEbifControl
-    Network.AWS.MediaLive.Types.M2tsEbpPlacement
-    Network.AWS.MediaLive.Types.M2tsEsRateInPes
-    Network.AWS.MediaLive.Types.M2tsKlv
-    Network.AWS.MediaLive.Types.M2tsNielsenId3Behavior
-    Network.AWS.MediaLive.Types.M2tsPcrControl
-    Network.AWS.MediaLive.Types.M2tsRateMode
-    Network.AWS.MediaLive.Types.M2tsScte35Control
-    Network.AWS.MediaLive.Types.M2tsSegmentationMarkers
-    Network.AWS.MediaLive.Types.M2tsSegmentationStyle
-    Network.AWS.MediaLive.Types.M2tsSettings
-    Network.AWS.MediaLive.Types.M2tsTimedMetadataBehavior
-    Network.AWS.MediaLive.Types.M3u8NielsenId3Behavior
-    Network.AWS.MediaLive.Types.M3u8PcrControl
-    Network.AWS.MediaLive.Types.M3u8Scte35Behavior
-    Network.AWS.MediaLive.Types.M3u8Settings
-    Network.AWS.MediaLive.Types.M3u8TimedMetadataBehavior
-    Network.AWS.MediaLive.Types.MediaConnectFlow
-    Network.AWS.MediaLive.Types.MediaConnectFlowRequest
-    Network.AWS.MediaLive.Types.MediaPackageGroupSettings
-    Network.AWS.MediaLive.Types.MediaPackageOutputDestinationSettings
-    Network.AWS.MediaLive.Types.MediaPackageOutputSettings
-    Network.AWS.MediaLive.Types.Mp2CodingMode
-    Network.AWS.MediaLive.Types.Mp2Settings
-    Network.AWS.MediaLive.Types.Mpeg2AdaptiveQuantization
-    Network.AWS.MediaLive.Types.Mpeg2ColorMetadata
-    Network.AWS.MediaLive.Types.Mpeg2ColorSpace
-    Network.AWS.MediaLive.Types.Mpeg2DisplayRatio
-    Network.AWS.MediaLive.Types.Mpeg2FilterSettings
-    Network.AWS.MediaLive.Types.Mpeg2GopSizeUnits
-    Network.AWS.MediaLive.Types.Mpeg2ScanType
-    Network.AWS.MediaLive.Types.Mpeg2Settings
-    Network.AWS.MediaLive.Types.Mpeg2SubGopLength
-    Network.AWS.MediaLive.Types.Mpeg2TimecodeInsertionBehavior
-    Network.AWS.MediaLive.Types.MsSmoothGroupSettings
-    Network.AWS.MediaLive.Types.MsSmoothH265PackagingType
-    Network.AWS.MediaLive.Types.MsSmoothOutputSettings
-    Network.AWS.MediaLive.Types.Multiplex
-    Network.AWS.MediaLive.Types.MultiplexGroupSettings
-    Network.AWS.MediaLive.Types.MultiplexMediaConnectOutputDestinationSettings
-    Network.AWS.MediaLive.Types.MultiplexOutputDestination
-    Network.AWS.MediaLive.Types.MultiplexOutputSettings
-    Network.AWS.MediaLive.Types.MultiplexProgram
-    Network.AWS.MediaLive.Types.MultiplexProgramChannelDestinationSettings
-    Network.AWS.MediaLive.Types.MultiplexProgramPacketIdentifiersMap
-    Network.AWS.MediaLive.Types.MultiplexProgramPipelineDetail
-    Network.AWS.MediaLive.Types.MultiplexProgramServiceDescriptor
-    Network.AWS.MediaLive.Types.MultiplexProgramSettings
-    Network.AWS.MediaLive.Types.MultiplexProgramSummary
-    Network.AWS.MediaLive.Types.MultiplexSettings
-    Network.AWS.MediaLive.Types.MultiplexSettingsSummary
-    Network.AWS.MediaLive.Types.MultiplexState
-    Network.AWS.MediaLive.Types.MultiplexStatmuxVideoSettings
-    Network.AWS.MediaLive.Types.MultiplexSummary
-    Network.AWS.MediaLive.Types.MultiplexVideoSettings
-    Network.AWS.MediaLive.Types.NetworkInputServerValidation
-    Network.AWS.MediaLive.Types.NetworkInputSettings
-    Network.AWS.MediaLive.Types.NielsenConfiguration
-    Network.AWS.MediaLive.Types.NielsenPcmToId3TaggingState
-    Network.AWS.MediaLive.Types.Offering
-    Network.AWS.MediaLive.Types.OfferingDurationUnits
-    Network.AWS.MediaLive.Types.OfferingType
-    Network.AWS.MediaLive.Types.Output
-    Network.AWS.MediaLive.Types.OutputDestination
-    Network.AWS.MediaLive.Types.OutputDestinationSettings
-    Network.AWS.MediaLive.Types.OutputGroup
-    Network.AWS.MediaLive.Types.OutputGroupSettings
-    Network.AWS.MediaLive.Types.OutputLocationRef
-    Network.AWS.MediaLive.Types.OutputSettings
-    Network.AWS.MediaLive.Types.PassThroughSettings
-    Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings
-    Network.AWS.MediaLive.Types.PipelineDetail
-    Network.AWS.MediaLive.Types.PipelineId
-    Network.AWS.MediaLive.Types.PipelinePauseStateSettings
-    Network.AWS.MediaLive.Types.PreferredChannelPipeline
-    Network.AWS.MediaLive.Types.RawSettings
-    Network.AWS.MediaLive.Types.Rec601Settings
-    Network.AWS.MediaLive.Types.Rec709Settings
-    Network.AWS.MediaLive.Types.RemixSettings
-    Network.AWS.MediaLive.Types.Reservation
-    Network.AWS.MediaLive.Types.ReservationCodec
-    Network.AWS.MediaLive.Types.ReservationMaximumBitrate
-    Network.AWS.MediaLive.Types.ReservationMaximumFramerate
-    Network.AWS.MediaLive.Types.ReservationResolution
-    Network.AWS.MediaLive.Types.ReservationResourceSpecification
-    Network.AWS.MediaLive.Types.ReservationResourceType
-    Network.AWS.MediaLive.Types.ReservationSpecialFeature
-    Network.AWS.MediaLive.Types.ReservationState
-    Network.AWS.MediaLive.Types.ReservationVideoQuality
-    Network.AWS.MediaLive.Types.RtmpAdMarkers
-    Network.AWS.MediaLive.Types.RtmpCacheFullBehavior
-    Network.AWS.MediaLive.Types.RtmpCaptionData
-    Network.AWS.MediaLive.Types.RtmpCaptionInfoDestinationSettings
-    Network.AWS.MediaLive.Types.RtmpGroupSettings
-    Network.AWS.MediaLive.Types.RtmpOutputCertificateMode
-    Network.AWS.MediaLive.Types.RtmpOutputSettings
-    Network.AWS.MediaLive.Types.ScheduleAction
-    Network.AWS.MediaLive.Types.ScheduleActionSettings
-    Network.AWS.MediaLive.Types.ScheduleActionStartSettings
-    Network.AWS.MediaLive.Types.Scte20Convert608To708
-    Network.AWS.MediaLive.Types.Scte20PlusEmbeddedDestinationSettings
-    Network.AWS.MediaLive.Types.Scte20SourceSettings
-    Network.AWS.MediaLive.Types.Scte27DestinationSettings
-    Network.AWS.MediaLive.Types.Scte27SourceSettings
-    Network.AWS.MediaLive.Types.Scte35AposNoRegionalBlackoutBehavior
-    Network.AWS.MediaLive.Types.Scte35AposWebDeliveryAllowedBehavior
-    Network.AWS.MediaLive.Types.Scte35ArchiveAllowedFlag
-    Network.AWS.MediaLive.Types.Scte35DeliveryRestrictions
-    Network.AWS.MediaLive.Types.Scte35Descriptor
-    Network.AWS.MediaLive.Types.Scte35DescriptorSettings
-    Network.AWS.MediaLive.Types.Scte35DeviceRestrictions
-    Network.AWS.MediaLive.Types.Scte35NoRegionalBlackoutFlag
-    Network.AWS.MediaLive.Types.Scte35ReturnToNetworkScheduleActionSettings
-    Network.AWS.MediaLive.Types.Scte35SegmentationCancelIndicator
-    Network.AWS.MediaLive.Types.Scte35SegmentationDescriptor
-    Network.AWS.MediaLive.Types.Scte35SpliceInsert
-    Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior
-    Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings
-    Network.AWS.MediaLive.Types.Scte35SpliceInsertWebDeliveryAllowedBehavior
-    Network.AWS.MediaLive.Types.Scte35TimeSignalApos
-    Network.AWS.MediaLive.Types.Scte35TimeSignalScheduleActionSettings
-    Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag
-    Network.AWS.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl
-    Network.AWS.MediaLive.Types.SmoothGroupCertificateMode
-    Network.AWS.MediaLive.Types.SmoothGroupEventIdMode
-    Network.AWS.MediaLive.Types.SmoothGroupEventStopBehavior
-    Network.AWS.MediaLive.Types.SmoothGroupSegmentationMode
-    Network.AWS.MediaLive.Types.SmoothGroupSparseTrackType
-    Network.AWS.MediaLive.Types.SmoothGroupStreamManifestBehavior
-    Network.AWS.MediaLive.Types.SmoothGroupTimestampOffsetMode
-    Network.AWS.MediaLive.Types.Smpte2038DataPreference
-    Network.AWS.MediaLive.Types.SmpteTtDestinationSettings
-    Network.AWS.MediaLive.Types.StandardHlsSettings
-    Network.AWS.MediaLive.Types.StartTimecode
-    Network.AWS.MediaLive.Types.StaticImageActivateScheduleActionSettings
-    Network.AWS.MediaLive.Types.StaticImageDeactivateScheduleActionSettings
-    Network.AWS.MediaLive.Types.StaticKeySettings
-    Network.AWS.MediaLive.Types.StopTimecode
-    Network.AWS.MediaLive.Types.TeletextDestinationSettings
-    Network.AWS.MediaLive.Types.TeletextSourceSettings
-    Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening
-    Network.AWS.MediaLive.Types.TemporalFilterSettings
-    Network.AWS.MediaLive.Types.TemporalFilterStrength
-    Network.AWS.MediaLive.Types.TimecodeConfig
-    Network.AWS.MediaLive.Types.TimecodeConfigSource
-    Network.AWS.MediaLive.Types.TransferringInputDeviceSummary
-    Network.AWS.MediaLive.Types.TtmlDestinationSettings
-    Network.AWS.MediaLive.Types.TtmlDestinationStyleControl
-    Network.AWS.MediaLive.Types.UdpContainerSettings
-    Network.AWS.MediaLive.Types.UdpGroupSettings
-    Network.AWS.MediaLive.Types.UdpOutputSettings
-    Network.AWS.MediaLive.Types.UdpTimedMetadataId3Frame
-    Network.AWS.MediaLive.Types.VideoCodecSettings
-    Network.AWS.MediaLive.Types.VideoDescription
-    Network.AWS.MediaLive.Types.VideoDescriptionRespondToAfd
-    Network.AWS.MediaLive.Types.VideoDescriptionScalingBehavior
-    Network.AWS.MediaLive.Types.VideoSelector
-    Network.AWS.MediaLive.Types.VideoSelectorColorSpace
-    Network.AWS.MediaLive.Types.VideoSelectorColorSpaceUsage
-    Network.AWS.MediaLive.Types.VideoSelectorPid
-    Network.AWS.MediaLive.Types.VideoSelectorProgramId
-    Network.AWS.MediaLive.Types.VideoSelectorSettings
-    Network.AWS.MediaLive.Types.WavCodingMode
-    Network.AWS.MediaLive.Types.WavSettings
-    Network.AWS.MediaLive.Types.WebvttDestinationSettings
+    exposed-modules:
+          Network.AWS.MediaLive
+        , Network.AWS.MediaLive.Types
+        , Network.AWS.MediaLive.Waiters
+        , Network.AWS.MediaLive.UpdateChannelClass
+        , Network.AWS.MediaLive.ListMultiplexes
+        , Network.AWS.MediaLive.BatchStart
+        , Network.AWS.MediaLive.CreateMultiplex
+        , Network.AWS.MediaLive.ListInputDeviceTransfers
+        , Network.AWS.MediaLive.ListInputDevices
+        , Network.AWS.MediaLive.ListInputs
+        , Network.AWS.MediaLive.DescribeInputDeviceThumbnail
+        , Network.AWS.MediaLive.ListChannels
+        , Network.AWS.MediaLive.DescribeInputSecurityGroup
+        , Network.AWS.MediaLive.CreateInput
+        , Network.AWS.MediaLive.ListTagsForResource
+        , Network.AWS.MediaLive.DeleteChannel
+        , Network.AWS.MediaLive.UpdateChannel
+        , Network.AWS.MediaLive.AcceptInputDeviceTransfer
+        , Network.AWS.MediaLive.DescribeReservation
+        , Network.AWS.MediaLive.CreateTags
+        , Network.AWS.MediaLive.StopMultiplex
+        , Network.AWS.MediaLive.DeleteTags
+        , Network.AWS.MediaLive.CreateInputSecurityGroup
+        , Network.AWS.MediaLive.StartChannel
+        , Network.AWS.MediaLive.CancelInputDeviceTransfer
+        , Network.AWS.MediaLive.ListInputSecurityGroups
+        , Network.AWS.MediaLive.DeleteReservation
+        , Network.AWS.MediaLive.UpdateReservation
+        , Network.AWS.MediaLive.BatchStop
+        , Network.AWS.MediaLive.DeleteSchedule
+        , Network.AWS.MediaLive.CreateChannel
+        , Network.AWS.MediaLive.DeleteInput
+        , Network.AWS.MediaLive.UpdateInput
+        , Network.AWS.MediaLive.UpdateInputDevice
+        , Network.AWS.MediaLive.RejectInputDeviceTransfer
+        , Network.AWS.MediaLive.DescribeOffering
+        , Network.AWS.MediaLive.TransferInputDevice
+        , Network.AWS.MediaLive.DeleteMultiplexProgram
+        , Network.AWS.MediaLive.UpdateMultiplexProgram
+        , Network.AWS.MediaLive.BatchDelete
+        , Network.AWS.MediaLive.ListMultiplexPrograms
+        , Network.AWS.MediaLive.DescribeMultiplex
+        , Network.AWS.MediaLive.BatchUpdateSchedule
+        , Network.AWS.MediaLive.CreateMultiplexProgram
+        , Network.AWS.MediaLive.DescribeSchedule
+        , Network.AWS.MediaLive.StartMultiplex
+        , Network.AWS.MediaLive.StopChannel
+        , Network.AWS.MediaLive.DescribeInput
+        , Network.AWS.MediaLive.PurchaseOffering
+        , Network.AWS.MediaLive.DescribeInputDevice
+        , Network.AWS.MediaLive.DescribeChannel
+        , Network.AWS.MediaLive.UpdateInputSecurityGroup
+        , Network.AWS.MediaLive.DeleteInputSecurityGroup
+        , Network.AWS.MediaLive.ListReservations
+        , Network.AWS.MediaLive.DeleteMultiplex
+        , Network.AWS.MediaLive.UpdateMultiplex
+        , Network.AWS.MediaLive.DescribeMultiplexProgram
+        , Network.AWS.MediaLive.ListOfferings
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.MediaLive.Types.H264FlickerAq
+        , Network.AWS.MediaLive.Types.ReservationVideoQuality
+        , Network.AWS.MediaLive.Types.H265FilterSettings
+        , Network.AWS.MediaLive.Types.HlsInputSettings
+        , Network.AWS.MediaLive.Types.M2tsNielsenId3Behavior
+        , Network.AWS.MediaLive.Types.MediaPackageGroupSettings
+        , Network.AWS.MediaLive.Types.Eac3PhaseControl
+        , Network.AWS.MediaLive.Types.AudioLanguageSelection
+        , Network.AWS.MediaLive.Types.PreferredChannelPipeline
+        , Network.AWS.MediaLive.Types.VideoSelector
+        , Network.AWS.MediaLive.Types.InputLossFailoverSettings
+        , Network.AWS.MediaLive.Types.HlsMode
+        , Network.AWS.MediaLive.Types.GlobalConfigurationOutputLockingMode
+        , Network.AWS.MediaLive.Types.Eac3SurroundExMode
+        , Network.AWS.MediaLive.Types.H264ParControl
+        , Network.AWS.MediaLive.Types.H264ColorSpaceSettings
+        , Network.AWS.MediaLive.Types.FeatureActivationsInputPrepareScheduleActions
+        , Network.AWS.MediaLive.Types.HlsStreamInfResolution
+        , Network.AWS.MediaLive.Types.TeletextDestinationSettings
+        , Network.AWS.MediaLive.Types.HlsCodecSpecification
+        , Network.AWS.MediaLive.Types.FrameCaptureSettings
+        , Network.AWS.MediaLive.Types.InputDeviceConfiguredInput
+        , Network.AWS.MediaLive.Types.HlsAkamaiSettings
+        , Network.AWS.MediaLive.Types.Mpeg2ColorSpace
+        , Network.AWS.MediaLive.Types.GlobalConfigurationInputEndAction
+        , Network.AWS.MediaLive.Types.SmoothGroupSparseTrackType
+        , Network.AWS.MediaLive.Types.MultiplexProgram
+        , Network.AWS.MediaLive.Types.BatchScheduleActionDeleteResult
+        , Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior
+        , Network.AWS.MediaLive.Types.EbuTtDDestinationSettings
+        , Network.AWS.MediaLive.Types.BurnInShadowColor
+        , Network.AWS.MediaLive.Types.InputDeviceConnectionState
+        , Network.AWS.MediaLive.Types.PassThroughSettings
+        , Network.AWS.MediaLive.Types.M2tsBufferModel
+        , Network.AWS.MediaLive.Types.FailoverCondition
+        , Network.AWS.MediaLive.Types.InputDeviceRequest
+        , Network.AWS.MediaLive.Types.InputDestinationVpc
+        , Network.AWS.MediaLive.Types.TimecodeConfigSource
+        , Network.AWS.MediaLive.Types.ReservationState
+        , Network.AWS.MediaLive.Types.ReservationResourceSpecification
+        , Network.AWS.MediaLive.Types.ReservationMaximumFramerate
+        , Network.AWS.MediaLive.Types.TemporalFilterPostFilterSharpening
+        , Network.AWS.MediaLive.Types.PipelineId
+        , Network.AWS.MediaLive.Types.MultiplexProgramPipelineDetail
+        , Network.AWS.MediaLive.Types.HlsRedundantManifest
+        , Network.AWS.MediaLive.Types.H265Level
+        , Network.AWS.MediaLive.Types.NielsenPcmToId3TaggingState
+        , Network.AWS.MediaLive.Types.AudioOnlyHlsTrackType
+        , Network.AWS.MediaLive.Types.H264SpatialAq
+        , Network.AWS.MediaLive.Types.BatchScheduleActionCreateRequest
+        , Network.AWS.MediaLive.Types.VideoCodecSettings
+        , Network.AWS.MediaLive.Types.PipelinePauseStateSettings
+        , Network.AWS.MediaLive.Types.InputDeviceIpScheme
+        , Network.AWS.MediaLive.Types.FailoverConditionSettings
+        , Network.AWS.MediaLive.Types.InputVpcRequest
+        , Network.AWS.MediaLive.Types.HlsClientCache
+        , Network.AWS.MediaLive.Types.RtmpCaptionInfoDestinationSettings
+        , Network.AWS.MediaLive.Types.MultiplexOutputSettings
+        , Network.AWS.MediaLive.Types.EmbeddedScte20Detection
+        , Network.AWS.MediaLive.Types.H265LookAheadRateControl
+        , Network.AWS.MediaLive.Types.H265AdaptiveQuantization
+        , Network.AWS.MediaLive.Types.ReservationResourceType
+        , Network.AWS.MediaLive.Types.FecOutputSettings
+        , Network.AWS.MediaLive.Types.MsSmoothH265PackagingType
+        , Network.AWS.MediaLive.Types.H265Profile
+        , Network.AWS.MediaLive.Types.HlsSettings
+        , Network.AWS.MediaLive.Types.LogLevel
+        , Network.AWS.MediaLive.Types.InputSwitchScheduleActionSettings
+        , Network.AWS.MediaLive.Types.InputSourceRequest
+        , Network.AWS.MediaLive.Types.Scte35SegmentationDescriptor
+        , Network.AWS.MediaLive.Types.BatchScheduleActionCreateResult
+        , Network.AWS.MediaLive.Types.Hdr10Settings
+        , Network.AWS.MediaLive.Types.InputWhitelistRule
+        , Network.AWS.MediaLive.Types.H264FilterSettings
+        , Network.AWS.MediaLive.Types.H265ColorSpaceSettings
+        , Network.AWS.MediaLive.Types.AfdSignaling
+        , Network.AWS.MediaLive.Types.AacRateControlMode
+        , Network.AWS.MediaLive.Types.HlsTsFileMode
+        , Network.AWS.MediaLive.Types.InputDeviceNetworkSettings
+        , Network.AWS.MediaLive.Types.SmoothGroupTimestampOffsetMode
+        , Network.AWS.MediaLive.Types.ChannelEgressEndpoint
+        , Network.AWS.MediaLive.Types.InputLossActionForRtmpOut
+        , Network.AWS.MediaLive.Types.OutputGroupSettings
+        , Network.AWS.MediaLive.Types.TeletextSourceSettings
+        , Network.AWS.MediaLive.Types.M2tsSettings
+        , Network.AWS.MediaLive.Types.DvbSubDestinationSettings
+        , Network.AWS.MediaLive.Types.Smpte2038DataPreference
+        , Network.AWS.MediaLive.Types.VideoSelectorProgramId
+        , Network.AWS.MediaLive.Types.SmoothGroupEventStopBehavior
+        , Network.AWS.MediaLive.Types.NetworkInputSettings
+        , Network.AWS.MediaLive.Types.Fmp4HlsSettings
+        , Network.AWS.MediaLive.Types.Scte27DestinationSettings
+        , Network.AWS.MediaLive.Types.MediaPackageOutputDestinationSettings
+        , Network.AWS.MediaLive.Types.H264FramerateControl
+        , Network.AWS.MediaLive.Types.Mpeg2FilterSettings
+        , Network.AWS.MediaLive.Types.H264ForceFieldPictures
+        , Network.AWS.MediaLive.Types.InputCodec
+        , Network.AWS.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl
+        , Network.AWS.MediaLive.Types.InputResolution
+        , Network.AWS.MediaLive.Types.M2tsTimedMetadataBehavior
+        , Network.AWS.MediaLive.Types.H264EntropyEncoding
+        , Network.AWS.MediaLive.Types.Scte35SpliceInsert
+        , Network.AWS.MediaLive.Types.HlsIvInManifest
+        , Network.AWS.MediaLive.Types.HlsOutputSelection
+        , Network.AWS.MediaLive.Types.MultiplexProgramPacketIdentifiersMap
+        , Network.AWS.MediaLive.Types.InputSecurityGroupState
+        , Network.AWS.MediaLive.Types.AribSourceSettings
+        , Network.AWS.MediaLive.Types.ArchiveContainerSettings
+        , Network.AWS.MediaLive.Types.AudioOnlyHlsSettings
+        , Network.AWS.MediaLive.Types.MediaConnectFlow
+        , Network.AWS.MediaLive.Types.M3u8Scte35Behavior
+        , Network.AWS.MediaLive.Types.Reservation
+        , Network.AWS.MediaLive.Types.ArchiveOutputSettings
+        , Network.AWS.MediaLive.Types.AudioDescription
+        , Network.AWS.MediaLive.Types.Offering
+        , Network.AWS.MediaLive.Types.TtmlDestinationSettings
+        , Network.AWS.MediaLive.Types.HlsEncryptionType
+        , Network.AWS.MediaLive.Types.MultiplexProgramSummary
+        , Network.AWS.MediaLive.Types.HlsId3SegmentTaggingState
+        , Network.AWS.MediaLive.Types.AacCodingMode
+        , Network.AWS.MediaLive.Types.HlsTimedMetadataId3Frame
+        , Network.AWS.MediaLive.Types.OutputGroup
+        , Network.AWS.MediaLive.Types.H264ColorMetadata
+        , Network.AWS.MediaLive.Types.SmoothGroupSegmentationMode
+        , Network.AWS.MediaLive.Types.StopTimecode
+        , Network.AWS.MediaLive.Types.AudioSelector
+        , Network.AWS.MediaLive.Types.H264AdaptiveQuantization
+        , Network.AWS.MediaLive.Types.H264LookAheadRateControl
+        , Network.AWS.MediaLive.Types.OutputDestination
+        , Network.AWS.MediaLive.Types.HlsCdnSettings
+        , Network.AWS.MediaLive.Types.InputSpecification
+        , Network.AWS.MediaLive.Types.InputDestinationRequest
+        , Network.AWS.MediaLive.Types.OutputLocationRef
+        , Network.AWS.MediaLive.Types.Ac3MetadataControl
+        , Network.AWS.MediaLive.Types.BurnInAlignment
+        , Network.AWS.MediaLive.Types.M3u8TimedMetadataBehavior
+        , Network.AWS.MediaLive.Types.HlsDirectoryStructure
+        , Network.AWS.MediaLive.Types.AvailConfiguration
+        , Network.AWS.MediaLive.Types.InputMaximumBitrate
+        , Network.AWS.MediaLive.Types.M2tsCcDescriptor
+        , Network.AWS.MediaLive.Types.UdpContainerSettings
+        , Network.AWS.MediaLive.Types.PipelineDetail
+        , Network.AWS.MediaLive.Types.H265Tier
+        , Network.AWS.MediaLive.Types.InputSource
+        , Network.AWS.MediaLive.Types.Channel
+        , Network.AWS.MediaLive.Types.Eac3DcFilter
+        , Network.AWS.MediaLive.Types.DvbSubDestinationBackgroundColor
+        , Network.AWS.MediaLive.Types.H264TimecodeInsertionBehavior
+        , Network.AWS.MediaLive.Types.FeatureActivations
+        , Network.AWS.MediaLive.Types.HlsAdMarkers
+        , Network.AWS.MediaLive.Types.InputChannelLevel
+        , Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings
+        , Network.AWS.MediaLive.Types.KeyProviderSettings
+        , Network.AWS.MediaLive.Types.Mpeg2DisplayRatio
+        , Network.AWS.MediaLive.Types.ReservationCodec
+        , Network.AWS.MediaLive.Types.InputDeblockFilter
+        , Network.AWS.MediaLive.Types.EbuTtDFillLineGapControl
+        , Network.AWS.MediaLive.Types.ReservationResolution
+        , Network.AWS.MediaLive.Types.Scte35SegmentationCancelIndicator
+        , Network.AWS.MediaLive.Types.H265ScanType
+        , Network.AWS.MediaLive.Types.AacSpec
+        , Network.AWS.MediaLive.Types.MultiplexProgramChannelDestinationSettings
+        , Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings
+        , Network.AWS.MediaLive.Types.Scte20PlusEmbeddedDestinationSettings
+        , Network.AWS.MediaLive.Types.AudioType
+        , Network.AWS.MediaLive.Types.EmbeddedPlusScte20DestinationSettings
+        , Network.AWS.MediaLive.Types.NielsenConfiguration
+        , Network.AWS.MediaLive.Types.CdiInputResolution
+        , Network.AWS.MediaLive.Types.HlsIncompleteSegmentBehavior
+        , Network.AWS.MediaLive.Types.CaptionSelectorSettings
+        , Network.AWS.MediaLive.Types.BatchSuccessfulResultModel
+        , Network.AWS.MediaLive.Types.Input
+        , Network.AWS.MediaLive.Types.DvbSdtSettings
+        , Network.AWS.MediaLive.Types.Scte20Convert608To708
+        , Network.AWS.MediaLive.Types.M3u8Settings
+        , Network.AWS.MediaLive.Types.AvailBlankingState
+        , Network.AWS.MediaLive.Types.Eac3MetadataControl
+        , Network.AWS.MediaLive.Types.AudioNormalizationSettings
+        , Network.AWS.MediaLive.Types.H264Level
+        , Network.AWS.MediaLive.Types.SmpteTtDestinationSettings
+        , Network.AWS.MediaLive.Types.AudioOnlyHlsSegmentType
+        , Network.AWS.MediaLive.Types.Mpeg2TimecodeInsertionBehavior
+        , Network.AWS.MediaLive.Types.Scte35NoRegionalBlackoutFlag
+        , Network.AWS.MediaLive.Types.ScheduleActionSettings
+        , Network.AWS.MediaLive.Types.MsSmoothGroupSettings
+        , Network.AWS.MediaLive.Types.VideoDescriptionRespondToAfd
+        , Network.AWS.MediaLive.Types.MultiplexStatmuxVideoSettings
+        , Network.AWS.MediaLive.Types.TemporalFilterStrength
+        , Network.AWS.MediaLive.Types.InputLossBehavior
+        , Network.AWS.MediaLive.Types.Ac3BitstreamMode
+        , Network.AWS.MediaLive.Types.VideoSelectorSettings
+        , Network.AWS.MediaLive.Types.AvailBlanking
+        , Network.AWS.MediaLive.Types.HlsMediaStoreSettings
+        , Network.AWS.MediaLive.Types.AudioTrackSelection
+        , Network.AWS.MediaLive.Types.MultiplexProgramSettings
+        , Network.AWS.MediaLive.Types.InputPrepareScheduleActionSettings
+        , Network.AWS.MediaLive.Types.Scte35TimeSignalApos
+        , Network.AWS.MediaLive.Types.TemporalFilterSettings
+        , Network.AWS.MediaLive.Types.M2tsAudioBufferModel
+        , Network.AWS.MediaLive.Types.AudioTrack
+        , Network.AWS.MediaLive.Types.M2tsKlv
+        , Network.AWS.MediaLive.Types.AudioChannelMapping
+        , Network.AWS.MediaLive.Types.BlackoutSlateState
+        , Network.AWS.MediaLive.Types.H264Syntax
+        , Network.AWS.MediaLive.Types.MultiplexSettingsSummary
+        , Network.AWS.MediaLive.Types.RtmpOutputSettings
+        , Network.AWS.MediaLive.Types.HlsAkamaiHttpTransferMode
+        , Network.AWS.MediaLive.Types.H264GopBReference
+        , Network.AWS.MediaLive.Types.RtmpGroupSettings
+        , Network.AWS.MediaLive.Types.BurnInOutlineColor
+        , Network.AWS.MediaLive.Types.BatchFailedResultModel
+        , Network.AWS.MediaLive.Types.HlsId3SegmentTaggingScheduleActionSettings
+        , Network.AWS.MediaLive.Types.GlobalConfigurationOutputTimingSource
+        , Network.AWS.MediaLive.Types.RawSettings
+        , Network.AWS.MediaLive.Types.HlsH265PackagingType
+        , Network.AWS.MediaLive.Types.InputDenoiseFilter
+        , Network.AWS.MediaLive.Types.Scte35Descriptor
+        , Network.AWS.MediaLive.Types.AudioNormalizationAlgorithm
+        , Network.AWS.MediaLive.Types.Ac3Settings
+        , Network.AWS.MediaLive.Types.Eac3BitstreamMode
+        , Network.AWS.MediaLive.Types.AudioLanguageSelectionPolicy
+        , Network.AWS.MediaLive.Types.MultiplexMediaConnectOutputDestinationSettings
+        , Network.AWS.MediaLive.Types.ImmediateModeScheduleActionStartSettings
+        , Network.AWS.MediaLive.Types.Mp2CodingMode
+        , Network.AWS.MediaLive.Types.AacRawFormat
+        , Network.AWS.MediaLive.Types.MediaPackageOutputSettings
+        , Network.AWS.MediaLive.Types.H265Settings
+        , Network.AWS.MediaLive.Types.Scte27SourceSettings
+        , Network.AWS.MediaLive.Types.FollowModeScheduleActionStartSettings
+        , Network.AWS.MediaLive.Types.DvbSubSourceSettings
+        , Network.AWS.MediaLive.Types.InputDeviceActiveInput
+        , Network.AWS.MediaLive.Types.MultiplexSummary
+        , Network.AWS.MediaLive.Types.MultiplexVideoSettings
+        , Network.AWS.MediaLive.Types.H264TemporalAq
+        , Network.AWS.MediaLive.Types.HlsWebdavHttpTransferMode
+        , Network.AWS.MediaLive.Types.ChannelState
+        , Network.AWS.MediaLive.Types.InputDeviceConfigurableSettings
+        , Network.AWS.MediaLive.Types.Scte35DeliveryRestrictions
+        , Network.AWS.MediaLive.Types.Eac3LfeControl
+        , Network.AWS.MediaLive.Types.Output
+        , Network.AWS.MediaLive.Types.InputAttachment
+        , Network.AWS.MediaLive.Types.M2tsEbifControl
+        , Network.AWS.MediaLive.Types.DvbSubDestinationAlignment
+        , Network.AWS.MediaLive.Types.M2tsSegmentationMarkers
+        , Network.AWS.MediaLive.Types.H264ScanType
+        , Network.AWS.MediaLive.Types.InputSecurityGroup
+        , Network.AWS.MediaLive.Types.InputLossActionForUdpOut
+        , Network.AWS.MediaLive.Types.Ac3DrcProfile
+        , Network.AWS.MediaLive.Types.Scte35WebDeliveryAllowedFlag
+        , Network.AWS.MediaLive.Types.M3u8NielsenId3Behavior
+        , Network.AWS.MediaLive.Types.BurnInBackgroundColor
+        , Network.AWS.MediaLive.Types.Eac3DrcLine
+        , Network.AWS.MediaLive.Types.H264SceneChangeDetect
+        , Network.AWS.MediaLive.Types.AncillarySourceSettings
+        , Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest
+        , Network.AWS.MediaLive.Types.M2tsAribCaptionsPidControl
+        , Network.AWS.MediaLive.Types.H265RateControlMode
+        , Network.AWS.MediaLive.Types.DvbSdtOutputSdt
+        , Network.AWS.MediaLive.Types.Rec709Settings
+        , Network.AWS.MediaLive.Types.Eac3CodingMode
+        , Network.AWS.MediaLive.Types.VideoDescription
+        , Network.AWS.MediaLive.Types.WebvttDestinationSettings
+        , Network.AWS.MediaLive.Types.ChannelSummary
+        , Network.AWS.MediaLive.Types.SmoothGroupEventIdMode
+        , Network.AWS.MediaLive.Types.RtmpAdMarkers
+        , Network.AWS.MediaLive.Types.CaptionDestinationSettings
+        , Network.AWS.MediaLive.Types.InputDeviceHdSettings
+        , Network.AWS.MediaLive.Types.EmbeddedDestinationSettings
+        , Network.AWS.MediaLive.Types.H265AlternativeTransferFunction
+        , Network.AWS.MediaLive.Types.MultiplexState
+        , Network.AWS.MediaLive.Types.AcceptHeader
+        , Network.AWS.MediaLive.Types.SmoothGroupStreamManifestBehavior
+        , Network.AWS.MediaLive.Types.MultiplexProgramServiceDescriptor
+        , Network.AWS.MediaLive.Types.M2tsAudioStreamType
+        , Network.AWS.MediaLive.Types.StaticKeySettings
+        , Network.AWS.MediaLive.Types.Scte35TimeSignalScheduleActionSettings
+        , Network.AWS.MediaLive.Types.BurnInFontColor
+        , Network.AWS.MediaLive.Types.H265TimecodeInsertionBehavior
+        , Network.AWS.MediaLive.Types.InputLossActionForMsSmoothOut
+        , Network.AWS.MediaLive.Types.HlsSegmentationMode
+        , Network.AWS.MediaLive.Types.Ac3CodingMode
+        , Network.AWS.MediaLive.Types.MultiplexGroupSettings
+        , Network.AWS.MediaLive.Types.InputDeviceSummary
+        , Network.AWS.MediaLive.Types.InputDestination
+        , Network.AWS.MediaLive.Types.HlsProgramDateTime
+        , Network.AWS.MediaLive.Types.TimecodeConfig
+        , Network.AWS.MediaLive.Types.RtmpOutputCertificateMode
+        , Network.AWS.MediaLive.Types.Mp2Settings
+        , Network.AWS.MediaLive.Types.DvbSubDestinationTeletextGridControl
+        , Network.AWS.MediaLive.Types.Mpeg2ScanType
+        , Network.AWS.MediaLive.Types.OutputSettings
+        , Network.AWS.MediaLive.Types.EbuTtDDestinationStyleControl
+        , Network.AWS.MediaLive.Types.AutomaticInputFailoverSettings
+        , Network.AWS.MediaLive.Types.Scte35AposWebDeliveryAllowedBehavior
+        , Network.AWS.MediaLive.Types.InputLossImageType
+        , Network.AWS.MediaLive.Types.H264Settings
+        , Network.AWS.MediaLive.Types.M3u8PcrControl
+        , Network.AWS.MediaLive.Types.FixedAfd
+        , Network.AWS.MediaLive.Types.CdiInputSpecification
+        , Network.AWS.MediaLive.Types.VideoSelectorColorSpace
+        , Network.AWS.MediaLive.Types.InputDeviceTransferType
+        , Network.AWS.MediaLive.Types.ReservationMaximumBitrate
+        , Network.AWS.MediaLive.Types.M2tsEsRateInPes
+        , Network.AWS.MediaLive.Types.ChannelClass
+        , Network.AWS.MediaLive.Types.HlsGroupSettings
+        , Network.AWS.MediaLive.Types.DvbSubDestinationOutlineColor
+        , Network.AWS.MediaLive.Types.InputPreference
+        , Network.AWS.MediaLive.Types.BurnInDestinationSettings
+        , Network.AWS.MediaLive.Types.WavSettings
+        , Network.AWS.MediaLive.Types.ReservationSpecialFeature
+        , Network.AWS.MediaLive.Types.MultiplexSettings
+        , Network.AWS.MediaLive.Types.TtmlDestinationStyleControl
+        , Network.AWS.MediaLive.Types.Mpeg2GopSizeUnits
+        , Network.AWS.MediaLive.Types.GlobalConfigurationLowFramerateInputs
+        , Network.AWS.MediaLive.Types.Eac3DrcRf
+        , Network.AWS.MediaLive.Types.InputClippingSettings
+        , Network.AWS.MediaLive.Types.DeviceUpdateStatus
+        , Network.AWS.MediaLive.Types.LastFrameClippingBehavior
+        , Network.AWS.MediaLive.Types.HlsManifestDurationFormat
+        , Network.AWS.MediaLive.Types.Mpeg2SubGopLength
+        , Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings
+        , Network.AWS.MediaLive.Types.DeviceSettingsSyncState
+        , Network.AWS.MediaLive.Types.RtmpCaptionData
+        , Network.AWS.MediaLive.Types.Mpeg2ColorMetadata
+        , Network.AWS.MediaLive.Types.AuthenticationScheme
+        , Network.AWS.MediaLive.Types.HlsCaptionLanguageSetting
+        , Network.AWS.MediaLive.Types.FollowPoint
+        , Network.AWS.MediaLive.Types.HlsOutputSettings
+        , Network.AWS.MediaLive.Types.HlsIvSource
+        , Network.AWS.MediaLive.Types.H265FlickerAq
+        , Network.AWS.MediaLive.Types.AudioCodecSettings
+        , Network.AWS.MediaLive.Types.AacInputType
+        , Network.AWS.MediaLive.Types.AacVbrQuality
+        , Network.AWS.MediaLive.Types.M2tsArib
+        , Network.AWS.MediaLive.Types.InputSourceEndBehavior
+        , Network.AWS.MediaLive.Types.HlsDiscontinuityTags
+        , Network.AWS.MediaLive.Types.Mpeg2Settings
+        , Network.AWS.MediaLive.Types.Scte35SpliceInsertWebDeliveryAllowedBehavior
+        , Network.AWS.MediaLive.Types.InputClass
+        , Network.AWS.MediaLive.Types.Scte35DeviceRestrictions
+        , Network.AWS.MediaLive.Types.RtmpCacheFullBehavior
+        , Network.AWS.MediaLive.Types.Eac3StereoDownmix
+        , Network.AWS.MediaLive.Types.OfferingType
+        , Network.AWS.MediaLive.Types.H264SubGopLength
+        , Network.AWS.MediaLive.Types.Multiplex
+        , Network.AWS.MediaLive.Types.CaptionDescription
+        , Network.AWS.MediaLive.Types.H264GopSizeUnits
+        , Network.AWS.MediaLive.Types.M2tsScte35Control
+        , Network.AWS.MediaLive.Types.VideoSelectorColorSpaceUsage
+        , Network.AWS.MediaLive.Types.StaticImageActivateScheduleActionSettings
+        , Network.AWS.MediaLive.Types.FrameCaptureIntervalUnit
+        , Network.AWS.MediaLive.Types.ArchiveGroupSettings
+        , Network.AWS.MediaLive.Types.AacProfile
+        , Network.AWS.MediaLive.Types.StartTimecode
+        , Network.AWS.MediaLive.Types.AudioDescriptionLanguageCodeControl
+        , Network.AWS.MediaLive.Types.CaptionLanguageMapping
+        , Network.AWS.MediaLive.Types.CaptionSelector
+        , Network.AWS.MediaLive.Types.InputDeviceSettings
+        , Network.AWS.MediaLive.Types.HlsMediaStoreStorageClass
+        , Network.AWS.MediaLive.Types.TransferringInputDeviceSummary
+        , Network.AWS.MediaLive.Types.AudioPidSelection
+        , Network.AWS.MediaLive.Types.DvbSubDestinationShadowColor
+        , Network.AWS.MediaLive.Types.InputLocation
+        , Network.AWS.MediaLive.Types.UdpGroupSettings
+        , Network.AWS.MediaLive.Types.H264QualityLevel
+        , Network.AWS.MediaLive.Types.Fmp4NielsenId3Behavior
+        , Network.AWS.MediaLive.Types.FrameCaptureOutputSettings
+        , Network.AWS.MediaLive.Types.AudioNormalizationAlgorithmControl
+        , Network.AWS.MediaLive.Types.GlobalConfiguration
+        , Network.AWS.MediaLive.Types.UdpOutputSettings
+        , Network.AWS.MediaLive.Types.H264Profile
+        , Network.AWS.MediaLive.Types.WavCodingMode
+        , Network.AWS.MediaLive.Types.MultiplexOutputDestination
+        , Network.AWS.MediaLive.Types.ScheduleAction
+        , Network.AWS.MediaLive.Types.FixedModeScheduleActionStartSettings
+        , Network.AWS.MediaLive.Types.OfferingDurationUnits
+        , Network.AWS.MediaLive.Types.Scte35AposNoRegionalBlackoutBehavior
+        , Network.AWS.MediaLive.Types.EmbeddedConvert608To708
+        , Network.AWS.MediaLive.Types.Scte20SourceSettings
+        , Network.AWS.MediaLive.Types.InputSettings
+        , Network.AWS.MediaLive.Types.InputTimecodeSource
+        , Network.AWS.MediaLive.Types.SmoothGroupCertificateMode
+        , Network.AWS.MediaLive.Types.InputSourceType
+        , Network.AWS.MediaLive.Types.Eac3LfeFilter
+        , Network.AWS.MediaLive.Types.FrameCaptureGroupSettings
+        , Network.AWS.MediaLive.Types.M2tsAbsentInputAudioBehavior
+        , Network.AWS.MediaLive.Types.FecOutputIncludeFec
+        , Network.AWS.MediaLive.Types.NetworkInputServerValidation
+        , Network.AWS.MediaLive.Types.M2tsPcrControl
+        , Network.AWS.MediaLive.Types.AudioSelectorSettings
+        , Network.AWS.MediaLive.Types.InputFilter
+        , Network.AWS.MediaLive.Types.RemixSettings
+        , Network.AWS.MediaLive.Types.HlsManifestCompression
+        , Network.AWS.MediaLive.Types.InputDeviceType
+        , Network.AWS.MediaLive.Types.Rec601Settings
+        , Network.AWS.MediaLive.Types.AvailSettings
+        , Network.AWS.MediaLive.Types.DvbNitSettings
+        , Network.AWS.MediaLive.Types.BurnInTeletextGridControl
+        , Network.AWS.MediaLive.Types.MsSmoothOutputSettings
+        , Network.AWS.MediaLive.Types.UdpTimedMetadataId3Frame
+        , Network.AWS.MediaLive.Types.OutputDestinationSettings
+        , Network.AWS.MediaLive.Types.H264RateControlMode
+        , Network.AWS.MediaLive.Types.BlackoutSlateNetworkEndBlackout
+        , Network.AWS.MediaLive.Types.InputType
+        , Network.AWS.MediaLive.Types.M2tsEbpPlacement
+        , Network.AWS.MediaLive.Types.ColorSpacePassthroughSettings
+        , Network.AWS.MediaLive.Types.IFrameOnlyPlaylistType
+        , Network.AWS.MediaLive.Types.DvbSubDestinationFontColor
+        , Network.AWS.MediaLive.Types.VideoDescriptionScalingBehavior
+        , Network.AWS.MediaLive.Types.Ac3LfeFilter
+        , Network.AWS.MediaLive.Types.ScheduleActionStartSettings
+        , Network.AWS.MediaLive.Types.AacSettings
+        , Network.AWS.MediaLive.Types.Scte35ReturnToNetworkScheduleActionSettings
+        , Network.AWS.MediaLive.Types.EmbeddedSourceSettings
+        , Network.AWS.MediaLive.Types.H265SceneChangeDetect
+        , Network.AWS.MediaLive.Types.Mpeg2AdaptiveQuantization
+        , Network.AWS.MediaLive.Types.BlackoutSlate
+        , Network.AWS.MediaLive.Types.M2tsAudioInterval
+        , Network.AWS.MediaLive.Types.Eac3Settings
+        , Network.AWS.MediaLive.Types.Eac3AttenuationControl
+        , Network.AWS.MediaLive.Types.InputState
+        , Network.AWS.MediaLive.Types.MediaConnectFlowRequest
+        , Network.AWS.MediaLive.Types.HlsBasicPutSettings
+        , Network.AWS.MediaLive.Types.EncoderSettings
+        , Network.AWS.MediaLive.Types.InputDeviceScanType
+        , Network.AWS.MediaLive.Types.Scte35ArchiveAllowedFlag
+        , Network.AWS.MediaLive.Types.AudioDescriptionAudioTypeControl
+        , Network.AWS.MediaLive.Types.H265GopSizeUnits
+        , Network.AWS.MediaLive.Types.ContentType
+        , Network.AWS.MediaLive.Types.H265ColorMetadata
+        , Network.AWS.MediaLive.Types.M2tsSegmentationStyle
+        , Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior
+        , Network.AWS.MediaLive.Types.InputDeviceState
+        , Network.AWS.MediaLive.Types.StandardHlsSettings
+        , Network.AWS.MediaLive.Types.VideoSelectorPid
+        , Network.AWS.MediaLive.Types.Eac3PassthroughControl
+        , Network.AWS.MediaLive.Types.M2tsRateMode
+        , Network.AWS.MediaLive.Types.HlsWebdavSettings
+        , Network.AWS.MediaLive.Types.StaticImageDeactivateScheduleActionSettings
+        , Network.AWS.MediaLive.Types.DvbTdtSettings
+        , Network.AWS.MediaLive.Types.AribDestinationSettings
+        , Network.AWS.MediaLive.Types.InputLossActionForHlsOut
+        , Network.AWS.MediaLive.Types.Scte35DescriptorSettings
+        , Network.AWS.MediaLive.Types.Eac3SurroundMode
+        , Network.AWS.MediaLive.Types.InputWhitelistRuleCidr
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-medialive-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.Gen.MediaLive
-    Test.AWS.MediaLive
-    Test.AWS.MediaLive.Internal
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core         >=2.0.0.0 && <2.0.0.1
-    , amazonka-medialive
-    , amazonka-test         >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.MediaLive
+        , Test.AWS.Gen.MediaLive
+        , Test.AWS.MediaLive.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-medialive
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

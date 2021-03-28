@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -33,23 +33,21 @@
 -- If you call the @DescribeKey@ operation on a /predefined AWS alias/ , that is, an AWS alias with no key ID, AWS KMS creates an <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys AWS managed CMK> . Then, it associates the alias with the new CMK, and returns the @KeyId@ and @Arn@ of the new CMK in the response.
 -- To perform this operation on a CMK in a different AWS account, specify the key ARN or alias ARN in the value of the KeyId parameter.
 module Network.AWS.KMS.DescribeKey
-  ( -- * Creating a request
-    DescribeKey (..),
-    mkDescribeKey,
-
+    (
+    -- * Creating a request
+      DescribeKey (..)
+    , mkDescribeKey
     -- ** Request lenses
-    dKeyId,
-    dGrantTokens,
+    , dKeyId
+    , dGrantTokens
 
     -- * Destructuring the response
-    DescribeKeyResponse (..),
-    mkDescribeKeyResponse,
-
+    , DescribeKeyResponse (..)
+    , mkDescribeKeyResponse
     -- ** Response lenses
-    dkrrsKeyMetadata,
-    dkrrsResponseStatus,
-  )
-where
+    , dkrrsKeyMetadata
+    , dkrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -59,58 +57,57 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeKey' smart constructor.
 data DescribeKey = DescribeKey'
-  { -- | Describes the specified customer master key (CMK).
-    --
-    -- If you specify a predefined AWS alias (an AWS alias with no key ID), KMS associates the alias with an <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys AWS managed CMK> and returns its @KeyId@ and @Arn@ in the response.
-    -- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with @"alias/"@ . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
-    -- For example:
-    --
-    --     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
-    --
-    --
-    --     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
-    --
-    --
-    --     * Alias name: @alias/ExampleAlias@
-    --
-    --
-    --     * Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias@
-    --
-    --
-    -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
-    keyId :: Types.KeyId,
-    -- | A list of grant tokens.
-    --
-    -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
-    grantTokens :: Core.Maybe [Types.GrantTokenType]
-  }
-  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.Hashable, Core.NFData)
-
--- | Creates a 'DescribeKey' value with any optional fields omitted.
-mkDescribeKey ::
-  -- | 'keyId'
-  Types.KeyId ->
-  DescribeKey
-mkDescribeKey keyId =
-  DescribeKey' {keyId, grantTokens = Core.Nothing}
-
--- | Describes the specified customer master key (CMK).
+  { keyId :: Types.KeyId
+    -- ^ Describes the specified customer master key (CMK). 
 --
 -- If you specify a predefined AWS alias (an AWS alias with no key ID), KMS associates the alias with an <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys AWS managed CMK> and returns its @KeyId@ and @Arn@ in the response.
 -- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with @"alias/"@ . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
 -- For example:
 --
---     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+--     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@ 
 --
 --
---     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
+--     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@ 
 --
 --
---     * Alias name: @alias/ExampleAlias@
+--     * Alias name: @alias/ExampleAlias@ 
 --
 --
---     * Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias@
+--     * Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias@ 
+--
+--
+-- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
+  , grantTokens :: Core.Maybe [Types.GrantTokenType]
+    -- ^ A list of grant tokens.
+--
+-- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
+
+-- | Creates a 'DescribeKey' value with any optional fields omitted.
+mkDescribeKey
+    :: Types.KeyId -- ^ 'keyId'
+    -> DescribeKey
+mkDescribeKey keyId
+  = DescribeKey'{keyId, grantTokens = Core.Nothing}
+
+-- | Describes the specified customer master key (CMK). 
+--
+-- If you specify a predefined AWS alias (an AWS alias with no key ID), KMS associates the alias with an <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys AWS managed CMK> and returns its @KeyId@ and @Arn@ in the response.
+-- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with @"alias/"@ . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
+-- For example:
+--
+--     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@ 
+--
+--
+--     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@ 
+--
+--
+--     * Alias name: @alias/ExampleAlias@ 
+--
+--
+--     * Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias@ 
 --
 --
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
@@ -118,7 +115,8 @@ mkDescribeKey keyId =
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dKeyId :: Lens.Lens' DescribeKey Types.KeyId
 dKeyId = Lens.field @"keyId"
-{-# DEPRECATED dKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
+{-# INLINEABLE dKeyId #-}
+{-# DEPRECATED keyId "Use generic-lens or generic-optics with 'keyId' instead"  #-}
 
 -- | A list of grant tokens.
 --
@@ -127,65 +125,70 @@ dKeyId = Lens.field @"keyId"
 -- /Note:/ Consider using 'grantTokens' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dGrantTokens :: Lens.Lens' DescribeKey (Core.Maybe [Types.GrantTokenType])
 dGrantTokens = Lens.field @"grantTokens"
-{-# DEPRECATED dGrantTokens "Use generic-lens or generic-optics with 'grantTokens' instead." #-}
+{-# INLINEABLE dGrantTokens #-}
+{-# DEPRECATED grantTokens "Use generic-lens or generic-optics with 'grantTokens' instead"  #-}
+
+instance Core.ToQuery DescribeKey where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DescribeKey where
+        toHeaders DescribeKey{..}
+          = Core.pure ("X-Amz-Target", "TrentService.DescribeKey") Core.<>
+              Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON DescribeKey where
-  toJSON DescribeKey {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("KeyId" Core..= keyId),
-            ("GrantTokens" Core..=) Core.<$> grantTokens
-          ]
-      )
+        toJSON DescribeKey{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("KeyId" Core..= keyId),
+                  ("GrantTokens" Core..=) Core.<$> grantTokens])
 
 instance Core.AWSRequest DescribeKey where
-  type Rs DescribeKey = DescribeKeyResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "TrentService.DescribeKey")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          DescribeKeyResponse'
-            Core.<$> (x Core..:? "KeyMetadata") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DescribeKey = DescribeKeyResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 DescribeKeyResponse' Core.<$>
+                   (x Core..:? "KeyMetadata") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDescribeKeyResponse' smart constructor.
 data DescribeKeyResponse = DescribeKeyResponse'
-  { -- | Metadata associated with the key.
-    keyMetadata :: Core.Maybe Types.KeyMetadata,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { keyMetadata :: Core.Maybe Types.KeyMetadata
+    -- ^ Metadata associated with the key.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'DescribeKeyResponse' value with any optional fields omitted.
-mkDescribeKeyResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DescribeKeyResponse
-mkDescribeKeyResponse responseStatus =
-  DescribeKeyResponse' {keyMetadata = Core.Nothing, responseStatus}
+mkDescribeKeyResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DescribeKeyResponse
+mkDescribeKeyResponse responseStatus
+  = DescribeKeyResponse'{keyMetadata = Core.Nothing, responseStatus}
 
 -- | Metadata associated with the key.
 --
 -- /Note:/ Consider using 'keyMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dkrrsKeyMetadata :: Lens.Lens' DescribeKeyResponse (Core.Maybe Types.KeyMetadata)
 dkrrsKeyMetadata = Lens.field @"keyMetadata"
-{-# DEPRECATED dkrrsKeyMetadata "Use generic-lens or generic-optics with 'keyMetadata' instead." #-}
+{-# INLINEABLE dkrrsKeyMetadata #-}
+{-# DEPRECATED keyMetadata "Use generic-lens or generic-optics with 'keyMetadata' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dkrrsResponseStatus :: Lens.Lens' DescribeKeyResponse Core.Int
 dkrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED dkrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE dkrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

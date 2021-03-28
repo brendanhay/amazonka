@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,56 +10,38 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.DeviceFarm.Types.DeviceAttribute
   ( DeviceAttribute
-      ( DeviceAttribute',
-        DeviceAttributeArn,
-        DeviceAttributePlatform,
-        DeviceAttributeFormFactor,
-        DeviceAttributeManufacturer,
-        DeviceAttributeRemoteAccessEnabled,
-        DeviceAttributeRemoteDebugEnabled,
-        DeviceAttributeAppiumVersion,
-        DeviceAttributeInstanceArn,
-        DeviceAttributeInstanceLabels,
-        DeviceAttributeFleetType,
-        DeviceAttributeOsVersion,
-        DeviceAttributeModel,
-        DeviceAttributeAvailability,
-        fromDeviceAttribute
-      ),
-  )
-where
+    ( DeviceAttribute'
+    , DeviceAttributeArn
+    , DeviceAttributePlatform
+    , DeviceAttributeFormFactor
+    , DeviceAttributeManufacturer
+    , DeviceAttributeRemoteAccessEnabled
+    , DeviceAttributeRemoteDebugEnabled
+    , DeviceAttributeAppiumVersion
+    , DeviceAttributeInstanceArn
+    , DeviceAttributeInstanceLabels
+    , DeviceAttributeFleetType
+    , DeviceAttributeOsVersion
+    , DeviceAttributeModel
+    , DeviceAttributeAvailability
+    , fromDeviceAttribute
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype DeviceAttribute = DeviceAttribute'
-  { fromDeviceAttribute ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype DeviceAttribute = DeviceAttribute'{fromDeviceAttribute ::
+                                           Core.Text}
+                            deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                            Core.Generic)
+                            deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                              Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                              Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                              Core.FromText, Core.ToByteString, Core.ToQuery,
+                                              Core.ToHeader)
 
 pattern DeviceAttributeArn :: DeviceAttribute
 pattern DeviceAttributeArn = DeviceAttribute' "ARN"
@@ -100,19 +82,31 @@ pattern DeviceAttributeModel = DeviceAttribute' "MODEL"
 pattern DeviceAttributeAvailability :: DeviceAttribute
 pattern DeviceAttributeAvailability = DeviceAttribute' "AVAILABILITY"
 
-{-# COMPLETE
+{-# COMPLETE 
   DeviceAttributeArn,
+
   DeviceAttributePlatform,
+
   DeviceAttributeFormFactor,
+
   DeviceAttributeManufacturer,
+
   DeviceAttributeRemoteAccessEnabled,
+
   DeviceAttributeRemoteDebugEnabled,
+
   DeviceAttributeAppiumVersion,
+
   DeviceAttributeInstanceArn,
+
   DeviceAttributeInstanceLabels,
+
   DeviceAttributeFleetType,
+
   DeviceAttributeOsVersion,
+
   DeviceAttributeModel,
+
   DeviceAttributeAvailability,
   DeviceAttribute'
   #-}

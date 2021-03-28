@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,18 +15,17 @@
 --
 -- Deletes a specified Amazon Redshift parameter group.
 module Network.AWS.Redshift.DeleteClusterParameterGroup
-  ( -- * Creating a request
-    DeleteClusterParameterGroup (..),
-    mkDeleteClusterParameterGroup,
-
+    (
+    -- * Creating a request
+      DeleteClusterParameterGroup (..)
+    , mkDeleteClusterParameterGroup
     -- ** Request lenses
-    dParameterGroupName,
+    , dParameterGroupName
 
     -- * Destructuring the response
-    DeleteClusterParameterGroupResponse (..),
-    mkDeleteClusterParameterGroupResponse,
-  )
-where
+    , DeleteClusterParameterGroupResponse (..)
+    , mkDeleteClusterParameterGroupResponse
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -34,30 +33,31 @@ import qualified Network.AWS.Redshift.Types as Types
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- |
+-- | 
 --
 -- /See:/ 'mkDeleteClusterParameterGroup' smart constructor.
 newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup'
-  { -- | The name of the parameter group to be deleted.
-    --
-    -- Constraints:
-    --
-    --     * Must be the name of an existing cluster parameter group.
-    --
-    --
-    --     * Cannot delete a default cluster parameter group.
-    parameterGroupName :: Types.String
+  { parameterGroupName :: Core.Text
+    -- ^ The name of the parameter group to be deleted.
+--
+-- Constraints:
+--
+--     * Must be the name of an existing cluster parameter group.
+--
+--
+--     * Cannot delete a default cluster parameter group.
+--
+--
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteClusterParameterGroup' value with any optional fields omitted.
-mkDeleteClusterParameterGroup ::
-  -- | 'parameterGroupName'
-  Types.String ->
-  DeleteClusterParameterGroup
-mkDeleteClusterParameterGroup parameterGroupName =
-  DeleteClusterParameterGroup' {parameterGroupName}
+mkDeleteClusterParameterGroup
+    :: Core.Text -- ^ 'parameterGroupName'
+    -> DeleteClusterParameterGroup
+mkDeleteClusterParameterGroup parameterGroupName
+  = DeleteClusterParameterGroup'{parameterGroupName}
 
 -- | The name of the parameter group to be deleted.
 --
@@ -71,34 +71,40 @@ mkDeleteClusterParameterGroup parameterGroupName =
 --
 --
 -- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dParameterGroupName :: Lens.Lens' DeleteClusterParameterGroup Types.String
+dParameterGroupName :: Lens.Lens' DeleteClusterParameterGroup Core.Text
 dParameterGroupName = Lens.field @"parameterGroupName"
-{-# DEPRECATED dParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
+{-# INLINEABLE dParameterGroupName #-}
+{-# DEPRECATED parameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead"  #-}
+
+instance Core.ToQuery DeleteClusterParameterGroup where
+        toQuery DeleteClusterParameterGroup{..}
+          = Core.toQueryPair "Action"
+              ("DeleteClusterParameterGroup" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2012-12-01" :: Core.Text)
+              Core.<> Core.toQueryPair "ParameterGroupName" parameterGroupName
+
+instance Core.ToHeaders DeleteClusterParameterGroup where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest DeleteClusterParameterGroup where
-  type
-    Rs DeleteClusterParameterGroup =
-      DeleteClusterParameterGroupResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "DeleteClusterParameterGroup")
-                Core.<> (Core.pure ("Version", "2012-12-01"))
-                Core.<> (Core.toQueryValue "ParameterGroupName" parameterGroupName)
-            )
-      }
-  response =
-    Response.receiveNull DeleteClusterParameterGroupResponse'
+        type Rs DeleteClusterParameterGroup =
+             DeleteClusterParameterGroupResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveNull DeleteClusterParameterGroupResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteClusterParameterGroupResponse' smart constructor.
 data DeleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse'
@@ -106,7 +112,7 @@ data DeleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteClusterParameterGroupResponse' value with any optional fields omitted.
-mkDeleteClusterParameterGroupResponse ::
-  DeleteClusterParameterGroupResponse
-mkDeleteClusterParameterGroupResponse =
-  DeleteClusterParameterGroupResponse'
+mkDeleteClusterParameterGroupResponse
+    :: DeleteClusterParameterGroupResponse
+mkDeleteClusterParameterGroupResponse
+  = DeleteClusterParameterGroupResponse'

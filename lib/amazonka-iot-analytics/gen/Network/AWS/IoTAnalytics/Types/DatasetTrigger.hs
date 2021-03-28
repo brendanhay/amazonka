@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.IoTAnalytics.Types.DatasetTrigger
-  ( DatasetTrigger (..),
-
-    -- * Smart constructor
-    mkDatasetTrigger,
-
-    -- * Lenses
-    dtDataset,
-    dtSchedule,
-  )
-where
+  ( DatasetTrigger (..)
+  -- * Smart constructor
+  , mkDatasetTrigger
+  -- * Lenses
+  , dtDataset
+  , dtSchedule
+  ) where
 
 import qualified Network.AWS.IoTAnalytics.Types.Schedule as Types
 import qualified Network.AWS.IoTAnalytics.Types.TriggeringDataset as Types
@@ -31,46 +29,46 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkDatasetTrigger' smart constructor.
 data DatasetTrigger = DatasetTrigger'
-  { -- | The data set whose content creation triggers the creation of this data set's contents.
-    dataset :: Core.Maybe Types.TriggeringDataset,
-    -- | The Schedule when the trigger is initiated.
-    schedule :: Core.Maybe Types.Schedule
+  { dataset :: Core.Maybe Types.TriggeringDataset
+    -- ^ The data set whose content creation triggers the creation of this data set's contents.
+  , schedule :: Core.Maybe Types.Schedule
+    -- ^ The Schedule when the trigger is initiated.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DatasetTrigger' value with any optional fields omitted.
-mkDatasetTrigger ::
-  DatasetTrigger
-mkDatasetTrigger =
-  DatasetTrigger' {dataset = Core.Nothing, schedule = Core.Nothing}
+mkDatasetTrigger
+    :: DatasetTrigger
+mkDatasetTrigger
+  = DatasetTrigger'{dataset = Core.Nothing, schedule = Core.Nothing}
 
 -- | The data set whose content creation triggers the creation of this data set's contents.
 --
 -- /Note:/ Consider using 'dataset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dtDataset :: Lens.Lens' DatasetTrigger (Core.Maybe Types.TriggeringDataset)
 dtDataset = Lens.field @"dataset"
-{-# DEPRECATED dtDataset "Use generic-lens or generic-optics with 'dataset' instead." #-}
+{-# INLINEABLE dtDataset #-}
+{-# DEPRECATED dataset "Use generic-lens or generic-optics with 'dataset' instead"  #-}
 
 -- | The Schedule when the trigger is initiated.
 --
 -- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dtSchedule :: Lens.Lens' DatasetTrigger (Core.Maybe Types.Schedule)
 dtSchedule = Lens.field @"schedule"
-{-# DEPRECATED dtSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
+{-# INLINEABLE dtSchedule #-}
+{-# DEPRECATED schedule "Use generic-lens or generic-optics with 'schedule' instead"  #-}
 
 instance Core.FromJSON DatasetTrigger where
-  toJSON DatasetTrigger {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("dataset" Core..=) Core.<$> dataset,
-            ("schedule" Core..=) Core.<$> schedule
-          ]
-      )
+        toJSON DatasetTrigger{..}
+          = Core.object
+              (Core.catMaybes
+                 [("dataset" Core..=) Core.<$> dataset,
+                  ("schedule" Core..=) Core.<$> schedule])
 
 instance Core.FromJSON DatasetTrigger where
-  parseJSON =
-    Core.withObject "DatasetTrigger" Core.$
-      \x ->
-        DatasetTrigger'
-          Core.<$> (x Core..:? "dataset") Core.<*> (x Core..:? "schedule")
+        parseJSON
+          = Core.withObject "DatasetTrigger" Core.$
+              \ x ->
+                DatasetTrigger' Core.<$>
+                  (x Core..:? "dataset") Core.<*> x Core..:? "schedule"

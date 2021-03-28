@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.Greengrass where
 
 import Data.Proxy
-import Network.AWS.Greengrass
 import Test.AWS.Fixture
-import Test.AWS.Greengrass.Internal
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.Greengrass
+import Test.AWS.Greengrass.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -588,1290 +589,1106 @@ import Test.Tasty
 -- Requests
 
 requestGetGroupCertificateConfiguration :: GetGroupCertificateConfiguration -> TestTree
-requestGetGroupCertificateConfiguration =
-  req
+requestGetGroupCertificateConfiguration = req
     "GetGroupCertificateConfiguration"
     "fixture/GetGroupCertificateConfiguration.yaml"
 
 requestListGroupVersions :: ListGroupVersions -> TestTree
-requestListGroupVersions =
-  req
+requestListGroupVersions = req
     "ListGroupVersions"
     "fixture/ListGroupVersions.yaml"
 
 requestListFunctionDefinitionVersions :: ListFunctionDefinitionVersions -> TestTree
-requestListFunctionDefinitionVersions =
-  req
+requestListFunctionDefinitionVersions = req
     "ListFunctionDefinitionVersions"
     "fixture/ListFunctionDefinitionVersions.yaml"
 
 requestListDeviceDefinitions :: ListDeviceDefinitions -> TestTree
-requestListDeviceDefinitions =
-  req
+requestListDeviceDefinitions = req
     "ListDeviceDefinitions"
     "fixture/ListDeviceDefinitions.yaml"
 
 requestAssociateRoleToGroup :: AssociateRoleToGroup -> TestTree
-requestAssociateRoleToGroup =
-  req
+requestAssociateRoleToGroup = req
     "AssociateRoleToGroup"
     "fixture/AssociateRoleToGroup.yaml"
 
 requestUpdateCoreDefinition :: UpdateCoreDefinition -> TestTree
-requestUpdateCoreDefinition =
-  req
+requestUpdateCoreDefinition = req
     "UpdateCoreDefinition"
     "fixture/UpdateCoreDefinition.yaml"
 
 requestDeleteCoreDefinition :: DeleteCoreDefinition -> TestTree
-requestDeleteCoreDefinition =
-  req
+requestDeleteCoreDefinition = req
     "DeleteCoreDefinition"
     "fixture/DeleteCoreDefinition.yaml"
 
 requestGetLoggerDefinition :: GetLoggerDefinition -> TestTree
-requestGetLoggerDefinition =
-  req
+requestGetLoggerDefinition = req
     "GetLoggerDefinition"
     "fixture/GetLoggerDefinition.yaml"
 
 requestListGroupCertificateAuthorities :: ListGroupCertificateAuthorities -> TestTree
-requestListGroupCertificateAuthorities =
-  req
+requestListGroupCertificateAuthorities = req
     "ListGroupCertificateAuthorities"
     "fixture/ListGroupCertificateAuthorities.yaml"
 
 requestDisassociateRoleFromGroup :: DisassociateRoleFromGroup -> TestTree
-requestDisassociateRoleFromGroup =
-  req
+requestDisassociateRoleFromGroup = req
     "DisassociateRoleFromGroup"
     "fixture/DisassociateRoleFromGroup.yaml"
 
 requestUpdateSubscriptionDefinition :: UpdateSubscriptionDefinition -> TestTree
-requestUpdateSubscriptionDefinition =
-  req
+requestUpdateSubscriptionDefinition = req
     "UpdateSubscriptionDefinition"
     "fixture/UpdateSubscriptionDefinition.yaml"
 
 requestDeleteSubscriptionDefinition :: DeleteSubscriptionDefinition -> TestTree
-requestDeleteSubscriptionDefinition =
-  req
+requestDeleteSubscriptionDefinition = req
     "DeleteSubscriptionDefinition"
     "fixture/DeleteSubscriptionDefinition.yaml"
 
 requestListCoreDefinitions :: ListCoreDefinitions -> TestTree
-requestListCoreDefinitions =
-  req
+requestListCoreDefinitions = req
     "ListCoreDefinitions"
     "fixture/ListCoreDefinitions.yaml"
 
 requestListSubscriptionDefinitions :: ListSubscriptionDefinitions -> TestTree
-requestListSubscriptionDefinitions =
-  req
+requestListSubscriptionDefinitions = req
     "ListSubscriptionDefinitions"
     "fixture/ListSubscriptionDefinitions.yaml"
 
 requestCreateGroupCertificateAuthority :: CreateGroupCertificateAuthority -> TestTree
-requestCreateGroupCertificateAuthority =
-  req
+requestCreateGroupCertificateAuthority = req
     "CreateGroupCertificateAuthority"
     "fixture/CreateGroupCertificateAuthority.yaml"
 
 requestDeleteConnectorDefinition :: DeleteConnectorDefinition -> TestTree
-requestDeleteConnectorDefinition =
-  req
+requestDeleteConnectorDefinition = req
     "DeleteConnectorDefinition"
     "fixture/DeleteConnectorDefinition.yaml"
 
 requestUpdateConnectorDefinition :: UpdateConnectorDefinition -> TestTree
-requestUpdateConnectorDefinition =
-  req
+requestUpdateConnectorDefinition = req
     "UpdateConnectorDefinition"
     "fixture/UpdateConnectorDefinition.yaml"
 
 requestCreateLoggerDefinitionVersion :: CreateLoggerDefinitionVersion -> TestTree
-requestCreateLoggerDefinitionVersion =
-  req
+requestCreateLoggerDefinitionVersion = req
     "CreateLoggerDefinitionVersion"
     "fixture/CreateLoggerDefinitionVersion.yaml"
 
 requestCreateCoreDefinition :: CreateCoreDefinition -> TestTree
-requestCreateCoreDefinition =
-  req
+requestCreateCoreDefinition = req
     "CreateCoreDefinition"
     "fixture/CreateCoreDefinition.yaml"
 
 requestGetConnectorDefinitionVersion :: GetConnectorDefinitionVersion -> TestTree
-requestGetConnectorDefinitionVersion =
-  req
+requestGetConnectorDefinitionVersion = req
     "GetConnectorDefinitionVersion"
     "fixture/GetConnectorDefinitionVersion.yaml"
 
 requestUpdateConnectivityInfo :: UpdateConnectivityInfo -> TestTree
-requestUpdateConnectivityInfo =
-  req
+requestUpdateConnectivityInfo = req
     "UpdateConnectivityInfo"
     "fixture/UpdateConnectivityInfo.yaml"
 
 requestCreateSubscriptionDefinition :: CreateSubscriptionDefinition -> TestTree
-requestCreateSubscriptionDefinition =
-  req
+requestCreateSubscriptionDefinition = req
     "CreateSubscriptionDefinition"
     "fixture/CreateSubscriptionDefinition.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
+requestListTagsForResource = req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
 requestGetGroupCertificateAuthority :: GetGroupCertificateAuthority -> TestTree
-requestGetGroupCertificateAuthority =
-  req
+requestGetGroupCertificateAuthority = req
     "GetGroupCertificateAuthority"
     "fixture/GetGroupCertificateAuthority.yaml"
 
 requestGetLoggerDefinitionVersion :: GetLoggerDefinitionVersion -> TestTree
-requestGetLoggerDefinitionVersion =
-  req
+requestGetLoggerDefinitionVersion = req
     "GetLoggerDefinitionVersion"
     "fixture/GetLoggerDefinitionVersion.yaml"
 
 requestGetServiceRoleForAccount :: GetServiceRoleForAccount -> TestTree
-requestGetServiceRoleForAccount =
-  req
+requestGetServiceRoleForAccount = req
     "GetServiceRoleForAccount"
     "fixture/GetServiceRoleForAccount.yaml"
 
 requestListConnectorDefinitionVersions :: ListConnectorDefinitionVersions -> TestTree
-requestListConnectorDefinitionVersions =
-  req
+requestListConnectorDefinitionVersions = req
     "ListConnectorDefinitionVersions"
     "fixture/ListConnectorDefinitionVersions.yaml"
 
 requestCreateSoftwareUpdateJob :: CreateSoftwareUpdateJob -> TestTree
-requestCreateSoftwareUpdateJob =
-  req
+requestCreateSoftwareUpdateJob = req
     "CreateSoftwareUpdateJob"
     "fixture/CreateSoftwareUpdateJob.yaml"
 
 requestCreateLoggerDefinition :: CreateLoggerDefinition -> TestTree
-requestCreateLoggerDefinition =
-  req
+requestCreateLoggerDefinition = req
     "CreateLoggerDefinition"
     "fixture/CreateLoggerDefinition.yaml"
 
 requestGetConnectivityInfo :: GetConnectivityInfo -> TestTree
-requestGetConnectivityInfo =
-  req
+requestGetConnectivityInfo = req
     "GetConnectivityInfo"
     "fixture/GetConnectivityInfo.yaml"
 
 requestCreateDeployment :: CreateDeployment -> TestTree
-requestCreateDeployment =
-  req
+requestCreateDeployment = req
     "CreateDeployment"
     "fixture/CreateDeployment.yaml"
 
 requestDeleteLoggerDefinition :: DeleteLoggerDefinition -> TestTree
-requestDeleteLoggerDefinition =
-  req
+requestDeleteLoggerDefinition = req
     "DeleteLoggerDefinition"
     "fixture/DeleteLoggerDefinition.yaml"
 
 requestUpdateLoggerDefinition :: UpdateLoggerDefinition -> TestTree
-requestUpdateLoggerDefinition =
-  req
+requestUpdateLoggerDefinition = req
     "UpdateLoggerDefinition"
     "fixture/UpdateLoggerDefinition.yaml"
 
 requestGetSubscriptionDefinition :: GetSubscriptionDefinition -> TestTree
-requestGetSubscriptionDefinition =
-  req
+requestGetSubscriptionDefinition = req
     "GetSubscriptionDefinition"
     "fixture/GetSubscriptionDefinition.yaml"
 
 requestGetCoreDefinition :: GetCoreDefinition -> TestTree
-requestGetCoreDefinition =
-  req
+requestGetCoreDefinition = req
     "GetCoreDefinition"
     "fixture/GetCoreDefinition.yaml"
 
 requestCreateConnectorDefinitionVersion :: CreateConnectorDefinitionVersion -> TestTree
-requestCreateConnectorDefinitionVersion =
-  req
+requestCreateConnectorDefinitionVersion = req
     "CreateConnectorDefinitionVersion"
     "fixture/CreateConnectorDefinitionVersion.yaml"
 
 requestGetDeploymentStatus :: GetDeploymentStatus -> TestTree
-requestGetDeploymentStatus =
-  req
+requestGetDeploymentStatus = req
     "GetDeploymentStatus"
     "fixture/GetDeploymentStatus.yaml"
 
 requestGetBulkDeploymentStatus :: GetBulkDeploymentStatus -> TestTree
-requestGetBulkDeploymentStatus =
-  req
+requestGetBulkDeploymentStatus = req
     "GetBulkDeploymentStatus"
     "fixture/GetBulkDeploymentStatus.yaml"
 
 requestCreateResourceDefinition :: CreateResourceDefinition -> TestTree
-requestCreateResourceDefinition =
-  req
+requestCreateResourceDefinition = req
     "CreateResourceDefinition"
     "fixture/CreateResourceDefinition.yaml"
 
 requestGetResourceDefinitionVersion :: GetResourceDefinitionVersion -> TestTree
-requestGetResourceDefinitionVersion =
-  req
+requestGetResourceDefinitionVersion = req
     "GetResourceDefinitionVersion"
     "fixture/GetResourceDefinitionVersion.yaml"
 
 requestUpdateFunctionDefinition :: UpdateFunctionDefinition -> TestTree
-requestUpdateFunctionDefinition =
-  req
+requestUpdateFunctionDefinition = req
     "UpdateFunctionDefinition"
     "fixture/UpdateFunctionDefinition.yaml"
 
 requestDeleteFunctionDefinition :: DeleteFunctionDefinition -> TestTree
-requestDeleteFunctionDefinition =
-  req
+requestDeleteFunctionDefinition = req
     "DeleteFunctionDefinition"
     "fixture/DeleteFunctionDefinition.yaml"
 
 requestListResourceDefinitions :: ListResourceDefinitions -> TestTree
-requestListResourceDefinitions =
-  req
+requestListResourceDefinitions = req
     "ListResourceDefinitions"
     "fixture/ListResourceDefinitions.yaml"
 
 requestStopBulkDeployment :: StopBulkDeployment -> TestTree
-requestStopBulkDeployment =
-  req
+requestStopBulkDeployment = req
     "StopBulkDeployment"
     "fixture/StopBulkDeployment.yaml"
 
 requestCreateResourceDefinitionVersion :: CreateResourceDefinitionVersion -> TestTree
-requestCreateResourceDefinitionVersion =
-  req
+requestCreateResourceDefinitionVersion = req
     "CreateResourceDefinitionVersion"
     "fixture/CreateResourceDefinitionVersion.yaml"
 
 requestGetResourceDefinition :: GetResourceDefinition -> TestTree
-requestGetResourceDefinition =
-  req
+requestGetResourceDefinition = req
     "GetResourceDefinition"
     "fixture/GetResourceDefinition.yaml"
 
 requestListResourceDefinitionVersions :: ListResourceDefinitionVersions -> TestTree
-requestListResourceDefinitionVersions =
-  req
+requestListResourceDefinitionVersions = req
     "ListResourceDefinitionVersions"
     "fixture/ListResourceDefinitionVersions.yaml"
 
 requestDisassociateServiceRoleFromAccount :: DisassociateServiceRoleFromAccount -> TestTree
-requestDisassociateServiceRoleFromAccount =
-  req
+requestDisassociateServiceRoleFromAccount = req
     "DisassociateServiceRoleFromAccount"
     "fixture/DisassociateServiceRoleFromAccount.yaml"
 
 requestDeleteDeviceDefinition :: DeleteDeviceDefinition -> TestTree
-requestDeleteDeviceDefinition =
-  req
+requestDeleteDeviceDefinition = req
     "DeleteDeviceDefinition"
     "fixture/DeleteDeviceDefinition.yaml"
 
 requestUpdateDeviceDefinition :: UpdateDeviceDefinition -> TestTree
-requestUpdateDeviceDefinition =
-  req
+requestUpdateDeviceDefinition = req
     "UpdateDeviceDefinition"
     "fixture/UpdateDeviceDefinition.yaml"
 
 requestAssociateServiceRoleToAccount :: AssociateServiceRoleToAccount -> TestTree
-requestAssociateServiceRoleToAccount =
-  req
+requestAssociateServiceRoleToAccount = req
     "AssociateServiceRoleToAccount"
     "fixture/AssociateServiceRoleToAccount.yaml"
 
 requestResetDeployments :: ResetDeployments -> TestTree
-requestResetDeployments =
-  req
+requestResetDeployments = req
     "ResetDeployments"
     "fixture/ResetDeployments.yaml"
 
 requestListConnectorDefinitions :: ListConnectorDefinitions -> TestTree
-requestListConnectorDefinitions =
-  req
+requestListConnectorDefinitions = req
     "ListConnectorDefinitions"
     "fixture/ListConnectorDefinitions.yaml"
 
 requestGetSubscriptionDefinitionVersion :: GetSubscriptionDefinitionVersion -> TestTree
-requestGetSubscriptionDefinitionVersion =
-  req
+requestGetSubscriptionDefinitionVersion = req
     "GetSubscriptionDefinitionVersion"
     "fixture/GetSubscriptionDefinitionVersion.yaml"
 
 requestGetAssociatedRole :: GetAssociatedRole -> TestTree
-requestGetAssociatedRole =
-  req
+requestGetAssociatedRole = req
     "GetAssociatedRole"
     "fixture/GetAssociatedRole.yaml"
 
 requestListLoggerDefinitionVersions :: ListLoggerDefinitionVersions -> TestTree
-requestListLoggerDefinitionVersions =
-  req
+requestListLoggerDefinitionVersions = req
     "ListLoggerDefinitionVersions"
     "fixture/ListLoggerDefinitionVersions.yaml"
 
 requestCreateConnectorDefinition :: CreateConnectorDefinition -> TestTree
-requestCreateConnectorDefinition =
-  req
+requestCreateConnectorDefinition = req
     "CreateConnectorDefinition"
     "fixture/CreateConnectorDefinition.yaml"
 
 requestGetCoreDefinitionVersion :: GetCoreDefinitionVersion -> TestTree
-requestGetCoreDefinitionVersion =
-  req
+requestGetCoreDefinitionVersion = req
     "GetCoreDefinitionVersion"
     "fixture/GetCoreDefinitionVersion.yaml"
 
 requestListSubscriptionDefinitionVersions :: ListSubscriptionDefinitionVersions -> TestTree
-requestListSubscriptionDefinitionVersions =
-  req
+requestListSubscriptionDefinitionVersions = req
     "ListSubscriptionDefinitionVersions"
     "fixture/ListSubscriptionDefinitionVersions.yaml"
 
 requestListCoreDefinitionVersions :: ListCoreDefinitionVersions -> TestTree
-requestListCoreDefinitionVersions =
-  req
+requestListCoreDefinitionVersions = req
     "ListCoreDefinitionVersions"
     "fixture/ListCoreDefinitionVersions.yaml"
 
 requestCreateCoreDefinitionVersion :: CreateCoreDefinitionVersion -> TestTree
-requestCreateCoreDefinitionVersion =
-  req
+requestCreateCoreDefinitionVersion = req
     "CreateCoreDefinitionVersion"
     "fixture/CreateCoreDefinitionVersion.yaml"
 
 requestListBulkDeployments :: ListBulkDeployments -> TestTree
-requestListBulkDeployments =
-  req
+requestListBulkDeployments = req
     "ListBulkDeployments"
     "fixture/ListBulkDeployments.yaml"
 
 requestListDeployments :: ListDeployments -> TestTree
-requestListDeployments =
-  req
+requestListDeployments = req
     "ListDeployments"
     "fixture/ListDeployments.yaml"
 
 requestGetConnectorDefinition :: GetConnectorDefinition -> TestTree
-requestGetConnectorDefinition =
-  req
+requestGetConnectorDefinition = req
     "GetConnectorDefinition"
     "fixture/GetConnectorDefinition.yaml"
 
 requestListLoggerDefinitions :: ListLoggerDefinitions -> TestTree
-requestListLoggerDefinitions =
-  req
+requestListLoggerDefinitions = req
     "ListLoggerDefinitions"
     "fixture/ListLoggerDefinitions.yaml"
 
 requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
+requestTagResource = req
     "TagResource"
     "fixture/TagResource.yaml"
 
 requestCreateSubscriptionDefinitionVersion :: CreateSubscriptionDefinitionVersion -> TestTree
-requestCreateSubscriptionDefinitionVersion =
-  req
+requestCreateSubscriptionDefinitionVersion = req
     "CreateSubscriptionDefinitionVersion"
     "fixture/CreateSubscriptionDefinitionVersion.yaml"
 
 requestGetGroupVersion :: GetGroupVersion -> TestTree
-requestGetGroupVersion =
-  req
+requestGetGroupVersion = req
     "GetGroupVersion"
     "fixture/GetGroupVersion.yaml"
 
 requestUpdateGroupCertificateConfiguration :: UpdateGroupCertificateConfiguration -> TestTree
-requestUpdateGroupCertificateConfiguration =
-  req
+requestUpdateGroupCertificateConfiguration = req
     "UpdateGroupCertificateConfiguration"
     "fixture/UpdateGroupCertificateConfiguration.yaml"
 
 requestGetFunctionDefinitionVersion :: GetFunctionDefinitionVersion -> TestTree
-requestGetFunctionDefinitionVersion =
-  req
+requestGetFunctionDefinitionVersion = req
     "GetFunctionDefinitionVersion"
     "fixture/GetFunctionDefinitionVersion.yaml"
 
 requestGetDeviceDefinition :: GetDeviceDefinition -> TestTree
-requestGetDeviceDefinition =
-  req
+requestGetDeviceDefinition = req
     "GetDeviceDefinition"
     "fixture/GetDeviceDefinition.yaml"
 
 requestCreateGroup :: CreateGroup -> TestTree
-requestCreateGroup =
-  req
+requestCreateGroup = req
     "CreateGroup"
     "fixture/CreateGroup.yaml"
 
 requestCreateFunctionDefinition :: CreateFunctionDefinition -> TestTree
-requestCreateFunctionDefinition =
-  req
+requestCreateFunctionDefinition = req
     "CreateFunctionDefinition"
     "fixture/CreateFunctionDefinition.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
+requestUntagResource = req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
 requestCreateDeviceDefinitionVersion :: CreateDeviceDefinitionVersion -> TestTree
-requestCreateDeviceDefinitionVersion =
-  req
+requestCreateDeviceDefinitionVersion = req
     "CreateDeviceDefinitionVersion"
     "fixture/CreateDeviceDefinitionVersion.yaml"
 
 requestDeleteGroup :: DeleteGroup -> TestTree
-requestDeleteGroup =
-  req
+requestDeleteGroup = req
     "DeleteGroup"
     "fixture/DeleteGroup.yaml"
 
 requestUpdateGroup :: UpdateGroup -> TestTree
-requestUpdateGroup =
-  req
+requestUpdateGroup = req
     "UpdateGroup"
     "fixture/UpdateGroup.yaml"
 
 requestListGroups :: ListGroups -> TestTree
-requestListGroups =
-  req
+requestListGroups = req
     "ListGroups"
     "fixture/ListGroups.yaml"
 
 requestListBulkDeploymentDetailedReports :: ListBulkDeploymentDetailedReports -> TestTree
-requestListBulkDeploymentDetailedReports =
-  req
+requestListBulkDeploymentDetailedReports = req
     "ListBulkDeploymentDetailedReports"
     "fixture/ListBulkDeploymentDetailedReports.yaml"
 
 requestGetThingRuntimeConfiguration :: GetThingRuntimeConfiguration -> TestTree
-requestGetThingRuntimeConfiguration =
-  req
+requestGetThingRuntimeConfiguration = req
     "GetThingRuntimeConfiguration"
     "fixture/GetThingRuntimeConfiguration.yaml"
 
 requestDeleteResourceDefinition :: DeleteResourceDefinition -> TestTree
-requestDeleteResourceDefinition =
-  req
+requestDeleteResourceDefinition = req
     "DeleteResourceDefinition"
     "fixture/DeleteResourceDefinition.yaml"
 
 requestUpdateResourceDefinition :: UpdateResourceDefinition -> TestTree
-requestUpdateResourceDefinition =
-  req
+requestUpdateResourceDefinition = req
     "UpdateResourceDefinition"
     "fixture/UpdateResourceDefinition.yaml"
 
 requestListDeviceDefinitionVersions :: ListDeviceDefinitionVersions -> TestTree
-requestListDeviceDefinitionVersions =
-  req
+requestListDeviceDefinitionVersions = req
     "ListDeviceDefinitionVersions"
     "fixture/ListDeviceDefinitionVersions.yaml"
 
 requestListFunctionDefinitions :: ListFunctionDefinitions -> TestTree
-requestListFunctionDefinitions =
-  req
+requestListFunctionDefinitions = req
     "ListFunctionDefinitions"
     "fixture/ListFunctionDefinitions.yaml"
 
 requestGetFunctionDefinition :: GetFunctionDefinition -> TestTree
-requestGetFunctionDefinition =
-  req
+requestGetFunctionDefinition = req
     "GetFunctionDefinition"
     "fixture/GetFunctionDefinition.yaml"
 
 requestGetGroup :: GetGroup -> TestTree
-requestGetGroup =
-  req
+requestGetGroup = req
     "GetGroup"
     "fixture/GetGroup.yaml"
 
 requestCreateDeviceDefinition :: CreateDeviceDefinition -> TestTree
-requestCreateDeviceDefinition =
-  req
+requestCreateDeviceDefinition = req
     "CreateDeviceDefinition"
     "fixture/CreateDeviceDefinition.yaml"
 
 requestCreateGroupVersion :: CreateGroupVersion -> TestTree
-requestCreateGroupVersion =
-  req
+requestCreateGroupVersion = req
     "CreateGroupVersion"
     "fixture/CreateGroupVersion.yaml"
 
 requestCreateFunctionDefinitionVersion :: CreateFunctionDefinitionVersion -> TestTree
-requestCreateFunctionDefinitionVersion =
-  req
+requestCreateFunctionDefinitionVersion = req
     "CreateFunctionDefinitionVersion"
     "fixture/CreateFunctionDefinitionVersion.yaml"
 
 requestStartBulkDeployment :: StartBulkDeployment -> TestTree
-requestStartBulkDeployment =
-  req
+requestStartBulkDeployment = req
     "StartBulkDeployment"
     "fixture/StartBulkDeployment.yaml"
 
 requestUpdateThingRuntimeConfiguration :: UpdateThingRuntimeConfiguration -> TestTree
-requestUpdateThingRuntimeConfiguration =
-  req
+requestUpdateThingRuntimeConfiguration = req
     "UpdateThingRuntimeConfiguration"
     "fixture/UpdateThingRuntimeConfiguration.yaml"
 
 requestGetDeviceDefinitionVersion :: GetDeviceDefinitionVersion -> TestTree
-requestGetDeviceDefinitionVersion =
-  req
+requestGetDeviceDefinitionVersion = req
     "GetDeviceDefinitionVersion"
     "fixture/GetDeviceDefinitionVersion.yaml"
 
 -- Responses
 
 responseGetGroupCertificateConfiguration :: GetGroupCertificateConfigurationResponse -> TestTree
-responseGetGroupCertificateConfiguration =
-  res
+responseGetGroupCertificateConfiguration = res
     "GetGroupCertificateConfigurationResponse"
     "fixture/GetGroupCertificateConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetGroupCertificateConfiguration)
 
 responseListGroupVersions :: ListGroupVersionsResponse -> TestTree
-responseListGroupVersions =
-  res
+responseListGroupVersions = res
     "ListGroupVersionsResponse"
     "fixture/ListGroupVersionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListGroupVersions)
 
 responseListFunctionDefinitionVersions :: ListFunctionDefinitionVersionsResponse -> TestTree
-responseListFunctionDefinitionVersions =
-  res
+responseListFunctionDefinitionVersions = res
     "ListFunctionDefinitionVersionsResponse"
     "fixture/ListFunctionDefinitionVersionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListFunctionDefinitionVersions)
 
 responseListDeviceDefinitions :: ListDeviceDefinitionsResponse -> TestTree
-responseListDeviceDefinitions =
-  res
+responseListDeviceDefinitions = res
     "ListDeviceDefinitionsResponse"
     "fixture/ListDeviceDefinitionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListDeviceDefinitions)
 
 responseAssociateRoleToGroup :: AssociateRoleToGroupResponse -> TestTree
-responseAssociateRoleToGroup =
-  res
+responseAssociateRoleToGroup = res
     "AssociateRoleToGroupResponse"
     "fixture/AssociateRoleToGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateRoleToGroup)
 
 responseUpdateCoreDefinition :: UpdateCoreDefinitionResponse -> TestTree
-responseUpdateCoreDefinition =
-  res
+responseUpdateCoreDefinition = res
     "UpdateCoreDefinitionResponse"
     "fixture/UpdateCoreDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateCoreDefinition)
 
 responseDeleteCoreDefinition :: DeleteCoreDefinitionResponse -> TestTree
-responseDeleteCoreDefinition =
-  res
+responseDeleteCoreDefinition = res
     "DeleteCoreDefinitionResponse"
     "fixture/DeleteCoreDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteCoreDefinition)
 
 responseGetLoggerDefinition :: GetLoggerDefinitionResponse -> TestTree
-responseGetLoggerDefinition =
-  res
+responseGetLoggerDefinition = res
     "GetLoggerDefinitionResponse"
     "fixture/GetLoggerDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetLoggerDefinition)
 
 responseListGroupCertificateAuthorities :: ListGroupCertificateAuthoritiesResponse -> TestTree
-responseListGroupCertificateAuthorities =
-  res
+responseListGroupCertificateAuthorities = res
     "ListGroupCertificateAuthoritiesResponse"
     "fixture/ListGroupCertificateAuthoritiesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListGroupCertificateAuthorities)
 
 responseDisassociateRoleFromGroup :: DisassociateRoleFromGroupResponse -> TestTree
-responseDisassociateRoleFromGroup =
-  res
+responseDisassociateRoleFromGroup = res
     "DisassociateRoleFromGroupResponse"
     "fixture/DisassociateRoleFromGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateRoleFromGroup)
 
 responseUpdateSubscriptionDefinition :: UpdateSubscriptionDefinitionResponse -> TestTree
-responseUpdateSubscriptionDefinition =
-  res
+responseUpdateSubscriptionDefinition = res
     "UpdateSubscriptionDefinitionResponse"
     "fixture/UpdateSubscriptionDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateSubscriptionDefinition)
 
 responseDeleteSubscriptionDefinition :: DeleteSubscriptionDefinitionResponse -> TestTree
-responseDeleteSubscriptionDefinition =
-  res
+responseDeleteSubscriptionDefinition = res
     "DeleteSubscriptionDefinitionResponse"
     "fixture/DeleteSubscriptionDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteSubscriptionDefinition)
 
 responseListCoreDefinitions :: ListCoreDefinitionsResponse -> TestTree
-responseListCoreDefinitions =
-  res
+responseListCoreDefinitions = res
     "ListCoreDefinitionsResponse"
     "fixture/ListCoreDefinitionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListCoreDefinitions)
 
 responseListSubscriptionDefinitions :: ListSubscriptionDefinitionsResponse -> TestTree
-responseListSubscriptionDefinitions =
-  res
+responseListSubscriptionDefinitions = res
     "ListSubscriptionDefinitionsResponse"
     "fixture/ListSubscriptionDefinitionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListSubscriptionDefinitions)
 
 responseCreateGroupCertificateAuthority :: CreateGroupCertificateAuthorityResponse -> TestTree
-responseCreateGroupCertificateAuthority =
-  res
+responseCreateGroupCertificateAuthority = res
     "CreateGroupCertificateAuthorityResponse"
     "fixture/CreateGroupCertificateAuthorityResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateGroupCertificateAuthority)
 
 responseDeleteConnectorDefinition :: DeleteConnectorDefinitionResponse -> TestTree
-responseDeleteConnectorDefinition =
-  res
+responseDeleteConnectorDefinition = res
     "DeleteConnectorDefinitionResponse"
     "fixture/DeleteConnectorDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteConnectorDefinition)
 
 responseUpdateConnectorDefinition :: UpdateConnectorDefinitionResponse -> TestTree
-responseUpdateConnectorDefinition =
-  res
+responseUpdateConnectorDefinition = res
     "UpdateConnectorDefinitionResponse"
     "fixture/UpdateConnectorDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateConnectorDefinition)
 
 responseCreateLoggerDefinitionVersion :: CreateLoggerDefinitionVersionResponse -> TestTree
-responseCreateLoggerDefinitionVersion =
-  res
+responseCreateLoggerDefinitionVersion = res
     "CreateLoggerDefinitionVersionResponse"
     "fixture/CreateLoggerDefinitionVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateLoggerDefinitionVersion)
 
 responseCreateCoreDefinition :: CreateCoreDefinitionResponse -> TestTree
-responseCreateCoreDefinition =
-  res
+responseCreateCoreDefinition = res
     "CreateCoreDefinitionResponse"
     "fixture/CreateCoreDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateCoreDefinition)
 
 responseGetConnectorDefinitionVersion :: GetConnectorDefinitionVersionResponse -> TestTree
-responseGetConnectorDefinitionVersion =
-  res
+responseGetConnectorDefinitionVersion = res
     "GetConnectorDefinitionVersionResponse"
     "fixture/GetConnectorDefinitionVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetConnectorDefinitionVersion)
 
 responseUpdateConnectivityInfo :: UpdateConnectivityInfoResponse -> TestTree
-responseUpdateConnectivityInfo =
-  res
+responseUpdateConnectivityInfo = res
     "UpdateConnectivityInfoResponse"
     "fixture/UpdateConnectivityInfoResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateConnectivityInfo)
 
 responseCreateSubscriptionDefinition :: CreateSubscriptionDefinitionResponse -> TestTree
-responseCreateSubscriptionDefinition =
-  res
+responseCreateSubscriptionDefinition = res
     "CreateSubscriptionDefinitionResponse"
     "fixture/CreateSubscriptionDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateSubscriptionDefinition)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
+responseListTagsForResource = res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseGetGroupCertificateAuthority :: GetGroupCertificateAuthorityResponse -> TestTree
-responseGetGroupCertificateAuthority =
-  res
+responseGetGroupCertificateAuthority = res
     "GetGroupCertificateAuthorityResponse"
     "fixture/GetGroupCertificateAuthorityResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetGroupCertificateAuthority)
 
 responseGetLoggerDefinitionVersion :: GetLoggerDefinitionVersionResponse -> TestTree
-responseGetLoggerDefinitionVersion =
-  res
+responseGetLoggerDefinitionVersion = res
     "GetLoggerDefinitionVersionResponse"
     "fixture/GetLoggerDefinitionVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetLoggerDefinitionVersion)
 
 responseGetServiceRoleForAccount :: GetServiceRoleForAccountResponse -> TestTree
-responseGetServiceRoleForAccount =
-  res
+responseGetServiceRoleForAccount = res
     "GetServiceRoleForAccountResponse"
     "fixture/GetServiceRoleForAccountResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetServiceRoleForAccount)
 
 responseListConnectorDefinitionVersions :: ListConnectorDefinitionVersionsResponse -> TestTree
-responseListConnectorDefinitionVersions =
-  res
+responseListConnectorDefinitionVersions = res
     "ListConnectorDefinitionVersionsResponse"
     "fixture/ListConnectorDefinitionVersionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListConnectorDefinitionVersions)
 
 responseCreateSoftwareUpdateJob :: CreateSoftwareUpdateJobResponse -> TestTree
-responseCreateSoftwareUpdateJob =
-  res
+responseCreateSoftwareUpdateJob = res
     "CreateSoftwareUpdateJobResponse"
     "fixture/CreateSoftwareUpdateJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateSoftwareUpdateJob)
 
 responseCreateLoggerDefinition :: CreateLoggerDefinitionResponse -> TestTree
-responseCreateLoggerDefinition =
-  res
+responseCreateLoggerDefinition = res
     "CreateLoggerDefinitionResponse"
     "fixture/CreateLoggerDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateLoggerDefinition)
 
 responseGetConnectivityInfo :: GetConnectivityInfoResponse -> TestTree
-responseGetConnectivityInfo =
-  res
+responseGetConnectivityInfo = res
     "GetConnectivityInfoResponse"
     "fixture/GetConnectivityInfoResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetConnectivityInfo)
 
 responseCreateDeployment :: CreateDeploymentResponse -> TestTree
-responseCreateDeployment =
-  res
+responseCreateDeployment = res
     "CreateDeploymentResponse"
     "fixture/CreateDeploymentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateDeployment)
 
 responseDeleteLoggerDefinition :: DeleteLoggerDefinitionResponse -> TestTree
-responseDeleteLoggerDefinition =
-  res
+responseDeleteLoggerDefinition = res
     "DeleteLoggerDefinitionResponse"
     "fixture/DeleteLoggerDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteLoggerDefinition)
 
 responseUpdateLoggerDefinition :: UpdateLoggerDefinitionResponse -> TestTree
-responseUpdateLoggerDefinition =
-  res
+responseUpdateLoggerDefinition = res
     "UpdateLoggerDefinitionResponse"
     "fixture/UpdateLoggerDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateLoggerDefinition)
 
 responseGetSubscriptionDefinition :: GetSubscriptionDefinitionResponse -> TestTree
-responseGetSubscriptionDefinition =
-  res
+responseGetSubscriptionDefinition = res
     "GetSubscriptionDefinitionResponse"
     "fixture/GetSubscriptionDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetSubscriptionDefinition)
 
 responseGetCoreDefinition :: GetCoreDefinitionResponse -> TestTree
-responseGetCoreDefinition =
-  res
+responseGetCoreDefinition = res
     "GetCoreDefinitionResponse"
     "fixture/GetCoreDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetCoreDefinition)
 
 responseCreateConnectorDefinitionVersion :: CreateConnectorDefinitionVersionResponse -> TestTree
-responseCreateConnectorDefinitionVersion =
-  res
+responseCreateConnectorDefinitionVersion = res
     "CreateConnectorDefinitionVersionResponse"
     "fixture/CreateConnectorDefinitionVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateConnectorDefinitionVersion)
 
 responseGetDeploymentStatus :: GetDeploymentStatusResponse -> TestTree
-responseGetDeploymentStatus =
-  res
+responseGetDeploymentStatus = res
     "GetDeploymentStatusResponse"
     "fixture/GetDeploymentStatusResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetDeploymentStatus)
 
 responseGetBulkDeploymentStatus :: GetBulkDeploymentStatusResponse -> TestTree
-responseGetBulkDeploymentStatus =
-  res
+responseGetBulkDeploymentStatus = res
     "GetBulkDeploymentStatusResponse"
     "fixture/GetBulkDeploymentStatusResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetBulkDeploymentStatus)
 
 responseCreateResourceDefinition :: CreateResourceDefinitionResponse -> TestTree
-responseCreateResourceDefinition =
-  res
+responseCreateResourceDefinition = res
     "CreateResourceDefinitionResponse"
     "fixture/CreateResourceDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateResourceDefinition)
 
 responseGetResourceDefinitionVersion :: GetResourceDefinitionVersionResponse -> TestTree
-responseGetResourceDefinitionVersion =
-  res
+responseGetResourceDefinitionVersion = res
     "GetResourceDefinitionVersionResponse"
     "fixture/GetResourceDefinitionVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetResourceDefinitionVersion)
 
 responseUpdateFunctionDefinition :: UpdateFunctionDefinitionResponse -> TestTree
-responseUpdateFunctionDefinition =
-  res
+responseUpdateFunctionDefinition = res
     "UpdateFunctionDefinitionResponse"
     "fixture/UpdateFunctionDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateFunctionDefinition)
 
 responseDeleteFunctionDefinition :: DeleteFunctionDefinitionResponse -> TestTree
-responseDeleteFunctionDefinition =
-  res
+responseDeleteFunctionDefinition = res
     "DeleteFunctionDefinitionResponse"
     "fixture/DeleteFunctionDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteFunctionDefinition)
 
 responseListResourceDefinitions :: ListResourceDefinitionsResponse -> TestTree
-responseListResourceDefinitions =
-  res
+responseListResourceDefinitions = res
     "ListResourceDefinitionsResponse"
     "fixture/ListResourceDefinitionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListResourceDefinitions)
 
 responseStopBulkDeployment :: StopBulkDeploymentResponse -> TestTree
-responseStopBulkDeployment =
-  res
+responseStopBulkDeployment = res
     "StopBulkDeploymentResponse"
     "fixture/StopBulkDeploymentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StopBulkDeployment)
 
 responseCreateResourceDefinitionVersion :: CreateResourceDefinitionVersionResponse -> TestTree
-responseCreateResourceDefinitionVersion =
-  res
+responseCreateResourceDefinitionVersion = res
     "CreateResourceDefinitionVersionResponse"
     "fixture/CreateResourceDefinitionVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateResourceDefinitionVersion)
 
 responseGetResourceDefinition :: GetResourceDefinitionResponse -> TestTree
-responseGetResourceDefinition =
-  res
+responseGetResourceDefinition = res
     "GetResourceDefinitionResponse"
     "fixture/GetResourceDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetResourceDefinition)
 
 responseListResourceDefinitionVersions :: ListResourceDefinitionVersionsResponse -> TestTree
-responseListResourceDefinitionVersions =
-  res
+responseListResourceDefinitionVersions = res
     "ListResourceDefinitionVersionsResponse"
     "fixture/ListResourceDefinitionVersionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListResourceDefinitionVersions)
 
 responseDisassociateServiceRoleFromAccount :: DisassociateServiceRoleFromAccountResponse -> TestTree
-responseDisassociateServiceRoleFromAccount =
-  res
+responseDisassociateServiceRoleFromAccount = res
     "DisassociateServiceRoleFromAccountResponse"
     "fixture/DisassociateServiceRoleFromAccountResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateServiceRoleFromAccount)
 
 responseDeleteDeviceDefinition :: DeleteDeviceDefinitionResponse -> TestTree
-responseDeleteDeviceDefinition =
-  res
+responseDeleteDeviceDefinition = res
     "DeleteDeviceDefinitionResponse"
     "fixture/DeleteDeviceDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteDeviceDefinition)
 
 responseUpdateDeviceDefinition :: UpdateDeviceDefinitionResponse -> TestTree
-responseUpdateDeviceDefinition =
-  res
+responseUpdateDeviceDefinition = res
     "UpdateDeviceDefinitionResponse"
     "fixture/UpdateDeviceDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateDeviceDefinition)
 
 responseAssociateServiceRoleToAccount :: AssociateServiceRoleToAccountResponse -> TestTree
-responseAssociateServiceRoleToAccount =
-  res
+responseAssociateServiceRoleToAccount = res
     "AssociateServiceRoleToAccountResponse"
     "fixture/AssociateServiceRoleToAccountResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateServiceRoleToAccount)
 
 responseResetDeployments :: ResetDeploymentsResponse -> TestTree
-responseResetDeployments =
-  res
+responseResetDeployments = res
     "ResetDeploymentsResponse"
     "fixture/ResetDeploymentsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ResetDeployments)
 
 responseListConnectorDefinitions :: ListConnectorDefinitionsResponse -> TestTree
-responseListConnectorDefinitions =
-  res
+responseListConnectorDefinitions = res
     "ListConnectorDefinitionsResponse"
     "fixture/ListConnectorDefinitionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListConnectorDefinitions)
 
 responseGetSubscriptionDefinitionVersion :: GetSubscriptionDefinitionVersionResponse -> TestTree
-responseGetSubscriptionDefinitionVersion =
-  res
+responseGetSubscriptionDefinitionVersion = res
     "GetSubscriptionDefinitionVersionResponse"
     "fixture/GetSubscriptionDefinitionVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetSubscriptionDefinitionVersion)
 
 responseGetAssociatedRole :: GetAssociatedRoleResponse -> TestTree
-responseGetAssociatedRole =
-  res
+responseGetAssociatedRole = res
     "GetAssociatedRoleResponse"
     "fixture/GetAssociatedRoleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetAssociatedRole)
 
 responseListLoggerDefinitionVersions :: ListLoggerDefinitionVersionsResponse -> TestTree
-responseListLoggerDefinitionVersions =
-  res
+responseListLoggerDefinitionVersions = res
     "ListLoggerDefinitionVersionsResponse"
     "fixture/ListLoggerDefinitionVersionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListLoggerDefinitionVersions)
 
 responseCreateConnectorDefinition :: CreateConnectorDefinitionResponse -> TestTree
-responseCreateConnectorDefinition =
-  res
+responseCreateConnectorDefinition = res
     "CreateConnectorDefinitionResponse"
     "fixture/CreateConnectorDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateConnectorDefinition)
 
 responseGetCoreDefinitionVersion :: GetCoreDefinitionVersionResponse -> TestTree
-responseGetCoreDefinitionVersion =
-  res
+responseGetCoreDefinitionVersion = res
     "GetCoreDefinitionVersionResponse"
     "fixture/GetCoreDefinitionVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetCoreDefinitionVersion)
 
 responseListSubscriptionDefinitionVersions :: ListSubscriptionDefinitionVersionsResponse -> TestTree
-responseListSubscriptionDefinitionVersions =
-  res
+responseListSubscriptionDefinitionVersions = res
     "ListSubscriptionDefinitionVersionsResponse"
     "fixture/ListSubscriptionDefinitionVersionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListSubscriptionDefinitionVersions)
 
 responseListCoreDefinitionVersions :: ListCoreDefinitionVersionsResponse -> TestTree
-responseListCoreDefinitionVersions =
-  res
+responseListCoreDefinitionVersions = res
     "ListCoreDefinitionVersionsResponse"
     "fixture/ListCoreDefinitionVersionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListCoreDefinitionVersions)
 
 responseCreateCoreDefinitionVersion :: CreateCoreDefinitionVersionResponse -> TestTree
-responseCreateCoreDefinitionVersion =
-  res
+responseCreateCoreDefinitionVersion = res
     "CreateCoreDefinitionVersionResponse"
     "fixture/CreateCoreDefinitionVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateCoreDefinitionVersion)
 
 responseListBulkDeployments :: ListBulkDeploymentsResponse -> TestTree
-responseListBulkDeployments =
-  res
+responseListBulkDeployments = res
     "ListBulkDeploymentsResponse"
     "fixture/ListBulkDeploymentsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListBulkDeployments)
 
 responseListDeployments :: ListDeploymentsResponse -> TestTree
-responseListDeployments =
-  res
+responseListDeployments = res
     "ListDeploymentsResponse"
     "fixture/ListDeploymentsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListDeployments)
 
 responseGetConnectorDefinition :: GetConnectorDefinitionResponse -> TestTree
-responseGetConnectorDefinition =
-  res
+responseGetConnectorDefinition = res
     "GetConnectorDefinitionResponse"
     "fixture/GetConnectorDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetConnectorDefinition)
 
 responseListLoggerDefinitions :: ListLoggerDefinitionsResponse -> TestTree
-responseListLoggerDefinitions =
-  res
+responseListLoggerDefinitions = res
     "ListLoggerDefinitionsResponse"
     "fixture/ListLoggerDefinitionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListLoggerDefinitions)
 
 responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
+responseTagResource = res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseCreateSubscriptionDefinitionVersion :: CreateSubscriptionDefinitionVersionResponse -> TestTree
-responseCreateSubscriptionDefinitionVersion =
-  res
+responseCreateSubscriptionDefinitionVersion = res
     "CreateSubscriptionDefinitionVersionResponse"
     "fixture/CreateSubscriptionDefinitionVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateSubscriptionDefinitionVersion)
 
 responseGetGroupVersion :: GetGroupVersionResponse -> TestTree
-responseGetGroupVersion =
-  res
+responseGetGroupVersion = res
     "GetGroupVersionResponse"
     "fixture/GetGroupVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetGroupVersion)
 
 responseUpdateGroupCertificateConfiguration :: UpdateGroupCertificateConfigurationResponse -> TestTree
-responseUpdateGroupCertificateConfiguration =
-  res
+responseUpdateGroupCertificateConfiguration = res
     "UpdateGroupCertificateConfigurationResponse"
     "fixture/UpdateGroupCertificateConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateGroupCertificateConfiguration)
 
 responseGetFunctionDefinitionVersion :: GetFunctionDefinitionVersionResponse -> TestTree
-responseGetFunctionDefinitionVersion =
-  res
+responseGetFunctionDefinitionVersion = res
     "GetFunctionDefinitionVersionResponse"
     "fixture/GetFunctionDefinitionVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetFunctionDefinitionVersion)
 
 responseGetDeviceDefinition :: GetDeviceDefinitionResponse -> TestTree
-responseGetDeviceDefinition =
-  res
+responseGetDeviceDefinition = res
     "GetDeviceDefinitionResponse"
     "fixture/GetDeviceDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetDeviceDefinition)
 
 responseCreateGroup :: CreateGroupResponse -> TestTree
-responseCreateGroup =
-  res
+responseCreateGroup = res
     "CreateGroupResponse"
     "fixture/CreateGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateGroup)
 
 responseCreateFunctionDefinition :: CreateFunctionDefinitionResponse -> TestTree
-responseCreateFunctionDefinition =
-  res
+responseCreateFunctionDefinition = res
     "CreateFunctionDefinitionResponse"
     "fixture/CreateFunctionDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateFunctionDefinition)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
+responseUntagResource = res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseCreateDeviceDefinitionVersion :: CreateDeviceDefinitionVersionResponse -> TestTree
-responseCreateDeviceDefinitionVersion =
-  res
+responseCreateDeviceDefinitionVersion = res
     "CreateDeviceDefinitionVersionResponse"
     "fixture/CreateDeviceDefinitionVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateDeviceDefinitionVersion)
 
 responseDeleteGroup :: DeleteGroupResponse -> TestTree
-responseDeleteGroup =
-  res
+responseDeleteGroup = res
     "DeleteGroupResponse"
     "fixture/DeleteGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteGroup)
 
 responseUpdateGroup :: UpdateGroupResponse -> TestTree
-responseUpdateGroup =
-  res
+responseUpdateGroup = res
     "UpdateGroupResponse"
     "fixture/UpdateGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateGroup)
 
 responseListGroups :: ListGroupsResponse -> TestTree
-responseListGroups =
-  res
+responseListGroups = res
     "ListGroupsResponse"
     "fixture/ListGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListGroups)
 
 responseListBulkDeploymentDetailedReports :: ListBulkDeploymentDetailedReportsResponse -> TestTree
-responseListBulkDeploymentDetailedReports =
-  res
+responseListBulkDeploymentDetailedReports = res
     "ListBulkDeploymentDetailedReportsResponse"
     "fixture/ListBulkDeploymentDetailedReportsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListBulkDeploymentDetailedReports)
 
 responseGetThingRuntimeConfiguration :: GetThingRuntimeConfigurationResponse -> TestTree
-responseGetThingRuntimeConfiguration =
-  res
+responseGetThingRuntimeConfiguration = res
     "GetThingRuntimeConfigurationResponse"
     "fixture/GetThingRuntimeConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetThingRuntimeConfiguration)
 
 responseDeleteResourceDefinition :: DeleteResourceDefinitionResponse -> TestTree
-responseDeleteResourceDefinition =
-  res
+responseDeleteResourceDefinition = res
     "DeleteResourceDefinitionResponse"
     "fixture/DeleteResourceDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteResourceDefinition)
 
 responseUpdateResourceDefinition :: UpdateResourceDefinitionResponse -> TestTree
-responseUpdateResourceDefinition =
-  res
+responseUpdateResourceDefinition = res
     "UpdateResourceDefinitionResponse"
     "fixture/UpdateResourceDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateResourceDefinition)
 
 responseListDeviceDefinitionVersions :: ListDeviceDefinitionVersionsResponse -> TestTree
-responseListDeviceDefinitionVersions =
-  res
+responseListDeviceDefinitionVersions = res
     "ListDeviceDefinitionVersionsResponse"
     "fixture/ListDeviceDefinitionVersionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListDeviceDefinitionVersions)
 
 responseListFunctionDefinitions :: ListFunctionDefinitionsResponse -> TestTree
-responseListFunctionDefinitions =
-  res
+responseListFunctionDefinitions = res
     "ListFunctionDefinitionsResponse"
     "fixture/ListFunctionDefinitionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListFunctionDefinitions)
 
 responseGetFunctionDefinition :: GetFunctionDefinitionResponse -> TestTree
-responseGetFunctionDefinition =
-  res
+responseGetFunctionDefinition = res
     "GetFunctionDefinitionResponse"
     "fixture/GetFunctionDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetFunctionDefinition)
 
 responseGetGroup :: GetGroupResponse -> TestTree
-responseGetGroup =
-  res
+responseGetGroup = res
     "GetGroupResponse"
     "fixture/GetGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetGroup)
 
 responseCreateDeviceDefinition :: CreateDeviceDefinitionResponse -> TestTree
-responseCreateDeviceDefinition =
-  res
+responseCreateDeviceDefinition = res
     "CreateDeviceDefinitionResponse"
     "fixture/CreateDeviceDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateDeviceDefinition)
 
 responseCreateGroupVersion :: CreateGroupVersionResponse -> TestTree
-responseCreateGroupVersion =
-  res
+responseCreateGroupVersion = res
     "CreateGroupVersionResponse"
     "fixture/CreateGroupVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateGroupVersion)
 
 responseCreateFunctionDefinitionVersion :: CreateFunctionDefinitionVersionResponse -> TestTree
-responseCreateFunctionDefinitionVersion =
-  res
+responseCreateFunctionDefinitionVersion = res
     "CreateFunctionDefinitionVersionResponse"
     "fixture/CreateFunctionDefinitionVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateFunctionDefinitionVersion)
 
 responseStartBulkDeployment :: StartBulkDeploymentResponse -> TestTree
-responseStartBulkDeployment =
-  res
+responseStartBulkDeployment = res
     "StartBulkDeploymentResponse"
     "fixture/StartBulkDeploymentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartBulkDeployment)
 
 responseUpdateThingRuntimeConfiguration :: UpdateThingRuntimeConfigurationResponse -> TestTree
-responseUpdateThingRuntimeConfiguration =
-  res
+responseUpdateThingRuntimeConfiguration = res
     "UpdateThingRuntimeConfigurationResponse"
     "fixture/UpdateThingRuntimeConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateThingRuntimeConfiguration)
 
 responseGetDeviceDefinitionVersion :: GetDeviceDefinitionVersionResponse -> TestTree
-responseGetDeviceDefinitionVersion =
-  res
+responseGetDeviceDefinitionVersion = res
     "GetDeviceDefinitionVersionResponse"
     "fixture/GetDeviceDefinitionVersionResponse.proto"
     mkServiceConfig

@@ -7,17 +7,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Main (main) where
 
+import Test.Tasty
 import Test.AWS.ImportExport
 import Test.AWS.ImportExport.Internal
-import Test.Tasty
 
 main :: IO ()
-main =
-  defaultMain $
-    testGroup
-      "ImportExport"
-      [ testGroup "tests" tests,
-        testGroup "fixtures" fixtures
-      ]
+main = defaultMain $ testGroup "ImportExport"
+    [ testGroup "tests"    tests
+    , testGroup "fixtures" fixtures
+    ]

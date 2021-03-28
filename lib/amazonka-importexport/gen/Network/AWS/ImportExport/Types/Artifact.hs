@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.ImportExport.Types.Artifact
-  ( Artifact (..),
-
-    -- * Smart constructor
-    mkArtifact,
-
-    -- * Lenses
-    aDescription,
-    aURL,
-  )
-where
+  ( Artifact (..)
+  -- * Smart constructor
+  , mkArtifact
+  -- * Lenses
+  , aDescription
+  , aURL
+  ) where
 
 import qualified Network.AWS.ImportExport.Types.Description as Types
 import qualified Network.AWS.ImportExport.Types.URL as Types
@@ -31,33 +29,35 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkArtifact' smart constructor.
 data Artifact = Artifact'
-  { description :: Core.Maybe Types.Description,
-    url :: Core.Maybe Types.URL
+  { description :: Core.Maybe Types.Description
+  , url :: Core.Maybe Types.URL
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'Artifact' value with any optional fields omitted.
-mkArtifact ::
-  Artifact
-mkArtifact =
-  Artifact' {description = Core.Nothing, url = Core.Nothing}
+mkArtifact
+    :: Artifact
+mkArtifact
+  = Artifact'{description = Core.Nothing, url = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 aDescription :: Lens.Lens' Artifact (Core.Maybe Types.Description)
 aDescription = Lens.field @"description"
-{-# DEPRECATED aDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+{-# INLINEABLE aDescription #-}
+{-# DEPRECATED description "Use generic-lens or generic-optics with 'description' instead"  #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 aURL :: Lens.Lens' Artifact (Core.Maybe Types.URL)
 aURL = Lens.field @"url"
-{-# DEPRECATED aURL "Use generic-lens or generic-optics with 'url' instead." #-}
+{-# INLINEABLE aURL #-}
+{-# DEPRECATED url "Use generic-lens or generic-optics with 'url' instead"  #-}
 
 instance Core.FromXML Artifact where
-  parseXML x =
-    Artifact'
-      Core.<$> (x Core..@? "Description") Core.<*> (x Core..@? "URL")
+        parseXML x
+          = Artifact' Core.<$>
+              (x Core..@? "Description") Core.<*> x Core..@? "URL"

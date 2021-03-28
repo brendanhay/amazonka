@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.CognitoIdentityProvider where
 
 import Data.Proxy
-import Network.AWS.CognitoIdentityProvider
-import Test.AWS.CognitoIdentityProvider.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.CognitoIdentityProvider
+import Test.AWS.CognitoIdentityProvider.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -636,1402 +637,1202 @@ import Test.Tasty
 -- Requests
 
 requestDeleteUserPool :: DeleteUserPool -> TestTree
-requestDeleteUserPool =
-  req
+requestDeleteUserPool = req
     "DeleteUserPool"
     "fixture/DeleteUserPool.yaml"
 
 requestUpdateUserPool :: UpdateUserPool -> TestTree
-requestUpdateUserPool =
-  req
+requestUpdateUserPool = req
     "UpdateUserPool"
     "fixture/UpdateUserPool.yaml"
 
 requestUpdateUserPoolDomain :: UpdateUserPoolDomain -> TestTree
-requestUpdateUserPoolDomain =
-  req
+requestUpdateUserPoolDomain = req
     "UpdateUserPoolDomain"
     "fixture/UpdateUserPoolDomain.yaml"
 
 requestDeleteUserPoolDomain :: DeleteUserPoolDomain -> TestTree
-requestDeleteUserPoolDomain =
-  req
+requestDeleteUserPoolDomain = req
     "DeleteUserPoolDomain"
     "fixture/DeleteUserPoolDomain.yaml"
 
 requestAdminInitiateAuth :: AdminInitiateAuth -> TestTree
-requestAdminInitiateAuth =
-  req
+requestAdminInitiateAuth = req
     "AdminInitiateAuth"
     "fixture/AdminInitiateAuth.yaml"
 
 requestAdminLinkProviderForUser :: AdminLinkProviderForUser -> TestTree
-requestAdminLinkProviderForUser =
-  req
+requestAdminLinkProviderForUser = req
     "AdminLinkProviderForUser"
     "fixture/AdminLinkProviderForUser.yaml"
 
 requestAdminEnableUser :: AdminEnableUser -> TestTree
-requestAdminEnableUser =
-  req
+requestAdminEnableUser = req
     "AdminEnableUser"
     "fixture/AdminEnableUser.yaml"
 
 requestGetUserAttributeVerificationCode :: GetUserAttributeVerificationCode -> TestTree
-requestGetUserAttributeVerificationCode =
-  req
+requestGetUserAttributeVerificationCode = req
     "GetUserAttributeVerificationCode"
     "fixture/GetUserAttributeVerificationCode.yaml"
 
 requestSetUserPoolMfaConfig :: SetUserPoolMfaConfig -> TestTree
-requestSetUserPoolMfaConfig =
-  req
+requestSetUserPoolMfaConfig = req
     "SetUserPoolMfaConfig"
     "fixture/SetUserPoolMfaConfig.yaml"
 
 requestUpdateUserAttributes :: UpdateUserAttributes -> TestTree
-requestUpdateUserAttributes =
-  req
+requestUpdateUserAttributes = req
     "UpdateUserAttributes"
     "fixture/UpdateUserAttributes.yaml"
 
 requestDeleteUserAttributes :: DeleteUserAttributes -> TestTree
-requestDeleteUserAttributes =
-  req
+requestDeleteUserAttributes = req
     "DeleteUserAttributes"
     "fixture/DeleteUserAttributes.yaml"
 
 requestVerifyUserAttribute :: VerifyUserAttribute -> TestTree
-requestVerifyUserAttribute =
-  req
+requestVerifyUserAttribute = req
     "VerifyUserAttribute"
     "fixture/VerifyUserAttribute.yaml"
 
 requestAdminDisableUser :: AdminDisableUser -> TestTree
-requestAdminDisableUser =
-  req
+requestAdminDisableUser = req
     "AdminDisableUser"
     "fixture/AdminDisableUser.yaml"
 
 requestConfirmDevice :: ConfirmDevice -> TestTree
-requestConfirmDevice =
-  req
+requestConfirmDevice = req
     "ConfirmDevice"
     "fixture/ConfirmDevice.yaml"
 
 requestConfirmForgotPassword :: ConfirmForgotPassword -> TestTree
-requestConfirmForgotPassword =
-  req
+requestConfirmForgotPassword = req
     "ConfirmForgotPassword"
     "fixture/ConfirmForgotPassword.yaml"
 
 requestListUserImportJobs :: ListUserImportJobs -> TestTree
-requestListUserImportJobs =
-  req
+requestListUserImportJobs = req
     "ListUserImportJobs"
     "fixture/ListUserImportJobs.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
+requestListTagsForResource = req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
 requestDescribeIdentityProvider :: DescribeIdentityProvider -> TestTree
-requestDescribeIdentityProvider =
-  req
+requestDescribeIdentityProvider = req
     "DescribeIdentityProvider"
     "fixture/DescribeIdentityProvider.yaml"
 
 requestListUsers :: ListUsers -> TestTree
-requestListUsers =
-  req
+requestListUsers = req
     "ListUsers"
     "fixture/ListUsers.yaml"
 
 requestAdminDeleteUserAttributes :: AdminDeleteUserAttributes -> TestTree
-requestAdminDeleteUserAttributes =
-  req
+requestAdminDeleteUserAttributes = req
     "AdminDeleteUserAttributes"
     "fixture/AdminDeleteUserAttributes.yaml"
 
 requestDescribeUserPoolDomain :: DescribeUserPoolDomain -> TestTree
-requestDescribeUserPoolDomain =
-  req
+requestDescribeUserPoolDomain = req
     "DescribeUserPoolDomain"
     "fixture/DescribeUserPoolDomain.yaml"
 
 requestAdminUpdateUserAttributes :: AdminUpdateUserAttributes -> TestTree
-requestAdminUpdateUserAttributes =
-  req
+requestAdminUpdateUserAttributes = req
     "AdminUpdateUserAttributes"
     "fixture/AdminUpdateUserAttributes.yaml"
 
 requestAdminGetUser :: AdminGetUser -> TestTree
-requestAdminGetUser =
-  req
+requestAdminGetUser = req
     "AdminGetUser"
     "fixture/AdminGetUser.yaml"
 
 requestAdminUserGlobalSignOut :: AdminUserGlobalSignOut -> TestTree
-requestAdminUserGlobalSignOut =
-  req
+requestAdminUserGlobalSignOut = req
     "AdminUserGlobalSignOut"
     "fixture/AdminUserGlobalSignOut.yaml"
 
 requestListUsersInGroup :: ListUsersInGroup -> TestTree
-requestListUsersInGroup =
-  req
+requestListUsersInGroup = req
     "ListUsersInGroup"
     "fixture/ListUsersInGroup.yaml"
 
 requestAssociateSoftwareToken :: AssociateSoftwareToken -> TestTree
-requestAssociateSoftwareToken =
-  req
+requestAssociateSoftwareToken = req
     "AssociateSoftwareToken"
     "fixture/AssociateSoftwareToken.yaml"
 
 requestAdminDisableProviderForUser :: AdminDisableProviderForUser -> TestTree
-requestAdminDisableProviderForUser =
-  req
+requestAdminDisableProviderForUser = req
     "AdminDisableProviderForUser"
     "fixture/AdminDisableProviderForUser.yaml"
 
 requestForgotPassword :: ForgotPassword -> TestTree
-requestForgotPassword =
-  req
+requestForgotPassword = req
     "ForgotPassword"
     "fixture/ForgotPassword.yaml"
 
 requestDescribeUserPool :: DescribeUserPool -> TestTree
-requestDescribeUserPool =
-  req
+requestDescribeUserPool = req
     "DescribeUserPool"
     "fixture/DescribeUserPool.yaml"
 
 requestInitiateAuth :: InitiateAuth -> TestTree
-requestInitiateAuth =
-  req
+requestInitiateAuth = req
     "InitiateAuth"
     "fixture/InitiateAuth.yaml"
 
 requestAdminListGroupsForUser :: AdminListGroupsForUser -> TestTree
-requestAdminListGroupsForUser =
-  req
+requestAdminListGroupsForUser = req
     "AdminListGroupsForUser"
     "fixture/AdminListGroupsForUser.yaml"
 
 requestAdminConfirmSignUp :: AdminConfirmSignUp -> TestTree
-requestAdminConfirmSignUp =
-  req
+requestAdminConfirmSignUp = req
     "AdminConfirmSignUp"
     "fixture/AdminConfirmSignUp.yaml"
 
 requestAdminUpdateAuthEventFeedback :: AdminUpdateAuthEventFeedback -> TestTree
-requestAdminUpdateAuthEventFeedback =
-  req
+requestAdminUpdateAuthEventFeedback = req
     "AdminUpdateAuthEventFeedback"
     "fixture/AdminUpdateAuthEventFeedback.yaml"
 
 requestAdminSetUserPassword :: AdminSetUserPassword -> TestTree
-requestAdminSetUserPassword =
-  req
+requestAdminSetUserPassword = req
     "AdminSetUserPassword"
     "fixture/AdminSetUserPassword.yaml"
 
 requestStartUserImportJob :: StartUserImportJob -> TestTree
-requestStartUserImportJob =
-  req
+requestStartUserImportJob = req
     "StartUserImportJob"
     "fixture/StartUserImportJob.yaml"
 
 requestCreateIdentityProvider :: CreateIdentityProvider -> TestTree
-requestCreateIdentityProvider =
-  req
+requestCreateIdentityProvider = req
     "CreateIdentityProvider"
     "fixture/CreateIdentityProvider.yaml"
 
 requestSetUICustomization :: SetUICustomization -> TestTree
-requestSetUICustomization =
-  req
+requestSetUICustomization = req
     "SetUICustomization"
     "fixture/SetUICustomization.yaml"
 
 requestListIdentityProviders :: ListIdentityProviders -> TestTree
-requestListIdentityProviders =
-  req
+requestListIdentityProviders = req
     "ListIdentityProviders"
     "fixture/ListIdentityProviders.yaml"
 
 requestGetDevice :: GetDevice -> TestTree
-requestGetDevice =
-  req
+requestGetDevice = req
     "GetDevice"
     "fixture/GetDevice.yaml"
 
 requestSignUp :: SignUp -> TestTree
-requestSignUp =
-  req
+requestSignUp = req
     "SignUp"
     "fixture/SignUp.yaml"
 
 requestDeleteResourceServer :: DeleteResourceServer -> TestTree
-requestDeleteResourceServer =
-  req
+requestDeleteResourceServer = req
     "DeleteResourceServer"
     "fixture/DeleteResourceServer.yaml"
 
 requestUpdateResourceServer :: UpdateResourceServer -> TestTree
-requestUpdateResourceServer =
-  req
+requestUpdateResourceServer = req
     "UpdateResourceServer"
     "fixture/UpdateResourceServer.yaml"
 
 requestChangePassword :: ChangePassword -> TestTree
-requestChangePassword =
-  req
+requestChangePassword = req
     "ChangePassword"
     "fixture/ChangePassword.yaml"
 
 requestCreateUserPoolDomain :: CreateUserPoolDomain -> TestTree
-requestCreateUserPoolDomain =
-  req
+requestCreateUserPoolDomain = req
     "CreateUserPoolDomain"
     "fixture/CreateUserPoolDomain.yaml"
 
 requestRespondToAuthChallenge :: RespondToAuthChallenge -> TestTree
-requestRespondToAuthChallenge =
-  req
+requestRespondToAuthChallenge = req
     "RespondToAuthChallenge"
     "fixture/RespondToAuthChallenge.yaml"
 
 requestCreateUserPool :: CreateUserPool -> TestTree
-requestCreateUserPool =
-  req
+requestCreateUserPool = req
     "CreateUserPool"
     "fixture/CreateUserPool.yaml"
 
 requestAdminGetDevice :: AdminGetDevice -> TestTree
-requestAdminGetDevice =
-  req
+requestAdminGetDevice = req
     "AdminGetDevice"
     "fixture/AdminGetDevice.yaml"
 
 requestGetIdentityProviderByIdentifier :: GetIdentityProviderByIdentifier -> TestTree
-requestGetIdentityProviderByIdentifier =
-  req
+requestGetIdentityProviderByIdentifier = req
     "GetIdentityProviderByIdentifier"
     "fixture/GetIdentityProviderByIdentifier.yaml"
 
 requestAdminRemoveUserFromGroup :: AdminRemoveUserFromGroup -> TestTree
-requestAdminRemoveUserFromGroup =
-  req
+requestAdminRemoveUserFromGroup = req
     "AdminRemoveUserFromGroup"
     "fixture/AdminRemoveUserFromGroup.yaml"
 
 requestSetRiskConfiguration :: SetRiskConfiguration -> TestTree
-requestSetRiskConfiguration =
-  req
+requestSetRiskConfiguration = req
     "SetRiskConfiguration"
     "fixture/SetRiskConfiguration.yaml"
 
 requestConfirmSignUp :: ConfirmSignUp -> TestTree
-requestConfirmSignUp =
-  req
+requestConfirmSignUp = req
     "ConfirmSignUp"
     "fixture/ConfirmSignUp.yaml"
 
 requestListUserPools :: ListUserPools -> TestTree
-requestListUserPools =
-  req
+requestListUserPools = req
     "ListUserPools"
     "fixture/ListUserPools.yaml"
 
 requestAdminResetUserPassword :: AdminResetUserPassword -> TestTree
-requestAdminResetUserPassword =
-  req
+requestAdminResetUserPassword = req
     "AdminResetUserPassword"
     "fixture/AdminResetUserPassword.yaml"
 
 requestUpdateAuthEventFeedback :: UpdateAuthEventFeedback -> TestTree
-requestUpdateAuthEventFeedback =
-  req
+requestUpdateAuthEventFeedback = req
     "UpdateAuthEventFeedback"
     "fixture/UpdateAuthEventFeedback.yaml"
 
 requestCreateUserImportJob :: CreateUserImportJob -> TestTree
-requestCreateUserImportJob =
-  req
+requestCreateUserImportJob = req
     "CreateUserImportJob"
     "fixture/CreateUserImportJob.yaml"
 
 requestGetUser :: GetUser -> TestTree
-requestGetUser =
-  req
+requestGetUser = req
     "GetUser"
     "fixture/GetUser.yaml"
 
 requestGetUICustomization :: GetUICustomization -> TestTree
-requestGetUICustomization =
-  req
+requestGetUICustomization = req
     "GetUICustomization"
     "fixture/GetUICustomization.yaml"
 
 requestGetCSVHeader :: GetCSVHeader -> TestTree
-requestGetCSVHeader =
-  req
+requestGetCSVHeader = req
     "GetCSVHeader"
     "fixture/GetCSVHeader.yaml"
 
 requestAdminDeleteUser :: AdminDeleteUser -> TestTree
-requestAdminDeleteUser =
-  req
+requestAdminDeleteUser = req
     "AdminDeleteUser"
     "fixture/AdminDeleteUser.yaml"
 
 requestAdminForgetDevice :: AdminForgetDevice -> TestTree
-requestAdminForgetDevice =
-  req
+requestAdminForgetDevice = req
     "AdminForgetDevice"
     "fixture/AdminForgetDevice.yaml"
 
 requestDescribeResourceServer :: DescribeResourceServer -> TestTree
-requestDescribeResourceServer =
-  req
+requestDescribeResourceServer = req
     "DescribeResourceServer"
     "fixture/DescribeResourceServer.yaml"
 
 requestSetUserMFAPreference :: SetUserMFAPreference -> TestTree
-requestSetUserMFAPreference =
-  req
+requestSetUserMFAPreference = req
     "SetUserMFAPreference"
     "fixture/SetUserMFAPreference.yaml"
 
 requestAdminUpdateDeviceStatus :: AdminUpdateDeviceStatus -> TestTree
-requestAdminUpdateDeviceStatus =
-  req
+requestAdminUpdateDeviceStatus = req
     "AdminUpdateDeviceStatus"
     "fixture/AdminUpdateDeviceStatus.yaml"
 
 requestAdminCreateUser :: AdminCreateUser -> TestTree
-requestAdminCreateUser =
-  req
+requestAdminCreateUser = req
     "AdminCreateUser"
     "fixture/AdminCreateUser.yaml"
 
 requestAddCustomAttributes :: AddCustomAttributes -> TestTree
-requestAddCustomAttributes =
-  req
+requestAddCustomAttributes = req
     "AddCustomAttributes"
     "fixture/AddCustomAttributes.yaml"
 
 requestListUserPoolClients :: ListUserPoolClients -> TestTree
-requestListUserPoolClients =
-  req
+requestListUserPoolClients = req
     "ListUserPoolClients"
     "fixture/ListUserPoolClients.yaml"
 
 requestAdminSetUserMFAPreference :: AdminSetUserMFAPreference -> TestTree
-requestAdminSetUserMFAPreference =
-  req
+requestAdminSetUserMFAPreference = req
     "AdminSetUserMFAPreference"
     "fixture/AdminSetUserMFAPreference.yaml"
 
 requestUpdateUserPoolClient :: UpdateUserPoolClient -> TestTree
-requestUpdateUserPoolClient =
-  req
+requestUpdateUserPoolClient = req
     "UpdateUserPoolClient"
     "fixture/UpdateUserPoolClient.yaml"
 
 requestDeleteUserPoolClient :: DeleteUserPoolClient -> TestTree
-requestDeleteUserPoolClient =
-  req
+requestDeleteUserPoolClient = req
     "DeleteUserPoolClient"
     "fixture/DeleteUserPoolClient.yaml"
 
 requestUpdateDeviceStatus :: UpdateDeviceStatus -> TestTree
-requestUpdateDeviceStatus =
-  req
+requestUpdateDeviceStatus = req
     "UpdateDeviceStatus"
     "fixture/UpdateDeviceStatus.yaml"
 
 requestForgetDevice :: ForgetDevice -> TestTree
-requestForgetDevice =
-  req
+requestForgetDevice = req
     "ForgetDevice"
     "fixture/ForgetDevice.yaml"
 
 requestGetSigningCertificate :: GetSigningCertificate -> TestTree
-requestGetSigningCertificate =
-  req
+requestGetSigningCertificate = req
     "GetSigningCertificate"
     "fixture/GetSigningCertificate.yaml"
 
 requestDeleteUser :: DeleteUser -> TestTree
-requestDeleteUser =
-  req
+requestDeleteUser = req
     "DeleteUser"
     "fixture/DeleteUser.yaml"
 
 requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
+requestTagResource = req
     "TagResource"
     "fixture/TagResource.yaml"
 
 requestCreateUserPoolClient :: CreateUserPoolClient -> TestTree
-requestCreateUserPoolClient =
-  req
+requestCreateUserPoolClient = req
     "CreateUserPoolClient"
     "fixture/CreateUserPoolClient.yaml"
 
 requestGetUserPoolMfaConfig :: GetUserPoolMfaConfig -> TestTree
-requestGetUserPoolMfaConfig =
-  req
+requestGetUserPoolMfaConfig = req
     "GetUserPoolMfaConfig"
     "fixture/GetUserPoolMfaConfig.yaml"
 
 requestCreateResourceServer :: CreateResourceServer -> TestTree
-requestCreateResourceServer =
-  req
+requestCreateResourceServer = req
     "CreateResourceServer"
     "fixture/CreateResourceServer.yaml"
 
 requestAdminListUserAuthEvents :: AdminListUserAuthEvents -> TestTree
-requestAdminListUserAuthEvents =
-  req
+requestAdminListUserAuthEvents = req
     "AdminListUserAuthEvents"
     "fixture/AdminListUserAuthEvents.yaml"
 
 requestCreateGroup :: CreateGroup -> TestTree
-requestCreateGroup =
-  req
+requestCreateGroup = req
     "CreateGroup"
     "fixture/CreateGroup.yaml"
 
 requestAdminAddUserToGroup :: AdminAddUserToGroup -> TestTree
-requestAdminAddUserToGroup =
-  req
+requestAdminAddUserToGroup = req
     "AdminAddUserToGroup"
     "fixture/AdminAddUserToGroup.yaml"
 
 requestVerifySoftwareToken :: VerifySoftwareToken -> TestTree
-requestVerifySoftwareToken =
-  req
+requestVerifySoftwareToken = req
     "VerifySoftwareToken"
     "fixture/VerifySoftwareToken.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
+requestUntagResource = req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
 requestStopUserImportJob :: StopUserImportJob -> TestTree
-requestStopUserImportJob =
-  req
+requestStopUserImportJob = req
     "StopUserImportJob"
     "fixture/StopUserImportJob.yaml"
 
 requestDescribeUserImportJob :: DescribeUserImportJob -> TestTree
-requestDescribeUserImportJob =
-  req
+requestDescribeUserImportJob = req
     "DescribeUserImportJob"
     "fixture/DescribeUserImportJob.yaml"
 
 requestDescribeRiskConfiguration :: DescribeRiskConfiguration -> TestTree
-requestDescribeRiskConfiguration =
-  req
+requestDescribeRiskConfiguration = req
     "DescribeRiskConfiguration"
     "fixture/DescribeRiskConfiguration.yaml"
 
 requestDeleteGroup :: DeleteGroup -> TestTree
-requestDeleteGroup =
-  req
+requestDeleteGroup = req
     "DeleteGroup"
     "fixture/DeleteGroup.yaml"
 
 requestUpdateGroup :: UpdateGroup -> TestTree
-requestUpdateGroup =
-  req
+requestUpdateGroup = req
     "UpdateGroup"
     "fixture/UpdateGroup.yaml"
 
 requestGlobalSignOut :: GlobalSignOut -> TestTree
-requestGlobalSignOut =
-  req
+requestGlobalSignOut = req
     "GlobalSignOut"
     "fixture/GlobalSignOut.yaml"
 
 requestListGroups :: ListGroups -> TestTree
-requestListGroups =
-  req
+requestListGroups = req
     "ListGroups"
     "fixture/ListGroups.yaml"
 
 requestUpdateIdentityProvider :: UpdateIdentityProvider -> TestTree
-requestUpdateIdentityProvider =
-  req
+requestUpdateIdentityProvider = req
     "UpdateIdentityProvider"
     "fixture/UpdateIdentityProvider.yaml"
 
 requestDeleteIdentityProvider :: DeleteIdentityProvider -> TestTree
-requestDeleteIdentityProvider =
-  req
+requestDeleteIdentityProvider = req
     "DeleteIdentityProvider"
     "fixture/DeleteIdentityProvider.yaml"
 
 requestListResourceServers :: ListResourceServers -> TestTree
-requestListResourceServers =
-  req
+requestListResourceServers = req
     "ListResourceServers"
     "fixture/ListResourceServers.yaml"
 
 requestAdminRespondToAuthChallenge :: AdminRespondToAuthChallenge -> TestTree
-requestAdminRespondToAuthChallenge =
-  req
+requestAdminRespondToAuthChallenge = req
     "AdminRespondToAuthChallenge"
     "fixture/AdminRespondToAuthChallenge.yaml"
 
 requestSetUserSettings :: SetUserSettings -> TestTree
-requestSetUserSettings =
-  req
+requestSetUserSettings = req
     "SetUserSettings"
     "fixture/SetUserSettings.yaml"
 
 requestAdminListDevices :: AdminListDevices -> TestTree
-requestAdminListDevices =
-  req
+requestAdminListDevices = req
     "AdminListDevices"
     "fixture/AdminListDevices.yaml"
 
 requestDescribeUserPoolClient :: DescribeUserPoolClient -> TestTree
-requestDescribeUserPoolClient =
-  req
+requestDescribeUserPoolClient = req
     "DescribeUserPoolClient"
     "fixture/DescribeUserPoolClient.yaml"
 
 requestResendConfirmationCode :: ResendConfirmationCode -> TestTree
-requestResendConfirmationCode =
-  req
+requestResendConfirmationCode = req
     "ResendConfirmationCode"
     "fixture/ResendConfirmationCode.yaml"
 
 requestGetGroup :: GetGroup -> TestTree
-requestGetGroup =
-  req
+requestGetGroup = req
     "GetGroup"
     "fixture/GetGroup.yaml"
 
 requestAdminSetUserSettings :: AdminSetUserSettings -> TestTree
-requestAdminSetUserSettings =
-  req
+requestAdminSetUserSettings = req
     "AdminSetUserSettings"
     "fixture/AdminSetUserSettings.yaml"
 
 requestListDevices :: ListDevices -> TestTree
-requestListDevices =
-  req
+requestListDevices = req
     "ListDevices"
     "fixture/ListDevices.yaml"
 
 -- Responses
 
 responseDeleteUserPool :: DeleteUserPoolResponse -> TestTree
-responseDeleteUserPool =
-  res
+responseDeleteUserPool = res
     "DeleteUserPoolResponse"
     "fixture/DeleteUserPoolResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteUserPool)
 
 responseUpdateUserPool :: UpdateUserPoolResponse -> TestTree
-responseUpdateUserPool =
-  res
+responseUpdateUserPool = res
     "UpdateUserPoolResponse"
     "fixture/UpdateUserPoolResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateUserPool)
 
 responseUpdateUserPoolDomain :: UpdateUserPoolDomainResponse -> TestTree
-responseUpdateUserPoolDomain =
-  res
+responseUpdateUserPoolDomain = res
     "UpdateUserPoolDomainResponse"
     "fixture/UpdateUserPoolDomainResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateUserPoolDomain)
 
 responseDeleteUserPoolDomain :: DeleteUserPoolDomainResponse -> TestTree
-responseDeleteUserPoolDomain =
-  res
+responseDeleteUserPoolDomain = res
     "DeleteUserPoolDomainResponse"
     "fixture/DeleteUserPoolDomainResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteUserPoolDomain)
 
 responseAdminInitiateAuth :: AdminInitiateAuthResponse -> TestTree
-responseAdminInitiateAuth =
-  res
+responseAdminInitiateAuth = res
     "AdminInitiateAuthResponse"
     "fixture/AdminInitiateAuthResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminInitiateAuth)
 
 responseAdminLinkProviderForUser :: AdminLinkProviderForUserResponse -> TestTree
-responseAdminLinkProviderForUser =
-  res
+responseAdminLinkProviderForUser = res
     "AdminLinkProviderForUserResponse"
     "fixture/AdminLinkProviderForUserResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminLinkProviderForUser)
 
 responseAdminEnableUser :: AdminEnableUserResponse -> TestTree
-responseAdminEnableUser =
-  res
+responseAdminEnableUser = res
     "AdminEnableUserResponse"
     "fixture/AdminEnableUserResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminEnableUser)
 
 responseGetUserAttributeVerificationCode :: GetUserAttributeVerificationCodeResponse -> TestTree
-responseGetUserAttributeVerificationCode =
-  res
+responseGetUserAttributeVerificationCode = res
     "GetUserAttributeVerificationCodeResponse"
     "fixture/GetUserAttributeVerificationCodeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetUserAttributeVerificationCode)
 
 responseSetUserPoolMfaConfig :: SetUserPoolMfaConfigResponse -> TestTree
-responseSetUserPoolMfaConfig =
-  res
+responseSetUserPoolMfaConfig = res
     "SetUserPoolMfaConfigResponse"
     "fixture/SetUserPoolMfaConfigResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SetUserPoolMfaConfig)
 
 responseUpdateUserAttributes :: UpdateUserAttributesResponse -> TestTree
-responseUpdateUserAttributes =
-  res
+responseUpdateUserAttributes = res
     "UpdateUserAttributesResponse"
     "fixture/UpdateUserAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateUserAttributes)
 
 responseDeleteUserAttributes :: DeleteUserAttributesResponse -> TestTree
-responseDeleteUserAttributes =
-  res
+responseDeleteUserAttributes = res
     "DeleteUserAttributesResponse"
     "fixture/DeleteUserAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteUserAttributes)
 
 responseVerifyUserAttribute :: VerifyUserAttributeResponse -> TestTree
-responseVerifyUserAttribute =
-  res
+responseVerifyUserAttribute = res
     "VerifyUserAttributeResponse"
     "fixture/VerifyUserAttributeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy VerifyUserAttribute)
 
 responseAdminDisableUser :: AdminDisableUserResponse -> TestTree
-responseAdminDisableUser =
-  res
+responseAdminDisableUser = res
     "AdminDisableUserResponse"
     "fixture/AdminDisableUserResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminDisableUser)
 
 responseConfirmDevice :: ConfirmDeviceResponse -> TestTree
-responseConfirmDevice =
-  res
+responseConfirmDevice = res
     "ConfirmDeviceResponse"
     "fixture/ConfirmDeviceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ConfirmDevice)
 
 responseConfirmForgotPassword :: ConfirmForgotPasswordResponse -> TestTree
-responseConfirmForgotPassword =
-  res
+responseConfirmForgotPassword = res
     "ConfirmForgotPasswordResponse"
     "fixture/ConfirmForgotPasswordResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ConfirmForgotPassword)
 
 responseListUserImportJobs :: ListUserImportJobsResponse -> TestTree
-responseListUserImportJobs =
-  res
+responseListUserImportJobs = res
     "ListUserImportJobsResponse"
     "fixture/ListUserImportJobsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListUserImportJobs)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
+responseListTagsForResource = res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseDescribeIdentityProvider :: DescribeIdentityProviderResponse -> TestTree
-responseDescribeIdentityProvider =
-  res
+responseDescribeIdentityProvider = res
     "DescribeIdentityProviderResponse"
     "fixture/DescribeIdentityProviderResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeIdentityProvider)
 
 responseListUsers :: ListUsersResponse -> TestTree
-responseListUsers =
-  res
+responseListUsers = res
     "ListUsersResponse"
     "fixture/ListUsersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListUsers)
 
 responseAdminDeleteUserAttributes :: AdminDeleteUserAttributesResponse -> TestTree
-responseAdminDeleteUserAttributes =
-  res
+responseAdminDeleteUserAttributes = res
     "AdminDeleteUserAttributesResponse"
     "fixture/AdminDeleteUserAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminDeleteUserAttributes)
 
 responseDescribeUserPoolDomain :: DescribeUserPoolDomainResponse -> TestTree
-responseDescribeUserPoolDomain =
-  res
+responseDescribeUserPoolDomain = res
     "DescribeUserPoolDomainResponse"
     "fixture/DescribeUserPoolDomainResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeUserPoolDomain)
 
 responseAdminUpdateUserAttributes :: AdminUpdateUserAttributesResponse -> TestTree
-responseAdminUpdateUserAttributes =
-  res
+responseAdminUpdateUserAttributes = res
     "AdminUpdateUserAttributesResponse"
     "fixture/AdminUpdateUserAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminUpdateUserAttributes)
 
 responseAdminGetUser :: AdminGetUserResponse -> TestTree
-responseAdminGetUser =
-  res
+responseAdminGetUser = res
     "AdminGetUserResponse"
     "fixture/AdminGetUserResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminGetUser)
 
 responseAdminUserGlobalSignOut :: AdminUserGlobalSignOutResponse -> TestTree
-responseAdminUserGlobalSignOut =
-  res
+responseAdminUserGlobalSignOut = res
     "AdminUserGlobalSignOutResponse"
     "fixture/AdminUserGlobalSignOutResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminUserGlobalSignOut)
 
 responseListUsersInGroup :: ListUsersInGroupResponse -> TestTree
-responseListUsersInGroup =
-  res
+responseListUsersInGroup = res
     "ListUsersInGroupResponse"
     "fixture/ListUsersInGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListUsersInGroup)
 
 responseAssociateSoftwareToken :: AssociateSoftwareTokenResponse -> TestTree
-responseAssociateSoftwareToken =
-  res
+responseAssociateSoftwareToken = res
     "AssociateSoftwareTokenResponse"
     "fixture/AssociateSoftwareTokenResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateSoftwareToken)
 
 responseAdminDisableProviderForUser :: AdminDisableProviderForUserResponse -> TestTree
-responseAdminDisableProviderForUser =
-  res
+responseAdminDisableProviderForUser = res
     "AdminDisableProviderForUserResponse"
     "fixture/AdminDisableProviderForUserResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminDisableProviderForUser)
 
 responseForgotPassword :: ForgotPasswordResponse -> TestTree
-responseForgotPassword =
-  res
+responseForgotPassword = res
     "ForgotPasswordResponse"
     "fixture/ForgotPasswordResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ForgotPassword)
 
 responseDescribeUserPool :: DescribeUserPoolResponse -> TestTree
-responseDescribeUserPool =
-  res
+responseDescribeUserPool = res
     "DescribeUserPoolResponse"
     "fixture/DescribeUserPoolResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeUserPool)
 
 responseInitiateAuth :: InitiateAuthResponse -> TestTree
-responseInitiateAuth =
-  res
+responseInitiateAuth = res
     "InitiateAuthResponse"
     "fixture/InitiateAuthResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy InitiateAuth)
 
 responseAdminListGroupsForUser :: AdminListGroupsForUserResponse -> TestTree
-responseAdminListGroupsForUser =
-  res
+responseAdminListGroupsForUser = res
     "AdminListGroupsForUserResponse"
     "fixture/AdminListGroupsForUserResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminListGroupsForUser)
 
 responseAdminConfirmSignUp :: AdminConfirmSignUpResponse -> TestTree
-responseAdminConfirmSignUp =
-  res
+responseAdminConfirmSignUp = res
     "AdminConfirmSignUpResponse"
     "fixture/AdminConfirmSignUpResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminConfirmSignUp)
 
 responseAdminUpdateAuthEventFeedback :: AdminUpdateAuthEventFeedbackResponse -> TestTree
-responseAdminUpdateAuthEventFeedback =
-  res
+responseAdminUpdateAuthEventFeedback = res
     "AdminUpdateAuthEventFeedbackResponse"
     "fixture/AdminUpdateAuthEventFeedbackResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminUpdateAuthEventFeedback)
 
 responseAdminSetUserPassword :: AdminSetUserPasswordResponse -> TestTree
-responseAdminSetUserPassword =
-  res
+responseAdminSetUserPassword = res
     "AdminSetUserPasswordResponse"
     "fixture/AdminSetUserPasswordResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminSetUserPassword)
 
 responseStartUserImportJob :: StartUserImportJobResponse -> TestTree
-responseStartUserImportJob =
-  res
+responseStartUserImportJob = res
     "StartUserImportJobResponse"
     "fixture/StartUserImportJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartUserImportJob)
 
 responseCreateIdentityProvider :: CreateIdentityProviderResponse -> TestTree
-responseCreateIdentityProvider =
-  res
+responseCreateIdentityProvider = res
     "CreateIdentityProviderResponse"
     "fixture/CreateIdentityProviderResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateIdentityProvider)
 
 responseSetUICustomization :: SetUICustomizationResponse -> TestTree
-responseSetUICustomization =
-  res
+responseSetUICustomization = res
     "SetUICustomizationResponse"
     "fixture/SetUICustomizationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SetUICustomization)
 
 responseListIdentityProviders :: ListIdentityProvidersResponse -> TestTree
-responseListIdentityProviders =
-  res
+responseListIdentityProviders = res
     "ListIdentityProvidersResponse"
     "fixture/ListIdentityProvidersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListIdentityProviders)
 
 responseGetDevice :: GetDeviceResponse -> TestTree
-responseGetDevice =
-  res
+responseGetDevice = res
     "GetDeviceResponse"
     "fixture/GetDeviceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetDevice)
 
 responseSignUp :: SignUpResponse -> TestTree
-responseSignUp =
-  res
+responseSignUp = res
     "SignUpResponse"
     "fixture/SignUpResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SignUp)
 
 responseDeleteResourceServer :: DeleteResourceServerResponse -> TestTree
-responseDeleteResourceServer =
-  res
+responseDeleteResourceServer = res
     "DeleteResourceServerResponse"
     "fixture/DeleteResourceServerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteResourceServer)
 
 responseUpdateResourceServer :: UpdateResourceServerResponse -> TestTree
-responseUpdateResourceServer =
-  res
+responseUpdateResourceServer = res
     "UpdateResourceServerResponse"
     "fixture/UpdateResourceServerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateResourceServer)
 
 responseChangePassword :: ChangePasswordResponse -> TestTree
-responseChangePassword =
-  res
+responseChangePassword = res
     "ChangePasswordResponse"
     "fixture/ChangePasswordResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ChangePassword)
 
 responseCreateUserPoolDomain :: CreateUserPoolDomainResponse -> TestTree
-responseCreateUserPoolDomain =
-  res
+responseCreateUserPoolDomain = res
     "CreateUserPoolDomainResponse"
     "fixture/CreateUserPoolDomainResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateUserPoolDomain)
 
 responseRespondToAuthChallenge :: RespondToAuthChallengeResponse -> TestTree
-responseRespondToAuthChallenge =
-  res
+responseRespondToAuthChallenge = res
     "RespondToAuthChallengeResponse"
     "fixture/RespondToAuthChallengeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RespondToAuthChallenge)
 
 responseCreateUserPool :: CreateUserPoolResponse -> TestTree
-responseCreateUserPool =
-  res
+responseCreateUserPool = res
     "CreateUserPoolResponse"
     "fixture/CreateUserPoolResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateUserPool)
 
 responseAdminGetDevice :: AdminGetDeviceResponse -> TestTree
-responseAdminGetDevice =
-  res
+responseAdminGetDevice = res
     "AdminGetDeviceResponse"
     "fixture/AdminGetDeviceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminGetDevice)
 
 responseGetIdentityProviderByIdentifier :: GetIdentityProviderByIdentifierResponse -> TestTree
-responseGetIdentityProviderByIdentifier =
-  res
+responseGetIdentityProviderByIdentifier = res
     "GetIdentityProviderByIdentifierResponse"
     "fixture/GetIdentityProviderByIdentifierResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetIdentityProviderByIdentifier)
 
 responseAdminRemoveUserFromGroup :: AdminRemoveUserFromGroupResponse -> TestTree
-responseAdminRemoveUserFromGroup =
-  res
+responseAdminRemoveUserFromGroup = res
     "AdminRemoveUserFromGroupResponse"
     "fixture/AdminRemoveUserFromGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminRemoveUserFromGroup)
 
 responseSetRiskConfiguration :: SetRiskConfigurationResponse -> TestTree
-responseSetRiskConfiguration =
-  res
+responseSetRiskConfiguration = res
     "SetRiskConfigurationResponse"
     "fixture/SetRiskConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SetRiskConfiguration)
 
 responseConfirmSignUp :: ConfirmSignUpResponse -> TestTree
-responseConfirmSignUp =
-  res
+responseConfirmSignUp = res
     "ConfirmSignUpResponse"
     "fixture/ConfirmSignUpResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ConfirmSignUp)
 
 responseListUserPools :: ListUserPoolsResponse -> TestTree
-responseListUserPools =
-  res
+responseListUserPools = res
     "ListUserPoolsResponse"
     "fixture/ListUserPoolsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListUserPools)
 
 responseAdminResetUserPassword :: AdminResetUserPasswordResponse -> TestTree
-responseAdminResetUserPassword =
-  res
+responseAdminResetUserPassword = res
     "AdminResetUserPasswordResponse"
     "fixture/AdminResetUserPasswordResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminResetUserPassword)
 
 responseUpdateAuthEventFeedback :: UpdateAuthEventFeedbackResponse -> TestTree
-responseUpdateAuthEventFeedback =
-  res
+responseUpdateAuthEventFeedback = res
     "UpdateAuthEventFeedbackResponse"
     "fixture/UpdateAuthEventFeedbackResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateAuthEventFeedback)
 
 responseCreateUserImportJob :: CreateUserImportJobResponse -> TestTree
-responseCreateUserImportJob =
-  res
+responseCreateUserImportJob = res
     "CreateUserImportJobResponse"
     "fixture/CreateUserImportJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateUserImportJob)
 
 responseGetUser :: GetUserResponse -> TestTree
-responseGetUser =
-  res
+responseGetUser = res
     "GetUserResponse"
     "fixture/GetUserResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetUser)
 
 responseGetUICustomization :: GetUICustomizationResponse -> TestTree
-responseGetUICustomization =
-  res
+responseGetUICustomization = res
     "GetUICustomizationResponse"
     "fixture/GetUICustomizationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetUICustomization)
 
 responseGetCSVHeader :: GetCSVHeaderResponse -> TestTree
-responseGetCSVHeader =
-  res
+responseGetCSVHeader = res
     "GetCSVHeaderResponse"
     "fixture/GetCSVHeaderResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetCSVHeader)
 
 responseAdminDeleteUser :: AdminDeleteUserResponse -> TestTree
-responseAdminDeleteUser =
-  res
+responseAdminDeleteUser = res
     "AdminDeleteUserResponse"
     "fixture/AdminDeleteUserResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminDeleteUser)
 
 responseAdminForgetDevice :: AdminForgetDeviceResponse -> TestTree
-responseAdminForgetDevice =
-  res
+responseAdminForgetDevice = res
     "AdminForgetDeviceResponse"
     "fixture/AdminForgetDeviceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminForgetDevice)
 
 responseDescribeResourceServer :: DescribeResourceServerResponse -> TestTree
-responseDescribeResourceServer =
-  res
+responseDescribeResourceServer = res
     "DescribeResourceServerResponse"
     "fixture/DescribeResourceServerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeResourceServer)
 
 responseSetUserMFAPreference :: SetUserMFAPreferenceResponse -> TestTree
-responseSetUserMFAPreference =
-  res
+responseSetUserMFAPreference = res
     "SetUserMFAPreferenceResponse"
     "fixture/SetUserMFAPreferenceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SetUserMFAPreference)
 
 responseAdminUpdateDeviceStatus :: AdminUpdateDeviceStatusResponse -> TestTree
-responseAdminUpdateDeviceStatus =
-  res
+responseAdminUpdateDeviceStatus = res
     "AdminUpdateDeviceStatusResponse"
     "fixture/AdminUpdateDeviceStatusResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminUpdateDeviceStatus)
 
 responseAdminCreateUser :: AdminCreateUserResponse -> TestTree
-responseAdminCreateUser =
-  res
+responseAdminCreateUser = res
     "AdminCreateUserResponse"
     "fixture/AdminCreateUserResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminCreateUser)
 
 responseAddCustomAttributes :: AddCustomAttributesResponse -> TestTree
-responseAddCustomAttributes =
-  res
+responseAddCustomAttributes = res
     "AddCustomAttributesResponse"
     "fixture/AddCustomAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AddCustomAttributes)
 
 responseListUserPoolClients :: ListUserPoolClientsResponse -> TestTree
-responseListUserPoolClients =
-  res
+responseListUserPoolClients = res
     "ListUserPoolClientsResponse"
     "fixture/ListUserPoolClientsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListUserPoolClients)
 
 responseAdminSetUserMFAPreference :: AdminSetUserMFAPreferenceResponse -> TestTree
-responseAdminSetUserMFAPreference =
-  res
+responseAdminSetUserMFAPreference = res
     "AdminSetUserMFAPreferenceResponse"
     "fixture/AdminSetUserMFAPreferenceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminSetUserMFAPreference)
 
 responseUpdateUserPoolClient :: UpdateUserPoolClientResponse -> TestTree
-responseUpdateUserPoolClient =
-  res
+responseUpdateUserPoolClient = res
     "UpdateUserPoolClientResponse"
     "fixture/UpdateUserPoolClientResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateUserPoolClient)
 
 responseDeleteUserPoolClient :: DeleteUserPoolClientResponse -> TestTree
-responseDeleteUserPoolClient =
-  res
+responseDeleteUserPoolClient = res
     "DeleteUserPoolClientResponse"
     "fixture/DeleteUserPoolClientResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteUserPoolClient)
 
 responseUpdateDeviceStatus :: UpdateDeviceStatusResponse -> TestTree
-responseUpdateDeviceStatus =
-  res
+responseUpdateDeviceStatus = res
     "UpdateDeviceStatusResponse"
     "fixture/UpdateDeviceStatusResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateDeviceStatus)
 
 responseForgetDevice :: ForgetDeviceResponse -> TestTree
-responseForgetDevice =
-  res
+responseForgetDevice = res
     "ForgetDeviceResponse"
     "fixture/ForgetDeviceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ForgetDevice)
 
 responseGetSigningCertificate :: GetSigningCertificateResponse -> TestTree
-responseGetSigningCertificate =
-  res
+responseGetSigningCertificate = res
     "GetSigningCertificateResponse"
     "fixture/GetSigningCertificateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetSigningCertificate)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
-responseDeleteUser =
-  res
+responseDeleteUser = res
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteUser)
 
 responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
+responseTagResource = res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseCreateUserPoolClient :: CreateUserPoolClientResponse -> TestTree
-responseCreateUserPoolClient =
-  res
+responseCreateUserPoolClient = res
     "CreateUserPoolClientResponse"
     "fixture/CreateUserPoolClientResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateUserPoolClient)
 
 responseGetUserPoolMfaConfig :: GetUserPoolMfaConfigResponse -> TestTree
-responseGetUserPoolMfaConfig =
-  res
+responseGetUserPoolMfaConfig = res
     "GetUserPoolMfaConfigResponse"
     "fixture/GetUserPoolMfaConfigResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetUserPoolMfaConfig)
 
 responseCreateResourceServer :: CreateResourceServerResponse -> TestTree
-responseCreateResourceServer =
-  res
+responseCreateResourceServer = res
     "CreateResourceServerResponse"
     "fixture/CreateResourceServerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateResourceServer)
 
 responseAdminListUserAuthEvents :: AdminListUserAuthEventsResponse -> TestTree
-responseAdminListUserAuthEvents =
-  res
+responseAdminListUserAuthEvents = res
     "AdminListUserAuthEventsResponse"
     "fixture/AdminListUserAuthEventsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminListUserAuthEvents)
 
 responseCreateGroup :: CreateGroupResponse -> TestTree
-responseCreateGroup =
-  res
+responseCreateGroup = res
     "CreateGroupResponse"
     "fixture/CreateGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateGroup)
 
 responseAdminAddUserToGroup :: AdminAddUserToGroupResponse -> TestTree
-responseAdminAddUserToGroup =
-  res
+responseAdminAddUserToGroup = res
     "AdminAddUserToGroupResponse"
     "fixture/AdminAddUserToGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminAddUserToGroup)
 
 responseVerifySoftwareToken :: VerifySoftwareTokenResponse -> TestTree
-responseVerifySoftwareToken =
-  res
+responseVerifySoftwareToken = res
     "VerifySoftwareTokenResponse"
     "fixture/VerifySoftwareTokenResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy VerifySoftwareToken)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
+responseUntagResource = res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseStopUserImportJob :: StopUserImportJobResponse -> TestTree
-responseStopUserImportJob =
-  res
+responseStopUserImportJob = res
     "StopUserImportJobResponse"
     "fixture/StopUserImportJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StopUserImportJob)
 
 responseDescribeUserImportJob :: DescribeUserImportJobResponse -> TestTree
-responseDescribeUserImportJob =
-  res
+responseDescribeUserImportJob = res
     "DescribeUserImportJobResponse"
     "fixture/DescribeUserImportJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeUserImportJob)
 
 responseDescribeRiskConfiguration :: DescribeRiskConfigurationResponse -> TestTree
-responseDescribeRiskConfiguration =
-  res
+responseDescribeRiskConfiguration = res
     "DescribeRiskConfigurationResponse"
     "fixture/DescribeRiskConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeRiskConfiguration)
 
 responseDeleteGroup :: DeleteGroupResponse -> TestTree
-responseDeleteGroup =
-  res
+responseDeleteGroup = res
     "DeleteGroupResponse"
     "fixture/DeleteGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteGroup)
 
 responseUpdateGroup :: UpdateGroupResponse -> TestTree
-responseUpdateGroup =
-  res
+responseUpdateGroup = res
     "UpdateGroupResponse"
     "fixture/UpdateGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateGroup)
 
 responseGlobalSignOut :: GlobalSignOutResponse -> TestTree
-responseGlobalSignOut =
-  res
+responseGlobalSignOut = res
     "GlobalSignOutResponse"
     "fixture/GlobalSignOutResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GlobalSignOut)
 
 responseListGroups :: ListGroupsResponse -> TestTree
-responseListGroups =
-  res
+responseListGroups = res
     "ListGroupsResponse"
     "fixture/ListGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListGroups)
 
 responseUpdateIdentityProvider :: UpdateIdentityProviderResponse -> TestTree
-responseUpdateIdentityProvider =
-  res
+responseUpdateIdentityProvider = res
     "UpdateIdentityProviderResponse"
     "fixture/UpdateIdentityProviderResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateIdentityProvider)
 
 responseDeleteIdentityProvider :: DeleteIdentityProviderResponse -> TestTree
-responseDeleteIdentityProvider =
-  res
+responseDeleteIdentityProvider = res
     "DeleteIdentityProviderResponse"
     "fixture/DeleteIdentityProviderResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteIdentityProvider)
 
 responseListResourceServers :: ListResourceServersResponse -> TestTree
-responseListResourceServers =
-  res
+responseListResourceServers = res
     "ListResourceServersResponse"
     "fixture/ListResourceServersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListResourceServers)
 
 responseAdminRespondToAuthChallenge :: AdminRespondToAuthChallengeResponse -> TestTree
-responseAdminRespondToAuthChallenge =
-  res
+responseAdminRespondToAuthChallenge = res
     "AdminRespondToAuthChallengeResponse"
     "fixture/AdminRespondToAuthChallengeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminRespondToAuthChallenge)
 
 responseSetUserSettings :: SetUserSettingsResponse -> TestTree
-responseSetUserSettings =
-  res
+responseSetUserSettings = res
     "SetUserSettingsResponse"
     "fixture/SetUserSettingsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SetUserSettings)
 
 responseAdminListDevices :: AdminListDevicesResponse -> TestTree
-responseAdminListDevices =
-  res
+responseAdminListDevices = res
     "AdminListDevicesResponse"
     "fixture/AdminListDevicesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminListDevices)
 
 responseDescribeUserPoolClient :: DescribeUserPoolClientResponse -> TestTree
-responseDescribeUserPoolClient =
-  res
+responseDescribeUserPoolClient = res
     "DescribeUserPoolClientResponse"
     "fixture/DescribeUserPoolClientResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeUserPoolClient)
 
 responseResendConfirmationCode :: ResendConfirmationCodeResponse -> TestTree
-responseResendConfirmationCode =
-  res
+responseResendConfirmationCode = res
     "ResendConfirmationCodeResponse"
     "fixture/ResendConfirmationCodeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ResendConfirmationCode)
 
 responseGetGroup :: GetGroupResponse -> TestTree
-responseGetGroup =
-  res
+responseGetGroup = res
     "GetGroupResponse"
     "fixture/GetGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetGroup)
 
 responseAdminSetUserSettings :: AdminSetUserSettingsResponse -> TestTree
-responseAdminSetUserSettings =
-  res
+responseAdminSetUserSettings = res
     "AdminSetUserSettingsResponse"
     "fixture/AdminSetUserSettingsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AdminSetUserSettings)
 
 responseListDevices :: ListDevicesResponse -> TestTree
-responseListDevices =
-  res
+responseListDevices = res
     "ListDevicesResponse"
     "fixture/ListDevicesResponse.proto"
     mkServiceConfig

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CodeCommit.Types.SourceFileSpecifier
-  ( SourceFileSpecifier (..),
-
-    -- * Smart constructor
-    mkSourceFileSpecifier,
-
-    -- * Lenses
-    sfsFilePath,
-    sfsIsMove,
-  )
-where
+  ( SourceFileSpecifier (..)
+  -- * Smart constructor
+  , mkSourceFileSpecifier
+  -- * Lenses
+  , sfsFilePath
+  , sfsIsMove
+  ) where
 
 import qualified Network.AWS.CodeCommit.Types.Path as Types
 import qualified Network.AWS.Lens as Lens
@@ -30,41 +28,40 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkSourceFileSpecifier' smart constructor.
 data SourceFileSpecifier = SourceFileSpecifier'
-  { -- | The full path to the file, including the name of the file.
-    filePath :: Types.Path,
-    -- | Whether to remove the source file from the parent commit.
-    isMove :: Core.Maybe Core.Bool
+  { filePath :: Types.Path
+    -- ^ The full path to the file, including the name of the file.
+  , isMove :: Core.Maybe Core.Bool
+    -- ^ Whether to remove the source file from the parent commit.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'SourceFileSpecifier' value with any optional fields omitted.
-mkSourceFileSpecifier ::
-  -- | 'filePath'
-  Types.Path ->
-  SourceFileSpecifier
-mkSourceFileSpecifier filePath =
-  SourceFileSpecifier' {filePath, isMove = Core.Nothing}
+mkSourceFileSpecifier
+    :: Types.Path -- ^ 'filePath'
+    -> SourceFileSpecifier
+mkSourceFileSpecifier filePath
+  = SourceFileSpecifier'{filePath, isMove = Core.Nothing}
 
 -- | The full path to the file, including the name of the file.
 --
 -- /Note:/ Consider using 'filePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sfsFilePath :: Lens.Lens' SourceFileSpecifier Types.Path
 sfsFilePath = Lens.field @"filePath"
-{-# DEPRECATED sfsFilePath "Use generic-lens or generic-optics with 'filePath' instead." #-}
+{-# INLINEABLE sfsFilePath #-}
+{-# DEPRECATED filePath "Use generic-lens or generic-optics with 'filePath' instead"  #-}
 
 -- | Whether to remove the source file from the parent commit.
 --
 -- /Note:/ Consider using 'isMove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sfsIsMove :: Lens.Lens' SourceFileSpecifier (Core.Maybe Core.Bool)
 sfsIsMove = Lens.field @"isMove"
-{-# DEPRECATED sfsIsMove "Use generic-lens or generic-optics with 'isMove' instead." #-}
+{-# INLINEABLE sfsIsMove #-}
+{-# DEPRECATED isMove "Use generic-lens or generic-optics with 'isMove' instead"  #-}
 
 instance Core.FromJSON SourceFileSpecifier where
-  toJSON SourceFileSpecifier {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("filePath" Core..= filePath),
-            ("isMove" Core..=) Core.<$> isMove
-          ]
-      )
+        toJSON SourceFileSpecifier{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("filePath" Core..= filePath),
+                  ("isMove" Core..=) Core.<$> isMove])

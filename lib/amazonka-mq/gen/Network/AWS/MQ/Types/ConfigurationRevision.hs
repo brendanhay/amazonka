@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MQ.Types.ConfigurationRevision
-  ( ConfigurationRevision (..),
-
-    -- * Smart constructor
-    mkConfigurationRevision,
-
-    -- * Lenses
-    crCreated,
-    crDescription,
-    crRevision,
-  )
-where
+  ( ConfigurationRevision (..)
+  -- * Smart constructor
+  , mkConfigurationRevision
+  -- * Lenses
+  , crCreated
+  , crDescription
+  , crRevision
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -30,52 +28,51 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkConfigurationRevision' smart constructor.
 data ConfigurationRevision = ConfigurationRevision'
-  { -- | Required. The date and time of the configuration revision.
-    created :: Core.Maybe Core.UTCTime,
-    -- | The description of the configuration revision.
-    description :: Core.Maybe Core.Text,
-    -- | Required. The revision number of the configuration.
-    revision :: Core.Maybe Core.Int
+  { created :: Core.Maybe Core.UTCTime
+    -- ^ Required. The date and time of the configuration revision.
+  , description :: Core.Maybe Core.Text
+    -- ^ The description of the configuration revision.
+  , revision :: Core.Maybe Core.Int
+    -- ^ Required. The revision number of the configuration.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'ConfigurationRevision' value with any optional fields omitted.
-mkConfigurationRevision ::
-  ConfigurationRevision
-mkConfigurationRevision =
-  ConfigurationRevision'
-    { created = Core.Nothing,
-      description = Core.Nothing,
-      revision = Core.Nothing
-    }
+mkConfigurationRevision
+    :: ConfigurationRevision
+mkConfigurationRevision
+  = ConfigurationRevision'{created = Core.Nothing,
+                           description = Core.Nothing, revision = Core.Nothing}
 
 -- | Required. The date and time of the configuration revision.
 --
 -- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 crCreated :: Lens.Lens' ConfigurationRevision (Core.Maybe Core.UTCTime)
 crCreated = Lens.field @"created"
-{-# DEPRECATED crCreated "Use generic-lens or generic-optics with 'created' instead." #-}
+{-# INLINEABLE crCreated #-}
+{-# DEPRECATED created "Use generic-lens or generic-optics with 'created' instead"  #-}
 
 -- | The description of the configuration revision.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 crDescription :: Lens.Lens' ConfigurationRevision (Core.Maybe Core.Text)
 crDescription = Lens.field @"description"
-{-# DEPRECATED crDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+{-# INLINEABLE crDescription #-}
+{-# DEPRECATED description "Use generic-lens or generic-optics with 'description' instead"  #-}
 
 -- | Required. The revision number of the configuration.
 --
 -- /Note:/ Consider using 'revision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 crRevision :: Lens.Lens' ConfigurationRevision (Core.Maybe Core.Int)
 crRevision = Lens.field @"revision"
-{-# DEPRECATED crRevision "Use generic-lens or generic-optics with 'revision' instead." #-}
+{-# INLINEABLE crRevision #-}
+{-# DEPRECATED revision "Use generic-lens or generic-optics with 'revision' instead"  #-}
 
 instance Core.FromJSON ConfigurationRevision where
-  parseJSON =
-    Core.withObject "ConfigurationRevision" Core.$
-      \x ->
-        ConfigurationRevision'
-          Core.<$> (x Core..:? "created")
-          Core.<*> (x Core..:? "description")
-          Core.<*> (x Core..:? "revision")
+        parseJSON
+          = Core.withObject "ConfigurationRevision" Core.$
+              \ x ->
+                ConfigurationRevision' Core.<$>
+                  (x Core..:? "created") Core.<*> x Core..:? "description" Core.<*>
+                    x Core..:? "revision"

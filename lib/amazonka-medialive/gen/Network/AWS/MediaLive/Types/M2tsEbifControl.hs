@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,46 +10,28 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaLive.Types.M2tsEbifControl
   ( M2tsEbifControl
-      ( M2tsEbifControl',
-        M2tsEbifControlNone,
-        M2tsEbifControlPassthrough,
-        fromM2tsEbifControl
-      ),
-  )
-where
+    ( M2tsEbifControl'
+    , M2tsEbifControlNone
+    , M2tsEbifControlPassthrough
+    , fromM2tsEbifControl
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
 -- | M2ts Ebif Control
-newtype M2tsEbifControl = M2tsEbifControl'
-  { fromM2tsEbifControl ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype M2tsEbifControl = M2tsEbifControl'{fromM2tsEbifControl ::
+                                           Core.Text}
+                            deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                            Core.Generic)
+                            deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                              Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                              Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                              Core.FromText, Core.ToByteString, Core.ToQuery,
+                                              Core.ToHeader)
 
 pattern M2tsEbifControlNone :: M2tsEbifControl
 pattern M2tsEbifControlNone = M2tsEbifControl' "NONE"
@@ -57,8 +39,9 @@ pattern M2tsEbifControlNone = M2tsEbifControl' "NONE"
 pattern M2tsEbifControlPassthrough :: M2tsEbifControl
 pattern M2tsEbifControlPassthrough = M2tsEbifControl' "PASSTHROUGH"
 
-{-# COMPLETE
+{-# COMPLETE 
   M2tsEbifControlNone,
+
   M2tsEbifControlPassthrough,
   M2tsEbifControl'
   #-}

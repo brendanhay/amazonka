@@ -1,204 +1,206 @@
-cabal-version:      2.2
-name:               amazonka-stepfunctions
-version:            2.0.0.0
-synopsis:           Amazon Step Functions SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-stepfunctions
+version:               2.0.0.0
+synopsis:              Amazon Step Functions SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.StepFunctions" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.StepFunctions" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-stepfunctions
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-stepfunctions
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.StepFunctions
-    Network.AWS.StepFunctions.CreateActivity
-    Network.AWS.StepFunctions.CreateStateMachine
-    Network.AWS.StepFunctions.DeleteActivity
-    Network.AWS.StepFunctions.DeleteStateMachine
-    Network.AWS.StepFunctions.DescribeActivity
-    Network.AWS.StepFunctions.DescribeExecution
-    Network.AWS.StepFunctions.DescribeStateMachine
-    Network.AWS.StepFunctions.DescribeStateMachineForExecution
-    Network.AWS.StepFunctions.GetActivityTask
-    Network.AWS.StepFunctions.GetExecutionHistory
-    Network.AWS.StepFunctions.ListActivities
-    Network.AWS.StepFunctions.ListExecutions
-    Network.AWS.StepFunctions.ListStateMachines
-    Network.AWS.StepFunctions.ListTagsForResource
-    Network.AWS.StepFunctions.SendTaskFailure
-    Network.AWS.StepFunctions.SendTaskHeartbeat
-    Network.AWS.StepFunctions.SendTaskSuccess
-    Network.AWS.StepFunctions.StartExecution
-    Network.AWS.StepFunctions.StartSyncExecution
-    Network.AWS.StepFunctions.StopExecution
-    Network.AWS.StepFunctions.TagResource
-    Network.AWS.StepFunctions.Types
-    Network.AWS.StepFunctions.UntagResource
-    Network.AWS.StepFunctions.UpdateStateMachine
-    Network.AWS.StepFunctions.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.StepFunctions.Types.ActivityArn
-    Network.AWS.StepFunctions.Types.ActivityFailedEventDetails
-    Network.AWS.StepFunctions.Types.ActivityListItem
-    Network.AWS.StepFunctions.Types.ActivityScheduledEventDetails
-    Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails
-    Network.AWS.StepFunctions.Types.ActivityStartedEventDetails
-    Network.AWS.StepFunctions.Types.ActivitySucceededEventDetails
-    Network.AWS.StepFunctions.Types.ActivityTimedOutEventDetails
-    Network.AWS.StepFunctions.Types.Arn
-    Network.AWS.StepFunctions.Types.BillingDetails
-    Network.AWS.StepFunctions.Types.Cause
-    Network.AWS.StepFunctions.Types.CloudWatchEventsExecutionDataDetails
-    Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup
-    Network.AWS.StepFunctions.Types.Definition
-    Network.AWS.StepFunctions.Types.Error
-    Network.AWS.StepFunctions.Types.ExecutionAbortedEventDetails
-    Network.AWS.StepFunctions.Types.ExecutionArn
-    Network.AWS.StepFunctions.Types.ExecutionFailedEventDetails
-    Network.AWS.StepFunctions.Types.ExecutionListItem
-    Network.AWS.StepFunctions.Types.ExecutionStartedEventDetails
-    Network.AWS.StepFunctions.Types.ExecutionStatus
-    Network.AWS.StepFunctions.Types.ExecutionSucceededEventDetails
-    Network.AWS.StepFunctions.Types.ExecutionTimedOutEventDetails
-    Network.AWS.StepFunctions.Types.HistoryEvent
-    Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
-    Network.AWS.StepFunctions.Types.HistoryEventType
-    Network.AWS.StepFunctions.Types.Input
-    Network.AWS.StepFunctions.Types.Key
-    Network.AWS.StepFunctions.Types.LambdaFunctionFailedEventDetails
-    Network.AWS.StepFunctions.Types.LambdaFunctionScheduledEventDetails
-    Network.AWS.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails
-    Network.AWS.StepFunctions.Types.LambdaFunctionStartFailedEventDetails
-    Network.AWS.StepFunctions.Types.LambdaFunctionSucceededEventDetails
-    Network.AWS.StepFunctions.Types.LambdaFunctionTimedOutEventDetails
-    Network.AWS.StepFunctions.Types.ListExecutionsPageToken
-    Network.AWS.StepFunctions.Types.LogDestination
-    Network.AWS.StepFunctions.Types.LoggingConfiguration
-    Network.AWS.StepFunctions.Types.LogGroupArn
-    Network.AWS.StepFunctions.Types.LogLevel
-    Network.AWS.StepFunctions.Types.MapIterationEventDetails
-    Network.AWS.StepFunctions.Types.MapStateStartedEventDetails
-    Network.AWS.StepFunctions.Types.Name
-    Network.AWS.StepFunctions.Types.NextToken
-    Network.AWS.StepFunctions.Types.Output
-    Network.AWS.StepFunctions.Types.PageToken
-    Network.AWS.StepFunctions.Types.Parameters
-    Network.AWS.StepFunctions.Types.Resource
-    Network.AWS.StepFunctions.Types.ResourceType
-    Network.AWS.StepFunctions.Types.SensitiveCause
-    Network.AWS.StepFunctions.Types.SensitiveData
-    Network.AWS.StepFunctions.Types.SensitiveError
-    Network.AWS.StepFunctions.Types.StateEnteredEventDetails
-    Network.AWS.StepFunctions.Types.StateExitedEventDetails
-    Network.AWS.StepFunctions.Types.StateMachineArn
-    Network.AWS.StepFunctions.Types.StateMachineListItem
-    Network.AWS.StepFunctions.Types.StateMachineStatus
-    Network.AWS.StepFunctions.Types.StateMachineType
-    Network.AWS.StepFunctions.Types.SyncExecutionStatus
-    Network.AWS.StepFunctions.Types.Tag
-    Network.AWS.StepFunctions.Types.TagKey
-    Network.AWS.StepFunctions.Types.TaskFailedEventDetails
-    Network.AWS.StepFunctions.Types.TaskScheduledEventDetails
-    Network.AWS.StepFunctions.Types.TaskStartedEventDetails
-    Network.AWS.StepFunctions.Types.TaskStartFailedEventDetails
-    Network.AWS.StepFunctions.Types.TaskSubmitFailedEventDetails
-    Network.AWS.StepFunctions.Types.TaskSubmittedEventDetails
-    Network.AWS.StepFunctions.Types.TaskSucceededEventDetails
-    Network.AWS.StepFunctions.Types.TaskTimedOutEventDetails
-    Network.AWS.StepFunctions.Types.TaskToken
-    Network.AWS.StepFunctions.Types.TraceHeader
-    Network.AWS.StepFunctions.Types.TracingConfiguration
-    Network.AWS.StepFunctions.Types.Value
-    Network.AWS.StepFunctions.Types.WorkerName
+    exposed-modules:
+          Network.AWS.StepFunctions
+        , Network.AWS.StepFunctions.Types
+        , Network.AWS.StepFunctions.Waiters
+        , Network.AWS.StepFunctions.DeleteActivity
+        , Network.AWS.StepFunctions.DescribeStateMachine
+        , Network.AWS.StepFunctions.ListTagsForResource
+        , Network.AWS.StepFunctions.StopExecution
+        , Network.AWS.StepFunctions.DescribeActivity
+        , Network.AWS.StepFunctions.ListStateMachines
+        , Network.AWS.StepFunctions.ListExecutions
+        , Network.AWS.StepFunctions.DeleteStateMachine
+        , Network.AWS.StepFunctions.UpdateStateMachine
+        , Network.AWS.StepFunctions.DescribeStateMachineForExecution
+        , Network.AWS.StepFunctions.GetActivityTask
+        , Network.AWS.StepFunctions.CreateActivity
+        , Network.AWS.StepFunctions.ListActivities
+        , Network.AWS.StepFunctions.SendTaskHeartbeat
+        , Network.AWS.StepFunctions.SendTaskFailure
+        , Network.AWS.StepFunctions.DescribeExecution
+        , Network.AWS.StepFunctions.SendTaskSuccess
+        , Network.AWS.StepFunctions.StartExecution
+        , Network.AWS.StepFunctions.StartSyncExecution
+        , Network.AWS.StepFunctions.TagResource
+        , Network.AWS.StepFunctions.UntagResource
+        , Network.AWS.StepFunctions.GetExecutionHistory
+        , Network.AWS.StepFunctions.CreateStateMachine
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.StepFunctions.Types.TaskSubmitFailedEventDetails
+        , Network.AWS.StepFunctions.Types.SensitiveError
+        , Network.AWS.StepFunctions.Types.CloudWatchLogsLogGroup
+        , Network.AWS.StepFunctions.Types.SensitiveData
+        , Network.AWS.StepFunctions.Types.MapStateStartedEventDetails
+        , Network.AWS.StepFunctions.Types.CloudWatchEventsExecutionDataDetails
+        , Network.AWS.StepFunctions.Types.Tag
+        , Network.AWS.StepFunctions.Types.TaskStartedEventDetails
+        , Network.AWS.StepFunctions.Types.ActivityListItem
+        , Network.AWS.StepFunctions.Types.LogLevel
+        , Network.AWS.StepFunctions.Types.ActivityStartedEventDetails
+        , Network.AWS.StepFunctions.Types.StateMachineType
+        , Network.AWS.StepFunctions.Types.TaskSubmittedEventDetails
+        , Network.AWS.StepFunctions.Types.Definition
+        , Network.AWS.StepFunctions.Types.Arn
+        , Network.AWS.StepFunctions.Types.ExecutionListItem
+        , Network.AWS.StepFunctions.Types.SensitiveCause
+        , Network.AWS.StepFunctions.Types.StateMachineListItem
+        , Network.AWS.StepFunctions.Types.LambdaFunctionSucceededEventDetails
+        , Network.AWS.StepFunctions.Types.TaskSucceededEventDetails
+        , Network.AWS.StepFunctions.Types.LambdaFunctionStartFailedEventDetails
+        , Network.AWS.StepFunctions.Types.StateExitedEventDetails
+        , Network.AWS.StepFunctions.Types.TaskStartFailedEventDetails
+        , Network.AWS.StepFunctions.Types.LogDestination
+        , Network.AWS.StepFunctions.Types.ActivitySucceededEventDetails
+        , Network.AWS.StepFunctions.Types.ListExecutionsPageToken
+        , Network.AWS.StepFunctions.Types.ExecutionStatus
+        , Network.AWS.StepFunctions.Types.StateMachineStatus
+        , Network.AWS.StepFunctions.Types.HistoryEventType
+        , Network.AWS.StepFunctions.Types.ActivityTimedOutEventDetails
+        , Network.AWS.StepFunctions.Types.TaskTimedOutEventDetails
+        , Network.AWS.StepFunctions.Types.TracingConfiguration
+        , Network.AWS.StepFunctions.Types.LambdaFunctionTimedOutEventDetails
+        , Network.AWS.StepFunctions.Types.ExecutionFailedEventDetails
+        , Network.AWS.StepFunctions.Types.ExecutionAbortedEventDetails
+        , Network.AWS.StepFunctions.Types.ExecutionSucceededEventDetails
+        , Network.AWS.StepFunctions.Types.Name
+        , Network.AWS.StepFunctions.Types.LambdaFunctionScheduledEventDetails
+        , Network.AWS.StepFunctions.Types.ActivityScheduledEventDetails
+        , Network.AWS.StepFunctions.Types.TaskScheduledEventDetails
+        , Network.AWS.StepFunctions.Types.LambdaFunctionScheduleFailedEventDetails
+        , Network.AWS.StepFunctions.Types.ActivityScheduleFailedEventDetails
+        , Network.AWS.StepFunctions.Types.ExecutionStartedEventDetails
+        , Network.AWS.StepFunctions.Types.TagKey
+        , Network.AWS.StepFunctions.Types.MapIterationEventDetails
+        , Network.AWS.StepFunctions.Types.StateEnteredEventDetails
+        , Network.AWS.StepFunctions.Types.TaskFailedEventDetails
+        , Network.AWS.StepFunctions.Types.LambdaFunctionFailedEventDetails
+        , Network.AWS.StepFunctions.Types.PageToken
+        , Network.AWS.StepFunctions.Types.ActivityFailedEventDetails
+        , Network.AWS.StepFunctions.Types.LoggingConfiguration
+        , Network.AWS.StepFunctions.Types.ExecutionTimedOutEventDetails
+        , Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
+        , Network.AWS.StepFunctions.Types.HistoryEvent
+        , Network.AWS.StepFunctions.Types.TraceHeader
+        , Network.AWS.StepFunctions.Types.TaskToken
+        , Network.AWS.StepFunctions.Types.SyncExecutionStatus
+        , Network.AWS.StepFunctions.Types.BillingDetails
+        , Network.AWS.StepFunctions.Types.Output
+        , Network.AWS.StepFunctions.Types.StateMachineArn
+        , Network.AWS.StepFunctions.Types.Input
+        , Network.AWS.StepFunctions.Types.ResourceType
+        , Network.AWS.StepFunctions.Types.Resource
+        , Network.AWS.StepFunctions.Types.Cause
+        , Network.AWS.StepFunctions.Types.Error
+        , Network.AWS.StepFunctions.Types.LogGroupArn
+        , Network.AWS.StepFunctions.Types.NextToken
+        , Network.AWS.StepFunctions.Types.Key
+        , Network.AWS.StepFunctions.Types.Value
+        , Network.AWS.StepFunctions.Types.ExecutionArn
+        , Network.AWS.StepFunctions.Types.ActivityArn
+        , Network.AWS.StepFunctions.Types.WorkerName
+        , Network.AWS.StepFunctions.Types.Parameters
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-stepfunctions-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.Gen.StepFunctions
-    Test.AWS.StepFunctions
-    Test.AWS.StepFunctions.Internal
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core           >=2.0.0.0 && <2.0.0.1
-    , amazonka-stepfunctions
-    , amazonka-test           >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.StepFunctions
+        , Test.AWS.Gen.StepFunctions
+        , Test.AWS.StepFunctions.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-stepfunctions
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

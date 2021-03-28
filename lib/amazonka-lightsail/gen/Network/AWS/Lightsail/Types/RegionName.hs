@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,54 +10,38 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Lightsail.Types.RegionName
   ( RegionName
-      ( RegionName',
-        RegionNameUsEast1,
-        RegionNameUsEast2,
-        RegionNameUsWest1,
-        RegionNameUsWest2,
-        RegionNameEuWest1,
-        RegionNameEuWest2,
-        RegionNameEuWest3,
-        RegionNameEuCentral1,
-        RegionNameCaCentral1,
-        RegionNameApSouth1,
-        RegionNameApSoutheast1,
-        RegionNameApSoutheast2,
-        RegionNameApNortheast1,
-        RegionNameApNortheast2,
-        fromRegionName
-      ),
-  )
-where
+    ( RegionName'
+    , RegionNameUsEast1
+    , RegionNameUsEast2
+    , RegionNameUsWest1
+    , RegionNameUsWest2
+    , RegionNameEuWest1
+    , RegionNameEuWest2
+    , RegionNameEuWest3
+    , RegionNameEuCentral1
+    , RegionNameCaCentral1
+    , RegionNameApSouth1
+    , RegionNameApSoutheast1
+    , RegionNameApSoutheast2
+    , RegionNameApNortheast1
+    , RegionNameApNortheast2
+    , fromRegionName
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype RegionName = RegionName' {fromRegionName :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype RegionName = RegionName'{fromRegionName :: Core.Text}
+                       deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                       Core.Generic)
+                       deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                         Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                         Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                         Core.FromText, Core.ToByteString, Core.ToQuery,
+                                         Core.ToHeader)
 
 pattern RegionNameUsEast1 :: RegionName
 pattern RegionNameUsEast1 = RegionName' "us-east-1"
@@ -101,20 +85,33 @@ pattern RegionNameApNortheast1 = RegionName' "ap-northeast-1"
 pattern RegionNameApNortheast2 :: RegionName
 pattern RegionNameApNortheast2 = RegionName' "ap-northeast-2"
 
-{-# COMPLETE
+{-# COMPLETE 
   RegionNameUsEast1,
+
   RegionNameUsEast2,
+
   RegionNameUsWest1,
+
   RegionNameUsWest2,
+
   RegionNameEuWest1,
+
   RegionNameEuWest2,
+
   RegionNameEuWest3,
+
   RegionNameEuCentral1,
+
   RegionNameCaCentral1,
+
   RegionNameApSouth1,
+
   RegionNameApSoutheast1,
+
   RegionNameApSoutheast2,
+
   RegionNameApNortheast1,
+
   RegionNameApNortheast2,
   RegionName'
   #-}

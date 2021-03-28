@@ -1,275 +1,268 @@
-cabal-version:      2.2
-name:               amazonka-guardduty
-version:            2.0.0.0
-synopsis:           Amazon GuardDuty SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-guardduty
+version:               2.0.0.0
+synopsis:              Amazon GuardDuty SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.GuardDuty" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.GuardDuty" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-guardduty
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-guardduty
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.GuardDuty
-    Network.AWS.GuardDuty.AcceptInvitation
-    Network.AWS.GuardDuty.ArchiveFindings
-    Network.AWS.GuardDuty.CreateDetector
-    Network.AWS.GuardDuty.CreateFilter
-    Network.AWS.GuardDuty.CreateIPSet
-    Network.AWS.GuardDuty.CreateMembers
-    Network.AWS.GuardDuty.CreatePublishingDestination
-    Network.AWS.GuardDuty.CreateSampleFindings
-    Network.AWS.GuardDuty.CreateThreatIntelSet
-    Network.AWS.GuardDuty.DeclineInvitations
-    Network.AWS.GuardDuty.DeleteDetector
-    Network.AWS.GuardDuty.DeleteFilter
-    Network.AWS.GuardDuty.DeleteInvitations
-    Network.AWS.GuardDuty.DeleteIPSet
-    Network.AWS.GuardDuty.DeleteMembers
-    Network.AWS.GuardDuty.DeletePublishingDestination
-    Network.AWS.GuardDuty.DeleteThreatIntelSet
-    Network.AWS.GuardDuty.DescribeOrganizationConfiguration
-    Network.AWS.GuardDuty.DescribePublishingDestination
-    Network.AWS.GuardDuty.DisableOrganizationAdminAccount
-    Network.AWS.GuardDuty.DisassociateFromMasterAccount
-    Network.AWS.GuardDuty.DisassociateMembers
-    Network.AWS.GuardDuty.EnableOrganizationAdminAccount
-    Network.AWS.GuardDuty.GetDetector
-    Network.AWS.GuardDuty.GetFilter
-    Network.AWS.GuardDuty.GetFindings
-    Network.AWS.GuardDuty.GetFindingsStatistics
-    Network.AWS.GuardDuty.GetInvitationsCount
-    Network.AWS.GuardDuty.GetIPSet
-    Network.AWS.GuardDuty.GetMasterAccount
-    Network.AWS.GuardDuty.GetMemberDetectors
-    Network.AWS.GuardDuty.GetMembers
-    Network.AWS.GuardDuty.GetThreatIntelSet
-    Network.AWS.GuardDuty.GetUsageStatistics
-    Network.AWS.GuardDuty.InviteMembers
-    Network.AWS.GuardDuty.ListDetectors
-    Network.AWS.GuardDuty.ListFilters
-    Network.AWS.GuardDuty.ListFindings
-    Network.AWS.GuardDuty.ListInvitations
-    Network.AWS.GuardDuty.ListIPSets
-    Network.AWS.GuardDuty.ListMembers
-    Network.AWS.GuardDuty.ListOrganizationAdminAccounts
-    Network.AWS.GuardDuty.ListPublishingDestinations
-    Network.AWS.GuardDuty.ListTagsForResource
-    Network.AWS.GuardDuty.ListThreatIntelSets
-    Network.AWS.GuardDuty.StartMonitoringMembers
-    Network.AWS.GuardDuty.StopMonitoringMembers
-    Network.AWS.GuardDuty.TagResource
-    Network.AWS.GuardDuty.Types
-    Network.AWS.GuardDuty.UnarchiveFindings
-    Network.AWS.GuardDuty.UntagResource
-    Network.AWS.GuardDuty.UpdateDetector
-    Network.AWS.GuardDuty.UpdateFilter
-    Network.AWS.GuardDuty.UpdateFindingsFeedback
-    Network.AWS.GuardDuty.UpdateIPSet
-    Network.AWS.GuardDuty.UpdateMemberDetectors
-    Network.AWS.GuardDuty.UpdateOrganizationConfiguration
-    Network.AWS.GuardDuty.UpdatePublishingDestination
-    Network.AWS.GuardDuty.UpdateThreatIntelSet
-    Network.AWS.GuardDuty.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.GuardDuty.Types.AccessControlList
-    Network.AWS.GuardDuty.Types.AccessKeyDetails
-    Network.AWS.GuardDuty.Types.AccountDetail
-    Network.AWS.GuardDuty.Types.AccountId
-    Network.AWS.GuardDuty.Types.AccountLevelPermissions
-    Network.AWS.GuardDuty.Types.Action
-    Network.AWS.GuardDuty.Types.AdminAccount
-    Network.AWS.GuardDuty.Types.AdminStatus
-    Network.AWS.GuardDuty.Types.AwsApiCallAction
-    Network.AWS.GuardDuty.Types.BlockPublicAccess
-    Network.AWS.GuardDuty.Types.BucketLevelPermissions
-    Network.AWS.GuardDuty.Types.BucketPolicy
-    Network.AWS.GuardDuty.Types.City
-    Network.AWS.GuardDuty.Types.ClientToken
-    Network.AWS.GuardDuty.Types.CloudTrailConfigurationResult
-    Network.AWS.GuardDuty.Types.Condition
-    Network.AWS.GuardDuty.Types.Country
-    Network.AWS.GuardDuty.Types.DataSource
-    Network.AWS.GuardDuty.Types.DataSourceConfigurations
-    Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult
-    Network.AWS.GuardDuty.Types.DataSourceStatus
-    Network.AWS.GuardDuty.Types.DefaultServerSideEncryption
-    Network.AWS.GuardDuty.Types.Description
-    Network.AWS.GuardDuty.Types.Destination
-    Network.AWS.GuardDuty.Types.DestinationId
-    Network.AWS.GuardDuty.Types.DestinationProperties
-    Network.AWS.GuardDuty.Types.DestinationType
-    Network.AWS.GuardDuty.Types.DetectorId
-    Network.AWS.GuardDuty.Types.DetectorStatus
-    Network.AWS.GuardDuty.Types.DNSLogsConfigurationResult
-    Network.AWS.GuardDuty.Types.DnsRequestAction
-    Network.AWS.GuardDuty.Types.DomainDetails
-    Network.AWS.GuardDuty.Types.Email
-    Network.AWS.GuardDuty.Types.Evidence
-    Network.AWS.GuardDuty.Types.Feedback
-    Network.AWS.GuardDuty.Types.FilterAction
-    Network.AWS.GuardDuty.Types.FilterDescription
-    Network.AWS.GuardDuty.Types.FilterName
-    Network.AWS.GuardDuty.Types.Finding
-    Network.AWS.GuardDuty.Types.FindingCriteria
-    Network.AWS.GuardDuty.Types.FindingId
-    Network.AWS.GuardDuty.Types.FindingPublishingFrequency
-    Network.AWS.GuardDuty.Types.FindingStatistics
-    Network.AWS.GuardDuty.Types.FindingStatisticType
-    Network.AWS.GuardDuty.Types.FindingType
-    Network.AWS.GuardDuty.Types.FlowLogsConfigurationResult
-    Network.AWS.GuardDuty.Types.GeoLocation
-    Network.AWS.GuardDuty.Types.GuardDutyArn
-    Network.AWS.GuardDuty.Types.IamInstanceProfile
-    Network.AWS.GuardDuty.Types.InstanceDetails
-    Network.AWS.GuardDuty.Types.Invitation
-    Network.AWS.GuardDuty.Types.IpAddressV4
-    Network.AWS.GuardDuty.Types.IpSetFormat
-    Network.AWS.GuardDuty.Types.IpSetId
-    Network.AWS.GuardDuty.Types.IpSetStatus
-    Network.AWS.GuardDuty.Types.Key
-    Network.AWS.GuardDuty.Types.LocalIpDetails
-    Network.AWS.GuardDuty.Types.LocalPortDetails
-    Network.AWS.GuardDuty.Types.Location
-    Network.AWS.GuardDuty.Types.Master
-    Network.AWS.GuardDuty.Types.Member
-    Network.AWS.GuardDuty.Types.MemberDataSourceConfiguration
-    Network.AWS.GuardDuty.Types.Name
-    Network.AWS.GuardDuty.Types.NetworkConnectionAction
-    Network.AWS.GuardDuty.Types.NetworkInterface
-    Network.AWS.GuardDuty.Types.NextToken
-    Network.AWS.GuardDuty.Types.OrderBy
-    Network.AWS.GuardDuty.Types.Organization
-    Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations
-    Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurationsResult
-    Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration
-    Network.AWS.GuardDuty.Types.OrganizationS3LogsConfigurationResult
-    Network.AWS.GuardDuty.Types.Owner
-    Network.AWS.GuardDuty.Types.PermissionConfiguration
-    Network.AWS.GuardDuty.Types.PortProbeAction
-    Network.AWS.GuardDuty.Types.PortProbeDetail
-    Network.AWS.GuardDuty.Types.PrivateIpAddressDetails
-    Network.AWS.GuardDuty.Types.ProductCode
-    Network.AWS.GuardDuty.Types.PublicAccess
-    Network.AWS.GuardDuty.Types.PublishingStatus
-    Network.AWS.GuardDuty.Types.RemoteIpDetails
-    Network.AWS.GuardDuty.Types.RemotePortDetails
-    Network.AWS.GuardDuty.Types.Resource
-    Network.AWS.GuardDuty.Types.ResourceArn
-    Network.AWS.GuardDuty.Types.S3BucketDetail
-    Network.AWS.GuardDuty.Types.S3LogsConfiguration
-    Network.AWS.GuardDuty.Types.S3LogsConfigurationResult
-    Network.AWS.GuardDuty.Types.SecurityGroup
-    Network.AWS.GuardDuty.Types.ServiceInfo
-    Network.AWS.GuardDuty.Types.SortCriteria
-    Network.AWS.GuardDuty.Types.String
-    Network.AWS.GuardDuty.Types.Tag
-    Network.AWS.GuardDuty.Types.TagKey
-    Network.AWS.GuardDuty.Types.TagValue
-    Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail
-    Network.AWS.GuardDuty.Types.ThreatIntelSetFormat
-    Network.AWS.GuardDuty.Types.ThreatIntelSetStatus
-    Network.AWS.GuardDuty.Types.ThreatListName
-    Network.AWS.GuardDuty.Types.Total
-    Network.AWS.GuardDuty.Types.Type
-    Network.AWS.GuardDuty.Types.Unit
-    Network.AWS.GuardDuty.Types.UnprocessedAccount
-    Network.AWS.GuardDuty.Types.UsageAccountResult
-    Network.AWS.GuardDuty.Types.UsageCriteria
-    Network.AWS.GuardDuty.Types.UsageDataSourceResult
-    Network.AWS.GuardDuty.Types.UsageResourceResult
-    Network.AWS.GuardDuty.Types.UsageStatistics
-    Network.AWS.GuardDuty.Types.UsageStatisticType
-    Network.AWS.GuardDuty.Types.Value
+    exposed-modules:
+          Network.AWS.GuardDuty
+        , Network.AWS.GuardDuty.Types
+        , Network.AWS.GuardDuty.Waiters
+        , Network.AWS.GuardDuty.CreateFilter
+        , Network.AWS.GuardDuty.EnableOrganizationAdminAccount
+        , Network.AWS.GuardDuty.ListFindings
+        , Network.AWS.GuardDuty.ListOrganizationAdminAccounts
+        , Network.AWS.GuardDuty.CreateIPSet
+        , Network.AWS.GuardDuty.DeleteThreatIntelSet
+        , Network.AWS.GuardDuty.UpdateThreatIntelSet
+        , Network.AWS.GuardDuty.StopMonitoringMembers
+        , Network.AWS.GuardDuty.ListThreatIntelSets
+        , Network.AWS.GuardDuty.CreateThreatIntelSet
+        , Network.AWS.GuardDuty.DeleteMembers
+        , Network.AWS.GuardDuty.ListTagsForResource
+        , Network.AWS.GuardDuty.GetFindingsStatistics
+        , Network.AWS.GuardDuty.GetIPSet
+        , Network.AWS.GuardDuty.ListInvitations
+        , Network.AWS.GuardDuty.UpdateMemberDetectors
+        , Network.AWS.GuardDuty.GetThreatIntelSet
+        , Network.AWS.GuardDuty.DeleteInvitations
+        , Network.AWS.GuardDuty.GetMasterAccount
+        , Network.AWS.GuardDuty.GetUsageStatistics
+        , Network.AWS.GuardDuty.CreateDetector
+        , Network.AWS.GuardDuty.DeclineInvitations
+        , Network.AWS.GuardDuty.DescribeOrganizationConfiguration
+        , Network.AWS.GuardDuty.CreatePublishingDestination
+        , Network.AWS.GuardDuty.UpdateFilter
+        , Network.AWS.GuardDuty.DeleteFilter
+        , Network.AWS.GuardDuty.DisassociateMembers
+        , Network.AWS.GuardDuty.DisassociateFromMasterAccount
+        , Network.AWS.GuardDuty.AcceptInvitation
+        , Network.AWS.GuardDuty.ListFilters
+        , Network.AWS.GuardDuty.ListMembers
+        , Network.AWS.GuardDuty.ListPublishingDestinations
+        , Network.AWS.GuardDuty.DeletePublishingDestination
+        , Network.AWS.GuardDuty.UpdatePublishingDestination
+        , Network.AWS.GuardDuty.GetDetector
+        , Network.AWS.GuardDuty.CreateSampleFindings
+        , Network.AWS.GuardDuty.ArchiveFindings
+        , Network.AWS.GuardDuty.CreateMembers
+        , Network.AWS.GuardDuty.UnarchiveFindings
+        , Network.AWS.GuardDuty.GetMemberDetectors
+        , Network.AWS.GuardDuty.GetInvitationsCount
+        , Network.AWS.GuardDuty.StartMonitoringMembers
+        , Network.AWS.GuardDuty.UpdateOrganizationConfiguration
+        , Network.AWS.GuardDuty.InviteMembers
+        , Network.AWS.GuardDuty.DeleteIPSet
+        , Network.AWS.GuardDuty.UpdateIPSet
+        , Network.AWS.GuardDuty.ListIPSets
+        , Network.AWS.GuardDuty.GetMembers
+        , Network.AWS.GuardDuty.DescribePublishingDestination
+        , Network.AWS.GuardDuty.TagResource
+        , Network.AWS.GuardDuty.GetFindings
+        , Network.AWS.GuardDuty.ListDetectors
+        , Network.AWS.GuardDuty.UntagResource
+        , Network.AWS.GuardDuty.UpdateDetector
+        , Network.AWS.GuardDuty.DeleteDetector
+        , Network.AWS.GuardDuty.UpdateFindingsFeedback
+        , Network.AWS.GuardDuty.GetFilter
+        , Network.AWS.GuardDuty.DisableOrganizationAdminAccount
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurationsResult
+        , Network.AWS.GuardDuty.Types.OrganizationS3LogsConfiguration
+        , Network.AWS.GuardDuty.Types.Destination
+        , Network.AWS.GuardDuty.Types.Email
+        , Network.AWS.GuardDuty.Types.RemoteIpDetails
+        , Network.AWS.GuardDuty.Types.FilterName
+        , Network.AWS.GuardDuty.Types.S3LogsConfiguration
+        , Network.AWS.GuardDuty.Types.CloudTrailConfigurationResult
+        , Network.AWS.GuardDuty.Types.Tag
+        , Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail
+        , Network.AWS.GuardDuty.Types.ClientToken
+        , Network.AWS.GuardDuty.Types.Location
+        , Network.AWS.GuardDuty.Types.OrganizationS3LogsConfigurationResult
+        , Network.AWS.GuardDuty.Types.OrganizationDataSourceConfigurations
+        , Network.AWS.GuardDuty.Types.UsageAccountResult
+        , Network.AWS.GuardDuty.Types.MemberDataSourceConfiguration
+        , Network.AWS.GuardDuty.Types.PublishingStatus
+        , Network.AWS.GuardDuty.Types.ServiceInfo
+        , Network.AWS.GuardDuty.Types.OrderBy
+        , Network.AWS.GuardDuty.Types.Finding
+        , Network.AWS.GuardDuty.Types.UnprocessedAccount
+        , Network.AWS.GuardDuty.Types.Country
+        , Network.AWS.GuardDuty.Types.FindingPublishingFrequency
+        , Network.AWS.GuardDuty.Types.BucketLevelPermissions
+        , Network.AWS.GuardDuty.Types.UsageStatistics
+        , Network.AWS.GuardDuty.Types.PrivateIpAddressDetails
+        , Network.AWS.GuardDuty.Types.NetworkInterface
+        , Network.AWS.GuardDuty.Types.FindingStatisticType
+        , Network.AWS.GuardDuty.Types.AdminStatus
+        , Network.AWS.GuardDuty.Types.FindingCriteria
+        , Network.AWS.GuardDuty.Types.Action
+        , Network.AWS.GuardDuty.Types.AdminAccount
+        , Network.AWS.GuardDuty.Types.DataSourceConfigurations
+        , Network.AWS.GuardDuty.Types.FilterDescription
+        , Network.AWS.GuardDuty.Types.LocalIpDetails
+        , Network.AWS.GuardDuty.Types.NetworkConnectionAction
+        , Network.AWS.GuardDuty.Types.TagValue
+        , Network.AWS.GuardDuty.Types.UsageDataSourceResult
+        , Network.AWS.GuardDuty.Types.SortCriteria
+        , Network.AWS.GuardDuty.Types.Owner
+        , Network.AWS.GuardDuty.Types.Invitation
+        , Network.AWS.GuardDuty.Types.SecurityGroup
+        , Network.AWS.GuardDuty.Types.AccessControlList
+        , Network.AWS.GuardDuty.Types.AccountId
+        , Network.AWS.GuardDuty.Types.GuardDutyArn
+        , Network.AWS.GuardDuty.Types.FlowLogsConfigurationResult
+        , Network.AWS.GuardDuty.Types.BlockPublicAccess
+        , Network.AWS.GuardDuty.Types.DestinationType
+        , Network.AWS.GuardDuty.Types.Master
+        , Network.AWS.GuardDuty.Types.AccountLevelPermissions
+        , Network.AWS.GuardDuty.Types.DetectorId
+        , Network.AWS.GuardDuty.Types.City
+        , Network.AWS.GuardDuty.Types.DNSLogsConfigurationResult
+        , Network.AWS.GuardDuty.Types.S3BucketDetail
+        , Network.AWS.GuardDuty.Types.RemotePortDetails
+        , Network.AWS.GuardDuty.Types.Name
+        , Network.AWS.GuardDuty.Types.IpSetStatus
+        , Network.AWS.GuardDuty.Types.IamInstanceProfile
+        , Network.AWS.GuardDuty.Types.DataSourceConfigurationsResult
+        , Network.AWS.GuardDuty.Types.Total
+        , Network.AWS.GuardDuty.Types.DomainDetails
+        , Network.AWS.GuardDuty.Types.PortProbeDetail
+        , Network.AWS.GuardDuty.Types.DefaultServerSideEncryption
+        , Network.AWS.GuardDuty.Types.Resource
+        , Network.AWS.GuardDuty.Types.ThreatIntelSetStatus
+        , Network.AWS.GuardDuty.Types.FindingType
+        , Network.AWS.GuardDuty.Types.DataSource
+        , Network.AWS.GuardDuty.Types.DestinationProperties
+        , Network.AWS.GuardDuty.Types.PublicAccess
+        , Network.AWS.GuardDuty.Types.ThreatIntelSetFormat
+        , Network.AWS.GuardDuty.Types.PortProbeAction
+        , Network.AWS.GuardDuty.Types.TagKey
+        , Network.AWS.GuardDuty.Types.Member
+        , Network.AWS.GuardDuty.Types.AccountDetail
+        , Network.AWS.GuardDuty.Types.IpSetFormat
+        , Network.AWS.GuardDuty.Types.FindingId
+        , Network.AWS.GuardDuty.Types.GeoLocation
+        , Network.AWS.GuardDuty.Types.FindingStatistics
+        , Network.AWS.GuardDuty.Types.UsageStatisticType
+        , Network.AWS.GuardDuty.Types.Condition
+        , Network.AWS.GuardDuty.Types.PermissionConfiguration
+        , Network.AWS.GuardDuty.Types.Organization
+        , Network.AWS.GuardDuty.Types.InstanceDetails
+        , Network.AWS.GuardDuty.Types.Evidence
+        , Network.AWS.GuardDuty.Types.BucketPolicy
+        , Network.AWS.GuardDuty.Types.ProductCode
+        , Network.AWS.GuardDuty.Types.FilterAction
+        , Network.AWS.GuardDuty.Types.UsageCriteria
+        , Network.AWS.GuardDuty.Types.DetectorStatus
+        , Network.AWS.GuardDuty.Types.DnsRequestAction
+        , Network.AWS.GuardDuty.Types.UsageResourceResult
+        , Network.AWS.GuardDuty.Types.S3LogsConfigurationResult
+        , Network.AWS.GuardDuty.Types.LocalPortDetails
+        , Network.AWS.GuardDuty.Types.Feedback
+        , Network.AWS.GuardDuty.Types.AwsApiCallAction
+        , Network.AWS.GuardDuty.Types.AccessKeyDetails
+        , Network.AWS.GuardDuty.Types.DataSourceStatus
+        , Network.AWS.GuardDuty.Types.Description
+        , Network.AWS.GuardDuty.Types.Type
+        , Network.AWS.GuardDuty.Types.ResourceArn
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-guardduty-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.Gen.GuardDuty
-    Test.AWS.GuardDuty
-    Test.AWS.GuardDuty.Internal
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core         >=2.0.0.0 && <2.0.0.1
-    , amazonka-guardduty
-    , amazonka-test         >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.GuardDuty
+        , Test.AWS.Gen.GuardDuty
+        , Test.AWS.GuardDuty.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-guardduty
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

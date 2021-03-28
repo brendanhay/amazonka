@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,24 +15,22 @@
 --
 -- Retrieves a @Type@ object.
 module Network.AWS.AppSync.GetType
-  ( -- * Creating a request
-    GetType (..),
-    mkGetType,
-
+    (
+    -- * Creating a request
+      GetType (..)
+    , mkGetType
     -- ** Request lenses
-    gtApiId,
-    gtTypeName,
-    gtFormat,
+    , gtApiId
+    , gtTypeName
+    , gtFormat
 
     -- * Destructuring the response
-    GetTypeResponse (..),
-    mkGetTypeResponse,
-
+    , GetTypeResponse (..)
+    , mkGetTypeResponse
     -- ** Response lenses
-    gtrrsType,
-    gtrrsResponseStatus,
-  )
-where
+    , gtrrsType
+    , gtrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.AppSync.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -42,99 +40,104 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetType' smart constructor.
 data GetType = GetType'
-  { -- | The API ID.
-    apiId :: Types.String,
-    -- | The type name.
-    typeName :: Types.ResourceName,
-    -- | The type format: SDL or JSON.
-    format :: Types.TypeDefinitionFormat
+  { apiId :: Core.Text
+    -- ^ The API ID.
+  , typeName :: Types.ResourceName
+    -- ^ The type name.
+  , format :: Types.TypeDefinitionFormat
+    -- ^ The type format: SDL or JSON.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetType' value with any optional fields omitted.
-mkGetType ::
-  -- | 'apiId'
-  Types.String ->
-  -- | 'typeName'
-  Types.ResourceName ->
-  -- | 'format'
-  Types.TypeDefinitionFormat ->
-  GetType
-mkGetType apiId typeName format = GetType' {apiId, typeName, format}
+mkGetType
+    :: Core.Text -- ^ 'apiId'
+    -> Types.ResourceName -- ^ 'typeName'
+    -> Types.TypeDefinitionFormat -- ^ 'format'
+    -> GetType
+mkGetType apiId typeName format = GetType'{apiId, typeName, format}
 
 -- | The API ID.
 --
 -- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtApiId :: Lens.Lens' GetType Types.String
+gtApiId :: Lens.Lens' GetType Core.Text
 gtApiId = Lens.field @"apiId"
-{-# DEPRECATED gtApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
+{-# INLINEABLE gtApiId #-}
+{-# DEPRECATED apiId "Use generic-lens or generic-optics with 'apiId' instead"  #-}
 
 -- | The type name.
 --
 -- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gtTypeName :: Lens.Lens' GetType Types.ResourceName
 gtTypeName = Lens.field @"typeName"
-{-# DEPRECATED gtTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
+{-# INLINEABLE gtTypeName #-}
+{-# DEPRECATED typeName "Use generic-lens or generic-optics with 'typeName' instead"  #-}
 
 -- | The type format: SDL or JSON.
 --
 -- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gtFormat :: Lens.Lens' GetType Types.TypeDefinitionFormat
 gtFormat = Lens.field @"format"
-{-# DEPRECATED gtFormat "Use generic-lens or generic-optics with 'format' instead." #-}
+{-# INLINEABLE gtFormat #-}
+{-# DEPRECATED format "Use generic-lens or generic-optics with 'format' instead"  #-}
+
+instance Core.ToQuery GetType where
+        toQuery GetType{..} = Core.toQueryPair "format" format
+
+instance Core.ToHeaders GetType where
+        toHeaders GetType{..}
+          = Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.AWSRequest GetType where
-  type Rs GetType = GetTypeResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.GET,
-        Core._rqPath =
-          Core.rawPath
-            ( "/v1/apis/" Core.<> (Core.toText apiId) Core.<> ("/types/")
-                Core.<> (Core.toText typeName)
-            ),
-        Core._rqQuery = Core.toQueryValue "format" format,
-        Core._rqHeaders =
-          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
-        Core._rqBody = ""
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          GetTypeResponse'
-            Core.<$> (x Core..:? "type") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs GetType = GetTypeResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.GET,
+                         Core._rqPath =
+                           "/v1/apis/" Core.<> Core.toText apiId Core.<> "/types/" Core.<>
+                             Core.toText typeName,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 GetTypeResponse' Core.<$>
+                   (x Core..:? "type") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkGetTypeResponse' smart constructor.
 data GetTypeResponse = GetTypeResponse'
-  { -- | The @Type@ object.
-    type' :: Core.Maybe Types.Type,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { type' :: Core.Maybe Types.Type
+    -- ^ The @Type@ object.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetTypeResponse' value with any optional fields omitted.
-mkGetTypeResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  GetTypeResponse
-mkGetTypeResponse responseStatus =
-  GetTypeResponse' {type' = Core.Nothing, responseStatus}
+mkGetTypeResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> GetTypeResponse
+mkGetTypeResponse responseStatus
+  = GetTypeResponse'{type' = Core.Nothing, responseStatus}
 
 -- | The @Type@ object.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gtrrsType :: Lens.Lens' GetTypeResponse (Core.Maybe Types.Type)
 gtrrsType = Lens.field @"type'"
-{-# DEPRECATED gtrrsType "Use generic-lens or generic-optics with 'type'' instead." #-}
+{-# INLINEABLE gtrrsType #-}
+{-# DEPRECATED type' "Use generic-lens or generic-optics with 'type'' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gtrrsResponseStatus :: Lens.Lens' GetTypeResponse Core.Int
 gtrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED gtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE gtrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

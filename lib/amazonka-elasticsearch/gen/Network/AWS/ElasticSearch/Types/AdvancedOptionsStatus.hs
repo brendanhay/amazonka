@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,20 +10,17 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus
-  ( AdvancedOptionsStatus (..),
-
-    -- * Smart constructor
-    mkAdvancedOptionsStatus,
-
-    -- * Lenses
-    aosOptions,
-    aosStatus,
-  )
-where
+  ( AdvancedOptionsStatus (..)
+  -- * Smart constructor
+  , mkAdvancedOptionsStatus
+  -- * Lenses
+  , aosOptions
+  , aosStatus
+  ) where
 
 import qualified Network.AWS.ElasticSearch.Types.OptionStatus as Types
-import qualified Network.AWS.ElasticSearch.Types.String as Types
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
 
@@ -38,40 +35,41 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkAdvancedOptionsStatus' smart constructor.
 data AdvancedOptionsStatus = AdvancedOptionsStatus'
-  { -- | Specifies the status of advanced options for the specified Elasticsearch domain.
-    options :: Core.HashMap Types.String Types.String,
-    -- | Specifies the status of @OptionStatus@ for advanced options for the specified Elasticsearch domain.
-    status :: Types.OptionStatus
+  { options :: Core.HashMap Core.Text Core.Text
+    -- ^ Specifies the status of advanced options for the specified Elasticsearch domain.
+  , status :: Types.OptionStatus
+    -- ^ Specifies the status of @OptionStatus@ for advanced options for the specified Elasticsearch domain.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'AdvancedOptionsStatus' value with any optional fields omitted.
-mkAdvancedOptionsStatus ::
-  -- | 'status'
-  Types.OptionStatus ->
-  AdvancedOptionsStatus
-mkAdvancedOptionsStatus status =
-  AdvancedOptionsStatus' {options = Core.mempty, status}
+mkAdvancedOptionsStatus
+    :: Types.OptionStatus -- ^ 'status'
+    -> AdvancedOptionsStatus
+mkAdvancedOptionsStatus status
+  = AdvancedOptionsStatus'{options = Core.mempty, status}
 
 -- | Specifies the status of advanced options for the specified Elasticsearch domain.
 --
 -- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aosOptions :: Lens.Lens' AdvancedOptionsStatus (Core.HashMap Types.String Types.String)
+aosOptions :: Lens.Lens' AdvancedOptionsStatus (Core.HashMap Core.Text Core.Text)
 aosOptions = Lens.field @"options"
-{-# DEPRECATED aosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+{-# INLINEABLE aosOptions #-}
+{-# DEPRECATED options "Use generic-lens or generic-optics with 'options' instead"  #-}
 
 -- | Specifies the status of @OptionStatus@ for advanced options for the specified Elasticsearch domain.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 aosStatus :: Lens.Lens' AdvancedOptionsStatus Types.OptionStatus
 aosStatus = Lens.field @"status"
-{-# DEPRECATED aosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+{-# INLINEABLE aosStatus #-}
+{-# DEPRECATED status "Use generic-lens or generic-optics with 'status' instead"  #-}
 
 instance Core.FromJSON AdvancedOptionsStatus where
-  parseJSON =
-    Core.withObject "AdvancedOptionsStatus" Core.$
-      \x ->
-        AdvancedOptionsStatus'
-          Core.<$> (x Core..:? "Options" Core..!= Core.mempty)
-          Core.<*> (x Core..: "Status")
+        parseJSON
+          = Core.withObject "AdvancedOptionsStatus" Core.$
+              \ x ->
+                AdvancedOptionsStatus' Core.<$>
+                  (x Core..:? "Options" Core..!= Core.mempty) Core.<*>
+                    x Core..: "Status"

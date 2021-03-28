@@ -1,265 +1,267 @@
-cabal-version:      2.2
-name:               amazonka-iot-analytics
-version:            2.0.0.0
-synopsis:           Amazon IoT Analytics SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-iot-analytics
+version:               2.0.0.0
+synopsis:              Amazon IoT Analytics SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.IoTAnalytics" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.IoTAnalytics" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-iot-analytics
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-iot-analytics
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.IoTAnalytics
-    Network.AWS.IoTAnalytics.BatchPutMessage
-    Network.AWS.IoTAnalytics.CancelPipelineReprocessing
-    Network.AWS.IoTAnalytics.CreateChannel
-    Network.AWS.IoTAnalytics.CreateDataset
-    Network.AWS.IoTAnalytics.CreateDatasetContent
-    Network.AWS.IoTAnalytics.CreateDatastore
-    Network.AWS.IoTAnalytics.CreatePipeline
-    Network.AWS.IoTAnalytics.DeleteChannel
-    Network.AWS.IoTAnalytics.DeleteDataset
-    Network.AWS.IoTAnalytics.DeleteDatasetContent
-    Network.AWS.IoTAnalytics.DeleteDatastore
-    Network.AWS.IoTAnalytics.DeletePipeline
-    Network.AWS.IoTAnalytics.DescribeChannel
-    Network.AWS.IoTAnalytics.DescribeDataset
-    Network.AWS.IoTAnalytics.DescribeDatastore
-    Network.AWS.IoTAnalytics.DescribeLoggingOptions
-    Network.AWS.IoTAnalytics.DescribePipeline
-    Network.AWS.IoTAnalytics.GetDatasetContent
-    Network.AWS.IoTAnalytics.ListChannels
-    Network.AWS.IoTAnalytics.ListDatasetContents
-    Network.AWS.IoTAnalytics.ListDatasets
-    Network.AWS.IoTAnalytics.ListDatastores
-    Network.AWS.IoTAnalytics.ListPipelines
-    Network.AWS.IoTAnalytics.ListTagsForResource
-    Network.AWS.IoTAnalytics.PutLoggingOptions
-    Network.AWS.IoTAnalytics.RunPipelineActivity
-    Network.AWS.IoTAnalytics.SampleChannelData
-    Network.AWS.IoTAnalytics.StartPipelineReprocessing
-    Network.AWS.IoTAnalytics.TagResource
-    Network.AWS.IoTAnalytics.Types
-    Network.AWS.IoTAnalytics.UntagResource
-    Network.AWS.IoTAnalytics.UpdateChannel
-    Network.AWS.IoTAnalytics.UpdateDataset
-    Network.AWS.IoTAnalytics.UpdateDatastore
-    Network.AWS.IoTAnalytics.UpdatePipeline
-    Network.AWS.IoTAnalytics.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.IoTAnalytics.Types.ActivityName
-    Network.AWS.IoTAnalytics.Types.AddAttributesActivity
-    Network.AWS.IoTAnalytics.Types.Arn
-    Network.AWS.IoTAnalytics.Types.Attribute
-    Network.AWS.IoTAnalytics.Types.AttributeName
-    Network.AWS.IoTAnalytics.Types.BatchPutMessageErrorEntry
-    Network.AWS.IoTAnalytics.Types.Bucket
-    Network.AWS.IoTAnalytics.Types.BucketName
-    Network.AWS.IoTAnalytics.Types.Channel
-    Network.AWS.IoTAnalytics.Types.ChannelActivity
-    Network.AWS.IoTAnalytics.Types.ChannelArn
-    Network.AWS.IoTAnalytics.Types.ChannelName
-    Network.AWS.IoTAnalytics.Types.ChannelStatistics
-    Network.AWS.IoTAnalytics.Types.ChannelStatus
-    Network.AWS.IoTAnalytics.Types.ChannelStorage
-    Network.AWS.IoTAnalytics.Types.ChannelStorageSummary
-    Network.AWS.IoTAnalytics.Types.ChannelSummary
-    Network.AWS.IoTAnalytics.Types.ComputeType
-    Network.AWS.IoTAnalytics.Types.ContainerDatasetAction
-    Network.AWS.IoTAnalytics.Types.CustomerManagedChannelS3Storage
-    Network.AWS.IoTAnalytics.Types.CustomerManagedChannelS3StorageSummary
-    Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3Storage
-    Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3StorageSummary
-    Network.AWS.IoTAnalytics.Types.DatabaseName
-    Network.AWS.IoTAnalytics.Types.Dataset
-    Network.AWS.IoTAnalytics.Types.DatasetAction
-    Network.AWS.IoTAnalytics.Types.DatasetActionName
-    Network.AWS.IoTAnalytics.Types.DatasetActionSummary
-    Network.AWS.IoTAnalytics.Types.DatasetActionType
-    Network.AWS.IoTAnalytics.Types.DatasetArn
-    Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination
-    Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryRule
-    Network.AWS.IoTAnalytics.Types.DatasetContentState
-    Network.AWS.IoTAnalytics.Types.DatasetContentStatus
-    Network.AWS.IoTAnalytics.Types.DatasetContentSummary
-    Network.AWS.IoTAnalytics.Types.DatasetContentVersion
-    Network.AWS.IoTAnalytics.Types.DatasetContentVersionValue
-    Network.AWS.IoTAnalytics.Types.DatasetEntry
-    Network.AWS.IoTAnalytics.Types.DatasetName
-    Network.AWS.IoTAnalytics.Types.DatasetStatus
-    Network.AWS.IoTAnalytics.Types.DatasetSummary
-    Network.AWS.IoTAnalytics.Types.DatasetTrigger
-    Network.AWS.IoTAnalytics.Types.Datastore
-    Network.AWS.IoTAnalytics.Types.DatastoreActivity
-    Network.AWS.IoTAnalytics.Types.DatastoreArn
-    Network.AWS.IoTAnalytics.Types.DatastoreName
-    Network.AWS.IoTAnalytics.Types.DatastoreStatistics
-    Network.AWS.IoTAnalytics.Types.DatastoreStatus
-    Network.AWS.IoTAnalytics.Types.DatastoreStorage
-    Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary
-    Network.AWS.IoTAnalytics.Types.DatastoreSummary
-    Network.AWS.IoTAnalytics.Types.DeltaTime
-    Network.AWS.IoTAnalytics.Types.DeltaTimeSessionWindowConfiguration
-    Network.AWS.IoTAnalytics.Types.DeviceRegistryEnrichActivity
-    Network.AWS.IoTAnalytics.Types.DeviceShadowEnrichActivity
-    Network.AWS.IoTAnalytics.Types.EntryName
-    Network.AWS.IoTAnalytics.Types.ErrorCode
-    Network.AWS.IoTAnalytics.Types.ErrorMessage
-    Network.AWS.IoTAnalytics.Types.EstimatedResourceSize
-    Network.AWS.IoTAnalytics.Types.ExecutionRoleArn
-    Network.AWS.IoTAnalytics.Types.Expression
-    Network.AWS.IoTAnalytics.Types.FileName
-    Network.AWS.IoTAnalytics.Types.FilterActivity
-    Network.AWS.IoTAnalytics.Types.FilterExpression
-    Network.AWS.IoTAnalytics.Types.GlueConfiguration
-    Network.AWS.IoTAnalytics.Types.GlueTableName
-    Network.AWS.IoTAnalytics.Types.Image
-    Network.AWS.IoTAnalytics.Types.IotEventsDestinationConfiguration
-    Network.AWS.IoTAnalytics.Types.IotEventsInputName
-    Network.AWS.IoTAnalytics.Types.Key
-    Network.AWS.IoTAnalytics.Types.KeyPrefix
-    Network.AWS.IoTAnalytics.Types.LambdaActivity
-    Network.AWS.IoTAnalytics.Types.LambdaName
-    Network.AWS.IoTAnalytics.Types.LateDataRule
-    Network.AWS.IoTAnalytics.Types.LateDataRuleConfiguration
-    Network.AWS.IoTAnalytics.Types.LateDataRuleName
-    Network.AWS.IoTAnalytics.Types.LoggingLevel
-    Network.AWS.IoTAnalytics.Types.LoggingOptions
-    Network.AWS.IoTAnalytics.Types.LogResult
-    Network.AWS.IoTAnalytics.Types.MathActivity
-    Network.AWS.IoTAnalytics.Types.MathExpression
-    Network.AWS.IoTAnalytics.Types.Message
-    Network.AWS.IoTAnalytics.Types.MessageId
-    Network.AWS.IoTAnalytics.Types.Name
-    Network.AWS.IoTAnalytics.Types.Next
-    Network.AWS.IoTAnalytics.Types.NextToken
-    Network.AWS.IoTAnalytics.Types.OutputFileUriValue
-    Network.AWS.IoTAnalytics.Types.Pipeline
-    Network.AWS.IoTAnalytics.Types.PipelineActivity
-    Network.AWS.IoTAnalytics.Types.PipelineArn
-    Network.AWS.IoTAnalytics.Types.PipelineName
-    Network.AWS.IoTAnalytics.Types.PipelineSummary
-    Network.AWS.IoTAnalytics.Types.PresignedURI
-    Network.AWS.IoTAnalytics.Types.QueryFilter
-    Network.AWS.IoTAnalytics.Types.Reason
-    Network.AWS.IoTAnalytics.Types.RemoveAttributesActivity
-    Network.AWS.IoTAnalytics.Types.ReprocessingId
-    Network.AWS.IoTAnalytics.Types.ReprocessingStatus
-    Network.AWS.IoTAnalytics.Types.ReprocessingSummary
-    Network.AWS.IoTAnalytics.Types.ResourceArn
-    Network.AWS.IoTAnalytics.Types.ResourceConfiguration
-    Network.AWS.IoTAnalytics.Types.RetentionPeriod
-    Network.AWS.IoTAnalytics.Types.RoleArn
-    Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration
-    Network.AWS.IoTAnalytics.Types.S3KeyPrefix
-    Network.AWS.IoTAnalytics.Types.Schedule
-    Network.AWS.IoTAnalytics.Types.SelectAttributesActivity
-    Network.AWS.IoTAnalytics.Types.ServiceManagedChannelS3Storage
-    Network.AWS.IoTAnalytics.Types.ServiceManagedChannelS3StorageSummary
-    Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3Storage
-    Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3StorageSummary
-    Network.AWS.IoTAnalytics.Types.SqlQuery
-    Network.AWS.IoTAnalytics.Types.SqlQueryDatasetAction
-    Network.AWS.IoTAnalytics.Types.StringValue
-    Network.AWS.IoTAnalytics.Types.Tag
-    Network.AWS.IoTAnalytics.Types.TagKey
-    Network.AWS.IoTAnalytics.Types.ThingName
-    Network.AWS.IoTAnalytics.Types.TimeExpression
-    Network.AWS.IoTAnalytics.Types.TriggeringDataset
-    Network.AWS.IoTAnalytics.Types.Value
-    Network.AWS.IoTAnalytics.Types.Variable
-    Network.AWS.IoTAnalytics.Types.VersionId
-    Network.AWS.IoTAnalytics.Types.VersioningConfiguration
+    exposed-modules:
+          Network.AWS.IoTAnalytics
+        , Network.AWS.IoTAnalytics.Types
+        , Network.AWS.IoTAnalytics.Waiters
+        , Network.AWS.IoTAnalytics.DescribePipeline
+        , Network.AWS.IoTAnalytics.DescribeDataset
+        , Network.AWS.IoTAnalytics.ListChannels
+        , Network.AWS.IoTAnalytics.ListDatasetContents
+        , Network.AWS.IoTAnalytics.PutLoggingOptions
+        , Network.AWS.IoTAnalytics.ListTagsForResource
+        , Network.AWS.IoTAnalytics.DeleteChannel
+        , Network.AWS.IoTAnalytics.UpdateChannel
+        , Network.AWS.IoTAnalytics.SampleChannelData
+        , Network.AWS.IoTAnalytics.CancelPipelineReprocessing
+        , Network.AWS.IoTAnalytics.CreateDatastore
+        , Network.AWS.IoTAnalytics.UpdatePipeline
+        , Network.AWS.IoTAnalytics.DeletePipeline
+        , Network.AWS.IoTAnalytics.DeleteDataset
+        , Network.AWS.IoTAnalytics.UpdateDataset
+        , Network.AWS.IoTAnalytics.ListPipelines
+        , Network.AWS.IoTAnalytics.DeleteDatastore
+        , Network.AWS.IoTAnalytics.UpdateDatastore
+        , Network.AWS.IoTAnalytics.CreateDataset
+        , Network.AWS.IoTAnalytics.BatchPutMessage
+        , Network.AWS.IoTAnalytics.ListDatastores
+        , Network.AWS.IoTAnalytics.CreateDatasetContent
+        , Network.AWS.IoTAnalytics.CreateChannel
+        , Network.AWS.IoTAnalytics.DeleteDatasetContent
+        , Network.AWS.IoTAnalytics.DescribeDatastore
+        , Network.AWS.IoTAnalytics.GetDatasetContent
+        , Network.AWS.IoTAnalytics.TagResource
+        , Network.AWS.IoTAnalytics.ListDatasets
+        , Network.AWS.IoTAnalytics.UntagResource
+        , Network.AWS.IoTAnalytics.RunPipelineActivity
+        , Network.AWS.IoTAnalytics.DescribeChannel
+        , Network.AWS.IoTAnalytics.CreatePipeline
+        , Network.AWS.IoTAnalytics.StartPipelineReprocessing
+        , Network.AWS.IoTAnalytics.DescribeLoggingOptions
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.IoTAnalytics.Types.DatasetActionType
+        , Network.AWS.IoTAnalytics.Types.OutputFileUriValue
+        , Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration
+        , Network.AWS.IoTAnalytics.Types.IotEventsInputName
+        , Network.AWS.IoTAnalytics.Types.DatasetContentStatus
+        , Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3Storage
+        , Network.AWS.IoTAnalytics.Types.PipelineActivity
+        , Network.AWS.IoTAnalytics.Types.CustomerManagedChannelS3StorageSummary
+        , Network.AWS.IoTAnalytics.Types.DatasetArn
+        , Network.AWS.IoTAnalytics.Types.Image
+        , Network.AWS.IoTAnalytics.Types.ChannelStatus
+        , Network.AWS.IoTAnalytics.Types.S3KeyPrefix
+        , Network.AWS.IoTAnalytics.Types.LambdaActivity
+        , Network.AWS.IoTAnalytics.Types.VersioningConfiguration
+        , Network.AWS.IoTAnalytics.Types.ActivityName
+        , Network.AWS.IoTAnalytics.Types.Tag
+        , Network.AWS.IoTAnalytics.Types.BatchPutMessageErrorEntry
+        , Network.AWS.IoTAnalytics.Types.GlueTableName
+        , Network.AWS.IoTAnalytics.Types.LateDataRuleConfiguration
+        , Network.AWS.IoTAnalytics.Types.MathExpression
+        , Network.AWS.IoTAnalytics.Types.DatastoreStatistics
+        , Network.AWS.IoTAnalytics.Types.FilterExpression
+        , Network.AWS.IoTAnalytics.Types.DatastoreActivity
+        , Network.AWS.IoTAnalytics.Types.QueryFilter
+        , Network.AWS.IoTAnalytics.Types.DatastoreStorageSummary
+        , Network.AWS.IoTAnalytics.Types.Dataset
+        , Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3StorageSummary
+        , Network.AWS.IoTAnalytics.Types.DatastoreArn
+        , Network.AWS.IoTAnalytics.Types.ResourceConfiguration
+        , Network.AWS.IoTAnalytics.Types.FilterActivity
+        , Network.AWS.IoTAnalytics.Types.EstimatedResourceSize
+        , Network.AWS.IoTAnalytics.Types.LateDataRuleName
+        , Network.AWS.IoTAnalytics.Types.LogResult
+        , Network.AWS.IoTAnalytics.Types.PipelineName
+        , Network.AWS.IoTAnalytics.Types.LoggingLevel
+        , Network.AWS.IoTAnalytics.Types.MathActivity
+        , Network.AWS.IoTAnalytics.Types.Schedule
+        , Network.AWS.IoTAnalytics.Types.DeltaTime
+        , Network.AWS.IoTAnalytics.Types.LambdaName
+        , Network.AWS.IoTAnalytics.Types.DatastoreName
+        , Network.AWS.IoTAnalytics.Types.DeviceShadowEnrichActivity
+        , Network.AWS.IoTAnalytics.Types.SqlQueryDatasetAction
+        , Network.AWS.IoTAnalytics.Types.PresignedURI
+        , Network.AWS.IoTAnalytics.Types.DeviceRegistryEnrichActivity
+        , Network.AWS.IoTAnalytics.Types.DatastoreSummary
+        , Network.AWS.IoTAnalytics.Types.AddAttributesActivity
+        , Network.AWS.IoTAnalytics.Types.GlueConfiguration
+        , Network.AWS.IoTAnalytics.Types.Channel
+        , Network.AWS.IoTAnalytics.Types.DatasetActionName
+        , Network.AWS.IoTAnalytics.Types.EntryName
+        , Network.AWS.IoTAnalytics.Types.ServiceManagedChannelS3StorageSummary
+        , Network.AWS.IoTAnalytics.Types.ChannelActivity
+        , Network.AWS.IoTAnalytics.Types.ChannelStatistics
+        , Network.AWS.IoTAnalytics.Types.Variable
+        , Network.AWS.IoTAnalytics.Types.ChannelArn
+        , Network.AWS.IoTAnalytics.Types.StringValue
+        , Network.AWS.IoTAnalytics.Types.PipelineSummary
+        , Network.AWS.IoTAnalytics.Types.ChannelStorageSummary
+        , Network.AWS.IoTAnalytics.Types.DatasetEntry
+        , Network.AWS.IoTAnalytics.Types.IotEventsDestinationConfiguration
+        , Network.AWS.IoTAnalytics.Types.DatasetContentVersion
+        , Network.AWS.IoTAnalytics.Types.BucketName
+        , Network.AWS.IoTAnalytics.Types.RetentionPeriod
+        , Network.AWS.IoTAnalytics.Types.ReprocessingId
+        , Network.AWS.IoTAnalytics.Types.RemoveAttributesActivity
+        , Network.AWS.IoTAnalytics.Types.SqlQuery
+        , Network.AWS.IoTAnalytics.Types.Reason
+        , Network.AWS.IoTAnalytics.Types.NextToken
+        , Network.AWS.IoTAnalytics.Types.ChannelName
+        , Network.AWS.IoTAnalytics.Types.DatasetContentState
+        , Network.AWS.IoTAnalytics.Types.DatasetAction
+        , Network.AWS.IoTAnalytics.Types.Datastore
+        , Network.AWS.IoTAnalytics.Types.ResourceArn
+        , Network.AWS.IoTAnalytics.Types.DatasetContentSummary
+        , Network.AWS.IoTAnalytics.Types.DeltaTimeSessionWindowConfiguration
+        , Network.AWS.IoTAnalytics.Types.TimeExpression
+        , Network.AWS.IoTAnalytics.Types.ChannelSummary
+        , Network.AWS.IoTAnalytics.Types.PipelineArn
+        , Network.AWS.IoTAnalytics.Types.ChannelStorage
+        , Network.AWS.IoTAnalytics.Types.DatasetTrigger
+        , Network.AWS.IoTAnalytics.Types.DatasetContentVersionValue
+        , Network.AWS.IoTAnalytics.Types.Pipeline
+        , Network.AWS.IoTAnalytics.Types.SelectAttributesActivity
+        , Network.AWS.IoTAnalytics.Types.LateDataRule
+        , Network.AWS.IoTAnalytics.Types.TriggeringDataset
+        , Network.AWS.IoTAnalytics.Types.ServiceManagedChannelS3Storage
+        , Network.AWS.IoTAnalytics.Types.ErrorCode
+        , Network.AWS.IoTAnalytics.Types.DatasetName
+        , Network.AWS.IoTAnalytics.Types.ComputeType
+        , Network.AWS.IoTAnalytics.Types.TagKey
+        , Network.AWS.IoTAnalytics.Types.ReprocessingStatus
+        , Network.AWS.IoTAnalytics.Types.ReprocessingSummary
+        , Network.AWS.IoTAnalytics.Types.DatasetActionSummary
+        , Network.AWS.IoTAnalytics.Types.LoggingOptions
+        , Network.AWS.IoTAnalytics.Types.DatastoreStatus
+        , Network.AWS.IoTAnalytics.Types.ErrorMessage
+        , Network.AWS.IoTAnalytics.Types.Message
+        , Network.AWS.IoTAnalytics.Types.AttributeName
+        , Network.AWS.IoTAnalytics.Types.CustomerManagedChannelS3Storage
+        , Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryDestination
+        , Network.AWS.IoTAnalytics.Types.ContainerDatasetAction
+        , Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3StorageSummary
+        , Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3Storage
+        , Network.AWS.IoTAnalytics.Types.DatastoreStorage
+        , Network.AWS.IoTAnalytics.Types.DatasetStatus
+        , Network.AWS.IoTAnalytics.Types.MessageId
+        , Network.AWS.IoTAnalytics.Types.DatasetSummary
+        , Network.AWS.IoTAnalytics.Types.DatasetContentDeliveryRule
+        , Network.AWS.IoTAnalytics.Types.RoleArn
+        , Network.AWS.IoTAnalytics.Types.FileName
+        , Network.AWS.IoTAnalytics.Types.Bucket
+        , Network.AWS.IoTAnalytics.Types.Key
+        , Network.AWS.IoTAnalytics.Types.KeyPrefix
+        , Network.AWS.IoTAnalytics.Types.Name
+        , Network.AWS.IoTAnalytics.Types.Next
+        , Network.AWS.IoTAnalytics.Types.Value
+        , Network.AWS.IoTAnalytics.Types.Attribute
+        , Network.AWS.IoTAnalytics.Types.Expression
+        , Network.AWS.IoTAnalytics.Types.ThingName
+        , Network.AWS.IoTAnalytics.Types.VersionId
+        , Network.AWS.IoTAnalytics.Types.DatabaseName
+        , Network.AWS.IoTAnalytics.Types.Arn
+        , Network.AWS.IoTAnalytics.Types.ExecutionRoleArn
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-iot-analytics-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.Gen.IoTAnalytics
-    Test.AWS.IoTAnalytics
-    Test.AWS.IoTAnalytics.Internal
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core           >=2.0.0.0 && <2.0.0.1
-    , amazonka-iot-analytics
-    , amazonka-test           >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.IoTAnalytics
+        , Test.AWS.Gen.IoTAnalytics
+        , Test.AWS.IoTAnalytics.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-iot-analytics
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

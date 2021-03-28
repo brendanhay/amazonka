@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,20 +10,18 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SWF.Types.SignalExternalWorkflowExecutionDecisionAttributes
-  ( SignalExternalWorkflowExecutionDecisionAttributes (..),
-
-    -- * Smart constructor
-    mkSignalExternalWorkflowExecutionDecisionAttributes,
-
-    -- * Lenses
-    sewedaWorkflowId,
-    sewedaSignalName,
-    sewedaControl,
-    sewedaInput,
-    sewedaRunId,
-  )
-where
+  ( SignalExternalWorkflowExecutionDecisionAttributes (..)
+  -- * Smart constructor
+  , mkSignalExternalWorkflowExecutionDecisionAttributes
+  -- * Lenses
+  , sewedaWorkflowId
+  , sewedaSignalName
+  , sewedaControl
+  , sewedaInput
+  , sewedaRunId
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -35,7 +33,7 @@ import qualified Network.AWS.SWF.Types.WorkflowId as Types
 
 -- | Provides the details of the @SignalExternalWorkflowExecution@ decision.
 --
--- __Access Control__
+-- __Access Control__ 
 -- You can use IAM policies to control this decision's access to Amazon SWF resources as follows:
 --
 --     * Use a @Resource@ element with the domain name to limit the action to only specified domains.
@@ -51,84 +49,79 @@ import qualified Network.AWS.SWF.Types.WorkflowId as Types
 --
 -- /See:/ 'mkSignalExternalWorkflowExecutionDecisionAttributes' smart constructor.
 data SignalExternalWorkflowExecutionDecisionAttributes = SignalExternalWorkflowExecutionDecisionAttributes'
-  { -- | The @workflowId@ of the workflow execution to be signaled.
-    workflowId :: Types.WorkflowId,
-    -- | The name of the signal.The target workflow execution uses the signal name and input to process the signal.
-    signalName :: Types.SignalName,
-    -- | The data attached to the event that can be used by the decider in subsequent decision tasks.
-    control :: Core.Maybe Types.Control,
-    -- | The input data to be provided with the signal. The target workflow execution uses the signal name and input data to process the signal.
-    input :: Core.Maybe Types.Input,
-    -- | The @runId@ of the workflow execution to be signaled.
-    runId :: Core.Maybe Types.RunId
+  { workflowId :: Types.WorkflowId
+    -- ^ The @workflowId@ of the workflow execution to be signaled.
+  , signalName :: Types.SignalName
+    -- ^ The name of the signal.The target workflow execution uses the signal name and input to process the signal.
+  , control :: Core.Maybe Types.Control
+    -- ^ The data attached to the event that can be used by the decider in subsequent decision tasks.
+  , input :: Core.Maybe Types.Input
+    -- ^ The input data to be provided with the signal. The target workflow execution uses the signal name and input data to process the signal.
+  , runId :: Core.Maybe Types.RunId
+    -- ^ The @runId@ of the workflow execution to be signaled.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'SignalExternalWorkflowExecutionDecisionAttributes' value with any optional fields omitted.
-mkSignalExternalWorkflowExecutionDecisionAttributes ::
-  -- | 'workflowId'
-  Types.WorkflowId ->
-  -- | 'signalName'
-  Types.SignalName ->
-  SignalExternalWorkflowExecutionDecisionAttributes
 mkSignalExternalWorkflowExecutionDecisionAttributes
-  workflowId
-  signalName =
-    SignalExternalWorkflowExecutionDecisionAttributes'
-      { workflowId,
-        signalName,
-        control = Core.Nothing,
-        input = Core.Nothing,
-        runId = Core.Nothing
-      }
+    :: Types.WorkflowId -- ^ 'workflowId'
+    -> Types.SignalName -- ^ 'signalName'
+    -> SignalExternalWorkflowExecutionDecisionAttributes
+mkSignalExternalWorkflowExecutionDecisionAttributes workflowId
+  signalName
+  = SignalExternalWorkflowExecutionDecisionAttributes'{workflowId,
+                                                       signalName, control = Core.Nothing,
+                                                       input = Core.Nothing, runId = Core.Nothing}
 
 -- | The @workflowId@ of the workflow execution to be signaled.
 --
 -- /Note:/ Consider using 'workflowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sewedaWorkflowId :: Lens.Lens' SignalExternalWorkflowExecutionDecisionAttributes Types.WorkflowId
 sewedaWorkflowId = Lens.field @"workflowId"
-{-# DEPRECATED sewedaWorkflowId "Use generic-lens or generic-optics with 'workflowId' instead." #-}
+{-# INLINEABLE sewedaWorkflowId #-}
+{-# DEPRECATED workflowId "Use generic-lens or generic-optics with 'workflowId' instead"  #-}
 
 -- | The name of the signal.The target workflow execution uses the signal name and input to process the signal.
 --
 -- /Note:/ Consider using 'signalName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sewedaSignalName :: Lens.Lens' SignalExternalWorkflowExecutionDecisionAttributes Types.SignalName
 sewedaSignalName = Lens.field @"signalName"
-{-# DEPRECATED sewedaSignalName "Use generic-lens or generic-optics with 'signalName' instead." #-}
+{-# INLINEABLE sewedaSignalName #-}
+{-# DEPRECATED signalName "Use generic-lens or generic-optics with 'signalName' instead"  #-}
 
 -- | The data attached to the event that can be used by the decider in subsequent decision tasks.
 --
 -- /Note:/ Consider using 'control' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sewedaControl :: Lens.Lens' SignalExternalWorkflowExecutionDecisionAttributes (Core.Maybe Types.Control)
 sewedaControl = Lens.field @"control"
-{-# DEPRECATED sewedaControl "Use generic-lens or generic-optics with 'control' instead." #-}
+{-# INLINEABLE sewedaControl #-}
+{-# DEPRECATED control "Use generic-lens or generic-optics with 'control' instead"  #-}
 
 -- | The input data to be provided with the signal. The target workflow execution uses the signal name and input data to process the signal.
 --
 -- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sewedaInput :: Lens.Lens' SignalExternalWorkflowExecutionDecisionAttributes (Core.Maybe Types.Input)
 sewedaInput = Lens.field @"input"
-{-# DEPRECATED sewedaInput "Use generic-lens or generic-optics with 'input' instead." #-}
+{-# INLINEABLE sewedaInput #-}
+{-# DEPRECATED input "Use generic-lens or generic-optics with 'input' instead"  #-}
 
 -- | The @runId@ of the workflow execution to be signaled.
 --
 -- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sewedaRunId :: Lens.Lens' SignalExternalWorkflowExecutionDecisionAttributes (Core.Maybe Types.RunId)
 sewedaRunId = Lens.field @"runId"
-{-# DEPRECATED sewedaRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
+{-# INLINEABLE sewedaRunId #-}
+{-# DEPRECATED runId "Use generic-lens or generic-optics with 'runId' instead"  #-}
 
-instance
-  Core.FromJSON
-    SignalExternalWorkflowExecutionDecisionAttributes
-  where
-  toJSON SignalExternalWorkflowExecutionDecisionAttributes {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("workflowId" Core..= workflowId),
-            Core.Just ("signalName" Core..= signalName),
-            ("control" Core..=) Core.<$> control,
-            ("input" Core..=) Core.<$> input,
-            ("runId" Core..=) Core.<$> runId
-          ]
-      )
+instance Core.FromJSON
+           SignalExternalWorkflowExecutionDecisionAttributes
+         where
+        toJSON SignalExternalWorkflowExecutionDecisionAttributes{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("workflowId" Core..= workflowId),
+                  Core.Just ("signalName" Core..= signalName),
+                  ("control" Core..=) Core.<$> control,
+                  ("input" Core..=) Core.<$> input,
+                  ("runId" Core..=) Core.<$> runId])

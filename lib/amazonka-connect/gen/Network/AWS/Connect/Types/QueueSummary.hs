@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,19 +10,17 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Connect.Types.QueueSummary
-  ( QueueSummary (..),
-
-    -- * Smart constructor
-    mkQueueSummary,
-
-    -- * Lenses
-    qsArn,
-    qsId,
-    qsName,
-    qsQueueType,
-  )
-where
+  ( QueueSummary (..)
+  -- * Smart constructor
+  , mkQueueSummary
+  -- * Lenses
+  , qsArn
+  , qsId
+  , qsName
+  , qsQueueType
+  ) where
 
 import qualified Network.AWS.Connect.Types.ARN as Types
 import qualified Network.AWS.Connect.Types.QueueId as Types
@@ -35,63 +33,62 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkQueueSummary' smart constructor.
 data QueueSummary = QueueSummary'
-  { -- | The Amazon Resource Name (ARN) of the queue.
-    arn :: Core.Maybe Types.ARN,
-    -- | The identifier of the queue.
-    id :: Core.Maybe Types.QueueId,
-    -- | The name of the queue.
-    name :: Core.Maybe Types.QueueName,
-    -- | The type of queue.
-    queueType :: Core.Maybe Types.QueueType
+  { arn :: Core.Maybe Types.ARN
+    -- ^ The Amazon Resource Name (ARN) of the queue.
+  , id :: Core.Maybe Types.QueueId
+    -- ^ The identifier of the queue.
+  , name :: Core.Maybe Types.QueueName
+    -- ^ The name of the queue.
+  , queueType :: Core.Maybe Types.QueueType
+    -- ^ The type of queue.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'QueueSummary' value with any optional fields omitted.
-mkQueueSummary ::
-  QueueSummary
-mkQueueSummary =
-  QueueSummary'
-    { arn = Core.Nothing,
-      id = Core.Nothing,
-      name = Core.Nothing,
-      queueType = Core.Nothing
-    }
+mkQueueSummary
+    :: QueueSummary
+mkQueueSummary
+  = QueueSummary'{arn = Core.Nothing, id = Core.Nothing,
+                  name = Core.Nothing, queueType = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the queue.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 qsArn :: Lens.Lens' QueueSummary (Core.Maybe Types.ARN)
 qsArn = Lens.field @"arn"
-{-# DEPRECATED qsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+{-# INLINEABLE qsArn #-}
+{-# DEPRECATED arn "Use generic-lens or generic-optics with 'arn' instead"  #-}
 
 -- | The identifier of the queue.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 qsId :: Lens.Lens' QueueSummary (Core.Maybe Types.QueueId)
 qsId = Lens.field @"id"
-{-# DEPRECATED qsId "Use generic-lens or generic-optics with 'id' instead." #-}
+{-# INLINEABLE qsId #-}
+{-# DEPRECATED id "Use generic-lens or generic-optics with 'id' instead"  #-}
 
 -- | The name of the queue.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 qsName :: Lens.Lens' QueueSummary (Core.Maybe Types.QueueName)
 qsName = Lens.field @"name"
-{-# DEPRECATED qsName "Use generic-lens or generic-optics with 'name' instead." #-}
+{-# INLINEABLE qsName #-}
+{-# DEPRECATED name "Use generic-lens or generic-optics with 'name' instead"  #-}
 
 -- | The type of queue.
 --
 -- /Note:/ Consider using 'queueType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 qsQueueType :: Lens.Lens' QueueSummary (Core.Maybe Types.QueueType)
 qsQueueType = Lens.field @"queueType"
-{-# DEPRECATED qsQueueType "Use generic-lens or generic-optics with 'queueType' instead." #-}
+{-# INLINEABLE qsQueueType #-}
+{-# DEPRECATED queueType "Use generic-lens or generic-optics with 'queueType' instead"  #-}
 
 instance Core.FromJSON QueueSummary where
-  parseJSON =
-    Core.withObject "QueueSummary" Core.$
-      \x ->
-        QueueSummary'
-          Core.<$> (x Core..:? "Arn")
-          Core.<*> (x Core..:? "Id")
-          Core.<*> (x Core..:? "Name")
-          Core.<*> (x Core..:? "QueueType")
+        parseJSON
+          = Core.withObject "QueueSummary" Core.$
+              \ x ->
+                QueueSummary' Core.<$>
+                  (x Core..:? "Arn") Core.<*> x Core..:? "Id" Core.<*>
+                    x Core..:? "Name"
+                    Core.<*> x Core..:? "QueueType"

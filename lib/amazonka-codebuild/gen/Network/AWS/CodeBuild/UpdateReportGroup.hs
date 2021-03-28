@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,26 +13,24 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a report group.
+-- Updates a report group. 
 module Network.AWS.CodeBuild.UpdateReportGroup
-  ( -- * Creating a request
-    UpdateReportGroup (..),
-    mkUpdateReportGroup,
-
+    (
+    -- * Creating a request
+      UpdateReportGroup (..)
+    , mkUpdateReportGroup
     -- ** Request lenses
-    urgArn,
-    urgExportConfig,
-    urgTags,
+    , urgArn
+    , urgExportConfig
+    , urgTags
 
     -- * Destructuring the response
-    UpdateReportGroupResponse (..),
-    mkUpdateReportGroupResponse,
-
+    , UpdateReportGroupResponse (..)
+    , mkUpdateReportGroupResponse
     -- ** Response lenses
-    urgrrsReportGroup,
-    urgrrsResponseStatus,
-  )
-where
+    , urgrrsReportGroup
+    , urgrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -42,128 +40,132 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateReportGroup' smart constructor.
 data UpdateReportGroup = UpdateReportGroup'
-  { -- | The ARN of the report group to update.
-    arn :: Types.NonEmptyString,
-    -- | Used to specify an updated export type. Valid values are:
-    --
-    --
-    --     * @S3@ : The report results are exported to an S3 bucket.
-    --
-    --
-    --     * @NO_EXPORT@ : The report results are not exported.
-    exportConfig :: Core.Maybe Types.ReportExportConfig,
-    -- | An updated list of tag key and value pairs associated with this report group.
-    --
-    -- These tags are available for use by AWS services that support AWS CodeBuild report group tags.
-    tags :: Core.Maybe [Types.Tag]
+  { arn :: Types.NonEmptyString
+    -- ^ The ARN of the report group to update. 
+  , exportConfig :: Core.Maybe Types.ReportExportConfig
+    -- ^ Used to specify an updated export type. Valid values are: 
+--
+--
+--     * @S3@ : The report results are exported to an S3 bucket. 
+--
+--
+--     * @NO_EXPORT@ : The report results are not exported. 
+--
+--
+  , tags :: Core.Maybe [Types.Tag]
+    -- ^ An updated list of tag key and value pairs associated with this report group. 
+--
+-- These tags are available for use by AWS services that support AWS CodeBuild report group tags.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UpdateReportGroup' value with any optional fields omitted.
-mkUpdateReportGroup ::
-  -- | 'arn'
-  Types.NonEmptyString ->
-  UpdateReportGroup
-mkUpdateReportGroup arn =
-  UpdateReportGroup'
-    { arn,
-      exportConfig = Core.Nothing,
-      tags = Core.Nothing
-    }
+mkUpdateReportGroup
+    :: Types.NonEmptyString -- ^ 'arn'
+    -> UpdateReportGroup
+mkUpdateReportGroup arn
+  = UpdateReportGroup'{arn, exportConfig = Core.Nothing,
+                       tags = Core.Nothing}
 
--- | The ARN of the report group to update.
+-- | The ARN of the report group to update. 
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 urgArn :: Lens.Lens' UpdateReportGroup Types.NonEmptyString
 urgArn = Lens.field @"arn"
-{-# DEPRECATED urgArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+{-# INLINEABLE urgArn #-}
+{-# DEPRECATED arn "Use generic-lens or generic-optics with 'arn' instead"  #-}
 
--- | Used to specify an updated export type. Valid values are:
+-- | Used to specify an updated export type. Valid values are: 
 --
 --
---     * @S3@ : The report results are exported to an S3 bucket.
+--     * @S3@ : The report results are exported to an S3 bucket. 
 --
 --
---     * @NO_EXPORT@ : The report results are not exported.
+--     * @NO_EXPORT@ : The report results are not exported. 
 --
 --
 --
 -- /Note:/ Consider using 'exportConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 urgExportConfig :: Lens.Lens' UpdateReportGroup (Core.Maybe Types.ReportExportConfig)
 urgExportConfig = Lens.field @"exportConfig"
-{-# DEPRECATED urgExportConfig "Use generic-lens or generic-optics with 'exportConfig' instead." #-}
+{-# INLINEABLE urgExportConfig #-}
+{-# DEPRECATED exportConfig "Use generic-lens or generic-optics with 'exportConfig' instead"  #-}
 
--- | An updated list of tag key and value pairs associated with this report group.
+-- | An updated list of tag key and value pairs associated with this report group. 
 --
 -- These tags are available for use by AWS services that support AWS CodeBuild report group tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 urgTags :: Lens.Lens' UpdateReportGroup (Core.Maybe [Types.Tag])
 urgTags = Lens.field @"tags"
-{-# DEPRECATED urgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+{-# INLINEABLE urgTags #-}
+{-# DEPRECATED tags "Use generic-lens or generic-optics with 'tags' instead"  #-}
+
+instance Core.ToQuery UpdateReportGroup where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders UpdateReportGroup where
+        toHeaders UpdateReportGroup{..}
+          = Core.pure
+              ("X-Amz-Target", "CodeBuild_20161006.UpdateReportGroup")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON UpdateReportGroup where
-  toJSON UpdateReportGroup {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("arn" Core..= arn),
-            ("exportConfig" Core..=) Core.<$> exportConfig,
-            ("tags" Core..=) Core.<$> tags
-          ]
-      )
+        toJSON UpdateReportGroup{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("arn" Core..= arn),
+                  ("exportConfig" Core..=) Core.<$> exportConfig,
+                  ("tags" Core..=) Core.<$> tags])
 
 instance Core.AWSRequest UpdateReportGroup where
-  type Rs UpdateReportGroup = UpdateReportGroupResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "CodeBuild_20161006.UpdateReportGroup")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          UpdateReportGroupResponse'
-            Core.<$> (x Core..:? "reportGroup") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs UpdateReportGroup = UpdateReportGroupResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 UpdateReportGroupResponse' Core.<$>
+                   (x Core..:? "reportGroup") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkUpdateReportGroupResponse' smart constructor.
 data UpdateReportGroupResponse = UpdateReportGroupResponse'
-  { -- | Information about the updated report group.
-    reportGroup :: Core.Maybe Types.ReportGroup,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { reportGroup :: Core.Maybe Types.ReportGroup
+    -- ^ Information about the updated report group. 
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'UpdateReportGroupResponse' value with any optional fields omitted.
-mkUpdateReportGroupResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  UpdateReportGroupResponse
-mkUpdateReportGroupResponse responseStatus =
-  UpdateReportGroupResponse'
-    { reportGroup = Core.Nothing,
-      responseStatus
-    }
+mkUpdateReportGroupResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> UpdateReportGroupResponse
+mkUpdateReportGroupResponse responseStatus
+  = UpdateReportGroupResponse'{reportGroup = Core.Nothing,
+                               responseStatus}
 
--- | Information about the updated report group.
+-- | Information about the updated report group. 
 --
 -- /Note:/ Consider using 'reportGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 urgrrsReportGroup :: Lens.Lens' UpdateReportGroupResponse (Core.Maybe Types.ReportGroup)
 urgrrsReportGroup = Lens.field @"reportGroup"
-{-# DEPRECATED urgrrsReportGroup "Use generic-lens or generic-optics with 'reportGroup' instead." #-}
+{-# INLINEABLE urgrrsReportGroup #-}
+{-# DEPRECATED reportGroup "Use generic-lens or generic-optics with 'reportGroup' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 urgrrsResponseStatus :: Lens.Lens' UpdateReportGroupResponse Core.Int
 urgrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED urgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE urgrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -30,20 +30,19 @@
 --
 -- For details about creating a custom user policy, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#AWSHowTo.iam.policies Creating a Custom User Policy> .
 module Network.AWS.ElasticBeanstalk.UpdateTagsForResource
-  ( -- * Creating a request
-    UpdateTagsForResource (..),
-    mkUpdateTagsForResource,
-
+    (
+    -- * Creating a request
+      UpdateTagsForResource (..)
+    , mkUpdateTagsForResource
     -- ** Request lenses
-    utfrResourceArn,
-    utfrTagsToAdd,
-    utfrTagsToRemove,
+    , utfrResourceArn
+    , utfrTagsToAdd
+    , utfrTagsToRemove
 
     -- * Destructuring the response
-    UpdateTagsForResourceResponse (..),
-    mkUpdateTagsForResourceResponse,
-  )
-where
+    , UpdateTagsForResourceResponse (..)
+    , mkUpdateTagsForResourceResponse
+    ) where
 
 import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -53,33 +52,29 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateTagsForResource' smart constructor.
 data UpdateTagsForResource = UpdateTagsForResource'
-  { -- | The Amazon Resource Name (ARN) of the resouce to be updated.
-    --
-    -- Must be the ARN of an Elastic Beanstalk resource.
-    resourceArn :: Types.ResourceArn,
-    -- | A list of tags to add or update. If a key of an existing tag is added, the tag's value is updated.
-    --
-    -- Specify at least one of these parameters: @TagsToAdd@ , @TagsToRemove@ .
-    tagsToAdd :: Core.Maybe [Types.Tag],
-    -- | A list of tag keys to remove. If a tag key doesn't exist, it is silently ignored.
-    --
-    -- Specify at least one of these parameters: @TagsToAdd@ , @TagsToRemove@ .
-    tagsToRemove :: Core.Maybe [Types.TagKey]
+  { resourceArn :: Types.ResourceArn
+    -- ^ The Amazon Resource Name (ARN) of the resouce to be updated.
+--
+-- Must be the ARN of an Elastic Beanstalk resource.
+  , tagsToAdd :: Core.Maybe [Types.Tag]
+    -- ^ A list of tags to add or update. If a key of an existing tag is added, the tag's value is updated.
+--
+-- Specify at least one of these parameters: @TagsToAdd@ , @TagsToRemove@ .
+  , tagsToRemove :: Core.Maybe [Types.TagKey]
+    -- ^ A list of tag keys to remove. If a tag key doesn't exist, it is silently ignored.
+--
+-- Specify at least one of these parameters: @TagsToAdd@ , @TagsToRemove@ .
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UpdateTagsForResource' value with any optional fields omitted.
-mkUpdateTagsForResource ::
-  -- | 'resourceArn'
-  Types.ResourceArn ->
-  UpdateTagsForResource
-mkUpdateTagsForResource resourceArn =
-  UpdateTagsForResource'
-    { resourceArn,
-      tagsToAdd = Core.Nothing,
-      tagsToRemove = Core.Nothing
-    }
+mkUpdateTagsForResource
+    :: Types.ResourceArn -- ^ 'resourceArn'
+    -> UpdateTagsForResource
+mkUpdateTagsForResource resourceArn
+  = UpdateTagsForResource'{resourceArn, tagsToAdd = Core.Nothing,
+                           tagsToRemove = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the resouce to be updated.
 --
@@ -88,7 +83,8 @@ mkUpdateTagsForResource resourceArn =
 -- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 utfrResourceArn :: Lens.Lens' UpdateTagsForResource Types.ResourceArn
 utfrResourceArn = Lens.field @"resourceArn"
-{-# DEPRECATED utfrResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
+{-# INLINEABLE utfrResourceArn #-}
+{-# DEPRECATED resourceArn "Use generic-lens or generic-optics with 'resourceArn' instead"  #-}
 
 -- | A list of tags to add or update. If a key of an existing tag is added, the tag's value is updated.
 --
@@ -97,7 +93,8 @@ utfrResourceArn = Lens.field @"resourceArn"
 -- /Note:/ Consider using 'tagsToAdd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 utfrTagsToAdd :: Lens.Lens' UpdateTagsForResource (Core.Maybe [Types.Tag])
 utfrTagsToAdd = Lens.field @"tagsToAdd"
-{-# DEPRECATED utfrTagsToAdd "Use generic-lens or generic-optics with 'tagsToAdd' instead." #-}
+{-# INLINEABLE utfrTagsToAdd #-}
+{-# DEPRECATED tagsToAdd "Use generic-lens or generic-optics with 'tagsToAdd' instead"  #-}
 
 -- | A list of tag keys to remove. If a tag key doesn't exist, it is silently ignored.
 --
@@ -106,37 +103,41 @@ utfrTagsToAdd = Lens.field @"tagsToAdd"
 -- /Note:/ Consider using 'tagsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 utfrTagsToRemove :: Lens.Lens' UpdateTagsForResource (Core.Maybe [Types.TagKey])
 utfrTagsToRemove = Lens.field @"tagsToRemove"
-{-# DEPRECATED utfrTagsToRemove "Use generic-lens or generic-optics with 'tagsToRemove' instead." #-}
+{-# INLINEABLE utfrTagsToRemove #-}
+{-# DEPRECATED tagsToRemove "Use generic-lens or generic-optics with 'tagsToRemove' instead"  #-}
+
+instance Core.ToQuery UpdateTagsForResource where
+        toQuery UpdateTagsForResource{..}
+          = Core.toQueryPair "Action" ("UpdateTagsForResource" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2010-12-01" :: Core.Text)
+              Core.<> Core.toQueryPair "ResourceArn" resourceArn
+              Core.<>
+              Core.toQueryPair "TagsToAdd"
+                (Core.maybe Core.mempty (Core.toQueryList "member") tagsToAdd)
+              Core.<>
+              Core.toQueryPair "TagsToRemove"
+                (Core.maybe Core.mempty (Core.toQueryList "member") tagsToRemove)
+
+instance Core.ToHeaders UpdateTagsForResource where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest UpdateTagsForResource where
-  type Rs UpdateTagsForResource = UpdateTagsForResourceResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "UpdateTagsForResource")
-                Core.<> (Core.pure ("Version", "2010-12-01"))
-                Core.<> (Core.toQueryValue "ResourceArn" resourceArn)
-                Core.<> ( Core.toQueryValue
-                            "TagsToAdd"
-                            (Core.toQueryList "member" Core.<$> tagsToAdd)
-                        )
-                Core.<> ( Core.toQueryValue
-                            "TagsToRemove"
-                            (Core.toQueryList "member" Core.<$> tagsToRemove)
-                        )
-            )
-      }
-  response = Response.receiveNull UpdateTagsForResourceResponse'
+        type Rs UpdateTagsForResource = UpdateTagsForResourceResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull UpdateTagsForResourceResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkUpdateTagsForResourceResponse' smart constructor.
 data UpdateTagsForResourceResponse = UpdateTagsForResourceResponse'
@@ -144,6 +145,6 @@ data UpdateTagsForResourceResponse = UpdateTagsForResourceResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UpdateTagsForResourceResponse' value with any optional fields omitted.
-mkUpdateTagsForResourceResponse ::
-  UpdateTagsForResourceResponse
+mkUpdateTagsForResourceResponse
+    :: UpdateTagsForResourceResponse
 mkUpdateTagsForResourceResponse = UpdateTagsForResourceResponse'

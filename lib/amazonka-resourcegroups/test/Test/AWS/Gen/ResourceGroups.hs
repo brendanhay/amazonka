@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.ResourceGroups where
 
 import Data.Proxy
-import Network.AWS.ResourceGroups
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.AWS.ResourceGroups.Internal
 import Test.Tasty
+import Network.AWS.ResourceGroups
+import Test.AWS.ResourceGroups.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -126,212 +127,182 @@ import Test.Tasty
 -- Requests
 
 requestSearchResources :: SearchResources -> TestTree
-requestSearchResources =
-  req
+requestSearchResources = req
     "SearchResources"
     "fixture/SearchResources.yaml"
 
 requestGetTags :: GetTags -> TestTree
-requestGetTags =
-  req
+requestGetTags = req
     "GetTags"
     "fixture/GetTags.yaml"
 
 requestTag :: Tag -> TestTree
-requestTag =
-  req
+requestTag = req
     "Tag"
     "fixture/Tag.yaml"
 
 requestUngroupResources :: UngroupResources -> TestTree
-requestUngroupResources =
-  req
+requestUngroupResources = req
     "UngroupResources"
     "fixture/UngroupResources.yaml"
 
 requestGroupResources :: GroupResources -> TestTree
-requestGroupResources =
-  req
+requestGroupResources = req
     "GroupResources"
     "fixture/GroupResources.yaml"
 
 requestUntag :: Untag -> TestTree
-requestUntag =
-  req
+requestUntag = req
     "Untag"
     "fixture/Untag.yaml"
 
 requestUpdateGroupQuery :: UpdateGroupQuery -> TestTree
-requestUpdateGroupQuery =
-  req
+requestUpdateGroupQuery = req
     "UpdateGroupQuery"
     "fixture/UpdateGroupQuery.yaml"
 
 requestListGroupResources :: ListGroupResources -> TestTree
-requestListGroupResources =
-  req
+requestListGroupResources = req
     "ListGroupResources"
     "fixture/ListGroupResources.yaml"
 
 requestGetGroupQuery :: GetGroupQuery -> TestTree
-requestGetGroupQuery =
-  req
+requestGetGroupQuery = req
     "GetGroupQuery"
     "fixture/GetGroupQuery.yaml"
 
 requestCreateGroup :: CreateGroup -> TestTree
-requestCreateGroup =
-  req
+requestCreateGroup = req
     "CreateGroup"
     "fixture/CreateGroup.yaml"
 
 requestDeleteGroup :: DeleteGroup -> TestTree
-requestDeleteGroup =
-  req
+requestDeleteGroup = req
     "DeleteGroup"
     "fixture/DeleteGroup.yaml"
 
 requestUpdateGroup :: UpdateGroup -> TestTree
-requestUpdateGroup =
-  req
+requestUpdateGroup = req
     "UpdateGroup"
     "fixture/UpdateGroup.yaml"
 
 requestListGroups :: ListGroups -> TestTree
-requestListGroups =
-  req
+requestListGroups = req
     "ListGroups"
     "fixture/ListGroups.yaml"
 
 requestGetGroup :: GetGroup -> TestTree
-requestGetGroup =
-  req
+requestGetGroup = req
     "GetGroup"
     "fixture/GetGroup.yaml"
 
 requestGetGroupConfiguration :: GetGroupConfiguration -> TestTree
-requestGetGroupConfiguration =
-  req
+requestGetGroupConfiguration = req
     "GetGroupConfiguration"
     "fixture/GetGroupConfiguration.yaml"
 
 -- Responses
 
 responseSearchResources :: SearchResourcesResponse -> TestTree
-responseSearchResources =
-  res
+responseSearchResources = res
     "SearchResourcesResponse"
     "fixture/SearchResourcesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SearchResources)
 
 responseGetTags :: GetTagsResponse -> TestTree
-responseGetTags =
-  res
+responseGetTags = res
     "GetTagsResponse"
     "fixture/GetTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetTags)
 
 responseTag :: TagResponse -> TestTree
-responseTag =
-  res
+responseTag = res
     "TagResponse"
     "fixture/TagResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy Tag)
 
 responseUngroupResources :: UngroupResourcesResponse -> TestTree
-responseUngroupResources =
-  res
+responseUngroupResources = res
     "UngroupResourcesResponse"
     "fixture/UngroupResourcesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UngroupResources)
 
 responseGroupResources :: GroupResourcesResponse -> TestTree
-responseGroupResources =
-  res
+responseGroupResources = res
     "GroupResourcesResponse"
     "fixture/GroupResourcesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GroupResources)
 
 responseUntag :: UntagResponse -> TestTree
-responseUntag =
-  res
+responseUntag = res
     "UntagResponse"
     "fixture/UntagResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy Untag)
 
 responseUpdateGroupQuery :: UpdateGroupQueryResponse -> TestTree
-responseUpdateGroupQuery =
-  res
+responseUpdateGroupQuery = res
     "UpdateGroupQueryResponse"
     "fixture/UpdateGroupQueryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateGroupQuery)
 
 responseListGroupResources :: ListGroupResourcesResponse -> TestTree
-responseListGroupResources =
-  res
+responseListGroupResources = res
     "ListGroupResourcesResponse"
     "fixture/ListGroupResourcesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListGroupResources)
 
 responseGetGroupQuery :: GetGroupQueryResponse -> TestTree
-responseGetGroupQuery =
-  res
+responseGetGroupQuery = res
     "GetGroupQueryResponse"
     "fixture/GetGroupQueryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetGroupQuery)
 
 responseCreateGroup :: CreateGroupResponse -> TestTree
-responseCreateGroup =
-  res
+responseCreateGroup = res
     "CreateGroupResponse"
     "fixture/CreateGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateGroup)
 
 responseDeleteGroup :: DeleteGroupResponse -> TestTree
-responseDeleteGroup =
-  res
+responseDeleteGroup = res
     "DeleteGroupResponse"
     "fixture/DeleteGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteGroup)
 
 responseUpdateGroup :: UpdateGroupResponse -> TestTree
-responseUpdateGroup =
-  res
+responseUpdateGroup = res
     "UpdateGroupResponse"
     "fixture/UpdateGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateGroup)
 
 responseListGroups :: ListGroupsResponse -> TestTree
-responseListGroups =
-  res
+responseListGroups = res
     "ListGroupsResponse"
     "fixture/ListGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListGroups)
 
 responseGetGroup :: GetGroupResponse -> TestTree
-responseGetGroup =
-  res
+responseGetGroup = res
     "GetGroupResponse"
     "fixture/GetGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetGroup)
 
 responseGetGroupConfiguration :: GetGroupConfigurationResponse -> TestTree
-responseGetGroupConfiguration =
-  res
+responseGetGroupConfiguration = res
     "GetGroupConfigurationResponse"
     "fixture/GetGroupConfigurationResponse.proto"
     mkServiceConfig

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,52 +10,34 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaLive.Types.Ac3BitstreamMode
   ( Ac3BitstreamMode
-      ( Ac3BitstreamMode',
-        Ac3BitstreamModeCommentary,
-        Ac3BitstreamModeCompleteMain,
-        Ac3BitstreamModeDialogue,
-        Ac3BitstreamModeEmergency,
-        Ac3BitstreamModeHearingImpaired,
-        Ac3BitstreamModeMusicAndEffects,
-        Ac3BitstreamModeVisuallyImpaired,
-        Ac3BitstreamModeVoiceOver,
-        fromAc3BitstreamMode
-      ),
-  )
-where
+    ( Ac3BitstreamMode'
+    , Ac3BitstreamModeCommentary
+    , Ac3BitstreamModeCompleteMain
+    , Ac3BitstreamModeDialogue
+    , Ac3BitstreamModeEmergency
+    , Ac3BitstreamModeHearingImpaired
+    , Ac3BitstreamModeMusicAndEffects
+    , Ac3BitstreamModeVisuallyImpaired
+    , Ac3BitstreamModeVoiceOver
+    , fromAc3BitstreamMode
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
 -- | Ac3 Bitstream Mode
-newtype Ac3BitstreamMode = Ac3BitstreamMode'
-  { fromAc3BitstreamMode ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype Ac3BitstreamMode = Ac3BitstreamMode'{fromAc3BitstreamMode
+                                             :: Core.Text}
+                             deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                             Core.Generic)
+                             deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                               Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                               Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                               Core.FromText, Core.ToByteString, Core.ToQuery,
+                                               Core.ToHeader)
 
 pattern Ac3BitstreamModeCommentary :: Ac3BitstreamMode
 pattern Ac3BitstreamModeCommentary = Ac3BitstreamMode' "COMMENTARY"
@@ -81,14 +63,21 @@ pattern Ac3BitstreamModeVisuallyImpaired = Ac3BitstreamMode' "VISUALLY_IMPAIRED"
 pattern Ac3BitstreamModeVoiceOver :: Ac3BitstreamMode
 pattern Ac3BitstreamModeVoiceOver = Ac3BitstreamMode' "VOICE_OVER"
 
-{-# COMPLETE
+{-# COMPLETE 
   Ac3BitstreamModeCommentary,
+
   Ac3BitstreamModeCompleteMain,
+
   Ac3BitstreamModeDialogue,
+
   Ac3BitstreamModeEmergency,
+
   Ac3BitstreamModeHearingImpaired,
+
   Ac3BitstreamModeMusicAndEffects,
+
   Ac3BitstreamModeVisuallyImpaired,
+
   Ac3BitstreamModeVoiceOver,
   Ac3BitstreamMode'
   #-}

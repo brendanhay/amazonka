@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -18,23 +18,21 @@
 -- Once the model is running, you can detect custom labels in new images by calling 'DetectCustomLabels' .
 -- This operation requires permissions to perform the @rekognition:StartProjectVersion@ action.
 module Network.AWS.Rekognition.StartProjectVersion
-  ( -- * Creating a request
-    StartProjectVersion (..),
-    mkStartProjectVersion,
-
+    (
+    -- * Creating a request
+      StartProjectVersion (..)
+    , mkStartProjectVersion
     -- ** Request lenses
-    spvProjectVersionArn,
-    spvMinInferenceUnits,
+    , spvProjectVersionArn
+    , spvMinInferenceUnits
 
     -- * Destructuring the response
-    StartProjectVersionResponse (..),
-    mkStartProjectVersionResponse,
-
+    , StartProjectVersionResponse (..)
+    , mkStartProjectVersionResponse
     -- ** Response lenses
-    spvrrsStatus,
-    spvrrsResponseStatus,
-  )
-where
+    , spvrrsStatus
+    , spvrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -44,99 +42,101 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartProjectVersion' smart constructor.
 data StartProjectVersion = StartProjectVersion'
-  { -- | The Amazon Resource Name(ARN) of the model version that you want to start.
-    projectVersionArn :: Types.ProjectVersionArn,
-    -- | The minimum number of inference units to use. A single inference unit represents 1 hour of processing and can support up to 5 Transaction Pers Second (TPS). Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use.
-    minInferenceUnits :: Core.Natural
+  { projectVersionArn :: Types.ProjectVersionArn
+    -- ^ The Amazon Resource Name(ARN) of the model version that you want to start.
+  , minInferenceUnits :: Core.Natural
+    -- ^ The minimum number of inference units to use. A single inference unit represents 1 hour of processing and can support up to 5 Transaction Pers Second (TPS). Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use. 
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'StartProjectVersion' value with any optional fields omitted.
-mkStartProjectVersion ::
-  -- | 'projectVersionArn'
-  Types.ProjectVersionArn ->
-  -- | 'minInferenceUnits'
-  Core.Natural ->
-  StartProjectVersion
-mkStartProjectVersion projectVersionArn minInferenceUnits =
-  StartProjectVersion' {projectVersionArn, minInferenceUnits}
+mkStartProjectVersion
+    :: Types.ProjectVersionArn -- ^ 'projectVersionArn'
+    -> Core.Natural -- ^ 'minInferenceUnits'
+    -> StartProjectVersion
+mkStartProjectVersion projectVersionArn minInferenceUnits
+  = StartProjectVersion'{projectVersionArn, minInferenceUnits}
 
 -- | The Amazon Resource Name(ARN) of the model version that you want to start.
 --
 -- /Note:/ Consider using 'projectVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 spvProjectVersionArn :: Lens.Lens' StartProjectVersion Types.ProjectVersionArn
 spvProjectVersionArn = Lens.field @"projectVersionArn"
-{-# DEPRECATED spvProjectVersionArn "Use generic-lens or generic-optics with 'projectVersionArn' instead." #-}
+{-# INLINEABLE spvProjectVersionArn #-}
+{-# DEPRECATED projectVersionArn "Use generic-lens or generic-optics with 'projectVersionArn' instead"  #-}
 
--- | The minimum number of inference units to use. A single inference unit represents 1 hour of processing and can support up to 5 Transaction Pers Second (TPS). Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use.
+-- | The minimum number of inference units to use. A single inference unit represents 1 hour of processing and can support up to 5 Transaction Pers Second (TPS). Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use. 
 --
 -- /Note:/ Consider using 'minInferenceUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 spvMinInferenceUnits :: Lens.Lens' StartProjectVersion Core.Natural
 spvMinInferenceUnits = Lens.field @"minInferenceUnits"
-{-# DEPRECATED spvMinInferenceUnits "Use generic-lens or generic-optics with 'minInferenceUnits' instead." #-}
+{-# INLINEABLE spvMinInferenceUnits #-}
+{-# DEPRECATED minInferenceUnits "Use generic-lens or generic-optics with 'minInferenceUnits' instead"  #-}
+
+instance Core.ToQuery StartProjectVersion where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders StartProjectVersion where
+        toHeaders StartProjectVersion{..}
+          = Core.pure
+              ("X-Amz-Target", "RekognitionService.StartProjectVersion")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON StartProjectVersion where
-  toJSON StartProjectVersion {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ProjectVersionArn" Core..= projectVersionArn),
-            Core.Just ("MinInferenceUnits" Core..= minInferenceUnits)
-          ]
-      )
+        toJSON StartProjectVersion{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("ProjectVersionArn" Core..= projectVersionArn),
+                  Core.Just ("MinInferenceUnits" Core..= minInferenceUnits)])
 
 instance Core.AWSRequest StartProjectVersion where
-  type Rs StartProjectVersion = StartProjectVersionResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "RekognitionService.StartProjectVersion")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          StartProjectVersionResponse'
-            Core.<$> (x Core..:? "Status") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs StartProjectVersion = StartProjectVersionResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 StartProjectVersionResponse' Core.<$>
+                   (x Core..:? "Status") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkStartProjectVersionResponse' smart constructor.
 data StartProjectVersionResponse = StartProjectVersionResponse'
-  { -- | The current running status of the model.
-    status :: Core.Maybe Types.ProjectVersionStatus,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { status :: Core.Maybe Types.ProjectVersionStatus
+    -- ^ The current running status of the model. 
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'StartProjectVersionResponse' value with any optional fields omitted.
-mkStartProjectVersionResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  StartProjectVersionResponse
-mkStartProjectVersionResponse responseStatus =
-  StartProjectVersionResponse'
-    { status = Core.Nothing,
-      responseStatus
-    }
+mkStartProjectVersionResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> StartProjectVersionResponse
+mkStartProjectVersionResponse responseStatus
+  = StartProjectVersionResponse'{status = Core.Nothing,
+                                 responseStatus}
 
--- | The current running status of the model.
+-- | The current running status of the model. 
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 spvrrsStatus :: Lens.Lens' StartProjectVersionResponse (Core.Maybe Types.ProjectVersionStatus)
 spvrrsStatus = Lens.field @"status"
-{-# DEPRECATED spvrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+{-# INLINEABLE spvrrsStatus #-}
+{-# DEPRECATED status "Use generic-lens or generic-optics with 'status' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 spvrrsResponseStatus :: Lens.Lens' StartProjectVersionResponse Core.Int
 spvrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED spvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE spvrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

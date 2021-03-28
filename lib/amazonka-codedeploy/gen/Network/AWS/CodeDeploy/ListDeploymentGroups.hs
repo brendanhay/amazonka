@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,25 +17,23 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.CodeDeploy.ListDeploymentGroups
-  ( -- * Creating a request
-    ListDeploymentGroups (..),
-    mkListDeploymentGroups,
-
+    (
+    -- * Creating a request
+      ListDeploymentGroups (..)
+    , mkListDeploymentGroups
     -- ** Request lenses
-    ldgApplicationName,
-    ldgNextToken,
+    , ldgApplicationName
+    , ldgNextToken
 
     -- * Destructuring the response
-    ListDeploymentGroupsResponse (..),
-    mkListDeploymentGroupsResponse,
-
+    , ListDeploymentGroupsResponse (..)
+    , mkListDeploymentGroupsResponse
     -- ** Response lenses
-    ldgrrsApplicationName,
-    ldgrrsDeploymentGroups,
-    ldgrrsNextToken,
-    ldgrrsResponseStatus,
-  )
-where
+    , ldgrrsApplicationName
+    , ldgrrsDeploymentGroups
+    , ldgrrsNextToken
+    , ldgrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.CodeDeploy.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -48,134 +46,137 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkListDeploymentGroups' smart constructor.
 data ListDeploymentGroups = ListDeploymentGroups'
-  { -- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
-    applicationName :: Types.ApplicationName,
-    -- | An identifier returned from the previous list deployment groups call. It can be used to return the next set of deployment groups in the list.
-    nextToken :: Core.Maybe Types.NextToken
+  { applicationName :: Types.ApplicationName
+    -- ^ The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
+  , nextToken :: Core.Maybe Types.NextToken
+    -- ^ An identifier returned from the previous list deployment groups call. It can be used to return the next set of deployment groups in the list.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ListDeploymentGroups' value with any optional fields omitted.
-mkListDeploymentGroups ::
-  -- | 'applicationName'
-  Types.ApplicationName ->
-  ListDeploymentGroups
-mkListDeploymentGroups applicationName =
-  ListDeploymentGroups' {applicationName, nextToken = Core.Nothing}
+mkListDeploymentGroups
+    :: Types.ApplicationName -- ^ 'applicationName'
+    -> ListDeploymentGroups
+mkListDeploymentGroups applicationName
+  = ListDeploymentGroups'{applicationName, nextToken = Core.Nothing}
 
 -- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ldgApplicationName :: Lens.Lens' ListDeploymentGroups Types.ApplicationName
 ldgApplicationName = Lens.field @"applicationName"
-{-# DEPRECATED ldgApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+{-# INLINEABLE ldgApplicationName #-}
+{-# DEPRECATED applicationName "Use generic-lens or generic-optics with 'applicationName' instead"  #-}
 
 -- | An identifier returned from the previous list deployment groups call. It can be used to return the next set of deployment groups in the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ldgNextToken :: Lens.Lens' ListDeploymentGroups (Core.Maybe Types.NextToken)
 ldgNextToken = Lens.field @"nextToken"
-{-# DEPRECATED ldgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE ldgNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
+
+instance Core.ToQuery ListDeploymentGroups where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders ListDeploymentGroups where
+        toHeaders ListDeploymentGroups{..}
+          = Core.pure
+              ("X-Amz-Target", "CodeDeploy_20141006.ListDeploymentGroups")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON ListDeploymentGroups where
-  toJSON ListDeploymentGroups {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("applicationName" Core..= applicationName),
-            ("nextToken" Core..=) Core.<$> nextToken
-          ]
-      )
+        toJSON ListDeploymentGroups{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("applicationName" Core..= applicationName),
+                  ("nextToken" Core..=) Core.<$> nextToken])
 
 instance Core.AWSRequest ListDeploymentGroups where
-  type Rs ListDeploymentGroups = ListDeploymentGroupsResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "CodeDeploy_20141006.ListDeploymentGroups")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          ListDeploymentGroupsResponse'
-            Core.<$> (x Core..:? "applicationName")
-            Core.<*> (x Core..:? "deploymentGroups")
-            Core.<*> (x Core..:? "nextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs ListDeploymentGroups = ListDeploymentGroupsResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 ListDeploymentGroupsResponse' Core.<$>
+                   (x Core..:? "applicationName") Core.<*>
+                     x Core..:? "deploymentGroups"
+                     Core.<*> x Core..:? "nextToken"
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 instance Pager.AWSPager ListDeploymentGroups where
-  page rq rs
-    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
-    | Pager.stop
-        (rs Lens.^? Lens.field @"deploymentGroups" Core.. Lens._Just) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just
-        ( rq
-            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
-        )
+        page rq rs
+          | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+          | Pager.stop
+              (rs Lens.^? Lens.field @"deploymentGroups" Core.. Lens._Just)
+            = Core.Nothing
+          | Core.otherwise =
+            Core.Just
+              (rq Core.&
+                 Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken")
 
 -- | Represents the output of a @ListDeploymentGroups@ operation.
 --
 -- /See:/ 'mkListDeploymentGroupsResponse' smart constructor.
 data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
-  { -- | The application name.
-    applicationName :: Core.Maybe Types.ApplicationName,
-    -- | A list of deployment group names.
-    deploymentGroups :: Core.Maybe [Types.DeploymentGroupName],
-    -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment groups call to return the next set of deployment groups in the list.
-    nextToken :: Core.Maybe Types.NextToken,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { applicationName :: Core.Maybe Types.ApplicationName
+    -- ^ The application name.
+  , deploymentGroups :: Core.Maybe [Types.DeploymentGroupName]
+    -- ^ A list of deployment group names.
+  , nextToken :: Core.Maybe Types.NextToken
+    -- ^ If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment groups call to return the next set of deployment groups in the list.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ListDeploymentGroupsResponse' value with any optional fields omitted.
-mkListDeploymentGroupsResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  ListDeploymentGroupsResponse
-mkListDeploymentGroupsResponse responseStatus =
-  ListDeploymentGroupsResponse'
-    { applicationName = Core.Nothing,
-      deploymentGroups = Core.Nothing,
-      nextToken = Core.Nothing,
-      responseStatus
-    }
+mkListDeploymentGroupsResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> ListDeploymentGroupsResponse
+mkListDeploymentGroupsResponse responseStatus
+  = ListDeploymentGroupsResponse'{applicationName = Core.Nothing,
+                                  deploymentGroups = Core.Nothing, nextToken = Core.Nothing,
+                                  responseStatus}
 
 -- | The application name.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ldgrrsApplicationName :: Lens.Lens' ListDeploymentGroupsResponse (Core.Maybe Types.ApplicationName)
 ldgrrsApplicationName = Lens.field @"applicationName"
-{-# DEPRECATED ldgrrsApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+{-# INLINEABLE ldgrrsApplicationName #-}
+{-# DEPRECATED applicationName "Use generic-lens or generic-optics with 'applicationName' instead"  #-}
 
 -- | A list of deployment group names.
 --
 -- /Note:/ Consider using 'deploymentGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ldgrrsDeploymentGroups :: Lens.Lens' ListDeploymentGroupsResponse (Core.Maybe [Types.DeploymentGroupName])
 ldgrrsDeploymentGroups = Lens.field @"deploymentGroups"
-{-# DEPRECATED ldgrrsDeploymentGroups "Use generic-lens or generic-optics with 'deploymentGroups' instead." #-}
+{-# INLINEABLE ldgrrsDeploymentGroups #-}
+{-# DEPRECATED deploymentGroups "Use generic-lens or generic-optics with 'deploymentGroups' instead"  #-}
 
 -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent list deployment groups call to return the next set of deployment groups in the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ldgrrsNextToken :: Lens.Lens' ListDeploymentGroupsResponse (Core.Maybe Types.NextToken)
 ldgrrsNextToken = Lens.field @"nextToken"
-{-# DEPRECATED ldgrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE ldgrrsNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ldgrrsResponseStatus :: Lens.Lens' ListDeploymentGroupsResponse Core.Int
 ldgrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED ldgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE ldgrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

@@ -1,195 +1,188 @@
-cabal-version:      2.2
-name:               amazonka-discovery
-version:            2.0.0.0
-synopsis:           Amazon Application Discovery Service SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-discovery
+version:               2.0.0.0
+synopsis:              Amazon Application Discovery Service SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.Discovery" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.Discovery" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-discovery
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-discovery
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.Discovery
-    Network.AWS.Discovery.AssociateConfigurationItemsToApplication
-    Network.AWS.Discovery.BatchDeleteImportData
-    Network.AWS.Discovery.CreateApplication
-    Network.AWS.Discovery.CreateTags
-    Network.AWS.Discovery.DeleteApplications
-    Network.AWS.Discovery.DeleteTags
-    Network.AWS.Discovery.DescribeAgents
-    Network.AWS.Discovery.DescribeConfigurations
-    Network.AWS.Discovery.DescribeContinuousExports
-    Network.AWS.Discovery.DescribeExportTasks
-    Network.AWS.Discovery.DescribeImportTasks
-    Network.AWS.Discovery.DescribeTags
-    Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication
-    Network.AWS.Discovery.GetDiscoverySummary
-    Network.AWS.Discovery.ListConfigurations
-    Network.AWS.Discovery.ListServerNeighbors
-    Network.AWS.Discovery.StartContinuousExport
-    Network.AWS.Discovery.StartDataCollectionByAgentIds
-    Network.AWS.Discovery.StartExportTask
-    Network.AWS.Discovery.StartImportTask
-    Network.AWS.Discovery.StopContinuousExport
-    Network.AWS.Discovery.StopDataCollectionByAgentIds
-    Network.AWS.Discovery.Types
-    Network.AWS.Discovery.UpdateApplication
-    Network.AWS.Discovery.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.Discovery.Types.AgentConfigurationStatus
-    Network.AWS.Discovery.Types.AgentId
-    Network.AWS.Discovery.Types.AgentInfo
-    Network.AWS.Discovery.Types.AgentNetworkInfo
-    Network.AWS.Discovery.Types.AgentStatus
-    Network.AWS.Discovery.Types.AgentType
-    Network.AWS.Discovery.Types.ApplicationConfigurationId
-    Network.AWS.Discovery.Types.ApplicationId
-    Network.AWS.Discovery.Types.BatchDeleteImportDataError
-    Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode
-    Network.AWS.Discovery.Types.ClientRequestToken
-    Network.AWS.Discovery.Types.CollectionStatus
-    Network.AWS.Discovery.Types.Condition
-    Network.AWS.Discovery.Types.ConfigurationId
-    Network.AWS.Discovery.Types.ConfigurationItemType
-    Network.AWS.Discovery.Types.ConfigurationsDownloadUrl
-    Network.AWS.Discovery.Types.ConfigurationsExportId
-    Network.AWS.Discovery.Types.ConfigurationTag
-    Network.AWS.Discovery.Types.ConnectorId
-    Network.AWS.Discovery.Types.ContinuousExportDescription
-    Network.AWS.Discovery.Types.ContinuousExportStatus
-    Network.AWS.Discovery.Types.CustomerAgentInfo
-    Network.AWS.Discovery.Types.CustomerConnectorInfo
-    Network.AWS.Discovery.Types.DatabaseName
-    Network.AWS.Discovery.Types.DataSource
-    Network.AWS.Discovery.Types.Description
-    Network.AWS.Discovery.Types.ErrorDescription
-    Network.AWS.Discovery.Types.ErrorsAndFailedEntriesZip
-    Network.AWS.Discovery.Types.ExportDataFormat
-    Network.AWS.Discovery.Types.ExportFilter
-    Network.AWS.Discovery.Types.ExportId
-    Network.AWS.Discovery.Types.ExportInfo
-    Network.AWS.Discovery.Types.ExportStatus
-    Network.AWS.Discovery.Types.Filter
-    Network.AWS.Discovery.Types.FilterName
-    Network.AWS.Discovery.Types.FilterValue
-    Network.AWS.Discovery.Types.HostName
-    Network.AWS.Discovery.Types.ImportStatus
-    Network.AWS.Discovery.Types.ImportTask
-    Network.AWS.Discovery.Types.ImportTaskFilter
-    Network.AWS.Discovery.Types.ImportTaskFilterName
-    Network.AWS.Discovery.Types.ImportTaskFilterValue
-    Network.AWS.Discovery.Types.ImportTaskId
-    Network.AWS.Discovery.Types.ImportTaskIdentifier
-    Network.AWS.Discovery.Types.ImportTaskName
-    Network.AWS.Discovery.Types.ImportURL
-    Network.AWS.Discovery.Types.ImportUrl
-    Network.AWS.Discovery.Types.Key
-    Network.AWS.Discovery.Types.LastHealthPingTime
-    Network.AWS.Discovery.Types.Name
-    Network.AWS.Discovery.Types.NeighborConnectionDetail
-    Network.AWS.Discovery.Types.NextToken
-    Network.AWS.Discovery.Types.OrderByElement
-    Network.AWS.Discovery.Types.OrderString
-    Network.AWS.Discovery.Types.RegisteredTime
-    Network.AWS.Discovery.Types.S3Bucket
-    Network.AWS.Discovery.Types.StatusMessage
-    Network.AWS.Discovery.Types.String
-    Network.AWS.Discovery.Types.StringMax255
-    Network.AWS.Discovery.Types.Tag
-    Network.AWS.Discovery.Types.TagFilter
-    Network.AWS.Discovery.Types.TagValue
-    Network.AWS.Discovery.Types.Value
-    Network.AWS.Discovery.Types.Version
+    exposed-modules:
+          Network.AWS.Discovery
+        , Network.AWS.Discovery.Types
+        , Network.AWS.Discovery.Waiters
+        , Network.AWS.Discovery.DescribeTags
+        , Network.AWS.Discovery.DescribeContinuousExports
+        , Network.AWS.Discovery.StopDataCollectionByAgentIds
+        , Network.AWS.Discovery.CreateTags
+        , Network.AWS.Discovery.BatchDeleteImportData
+        , Network.AWS.Discovery.DeleteTags
+        , Network.AWS.Discovery.StartImportTask
+        , Network.AWS.Discovery.DeleteApplications
+        , Network.AWS.Discovery.UpdateApplication
+        , Network.AWS.Discovery.DescribeConfigurations
+        , Network.AWS.Discovery.DescribeImportTasks
+        , Network.AWS.Discovery.CreateApplication
+        , Network.AWS.Discovery.ListConfigurations
+        , Network.AWS.Discovery.StartContinuousExport
+        , Network.AWS.Discovery.DescribeAgents
+        , Network.AWS.Discovery.DescribeExportTasks
+        , Network.AWS.Discovery.StartDataCollectionByAgentIds
+        , Network.AWS.Discovery.GetDiscoverySummary
+        , Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication
+        , Network.AWS.Discovery.AssociateConfigurationItemsToApplication
+        , Network.AWS.Discovery.ListServerNeighbors
+        , Network.AWS.Discovery.StopContinuousExport
+        , Network.AWS.Discovery.StartExportTask
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.Discovery.Types.ConfigurationsDownloadUrl
+        , Network.AWS.Discovery.Types.AgentInfo
+        , Network.AWS.Discovery.Types.FilterName
+        , Network.AWS.Discovery.Types.ImportTaskFilterName
+        , Network.AWS.Discovery.Types.ExportDataFormat
+        , Network.AWS.Discovery.Types.Tag
+        , Network.AWS.Discovery.Types.ExportInfo
+        , Network.AWS.Discovery.Types.AgentConfigurationStatus
+        , Network.AWS.Discovery.Types.ConfigurationId
+        , Network.AWS.Discovery.Types.AgentStatus
+        , Network.AWS.Discovery.Types.ContinuousExportStatus
+        , Network.AWS.Discovery.Types.ExportStatus
+        , Network.AWS.Discovery.Types.BatchDeleteImportDataError
+        , Network.AWS.Discovery.Types.ImportTask
+        , Network.AWS.Discovery.Types.ImportTaskIdentifier
+        , Network.AWS.Discovery.Types.StringMax255
+        , Network.AWS.Discovery.Types.OrderString
+        , Network.AWS.Discovery.Types.TagValue
+        , Network.AWS.Discovery.Types.AgentNetworkInfo
+        , Network.AWS.Discovery.Types.NextToken
+        , Network.AWS.Discovery.Types.AgentId
+        , Network.AWS.Discovery.Types.ExportFilter
+        , Network.AWS.Discovery.Types.ImportTaskName
+        , Network.AWS.Discovery.Types.ApplicationId
+        , Network.AWS.Discovery.Types.ContinuousExportDescription
+        , Network.AWS.Discovery.Types.ConfigurationsExportId
+        , Network.AWS.Discovery.Types.TagFilter
+        , Network.AWS.Discovery.Types.ConfigurationTag
+        , Network.AWS.Discovery.Types.DatabaseName
+        , Network.AWS.Discovery.Types.ConfigurationItemType
+        , Network.AWS.Discovery.Types.NeighborConnectionDetail
+        , Network.AWS.Discovery.Types.DataSource
+        , Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode
+        , Network.AWS.Discovery.Types.Filter
+        , Network.AWS.Discovery.Types.ImportTaskFilter
+        , Network.AWS.Discovery.Types.Condition
+        , Network.AWS.Discovery.Types.FilterValue
+        , Network.AWS.Discovery.Types.CustomerAgentInfo
+        , Network.AWS.Discovery.Types.ImportTaskFilterValue
+        , Network.AWS.Discovery.Types.ClientRequestToken
+        , Network.AWS.Discovery.Types.OrderByElement
+        , Network.AWS.Discovery.Types.ImportURL
+        , Network.AWS.Discovery.Types.S3Bucket
+        , Network.AWS.Discovery.Types.CustomerConnectorInfo
+        , Network.AWS.Discovery.Types.ImportStatus
+        , Network.AWS.Discovery.Types.ExportId
+        , Network.AWS.Discovery.Types.Key
+        , Network.AWS.Discovery.Types.Value
+        , Network.AWS.Discovery.Types.StatusMessage
+        , Network.AWS.Discovery.Types.ErrorDescription
+        , Network.AWS.Discovery.Types.ImportTaskId
+        , Network.AWS.Discovery.Types.ErrorsAndFailedEntriesZip
+        , Network.AWS.Discovery.Types.ImportUrl
+        , Network.AWS.Discovery.Types.Name
+        , Network.AWS.Discovery.Types.ApplicationConfigurationId
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-discovery-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.Discovery
-    Test.AWS.Discovery.Internal
-    Test.AWS.Gen.Discovery
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core         >=2.0.0.0 && <2.0.0.1
-    , amazonka-discovery
-    , amazonka-test         >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.Discovery
+        , Test.AWS.Gen.Discovery
+        , Test.AWS.Discovery.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-discovery
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

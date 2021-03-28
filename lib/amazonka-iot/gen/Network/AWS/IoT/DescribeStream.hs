@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,22 +15,20 @@
 --
 -- Gets information about a stream.
 module Network.AWS.IoT.DescribeStream
-  ( -- * Creating a request
-    DescribeStream (..),
-    mkDescribeStream,
-
+    (
+    -- * Creating a request
+      DescribeStream (..)
+    , mkDescribeStream
     -- ** Request lenses
-    dStreamId,
+    , dStreamId
 
     -- * Destructuring the response
-    DescribeStreamResponse (..),
-    mkDescribeStreamResponse,
-
+    , DescribeStreamResponse (..)
+    , mkDescribeStreamResponse
     -- ** Response lenses
-    dsrfrsStreamInfo,
-    dsrfrsResponseStatus,
-  )
-where
+    , dsrfrsStreamInfo
+    , dsrfrsResponseStatus
+    ) where
 
 import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -40,76 +38,80 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeStream' smart constructor.
 newtype DescribeStream = DescribeStream'
-  { -- | The stream ID.
-    streamId :: Types.StreamId
+  { streamId :: Types.StreamId
+    -- ^ The stream ID.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DescribeStream' value with any optional fields omitted.
-mkDescribeStream ::
-  -- | 'streamId'
-  Types.StreamId ->
-  DescribeStream
-mkDescribeStream streamId = DescribeStream' {streamId}
+mkDescribeStream
+    :: Types.StreamId -- ^ 'streamId'
+    -> DescribeStream
+mkDescribeStream streamId = DescribeStream'{streamId}
 
 -- | The stream ID.
 --
 -- /Note:/ Consider using 'streamId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dStreamId :: Lens.Lens' DescribeStream Types.StreamId
 dStreamId = Lens.field @"streamId"
-{-# DEPRECATED dStreamId "Use generic-lens or generic-optics with 'streamId' instead." #-}
+{-# INLINEABLE dStreamId #-}
+{-# DEPRECATED streamId "Use generic-lens or generic-optics with 'streamId' instead"  #-}
+
+instance Core.ToQuery DescribeStream where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DescribeStream where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest DescribeStream where
-  type Rs DescribeStream = DescribeStreamResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.GET,
-        Core._rqPath =
-          Core.rawPath ("/streams/" Core.<> (Core.toText streamId)),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = ""
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          DescribeStreamResponse'
-            Core.<$> (x Core..:? "streamInfo") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DescribeStream = DescribeStreamResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.GET,
+                         Core._rqPath = "/streams/" Core.<> Core.toText streamId,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 DescribeStreamResponse' Core.<$>
+                   (x Core..:? "streamInfo") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDescribeStreamResponse' smart constructor.
 data DescribeStreamResponse = DescribeStreamResponse'
-  { -- | Information about the stream.
-    streamInfo :: Core.Maybe Types.StreamInfo,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { streamInfo :: Core.Maybe Types.StreamInfo
+    -- ^ Information about the stream.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'DescribeStreamResponse' value with any optional fields omitted.
-mkDescribeStreamResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DescribeStreamResponse
-mkDescribeStreamResponse responseStatus =
-  DescribeStreamResponse'
-    { streamInfo = Core.Nothing,
-      responseStatus
-    }
+mkDescribeStreamResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DescribeStreamResponse
+mkDescribeStreamResponse responseStatus
+  = DescribeStreamResponse'{streamInfo = Core.Nothing,
+                            responseStatus}
 
 -- | Information about the stream.
 --
 -- /Note:/ Consider using 'streamInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dsrfrsStreamInfo :: Lens.Lens' DescribeStreamResponse (Core.Maybe Types.StreamInfo)
 dsrfrsStreamInfo = Lens.field @"streamInfo"
-{-# DEPRECATED dsrfrsStreamInfo "Use generic-lens or generic-optics with 'streamInfo' instead." #-}
+{-# INLINEABLE dsrfrsStreamInfo #-}
+{-# DEPRECATED streamInfo "Use generic-lens or generic-optics with 'streamInfo' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dsrfrsResponseStatus :: Lens.Lens' DescribeStreamResponse Core.Int
 dsrfrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED dsrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE dsrfrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

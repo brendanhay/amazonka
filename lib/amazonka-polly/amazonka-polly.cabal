@@ -1,146 +1,148 @@
-cabal-version:      2.2
-name:               amazonka-polly
-version:            2.0.0.0
-synopsis:           Amazon Polly SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-polly
+version:               2.0.0.0
+synopsis:              Amazon Polly SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.Polly" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.Polly" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-polly
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-polly
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.Polly
-    Network.AWS.Polly.DeleteLexicon
-    Network.AWS.Polly.DescribeVoices
-    Network.AWS.Polly.GetLexicon
-    Network.AWS.Polly.GetSpeechSynthesisTask
-    Network.AWS.Polly.ListLexicons
-    Network.AWS.Polly.ListSpeechSynthesisTasks
-    Network.AWS.Polly.PutLexicon
-    Network.AWS.Polly.StartSpeechSynthesisTask
-    Network.AWS.Polly.SynthesizeSpeech
-    Network.AWS.Polly.Types
-    Network.AWS.Polly.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.Polly.Types.Alphabet
-    Network.AWS.Polly.Types.Content
-    Network.AWS.Polly.Types.ContentType
-    Network.AWS.Polly.Types.Engine
-    Network.AWS.Polly.Types.Gender
-    Network.AWS.Polly.Types.LanguageCode
-    Network.AWS.Polly.Types.LanguageName
-    Network.AWS.Polly.Types.Lexicon
-    Network.AWS.Polly.Types.LexiconArn
-    Network.AWS.Polly.Types.LexiconAttributes
-    Network.AWS.Polly.Types.LexiconDescription
-    Network.AWS.Polly.Types.LexiconName
-    Network.AWS.Polly.Types.Name
-    Network.AWS.Polly.Types.NextToken
-    Network.AWS.Polly.Types.OutputFormat
-    Network.AWS.Polly.Types.OutputS3BucketName
-    Network.AWS.Polly.Types.OutputS3KeyPrefix
-    Network.AWS.Polly.Types.OutputUri
-    Network.AWS.Polly.Types.SampleRate
-    Network.AWS.Polly.Types.SnsTopicArn
-    Network.AWS.Polly.Types.SpeechMarkType
-    Network.AWS.Polly.Types.SynthesisTask
-    Network.AWS.Polly.Types.TaskId
-    Network.AWS.Polly.Types.TaskStatus
-    Network.AWS.Polly.Types.TaskStatusReason
-    Network.AWS.Polly.Types.Text
-    Network.AWS.Polly.Types.TextType
-    Network.AWS.Polly.Types.Voice
-    Network.AWS.Polly.Types.VoiceId
+    exposed-modules:
+          Network.AWS.Polly
+        , Network.AWS.Polly.Types
+        , Network.AWS.Polly.Waiters
+        , Network.AWS.Polly.GetLexicon
+        , Network.AWS.Polly.GetSpeechSynthesisTask
+        , Network.AWS.Polly.DescribeVoices
+        , Network.AWS.Polly.ListLexicons
+        , Network.AWS.Polly.SynthesizeSpeech
+        , Network.AWS.Polly.ListSpeechSynthesisTasks
+        , Network.AWS.Polly.PutLexicon
+        , Network.AWS.Polly.DeleteLexicon
+        , Network.AWS.Polly.StartSpeechSynthesisTask
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.Polly.Types.LanguageCode
+        , Network.AWS.Polly.Types.SnsTopicArn
+        , Network.AWS.Polly.Types.LexiconName
+        , Network.AWS.Polly.Types.LexiconAttributes
+        , Network.AWS.Polly.Types.LanguageName
+        , Network.AWS.Polly.Types.Text
+        , Network.AWS.Polly.Types.TaskStatusReason
+        , Network.AWS.Polly.Types.OutputS3KeyPrefix
+        , Network.AWS.Polly.Types.TaskId
+        , Network.AWS.Polly.Types.Engine
+        , Network.AWS.Polly.Types.NextToken
+        , Network.AWS.Polly.Types.LexiconDescription
+        , Network.AWS.Polly.Types.SampleRate
+        , Network.AWS.Polly.Types.OutputFormat
+        , Network.AWS.Polly.Types.LexiconArn
+        , Network.AWS.Polly.Types.Alphabet
+        , Network.AWS.Polly.Types.Gender
+        , Network.AWS.Polly.Types.Lexicon
+        , Network.AWS.Polly.Types.TextType
+        , Network.AWS.Polly.Types.SpeechMarkType
+        , Network.AWS.Polly.Types.VoiceId
+        , Network.AWS.Polly.Types.Voice
+        , Network.AWS.Polly.Types.OutputS3BucketName
+        , Network.AWS.Polly.Types.TaskStatus
+        , Network.AWS.Polly.Types.SynthesisTask
+        , Network.AWS.Polly.Types.ContentType
+        , Network.AWS.Polly.Types.OutputUri
+        , Network.AWS.Polly.Types.Content
+        , Network.AWS.Polly.Types.Name
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-polly-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.Gen.Polly
-    Test.AWS.Polly
-    Test.AWS.Polly.Internal
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core         >=2.0.0.0 && <2.0.0.1
-    , amazonka-polly
-    , amazonka-test         >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.Polly
+        , Test.AWS.Gen.Polly
+        , Test.AWS.Polly.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-polly
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

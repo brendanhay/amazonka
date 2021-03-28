@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,13 +17,13 @@
 --
 -- The response contains a 'TrustedAdvisorCheckResult' object, which contains these three objects:
 --
---     * 'TrustedAdvisorCategorySpecificSummary'
+--     * 'TrustedAdvisorCategorySpecificSummary' 
 --
 --
---     * 'TrustedAdvisorResourceDetail'
+--     * 'TrustedAdvisorResourceDetail' 
 --
 --
---     * 'TrustedAdvisorResourcesSummary'
+--     * 'TrustedAdvisorResourcesSummary' 
 --
 --
 -- In addition, the response contains these fields:
@@ -35,24 +35,24 @@
 --
 --
 --     * __checkId__ - The unique identifier for the check.
+--
+--
 module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
-  ( -- * Creating a request
-    DescribeTrustedAdvisorCheckResult (..),
-    mkDescribeTrustedAdvisorCheckResult,
-
+    (
+    -- * Creating a request
+      DescribeTrustedAdvisorCheckResult (..)
+    , mkDescribeTrustedAdvisorCheckResult
     -- ** Request lenses
-    dtacrCheckId,
-    dtacrLanguage,
+    , dtacrCheckId
+    , dtacrLanguage
 
     -- * Destructuring the response
-    DescribeTrustedAdvisorCheckResultResponse (..),
-    mkDescribeTrustedAdvisorCheckResultResponse,
-
+    , DescribeTrustedAdvisorCheckResultResponse (..)
+    , mkDescribeTrustedAdvisorCheckResultResponse
     -- ** Response lenses
-    dtacrrrsResult,
-    dtacrrrsResponseStatus,
-  )
-where
+    , dtacrrrsResult
+    , dtacrrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -60,110 +60,109 @@ import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import qualified Network.AWS.Support.Types as Types
 
--- |
+-- | 
 --
 -- /See:/ 'mkDescribeTrustedAdvisorCheckResult' smart constructor.
 data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult'
-  { -- | The unique identifier for the Trusted Advisor check.
-    checkId :: Types.String,
-    -- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
-    language :: Core.Maybe Types.String
+  { checkId :: Core.Text
+    -- ^ The unique identifier for the Trusted Advisor check.
+  , language :: Core.Maybe Core.Text
+    -- ^ The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DescribeTrustedAdvisorCheckResult' value with any optional fields omitted.
-mkDescribeTrustedAdvisorCheckResult ::
-  -- | 'checkId'
-  Types.String ->
-  DescribeTrustedAdvisorCheckResult
-mkDescribeTrustedAdvisorCheckResult checkId =
-  DescribeTrustedAdvisorCheckResult'
-    { checkId,
-      language = Core.Nothing
-    }
+mkDescribeTrustedAdvisorCheckResult
+    :: Core.Text -- ^ 'checkId'
+    -> DescribeTrustedAdvisorCheckResult
+mkDescribeTrustedAdvisorCheckResult checkId
+  = DescribeTrustedAdvisorCheckResult'{checkId,
+                                       language = Core.Nothing}
 
 -- | The unique identifier for the Trusted Advisor check.
 --
 -- /Note:/ Consider using 'checkId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtacrCheckId :: Lens.Lens' DescribeTrustedAdvisorCheckResult Types.String
+dtacrCheckId :: Lens.Lens' DescribeTrustedAdvisorCheckResult Core.Text
 dtacrCheckId = Lens.field @"checkId"
-{-# DEPRECATED dtacrCheckId "Use generic-lens or generic-optics with 'checkId' instead." #-}
+{-# INLINEABLE dtacrCheckId #-}
+{-# DEPRECATED checkId "Use generic-lens or generic-optics with 'checkId' instead"  #-}
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS Support currently supports English ("en") and Japanese ("ja"). Language parameters must be passed explicitly for operations that take them.
 --
 -- /Note:/ Consider using 'language' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtacrLanguage :: Lens.Lens' DescribeTrustedAdvisorCheckResult (Core.Maybe Types.String)
+dtacrLanguage :: Lens.Lens' DescribeTrustedAdvisorCheckResult (Core.Maybe Core.Text)
 dtacrLanguage = Lens.field @"language"
-{-# DEPRECATED dtacrLanguage "Use generic-lens or generic-optics with 'language' instead." #-}
+{-# INLINEABLE dtacrLanguage #-}
+{-# DEPRECATED language "Use generic-lens or generic-optics with 'language' instead"  #-}
+
+instance Core.ToQuery DescribeTrustedAdvisorCheckResult where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DescribeTrustedAdvisorCheckResult where
+        toHeaders DescribeTrustedAdvisorCheckResult{..}
+          = Core.pure
+              ("X-Amz-Target",
+               "AWSSupport_20130415.DescribeTrustedAdvisorCheckResult")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON DescribeTrustedAdvisorCheckResult where
-  toJSON DescribeTrustedAdvisorCheckResult {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("checkId" Core..= checkId),
-            ("language" Core..=) Core.<$> language
-          ]
-      )
+        toJSON DescribeTrustedAdvisorCheckResult{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("checkId" Core..= checkId),
+                  ("language" Core..=) Core.<$> language])
 
 instance Core.AWSRequest DescribeTrustedAdvisorCheckResult where
-  type
-    Rs DescribeTrustedAdvisorCheckResult =
-      DescribeTrustedAdvisorCheckResultResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "X-Amz-Target",
-              "AWSSupport_20130415.DescribeTrustedAdvisorCheckResult"
-            )
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          DescribeTrustedAdvisorCheckResultResponse'
-            Core.<$> (x Core..:? "result") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DescribeTrustedAdvisorCheckResult =
+             DescribeTrustedAdvisorCheckResultResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 DescribeTrustedAdvisorCheckResultResponse' Core.<$>
+                   (x Core..:? "result") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | The result of the Trusted Advisor check returned by the 'DescribeTrustedAdvisorCheckResult' operation.
 --
 -- /See:/ 'mkDescribeTrustedAdvisorCheckResultResponse' smart constructor.
 data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse'
-  { -- | The detailed results of the Trusted Advisor check.
-    result :: Core.Maybe Types.TrustedAdvisorCheckResult,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { result :: Core.Maybe Types.TrustedAdvisorCheckResult
+    -- ^ The detailed results of the Trusted Advisor check.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DescribeTrustedAdvisorCheckResultResponse' value with any optional fields omitted.
-mkDescribeTrustedAdvisorCheckResultResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DescribeTrustedAdvisorCheckResultResponse
-mkDescribeTrustedAdvisorCheckResultResponse responseStatus =
-  DescribeTrustedAdvisorCheckResultResponse'
-    { result = Core.Nothing,
-      responseStatus
-    }
+mkDescribeTrustedAdvisorCheckResultResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DescribeTrustedAdvisorCheckResultResponse
+mkDescribeTrustedAdvisorCheckResultResponse responseStatus
+  = DescribeTrustedAdvisorCheckResultResponse'{result = Core.Nothing,
+                                               responseStatus}
 
 -- | The detailed results of the Trusted Advisor check.
 --
 -- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dtacrrrsResult :: Lens.Lens' DescribeTrustedAdvisorCheckResultResponse (Core.Maybe Types.TrustedAdvisorCheckResult)
 dtacrrrsResult = Lens.field @"result"
-{-# DEPRECATED dtacrrrsResult "Use generic-lens or generic-optics with 'result' instead." #-}
+{-# INLINEABLE dtacrrrsResult #-}
+{-# DEPRECATED result "Use generic-lens or generic-optics with 'result' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dtacrrrsResponseStatus :: Lens.Lens' DescribeTrustedAdvisorCheckResultResponse Core.Int
 dtacrrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED dtacrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE dtacrrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,47 +10,29 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.S3.Types.InventoryFormat
   ( InventoryFormat
-      ( InventoryFormat',
-        InventoryFormatCsv,
-        InventoryFormatOrc,
-        InventoryFormatParquet,
-        fromInventoryFormat
-      ),
-  )
-where
+    ( InventoryFormat'
+    , InventoryFormatCsv
+    , InventoryFormatOrc
+    , InventoryFormatParquet
+    , fromInventoryFormat
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.S3.Internal as Types
 
-newtype InventoryFormat = InventoryFormat'
-  { fromInventoryFormat ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype InventoryFormat = InventoryFormat'{fromInventoryFormat ::
+                                           Core.Text}
+                            deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                            Core.Generic)
+                            deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                              Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                              Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                              Core.FromText, Core.ToByteString, Core.ToQuery,
+                                              Core.ToHeader)
 
 pattern InventoryFormatCsv :: InventoryFormat
 pattern InventoryFormatCsv = InventoryFormat' "CSV"
@@ -61,9 +43,11 @@ pattern InventoryFormatOrc = InventoryFormat' "ORC"
 pattern InventoryFormatParquet :: InventoryFormat
 pattern InventoryFormatParquet = InventoryFormat' "Parquet"
 
-{-# COMPLETE
+{-# COMPLETE 
   InventoryFormatCsv,
+
   InventoryFormatOrc,
+
   InventoryFormatParquet,
   InventoryFormat'
   #-}

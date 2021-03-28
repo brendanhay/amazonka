@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,46 +10,28 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.S3.Types.ServerSideEncryption
   ( ServerSideEncryption
-      ( ServerSideEncryption',
-        ServerSideEncryptionAES256,
-        ServerSideEncryptionAwsKms,
-        fromServerSideEncryption
-      ),
-  )
-where
+    ( ServerSideEncryption'
+    , ServerSideEncryptionAES256
+    , ServerSideEncryptionAwsKms
+    , fromServerSideEncryption
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.S3.Internal as Types
 
-newtype ServerSideEncryption = ServerSideEncryption'
-  { fromServerSideEncryption ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype ServerSideEncryption = ServerSideEncryption'{fromServerSideEncryption
+                                                     :: Core.Text}
+                                 deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                 Core.Generic)
+                                 deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                   Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                   Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                   Core.ToText, Core.FromText, Core.ToByteString,
+                                                   Core.ToQuery, Core.ToHeader)
 
 pattern ServerSideEncryptionAES256 :: ServerSideEncryption
 pattern ServerSideEncryptionAES256 = ServerSideEncryption' "AES256"
@@ -57,8 +39,9 @@ pattern ServerSideEncryptionAES256 = ServerSideEncryption' "AES256"
 pattern ServerSideEncryptionAwsKms :: ServerSideEncryption
 pattern ServerSideEncryptionAwsKms = ServerSideEncryption' "aws:kms"
 
-{-# COMPLETE
+{-# COMPLETE 
   ServerSideEncryptionAES256,
+
   ServerSideEncryptionAwsKms,
   ServerSideEncryption'
   #-}

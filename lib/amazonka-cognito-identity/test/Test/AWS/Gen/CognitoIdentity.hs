@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.CognitoIdentity where
 
 import Data.Proxy
-import Network.AWS.CognitoIdentity
-import Test.AWS.CognitoIdentity.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.CognitoIdentity
+import Test.AWS.CognitoIdentity.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -162,296 +163,254 @@ import Test.Tasty
 -- Requests
 
 requestGetOpenIdToken :: GetOpenIdToken -> TestTree
-requestGetOpenIdToken =
-  req
+requestGetOpenIdToken = req
     "GetOpenIdToken"
     "fixture/GetOpenIdToken.yaml"
 
 requestGetOpenIdTokenForDeveloperIdentity :: GetOpenIdTokenForDeveloperIdentity -> TestTree
-requestGetOpenIdTokenForDeveloperIdentity =
-  req
+requestGetOpenIdTokenForDeveloperIdentity = req
     "GetOpenIdTokenForDeveloperIdentity"
     "fixture/GetOpenIdTokenForDeveloperIdentity.yaml"
 
 requestDescribeIdentityPool :: DescribeIdentityPool -> TestTree
-requestDescribeIdentityPool =
-  req
+requestDescribeIdentityPool = req
     "DescribeIdentityPool"
     "fixture/DescribeIdentityPool.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
+requestListTagsForResource = req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
 requestGetId :: GetId -> TestTree
-requestGetId =
-  req
+requestGetId = req
     "GetId"
     "fixture/GetId.yaml"
 
 requestDeleteIdentityPool :: DeleteIdentityPool -> TestTree
-requestDeleteIdentityPool =
-  req
+requestDeleteIdentityPool = req
     "DeleteIdentityPool"
     "fixture/DeleteIdentityPool.yaml"
 
 requestUpdateIdentityPool :: UpdateIdentityPool -> TestTree
-requestUpdateIdentityPool =
-  req
+requestUpdateIdentityPool = req
     "UpdateIdentityPool"
     "fixture/UpdateIdentityPool.yaml"
 
 requestUnlinkDeveloperIdentity :: UnlinkDeveloperIdentity -> TestTree
-requestUnlinkDeveloperIdentity =
-  req
+requestUnlinkDeveloperIdentity = req
     "UnlinkDeveloperIdentity"
     "fixture/UnlinkDeveloperIdentity.yaml"
 
 requestGetIdentityPoolRoles :: GetIdentityPoolRoles -> TestTree
-requestGetIdentityPoolRoles =
-  req
+requestGetIdentityPoolRoles = req
     "GetIdentityPoolRoles"
     "fixture/GetIdentityPoolRoles.yaml"
 
 requestListIdentityPools :: ListIdentityPools -> TestTree
-requestListIdentityPools =
-  req
+requestListIdentityPools = req
     "ListIdentityPools"
     "fixture/ListIdentityPools.yaml"
 
 requestGetCredentialsForIdentity :: GetCredentialsForIdentity -> TestTree
-requestGetCredentialsForIdentity =
-  req
+requestGetCredentialsForIdentity = req
     "GetCredentialsForIdentity"
     "fixture/GetCredentialsForIdentity.yaml"
 
 requestDeleteIdentities :: DeleteIdentities -> TestTree
-requestDeleteIdentities =
-  req
+requestDeleteIdentities = req
     "DeleteIdentities"
     "fixture/DeleteIdentities.yaml"
 
 requestSetIdentityPoolRoles :: SetIdentityPoolRoles -> TestTree
-requestSetIdentityPoolRoles =
-  req
+requestSetIdentityPoolRoles = req
     "SetIdentityPoolRoles"
     "fixture/SetIdentityPoolRoles.yaml"
 
 requestListIdentities :: ListIdentities -> TestTree
-requestListIdentities =
-  req
+requestListIdentities = req
     "ListIdentities"
     "fixture/ListIdentities.yaml"
 
 requestLookupDeveloperIdentity :: LookupDeveloperIdentity -> TestTree
-requestLookupDeveloperIdentity =
-  req
+requestLookupDeveloperIdentity = req
     "LookupDeveloperIdentity"
     "fixture/LookupDeveloperIdentity.yaml"
 
 requestUnlinkIdentity :: UnlinkIdentity -> TestTree
-requestUnlinkIdentity =
-  req
+requestUnlinkIdentity = req
     "UnlinkIdentity"
     "fixture/UnlinkIdentity.yaml"
 
 requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
+requestTagResource = req
     "TagResource"
     "fixture/TagResource.yaml"
 
 requestDescribeIdentity :: DescribeIdentity -> TestTree
-requestDescribeIdentity =
-  req
+requestDescribeIdentity = req
     "DescribeIdentity"
     "fixture/DescribeIdentity.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
+requestUntagResource = req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
 requestCreateIdentityPool :: CreateIdentityPool -> TestTree
-requestCreateIdentityPool =
-  req
+requestCreateIdentityPool = req
     "CreateIdentityPool"
     "fixture/CreateIdentityPool.yaml"
 
 requestMergeDeveloperIdentities :: MergeDeveloperIdentities -> TestTree
-requestMergeDeveloperIdentities =
-  req
+requestMergeDeveloperIdentities = req
     "MergeDeveloperIdentities"
     "fixture/MergeDeveloperIdentities.yaml"
 
 -- Responses
 
 responseGetOpenIdToken :: GetOpenIdTokenResponse -> TestTree
-responseGetOpenIdToken =
-  res
+responseGetOpenIdToken = res
     "GetOpenIdTokenResponse"
     "fixture/GetOpenIdTokenResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetOpenIdToken)
 
 responseGetOpenIdTokenForDeveloperIdentity :: GetOpenIdTokenForDeveloperIdentityResponse -> TestTree
-responseGetOpenIdTokenForDeveloperIdentity =
-  res
+responseGetOpenIdTokenForDeveloperIdentity = res
     "GetOpenIdTokenForDeveloperIdentityResponse"
     "fixture/GetOpenIdTokenForDeveloperIdentityResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetOpenIdTokenForDeveloperIdentity)
 
 responseDescribeIdentityPool :: IdentityPool -> TestTree
-responseDescribeIdentityPool =
-  res
+responseDescribeIdentityPool = res
     "DescribeIdentityPoolResponse"
     "fixture/DescribeIdentityPoolResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeIdentityPool)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
+responseListTagsForResource = res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseGetId :: GetIdResponse -> TestTree
-responseGetId =
-  res
+responseGetId = res
     "GetIdResponse"
     "fixture/GetIdResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetId)
 
 responseDeleteIdentityPool :: DeleteIdentityPoolResponse -> TestTree
-responseDeleteIdentityPool =
-  res
+responseDeleteIdentityPool = res
     "DeleteIdentityPoolResponse"
     "fixture/DeleteIdentityPoolResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteIdentityPool)
 
 responseUpdateIdentityPool :: IdentityPool -> TestTree
-responseUpdateIdentityPool =
-  res
+responseUpdateIdentityPool = res
     "UpdateIdentityPoolResponse"
     "fixture/UpdateIdentityPoolResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateIdentityPool)
 
 responseUnlinkDeveloperIdentity :: UnlinkDeveloperIdentityResponse -> TestTree
-responseUnlinkDeveloperIdentity =
-  res
+responseUnlinkDeveloperIdentity = res
     "UnlinkDeveloperIdentityResponse"
     "fixture/UnlinkDeveloperIdentityResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UnlinkDeveloperIdentity)
 
 responseGetIdentityPoolRoles :: GetIdentityPoolRolesResponse -> TestTree
-responseGetIdentityPoolRoles =
-  res
+responseGetIdentityPoolRoles = res
     "GetIdentityPoolRolesResponse"
     "fixture/GetIdentityPoolRolesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetIdentityPoolRoles)
 
 responseListIdentityPools :: ListIdentityPoolsResponse -> TestTree
-responseListIdentityPools =
-  res
+responseListIdentityPools = res
     "ListIdentityPoolsResponse"
     "fixture/ListIdentityPoolsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListIdentityPools)
 
 responseGetCredentialsForIdentity :: GetCredentialsForIdentityResponse -> TestTree
-responseGetCredentialsForIdentity =
-  res
+responseGetCredentialsForIdentity = res
     "GetCredentialsForIdentityResponse"
     "fixture/GetCredentialsForIdentityResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetCredentialsForIdentity)
 
 responseDeleteIdentities :: DeleteIdentitiesResponse -> TestTree
-responseDeleteIdentities =
-  res
+responseDeleteIdentities = res
     "DeleteIdentitiesResponse"
     "fixture/DeleteIdentitiesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteIdentities)
 
 responseSetIdentityPoolRoles :: SetIdentityPoolRolesResponse -> TestTree
-responseSetIdentityPoolRoles =
-  res
+responseSetIdentityPoolRoles = res
     "SetIdentityPoolRolesResponse"
     "fixture/SetIdentityPoolRolesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SetIdentityPoolRoles)
 
 responseListIdentities :: ListIdentitiesResponse -> TestTree
-responseListIdentities =
-  res
+responseListIdentities = res
     "ListIdentitiesResponse"
     "fixture/ListIdentitiesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListIdentities)
 
 responseLookupDeveloperIdentity :: LookupDeveloperIdentityResponse -> TestTree
-responseLookupDeveloperIdentity =
-  res
+responseLookupDeveloperIdentity = res
     "LookupDeveloperIdentityResponse"
     "fixture/LookupDeveloperIdentityResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy LookupDeveloperIdentity)
 
 responseUnlinkIdentity :: UnlinkIdentityResponse -> TestTree
-responseUnlinkIdentity =
-  res
+responseUnlinkIdentity = res
     "UnlinkIdentityResponse"
     "fixture/UnlinkIdentityResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UnlinkIdentity)
 
 responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
+responseTagResource = res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseDescribeIdentity :: IdentityDescription -> TestTree
-responseDescribeIdentity =
-  res
+responseDescribeIdentity = res
     "DescribeIdentityResponse"
     "fixture/DescribeIdentityResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeIdentity)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
+responseUntagResource = res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseCreateIdentityPool :: IdentityPool -> TestTree
-responseCreateIdentityPool =
-  res
+responseCreateIdentityPool = res
     "CreateIdentityPoolResponse"
     "fixture/CreateIdentityPoolResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateIdentityPool)
 
 responseMergeDeveloperIdentities :: MergeDeveloperIdentitiesResponse -> TestTree
-responseMergeDeveloperIdentities =
-  res
+responseMergeDeveloperIdentities = res
     "MergeDeveloperIdentitiesResponse"
     "fixture/MergeDeveloperIdentitiesResponse.proto"
     mkServiceConfig

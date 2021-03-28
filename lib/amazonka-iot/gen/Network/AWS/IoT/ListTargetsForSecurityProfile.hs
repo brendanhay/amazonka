@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,25 +17,23 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListTargetsForSecurityProfile
-  ( -- * Creating a request
-    ListTargetsForSecurityProfile (..),
-    mkListTargetsForSecurityProfile,
-
+    (
+    -- * Creating a request
+      ListTargetsForSecurityProfile (..)
+    , mkListTargetsForSecurityProfile
     -- ** Request lenses
-    ltfspSecurityProfileName,
-    ltfspMaxResults,
-    ltfspNextToken,
+    , ltfspSecurityProfileName
+    , ltfspMaxResults
+    , ltfspNextToken
 
     -- * Destructuring the response
-    ListTargetsForSecurityProfileResponse (..),
-    mkListTargetsForSecurityProfileResponse,
-
+    , ListTargetsForSecurityProfileResponse (..)
+    , mkListTargetsForSecurityProfileResponse
     -- ** Response lenses
-    ltfsprrsNextToken,
-    ltfsprrsSecurityProfileTargets,
-    ltfsprrsResponseStatus,
-  )
-where
+    , ltfsprrsNextToken
+    , ltfsprrsSecurityProfileTargets
+    , ltfsprrsResponseStatus
+    ) where
 
 import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -46,130 +44,131 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListTargetsForSecurityProfile' smart constructor.
 data ListTargetsForSecurityProfile = ListTargetsForSecurityProfile'
-  { -- | The security profile.
-    securityProfileName :: Types.SecurityProfileName,
-    -- | The maximum number of results to return at one time.
-    maxResults :: Core.Maybe Core.Natural,
-    -- | The token for the next set of results.
-    nextToken :: Core.Maybe Types.NextToken
+  { securityProfileName :: Types.SecurityProfileName
+    -- ^ The security profile.
+  , maxResults :: Core.Maybe Core.Natural
+    -- ^ The maximum number of results to return at one time.
+  , nextToken :: Core.Maybe Types.NextToken
+    -- ^ The token for the next set of results.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ListTargetsForSecurityProfile' value with any optional fields omitted.
-mkListTargetsForSecurityProfile ::
-  -- | 'securityProfileName'
-  Types.SecurityProfileName ->
-  ListTargetsForSecurityProfile
-mkListTargetsForSecurityProfile securityProfileName =
-  ListTargetsForSecurityProfile'
-    { securityProfileName,
-      maxResults = Core.Nothing,
-      nextToken = Core.Nothing
-    }
+mkListTargetsForSecurityProfile
+    :: Types.SecurityProfileName -- ^ 'securityProfileName'
+    -> ListTargetsForSecurityProfile
+mkListTargetsForSecurityProfile securityProfileName
+  = ListTargetsForSecurityProfile'{securityProfileName,
+                                   maxResults = Core.Nothing, nextToken = Core.Nothing}
 
 -- | The security profile.
 --
 -- /Note:/ Consider using 'securityProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ltfspSecurityProfileName :: Lens.Lens' ListTargetsForSecurityProfile Types.SecurityProfileName
 ltfspSecurityProfileName = Lens.field @"securityProfileName"
-{-# DEPRECATED ltfspSecurityProfileName "Use generic-lens or generic-optics with 'securityProfileName' instead." #-}
+{-# INLINEABLE ltfspSecurityProfileName #-}
+{-# DEPRECATED securityProfileName "Use generic-lens or generic-optics with 'securityProfileName' instead"  #-}
 
 -- | The maximum number of results to return at one time.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ltfspMaxResults :: Lens.Lens' ListTargetsForSecurityProfile (Core.Maybe Core.Natural)
 ltfspMaxResults = Lens.field @"maxResults"
-{-# DEPRECATED ltfspMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+{-# INLINEABLE ltfspMaxResults #-}
+{-# DEPRECATED maxResults "Use generic-lens or generic-optics with 'maxResults' instead"  #-}
 
 -- | The token for the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ltfspNextToken :: Lens.Lens' ListTargetsForSecurityProfile (Core.Maybe Types.NextToken)
 ltfspNextToken = Lens.field @"nextToken"
-{-# DEPRECATED ltfspNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE ltfspNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
+
+instance Core.ToQuery ListTargetsForSecurityProfile where
+        toQuery ListTargetsForSecurityProfile{..}
+          = Core.maybe Core.mempty (Core.toQueryPair "maxResults") maxResults
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "nextToken") nextToken
+
+instance Core.ToHeaders ListTargetsForSecurityProfile where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest ListTargetsForSecurityProfile where
-  type
-    Rs ListTargetsForSecurityProfile =
-      ListTargetsForSecurityProfileResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.GET,
-        Core._rqPath =
-          Core.rawPath
-            ( "/security-profiles/" Core.<> (Core.toText securityProfileName)
-                Core.<> ("/targets")
-            ),
-        Core._rqQuery =
-          Core.toQueryValue "maxResults" Core.<$> maxResults
-            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = ""
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          ListTargetsForSecurityProfileResponse'
-            Core.<$> (x Core..:? "nextToken")
-            Core.<*> (x Core..:? "securityProfileTargets")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs ListTargetsForSecurityProfile =
+             ListTargetsForSecurityProfileResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.GET,
+                         Core._rqPath =
+                           "/security-profiles/" Core.<> Core.toText securityProfileName
+                             Core.<> "/targets",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 ListTargetsForSecurityProfileResponse' Core.<$>
+                   (x Core..:? "nextToken") Core.<*>
+                     x Core..:? "securityProfileTargets"
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 instance Pager.AWSPager ListTargetsForSecurityProfile where
-  page rq rs
-    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
-    | Pager.stop
-        (rs Lens.^? Lens.field @"securityProfileTargets" Core.. Lens._Just) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just
-        ( rq
-            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
-        )
+        page rq rs
+          | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+          | Pager.stop
+              (rs Lens.^? Lens.field @"securityProfileTargets" Core.. Lens._Just)
+            = Core.Nothing
+          | Core.otherwise =
+            Core.Just
+              (rq Core.&
+                 Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken")
 
 -- | /See:/ 'mkListTargetsForSecurityProfileResponse' smart constructor.
 data ListTargetsForSecurityProfileResponse = ListTargetsForSecurityProfileResponse'
-  { -- | A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
-    nextToken :: Core.Maybe Types.NextToken,
-    -- | The thing groups to which the security profile is attached.
-    securityProfileTargets :: Core.Maybe [Types.SecurityProfileTarget],
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { nextToken :: Core.Maybe Types.NextToken
+    -- ^ A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
+  , securityProfileTargets :: Core.Maybe [Types.SecurityProfileTarget]
+    -- ^ The thing groups to which the security profile is attached.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ListTargetsForSecurityProfileResponse' value with any optional fields omitted.
-mkListTargetsForSecurityProfileResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  ListTargetsForSecurityProfileResponse
-mkListTargetsForSecurityProfileResponse responseStatus =
-  ListTargetsForSecurityProfileResponse'
-    { nextToken = Core.Nothing,
-      securityProfileTargets = Core.Nothing,
-      responseStatus
-    }
+mkListTargetsForSecurityProfileResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> ListTargetsForSecurityProfileResponse
+mkListTargetsForSecurityProfileResponse responseStatus
+  = ListTargetsForSecurityProfileResponse'{nextToken = Core.Nothing,
+                                           securityProfileTargets = Core.Nothing, responseStatus}
 
 -- | A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ltfsprrsNextToken :: Lens.Lens' ListTargetsForSecurityProfileResponse (Core.Maybe Types.NextToken)
 ltfsprrsNextToken = Lens.field @"nextToken"
-{-# DEPRECATED ltfsprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE ltfsprrsNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
 
 -- | The thing groups to which the security profile is attached.
 --
 -- /Note:/ Consider using 'securityProfileTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ltfsprrsSecurityProfileTargets :: Lens.Lens' ListTargetsForSecurityProfileResponse (Core.Maybe [Types.SecurityProfileTarget])
 ltfsprrsSecurityProfileTargets = Lens.field @"securityProfileTargets"
-{-# DEPRECATED ltfsprrsSecurityProfileTargets "Use generic-lens or generic-optics with 'securityProfileTargets' instead." #-}
+{-# INLINEABLE ltfsprrsSecurityProfileTargets #-}
+{-# DEPRECATED securityProfileTargets "Use generic-lens or generic-optics with 'securityProfileTargets' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ltfsprrsResponseStatus :: Lens.Lens' ListTargetsForSecurityProfileResponse Core.Int
 ltfsprrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED ltfsprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE ltfsprrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

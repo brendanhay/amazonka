@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.IoT.Types.ReplaceDefaultPolicyVersionParams
-  ( ReplaceDefaultPolicyVersionParams (..),
-
-    -- * Smart constructor
-    mkReplaceDefaultPolicyVersionParams,
-
-    -- * Lenses
-    rdpvpTemplateName,
-  )
-where
+  ( ReplaceDefaultPolicyVersionParams (..)
+  -- * Smart constructor
+  , mkReplaceDefaultPolicyVersionParams
+  -- * Lenses
+  , rdpvpTemplateName
+  ) where
 
 import qualified Network.AWS.IoT.Types.PolicyTemplateName as Types
 import qualified Network.AWS.Lens as Lens
@@ -29,35 +27,35 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkReplaceDefaultPolicyVersionParams' smart constructor.
 newtype ReplaceDefaultPolicyVersionParams = ReplaceDefaultPolicyVersionParams'
-  { -- | The name of the template to be applied. The only supported value is @BLANK_POLICY@ .
-    templateName :: Types.PolicyTemplateName
+  { templateName :: Types.PolicyTemplateName
+    -- ^ The name of the template to be applied. The only supported value is @BLANK_POLICY@ .
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ReplaceDefaultPolicyVersionParams' value with any optional fields omitted.
-mkReplaceDefaultPolicyVersionParams ::
-  -- | 'templateName'
-  Types.PolicyTemplateName ->
-  ReplaceDefaultPolicyVersionParams
-mkReplaceDefaultPolicyVersionParams templateName =
-  ReplaceDefaultPolicyVersionParams' {templateName}
+mkReplaceDefaultPolicyVersionParams
+    :: Types.PolicyTemplateName -- ^ 'templateName'
+    -> ReplaceDefaultPolicyVersionParams
+mkReplaceDefaultPolicyVersionParams templateName
+  = ReplaceDefaultPolicyVersionParams'{templateName}
 
 -- | The name of the template to be applied. The only supported value is @BLANK_POLICY@ .
 --
 -- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rdpvpTemplateName :: Lens.Lens' ReplaceDefaultPolicyVersionParams Types.PolicyTemplateName
 rdpvpTemplateName = Lens.field @"templateName"
-{-# DEPRECATED rdpvpTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
+{-# INLINEABLE rdpvpTemplateName #-}
+{-# DEPRECATED templateName "Use generic-lens or generic-optics with 'templateName' instead"  #-}
 
 instance Core.FromJSON ReplaceDefaultPolicyVersionParams where
-  toJSON ReplaceDefaultPolicyVersionParams {..} =
-    Core.object
-      (Core.catMaybes [Core.Just ("templateName" Core..= templateName)])
+        toJSON ReplaceDefaultPolicyVersionParams{..}
+          = Core.object
+              (Core.catMaybes [Core.Just ("templateName" Core..= templateName)])
 
 instance Core.FromJSON ReplaceDefaultPolicyVersionParams where
-  parseJSON =
-    Core.withObject "ReplaceDefaultPolicyVersionParams" Core.$
-      \x ->
-        ReplaceDefaultPolicyVersionParams'
-          Core.<$> (x Core..: "templateName")
+        parseJSON
+          = Core.withObject "ReplaceDefaultPolicyVersionParams" Core.$
+              \ x ->
+                ReplaceDefaultPolicyVersionParams' Core.<$>
+                  (x Core..: "templateName")

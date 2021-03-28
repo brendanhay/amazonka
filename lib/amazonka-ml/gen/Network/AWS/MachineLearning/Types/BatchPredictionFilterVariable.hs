@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,21 +10,21 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable
   ( BatchPredictionFilterVariable
-      ( BatchPredictionFilterVariable',
-        BatchPredictionFilterVariableBatchCreatedAt,
-        BatchPredictionFilterVariableBatchLastUpdatedAt,
-        BatchPredictionFilterVariableBatchStatus,
-        BatchPredictionFilterVariableBatchName,
-        BatchPredictionFilterVariableBatchIAMUser,
-        BatchPredictionFilterVariableBatchMLModelId,
-        BatchPredictionFilterVariableBatchDataSourceId,
-        BatchPredictionFilterVariableBatchDataURI,
-        fromBatchPredictionFilterVariable
-      ),
-  )
-where
+    ( BatchPredictionFilterVariable'
+    , BatchPredictionFilterVariableBatchCreatedAt
+    , BatchPredictionFilterVariableBatchLastUpdatedAt
+    , BatchPredictionFilterVariableBatchStatus
+    , BatchPredictionFilterVariableBatchName
+    , BatchPredictionFilterVariableBatchIAMUser
+    , BatchPredictionFilterVariableBatchMLModelId
+    , BatchPredictionFilterVariableBatchDataSourceId
+    , BatchPredictionFilterVariableBatchDataURI
+    , fromBatchPredictionFilterVariable
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
@@ -44,33 +44,18 @@ import qualified Network.AWS.Prelude as Core
 --     * @DataSourceId@ - Sets the search criteria to the @DataSource@ used in the @BatchPrediction@ .
 --
 --     * @DataURI@ - Sets the search criteria to the data file(s) used in the @BatchPrediction@ . The URL can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.
-newtype BatchPredictionFilterVariable = BatchPredictionFilterVariable'
-  { fromBatchPredictionFilterVariable ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+--
+newtype BatchPredictionFilterVariable = BatchPredictionFilterVariable'{fromBatchPredictionFilterVariable
+                                                                       :: Core.Text}
+                                          deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                          Core.Generic)
+                                          deriving newtype (Core.IsString, Core.Hashable,
+                                                            Core.NFData, Core.ToJSONKey,
+                                                            Core.FromJSONKey, Core.ToJSON,
+                                                            Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                            Core.ToText, Core.FromText,
+                                                            Core.ToByteString, Core.ToQuery,
+                                                            Core.ToHeader)
 
 pattern BatchPredictionFilterVariableBatchCreatedAt :: BatchPredictionFilterVariable
 pattern BatchPredictionFilterVariableBatchCreatedAt = BatchPredictionFilterVariable' "CreatedAt"
@@ -96,14 +81,21 @@ pattern BatchPredictionFilterVariableBatchDataSourceId = BatchPredictionFilterVa
 pattern BatchPredictionFilterVariableBatchDataURI :: BatchPredictionFilterVariable
 pattern BatchPredictionFilterVariableBatchDataURI = BatchPredictionFilterVariable' "DataURI"
 
-{-# COMPLETE
+{-# COMPLETE 
   BatchPredictionFilterVariableBatchCreatedAt,
+
   BatchPredictionFilterVariableBatchLastUpdatedAt,
+
   BatchPredictionFilterVariableBatchStatus,
+
   BatchPredictionFilterVariableBatchName,
+
   BatchPredictionFilterVariableBatchIAMUser,
+
   BatchPredictionFilterVariableBatchMLModelId,
+
   BatchPredictionFilterVariableBatchDataSourceId,
+
   BatchPredictionFilterVariableBatchDataURI,
   BatchPredictionFilterVariable'
   #-}

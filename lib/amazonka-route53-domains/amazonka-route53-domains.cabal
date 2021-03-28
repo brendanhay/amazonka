@@ -1,187 +1,187 @@
-cabal-version:      2.2
-name:               amazonka-route53-domains
-version:            2.0.0.0
-synopsis:           Amazon Route 53 Domains SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-route53-domains
+version:               2.0.0.0
+synopsis:              Amazon Route 53 Domains SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.Route53Domains" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.Route53Domains" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-route53-domains
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-route53-domains
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.Route53Domains
-    Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount
-    Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount
-    Network.AWS.Route53Domains.CheckDomainAvailability
-    Network.AWS.Route53Domains.CheckDomainTransferability
-    Network.AWS.Route53Domains.DeleteTagsForDomain
-    Network.AWS.Route53Domains.DisableDomainAutoRenew
-    Network.AWS.Route53Domains.DisableDomainTransferLock
-    Network.AWS.Route53Domains.EnableDomainAutoRenew
-    Network.AWS.Route53Domains.EnableDomainTransferLock
-    Network.AWS.Route53Domains.GetContactReachabilityStatus
-    Network.AWS.Route53Domains.GetDomainDetail
-    Network.AWS.Route53Domains.GetDomainSuggestions
-    Network.AWS.Route53Domains.GetOperationDetail
-    Network.AWS.Route53Domains.ListDomains
-    Network.AWS.Route53Domains.ListOperations
-    Network.AWS.Route53Domains.ListTagsForDomain
-    Network.AWS.Route53Domains.RegisterDomain
-    Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount
-    Network.AWS.Route53Domains.RenewDomain
-    Network.AWS.Route53Domains.ResendContactReachabilityEmail
-    Network.AWS.Route53Domains.RetrieveDomainAuthCode
-    Network.AWS.Route53Domains.TransferDomain
-    Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount
-    Network.AWS.Route53Domains.Types
-    Network.AWS.Route53Domains.UpdateDomainContact
-    Network.AWS.Route53Domains.UpdateDomainContactPrivacy
-    Network.AWS.Route53Domains.UpdateDomainNameservers
-    Network.AWS.Route53Domains.UpdateTagsForDomain
-    Network.AWS.Route53Domains.ViewBilling
-    Network.AWS.Route53Domains.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.Route53Domains.Types.AbuseContactPhone
-    Network.AWS.Route53Domains.Types.AccountId
-    Network.AWS.Route53Domains.Types.AddressLine
-    Network.AWS.Route53Domains.Types.AuthCode
-    Network.AWS.Route53Domains.Types.Availability
-    Network.AWS.Route53Domains.Types.BillingRecord
-    Network.AWS.Route53Domains.Types.City
-    Network.AWS.Route53Domains.Types.ContactDetail
-    Network.AWS.Route53Domains.Types.ContactName
-    Network.AWS.Route53Domains.Types.ContactNumber
-    Network.AWS.Route53Domains.Types.ContactType
-    Network.AWS.Route53Domains.Types.CountryCode
-    Network.AWS.Route53Domains.Types.DNSSec
-    Network.AWS.Route53Domains.Types.DomainAuthCode
-    Network.AWS.Route53Domains.Types.DomainAvailability
-    Network.AWS.Route53Domains.Types.DomainName
-    Network.AWS.Route53Domains.Types.DomainStatus
-    Network.AWS.Route53Domains.Types.DomainSuggestion
-    Network.AWS.Route53Domains.Types.DomainSummary
-    Network.AWS.Route53Domains.Types.DomainTransferability
-    Network.AWS.Route53Domains.Types.Email
-    Network.AWS.Route53Domains.Types.ExtraParam
-    Network.AWS.Route53Domains.Types.ExtraParamName
-    Network.AWS.Route53Domains.Types.FIAuthKey
-    Network.AWS.Route53Domains.Types.GlueIp
-    Network.AWS.Route53Domains.Types.HostName
-    Network.AWS.Route53Domains.Types.IdnLangCode
-    Network.AWS.Route53Domains.Types.InvoiceId
-    Network.AWS.Route53Domains.Types.Key
-    Network.AWS.Route53Domains.Types.LangCode
-    Network.AWS.Route53Domains.Types.Marker
-    Network.AWS.Route53Domains.Types.Message
-    Network.AWS.Route53Domains.Types.Nameserver
-    Network.AWS.Route53Domains.Types.NextPageMarker
-    Network.AWS.Route53Domains.Types.OperationId
-    Network.AWS.Route53Domains.Types.OperationStatus
-    Network.AWS.Route53Domains.Types.OperationSummary
-    Network.AWS.Route53Domains.Types.OperationType
-    Network.AWS.Route53Domains.Types.ReachabilityStatus
-    Network.AWS.Route53Domains.Types.RegistrarName
-    Network.AWS.Route53Domains.Types.RegistrarUrl
-    Network.AWS.Route53Domains.Types.RegistryDomainId
-    Network.AWS.Route53Domains.Types.Reseller
-    Network.AWS.Route53Domains.Types.State
-    Network.AWS.Route53Domains.Types.String
-    Network.AWS.Route53Domains.Types.Tag
-    Network.AWS.Route53Domains.Types.TagKey
-    Network.AWS.Route53Domains.Types.Transferable
-    Network.AWS.Route53Domains.Types.Value
-    Network.AWS.Route53Domains.Types.WhoIsServer
-    Network.AWS.Route53Domains.Types.ZipCode
+    exposed-modules:
+          Network.AWS.Route53Domains
+        , Network.AWS.Route53Domains.Types
+        , Network.AWS.Route53Domains.Waiters
+        , Network.AWS.Route53Domains.ListOperations
+        , Network.AWS.Route53Domains.GetDomainDetail
+        , Network.AWS.Route53Domains.CheckDomainTransferability
+        , Network.AWS.Route53Domains.UpdateDomainContactPrivacy
+        , Network.AWS.Route53Domains.GetOperationDetail
+        , Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount
+        , Network.AWS.Route53Domains.EnableDomainAutoRenew
+        , Network.AWS.Route53Domains.ResendContactReachabilityEmail
+        , Network.AWS.Route53Domains.DisableDomainAutoRenew
+        , Network.AWS.Route53Domains.RenewDomain
+        , Network.AWS.Route53Domains.ViewBilling
+        , Network.AWS.Route53Domains.UpdateDomainContact
+        , Network.AWS.Route53Domains.EnableDomainTransferLock
+        , Network.AWS.Route53Domains.RegisterDomain
+        , Network.AWS.Route53Domains.GetDomainSuggestions
+        , Network.AWS.Route53Domains.DisableDomainTransferLock
+        , Network.AWS.Route53Domains.CheckDomainAvailability
+        , Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount
+        , Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount
+        , Network.AWS.Route53Domains.GetContactReachabilityStatus
+        , Network.AWS.Route53Domains.ListTagsForDomain
+        , Network.AWS.Route53Domains.UpdateDomainNameservers
+        , Network.AWS.Route53Domains.DeleteTagsForDomain
+        , Network.AWS.Route53Domains.UpdateTagsForDomain
+        , Network.AWS.Route53Domains.RetrieveDomainAuthCode
+        , Network.AWS.Route53Domains.TransferDomain
+        , Network.AWS.Route53Domains.ListDomains
+        , Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.Route53Domains.Types.DomainSummary
+        , Network.AWS.Route53Domains.Types.DomainStatus
+        , Network.AWS.Route53Domains.Types.DNSSec
+        , Network.AWS.Route53Domains.Types.DomainSuggestion
+        , Network.AWS.Route53Domains.Types.Email
+        , Network.AWS.Route53Domains.Types.State
+        , Network.AWS.Route53Domains.Types.HostName
+        , Network.AWS.Route53Domains.Types.GlueIp
+        , Network.AWS.Route53Domains.Types.Tag
+        , Network.AWS.Route53Domains.Types.ExtraParamName
+        , Network.AWS.Route53Domains.Types.Nameserver
+        , Network.AWS.Route53Domains.Types.AddressLine
+        , Network.AWS.Route53Domains.Types.RegistryDomainId
+        , Network.AWS.Route53Domains.Types.ReachabilityStatus
+        , Network.AWS.Route53Domains.Types.ZipCode
+        , Network.AWS.Route53Domains.Types.OperationStatus
+        , Network.AWS.Route53Domains.Types.LangCode
+        , Network.AWS.Route53Domains.Types.DomainAvailability
+        , Network.AWS.Route53Domains.Types.Transferable
+        , Network.AWS.Route53Domains.Types.AccountId
+        , Network.AWS.Route53Domains.Types.RegistrarUrl
+        , Network.AWS.Route53Domains.Types.InvoiceId
+        , Network.AWS.Route53Domains.Types.City
+        , Network.AWS.Route53Domains.Types.DomainName
+        , Network.AWS.Route53Domains.Types.ContactName
+        , Network.AWS.Route53Domains.Types.OperationType
+        , Network.AWS.Route53Domains.Types.CountryCode
+        , Network.AWS.Route53Domains.Types.DomainAuthCode
+        , Network.AWS.Route53Domains.Types.TagKey
+        , Network.AWS.Route53Domains.Types.ExtraParam
+        , Network.AWS.Route53Domains.Types.ContactType
+        , Network.AWS.Route53Domains.Types.OperationId
+        , Network.AWS.Route53Domains.Types.FIAuthKey
+        , Network.AWS.Route53Domains.Types.RegistrarName
+        , Network.AWS.Route53Domains.Types.ContactNumber
+        , Network.AWS.Route53Domains.Types.Reseller
+        , Network.AWS.Route53Domains.Types.BillingRecord
+        , Network.AWS.Route53Domains.Types.ContactDetail
+        , Network.AWS.Route53Domains.Types.OperationSummary
+        , Network.AWS.Route53Domains.Types.DomainTransferability
+        , Network.AWS.Route53Domains.Types.AbuseContactPhone
+        , Network.AWS.Route53Domains.Types.WhoIsServer
+        , Network.AWS.Route53Domains.Types.NextPageMarker
+        , Network.AWS.Route53Domains.Types.Marker
+        , Network.AWS.Route53Domains.Types.Message
+        , Network.AWS.Route53Domains.Types.Key
+        , Network.AWS.Route53Domains.Types.Value
+        , Network.AWS.Route53Domains.Types.IdnLangCode
+        , Network.AWS.Route53Domains.Types.AuthCode
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-route53-domains-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.Gen.Route53Domains
-    Test.AWS.Route53Domains
-    Test.AWS.Route53Domains.Internal
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core             >=2.0.0.0 && <2.0.0.1
-    , amazonka-route53-domains
-    , amazonka-test             >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.Route53Domains
+        , Test.AWS.Gen.Route53Domains
+        , Test.AWS.Route53Domains.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-route53-domains
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

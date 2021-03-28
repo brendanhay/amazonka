@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.Pinpoint where
 
 import Data.Proxy
-import Network.AWS.Pinpoint
 import Test.AWS.Fixture
-import Test.AWS.Pinpoint.Internal
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.Pinpoint
+import Test.AWS.Pinpoint.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -708,1570 +709,1346 @@ import Test.Tasty
 -- Requests
 
 requestGetGcmChannel :: GetGcmChannel -> TestTree
-requestGetGcmChannel =
-  req
+requestGetGcmChannel = req
     "GetGcmChannel"
     "fixture/GetGcmChannel.yaml"
 
 requestGetSegmentImportJobs :: GetSegmentImportJobs -> TestTree
-requestGetSegmentImportJobs =
-  req
+requestGetSegmentImportJobs = req
     "GetSegmentImportJobs"
     "fixture/GetSegmentImportJobs.yaml"
 
 requestSendMessages :: SendMessages -> TestTree
-requestSendMessages =
-  req
+requestSendMessages = req
     "SendMessages"
     "fixture/SendMessages.yaml"
 
 requestGetImportJob :: GetImportJob -> TestTree
-requestGetImportJob =
-  req
+requestGetImportJob = req
     "GetImportJob"
     "fixture/GetImportJob.yaml"
 
 requestDeleteSmsTemplate :: DeleteSmsTemplate -> TestTree
-requestDeleteSmsTemplate =
-  req
+requestDeleteSmsTemplate = req
     "DeleteSmsTemplate"
     "fixture/DeleteSmsTemplate.yaml"
 
 requestUpdateSmsTemplate :: UpdateSmsTemplate -> TestTree
-requestUpdateSmsTemplate =
-  req
+requestUpdateSmsTemplate = req
     "UpdateSmsTemplate"
     "fixture/UpdateSmsTemplate.yaml"
 
 requestGetApnsVoipSandboxChannel :: GetApnsVoipSandboxChannel -> TestTree
-requestGetApnsVoipSandboxChannel =
-  req
+requestGetApnsVoipSandboxChannel = req
     "GetApnsVoipSandboxChannel"
     "fixture/GetApnsVoipSandboxChannel.yaml"
 
 requestGetSegmentVersions :: GetSegmentVersions -> TestTree
-requestGetSegmentVersions =
-  req
+requestGetSegmentVersions = req
     "GetSegmentVersions"
     "fixture/GetSegmentVersions.yaml"
 
 requestDeleteCampaign :: DeleteCampaign -> TestTree
-requestDeleteCampaign =
-  req
+requestDeleteCampaign = req
     "DeleteCampaign"
     "fixture/DeleteCampaign.yaml"
 
 requestUpdateCampaign :: UpdateCampaign -> TestTree
-requestUpdateCampaign =
-  req
+requestUpdateCampaign = req
     "UpdateCampaign"
     "fixture/UpdateCampaign.yaml"
 
 requestGetSegmentVersion :: GetSegmentVersion -> TestTree
-requestGetSegmentVersion =
-  req
+requestGetSegmentVersion = req
     "GetSegmentVersion"
     "fixture/GetSegmentVersion.yaml"
 
 requestDeletePushTemplate :: DeletePushTemplate -> TestTree
-requestDeletePushTemplate =
-  req
+requestDeletePushTemplate = req
     "DeletePushTemplate"
     "fixture/DeletePushTemplate.yaml"
 
 requestUpdatePushTemplate :: UpdatePushTemplate -> TestTree
-requestUpdatePushTemplate =
-  req
+requestUpdatePushTemplate = req
     "UpdatePushTemplate"
     "fixture/UpdatePushTemplate.yaml"
 
 requestCreateExportJob :: CreateExportJob -> TestTree
-requestCreateExportJob =
-  req
+requestCreateExportJob = req
     "CreateExportJob"
     "fixture/CreateExportJob.yaml"
 
 requestCreateSegment :: CreateSegment -> TestTree
-requestCreateSegment =
-  req
+requestCreateSegment = req
     "CreateSegment"
     "fixture/CreateSegment.yaml"
 
 requestCreateRecommenderConfiguration :: CreateRecommenderConfiguration -> TestTree
-requestCreateRecommenderConfiguration =
-  req
+requestCreateRecommenderConfiguration = req
     "CreateRecommenderConfiguration"
     "fixture/CreateRecommenderConfiguration.yaml"
 
 requestCreateVoiceTemplate :: CreateVoiceTemplate -> TestTree
-requestCreateVoiceTemplate =
-  req
+requestCreateVoiceTemplate = req
     "CreateVoiceTemplate"
     "fixture/CreateVoiceTemplate.yaml"
 
 requestUpdateAdmChannel :: UpdateAdmChannel -> TestTree
-requestUpdateAdmChannel =
-  req
+requestUpdateAdmChannel = req
     "UpdateAdmChannel"
     "fixture/UpdateAdmChannel.yaml"
 
 requestDeleteAdmChannel :: DeleteAdmChannel -> TestTree
-requestDeleteAdmChannel =
-  req
+requestDeleteAdmChannel = req
     "DeleteAdmChannel"
     "fixture/DeleteAdmChannel.yaml"
 
 requestDeleteRecommenderConfiguration :: DeleteRecommenderConfiguration -> TestTree
-requestDeleteRecommenderConfiguration =
-  req
+requestDeleteRecommenderConfiguration = req
     "DeleteRecommenderConfiguration"
     "fixture/DeleteRecommenderConfiguration.yaml"
 
 requestUpdateRecommenderConfiguration :: UpdateRecommenderConfiguration -> TestTree
-requestUpdateRecommenderConfiguration =
-  req
+requestUpdateRecommenderConfiguration = req
     "UpdateRecommenderConfiguration"
     "fixture/UpdateRecommenderConfiguration.yaml"
 
 requestCreatePushTemplate :: CreatePushTemplate -> TestTree
-requestCreatePushTemplate =
-  req
+requestCreatePushTemplate = req
     "CreatePushTemplate"
     "fixture/CreatePushTemplate.yaml"
 
 requestDeleteEndpoint :: DeleteEndpoint -> TestTree
-requestDeleteEndpoint =
-  req
+requestDeleteEndpoint = req
     "DeleteEndpoint"
     "fixture/DeleteEndpoint.yaml"
 
 requestUpdateEndpoint :: UpdateEndpoint -> TestTree
-requestUpdateEndpoint =
-  req
+requestUpdateEndpoint = req
     "UpdateEndpoint"
     "fixture/UpdateEndpoint.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
+requestListTagsForResource = req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
 requestCreateCampaign :: CreateCampaign -> TestTree
-requestCreateCampaign =
-  req
+requestCreateCampaign = req
     "CreateCampaign"
     "fixture/CreateCampaign.yaml"
 
 requestGetEmailTemplate :: GetEmailTemplate -> TestTree
-requestGetEmailTemplate =
-  req
+requestGetEmailTemplate = req
     "GetEmailTemplate"
     "fixture/GetEmailTemplate.yaml"
 
 requestGetExportJob :: GetExportJob -> TestTree
-requestGetExportJob =
-  req
+requestGetExportJob = req
     "GetExportJob"
     "fixture/GetExportJob.yaml"
 
 requestGetEndpoint :: GetEndpoint -> TestTree
-requestGetEndpoint =
-  req
+requestGetEndpoint = req
     "GetEndpoint"
     "fixture/GetEndpoint.yaml"
 
 requestGetSegment :: GetSegment -> TestTree
-requestGetSegment =
-  req
+requestGetSegment = req
     "GetSegment"
     "fixture/GetSegment.yaml"
 
 requestGetRecommenderConfiguration :: GetRecommenderConfiguration -> TestTree
-requestGetRecommenderConfiguration =
-  req
+requestGetRecommenderConfiguration = req
     "GetRecommenderConfiguration"
     "fixture/GetRecommenderConfiguration.yaml"
 
 requestUpdateEndpointsBatch :: UpdateEndpointsBatch -> TestTree
-requestUpdateEndpointsBatch =
-  req
+requestUpdateEndpointsBatch = req
     "UpdateEndpointsBatch"
     "fixture/UpdateEndpointsBatch.yaml"
 
 requestGetAdmChannel :: GetAdmChannel -> TestTree
-requestGetAdmChannel =
-  req
+requestGetAdmChannel = req
     "GetAdmChannel"
     "fixture/GetAdmChannel.yaml"
 
 requestGetCampaign :: GetCampaign -> TestTree
-requestGetCampaign =
-  req
+requestGetCampaign = req
     "GetCampaign"
     "fixture/GetCampaign.yaml"
 
 requestGetVoiceTemplate :: GetVoiceTemplate -> TestTree
-requestGetVoiceTemplate =
-  req
+requestGetVoiceTemplate = req
     "GetVoiceTemplate"
     "fixture/GetVoiceTemplate.yaml"
 
 requestGetPushTemplate :: GetPushTemplate -> TestTree
-requestGetPushTemplate =
-  req
+requestGetPushTemplate = req
     "GetPushTemplate"
     "fixture/GetPushTemplate.yaml"
 
 requestDeleteUserEndpoints :: DeleteUserEndpoints -> TestTree
-requestDeleteUserEndpoints =
-  req
+requestDeleteUserEndpoints = req
     "DeleteUserEndpoints"
     "fixture/DeleteUserEndpoints.yaml"
 
 requestCreateEmailTemplate :: CreateEmailTemplate -> TestTree
-requestCreateEmailTemplate =
-  req
+requestCreateEmailTemplate = req
     "CreateEmailTemplate"
     "fixture/CreateEmailTemplate.yaml"
 
 requestDeleteApp :: DeleteApp -> TestTree
-requestDeleteApp =
-  req
+requestDeleteApp = req
     "DeleteApp"
     "fixture/DeleteApp.yaml"
 
 requestUpdateApnsVoipSandboxChannel :: UpdateApnsVoipSandboxChannel -> TestTree
-requestUpdateApnsVoipSandboxChannel =
-  req
+requestUpdateApnsVoipSandboxChannel = req
     "UpdateApnsVoipSandboxChannel"
     "fixture/UpdateApnsVoipSandboxChannel.yaml"
 
 requestDeleteApnsVoipSandboxChannel :: DeleteApnsVoipSandboxChannel -> TestTree
-requestDeleteApnsVoipSandboxChannel =
-  req
+requestDeleteApnsVoipSandboxChannel = req
     "DeleteApnsVoipSandboxChannel"
     "fixture/DeleteApnsVoipSandboxChannel.yaml"
 
 requestUpdateGcmChannel :: UpdateGcmChannel -> TestTree
-requestUpdateGcmChannel =
-  req
+requestUpdateGcmChannel = req
     "UpdateGcmChannel"
     "fixture/UpdateGcmChannel.yaml"
 
 requestDeleteGcmChannel :: DeleteGcmChannel -> TestTree
-requestDeleteGcmChannel =
-  req
+requestDeleteGcmChannel = req
     "DeleteGcmChannel"
     "fixture/DeleteGcmChannel.yaml"
 
 requestGetCampaignActivities :: GetCampaignActivities -> TestTree
-requestGetCampaignActivities =
-  req
+requestGetCampaignActivities = req
     "GetCampaignActivities"
     "fixture/GetCampaignActivities.yaml"
 
 requestGetJourneyExecutionMetrics :: GetJourneyExecutionMetrics -> TestTree
-requestGetJourneyExecutionMetrics =
-  req
+requestGetJourneyExecutionMetrics = req
     "GetJourneyExecutionMetrics"
     "fixture/GetJourneyExecutionMetrics.yaml"
 
 requestUpdateJourneyState :: UpdateJourneyState -> TestTree
-requestUpdateJourneyState =
-  req
+requestUpdateJourneyState = req
     "UpdateJourneyState"
     "fixture/UpdateJourneyState.yaml"
 
 requestGetEventStream :: GetEventStream -> TestTree
-requestGetEventStream =
-  req
+requestGetEventStream = req
     "GetEventStream"
     "fixture/GetEventStream.yaml"
 
 requestGetChannels :: GetChannels -> TestTree
-requestGetChannels =
-  req
+requestGetChannels = req
     "GetChannels"
     "fixture/GetChannels.yaml"
 
 requestGetJourney :: GetJourney -> TestTree
-requestGetJourney =
-  req
+requestGetJourney = req
     "GetJourney"
     "fixture/GetJourney.yaml"
 
 requestDeleteEmailChannel :: DeleteEmailChannel -> TestTree
-requestDeleteEmailChannel =
-  req
+requestDeleteEmailChannel = req
     "DeleteEmailChannel"
     "fixture/DeleteEmailChannel.yaml"
 
 requestUpdateEmailChannel :: UpdateEmailChannel -> TestTree
-requestUpdateEmailChannel =
-  req
+requestUpdateEmailChannel = req
     "UpdateEmailChannel"
     "fixture/UpdateEmailChannel.yaml"
 
 requestGetBaiduChannel :: GetBaiduChannel -> TestTree
-requestGetBaiduChannel =
-  req
+requestGetBaiduChannel = req
     "GetBaiduChannel"
     "fixture/GetBaiduChannel.yaml"
 
 requestDeleteApnsChannel :: DeleteApnsChannel -> TestTree
-requestDeleteApnsChannel =
-  req
+requestDeleteApnsChannel = req
     "DeleteApnsChannel"
     "fixture/DeleteApnsChannel.yaml"
 
 requestUpdateApnsChannel :: UpdateApnsChannel -> TestTree
-requestUpdateApnsChannel =
-  req
+requestUpdateApnsChannel = req
     "UpdateApnsChannel"
     "fixture/UpdateApnsChannel.yaml"
 
 requestRemoveAttributes :: RemoveAttributes -> TestTree
-requestRemoveAttributes =
-  req
+requestRemoveAttributes = req
     "RemoveAttributes"
     "fixture/RemoveAttributes.yaml"
 
 requestListTemplates :: ListTemplates -> TestTree
-requestListTemplates =
-  req
+requestListTemplates = req
     "ListTemplates"
     "fixture/ListTemplates.yaml"
 
 requestPutEventStream :: PutEventStream -> TestTree
-requestPutEventStream =
-  req
+requestPutEventStream = req
     "PutEventStream"
     "fixture/PutEventStream.yaml"
 
 requestDeleteEventStream :: DeleteEventStream -> TestTree
-requestDeleteEventStream =
-  req
+requestDeleteEventStream = req
     "DeleteEventStream"
     "fixture/DeleteEventStream.yaml"
 
 requestGetCampaignVersions :: GetCampaignVersions -> TestTree
-requestGetCampaignVersions =
-  req
+requestGetCampaignVersions = req
     "GetCampaignVersions"
     "fixture/GetCampaignVersions.yaml"
 
 requestDeleteJourney :: DeleteJourney -> TestTree
-requestDeleteJourney =
-  req
+requestDeleteJourney = req
     "DeleteJourney"
     "fixture/DeleteJourney.yaml"
 
 requestUpdateJourney :: UpdateJourney -> TestTree
-requestUpdateJourney =
-  req
+requestUpdateJourney = req
     "UpdateJourney"
     "fixture/UpdateJourney.yaml"
 
 requestGetCampaignDateRangeKpi :: GetCampaignDateRangeKpi -> TestTree
-requestGetCampaignDateRangeKpi =
-  req
+requestGetCampaignDateRangeKpi = req
     "GetCampaignDateRangeKpi"
     "fixture/GetCampaignDateRangeKpi.yaml"
 
 requestGetApnsChannel :: GetApnsChannel -> TestTree
-requestGetApnsChannel =
-  req
+requestGetApnsChannel = req
     "GetApnsChannel"
     "fixture/GetApnsChannel.yaml"
 
 requestUpdateVoiceChannel :: UpdateVoiceChannel -> TestTree
-requestUpdateVoiceChannel =
-  req
+requestUpdateVoiceChannel = req
     "UpdateVoiceChannel"
     "fixture/UpdateVoiceChannel.yaml"
 
 requestDeleteVoiceChannel :: DeleteVoiceChannel -> TestTree
-requestDeleteVoiceChannel =
-  req
+requestDeleteVoiceChannel = req
     "DeleteVoiceChannel"
     "fixture/DeleteVoiceChannel.yaml"
 
 requestGetApps :: GetApps -> TestTree
-requestGetApps =
-  req
+requestGetApps = req
     "GetApps"
     "fixture/GetApps.yaml"
 
 requestGetApnsSandboxChannel :: GetApnsSandboxChannel -> TestTree
-requestGetApnsSandboxChannel =
-  req
+requestGetApnsSandboxChannel = req
     "GetApnsSandboxChannel"
     "fixture/GetApnsSandboxChannel.yaml"
 
 requestCreateJourney :: CreateJourney -> TestTree
-requestCreateJourney =
-  req
+requestCreateJourney = req
     "CreateJourney"
     "fixture/CreateJourney.yaml"
 
 requestGetUserEndpoints :: GetUserEndpoints -> TestTree
-requestGetUserEndpoints =
-  req
+requestGetUserEndpoints = req
     "GetUserEndpoints"
     "fixture/GetUserEndpoints.yaml"
 
 requestDeleteVoiceTemplate :: DeleteVoiceTemplate -> TestTree
-requestDeleteVoiceTemplate =
-  req
+requestDeleteVoiceTemplate = req
     "DeleteVoiceTemplate"
     "fixture/DeleteVoiceTemplate.yaml"
 
 requestUpdateVoiceTemplate :: UpdateVoiceTemplate -> TestTree
-requestUpdateVoiceTemplate =
-  req
+requestUpdateVoiceTemplate = req
     "UpdateVoiceTemplate"
     "fixture/UpdateVoiceTemplate.yaml"
 
 requestGetImportJobs :: GetImportJobs -> TestTree
-requestGetImportJobs =
-  req
+requestGetImportJobs = req
     "GetImportJobs"
     "fixture/GetImportJobs.yaml"
 
 requestGetJourneyDateRangeKpi :: GetJourneyDateRangeKpi -> TestTree
-requestGetJourneyDateRangeKpi =
-  req
+requestGetJourneyDateRangeKpi = req
     "GetJourneyDateRangeKpi"
     "fixture/GetJourneyDateRangeKpi.yaml"
 
 requestUpdateTemplateActiveVersion :: UpdateTemplateActiveVersion -> TestTree
-requestUpdateTemplateActiveVersion =
-  req
+requestUpdateTemplateActiveVersion = req
     "UpdateTemplateActiveVersion"
     "fixture/UpdateTemplateActiveVersion.yaml"
 
 requestDeleteSmsChannel :: DeleteSmsChannel -> TestTree
-requestDeleteSmsChannel =
-  req
+requestDeleteSmsChannel = req
     "DeleteSmsChannel"
     "fixture/DeleteSmsChannel.yaml"
 
 requestUpdateSmsChannel :: UpdateSmsChannel -> TestTree
-requestUpdateSmsChannel =
-  req
+requestUpdateSmsChannel = req
     "UpdateSmsChannel"
     "fixture/UpdateSmsChannel.yaml"
 
 requestGetApp :: GetApp -> TestTree
-requestGetApp =
-  req
+requestGetApp = req
     "GetApp"
     "fixture/GetApp.yaml"
 
 requestGetCampaignVersion :: GetCampaignVersion -> TestTree
-requestGetCampaignVersion =
-  req
+requestGetCampaignVersion = req
     "GetCampaignVersion"
     "fixture/GetCampaignVersion.yaml"
 
 requestDeleteSegment :: DeleteSegment -> TestTree
-requestDeleteSegment =
-  req
+requestDeleteSegment = req
     "DeleteSegment"
     "fixture/DeleteSegment.yaml"
 
 requestUpdateSegment :: UpdateSegment -> TestTree
-requestUpdateSegment =
-  req
+requestUpdateSegment = req
     "UpdateSegment"
     "fixture/UpdateSegment.yaml"
 
 requestGetApplicationDateRangeKpi :: GetApplicationDateRangeKpi -> TestTree
-requestGetApplicationDateRangeKpi =
-  req
+requestGetApplicationDateRangeKpi = req
     "GetApplicationDateRangeKpi"
     "fixture/GetApplicationDateRangeKpi.yaml"
 
 requestCreateApp :: CreateApp -> TestTree
-requestCreateApp =
-  req
+requestCreateApp = req
     "CreateApp"
     "fixture/CreateApp.yaml"
 
 requestGetSegmentExportJobs :: GetSegmentExportJobs -> TestTree
-requestGetSegmentExportJobs =
-  req
+requestGetSegmentExportJobs = req
     "GetSegmentExportJobs"
     "fixture/GetSegmentExportJobs.yaml"
 
 requestDeleteEmailTemplate :: DeleteEmailTemplate -> TestTree
-requestDeleteEmailTemplate =
-  req
+requestDeleteEmailTemplate = req
     "DeleteEmailTemplate"
     "fixture/DeleteEmailTemplate.yaml"
 
 requestUpdateEmailTemplate :: UpdateEmailTemplate -> TestTree
-requestUpdateEmailTemplate =
-  req
+requestUpdateEmailTemplate = req
     "UpdateEmailTemplate"
     "fixture/UpdateEmailTemplate.yaml"
 
 requestGetSmsChannel :: GetSmsChannel -> TestTree
-requestGetSmsChannel =
-  req
+requestGetSmsChannel = req
     "GetSmsChannel"
     "fixture/GetSmsChannel.yaml"
 
 requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
+requestTagResource = req
     "TagResource"
     "fixture/TagResource.yaml"
 
 requestDeleteApnsSandboxChannel :: DeleteApnsSandboxChannel -> TestTree
-requestDeleteApnsSandboxChannel =
-  req
+requestDeleteApnsSandboxChannel = req
     "DeleteApnsSandboxChannel"
     "fixture/DeleteApnsSandboxChannel.yaml"
 
 requestUpdateApnsSandboxChannel :: UpdateApnsSandboxChannel -> TestTree
-requestUpdateApnsSandboxChannel =
-  req
+requestUpdateApnsSandboxChannel = req
     "UpdateApnsSandboxChannel"
     "fixture/UpdateApnsSandboxChannel.yaml"
 
 requestGetCampaigns :: GetCampaigns -> TestTree
-requestGetCampaigns =
-  req
+requestGetCampaigns = req
     "GetCampaigns"
     "fixture/GetCampaigns.yaml"
 
 requestGetVoiceChannel :: GetVoiceChannel -> TestTree
-requestGetVoiceChannel =
-  req
+requestGetVoiceChannel = req
     "GetVoiceChannel"
     "fixture/GetVoiceChannel.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
+requestUntagResource = req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
 requestListTemplateVersions :: ListTemplateVersions -> TestTree
-requestListTemplateVersions =
-  req
+requestListTemplateVersions = req
     "ListTemplateVersions"
     "fixture/ListTemplateVersions.yaml"
 
 requestGetSmsTemplate :: GetSmsTemplate -> TestTree
-requestGetSmsTemplate =
-  req
+requestGetSmsTemplate = req
     "GetSmsTemplate"
     "fixture/GetSmsTemplate.yaml"
 
 requestPutEvents :: PutEvents -> TestTree
-requestPutEvents =
-  req
+requestPutEvents = req
     "PutEvents"
     "fixture/PutEvents.yaml"
 
 requestUpdateApplicationSettings :: UpdateApplicationSettings -> TestTree
-requestUpdateApplicationSettings =
-  req
+requestUpdateApplicationSettings = req
     "UpdateApplicationSettings"
     "fixture/UpdateApplicationSettings.yaml"
 
 requestGetJourneyExecutionActivityMetrics :: GetJourneyExecutionActivityMetrics -> TestTree
-requestGetJourneyExecutionActivityMetrics =
-  req
+requestGetJourneyExecutionActivityMetrics = req
     "GetJourneyExecutionActivityMetrics"
     "fixture/GetJourneyExecutionActivityMetrics.yaml"
 
 requestGetSegments :: GetSegments -> TestTree
-requestGetSegments =
-  req
+requestGetSegments = req
     "GetSegments"
     "fixture/GetSegments.yaml"
 
 requestGetExportJobs :: GetExportJobs -> TestTree
-requestGetExportJobs =
-  req
+requestGetExportJobs = req
     "GetExportJobs"
     "fixture/GetExportJobs.yaml"
 
 requestCreateImportJob :: CreateImportJob -> TestTree
-requestCreateImportJob =
-  req
+requestCreateImportJob = req
     "CreateImportJob"
     "fixture/CreateImportJob.yaml"
 
 requestGetRecommenderConfigurations :: GetRecommenderConfigurations -> TestTree
-requestGetRecommenderConfigurations =
-  req
+requestGetRecommenderConfigurations = req
     "GetRecommenderConfigurations"
     "fixture/GetRecommenderConfigurations.yaml"
 
 requestDeleteApnsVoipChannel :: DeleteApnsVoipChannel -> TestTree
-requestDeleteApnsVoipChannel =
-  req
+requestDeleteApnsVoipChannel = req
     "DeleteApnsVoipChannel"
     "fixture/DeleteApnsVoipChannel.yaml"
 
 requestUpdateApnsVoipChannel :: UpdateApnsVoipChannel -> TestTree
-requestUpdateApnsVoipChannel =
-  req
+requestUpdateApnsVoipChannel = req
     "UpdateApnsVoipChannel"
     "fixture/UpdateApnsVoipChannel.yaml"
 
 requestSendUsersMessages :: SendUsersMessages -> TestTree
-requestSendUsersMessages =
-  req
+requestSendUsersMessages = req
     "SendUsersMessages"
     "fixture/SendUsersMessages.yaml"
 
 requestGetApplicationSettings :: GetApplicationSettings -> TestTree
-requestGetApplicationSettings =
-  req
+requestGetApplicationSettings = req
     "GetApplicationSettings"
     "fixture/GetApplicationSettings.yaml"
 
 requestDeleteBaiduChannel :: DeleteBaiduChannel -> TestTree
-requestDeleteBaiduChannel =
-  req
+requestDeleteBaiduChannel = req
     "DeleteBaiduChannel"
     "fixture/DeleteBaiduChannel.yaml"
 
 requestUpdateBaiduChannel :: UpdateBaiduChannel -> TestTree
-requestUpdateBaiduChannel =
-  req
+requestUpdateBaiduChannel = req
     "UpdateBaiduChannel"
     "fixture/UpdateBaiduChannel.yaml"
 
 requestCreateSmsTemplate :: CreateSmsTemplate -> TestTree
-requestCreateSmsTemplate =
-  req
+requestCreateSmsTemplate = req
     "CreateSmsTemplate"
     "fixture/CreateSmsTemplate.yaml"
 
 requestPhoneNumberValidate :: PhoneNumberValidate -> TestTree
-requestPhoneNumberValidate =
-  req
+requestPhoneNumberValidate = req
     "PhoneNumberValidate"
     "fixture/PhoneNumberValidate.yaml"
 
 requestListJourneys :: ListJourneys -> TestTree
-requestListJourneys =
-  req
+requestListJourneys = req
     "ListJourneys"
     "fixture/ListJourneys.yaml"
 
 requestGetApnsVoipChannel :: GetApnsVoipChannel -> TestTree
-requestGetApnsVoipChannel =
-  req
+requestGetApnsVoipChannel = req
     "GetApnsVoipChannel"
     "fixture/GetApnsVoipChannel.yaml"
 
 requestGetEmailChannel :: GetEmailChannel -> TestTree
-requestGetEmailChannel =
-  req
+requestGetEmailChannel = req
     "GetEmailChannel"
     "fixture/GetEmailChannel.yaml"
 
 -- Responses
 
 responseGetGcmChannel :: GetGcmChannelResponse -> TestTree
-responseGetGcmChannel =
-  res
+responseGetGcmChannel = res
     "GetGcmChannelResponse"
     "fixture/GetGcmChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetGcmChannel)
 
 responseGetSegmentImportJobs :: GetSegmentImportJobsResponse -> TestTree
-responseGetSegmentImportJobs =
-  res
+responseGetSegmentImportJobs = res
     "GetSegmentImportJobsResponse"
     "fixture/GetSegmentImportJobsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetSegmentImportJobs)
 
 responseSendMessages :: SendMessagesResponse -> TestTree
-responseSendMessages =
-  res
+responseSendMessages = res
     "SendMessagesResponse"
     "fixture/SendMessagesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SendMessages)
 
 responseGetImportJob :: GetImportJobResponse -> TestTree
-responseGetImportJob =
-  res
+responseGetImportJob = res
     "GetImportJobResponse"
     "fixture/GetImportJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetImportJob)
 
 responseDeleteSmsTemplate :: DeleteSmsTemplateResponse -> TestTree
-responseDeleteSmsTemplate =
-  res
+responseDeleteSmsTemplate = res
     "DeleteSmsTemplateResponse"
     "fixture/DeleteSmsTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteSmsTemplate)
 
 responseUpdateSmsTemplate :: UpdateSmsTemplateResponse -> TestTree
-responseUpdateSmsTemplate =
-  res
+responseUpdateSmsTemplate = res
     "UpdateSmsTemplateResponse"
     "fixture/UpdateSmsTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateSmsTemplate)
 
 responseGetApnsVoipSandboxChannel :: GetApnsVoipSandboxChannelResponse -> TestTree
-responseGetApnsVoipSandboxChannel =
-  res
+responseGetApnsVoipSandboxChannel = res
     "GetApnsVoipSandboxChannelResponse"
     "fixture/GetApnsVoipSandboxChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetApnsVoipSandboxChannel)
 
 responseGetSegmentVersions :: GetSegmentVersionsResponse -> TestTree
-responseGetSegmentVersions =
-  res
+responseGetSegmentVersions = res
     "GetSegmentVersionsResponse"
     "fixture/GetSegmentVersionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetSegmentVersions)
 
 responseDeleteCampaign :: DeleteCampaignResponse -> TestTree
-responseDeleteCampaign =
-  res
+responseDeleteCampaign = res
     "DeleteCampaignResponse"
     "fixture/DeleteCampaignResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteCampaign)
 
 responseUpdateCampaign :: UpdateCampaignResponse -> TestTree
-responseUpdateCampaign =
-  res
+responseUpdateCampaign = res
     "UpdateCampaignResponse"
     "fixture/UpdateCampaignResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateCampaign)
 
 responseGetSegmentVersion :: GetSegmentVersionResponse -> TestTree
-responseGetSegmentVersion =
-  res
+responseGetSegmentVersion = res
     "GetSegmentVersionResponse"
     "fixture/GetSegmentVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetSegmentVersion)
 
 responseDeletePushTemplate :: DeletePushTemplateResponse -> TestTree
-responseDeletePushTemplate =
-  res
+responseDeletePushTemplate = res
     "DeletePushTemplateResponse"
     "fixture/DeletePushTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeletePushTemplate)
 
 responseUpdatePushTemplate :: UpdatePushTemplateResponse -> TestTree
-responseUpdatePushTemplate =
-  res
+responseUpdatePushTemplate = res
     "UpdatePushTemplateResponse"
     "fixture/UpdatePushTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdatePushTemplate)
 
 responseCreateExportJob :: CreateExportJobResponse -> TestTree
-responseCreateExportJob =
-  res
+responseCreateExportJob = res
     "CreateExportJobResponse"
     "fixture/CreateExportJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateExportJob)
 
 responseCreateSegment :: CreateSegmentResponse -> TestTree
-responseCreateSegment =
-  res
+responseCreateSegment = res
     "CreateSegmentResponse"
     "fixture/CreateSegmentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateSegment)
 
 responseCreateRecommenderConfiguration :: CreateRecommenderConfigurationResponse -> TestTree
-responseCreateRecommenderConfiguration =
-  res
+responseCreateRecommenderConfiguration = res
     "CreateRecommenderConfigurationResponse"
     "fixture/CreateRecommenderConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateRecommenderConfiguration)
 
 responseCreateVoiceTemplate :: CreateVoiceTemplateResponse -> TestTree
-responseCreateVoiceTemplate =
-  res
+responseCreateVoiceTemplate = res
     "CreateVoiceTemplateResponse"
     "fixture/CreateVoiceTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateVoiceTemplate)
 
 responseUpdateAdmChannel :: UpdateAdmChannelResponse -> TestTree
-responseUpdateAdmChannel =
-  res
+responseUpdateAdmChannel = res
     "UpdateAdmChannelResponse"
     "fixture/UpdateAdmChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateAdmChannel)
 
 responseDeleteAdmChannel :: DeleteAdmChannelResponse -> TestTree
-responseDeleteAdmChannel =
-  res
+responseDeleteAdmChannel = res
     "DeleteAdmChannelResponse"
     "fixture/DeleteAdmChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteAdmChannel)
 
 responseDeleteRecommenderConfiguration :: DeleteRecommenderConfigurationResponse -> TestTree
-responseDeleteRecommenderConfiguration =
-  res
+responseDeleteRecommenderConfiguration = res
     "DeleteRecommenderConfigurationResponse"
     "fixture/DeleteRecommenderConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteRecommenderConfiguration)
 
 responseUpdateRecommenderConfiguration :: UpdateRecommenderConfigurationResponse -> TestTree
-responseUpdateRecommenderConfiguration =
-  res
+responseUpdateRecommenderConfiguration = res
     "UpdateRecommenderConfigurationResponse"
     "fixture/UpdateRecommenderConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateRecommenderConfiguration)
 
 responseCreatePushTemplate :: CreatePushTemplateResponse -> TestTree
-responseCreatePushTemplate =
-  res
+responseCreatePushTemplate = res
     "CreatePushTemplateResponse"
     "fixture/CreatePushTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreatePushTemplate)
 
 responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
-responseDeleteEndpoint =
-  res
+responseDeleteEndpoint = res
     "DeleteEndpointResponse"
     "fixture/DeleteEndpointResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteEndpoint)
 
 responseUpdateEndpoint :: UpdateEndpointResponse -> TestTree
-responseUpdateEndpoint =
-  res
+responseUpdateEndpoint = res
     "UpdateEndpointResponse"
     "fixture/UpdateEndpointResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateEndpoint)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
+responseListTagsForResource = res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseCreateCampaign :: CreateCampaignResponse -> TestTree
-responseCreateCampaign =
-  res
+responseCreateCampaign = res
     "CreateCampaignResponse"
     "fixture/CreateCampaignResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateCampaign)
 
 responseGetEmailTemplate :: GetEmailTemplateResponse -> TestTree
-responseGetEmailTemplate =
-  res
+responseGetEmailTemplate = res
     "GetEmailTemplateResponse"
     "fixture/GetEmailTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetEmailTemplate)
 
 responseGetExportJob :: GetExportJobResponse -> TestTree
-responseGetExportJob =
-  res
+responseGetExportJob = res
     "GetExportJobResponse"
     "fixture/GetExportJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetExportJob)
 
 responseGetEndpoint :: GetEndpointResponse -> TestTree
-responseGetEndpoint =
-  res
+responseGetEndpoint = res
     "GetEndpointResponse"
     "fixture/GetEndpointResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetEndpoint)
 
 responseGetSegment :: GetSegmentResponse -> TestTree
-responseGetSegment =
-  res
+responseGetSegment = res
     "GetSegmentResponse"
     "fixture/GetSegmentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetSegment)
 
 responseGetRecommenderConfiguration :: GetRecommenderConfigurationResponse -> TestTree
-responseGetRecommenderConfiguration =
-  res
+responseGetRecommenderConfiguration = res
     "GetRecommenderConfigurationResponse"
     "fixture/GetRecommenderConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetRecommenderConfiguration)
 
 responseUpdateEndpointsBatch :: UpdateEndpointsBatchResponse -> TestTree
-responseUpdateEndpointsBatch =
-  res
+responseUpdateEndpointsBatch = res
     "UpdateEndpointsBatchResponse"
     "fixture/UpdateEndpointsBatchResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateEndpointsBatch)
 
 responseGetAdmChannel :: GetAdmChannelResponse -> TestTree
-responseGetAdmChannel =
-  res
+responseGetAdmChannel = res
     "GetAdmChannelResponse"
     "fixture/GetAdmChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetAdmChannel)
 
 responseGetCampaign :: GetCampaignResponse -> TestTree
-responseGetCampaign =
-  res
+responseGetCampaign = res
     "GetCampaignResponse"
     "fixture/GetCampaignResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetCampaign)
 
 responseGetVoiceTemplate :: GetVoiceTemplateResponse -> TestTree
-responseGetVoiceTemplate =
-  res
+responseGetVoiceTemplate = res
     "GetVoiceTemplateResponse"
     "fixture/GetVoiceTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetVoiceTemplate)
 
 responseGetPushTemplate :: GetPushTemplateResponse -> TestTree
-responseGetPushTemplate =
-  res
+responseGetPushTemplate = res
     "GetPushTemplateResponse"
     "fixture/GetPushTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetPushTemplate)
 
 responseDeleteUserEndpoints :: DeleteUserEndpointsResponse -> TestTree
-responseDeleteUserEndpoints =
-  res
+responseDeleteUserEndpoints = res
     "DeleteUserEndpointsResponse"
     "fixture/DeleteUserEndpointsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteUserEndpoints)
 
 responseCreateEmailTemplate :: CreateEmailTemplateResponse -> TestTree
-responseCreateEmailTemplate =
-  res
+responseCreateEmailTemplate = res
     "CreateEmailTemplateResponse"
     "fixture/CreateEmailTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateEmailTemplate)
 
 responseDeleteApp :: DeleteAppResponse -> TestTree
-responseDeleteApp =
-  res
+responseDeleteApp = res
     "DeleteAppResponse"
     "fixture/DeleteAppResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteApp)
 
 responseUpdateApnsVoipSandboxChannel :: UpdateApnsVoipSandboxChannelResponse -> TestTree
-responseUpdateApnsVoipSandboxChannel =
-  res
+responseUpdateApnsVoipSandboxChannel = res
     "UpdateApnsVoipSandboxChannelResponse"
     "fixture/UpdateApnsVoipSandboxChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateApnsVoipSandboxChannel)
 
 responseDeleteApnsVoipSandboxChannel :: DeleteApnsVoipSandboxChannelResponse -> TestTree
-responseDeleteApnsVoipSandboxChannel =
-  res
+responseDeleteApnsVoipSandboxChannel = res
     "DeleteApnsVoipSandboxChannelResponse"
     "fixture/DeleteApnsVoipSandboxChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteApnsVoipSandboxChannel)
 
 responseUpdateGcmChannel :: UpdateGcmChannelResponse -> TestTree
-responseUpdateGcmChannel =
-  res
+responseUpdateGcmChannel = res
     "UpdateGcmChannelResponse"
     "fixture/UpdateGcmChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateGcmChannel)
 
 responseDeleteGcmChannel :: DeleteGcmChannelResponse -> TestTree
-responseDeleteGcmChannel =
-  res
+responseDeleteGcmChannel = res
     "DeleteGcmChannelResponse"
     "fixture/DeleteGcmChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteGcmChannel)
 
 responseGetCampaignActivities :: GetCampaignActivitiesResponse -> TestTree
-responseGetCampaignActivities =
-  res
+responseGetCampaignActivities = res
     "GetCampaignActivitiesResponse"
     "fixture/GetCampaignActivitiesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetCampaignActivities)
 
 responseGetJourneyExecutionMetrics :: GetJourneyExecutionMetricsResponse -> TestTree
-responseGetJourneyExecutionMetrics =
-  res
+responseGetJourneyExecutionMetrics = res
     "GetJourneyExecutionMetricsResponse"
     "fixture/GetJourneyExecutionMetricsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetJourneyExecutionMetrics)
 
 responseUpdateJourneyState :: UpdateJourneyStateResponse -> TestTree
-responseUpdateJourneyState =
-  res
+responseUpdateJourneyState = res
     "UpdateJourneyStateResponse"
     "fixture/UpdateJourneyStateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateJourneyState)
 
 responseGetEventStream :: GetEventStreamResponse -> TestTree
-responseGetEventStream =
-  res
+responseGetEventStream = res
     "GetEventStreamResponse"
     "fixture/GetEventStreamResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetEventStream)
 
 responseGetChannels :: GetChannelsResponse -> TestTree
-responseGetChannels =
-  res
+responseGetChannels = res
     "GetChannelsResponse"
     "fixture/GetChannelsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetChannels)
 
 responseGetJourney :: GetJourneyResponse -> TestTree
-responseGetJourney =
-  res
+responseGetJourney = res
     "GetJourneyResponse"
     "fixture/GetJourneyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetJourney)
 
 responseDeleteEmailChannel :: DeleteEmailChannelResponse -> TestTree
-responseDeleteEmailChannel =
-  res
+responseDeleteEmailChannel = res
     "DeleteEmailChannelResponse"
     "fixture/DeleteEmailChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteEmailChannel)
 
 responseUpdateEmailChannel :: UpdateEmailChannelResponse -> TestTree
-responseUpdateEmailChannel =
-  res
+responseUpdateEmailChannel = res
     "UpdateEmailChannelResponse"
     "fixture/UpdateEmailChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateEmailChannel)
 
 responseGetBaiduChannel :: GetBaiduChannelResponse -> TestTree
-responseGetBaiduChannel =
-  res
+responseGetBaiduChannel = res
     "GetBaiduChannelResponse"
     "fixture/GetBaiduChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetBaiduChannel)
 
 responseDeleteApnsChannel :: DeleteApnsChannelResponse -> TestTree
-responseDeleteApnsChannel =
-  res
+responseDeleteApnsChannel = res
     "DeleteApnsChannelResponse"
     "fixture/DeleteApnsChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteApnsChannel)
 
 responseUpdateApnsChannel :: UpdateApnsChannelResponse -> TestTree
-responseUpdateApnsChannel =
-  res
+responseUpdateApnsChannel = res
     "UpdateApnsChannelResponse"
     "fixture/UpdateApnsChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateApnsChannel)
 
 responseRemoveAttributes :: RemoveAttributesResponse -> TestTree
-responseRemoveAttributes =
-  res
+responseRemoveAttributes = res
     "RemoveAttributesResponse"
     "fixture/RemoveAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RemoveAttributes)
 
 responseListTemplates :: ListTemplatesResponse -> TestTree
-responseListTemplates =
-  res
+responseListTemplates = res
     "ListTemplatesResponse"
     "fixture/ListTemplatesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTemplates)
 
 responsePutEventStream :: PutEventStreamResponse -> TestTree
-responsePutEventStream =
-  res
+responsePutEventStream = res
     "PutEventStreamResponse"
     "fixture/PutEventStreamResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutEventStream)
 
 responseDeleteEventStream :: DeleteEventStreamResponse -> TestTree
-responseDeleteEventStream =
-  res
+responseDeleteEventStream = res
     "DeleteEventStreamResponse"
     "fixture/DeleteEventStreamResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteEventStream)
 
 responseGetCampaignVersions :: GetCampaignVersionsResponse -> TestTree
-responseGetCampaignVersions =
-  res
+responseGetCampaignVersions = res
     "GetCampaignVersionsResponse"
     "fixture/GetCampaignVersionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetCampaignVersions)
 
 responseDeleteJourney :: DeleteJourneyResponse -> TestTree
-responseDeleteJourney =
-  res
+responseDeleteJourney = res
     "DeleteJourneyResponse"
     "fixture/DeleteJourneyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteJourney)
 
 responseUpdateJourney :: UpdateJourneyResponse -> TestTree
-responseUpdateJourney =
-  res
+responseUpdateJourney = res
     "UpdateJourneyResponse"
     "fixture/UpdateJourneyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateJourney)
 
 responseGetCampaignDateRangeKpi :: GetCampaignDateRangeKpiResponse -> TestTree
-responseGetCampaignDateRangeKpi =
-  res
+responseGetCampaignDateRangeKpi = res
     "GetCampaignDateRangeKpiResponse"
     "fixture/GetCampaignDateRangeKpiResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetCampaignDateRangeKpi)
 
 responseGetApnsChannel :: GetApnsChannelResponse -> TestTree
-responseGetApnsChannel =
-  res
+responseGetApnsChannel = res
     "GetApnsChannelResponse"
     "fixture/GetApnsChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetApnsChannel)
 
 responseUpdateVoiceChannel :: UpdateVoiceChannelResponse -> TestTree
-responseUpdateVoiceChannel =
-  res
+responseUpdateVoiceChannel = res
     "UpdateVoiceChannelResponse"
     "fixture/UpdateVoiceChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateVoiceChannel)
 
 responseDeleteVoiceChannel :: DeleteVoiceChannelResponse -> TestTree
-responseDeleteVoiceChannel =
-  res
+responseDeleteVoiceChannel = res
     "DeleteVoiceChannelResponse"
     "fixture/DeleteVoiceChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteVoiceChannel)
 
 responseGetApps :: GetAppsResponse -> TestTree
-responseGetApps =
-  res
+responseGetApps = res
     "GetAppsResponse"
     "fixture/GetAppsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetApps)
 
 responseGetApnsSandboxChannel :: GetApnsSandboxChannelResponse -> TestTree
-responseGetApnsSandboxChannel =
-  res
+responseGetApnsSandboxChannel = res
     "GetApnsSandboxChannelResponse"
     "fixture/GetApnsSandboxChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetApnsSandboxChannel)
 
 responseCreateJourney :: CreateJourneyResponse -> TestTree
-responseCreateJourney =
-  res
+responseCreateJourney = res
     "CreateJourneyResponse"
     "fixture/CreateJourneyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateJourney)
 
 responseGetUserEndpoints :: GetUserEndpointsResponse -> TestTree
-responseGetUserEndpoints =
-  res
+responseGetUserEndpoints = res
     "GetUserEndpointsResponse"
     "fixture/GetUserEndpointsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetUserEndpoints)
 
 responseDeleteVoiceTemplate :: DeleteVoiceTemplateResponse -> TestTree
-responseDeleteVoiceTemplate =
-  res
+responseDeleteVoiceTemplate = res
     "DeleteVoiceTemplateResponse"
     "fixture/DeleteVoiceTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteVoiceTemplate)
 
 responseUpdateVoiceTemplate :: UpdateVoiceTemplateResponse -> TestTree
-responseUpdateVoiceTemplate =
-  res
+responseUpdateVoiceTemplate = res
     "UpdateVoiceTemplateResponse"
     "fixture/UpdateVoiceTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateVoiceTemplate)
 
 responseGetImportJobs :: GetImportJobsResponse -> TestTree
-responseGetImportJobs =
-  res
+responseGetImportJobs = res
     "GetImportJobsResponse"
     "fixture/GetImportJobsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetImportJobs)
 
 responseGetJourneyDateRangeKpi :: GetJourneyDateRangeKpiResponse -> TestTree
-responseGetJourneyDateRangeKpi =
-  res
+responseGetJourneyDateRangeKpi = res
     "GetJourneyDateRangeKpiResponse"
     "fixture/GetJourneyDateRangeKpiResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetJourneyDateRangeKpi)
 
 responseUpdateTemplateActiveVersion :: UpdateTemplateActiveVersionResponse -> TestTree
-responseUpdateTemplateActiveVersion =
-  res
+responseUpdateTemplateActiveVersion = res
     "UpdateTemplateActiveVersionResponse"
     "fixture/UpdateTemplateActiveVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateTemplateActiveVersion)
 
 responseDeleteSmsChannel :: DeleteSmsChannelResponse -> TestTree
-responseDeleteSmsChannel =
-  res
+responseDeleteSmsChannel = res
     "DeleteSmsChannelResponse"
     "fixture/DeleteSmsChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteSmsChannel)
 
 responseUpdateSmsChannel :: UpdateSmsChannelResponse -> TestTree
-responseUpdateSmsChannel =
-  res
+responseUpdateSmsChannel = res
     "UpdateSmsChannelResponse"
     "fixture/UpdateSmsChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateSmsChannel)
 
 responseGetApp :: GetAppResponse -> TestTree
-responseGetApp =
-  res
+responseGetApp = res
     "GetAppResponse"
     "fixture/GetAppResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetApp)
 
 responseGetCampaignVersion :: GetCampaignVersionResponse -> TestTree
-responseGetCampaignVersion =
-  res
+responseGetCampaignVersion = res
     "GetCampaignVersionResponse"
     "fixture/GetCampaignVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetCampaignVersion)
 
 responseDeleteSegment :: DeleteSegmentResponse -> TestTree
-responseDeleteSegment =
-  res
+responseDeleteSegment = res
     "DeleteSegmentResponse"
     "fixture/DeleteSegmentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteSegment)
 
 responseUpdateSegment :: UpdateSegmentResponse -> TestTree
-responseUpdateSegment =
-  res
+responseUpdateSegment = res
     "UpdateSegmentResponse"
     "fixture/UpdateSegmentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateSegment)
 
 responseGetApplicationDateRangeKpi :: GetApplicationDateRangeKpiResponse -> TestTree
-responseGetApplicationDateRangeKpi =
-  res
+responseGetApplicationDateRangeKpi = res
     "GetApplicationDateRangeKpiResponse"
     "fixture/GetApplicationDateRangeKpiResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetApplicationDateRangeKpi)
 
 responseCreateApp :: CreateAppResponse -> TestTree
-responseCreateApp =
-  res
+responseCreateApp = res
     "CreateAppResponse"
     "fixture/CreateAppResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateApp)
 
 responseGetSegmentExportJobs :: GetSegmentExportJobsResponse -> TestTree
-responseGetSegmentExportJobs =
-  res
+responseGetSegmentExportJobs = res
     "GetSegmentExportJobsResponse"
     "fixture/GetSegmentExportJobsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetSegmentExportJobs)
 
 responseDeleteEmailTemplate :: DeleteEmailTemplateResponse -> TestTree
-responseDeleteEmailTemplate =
-  res
+responseDeleteEmailTemplate = res
     "DeleteEmailTemplateResponse"
     "fixture/DeleteEmailTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteEmailTemplate)
 
 responseUpdateEmailTemplate :: UpdateEmailTemplateResponse -> TestTree
-responseUpdateEmailTemplate =
-  res
+responseUpdateEmailTemplate = res
     "UpdateEmailTemplateResponse"
     "fixture/UpdateEmailTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateEmailTemplate)
 
 responseGetSmsChannel :: GetSmsChannelResponse -> TestTree
-responseGetSmsChannel =
-  res
+responseGetSmsChannel = res
     "GetSmsChannelResponse"
     "fixture/GetSmsChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetSmsChannel)
 
 responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
+responseTagResource = res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseDeleteApnsSandboxChannel :: DeleteApnsSandboxChannelResponse -> TestTree
-responseDeleteApnsSandboxChannel =
-  res
+responseDeleteApnsSandboxChannel = res
     "DeleteApnsSandboxChannelResponse"
     "fixture/DeleteApnsSandboxChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteApnsSandboxChannel)
 
 responseUpdateApnsSandboxChannel :: UpdateApnsSandboxChannelResponse -> TestTree
-responseUpdateApnsSandboxChannel =
-  res
+responseUpdateApnsSandboxChannel = res
     "UpdateApnsSandboxChannelResponse"
     "fixture/UpdateApnsSandboxChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateApnsSandboxChannel)
 
 responseGetCampaigns :: GetCampaignsResponse -> TestTree
-responseGetCampaigns =
-  res
+responseGetCampaigns = res
     "GetCampaignsResponse"
     "fixture/GetCampaignsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetCampaigns)
 
 responseGetVoiceChannel :: GetVoiceChannelResponse -> TestTree
-responseGetVoiceChannel =
-  res
+responseGetVoiceChannel = res
     "GetVoiceChannelResponse"
     "fixture/GetVoiceChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetVoiceChannel)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
+responseUntagResource = res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseListTemplateVersions :: ListTemplateVersionsResponse -> TestTree
-responseListTemplateVersions =
-  res
+responseListTemplateVersions = res
     "ListTemplateVersionsResponse"
     "fixture/ListTemplateVersionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTemplateVersions)
 
 responseGetSmsTemplate :: GetSmsTemplateResponse -> TestTree
-responseGetSmsTemplate =
-  res
+responseGetSmsTemplate = res
     "GetSmsTemplateResponse"
     "fixture/GetSmsTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetSmsTemplate)
 
 responsePutEvents :: PutEventsResponse -> TestTree
-responsePutEvents =
-  res
+responsePutEvents = res
     "PutEventsResponse"
     "fixture/PutEventsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutEvents)
 
 responseUpdateApplicationSettings :: UpdateApplicationSettingsResponse -> TestTree
-responseUpdateApplicationSettings =
-  res
+responseUpdateApplicationSettings = res
     "UpdateApplicationSettingsResponse"
     "fixture/UpdateApplicationSettingsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateApplicationSettings)
 
 responseGetJourneyExecutionActivityMetrics :: GetJourneyExecutionActivityMetricsResponse -> TestTree
-responseGetJourneyExecutionActivityMetrics =
-  res
+responseGetJourneyExecutionActivityMetrics = res
     "GetJourneyExecutionActivityMetricsResponse"
     "fixture/GetJourneyExecutionActivityMetricsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetJourneyExecutionActivityMetrics)
 
 responseGetSegments :: GetSegmentsResponse -> TestTree
-responseGetSegments =
-  res
+responseGetSegments = res
     "GetSegmentsResponse"
     "fixture/GetSegmentsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetSegments)
 
 responseGetExportJobs :: GetExportJobsResponse -> TestTree
-responseGetExportJobs =
-  res
+responseGetExportJobs = res
     "GetExportJobsResponse"
     "fixture/GetExportJobsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetExportJobs)
 
 responseCreateImportJob :: CreateImportJobResponse -> TestTree
-responseCreateImportJob =
-  res
+responseCreateImportJob = res
     "CreateImportJobResponse"
     "fixture/CreateImportJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateImportJob)
 
 responseGetRecommenderConfigurations :: GetRecommenderConfigurationsResponse -> TestTree
-responseGetRecommenderConfigurations =
-  res
+responseGetRecommenderConfigurations = res
     "GetRecommenderConfigurationsResponse"
     "fixture/GetRecommenderConfigurationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetRecommenderConfigurations)
 
 responseDeleteApnsVoipChannel :: DeleteApnsVoipChannelResponse -> TestTree
-responseDeleteApnsVoipChannel =
-  res
+responseDeleteApnsVoipChannel = res
     "DeleteApnsVoipChannelResponse"
     "fixture/DeleteApnsVoipChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteApnsVoipChannel)
 
 responseUpdateApnsVoipChannel :: UpdateApnsVoipChannelResponse -> TestTree
-responseUpdateApnsVoipChannel =
-  res
+responseUpdateApnsVoipChannel = res
     "UpdateApnsVoipChannelResponse"
     "fixture/UpdateApnsVoipChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateApnsVoipChannel)
 
 responseSendUsersMessages :: SendUsersMessagesResponse -> TestTree
-responseSendUsersMessages =
-  res
+responseSendUsersMessages = res
     "SendUsersMessagesResponse"
     "fixture/SendUsersMessagesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SendUsersMessages)
 
 responseGetApplicationSettings :: GetApplicationSettingsResponse -> TestTree
-responseGetApplicationSettings =
-  res
+responseGetApplicationSettings = res
     "GetApplicationSettingsResponse"
     "fixture/GetApplicationSettingsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetApplicationSettings)
 
 responseDeleteBaiduChannel :: DeleteBaiduChannelResponse -> TestTree
-responseDeleteBaiduChannel =
-  res
+responseDeleteBaiduChannel = res
     "DeleteBaiduChannelResponse"
     "fixture/DeleteBaiduChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteBaiduChannel)
 
 responseUpdateBaiduChannel :: UpdateBaiduChannelResponse -> TestTree
-responseUpdateBaiduChannel =
-  res
+responseUpdateBaiduChannel = res
     "UpdateBaiduChannelResponse"
     "fixture/UpdateBaiduChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateBaiduChannel)
 
 responseCreateSmsTemplate :: CreateSmsTemplateResponse -> TestTree
-responseCreateSmsTemplate =
-  res
+responseCreateSmsTemplate = res
     "CreateSmsTemplateResponse"
     "fixture/CreateSmsTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateSmsTemplate)
 
 responsePhoneNumberValidate :: PhoneNumberValidateResponse -> TestTree
-responsePhoneNumberValidate =
-  res
+responsePhoneNumberValidate = res
     "PhoneNumberValidateResponse"
     "fixture/PhoneNumberValidateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PhoneNumberValidate)
 
 responseListJourneys :: ListJourneysResponse -> TestTree
-responseListJourneys =
-  res
+responseListJourneys = res
     "ListJourneysResponse"
     "fixture/ListJourneysResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListJourneys)
 
 responseGetApnsVoipChannel :: GetApnsVoipChannelResponse -> TestTree
-responseGetApnsVoipChannel =
-  res
+responseGetApnsVoipChannel = res
     "GetApnsVoipChannelResponse"
     "fixture/GetApnsVoipChannelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetApnsVoipChannel)
 
 responseGetEmailChannel :: GetEmailChannelResponse -> TestTree
-responseGetEmailChannel =
-  res
+responseGetEmailChannel = res
     "GetEmailChannelResponse"
     "fixture/GetEmailChannelResponse.proto"
     mkServiceConfig

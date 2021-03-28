@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaConvert.Types.NoiseReducerFilterSettings
-  ( NoiseReducerFilterSettings (..),
-
-    -- * Smart constructor
-    mkNoiseReducerFilterSettings,
-
-    -- * Lenses
-    nrfsStrength,
-  )
-where
+  ( NoiseReducerFilterSettings (..)
+  -- * Smart constructor
+  , mkNoiseReducerFilterSettings
+  -- * Lenses
+  , nrfsStrength
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -28,31 +26,32 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkNoiseReducerFilterSettings' smart constructor.
 newtype NoiseReducerFilterSettings = NoiseReducerFilterSettings'
-  { -- | Relative strength of noise reducing filter. Higher values produce stronger filtering.
-    strength :: Core.Maybe Core.Natural
+  { strength :: Core.Maybe Core.Natural
+    -- ^ Relative strength of noise reducing filter. Higher values produce stronger filtering.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'NoiseReducerFilterSettings' value with any optional fields omitted.
-mkNoiseReducerFilterSettings ::
-  NoiseReducerFilterSettings
-mkNoiseReducerFilterSettings =
-  NoiseReducerFilterSettings' {strength = Core.Nothing}
+mkNoiseReducerFilterSettings
+    :: NoiseReducerFilterSettings
+mkNoiseReducerFilterSettings
+  = NoiseReducerFilterSettings'{strength = Core.Nothing}
 
 -- | Relative strength of noise reducing filter. Higher values produce stronger filtering.
 --
 -- /Note:/ Consider using 'strength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 nrfsStrength :: Lens.Lens' NoiseReducerFilterSettings (Core.Maybe Core.Natural)
 nrfsStrength = Lens.field @"strength"
-{-# DEPRECATED nrfsStrength "Use generic-lens or generic-optics with 'strength' instead." #-}
+{-# INLINEABLE nrfsStrength #-}
+{-# DEPRECATED strength "Use generic-lens or generic-optics with 'strength' instead"  #-}
 
 instance Core.FromJSON NoiseReducerFilterSettings where
-  toJSON NoiseReducerFilterSettings {..} =
-    Core.object
-      (Core.catMaybes [("strength" Core..=) Core.<$> strength])
+        toJSON NoiseReducerFilterSettings{..}
+          = Core.object
+              (Core.catMaybes [("strength" Core..=) Core.<$> strength])
 
 instance Core.FromJSON NoiseReducerFilterSettings where
-  parseJSON =
-    Core.withObject "NoiseReducerFilterSettings" Core.$
-      \x -> NoiseReducerFilterSettings' Core.<$> (x Core..:? "strength")
+        parseJSON
+          = Core.withObject "NoiseReducerFilterSettings" Core.$
+              \ x -> NoiseReducerFilterSettings' Core.<$> (x Core..:? "strength")

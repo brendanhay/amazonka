@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.Batch where
 
 import Data.Proxy
-import Network.AWS.Batch
-import Test.AWS.Batch.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.Batch
+import Test.AWS.Batch.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -150,268 +151,230 @@ import Test.Tasty
 -- Requests
 
 requestCreateComputeEnvironment :: CreateComputeEnvironment -> TestTree
-requestCreateComputeEnvironment =
-  req
+requestCreateComputeEnvironment = req
     "CreateComputeEnvironment"
     "fixture/CreateComputeEnvironment.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
+requestListTagsForResource = req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
 requestRegisterJobDefinition :: RegisterJobDefinition -> TestTree
-requestRegisterJobDefinition =
-  req
+requestRegisterJobDefinition = req
     "RegisterJobDefinition"
     "fixture/RegisterJobDefinition.yaml"
 
 requestSubmitJob :: SubmitJob -> TestTree
-requestSubmitJob =
-  req
+requestSubmitJob = req
     "SubmitJob"
     "fixture/SubmitJob.yaml"
 
 requestListJobs :: ListJobs -> TestTree
-requestListJobs =
-  req
+requestListJobs = req
     "ListJobs"
     "fixture/ListJobs.yaml"
 
 requestTerminateJob :: TerminateJob -> TestTree
-requestTerminateJob =
-  req
+requestTerminateJob = req
     "TerminateJob"
     "fixture/TerminateJob.yaml"
 
 requestDescribeJobs :: DescribeJobs -> TestTree
-requestDescribeJobs =
-  req
+requestDescribeJobs = req
     "DescribeJobs"
     "fixture/DescribeJobs.yaml"
 
 requestDeleteComputeEnvironment :: DeleteComputeEnvironment -> TestTree
-requestDeleteComputeEnvironment =
-  req
+requestDeleteComputeEnvironment = req
     "DeleteComputeEnvironment"
     "fixture/DeleteComputeEnvironment.yaml"
 
 requestUpdateComputeEnvironment :: UpdateComputeEnvironment -> TestTree
-requestUpdateComputeEnvironment =
-  req
+requestUpdateComputeEnvironment = req
     "UpdateComputeEnvironment"
     "fixture/UpdateComputeEnvironment.yaml"
 
 requestDescribeJobDefinitions :: DescribeJobDefinitions -> TestTree
-requestDescribeJobDefinitions =
-  req
+requestDescribeJobDefinitions = req
     "DescribeJobDefinitions"
     "fixture/DescribeJobDefinitions.yaml"
 
 requestUpdateJobQueue :: UpdateJobQueue -> TestTree
-requestUpdateJobQueue =
-  req
+requestUpdateJobQueue = req
     "UpdateJobQueue"
     "fixture/UpdateJobQueue.yaml"
 
 requestDeleteJobQueue :: DeleteJobQueue -> TestTree
-requestDeleteJobQueue =
-  req
+requestDeleteJobQueue = req
     "DeleteJobQueue"
     "fixture/DeleteJobQueue.yaml"
 
 requestCreateJobQueue :: CreateJobQueue -> TestTree
-requestCreateJobQueue =
-  req
+requestCreateJobQueue = req
     "CreateJobQueue"
     "fixture/CreateJobQueue.yaml"
 
 requestDeregisterJobDefinition :: DeregisterJobDefinition -> TestTree
-requestDeregisterJobDefinition =
-  req
+requestDeregisterJobDefinition = req
     "DeregisterJobDefinition"
     "fixture/DeregisterJobDefinition.yaml"
 
 requestDescribeJobQueues :: DescribeJobQueues -> TestTree
-requestDescribeJobQueues =
-  req
+requestDescribeJobQueues = req
     "DescribeJobQueues"
     "fixture/DescribeJobQueues.yaml"
 
 requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
+requestTagResource = req
     "TagResource"
     "fixture/TagResource.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
+requestUntagResource = req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
 requestDescribeComputeEnvironments :: DescribeComputeEnvironments -> TestTree
-requestDescribeComputeEnvironments =
-  req
+requestDescribeComputeEnvironments = req
     "DescribeComputeEnvironments"
     "fixture/DescribeComputeEnvironments.yaml"
 
 requestCancelJob :: CancelJob -> TestTree
-requestCancelJob =
-  req
+requestCancelJob = req
     "CancelJob"
     "fixture/CancelJob.yaml"
 
 -- Responses
 
 responseCreateComputeEnvironment :: CreateComputeEnvironmentResponse -> TestTree
-responseCreateComputeEnvironment =
-  res
+responseCreateComputeEnvironment = res
     "CreateComputeEnvironmentResponse"
     "fixture/CreateComputeEnvironmentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateComputeEnvironment)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
+responseListTagsForResource = res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseRegisterJobDefinition :: RegisterJobDefinitionResponse -> TestTree
-responseRegisterJobDefinition =
-  res
+responseRegisterJobDefinition = res
     "RegisterJobDefinitionResponse"
     "fixture/RegisterJobDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RegisterJobDefinition)
 
 responseSubmitJob :: SubmitJobResponse -> TestTree
-responseSubmitJob =
-  res
+responseSubmitJob = res
     "SubmitJobResponse"
     "fixture/SubmitJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SubmitJob)
 
 responseListJobs :: ListJobsResponse -> TestTree
-responseListJobs =
-  res
+responseListJobs = res
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListJobs)
 
 responseTerminateJob :: TerminateJobResponse -> TestTree
-responseTerminateJob =
-  res
+responseTerminateJob = res
     "TerminateJobResponse"
     "fixture/TerminateJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TerminateJob)
 
 responseDescribeJobs :: DescribeJobsResponse -> TestTree
-responseDescribeJobs =
-  res
+responseDescribeJobs = res
     "DescribeJobsResponse"
     "fixture/DescribeJobsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeJobs)
 
 responseDeleteComputeEnvironment :: DeleteComputeEnvironmentResponse -> TestTree
-responseDeleteComputeEnvironment =
-  res
+responseDeleteComputeEnvironment = res
     "DeleteComputeEnvironmentResponse"
     "fixture/DeleteComputeEnvironmentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteComputeEnvironment)
 
 responseUpdateComputeEnvironment :: UpdateComputeEnvironmentResponse -> TestTree
-responseUpdateComputeEnvironment =
-  res
+responseUpdateComputeEnvironment = res
     "UpdateComputeEnvironmentResponse"
     "fixture/UpdateComputeEnvironmentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateComputeEnvironment)
 
 responseDescribeJobDefinitions :: DescribeJobDefinitionsResponse -> TestTree
-responseDescribeJobDefinitions =
-  res
+responseDescribeJobDefinitions = res
     "DescribeJobDefinitionsResponse"
     "fixture/DescribeJobDefinitionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeJobDefinitions)
 
 responseUpdateJobQueue :: UpdateJobQueueResponse -> TestTree
-responseUpdateJobQueue =
-  res
+responseUpdateJobQueue = res
     "UpdateJobQueueResponse"
     "fixture/UpdateJobQueueResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateJobQueue)
 
 responseDeleteJobQueue :: DeleteJobQueueResponse -> TestTree
-responseDeleteJobQueue =
-  res
+responseDeleteJobQueue = res
     "DeleteJobQueueResponse"
     "fixture/DeleteJobQueueResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteJobQueue)
 
 responseCreateJobQueue :: CreateJobQueueResponse -> TestTree
-responseCreateJobQueue =
-  res
+responseCreateJobQueue = res
     "CreateJobQueueResponse"
     "fixture/CreateJobQueueResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateJobQueue)
 
 responseDeregisterJobDefinition :: DeregisterJobDefinitionResponse -> TestTree
-responseDeregisterJobDefinition =
-  res
+responseDeregisterJobDefinition = res
     "DeregisterJobDefinitionResponse"
     "fixture/DeregisterJobDefinitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeregisterJobDefinition)
 
 responseDescribeJobQueues :: DescribeJobQueuesResponse -> TestTree
-responseDescribeJobQueues =
-  res
+responseDescribeJobQueues = res
     "DescribeJobQueuesResponse"
     "fixture/DescribeJobQueuesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeJobQueues)
 
 responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
+responseTagResource = res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
+responseUntagResource = res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseDescribeComputeEnvironments :: DescribeComputeEnvironmentsResponse -> TestTree
-responseDescribeComputeEnvironments =
-  res
+responseDescribeComputeEnvironments = res
     "DescribeComputeEnvironmentsResponse"
     "fixture/DescribeComputeEnvironmentsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeComputeEnvironments)
 
 responseCancelJob :: CancelJobResponse -> TestTree
-responseCancelJob =
-  res
+responseCancelJob = res
     "CancelJobResponse"
     "fixture/CancelJobResponse.proto"
     mkServiceConfig

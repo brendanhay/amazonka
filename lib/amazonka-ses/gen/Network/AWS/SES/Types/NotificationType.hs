@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,46 +10,28 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SES.Types.NotificationType
   ( NotificationType
-      ( NotificationType',
-        NotificationTypeBounce,
-        NotificationTypeComplaint,
-        NotificationTypeDelivery,
-        fromNotificationType
-      ),
-  )
-where
+    ( NotificationType'
+    , NotificationTypeBounce
+    , NotificationTypeComplaint
+    , NotificationTypeDelivery
+    , fromNotificationType
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype NotificationType = NotificationType'
-  { fromNotificationType ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype NotificationType = NotificationType'{fromNotificationType
+                                             :: Core.Text}
+                             deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                             Core.Generic)
+                             deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                               Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                               Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                               Core.FromText, Core.ToByteString, Core.ToQuery,
+                                               Core.ToHeader)
 
 pattern NotificationTypeBounce :: NotificationType
 pattern NotificationTypeBounce = NotificationType' "Bounce"
@@ -60,9 +42,11 @@ pattern NotificationTypeComplaint = NotificationType' "Complaint"
 pattern NotificationTypeDelivery :: NotificationType
 pattern NotificationTypeDelivery = NotificationType' "Delivery"
 
-{-# COMPLETE
+{-# COMPLETE 
   NotificationTypeBounce,
+
   NotificationTypeComplaint,
+
   NotificationTypeDelivery,
   NotificationType'
   #-}

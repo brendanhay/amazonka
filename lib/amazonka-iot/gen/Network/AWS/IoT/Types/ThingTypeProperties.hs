@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.IoT.Types.ThingTypeProperties
-  ( ThingTypeProperties (..),
-
-    -- * Smart constructor
-    mkThingTypeProperties,
-
-    -- * Lenses
-    ttpSearchableAttributes,
-    ttpThingTypeDescription,
-  )
-where
+  ( ThingTypeProperties (..)
+  -- * Smart constructor
+  , mkThingTypeProperties
+  -- * Lenses
+  , ttpSearchableAttributes
+  , ttpThingTypeDescription
+  ) where
 
 import qualified Network.AWS.IoT.Types.AttributeName as Types
 import qualified Network.AWS.IoT.Types.ThingTypeDescription as Types
@@ -31,50 +29,48 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkThingTypeProperties' smart constructor.
 data ThingTypeProperties = ThingTypeProperties'
-  { -- | A list of searchable thing attribute names.
-    searchableAttributes :: Core.Maybe [Types.AttributeName],
-    -- | The description of the thing type.
-    thingTypeDescription :: Core.Maybe Types.ThingTypeDescription
+  { searchableAttributes :: Core.Maybe [Types.AttributeName]
+    -- ^ A list of searchable thing attribute names.
+  , thingTypeDescription :: Core.Maybe Types.ThingTypeDescription
+    -- ^ The description of the thing type.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ThingTypeProperties' value with any optional fields omitted.
-mkThingTypeProperties ::
-  ThingTypeProperties
-mkThingTypeProperties =
-  ThingTypeProperties'
-    { searchableAttributes = Core.Nothing,
-      thingTypeDescription = Core.Nothing
-    }
+mkThingTypeProperties
+    :: ThingTypeProperties
+mkThingTypeProperties
+  = ThingTypeProperties'{searchableAttributes = Core.Nothing,
+                         thingTypeDescription = Core.Nothing}
 
 -- | A list of searchable thing attribute names.
 --
 -- /Note:/ Consider using 'searchableAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ttpSearchableAttributes :: Lens.Lens' ThingTypeProperties (Core.Maybe [Types.AttributeName])
 ttpSearchableAttributes = Lens.field @"searchableAttributes"
-{-# DEPRECATED ttpSearchableAttributes "Use generic-lens or generic-optics with 'searchableAttributes' instead." #-}
+{-# INLINEABLE ttpSearchableAttributes #-}
+{-# DEPRECATED searchableAttributes "Use generic-lens or generic-optics with 'searchableAttributes' instead"  #-}
 
 -- | The description of the thing type.
 --
 -- /Note:/ Consider using 'thingTypeDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ttpThingTypeDescription :: Lens.Lens' ThingTypeProperties (Core.Maybe Types.ThingTypeDescription)
 ttpThingTypeDescription = Lens.field @"thingTypeDescription"
-{-# DEPRECATED ttpThingTypeDescription "Use generic-lens or generic-optics with 'thingTypeDescription' instead." #-}
+{-# INLINEABLE ttpThingTypeDescription #-}
+{-# DEPRECATED thingTypeDescription "Use generic-lens or generic-optics with 'thingTypeDescription' instead"  #-}
 
 instance Core.FromJSON ThingTypeProperties where
-  toJSON ThingTypeProperties {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("searchableAttributes" Core..=) Core.<$> searchableAttributes,
-            ("thingTypeDescription" Core..=) Core.<$> thingTypeDescription
-          ]
-      )
+        toJSON ThingTypeProperties{..}
+          = Core.object
+              (Core.catMaybes
+                 [("searchableAttributes" Core..=) Core.<$> searchableAttributes,
+                  ("thingTypeDescription" Core..=) Core.<$> thingTypeDescription])
 
 instance Core.FromJSON ThingTypeProperties where
-  parseJSON =
-    Core.withObject "ThingTypeProperties" Core.$
-      \x ->
-        ThingTypeProperties'
-          Core.<$> (x Core..:? "searchableAttributes")
-          Core.<*> (x Core..:? "thingTypeDescription")
+        parseJSON
+          = Core.withObject "ThingTypeProperties" Core.$
+              \ x ->
+                ThingTypeProperties' Core.<$>
+                  (x Core..:? "searchableAttributes") Core.<*>
+                    x Core..:? "thingTypeDescription"

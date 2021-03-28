@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,29 +15,27 @@
 --
 -- Returns information about a version of an <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html AWS Lambda layer> , with a link to download the layer archive that's valid for 10 minutes.
 module Network.AWS.Lambda.GetLayerVersion
-  ( -- * Creating a request
-    GetLayerVersion (..),
-    mkGetLayerVersion,
-
+    (
+    -- * Creating a request
+      GetLayerVersion (..)
+    , mkGetLayerVersion
     -- ** Request lenses
-    glvLayerName,
-    glvVersionNumber,
+    , glvLayerName
+    , glvVersionNumber
 
-    -- * Destructuring the response
-    Types.GetLayerVersionResponse (..),
-    Types.mkGetLayerVersionResponse,
-
+     -- * Destructuring the response
+    , Types.GetLayerVersionResponse (..)
+    , Types.mkGetLayerVersionResponse
     -- ** Response lenses
-    Types.glvrCompatibleRuntimes,
-    Types.glvrContent,
-    Types.glvrCreatedDate,
-    Types.glvrDescription,
-    Types.glvrLayerArn,
-    Types.glvrLayerVersionArn,
-    Types.glvrLicenseInfo,
-    Types.glvrVersion,
-  )
-where
+    , Types.glvrCompatibleRuntimes
+    , Types.glvrContent
+    , Types.glvrCreatedDate
+    , Types.glvrDescription
+    , Types.glvrLayerArn
+    , Types.glvrLayerVersionArn
+    , Types.glvrLicenseInfo
+    , Types.glvrVersion
+    ) where
 
 import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -47,52 +45,58 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetLayerVersion' smart constructor.
 data GetLayerVersion = GetLayerVersion'
-  { -- | The name or Amazon Resource Name (ARN) of the layer.
-    layerName :: Types.LayerName,
-    -- | The version number.
-    versionNumber :: Core.Integer
+  { layerName :: Types.LayerName
+    -- ^ The name or Amazon Resource Name (ARN) of the layer.
+  , versionNumber :: Core.Integer
+    -- ^ The version number.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetLayerVersion' value with any optional fields omitted.
-mkGetLayerVersion ::
-  -- | 'layerName'
-  Types.LayerName ->
-  -- | 'versionNumber'
-  Core.Integer ->
-  GetLayerVersion
-mkGetLayerVersion layerName versionNumber =
-  GetLayerVersion' {layerName, versionNumber}
+mkGetLayerVersion
+    :: Types.LayerName -- ^ 'layerName'
+    -> Core.Integer -- ^ 'versionNumber'
+    -> GetLayerVersion
+mkGetLayerVersion layerName versionNumber
+  = GetLayerVersion'{layerName, versionNumber}
 
 -- | The name or Amazon Resource Name (ARN) of the layer.
 --
 -- /Note:/ Consider using 'layerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 glvLayerName :: Lens.Lens' GetLayerVersion Types.LayerName
 glvLayerName = Lens.field @"layerName"
-{-# DEPRECATED glvLayerName "Use generic-lens or generic-optics with 'layerName' instead." #-}
+{-# INLINEABLE glvLayerName #-}
+{-# DEPRECATED layerName "Use generic-lens or generic-optics with 'layerName' instead"  #-}
 
 -- | The version number.
 --
 -- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 glvVersionNumber :: Lens.Lens' GetLayerVersion Core.Integer
 glvVersionNumber = Lens.field @"versionNumber"
-{-# DEPRECATED glvVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
+{-# INLINEABLE glvVersionNumber #-}
+{-# DEPRECATED versionNumber "Use generic-lens or generic-optics with 'versionNumber' instead"  #-}
+
+instance Core.ToQuery GetLayerVersion where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders GetLayerVersion where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest GetLayerVersion where
-  type Rs GetLayerVersion = Types.GetLayerVersionResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.GET,
-        Core._rqPath =
-          Core.rawPath
-            ( "/2018-10-31/layers/" Core.<> (Core.toText layerName)
-                Core.<> ("/versions/")
-                Core.<> (Core.toText versionNumber)
-            ),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = ""
-      }
-  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)
+        type Rs GetLayerVersion = Types.GetLayerVersionResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.GET,
+                         Core._rqPath =
+                           "/2018-10-31/layers/" Core.<> Core.toText layerName Core.<>
+                             "/versions/"
+                             Core.<> Core.toText versionNumber,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON (\ s h x -> Core.eitherParseJSON x)
+        
+        {-# INLINE parseResponse #-}

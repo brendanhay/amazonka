@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,24 +15,22 @@
 --
 -- Retrieves information about the configuration, dimension, and other settings for a specific version of a segment that's associated with an application.
 module Network.AWS.Pinpoint.GetSegmentVersion
-  ( -- * Creating a request
-    GetSegmentVersion (..),
-    mkGetSegmentVersion,
-
+    (
+    -- * Creating a request
+      GetSegmentVersion (..)
+    , mkGetSegmentVersion
     -- ** Request lenses
-    gSegmentId,
-    gVersion,
-    gApplicationId,
+    , gSegmentId
+    , gVersion
+    , gApplicationId
 
     -- * Destructuring the response
-    GetSegmentVersionResponse (..),
-    mkGetSegmentVersionResponse,
-
+    , GetSegmentVersionResponse (..)
+    , mkGetSegmentVersionResponse
     -- ** Response lenses
-    gsvrrsSegmentResponse,
-    gsvrrsResponseStatus,
-  )
-where
+    , gsvrrsSegmentResponse
+    , gsvrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Pinpoint.Types as Types
@@ -42,104 +40,107 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetSegmentVersion' smart constructor.
 data GetSegmentVersion = GetSegmentVersion'
-  { -- | The unique identifier for the segment.
-    segmentId :: Core.Text,
-    -- | The unique version number (Version property) for the campaign version.
-    version :: Core.Text,
-    -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text
+  { segmentId :: Core.Text
+    -- ^ The unique identifier for the segment.
+  , version :: Core.Text
+    -- ^ The unique version number (Version property) for the campaign version.
+  , applicationId :: Core.Text
+    -- ^ The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetSegmentVersion' value with any optional fields omitted.
-mkGetSegmentVersion ::
-  -- | 'segmentId'
-  Core.Text ->
-  -- | 'version'
-  Core.Text ->
-  -- | 'applicationId'
-  Core.Text ->
-  GetSegmentVersion
-mkGetSegmentVersion segmentId version applicationId =
-  GetSegmentVersion' {segmentId, version, applicationId}
+mkGetSegmentVersion
+    :: Core.Text -- ^ 'segmentId'
+    -> Core.Text -- ^ 'version'
+    -> Core.Text -- ^ 'applicationId'
+    -> GetSegmentVersion
+mkGetSegmentVersion segmentId version applicationId
+  = GetSegmentVersion'{segmentId, version, applicationId}
 
 -- | The unique identifier for the segment.
 --
 -- /Note:/ Consider using 'segmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gSegmentId :: Lens.Lens' GetSegmentVersion Core.Text
 gSegmentId = Lens.field @"segmentId"
-{-# DEPRECATED gSegmentId "Use generic-lens or generic-optics with 'segmentId' instead." #-}
+{-# INLINEABLE gSegmentId #-}
+{-# DEPRECATED segmentId "Use generic-lens or generic-optics with 'segmentId' instead"  #-}
 
 -- | The unique version number (Version property) for the campaign version.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gVersion :: Lens.Lens' GetSegmentVersion Core.Text
 gVersion = Lens.field @"version"
-{-# DEPRECATED gVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+{-# INLINEABLE gVersion #-}
+{-# DEPRECATED version "Use generic-lens or generic-optics with 'version' instead"  #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gApplicationId :: Lens.Lens' GetSegmentVersion Core.Text
 gApplicationId = Lens.field @"applicationId"
-{-# DEPRECATED gApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+{-# INLINEABLE gApplicationId #-}
+{-# DEPRECATED applicationId "Use generic-lens or generic-optics with 'applicationId' instead"  #-}
+
+instance Core.ToQuery GetSegmentVersion where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders GetSegmentVersion where
+        toHeaders GetSegmentVersion{..}
+          = Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.AWSRequest GetSegmentVersion where
-  type Rs GetSegmentVersion = GetSegmentVersionResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.GET,
-        Core._rqPath =
-          Core.rawPath
-            ( "/v1/apps/" Core.<> (Core.toText applicationId)
-                Core.<> ("/segments/")
-                Core.<> (Core.toText segmentId)
-                Core.<> ("/versions/")
-                Core.<> (Core.toText version)
-            ),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
-        Core._rqBody = ""
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          GetSegmentVersionResponse'
-            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs GetSegmentVersion = GetSegmentVersionResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.GET,
+                         Core._rqPath =
+                           "/v1/apps/" Core.<> Core.toText applicationId Core.<> "/segments/"
+                             Core.<> Core.toText segmentId
+                             Core.<> "/versions/"
+                             Core.<> Core.toText version,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 GetSegmentVersionResponse' Core.<$>
+                   (Core.eitherParseJSON x) Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkGetSegmentVersionResponse' smart constructor.
 data GetSegmentVersionResponse = GetSegmentVersionResponse'
-  { segmentResponse :: Types.SegmentResponse,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { segmentResponse :: Types.SegmentResponse
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetSegmentVersionResponse' value with any optional fields omitted.
-mkGetSegmentVersionResponse ::
-  -- | 'segmentResponse'
-  Types.SegmentResponse ->
-  -- | 'responseStatus'
-  Core.Int ->
-  GetSegmentVersionResponse
-mkGetSegmentVersionResponse segmentResponse responseStatus =
-  GetSegmentVersionResponse' {segmentResponse, responseStatus}
+mkGetSegmentVersionResponse
+    :: Types.SegmentResponse -- ^ 'segmentResponse'
+    -> Core.Int -- ^ 'responseStatus'
+    -> GetSegmentVersionResponse
+mkGetSegmentVersionResponse segmentResponse responseStatus
+  = GetSegmentVersionResponse'{segmentResponse, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'segmentResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gsvrrsSegmentResponse :: Lens.Lens' GetSegmentVersionResponse Types.SegmentResponse
 gsvrrsSegmentResponse = Lens.field @"segmentResponse"
-{-# DEPRECATED gsvrrsSegmentResponse "Use generic-lens or generic-optics with 'segmentResponse' instead." #-}
+{-# INLINEABLE gsvrrsSegmentResponse #-}
+{-# DEPRECATED segmentResponse "Use generic-lens or generic-optics with 'segmentResponse' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gsvrrsResponseStatus :: Lens.Lens' GetSegmentVersionResponse Core.Int
 gsvrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED gsvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE gsvrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

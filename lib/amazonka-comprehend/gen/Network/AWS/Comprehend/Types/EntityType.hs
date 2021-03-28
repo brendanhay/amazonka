@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,49 +10,33 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Comprehend.Types.EntityType
   ( EntityType
-      ( EntityType',
-        EntityTypePerson,
-        EntityTypeLocation,
-        EntityTypeOrganization,
-        EntityTypeCommercialItem,
-        EntityTypeEvent,
-        EntityTypeDate,
-        EntityTypeQuantity,
-        EntityTypeTitle,
-        EntityTypeOther,
-        fromEntityType
-      ),
-  )
-where
+    ( EntityType'
+    , EntityTypePerson
+    , EntityTypeLocation
+    , EntityTypeOrganization
+    , EntityTypeCommercialItem
+    , EntityTypeEvent
+    , EntityTypeDate
+    , EntityTypeQuantity
+    , EntityTypeTitle
+    , EntityTypeOther
+    , fromEntityType
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype EntityType = EntityType' {fromEntityType :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype EntityType = EntityType'{fromEntityType :: Core.Text}
+                       deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                       Core.Generic)
+                       deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                         Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                         Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                         Core.FromText, Core.ToByteString, Core.ToQuery,
+                                         Core.ToHeader)
 
 pattern EntityTypePerson :: EntityType
 pattern EntityTypePerson = EntityType' "PERSON"
@@ -81,15 +65,23 @@ pattern EntityTypeTitle = EntityType' "TITLE"
 pattern EntityTypeOther :: EntityType
 pattern EntityTypeOther = EntityType' "OTHER"
 
-{-# COMPLETE
+{-# COMPLETE 
   EntityTypePerson,
+
   EntityTypeLocation,
+
   EntityTypeOrganization,
+
   EntityTypeCommercialItem,
+
   EntityTypeEvent,
+
   EntityTypeDate,
+
   EntityTypeQuantity,
+
   EntityTypeTitle,
+
   EntityTypeOther,
   EntityType'
   #-}

@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -12,630 +12,633 @@
 --
 -- Definition of the public APIs exposed by Amazon Machine Learning
 module Network.AWS.MachineLearning
-  ( -- * Service configuration
-    mkServiceConfig,
+    (
+    -- * Service configuration
+      mkServiceConfig
 
     -- * Errors
     -- $errors
 
     -- ** InvalidTagException
-    _InvalidTagException,
+    , _InvalidTagException
 
     -- ** InternalServerException
-    _InternalServerException,
+    , _InternalServerException
 
     -- ** InvalidInputException
-    _InvalidInputException,
+    , _InvalidInputException
 
     -- ** IdempotentParameterMismatchException
-    _IdempotentParameterMismatchException,
+    , _IdempotentParameterMismatchException
 
     -- ** TagLimitExceededException
-    _TagLimitExceededException,
+    , _TagLimitExceededException
 
     -- ** PredictorNotMountedException
-    _PredictorNotMountedException,
+    , _PredictorNotMountedException
 
     -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    , _ResourceNotFoundException
 
     -- ** LimitExceededException
-    _LimitExceededException,
+    , _LimitExceededException
 
     -- * Waiters
     -- $waiters
 
     -- ** MLModelAvailable
-    mkMLModelAvailable,
+    , mkMLModelAvailable
 
     -- ** BatchPredictionAvailable
-    mkBatchPredictionAvailable,
+    , mkBatchPredictionAvailable
 
     -- ** DataSourceAvailable
-    mkDataSourceAvailable,
+    , mkDataSourceAvailable
 
     -- ** EvaluationAvailable
-    mkEvaluationAvailable,
+    , mkEvaluationAvailable
 
     -- * Operations
     -- $operations
 
-    -- ** UpdateDataSource
-    module Network.AWS.MachineLearning.UpdateDataSource,
+    -- ** UpdateDataSource 
+    , module Network.AWS.MachineLearning.UpdateDataSource
 
-    -- ** DeleteDataSource
-    module Network.AWS.MachineLearning.DeleteDataSource,
+    -- ** DeleteDataSource 
+    , module Network.AWS.MachineLearning.DeleteDataSource
 
-    -- ** DescribeTags
-    module Network.AWS.MachineLearning.DescribeTags,
+    -- ** DescribeTags 
+    , module Network.AWS.MachineLearning.DescribeTags
 
-    -- ** CreateDataSourceFromRedshift
-    module Network.AWS.MachineLearning.CreateDataSourceFromRedshift,
+    -- ** CreateDataSourceFromRedshift 
+    , module Network.AWS.MachineLearning.CreateDataSourceFromRedshift
 
-    -- ** CreateDataSourceFromS3
-    module Network.AWS.MachineLearning.CreateDataSourceFromS3,
+    -- ** CreateDataSourceFromS3 
+    , module Network.AWS.MachineLearning.CreateDataSourceFromS3
 
-    -- ** CreateMLModel
-    module Network.AWS.MachineLearning.CreateMLModel,
+    -- ** CreateMLModel 
+    , module Network.AWS.MachineLearning.CreateMLModel
 
-    -- ** DeleteTags
-    module Network.AWS.MachineLearning.DeleteTags,
+    -- ** DeleteTags 
+    , module Network.AWS.MachineLearning.DeleteTags
 
-    -- ** DeleteBatchPrediction
-    module Network.AWS.MachineLearning.DeleteBatchPrediction,
+    -- ** DeleteBatchPrediction 
+    , module Network.AWS.MachineLearning.DeleteBatchPrediction
 
-    -- ** UpdateBatchPrediction
-    module Network.AWS.MachineLearning.UpdateBatchPrediction,
+    -- ** UpdateBatchPrediction 
+    , module Network.AWS.MachineLearning.UpdateBatchPrediction
 
-    -- ** GetMLModel
-    module Network.AWS.MachineLearning.GetMLModel,
+    -- ** GetMLModel 
+    , module Network.AWS.MachineLearning.GetMLModel
 
-    -- ** GetDataSource
-    module Network.AWS.MachineLearning.GetDataSource,
+    -- ** GetDataSource 
+    , module Network.AWS.MachineLearning.GetDataSource
 
-    -- ** UpdateEvaluation
-    module Network.AWS.MachineLearning.UpdateEvaluation,
+    -- ** UpdateEvaluation 
+    , module Network.AWS.MachineLearning.UpdateEvaluation
 
-    -- ** DeleteEvaluation
-    module Network.AWS.MachineLearning.DeleteEvaluation,
+    -- ** DeleteEvaluation 
+    , module Network.AWS.MachineLearning.DeleteEvaluation
 
-    -- ** DeleteMLModel
-    module Network.AWS.MachineLearning.DeleteMLModel,
+    -- ** DeleteMLModel 
+    , module Network.AWS.MachineLearning.DeleteMLModel
 
-    -- ** UpdateMLModel
-    module Network.AWS.MachineLearning.UpdateMLModel,
+    -- ** UpdateMLModel 
+    , module Network.AWS.MachineLearning.UpdateMLModel
 
-    -- ** GetBatchPrediction
-    module Network.AWS.MachineLearning.GetBatchPrediction,
+    -- ** GetBatchPrediction 
+    , module Network.AWS.MachineLearning.GetBatchPrediction
 
     -- ** DescribeBatchPredictions (Paginated)
-    module Network.AWS.MachineLearning.DescribeBatchPredictions,
+    , module Network.AWS.MachineLearning.DescribeBatchPredictions
 
-    -- ** CreateDataSourceFromRDS
-    module Network.AWS.MachineLearning.CreateDataSourceFromRDS,
+    -- ** CreateDataSourceFromRDS 
+    , module Network.AWS.MachineLearning.CreateDataSourceFromRDS
 
-    -- ** CreateEvaluation
-    module Network.AWS.MachineLearning.CreateEvaluation,
+    -- ** CreateEvaluation 
+    , module Network.AWS.MachineLearning.CreateEvaluation
 
-    -- ** Predict
-    module Network.AWS.MachineLearning.Predict,
+    -- ** Predict 
+    , module Network.AWS.MachineLearning.Predict
 
-    -- ** DeleteRealtimeEndpoint
-    module Network.AWS.MachineLearning.DeleteRealtimeEndpoint,
+    -- ** DeleteRealtimeEndpoint 
+    , module Network.AWS.MachineLearning.DeleteRealtimeEndpoint
 
-    -- ** CreateBatchPrediction
-    module Network.AWS.MachineLearning.CreateBatchPrediction,
+    -- ** CreateBatchPrediction 
+    , module Network.AWS.MachineLearning.CreateBatchPrediction
 
-    -- ** GetEvaluation
-    module Network.AWS.MachineLearning.GetEvaluation,
+    -- ** GetEvaluation 
+    , module Network.AWS.MachineLearning.GetEvaluation
 
     -- ** DescribeEvaluations (Paginated)
-    module Network.AWS.MachineLearning.DescribeEvaluations,
+    , module Network.AWS.MachineLearning.DescribeEvaluations
 
-    -- ** CreateRealtimeEndpoint
-    module Network.AWS.MachineLearning.CreateRealtimeEndpoint,
+    -- ** CreateRealtimeEndpoint 
+    , module Network.AWS.MachineLearning.CreateRealtimeEndpoint
 
-    -- ** AddTags
-    module Network.AWS.MachineLearning.AddTags,
+    -- ** AddTags 
+    , module Network.AWS.MachineLearning.AddTags
 
     -- ** DescribeMLModels (Paginated)
-    module Network.AWS.MachineLearning.DescribeMLModels,
+    , module Network.AWS.MachineLearning.DescribeMLModels
 
     -- ** DescribeDataSources (Paginated)
-    module Network.AWS.MachineLearning.DescribeDataSources,
+    , module Network.AWS.MachineLearning.DescribeDataSources
 
     -- * Types
 
     -- ** EntityName
-    EntityName (..),
+    , EntityName (..)
 
     -- ** RDSDatabaseName
-    RDSDatabaseName (..),
+    , RDSDatabaseName (..)
 
     -- ** BatchPredictionFilterVariable
-    BatchPredictionFilterVariable (..),
+    , BatchPredictionFilterVariable (..)
 
     -- ** RDSInstanceIdentifier
-    RDSInstanceIdentifier (..),
+    , RDSInstanceIdentifier (..)
 
     -- ** RDSDatabasePassword
-    RDSDatabasePassword (..),
+    , RDSDatabasePassword (..)
 
     -- ** PerformanceMetrics
-    PerformanceMetrics (..),
-    mkPerformanceMetrics,
-    pmProperties,
+    , PerformanceMetrics (..)
+    , mkPerformanceMetrics
+    , pmProperties
 
     -- ** EDPResourceRole
-    EDPResourceRole (..),
+    , EDPResourceRole (..)
 
     -- ** RedshiftClusterIdentifier
-    RedshiftClusterIdentifier (..),
+    , RedshiftClusterIdentifier (..)
 
     -- ** Tag
-    Tag (..),
-    mkTag,
-    tKey,
-    tValue,
+    , Tag (..)
+    , mkTag
+    , tKey
+    , tValue
 
     -- ** RealtimeEndpointInfo
-    RealtimeEndpointInfo (..),
-    mkRealtimeEndpointInfo,
-    reiCreatedAt,
-    reiEndpointStatus,
-    reiEndpointUrl,
-    reiPeakRequestsPerSecond,
+    , RealtimeEndpointInfo (..)
+    , mkRealtimeEndpointInfo
+    , reiCreatedAt
+    , reiEndpointStatus
+    , reiEndpointUrl
+    , reiPeakRequestsPerSecond
 
     -- ** Prediction
-    Prediction (..),
-    mkPrediction,
-    pDetails,
-    pPredictedLabel,
-    pPredictedScores,
-    pPredictedValue,
+    , Prediction (..)
+    , mkPrediction
+    , pDetails
+    , pPredictedLabel
+    , pPredictedScores
+    , pPredictedValue
 
     -- ** EDPSecurityGroupId
-    EDPSecurityGroupId (..),
+    , EDPSecurityGroupId (..)
 
     -- ** S3DataSpec
-    S3DataSpec (..),
-    mkS3DataSpec,
-    sdsDataLocationS3,
-    sdsDataRearrangement,
-    sdsDataSchema,
-    sdsDataSchemaLocationS3,
+    , S3DataSpec (..)
+    , mkS3DataSpec
+    , sdsDataLocationS3
+    , sdsDataRearrangement
+    , sdsDataSchema
+    , sdsDataSchemaLocationS3
 
     -- ** DetailsAttributes
-    DetailsAttributes (..),
+    , DetailsAttributes (..)
 
     -- ** EvaluationFilterVariable
-    EvaluationFilterVariable (..),
+    , EvaluationFilterVariable (..)
 
     -- ** RealtimeEndpointStatus
-    RealtimeEndpointStatus (..),
+    , RealtimeEndpointStatus (..)
 
     -- ** RDSDataSpec
-    RDSDataSpec (..),
-    mkRDSDataSpec,
-    rdsdsDatabaseInformation,
-    rdsdsSelectSqlQuery,
-    rdsdsDatabaseCredentials,
-    rdsdsS3StagingLocation,
-    rdsdsResourceRole,
-    rdsdsServiceRole,
-    rdsdsSubnetId,
-    rdsdsSecurityGroupIds,
-    rdsdsDataRearrangement,
-    rdsdsDataSchema,
-    rdsdsDataSchemaUri,
+    , RDSDataSpec (..)
+    , mkRDSDataSpec
+    , rdsdsDatabaseInformation
+    , rdsdsSelectSqlQuery
+    , rdsdsDatabaseCredentials
+    , rdsdsS3StagingLocation
+    , rdsdsResourceRole
+    , rdsdsServiceRole
+    , rdsdsSubnetId
+    , rdsdsSecurityGroupIds
+    , rdsdsDataRearrangement
+    , rdsdsDataSchema
+    , rdsdsDataSchemaUri
 
     -- ** Recipe
-    Recipe (..),
+    , Recipe (..)
 
     -- ** EDPServiceRole
-    EDPServiceRole (..),
+    , EDPServiceRole (..)
 
     -- ** RDSMetadata
-    RDSMetadata (..),
-    mkRDSMetadata,
-    rdsmDataPipelineId,
-    rdsmDatabase,
-    rdsmDatabaseUserName,
-    rdsmResourceRole,
-    rdsmSelectSqlQuery,
-    rdsmServiceRole,
+    , RDSMetadata (..)
+    , mkRDSMetadata
+    , rdsmDataPipelineId
+    , rdsmDatabase
+    , rdsmDatabaseUserName
+    , rdsmResourceRole
+    , rdsmSelectSqlQuery
+    , rdsmServiceRole
 
     -- ** RedshiftDatabaseUsername
-    RedshiftDatabaseUsername (..),
+    , RedshiftDatabaseUsername (..)
 
     -- ** PerformanceMetricsPropertyValue
-    PerformanceMetricsPropertyValue (..),
+    , PerformanceMetricsPropertyValue (..)
 
     -- ** RedshiftDatabase
-    RedshiftDatabase (..),
-    mkRedshiftDatabase,
-    rdDatabaseName,
-    rdClusterIdentifier,
+    , RedshiftDatabase (..)
+    , mkRedshiftDatabase
+    , rdDatabaseName
+    , rdClusterIdentifier
 
     -- ** RedshiftDatabaseCredentials
-    RedshiftDatabaseCredentials (..),
-    mkRedshiftDatabaseCredentials,
-    rdcUsername,
-    rdcPassword,
+    , RedshiftDatabaseCredentials (..)
+    , mkRedshiftDatabaseCredentials
+    , rdcUsername
+    , rdcPassword
 
     -- ** MLModel
-    MLModel (..),
-    mkMLModel,
-    mlmAlgorithm,
-    mlmComputeTime,
-    mlmCreatedAt,
-    mlmCreatedByIamUser,
-    mlmEndpointInfo,
-    mlmFinishedAt,
-    mlmInputDataLocationS3,
-    mlmLastUpdatedAt,
-    mlmMLModelId,
-    mlmMLModelType,
-    mlmMessage,
-    mlmName,
-    mlmScoreThreshold,
-    mlmScoreThresholdLastUpdatedAt,
-    mlmSizeInBytes,
-    mlmStartedAt,
-    mlmStatus,
-    mlmTrainingDataSourceId,
-    mlmTrainingParameters,
+    , MLModel (..)
+    , mkMLModel
+    , mlmAlgorithm
+    , mlmComputeTime
+    , mlmCreatedAt
+    , mlmCreatedByIamUser
+    , mlmEndpointInfo
+    , mlmFinishedAt
+    , mlmInputDataLocationS3
+    , mlmLastUpdatedAt
+    , mlmMLModelId
+    , mlmMLModelType
+    , mlmMessage
+    , mlmName
+    , mlmScoreThreshold
+    , mlmScoreThresholdLastUpdatedAt
+    , mlmSizeInBytes
+    , mlmStartedAt
+    , mlmStatus
+    , mlmTrainingDataSourceId
+    , mlmTrainingParameters
 
     -- ** DataSchema
-    DataSchema (..),
+    , DataSchema (..)
 
     -- ** AwsUserArn
-    AwsUserArn (..),
+    , AwsUserArn (..)
 
     -- ** VariableName
-    VariableName (..),
+    , VariableName (..)
 
     -- ** MLModelName
-    MLModelName (..),
+    , MLModelName (..)
 
     -- ** BatchPrediction
-    BatchPrediction (..),
-    mkBatchPrediction,
-    bpBatchPredictionDataSourceId,
-    bpBatchPredictionId,
-    bpComputeTime,
-    bpCreatedAt,
-    bpCreatedByIamUser,
-    bpFinishedAt,
-    bpInputDataLocationS3,
-    bpInvalidRecordCount,
-    bpLastUpdatedAt,
-    bpMLModelId,
-    bpMessage,
-    bpName,
-    bpOutputUri,
-    bpStartedAt,
-    bpStatus,
-    bpTotalRecordCount,
+    , BatchPrediction (..)
+    , mkBatchPrediction
+    , bpBatchPredictionDataSourceId
+    , bpBatchPredictionId
+    , bpComputeTime
+    , bpCreatedAt
+    , bpCreatedByIamUser
+    , bpFinishedAt
+    , bpInputDataLocationS3
+    , bpInvalidRecordCount
+    , bpLastUpdatedAt
+    , bpMLModelId
+    , bpMessage
+    , bpName
+    , bpOutputUri
+    , bpStartedAt
+    , bpStatus
+    , bpTotalRecordCount
 
     -- ** VipURL
-    VipURL (..),
+    , VipURL (..)
 
     -- ** SortOrder
-    SortOrder (..),
+    , SortOrder (..)
 
     -- ** RedshiftSelectSqlQuery
-    RedshiftSelectSqlQuery (..),
+    , RedshiftSelectSqlQuery (..)
 
     -- ** Algorithm
-    Algorithm (..),
+    , Algorithm (..)
 
     -- ** PerformanceMetricsPropertyKey
-    PerformanceMetricsPropertyKey (..),
+    , PerformanceMetricsPropertyKey (..)
 
     -- ** EntityStatus
-    EntityStatus (..),
+    , EntityStatus (..)
 
     -- ** DataSource
-    DataSource (..),
-    mkDataSource,
-    dsComputeStatistics,
-    dsComputeTime,
-    dsCreatedAt,
-    dsCreatedByIamUser,
-    dsDataLocationS3,
-    dsDataRearrangement,
-    dsDataSizeInBytes,
-    dsDataSourceId,
-    dsFinishedAt,
-    dsLastUpdatedAt,
-    dsMessage,
-    dsName,
-    dsNumberOfFiles,
-    dsRDSMetadata,
-    dsRedshiftMetadata,
-    dsRoleARN,
-    dsStartedAt,
-    dsStatus,
+    , DataSource (..)
+    , mkDataSource
+    , dsComputeStatistics
+    , dsComputeTime
+    , dsCreatedAt
+    , dsCreatedByIamUser
+    , dsDataLocationS3
+    , dsDataRearrangement
+    , dsDataSizeInBytes
+    , dsDataSourceId
+    , dsFinishedAt
+    , dsLastUpdatedAt
+    , dsMessage
+    , dsName
+    , dsNumberOfFiles
+    , dsRDSMetadata
+    , dsRedshiftMetadata
+    , dsRoleARN
+    , dsStartedAt
+    , dsStatus
 
     -- ** VariableValue
-    VariableValue (..),
+    , VariableValue (..)
 
     -- ** StringType
-    StringType (..),
+    , StringType (..)
 
     -- ** TaggableResourceType
-    TaggableResourceType (..),
+    , TaggableResourceType (..)
 
     -- ** TagKey
-    TagKey (..),
+    , TagKey (..)
 
     -- ** RDSDatabase
-    RDSDatabase (..),
-    mkRDSDatabase,
-    rdsdInstanceIdentifier,
-    rdsdDatabaseName,
+    , RDSDatabase (..)
+    , mkRDSDatabase
+    , rdsdInstanceIdentifier
+    , rdsdDatabaseName
 
     -- ** RDSDatabaseCredentials
-    RDSDatabaseCredentials (..),
-    mkRDSDatabaseCredentials,
-    rdsdcUsername,
-    rdsdcPassword,
+    , RDSDatabaseCredentials (..)
+    , mkRDSDatabaseCredentials
+    , rdsdcUsername
+    , rdsdcPassword
 
     -- ** MLModelFilterVariable
-    MLModelFilterVariable (..),
+    , MLModelFilterVariable (..)
 
     -- ** S3Url
-    S3Url (..),
+    , S3Url (..)
 
     -- ** Message
-    Message (..),
+    , Message (..)
 
     -- ** DataSourceFilterVariable
-    DataSourceFilterVariable (..),
+    , DataSourceFilterVariable (..)
 
     -- ** RedshiftDataSpec
-    RedshiftDataSpec (..),
-    mkRedshiftDataSpec,
-    rdsDatabaseInformation,
-    rdsSelectSqlQuery,
-    rdsDatabaseCredentials,
-    rdsS3StagingLocation,
-    rdsDataRearrangement,
-    rdsDataSchema,
-    rdsDataSchemaUri,
+    , RedshiftDataSpec (..)
+    , mkRedshiftDataSpec
+    , rdsDatabaseInformation
+    , rdsSelectSqlQuery
+    , rdsDatabaseCredentials
+    , rdsS3StagingLocation
+    , rdsDataRearrangement
+    , rdsDataSchema
+    , rdsDataSchemaUri
 
     -- ** EntityId
-    EntityId (..),
+    , EntityId (..)
 
     -- ** Label
-    Label (..),
+    , Label (..)
 
     -- ** Evaluation
-    Evaluation (..),
-    mkEvaluation,
-    eComputeTime,
-    eCreatedAt,
-    eCreatedByIamUser,
-    eEvaluationDataSourceId,
-    eEvaluationId,
-    eFinishedAt,
-    eInputDataLocationS3,
-    eLastUpdatedAt,
-    eMLModelId,
-    eMessage,
-    eName,
-    ePerformanceMetrics,
-    eStartedAt,
-    eStatus,
+    , Evaluation (..)
+    , mkEvaluation
+    , eComputeTime
+    , eCreatedAt
+    , eCreatedByIamUser
+    , eEvaluationDataSourceId
+    , eEvaluationId
+    , eFinishedAt
+    , eInputDataLocationS3
+    , eLastUpdatedAt
+    , eMLModelId
+    , eMessage
+    , eName
+    , ePerformanceMetrics
+    , eStartedAt
+    , eStatus
 
     -- ** RedshiftMetadata
-    RedshiftMetadata (..),
-    mkRedshiftMetadata,
-    rmDatabaseUserName,
-    rmRedshiftDatabase,
-    rmSelectSqlQuery,
+    , RedshiftMetadata (..)
+    , mkRedshiftMetadata
+    , rmDatabaseUserName
+    , rmRedshiftDatabase
+    , rmSelectSqlQuery
 
     -- ** MLModelType
-    MLModelType (..),
+    , MLModelType (..)
 
     -- ** DetailsValue
-    DetailsValue (..),
+    , DetailsValue (..)
 
     -- ** ComparatorValue
-    ComparatorValue (..),
+    , ComparatorValue (..)
 
     -- ** DataRearrangement
-    DataRearrangement (..),
+    , DataRearrangement (..)
 
     -- ** RoleARN
-    RoleARN (..),
+    , RoleARN (..)
 
     -- ** DataSourceId
-    DataSourceId (..),
+    , DataSourceId (..)
 
     -- ** DataSourceName
-    DataSourceName (..),
+    , DataSourceName (..)
 
     -- ** EvaluationId
-    EvaluationId (..),
+    , EvaluationId (..)
 
     -- ** MLModelId
-    MLModelId (..),
+    , MLModelId (..)
 
     -- ** EvaluationDataSourceId
-    EvaluationDataSourceId (..),
+    , EvaluationDataSourceId (..)
 
     -- ** EvaluationName
-    EvaluationName (..),
+    , EvaluationName (..)
 
     -- ** NextToken
-    NextToken (..),
+    , NextToken (..)
 
     -- ** ResourceId
-    ResourceId (..),
+    , ResourceId (..)
 
     -- ** CreatedByIamUser
-    CreatedByIamUser (..),
+    , CreatedByIamUser (..)
 
     -- ** InputDataLocationS3
-    InputDataLocationS3 (..),
+    , InputDataLocationS3 (..)
 
     -- ** LogUri
-    LogUri (..),
+    , LogUri (..)
 
     -- ** Key
-    Key (..),
+    , Key (..)
 
     -- ** Value
-    Value (..),
+    , Value (..)
 
     -- ** BatchPredictionId
-    BatchPredictionId (..),
+    , BatchPredictionId (..)
 
     -- ** EndpointUrl
-    EndpointUrl (..),
+    , EndpointUrl (..)
 
     -- ** PredictedLabel
-    PredictedLabel (..),
+    , PredictedLabel (..)
 
     -- ** DataLocationS3
-    DataLocationS3 (..),
+    , DataLocationS3 (..)
 
     -- ** DataSchemaLocationS3
-    DataSchemaLocationS3 (..),
+    , DataSchemaLocationS3 (..)
 
     -- ** SelectSqlQuery
-    SelectSqlQuery (..),
+    , SelectSqlQuery (..)
 
     -- ** S3StagingLocation
-    S3StagingLocation (..),
+    , S3StagingLocation (..)
 
     -- ** ServiceRole
-    ServiceRole (..),
+    , ServiceRole (..)
 
     -- ** SubnetId
-    SubnetId (..),
+    , SubnetId (..)
 
     -- ** DataSchemaUri
-    DataSchemaUri (..),
+    , DataSchemaUri (..)
 
     -- ** DataPipelineId
-    DataPipelineId (..),
+    , DataPipelineId (..)
 
     -- ** DatabaseUserName
-    DatabaseUserName (..),
+    , DatabaseUserName (..)
 
     -- ** BatchPredictionDataSourceId
-    BatchPredictionDataSourceId (..),
+    , BatchPredictionDataSourceId (..)
 
     -- ** OutputUri
-    OutputUri (..),
+    , OutputUri (..)
 
     -- ** DatabaseName
-    DatabaseName (..),
+    , DatabaseName (..)
 
     -- ** Password
-    Password (..),
+    , Password (..)
 
     -- ** Name
-    Name (..),
+    , Name (..)
 
     -- ** TrainingDataSourceId
-    TrainingDataSourceId (..),
+    , TrainingDataSourceId (..)
 
     -- ** RecipeUri
-    RecipeUri (..),
+    , RecipeUri (..)
 
     -- ** EQ
-    EQ (..),
+    , EQ (..)
 
     -- ** GE
-    GE (..),
+    , GE (..)
 
     -- ** GT
-    GT (..),
+    , GT (..)
 
     -- ** LE
-    LE (..),
+    , LE (..)
 
     -- ** LT
-    LT (..),
+    , LT (..)
 
     -- ** NE
-    NE (..),
+    , NE (..)
 
     -- ** Prefix
-    Prefix (..),
+    , Prefix (..)
 
     -- ** Username
-    Username (..),
+    , Username (..)
 
     -- * Serialization types
-    Lude.Base64 (..),
-    Lude._Base64,
-    Lude.Sensitive (..),
-    Lude._Sensitive,
-    Lude.UTCTime,
-    Lude.NominalDiffTime,
-  )
-where
+    , Lude.Base64 (..)
+    , Lude._Base64
+    , Lude.Sensitive (..)
+    , Lude._Sensitive
+    , Lude.UTCTime
+    , Lude.NominalDiffTime
+    ) where
 
-import Network.AWS.MachineLearning.AddTags
-import Network.AWS.MachineLearning.CreateBatchPrediction
-import Network.AWS.MachineLearning.CreateDataSourceFromRDS
+import Network.AWS.MachineLearning.Types
+import Network.AWS.MachineLearning.Waiters
+import Network.AWS.MachineLearning.UpdateDataSource
+import Network.AWS.MachineLearning.DeleteDataSource
+import Network.AWS.MachineLearning.DescribeTags
 import Network.AWS.MachineLearning.CreateDataSourceFromRedshift
 import Network.AWS.MachineLearning.CreateDataSourceFromS3
-import Network.AWS.MachineLearning.CreateEvaluation
 import Network.AWS.MachineLearning.CreateMLModel
-import Network.AWS.MachineLearning.CreateRealtimeEndpoint
+import Network.AWS.MachineLearning.DeleteTags
 import Network.AWS.MachineLearning.DeleteBatchPrediction
-import Network.AWS.MachineLearning.DeleteDataSource
+import Network.AWS.MachineLearning.UpdateBatchPrediction
+import Network.AWS.MachineLearning.GetMLModel
+import Network.AWS.MachineLearning.GetDataSource
+import Network.AWS.MachineLearning.UpdateEvaluation
 import Network.AWS.MachineLearning.DeleteEvaluation
 import Network.AWS.MachineLearning.DeleteMLModel
-import Network.AWS.MachineLearning.DeleteRealtimeEndpoint
-import Network.AWS.MachineLearning.DeleteTags
-import Network.AWS.MachineLearning.DescribeBatchPredictions
-import Network.AWS.MachineLearning.DescribeDataSources
-import Network.AWS.MachineLearning.DescribeEvaluations
-import Network.AWS.MachineLearning.DescribeMLModels
-import Network.AWS.MachineLearning.DescribeTags
-import Network.AWS.MachineLearning.GetBatchPrediction
-import Network.AWS.MachineLearning.GetDataSource
-import Network.AWS.MachineLearning.GetEvaluation
-import Network.AWS.MachineLearning.GetMLModel
-import Network.AWS.MachineLearning.Predict
-import Network.AWS.MachineLearning.Types
-import Network.AWS.MachineLearning.UpdateBatchPrediction
-import Network.AWS.MachineLearning.UpdateDataSource
-import Network.AWS.MachineLearning.UpdateEvaluation
 import Network.AWS.MachineLearning.UpdateMLModel
-import Network.AWS.MachineLearning.Waiters
+import Network.AWS.MachineLearning.GetBatchPrediction
+import Network.AWS.MachineLearning.DescribeBatchPredictions
+import Network.AWS.MachineLearning.CreateDataSourceFromRDS
+import Network.AWS.MachineLearning.CreateEvaluation
+import Network.AWS.MachineLearning.Predict
+import Network.AWS.MachineLearning.DeleteRealtimeEndpoint
+import Network.AWS.MachineLearning.CreateBatchPrediction
+import Network.AWS.MachineLearning.GetEvaluation
+import Network.AWS.MachineLearning.DescribeEvaluations
+import Network.AWS.MachineLearning.CreateRealtimeEndpoint
+import Network.AWS.MachineLearning.AddTags
+import Network.AWS.MachineLearning.DescribeMLModels
+import Network.AWS.MachineLearning.DescribeDataSources
 import qualified Network.AWS.Prelude as Lude
 
--- $errors
--- Error matchers are designed for use with the functions provided by
--- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
--- This allows catching (and rethrowing) service specific errors returned
--- by 'MachineLearning'.
+{- $errors
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by 'MachineLearning'.
+-}
 
--- $operations
--- Some AWS operations return results that are incomplete and require subsequent
--- requests in order to obtain the entire result set. The process of sending
--- subsequent requests to continue where a previous request left off is called
--- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
--- 1000 objects at a time, and you must send subsequent requests with the
--- appropriate Marker in order to retrieve the next page of results.
---
--- Operations that have an 'AWSPager' instance can transparently perform subsequent
--- requests, correctly setting Markers and other request facets to iterate through
--- the entire result set of a truncated API operation. Operations which support
--- this have an additional note in the documentation.
---
--- Many operations have the ability to filter results on the server side. See the
--- individual operation parameters for details.
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
 
--- $waiters
--- Waiters poll by repeatedly sending a request until some remote success condition
--- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
--- determines how many attempts should be made, in addition to delay and retry strategies.
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly sending a request until some remote success condition
+configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+determines how many attempts should be made, in addition to delay and retry strategies.
+-}

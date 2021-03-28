@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SWF.Types.RequestCancelActivityTaskDecisionAttributes
-  ( RequestCancelActivityTaskDecisionAttributes (..),
-
-    -- * Smart constructor
-    mkRequestCancelActivityTaskDecisionAttributes,
-
-    -- * Lenses
-    rcatdaActivityId,
-  )
-where
+  ( RequestCancelActivityTaskDecisionAttributes (..)
+  -- * Smart constructor
+  , mkRequestCancelActivityTaskDecisionAttributes
+  -- * Lenses
+  , rcatdaActivityId
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -27,7 +25,7 @@ import qualified Network.AWS.SWF.Types.ActivityId as Types
 
 -- | Provides the details of the @RequestCancelActivityTask@ decision.
 --
--- __Access Control__
+-- __Access Control__ 
 -- You can use IAM policies to control this decision's access to Amazon SWF resources as follows:
 --
 --     * Use a @Resource@ element with the domain name to limit the action to only specified domains.
@@ -43,28 +41,29 @@ import qualified Network.AWS.SWF.Types.ActivityId as Types
 --
 -- /See:/ 'mkRequestCancelActivityTaskDecisionAttributes' smart constructor.
 newtype RequestCancelActivityTaskDecisionAttributes = RequestCancelActivityTaskDecisionAttributes'
-  { -- | The @activityId@ of the activity task to be canceled.
-    activityId :: Types.ActivityId
+  { activityId :: Types.ActivityId
+    -- ^ The @activityId@ of the activity task to be canceled.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'RequestCancelActivityTaskDecisionAttributes' value with any optional fields omitted.
-mkRequestCancelActivityTaskDecisionAttributes ::
-  -- | 'activityId'
-  Types.ActivityId ->
-  RequestCancelActivityTaskDecisionAttributes
-mkRequestCancelActivityTaskDecisionAttributes activityId =
-  RequestCancelActivityTaskDecisionAttributes' {activityId}
+mkRequestCancelActivityTaskDecisionAttributes
+    :: Types.ActivityId -- ^ 'activityId'
+    -> RequestCancelActivityTaskDecisionAttributes
+mkRequestCancelActivityTaskDecisionAttributes activityId
+  = RequestCancelActivityTaskDecisionAttributes'{activityId}
 
 -- | The @activityId@ of the activity task to be canceled.
 --
 -- /Note:/ Consider using 'activityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rcatdaActivityId :: Lens.Lens' RequestCancelActivityTaskDecisionAttributes Types.ActivityId
 rcatdaActivityId = Lens.field @"activityId"
-{-# DEPRECATED rcatdaActivityId "Use generic-lens or generic-optics with 'activityId' instead." #-}
+{-# INLINEABLE rcatdaActivityId #-}
+{-# DEPRECATED activityId "Use generic-lens or generic-optics with 'activityId' instead"  #-}
 
-instance Core.FromJSON RequestCancelActivityTaskDecisionAttributes where
-  toJSON RequestCancelActivityTaskDecisionAttributes {..} =
-    Core.object
-      (Core.catMaybes [Core.Just ("activityId" Core..= activityId)])
+instance Core.FromJSON RequestCancelActivityTaskDecisionAttributes
+         where
+        toJSON RequestCancelActivityTaskDecisionAttributes{..}
+          = Core.object
+              (Core.catMaybes [Core.Just ("activityId" Core..= activityId)])

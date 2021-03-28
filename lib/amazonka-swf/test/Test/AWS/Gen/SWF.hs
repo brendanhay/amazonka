@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.SWF where
 
 import Data.Proxy
-import Network.AWS.SWF
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.AWS.SWF.Internal
 import Test.Tasty
+import Network.AWS.SWF
+import Test.AWS.SWF.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -258,520 +259,446 @@ import Test.Tasty
 -- Requests
 
 requestListOpenWorkflowExecutions :: ListOpenWorkflowExecutions -> TestTree
-requestListOpenWorkflowExecutions =
-  req
+requestListOpenWorkflowExecutions = req
     "ListOpenWorkflowExecutions"
     "fixture/ListOpenWorkflowExecutions.yaml"
 
 requestRegisterActivityType :: RegisterActivityType -> TestTree
-requestRegisterActivityType =
-  req
+requestRegisterActivityType = req
     "RegisterActivityType"
     "fixture/RegisterActivityType.yaml"
 
 requestListActivityTypes :: ListActivityTypes -> TestTree
-requestListActivityTypes =
-  req
+requestListActivityTypes = req
     "ListActivityTypes"
     "fixture/ListActivityTypes.yaml"
 
 requestCountPendingActivityTasks :: CountPendingActivityTasks -> TestTree
-requestCountPendingActivityTasks =
-  req
+requestCountPendingActivityTasks = req
     "CountPendingActivityTasks"
     "fixture/CountPendingActivityTasks.yaml"
 
 requestRegisterWorkflowType :: RegisterWorkflowType -> TestTree
-requestRegisterWorkflowType =
-  req
+requestRegisterWorkflowType = req
     "RegisterWorkflowType"
     "fixture/RegisterWorkflowType.yaml"
 
 requestListWorkflowTypes :: ListWorkflowTypes -> TestTree
-requestListWorkflowTypes =
-  req
+requestListWorkflowTypes = req
     "ListWorkflowTypes"
     "fixture/ListWorkflowTypes.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
+requestListTagsForResource = req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
 requestRespondActivityTaskFailed :: RespondActivityTaskFailed -> TestTree
-requestRespondActivityTaskFailed =
-  req
+requestRespondActivityTaskFailed = req
     "RespondActivityTaskFailed"
     "fixture/RespondActivityTaskFailed.yaml"
 
 requestCountOpenWorkflowExecutions :: CountOpenWorkflowExecutions -> TestTree
-requestCountOpenWorkflowExecutions =
-  req
+requestCountOpenWorkflowExecutions = req
     "CountOpenWorkflowExecutions"
     "fixture/CountOpenWorkflowExecutions.yaml"
 
 requestUndeprecateDomain :: UndeprecateDomain -> TestTree
-requestUndeprecateDomain =
-  req
+requestUndeprecateDomain = req
     "UndeprecateDomain"
     "fixture/UndeprecateDomain.yaml"
 
 requestDescribeWorkflowType :: DescribeWorkflowType -> TestTree
-requestDescribeWorkflowType =
-  req
+requestDescribeWorkflowType = req
     "DescribeWorkflowType"
     "fixture/DescribeWorkflowType.yaml"
 
 requestDeprecateWorkflowType :: DeprecateWorkflowType -> TestTree
-requestDeprecateWorkflowType =
-  req
+requestDeprecateWorkflowType = req
     "DeprecateWorkflowType"
     "fixture/DeprecateWorkflowType.yaml"
 
 requestRequestCancelWorkflowExecution :: RequestCancelWorkflowExecution -> TestTree
-requestRequestCancelWorkflowExecution =
-  req
+requestRequestCancelWorkflowExecution = req
     "RequestCancelWorkflowExecution"
     "fixture/RequestCancelWorkflowExecution.yaml"
 
 requestRegisterDomain :: RegisterDomain -> TestTree
-requestRegisterDomain =
-  req
+requestRegisterDomain = req
     "RegisterDomain"
     "fixture/RegisterDomain.yaml"
 
 requestRespondDecisionTaskCompleted :: RespondDecisionTaskCompleted -> TestTree
-requestRespondDecisionTaskCompleted =
-  req
+requestRespondDecisionTaskCompleted = req
     "RespondDecisionTaskCompleted"
     "fixture/RespondDecisionTaskCompleted.yaml"
 
 requestPollForActivityTask :: PollForActivityTask -> TestTree
-requestPollForActivityTask =
-  req
+requestPollForActivityTask = req
     "PollForActivityTask"
     "fixture/PollForActivityTask.yaml"
 
 requestRespondActivityTaskCompleted :: RespondActivityTaskCompleted -> TestTree
-requestRespondActivityTaskCompleted =
-  req
+requestRespondActivityTaskCompleted = req
     "RespondActivityTaskCompleted"
     "fixture/RespondActivityTaskCompleted.yaml"
 
 requestDescribeWorkflowExecution :: DescribeWorkflowExecution -> TestTree
-requestDescribeWorkflowExecution =
-  req
+requestDescribeWorkflowExecution = req
     "DescribeWorkflowExecution"
     "fixture/DescribeWorkflowExecution.yaml"
 
 requestSignalWorkflowExecution :: SignalWorkflowExecution -> TestTree
-requestSignalWorkflowExecution =
-  req
+requestSignalWorkflowExecution = req
     "SignalWorkflowExecution"
     "fixture/SignalWorkflowExecution.yaml"
 
 requestCountPendingDecisionTasks :: CountPendingDecisionTasks -> TestTree
-requestCountPendingDecisionTasks =
-  req
+requestCountPendingDecisionTasks = req
     "CountPendingDecisionTasks"
     "fixture/CountPendingDecisionTasks.yaml"
 
 requestListClosedWorkflowExecutions :: ListClosedWorkflowExecutions -> TestTree
-requestListClosedWorkflowExecutions =
-  req
+requestListClosedWorkflowExecutions = req
     "ListClosedWorkflowExecutions"
     "fixture/ListClosedWorkflowExecutions.yaml"
 
 requestRecordActivityTaskHeartbeat :: RecordActivityTaskHeartbeat -> TestTree
-requestRecordActivityTaskHeartbeat =
-  req
+requestRecordActivityTaskHeartbeat = req
     "RecordActivityTaskHeartbeat"
     "fixture/RecordActivityTaskHeartbeat.yaml"
 
 requestDescribeDomain :: DescribeDomain -> TestTree
-requestDescribeDomain =
-  req
+requestDescribeDomain = req
     "DescribeDomain"
     "fixture/DescribeDomain.yaml"
 
 requestGetWorkflowExecutionHistory :: GetWorkflowExecutionHistory -> TestTree
-requestGetWorkflowExecutionHistory =
-  req
+requestGetWorkflowExecutionHistory = req
     "GetWorkflowExecutionHistory"
     "fixture/GetWorkflowExecutionHistory.yaml"
 
 requestDeprecateDomain :: DeprecateDomain -> TestTree
-requestDeprecateDomain =
-  req
+requestDeprecateDomain = req
     "DeprecateDomain"
     "fixture/DeprecateDomain.yaml"
 
 requestUndeprecateWorkflowType :: UndeprecateWorkflowType -> TestTree
-requestUndeprecateWorkflowType =
-  req
+requestUndeprecateWorkflowType = req
     "UndeprecateWorkflowType"
     "fixture/UndeprecateWorkflowType.yaml"
 
 requestTerminateWorkflowExecution :: TerminateWorkflowExecution -> TestTree
-requestTerminateWorkflowExecution =
-  req
+requestTerminateWorkflowExecution = req
     "TerminateWorkflowExecution"
     "fixture/TerminateWorkflowExecution.yaml"
 
 requestDescribeActivityType :: DescribeActivityType -> TestTree
-requestDescribeActivityType =
-  req
+requestDescribeActivityType = req
     "DescribeActivityType"
     "fixture/DescribeActivityType.yaml"
 
 requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
+requestTagResource = req
     "TagResource"
     "fixture/TagResource.yaml"
 
 requestDeprecateActivityType :: DeprecateActivityType -> TestTree
-requestDeprecateActivityType =
-  req
+requestDeprecateActivityType = req
     "DeprecateActivityType"
     "fixture/DeprecateActivityType.yaml"
 
 requestUndeprecateActivityType :: UndeprecateActivityType -> TestTree
-requestUndeprecateActivityType =
-  req
+requestUndeprecateActivityType = req
     "UndeprecateActivityType"
     "fixture/UndeprecateActivityType.yaml"
 
 requestCountClosedWorkflowExecutions :: CountClosedWorkflowExecutions -> TestTree
-requestCountClosedWorkflowExecutions =
-  req
+requestCountClosedWorkflowExecutions = req
     "CountClosedWorkflowExecutions"
     "fixture/CountClosedWorkflowExecutions.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
+requestUntagResource = req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
 requestRespondActivityTaskCanceled :: RespondActivityTaskCanceled -> TestTree
-requestRespondActivityTaskCanceled =
-  req
+requestRespondActivityTaskCanceled = req
     "RespondActivityTaskCanceled"
     "fixture/RespondActivityTaskCanceled.yaml"
 
 requestStartWorkflowExecution :: StartWorkflowExecution -> TestTree
-requestStartWorkflowExecution =
-  req
+requestStartWorkflowExecution = req
     "StartWorkflowExecution"
     "fixture/StartWorkflowExecution.yaml"
 
 requestPollForDecisionTask :: PollForDecisionTask -> TestTree
-requestPollForDecisionTask =
-  req
+requestPollForDecisionTask = req
     "PollForDecisionTask"
     "fixture/PollForDecisionTask.yaml"
 
 requestListDomains :: ListDomains -> TestTree
-requestListDomains =
-  req
+requestListDomains = req
     "ListDomains"
     "fixture/ListDomains.yaml"
 
 -- Responses
 
 responseListOpenWorkflowExecutions :: WorkflowExecutionInfos -> TestTree
-responseListOpenWorkflowExecutions =
-  res
+responseListOpenWorkflowExecutions = res
     "ListOpenWorkflowExecutionsResponse"
     "fixture/ListOpenWorkflowExecutionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListOpenWorkflowExecutions)
 
 responseRegisterActivityType :: RegisterActivityTypeResponse -> TestTree
-responseRegisterActivityType =
-  res
+responseRegisterActivityType = res
     "RegisterActivityTypeResponse"
     "fixture/RegisterActivityTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RegisterActivityType)
 
 responseListActivityTypes :: ListActivityTypesResponse -> TestTree
-responseListActivityTypes =
-  res
+responseListActivityTypes = res
     "ListActivityTypesResponse"
     "fixture/ListActivityTypesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListActivityTypes)
 
 responseCountPendingActivityTasks :: PendingTaskCount -> TestTree
-responseCountPendingActivityTasks =
-  res
+responseCountPendingActivityTasks = res
     "CountPendingActivityTasksResponse"
     "fixture/CountPendingActivityTasksResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CountPendingActivityTasks)
 
 responseRegisterWorkflowType :: RegisterWorkflowTypeResponse -> TestTree
-responseRegisterWorkflowType =
-  res
+responseRegisterWorkflowType = res
     "RegisterWorkflowTypeResponse"
     "fixture/RegisterWorkflowTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RegisterWorkflowType)
 
 responseListWorkflowTypes :: ListWorkflowTypesResponse -> TestTree
-responseListWorkflowTypes =
-  res
+responseListWorkflowTypes = res
     "ListWorkflowTypesResponse"
     "fixture/ListWorkflowTypesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListWorkflowTypes)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
+responseListTagsForResource = res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseRespondActivityTaskFailed :: RespondActivityTaskFailedResponse -> TestTree
-responseRespondActivityTaskFailed =
-  res
+responseRespondActivityTaskFailed = res
     "RespondActivityTaskFailedResponse"
     "fixture/RespondActivityTaskFailedResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RespondActivityTaskFailed)
 
 responseCountOpenWorkflowExecutions :: WorkflowExecutionCount -> TestTree
-responseCountOpenWorkflowExecutions =
-  res
+responseCountOpenWorkflowExecutions = res
     "CountOpenWorkflowExecutionsResponse"
     "fixture/CountOpenWorkflowExecutionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CountOpenWorkflowExecutions)
 
 responseUndeprecateDomain :: UndeprecateDomainResponse -> TestTree
-responseUndeprecateDomain =
-  res
+responseUndeprecateDomain = res
     "UndeprecateDomainResponse"
     "fixture/UndeprecateDomainResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UndeprecateDomain)
 
 responseDescribeWorkflowType :: DescribeWorkflowTypeResponse -> TestTree
-responseDescribeWorkflowType =
-  res
+responseDescribeWorkflowType = res
     "DescribeWorkflowTypeResponse"
     "fixture/DescribeWorkflowTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeWorkflowType)
 
 responseDeprecateWorkflowType :: DeprecateWorkflowTypeResponse -> TestTree
-responseDeprecateWorkflowType =
-  res
+responseDeprecateWorkflowType = res
     "DeprecateWorkflowTypeResponse"
     "fixture/DeprecateWorkflowTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeprecateWorkflowType)
 
 responseRequestCancelWorkflowExecution :: RequestCancelWorkflowExecutionResponse -> TestTree
-responseRequestCancelWorkflowExecution =
-  res
+responseRequestCancelWorkflowExecution = res
     "RequestCancelWorkflowExecutionResponse"
     "fixture/RequestCancelWorkflowExecutionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RequestCancelWorkflowExecution)
 
 responseRegisterDomain :: RegisterDomainResponse -> TestTree
-responseRegisterDomain =
-  res
+responseRegisterDomain = res
     "RegisterDomainResponse"
     "fixture/RegisterDomainResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RegisterDomain)
 
 responseRespondDecisionTaskCompleted :: RespondDecisionTaskCompletedResponse -> TestTree
-responseRespondDecisionTaskCompleted =
-  res
+responseRespondDecisionTaskCompleted = res
     "RespondDecisionTaskCompletedResponse"
     "fixture/RespondDecisionTaskCompletedResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RespondDecisionTaskCompleted)
 
 responsePollForActivityTask :: PollForActivityTaskResponse -> TestTree
-responsePollForActivityTask =
-  res
+responsePollForActivityTask = res
     "PollForActivityTaskResponse"
     "fixture/PollForActivityTaskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PollForActivityTask)
 
 responseRespondActivityTaskCompleted :: RespondActivityTaskCompletedResponse -> TestTree
-responseRespondActivityTaskCompleted =
-  res
+responseRespondActivityTaskCompleted = res
     "RespondActivityTaskCompletedResponse"
     "fixture/RespondActivityTaskCompletedResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RespondActivityTaskCompleted)
 
 responseDescribeWorkflowExecution :: DescribeWorkflowExecutionResponse -> TestTree
-responseDescribeWorkflowExecution =
-  res
+responseDescribeWorkflowExecution = res
     "DescribeWorkflowExecutionResponse"
     "fixture/DescribeWorkflowExecutionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeWorkflowExecution)
 
 responseSignalWorkflowExecution :: SignalWorkflowExecutionResponse -> TestTree
-responseSignalWorkflowExecution =
-  res
+responseSignalWorkflowExecution = res
     "SignalWorkflowExecutionResponse"
     "fixture/SignalWorkflowExecutionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SignalWorkflowExecution)
 
 responseCountPendingDecisionTasks :: PendingTaskCount -> TestTree
-responseCountPendingDecisionTasks =
-  res
+responseCountPendingDecisionTasks = res
     "CountPendingDecisionTasksResponse"
     "fixture/CountPendingDecisionTasksResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CountPendingDecisionTasks)
 
 responseListClosedWorkflowExecutions :: WorkflowExecutionInfos -> TestTree
-responseListClosedWorkflowExecutions =
-  res
+responseListClosedWorkflowExecutions = res
     "ListClosedWorkflowExecutionsResponse"
     "fixture/ListClosedWorkflowExecutionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListClosedWorkflowExecutions)
 
 responseRecordActivityTaskHeartbeat :: RecordActivityTaskHeartbeatResponse -> TestTree
-responseRecordActivityTaskHeartbeat =
-  res
+responseRecordActivityTaskHeartbeat = res
     "RecordActivityTaskHeartbeatResponse"
     "fixture/RecordActivityTaskHeartbeatResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RecordActivityTaskHeartbeat)
 
 responseDescribeDomain :: DescribeDomainResponse -> TestTree
-responseDescribeDomain =
-  res
+responseDescribeDomain = res
     "DescribeDomainResponse"
     "fixture/DescribeDomainResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeDomain)
 
 responseGetWorkflowExecutionHistory :: GetWorkflowExecutionHistoryResponse -> TestTree
-responseGetWorkflowExecutionHistory =
-  res
+responseGetWorkflowExecutionHistory = res
     "GetWorkflowExecutionHistoryResponse"
     "fixture/GetWorkflowExecutionHistoryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetWorkflowExecutionHistory)
 
 responseDeprecateDomain :: DeprecateDomainResponse -> TestTree
-responseDeprecateDomain =
-  res
+responseDeprecateDomain = res
     "DeprecateDomainResponse"
     "fixture/DeprecateDomainResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeprecateDomain)
 
 responseUndeprecateWorkflowType :: UndeprecateWorkflowTypeResponse -> TestTree
-responseUndeprecateWorkflowType =
-  res
+responseUndeprecateWorkflowType = res
     "UndeprecateWorkflowTypeResponse"
     "fixture/UndeprecateWorkflowTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UndeprecateWorkflowType)
 
 responseTerminateWorkflowExecution :: TerminateWorkflowExecutionResponse -> TestTree
-responseTerminateWorkflowExecution =
-  res
+responseTerminateWorkflowExecution = res
     "TerminateWorkflowExecutionResponse"
     "fixture/TerminateWorkflowExecutionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TerminateWorkflowExecution)
 
 responseDescribeActivityType :: DescribeActivityTypeResponse -> TestTree
-responseDescribeActivityType =
-  res
+responseDescribeActivityType = res
     "DescribeActivityTypeResponse"
     "fixture/DescribeActivityTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeActivityType)
 
 responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
+responseTagResource = res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseDeprecateActivityType :: DeprecateActivityTypeResponse -> TestTree
-responseDeprecateActivityType =
-  res
+responseDeprecateActivityType = res
     "DeprecateActivityTypeResponse"
     "fixture/DeprecateActivityTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeprecateActivityType)
 
 responseUndeprecateActivityType :: UndeprecateActivityTypeResponse -> TestTree
-responseUndeprecateActivityType =
-  res
+responseUndeprecateActivityType = res
     "UndeprecateActivityTypeResponse"
     "fixture/UndeprecateActivityTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UndeprecateActivityType)
 
 responseCountClosedWorkflowExecutions :: WorkflowExecutionCount -> TestTree
-responseCountClosedWorkflowExecutions =
-  res
+responseCountClosedWorkflowExecutions = res
     "CountClosedWorkflowExecutionsResponse"
     "fixture/CountClosedWorkflowExecutionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CountClosedWorkflowExecutions)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
+responseUntagResource = res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseRespondActivityTaskCanceled :: RespondActivityTaskCanceledResponse -> TestTree
-responseRespondActivityTaskCanceled =
-  res
+responseRespondActivityTaskCanceled = res
     "RespondActivityTaskCanceledResponse"
     "fixture/RespondActivityTaskCanceledResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RespondActivityTaskCanceled)
 
 responseStartWorkflowExecution :: StartWorkflowExecutionResponse -> TestTree
-responseStartWorkflowExecution =
-  res
+responseStartWorkflowExecution = res
     "StartWorkflowExecutionResponse"
     "fixture/StartWorkflowExecutionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartWorkflowExecution)
 
 responsePollForDecisionTask :: PollForDecisionTaskResponse -> TestTree
-responsePollForDecisionTask =
-  res
+responsePollForDecisionTask = res
     "PollForDecisionTaskResponse"
     "fixture/PollForDecisionTaskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PollForDecisionTask)
 
 responseListDomains :: ListDomainsResponse -> TestTree
-responseListDomains =
-  res
+responseListDomains = res
     "ListDomainsResponse"
     "fixture/ListDomainsResponse.proto"
     mkServiceConfig

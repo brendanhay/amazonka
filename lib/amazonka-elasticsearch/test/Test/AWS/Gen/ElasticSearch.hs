@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.ElasticSearch where
 
 import Data.Proxy
-import Network.AWS.ElasticSearch
-import Test.AWS.ElasticSearch.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.ElasticSearch
+import Test.AWS.ElasticSearch.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -270,548 +271,470 @@ import Test.Tasty
 -- Requests
 
 requestCreateOutboundCrossClusterSearchConnection :: CreateOutboundCrossClusterSearchConnection -> TestTree
-requestCreateOutboundCrossClusterSearchConnection =
-  req
+requestCreateOutboundCrossClusterSearchConnection = req
     "CreateOutboundCrossClusterSearchConnection"
     "fixture/CreateOutboundCrossClusterSearchConnection.yaml"
 
 requestDescribeInboundCrossClusterSearchConnections :: DescribeInboundCrossClusterSearchConnections -> TestTree
-requestDescribeInboundCrossClusterSearchConnections =
-  req
+requestDescribeInboundCrossClusterSearchConnections = req
     "DescribeInboundCrossClusterSearchConnections"
     "fixture/DescribeInboundCrossClusterSearchConnections.yaml"
 
 requestCreateElasticsearchDomain :: CreateElasticsearchDomain -> TestTree
-requestCreateElasticsearchDomain =
-  req
+requestCreateElasticsearchDomain = req
     "CreateElasticsearchDomain"
     "fixture/CreateElasticsearchDomain.yaml"
 
 requestRemoveTags :: RemoveTags -> TestTree
-requestRemoveTags =
-  req
+requestRemoveTags = req
     "RemoveTags"
     "fixture/RemoveTags.yaml"
 
 requestGetCompatibleElasticsearchVersions :: GetCompatibleElasticsearchVersions -> TestTree
-requestGetCompatibleElasticsearchVersions =
-  req
+requestGetCompatibleElasticsearchVersions = req
     "GetCompatibleElasticsearchVersions"
     "fixture/GetCompatibleElasticsearchVersions.yaml"
 
 requestDescribeElasticsearchDomains :: DescribeElasticsearchDomains -> TestTree
-requestDescribeElasticsearchDomains =
-  req
+requestDescribeElasticsearchDomains = req
     "DescribeElasticsearchDomains"
     "fixture/DescribeElasticsearchDomains.yaml"
 
 requestListDomainsForPackage :: ListDomainsForPackage -> TestTree
-requestListDomainsForPackage =
-  req
+requestListDomainsForPackage = req
     "ListDomainsForPackage"
     "fixture/ListDomainsForPackage.yaml"
 
 requestListPackagesForDomain :: ListPackagesForDomain -> TestTree
-requestListPackagesForDomain =
-  req
+requestListPackagesForDomain = req
     "ListPackagesForDomain"
     "fixture/ListPackagesForDomain.yaml"
 
 requestStartElasticsearchServiceSoftwareUpdate :: StartElasticsearchServiceSoftwareUpdate -> TestTree
-requestStartElasticsearchServiceSoftwareUpdate =
-  req
+requestStartElasticsearchServiceSoftwareUpdate = req
     "StartElasticsearchServiceSoftwareUpdate"
     "fixture/StartElasticsearchServiceSoftwareUpdate.yaml"
 
 requestListElasticsearchInstanceTypes :: ListElasticsearchInstanceTypes -> TestTree
-requestListElasticsearchInstanceTypes =
-  req
+requestListElasticsearchInstanceTypes = req
     "ListElasticsearchInstanceTypes"
     "fixture/ListElasticsearchInstanceTypes.yaml"
 
 requestDeleteElasticsearchServiceRole :: DeleteElasticsearchServiceRole -> TestTree
-requestDeleteElasticsearchServiceRole =
-  req
+requestDeleteElasticsearchServiceRole = req
     "DeleteElasticsearchServiceRole"
     "fixture/DeleteElasticsearchServiceRole.yaml"
 
 requestDescribeElasticsearchDomain :: DescribeElasticsearchDomain -> TestTree
-requestDescribeElasticsearchDomain =
-  req
+requestDescribeElasticsearchDomain = req
     "DescribeElasticsearchDomain"
     "fixture/DescribeElasticsearchDomain.yaml"
 
 requestListDomainNames :: ListDomainNames -> TestTree
-requestListDomainNames =
-  req
+requestListDomainNames = req
     "ListDomainNames"
     "fixture/ListDomainNames.yaml"
 
 requestAssociatePackage :: AssociatePackage -> TestTree
-requestAssociatePackage =
-  req
+requestAssociatePackage = req
     "AssociatePackage"
     "fixture/AssociatePackage.yaml"
 
 requestDeleteOutboundCrossClusterSearchConnection :: DeleteOutboundCrossClusterSearchConnection -> TestTree
-requestDeleteOutboundCrossClusterSearchConnection =
-  req
+requestDeleteOutboundCrossClusterSearchConnection = req
     "DeleteOutboundCrossClusterSearchConnection"
     "fixture/DeleteOutboundCrossClusterSearchConnection.yaml"
 
 requestDescribeElasticsearchInstanceTypeLimits :: DescribeElasticsearchInstanceTypeLimits -> TestTree
-requestDescribeElasticsearchInstanceTypeLimits =
-  req
+requestDescribeElasticsearchInstanceTypeLimits = req
     "DescribeElasticsearchInstanceTypeLimits"
     "fixture/DescribeElasticsearchInstanceTypeLimits.yaml"
 
 requestGetPackageVersionHistory :: GetPackageVersionHistory -> TestTree
-requestGetPackageVersionHistory =
-  req
+requestGetPackageVersionHistory = req
     "GetPackageVersionHistory"
     "fixture/GetPackageVersionHistory.yaml"
 
 requestGetUpgradeHistory :: GetUpgradeHistory -> TestTree
-requestGetUpgradeHistory =
-  req
+requestGetUpgradeHistory = req
     "GetUpgradeHistory"
     "fixture/GetUpgradeHistory.yaml"
 
 requestDescribePackages :: DescribePackages -> TestTree
-requestDescribePackages =
-  req
+requestDescribePackages = req
     "DescribePackages"
     "fixture/DescribePackages.yaml"
 
 requestDescribeElasticsearchDomainConfig :: DescribeElasticsearchDomainConfig -> TestTree
-requestDescribeElasticsearchDomainConfig =
-  req
+requestDescribeElasticsearchDomainConfig = req
     "DescribeElasticsearchDomainConfig"
     "fixture/DescribeElasticsearchDomainConfig.yaml"
 
 requestGetUpgradeStatus :: GetUpgradeStatus -> TestTree
-requestGetUpgradeStatus =
-  req
+requestGetUpgradeStatus = req
     "GetUpgradeStatus"
     "fixture/GetUpgradeStatus.yaml"
 
 requestDeleteElasticsearchDomain :: DeleteElasticsearchDomain -> TestTree
-requestDeleteElasticsearchDomain =
-  req
+requestDeleteElasticsearchDomain = req
     "DeleteElasticsearchDomain"
     "fixture/DeleteElasticsearchDomain.yaml"
 
 requestDissociatePackage :: DissociatePackage -> TestTree
-requestDissociatePackage =
-  req
+requestDissociatePackage = req
     "DissociatePackage"
     "fixture/DissociatePackage.yaml"
 
 requestPurchaseReservedElasticsearchInstanceOffering :: PurchaseReservedElasticsearchInstanceOffering -> TestTree
-requestPurchaseReservedElasticsearchInstanceOffering =
-  req
+requestPurchaseReservedElasticsearchInstanceOffering = req
     "PurchaseReservedElasticsearchInstanceOffering"
     "fixture/PurchaseReservedElasticsearchInstanceOffering.yaml"
 
 requestDescribeReservedElasticsearchInstances :: DescribeReservedElasticsearchInstances -> TestTree
-requestDescribeReservedElasticsearchInstances =
-  req
+requestDescribeReservedElasticsearchInstances = req
     "DescribeReservedElasticsearchInstances"
     "fixture/DescribeReservedElasticsearchInstances.yaml"
 
 requestUpdateElasticsearchDomainConfig :: UpdateElasticsearchDomainConfig -> TestTree
-requestUpdateElasticsearchDomainConfig =
-  req
+requestUpdateElasticsearchDomainConfig = req
     "UpdateElasticsearchDomainConfig"
     "fixture/UpdateElasticsearchDomainConfig.yaml"
 
 requestListElasticsearchVersions :: ListElasticsearchVersions -> TestTree
-requestListElasticsearchVersions =
-  req
+requestListElasticsearchVersions = req
     "ListElasticsearchVersions"
     "fixture/ListElasticsearchVersions.yaml"
 
 requestAddTags :: AddTags -> TestTree
-requestAddTags =
-  req
+requestAddTags = req
     "AddTags"
     "fixture/AddTags.yaml"
 
 requestDeleteInboundCrossClusterSearchConnection :: DeleteInboundCrossClusterSearchConnection -> TestTree
-requestDeleteInboundCrossClusterSearchConnection =
-  req
+requestDeleteInboundCrossClusterSearchConnection = req
     "DeleteInboundCrossClusterSearchConnection"
     "fixture/DeleteInboundCrossClusterSearchConnection.yaml"
 
 requestDescribeReservedElasticsearchInstanceOfferings :: DescribeReservedElasticsearchInstanceOfferings -> TestTree
-requestDescribeReservedElasticsearchInstanceOfferings =
-  req
+requestDescribeReservedElasticsearchInstanceOfferings = req
     "DescribeReservedElasticsearchInstanceOfferings"
     "fixture/DescribeReservedElasticsearchInstanceOfferings.yaml"
 
 requestUpgradeElasticsearchDomain :: UpgradeElasticsearchDomain -> TestTree
-requestUpgradeElasticsearchDomain =
-  req
+requestUpgradeElasticsearchDomain = req
     "UpgradeElasticsearchDomain"
     "fixture/UpgradeElasticsearchDomain.yaml"
 
 requestListTags :: ListTags -> TestTree
-requestListTags =
-  req
+requestListTags = req
     "ListTags"
     "fixture/ListTags.yaml"
 
 requestDeletePackage :: DeletePackage -> TestTree
-requestDeletePackage =
-  req
+requestDeletePackage = req
     "DeletePackage"
     "fixture/DeletePackage.yaml"
 
 requestUpdatePackage :: UpdatePackage -> TestTree
-requestUpdatePackage =
-  req
+requestUpdatePackage = req
     "UpdatePackage"
     "fixture/UpdatePackage.yaml"
 
 requestCancelElasticsearchServiceSoftwareUpdate :: CancelElasticsearchServiceSoftwareUpdate -> TestTree
-requestCancelElasticsearchServiceSoftwareUpdate =
-  req
+requestCancelElasticsearchServiceSoftwareUpdate = req
     "CancelElasticsearchServiceSoftwareUpdate"
     "fixture/CancelElasticsearchServiceSoftwareUpdate.yaml"
 
 requestCreatePackage :: CreatePackage -> TestTree
-requestCreatePackage =
-  req
+requestCreatePackage = req
     "CreatePackage"
     "fixture/CreatePackage.yaml"
 
 requestRejectInboundCrossClusterSearchConnection :: RejectInboundCrossClusterSearchConnection -> TestTree
-requestRejectInboundCrossClusterSearchConnection =
-  req
+requestRejectInboundCrossClusterSearchConnection = req
     "RejectInboundCrossClusterSearchConnection"
     "fixture/RejectInboundCrossClusterSearchConnection.yaml"
 
 requestDescribeOutboundCrossClusterSearchConnections :: DescribeOutboundCrossClusterSearchConnections -> TestTree
-requestDescribeOutboundCrossClusterSearchConnections =
-  req
+requestDescribeOutboundCrossClusterSearchConnections = req
     "DescribeOutboundCrossClusterSearchConnections"
     "fixture/DescribeOutboundCrossClusterSearchConnections.yaml"
 
 requestAcceptInboundCrossClusterSearchConnection :: AcceptInboundCrossClusterSearchConnection -> TestTree
-requestAcceptInboundCrossClusterSearchConnection =
-  req
+requestAcceptInboundCrossClusterSearchConnection = req
     "AcceptInboundCrossClusterSearchConnection"
     "fixture/AcceptInboundCrossClusterSearchConnection.yaml"
 
 -- Responses
 
 responseCreateOutboundCrossClusterSearchConnection :: CreateOutboundCrossClusterSearchConnectionResponse -> TestTree
-responseCreateOutboundCrossClusterSearchConnection =
-  res
+responseCreateOutboundCrossClusterSearchConnection = res
     "CreateOutboundCrossClusterSearchConnectionResponse"
     "fixture/CreateOutboundCrossClusterSearchConnectionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateOutboundCrossClusterSearchConnection)
 
 responseDescribeInboundCrossClusterSearchConnections :: DescribeInboundCrossClusterSearchConnectionsResponse -> TestTree
-responseDescribeInboundCrossClusterSearchConnections =
-  res
+responseDescribeInboundCrossClusterSearchConnections = res
     "DescribeInboundCrossClusterSearchConnectionsResponse"
     "fixture/DescribeInboundCrossClusterSearchConnectionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeInboundCrossClusterSearchConnections)
 
 responseCreateElasticsearchDomain :: CreateElasticsearchDomainResponse -> TestTree
-responseCreateElasticsearchDomain =
-  res
+responseCreateElasticsearchDomain = res
     "CreateElasticsearchDomainResponse"
     "fixture/CreateElasticsearchDomainResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateElasticsearchDomain)
 
 responseRemoveTags :: RemoveTagsResponse -> TestTree
-responseRemoveTags =
-  res
+responseRemoveTags = res
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RemoveTags)
 
 responseGetCompatibleElasticsearchVersions :: GetCompatibleElasticsearchVersionsResponse -> TestTree
-responseGetCompatibleElasticsearchVersions =
-  res
+responseGetCompatibleElasticsearchVersions = res
     "GetCompatibleElasticsearchVersionsResponse"
     "fixture/GetCompatibleElasticsearchVersionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetCompatibleElasticsearchVersions)
 
 responseDescribeElasticsearchDomains :: DescribeElasticsearchDomainsResponse -> TestTree
-responseDescribeElasticsearchDomains =
-  res
+responseDescribeElasticsearchDomains = res
     "DescribeElasticsearchDomainsResponse"
     "fixture/DescribeElasticsearchDomainsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeElasticsearchDomains)
 
 responseListDomainsForPackage :: ListDomainsForPackageResponse -> TestTree
-responseListDomainsForPackage =
-  res
+responseListDomainsForPackage = res
     "ListDomainsForPackageResponse"
     "fixture/ListDomainsForPackageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListDomainsForPackage)
 
 responseListPackagesForDomain :: ListPackagesForDomainResponse -> TestTree
-responseListPackagesForDomain =
-  res
+responseListPackagesForDomain = res
     "ListPackagesForDomainResponse"
     "fixture/ListPackagesForDomainResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListPackagesForDomain)
 
 responseStartElasticsearchServiceSoftwareUpdate :: StartElasticsearchServiceSoftwareUpdateResponse -> TestTree
-responseStartElasticsearchServiceSoftwareUpdate =
-  res
+responseStartElasticsearchServiceSoftwareUpdate = res
     "StartElasticsearchServiceSoftwareUpdateResponse"
     "fixture/StartElasticsearchServiceSoftwareUpdateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartElasticsearchServiceSoftwareUpdate)
 
 responseListElasticsearchInstanceTypes :: ListElasticsearchInstanceTypesResponse -> TestTree
-responseListElasticsearchInstanceTypes =
-  res
+responseListElasticsearchInstanceTypes = res
     "ListElasticsearchInstanceTypesResponse"
     "fixture/ListElasticsearchInstanceTypesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListElasticsearchInstanceTypes)
 
 responseDeleteElasticsearchServiceRole :: DeleteElasticsearchServiceRoleResponse -> TestTree
-responseDeleteElasticsearchServiceRole =
-  res
+responseDeleteElasticsearchServiceRole = res
     "DeleteElasticsearchServiceRoleResponse"
     "fixture/DeleteElasticsearchServiceRoleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteElasticsearchServiceRole)
 
 responseDescribeElasticsearchDomain :: DescribeElasticsearchDomainResponse -> TestTree
-responseDescribeElasticsearchDomain =
-  res
+responseDescribeElasticsearchDomain = res
     "DescribeElasticsearchDomainResponse"
     "fixture/DescribeElasticsearchDomainResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeElasticsearchDomain)
 
 responseListDomainNames :: ListDomainNamesResponse -> TestTree
-responseListDomainNames =
-  res
+responseListDomainNames = res
     "ListDomainNamesResponse"
     "fixture/ListDomainNamesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListDomainNames)
 
 responseAssociatePackage :: AssociatePackageResponse -> TestTree
-responseAssociatePackage =
-  res
+responseAssociatePackage = res
     "AssociatePackageResponse"
     "fixture/AssociatePackageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociatePackage)
 
 responseDeleteOutboundCrossClusterSearchConnection :: DeleteOutboundCrossClusterSearchConnectionResponse -> TestTree
-responseDeleteOutboundCrossClusterSearchConnection =
-  res
+responseDeleteOutboundCrossClusterSearchConnection = res
     "DeleteOutboundCrossClusterSearchConnectionResponse"
     "fixture/DeleteOutboundCrossClusterSearchConnectionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteOutboundCrossClusterSearchConnection)
 
 responseDescribeElasticsearchInstanceTypeLimits :: DescribeElasticsearchInstanceTypeLimitsResponse -> TestTree
-responseDescribeElasticsearchInstanceTypeLimits =
-  res
+responseDescribeElasticsearchInstanceTypeLimits = res
     "DescribeElasticsearchInstanceTypeLimitsResponse"
     "fixture/DescribeElasticsearchInstanceTypeLimitsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeElasticsearchInstanceTypeLimits)
 
 responseGetPackageVersionHistory :: GetPackageVersionHistoryResponse -> TestTree
-responseGetPackageVersionHistory =
-  res
+responseGetPackageVersionHistory = res
     "GetPackageVersionHistoryResponse"
     "fixture/GetPackageVersionHistoryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetPackageVersionHistory)
 
 responseGetUpgradeHistory :: GetUpgradeHistoryResponse -> TestTree
-responseGetUpgradeHistory =
-  res
+responseGetUpgradeHistory = res
     "GetUpgradeHistoryResponse"
     "fixture/GetUpgradeHistoryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetUpgradeHistory)
 
 responseDescribePackages :: DescribePackagesResponse -> TestTree
-responseDescribePackages =
-  res
+responseDescribePackages = res
     "DescribePackagesResponse"
     "fixture/DescribePackagesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribePackages)
 
 responseDescribeElasticsearchDomainConfig :: DescribeElasticsearchDomainConfigResponse -> TestTree
-responseDescribeElasticsearchDomainConfig =
-  res
+responseDescribeElasticsearchDomainConfig = res
     "DescribeElasticsearchDomainConfigResponse"
     "fixture/DescribeElasticsearchDomainConfigResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeElasticsearchDomainConfig)
 
 responseGetUpgradeStatus :: GetUpgradeStatusResponse -> TestTree
-responseGetUpgradeStatus =
-  res
+responseGetUpgradeStatus = res
     "GetUpgradeStatusResponse"
     "fixture/GetUpgradeStatusResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetUpgradeStatus)
 
 responseDeleteElasticsearchDomain :: DeleteElasticsearchDomainResponse -> TestTree
-responseDeleteElasticsearchDomain =
-  res
+responseDeleteElasticsearchDomain = res
     "DeleteElasticsearchDomainResponse"
     "fixture/DeleteElasticsearchDomainResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteElasticsearchDomain)
 
 responseDissociatePackage :: DissociatePackageResponse -> TestTree
-responseDissociatePackage =
-  res
+responseDissociatePackage = res
     "DissociatePackageResponse"
     "fixture/DissociatePackageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DissociatePackage)
 
 responsePurchaseReservedElasticsearchInstanceOffering :: PurchaseReservedElasticsearchInstanceOfferingResponse -> TestTree
-responsePurchaseReservedElasticsearchInstanceOffering =
-  res
+responsePurchaseReservedElasticsearchInstanceOffering = res
     "PurchaseReservedElasticsearchInstanceOfferingResponse"
     "fixture/PurchaseReservedElasticsearchInstanceOfferingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PurchaseReservedElasticsearchInstanceOffering)
 
 responseDescribeReservedElasticsearchInstances :: DescribeReservedElasticsearchInstancesResponse -> TestTree
-responseDescribeReservedElasticsearchInstances =
-  res
+responseDescribeReservedElasticsearchInstances = res
     "DescribeReservedElasticsearchInstancesResponse"
     "fixture/DescribeReservedElasticsearchInstancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeReservedElasticsearchInstances)
 
 responseUpdateElasticsearchDomainConfig :: UpdateElasticsearchDomainConfigResponse -> TestTree
-responseUpdateElasticsearchDomainConfig =
-  res
+responseUpdateElasticsearchDomainConfig = res
     "UpdateElasticsearchDomainConfigResponse"
     "fixture/UpdateElasticsearchDomainConfigResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateElasticsearchDomainConfig)
 
 responseListElasticsearchVersions :: ListElasticsearchVersionsResponse -> TestTree
-responseListElasticsearchVersions =
-  res
+responseListElasticsearchVersions = res
     "ListElasticsearchVersionsResponse"
     "fixture/ListElasticsearchVersionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListElasticsearchVersions)
 
 responseAddTags :: AddTagsResponse -> TestTree
-responseAddTags =
-  res
+responseAddTags = res
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AddTags)
 
 responseDeleteInboundCrossClusterSearchConnection :: DeleteInboundCrossClusterSearchConnectionResponse -> TestTree
-responseDeleteInboundCrossClusterSearchConnection =
-  res
+responseDeleteInboundCrossClusterSearchConnection = res
     "DeleteInboundCrossClusterSearchConnectionResponse"
     "fixture/DeleteInboundCrossClusterSearchConnectionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteInboundCrossClusterSearchConnection)
 
 responseDescribeReservedElasticsearchInstanceOfferings :: DescribeReservedElasticsearchInstanceOfferingsResponse -> TestTree
-responseDescribeReservedElasticsearchInstanceOfferings =
-  res
+responseDescribeReservedElasticsearchInstanceOfferings = res
     "DescribeReservedElasticsearchInstanceOfferingsResponse"
     "fixture/DescribeReservedElasticsearchInstanceOfferingsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeReservedElasticsearchInstanceOfferings)
 
 responseUpgradeElasticsearchDomain :: UpgradeElasticsearchDomainResponse -> TestTree
-responseUpgradeElasticsearchDomain =
-  res
+responseUpgradeElasticsearchDomain = res
     "UpgradeElasticsearchDomainResponse"
     "fixture/UpgradeElasticsearchDomainResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpgradeElasticsearchDomain)
 
 responseListTags :: ListTagsResponse -> TestTree
-responseListTags =
-  res
+responseListTags = res
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTags)
 
 responseDeletePackage :: DeletePackageResponse -> TestTree
-responseDeletePackage =
-  res
+responseDeletePackage = res
     "DeletePackageResponse"
     "fixture/DeletePackageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeletePackage)
 
 responseUpdatePackage :: UpdatePackageResponse -> TestTree
-responseUpdatePackage =
-  res
+responseUpdatePackage = res
     "UpdatePackageResponse"
     "fixture/UpdatePackageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdatePackage)
 
 responseCancelElasticsearchServiceSoftwareUpdate :: CancelElasticsearchServiceSoftwareUpdateResponse -> TestTree
-responseCancelElasticsearchServiceSoftwareUpdate =
-  res
+responseCancelElasticsearchServiceSoftwareUpdate = res
     "CancelElasticsearchServiceSoftwareUpdateResponse"
     "fixture/CancelElasticsearchServiceSoftwareUpdateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CancelElasticsearchServiceSoftwareUpdate)
 
 responseCreatePackage :: CreatePackageResponse -> TestTree
-responseCreatePackage =
-  res
+responseCreatePackage = res
     "CreatePackageResponse"
     "fixture/CreatePackageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreatePackage)
 
 responseRejectInboundCrossClusterSearchConnection :: RejectInboundCrossClusterSearchConnectionResponse -> TestTree
-responseRejectInboundCrossClusterSearchConnection =
-  res
+responseRejectInboundCrossClusterSearchConnection = res
     "RejectInboundCrossClusterSearchConnectionResponse"
     "fixture/RejectInboundCrossClusterSearchConnectionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RejectInboundCrossClusterSearchConnection)
 
 responseDescribeOutboundCrossClusterSearchConnections :: DescribeOutboundCrossClusterSearchConnectionsResponse -> TestTree
-responseDescribeOutboundCrossClusterSearchConnections =
-  res
+responseDescribeOutboundCrossClusterSearchConnections = res
     "DescribeOutboundCrossClusterSearchConnectionsResponse"
     "fixture/DescribeOutboundCrossClusterSearchConnectionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeOutboundCrossClusterSearchConnections)
 
 responseAcceptInboundCrossClusterSearchConnection :: AcceptInboundCrossClusterSearchConnectionResponse -> TestTree
-responseAcceptInboundCrossClusterSearchConnection =
-  res
+responseAcceptInboundCrossClusterSearchConnection = res
     "AcceptInboundCrossClusterSearchConnectionResponse"
     "fixture/AcceptInboundCrossClusterSearchConnectionResponse.proto"
     mkServiceConfig

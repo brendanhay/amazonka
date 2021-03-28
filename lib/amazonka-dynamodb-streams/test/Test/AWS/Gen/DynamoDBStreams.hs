@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.DynamoDBStreams where
 
 import Data.Proxy
-import Network.AWS.DynamoDBStreams
-import Test.AWS.DynamoDBStreams.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.DynamoDBStreams
+import Test.AWS.DynamoDBStreams.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -60,58 +61,50 @@ import Test.Tasty
 -- Requests
 
 requestGetShardIterator :: GetShardIterator -> TestTree
-requestGetShardIterator =
-  req
+requestGetShardIterator = req
     "GetShardIterator"
     "fixture/GetShardIterator.yaml"
 
 requestGetRecords :: GetRecords -> TestTree
-requestGetRecords =
-  req
+requestGetRecords = req
     "GetRecords"
     "fixture/GetRecords.yaml"
 
 requestListStreams :: ListStreams -> TestTree
-requestListStreams =
-  req
+requestListStreams = req
     "ListStreams"
     "fixture/ListStreams.yaml"
 
 requestDescribeStream :: DescribeStream -> TestTree
-requestDescribeStream =
-  req
+requestDescribeStream = req
     "DescribeStream"
     "fixture/DescribeStream.yaml"
 
 -- Responses
 
 responseGetShardIterator :: GetShardIteratorResponse -> TestTree
-responseGetShardIterator =
-  res
+responseGetShardIterator = res
     "GetShardIteratorResponse"
     "fixture/GetShardIteratorResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetShardIterator)
 
 responseGetRecords :: GetRecordsResponse -> TestTree
-responseGetRecords =
-  res
+responseGetRecords = res
     "GetRecordsResponse"
     "fixture/GetRecordsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetRecords)
 
 responseListStreams :: ListStreamsResponse -> TestTree
-responseListStreams =
-  res
+responseListStreams = res
     "ListStreamsResponse"
     "fixture/ListStreamsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListStreams)
 
 responseDescribeStream :: DescribeStreamResponse -> TestTree
-responseDescribeStream =
-  res
+responseDescribeStream = res
     "DescribeStreamResponse"
     "fixture/DescribeStreamResponse.proto"
     mkServiceConfig

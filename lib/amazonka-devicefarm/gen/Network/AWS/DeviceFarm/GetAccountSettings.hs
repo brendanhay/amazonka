@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,19 +15,18 @@
 --
 -- Returns the number of unmetered iOS or unmetered Android devices that have been purchased by the account.
 module Network.AWS.DeviceFarm.GetAccountSettings
-  ( -- * Creating a request
-    GetAccountSettings (..),
-    mkGetAccountSettings,
+    (
+    -- * Creating a request
+      GetAccountSettings (..)
+    , mkGetAccountSettings
 
     -- * Destructuring the response
-    GetAccountSettingsResponse (..),
-    mkGetAccountSettingsResponse,
-
+    , GetAccountSettingsResponse (..)
+    , mkGetAccountSettingsResponse
     -- ** Response lenses
-    gasrrsAccountSettings,
-    gasrrsResponseStatus,
-  )
-where
+    , gasrrsAccountSettings
+    , gasrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.DeviceFarm.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -43,68 +42,72 @@ data GetAccountSettings = GetAccountSettings'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetAccountSettings' value with any optional fields omitted.
-mkGetAccountSettings ::
-  GetAccountSettings
+mkGetAccountSettings
+    :: GetAccountSettings
 mkGetAccountSettings = GetAccountSettings'
 
+instance Core.ToQuery GetAccountSettings where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders GetAccountSettings where
+        toHeaders GetAccountSettings{..}
+          = Core.pure
+              ("X-Amz-Target", "DeviceFarm_20150623.GetAccountSettings")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
+
 instance Core.FromJSON GetAccountSettings where
-  toJSON _ = Core.Object Core.mempty
+        toJSON _ = Core.Object Core.mempty
 
 instance Core.AWSRequest GetAccountSettings where
-  type Rs GetAccountSettings = GetAccountSettingsResponse
-  request x@_ =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "DeviceFarm_20150623.GetAccountSettings")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          GetAccountSettingsResponse'
-            Core.<$> (x Core..:? "accountSettings")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs GetAccountSettings = GetAccountSettingsResponse
+        toRequest x@_
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 GetAccountSettingsResponse' Core.<$>
+                   (x Core..:? "accountSettings") Core.<*>
+                     Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | Represents the account settings return values from the @GetAccountSettings@ request.
 --
 -- /See:/ 'mkGetAccountSettingsResponse' smart constructor.
 data GetAccountSettingsResponse = GetAccountSettingsResponse'
-  { -- | The account settings.
-    accountSettings :: Core.Maybe Types.AccountSettings,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { accountSettings :: Core.Maybe Types.AccountSettings
+    -- ^ The account settings.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetAccountSettingsResponse' value with any optional fields omitted.
-mkGetAccountSettingsResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  GetAccountSettingsResponse
-mkGetAccountSettingsResponse responseStatus =
-  GetAccountSettingsResponse'
-    { accountSettings = Core.Nothing,
-      responseStatus
-    }
+mkGetAccountSettingsResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> GetAccountSettingsResponse
+mkGetAccountSettingsResponse responseStatus
+  = GetAccountSettingsResponse'{accountSettings = Core.Nothing,
+                                responseStatus}
 
 -- | The account settings.
 --
 -- /Note:/ Consider using 'accountSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gasrrsAccountSettings :: Lens.Lens' GetAccountSettingsResponse (Core.Maybe Types.AccountSettings)
 gasrrsAccountSettings = Lens.field @"accountSettings"
-{-# DEPRECATED gasrrsAccountSettings "Use generic-lens or generic-optics with 'accountSettings' instead." #-}
+{-# INLINEABLE gasrrsAccountSettings #-}
+{-# DEPRECATED accountSettings "Use generic-lens or generic-optics with 'accountSettings' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gasrrsResponseStatus :: Lens.Lens' GetAccountSettingsResponse Core.Int
 gasrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED gasrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE gasrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,23 +17,21 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListOfferings
-  ( -- * Creating a request
-    ListOfferings (..),
-    mkListOfferings,
-
+    (
+    -- * Creating a request
+      ListOfferings (..)
+    , mkListOfferings
     -- ** Request lenses
-    loNextToken,
+    , loNextToken
 
     -- * Destructuring the response
-    ListOfferingsResponse (..),
-    mkListOfferingsResponse,
-
+    , ListOfferingsResponse (..)
+    , mkListOfferingsResponse
     -- ** Response lenses
-    lorrsNextToken,
-    lorrsOfferings,
-    lorrsResponseStatus,
-  )
-where
+    , lorrsNextToken
+    , lorrsOfferings
+    , lorrsResponseStatus
+    ) where
 
 import qualified Network.AWS.DeviceFarm.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -46,105 +44,108 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkListOfferings' smart constructor.
 newtype ListOfferings = ListOfferings'
-  { -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-    nextToken :: Core.Maybe Types.PaginationToken
+  { nextToken :: Core.Maybe Types.PaginationToken
+    -- ^ An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ListOfferings' value with any optional fields omitted.
-mkListOfferings ::
-  ListOfferings
-mkListOfferings = ListOfferings' {nextToken = Core.Nothing}
+mkListOfferings
+    :: ListOfferings
+mkListOfferings = ListOfferings'{nextToken = Core.Nothing}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 loNextToken :: Lens.Lens' ListOfferings (Core.Maybe Types.PaginationToken)
 loNextToken = Lens.field @"nextToken"
-{-# DEPRECATED loNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE loNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
+
+instance Core.ToQuery ListOfferings where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders ListOfferings where
+        toHeaders ListOfferings{..}
+          = Core.pure ("X-Amz-Target", "DeviceFarm_20150623.ListOfferings")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON ListOfferings where
-  toJSON ListOfferings {..} =
-    Core.object
-      (Core.catMaybes [("nextToken" Core..=) Core.<$> nextToken])
+        toJSON ListOfferings{..}
+          = Core.object
+              (Core.catMaybes [("nextToken" Core..=) Core.<$> nextToken])
 
 instance Core.AWSRequest ListOfferings where
-  type Rs ListOfferings = ListOfferingsResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "DeviceFarm_20150623.ListOfferings")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          ListOfferingsResponse'
-            Core.<$> (x Core..:? "nextToken")
-            Core.<*> (x Core..:? "offerings")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs ListOfferings = ListOfferingsResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 ListOfferingsResponse' Core.<$>
+                   (x Core..:? "nextToken") Core.<*> x Core..:? "offerings" Core.<*>
+                     Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 instance Pager.AWSPager ListOfferings where
-  page rq rs
-    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
-    | Pager.stop (rs Lens.^? Lens.field @"offerings" Core.. Lens._Just) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just
-        ( rq
-            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
-        )
+        page rq rs
+          | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+          | Pager.stop (rs Lens.^? Lens.field @"offerings" Core.. Lens._Just)
+            = Core.Nothing
+          | Core.otherwise =
+            Core.Just
+              (rq Core.&
+                 Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken")
 
 -- | Represents the return values of the list of offerings.
 --
 -- /See:/ 'mkListOfferingsResponse' smart constructor.
 data ListOfferingsResponse = ListOfferingsResponse'
-  { -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-    nextToken :: Core.Maybe Types.PaginationToken,
-    -- | A value that represents the list offering results.
-    offerings :: Core.Maybe [Types.Offering],
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { nextToken :: Core.Maybe Types.PaginationToken
+    -- ^ An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+  , offerings :: Core.Maybe [Types.Offering]
+    -- ^ A value that represents the list offering results.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ListOfferingsResponse' value with any optional fields omitted.
-mkListOfferingsResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  ListOfferingsResponse
-mkListOfferingsResponse responseStatus =
-  ListOfferingsResponse'
-    { nextToken = Core.Nothing,
-      offerings = Core.Nothing,
-      responseStatus
-    }
+mkListOfferingsResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> ListOfferingsResponse
+mkListOfferingsResponse responseStatus
+  = ListOfferingsResponse'{nextToken = Core.Nothing,
+                           offerings = Core.Nothing, responseStatus}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lorrsNextToken :: Lens.Lens' ListOfferingsResponse (Core.Maybe Types.PaginationToken)
 lorrsNextToken = Lens.field @"nextToken"
-{-# DEPRECATED lorrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE lorrsNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
 
 -- | A value that represents the list offering results.
 --
 -- /Note:/ Consider using 'offerings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lorrsOfferings :: Lens.Lens' ListOfferingsResponse (Core.Maybe [Types.Offering])
 lorrsOfferings = Lens.field @"offerings"
-{-# DEPRECATED lorrsOfferings "Use generic-lens or generic-optics with 'offerings' instead." #-}
+{-# INLINEABLE lorrsOfferings #-}
+{-# DEPRECATED offerings "Use generic-lens or generic-optics with 'offerings' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lorrsResponseStatus :: Lens.Lens' ListOfferingsResponse Core.Int
 lorrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED lorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE lorrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

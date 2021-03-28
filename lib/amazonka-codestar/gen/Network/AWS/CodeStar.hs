@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,7 +10,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __AWS CodeStar__
+-- __AWS CodeStar__ 
 --
 -- This is the API reference for AWS CodeStar. This reference provides descriptions of the operations and data types for the AWS CodeStar API along with usage examples.
 -- You can use the AWS CodeStar API to work with:
@@ -69,51 +69,54 @@
 --
 --
 --     * @UpdateUserProfile@ , which updates the profile for a user.
+--
+--
 module Network.AWS.CodeStar
-  ( -- * Service configuration
-    mkServiceConfig,
+    (
+    -- * Service configuration
+      mkServiceConfig
 
     -- * Errors
     -- $errors
 
     -- ** TeamMemberAlreadyAssociatedException
-    _TeamMemberAlreadyAssociatedException,
+    , _TeamMemberAlreadyAssociatedException
 
     -- ** ValidationException
-    _ValidationException,
+    , _ValidationException
 
     -- ** InvalidServiceRoleException
-    _InvalidServiceRoleException,
+    , _InvalidServiceRoleException
 
     -- ** ProjectCreationFailedException
-    _ProjectCreationFailedException,
+    , _ProjectCreationFailedException
 
     -- ** UserProfileAlreadyExistsException
-    _UserProfileAlreadyExistsException,
+    , _UserProfileAlreadyExistsException
 
     -- ** ProjectNotFoundException
-    _ProjectNotFoundException,
+    , _ProjectNotFoundException
 
     -- ** TeamMemberNotFoundException
-    _TeamMemberNotFoundException,
+    , _TeamMemberNotFoundException
 
     -- ** ProjectAlreadyExistsException
-    _ProjectAlreadyExistsException,
+    , _ProjectAlreadyExistsException
 
     -- ** ProjectConfigurationException
-    _ProjectConfigurationException,
+    , _ProjectConfigurationException
 
     -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
+    , _ConcurrentModificationException
 
     -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
+    , _InvalidNextTokenException
 
     -- ** UserProfileNotFoundException
-    _UserProfileNotFoundException,
+    , _UserProfileNotFoundException
 
     -- ** LimitExceededException
-    _LimitExceededException,
+    , _LimitExceededException
 
     -- * Waiters
     -- $waiters
@@ -122,292 +125,294 @@ module Network.AWS.CodeStar
     -- $operations
 
     -- ** ListProjects (Paginated)
-    module Network.AWS.CodeStar.ListProjects,
+    , module Network.AWS.CodeStar.ListProjects
 
     -- ** ListTeamMembers (Paginated)
-    module Network.AWS.CodeStar.ListTeamMembers,
+    , module Network.AWS.CodeStar.ListTeamMembers
 
-    -- ** DeleteProject
-    module Network.AWS.CodeStar.DeleteProject,
+    -- ** DeleteProject 
+    , module Network.AWS.CodeStar.DeleteProject
 
-    -- ** UpdateProject
-    module Network.AWS.CodeStar.UpdateProject,
+    -- ** UpdateProject 
+    , module Network.AWS.CodeStar.UpdateProject
 
-    -- ** DisassociateTeamMember
-    module Network.AWS.CodeStar.DisassociateTeamMember,
+    -- ** DisassociateTeamMember 
+    , module Network.AWS.CodeStar.DisassociateTeamMember
 
-    -- ** TagProject
-    module Network.AWS.CodeStar.TagProject,
+    -- ** TagProject 
+    , module Network.AWS.CodeStar.TagProject
 
-    -- ** DescribeProject
-    module Network.AWS.CodeStar.DescribeProject,
+    -- ** DescribeProject 
+    , module Network.AWS.CodeStar.DescribeProject
 
     -- ** ListUserProfiles (Paginated)
-    module Network.AWS.CodeStar.ListUserProfiles,
+    , module Network.AWS.CodeStar.ListUserProfiles
 
     -- ** ListResources (Paginated)
-    module Network.AWS.CodeStar.ListResources,
+    , module Network.AWS.CodeStar.ListResources
 
-    -- ** AssociateTeamMember
-    module Network.AWS.CodeStar.AssociateTeamMember,
+    -- ** AssociateTeamMember 
+    , module Network.AWS.CodeStar.AssociateTeamMember
 
-    -- ** UntagProject
-    module Network.AWS.CodeStar.UntagProject,
+    -- ** UntagProject 
+    , module Network.AWS.CodeStar.UntagProject
 
-    -- ** UpdateTeamMember
-    module Network.AWS.CodeStar.UpdateTeamMember,
+    -- ** UpdateTeamMember 
+    , module Network.AWS.CodeStar.UpdateTeamMember
 
-    -- ** DescribeUserProfile
-    module Network.AWS.CodeStar.DescribeUserProfile,
+    -- ** DescribeUserProfile 
+    , module Network.AWS.CodeStar.DescribeUserProfile
 
-    -- ** ListTagsForProject
-    module Network.AWS.CodeStar.ListTagsForProject,
+    -- ** ListTagsForProject 
+    , module Network.AWS.CodeStar.ListTagsForProject
 
-    -- ** DeleteUserProfile
-    module Network.AWS.CodeStar.DeleteUserProfile,
+    -- ** DeleteUserProfile 
+    , module Network.AWS.CodeStar.DeleteUserProfile
 
-    -- ** UpdateUserProfile
-    module Network.AWS.CodeStar.UpdateUserProfile,
+    -- ** UpdateUserProfile 
+    , module Network.AWS.CodeStar.UpdateUserProfile
 
-    -- ** CreateUserProfile
-    module Network.AWS.CodeStar.CreateUserProfile,
+    -- ** CreateUserProfile 
+    , module Network.AWS.CodeStar.CreateUserProfile
 
-    -- ** CreateProject
-    module Network.AWS.CodeStar.CreateProject,
+    -- ** CreateProject 
+    , module Network.AWS.CodeStar.CreateProject
 
     -- * Types
 
     -- ** GitHubCodeDestination
-    GitHubCodeDestination (..),
-    mkGitHubCodeDestination,
-    ghcdName,
-    ghcdType,
-    ghcdOwner,
-    ghcdPrivateRepository,
-    ghcdIssuesEnabled,
-    ghcdToken,
-    ghcdDescription,
+    , GitHubCodeDestination (..)
+    , mkGitHubCodeDestination
+    , ghcdName
+    , ghcdType
+    , ghcdOwner
+    , ghcdPrivateRepository
+    , ghcdIssuesEnabled
+    , ghcdToken
+    , ghcdDescription
 
     -- ** Email
-    Email (..),
+    , Email (..)
 
     -- ** PaginationToken
-    PaginationToken (..),
+    , PaginationToken (..)
 
     -- ** State
-    State (..),
+    , State (..)
 
     -- ** UserProfileDisplayName
-    UserProfileDisplayName (..),
+    , UserProfileDisplayName (..)
 
     -- ** ResourceId
-    ResourceId (..),
+    , ResourceId (..)
 
     -- ** TeamMember
-    TeamMember (..),
-    mkTeamMember,
-    tmUserArn,
-    tmProjectRole,
-    tmRemoteAccessAllowed,
+    , TeamMember (..)
+    , mkTeamMember
+    , tmUserArn
+    , tmProjectRole
+    , tmRemoteAccessAllowed
 
     -- ** CodeCommitCodeDestination
-    CodeCommitCodeDestination (..),
-    mkCodeCommitCodeDestination,
-    cccdName,
+    , CodeCommitCodeDestination (..)
+    , mkCodeCommitCodeDestination
+    , cccdName
 
     -- ** ToolchainSource
-    ToolchainSource (..),
-    mkToolchainSource,
-    tsS3,
+    , ToolchainSource (..)
+    , mkToolchainSource
+    , tsS3
 
     -- ** CodeSource
-    CodeSource (..),
-    mkCodeSource,
-    csS3,
+    , CodeSource (..)
+    , mkCodeSource
+    , csS3
 
     -- ** ProjectTemplateId
-    ProjectTemplateId (..),
+    , ProjectTemplateId (..)
 
     -- ** UserProfileSummary
-    UserProfileSummary (..),
-    mkUserProfileSummary,
-    upsDisplayName,
-    upsEmailAddress,
-    upsSshPublicKey,
-    upsUserArn,
+    , UserProfileSummary (..)
+    , mkUserProfileSummary
+    , upsDisplayName
+    , upsEmailAddress
+    , upsSshPublicKey
+    , upsUserArn
 
     -- ** SshPublicKey
-    SshPublicKey (..),
+    , SshPublicKey (..)
 
     -- ** BucketKey
-    BucketKey (..),
+    , BucketKey (..)
 
     -- ** ProjectStatus
-    ProjectStatus (..),
-    mkProjectStatus,
-    psState,
-    psReason,
+    , ProjectStatus (..)
+    , mkProjectStatus
+    , psState
+    , psReason
 
     -- ** TagValue
-    TagValue (..),
+    , TagValue (..)
 
     -- ** CodeDestination
-    CodeDestination (..),
-    mkCodeDestination,
-    cdCodeCommit,
-    cdGitHub,
+    , CodeDestination (..)
+    , mkCodeDestination
+    , cdCodeCommit
+    , cdGitHub
 
     -- ** BucketName
-    BucketName (..),
+    , BucketName (..)
 
     -- ** Reason
-    Reason (..),
+    , Reason (..)
 
     -- ** UserArn
-    UserArn (..),
+    , UserArn (..)
 
     -- ** Role
-    Role (..),
+    , Role (..)
 
     -- ** TemplateParameterValue
-    TemplateParameterValue (..),
+    , TemplateParameterValue (..)
 
     -- ** Resource
-    Resource (..),
-    mkResource,
-    rId,
+    , Resource (..)
+    , mkResource
+    , rId
 
     -- ** ProjectName
-    ProjectName (..),
+    , ProjectName (..)
 
     -- ** Toolchain
-    Toolchain (..),
-    mkToolchain,
-    tSource,
-    tRoleArn,
-    tStackParameters,
+    , Toolchain (..)
+    , mkToolchain
+    , tSource
+    , tRoleArn
+    , tStackParameters
 
     -- ** Code
-    Code (..),
-    mkCode,
-    cSource,
-    cDestination,
+    , Code (..)
+    , mkCode
+    , cSource
+    , cDestination
 
     -- ** TagKey
-    TagKey (..),
+    , TagKey (..)
 
     -- ** S3Location
-    S3Location (..),
-    mkS3Location,
-    slBucketKey,
-    slBucketName,
+    , S3Location (..)
+    , mkS3Location
+    , slBucketKey
+    , slBucketName
 
     -- ** ProjectId
-    ProjectId (..),
+    , ProjectId (..)
 
     -- ** ProjectArn
-    ProjectArn (..),
+    , ProjectArn (..)
 
     -- ** StackId
-    StackId (..),
+    , StackId (..)
 
     -- ** ClientRequestToken
-    ClientRequestToken (..),
+    , ClientRequestToken (..)
 
     -- ** TemplateParameterKey
-    TemplateParameterKey (..),
+    , TemplateParameterKey (..)
 
     -- ** ProjectSummary
-    ProjectSummary (..),
-    mkProjectSummary,
-    psProjectArn,
-    psProjectId,
+    , ProjectSummary (..)
+    , mkProjectSummary
+    , psProjectArn
+    , psProjectId
 
     -- ** RoleArn
-    RoleArn (..),
+    , RoleArn (..)
 
     -- ** Name
-    Name (..),
+    , Name (..)
 
     -- ** Type
-    Type (..),
+    , Type (..)
 
     -- ** Owner
-    Owner (..),
+    , Owner (..)
 
     -- ** Token
-    Token (..),
+    , Token (..)
 
     -- ** Description
-    Description (..),
+    , Description (..)
 
     -- ** DisplayName
-    DisplayName (..),
+    , DisplayName (..)
 
     -- ** Id
-    Id (..),
+    , Id (..)
 
     -- ** ProjectRole
-    ProjectRole (..),
+    , ProjectRole (..)
 
     -- ** Arn
-    Arn (..),
+    , Arn (..)
 
     -- * Serialization types
-    Lude.Base64 (..),
-    Lude._Base64,
-    Lude.Sensitive (..),
-    Lude._Sensitive,
-    Lude.UTCTime,
-    Lude.NominalDiffTime,
-  )
-where
+    , Lude.Base64 (..)
+    , Lude._Base64
+    , Lude.Sensitive (..)
+    , Lude._Sensitive
+    , Lude.UTCTime
+    , Lude.NominalDiffTime
+    ) where
 
-import Network.AWS.CodeStar.AssociateTeamMember
-import Network.AWS.CodeStar.CreateProject
-import Network.AWS.CodeStar.CreateUserProfile
-import Network.AWS.CodeStar.DeleteProject
-import Network.AWS.CodeStar.DeleteUserProfile
-import Network.AWS.CodeStar.DescribeProject
-import Network.AWS.CodeStar.DescribeUserProfile
-import Network.AWS.CodeStar.DisassociateTeamMember
-import Network.AWS.CodeStar.ListProjects
-import Network.AWS.CodeStar.ListResources
-import Network.AWS.CodeStar.ListTagsForProject
-import Network.AWS.CodeStar.ListTeamMembers
-import Network.AWS.CodeStar.ListUserProfiles
-import Network.AWS.CodeStar.TagProject
 import Network.AWS.CodeStar.Types
-import Network.AWS.CodeStar.UntagProject
-import Network.AWS.CodeStar.UpdateProject
-import Network.AWS.CodeStar.UpdateTeamMember
-import Network.AWS.CodeStar.UpdateUserProfile
 import Network.AWS.CodeStar.Waiters
+import Network.AWS.CodeStar.ListProjects
+import Network.AWS.CodeStar.ListTeamMembers
+import Network.AWS.CodeStar.DeleteProject
+import Network.AWS.CodeStar.UpdateProject
+import Network.AWS.CodeStar.DisassociateTeamMember
+import Network.AWS.CodeStar.TagProject
+import Network.AWS.CodeStar.DescribeProject
+import Network.AWS.CodeStar.ListUserProfiles
+import Network.AWS.CodeStar.ListResources
+import Network.AWS.CodeStar.AssociateTeamMember
+import Network.AWS.CodeStar.UntagProject
+import Network.AWS.CodeStar.UpdateTeamMember
+import Network.AWS.CodeStar.DescribeUserProfile
+import Network.AWS.CodeStar.ListTagsForProject
+import Network.AWS.CodeStar.DeleteUserProfile
+import Network.AWS.CodeStar.UpdateUserProfile
+import Network.AWS.CodeStar.CreateUserProfile
+import Network.AWS.CodeStar.CreateProject
 import qualified Network.AWS.Prelude as Lude
 
--- $errors
--- Error matchers are designed for use with the functions provided by
--- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
--- This allows catching (and rethrowing) service specific errors returned
--- by 'CodeStar'.
+{- $errors
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by 'CodeStar'.
+-}
 
--- $operations
--- Some AWS operations return results that are incomplete and require subsequent
--- requests in order to obtain the entire result set. The process of sending
--- subsequent requests to continue where a previous request left off is called
--- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
--- 1000 objects at a time, and you must send subsequent requests with the
--- appropriate Marker in order to retrieve the next page of results.
---
--- Operations that have an 'AWSPager' instance can transparently perform subsequent
--- requests, correctly setting Markers and other request facets to iterate through
--- the entire result set of a truncated API operation. Operations which support
--- this have an additional note in the documentation.
---
--- Many operations have the ability to filter results on the server side. See the
--- individual operation parameters for details.
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
 
--- $waiters
--- Waiters poll by repeatedly sending a request until some remote success condition
--- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
--- determines how many attempts should be made, in addition to delay and retry strategies.
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly sending a request until some remote success condition
+configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+determines how many attempts should be made, in addition to delay and retry strategies.
+-}

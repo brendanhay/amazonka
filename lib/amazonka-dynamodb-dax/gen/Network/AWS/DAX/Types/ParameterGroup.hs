@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,19 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.DAX.Types.ParameterGroup
-  ( ParameterGroup (..),
+  ( ParameterGroup (..)
+  -- * Smart constructor
+  , mkParameterGroup
+  -- * Lenses
+  , pgDescription
+  , pgParameterGroupName
+  ) where
 
-    -- * Smart constructor
-    mkParameterGroup,
-
-    -- * Lenses
-    pgDescription,
-    pgParameterGroupName,
-  )
-where
-
-import qualified Network.AWS.DAX.Types.String as Types
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
 
@@ -30,41 +27,40 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkParameterGroup' smart constructor.
 data ParameterGroup = ParameterGroup'
-  { -- | A description of the parameter group.
-    description :: Core.Maybe Types.String,
-    -- | The name of the parameter group.
-    parameterGroupName :: Core.Maybe Types.String
+  { description :: Core.Maybe Core.Text
+    -- ^ A description of the parameter group.
+  , parameterGroupName :: Core.Maybe Core.Text
+    -- ^ The name of the parameter group.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ParameterGroup' value with any optional fields omitted.
-mkParameterGroup ::
-  ParameterGroup
-mkParameterGroup =
-  ParameterGroup'
-    { description = Core.Nothing,
-      parameterGroupName = Core.Nothing
-    }
+mkParameterGroup
+    :: ParameterGroup
+mkParameterGroup
+  = ParameterGroup'{description = Core.Nothing,
+                    parameterGroupName = Core.Nothing}
 
 -- | A description of the parameter group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgDescription :: Lens.Lens' ParameterGroup (Core.Maybe Types.String)
+pgDescription :: Lens.Lens' ParameterGroup (Core.Maybe Core.Text)
 pgDescription = Lens.field @"description"
-{-# DEPRECATED pgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+{-# INLINEABLE pgDescription #-}
+{-# DEPRECATED description "Use generic-lens or generic-optics with 'description' instead"  #-}
 
 -- | The name of the parameter group.
 --
 -- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgParameterGroupName :: Lens.Lens' ParameterGroup (Core.Maybe Types.String)
+pgParameterGroupName :: Lens.Lens' ParameterGroup (Core.Maybe Core.Text)
 pgParameterGroupName = Lens.field @"parameterGroupName"
-{-# DEPRECATED pgParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
+{-# INLINEABLE pgParameterGroupName #-}
+{-# DEPRECATED parameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead"  #-}
 
 instance Core.FromJSON ParameterGroup where
-  parseJSON =
-    Core.withObject "ParameterGroup" Core.$
-      \x ->
-        ParameterGroup'
-          Core.<$> (x Core..:? "Description")
-          Core.<*> (x Core..:? "ParameterGroupName")
+        parseJSON
+          = Core.withObject "ParameterGroup" Core.$
+              \ x ->
+                ParameterGroup' Core.<$>
+                  (x Core..:? "Description") Core.<*> x Core..:? "ParameterGroupName"

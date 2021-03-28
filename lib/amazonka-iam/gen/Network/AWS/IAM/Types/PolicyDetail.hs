@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.IAM.Types.PolicyDetail
-  ( PolicyDetail (..),
-
-    -- * Smart constructor
-    mkPolicyDetail,
-
-    -- * Lenses
-    pdPolicyDocument,
-    pdPolicyName,
-  )
-where
+  ( PolicyDetail (..)
+  -- * Smart constructor
+  , mkPolicyDetail
+  -- * Lenses
+  , pdPolicyDocument
+  , pdPolicyName
+  ) where
 
 import qualified Network.AWS.IAM.Types.PolicyDocument as Types
 import qualified Network.AWS.IAM.Types.PolicyName as Types
@@ -33,38 +31,38 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkPolicyDetail' smart constructor.
 data PolicyDetail = PolicyDetail'
-  { -- | The policy document.
-    policyDocument :: Core.Maybe Types.PolicyDocument,
-    -- | The name of the policy.
-    policyName :: Core.Maybe Types.PolicyName
+  { policyDocument :: Core.Maybe Types.PolicyDocument
+    -- ^ The policy document.
+  , policyName :: Core.Maybe Types.PolicyName
+    -- ^ The name of the policy.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'PolicyDetail' value with any optional fields omitted.
-mkPolicyDetail ::
-  PolicyDetail
-mkPolicyDetail =
-  PolicyDetail'
-    { policyDocument = Core.Nothing,
-      policyName = Core.Nothing
-    }
+mkPolicyDetail
+    :: PolicyDetail
+mkPolicyDetail
+  = PolicyDetail'{policyDocument = Core.Nothing,
+                  policyName = Core.Nothing}
 
 -- | The policy document.
 --
 -- /Note:/ Consider using 'policyDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pdPolicyDocument :: Lens.Lens' PolicyDetail (Core.Maybe Types.PolicyDocument)
 pdPolicyDocument = Lens.field @"policyDocument"
-{-# DEPRECATED pdPolicyDocument "Use generic-lens or generic-optics with 'policyDocument' instead." #-}
+{-# INLINEABLE pdPolicyDocument #-}
+{-# DEPRECATED policyDocument "Use generic-lens or generic-optics with 'policyDocument' instead"  #-}
 
 -- | The name of the policy.
 --
 -- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pdPolicyName :: Lens.Lens' PolicyDetail (Core.Maybe Types.PolicyName)
 pdPolicyName = Lens.field @"policyName"
-{-# DEPRECATED pdPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+{-# INLINEABLE pdPolicyName #-}
+{-# DEPRECATED policyName "Use generic-lens or generic-optics with 'policyName' instead"  #-}
 
 instance Core.FromXML PolicyDetail where
-  parseXML x =
-    PolicyDetail'
-      Core.<$> (x Core..@? "PolicyDocument") Core.<*> (x Core..@? "PolicyName")
+        parseXML x
+          = PolicyDetail' Core.<$>
+              (x Core..@? "PolicyDocument") Core.<*> x Core..@? "PolicyName"

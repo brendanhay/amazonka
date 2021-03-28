@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,21 +15,19 @@
 --
 -- Delete all schedule actions on a channel.
 module Network.AWS.MediaLive.DeleteSchedule
-  ( -- * Creating a request
-    DeleteSchedule (..),
-    mkDeleteSchedule,
-
+    (
+    -- * Creating a request
+      DeleteSchedule (..)
+    , mkDeleteSchedule
     -- ** Request lenses
-    dsChannelId,
+    , dsChannelId
 
     -- * Destructuring the response
-    DeleteScheduleResponse (..),
-    mkDeleteScheduleResponse,
-
+    , DeleteScheduleResponse (..)
+    , mkDeleteScheduleResponse
     -- ** Response lenses
-    dsrrsResponseStatus,
-  )
-where
+    , dsrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.MediaLive.Types as Types
@@ -41,69 +39,73 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkDeleteSchedule' smart constructor.
 newtype DeleteSchedule = DeleteSchedule'
-  { -- | Id of the channel whose schedule is being deleted.
-    channelId :: Core.Text
+  { channelId :: Core.Text
+    -- ^ Id of the channel whose schedule is being deleted.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteSchedule' value with any optional fields omitted.
-mkDeleteSchedule ::
-  -- | 'channelId'
-  Core.Text ->
-  DeleteSchedule
-mkDeleteSchedule channelId = DeleteSchedule' {channelId}
+mkDeleteSchedule
+    :: Core.Text -- ^ 'channelId'
+    -> DeleteSchedule
+mkDeleteSchedule channelId = DeleteSchedule'{channelId}
 
 -- | Id of the channel whose schedule is being deleted.
 --
 -- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dsChannelId :: Lens.Lens' DeleteSchedule Core.Text
 dsChannelId = Lens.field @"channelId"
-{-# DEPRECATED dsChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
+{-# INLINEABLE dsChannelId #-}
+{-# DEPRECATED channelId "Use generic-lens or generic-optics with 'channelId' instead"  #-}
+
+instance Core.ToQuery DeleteSchedule where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DeleteSchedule where
+        toHeaders DeleteSchedule{..}
+          = Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.AWSRequest DeleteSchedule where
-  type Rs DeleteSchedule = DeleteScheduleResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.DELETE,
-        Core._rqPath =
-          Core.rawPath
-            ( "/prod/channels/" Core.<> (Core.toText channelId)
-                Core.<> ("/schedule")
-            ),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
-        Core._rqBody = ""
-      }
-  response =
-    Response.receiveEmpty
-      ( \s h x ->
-          DeleteScheduleResponse' Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DeleteSchedule = DeleteScheduleResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.DELETE,
+                         Core._rqPath =
+                           "/prod/channels/" Core.<> Core.toText channelId Core.<>
+                             "/schedule",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveEmpty
+              (\ s h x ->
+                 DeleteScheduleResponse' Core.<$> (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | Placeholder documentation for DeleteScheduleResponse
 --
 -- /See:/ 'mkDeleteScheduleResponse' smart constructor.
 newtype DeleteScheduleResponse = DeleteScheduleResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteScheduleResponse' value with any optional fields omitted.
-mkDeleteScheduleResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DeleteScheduleResponse
-mkDeleteScheduleResponse responseStatus =
-  DeleteScheduleResponse' {responseStatus}
+mkDeleteScheduleResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DeleteScheduleResponse
+mkDeleteScheduleResponse responseStatus
+  = DeleteScheduleResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dsrrsResponseStatus :: Lens.Lens' DeleteScheduleResponse Core.Int
 dsrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED dsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE dsrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

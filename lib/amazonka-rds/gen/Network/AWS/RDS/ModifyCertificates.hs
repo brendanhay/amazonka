@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -27,23 +27,21 @@
 -- For more information about rotating your SSL/TLS certificate for RDS DB engines, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.html Rotating Your SSL/TLS Certificate> in the /Amazon RDS User Guide/ .
 -- For more information about rotating your SSL/TLS certificate for Aurora DB engines, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL-certificate-rotation.html Rotating Your SSL/TLS Certificate> in the /Amazon Aurora User Guide/ .
 module Network.AWS.RDS.ModifyCertificates
-  ( -- * Creating a request
-    ModifyCertificates (..),
-    mkModifyCertificates,
-
+    (
+    -- * Creating a request
+      ModifyCertificates (..)
+    , mkModifyCertificates
     -- ** Request lenses
-    mcCertificateIdentifier,
-    mcRemoveCustomerOverride,
+    , mcCertificateIdentifier
+    , mcRemoveCustomerOverride
 
     -- * Destructuring the response
-    ModifyCertificatesResponse (..),
-    mkModifyCertificatesResponse,
-
+    , ModifyCertificatesResponse (..)
+    , mkModifyCertificatesResponse
     -- ** Response lenses
-    mcrrsCertificate,
-    mcrrsResponseStatus,
-  )
-where
+    , mcrrsCertificate
+    , mcrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -53,104 +51,106 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkModifyCertificates' smart constructor.
 data ModifyCertificates = ModifyCertificates'
-  { -- | The new default certificate identifier to override the current one with.
-    --
-    -- To determine the valid values, use the @describe-certificates@ AWS CLI command or the @DescribeCertificates@ API operation.
-    certificateIdentifier :: Core.Maybe Types.String,
-    -- | A value that indicates whether to remove the override for the default certificate. If the override is removed, the default certificate is the system default.
-    removeCustomerOverride :: Core.Maybe Core.Bool
+  { certificateIdentifier :: Core.Maybe Core.Text
+    -- ^ The new default certificate identifier to override the current one with.
+--
+-- To determine the valid values, use the @describe-certificates@ AWS CLI command or the @DescribeCertificates@ API operation.
+  , removeCustomerOverride :: Core.Maybe Core.Bool
+    -- ^ A value that indicates whether to remove the override for the default certificate. If the override is removed, the default certificate is the system default.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ModifyCertificates' value with any optional fields omitted.
-mkModifyCertificates ::
-  ModifyCertificates
-mkModifyCertificates =
-  ModifyCertificates'
-    { certificateIdentifier = Core.Nothing,
-      removeCustomerOverride = Core.Nothing
-    }
+mkModifyCertificates
+    :: ModifyCertificates
+mkModifyCertificates
+  = ModifyCertificates'{certificateIdentifier = Core.Nothing,
+                        removeCustomerOverride = Core.Nothing}
 
 -- | The new default certificate identifier to override the current one with.
 --
 -- To determine the valid values, use the @describe-certificates@ AWS CLI command or the @DescribeCertificates@ API operation.
 --
 -- /Note:/ Consider using 'certificateIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcCertificateIdentifier :: Lens.Lens' ModifyCertificates (Core.Maybe Types.String)
+mcCertificateIdentifier :: Lens.Lens' ModifyCertificates (Core.Maybe Core.Text)
 mcCertificateIdentifier = Lens.field @"certificateIdentifier"
-{-# DEPRECATED mcCertificateIdentifier "Use generic-lens or generic-optics with 'certificateIdentifier' instead." #-}
+{-# INLINEABLE mcCertificateIdentifier #-}
+{-# DEPRECATED certificateIdentifier "Use generic-lens or generic-optics with 'certificateIdentifier' instead"  #-}
 
 -- | A value that indicates whether to remove the override for the default certificate. If the override is removed, the default certificate is the system default.
 --
 -- /Note:/ Consider using 'removeCustomerOverride' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mcRemoveCustomerOverride :: Lens.Lens' ModifyCertificates (Core.Maybe Core.Bool)
 mcRemoveCustomerOverride = Lens.field @"removeCustomerOverride"
-{-# DEPRECATED mcRemoveCustomerOverride "Use generic-lens or generic-optics with 'removeCustomerOverride' instead." #-}
+{-# INLINEABLE mcRemoveCustomerOverride #-}
+{-# DEPRECATED removeCustomerOverride "Use generic-lens or generic-optics with 'removeCustomerOverride' instead"  #-}
+
+instance Core.ToQuery ModifyCertificates where
+        toQuery ModifyCertificates{..}
+          = Core.toQueryPair "Action" ("ModifyCertificates" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2014-10-31" :: Core.Text)
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "CertificateIdentifier")
+                certificateIdentifier
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "RemoveCustomerOverride")
+                removeCustomerOverride
+
+instance Core.ToHeaders ModifyCertificates where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest ModifyCertificates where
-  type Rs ModifyCertificates = ModifyCertificatesResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "ModifyCertificates")
-                Core.<> (Core.pure ("Version", "2014-10-31"))
-                Core.<> ( Core.toQueryValue "CertificateIdentifier"
-                            Core.<$> certificateIdentifier
-                        )
-                Core.<> ( Core.toQueryValue "RemoveCustomerOverride"
-                            Core.<$> removeCustomerOverride
-                        )
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "ModifyCertificatesResult"
-      ( \s h x ->
-          ModifyCertificatesResponse'
-            Core.<$> (x Core..@? "Certificate") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs ModifyCertificates = ModifyCertificatesResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "ModifyCertificatesResult"
+              (\ s h x ->
+                 ModifyCertificatesResponse' Core.<$>
+                   (x Core..@? "Certificate") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkModifyCertificatesResponse' smart constructor.
 data ModifyCertificatesResponse = ModifyCertificatesResponse'
-  { certificate :: Core.Maybe Types.Certificate,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { certificate :: Core.Maybe Types.Certificate
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'ModifyCertificatesResponse' value with any optional fields omitted.
-mkModifyCertificatesResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  ModifyCertificatesResponse
-mkModifyCertificatesResponse responseStatus =
-  ModifyCertificatesResponse'
-    { certificate = Core.Nothing,
-      responseStatus
-    }
+mkModifyCertificatesResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> ModifyCertificatesResponse
+mkModifyCertificatesResponse responseStatus
+  = ModifyCertificatesResponse'{certificate = Core.Nothing,
+                                responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mcrrsCertificate :: Lens.Lens' ModifyCertificatesResponse (Core.Maybe Types.Certificate)
 mcrrsCertificate = Lens.field @"certificate"
-{-# DEPRECATED mcrrsCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
+{-# INLINEABLE mcrrsCertificate #-}
+{-# DEPRECATED certificate "Use generic-lens or generic-optics with 'certificate' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mcrrsResponseStatus :: Lens.Lens' ModifyCertificatesResponse Core.Int
 mcrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED mcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE mcrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

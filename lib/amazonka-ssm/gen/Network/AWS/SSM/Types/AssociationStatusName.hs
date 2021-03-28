@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,46 +10,28 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SSM.Types.AssociationStatusName
   ( AssociationStatusName
-      ( AssociationStatusName',
-        AssociationStatusNamePending,
-        AssociationStatusNameSuccess,
-        AssociationStatusNameFailed,
-        fromAssociationStatusName
-      ),
-  )
-where
+    ( AssociationStatusName'
+    , AssociationStatusNamePending
+    , AssociationStatusNameSuccess
+    , AssociationStatusNameFailed
+    , fromAssociationStatusName
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype AssociationStatusName = AssociationStatusName'
-  { fromAssociationStatusName ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype AssociationStatusName = AssociationStatusName'{fromAssociationStatusName
+                                                       :: Core.Text}
+                                  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                  Core.Generic)
+                                  deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                    Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                    Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                    Core.ToText, Core.FromText, Core.ToByteString,
+                                                    Core.ToQuery, Core.ToHeader)
 
 pattern AssociationStatusNamePending :: AssociationStatusName
 pattern AssociationStatusNamePending = AssociationStatusName' "Pending"
@@ -60,9 +42,11 @@ pattern AssociationStatusNameSuccess = AssociationStatusName' "Success"
 pattern AssociationStatusNameFailed :: AssociationStatusName
 pattern AssociationStatusNameFailed = AssociationStatusName' "Failed"
 
-{-# COMPLETE
+{-# COMPLETE 
   AssociationStatusNamePending,
+
   AssociationStatusNameSuccess,
+
   AssociationStatusNameFailed,
   AssociationStatusName'
   #-}

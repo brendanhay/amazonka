@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.IoTAnalytics.Types.SqlQueryDatasetAction
-  ( SqlQueryDatasetAction (..),
-
-    -- * Smart constructor
-    mkSqlQueryDatasetAction,
-
-    -- * Lenses
-    sqdaSqlQuery,
-    sqdaFilters,
-  )
-where
+  ( SqlQueryDatasetAction (..)
+  -- * Smart constructor
+  , mkSqlQueryDatasetAction
+  -- * Lenses
+  , sqdaSqlQuery
+  , sqdaFilters
+  ) where
 
 import qualified Network.AWS.IoTAnalytics.Types.QueryFilter as Types
 import qualified Network.AWS.IoTAnalytics.Types.SqlQuery as Types
@@ -31,48 +29,47 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkSqlQueryDatasetAction' smart constructor.
 data SqlQueryDatasetAction = SqlQueryDatasetAction'
-  { -- | A SQL query string.
-    sqlQuery :: Types.SqlQuery,
-    -- | Prefilters applied to message data.
-    filters :: Core.Maybe [Types.QueryFilter]
+  { sqlQuery :: Types.SqlQuery
+    -- ^ A SQL query string.
+  , filters :: Core.Maybe [Types.QueryFilter]
+    -- ^ Prefilters applied to message data.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'SqlQueryDatasetAction' value with any optional fields omitted.
-mkSqlQueryDatasetAction ::
-  -- | 'sqlQuery'
-  Types.SqlQuery ->
-  SqlQueryDatasetAction
-mkSqlQueryDatasetAction sqlQuery =
-  SqlQueryDatasetAction' {sqlQuery, filters = Core.Nothing}
+mkSqlQueryDatasetAction
+    :: Types.SqlQuery -- ^ 'sqlQuery'
+    -> SqlQueryDatasetAction
+mkSqlQueryDatasetAction sqlQuery
+  = SqlQueryDatasetAction'{sqlQuery, filters = Core.Nothing}
 
 -- | A SQL query string.
 --
 -- /Note:/ Consider using 'sqlQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sqdaSqlQuery :: Lens.Lens' SqlQueryDatasetAction Types.SqlQuery
 sqdaSqlQuery = Lens.field @"sqlQuery"
-{-# DEPRECATED sqdaSqlQuery "Use generic-lens or generic-optics with 'sqlQuery' instead." #-}
+{-# INLINEABLE sqdaSqlQuery #-}
+{-# DEPRECATED sqlQuery "Use generic-lens or generic-optics with 'sqlQuery' instead"  #-}
 
 -- | Prefilters applied to message data.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sqdaFilters :: Lens.Lens' SqlQueryDatasetAction (Core.Maybe [Types.QueryFilter])
 sqdaFilters = Lens.field @"filters"
-{-# DEPRECATED sqdaFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+{-# INLINEABLE sqdaFilters #-}
+{-# DEPRECATED filters "Use generic-lens or generic-optics with 'filters' instead"  #-}
 
 instance Core.FromJSON SqlQueryDatasetAction where
-  toJSON SqlQueryDatasetAction {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("sqlQuery" Core..= sqlQuery),
-            ("filters" Core..=) Core.<$> filters
-          ]
-      )
+        toJSON SqlQueryDatasetAction{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("sqlQuery" Core..= sqlQuery),
+                  ("filters" Core..=) Core.<$> filters])
 
 instance Core.FromJSON SqlQueryDatasetAction where
-  parseJSON =
-    Core.withObject "SqlQueryDatasetAction" Core.$
-      \x ->
-        SqlQueryDatasetAction'
-          Core.<$> (x Core..: "sqlQuery") Core.<*> (x Core..:? "filters")
+        parseJSON
+          = Core.withObject "SqlQueryDatasetAction" Core.$
+              \ x ->
+                SqlQueryDatasetAction' Core.<$>
+                  (x Core..: "sqlQuery") Core.<*> x Core..:? "filters"

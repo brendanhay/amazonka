@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,19 +10,17 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.S3.Types.S3ServiceError
-  ( S3ServiceError (..),
-
-    -- * Smart constructor
-    mkS3ServiceError,
-
-    -- * Lenses
-    sseCode,
-    sseKey,
-    sseMessage,
-    sseVersionId,
-  )
-where
+  ( S3ServiceError (..)
+  -- * Smart constructor
+  , mkS3ServiceError
+  -- * Lenses
+  , sseCode
+  , sseKey
+  , sseMessage
+  , sseVersionId
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -35,1354 +33,13 @@ import qualified Network.AWS.S3.Types.Message as Types
 --
 -- /See:/ 'mkS3ServiceError' smart constructor.
 data S3ServiceError = S3ServiceError'
-  { -- | The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
-    --
-    -- __Amazon S3 error codes__
-    --
-    --     *
-    --     * /Code:/ AccessDenied
-    --
-    --
-    --     * /Description:/ Access Denied
-    --
-    --
-    --     * /HTTP Status Code:/ 403 Forbidden
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ AccountProblem
-    --
-    --
-    --     * /Description:/ There is a problem with your AWS account that prevents the operation from completing successfully. Contact AWS Support for further assistance.
-    --
-    --
-    --     * /HTTP Status Code:/ 403 Forbidden
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ AllAccessDisabled
-    --
-    --
-    --     * /Description:/ All access to this Amazon S3 resource has been disabled. Contact AWS Support for further assistance.
-    --
-    --
-    --     * /HTTP Status Code:/ 403 Forbidden
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ AmbiguousGrantByEmailAddress
-    --
-    --
-    --     * /Description:/ The email address you provided is associated with more than one account.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ AuthorizationHeaderMalformed
-    --
-    --
-    --     * /Description:/ The authorization header you provided is invalid.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /HTTP Status Code:/ N/A
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ BadDigest
-    --
-    --
-    --     * /Description:/ The Content-MD5 you specified did not match what we received.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ BucketAlreadyExists
-    --
-    --
-    --     * /Description:/ The requested bucket name is not available. The bucket namespace is shared by all users of the system. Please select a different name and try again.
-    --
-    --
-    --     * /HTTP Status Code:/ 409 Conflict
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ BucketAlreadyOwnedByYou
-    --
-    --
-    --     * /Description:/ The bucket you tried to create already exists, and you own it. Amazon S3 returns this error in all AWS Regions except in the North Virginia Region. For legacy compatibility, if you re-create an existing bucket that you already own in the North Virginia Region, Amazon S3 returns 200 OK and resets the bucket access control lists (ACLs).
-    --
-    --
-    --     * /Code:/ 409 Conflict (in all Regions except the North Virginia Region)
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ BucketNotEmpty
-    --
-    --
-    --     * /Description:/ The bucket you tried to delete is not empty.
-    --
-    --
-    --     * /HTTP Status Code:/ 409 Conflict
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ CredentialsNotSupported
-    --
-    --
-    --     * /Description:/ This request does not support credentials.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ CrossLocationLoggingProhibited
-    --
-    --
-    --     * /Description:/ Cross-location logging not allowed. Buckets in one geographic location cannot log information to a bucket in another location.
-    --
-    --
-    --     * /HTTP Status Code:/ 403 Forbidden
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ EntityTooSmall
-    --
-    --
-    --     * /Description:/ Your proposed upload is smaller than the minimum allowed object size.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ EntityTooLarge
-    --
-    --
-    --     * /Description:/ Your proposed upload exceeds the maximum allowed object size.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ ExpiredToken
-    --
-    --
-    --     * /Description:/ The provided token has expired.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ IllegalVersioningConfigurationException
-    --
-    --
-    --     * /Description:/ Indicates that the versioning configuration specified in the request is invalid.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ IncompleteBody
-    --
-    --
-    --     * /Description:/ You did not provide the number of bytes specified by the Content-Length HTTP header
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ IncorrectNumberOfFilesInPostRequest
-    --
-    --
-    --     * /Description:/ POST requires exactly one file upload per request.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InlineDataTooLarge
-    --
-    --
-    --     * /Description:/ Inline data exceeds the maximum allowed size.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InternalError
-    --
-    --
-    --     * /Description:/ We encountered an internal error. Please try again.
-    --
-    --
-    --     * /HTTP Status Code:/ 500 Internal Server Error
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Server
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidAccessKeyId
-    --
-    --
-    --     * /Description:/ The AWS access key ID you provided does not exist in our records.
-    --
-    --
-    --     * /HTTP Status Code:/ 403 Forbidden
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidAddressingHeader
-    --
-    --
-    --     * /Description:/ You must specify the Anonymous role.
-    --
-    --
-    --     * /HTTP Status Code:/ N/A
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidArgument
-    --
-    --
-    --     * /Description:/ Invalid Argument
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidBucketName
-    --
-    --
-    --     * /Description:/ The specified bucket is not valid.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidBucketState
-    --
-    --
-    --     * /Description:/ The request is not valid with the current state of the bucket.
-    --
-    --
-    --     * /HTTP Status Code:/ 409 Conflict
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidDigest
-    --
-    --
-    --     * /Description:/ The Content-MD5 you specified is not valid.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidEncryptionAlgorithmError
-    --
-    --
-    --     * /Description:/ The encryption request you specified is not valid. The valid value is AES256.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidLocationConstraint
-    --
-    --
-    --     * /Description:/ The specified location constraint is not valid. For more information about Regions, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#access-bucket-intro How to Select a Region for Your Buckets> .
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidObjectState
-    --
-    --
-    --     * /Description:/ The operation is not valid for the current state of the object.
-    --
-    --
-    --     * /HTTP Status Code:/ 403 Forbidden
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidPart
-    --
-    --
-    --     * /Description:/ One or more of the specified parts could not be found. The part might not have been uploaded, or the specified entity tag might not have matched the part's entity tag.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidPartOrder
-    --
-    --
-    --     * /Description:/ The list of parts was not in ascending order. Parts list must be specified in order by part number.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidPayer
-    --
-    --
-    --     * /Description:/ All access to this object has been disabled. Please contact AWS Support for further assistance.
-    --
-    --
-    --     * /HTTP Status Code:/ 403 Forbidden
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidPolicyDocument
-    --
-    --
-    --     * /Description:/ The content of the form does not meet the conditions specified in the policy document.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidRange
-    --
-    --
-    --     * /Description:/ The requested range cannot be satisfied.
-    --
-    --
-    --     * /HTTP Status Code:/ 416 Requested Range Not Satisfiable
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidRequest
-    --
-    --
-    --     * /Description:/ Please use AWS4-HMAC-SHA256.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /Code:/ N/A
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidRequest
-    --
-    --
-    --     * /Description:/ SOAP requests must be made over an HTTPS connection.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidRequest
-    --
-    --
-    --     * /Description:/ Amazon S3 Transfer Acceleration is not supported for buckets with non-DNS compliant names.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /Code:/ N/A
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidRequest
-    --
-    --
-    --     * /Description:/ Amazon S3 Transfer Acceleration is not supported for buckets with periods (.) in their names.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /Code:/ N/A
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidRequest
-    --
-    --
-    --     * /Description:/ Amazon S3 Transfer Accelerate endpoint only supports virtual style requests.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /Code:/ N/A
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidRequest
-    --
-    --
-    --     * /Description:/ Amazon S3 Transfer Accelerate is not configured on this bucket.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /Code:/ N/A
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidRequest
-    --
-    --
-    --     * /Description:/ Amazon S3 Transfer Accelerate is disabled on this bucket.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /Code:/ N/A
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidRequest
-    --
-    --
-    --     * /Description:/ Amazon S3 Transfer Acceleration is not supported on this bucket. Contact AWS Support for more information.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /Code:/ N/A
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidRequest
-    --
-    --
-    --     * /Description:/ Amazon S3 Transfer Acceleration cannot be enabled on this bucket. Contact AWS Support for more information.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /Code:/ N/A
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidSecurity
-    --
-    --
-    --     * /Description:/ The provided security credentials are not valid.
-    --
-    --
-    --     * /HTTP Status Code:/ 403 Forbidden
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidSOAPRequest
-    --
-    --
-    --     * /Description:/ The SOAP request body is invalid.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidStorageClass
-    --
-    --
-    --     * /Description:/ The storage class you specified is not valid.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidTargetBucketForLogging
-    --
-    --
-    --     * /Description:/ The target bucket for logging does not exist, is not owned by you, or does not have the appropriate grants for the log-delivery group.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidToken
-    --
-    --
-    --     * /Description:/ The provided token is malformed or otherwise invalid.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ InvalidURI
-    --
-    --
-    --     * /Description:/ Couldn't parse the specified URI.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ KeyTooLongError
-    --
-    --
-    --     * /Description:/ Your key is too long.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ MalformedACLError
-    --
-    --
-    --     * /Description:/ The XML you provided was not well-formed or did not validate against our published schema.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ MalformedPOSTRequest
-    --
-    --
-    --     * /Description:/ The body of your POST request is not well-formed multipart/form-data.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ MalformedXML
-    --
-    --
-    --     * /Description:/ This happens when the user sends malformed XML (XML that doesn't conform to the published XSD) for the configuration. The error message is, "The XML you provided was not well-formed or did not validate against our published schema."
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ MaxMessageLengthExceeded
-    --
-    --
-    --     * /Description:/ Your request was too big.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ MaxPostPreDataLengthExceededError
-    --
-    --
-    --     * /Description:/ Your POST request fields preceding the upload file were too large.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ MetadataTooLarge
-    --
-    --
-    --     * /Description:/ Your metadata headers exceed the maximum allowed metadata size.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ MethodNotAllowed
-    --
-    --
-    --     * /Description:/ The specified method is not allowed against this resource.
-    --
-    --
-    --     * /HTTP Status Code:/ 405 Method Not Allowed
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ MissingAttachment
-    --
-    --
-    --     * /Description:/ A SOAP attachment was expected, but none were found.
-    --
-    --
-    --     * /HTTP Status Code:/ N/A
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ MissingContentLength
-    --
-    --
-    --     * /Description:/ You must provide the Content-Length HTTP header.
-    --
-    --
-    --     * /HTTP Status Code:/ 411 Length Required
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ MissingRequestBodyError
-    --
-    --
-    --     * /Description:/ This happens when the user sends an empty XML document as a request. The error message is, "Request body is empty."
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ MissingSecurityElement
-    --
-    --
-    --     * /Description:/ The SOAP 1.1 request is missing a security element.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ MissingSecurityHeader
-    --
-    --
-    --     * /Description:/ Your request is missing a required header.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ NoLoggingStatusForKey
-    --
-    --
-    --     * /Description:/ There is no such thing as a logging status subresource for a key.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ NoSuchBucket
-    --
-    --
-    --     * /Description:/ The specified bucket does not exist.
-    --
-    --
-    --     * /HTTP Status Code:/ 404 Not Found
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ NoSuchBucketPolicy
-    --
-    --
-    --     * /Description:/ The specified bucket does not have a bucket policy.
-    --
-    --
-    --     * /HTTP Status Code:/ 404 Not Found
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ NoSuchKey
-    --
-    --
-    --     * /Description:/ The specified key does not exist.
-    --
-    --
-    --     * /HTTP Status Code:/ 404 Not Found
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ NoSuchLifecycleConfiguration
-    --
-    --
-    --     * /Description:/ The lifecycle configuration does not exist.
-    --
-    --
-    --     * /HTTP Status Code:/ 404 Not Found
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ NoSuchUpload
-    --
-    --
-    --     * /Description:/ The specified multipart upload does not exist. The upload ID might be invalid, or the multipart upload might have been aborted or completed.
-    --
-    --
-    --     * /HTTP Status Code:/ 404 Not Found
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ NoSuchVersion
-    --
-    --
-    --     * /Description:/ Indicates that the version ID specified in the request does not match an existing version.
-    --
-    --
-    --     * /HTTP Status Code:/ 404 Not Found
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ NotImplemented
-    --
-    --
-    --     * /Description:/ A header you provided implies functionality that is not implemented.
-    --
-    --
-    --     * /HTTP Status Code:/ 501 Not Implemented
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Server
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ NotSignedUp
-    --
-    --
-    --     * /Description:/ Your account is not signed up for the Amazon S3 service. You must sign up before you can use Amazon S3. You can sign up at the following URL: https://aws.amazon.com/s3
-    --
-    --
-    --     * /HTTP Status Code:/ 403 Forbidden
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ OperationAborted
-    --
-    --
-    --     * /Description:/ A conflicting conditional operation is currently in progress against this resource. Try again.
-    --
-    --
-    --     * /HTTP Status Code:/ 409 Conflict
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ PermanentRedirect
-    --
-    --
-    --     * /Description:/ The bucket you are attempting to access must be addressed using the specified endpoint. Send all future requests to this endpoint.
-    --
-    --
-    --     * /HTTP Status Code:/ 301 Moved Permanently
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ PreconditionFailed
-    --
-    --
-    --     * /Description:/ At least one of the preconditions you specified did not hold.
-    --
-    --
-    --     * /HTTP Status Code:/ 412 Precondition Failed
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ Redirect
-    --
-    --
-    --     * /Description:/ Temporary redirect.
-    --
-    --
-    --     * /HTTP Status Code:/ 307 Moved Temporarily
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ RestoreAlreadyInProgress
-    --
-    --
-    --     * /Description:/ Object restore is already in progress.
-    --
-    --
-    --     * /HTTP Status Code:/ 409 Conflict
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ RequestIsNotMultiPartContent
-    --
-    --
-    --     * /Description:/ Bucket POST must be of the enclosure-type multipart/form-data.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ RequestTimeout
-    --
-    --
-    --     * /Description:/ Your socket connection to the server was not read from or written to within the timeout period.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ RequestTimeTooSkewed
-    --
-    --
-    --     * /Description:/ The difference between the request time and the server's time is too large.
-    --
-    --
-    --     * /HTTP Status Code:/ 403 Forbidden
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ RequestTorrentOfBucketError
-    --
-    --
-    --     * /Description:/ Requesting the torrent file of a bucket is not permitted.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ SignatureDoesNotMatch
-    --
-    --
-    --     * /Description:/ The request signature we calculated does not match the signature you provided. Check your AWS secret access key and signing method. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html REST Authentication> and <https://docs.aws.amazon.com/AmazonS3/latest/dev/SOAPAuthentication.html SOAP Authentication> for details.
-    --
-    --
-    --     * /HTTP Status Code:/ 403 Forbidden
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ ServiceUnavailable
-    --
-    --
-    --     * /Description:/ Reduce your request rate.
-    --
-    --
-    --     * /HTTP Status Code:/ 503 Service Unavailable
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Server
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ SlowDown
-    --
-    --
-    --     * /Description:/ Reduce your request rate.
-    --
-    --
-    --     * /HTTP Status Code:/ 503 Slow Down
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Server
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ TemporaryRedirect
-    --
-    --
-    --     * /Description:/ You are being redirected to the bucket while DNS updates.
-    --
-    --
-    --     * /HTTP Status Code:/ 307 Moved Temporarily
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ TokenRefreshRequired
-    --
-    --
-    --     * /Description:/ The provided token must be refreshed.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ TooManyBuckets
-    --
-    --
-    --     * /Description:/ You have attempted to create more buckets than allowed.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ UnexpectedContent
-    --
-    --
-    --     * /Description:/ This request does not support content.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ UnresolvableGrantByEmailAddress
-    --
-    --
-    --     * /Description:/ The email address you provided does not match any account on record.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    --
-    --
-    --
-    --
-    --     *
-    --     * /Code:/ UserKeyMustBeSpecified
-    --
-    --
-    --     * /Description:/ The bucket POST must contain the specified field name. If it is specified, check the order of the fields.
-    --
-    --
-    --     * /HTTP Status Code:/ 400 Bad Request
-    --
-    --
-    --     * /SOAP Fault Code Prefix:/ Client
-    code :: Core.Maybe Types.Code,
-    -- | The error key.
-    key :: Core.Maybe Types.Key,
-    -- | The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
-    message :: Core.Maybe Types.Message,
-    -- | The version ID of the error.
-    versionId :: Core.Maybe Types.ObjectVersionId
-  }
-  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.Hashable, Core.NFData)
-
--- | Creates a 'S3ServiceError' value with any optional fields omitted.
-mkS3ServiceError ::
-  S3ServiceError
-mkS3ServiceError =
-  S3ServiceError'
-    { code = Core.Nothing,
-      key = Core.Nothing,
-      message = Core.Nothing,
-      versionId = Core.Nothing
-    }
-
--- | The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type.
+  { code :: Core.Maybe Types.Code
+    -- ^ The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type. 
 --
--- __Amazon S3 error codes__
+-- __Amazon S3 error codes__ 
 --
---     *
---     * /Code:/ AccessDenied
+--     * 
+--     * /Code:/ AccessDenied 
 --
 --
 --     * /Description:/ Access Denied
@@ -1396,7 +53,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ AccountProblem
 --
 --
@@ -1411,7 +68,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ AllAccessDisabled
 --
 --
@@ -1426,7 +83,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ AmbiguousGrantByEmailAddress
 --
 --
@@ -1441,7 +98,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ AuthorizationHeaderMalformed
 --
 --
@@ -1456,7 +113,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ BadDigest
 --
 --
@@ -1471,7 +128,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ BucketAlreadyExists
 --
 --
@@ -1486,14 +143,14 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ BucketAlreadyOwnedByYou
 --
 --
 --     * /Description:/ The bucket you tried to create already exists, and you own it. Amazon S3 returns this error in all AWS Regions except in the North Virginia Region. For legacy compatibility, if you re-create an existing bucket that you already own in the North Virginia Region, Amazon S3 returns 200 OK and resets the bucket access control lists (ACLs).
 --
 --
---     * /Code:/ 409 Conflict (in all Regions except the North Virginia Region)
+--     * /Code:/ 409 Conflict (in all Regions except the North Virginia Region) 
 --
 --
 --     * /SOAP Fault Code Prefix:/ Client
@@ -1501,7 +158,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ BucketNotEmpty
 --
 --
@@ -1516,7 +173,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ CredentialsNotSupported
 --
 --
@@ -1531,7 +188,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ CrossLocationLoggingProhibited
 --
 --
@@ -1546,7 +203,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ EntityTooSmall
 --
 --
@@ -1561,7 +218,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ EntityTooLarge
 --
 --
@@ -1576,7 +233,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ ExpiredToken
 --
 --
@@ -1591,8 +248,8 @@ mkS3ServiceError =
 --
 --
 --
---     *
---     * /Code:/ IllegalVersioningConfigurationException
+--     * 
+--     * /Code:/ IllegalVersioningConfigurationException 
 --
 --
 --     * /Description:/ Indicates that the versioning configuration specified in the request is invalid.
@@ -1606,7 +263,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ IncompleteBody
 --
 --
@@ -1621,7 +278,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ IncorrectNumberOfFilesInPostRequest
 --
 --
@@ -1636,7 +293,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InlineDataTooLarge
 --
 --
@@ -1651,7 +308,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InternalError
 --
 --
@@ -1666,7 +323,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidAccessKeyId
 --
 --
@@ -1681,7 +338,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidAddressingHeader
 --
 --
@@ -1696,7 +353,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidArgument
 --
 --
@@ -1711,7 +368,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidBucketName
 --
 --
@@ -1726,7 +383,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidBucketState
 --
 --
@@ -1741,7 +398,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidDigest
 --
 --
@@ -1756,7 +413,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidEncryptionAlgorithmError
 --
 --
@@ -1771,11 +428,11 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidLocationConstraint
 --
 --
---     * /Description:/ The specified location constraint is not valid. For more information about Regions, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#access-bucket-intro How to Select a Region for Your Buckets> .
+--     * /Description:/ The specified location constraint is not valid. For more information about Regions, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#access-bucket-intro How to Select a Region for Your Buckets> . 
 --
 --
 --     * /HTTP Status Code:/ 400 Bad Request
@@ -1786,7 +443,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidObjectState
 --
 --
@@ -1801,7 +458,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidPart
 --
 --
@@ -1816,7 +473,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidPartOrder
 --
 --
@@ -1831,7 +488,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidPayer
 --
 --
@@ -1846,7 +503,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidPolicyDocument
 --
 --
@@ -1861,7 +518,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidRange
 --
 --
@@ -1876,7 +533,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidRequest
 --
 --
@@ -1891,7 +548,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidRequest
 --
 --
@@ -1906,7 +563,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidRequest
 --
 --
@@ -1921,7 +578,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidRequest
 --
 --
@@ -1936,7 +593,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidRequest
 --
 --
@@ -1951,7 +608,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidRequest
 --
 --
@@ -1966,7 +623,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidRequest
 --
 --
@@ -1981,7 +638,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidRequest
 --
 --
@@ -1996,7 +653,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidRequest
 --
 --
@@ -2011,7 +668,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidSecurity
 --
 --
@@ -2026,7 +683,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidSOAPRequest
 --
 --
@@ -2041,7 +698,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidStorageClass
 --
 --
@@ -2056,11 +713,11 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidTargetBucketForLogging
 --
 --
---     * /Description:/ The target bucket for logging does not exist, is not owned by you, or does not have the appropriate grants for the log-delivery group.
+--     * /Description:/ The target bucket for logging does not exist, is not owned by you, or does not have the appropriate grants for the log-delivery group. 
 --
 --
 --     * /HTTP Status Code:/ 400 Bad Request
@@ -2071,7 +728,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidToken
 --
 --
@@ -2086,7 +743,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ InvalidURI
 --
 --
@@ -2101,7 +758,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ KeyTooLongError
 --
 --
@@ -2116,7 +773,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ MalformedACLError
 --
 --
@@ -2131,8 +788,8 @@ mkS3ServiceError =
 --
 --
 --
---     *
---     * /Code:/ MalformedPOSTRequest
+--     * 
+--     * /Code:/ MalformedPOSTRequest 
 --
 --
 --     * /Description:/ The body of your POST request is not well-formed multipart/form-data.
@@ -2146,11 +803,11 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ MalformedXML
 --
 --
---     * /Description:/ This happens when the user sends malformed XML (XML that doesn't conform to the published XSD) for the configuration. The error message is, "The XML you provided was not well-formed or did not validate against our published schema."
+--     * /Description:/ This happens when the user sends malformed XML (XML that doesn't conform to the published XSD) for the configuration. The error message is, "The XML you provided was not well-formed or did not validate against our published schema." 
 --
 --
 --     * /HTTP Status Code:/ 400 Bad Request
@@ -2161,7 +818,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ MaxMessageLengthExceeded
 --
 --
@@ -2176,7 +833,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ MaxPostPreDataLengthExceededError
 --
 --
@@ -2191,7 +848,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ MetadataTooLarge
 --
 --
@@ -2206,7 +863,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ MethodNotAllowed
 --
 --
@@ -2221,7 +878,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ MissingAttachment
 --
 --
@@ -2236,7 +893,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ MissingContentLength
 --
 --
@@ -2251,11 +908,11 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ MissingRequestBodyError
 --
 --
---     * /Description:/ This happens when the user sends an empty XML document as a request. The error message is, "Request body is empty."
+--     * /Description:/ This happens when the user sends an empty XML document as a request. The error message is, "Request body is empty." 
 --
 --
 --     * /HTTP Status Code:/ 400 Bad Request
@@ -2266,7 +923,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ MissingSecurityElement
 --
 --
@@ -2281,7 +938,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ MissingSecurityHeader
 --
 --
@@ -2296,7 +953,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ NoLoggingStatusForKey
 --
 --
@@ -2311,7 +968,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ NoSuchBucket
 --
 --
@@ -2326,7 +983,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ NoSuchBucketPolicy
 --
 --
@@ -2341,7 +998,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ NoSuchKey
 --
 --
@@ -2356,11 +1013,11 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ NoSuchLifecycleConfiguration
 --
 --
---     * /Description:/ The lifecycle configuration does not exist.
+--     * /Description:/ The lifecycle configuration does not exist. 
 --
 --
 --     * /HTTP Status Code:/ 404 Not Found
@@ -2371,7 +1028,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ NoSuchUpload
 --
 --
@@ -2386,8 +1043,8 @@ mkS3ServiceError =
 --
 --
 --
---     *
---     * /Code:/ NoSuchVersion
+--     * 
+--     * /Code:/ NoSuchVersion 
 --
 --
 --     * /Description:/ Indicates that the version ID specified in the request does not match an existing version.
@@ -2401,7 +1058,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ NotImplemented
 --
 --
@@ -2416,7 +1073,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ NotSignedUp
 --
 --
@@ -2431,7 +1088,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ OperationAborted
 --
 --
@@ -2446,7 +1103,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ PermanentRedirect
 --
 --
@@ -2461,7 +1118,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ PreconditionFailed
 --
 --
@@ -2476,7 +1133,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ Redirect
 --
 --
@@ -2491,7 +1148,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ RestoreAlreadyInProgress
 --
 --
@@ -2506,7 +1163,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ RequestIsNotMultiPartContent
 --
 --
@@ -2521,7 +1178,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ RequestTimeout
 --
 --
@@ -2536,7 +1193,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ RequestTimeTooSkewed
 --
 --
@@ -2551,7 +1208,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ RequestTorrentOfBucketError
 --
 --
@@ -2566,7 +1223,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ SignatureDoesNotMatch
 --
 --
@@ -2581,7 +1238,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ ServiceUnavailable
 --
 --
@@ -2596,7 +1253,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ SlowDown
 --
 --
@@ -2611,7 +1268,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ TemporaryRedirect
 --
 --
@@ -2626,7 +1283,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ TokenRefreshRequired
 --
 --
@@ -2641,7 +1298,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ TooManyBuckets
 --
 --
@@ -2656,7 +1313,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ UnexpectedContent
 --
 --
@@ -2671,7 +1328,7 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
 --     * /Code:/ UnresolvableGrantByEmailAddress
 --
 --
@@ -2686,7 +1343,1349 @@ mkS3ServiceError =
 --
 --
 --
---     *
+--     * 
+--     * /Code:/ UserKeyMustBeSpecified
+--
+--
+--     * /Description:/ The bucket POST must contain the specified field name. If it is specified, check the order of the fields.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--
+  , key :: Core.Maybe Types.Key
+    -- ^ The error key.
+  , message :: Core.Maybe Types.Message
+    -- ^ The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
+  , versionId :: Core.Maybe Types.ObjectVersionId
+    -- ^ The version ID of the error.
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
+
+-- | Creates a 'S3ServiceError' value with any optional fields omitted.
+mkS3ServiceError
+    :: S3ServiceError
+mkS3ServiceError
+  = S3ServiceError'{code = Core.Nothing, key = Core.Nothing,
+                    message = Core.Nothing, versionId = Core.Nothing}
+
+-- | The error code is a string that uniquely identifies an error condition. It is meant to be read and understood by programs that detect and handle errors by type. 
+--
+-- __Amazon S3 error codes__ 
+--
+--     * 
+--     * /Code:/ AccessDenied 
+--
+--
+--     * /Description:/ Access Denied
+--
+--
+--     * /HTTP Status Code:/ 403 Forbidden
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ AccountProblem
+--
+--
+--     * /Description:/ There is a problem with your AWS account that prevents the operation from completing successfully. Contact AWS Support for further assistance.
+--
+--
+--     * /HTTP Status Code:/ 403 Forbidden
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ AllAccessDisabled
+--
+--
+--     * /Description:/ All access to this Amazon S3 resource has been disabled. Contact AWS Support for further assistance.
+--
+--
+--     * /HTTP Status Code:/ 403 Forbidden
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ AmbiguousGrantByEmailAddress
+--
+--
+--     * /Description:/ The email address you provided is associated with more than one account.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ AuthorizationHeaderMalformed
+--
+--
+--     * /Description:/ The authorization header you provided is invalid.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /HTTP Status Code:/ N/A
+--
+--
+--
+--
+--     * 
+--     * /Code:/ BadDigest
+--
+--
+--     * /Description:/ The Content-MD5 you specified did not match what we received.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ BucketAlreadyExists
+--
+--
+--     * /Description:/ The requested bucket name is not available. The bucket namespace is shared by all users of the system. Please select a different name and try again.
+--
+--
+--     * /HTTP Status Code:/ 409 Conflict
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ BucketAlreadyOwnedByYou
+--
+--
+--     * /Description:/ The bucket you tried to create already exists, and you own it. Amazon S3 returns this error in all AWS Regions except in the North Virginia Region. For legacy compatibility, if you re-create an existing bucket that you already own in the North Virginia Region, Amazon S3 returns 200 OK and resets the bucket access control lists (ACLs).
+--
+--
+--     * /Code:/ 409 Conflict (in all Regions except the North Virginia Region) 
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ BucketNotEmpty
+--
+--
+--     * /Description:/ The bucket you tried to delete is not empty.
+--
+--
+--     * /HTTP Status Code:/ 409 Conflict
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ CredentialsNotSupported
+--
+--
+--     * /Description:/ This request does not support credentials.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ CrossLocationLoggingProhibited
+--
+--
+--     * /Description:/ Cross-location logging not allowed. Buckets in one geographic location cannot log information to a bucket in another location.
+--
+--
+--     * /HTTP Status Code:/ 403 Forbidden
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ EntityTooSmall
+--
+--
+--     * /Description:/ Your proposed upload is smaller than the minimum allowed object size.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ EntityTooLarge
+--
+--
+--     * /Description:/ Your proposed upload exceeds the maximum allowed object size.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ ExpiredToken
+--
+--
+--     * /Description:/ The provided token has expired.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ IllegalVersioningConfigurationException 
+--
+--
+--     * /Description:/ Indicates that the versioning configuration specified in the request is invalid.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ IncompleteBody
+--
+--
+--     * /Description:/ You did not provide the number of bytes specified by the Content-Length HTTP header
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ IncorrectNumberOfFilesInPostRequest
+--
+--
+--     * /Description:/ POST requires exactly one file upload per request.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InlineDataTooLarge
+--
+--
+--     * /Description:/ Inline data exceeds the maximum allowed size.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InternalError
+--
+--
+--     * /Description:/ We encountered an internal error. Please try again.
+--
+--
+--     * /HTTP Status Code:/ 500 Internal Server Error
+--
+--
+--     * /SOAP Fault Code Prefix:/ Server
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidAccessKeyId
+--
+--
+--     * /Description:/ The AWS access key ID you provided does not exist in our records.
+--
+--
+--     * /HTTP Status Code:/ 403 Forbidden
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidAddressingHeader
+--
+--
+--     * /Description:/ You must specify the Anonymous role.
+--
+--
+--     * /HTTP Status Code:/ N/A
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidArgument
+--
+--
+--     * /Description:/ Invalid Argument
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidBucketName
+--
+--
+--     * /Description:/ The specified bucket is not valid.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidBucketState
+--
+--
+--     * /Description:/ The request is not valid with the current state of the bucket.
+--
+--
+--     * /HTTP Status Code:/ 409 Conflict
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidDigest
+--
+--
+--     * /Description:/ The Content-MD5 you specified is not valid.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidEncryptionAlgorithmError
+--
+--
+--     * /Description:/ The encryption request you specified is not valid. The valid value is AES256.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidLocationConstraint
+--
+--
+--     * /Description:/ The specified location constraint is not valid. For more information about Regions, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html#access-bucket-intro How to Select a Region for Your Buckets> . 
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidObjectState
+--
+--
+--     * /Description:/ The operation is not valid for the current state of the object.
+--
+--
+--     * /HTTP Status Code:/ 403 Forbidden
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidPart
+--
+--
+--     * /Description:/ One or more of the specified parts could not be found. The part might not have been uploaded, or the specified entity tag might not have matched the part's entity tag.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidPartOrder
+--
+--
+--     * /Description:/ The list of parts was not in ascending order. Parts list must be specified in order by part number.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidPayer
+--
+--
+--     * /Description:/ All access to this object has been disabled. Please contact AWS Support for further assistance.
+--
+--
+--     * /HTTP Status Code:/ 403 Forbidden
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidPolicyDocument
+--
+--
+--     * /Description:/ The content of the form does not meet the conditions specified in the policy document.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidRange
+--
+--
+--     * /Description:/ The requested range cannot be satisfied.
+--
+--
+--     * /HTTP Status Code:/ 416 Requested Range Not Satisfiable
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidRequest
+--
+--
+--     * /Description:/ Please use AWS4-HMAC-SHA256.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /Code:/ N/A
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidRequest
+--
+--
+--     * /Description:/ SOAP requests must be made over an HTTPS connection.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidRequest
+--
+--
+--     * /Description:/ Amazon S3 Transfer Acceleration is not supported for buckets with non-DNS compliant names.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /Code:/ N/A
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidRequest
+--
+--
+--     * /Description:/ Amazon S3 Transfer Acceleration is not supported for buckets with periods (.) in their names.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /Code:/ N/A
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidRequest
+--
+--
+--     * /Description:/ Amazon S3 Transfer Accelerate endpoint only supports virtual style requests.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /Code:/ N/A
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidRequest
+--
+--
+--     * /Description:/ Amazon S3 Transfer Accelerate is not configured on this bucket.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /Code:/ N/A
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidRequest
+--
+--
+--     * /Description:/ Amazon S3 Transfer Accelerate is disabled on this bucket.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /Code:/ N/A
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidRequest
+--
+--
+--     * /Description:/ Amazon S3 Transfer Acceleration is not supported on this bucket. Contact AWS Support for more information.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /Code:/ N/A
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidRequest
+--
+--
+--     * /Description:/ Amazon S3 Transfer Acceleration cannot be enabled on this bucket. Contact AWS Support for more information.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /Code:/ N/A
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidSecurity
+--
+--
+--     * /Description:/ The provided security credentials are not valid.
+--
+--
+--     * /HTTP Status Code:/ 403 Forbidden
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidSOAPRequest
+--
+--
+--     * /Description:/ The SOAP request body is invalid.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidStorageClass
+--
+--
+--     * /Description:/ The storage class you specified is not valid.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidTargetBucketForLogging
+--
+--
+--     * /Description:/ The target bucket for logging does not exist, is not owned by you, or does not have the appropriate grants for the log-delivery group. 
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidToken
+--
+--
+--     * /Description:/ The provided token is malformed or otherwise invalid.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ InvalidURI
+--
+--
+--     * /Description:/ Couldn't parse the specified URI.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ KeyTooLongError
+--
+--
+--     * /Description:/ Your key is too long.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ MalformedACLError
+--
+--
+--     * /Description:/ The XML you provided was not well-formed or did not validate against our published schema.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ MalformedPOSTRequest 
+--
+--
+--     * /Description:/ The body of your POST request is not well-formed multipart/form-data.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ MalformedXML
+--
+--
+--     * /Description:/ This happens when the user sends malformed XML (XML that doesn't conform to the published XSD) for the configuration. The error message is, "The XML you provided was not well-formed or did not validate against our published schema." 
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ MaxMessageLengthExceeded
+--
+--
+--     * /Description:/ Your request was too big.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ MaxPostPreDataLengthExceededError
+--
+--
+--     * /Description:/ Your POST request fields preceding the upload file were too large.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ MetadataTooLarge
+--
+--
+--     * /Description:/ Your metadata headers exceed the maximum allowed metadata size.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ MethodNotAllowed
+--
+--
+--     * /Description:/ The specified method is not allowed against this resource.
+--
+--
+--     * /HTTP Status Code:/ 405 Method Not Allowed
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ MissingAttachment
+--
+--
+--     * /Description:/ A SOAP attachment was expected, but none were found.
+--
+--
+--     * /HTTP Status Code:/ N/A
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ MissingContentLength
+--
+--
+--     * /Description:/ You must provide the Content-Length HTTP header.
+--
+--
+--     * /HTTP Status Code:/ 411 Length Required
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ MissingRequestBodyError
+--
+--
+--     * /Description:/ This happens when the user sends an empty XML document as a request. The error message is, "Request body is empty." 
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ MissingSecurityElement
+--
+--
+--     * /Description:/ The SOAP 1.1 request is missing a security element.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ MissingSecurityHeader
+--
+--
+--     * /Description:/ Your request is missing a required header.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ NoLoggingStatusForKey
+--
+--
+--     * /Description:/ There is no such thing as a logging status subresource for a key.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ NoSuchBucket
+--
+--
+--     * /Description:/ The specified bucket does not exist.
+--
+--
+--     * /HTTP Status Code:/ 404 Not Found
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ NoSuchBucketPolicy
+--
+--
+--     * /Description:/ The specified bucket does not have a bucket policy.
+--
+--
+--     * /HTTP Status Code:/ 404 Not Found
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ NoSuchKey
+--
+--
+--     * /Description:/ The specified key does not exist.
+--
+--
+--     * /HTTP Status Code:/ 404 Not Found
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ NoSuchLifecycleConfiguration
+--
+--
+--     * /Description:/ The lifecycle configuration does not exist. 
+--
+--
+--     * /HTTP Status Code:/ 404 Not Found
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ NoSuchUpload
+--
+--
+--     * /Description:/ The specified multipart upload does not exist. The upload ID might be invalid, or the multipart upload might have been aborted or completed.
+--
+--
+--     * /HTTP Status Code:/ 404 Not Found
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ NoSuchVersion 
+--
+--
+--     * /Description:/ Indicates that the version ID specified in the request does not match an existing version.
+--
+--
+--     * /HTTP Status Code:/ 404 Not Found
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ NotImplemented
+--
+--
+--     * /Description:/ A header you provided implies functionality that is not implemented.
+--
+--
+--     * /HTTP Status Code:/ 501 Not Implemented
+--
+--
+--     * /SOAP Fault Code Prefix:/ Server
+--
+--
+--
+--
+--     * 
+--     * /Code:/ NotSignedUp
+--
+--
+--     * /Description:/ Your account is not signed up for the Amazon S3 service. You must sign up before you can use Amazon S3. You can sign up at the following URL: https://aws.amazon.com/s3
+--
+--
+--     * /HTTP Status Code:/ 403 Forbidden
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ OperationAborted
+--
+--
+--     * /Description:/ A conflicting conditional operation is currently in progress against this resource. Try again.
+--
+--
+--     * /HTTP Status Code:/ 409 Conflict
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ PermanentRedirect
+--
+--
+--     * /Description:/ The bucket you are attempting to access must be addressed using the specified endpoint. Send all future requests to this endpoint.
+--
+--
+--     * /HTTP Status Code:/ 301 Moved Permanently
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ PreconditionFailed
+--
+--
+--     * /Description:/ At least one of the preconditions you specified did not hold.
+--
+--
+--     * /HTTP Status Code:/ 412 Precondition Failed
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ Redirect
+--
+--
+--     * /Description:/ Temporary redirect.
+--
+--
+--     * /HTTP Status Code:/ 307 Moved Temporarily
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ RestoreAlreadyInProgress
+--
+--
+--     * /Description:/ Object restore is already in progress.
+--
+--
+--     * /HTTP Status Code:/ 409 Conflict
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ RequestIsNotMultiPartContent
+--
+--
+--     * /Description:/ Bucket POST must be of the enclosure-type multipart/form-data.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ RequestTimeout
+--
+--
+--     * /Description:/ Your socket connection to the server was not read from or written to within the timeout period.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ RequestTimeTooSkewed
+--
+--
+--     * /Description:/ The difference between the request time and the server's time is too large.
+--
+--
+--     * /HTTP Status Code:/ 403 Forbidden
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ RequestTorrentOfBucketError
+--
+--
+--     * /Description:/ Requesting the torrent file of a bucket is not permitted.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ SignatureDoesNotMatch
+--
+--
+--     * /Description:/ The request signature we calculated does not match the signature you provided. Check your AWS secret access key and signing method. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html REST Authentication> and <https://docs.aws.amazon.com/AmazonS3/latest/dev/SOAPAuthentication.html SOAP Authentication> for details.
+--
+--
+--     * /HTTP Status Code:/ 403 Forbidden
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ ServiceUnavailable
+--
+--
+--     * /Description:/ Reduce your request rate.
+--
+--
+--     * /HTTP Status Code:/ 503 Service Unavailable
+--
+--
+--     * /SOAP Fault Code Prefix:/ Server
+--
+--
+--
+--
+--     * 
+--     * /Code:/ SlowDown
+--
+--
+--     * /Description:/ Reduce your request rate.
+--
+--
+--     * /HTTP Status Code:/ 503 Slow Down
+--
+--
+--     * /SOAP Fault Code Prefix:/ Server
+--
+--
+--
+--
+--     * 
+--     * /Code:/ TemporaryRedirect
+--
+--
+--     * /Description:/ You are being redirected to the bucket while DNS updates.
+--
+--
+--     * /HTTP Status Code:/ 307 Moved Temporarily
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ TokenRefreshRequired
+--
+--
+--     * /Description:/ The provided token must be refreshed.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ TooManyBuckets
+--
+--
+--     * /Description:/ You have attempted to create more buckets than allowed.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ UnexpectedContent
+--
+--
+--     * /Description:/ This request does not support content.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
+--     * /Code:/ UnresolvableGrantByEmailAddress
+--
+--
+--     * /Description:/ The email address you provided does not match any account on record.
+--
+--
+--     * /HTTP Status Code:/ 400 Bad Request
+--
+--
+--     * /SOAP Fault Code Prefix:/ Client
+--
+--
+--
+--
+--     * 
 --     * /Code:/ UserKeyMustBeSpecified
 --
 --
@@ -2706,33 +2705,36 @@ mkS3ServiceError =
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sseCode :: Lens.Lens' S3ServiceError (Core.Maybe Types.Code)
 sseCode = Lens.field @"code"
-{-# DEPRECATED sseCode "Use generic-lens or generic-optics with 'code' instead." #-}
+{-# INLINEABLE sseCode #-}
+{-# DEPRECATED code "Use generic-lens or generic-optics with 'code' instead"  #-}
 
 -- | The error key.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sseKey :: Lens.Lens' S3ServiceError (Core.Maybe Types.Key)
 sseKey = Lens.field @"key"
-{-# DEPRECATED sseKey "Use generic-lens or generic-optics with 'key' instead." #-}
+{-# INLINEABLE sseKey #-}
+{-# DEPRECATED key "Use generic-lens or generic-optics with 'key' instead"  #-}
 
 -- | The error message contains a generic description of the error condition in English. It is intended for a human audience. Simple programs display the message directly to the end user if they encounter an error condition they don't know how or don't care to handle. Sophisticated programs with more exhaustive error handling and proper internationalization are more likely to ignore the error message.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sseMessage :: Lens.Lens' S3ServiceError (Core.Maybe Types.Message)
 sseMessage = Lens.field @"message"
-{-# DEPRECATED sseMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+{-# INLINEABLE sseMessage #-}
+{-# DEPRECATED message "Use generic-lens or generic-optics with 'message' instead"  #-}
 
 -- | The version ID of the error.
 --
 -- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sseVersionId :: Lens.Lens' S3ServiceError (Core.Maybe Types.ObjectVersionId)
 sseVersionId = Lens.field @"versionId"
-{-# DEPRECATED sseVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+{-# INLINEABLE sseVersionId #-}
+{-# DEPRECATED versionId "Use generic-lens or generic-optics with 'versionId' instead"  #-}
 
 instance Core.FromXML S3ServiceError where
-  parseXML x =
-    S3ServiceError'
-      Core.<$> (x Core..@? "Code")
-      Core.<*> (x Core..@? "Key")
-      Core.<*> (x Core..@? "Message")
-      Core.<*> (x Core..@? "VersionId")
+        parseXML x
+          = S3ServiceError' Core.<$>
+              (x Core..@? "Code") Core.<*> x Core..@? "Key" Core.<*>
+                x Core..@? "Message"
+                Core.<*> x Core..@? "VersionId"

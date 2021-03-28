@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,21 +17,20 @@
 --
 -- This operation is idempotent.
 -- An AWS account has full permission to perform all operations (actions). However, AWS Identity and Access Management (IAM) users don't have any permissions by default. You must grant them explicit permission to perform specific actions. For more information, see <https://docs.aws.amazon.com/amazonglacier/latest/dev/using-iam-with-amazon-glacier.html Access Control Using AWS Identity and Access Management (IAM)> .
--- For conceptual information and underlying REST API, see <https://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-vaults.html Deleting a Vault in Amazon Glacier> and <https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-delete.html Delete Vault > in the /Amazon S3 Glacier Developer Guide/ .
+-- For conceptual information and underlying REST API, see <https://docs.aws.amazon.com/amazonglacier/latest/dev/deleting-vaults.html Deleting a Vault in Amazon Glacier> and <https://docs.aws.amazon.com/amazonglacier/latest/dev/api-vault-delete.html Delete Vault > in the /Amazon S3 Glacier Developer Guide/ . 
 module Network.AWS.Glacier.DeleteVault
-  ( -- * Creating a request
-    DeleteVault (..),
-    mkDeleteVault,
-
+    (
+    -- * Creating a request
+      DeleteVault (..)
+    , mkDeleteVault
     -- ** Request lenses
-    dAccountId,
-    dVaultName,
+    , dAccountId
+    , dVaultName
 
     -- * Destructuring the response
-    DeleteVaultResponse (..),
-    mkDeleteVaultResponse,
-  )
-where
+    , DeleteVaultResponse (..)
+    , mkDeleteVaultResponse
+    ) where
 
 import qualified Network.AWS.Glacier.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -43,54 +42,59 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkDeleteVault' smart constructor.
 data DeleteVault = DeleteVault'
-  { -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-    accountId :: Types.String,
-    -- | The name of the vault.
-    vaultName :: Types.String
+  { accountId :: Core.Text
+    -- ^ The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+  , vaultName :: Core.Text
+    -- ^ The name of the vault.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteVault' value with any optional fields omitted.
-mkDeleteVault ::
-  -- | 'accountId'
-  Types.String ->
-  -- | 'vaultName'
-  Types.String ->
-  DeleteVault
-mkDeleteVault accountId vaultName =
-  DeleteVault' {accountId, vaultName}
+mkDeleteVault
+    :: Core.Text -- ^ 'accountId'
+    -> Core.Text -- ^ 'vaultName'
+    -> DeleteVault
+mkDeleteVault accountId vaultName
+  = DeleteVault'{accountId, vaultName}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAccountId :: Lens.Lens' DeleteVault Types.String
+dAccountId :: Lens.Lens' DeleteVault Core.Text
 dAccountId = Lens.field @"accountId"
-{-# DEPRECATED dAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+{-# INLINEABLE dAccountId #-}
+{-# DEPRECATED accountId "Use generic-lens or generic-optics with 'accountId' instead"  #-}
 
 -- | The name of the vault.
 --
 -- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dVaultName :: Lens.Lens' DeleteVault Types.String
+dVaultName :: Lens.Lens' DeleteVault Core.Text
 dVaultName = Lens.field @"vaultName"
-{-# DEPRECATED dVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+{-# INLINEABLE dVaultName #-}
+{-# DEPRECATED vaultName "Use generic-lens or generic-optics with 'vaultName' instead"  #-}
+
+instance Core.ToQuery DeleteVault where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DeleteVault where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest DeleteVault where
-  type Rs DeleteVault = DeleteVaultResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.DELETE,
-        Core._rqPath =
-          Core.rawPath
-            ( "/" Core.<> (Core.toText accountId) Core.<> ("/vaults/")
-                Core.<> (Core.toText vaultName)
-            ),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = ""
-      }
-  response = Response.receiveNull DeleteVaultResponse'
+        type Rs DeleteVault = DeleteVaultResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.DELETE,
+                         Core._rqPath =
+                           "/" Core.<> Core.toText accountId Core.<> "/vaults/" Core.<>
+                             Core.toText vaultName,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull DeleteVaultResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteVaultResponse' smart constructor.
 data DeleteVaultResponse = DeleteVaultResponse'
@@ -98,6 +102,6 @@ data DeleteVaultResponse = DeleteVaultResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteVaultResponse' value with any optional fields omitted.
-mkDeleteVaultResponse ::
-  DeleteVaultResponse
+mkDeleteVaultResponse
+    :: DeleteVaultResponse
 mkDeleteVaultResponse = DeleteVaultResponse'

@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -30,24 +30,24 @@
 --
 --
 --     * A cluster that is not in the @available@ state
+--
+--
 module Network.AWS.ElastiCache.DeleteCacheCluster
-  ( -- * Creating a request
-    DeleteCacheCluster (..),
-    mkDeleteCacheCluster,
-
+    (
+    -- * Creating a request
+      DeleteCacheCluster (..)
+    , mkDeleteCacheCluster
     -- ** Request lenses
-    dccCacheClusterId,
-    dccFinalSnapshotIdentifier,
+    , dccCacheClusterId
+    , dccFinalSnapshotIdentifier
 
     -- * Destructuring the response
-    DeleteCacheClusterResponse (..),
-    mkDeleteCacheClusterResponse,
-
+    , DeleteCacheClusterResponse (..)
+    , mkDeleteCacheClusterResponse
     -- ** Response lenses
-    dccrrsCacheCluster,
-    dccrrsResponseStatus,
-  )
-where
+    , dccrrsCacheCluster
+    , dccrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -59,100 +59,101 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkDeleteCacheCluster' smart constructor.
 data DeleteCacheCluster = DeleteCacheCluster'
-  { -- | The cluster identifier for the cluster to be deleted. This parameter is not case sensitive.
-    cacheClusterId :: Types.CacheClusterId,
-    -- | The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. ElastiCache creates the snapshot, and then deletes the cluster immediately afterward.
-    finalSnapshotIdentifier :: Core.Maybe Types.FinalSnapshotIdentifier
+  { cacheClusterId :: Core.Text
+    -- ^ The cluster identifier for the cluster to be deleted. This parameter is not case sensitive.
+  , finalSnapshotIdentifier :: Core.Maybe Core.Text
+    -- ^ The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. ElastiCache creates the snapshot, and then deletes the cluster immediately afterward.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteCacheCluster' value with any optional fields omitted.
-mkDeleteCacheCluster ::
-  -- | 'cacheClusterId'
-  Types.CacheClusterId ->
-  DeleteCacheCluster
-mkDeleteCacheCluster cacheClusterId =
-  DeleteCacheCluster'
-    { cacheClusterId,
-      finalSnapshotIdentifier = Core.Nothing
-    }
+mkDeleteCacheCluster
+    :: Core.Text -- ^ 'cacheClusterId'
+    -> DeleteCacheCluster
+mkDeleteCacheCluster cacheClusterId
+  = DeleteCacheCluster'{cacheClusterId,
+                        finalSnapshotIdentifier = Core.Nothing}
 
 -- | The cluster identifier for the cluster to be deleted. This parameter is not case sensitive.
 --
 -- /Note:/ Consider using 'cacheClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccCacheClusterId :: Lens.Lens' DeleteCacheCluster Types.CacheClusterId
+dccCacheClusterId :: Lens.Lens' DeleteCacheCluster Core.Text
 dccCacheClusterId = Lens.field @"cacheClusterId"
-{-# DEPRECATED dccCacheClusterId "Use generic-lens or generic-optics with 'cacheClusterId' instead." #-}
+{-# INLINEABLE dccCacheClusterId #-}
+{-# DEPRECATED cacheClusterId "Use generic-lens or generic-optics with 'cacheClusterId' instead"  #-}
 
 -- | The user-supplied name of a final cluster snapshot. This is the unique name that identifies the snapshot. ElastiCache creates the snapshot, and then deletes the cluster immediately afterward.
 --
 -- /Note:/ Consider using 'finalSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccFinalSnapshotIdentifier :: Lens.Lens' DeleteCacheCluster (Core.Maybe Types.FinalSnapshotIdentifier)
+dccFinalSnapshotIdentifier :: Lens.Lens' DeleteCacheCluster (Core.Maybe Core.Text)
 dccFinalSnapshotIdentifier = Lens.field @"finalSnapshotIdentifier"
-{-# DEPRECATED dccFinalSnapshotIdentifier "Use generic-lens or generic-optics with 'finalSnapshotIdentifier' instead." #-}
+{-# INLINEABLE dccFinalSnapshotIdentifier #-}
+{-# DEPRECATED finalSnapshotIdentifier "Use generic-lens or generic-optics with 'finalSnapshotIdentifier' instead"  #-}
+
+instance Core.ToQuery DeleteCacheCluster where
+        toQuery DeleteCacheCluster{..}
+          = Core.toQueryPair "Action" ("DeleteCacheCluster" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2015-02-02" :: Core.Text)
+              Core.<> Core.toQueryPair "CacheClusterId" cacheClusterId
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "FinalSnapshotIdentifier")
+                finalSnapshotIdentifier
+
+instance Core.ToHeaders DeleteCacheCluster where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest DeleteCacheCluster where
-  type Rs DeleteCacheCluster = DeleteCacheClusterResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "DeleteCacheCluster")
-                Core.<> (Core.pure ("Version", "2015-02-02"))
-                Core.<> (Core.toQueryValue "CacheClusterId" cacheClusterId)
-                Core.<> ( Core.toQueryValue "FinalSnapshotIdentifier"
-                            Core.<$> finalSnapshotIdentifier
-                        )
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "DeleteCacheClusterResult"
-      ( \s h x ->
-          DeleteCacheClusterResponse'
-            Core.<$> (x Core..@? "CacheCluster") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DeleteCacheCluster = DeleteCacheClusterResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "DeleteCacheClusterResult"
+              (\ s h x ->
+                 DeleteCacheClusterResponse' Core.<$>
+                   (x Core..@? "CacheCluster") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteCacheClusterResponse' smart constructor.
 data DeleteCacheClusterResponse = DeleteCacheClusterResponse'
-  { cacheCluster :: Core.Maybe Types.CacheCluster,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { cacheCluster :: Core.Maybe Types.CacheCluster
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'DeleteCacheClusterResponse' value with any optional fields omitted.
-mkDeleteCacheClusterResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DeleteCacheClusterResponse
-mkDeleteCacheClusterResponse responseStatus =
-  DeleteCacheClusterResponse'
-    { cacheCluster = Core.Nothing,
-      responseStatus
-    }
+mkDeleteCacheClusterResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DeleteCacheClusterResponse
+mkDeleteCacheClusterResponse responseStatus
+  = DeleteCacheClusterResponse'{cacheCluster = Core.Nothing,
+                                responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'cacheCluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dccrrsCacheCluster :: Lens.Lens' DeleteCacheClusterResponse (Core.Maybe Types.CacheCluster)
 dccrrsCacheCluster = Lens.field @"cacheCluster"
-{-# DEPRECATED dccrrsCacheCluster "Use generic-lens or generic-optics with 'cacheCluster' instead." #-}
+{-# INLINEABLE dccrrsCacheCluster #-}
+{-# DEPRECATED cacheCluster "Use generic-lens or generic-optics with 'cacheCluster' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dccrrsResponseStatus :: Lens.Lens' DeleteCacheClusterResponse Core.Int
 dccrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED dccrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE dccrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

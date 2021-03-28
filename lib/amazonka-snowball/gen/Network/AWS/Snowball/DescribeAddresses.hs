@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,24 +17,22 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.Snowball.DescribeAddresses
-  ( -- * Creating a request
-    DescribeAddresses (..),
-    mkDescribeAddresses,
-
+    (
+    -- * Creating a request
+      DescribeAddresses (..)
+    , mkDescribeAddresses
     -- ** Request lenses
-    daMaxResults,
-    daNextToken,
+    , daMaxResults
+    , daNextToken
 
     -- * Destructuring the response
-    DescribeAddressesResponse (..),
-    mkDescribeAddressesResponse,
-
+    , DescribeAddressesResponse (..)
+    , mkDescribeAddressesResponse
     -- ** Response lenses
-    darrsAddresses,
-    darrsNextToken,
-    darrsResponseStatus,
-  )
-where
+    , darrsAddresses
+    , darrsNextToken
+    , darrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Pager as Pager
@@ -45,123 +43,122 @@ import qualified Network.AWS.Snowball.Types as Types
 
 -- | /See:/ 'mkDescribeAddresses' smart constructor.
 data DescribeAddresses = DescribeAddresses'
-  { -- | The number of @ADDRESS@ objects to return.
-    maxResults :: Core.Maybe Core.Natural,
-    -- | HTTP requests are stateless. To identify what object comes "next" in the list of @ADDRESS@ objects, you have the option of specifying a value for @NextToken@ as the starting point for your list of returned addresses.
-    nextToken :: Core.Maybe Types.NextToken
+  { maxResults :: Core.Maybe Core.Natural
+    -- ^ The number of @ADDRESS@ objects to return.
+  , nextToken :: Core.Maybe Core.Text
+    -- ^ HTTP requests are stateless. To identify what object comes "next" in the list of @ADDRESS@ objects, you have the option of specifying a value for @NextToken@ as the starting point for your list of returned addresses.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DescribeAddresses' value with any optional fields omitted.
-mkDescribeAddresses ::
-  DescribeAddresses
-mkDescribeAddresses =
-  DescribeAddresses'
-    { maxResults = Core.Nothing,
-      nextToken = Core.Nothing
-    }
+mkDescribeAddresses
+    :: DescribeAddresses
+mkDescribeAddresses
+  = DescribeAddresses'{maxResults = Core.Nothing,
+                       nextToken = Core.Nothing}
 
 -- | The number of @ADDRESS@ objects to return.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 daMaxResults :: Lens.Lens' DescribeAddresses (Core.Maybe Core.Natural)
 daMaxResults = Lens.field @"maxResults"
-{-# DEPRECATED daMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+{-# INLINEABLE daMaxResults #-}
+{-# DEPRECATED maxResults "Use generic-lens or generic-optics with 'maxResults' instead"  #-}
 
 -- | HTTP requests are stateless. To identify what object comes "next" in the list of @ADDRESS@ objects, you have the option of specifying a value for @NextToken@ as the starting point for your list of returned addresses.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daNextToken :: Lens.Lens' DescribeAddresses (Core.Maybe Types.NextToken)
+daNextToken :: Lens.Lens' DescribeAddresses (Core.Maybe Core.Text)
 daNextToken = Lens.field @"nextToken"
-{-# DEPRECATED daNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE daNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
+
+instance Core.ToQuery DescribeAddresses where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DescribeAddresses where
+        toHeaders DescribeAddresses{..}
+          = Core.pure
+              ("X-Amz-Target",
+               "AWSIESnowballJobManagementService.DescribeAddresses")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON DescribeAddresses where
-  toJSON DescribeAddresses {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("MaxResults" Core..=) Core.<$> maxResults,
-            ("NextToken" Core..=) Core.<$> nextToken
-          ]
-      )
+        toJSON DescribeAddresses{..}
+          = Core.object
+              (Core.catMaybes
+                 [("MaxResults" Core..=) Core.<$> maxResults,
+                  ("NextToken" Core..=) Core.<$> nextToken])
 
 instance Core.AWSRequest DescribeAddresses where
-  type Rs DescribeAddresses = DescribeAddressesResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "X-Amz-Target",
-              "AWSIESnowballJobManagementService.DescribeAddresses"
-            )
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          DescribeAddressesResponse'
-            Core.<$> (x Core..:? "Addresses")
-            Core.<*> (x Core..:? "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DescribeAddresses = DescribeAddressesResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 DescribeAddressesResponse' Core.<$>
+                   (x Core..:? "Addresses") Core.<*> x Core..:? "NextToken" Core.<*>
+                     Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 instance Pager.AWSPager DescribeAddresses where
-  page rq rs
-    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
-    | Pager.stop (rs Lens.^? Lens.field @"addresses" Core.. Lens._Just) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just
-        ( rq
-            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
-        )
+        page rq rs
+          | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+          | Pager.stop (rs Lens.^? Lens.field @"addresses" Core.. Lens._Just)
+            = Core.Nothing
+          | Core.otherwise =
+            Core.Just
+              (rq Core.&
+                 Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken")
 
 -- | /See:/ 'mkDescribeAddressesResponse' smart constructor.
 data DescribeAddressesResponse = DescribeAddressesResponse'
-  { -- | The Snow device shipping addresses that were created for this account.
-    addresses :: Core.Maybe [Types.Address],
-    -- | HTTP requests are stateless. If you use the automatically generated @NextToken@ value in your next @DescribeAddresses@ call, your list of returned addresses will start from this point in the array.
-    nextToken :: Core.Maybe Types.NextToken,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { addresses :: Core.Maybe [Types.Address]
+    -- ^ The Snow device shipping addresses that were created for this account.
+  , nextToken :: Core.Maybe Core.Text
+    -- ^ HTTP requests are stateless. If you use the automatically generated @NextToken@ value in your next @DescribeAddresses@ call, your list of returned addresses will start from this point in the array.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DescribeAddressesResponse' value with any optional fields omitted.
-mkDescribeAddressesResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DescribeAddressesResponse
-mkDescribeAddressesResponse responseStatus =
-  DescribeAddressesResponse'
-    { addresses = Core.Nothing,
-      nextToken = Core.Nothing,
-      responseStatus
-    }
+mkDescribeAddressesResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DescribeAddressesResponse
+mkDescribeAddressesResponse responseStatus
+  = DescribeAddressesResponse'{addresses = Core.Nothing,
+                               nextToken = Core.Nothing, responseStatus}
 
 -- | The Snow device shipping addresses that were created for this account.
 --
 -- /Note:/ Consider using 'addresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 darrsAddresses :: Lens.Lens' DescribeAddressesResponse (Core.Maybe [Types.Address])
 darrsAddresses = Lens.field @"addresses"
-{-# DEPRECATED darrsAddresses "Use generic-lens or generic-optics with 'addresses' instead." #-}
+{-# INLINEABLE darrsAddresses #-}
+{-# DEPRECATED addresses "Use generic-lens or generic-optics with 'addresses' instead"  #-}
 
 -- | HTTP requests are stateless. If you use the automatically generated @NextToken@ value in your next @DescribeAddresses@ call, your list of returned addresses will start from this point in the array.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darrsNextToken :: Lens.Lens' DescribeAddressesResponse (Core.Maybe Types.NextToken)
+darrsNextToken :: Lens.Lens' DescribeAddressesResponse (Core.Maybe Core.Text)
 darrsNextToken = Lens.field @"nextToken"
-{-# DEPRECATED darrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE darrsNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 darrsResponseStatus :: Lens.Lens' DescribeAddressesResponse Core.Int
 darrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED darrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE darrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

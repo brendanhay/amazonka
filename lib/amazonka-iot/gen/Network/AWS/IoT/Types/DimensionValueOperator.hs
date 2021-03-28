@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,45 +10,27 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.IoT.Types.DimensionValueOperator
   ( DimensionValueOperator
-      ( DimensionValueOperator',
-        DimensionValueOperatorIN,
-        DimensionValueOperatorNotIn,
-        fromDimensionValueOperator
-      ),
-  )
-where
+    ( DimensionValueOperator'
+    , DimensionValueOperatorIN
+    , DimensionValueOperatorNotIn
+    , fromDimensionValueOperator
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype DimensionValueOperator = DimensionValueOperator'
-  { fromDimensionValueOperator ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype DimensionValueOperator = DimensionValueOperator'{fromDimensionValueOperator
+                                                         :: Core.Text}
+                                   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                   Core.Generic)
+                                   deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                     Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                     Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                     Core.ToText, Core.FromText, Core.ToByteString,
+                                                     Core.ToQuery, Core.ToHeader)
 
 pattern DimensionValueOperatorIN :: DimensionValueOperator
 pattern DimensionValueOperatorIN = DimensionValueOperator' "IN"
@@ -56,8 +38,9 @@ pattern DimensionValueOperatorIN = DimensionValueOperator' "IN"
 pattern DimensionValueOperatorNotIn :: DimensionValueOperator
 pattern DimensionValueOperatorNotIn = DimensionValueOperator' "NOT_IN"
 
-{-# COMPLETE
+{-# COMPLETE 
   DimensionValueOperatorIN,
+
   DimensionValueOperatorNotIn,
   DimensionValueOperator'
   #-}

@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,28 +10,31 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __AWS Marketplace Entitlement Service__
+-- __AWS Marketplace Entitlement Service__ 
 --
 -- This reference provides descriptions of the AWS Marketplace Entitlement Service API.
 -- AWS Marketplace Entitlement Service is used to determine the entitlement of a customer to a given product. An entitlement represents capacity in a product owned by the customer. For example, a customer might own some number of users or seats in an SaaS application or some amount of data capacity in a multi-tenant database.
--- __Getting Entitlement Records__
+-- __Getting Entitlement Records__ 
 --
 --     * /GetEntitlements/ - Gets the entitlements for a Marketplace product.
+--
+--
 module Network.AWS.MarketplaceEntitlement
-  ( -- * Service configuration
-    mkServiceConfig,
+    (
+    -- * Service configuration
+      mkServiceConfig
 
     -- * Errors
     -- $errors
 
     -- ** InvalidParameterException
-    _InvalidParameterException,
+    , _InvalidParameterException
 
     -- ** ThrottlingException
-    _ThrottlingException,
+    , _ThrottlingException
 
     -- ** InternalServiceErrorException
-    _InternalServiceErrorException,
+    , _InternalServiceErrorException
 
     -- * Waiters
     -- $waiters
@@ -40,83 +43,82 @@ module Network.AWS.MarketplaceEntitlement
     -- $operations
 
     -- ** GetEntitlements (Paginated)
-    module Network.AWS.MarketplaceEntitlement.GetEntitlements,
+    , module Network.AWS.MarketplaceEntitlement.GetEntitlements
 
     -- * Types
 
     -- ** EntitlementValue
-    EntitlementValue (..),
-    mkEntitlementValue,
-    evBooleanValue,
-    evDoubleValue,
-    evIntegerValue,
-    evStringValue,
+    , EntitlementValue (..)
+    , mkEntitlementValue
+    , evBooleanValue
+    , evDoubleValue
+    , evIntegerValue
+    , evStringValue
 
     -- ** GetEntitlementFilterName
-    GetEntitlementFilterName (..),
+    , GetEntitlementFilterName (..)
 
     -- ** NonEmptyString
-    NonEmptyString (..),
+    , NonEmptyString (..)
 
     -- ** FilterValue
-    FilterValue (..),
+    , FilterValue (..)
 
     -- ** ProductCode
-    ProductCode (..),
+    , ProductCode (..)
 
     -- ** Entitlement
-    Entitlement (..),
-    mkEntitlement,
-    eCustomerIdentifier,
-    eDimension,
-    eExpirationDate,
-    eProductCode,
-    eValue,
-
-    -- ** StringValue
-    StringValue (..),
+    , Entitlement (..)
+    , mkEntitlement
+    , eCustomerIdentifier
+    , eDimension
+    , eExpirationDate
+    , eProductCode
+    , eValue
 
     -- ** NextToken
-    NextToken (..),
+    , NextToken (..)
 
     -- * Serialization types
-    Lude.Base64 (..),
-    Lude._Base64,
-    Lude.Sensitive (..),
-    Lude._Sensitive,
-    Lude.UTCTime,
-    Lude.NominalDiffTime,
-  )
-where
+    , Lude.Base64 (..)
+    , Lude._Base64
+    , Lude.Sensitive (..)
+    , Lude._Sensitive
+    , Lude.UTCTime
+    , Lude.NominalDiffTime
+    ) where
 
-import Network.AWS.MarketplaceEntitlement.GetEntitlements
 import Network.AWS.MarketplaceEntitlement.Types
 import Network.AWS.MarketplaceEntitlement.Waiters
+import Network.AWS.MarketplaceEntitlement.GetEntitlements
 import qualified Network.AWS.Prelude as Lude
 
--- $errors
--- Error matchers are designed for use with the functions provided by
--- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
--- This allows catching (and rethrowing) service specific errors returned
--- by 'MarketplaceEntitlement'.
+{- $errors
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by 'MarketplaceEntitlement'.
+-}
 
--- $operations
--- Some AWS operations return results that are incomplete and require subsequent
--- requests in order to obtain the entire result set. The process of sending
--- subsequent requests to continue where a previous request left off is called
--- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
--- 1000 objects at a time, and you must send subsequent requests with the
--- appropriate Marker in order to retrieve the next page of results.
---
--- Operations that have an 'AWSPager' instance can transparently perform subsequent
--- requests, correctly setting Markers and other request facets to iterate through
--- the entire result set of a truncated API operation. Operations which support
--- this have an additional note in the documentation.
---
--- Many operations have the ability to filter results on the server side. See the
--- individual operation parameters for details.
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
 
--- $waiters
--- Waiters poll by repeatedly sending a request until some remote success condition
--- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
--- determines how many attempts should be made, in addition to delay and retry strategies.
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly sending a request until some remote success condition
+configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+determines how many attempts should be made, in addition to delay and retry strategies.
+-}

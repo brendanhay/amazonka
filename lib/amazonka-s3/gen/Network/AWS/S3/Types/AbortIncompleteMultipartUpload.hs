@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.S3.Types.AbortIncompleteMultipartUpload
-  ( AbortIncompleteMultipartUpload (..),
-
-    -- * Smart constructor
-    mkAbortIncompleteMultipartUpload,
-
-    -- * Lenses
-    aimuDaysAfterInitiation,
-  )
-where
+  ( AbortIncompleteMultipartUpload (..)
+  -- * Smart constructor
+  , mkAbortIncompleteMultipartUpload
+  -- * Lenses
+  , aimuDaysAfterInitiation
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -29,33 +27,33 @@ import qualified Network.AWS.S3.Internal as Types
 --
 -- /See:/ 'mkAbortIncompleteMultipartUpload' smart constructor.
 newtype AbortIncompleteMultipartUpload = AbortIncompleteMultipartUpload'
-  { -- | Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
-    daysAfterInitiation :: Core.Maybe Core.Int
+  { daysAfterInitiation :: Core.Maybe Core.Int
+    -- ^ Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AbortIncompleteMultipartUpload' value with any optional fields omitted.
-mkAbortIncompleteMultipartUpload ::
-  AbortIncompleteMultipartUpload
-mkAbortIncompleteMultipartUpload =
-  AbortIncompleteMultipartUpload'
-    { daysAfterInitiation =
-        Core.Nothing
-    }
+mkAbortIncompleteMultipartUpload
+    :: AbortIncompleteMultipartUpload
+mkAbortIncompleteMultipartUpload
+  = AbortIncompleteMultipartUpload'{daysAfterInitiation =
+                                      Core.Nothing}
 
 -- | Specifies the number of days after which Amazon S3 aborts an incomplete multipart upload.
 --
 -- /Note:/ Consider using 'daysAfterInitiation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 aimuDaysAfterInitiation :: Lens.Lens' AbortIncompleteMultipartUpload (Core.Maybe Core.Int)
 aimuDaysAfterInitiation = Lens.field @"daysAfterInitiation"
-{-# DEPRECATED aimuDaysAfterInitiation "Use generic-lens or generic-optics with 'daysAfterInitiation' instead." #-}
+{-# INLINEABLE aimuDaysAfterInitiation #-}
+{-# DEPRECATED daysAfterInitiation "Use generic-lens or generic-optics with 'daysAfterInitiation' instead"  #-}
 
 instance Core.ToXML AbortIncompleteMultipartUpload where
-  toXML AbortIncompleteMultipartUpload {..} =
-    Core.toXMLNode "DaysAfterInitiation" Core.<$> daysAfterInitiation
+        toXML AbortIncompleteMultipartUpload{..}
+          = Core.maybe Core.mempty (Core.toXMLElement "DaysAfterInitiation")
+              daysAfterInitiation
 
 instance Core.FromXML AbortIncompleteMultipartUpload where
-  parseXML x =
-    AbortIncompleteMultipartUpload'
-      Core.<$> (x Core..@? "DaysAfterInitiation")
+        parseXML x
+          = AbortIncompleteMultipartUpload' Core.<$>
+              (x Core..@? "DaysAfterInitiation")

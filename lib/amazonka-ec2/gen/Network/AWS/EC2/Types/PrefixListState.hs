@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,55 +10,37 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.EC2.Types.PrefixListState
   ( PrefixListState
-      ( PrefixListState',
-        PrefixListStateCreateInProgress,
-        PrefixListStateCreateComplete,
-        PrefixListStateCreateFailed,
-        PrefixListStateModifyInProgress,
-        PrefixListStateModifyComplete,
-        PrefixListStateModifyFailed,
-        PrefixListStateRestoreInProgress,
-        PrefixListStateRestoreComplete,
-        PrefixListStateRestoreFailed,
-        PrefixListStateDeleteInProgress,
-        PrefixListStateDeleteComplete,
-        PrefixListStateDeleteFailed,
-        fromPrefixListState
-      ),
-  )
-where
+    ( PrefixListState'
+    , PrefixListStateCreateInProgress
+    , PrefixListStateCreateComplete
+    , PrefixListStateCreateFailed
+    , PrefixListStateModifyInProgress
+    , PrefixListStateModifyComplete
+    , PrefixListStateModifyFailed
+    , PrefixListStateRestoreInProgress
+    , PrefixListStateRestoreComplete
+    , PrefixListStateRestoreFailed
+    , PrefixListStateDeleteInProgress
+    , PrefixListStateDeleteComplete
+    , PrefixListStateDeleteFailed
+    , fromPrefixListState
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype PrefixListState = PrefixListState'
-  { fromPrefixListState ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype PrefixListState = PrefixListState'{fromPrefixListState ::
+                                           Core.Text}
+                            deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                            Core.Generic)
+                            deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                              Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                              Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                              Core.FromText, Core.ToByteString, Core.ToQuery,
+                                              Core.ToHeader)
 
 pattern PrefixListStateCreateInProgress :: PrefixListState
 pattern PrefixListStateCreateInProgress = PrefixListState' "create-in-progress"
@@ -96,18 +78,29 @@ pattern PrefixListStateDeleteComplete = PrefixListState' "delete-complete"
 pattern PrefixListStateDeleteFailed :: PrefixListState
 pattern PrefixListStateDeleteFailed = PrefixListState' "delete-failed"
 
-{-# COMPLETE
+{-# COMPLETE 
   PrefixListStateCreateInProgress,
+
   PrefixListStateCreateComplete,
+
   PrefixListStateCreateFailed,
+
   PrefixListStateModifyInProgress,
+
   PrefixListStateModifyComplete,
+
   PrefixListStateModifyFailed,
+
   PrefixListStateRestoreInProgress,
+
   PrefixListStateRestoreComplete,
+
   PrefixListStateRestoreFailed,
+
   PrefixListStateDeleteInProgress,
+
   PrefixListStateDeleteComplete,
+
   PrefixListStateDeleteFailed,
   PrefixListState'
   #-}

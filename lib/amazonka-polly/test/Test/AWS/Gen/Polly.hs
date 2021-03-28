@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.Polly where
 
 import Data.Proxy
-import Network.AWS.Polly
 import Test.AWS.Fixture
-import Test.AWS.Polly.Internal
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.Polly
+import Test.AWS.Polly.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -90,120 +91,103 @@ import Test.Tasty
 -- Requests
 
 requestGetLexicon :: GetLexicon -> TestTree
-requestGetLexicon =
-  req
+requestGetLexicon = req
     "GetLexicon"
     "fixture/GetLexicon.yaml"
 
 requestGetSpeechSynthesisTask :: GetSpeechSynthesisTask -> TestTree
-requestGetSpeechSynthesisTask =
-  req
+requestGetSpeechSynthesisTask = req
     "GetSpeechSynthesisTask"
     "fixture/GetSpeechSynthesisTask.yaml"
 
 requestDescribeVoices :: DescribeVoices -> TestTree
-requestDescribeVoices =
-  req
+requestDescribeVoices = req
     "DescribeVoices"
     "fixture/DescribeVoices.yaml"
 
 requestListLexicons :: ListLexicons -> TestTree
-requestListLexicons =
-  req
+requestListLexicons = req
     "ListLexicons"
     "fixture/ListLexicons.yaml"
 
 requestSynthesizeSpeech :: SynthesizeSpeech -> TestTree
-requestSynthesizeSpeech =
-  req
+requestSynthesizeSpeech = req
     "SynthesizeSpeech"
     "fixture/SynthesizeSpeech.yaml"
 
 requestListSpeechSynthesisTasks :: ListSpeechSynthesisTasks -> TestTree
-requestListSpeechSynthesisTasks =
-  req
+requestListSpeechSynthesisTasks = req
     "ListSpeechSynthesisTasks"
     "fixture/ListSpeechSynthesisTasks.yaml"
 
 requestPutLexicon :: PutLexicon -> TestTree
-requestPutLexicon =
-  req
+requestPutLexicon = req
     "PutLexicon"
     "fixture/PutLexicon.yaml"
 
 requestDeleteLexicon :: DeleteLexicon -> TestTree
-requestDeleteLexicon =
-  req
+requestDeleteLexicon = req
     "DeleteLexicon"
     "fixture/DeleteLexicon.yaml"
 
 requestStartSpeechSynthesisTask :: StartSpeechSynthesisTask -> TestTree
-requestStartSpeechSynthesisTask =
-  req
+requestStartSpeechSynthesisTask = req
     "StartSpeechSynthesisTask"
     "fixture/StartSpeechSynthesisTask.yaml"
 
 -- Responses
 
 responseGetLexicon :: GetLexiconResponse -> TestTree
-responseGetLexicon =
-  res
+responseGetLexicon = res
     "GetLexiconResponse"
     "fixture/GetLexiconResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetLexicon)
 
 responseGetSpeechSynthesisTask :: GetSpeechSynthesisTaskResponse -> TestTree
-responseGetSpeechSynthesisTask =
-  res
+responseGetSpeechSynthesisTask = res
     "GetSpeechSynthesisTaskResponse"
     "fixture/GetSpeechSynthesisTaskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetSpeechSynthesisTask)
 
 responseDescribeVoices :: DescribeVoicesResponse -> TestTree
-responseDescribeVoices =
-  res
+responseDescribeVoices = res
     "DescribeVoicesResponse"
     "fixture/DescribeVoicesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeVoices)
 
 responseListLexicons :: ListLexiconsResponse -> TestTree
-responseListLexicons =
-  res
+responseListLexicons = res
     "ListLexiconsResponse"
     "fixture/ListLexiconsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListLexicons)
 
 responseListSpeechSynthesisTasks :: ListSpeechSynthesisTasksResponse -> TestTree
-responseListSpeechSynthesisTasks =
-  res
+responseListSpeechSynthesisTasks = res
     "ListSpeechSynthesisTasksResponse"
     "fixture/ListSpeechSynthesisTasksResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListSpeechSynthesisTasks)
 
 responsePutLexicon :: PutLexiconResponse -> TestTree
-responsePutLexicon =
-  res
+responsePutLexicon = res
     "PutLexiconResponse"
     "fixture/PutLexiconResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutLexicon)
 
 responseDeleteLexicon :: DeleteLexiconResponse -> TestTree
-responseDeleteLexicon =
-  res
+responseDeleteLexicon = res
     "DeleteLexiconResponse"
     "fixture/DeleteLexiconResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteLexicon)
 
 responseStartSpeechSynthesisTask :: StartSpeechSynthesisTaskResponse -> TestTree
-responseStartSpeechSynthesisTask =
-  res
+responseStartSpeechSynthesisTask = res
     "StartSpeechSynthesisTaskResponse"
     "fixture/StartSpeechSynthesisTaskResponse.proto"
     mkServiceConfig

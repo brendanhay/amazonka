@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.CloudWatch where
 
 import Data.Proxy
-import Network.AWS.CloudWatch
-import Test.AWS.CloudWatch.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.CloudWatch
+import Test.AWS.CloudWatch.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -216,422 +217,362 @@ import Test.Tasty
 -- Requests
 
 requestEnableAlarmActions :: EnableAlarmActions -> TestTree
-requestEnableAlarmActions =
-  req
+requestEnableAlarmActions = req
     "EnableAlarmActions"
     "fixture/EnableAlarmActions.yaml"
 
 requestDisableInsightRules :: DisableInsightRules -> TestTree
-requestDisableInsightRules =
-  req
+requestDisableInsightRules = req
     "DisableInsightRules"
     "fixture/DisableInsightRules.yaml"
 
 requestPutCompositeAlarm :: PutCompositeAlarm -> TestTree
-requestPutCompositeAlarm =
-  req
+requestPutCompositeAlarm = req
     "PutCompositeAlarm"
     "fixture/PutCompositeAlarm.yaml"
 
 requestDeleteAnomalyDetector :: DeleteAnomalyDetector -> TestTree
-requestDeleteAnomalyDetector =
-  req
+requestDeleteAnomalyDetector = req
     "DeleteAnomalyDetector"
     "fixture/DeleteAnomalyDetector.yaml"
 
 requestDeleteInsightRules :: DeleteInsightRules -> TestTree
-requestDeleteInsightRules =
-  req
+requestDeleteInsightRules = req
     "DeleteInsightRules"
     "fixture/DeleteInsightRules.yaml"
 
 requestGetDashboard :: GetDashboard -> TestTree
-requestGetDashboard =
-  req
+requestGetDashboard = req
     "GetDashboard"
     "fixture/GetDashboard.yaml"
 
 requestPutAnomalyDetector :: PutAnomalyDetector -> TestTree
-requestPutAnomalyDetector =
-  req
+requestPutAnomalyDetector = req
     "PutAnomalyDetector"
     "fixture/PutAnomalyDetector.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
+requestListTagsForResource = req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
 requestGetMetricData :: GetMetricData -> TestTree
-requestGetMetricData =
-  req
+requestGetMetricData = req
     "GetMetricData"
     "fixture/GetMetricData.yaml"
 
 requestPutMetricData :: PutMetricData -> TestTree
-requestPutMetricData =
-  req
+requestPutMetricData = req
     "PutMetricData"
     "fixture/PutMetricData.yaml"
 
 requestListDashboards :: ListDashboards -> TestTree
-requestListDashboards =
-  req
+requestListDashboards = req
     "ListDashboards"
     "fixture/ListDashboards.yaml"
 
 requestDescribeAlarms :: DescribeAlarms -> TestTree
-requestDescribeAlarms =
-  req
+requestDescribeAlarms = req
     "DescribeAlarms"
     "fixture/DescribeAlarms.yaml"
 
 requestListMetrics :: ListMetrics -> TestTree
-requestListMetrics =
-  req
+requestListMetrics = req
     "ListMetrics"
     "fixture/ListMetrics.yaml"
 
 requestGetInsightRuleReport :: GetInsightRuleReport -> TestTree
-requestGetInsightRuleReport =
-  req
+requestGetInsightRuleReport = req
     "GetInsightRuleReport"
     "fixture/GetInsightRuleReport.yaml"
 
 requestDeleteDashboards :: DeleteDashboards -> TestTree
-requestDeleteDashboards =
-  req
+requestDeleteDashboards = req
     "DeleteDashboards"
     "fixture/DeleteDashboards.yaml"
 
 requestPutInsightRule :: PutInsightRule -> TestTree
-requestPutInsightRule =
-  req
+requestPutInsightRule = req
     "PutInsightRule"
     "fixture/PutInsightRule.yaml"
 
 requestGetMetricWidgetImage :: GetMetricWidgetImage -> TestTree
-requestGetMetricWidgetImage =
-  req
+requestGetMetricWidgetImage = req
     "GetMetricWidgetImage"
     "fixture/GetMetricWidgetImage.yaml"
 
 requestDeleteAlarms :: DeleteAlarms -> TestTree
-requestDeleteAlarms =
-  req
+requestDeleteAlarms = req
     "DeleteAlarms"
     "fixture/DeleteAlarms.yaml"
 
 requestDescribeAlarmHistory :: DescribeAlarmHistory -> TestTree
-requestDescribeAlarmHistory =
-  req
+requestDescribeAlarmHistory = req
     "DescribeAlarmHistory"
     "fixture/DescribeAlarmHistory.yaml"
 
 requestGetMetricStatistics :: GetMetricStatistics -> TestTree
-requestGetMetricStatistics =
-  req
+requestGetMetricStatistics = req
     "GetMetricStatistics"
     "fixture/GetMetricStatistics.yaml"
 
 requestDescribeAlarmsForMetric :: DescribeAlarmsForMetric -> TestTree
-requestDescribeAlarmsForMetric =
-  req
+requestDescribeAlarmsForMetric = req
     "DescribeAlarmsForMetric"
     "fixture/DescribeAlarmsForMetric.yaml"
 
 requestEnableInsightRules :: EnableInsightRules -> TestTree
-requestEnableInsightRules =
-  req
+requestEnableInsightRules = req
     "EnableInsightRules"
     "fixture/EnableInsightRules.yaml"
 
 requestDisableAlarmActions :: DisableAlarmActions -> TestTree
-requestDisableAlarmActions =
-  req
+requestDisableAlarmActions = req
     "DisableAlarmActions"
     "fixture/DisableAlarmActions.yaml"
 
 requestDescribeAnomalyDetectors :: DescribeAnomalyDetectors -> TestTree
-requestDescribeAnomalyDetectors =
-  req
+requestDescribeAnomalyDetectors = req
     "DescribeAnomalyDetectors"
     "fixture/DescribeAnomalyDetectors.yaml"
 
 requestPutDashboard :: PutDashboard -> TestTree
-requestPutDashboard =
-  req
+requestPutDashboard = req
     "PutDashboard"
     "fixture/PutDashboard.yaml"
 
 requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
+requestTagResource = req
     "TagResource"
     "fixture/TagResource.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
+requestUntagResource = req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
 requestPutMetricAlarm :: PutMetricAlarm -> TestTree
-requestPutMetricAlarm =
-  req
+requestPutMetricAlarm = req
     "PutMetricAlarm"
     "fixture/PutMetricAlarm.yaml"
 
 requestSetAlarmState :: SetAlarmState -> TestTree
-requestSetAlarmState =
-  req
+requestSetAlarmState = req
     "SetAlarmState"
     "fixture/SetAlarmState.yaml"
 
 requestDescribeInsightRules :: DescribeInsightRules -> TestTree
-requestDescribeInsightRules =
-  req
+requestDescribeInsightRules = req
     "DescribeInsightRules"
     "fixture/DescribeInsightRules.yaml"
 
 -- Responses
 
 responseEnableAlarmActions :: EnableAlarmActionsResponse -> TestTree
-responseEnableAlarmActions =
-  res
+responseEnableAlarmActions = res
     "EnableAlarmActionsResponse"
     "fixture/EnableAlarmActionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy EnableAlarmActions)
 
 responseDisableInsightRules :: DisableInsightRulesResponse -> TestTree
-responseDisableInsightRules =
-  res
+responseDisableInsightRules = res
     "DisableInsightRulesResponse"
     "fixture/DisableInsightRulesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisableInsightRules)
 
 responsePutCompositeAlarm :: PutCompositeAlarmResponse -> TestTree
-responsePutCompositeAlarm =
-  res
+responsePutCompositeAlarm = res
     "PutCompositeAlarmResponse"
     "fixture/PutCompositeAlarmResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutCompositeAlarm)
 
 responseDeleteAnomalyDetector :: DeleteAnomalyDetectorResponse -> TestTree
-responseDeleteAnomalyDetector =
-  res
+responseDeleteAnomalyDetector = res
     "DeleteAnomalyDetectorResponse"
     "fixture/DeleteAnomalyDetectorResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteAnomalyDetector)
 
 responseDeleteInsightRules :: DeleteInsightRulesResponse -> TestTree
-responseDeleteInsightRules =
-  res
+responseDeleteInsightRules = res
     "DeleteInsightRulesResponse"
     "fixture/DeleteInsightRulesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteInsightRules)
 
 responseGetDashboard :: GetDashboardResponse -> TestTree
-responseGetDashboard =
-  res
+responseGetDashboard = res
     "GetDashboardResponse"
     "fixture/GetDashboardResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetDashboard)
 
 responsePutAnomalyDetector :: PutAnomalyDetectorResponse -> TestTree
-responsePutAnomalyDetector =
-  res
+responsePutAnomalyDetector = res
     "PutAnomalyDetectorResponse"
     "fixture/PutAnomalyDetectorResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutAnomalyDetector)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
+responseListTagsForResource = res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseGetMetricData :: GetMetricDataResponse -> TestTree
-responseGetMetricData =
-  res
+responseGetMetricData = res
     "GetMetricDataResponse"
     "fixture/GetMetricDataResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetMetricData)
 
 responsePutMetricData :: PutMetricDataResponse -> TestTree
-responsePutMetricData =
-  res
+responsePutMetricData = res
     "PutMetricDataResponse"
     "fixture/PutMetricDataResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutMetricData)
 
 responseListDashboards :: ListDashboardsResponse -> TestTree
-responseListDashboards =
-  res
+responseListDashboards = res
     "ListDashboardsResponse"
     "fixture/ListDashboardsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListDashboards)
 
 responseDescribeAlarms :: DescribeAlarmsResponse -> TestTree
-responseDescribeAlarms =
-  res
+responseDescribeAlarms = res
     "DescribeAlarmsResponse"
     "fixture/DescribeAlarmsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAlarms)
 
 responseListMetrics :: ListMetricsResponse -> TestTree
-responseListMetrics =
-  res
+responseListMetrics = res
     "ListMetricsResponse"
     "fixture/ListMetricsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListMetrics)
 
 responseGetInsightRuleReport :: GetInsightRuleReportResponse -> TestTree
-responseGetInsightRuleReport =
-  res
+responseGetInsightRuleReport = res
     "GetInsightRuleReportResponse"
     "fixture/GetInsightRuleReportResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetInsightRuleReport)
 
 responseDeleteDashboards :: DeleteDashboardsResponse -> TestTree
-responseDeleteDashboards =
-  res
+responseDeleteDashboards = res
     "DeleteDashboardsResponse"
     "fixture/DeleteDashboardsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteDashboards)
 
 responsePutInsightRule :: PutInsightRuleResponse -> TestTree
-responsePutInsightRule =
-  res
+responsePutInsightRule = res
     "PutInsightRuleResponse"
     "fixture/PutInsightRuleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutInsightRule)
 
 responseGetMetricWidgetImage :: GetMetricWidgetImageResponse -> TestTree
-responseGetMetricWidgetImage =
-  res
+responseGetMetricWidgetImage = res
     "GetMetricWidgetImageResponse"
     "fixture/GetMetricWidgetImageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetMetricWidgetImage)
 
 responseDeleteAlarms :: DeleteAlarmsResponse -> TestTree
-responseDeleteAlarms =
-  res
+responseDeleteAlarms = res
     "DeleteAlarmsResponse"
     "fixture/DeleteAlarmsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteAlarms)
 
 responseDescribeAlarmHistory :: DescribeAlarmHistoryResponse -> TestTree
-responseDescribeAlarmHistory =
-  res
+responseDescribeAlarmHistory = res
     "DescribeAlarmHistoryResponse"
     "fixture/DescribeAlarmHistoryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAlarmHistory)
 
 responseGetMetricStatistics :: GetMetricStatisticsResponse -> TestTree
-responseGetMetricStatistics =
-  res
+responseGetMetricStatistics = res
     "GetMetricStatisticsResponse"
     "fixture/GetMetricStatisticsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetMetricStatistics)
 
 responseDescribeAlarmsForMetric :: DescribeAlarmsForMetricResponse -> TestTree
-responseDescribeAlarmsForMetric =
-  res
+responseDescribeAlarmsForMetric = res
     "DescribeAlarmsForMetricResponse"
     "fixture/DescribeAlarmsForMetricResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAlarmsForMetric)
 
 responseEnableInsightRules :: EnableInsightRulesResponse -> TestTree
-responseEnableInsightRules =
-  res
+responseEnableInsightRules = res
     "EnableInsightRulesResponse"
     "fixture/EnableInsightRulesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy EnableInsightRules)
 
 responseDisableAlarmActions :: DisableAlarmActionsResponse -> TestTree
-responseDisableAlarmActions =
-  res
+responseDisableAlarmActions = res
     "DisableAlarmActionsResponse"
     "fixture/DisableAlarmActionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisableAlarmActions)
 
 responseDescribeAnomalyDetectors :: DescribeAnomalyDetectorsResponse -> TestTree
-responseDescribeAnomalyDetectors =
-  res
+responseDescribeAnomalyDetectors = res
     "DescribeAnomalyDetectorsResponse"
     "fixture/DescribeAnomalyDetectorsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAnomalyDetectors)
 
 responsePutDashboard :: PutDashboardResponse -> TestTree
-responsePutDashboard =
-  res
+responsePutDashboard = res
     "PutDashboardResponse"
     "fixture/PutDashboardResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutDashboard)
 
 responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
+responseTagResource = res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
+responseUntagResource = res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responsePutMetricAlarm :: PutMetricAlarmResponse -> TestTree
-responsePutMetricAlarm =
-  res
+responsePutMetricAlarm = res
     "PutMetricAlarmResponse"
     "fixture/PutMetricAlarmResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutMetricAlarm)
 
 responseSetAlarmState :: SetAlarmStateResponse -> TestTree
-responseSetAlarmState =
-  res
+responseSetAlarmState = res
     "SetAlarmStateResponse"
     "fixture/SetAlarmStateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SetAlarmState)
 
 responseDescribeInsightRules :: DescribeInsightRulesResponse -> TestTree
-responseDescribeInsightRules =
-  res
+responseDescribeInsightRules = res
     "DescribeInsightRulesResponse"
     "fixture/DescribeInsightRulesResponse.proto"
     mkServiceConfig

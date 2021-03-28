@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Glue.Types.MLUserDataEncryption
-  ( MLUserDataEncryption (..),
-
-    -- * Smart constructor
-    mkMLUserDataEncryption,
-
-    -- * Lenses
-    mludeMlUserDataEncryptionMode,
-    mludeKmsKeyId,
-  )
-where
+  ( MLUserDataEncryption (..)
+  -- * Smart constructor
+  , mkMLUserDataEncryption
+  -- * Lenses
+  , mludeMlUserDataEncryptionMode
+  , mludeKmsKeyId
+  ) where
 
 import qualified Network.AWS.Glue.Types.KmsKeyId as Types
 import qualified Network.AWS.Glue.Types.MLUserDataEncryptionModeString as Types
@@ -31,30 +29,29 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkMLUserDataEncryption' smart constructor.
 data MLUserDataEncryption = MLUserDataEncryption'
-  { -- | The encryption mode applied to user data. Valid values are:
-    --
-    --
-    --     * DISABLED: encryption is disabled
-    --
-    --
-    --     * SSEKMS: use of server-side encryption with AWS Key Management Service (SSE-KMS) for user data stored in Amazon S3.
-    mlUserDataEncryptionMode :: Types.MLUserDataEncryptionModeString,
-    -- | The ID for the customer-provided KMS key.
-    kmsKeyId :: Core.Maybe Types.KmsKeyId
+  { mlUserDataEncryptionMode :: Types.MLUserDataEncryptionModeString
+    -- ^ The encryption mode applied to user data. Valid values are:
+--
+--
+--     * DISABLED: encryption is disabled
+--
+--
+--     * SSEKMS: use of server-side encryption with AWS Key Management Service (SSE-KMS) for user data stored in Amazon S3.
+--
+--
+  , kmsKeyId :: Core.Maybe Types.KmsKeyId
+    -- ^ The ID for the customer-provided KMS key.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'MLUserDataEncryption' value with any optional fields omitted.
-mkMLUserDataEncryption ::
-  -- | 'mlUserDataEncryptionMode'
-  Types.MLUserDataEncryptionModeString ->
-  MLUserDataEncryption
-mkMLUserDataEncryption mlUserDataEncryptionMode =
-  MLUserDataEncryption'
-    { mlUserDataEncryptionMode,
-      kmsKeyId = Core.Nothing
-    }
+mkMLUserDataEncryption
+    :: Types.MLUserDataEncryptionModeString -- ^ 'mlUserDataEncryptionMode'
+    -> MLUserDataEncryption
+mkMLUserDataEncryption mlUserDataEncryptionMode
+  = MLUserDataEncryption'{mlUserDataEncryptionMode,
+                          kmsKeyId = Core.Nothing}
 
 -- | The encryption mode applied to user data. Valid values are:
 --
@@ -69,29 +66,29 @@ mkMLUserDataEncryption mlUserDataEncryptionMode =
 -- /Note:/ Consider using 'mlUserDataEncryptionMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mludeMlUserDataEncryptionMode :: Lens.Lens' MLUserDataEncryption Types.MLUserDataEncryptionModeString
 mludeMlUserDataEncryptionMode = Lens.field @"mlUserDataEncryptionMode"
-{-# DEPRECATED mludeMlUserDataEncryptionMode "Use generic-lens or generic-optics with 'mlUserDataEncryptionMode' instead." #-}
+{-# INLINEABLE mludeMlUserDataEncryptionMode #-}
+{-# DEPRECATED mlUserDataEncryptionMode "Use generic-lens or generic-optics with 'mlUserDataEncryptionMode' instead"  #-}
 
 -- | The ID for the customer-provided KMS key.
 --
 -- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mludeKmsKeyId :: Lens.Lens' MLUserDataEncryption (Core.Maybe Types.KmsKeyId)
 mludeKmsKeyId = Lens.field @"kmsKeyId"
-{-# DEPRECATED mludeKmsKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
+{-# INLINEABLE mludeKmsKeyId #-}
+{-# DEPRECATED kmsKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead"  #-}
 
 instance Core.FromJSON MLUserDataEncryption where
-  toJSON MLUserDataEncryption {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just
-              ("MlUserDataEncryptionMode" Core..= mlUserDataEncryptionMode),
-            ("KmsKeyId" Core..=) Core.<$> kmsKeyId
-          ]
-      )
+        toJSON MLUserDataEncryption{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just
+                    ("MlUserDataEncryptionMode" Core..= mlUserDataEncryptionMode),
+                  ("KmsKeyId" Core..=) Core.<$> kmsKeyId])
 
 instance Core.FromJSON MLUserDataEncryption where
-  parseJSON =
-    Core.withObject "MLUserDataEncryption" Core.$
-      \x ->
-        MLUserDataEncryption'
-          Core.<$> (x Core..: "MlUserDataEncryptionMode")
-          Core.<*> (x Core..:? "KmsKeyId")
+        parseJSON
+          = Core.withObject "MLUserDataEncryption" Core.$
+              \ x ->
+                MLUserDataEncryption' Core.<$>
+                  (x Core..: "MlUserDataEncryptionMode") Core.<*>
+                    x Core..:? "KmsKeyId"

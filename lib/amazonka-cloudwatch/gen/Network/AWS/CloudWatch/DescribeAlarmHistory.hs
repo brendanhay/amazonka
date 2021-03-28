@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -19,30 +19,28 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudWatch.DescribeAlarmHistory
-  ( -- * Creating a request
-    DescribeAlarmHistory (..),
-    mkDescribeAlarmHistory,
-
+    (
+    -- * Creating a request
+      DescribeAlarmHistory (..)
+    , mkDescribeAlarmHistory
     -- ** Request lenses
-    dahAlarmName,
-    dahAlarmTypes,
-    dahEndDate,
-    dahHistoryItemType,
-    dahMaxRecords,
-    dahNextToken,
-    dahScanBy,
-    dahStartDate,
+    , dahAlarmName
+    , dahAlarmTypes
+    , dahEndDate
+    , dahHistoryItemType
+    , dahMaxRecords
+    , dahNextToken
+    , dahScanBy
+    , dahStartDate
 
     -- * Destructuring the response
-    DescribeAlarmHistoryResponse (..),
-    mkDescribeAlarmHistoryResponse,
-
+    , DescribeAlarmHistoryResponse (..)
+    , mkDescribeAlarmHistoryResponse
     -- ** Response lenses
-    dahrrsAlarmHistoryItems,
-    dahrrsNextToken,
-    dahrrsResponseStatus,
-  )
-where
+    , dahrrsAlarmHistoryItems
+    , dahrrsNextToken
+    , dahrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.CloudWatch.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -53,192 +51,200 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeAlarmHistory' smart constructor.
 data DescribeAlarmHistory = DescribeAlarmHistory'
-  { -- | The name of the alarm.
-    alarmName :: Core.Maybe Types.AlarmName,
-    -- | Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you omit this parameter, only metric alarms are returned.
-    alarmTypes :: Core.Maybe [Types.AlarmType],
-    -- | The ending date to retrieve alarm history.
-    endDate :: Core.Maybe Core.UTCTime,
-    -- | The type of alarm histories to retrieve.
-    historyItemType :: Core.Maybe Types.HistoryItemType,
-    -- | The maximum number of alarm history records to retrieve.
-    maxRecords :: Core.Maybe Core.Natural,
-    -- | The token returned by a previous call to indicate that there is more data available.
-    nextToken :: Core.Maybe Types.NextToken,
-    -- | Specified whether to return the newest or oldest alarm history first. Specify @TimestampDescending@ to have the newest event history returned first, and specify @TimestampAscending@ to have the oldest history returned first.
-    scanBy :: Core.Maybe Types.ScanBy,
-    -- | The starting date to retrieve alarm history.
-    startDate :: Core.Maybe Core.UTCTime
+  { alarmName :: Core.Maybe Types.AlarmName
+    -- ^ The name of the alarm.
+  , alarmTypes :: Core.Maybe [Types.AlarmType]
+    -- ^ Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you omit this parameter, only metric alarms are returned.
+  , endDate :: Core.Maybe Core.UTCTime
+    -- ^ The ending date to retrieve alarm history.
+  , historyItemType :: Core.Maybe Types.HistoryItemType
+    -- ^ The type of alarm histories to retrieve.
+  , maxRecords :: Core.Maybe Core.Natural
+    -- ^ The maximum number of alarm history records to retrieve.
+  , nextToken :: Core.Maybe Types.NextToken
+    -- ^ The token returned by a previous call to indicate that there is more data available.
+  , scanBy :: Core.Maybe Types.ScanBy
+    -- ^ Specified whether to return the newest or oldest alarm history first. Specify @TimestampDescending@ to have the newest event history returned first, and specify @TimestampAscending@ to have the oldest history returned first.
+  , startDate :: Core.Maybe Core.UTCTime
+    -- ^ The starting date to retrieve alarm history.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'DescribeAlarmHistory' value with any optional fields omitted.
-mkDescribeAlarmHistory ::
-  DescribeAlarmHistory
-mkDescribeAlarmHistory =
-  DescribeAlarmHistory'
-    { alarmName = Core.Nothing,
-      alarmTypes = Core.Nothing,
-      endDate = Core.Nothing,
-      historyItemType = Core.Nothing,
-      maxRecords = Core.Nothing,
-      nextToken = Core.Nothing,
-      scanBy = Core.Nothing,
-      startDate = Core.Nothing
-    }
+mkDescribeAlarmHistory
+    :: DescribeAlarmHistory
+mkDescribeAlarmHistory
+  = DescribeAlarmHistory'{alarmName = Core.Nothing,
+                          alarmTypes = Core.Nothing, endDate = Core.Nothing,
+                          historyItemType = Core.Nothing, maxRecords = Core.Nothing,
+                          nextToken = Core.Nothing, scanBy = Core.Nothing,
+                          startDate = Core.Nothing}
 
 -- | The name of the alarm.
 --
 -- /Note:/ Consider using 'alarmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dahAlarmName :: Lens.Lens' DescribeAlarmHistory (Core.Maybe Types.AlarmName)
 dahAlarmName = Lens.field @"alarmName"
-{-# DEPRECATED dahAlarmName "Use generic-lens or generic-optics with 'alarmName' instead." #-}
+{-# INLINEABLE dahAlarmName #-}
+{-# DEPRECATED alarmName "Use generic-lens or generic-optics with 'alarmName' instead"  #-}
 
 -- | Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you omit this parameter, only metric alarms are returned.
 --
 -- /Note:/ Consider using 'alarmTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dahAlarmTypes :: Lens.Lens' DescribeAlarmHistory (Core.Maybe [Types.AlarmType])
 dahAlarmTypes = Lens.field @"alarmTypes"
-{-# DEPRECATED dahAlarmTypes "Use generic-lens or generic-optics with 'alarmTypes' instead." #-}
+{-# INLINEABLE dahAlarmTypes #-}
+{-# DEPRECATED alarmTypes "Use generic-lens or generic-optics with 'alarmTypes' instead"  #-}
 
 -- | The ending date to retrieve alarm history.
 --
 -- /Note:/ Consider using 'endDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dahEndDate :: Lens.Lens' DescribeAlarmHistory (Core.Maybe Core.UTCTime)
 dahEndDate = Lens.field @"endDate"
-{-# DEPRECATED dahEndDate "Use generic-lens or generic-optics with 'endDate' instead." #-}
+{-# INLINEABLE dahEndDate #-}
+{-# DEPRECATED endDate "Use generic-lens or generic-optics with 'endDate' instead"  #-}
 
 -- | The type of alarm histories to retrieve.
 --
 -- /Note:/ Consider using 'historyItemType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dahHistoryItemType :: Lens.Lens' DescribeAlarmHistory (Core.Maybe Types.HistoryItemType)
 dahHistoryItemType = Lens.field @"historyItemType"
-{-# DEPRECATED dahHistoryItemType "Use generic-lens or generic-optics with 'historyItemType' instead." #-}
+{-# INLINEABLE dahHistoryItemType #-}
+{-# DEPRECATED historyItemType "Use generic-lens or generic-optics with 'historyItemType' instead"  #-}
 
 -- | The maximum number of alarm history records to retrieve.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dahMaxRecords :: Lens.Lens' DescribeAlarmHistory (Core.Maybe Core.Natural)
 dahMaxRecords = Lens.field @"maxRecords"
-{-# DEPRECATED dahMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+{-# INLINEABLE dahMaxRecords #-}
+{-# DEPRECATED maxRecords "Use generic-lens or generic-optics with 'maxRecords' instead"  #-}
 
 -- | The token returned by a previous call to indicate that there is more data available.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dahNextToken :: Lens.Lens' DescribeAlarmHistory (Core.Maybe Types.NextToken)
 dahNextToken = Lens.field @"nextToken"
-{-# DEPRECATED dahNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE dahNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
 
 -- | Specified whether to return the newest or oldest alarm history first. Specify @TimestampDescending@ to have the newest event history returned first, and specify @TimestampAscending@ to have the oldest history returned first.
 --
 -- /Note:/ Consider using 'scanBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dahScanBy :: Lens.Lens' DescribeAlarmHistory (Core.Maybe Types.ScanBy)
 dahScanBy = Lens.field @"scanBy"
-{-# DEPRECATED dahScanBy "Use generic-lens or generic-optics with 'scanBy' instead." #-}
+{-# INLINEABLE dahScanBy #-}
+{-# DEPRECATED scanBy "Use generic-lens or generic-optics with 'scanBy' instead"  #-}
 
 -- | The starting date to retrieve alarm history.
 --
 -- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dahStartDate :: Lens.Lens' DescribeAlarmHistory (Core.Maybe Core.UTCTime)
 dahStartDate = Lens.field @"startDate"
-{-# DEPRECATED dahStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
+{-# INLINEABLE dahStartDate #-}
+{-# DEPRECATED startDate "Use generic-lens or generic-optics with 'startDate' instead"  #-}
+
+instance Core.ToQuery DescribeAlarmHistory where
+        toQuery DescribeAlarmHistory{..}
+          = Core.toQueryPair "Action" ("DescribeAlarmHistory" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2010-08-01" :: Core.Text)
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "AlarmName") alarmName
+              Core.<>
+              Core.toQueryPair "AlarmTypes"
+                (Core.maybe Core.mempty (Core.toQueryList "member") alarmTypes)
+              Core.<> Core.maybe Core.mempty (Core.toQueryPair "EndDate") endDate
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "HistoryItemType")
+                historyItemType
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "MaxRecords") maxRecords
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "NextToken") nextToken
+              Core.<> Core.maybe Core.mempty (Core.toQueryPair "ScanBy") scanBy
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "StartDate") startDate
+
+instance Core.ToHeaders DescribeAlarmHistory where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest DescribeAlarmHistory where
-  type Rs DescribeAlarmHistory = DescribeAlarmHistoryResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "DescribeAlarmHistory")
-                Core.<> (Core.pure ("Version", "2010-08-01"))
-                Core.<> (Core.toQueryValue "AlarmName" Core.<$> alarmName)
-                Core.<> ( Core.toQueryValue
-                            "AlarmTypes"
-                            (Core.toQueryList "member" Core.<$> alarmTypes)
-                        )
-                Core.<> (Core.toQueryValue "EndDate" Core.<$> endDate)
-                Core.<> (Core.toQueryValue "HistoryItemType" Core.<$> historyItemType)
-                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
-                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
-                Core.<> (Core.toQueryValue "ScanBy" Core.<$> scanBy)
-                Core.<> (Core.toQueryValue "StartDate" Core.<$> startDate)
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "DescribeAlarmHistoryResult"
-      ( \s h x ->
-          DescribeAlarmHistoryResponse'
-            Core.<$> ( x Core..@? "AlarmHistoryItems"
-                         Core..<@> Core.parseXMLList "member"
-                     )
-            Core.<*> (x Core..@? "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DescribeAlarmHistory = DescribeAlarmHistoryResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "DescribeAlarmHistoryResult"
+              (\ s h x ->
+                 DescribeAlarmHistoryResponse' Core.<$>
+                   (x Core..@? "AlarmHistoryItems" Core..<@>
+                      Core.parseXMLList "member")
+                     Core.<*> x Core..@? "NextToken"
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 instance Pager.AWSPager DescribeAlarmHistory where
-  page rq rs
-    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
-    | Pager.stop
-        (rs Lens.^? Lens.field @"alarmHistoryItems" Core.. Lens._Just) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just
-        ( rq
-            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
-        )
+        page rq rs
+          | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+          | Pager.stop
+              (rs Lens.^? Lens.field @"alarmHistoryItems" Core.. Lens._Just)
+            = Core.Nothing
+          | Core.otherwise =
+            Core.Just
+              (rq Core.&
+                 Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken")
 
 -- | /See:/ 'mkDescribeAlarmHistoryResponse' smart constructor.
 data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'
-  { -- | The alarm histories, in JSON format.
-    alarmHistoryItems :: Core.Maybe [Types.AlarmHistoryItem],
-    -- | The token that marks the start of the next batch of returned results.
-    nextToken :: Core.Maybe Types.NextToken,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { alarmHistoryItems :: Core.Maybe [Types.AlarmHistoryItem]
+    -- ^ The alarm histories, in JSON format.
+  , nextToken :: Core.Maybe Types.NextToken
+    -- ^ The token that marks the start of the next batch of returned results.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'DescribeAlarmHistoryResponse' value with any optional fields omitted.
-mkDescribeAlarmHistoryResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DescribeAlarmHistoryResponse
-mkDescribeAlarmHistoryResponse responseStatus =
-  DescribeAlarmHistoryResponse'
-    { alarmHistoryItems = Core.Nothing,
-      nextToken = Core.Nothing,
-      responseStatus
-    }
+mkDescribeAlarmHistoryResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DescribeAlarmHistoryResponse
+mkDescribeAlarmHistoryResponse responseStatus
+  = DescribeAlarmHistoryResponse'{alarmHistoryItems = Core.Nothing,
+                                  nextToken = Core.Nothing, responseStatus}
 
 -- | The alarm histories, in JSON format.
 --
 -- /Note:/ Consider using 'alarmHistoryItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dahrrsAlarmHistoryItems :: Lens.Lens' DescribeAlarmHistoryResponse (Core.Maybe [Types.AlarmHistoryItem])
 dahrrsAlarmHistoryItems = Lens.field @"alarmHistoryItems"
-{-# DEPRECATED dahrrsAlarmHistoryItems "Use generic-lens or generic-optics with 'alarmHistoryItems' instead." #-}
+{-# INLINEABLE dahrrsAlarmHistoryItems #-}
+{-# DEPRECATED alarmHistoryItems "Use generic-lens or generic-optics with 'alarmHistoryItems' instead"  #-}
 
 -- | The token that marks the start of the next batch of returned results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dahrrsNextToken :: Lens.Lens' DescribeAlarmHistoryResponse (Core.Maybe Types.NextToken)
 dahrrsNextToken = Lens.field @"nextToken"
-{-# DEPRECATED dahrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE dahrrsNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dahrrsResponseStatus :: Lens.Lens' DescribeAlarmHistoryResponse Core.Int
 dahrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED dahrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE dahrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

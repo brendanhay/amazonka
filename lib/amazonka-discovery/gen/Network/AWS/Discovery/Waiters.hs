@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-deprecations #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,10 +10,10 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Discovery.Waiters
   (
-  )
-where
+  ) where
 
 import qualified Network.AWS.Discovery.Types as Types
 import qualified Network.AWS.Lens as Lens

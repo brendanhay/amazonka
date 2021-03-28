@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.AWSHealth.Types.DateTimeRange
-  ( DateTimeRange (..),
-
-    -- * Smart constructor
-    mkDateTimeRange,
-
-    -- * Lenses
-    dtrFrom,
-    dtrTo,
-  )
-where
+  ( DateTimeRange (..)
+  -- * Smart constructor
+  , mkDateTimeRange
+  -- * Lenses
+  , dtrFrom
+  , dtrTo
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -29,37 +27,38 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkDateTimeRange' smart constructor.
 data DateTimeRange = DateTimeRange'
-  { -- | The starting date and time of a time range.
-    from :: Core.Maybe Core.NominalDiffTime,
-    -- | The ending date and time of a time range.
-    to :: Core.Maybe Core.NominalDiffTime
+  { from :: Core.Maybe Core.NominalDiffTime
+    -- ^ The starting date and time of a time range.
+  , to :: Core.Maybe Core.NominalDiffTime
+    -- ^ The ending date and time of a time range.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'DateTimeRange' value with any optional fields omitted.
-mkDateTimeRange ::
-  DateTimeRange
-mkDateTimeRange =
-  DateTimeRange' {from = Core.Nothing, to = Core.Nothing}
+mkDateTimeRange
+    :: DateTimeRange
+mkDateTimeRange
+  = DateTimeRange'{from = Core.Nothing, to = Core.Nothing}
 
 -- | The starting date and time of a time range.
 --
 -- /Note:/ Consider using 'from' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dtrFrom :: Lens.Lens' DateTimeRange (Core.Maybe Core.NominalDiffTime)
 dtrFrom = Lens.field @"from"
-{-# DEPRECATED dtrFrom "Use generic-lens or generic-optics with 'from' instead." #-}
+{-# INLINEABLE dtrFrom #-}
+{-# DEPRECATED from "Use generic-lens or generic-optics with 'from' instead"  #-}
 
 -- | The ending date and time of a time range.
 --
 -- /Note:/ Consider using 'to' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dtrTo :: Lens.Lens' DateTimeRange (Core.Maybe Core.NominalDiffTime)
 dtrTo = Lens.field @"to"
-{-# DEPRECATED dtrTo "Use generic-lens or generic-optics with 'to' instead." #-}
+{-# INLINEABLE dtrTo #-}
+{-# DEPRECATED to "Use generic-lens or generic-optics with 'to' instead"  #-}
 
 instance Core.FromJSON DateTimeRange where
-  toJSON DateTimeRange {..} =
-    Core.object
-      ( Core.catMaybes
-          [("from" Core..=) Core.<$> from, ("to" Core..=) Core.<$> to]
-      )
+        toJSON DateTimeRange{..}
+          = Core.object
+              (Core.catMaybes
+                 [("from" Core..=) Core.<$> from, ("to" Core..=) Core.<$> to])

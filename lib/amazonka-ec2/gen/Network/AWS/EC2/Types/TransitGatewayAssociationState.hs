@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,47 +10,31 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.EC2.Types.TransitGatewayAssociationState
   ( TransitGatewayAssociationState
-      ( TransitGatewayAssociationState',
-        TransitGatewayAssociationStateAssociating,
-        TransitGatewayAssociationStateAssociated,
-        TransitGatewayAssociationStateDisassociating,
-        TransitGatewayAssociationStateDisassociated,
-        fromTransitGatewayAssociationState
-      ),
-  )
-where
+    ( TransitGatewayAssociationState'
+    , TransitGatewayAssociationStateAssociating
+    , TransitGatewayAssociationStateAssociated
+    , TransitGatewayAssociationStateDisassociating
+    , TransitGatewayAssociationStateDisassociated
+    , fromTransitGatewayAssociationState
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype TransitGatewayAssociationState = TransitGatewayAssociationState'
-  { fromTransitGatewayAssociationState ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype TransitGatewayAssociationState = TransitGatewayAssociationState'{fromTransitGatewayAssociationState
+                                                                         :: Core.Text}
+                                           deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                           Core.Generic)
+                                           deriving newtype (Core.IsString, Core.Hashable,
+                                                             Core.NFData, Core.ToJSONKey,
+                                                             Core.FromJSONKey, Core.ToJSON,
+                                                             Core.FromJSON, Core.ToXML,
+                                                             Core.FromXML, Core.ToText,
+                                                             Core.FromText, Core.ToByteString,
+                                                             Core.ToQuery, Core.ToHeader)
 
 pattern TransitGatewayAssociationStateAssociating :: TransitGatewayAssociationState
 pattern TransitGatewayAssociationStateAssociating = TransitGatewayAssociationState' "associating"
@@ -64,10 +48,13 @@ pattern TransitGatewayAssociationStateDisassociating = TransitGatewayAssociation
 pattern TransitGatewayAssociationStateDisassociated :: TransitGatewayAssociationState
 pattern TransitGatewayAssociationStateDisassociated = TransitGatewayAssociationState' "disassociated"
 
-{-# COMPLETE
+{-# COMPLETE 
   TransitGatewayAssociationStateAssociating,
+
   TransitGatewayAssociationStateAssociated,
+
   TransitGatewayAssociationStateDisassociating,
+
   TransitGatewayAssociationStateDisassociated,
   TransitGatewayAssociationState'
   #-}

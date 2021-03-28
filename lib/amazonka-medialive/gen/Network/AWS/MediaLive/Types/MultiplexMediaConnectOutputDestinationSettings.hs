@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaLive.Types.MultiplexMediaConnectOutputDestinationSettings
-  ( MultiplexMediaConnectOutputDestinationSettings (..),
-
-    -- * Smart constructor
-    mkMultiplexMediaConnectOutputDestinationSettings,
-
-    -- * Lenses
-    mmcodsEntitlementArn,
-  )
-where
+  ( MultiplexMediaConnectOutputDestinationSettings (..)
+  -- * Smart constructor
+  , mkMultiplexMediaConnectOutputDestinationSettings
+  -- * Lenses
+  , mmcodsEntitlementArn
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -28,34 +26,33 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkMultiplexMediaConnectOutputDestinationSettings' smart constructor.
 newtype MultiplexMediaConnectOutputDestinationSettings = MultiplexMediaConnectOutputDestinationSettings'
-  { -- | The MediaConnect entitlement ARN available as a Flow source.
-    entitlementArn :: Core.Maybe Core.Text
+  { entitlementArn :: Core.Maybe Core.Text
+    -- ^ The MediaConnect entitlement ARN available as a Flow source.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'MultiplexMediaConnectOutputDestinationSettings' value with any optional fields omitted.
-mkMultiplexMediaConnectOutputDestinationSettings ::
-  MultiplexMediaConnectOutputDestinationSettings
-mkMultiplexMediaConnectOutputDestinationSettings =
-  MultiplexMediaConnectOutputDestinationSettings'
-    { entitlementArn =
-        Core.Nothing
-    }
+mkMultiplexMediaConnectOutputDestinationSettings
+    :: MultiplexMediaConnectOutputDestinationSettings
+mkMultiplexMediaConnectOutputDestinationSettings
+  = MultiplexMediaConnectOutputDestinationSettings'{entitlementArn =
+                                                      Core.Nothing}
 
 -- | The MediaConnect entitlement ARN available as a Flow source.
 --
 -- /Note:/ Consider using 'entitlementArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mmcodsEntitlementArn :: Lens.Lens' MultiplexMediaConnectOutputDestinationSettings (Core.Maybe Core.Text)
 mmcodsEntitlementArn = Lens.field @"entitlementArn"
-{-# DEPRECATED mmcodsEntitlementArn "Use generic-lens or generic-optics with 'entitlementArn' instead." #-}
+{-# INLINEABLE mmcodsEntitlementArn #-}
+{-# DEPRECATED entitlementArn "Use generic-lens or generic-optics with 'entitlementArn' instead"  #-}
 
-instance
-  Core.FromJSON
-    MultiplexMediaConnectOutputDestinationSettings
-  where
-  parseJSON =
-    Core.withObject "MultiplexMediaConnectOutputDestinationSettings" Core.$
-      \x ->
-        MultiplexMediaConnectOutputDestinationSettings'
-          Core.<$> (x Core..:? "entitlementArn")
+instance Core.FromJSON
+           MultiplexMediaConnectOutputDestinationSettings
+         where
+        parseJSON
+          = Core.withObject "MultiplexMediaConnectOutputDestinationSettings"
+              Core.$
+              \ x ->
+                MultiplexMediaConnectOutputDestinationSettings' Core.<$>
+                  (x Core..:? "entitlementArn")

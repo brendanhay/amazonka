@@ -1,8 +1,6 @@
 {% if function.documentation %}
 -- | {{ function.documentation }}
 {% endif %}
-{{ function.signature }}
-{{ function.declaration }}
-{% for pragma in function.pragmas %}
-{{ pragma.value }}
+{% for decl in function.declarations %}
+{{ decl.value }}
 {% endfor %}

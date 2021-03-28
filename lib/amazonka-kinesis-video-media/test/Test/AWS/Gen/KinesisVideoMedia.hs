@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.KinesisVideoMedia where
 
 import Data.Proxy
-import Network.AWS.KinesisVideoMedia
 import Test.AWS.Fixture
-import Test.AWS.KinesisVideoMedia.Internal
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.KinesisVideoMedia
+import Test.AWS.KinesisVideoMedia.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -42,8 +43,7 @@ import Test.Tasty
 -- Requests
 
 requestGetMedia :: GetMedia -> TestTree
-requestGetMedia =
-  req
+requestGetMedia = req
     "GetMedia"
     "fixture/GetMedia.yaml"
 

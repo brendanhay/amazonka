@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,22 +17,20 @@
 --
 -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
 module Network.AWS.ELB.CreateLoadBalancerListeners
-  ( -- * Creating a request
-    CreateLoadBalancerListeners (..),
-    mkCreateLoadBalancerListeners,
-
+    (
+    -- * Creating a request
+      CreateLoadBalancerListeners (..)
+    , mkCreateLoadBalancerListeners
     -- ** Request lenses
-    clblLoadBalancerName,
-    clblListeners,
+    , clblLoadBalancerName
+    , clblListeners
 
     -- * Destructuring the response
-    CreateLoadBalancerListenersResponse (..),
-    mkCreateLoadBalancerListenersResponse,
-
+    , CreateLoadBalancerListenersResponse (..)
+    , mkCreateLoadBalancerListenersResponse
     -- ** Response lenses
-    clblrrsResponseStatus,
-  )
-where
+    , clblrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.ELB.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -44,94 +42,94 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkCreateLoadBalancerListeners' smart constructor.
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners'
-  { -- | The name of the load balancer.
-    loadBalancerName :: Types.AccessPointName,
-    -- | The listeners.
-    listeners :: [Types.Listener]
+  { loadBalancerName :: Types.AccessPointName
+    -- ^ The name of the load balancer.
+  , listeners :: [Types.Listener]
+    -- ^ The listeners.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CreateLoadBalancerListeners' value with any optional fields omitted.
-mkCreateLoadBalancerListeners ::
-  -- | 'loadBalancerName'
-  Types.AccessPointName ->
-  CreateLoadBalancerListeners
-mkCreateLoadBalancerListeners loadBalancerName =
-  CreateLoadBalancerListeners'
-    { loadBalancerName,
-      listeners = Core.mempty
-    }
+mkCreateLoadBalancerListeners
+    :: Types.AccessPointName -- ^ 'loadBalancerName'
+    -> CreateLoadBalancerListeners
+mkCreateLoadBalancerListeners loadBalancerName
+  = CreateLoadBalancerListeners'{loadBalancerName,
+                                 listeners = Core.mempty}
 
 -- | The name of the load balancer.
 --
 -- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 clblLoadBalancerName :: Lens.Lens' CreateLoadBalancerListeners Types.AccessPointName
 clblLoadBalancerName = Lens.field @"loadBalancerName"
-{-# DEPRECATED clblLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
+{-# INLINEABLE clblLoadBalancerName #-}
+{-# DEPRECATED loadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead"  #-}
 
 -- | The listeners.
 --
 -- /Note:/ Consider using 'listeners' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 clblListeners :: Lens.Lens' CreateLoadBalancerListeners [Types.Listener]
 clblListeners = Lens.field @"listeners"
-{-# DEPRECATED clblListeners "Use generic-lens or generic-optics with 'listeners' instead." #-}
+{-# INLINEABLE clblListeners #-}
+{-# DEPRECATED listeners "Use generic-lens or generic-optics with 'listeners' instead"  #-}
+
+instance Core.ToQuery CreateLoadBalancerListeners where
+        toQuery CreateLoadBalancerListeners{..}
+          = Core.toQueryPair "Action"
+              ("CreateLoadBalancerListeners" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2012-06-01" :: Core.Text)
+              Core.<> Core.toQueryPair "LoadBalancerName" loadBalancerName
+              Core.<>
+              Core.toQueryPair "Listeners" (Core.toQueryList "member" listeners)
+
+instance Core.ToHeaders CreateLoadBalancerListeners where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest CreateLoadBalancerListeners where
-  type
-    Rs CreateLoadBalancerListeners =
-      CreateLoadBalancerListenersResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "CreateLoadBalancerListeners")
-                Core.<> (Core.pure ("Version", "2012-06-01"))
-                Core.<> (Core.toQueryValue "LoadBalancerName" loadBalancerName)
-                Core.<> ( Core.toQueryValue
-                            "Listeners"
-                            (Core.toQueryList "member" listeners)
-                        )
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "CreateLoadBalancerListenersResult"
-      ( \s h x ->
-          CreateLoadBalancerListenersResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs CreateLoadBalancerListeners =
+             CreateLoadBalancerListenersResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "CreateLoadBalancerListenersResult"
+              (\ s h x ->
+                 CreateLoadBalancerListenersResponse' Core.<$>
+                   (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | Contains the parameters for CreateLoadBalancerListener.
 --
 -- /See:/ 'mkCreateLoadBalancerListenersResponse' smart constructor.
 newtype CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CreateLoadBalancerListenersResponse' value with any optional fields omitted.
-mkCreateLoadBalancerListenersResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  CreateLoadBalancerListenersResponse
-mkCreateLoadBalancerListenersResponse responseStatus =
-  CreateLoadBalancerListenersResponse' {responseStatus}
+mkCreateLoadBalancerListenersResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> CreateLoadBalancerListenersResponse
+mkCreateLoadBalancerListenersResponse responseStatus
+  = CreateLoadBalancerListenersResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 clblrrsResponseStatus :: Lens.Lens' CreateLoadBalancerListenersResponse Core.Int
 clblrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED clblrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE clblrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

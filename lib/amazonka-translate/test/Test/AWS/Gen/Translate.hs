@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.Translate where
 
 import Data.Proxy
-import Network.AWS.Translate
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.AWS.Translate.Internal
 import Test.Tasty
+import Network.AWS.Translate
+import Test.AWS.Translate.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -120,198 +121,170 @@ import Test.Tasty
 -- Requests
 
 requestDescribeTextTranslationJob :: DescribeTextTranslationJob -> TestTree
-requestDescribeTextTranslationJob =
-  req
+requestDescribeTextTranslationJob = req
     "DescribeTextTranslationJob"
     "fixture/DescribeTextTranslationJob.yaml"
 
 requestListTerminologies :: ListTerminologies -> TestTree
-requestListTerminologies =
-  req
+requestListTerminologies = req
     "ListTerminologies"
     "fixture/ListTerminologies.yaml"
 
 requestCreateParallelData :: CreateParallelData -> TestTree
-requestCreateParallelData =
-  req
+requestCreateParallelData = req
     "CreateParallelData"
     "fixture/CreateParallelData.yaml"
 
 requestUpdateParallelData :: UpdateParallelData -> TestTree
-requestUpdateParallelData =
-  req
+requestUpdateParallelData = req
     "UpdateParallelData"
     "fixture/UpdateParallelData.yaml"
 
 requestDeleteParallelData :: DeleteParallelData -> TestTree
-requestDeleteParallelData =
-  req
+requestDeleteParallelData = req
     "DeleteParallelData"
     "fixture/DeleteParallelData.yaml"
 
 requestGetParallelData :: GetParallelData -> TestTree
-requestGetParallelData =
-  req
+requestGetParallelData = req
     "GetParallelData"
     "fixture/GetParallelData.yaml"
 
 requestGetTerminology :: GetTerminology -> TestTree
-requestGetTerminology =
-  req
+requestGetTerminology = req
     "GetTerminology"
     "fixture/GetTerminology.yaml"
 
 requestTranslateText :: TranslateText -> TestTree
-requestTranslateText =
-  req
+requestTranslateText = req
     "TranslateText"
     "fixture/TranslateText.yaml"
 
 requestImportTerminology :: ImportTerminology -> TestTree
-requestImportTerminology =
-  req
+requestImportTerminology = req
     "ImportTerminology"
     "fixture/ImportTerminology.yaml"
 
 requestStopTextTranslationJob :: StopTextTranslationJob -> TestTree
-requestStopTextTranslationJob =
-  req
+requestStopTextTranslationJob = req
     "StopTextTranslationJob"
     "fixture/StopTextTranslationJob.yaml"
 
 requestDeleteTerminology :: DeleteTerminology -> TestTree
-requestDeleteTerminology =
-  req
+requestDeleteTerminology = req
     "DeleteTerminology"
     "fixture/DeleteTerminology.yaml"
 
 requestListTextTranslationJobs :: ListTextTranslationJobs -> TestTree
-requestListTextTranslationJobs =
-  req
+requestListTextTranslationJobs = req
     "ListTextTranslationJobs"
     "fixture/ListTextTranslationJobs.yaml"
 
 requestStartTextTranslationJob :: StartTextTranslationJob -> TestTree
-requestStartTextTranslationJob =
-  req
+requestStartTextTranslationJob = req
     "StartTextTranslationJob"
     "fixture/StartTextTranslationJob.yaml"
 
 requestListParallelData :: ListParallelData -> TestTree
-requestListParallelData =
-  req
+requestListParallelData = req
     "ListParallelData"
     "fixture/ListParallelData.yaml"
 
 -- Responses
 
 responseDescribeTextTranslationJob :: DescribeTextTranslationJobResponse -> TestTree
-responseDescribeTextTranslationJob =
-  res
+responseDescribeTextTranslationJob = res
     "DescribeTextTranslationJobResponse"
     "fixture/DescribeTextTranslationJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeTextTranslationJob)
 
 responseListTerminologies :: ListTerminologiesResponse -> TestTree
-responseListTerminologies =
-  res
+responseListTerminologies = res
     "ListTerminologiesResponse"
     "fixture/ListTerminologiesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTerminologies)
 
 responseCreateParallelData :: CreateParallelDataResponse -> TestTree
-responseCreateParallelData =
-  res
+responseCreateParallelData = res
     "CreateParallelDataResponse"
     "fixture/CreateParallelDataResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateParallelData)
 
 responseUpdateParallelData :: UpdateParallelDataResponse -> TestTree
-responseUpdateParallelData =
-  res
+responseUpdateParallelData = res
     "UpdateParallelDataResponse"
     "fixture/UpdateParallelDataResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateParallelData)
 
 responseDeleteParallelData :: DeleteParallelDataResponse -> TestTree
-responseDeleteParallelData =
-  res
+responseDeleteParallelData = res
     "DeleteParallelDataResponse"
     "fixture/DeleteParallelDataResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteParallelData)
 
 responseGetParallelData :: GetParallelDataResponse -> TestTree
-responseGetParallelData =
-  res
+responseGetParallelData = res
     "GetParallelDataResponse"
     "fixture/GetParallelDataResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetParallelData)
 
 responseGetTerminology :: GetTerminologyResponse -> TestTree
-responseGetTerminology =
-  res
+responseGetTerminology = res
     "GetTerminologyResponse"
     "fixture/GetTerminologyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetTerminology)
 
 responseTranslateText :: TranslateTextResponse -> TestTree
-responseTranslateText =
-  res
+responseTranslateText = res
     "TranslateTextResponse"
     "fixture/TranslateTextResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TranslateText)
 
 responseImportTerminology :: ImportTerminologyResponse -> TestTree
-responseImportTerminology =
-  res
+responseImportTerminology = res
     "ImportTerminologyResponse"
     "fixture/ImportTerminologyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ImportTerminology)
 
 responseStopTextTranslationJob :: StopTextTranslationJobResponse -> TestTree
-responseStopTextTranslationJob =
-  res
+responseStopTextTranslationJob = res
     "StopTextTranslationJobResponse"
     "fixture/StopTextTranslationJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StopTextTranslationJob)
 
 responseDeleteTerminology :: DeleteTerminologyResponse -> TestTree
-responseDeleteTerminology =
-  res
+responseDeleteTerminology = res
     "DeleteTerminologyResponse"
     "fixture/DeleteTerminologyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteTerminology)
 
 responseListTextTranslationJobs :: ListTextTranslationJobsResponse -> TestTree
-responseListTextTranslationJobs =
-  res
+responseListTextTranslationJobs = res
     "ListTextTranslationJobsResponse"
     "fixture/ListTextTranslationJobsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTextTranslationJobs)
 
 responseStartTextTranslationJob :: StartTextTranslationJobResponse -> TestTree
-responseStartTextTranslationJob =
-  res
+responseStartTextTranslationJob = res
     "StartTextTranslationJobResponse"
     "fixture/StartTextTranslationJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartTextTranslationJob)
 
 responseListParallelData :: ListParallelDataResponse -> TestTree
-responseListParallelData =
-  res
+responseListParallelData = res
     "ListParallelDataResponse"
     "fixture/ListParallelDataResponse.proto"
     mkServiceConfig

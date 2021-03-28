@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,46 +10,30 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.AppStream.Types.UsageReportExecutionErrorCode
   ( UsageReportExecutionErrorCode
-      ( UsageReportExecutionErrorCode',
-        UsageReportExecutionErrorCodeResourceNotFound,
-        UsageReportExecutionErrorCodeAccessDenied,
-        UsageReportExecutionErrorCodeInternalServiceError,
-        fromUsageReportExecutionErrorCode
-      ),
-  )
-where
+    ( UsageReportExecutionErrorCode'
+    , UsageReportExecutionErrorCodeResourceNotFound
+    , UsageReportExecutionErrorCodeAccessDenied
+    , UsageReportExecutionErrorCodeInternalServiceError
+    , fromUsageReportExecutionErrorCode
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype UsageReportExecutionErrorCode = UsageReportExecutionErrorCode'
-  { fromUsageReportExecutionErrorCode ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype UsageReportExecutionErrorCode = UsageReportExecutionErrorCode'{fromUsageReportExecutionErrorCode
+                                                                       :: Core.Text}
+                                          deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                          Core.Generic)
+                                          deriving newtype (Core.IsString, Core.Hashable,
+                                                            Core.NFData, Core.ToJSONKey,
+                                                            Core.FromJSONKey, Core.ToJSON,
+                                                            Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                            Core.ToText, Core.FromText,
+                                                            Core.ToByteString, Core.ToQuery,
+                                                            Core.ToHeader)
 
 pattern UsageReportExecutionErrorCodeResourceNotFound :: UsageReportExecutionErrorCode
 pattern UsageReportExecutionErrorCodeResourceNotFound = UsageReportExecutionErrorCode' "RESOURCE_NOT_FOUND"
@@ -60,9 +44,11 @@ pattern UsageReportExecutionErrorCodeAccessDenied = UsageReportExecutionErrorCod
 pattern UsageReportExecutionErrorCodeInternalServiceError :: UsageReportExecutionErrorCode
 pattern UsageReportExecutionErrorCodeInternalServiceError = UsageReportExecutionErrorCode' "INTERNAL_SERVICE_ERROR"
 
-{-# COMPLETE
+{-# COMPLETE 
   UsageReportExecutionErrorCodeResourceNotFound,
+
   UsageReportExecutionErrorCodeAccessDenied,
+
   UsageReportExecutionErrorCodeInternalServiceError,
   UsageReportExecutionErrorCode'
   #-}

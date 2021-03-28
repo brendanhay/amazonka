@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,45 +10,28 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType
   ( DASHFragmentSelectorType
-      ( DASHFragmentSelectorType',
-        DASHFragmentSelectorTypeProducerTimestamp,
-        DASHFragmentSelectorTypeServerTimestamp,
-        fromDASHFragmentSelectorType
-      ),
-  )
-where
+    ( DASHFragmentSelectorType'
+    , DASHFragmentSelectorTypeProducerTimestamp
+    , DASHFragmentSelectorTypeServerTimestamp
+    , fromDASHFragmentSelectorType
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype DASHFragmentSelectorType = DASHFragmentSelectorType'
-  { fromDASHFragmentSelectorType ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype DASHFragmentSelectorType = DASHFragmentSelectorType'{fromDASHFragmentSelectorType
+                                                             :: Core.Text}
+                                     deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                     Core.Generic)
+                                     deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                       Core.ToJSONKey, Core.FromJSONKey,
+                                                       Core.ToJSON, Core.FromJSON, Core.ToXML,
+                                                       Core.FromXML, Core.ToText, Core.FromText,
+                                                       Core.ToByteString, Core.ToQuery,
+                                                       Core.ToHeader)
 
 pattern DASHFragmentSelectorTypeProducerTimestamp :: DASHFragmentSelectorType
 pattern DASHFragmentSelectorTypeProducerTimestamp = DASHFragmentSelectorType' "PRODUCER_TIMESTAMP"
@@ -56,8 +39,9 @@ pattern DASHFragmentSelectorTypeProducerTimestamp = DASHFragmentSelectorType' "P
 pattern DASHFragmentSelectorTypeServerTimestamp :: DASHFragmentSelectorType
 pattern DASHFragmentSelectorTypeServerTimestamp = DASHFragmentSelectorType' "SERVER_TIMESTAMP"
 
-{-# COMPLETE
+{-# COMPLETE 
   DASHFragmentSelectorTypeProducerTimestamp,
+
   DASHFragmentSelectorTypeServerTimestamp,
   DASHFragmentSelectorType'
   #-}

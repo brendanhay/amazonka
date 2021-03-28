@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,19 +15,18 @@
 --
 -- Adds one or more tags (keys and values) to an application, campaign, message template, or segment.
 module Network.AWS.Pinpoint.TagResource
-  ( -- * Creating a request
-    TagResource (..),
-    mkTagResource,
-
+    (
+    -- * Creating a request
+      TagResource (..)
+    , mkTagResource
     -- ** Request lenses
-    trResourceArn,
-    trTagsModel,
+    , trResourceArn
+    , trTagsModel
 
     -- * Destructuring the response
-    TagResourceResponse (..),
-    mkTagResourceResponse,
-  )
-where
+    , TagResourceResponse (..)
+    , mkTagResourceResponse
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Pinpoint.Types as Types
@@ -37,56 +36,62 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTagResource' smart constructor.
 data TagResource = TagResource'
-  { -- | The Amazon Resource Name (ARN) of the resource.
-    resourceArn :: Core.Text,
-    tagsModel :: Types.TagsModel
+  { resourceArn :: Core.Text
+    -- ^ The Amazon Resource Name (ARN) of the resource.
+  , tagsModel :: Types.TagsModel
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'TagResource' value with any optional fields omitted.
-mkTagResource ::
-  -- | 'resourceArn'
-  Core.Text ->
-  -- | 'tagsModel'
-  Types.TagsModel ->
-  TagResource
-mkTagResource resourceArn tagsModel =
-  TagResource' {resourceArn, tagsModel}
+mkTagResource
+    :: Core.Text -- ^ 'resourceArn'
+    -> Types.TagsModel -- ^ 'tagsModel'
+    -> TagResource
+mkTagResource resourceArn tagsModel
+  = TagResource'{resourceArn, tagsModel}
 
 -- | The Amazon Resource Name (ARN) of the resource.
 --
 -- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 trResourceArn :: Lens.Lens' TagResource Core.Text
 trResourceArn = Lens.field @"resourceArn"
-{-# DEPRECATED trResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
+{-# INLINEABLE trResourceArn #-}
+{-# DEPRECATED resourceArn "Use generic-lens or generic-optics with 'resourceArn' instead"  #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'tagsModel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 trTagsModel :: Lens.Lens' TagResource Types.TagsModel
 trTagsModel = Lens.field @"tagsModel"
-{-# DEPRECATED trTagsModel "Use generic-lens or generic-optics with 'tagsModel' instead." #-}
+{-# INLINEABLE trTagsModel #-}
+{-# DEPRECATED tagsModel "Use generic-lens or generic-optics with 'tagsModel' instead"  #-}
+
+instance Core.ToQuery TagResource where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders TagResource where
+        toHeaders TagResource{..}
+          = Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON TagResource where
-  toJSON TagResource {..} =
-    Core.object
-      (Core.catMaybes [Core.Just ("TagsModel" Core..= tagsModel)])
+        toJSON TagResource{..}
+          = Core.object
+              (Core.catMaybes [Core.Just ("TagsModel" Core..= tagsModel)])
 
 instance Core.AWSRequest TagResource where
-  type Rs TagResource = TagResourceResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath =
-          Core.rawPath ("/v1/tags/" Core.<> (Core.toText resourceArn)),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response = Response.receiveNull TagResourceResponse'
+        type Rs TagResource = TagResourceResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST,
+                         Core._rqPath = "/v1/tags/" Core.<> Core.toText resourceArn,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull TagResourceResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
@@ -94,6 +99,6 @@ data TagResourceResponse = TagResourceResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'TagResourceResponse' value with any optional fields omitted.
-mkTagResourceResponse ::
-  TagResourceResponse
+mkTagResourceResponse
+    :: TagResourceResponse
 mkTagResourceResponse = TagResourceResponse'

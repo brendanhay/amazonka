@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,19 +10,17 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.IoT.Types.ThingTypeDefinition
-  ( ThingTypeDefinition (..),
-
-    -- * Smart constructor
-    mkThingTypeDefinition,
-
-    -- * Lenses
-    ttdThingTypeArn,
-    ttdThingTypeMetadata,
-    ttdThingTypeName,
-    ttdThingTypeProperties,
-  )
-where
+  ( ThingTypeDefinition (..)
+  -- * Smart constructor
+  , mkThingTypeDefinition
+  -- * Lenses
+  , ttdThingTypeArn
+  , ttdThingTypeMetadata
+  , ttdThingTypeName
+  , ttdThingTypeProperties
+  ) where
 
 import qualified Network.AWS.IoT.Types.ThingTypeArn as Types
 import qualified Network.AWS.IoT.Types.ThingTypeMetadata as Types
@@ -35,63 +33,63 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkThingTypeDefinition' smart constructor.
 data ThingTypeDefinition = ThingTypeDefinition'
-  { -- | The thing type ARN.
-    thingTypeArn :: Core.Maybe Types.ThingTypeArn,
-    -- | The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.
-    thingTypeMetadata :: Core.Maybe Types.ThingTypeMetadata,
-    -- | The name of the thing type.
-    thingTypeName :: Core.Maybe Types.ThingTypeName,
-    -- | The ThingTypeProperties for the thing type.
-    thingTypeProperties :: Core.Maybe Types.ThingTypeProperties
+  { thingTypeArn :: Core.Maybe Types.ThingTypeArn
+    -- ^ The thing type ARN.
+  , thingTypeMetadata :: Core.Maybe Types.ThingTypeMetadata
+    -- ^ The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.
+  , thingTypeName :: Core.Maybe Types.ThingTypeName
+    -- ^ The name of the thing type.
+  , thingTypeProperties :: Core.Maybe Types.ThingTypeProperties
+    -- ^ The ThingTypeProperties for the thing type.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'ThingTypeDefinition' value with any optional fields omitted.
-mkThingTypeDefinition ::
-  ThingTypeDefinition
-mkThingTypeDefinition =
-  ThingTypeDefinition'
-    { thingTypeArn = Core.Nothing,
-      thingTypeMetadata = Core.Nothing,
-      thingTypeName = Core.Nothing,
-      thingTypeProperties = Core.Nothing
-    }
+mkThingTypeDefinition
+    :: ThingTypeDefinition
+mkThingTypeDefinition
+  = ThingTypeDefinition'{thingTypeArn = Core.Nothing,
+                         thingTypeMetadata = Core.Nothing, thingTypeName = Core.Nothing,
+                         thingTypeProperties = Core.Nothing}
 
 -- | The thing type ARN.
 --
 -- /Note:/ Consider using 'thingTypeArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ttdThingTypeArn :: Lens.Lens' ThingTypeDefinition (Core.Maybe Types.ThingTypeArn)
 ttdThingTypeArn = Lens.field @"thingTypeArn"
-{-# DEPRECATED ttdThingTypeArn "Use generic-lens or generic-optics with 'thingTypeArn' instead." #-}
+{-# INLINEABLE ttdThingTypeArn #-}
+{-# DEPRECATED thingTypeArn "Use generic-lens or generic-optics with 'thingTypeArn' instead"  #-}
 
 -- | The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.
 --
 -- /Note:/ Consider using 'thingTypeMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ttdThingTypeMetadata :: Lens.Lens' ThingTypeDefinition (Core.Maybe Types.ThingTypeMetadata)
 ttdThingTypeMetadata = Lens.field @"thingTypeMetadata"
-{-# DEPRECATED ttdThingTypeMetadata "Use generic-lens or generic-optics with 'thingTypeMetadata' instead." #-}
+{-# INLINEABLE ttdThingTypeMetadata #-}
+{-# DEPRECATED thingTypeMetadata "Use generic-lens or generic-optics with 'thingTypeMetadata' instead"  #-}
 
 -- | The name of the thing type.
 --
 -- /Note:/ Consider using 'thingTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ttdThingTypeName :: Lens.Lens' ThingTypeDefinition (Core.Maybe Types.ThingTypeName)
 ttdThingTypeName = Lens.field @"thingTypeName"
-{-# DEPRECATED ttdThingTypeName "Use generic-lens or generic-optics with 'thingTypeName' instead." #-}
+{-# INLINEABLE ttdThingTypeName #-}
+{-# DEPRECATED thingTypeName "Use generic-lens or generic-optics with 'thingTypeName' instead"  #-}
 
 -- | The ThingTypeProperties for the thing type.
 --
 -- /Note:/ Consider using 'thingTypeProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ttdThingTypeProperties :: Lens.Lens' ThingTypeDefinition (Core.Maybe Types.ThingTypeProperties)
 ttdThingTypeProperties = Lens.field @"thingTypeProperties"
-{-# DEPRECATED ttdThingTypeProperties "Use generic-lens or generic-optics with 'thingTypeProperties' instead." #-}
+{-# INLINEABLE ttdThingTypeProperties #-}
+{-# DEPRECATED thingTypeProperties "Use generic-lens or generic-optics with 'thingTypeProperties' instead"  #-}
 
 instance Core.FromJSON ThingTypeDefinition where
-  parseJSON =
-    Core.withObject "ThingTypeDefinition" Core.$
-      \x ->
-        ThingTypeDefinition'
-          Core.<$> (x Core..:? "thingTypeArn")
-          Core.<*> (x Core..:? "thingTypeMetadata")
-          Core.<*> (x Core..:? "thingTypeName")
-          Core.<*> (x Core..:? "thingTypeProperties")
+        parseJSON
+          = Core.withObject "ThingTypeDefinition" Core.$
+              \ x ->
+                ThingTypeDefinition' Core.<$>
+                  (x Core..:? "thingTypeArn") Core.<*> x Core..:? "thingTypeMetadata"
+                    Core.<*> x Core..:? "thingTypeName"
+                    Core.<*> x Core..:? "thingTypeProperties"

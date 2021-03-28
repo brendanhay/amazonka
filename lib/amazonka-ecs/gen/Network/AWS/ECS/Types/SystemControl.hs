@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,19 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.ECS.Types.SystemControl
-  ( SystemControl (..),
+  ( SystemControl (..)
+  -- * Smart constructor
+  , mkSystemControl
+  -- * Lenses
+  , scNamespace
+  , scValue
+  ) where
 
-    -- * Smart constructor
-    mkSystemControl,
-
-    -- * Lenses
-    scNamespace,
-    scValue,
-  )
-where
-
-import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
 
@@ -39,46 +36,46 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkSystemControl' smart constructor.
 data SystemControl = SystemControl'
-  { -- | The namespaced kernel parameter for which to set a @value@ .
-    namespace :: Core.Maybe Types.String,
-    -- | The value for the namespaced kernel parameter specified in @namespace@ .
-    value :: Core.Maybe Types.String
+  { namespace :: Core.Maybe Core.Text
+    -- ^ The namespaced kernel parameter for which to set a @value@ .
+  , value :: Core.Maybe Core.Text
+    -- ^ The value for the namespaced kernel parameter specified in @namespace@ .
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'SystemControl' value with any optional fields omitted.
-mkSystemControl ::
-  SystemControl
-mkSystemControl =
-  SystemControl' {namespace = Core.Nothing, value = Core.Nothing}
+mkSystemControl
+    :: SystemControl
+mkSystemControl
+  = SystemControl'{namespace = Core.Nothing, value = Core.Nothing}
 
 -- | The namespaced kernel parameter for which to set a @value@ .
 --
 -- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scNamespace :: Lens.Lens' SystemControl (Core.Maybe Types.String)
+scNamespace :: Lens.Lens' SystemControl (Core.Maybe Core.Text)
 scNamespace = Lens.field @"namespace"
-{-# DEPRECATED scNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
+{-# INLINEABLE scNamespace #-}
+{-# DEPRECATED namespace "Use generic-lens or generic-optics with 'namespace' instead"  #-}
 
 -- | The value for the namespaced kernel parameter specified in @namespace@ .
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scValue :: Lens.Lens' SystemControl (Core.Maybe Types.String)
+scValue :: Lens.Lens' SystemControl (Core.Maybe Core.Text)
 scValue = Lens.field @"value"
-{-# DEPRECATED scValue "Use generic-lens or generic-optics with 'value' instead." #-}
+{-# INLINEABLE scValue #-}
+{-# DEPRECATED value "Use generic-lens or generic-optics with 'value' instead"  #-}
 
 instance Core.FromJSON SystemControl where
-  toJSON SystemControl {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("namespace" Core..=) Core.<$> namespace,
-            ("value" Core..=) Core.<$> value
-          ]
-      )
+        toJSON SystemControl{..}
+          = Core.object
+              (Core.catMaybes
+                 [("namespace" Core..=) Core.<$> namespace,
+                  ("value" Core..=) Core.<$> value])
 
 instance Core.FromJSON SystemControl where
-  parseJSON =
-    Core.withObject "SystemControl" Core.$
-      \x ->
-        SystemControl'
-          Core.<$> (x Core..:? "namespace") Core.<*> (x Core..:? "value")
+        parseJSON
+          = Core.withObject "SystemControl" Core.$
+              \ x ->
+                SystemControl' Core.<$>
+                  (x Core..:? "namespace") Core.<*> x Core..:? "value"

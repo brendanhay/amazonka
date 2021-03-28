@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,19 +17,18 @@
 --
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.UpdateConfigurationSetReputationMetricsEnabled
-  ( -- * Creating a request
-    UpdateConfigurationSetReputationMetricsEnabled (..),
-    mkUpdateConfigurationSetReputationMetricsEnabled,
-
+    (
+    -- * Creating a request
+      UpdateConfigurationSetReputationMetricsEnabled (..)
+    , mkUpdateConfigurationSetReputationMetricsEnabled
     -- ** Request lenses
-    ucsrmeConfigurationSetName,
-    ucsrmeEnabled,
+    , ucsrmeConfigurationSetName
+    , ucsrmeEnabled
 
     -- * Destructuring the response
-    UpdateConfigurationSetReputationMetricsEnabledResponse (..),
-    mkUpdateConfigurationSetReputationMetricsEnabledResponse,
-  )
-where
+    , UpdateConfigurationSetReputationMetricsEnabledResponse (..)
+    , mkUpdateConfigurationSetReputationMetricsEnabledResponse
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -41,73 +40,78 @@ import qualified Network.AWS.SES.Types as Types
 --
 -- /See:/ 'mkUpdateConfigurationSetReputationMetricsEnabled' smart constructor.
 data UpdateConfigurationSetReputationMetricsEnabled = UpdateConfigurationSetReputationMetricsEnabled'
-  { -- | The name of the configuration set that you want to update.
-    configurationSetName :: Types.ConfigurationSetName,
-    -- | Describes whether or not Amazon SES will publish reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch.
-    enabled :: Core.Bool
+  { configurationSetName :: Types.ConfigurationSetName
+    -- ^ The name of the configuration set that you want to update.
+  , enabled :: Core.Bool
+    -- ^ Describes whether or not Amazon SES will publish reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UpdateConfigurationSetReputationMetricsEnabled' value with any optional fields omitted.
-mkUpdateConfigurationSetReputationMetricsEnabled ::
-  -- | 'configurationSetName'
-  Types.ConfigurationSetName ->
-  -- | 'enabled'
-  Core.Bool ->
-  UpdateConfigurationSetReputationMetricsEnabled
 mkUpdateConfigurationSetReputationMetricsEnabled
-  configurationSetName
-  enabled =
-    UpdateConfigurationSetReputationMetricsEnabled'
-      { configurationSetName,
-        enabled
-      }
+    :: Types.ConfigurationSetName -- ^ 'configurationSetName'
+    -> Core.Bool -- ^ 'enabled'
+    -> UpdateConfigurationSetReputationMetricsEnabled
+mkUpdateConfigurationSetReputationMetricsEnabled
+  configurationSetName enabled
+  = UpdateConfigurationSetReputationMetricsEnabled'{configurationSetName,
+                                                    enabled}
 
 -- | The name of the configuration set that you want to update.
 --
 -- /Note:/ Consider using 'configurationSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ucsrmeConfigurationSetName :: Lens.Lens' UpdateConfigurationSetReputationMetricsEnabled Types.ConfigurationSetName
 ucsrmeConfigurationSetName = Lens.field @"configurationSetName"
-{-# DEPRECATED ucsrmeConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
+{-# INLINEABLE ucsrmeConfigurationSetName #-}
+{-# DEPRECATED configurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead"  #-}
 
 -- | Describes whether or not Amazon SES will publish reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ucsrmeEnabled :: Lens.Lens' UpdateConfigurationSetReputationMetricsEnabled Core.Bool
 ucsrmeEnabled = Lens.field @"enabled"
-{-# DEPRECATED ucsrmeEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+{-# INLINEABLE ucsrmeEnabled #-}
+{-# DEPRECATED enabled "Use generic-lens or generic-optics with 'enabled' instead"  #-}
 
-instance
-  Core.AWSRequest
-    UpdateConfigurationSetReputationMetricsEnabled
-  where
-  type
-    Rs UpdateConfigurationSetReputationMetricsEnabled =
-      UpdateConfigurationSetReputationMetricsEnabledResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure
-                ("Action", "UpdateConfigurationSetReputationMetricsEnabled")
-                Core.<> (Core.pure ("Version", "2010-12-01"))
-                Core.<> (Core.toQueryValue "ConfigurationSetName" configurationSetName)
-                Core.<> (Core.toQueryValue "Enabled" enabled)
-            )
-      }
-  response =
-    Response.receiveNull
-      UpdateConfigurationSetReputationMetricsEnabledResponse'
+instance Core.ToQuery
+           UpdateConfigurationSetReputationMetricsEnabled
+         where
+        toQuery UpdateConfigurationSetReputationMetricsEnabled{..}
+          = Core.toQueryPair "Action"
+              ("UpdateConfigurationSetReputationMetricsEnabled" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2010-12-01" :: Core.Text)
+              Core.<>
+              Core.toQueryPair "ConfigurationSetName" configurationSetName
+              Core.<> Core.toQueryPair "Enabled" enabled
+
+instance Core.ToHeaders
+           UpdateConfigurationSetReputationMetricsEnabled
+         where
+        toHeaders _ = Core.pure Core.mempty
+
+instance Core.AWSRequest
+           UpdateConfigurationSetReputationMetricsEnabled
+         where
+        type Rs UpdateConfigurationSetReputationMetricsEnabled =
+             UpdateConfigurationSetReputationMetricsEnabledResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveNull
+              UpdateConfigurationSetReputationMetricsEnabledResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkUpdateConfigurationSetReputationMetricsEnabledResponse' smart constructor.
 data UpdateConfigurationSetReputationMetricsEnabledResponse = UpdateConfigurationSetReputationMetricsEnabledResponse'
@@ -115,7 +119,7 @@ data UpdateConfigurationSetReputationMetricsEnabledResponse = UpdateConfiguratio
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UpdateConfigurationSetReputationMetricsEnabledResponse' value with any optional fields omitted.
-mkUpdateConfigurationSetReputationMetricsEnabledResponse ::
-  UpdateConfigurationSetReputationMetricsEnabledResponse
-mkUpdateConfigurationSetReputationMetricsEnabledResponse =
-  UpdateConfigurationSetReputationMetricsEnabledResponse'
+mkUpdateConfigurationSetReputationMetricsEnabledResponse
+    :: UpdateConfigurationSetReputationMetricsEnabledResponse
+mkUpdateConfigurationSetReputationMetricsEnabledResponse
+  = UpdateConfigurationSetReputationMetricsEnabledResponse'

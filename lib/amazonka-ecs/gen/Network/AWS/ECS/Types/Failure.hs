@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,20 +10,17 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.ECS.Types.Failure
-  ( Failure (..),
+  ( Failure (..)
+  -- * Smart constructor
+  , mkFailure
+  -- * Lenses
+  , fArn
+  , fDetail
+  , fReason
+  ) where
 
-    -- * Smart constructor
-    mkFailure,
-
-    -- * Lenses
-    fArn,
-    fDetail,
-    fReason,
-  )
-where
-
-import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
 
@@ -31,52 +28,51 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkFailure' smart constructor.
 data Failure = Failure'
-  { -- | The Amazon Resource Name (ARN) of the failed resource.
-    arn :: Core.Maybe Types.String,
-    -- | The details of the failure.
-    detail :: Core.Maybe Types.String,
-    -- | The reason for the failure.
-    reason :: Core.Maybe Types.String
+  { arn :: Core.Maybe Core.Text
+    -- ^ The Amazon Resource Name (ARN) of the failed resource.
+  , detail :: Core.Maybe Core.Text
+    -- ^ The details of the failure.
+  , reason :: Core.Maybe Core.Text
+    -- ^ The reason for the failure.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'Failure' value with any optional fields omitted.
-mkFailure ::
-  Failure
-mkFailure =
-  Failure'
-    { arn = Core.Nothing,
-      detail = Core.Nothing,
-      reason = Core.Nothing
-    }
+mkFailure
+    :: Failure
+mkFailure
+  = Failure'{arn = Core.Nothing, detail = Core.Nothing,
+             reason = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the failed resource.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fArn :: Lens.Lens' Failure (Core.Maybe Types.String)
+fArn :: Lens.Lens' Failure (Core.Maybe Core.Text)
 fArn = Lens.field @"arn"
-{-# DEPRECATED fArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+{-# INLINEABLE fArn #-}
+{-# DEPRECATED arn "Use generic-lens or generic-optics with 'arn' instead"  #-}
 
 -- | The details of the failure.
 --
 -- /Note:/ Consider using 'detail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fDetail :: Lens.Lens' Failure (Core.Maybe Types.String)
+fDetail :: Lens.Lens' Failure (Core.Maybe Core.Text)
 fDetail = Lens.field @"detail"
-{-# DEPRECATED fDetail "Use generic-lens or generic-optics with 'detail' instead." #-}
+{-# INLINEABLE fDetail #-}
+{-# DEPRECATED detail "Use generic-lens or generic-optics with 'detail' instead"  #-}
 
 -- | The reason for the failure.
 --
 -- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fReason :: Lens.Lens' Failure (Core.Maybe Types.String)
+fReason :: Lens.Lens' Failure (Core.Maybe Core.Text)
 fReason = Lens.field @"reason"
-{-# DEPRECATED fReason "Use generic-lens or generic-optics with 'reason' instead." #-}
+{-# INLINEABLE fReason #-}
+{-# DEPRECATED reason "Use generic-lens or generic-optics with 'reason' instead"  #-}
 
 instance Core.FromJSON Failure where
-  parseJSON =
-    Core.withObject "Failure" Core.$
-      \x ->
-        Failure'
-          Core.<$> (x Core..:? "arn")
-          Core.<*> (x Core..:? "detail")
-          Core.<*> (x Core..:? "reason")
+        parseJSON
+          = Core.withObject "Failure" Core.$
+              \ x ->
+                Failure' Core.<$>
+                  (x Core..:? "arn") Core.<*> x Core..:? "detail" Core.<*>
+                    x Core..:? "reason"

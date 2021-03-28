@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,23 +13,22 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified organization config rule and all of its evaluation results from all member accounts in that organization.
+-- Deletes the specified organization config rule and all of its evaluation results from all member accounts in that organization. 
 --
 -- Only a master account and a delegated administrator account can delete an organization config rule. When calling this API with a delegated administrator, you must ensure AWS Organizations @ListDelegatedAdministrator@ permissions are added.
 -- AWS Config sets the state of a rule to DELETE_IN_PROGRESS until the deletion is complete. You cannot update a rule while it is in this state.
 module Network.AWS.Config.DeleteOrganizationConfigRule
-  ( -- * Creating a request
-    DeleteOrganizationConfigRule (..),
-    mkDeleteOrganizationConfigRule,
-
+    (
+    -- * Creating a request
+      DeleteOrganizationConfigRule (..)
+    , mkDeleteOrganizationConfigRule
     -- ** Request lenses
-    docrOrganizationConfigRuleName,
+    , docrOrganizationConfigRuleName
 
     -- * Destructuring the response
-    DeleteOrganizationConfigRuleResponse (..),
-    mkDeleteOrganizationConfigRuleResponse,
-  )
-where
+    , DeleteOrganizationConfigRuleResponse (..)
+    , mkDeleteOrganizationConfigRuleResponse
+    ) where
 
 import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -39,56 +38,58 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteOrganizationConfigRule' smart constructor.
 newtype DeleteOrganizationConfigRule = DeleteOrganizationConfigRule'
-  { -- | The name of organization config rule that you want to delete.
-    organizationConfigRuleName :: Types.OrganizationConfigRuleName
+  { organizationConfigRuleName :: Types.OrganizationConfigRuleName
+    -- ^ The name of organization config rule that you want to delete.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteOrganizationConfigRule' value with any optional fields omitted.
-mkDeleteOrganizationConfigRule ::
-  -- | 'organizationConfigRuleName'
-  Types.OrganizationConfigRuleName ->
-  DeleteOrganizationConfigRule
-mkDeleteOrganizationConfigRule organizationConfigRuleName =
-  DeleteOrganizationConfigRule' {organizationConfigRuleName}
+mkDeleteOrganizationConfigRule
+    :: Types.OrganizationConfigRuleName -- ^ 'organizationConfigRuleName'
+    -> DeleteOrganizationConfigRule
+mkDeleteOrganizationConfigRule organizationConfigRuleName
+  = DeleteOrganizationConfigRule'{organizationConfigRuleName}
 
 -- | The name of organization config rule that you want to delete.
 --
 -- /Note:/ Consider using 'organizationConfigRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 docrOrganizationConfigRuleName :: Lens.Lens' DeleteOrganizationConfigRule Types.OrganizationConfigRuleName
 docrOrganizationConfigRuleName = Lens.field @"organizationConfigRuleName"
-{-# DEPRECATED docrOrganizationConfigRuleName "Use generic-lens or generic-optics with 'organizationConfigRuleName' instead." #-}
+{-# INLINEABLE docrOrganizationConfigRuleName #-}
+{-# DEPRECATED organizationConfigRuleName "Use generic-lens or generic-optics with 'organizationConfigRuleName' instead"  #-}
+
+instance Core.ToQuery DeleteOrganizationConfigRule where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DeleteOrganizationConfigRule where
+        toHeaders DeleteOrganizationConfigRule{..}
+          = Core.pure
+              ("X-Amz-Target",
+               "StarlingDoveService.DeleteOrganizationConfigRule")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON DeleteOrganizationConfigRule where
-  toJSON DeleteOrganizationConfigRule {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just
-              ("OrganizationConfigRuleName" Core..= organizationConfigRuleName)
-          ]
-      )
+        toJSON DeleteOrganizationConfigRule{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just
+                    ("OrganizationConfigRuleName" Core..= organizationConfigRuleName)])
 
 instance Core.AWSRequest DeleteOrganizationConfigRule where
-  type
-    Rs DeleteOrganizationConfigRule =
-      DeleteOrganizationConfigRuleResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "X-Amz-Target",
-              "StarlingDoveService.DeleteOrganizationConfigRule"
-            )
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveNull DeleteOrganizationConfigRuleResponse'
+        type Rs DeleteOrganizationConfigRule =
+             DeleteOrganizationConfigRuleResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveNull DeleteOrganizationConfigRuleResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteOrganizationConfigRuleResponse' smart constructor.
 data DeleteOrganizationConfigRuleResponse = DeleteOrganizationConfigRuleResponse'
@@ -96,7 +97,7 @@ data DeleteOrganizationConfigRuleResponse = DeleteOrganizationConfigRuleResponse
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteOrganizationConfigRuleResponse' value with any optional fields omitted.
-mkDeleteOrganizationConfigRuleResponse ::
-  DeleteOrganizationConfigRuleResponse
-mkDeleteOrganizationConfigRuleResponse =
-  DeleteOrganizationConfigRuleResponse'
+mkDeleteOrganizationConfigRuleResponse
+    :: DeleteOrganizationConfigRuleResponse
+mkDeleteOrganizationConfigRuleResponse
+  = DeleteOrganizationConfigRuleResponse'

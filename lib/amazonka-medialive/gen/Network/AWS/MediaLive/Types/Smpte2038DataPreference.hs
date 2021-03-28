@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,46 +10,28 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaLive.Types.Smpte2038DataPreference
   ( Smpte2038DataPreference
-      ( Smpte2038DataPreference',
-        Smpte2038DataPreferenceIgnore,
-        Smpte2038DataPreferencePrefer,
-        fromSmpte2038DataPreference
-      ),
-  )
-where
+    ( Smpte2038DataPreference'
+    , Smpte2038DataPreferenceIgnore
+    , Smpte2038DataPreferencePrefer
+    , fromSmpte2038DataPreference
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
 -- | Smpte2038 Data Preference
-newtype Smpte2038DataPreference = Smpte2038DataPreference'
-  { fromSmpte2038DataPreference ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype Smpte2038DataPreference = Smpte2038DataPreference'{fromSmpte2038DataPreference
+                                                           :: Core.Text}
+                                    deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                    Core.Generic)
+                                    deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                      Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                      Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                      Core.ToText, Core.FromText, Core.ToByteString,
+                                                      Core.ToQuery, Core.ToHeader)
 
 pattern Smpte2038DataPreferenceIgnore :: Smpte2038DataPreference
 pattern Smpte2038DataPreferenceIgnore = Smpte2038DataPreference' "IGNORE"
@@ -57,8 +39,9 @@ pattern Smpte2038DataPreferenceIgnore = Smpte2038DataPreference' "IGNORE"
 pattern Smpte2038DataPreferencePrefer :: Smpte2038DataPreference
 pattern Smpte2038DataPreferencePrefer = Smpte2038DataPreference' "PREFER"
 
-{-# COMPLETE
+{-# COMPLETE 
   Smpte2038DataPreferenceIgnore,
+
   Smpte2038DataPreferencePrefer,
   Smpte2038DataPreference'
   #-}

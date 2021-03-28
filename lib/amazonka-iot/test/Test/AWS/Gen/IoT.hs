@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.IoT where
 
 import Data.Proxy
-import Network.AWS.IoT
 import Test.AWS.Fixture
-import Test.AWS.IoT.Internal
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.IoT
+import Test.AWS.IoT.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -1284,2914 +1285,2498 @@ import Test.Tasty
 -- Requests
 
 requestGetCardinality :: GetCardinality -> TestTree
-requestGetCardinality =
-  req
+requestGetCardinality = req
     "GetCardinality"
     "fixture/GetCardinality.yaml"
 
 requestCreateDomainConfiguration :: CreateDomainConfiguration -> TestTree
-requestCreateDomainConfiguration =
-  req
+requestCreateDomainConfiguration = req
     "CreateDomainConfiguration"
     "fixture/CreateDomainConfiguration.yaml"
 
 requestDeleteSecurityProfile :: DeleteSecurityProfile -> TestTree
-requestDeleteSecurityProfile =
-  req
+requestDeleteSecurityProfile = req
     "DeleteSecurityProfile"
     "fixture/DeleteSecurityProfile.yaml"
 
 requestUpdateSecurityProfile :: UpdateSecurityProfile -> TestTree
-requestUpdateSecurityProfile =
-  req
+requestUpdateSecurityProfile = req
     "UpdateSecurityProfile"
     "fixture/UpdateSecurityProfile.yaml"
 
 requestListSecurityProfiles :: ListSecurityProfiles -> TestTree
-requestListSecurityProfiles =
-  req
+requestListSecurityProfiles = req
     "ListSecurityProfiles"
     "fixture/ListSecurityProfiles.yaml"
 
 requestListPolicies :: ListPolicies -> TestTree
-requestListPolicies =
-  req
+requestListPolicies = req
     "ListPolicies"
     "fixture/ListPolicies.yaml"
 
 requestDescribeProvisioningTemplate :: DescribeProvisioningTemplate -> TestTree
-requestDescribeProvisioningTemplate =
-  req
+requestDescribeProvisioningTemplate = req
     "DescribeProvisioningTemplate"
     "fixture/DescribeProvisioningTemplate.yaml"
 
 requestUpdateMitigationAction :: UpdateMitigationAction -> TestTree
-requestUpdateMitigationAction =
-  req
+requestUpdateMitigationAction = req
     "UpdateMitigationAction"
     "fixture/UpdateMitigationAction.yaml"
 
 requestDeleteMitigationAction :: DeleteMitigationAction -> TestTree
-requestDeleteMitigationAction =
-  req
+requestDeleteMitigationAction = req
     "DeleteMitigationAction"
     "fixture/DeleteMitigationAction.yaml"
 
 requestDeleteJobExecution :: DeleteJobExecution -> TestTree
-requestDeleteJobExecution =
-  req
+requestDeleteJobExecution = req
     "DeleteJobExecution"
     "fixture/DeleteJobExecution.yaml"
 
 requestCreatePolicy :: CreatePolicy -> TestTree
-requestCreatePolicy =
-  req
+requestCreatePolicy = req
     "CreatePolicy"
     "fixture/CreatePolicy.yaml"
 
 requestRegisterCertificate :: RegisterCertificate -> TestTree
-requestRegisterCertificate =
-  req
+requestRegisterCertificate = req
     "RegisterCertificate"
     "fixture/RegisterCertificate.yaml"
 
 requestDeleteDynamicThingGroup :: DeleteDynamicThingGroup -> TestTree
-requestDeleteDynamicThingGroup =
-  req
+requestDeleteDynamicThingGroup = req
     "DeleteDynamicThingGroup"
     "fixture/DeleteDynamicThingGroup.yaml"
 
 requestListThingPrincipals :: ListThingPrincipals -> TestTree
-requestListThingPrincipals =
-  req
+requestListThingPrincipals = req
     "ListThingPrincipals"
     "fixture/ListThingPrincipals.yaml"
 
 requestUpdateDynamicThingGroup :: UpdateDynamicThingGroup -> TestTree
-requestUpdateDynamicThingGroup =
-  req
+requestUpdateDynamicThingGroup = req
     "UpdateDynamicThingGroup"
     "fixture/UpdateDynamicThingGroup.yaml"
 
 requestDescribeRoleAlias :: DescribeRoleAlias -> TestTree
-requestDescribeRoleAlias =
-  req
+requestDescribeRoleAlias = req
     "DescribeRoleAlias"
     "fixture/DescribeRoleAlias.yaml"
 
 requestCreateProvisioningTemplateVersion :: CreateProvisioningTemplateVersion -> TestTree
-requestCreateProvisioningTemplateVersion =
-  req
+requestCreateProvisioningTemplateVersion = req
     "CreateProvisioningTemplateVersion"
     "fixture/CreateProvisioningTemplateVersion.yaml"
 
 requestCreateOTAUpdate :: CreateOTAUpdate -> TestTree
-requestCreateOTAUpdate =
-  req
+requestCreateOTAUpdate = req
     "CreateOTAUpdate"
     "fixture/CreateOTAUpdate.yaml"
 
 requestDescribeDefaultAuthorizer :: DescribeDefaultAuthorizer -> TestTree
-requestDescribeDefaultAuthorizer =
-  req
+requestDescribeDefaultAuthorizer = req
     "DescribeDefaultAuthorizer"
     "fixture/DescribeDefaultAuthorizer.yaml"
 
 requestListAuditMitigationActionsTasks :: ListAuditMitigationActionsTasks -> TestTree
-requestListAuditMitigationActionsTasks =
-  req
+requestListAuditMitigationActionsTasks = req
     "ListAuditMitigationActionsTasks"
     "fixture/ListAuditMitigationActionsTasks.yaml"
 
 requestListThingRegistrationTaskReports :: ListThingRegistrationTaskReports -> TestTree
-requestListThingRegistrationTaskReports =
-  req
+requestListThingRegistrationTaskReports = req
     "ListThingRegistrationTaskReports"
     "fixture/ListThingRegistrationTaskReports.yaml"
 
 requestListPrincipalThings :: ListPrincipalThings -> TestTree
-requestListPrincipalThings =
-  req
+requestListPrincipalThings = req
     "ListPrincipalThings"
     "fixture/ListPrincipalThings.yaml"
 
 requestRemoveThingFromThingGroup :: RemoveThingFromThingGroup -> TestTree
-requestRemoveThingFromThingGroup =
-  req
+requestRemoveThingFromThingGroup = req
     "RemoveThingFromThingGroup"
     "fixture/RemoveThingFromThingGroup.yaml"
 
 requestDescribeEventConfigurations :: DescribeEventConfigurations -> TestTree
-requestDescribeEventConfigurations =
-  req
+requestDescribeEventConfigurations = req
     "DescribeEventConfigurations"
     "fixture/DescribeEventConfigurations.yaml"
 
 requestListTopicRuleDestinations :: ListTopicRuleDestinations -> TestTree
-requestListTopicRuleDestinations =
-  req
+requestListTopicRuleDestinations = req
     "ListTopicRuleDestinations"
     "fixture/ListTopicRuleDestinations.yaml"
 
 requestRegisterCertificateWithoutCA :: RegisterCertificateWithoutCA -> TestTree
-requestRegisterCertificateWithoutCA =
-  req
+requestRegisterCertificateWithoutCA = req
     "RegisterCertificateWithoutCA"
     "fixture/RegisterCertificateWithoutCA.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
+requestListTagsForResource = req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
 requestListThingGroups :: ListThingGroups -> TestTree
-requestListThingGroups =
-  req
+requestListThingGroups = req
     "ListThingGroups"
     "fixture/ListThingGroups.yaml"
 
 requestListScheduledAudits :: ListScheduledAudits -> TestTree
-requestListScheduledAudits =
-  req
+requestListScheduledAudits = req
     "ListScheduledAudits"
     "fixture/ListScheduledAudits.yaml"
 
 requestDescribeThingRegistrationTask :: DescribeThingRegistrationTask -> TestTree
-requestDescribeThingRegistrationTask =
-  req
+requestDescribeThingRegistrationTask = req
     "DescribeThingRegistrationTask"
     "fixture/DescribeThingRegistrationTask.yaml"
 
 requestUpdateScheduledAudit :: UpdateScheduledAudit -> TestTree
-requestUpdateScheduledAudit =
-  req
+requestUpdateScheduledAudit = req
     "UpdateScheduledAudit"
     "fixture/UpdateScheduledAudit.yaml"
 
 requestDeleteScheduledAudit :: DeleteScheduledAudit -> TestTree
-requestDeleteScheduledAudit =
-  req
+requestDeleteScheduledAudit = req
     "DeleteScheduledAudit"
     "fixture/DeleteScheduledAudit.yaml"
 
 requestDescribeAuditFinding :: DescribeAuditFinding -> TestTree
-requestDescribeAuditFinding =
-  req
+requestDescribeAuditFinding = req
     "DescribeAuditFinding"
     "fixture/DescribeAuditFinding.yaml"
 
 requestDescribeDimension :: DescribeDimension -> TestTree
-requestDescribeDimension =
-  req
+requestDescribeDimension = req
     "DescribeDimension"
     "fixture/DescribeDimension.yaml"
 
 requestGetLoggingOptions :: GetLoggingOptions -> TestTree
-requestGetLoggingOptions =
-  req
+requestGetLoggingOptions = req
     "GetLoggingOptions"
     "fixture/GetLoggingOptions.yaml"
 
 requestDeleteAccountAuditConfiguration :: DeleteAccountAuditConfiguration -> TestTree
-requestDeleteAccountAuditConfiguration =
-  req
+requestDeleteAccountAuditConfiguration = req
     "DeleteAccountAuditConfiguration"
     "fixture/DeleteAccountAuditConfiguration.yaml"
 
 requestUpdateAccountAuditConfiguration :: UpdateAccountAuditConfiguration -> TestTree
-requestUpdateAccountAuditConfiguration =
-  req
+requestUpdateAccountAuditConfiguration = req
     "UpdateAccountAuditConfiguration"
     "fixture/UpdateAccountAuditConfiguration.yaml"
 
 requestGetOTAUpdate :: GetOTAUpdate -> TestTree
-requestGetOTAUpdate =
-  req
+requestGetOTAUpdate = req
     "GetOTAUpdate"
     "fixture/GetOTAUpdate.yaml"
 
 requestGetEffectivePolicies :: GetEffectivePolicies -> TestTree
-requestGetEffectivePolicies =
-  req
+requestGetEffectivePolicies = req
     "GetEffectivePolicies"
     "fixture/GetEffectivePolicies.yaml"
 
 requestListThingTypes :: ListThingTypes -> TestTree
-requestListThingTypes =
-  req
+requestListThingTypes = req
     "ListThingTypes"
     "fixture/ListThingTypes.yaml"
 
 requestSetV2LoggingOptions :: SetV2LoggingOptions -> TestTree
-requestSetV2LoggingOptions =
-  req
+requestSetV2LoggingOptions = req
     "SetV2LoggingOptions"
     "fixture/SetV2LoggingOptions.yaml"
 
 requestCreateProvisioningTemplate :: CreateProvisioningTemplate -> TestTree
-requestCreateProvisioningTemplate =
-  req
+requestCreateProvisioningTemplate = req
     "CreateProvisioningTemplate"
     "fixture/CreateProvisioningTemplate.yaml"
 
 requestListThingGroupsForThing :: ListThingGroupsForThing -> TestTree
-requestListThingGroupsForThing =
-  req
+requestListThingGroupsForThing = req
     "ListThingGroupsForThing"
     "fixture/ListThingGroupsForThing.yaml"
 
 requestCreateCertificateFromCsr :: CreateCertificateFromCsr -> TestTree
-requestCreateCertificateFromCsr =
-  req
+requestCreateCertificateFromCsr = req
     "CreateCertificateFromCsr"
     "fixture/CreateCertificateFromCsr.yaml"
 
 requestDeleteThing :: DeleteThing -> TestTree
-requestDeleteThing =
-  req
+requestDeleteThing = req
     "DeleteThing"
     "fixture/DeleteThing.yaml"
 
 requestUpdateThing :: UpdateThing -> TestTree
-requestUpdateThing =
-  req
+requestUpdateThing = req
     "UpdateThing"
     "fixture/UpdateThing.yaml"
 
 requestDeleteProvisioningTemplate :: DeleteProvisioningTemplate -> TestTree
-requestDeleteProvisioningTemplate =
-  req
+requestDeleteProvisioningTemplate = req
     "DeleteProvisioningTemplate"
     "fixture/DeleteProvisioningTemplate.yaml"
 
 requestUpdateProvisioningTemplate :: UpdateProvisioningTemplate -> TestTree
-requestUpdateProvisioningTemplate =
-  req
+requestUpdateProvisioningTemplate = req
     "UpdateProvisioningTemplate"
     "fixture/UpdateProvisioningTemplate.yaml"
 
 requestDescribeMitigationAction :: DescribeMitigationAction -> TestTree
-requestDescribeMitigationAction =
-  req
+requestDescribeMitigationAction = req
     "DescribeMitigationAction"
     "fixture/DescribeMitigationAction.yaml"
 
 requestStartThingRegistrationTask :: StartThingRegistrationTask -> TestTree
-requestStartThingRegistrationTask =
-  req
+requestStartThingRegistrationTask = req
     "StartThingRegistrationTask"
     "fixture/StartThingRegistrationTask.yaml"
 
 requestCreateScheduledAudit :: CreateScheduledAudit -> TestTree
-requestCreateScheduledAudit =
-  req
+requestCreateScheduledAudit = req
     "CreateScheduledAudit"
     "fixture/CreateScheduledAudit.yaml"
 
 requestListAuthorizers :: ListAuthorizers -> TestTree
-requestListAuthorizers =
-  req
+requestListAuthorizers = req
     "ListAuthorizers"
     "fixture/ListAuthorizers.yaml"
 
 requestListJobExecutionsForJob :: ListJobExecutionsForJob -> TestTree
-requestListJobExecutionsForJob =
-  req
+requestListJobExecutionsForJob = req
     "ListJobExecutionsForJob"
     "fixture/ListJobExecutionsForJob.yaml"
 
 requestRemoveThingFromBillingGroup :: RemoveThingFromBillingGroup -> TestTree
-requestRemoveThingFromBillingGroup =
-  req
+requestRemoveThingFromBillingGroup = req
     "RemoveThingFromBillingGroup"
     "fixture/RemoveThingFromBillingGroup.yaml"
 
 requestSearchIndex :: SearchIndex -> TestTree
-requestSearchIndex =
-  req
+requestSearchIndex = req
     "SearchIndex"
     "fixture/SearchIndex.yaml"
 
 requestCreateThingType :: CreateThingType -> TestTree
-requestCreateThingType =
-  req
+requestCreateThingType = req
     "CreateThingType"
     "fixture/CreateThingType.yaml"
 
 requestDescribeSecurityProfile :: DescribeSecurityProfile -> TestTree
-requestDescribeSecurityProfile =
-  req
+requestDescribeSecurityProfile = req
     "DescribeSecurityProfile"
     "fixture/DescribeSecurityProfile.yaml"
 
 requestDeleteV2LoggingLevel :: DeleteV2LoggingLevel -> TestTree
-requestDeleteV2LoggingLevel =
-  req
+requestDeleteV2LoggingLevel = req
     "DeleteV2LoggingLevel"
     "fixture/DeleteV2LoggingLevel.yaml"
 
 requestSetDefaultAuthorizer :: SetDefaultAuthorizer -> TestTree
-requestSetDefaultAuthorizer =
-  req
+requestSetDefaultAuthorizer = req
     "SetDefaultAuthorizer"
     "fixture/SetDefaultAuthorizer.yaml"
 
 requestDescribeJobExecution :: DescribeJobExecution -> TestTree
-requestDescribeJobExecution =
-  req
+requestDescribeJobExecution = req
     "DescribeJobExecution"
     "fixture/DescribeJobExecution.yaml"
 
 requestCancelCertificateTransfer :: CancelCertificateTransfer -> TestTree
-requestCancelCertificateTransfer =
-  req
+requestCancelCertificateTransfer = req
     "CancelCertificateTransfer"
     "fixture/CancelCertificateTransfer.yaml"
 
 requestGetIndexingConfiguration :: GetIndexingConfiguration -> TestTree
-requestGetIndexingConfiguration =
-  req
+requestGetIndexingConfiguration = req
     "GetIndexingConfiguration"
     "fixture/GetIndexingConfiguration.yaml"
 
 requestListAuditMitigationActionsExecutions :: ListAuditMitigationActionsExecutions -> TestTree
-requestListAuditMitigationActionsExecutions =
-  req
+requestListAuditMitigationActionsExecutions = req
     "ListAuditMitigationActionsExecutions"
     "fixture/ListAuditMitigationActionsExecutions.yaml"
 
 requestDescribeAuditMitigationActionsTask :: DescribeAuditMitigationActionsTask -> TestTree
-requestDescribeAuditMitigationActionsTask =
-  req
+requestDescribeAuditMitigationActionsTask = req
     "DescribeAuditMitigationActionsTask"
     "fixture/DescribeAuditMitigationActionsTask.yaml"
 
 requestGetStatistics :: GetStatistics -> TestTree
-requestGetStatistics =
-  req
+requestGetStatistics = req
     "GetStatistics"
     "fixture/GetStatistics.yaml"
 
 requestDeleteRoleAlias :: DeleteRoleAlias -> TestTree
-requestDeleteRoleAlias =
-  req
+requestDeleteRoleAlias = req
     "DeleteRoleAlias"
     "fixture/DeleteRoleAlias.yaml"
 
 requestUpdateRoleAlias :: UpdateRoleAlias -> TestTree
-requestUpdateRoleAlias =
-  req
+requestUpdateRoleAlias = req
     "UpdateRoleAlias"
     "fixture/UpdateRoleAlias.yaml"
 
 requestDeletePolicyVersion :: DeletePolicyVersion -> TestTree
-requestDeletePolicyVersion =
-  req
+requestDeletePolicyVersion = req
     "DeletePolicyVersion"
     "fixture/DeletePolicyVersion.yaml"
 
 requestDisableTopicRule :: DisableTopicRule -> TestTree
-requestDisableTopicRule =
-  req
+requestDisableTopicRule = req
     "DisableTopicRule"
     "fixture/DisableTopicRule.yaml"
 
 requestCreateTopicRule :: CreateTopicRule -> TestTree
-requestCreateTopicRule =
-  req
+requestCreateTopicRule = req
     "CreateTopicRule"
     "fixture/CreateTopicRule.yaml"
 
 requestCreateJob :: CreateJob -> TestTree
-requestCreateJob =
-  req
+requestCreateJob = req
     "CreateJob"
     "fixture/CreateJob.yaml"
 
 requestDescribeIndex :: DescribeIndex -> TestTree
-requestDescribeIndex =
-  req
+requestDescribeIndex = req
     "DescribeIndex"
     "fixture/DescribeIndex.yaml"
 
 requestAssociateTargetsWithJob :: AssociateTargetsWithJob -> TestTree
-requestAssociateTargetsWithJob =
-  req
+requestAssociateTargetsWithJob = req
     "AssociateTargetsWithJob"
     "fixture/AssociateTargetsWithJob.yaml"
 
 requestAttachSecurityProfile :: AttachSecurityProfile -> TestTree
-requestAttachSecurityProfile =
-  req
+requestAttachSecurityProfile = req
     "AttachSecurityProfile"
     "fixture/AttachSecurityProfile.yaml"
 
 requestListAttachedPolicies :: ListAttachedPolicies -> TestTree
-requestListAttachedPolicies =
-  req
+requestListAttachedPolicies = req
     "ListAttachedPolicies"
     "fixture/ListAttachedPolicies.yaml"
 
 requestCreatePolicyVersion :: CreatePolicyVersion -> TestTree
-requestCreatePolicyVersion =
-  req
+requestCreatePolicyVersion = req
     "CreatePolicyVersion"
     "fixture/CreatePolicyVersion.yaml"
 
 requestListCACertificates :: ListCACertificates -> TestTree
-requestListCACertificates =
-  req
+requestListCACertificates = req
     "ListCACertificates"
     "fixture/ListCACertificates.yaml"
 
 requestDeleteTopicRule :: DeleteTopicRule -> TestTree
-requestDeleteTopicRule =
-  req
+requestDeleteTopicRule = req
     "DeleteTopicRule"
     "fixture/DeleteTopicRule.yaml"
 
 requestGetJobDocument :: GetJobDocument -> TestTree
-requestGetJobDocument =
-  req
+requestGetJobDocument = req
     "GetJobDocument"
     "fixture/GetJobDocument.yaml"
 
 requestDescribeProvisioningTemplateVersion :: DescribeProvisioningTemplateVersion -> TestTree
-requestDescribeProvisioningTemplateVersion =
-  req
+requestDescribeProvisioningTemplateVersion = req
     "DescribeProvisioningTemplateVersion"
     "fixture/DescribeProvisioningTemplateVersion.yaml"
 
 requestCancelAuditTask :: CancelAuditTask -> TestTree
-requestCancelAuditTask =
-  req
+requestCancelAuditTask = req
     "CancelAuditTask"
     "fixture/CancelAuditTask.yaml"
 
 requestCreateRoleAlias :: CreateRoleAlias -> TestTree
-requestCreateRoleAlias =
-  req
+requestCreateRoleAlias = req
     "CreateRoleAlias"
     "fixture/CreateRoleAlias.yaml"
 
 requestDeleteCACertificate :: DeleteCACertificate -> TestTree
-requestDeleteCACertificate =
-  req
+requestDeleteCACertificate = req
     "DeleteCACertificate"
     "fixture/DeleteCACertificate.yaml"
 
 requestUpdateCACertificate :: UpdateCACertificate -> TestTree
-requestUpdateCACertificate =
-  req
+requestUpdateCACertificate = req
     "UpdateCACertificate"
     "fixture/UpdateCACertificate.yaml"
 
 requestListTopicRules :: ListTopicRules -> TestTree
-requestListTopicRules =
-  req
+requestListTopicRules = req
     "ListTopicRules"
     "fixture/ListTopicRules.yaml"
 
 requestTransferCertificate :: TransferCertificate -> TestTree
-requestTransferCertificate =
-  req
+requestTransferCertificate = req
     "TransferCertificate"
     "fixture/TransferCertificate.yaml"
 
 requestListJobs :: ListJobs -> TestTree
-requestListJobs =
-  req
+requestListJobs = req
     "ListJobs"
     "fixture/ListJobs.yaml"
 
 requestListRoleAliases :: ListRoleAliases -> TestTree
-requestListRoleAliases =
-  req
+requestListRoleAliases = req
     "ListRoleAliases"
     "fixture/ListRoleAliases.yaml"
 
 requestStartOnDemandAuditTask :: StartOnDemandAuditTask -> TestTree
-requestStartOnDemandAuditTask =
-  req
+requestStartOnDemandAuditTask = req
     "StartOnDemandAuditTask"
     "fixture/StartOnDemandAuditTask.yaml"
 
 requestDescribeThingGroup :: DescribeThingGroup -> TestTree
-requestDescribeThingGroup =
-  req
+requestDescribeThingGroup = req
     "DescribeThingGroup"
     "fixture/DescribeThingGroup.yaml"
 
 requestDeleteJob :: DeleteJob -> TestTree
-requestDeleteJob =
-  req
+requestDeleteJob = req
     "DeleteJob"
     "fixture/DeleteJob.yaml"
 
 requestListTargetsForSecurityProfile :: ListTargetsForSecurityProfile -> TestTree
-requestListTargetsForSecurityProfile =
-  req
+requestListTargetsForSecurityProfile = req
     "ListTargetsForSecurityProfile"
     "fixture/ListTargetsForSecurityProfile.yaml"
 
 requestUpdateJob :: UpdateJob -> TestTree
-requestUpdateJob =
-  req
+requestUpdateJob = req
     "UpdateJob"
     "fixture/UpdateJob.yaml"
 
 requestStartAuditMitigationActionsTask :: StartAuditMitigationActionsTask -> TestTree
-requestStartAuditMitigationActionsTask =
-  req
+requestStartAuditMitigationActionsTask = req
     "StartAuditMitigationActionsTask"
     "fixture/StartAuditMitigationActionsTask.yaml"
 
 requestGetTopicRule :: GetTopicRule -> TestTree
-requestGetTopicRule =
-  req
+requestGetTopicRule = req
     "GetTopicRule"
     "fixture/GetTopicRule.yaml"
 
 requestDescribeThing :: DescribeThing -> TestTree
-requestDescribeThing =
-  req
+requestDescribeThing = req
     "DescribeThing"
     "fixture/DescribeThing.yaml"
 
 requestListDomainConfigurations :: ListDomainConfigurations -> TestTree
-requestListDomainConfigurations =
-  req
+requestListDomainConfigurations = req
     "ListDomainConfigurations"
     "fixture/ListDomainConfigurations.yaml"
 
 requestListAuditTasks :: ListAuditTasks -> TestTree
-requestListAuditTasks =
-  req
+requestListAuditTasks = req
     "ListAuditTasks"
     "fixture/ListAuditTasks.yaml"
 
 requestDescribeAccountAuditConfiguration :: DescribeAccountAuditConfiguration -> TestTree
-requestDescribeAccountAuditConfiguration =
-  req
+requestDescribeAccountAuditConfiguration = req
     "DescribeAccountAuditConfiguration"
     "fixture/DescribeAccountAuditConfiguration.yaml"
 
 requestDeleteDimension :: DeleteDimension -> TestTree
-requestDeleteDimension =
-  req
+requestDeleteDimension = req
     "DeleteDimension"
     "fixture/DeleteDimension.yaml"
 
 requestUpdateDimension :: UpdateDimension -> TestTree
-requestUpdateDimension =
-  req
+requestUpdateDimension = req
     "UpdateDimension"
     "fixture/UpdateDimension.yaml"
 
 requestDeletePolicy :: DeletePolicy -> TestTree
-requestDeletePolicy =
-  req
+requestDeletePolicy = req
     "DeletePolicy"
     "fixture/DeletePolicy.yaml"
 
 requestListThingsInThingGroup :: ListThingsInThingGroup -> TestTree
-requestListThingsInThingGroup =
-  req
+requestListThingsInThingGroup = req
     "ListThingsInThingGroup"
     "fixture/ListThingsInThingGroup.yaml"
 
 requestListAuditFindings :: ListAuditFindings -> TestTree
-requestListAuditFindings =
-  req
+requestListAuditFindings = req
     "ListAuditFindings"
     "fixture/ListAuditFindings.yaml"
 
 requestDescribeScheduledAudit :: DescribeScheduledAudit -> TestTree
-requestDescribeScheduledAudit =
-  req
+requestDescribeScheduledAudit = req
     "DescribeScheduledAudit"
     "fixture/DescribeScheduledAudit.yaml"
 
 requestCreateMitigationAction :: CreateMitigationAction -> TestTree
-requestCreateMitigationAction =
-  req
+requestCreateMitigationAction = req
     "CreateMitigationAction"
     "fixture/CreateMitigationAction.yaml"
 
 requestConfirmTopicRuleDestination :: ConfirmTopicRuleDestination -> TestTree
-requestConfirmTopicRuleDestination =
-  req
+requestConfirmTopicRuleDestination = req
     "ConfirmTopicRuleDestination"
     "fixture/ConfirmTopicRuleDestination.yaml"
 
 requestListCertificates :: ListCertificates -> TestTree
-requestListCertificates =
-  req
+requestListCertificates = req
     "ListCertificates"
     "fixture/ListCertificates.yaml"
 
 requestListMitigationActions :: ListMitigationActions -> TestTree
-requestListMitigationActions =
-  req
+requestListMitigationActions = req
     "ListMitigationActions"
     "fixture/ListMitigationActions.yaml"
 
 requestDescribeAuthorizer :: DescribeAuthorizer -> TestTree
-requestDescribeAuthorizer =
-  req
+requestDescribeAuthorizer = req
     "DescribeAuthorizer"
     "fixture/DescribeAuthorizer.yaml"
 
 requestGetPolicyVersion :: GetPolicyVersion -> TestTree
-requestGetPolicyVersion =
-  req
+requestGetPolicyVersion = req
     "GetPolicyVersion"
     "fixture/GetPolicyVersion.yaml"
 
 requestListActiveViolations :: ListActiveViolations -> TestTree
-requestListActiveViolations =
-  req
+requestListActiveViolations = req
     "ListActiveViolations"
     "fixture/ListActiveViolations.yaml"
 
 requestValidateSecurityProfileBehaviors :: ValidateSecurityProfileBehaviors -> TestTree
-requestValidateSecurityProfileBehaviors =
-  req
+requestValidateSecurityProfileBehaviors = req
     "ValidateSecurityProfileBehaviors"
     "fixture/ValidateSecurityProfileBehaviors.yaml"
 
 requestListViolationEvents :: ListViolationEvents -> TestTree
-requestListViolationEvents =
-  req
+requestListViolationEvents = req
     "ListViolationEvents"
     "fixture/ListViolationEvents.yaml"
 
 requestDeleteCertificate :: DeleteCertificate -> TestTree
-requestDeleteCertificate =
-  req
+requestDeleteCertificate = req
     "DeleteCertificate"
     "fixture/DeleteCertificate.yaml"
 
 requestUpdateCertificate :: UpdateCertificate -> TestTree
-requestUpdateCertificate =
-  req
+requestUpdateCertificate = req
     "UpdateCertificate"
     "fixture/UpdateCertificate.yaml"
 
 requestCreateDimension :: CreateDimension -> TestTree
-requestCreateDimension =
-  req
+requestCreateDimension = req
     "CreateDimension"
     "fixture/CreateDimension.yaml"
 
 requestUpdateIndexingConfiguration :: UpdateIndexingConfiguration -> TestTree
-requestUpdateIndexingConfiguration =
-  req
+requestUpdateIndexingConfiguration = req
     "UpdateIndexingConfiguration"
     "fixture/UpdateIndexingConfiguration.yaml"
 
 requestCreateProvisioningClaim :: CreateProvisioningClaim -> TestTree
-requestCreateProvisioningClaim =
-  req
+requestCreateProvisioningClaim = req
     "CreateProvisioningClaim"
     "fixture/CreateProvisioningClaim.yaml"
 
 requestTestInvokeAuthorizer :: TestInvokeAuthorizer -> TestTree
-requestTestInvokeAuthorizer =
-  req
+requestTestInvokeAuthorizer = req
     "TestInvokeAuthorizer"
     "fixture/TestInvokeAuthorizer.yaml"
 
 requestCreateThingGroup :: CreateThingGroup -> TestTree
-requestCreateThingGroup =
-  req
+requestCreateThingGroup = req
     "CreateThingGroup"
     "fixture/CreateThingGroup.yaml"
 
 requestCreateTopicRuleDestination :: CreateTopicRuleDestination -> TestTree
-requestCreateTopicRuleDestination =
-  req
+requestCreateTopicRuleDestination = req
     "CreateTopicRuleDestination"
     "fixture/CreateTopicRuleDestination.yaml"
 
 requestDetachPolicy :: DetachPolicy -> TestTree
-requestDetachPolicy =
-  req
+requestDetachPolicy = req
     "DetachPolicy"
     "fixture/DetachPolicy.yaml"
 
 requestDescribeJob :: DescribeJob -> TestTree
-requestDescribeJob =
-  req
+requestDescribeJob = req
     "DescribeJob"
     "fixture/DescribeJob.yaml"
 
 requestAddThingToBillingGroup :: AddThingToBillingGroup -> TestTree
-requestAddThingToBillingGroup =
-  req
+requestAddThingToBillingGroup = req
     "AddThingToBillingGroup"
     "fixture/AddThingToBillingGroup.yaml"
 
 requestUpdateTopicRuleDestination :: UpdateTopicRuleDestination -> TestTree
-requestUpdateTopicRuleDestination =
-  req
+requestUpdateTopicRuleDestination = req
     "UpdateTopicRuleDestination"
     "fixture/UpdateTopicRuleDestination.yaml"
 
 requestDeleteTopicRuleDestination :: DeleteTopicRuleDestination -> TestTree
-requestDeleteTopicRuleDestination =
-  req
+requestDeleteTopicRuleDestination = req
     "DeleteTopicRuleDestination"
     "fixture/DeleteTopicRuleDestination.yaml"
 
 requestDeleteThingGroup :: DeleteThingGroup -> TestTree
-requestDeleteThingGroup =
-  req
+requestDeleteThingGroup = req
     "DeleteThingGroup"
     "fixture/DeleteThingGroup.yaml"
 
 requestUpdateThingGroup :: UpdateThingGroup -> TestTree
-requestUpdateThingGroup =
-  req
+requestUpdateThingGroup = req
     "UpdateThingGroup"
     "fixture/UpdateThingGroup.yaml"
 
 requestListOTAUpdates :: ListOTAUpdates -> TestTree
-requestListOTAUpdates =
-  req
+requestListOTAUpdates = req
     "ListOTAUpdates"
     "fixture/ListOTAUpdates.yaml"
 
 requestDeleteOTAUpdate :: DeleteOTAUpdate -> TestTree
-requestDeleteOTAUpdate =
-  req
+requestDeleteOTAUpdate = req
     "DeleteOTAUpdate"
     "fixture/DeleteOTAUpdate.yaml"
 
 requestCreateDynamicThingGroup :: CreateDynamicThingGroup -> TestTree
-requestCreateDynamicThingGroup =
-  req
+requestCreateDynamicThingGroup = req
     "CreateDynamicThingGroup"
     "fixture/CreateDynamicThingGroup.yaml"
 
 requestDetachSecurityProfile :: DetachSecurityProfile -> TestTree
-requestDetachSecurityProfile =
-  req
+requestDetachSecurityProfile = req
     "DetachSecurityProfile"
     "fixture/DetachSecurityProfile.yaml"
 
 requestListOutgoingCertificates :: ListOutgoingCertificates -> TestTree
-requestListOutgoingCertificates =
-  req
+requestListOutgoingCertificates = req
     "ListOutgoingCertificates"
     "fixture/ListOutgoingCertificates.yaml"
 
 requestDeleteProvisioningTemplateVersion :: DeleteProvisioningTemplateVersion -> TestTree
-requestDeleteProvisioningTemplateVersion =
-  req
+requestDeleteProvisioningTemplateVersion = req
     "DeleteProvisioningTemplateVersion"
     "fixture/DeleteProvisioningTemplateVersion.yaml"
 
 requestDescribeCACertificate :: DescribeCACertificate -> TestTree
-requestDescribeCACertificate =
-  req
+requestDescribeCACertificate = req
     "DescribeCACertificate"
     "fixture/DescribeCACertificate.yaml"
 
 requestListProvisioningTemplateVersions :: ListProvisioningTemplateVersions -> TestTree
-requestListProvisioningTemplateVersions =
-  req
+requestListProvisioningTemplateVersions = req
     "ListProvisioningTemplateVersions"
     "fixture/ListProvisioningTemplateVersions.yaml"
 
 requestGetRegistrationCode :: GetRegistrationCode -> TestTree
-requestGetRegistrationCode =
-  req
+requestGetRegistrationCode = req
     "GetRegistrationCode"
     "fixture/GetRegistrationCode.yaml"
 
 requestListBillingGroups :: ListBillingGroups -> TestTree
-requestListBillingGroups =
-  req
+requestListBillingGroups = req
     "ListBillingGroups"
     "fixture/ListBillingGroups.yaml"
 
 requestDeleteThingType :: DeleteThingType -> TestTree
-requestDeleteThingType =
-  req
+requestDeleteThingType = req
     "DeleteThingType"
     "fixture/DeleteThingType.yaml"
 
 requestDeleteBillingGroup :: DeleteBillingGroup -> TestTree
-requestDeleteBillingGroup =
-  req
+requestDeleteBillingGroup = req
     "DeleteBillingGroup"
     "fixture/DeleteBillingGroup.yaml"
 
 requestAddThingToThingGroup :: AddThingToThingGroup -> TestTree
-requestAddThingToThingGroup =
-  req
+requestAddThingToThingGroup = req
     "AddThingToThingGroup"
     "fixture/AddThingToThingGroup.yaml"
 
 requestUpdateBillingGroup :: UpdateBillingGroup -> TestTree
-requestUpdateBillingGroup =
-  req
+requestUpdateBillingGroup = req
     "UpdateBillingGroup"
     "fixture/UpdateBillingGroup.yaml"
 
 requestGetTopicRuleDestination :: GetTopicRuleDestination -> TestTree
-requestGetTopicRuleDestination =
-  req
+requestGetTopicRuleDestination = req
     "GetTopicRuleDestination"
     "fixture/GetTopicRuleDestination.yaml"
 
 requestListCertificatesByCA :: ListCertificatesByCA -> TestTree
-requestListCertificatesByCA =
-  req
+requestListCertificatesByCA = req
     "ListCertificatesByCA"
     "fixture/ListCertificatesByCA.yaml"
 
 requestUpdateAuditSuppression :: UpdateAuditSuppression -> TestTree
-requestUpdateAuditSuppression =
-  req
+requestUpdateAuditSuppression = req
     "UpdateAuditSuppression"
     "fixture/UpdateAuditSuppression.yaml"
 
 requestAttachThingPrincipal :: AttachThingPrincipal -> TestTree
-requestAttachThingPrincipal =
-  req
+requestAttachThingPrincipal = req
     "AttachThingPrincipal"
     "fixture/AttachThingPrincipal.yaml"
 
 requestListThings :: ListThings -> TestTree
-requestListThings =
-  req
+requestListThings = req
     "ListThings"
     "fixture/ListThings.yaml"
 
 requestDeleteAuditSuppression :: DeleteAuditSuppression -> TestTree
-requestDeleteAuditSuppression =
-  req
+requestDeleteAuditSuppression = req
     "DeleteAuditSuppression"
     "fixture/DeleteAuditSuppression.yaml"
 
 requestRegisterThing :: RegisterThing -> TestTree
-requestRegisterThing =
-  req
+requestRegisterThing = req
     "RegisterThing"
     "fixture/RegisterThing.yaml"
 
 requestListAuditSuppressions :: ListAuditSuppressions -> TestTree
-requestListAuditSuppressions =
-  req
+requestListAuditSuppressions = req
     "ListAuditSuppressions"
     "fixture/ListAuditSuppressions.yaml"
 
 requestDescribeDomainConfiguration :: DescribeDomainConfiguration -> TestTree
-requestDescribeDomainConfiguration =
-  req
+requestDescribeDomainConfiguration = req
     "DescribeDomainConfiguration"
     "fixture/DescribeDomainConfiguration.yaml"
 
 requestDescribeAuditTask :: DescribeAuditTask -> TestTree
-requestDescribeAuditTask =
-  req
+requestDescribeAuditTask = req
     "DescribeAuditTask"
     "fixture/DescribeAuditTask.yaml"
 
 requestDeleteRegistrationCode :: DeleteRegistrationCode -> TestTree
-requestDeleteRegistrationCode =
-  req
+requestDeleteRegistrationCode = req
     "DeleteRegistrationCode"
     "fixture/DeleteRegistrationCode.yaml"
 
 requestUpdateStream :: UpdateStream -> TestTree
-requestUpdateStream =
-  req
+requestUpdateStream = req
     "UpdateStream"
     "fixture/UpdateStream.yaml"
 
 requestDeleteStream :: DeleteStream -> TestTree
-requestDeleteStream =
-  req
+requestDeleteStream = req
     "DeleteStream"
     "fixture/DeleteStream.yaml"
 
 requestListStreams :: ListStreams -> TestTree
-requestListStreams =
-  req
+requestListStreams = req
     "ListStreams"
     "fixture/ListStreams.yaml"
 
 requestCreateAuthorizer :: CreateAuthorizer -> TestTree
-requestCreateAuthorizer =
-  req
+requestCreateAuthorizer = req
     "CreateAuthorizer"
     "fixture/CreateAuthorizer.yaml"
 
 requestTestAuthorization :: TestAuthorization -> TestTree
-requestTestAuthorization =
-  req
+requestTestAuthorization = req
     "TestAuthorization"
     "fixture/TestAuthorization.yaml"
 
 requestListIndices :: ListIndices -> TestTree
-requestListIndices =
-  req
+requestListIndices = req
     "ListIndices"
     "fixture/ListIndices.yaml"
 
 requestUpdateAuthorizer :: UpdateAuthorizer -> TestTree
-requestUpdateAuthorizer =
-  req
+requestUpdateAuthorizer = req
     "UpdateAuthorizer"
     "fixture/UpdateAuthorizer.yaml"
 
 requestDeleteAuthorizer :: DeleteAuthorizer -> TestTree
-requestDeleteAuthorizer =
-  req
+requestDeleteAuthorizer = req
     "DeleteAuthorizer"
     "fixture/DeleteAuthorizer.yaml"
 
 requestCreateThing :: CreateThing -> TestTree
-requestCreateThing =
-  req
+requestCreateThing = req
     "CreateThing"
     "fixture/CreateThing.yaml"
 
 requestCreateStream :: CreateStream -> TestTree
-requestCreateStream =
-  req
+requestCreateStream = req
     "CreateStream"
     "fixture/CreateStream.yaml"
 
 requestCancelAuditMitigationActionsTask :: CancelAuditMitigationActionsTask -> TestTree
-requestCancelAuditMitigationActionsTask =
-  req
+requestCancelAuditMitigationActionsTask = req
     "CancelAuditMitigationActionsTask"
     "fixture/CancelAuditMitigationActionsTask.yaml"
 
 requestCreateAuditSuppression :: CreateAuditSuppression -> TestTree
-requestCreateAuditSuppression =
-  req
+requestCreateAuditSuppression = req
     "CreateAuditSuppression"
     "fixture/CreateAuditSuppression.yaml"
 
 requestCreateBillingGroup :: CreateBillingGroup -> TestTree
-requestCreateBillingGroup =
-  req
+requestCreateBillingGroup = req
     "CreateBillingGroup"
     "fixture/CreateBillingGroup.yaml"
 
 requestListProvisioningTemplates :: ListProvisioningTemplates -> TestTree
-requestListProvisioningTemplates =
-  req
+requestListProvisioningTemplates = req
     "ListProvisioningTemplates"
     "fixture/ListProvisioningTemplates.yaml"
 
 requestListV2LoggingLevels :: ListV2LoggingLevels -> TestTree
-requestListV2LoggingLevels =
-  req
+requestListV2LoggingLevels = req
     "ListV2LoggingLevels"
     "fixture/ListV2LoggingLevels.yaml"
 
 requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
+requestTagResource = req
     "TagResource"
     "fixture/TagResource.yaml"
 
 requestStopThingRegistrationTask :: StopThingRegistrationTask -> TestTree
-requestStopThingRegistrationTask =
-  req
+requestStopThingRegistrationTask = req
     "StopThingRegistrationTask"
     "fixture/StopThingRegistrationTask.yaml"
 
 requestDescribeCertificate :: DescribeCertificate -> TestTree
-requestDescribeCertificate =
-  req
+requestDescribeCertificate = req
     "DescribeCertificate"
     "fixture/DescribeCertificate.yaml"
 
 requestListTargetsForPolicy :: ListTargetsForPolicy -> TestTree
-requestListTargetsForPolicy =
-  req
+requestListTargetsForPolicy = req
     "ListTargetsForPolicy"
     "fixture/ListTargetsForPolicy.yaml"
 
 requestClearDefaultAuthorizer :: ClearDefaultAuthorizer -> TestTree
-requestClearDefaultAuthorizer =
-  req
+requestClearDefaultAuthorizer = req
     "ClearDefaultAuthorizer"
     "fixture/ClearDefaultAuthorizer.yaml"
 
 requestReplaceTopicRule :: ReplaceTopicRule -> TestTree
-requestReplaceTopicRule =
-  req
+requestReplaceTopicRule = req
     "ReplaceTopicRule"
     "fixture/ReplaceTopicRule.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
+requestUntagResource = req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
 requestSetDefaultPolicyVersion :: SetDefaultPolicyVersion -> TestTree
-requestSetDefaultPolicyVersion =
-  req
+requestSetDefaultPolicyVersion = req
     "SetDefaultPolicyVersion"
     "fixture/SetDefaultPolicyVersion.yaml"
 
 requestCancelJobExecution :: CancelJobExecution -> TestTree
-requestCancelJobExecution =
-  req
+requestCancelJobExecution = req
     "CancelJobExecution"
     "fixture/CancelJobExecution.yaml"
 
 requestListPolicyVersions :: ListPolicyVersions -> TestTree
-requestListPolicyVersions =
-  req
+requestListPolicyVersions = req
     "ListPolicyVersions"
     "fixture/ListPolicyVersions.yaml"
 
 requestSetV2LoggingLevel :: SetV2LoggingLevel -> TestTree
-requestSetV2LoggingLevel =
-  req
+requestSetV2LoggingLevel = req
     "SetV2LoggingLevel"
     "fixture/SetV2LoggingLevel.yaml"
 
 requestListJobExecutionsForThing :: ListJobExecutionsForThing -> TestTree
-requestListJobExecutionsForThing =
-  req
+requestListJobExecutionsForThing = req
     "ListJobExecutionsForThing"
     "fixture/ListJobExecutionsForThing.yaml"
 
 requestAttachPolicy :: AttachPolicy -> TestTree
-requestAttachPolicy =
-  req
+requestAttachPolicy = req
     "AttachPolicy"
     "fixture/AttachPolicy.yaml"
 
 requestCreateKeysAndCertificate :: CreateKeysAndCertificate -> TestTree
-requestCreateKeysAndCertificate =
-  req
+requestCreateKeysAndCertificate = req
     "CreateKeysAndCertificate"
     "fixture/CreateKeysAndCertificate.yaml"
 
 requestListThingsInBillingGroup :: ListThingsInBillingGroup -> TestTree
-requestListThingsInBillingGroup =
-  req
+requestListThingsInBillingGroup = req
     "ListThingsInBillingGroup"
     "fixture/ListThingsInBillingGroup.yaml"
 
 requestUpdateThingGroupsForThing :: UpdateThingGroupsForThing -> TestTree
-requestUpdateThingGroupsForThing =
-  req
+requestUpdateThingGroupsForThing = req
     "UpdateThingGroupsForThing"
     "fixture/UpdateThingGroupsForThing.yaml"
 
 requestEnableTopicRule :: EnableTopicRule -> TestTree
-requestEnableTopicRule =
-  req
+requestEnableTopicRule = req
     "EnableTopicRule"
     "fixture/EnableTopicRule.yaml"
 
 requestAcceptCertificateTransfer :: AcceptCertificateTransfer -> TestTree
-requestAcceptCertificateTransfer =
-  req
+requestAcceptCertificateTransfer = req
     "AcceptCertificateTransfer"
     "fixture/AcceptCertificateTransfer.yaml"
 
 requestGetPercentiles :: GetPercentiles -> TestTree
-requestGetPercentiles =
-  req
+requestGetPercentiles = req
     "GetPercentiles"
     "fixture/GetPercentiles.yaml"
 
 requestGetPolicy :: GetPolicy -> TestTree
-requestGetPolicy =
-  req
+requestGetPolicy = req
     "GetPolicy"
     "fixture/GetPolicy.yaml"
 
 requestDescribeEndpoint :: DescribeEndpoint -> TestTree
-requestDescribeEndpoint =
-  req
+requestDescribeEndpoint = req
     "DescribeEndpoint"
     "fixture/DescribeEndpoint.yaml"
 
 requestListSecurityProfilesForTarget :: ListSecurityProfilesForTarget -> TestTree
-requestListSecurityProfilesForTarget =
-  req
+requestListSecurityProfilesForTarget = req
     "ListSecurityProfilesForTarget"
     "fixture/ListSecurityProfilesForTarget.yaml"
 
 requestUpdateEventConfigurations :: UpdateEventConfigurations -> TestTree
-requestUpdateEventConfigurations =
-  req
+requestUpdateEventConfigurations = req
     "UpdateEventConfigurations"
     "fixture/UpdateEventConfigurations.yaml"
 
 requestRegisterCACertificate :: RegisterCACertificate -> TestTree
-requestRegisterCACertificate =
-  req
+requestRegisterCACertificate = req
     "RegisterCACertificate"
     "fixture/RegisterCACertificate.yaml"
 
 requestDeleteDomainConfiguration :: DeleteDomainConfiguration -> TestTree
-requestDeleteDomainConfiguration =
-  req
+requestDeleteDomainConfiguration = req
     "DeleteDomainConfiguration"
     "fixture/DeleteDomainConfiguration.yaml"
 
 requestUpdateDomainConfiguration :: UpdateDomainConfiguration -> TestTree
-requestUpdateDomainConfiguration =
-  req
+requestUpdateDomainConfiguration = req
     "UpdateDomainConfiguration"
     "fixture/UpdateDomainConfiguration.yaml"
 
 requestSetLoggingOptions :: SetLoggingOptions -> TestTree
-requestSetLoggingOptions =
-  req
+requestSetLoggingOptions = req
     "SetLoggingOptions"
     "fixture/SetLoggingOptions.yaml"
 
 requestDescribeThingType :: DescribeThingType -> TestTree
-requestDescribeThingType =
-  req
+requestDescribeThingType = req
     "DescribeThingType"
     "fixture/DescribeThingType.yaml"
 
 requestListDimensions :: ListDimensions -> TestTree
-requestListDimensions =
-  req
+requestListDimensions = req
     "ListDimensions"
     "fixture/ListDimensions.yaml"
 
 requestGetV2LoggingOptions :: GetV2LoggingOptions -> TestTree
-requestGetV2LoggingOptions =
-  req
+requestGetV2LoggingOptions = req
     "GetV2LoggingOptions"
     "fixture/GetV2LoggingOptions.yaml"
 
 requestListThingRegistrationTasks :: ListThingRegistrationTasks -> TestTree
-requestListThingRegistrationTasks =
-  req
+requestListThingRegistrationTasks = req
     "ListThingRegistrationTasks"
     "fixture/ListThingRegistrationTasks.yaml"
 
 requestRejectCertificateTransfer :: RejectCertificateTransfer -> TestTree
-requestRejectCertificateTransfer =
-  req
+requestRejectCertificateTransfer = req
     "RejectCertificateTransfer"
     "fixture/RejectCertificateTransfer.yaml"
 
 requestDescribeAuditSuppression :: DescribeAuditSuppression -> TestTree
-requestDescribeAuditSuppression =
-  req
+requestDescribeAuditSuppression = req
     "DescribeAuditSuppression"
     "fixture/DescribeAuditSuppression.yaml"
 
 requestDescribeStream :: DescribeStream -> TestTree
-requestDescribeStream =
-  req
+requestDescribeStream = req
     "DescribeStream"
     "fixture/DescribeStream.yaml"
 
 requestCreateSecurityProfile :: CreateSecurityProfile -> TestTree
-requestCreateSecurityProfile =
-  req
+requestCreateSecurityProfile = req
     "CreateSecurityProfile"
     "fixture/CreateSecurityProfile.yaml"
 
 requestDescribeBillingGroup :: DescribeBillingGroup -> TestTree
-requestDescribeBillingGroup =
-  req
+requestDescribeBillingGroup = req
     "DescribeBillingGroup"
     "fixture/DescribeBillingGroup.yaml"
 
 requestDetachThingPrincipal :: DetachThingPrincipal -> TestTree
-requestDetachThingPrincipal =
-  req
+requestDetachThingPrincipal = req
     "DetachThingPrincipal"
     "fixture/DetachThingPrincipal.yaml"
 
 requestCancelJob :: CancelJob -> TestTree
-requestCancelJob =
-  req
+requestCancelJob = req
     "CancelJob"
     "fixture/CancelJob.yaml"
 
 requestDeprecateThingType :: DeprecateThingType -> TestTree
-requestDeprecateThingType =
-  req
+requestDeprecateThingType = req
     "DeprecateThingType"
     "fixture/DeprecateThingType.yaml"
 
 -- Responses
 
 responseGetCardinality :: GetCardinalityResponse -> TestTree
-responseGetCardinality =
-  res
+responseGetCardinality = res
     "GetCardinalityResponse"
     "fixture/GetCardinalityResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetCardinality)
 
 responseCreateDomainConfiguration :: CreateDomainConfigurationResponse -> TestTree
-responseCreateDomainConfiguration =
-  res
+responseCreateDomainConfiguration = res
     "CreateDomainConfigurationResponse"
     "fixture/CreateDomainConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateDomainConfiguration)
 
 responseDeleteSecurityProfile :: DeleteSecurityProfileResponse -> TestTree
-responseDeleteSecurityProfile =
-  res
+responseDeleteSecurityProfile = res
     "DeleteSecurityProfileResponse"
     "fixture/DeleteSecurityProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteSecurityProfile)
 
 responseUpdateSecurityProfile :: UpdateSecurityProfileResponse -> TestTree
-responseUpdateSecurityProfile =
-  res
+responseUpdateSecurityProfile = res
     "UpdateSecurityProfileResponse"
     "fixture/UpdateSecurityProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateSecurityProfile)
 
 responseListSecurityProfiles :: ListSecurityProfilesResponse -> TestTree
-responseListSecurityProfiles =
-  res
+responseListSecurityProfiles = res
     "ListSecurityProfilesResponse"
     "fixture/ListSecurityProfilesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListSecurityProfiles)
 
 responseListPolicies :: ListPoliciesResponse -> TestTree
-responseListPolicies =
-  res
+responseListPolicies = res
     "ListPoliciesResponse"
     "fixture/ListPoliciesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListPolicies)
 
 responseDescribeProvisioningTemplate :: DescribeProvisioningTemplateResponse -> TestTree
-responseDescribeProvisioningTemplate =
-  res
+responseDescribeProvisioningTemplate = res
     "DescribeProvisioningTemplateResponse"
     "fixture/DescribeProvisioningTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeProvisioningTemplate)
 
 responseUpdateMitigationAction :: UpdateMitigationActionResponse -> TestTree
-responseUpdateMitigationAction =
-  res
+responseUpdateMitigationAction = res
     "UpdateMitigationActionResponse"
     "fixture/UpdateMitigationActionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateMitigationAction)
 
 responseDeleteMitigationAction :: DeleteMitigationActionResponse -> TestTree
-responseDeleteMitigationAction =
-  res
+responseDeleteMitigationAction = res
     "DeleteMitigationActionResponse"
     "fixture/DeleteMitigationActionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteMitigationAction)
 
 responseDeleteJobExecution :: DeleteJobExecutionResponse -> TestTree
-responseDeleteJobExecution =
-  res
+responseDeleteJobExecution = res
     "DeleteJobExecutionResponse"
     "fixture/DeleteJobExecutionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteJobExecution)
 
 responseCreatePolicy :: CreatePolicyResponse -> TestTree
-responseCreatePolicy =
-  res
+responseCreatePolicy = res
     "CreatePolicyResponse"
     "fixture/CreatePolicyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreatePolicy)
 
 responseRegisterCertificate :: RegisterCertificateResponse -> TestTree
-responseRegisterCertificate =
-  res
+responseRegisterCertificate = res
     "RegisterCertificateResponse"
     "fixture/RegisterCertificateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RegisterCertificate)
 
 responseDeleteDynamicThingGroup :: DeleteDynamicThingGroupResponse -> TestTree
-responseDeleteDynamicThingGroup =
-  res
+responseDeleteDynamicThingGroup = res
     "DeleteDynamicThingGroupResponse"
     "fixture/DeleteDynamicThingGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteDynamicThingGroup)
 
 responseListThingPrincipals :: ListThingPrincipalsResponse -> TestTree
-responseListThingPrincipals =
-  res
+responseListThingPrincipals = res
     "ListThingPrincipalsResponse"
     "fixture/ListThingPrincipalsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListThingPrincipals)
 
 responseUpdateDynamicThingGroup :: UpdateDynamicThingGroupResponse -> TestTree
-responseUpdateDynamicThingGroup =
-  res
+responseUpdateDynamicThingGroup = res
     "UpdateDynamicThingGroupResponse"
     "fixture/UpdateDynamicThingGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateDynamicThingGroup)
 
 responseDescribeRoleAlias :: DescribeRoleAliasResponse -> TestTree
-responseDescribeRoleAlias =
-  res
+responseDescribeRoleAlias = res
     "DescribeRoleAliasResponse"
     "fixture/DescribeRoleAliasResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeRoleAlias)
 
 responseCreateProvisioningTemplateVersion :: CreateProvisioningTemplateVersionResponse -> TestTree
-responseCreateProvisioningTemplateVersion =
-  res
+responseCreateProvisioningTemplateVersion = res
     "CreateProvisioningTemplateVersionResponse"
     "fixture/CreateProvisioningTemplateVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateProvisioningTemplateVersion)
 
 responseCreateOTAUpdate :: CreateOTAUpdateResponse -> TestTree
-responseCreateOTAUpdate =
-  res
+responseCreateOTAUpdate = res
     "CreateOTAUpdateResponse"
     "fixture/CreateOTAUpdateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateOTAUpdate)
 
 responseDescribeDefaultAuthorizer :: DescribeDefaultAuthorizerResponse -> TestTree
-responseDescribeDefaultAuthorizer =
-  res
+responseDescribeDefaultAuthorizer = res
     "DescribeDefaultAuthorizerResponse"
     "fixture/DescribeDefaultAuthorizerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeDefaultAuthorizer)
 
 responseListAuditMitigationActionsTasks :: ListAuditMitigationActionsTasksResponse -> TestTree
-responseListAuditMitigationActionsTasks =
-  res
+responseListAuditMitigationActionsTasks = res
     "ListAuditMitigationActionsTasksResponse"
     "fixture/ListAuditMitigationActionsTasksResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListAuditMitigationActionsTasks)
 
 responseListThingRegistrationTaskReports :: ListThingRegistrationTaskReportsResponse -> TestTree
-responseListThingRegistrationTaskReports =
-  res
+responseListThingRegistrationTaskReports = res
     "ListThingRegistrationTaskReportsResponse"
     "fixture/ListThingRegistrationTaskReportsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListThingRegistrationTaskReports)
 
 responseListPrincipalThings :: ListPrincipalThingsResponse -> TestTree
-responseListPrincipalThings =
-  res
+responseListPrincipalThings = res
     "ListPrincipalThingsResponse"
     "fixture/ListPrincipalThingsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListPrincipalThings)
 
 responseRemoveThingFromThingGroup :: RemoveThingFromThingGroupResponse -> TestTree
-responseRemoveThingFromThingGroup =
-  res
+responseRemoveThingFromThingGroup = res
     "RemoveThingFromThingGroupResponse"
     "fixture/RemoveThingFromThingGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RemoveThingFromThingGroup)
 
 responseDescribeEventConfigurations :: DescribeEventConfigurationsResponse -> TestTree
-responseDescribeEventConfigurations =
-  res
+responseDescribeEventConfigurations = res
     "DescribeEventConfigurationsResponse"
     "fixture/DescribeEventConfigurationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeEventConfigurations)
 
 responseListTopicRuleDestinations :: ListTopicRuleDestinationsResponse -> TestTree
-responseListTopicRuleDestinations =
-  res
+responseListTopicRuleDestinations = res
     "ListTopicRuleDestinationsResponse"
     "fixture/ListTopicRuleDestinationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTopicRuleDestinations)
 
 responseRegisterCertificateWithoutCA :: RegisterCertificateWithoutCAResponse -> TestTree
-responseRegisterCertificateWithoutCA =
-  res
+responseRegisterCertificateWithoutCA = res
     "RegisterCertificateWithoutCAResponse"
     "fixture/RegisterCertificateWithoutCAResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RegisterCertificateWithoutCA)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
+responseListTagsForResource = res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseListThingGroups :: ListThingGroupsResponse -> TestTree
-responseListThingGroups =
-  res
+responseListThingGroups = res
     "ListThingGroupsResponse"
     "fixture/ListThingGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListThingGroups)
 
 responseListScheduledAudits :: ListScheduledAuditsResponse -> TestTree
-responseListScheduledAudits =
-  res
+responseListScheduledAudits = res
     "ListScheduledAuditsResponse"
     "fixture/ListScheduledAuditsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListScheduledAudits)
 
 responseDescribeThingRegistrationTask :: DescribeThingRegistrationTaskResponse -> TestTree
-responseDescribeThingRegistrationTask =
-  res
+responseDescribeThingRegistrationTask = res
     "DescribeThingRegistrationTaskResponse"
     "fixture/DescribeThingRegistrationTaskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeThingRegistrationTask)
 
 responseUpdateScheduledAudit :: UpdateScheduledAuditResponse -> TestTree
-responseUpdateScheduledAudit =
-  res
+responseUpdateScheduledAudit = res
     "UpdateScheduledAuditResponse"
     "fixture/UpdateScheduledAuditResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateScheduledAudit)
 
 responseDeleteScheduledAudit :: DeleteScheduledAuditResponse -> TestTree
-responseDeleteScheduledAudit =
-  res
+responseDeleteScheduledAudit = res
     "DeleteScheduledAuditResponse"
     "fixture/DeleteScheduledAuditResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteScheduledAudit)
 
 responseDescribeAuditFinding :: DescribeAuditFindingResponse -> TestTree
-responseDescribeAuditFinding =
-  res
+responseDescribeAuditFinding = res
     "DescribeAuditFindingResponse"
     "fixture/DescribeAuditFindingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAuditFinding)
 
 responseDescribeDimension :: DescribeDimensionResponse -> TestTree
-responseDescribeDimension =
-  res
+responseDescribeDimension = res
     "DescribeDimensionResponse"
     "fixture/DescribeDimensionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeDimension)
 
 responseGetLoggingOptions :: GetLoggingOptionsResponse -> TestTree
-responseGetLoggingOptions =
-  res
+responseGetLoggingOptions = res
     "GetLoggingOptionsResponse"
     "fixture/GetLoggingOptionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetLoggingOptions)
 
 responseDeleteAccountAuditConfiguration :: DeleteAccountAuditConfigurationResponse -> TestTree
-responseDeleteAccountAuditConfiguration =
-  res
+responseDeleteAccountAuditConfiguration = res
     "DeleteAccountAuditConfigurationResponse"
     "fixture/DeleteAccountAuditConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteAccountAuditConfiguration)
 
 responseUpdateAccountAuditConfiguration :: UpdateAccountAuditConfigurationResponse -> TestTree
-responseUpdateAccountAuditConfiguration =
-  res
+responseUpdateAccountAuditConfiguration = res
     "UpdateAccountAuditConfigurationResponse"
     "fixture/UpdateAccountAuditConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateAccountAuditConfiguration)
 
 responseGetOTAUpdate :: GetOTAUpdateResponse -> TestTree
-responseGetOTAUpdate =
-  res
+responseGetOTAUpdate = res
     "GetOTAUpdateResponse"
     "fixture/GetOTAUpdateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetOTAUpdate)
 
 responseGetEffectivePolicies :: GetEffectivePoliciesResponse -> TestTree
-responseGetEffectivePolicies =
-  res
+responseGetEffectivePolicies = res
     "GetEffectivePoliciesResponse"
     "fixture/GetEffectivePoliciesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetEffectivePolicies)
 
 responseListThingTypes :: ListThingTypesResponse -> TestTree
-responseListThingTypes =
-  res
+responseListThingTypes = res
     "ListThingTypesResponse"
     "fixture/ListThingTypesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListThingTypes)
 
 responseSetV2LoggingOptions :: SetV2LoggingOptionsResponse -> TestTree
-responseSetV2LoggingOptions =
-  res
+responseSetV2LoggingOptions = res
     "SetV2LoggingOptionsResponse"
     "fixture/SetV2LoggingOptionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SetV2LoggingOptions)
 
 responseCreateProvisioningTemplate :: CreateProvisioningTemplateResponse -> TestTree
-responseCreateProvisioningTemplate =
-  res
+responseCreateProvisioningTemplate = res
     "CreateProvisioningTemplateResponse"
     "fixture/CreateProvisioningTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateProvisioningTemplate)
 
 responseListThingGroupsForThing :: ListThingGroupsForThingResponse -> TestTree
-responseListThingGroupsForThing =
-  res
+responseListThingGroupsForThing = res
     "ListThingGroupsForThingResponse"
     "fixture/ListThingGroupsForThingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListThingGroupsForThing)
 
 responseCreateCertificateFromCsr :: CreateCertificateFromCsrResponse -> TestTree
-responseCreateCertificateFromCsr =
-  res
+responseCreateCertificateFromCsr = res
     "CreateCertificateFromCsrResponse"
     "fixture/CreateCertificateFromCsrResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateCertificateFromCsr)
 
 responseDeleteThing :: DeleteThingResponse -> TestTree
-responseDeleteThing =
-  res
+responseDeleteThing = res
     "DeleteThingResponse"
     "fixture/DeleteThingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteThing)
 
 responseUpdateThing :: UpdateThingResponse -> TestTree
-responseUpdateThing =
-  res
+responseUpdateThing = res
     "UpdateThingResponse"
     "fixture/UpdateThingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateThing)
 
 responseDeleteProvisioningTemplate :: DeleteProvisioningTemplateResponse -> TestTree
-responseDeleteProvisioningTemplate =
-  res
+responseDeleteProvisioningTemplate = res
     "DeleteProvisioningTemplateResponse"
     "fixture/DeleteProvisioningTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteProvisioningTemplate)
 
 responseUpdateProvisioningTemplate :: UpdateProvisioningTemplateResponse -> TestTree
-responseUpdateProvisioningTemplate =
-  res
+responseUpdateProvisioningTemplate = res
     "UpdateProvisioningTemplateResponse"
     "fixture/UpdateProvisioningTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateProvisioningTemplate)
 
 responseDescribeMitigationAction :: DescribeMitigationActionResponse -> TestTree
-responseDescribeMitigationAction =
-  res
+responseDescribeMitigationAction = res
     "DescribeMitigationActionResponse"
     "fixture/DescribeMitigationActionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeMitigationAction)
 
 responseStartThingRegistrationTask :: StartThingRegistrationTaskResponse -> TestTree
-responseStartThingRegistrationTask =
-  res
+responseStartThingRegistrationTask = res
     "StartThingRegistrationTaskResponse"
     "fixture/StartThingRegistrationTaskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartThingRegistrationTask)
 
 responseCreateScheduledAudit :: CreateScheduledAuditResponse -> TestTree
-responseCreateScheduledAudit =
-  res
+responseCreateScheduledAudit = res
     "CreateScheduledAuditResponse"
     "fixture/CreateScheduledAuditResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateScheduledAudit)
 
 responseListAuthorizers :: ListAuthorizersResponse -> TestTree
-responseListAuthorizers =
-  res
+responseListAuthorizers = res
     "ListAuthorizersResponse"
     "fixture/ListAuthorizersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListAuthorizers)
 
 responseListJobExecutionsForJob :: ListJobExecutionsForJobResponse -> TestTree
-responseListJobExecutionsForJob =
-  res
+responseListJobExecutionsForJob = res
     "ListJobExecutionsForJobResponse"
     "fixture/ListJobExecutionsForJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListJobExecutionsForJob)
 
 responseRemoveThingFromBillingGroup :: RemoveThingFromBillingGroupResponse -> TestTree
-responseRemoveThingFromBillingGroup =
-  res
+responseRemoveThingFromBillingGroup = res
     "RemoveThingFromBillingGroupResponse"
     "fixture/RemoveThingFromBillingGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RemoveThingFromBillingGroup)
 
 responseSearchIndex :: SearchIndexResponse -> TestTree
-responseSearchIndex =
-  res
+responseSearchIndex = res
     "SearchIndexResponse"
     "fixture/SearchIndexResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SearchIndex)
 
 responseCreateThingType :: CreateThingTypeResponse -> TestTree
-responseCreateThingType =
-  res
+responseCreateThingType = res
     "CreateThingTypeResponse"
     "fixture/CreateThingTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateThingType)
 
 responseDescribeSecurityProfile :: DescribeSecurityProfileResponse -> TestTree
-responseDescribeSecurityProfile =
-  res
+responseDescribeSecurityProfile = res
     "DescribeSecurityProfileResponse"
     "fixture/DescribeSecurityProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeSecurityProfile)
 
 responseDeleteV2LoggingLevel :: DeleteV2LoggingLevelResponse -> TestTree
-responseDeleteV2LoggingLevel =
-  res
+responseDeleteV2LoggingLevel = res
     "DeleteV2LoggingLevelResponse"
     "fixture/DeleteV2LoggingLevelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteV2LoggingLevel)
 
 responseSetDefaultAuthorizer :: SetDefaultAuthorizerResponse -> TestTree
-responseSetDefaultAuthorizer =
-  res
+responseSetDefaultAuthorizer = res
     "SetDefaultAuthorizerResponse"
     "fixture/SetDefaultAuthorizerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SetDefaultAuthorizer)
 
 responseDescribeJobExecution :: DescribeJobExecutionResponse -> TestTree
-responseDescribeJobExecution =
-  res
+responseDescribeJobExecution = res
     "DescribeJobExecutionResponse"
     "fixture/DescribeJobExecutionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeJobExecution)
 
 responseCancelCertificateTransfer :: CancelCertificateTransferResponse -> TestTree
-responseCancelCertificateTransfer =
-  res
+responseCancelCertificateTransfer = res
     "CancelCertificateTransferResponse"
     "fixture/CancelCertificateTransferResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CancelCertificateTransfer)
 
 responseGetIndexingConfiguration :: GetIndexingConfigurationResponse -> TestTree
-responseGetIndexingConfiguration =
-  res
+responseGetIndexingConfiguration = res
     "GetIndexingConfigurationResponse"
     "fixture/GetIndexingConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetIndexingConfiguration)
 
 responseListAuditMitigationActionsExecutions :: ListAuditMitigationActionsExecutionsResponse -> TestTree
-responseListAuditMitigationActionsExecutions =
-  res
+responseListAuditMitigationActionsExecutions = res
     "ListAuditMitigationActionsExecutionsResponse"
     "fixture/ListAuditMitigationActionsExecutionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListAuditMitigationActionsExecutions)
 
 responseDescribeAuditMitigationActionsTask :: DescribeAuditMitigationActionsTaskResponse -> TestTree
-responseDescribeAuditMitigationActionsTask =
-  res
+responseDescribeAuditMitigationActionsTask = res
     "DescribeAuditMitigationActionsTaskResponse"
     "fixture/DescribeAuditMitigationActionsTaskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAuditMitigationActionsTask)
 
 responseGetStatistics :: GetStatisticsResponse -> TestTree
-responseGetStatistics =
-  res
+responseGetStatistics = res
     "GetStatisticsResponse"
     "fixture/GetStatisticsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetStatistics)
 
 responseDeleteRoleAlias :: DeleteRoleAliasResponse -> TestTree
-responseDeleteRoleAlias =
-  res
+responseDeleteRoleAlias = res
     "DeleteRoleAliasResponse"
     "fixture/DeleteRoleAliasResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteRoleAlias)
 
 responseUpdateRoleAlias :: UpdateRoleAliasResponse -> TestTree
-responseUpdateRoleAlias =
-  res
+responseUpdateRoleAlias = res
     "UpdateRoleAliasResponse"
     "fixture/UpdateRoleAliasResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateRoleAlias)
 
 responseDeletePolicyVersion :: DeletePolicyVersionResponse -> TestTree
-responseDeletePolicyVersion =
-  res
+responseDeletePolicyVersion = res
     "DeletePolicyVersionResponse"
     "fixture/DeletePolicyVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeletePolicyVersion)
 
 responseDisableTopicRule :: DisableTopicRuleResponse -> TestTree
-responseDisableTopicRule =
-  res
+responseDisableTopicRule = res
     "DisableTopicRuleResponse"
     "fixture/DisableTopicRuleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisableTopicRule)
 
 responseCreateTopicRule :: CreateTopicRuleResponse -> TestTree
-responseCreateTopicRule =
-  res
+responseCreateTopicRule = res
     "CreateTopicRuleResponse"
     "fixture/CreateTopicRuleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateTopicRule)
 
 responseCreateJob :: CreateJobResponse -> TestTree
-responseCreateJob =
-  res
+responseCreateJob = res
     "CreateJobResponse"
     "fixture/CreateJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateJob)
 
 responseDescribeIndex :: DescribeIndexResponse -> TestTree
-responseDescribeIndex =
-  res
+responseDescribeIndex = res
     "DescribeIndexResponse"
     "fixture/DescribeIndexResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeIndex)
 
 responseAssociateTargetsWithJob :: AssociateTargetsWithJobResponse -> TestTree
-responseAssociateTargetsWithJob =
-  res
+responseAssociateTargetsWithJob = res
     "AssociateTargetsWithJobResponse"
     "fixture/AssociateTargetsWithJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateTargetsWithJob)
 
 responseAttachSecurityProfile :: AttachSecurityProfileResponse -> TestTree
-responseAttachSecurityProfile =
-  res
+responseAttachSecurityProfile = res
     "AttachSecurityProfileResponse"
     "fixture/AttachSecurityProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AttachSecurityProfile)
 
 responseListAttachedPolicies :: ListAttachedPoliciesResponse -> TestTree
-responseListAttachedPolicies =
-  res
+responseListAttachedPolicies = res
     "ListAttachedPoliciesResponse"
     "fixture/ListAttachedPoliciesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListAttachedPolicies)
 
 responseCreatePolicyVersion :: CreatePolicyVersionResponse -> TestTree
-responseCreatePolicyVersion =
-  res
+responseCreatePolicyVersion = res
     "CreatePolicyVersionResponse"
     "fixture/CreatePolicyVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreatePolicyVersion)
 
 responseListCACertificates :: ListCACertificatesResponse -> TestTree
-responseListCACertificates =
-  res
+responseListCACertificates = res
     "ListCACertificatesResponse"
     "fixture/ListCACertificatesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListCACertificates)
 
 responseDeleteTopicRule :: DeleteTopicRuleResponse -> TestTree
-responseDeleteTopicRule =
-  res
+responseDeleteTopicRule = res
     "DeleteTopicRuleResponse"
     "fixture/DeleteTopicRuleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteTopicRule)
 
 responseGetJobDocument :: GetJobDocumentResponse -> TestTree
-responseGetJobDocument =
-  res
+responseGetJobDocument = res
     "GetJobDocumentResponse"
     "fixture/GetJobDocumentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetJobDocument)
 
 responseDescribeProvisioningTemplateVersion :: DescribeProvisioningTemplateVersionResponse -> TestTree
-responseDescribeProvisioningTemplateVersion =
-  res
+responseDescribeProvisioningTemplateVersion = res
     "DescribeProvisioningTemplateVersionResponse"
     "fixture/DescribeProvisioningTemplateVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeProvisioningTemplateVersion)
 
 responseCancelAuditTask :: CancelAuditTaskResponse -> TestTree
-responseCancelAuditTask =
-  res
+responseCancelAuditTask = res
     "CancelAuditTaskResponse"
     "fixture/CancelAuditTaskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CancelAuditTask)
 
 responseCreateRoleAlias :: CreateRoleAliasResponse -> TestTree
-responseCreateRoleAlias =
-  res
+responseCreateRoleAlias = res
     "CreateRoleAliasResponse"
     "fixture/CreateRoleAliasResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateRoleAlias)
 
 responseDeleteCACertificate :: DeleteCACertificateResponse -> TestTree
-responseDeleteCACertificate =
-  res
+responseDeleteCACertificate = res
     "DeleteCACertificateResponse"
     "fixture/DeleteCACertificateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteCACertificate)
 
 responseUpdateCACertificate :: UpdateCACertificateResponse -> TestTree
-responseUpdateCACertificate =
-  res
+responseUpdateCACertificate = res
     "UpdateCACertificateResponse"
     "fixture/UpdateCACertificateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateCACertificate)
 
 responseListTopicRules :: ListTopicRulesResponse -> TestTree
-responseListTopicRules =
-  res
+responseListTopicRules = res
     "ListTopicRulesResponse"
     "fixture/ListTopicRulesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTopicRules)
 
 responseTransferCertificate :: TransferCertificateResponse -> TestTree
-responseTransferCertificate =
-  res
+responseTransferCertificate = res
     "TransferCertificateResponse"
     "fixture/TransferCertificateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TransferCertificate)
 
 responseListJobs :: ListJobsResponse -> TestTree
-responseListJobs =
-  res
+responseListJobs = res
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListJobs)
 
 responseListRoleAliases :: ListRoleAliasesResponse -> TestTree
-responseListRoleAliases =
-  res
+responseListRoleAliases = res
     "ListRoleAliasesResponse"
     "fixture/ListRoleAliasesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListRoleAliases)
 
 responseStartOnDemandAuditTask :: StartOnDemandAuditTaskResponse -> TestTree
-responseStartOnDemandAuditTask =
-  res
+responseStartOnDemandAuditTask = res
     "StartOnDemandAuditTaskResponse"
     "fixture/StartOnDemandAuditTaskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartOnDemandAuditTask)
 
 responseDescribeThingGroup :: DescribeThingGroupResponse -> TestTree
-responseDescribeThingGroup =
-  res
+responseDescribeThingGroup = res
     "DescribeThingGroupResponse"
     "fixture/DescribeThingGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeThingGroup)
 
 responseDeleteJob :: DeleteJobResponse -> TestTree
-responseDeleteJob =
-  res
+responseDeleteJob = res
     "DeleteJobResponse"
     "fixture/DeleteJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteJob)
 
 responseListTargetsForSecurityProfile :: ListTargetsForSecurityProfileResponse -> TestTree
-responseListTargetsForSecurityProfile =
-  res
+responseListTargetsForSecurityProfile = res
     "ListTargetsForSecurityProfileResponse"
     "fixture/ListTargetsForSecurityProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTargetsForSecurityProfile)
 
 responseUpdateJob :: UpdateJobResponse -> TestTree
-responseUpdateJob =
-  res
+responseUpdateJob = res
     "UpdateJobResponse"
     "fixture/UpdateJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateJob)
 
 responseStartAuditMitigationActionsTask :: StartAuditMitigationActionsTaskResponse -> TestTree
-responseStartAuditMitigationActionsTask =
-  res
+responseStartAuditMitigationActionsTask = res
     "StartAuditMitigationActionsTaskResponse"
     "fixture/StartAuditMitigationActionsTaskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartAuditMitigationActionsTask)
 
 responseGetTopicRule :: GetTopicRuleResponse -> TestTree
-responseGetTopicRule =
-  res
+responseGetTopicRule = res
     "GetTopicRuleResponse"
     "fixture/GetTopicRuleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetTopicRule)
 
 responseDescribeThing :: DescribeThingResponse -> TestTree
-responseDescribeThing =
-  res
+responseDescribeThing = res
     "DescribeThingResponse"
     "fixture/DescribeThingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeThing)
 
 responseListDomainConfigurations :: ListDomainConfigurationsResponse -> TestTree
-responseListDomainConfigurations =
-  res
+responseListDomainConfigurations = res
     "ListDomainConfigurationsResponse"
     "fixture/ListDomainConfigurationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListDomainConfigurations)
 
 responseListAuditTasks :: ListAuditTasksResponse -> TestTree
-responseListAuditTasks =
-  res
+responseListAuditTasks = res
     "ListAuditTasksResponse"
     "fixture/ListAuditTasksResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListAuditTasks)
 
 responseDescribeAccountAuditConfiguration :: DescribeAccountAuditConfigurationResponse -> TestTree
-responseDescribeAccountAuditConfiguration =
-  res
+responseDescribeAccountAuditConfiguration = res
     "DescribeAccountAuditConfigurationResponse"
     "fixture/DescribeAccountAuditConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAccountAuditConfiguration)
 
 responseDeleteDimension :: DeleteDimensionResponse -> TestTree
-responseDeleteDimension =
-  res
+responseDeleteDimension = res
     "DeleteDimensionResponse"
     "fixture/DeleteDimensionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteDimension)
 
 responseUpdateDimension :: UpdateDimensionResponse -> TestTree
-responseUpdateDimension =
-  res
+responseUpdateDimension = res
     "UpdateDimensionResponse"
     "fixture/UpdateDimensionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateDimension)
 
 responseDeletePolicy :: DeletePolicyResponse -> TestTree
-responseDeletePolicy =
-  res
+responseDeletePolicy = res
     "DeletePolicyResponse"
     "fixture/DeletePolicyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeletePolicy)
 
 responseListThingsInThingGroup :: ListThingsInThingGroupResponse -> TestTree
-responseListThingsInThingGroup =
-  res
+responseListThingsInThingGroup = res
     "ListThingsInThingGroupResponse"
     "fixture/ListThingsInThingGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListThingsInThingGroup)
 
 responseListAuditFindings :: ListAuditFindingsResponse -> TestTree
-responseListAuditFindings =
-  res
+responseListAuditFindings = res
     "ListAuditFindingsResponse"
     "fixture/ListAuditFindingsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListAuditFindings)
 
 responseDescribeScheduledAudit :: DescribeScheduledAuditResponse -> TestTree
-responseDescribeScheduledAudit =
-  res
+responseDescribeScheduledAudit = res
     "DescribeScheduledAuditResponse"
     "fixture/DescribeScheduledAuditResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeScheduledAudit)
 
 responseCreateMitigationAction :: CreateMitigationActionResponse -> TestTree
-responseCreateMitigationAction =
-  res
+responseCreateMitigationAction = res
     "CreateMitigationActionResponse"
     "fixture/CreateMitigationActionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateMitigationAction)
 
 responseConfirmTopicRuleDestination :: ConfirmTopicRuleDestinationResponse -> TestTree
-responseConfirmTopicRuleDestination =
-  res
+responseConfirmTopicRuleDestination = res
     "ConfirmTopicRuleDestinationResponse"
     "fixture/ConfirmTopicRuleDestinationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ConfirmTopicRuleDestination)
 
 responseListCertificates :: ListCertificatesResponse -> TestTree
-responseListCertificates =
-  res
+responseListCertificates = res
     "ListCertificatesResponse"
     "fixture/ListCertificatesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListCertificates)
 
 responseListMitigationActions :: ListMitigationActionsResponse -> TestTree
-responseListMitigationActions =
-  res
+responseListMitigationActions = res
     "ListMitigationActionsResponse"
     "fixture/ListMitigationActionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListMitigationActions)
 
 responseDescribeAuthorizer :: DescribeAuthorizerResponse -> TestTree
-responseDescribeAuthorizer =
-  res
+responseDescribeAuthorizer = res
     "DescribeAuthorizerResponse"
     "fixture/DescribeAuthorizerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAuthorizer)
 
 responseGetPolicyVersion :: GetPolicyVersionResponse -> TestTree
-responseGetPolicyVersion =
-  res
+responseGetPolicyVersion = res
     "GetPolicyVersionResponse"
     "fixture/GetPolicyVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetPolicyVersion)
 
 responseListActiveViolations :: ListActiveViolationsResponse -> TestTree
-responseListActiveViolations =
-  res
+responseListActiveViolations = res
     "ListActiveViolationsResponse"
     "fixture/ListActiveViolationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListActiveViolations)
 
 responseValidateSecurityProfileBehaviors :: ValidateSecurityProfileBehaviorsResponse -> TestTree
-responseValidateSecurityProfileBehaviors =
-  res
+responseValidateSecurityProfileBehaviors = res
     "ValidateSecurityProfileBehaviorsResponse"
     "fixture/ValidateSecurityProfileBehaviorsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ValidateSecurityProfileBehaviors)
 
 responseListViolationEvents :: ListViolationEventsResponse -> TestTree
-responseListViolationEvents =
-  res
+responseListViolationEvents = res
     "ListViolationEventsResponse"
     "fixture/ListViolationEventsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListViolationEvents)
 
 responseDeleteCertificate :: DeleteCertificateResponse -> TestTree
-responseDeleteCertificate =
-  res
+responseDeleteCertificate = res
     "DeleteCertificateResponse"
     "fixture/DeleteCertificateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteCertificate)
 
 responseUpdateCertificate :: UpdateCertificateResponse -> TestTree
-responseUpdateCertificate =
-  res
+responseUpdateCertificate = res
     "UpdateCertificateResponse"
     "fixture/UpdateCertificateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateCertificate)
 
 responseCreateDimension :: CreateDimensionResponse -> TestTree
-responseCreateDimension =
-  res
+responseCreateDimension = res
     "CreateDimensionResponse"
     "fixture/CreateDimensionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateDimension)
 
 responseUpdateIndexingConfiguration :: UpdateIndexingConfigurationResponse -> TestTree
-responseUpdateIndexingConfiguration =
-  res
+responseUpdateIndexingConfiguration = res
     "UpdateIndexingConfigurationResponse"
     "fixture/UpdateIndexingConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateIndexingConfiguration)
 
 responseCreateProvisioningClaim :: CreateProvisioningClaimResponse -> TestTree
-responseCreateProvisioningClaim =
-  res
+responseCreateProvisioningClaim = res
     "CreateProvisioningClaimResponse"
     "fixture/CreateProvisioningClaimResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateProvisioningClaim)
 
 responseTestInvokeAuthorizer :: TestInvokeAuthorizerResponse -> TestTree
-responseTestInvokeAuthorizer =
-  res
+responseTestInvokeAuthorizer = res
     "TestInvokeAuthorizerResponse"
     "fixture/TestInvokeAuthorizerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TestInvokeAuthorizer)
 
 responseCreateThingGroup :: CreateThingGroupResponse -> TestTree
-responseCreateThingGroup =
-  res
+responseCreateThingGroup = res
     "CreateThingGroupResponse"
     "fixture/CreateThingGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateThingGroup)
 
 responseCreateTopicRuleDestination :: CreateTopicRuleDestinationResponse -> TestTree
-responseCreateTopicRuleDestination =
-  res
+responseCreateTopicRuleDestination = res
     "CreateTopicRuleDestinationResponse"
     "fixture/CreateTopicRuleDestinationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateTopicRuleDestination)
 
 responseDetachPolicy :: DetachPolicyResponse -> TestTree
-responseDetachPolicy =
-  res
+responseDetachPolicy = res
     "DetachPolicyResponse"
     "fixture/DetachPolicyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DetachPolicy)
 
 responseDescribeJob :: DescribeJobResponse -> TestTree
-responseDescribeJob =
-  res
+responseDescribeJob = res
     "DescribeJobResponse"
     "fixture/DescribeJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeJob)
 
 responseAddThingToBillingGroup :: AddThingToBillingGroupResponse -> TestTree
-responseAddThingToBillingGroup =
-  res
+responseAddThingToBillingGroup = res
     "AddThingToBillingGroupResponse"
     "fixture/AddThingToBillingGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AddThingToBillingGroup)
 
 responseUpdateTopicRuleDestination :: UpdateTopicRuleDestinationResponse -> TestTree
-responseUpdateTopicRuleDestination =
-  res
+responseUpdateTopicRuleDestination = res
     "UpdateTopicRuleDestinationResponse"
     "fixture/UpdateTopicRuleDestinationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateTopicRuleDestination)
 
 responseDeleteTopicRuleDestination :: DeleteTopicRuleDestinationResponse -> TestTree
-responseDeleteTopicRuleDestination =
-  res
+responseDeleteTopicRuleDestination = res
     "DeleteTopicRuleDestinationResponse"
     "fixture/DeleteTopicRuleDestinationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteTopicRuleDestination)
 
 responseDeleteThingGroup :: DeleteThingGroupResponse -> TestTree
-responseDeleteThingGroup =
-  res
+responseDeleteThingGroup = res
     "DeleteThingGroupResponse"
     "fixture/DeleteThingGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteThingGroup)
 
 responseUpdateThingGroup :: UpdateThingGroupResponse -> TestTree
-responseUpdateThingGroup =
-  res
+responseUpdateThingGroup = res
     "UpdateThingGroupResponse"
     "fixture/UpdateThingGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateThingGroup)
 
 responseListOTAUpdates :: ListOTAUpdatesResponse -> TestTree
-responseListOTAUpdates =
-  res
+responseListOTAUpdates = res
     "ListOTAUpdatesResponse"
     "fixture/ListOTAUpdatesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListOTAUpdates)
 
 responseDeleteOTAUpdate :: DeleteOTAUpdateResponse -> TestTree
-responseDeleteOTAUpdate =
-  res
+responseDeleteOTAUpdate = res
     "DeleteOTAUpdateResponse"
     "fixture/DeleteOTAUpdateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteOTAUpdate)
 
 responseCreateDynamicThingGroup :: CreateDynamicThingGroupResponse -> TestTree
-responseCreateDynamicThingGroup =
-  res
+responseCreateDynamicThingGroup = res
     "CreateDynamicThingGroupResponse"
     "fixture/CreateDynamicThingGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateDynamicThingGroup)
 
 responseDetachSecurityProfile :: DetachSecurityProfileResponse -> TestTree
-responseDetachSecurityProfile =
-  res
+responseDetachSecurityProfile = res
     "DetachSecurityProfileResponse"
     "fixture/DetachSecurityProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DetachSecurityProfile)
 
 responseListOutgoingCertificates :: ListOutgoingCertificatesResponse -> TestTree
-responseListOutgoingCertificates =
-  res
+responseListOutgoingCertificates = res
     "ListOutgoingCertificatesResponse"
     "fixture/ListOutgoingCertificatesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListOutgoingCertificates)
 
 responseDeleteProvisioningTemplateVersion :: DeleteProvisioningTemplateVersionResponse -> TestTree
-responseDeleteProvisioningTemplateVersion =
-  res
+responseDeleteProvisioningTemplateVersion = res
     "DeleteProvisioningTemplateVersionResponse"
     "fixture/DeleteProvisioningTemplateVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteProvisioningTemplateVersion)
 
 responseDescribeCACertificate :: DescribeCACertificateResponse -> TestTree
-responseDescribeCACertificate =
-  res
+responseDescribeCACertificate = res
     "DescribeCACertificateResponse"
     "fixture/DescribeCACertificateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeCACertificate)
 
 responseListProvisioningTemplateVersions :: ListProvisioningTemplateVersionsResponse -> TestTree
-responseListProvisioningTemplateVersions =
-  res
+responseListProvisioningTemplateVersions = res
     "ListProvisioningTemplateVersionsResponse"
     "fixture/ListProvisioningTemplateVersionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListProvisioningTemplateVersions)
 
 responseGetRegistrationCode :: GetRegistrationCodeResponse -> TestTree
-responseGetRegistrationCode =
-  res
+responseGetRegistrationCode = res
     "GetRegistrationCodeResponse"
     "fixture/GetRegistrationCodeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetRegistrationCode)
 
 responseListBillingGroups :: ListBillingGroupsResponse -> TestTree
-responseListBillingGroups =
-  res
+responseListBillingGroups = res
     "ListBillingGroupsResponse"
     "fixture/ListBillingGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListBillingGroups)
 
 responseDeleteThingType :: DeleteThingTypeResponse -> TestTree
-responseDeleteThingType =
-  res
+responseDeleteThingType = res
     "DeleteThingTypeResponse"
     "fixture/DeleteThingTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteThingType)
 
 responseDeleteBillingGroup :: DeleteBillingGroupResponse -> TestTree
-responseDeleteBillingGroup =
-  res
+responseDeleteBillingGroup = res
     "DeleteBillingGroupResponse"
     "fixture/DeleteBillingGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteBillingGroup)
 
 responseAddThingToThingGroup :: AddThingToThingGroupResponse -> TestTree
-responseAddThingToThingGroup =
-  res
+responseAddThingToThingGroup = res
     "AddThingToThingGroupResponse"
     "fixture/AddThingToThingGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AddThingToThingGroup)
 
 responseUpdateBillingGroup :: UpdateBillingGroupResponse -> TestTree
-responseUpdateBillingGroup =
-  res
+responseUpdateBillingGroup = res
     "UpdateBillingGroupResponse"
     "fixture/UpdateBillingGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateBillingGroup)
 
 responseGetTopicRuleDestination :: GetTopicRuleDestinationResponse -> TestTree
-responseGetTopicRuleDestination =
-  res
+responseGetTopicRuleDestination = res
     "GetTopicRuleDestinationResponse"
     "fixture/GetTopicRuleDestinationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetTopicRuleDestination)
 
 responseListCertificatesByCA :: ListCertificatesByCAResponse -> TestTree
-responseListCertificatesByCA =
-  res
+responseListCertificatesByCA = res
     "ListCertificatesByCAResponse"
     "fixture/ListCertificatesByCAResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListCertificatesByCA)
 
 responseUpdateAuditSuppression :: UpdateAuditSuppressionResponse -> TestTree
-responseUpdateAuditSuppression =
-  res
+responseUpdateAuditSuppression = res
     "UpdateAuditSuppressionResponse"
     "fixture/UpdateAuditSuppressionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateAuditSuppression)
 
 responseAttachThingPrincipal :: AttachThingPrincipalResponse -> TestTree
-responseAttachThingPrincipal =
-  res
+responseAttachThingPrincipal = res
     "AttachThingPrincipalResponse"
     "fixture/AttachThingPrincipalResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AttachThingPrincipal)
 
 responseListThings :: ListThingsResponse -> TestTree
-responseListThings =
-  res
+responseListThings = res
     "ListThingsResponse"
     "fixture/ListThingsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListThings)
 
 responseDeleteAuditSuppression :: DeleteAuditSuppressionResponse -> TestTree
-responseDeleteAuditSuppression =
-  res
+responseDeleteAuditSuppression = res
     "DeleteAuditSuppressionResponse"
     "fixture/DeleteAuditSuppressionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteAuditSuppression)
 
 responseRegisterThing :: RegisterThingResponse -> TestTree
-responseRegisterThing =
-  res
+responseRegisterThing = res
     "RegisterThingResponse"
     "fixture/RegisterThingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RegisterThing)
 
 responseListAuditSuppressions :: ListAuditSuppressionsResponse -> TestTree
-responseListAuditSuppressions =
-  res
+responseListAuditSuppressions = res
     "ListAuditSuppressionsResponse"
     "fixture/ListAuditSuppressionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListAuditSuppressions)
 
 responseDescribeDomainConfiguration :: DescribeDomainConfigurationResponse -> TestTree
-responseDescribeDomainConfiguration =
-  res
+responseDescribeDomainConfiguration = res
     "DescribeDomainConfigurationResponse"
     "fixture/DescribeDomainConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeDomainConfiguration)
 
 responseDescribeAuditTask :: DescribeAuditTaskResponse -> TestTree
-responseDescribeAuditTask =
-  res
+responseDescribeAuditTask = res
     "DescribeAuditTaskResponse"
     "fixture/DescribeAuditTaskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAuditTask)
 
 responseDeleteRegistrationCode :: DeleteRegistrationCodeResponse -> TestTree
-responseDeleteRegistrationCode =
-  res
+responseDeleteRegistrationCode = res
     "DeleteRegistrationCodeResponse"
     "fixture/DeleteRegistrationCodeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteRegistrationCode)
 
 responseUpdateStream :: UpdateStreamResponse -> TestTree
-responseUpdateStream =
-  res
+responseUpdateStream = res
     "UpdateStreamResponse"
     "fixture/UpdateStreamResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateStream)
 
 responseDeleteStream :: DeleteStreamResponse -> TestTree
-responseDeleteStream =
-  res
+responseDeleteStream = res
     "DeleteStreamResponse"
     "fixture/DeleteStreamResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteStream)
 
 responseListStreams :: ListStreamsResponse -> TestTree
-responseListStreams =
-  res
+responseListStreams = res
     "ListStreamsResponse"
     "fixture/ListStreamsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListStreams)
 
 responseCreateAuthorizer :: CreateAuthorizerResponse -> TestTree
-responseCreateAuthorizer =
-  res
+responseCreateAuthorizer = res
     "CreateAuthorizerResponse"
     "fixture/CreateAuthorizerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateAuthorizer)
 
 responseTestAuthorization :: TestAuthorizationResponse -> TestTree
-responseTestAuthorization =
-  res
+responseTestAuthorization = res
     "TestAuthorizationResponse"
     "fixture/TestAuthorizationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TestAuthorization)
 
 responseListIndices :: ListIndicesResponse -> TestTree
-responseListIndices =
-  res
+responseListIndices = res
     "ListIndicesResponse"
     "fixture/ListIndicesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListIndices)
 
 responseUpdateAuthorizer :: UpdateAuthorizerResponse -> TestTree
-responseUpdateAuthorizer =
-  res
+responseUpdateAuthorizer = res
     "UpdateAuthorizerResponse"
     "fixture/UpdateAuthorizerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateAuthorizer)
 
 responseDeleteAuthorizer :: DeleteAuthorizerResponse -> TestTree
-responseDeleteAuthorizer =
-  res
+responseDeleteAuthorizer = res
     "DeleteAuthorizerResponse"
     "fixture/DeleteAuthorizerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteAuthorizer)
 
 responseCreateThing :: CreateThingResponse -> TestTree
-responseCreateThing =
-  res
+responseCreateThing = res
     "CreateThingResponse"
     "fixture/CreateThingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateThing)
 
 responseCreateStream :: CreateStreamResponse -> TestTree
-responseCreateStream =
-  res
+responseCreateStream = res
     "CreateStreamResponse"
     "fixture/CreateStreamResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateStream)
 
 responseCancelAuditMitigationActionsTask :: CancelAuditMitigationActionsTaskResponse -> TestTree
-responseCancelAuditMitigationActionsTask =
-  res
+responseCancelAuditMitigationActionsTask = res
     "CancelAuditMitigationActionsTaskResponse"
     "fixture/CancelAuditMitigationActionsTaskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CancelAuditMitigationActionsTask)
 
 responseCreateAuditSuppression :: CreateAuditSuppressionResponse -> TestTree
-responseCreateAuditSuppression =
-  res
+responseCreateAuditSuppression = res
     "CreateAuditSuppressionResponse"
     "fixture/CreateAuditSuppressionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateAuditSuppression)
 
 responseCreateBillingGroup :: CreateBillingGroupResponse -> TestTree
-responseCreateBillingGroup =
-  res
+responseCreateBillingGroup = res
     "CreateBillingGroupResponse"
     "fixture/CreateBillingGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateBillingGroup)
 
 responseListProvisioningTemplates :: ListProvisioningTemplatesResponse -> TestTree
-responseListProvisioningTemplates =
-  res
+responseListProvisioningTemplates = res
     "ListProvisioningTemplatesResponse"
     "fixture/ListProvisioningTemplatesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListProvisioningTemplates)
 
 responseListV2LoggingLevels :: ListV2LoggingLevelsResponse -> TestTree
-responseListV2LoggingLevels =
-  res
+responseListV2LoggingLevels = res
     "ListV2LoggingLevelsResponse"
     "fixture/ListV2LoggingLevelsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListV2LoggingLevels)
 
 responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
+responseTagResource = res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseStopThingRegistrationTask :: StopThingRegistrationTaskResponse -> TestTree
-responseStopThingRegistrationTask =
-  res
+responseStopThingRegistrationTask = res
     "StopThingRegistrationTaskResponse"
     "fixture/StopThingRegistrationTaskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StopThingRegistrationTask)
 
 responseDescribeCertificate :: DescribeCertificateResponse -> TestTree
-responseDescribeCertificate =
-  res
+responseDescribeCertificate = res
     "DescribeCertificateResponse"
     "fixture/DescribeCertificateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeCertificate)
 
 responseListTargetsForPolicy :: ListTargetsForPolicyResponse -> TestTree
-responseListTargetsForPolicy =
-  res
+responseListTargetsForPolicy = res
     "ListTargetsForPolicyResponse"
     "fixture/ListTargetsForPolicyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTargetsForPolicy)
 
 responseClearDefaultAuthorizer :: ClearDefaultAuthorizerResponse -> TestTree
-responseClearDefaultAuthorizer =
-  res
+responseClearDefaultAuthorizer = res
     "ClearDefaultAuthorizerResponse"
     "fixture/ClearDefaultAuthorizerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ClearDefaultAuthorizer)
 
 responseReplaceTopicRule :: ReplaceTopicRuleResponse -> TestTree
-responseReplaceTopicRule =
-  res
+responseReplaceTopicRule = res
     "ReplaceTopicRuleResponse"
     "fixture/ReplaceTopicRuleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ReplaceTopicRule)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
+responseUntagResource = res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseSetDefaultPolicyVersion :: SetDefaultPolicyVersionResponse -> TestTree
-responseSetDefaultPolicyVersion =
-  res
+responseSetDefaultPolicyVersion = res
     "SetDefaultPolicyVersionResponse"
     "fixture/SetDefaultPolicyVersionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SetDefaultPolicyVersion)
 
 responseCancelJobExecution :: CancelJobExecutionResponse -> TestTree
-responseCancelJobExecution =
-  res
+responseCancelJobExecution = res
     "CancelJobExecutionResponse"
     "fixture/CancelJobExecutionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CancelJobExecution)
 
 responseListPolicyVersions :: ListPolicyVersionsResponse -> TestTree
-responseListPolicyVersions =
-  res
+responseListPolicyVersions = res
     "ListPolicyVersionsResponse"
     "fixture/ListPolicyVersionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListPolicyVersions)
 
 responseSetV2LoggingLevel :: SetV2LoggingLevelResponse -> TestTree
-responseSetV2LoggingLevel =
-  res
+responseSetV2LoggingLevel = res
     "SetV2LoggingLevelResponse"
     "fixture/SetV2LoggingLevelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SetV2LoggingLevel)
 
 responseListJobExecutionsForThing :: ListJobExecutionsForThingResponse -> TestTree
-responseListJobExecutionsForThing =
-  res
+responseListJobExecutionsForThing = res
     "ListJobExecutionsForThingResponse"
     "fixture/ListJobExecutionsForThingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListJobExecutionsForThing)
 
 responseAttachPolicy :: AttachPolicyResponse -> TestTree
-responseAttachPolicy =
-  res
+responseAttachPolicy = res
     "AttachPolicyResponse"
     "fixture/AttachPolicyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AttachPolicy)
 
 responseCreateKeysAndCertificate :: CreateKeysAndCertificateResponse -> TestTree
-responseCreateKeysAndCertificate =
-  res
+responseCreateKeysAndCertificate = res
     "CreateKeysAndCertificateResponse"
     "fixture/CreateKeysAndCertificateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateKeysAndCertificate)
 
 responseListThingsInBillingGroup :: ListThingsInBillingGroupResponse -> TestTree
-responseListThingsInBillingGroup =
-  res
+responseListThingsInBillingGroup = res
     "ListThingsInBillingGroupResponse"
     "fixture/ListThingsInBillingGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListThingsInBillingGroup)
 
 responseUpdateThingGroupsForThing :: UpdateThingGroupsForThingResponse -> TestTree
-responseUpdateThingGroupsForThing =
-  res
+responseUpdateThingGroupsForThing = res
     "UpdateThingGroupsForThingResponse"
     "fixture/UpdateThingGroupsForThingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateThingGroupsForThing)
 
 responseEnableTopicRule :: EnableTopicRuleResponse -> TestTree
-responseEnableTopicRule =
-  res
+responseEnableTopicRule = res
     "EnableTopicRuleResponse"
     "fixture/EnableTopicRuleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy EnableTopicRule)
 
 responseAcceptCertificateTransfer :: AcceptCertificateTransferResponse -> TestTree
-responseAcceptCertificateTransfer =
-  res
+responseAcceptCertificateTransfer = res
     "AcceptCertificateTransferResponse"
     "fixture/AcceptCertificateTransferResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AcceptCertificateTransfer)
 
 responseGetPercentiles :: GetPercentilesResponse -> TestTree
-responseGetPercentiles =
-  res
+responseGetPercentiles = res
     "GetPercentilesResponse"
     "fixture/GetPercentilesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetPercentiles)
 
 responseGetPolicy :: GetPolicyResponse -> TestTree
-responseGetPolicy =
-  res
+responseGetPolicy = res
     "GetPolicyResponse"
     "fixture/GetPolicyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetPolicy)
 
 responseDescribeEndpoint :: DescribeEndpointResponse -> TestTree
-responseDescribeEndpoint =
-  res
+responseDescribeEndpoint = res
     "DescribeEndpointResponse"
     "fixture/DescribeEndpointResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeEndpoint)
 
 responseListSecurityProfilesForTarget :: ListSecurityProfilesForTargetResponse -> TestTree
-responseListSecurityProfilesForTarget =
-  res
+responseListSecurityProfilesForTarget = res
     "ListSecurityProfilesForTargetResponse"
     "fixture/ListSecurityProfilesForTargetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListSecurityProfilesForTarget)
 
 responseUpdateEventConfigurations :: UpdateEventConfigurationsResponse -> TestTree
-responseUpdateEventConfigurations =
-  res
+responseUpdateEventConfigurations = res
     "UpdateEventConfigurationsResponse"
     "fixture/UpdateEventConfigurationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateEventConfigurations)
 
 responseRegisterCACertificate :: RegisterCACertificateResponse -> TestTree
-responseRegisterCACertificate =
-  res
+responseRegisterCACertificate = res
     "RegisterCACertificateResponse"
     "fixture/RegisterCACertificateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RegisterCACertificate)
 
 responseDeleteDomainConfiguration :: DeleteDomainConfigurationResponse -> TestTree
-responseDeleteDomainConfiguration =
-  res
+responseDeleteDomainConfiguration = res
     "DeleteDomainConfigurationResponse"
     "fixture/DeleteDomainConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteDomainConfiguration)
 
 responseUpdateDomainConfiguration :: UpdateDomainConfigurationResponse -> TestTree
-responseUpdateDomainConfiguration =
-  res
+responseUpdateDomainConfiguration = res
     "UpdateDomainConfigurationResponse"
     "fixture/UpdateDomainConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateDomainConfiguration)
 
 responseSetLoggingOptions :: SetLoggingOptionsResponse -> TestTree
-responseSetLoggingOptions =
-  res
+responseSetLoggingOptions = res
     "SetLoggingOptionsResponse"
     "fixture/SetLoggingOptionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SetLoggingOptions)
 
 responseDescribeThingType :: DescribeThingTypeResponse -> TestTree
-responseDescribeThingType =
-  res
+responseDescribeThingType = res
     "DescribeThingTypeResponse"
     "fixture/DescribeThingTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeThingType)
 
 responseListDimensions :: ListDimensionsResponse -> TestTree
-responseListDimensions =
-  res
+responseListDimensions = res
     "ListDimensionsResponse"
     "fixture/ListDimensionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListDimensions)
 
 responseGetV2LoggingOptions :: GetV2LoggingOptionsResponse -> TestTree
-responseGetV2LoggingOptions =
-  res
+responseGetV2LoggingOptions = res
     "GetV2LoggingOptionsResponse"
     "fixture/GetV2LoggingOptionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetV2LoggingOptions)
 
 responseListThingRegistrationTasks :: ListThingRegistrationTasksResponse -> TestTree
-responseListThingRegistrationTasks =
-  res
+responseListThingRegistrationTasks = res
     "ListThingRegistrationTasksResponse"
     "fixture/ListThingRegistrationTasksResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListThingRegistrationTasks)
 
 responseRejectCertificateTransfer :: RejectCertificateTransferResponse -> TestTree
-responseRejectCertificateTransfer =
-  res
+responseRejectCertificateTransfer = res
     "RejectCertificateTransferResponse"
     "fixture/RejectCertificateTransferResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RejectCertificateTransfer)
 
 responseDescribeAuditSuppression :: DescribeAuditSuppressionResponse -> TestTree
-responseDescribeAuditSuppression =
-  res
+responseDescribeAuditSuppression = res
     "DescribeAuditSuppressionResponse"
     "fixture/DescribeAuditSuppressionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAuditSuppression)
 
 responseDescribeStream :: DescribeStreamResponse -> TestTree
-responseDescribeStream =
-  res
+responseDescribeStream = res
     "DescribeStreamResponse"
     "fixture/DescribeStreamResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeStream)
 
 responseCreateSecurityProfile :: CreateSecurityProfileResponse -> TestTree
-responseCreateSecurityProfile =
-  res
+responseCreateSecurityProfile = res
     "CreateSecurityProfileResponse"
     "fixture/CreateSecurityProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateSecurityProfile)
 
 responseDescribeBillingGroup :: DescribeBillingGroupResponse -> TestTree
-responseDescribeBillingGroup =
-  res
+responseDescribeBillingGroup = res
     "DescribeBillingGroupResponse"
     "fixture/DescribeBillingGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeBillingGroup)
 
 responseDetachThingPrincipal :: DetachThingPrincipalResponse -> TestTree
-responseDetachThingPrincipal =
-  res
+responseDetachThingPrincipal = res
     "DetachThingPrincipalResponse"
     "fixture/DetachThingPrincipalResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DetachThingPrincipal)
 
 responseCancelJob :: CancelJobResponse -> TestTree
-responseCancelJob =
-  res
+responseCancelJob = res
     "CancelJobResponse"
     "fixture/CancelJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CancelJob)
 
 responseDeprecateThingType :: DeprecateThingTypeResponse -> TestTree
-responseDeprecateThingType =
-  res
+responseDeprecateThingType = res
     "DeprecateThingTypeResponse"
     "fixture/DeprecateThingTypeResponse.proto"
     mkServiceConfig

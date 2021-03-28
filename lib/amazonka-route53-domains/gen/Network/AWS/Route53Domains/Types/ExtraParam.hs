@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Route53Domains.Types.ExtraParam
-  ( ExtraParam (..),
-
-    -- * Smart constructor
-    mkExtraParam,
-
-    -- * Lenses
-    epName,
-    epValue,
-  )
-where
+  ( ExtraParam (..)
+  -- * Smart constructor
+  , mkExtraParam
+  -- * Lenses
+  , epName
+  , epValue
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -31,549 +29,17 @@ import qualified Network.AWS.Route53Domains.Types.Value as Types
 --
 -- /See:/ 'mkExtraParam' smart constructor.
 data ExtraParam = ExtraParam'
-  { -- | The name of an additional parameter that is required by a top-level domain. Here are the top-level domains that require additional parameters and the names of the parameters that they require:
-    --
-    --
-    --     * .com.au and .net.au
-    --
-    --     *
-    --     * @AU_ID_NUMBER@
-    --
-    --
-    --     * @AU_ID_TYPE@
-    -- Valid values include the following:
-    --
-    --     * @ABN@ (Australian business number)
-    --
-    --
-    --     * @ACN@ (Australian company number)
-    --
-    --
-    --     * @TM@ (Trademark number)
-    --
-    --
-    --
-    --
-    --
-    --
-    --     * .ca
-    --
-    --     *
-    --     * @BRAND_NUMBER@
-    --
-    --
-    --     * @CA_BUSINESS_ENTITY_TYPE@
-    -- Valid values include the following:
-    --
-    --     * @BANK@ (Bank)
-    --
-    --
-    --     * @COMMERCIAL_COMPANY@ (Commercial company)
-    --
-    --
-    --     * @COMPANY@ (Company)
-    --
-    --
-    --     * @COOPERATION@ (Cooperation)
-    --
-    --
-    --     * @COOPERATIVE@ (Cooperative)
-    --
-    --
-    --     * @COOPRIX@ (Cooprix)
-    --
-    --
-    --     * @CORP@ (Corporation)
-    --
-    --
-    --     * @CREDIT_UNION@ (Credit union)
-    --
-    --
-    --     * @FOMIA@ (Federation of mutual insurance associations)
-    --
-    --
-    --     * @INC@ (Incorporated)
-    --
-    --
-    --     * @LTD@ (Limited)
-    --
-    --
-    --     * @LTEE@ (Limitée)
-    --
-    --
-    --     * @LLC@ (Limited liability corporation)
-    --
-    --
-    --     * @LLP@ (Limited liability partnership)
-    --
-    --
-    --     * @LTE@ (Lte.)
-    --
-    --
-    --     * @MBA@ (Mutual benefit association)
-    --
-    --
-    --     * @MIC@ (Mutual insurance company)
-    --
-    --
-    --     * @NFP@ (Not-for-profit corporation)
-    --
-    --
-    --     * @SA@ (S.A.)
-    --
-    --
-    --     * @SAVINGS_COMPANY@ (Savings company)
-    --
-    --
-    --     * @SAVINGS_UNION@ (Savings union)
-    --
-    --
-    --     * @SARL@ (Société à responsabilité limitée)
-    --
-    --
-    --     * @TRUST@ (Trust)
-    --
-    --
-    --     * @ULC@ (Unlimited liability corporation)
-    --
-    --
-    --
-    --
-    --     * @CA_LEGAL_TYPE@
-    -- When @ContactType@ is @PERSON@ , valid values include the following:
-    --
-    --     * @ABO@ (Aboriginal Peoples indigenous to Canada)
-    --
-    --
-    --     * @CCT@ (Canadian citizen)
-    --
-    --
-    --     * @LGR@ (Legal Representative of a Canadian Citizen or Permanent Resident)
-    --
-    --
-    --     * @RES@ (Permanent resident of Canada)
-    --
-    --
-    -- When @ContactType@ is a value other than @PERSON@ , valid values include the following:
-    --
-    --     * @ASS@ (Canadian unincorporated association)
-    --
-    --
-    --     * @CCO@ (Canadian corporation)
-    --
-    --
-    --     * @EDU@ (Canadian educational institution)
-    --
-    --
-    --     * @GOV@ (Government or government entity in Canada)
-    --
-    --
-    --     * @HOP@ (Canadian Hospital)
-    --
-    --
-    --     * @INB@ (Indian Band recognized by the Indian Act of Canada)
-    --
-    --
-    --     * @LAM@ (Canadian Library, Archive, or Museum)
-    --
-    --
-    --     * @MAJ@ (Her/His Majesty the Queen/King)
-    --
-    --
-    --     * @OMK@ (Official mark registered in Canada)
-    --
-    --
-    --     * @PLT@ (Canadian Political Party)
-    --
-    --
-    --     * @PRT@ (Partnership Registered in Canada)
-    --
-    --
-    --     * @TDM@ (Trademark registered in Canada)
-    --
-    --
-    --     * @TRD@ (Canadian Trade Union)
-    --
-    --
-    --     * @TRS@ (Trust established in Canada)
-    --
-    --
-    --
-    --
-    --
-    --
-    --     * .es
-    --
-    --     *
-    --     * @ES_IDENTIFICATION@
-    -- Specify the applicable value:
-    --
-    --     * __For contacts inside Spain:__ Enter your passport ID.
-    --
-    --
-    --     * __For contacts outside of Spain:__ Enter the VAT identification number for the company.
-    --
-    --
-    --
-    --
-    --     * @ES_IDENTIFICATION_TYPE@
-    -- Valid values include the following:
-    --
-    --     * @DNI_AND_NIF@ (For Spanish contacts)
-    --
-    --
-    --     * @NIE@ (For foreigners with legal residence)
-    --
-    --
-    --     * @OTHER@ (For contacts outside of Spain)
-    --
-    --
-    --
-    --
-    --     * @ES_LEGAL_FORM@
-    -- Valid values include the following:
-    --
-    --     * @ASSOCIATION@
-    --
-    --
-    --     * @CENTRAL_GOVERNMENT_BODY@
-    --
-    --
-    --     * @CIVIL_SOCIETY@
-    --
-    --
-    --     * @COMMUNITY_OF_OWNERS@
-    --
-    --
-    --     * @COMMUNITY_PROPERTY@
-    --
-    --
-    --     * @CONSULATE@
-    --
-    --
-    --     * @COOPERATIVE@
-    --
-    --
-    --     * @DESIGNATION_OF_ORIGIN_SUPERVISORY_COUNCIL@
-    --
-    --
-    --     * @ECONOMIC_INTEREST_GROUP@
-    --
-    --
-    --     * @EMBASSY@
-    --
-    --
-    --     * @ENTITY_MANAGING_NATURAL_AREAS@
-    --
-    --
-    --     * @FARM_PARTNERSHIP@
-    --
-    --
-    --     * @FOUNDATION@
-    --
-    --
-    --     * @GENERAL_AND_LIMITED_PARTNERSHIP@
-    --
-    --
-    --     * @GENERAL_PARTNERSHIP@
-    --
-    --
-    --     * @INDIVIDUAL@
-    --
-    --
-    --     * @LIMITED_COMPANY@
-    --
-    --
-    --     * @LOCAL_AUTHORITY@
-    --
-    --
-    --     * @LOCAL_PUBLIC_ENTITY@
-    --
-    --
-    --     * @MUTUAL_INSURANCE_COMPANY@
-    --
-    --
-    --     * @NATIONAL_PUBLIC_ENTITY@
-    --
-    --
-    --     * @ORDER_OR_RELIGIOUS_INSTITUTION@
-    --
-    --
-    --     * @OTHERS (Only for contacts outside of Spain)@
-    --
-    --
-    --     * @POLITICAL_PARTY@
-    --
-    --
-    --     * @PROFESSIONAL_ASSOCIATION@
-    --
-    --
-    --     * @PUBLIC_LAW_ASSOCIATION@
-    --
-    --
-    --     * @PUBLIC_LIMITED_COMPANY@
-    --
-    --
-    --     * @REGIONAL_GOVERNMENT_BODY@
-    --
-    --
-    --     * @REGIONAL_PUBLIC_ENTITY@
-    --
-    --
-    --     * @SAVINGS_BANK@
-    --
-    --
-    --     * @SPANISH_OFFICE@
-    --
-    --
-    --     * @SPORTS_ASSOCIATION@
-    --
-    --
-    --     * @SPORTS_FEDERATION@
-    --
-    --
-    --     * @SPORTS_LIMITED_COMPANY@
-    --
-    --
-    --     * @TEMPORARY_ALLIANCE_OF_ENTERPRISES@
-    --
-    --
-    --     * @TRADE_UNION@
-    --
-    --
-    --     * @WORKER_OWNED_COMPANY@
-    --
-    --
-    --     * @WORKER_OWNED_LIMITED_COMPANY@
-    --
-    --
-    --
-    --
-    --
-    --
-    --     * .fi
-    --
-    --     *
-    --     * @BIRTH_DATE_IN_YYYY_MM_DD@
-    --
-    --
-    --     * @FI_BUSINESS_NUMBER@
-    --
-    --
-    --     * @FI_ID_NUMBER@
-    --
-    --
-    --     * @FI_NATIONALITY@
-    -- Valid values include the following:
-    --
-    --     * @FINNISH@
-    --
-    --
-    --     * @NOT_FINNISH@
-    --
-    --
-    --
-    --
-    --     * @FI_ORGANIZATION_TYPE@
-    -- Valid values include the following:
-    --
-    --     * @COMPANY@
-    --
-    --
-    --     * @CORPORATION@
-    --
-    --
-    --     * @GOVERNMENT@
-    --
-    --
-    --     * @INSTITUTION@
-    --
-    --
-    --     * @POLITICAL_PARTY@
-    --
-    --
-    --     * @PUBLIC_COMMUNITY@
-    --
-    --
-    --     * @TOWNSHIP@
-    --
-    --
-    --
-    --
-    --
-    --
-    --     * .fr
-    --
-    --     *
-    --     * @BIRTH_CITY@
-    --
-    --
-    --     * @BIRTH_COUNTRY@
-    --
-    --
-    --     * @BIRTH_DATE_IN_YYYY_MM_DD@
-    --
-    --
-    --     * @BIRTH_DEPARTMENT@ : Specify the INSEE code that corresponds with the department where the contact was born. If the contact was born somewhere other than France or its overseas departments, specify @99@ . For more information, including a list of departments and the corresponding INSEE numbers, see the Wikipedia entry <https://en.wikipedia.org/wiki/Departments_of_France Departments of France> .
-    --
-    --
-    --     * @BRAND_NUMBER@
-    --
-    --
-    --
-    --
-    --     * .it
-    --
-    --     *
-    --     * @IT_NATIONALITY@
-    --
-    --
-    --     * @IT_PIN@
-    --
-    --
-    --     * @IT_REGISTRANT_ENTITY_TYPE@
-    -- Valid values include the following:
-    --
-    --     * @FOREIGNERS@
-    --
-    --
-    --     * @FREELANCE_WORKERS@ (Freelance workers and professionals)
-    --
-    --
-    --     * @ITALIAN_COMPANIES@ (Italian companies and one-person companies)
-    --
-    --
-    --     * @NON_PROFIT_ORGANIZATIONS@
-    --
-    --
-    --     * @OTHER_SUBJECTS@
-    --
-    --
-    --     * @PUBLIC_ORGANIZATIONS@
-    --
-    --
-    --
-    --
-    --
-    --
-    --     * .ru
-    --
-    --     *
-    --     * @BIRTH_DATE_IN_YYYY_MM_DD@
-    --
-    --
-    --     * @RU_PASSPORT_DATA@
-    --
-    --
-    --
-    --
-    --     * .se
-    --
-    --     *
-    --     * @BIRTH_COUNTRY@
-    --
-    --
-    --     * @SE_ID_NUMBER@
-    --
-    --
-    --
-    --
-    --     * .sg
-    --
-    --     *
-    --     * @SG_ID_NUMBER@
-    --
-    --
-    --
-    --
-    --     * .co.uk, .me.uk, and .org.uk
-    --
-    --     *
-    --     * @UK_CONTACT_TYPE@
-    -- Valid values include the following:
-    --
-    --     * @CRC@ (UK Corporation by Royal Charter)
-    --
-    --
-    --     * @FCORP@ (Non-UK Corporation)
-    --
-    --
-    --     * @FIND@ (Non-UK Individual, representing self)
-    --
-    --
-    --     * @FOTHER@ (Non-UK Entity that does not fit into any other category)
-    --
-    --
-    --     * @GOV@ (UK Government Body)
-    --
-    --
-    --     * @IND@ (UK Individual (representing self))
-    --
-    --
-    --     * @IP@ (UK Industrial/Provident Registered Company)
-    --
-    --
-    --     * @LLP@ (UK Limited Liability Partnership)
-    --
-    --
-    --     * @LTD@ (UK Limited Company)
-    --
-    --
-    --     * @OTHER@ (UK Entity that does not fit into any other category)
-    --
-    --
-    --     * @PLC@ (UK Public Limited Company)
-    --
-    --
-    --     * @PTNR@ (UK Partnership)
-    --
-    --
-    --     * @RCHAR@ (UK Registered Charity)
-    --
-    --
-    --     * @SCH@ (UK School)
-    --
-    --
-    --     * @STAT@ (UK Statutory Body)
-    --
-    --
-    --     * @STRA@ (UK Sole Trader)
-    --
-    --
-    --
-    --
-    --     * @UK_COMPANY_NUMBER@
-    --
-    --
-    --
-    --
-    -- In addition, many TLDs require a @VAT_NUMBER@ .
-    name :: Types.ExtraParamName,
-    -- | The value that corresponds with the name of an extra parameter.
-    value :: Types.Value
-  }
-  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.Hashable, Core.NFData)
-
--- | Creates a 'ExtraParam' value with any optional fields omitted.
-mkExtraParam ::
-  -- | 'name'
-  Types.ExtraParamName ->
-  -- | 'value'
-  Types.Value ->
-  ExtraParam
-mkExtraParam name value = ExtraParam' {name, value}
-
--- | The name of an additional parameter that is required by a top-level domain. Here are the top-level domains that require additional parameters and the names of the parameters that they require:
+  { name :: Types.ExtraParamName
+    -- ^ The name of an additional parameter that is required by a top-level domain. Here are the top-level domains that require additional parameters and the names of the parameters that they require:
 --
 --
 --     * .com.au and .net.au
 --
---     *
---     * @AU_ID_NUMBER@
+--     * 
+--     * @AU_ID_NUMBER@ 
 --
 --
---     * @AU_ID_TYPE@
+--     * @AU_ID_TYPE@ 
 -- Valid values include the following:
 --
 --     * @ABN@ (Australian business number)
@@ -591,11 +57,11 @@ mkExtraParam name value = ExtraParam' {name, value}
 --
 --     * .ca
 --
---     *
---     * @BRAND_NUMBER@
+--     * 
+--     * @BRAND_NUMBER@ 
 --
 --
---     * @CA_BUSINESS_ENTITY_TYPE@
+--     * @CA_BUSINESS_ENTITY_TYPE@ 
 -- Valid values include the following:
 --
 --     * @BANK@ (Bank)
@@ -672,7 +138,7 @@ mkExtraParam name value = ExtraParam' {name, value}
 --
 --
 --
---     * @CA_LEGAL_TYPE@
+--     * @CA_LEGAL_TYPE@ 
 -- When @ContactType@ is @PERSON@ , valid values include the following:
 --
 --     * @ABO@ (Aboriginal Peoples indigenous to Canada)
@@ -737,8 +203,8 @@ mkExtraParam name value = ExtraParam' {name, value}
 --
 --     * .es
 --
---     *
---     * @ES_IDENTIFICATION@
+--     * 
+--     * @ES_IDENTIFICATION@ 
 -- Specify the applicable value:
 --
 --     * __For contacts inside Spain:__ Enter your passport ID.
@@ -749,7 +215,7 @@ mkExtraParam name value = ExtraParam' {name, value}
 --
 --
 --
---     * @ES_IDENTIFICATION_TYPE@
+--     * @ES_IDENTIFICATION_TYPE@ 
 -- Valid values include the following:
 --
 --     * @DNI_AND_NIF@ (For Spanish contacts)
@@ -763,121 +229,121 @@ mkExtraParam name value = ExtraParam' {name, value}
 --
 --
 --
---     * @ES_LEGAL_FORM@
+--     * @ES_LEGAL_FORM@ 
 -- Valid values include the following:
 --
---     * @ASSOCIATION@
+--     * @ASSOCIATION@ 
 --
 --
---     * @CENTRAL_GOVERNMENT_BODY@
+--     * @CENTRAL_GOVERNMENT_BODY@ 
 --
 --
---     * @CIVIL_SOCIETY@
+--     * @CIVIL_SOCIETY@ 
 --
 --
---     * @COMMUNITY_OF_OWNERS@
+--     * @COMMUNITY_OF_OWNERS@ 
 --
 --
---     * @COMMUNITY_PROPERTY@
+--     * @COMMUNITY_PROPERTY@ 
 --
 --
---     * @CONSULATE@
+--     * @CONSULATE@ 
 --
 --
---     * @COOPERATIVE@
+--     * @COOPERATIVE@ 
 --
 --
---     * @DESIGNATION_OF_ORIGIN_SUPERVISORY_COUNCIL@
+--     * @DESIGNATION_OF_ORIGIN_SUPERVISORY_COUNCIL@ 
 --
 --
---     * @ECONOMIC_INTEREST_GROUP@
+--     * @ECONOMIC_INTEREST_GROUP@ 
 --
 --
---     * @EMBASSY@
+--     * @EMBASSY@ 
 --
 --
---     * @ENTITY_MANAGING_NATURAL_AREAS@
+--     * @ENTITY_MANAGING_NATURAL_AREAS@ 
 --
 --
---     * @FARM_PARTNERSHIP@
+--     * @FARM_PARTNERSHIP@ 
 --
 --
---     * @FOUNDATION@
+--     * @FOUNDATION@ 
 --
 --
---     * @GENERAL_AND_LIMITED_PARTNERSHIP@
+--     * @GENERAL_AND_LIMITED_PARTNERSHIP@ 
 --
 --
---     * @GENERAL_PARTNERSHIP@
+--     * @GENERAL_PARTNERSHIP@ 
 --
 --
---     * @INDIVIDUAL@
+--     * @INDIVIDUAL@ 
 --
 --
---     * @LIMITED_COMPANY@
+--     * @LIMITED_COMPANY@ 
 --
 --
---     * @LOCAL_AUTHORITY@
+--     * @LOCAL_AUTHORITY@ 
 --
 --
---     * @LOCAL_PUBLIC_ENTITY@
+--     * @LOCAL_PUBLIC_ENTITY@ 
 --
 --
---     * @MUTUAL_INSURANCE_COMPANY@
+--     * @MUTUAL_INSURANCE_COMPANY@ 
 --
 --
---     * @NATIONAL_PUBLIC_ENTITY@
+--     * @NATIONAL_PUBLIC_ENTITY@ 
 --
 --
---     * @ORDER_OR_RELIGIOUS_INSTITUTION@
+--     * @ORDER_OR_RELIGIOUS_INSTITUTION@ 
 --
 --
---     * @OTHERS (Only for contacts outside of Spain)@
+--     * @OTHERS (Only for contacts outside of Spain)@ 
 --
 --
---     * @POLITICAL_PARTY@
+--     * @POLITICAL_PARTY@ 
 --
 --
---     * @PROFESSIONAL_ASSOCIATION@
+--     * @PROFESSIONAL_ASSOCIATION@ 
 --
 --
---     * @PUBLIC_LAW_ASSOCIATION@
+--     * @PUBLIC_LAW_ASSOCIATION@ 
 --
 --
---     * @PUBLIC_LIMITED_COMPANY@
+--     * @PUBLIC_LIMITED_COMPANY@ 
 --
 --
---     * @REGIONAL_GOVERNMENT_BODY@
+--     * @REGIONAL_GOVERNMENT_BODY@ 
 --
 --
---     * @REGIONAL_PUBLIC_ENTITY@
+--     * @REGIONAL_PUBLIC_ENTITY@ 
 --
 --
---     * @SAVINGS_BANK@
+--     * @SAVINGS_BANK@ 
 --
 --
---     * @SPANISH_OFFICE@
+--     * @SPANISH_OFFICE@ 
 --
 --
---     * @SPORTS_ASSOCIATION@
+--     * @SPORTS_ASSOCIATION@ 
 --
 --
---     * @SPORTS_FEDERATION@
+--     * @SPORTS_FEDERATION@ 
 --
 --
---     * @SPORTS_LIMITED_COMPANY@
+--     * @SPORTS_LIMITED_COMPANY@ 
 --
 --
---     * @TEMPORARY_ALLIANCE_OF_ENTERPRISES@
+--     * @TEMPORARY_ALLIANCE_OF_ENTERPRISES@ 
 --
 --
---     * @TRADE_UNION@
+--     * @TRADE_UNION@ 
 --
 --
---     * @WORKER_OWNED_COMPANY@
+--     * @WORKER_OWNED_COMPANY@ 
 --
 --
---     * @WORKER_OWNED_LIMITED_COMPANY@
+--     * @WORKER_OWNED_LIMITED_COMPANY@ 
 --
 --
 --
@@ -886,49 +352,49 @@ mkExtraParam name value = ExtraParam' {name, value}
 --
 --     * .fi
 --
---     *
---     * @BIRTH_DATE_IN_YYYY_MM_DD@
+--     * 
+--     * @BIRTH_DATE_IN_YYYY_MM_DD@ 
 --
 --
---     * @FI_BUSINESS_NUMBER@
+--     * @FI_BUSINESS_NUMBER@ 
 --
 --
---     * @FI_ID_NUMBER@
+--     * @FI_ID_NUMBER@ 
 --
 --
---     * @FI_NATIONALITY@
+--     * @FI_NATIONALITY@ 
 -- Valid values include the following:
 --
---     * @FINNISH@
+--     * @FINNISH@ 
 --
 --
---     * @NOT_FINNISH@
+--     * @NOT_FINNISH@ 
 --
 --
 --
 --
---     * @FI_ORGANIZATION_TYPE@
+--     * @FI_ORGANIZATION_TYPE@ 
 -- Valid values include the following:
 --
---     * @COMPANY@
+--     * @COMPANY@ 
 --
 --
---     * @CORPORATION@
+--     * @CORPORATION@ 
 --
 --
---     * @GOVERNMENT@
+--     * @GOVERNMENT@ 
 --
 --
---     * @INSTITUTION@
+--     * @INSTITUTION@ 
 --
 --
---     * @POLITICAL_PARTY@
+--     * @POLITICAL_PARTY@ 
 --
 --
---     * @PUBLIC_COMMUNITY@
+--     * @PUBLIC_COMMUNITY@ 
 --
 --
---     * @TOWNSHIP@
+--     * @TOWNSHIP@ 
 --
 --
 --
@@ -937,37 +403,37 @@ mkExtraParam name value = ExtraParam' {name, value}
 --
 --     * .fr
 --
---     *
---     * @BIRTH_CITY@
+--     * 
+--     * @BIRTH_CITY@ 
 --
 --
---     * @BIRTH_COUNTRY@
+--     * @BIRTH_COUNTRY@ 
 --
 --
---     * @BIRTH_DATE_IN_YYYY_MM_DD@
+--     * @BIRTH_DATE_IN_YYYY_MM_DD@ 
 --
 --
 --     * @BIRTH_DEPARTMENT@ : Specify the INSEE code that corresponds with the department where the contact was born. If the contact was born somewhere other than France or its overseas departments, specify @99@ . For more information, including a list of departments and the corresponding INSEE numbers, see the Wikipedia entry <https://en.wikipedia.org/wiki/Departments_of_France Departments of France> .
 --
 --
---     * @BRAND_NUMBER@
+--     * @BRAND_NUMBER@ 
 --
 --
 --
 --
 --     * .it
 --
---     *
---     * @IT_NATIONALITY@
+--     * 
+--     * @IT_NATIONALITY@ 
 --
 --
---     * @IT_PIN@
+--     * @IT_PIN@ 
 --
 --
---     * @IT_REGISTRANT_ENTITY_TYPE@
+--     * @IT_REGISTRANT_ENTITY_TYPE@ 
 -- Valid values include the following:
 --
---     * @FOREIGNERS@
+--     * @FOREIGNERS@ 
 --
 --
 --     * @FREELANCE_WORKERS@ (Freelance workers and professionals)
@@ -976,13 +442,13 @@ mkExtraParam name value = ExtraParam' {name, value}
 --     * @ITALIAN_COMPANIES@ (Italian companies and one-person companies)
 --
 --
---     * @NON_PROFIT_ORGANIZATIONS@
+--     * @NON_PROFIT_ORGANIZATIONS@ 
 --
 --
---     * @OTHER_SUBJECTS@
+--     * @OTHER_SUBJECTS@ 
 --
 --
---     * @PUBLIC_ORGANIZATIONS@
+--     * @PUBLIC_ORGANIZATIONS@ 
 --
 --
 --
@@ -991,38 +457,38 @@ mkExtraParam name value = ExtraParam' {name, value}
 --
 --     * .ru
 --
---     *
---     * @BIRTH_DATE_IN_YYYY_MM_DD@
+--     * 
+--     * @BIRTH_DATE_IN_YYYY_MM_DD@ 
 --
 --
---     * @RU_PASSPORT_DATA@
+--     * @RU_PASSPORT_DATA@ 
 --
 --
 --
 --
 --     * .se
 --
---     *
---     * @BIRTH_COUNTRY@
+--     * 
+--     * @BIRTH_COUNTRY@ 
 --
 --
---     * @SE_ID_NUMBER@
+--     * @SE_ID_NUMBER@ 
 --
 --
 --
 --
 --     * .sg
 --
---     *
---     * @SG_ID_NUMBER@
+--     * 
+--     * @SG_ID_NUMBER@ 
 --
 --
 --
 --
 --     * .co.uk, .me.uk, and .org.uk
 --
---     *
---     * @UK_CONTACT_TYPE@
+--     * 
+--     * @UK_CONTACT_TYPE@ 
 -- Valid values include the following:
 --
 --     * @CRC@ (UK Corporation by Royal Charter)
@@ -1075,7 +541,537 @@ mkExtraParam name value = ExtraParam' {name, value}
 --
 --
 --
---     * @UK_COMPANY_NUMBER@
+--     * @UK_COMPANY_NUMBER@ 
+--
+--
+--
+--
+-- In addition, many TLDs require a @VAT_NUMBER@ .
+  , value :: Types.Value
+    -- ^ The value that corresponds with the name of an extra parameter.
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
+
+-- | Creates a 'ExtraParam' value with any optional fields omitted.
+mkExtraParam
+    :: Types.ExtraParamName -- ^ 'name'
+    -> Types.Value -- ^ 'value'
+    -> ExtraParam
+mkExtraParam name value = ExtraParam'{name, value}
+
+-- | The name of an additional parameter that is required by a top-level domain. Here are the top-level domains that require additional parameters and the names of the parameters that they require:
+--
+--
+--     * .com.au and .net.au
+--
+--     * 
+--     * @AU_ID_NUMBER@ 
+--
+--
+--     * @AU_ID_TYPE@ 
+-- Valid values include the following:
+--
+--     * @ABN@ (Australian business number)
+--
+--
+--     * @ACN@ (Australian company number)
+--
+--
+--     * @TM@ (Trademark number)
+--
+--
+--
+--
+--
+--
+--     * .ca
+--
+--     * 
+--     * @BRAND_NUMBER@ 
+--
+--
+--     * @CA_BUSINESS_ENTITY_TYPE@ 
+-- Valid values include the following:
+--
+--     * @BANK@ (Bank)
+--
+--
+--     * @COMMERCIAL_COMPANY@ (Commercial company)
+--
+--
+--     * @COMPANY@ (Company)
+--
+--
+--     * @COOPERATION@ (Cooperation)
+--
+--
+--     * @COOPERATIVE@ (Cooperative)
+--
+--
+--     * @COOPRIX@ (Cooprix)
+--
+--
+--     * @CORP@ (Corporation)
+--
+--
+--     * @CREDIT_UNION@ (Credit union)
+--
+--
+--     * @FOMIA@ (Federation of mutual insurance associations)
+--
+--
+--     * @INC@ (Incorporated)
+--
+--
+--     * @LTD@ (Limited)
+--
+--
+--     * @LTEE@ (Limitée)
+--
+--
+--     * @LLC@ (Limited liability corporation)
+--
+--
+--     * @LLP@ (Limited liability partnership)
+--
+--
+--     * @LTE@ (Lte.)
+--
+--
+--     * @MBA@ (Mutual benefit association)
+--
+--
+--     * @MIC@ (Mutual insurance company)
+--
+--
+--     * @NFP@ (Not-for-profit corporation)
+--
+--
+--     * @SA@ (S.A.)
+--
+--
+--     * @SAVINGS_COMPANY@ (Savings company)
+--
+--
+--     * @SAVINGS_UNION@ (Savings union)
+--
+--
+--     * @SARL@ (Société à responsabilité limitée)
+--
+--
+--     * @TRUST@ (Trust)
+--
+--
+--     * @ULC@ (Unlimited liability corporation)
+--
+--
+--
+--
+--     * @CA_LEGAL_TYPE@ 
+-- When @ContactType@ is @PERSON@ , valid values include the following:
+--
+--     * @ABO@ (Aboriginal Peoples indigenous to Canada)
+--
+--
+--     * @CCT@ (Canadian citizen)
+--
+--
+--     * @LGR@ (Legal Representative of a Canadian Citizen or Permanent Resident)
+--
+--
+--     * @RES@ (Permanent resident of Canada)
+--
+--
+-- When @ContactType@ is a value other than @PERSON@ , valid values include the following:
+--
+--     * @ASS@ (Canadian unincorporated association)
+--
+--
+--     * @CCO@ (Canadian corporation)
+--
+--
+--     * @EDU@ (Canadian educational institution)
+--
+--
+--     * @GOV@ (Government or government entity in Canada)
+--
+--
+--     * @HOP@ (Canadian Hospital)
+--
+--
+--     * @INB@ (Indian Band recognized by the Indian Act of Canada)
+--
+--
+--     * @LAM@ (Canadian Library, Archive, or Museum)
+--
+--
+--     * @MAJ@ (Her/His Majesty the Queen/King)
+--
+--
+--     * @OMK@ (Official mark registered in Canada)
+--
+--
+--     * @PLT@ (Canadian Political Party)
+--
+--
+--     * @PRT@ (Partnership Registered in Canada)
+--
+--
+--     * @TDM@ (Trademark registered in Canada)
+--
+--
+--     * @TRD@ (Canadian Trade Union)
+--
+--
+--     * @TRS@ (Trust established in Canada)
+--
+--
+--
+--
+--
+--
+--     * .es
+--
+--     * 
+--     * @ES_IDENTIFICATION@ 
+-- Specify the applicable value:
+--
+--     * __For contacts inside Spain:__ Enter your passport ID.
+--
+--
+--     * __For contacts outside of Spain:__ Enter the VAT identification number for the company.
+--
+--
+--
+--
+--     * @ES_IDENTIFICATION_TYPE@ 
+-- Valid values include the following:
+--
+--     * @DNI_AND_NIF@ (For Spanish contacts)
+--
+--
+--     * @NIE@ (For foreigners with legal residence)
+--
+--
+--     * @OTHER@ (For contacts outside of Spain)
+--
+--
+--
+--
+--     * @ES_LEGAL_FORM@ 
+-- Valid values include the following:
+--
+--     * @ASSOCIATION@ 
+--
+--
+--     * @CENTRAL_GOVERNMENT_BODY@ 
+--
+--
+--     * @CIVIL_SOCIETY@ 
+--
+--
+--     * @COMMUNITY_OF_OWNERS@ 
+--
+--
+--     * @COMMUNITY_PROPERTY@ 
+--
+--
+--     * @CONSULATE@ 
+--
+--
+--     * @COOPERATIVE@ 
+--
+--
+--     * @DESIGNATION_OF_ORIGIN_SUPERVISORY_COUNCIL@ 
+--
+--
+--     * @ECONOMIC_INTEREST_GROUP@ 
+--
+--
+--     * @EMBASSY@ 
+--
+--
+--     * @ENTITY_MANAGING_NATURAL_AREAS@ 
+--
+--
+--     * @FARM_PARTNERSHIP@ 
+--
+--
+--     * @FOUNDATION@ 
+--
+--
+--     * @GENERAL_AND_LIMITED_PARTNERSHIP@ 
+--
+--
+--     * @GENERAL_PARTNERSHIP@ 
+--
+--
+--     * @INDIVIDUAL@ 
+--
+--
+--     * @LIMITED_COMPANY@ 
+--
+--
+--     * @LOCAL_AUTHORITY@ 
+--
+--
+--     * @LOCAL_PUBLIC_ENTITY@ 
+--
+--
+--     * @MUTUAL_INSURANCE_COMPANY@ 
+--
+--
+--     * @NATIONAL_PUBLIC_ENTITY@ 
+--
+--
+--     * @ORDER_OR_RELIGIOUS_INSTITUTION@ 
+--
+--
+--     * @OTHERS (Only for contacts outside of Spain)@ 
+--
+--
+--     * @POLITICAL_PARTY@ 
+--
+--
+--     * @PROFESSIONAL_ASSOCIATION@ 
+--
+--
+--     * @PUBLIC_LAW_ASSOCIATION@ 
+--
+--
+--     * @PUBLIC_LIMITED_COMPANY@ 
+--
+--
+--     * @REGIONAL_GOVERNMENT_BODY@ 
+--
+--
+--     * @REGIONAL_PUBLIC_ENTITY@ 
+--
+--
+--     * @SAVINGS_BANK@ 
+--
+--
+--     * @SPANISH_OFFICE@ 
+--
+--
+--     * @SPORTS_ASSOCIATION@ 
+--
+--
+--     * @SPORTS_FEDERATION@ 
+--
+--
+--     * @SPORTS_LIMITED_COMPANY@ 
+--
+--
+--     * @TEMPORARY_ALLIANCE_OF_ENTERPRISES@ 
+--
+--
+--     * @TRADE_UNION@ 
+--
+--
+--     * @WORKER_OWNED_COMPANY@ 
+--
+--
+--     * @WORKER_OWNED_LIMITED_COMPANY@ 
+--
+--
+--
+--
+--
+--
+--     * .fi
+--
+--     * 
+--     * @BIRTH_DATE_IN_YYYY_MM_DD@ 
+--
+--
+--     * @FI_BUSINESS_NUMBER@ 
+--
+--
+--     * @FI_ID_NUMBER@ 
+--
+--
+--     * @FI_NATIONALITY@ 
+-- Valid values include the following:
+--
+--     * @FINNISH@ 
+--
+--
+--     * @NOT_FINNISH@ 
+--
+--
+--
+--
+--     * @FI_ORGANIZATION_TYPE@ 
+-- Valid values include the following:
+--
+--     * @COMPANY@ 
+--
+--
+--     * @CORPORATION@ 
+--
+--
+--     * @GOVERNMENT@ 
+--
+--
+--     * @INSTITUTION@ 
+--
+--
+--     * @POLITICAL_PARTY@ 
+--
+--
+--     * @PUBLIC_COMMUNITY@ 
+--
+--
+--     * @TOWNSHIP@ 
+--
+--
+--
+--
+--
+--
+--     * .fr
+--
+--     * 
+--     * @BIRTH_CITY@ 
+--
+--
+--     * @BIRTH_COUNTRY@ 
+--
+--
+--     * @BIRTH_DATE_IN_YYYY_MM_DD@ 
+--
+--
+--     * @BIRTH_DEPARTMENT@ : Specify the INSEE code that corresponds with the department where the contact was born. If the contact was born somewhere other than France or its overseas departments, specify @99@ . For more information, including a list of departments and the corresponding INSEE numbers, see the Wikipedia entry <https://en.wikipedia.org/wiki/Departments_of_France Departments of France> .
+--
+--
+--     * @BRAND_NUMBER@ 
+--
+--
+--
+--
+--     * .it
+--
+--     * 
+--     * @IT_NATIONALITY@ 
+--
+--
+--     * @IT_PIN@ 
+--
+--
+--     * @IT_REGISTRANT_ENTITY_TYPE@ 
+-- Valid values include the following:
+--
+--     * @FOREIGNERS@ 
+--
+--
+--     * @FREELANCE_WORKERS@ (Freelance workers and professionals)
+--
+--
+--     * @ITALIAN_COMPANIES@ (Italian companies and one-person companies)
+--
+--
+--     * @NON_PROFIT_ORGANIZATIONS@ 
+--
+--
+--     * @OTHER_SUBJECTS@ 
+--
+--
+--     * @PUBLIC_ORGANIZATIONS@ 
+--
+--
+--
+--
+--
+--
+--     * .ru
+--
+--     * 
+--     * @BIRTH_DATE_IN_YYYY_MM_DD@ 
+--
+--
+--     * @RU_PASSPORT_DATA@ 
+--
+--
+--
+--
+--     * .se
+--
+--     * 
+--     * @BIRTH_COUNTRY@ 
+--
+--
+--     * @SE_ID_NUMBER@ 
+--
+--
+--
+--
+--     * .sg
+--
+--     * 
+--     * @SG_ID_NUMBER@ 
+--
+--
+--
+--
+--     * .co.uk, .me.uk, and .org.uk
+--
+--     * 
+--     * @UK_CONTACT_TYPE@ 
+-- Valid values include the following:
+--
+--     * @CRC@ (UK Corporation by Royal Charter)
+--
+--
+--     * @FCORP@ (Non-UK Corporation)
+--
+--
+--     * @FIND@ (Non-UK Individual, representing self)
+--
+--
+--     * @FOTHER@ (Non-UK Entity that does not fit into any other category)
+--
+--
+--     * @GOV@ (UK Government Body)
+--
+--
+--     * @IND@ (UK Individual (representing self))
+--
+--
+--     * @IP@ (UK Industrial/Provident Registered Company)
+--
+--
+--     * @LLP@ (UK Limited Liability Partnership)
+--
+--
+--     * @LTD@ (UK Limited Company)
+--
+--
+--     * @OTHER@ (UK Entity that does not fit into any other category)
+--
+--
+--     * @PLC@ (UK Public Limited Company)
+--
+--
+--     * @PTNR@ (UK Partnership)
+--
+--
+--     * @RCHAR@ (UK Registered Charity)
+--
+--
+--     * @SCH@ (UK School)
+--
+--
+--     * @STAT@ (UK Statutory Body)
+--
+--
+--     * @STRA@ (UK Sole Trader)
+--
+--
+--
+--
+--     * @UK_COMPANY_NUMBER@ 
 --
 --
 --
@@ -1085,27 +1081,26 @@ mkExtraParam name value = ExtraParam' {name, value}
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 epName :: Lens.Lens' ExtraParam Types.ExtraParamName
 epName = Lens.field @"name"
-{-# DEPRECATED epName "Use generic-lens or generic-optics with 'name' instead." #-}
+{-# INLINEABLE epName #-}
+{-# DEPRECATED name "Use generic-lens or generic-optics with 'name' instead"  #-}
 
 -- | The value that corresponds with the name of an extra parameter.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 epValue :: Lens.Lens' ExtraParam Types.Value
 epValue = Lens.field @"value"
-{-# DEPRECATED epValue "Use generic-lens or generic-optics with 'value' instead." #-}
+{-# INLINEABLE epValue #-}
+{-# DEPRECATED value "Use generic-lens or generic-optics with 'value' instead"  #-}
 
 instance Core.FromJSON ExtraParam where
-  toJSON ExtraParam {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Name" Core..= name),
-            Core.Just ("Value" Core..= value)
-          ]
-      )
+        toJSON ExtraParam{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("Name" Core..= name),
+                  Core.Just ("Value" Core..= value)])
 
 instance Core.FromJSON ExtraParam where
-  parseJSON =
-    Core.withObject "ExtraParam" Core.$
-      \x ->
-        ExtraParam'
-          Core.<$> (x Core..: "Name") Core.<*> (x Core..: "Value")
+        parseJSON
+          = Core.withObject "ExtraParam" Core.$
+              \ x ->
+                ExtraParam' Core.<$> (x Core..: "Name") Core.<*> x Core..: "Value"

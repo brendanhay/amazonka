@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CloudFront.Types.ActiveTrustedKeyGroups
-  ( ActiveTrustedKeyGroups (..),
-
-    -- * Smart constructor
-    mkActiveTrustedKeyGroups,
-
-    -- * Lenses
-    atkgEnabled,
-    atkgQuantity,
-    atkgItems,
-  )
-where
+  ( ActiveTrustedKeyGroups (..)
+  -- * Smart constructor
+  , mkActiveTrustedKeyGroups
+  -- * Lenses
+  , atkgEnabled
+  , atkgQuantity
+  , atkgItems
+  ) where
 
 import qualified Network.AWS.CloudFront.Types.KGKeyPairIds as Types
 import qualified Network.AWS.Lens as Lens
@@ -31,50 +29,50 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkActiveTrustedKeyGroups' smart constructor.
 data ActiveTrustedKeyGroups = ActiveTrustedKeyGroups'
-  { -- | This field is @true@ if any of the key groups have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is @false@ .
-    enabled :: Core.Bool,
-    -- | The number of key groups in the list.
-    quantity :: Core.Int,
-    -- | A list of key groups, including the identifiers of the public keys in each key group that CloudFront can use to verify the signatures of signed URLs and signed cookies.
-    items :: Core.Maybe [Types.KGKeyPairIds]
+  { enabled :: Core.Bool
+    -- ^ This field is @true@ if any of the key groups have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is @false@ .
+  , quantity :: Core.Int
+    -- ^ The number of key groups in the list.
+  , items :: Core.Maybe [Types.KGKeyPairIds]
+    -- ^ A list of key groups, including the identifiers of the public keys in each key group that CloudFront can use to verify the signatures of signed URLs and signed cookies.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ActiveTrustedKeyGroups' value with any optional fields omitted.
-mkActiveTrustedKeyGroups ::
-  -- | 'enabled'
-  Core.Bool ->
-  -- | 'quantity'
-  Core.Int ->
-  ActiveTrustedKeyGroups
-mkActiveTrustedKeyGroups enabled quantity =
-  ActiveTrustedKeyGroups' {enabled, quantity, items = Core.Nothing}
+mkActiveTrustedKeyGroups
+    :: Core.Bool -- ^ 'enabled'
+    -> Core.Int -- ^ 'quantity'
+    -> ActiveTrustedKeyGroups
+mkActiveTrustedKeyGroups enabled quantity
+  = ActiveTrustedKeyGroups'{enabled, quantity, items = Core.Nothing}
 
 -- | This field is @true@ if any of the key groups have public keys that CloudFront can use to verify the signatures of signed URLs and signed cookies. If not, this field is @false@ .
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 atkgEnabled :: Lens.Lens' ActiveTrustedKeyGroups Core.Bool
 atkgEnabled = Lens.field @"enabled"
-{-# DEPRECATED atkgEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+{-# INLINEABLE atkgEnabled #-}
+{-# DEPRECATED enabled "Use generic-lens or generic-optics with 'enabled' instead"  #-}
 
 -- | The number of key groups in the list.
 --
 -- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 atkgQuantity :: Lens.Lens' ActiveTrustedKeyGroups Core.Int
 atkgQuantity = Lens.field @"quantity"
-{-# DEPRECATED atkgQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
+{-# INLINEABLE atkgQuantity #-}
+{-# DEPRECATED quantity "Use generic-lens or generic-optics with 'quantity' instead"  #-}
 
 -- | A list of key groups, including the identifiers of the public keys in each key group that CloudFront can use to verify the signatures of signed URLs and signed cookies.
 --
 -- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 atkgItems :: Lens.Lens' ActiveTrustedKeyGroups (Core.Maybe [Types.KGKeyPairIds])
 atkgItems = Lens.field @"items"
-{-# DEPRECATED atkgItems "Use generic-lens or generic-optics with 'items' instead." #-}
+{-# INLINEABLE atkgItems #-}
+{-# DEPRECATED items "Use generic-lens or generic-optics with 'items' instead"  #-}
 
 instance Core.FromXML ActiveTrustedKeyGroups where
-  parseXML x =
-    ActiveTrustedKeyGroups'
-      Core.<$> (x Core..@ "Enabled")
-      Core.<*> (x Core..@ "Quantity")
-      Core.<*> (x Core..@? "Items" Core..<@> Core.parseXMLList "KeyGroup")
+        parseXML x
+          = ActiveTrustedKeyGroups' Core.<$>
+              (x Core..@ "Enabled") Core.<*> x Core..@ "Quantity" Core.<*>
+                x Core..@? "Items" Core..<@> Core.parseXMLList "KeyGroup"

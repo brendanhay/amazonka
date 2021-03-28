@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,21 +17,19 @@
 --
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.VerifyEmailIdentity
-  ( -- * Creating a request
-    VerifyEmailIdentity (..),
-    mkVerifyEmailIdentity,
-
+    (
+    -- * Creating a request
+      VerifyEmailIdentity (..)
+    , mkVerifyEmailIdentity
     -- ** Request lenses
-    veiEmailAddress,
+    , veiEmailAddress
 
     -- * Destructuring the response
-    VerifyEmailIdentityResponse (..),
-    mkVerifyEmailIdentityResponse,
-
+    , VerifyEmailIdentityResponse (..)
+    , mkVerifyEmailIdentityResponse
     -- ** Response lenses
-    veirrsResponseStatus,
-  )
-where
+    , veirrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -43,76 +41,79 @@ import qualified Network.AWS.SES.Types as Types
 --
 -- /See:/ 'mkVerifyEmailIdentity' smart constructor.
 newtype VerifyEmailIdentity = VerifyEmailIdentity'
-  { -- | The email address to be verified.
-    emailAddress :: Types.Address
+  { emailAddress :: Types.Address
+    -- ^ The email address to be verified.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'VerifyEmailIdentity' value with any optional fields omitted.
-mkVerifyEmailIdentity ::
-  -- | 'emailAddress'
-  Types.Address ->
-  VerifyEmailIdentity
-mkVerifyEmailIdentity emailAddress =
-  VerifyEmailIdentity' {emailAddress}
+mkVerifyEmailIdentity
+    :: Types.Address -- ^ 'emailAddress'
+    -> VerifyEmailIdentity
+mkVerifyEmailIdentity emailAddress
+  = VerifyEmailIdentity'{emailAddress}
 
 -- | The email address to be verified.
 --
 -- /Note:/ Consider using 'emailAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 veiEmailAddress :: Lens.Lens' VerifyEmailIdentity Types.Address
 veiEmailAddress = Lens.field @"emailAddress"
-{-# DEPRECATED veiEmailAddress "Use generic-lens or generic-optics with 'emailAddress' instead." #-}
+{-# INLINEABLE veiEmailAddress #-}
+{-# DEPRECATED emailAddress "Use generic-lens or generic-optics with 'emailAddress' instead"  #-}
+
+instance Core.ToQuery VerifyEmailIdentity where
+        toQuery VerifyEmailIdentity{..}
+          = Core.toQueryPair "Action" ("VerifyEmailIdentity" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2010-12-01" :: Core.Text)
+              Core.<> Core.toQueryPair "EmailAddress" emailAddress
+
+instance Core.ToHeaders VerifyEmailIdentity where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest VerifyEmailIdentity where
-  type Rs VerifyEmailIdentity = VerifyEmailIdentityResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "VerifyEmailIdentity")
-                Core.<> (Core.pure ("Version", "2010-12-01"))
-                Core.<> (Core.toQueryValue "EmailAddress" emailAddress)
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "VerifyEmailIdentityResult"
-      ( \s h x ->
-          VerifyEmailIdentityResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs VerifyEmailIdentity = VerifyEmailIdentityResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "VerifyEmailIdentityResult"
+              (\ s h x ->
+                 VerifyEmailIdentityResponse' Core.<$>
+                   (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkVerifyEmailIdentityResponse' smart constructor.
 newtype VerifyEmailIdentityResponse = VerifyEmailIdentityResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'VerifyEmailIdentityResponse' value with any optional fields omitted.
-mkVerifyEmailIdentityResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  VerifyEmailIdentityResponse
-mkVerifyEmailIdentityResponse responseStatus =
-  VerifyEmailIdentityResponse' {responseStatus}
+mkVerifyEmailIdentityResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> VerifyEmailIdentityResponse
+mkVerifyEmailIdentityResponse responseStatus
+  = VerifyEmailIdentityResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 veirrsResponseStatus :: Lens.Lens' VerifyEmailIdentityResponse Core.Int
 veirrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED veirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE veirrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

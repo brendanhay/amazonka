@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,145 +10,146 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __AWS Organizations__
+-- __AWS Organizations__ 
 module Network.AWS.Organizations
-  ( -- * Service configuration
-    mkServiceConfig,
+    (
+    -- * Service configuration
+      mkServiceConfig
 
     -- * Errors
     -- $errors
 
     -- ** PolicyNotFoundException
-    _PolicyNotFoundException,
+    , _PolicyNotFoundException
 
     -- ** PolicyTypeAlreadyEnabledException
-    _PolicyTypeAlreadyEnabledException,
+    , _PolicyTypeAlreadyEnabledException
 
     -- ** HandshakeConstraintViolationException
-    _HandshakeConstraintViolationException,
+    , _HandshakeConstraintViolationException
 
     -- ** AccessDeniedException
-    _AccessDeniedException,
+    , _AccessDeniedException
 
     -- ** MalformedPolicyDocumentException
-    _MalformedPolicyDocumentException,
+    , _MalformedPolicyDocumentException
 
     -- ** RootNotFoundException
-    _RootNotFoundException,
+    , _RootNotFoundException
 
     -- ** MasterCannotLeaveOrganizationException
-    _MasterCannotLeaveOrganizationException,
+    , _MasterCannotLeaveOrganizationException
 
     -- ** AccountNotFoundException
-    _AccountNotFoundException,
+    , _AccountNotFoundException
 
     -- ** AccountAlreadyRegisteredException
-    _AccountAlreadyRegisteredException,
+    , _AccountAlreadyRegisteredException
 
     -- ** DuplicatePolicyException
-    _DuplicatePolicyException,
+    , _DuplicatePolicyException
 
     -- ** ConstraintViolationException
-    _ConstraintViolationException,
+    , _ConstraintViolationException
 
     -- ** AccountNotRegisteredException
-    _AccountNotRegisteredException,
+    , _AccountNotRegisteredException
 
     -- ** FinalizingOrganizationException
-    _FinalizingOrganizationException,
+    , _FinalizingOrganizationException
 
     -- ** HandshakeNotFoundException
-    _HandshakeNotFoundException,
+    , _HandshakeNotFoundException
 
     -- ** PolicyTypeNotAvailableForOrganizationException
-    _PolicyTypeNotAvailableForOrganizationException,
+    , _PolicyTypeNotAvailableForOrganizationException
 
     -- ** ChildNotFoundException
-    _ChildNotFoundException,
+    , _ChildNotFoundException
 
     -- ** UnsupportedAPIEndpointException
-    _UnsupportedAPIEndpointException,
+    , _UnsupportedAPIEndpointException
 
     -- ** EffectivePolicyNotFoundException
-    _EffectivePolicyNotFoundException,
+    , _EffectivePolicyNotFoundException
 
     -- ** OrganizationalUnitNotFoundException
-    _OrganizationalUnitNotFoundException,
+    , _OrganizationalUnitNotFoundException
 
     -- ** DestinationParentNotFoundException
-    _DestinationParentNotFoundException,
+    , _DestinationParentNotFoundException
 
     -- ** OrganizationNotEmptyException
-    _OrganizationNotEmptyException,
+    , _OrganizationNotEmptyException
 
     -- ** AccountOwnerNotVerifiedException
-    _AccountOwnerNotVerifiedException,
+    , _AccountOwnerNotVerifiedException
 
     -- ** PolicyTypeNotEnabledException
-    _PolicyTypeNotEnabledException,
+    , _PolicyTypeNotEnabledException
 
     -- ** DuplicateHandshakeException
-    _DuplicateHandshakeException,
+    , _DuplicateHandshakeException
 
     -- ** OrganizationalUnitNotEmptyException
-    _OrganizationalUnitNotEmptyException,
+    , _OrganizationalUnitNotEmptyException
 
     -- ** TooManyRequestsException
-    _TooManyRequestsException,
+    , _TooManyRequestsException
 
     -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
+    , _ConcurrentModificationException
 
     -- ** ServiceException
-    _ServiceException,
+    , _ServiceException
 
     -- ** SourceParentNotFoundException
-    _SourceParentNotFoundException,
+    , _SourceParentNotFoundException
 
     -- ** TargetNotFoundException
-    _TargetNotFoundException,
+    , _TargetNotFoundException
 
     -- ** CreateAccountStatusNotFoundException
-    _CreateAccountStatusNotFoundException,
+    , _CreateAccountStatusNotFoundException
 
     -- ** AlreadyInOrganizationException
-    _AlreadyInOrganizationException,
+    , _AlreadyInOrganizationException
 
     -- ** DuplicateOrganizationalUnitException
-    _DuplicateOrganizationalUnitException,
+    , _DuplicateOrganizationalUnitException
 
     -- ** InvalidInputException
-    _InvalidInputException,
+    , _InvalidInputException
 
     -- ** PolicyChangesInProgressException
-    _PolicyChangesInProgressException,
+    , _PolicyChangesInProgressException
 
     -- ** PolicyNotAttachedException
-    _PolicyNotAttachedException,
+    , _PolicyNotAttachedException
 
     -- ** ParentNotFoundException
-    _ParentNotFoundException,
+    , _ParentNotFoundException
 
     -- ** AccessDeniedForDependencyException
-    _AccessDeniedForDependencyException,
+    , _AccessDeniedForDependencyException
 
     -- ** AWSOrganizationsNotInUseException
-    _AWSOrganizationsNotInUseException,
+    , _AWSOrganizationsNotInUseException
 
     -- ** PolicyInUseException
-    _PolicyInUseException,
+    , _PolicyInUseException
 
     -- ** InvalidHandshakeTransitionException
-    _InvalidHandshakeTransitionException,
+    , _InvalidHandshakeTransitionException
 
     -- ** HandshakeAlreadyInStateException
-    _HandshakeAlreadyInStateException,
+    , _HandshakeAlreadyInStateException
 
     -- ** DuplicateAccountException
-    _DuplicateAccountException,
+    , _DuplicateAccountException
 
     -- ** DuplicatePolicyAttachmentException
-    _DuplicatePolicyAttachmentException,
+    , _DuplicatePolicyAttachmentException
 
     -- * Waiters
     -- $waiters
@@ -157,567 +158,569 @@ module Network.AWS.Organizations
     -- $operations
 
     -- ** ListHandshakesForAccount (Paginated)
-    module Network.AWS.Organizations.ListHandshakesForAccount,
+    , module Network.AWS.Organizations.ListHandshakesForAccount
 
-    -- ** DescribeAccount
-    module Network.AWS.Organizations.DescribeAccount,
+    -- ** DescribeAccount 
+    , module Network.AWS.Organizations.DescribeAccount
 
     -- ** ListPolicies (Paginated)
-    module Network.AWS.Organizations.ListPolicies,
+    , module Network.AWS.Organizations.ListPolicies
 
-    -- ** CreatePolicy
-    module Network.AWS.Organizations.CreatePolicy,
+    -- ** CreatePolicy 
+    , module Network.AWS.Organizations.CreatePolicy
 
     -- ** ListRoots (Paginated)
-    module Network.AWS.Organizations.ListRoots,
+    , module Network.AWS.Organizations.ListRoots
 
-    -- ** AcceptHandshake
-    module Network.AWS.Organizations.AcceptHandshake,
+    -- ** AcceptHandshake 
+    , module Network.AWS.Organizations.AcceptHandshake
 
-    -- ** CreateOrganization
-    module Network.AWS.Organizations.CreateOrganization,
+    -- ** CreateOrganization 
+    , module Network.AWS.Organizations.CreateOrganization
 
-    -- ** EnableAllFeatures
-    module Network.AWS.Organizations.EnableAllFeatures,
+    -- ** EnableAllFeatures 
+    , module Network.AWS.Organizations.EnableAllFeatures
 
-    -- ** DeleteOrganization
-    module Network.AWS.Organizations.DeleteOrganization,
+    -- ** DeleteOrganization 
+    , module Network.AWS.Organizations.DeleteOrganization
 
-    -- ** DescribeHandshake
-    module Network.AWS.Organizations.DescribeHandshake,
+    -- ** DescribeHandshake 
+    , module Network.AWS.Organizations.DescribeHandshake
 
     -- ** ListTagsForResource (Paginated)
-    module Network.AWS.Organizations.ListTagsForResource,
+    , module Network.AWS.Organizations.ListTagsForResource
 
-    -- ** DescribePolicy
-    module Network.AWS.Organizations.DescribePolicy,
+    -- ** DescribePolicy 
+    , module Network.AWS.Organizations.DescribePolicy
 
     -- ** ListDelegatedServicesForAccount (Paginated)
-    module Network.AWS.Organizations.ListDelegatedServicesForAccount,
+    , module Network.AWS.Organizations.ListDelegatedServicesForAccount
 
-    -- ** DisableAWSServiceAccess
-    module Network.AWS.Organizations.DisableAWSServiceAccess,
+    -- ** DisableAWSServiceAccess 
+    , module Network.AWS.Organizations.DisableAWSServiceAccess
 
-    -- ** DescribeEffectivePolicy
-    module Network.AWS.Organizations.DescribeEffectivePolicy,
+    -- ** DescribeEffectivePolicy 
+    , module Network.AWS.Organizations.DescribeEffectivePolicy
 
-    -- ** LeaveOrganization
-    module Network.AWS.Organizations.LeaveOrganization,
+    -- ** LeaveOrganization 
+    , module Network.AWS.Organizations.LeaveOrganization
 
-    -- ** MoveAccount
-    module Network.AWS.Organizations.MoveAccount,
+    -- ** MoveAccount 
+    , module Network.AWS.Organizations.MoveAccount
 
     -- ** ListAccounts (Paginated)
-    module Network.AWS.Organizations.ListAccounts,
+    , module Network.AWS.Organizations.ListAccounts
 
-    -- ** InviteAccountToOrganization
-    module Network.AWS.Organizations.InviteAccountToOrganization,
+    -- ** InviteAccountToOrganization 
+    , module Network.AWS.Organizations.InviteAccountToOrganization
 
     -- ** ListAWSServiceAccessForOrganization (Paginated)
-    module Network.AWS.Organizations.ListAWSServiceAccessForOrganization,
+    , module Network.AWS.Organizations.ListAWSServiceAccessForOrganization
 
     -- ** ListOrganizationalUnitsForParent (Paginated)
-    module Network.AWS.Organizations.ListOrganizationalUnitsForParent,
+    , module Network.AWS.Organizations.ListOrganizationalUnitsForParent
 
-    -- ** CancelHandshake
-    module Network.AWS.Organizations.CancelHandshake,
+    -- ** CancelHandshake 
+    , module Network.AWS.Organizations.CancelHandshake
 
     -- ** ListChildren (Paginated)
-    module Network.AWS.Organizations.ListChildren,
+    , module Network.AWS.Organizations.ListChildren
 
     -- ** ListDelegatedAdministrators (Paginated)
-    module Network.AWS.Organizations.ListDelegatedAdministrators,
+    , module Network.AWS.Organizations.ListDelegatedAdministrators
 
-    -- ** DeletePolicy
-    module Network.AWS.Organizations.DeletePolicy,
+    -- ** DeletePolicy 
+    , module Network.AWS.Organizations.DeletePolicy
 
-    -- ** UpdatePolicy
-    module Network.AWS.Organizations.UpdatePolicy,
+    -- ** UpdatePolicy 
+    , module Network.AWS.Organizations.UpdatePolicy
 
-    -- ** EnablePolicyType
-    module Network.AWS.Organizations.EnablePolicyType,
+    -- ** EnablePolicyType 
+    , module Network.AWS.Organizations.EnablePolicyType
 
-    -- ** DisablePolicyType
-    module Network.AWS.Organizations.DisablePolicyType,
+    -- ** DisablePolicyType 
+    , module Network.AWS.Organizations.DisablePolicyType
 
-    -- ** DescribeCreateAccountStatus
-    module Network.AWS.Organizations.DescribeCreateAccountStatus,
+    -- ** DescribeCreateAccountStatus 
+    , module Network.AWS.Organizations.DescribeCreateAccountStatus
 
-    -- ** CreateOrganizationalUnit
-    module Network.AWS.Organizations.CreateOrganizationalUnit,
+    -- ** CreateOrganizationalUnit 
+    , module Network.AWS.Organizations.CreateOrganizationalUnit
 
     -- ** ListAccountsForParent (Paginated)
-    module Network.AWS.Organizations.ListAccountsForParent,
+    , module Network.AWS.Organizations.ListAccountsForParent
 
-    -- ** DetachPolicy
-    module Network.AWS.Organizations.DetachPolicy,
+    -- ** DetachPolicy 
+    , module Network.AWS.Organizations.DetachPolicy
 
-    -- ** RemoveAccountFromOrganization
-    module Network.AWS.Organizations.RemoveAccountFromOrganization,
+    -- ** RemoveAccountFromOrganization 
+    , module Network.AWS.Organizations.RemoveAccountFromOrganization
 
-    -- ** CreateGovCloudAccount
-    module Network.AWS.Organizations.CreateGovCloudAccount,
+    -- ** CreateGovCloudAccount 
+    , module Network.AWS.Organizations.CreateGovCloudAccount
 
-    -- ** EnableAWSServiceAccess
-    module Network.AWS.Organizations.EnableAWSServiceAccess,
+    -- ** EnableAWSServiceAccess 
+    , module Network.AWS.Organizations.EnableAWSServiceAccess
 
-    -- ** DescribeOrganizationalUnit
-    module Network.AWS.Organizations.DescribeOrganizationalUnit,
+    -- ** DescribeOrganizationalUnit 
+    , module Network.AWS.Organizations.DescribeOrganizationalUnit
 
     -- ** ListParents (Paginated)
-    module Network.AWS.Organizations.ListParents,
+    , module Network.AWS.Organizations.ListParents
 
-    -- ** CreateAccount
-    module Network.AWS.Organizations.CreateAccount,
+    -- ** CreateAccount 
+    , module Network.AWS.Organizations.CreateAccount
 
-    -- ** DeregisterDelegatedAdministrator
-    module Network.AWS.Organizations.DeregisterDelegatedAdministrator,
+    -- ** DeregisterDelegatedAdministrator 
+    , module Network.AWS.Organizations.DeregisterDelegatedAdministrator
 
-    -- ** TagResource
-    module Network.AWS.Organizations.TagResource,
+    -- ** TagResource 
+    , module Network.AWS.Organizations.TagResource
 
     -- ** ListCreateAccountStatus (Paginated)
-    module Network.AWS.Organizations.ListCreateAccountStatus,
+    , module Network.AWS.Organizations.ListCreateAccountStatus
 
     -- ** ListTargetsForPolicy (Paginated)
-    module Network.AWS.Organizations.ListTargetsForPolicy,
+    , module Network.AWS.Organizations.ListTargetsForPolicy
 
-    -- ** DeclineHandshake
-    module Network.AWS.Organizations.DeclineHandshake,
+    -- ** DeclineHandshake 
+    , module Network.AWS.Organizations.DeclineHandshake
 
-    -- ** UntagResource
-    module Network.AWS.Organizations.UntagResource,
+    -- ** UntagResource 
+    , module Network.AWS.Organizations.UntagResource
 
-    -- ** AttachPolicy
-    module Network.AWS.Organizations.AttachPolicy,
+    -- ** AttachPolicy 
+    , module Network.AWS.Organizations.AttachPolicy
 
     -- ** ListPoliciesForTarget (Paginated)
-    module Network.AWS.Organizations.ListPoliciesForTarget,
+    , module Network.AWS.Organizations.ListPoliciesForTarget
 
-    -- ** DescribeOrganization
-    module Network.AWS.Organizations.DescribeOrganization,
+    -- ** DescribeOrganization 
+    , module Network.AWS.Organizations.DescribeOrganization
 
     -- ** ListHandshakesForOrganization (Paginated)
-    module Network.AWS.Organizations.ListHandshakesForOrganization,
+    , module Network.AWS.Organizations.ListHandshakesForOrganization
 
-    -- ** RegisterDelegatedAdministrator
-    module Network.AWS.Organizations.RegisterDelegatedAdministrator,
+    -- ** RegisterDelegatedAdministrator 
+    , module Network.AWS.Organizations.RegisterDelegatedAdministrator
 
-    -- ** DeleteOrganizationalUnit
-    module Network.AWS.Organizations.DeleteOrganizationalUnit,
+    -- ** DeleteOrganizationalUnit 
+    , module Network.AWS.Organizations.DeleteOrganizationalUnit
 
-    -- ** UpdateOrganizationalUnit
-    module Network.AWS.Organizations.UpdateOrganizationalUnit,
+    -- ** UpdateOrganizationalUnit 
+    , module Network.AWS.Organizations.UpdateOrganizationalUnit
 
     -- * Types
 
     -- ** Parent
-    Parent (..),
-    mkParent,
-    pId,
-    pType,
+    , Parent (..)
+    , mkParent
+    , pId
+    , pType
 
     -- ** HandshakePartyId
-    HandshakePartyId (..),
+    , HandshakePartyId (..)
 
     -- ** PolicyTypeSummary
-    PolicyTypeSummary (..),
-    mkPolicyTypeSummary,
-    ptsStatus,
-    ptsType,
+    , PolicyTypeSummary (..)
+    , mkPolicyTypeSummary
+    , ptsStatus
+    , ptsType
 
     -- ** GenericArn
-    GenericArn (..),
+    , GenericArn (..)
 
     -- ** HandshakeNotes
-    HandshakeNotes (..),
+    , HandshakeNotes (..)
 
     -- ** Email
-    Email (..),
+    , Email (..)
 
     -- ** PolicyTypeStatus
-    PolicyTypeStatus (..),
+    , PolicyTypeStatus (..)
 
     -- ** Handshake
-    Handshake (..),
-    mkHandshake,
-    hAction,
-    hArn,
-    hExpirationTimestamp,
-    hId,
-    hParties,
-    hRequestedTimestamp,
-    hResources,
-    hState,
+    , Handshake (..)
+    , mkHandshake
+    , hAction
+    , hArn
+    , hExpirationTimestamp
+    , hId
+    , hParties
+    , hRequestedTimestamp
+    , hResources
+    , hState
 
     -- ** ServicePrincipal
-    ServicePrincipal (..),
+    , ServicePrincipal (..)
 
     -- ** PolicyName
-    PolicyName (..),
+    , PolicyName (..)
 
     -- ** Tag
-    Tag (..),
-    mkTag,
-    tKey,
-    tValue,
+    , Tag (..)
+    , mkTag
+    , tKey
+    , tValue
 
     -- ** EnabledServicePrincipal
-    EnabledServicePrincipal (..),
-    mkEnabledServicePrincipal,
-    espDateEnabled,
-    espServicePrincipal,
+    , EnabledServicePrincipal (..)
+    , mkEnabledServicePrincipal
+    , espDateEnabled
+    , espServicePrincipal
 
     -- ** Child
-    Child (..),
-    mkChild,
-    cId,
-    cType,
+    , Child (..)
+    , mkChild
+    , cId
+    , cType
 
     -- ** CreateAccountState
-    CreateAccountState (..),
+    , CreateAccountState (..)
 
     -- ** EffectivePolicy
-    EffectivePolicy (..),
-    mkEffectivePolicy,
-    epLastUpdatedTimestamp,
-    epPolicyContent,
-    epPolicyType,
-    epTargetId,
+    , EffectivePolicy (..)
+    , mkEffectivePolicy
+    , epLastUpdatedTimestamp
+    , epPolicyContent
+    , epPolicyType
+    , epTargetId
 
     -- ** AccountJoinedMethod
-    AccountJoinedMethod (..),
+    , AccountJoinedMethod (..)
 
     -- ** AccountStatus
-    AccountStatus (..),
+    , AccountStatus (..)
 
     -- ** PolicyId
-    PolicyId (..),
+    , PolicyId (..)
 
     -- ** HandshakeResourceType
-    HandshakeResourceType (..),
+    , HandshakeResourceType (..)
 
     -- ** OrganizationalUnitArn
-    OrganizationalUnitArn (..),
+    , OrganizationalUnitArn (..)
 
     -- ** OrganizationalUnit
-    OrganizationalUnit (..),
-    mkOrganizationalUnit,
-    ouArn,
-    ouId,
-    ouName,
+    , OrganizationalUnit (..)
+    , mkOrganizationalUnit
+    , ouArn
+    , ouId
+    , ouName
 
     -- ** IAMUserAccessToBilling
-    IAMUserAccessToBilling (..),
+    , IAMUserAccessToBilling (..)
 
     -- ** PolicyType
-    PolicyType (..),
+    , PolicyType (..)
 
     -- ** RootId
-    RootId (..),
+    , RootId (..)
 
     -- ** RoleName
-    RoleName (..),
+    , RoleName (..)
 
     -- ** AccountName
-    AccountName (..),
+    , AccountName (..)
 
     -- ** Root
-    Root (..),
-    mkRoot,
-    rArn,
-    rId,
-    rName,
-    rPolicyTypes,
+    , Root (..)
+    , mkRoot
+    , rArn
+    , rId
+    , rName
+    , rPolicyTypes
 
     -- ** DelegatedService
-    DelegatedService (..),
-    mkDelegatedService,
-    dsDelegationEnabledDate,
-    dsServicePrincipal,
+    , DelegatedService (..)
+    , mkDelegatedService
+    , dsDelegationEnabledDate
+    , dsServicePrincipal
 
     -- ** PolicyDescription
-    PolicyDescription (..),
+    , PolicyDescription (..)
 
     -- ** HandshakePartyType
-    HandshakePartyType (..),
+    , HandshakePartyType (..)
 
     -- ** CreateAccountRequestId
-    CreateAccountRequestId (..),
+    , CreateAccountRequestId (..)
 
     -- ** TargetType
-    TargetType (..),
+    , TargetType (..)
 
     -- ** CreateAccountFailureReason
-    CreateAccountFailureReason (..),
+    , CreateAccountFailureReason (..)
 
     -- ** Account
-    Account (..),
-    mkAccount,
-    aArn,
-    aEmail,
-    aId,
-    aJoinedMethod,
-    aJoinedTimestamp,
-    aName,
-    aStatus,
+    , Account (..)
+    , mkAccount
+    , aArn
+    , aEmail
+    , aId
+    , aJoinedMethod
+    , aJoinedTimestamp
+    , aName
+    , aStatus
 
     -- ** AccountId
-    AccountId (..),
+    , AccountId (..)
 
     -- ** PolicyTargetId
-    PolicyTargetId (..),
+    , PolicyTargetId (..)
 
     -- ** NextToken
-    NextToken (..),
+    , NextToken (..)
 
     -- ** ParentType
-    ParentType (..),
+    , ParentType (..)
 
     -- ** AccountArn
-    AccountArn (..),
+    , AccountArn (..)
 
     -- ** PolicySummary
-    PolicySummary (..),
-    mkPolicySummary,
-    psArn,
-    psAwsManaged,
-    psDescription,
-    psId,
-    psName,
-    psType,
+    , PolicySummary (..)
+    , mkPolicySummary
+    , psArn
+    , psAwsManaged
+    , psDescription
+    , psId
+    , psName
+    , psType
 
     -- ** HandshakeFilter
-    HandshakeFilter (..),
-    mkHandshakeFilter,
-    hfActionType,
-    hfParentHandshakeId,
+    , HandshakeFilter (..)
+    , mkHandshakeFilter
+    , hfActionType
+    , hfParentHandshakeId
 
     -- ** OrganizationalUnitName
-    OrganizationalUnitName (..),
+    , OrganizationalUnitName (..)
 
     -- ** ChildId
-    ChildId (..),
+    , ChildId (..)
 
     -- ** ChildType
-    ChildType (..),
+    , ChildType (..)
 
     -- ** HandshakeId
-    HandshakeId (..),
+    , HandshakeId (..)
 
     -- ** PolicyTargetSummary
-    PolicyTargetSummary (..),
-    mkPolicyTargetSummary,
-    ptsfArn,
-    ptsfName,
-    ptsfTargetId,
-    ptsfType,
+    , PolicyTargetSummary (..)
+    , mkPolicyTargetSummary
+    , ptsfArn
+    , ptsfName
+    , ptsfTargetId
+    , ptsfType
 
     -- ** HandshakeResource
-    HandshakeResource (..),
-    mkHandshakeResource,
-    hrResources,
-    hrType,
-    hrValue,
+    , HandshakeResource (..)
+    , mkHandshakeResource
+    , hrResources
+    , hrType
+    , hrValue
 
     -- ** EffectivePolicyType
-    EffectivePolicyType (..),
+    , EffectivePolicyType (..)
 
     -- ** OrganizationalUnitId
-    OrganizationalUnitId (..),
+    , OrganizationalUnitId (..)
 
     -- ** OrganizationFeatureSet
-    OrganizationFeatureSet (..),
+    , OrganizationFeatureSet (..)
 
     -- ** TagKey
-    TagKey (..),
+    , TagKey (..)
 
     -- ** Policy
-    Policy (..),
-    mkPolicy,
-    pContent,
-    pPolicySummary,
+    , Policy (..)
+    , mkPolicy
+    , pContent
+    , pPolicySummary
 
     -- ** DelegatedAdministrator
-    DelegatedAdministrator (..),
-    mkDelegatedAdministrator,
-    daArn,
-    daDelegationEnabledDate,
-    daEmail,
-    daId,
-    daJoinedMethod,
-    daJoinedTimestamp,
-    daName,
-    daStatus,
+    , DelegatedAdministrator (..)
+    , mkDelegatedAdministrator
+    , daArn
+    , daDelegationEnabledDate
+    , daEmail
+    , daId
+    , daJoinedMethod
+    , daJoinedTimestamp
+    , daName
+    , daStatus
 
     -- ** HandshakeState
-    HandshakeState (..),
+    , HandshakeState (..)
 
     -- ** TaggableResourceId
-    TaggableResourceId (..),
+    , TaggableResourceId (..)
 
     -- ** Organization
-    Organization (..),
-    mkOrganization,
-    oArn,
-    oAvailablePolicyTypes,
-    oFeatureSet,
-    oId,
-    oMasterAccountArn,
-    oMasterAccountEmail,
-    oMasterAccountId,
+    , Organization (..)
+    , mkOrganization
+    , oArn
+    , oAvailablePolicyTypes
+    , oFeatureSet
+    , oId
+    , oMasterAccountArn
+    , oMasterAccountEmail
+    , oMasterAccountId
 
     -- ** ActionType
-    ActionType (..),
+    , ActionType (..)
 
     -- ** HandshakeParty
-    HandshakeParty (..),
-    mkHandshakeParty,
-    hpId,
-    hpType,
+    , HandshakeParty (..)
+    , mkHandshakeParty
+    , hpId
+    , hpType
 
     -- ** ParentId
-    ParentId (..),
+    , ParentId (..)
 
     -- ** PolicyContent
-    PolicyContent (..),
+    , PolicyContent (..)
 
     -- ** CreateAccountStatus
-    CreateAccountStatus (..),
-    mkCreateAccountStatus,
-    casAccountId,
-    casAccountName,
-    casCompletedTimestamp,
-    casFailureReason,
-    casGovCloudAccountId,
-    casId,
-    casRequestedTimestamp,
-    casState,
+    , CreateAccountStatus (..)
+    , mkCreateAccountStatus
+    , casAccountId
+    , casAccountName
+    , casCompletedTimestamp
+    , casFailureReason
+    , casGovCloudAccountId
+    , casId
+    , casRequestedTimestamp
+    , casState
 
     -- ** Id
-    Id (..),
+    , Id (..)
 
     -- ** Arn
-    Arn (..),
+    , Arn (..)
 
     -- ** Key
-    Key (..),
+    , Key (..)
 
     -- ** Value
-    Value (..),
+    , Value (..)
 
     -- ** TargetId
-    TargetId (..),
+    , TargetId (..)
 
     -- ** Name
-    Name (..),
+    , Name (..)
 
     -- ** Content
-    Content (..),
+    , Content (..)
 
     -- ** Description
-    Description (..),
+    , Description (..)
 
     -- ** ResourceId
-    ResourceId (..),
+    , ResourceId (..)
 
     -- ** ParentHandshakeId
-    ParentHandshakeId (..),
+    , ParentHandshakeId (..)
 
     -- ** SourceParentId
-    SourceParentId (..),
+    , SourceParentId (..)
 
     -- ** DestinationParentId
-    DestinationParentId (..),
+    , DestinationParentId (..)
 
     -- * Serialization types
-    Lude.Base64 (..),
-    Lude._Base64,
-    Lude.Sensitive (..),
-    Lude._Sensitive,
-    Lude.UTCTime,
-    Lude.NominalDiffTime,
-  )
-where
+    , Lude.Base64 (..)
+    , Lude._Base64
+    , Lude.Sensitive (..)
+    , Lude._Sensitive
+    , Lude.UTCTime
+    , Lude.NominalDiffTime
+    ) where
 
-import Network.AWS.Organizations.AcceptHandshake
-import Network.AWS.Organizations.AttachPolicy
-import Network.AWS.Organizations.CancelHandshake
-import Network.AWS.Organizations.CreateAccount
-import Network.AWS.Organizations.CreateGovCloudAccount
-import Network.AWS.Organizations.CreateOrganization
-import Network.AWS.Organizations.CreateOrganizationalUnit
-import Network.AWS.Organizations.CreatePolicy
-import Network.AWS.Organizations.DeclineHandshake
-import Network.AWS.Organizations.DeleteOrganization
-import Network.AWS.Organizations.DeleteOrganizationalUnit
-import Network.AWS.Organizations.DeletePolicy
-import Network.AWS.Organizations.DeregisterDelegatedAdministrator
-import Network.AWS.Organizations.DescribeAccount
-import Network.AWS.Organizations.DescribeCreateAccountStatus
-import Network.AWS.Organizations.DescribeEffectivePolicy
-import Network.AWS.Organizations.DescribeHandshake
-import Network.AWS.Organizations.DescribeOrganization
-import Network.AWS.Organizations.DescribeOrganizationalUnit
-import Network.AWS.Organizations.DescribePolicy
-import Network.AWS.Organizations.DetachPolicy
-import Network.AWS.Organizations.DisableAWSServiceAccess
-import Network.AWS.Organizations.DisablePolicyType
-import Network.AWS.Organizations.EnableAWSServiceAccess
-import Network.AWS.Organizations.EnableAllFeatures
-import Network.AWS.Organizations.EnablePolicyType
-import Network.AWS.Organizations.InviteAccountToOrganization
-import Network.AWS.Organizations.LeaveOrganization
-import Network.AWS.Organizations.ListAWSServiceAccessForOrganization
-import Network.AWS.Organizations.ListAccounts
-import Network.AWS.Organizations.ListAccountsForParent
-import Network.AWS.Organizations.ListChildren
-import Network.AWS.Organizations.ListCreateAccountStatus
-import Network.AWS.Organizations.ListDelegatedAdministrators
-import Network.AWS.Organizations.ListDelegatedServicesForAccount
-import Network.AWS.Organizations.ListHandshakesForAccount
-import Network.AWS.Organizations.ListHandshakesForOrganization
-import Network.AWS.Organizations.ListOrganizationalUnitsForParent
-import Network.AWS.Organizations.ListParents
-import Network.AWS.Organizations.ListPolicies
-import Network.AWS.Organizations.ListPoliciesForTarget
-import Network.AWS.Organizations.ListRoots
-import Network.AWS.Organizations.ListTagsForResource
-import Network.AWS.Organizations.ListTargetsForPolicy
-import Network.AWS.Organizations.MoveAccount
-import Network.AWS.Organizations.RegisterDelegatedAdministrator
-import Network.AWS.Organizations.RemoveAccountFromOrganization
-import Network.AWS.Organizations.TagResource
 import Network.AWS.Organizations.Types
-import Network.AWS.Organizations.UntagResource
-import Network.AWS.Organizations.UpdateOrganizationalUnit
-import Network.AWS.Organizations.UpdatePolicy
 import Network.AWS.Organizations.Waiters
+import Network.AWS.Organizations.ListHandshakesForAccount
+import Network.AWS.Organizations.DescribeAccount
+import Network.AWS.Organizations.ListPolicies
+import Network.AWS.Organizations.CreatePolicy
+import Network.AWS.Organizations.ListRoots
+import Network.AWS.Organizations.AcceptHandshake
+import Network.AWS.Organizations.CreateOrganization
+import Network.AWS.Organizations.EnableAllFeatures
+import Network.AWS.Organizations.DeleteOrganization
+import Network.AWS.Organizations.DescribeHandshake
+import Network.AWS.Organizations.ListTagsForResource
+import Network.AWS.Organizations.DescribePolicy
+import Network.AWS.Organizations.ListDelegatedServicesForAccount
+import Network.AWS.Organizations.DisableAWSServiceAccess
+import Network.AWS.Organizations.DescribeEffectivePolicy
+import Network.AWS.Organizations.LeaveOrganization
+import Network.AWS.Organizations.MoveAccount
+import Network.AWS.Organizations.ListAccounts
+import Network.AWS.Organizations.InviteAccountToOrganization
+import Network.AWS.Organizations.ListAWSServiceAccessForOrganization
+import Network.AWS.Organizations.ListOrganizationalUnitsForParent
+import Network.AWS.Organizations.CancelHandshake
+import Network.AWS.Organizations.ListChildren
+import Network.AWS.Organizations.ListDelegatedAdministrators
+import Network.AWS.Organizations.DeletePolicy
+import Network.AWS.Organizations.UpdatePolicy
+import Network.AWS.Organizations.EnablePolicyType
+import Network.AWS.Organizations.DisablePolicyType
+import Network.AWS.Organizations.DescribeCreateAccountStatus
+import Network.AWS.Organizations.CreateOrganizationalUnit
+import Network.AWS.Organizations.ListAccountsForParent
+import Network.AWS.Organizations.DetachPolicy
+import Network.AWS.Organizations.RemoveAccountFromOrganization
+import Network.AWS.Organizations.CreateGovCloudAccount
+import Network.AWS.Organizations.EnableAWSServiceAccess
+import Network.AWS.Organizations.DescribeOrganizationalUnit
+import Network.AWS.Organizations.ListParents
+import Network.AWS.Organizations.CreateAccount
+import Network.AWS.Organizations.DeregisterDelegatedAdministrator
+import Network.AWS.Organizations.TagResource
+import Network.AWS.Organizations.ListCreateAccountStatus
+import Network.AWS.Organizations.ListTargetsForPolicy
+import Network.AWS.Organizations.DeclineHandshake
+import Network.AWS.Organizations.UntagResource
+import Network.AWS.Organizations.AttachPolicy
+import Network.AWS.Organizations.ListPoliciesForTarget
+import Network.AWS.Organizations.DescribeOrganization
+import Network.AWS.Organizations.ListHandshakesForOrganization
+import Network.AWS.Organizations.RegisterDelegatedAdministrator
+import Network.AWS.Organizations.DeleteOrganizationalUnit
+import Network.AWS.Organizations.UpdateOrganizationalUnit
 import qualified Network.AWS.Prelude as Lude
 
--- $errors
--- Error matchers are designed for use with the functions provided by
--- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
--- This allows catching (and rethrowing) service specific errors returned
--- by 'Organizations'.
+{- $errors
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by 'Organizations'.
+-}
 
--- $operations
--- Some AWS operations return results that are incomplete and require subsequent
--- requests in order to obtain the entire result set. The process of sending
--- subsequent requests to continue where a previous request left off is called
--- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
--- 1000 objects at a time, and you must send subsequent requests with the
--- appropriate Marker in order to retrieve the next page of results.
---
--- Operations that have an 'AWSPager' instance can transparently perform subsequent
--- requests, correctly setting Markers and other request facets to iterate through
--- the entire result set of a truncated API operation. Operations which support
--- this have an additional note in the documentation.
---
--- Many operations have the ability to filter results on the server side. See the
--- individual operation parameters for details.
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
 
--- $waiters
--- Waiters poll by repeatedly sending a request until some remote success condition
--- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
--- determines how many attempts should be made, in addition to delay and retry strategies.
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly sending a request until some remote success condition
+configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+determines how many attempts should be made, in addition to delay and retry strategies.
+-}

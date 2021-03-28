@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,15 +17,15 @@
 --
 -- For more information, see <https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html Aggregating AWS Health events> in the /AWS Health User Guide/ .
 module Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization
-  ( -- * Creating a request
-    EnableHealthServiceAccessForOrganization (..),
-    mkEnableHealthServiceAccessForOrganization,
+    (
+    -- * Creating a request
+      EnableHealthServiceAccessForOrganization (..)
+    , mkEnableHealthServiceAccessForOrganization
 
     -- * Destructuring the response
-    EnableHealthServiceAccessForOrganizationResponse (..),
-    mkEnableHealthServiceAccessForOrganizationResponse,
-  )
-where
+    , EnableHealthServiceAccessForOrganizationResponse (..)
+    , mkEnableHealthServiceAccessForOrganizationResponse
+    ) where
 
 import qualified Network.AWS.AWSHealth.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -39,35 +39,43 @@ data EnableHealthServiceAccessForOrganization = EnableHealthServiceAccessForOrga
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'EnableHealthServiceAccessForOrganization' value with any optional fields omitted.
-mkEnableHealthServiceAccessForOrganization ::
-  EnableHealthServiceAccessForOrganization
-mkEnableHealthServiceAccessForOrganization =
-  EnableHealthServiceAccessForOrganization'
+mkEnableHealthServiceAccessForOrganization
+    :: EnableHealthServiceAccessForOrganization
+mkEnableHealthServiceAccessForOrganization
+  = EnableHealthServiceAccessForOrganization'
 
-instance Core.FromJSON EnableHealthServiceAccessForOrganization where
-  toJSON _ = Core.Object Core.mempty
+instance Core.ToQuery EnableHealthServiceAccessForOrganization
+         where
+        toQuery _ = Core.pure Core.mempty
 
-instance Core.AWSRequest EnableHealthServiceAccessForOrganization where
-  type
-    Rs EnableHealthServiceAccessForOrganization =
-      EnableHealthServiceAccessForOrganizationResponse
-  request x@_ =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "X-Amz-Target",
-              "AWSHealth_20160804.EnableHealthServiceAccessForOrganization"
-            )
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveNull
-      EnableHealthServiceAccessForOrganizationResponse'
+instance Core.ToHeaders EnableHealthServiceAccessForOrganization
+         where
+        toHeaders EnableHealthServiceAccessForOrganization{..}
+          = Core.pure
+              ("X-Amz-Target",
+               "AWSHealth_20160804.EnableHealthServiceAccessForOrganization")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
+
+instance Core.FromJSON EnableHealthServiceAccessForOrganization
+         where
+        toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest EnableHealthServiceAccessForOrganization
+         where
+        type Rs EnableHealthServiceAccessForOrganization =
+             EnableHealthServiceAccessForOrganizationResponse
+        toRequest x@_
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveNull
+              EnableHealthServiceAccessForOrganizationResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkEnableHealthServiceAccessForOrganizationResponse' smart constructor.
 data EnableHealthServiceAccessForOrganizationResponse = EnableHealthServiceAccessForOrganizationResponse'
@@ -75,7 +83,7 @@ data EnableHealthServiceAccessForOrganizationResponse = EnableHealthServiceAcces
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'EnableHealthServiceAccessForOrganizationResponse' value with any optional fields omitted.
-mkEnableHealthServiceAccessForOrganizationResponse ::
-  EnableHealthServiceAccessForOrganizationResponse
-mkEnableHealthServiceAccessForOrganizationResponse =
-  EnableHealthServiceAccessForOrganizationResponse'
+mkEnableHealthServiceAccessForOrganizationResponse
+    :: EnableHealthServiceAccessForOrganizationResponse
+mkEnableHealthServiceAccessForOrganizationResponse
+  = EnableHealthServiceAccessForOrganizationResponse'

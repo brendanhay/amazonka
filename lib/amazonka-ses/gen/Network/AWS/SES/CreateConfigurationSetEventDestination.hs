@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -18,22 +18,20 @@
 -- An event destination is the AWS service to which Amazon SES publishes the email sending events associated with a configuration set. For information about using configuration sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.CreateConfigurationSetEventDestination
-  ( -- * Creating a request
-    CreateConfigurationSetEventDestination (..),
-    mkCreateConfigurationSetEventDestination,
-
+    (
+    -- * Creating a request
+      CreateConfigurationSetEventDestination (..)
+    , mkCreateConfigurationSetEventDestination
     -- ** Request lenses
-    ccsedConfigurationSetName,
-    ccsedEventDestination,
+    , ccsedConfigurationSetName
+    , ccsedEventDestination
 
     -- * Destructuring the response
-    CreateConfigurationSetEventDestinationResponse (..),
-    mkCreateConfigurationSetEventDestinationResponse,
-
+    , CreateConfigurationSetEventDestinationResponse (..)
+    , mkCreateConfigurationSetEventDestinationResponse
     -- ** Response lenses
-    ccsedrrsResponseStatus,
-  )
-where
+    , ccsedrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -45,95 +43,99 @@ import qualified Network.AWS.SES.Types as Types
 --
 -- /See:/ 'mkCreateConfigurationSetEventDestination' smart constructor.
 data CreateConfigurationSetEventDestination = CreateConfigurationSetEventDestination'
-  { -- | The name of the configuration set that the event destination should be associated with.
-    configurationSetName :: Types.ConfigurationSetName,
-    -- | An object that describes the AWS service that email sending event information will be published to.
-    eventDestination :: Types.EventDestination
+  { configurationSetName :: Types.ConfigurationSetName
+    -- ^ The name of the configuration set that the event destination should be associated with.
+  , eventDestination :: Types.EventDestination
+    -- ^ An object that describes the AWS service that email sending event information will be published to.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CreateConfigurationSetEventDestination' value with any optional fields omitted.
-mkCreateConfigurationSetEventDestination ::
-  -- | 'configurationSetName'
-  Types.ConfigurationSetName ->
-  -- | 'eventDestination'
-  Types.EventDestination ->
-  CreateConfigurationSetEventDestination
 mkCreateConfigurationSetEventDestination
-  configurationSetName
-  eventDestination =
-    CreateConfigurationSetEventDestination'
-      { configurationSetName,
-        eventDestination
-      }
+    :: Types.ConfigurationSetName -- ^ 'configurationSetName'
+    -> Types.EventDestination -- ^ 'eventDestination'
+    -> CreateConfigurationSetEventDestination
+mkCreateConfigurationSetEventDestination configurationSetName
+  eventDestination
+  = CreateConfigurationSetEventDestination'{configurationSetName,
+                                            eventDestination}
 
 -- | The name of the configuration set that the event destination should be associated with.
 --
 -- /Note:/ Consider using 'configurationSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccsedConfigurationSetName :: Lens.Lens' CreateConfigurationSetEventDestination Types.ConfigurationSetName
 ccsedConfigurationSetName = Lens.field @"configurationSetName"
-{-# DEPRECATED ccsedConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
+{-# INLINEABLE ccsedConfigurationSetName #-}
+{-# DEPRECATED configurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead"  #-}
 
 -- | An object that describes the AWS service that email sending event information will be published to.
 --
 -- /Note:/ Consider using 'eventDestination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccsedEventDestination :: Lens.Lens' CreateConfigurationSetEventDestination Types.EventDestination
 ccsedEventDestination = Lens.field @"eventDestination"
-{-# DEPRECATED ccsedEventDestination "Use generic-lens or generic-optics with 'eventDestination' instead." #-}
+{-# INLINEABLE ccsedEventDestination #-}
+{-# DEPRECATED eventDestination "Use generic-lens or generic-optics with 'eventDestination' instead"  #-}
 
-instance Core.AWSRequest CreateConfigurationSetEventDestination where
-  type
-    Rs CreateConfigurationSetEventDestination =
-      CreateConfigurationSetEventDestinationResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "CreateConfigurationSetEventDestination")
-                Core.<> (Core.pure ("Version", "2010-12-01"))
-                Core.<> (Core.toQueryValue "ConfigurationSetName" configurationSetName)
-                Core.<> (Core.toQueryValue "EventDestination" eventDestination)
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "CreateConfigurationSetEventDestinationResult"
-      ( \s h x ->
-          CreateConfigurationSetEventDestinationResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-      )
+instance Core.ToQuery CreateConfigurationSetEventDestination where
+        toQuery CreateConfigurationSetEventDestination{..}
+          = Core.toQueryPair "Action"
+              ("CreateConfigurationSetEventDestination" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2010-12-01" :: Core.Text)
+              Core.<>
+              Core.toQueryPair "ConfigurationSetName" configurationSetName
+              Core.<> Core.toQueryPair "EventDestination" eventDestination
+
+instance Core.ToHeaders CreateConfigurationSetEventDestination
+         where
+        toHeaders _ = Core.pure Core.mempty
+
+instance Core.AWSRequest CreateConfigurationSetEventDestination
+         where
+        type Rs CreateConfigurationSetEventDestination =
+             CreateConfigurationSetEventDestinationResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper
+              "CreateConfigurationSetEventDestinationResult"
+              (\ s h x ->
+                 CreateConfigurationSetEventDestinationResponse' Core.<$>
+                   (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkCreateConfigurationSetEventDestinationResponse' smart constructor.
 newtype CreateConfigurationSetEventDestinationResponse = CreateConfigurationSetEventDestinationResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CreateConfigurationSetEventDestinationResponse' value with any optional fields omitted.
-mkCreateConfigurationSetEventDestinationResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  CreateConfigurationSetEventDestinationResponse
-mkCreateConfigurationSetEventDestinationResponse responseStatus =
-  CreateConfigurationSetEventDestinationResponse' {responseStatus}
+mkCreateConfigurationSetEventDestinationResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> CreateConfigurationSetEventDestinationResponse
+mkCreateConfigurationSetEventDestinationResponse responseStatus
+  = CreateConfigurationSetEventDestinationResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ccsedrrsResponseStatus :: Lens.Lens' CreateConfigurationSetEventDestinationResponse Core.Int
 ccsedrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED ccsedrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE ccsedrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

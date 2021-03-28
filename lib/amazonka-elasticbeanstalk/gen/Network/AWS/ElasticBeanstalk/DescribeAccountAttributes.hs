@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,19 +17,18 @@
 --
 -- The result currently has one set of attributes—resource quotas.
 module Network.AWS.ElasticBeanstalk.DescribeAccountAttributes
-  ( -- * Creating a request
-    DescribeAccountAttributes (..),
-    mkDescribeAccountAttributes,
+    (
+    -- * Creating a request
+      DescribeAccountAttributes (..)
+    , mkDescribeAccountAttributes
 
     -- * Destructuring the response
-    DescribeAccountAttributesResponse (..),
-    mkDescribeAccountAttributesResponse,
-
+    , DescribeAccountAttributesResponse (..)
+    , mkDescribeAccountAttributesResponse
     -- ** Response lenses
-    daarrsResourceQuotas,
-    daarrsResponseStatus,
-  )
-where
+    , daarrsResourceQuotas
+    , daarrsResponseStatus
+    ) where
 
 import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -43,71 +42,72 @@ data DescribeAccountAttributes = DescribeAccountAttributes'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DescribeAccountAttributes' value with any optional fields omitted.
-mkDescribeAccountAttributes ::
-  DescribeAccountAttributes
+mkDescribeAccountAttributes
+    :: DescribeAccountAttributes
 mkDescribeAccountAttributes = DescribeAccountAttributes'
 
+instance Core.ToQuery DescribeAccountAttributes where
+        toQuery DescribeAccountAttributes{..}
+          = Core.toQueryPair "Action"
+              ("DescribeAccountAttributes" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2010-12-01" :: Core.Text)
+
+instance Core.ToHeaders DescribeAccountAttributes where
+        toHeaders _ = Core.pure Core.mempty
+
 instance Core.AWSRequest DescribeAccountAttributes where
-  type
-    Rs DescribeAccountAttributes =
-      DescribeAccountAttributesResponse
-  request x@_ =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "DescribeAccountAttributes")
-                Core.<> (Core.pure ("Version", "2010-12-01"))
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "DescribeAccountAttributesResult"
-      ( \s h x ->
-          DescribeAccountAttributesResponse'
-            Core.<$> (x Core..@? "ResourceQuotas")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DescribeAccountAttributes =
+             DescribeAccountAttributesResponse
+        toRequest x@_
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "DescribeAccountAttributesResult"
+              (\ s h x ->
+                 DescribeAccountAttributesResponse' Core.<$>
+                   (x Core..@? "ResourceQuotas") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDescribeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
-  { -- | The Elastic Beanstalk resource quotas associated with the calling AWS account.
-    resourceQuotas :: Core.Maybe Types.ResourceQuotas,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { resourceQuotas :: Core.Maybe Types.ResourceQuotas
+    -- ^ The Elastic Beanstalk resource quotas associated with the calling AWS account.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DescribeAccountAttributesResponse' value with any optional fields omitted.
-mkDescribeAccountAttributesResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DescribeAccountAttributesResponse
-mkDescribeAccountAttributesResponse responseStatus =
-  DescribeAccountAttributesResponse'
-    { resourceQuotas = Core.Nothing,
-      responseStatus
-    }
+mkDescribeAccountAttributesResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DescribeAccountAttributesResponse
+mkDescribeAccountAttributesResponse responseStatus
+  = DescribeAccountAttributesResponse'{resourceQuotas = Core.Nothing,
+                                       responseStatus}
 
 -- | The Elastic Beanstalk resource quotas associated with the calling AWS account.
 --
 -- /Note:/ Consider using 'resourceQuotas' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 daarrsResourceQuotas :: Lens.Lens' DescribeAccountAttributesResponse (Core.Maybe Types.ResourceQuotas)
 daarrsResourceQuotas = Lens.field @"resourceQuotas"
-{-# DEPRECATED daarrsResourceQuotas "Use generic-lens or generic-optics with 'resourceQuotas' instead." #-}
+{-# INLINEABLE daarrsResourceQuotas #-}
+{-# DEPRECATED resourceQuotas "Use generic-lens or generic-optics with 'resourceQuotas' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 daarrsResponseStatus :: Lens.Lens' DescribeAccountAttributesResponse Core.Int
 daarrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED daarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE daarrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

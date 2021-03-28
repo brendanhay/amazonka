@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,83 +10,66 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.GameLift.Types.GameServerGroupInstanceType
   ( GameServerGroupInstanceType
-      ( GameServerGroupInstanceType',
-        GameServerGroupInstanceTypeC4_Large,
-        GameServerGroupInstanceTypeC4_Xlarge,
-        GameServerGroupInstanceTypeC4_2xlarge,
-        GameServerGroupInstanceTypeC4_4xlarge,
-        GameServerGroupInstanceTypeC4_8xlarge,
-        GameServerGroupInstanceTypeC5_Large,
-        GameServerGroupInstanceTypeC5_Xlarge,
-        GameServerGroupInstanceTypeC5_2xlarge,
-        GameServerGroupInstanceTypeC5_4xlarge,
-        GameServerGroupInstanceTypeC5_9xlarge,
-        GameServerGroupInstanceTypeC5_12xlarge,
-        GameServerGroupInstanceTypeC5_18xlarge,
-        GameServerGroupInstanceTypeC5_24xlarge,
-        GameServerGroupInstanceTypeR4_Large,
-        GameServerGroupInstanceTypeR4_Xlarge,
-        GameServerGroupInstanceTypeR4_2xlarge,
-        GameServerGroupInstanceTypeR4_4xlarge,
-        GameServerGroupInstanceTypeR4_8xlarge,
-        GameServerGroupInstanceTypeR4_16xlarge,
-        GameServerGroupInstanceTypeR5_Large,
-        GameServerGroupInstanceTypeR5_Xlarge,
-        GameServerGroupInstanceTypeR5_2xlarge,
-        GameServerGroupInstanceTypeR5_4xlarge,
-        GameServerGroupInstanceTypeR5_8xlarge,
-        GameServerGroupInstanceTypeR5_12xlarge,
-        GameServerGroupInstanceTypeR5_16xlarge,
-        GameServerGroupInstanceTypeR5_24xlarge,
-        GameServerGroupInstanceTypeM4_Large,
-        GameServerGroupInstanceTypeM4_Xlarge,
-        GameServerGroupInstanceTypeM4_2xlarge,
-        GameServerGroupInstanceTypeM4_4xlarge,
-        GameServerGroupInstanceTypeM4_10xlarge,
-        GameServerGroupInstanceTypeM5_Large,
-        GameServerGroupInstanceTypeM5_Xlarge,
-        GameServerGroupInstanceTypeM5_2xlarge,
-        GameServerGroupInstanceTypeM5_4xlarge,
-        GameServerGroupInstanceTypeM5_8xlarge,
-        GameServerGroupInstanceTypeM5_12xlarge,
-        GameServerGroupInstanceTypeM5_16xlarge,
-        GameServerGroupInstanceTypeM5_24xlarge,
-        fromGameServerGroupInstanceType
-      ),
-  )
-where
+    ( GameServerGroupInstanceType'
+    , GameServerGroupInstanceTypeC4_Large
+    , GameServerGroupInstanceTypeC4_Xlarge
+    , GameServerGroupInstanceTypeC4_2xlarge
+    , GameServerGroupInstanceTypeC4_4xlarge
+    , GameServerGroupInstanceTypeC4_8xlarge
+    , GameServerGroupInstanceTypeC5_Large
+    , GameServerGroupInstanceTypeC5_Xlarge
+    , GameServerGroupInstanceTypeC5_2xlarge
+    , GameServerGroupInstanceTypeC5_4xlarge
+    , GameServerGroupInstanceTypeC5_9xlarge
+    , GameServerGroupInstanceTypeC5_12xlarge
+    , GameServerGroupInstanceTypeC5_18xlarge
+    , GameServerGroupInstanceTypeC5_24xlarge
+    , GameServerGroupInstanceTypeR4_Large
+    , GameServerGroupInstanceTypeR4_Xlarge
+    , GameServerGroupInstanceTypeR4_2xlarge
+    , GameServerGroupInstanceTypeR4_4xlarge
+    , GameServerGroupInstanceTypeR4_8xlarge
+    , GameServerGroupInstanceTypeR4_16xlarge
+    , GameServerGroupInstanceTypeR5_Large
+    , GameServerGroupInstanceTypeR5_Xlarge
+    , GameServerGroupInstanceTypeR5_2xlarge
+    , GameServerGroupInstanceTypeR5_4xlarge
+    , GameServerGroupInstanceTypeR5_8xlarge
+    , GameServerGroupInstanceTypeR5_12xlarge
+    , GameServerGroupInstanceTypeR5_16xlarge
+    , GameServerGroupInstanceTypeR5_24xlarge
+    , GameServerGroupInstanceTypeM4_Large
+    , GameServerGroupInstanceTypeM4_Xlarge
+    , GameServerGroupInstanceTypeM4_2xlarge
+    , GameServerGroupInstanceTypeM4_4xlarge
+    , GameServerGroupInstanceTypeM4_10xlarge
+    , GameServerGroupInstanceTypeM5_Large
+    , GameServerGroupInstanceTypeM5_Xlarge
+    , GameServerGroupInstanceTypeM5_2xlarge
+    , GameServerGroupInstanceTypeM5_4xlarge
+    , GameServerGroupInstanceTypeM5_8xlarge
+    , GameServerGroupInstanceTypeM5_12xlarge
+    , GameServerGroupInstanceTypeM5_16xlarge
+    , GameServerGroupInstanceTypeM5_24xlarge
+    , fromGameServerGroupInstanceType
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype GameServerGroupInstanceType = GameServerGroupInstanceType'
-  { fromGameServerGroupInstanceType ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype GameServerGroupInstanceType = GameServerGroupInstanceType'{fromGameServerGroupInstanceType
+                                                                   :: Core.Text}
+                                        deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                        Core.Generic)
+                                        deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                          Core.ToJSONKey, Core.FromJSONKey,
+                                                          Core.ToJSON, Core.FromJSON, Core.ToXML,
+                                                          Core.FromXML, Core.ToText, Core.FromText,
+                                                          Core.ToByteString, Core.ToQuery,
+                                                          Core.ToHeader)
 
 pattern GameServerGroupInstanceTypeC4_Large :: GameServerGroupInstanceType
 pattern GameServerGroupInstanceTypeC4_Large = GameServerGroupInstanceType' "c4.large"
@@ -208,46 +191,85 @@ pattern GameServerGroupInstanceTypeM5_16xlarge = GameServerGroupInstanceType' "m
 pattern GameServerGroupInstanceTypeM5_24xlarge :: GameServerGroupInstanceType
 pattern GameServerGroupInstanceTypeM5_24xlarge = GameServerGroupInstanceType' "m5.24xlarge"
 
-{-# COMPLETE
+{-# COMPLETE 
   GameServerGroupInstanceTypeC4_Large,
+
   GameServerGroupInstanceTypeC4_Xlarge,
+
   GameServerGroupInstanceTypeC4_2xlarge,
+
   GameServerGroupInstanceTypeC4_4xlarge,
+
   GameServerGroupInstanceTypeC4_8xlarge,
+
   GameServerGroupInstanceTypeC5_Large,
+
   GameServerGroupInstanceTypeC5_Xlarge,
+
   GameServerGroupInstanceTypeC5_2xlarge,
+
   GameServerGroupInstanceTypeC5_4xlarge,
+
   GameServerGroupInstanceTypeC5_9xlarge,
+
   GameServerGroupInstanceTypeC5_12xlarge,
+
   GameServerGroupInstanceTypeC5_18xlarge,
+
   GameServerGroupInstanceTypeC5_24xlarge,
+
   GameServerGroupInstanceTypeR4_Large,
+
   GameServerGroupInstanceTypeR4_Xlarge,
+
   GameServerGroupInstanceTypeR4_2xlarge,
+
   GameServerGroupInstanceTypeR4_4xlarge,
+
   GameServerGroupInstanceTypeR4_8xlarge,
+
   GameServerGroupInstanceTypeR4_16xlarge,
+
   GameServerGroupInstanceTypeR5_Large,
+
   GameServerGroupInstanceTypeR5_Xlarge,
+
   GameServerGroupInstanceTypeR5_2xlarge,
+
   GameServerGroupInstanceTypeR5_4xlarge,
+
   GameServerGroupInstanceTypeR5_8xlarge,
+
   GameServerGroupInstanceTypeR5_12xlarge,
+
   GameServerGroupInstanceTypeR5_16xlarge,
+
   GameServerGroupInstanceTypeR5_24xlarge,
+
   GameServerGroupInstanceTypeM4_Large,
+
   GameServerGroupInstanceTypeM4_Xlarge,
+
   GameServerGroupInstanceTypeM4_2xlarge,
+
   GameServerGroupInstanceTypeM4_4xlarge,
+
   GameServerGroupInstanceTypeM4_10xlarge,
+
   GameServerGroupInstanceTypeM5_Large,
+
   GameServerGroupInstanceTypeM5_Xlarge,
+
   GameServerGroupInstanceTypeM5_2xlarge,
+
   GameServerGroupInstanceTypeM5_4xlarge,
+
   GameServerGroupInstanceTypeM5_8xlarge,
+
   GameServerGroupInstanceTypeM5_12xlarge,
+
   GameServerGroupInstanceTypeM5_16xlarge,
+
   GameServerGroupInstanceTypeM5_24xlarge,
   GameServerGroupInstanceType'
   #-}

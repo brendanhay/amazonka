@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,49 +10,33 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.GameLift.Types.FleetStatus
   ( FleetStatus
-      ( FleetStatus',
-        FleetStatusNew,
-        FleetStatusDownloading,
-        FleetStatusValidating,
-        FleetStatusBuilding,
-        FleetStatusActivating,
-        FleetStatusActive,
-        FleetStatusDeleting,
-        FleetStatusError,
-        FleetStatusTerminated,
-        fromFleetStatus
-      ),
-  )
-where
+    ( FleetStatus'
+    , FleetStatusNew
+    , FleetStatusDownloading
+    , FleetStatusValidating
+    , FleetStatusBuilding
+    , FleetStatusActivating
+    , FleetStatusActive
+    , FleetStatusDeleting
+    , FleetStatusError
+    , FleetStatusTerminated
+    , fromFleetStatus
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype FleetStatus = FleetStatus' {fromFleetStatus :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype FleetStatus = FleetStatus'{fromFleetStatus :: Core.Text}
+                        deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                        Core.Generic)
+                        deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                          Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                          Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                          Core.FromText, Core.ToByteString, Core.ToQuery,
+                                          Core.ToHeader)
 
 pattern FleetStatusNew :: FleetStatus
 pattern FleetStatusNew = FleetStatus' "NEW"
@@ -81,15 +65,23 @@ pattern FleetStatusError = FleetStatus' "ERROR"
 pattern FleetStatusTerminated :: FleetStatus
 pattern FleetStatusTerminated = FleetStatus' "TERMINATED"
 
-{-# COMPLETE
+{-# COMPLETE 
   FleetStatusNew,
+
   FleetStatusDownloading,
+
   FleetStatusValidating,
+
   FleetStatusBuilding,
+
   FleetStatusActivating,
+
   FleetStatusActive,
+
   FleetStatusDeleting,
+
   FleetStatusError,
+
   FleetStatusTerminated,
   FleetStatus'
   #-}

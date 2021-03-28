@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,46 +10,29 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaConvert.Types.EmbeddedTerminateCaptions
   ( EmbeddedTerminateCaptions
-      ( EmbeddedTerminateCaptions',
-        EmbeddedTerminateCaptionsEndOfInput,
-        EmbeddedTerminateCaptionsDisabled,
-        fromEmbeddedTerminateCaptions
-      ),
-  )
-where
+    ( EmbeddedTerminateCaptions'
+    , EmbeddedTerminateCaptionsEndOfInput
+    , EmbeddedTerminateCaptionsDisabled
+    , fromEmbeddedTerminateCaptions
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
 -- | By default, the service terminates any unterminated captions at the end of each input. If you want the caption to continue onto your next input, disable this setting.
-newtype EmbeddedTerminateCaptions = EmbeddedTerminateCaptions'
-  { fromEmbeddedTerminateCaptions ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype EmbeddedTerminateCaptions = EmbeddedTerminateCaptions'{fromEmbeddedTerminateCaptions
+                                                               :: Core.Text}
+                                      deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                      Core.Generic)
+                                      deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                        Core.ToJSONKey, Core.FromJSONKey,
+                                                        Core.ToJSON, Core.FromJSON, Core.ToXML,
+                                                        Core.FromXML, Core.ToText, Core.FromText,
+                                                        Core.ToByteString, Core.ToQuery,
+                                                        Core.ToHeader)
 
 pattern EmbeddedTerminateCaptionsEndOfInput :: EmbeddedTerminateCaptions
 pattern EmbeddedTerminateCaptionsEndOfInput = EmbeddedTerminateCaptions' "END_OF_INPUT"
@@ -57,8 +40,9 @@ pattern EmbeddedTerminateCaptionsEndOfInput = EmbeddedTerminateCaptions' "END_OF
 pattern EmbeddedTerminateCaptionsDisabled :: EmbeddedTerminateCaptions
 pattern EmbeddedTerminateCaptionsDisabled = EmbeddedTerminateCaptions' "DISABLED"
 
-{-# COMPLETE
+{-# COMPLETE 
   EmbeddedTerminateCaptionsEndOfInput,
+
   EmbeddedTerminateCaptionsDisabled,
   EmbeddedTerminateCaptions'
   #-}

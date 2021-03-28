@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,21 +15,19 @@
 --
 -- Associates a skill with the organization under the customer's AWS account. If a skill is private, the user implicitly accepts access to this skill during enablement.
 module Network.AWS.AlexaBusiness.ApproveSkill
-  ( -- * Creating a request
-    ApproveSkill (..),
-    mkApproveSkill,
-
+    (
+    -- * Creating a request
+      ApproveSkill (..)
+    , mkApproveSkill
     -- ** Request lenses
-    asSkillId,
+    , asSkillId
 
     -- * Destructuring the response
-    ApproveSkillResponse (..),
-    mkApproveSkillResponse,
-
+    , ApproveSkillResponse (..)
+    , mkApproveSkillResponse
     -- ** Response lenses
-    asrrsResponseStatus,
-  )
-where
+    , asrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -39,69 +37,74 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkApproveSkill' smart constructor.
 newtype ApproveSkill = ApproveSkill'
-  { -- | The unique identifier of the skill.
-    skillId :: Types.SkillId
+  { skillId :: Types.SkillId
+    -- ^ The unique identifier of the skill.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ApproveSkill' value with any optional fields omitted.
-mkApproveSkill ::
-  -- | 'skillId'
-  Types.SkillId ->
-  ApproveSkill
-mkApproveSkill skillId = ApproveSkill' {skillId}
+mkApproveSkill
+    :: Types.SkillId -- ^ 'skillId'
+    -> ApproveSkill
+mkApproveSkill skillId = ApproveSkill'{skillId}
 
 -- | The unique identifier of the skill.
 --
 -- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 asSkillId :: Lens.Lens' ApproveSkill Types.SkillId
 asSkillId = Lens.field @"skillId"
-{-# DEPRECATED asSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
+{-# INLINEABLE asSkillId #-}
+{-# DEPRECATED skillId "Use generic-lens or generic-optics with 'skillId' instead"  #-}
+
+instance Core.ToQuery ApproveSkill where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders ApproveSkill where
+        toHeaders ApproveSkill{..}
+          = Core.pure ("X-Amz-Target", "AlexaForBusiness.ApproveSkill")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON ApproveSkill where
-  toJSON ApproveSkill {..} =
-    Core.object
-      (Core.catMaybes [Core.Just ("SkillId" Core..= skillId)])
+        toJSON ApproveSkill{..}
+          = Core.object
+              (Core.catMaybes [Core.Just ("SkillId" Core..= skillId)])
 
 instance Core.AWSRequest ApproveSkill where
-  type Rs ApproveSkill = ApproveSkillResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "AlexaForBusiness.ApproveSkill")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveEmpty
-      ( \s h x ->
-          ApproveSkillResponse' Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs ApproveSkill = ApproveSkillResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveEmpty
+              (\ s h x ->
+                 ApproveSkillResponse' Core.<$> (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkApproveSkillResponse' smart constructor.
 newtype ApproveSkillResponse = ApproveSkillResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ApproveSkillResponse' value with any optional fields omitted.
-mkApproveSkillResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  ApproveSkillResponse
-mkApproveSkillResponse responseStatus =
-  ApproveSkillResponse' {responseStatus}
+mkApproveSkillResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> ApproveSkillResponse
+mkApproveSkillResponse responseStatus
+  = ApproveSkillResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 asrrsResponseStatus :: Lens.Lens' ApproveSkillResponse Core.Int
 asrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED asrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE asrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

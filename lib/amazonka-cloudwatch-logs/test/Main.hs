@@ -7,17 +7,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Main (main) where
 
+import Test.Tasty
 import Test.AWS.CloudWatchLogs
 import Test.AWS.CloudWatchLogs.Internal
-import Test.Tasty
 
 main :: IO ()
-main =
-  defaultMain $
-    testGroup
-      "CloudWatchLogs"
-      [ testGroup "tests" tests,
-        testGroup "fixtures" fixtures
-      ]
+main = defaultMain $ testGroup "CloudWatchLogs"
+    [ testGroup "tests"    tests
+    , testGroup "fixtures" fixtures
+    ]

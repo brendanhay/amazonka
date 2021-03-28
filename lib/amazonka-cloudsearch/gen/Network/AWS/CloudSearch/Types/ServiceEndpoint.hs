@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CloudSearch.Types.ServiceEndpoint
-  ( ServiceEndpoint (..),
-
-    -- * Smart constructor
-    mkServiceEndpoint,
-
-    -- * Lenses
-    seEndpoint,
-  )
-where
+  ( ServiceEndpoint (..)
+  -- * Smart constructor
+  , mkServiceEndpoint
+  -- * Lenses
+  , seEndpoint
+  ) where
 
 import qualified Network.AWS.CloudSearch.Types.Endpoint as Types
 import qualified Network.AWS.Lens as Lens
@@ -35,16 +33,17 @@ newtype ServiceEndpoint = ServiceEndpoint'
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ServiceEndpoint' value with any optional fields omitted.
-mkServiceEndpoint ::
-  ServiceEndpoint
-mkServiceEndpoint = ServiceEndpoint' {endpoint = Core.Nothing}
+mkServiceEndpoint
+    :: ServiceEndpoint
+mkServiceEndpoint = ServiceEndpoint'{endpoint = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 seEndpoint :: Lens.Lens' ServiceEndpoint (Core.Maybe Types.Endpoint)
 seEndpoint = Lens.field @"endpoint"
-{-# DEPRECATED seEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
+{-# INLINEABLE seEndpoint #-}
+{-# DEPRECATED endpoint "Use generic-lens or generic-optics with 'endpoint' instead"  #-}
 
 instance Core.FromXML ServiceEndpoint where
-  parseXML x = ServiceEndpoint' Core.<$> (x Core..@? "Endpoint")
+        parseXML x = ServiceEndpoint' Core.<$> (x Core..@? "Endpoint")

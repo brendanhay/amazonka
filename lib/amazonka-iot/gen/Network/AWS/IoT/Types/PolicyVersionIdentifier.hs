@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.IoT.Types.PolicyVersionIdentifier
-  ( PolicyVersionIdentifier (..),
-
-    -- * Smart constructor
-    mkPolicyVersionIdentifier,
-
-    -- * Lenses
-    pviPolicyName,
-    pviPolicyVersionId,
-  )
-where
+  ( PolicyVersionIdentifier (..)
+  -- * Smart constructor
+  , mkPolicyVersionIdentifier
+  -- * Lenses
+  , pviPolicyName
+  , pviPolicyVersionId
+  ) where
 
 import qualified Network.AWS.IoT.Types.PolicyName as Types
 import qualified Network.AWS.IoT.Types.PolicyVersionId as Types
@@ -31,49 +29,47 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkPolicyVersionIdentifier' smart constructor.
 data PolicyVersionIdentifier = PolicyVersionIdentifier'
-  { -- | The name of the policy.
-    policyName :: Core.Maybe Types.PolicyName,
-    -- | The ID of the version of the policy associated with the resource.
-    policyVersionId :: Core.Maybe Types.PolicyVersionId
+  { policyName :: Core.Maybe Types.PolicyName
+    -- ^ The name of the policy.
+  , policyVersionId :: Core.Maybe Types.PolicyVersionId
+    -- ^ The ID of the version of the policy associated with the resource.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'PolicyVersionIdentifier' value with any optional fields omitted.
-mkPolicyVersionIdentifier ::
-  PolicyVersionIdentifier
-mkPolicyVersionIdentifier =
-  PolicyVersionIdentifier'
-    { policyName = Core.Nothing,
-      policyVersionId = Core.Nothing
-    }
+mkPolicyVersionIdentifier
+    :: PolicyVersionIdentifier
+mkPolicyVersionIdentifier
+  = PolicyVersionIdentifier'{policyName = Core.Nothing,
+                             policyVersionId = Core.Nothing}
 
 -- | The name of the policy.
 --
 -- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pviPolicyName :: Lens.Lens' PolicyVersionIdentifier (Core.Maybe Types.PolicyName)
 pviPolicyName = Lens.field @"policyName"
-{-# DEPRECATED pviPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+{-# INLINEABLE pviPolicyName #-}
+{-# DEPRECATED policyName "Use generic-lens or generic-optics with 'policyName' instead"  #-}
 
 -- | The ID of the version of the policy associated with the resource.
 --
 -- /Note:/ Consider using 'policyVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pviPolicyVersionId :: Lens.Lens' PolicyVersionIdentifier (Core.Maybe Types.PolicyVersionId)
 pviPolicyVersionId = Lens.field @"policyVersionId"
-{-# DEPRECATED pviPolicyVersionId "Use generic-lens or generic-optics with 'policyVersionId' instead." #-}
+{-# INLINEABLE pviPolicyVersionId #-}
+{-# DEPRECATED policyVersionId "Use generic-lens or generic-optics with 'policyVersionId' instead"  #-}
 
 instance Core.FromJSON PolicyVersionIdentifier where
-  toJSON PolicyVersionIdentifier {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("policyName" Core..=) Core.<$> policyName,
-            ("policyVersionId" Core..=) Core.<$> policyVersionId
-          ]
-      )
+        toJSON PolicyVersionIdentifier{..}
+          = Core.object
+              (Core.catMaybes
+                 [("policyName" Core..=) Core.<$> policyName,
+                  ("policyVersionId" Core..=) Core.<$> policyVersionId])
 
 instance Core.FromJSON PolicyVersionIdentifier where
-  parseJSON =
-    Core.withObject "PolicyVersionIdentifier" Core.$
-      \x ->
-        PolicyVersionIdentifier'
-          Core.<$> (x Core..:? "policyName") Core.<*> (x Core..:? "policyVersionId")
+        parseJSON
+          = Core.withObject "PolicyVersionIdentifier" Core.$
+              \ x ->
+                PolicyVersionIdentifier' Core.<$>
+                  (x Core..:? "policyName") Core.<*> x Core..:? "policyVersionId"

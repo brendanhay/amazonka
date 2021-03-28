@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,18 +17,17 @@
 --
 -- This operation can be called only from the organization's management account.
 module Network.AWS.Organizations.DeleteOrganizationalUnit
-  ( -- * Creating a request
-    DeleteOrganizationalUnit (..),
-    mkDeleteOrganizationalUnit,
-
+    (
+    -- * Creating a request
+      DeleteOrganizationalUnit (..)
+    , mkDeleteOrganizationalUnit
     -- ** Request lenses
-    dOrganizationalUnitId,
+    , dOrganizationalUnitId
 
     -- * Destructuring the response
-    DeleteOrganizationalUnitResponse (..),
-    mkDeleteOrganizationalUnitResponse,
-  )
-where
+    , DeleteOrganizationalUnitResponse (..)
+    , mkDeleteOrganizationalUnitResponse
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Organizations.Types as Types
@@ -38,21 +37,20 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteOrganizationalUnit' smart constructor.
 newtype DeleteOrganizationalUnit = DeleteOrganizationalUnit'
-  { -- | The unique identifier (ID) of the organizational unit that you want to delete. You can get the ID from the 'ListOrganizationalUnitsForParent' operation.
-    --
-    -- The <http://wikipedia.org/wiki/regex regex pattern> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
-    organizationalUnitId :: Types.OrganizationalUnitId
+  { organizationalUnitId :: Types.OrganizationalUnitId
+    -- ^ The unique identifier (ID) of the organizational unit that you want to delete. You can get the ID from the 'ListOrganizationalUnitsForParent' operation.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an organizational unit ID string requires "ou-" followed by from 4 to 32 lowercase letters or digits (the ID of the root that contains the OU). This string is followed by a second "-" dash and from 8 to 32 additional lowercase letters or digits.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteOrganizationalUnit' value with any optional fields omitted.
-mkDeleteOrganizationalUnit ::
-  -- | 'organizationalUnitId'
-  Types.OrganizationalUnitId ->
-  DeleteOrganizationalUnit
-mkDeleteOrganizationalUnit organizationalUnitId =
-  DeleteOrganizationalUnit' {organizationalUnitId}
+mkDeleteOrganizationalUnit
+    :: Types.OrganizationalUnitId -- ^ 'organizationalUnitId'
+    -> DeleteOrganizationalUnit
+mkDeleteOrganizationalUnit organizationalUnitId
+  = DeleteOrganizationalUnit'{organizationalUnitId}
 
 -- | The unique identifier (ID) of the organizational unit that you want to delete. You can get the ID from the 'ListOrganizationalUnitsForParent' operation.
 --
@@ -61,32 +59,38 @@ mkDeleteOrganizationalUnit organizationalUnitId =
 -- /Note:/ Consider using 'organizationalUnitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dOrganizationalUnitId :: Lens.Lens' DeleteOrganizationalUnit Types.OrganizationalUnitId
 dOrganizationalUnitId = Lens.field @"organizationalUnitId"
-{-# DEPRECATED dOrganizationalUnitId "Use generic-lens or generic-optics with 'organizationalUnitId' instead." #-}
+{-# INLINEABLE dOrganizationalUnitId #-}
+{-# DEPRECATED organizationalUnitId "Use generic-lens or generic-optics with 'organizationalUnitId' instead"  #-}
+
+instance Core.ToQuery DeleteOrganizationalUnit where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DeleteOrganizationalUnit where
+        toHeaders DeleteOrganizationalUnit{..}
+          = Core.pure
+              ("X-Amz-Target",
+               "AWSOrganizationsV20161128.DeleteOrganizationalUnit")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON DeleteOrganizationalUnit where
-  toJSON DeleteOrganizationalUnit {..} =
-    Core.object
-      ( Core.catMaybes
-          [Core.Just ("OrganizationalUnitId" Core..= organizationalUnitId)]
-      )
+        toJSON DeleteOrganizationalUnit{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("OrganizationalUnitId" Core..= organizationalUnitId)])
 
 instance Core.AWSRequest DeleteOrganizationalUnit where
-  type Rs DeleteOrganizationalUnit = DeleteOrganizationalUnitResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "X-Amz-Target",
-              "AWSOrganizationsV20161128.DeleteOrganizationalUnit"
-            )
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response = Response.receiveNull DeleteOrganizationalUnitResponse'
+        type Rs DeleteOrganizationalUnit = DeleteOrganizationalUnitResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveNull DeleteOrganizationalUnitResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteOrganizationalUnitResponse' smart constructor.
 data DeleteOrganizationalUnitResponse = DeleteOrganizationalUnitResponse'
@@ -94,7 +98,7 @@ data DeleteOrganizationalUnitResponse = DeleteOrganizationalUnitResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteOrganizationalUnitResponse' value with any optional fields omitted.
-mkDeleteOrganizationalUnitResponse ::
-  DeleteOrganizationalUnitResponse
-mkDeleteOrganizationalUnitResponse =
-  DeleteOrganizationalUnitResponse'
+mkDeleteOrganizationalUnitResponse
+    :: DeleteOrganizationalUnitResponse
+mkDeleteOrganizationalUnitResponse
+  = DeleteOrganizationalUnitResponse'

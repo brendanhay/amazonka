@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -18,21 +18,19 @@
 -- For information about managing receipt rule sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide> .
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.SetActiveReceiptRuleSet
-  ( -- * Creating a request
-    SetActiveReceiptRuleSet (..),
-    mkSetActiveReceiptRuleSet,
-
+    (
+    -- * Creating a request
+      SetActiveReceiptRuleSet (..)
+    , mkSetActiveReceiptRuleSet
     -- ** Request lenses
-    sarrsRuleSetName,
+    , sarrsRuleSetName
 
     -- * Destructuring the response
-    SetActiveReceiptRuleSetResponse (..),
-    mkSetActiveReceiptRuleSetResponse,
-
+    , SetActiveReceiptRuleSetResponse (..)
+    , mkSetActiveReceiptRuleSetResponse
     -- ** Response lenses
-    sarrsrrsResponseStatus,
-  )
-where
+    , sarrsrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -44,74 +42,80 @@ import qualified Network.AWS.SES.Types as Types
 --
 -- /See:/ 'mkSetActiveReceiptRuleSet' smart constructor.
 newtype SetActiveReceiptRuleSet = SetActiveReceiptRuleSet'
-  { -- | The name of the receipt rule set to make active. Setting this value to null disables all email receiving.
-    ruleSetName :: Core.Maybe Types.ReceiptRuleSetName
+  { ruleSetName :: Core.Maybe Types.ReceiptRuleSetName
+    -- ^ The name of the receipt rule set to make active. Setting this value to null disables all email receiving.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'SetActiveReceiptRuleSet' value with any optional fields omitted.
-mkSetActiveReceiptRuleSet ::
-  SetActiveReceiptRuleSet
-mkSetActiveReceiptRuleSet =
-  SetActiveReceiptRuleSet' {ruleSetName = Core.Nothing}
+mkSetActiveReceiptRuleSet
+    :: SetActiveReceiptRuleSet
+mkSetActiveReceiptRuleSet
+  = SetActiveReceiptRuleSet'{ruleSetName = Core.Nothing}
 
 -- | The name of the receipt rule set to make active. Setting this value to null disables all email receiving.
 --
 -- /Note:/ Consider using 'ruleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sarrsRuleSetName :: Lens.Lens' SetActiveReceiptRuleSet (Core.Maybe Types.ReceiptRuleSetName)
 sarrsRuleSetName = Lens.field @"ruleSetName"
-{-# DEPRECATED sarrsRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
+{-# INLINEABLE sarrsRuleSetName #-}
+{-# DEPRECATED ruleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead"  #-}
+
+instance Core.ToQuery SetActiveReceiptRuleSet where
+        toQuery SetActiveReceiptRuleSet{..}
+          = Core.toQueryPair "Action"
+              ("SetActiveReceiptRuleSet" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2010-12-01" :: Core.Text)
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "RuleSetName") ruleSetName
+
+instance Core.ToHeaders SetActiveReceiptRuleSet where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest SetActiveReceiptRuleSet where
-  type Rs SetActiveReceiptRuleSet = SetActiveReceiptRuleSetResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "SetActiveReceiptRuleSet")
-                Core.<> (Core.pure ("Version", "2010-12-01"))
-                Core.<> (Core.toQueryValue "RuleSetName" Core.<$> ruleSetName)
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "SetActiveReceiptRuleSetResult"
-      ( \s h x ->
-          SetActiveReceiptRuleSetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs SetActiveReceiptRuleSet = SetActiveReceiptRuleSetResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "SetActiveReceiptRuleSetResult"
+              (\ s h x ->
+                 SetActiveReceiptRuleSetResponse' Core.<$>
+                   (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkSetActiveReceiptRuleSetResponse' smart constructor.
 newtype SetActiveReceiptRuleSetResponse = SetActiveReceiptRuleSetResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'SetActiveReceiptRuleSetResponse' value with any optional fields omitted.
-mkSetActiveReceiptRuleSetResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  SetActiveReceiptRuleSetResponse
-mkSetActiveReceiptRuleSetResponse responseStatus =
-  SetActiveReceiptRuleSetResponse' {responseStatus}
+mkSetActiveReceiptRuleSetResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> SetActiveReceiptRuleSetResponse
+mkSetActiveReceiptRuleSetResponse responseStatus
+  = SetActiveReceiptRuleSetResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sarrsrrsResponseStatus :: Lens.Lens' SetActiveReceiptRuleSetResponse Core.Int
 sarrsrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED sarrsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE sarrsrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

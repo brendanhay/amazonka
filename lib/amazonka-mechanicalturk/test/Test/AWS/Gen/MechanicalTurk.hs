@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.MechanicalTurk where
 
 import Data.Proxy
-import Network.AWS.MechanicalTurk
 import Test.AWS.Fixture
-import Test.AWS.MechanicalTurk.Internal
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.MechanicalTurk
+import Test.AWS.MechanicalTurk.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -270,548 +271,470 @@ import Test.Tasty
 -- Requests
 
 requestApproveAssignment :: ApproveAssignment -> TestTree
-requestApproveAssignment =
-  req
+requestApproveAssignment = req
     "ApproveAssignment"
     "fixture/ApproveAssignment.yaml"
 
 requestListReviewPolicyResultsForHIT :: ListReviewPolicyResultsForHIT -> TestTree
-requestListReviewPolicyResultsForHIT =
-  req
+requestListReviewPolicyResultsForHIT = req
     "ListReviewPolicyResultsForHIT"
     "fixture/ListReviewPolicyResultsForHIT.yaml"
 
 requestListHITs :: ListHITs -> TestTree
-requestListHITs =
-  req
+requestListHITs = req
     "ListHITs"
     "fixture/ListHITs.yaml"
 
 requestListWorkersWithQualificationType :: ListWorkersWithQualificationType -> TestTree
-requestListWorkersWithQualificationType =
-  req
+requestListWorkersWithQualificationType = req
     "ListWorkersWithQualificationType"
     "fixture/ListWorkersWithQualificationType.yaml"
 
 requestDeleteHIT :: DeleteHIT -> TestTree
-requestDeleteHIT =
-  req
+requestDeleteHIT = req
     "DeleteHIT"
     "fixture/DeleteHIT.yaml"
 
 requestListReviewableHITs :: ListReviewableHITs -> TestTree
-requestListReviewableHITs =
-  req
+requestListReviewableHITs = req
     "ListReviewableHITs"
     "fixture/ListReviewableHITs.yaml"
 
 requestGetAssignment :: GetAssignment -> TestTree
-requestGetAssignment =
-  req
+requestGetAssignment = req
     "GetAssignment"
     "fixture/GetAssignment.yaml"
 
 requestDeleteQualificationType :: DeleteQualificationType -> TestTree
-requestDeleteQualificationType =
-  req
+requestDeleteQualificationType = req
     "DeleteQualificationType"
     "fixture/DeleteQualificationType.yaml"
 
 requestUpdateQualificationType :: UpdateQualificationType -> TestTree
-requestUpdateQualificationType =
-  req
+requestUpdateQualificationType = req
     "UpdateQualificationType"
     "fixture/UpdateQualificationType.yaml"
 
 requestListQualificationTypes :: ListQualificationTypes -> TestTree
-requestListQualificationTypes =
-  req
+requestListQualificationTypes = req
     "ListQualificationTypes"
     "fixture/ListQualificationTypes.yaml"
 
 requestUpdateHITTypeOfHIT :: UpdateHITTypeOfHIT -> TestTree
-requestUpdateHITTypeOfHIT =
-  req
+requestUpdateHITTypeOfHIT = req
     "UpdateHITTypeOfHIT"
     "fixture/UpdateHITTypeOfHIT.yaml"
 
 requestDisassociateQualificationFromWorker :: DisassociateQualificationFromWorker -> TestTree
-requestDisassociateQualificationFromWorker =
-  req
+requestDisassociateQualificationFromWorker = req
     "DisassociateQualificationFromWorker"
     "fixture/DisassociateQualificationFromWorker.yaml"
 
 requestSendTestEventNotification :: SendTestEventNotification -> TestTree
-requestSendTestEventNotification =
-  req
+requestSendTestEventNotification = req
     "SendTestEventNotification"
     "fixture/SendTestEventNotification.yaml"
 
 requestNotifyWorkers :: NotifyWorkers -> TestTree
-requestNotifyWorkers =
-  req
+requestNotifyWorkers = req
     "NotifyWorkers"
     "fixture/NotifyWorkers.yaml"
 
 requestCreateHITWithHITType :: CreateHITWithHITType -> TestTree
-requestCreateHITWithHITType =
-  req
+requestCreateHITWithHITType = req
     "CreateHITWithHITType"
     "fixture/CreateHITWithHITType.yaml"
 
 requestCreateHITType :: CreateHITType -> TestTree
-requestCreateHITType =
-  req
+requestCreateHITType = req
     "CreateHITType"
     "fixture/CreateHITType.yaml"
 
 requestSendBonus :: SendBonus -> TestTree
-requestSendBonus =
-  req
+requestSendBonus = req
     "SendBonus"
     "fixture/SendBonus.yaml"
 
 requestListQualificationRequests :: ListQualificationRequests -> TestTree
-requestListQualificationRequests =
-  req
+requestListQualificationRequests = req
     "ListQualificationRequests"
     "fixture/ListQualificationRequests.yaml"
 
 requestUpdateExpirationForHIT :: UpdateExpirationForHIT -> TestTree
-requestUpdateExpirationForHIT =
-  req
+requestUpdateExpirationForHIT = req
     "UpdateExpirationForHIT"
     "fixture/UpdateExpirationForHIT.yaml"
 
 requestRejectAssignment :: RejectAssignment -> TestTree
-requestRejectAssignment =
-  req
+requestRejectAssignment = req
     "RejectAssignment"
     "fixture/RejectAssignment.yaml"
 
 requestListAssignmentsForHIT :: ListAssignmentsForHIT -> TestTree
-requestListAssignmentsForHIT =
-  req
+requestListAssignmentsForHIT = req
     "ListAssignmentsForHIT"
     "fixture/ListAssignmentsForHIT.yaml"
 
 requestRejectQualificationRequest :: RejectQualificationRequest -> TestTree
-requestRejectQualificationRequest =
-  req
+requestRejectQualificationRequest = req
     "RejectQualificationRequest"
     "fixture/RejectQualificationRequest.yaml"
 
 requestGetQualificationScore :: GetQualificationScore -> TestTree
-requestGetQualificationScore =
-  req
+requestGetQualificationScore = req
     "GetQualificationScore"
     "fixture/GetQualificationScore.yaml"
 
 requestGetQualificationType :: GetQualificationType -> TestTree
-requestGetQualificationType =
-  req
+requestGetQualificationType = req
     "GetQualificationType"
     "fixture/GetQualificationType.yaml"
 
 requestUpdateHITReviewStatus :: UpdateHITReviewStatus -> TestTree
-requestUpdateHITReviewStatus =
-  req
+requestUpdateHITReviewStatus = req
     "UpdateHITReviewStatus"
     "fixture/UpdateHITReviewStatus.yaml"
 
 requestCreateQualificationType :: CreateQualificationType -> TestTree
-requestCreateQualificationType =
-  req
+requestCreateQualificationType = req
     "CreateQualificationType"
     "fixture/CreateQualificationType.yaml"
 
 requestAcceptQualificationRequest :: AcceptQualificationRequest -> TestTree
-requestAcceptQualificationRequest =
-  req
+requestAcceptQualificationRequest = req
     "AcceptQualificationRequest"
     "fixture/AcceptQualificationRequest.yaml"
 
 requestGetFileUploadURL :: GetFileUploadURL -> TestTree
-requestGetFileUploadURL =
-  req
+requestGetFileUploadURL = req
     "GetFileUploadURL"
     "fixture/GetFileUploadURL.yaml"
 
 requestCreateAdditionalAssignmentsForHIT :: CreateAdditionalAssignmentsForHIT -> TestTree
-requestCreateAdditionalAssignmentsForHIT =
-  req
+requestCreateAdditionalAssignmentsForHIT = req
     "CreateAdditionalAssignmentsForHIT"
     "fixture/CreateAdditionalAssignmentsForHIT.yaml"
 
 requestGetHIT :: GetHIT -> TestTree
-requestGetHIT =
-  req
+requestGetHIT = req
     "GetHIT"
     "fixture/GetHIT.yaml"
 
 requestCreateWorkerBlock :: CreateWorkerBlock -> TestTree
-requestCreateWorkerBlock =
-  req
+requestCreateWorkerBlock = req
     "CreateWorkerBlock"
     "fixture/CreateWorkerBlock.yaml"
 
 requestListHITsForQualificationType :: ListHITsForQualificationType -> TestTree
-requestListHITsForQualificationType =
-  req
+requestListHITsForQualificationType = req
     "ListHITsForQualificationType"
     "fixture/ListHITsForQualificationType.yaml"
 
 requestListBonusPayments :: ListBonusPayments -> TestTree
-requestListBonusPayments =
-  req
+requestListBonusPayments = req
     "ListBonusPayments"
     "fixture/ListBonusPayments.yaml"
 
 requestListWorkerBlocks :: ListWorkerBlocks -> TestTree
-requestListWorkerBlocks =
-  req
+requestListWorkerBlocks = req
     "ListWorkerBlocks"
     "fixture/ListWorkerBlocks.yaml"
 
 requestDeleteWorkerBlock :: DeleteWorkerBlock -> TestTree
-requestDeleteWorkerBlock =
-  req
+requestDeleteWorkerBlock = req
     "DeleteWorkerBlock"
     "fixture/DeleteWorkerBlock.yaml"
 
 requestUpdateNotificationSettings :: UpdateNotificationSettings -> TestTree
-requestUpdateNotificationSettings =
-  req
+requestUpdateNotificationSettings = req
     "UpdateNotificationSettings"
     "fixture/UpdateNotificationSettings.yaml"
 
 requestAssociateQualificationWithWorker :: AssociateQualificationWithWorker -> TestTree
-requestAssociateQualificationWithWorker =
-  req
+requestAssociateQualificationWithWorker = req
     "AssociateQualificationWithWorker"
     "fixture/AssociateQualificationWithWorker.yaml"
 
 requestCreateHIT :: CreateHIT -> TestTree
-requestCreateHIT =
-  req
+requestCreateHIT = req
     "CreateHIT"
     "fixture/CreateHIT.yaml"
 
 requestGetAccountBalance :: GetAccountBalance -> TestTree
-requestGetAccountBalance =
-  req
+requestGetAccountBalance = req
     "GetAccountBalance"
     "fixture/GetAccountBalance.yaml"
 
 -- Responses
 
 responseApproveAssignment :: ApproveAssignmentResponse -> TestTree
-responseApproveAssignment =
-  res
+responseApproveAssignment = res
     "ApproveAssignmentResponse"
     "fixture/ApproveAssignmentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ApproveAssignment)
 
 responseListReviewPolicyResultsForHIT :: ListReviewPolicyResultsForHITResponse -> TestTree
-responseListReviewPolicyResultsForHIT =
-  res
+responseListReviewPolicyResultsForHIT = res
     "ListReviewPolicyResultsForHITResponse"
     "fixture/ListReviewPolicyResultsForHITResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListReviewPolicyResultsForHIT)
 
 responseListHITs :: ListHITsResponse -> TestTree
-responseListHITs =
-  res
+responseListHITs = res
     "ListHITsResponse"
     "fixture/ListHITsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListHITs)
 
 responseListWorkersWithQualificationType :: ListWorkersWithQualificationTypeResponse -> TestTree
-responseListWorkersWithQualificationType =
-  res
+responseListWorkersWithQualificationType = res
     "ListWorkersWithQualificationTypeResponse"
     "fixture/ListWorkersWithQualificationTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListWorkersWithQualificationType)
 
 responseDeleteHIT :: DeleteHITResponse -> TestTree
-responseDeleteHIT =
-  res
+responseDeleteHIT = res
     "DeleteHITResponse"
     "fixture/DeleteHITResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteHIT)
 
 responseListReviewableHITs :: ListReviewableHITsResponse -> TestTree
-responseListReviewableHITs =
-  res
+responseListReviewableHITs = res
     "ListReviewableHITsResponse"
     "fixture/ListReviewableHITsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListReviewableHITs)
 
 responseGetAssignment :: GetAssignmentResponse -> TestTree
-responseGetAssignment =
-  res
+responseGetAssignment = res
     "GetAssignmentResponse"
     "fixture/GetAssignmentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetAssignment)
 
 responseDeleteQualificationType :: DeleteQualificationTypeResponse -> TestTree
-responseDeleteQualificationType =
-  res
+responseDeleteQualificationType = res
     "DeleteQualificationTypeResponse"
     "fixture/DeleteQualificationTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteQualificationType)
 
 responseUpdateQualificationType :: UpdateQualificationTypeResponse -> TestTree
-responseUpdateQualificationType =
-  res
+responseUpdateQualificationType = res
     "UpdateQualificationTypeResponse"
     "fixture/UpdateQualificationTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateQualificationType)
 
 responseListQualificationTypes :: ListQualificationTypesResponse -> TestTree
-responseListQualificationTypes =
-  res
+responseListQualificationTypes = res
     "ListQualificationTypesResponse"
     "fixture/ListQualificationTypesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListQualificationTypes)
 
 responseUpdateHITTypeOfHIT :: UpdateHITTypeOfHITResponse -> TestTree
-responseUpdateHITTypeOfHIT =
-  res
+responseUpdateHITTypeOfHIT = res
     "UpdateHITTypeOfHITResponse"
     "fixture/UpdateHITTypeOfHITResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateHITTypeOfHIT)
 
 responseDisassociateQualificationFromWorker :: DisassociateQualificationFromWorkerResponse -> TestTree
-responseDisassociateQualificationFromWorker =
-  res
+responseDisassociateQualificationFromWorker = res
     "DisassociateQualificationFromWorkerResponse"
     "fixture/DisassociateQualificationFromWorkerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateQualificationFromWorker)
 
 responseSendTestEventNotification :: SendTestEventNotificationResponse -> TestTree
-responseSendTestEventNotification =
-  res
+responseSendTestEventNotification = res
     "SendTestEventNotificationResponse"
     "fixture/SendTestEventNotificationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SendTestEventNotification)
 
 responseNotifyWorkers :: NotifyWorkersResponse -> TestTree
-responseNotifyWorkers =
-  res
+responseNotifyWorkers = res
     "NotifyWorkersResponse"
     "fixture/NotifyWorkersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy NotifyWorkers)
 
 responseCreateHITWithHITType :: CreateHITWithHITTypeResponse -> TestTree
-responseCreateHITWithHITType =
-  res
+responseCreateHITWithHITType = res
     "CreateHITWithHITTypeResponse"
     "fixture/CreateHITWithHITTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateHITWithHITType)
 
 responseCreateHITType :: CreateHITTypeResponse -> TestTree
-responseCreateHITType =
-  res
+responseCreateHITType = res
     "CreateHITTypeResponse"
     "fixture/CreateHITTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateHITType)
 
 responseSendBonus :: SendBonusResponse -> TestTree
-responseSendBonus =
-  res
+responseSendBonus = res
     "SendBonusResponse"
     "fixture/SendBonusResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SendBonus)
 
 responseListQualificationRequests :: ListQualificationRequestsResponse -> TestTree
-responseListQualificationRequests =
-  res
+responseListQualificationRequests = res
     "ListQualificationRequestsResponse"
     "fixture/ListQualificationRequestsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListQualificationRequests)
 
 responseUpdateExpirationForHIT :: UpdateExpirationForHITResponse -> TestTree
-responseUpdateExpirationForHIT =
-  res
+responseUpdateExpirationForHIT = res
     "UpdateExpirationForHITResponse"
     "fixture/UpdateExpirationForHITResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateExpirationForHIT)
 
 responseRejectAssignment :: RejectAssignmentResponse -> TestTree
-responseRejectAssignment =
-  res
+responseRejectAssignment = res
     "RejectAssignmentResponse"
     "fixture/RejectAssignmentResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RejectAssignment)
 
 responseListAssignmentsForHIT :: ListAssignmentsForHITResponse -> TestTree
-responseListAssignmentsForHIT =
-  res
+responseListAssignmentsForHIT = res
     "ListAssignmentsForHITResponse"
     "fixture/ListAssignmentsForHITResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListAssignmentsForHIT)
 
 responseRejectQualificationRequest :: RejectQualificationRequestResponse -> TestTree
-responseRejectQualificationRequest =
-  res
+responseRejectQualificationRequest = res
     "RejectQualificationRequestResponse"
     "fixture/RejectQualificationRequestResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RejectQualificationRequest)
 
 responseGetQualificationScore :: GetQualificationScoreResponse -> TestTree
-responseGetQualificationScore =
-  res
+responseGetQualificationScore = res
     "GetQualificationScoreResponse"
     "fixture/GetQualificationScoreResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetQualificationScore)
 
 responseGetQualificationType :: GetQualificationTypeResponse -> TestTree
-responseGetQualificationType =
-  res
+responseGetQualificationType = res
     "GetQualificationTypeResponse"
     "fixture/GetQualificationTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetQualificationType)
 
 responseUpdateHITReviewStatus :: UpdateHITReviewStatusResponse -> TestTree
-responseUpdateHITReviewStatus =
-  res
+responseUpdateHITReviewStatus = res
     "UpdateHITReviewStatusResponse"
     "fixture/UpdateHITReviewStatusResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateHITReviewStatus)
 
 responseCreateQualificationType :: CreateQualificationTypeResponse -> TestTree
-responseCreateQualificationType =
-  res
+responseCreateQualificationType = res
     "CreateQualificationTypeResponse"
     "fixture/CreateQualificationTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateQualificationType)
 
 responseAcceptQualificationRequest :: AcceptQualificationRequestResponse -> TestTree
-responseAcceptQualificationRequest =
-  res
+responseAcceptQualificationRequest = res
     "AcceptQualificationRequestResponse"
     "fixture/AcceptQualificationRequestResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AcceptQualificationRequest)
 
 responseGetFileUploadURL :: GetFileUploadURLResponse -> TestTree
-responseGetFileUploadURL =
-  res
+responseGetFileUploadURL = res
     "GetFileUploadURLResponse"
     "fixture/GetFileUploadURLResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetFileUploadURL)
 
 responseCreateAdditionalAssignmentsForHIT :: CreateAdditionalAssignmentsForHITResponse -> TestTree
-responseCreateAdditionalAssignmentsForHIT =
-  res
+responseCreateAdditionalAssignmentsForHIT = res
     "CreateAdditionalAssignmentsForHITResponse"
     "fixture/CreateAdditionalAssignmentsForHITResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateAdditionalAssignmentsForHIT)
 
 responseGetHIT :: GetHITResponse -> TestTree
-responseGetHIT =
-  res
+responseGetHIT = res
     "GetHITResponse"
     "fixture/GetHITResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetHIT)
 
 responseCreateWorkerBlock :: CreateWorkerBlockResponse -> TestTree
-responseCreateWorkerBlock =
-  res
+responseCreateWorkerBlock = res
     "CreateWorkerBlockResponse"
     "fixture/CreateWorkerBlockResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateWorkerBlock)
 
 responseListHITsForQualificationType :: ListHITsForQualificationTypeResponse -> TestTree
-responseListHITsForQualificationType =
-  res
+responseListHITsForQualificationType = res
     "ListHITsForQualificationTypeResponse"
     "fixture/ListHITsForQualificationTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListHITsForQualificationType)
 
 responseListBonusPayments :: ListBonusPaymentsResponse -> TestTree
-responseListBonusPayments =
-  res
+responseListBonusPayments = res
     "ListBonusPaymentsResponse"
     "fixture/ListBonusPaymentsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListBonusPayments)
 
 responseListWorkerBlocks :: ListWorkerBlocksResponse -> TestTree
-responseListWorkerBlocks =
-  res
+responseListWorkerBlocks = res
     "ListWorkerBlocksResponse"
     "fixture/ListWorkerBlocksResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListWorkerBlocks)
 
 responseDeleteWorkerBlock :: DeleteWorkerBlockResponse -> TestTree
-responseDeleteWorkerBlock =
-  res
+responseDeleteWorkerBlock = res
     "DeleteWorkerBlockResponse"
     "fixture/DeleteWorkerBlockResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteWorkerBlock)
 
 responseUpdateNotificationSettings :: UpdateNotificationSettingsResponse -> TestTree
-responseUpdateNotificationSettings =
-  res
+responseUpdateNotificationSettings = res
     "UpdateNotificationSettingsResponse"
     "fixture/UpdateNotificationSettingsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateNotificationSettings)
 
 responseAssociateQualificationWithWorker :: AssociateQualificationWithWorkerResponse -> TestTree
-responseAssociateQualificationWithWorker =
-  res
+responseAssociateQualificationWithWorker = res
     "AssociateQualificationWithWorkerResponse"
     "fixture/AssociateQualificationWithWorkerResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateQualificationWithWorker)
 
 responseCreateHIT :: CreateHITResponse -> TestTree
-responseCreateHIT =
-  res
+responseCreateHIT = res
     "CreateHITResponse"
     "fixture/CreateHITResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateHIT)
 
 responseGetAccountBalance :: GetAccountBalanceResponse -> TestTree
-responseGetAccountBalance =
-  res
+responseGetAccountBalance = res
     "GetAccountBalanceResponse"
     "fixture/GetAccountBalanceResponse.proto"
     mkServiceConfig

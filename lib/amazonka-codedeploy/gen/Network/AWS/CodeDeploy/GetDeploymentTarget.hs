@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,25 +13,23 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about a deployment target.
+-- Returns information about a deployment target. 
 module Network.AWS.CodeDeploy.GetDeploymentTarget
-  ( -- * Creating a request
-    GetDeploymentTarget (..),
-    mkGetDeploymentTarget,
-
+    (
+    -- * Creating a request
+      GetDeploymentTarget (..)
+    , mkGetDeploymentTarget
     -- ** Request lenses
-    gdtDeploymentId,
-    gdtTargetId,
+    , gdtDeploymentId
+    , gdtTargetId
 
     -- * Destructuring the response
-    GetDeploymentTargetResponse (..),
-    mkGetDeploymentTargetResponse,
-
+    , GetDeploymentTargetResponse (..)
+    , mkGetDeploymentTargetResponse
     -- ** Response lenses
-    gdtrrsDeploymentTarget,
-    gdtrrsResponseStatus,
-  )
-where
+    , gdtrrsDeploymentTarget
+    , gdtrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.CodeDeploy.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -41,99 +39,101 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetDeploymentTarget' smart constructor.
 data GetDeploymentTarget = GetDeploymentTarget'
-  { -- | The unique ID of a deployment.
-    deploymentId :: Core.Maybe Types.DeploymentId,
-    -- | The unique ID of a deployment target.
-    targetId :: Core.Maybe Types.TargetId
+  { deploymentId :: Core.Maybe Types.DeploymentId
+    -- ^ The unique ID of a deployment. 
+  , targetId :: Core.Maybe Types.TargetId
+    -- ^ The unique ID of a deployment target. 
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetDeploymentTarget' value with any optional fields omitted.
-mkGetDeploymentTarget ::
-  GetDeploymentTarget
-mkGetDeploymentTarget =
-  GetDeploymentTarget'
-    { deploymentId = Core.Nothing,
-      targetId = Core.Nothing
-    }
+mkGetDeploymentTarget
+    :: GetDeploymentTarget
+mkGetDeploymentTarget
+  = GetDeploymentTarget'{deploymentId = Core.Nothing,
+                         targetId = Core.Nothing}
 
--- | The unique ID of a deployment.
+-- | The unique ID of a deployment. 
 --
 -- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gdtDeploymentId :: Lens.Lens' GetDeploymentTarget (Core.Maybe Types.DeploymentId)
 gdtDeploymentId = Lens.field @"deploymentId"
-{-# DEPRECATED gdtDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
+{-# INLINEABLE gdtDeploymentId #-}
+{-# DEPRECATED deploymentId "Use generic-lens or generic-optics with 'deploymentId' instead"  #-}
 
--- | The unique ID of a deployment target.
+-- | The unique ID of a deployment target. 
 --
 -- /Note:/ Consider using 'targetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gdtTargetId :: Lens.Lens' GetDeploymentTarget (Core.Maybe Types.TargetId)
 gdtTargetId = Lens.field @"targetId"
-{-# DEPRECATED gdtTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
+{-# INLINEABLE gdtTargetId #-}
+{-# DEPRECATED targetId "Use generic-lens or generic-optics with 'targetId' instead"  #-}
+
+instance Core.ToQuery GetDeploymentTarget where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders GetDeploymentTarget where
+        toHeaders GetDeploymentTarget{..}
+          = Core.pure
+              ("X-Amz-Target", "CodeDeploy_20141006.GetDeploymentTarget")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON GetDeploymentTarget where
-  toJSON GetDeploymentTarget {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("deploymentId" Core..=) Core.<$> deploymentId,
-            ("targetId" Core..=) Core.<$> targetId
-          ]
-      )
+        toJSON GetDeploymentTarget{..}
+          = Core.object
+              (Core.catMaybes
+                 [("deploymentId" Core..=) Core.<$> deploymentId,
+                  ("targetId" Core..=) Core.<$> targetId])
 
 instance Core.AWSRequest GetDeploymentTarget where
-  type Rs GetDeploymentTarget = GetDeploymentTargetResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "CodeDeploy_20141006.GetDeploymentTarget")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          GetDeploymentTargetResponse'
-            Core.<$> (x Core..:? "deploymentTarget")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs GetDeploymentTarget = GetDeploymentTargetResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 GetDeploymentTargetResponse' Core.<$>
+                   (x Core..:? "deploymentTarget") Core.<*>
+                     Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkGetDeploymentTargetResponse' smart constructor.
 data GetDeploymentTargetResponse = GetDeploymentTargetResponse'
-  { -- | A deployment target that contains information about a deployment such as its status, lifecycle events, and when it was last updated. It also contains metadata about the deployment target. The deployment target metadata depends on the deployment target's type (@instanceTarget@ , @lambdaTarget@ , or @ecsTarget@ ).
-    deploymentTarget :: Core.Maybe Types.DeploymentTarget,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { deploymentTarget :: Core.Maybe Types.DeploymentTarget
+    -- ^ A deployment target that contains information about a deployment such as its status, lifecycle events, and when it was last updated. It also contains metadata about the deployment target. The deployment target metadata depends on the deployment target's type (@instanceTarget@ , @lambdaTarget@ , or @ecsTarget@ ). 
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'GetDeploymentTargetResponse' value with any optional fields omitted.
-mkGetDeploymentTargetResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  GetDeploymentTargetResponse
-mkGetDeploymentTargetResponse responseStatus =
-  GetDeploymentTargetResponse'
-    { deploymentTarget = Core.Nothing,
-      responseStatus
-    }
+mkGetDeploymentTargetResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> GetDeploymentTargetResponse
+mkGetDeploymentTargetResponse responseStatus
+  = GetDeploymentTargetResponse'{deploymentTarget = Core.Nothing,
+                                 responseStatus}
 
--- | A deployment target that contains information about a deployment such as its status, lifecycle events, and when it was last updated. It also contains metadata about the deployment target. The deployment target metadata depends on the deployment target's type (@instanceTarget@ , @lambdaTarget@ , or @ecsTarget@ ).
+-- | A deployment target that contains information about a deployment such as its status, lifecycle events, and when it was last updated. It also contains metadata about the deployment target. The deployment target metadata depends on the deployment target's type (@instanceTarget@ , @lambdaTarget@ , or @ecsTarget@ ). 
 --
 -- /Note:/ Consider using 'deploymentTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gdtrrsDeploymentTarget :: Lens.Lens' GetDeploymentTargetResponse (Core.Maybe Types.DeploymentTarget)
 gdtrrsDeploymentTarget = Lens.field @"deploymentTarget"
-{-# DEPRECATED gdtrrsDeploymentTarget "Use generic-lens or generic-optics with 'deploymentTarget' instead." #-}
+{-# INLINEABLE gdtrrsDeploymentTarget #-}
+{-# DEPRECATED deploymentTarget "Use generic-lens or generic-optics with 'deploymentTarget' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gdtrrsResponseStatus :: Lens.Lens' GetDeploymentTargetResponse Core.Int
 gdtrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED gdtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE gdtrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

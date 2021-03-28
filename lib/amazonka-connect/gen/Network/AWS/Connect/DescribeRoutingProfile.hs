@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,23 +15,21 @@
 --
 -- Describes the specified routing profile.
 module Network.AWS.Connect.DescribeRoutingProfile
-  ( -- * Creating a request
-    DescribeRoutingProfile (..),
-    mkDescribeRoutingProfile,
-
+    (
+    -- * Creating a request
+      DescribeRoutingProfile (..)
+    , mkDescribeRoutingProfile
     -- ** Request lenses
-    drpInstanceId,
-    drpRoutingProfileId,
+    , drpInstanceId
+    , drpRoutingProfileId
 
     -- * Destructuring the response
-    DescribeRoutingProfileResponse (..),
-    mkDescribeRoutingProfileResponse,
-
+    , DescribeRoutingProfileResponse (..)
+    , mkDescribeRoutingProfileResponse
     -- ** Response lenses
-    drprrsRoutingProfile,
-    drprrsResponseStatus,
-  )
-where
+    , drprrsRoutingProfile
+    , drprrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -41,94 +39,95 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeRoutingProfile' smart constructor.
 data DescribeRoutingProfile = DescribeRoutingProfile'
-  { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Types.InstanceId,
-    -- | The identifier of the routing profile.
-    routingProfileId :: Types.RoutingProfileId
+  { instanceId :: Types.InstanceId
+    -- ^ The identifier of the Amazon Connect instance.
+  , routingProfileId :: Types.RoutingProfileId
+    -- ^ The identifier of the routing profile.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DescribeRoutingProfile' value with any optional fields omitted.
-mkDescribeRoutingProfile ::
-  -- | 'instanceId'
-  Types.InstanceId ->
-  -- | 'routingProfileId'
-  Types.RoutingProfileId ->
-  DescribeRoutingProfile
-mkDescribeRoutingProfile instanceId routingProfileId =
-  DescribeRoutingProfile' {instanceId, routingProfileId}
+mkDescribeRoutingProfile
+    :: Types.InstanceId -- ^ 'instanceId'
+    -> Types.RoutingProfileId -- ^ 'routingProfileId'
+    -> DescribeRoutingProfile
+mkDescribeRoutingProfile instanceId routingProfileId
+  = DescribeRoutingProfile'{instanceId, routingProfileId}
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 drpInstanceId :: Lens.Lens' DescribeRoutingProfile Types.InstanceId
 drpInstanceId = Lens.field @"instanceId"
-{-# DEPRECATED drpInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+{-# INLINEABLE drpInstanceId #-}
+{-# DEPRECATED instanceId "Use generic-lens or generic-optics with 'instanceId' instead"  #-}
 
 -- | The identifier of the routing profile.
 --
 -- /Note:/ Consider using 'routingProfileId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 drpRoutingProfileId :: Lens.Lens' DescribeRoutingProfile Types.RoutingProfileId
 drpRoutingProfileId = Lens.field @"routingProfileId"
-{-# DEPRECATED drpRoutingProfileId "Use generic-lens or generic-optics with 'routingProfileId' instead." #-}
+{-# INLINEABLE drpRoutingProfileId #-}
+{-# DEPRECATED routingProfileId "Use generic-lens or generic-optics with 'routingProfileId' instead"  #-}
+
+instance Core.ToQuery DescribeRoutingProfile where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DescribeRoutingProfile where
+        toHeaders DescribeRoutingProfile{..}
+          = Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.AWSRequest DescribeRoutingProfile where
-  type Rs DescribeRoutingProfile = DescribeRoutingProfileResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.GET,
-        Core._rqPath =
-          Core.rawPath
-            ( "/routing-profiles/" Core.<> (Core.toText instanceId)
-                Core.<> ("/")
-                Core.<> (Core.toText routingProfileId)
-            ),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
-        Core._rqBody = ""
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          DescribeRoutingProfileResponse'
-            Core.<$> (x Core..:? "RoutingProfile")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DescribeRoutingProfile = DescribeRoutingProfileResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.GET,
+                         Core._rqPath =
+                           "/routing-profiles/" Core.<> Core.toText instanceId Core.<> "/"
+                             Core.<> Core.toText routingProfileId,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 DescribeRoutingProfileResponse' Core.<$>
+                   (x Core..:? "RoutingProfile") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDescribeRoutingProfileResponse' smart constructor.
 data DescribeRoutingProfileResponse = DescribeRoutingProfileResponse'
-  { -- | The routing profile.
-    routingProfile :: Core.Maybe Types.RoutingProfile,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { routingProfile :: Core.Maybe Types.RoutingProfile
+    -- ^ The routing profile.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DescribeRoutingProfileResponse' value with any optional fields omitted.
-mkDescribeRoutingProfileResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DescribeRoutingProfileResponse
-mkDescribeRoutingProfileResponse responseStatus =
-  DescribeRoutingProfileResponse'
-    { routingProfile = Core.Nothing,
-      responseStatus
-    }
+mkDescribeRoutingProfileResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DescribeRoutingProfileResponse
+mkDescribeRoutingProfileResponse responseStatus
+  = DescribeRoutingProfileResponse'{routingProfile = Core.Nothing,
+                                    responseStatus}
 
 -- | The routing profile.
 --
 -- /Note:/ Consider using 'routingProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 drprrsRoutingProfile :: Lens.Lens' DescribeRoutingProfileResponse (Core.Maybe Types.RoutingProfile)
 drprrsRoutingProfile = Lens.field @"routingProfile"
-{-# DEPRECATED drprrsRoutingProfile "Use generic-lens or generic-optics with 'routingProfile' instead." #-}
+{-# INLINEABLE drprrsRoutingProfile #-}
+{-# DEPRECATED routingProfile "Use generic-lens or generic-optics with 'routingProfile' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 drprrsResponseStatus :: Lens.Lens' DescribeRoutingProfileResponse Core.Int
 drprrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED drprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE drprrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

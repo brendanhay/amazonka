@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,20 +10,17 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.ECS.Types.EnvironmentFile
-  ( EnvironmentFile (..),
-
-    -- * Smart constructor
-    mkEnvironmentFile,
-
-    -- * Lenses
-    efValue,
-    efType,
-  )
-where
+  ( EnvironmentFile (..)
+  -- * Smart constructor
+  , mkEnvironmentFile
+  -- * Lenses
+  , efValue
+  , efType
+  ) where
 
 import qualified Network.AWS.ECS.Types.EnvironmentFileType as Types
-import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
 
@@ -34,49 +31,47 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkEnvironmentFile' smart constructor.
 data EnvironmentFile = EnvironmentFile'
-  { -- | The Amazon Resource Name (ARN) of the Amazon S3 object containing the environment variable file.
-    value :: Types.String,
-    -- | The file type to use. The only supported value is @s3@ .
-    type' :: Types.EnvironmentFileType
+  { value :: Core.Text
+    -- ^ The Amazon Resource Name (ARN) of the Amazon S3 object containing the environment variable file.
+  , type' :: Types.EnvironmentFileType
+    -- ^ The file type to use. The only supported value is @s3@ .
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'EnvironmentFile' value with any optional fields omitted.
-mkEnvironmentFile ::
-  -- | 'value'
-  Types.String ->
-  -- | 'type\''
-  Types.EnvironmentFileType ->
-  EnvironmentFile
-mkEnvironmentFile value type' = EnvironmentFile' {value, type'}
+mkEnvironmentFile
+    :: Core.Text -- ^ 'value'
+    -> Types.EnvironmentFileType -- ^ 'type\''
+    -> EnvironmentFile
+mkEnvironmentFile value type' = EnvironmentFile'{value, type'}
 
 -- | The Amazon Resource Name (ARN) of the Amazon S3 object containing the environment variable file.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efValue :: Lens.Lens' EnvironmentFile Types.String
+efValue :: Lens.Lens' EnvironmentFile Core.Text
 efValue = Lens.field @"value"
-{-# DEPRECATED efValue "Use generic-lens or generic-optics with 'value' instead." #-}
+{-# INLINEABLE efValue #-}
+{-# DEPRECATED value "Use generic-lens or generic-optics with 'value' instead"  #-}
 
 -- | The file type to use. The only supported value is @s3@ .
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 efType :: Lens.Lens' EnvironmentFile Types.EnvironmentFileType
 efType = Lens.field @"type'"
-{-# DEPRECATED efType "Use generic-lens or generic-optics with 'type'' instead." #-}
+{-# INLINEABLE efType #-}
+{-# DEPRECATED type' "Use generic-lens or generic-optics with 'type'' instead"  #-}
 
 instance Core.FromJSON EnvironmentFile where
-  toJSON EnvironmentFile {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("value" Core..= value),
-            Core.Just ("type" Core..= type')
-          ]
-      )
+        toJSON EnvironmentFile{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("value" Core..= value),
+                  Core.Just ("type" Core..= type')])
 
 instance Core.FromJSON EnvironmentFile where
-  parseJSON =
-    Core.withObject "EnvironmentFile" Core.$
-      \x ->
-        EnvironmentFile'
-          Core.<$> (x Core..: "value") Core.<*> (x Core..: "type")
+        parseJSON
+          = Core.withObject "EnvironmentFile" Core.$
+              \ x ->
+                EnvironmentFile' Core.<$>
+                  (x Core..: "value") Core.<*> x Core..: "type"

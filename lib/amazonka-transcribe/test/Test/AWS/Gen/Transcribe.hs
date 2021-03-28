@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.Transcribe where
 
 import Data.Proxy
-import Network.AWS.Transcribe
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.AWS.Transcribe.Internal
 import Test.Tasty
+import Network.AWS.Transcribe
+import Test.AWS.Transcribe.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -198,380 +199,326 @@ import Test.Tasty
 -- Requests
 
 requestListLanguageModels :: ListLanguageModels -> TestTree
-requestListLanguageModels =
-  req
+requestListLanguageModels = req
     "ListLanguageModels"
     "fixture/ListLanguageModels.yaml"
 
 requestGetVocabulary :: GetVocabulary -> TestTree
-requestGetVocabulary =
-  req
+requestGetVocabulary = req
     "GetVocabulary"
     "fixture/GetVocabulary.yaml"
 
 requestDeleteLanguageModel :: DeleteLanguageModel -> TestTree
-requestDeleteLanguageModel =
-  req
+requestDeleteLanguageModel = req
     "DeleteLanguageModel"
     "fixture/DeleteLanguageModel.yaml"
 
 requestGetTranscriptionJob :: GetTranscriptionJob -> TestTree
-requestGetTranscriptionJob =
-  req
+requestGetTranscriptionJob = req
     "GetTranscriptionJob"
     "fixture/GetTranscriptionJob.yaml"
 
 requestStartMedicalTranscriptionJob :: StartMedicalTranscriptionJob -> TestTree
-requestStartMedicalTranscriptionJob =
-  req
+requestStartMedicalTranscriptionJob = req
     "StartMedicalTranscriptionJob"
     "fixture/StartMedicalTranscriptionJob.yaml"
 
 requestDeleteMedicalVocabulary :: DeleteMedicalVocabulary -> TestTree
-requestDeleteMedicalVocabulary =
-  req
+requestDeleteMedicalVocabulary = req
     "DeleteMedicalVocabulary"
     "fixture/DeleteMedicalVocabulary.yaml"
 
 requestUpdateMedicalVocabulary :: UpdateMedicalVocabulary -> TestTree
-requestUpdateMedicalVocabulary =
-  req
+requestUpdateMedicalVocabulary = req
     "UpdateMedicalVocabulary"
     "fixture/UpdateMedicalVocabulary.yaml"
 
 requestDeleteTranscriptionJob :: DeleteTranscriptionJob -> TestTree
-requestDeleteTranscriptionJob =
-  req
+requestDeleteTranscriptionJob = req
     "DeleteTranscriptionJob"
     "fixture/DeleteTranscriptionJob.yaml"
 
 requestDescribeLanguageModel :: DescribeLanguageModel -> TestTree
-requestDescribeLanguageModel =
-  req
+requestDescribeLanguageModel = req
     "DescribeLanguageModel"
     "fixture/DescribeLanguageModel.yaml"
 
 requestDeleteMedicalTranscriptionJob :: DeleteMedicalTranscriptionJob -> TestTree
-requestDeleteMedicalTranscriptionJob =
-  req
+requestDeleteMedicalTranscriptionJob = req
     "DeleteMedicalTranscriptionJob"
     "fixture/DeleteMedicalTranscriptionJob.yaml"
 
 requestDeleteVocabulary :: DeleteVocabulary -> TestTree
-requestDeleteVocabulary =
-  req
+requestDeleteVocabulary = req
     "DeleteVocabulary"
     "fixture/DeleteVocabulary.yaml"
 
 requestUpdateVocabulary :: UpdateVocabulary -> TestTree
-requestUpdateVocabulary =
-  req
+requestUpdateVocabulary = req
     "UpdateVocabulary"
     "fixture/UpdateVocabulary.yaml"
 
 requestCreateVocabularyFilter :: CreateVocabularyFilter -> TestTree
-requestCreateVocabularyFilter =
-  req
+requestCreateVocabularyFilter = req
     "CreateVocabularyFilter"
     "fixture/CreateVocabularyFilter.yaml"
 
 requestGetMedicalTranscriptionJob :: GetMedicalTranscriptionJob -> TestTree
-requestGetMedicalTranscriptionJob =
-  req
+requestGetMedicalTranscriptionJob = req
     "GetMedicalTranscriptionJob"
     "fixture/GetMedicalTranscriptionJob.yaml"
 
 requestGetVocabularyFilter :: GetVocabularyFilter -> TestTree
-requestGetVocabularyFilter =
-  req
+requestGetVocabularyFilter = req
     "GetVocabularyFilter"
     "fixture/GetVocabularyFilter.yaml"
 
 requestGetMedicalVocabulary :: GetMedicalVocabulary -> TestTree
-requestGetMedicalVocabulary =
-  req
+requestGetMedicalVocabulary = req
     "GetMedicalVocabulary"
     "fixture/GetMedicalVocabulary.yaml"
 
 requestCreateMedicalVocabulary :: CreateMedicalVocabulary -> TestTree
-requestCreateMedicalVocabulary =
-  req
+requestCreateMedicalVocabulary = req
     "CreateMedicalVocabulary"
     "fixture/CreateMedicalVocabulary.yaml"
 
 requestListMedicalVocabularies :: ListMedicalVocabularies -> TestTree
-requestListMedicalVocabularies =
-  req
+requestListMedicalVocabularies = req
     "ListMedicalVocabularies"
     "fixture/ListMedicalVocabularies.yaml"
 
 requestListTranscriptionJobs :: ListTranscriptionJobs -> TestTree
-requestListTranscriptionJobs =
-  req
+requestListTranscriptionJobs = req
     "ListTranscriptionJobs"
     "fixture/ListTranscriptionJobs.yaml"
 
 requestListMedicalTranscriptionJobs :: ListMedicalTranscriptionJobs -> TestTree
-requestListMedicalTranscriptionJobs =
-  req
+requestListMedicalTranscriptionJobs = req
     "ListMedicalTranscriptionJobs"
     "fixture/ListMedicalTranscriptionJobs.yaml"
 
 requestDeleteVocabularyFilter :: DeleteVocabularyFilter -> TestTree
-requestDeleteVocabularyFilter =
-  req
+requestDeleteVocabularyFilter = req
     "DeleteVocabularyFilter"
     "fixture/DeleteVocabularyFilter.yaml"
 
 requestListVocabularyFilters :: ListVocabularyFilters -> TestTree
-requestListVocabularyFilters =
-  req
+requestListVocabularyFilters = req
     "ListVocabularyFilters"
     "fixture/ListVocabularyFilters.yaml"
 
 requestUpdateVocabularyFilter :: UpdateVocabularyFilter -> TestTree
-requestUpdateVocabularyFilter =
-  req
+requestUpdateVocabularyFilter = req
     "UpdateVocabularyFilter"
     "fixture/UpdateVocabularyFilter.yaml"
 
 requestListVocabularies :: ListVocabularies -> TestTree
-requestListVocabularies =
-  req
+requestListVocabularies = req
     "ListVocabularies"
     "fixture/ListVocabularies.yaml"
 
 requestCreateVocabulary :: CreateVocabulary -> TestTree
-requestCreateVocabulary =
-  req
+requestCreateVocabulary = req
     "CreateVocabulary"
     "fixture/CreateVocabulary.yaml"
 
 requestCreateLanguageModel :: CreateLanguageModel -> TestTree
-requestCreateLanguageModel =
-  req
+requestCreateLanguageModel = req
     "CreateLanguageModel"
     "fixture/CreateLanguageModel.yaml"
 
 requestStartTranscriptionJob :: StartTranscriptionJob -> TestTree
-requestStartTranscriptionJob =
-  req
+requestStartTranscriptionJob = req
     "StartTranscriptionJob"
     "fixture/StartTranscriptionJob.yaml"
 
 -- Responses
 
 responseListLanguageModels :: ListLanguageModelsResponse -> TestTree
-responseListLanguageModels =
-  res
+responseListLanguageModels = res
     "ListLanguageModelsResponse"
     "fixture/ListLanguageModelsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListLanguageModels)
 
 responseGetVocabulary :: GetVocabularyResponse -> TestTree
-responseGetVocabulary =
-  res
+responseGetVocabulary = res
     "GetVocabularyResponse"
     "fixture/GetVocabularyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetVocabulary)
 
 responseDeleteLanguageModel :: DeleteLanguageModelResponse -> TestTree
-responseDeleteLanguageModel =
-  res
+responseDeleteLanguageModel = res
     "DeleteLanguageModelResponse"
     "fixture/DeleteLanguageModelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteLanguageModel)
 
 responseGetTranscriptionJob :: GetTranscriptionJobResponse -> TestTree
-responseGetTranscriptionJob =
-  res
+responseGetTranscriptionJob = res
     "GetTranscriptionJobResponse"
     "fixture/GetTranscriptionJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetTranscriptionJob)
 
 responseStartMedicalTranscriptionJob :: StartMedicalTranscriptionJobResponse -> TestTree
-responseStartMedicalTranscriptionJob =
-  res
+responseStartMedicalTranscriptionJob = res
     "StartMedicalTranscriptionJobResponse"
     "fixture/StartMedicalTranscriptionJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartMedicalTranscriptionJob)
 
 responseDeleteMedicalVocabulary :: DeleteMedicalVocabularyResponse -> TestTree
-responseDeleteMedicalVocabulary =
-  res
+responseDeleteMedicalVocabulary = res
     "DeleteMedicalVocabularyResponse"
     "fixture/DeleteMedicalVocabularyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteMedicalVocabulary)
 
 responseUpdateMedicalVocabulary :: UpdateMedicalVocabularyResponse -> TestTree
-responseUpdateMedicalVocabulary =
-  res
+responseUpdateMedicalVocabulary = res
     "UpdateMedicalVocabularyResponse"
     "fixture/UpdateMedicalVocabularyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateMedicalVocabulary)
 
 responseDeleteTranscriptionJob :: DeleteTranscriptionJobResponse -> TestTree
-responseDeleteTranscriptionJob =
-  res
+responseDeleteTranscriptionJob = res
     "DeleteTranscriptionJobResponse"
     "fixture/DeleteTranscriptionJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteTranscriptionJob)
 
 responseDescribeLanguageModel :: DescribeLanguageModelResponse -> TestTree
-responseDescribeLanguageModel =
-  res
+responseDescribeLanguageModel = res
     "DescribeLanguageModelResponse"
     "fixture/DescribeLanguageModelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeLanguageModel)
 
 responseDeleteMedicalTranscriptionJob :: DeleteMedicalTranscriptionJobResponse -> TestTree
-responseDeleteMedicalTranscriptionJob =
-  res
+responseDeleteMedicalTranscriptionJob = res
     "DeleteMedicalTranscriptionJobResponse"
     "fixture/DeleteMedicalTranscriptionJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteMedicalTranscriptionJob)
 
 responseDeleteVocabulary :: DeleteVocabularyResponse -> TestTree
-responseDeleteVocabulary =
-  res
+responseDeleteVocabulary = res
     "DeleteVocabularyResponse"
     "fixture/DeleteVocabularyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteVocabulary)
 
 responseUpdateVocabulary :: UpdateVocabularyResponse -> TestTree
-responseUpdateVocabulary =
-  res
+responseUpdateVocabulary = res
     "UpdateVocabularyResponse"
     "fixture/UpdateVocabularyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateVocabulary)
 
 responseCreateVocabularyFilter :: CreateVocabularyFilterResponse -> TestTree
-responseCreateVocabularyFilter =
-  res
+responseCreateVocabularyFilter = res
     "CreateVocabularyFilterResponse"
     "fixture/CreateVocabularyFilterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateVocabularyFilter)
 
 responseGetMedicalTranscriptionJob :: GetMedicalTranscriptionJobResponse -> TestTree
-responseGetMedicalTranscriptionJob =
-  res
+responseGetMedicalTranscriptionJob = res
     "GetMedicalTranscriptionJobResponse"
     "fixture/GetMedicalTranscriptionJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetMedicalTranscriptionJob)
 
 responseGetVocabularyFilter :: GetVocabularyFilterResponse -> TestTree
-responseGetVocabularyFilter =
-  res
+responseGetVocabularyFilter = res
     "GetVocabularyFilterResponse"
     "fixture/GetVocabularyFilterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetVocabularyFilter)
 
 responseGetMedicalVocabulary :: GetMedicalVocabularyResponse -> TestTree
-responseGetMedicalVocabulary =
-  res
+responseGetMedicalVocabulary = res
     "GetMedicalVocabularyResponse"
     "fixture/GetMedicalVocabularyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetMedicalVocabulary)
 
 responseCreateMedicalVocabulary :: CreateMedicalVocabularyResponse -> TestTree
-responseCreateMedicalVocabulary =
-  res
+responseCreateMedicalVocabulary = res
     "CreateMedicalVocabularyResponse"
     "fixture/CreateMedicalVocabularyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateMedicalVocabulary)
 
 responseListMedicalVocabularies :: ListMedicalVocabulariesResponse -> TestTree
-responseListMedicalVocabularies =
-  res
+responseListMedicalVocabularies = res
     "ListMedicalVocabulariesResponse"
     "fixture/ListMedicalVocabulariesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListMedicalVocabularies)
 
 responseListTranscriptionJobs :: ListTranscriptionJobsResponse -> TestTree
-responseListTranscriptionJobs =
-  res
+responseListTranscriptionJobs = res
     "ListTranscriptionJobsResponse"
     "fixture/ListTranscriptionJobsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTranscriptionJobs)
 
 responseListMedicalTranscriptionJobs :: ListMedicalTranscriptionJobsResponse -> TestTree
-responseListMedicalTranscriptionJobs =
-  res
+responseListMedicalTranscriptionJobs = res
     "ListMedicalTranscriptionJobsResponse"
     "fixture/ListMedicalTranscriptionJobsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListMedicalTranscriptionJobs)
 
 responseDeleteVocabularyFilter :: DeleteVocabularyFilterResponse -> TestTree
-responseDeleteVocabularyFilter =
-  res
+responseDeleteVocabularyFilter = res
     "DeleteVocabularyFilterResponse"
     "fixture/DeleteVocabularyFilterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteVocabularyFilter)
 
 responseListVocabularyFilters :: ListVocabularyFiltersResponse -> TestTree
-responseListVocabularyFilters =
-  res
+responseListVocabularyFilters = res
     "ListVocabularyFiltersResponse"
     "fixture/ListVocabularyFiltersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListVocabularyFilters)
 
 responseUpdateVocabularyFilter :: UpdateVocabularyFilterResponse -> TestTree
-responseUpdateVocabularyFilter =
-  res
+responseUpdateVocabularyFilter = res
     "UpdateVocabularyFilterResponse"
     "fixture/UpdateVocabularyFilterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateVocabularyFilter)
 
 responseListVocabularies :: ListVocabulariesResponse -> TestTree
-responseListVocabularies =
-  res
+responseListVocabularies = res
     "ListVocabulariesResponse"
     "fixture/ListVocabulariesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListVocabularies)
 
 responseCreateVocabulary :: CreateVocabularyResponse -> TestTree
-responseCreateVocabulary =
-  res
+responseCreateVocabulary = res
     "CreateVocabularyResponse"
     "fixture/CreateVocabularyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateVocabulary)
 
 responseCreateLanguageModel :: CreateLanguageModelResponse -> TestTree
-responseCreateLanguageModel =
-  res
+responseCreateLanguageModel = res
     "CreateLanguageModelResponse"
     "fixture/CreateLanguageModelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateLanguageModel)
 
 responseStartTranscriptionJob :: StartTranscriptionJobResponse -> TestTree
-responseStartTranscriptionJob =
-  res
+responseStartTranscriptionJob = res
     "StartTranscriptionJobResponse"
     "fixture/StartTranscriptionJobResponse.proto"
     mkServiceConfig

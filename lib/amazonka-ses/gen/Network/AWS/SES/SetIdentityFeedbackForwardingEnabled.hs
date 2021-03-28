@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -18,22 +18,20 @@
 -- You can execute this operation no more than once per second.
 -- For more information about using notifications with Amazon SES, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide> .
 module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
-  ( -- * Creating a request
-    SetIdentityFeedbackForwardingEnabled (..),
-    mkSetIdentityFeedbackForwardingEnabled,
-
+    (
+    -- * Creating a request
+      SetIdentityFeedbackForwardingEnabled (..)
+    , mkSetIdentityFeedbackForwardingEnabled
     -- ** Request lenses
-    siffeIdentity,
-    siffeForwardingEnabled,
+    , siffeIdentity
+    , siffeForwardingEnabled
 
     -- * Destructuring the response
-    SetIdentityFeedbackForwardingEnabledResponse (..),
-    mkSetIdentityFeedbackForwardingEnabledResponse,
-
+    , SetIdentityFeedbackForwardingEnabledResponse (..)
+    , mkSetIdentityFeedbackForwardingEnabledResponse
     -- ** Response lenses
-    sifferrsResponseStatus,
-  )
-where
+    , sifferrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -45,93 +43,95 @@ import qualified Network.AWS.SES.Types as Types
 --
 -- /See:/ 'mkSetIdentityFeedbackForwardingEnabled' smart constructor.
 data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled'
-  { -- | The identity for which to set bounce and complaint notification forwarding. Examples: @user@example.com@ , @example.com@ .
-    identity :: Types.Identity,
-    -- | Sets whether Amazon SES will forward bounce and complaint notifications as email. @true@ specifies that Amazon SES will forward bounce and complaint notifications as email, in addition to any Amazon SNS topic publishing otherwise specified. @false@ specifies that Amazon SES will publish bounce and complaint notifications only through Amazon SNS. This value can only be set to @false@ when Amazon SNS topics are set for both @Bounce@ and @Complaint@ notification types.
-    forwardingEnabled :: Core.Bool
+  { identity :: Types.Identity
+    -- ^ The identity for which to set bounce and complaint notification forwarding. Examples: @user@example.com@ , @example.com@ .
+  , forwardingEnabled :: Core.Bool
+    -- ^ Sets whether Amazon SES will forward bounce and complaint notifications as email. @true@ specifies that Amazon SES will forward bounce and complaint notifications as email, in addition to any Amazon SNS topic publishing otherwise specified. @false@ specifies that Amazon SES will publish bounce and complaint notifications only through Amazon SNS. This value can only be set to @false@ when Amazon SNS topics are set for both @Bounce@ and @Complaint@ notification types.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'SetIdentityFeedbackForwardingEnabled' value with any optional fields omitted.
-mkSetIdentityFeedbackForwardingEnabled ::
-  -- | 'identity'
-  Types.Identity ->
-  -- | 'forwardingEnabled'
-  Core.Bool ->
-  SetIdentityFeedbackForwardingEnabled
-mkSetIdentityFeedbackForwardingEnabled identity forwardingEnabled =
-  SetIdentityFeedbackForwardingEnabled'
-    { identity,
-      forwardingEnabled
-    }
+mkSetIdentityFeedbackForwardingEnabled
+    :: Types.Identity -- ^ 'identity'
+    -> Core.Bool -- ^ 'forwardingEnabled'
+    -> SetIdentityFeedbackForwardingEnabled
+mkSetIdentityFeedbackForwardingEnabled identity forwardingEnabled
+  = SetIdentityFeedbackForwardingEnabled'{identity,
+                                          forwardingEnabled}
 
 -- | The identity for which to set bounce and complaint notification forwarding. Examples: @user@example.com@ , @example.com@ .
 --
 -- /Note:/ Consider using 'identity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 siffeIdentity :: Lens.Lens' SetIdentityFeedbackForwardingEnabled Types.Identity
 siffeIdentity = Lens.field @"identity"
-{-# DEPRECATED siffeIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
+{-# INLINEABLE siffeIdentity #-}
+{-# DEPRECATED identity "Use generic-lens or generic-optics with 'identity' instead"  #-}
 
 -- | Sets whether Amazon SES will forward bounce and complaint notifications as email. @true@ specifies that Amazon SES will forward bounce and complaint notifications as email, in addition to any Amazon SNS topic publishing otherwise specified. @false@ specifies that Amazon SES will publish bounce and complaint notifications only through Amazon SNS. This value can only be set to @false@ when Amazon SNS topics are set for both @Bounce@ and @Complaint@ notification types.
 --
 -- /Note:/ Consider using 'forwardingEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 siffeForwardingEnabled :: Lens.Lens' SetIdentityFeedbackForwardingEnabled Core.Bool
 siffeForwardingEnabled = Lens.field @"forwardingEnabled"
-{-# DEPRECATED siffeForwardingEnabled "Use generic-lens or generic-optics with 'forwardingEnabled' instead." #-}
+{-# INLINEABLE siffeForwardingEnabled #-}
+{-# DEPRECATED forwardingEnabled "Use generic-lens or generic-optics with 'forwardingEnabled' instead"  #-}
+
+instance Core.ToQuery SetIdentityFeedbackForwardingEnabled where
+        toQuery SetIdentityFeedbackForwardingEnabled{..}
+          = Core.toQueryPair "Action"
+              ("SetIdentityFeedbackForwardingEnabled" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2010-12-01" :: Core.Text)
+              Core.<> Core.toQueryPair "Identity" identity
+              Core.<> Core.toQueryPair "ForwardingEnabled" forwardingEnabled
+
+instance Core.ToHeaders SetIdentityFeedbackForwardingEnabled where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest SetIdentityFeedbackForwardingEnabled where
-  type
-    Rs SetIdentityFeedbackForwardingEnabled =
-      SetIdentityFeedbackForwardingEnabledResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "SetIdentityFeedbackForwardingEnabled")
-                Core.<> (Core.pure ("Version", "2010-12-01"))
-                Core.<> (Core.toQueryValue "Identity" identity)
-                Core.<> (Core.toQueryValue "ForwardingEnabled" forwardingEnabled)
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "SetIdentityFeedbackForwardingEnabledResult"
-      ( \s h x ->
-          SetIdentityFeedbackForwardingEnabledResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs SetIdentityFeedbackForwardingEnabled =
+             SetIdentityFeedbackForwardingEnabledResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper
+              "SetIdentityFeedbackForwardingEnabledResult"
+              (\ s h x ->
+                 SetIdentityFeedbackForwardingEnabledResponse' Core.<$>
+                   (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkSetIdentityFeedbackForwardingEnabledResponse' smart constructor.
 newtype SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'SetIdentityFeedbackForwardingEnabledResponse' value with any optional fields omitted.
-mkSetIdentityFeedbackForwardingEnabledResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  SetIdentityFeedbackForwardingEnabledResponse
-mkSetIdentityFeedbackForwardingEnabledResponse responseStatus =
-  SetIdentityFeedbackForwardingEnabledResponse' {responseStatus}
+mkSetIdentityFeedbackForwardingEnabledResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> SetIdentityFeedbackForwardingEnabledResponse
+mkSetIdentityFeedbackForwardingEnabledResponse responseStatus
+  = SetIdentityFeedbackForwardingEnabledResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sifferrsResponseStatus :: Lens.Lens' SetIdentityFeedbackForwardingEnabledResponse Core.Int
 sifferrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED sifferrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE sifferrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

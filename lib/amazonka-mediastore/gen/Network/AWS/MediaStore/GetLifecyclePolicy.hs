@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,22 +15,20 @@
 --
 -- Retrieves the object lifecycle policy that is assigned to a container.
 module Network.AWS.MediaStore.GetLifecyclePolicy
-  ( -- * Creating a request
-    GetLifecyclePolicy (..),
-    mkGetLifecyclePolicy,
-
+    (
+    -- * Creating a request
+      GetLifecyclePolicy (..)
+    , mkGetLifecyclePolicy
     -- ** Request lenses
-    glpContainerName,
+    , glpContainerName
 
     -- * Destructuring the response
-    GetLifecyclePolicyResponse (..),
-    mkGetLifecyclePolicyResponse,
-
+    , GetLifecyclePolicyResponse (..)
+    , mkGetLifecyclePolicyResponse
     -- ** Response lenses
-    glprrsLifecyclePolicy,
-    glprrsResponseStatus,
-  )
-where
+    , glprrsLifecyclePolicy
+    , glprrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.MediaStore.Types as Types
@@ -40,86 +38,89 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetLifecyclePolicy' smart constructor.
 newtype GetLifecyclePolicy = GetLifecyclePolicy'
-  { -- | The name of the container that the object lifecycle policy is assigned to.
-    containerName :: Types.ContainerName
+  { containerName :: Types.ContainerName
+    -- ^ The name of the container that the object lifecycle policy is assigned to.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetLifecyclePolicy' value with any optional fields omitted.
-mkGetLifecyclePolicy ::
-  -- | 'containerName'
-  Types.ContainerName ->
-  GetLifecyclePolicy
-mkGetLifecyclePolicy containerName =
-  GetLifecyclePolicy' {containerName}
+mkGetLifecyclePolicy
+    :: Types.ContainerName -- ^ 'containerName'
+    -> GetLifecyclePolicy
+mkGetLifecyclePolicy containerName
+  = GetLifecyclePolicy'{containerName}
 
 -- | The name of the container that the object lifecycle policy is assigned to.
 --
 -- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 glpContainerName :: Lens.Lens' GetLifecyclePolicy Types.ContainerName
 glpContainerName = Lens.field @"containerName"
-{-# DEPRECATED glpContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
+{-# INLINEABLE glpContainerName #-}
+{-# DEPRECATED containerName "Use generic-lens or generic-optics with 'containerName' instead"  #-}
+
+instance Core.ToQuery GetLifecyclePolicy where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders GetLifecyclePolicy where
+        toHeaders GetLifecyclePolicy{..}
+          = Core.pure
+              ("X-Amz-Target", "MediaStore_20170901.GetLifecyclePolicy")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON GetLifecyclePolicy where
-  toJSON GetLifecyclePolicy {..} =
-    Core.object
-      ( Core.catMaybes
-          [Core.Just ("ContainerName" Core..= containerName)]
-      )
+        toJSON GetLifecyclePolicy{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("ContainerName" Core..= containerName)])
 
 instance Core.AWSRequest GetLifecyclePolicy where
-  type Rs GetLifecyclePolicy = GetLifecyclePolicyResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "MediaStore_20170901.GetLifecyclePolicy")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          GetLifecyclePolicyResponse'
-            Core.<$> (x Core..: "LifecyclePolicy")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs GetLifecyclePolicy = GetLifecyclePolicyResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 GetLifecyclePolicyResponse' Core.<$>
+                   (x Core..: "LifecyclePolicy") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkGetLifecyclePolicyResponse' smart constructor.
 data GetLifecyclePolicyResponse = GetLifecyclePolicyResponse'
-  { -- | The object lifecycle policy that is assigned to the container.
-    lifecyclePolicy :: Types.LifecyclePolicy,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { lifecyclePolicy :: Types.LifecyclePolicy
+    -- ^ The object lifecycle policy that is assigned to the container.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetLifecyclePolicyResponse' value with any optional fields omitted.
-mkGetLifecyclePolicyResponse ::
-  -- | 'lifecyclePolicy'
-  Types.LifecyclePolicy ->
-  -- | 'responseStatus'
-  Core.Int ->
-  GetLifecyclePolicyResponse
-mkGetLifecyclePolicyResponse lifecyclePolicy responseStatus =
-  GetLifecyclePolicyResponse' {lifecyclePolicy, responseStatus}
+mkGetLifecyclePolicyResponse
+    :: Types.LifecyclePolicy -- ^ 'lifecyclePolicy'
+    -> Core.Int -- ^ 'responseStatus'
+    -> GetLifecyclePolicyResponse
+mkGetLifecyclePolicyResponse lifecyclePolicy responseStatus
+  = GetLifecyclePolicyResponse'{lifecyclePolicy, responseStatus}
 
 -- | The object lifecycle policy that is assigned to the container.
 --
 -- /Note:/ Consider using 'lifecyclePolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 glprrsLifecyclePolicy :: Lens.Lens' GetLifecyclePolicyResponse Types.LifecyclePolicy
 glprrsLifecyclePolicy = Lens.field @"lifecyclePolicy"
-{-# DEPRECATED glprrsLifecyclePolicy "Use generic-lens or generic-optics with 'lifecyclePolicy' instead." #-}
+{-# INLINEABLE glprrsLifecyclePolicy #-}
+{-# DEPRECATED lifecyclePolicy "Use generic-lens or generic-optics with 'lifecyclePolicy' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 glprrsResponseStatus :: Lens.Lens' GetLifecyclePolicyResponse Core.Int
 glprrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED glprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE glprrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

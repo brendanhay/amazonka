@@ -1,723 +1,717 @@
-cabal-version:      2.2
-name:               amazonka-ssm
-version:            2.0.0.0
-synopsis:           Amazon Simple Systems Manager (SSM) SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-ssm
+version:               2.0.0.0
+synopsis:              Amazon Simple Systems Manager (SSM) SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.SSM" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.SSM" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-ssm
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-ssm
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.SSM
-    Network.AWS.SSM.AddTagsToResource
-    Network.AWS.SSM.CancelCommand
-    Network.AWS.SSM.CancelMaintenanceWindowExecution
-    Network.AWS.SSM.CreateActivation
-    Network.AWS.SSM.CreateAssociation
-    Network.AWS.SSM.CreateAssociationBatch
-    Network.AWS.SSM.CreateDocument
-    Network.AWS.SSM.CreateMaintenanceWindow
-    Network.AWS.SSM.CreateOpsItem
-    Network.AWS.SSM.CreatePatchBaseline
-    Network.AWS.SSM.CreateResourceDataSync
-    Network.AWS.SSM.DeleteActivation
-    Network.AWS.SSM.DeleteAssociation
-    Network.AWS.SSM.DeleteDocument
-    Network.AWS.SSM.DeleteInventory
-    Network.AWS.SSM.DeleteMaintenanceWindow
-    Network.AWS.SSM.DeleteParameter
-    Network.AWS.SSM.DeleteParameters
-    Network.AWS.SSM.DeletePatchBaseline
-    Network.AWS.SSM.DeleteResourceDataSync
-    Network.AWS.SSM.DeregisterManagedInstance
-    Network.AWS.SSM.DeregisterPatchBaselineForPatchGroup
-    Network.AWS.SSM.DeregisterTargetFromMaintenanceWindow
-    Network.AWS.SSM.DeregisterTaskFromMaintenanceWindow
-    Network.AWS.SSM.DescribeActivations
-    Network.AWS.SSM.DescribeAssociation
-    Network.AWS.SSM.DescribeAssociationExecutions
-    Network.AWS.SSM.DescribeAssociationExecutionTargets
-    Network.AWS.SSM.DescribeAutomationExecutions
-    Network.AWS.SSM.DescribeAutomationStepExecutions
-    Network.AWS.SSM.DescribeAvailablePatches
-    Network.AWS.SSM.DescribeDocument
-    Network.AWS.SSM.DescribeDocumentPermission
-    Network.AWS.SSM.DescribeEffectiveInstanceAssociations
-    Network.AWS.SSM.DescribeEffectivePatchesForPatchBaseline
-    Network.AWS.SSM.DescribeInstanceAssociationsStatus
-    Network.AWS.SSM.DescribeInstanceInformation
-    Network.AWS.SSM.DescribeInstancePatches
-    Network.AWS.SSM.DescribeInstancePatchStates
-    Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup
-    Network.AWS.SSM.DescribeInventoryDeletions
-    Network.AWS.SSM.DescribeMaintenanceWindowExecutions
-    Network.AWS.SSM.DescribeMaintenanceWindowExecutionTaskInvocations
-    Network.AWS.SSM.DescribeMaintenanceWindowExecutionTasks
-    Network.AWS.SSM.DescribeMaintenanceWindows
-    Network.AWS.SSM.DescribeMaintenanceWindowSchedule
-    Network.AWS.SSM.DescribeMaintenanceWindowsForTarget
-    Network.AWS.SSM.DescribeMaintenanceWindowTargets
-    Network.AWS.SSM.DescribeMaintenanceWindowTasks
-    Network.AWS.SSM.DescribeOpsItems
-    Network.AWS.SSM.DescribeParameters
-    Network.AWS.SSM.DescribePatchBaselines
-    Network.AWS.SSM.DescribePatchGroups
-    Network.AWS.SSM.DescribePatchGroupState
-    Network.AWS.SSM.DescribePatchProperties
-    Network.AWS.SSM.DescribeSessions
-    Network.AWS.SSM.GetAutomationExecution
-    Network.AWS.SSM.GetCalendarState
-    Network.AWS.SSM.GetCommandInvocation
-    Network.AWS.SSM.GetConnectionStatus
-    Network.AWS.SSM.GetDefaultPatchBaseline
-    Network.AWS.SSM.GetDeployablePatchSnapshotForInstance
-    Network.AWS.SSM.GetDocument
-    Network.AWS.SSM.GetInventory
-    Network.AWS.SSM.GetInventorySchema
-    Network.AWS.SSM.GetMaintenanceWindow
-    Network.AWS.SSM.GetMaintenanceWindowExecution
-    Network.AWS.SSM.GetMaintenanceWindowExecutionTask
-    Network.AWS.SSM.GetMaintenanceWindowExecutionTaskInvocation
-    Network.AWS.SSM.GetMaintenanceWindowTask
-    Network.AWS.SSM.GetOpsItem
-    Network.AWS.SSM.GetOpsSummary
-    Network.AWS.SSM.GetParameter
-    Network.AWS.SSM.GetParameterHistory
-    Network.AWS.SSM.GetParameters
-    Network.AWS.SSM.GetParametersByPath
-    Network.AWS.SSM.GetPatchBaseline
-    Network.AWS.SSM.GetPatchBaselineForPatchGroup
-    Network.AWS.SSM.GetServiceSetting
-    Network.AWS.SSM.LabelParameterVersion
-    Network.AWS.SSM.ListAssociations
-    Network.AWS.SSM.ListAssociationVersions
-    Network.AWS.SSM.ListCommandInvocations
-    Network.AWS.SSM.ListCommands
-    Network.AWS.SSM.ListComplianceItems
-    Network.AWS.SSM.ListComplianceSummaries
-    Network.AWS.SSM.ListDocuments
-    Network.AWS.SSM.ListDocumentVersions
-    Network.AWS.SSM.ListInventoryEntries
-    Network.AWS.SSM.ListResourceComplianceSummaries
-    Network.AWS.SSM.ListResourceDataSync
-    Network.AWS.SSM.ListTagsForResource
-    Network.AWS.SSM.ModifyDocumentPermission
-    Network.AWS.SSM.PutComplianceItems
-    Network.AWS.SSM.PutInventory
-    Network.AWS.SSM.PutParameter
-    Network.AWS.SSM.RegisterDefaultPatchBaseline
-    Network.AWS.SSM.RegisterPatchBaselineForPatchGroup
-    Network.AWS.SSM.RegisterTargetWithMaintenanceWindow
-    Network.AWS.SSM.RegisterTaskWithMaintenanceWindow
-    Network.AWS.SSM.RemoveTagsFromResource
-    Network.AWS.SSM.ResetServiceSetting
-    Network.AWS.SSM.ResumeSession
-    Network.AWS.SSM.SendAutomationSignal
-    Network.AWS.SSM.SendCommand
-    Network.AWS.SSM.StartAssociationsOnce
-    Network.AWS.SSM.StartAutomationExecution
-    Network.AWS.SSM.StartSession
-    Network.AWS.SSM.StopAutomationExecution
-    Network.AWS.SSM.TerminateSession
-    Network.AWS.SSM.Types
-    Network.AWS.SSM.UpdateAssociation
-    Network.AWS.SSM.UpdateAssociationStatus
-    Network.AWS.SSM.UpdateDocument
-    Network.AWS.SSM.UpdateDocumentDefaultVersion
-    Network.AWS.SSM.UpdateMaintenanceWindow
-    Network.AWS.SSM.UpdateMaintenanceWindowTarget
-    Network.AWS.SSM.UpdateMaintenanceWindowTask
-    Network.AWS.SSM.UpdateManagedInstanceRole
-    Network.AWS.SSM.UpdateOpsItem
-    Network.AWS.SSM.UpdatePatchBaseline
-    Network.AWS.SSM.UpdateResourceDataSync
-    Network.AWS.SSM.UpdateServiceSetting
-    Network.AWS.SSM.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.SSM.Types.Account
-    Network.AWS.SSM.Types.AccountId
-    Network.AWS.SSM.Types.AccountSharingInfo
-    Network.AWS.SSM.Types.Action
-    Network.AWS.SSM.Types.Activation
-    Network.AWS.SSM.Types.ActivationCode
-    Network.AWS.SSM.Types.ActivationDescription
-    Network.AWS.SSM.Types.ActivationId
-    Network.AWS.SSM.Types.AgentErrorCode
-    Network.AWS.SSM.Types.AggregatorType
-    Network.AWS.SSM.Types.AllowedPattern
-    Network.AWS.SSM.Types.Arch
-    Network.AWS.SSM.Types.Association
-    Network.AWS.SSM.Types.AssociationComplianceSeverity
-    Network.AWS.SSM.Types.AssociationDescription
-    Network.AWS.SSM.Types.AssociationExecution
-    Network.AWS.SSM.Types.AssociationExecutionFilter
-    Network.AWS.SSM.Types.AssociationExecutionFilterKey
-    Network.AWS.SSM.Types.AssociationExecutionTarget
-    Network.AWS.SSM.Types.AssociationExecutionTargetsFilter
-    Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey
-    Network.AWS.SSM.Types.AssociationFilter
-    Network.AWS.SSM.Types.AssociationFilterKey
-    Network.AWS.SSM.Types.AssociationFilterOperatorType
-    Network.AWS.SSM.Types.AssociationId
-    Network.AWS.SSM.Types.AssociationName
-    Network.AWS.SSM.Types.AssociationOverview
-    Network.AWS.SSM.Types.AssociationResourceType
-    Network.AWS.SSM.Types.AssociationStatus
-    Network.AWS.SSM.Types.AssociationStatusName
-    Network.AWS.SSM.Types.AssociationSyncCompliance
-    Network.AWS.SSM.Types.AssociationVersion
-    Network.AWS.SSM.Types.AssociationVersionInfo
-    Network.AWS.SSM.Types.AttachmentContent
-    Network.AWS.SSM.Types.AttachmentHash
-    Network.AWS.SSM.Types.AttachmentHashType
-    Network.AWS.SSM.Types.AttachmentIdentifier
-    Network.AWS.SSM.Types.AttachmentInformation
-    Network.AWS.SSM.Types.AttachmentName
-    Network.AWS.SSM.Types.AttachmentsSource
-    Network.AWS.SSM.Types.AttachmentsSourceKey
-    Network.AWS.SSM.Types.AttachmentsSourceValue
-    Network.AWS.SSM.Types.AttachmentUrl
-    Network.AWS.SSM.Types.AtTime
-    Network.AWS.SSM.Types.AttributeName
-    Network.AWS.SSM.Types.AttributeValue
-    Network.AWS.SSM.Types.AutomationExecution
-    Network.AWS.SSM.Types.AutomationExecutionFilter
-    Network.AWS.SSM.Types.AutomationExecutionFilterKey
-    Network.AWS.SSM.Types.AutomationExecutionFilterValue
-    Network.AWS.SSM.Types.AutomationExecutionId
-    Network.AWS.SSM.Types.AutomationExecutionMetadata
-    Network.AWS.SSM.Types.AutomationExecutionStatus
-    Network.AWS.SSM.Types.AutomationParameterKey
-    Network.AWS.SSM.Types.AutomationParameterValue
-    Network.AWS.SSM.Types.AutomationTargetParameterName
-    Network.AWS.SSM.Types.AutomationType
-    Network.AWS.SSM.Types.AWSKMSKeyARN
-    Network.AWS.SSM.Types.BaselineDescription
-    Network.AWS.SSM.Types.BaselineId
-    Network.AWS.SSM.Types.BaselineName
-    Network.AWS.SSM.Types.BatchErrorMessage
-    Network.AWS.SSM.Types.BucketName
-    Network.AWS.SSM.Types.CalendarNameOrARN
-    Network.AWS.SSM.Types.CalendarState
-    Network.AWS.SSM.Types.CaptureTime
-    Network.AWS.SSM.Types.Category
-    Network.AWS.SSM.Types.ClientContext
-    Network.AWS.SSM.Types.ClientToken
-    Network.AWS.SSM.Types.CloudWatchLogGroupName
-    Network.AWS.SSM.Types.CloudWatchOutputConfig
-    Network.AWS.SSM.Types.Command
-    Network.AWS.SSM.Types.CommandFilter
-    Network.AWS.SSM.Types.CommandFilterKey
-    Network.AWS.SSM.Types.CommandFilterValue
-    Network.AWS.SSM.Types.CommandId
-    Network.AWS.SSM.Types.CommandInvocation
-    Network.AWS.SSM.Types.CommandInvocationStatus
-    Network.AWS.SSM.Types.CommandPlugin
-    Network.AWS.SSM.Types.CommandPluginStatus
-    Network.AWS.SSM.Types.CommandStatus
-    Network.AWS.SSM.Types.Comment
-    Network.AWS.SSM.Types.ComplianceExecutionId
-    Network.AWS.SSM.Types.ComplianceExecutionSummary
-    Network.AWS.SSM.Types.ComplianceExecutionType
-    Network.AWS.SSM.Types.ComplianceFilterValue
-    Network.AWS.SSM.Types.ComplianceItem
-    Network.AWS.SSM.Types.ComplianceItemContentHash
-    Network.AWS.SSM.Types.ComplianceItemEntry
-    Network.AWS.SSM.Types.ComplianceItemId
-    Network.AWS.SSM.Types.ComplianceItemTitle
-    Network.AWS.SSM.Types.ComplianceQueryOperatorType
-    Network.AWS.SSM.Types.ComplianceResourceId
-    Network.AWS.SSM.Types.ComplianceResourceType
-    Network.AWS.SSM.Types.ComplianceSeverity
-    Network.AWS.SSM.Types.ComplianceStatus
-    Network.AWS.SSM.Types.ComplianceStringFilter
-    Network.AWS.SSM.Types.ComplianceStringFilterKey
-    Network.AWS.SSM.Types.ComplianceSummaryItem
-    Network.AWS.SSM.Types.ComplianceType
-    Network.AWS.SSM.Types.ComplianceTypeName
-    Network.AWS.SSM.Types.ComplianceUploadType
-    Network.AWS.SSM.Types.CompliantSummary
-    Network.AWS.SSM.Types.ComputerName
-    Network.AWS.SSM.Types.Configuration
-    Network.AWS.SSM.Types.ConnectionStatus
-    Network.AWS.SSM.Types.Content
-    Network.AWS.SSM.Types.ContentHash
-    Network.AWS.SSM.Types.CreateAssociationBatchRequestEntry
-    Network.AWS.SSM.Types.CurrentAction
-    Network.AWS.SSM.Types.CurrentStepName
-    Network.AWS.SSM.Types.DataType
-    Network.AWS.SSM.Types.DefaultInstanceName
-    Network.AWS.SSM.Types.DefaultValue
-    Network.AWS.SSM.Types.DefaultVersion
-    Network.AWS.SSM.Types.DeletionId
-    Network.AWS.SSM.Types.DescribeActivationsFilter
-    Network.AWS.SSM.Types.DescribeActivationsFilterKeys
-    Network.AWS.SSM.Types.Description
-    Network.AWS.SSM.Types.DetailedStatus
-    Network.AWS.SSM.Types.DocumentARN
-    Network.AWS.SSM.Types.DocumentDefaultVersionDescription
-    Network.AWS.SSM.Types.DocumentDescription
-    Network.AWS.SSM.Types.DocumentFilter
-    Network.AWS.SSM.Types.DocumentFilterKey
-    Network.AWS.SSM.Types.DocumentFormat
-    Network.AWS.SSM.Types.DocumentHash
-    Network.AWS.SSM.Types.DocumentHashType
-    Network.AWS.SSM.Types.DocumentIdentifier
-    Network.AWS.SSM.Types.DocumentKeyValuesFilter
-    Network.AWS.SSM.Types.DocumentKeyValuesFilterValue
-    Network.AWS.SSM.Types.DocumentName
-    Network.AWS.SSM.Types.DocumentParameter
-    Network.AWS.SSM.Types.DocumentParameterType
-    Network.AWS.SSM.Types.DocumentPermissionType
-    Network.AWS.SSM.Types.DocumentRequires
-    Network.AWS.SSM.Types.DocumentSchemaVersion
-    Network.AWS.SSM.Types.DocumentStatus
-    Network.AWS.SSM.Types.DocumentStatusInformation
-    Network.AWS.SSM.Types.DocumentType
-    Network.AWS.SSM.Types.DocumentVersion
-    Network.AWS.SSM.Types.DocumentVersionInfo
-    Network.AWS.SSM.Types.DocumentVersionName
-    Network.AWS.SSM.Types.DocumentVersionNumber
-    Network.AWS.SSM.Types.EffectivePatch
-    Network.AWS.SSM.Types.EndDate
-    Network.AWS.SSM.Types.ExecutedBy
-    Network.AWS.SSM.Types.ExecutionElapsedTime
-    Network.AWS.SSM.Types.ExecutionEndDateTime
-    Network.AWS.SSM.Types.ExecutionId
-    Network.AWS.SSM.Types.ExecutionMode
-    Network.AWS.SSM.Types.ExecutionRoleName
-    Network.AWS.SSM.Types.ExecutionStartDateTime
-    Network.AWS.SSM.Types.ExecutionSummary
-    Network.AWS.SSM.Types.ExecutionTime
-    Network.AWS.SSM.Types.FailedCreateAssociation
-    Network.AWS.SSM.Types.FailureDetails
-    Network.AWS.SSM.Types.FailureMessage
-    Network.AWS.SSM.Types.FailureStage
-    Network.AWS.SSM.Types.FailureType
-    Network.AWS.SSM.Types.Fault
-    Network.AWS.SSM.Types.Hash
-    Network.AWS.SSM.Types.IamRole
-    Network.AWS.SSM.Types.Id
-    Network.AWS.SSM.Types.IdempotencyToken
-    Network.AWS.SSM.Types.InstallOverrideList
-    Network.AWS.SSM.Types.InstanceAggregatedAssociationOverview
-    Network.AWS.SSM.Types.InstanceAssociation
-    Network.AWS.SSM.Types.InstanceAssociationOutputLocation
-    Network.AWS.SSM.Types.InstanceAssociationOutputUrl
-    Network.AWS.SSM.Types.InstanceAssociationStatusInfo
-    Network.AWS.SSM.Types.InstanceId
-    Network.AWS.SSM.Types.InstanceInformation
-    Network.AWS.SSM.Types.InstanceInformationFilter
-    Network.AWS.SSM.Types.InstanceInformationFilterKey
-    Network.AWS.SSM.Types.InstanceInformationFilterValue
-    Network.AWS.SSM.Types.InstanceInformationStringFilter
-    Network.AWS.SSM.Types.InstancePatchState
-    Network.AWS.SSM.Types.InstancePatchStateFilter
-    Network.AWS.SSM.Types.InstancePatchStateFilterKey
-    Network.AWS.SSM.Types.InstancePatchStateFilterValue
-    Network.AWS.SSM.Types.InstancePatchStateOperatorType
-    Network.AWS.SSM.Types.InstanceTagName
-    Network.AWS.SSM.Types.InventoryAggregator
-    Network.AWS.SSM.Types.InventoryAggregatorExpression
-    Network.AWS.SSM.Types.InventoryAttributeDataType
-    Network.AWS.SSM.Types.InventoryDeletionStatus
-    Network.AWS.SSM.Types.InventoryDeletionStatusItem
-    Network.AWS.SSM.Types.InventoryDeletionSummary
-    Network.AWS.SSM.Types.InventoryDeletionSummaryItem
-    Network.AWS.SSM.Types.InventoryFilter
-    Network.AWS.SSM.Types.InventoryFilterValue
-    Network.AWS.SSM.Types.InventoryGroup
-    Network.AWS.SSM.Types.InventoryGroupName
-    Network.AWS.SSM.Types.InventoryItem
-    Network.AWS.SSM.Types.InventoryItemAttribute
-    Network.AWS.SSM.Types.InventoryItemAttributeName
-    Network.AWS.SSM.Types.InventoryItemCaptureTime
-    Network.AWS.SSM.Types.InventoryItemContentHash
-    Network.AWS.SSM.Types.InventoryItemSchema
-    Network.AWS.SSM.Types.InventoryItemSchemaVersion
-    Network.AWS.SSM.Types.InventoryItemTypeName
-    Network.AWS.SSM.Types.InventoryQueryOperatorType
-    Network.AWS.SSM.Types.InventoryResultEntity
-    Network.AWS.SSM.Types.InventoryResultItem
-    Network.AWS.SSM.Types.InventoryResultItemKey
-    Network.AWS.SSM.Types.InventorySchemaDeleteOption
-    Network.AWS.SSM.Types.InventoryTypeDisplayName
-    Network.AWS.SSM.Types.InvocationId
-    Network.AWS.SSM.Types.InvocationTraceOutput
-    Network.AWS.SSM.Types.IPAddress
-    Network.AWS.SSM.Types.Key
-    Network.AWS.SSM.Types.KeyId
-    Network.AWS.SSM.Types.LastModifiedUser
-    Network.AWS.SSM.Types.LastResourceDataSyncMessage
-    Network.AWS.SSM.Types.LastResourceDataSyncStatus
-    Network.AWS.SSM.Types.LastStatusMessage
-    Network.AWS.SSM.Types.LatestVersion
-    Network.AWS.SSM.Types.LoggingInfo
-    Network.AWS.SSM.Types.MaintenanceWindowAutomationParameters
-    Network.AWS.SSM.Types.MaintenanceWindowDescription
-    Network.AWS.SSM.Types.MaintenanceWindowExecution
-    Network.AWS.SSM.Types.MaintenanceWindowExecutionId
-    Network.AWS.SSM.Types.MaintenanceWindowExecutionStatus
-    Network.AWS.SSM.Types.MaintenanceWindowExecutionStatusDetails
-    Network.AWS.SSM.Types.MaintenanceWindowExecutionTaskExecutionId
-    Network.AWS.SSM.Types.MaintenanceWindowExecutionTaskId
-    Network.AWS.SSM.Types.MaintenanceWindowExecutionTaskIdentity
-    Network.AWS.SSM.Types.MaintenanceWindowExecutionTaskInvocationId
-    Network.AWS.SSM.Types.MaintenanceWindowExecutionTaskInvocationIdentity
-    Network.AWS.SSM.Types.MaintenanceWindowExecutionTaskInvocationParameters
-    Network.AWS.SSM.Types.MaintenanceWindowFilter
-    Network.AWS.SSM.Types.MaintenanceWindowFilterKey
-    Network.AWS.SSM.Types.MaintenanceWindowFilterValue
-    Network.AWS.SSM.Types.MaintenanceWindowId
-    Network.AWS.SSM.Types.MaintenanceWindowIdentity
-    Network.AWS.SSM.Types.MaintenanceWindowIdentityForTarget
-    Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters
-    Network.AWS.SSM.Types.MaintenanceWindowName
-    Network.AWS.SSM.Types.MaintenanceWindowResourceType
-    Network.AWS.SSM.Types.MaintenanceWindowRunCommandParameters
-    Network.AWS.SSM.Types.MaintenanceWindowSchedule
-    Network.AWS.SSM.Types.MaintenanceWindowStepFunctionsInput
-    Network.AWS.SSM.Types.MaintenanceWindowStepFunctionsName
-    Network.AWS.SSM.Types.MaintenanceWindowStepFunctionsParameters
-    Network.AWS.SSM.Types.MaintenanceWindowStringDateTime
-    Network.AWS.SSM.Types.MaintenanceWindowTarget
-    Network.AWS.SSM.Types.MaintenanceWindowTargetId
-    Network.AWS.SSM.Types.MaintenanceWindowTask
-    Network.AWS.SSM.Types.MaintenanceWindowTaskId
-    Network.AWS.SSM.Types.MaintenanceWindowTaskInvocationParameters
-    Network.AWS.SSM.Types.MaintenanceWindowTaskParameterName
-    Network.AWS.SSM.Types.MaintenanceWindowTaskParameterValue
-    Network.AWS.SSM.Types.MaintenanceWindowTaskParameterValueExpression
-    Network.AWS.SSM.Types.MaintenanceWindowTaskTargetId
-    Network.AWS.SSM.Types.MaintenanceWindowTaskType
-    Network.AWS.SSM.Types.MaintenanceWindowTimezone
-    Network.AWS.SSM.Types.MaxConcurrency
-    Network.AWS.SSM.Types.MaxErrors
-    Network.AWS.SSM.Types.Message
-    Network.AWS.SSM.Types.MsrcSeverity
-    Network.AWS.SSM.Types.Name
-    Network.AWS.SSM.Types.NextExecutionTime
-    Network.AWS.SSM.Types.NextToken
-    Network.AWS.SSM.Types.NextTransitionTime
-    Network.AWS.SSM.Types.NonCompliantSummary
-    Network.AWS.SSM.Types.NotificationArn
-    Network.AWS.SSM.Types.NotificationConfig
-    Network.AWS.SSM.Types.NotificationEvent
-    Network.AWS.SSM.Types.NotificationType
-    Network.AWS.SSM.Types.OperatingSystem
-    Network.AWS.SSM.Types.OpsAggregator
-    Network.AWS.SSM.Types.OpsAggregatorValue
-    Network.AWS.SSM.Types.OpsAggregatorValueKey
-    Network.AWS.SSM.Types.OpsDataAttributeName
-    Network.AWS.SSM.Types.OpsDataTypeName
-    Network.AWS.SSM.Types.OpsEntity
-    Network.AWS.SSM.Types.OpsEntityId
-    Network.AWS.SSM.Types.OpsEntityItem
-    Network.AWS.SSM.Types.OpsEntityItemKey
-    Network.AWS.SSM.Types.OpsFilter
-    Network.AWS.SSM.Types.OpsFilterKey
-    Network.AWS.SSM.Types.OpsFilterOperatorType
-    Network.AWS.SSM.Types.OpsFilterValue
-    Network.AWS.SSM.Types.OpsItem
-    Network.AWS.SSM.Types.OpsItemCategory
-    Network.AWS.SSM.Types.OpsItemDataKey
-    Network.AWS.SSM.Types.OpsItemDataType
-    Network.AWS.SSM.Types.OpsItemDataValue
-    Network.AWS.SSM.Types.OpsItemDataValueString
-    Network.AWS.SSM.Types.OpsItemDescription
-    Network.AWS.SSM.Types.OpsItemFilter
-    Network.AWS.SSM.Types.OpsItemFilterKey
-    Network.AWS.SSM.Types.OpsItemFilterOperator
-    Network.AWS.SSM.Types.OpsItemFilterValue
-    Network.AWS.SSM.Types.OpsItemId
-    Network.AWS.SSM.Types.OpsItemNotification
-    Network.AWS.SSM.Types.OpsItemSeverity
-    Network.AWS.SSM.Types.OpsItemSource
-    Network.AWS.SSM.Types.OpsItemStatus
-    Network.AWS.SSM.Types.OpsItemSummary
-    Network.AWS.SSM.Types.OpsResultAttribute
-    Network.AWS.SSM.Types.Option
-    Network.AWS.SSM.Types.OrganizationalUnitId
-    Network.AWS.SSM.Types.OrganizationSourceType
-    Network.AWS.SSM.Types.Output
-    Network.AWS.SSM.Types.OutputS3BucketName
-    Network.AWS.SSM.Types.OutputS3KeyPrefix
-    Network.AWS.SSM.Types.OutputS3Region
-    Network.AWS.SSM.Types.OutputSource
-    Network.AWS.SSM.Types.OutputSourceId
-    Network.AWS.SSM.Types.OutputSourceType
-    Network.AWS.SSM.Types.Owner
-    Network.AWS.SSM.Types.OwnerInformation
-    Network.AWS.SSM.Types.Parameter
-    Network.AWS.SSM.Types.ParameterDataType
-    Network.AWS.SSM.Types.ParameterDescription
-    Network.AWS.SSM.Types.ParameterHistory
-    Network.AWS.SSM.Types.ParameterInlinePolicy
-    Network.AWS.SSM.Types.ParameterKeyId
-    Network.AWS.SSM.Types.ParameterLabel
-    Network.AWS.SSM.Types.ParameterMetadata
-    Network.AWS.SSM.Types.ParameterName
-    Network.AWS.SSM.Types.ParametersFilter
-    Network.AWS.SSM.Types.ParametersFilterKey
-    Network.AWS.SSM.Types.ParametersFilterValue
-    Network.AWS.SSM.Types.ParameterStringFilter
-    Network.AWS.SSM.Types.ParameterStringFilterValue
-    Network.AWS.SSM.Types.ParameterTier
-    Network.AWS.SSM.Types.ParameterType
-    Network.AWS.SSM.Types.ParameterValue
-    Network.AWS.SSM.Types.ParentAutomationExecutionId
-    Network.AWS.SSM.Types.Patch
-    Network.AWS.SSM.Types.PatchAction
-    Network.AWS.SSM.Types.PatchAdvisoryId
-    Network.AWS.SSM.Types.PatchBaselineIdentity
-    Network.AWS.SSM.Types.PatchBugzillaId
-    Network.AWS.SSM.Types.PatchClassification
-    Network.AWS.SSM.Types.PatchComplianceData
-    Network.AWS.SSM.Types.PatchComplianceDataState
-    Network.AWS.SSM.Types.PatchComplianceLevel
-    Network.AWS.SSM.Types.PatchContentUrl
-    Network.AWS.SSM.Types.PatchCVEId
-    Network.AWS.SSM.Types.PatchCVEIds
-    Network.AWS.SSM.Types.PatchDeploymentStatus
-    Network.AWS.SSM.Types.PatchFilter
-    Network.AWS.SSM.Types.PatchFilterGroup
-    Network.AWS.SSM.Types.PatchFilterKey
-    Network.AWS.SSM.Types.PatchFilterValue
-    Network.AWS.SSM.Types.PatchGroup
-    Network.AWS.SSM.Types.PatchGroupPatchBaselineMapping
-    Network.AWS.SSM.Types.PatchId
-    Network.AWS.SSM.Types.PatchKbNumber
-    Network.AWS.SSM.Types.PatchLanguage
-    Network.AWS.SSM.Types.PatchMsrcNumber
-    Network.AWS.SSM.Types.PatchOperationType
-    Network.AWS.SSM.Types.PatchOrchestratorFilter
-    Network.AWS.SSM.Types.PatchOrchestratorFilterValue
-    Network.AWS.SSM.Types.PatchProduct
-    Network.AWS.SSM.Types.PatchProperty
-    Network.AWS.SSM.Types.PatchRule
-    Network.AWS.SSM.Types.PatchRuleGroup
-    Network.AWS.SSM.Types.PatchSet
-    Network.AWS.SSM.Types.PatchSeverity
-    Network.AWS.SSM.Types.PatchSource
-    Network.AWS.SSM.Types.PatchSourceProduct
-    Network.AWS.SSM.Types.PatchStatus
-    Network.AWS.SSM.Types.PatchStringDateTime
-    Network.AWS.SSM.Types.PatchVersion
-    Network.AWS.SSM.Types.PingStatus
-    Network.AWS.SSM.Types.PlatformType
-    Network.AWS.SSM.Types.PluginName
-    Network.AWS.SSM.Types.Policies
-    Network.AWS.SSM.Types.Prefix
-    Network.AWS.SSM.Types.Product
-    Network.AWS.SSM.Types.ProductFamily
-    Network.AWS.SSM.Types.ProgressCounters
-    Network.AWS.SSM.Types.PSParameterName
-    Network.AWS.SSM.Types.PSParameterSelector
-    Network.AWS.SSM.Types.PSParameterValue
-    Network.AWS.SSM.Types.Qualifier
-    Network.AWS.SSM.Types.RebootOption
-    Network.AWS.SSM.Types.Region
-    Network.AWS.SSM.Types.RelatedOpsItem
-    Network.AWS.SSM.Types.Release
-    Network.AWS.SSM.Types.Repository
-    Network.AWS.SSM.Types.ResolvedTargets
-    Network.AWS.SSM.Types.ResourceComplianceSummaryItem
-    Network.AWS.SSM.Types.ResourceCountByStatus
-    Network.AWS.SSM.Types.ResourceDataSyncAwsOrganizationsSource
-    Network.AWS.SSM.Types.ResourceDataSyncDestinationDataSharing
-    Network.AWS.SSM.Types.ResourceDataSyncDestinationDataSharingType
-    Network.AWS.SSM.Types.ResourceDataSyncItem
-    Network.AWS.SSM.Types.ResourceDataSyncName
-    Network.AWS.SSM.Types.ResourceDataSyncOrganizationalUnit
-    Network.AWS.SSM.Types.ResourceDataSyncS3Destination
-    Network.AWS.SSM.Types.ResourceDataSyncS3Format
-    Network.AWS.SSM.Types.ResourceDataSyncS3Region
-    Network.AWS.SSM.Types.ResourceDataSyncSource
-    Network.AWS.SSM.Types.ResourceDataSyncSourceRegion
-    Network.AWS.SSM.Types.ResourceDataSyncSourceType
-    Network.AWS.SSM.Types.ResourceDataSyncSourceWithState
-    Network.AWS.SSM.Types.ResourceDataSyncState
-    Network.AWS.SSM.Types.ResourceDataSyncType
-    Network.AWS.SSM.Types.ResourceId
-    Network.AWS.SSM.Types.ResourceType
-    Network.AWS.SSM.Types.ResourceTypeForTagging
-    Network.AWS.SSM.Types.ResultAttribute
-    Network.AWS.SSM.Types.S3BucketName
-    Network.AWS.SSM.Types.S3KeyPrefix
-    Network.AWS.SSM.Types.S3OutputLocation
-    Network.AWS.SSM.Types.S3OutputUrl
-    Network.AWS.SSM.Types.S3Region
-    Network.AWS.SSM.Types.ScheduledWindowExecution
-    Network.AWS.SSM.Types.ScheduleExpression
-    Network.AWS.SSM.Types.ScheduleTimezone
-    Network.AWS.SSM.Types.SchemaVersion
-    Network.AWS.SSM.Types.ServiceRole
-    Network.AWS.SSM.Types.ServiceRoleArn
-    Network.AWS.SSM.Types.ServiceSetting
-    Network.AWS.SSM.Types.ServiceSettingId
-    Network.AWS.SSM.Types.Session
-    Network.AWS.SSM.Types.SessionDetails
-    Network.AWS.SSM.Types.SessionFilter
-    Network.AWS.SSM.Types.SessionFilterKey
-    Network.AWS.SSM.Types.SessionId
-    Network.AWS.SSM.Types.SessionManagerCloudWatchOutputUrl
-    Network.AWS.SSM.Types.SessionManagerOutputUrl
-    Network.AWS.SSM.Types.SessionManagerParameterName
-    Network.AWS.SSM.Types.SessionManagerParameterValue
-    Network.AWS.SSM.Types.SessionManagerS3OutputUrl
-    Network.AWS.SSM.Types.SessionOwner
-    Network.AWS.SSM.Types.SessionState
-    Network.AWS.SSM.Types.SessionStatus
-    Network.AWS.SSM.Types.SessionTarget
-    Network.AWS.SSM.Types.SettingId
-    Network.AWS.SSM.Types.SettingValue
-    Network.AWS.SSM.Types.Severity
-    Network.AWS.SSM.Types.SeveritySummary
-    Network.AWS.SSM.Types.Sha1
-    Network.AWS.SSM.Types.SharedDocumentVersion
-    Network.AWS.SSM.Types.SignalType
-    Network.AWS.SSM.Types.SnapshotDownloadUrl
-    Network.AWS.SSM.Types.SnapshotId
-    Network.AWS.SSM.Types.Source
-    Network.AWS.SSM.Types.StandardErrorContent
-    Network.AWS.SSM.Types.StandardErrorUrl
-    Network.AWS.SSM.Types.StandardOutputContent
-    Network.AWS.SSM.Types.StandardOutputUrl
-    Network.AWS.SSM.Types.StartDate
-    Network.AWS.SSM.Types.Status
-    Network.AWS.SSM.Types.StatusAdditionalInfo
-    Network.AWS.SSM.Types.StatusDetails
-    Network.AWS.SSM.Types.StatusInformation
-    Network.AWS.SSM.Types.StatusMessage
-    Network.AWS.SSM.Types.StatusName
-    Network.AWS.SSM.Types.StepExecution
-    Network.AWS.SSM.Types.StepExecutionFilter
-    Network.AWS.SSM.Types.StepExecutionFilterKey
-    Network.AWS.SSM.Types.StepExecutionFilterValue
-    Network.AWS.SSM.Types.StopType
-    Network.AWS.SSM.Types.StreamUrl
-    Network.AWS.SSM.Types.String
-    Network.AWS.SSM.Types.SyncName
-    Network.AWS.SSM.Types.SyncType
-    Network.AWS.SSM.Types.Tag
-    Network.AWS.SSM.Types.TagKey
-    Network.AWS.SSM.Types.Target
-    Network.AWS.SSM.Types.TargetKey
-    Network.AWS.SSM.Types.TargetLocation
-    Network.AWS.SSM.Types.TargetLocationMaxConcurrency
-    Network.AWS.SSM.Types.TargetLocationMaxErrors
-    Network.AWS.SSM.Types.TargetMapKey
-    Network.AWS.SSM.Types.TargetMapValue
-    Network.AWS.SSM.Types.TargetParameterName
-    Network.AWS.SSM.Types.TargetType
-    Network.AWS.SSM.Types.TargetValue
-    Network.AWS.SSM.Types.TaskArn
-    Network.AWS.SSM.Types.TaskExecutionId
-    Network.AWS.SSM.Types.Title
-    Network.AWS.SSM.Types.TokenValue
-    Network.AWS.SSM.Types.TypeName
-    Network.AWS.SSM.Types.Url
-    Network.AWS.SSM.Types.UUID
-    Network.AWS.SSM.Types.ValidNextStep
-    Network.AWS.SSM.Types.Value
-    Network.AWS.SSM.Types.Vendor
-    Network.AWS.SSM.Types.Version
-    Network.AWS.SSM.Types.VersionName
-    Network.AWS.SSM.Types.WindowExecutionId
-    Network.AWS.SSM.Types.WindowId
-    Network.AWS.SSM.Types.WindowTargetId
-    Network.AWS.SSM.Types.WindowTaskId
+    exposed-modules:
+          Network.AWS.SSM
+        , Network.AWS.SSM.Types
+        , Network.AWS.SSM.Waiters
+        , Network.AWS.SSM.GetConnectionStatus
+        , Network.AWS.SSM.DescribeInstancePatches
+        , Network.AWS.SSM.GetInventory
+        , Network.AWS.SSM.GetParameters
+        , Network.AWS.SSM.DeletePatchBaseline
+        , Network.AWS.SSM.UpdatePatchBaseline
+        , Network.AWS.SSM.TerminateSession
+        , Network.AWS.SSM.GetParameter
+        , Network.AWS.SSM.UpdateDocumentDefaultVersion
+        , Network.AWS.SSM.ListResourceDataSync
+        , Network.AWS.SSM.GetOpsItem
+        , Network.AWS.SSM.ResumeSession
+        , Network.AWS.SSM.GetDeployablePatchSnapshotForInstance
+        , Network.AWS.SSM.DescribeParameters
+        , Network.AWS.SSM.DescribeOpsItems
+        , Network.AWS.SSM.GetParametersByPath
+        , Network.AWS.SSM.PutComplianceItems
+        , Network.AWS.SSM.DescribeActivations
+        , Network.AWS.SSM.GetMaintenanceWindowTask
+        , Network.AWS.SSM.ListTagsForResource
+        , Network.AWS.SSM.DescribeDocument
+        , Network.AWS.SSM.DescribePatchProperties
+        , Network.AWS.SSM.CreateAssociation
+        , Network.AWS.SSM.DeleteActivation
+        , Network.AWS.SSM.DescribeMaintenanceWindowExecutions
+        , Network.AWS.SSM.DescribeMaintenanceWindowsForTarget
+        , Network.AWS.SSM.CancelMaintenanceWindowExecution
+        , Network.AWS.SSM.GetInventorySchema
+        , Network.AWS.SSM.ListComplianceSummaries
+        , Network.AWS.SSM.StartAutomationExecution
+        , Network.AWS.SSM.CreateOpsItem
+        , Network.AWS.SSM.CreateActivation
+        , Network.AWS.SSM.DeleteMaintenanceWindow
+        , Network.AWS.SSM.UpdateMaintenanceWindow
+        , Network.AWS.SSM.DescribeSessions
+        , Network.AWS.SSM.DescribeMaintenanceWindowExecutionTasks
+        , Network.AWS.SSM.GetDefaultPatchBaseline
+        , Network.AWS.SSM.GetMaintenanceWindowExecutionTask
+        , Network.AWS.SSM.CreateDocument
+        , Network.AWS.SSM.RemoveTagsFromResource
+        , Network.AWS.SSM.GetCalendarState
+        , Network.AWS.SSM.DeleteParameters
+        , Network.AWS.SSM.DescribePatchGroupState
+        , Network.AWS.SSM.ListCommandInvocations
+        , Network.AWS.SSM.DeregisterTargetFromMaintenanceWindow
+        , Network.AWS.SSM.DescribeEffectivePatchesForPatchBaseline
+        , Network.AWS.SSM.DescribeMaintenanceWindowTargets
+        , Network.AWS.SSM.ResetServiceSetting
+        , Network.AWS.SSM.RegisterPatchBaselineForPatchGroup
+        , Network.AWS.SSM.ListDocuments
+        , Network.AWS.SSM.DescribeInstancePatchStates
+        , Network.AWS.SSM.GetOpsSummary
+        , Network.AWS.SSM.GetPatchBaselineForPatchGroup
+        , Network.AWS.SSM.UpdateManagedInstanceRole
+        , Network.AWS.SSM.ListComplianceItems
+        , Network.AWS.SSM.GetDocument
+        , Network.AWS.SSM.DescribeMaintenanceWindowSchedule
+        , Network.AWS.SSM.AddTagsToResource
+        , Network.AWS.SSM.CancelCommand
+        , Network.AWS.SSM.DescribeAutomationStepExecutions
+        , Network.AWS.SSM.GetCommandInvocation
+        , Network.AWS.SSM.DescribeInstancePatchStatesForPatchGroup
+        , Network.AWS.SSM.DeregisterManagedInstance
+        , Network.AWS.SSM.DescribeAssociation
+        , Network.AWS.SSM.DescribeAssociationExecutionTargets
+        , Network.AWS.SSM.ModifyDocumentPermission
+        , Network.AWS.SSM.UpdateResourceDataSync
+        , Network.AWS.SSM.DeleteResourceDataSync
+        , Network.AWS.SSM.UpdateAssociationStatus
+        , Network.AWS.SSM.DescribeAvailablePatches
+        , Network.AWS.SSM.ListDocumentVersions
+        , Network.AWS.SSM.DeregisterPatchBaselineForPatchGroup
+        , Network.AWS.SSM.DescribePatchGroups
+        , Network.AWS.SSM.GetMaintenanceWindow
+        , Network.AWS.SSM.DescribeMaintenanceWindows
+        , Network.AWS.SSM.RegisterTaskWithMaintenanceWindow
+        , Network.AWS.SSM.RegisterDefaultPatchBaseline
+        , Network.AWS.SSM.ListResourceComplianceSummaries
+        , Network.AWS.SSM.ListAssociationVersions
+        , Network.AWS.SSM.UpdateServiceSetting
+        , Network.AWS.SSM.DescribeMaintenanceWindowTasks
+        , Network.AWS.SSM.DescribeInstanceAssociationsStatus
+        , Network.AWS.SSM.DeregisterTaskFromMaintenanceWindow
+        , Network.AWS.SSM.ListInventoryEntries
+        , Network.AWS.SSM.LabelParameterVersion
+        , Network.AWS.SSM.UpdateMaintenanceWindowTask
+        , Network.AWS.SSM.GetParameterHistory
+        , Network.AWS.SSM.DescribeAssociationExecutions
+        , Network.AWS.SSM.GetServiceSetting
+        , Network.AWS.SSM.StartAssociationsOnce
+        , Network.AWS.SSM.CreateMaintenanceWindow
+        , Network.AWS.SSM.StopAutomationExecution
+        , Network.AWS.SSM.GetMaintenanceWindowExecution
+        , Network.AWS.SSM.SendAutomationSignal
+        , Network.AWS.SSM.PutParameter
+        , Network.AWS.SSM.DescribeMaintenanceWindowExecutionTaskInvocations
+        , Network.AWS.SSM.GetMaintenanceWindowExecutionTaskInvocation
+        , Network.AWS.SSM.DeleteParameter
+        , Network.AWS.SSM.DescribeInstanceInformation
+        , Network.AWS.SSM.ListAssociations
+        , Network.AWS.SSM.UpdateOpsItem
+        , Network.AWS.SSM.DeleteAssociation
+        , Network.AWS.SSM.UpdateAssociation
+        , Network.AWS.SSM.DescribeInventoryDeletions
+        , Network.AWS.SSM.DeleteInventory
+        , Network.AWS.SSM.PutInventory
+        , Network.AWS.SSM.DescribeEffectiveInstanceAssociations
+        , Network.AWS.SSM.DescribeAutomationExecutions
+        , Network.AWS.SSM.GetAutomationExecution
+        , Network.AWS.SSM.SendCommand
+        , Network.AWS.SSM.DescribePatchBaselines
+        , Network.AWS.SSM.GetPatchBaseline
+        , Network.AWS.SSM.RegisterTargetWithMaintenanceWindow
+        , Network.AWS.SSM.StartSession
+        , Network.AWS.SSM.ListCommands
+        , Network.AWS.SSM.UpdateDocument
+        , Network.AWS.SSM.DeleteDocument
+        , Network.AWS.SSM.DescribeDocumentPermission
+        , Network.AWS.SSM.CreateAssociationBatch
+        , Network.AWS.SSM.UpdateMaintenanceWindowTarget
+        , Network.AWS.SSM.CreateResourceDataSync
+        , Network.AWS.SSM.CreatePatchBaseline
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.SSM.Types.AssociationExecutionFilterKey
+        , Network.AWS.SSM.Types.NonCompliantSummary
+        , Network.AWS.SSM.Types.BaselineName
+        , Network.AWS.SSM.Types.MaintenanceWindowLambdaParameters
+        , Network.AWS.SSM.Types.PatchComplianceDataState
+        , Network.AWS.SSM.Types.AssociationId
+        , Network.AWS.SSM.Types.PatchLanguage
+        , Network.AWS.SSM.Types.SharedDocumentVersion
+        , Network.AWS.SSM.Types.OpsFilterOperatorType
+        , Network.AWS.SSM.Types.OpsItemId
+        , Network.AWS.SSM.Types.IdempotencyToken
+        , Network.AWS.SSM.Types.InstanceId
+        , Network.AWS.SSM.Types.MaintenanceWindowSchedule
+        , Network.AWS.SSM.Types.ComplianceSummaryItem
+        , Network.AWS.SSM.Types.InventoryItemAttributeName
+        , Network.AWS.SSM.Types.CloudWatchLogGroupName
+        , Network.AWS.SSM.Types.PingStatus
+        , Network.AWS.SSM.Types.AttachmentsSourceValue
+        , Network.AWS.SSM.Types.MaintenanceWindowStepFunctionsInput
+        , Network.AWS.SSM.Types.ComplianceItemEntry
+        , Network.AWS.SSM.Types.ParameterMetadata
+        , Network.AWS.SSM.Types.MaintenanceWindowTaskType
+        , Network.AWS.SSM.Types.ParameterStringFilter
+        , Network.AWS.SSM.Types.DocumentSchemaVersion
+        , Network.AWS.SSM.Types.PatchVersion
+        , Network.AWS.SSM.Types.PatchContentUrl
+        , Network.AWS.SSM.Types.CommandFilterValue
+        , Network.AWS.SSM.Types.OpsItemSource
+        , Network.AWS.SSM.Types.MaintenanceWindowTaskParameterValueExpression
+        , Network.AWS.SSM.Types.CreateAssociationBatchRequestEntry
+        , Network.AWS.SSM.Types.PatchKbNumber
+        , Network.AWS.SSM.Types.AgentErrorCode
+        , Network.AWS.SSM.Types.ComplianceStringFilterKey
+        , Network.AWS.SSM.Types.OpsItemDataValueString
+        , Network.AWS.SSM.Types.AccountSharingInfo
+        , Network.AWS.SSM.Types.Command
+        , Network.AWS.SSM.Types.ParameterLabel
+        , Network.AWS.SSM.Types.SessionManagerParameterValue
+        , Network.AWS.SSM.Types.ComplianceResourceType
+        , Network.AWS.SSM.Types.SessionOwner
+        , Network.AWS.SSM.Types.MaintenanceWindowIdentity
+        , Network.AWS.SSM.Types.InventoryDeletionSummaryItem
+        , Network.AWS.SSM.Types.MaintenanceWindowExecutionStatus
+        , Network.AWS.SSM.Types.DocumentFilter
+        , Network.AWS.SSM.Types.ScheduledWindowExecution
+        , Network.AWS.SSM.Types.StreamUrl
+        , Network.AWS.SSM.Types.InstancePatchStateFilterKey
+        , Network.AWS.SSM.Types.StepExecutionFilterKey
+        , Network.AWS.SSM.Types.PatchRuleGroup
+        , Network.AWS.SSM.Types.OpsItemDescription
+        , Network.AWS.SSM.Types.ParameterStringFilterValue
+        , Network.AWS.SSM.Types.IPAddress
+        , Network.AWS.SSM.Types.InventoryItem
+        , Network.AWS.SSM.Types.DocumentType
+        , Network.AWS.SSM.Types.NotificationConfig
+        , Network.AWS.SSM.Types.AttributeValue
+        , Network.AWS.SSM.Types.ResourceId
+        , Network.AWS.SSM.Types.ParameterDescription
+        , Network.AWS.SSM.Types.AssociationDescription
+        , Network.AWS.SSM.Types.InventoryDeletionStatusItem
+        , Network.AWS.SSM.Types.S3KeyPrefix
+        , Network.AWS.SSM.Types.ComplianceTypeName
+        , Network.AWS.SSM.Types.Tag
+        , Network.AWS.SSM.Types.ProgressCounters
+        , Network.AWS.SSM.Types.AssociationExecutionTarget
+        , Network.AWS.SSM.Types.InstanceAssociationOutputLocation
+        , Network.AWS.SSM.Types.PatchStringDateTime
+        , Network.AWS.SSM.Types.OpsItemDataValue
+        , Network.AWS.SSM.Types.DocumentVersionName
+        , Network.AWS.SSM.Types.InventoryFilter
+        , Network.AWS.SSM.Types.TargetValue
+        , Network.AWS.SSM.Types.OpsEntityItem
+        , Network.AWS.SSM.Types.AttachmentIdentifier
+        , Network.AWS.SSM.Types.InstanceInformationFilterKey
+        , Network.AWS.SSM.Types.AssociationStatusName
+        , Network.AWS.SSM.Types.ResourceType
+        , Network.AWS.SSM.Types.InventoryGroupName
+        , Network.AWS.SSM.Types.DocumentARN
+        , Network.AWS.SSM.Types.StandardErrorContent
+        , Network.AWS.SSM.Types.ParametersFilter
+        , Network.AWS.SSM.Types.MaintenanceWindowFilterValue
+        , Network.AWS.SSM.Types.PatchMsrcNumber
+        , Network.AWS.SSM.Types.FailureDetails
+        , Network.AWS.SSM.Types.ClientToken
+        , Network.AWS.SSM.Types.ParameterValue
+        , Network.AWS.SSM.Types.ComplianceResourceId
+        , Network.AWS.SSM.Types.OpsEntityId
+        , Network.AWS.SSM.Types.OutputSource
+        , Network.AWS.SSM.Types.S3OutputLocation
+        , Network.AWS.SSM.Types.SessionStatus
+        , Network.AWS.SSM.Types.RebootOption
+        , Network.AWS.SSM.Types.PatchFilterValue
+        , Network.AWS.SSM.Types.ComplianceItemId
+        , Network.AWS.SSM.Types.PatchProduct
+        , Network.AWS.SSM.Types.AttachmentInformation
+        , Network.AWS.SSM.Types.ResourceDataSyncOrganizationalUnit
+        , Network.AWS.SSM.Types.MaintenanceWindowStepFunctionsName
+        , Network.AWS.SSM.Types.DocumentHashType
+        , Network.AWS.SSM.Types.MaintenanceWindowExecutionStatusDetails
+        , Network.AWS.SSM.Types.OpsAggregator
+        , Network.AWS.SSM.Types.ResourceDataSyncS3Region
+        , Network.AWS.SSM.Types.MaintenanceWindowTargetId
+        , Network.AWS.SSM.Types.OwnerInformation
+        , Network.AWS.SSM.Types.AutomationExecution
+        , Network.AWS.SSM.Types.CloudWatchOutputConfig
+        , Network.AWS.SSM.Types.OpsItemSummary
+        , Network.AWS.SSM.Types.InstanceInformationFilter
+        , Network.AWS.SSM.Types.AutomationParameterValue
+        , Network.AWS.SSM.Types.PSParameterName
+        , Network.AWS.SSM.Types.PatchComplianceLevel
+        , Network.AWS.SSM.Types.UUID
+        , Network.AWS.SSM.Types.MaintenanceWindowRunCommandParameters
+        , Network.AWS.SSM.Types.DefaultInstanceName
+        , Network.AWS.SSM.Types.BaselineDescription
+        , Network.AWS.SSM.Types.OperatingSystem
+        , Network.AWS.SSM.Types.InventoryResultEntity
+        , Network.AWS.SSM.Types.PatchOrchestratorFilter
+        , Network.AWS.SSM.Types.S3Region
+        , Network.AWS.SSM.Types.PatchClassification
+        , Network.AWS.SSM.Types.StepExecution
+        , Network.AWS.SSM.Types.PatchRule
+        , Network.AWS.SSM.Types.InventoryItemTypeName
+        , Network.AWS.SSM.Types.InstancePatchState
+        , Network.AWS.SSM.Types.MaintenanceWindowExecutionTaskInvocationIdentity
+        , Network.AWS.SSM.Types.PatchCVEIds
+        , Network.AWS.SSM.Types.ResourceDataSyncSourceType
+        , Network.AWS.SSM.Types.DocumentName
+        , Network.AWS.SSM.Types.StopType
+        , Network.AWS.SSM.Types.InstanceInformationStringFilter
+        , Network.AWS.SSM.Types.PatchSourceProduct
+        , Network.AWS.SSM.Types.DocumentKeyValuesFilter
+        , Network.AWS.SSM.Types.DocumentFilterKey
+        , Network.AWS.SSM.Types.MaintenanceWindowStepFunctionsParameters
+        , Network.AWS.SSM.Types.ResourceDataSyncSourceRegion
+        , Network.AWS.SSM.Types.ComplianceItemTitle
+        , Network.AWS.SSM.Types.PatchAction
+        , Network.AWS.SSM.Types.ParameterInlinePolicy
+        , Network.AWS.SSM.Types.AttachmentHash
+        , Network.AWS.SSM.Types.PatchOperationType
+        , Network.AWS.SSM.Types.ParameterKeyId
+        , Network.AWS.SSM.Types.PatchOrchestratorFilterValue
+        , Network.AWS.SSM.Types.AssociationExecutionFilter
+        , Network.AWS.SSM.Types.ParameterTier
+        , Network.AWS.SSM.Types.OpsDataTypeName
+        , Network.AWS.SSM.Types.CommandStatus
+        , Network.AWS.SSM.Types.PatchId
+        , Network.AWS.SSM.Types.MaintenanceWindowExecution
+        , Network.AWS.SSM.Types.MaintenanceWindowExecutionTaskId
+        , Network.AWS.SSM.Types.PatchSource
+        , Network.AWS.SSM.Types.MaintenanceWindowResourceType
+        , Network.AWS.SSM.Types.Url
+        , Network.AWS.SSM.Types.PatchBaselineIdentity
+        , Network.AWS.SSM.Types.CompliantSummary
+        , Network.AWS.SSM.Types.ParameterHistory
+        , Network.AWS.SSM.Types.StatusAdditionalInfo
+        , Network.AWS.SSM.Types.OpsFilterKey
+        , Network.AWS.SSM.Types.AssociationSyncCompliance
+        , Network.AWS.SSM.Types.DocumentKeyValuesFilterValue
+        , Network.AWS.SSM.Types.ServiceSetting
+        , Network.AWS.SSM.Types.PatchCVEId
+        , Network.AWS.SSM.Types.PatchDeploymentStatus
+        , Network.AWS.SSM.Types.ResourceCountByStatus
+        , Network.AWS.SSM.Types.MaintenanceWindowName
+        , Network.AWS.SSM.Types.CommandPlugin
+        , Network.AWS.SSM.Types.InvocationTraceOutput
+        , Network.AWS.SSM.Types.MaintenanceWindowExecutionId
+        , Network.AWS.SSM.Types.ResourceDataSyncS3Format
+        , Network.AWS.SSM.Types.ServiceSettingId
+        , Network.AWS.SSM.Types.OpsItemDataKey
+        , Network.AWS.SSM.Types.Patch
+        , Network.AWS.SSM.Types.MaintenanceWindowTaskInvocationParameters
+        , Network.AWS.SSM.Types.SessionFilter
+        , Network.AWS.SSM.Types.SignalType
+        , Network.AWS.SSM.Types.AttachmentName
+        , Network.AWS.SSM.Types.MaintenanceWindowTaskParameterValue
+        , Network.AWS.SSM.Types.InventoryItemCaptureTime
+        , Network.AWS.SSM.Types.InstanceInformationFilterValue
+        , Network.AWS.SSM.Types.DocumentParameter
+        , Network.AWS.SSM.Types.MaintenanceWindowFilterKey
+        , Network.AWS.SSM.Types.ResourceComplianceSummaryItem
+        , Network.AWS.SSM.Types.StatusDetails
+        , Network.AWS.SSM.Types.TargetKey
+        , Network.AWS.SSM.Types.OpsAggregatorValue
+        , Network.AWS.SSM.Types.InventoryFilterValue
+        , Network.AWS.SSM.Types.OpsItemFilter
+        , Network.AWS.SSM.Types.ResourceDataSyncDestinationDataSharingType
+        , Network.AWS.SSM.Types.ActivationId
+        , Network.AWS.SSM.Types.DocumentDescription
+        , Network.AWS.SSM.Types.ParameterType
+        , Network.AWS.SSM.Types.AssociationExecutionTargetsFilter
+        , Network.AWS.SSM.Types.ComplianceStatus
+        , Network.AWS.SSM.Types.ParameterDataType
+        , Network.AWS.SSM.Types.MaintenanceWindowTaskId
+        , Network.AWS.SSM.Types.ParametersFilterValue
+        , Network.AWS.SSM.Types.SessionManagerS3OutputUrl
+        , Network.AWS.SSM.Types.SessionManagerCloudWatchOutputUrl
+        , Network.AWS.SSM.Types.InventoryAggregatorExpression
+        , Network.AWS.SSM.Types.SessionState
+        , Network.AWS.SSM.Types.SessionFilterKey
+        , Network.AWS.SSM.Types.AutomationExecutionStatus
+        , Network.AWS.SSM.Types.TargetType
+        , Network.AWS.SSM.Types.OpsItemFilterOperator
+        , Network.AWS.SSM.Types.ActivationCode
+        , Network.AWS.SSM.Types.PatchFilterGroup
+        , Network.AWS.SSM.Types.Account
+        , Network.AWS.SSM.Types.OpsItemDataType
+        , Network.AWS.SSM.Types.AssociationFilter
+        , Network.AWS.SSM.Types.ResourceDataSyncS3Destination
+        , Network.AWS.SSM.Types.OpsAggregatorValueKey
+        , Network.AWS.SSM.Types.TargetLocation
+        , Network.AWS.SSM.Types.ResourceTypeForTagging
+        , Network.AWS.SSM.Types.AccountId
+        , Network.AWS.SSM.Types.LastResourceDataSyncMessage
+        , Network.AWS.SSM.Types.PatchSet
+        , Network.AWS.SSM.Types.MaintenanceWindowExecutionTaskInvocationParameters
+        , Network.AWS.SSM.Types.Activation
+        , Network.AWS.SSM.Types.InventoryItemContentHash
+        , Network.AWS.SSM.Types.NextToken
+        , Network.AWS.SSM.Types.InstanceAssociationOutputUrl
+        , Network.AWS.SSM.Types.InstanceTagName
+        , Network.AWS.SSM.Types.OpsFilter
+        , Network.AWS.SSM.Types.DocumentPermissionType
+        , Network.AWS.SSM.Types.SessionDetails
+        , Network.AWS.SSM.Types.MaintenanceWindowAutomationParameters
+        , Network.AWS.SSM.Types.MaintenanceWindowTask
+        , Network.AWS.SSM.Types.S3OutputUrl
+        , Network.AWS.SSM.Types.OpsItemNotification
+        , Network.AWS.SSM.Types.MaintenanceWindowId
+        , Network.AWS.SSM.Types.DocumentIdentifier
+        , Network.AWS.SSM.Types.DocumentFormat
+        , Network.AWS.SSM.Types.InventoryItemSchemaVersion
+        , Network.AWS.SSM.Types.CommandInvocation
+        , Network.AWS.SSM.Types.MaxErrors
+        , Network.AWS.SSM.Types.ComplianceQueryOperatorType
+        , Network.AWS.SSM.Types.SeveritySummary
+        , Network.AWS.SSM.Types.InventoryTypeDisplayName
+        , Network.AWS.SSM.Types.MaintenanceWindowDescription
+        , Network.AWS.SSM.Types.CommandFilter
+        , Network.AWS.SSM.Types.SessionTarget
+        , Network.AWS.SSM.Types.DocumentStatusInformation
+        , Network.AWS.SSM.Types.OpsFilterValue
+        , Network.AWS.SSM.Types.InstallOverrideList
+        , Network.AWS.SSM.Types.AttachmentsSource
+        , Network.AWS.SSM.Types.PSParameterSelector
+        , Network.AWS.SSM.Types.OpsEntity
+        , Network.AWS.SSM.Types.AutomationType
+        , Network.AWS.SSM.Types.StatusMessage
+        , Network.AWS.SSM.Types.ScheduleExpression
+        , Network.AWS.SSM.Types.AssociationComplianceSeverity
+        , Network.AWS.SSM.Types.ComplianceExecutionType
+        , Network.AWS.SSM.Types.OpsDataAttributeName
+        , Network.AWS.SSM.Types.PlatformType
+        , Network.AWS.SSM.Types.BatchErrorMessage
+        , Network.AWS.SSM.Types.OutputSourceId
+        , Network.AWS.SSM.Types.MaintenanceWindowTimezone
+        , Network.AWS.SSM.Types.AttachmentUrl
+        , Network.AWS.SSM.Types.InstanceAssociationStatusInfo
+        , Network.AWS.SSM.Types.ComplianceExecutionId
+        , Network.AWS.SSM.Types.TargetMapKey
+        , Network.AWS.SSM.Types.InventoryDeletionStatus
+        , Network.AWS.SSM.Types.OutputSourceType
+        , Network.AWS.SSM.Types.Version
+        , Network.AWS.SSM.Types.CommandId
+        , Network.AWS.SSM.Types.ConnectionStatus
+        , Network.AWS.SSM.Types.AssociationOverview
+        , Network.AWS.SSM.Types.InventoryDeletionSummary
+        , Network.AWS.SSM.Types.MaintenanceWindowTaskParameterName
+        , Network.AWS.SSM.Types.ActivationDescription
+        , Network.AWS.SSM.Types.PatchStatus
+        , Network.AWS.SSM.Types.Fault
+        , Network.AWS.SSM.Types.OpsItemSeverity
+        , Network.AWS.SSM.Types.CommandPluginStatus
+        , Network.AWS.SSM.Types.AutomationExecutionFilterKey
+        , Network.AWS.SSM.Types.ResourceDataSyncState
+        , Network.AWS.SSM.Types.OpsItemFilterValue
+        , Network.AWS.SSM.Types.DescribeActivationsFilter
+        , Network.AWS.SSM.Types.ResourceDataSyncName
+        , Network.AWS.SSM.Types.ResolvedTargets
+        , Network.AWS.SSM.Types.OpsItemStatus
+        , Network.AWS.SSM.Types.DocumentHash
+        , Network.AWS.SSM.Types.DocumentVersion
+        , Network.AWS.SSM.Types.AssociationVersionInfo
+        , Network.AWS.SSM.Types.InstanceInformation
+        , Network.AWS.SSM.Types.MaintenanceWindowStringDateTime
+        , Network.AWS.SSM.Types.AssociationStatus
+        , Network.AWS.SSM.Types.CalendarNameOrARN
+        , Network.AWS.SSM.Types.ResourceDataSyncSourceWithState
+        , Network.AWS.SSM.Types.ResultAttribute
+        , Network.AWS.SSM.Types.PatchSeverity
+        , Network.AWS.SSM.Types.CalendarState
+        , Network.AWS.SSM.Types.ResourceDataSyncAwsOrganizationsSource
+        , Network.AWS.SSM.Types.OpsEntityItemKey
+        , Network.AWS.SSM.Types.AutomationExecutionFilter
+        , Network.AWS.SSM.Types.LoggingInfo
+        , Network.AWS.SSM.Types.InventoryGroup
+        , Network.AWS.SSM.Types.MaintenanceWindowIdentityForTarget
+        , Network.AWS.SSM.Types.ResourceDataSyncType
+        , Network.AWS.SSM.Types.ParametersFilterKey
+        , Network.AWS.SSM.Types.StandardOutputContent
+        , Network.AWS.SSM.Types.NotificationType
+        , Network.AWS.SSM.Types.TagKey
+        , Network.AWS.SSM.Types.CommandFilterKey
+        , Network.AWS.SSM.Types.ResourceDataSyncSource
+        , Network.AWS.SSM.Types.Region
+        , Network.AWS.SSM.Types.AttachmentsSourceKey
+        , Network.AWS.SSM.Types.NotificationArn
+        , Network.AWS.SSM.Types.AllowedPattern
+        , Network.AWS.SSM.Types.MaintenanceWindowExecutionTaskIdentity
+        , Network.AWS.SSM.Types.ComplianceStringFilter
+        , Network.AWS.SSM.Types.AutomationExecutionMetadata
+        , Network.AWS.SSM.Types.InstancePatchStateOperatorType
+        , Network.AWS.SSM.Types.MaintenanceWindowTarget
+        , Network.AWS.SSM.Types.InstancePatchStateFilter
+        , Network.AWS.SSM.Types.StepExecutionFilter
+        , Network.AWS.SSM.Types.ComputerName
+        , Network.AWS.SSM.Types.InventoryQueryOperatorType
+        , Network.AWS.SSM.Types.TokenValue
+        , Network.AWS.SSM.Types.AutomationExecutionId
+        , Network.AWS.SSM.Types.DocumentDefaultVersionDescription
+        , Network.AWS.SSM.Types.AttachmentContent
+        , Network.AWS.SSM.Types.MaintenanceWindowTaskTargetId
+        , Network.AWS.SSM.Types.ComplianceItem
+        , Network.AWS.SSM.Types.ResourceDataSyncItem
+        , Network.AWS.SSM.Types.InstanceAssociation
+        , Network.AWS.SSM.Types.PatchGroupPatchBaselineMapping
+        , Network.AWS.SSM.Types.AutomationTargetParameterName
+        , Network.AWS.SSM.Types.InventoryItemAttribute
+        , Network.AWS.SSM.Types.ComplianceItemContentHash
+        , Network.AWS.SSM.Types.AssociationVersion
+        , Network.AWS.SSM.Types.StepExecutionFilterValue
+        , Network.AWS.SSM.Types.AssociationResourceType
+        , Network.AWS.SSM.Types.AttachmentHashType
+        , Network.AWS.SSM.Types.MaintenanceWindowExecutionTaskInvocationId
+        , Network.AWS.SSM.Types.ComplianceExecutionSummary
+        , Network.AWS.SSM.Types.InstancePatchStateFilterValue
+        , Network.AWS.SSM.Types.CommandInvocationStatus
+        , Network.AWS.SSM.Types.ValidNextStep
+        , Network.AWS.SSM.Types.LastResourceDataSyncStatus
+        , Network.AWS.SSM.Types.DocumentStatus
+        , Network.AWS.SSM.Types.Product
+        , Network.AWS.SSM.Types.SessionManagerParameterName
+        , Network.AWS.SSM.Types.DocumentVersionInfo
+        , Network.AWS.SSM.Types.AttributeName
+        , Network.AWS.SSM.Types.SnapshotDownloadUrl
+        , Network.AWS.SSM.Types.StatusName
+        , Network.AWS.SSM.Types.PatchComplianceData
+        , Network.AWS.SSM.Types.AssociationExecution
+        , Network.AWS.SSM.Types.InventoryAggregator
+        , Network.AWS.SSM.Types.SessionId
+        , Network.AWS.SSM.Types.EffectivePatch
+        , Network.AWS.SSM.Types.Comment
+        , Network.AWS.SSM.Types.TargetMapValue
+        , Network.AWS.SSM.Types.AssociationExecutionTargetsFilterKey
+        , Network.AWS.SSM.Types.ParameterName
+        , Network.AWS.SSM.Types.InventoryItemSchema
+        , Network.AWS.SSM.Types.AssociationName
+        , Network.AWS.SSM.Types.RelatedOpsItem
+        , Network.AWS.SSM.Types.DocumentParameterType
+        , Network.AWS.SSM.Types.InstanceAggregatedAssociationOverview
+        , Network.AWS.SSM.Types.BaselineId
+        , Network.AWS.SSM.Types.OpsItemFilterKey
+        , Network.AWS.SSM.Types.DocumentVersionNumber
+        , Network.AWS.SSM.Types.ComplianceUploadType
+        , Network.AWS.SSM.Types.InventoryResultItem
+        , Network.AWS.SSM.Types.AssociationFilterKey
+        , Network.AWS.SSM.Types.Session
+        , Network.AWS.SSM.Types.AutomationExecutionFilterValue
+        , Network.AWS.SSM.Types.ComplianceSeverity
+        , Network.AWS.SSM.Types.ComplianceFilterValue
+        , Network.AWS.SSM.Types.PatchFilter
+        , Network.AWS.SSM.Types.InventoryAttributeDataType
+        , Network.AWS.SSM.Types.DescribeActivationsFilterKeys
+        , Network.AWS.SSM.Types.FailedCreateAssociation
+        , Network.AWS.SSM.Types.PatchAdvisoryId
+        , Network.AWS.SSM.Types.MaintenanceWindowExecutionTaskExecutionId
+        , Network.AWS.SSM.Types.ResourceDataSyncDestinationDataSharing
+        , Network.AWS.SSM.Types.PSParameterValue
+        , Network.AWS.SSM.Types.S3BucketName
+        , Network.AWS.SSM.Types.PatchGroup
+        , Network.AWS.SSM.Types.PatchProperty
+        , Network.AWS.SSM.Types.Parameter
+        , Network.AWS.SSM.Types.Association
+        , Network.AWS.SSM.Types.OpsItemCategory
+        , Network.AWS.SSM.Types.MaxConcurrency
+        , Network.AWS.SSM.Types.InventoryResultItemKey
+        , Network.AWS.SSM.Types.DocumentRequires
+        , Network.AWS.SSM.Types.OpsItem
+        , Network.AWS.SSM.Types.PatchFilterKey
+        , Network.AWS.SSM.Types.AssociationFilterOperatorType
+        , Network.AWS.SSM.Types.SnapshotId
+        , Network.AWS.SSM.Types.NotificationEvent
+        , Network.AWS.SSM.Types.InventorySchemaDeleteOption
+        , Network.AWS.SSM.Types.ExecutionRoleName
+        , Network.AWS.SSM.Types.Target
+        , Network.AWS.SSM.Types.PatchBugzillaId
+        , Network.AWS.SSM.Types.OpsResultAttribute
+        , Network.AWS.SSM.Types.MaintenanceWindowFilter
+        , Network.AWS.SSM.Types.ExecutionMode
+        , Network.AWS.SSM.Types.IamRole
+        , Network.AWS.SSM.Types.SessionManagerOutputUrl
+        , Network.AWS.SSM.Types.ServiceRole
+        , Network.AWS.SSM.Types.AutomationParameterKey
+        , Network.AWS.SSM.Types.WindowId
+        , Network.AWS.SSM.Types.ClientContext
+        , Network.AWS.SSM.Types.Qualifier
+        , Network.AWS.SSM.Types.WindowExecutionId
+        , Network.AWS.SSM.Types.Name
+        , Network.AWS.SSM.Types.ComplianceType
+        , Network.AWS.SSM.Types.Description
+        , Network.AWS.SSM.Types.Source
+        , Network.AWS.SSM.Types.Title
+        , Network.AWS.SSM.Types.Category
+        , Network.AWS.SSM.Types.Severity
+        , Network.AWS.SSM.Types.Id
+        , Network.AWS.SSM.Types.DataType
+        , Network.AWS.SSM.Types.KeyId
+        , Network.AWS.SSM.Types.TypeName
+        , Network.AWS.SSM.Types.Key
+        , Network.AWS.SSM.Types.Option
+        , Network.AWS.SSM.Types.TargetParameterName
+        , Network.AWS.SSM.Types.SyncName
+        , Network.AWS.SSM.Types.OutputS3BucketName
+        , Network.AWS.SSM.Types.OutputS3KeyPrefix
+        , Network.AWS.SSM.Types.OutputS3Region
+        , Network.AWS.SSM.Types.EndDate
+        , Network.AWS.SSM.Types.NextExecutionTime
+        , Network.AWS.SSM.Types.ScheduleTimezone
+        , Network.AWS.SSM.Types.StartDate
+        , Network.AWS.SSM.Types.Value
+        , Network.AWS.SSM.Types.ExecutionTime
+        , Network.AWS.SSM.Types.WindowTargetId
+        , Network.AWS.SSM.Types.SettingId
+        , Network.AWS.SSM.Types.SchemaVersion
+        , Network.AWS.SSM.Types.CaptureTime
+        , Network.AWS.SSM.Types.ContentHash
+        , Network.AWS.SSM.Types.DeletionId
+        , Network.AWS.SSM.Types.LastStatusMessage
+        , Network.AWS.SSM.Types.Content
+        , Network.AWS.SSM.Types.VersionName
+        , Network.AWS.SSM.Types.AtTime
+        , Network.AWS.SSM.Types.DetailedStatus
+        , Network.AWS.SSM.Types.ExecutionId
+        , Network.AWS.SSM.Types.Status
+        , Network.AWS.SSM.Types.OrganizationalUnitId
+        , Network.AWS.SSM.Types.AggregatorType
+        , Network.AWS.SSM.Types.ParentAutomationExecutionId
+        , Network.AWS.SSM.Types.ServiceRoleArn
+        , Network.AWS.SSM.Types.SyncType
+        , Network.AWS.SSM.Types.Action
+        , Network.AWS.SSM.Types.StatusInformation
+        , Network.AWS.SSM.Types.InvocationId
+        , Network.AWS.SSM.Types.TaskExecutionId
+        , Network.AWS.SSM.Types.ExecutionElapsedTime
+        , Network.AWS.SSM.Types.ExecutionEndDateTime
+        , Network.AWS.SSM.Types.ExecutionStartDateTime
+        , Network.AWS.SSM.Types.PluginName
+        , Network.AWS.SSM.Types.StandardErrorUrl
+        , Network.AWS.SSM.Types.StandardOutputUrl
+        , Network.AWS.SSM.Types.NextTransitionTime
+        , Network.AWS.SSM.Types.TaskArn
+        , Network.AWS.SSM.Types.WindowTaskId
+        , Network.AWS.SSM.Types.SettingValue
+        , Network.AWS.SSM.Types.Configuration
+        , Network.AWS.SSM.Types.Output
+        , Network.AWS.SSM.Types.Arch
+        , Network.AWS.SSM.Types.MsrcSeverity
+        , Network.AWS.SSM.Types.ProductFamily
+        , Network.AWS.SSM.Types.Release
+        , Network.AWS.SSM.Types.Repository
+        , Network.AWS.SSM.Types.Vendor
+        , Network.AWS.SSM.Types.DefaultValue
+        , Network.AWS.SSM.Types.Policies
+        , Network.AWS.SSM.Types.DefaultVersion
+        , Network.AWS.SSM.Types.Hash
+        , Network.AWS.SSM.Types.LatestVersion
+        , Network.AWS.SSM.Types.Owner
+        , Network.AWS.SSM.Types.Sha1
+        , Network.AWS.SSM.Types.BucketName
+        , Network.AWS.SSM.Types.AWSKMSKeyARN
+        , Network.AWS.SSM.Types.Prefix
+        , Network.AWS.SSM.Types.TargetLocationMaxConcurrency
+        , Network.AWS.SSM.Types.TargetLocationMaxErrors
+        , Network.AWS.SSM.Types.ExecutionSummary
+        , Network.AWS.SSM.Types.Message
+        , Network.AWS.SSM.Types.OrganizationSourceType
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-ssm-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.Gen.SSM
-    Test.AWS.SSM
-    Test.AWS.SSM.Internal
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core         >=2.0.0.0 && <2.0.0.1
-    , amazonka-ssm
-    , amazonka-test         >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.SSM
+        , Test.AWS.Gen.SSM
+        , Test.AWS.SSM.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-ssm
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

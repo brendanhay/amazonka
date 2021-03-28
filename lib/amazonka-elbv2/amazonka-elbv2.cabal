@@ -1,260 +1,261 @@
-cabal-version:      2.2
-name:               amazonka-elbv2
-version:            2.0.0.0
-synopsis:           Amazon Elastic Load Balancing SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-elbv2
+version:               2.0.0.0
+synopsis:              Amazon Elastic Load Balancing SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.ELBv2" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.ELBv2" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-elbv2
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-elbv2
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.ELBv2
-    Network.AWS.ELBv2.AddListenerCertificates
-    Network.AWS.ELBv2.AddTags
-    Network.AWS.ELBv2.CreateListener
-    Network.AWS.ELBv2.CreateLoadBalancer
-    Network.AWS.ELBv2.CreateRule
-    Network.AWS.ELBv2.CreateTargetGroup
-    Network.AWS.ELBv2.DeleteListener
-    Network.AWS.ELBv2.DeleteLoadBalancer
-    Network.AWS.ELBv2.DeleteRule
-    Network.AWS.ELBv2.DeleteTargetGroup
-    Network.AWS.ELBv2.DeregisterTargets
-    Network.AWS.ELBv2.DescribeAccountLimits
-    Network.AWS.ELBv2.DescribeListenerCertificates
-    Network.AWS.ELBv2.DescribeListeners
-    Network.AWS.ELBv2.DescribeLoadBalancerAttributes
-    Network.AWS.ELBv2.DescribeLoadBalancers
-    Network.AWS.ELBv2.DescribeRules
-    Network.AWS.ELBv2.DescribeSSLPolicies
-    Network.AWS.ELBv2.DescribeTags
-    Network.AWS.ELBv2.DescribeTargetGroupAttributes
-    Network.AWS.ELBv2.DescribeTargetGroups
-    Network.AWS.ELBv2.DescribeTargetHealth
-    Network.AWS.ELBv2.ModifyListener
-    Network.AWS.ELBv2.ModifyLoadBalancerAttributes
-    Network.AWS.ELBv2.ModifyRule
-    Network.AWS.ELBv2.ModifyTargetGroup
-    Network.AWS.ELBv2.ModifyTargetGroupAttributes
-    Network.AWS.ELBv2.RegisterTargets
-    Network.AWS.ELBv2.RemoveListenerCertificates
-    Network.AWS.ELBv2.RemoveTags
-    Network.AWS.ELBv2.SetIpAddressType
-    Network.AWS.ELBv2.SetRulePriorities
-    Network.AWS.ELBv2.SetSecurityGroups
-    Network.AWS.ELBv2.SetSubnets
-    Network.AWS.ELBv2.Types
-    Network.AWS.ELBv2.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.ELBv2.Types.Action
-    Network.AWS.ELBv2.Types.ActionTypeEnum
-    Network.AWS.ELBv2.Types.AllocationId
-    Network.AWS.ELBv2.Types.AlpnPolicyValue
-    Network.AWS.ELBv2.Types.AuthenticateCognitoActionAuthenticationRequestParamName
-    Network.AWS.ELBv2.Types.AuthenticateCognitoActionAuthenticationRequestParamValue
-    Network.AWS.ELBv2.Types.AuthenticateCognitoActionConditionalBehaviorEnum
-    Network.AWS.ELBv2.Types.AuthenticateCognitoActionConfig
-    Network.AWS.ELBv2.Types.AuthenticateCognitoActionScope
-    Network.AWS.ELBv2.Types.AuthenticateCognitoActionUserPoolArn
-    Network.AWS.ELBv2.Types.AuthenticateCognitoActionUserPoolClientId
-    Network.AWS.ELBv2.Types.AuthenticateOidcActionAuthenticationRequestParamName
-    Network.AWS.ELBv2.Types.AuthenticateOidcActionAuthenticationRequestParamValue
-    Network.AWS.ELBv2.Types.AuthenticateOidcActionAuthorizationEndpoint
-    Network.AWS.ELBv2.Types.AuthenticateOidcActionClientId
-    Network.AWS.ELBv2.Types.AuthenticateOidcActionClientSecret
-    Network.AWS.ELBv2.Types.AuthenticateOidcActionConditionalBehaviorEnum
-    Network.AWS.ELBv2.Types.AuthenticateOidcActionConfig
-    Network.AWS.ELBv2.Types.AuthenticateOidcActionIssuer
-    Network.AWS.ELBv2.Types.AuthenticateOidcActionScope
-    Network.AWS.ELBv2.Types.AuthenticateOidcActionSessionCookieName
-    Network.AWS.ELBv2.Types.AuthenticateOidcActionTokenEndpoint
-    Network.AWS.ELBv2.Types.AvailabilityZone
-    Network.AWS.ELBv2.Types.CanonicalHostedZoneId
-    Network.AWS.ELBv2.Types.Certificate
-    Network.AWS.ELBv2.Types.CertificateArn
-    Network.AWS.ELBv2.Types.Cipher
-    Network.AWS.ELBv2.Types.CipherName
-    Network.AWS.ELBv2.Types.CustomerOwnedIpv4Pool
-    Network.AWS.ELBv2.Types.Description
-    Network.AWS.ELBv2.Types.DNSName
-    Network.AWS.ELBv2.Types.Field
-    Network.AWS.ELBv2.Types.FixedResponseActionConfig
-    Network.AWS.ELBv2.Types.FixedResponseActionContentType
-    Network.AWS.ELBv2.Types.FixedResponseActionMessage
-    Network.AWS.ELBv2.Types.FixedResponseActionStatusCode
-    Network.AWS.ELBv2.Types.ForwardActionConfig
-    Network.AWS.ELBv2.Types.GrpcCode
-    Network.AWS.ELBv2.Types.HealthCheckPath
-    Network.AWS.ELBv2.Types.HealthCheckPort
-    Network.AWS.ELBv2.Types.HostHeaderConditionConfig
-    Network.AWS.ELBv2.Types.HttpCode
-    Network.AWS.ELBv2.Types.HttpHeaderConditionConfig
-    Network.AWS.ELBv2.Types.HttpHeaderConditionName
-    Network.AWS.ELBv2.Types.HttpRequestMethodConditionConfig
-    Network.AWS.ELBv2.Types.IpAddress
-    Network.AWS.ELBv2.Types.IpAddressType
-    Network.AWS.ELBv2.Types.IPv6Address
-    Network.AWS.ELBv2.Types.Key
-    Network.AWS.ELBv2.Types.Limit
-    Network.AWS.ELBv2.Types.Listener
-    Network.AWS.ELBv2.Types.ListenerArn
-    Network.AWS.ELBv2.Types.LoadBalancer
-    Network.AWS.ELBv2.Types.LoadBalancerAddress
-    Network.AWS.ELBv2.Types.LoadBalancerArn
-    Network.AWS.ELBv2.Types.LoadBalancerAttribute
-    Network.AWS.ELBv2.Types.LoadBalancerName
-    Network.AWS.ELBv2.Types.LoadBalancerSchemeEnum
-    Network.AWS.ELBv2.Types.LoadBalancerState
-    Network.AWS.ELBv2.Types.LoadBalancerStateEnum
-    Network.AWS.ELBv2.Types.LoadBalancerTypeEnum
-    Network.AWS.ELBv2.Types.Marker
-    Network.AWS.ELBv2.Types.Matcher
-    Network.AWS.ELBv2.Types.Max
-    Network.AWS.ELBv2.Types.Name
-    Network.AWS.ELBv2.Types.NextMarker
-    Network.AWS.ELBv2.Types.OutpostId
-    Network.AWS.ELBv2.Types.Path
-    Network.AWS.ELBv2.Types.PathPatternConditionConfig
-    Network.AWS.ELBv2.Types.PrivateIPv4Address
-    Network.AWS.ELBv2.Types.ProtocolEnum
-    Network.AWS.ELBv2.Types.ProtocolVersion
-    Network.AWS.ELBv2.Types.QueryStringConditionConfig
-    Network.AWS.ELBv2.Types.QueryStringKeyValuePair
-    Network.AWS.ELBv2.Types.Reason
-    Network.AWS.ELBv2.Types.RedirectActionConfig
-    Network.AWS.ELBv2.Types.RedirectActionHost
-    Network.AWS.ELBv2.Types.RedirectActionPath
-    Network.AWS.ELBv2.Types.RedirectActionPort
-    Network.AWS.ELBv2.Types.RedirectActionProtocol
-    Network.AWS.ELBv2.Types.RedirectActionQuery
-    Network.AWS.ELBv2.Types.RedirectActionStatusCodeEnum
-    Network.AWS.ELBv2.Types.ResourceArn
-    Network.AWS.ELBv2.Types.Rule
-    Network.AWS.ELBv2.Types.RuleArn
-    Network.AWS.ELBv2.Types.RuleCondition
-    Network.AWS.ELBv2.Types.RulePriorityPair
-    Network.AWS.ELBv2.Types.SecurityGroupId
-    Network.AWS.ELBv2.Types.SessionCookieName
-    Network.AWS.ELBv2.Types.SourceIpConditionConfig
-    Network.AWS.ELBv2.Types.SslPolicy
-    Network.AWS.ELBv2.Types.SslPolicyName
-    Network.AWS.ELBv2.Types.SslProtocol
-    Network.AWS.ELBv2.Types.String
-    Network.AWS.ELBv2.Types.StringValue
-    Network.AWS.ELBv2.Types.SubnetId
-    Network.AWS.ELBv2.Types.SubnetMapping
-    Network.AWS.ELBv2.Types.Tag
-    Network.AWS.ELBv2.Types.TagDescription
-    Network.AWS.ELBv2.Types.TagKey
-    Network.AWS.ELBv2.Types.TargetDescription
-    Network.AWS.ELBv2.Types.TargetGroup
-    Network.AWS.ELBv2.Types.TargetGroupArn
-    Network.AWS.ELBv2.Types.TargetGroupAttribute
-    Network.AWS.ELBv2.Types.TargetGroupName
-    Network.AWS.ELBv2.Types.TargetGroupStickinessConfig
-    Network.AWS.ELBv2.Types.TargetGroupTuple
-    Network.AWS.ELBv2.Types.TargetHealth
-    Network.AWS.ELBv2.Types.TargetHealthDescription
-    Network.AWS.ELBv2.Types.TargetHealthReasonEnum
-    Network.AWS.ELBv2.Types.TargetHealthStateEnum
-    Network.AWS.ELBv2.Types.TargetId
-    Network.AWS.ELBv2.Types.TargetTypeEnum
-    Network.AWS.ELBv2.Types.UserInfoEndpoint
-    Network.AWS.ELBv2.Types.UserPoolDomain
-    Network.AWS.ELBv2.Types.Value
-    Network.AWS.ELBv2.Types.VpcId
-    Network.AWS.ELBv2.Types.ZoneName
+    exposed-modules:
+          Network.AWS.ELBv2
+        , Network.AWS.ELBv2.Types
+        , Network.AWS.ELBv2.Waiters
+        , Network.AWS.ELBv2.DescribeLoadBalancers
+        , Network.AWS.ELBv2.DescribeTags
+        , Network.AWS.ELBv2.DeleteRule
+        , Network.AWS.ELBv2.RemoveTags
+        , Network.AWS.ELBv2.DeleteTargetGroup
+        , Network.AWS.ELBv2.SetSubnets
+        , Network.AWS.ELBv2.CreateRule
+        , Network.AWS.ELBv2.DescribeListenerCertificates
+        , Network.AWS.ELBv2.SetSecurityGroups
+        , Network.AWS.ELBv2.SetRulePriorities
+        , Network.AWS.ELBv2.DescribeTargetGroups
+        , Network.AWS.ELBv2.DescribeRules
+        , Network.AWS.ELBv2.DeleteLoadBalancer
+        , Network.AWS.ELBv2.RegisterTargets
+        , Network.AWS.ELBv2.ModifyListener
+        , Network.AWS.ELBv2.ModifyTargetGroup
+        , Network.AWS.ELBv2.ModifyTargetGroupAttributes
+        , Network.AWS.ELBv2.DescribeTargetGroupAttributes
+        , Network.AWS.ELBv2.DeleteListener
+        , Network.AWS.ELBv2.DescribeSSLPolicies
+        , Network.AWS.ELBv2.DescribeAccountLimits
+        , Network.AWS.ELBv2.DeregisterTargets
+        , Network.AWS.ELBv2.CreateListener
+        , Network.AWS.ELBv2.CreateTargetGroup
+        , Network.AWS.ELBv2.ModifyLoadBalancerAttributes
+        , Network.AWS.ELBv2.SetIpAddressType
+        , Network.AWS.ELBv2.AddTags
+        , Network.AWS.ELBv2.DescribeLoadBalancerAttributes
+        , Network.AWS.ELBv2.DescribeListeners
+        , Network.AWS.ELBv2.DescribeTargetHealth
+        , Network.AWS.ELBv2.CreateLoadBalancer
+        , Network.AWS.ELBv2.RemoveListenerCertificates
+        , Network.AWS.ELBv2.ModifyRule
+        , Network.AWS.ELBv2.AddListenerCertificates
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.ELBv2.Types.ProtocolVersion
+        , Network.AWS.ELBv2.Types.LoadBalancerAddress
+        , Network.AWS.ELBv2.Types.SslPolicy
+        , Network.AWS.ELBv2.Types.AuthenticateCognitoActionUserPoolArn
+        , Network.AWS.ELBv2.Types.TargetId
+        , Network.AWS.ELBv2.Types.Matcher
+        , Network.AWS.ELBv2.Types.TagDescription
+        , Network.AWS.ELBv2.Types.Max
+        , Network.AWS.ELBv2.Types.HttpRequestMethodConditionConfig
+        , Network.AWS.ELBv2.Types.AuthenticateOidcActionAuthenticationRequestParamValue
+        , Network.AWS.ELBv2.Types.TargetDescription
+        , Network.AWS.ELBv2.Types.IPv6Address
+        , Network.AWS.ELBv2.Types.IpAddress
+        , Network.AWS.ELBv2.Types.SubnetMapping
+        , Network.AWS.ELBv2.Types.AuthenticateOidcActionSessionCookieName
+        , Network.AWS.ELBv2.Types.Tag
+        , Network.AWS.ELBv2.Types.TargetHealthReasonEnum
+        , Network.AWS.ELBv2.Types.FixedResponseActionStatusCode
+        , Network.AWS.ELBv2.Types.SslProtocol
+        , Network.AWS.ELBv2.Types.TargetGroupAttribute
+        , Network.AWS.ELBv2.Types.AuthenticateOidcActionAuthorizationEndpoint
+        , Network.AWS.ELBv2.Types.AuthenticateOidcActionTokenEndpoint
+        , Network.AWS.ELBv2.Types.CipherName
+        , Network.AWS.ELBv2.Types.LoadBalancerName
+        , Network.AWS.ELBv2.Types.TargetHealth
+        , Network.AWS.ELBv2.Types.AuthenticateCognitoActionAuthenticationRequestParamName
+        , Network.AWS.ELBv2.Types.AllocationId
+        , Network.AWS.ELBv2.Types.HttpCode
+        , Network.AWS.ELBv2.Types.ProtocolEnum
+        , Network.AWS.ELBv2.Types.Path
+        , Network.AWS.ELBv2.Types.RuleCondition
+        , Network.AWS.ELBv2.Types.AuthenticateCognitoActionConditionalBehaviorEnum
+        , Network.AWS.ELBv2.Types.SourceIpConditionConfig
+        , Network.AWS.ELBv2.Types.CertificateArn
+        , Network.AWS.ELBv2.Types.VpcId
+        , Network.AWS.ELBv2.Types.AlpnPolicyValue
+        , Network.AWS.ELBv2.Types.CanonicalHostedZoneId
+        , Network.AWS.ELBv2.Types.AuthenticateOidcActionScope
+        , Network.AWS.ELBv2.Types.PrivateIPv4Address
+        , Network.AWS.ELBv2.Types.TargetGroupArn
+        , Network.AWS.ELBv2.Types.GrpcCode
+        , Network.AWS.ELBv2.Types.ListenerArn
+        , Network.AWS.ELBv2.Types.AuthenticateCognitoActionScope
+        , Network.AWS.ELBv2.Types.QueryStringConditionConfig
+        , Network.AWS.ELBv2.Types.LoadBalancerAttribute
+        , Network.AWS.ELBv2.Types.Action
+        , Network.AWS.ELBv2.Types.StringValue
+        , Network.AWS.ELBv2.Types.RedirectActionQuery
+        , Network.AWS.ELBv2.Types.Rule
+        , Network.AWS.ELBv2.Types.SubnetId
+        , Network.AWS.ELBv2.Types.AuthenticateOidcActionClientId
+        , Network.AWS.ELBv2.Types.TargetHealthStateEnum
+        , Network.AWS.ELBv2.Types.AuthenticateOidcActionIssuer
+        , Network.AWS.ELBv2.Types.RedirectActionPath
+        , Network.AWS.ELBv2.Types.ZoneName
+        , Network.AWS.ELBv2.Types.QueryStringKeyValuePair
+        , Network.AWS.ELBv2.Types.SecurityGroupId
+        , Network.AWS.ELBv2.Types.LoadBalancerSchemeEnum
+        , Network.AWS.ELBv2.Types.PathPatternConditionConfig
+        , Network.AWS.ELBv2.Types.RedirectActionHost
+        , Network.AWS.ELBv2.Types.CustomerOwnedIpv4Pool
+        , Network.AWS.ELBv2.Types.ForwardActionConfig
+        , Network.AWS.ELBv2.Types.LoadBalancerArn
+        , Network.AWS.ELBv2.Types.IpAddressType
+        , Network.AWS.ELBv2.Types.ResourceArn
+        , Network.AWS.ELBv2.Types.AvailabilityZone
+        , Network.AWS.ELBv2.Types.Name
+        , Network.AWS.ELBv2.Types.RedirectActionProtocol
+        , Network.AWS.ELBv2.Types.LoadBalancer
+        , Network.AWS.ELBv2.Types.FixedResponseActionContentType
+        , Network.AWS.ELBv2.Types.Marker
+        , Network.AWS.ELBv2.Types.TargetTypeEnum
+        , Network.AWS.ELBv2.Types.Limit
+        , Network.AWS.ELBv2.Types.AuthenticateOidcActionClientSecret
+        , Network.AWS.ELBv2.Types.Certificate
+        , Network.AWS.ELBv2.Types.AuthenticateCognitoActionUserPoolClientId
+        , Network.AWS.ELBv2.Types.LoadBalancerState
+        , Network.AWS.ELBv2.Types.RedirectActionPort
+        , Network.AWS.ELBv2.Types.Cipher
+        , Network.AWS.ELBv2.Types.ActionTypeEnum
+        , Network.AWS.ELBv2.Types.TagKey
+        , Network.AWS.ELBv2.Types.TargetGroupStickinessConfig
+        , Network.AWS.ELBv2.Types.FixedResponseActionMessage
+        , Network.AWS.ELBv2.Types.AuthenticateOidcActionConfig
+        , Network.AWS.ELBv2.Types.AuthenticateOidcActionAuthenticationRequestParamName
+        , Network.AWS.ELBv2.Types.HealthCheckPort
+        , Network.AWS.ELBv2.Types.SslPolicyName
+        , Network.AWS.ELBv2.Types.HttpHeaderConditionName
+        , Network.AWS.ELBv2.Types.AuthenticateOidcActionConditionalBehaviorEnum
+        , Network.AWS.ELBv2.Types.RuleArn
+        , Network.AWS.ELBv2.Types.TargetHealthDescription
+        , Network.AWS.ELBv2.Types.OutpostId
+        , Network.AWS.ELBv2.Types.HttpHeaderConditionConfig
+        , Network.AWS.ELBv2.Types.AuthenticateCognitoActionConfig
+        , Network.AWS.ELBv2.Types.RulePriorityPair
+        , Network.AWS.ELBv2.Types.Description
+        , Network.AWS.ELBv2.Types.RedirectActionConfig
+        , Network.AWS.ELBv2.Types.DNSName
+        , Network.AWS.ELBv2.Types.RedirectActionStatusCodeEnum
+        , Network.AWS.ELBv2.Types.Listener
+        , Network.AWS.ELBv2.Types.LoadBalancerStateEnum
+        , Network.AWS.ELBv2.Types.HostHeaderConditionConfig
+        , Network.AWS.ELBv2.Types.TargetGroupTuple
+        , Network.AWS.ELBv2.Types.TargetGroup
+        , Network.AWS.ELBv2.Types.TargetGroupName
+        , Network.AWS.ELBv2.Types.LoadBalancerTypeEnum
+        , Network.AWS.ELBv2.Types.AuthenticateCognitoActionAuthenticationRequestParamValue
+        , Network.AWS.ELBv2.Types.FixedResponseActionConfig
+        , Network.AWS.ELBv2.Types.HealthCheckPath
+        , Network.AWS.ELBv2.Types.NextMarker
+        , Network.AWS.ELBv2.Types.Key
+        , Network.AWS.ELBv2.Types.Value
+        , Network.AWS.ELBv2.Types.Field
+        , Network.AWS.ELBv2.Types.Reason
+        , Network.AWS.ELBv2.Types.UserInfoEndpoint
+        , Network.AWS.ELBv2.Types.UserPoolDomain
+        , Network.AWS.ELBv2.Types.SessionCookieName
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-elbv2-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.ELBv2
-    Test.AWS.ELBv2.Internal
-    Test.AWS.Gen.ELBv2
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core         >=2.0.0.0 && <2.0.0.1
-    , amazonka-elbv2
-    , amazonka-test         >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.ELBv2
+        , Test.AWS.Gen.ELBv2
+        , Test.AWS.ELBv2.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-elbv2
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CodeCommit.Types.BranchInfo
-  ( BranchInfo (..),
-
-    -- * Smart constructor
-    mkBranchInfo,
-
-    -- * Lenses
-    biBranchName,
-    biCommitId,
-  )
-where
+  ( BranchInfo (..)
+  -- * Smart constructor
+  , mkBranchInfo
+  -- * Lenses
+  , biBranchName
+  , biCommitId
+  ) where
 
 import qualified Network.AWS.CodeCommit.Types.BranchName as Types
 import qualified Network.AWS.CodeCommit.Types.CommitId as Types
@@ -31,37 +29,39 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkBranchInfo' smart constructor.
 data BranchInfo = BranchInfo'
-  { -- | The name of the branch.
-    branchName :: Core.Maybe Types.BranchName,
-    -- | The ID of the last commit made to the branch.
-    commitId :: Core.Maybe Types.CommitId
+  { branchName :: Core.Maybe Types.BranchName
+    -- ^ The name of the branch.
+  , commitId :: Core.Maybe Types.CommitId
+    -- ^ The ID of the last commit made to the branch.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'BranchInfo' value with any optional fields omitted.
-mkBranchInfo ::
-  BranchInfo
-mkBranchInfo =
-  BranchInfo' {branchName = Core.Nothing, commitId = Core.Nothing}
+mkBranchInfo
+    :: BranchInfo
+mkBranchInfo
+  = BranchInfo'{branchName = Core.Nothing, commitId = Core.Nothing}
 
 -- | The name of the branch.
 --
 -- /Note:/ Consider using 'branchName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 biBranchName :: Lens.Lens' BranchInfo (Core.Maybe Types.BranchName)
 biBranchName = Lens.field @"branchName"
-{-# DEPRECATED biBranchName "Use generic-lens or generic-optics with 'branchName' instead." #-}
+{-# INLINEABLE biBranchName #-}
+{-# DEPRECATED branchName "Use generic-lens or generic-optics with 'branchName' instead"  #-}
 
 -- | The ID of the last commit made to the branch.
 --
 -- /Note:/ Consider using 'commitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 biCommitId :: Lens.Lens' BranchInfo (Core.Maybe Types.CommitId)
 biCommitId = Lens.field @"commitId"
-{-# DEPRECATED biCommitId "Use generic-lens or generic-optics with 'commitId' instead." #-}
+{-# INLINEABLE biCommitId #-}
+{-# DEPRECATED commitId "Use generic-lens or generic-optics with 'commitId' instead"  #-}
 
 instance Core.FromJSON BranchInfo where
-  parseJSON =
-    Core.withObject "BranchInfo" Core.$
-      \x ->
-        BranchInfo'
-          Core.<$> (x Core..:? "branchName") Core.<*> (x Core..:? "commitId")
+        parseJSON
+          = Core.withObject "BranchInfo" Core.$
+              \ x ->
+                BranchInfo' Core.<$>
+                  (x Core..:? "branchName") Core.<*> x Core..:? "commitId"

@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,18 +15,17 @@
 --
 -- Deletes the Amazon Connect instance.
 module Network.AWS.Connect.DeleteInstance
-  ( -- * Creating a request
-    DeleteInstance (..),
-    mkDeleteInstance,
-
+    (
+    -- * Creating a request
+      DeleteInstance (..)
+    , mkDeleteInstance
     -- ** Request lenses
-    dInstanceId,
+    , dInstanceId
 
     -- * Destructuring the response
-    DeleteInstanceResponse (..),
-    mkDeleteInstanceResponse,
-  )
-where
+    , DeleteInstanceResponse (..)
+    , mkDeleteInstanceResponse
+    ) where
 
 import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -36,40 +35,46 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteInstance' smart constructor.
 newtype DeleteInstance = DeleteInstance'
-  { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Types.InstanceId
+  { instanceId :: Types.InstanceId
+    -- ^ The identifier of the Amazon Connect instance.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteInstance' value with any optional fields omitted.
-mkDeleteInstance ::
-  -- | 'instanceId'
-  Types.InstanceId ->
-  DeleteInstance
-mkDeleteInstance instanceId = DeleteInstance' {instanceId}
+mkDeleteInstance
+    :: Types.InstanceId -- ^ 'instanceId'
+    -> DeleteInstance
+mkDeleteInstance instanceId = DeleteInstance'{instanceId}
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dInstanceId :: Lens.Lens' DeleteInstance Types.InstanceId
 dInstanceId = Lens.field @"instanceId"
-{-# DEPRECATED dInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+{-# INLINEABLE dInstanceId #-}
+{-# DEPRECATED instanceId "Use generic-lens or generic-optics with 'instanceId' instead"  #-}
+
+instance Core.ToQuery DeleteInstance where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DeleteInstance where
+        toHeaders DeleteInstance{..}
+          = Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.AWSRequest DeleteInstance where
-  type Rs DeleteInstance = DeleteInstanceResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.DELETE,
-        Core._rqPath =
-          Core.rawPath ("/instance/" Core.<> (Core.toText instanceId)),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
-        Core._rqBody = ""
-      }
-  response = Response.receiveNull DeleteInstanceResponse'
+        type Rs DeleteInstance = DeleteInstanceResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.DELETE,
+                         Core._rqPath = "/instance/" Core.<> Core.toText instanceId,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull DeleteInstanceResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteInstanceResponse' smart constructor.
 data DeleteInstanceResponse = DeleteInstanceResponse'
@@ -77,6 +82,6 @@ data DeleteInstanceResponse = DeleteInstanceResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteInstanceResponse' value with any optional fields omitted.
-mkDeleteInstanceResponse ::
-  DeleteInstanceResponse
+mkDeleteInstanceResponse
+    :: DeleteInstanceResponse
 mkDeleteInstanceResponse = DeleteInstanceResponse'

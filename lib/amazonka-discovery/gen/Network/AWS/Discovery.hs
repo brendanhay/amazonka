@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,7 +10,7 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __AWS Application Discovery Service__
+-- __AWS Application Discovery Service__ 
 --
 -- AWS Application Discovery Service helps you plan application migration projects. It automatically identifies servers, virtual machines (VMs), and network dependencies in your on-premises data centers. For more information, see the <http://aws.amazon.com/application-discovery/faqs/ AWS Application Discovery Service FAQ> . Application Discovery Service offers three ways of performing discovery and collecting data about your on-premises servers:
 --
@@ -30,7 +30,7 @@
 --     * The agent captures infrastructure and application information, including an inventory of running processes, system performance information, resource utilization, and network dependencies.
 --
 --
---     * The information collected by agents is secured at rest and in transit to the Application Discovery Service database in the cloud.
+--     * The information collected by agents is secured at rest and in transit to the Application Discovery Service database in the cloud. 
 --
 --
 --
@@ -46,45 +46,46 @@
 --
 --
 --
--- __Recommendations__
+-- __Recommendations__ 
 -- We recommend that you use agent-based discovery for non-VMware environments, and whenever you want to collect information about network dependencies. You can run agent-based and agentless discovery simultaneously. Use agentless discovery to complete the initial infrastructure assessment quickly, and then install agents on select hosts to collect additional information.
--- __Working With This Guide__
+-- __Working With This Guide__ 
 -- This API reference provides descriptions, syntax, and usage examples for each of the actions and data types for Application Discovery Service. The topic for each action shows the API request parameters and the response. Alternatively, you can use one of the AWS SDKs to access an API that is tailored to the programming language or platform that you're using. For more information, see <http://aws.amazon.com/tools/#SDKs AWS SDKs> .
 -- This guide is intended for use with the <http://docs.aws.amazon.com/application-discovery/latest/userguide/ AWS Application Discovery Service User Guide> .
 -- /Important:/ All data is handled according to the <http://aws.amazon.com/privacy/ AWS Privacy Policy> . You can operate Application Discovery Service offline to inspect collected data before it is shared with the service.
 module Network.AWS.Discovery
-  ( -- * Service configuration
-    mkServiceConfig,
+    (
+    -- * Service configuration
+      mkServiceConfig
 
     -- * Errors
     -- $errors
 
     -- ** AuthorizationErrorException
-    _AuthorizationErrorException,
+    , _AuthorizationErrorException
 
     -- ** HomeRegionNotSetException
-    _HomeRegionNotSetException,
+    , _HomeRegionNotSetException
 
     -- ** InvalidParameterException
-    _InvalidParameterException,
+    , _InvalidParameterException
 
     -- ** ConflictErrorException
-    _ConflictErrorException,
+    , _ConflictErrorException
 
     -- ** InvalidParameterValueException
-    _InvalidParameterValueException,
+    , _InvalidParameterValueException
 
     -- ** ServerInternalErrorException
-    _ServerInternalErrorException,
+    , _ServerInternalErrorException
 
     -- ** OperationNotPermittedException
-    _OperationNotPermittedException,
+    , _OperationNotPermittedException
 
     -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    , _ResourceNotFoundException
 
     -- ** ResourceInUseException
-    _ResourceInUseException,
+    , _ResourceInUseException
 
     -- * Waiters
     -- $waiters
@@ -93,430 +94,405 @@ module Network.AWS.Discovery
     -- $operations
 
     -- ** DescribeTags (Paginated)
-    module Network.AWS.Discovery.DescribeTags,
+    , module Network.AWS.Discovery.DescribeTags
 
     -- ** DescribeContinuousExports (Paginated)
-    module Network.AWS.Discovery.DescribeContinuousExports,
+    , module Network.AWS.Discovery.DescribeContinuousExports
 
-    -- ** StopDataCollectionByAgentIds
-    module Network.AWS.Discovery.StopDataCollectionByAgentIds,
+    -- ** StopDataCollectionByAgentIds 
+    , module Network.AWS.Discovery.StopDataCollectionByAgentIds
 
-    -- ** CreateTags
-    module Network.AWS.Discovery.CreateTags,
+    -- ** CreateTags 
+    , module Network.AWS.Discovery.CreateTags
 
-    -- ** BatchDeleteImportData
-    module Network.AWS.Discovery.BatchDeleteImportData,
+    -- ** BatchDeleteImportData 
+    , module Network.AWS.Discovery.BatchDeleteImportData
 
-    -- ** DeleteTags
-    module Network.AWS.Discovery.DeleteTags,
+    -- ** DeleteTags 
+    , module Network.AWS.Discovery.DeleteTags
 
-    -- ** StartImportTask
-    module Network.AWS.Discovery.StartImportTask,
+    -- ** StartImportTask 
+    , module Network.AWS.Discovery.StartImportTask
 
-    -- ** DeleteApplications
-    module Network.AWS.Discovery.DeleteApplications,
+    -- ** DeleteApplications 
+    , module Network.AWS.Discovery.DeleteApplications
 
-    -- ** UpdateApplication
-    module Network.AWS.Discovery.UpdateApplication,
+    -- ** UpdateApplication 
+    , module Network.AWS.Discovery.UpdateApplication
 
-    -- ** DescribeConfigurations
-    module Network.AWS.Discovery.DescribeConfigurations,
+    -- ** DescribeConfigurations 
+    , module Network.AWS.Discovery.DescribeConfigurations
 
-    -- ** DescribeImportTasks
-    module Network.AWS.Discovery.DescribeImportTasks,
+    -- ** DescribeImportTasks 
+    , module Network.AWS.Discovery.DescribeImportTasks
 
-    -- ** CreateApplication
-    module Network.AWS.Discovery.CreateApplication,
+    -- ** CreateApplication 
+    , module Network.AWS.Discovery.CreateApplication
 
     -- ** ListConfigurations (Paginated)
-    module Network.AWS.Discovery.ListConfigurations,
+    , module Network.AWS.Discovery.ListConfigurations
 
-    -- ** StartContinuousExport
-    module Network.AWS.Discovery.StartContinuousExport,
+    -- ** StartContinuousExport 
+    , module Network.AWS.Discovery.StartContinuousExport
 
     -- ** DescribeAgents (Paginated)
-    module Network.AWS.Discovery.DescribeAgents,
+    , module Network.AWS.Discovery.DescribeAgents
 
     -- ** DescribeExportTasks (Paginated)
-    module Network.AWS.Discovery.DescribeExportTasks,
+    , module Network.AWS.Discovery.DescribeExportTasks
 
-    -- ** StartDataCollectionByAgentIds
-    module Network.AWS.Discovery.StartDataCollectionByAgentIds,
+    -- ** StartDataCollectionByAgentIds 
+    , module Network.AWS.Discovery.StartDataCollectionByAgentIds
 
-    -- ** GetDiscoverySummary
-    module Network.AWS.Discovery.GetDiscoverySummary,
+    -- ** GetDiscoverySummary 
+    , module Network.AWS.Discovery.GetDiscoverySummary
 
-    -- ** DisassociateConfigurationItemsFromApplication
-    module Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication,
+    -- ** DisassociateConfigurationItemsFromApplication 
+    , module Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication
 
-    -- ** AssociateConfigurationItemsToApplication
-    module Network.AWS.Discovery.AssociateConfigurationItemsToApplication,
+    -- ** AssociateConfigurationItemsToApplication 
+    , module Network.AWS.Discovery.AssociateConfigurationItemsToApplication
 
-    -- ** ListServerNeighbors
-    module Network.AWS.Discovery.ListServerNeighbors,
+    -- ** ListServerNeighbors 
+    , module Network.AWS.Discovery.ListServerNeighbors
 
-    -- ** StopContinuousExport
-    module Network.AWS.Discovery.StopContinuousExport,
+    -- ** StopContinuousExport 
+    , module Network.AWS.Discovery.StopContinuousExport
 
-    -- ** StartExportTask
-    module Network.AWS.Discovery.StartExportTask,
+    -- ** StartExportTask 
+    , module Network.AWS.Discovery.StartExportTask
 
     -- * Types
 
     -- ** ConfigurationsDownloadUrl
-    ConfigurationsDownloadUrl (..),
+    , ConfigurationsDownloadUrl (..)
 
     -- ** AgentInfo
-    AgentInfo (..),
-    mkAgentInfo,
-    aiAgentId,
-    aiAgentNetworkInfoList,
-    aiAgentType,
-    aiCollectionStatus,
-    aiConnectorId,
-    aiHealth,
-    aiHostName,
-    aiLastHealthPingTime,
-    aiRegisteredTime,
-    aiVersion,
+    , AgentInfo (..)
+    , mkAgentInfo
+    , aiAgentId
+    , aiAgentNetworkInfoList
+    , aiAgentType
+    , aiCollectionStatus
+    , aiConnectorId
+    , aiHealth
+    , aiHostName
+    , aiLastHealthPingTime
+    , aiRegisteredTime
+    , aiVersion
 
     -- ** FilterName
-    FilterName (..),
+    , FilterName (..)
 
     -- ** ImportTaskFilterName
-    ImportTaskFilterName (..),
+    , ImportTaskFilterName (..)
 
     -- ** ExportDataFormat
-    ExportDataFormat (..),
+    , ExportDataFormat (..)
 
     -- ** Tag
-    Tag (..),
-    mkTag,
-    tKey,
-    tValue,
+    , Tag (..)
+    , mkTag
+    , tKey
+    , tValue
 
     -- ** ExportInfo
-    ExportInfo (..),
-    mkExportInfo,
-    eiExportId,
-    eiExportStatus,
-    eiStatusMessage,
-    eiExportRequestTime,
-    eiConfigurationsDownloadUrl,
-    eiIsTruncated,
-    eiRequestedEndTime,
-    eiRequestedStartTime,
+    , ExportInfo (..)
+    , mkExportInfo
+    , eiExportId
+    , eiExportStatus
+    , eiStatusMessage
+    , eiExportRequestTime
+    , eiConfigurationsDownloadUrl
+    , eiIsTruncated
+    , eiRequestedEndTime
+    , eiRequestedStartTime
 
     -- ** AgentConfigurationStatus
-    AgentConfigurationStatus (..),
-    mkAgentConfigurationStatus,
-    acsAgentId,
-    acsDescription,
-    acsOperationSucceeded,
-
-    -- ** String
-    String (..),
+    , AgentConfigurationStatus (..)
+    , mkAgentConfigurationStatus
+    , acsAgentId
+    , acsDescription
+    , acsOperationSucceeded
 
     -- ** ConfigurationId
-    ConfigurationId (..),
+    , ConfigurationId (..)
 
     -- ** AgentStatus
-    AgentStatus (..),
+    , AgentStatus (..)
 
     -- ** ContinuousExportStatus
-    ContinuousExportStatus (..),
+    , ContinuousExportStatus (..)
 
     -- ** ExportStatus
-    ExportStatus (..),
+    , ExportStatus (..)
 
     -- ** BatchDeleteImportDataError
-    BatchDeleteImportDataError (..),
-    mkBatchDeleteImportDataError,
-    bdideErrorCode,
-    bdideErrorDescription,
-    bdideImportTaskId,
+    , BatchDeleteImportDataError (..)
+    , mkBatchDeleteImportDataError
+    , bdideErrorCode
+    , bdideErrorDescription
+    , bdideImportTaskId
 
     -- ** ImportTask
-    ImportTask (..),
-    mkImportTask,
-    itApplicationImportFailure,
-    itApplicationImportSuccess,
-    itClientRequestToken,
-    itErrorsAndFailedEntriesZip,
-    itImportCompletionTime,
-    itImportDeletedTime,
-    itImportRequestTime,
-    itImportTaskId,
-    itImportUrl,
-    itName,
-    itServerImportFailure,
-    itServerImportSuccess,
-    itStatus,
+    , ImportTask (..)
+    , mkImportTask
+    , itApplicationImportFailure
+    , itApplicationImportSuccess
+    , itClientRequestToken
+    , itErrorsAndFailedEntriesZip
+    , itImportCompletionTime
+    , itImportDeletedTime
+    , itImportRequestTime
+    , itImportTaskId
+    , itImportUrl
+    , itName
+    , itServerImportFailure
+    , itServerImportSuccess
+    , itStatus
 
     -- ** ImportTaskIdentifier
-    ImportTaskIdentifier (..),
+    , ImportTaskIdentifier (..)
 
     -- ** StringMax255
-    StringMax255 (..),
+    , StringMax255 (..)
 
     -- ** OrderString
-    OrderString (..),
+    , OrderString (..)
 
     -- ** TagValue
-    TagValue (..),
+    , TagValue (..)
 
     -- ** AgentNetworkInfo
-    AgentNetworkInfo (..),
-    mkAgentNetworkInfo,
-    aniIpAddress,
-    aniMacAddress,
+    , AgentNetworkInfo (..)
+    , mkAgentNetworkInfo
+    , aniIpAddress
+    , aniMacAddress
 
     -- ** NextToken
-    NextToken (..),
+    , NextToken (..)
 
     -- ** AgentId
-    AgentId (..),
+    , AgentId (..)
 
     -- ** ExportFilter
-    ExportFilter (..),
-    mkExportFilter,
-    efName,
-    efValues,
-    efCondition,
+    , ExportFilter (..)
+    , mkExportFilter
+    , efName
+    , efValues
+    , efCondition
 
     -- ** ImportTaskName
-    ImportTaskName (..),
+    , ImportTaskName (..)
 
     -- ** ApplicationId
-    ApplicationId (..),
+    , ApplicationId (..)
 
     -- ** ContinuousExportDescription
-    ContinuousExportDescription (..),
-    mkContinuousExportDescription,
-    cedDataSource,
-    cedExportId,
-    cedS3Bucket,
-    cedSchemaStorageConfig,
-    cedStartTime,
-    cedStatus,
-    cedStatusDetail,
-    cedStopTime,
+    , ContinuousExportDescription (..)
+    , mkContinuousExportDescription
+    , cedDataSource
+    , cedExportId
+    , cedS3Bucket
+    , cedSchemaStorageConfig
+    , cedStartTime
+    , cedStatus
+    , cedStatusDetail
+    , cedStopTime
 
     -- ** ConfigurationsExportId
-    ConfigurationsExportId (..),
+    , ConfigurationsExportId (..)
 
     -- ** TagFilter
-    TagFilter (..),
-    mkTagFilter,
-    tfName,
-    tfValues,
+    , TagFilter (..)
+    , mkTagFilter
+    , tfName
+    , tfValues
 
     -- ** ConfigurationTag
-    ConfigurationTag (..),
-    mkConfigurationTag,
-    ctConfigurationId,
-    ctConfigurationType,
-    ctKey,
-    ctTimeOfCreation,
-    ctValue,
+    , ConfigurationTag (..)
+    , mkConfigurationTag
+    , ctConfigurationId
+    , ctConfigurationType
+    , ctKey
+    , ctTimeOfCreation
+    , ctValue
 
     -- ** DatabaseName
-    DatabaseName (..),
+    , DatabaseName (..)
 
     -- ** ConfigurationItemType
-    ConfigurationItemType (..),
+    , ConfigurationItemType (..)
 
     -- ** NeighborConnectionDetail
-    NeighborConnectionDetail (..),
-    mkNeighborConnectionDetail,
-    ncdSourceServerId,
-    ncdDestinationServerId,
-    ncdConnectionsCount,
-    ncdDestinationPort,
-    ncdTransportProtocol,
+    , NeighborConnectionDetail (..)
+    , mkNeighborConnectionDetail
+    , ncdSourceServerId
+    , ncdDestinationServerId
+    , ncdConnectionsCount
+    , ncdDestinationPort
+    , ncdTransportProtocol
 
     -- ** DataSource
-    DataSource (..),
+    , DataSource (..)
 
     -- ** BatchDeleteImportDataErrorCode
-    BatchDeleteImportDataErrorCode (..),
+    , BatchDeleteImportDataErrorCode (..)
 
     -- ** Filter
-    Filter (..),
-    mkFilter,
-    fName,
-    fValues,
-    fCondition,
+    , Filter (..)
+    , mkFilter
+    , fName
+    , fValues
+    , fCondition
 
     -- ** ImportTaskFilter
-    ImportTaskFilter (..),
-    mkImportTaskFilter,
-    itfName,
-    itfValues,
+    , ImportTaskFilter (..)
+    , mkImportTaskFilter
+    , itfName
+    , itfValues
 
     -- ** Condition
-    Condition (..),
+    , Condition (..)
 
     -- ** FilterValue
-    FilterValue (..),
+    , FilterValue (..)
 
     -- ** CustomerAgentInfo
-    CustomerAgentInfo (..),
-    mkCustomerAgentInfo,
-    caiActiveAgents,
-    caiHealthyAgents,
-    caiBlackListedAgents,
-    caiShutdownAgents,
-    caiUnhealthyAgents,
-    caiTotalAgents,
-    caiUnknownAgents,
+    , CustomerAgentInfo (..)
+    , mkCustomerAgentInfo
+    , caiActiveAgents
+    , caiHealthyAgents
+    , caiBlackListedAgents
+    , caiShutdownAgents
+    , caiUnhealthyAgents
+    , caiTotalAgents
+    , caiUnknownAgents
 
     -- ** ImportTaskFilterValue
-    ImportTaskFilterValue (..),
+    , ImportTaskFilterValue (..)
 
     -- ** ClientRequestToken
-    ClientRequestToken (..),
+    , ClientRequestToken (..)
 
     -- ** OrderByElement
-    OrderByElement (..),
-    mkOrderByElement,
-    obeFieldName,
-    obeSortOrder,
+    , OrderByElement (..)
+    , mkOrderByElement
+    , obeFieldName
+    , obeSortOrder
 
     -- ** ImportURL
-    ImportURL (..),
+    , ImportURL (..)
 
     -- ** S3Bucket
-    S3Bucket (..),
+    , S3Bucket (..)
 
     -- ** CustomerConnectorInfo
-    CustomerConnectorInfo (..),
-    mkCustomerConnectorInfo,
-    cciActiveConnectors,
-    cciHealthyConnectors,
-    cciBlackListedConnectors,
-    cciShutdownConnectors,
-    cciUnhealthyConnectors,
-    cciTotalConnectors,
-    cciUnknownConnectors,
+    , CustomerConnectorInfo (..)
+    , mkCustomerConnectorInfo
+    , cciActiveConnectors
+    , cciHealthyConnectors
+    , cciBlackListedConnectors
+    , cciShutdownConnectors
+    , cciUnhealthyConnectors
+    , cciTotalConnectors
+    , cciUnknownConnectors
 
     -- ** ImportStatus
-    ImportStatus (..),
+    , ImportStatus (..)
 
     -- ** ExportId
-    ExportId (..),
-
-    -- ** Name
-    Name (..),
-
-    -- ** Description
-    Description (..),
-
-    -- ** AgentType
-    AgentType (..),
-
-    -- ** CollectionStatus
-    CollectionStatus (..),
-
-    -- ** ConnectorId
-    ConnectorId (..),
-
-    -- ** HostName
-    HostName (..),
-
-    -- ** LastHealthPingTime
-    LastHealthPingTime (..),
-
-    -- ** RegisteredTime
-    RegisteredTime (..),
-
-    -- ** Version
-    Version (..),
+    , ExportId (..)
 
     -- ** Key
-    Key (..),
+    , Key (..)
 
     -- ** Value
-    Value (..),
+    , Value (..)
 
     -- ** StatusMessage
-    StatusMessage (..),
+    , StatusMessage (..)
 
     -- ** ErrorDescription
-    ErrorDescription (..),
+    , ErrorDescription (..)
 
     -- ** ImportTaskId
-    ImportTaskId (..),
+    , ImportTaskId (..)
 
     -- ** ErrorsAndFailedEntriesZip
-    ErrorsAndFailedEntriesZip (..),
+    , ErrorsAndFailedEntriesZip (..)
 
     -- ** ImportUrl
-    ImportUrl (..),
+    , ImportUrl (..)
+
+    -- ** Name
+    , Name (..)
 
     -- ** ApplicationConfigurationId
-    ApplicationConfigurationId (..),
+    , ApplicationConfigurationId (..)
 
     -- * Serialization types
-    Lude.Base64 (..),
-    Lude._Base64,
-    Lude.Sensitive (..),
-    Lude._Sensitive,
-    Lude.UTCTime,
-    Lude.NominalDiffTime,
-  )
-where
+    , Lude.Base64 (..)
+    , Lude._Base64
+    , Lude.Sensitive (..)
+    , Lude._Sensitive
+    , Lude.UTCTime
+    , Lude.NominalDiffTime
+    ) where
 
-import Network.AWS.Discovery.AssociateConfigurationItemsToApplication
-import Network.AWS.Discovery.BatchDeleteImportData
-import Network.AWS.Discovery.CreateApplication
-import Network.AWS.Discovery.CreateTags
-import Network.AWS.Discovery.DeleteApplications
-import Network.AWS.Discovery.DeleteTags
-import Network.AWS.Discovery.DescribeAgents
-import Network.AWS.Discovery.DescribeConfigurations
-import Network.AWS.Discovery.DescribeContinuousExports
-import Network.AWS.Discovery.DescribeExportTasks
-import Network.AWS.Discovery.DescribeImportTasks
-import Network.AWS.Discovery.DescribeTags
-import Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication
-import Network.AWS.Discovery.GetDiscoverySummary
-import Network.AWS.Discovery.ListConfigurations
-import Network.AWS.Discovery.ListServerNeighbors
-import Network.AWS.Discovery.StartContinuousExport
-import Network.AWS.Discovery.StartDataCollectionByAgentIds
-import Network.AWS.Discovery.StartExportTask
-import Network.AWS.Discovery.StartImportTask
-import Network.AWS.Discovery.StopContinuousExport
-import Network.AWS.Discovery.StopDataCollectionByAgentIds
 import Network.AWS.Discovery.Types
-import Network.AWS.Discovery.UpdateApplication
 import Network.AWS.Discovery.Waiters
+import Network.AWS.Discovery.DescribeTags
+import Network.AWS.Discovery.DescribeContinuousExports
+import Network.AWS.Discovery.StopDataCollectionByAgentIds
+import Network.AWS.Discovery.CreateTags
+import Network.AWS.Discovery.BatchDeleteImportData
+import Network.AWS.Discovery.DeleteTags
+import Network.AWS.Discovery.StartImportTask
+import Network.AWS.Discovery.DeleteApplications
+import Network.AWS.Discovery.UpdateApplication
+import Network.AWS.Discovery.DescribeConfigurations
+import Network.AWS.Discovery.DescribeImportTasks
+import Network.AWS.Discovery.CreateApplication
+import Network.AWS.Discovery.ListConfigurations
+import Network.AWS.Discovery.StartContinuousExport
+import Network.AWS.Discovery.DescribeAgents
+import Network.AWS.Discovery.DescribeExportTasks
+import Network.AWS.Discovery.StartDataCollectionByAgentIds
+import Network.AWS.Discovery.GetDiscoverySummary
+import Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication
+import Network.AWS.Discovery.AssociateConfigurationItemsToApplication
+import Network.AWS.Discovery.ListServerNeighbors
+import Network.AWS.Discovery.StopContinuousExport
+import Network.AWS.Discovery.StartExportTask
 import qualified Network.AWS.Prelude as Lude
 
--- $errors
--- Error matchers are designed for use with the functions provided by
--- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
--- This allows catching (and rethrowing) service specific errors returned
--- by 'Discovery'.
+{- $errors
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by 'Discovery'.
+-}
 
--- $operations
--- Some AWS operations return results that are incomplete and require subsequent
--- requests in order to obtain the entire result set. The process of sending
--- subsequent requests to continue where a previous request left off is called
--- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
--- 1000 objects at a time, and you must send subsequent requests with the
--- appropriate Marker in order to retrieve the next page of results.
---
--- Operations that have an 'AWSPager' instance can transparently perform subsequent
--- requests, correctly setting Markers and other request facets to iterate through
--- the entire result set of a truncated API operation. Operations which support
--- this have an additional note in the documentation.
---
--- Many operations have the ability to filter results on the server side. See the
--- individual operation parameters for details.
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
 
--- $waiters
--- Waiters poll by repeatedly sending a request until some remote success condition
--- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
--- determines how many attempts should be made, in addition to delay and retry strategies.
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly sending a request until some remote success condition
+configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+determines how many attempts should be made, in addition to delay and retry strategies.
+-}

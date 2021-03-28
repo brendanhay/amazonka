@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,21 +10,18 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CloudFront.Types.CachePolicy
-  ( CachePolicy (..),
-
-    -- * Smart constructor
-    mkCachePolicy,
-
-    -- * Lenses
-    cpId,
-    cpLastModifiedTime,
-    cpCachePolicyConfig,
-  )
-where
+  ( CachePolicy (..)
+  -- * Smart constructor
+  , mkCachePolicy
+  -- * Lenses
+  , cpId
+  , cpLastModifiedTime
+  , cpCachePolicyConfig
+  ) where
 
 import qualified Network.AWS.CloudFront.Types.CachePolicyConfig as Types
-import qualified Network.AWS.CloudFront.Types.Id as Types
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
 
@@ -42,52 +39,51 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkCachePolicy' smart constructor.
 data CachePolicy = CachePolicy'
-  { -- | The unique identifier for the cache policy.
-    id :: Types.Id,
-    -- | The date and time when the cache policy was last modified.
-    lastModifiedTime :: Core.UTCTime,
-    -- | The cache policy configuration.
-    cachePolicyConfig :: Types.CachePolicyConfig
+  { id :: Core.Text
+    -- ^ The unique identifier for the cache policy.
+  , lastModifiedTime :: Core.UTCTime
+    -- ^ The date and time when the cache policy was last modified.
+  , cachePolicyConfig :: Types.CachePolicyConfig
+    -- ^ The cache policy configuration.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'CachePolicy' value with any optional fields omitted.
-mkCachePolicy ::
-  -- | 'id'
-  Types.Id ->
-  -- | 'lastModifiedTime'
-  Core.UTCTime ->
-  -- | 'cachePolicyConfig'
-  Types.CachePolicyConfig ->
-  CachePolicy
-mkCachePolicy id lastModifiedTime cachePolicyConfig =
-  CachePolicy' {id, lastModifiedTime, cachePolicyConfig}
+mkCachePolicy
+    :: Core.Text -- ^ 'id'
+    -> Core.UTCTime -- ^ 'lastModifiedTime'
+    -> Types.CachePolicyConfig -- ^ 'cachePolicyConfig'
+    -> CachePolicy
+mkCachePolicy id lastModifiedTime cachePolicyConfig
+  = CachePolicy'{id, lastModifiedTime, cachePolicyConfig}
 
 -- | The unique identifier for the cache policy.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpId :: Lens.Lens' CachePolicy Types.Id
+cpId :: Lens.Lens' CachePolicy Core.Text
 cpId = Lens.field @"id"
-{-# DEPRECATED cpId "Use generic-lens or generic-optics with 'id' instead." #-}
+{-# INLINEABLE cpId #-}
+{-# DEPRECATED id "Use generic-lens or generic-optics with 'id' instead"  #-}
 
 -- | The date and time when the cache policy was last modified.
 --
 -- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cpLastModifiedTime :: Lens.Lens' CachePolicy Core.UTCTime
 cpLastModifiedTime = Lens.field @"lastModifiedTime"
-{-# DEPRECATED cpLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
+{-# INLINEABLE cpLastModifiedTime #-}
+{-# DEPRECATED lastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead"  #-}
 
 -- | The cache policy configuration.
 --
 -- /Note:/ Consider using 'cachePolicyConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cpCachePolicyConfig :: Lens.Lens' CachePolicy Types.CachePolicyConfig
 cpCachePolicyConfig = Lens.field @"cachePolicyConfig"
-{-# DEPRECATED cpCachePolicyConfig "Use generic-lens or generic-optics with 'cachePolicyConfig' instead." #-}
+{-# INLINEABLE cpCachePolicyConfig #-}
+{-# DEPRECATED cachePolicyConfig "Use generic-lens or generic-optics with 'cachePolicyConfig' instead"  #-}
 
 instance Core.FromXML CachePolicy where
-  parseXML x =
-    CachePolicy'
-      Core.<$> (x Core..@ "Id")
-      Core.<*> (x Core..@ "LastModifiedTime")
-      Core.<*> (x Core..@ "CachePolicyConfig")
+        parseXML x
+          = CachePolicy' Core.<$>
+              (x Core..@ "Id") Core.<*> x Core..@ "LastModifiedTime" Core.<*>
+                x Core..@ "CachePolicyConfig"

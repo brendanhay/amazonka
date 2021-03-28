@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,18 +17,17 @@
 --
 -- You must use AWS Developer credentials to call this API.
 module Network.AWS.CognitoIdentity.DeleteIdentityPool
-  ( -- * Creating a request
-    DeleteIdentityPool (..),
-    mkDeleteIdentityPool,
-
+    (
+    -- * Creating a request
+      DeleteIdentityPool (..)
+    , mkDeleteIdentityPool
     -- ** Request lenses
-    dIdentityPoolId,
+    , dIdentityPoolId
 
     -- * Destructuring the response
-    DeleteIdentityPoolResponse (..),
-    mkDeleteIdentityPoolResponse,
-  )
-where
+    , DeleteIdentityPoolResponse (..)
+    , mkDeleteIdentityPoolResponse
+    ) where
 
 import qualified Network.AWS.CognitoIdentity.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -40,49 +39,54 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkDeleteIdentityPool' smart constructor.
 newtype DeleteIdentityPool = DeleteIdentityPool'
-  { -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Types.IdentityPoolId
+  { identityPoolId :: Types.IdentityPoolId
+    -- ^ An identity pool ID in the format REGION:GUID.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteIdentityPool' value with any optional fields omitted.
-mkDeleteIdentityPool ::
-  -- | 'identityPoolId'
-  Types.IdentityPoolId ->
-  DeleteIdentityPool
-mkDeleteIdentityPool identityPoolId =
-  DeleteIdentityPool' {identityPoolId}
+mkDeleteIdentityPool
+    :: Types.IdentityPoolId -- ^ 'identityPoolId'
+    -> DeleteIdentityPool
+mkDeleteIdentityPool identityPoolId
+  = DeleteIdentityPool'{identityPoolId}
 
 -- | An identity pool ID in the format REGION:GUID.
 --
 -- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dIdentityPoolId :: Lens.Lens' DeleteIdentityPool Types.IdentityPoolId
 dIdentityPoolId = Lens.field @"identityPoolId"
-{-# DEPRECATED dIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
+{-# INLINEABLE dIdentityPoolId #-}
+{-# DEPRECATED identityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead"  #-}
+
+instance Core.ToQuery DeleteIdentityPool where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DeleteIdentityPool where
+        toHeaders DeleteIdentityPool{..}
+          = Core.pure
+              ("X-Amz-Target", "AWSCognitoIdentityService.DeleteIdentityPool")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON DeleteIdentityPool where
-  toJSON DeleteIdentityPool {..} =
-    Core.object
-      ( Core.catMaybes
-          [Core.Just ("IdentityPoolId" Core..= identityPoolId)]
-      )
+        toJSON DeleteIdentityPool{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("IdentityPoolId" Core..= identityPoolId)])
 
 instance Core.AWSRequest DeleteIdentityPool where
-  type Rs DeleteIdentityPool = DeleteIdentityPoolResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "AWSCognitoIdentityService.DeleteIdentityPool")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response = Response.receiveNull DeleteIdentityPoolResponse'
+        type Rs DeleteIdentityPool = DeleteIdentityPoolResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull DeleteIdentityPoolResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteIdentityPoolResponse' smart constructor.
 data DeleteIdentityPoolResponse = DeleteIdentityPoolResponse'
@@ -90,6 +94,6 @@ data DeleteIdentityPoolResponse = DeleteIdentityPoolResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteIdentityPoolResponse' value with any optional fields omitted.
-mkDeleteIdentityPoolResponse ::
-  DeleteIdentityPoolResponse
+mkDeleteIdentityPoolResponse
+    :: DeleteIdentityPoolResponse
 mkDeleteIdentityPoolResponse = DeleteIdentityPoolResponse'

@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,24 +15,22 @@
 --
 -- Change details of a project.
 module Network.AWS.DeviceFarm.UpdateTestGridProject
-  ( -- * Creating a request
-    UpdateTestGridProject (..),
-    mkUpdateTestGridProject,
-
+    (
+    -- * Creating a request
+      UpdateTestGridProject (..)
+    , mkUpdateTestGridProject
     -- ** Request lenses
-    utgpProjectArn,
-    utgpDescription,
-    utgpName,
+    , utgpProjectArn
+    , utgpDescription
+    , utgpName
 
     -- * Destructuring the response
-    UpdateTestGridProjectResponse (..),
-    mkUpdateTestGridProjectResponse,
-
+    , UpdateTestGridProjectResponse (..)
+    , mkUpdateTestGridProjectResponse
     -- ** Response lenses
-    utgprrsTestGridProject,
-    utgprrsResponseStatus,
-  )
-where
+    , utgprrsTestGridProject
+    , utgprrsResponseStatus
+    ) where
 
 import qualified Network.AWS.DeviceFarm.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -42,112 +40,113 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateTestGridProject' smart constructor.
 data UpdateTestGridProject = UpdateTestGridProject'
-  { -- | ARN of the project to update.
-    projectArn :: Types.DeviceFarmArn,
-    -- | Human-readable description for the project.
-    description :: Core.Maybe Types.ResourceDescription,
-    -- | Human-readable name for the project.
-    name :: Core.Maybe Types.ResourceName
+  { projectArn :: Types.DeviceFarmArn
+    -- ^ ARN of the project to update.
+  , description :: Core.Maybe Types.ResourceDescription
+    -- ^ Human-readable description for the project.
+  , name :: Core.Maybe Types.ResourceName
+    -- ^ Human-readable name for the project.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UpdateTestGridProject' value with any optional fields omitted.
-mkUpdateTestGridProject ::
-  -- | 'projectArn'
-  Types.DeviceFarmArn ->
-  UpdateTestGridProject
-mkUpdateTestGridProject projectArn =
-  UpdateTestGridProject'
-    { projectArn,
-      description = Core.Nothing,
-      name = Core.Nothing
-    }
+mkUpdateTestGridProject
+    :: Types.DeviceFarmArn -- ^ 'projectArn'
+    -> UpdateTestGridProject
+mkUpdateTestGridProject projectArn
+  = UpdateTestGridProject'{projectArn, description = Core.Nothing,
+                           name = Core.Nothing}
 
 -- | ARN of the project to update.
 --
 -- /Note:/ Consider using 'projectArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 utgpProjectArn :: Lens.Lens' UpdateTestGridProject Types.DeviceFarmArn
 utgpProjectArn = Lens.field @"projectArn"
-{-# DEPRECATED utgpProjectArn "Use generic-lens or generic-optics with 'projectArn' instead." #-}
+{-# INLINEABLE utgpProjectArn #-}
+{-# DEPRECATED projectArn "Use generic-lens or generic-optics with 'projectArn' instead"  #-}
 
 -- | Human-readable description for the project.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 utgpDescription :: Lens.Lens' UpdateTestGridProject (Core.Maybe Types.ResourceDescription)
 utgpDescription = Lens.field @"description"
-{-# DEPRECATED utgpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+{-# INLINEABLE utgpDescription #-}
+{-# DEPRECATED description "Use generic-lens or generic-optics with 'description' instead"  #-}
 
 -- | Human-readable name for the project.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 utgpName :: Lens.Lens' UpdateTestGridProject (Core.Maybe Types.ResourceName)
 utgpName = Lens.field @"name"
-{-# DEPRECATED utgpName "Use generic-lens or generic-optics with 'name' instead." #-}
+{-# INLINEABLE utgpName #-}
+{-# DEPRECATED name "Use generic-lens or generic-optics with 'name' instead"  #-}
+
+instance Core.ToQuery UpdateTestGridProject where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders UpdateTestGridProject where
+        toHeaders UpdateTestGridProject{..}
+          = Core.pure
+              ("X-Amz-Target", "DeviceFarm_20150623.UpdateTestGridProject")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON UpdateTestGridProject where
-  toJSON UpdateTestGridProject {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("projectArn" Core..= projectArn),
-            ("description" Core..=) Core.<$> description,
-            ("name" Core..=) Core.<$> name
-          ]
-      )
+        toJSON UpdateTestGridProject{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("projectArn" Core..= projectArn),
+                  ("description" Core..=) Core.<$> description,
+                  ("name" Core..=) Core.<$> name])
 
 instance Core.AWSRequest UpdateTestGridProject where
-  type Rs UpdateTestGridProject = UpdateTestGridProjectResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "DeviceFarm_20150623.UpdateTestGridProject")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          UpdateTestGridProjectResponse'
-            Core.<$> (x Core..:? "testGridProject")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs UpdateTestGridProject = UpdateTestGridProjectResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 UpdateTestGridProjectResponse' Core.<$>
+                   (x Core..:? "testGridProject") Core.<*>
+                     Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkUpdateTestGridProjectResponse' smart constructor.
 data UpdateTestGridProjectResponse = UpdateTestGridProjectResponse'
-  { -- | The project, including updated information.
-    testGridProject :: Core.Maybe Types.TestGridProject,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { testGridProject :: Core.Maybe Types.TestGridProject
+    -- ^ The project, including updated information.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'UpdateTestGridProjectResponse' value with any optional fields omitted.
-mkUpdateTestGridProjectResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  UpdateTestGridProjectResponse
-mkUpdateTestGridProjectResponse responseStatus =
-  UpdateTestGridProjectResponse'
-    { testGridProject = Core.Nothing,
-      responseStatus
-    }
+mkUpdateTestGridProjectResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> UpdateTestGridProjectResponse
+mkUpdateTestGridProjectResponse responseStatus
+  = UpdateTestGridProjectResponse'{testGridProject = Core.Nothing,
+                                   responseStatus}
 
 -- | The project, including updated information.
 --
 -- /Note:/ Consider using 'testGridProject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 utgprrsTestGridProject :: Lens.Lens' UpdateTestGridProjectResponse (Core.Maybe Types.TestGridProject)
 utgprrsTestGridProject = Lens.field @"testGridProject"
-{-# DEPRECATED utgprrsTestGridProject "Use generic-lens or generic-optics with 'testGridProject' instead." #-}
+{-# INLINEABLE utgprrsTestGridProject #-}
+{-# DEPRECATED testGridProject "Use generic-lens or generic-optics with 'testGridProject' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 utgprrsResponseStatus :: Lens.Lens' UpdateTestGridProjectResponse Core.Int
 utgprrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED utgprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE utgprrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

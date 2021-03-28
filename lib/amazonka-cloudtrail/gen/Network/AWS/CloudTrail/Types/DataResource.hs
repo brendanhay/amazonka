@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,19 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CloudTrail.Types.DataResource
-  ( DataResource (..),
+  ( DataResource (..)
+  -- * Smart constructor
+  , mkDataResource
+  -- * Lenses
+  , drType
+  , drValues
+  ) where
 
-    -- * Smart constructor
-    mkDataResource,
-
-    -- * Lenses
-    drType,
-    drValues,
-  )
-where
-
-import qualified Network.AWS.CloudTrail.Types.String as Types
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
 
@@ -47,55 +44,58 @@ import qualified Network.AWS.Prelude as Core
 --     * A user runs a script that includes a call to the /MyLambdaFunction/ function and the /MyOtherLambdaFunction/ function.
 --
 --
---     * The @Invoke@ API operation on /MyLambdaFunction/ is an AWS Lambda API. It is recorded as a data event in CloudTrail. Because the CloudTrail user specified logging data events for /MyLambdaFunction/ , any invocations of that function are logged. The trail processes and logs the event.
+--     * The @Invoke@ API operation on /MyLambdaFunction/ is an AWS Lambda API. It is recorded as a data event in CloudTrail. Because the CloudTrail user specified logging data events for /MyLambdaFunction/ , any invocations of that function are logged. The trail processes and logs the event. 
 --
 --
---     * The @Invoke@ API operation on /MyOtherLambdaFunction/ is an AWS Lambda API. Because the CloudTrail user did not specify logging data events for all Lambda functions, the @Invoke@ operation for /MyOtherLambdaFunction/ does not match the function specified for the trail. The trail doesn’t log the event.
+--     * The @Invoke@ API operation on /MyOtherLambdaFunction/ is an AWS Lambda API. Because the CloudTrail user did not specify logging data events for all Lambda functions, the @Invoke@ operation for /MyOtherLambdaFunction/ does not match the function specified for the trail. The trail doesn’t log the event. 
 --
 --
 --
 -- /See:/ 'mkDataResource' smart constructor.
 data DataResource = DataResource'
-  { -- | The resource type in which you want to log data events. You can specify @AWS::S3::Object@ or @AWS::Lambda::Function@ resources.
-    type' :: Core.Maybe Types.String,
-    -- | An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
-    --
-    --
-    --     * To log data events for all objects in all S3 buckets in your AWS account, specify the prefix as @arn:aws:s3:::@ .
-    --
-    --
-    --     * To log data events for all objects in an S3 bucket, specify the bucket and an empty object prefix such as @arn:aws:s3:::bucket-1/@ . The trail logs data events for all objects in this S3 bucket.
-    --
-    --
-    --     * To log data events for specific objects, specify the S3 bucket and object prefix such as @arn:aws:s3:::bucket-1/example-images@ . The trail logs data events for objects in this S3 bucket that match the prefix.
-    --
-    --
-    --     * To log data events for all functions in your AWS account, specify the prefix as @arn:aws:lambda@ .
-    --
-    --
-    --     * To log data events for a specific Lambda function, specify the function ARN.
-    values :: Core.Maybe [Types.String]
+  { type' :: Core.Maybe Core.Text
+    -- ^ The resource type in which you want to log data events. You can specify @AWS::S3::Object@ or @AWS::Lambda::Function@ resources.
+  , values :: Core.Maybe [Core.Text]
+    -- ^ An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
+--
+--
+--     * To log data events for all objects in all S3 buckets in your AWS account, specify the prefix as @arn:aws:s3:::@ . 
+--
+--
+--     * To log data events for all objects in an S3 bucket, specify the bucket and an empty object prefix such as @arn:aws:s3:::bucket-1/@ . The trail logs data events for all objects in this S3 bucket.
+--
+--
+--     * To log data events for specific objects, specify the S3 bucket and object prefix such as @arn:aws:s3:::bucket-1/example-images@ . The trail logs data events for objects in this S3 bucket that match the prefix.
+--
+--
+--     * To log data events for all functions in your AWS account, specify the prefix as @arn:aws:lambda@ .
+--
+--
+--     * To log data events for a specific Lambda function, specify the function ARN.
+--
+--
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DataResource' value with any optional fields omitted.
-mkDataResource ::
-  DataResource
-mkDataResource =
-  DataResource' {type' = Core.Nothing, values = Core.Nothing}
+mkDataResource
+    :: DataResource
+mkDataResource
+  = DataResource'{type' = Core.Nothing, values = Core.Nothing}
 
 -- | The resource type in which you want to log data events. You can specify @AWS::S3::Object@ or @AWS::Lambda::Function@ resources.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drType :: Lens.Lens' DataResource (Core.Maybe Types.String)
+drType :: Lens.Lens' DataResource (Core.Maybe Core.Text)
 drType = Lens.field @"type'"
-{-# DEPRECATED drType "Use generic-lens or generic-optics with 'type'' instead." #-}
+{-# INLINEABLE drType #-}
+{-# DEPRECATED type' "Use generic-lens or generic-optics with 'type'' instead"  #-}
 
 -- | An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
 --
 --
---     * To log data events for all objects in all S3 buckets in your AWS account, specify the prefix as @arn:aws:s3:::@ .
+--     * To log data events for all objects in all S3 buckets in your AWS account, specify the prefix as @arn:aws:s3:::@ . 
 --
 --
 --     * To log data events for all objects in an S3 bucket, specify the bucket and an empty object prefix such as @arn:aws:s3:::bucket-1/@ . The trail logs data events for all objects in this S3 bucket.
@@ -112,22 +112,21 @@ drType = Lens.field @"type'"
 --
 --
 -- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drValues :: Lens.Lens' DataResource (Core.Maybe [Types.String])
+drValues :: Lens.Lens' DataResource (Core.Maybe [Core.Text])
 drValues = Lens.field @"values"
-{-# DEPRECATED drValues "Use generic-lens or generic-optics with 'values' instead." #-}
+{-# INLINEABLE drValues #-}
+{-# DEPRECATED values "Use generic-lens or generic-optics with 'values' instead"  #-}
 
 instance Core.FromJSON DataResource where
-  toJSON DataResource {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("Type" Core..=) Core.<$> type',
-            ("Values" Core..=) Core.<$> values
-          ]
-      )
+        toJSON DataResource{..}
+          = Core.object
+              (Core.catMaybes
+                 [("Type" Core..=) Core.<$> type',
+                  ("Values" Core..=) Core.<$> values])
 
 instance Core.FromJSON DataResource where
-  parseJSON =
-    Core.withObject "DataResource" Core.$
-      \x ->
-        DataResource'
-          Core.<$> (x Core..:? "Type") Core.<*> (x Core..:? "Values")
+        parseJSON
+          = Core.withObject "DataResource" Core.$
+              \ x ->
+                DataResource' Core.<$>
+                  (x Core..:? "Type") Core.<*> x Core..:? "Values"

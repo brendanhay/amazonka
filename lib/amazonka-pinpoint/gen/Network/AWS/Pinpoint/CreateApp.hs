@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,22 +15,20 @@
 --
 -- Creates an application.
 module Network.AWS.Pinpoint.CreateApp
-  ( -- * Creating a request
-    CreateApp (..),
-    mkCreateApp,
-
+    (
+    -- * Creating a request
+      CreateApp (..)
+    , mkCreateApp
     -- ** Request lenses
-    caCreateApplicationRequest,
+    , caCreateApplicationRequest
 
     -- * Destructuring the response
-    CreateAppResponse (..),
-    mkCreateAppResponse,
-
+    , CreateAppResponse (..)
+    , mkCreateAppResponse
     -- ** Response lenses
-    carrsApplicationResponse,
-    carrsResponseStatus,
-  )
-where
+    , carrsApplicationResponse
+    , carrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Pinpoint.Types as Types
@@ -46,77 +44,80 @@ newtype CreateApp = CreateApp'
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CreateApp' value with any optional fields omitted.
-mkCreateApp ::
-  -- | 'createApplicationRequest'
-  Types.CreateApplicationRequest ->
-  CreateApp
-mkCreateApp createApplicationRequest =
-  CreateApp' {createApplicationRequest}
+mkCreateApp
+    :: Types.CreateApplicationRequest -- ^ 'createApplicationRequest'
+    -> CreateApp
+mkCreateApp createApplicationRequest
+  = CreateApp'{createApplicationRequest}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'createApplicationRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 caCreateApplicationRequest :: Lens.Lens' CreateApp Types.CreateApplicationRequest
 caCreateApplicationRequest = Lens.field @"createApplicationRequest"
-{-# DEPRECATED caCreateApplicationRequest "Use generic-lens or generic-optics with 'createApplicationRequest' instead." #-}
+{-# INLINEABLE caCreateApplicationRequest #-}
+{-# DEPRECATED createApplicationRequest "Use generic-lens or generic-optics with 'createApplicationRequest' instead"  #-}
+
+instance Core.ToQuery CreateApp where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders CreateApp where
+        toHeaders CreateApp{..}
+          = Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON CreateApp where
-  toJSON CreateApp {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just
-              ("CreateApplicationRequest" Core..= createApplicationRequest)
-          ]
-      )
+        toJSON CreateApp{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just
+                    ("CreateApplicationRequest" Core..= createApplicationRequest)])
 
 instance Core.AWSRequest CreateApp where
-  type Rs CreateApp = CreateAppResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/v1/apps",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          CreateAppResponse'
-            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs CreateApp = CreateAppResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/v1/apps",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 CreateAppResponse' Core.<$>
+                   (Core.eitherParseJSON x) Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkCreateAppResponse' smart constructor.
 data CreateAppResponse = CreateAppResponse'
-  { applicationResponse :: Types.ApplicationResponse,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { applicationResponse :: Types.ApplicationResponse
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CreateAppResponse' value with any optional fields omitted.
-mkCreateAppResponse ::
-  -- | 'applicationResponse'
-  Types.ApplicationResponse ->
-  -- | 'responseStatus'
-  Core.Int ->
-  CreateAppResponse
-mkCreateAppResponse applicationResponse responseStatus =
-  CreateAppResponse' {applicationResponse, responseStatus}
+mkCreateAppResponse
+    :: Types.ApplicationResponse -- ^ 'applicationResponse'
+    -> Core.Int -- ^ 'responseStatus'
+    -> CreateAppResponse
+mkCreateAppResponse applicationResponse responseStatus
+  = CreateAppResponse'{applicationResponse, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'applicationResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 carrsApplicationResponse :: Lens.Lens' CreateAppResponse Types.ApplicationResponse
 carrsApplicationResponse = Lens.field @"applicationResponse"
-{-# DEPRECATED carrsApplicationResponse "Use generic-lens or generic-optics with 'applicationResponse' instead." #-}
+{-# INLINEABLE carrsApplicationResponse #-}
+{-# DEPRECATED applicationResponse "Use generic-lens or generic-optics with 'applicationResponse' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 carrsResponseStatus :: Lens.Lens' CreateAppResponse Core.Int
 carrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED carrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE carrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SES.Types.LambdaAction
-  ( LambdaAction (..),
-
-    -- * Smart constructor
-    mkLambdaAction,
-
-    -- * Lenses
-    laFunctionArn,
-    laInvocationType,
-    laTopicArn,
-  )
-where
+  ( LambdaAction (..)
+  -- * Smart constructor
+  , mkLambdaAction
+  -- * Lenses
+  , laFunctionArn
+  , laInvocationType
+  , laTopicArn
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -36,36 +34,33 @@ import qualified Network.AWS.SES.Types.TopicArn as Types
 --
 -- /See:/ 'mkLambdaAction' smart constructor.
 data LambdaAction = LambdaAction'
-  { -- | The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is @arn:aws:lambda:us-west-2:account-id:function:MyFunction@ . For more information about AWS Lambda, see the <https://docs.aws.amazon.com/lambda/latest/dg/welcome.html AWS Lambda Developer Guide> .
-    functionArn :: Types.FunctionArn,
-    -- | The invocation type of the AWS Lambda function. An invocation type of @RequestResponse@ means that the execution of the function will immediately result in a response, and a value of @Event@ means that the function will be invoked asynchronously. The default value is @Event@ . For information about AWS Lambda invocation types, see the <https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html AWS Lambda Developer Guide> .
-    --
-    -- /Important:/ There is a 30-second timeout on @RequestResponse@ invocations. You should use @Event@ invocation in most cases. Use @RequestResponse@ only when you want to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.
-    invocationType :: Core.Maybe Types.InvocationType,
-    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
-    topicArn :: Core.Maybe Types.TopicArn
+  { functionArn :: Types.FunctionArn
+    -- ^ The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is @arn:aws:lambda:us-west-2:account-id:function:MyFunction@ . For more information about AWS Lambda, see the <https://docs.aws.amazon.com/lambda/latest/dg/welcome.html AWS Lambda Developer Guide> .
+  , invocationType :: Core.Maybe Types.InvocationType
+    -- ^ The invocation type of the AWS Lambda function. An invocation type of @RequestResponse@ means that the execution of the function will immediately result in a response, and a value of @Event@ means that the function will be invoked asynchronously. The default value is @Event@ . For information about AWS Lambda invocation types, see the <https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html AWS Lambda Developer Guide> .
+--
+-- /Important:/ There is a 30-second timeout on @RequestResponse@ invocations. You should use @Event@ invocation in most cases. Use @RequestResponse@ only when you want to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.
+  , topicArn :: Core.Maybe Types.TopicArn
+    -- ^ The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'LambdaAction' value with any optional fields omitted.
-mkLambdaAction ::
-  -- | 'functionArn'
-  Types.FunctionArn ->
-  LambdaAction
-mkLambdaAction functionArn =
-  LambdaAction'
-    { functionArn,
-      invocationType = Core.Nothing,
-      topicArn = Core.Nothing
-    }
+mkLambdaAction
+    :: Types.FunctionArn -- ^ 'functionArn'
+    -> LambdaAction
+mkLambdaAction functionArn
+  = LambdaAction'{functionArn, invocationType = Core.Nothing,
+                  topicArn = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is @arn:aws:lambda:us-west-2:account-id:function:MyFunction@ . For more information about AWS Lambda, see the <https://docs.aws.amazon.com/lambda/latest/dg/welcome.html AWS Lambda Developer Guide> .
 --
 -- /Note:/ Consider using 'functionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 laFunctionArn :: Lens.Lens' LambdaAction Types.FunctionArn
 laFunctionArn = Lens.field @"functionArn"
-{-# DEPRECATED laFunctionArn "Use generic-lens or generic-optics with 'functionArn' instead." #-}
+{-# INLINEABLE laFunctionArn #-}
+{-# DEPRECATED functionArn "Use generic-lens or generic-optics with 'functionArn' instead"  #-}
 
 -- | The invocation type of the AWS Lambda function. An invocation type of @RequestResponse@ means that the execution of the function will immediately result in a response, and a value of @Event@ means that the function will be invoked asynchronously. The default value is @Event@ . For information about AWS Lambda invocation types, see the <https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html AWS Lambda Developer Guide> .
 --
@@ -74,18 +69,27 @@ laFunctionArn = Lens.field @"functionArn"
 -- /Note:/ Consider using 'invocationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 laInvocationType :: Lens.Lens' LambdaAction (Core.Maybe Types.InvocationType)
 laInvocationType = Lens.field @"invocationType"
-{-# DEPRECATED laInvocationType "Use generic-lens or generic-optics with 'invocationType' instead." #-}
+{-# INLINEABLE laInvocationType #-}
+{-# DEPRECATED invocationType "Use generic-lens or generic-optics with 'invocationType' instead"  #-}
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is taken. An example of an Amazon SNS topic ARN is @arn:aws:sns:us-west-2:123456789012:MyTopic@ . For more information about Amazon SNS topics, see the <https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html Amazon SNS Developer Guide> .
 --
 -- /Note:/ Consider using 'topicArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 laTopicArn :: Lens.Lens' LambdaAction (Core.Maybe Types.TopicArn)
 laTopicArn = Lens.field @"topicArn"
-{-# DEPRECATED laTopicArn "Use generic-lens or generic-optics with 'topicArn' instead." #-}
+{-# INLINEABLE laTopicArn #-}
+{-# DEPRECATED topicArn "Use generic-lens or generic-optics with 'topicArn' instead"  #-}
+
+instance Core.ToQuery LambdaAction where
+        toQuery LambdaAction{..}
+          = Core.toQueryPair "FunctionArn" functionArn Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "InvocationType")
+                invocationType
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "TopicArn") topicArn
 
 instance Core.FromXML LambdaAction where
-  parseXML x =
-    LambdaAction'
-      Core.<$> (x Core..@ "FunctionArn")
-      Core.<*> (x Core..@? "InvocationType")
-      Core.<*> (x Core..@? "TopicArn")
+        parseXML x
+          = LambdaAction' Core.<$>
+              (x Core..@ "FunctionArn") Core.<*> x Core..@? "InvocationType"
+                Core.<*> x Core..@? "TopicArn"

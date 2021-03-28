@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,23 +15,21 @@
 --
 -- Update a resource data sync. After you create a resource data sync for a Region, you can't change the account options for that sync. For example, if you create a sync in the us-east-2 (Ohio) Region and you choose the Include only the current account option, you can't edit that sync later and choose the Include all accounts from my AWS Organizations configuration option. Instead, you must delete the first resource data sync, and create a new one.
 module Network.AWS.SSM.UpdateResourceDataSync
-  ( -- * Creating a request
-    UpdateResourceDataSync (..),
-    mkUpdateResourceDataSync,
-
+    (
+    -- * Creating a request
+      UpdateResourceDataSync (..)
+    , mkUpdateResourceDataSync
     -- ** Request lenses
-    urdsSyncName,
-    urdsSyncType,
-    urdsSyncSource,
+    , urdsSyncName
+    , urdsSyncType
+    , urdsSyncSource
 
     -- * Destructuring the response
-    UpdateResourceDataSyncResponse (..),
-    mkUpdateResourceDataSyncResponse,
-
+    , UpdateResourceDataSyncResponse (..)
+    , mkUpdateResourceDataSyncResponse
     -- ** Response lenses
-    urdsrrsResponseStatus,
-  )
-where
+    , urdsrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -41,98 +39,101 @@ import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkUpdateResourceDataSync' smart constructor.
 data UpdateResourceDataSync = UpdateResourceDataSync'
-  { -- | The name of the resource data sync you want to update.
-    syncName :: Types.SyncName,
-    -- | The type of resource data sync. The supported @SyncType@ is SyncFromSource.
-    syncType :: Types.SyncType,
-    -- | Specify information about the data sources to synchronize.
-    syncSource :: Types.ResourceDataSyncSource
+  { syncName :: Types.SyncName
+    -- ^ The name of the resource data sync you want to update.
+  , syncType :: Types.SyncType
+    -- ^ The type of resource data sync. The supported @SyncType@ is SyncFromSource.
+  , syncSource :: Types.ResourceDataSyncSource
+    -- ^ Specify information about the data sources to synchronize.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UpdateResourceDataSync' value with any optional fields omitted.
-mkUpdateResourceDataSync ::
-  -- | 'syncName'
-  Types.SyncName ->
-  -- | 'syncType'
-  Types.SyncType ->
-  -- | 'syncSource'
-  Types.ResourceDataSyncSource ->
-  UpdateResourceDataSync
-mkUpdateResourceDataSync syncName syncType syncSource =
-  UpdateResourceDataSync' {syncName, syncType, syncSource}
+mkUpdateResourceDataSync
+    :: Types.SyncName -- ^ 'syncName'
+    -> Types.SyncType -- ^ 'syncType'
+    -> Types.ResourceDataSyncSource -- ^ 'syncSource'
+    -> UpdateResourceDataSync
+mkUpdateResourceDataSync syncName syncType syncSource
+  = UpdateResourceDataSync'{syncName, syncType, syncSource}
 
 -- | The name of the resource data sync you want to update.
 --
 -- /Note:/ Consider using 'syncName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 urdsSyncName :: Lens.Lens' UpdateResourceDataSync Types.SyncName
 urdsSyncName = Lens.field @"syncName"
-{-# DEPRECATED urdsSyncName "Use generic-lens or generic-optics with 'syncName' instead." #-}
+{-# INLINEABLE urdsSyncName #-}
+{-# DEPRECATED syncName "Use generic-lens or generic-optics with 'syncName' instead"  #-}
 
 -- | The type of resource data sync. The supported @SyncType@ is SyncFromSource.
 --
 -- /Note:/ Consider using 'syncType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 urdsSyncType :: Lens.Lens' UpdateResourceDataSync Types.SyncType
 urdsSyncType = Lens.field @"syncType"
-{-# DEPRECATED urdsSyncType "Use generic-lens or generic-optics with 'syncType' instead." #-}
+{-# INLINEABLE urdsSyncType #-}
+{-# DEPRECATED syncType "Use generic-lens or generic-optics with 'syncType' instead"  #-}
 
 -- | Specify information about the data sources to synchronize.
 --
 -- /Note:/ Consider using 'syncSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 urdsSyncSource :: Lens.Lens' UpdateResourceDataSync Types.ResourceDataSyncSource
 urdsSyncSource = Lens.field @"syncSource"
-{-# DEPRECATED urdsSyncSource "Use generic-lens or generic-optics with 'syncSource' instead." #-}
+{-# INLINEABLE urdsSyncSource #-}
+{-# DEPRECATED syncSource "Use generic-lens or generic-optics with 'syncSource' instead"  #-}
+
+instance Core.ToQuery UpdateResourceDataSync where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders UpdateResourceDataSync where
+        toHeaders UpdateResourceDataSync{..}
+          = Core.pure ("X-Amz-Target", "AmazonSSM.UpdateResourceDataSync")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON UpdateResourceDataSync where
-  toJSON UpdateResourceDataSync {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("SyncName" Core..= syncName),
-            Core.Just ("SyncType" Core..= syncType),
-            Core.Just ("SyncSource" Core..= syncSource)
-          ]
-      )
+        toJSON UpdateResourceDataSync{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("SyncName" Core..= syncName),
+                  Core.Just ("SyncType" Core..= syncType),
+                  Core.Just ("SyncSource" Core..= syncSource)])
 
 instance Core.AWSRequest UpdateResourceDataSync where
-  type Rs UpdateResourceDataSync = UpdateResourceDataSyncResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "AmazonSSM.UpdateResourceDataSync")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveEmpty
-      ( \s h x ->
-          UpdateResourceDataSyncResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs UpdateResourceDataSync = UpdateResourceDataSyncResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveEmpty
+              (\ s h x ->
+                 UpdateResourceDataSyncResponse' Core.<$>
+                   (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkUpdateResourceDataSyncResponse' smart constructor.
 newtype UpdateResourceDataSyncResponse = UpdateResourceDataSyncResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UpdateResourceDataSyncResponse' value with any optional fields omitted.
-mkUpdateResourceDataSyncResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  UpdateResourceDataSyncResponse
-mkUpdateResourceDataSyncResponse responseStatus =
-  UpdateResourceDataSyncResponse' {responseStatus}
+mkUpdateResourceDataSyncResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> UpdateResourceDataSyncResponse
+mkUpdateResourceDataSyncResponse responseStatus
+  = UpdateResourceDataSyncResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 urdsrrsResponseStatus :: Lens.Lens' UpdateResourceDataSyncResponse Core.Int
 urdsrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED urdsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE urdsrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

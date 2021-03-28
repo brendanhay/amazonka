@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,50 +10,51 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __Amazon Elasticsearch Configuration Service__
+-- __Amazon Elasticsearch Configuration Service__ 
 --
 -- Use the Amazon Elasticsearch Configuration API to create, configure, and manage Elasticsearch domains.
 -- For sample code that uses the Configuration API, see the <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-configuration-samples.html Amazon Elasticsearch Service Developer Guide> . The guide also contains <https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-request-signing.html sample code for sending signed HTTP requests to the Elasticsearch APIs> .
 -- The endpoint for configuration service requests is region-specific: es./region/ .amazonaws.com. For example, es.us-east-1.amazonaws.com. For a current list of supported regions and endpoints, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticsearch-service-regions Regions and Endpoints> .
 module Network.AWS.ElasticSearch
-  ( -- * Service configuration
-    mkServiceConfig,
+    (
+    -- * Service configuration
+      mkServiceConfig
 
     -- * Errors
     -- $errors
 
     -- ** ValidationException
-    _ValidationException,
+    , _ValidationException
 
     -- ** AccessDeniedException
-    _AccessDeniedException,
+    , _AccessDeniedException
 
     -- ** ResourceAlreadyExistsException
-    _ResourceAlreadyExistsException,
+    , _ResourceAlreadyExistsException
 
     -- ** ConflictException
-    _ConflictException,
+    , _ConflictException
 
     -- ** BaseException
-    _BaseException,
+    , _BaseException
 
     -- ** DisabledOperationException
-    _DisabledOperationException,
+    , _DisabledOperationException
 
     -- ** InternalException
-    _InternalException,
+    , _InternalException
 
     -- ** InvalidTypeException
-    _InvalidTypeException,
+    , _InvalidTypeException
 
     -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    , _ResourceNotFoundException
 
     -- ** InvalidPaginationTokenException
-    _InvalidPaginationTokenException,
+    , _InvalidPaginationTokenException
 
     -- ** LimitExceededException
-    _LimitExceededException,
+    , _LimitExceededException
 
     -- * Waiters
     -- $waiters
@@ -61,883 +62,867 @@ module Network.AWS.ElasticSearch
     -- * Operations
     -- $operations
 
-    -- ** CreateOutboundCrossClusterSearchConnection
-    module Network.AWS.ElasticSearch.CreateOutboundCrossClusterSearchConnection,
+    -- ** CreateOutboundCrossClusterSearchConnection 
+    , module Network.AWS.ElasticSearch.CreateOutboundCrossClusterSearchConnection
 
-    -- ** DescribeInboundCrossClusterSearchConnections
-    module Network.AWS.ElasticSearch.DescribeInboundCrossClusterSearchConnections,
+    -- ** DescribeInboundCrossClusterSearchConnections 
+    , module Network.AWS.ElasticSearch.DescribeInboundCrossClusterSearchConnections
 
-    -- ** CreateElasticsearchDomain
-    module Network.AWS.ElasticSearch.CreateElasticsearchDomain,
+    -- ** CreateElasticsearchDomain 
+    , module Network.AWS.ElasticSearch.CreateElasticsearchDomain
 
-    -- ** RemoveTags
-    module Network.AWS.ElasticSearch.RemoveTags,
+    -- ** RemoveTags 
+    , module Network.AWS.ElasticSearch.RemoveTags
 
-    -- ** GetCompatibleElasticsearchVersions
-    module Network.AWS.ElasticSearch.GetCompatibleElasticsearchVersions,
+    -- ** GetCompatibleElasticsearchVersions 
+    , module Network.AWS.ElasticSearch.GetCompatibleElasticsearchVersions
 
-    -- ** DescribeElasticsearchDomains
-    module Network.AWS.ElasticSearch.DescribeElasticsearchDomains,
+    -- ** DescribeElasticsearchDomains 
+    , module Network.AWS.ElasticSearch.DescribeElasticsearchDomains
 
-    -- ** ListDomainsForPackage
-    module Network.AWS.ElasticSearch.ListDomainsForPackage,
+    -- ** ListDomainsForPackage 
+    , module Network.AWS.ElasticSearch.ListDomainsForPackage
 
-    -- ** ListPackagesForDomain
-    module Network.AWS.ElasticSearch.ListPackagesForDomain,
+    -- ** ListPackagesForDomain 
+    , module Network.AWS.ElasticSearch.ListPackagesForDomain
 
-    -- ** StartElasticsearchServiceSoftwareUpdate
-    module Network.AWS.ElasticSearch.StartElasticsearchServiceSoftwareUpdate,
+    -- ** StartElasticsearchServiceSoftwareUpdate 
+    , module Network.AWS.ElasticSearch.StartElasticsearchServiceSoftwareUpdate
 
     -- ** ListElasticsearchInstanceTypes (Paginated)
-    module Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes,
+    , module Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
 
-    -- ** DeleteElasticsearchServiceRole
-    module Network.AWS.ElasticSearch.DeleteElasticsearchServiceRole,
+    -- ** DeleteElasticsearchServiceRole 
+    , module Network.AWS.ElasticSearch.DeleteElasticsearchServiceRole
 
-    -- ** DescribeElasticsearchDomain
-    module Network.AWS.ElasticSearch.DescribeElasticsearchDomain,
+    -- ** DescribeElasticsearchDomain 
+    , module Network.AWS.ElasticSearch.DescribeElasticsearchDomain
 
-    -- ** ListDomainNames
-    module Network.AWS.ElasticSearch.ListDomainNames,
+    -- ** ListDomainNames 
+    , module Network.AWS.ElasticSearch.ListDomainNames
 
-    -- ** AssociatePackage
-    module Network.AWS.ElasticSearch.AssociatePackage,
+    -- ** AssociatePackage 
+    , module Network.AWS.ElasticSearch.AssociatePackage
 
-    -- ** DeleteOutboundCrossClusterSearchConnection
-    module Network.AWS.ElasticSearch.DeleteOutboundCrossClusterSearchConnection,
+    -- ** DeleteOutboundCrossClusterSearchConnection 
+    , module Network.AWS.ElasticSearch.DeleteOutboundCrossClusterSearchConnection
 
-    -- ** DescribeElasticsearchInstanceTypeLimits
-    module Network.AWS.ElasticSearch.DescribeElasticsearchInstanceTypeLimits,
+    -- ** DescribeElasticsearchInstanceTypeLimits 
+    , module Network.AWS.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
 
-    -- ** GetPackageVersionHistory
-    module Network.AWS.ElasticSearch.GetPackageVersionHistory,
+    -- ** GetPackageVersionHistory 
+    , module Network.AWS.ElasticSearch.GetPackageVersionHistory
 
     -- ** GetUpgradeHistory (Paginated)
-    module Network.AWS.ElasticSearch.GetUpgradeHistory,
+    , module Network.AWS.ElasticSearch.GetUpgradeHistory
 
-    -- ** DescribePackages
-    module Network.AWS.ElasticSearch.DescribePackages,
+    -- ** DescribePackages 
+    , module Network.AWS.ElasticSearch.DescribePackages
 
-    -- ** DescribeElasticsearchDomainConfig
-    module Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig,
+    -- ** DescribeElasticsearchDomainConfig 
+    , module Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
 
-    -- ** GetUpgradeStatus
-    module Network.AWS.ElasticSearch.GetUpgradeStatus,
+    -- ** GetUpgradeStatus 
+    , module Network.AWS.ElasticSearch.GetUpgradeStatus
 
-    -- ** DeleteElasticsearchDomain
-    module Network.AWS.ElasticSearch.DeleteElasticsearchDomain,
+    -- ** DeleteElasticsearchDomain 
+    , module Network.AWS.ElasticSearch.DeleteElasticsearchDomain
 
-    -- ** DissociatePackage
-    module Network.AWS.ElasticSearch.DissociatePackage,
+    -- ** DissociatePackage 
+    , module Network.AWS.ElasticSearch.DissociatePackage
 
-    -- ** PurchaseReservedElasticsearchInstanceOffering
-    module Network.AWS.ElasticSearch.PurchaseReservedElasticsearchInstanceOffering,
+    -- ** PurchaseReservedElasticsearchInstanceOffering 
+    , module Network.AWS.ElasticSearch.PurchaseReservedElasticsearchInstanceOffering
 
     -- ** DescribeReservedElasticsearchInstances (Paginated)
-    module Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstances,
+    , module Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstances
 
-    -- ** UpdateElasticsearchDomainConfig
-    module Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig,
+    -- ** UpdateElasticsearchDomainConfig 
+    , module Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
 
     -- ** ListElasticsearchVersions (Paginated)
-    module Network.AWS.ElasticSearch.ListElasticsearchVersions,
+    , module Network.AWS.ElasticSearch.ListElasticsearchVersions
 
-    -- ** AddTags
-    module Network.AWS.ElasticSearch.AddTags,
+    -- ** AddTags 
+    , module Network.AWS.ElasticSearch.AddTags
 
-    -- ** DeleteInboundCrossClusterSearchConnection
-    module Network.AWS.ElasticSearch.DeleteInboundCrossClusterSearchConnection,
+    -- ** DeleteInboundCrossClusterSearchConnection 
+    , module Network.AWS.ElasticSearch.DeleteInboundCrossClusterSearchConnection
 
     -- ** DescribeReservedElasticsearchInstanceOfferings (Paginated)
-    module Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstanceOfferings,
+    , module Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstanceOfferings
 
-    -- ** UpgradeElasticsearchDomain
-    module Network.AWS.ElasticSearch.UpgradeElasticsearchDomain,
+    -- ** UpgradeElasticsearchDomain 
+    , module Network.AWS.ElasticSearch.UpgradeElasticsearchDomain
 
-    -- ** ListTags
-    module Network.AWS.ElasticSearch.ListTags,
+    -- ** ListTags 
+    , module Network.AWS.ElasticSearch.ListTags
 
-    -- ** DeletePackage
-    module Network.AWS.ElasticSearch.DeletePackage,
+    -- ** DeletePackage 
+    , module Network.AWS.ElasticSearch.DeletePackage
 
-    -- ** UpdatePackage
-    module Network.AWS.ElasticSearch.UpdatePackage,
+    -- ** UpdatePackage 
+    , module Network.AWS.ElasticSearch.UpdatePackage
 
-    -- ** CancelElasticsearchServiceSoftwareUpdate
-    module Network.AWS.ElasticSearch.CancelElasticsearchServiceSoftwareUpdate,
+    -- ** CancelElasticsearchServiceSoftwareUpdate 
+    , module Network.AWS.ElasticSearch.CancelElasticsearchServiceSoftwareUpdate
 
-    -- ** CreatePackage
-    module Network.AWS.ElasticSearch.CreatePackage,
+    -- ** CreatePackage 
+    , module Network.AWS.ElasticSearch.CreatePackage
 
-    -- ** RejectInboundCrossClusterSearchConnection
-    module Network.AWS.ElasticSearch.RejectInboundCrossClusterSearchConnection,
+    -- ** RejectInboundCrossClusterSearchConnection 
+    , module Network.AWS.ElasticSearch.RejectInboundCrossClusterSearchConnection
 
-    -- ** DescribeOutboundCrossClusterSearchConnections
-    module Network.AWS.ElasticSearch.DescribeOutboundCrossClusterSearchConnections,
+    -- ** DescribeOutboundCrossClusterSearchConnections 
+    , module Network.AWS.ElasticSearch.DescribeOutboundCrossClusterSearchConnections
 
-    -- ** AcceptInboundCrossClusterSearchConnection
-    module Network.AWS.ElasticSearch.AcceptInboundCrossClusterSearchConnection,
+    -- ** AcceptInboundCrossClusterSearchConnection 
+    , module Network.AWS.ElasticSearch.AcceptInboundCrossClusterSearchConnection
 
     -- * Types
 
     -- ** AdvancedSecurityOptionsStatus
-    AdvancedSecurityOptionsStatus (..),
-    mkAdvancedSecurityOptionsStatus,
-    asosOptions,
-    asosStatus,
+    , AdvancedSecurityOptionsStatus (..)
+    , mkAdvancedSecurityOptionsStatus
+    , asosOptions
+    , asosStatus
 
     -- ** EBSOptions
-    EBSOptions (..),
-    mkEBSOptions,
-    ebsoEBSEnabled,
-    ebsoIops,
-    ebsoVolumeSize,
-    ebsoVolumeType,
+    , EBSOptions (..)
+    , mkEBSOptions
+    , ebsoEBSEnabled
+    , ebsoIops
+    , ebsoVolumeSize
+    , ebsoVolumeType
 
     -- ** SAMLOptionsOutput
-    SAMLOptionsOutput (..),
-    mkSAMLOptionsOutput,
-    samlooEnabled,
-    samlooIdp,
-    samlooRolesKey,
-    samlooSessionTimeoutMinutes,
-    samlooSubjectKey,
+    , SAMLOptionsOutput (..)
+    , mkSAMLOptionsOutput
+    , samlooEnabled
+    , samlooIdp
+    , samlooRolesKey
+    , samlooSessionTimeoutMinutes
+    , samlooSubjectKey
 
     -- ** UpgradeStatus
-    UpgradeStatus (..),
+    , UpgradeStatus (..)
 
     -- ** NodeToNodeEncryptionOptions
-    NodeToNodeEncryptionOptions (..),
-    mkNodeToNodeEncryptionOptions,
-    ntneoEnabled,
+    , NodeToNodeEncryptionOptions (..)
+    , mkNodeToNodeEncryptionOptions
+    , ntneoEnabled
 
     -- ** AdditionalLimit
-    AdditionalLimit (..),
-    mkAdditionalLimit,
-    alLimitName,
-    alLimitValues,
+    , AdditionalLimit (..)
+    , mkAdditionalLimit
+    , alLimitName
+    , alLimitValues
 
     -- ** OptionState
-    OptionState (..),
+    , OptionState (..)
 
     -- ** DescribePackagesFilter
-    DescribePackagesFilter (..),
-    mkDescribePackagesFilter,
-    dpfName,
-    dpfValue,
+    , DescribePackagesFilter (..)
+    , mkDescribePackagesFilter
+    , dpfName
+    , dpfValue
 
     -- ** PackageSource
-    PackageSource (..),
-    mkPackageSource,
-    psS3BucketName,
-    psS3Key,
+    , PackageSource (..)
+    , mkPackageSource
+    , psS3BucketName
+    , psS3Key
 
     -- ** PolicyDocument
-    PolicyDocument (..),
+    , PolicyDocument (..)
 
     -- ** UpgradeStepItem
-    UpgradeStepItem (..),
-    mkUpgradeStepItem,
-    usiIssues,
-    usiProgressPercent,
-    usiUpgradeStep,
-    usiUpgradeStepStatus,
+    , UpgradeStepItem (..)
+    , mkUpgradeStepItem
+    , usiIssues
+    , usiProgressPercent
+    , usiUpgradeStep
+    , usiUpgradeStepStatus
 
     -- ** InstanceLimits
-    InstanceLimits (..),
-    mkInstanceLimits,
-    ilInstanceCountLimits,
+    , InstanceLimits (..)
+    , mkInstanceLimits
+    , ilInstanceCountLimits
 
     -- ** ElasticsearchClusterConfigStatus
-    ElasticsearchClusterConfigStatus (..),
-    mkElasticsearchClusterConfigStatus,
-    eccsOptions,
-    eccsStatus,
+    , ElasticsearchClusterConfigStatus (..)
+    , mkElasticsearchClusterConfigStatus
+    , eccsOptions
+    , eccsStatus
 
     -- ** DescribePackagesFilterValue
-    DescribePackagesFilterValue (..),
+    , DescribePackagesFilterValue (..)
 
     -- ** PackageID
-    PackageID (..),
+    , PackageID (..)
 
     -- ** ReservedElasticsearchInstancePaymentOption
-    ReservedElasticsearchInstancePaymentOption (..),
+    , ReservedElasticsearchInstancePaymentOption (..)
 
     -- ** IdentityPoolId
-    IdentityPoolId (..),
+    , IdentityPoolId (..)
 
     -- ** S3Key
-    S3Key (..),
+    , S3Key (..)
 
     -- ** PackageType
-    PackageType (..),
+    , PackageType (..)
 
     -- ** ServiceSoftwareOptions
-    ServiceSoftwareOptions (..),
-    mkServiceSoftwareOptions,
-    ssoAutomatedUpdateDate,
-    ssoCancellable,
-    ssoCurrentVersion,
-    ssoDescription,
-    ssoNewVersion,
-    ssoOptionalDeployment,
-    ssoUpdateAvailable,
-    ssoUpdateStatus,
+    , ServiceSoftwareOptions (..)
+    , mkServiceSoftwareOptions
+    , ssoAutomatedUpdateDate
+    , ssoCancellable
+    , ssoCurrentVersion
+    , ssoDescription
+    , ssoNewVersion
+    , ssoOptionalDeployment
+    , ssoUpdateAvailable
+    , ssoUpdateStatus
 
     -- ** Tag
-    Tag (..),
-    mkTag,
-    tKey,
-    tValue,
+    , Tag (..)
+    , mkTag
+    , tKey
+    , tValue
 
     -- ** PackageVersionHistory
-    PackageVersionHistory (..),
-    mkPackageVersionHistory,
-    pvhCommitMessage,
-    pvhCreatedAt,
-    pvhPackageVersion,
+    , PackageVersionHistory (..)
+    , mkPackageVersionHistory
+    , pvhCommitMessage
+    , pvhCreatedAt
+    , pvhPackageVersion
 
     -- ** LimitName
-    LimitName (..),
+    , LimitName (..)
 
     -- ** AdvancedOptionsStatus
-    AdvancedOptionsStatus (..),
-    mkAdvancedOptionsStatus,
-    aosOptions,
-    aosStatus,
+    , AdvancedOptionsStatus (..)
+    , mkAdvancedOptionsStatus
+    , aosOptions
+    , aosStatus
 
     -- ** UpgradeHistory
-    UpgradeHistory (..),
-    mkUpgradeHistory,
-    uhStartTimestamp,
-    uhStepsList,
-    uhUpgradeName,
-    uhUpgradeStatus,
+    , UpgradeHistory (..)
+    , mkUpgradeHistory
+    , uhStartTimestamp
+    , uhStepsList
+    , uhUpgradeName
+    , uhUpgradeStatus
 
     -- ** InstanceRole
-    InstanceRole (..),
+    , InstanceRole (..)
 
     -- ** ARN
-    ARN (..),
-
-    -- ** String
-    String (..),
+    , ARN (..)
 
     -- ** ESPartitionInstanceType
-    ESPartitionInstanceType (..),
+    , ESPartitionInstanceType (..)
 
     -- ** PackageName
-    PackageName (..),
+    , PackageName (..)
 
     -- ** PackageVersion
-    PackageVersion (..),
+    , PackageVersion (..)
 
     -- ** PackageDetails
-    PackageDetails (..),
-    mkPackageDetails,
-    pdAvailablePackageVersion,
-    pdCreatedAt,
-    pdErrorDetails,
-    pdLastUpdatedAt,
-    pdPackageDescription,
-    pdPackageID,
-    pdPackageName,
-    pdPackageStatus,
-    pdPackageType,
+    , PackageDetails (..)
+    , mkPackageDetails
+    , pdAvailablePackageVersion
+    , pdCreatedAt
+    , pdErrorDetails
+    , pdLastUpdatedAt
+    , pdPackageDescription
+    , pdPackageID
+    , pdPackageName
+    , pdPackageStatus
+    , pdPackageType
 
     -- ** EBSOptionsStatus
-    EBSOptionsStatus (..),
-    mkEBSOptionsStatus,
-    ebsosOptions,
-    ebsosStatus,
+    , EBSOptionsStatus (..)
+    , mkEBSOptionsStatus
+    , ebsosOptions
+    , ebsosStatus
 
     -- ** UserPoolId
-    UserPoolId (..),
+    , UserPoolId (..)
 
     -- ** InboundCrossClusterSearchConnectionStatusCode
-    InboundCrossClusterSearchConnectionStatusCode (..),
+    , InboundCrossClusterSearchConnectionStatusCode (..)
 
     -- ** ConnectionAlias
-    ConnectionAlias (..),
+    , ConnectionAlias (..)
 
     -- ** BackendRole
-    BackendRole (..),
+    , BackendRole (..)
 
     -- ** AdvancedSecurityOptions
-    AdvancedSecurityOptions (..),
-    mkAdvancedSecurityOptions,
-    asoEnabled,
-    asoInternalUserDatabaseEnabled,
-    asoSAMLOptions,
+    , AdvancedSecurityOptions (..)
+    , mkAdvancedSecurityOptions
+    , asoEnabled
+    , asoInternalUserDatabaseEnabled
+    , asoSAMLOptions
 
     -- ** NodeToNodeEncryptionOptionsStatus
-    NodeToNodeEncryptionOptionsStatus (..),
-    mkNodeToNodeEncryptionOptionsStatus,
-    ntneosOptions,
-    ntneosStatus,
+    , NodeToNodeEncryptionOptionsStatus (..)
+    , mkNodeToNodeEncryptionOptionsStatus
+    , ntneosOptions
+    , ntneosStatus
 
     -- ** DomainPackageDetails
-    DomainPackageDetails (..),
-    mkDomainPackageDetails,
-    dpdDomainName,
-    dpdDomainPackageStatus,
-    dpdErrorDetails,
-    dpdLastUpdated,
-    dpdPackageID,
-    dpdPackageName,
-    dpdPackageType,
-    dpdPackageVersion,
-    dpdReferencePath,
+    , DomainPackageDetails (..)
+    , mkDomainPackageDetails
+    , dpdDomainName
+    , dpdDomainPackageStatus
+    , dpdErrorDetails
+    , dpdLastUpdated
+    , dpdPackageID
+    , dpdPackageName
+    , dpdPackageType
+    , dpdPackageVersion
+    , dpdReferencePath
 
     -- ** CrossClusterSearchConnectionStatusMessage
-    CrossClusterSearchConnectionStatusMessage (..),
+    , CrossClusterSearchConnectionStatusMessage (..)
 
     -- ** ReservationToken
-    ReservationToken (..),
+    , ReservationToken (..)
 
     -- ** ElasticsearchClusterConfig
-    ElasticsearchClusterConfig (..),
-    mkElasticsearchClusterConfig,
-    eccDedicatedMasterCount,
-    eccDedicatedMasterEnabled,
-    eccDedicatedMasterType,
-    eccInstanceCount,
-    eccInstanceType,
-    eccWarmCount,
-    eccWarmEnabled,
-    eccWarmType,
-    eccZoneAwarenessConfig,
-    eccZoneAwarenessEnabled,
+    , ElasticsearchClusterConfig (..)
+    , mkElasticsearchClusterConfig
+    , eccDedicatedMasterCount
+    , eccDedicatedMasterEnabled
+    , eccDedicatedMasterType
+    , eccInstanceCount
+    , eccInstanceType
+    , eccWarmCount
+    , eccWarmEnabled
+    , eccWarmType
+    , eccZoneAwarenessConfig
+    , eccZoneAwarenessEnabled
 
     -- ** CompatibleVersionsMap
-    CompatibleVersionsMap (..),
-    mkCompatibleVersionsMap,
-    cvmSourceVersion,
-    cvmTargetVersions,
+    , CompatibleVersionsMap (..)
+    , mkCompatibleVersionsMap
+    , cvmSourceVersion
+    , cvmTargetVersions
 
     -- ** DomainPackageStatus
-    DomainPackageStatus (..),
+    , DomainPackageStatus (..)
 
     -- ** ServiceUrl
-    ServiceUrl (..),
+    , ServiceUrl (..)
 
     -- ** ReservedElasticsearchInstanceOffering
-    ReservedElasticsearchInstanceOffering (..),
-    mkReservedElasticsearchInstanceOffering,
-    reioCurrencyCode,
-    reioDuration,
-    reioElasticsearchInstanceType,
-    reioFixedPrice,
-    reioPaymentOption,
-    reioRecurringCharges,
-    reioReservedElasticsearchInstanceOfferingId,
-    reioUsagePrice,
+    , ReservedElasticsearchInstanceOffering (..)
+    , mkReservedElasticsearchInstanceOffering
+    , reioCurrencyCode
+    , reioDuration
+    , reioElasticsearchInstanceType
+    , reioFixedPrice
+    , reioPaymentOption
+    , reioRecurringCharges
+    , reioReservedElasticsearchInstanceOfferingId
+    , reioUsagePrice
 
     -- ** Limits
-    Limits (..),
-    mkLimits,
-    lAdditionalLimits,
-    lInstanceLimits,
-    lStorageTypes,
+    , Limits (..)
+    , mkLimits
+    , lAdditionalLimits
+    , lInstanceLimits
+    , lStorageTypes
 
     -- ** LogPublishingOption
-    LogPublishingOption (..),
-    mkLogPublishingOption,
-    lpoCloudWatchLogsLogGroupArn,
-    lpoEnabled,
+    , LogPublishingOption (..)
+    , mkLogPublishingOption
+    , lpoCloudWatchLogsLogGroupArn
+    , lpoEnabled
 
     -- ** EncryptionAtRestOptionsStatus
-    EncryptionAtRestOptionsStatus (..),
-    mkEncryptionAtRestOptionsStatus,
-    earosOptions,
-    earosStatus,
+    , EncryptionAtRestOptionsStatus (..)
+    , mkEncryptionAtRestOptionsStatus
+    , earosOptions
+    , earosStatus
 
     -- ** Username
-    Username (..),
+    , Username (..)
 
     -- ** ReservedElasticsearchInstance
-    ReservedElasticsearchInstance (..),
-    mkReservedElasticsearchInstance,
-    reiCurrencyCode,
-    reiDuration,
-    reiElasticsearchInstanceCount,
-    reiElasticsearchInstanceType,
-    reiFixedPrice,
-    reiPaymentOption,
-    reiRecurringCharges,
-    reiReservationName,
-    reiReservedElasticsearchInstanceId,
-    reiReservedElasticsearchInstanceOfferingId,
-    reiStartTime,
-    reiState,
-    reiUsagePrice,
+    , ReservedElasticsearchInstance (..)
+    , mkReservedElasticsearchInstance
+    , reiCurrencyCode
+    , reiDuration
+    , reiElasticsearchInstanceCount
+    , reiElasticsearchInstanceType
+    , reiFixedPrice
+    , reiPaymentOption
+    , reiRecurringCharges
+    , reiReservationName
+    , reiReservedElasticsearchInstanceId
+    , reiReservedElasticsearchInstanceOfferingId
+    , reiStartTime
+    , reiState
+    , reiUsagePrice
 
     -- ** AdvancedSecurityOptionsInput
-    AdvancedSecurityOptionsInput (..),
-    mkAdvancedSecurityOptionsInput,
-    asoiEnabled,
-    asoiInternalUserDatabaseEnabled,
-    asoiMasterUserOptions,
-    asoiSAMLOptions,
+    , AdvancedSecurityOptionsInput (..)
+    , mkAdvancedSecurityOptionsInput
+    , asoiEnabled
+    , asoiInternalUserDatabaseEnabled
+    , asoiMasterUserOptions
+    , asoiSAMLOptions
 
     -- ** PackageStatus
-    PackageStatus (..),
+    , PackageStatus (..)
 
     -- ** VPCDerivedInfo
-    VPCDerivedInfo (..),
-    mkVPCDerivedInfo,
-    vpcdiAvailabilityZones,
-    vpcdiSecurityGroupIds,
-    vpcdiSubnetIds,
-    vpcdiVPCId,
+    , VPCDerivedInfo (..)
+    , mkVPCDerivedInfo
+    , vpcdiAvailabilityZones
+    , vpcdiSecurityGroupIds
+    , vpcdiSubnetIds
+    , vpcdiVPCId
 
     -- ** CloudWatchLogsLogGroupArn
-    CloudWatchLogsLogGroupArn (..),
+    , CloudWatchLogsLogGroupArn (..)
 
     -- ** CrossClusterSearchConnectionId
-    CrossClusterSearchConnectionId (..),
+    , CrossClusterSearchConnectionId (..)
 
     -- ** LogPublishingOptionsStatus
-    LogPublishingOptionsStatus (..),
-    mkLogPublishingOptionsStatus,
-    lposOptions,
-    lposStatus,
+    , LogPublishingOptionsStatus (..)
+    , mkLogPublishingOptionsStatus
+    , lposOptions
+    , lposStatus
 
     -- ** OutboundCrossClusterSearchConnectionStatusCode
-    OutboundCrossClusterSearchConnectionStatusCode (..),
+    , OutboundCrossClusterSearchConnectionStatusCode (..)
 
     -- ** LogType
-    LogType (..),
+    , LogType (..)
 
     -- ** DomainInformation
-    DomainInformation (..),
-    mkDomainInformation,
-    dDomainName,
-    dOwnerId,
-    dRegion,
+    , DomainInformation (..)
+    , mkDomainInformation
+    , dDomainName
+    , dOwnerId
+    , dRegion
 
     -- ** PackageDescription
-    PackageDescription (..),
+    , PackageDescription (..)
 
     -- ** OwnerId
-    OwnerId (..),
+    , OwnerId (..)
 
     -- ** NextToken
-    NextToken (..),
+    , NextToken (..)
 
     -- ** StorageTypeLimit
-    StorageTypeLimit (..),
-    mkStorageTypeLimit,
-    stlLimitName,
-    stlLimitValues,
+    , StorageTypeLimit (..)
+    , mkStorageTypeLimit
+    , stlLimitName
+    , stlLimitValues
 
     -- ** InstanceCountLimits
-    InstanceCountLimits (..),
-    mkInstanceCountLimits,
-    iclMaximumInstanceCount,
-    iclMinimumInstanceCount,
+    , InstanceCountLimits (..)
+    , mkInstanceCountLimits
+    , iclMaximumInstanceCount
+    , iclMinimumInstanceCount
 
     -- ** ESWarmPartitionInstanceType
-    ESWarmPartitionInstanceType (..),
+    , ESWarmPartitionInstanceType (..)
 
     -- ** SnapshotOptions
-    SnapshotOptions (..),
-    mkSnapshotOptions,
-    soAutomatedSnapshotStartHour,
+    , SnapshotOptions (..)
+    , mkSnapshotOptions
+    , soAutomatedSnapshotStartHour
 
     -- ** ElasticsearchVersionString
-    ElasticsearchVersionString (..),
+    , ElasticsearchVersionString (..)
 
     -- ** OutboundCrossClusterSearchConnectionStatus
-    OutboundCrossClusterSearchConnectionStatus (..),
-    mkOutboundCrossClusterSearchConnectionStatus,
-    occscsMessage,
-    occscsStatusCode,
+    , OutboundCrossClusterSearchConnectionStatus (..)
+    , mkOutboundCrossClusterSearchConnectionStatus
+    , occscsMessage
+    , occscsStatusCode
 
     -- ** NonEmptyString
-    NonEmptyString (..),
+    , NonEmptyString (..)
 
     -- ** UpgradeName
-    UpgradeName (..),
+    , UpgradeName (..)
 
     -- ** KmsKeyId
-    KmsKeyId (..),
+    , KmsKeyId (..)
 
     -- ** DomainName
-    DomainName (..),
+    , DomainName (..)
 
     -- ** OptionStatus
-    OptionStatus (..),
-    mkOptionStatus,
-    osCreationDate,
-    osUpdateDate,
-    osState,
-    osPendingDeletion,
-    osUpdateVersion,
+    , OptionStatus (..)
+    , mkOptionStatus
+    , osCreationDate
+    , osUpdateDate
+    , osState
+    , osPendingDeletion
+    , osUpdateVersion
 
     -- ** ElasticsearchDomainStatus
-    ElasticsearchDomainStatus (..),
-    mkElasticsearchDomainStatus,
-    edsDomainId,
-    edsDomainName,
-    edsARN,
-    edsElasticsearchClusterConfig,
-    edsAccessPolicies,
-    edsAdvancedOptions,
-    edsAdvancedSecurityOptions,
-    edsCognitoOptions,
-    edsCreated,
-    edsDeleted,
-    edsDomainEndpointOptions,
-    edsEBSOptions,
-    edsElasticsearchVersion,
-    edsEncryptionAtRestOptions,
-    edsEndpoint,
-    edsEndpoints,
-    edsLogPublishingOptions,
-    edsNodeToNodeEncryptionOptions,
-    edsProcessing,
-    edsServiceSoftwareOptions,
-    edsSnapshotOptions,
-    edsUpgradeProcessing,
-    edsVPCOptions,
+    , ElasticsearchDomainStatus (..)
+    , mkElasticsearchDomainStatus
+    , edsDomainId
+    , edsDomainName
+    , edsARN
+    , edsElasticsearchClusterConfig
+    , edsAccessPolicies
+    , edsAdvancedOptions
+    , edsAdvancedSecurityOptions
+    , edsCognitoOptions
+    , edsCreated
+    , edsDeleted
+    , edsDomainEndpointOptions
+    , edsEBSOptions
+    , edsElasticsearchVersion
+    , edsEncryptionAtRestOptions
+    , edsEndpoint
+    , edsEndpoints
+    , edsLogPublishingOptions
+    , edsNodeToNodeEncryptionOptions
+    , edsProcessing
+    , edsServiceSoftwareOptions
+    , edsSnapshotOptions
+    , edsUpgradeProcessing
+    , edsVPCOptions
 
     -- ** CognitoOptions
-    CognitoOptions (..),
-    mkCognitoOptions,
-    coEnabled,
-    coIdentityPoolId,
-    coRoleArn,
-    coUserPoolId,
+    , CognitoOptions (..)
+    , mkCognitoOptions
+    , coEnabled
+    , coIdentityPoolId
+    , coRoleArn
+    , coUserPoolId
 
     -- ** Password
-    Password (..),
+    , Password (..)
 
     -- ** DomainEndpointOptionsStatus
-    DomainEndpointOptionsStatus (..),
-    mkDomainEndpointOptionsStatus,
-    deosOptions,
-    deosStatus,
+    , DomainEndpointOptionsStatus (..)
+    , mkDomainEndpointOptionsStatus
+    , deosOptions
+    , deosStatus
 
     -- ** ZoneAwarenessConfig
-    ZoneAwarenessConfig (..),
-    mkZoneAwarenessConfig,
-    zacAvailabilityZoneCount,
+    , ZoneAwarenessConfig (..)
+    , mkZoneAwarenessConfig
+    , zacAvailabilityZoneCount
 
     -- ** CommitMessage
-    CommitMessage (..),
+    , CommitMessage (..)
 
     -- ** StorageSubTypeName
-    StorageSubTypeName (..),
+    , StorageSubTypeName (..)
 
     -- ** EncryptionAtRestOptions
-    EncryptionAtRestOptions (..),
-    mkEncryptionAtRestOptions,
-    earoEnabled,
-    earoKmsKeyId,
+    , EncryptionAtRestOptions (..)
+    , mkEncryptionAtRestOptions
+    , earoEnabled
+    , earoKmsKeyId
 
     -- ** DomainNameFqdn
-    DomainNameFqdn (..),
+    , DomainNameFqdn (..)
 
     -- ** UpgradeStep
-    UpgradeStep (..),
+    , UpgradeStep (..)
 
     -- ** VPCDerivedInfoStatus
-    VPCDerivedInfoStatus (..),
-    mkVPCDerivedInfoStatus,
-    vpcdisOptions,
-    vpcdisStatus,
+    , VPCDerivedInfoStatus (..)
+    , mkVPCDerivedInfoStatus
+    , vpcdisOptions
+    , vpcdisStatus
 
     -- ** ErrorDetails
-    ErrorDetails (..),
-    mkErrorDetails,
-    edErrorMessage,
-    edErrorType,
+    , ErrorDetails (..)
+    , mkErrorDetails
+    , edErrorMessage
+    , edErrorType
 
     -- ** MasterUserOptions
-    MasterUserOptions (..),
-    mkMasterUserOptions,
-    muoMasterUserARN,
-    muoMasterUserName,
-    muoMasterUserPassword,
+    , MasterUserOptions (..)
+    , mkMasterUserOptions
+    , muoMasterUserARN
+    , muoMasterUserName
+    , muoMasterUserPassword
 
     -- ** ElasticsearchVersionStatus
-    ElasticsearchVersionStatus (..),
-    mkElasticsearchVersionStatus,
-    evsOptions,
-    evsStatus,
+    , ElasticsearchVersionStatus (..)
+    , mkElasticsearchVersionStatus
+    , evsOptions
+    , evsStatus
 
     -- ** SAMLEntityId
-    SAMLEntityId (..),
+    , SAMLEntityId (..)
 
     -- ** TLSSecurityPolicy
-    TLSSecurityPolicy (..),
+    , TLSSecurityPolicy (..)
 
     -- ** SAMLOptionsInput
-    SAMLOptionsInput (..),
-    mkSAMLOptionsInput,
-    samloiEnabled,
-    samloiIdp,
-    samloiMasterBackendRole,
-    samloiMasterUserName,
-    samloiRolesKey,
-    samloiSessionTimeoutMinutes,
-    samloiSubjectKey,
+    , SAMLOptionsInput (..)
+    , mkSAMLOptionsInput
+    , samloiEnabled
+    , samloiIdp
+    , samloiMasterBackendRole
+    , samloiMasterUserName
+    , samloiRolesKey
+    , samloiSessionTimeoutMinutes
+    , samloiSubjectKey
 
     -- ** VPCOptions
-    VPCOptions (..),
-    mkVPCOptions,
-    vpcoSecurityGroupIds,
-    vpcoSubnetIds,
+    , VPCOptions (..)
+    , mkVPCOptions
+    , vpcoSecurityGroupIds
+    , vpcoSubnetIds
 
     -- ** DomainId
-    DomainId (..),
+    , DomainId (..)
 
     -- ** DeploymentStatus
-    DeploymentStatus (..),
+    , DeploymentStatus (..)
 
     -- ** InboundCrossClusterSearchConnectionStatus
-    InboundCrossClusterSearchConnectionStatus (..),
-    mkInboundCrossClusterSearchConnectionStatus,
-    iccscsMessage,
-    iccscsStatusCode,
+    , InboundCrossClusterSearchConnectionStatus (..)
+    , mkInboundCrossClusterSearchConnectionStatus
+    , iccscsMessage
+    , iccscsStatusCode
 
     -- ** Region
-    Region (..),
+    , Region (..)
 
     -- ** OutboundCrossClusterSearchConnection
-    OutboundCrossClusterSearchConnection (..),
-    mkOutboundCrossClusterSearchConnection,
-    occscConnectionAlias,
-    occscConnectionStatus,
-    occscCrossClusterSearchConnectionId,
-    occscDestinationDomainInfo,
-    occscSourceDomainInfo,
+    , OutboundCrossClusterSearchConnection (..)
+    , mkOutboundCrossClusterSearchConnection
+    , occscConnectionAlias
+    , occscConnectionStatus
+    , occscCrossClusterSearchConnectionId
+    , occscDestinationDomainInfo
+    , occscSourceDomainInfo
 
     -- ** SnapshotOptionsStatus
-    SnapshotOptionsStatus (..),
-    mkSnapshotOptionsStatus,
-    sosOptions,
-    sosStatus,
+    , SnapshotOptionsStatus (..)
+    , mkSnapshotOptionsStatus
+    , sosOptions
+    , sosStatus
 
     -- ** Filter
-    Filter (..),
-    mkFilter,
-    fName,
-    fValues,
+    , Filter (..)
+    , mkFilter
+    , fName
+    , fValues
 
     -- ** VolumeType
-    VolumeType (..),
+    , VolumeType (..)
 
     -- ** ErrorType
-    ErrorType (..),
+    , ErrorType (..)
 
     -- ** DescribePackagesFilterName
-    DescribePackagesFilterName (..),
+    , DescribePackagesFilterName (..)
 
     -- ** RecurringCharge
-    RecurringCharge (..),
-    mkRecurringCharge,
-    rcRecurringChargeAmount,
-    rcRecurringChargeFrequency,
+    , RecurringCharge (..)
+    , mkRecurringCharge
+    , rcRecurringChargeAmount
+    , rcRecurringChargeFrequency
 
     -- ** ErrorMessage
-    ErrorMessage (..),
+    , ErrorMessage (..)
 
     -- ** CognitoOptionsStatus
-    CognitoOptionsStatus (..),
-    mkCognitoOptionsStatus,
-    cosOptions,
-    cosStatus,
+    , CognitoOptionsStatus (..)
+    , mkCognitoOptionsStatus
+    , cosOptions
+    , cosStatus
 
     -- ** DomainEndpointOptions
-    DomainEndpointOptions (..),
-    mkDomainEndpointOptions,
-    deoCustomEndpoint,
-    deoCustomEndpointCertificateArn,
-    deoCustomEndpointEnabled,
-    deoEnforceHTTPS,
-    deoTLSSecurityPolicy,
+    , DomainEndpointOptions (..)
+    , mkDomainEndpointOptions
+    , deoCustomEndpoint
+    , deoCustomEndpointCertificateArn
+    , deoCustomEndpointEnabled
+    , deoEnforceHTTPS
+    , deoTLSSecurityPolicy
 
     -- ** DomainInfo
-    DomainInfo (..),
-    mkDomainInfo,
-    diDomainName,
+    , DomainInfo (..)
+    , mkDomainInfo
+    , diDomainName
 
     -- ** ReferencePath
-    ReferencePath (..),
+    , ReferencePath (..)
 
     -- ** SAMLMetadata
-    SAMLMetadata (..),
+    , SAMLMetadata (..)
 
     -- ** StorageTypeName
-    StorageTypeName (..),
+    , StorageTypeName (..)
 
     -- ** LimitValue
-    LimitValue (..),
+    , LimitValue (..)
 
     -- ** SAMLIdp
-    SAMLIdp (..),
-    mkSAMLIdp,
-    samliMetadataContent,
-    samliEntityId,
+    , SAMLIdp (..)
+    , mkSAMLIdp
+    , samliMetadataContent
+    , samliEntityId
 
     -- ** AccessPoliciesStatus
-    AccessPoliciesStatus (..),
-    mkAccessPoliciesStatus,
-    apsOptions,
-    apsStatus,
+    , AccessPoliciesStatus (..)
+    , mkAccessPoliciesStatus
+    , apsOptions
+    , apsStatus
 
     -- ** S3BucketName
-    S3BucketName (..),
+    , S3BucketName (..)
 
     -- ** ElasticsearchDomainConfig
-    ElasticsearchDomainConfig (..),
-    mkElasticsearchDomainConfig,
-    edcAccessPolicies,
-    edcAdvancedOptions,
-    edcAdvancedSecurityOptions,
-    edcCognitoOptions,
-    edcDomainEndpointOptions,
-    edcEBSOptions,
-    edcElasticsearchClusterConfig,
-    edcElasticsearchVersion,
-    edcEncryptionAtRestOptions,
-    edcLogPublishingOptions,
-    edcNodeToNodeEncryptionOptions,
-    edcSnapshotOptions,
-    edcVPCOptions,
+    , ElasticsearchDomainConfig (..)
+    , mkElasticsearchDomainConfig
+    , edcAccessPolicies
+    , edcAdvancedOptions
+    , edcAdvancedSecurityOptions
+    , edcCognitoOptions
+    , edcDomainEndpointOptions
+    , edcEBSOptions
+    , edcElasticsearchClusterConfig
+    , edcElasticsearchVersion
+    , edcEncryptionAtRestOptions
+    , edcLogPublishingOptions
+    , edcNodeToNodeEncryptionOptions
+    , edcSnapshotOptions
+    , edcVPCOptions
 
     -- ** Issue
-    Issue (..),
+    , Issue (..)
 
     -- ** InboundCrossClusterSearchConnection
-    InboundCrossClusterSearchConnection (..),
-    mkInboundCrossClusterSearchConnection,
-    iccscConnectionStatus,
-    iccscCrossClusterSearchConnectionId,
-    iccscDestinationDomainInfo,
-    iccscSourceDomainInfo,
+    , InboundCrossClusterSearchConnection (..)
+    , mkInboundCrossClusterSearchConnection
+    , iccscConnectionStatus
+    , iccscCrossClusterSearchConnectionId
+    , iccscDestinationDomainInfo
+    , iccscSourceDomainInfo
 
     -- ** StorageType
-    StorageType (..),
-    mkStorageType,
-    stStorageSubTypeName,
-    stStorageTypeLimits,
-    stStorageTypeName,
+    , StorageType (..)
+    , mkStorageType
+    , stStorageSubTypeName
+    , stStorageTypeLimits
+    , stStorageTypeName
 
     -- ** RoleArn
-    RoleArn (..),
-
-    -- ** RolesKey
-    RolesKey (..),
-
-    -- ** SubjectKey
-    SubjectKey (..),
-
-    -- ** CurrentVersion
-    CurrentVersion (..),
-
-    -- ** Description
-    Description (..),
-
-    -- ** NewVersion
-    NewVersion (..),
+    , RoleArn (..)
 
     -- ** Key
-    Key (..),
+    , Key (..)
 
     -- ** Value
-    Value (..),
+    , Value (..)
 
     -- ** ElasticsearchVersion
-    ElasticsearchVersion (..),
+    , ElasticsearchVersion (..)
 
     -- ** SourceVersion
-    SourceVersion (..),
+    , SourceVersion (..)
 
     -- ** ReservedElasticsearchInstanceId
-    ReservedElasticsearchInstanceId (..),
+    , ReservedElasticsearchInstanceId (..)
 
     -- ** ReservedElasticsearchInstanceOfferingId
-    ReservedElasticsearchInstanceOfferingId (..),
+    , ReservedElasticsearchInstanceOfferingId (..)
 
     -- * Serialization types
-    Lude.Base64 (..),
-    Lude._Base64,
-    Lude.Sensitive (..),
-    Lude._Sensitive,
-    Lude.UTCTime,
-    Lude.NominalDiffTime,
-  )
-where
+    , Lude.Base64 (..)
+    , Lude._Base64
+    , Lude.Sensitive (..)
+    , Lude._Sensitive
+    , Lude.UTCTime
+    , Lude.NominalDiffTime
+    ) where
 
-import Network.AWS.ElasticSearch.AcceptInboundCrossClusterSearchConnection
-import Network.AWS.ElasticSearch.AddTags
-import Network.AWS.ElasticSearch.AssociatePackage
-import Network.AWS.ElasticSearch.CancelElasticsearchServiceSoftwareUpdate
-import Network.AWS.ElasticSearch.CreateElasticsearchDomain
+import Network.AWS.ElasticSearch.Types
+import Network.AWS.ElasticSearch.Waiters
 import Network.AWS.ElasticSearch.CreateOutboundCrossClusterSearchConnection
-import Network.AWS.ElasticSearch.CreatePackage
-import Network.AWS.ElasticSearch.DeleteElasticsearchDomain
-import Network.AWS.ElasticSearch.DeleteElasticsearchServiceRole
-import Network.AWS.ElasticSearch.DeleteInboundCrossClusterSearchConnection
-import Network.AWS.ElasticSearch.DeleteOutboundCrossClusterSearchConnection
-import Network.AWS.ElasticSearch.DeletePackage
-import Network.AWS.ElasticSearch.DescribeElasticsearchDomain
-import Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
-import Network.AWS.ElasticSearch.DescribeElasticsearchDomains
-import Network.AWS.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
 import Network.AWS.ElasticSearch.DescribeInboundCrossClusterSearchConnections
-import Network.AWS.ElasticSearch.DescribeOutboundCrossClusterSearchConnections
-import Network.AWS.ElasticSearch.DescribePackages
-import Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstanceOfferings
-import Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstances
-import Network.AWS.ElasticSearch.DissociatePackage
+import Network.AWS.ElasticSearch.CreateElasticsearchDomain
+import Network.AWS.ElasticSearch.RemoveTags
 import Network.AWS.ElasticSearch.GetCompatibleElasticsearchVersions
+import Network.AWS.ElasticSearch.DescribeElasticsearchDomains
+import Network.AWS.ElasticSearch.ListDomainsForPackage
+import Network.AWS.ElasticSearch.ListPackagesForDomain
+import Network.AWS.ElasticSearch.StartElasticsearchServiceSoftwareUpdate
+import Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
+import Network.AWS.ElasticSearch.DeleteElasticsearchServiceRole
+import Network.AWS.ElasticSearch.DescribeElasticsearchDomain
+import Network.AWS.ElasticSearch.ListDomainNames
+import Network.AWS.ElasticSearch.AssociatePackage
+import Network.AWS.ElasticSearch.DeleteOutboundCrossClusterSearchConnection
+import Network.AWS.ElasticSearch.DescribeElasticsearchInstanceTypeLimits
 import Network.AWS.ElasticSearch.GetPackageVersionHistory
 import Network.AWS.ElasticSearch.GetUpgradeHistory
+import Network.AWS.ElasticSearch.DescribePackages
+import Network.AWS.ElasticSearch.DescribeElasticsearchDomainConfig
 import Network.AWS.ElasticSearch.GetUpgradeStatus
-import Network.AWS.ElasticSearch.ListDomainNames
-import Network.AWS.ElasticSearch.ListDomainsForPackage
-import Network.AWS.ElasticSearch.ListElasticsearchInstanceTypes
-import Network.AWS.ElasticSearch.ListElasticsearchVersions
-import Network.AWS.ElasticSearch.ListPackagesForDomain
-import Network.AWS.ElasticSearch.ListTags
+import Network.AWS.ElasticSearch.DeleteElasticsearchDomain
+import Network.AWS.ElasticSearch.DissociatePackage
 import Network.AWS.ElasticSearch.PurchaseReservedElasticsearchInstanceOffering
-import Network.AWS.ElasticSearch.RejectInboundCrossClusterSearchConnection
-import Network.AWS.ElasticSearch.RemoveTags
-import Network.AWS.ElasticSearch.StartElasticsearchServiceSoftwareUpdate
-import Network.AWS.ElasticSearch.Types
+import Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstances
 import Network.AWS.ElasticSearch.UpdateElasticsearchDomainConfig
-import Network.AWS.ElasticSearch.UpdatePackage
+import Network.AWS.ElasticSearch.ListElasticsearchVersions
+import Network.AWS.ElasticSearch.AddTags
+import Network.AWS.ElasticSearch.DeleteInboundCrossClusterSearchConnection
+import Network.AWS.ElasticSearch.DescribeReservedElasticsearchInstanceOfferings
 import Network.AWS.ElasticSearch.UpgradeElasticsearchDomain
-import Network.AWS.ElasticSearch.Waiters
+import Network.AWS.ElasticSearch.ListTags
+import Network.AWS.ElasticSearch.DeletePackage
+import Network.AWS.ElasticSearch.UpdatePackage
+import Network.AWS.ElasticSearch.CancelElasticsearchServiceSoftwareUpdate
+import Network.AWS.ElasticSearch.CreatePackage
+import Network.AWS.ElasticSearch.RejectInboundCrossClusterSearchConnection
+import Network.AWS.ElasticSearch.DescribeOutboundCrossClusterSearchConnections
+import Network.AWS.ElasticSearch.AcceptInboundCrossClusterSearchConnection
 import qualified Network.AWS.Prelude as Lude
 
--- $errors
--- Error matchers are designed for use with the functions provided by
--- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
--- This allows catching (and rethrowing) service specific errors returned
--- by 'ElasticSearch'.
+{- $errors
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by 'ElasticSearch'.
+-}
 
--- $operations
--- Some AWS operations return results that are incomplete and require subsequent
--- requests in order to obtain the entire result set. The process of sending
--- subsequent requests to continue where a previous request left off is called
--- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
--- 1000 objects at a time, and you must send subsequent requests with the
--- appropriate Marker in order to retrieve the next page of results.
---
--- Operations that have an 'AWSPager' instance can transparently perform subsequent
--- requests, correctly setting Markers and other request facets to iterate through
--- the entire result set of a truncated API operation. Operations which support
--- this have an additional note in the documentation.
---
--- Many operations have the ability to filter results on the server side. See the
--- individual operation parameters for details.
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
 
--- $waiters
--- Waiters poll by repeatedly sending a request until some remote success condition
--- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
--- determines how many attempts should be made, in addition to delay and retry strategies.
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly sending a request until some remote success condition
+configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+determines how many attempts should be made, in addition to delay and retry strategies.
+-}

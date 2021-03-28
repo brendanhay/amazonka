@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.WorkSpaces where
 
 import Data.Proxy
-import Network.AWS.WorkSpaces
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.AWS.WorkSpaces.Internal
 import Test.Tasty
+import Network.AWS.WorkSpaces
+import Test.AWS.WorkSpaces.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -336,702 +337,602 @@ import Test.Tasty
 -- Requests
 
 requestAssociateConnectionAlias :: AssociateConnectionAlias -> TestTree
-requestAssociateConnectionAlias =
-  req
+requestAssociateConnectionAlias = req
     "AssociateConnectionAlias"
     "fixture/AssociateConnectionAlias.yaml"
 
 requestDescribeAccount :: DescribeAccount -> TestTree
-requestDescribeAccount =
-  req
+requestDescribeAccount = req
     "DescribeAccount"
     "fixture/DescribeAccount.yaml"
 
 requestRevokeIpRules :: RevokeIpRules -> TestTree
-requestRevokeIpRules =
-  req
+requestRevokeIpRules = req
     "RevokeIpRules"
     "fixture/RevokeIpRules.yaml"
 
 requestDescribeWorkspaceImages :: DescribeWorkspaceImages -> TestTree
-requestDescribeWorkspaceImages =
-  req
+requestDescribeWorkspaceImages = req
     "DescribeWorkspaceImages"
     "fixture/DescribeWorkspaceImages.yaml"
 
 requestModifyWorkspaceProperties :: ModifyWorkspaceProperties -> TestTree
-requestModifyWorkspaceProperties =
-  req
+requestModifyWorkspaceProperties = req
     "ModifyWorkspaceProperties"
     "fixture/ModifyWorkspaceProperties.yaml"
 
 requestDeregisterWorkspaceDirectory :: DeregisterWorkspaceDirectory -> TestTree
-requestDeregisterWorkspaceDirectory =
-  req
+requestDeregisterWorkspaceDirectory = req
     "DeregisterWorkspaceDirectory"
     "fixture/DeregisterWorkspaceDirectory.yaml"
 
 requestMigrateWorkspace :: MigrateWorkspace -> TestTree
-requestMigrateWorkspace =
-  req
+requestMigrateWorkspace = req
     "MigrateWorkspace"
     "fixture/MigrateWorkspace.yaml"
 
 requestDescribeTags :: DescribeTags -> TestTree
-requestDescribeTags =
-  req
+requestDescribeTags = req
     "DescribeTags"
     "fixture/DescribeTags.yaml"
 
 requestDescribeWorkspaceDirectories :: DescribeWorkspaceDirectories -> TestTree
-requestDescribeWorkspaceDirectories =
-  req
+requestDescribeWorkspaceDirectories = req
     "DescribeWorkspaceDirectories"
     "fixture/DescribeWorkspaceDirectories.yaml"
 
 requestDisassociateIpGroups :: DisassociateIpGroups -> TestTree
-requestDisassociateIpGroups =
-  req
+requestDisassociateIpGroups = req
     "DisassociateIpGroups"
     "fixture/DisassociateIpGroups.yaml"
 
 requestDescribeWorkspaceBundles :: DescribeWorkspaceBundles -> TestTree
-requestDescribeWorkspaceBundles =
-  req
+requestDescribeWorkspaceBundles = req
     "DescribeWorkspaceBundles"
     "fixture/DescribeWorkspaceBundles.yaml"
 
 requestAuthorizeIpRules :: AuthorizeIpRules -> TestTree
-requestAuthorizeIpRules =
-  req
+requestAuthorizeIpRules = req
     "AuthorizeIpRules"
     "fixture/AuthorizeIpRules.yaml"
 
 requestDescribeWorkspaceImagePermissions :: DescribeWorkspaceImagePermissions -> TestTree
-requestDescribeWorkspaceImagePermissions =
-  req
+requestDescribeWorkspaceImagePermissions = req
     "DescribeWorkspaceImagePermissions"
     "fixture/DescribeWorkspaceImagePermissions.yaml"
 
 requestRebuildWorkspaces :: RebuildWorkspaces -> TestTree
-requestRebuildWorkspaces =
-  req
+requestRebuildWorkspaces = req
     "RebuildWorkspaces"
     "fixture/RebuildWorkspaces.yaml"
 
 requestImportWorkspaceImage :: ImportWorkspaceImage -> TestTree
-requestImportWorkspaceImage =
-  req
+requestImportWorkspaceImage = req
     "ImportWorkspaceImage"
     "fixture/ImportWorkspaceImage.yaml"
 
 requestModifyWorkspaceState :: ModifyWorkspaceState -> TestTree
-requestModifyWorkspaceState =
-  req
+requestModifyWorkspaceState = req
     "ModifyWorkspaceState"
     "fixture/ModifyWorkspaceState.yaml"
 
 requestCreateIpGroup :: CreateIpGroup -> TestTree
-requestCreateIpGroup =
-  req
+requestCreateIpGroup = req
     "CreateIpGroup"
     "fixture/CreateIpGroup.yaml"
 
 requestDisassociateConnectionAlias :: DisassociateConnectionAlias -> TestTree
-requestDisassociateConnectionAlias =
-  req
+requestDisassociateConnectionAlias = req
     "DisassociateConnectionAlias"
     "fixture/DisassociateConnectionAlias.yaml"
 
 requestModifyWorkspaceCreationProperties :: ModifyWorkspaceCreationProperties -> TestTree
-requestModifyWorkspaceCreationProperties =
-  req
+requestModifyWorkspaceCreationProperties = req
     "ModifyWorkspaceCreationProperties"
     "fixture/ModifyWorkspaceCreationProperties.yaml"
 
 requestRegisterWorkspaceDirectory :: RegisterWorkspaceDirectory -> TestTree
-requestRegisterWorkspaceDirectory =
-  req
+requestRegisterWorkspaceDirectory = req
     "RegisterWorkspaceDirectory"
     "fixture/RegisterWorkspaceDirectory.yaml"
 
 requestRestoreWorkspace :: RestoreWorkspace -> TestTree
-requestRestoreWorkspace =
-  req
+requestRestoreWorkspace = req
     "RestoreWorkspace"
     "fixture/RestoreWorkspace.yaml"
 
 requestDescribeConnectionAliasPermissions :: DescribeConnectionAliasPermissions -> TestTree
-requestDescribeConnectionAliasPermissions =
-  req
+requestDescribeConnectionAliasPermissions = req
     "DescribeConnectionAliasPermissions"
     "fixture/DescribeConnectionAliasPermissions.yaml"
 
 requestCreateTags :: CreateTags -> TestTree
-requestCreateTags =
-  req
+requestCreateTags = req
     "CreateTags"
     "fixture/CreateTags.yaml"
 
 requestDeleteTags :: DeleteTags -> TestTree
-requestDeleteTags =
-  req
+requestDeleteTags = req
     "DeleteTags"
     "fixture/DeleteTags.yaml"
 
 requestModifyWorkspaceAccessProperties :: ModifyWorkspaceAccessProperties -> TestTree
-requestModifyWorkspaceAccessProperties =
-  req
+requestModifyWorkspaceAccessProperties = req
     "ModifyWorkspaceAccessProperties"
     "fixture/ModifyWorkspaceAccessProperties.yaml"
 
 requestUpdateRulesOfIpGroup :: UpdateRulesOfIpGroup -> TestTree
-requestUpdateRulesOfIpGroup =
-  req
+requestUpdateRulesOfIpGroup = req
     "UpdateRulesOfIpGroup"
     "fixture/UpdateRulesOfIpGroup.yaml"
 
 requestDeleteWorkspaceImage :: DeleteWorkspaceImage -> TestTree
-requestDeleteWorkspaceImage =
-  req
+requestDeleteWorkspaceImage = req
     "DeleteWorkspaceImage"
     "fixture/DeleteWorkspaceImage.yaml"
 
 requestStopWorkspaces :: StopWorkspaces -> TestTree
-requestStopWorkspaces =
-  req
+requestStopWorkspaces = req
     "StopWorkspaces"
     "fixture/StopWorkspaces.yaml"
 
 requestAssociateIpGroups :: AssociateIpGroups -> TestTree
-requestAssociateIpGroups =
-  req
+requestAssociateIpGroups = req
     "AssociateIpGroups"
     "fixture/AssociateIpGroups.yaml"
 
 requestModifySelfservicePermissions :: ModifySelfservicePermissions -> TestTree
-requestModifySelfservicePermissions =
-  req
+requestModifySelfservicePermissions = req
     "ModifySelfservicePermissions"
     "fixture/ModifySelfservicePermissions.yaml"
 
 requestDeleteConnectionAlias :: DeleteConnectionAlias -> TestTree
-requestDeleteConnectionAlias =
-  req
+requestDeleteConnectionAlias = req
     "DeleteConnectionAlias"
     "fixture/DeleteConnectionAlias.yaml"
 
 requestDescribeWorkspacesConnectionStatus :: DescribeWorkspacesConnectionStatus -> TestTree
-requestDescribeWorkspacesConnectionStatus =
-  req
+requestDescribeWorkspacesConnectionStatus = req
     "DescribeWorkspacesConnectionStatus"
     "fixture/DescribeWorkspacesConnectionStatus.yaml"
 
 requestCreateConnectionAlias :: CreateConnectionAlias -> TestTree
-requestCreateConnectionAlias =
-  req
+requestCreateConnectionAlias = req
     "CreateConnectionAlias"
     "fixture/CreateConnectionAlias.yaml"
 
 requestRebootWorkspaces :: RebootWorkspaces -> TestTree
-requestRebootWorkspaces =
-  req
+requestRebootWorkspaces = req
     "RebootWorkspaces"
     "fixture/RebootWorkspaces.yaml"
 
 requestDeleteIpGroup :: DeleteIpGroup -> TestTree
-requestDeleteIpGroup =
-  req
+requestDeleteIpGroup = req
     "DeleteIpGroup"
     "fixture/DeleteIpGroup.yaml"
 
 requestCopyWorkspaceImage :: CopyWorkspaceImage -> TestTree
-requestCopyWorkspaceImage =
-  req
+requestCopyWorkspaceImage = req
     "CopyWorkspaceImage"
     "fixture/CopyWorkspaceImage.yaml"
 
 requestDescribeWorkspaceSnapshots :: DescribeWorkspaceSnapshots -> TestTree
-requestDescribeWorkspaceSnapshots =
-  req
+requestDescribeWorkspaceSnapshots = req
     "DescribeWorkspaceSnapshots"
     "fixture/DescribeWorkspaceSnapshots.yaml"
 
 requestTerminateWorkspaces :: TerminateWorkspaces -> TestTree
-requestTerminateWorkspaces =
-  req
+requestTerminateWorkspaces = req
     "TerminateWorkspaces"
     "fixture/TerminateWorkspaces.yaml"
 
 requestUpdateConnectionAliasPermission :: UpdateConnectionAliasPermission -> TestTree
-requestUpdateConnectionAliasPermission =
-  req
+requestUpdateConnectionAliasPermission = req
     "UpdateConnectionAliasPermission"
     "fixture/UpdateConnectionAliasPermission.yaml"
 
 requestCreateWorkspaces :: CreateWorkspaces -> TestTree
-requestCreateWorkspaces =
-  req
+requestCreateWorkspaces = req
     "CreateWorkspaces"
     "fixture/CreateWorkspaces.yaml"
 
 requestDescribeClientProperties :: DescribeClientProperties -> TestTree
-requestDescribeClientProperties =
-  req
+requestDescribeClientProperties = req
     "DescribeClientProperties"
     "fixture/DescribeClientProperties.yaml"
 
 requestModifyClientProperties :: ModifyClientProperties -> TestTree
-requestModifyClientProperties =
-  req
+requestModifyClientProperties = req
     "ModifyClientProperties"
     "fixture/ModifyClientProperties.yaml"
 
 requestDescribeIpGroups :: DescribeIpGroups -> TestTree
-requestDescribeIpGroups =
-  req
+requestDescribeIpGroups = req
     "DescribeIpGroups"
     "fixture/DescribeIpGroups.yaml"
 
 requestListAvailableManagementCidrRanges :: ListAvailableManagementCidrRanges -> TestTree
-requestListAvailableManagementCidrRanges =
-  req
+requestListAvailableManagementCidrRanges = req
     "ListAvailableManagementCidrRanges"
     "fixture/ListAvailableManagementCidrRanges.yaml"
 
 requestUpdateWorkspaceImagePermission :: UpdateWorkspaceImagePermission -> TestTree
-requestUpdateWorkspaceImagePermission =
-  req
+requestUpdateWorkspaceImagePermission = req
     "UpdateWorkspaceImagePermission"
     "fixture/UpdateWorkspaceImagePermission.yaml"
 
 requestDescribeWorkspaces :: DescribeWorkspaces -> TestTree
-requestDescribeWorkspaces =
-  req
+requestDescribeWorkspaces = req
     "DescribeWorkspaces"
     "fixture/DescribeWorkspaces.yaml"
 
 requestDescribeConnectionAliases :: DescribeConnectionAliases -> TestTree
-requestDescribeConnectionAliases =
-  req
+requestDescribeConnectionAliases = req
     "DescribeConnectionAliases"
     "fixture/DescribeConnectionAliases.yaml"
 
 requestStartWorkspaces :: StartWorkspaces -> TestTree
-requestStartWorkspaces =
-  req
+requestStartWorkspaces = req
     "StartWorkspaces"
     "fixture/StartWorkspaces.yaml"
 
 requestDescribeAccountModifications :: DescribeAccountModifications -> TestTree
-requestDescribeAccountModifications =
-  req
+requestDescribeAccountModifications = req
     "DescribeAccountModifications"
     "fixture/DescribeAccountModifications.yaml"
 
 requestModifyAccount :: ModifyAccount -> TestTree
-requestModifyAccount =
-  req
+requestModifyAccount = req
     "ModifyAccount"
     "fixture/ModifyAccount.yaml"
 
 -- Responses
 
 responseAssociateConnectionAlias :: AssociateConnectionAliasResponse -> TestTree
-responseAssociateConnectionAlias =
-  res
+responseAssociateConnectionAlias = res
     "AssociateConnectionAliasResponse"
     "fixture/AssociateConnectionAliasResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateConnectionAlias)
 
 responseDescribeAccount :: DescribeAccountResponse -> TestTree
-responseDescribeAccount =
-  res
+responseDescribeAccount = res
     "DescribeAccountResponse"
     "fixture/DescribeAccountResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAccount)
 
 responseRevokeIpRules :: RevokeIpRulesResponse -> TestTree
-responseRevokeIpRules =
-  res
+responseRevokeIpRules = res
     "RevokeIpRulesResponse"
     "fixture/RevokeIpRulesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RevokeIpRules)
 
 responseDescribeWorkspaceImages :: DescribeWorkspaceImagesResponse -> TestTree
-responseDescribeWorkspaceImages =
-  res
+responseDescribeWorkspaceImages = res
     "DescribeWorkspaceImagesResponse"
     "fixture/DescribeWorkspaceImagesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeWorkspaceImages)
 
 responseModifyWorkspaceProperties :: ModifyWorkspacePropertiesResponse -> TestTree
-responseModifyWorkspaceProperties =
-  res
+responseModifyWorkspaceProperties = res
     "ModifyWorkspacePropertiesResponse"
     "fixture/ModifyWorkspacePropertiesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyWorkspaceProperties)
 
 responseDeregisterWorkspaceDirectory :: DeregisterWorkspaceDirectoryResponse -> TestTree
-responseDeregisterWorkspaceDirectory =
-  res
+responseDeregisterWorkspaceDirectory = res
     "DeregisterWorkspaceDirectoryResponse"
     "fixture/DeregisterWorkspaceDirectoryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeregisterWorkspaceDirectory)
 
 responseMigrateWorkspace :: MigrateWorkspaceResponse -> TestTree
-responseMigrateWorkspace =
-  res
+responseMigrateWorkspace = res
     "MigrateWorkspaceResponse"
     "fixture/MigrateWorkspaceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy MigrateWorkspace)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
-responseDescribeTags =
-  res
+responseDescribeTags = res
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeTags)
 
 responseDescribeWorkspaceDirectories :: DescribeWorkspaceDirectoriesResponse -> TestTree
-responseDescribeWorkspaceDirectories =
-  res
+responseDescribeWorkspaceDirectories = res
     "DescribeWorkspaceDirectoriesResponse"
     "fixture/DescribeWorkspaceDirectoriesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeWorkspaceDirectories)
 
 responseDisassociateIpGroups :: DisassociateIpGroupsResponse -> TestTree
-responseDisassociateIpGroups =
-  res
+responseDisassociateIpGroups = res
     "DisassociateIpGroupsResponse"
     "fixture/DisassociateIpGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateIpGroups)
 
 responseDescribeWorkspaceBundles :: DescribeWorkspaceBundlesResponse -> TestTree
-responseDescribeWorkspaceBundles =
-  res
+responseDescribeWorkspaceBundles = res
     "DescribeWorkspaceBundlesResponse"
     "fixture/DescribeWorkspaceBundlesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeWorkspaceBundles)
 
 responseAuthorizeIpRules :: AuthorizeIpRulesResponse -> TestTree
-responseAuthorizeIpRules =
-  res
+responseAuthorizeIpRules = res
     "AuthorizeIpRulesResponse"
     "fixture/AuthorizeIpRulesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AuthorizeIpRules)
 
 responseDescribeWorkspaceImagePermissions :: DescribeWorkspaceImagePermissionsResponse -> TestTree
-responseDescribeWorkspaceImagePermissions =
-  res
+responseDescribeWorkspaceImagePermissions = res
     "DescribeWorkspaceImagePermissionsResponse"
     "fixture/DescribeWorkspaceImagePermissionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeWorkspaceImagePermissions)
 
 responseRebuildWorkspaces :: RebuildWorkspacesResponse -> TestTree
-responseRebuildWorkspaces =
-  res
+responseRebuildWorkspaces = res
     "RebuildWorkspacesResponse"
     "fixture/RebuildWorkspacesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RebuildWorkspaces)
 
 responseImportWorkspaceImage :: ImportWorkspaceImageResponse -> TestTree
-responseImportWorkspaceImage =
-  res
+responseImportWorkspaceImage = res
     "ImportWorkspaceImageResponse"
     "fixture/ImportWorkspaceImageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ImportWorkspaceImage)
 
 responseModifyWorkspaceState :: ModifyWorkspaceStateResponse -> TestTree
-responseModifyWorkspaceState =
-  res
+responseModifyWorkspaceState = res
     "ModifyWorkspaceStateResponse"
     "fixture/ModifyWorkspaceStateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyWorkspaceState)
 
 responseCreateIpGroup :: CreateIpGroupResponse -> TestTree
-responseCreateIpGroup =
-  res
+responseCreateIpGroup = res
     "CreateIpGroupResponse"
     "fixture/CreateIpGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateIpGroup)
 
 responseDisassociateConnectionAlias :: DisassociateConnectionAliasResponse -> TestTree
-responseDisassociateConnectionAlias =
-  res
+responseDisassociateConnectionAlias = res
     "DisassociateConnectionAliasResponse"
     "fixture/DisassociateConnectionAliasResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateConnectionAlias)
 
 responseModifyWorkspaceCreationProperties :: ModifyWorkspaceCreationPropertiesResponse -> TestTree
-responseModifyWorkspaceCreationProperties =
-  res
+responseModifyWorkspaceCreationProperties = res
     "ModifyWorkspaceCreationPropertiesResponse"
     "fixture/ModifyWorkspaceCreationPropertiesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyWorkspaceCreationProperties)
 
 responseRegisterWorkspaceDirectory :: RegisterWorkspaceDirectoryResponse -> TestTree
-responseRegisterWorkspaceDirectory =
-  res
+responseRegisterWorkspaceDirectory = res
     "RegisterWorkspaceDirectoryResponse"
     "fixture/RegisterWorkspaceDirectoryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RegisterWorkspaceDirectory)
 
 responseRestoreWorkspace :: RestoreWorkspaceResponse -> TestTree
-responseRestoreWorkspace =
-  res
+responseRestoreWorkspace = res
     "RestoreWorkspaceResponse"
     "fixture/RestoreWorkspaceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RestoreWorkspace)
 
 responseDescribeConnectionAliasPermissions :: DescribeConnectionAliasPermissionsResponse -> TestTree
-responseDescribeConnectionAliasPermissions =
-  res
+responseDescribeConnectionAliasPermissions = res
     "DescribeConnectionAliasPermissionsResponse"
     "fixture/DescribeConnectionAliasPermissionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeConnectionAliasPermissions)
 
 responseCreateTags :: CreateTagsResponse -> TestTree
-responseCreateTags =
-  res
+responseCreateTags = res
     "CreateTagsResponse"
     "fixture/CreateTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateTags)
 
 responseDeleteTags :: DeleteTagsResponse -> TestTree
-responseDeleteTags =
-  res
+responseDeleteTags = res
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteTags)
 
 responseModifyWorkspaceAccessProperties :: ModifyWorkspaceAccessPropertiesResponse -> TestTree
-responseModifyWorkspaceAccessProperties =
-  res
+responseModifyWorkspaceAccessProperties = res
     "ModifyWorkspaceAccessPropertiesResponse"
     "fixture/ModifyWorkspaceAccessPropertiesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyWorkspaceAccessProperties)
 
 responseUpdateRulesOfIpGroup :: UpdateRulesOfIpGroupResponse -> TestTree
-responseUpdateRulesOfIpGroup =
-  res
+responseUpdateRulesOfIpGroup = res
     "UpdateRulesOfIpGroupResponse"
     "fixture/UpdateRulesOfIpGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateRulesOfIpGroup)
 
 responseDeleteWorkspaceImage :: DeleteWorkspaceImageResponse -> TestTree
-responseDeleteWorkspaceImage =
-  res
+responseDeleteWorkspaceImage = res
     "DeleteWorkspaceImageResponse"
     "fixture/DeleteWorkspaceImageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteWorkspaceImage)
 
 responseStopWorkspaces :: StopWorkspacesResponse -> TestTree
-responseStopWorkspaces =
-  res
+responseStopWorkspaces = res
     "StopWorkspacesResponse"
     "fixture/StopWorkspacesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StopWorkspaces)
 
 responseAssociateIpGroups :: AssociateIpGroupsResponse -> TestTree
-responseAssociateIpGroups =
-  res
+responseAssociateIpGroups = res
     "AssociateIpGroupsResponse"
     "fixture/AssociateIpGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateIpGroups)
 
 responseModifySelfservicePermissions :: ModifySelfservicePermissionsResponse -> TestTree
-responseModifySelfservicePermissions =
-  res
+responseModifySelfservicePermissions = res
     "ModifySelfservicePermissionsResponse"
     "fixture/ModifySelfservicePermissionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifySelfservicePermissions)
 
 responseDeleteConnectionAlias :: DeleteConnectionAliasResponse -> TestTree
-responseDeleteConnectionAlias =
-  res
+responseDeleteConnectionAlias = res
     "DeleteConnectionAliasResponse"
     "fixture/DeleteConnectionAliasResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteConnectionAlias)
 
 responseDescribeWorkspacesConnectionStatus :: DescribeWorkspacesConnectionStatusResponse -> TestTree
-responseDescribeWorkspacesConnectionStatus =
-  res
+responseDescribeWorkspacesConnectionStatus = res
     "DescribeWorkspacesConnectionStatusResponse"
     "fixture/DescribeWorkspacesConnectionStatusResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeWorkspacesConnectionStatus)
 
 responseCreateConnectionAlias :: CreateConnectionAliasResponse -> TestTree
-responseCreateConnectionAlias =
-  res
+responseCreateConnectionAlias = res
     "CreateConnectionAliasResponse"
     "fixture/CreateConnectionAliasResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateConnectionAlias)
 
 responseRebootWorkspaces :: RebootWorkspacesResponse -> TestTree
-responseRebootWorkspaces =
-  res
+responseRebootWorkspaces = res
     "RebootWorkspacesResponse"
     "fixture/RebootWorkspacesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RebootWorkspaces)
 
 responseDeleteIpGroup :: DeleteIpGroupResponse -> TestTree
-responseDeleteIpGroup =
-  res
+responseDeleteIpGroup = res
     "DeleteIpGroupResponse"
     "fixture/DeleteIpGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteIpGroup)
 
 responseCopyWorkspaceImage :: CopyWorkspaceImageResponse -> TestTree
-responseCopyWorkspaceImage =
-  res
+responseCopyWorkspaceImage = res
     "CopyWorkspaceImageResponse"
     "fixture/CopyWorkspaceImageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CopyWorkspaceImage)
 
 responseDescribeWorkspaceSnapshots :: DescribeWorkspaceSnapshotsResponse -> TestTree
-responseDescribeWorkspaceSnapshots =
-  res
+responseDescribeWorkspaceSnapshots = res
     "DescribeWorkspaceSnapshotsResponse"
     "fixture/DescribeWorkspaceSnapshotsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeWorkspaceSnapshots)
 
 responseTerminateWorkspaces :: TerminateWorkspacesResponse -> TestTree
-responseTerminateWorkspaces =
-  res
+responseTerminateWorkspaces = res
     "TerminateWorkspacesResponse"
     "fixture/TerminateWorkspacesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TerminateWorkspaces)
 
 responseUpdateConnectionAliasPermission :: UpdateConnectionAliasPermissionResponse -> TestTree
-responseUpdateConnectionAliasPermission =
-  res
+responseUpdateConnectionAliasPermission = res
     "UpdateConnectionAliasPermissionResponse"
     "fixture/UpdateConnectionAliasPermissionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateConnectionAliasPermission)
 
 responseCreateWorkspaces :: CreateWorkspacesResponse -> TestTree
-responseCreateWorkspaces =
-  res
+responseCreateWorkspaces = res
     "CreateWorkspacesResponse"
     "fixture/CreateWorkspacesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateWorkspaces)
 
 responseDescribeClientProperties :: DescribeClientPropertiesResponse -> TestTree
-responseDescribeClientProperties =
-  res
+responseDescribeClientProperties = res
     "DescribeClientPropertiesResponse"
     "fixture/DescribeClientPropertiesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeClientProperties)
 
 responseModifyClientProperties :: ModifyClientPropertiesResponse -> TestTree
-responseModifyClientProperties =
-  res
+responseModifyClientProperties = res
     "ModifyClientPropertiesResponse"
     "fixture/ModifyClientPropertiesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyClientProperties)
 
 responseDescribeIpGroups :: DescribeIpGroupsResponse -> TestTree
-responseDescribeIpGroups =
-  res
+responseDescribeIpGroups = res
     "DescribeIpGroupsResponse"
     "fixture/DescribeIpGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeIpGroups)
 
 responseListAvailableManagementCidrRanges :: ListAvailableManagementCidrRangesResponse -> TestTree
-responseListAvailableManagementCidrRanges =
-  res
+responseListAvailableManagementCidrRanges = res
     "ListAvailableManagementCidrRangesResponse"
     "fixture/ListAvailableManagementCidrRangesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListAvailableManagementCidrRanges)
 
 responseUpdateWorkspaceImagePermission :: UpdateWorkspaceImagePermissionResponse -> TestTree
-responseUpdateWorkspaceImagePermission =
-  res
+responseUpdateWorkspaceImagePermission = res
     "UpdateWorkspaceImagePermissionResponse"
     "fixture/UpdateWorkspaceImagePermissionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateWorkspaceImagePermission)
 
 responseDescribeWorkspaces :: DescribeWorkspacesResponse -> TestTree
-responseDescribeWorkspaces =
-  res
+responseDescribeWorkspaces = res
     "DescribeWorkspacesResponse"
     "fixture/DescribeWorkspacesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeWorkspaces)
 
 responseDescribeConnectionAliases :: DescribeConnectionAliasesResponse -> TestTree
-responseDescribeConnectionAliases =
-  res
+responseDescribeConnectionAliases = res
     "DescribeConnectionAliasesResponse"
     "fixture/DescribeConnectionAliasesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeConnectionAliases)
 
 responseStartWorkspaces :: StartWorkspacesResponse -> TestTree
-responseStartWorkspaces =
-  res
+responseStartWorkspaces = res
     "StartWorkspacesResponse"
     "fixture/StartWorkspacesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartWorkspaces)
 
 responseDescribeAccountModifications :: DescribeAccountModificationsResponse -> TestTree
-responseDescribeAccountModifications =
-  res
+responseDescribeAccountModifications = res
     "DescribeAccountModificationsResponse"
     "fixture/DescribeAccountModificationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAccountModifications)
 
 responseModifyAccount :: ModifyAccountResponse -> TestTree
-responseModifyAccount =
-  res
+responseModifyAccount = res
     "ModifyAccountResponse"
     "fixture/ModifyAccountResponse.proto"
     mkServiceConfig

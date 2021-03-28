@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,58 +10,59 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Alexa for Business helps you use Alexa in your organization. Alexa for Business provides you with the tools to manage Alexa devices, enroll your users, and assign skills, at scale. You can build your own context-aware voice skills using the Alexa Skills Kit and the Alexa for Business API operations. You can also make these available as private skills for your organization. Alexa for Business makes it efficient to voice-enable your products and services, thus providing context-aware voice experiences for your customers. Device makers building with the Alexa Voice Service (AVS) can create fully integrated solutions, register their products with Alexa for Business, and manage them as shared devices in their organization.
+-- Alexa for Business helps you use Alexa in your organization. Alexa for Business provides you with the tools to manage Alexa devices, enroll your users, and assign skills, at scale. You can build your own context-aware voice skills using the Alexa Skills Kit and the Alexa for Business API operations. You can also make these available as private skills for your organization. Alexa for Business makes it efficient to voice-enable your products and services, thus providing context-aware voice experiences for your customers. Device makers building with the Alexa Voice Service (AVS) can create fully integrated solutions, register their products with Alexa for Business, and manage them as shared devices in their organization. 
 module Network.AWS.AlexaBusiness
-  ( -- * Service configuration
-    mkServiceConfig,
+    (
+    -- * Service configuration
+      mkServiceConfig
 
     -- * Errors
     -- $errors
 
     -- ** SkillNotLinkedException
-    _SkillNotLinkedException,
+    , _SkillNotLinkedException
 
     -- ** InvalidCertificateAuthorityException
-    _InvalidCertificateAuthorityException,
+    , _InvalidCertificateAuthorityException
 
     -- ** DeviceNotRegisteredException
-    _DeviceNotRegisteredException,
+    , _DeviceNotRegisteredException
 
     -- ** ResourceAssociatedException
-    _ResourceAssociatedException,
+    , _ResourceAssociatedException
 
     -- ** InvalidUserStatusException
-    _InvalidUserStatusException,
+    , _InvalidUserStatusException
 
     -- ** InvalidDeviceException
-    _InvalidDeviceException,
+    , _InvalidDeviceException
 
     -- ** InvalidServiceLinkedRoleStateException
-    _InvalidServiceLinkedRoleStateException,
+    , _InvalidServiceLinkedRoleStateException
 
     -- ** NotFoundException
-    _NotFoundException,
+    , _NotFoundException
 
     -- ** NameInUseException
-    _NameInUseException,
+    , _NameInUseException
 
     -- ** InvalidSecretsManagerResourceException
-    _InvalidSecretsManagerResourceException,
+    , _InvalidSecretsManagerResourceException
 
     -- ** ConcurrentModificationException
-    _ConcurrentModificationException,
+    , _ConcurrentModificationException
 
     -- ** UnauthorizedException
-    _UnauthorizedException,
+    , _UnauthorizedException
 
     -- ** AlreadyExistsException
-    _AlreadyExistsException,
+    , _AlreadyExistsException
 
     -- ** LimitExceededException
-    _LimitExceededException,
+    , _LimitExceededException
 
     -- ** ResourceInUseException
-    _ResourceInUseException,
+    , _ResourceInUseException
 
     -- * Waiters
     -- $waiters
@@ -70,1296 +71,1298 @@ module Network.AWS.AlexaBusiness
     -- $operations
 
     -- ** SearchUsers (Paginated)
-    module Network.AWS.AlexaBusiness.SearchUsers,
+    , module Network.AWS.AlexaBusiness.SearchUsers
 
-    -- ** PutConferencePreference
-    module Network.AWS.AlexaBusiness.PutConferencePreference,
+    -- ** PutConferencePreference 
+    , module Network.AWS.AlexaBusiness.PutConferencePreference
 
-    -- ** UpdateNetworkProfile
-    module Network.AWS.AlexaBusiness.UpdateNetworkProfile,
+    -- ** UpdateNetworkProfile 
+    , module Network.AWS.AlexaBusiness.UpdateNetworkProfile
 
-    -- ** DeleteNetworkProfile
-    module Network.AWS.AlexaBusiness.DeleteNetworkProfile,
+    -- ** DeleteNetworkProfile 
+    , module Network.AWS.AlexaBusiness.DeleteNetworkProfile
 
-    -- ** UpdateBusinessReportSchedule
-    module Network.AWS.AlexaBusiness.UpdateBusinessReportSchedule,
+    -- ** UpdateBusinessReportSchedule 
+    , module Network.AWS.AlexaBusiness.UpdateBusinessReportSchedule
 
-    -- ** DeleteBusinessReportSchedule
-    module Network.AWS.AlexaBusiness.DeleteBusinessReportSchedule,
+    -- ** DeleteBusinessReportSchedule 
+    , module Network.AWS.AlexaBusiness.DeleteBusinessReportSchedule
 
-    -- ** AssociateSkillGroupWithRoom
-    module Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom,
+    -- ** AssociateSkillGroupWithRoom 
+    , module Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom
 
     -- ** ListSmartHomeAppliances (Paginated)
-    module Network.AWS.AlexaBusiness.ListSmartHomeAppliances,
+    , module Network.AWS.AlexaBusiness.ListSmartHomeAppliances
 
-    -- ** DeleteProfile
-    module Network.AWS.AlexaBusiness.DeleteProfile,
+    -- ** DeleteProfile 
+    , module Network.AWS.AlexaBusiness.DeleteProfile
 
-    -- ** UpdateProfile
-    module Network.AWS.AlexaBusiness.UpdateProfile,
+    -- ** UpdateProfile 
+    , module Network.AWS.AlexaBusiness.UpdateProfile
 
     -- ** SearchRooms (Paginated)
-    module Network.AWS.AlexaBusiness.SearchRooms,
+    , module Network.AWS.AlexaBusiness.SearchRooms
 
-    -- ** AssociateSkillWithUsers
-    module Network.AWS.AlexaBusiness.AssociateSkillWithUsers,
+    -- ** AssociateSkillWithUsers 
+    , module Network.AWS.AlexaBusiness.AssociateSkillWithUsers
 
-    -- ** RegisterAVSDevice
-    module Network.AWS.AlexaBusiness.RegisterAVSDevice,
+    -- ** RegisterAVSDevice 
+    , module Network.AWS.AlexaBusiness.RegisterAVSDevice
 
-    -- ** ForgetSmartHomeAppliances
-    module Network.AWS.AlexaBusiness.ForgetSmartHomeAppliances,
+    -- ** ForgetSmartHomeAppliances 
+    , module Network.AWS.AlexaBusiness.ForgetSmartHomeAppliances
 
-    -- ** PutInvitationConfiguration
-    module Network.AWS.AlexaBusiness.PutInvitationConfiguration,
+    -- ** PutInvitationConfiguration 
+    , module Network.AWS.AlexaBusiness.PutInvitationConfiguration
 
-    -- ** DisassociateContactFromAddressBook
-    module Network.AWS.AlexaBusiness.DisassociateContactFromAddressBook,
+    -- ** DisassociateContactFromAddressBook 
+    , module Network.AWS.AlexaBusiness.DisassociateContactFromAddressBook
 
-    -- ** GetNetworkProfile
-    module Network.AWS.AlexaBusiness.GetNetworkProfile,
+    -- ** GetNetworkProfile 
+    , module Network.AWS.AlexaBusiness.GetNetworkProfile
 
-    -- ** GetConferencePreference
-    module Network.AWS.AlexaBusiness.GetConferencePreference,
+    -- ** GetConferencePreference 
+    , module Network.AWS.AlexaBusiness.GetConferencePreference
 
-    -- ** DisassociateSkillFromSkillGroup
-    module Network.AWS.AlexaBusiness.DisassociateSkillFromSkillGroup,
+    -- ** DisassociateSkillFromSkillGroup 
+    , module Network.AWS.AlexaBusiness.DisassociateSkillFromSkillGroup
 
-    -- ** CreateAddressBook
-    module Network.AWS.AlexaBusiness.CreateAddressBook,
+    -- ** CreateAddressBook 
+    , module Network.AWS.AlexaBusiness.CreateAddressBook
 
-    -- ** DeleteAddressBook
-    module Network.AWS.AlexaBusiness.DeleteAddressBook,
+    -- ** DeleteAddressBook 
+    , module Network.AWS.AlexaBusiness.DeleteAddressBook
 
-    -- ** UpdateAddressBook
-    module Network.AWS.AlexaBusiness.UpdateAddressBook,
+    -- ** UpdateAddressBook 
+    , module Network.AWS.AlexaBusiness.UpdateAddressBook
 
-    -- ** DeleteGatewayGroup
-    module Network.AWS.AlexaBusiness.DeleteGatewayGroup,
+    -- ** DeleteGatewayGroup 
+    , module Network.AWS.AlexaBusiness.DeleteGatewayGroup
 
-    -- ** UpdateGatewayGroup
-    module Network.AWS.AlexaBusiness.UpdateGatewayGroup,
+    -- ** UpdateGatewayGroup 
+    , module Network.AWS.AlexaBusiness.UpdateGatewayGroup
 
-    -- ** UpdateRoom
-    module Network.AWS.AlexaBusiness.UpdateRoom,
+    -- ** UpdateRoom 
+    , module Network.AWS.AlexaBusiness.UpdateRoom
 
-    -- ** DeleteRoom
-    module Network.AWS.AlexaBusiness.DeleteRoom,
+    -- ** DeleteRoom 
+    , module Network.AWS.AlexaBusiness.DeleteRoom
 
-    -- ** GetDevice
-    module Network.AWS.AlexaBusiness.GetDevice,
+    -- ** GetDevice 
+    , module Network.AWS.AlexaBusiness.GetDevice
 
-    -- ** GetGateway
-    module Network.AWS.AlexaBusiness.GetGateway,
+    -- ** GetGateway 
+    , module Network.AWS.AlexaBusiness.GetGateway
 
     -- ** ListSkillsStoreSkillsByCategory (Paginated)
-    module Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory,
+    , module Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory
 
-    -- ** DeleteConferenceProvider
-    module Network.AWS.AlexaBusiness.DeleteConferenceProvider,
+    -- ** DeleteConferenceProvider 
+    , module Network.AWS.AlexaBusiness.DeleteConferenceProvider
 
-    -- ** UpdateConferenceProvider
-    module Network.AWS.AlexaBusiness.UpdateConferenceProvider,
+    -- ** UpdateConferenceProvider 
+    , module Network.AWS.AlexaBusiness.UpdateConferenceProvider
 
-    -- ** GetContact
-    module Network.AWS.AlexaBusiness.GetContact,
+    -- ** GetContact 
+    , module Network.AWS.AlexaBusiness.GetContact
 
-    -- ** ApproveSkill
-    module Network.AWS.AlexaBusiness.ApproveSkill,
+    -- ** ApproveSkill 
+    , module Network.AWS.AlexaBusiness.ApproveSkill
 
-    -- ** CreateNetworkProfile
-    module Network.AWS.AlexaBusiness.CreateNetworkProfile,
+    -- ** CreateNetworkProfile 
+    , module Network.AWS.AlexaBusiness.CreateNetworkProfile
 
-    -- ** AssociateDeviceWithRoom
-    module Network.AWS.AlexaBusiness.AssociateDeviceWithRoom,
+    -- ** AssociateDeviceWithRoom 
+    , module Network.AWS.AlexaBusiness.AssociateDeviceWithRoom
 
-    -- ** GetRoomSkillParameter
-    module Network.AWS.AlexaBusiness.GetRoomSkillParameter,
+    -- ** GetRoomSkillParameter 
+    , module Network.AWS.AlexaBusiness.GetRoomSkillParameter
 
-    -- ** UpdateGateway
-    module Network.AWS.AlexaBusiness.UpdateGateway,
+    -- ** UpdateGateway 
+    , module Network.AWS.AlexaBusiness.UpdateGateway
 
-    -- ** CreateBusinessReportSchedule
-    module Network.AWS.AlexaBusiness.CreateBusinessReportSchedule,
+    -- ** CreateBusinessReportSchedule 
+    , module Network.AWS.AlexaBusiness.CreateBusinessReportSchedule
 
-    -- ** DeleteContact
-    module Network.AWS.AlexaBusiness.DeleteContact,
+    -- ** DeleteContact 
+    , module Network.AWS.AlexaBusiness.DeleteContact
 
-    -- ** UpdateContact
-    module Network.AWS.AlexaBusiness.UpdateContact,
+    -- ** UpdateContact 
+    , module Network.AWS.AlexaBusiness.UpdateContact
 
-    -- ** GetAddressBook
-    module Network.AWS.AlexaBusiness.GetAddressBook,
+    -- ** GetAddressBook 
+    , module Network.AWS.AlexaBusiness.GetAddressBook
 
     -- ** ListBusinessReportSchedules (Paginated)
-    module Network.AWS.AlexaBusiness.ListBusinessReportSchedules,
+    , module Network.AWS.AlexaBusiness.ListBusinessReportSchedules
 
-    -- ** DeleteDeviceUsageData
-    module Network.AWS.AlexaBusiness.DeleteDeviceUsageData,
+    -- ** DeleteDeviceUsageData 
+    , module Network.AWS.AlexaBusiness.DeleteDeviceUsageData
 
-    -- ** CreateContact
-    module Network.AWS.AlexaBusiness.CreateContact,
+    -- ** CreateContact 
+    , module Network.AWS.AlexaBusiness.CreateContact
 
-    -- ** CreateProfile
-    module Network.AWS.AlexaBusiness.CreateProfile,
+    -- ** CreateProfile 
+    , module Network.AWS.AlexaBusiness.CreateProfile
 
-    -- ** DeleteSkillGroup
-    module Network.AWS.AlexaBusiness.DeleteSkillGroup,
+    -- ** DeleteSkillGroup 
+    , module Network.AWS.AlexaBusiness.DeleteSkillGroup
 
-    -- ** UpdateSkillGroup
-    module Network.AWS.AlexaBusiness.UpdateSkillGroup,
+    -- ** UpdateSkillGroup 
+    , module Network.AWS.AlexaBusiness.UpdateSkillGroup
 
-    -- ** StartDeviceSync
-    module Network.AWS.AlexaBusiness.StartDeviceSync,
+    -- ** StartDeviceSync 
+    , module Network.AWS.AlexaBusiness.StartDeviceSync
 
-    -- ** GetInvitationConfiguration
-    module Network.AWS.AlexaBusiness.GetInvitationConfiguration,
+    -- ** GetInvitationConfiguration 
+    , module Network.AWS.AlexaBusiness.GetInvitationConfiguration
 
-    -- ** DisassociateSkillFromUsers
-    module Network.AWS.AlexaBusiness.DisassociateSkillFromUsers,
+    -- ** DisassociateSkillFromUsers 
+    , module Network.AWS.AlexaBusiness.DisassociateSkillFromUsers
 
-    -- ** SearchAddressBooks
-    module Network.AWS.AlexaBusiness.SearchAddressBooks,
+    -- ** SearchAddressBooks 
+    , module Network.AWS.AlexaBusiness.SearchAddressBooks
 
-    -- ** CreateSkillGroup
-    module Network.AWS.AlexaBusiness.CreateSkillGroup,
+    -- ** CreateSkillGroup 
+    , module Network.AWS.AlexaBusiness.CreateSkillGroup
 
-    -- ** GetProfile
-    module Network.AWS.AlexaBusiness.GetProfile,
+    -- ** GetProfile 
+    , module Network.AWS.AlexaBusiness.GetProfile
 
-    -- ** DisassociateSkillGroupFromRoom
-    module Network.AWS.AlexaBusiness.DisassociateSkillGroupFromRoom,
+    -- ** DisassociateSkillGroupFromRoom 
+    , module Network.AWS.AlexaBusiness.DisassociateSkillGroupFromRoom
 
-    -- ** SendInvitation
-    module Network.AWS.AlexaBusiness.SendInvitation,
+    -- ** SendInvitation 
+    , module Network.AWS.AlexaBusiness.SendInvitation
 
     -- ** ListDeviceEvents (Paginated)
-    module Network.AWS.AlexaBusiness.ListDeviceEvents,
+    , module Network.AWS.AlexaBusiness.ListDeviceEvents
 
-    -- ** CreateUser
-    module Network.AWS.AlexaBusiness.CreateUser,
+    -- ** CreateUser 
+    , module Network.AWS.AlexaBusiness.CreateUser
 
     -- ** SearchDevices (Paginated)
-    module Network.AWS.AlexaBusiness.SearchDevices,
+    , module Network.AWS.AlexaBusiness.SearchDevices
 
-    -- ** SearchContacts
-    module Network.AWS.AlexaBusiness.SearchContacts,
+    -- ** SearchContacts 
+    , module Network.AWS.AlexaBusiness.SearchContacts
 
-    -- ** SendAnnouncement
-    module Network.AWS.AlexaBusiness.SendAnnouncement,
+    -- ** SendAnnouncement 
+    , module Network.AWS.AlexaBusiness.SendAnnouncement
 
-    -- ** DeleteUser
-    module Network.AWS.AlexaBusiness.DeleteUser,
+    -- ** DeleteUser 
+    , module Network.AWS.AlexaBusiness.DeleteUser
 
-    -- ** SearchNetworkProfiles
-    module Network.AWS.AlexaBusiness.SearchNetworkProfiles,
+    -- ** SearchNetworkProfiles 
+    , module Network.AWS.AlexaBusiness.SearchNetworkProfiles
 
-    -- ** GetSkillGroup
-    module Network.AWS.AlexaBusiness.GetSkillGroup,
+    -- ** GetSkillGroup 
+    , module Network.AWS.AlexaBusiness.GetSkillGroup
 
     -- ** ListSkills (Paginated)
-    module Network.AWS.AlexaBusiness.ListSkills,
+    , module Network.AWS.AlexaBusiness.ListSkills
 
-    -- ** TagResource
-    module Network.AWS.AlexaBusiness.TagResource,
+    -- ** TagResource 
+    , module Network.AWS.AlexaBusiness.TagResource
 
-    -- ** DisassociateDeviceFromRoom
-    module Network.AWS.AlexaBusiness.DisassociateDeviceFromRoom,
+    -- ** DisassociateDeviceFromRoom 
+    , module Network.AWS.AlexaBusiness.DisassociateDeviceFromRoom
 
     -- ** SearchSkillGroups (Paginated)
-    module Network.AWS.AlexaBusiness.SearchSkillGroups,
+    , module Network.AWS.AlexaBusiness.SearchSkillGroups
 
-    -- ** PutSkillAuthorization
-    module Network.AWS.AlexaBusiness.PutSkillAuthorization,
+    -- ** PutSkillAuthorization 
+    , module Network.AWS.AlexaBusiness.PutSkillAuthorization
 
     -- ** ListTags (Paginated)
-    module Network.AWS.AlexaBusiness.ListTags,
+    , module Network.AWS.AlexaBusiness.ListTags
 
-    -- ** DeleteSkillAuthorization
-    module Network.AWS.AlexaBusiness.DeleteSkillAuthorization,
+    -- ** DeleteSkillAuthorization 
+    , module Network.AWS.AlexaBusiness.DeleteSkillAuthorization
 
-    -- ** AssociateDeviceWithNetworkProfile
-    module Network.AWS.AlexaBusiness.AssociateDeviceWithNetworkProfile,
+    -- ** AssociateDeviceWithNetworkProfile 
+    , module Network.AWS.AlexaBusiness.AssociateDeviceWithNetworkProfile
 
-    -- ** UntagResource
-    module Network.AWS.AlexaBusiness.UntagResource,
+    -- ** UntagResource 
+    , module Network.AWS.AlexaBusiness.UntagResource
 
-    -- ** CreateConferenceProvider
-    module Network.AWS.AlexaBusiness.CreateConferenceProvider,
+    -- ** CreateConferenceProvider 
+    , module Network.AWS.AlexaBusiness.CreateConferenceProvider
 
-    -- ** ResolveRoom
-    module Network.AWS.AlexaBusiness.ResolveRoom,
+    -- ** ResolveRoom 
+    , module Network.AWS.AlexaBusiness.ResolveRoom
 
-    -- ** CreateGatewayGroup
-    module Network.AWS.AlexaBusiness.CreateGatewayGroup,
+    -- ** CreateGatewayGroup 
+    , module Network.AWS.AlexaBusiness.CreateGatewayGroup
 
-    -- ** CreateRoom
-    module Network.AWS.AlexaBusiness.CreateRoom,
+    -- ** CreateRoom 
+    , module Network.AWS.AlexaBusiness.CreateRoom
 
-    -- ** DeleteRoomSkillParameter
-    module Network.AWS.AlexaBusiness.DeleteRoomSkillParameter,
+    -- ** DeleteRoomSkillParameter 
+    , module Network.AWS.AlexaBusiness.DeleteRoomSkillParameter
 
-    -- ** ListGatewayGroups
-    module Network.AWS.AlexaBusiness.ListGatewayGroups,
+    -- ** ListGatewayGroups 
+    , module Network.AWS.AlexaBusiness.ListGatewayGroups
 
-    -- ** PutRoomSkillParameter
-    module Network.AWS.AlexaBusiness.PutRoomSkillParameter,
+    -- ** PutRoomSkillParameter 
+    , module Network.AWS.AlexaBusiness.PutRoomSkillParameter
 
     -- ** SearchProfiles (Paginated)
-    module Network.AWS.AlexaBusiness.SearchProfiles,
+    , module Network.AWS.AlexaBusiness.SearchProfiles
 
-    -- ** RejectSkill
-    module Network.AWS.AlexaBusiness.RejectSkill,
+    -- ** RejectSkill 
+    , module Network.AWS.AlexaBusiness.RejectSkill
 
     -- ** ListConferenceProviders (Paginated)
-    module Network.AWS.AlexaBusiness.ListConferenceProviders,
+    , module Network.AWS.AlexaBusiness.ListConferenceProviders
 
-    -- ** RevokeInvitation
-    module Network.AWS.AlexaBusiness.RevokeInvitation,
+    -- ** RevokeInvitation 
+    , module Network.AWS.AlexaBusiness.RevokeInvitation
 
-    -- ** ListGateways
-    module Network.AWS.AlexaBusiness.ListGateways,
+    -- ** ListGateways 
+    , module Network.AWS.AlexaBusiness.ListGateways
 
-    -- ** DeleteDevice
-    module Network.AWS.AlexaBusiness.DeleteDevice,
+    -- ** DeleteDevice 
+    , module Network.AWS.AlexaBusiness.DeleteDevice
 
-    -- ** UpdateDevice
-    module Network.AWS.AlexaBusiness.UpdateDevice,
+    -- ** UpdateDevice 
+    , module Network.AWS.AlexaBusiness.UpdateDevice
 
-    -- ** AssociateSkillWithSkillGroup
-    module Network.AWS.AlexaBusiness.AssociateSkillWithSkillGroup,
+    -- ** AssociateSkillWithSkillGroup 
+    , module Network.AWS.AlexaBusiness.AssociateSkillWithSkillGroup
 
-    -- ** GetConferenceProvider
-    module Network.AWS.AlexaBusiness.GetConferenceProvider,
+    -- ** GetConferenceProvider 
+    , module Network.AWS.AlexaBusiness.GetConferenceProvider
 
-    -- ** GetRoom
-    module Network.AWS.AlexaBusiness.GetRoom,
+    -- ** GetRoom 
+    , module Network.AWS.AlexaBusiness.GetRoom
 
-    -- ** GetGatewayGroup
-    module Network.AWS.AlexaBusiness.GetGatewayGroup,
+    -- ** GetGatewayGroup 
+    , module Network.AWS.AlexaBusiness.GetGatewayGroup
 
     -- ** ListSkillsStoreCategories (Paginated)
-    module Network.AWS.AlexaBusiness.ListSkillsStoreCategories,
+    , module Network.AWS.AlexaBusiness.ListSkillsStoreCategories
 
-    -- ** StartSmartHomeApplianceDiscovery
-    module Network.AWS.AlexaBusiness.StartSmartHomeApplianceDiscovery,
+    -- ** StartSmartHomeApplianceDiscovery 
+    , module Network.AWS.AlexaBusiness.StartSmartHomeApplianceDiscovery
 
-    -- ** AssociateContactWithAddressBook
-    module Network.AWS.AlexaBusiness.AssociateContactWithAddressBook,
+    -- ** AssociateContactWithAddressBook 
+    , module Network.AWS.AlexaBusiness.AssociateContactWithAddressBook
 
     -- * Types
 
     -- ** DeviceStatus
-    DeviceStatus (..),
+    , DeviceStatus (..)
 
     -- ** DeviceSerialNumberForAVS
-    DeviceSerialNumberForAVS (..),
+    , DeviceSerialNumberForAVS (..)
 
     -- ** DeviceEvent
-    DeviceEvent (..),
-    mkDeviceEvent,
-    deTimestamp,
-    deType,
-    deValue,
+    , DeviceEvent (..)
+    , mkDeviceEvent
+    , deTimestamp
+    , deType
+    , deValue
 
     -- ** GatewaySummary
-    GatewaySummary (..),
-    mkGatewaySummary,
-    gsArn,
-    gsDescription,
-    gsGatewayGroupArn,
-    gsName,
-    gsSoftwareVersion,
+    , GatewaySummary (..)
+    , mkGatewaySummary
+    , gsArn
+    , gsDescription
+    , gsGatewayGroupArn
+    , gsName
+    , gsSoftwareVersion
 
     -- ** SipAddress
-    SipAddress (..),
-    mkSipAddress,
-    saUri,
-    saType,
+    , SipAddress (..)
+    , mkSipAddress
+    , saUri
+    , saType
 
     -- ** SkillId
-    SkillId (..),
+    , SkillId (..)
 
     -- ** RoomSkillParameterValue
-    RoomSkillParameterValue (..),
+    , RoomSkillParameterValue (..)
 
     -- ** Feature
-    Feature (..),
+    , Feature (..)
 
     -- ** OrganizationName
-    OrganizationName (..),
+    , OrganizationName (..)
 
     -- ** BusinessReportRecurrence
-    BusinessReportRecurrence (..),
-    mkBusinessReportRecurrence,
-    brrStartDate,
+    , BusinessReportRecurrence (..)
+    , mkBusinessReportRecurrence
+    , brrStartDate
 
     -- ** Email
-    Email (..),
+    , Email (..)
 
     -- ** SkillsStoreSkill
-    SkillsStoreSkill (..),
-    mkSkillsStoreSkill,
-    sssIconUrl,
-    sssSampleUtterances,
-    sssShortDescription,
-    sssSkillDetails,
-    sssSkillId,
-    sssSkillName,
-    sssSupportsLinking,
+    , SkillsStoreSkill (..)
+    , mkSkillsStoreSkill
+    , sssIconUrl
+    , sssSampleUtterances
+    , sssShortDescription
+    , sssSkillDetails
+    , sssSkillId
+    , sssSkillName
+    , sssSupportsLinking
 
     -- ** ClientId
-    ClientId (..),
+    , ClientId (..)
 
     -- ** PhoneNumberType
-    PhoneNumberType (..),
+    , PhoneNumberType (..)
 
     -- ** ConferenceProvider
-    ConferenceProvider (..),
-    mkConferenceProvider,
-    cpArn,
-    cpIPDialIn,
-    cpMeetingSetting,
-    cpName,
-    cpPSTNDialIn,
-    cpType,
+    , ConferenceProvider (..)
+    , mkConferenceProvider
+    , cpArn
+    , cpIPDialIn
+    , cpMeetingSetting
+    , cpName
+    , cpPSTNDialIn
+    , cpType
 
     -- ** MeetingSetting
-    MeetingSetting (..),
-    mkMeetingSetting,
-    msRequirePin,
+    , MeetingSetting (..)
+    , mkMeetingSetting
+    , msRequirePin
 
     -- ** CurrentWiFiPassword
-    CurrentWiFiPassword (..),
+    , CurrentWiFiPassword (..)
 
     -- ** BusinessReportDownloadUrl
-    BusinessReportDownloadUrl (..),
+    , BusinessReportDownloadUrl (..)
 
     -- ** GatewayGroup
-    GatewayGroup (..),
-    mkGatewayGroup,
-    ggArn,
-    ggDescription,
-    ggName,
+    , GatewayGroup (..)
+    , mkGatewayGroup
+    , ggArn
+    , ggDescription
+    , ggName
 
     -- ** Room
-    Room (..),
-    mkRoom,
-    rDescription,
-    rProfileArn,
-    rProviderCalendarId,
-    rRoomArn,
-    rRoomName,
+    , Room (..)
+    , mkRoom
+    , rDescription
+    , rProfileArn
+    , rProviderCalendarId
+    , rRoomArn
+    , rRoomName
 
     -- ** BusinessReportInterval
-    BusinessReportInterval (..),
+    , BusinessReportInterval (..)
 
     -- ** DeviceEventValue
-    DeviceEventValue (..),
+    , DeviceEventValue (..)
 
     -- ** RoomData
-    RoomData (..),
-    mkRoomData,
-    rdDescription,
-    rdProfileArn,
-    rdProfileName,
-    rdProviderCalendarId,
-    rdRoomArn,
-    rdRoomName,
+    , RoomData (..)
+    , mkRoomData
+    , rdDescription
+    , rdProfileArn
+    , rdProfileName
+    , rdProviderCalendarId
+    , rdRoomArn
+    , rdRoomName
 
     -- ** UpdateMeetingRoomConfiguration
-    UpdateMeetingRoomConfiguration (..),
-    mkUpdateMeetingRoomConfiguration,
-    umrcEndOfMeetingReminder,
-    umrcInstantBooking,
-    umrcRequireCheckIn,
-    umrcRoomUtilizationMetricsEnabled,
+    , UpdateMeetingRoomConfiguration (..)
+    , mkUpdateMeetingRoomConfiguration
+    , umrcEndOfMeetingReminder
+    , umrcInstantBooking
+    , umrcRequireCheckIn
+    , umrcRoomUtilizationMetricsEnabled
 
     -- ** FilterKey
-    FilterKey (..),
+    , FilterKey (..)
 
     -- ** S3KeyPrefix
-    S3KeyPrefix (..),
+    , S3KeyPrefix (..)
 
     -- ** BulletPoint
-    BulletPoint (..),
+    , BulletPoint (..)
 
     -- ** Tag
-    Tag (..),
-    mkTag,
-    tKey,
-    tValue,
+    , Tag (..)
+    , mkTag
+    , tKey
+    , tValue
 
     -- ** NetworkProfileName
-    NetworkProfileName (..),
+    , NetworkProfileName (..)
 
     -- ** InstantBooking
-    InstantBooking (..),
-    mkInstantBooking,
-    ibDurationInMinutes,
-    ibEnabled,
+    , InstantBooking (..)
+    , mkInstantBooking
+    , ibDurationInMinutes
+    , ibEnabled
 
     -- ** OneClickIdDelay
-    OneClickIdDelay (..),
+    , OneClickIdDelay (..)
 
     -- ** DeviceStatusInfo
-    DeviceStatusInfo (..),
-    mkDeviceStatusInfo,
-    dsiConnectionStatus,
-    dsiConnectionStatusUpdatedTime,
-    dsiDeviceStatusDetails,
+    , DeviceStatusInfo (..)
+    , mkDeviceStatusInfo
+    , dsiConnectionStatus
+    , dsiConnectionStatusUpdatedTime
+    , dsiDeviceStatusDetails
 
     -- ** SipType
-    SipType (..),
+    , SipType (..)
 
     -- ** RequirePin
-    RequirePin (..),
+    , RequirePin (..)
 
     -- ** BusinessReportScheduleName
-    BusinessReportScheduleName (..),
+    , BusinessReportScheduleName (..)
 
     -- ** CreateMeetingRoomConfiguration
-    CreateMeetingRoomConfiguration (..),
-    mkCreateMeetingRoomConfiguration,
-    cmrcEndOfMeetingReminder,
-    cmrcInstantBooking,
-    cmrcRequireCheckIn,
-    cmrcRoomUtilizationMetricsEnabled,
+    , CreateMeetingRoomConfiguration (..)
+    , mkCreateMeetingRoomConfiguration
+    , cmrcEndOfMeetingReminder
+    , cmrcInstantBooking
+    , cmrcRequireCheckIn
+    , cmrcRoomUtilizationMetricsEnabled
 
     -- ** DistanceUnit
-    DistanceUnit (..),
+    , DistanceUnit (..)
 
     -- ** SortKey
-    SortKey (..),
+    , SortKey (..)
 
     -- ** UpdateRequireCheckIn
-    UpdateRequireCheckIn (..),
-    mkUpdateRequireCheckIn,
-    urciEnabled,
-    urciReleaseAfterMinutes,
+    , UpdateRequireCheckIn (..)
+    , mkUpdateRequireCheckIn
+    , urciEnabled
+    , urciReleaseAfterMinutes
 
     -- ** BusinessReportS3Location
-    BusinessReportS3Location (..),
-    mkBusinessReportS3Location,
-    brslBucketName,
-    brslPath,
+    , BusinessReportS3Location (..)
+    , mkBusinessReportS3Location
+    , brslBucketName
+    , brslPath
 
     -- ** Arn
-    Arn (..),
+    , Arn (..)
 
     -- ** ProductDescription
-    ProductDescription (..),
+    , ProductDescription (..)
 
     -- ** ApplianceFriendlyName
-    ApplianceFriendlyName (..),
+    , ApplianceFriendlyName (..)
 
     -- ** ReviewKey
-    ReviewKey (..),
+    , ReviewKey (..)
 
     -- ** DeviceUsageType
-    DeviceUsageType (..),
+    , DeviceUsageType (..)
 
     -- ** TextMessage
-    TextMessage (..),
-    mkTextMessage,
-    tmLocale,
-    tmValue,
+    , TextMessage (..)
+    , mkTextMessage
+    , tmLocale
+    , tmValue
 
     -- ** SkillSummary
-    SkillSummary (..),
-    mkSkillSummary,
-    ssEnablementType,
-    ssSkillId,
-    ssSkillName,
-    ssSkillType,
-    ssSupportsLinking,
+    , SkillSummary (..)
+    , mkSkillSummary
+    , ssEnablementType
+    , ssSkillId
+    , ssSkillName
+    , ssSkillType
+    , ssSupportsLinking
 
     -- ** NetworkEapMethod
-    NetworkEapMethod (..),
+    , NetworkEapMethod (..)
 
     -- ** CustomerS3BucketName
-    CustomerS3BucketName (..),
+    , CustomerS3BucketName (..)
 
     -- ** InvocationPhrase
-    InvocationPhrase (..),
+    , InvocationPhrase (..)
 
     -- ** TrustAnchor
-    TrustAnchor (..),
+    , TrustAnchor (..)
 
     -- ** AddressBookName
-    AddressBookName (..),
+    , AddressBookName (..)
 
     -- ** Contact
-    Contact (..),
-    mkContact,
-    cContactArn,
-    cDisplayName,
-    cFirstName,
-    cLastName,
-    cPhoneNumber,
-    cPhoneNumbers,
-    cSipAddresses,
+    , Contact (..)
+    , mkContact
+    , cContactArn
+    , cDisplayName
+    , cFirstName
+    , cLastName
+    , cPhoneNumber
+    , cPhoneNumbers
+    , cSipAddresses
 
     -- ** Locale
-    Locale (..),
+    , Locale (..)
 
     -- ** CreateRequireCheckIn
-    CreateRequireCheckIn (..),
-    mkCreateRequireCheckIn,
-    crciReleaseAfterMinutes,
-    crciEnabled,
+    , CreateRequireCheckIn (..)
+    , mkCreateRequireCheckIn
+    , crciReleaseAfterMinutes
+    , crciEnabled
 
     -- ** Category
-    Category (..),
-    mkCategory,
-    cCategoryId,
-    cCategoryName,
+    , Category (..)
+    , mkCategory
+    , cCategoryId
+    , cCategoryName
 
     -- ** DeveloperInfo
-    DeveloperInfo (..),
-    mkDeveloperInfo,
-    diDeveloperName,
-    diEmail,
-    diPrivacyPolicy,
-    diUrl,
+    , DeveloperInfo (..)
+    , mkDeveloperInfo
+    , diDeveloperName
+    , diEmail
+    , diPrivacyPolicy
+    , diUrl
 
     -- ** SkillGroupDescription
-    SkillGroupDescription (..),
+    , SkillGroupDescription (..)
 
     -- ** Device
-    Device (..),
-    mkDevice,
-    dDeviceArn,
-    dDeviceName,
-    dDeviceSerialNumber,
-    dDeviceStatus,
-    dDeviceStatusInfo,
-    dDeviceType,
-    dMacAddress,
-    dNetworkProfileInfo,
-    dRoomArn,
-    dSoftwareVersion,
+    , Device (..)
+    , mkDevice
+    , dDeviceArn
+    , dDeviceName
+    , dDeviceSerialNumber
+    , dDeviceStatus
+    , dDeviceStatusInfo
+    , dDeviceType
+    , dMacAddress
+    , dNetworkProfileInfo
+    , dRoomArn
+    , dSoftwareVersion
 
     -- ** DeviceData
-    DeviceData (..),
-    mkDeviceData,
-    ddCreatedTime,
-    ddDeviceArn,
-    ddDeviceName,
-    ddDeviceSerialNumber,
-    ddDeviceStatus,
-    ddDeviceStatusInfo,
-    ddDeviceType,
-    ddMacAddress,
-    ddNetworkProfileArn,
-    ddNetworkProfileName,
-    ddRoomArn,
-    ddRoomName,
-    ddSoftwareVersion,
+    , DeviceData (..)
+    , mkDeviceData
+    , ddCreatedTime
+    , ddDeviceArn
+    , ddDeviceName
+    , ddDeviceSerialNumber
+    , ddDeviceStatus
+    , ddDeviceStatusInfo
+    , ddDeviceType
+    , ddMacAddress
+    , ddNetworkProfileArn
+    , ddNetworkProfileName
+    , ddRoomArn
+    , ddRoomName
+    , ddSoftwareVersion
 
     -- ** DeviceStatusDetailCode
-    DeviceStatusDetailCode (..),
+    , DeviceStatusDetailCode (..)
 
     -- ** ContactData
-    ContactData (..),
-    mkContactData,
-    cdContactArn,
-    cdDisplayName,
-    cdFirstName,
-    cdLastName,
-    cdPhoneNumber,
-    cdPhoneNumbers,
-    cdSipAddresses,
+    , ContactData (..)
+    , mkContactData
+    , cdContactArn
+    , cdDisplayName
+    , cdFirstName
+    , cdLastName
+    , cdPhoneNumber
+    , cdPhoneNumbers
+    , cdSipAddresses
 
     -- ** Gateway
-    Gateway (..),
-    mkGateway,
-    gArn,
-    gDescription,
-    gGatewayGroupArn,
-    gName,
-    gSoftwareVersion,
+    , Gateway (..)
+    , mkGateway
+    , gArn
+    , gDescription
+    , gGatewayGroupArn
+    , gName
+    , gSoftwareVersion
 
     -- ** DeviceLocale
-    DeviceLocale (..),
+    , DeviceLocale (..)
 
     -- ** OneClickPinDelay
-    OneClickPinDelay (..),
+    , OneClickPinDelay (..)
 
     -- ** NetworkSecurityType
-    NetworkSecurityType (..),
+    , NetworkSecurityType (..)
 
     -- ** User_LastName
-    User_LastName (..),
+    , User_LastName (..)
 
     -- ** EndUserLicenseAgreement
-    EndUserLicenseAgreement (..),
+    , EndUserLicenseAgreement (..)
 
     -- ** SmartHomeAppliance
-    SmartHomeAppliance (..),
-    mkSmartHomeAppliance,
-    shaDescription,
-    shaFriendlyName,
-    shaManufacturerName,
+    , SmartHomeAppliance (..)
+    , mkSmartHomeAppliance
+    , shaDescription
+    , shaFriendlyName
+    , shaManufacturerName
 
     -- ** Url
-    Url (..),
+    , Url (..)
 
     -- ** AmazonId
-    AmazonId (..),
+    , AmazonId (..)
 
     -- ** EnablementTypeFilter
-    EnablementTypeFilter (..),
+    , EnablementTypeFilter (..)
 
     -- ** Value
-    Value (..),
+    , Value (..)
 
     -- ** NetworkProfileDescription
-    NetworkProfileDescription (..),
+    , NetworkProfileDescription (..)
 
     -- ** Profile
-    Profile (..),
-    mkProfile,
-    pAddress,
-    pAddressBookArn,
-    pDistanceUnit,
-    pIsDefault,
-    pLocale,
-    pMaxVolumeLimit,
-    pMeetingRoomConfiguration,
-    pPSTNEnabled,
-    pProfileArn,
-    pProfileName,
-    pSetupModeDisabled,
-    pTemperatureUnit,
-    pTimezone,
-    pWakeWord,
+    , Profile (..)
+    , mkProfile
+    , pAddress
+    , pAddressBookArn
+    , pDistanceUnit
+    , pIsDefault
+    , pLocale
+    , pMaxVolumeLimit
+    , pMeetingRoomConfiguration
+    , pPSTNEnabled
+    , pProfileArn
+    , pProfileName
+    , pSetupModeDisabled
+    , pTemperatureUnit
+    , pTimezone
+    , pWakeWord
 
     -- ** AudioLocation
-    AudioLocation (..),
+    , AudioLocation (..)
 
     -- ** ProfileData
-    ProfileData (..),
-    mkProfileData,
-    pdAddress,
-    pdDistanceUnit,
-    pdIsDefault,
-    pdLocale,
-    pdProfileArn,
-    pdProfileName,
-    pdTemperatureUnit,
-    pdTimezone,
-    pdWakeWord,
+    , ProfileData (..)
+    , mkProfileData
+    , pdAddress
+    , pdDistanceUnit
+    , pdIsDefault
+    , pdLocale
+    , pdProfileArn
+    , pdProfileName
+    , pdTemperatureUnit
+    , pdTimezone
+    , pdWakeWord
 
     -- ** Address
-    Address (..),
+    , Address (..)
 
     -- ** BusinessReportContentRange
-    BusinessReportContentRange (..),
-    mkBusinessReportContentRange,
-    brcrInterval,
+    , BusinessReportContentRange (..)
+    , mkBusinessReportContentRange
+    , brcrInterval
 
     -- ** PSTNDialIn
-    PSTNDialIn (..),
-    mkPSTNDialIn,
-    pstndiCountryCode,
-    pstndiPhoneNumber,
-    pstndiOneClickIdDelay,
-    pstndiOneClickPinDelay,
+    , PSTNDialIn (..)
+    , mkPSTNDialIn
+    , pstndiCountryCode
+    , pstndiPhoneNumber
+    , pstndiOneClickIdDelay
+    , pstndiOneClickPinDelay
 
     -- ** WakeWord
-    WakeWord (..),
+    , WakeWord (..)
 
     -- ** CreateInstantBooking
-    CreateInstantBooking (..),
-    mkCreateInstantBooking,
-    cibDurationInMinutes,
-    cibEnabled,
+    , CreateInstantBooking (..)
+    , mkCreateInstantBooking
+    , cibDurationInMinutes
+    , cibEnabled
 
     -- ** MeetingRoomConfiguration
-    MeetingRoomConfiguration (..),
-    mkMeetingRoomConfiguration,
-    mrcEndOfMeetingReminder,
-    mrcInstantBooking,
-    mrcRequireCheckIn,
-    mrcRoomUtilizationMetricsEnabled,
+    , MeetingRoomConfiguration (..)
+    , mkMeetingRoomConfiguration
+    , mrcEndOfMeetingReminder
+    , mrcInstantBooking
+    , mrcRequireCheckIn
+    , mrcRoomUtilizationMetricsEnabled
 
     -- ** TextValue
-    TextValue (..),
+    , TextValue (..)
 
     -- ** ProviderCalendarId
-    ProviderCalendarId (..),
+    , ProviderCalendarId (..)
 
     -- ** EndOfMeetingReminder
-    EndOfMeetingReminder (..),
-    mkEndOfMeetingReminder,
-    eomrEnabled,
-    eomrReminderAtMinutes,
-    eomrReminderType,
+    , EndOfMeetingReminder (..)
+    , mkEndOfMeetingReminder
+    , eomrEnabled
+    , eomrReminderAtMinutes
+    , eomrReminderType
 
     -- ** MacAddress
-    MacAddress (..),
+    , MacAddress (..)
 
     -- ** NextWiFiPassword
-    NextWiFiPassword (..),
+    , NextWiFiPassword (..)
 
     -- ** TagValue
-    TagValue (..),
+    , TagValue (..)
 
     -- ** Content
-    Content (..),
-    mkContent,
-    cAudioList,
-    cSsmlList,
-    cTextList,
+    , Content (..)
+    , mkContent
+    , cAudioList
+    , cSsmlList
+    , cTextList
 
     -- ** EnrollmentId
-    EnrollmentId (..),
+    , EnrollmentId (..)
 
     -- ** AddressBookDescription
-    AddressBookDescription (..),
+    , AddressBookDescription (..)
 
     -- ** Ssml
-    Ssml (..),
-    mkSsml,
-    sLocale,
-    sValue,
+    , Ssml (..)
+    , mkSsml
+    , sLocale
+    , sValue
 
     -- ** CommsProtocol
-    CommsProtocol (..),
+    , CommsProtocol (..)
 
     -- ** SkillType
-    SkillType (..),
+    , SkillType (..)
 
     -- ** UserData
-    UserData (..),
-    mkUserData,
-    udEmail,
-    udEnrollmentId,
-    udEnrollmentStatus,
-    udFirstName,
-    udLastName,
-    udUserArn,
+    , UserData (..)
+    , mkUserData
+    , udEmail
+    , udEnrollmentId
+    , udEnrollmentStatus
+    , udFirstName
+    , udLastName
+    , udUserArn
 
     -- ** UserId
-    UserId (..),
+    , UserId (..)
 
     -- ** DeviceEventType
-    DeviceEventType (..),
+    , DeviceEventType (..)
 
     -- ** NextToken
-    NextToken (..),
+    , NextToken (..)
 
     -- ** ProfileName
-    ProfileName (..),
+    , ProfileName (..)
 
     -- ** RequireCheckIn
-    RequireCheckIn (..),
-    mkRequireCheckIn,
-    rciEnabled,
-    rciReleaseAfterMinutes,
+    , RequireCheckIn (..)
+    , mkRequireCheckIn
+    , rciEnabled
+    , rciReleaseAfterMinutes
 
     -- ** ShortDescription
-    ShortDescription (..),
+    , ShortDescription (..)
 
     -- ** UserCode
-    UserCode (..),
+    , UserCode (..)
 
     -- ** BusinessReportStatus
-    BusinessReportStatus (..),
+    , BusinessReportStatus (..)
 
     -- ** CategoryName
-    CategoryName (..),
+    , CategoryName (..)
 
     -- ** AddressBookData
-    AddressBookData (..),
-    mkAddressBookData,
-    abdAddressBookArn,
-    abdDescription,
-    abdName,
+    , AddressBookData (..)
+    , mkAddressBookData
+    , abdAddressBookArn
+    , abdDescription
+    , abdName
 
     -- ** DeviceName
-    DeviceName (..),
+    , DeviceName (..)
 
     -- ** Key
-    Key (..),
+    , Key (..)
 
     -- ** ConferenceProviderType
-    ConferenceProviderType (..),
+    , ConferenceProviderType (..)
 
     -- ** RoomSkillParameter
-    RoomSkillParameter (..),
-    mkRoomSkillParameter,
-    rspParameterKey,
-    rspParameterValue,
+    , RoomSkillParameter (..)
+    , mkRoomSkillParameter
+    , rspParameterKey
+    , rspParameterValue
 
     -- ** PhoneNumber
-    PhoneNumber (..),
-    mkPhoneNumber,
-    pnNumber,
-    pnType,
+    , PhoneNumber (..)
+    , mkPhoneNumber
+    , pnNumber
+    , pnType
 
     -- ** AddressBook
-    AddressBook (..),
-    mkAddressBook,
-    abAddressBookArn,
-    abDescription,
-    abName,
+    , AddressBook (..)
+    , mkAddressBook
+    , abAddressBookArn
+    , abDescription
+    , abName
 
     -- ** ConnectionStatus
-    ConnectionStatus (..),
+    , ConnectionStatus (..)
 
     -- ** Sort
-    Sort (..),
-    mkSort,
-    sfKey,
-    sfValue,
+    , Sort (..)
+    , mkSort
+    , sfKey
+    , sfValue
 
     -- ** TemperatureUnit
-    TemperatureUnit (..),
+    , TemperatureUnit (..)
 
     -- ** BusinessReportSchedule
-    BusinessReportSchedule (..),
-    mkBusinessReportSchedule,
-    brsContentRange,
-    brsFormat,
-    brsLastBusinessReport,
-    brsRecurrence,
-    brsS3BucketName,
-    brsS3KeyPrefix,
-    brsScheduleArn,
-    brsScheduleName,
+    , BusinessReportSchedule (..)
+    , mkBusinessReportSchedule
+    , brsContentRange
+    , brsFormat
+    , brsLastBusinessReport
+    , brsRecurrence
+    , brsS3BucketName
+    , brsS3KeyPrefix
+    , brsScheduleArn
+    , brsScheduleName
 
     -- ** ConferencePreference
-    ConferencePreference (..),
-    mkConferencePreference,
-    cpDefaultConferenceProviderArn,
+    , ConferencePreference (..)
+    , mkConferencePreference
+    , cpDefaultConferenceProviderArn
 
     -- ** NetworkProfileData
-    NetworkProfileData (..),
-    mkNetworkProfileData,
-    npdCertificateAuthorityArn,
-    npdDescription,
-    npdEapMethod,
-    npdNetworkProfileArn,
-    npdNetworkProfileName,
-    npdSecurityType,
-    npdSsid,
+    , NetworkProfileData (..)
+    , mkNetworkProfileData
+    , npdCertificateAuthorityArn
+    , npdDescription
+    , npdEapMethod
+    , npdNetworkProfileArn
+    , npdNetworkProfileName
+    , npdSecurityType
+    , npdSsid
 
     -- ** CountryCode
-    CountryCode (..),
+    , CountryCode (..)
 
     -- ** DeviceStatusDetail
-    DeviceStatusDetail (..),
-    mkDeviceStatusDetail,
-    dsdCode,
-    dsdFeature,
+    , DeviceStatusDetail (..)
+    , mkDeviceStatusDetail
+    , dsdCode
+    , dsdFeature
 
     -- ** SoftwareVersion
-    SoftwareVersion (..),
+    , SoftwareVersion (..)
 
     -- ** ReleaseDate
-    ReleaseDate (..),
+    , ReleaseDate (..)
 
     -- ** NetworkProfile
-    NetworkProfile (..),
-    mkNetworkProfile,
-    npCertificateAuthorityArn,
-    npCurrentPassword,
-    npDescription,
-    npEapMethod,
-    npNetworkProfileArn,
-    npNetworkProfileName,
-    npNextPassword,
-    npSecurityType,
-    npSsid,
-    npTrustAnchors,
+    , NetworkProfile (..)
+    , mkNetworkProfile
+    , npCertificateAuthorityArn
+    , npCurrentPassword
+    , npDescription
+    , npEapMethod
+    , npNetworkProfileArn
+    , npNetworkProfileName
+    , npNextPassword
+    , npSecurityType
+    , npSsid
+    , npTrustAnchors
 
     -- ** CreateEndOfMeetingReminder
-    CreateEndOfMeetingReminder (..),
-    mkCreateEndOfMeetingReminder,
-    ceomrReminderAtMinutes,
-    ceomrReminderType,
-    ceomrEnabled,
+    , CreateEndOfMeetingReminder (..)
+    , mkCreateEndOfMeetingReminder
+    , ceomrReminderAtMinutes
+    , ceomrReminderType
+    , ceomrEnabled
 
     -- ** BusinessReportFailureCode
-    BusinessReportFailureCode (..),
+    , BusinessReportFailureCode (..)
 
     -- ** TagKey
-    TagKey (..),
+    , TagKey (..)
 
     -- ** DeviceType
-    DeviceType (..),
+    , DeviceType (..)
 
     -- ** EnrollmentStatus
-    EnrollmentStatus (..),
+    , EnrollmentStatus (..)
 
     -- ** UpdateEndOfMeetingReminder
-    UpdateEndOfMeetingReminder (..),
-    mkUpdateEndOfMeetingReminder,
-    ueomrEnabled,
-    ueomrReminderAtMinutes,
-    ueomrReminderType,
+    , UpdateEndOfMeetingReminder (..)
+    , mkUpdateEndOfMeetingReminder
+    , ueomrEnabled
+    , ueomrReminderAtMinutes
+    , ueomrReminderType
 
     -- ** IconUrl
-    IconUrl (..),
+    , IconUrl (..)
 
     -- ** GatewayGroupName
-    GatewayGroupName (..),
+    , GatewayGroupName (..)
 
     -- ** GenericKeyword
-    GenericKeyword (..),
+    , GenericKeyword (..)
 
     -- ** DeviceRoomName
-    DeviceRoomName (..),
+    , DeviceRoomName (..)
 
     -- ** RoomName
-    RoomName (..),
+    , RoomName (..)
 
     -- ** Filter
-    Filter (..),
-    mkFilter,
-    fKey,
-    fValues,
+    , Filter (..)
+    , mkFilter
+    , fKey
+    , fValues
 
     -- ** BusinessReport
-    BusinessReport (..),
-    mkBusinessReport,
-    brDeliveryTime,
-    brDownloadUrl,
-    brFailureCode,
-    brS3Location,
-    brStatus,
+    , BusinessReport (..)
+    , mkBusinessReport
+    , brDeliveryTime
+    , brDownloadUrl
+    , brFailureCode
+    , brS3Location
+    , brStatus
 
     -- ** ConferenceProviderName
-    ConferenceProviderName (..),
+    , ConferenceProviderName (..)
 
     -- ** DeviceNetworkProfileInfo
-    DeviceNetworkProfileInfo (..),
-    mkDeviceNetworkProfileInfo,
-    dnpiCertificateArn,
-    dnpiCertificateExpirationTime,
-    dnpiNetworkProfileArn,
+    , DeviceNetworkProfileInfo (..)
+    , mkDeviceNetworkProfileInfo
+    , dnpiCertificateArn
+    , dnpiCertificateExpirationTime
+    , dnpiNetworkProfileArn
 
     -- ** FilterValue
-    FilterValue (..),
+    , FilterValue (..)
 
     -- ** SkillDetails
-    SkillDetails (..),
-    mkSkillDetails,
-    sdBulletPoints,
-    sdDeveloperInfo,
-    sdEndUserLicenseAgreement,
-    sdGenericKeywords,
-    sdInvocationPhrase,
-    sdNewInThisVersionBulletPoints,
-    sdProductDescription,
-    sdReleaseDate,
-    sdReviews,
-    sdSkillTypes,
+    , SkillDetails (..)
+    , mkSkillDetails
+    , sdBulletPoints
+    , sdDeveloperInfo
+    , sdEndUserLicenseAgreement
+    , sdGenericKeywords
+    , sdInvocationPhrase
+    , sdNewInThisVersionBulletPoints
+    , sdProductDescription
+    , sdReleaseDate
+    , sdReviews
+    , sdSkillTypes
 
     -- ** EnablementType
-    EnablementType (..),
+    , EnablementType (..)
 
     -- ** Timezone
-    Timezone (..),
+    , Timezone (..)
 
     -- ** RawPhoneNumber
-    RawPhoneNumber (..),
+    , RawPhoneNumber (..)
 
     -- ** GatewayGroupSummary
-    GatewayGroupSummary (..),
-    mkGatewayGroupSummary,
-    ggsArn,
-    ggsDescription,
-    ggsName,
+    , GatewayGroupSummary (..)
+    , mkGatewayGroupSummary
+    , ggsArn
+    , ggsDescription
+    , ggsName
 
     -- ** Endpoint
-    Endpoint (..),
+    , Endpoint (..)
 
     -- ** BusinessReportFormat
-    BusinessReportFormat (..),
+    , BusinessReportFormat (..)
 
     -- ** DeviceSerialNumber
-    DeviceSerialNumber (..),
+    , DeviceSerialNumber (..)
 
     -- ** OutboundPhoneNumber
-    OutboundPhoneNumber (..),
+    , OutboundPhoneNumber (..)
 
     -- ** Utterance
-    Utterance (..),
+    , Utterance (..)
 
     -- ** ClientRequestToken
-    ClientRequestToken (..),
+    , ClientRequestToken (..)
 
     -- ** UpdateInstantBooking
-    UpdateInstantBooking (..),
-    mkUpdateInstantBooking,
-    uibDurationInMinutes,
-    uibEnabled,
+    , UpdateInstantBooking (..)
+    , mkUpdateInstantBooking
+    , uibDurationInMinutes
+    , uibEnabled
 
     -- ** SkillGroupData
-    SkillGroupData (..),
-    mkSkillGroupData,
-    sgdDescription,
-    sgdSkillGroupArn,
-    sgdSkillGroupName,
+    , SkillGroupData (..)
+    , mkSkillGroupData
+    , sgdDescription
+    , sgdSkillGroupArn
+    , sgdSkillGroupName
 
     -- ** SkillGroup
-    SkillGroup (..),
-    mkSkillGroup,
-    sgDescription,
-    sgSkillGroupArn,
-    sgSkillGroupName,
+    , SkillGroup (..)
+    , mkSkillGroup
+    , sgDescription
+    , sgSkillGroupArn
+    , sgSkillGroupName
 
     -- ** IPDialIn
-    IPDialIn (..),
-    mkIPDialIn,
-    ipdiEndpoint,
-    ipdiCommsProtocol,
+    , IPDialIn (..)
+    , mkIPDialIn
+    , ipdiEndpoint
+    , ipdiCommsProtocol
 
     -- ** PrivacyPolicy
-    PrivacyPolicy (..),
+    , PrivacyPolicy (..)
 
     -- ** ProductId
-    ProductId (..),
+    , ProductId (..)
 
     -- ** Audio
-    Audio (..),
-    mkAudio,
-    aLocale,
-    aLocation,
+    , Audio (..)
+    , mkAudio
+    , aLocale
+    , aLocation
 
     -- ** SkillName
-    SkillName (..),
+    , SkillName (..)
 
     -- ** SkillStoreType
-    SkillStoreType (..),
+    , SkillStoreType (..)
 
     -- ** SkillTypeFilter
-    SkillTypeFilter (..),
+    , SkillTypeFilter (..)
 
     -- ** SortValue
-    SortValue (..),
+    , SortValue (..)
 
     -- ** SkillGroupName
-    SkillGroupName (..),
+    , SkillGroupName (..)
 
     -- ** ReviewValue
-    ReviewValue (..),
+    , ReviewValue (..)
 
     -- ** EndOfMeetingReminderType
-    EndOfMeetingReminderType (..),
+    , EndOfMeetingReminderType (..)
 
     -- ** DeveloperName
-    DeveloperName (..),
+    , DeveloperName (..)
 
     -- ** RoomArn
-    RoomArn (..),
+    , RoomArn (..)
 
     -- ** Description
-    Description (..),
+    , Description (..)
 
     -- ** GatewayGroupArn
-    GatewayGroupArn (..),
+    , GatewayGroupArn (..)
 
     -- ** Name
-    Name (..),
+    , Name (..)
 
     -- ** Uri
-    Uri (..),
+    , Uri (..)
 
     -- ** StartDate
-    StartDate (..),
+    , StartDate (..)
 
     -- ** AddressBookArn
-    AddressBookArn (..),
+    , AddressBookArn (..)
 
     -- ** GatewayArn
-    GatewayArn (..),
+    , GatewayArn (..)
 
     -- ** ConferenceProviderArn
-    ConferenceProviderArn (..),
+    , ConferenceProviderArn (..)
 
     -- ** ContactArn
-    ContactArn (..),
+    , ContactArn (..)
 
     -- ** DeviceArn
-    DeviceArn (..),
+    , DeviceArn (..)
 
     -- ** ProfileArn
-    ProfileArn (..),
+    , ProfileArn (..)
 
     -- ** ScheduleArn
-    ScheduleArn (..),
+    , ScheduleArn (..)
 
     -- ** SkillGroupArn
-    SkillGroupArn (..),
+    , SkillGroupArn (..)
 
     -- ** NetworkProfileArn
-    NetworkProfileArn (..),
+    , NetworkProfileArn (..)
 
     -- ** BucketName
-    BucketName (..),
+    , BucketName (..)
 
     -- ** Path
-    Path (..),
+    , Path (..)
 
     -- ** FirstName
-    FirstName (..),
+    , FirstName (..)
 
     -- ** DisplayName
-    DisplayName (..),
+    , DisplayName (..)
 
     -- ** LastName
-    LastName (..),
+    , LastName (..)
 
     -- ** ParameterKey
-    ParameterKey (..),
+    , ParameterKey (..)
 
     -- ** Ssid
-    Ssid (..),
+    , Ssid (..)
 
     -- ** NextPassword
-    NextPassword (..),
+    , NextPassword (..)
 
     -- ** ManufacturerName
-    ManufacturerName (..),
+    , ManufacturerName (..)
 
     -- ** Number
-    Number (..),
+    , Number (..)
 
     -- * Serialization types
-    Lude.Base64 (..),
-    Lude._Base64,
-    Lude.Sensitive (..),
-    Lude._Sensitive,
-    Lude.UTCTime,
-    Lude.NominalDiffTime,
-  )
-where
+    , Lude.Base64 (..)
+    , Lude._Base64
+    , Lude.Sensitive (..)
+    , Lude._Sensitive
+    , Lude.UTCTime
+    , Lude.NominalDiffTime
+    ) where
 
-import Network.AWS.AlexaBusiness.ApproveSkill
-import Network.AWS.AlexaBusiness.AssociateContactWithAddressBook
-import Network.AWS.AlexaBusiness.AssociateDeviceWithNetworkProfile
-import Network.AWS.AlexaBusiness.AssociateDeviceWithRoom
-import Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom
-import Network.AWS.AlexaBusiness.AssociateSkillWithSkillGroup
-import Network.AWS.AlexaBusiness.AssociateSkillWithUsers
-import Network.AWS.AlexaBusiness.CreateAddressBook
-import Network.AWS.AlexaBusiness.CreateBusinessReportSchedule
-import Network.AWS.AlexaBusiness.CreateConferenceProvider
-import Network.AWS.AlexaBusiness.CreateContact
-import Network.AWS.AlexaBusiness.CreateGatewayGroup
-import Network.AWS.AlexaBusiness.CreateNetworkProfile
-import Network.AWS.AlexaBusiness.CreateProfile
-import Network.AWS.AlexaBusiness.CreateRoom
-import Network.AWS.AlexaBusiness.CreateSkillGroup
-import Network.AWS.AlexaBusiness.CreateUser
-import Network.AWS.AlexaBusiness.DeleteAddressBook
-import Network.AWS.AlexaBusiness.DeleteBusinessReportSchedule
-import Network.AWS.AlexaBusiness.DeleteConferenceProvider
-import Network.AWS.AlexaBusiness.DeleteContact
-import Network.AWS.AlexaBusiness.DeleteDevice
-import Network.AWS.AlexaBusiness.DeleteDeviceUsageData
-import Network.AWS.AlexaBusiness.DeleteGatewayGroup
+import Network.AWS.AlexaBusiness.Types
+import Network.AWS.AlexaBusiness.Waiters
+import Network.AWS.AlexaBusiness.SearchUsers
+import Network.AWS.AlexaBusiness.PutConferencePreference
+import Network.AWS.AlexaBusiness.UpdateNetworkProfile
 import Network.AWS.AlexaBusiness.DeleteNetworkProfile
+import Network.AWS.AlexaBusiness.UpdateBusinessReportSchedule
+import Network.AWS.AlexaBusiness.DeleteBusinessReportSchedule
+import Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom
+import Network.AWS.AlexaBusiness.ListSmartHomeAppliances
 import Network.AWS.AlexaBusiness.DeleteProfile
-import Network.AWS.AlexaBusiness.DeleteRoom
-import Network.AWS.AlexaBusiness.DeleteRoomSkillParameter
-import Network.AWS.AlexaBusiness.DeleteSkillAuthorization
-import Network.AWS.AlexaBusiness.DeleteSkillGroup
-import Network.AWS.AlexaBusiness.DeleteUser
-import Network.AWS.AlexaBusiness.DisassociateContactFromAddressBook
-import Network.AWS.AlexaBusiness.DisassociateDeviceFromRoom
-import Network.AWS.AlexaBusiness.DisassociateSkillFromSkillGroup
-import Network.AWS.AlexaBusiness.DisassociateSkillFromUsers
-import Network.AWS.AlexaBusiness.DisassociateSkillGroupFromRoom
+import Network.AWS.AlexaBusiness.UpdateProfile
+import Network.AWS.AlexaBusiness.SearchRooms
+import Network.AWS.AlexaBusiness.AssociateSkillWithUsers
+import Network.AWS.AlexaBusiness.RegisterAVSDevice
 import Network.AWS.AlexaBusiness.ForgetSmartHomeAppliances
-import Network.AWS.AlexaBusiness.GetAddressBook
+import Network.AWS.AlexaBusiness.PutInvitationConfiguration
+import Network.AWS.AlexaBusiness.DisassociateContactFromAddressBook
+import Network.AWS.AlexaBusiness.GetNetworkProfile
 import Network.AWS.AlexaBusiness.GetConferencePreference
-import Network.AWS.AlexaBusiness.GetConferenceProvider
-import Network.AWS.AlexaBusiness.GetContact
+import Network.AWS.AlexaBusiness.DisassociateSkillFromSkillGroup
+import Network.AWS.AlexaBusiness.CreateAddressBook
+import Network.AWS.AlexaBusiness.DeleteAddressBook
+import Network.AWS.AlexaBusiness.UpdateAddressBook
+import Network.AWS.AlexaBusiness.DeleteGatewayGroup
+import Network.AWS.AlexaBusiness.UpdateGatewayGroup
+import Network.AWS.AlexaBusiness.UpdateRoom
+import Network.AWS.AlexaBusiness.DeleteRoom
 import Network.AWS.AlexaBusiness.GetDevice
 import Network.AWS.AlexaBusiness.GetGateway
-import Network.AWS.AlexaBusiness.GetGatewayGroup
-import Network.AWS.AlexaBusiness.GetInvitationConfiguration
-import Network.AWS.AlexaBusiness.GetNetworkProfile
-import Network.AWS.AlexaBusiness.GetProfile
-import Network.AWS.AlexaBusiness.GetRoom
-import Network.AWS.AlexaBusiness.GetRoomSkillParameter
-import Network.AWS.AlexaBusiness.GetSkillGroup
-import Network.AWS.AlexaBusiness.ListBusinessReportSchedules
-import Network.AWS.AlexaBusiness.ListConferenceProviders
-import Network.AWS.AlexaBusiness.ListDeviceEvents
-import Network.AWS.AlexaBusiness.ListGatewayGroups
-import Network.AWS.AlexaBusiness.ListGateways
-import Network.AWS.AlexaBusiness.ListSkills
-import Network.AWS.AlexaBusiness.ListSkillsStoreCategories
 import Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory
-import Network.AWS.AlexaBusiness.ListSmartHomeAppliances
-import Network.AWS.AlexaBusiness.ListTags
-import Network.AWS.AlexaBusiness.PutConferencePreference
-import Network.AWS.AlexaBusiness.PutInvitationConfiguration
-import Network.AWS.AlexaBusiness.PutRoomSkillParameter
-import Network.AWS.AlexaBusiness.PutSkillAuthorization
-import Network.AWS.AlexaBusiness.RegisterAVSDevice
-import Network.AWS.AlexaBusiness.RejectSkill
-import Network.AWS.AlexaBusiness.ResolveRoom
-import Network.AWS.AlexaBusiness.RevokeInvitation
-import Network.AWS.AlexaBusiness.SearchAddressBooks
-import Network.AWS.AlexaBusiness.SearchContacts
-import Network.AWS.AlexaBusiness.SearchDevices
-import Network.AWS.AlexaBusiness.SearchNetworkProfiles
-import Network.AWS.AlexaBusiness.SearchProfiles
-import Network.AWS.AlexaBusiness.SearchRooms
-import Network.AWS.AlexaBusiness.SearchSkillGroups
-import Network.AWS.AlexaBusiness.SearchUsers
-import Network.AWS.AlexaBusiness.SendAnnouncement
-import Network.AWS.AlexaBusiness.SendInvitation
-import Network.AWS.AlexaBusiness.StartDeviceSync
-import Network.AWS.AlexaBusiness.StartSmartHomeApplianceDiscovery
-import Network.AWS.AlexaBusiness.TagResource
-import Network.AWS.AlexaBusiness.Types
-import Network.AWS.AlexaBusiness.UntagResource
-import Network.AWS.AlexaBusiness.UpdateAddressBook
-import Network.AWS.AlexaBusiness.UpdateBusinessReportSchedule
+import Network.AWS.AlexaBusiness.DeleteConferenceProvider
 import Network.AWS.AlexaBusiness.UpdateConferenceProvider
-import Network.AWS.AlexaBusiness.UpdateContact
-import Network.AWS.AlexaBusiness.UpdateDevice
+import Network.AWS.AlexaBusiness.GetContact
+import Network.AWS.AlexaBusiness.ApproveSkill
+import Network.AWS.AlexaBusiness.CreateNetworkProfile
+import Network.AWS.AlexaBusiness.AssociateDeviceWithRoom
+import Network.AWS.AlexaBusiness.GetRoomSkillParameter
 import Network.AWS.AlexaBusiness.UpdateGateway
-import Network.AWS.AlexaBusiness.UpdateGatewayGroup
-import Network.AWS.AlexaBusiness.UpdateNetworkProfile
-import Network.AWS.AlexaBusiness.UpdateProfile
-import Network.AWS.AlexaBusiness.UpdateRoom
+import Network.AWS.AlexaBusiness.CreateBusinessReportSchedule
+import Network.AWS.AlexaBusiness.DeleteContact
+import Network.AWS.AlexaBusiness.UpdateContact
+import Network.AWS.AlexaBusiness.GetAddressBook
+import Network.AWS.AlexaBusiness.ListBusinessReportSchedules
+import Network.AWS.AlexaBusiness.DeleteDeviceUsageData
+import Network.AWS.AlexaBusiness.CreateContact
+import Network.AWS.AlexaBusiness.CreateProfile
+import Network.AWS.AlexaBusiness.DeleteSkillGroup
 import Network.AWS.AlexaBusiness.UpdateSkillGroup
-import Network.AWS.AlexaBusiness.Waiters
+import Network.AWS.AlexaBusiness.StartDeviceSync
+import Network.AWS.AlexaBusiness.GetInvitationConfiguration
+import Network.AWS.AlexaBusiness.DisassociateSkillFromUsers
+import Network.AWS.AlexaBusiness.SearchAddressBooks
+import Network.AWS.AlexaBusiness.CreateSkillGroup
+import Network.AWS.AlexaBusiness.GetProfile
+import Network.AWS.AlexaBusiness.DisassociateSkillGroupFromRoom
+import Network.AWS.AlexaBusiness.SendInvitation
+import Network.AWS.AlexaBusiness.ListDeviceEvents
+import Network.AWS.AlexaBusiness.CreateUser
+import Network.AWS.AlexaBusiness.SearchDevices
+import Network.AWS.AlexaBusiness.SearchContacts
+import Network.AWS.AlexaBusiness.SendAnnouncement
+import Network.AWS.AlexaBusiness.DeleteUser
+import Network.AWS.AlexaBusiness.SearchNetworkProfiles
+import Network.AWS.AlexaBusiness.GetSkillGroup
+import Network.AWS.AlexaBusiness.ListSkills
+import Network.AWS.AlexaBusiness.TagResource
+import Network.AWS.AlexaBusiness.DisassociateDeviceFromRoom
+import Network.AWS.AlexaBusiness.SearchSkillGroups
+import Network.AWS.AlexaBusiness.PutSkillAuthorization
+import Network.AWS.AlexaBusiness.ListTags
+import Network.AWS.AlexaBusiness.DeleteSkillAuthorization
+import Network.AWS.AlexaBusiness.AssociateDeviceWithNetworkProfile
+import Network.AWS.AlexaBusiness.UntagResource
+import Network.AWS.AlexaBusiness.CreateConferenceProvider
+import Network.AWS.AlexaBusiness.ResolveRoom
+import Network.AWS.AlexaBusiness.CreateGatewayGroup
+import Network.AWS.AlexaBusiness.CreateRoom
+import Network.AWS.AlexaBusiness.DeleteRoomSkillParameter
+import Network.AWS.AlexaBusiness.ListGatewayGroups
+import Network.AWS.AlexaBusiness.PutRoomSkillParameter
+import Network.AWS.AlexaBusiness.SearchProfiles
+import Network.AWS.AlexaBusiness.RejectSkill
+import Network.AWS.AlexaBusiness.ListConferenceProviders
+import Network.AWS.AlexaBusiness.RevokeInvitation
+import Network.AWS.AlexaBusiness.ListGateways
+import Network.AWS.AlexaBusiness.DeleteDevice
+import Network.AWS.AlexaBusiness.UpdateDevice
+import Network.AWS.AlexaBusiness.AssociateSkillWithSkillGroup
+import Network.AWS.AlexaBusiness.GetConferenceProvider
+import Network.AWS.AlexaBusiness.GetRoom
+import Network.AWS.AlexaBusiness.GetGatewayGroup
+import Network.AWS.AlexaBusiness.ListSkillsStoreCategories
+import Network.AWS.AlexaBusiness.StartSmartHomeApplianceDiscovery
+import Network.AWS.AlexaBusiness.AssociateContactWithAddressBook
 import qualified Network.AWS.Prelude as Lude
 
--- $errors
--- Error matchers are designed for use with the functions provided by
--- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
--- This allows catching (and rethrowing) service specific errors returned
--- by 'AlexaBusiness'.
+{- $errors
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by 'AlexaBusiness'.
+-}
 
--- $operations
--- Some AWS operations return results that are incomplete and require subsequent
--- requests in order to obtain the entire result set. The process of sending
--- subsequent requests to continue where a previous request left off is called
--- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
--- 1000 objects at a time, and you must send subsequent requests with the
--- appropriate Marker in order to retrieve the next page of results.
---
--- Operations that have an 'AWSPager' instance can transparently perform subsequent
--- requests, correctly setting Markers and other request facets to iterate through
--- the entire result set of a truncated API operation. Operations which support
--- this have an additional note in the documentation.
---
--- Many operations have the ability to filter results on the server side. See the
--- individual operation parameters for details.
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
 
--- $waiters
--- Waiters poll by repeatedly sending a request until some remote success condition
--- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
--- determines how many attempts should be made, in addition to delay and retry strategies.
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly sending a request until some remote success condition
+configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+determines how many attempts should be made, in addition to delay and retry strategies.
+-}

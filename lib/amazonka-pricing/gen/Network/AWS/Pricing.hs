@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -20,27 +20,30 @@
 --
 --
 --     * https://api.pricing.ap-south-1.amazonaws.com
+--
+--
 module Network.AWS.Pricing
-  ( -- * Service configuration
-    mkServiceConfig,
+    (
+    -- * Service configuration
+      mkServiceConfig
 
     -- * Errors
     -- $errors
 
     -- ** InvalidParameterException
-    _InvalidParameterException,
+    , _InvalidParameterException
 
     -- ** InternalErrorException
-    _InternalErrorException,
+    , _InternalErrorException
 
     -- ** ExpiredNextTokenException
-    _ExpiredNextTokenException,
+    , _ExpiredNextTokenException
 
     -- ** NotFoundException
-    _NotFoundException,
+    , _NotFoundException
 
     -- ** InvalidNextTokenException
-    _InvalidNextTokenException,
+    , _InvalidNextTokenException
 
     -- * Waiters
     -- $waiters
@@ -49,92 +52,82 @@ module Network.AWS.Pricing
     -- $operations
 
     -- ** GetAttributeValues (Paginated)
-    module Network.AWS.Pricing.GetAttributeValues,
+    , module Network.AWS.Pricing.GetAttributeValues
 
     -- ** DescribeServices (Paginated)
-    module Network.AWS.Pricing.DescribeServices,
+    , module Network.AWS.Pricing.DescribeServices
 
     -- ** GetProducts (Paginated)
-    module Network.AWS.Pricing.GetProducts,
+    , module Network.AWS.Pricing.GetProducts
 
     -- * Types
 
     -- ** AttributeValue
-    AttributeValue (..),
-    mkAttributeValue,
-    avValue,
+    , AttributeValue (..)
+    , mkAttributeValue
+    , avValue
 
     -- ** PriceListItemJSON
-    PriceListItemJSON (..),
-
-    -- ** String
-    String (..),
+    , PriceListItemJSON (..)
 
     -- ** PricingService
-    PricingService (..),
-    mkPricingService,
-    psAttributeNames,
-    psServiceCode,
+    , PricingService (..)
+    , mkPricingService
+    , psAttributeNames
+    , psServiceCode
 
     -- ** FilterType
-    FilterType (..),
+    , FilterType (..)
 
     -- ** Filter
-    Filter (..),
-    mkFilter,
-    fType,
-    fField,
-    fValue,
-
-    -- ** Value
-    Value (..),
-
-    -- ** FormatVersion
-    FormatVersion (..),
-
-    -- ** NextToken
-    NextToken (..),
+    , Filter (..)
+    , mkFilter
+    , fType
+    , fField
+    , fValue
 
     -- * Serialization types
-    Lude.Base64 (..),
-    Lude._Base64,
-    Lude.Sensitive (..),
-    Lude._Sensitive,
-    Lude.UTCTime,
-    Lude.NominalDiffTime,
-  )
-where
+    , Lude.Base64 (..)
+    , Lude._Base64
+    , Lude.Sensitive (..)
+    , Lude._Sensitive
+    , Lude.UTCTime
+    , Lude.NominalDiffTime
+    ) where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Pricing.DescribeServices
-import Network.AWS.Pricing.GetAttributeValues
-import Network.AWS.Pricing.GetProducts
 import Network.AWS.Pricing.Types
 import Network.AWS.Pricing.Waiters
+import Network.AWS.Pricing.GetAttributeValues
+import Network.AWS.Pricing.DescribeServices
+import Network.AWS.Pricing.GetProducts
+import qualified Network.AWS.Prelude as Lude
 
--- $errors
--- Error matchers are designed for use with the functions provided by
--- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
--- This allows catching (and rethrowing) service specific errors returned
--- by 'Pricing'.
+{- $errors
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by 'Pricing'.
+-}
 
--- $operations
--- Some AWS operations return results that are incomplete and require subsequent
--- requests in order to obtain the entire result set. The process of sending
--- subsequent requests to continue where a previous request left off is called
--- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
--- 1000 objects at a time, and you must send subsequent requests with the
--- appropriate Marker in order to retrieve the next page of results.
---
--- Operations that have an 'AWSPager' instance can transparently perform subsequent
--- requests, correctly setting Markers and other request facets to iterate through
--- the entire result set of a truncated API operation. Operations which support
--- this have an additional note in the documentation.
---
--- Many operations have the ability to filter results on the server side. See the
--- individual operation parameters for details.
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
 
--- $waiters
--- Waiters poll by repeatedly sending a request until some remote success condition
--- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
--- determines how many attempts should be made, in addition to delay and retry strategies.
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly sending a request until some remote success condition
+configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+determines how many attempts should be made, in addition to delay and retry strategies.
+-}

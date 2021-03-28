@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,19 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Batch.Types.Secret
-  ( Secret (..),
+  ( Secret (..)
+  -- * Smart constructor
+  , mkSecret
+  -- * Lenses
+  , sName
+  , sValueFrom
+  ) where
 
-    -- * Smart constructor
-    mkSecret,
-
-    -- * Lenses
-    sName,
-    sValueFrom,
-  )
-where
-
-import qualified Network.AWS.Batch.Types.String as Types
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
 
@@ -39,49 +36,46 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkSecret' smart constructor.
 data Secret = Secret'
-  { -- | The name of the secret.
-    name :: Types.String,
-    -- | The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
-    valueFrom :: Types.String
+  { name :: Core.Text
+    -- ^ The name of the secret.
+  , valueFrom :: Core.Text
+    -- ^ The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'Secret' value with any optional fields omitted.
-mkSecret ::
-  -- | 'name'
-  Types.String ->
-  -- | 'valueFrom'
-  Types.String ->
-  Secret
-mkSecret name valueFrom = Secret' {name, valueFrom}
+mkSecret
+    :: Core.Text -- ^ 'name'
+    -> Core.Text -- ^ 'valueFrom'
+    -> Secret
+mkSecret name valueFrom = Secret'{name, valueFrom}
 
 -- | The name of the secret.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sName :: Lens.Lens' Secret Types.String
+sName :: Lens.Lens' Secret Core.Text
 sName = Lens.field @"name"
-{-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
+{-# INLINEABLE sName #-}
+{-# DEPRECATED name "Use generic-lens or generic-optics with 'name' instead"  #-}
 
 -- | The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
 --
 -- /Note:/ Consider using 'valueFrom' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sValueFrom :: Lens.Lens' Secret Types.String
+sValueFrom :: Lens.Lens' Secret Core.Text
 sValueFrom = Lens.field @"valueFrom"
-{-# DEPRECATED sValueFrom "Use generic-lens or generic-optics with 'valueFrom' instead." #-}
+{-# INLINEABLE sValueFrom #-}
+{-# DEPRECATED valueFrom "Use generic-lens or generic-optics with 'valueFrom' instead"  #-}
 
 instance Core.FromJSON Secret where
-  toJSON Secret {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("name" Core..= name),
-            Core.Just ("valueFrom" Core..= valueFrom)
-          ]
-      )
+        toJSON Secret{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("name" Core..= name),
+                  Core.Just ("valueFrom" Core..= valueFrom)])
 
 instance Core.FromJSON Secret where
-  parseJSON =
-    Core.withObject "Secret" Core.$
-      \x ->
-        Secret'
-          Core.<$> (x Core..: "name") Core.<*> (x Core..: "valueFrom")
+        parseJSON
+          = Core.withObject "Secret" Core.$
+              \ x ->
+                Secret' Core.<$> (x Core..: "name") Core.<*> x Core..: "valueFrom"

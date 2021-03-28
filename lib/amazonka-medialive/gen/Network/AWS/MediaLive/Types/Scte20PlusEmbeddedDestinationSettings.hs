@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,15 +10,13 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaLive.Types.Scte20PlusEmbeddedDestinationSettings
-  ( Scte20PlusEmbeddedDestinationSettings (..),
-
-    -- * Smart constructor
-    mkScte20PlusEmbeddedDestinationSettings,
-
-    -- * Lenses
-  )
-where
+  ( Scte20PlusEmbeddedDestinationSettings (..)
+  -- * Smart constructor
+  , mkScte20PlusEmbeddedDestinationSettings
+  -- * Lenses
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -31,15 +29,15 @@ data Scte20PlusEmbeddedDestinationSettings = Scte20PlusEmbeddedDestinationSettin
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'Scte20PlusEmbeddedDestinationSettings' value with any optional fields omitted.
-mkScte20PlusEmbeddedDestinationSettings ::
-  Scte20PlusEmbeddedDestinationSettings
-mkScte20PlusEmbeddedDestinationSettings =
-  Scte20PlusEmbeddedDestinationSettings'
+mkScte20PlusEmbeddedDestinationSettings
+    :: Scte20PlusEmbeddedDestinationSettings
+mkScte20PlusEmbeddedDestinationSettings
+  = Scte20PlusEmbeddedDestinationSettings'
 
 instance Core.FromJSON Scte20PlusEmbeddedDestinationSettings where
-  toJSON _ = Core.Object Core.mempty
+        toJSON _ = Core.Object Core.mempty
 
 instance Core.FromJSON Scte20PlusEmbeddedDestinationSettings where
-  parseJSON =
-    Core.withObject "Scte20PlusEmbeddedDestinationSettings" Core.$
-      \x -> Core.pure Scte20PlusEmbeddedDestinationSettings'
+        parseJSON
+          = Core.withObject "Scte20PlusEmbeddedDestinationSettings" Core.$
+              \ x -> Core.pure Scte20PlusEmbeddedDestinationSettings'

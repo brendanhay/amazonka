@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,31 +15,29 @@
 --
 -- Delete a multiplex. The multiplex must be idle.
 module Network.AWS.MediaLive.DeleteMultiplex
-  ( -- * Creating a request
-    DeleteMultiplex (..),
-    mkDeleteMultiplex,
-
+    (
+    -- * Creating a request
+      DeleteMultiplex (..)
+    , mkDeleteMultiplex
     -- ** Request lenses
-    dMultiplexId,
+    , dMultiplexId
 
     -- * Destructuring the response
-    DeleteMultiplexResponse (..),
-    mkDeleteMultiplexResponse,
-
+    , DeleteMultiplexResponse (..)
+    , mkDeleteMultiplexResponse
     -- ** Response lenses
-    dmrfrsArn,
-    dmrfrsAvailabilityZones,
-    dmrfrsDestinations,
-    dmrfrsId,
-    dmrfrsMultiplexSettings,
-    dmrfrsName,
-    dmrfrsPipelinesRunningCount,
-    dmrfrsProgramCount,
-    dmrfrsState,
-    dmrfrsTags,
-    dmrfrsResponseStatus,
-  )
-where
+    , dmrfrsArn
+    , dmrfrsAvailabilityZones
+    , dmrfrsDestinations
+    , dmrfrsId
+    , dmrfrsMultiplexSettings
+    , dmrfrsName
+    , dmrfrsPipelinesRunningCount
+    , dmrfrsProgramCount
+    , dmrfrsState
+    , dmrfrsTags
+    , dmrfrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.MediaLive.Types as Types
@@ -51,180 +49,187 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkDeleteMultiplex' smart constructor.
 newtype DeleteMultiplex = DeleteMultiplex'
-  { -- | The ID of the multiplex.
-    multiplexId :: Core.Text
+  { multiplexId :: Core.Text
+    -- ^ The ID of the multiplex.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteMultiplex' value with any optional fields omitted.
-mkDeleteMultiplex ::
-  -- | 'multiplexId'
-  Core.Text ->
-  DeleteMultiplex
-mkDeleteMultiplex multiplexId = DeleteMultiplex' {multiplexId}
+mkDeleteMultiplex
+    :: Core.Text -- ^ 'multiplexId'
+    -> DeleteMultiplex
+mkDeleteMultiplex multiplexId = DeleteMultiplex'{multiplexId}
 
 -- | The ID of the multiplex.
 --
 -- /Note:/ Consider using 'multiplexId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dMultiplexId :: Lens.Lens' DeleteMultiplex Core.Text
 dMultiplexId = Lens.field @"multiplexId"
-{-# DEPRECATED dMultiplexId "Use generic-lens or generic-optics with 'multiplexId' instead." #-}
+{-# INLINEABLE dMultiplexId #-}
+{-# DEPRECATED multiplexId "Use generic-lens or generic-optics with 'multiplexId' instead"  #-}
+
+instance Core.ToQuery DeleteMultiplex where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DeleteMultiplex where
+        toHeaders DeleteMultiplex{..}
+          = Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.AWSRequest DeleteMultiplex where
-  type Rs DeleteMultiplex = DeleteMultiplexResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.DELETE,
-        Core._rqPath =
-          Core.rawPath
-            ("/prod/multiplexes/" Core.<> (Core.toText multiplexId)),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
-        Core._rqBody = ""
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          DeleteMultiplexResponse'
-            Core.<$> (x Core..:? "arn")
-            Core.<*> (x Core..:? "availabilityZones")
-            Core.<*> (x Core..:? "destinations")
-            Core.<*> (x Core..:? "id")
-            Core.<*> (x Core..:? "multiplexSettings")
-            Core.<*> (x Core..:? "name")
-            Core.<*> (x Core..:? "pipelinesRunningCount")
-            Core.<*> (x Core..:? "programCount")
-            Core.<*> (x Core..:? "state")
-            Core.<*> (x Core..:? "tags")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DeleteMultiplex = DeleteMultiplexResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.DELETE,
+                         Core._rqPath =
+                           "/prod/multiplexes/" Core.<> Core.toText multiplexId,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 DeleteMultiplexResponse' Core.<$>
+                   (x Core..:? "arn") Core.<*> x Core..:? "availabilityZones" Core.<*>
+                     x Core..:? "destinations"
+                     Core.<*> x Core..:? "id"
+                     Core.<*> x Core..:? "multiplexSettings"
+                     Core.<*> x Core..:? "name"
+                     Core.<*> x Core..:? "pipelinesRunningCount"
+                     Core.<*> x Core..:? "programCount"
+                     Core.<*> x Core..:? "state"
+                     Core.<*> x Core..:? "tags"
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | Placeholder documentation for DeleteMultiplexResponse
 --
 -- /See:/ 'mkDeleteMultiplexResponse' smart constructor.
 data DeleteMultiplexResponse = DeleteMultiplexResponse'
-  { -- | The unique arn of the multiplex.
-    arn :: Core.Maybe Core.Text,
-    -- | A list of availability zones for the multiplex.
-    availabilityZones :: Core.Maybe [Core.Text],
-    -- | A list of the multiplex output destinations.
-    destinations :: Core.Maybe [Types.MultiplexOutputDestination],
-    -- | The unique id of the multiplex.
-    id :: Core.Maybe Core.Text,
-    -- | Configuration for a multiplex event.
-    multiplexSettings :: Core.Maybe Types.MultiplexSettings,
-    -- | The name of the multiplex.
-    name :: Core.Maybe Core.Text,
-    -- | The number of currently healthy pipelines.
-    pipelinesRunningCount :: Core.Maybe Core.Int,
-    -- | The number of programs in the multiplex.
-    programCount :: Core.Maybe Core.Int,
-    -- | The current state of the multiplex.
-    state :: Core.Maybe Types.MultiplexState,
-    -- | A collection of key-value pairs.
-    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { arn :: Core.Maybe Core.Text
+    -- ^ The unique arn of the multiplex.
+  , availabilityZones :: Core.Maybe [Core.Text]
+    -- ^ A list of availability zones for the multiplex.
+  , destinations :: Core.Maybe [Types.MultiplexOutputDestination]
+    -- ^ A list of the multiplex output destinations.
+  , id :: Core.Maybe Core.Text
+    -- ^ The unique id of the multiplex.
+  , multiplexSettings :: Core.Maybe Types.MultiplexSettings
+    -- ^ Configuration for a multiplex event.
+  , name :: Core.Maybe Core.Text
+    -- ^ The name of the multiplex.
+  , pipelinesRunningCount :: Core.Maybe Core.Int
+    -- ^ The number of currently healthy pipelines.
+  , programCount :: Core.Maybe Core.Int
+    -- ^ The number of programs in the multiplex.
+  , state :: Core.Maybe Types.MultiplexState
+    -- ^ The current state of the multiplex.
+  , tags :: Core.Maybe (Core.HashMap Core.Text Core.Text)
+    -- ^ A collection of key-value pairs.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteMultiplexResponse' value with any optional fields omitted.
-mkDeleteMultiplexResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DeleteMultiplexResponse
-mkDeleteMultiplexResponse responseStatus =
-  DeleteMultiplexResponse'
-    { arn = Core.Nothing,
-      availabilityZones = Core.Nothing,
-      destinations = Core.Nothing,
-      id = Core.Nothing,
-      multiplexSettings = Core.Nothing,
-      name = Core.Nothing,
-      pipelinesRunningCount = Core.Nothing,
-      programCount = Core.Nothing,
-      state = Core.Nothing,
-      tags = Core.Nothing,
-      responseStatus
-    }
+mkDeleteMultiplexResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DeleteMultiplexResponse
+mkDeleteMultiplexResponse responseStatus
+  = DeleteMultiplexResponse'{arn = Core.Nothing,
+                             availabilityZones = Core.Nothing, destinations = Core.Nothing,
+                             id = Core.Nothing, multiplexSettings = Core.Nothing,
+                             name = Core.Nothing, pipelinesRunningCount = Core.Nothing,
+                             programCount = Core.Nothing, state = Core.Nothing,
+                             tags = Core.Nothing, responseStatus}
 
 -- | The unique arn of the multiplex.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dmrfrsArn :: Lens.Lens' DeleteMultiplexResponse (Core.Maybe Core.Text)
 dmrfrsArn = Lens.field @"arn"
-{-# DEPRECATED dmrfrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+{-# INLINEABLE dmrfrsArn #-}
+{-# DEPRECATED arn "Use generic-lens or generic-optics with 'arn' instead"  #-}
 
 -- | A list of availability zones for the multiplex.
 --
 -- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dmrfrsAvailabilityZones :: Lens.Lens' DeleteMultiplexResponse (Core.Maybe [Core.Text])
 dmrfrsAvailabilityZones = Lens.field @"availabilityZones"
-{-# DEPRECATED dmrfrsAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
+{-# INLINEABLE dmrfrsAvailabilityZones #-}
+{-# DEPRECATED availabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead"  #-}
 
 -- | A list of the multiplex output destinations.
 --
 -- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dmrfrsDestinations :: Lens.Lens' DeleteMultiplexResponse (Core.Maybe [Types.MultiplexOutputDestination])
 dmrfrsDestinations = Lens.field @"destinations"
-{-# DEPRECATED dmrfrsDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
+{-# INLINEABLE dmrfrsDestinations #-}
+{-# DEPRECATED destinations "Use generic-lens or generic-optics with 'destinations' instead"  #-}
 
 -- | The unique id of the multiplex.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dmrfrsId :: Lens.Lens' DeleteMultiplexResponse (Core.Maybe Core.Text)
 dmrfrsId = Lens.field @"id"
-{-# DEPRECATED dmrfrsId "Use generic-lens or generic-optics with 'id' instead." #-}
+{-# INLINEABLE dmrfrsId #-}
+{-# DEPRECATED id "Use generic-lens or generic-optics with 'id' instead"  #-}
 
 -- | Configuration for a multiplex event.
 --
 -- /Note:/ Consider using 'multiplexSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dmrfrsMultiplexSettings :: Lens.Lens' DeleteMultiplexResponse (Core.Maybe Types.MultiplexSettings)
 dmrfrsMultiplexSettings = Lens.field @"multiplexSettings"
-{-# DEPRECATED dmrfrsMultiplexSettings "Use generic-lens or generic-optics with 'multiplexSettings' instead." #-}
+{-# INLINEABLE dmrfrsMultiplexSettings #-}
+{-# DEPRECATED multiplexSettings "Use generic-lens or generic-optics with 'multiplexSettings' instead"  #-}
 
 -- | The name of the multiplex.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dmrfrsName :: Lens.Lens' DeleteMultiplexResponse (Core.Maybe Core.Text)
 dmrfrsName = Lens.field @"name"
-{-# DEPRECATED dmrfrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+{-# INLINEABLE dmrfrsName #-}
+{-# DEPRECATED name "Use generic-lens or generic-optics with 'name' instead"  #-}
 
 -- | The number of currently healthy pipelines.
 --
 -- /Note:/ Consider using 'pipelinesRunningCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dmrfrsPipelinesRunningCount :: Lens.Lens' DeleteMultiplexResponse (Core.Maybe Core.Int)
 dmrfrsPipelinesRunningCount = Lens.field @"pipelinesRunningCount"
-{-# DEPRECATED dmrfrsPipelinesRunningCount "Use generic-lens or generic-optics with 'pipelinesRunningCount' instead." #-}
+{-# INLINEABLE dmrfrsPipelinesRunningCount #-}
+{-# DEPRECATED pipelinesRunningCount "Use generic-lens or generic-optics with 'pipelinesRunningCount' instead"  #-}
 
 -- | The number of programs in the multiplex.
 --
 -- /Note:/ Consider using 'programCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dmrfrsProgramCount :: Lens.Lens' DeleteMultiplexResponse (Core.Maybe Core.Int)
 dmrfrsProgramCount = Lens.field @"programCount"
-{-# DEPRECATED dmrfrsProgramCount "Use generic-lens or generic-optics with 'programCount' instead." #-}
+{-# INLINEABLE dmrfrsProgramCount #-}
+{-# DEPRECATED programCount "Use generic-lens or generic-optics with 'programCount' instead"  #-}
 
 -- | The current state of the multiplex.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dmrfrsState :: Lens.Lens' DeleteMultiplexResponse (Core.Maybe Types.MultiplexState)
 dmrfrsState = Lens.field @"state"
-{-# DEPRECATED dmrfrsState "Use generic-lens or generic-optics with 'state' instead." #-}
+{-# INLINEABLE dmrfrsState #-}
+{-# DEPRECATED state "Use generic-lens or generic-optics with 'state' instead"  #-}
 
 -- | A collection of key-value pairs.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dmrfrsTags :: Lens.Lens' DeleteMultiplexResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
 dmrfrsTags = Lens.field @"tags"
-{-# DEPRECATED dmrfrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+{-# INLINEABLE dmrfrsTags #-}
+{-# DEPRECATED tags "Use generic-lens or generic-optics with 'tags' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dmrfrsResponseStatus :: Lens.Lens' DeleteMultiplexResponse Core.Int
 dmrfrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED dmrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE dmrfrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

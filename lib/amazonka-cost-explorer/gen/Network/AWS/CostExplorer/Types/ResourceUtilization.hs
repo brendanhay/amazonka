@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,46 +10,45 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CostExplorer.Types.ResourceUtilization
-  ( ResourceUtilization (..),
-
-    -- * Smart constructor
-    mkResourceUtilization,
-
-    -- * Lenses
-    ruEC2ResourceUtilization,
-  )
-where
+  ( ResourceUtilization (..)
+  -- * Smart constructor
+  , mkResourceUtilization
+  -- * Lenses
+  , ruEC2ResourceUtilization
+  ) where
 
 import qualified Network.AWS.CostExplorer.Types.EC2ResourceUtilization as Types
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
 
--- | Resource utilization of current resource.
+-- | Resource utilization of current resource. 
 --
 -- /See:/ 'mkResourceUtilization' smart constructor.
 newtype ResourceUtilization = ResourceUtilization'
-  { -- | Utilization of current Amazon EC2 instance.
-    eC2ResourceUtilization :: Core.Maybe Types.EC2ResourceUtilization
+  { eC2ResourceUtilization :: Core.Maybe Types.EC2ResourceUtilization
+    -- ^ Utilization of current Amazon EC2 instance. 
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ResourceUtilization' value with any optional fields omitted.
-mkResourceUtilization ::
-  ResourceUtilization
-mkResourceUtilization =
-  ResourceUtilization' {eC2ResourceUtilization = Core.Nothing}
+mkResourceUtilization
+    :: ResourceUtilization
+mkResourceUtilization
+  = ResourceUtilization'{eC2ResourceUtilization = Core.Nothing}
 
--- | Utilization of current Amazon EC2 instance.
+-- | Utilization of current Amazon EC2 instance. 
 --
 -- /Note:/ Consider using 'eC2ResourceUtilization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ruEC2ResourceUtilization :: Lens.Lens' ResourceUtilization (Core.Maybe Types.EC2ResourceUtilization)
 ruEC2ResourceUtilization = Lens.field @"eC2ResourceUtilization"
-{-# DEPRECATED ruEC2ResourceUtilization "Use generic-lens or generic-optics with 'eC2ResourceUtilization' instead." #-}
+{-# INLINEABLE ruEC2ResourceUtilization #-}
+{-# DEPRECATED eC2ResourceUtilization "Use generic-lens or generic-optics with 'eC2ResourceUtilization' instead"  #-}
 
 instance Core.FromJSON ResourceUtilization where
-  parseJSON =
-    Core.withObject "ResourceUtilization" Core.$
-      \x ->
-        ResourceUtilization' Core.<$> (x Core..:? "EC2ResourceUtilization")
+        parseJSON
+          = Core.withObject "ResourceUtilization" Core.$
+              \ x ->
+                ResourceUtilization' Core.<$> (x Core..:? "EC2ResourceUtilization")

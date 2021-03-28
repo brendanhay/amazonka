@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.IoT.Types.CodeSigningSignature
-  ( CodeSigningSignature (..),
-
-    -- * Smart constructor
-    mkCodeSigningSignature,
-
-    -- * Lenses
-    cssInlineDocument,
-  )
-where
+  ( CodeSigningSignature (..)
+  -- * Smart constructor
+  , mkCodeSigningSignature
+  -- * Lenses
+  , cssInlineDocument
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -28,17 +26,17 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkCodeSigningSignature' smart constructor.
 newtype CodeSigningSignature = CodeSigningSignature'
-  { -- | A base64 encoded binary representation of the code signing signature.
-    inlineDocument :: Core.Maybe Core.Base64
+  { inlineDocument :: Core.Maybe Core.Base64
+    -- ^ A base64 encoded binary representation of the code signing signature.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CodeSigningSignature' value with any optional fields omitted.
-mkCodeSigningSignature ::
-  CodeSigningSignature
-mkCodeSigningSignature =
-  CodeSigningSignature' {inlineDocument = Core.Nothing}
+mkCodeSigningSignature
+    :: CodeSigningSignature
+mkCodeSigningSignature
+  = CodeSigningSignature'{inlineDocument = Core.Nothing}
 
 -- | A base64 encoded binary representation of the code signing signature.--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -49,16 +47,16 @@ mkCodeSigningSignature =
 -- /Note:/ Consider using 'inlineDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cssInlineDocument :: Lens.Lens' CodeSigningSignature (Core.Maybe Core.Base64)
 cssInlineDocument = Lens.field @"inlineDocument"
-{-# DEPRECATED cssInlineDocument "Use generic-lens or generic-optics with 'inlineDocument' instead." #-}
+{-# INLINEABLE cssInlineDocument #-}
+{-# DEPRECATED inlineDocument "Use generic-lens or generic-optics with 'inlineDocument' instead"  #-}
 
 instance Core.FromJSON CodeSigningSignature where
-  toJSON CodeSigningSignature {..} =
-    Core.object
-      ( Core.catMaybes
-          [("inlineDocument" Core..=) Core.<$> inlineDocument]
-      )
+        toJSON CodeSigningSignature{..}
+          = Core.object
+              (Core.catMaybes
+                 [("inlineDocument" Core..=) Core.<$> inlineDocument])
 
 instance Core.FromJSON CodeSigningSignature where
-  parseJSON =
-    Core.withObject "CodeSigningSignature" Core.$
-      \x -> CodeSigningSignature' Core.<$> (x Core..:? "inlineDocument")
+        parseJSON
+          = Core.withObject "CodeSigningSignature" Core.$
+              \ x -> CodeSigningSignature' Core.<$> (x Core..:? "inlineDocument")

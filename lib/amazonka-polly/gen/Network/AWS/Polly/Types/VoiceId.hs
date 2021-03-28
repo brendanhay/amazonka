@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,102 +10,85 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Polly.Types.VoiceId
   ( VoiceId
-      ( VoiceId',
-        VoiceIdAditi,
-        VoiceIdAmy,
-        VoiceIdAstrid,
-        VoiceIdBianca,
-        VoiceIdBrian,
-        VoiceIdCamila,
-        VoiceIdCarla,
-        VoiceIdCarmen,
-        VoiceIdCeline,
-        VoiceIdChantal,
-        VoiceIdConchita,
-        VoiceIdCristiano,
-        VoiceIdDora,
-        VoiceIdEmma,
-        VoiceIdEnrique,
-        VoiceIdEwa,
-        VoiceIdFiliz,
-        VoiceIdGeraint,
-        VoiceIdGiorgio,
-        VoiceIdGwyneth,
-        VoiceIdHans,
-        VoiceIdInes,
-        VoiceIdIvy,
-        VoiceIdJacek,
-        VoiceIdJan,
-        VoiceIdJoanna,
-        VoiceIdJoey,
-        VoiceIdJustin,
-        VoiceIdKarl,
-        VoiceIdKendra,
-        VoiceIdKevin,
-        VoiceIdKimberly,
-        VoiceIdLea,
-        VoiceIdLiv,
-        VoiceIdLotte,
-        VoiceIdLucia,
-        VoiceIdLupe,
-        VoiceIdMads,
-        VoiceIdMaja,
-        VoiceIdMarlene,
-        VoiceIdMathieu,
-        VoiceIdMatthew,
-        VoiceIdMaxim,
-        VoiceIdMia,
-        VoiceIdMiguel,
-        VoiceIdMizuki,
-        VoiceIdNaja,
-        VoiceIdNicole,
-        VoiceIdOlivia,
-        VoiceIdPenelope,
-        VoiceIdRaveena,
-        VoiceIdRicardo,
-        VoiceIdRuben,
-        VoiceIdRussell,
-        VoiceIdSalli,
-        VoiceIdSeoyeon,
-        VoiceIdTakumi,
-        VoiceIdTatyana,
-        VoiceIdVicki,
-        VoiceIdVitoria,
-        VoiceIdZeina,
-        VoiceIdZhiyu,
-        fromVoiceId
-      ),
-  )
-where
+    ( VoiceId'
+    , VoiceIdAditi
+    , VoiceIdAmy
+    , VoiceIdAstrid
+    , VoiceIdBianca
+    , VoiceIdBrian
+    , VoiceIdCamila
+    , VoiceIdCarla
+    , VoiceIdCarmen
+    , VoiceIdCeline
+    , VoiceIdChantal
+    , VoiceIdConchita
+    , VoiceIdCristiano
+    , VoiceIdDora
+    , VoiceIdEmma
+    , VoiceIdEnrique
+    , VoiceIdEwa
+    , VoiceIdFiliz
+    , VoiceIdGeraint
+    , VoiceIdGiorgio
+    , VoiceIdGwyneth
+    , VoiceIdHans
+    , VoiceIdInes
+    , VoiceIdIvy
+    , VoiceIdJacek
+    , VoiceIdJan
+    , VoiceIdJoanna
+    , VoiceIdJoey
+    , VoiceIdJustin
+    , VoiceIdKarl
+    , VoiceIdKendra
+    , VoiceIdKevin
+    , VoiceIdKimberly
+    , VoiceIdLea
+    , VoiceIdLiv
+    , VoiceIdLotte
+    , VoiceIdLucia
+    , VoiceIdLupe
+    , VoiceIdMads
+    , VoiceIdMaja
+    , VoiceIdMarlene
+    , VoiceIdMathieu
+    , VoiceIdMatthew
+    , VoiceIdMaxim
+    , VoiceIdMia
+    , VoiceIdMiguel
+    , VoiceIdMizuki
+    , VoiceIdNaja
+    , VoiceIdNicole
+    , VoiceIdOlivia
+    , VoiceIdPenelope
+    , VoiceIdRaveena
+    , VoiceIdRicardo
+    , VoiceIdRuben
+    , VoiceIdRussell
+    , VoiceIdSalli
+    , VoiceIdSeoyeon
+    , VoiceIdTakumi
+    , VoiceIdTatyana
+    , VoiceIdVicki
+    , VoiceIdVitoria
+    , VoiceIdZeina
+    , VoiceIdZhiyu
+    , fromVoiceId
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype VoiceId = VoiceId' {fromVoiceId :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype VoiceId = VoiceId'{fromVoiceId :: Core.Text}
+                    deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                    Core.Generic)
+                    deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                      Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON, Core.FromJSON,
+                                      Core.ToXML, Core.FromXML, Core.ToText, Core.FromText,
+                                      Core.ToByteString, Core.ToQuery, Core.ToHeader)
 
 pattern VoiceIdAditi :: VoiceId
 pattern VoiceIdAditi = VoiceId' "Aditi"
@@ -293,68 +276,129 @@ pattern VoiceIdZeina = VoiceId' "Zeina"
 pattern VoiceIdZhiyu :: VoiceId
 pattern VoiceIdZhiyu = VoiceId' "Zhiyu"
 
-{-# COMPLETE
+{-# COMPLETE 
   VoiceIdAditi,
+
   VoiceIdAmy,
+
   VoiceIdAstrid,
+
   VoiceIdBianca,
+
   VoiceIdBrian,
+
   VoiceIdCamila,
+
   VoiceIdCarla,
+
   VoiceIdCarmen,
+
   VoiceIdCeline,
+
   VoiceIdChantal,
+
   VoiceIdConchita,
+
   VoiceIdCristiano,
+
   VoiceIdDora,
+
   VoiceIdEmma,
+
   VoiceIdEnrique,
+
   VoiceIdEwa,
+
   VoiceIdFiliz,
+
   VoiceIdGeraint,
+
   VoiceIdGiorgio,
+
   VoiceIdGwyneth,
+
   VoiceIdHans,
+
   VoiceIdInes,
+
   VoiceIdIvy,
+
   VoiceIdJacek,
+
   VoiceIdJan,
+
   VoiceIdJoanna,
+
   VoiceIdJoey,
+
   VoiceIdJustin,
+
   VoiceIdKarl,
+
   VoiceIdKendra,
+
   VoiceIdKevin,
+
   VoiceIdKimberly,
+
   VoiceIdLea,
+
   VoiceIdLiv,
+
   VoiceIdLotte,
+
   VoiceIdLucia,
+
   VoiceIdLupe,
+
   VoiceIdMads,
+
   VoiceIdMaja,
+
   VoiceIdMarlene,
+
   VoiceIdMathieu,
+
   VoiceIdMatthew,
+
   VoiceIdMaxim,
+
   VoiceIdMia,
+
   VoiceIdMiguel,
+
   VoiceIdMizuki,
+
   VoiceIdNaja,
+
   VoiceIdNicole,
+
   VoiceIdOlivia,
+
   VoiceIdPenelope,
+
   VoiceIdRaveena,
+
   VoiceIdRicardo,
+
   VoiceIdRuben,
+
   VoiceIdRussell,
+
   VoiceIdSalli,
+
   VoiceIdSeoyeon,
+
   VoiceIdTakumi,
+
   VoiceIdTatyana,
+
   VoiceIdVicki,
+
   VoiceIdVitoria,
+
   VoiceIdZeina,
+
   VoiceIdZhiyu,
   VoiceId'
   #-}

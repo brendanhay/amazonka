@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,19 +10,17 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Comprehend.Types.EntitiesDetectionJobFilter
-  ( EntitiesDetectionJobFilter (..),
-
-    -- * Smart constructor
-    mkEntitiesDetectionJobFilter,
-
-    -- * Lenses
-    edjffJobName,
-    edjffJobStatus,
-    edjffSubmitTimeAfter,
-    edjffSubmitTimeBefore,
-  )
-where
+  ( EntitiesDetectionJobFilter (..)
+  -- * Smart constructor
+  , mkEntitiesDetectionJobFilter
+  -- * Lenses
+  , edjffJobName
+  , edjffJobStatus
+  , edjffSubmitTimeAfter
+  , edjffSubmitTimeBefore
+  ) where
 
 import qualified Network.AWS.Comprehend.Types.JobName as Types
 import qualified Network.AWS.Comprehend.Types.JobStatus as Types
@@ -33,64 +31,63 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkEntitiesDetectionJobFilter' smart constructor.
 data EntitiesDetectionJobFilter = EntitiesDetectionJobFilter'
-  { -- | Filters on the name of the job.
-    jobName :: Core.Maybe Types.JobName,
-    -- | Filters the list of jobs based on job status. Returns only jobs with the specified status.
-    jobStatus :: Core.Maybe Types.JobStatus,
-    -- | Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.
-    submitTimeAfter :: Core.Maybe Core.NominalDiffTime,
-    -- | Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.
-    submitTimeBefore :: Core.Maybe Core.NominalDiffTime
+  { jobName :: Core.Maybe Types.JobName
+    -- ^ Filters on the name of the job.
+  , jobStatus :: Core.Maybe Types.JobStatus
+    -- ^ Filters the list of jobs based on job status. Returns only jobs with the specified status.
+  , submitTimeAfter :: Core.Maybe Core.NominalDiffTime
+    -- ^ Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.
+  , submitTimeBefore :: Core.Maybe Core.NominalDiffTime
+    -- ^ Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'EntitiesDetectionJobFilter' value with any optional fields omitted.
-mkEntitiesDetectionJobFilter ::
-  EntitiesDetectionJobFilter
-mkEntitiesDetectionJobFilter =
-  EntitiesDetectionJobFilter'
-    { jobName = Core.Nothing,
-      jobStatus = Core.Nothing,
-      submitTimeAfter = Core.Nothing,
-      submitTimeBefore = Core.Nothing
-    }
+mkEntitiesDetectionJobFilter
+    :: EntitiesDetectionJobFilter
+mkEntitiesDetectionJobFilter
+  = EntitiesDetectionJobFilter'{jobName = Core.Nothing,
+                                jobStatus = Core.Nothing, submitTimeAfter = Core.Nothing,
+                                submitTimeBefore = Core.Nothing}
 
 -- | Filters on the name of the job.
 --
 -- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 edjffJobName :: Lens.Lens' EntitiesDetectionJobFilter (Core.Maybe Types.JobName)
 edjffJobName = Lens.field @"jobName"
-{-# DEPRECATED edjffJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
+{-# INLINEABLE edjffJobName #-}
+{-# DEPRECATED jobName "Use generic-lens or generic-optics with 'jobName' instead"  #-}
 
 -- | Filters the list of jobs based on job status. Returns only jobs with the specified status.
 --
 -- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 edjffJobStatus :: Lens.Lens' EntitiesDetectionJobFilter (Core.Maybe Types.JobStatus)
 edjffJobStatus = Lens.field @"jobStatus"
-{-# DEPRECATED edjffJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
+{-# INLINEABLE edjffJobStatus #-}
+{-# DEPRECATED jobStatus "Use generic-lens or generic-optics with 'jobStatus' instead"  #-}
 
 -- | Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.
 --
 -- /Note:/ Consider using 'submitTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 edjffSubmitTimeAfter :: Lens.Lens' EntitiesDetectionJobFilter (Core.Maybe Core.NominalDiffTime)
 edjffSubmitTimeAfter = Lens.field @"submitTimeAfter"
-{-# DEPRECATED edjffSubmitTimeAfter "Use generic-lens or generic-optics with 'submitTimeAfter' instead." #-}
+{-# INLINEABLE edjffSubmitTimeAfter #-}
+{-# DEPRECATED submitTimeAfter "Use generic-lens or generic-optics with 'submitTimeAfter' instead"  #-}
 
 -- | Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.
 --
 -- /Note:/ Consider using 'submitTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 edjffSubmitTimeBefore :: Lens.Lens' EntitiesDetectionJobFilter (Core.Maybe Core.NominalDiffTime)
 edjffSubmitTimeBefore = Lens.field @"submitTimeBefore"
-{-# DEPRECATED edjffSubmitTimeBefore "Use generic-lens or generic-optics with 'submitTimeBefore' instead." #-}
+{-# INLINEABLE edjffSubmitTimeBefore #-}
+{-# DEPRECATED submitTimeBefore "Use generic-lens or generic-optics with 'submitTimeBefore' instead"  #-}
 
 instance Core.FromJSON EntitiesDetectionJobFilter where
-  toJSON EntitiesDetectionJobFilter {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("JobName" Core..=) Core.<$> jobName,
-            ("JobStatus" Core..=) Core.<$> jobStatus,
-            ("SubmitTimeAfter" Core..=) Core.<$> submitTimeAfter,
-            ("SubmitTimeBefore" Core..=) Core.<$> submitTimeBefore
-          ]
-      )
+        toJSON EntitiesDetectionJobFilter{..}
+          = Core.object
+              (Core.catMaybes
+                 [("JobName" Core..=) Core.<$> jobName,
+                  ("JobStatus" Core..=) Core.<$> jobStatus,
+                  ("SubmitTimeAfter" Core..=) Core.<$> submitTimeAfter,
+                  ("SubmitTimeBefore" Core..=) Core.<$> submitTimeBefore])

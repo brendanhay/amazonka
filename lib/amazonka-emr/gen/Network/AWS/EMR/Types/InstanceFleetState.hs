@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,50 +10,32 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.EMR.Types.InstanceFleetState
   ( InstanceFleetState
-      ( InstanceFleetState',
-        InstanceFleetStateProvisioning,
-        InstanceFleetStateBootstrapping,
-        InstanceFleetStateRunning,
-        InstanceFleetStateResizing,
-        InstanceFleetStateSuspended,
-        InstanceFleetStateTerminating,
-        InstanceFleetStateTerminated,
-        fromInstanceFleetState
-      ),
-  )
-where
+    ( InstanceFleetState'
+    , InstanceFleetStateProvisioning
+    , InstanceFleetStateBootstrapping
+    , InstanceFleetStateRunning
+    , InstanceFleetStateResizing
+    , InstanceFleetStateSuspended
+    , InstanceFleetStateTerminating
+    , InstanceFleetStateTerminated
+    , fromInstanceFleetState
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype InstanceFleetState = InstanceFleetState'
-  { fromInstanceFleetState ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype InstanceFleetState = InstanceFleetState'{fromInstanceFleetState
+                                                 :: Core.Text}
+                               deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                               Core.Generic)
+                               deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                 Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                 Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                 Core.ToText, Core.FromText, Core.ToByteString,
+                                                 Core.ToQuery, Core.ToHeader)
 
 pattern InstanceFleetStateProvisioning :: InstanceFleetState
 pattern InstanceFleetStateProvisioning = InstanceFleetState' "PROVISIONING"
@@ -76,13 +58,19 @@ pattern InstanceFleetStateTerminating = InstanceFleetState' "TERMINATING"
 pattern InstanceFleetStateTerminated :: InstanceFleetState
 pattern InstanceFleetStateTerminated = InstanceFleetState' "TERMINATED"
 
-{-# COMPLETE
+{-# COMPLETE 
   InstanceFleetStateProvisioning,
+
   InstanceFleetStateBootstrapping,
+
   InstanceFleetStateRunning,
+
   InstanceFleetStateResizing,
+
   InstanceFleetStateSuspended,
+
   InstanceFleetStateTerminating,
+
   InstanceFleetStateTerminated,
   InstanceFleetState'
   #-}

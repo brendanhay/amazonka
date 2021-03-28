@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,49 +10,31 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.ECS.Types.CapacityProviderField
   ( CapacityProviderField
-      ( CapacityProviderField',
-        CapacityProviderFieldTags,
-        fromCapacityProviderField
-      ),
-  )
-where
+    ( CapacityProviderField'
+    , CapacityProviderFieldTags
+    , fromCapacityProviderField
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype CapacityProviderField = CapacityProviderField'
-  { fromCapacityProviderField ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype CapacityProviderField = CapacityProviderField'{fromCapacityProviderField
+                                                       :: Core.Text}
+                                  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                  Core.Generic)
+                                  deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                    Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                    Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                    Core.ToText, Core.FromText, Core.ToByteString,
+                                                    Core.ToQuery, Core.ToHeader)
 
 pattern CapacityProviderFieldTags :: CapacityProviderField
 pattern CapacityProviderFieldTags = CapacityProviderField' "TAGS"
 
-{-# COMPLETE
+{-# COMPLETE 
   CapacityProviderFieldTags,
   CapacityProviderField'
   #-}

@@ -1,150 +1,152 @@
-cabal-version:      2.2
-name:               amazonka-mediastore
-version:            2.0.0.0
-synopsis:           Amazon Elemental MediaStore SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-mediastore
+version:               2.0.0.0
+synopsis:              Amazon Elemental MediaStore SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.MediaStore" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.MediaStore" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-mediastore
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-mediastore
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.MediaStore
-    Network.AWS.MediaStore.CreateContainer
-    Network.AWS.MediaStore.DeleteContainer
-    Network.AWS.MediaStore.DeleteContainerPolicy
-    Network.AWS.MediaStore.DeleteCorsPolicy
-    Network.AWS.MediaStore.DeleteLifecyclePolicy
-    Network.AWS.MediaStore.DeleteMetricPolicy
-    Network.AWS.MediaStore.DescribeContainer
-    Network.AWS.MediaStore.GetContainerPolicy
-    Network.AWS.MediaStore.GetCorsPolicy
-    Network.AWS.MediaStore.GetLifecyclePolicy
-    Network.AWS.MediaStore.GetMetricPolicy
-    Network.AWS.MediaStore.ListContainers
-    Network.AWS.MediaStore.ListTagsForResource
-    Network.AWS.MediaStore.PutContainerPolicy
-    Network.AWS.MediaStore.PutCorsPolicy
-    Network.AWS.MediaStore.PutLifecyclePolicy
-    Network.AWS.MediaStore.PutMetricPolicy
-    Network.AWS.MediaStore.StartAccessLogging
-    Network.AWS.MediaStore.StopAccessLogging
-    Network.AWS.MediaStore.TagResource
-    Network.AWS.MediaStore.Types
-    Network.AWS.MediaStore.UntagResource
-    Network.AWS.MediaStore.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.MediaStore.Types.Container
-    Network.AWS.MediaStore.Types.ContainerARN
-    Network.AWS.MediaStore.Types.ContainerLevelMetrics
-    Network.AWS.MediaStore.Types.ContainerName
-    Network.AWS.MediaStore.Types.ContainerPolicy
-    Network.AWS.MediaStore.Types.ContainerStatus
-    Network.AWS.MediaStore.Types.CorsRule
-    Network.AWS.MediaStore.Types.Endpoint
-    Network.AWS.MediaStore.Types.Header
-    Network.AWS.MediaStore.Types.Key
-    Network.AWS.MediaStore.Types.LifecyclePolicy
-    Network.AWS.MediaStore.Types.MethodName
-    Network.AWS.MediaStore.Types.MetricPolicy
-    Network.AWS.MediaStore.Types.MetricPolicyRule
-    Network.AWS.MediaStore.Types.ObjectGroup
-    Network.AWS.MediaStore.Types.ObjectGroupName
-    Network.AWS.MediaStore.Types.Origin
-    Network.AWS.MediaStore.Types.PaginationToken
-    Network.AWS.MediaStore.Types.Tag
-    Network.AWS.MediaStore.Types.TagKey
-    Network.AWS.MediaStore.Types.Value
+    exposed-modules:
+          Network.AWS.MediaStore
+        , Network.AWS.MediaStore.Types
+        , Network.AWS.MediaStore.Waiters
+        , Network.AWS.MediaStore.StopAccessLogging
+        , Network.AWS.MediaStore.PutLifecyclePolicy
+        , Network.AWS.MediaStore.DeleteLifecyclePolicy
+        , Network.AWS.MediaStore.ListTagsForResource
+        , Network.AWS.MediaStore.CreateContainer
+        , Network.AWS.MediaStore.ListContainers
+        , Network.AWS.MediaStore.DeleteContainer
+        , Network.AWS.MediaStore.PutCorsPolicy
+        , Network.AWS.MediaStore.DeleteCorsPolicy
+        , Network.AWS.MediaStore.StartAccessLogging
+        , Network.AWS.MediaStore.DescribeContainer
+        , Network.AWS.MediaStore.GetMetricPolicy
+        , Network.AWS.MediaStore.DeleteMetricPolicy
+        , Network.AWS.MediaStore.PutMetricPolicy
+        , Network.AWS.MediaStore.GetLifecyclePolicy
+        , Network.AWS.MediaStore.TagResource
+        , Network.AWS.MediaStore.GetCorsPolicy
+        , Network.AWS.MediaStore.UntagResource
+        , Network.AWS.MediaStore.DeleteContainerPolicy
+        , Network.AWS.MediaStore.PutContainerPolicy
+        , Network.AWS.MediaStore.GetContainerPolicy
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.MediaStore.Types.Origin
+        , Network.AWS.MediaStore.Types.MetricPolicy
+        , Network.AWS.MediaStore.Types.PaginationToken
+        , Network.AWS.MediaStore.Types.ContainerPolicy
+        , Network.AWS.MediaStore.Types.Tag
+        , Network.AWS.MediaStore.Types.ObjectGroup
+        , Network.AWS.MediaStore.Types.ContainerARN
+        , Network.AWS.MediaStore.Types.ContainerName
+        , Network.AWS.MediaStore.Types.MethodName
+        , Network.AWS.MediaStore.Types.CorsRule
+        , Network.AWS.MediaStore.Types.ContainerLevelMetrics
+        , Network.AWS.MediaStore.Types.Container
+        , Network.AWS.MediaStore.Types.Header
+        , Network.AWS.MediaStore.Types.MetricPolicyRule
+        , Network.AWS.MediaStore.Types.ObjectGroupName
+        , Network.AWS.MediaStore.Types.TagKey
+        , Network.AWS.MediaStore.Types.Endpoint
+        , Network.AWS.MediaStore.Types.ContainerStatus
+        , Network.AWS.MediaStore.Types.LifecyclePolicy
+        , Network.AWS.MediaStore.Types.Key
+        , Network.AWS.MediaStore.Types.Value
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-mediastore-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.Gen.MediaStore
-    Test.AWS.MediaStore
-    Test.AWS.MediaStore.Internal
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core         >=2.0.0.0 && <2.0.0.1
-    , amazonka-mediastore
-    , amazonka-test         >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.MediaStore
+        , Test.AWS.Gen.MediaStore
+        , Test.AWS.MediaStore.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-mediastore
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

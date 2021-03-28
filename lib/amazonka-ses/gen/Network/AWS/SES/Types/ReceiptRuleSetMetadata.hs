@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SES.Types.ReceiptRuleSetMetadata
-  ( ReceiptRuleSetMetadata (..),
-
-    -- * Smart constructor
-    mkReceiptRuleSetMetadata,
-
-    -- * Lenses
-    rrsmCreatedTimestamp,
-    rrsmName,
-  )
-where
+  ( ReceiptRuleSetMetadata (..)
+  -- * Smart constructor
+  , mkReceiptRuleSetMetadata
+  -- * Lenses
+  , rrsmCreatedTimestamp
+  , rrsmName
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -33,38 +31,39 @@ import qualified Network.AWS.SES.Types.ReceiptRuleSetName as Types
 --
 -- /See:/ 'mkReceiptRuleSetMetadata' smart constructor.
 data ReceiptRuleSetMetadata = ReceiptRuleSetMetadata'
-  { -- | The date and time the receipt rule set was created.
-    createdTimestamp :: Core.Maybe Core.UTCTime,
-    -- | The name of the receipt rule set. The name must:
-    --
-    --
-    --     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
-    --
-    --
-    --     * Start and end with a letter or number.
-    --
-    --
-    --     * Contain less than 64 characters.
-    name :: Core.Maybe Types.ReceiptRuleSetName
+  { createdTimestamp :: Core.Maybe Core.UTCTime
+    -- ^ The date and time the receipt rule set was created.
+  , name :: Core.Maybe Types.ReceiptRuleSetName
+    -- ^ The name of the receipt rule set. The name must:
+--
+--
+--     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
+--
+--
+--     * Start and end with a letter or number.
+--
+--
+--     * Contain less than 64 characters.
+--
+--
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'ReceiptRuleSetMetadata' value with any optional fields omitted.
-mkReceiptRuleSetMetadata ::
-  ReceiptRuleSetMetadata
-mkReceiptRuleSetMetadata =
-  ReceiptRuleSetMetadata'
-    { createdTimestamp = Core.Nothing,
-      name = Core.Nothing
-    }
+mkReceiptRuleSetMetadata
+    :: ReceiptRuleSetMetadata
+mkReceiptRuleSetMetadata
+  = ReceiptRuleSetMetadata'{createdTimestamp = Core.Nothing,
+                            name = Core.Nothing}
 
 -- | The date and time the receipt rule set was created.
 --
 -- /Note:/ Consider using 'createdTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rrsmCreatedTimestamp :: Lens.Lens' ReceiptRuleSetMetadata (Core.Maybe Core.UTCTime)
 rrsmCreatedTimestamp = Lens.field @"createdTimestamp"
-{-# DEPRECATED rrsmCreatedTimestamp "Use generic-lens or generic-optics with 'createdTimestamp' instead." #-}
+{-# INLINEABLE rrsmCreatedTimestamp #-}
+{-# DEPRECATED createdTimestamp "Use generic-lens or generic-optics with 'createdTimestamp' instead"  #-}
 
 -- | The name of the receipt rule set. The name must:
 --
@@ -82,9 +81,10 @@ rrsmCreatedTimestamp = Lens.field @"createdTimestamp"
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rrsmName :: Lens.Lens' ReceiptRuleSetMetadata (Core.Maybe Types.ReceiptRuleSetName)
 rrsmName = Lens.field @"name"
-{-# DEPRECATED rrsmName "Use generic-lens or generic-optics with 'name' instead." #-}
+{-# INLINEABLE rrsmName #-}
+{-# DEPRECATED name "Use generic-lens or generic-optics with 'name' instead"  #-}
 
 instance Core.FromXML ReceiptRuleSetMetadata where
-  parseXML x =
-    ReceiptRuleSetMetadata'
-      Core.<$> (x Core..@? "CreatedTimestamp") Core.<*> (x Core..@? "Name")
+        parseXML x
+          = ReceiptRuleSetMetadata' Core.<$>
+              (x Core..@? "CreatedTimestamp") Core.<*> x Core..@? "Name"

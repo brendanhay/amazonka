@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,46 +10,28 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaLive.Types.Mpeg2ColorSpace
   ( Mpeg2ColorSpace
-      ( Mpeg2ColorSpace',
-        Mpeg2ColorSpaceAuto,
-        Mpeg2ColorSpacePassthrough,
-        fromMpeg2ColorSpace
-      ),
-  )
-where
+    ( Mpeg2ColorSpace'
+    , Mpeg2ColorSpaceAuto
+    , Mpeg2ColorSpacePassthrough
+    , fromMpeg2ColorSpace
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
 -- | Mpeg2 Color Space
-newtype Mpeg2ColorSpace = Mpeg2ColorSpace'
-  { fromMpeg2ColorSpace ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype Mpeg2ColorSpace = Mpeg2ColorSpace'{fromMpeg2ColorSpace ::
+                                           Core.Text}
+                            deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                            Core.Generic)
+                            deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                              Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                              Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                              Core.FromText, Core.ToByteString, Core.ToQuery,
+                                              Core.ToHeader)
 
 pattern Mpeg2ColorSpaceAuto :: Mpeg2ColorSpace
 pattern Mpeg2ColorSpaceAuto = Mpeg2ColorSpace' "AUTO"
@@ -57,8 +39,9 @@ pattern Mpeg2ColorSpaceAuto = Mpeg2ColorSpace' "AUTO"
 pattern Mpeg2ColorSpacePassthrough :: Mpeg2ColorSpace
 pattern Mpeg2ColorSpacePassthrough = Mpeg2ColorSpace' "PASSTHROUGH"
 
-{-# COMPLETE
+{-# COMPLETE 
   Mpeg2ColorSpaceAuto,
+
   Mpeg2ColorSpacePassthrough,
   Mpeg2ColorSpace'
   #-}

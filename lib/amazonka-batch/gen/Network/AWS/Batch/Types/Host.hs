@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Batch.Types.Host
-  ( Host (..),
+  ( Host (..)
+  -- * Smart constructor
+  , mkHost
+  -- * Lenses
+  , hSourcePath
+  ) where
 
-    -- * Smart constructor
-    mkHost,
-
-    -- * Lenses
-    hSourcePath,
-  )
-where
-
-import qualified Network.AWS.Batch.Types.String as Types
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
 
@@ -29,30 +26,31 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkHost' smart constructor.
 newtype Host = Host'
-  { -- | The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
-    sourcePath :: Core.Maybe Types.String
+  { sourcePath :: Core.Maybe Core.Text
+    -- ^ The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'Host' value with any optional fields omitted.
-mkHost ::
-  Host
-mkHost = Host' {sourcePath = Core.Nothing}
+mkHost
+    :: Host
+mkHost = Host'{sourcePath = Core.Nothing}
 
 -- | The path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
 --
 -- /Note:/ Consider using 'sourcePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hSourcePath :: Lens.Lens' Host (Core.Maybe Types.String)
+hSourcePath :: Lens.Lens' Host (Core.Maybe Core.Text)
 hSourcePath = Lens.field @"sourcePath"
-{-# DEPRECATED hSourcePath "Use generic-lens or generic-optics with 'sourcePath' instead." #-}
+{-# INLINEABLE hSourcePath #-}
+{-# DEPRECATED sourcePath "Use generic-lens or generic-optics with 'sourcePath' instead"  #-}
 
 instance Core.FromJSON Host where
-  toJSON Host {..} =
-    Core.object
-      (Core.catMaybes [("sourcePath" Core..=) Core.<$> sourcePath])
+        toJSON Host{..}
+          = Core.object
+              (Core.catMaybes [("sourcePath" Core..=) Core.<$> sourcePath])
 
 instance Core.FromJSON Host where
-  parseJSON =
-    Core.withObject "Host" Core.$
-      \x -> Host' Core.<$> (x Core..:? "sourcePath")
+        parseJSON
+          = Core.withObject "Host" Core.$
+              \ x -> Host' Core.<$> (x Core..:? "sourcePath")

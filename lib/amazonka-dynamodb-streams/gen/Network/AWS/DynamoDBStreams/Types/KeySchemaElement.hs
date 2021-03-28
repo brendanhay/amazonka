@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.DynamoDBStreams.Types.KeySchemaElement
-  ( KeySchemaElement (..),
-
-    -- * Smart constructor
-    mkKeySchemaElement,
-
-    -- * Lenses
-    kseAttributeName,
-    kseKeyType,
-  )
-where
+  ( KeySchemaElement (..)
+  -- * Smart constructor
+  , mkKeySchemaElement
+  -- * Lenses
+  , kseAttributeName
+  , kseKeyType
+  ) where
 
 import qualified Network.AWS.DynamoDBStreams.Types.KeySchemaAttributeName as Types
 import qualified Network.AWS.DynamoDBStreams.Types.KeyType as Types
@@ -34,36 +32,37 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkKeySchemaElement' smart constructor.
 data KeySchemaElement = KeySchemaElement'
-  { -- | The name of a key attribute.
-    attributeName :: Types.KeySchemaAttributeName,
-    -- | The role that this key attribute will assume:
-    --
-    --
-    --     * @HASH@ - partition key
-    --
-    --
-    --     * @RANGE@ - sort key
-    keyType :: Types.KeyType
+  { attributeName :: Types.KeySchemaAttributeName
+    -- ^ The name of a key attribute.
+  , keyType :: Types.KeyType
+    -- ^ The role that this key attribute will assume:
+--
+--
+--     * @HASH@ - partition key
+--
+--
+--     * @RANGE@ - sort key
+--
+--
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'KeySchemaElement' value with any optional fields omitted.
-mkKeySchemaElement ::
-  -- | 'attributeName'
-  Types.KeySchemaAttributeName ->
-  -- | 'keyType'
-  Types.KeyType ->
-  KeySchemaElement
-mkKeySchemaElement attributeName keyType =
-  KeySchemaElement' {attributeName, keyType}
+mkKeySchemaElement
+    :: Types.KeySchemaAttributeName -- ^ 'attributeName'
+    -> Types.KeyType -- ^ 'keyType'
+    -> KeySchemaElement
+mkKeySchemaElement attributeName keyType
+  = KeySchemaElement'{attributeName, keyType}
 
 -- | The name of a key attribute.
 --
 -- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 kseAttributeName :: Lens.Lens' KeySchemaElement Types.KeySchemaAttributeName
 kseAttributeName = Lens.field @"attributeName"
-{-# DEPRECATED kseAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
+{-# INLINEABLE kseAttributeName #-}
+{-# DEPRECATED attributeName "Use generic-lens or generic-optics with 'attributeName' instead"  #-}
 
 -- | The role that this key attribute will assume:
 --
@@ -78,11 +77,12 @@ kseAttributeName = Lens.field @"attributeName"
 -- /Note:/ Consider using 'keyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 kseKeyType :: Lens.Lens' KeySchemaElement Types.KeyType
 kseKeyType = Lens.field @"keyType"
-{-# DEPRECATED kseKeyType "Use generic-lens or generic-optics with 'keyType' instead." #-}
+{-# INLINEABLE kseKeyType #-}
+{-# DEPRECATED keyType "Use generic-lens or generic-optics with 'keyType' instead"  #-}
 
 instance Core.FromJSON KeySchemaElement where
-  parseJSON =
-    Core.withObject "KeySchemaElement" Core.$
-      \x ->
-        KeySchemaElement'
-          Core.<$> (x Core..: "AttributeName") Core.<*> (x Core..: "KeyType")
+        parseJSON
+          = Core.withObject "KeySchemaElement" Core.$
+              \ x ->
+                KeySchemaElement' Core.<$>
+                  (x Core..: "AttributeName") Core.<*> x Core..: "KeyType"

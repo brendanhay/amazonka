@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,20 +10,18 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.AutoScaling.Types.CustomizedMetricSpecification
-  ( CustomizedMetricSpecification (..),
-
-    -- * Smart constructor
-    mkCustomizedMetricSpecification,
-
-    -- * Lenses
-    cmsMetricName,
-    cmsNamespace,
-    cmsStatistic,
-    cmsDimensions,
-    cmsUnit,
-  )
-where
+  ( CustomizedMetricSpecification (..)
+  -- * Smart constructor
+  , mkCustomizedMetricSpecification
+  -- * Lenses
+  , cmsMetricName
+  , cmsNamespace
+  , cmsStatistic
+  , cmsDimensions
+  , cmsUnit
+  ) where
 
 import qualified Network.AWS.AutoScaling.Types.MetricDimension as Types
 import qualified Network.AWS.AutoScaling.Types.MetricName as Types
@@ -47,60 +45,55 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkCustomizedMetricSpecification' smart constructor.
 data CustomizedMetricSpecification = CustomizedMetricSpecification'
-  { -- | The name of the metric.
-    metricName :: Types.MetricName,
-    -- | The namespace of the metric.
-    namespace :: Types.Namespace,
-    -- | The statistic of the metric.
-    statistic :: Types.MetricStatistic,
-    -- | The dimensions of the metric.
-    --
-    -- Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
-    dimensions :: Core.Maybe [Types.MetricDimension],
-    -- | The unit of the metric.
-    unit :: Core.Maybe Types.Unit
+  { metricName :: Types.MetricName
+    -- ^ The name of the metric.
+  , namespace :: Types.Namespace
+    -- ^ The namespace of the metric.
+  , statistic :: Types.MetricStatistic
+    -- ^ The statistic of the metric.
+  , dimensions :: Core.Maybe [Types.MetricDimension]
+    -- ^ The dimensions of the metric.
+--
+-- Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
+  , unit :: Core.Maybe Types.Unit
+    -- ^ The unit of the metric.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CustomizedMetricSpecification' value with any optional fields omitted.
-mkCustomizedMetricSpecification ::
-  -- | 'metricName'
-  Types.MetricName ->
-  -- | 'namespace'
-  Types.Namespace ->
-  -- | 'statistic'
-  Types.MetricStatistic ->
-  CustomizedMetricSpecification
-mkCustomizedMetricSpecification metricName namespace statistic =
-  CustomizedMetricSpecification'
-    { metricName,
-      namespace,
-      statistic,
-      dimensions = Core.Nothing,
-      unit = Core.Nothing
-    }
+mkCustomizedMetricSpecification
+    :: Types.MetricName -- ^ 'metricName'
+    -> Types.Namespace -- ^ 'namespace'
+    -> Types.MetricStatistic -- ^ 'statistic'
+    -> CustomizedMetricSpecification
+mkCustomizedMetricSpecification metricName namespace statistic
+  = CustomizedMetricSpecification'{metricName, namespace, statistic,
+                                   dimensions = Core.Nothing, unit = Core.Nothing}
 
 -- | The name of the metric.
 --
 -- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cmsMetricName :: Lens.Lens' CustomizedMetricSpecification Types.MetricName
 cmsMetricName = Lens.field @"metricName"
-{-# DEPRECATED cmsMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
+{-# INLINEABLE cmsMetricName #-}
+{-# DEPRECATED metricName "Use generic-lens or generic-optics with 'metricName' instead"  #-}
 
 -- | The namespace of the metric.
 --
 -- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cmsNamespace :: Lens.Lens' CustomizedMetricSpecification Types.Namespace
 cmsNamespace = Lens.field @"namespace"
-{-# DEPRECATED cmsNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
+{-# INLINEABLE cmsNamespace #-}
+{-# DEPRECATED namespace "Use generic-lens or generic-optics with 'namespace' instead"  #-}
 
 -- | The statistic of the metric.
 --
 -- /Note:/ Consider using 'statistic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cmsStatistic :: Lens.Lens' CustomizedMetricSpecification Types.MetricStatistic
 cmsStatistic = Lens.field @"statistic"
-{-# DEPRECATED cmsStatistic "Use generic-lens or generic-optics with 'statistic' instead." #-}
+{-# INLINEABLE cmsStatistic #-}
+{-# DEPRECATED statistic "Use generic-lens or generic-optics with 'statistic' instead"  #-}
 
 -- | The dimensions of the metric.
 --
@@ -109,20 +102,32 @@ cmsStatistic = Lens.field @"statistic"
 -- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cmsDimensions :: Lens.Lens' CustomizedMetricSpecification (Core.Maybe [Types.MetricDimension])
 cmsDimensions = Lens.field @"dimensions"
-{-# DEPRECATED cmsDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
+{-# INLINEABLE cmsDimensions #-}
+{-# DEPRECATED dimensions "Use generic-lens or generic-optics with 'dimensions' instead"  #-}
 
 -- | The unit of the metric.
 --
 -- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cmsUnit :: Lens.Lens' CustomizedMetricSpecification (Core.Maybe Types.Unit)
 cmsUnit = Lens.field @"unit"
-{-# DEPRECATED cmsUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
+{-# INLINEABLE cmsUnit #-}
+{-# DEPRECATED unit "Use generic-lens or generic-optics with 'unit' instead"  #-}
+
+instance Core.ToQuery CustomizedMetricSpecification where
+        toQuery CustomizedMetricSpecification{..}
+          = Core.toQueryPair "MetricName" metricName Core.<>
+              Core.toQueryPair "Namespace" namespace
+              Core.<> Core.toQueryPair "Statistic" statistic
+              Core.<>
+              Core.toQueryPair "Dimensions"
+                (Core.maybe Core.mempty (Core.toQueryList "member") dimensions)
+              Core.<> Core.maybe Core.mempty (Core.toQueryPair "Unit") unit
 
 instance Core.FromXML CustomizedMetricSpecification where
-  parseXML x =
-    CustomizedMetricSpecification'
-      Core.<$> (x Core..@ "MetricName")
-      Core.<*> (x Core..@ "Namespace")
-      Core.<*> (x Core..@ "Statistic")
-      Core.<*> (x Core..@? "Dimensions" Core..<@> Core.parseXMLList "member")
-      Core.<*> (x Core..@? "Unit")
+        parseXML x
+          = CustomizedMetricSpecification' Core.<$>
+              (x Core..@ "MetricName") Core.<*> x Core..@ "Namespace" Core.<*>
+                x Core..@ "Statistic"
+                Core.<*>
+                x Core..@? "Dimensions" Core..<@> Core.parseXMLList "member"
+                Core.<*> x Core..@? "Unit"

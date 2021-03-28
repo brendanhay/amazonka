@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,15 +10,13 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaLive.Types.ImmediateModeScheduleActionStartSettings
-  ( ImmediateModeScheduleActionStartSettings (..),
-
-    -- * Smart constructor
-    mkImmediateModeScheduleActionStartSettings,
-
-    -- * Lenses
-  )
-where
+  ( ImmediateModeScheduleActionStartSettings (..)
+  -- * Smart constructor
+  , mkImmediateModeScheduleActionStartSettings
+  -- * Lenses
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -31,15 +29,17 @@ data ImmediateModeScheduleActionStartSettings = ImmediateModeScheduleActionStart
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ImmediateModeScheduleActionStartSettings' value with any optional fields omitted.
-mkImmediateModeScheduleActionStartSettings ::
-  ImmediateModeScheduleActionStartSettings
-mkImmediateModeScheduleActionStartSettings =
-  ImmediateModeScheduleActionStartSettings'
+mkImmediateModeScheduleActionStartSettings
+    :: ImmediateModeScheduleActionStartSettings
+mkImmediateModeScheduleActionStartSettings
+  = ImmediateModeScheduleActionStartSettings'
 
-instance Core.FromJSON ImmediateModeScheduleActionStartSettings where
-  toJSON _ = Core.Object Core.mempty
+instance Core.FromJSON ImmediateModeScheduleActionStartSettings
+         where
+        toJSON _ = Core.Object Core.mempty
 
-instance Core.FromJSON ImmediateModeScheduleActionStartSettings where
-  parseJSON =
-    Core.withObject "ImmediateModeScheduleActionStartSettings" Core.$
-      \x -> Core.pure ImmediateModeScheduleActionStartSettings'
+instance Core.FromJSON ImmediateModeScheduleActionStartSettings
+         where
+        parseJSON
+          = Core.withObject "ImmediateModeScheduleActionStartSettings" Core.$
+              \ x -> Core.pure ImmediateModeScheduleActionStartSettings'

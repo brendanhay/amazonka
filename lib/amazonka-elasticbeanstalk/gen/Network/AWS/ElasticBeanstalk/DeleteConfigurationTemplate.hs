@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,19 +15,18 @@
 --
 -- Deletes the specified configuration template.
 module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
-  ( -- * Creating a request
-    DeleteConfigurationTemplate (..),
-    mkDeleteConfigurationTemplate,
-
+    (
+    -- * Creating a request
+      DeleteConfigurationTemplate (..)
+    , mkDeleteConfigurationTemplate
     -- ** Request lenses
-    dctApplicationName,
-    dctTemplateName,
+    , dctApplicationName
+    , dctTemplateName
 
     -- * Destructuring the response
-    DeleteConfigurationTemplateResponse (..),
-    mkDeleteConfigurationTemplateResponse,
-  )
-where
+    , DeleteConfigurationTemplateResponse (..)
+    , mkDeleteConfigurationTemplateResponse
+    ) where
 
 import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -39,63 +38,68 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkDeleteConfigurationTemplate' smart constructor.
 data DeleteConfigurationTemplate = DeleteConfigurationTemplate'
-  { -- | The name of the application to delete the configuration template from.
-    applicationName :: Types.ApplicationName,
-    -- | The name of the configuration template to delete.
-    templateName :: Types.TemplateName
+  { applicationName :: Types.ApplicationName
+    -- ^ The name of the application to delete the configuration template from.
+  , templateName :: Types.TemplateName
+    -- ^ The name of the configuration template to delete.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteConfigurationTemplate' value with any optional fields omitted.
-mkDeleteConfigurationTemplate ::
-  -- | 'applicationName'
-  Types.ApplicationName ->
-  -- | 'templateName'
-  Types.TemplateName ->
-  DeleteConfigurationTemplate
-mkDeleteConfigurationTemplate applicationName templateName =
-  DeleteConfigurationTemplate' {applicationName, templateName}
+mkDeleteConfigurationTemplate
+    :: Types.ApplicationName -- ^ 'applicationName'
+    -> Types.TemplateName -- ^ 'templateName'
+    -> DeleteConfigurationTemplate
+mkDeleteConfigurationTemplate applicationName templateName
+  = DeleteConfigurationTemplate'{applicationName, templateName}
 
 -- | The name of the application to delete the configuration template from.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dctApplicationName :: Lens.Lens' DeleteConfigurationTemplate Types.ApplicationName
 dctApplicationName = Lens.field @"applicationName"
-{-# DEPRECATED dctApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+{-# INLINEABLE dctApplicationName #-}
+{-# DEPRECATED applicationName "Use generic-lens or generic-optics with 'applicationName' instead"  #-}
 
 -- | The name of the configuration template to delete.
 --
 -- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dctTemplateName :: Lens.Lens' DeleteConfigurationTemplate Types.TemplateName
 dctTemplateName = Lens.field @"templateName"
-{-# DEPRECATED dctTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
+{-# INLINEABLE dctTemplateName #-}
+{-# DEPRECATED templateName "Use generic-lens or generic-optics with 'templateName' instead"  #-}
+
+instance Core.ToQuery DeleteConfigurationTemplate where
+        toQuery DeleteConfigurationTemplate{..}
+          = Core.toQueryPair "Action"
+              ("DeleteConfigurationTemplate" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2010-12-01" :: Core.Text)
+              Core.<> Core.toQueryPair "ApplicationName" applicationName
+              Core.<> Core.toQueryPair "TemplateName" templateName
+
+instance Core.ToHeaders DeleteConfigurationTemplate where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest DeleteConfigurationTemplate where
-  type
-    Rs DeleteConfigurationTemplate =
-      DeleteConfigurationTemplateResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "DeleteConfigurationTemplate")
-                Core.<> (Core.pure ("Version", "2010-12-01"))
-                Core.<> (Core.toQueryValue "ApplicationName" applicationName)
-                Core.<> (Core.toQueryValue "TemplateName" templateName)
-            )
-      }
-  response =
-    Response.receiveNull DeleteConfigurationTemplateResponse'
+        type Rs DeleteConfigurationTemplate =
+             DeleteConfigurationTemplateResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveNull DeleteConfigurationTemplateResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteConfigurationTemplateResponse' smart constructor.
 data DeleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse'
@@ -103,7 +107,7 @@ data DeleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteConfigurationTemplateResponse' value with any optional fields omitted.
-mkDeleteConfigurationTemplateResponse ::
-  DeleteConfigurationTemplateResponse
-mkDeleteConfigurationTemplateResponse =
-  DeleteConfigurationTemplateResponse'
+mkDeleteConfigurationTemplateResponse
+    :: DeleteConfigurationTemplateResponse
+mkDeleteConfigurationTemplateResponse
+  = DeleteConfigurationTemplateResponse'

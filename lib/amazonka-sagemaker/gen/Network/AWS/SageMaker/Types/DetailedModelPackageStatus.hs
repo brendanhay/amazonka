@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,47 +10,30 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SageMaker.Types.DetailedModelPackageStatus
   ( DetailedModelPackageStatus
-      ( DetailedModelPackageStatus',
-        DetailedModelPackageStatusNotStarted,
-        DetailedModelPackageStatusInProgress,
-        DetailedModelPackageStatusCompleted,
-        DetailedModelPackageStatusFailed,
-        fromDetailedModelPackageStatus
-      ),
-  )
-where
+    ( DetailedModelPackageStatus'
+    , DetailedModelPackageStatusNotStarted
+    , DetailedModelPackageStatusInProgress
+    , DetailedModelPackageStatusCompleted
+    , DetailedModelPackageStatusFailed
+    , fromDetailedModelPackageStatus
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype DetailedModelPackageStatus = DetailedModelPackageStatus'
-  { fromDetailedModelPackageStatus ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype DetailedModelPackageStatus = DetailedModelPackageStatus'{fromDetailedModelPackageStatus
+                                                                 :: Core.Text}
+                                       deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                       Core.Generic)
+                                       deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                         Core.ToJSONKey, Core.FromJSONKey,
+                                                         Core.ToJSON, Core.FromJSON, Core.ToXML,
+                                                         Core.FromXML, Core.ToText, Core.FromText,
+                                                         Core.ToByteString, Core.ToQuery,
+                                                         Core.ToHeader)
 
 pattern DetailedModelPackageStatusNotStarted :: DetailedModelPackageStatus
 pattern DetailedModelPackageStatusNotStarted = DetailedModelPackageStatus' "NotStarted"
@@ -64,10 +47,13 @@ pattern DetailedModelPackageStatusCompleted = DetailedModelPackageStatus' "Compl
 pattern DetailedModelPackageStatusFailed :: DetailedModelPackageStatus
 pattern DetailedModelPackageStatusFailed = DetailedModelPackageStatus' "Failed"
 
-{-# COMPLETE
+{-# COMPLETE 
   DetailedModelPackageStatusNotStarted,
+
   DetailedModelPackageStatusInProgress,
+
   DetailedModelPackageStatusCompleted,
+
   DetailedModelPackageStatusFailed,
   DetailedModelPackageStatus'
   #-}

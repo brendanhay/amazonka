@@ -1,233 +1,229 @@
-cabal-version:      2.2
-name:               amazonka-xray
-version:            2.0.0.0
-synopsis:           Amazon X-Ray SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-xray
+version:               2.0.0.0
+synopsis:              Amazon X-Ray SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.XRay" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.XRay" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-xray
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-xray
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.XRay
-    Network.AWS.XRay.BatchGetTraces
-    Network.AWS.XRay.CreateGroup
-    Network.AWS.XRay.CreateSamplingRule
-    Network.AWS.XRay.DeleteGroup
-    Network.AWS.XRay.DeleteSamplingRule
-    Network.AWS.XRay.GetEncryptionConfig
-    Network.AWS.XRay.GetGroup
-    Network.AWS.XRay.GetGroups
-    Network.AWS.XRay.GetInsight
-    Network.AWS.XRay.GetInsightEvents
-    Network.AWS.XRay.GetInsightImpactGraph
-    Network.AWS.XRay.GetInsightSummaries
-    Network.AWS.XRay.GetSamplingRules
-    Network.AWS.XRay.GetSamplingStatisticSummaries
-    Network.AWS.XRay.GetSamplingTargets
-    Network.AWS.XRay.GetServiceGraph
-    Network.AWS.XRay.GetTimeSeriesServiceStatistics
-    Network.AWS.XRay.GetTraceGraph
-    Network.AWS.XRay.GetTraceSummaries
-    Network.AWS.XRay.ListTagsForResource
-    Network.AWS.XRay.PutEncryptionConfig
-    Network.AWS.XRay.PutTelemetryRecords
-    Network.AWS.XRay.PutTraceSegments
-    Network.AWS.XRay.TagResource
-    Network.AWS.XRay.Types
-    Network.AWS.XRay.UntagResource
-    Network.AWS.XRay.UpdateGroup
-    Network.AWS.XRay.UpdateSamplingRule
-    Network.AWS.XRay.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.XRay.Types.AccountId
-    Network.AWS.XRay.Types.Alias
-    Network.AWS.XRay.Types.AmazonResourceName
-    Network.AWS.XRay.Types.AnnotationKey
-    Network.AWS.XRay.Types.AnnotationValue
-    Network.AWS.XRay.Types.AnomalousService
-    Network.AWS.XRay.Types.AttributeKey
-    Network.AWS.XRay.Types.AttributeValue
-    Network.AWS.XRay.Types.AvailabilityZoneDetail
-    Network.AWS.XRay.Types.BackendConnectionErrors
-    Network.AWS.XRay.Types.ClientID
-    Network.AWS.XRay.Types.EC2InstanceId
-    Network.AWS.XRay.Types.Edge
-    Network.AWS.XRay.Types.EdgeStatistics
-    Network.AWS.XRay.Types.EncryptionConfig
-    Network.AWS.XRay.Types.EncryptionKeyId
-    Network.AWS.XRay.Types.EncryptionStatus
-    Network.AWS.XRay.Types.EncryptionType
-    Network.AWS.XRay.Types.EntitySelectorExpression
-    Network.AWS.XRay.Types.ErrorCode
-    Network.AWS.XRay.Types.ErrorRootCause
-    Network.AWS.XRay.Types.ErrorRootCauseEntity
-    Network.AWS.XRay.Types.ErrorRootCauseService
-    Network.AWS.XRay.Types.ErrorStatistics
-    Network.AWS.XRay.Types.EventSummaryText
-    Network.AWS.XRay.Types.FaultRootCause
-    Network.AWS.XRay.Types.FaultRootCauseEntity
-    Network.AWS.XRay.Types.FaultRootCauseService
-    Network.AWS.XRay.Types.FaultStatistics
-    Network.AWS.XRay.Types.FilterExpression
-    Network.AWS.XRay.Types.ForecastStatistics
-    Network.AWS.XRay.Types.Group
-    Network.AWS.XRay.Types.GroupARN
-    Network.AWS.XRay.Types.GroupName
-    Network.AWS.XRay.Types.GroupSummary
-    Network.AWS.XRay.Types.HistogramEntry
-    Network.AWS.XRay.Types.Host
-    Network.AWS.XRay.Types.Hostname
-    Network.AWS.XRay.Types.Http
-    Network.AWS.XRay.Types.HTTPMethod
-    Network.AWS.XRay.Types.Id
-    Network.AWS.XRay.Types.Insight
-    Network.AWS.XRay.Types.InsightCategory
-    Network.AWS.XRay.Types.InsightEvent
-    Network.AWS.XRay.Types.InsightId
-    Network.AWS.XRay.Types.InsightImpactGraphEdge
-    Network.AWS.XRay.Types.InsightImpactGraphService
-    Network.AWS.XRay.Types.InsightsConfiguration
-    Network.AWS.XRay.Types.InsightState
-    Network.AWS.XRay.Types.InsightSummary
-    Network.AWS.XRay.Types.InsightSummaryText
-    Network.AWS.XRay.Types.InstanceIdDetail
-    Network.AWS.XRay.Types.Key
-    Network.AWS.XRay.Types.Message
-    Network.AWS.XRay.Types.Name
-    Network.AWS.XRay.Types.NextToken
-    Network.AWS.XRay.Types.RequestImpactStatistics
-    Network.AWS.XRay.Types.ResourceARN
-    Network.AWS.XRay.Types.ResourceARNDetail
-    Network.AWS.XRay.Types.ResponseTimeRootCause
-    Network.AWS.XRay.Types.ResponseTimeRootCauseEntity
-    Network.AWS.XRay.Types.ResponseTimeRootCauseService
-    Network.AWS.XRay.Types.RootCauseException
-    Network.AWS.XRay.Types.RuleName
-    Network.AWS.XRay.Types.SamplingRule
-    Network.AWS.XRay.Types.SamplingRuleRecord
-    Network.AWS.XRay.Types.SamplingRuleUpdate
-    Network.AWS.XRay.Types.SamplingStatisticsDocument
-    Network.AWS.XRay.Types.SamplingStatisticSummary
-    Network.AWS.XRay.Types.SamplingStrategy
-    Network.AWS.XRay.Types.SamplingStrategyName
-    Network.AWS.XRay.Types.SamplingTargetDocument
-    Network.AWS.XRay.Types.Segment
-    Network.AWS.XRay.Types.SegmentDocument
-    Network.AWS.XRay.Types.ServiceId
-    Network.AWS.XRay.Types.ServiceInfo
-    Network.AWS.XRay.Types.ServiceName
-    Network.AWS.XRay.Types.ServiceStatistics
-    Network.AWS.XRay.Types.ServiceType
-    Network.AWS.XRay.Types.String
-    Network.AWS.XRay.Types.Summary
-    Network.AWS.XRay.Types.Tag
-    Network.AWS.XRay.Types.TagKey
-    Network.AWS.XRay.Types.TelemetryRecord
-    Network.AWS.XRay.Types.TimeRangeType
-    Network.AWS.XRay.Types.TimeSeriesServiceStatistics
-    Network.AWS.XRay.Types.Token
-    Network.AWS.XRay.Types.Trace
-    Network.AWS.XRay.Types.TraceId
-    Network.AWS.XRay.Types.TraceSegmentDocument
-    Network.AWS.XRay.Types.TraceSummary
-    Network.AWS.XRay.Types.TraceUser
-    Network.AWS.XRay.Types.Type
-    Network.AWS.XRay.Types.UnprocessedStatistics
-    Network.AWS.XRay.Types.UnprocessedTraceSegment
-    Network.AWS.XRay.Types.URLPath
-    Network.AWS.XRay.Types.Value
-    Network.AWS.XRay.Types.ValueWithServiceIds
+    exposed-modules:
+          Network.AWS.XRay
+        , Network.AWS.XRay.Types
+        , Network.AWS.XRay.Waiters
+        , Network.AWS.XRay.PutEncryptionConfig
+        , Network.AWS.XRay.GetServiceGraph
+        , Network.AWS.XRay.GetSamplingTargets
+        , Network.AWS.XRay.ListTagsForResource
+        , Network.AWS.XRay.GetTraceSummaries
+        , Network.AWS.XRay.PutTraceSegments
+        , Network.AWS.XRay.BatchGetTraces
+        , Network.AWS.XRay.GetInsight
+        , Network.AWS.XRay.GetTimeSeriesServiceStatistics
+        , Network.AWS.XRay.GetEncryptionConfig
+        , Network.AWS.XRay.GetInsightImpactGraph
+        , Network.AWS.XRay.UpdateSamplingRule
+        , Network.AWS.XRay.DeleteSamplingRule
+        , Network.AWS.XRay.GetInsightEvents
+        , Network.AWS.XRay.GetGroups
+        , Network.AWS.XRay.GetInsightSummaries
+        , Network.AWS.XRay.PutTelemetryRecords
+        , Network.AWS.XRay.GetSamplingRules
+        , Network.AWS.XRay.TagResource
+        , Network.AWS.XRay.GetTraceGraph
+        , Network.AWS.XRay.CreateGroup
+        , Network.AWS.XRay.UntagResource
+        , Network.AWS.XRay.DeleteGroup
+        , Network.AWS.XRay.UpdateGroup
+        , Network.AWS.XRay.GetGroup
+        , Network.AWS.XRay.GetSamplingStatisticSummaries
+        , Network.AWS.XRay.CreateSamplingRule
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.XRay.Types.AnomalousService
+        , Network.AWS.XRay.Types.SegmentDocument
+        , Network.AWS.XRay.Types.HistogramEntry
+        , Network.AWS.XRay.Types.ClientID
+        , Network.AWS.XRay.Types.UnprocessedStatistics
+        , Network.AWS.XRay.Types.EntitySelectorExpression
+        , Network.AWS.XRay.Types.ErrorRootCauseEntity
+        , Network.AWS.XRay.Types.TraceId
+        , Network.AWS.XRay.Types.ResponseTimeRootCauseService
+        , Network.AWS.XRay.Types.EncryptionType
+        , Network.AWS.XRay.Types.Group
+        , Network.AWS.XRay.Types.FaultStatistics
+        , Network.AWS.XRay.Types.Hostname
+        , Network.AWS.XRay.Types.SamplingStrategyName
+        , Network.AWS.XRay.Types.AttributeValue
+        , Network.AWS.XRay.Types.HTTPMethod
+        , Network.AWS.XRay.Types.Tag
+        , Network.AWS.XRay.Types.ResponseTimeRootCauseEntity
+        , Network.AWS.XRay.Types.ValueWithServiceIds
+        , Network.AWS.XRay.Types.ErrorRootCauseService
+        , Network.AWS.XRay.Types.FilterExpression
+        , Network.AWS.XRay.Types.TraceSegmentDocument
+        , Network.AWS.XRay.Types.TraceSummary
+        , Network.AWS.XRay.Types.FaultRootCause
+        , Network.AWS.XRay.Types.ServiceInfo
+        , Network.AWS.XRay.Types.InsightImpactGraphService
+        , Network.AWS.XRay.Types.EncryptionKeyId
+        , Network.AWS.XRay.Types.SamplingRule
+        , Network.AWS.XRay.Types.InsightsConfiguration
+        , Network.AWS.XRay.Types.EventSummaryText
+        , Network.AWS.XRay.Types.RootCauseException
+        , Network.AWS.XRay.Types.EC2InstanceId
+        , Network.AWS.XRay.Types.AnnotationKey
+        , Network.AWS.XRay.Types.Token
+        , Network.AWS.XRay.Types.InsightId
+        , Network.AWS.XRay.Types.UnprocessedTraceSegment
+        , Network.AWS.XRay.Types.Alias
+        , Network.AWS.XRay.Types.FaultRootCauseEntity
+        , Network.AWS.XRay.Types.ForecastStatistics
+        , Network.AWS.XRay.Types.TimeSeriesServiceStatistics
+        , Network.AWS.XRay.Types.Insight
+        , Network.AWS.XRay.Types.RequestImpactStatistics
+        , Network.AWS.XRay.Types.InsightCategory
+        , Network.AWS.XRay.Types.RuleName
+        , Network.AWS.XRay.Types.AnnotationValue
+        , Network.AWS.XRay.Types.SamplingRuleUpdate
+        , Network.AWS.XRay.Types.ResourceARN
+        , Network.AWS.XRay.Types.InsightSummaryText
+        , Network.AWS.XRay.Types.ErrorRootCause
+        , Network.AWS.XRay.Types.InsightEvent
+        , Network.AWS.XRay.Types.TimeRangeType
+        , Network.AWS.XRay.Types.ServiceName
+        , Network.AWS.XRay.Types.InsightSummary
+        , Network.AWS.XRay.Types.TelemetryRecord
+        , Network.AWS.XRay.Types.GroupARN
+        , Network.AWS.XRay.Types.ServiceType
+        , Network.AWS.XRay.Types.InstanceIdDetail
+        , Network.AWS.XRay.Types.EncryptionConfig
+        , Network.AWS.XRay.Types.ErrorStatistics
+        , Network.AWS.XRay.Types.SamplingTargetDocument
+        , Network.AWS.XRay.Types.TagKey
+        , Network.AWS.XRay.Types.SamplingStrategy
+        , Network.AWS.XRay.Types.Http
+        , Network.AWS.XRay.Types.SamplingRuleRecord
+        , Network.AWS.XRay.Types.Host
+        , Network.AWS.XRay.Types.ServiceStatistics
+        , Network.AWS.XRay.Types.TraceUser
+        , Network.AWS.XRay.Types.GroupName
+        , Network.AWS.XRay.Types.FaultRootCauseService
+        , Network.AWS.XRay.Types.ServiceId
+        , Network.AWS.XRay.Types.GroupSummary
+        , Network.AWS.XRay.Types.Segment
+        , Network.AWS.XRay.Types.AttributeKey
+        , Network.AWS.XRay.Types.Edge
+        , Network.AWS.XRay.Types.InsightImpactGraphEdge
+        , Network.AWS.XRay.Types.AmazonResourceName
+        , Network.AWS.XRay.Types.EncryptionStatus
+        , Network.AWS.XRay.Types.EdgeStatistics
+        , Network.AWS.XRay.Types.AvailabilityZoneDetail
+        , Network.AWS.XRay.Types.ResourceARNDetail
+        , Network.AWS.XRay.Types.URLPath
+        , Network.AWS.XRay.Types.SamplingStatisticsDocument
+        , Network.AWS.XRay.Types.BackendConnectionErrors
+        , Network.AWS.XRay.Types.InsightState
+        , Network.AWS.XRay.Types.SamplingStatisticSummary
+        , Network.AWS.XRay.Types.ResponseTimeRootCause
+        , Network.AWS.XRay.Types.Trace
+        , Network.AWS.XRay.Types.NextToken
+        , Network.AWS.XRay.Types.Key
+        , Network.AWS.XRay.Types.Value
+        , Network.AWS.XRay.Types.Summary
+        , Network.AWS.XRay.Types.Id
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-xray-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.Gen.XRay
-    Test.AWS.XRay
-    Test.AWS.XRay.Internal
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core         >=2.0.0.0 && <2.0.0.1
-    , amazonka-test         >=2.0.0.0 && <2.0.0.1
-    , amazonka-xray
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.XRay
+        , Test.AWS.Gen.XRay
+        , Test.AWS.XRay.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-xray
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaConvert.Types.ImageInserter
-  ( ImageInserter (..),
-
-    -- * Smart constructor
-    mkImageInserter,
-
-    -- * Lenses
-    iiInsertableImages,
-  )
-where
+  ( ImageInserter (..)
+  -- * Smart constructor
+  , mkImageInserter
+  -- * Lenses
+  , iiInsertableImages
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.MediaConvert.Types.InsertableImage as Types
@@ -29,32 +27,32 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkImageInserter' smart constructor.
 newtype ImageInserter = ImageInserter'
-  { -- | Specify the images that you want to overlay on your video. The images must be PNG or TGA files.
-    insertableImages :: Core.Maybe [Types.InsertableImage]
+  { insertableImages :: Core.Maybe [Types.InsertableImage]
+    -- ^ Specify the images that you want to overlay on your video. The images must be PNG or TGA files.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ImageInserter' value with any optional fields omitted.
-mkImageInserter ::
-  ImageInserter
-mkImageInserter = ImageInserter' {insertableImages = Core.Nothing}
+mkImageInserter
+    :: ImageInserter
+mkImageInserter = ImageInserter'{insertableImages = Core.Nothing}
 
 -- | Specify the images that you want to overlay on your video. The images must be PNG or TGA files.
 --
 -- /Note:/ Consider using 'insertableImages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 iiInsertableImages :: Lens.Lens' ImageInserter (Core.Maybe [Types.InsertableImage])
 iiInsertableImages = Lens.field @"insertableImages"
-{-# DEPRECATED iiInsertableImages "Use generic-lens or generic-optics with 'insertableImages' instead." #-}
+{-# INLINEABLE iiInsertableImages #-}
+{-# DEPRECATED insertableImages "Use generic-lens or generic-optics with 'insertableImages' instead"  #-}
 
 instance Core.FromJSON ImageInserter where
-  toJSON ImageInserter {..} =
-    Core.object
-      ( Core.catMaybes
-          [("insertableImages" Core..=) Core.<$> insertableImages]
-      )
+        toJSON ImageInserter{..}
+          = Core.object
+              (Core.catMaybes
+                 [("insertableImages" Core..=) Core.<$> insertableImages])
 
 instance Core.FromJSON ImageInserter where
-  parseJSON =
-    Core.withObject "ImageInserter" Core.$
-      \x -> ImageInserter' Core.<$> (x Core..:? "insertableImages")
+        parseJSON
+          = Core.withObject "ImageInserter" Core.$
+              \ x -> ImageInserter' Core.<$> (x Core..:? "insertableImages")

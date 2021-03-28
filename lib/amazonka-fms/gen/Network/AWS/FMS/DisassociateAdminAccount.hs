@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,15 +15,15 @@
 --
 -- Disassociates the account that has been set as the AWS Firewall Manager administrator account. To set a different account as the administrator account, you must submit an @AssociateAdminAccount@ request.
 module Network.AWS.FMS.DisassociateAdminAccount
-  ( -- * Creating a request
-    DisassociateAdminAccount (..),
-    mkDisassociateAdminAccount,
+    (
+    -- * Creating a request
+      DisassociateAdminAccount (..)
+    , mkDisassociateAdminAccount
 
     -- * Destructuring the response
-    DisassociateAdminAccountResponse (..),
-    mkDisassociateAdminAccountResponse,
-  )
-where
+    , DisassociateAdminAccountResponse (..)
+    , mkDisassociateAdminAccountResponse
+    ) where
 
 import qualified Network.AWS.FMS.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -37,28 +37,35 @@ data DisassociateAdminAccount = DisassociateAdminAccount'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DisassociateAdminAccount' value with any optional fields omitted.
-mkDisassociateAdminAccount ::
-  DisassociateAdminAccount
+mkDisassociateAdminAccount
+    :: DisassociateAdminAccount
 mkDisassociateAdminAccount = DisassociateAdminAccount'
 
+instance Core.ToQuery DisassociateAdminAccount where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DisassociateAdminAccount where
+        toHeaders DisassociateAdminAccount{..}
+          = Core.pure
+              ("X-Amz-Target", "AWSFMS_20180101.DisassociateAdminAccount")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
+
 instance Core.FromJSON DisassociateAdminAccount where
-  toJSON _ = Core.Object Core.mempty
+        toJSON _ = Core.Object Core.mempty
 
 instance Core.AWSRequest DisassociateAdminAccount where
-  type Rs DisassociateAdminAccount = DisassociateAdminAccountResponse
-  request x@_ =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "AWSFMS_20180101.DisassociateAdminAccount")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response = Response.receiveNull DisassociateAdminAccountResponse'
+        type Rs DisassociateAdminAccount = DisassociateAdminAccountResponse
+        toRequest x@_
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveNull DisassociateAdminAccountResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDisassociateAdminAccountResponse' smart constructor.
 data DisassociateAdminAccountResponse = DisassociateAdminAccountResponse'
@@ -66,7 +73,7 @@ data DisassociateAdminAccountResponse = DisassociateAdminAccountResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DisassociateAdminAccountResponse' value with any optional fields omitted.
-mkDisassociateAdminAccountResponse ::
-  DisassociateAdminAccountResponse
-mkDisassociateAdminAccountResponse =
-  DisassociateAdminAccountResponse'
+mkDisassociateAdminAccountResponse
+    :: DisassociateAdminAccountResponse
+mkDisassociateAdminAccountResponse
+  = DisassociateAdminAccountResponse'

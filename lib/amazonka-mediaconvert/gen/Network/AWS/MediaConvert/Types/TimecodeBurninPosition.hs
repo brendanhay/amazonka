@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,53 +10,35 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaConvert.Types.TimecodeBurninPosition
   ( TimecodeBurninPosition
-      ( TimecodeBurninPosition',
-        TimecodeBurninPositionTopCenter,
-        TimecodeBurninPositionTopLeft,
-        TimecodeBurninPositionTopRight,
-        TimecodeBurninPositionMiddleLeft,
-        TimecodeBurninPositionMiddleCenter,
-        TimecodeBurninPositionMiddleRight,
-        TimecodeBurninPositionBottomLeft,
-        TimecodeBurninPositionBottomCenter,
-        TimecodeBurninPositionBottomRight,
-        fromTimecodeBurninPosition
-      ),
-  )
-where
+    ( TimecodeBurninPosition'
+    , TimecodeBurninPositionTopCenter
+    , TimecodeBurninPositionTopLeft
+    , TimecodeBurninPositionTopRight
+    , TimecodeBurninPositionMiddleLeft
+    , TimecodeBurninPositionMiddleCenter
+    , TimecodeBurninPositionMiddleRight
+    , TimecodeBurninPositionBottomLeft
+    , TimecodeBurninPositionBottomCenter
+    , TimecodeBurninPositionBottomRight
+    , fromTimecodeBurninPosition
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
 -- | Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to specify the location the burned-in timecode on output video.
-newtype TimecodeBurninPosition = TimecodeBurninPosition'
-  { fromTimecodeBurninPosition ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype TimecodeBurninPosition = TimecodeBurninPosition'{fromTimecodeBurninPosition
+                                                         :: Core.Text}
+                                   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                   Core.Generic)
+                                   deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                     Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                     Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                     Core.ToText, Core.FromText, Core.ToByteString,
+                                                     Core.ToQuery, Core.ToHeader)
 
 pattern TimecodeBurninPositionTopCenter :: TimecodeBurninPosition
 pattern TimecodeBurninPositionTopCenter = TimecodeBurninPosition' "TOP_CENTER"
@@ -85,15 +67,23 @@ pattern TimecodeBurninPositionBottomCenter = TimecodeBurninPosition' "BOTTOM_CEN
 pattern TimecodeBurninPositionBottomRight :: TimecodeBurninPosition
 pattern TimecodeBurninPositionBottomRight = TimecodeBurninPosition' "BOTTOM_RIGHT"
 
-{-# COMPLETE
+{-# COMPLETE 
   TimecodeBurninPositionTopCenter,
+
   TimecodeBurninPositionTopLeft,
+
   TimecodeBurninPositionTopRight,
+
   TimecodeBurninPositionMiddleLeft,
+
   TimecodeBurninPositionMiddleCenter,
+
   TimecodeBurninPositionMiddleRight,
+
   TimecodeBurninPositionBottomLeft,
+
   TimecodeBurninPositionBottomCenter,
+
   TimecodeBurninPositionBottomRight,
   TimecodeBurninPosition'
   #-}

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.LexRuntime where
 
 import Data.Proxy
-import Network.AWS.LexRuntime
 import Test.AWS.Fixture
-import Test.AWS.LexRuntime.Internal
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.LexRuntime
+import Test.AWS.LexRuntime.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -66,50 +67,43 @@ import Test.Tasty
 -- Requests
 
 requestPutSession :: PutSession -> TestTree
-requestPutSession =
-  req
+requestPutSession = req
     "PutSession"
     "fixture/PutSession.yaml"
 
 requestDeleteSession :: DeleteSession -> TestTree
-requestDeleteSession =
-  req
+requestDeleteSession = req
     "DeleteSession"
     "fixture/DeleteSession.yaml"
 
 requestPostText :: PostText -> TestTree
-requestPostText =
-  req
+requestPostText = req
     "PostText"
     "fixture/PostText.yaml"
 
 requestGetSession :: GetSession -> TestTree
-requestGetSession =
-  req
+requestGetSession = req
     "GetSession"
     "fixture/GetSession.yaml"
 
 -- Responses
 
 responseDeleteSession :: DeleteSessionResponse -> TestTree
-responseDeleteSession =
-  res
+responseDeleteSession = res
     "DeleteSessionResponse"
     "fixture/DeleteSessionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteSession)
 
 responsePostText :: PostTextResponse -> TestTree
-responsePostText =
-  res
+responsePostText = res
     "PostTextResponse"
     "fixture/PostTextResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PostText)
 
 responseGetSession :: GetSessionResponse -> TestTree
-responseGetSession =
-  res
+responseGetSession = res
     "GetSessionResponse"
     "fixture/GetSessionResponse.proto"
     mkServiceConfig

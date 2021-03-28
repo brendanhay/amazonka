@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,19 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.DataPipeline.Types.InstanceIdentity
-  ( InstanceIdentity (..),
+  ( InstanceIdentity (..)
+  -- * Smart constructor
+  , mkInstanceIdentity
+  -- * Lenses
+  , iiDocument
+  , iiSignature
+  ) where
 
-    -- * Smart constructor
-    mkInstanceIdentity,
-
-    -- * Lenses
-    iiDocument,
-    iiSignature,
-  )
-where
-
-import qualified Network.AWS.DataPipeline.Types.String as Types
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
 
@@ -32,42 +29,40 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkInstanceIdentity' smart constructor.
 data InstanceIdentity = InstanceIdentity'
-  { -- | A description of an EC2 instance that is generated when the instance is launched and exposed to the instance via the instance metadata service in the form of a JSON representation of an object.
-    document :: Core.Maybe Types.String,
-    -- | A signature which can be used to verify the accuracy and authenticity of the information provided in the instance identity document.
-    signature :: Core.Maybe Types.String
+  { document :: Core.Maybe Core.Text
+    -- ^ A description of an EC2 instance that is generated when the instance is launched and exposed to the instance via the instance metadata service in the form of a JSON representation of an object.
+  , signature :: Core.Maybe Core.Text
+    -- ^ A signature which can be used to verify the accuracy and authenticity of the information provided in the instance identity document.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'InstanceIdentity' value with any optional fields omitted.
-mkInstanceIdentity ::
-  InstanceIdentity
-mkInstanceIdentity =
-  InstanceIdentity'
-    { document = Core.Nothing,
-      signature = Core.Nothing
-    }
+mkInstanceIdentity
+    :: InstanceIdentity
+mkInstanceIdentity
+  = InstanceIdentity'{document = Core.Nothing,
+                      signature = Core.Nothing}
 
 -- | A description of an EC2 instance that is generated when the instance is launched and exposed to the instance via the instance metadata service in the form of a JSON representation of an object.
 --
 -- /Note:/ Consider using 'document' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iiDocument :: Lens.Lens' InstanceIdentity (Core.Maybe Types.String)
+iiDocument :: Lens.Lens' InstanceIdentity (Core.Maybe Core.Text)
 iiDocument = Lens.field @"document"
-{-# DEPRECATED iiDocument "Use generic-lens or generic-optics with 'document' instead." #-}
+{-# INLINEABLE iiDocument #-}
+{-# DEPRECATED document "Use generic-lens or generic-optics with 'document' instead"  #-}
 
 -- | A signature which can be used to verify the accuracy and authenticity of the information provided in the instance identity document.
 --
 -- /Note:/ Consider using 'signature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iiSignature :: Lens.Lens' InstanceIdentity (Core.Maybe Types.String)
+iiSignature :: Lens.Lens' InstanceIdentity (Core.Maybe Core.Text)
 iiSignature = Lens.field @"signature"
-{-# DEPRECATED iiSignature "Use generic-lens or generic-optics with 'signature' instead." #-}
+{-# INLINEABLE iiSignature #-}
+{-# DEPRECATED signature "Use generic-lens or generic-optics with 'signature' instead"  #-}
 
 instance Core.FromJSON InstanceIdentity where
-  toJSON InstanceIdentity {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("document" Core..=) Core.<$> document,
-            ("signature" Core..=) Core.<$> signature
-          ]
-      )
+        toJSON InstanceIdentity{..}
+          = Core.object
+              (Core.catMaybes
+                 [("document" Core..=) Core.<$> document,
+                  ("signature" Core..=) Core.<$> signature])

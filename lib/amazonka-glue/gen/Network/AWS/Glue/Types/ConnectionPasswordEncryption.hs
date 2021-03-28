@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Glue.Types.ConnectionPasswordEncryption
-  ( ConnectionPasswordEncryption (..),
-
-    -- * Smart constructor
-    mkConnectionPasswordEncryption,
-
-    -- * Lenses
-    cpeReturnConnectionPasswordEncrypted,
-    cpeAwsKmsKeyId,
-  )
-where
+  ( ConnectionPasswordEncryption (..)
+  -- * Smart constructor
+  , mkConnectionPasswordEncryption
+  -- * Lenses
+  , cpeReturnConnectionPasswordEncrypted
+  , cpeAwsKmsKeyId
+  ) where
 
 import qualified Network.AWS.Glue.Types.AwsKmsKeyId as Types
 import qualified Network.AWS.Lens as Lens
@@ -33,61 +31,57 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkConnectionPasswordEncryption' smart constructor.
 data ConnectionPasswordEncryption = ConnectionPasswordEncryption'
-  { -- | When the @ReturnConnectionPasswordEncrypted@ flag is set to "true", passwords remain encrypted in the responses of @GetConnection@ and @GetConnections@ . This encryption takes effect independently from catalog encryption.
-    returnConnectionPasswordEncrypted :: Core.Bool,
-    -- | An AWS KMS key that is used to encrypt the connection password.
-    --
-    -- If connection password protection is enabled, the caller of @CreateConnection@ and @UpdateConnection@ needs at least @kms:Encrypt@ permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
-    -- You can set the decrypt permission to enable or restrict access on the password key according to your security requirements.
-    awsKmsKeyId :: Core.Maybe Types.AwsKmsKeyId
+  { returnConnectionPasswordEncrypted :: Core.Bool
+    -- ^ When the @ReturnConnectionPasswordEncrypted@ flag is set to "true", passwords remain encrypted in the responses of @GetConnection@ and @GetConnections@ . This encryption takes effect independently from catalog encryption. 
+  , awsKmsKeyId :: Core.Maybe Types.AwsKmsKeyId
+    -- ^ An AWS KMS key that is used to encrypt the connection password. 
+--
+-- If connection password protection is enabled, the caller of @CreateConnection@ and @UpdateConnection@ needs at least @kms:Encrypt@ permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog. 
+-- You can set the decrypt permission to enable or restrict access on the password key according to your security requirements.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ConnectionPasswordEncryption' value with any optional fields omitted.
-mkConnectionPasswordEncryption ::
-  -- | 'returnConnectionPasswordEncrypted'
-  Core.Bool ->
-  ConnectionPasswordEncryption
-mkConnectionPasswordEncryption returnConnectionPasswordEncrypted =
-  ConnectionPasswordEncryption'
-    { returnConnectionPasswordEncrypted,
-      awsKmsKeyId = Core.Nothing
-    }
+mkConnectionPasswordEncryption
+    :: Core.Bool -- ^ 'returnConnectionPasswordEncrypted'
+    -> ConnectionPasswordEncryption
+mkConnectionPasswordEncryption returnConnectionPasswordEncrypted
+  = ConnectionPasswordEncryption'{returnConnectionPasswordEncrypted,
+                                  awsKmsKeyId = Core.Nothing}
 
--- | When the @ReturnConnectionPasswordEncrypted@ flag is set to "true", passwords remain encrypted in the responses of @GetConnection@ and @GetConnections@ . This encryption takes effect independently from catalog encryption.
+-- | When the @ReturnConnectionPasswordEncrypted@ flag is set to "true", passwords remain encrypted in the responses of @GetConnection@ and @GetConnections@ . This encryption takes effect independently from catalog encryption. 
 --
 -- /Note:/ Consider using 'returnConnectionPasswordEncrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cpeReturnConnectionPasswordEncrypted :: Lens.Lens' ConnectionPasswordEncryption Core.Bool
 cpeReturnConnectionPasswordEncrypted = Lens.field @"returnConnectionPasswordEncrypted"
-{-# DEPRECATED cpeReturnConnectionPasswordEncrypted "Use generic-lens or generic-optics with 'returnConnectionPasswordEncrypted' instead." #-}
+{-# INLINEABLE cpeReturnConnectionPasswordEncrypted #-}
+{-# DEPRECATED returnConnectionPasswordEncrypted "Use generic-lens or generic-optics with 'returnConnectionPasswordEncrypted' instead"  #-}
 
--- | An AWS KMS key that is used to encrypt the connection password.
+-- | An AWS KMS key that is used to encrypt the connection password. 
 --
--- If connection password protection is enabled, the caller of @CreateConnection@ and @UpdateConnection@ needs at least @kms:Encrypt@ permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
+-- If connection password protection is enabled, the caller of @CreateConnection@ and @UpdateConnection@ needs at least @kms:Encrypt@ permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog. 
 -- You can set the decrypt permission to enable or restrict access on the password key according to your security requirements.
 --
 -- /Note:/ Consider using 'awsKmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cpeAwsKmsKeyId :: Lens.Lens' ConnectionPasswordEncryption (Core.Maybe Types.AwsKmsKeyId)
 cpeAwsKmsKeyId = Lens.field @"awsKmsKeyId"
-{-# DEPRECATED cpeAwsKmsKeyId "Use generic-lens or generic-optics with 'awsKmsKeyId' instead." #-}
+{-# INLINEABLE cpeAwsKmsKeyId #-}
+{-# DEPRECATED awsKmsKeyId "Use generic-lens or generic-optics with 'awsKmsKeyId' instead"  #-}
 
 instance Core.FromJSON ConnectionPasswordEncryption where
-  toJSON ConnectionPasswordEncryption {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just
-              ( "ReturnConnectionPasswordEncrypted"
-                  Core..= returnConnectionPasswordEncrypted
-              ),
-            ("AwsKmsKeyId" Core..=) Core.<$> awsKmsKeyId
-          ]
-      )
+        toJSON ConnectionPasswordEncryption{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just
+                    ("ReturnConnectionPasswordEncrypted" Core..=
+                       returnConnectionPasswordEncrypted),
+                  ("AwsKmsKeyId" Core..=) Core.<$> awsKmsKeyId])
 
 instance Core.FromJSON ConnectionPasswordEncryption where
-  parseJSON =
-    Core.withObject "ConnectionPasswordEncryption" Core.$
-      \x ->
-        ConnectionPasswordEncryption'
-          Core.<$> (x Core..: "ReturnConnectionPasswordEncrypted")
-          Core.<*> (x Core..:? "AwsKmsKeyId")
+        parseJSON
+          = Core.withObject "ConnectionPasswordEncryption" Core.$
+              \ x ->
+                ConnectionPasswordEncryption' Core.<$>
+                  (x Core..: "ReturnConnectionPasswordEncrypted") Core.<*>
+                    x Core..:? "AwsKmsKeyId"

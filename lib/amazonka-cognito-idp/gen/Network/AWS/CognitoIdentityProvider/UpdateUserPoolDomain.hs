@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -23,24 +23,22 @@
 -- After you submit your request, Amazon Cognito requires up to 1 hour to distribute your new certificate to your custom domain.
 -- For more information about adding a custom domain to your user pool, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html Using Your Own Domain for the Hosted UI> .
 module Network.AWS.CognitoIdentityProvider.UpdateUserPoolDomain
-  ( -- * Creating a request
-    UpdateUserPoolDomain (..),
-    mkUpdateUserPoolDomain,
-
+    (
+    -- * Creating a request
+      UpdateUserPoolDomain (..)
+    , mkUpdateUserPoolDomain
     -- ** Request lenses
-    uupdDomain,
-    uupdUserPoolId,
-    uupdCustomDomainConfig,
+    , uupdDomain
+    , uupdUserPoolId
+    , uupdCustomDomainConfig
 
     -- * Destructuring the response
-    UpdateUserPoolDomainResponse (..),
-    mkUpdateUserPoolDomainResponse,
-
+    , UpdateUserPoolDomainResponse (..)
+    , mkUpdateUserPoolDomainResponse
     -- ** Response lenses
-    uupdrrsCloudFrontDomain,
-    uupdrrsResponseStatus,
-  )
-where
+    , uupdrrsCloudFrontDomain
+    , uupdrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -52,120 +50,121 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkUpdateUserPoolDomain' smart constructor.
 data UpdateUserPoolDomain = UpdateUserPoolDomain'
-  { -- | The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. For example: @auth.example.com@ .
-    --
-    -- This string can include only lowercase letters, numbers, and hyphens. Do not use a hyphen for the first or last character. Use periods to separate subdomain names.
-    domain :: Types.Domain,
-    -- | The ID of the user pool that is associated with the custom domain that you are updating the certificate for.
-    userPoolId :: Types.UserPoolId,
-    -- | The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
-    customDomainConfig :: Types.CustomDomainConfigType
+  { domain :: Types.Domain
+    -- ^ The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. For example: @auth.example.com@ . 
+--
+-- This string can include only lowercase letters, numbers, and hyphens. Do not use a hyphen for the first or last character. Use periods to separate subdomain names.
+  , userPoolId :: Types.UserPoolId
+    -- ^ The ID of the user pool that is associated with the custom domain that you are updating the certificate for.
+  , customDomainConfig :: Types.CustomDomainConfigType
+    -- ^ The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UpdateUserPoolDomain' value with any optional fields omitted.
-mkUpdateUserPoolDomain ::
-  -- | 'domain'
-  Types.Domain ->
-  -- | 'userPoolId'
-  Types.UserPoolId ->
-  -- | 'customDomainConfig'
-  Types.CustomDomainConfigType ->
-  UpdateUserPoolDomain
-mkUpdateUserPoolDomain domain userPoolId customDomainConfig =
-  UpdateUserPoolDomain' {domain, userPoolId, customDomainConfig}
+mkUpdateUserPoolDomain
+    :: Types.Domain -- ^ 'domain'
+    -> Types.UserPoolId -- ^ 'userPoolId'
+    -> Types.CustomDomainConfigType -- ^ 'customDomainConfig'
+    -> UpdateUserPoolDomain
+mkUpdateUserPoolDomain domain userPoolId customDomainConfig
+  = UpdateUserPoolDomain'{domain, userPoolId, customDomainConfig}
 
--- | The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. For example: @auth.example.com@ .
+-- | The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. For example: @auth.example.com@ . 
 --
 -- This string can include only lowercase letters, numbers, and hyphens. Do not use a hyphen for the first or last character. Use periods to separate subdomain names.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uupdDomain :: Lens.Lens' UpdateUserPoolDomain Types.Domain
 uupdDomain = Lens.field @"domain"
-{-# DEPRECATED uupdDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
+{-# INLINEABLE uupdDomain #-}
+{-# DEPRECATED domain "Use generic-lens or generic-optics with 'domain' instead"  #-}
 
 -- | The ID of the user pool that is associated with the custom domain that you are updating the certificate for.
 --
 -- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uupdUserPoolId :: Lens.Lens' UpdateUserPoolDomain Types.UserPoolId
 uupdUserPoolId = Lens.field @"userPoolId"
-{-# DEPRECATED uupdUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+{-# INLINEABLE uupdUserPoolId #-}
+{-# DEPRECATED userPoolId "Use generic-lens or generic-optics with 'userPoolId' instead"  #-}
 
 -- | The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
 --
 -- /Note:/ Consider using 'customDomainConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uupdCustomDomainConfig :: Lens.Lens' UpdateUserPoolDomain Types.CustomDomainConfigType
 uupdCustomDomainConfig = Lens.field @"customDomainConfig"
-{-# DEPRECATED uupdCustomDomainConfig "Use generic-lens or generic-optics with 'customDomainConfig' instead." #-}
+{-# INLINEABLE uupdCustomDomainConfig #-}
+{-# DEPRECATED customDomainConfig "Use generic-lens or generic-optics with 'customDomainConfig' instead"  #-}
+
+instance Core.ToQuery UpdateUserPoolDomain where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders UpdateUserPoolDomain where
+        toHeaders UpdateUserPoolDomain{..}
+          = Core.pure
+              ("X-Amz-Target",
+               "AWSCognitoIdentityProviderService.UpdateUserPoolDomain")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON UpdateUserPoolDomain where
-  toJSON UpdateUserPoolDomain {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Domain" Core..= domain),
-            Core.Just ("UserPoolId" Core..= userPoolId),
-            Core.Just ("CustomDomainConfig" Core..= customDomainConfig)
-          ]
-      )
+        toJSON UpdateUserPoolDomain{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("Domain" Core..= domain),
+                  Core.Just ("UserPoolId" Core..= userPoolId),
+                  Core.Just ("CustomDomainConfig" Core..= customDomainConfig)])
 
 instance Core.AWSRequest UpdateUserPoolDomain where
-  type Rs UpdateUserPoolDomain = UpdateUserPoolDomainResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "X-Amz-Target",
-              "AWSCognitoIdentityProviderService.UpdateUserPoolDomain"
-            )
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          UpdateUserPoolDomainResponse'
-            Core.<$> (x Core..:? "CloudFrontDomain")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs UpdateUserPoolDomain = UpdateUserPoolDomainResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 UpdateUserPoolDomainResponse' Core.<$>
+                   (x Core..:? "CloudFrontDomain") Core.<*>
+                     Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | The UpdateUserPoolDomain response output.
 --
 -- /See:/ 'mkUpdateUserPoolDomainResponse' smart constructor.
 data UpdateUserPoolDomainResponse = UpdateUserPoolDomainResponse'
-  { -- | The Amazon CloudFront endpoint that Amazon Cognito set up when you added the custom domain to your user pool.
-    cloudFrontDomain :: Core.Maybe Types.CloudFrontDomain,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { cloudFrontDomain :: Core.Maybe Types.CloudFrontDomain
+    -- ^ The Amazon CloudFront endpoint that Amazon Cognito set up when you added the custom domain to your user pool.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UpdateUserPoolDomainResponse' value with any optional fields omitted.
-mkUpdateUserPoolDomainResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  UpdateUserPoolDomainResponse
-mkUpdateUserPoolDomainResponse responseStatus =
-  UpdateUserPoolDomainResponse'
-    { cloudFrontDomain = Core.Nothing,
-      responseStatus
-    }
+mkUpdateUserPoolDomainResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> UpdateUserPoolDomainResponse
+mkUpdateUserPoolDomainResponse responseStatus
+  = UpdateUserPoolDomainResponse'{cloudFrontDomain = Core.Nothing,
+                                  responseStatus}
 
 -- | The Amazon CloudFront endpoint that Amazon Cognito set up when you added the custom domain to your user pool.
 --
 -- /Note:/ Consider using 'cloudFrontDomain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uupdrrsCloudFrontDomain :: Lens.Lens' UpdateUserPoolDomainResponse (Core.Maybe Types.CloudFrontDomain)
 uupdrrsCloudFrontDomain = Lens.field @"cloudFrontDomain"
-{-# DEPRECATED uupdrrsCloudFrontDomain "Use generic-lens or generic-optics with 'cloudFrontDomain' instead." #-}
+{-# INLINEABLE uupdrrsCloudFrontDomain #-}
+{-# DEPRECATED cloudFrontDomain "Use generic-lens or generic-optics with 'cloudFrontDomain' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 uupdrrsResponseStatus :: Lens.Lens' UpdateUserPoolDomainResponse Core.Int
 uupdrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED uupdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE uupdrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -24,23 +24,23 @@
 --
 --
 --     * If you retain the ID of the policy, you can get information about the policy, including the traffic policy document, by running <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetTrafficPolicy.html GetTrafficPolicy> .
+--
+--
 module Network.AWS.Route53.DeleteTrafficPolicy
-  ( -- * Creating a request
-    DeleteTrafficPolicy (..),
-    mkDeleteTrafficPolicy,
-
+    (
+    -- * Creating a request
+      DeleteTrafficPolicy (..)
+    , mkDeleteTrafficPolicy
     -- ** Request lenses
-    dtpId,
-    dtpVersion,
+    , dtpId
+    , dtpVersion
 
     -- * Destructuring the response
-    DeleteTrafficPolicyResponse (..),
-    mkDeleteTrafficPolicyResponse,
-
+    , DeleteTrafficPolicyResponse (..)
+    , mkDeleteTrafficPolicyResponse
     -- ** Response lenses
-    dtprrsResponseStatus,
-  )
-where
+    , dtprrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -52,82 +52,85 @@ import qualified Network.AWS.Route53.Types as Types
 --
 -- /See:/ 'mkDeleteTrafficPolicy' smart constructor.
 data DeleteTrafficPolicy = DeleteTrafficPolicy'
-  { -- | The ID of the traffic policy that you want to delete.
-    id :: Types.Id,
-    -- | The version number of the traffic policy that you want to delete.
-    version :: Core.Natural
+  { id :: Types.Id
+    -- ^ The ID of the traffic policy that you want to delete.
+  , version :: Core.Natural
+    -- ^ The version number of the traffic policy that you want to delete.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteTrafficPolicy' value with any optional fields omitted.
-mkDeleteTrafficPolicy ::
-  -- | 'id'
-  Types.Id ->
-  -- | 'version'
-  Core.Natural ->
-  DeleteTrafficPolicy
-mkDeleteTrafficPolicy id version =
-  DeleteTrafficPolicy' {id, version}
+mkDeleteTrafficPolicy
+    :: Types.Id -- ^ 'id'
+    -> Core.Natural -- ^ 'version'
+    -> DeleteTrafficPolicy
+mkDeleteTrafficPolicy id version
+  = DeleteTrafficPolicy'{id, version}
 
 -- | The ID of the traffic policy that you want to delete.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dtpId :: Lens.Lens' DeleteTrafficPolicy Types.Id
 dtpId = Lens.field @"id"
-{-# DEPRECATED dtpId "Use generic-lens or generic-optics with 'id' instead." #-}
+{-# INLINEABLE dtpId #-}
+{-# DEPRECATED id "Use generic-lens or generic-optics with 'id' instead"  #-}
 
 -- | The version number of the traffic policy that you want to delete.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dtpVersion :: Lens.Lens' DeleteTrafficPolicy Core.Natural
 dtpVersion = Lens.field @"version"
-{-# DEPRECATED dtpVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+{-# INLINEABLE dtpVersion #-}
+{-# DEPRECATED version "Use generic-lens or generic-optics with 'version' instead"  #-}
+
+instance Core.ToQuery DeleteTrafficPolicy where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DeleteTrafficPolicy where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest DeleteTrafficPolicy where
-  type Rs DeleteTrafficPolicy = DeleteTrafficPolicyResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.DELETE,
-        Core._rqPath =
-          Core.rawPath
-            ( "/2013-04-01/trafficpolicy/" Core.<> (Core.toText id)
-                Core.<> ("/")
-                Core.<> (Core.toText version)
-            ),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = ""
-      }
-  response =
-    Response.receiveEmpty
-      ( \s h x ->
-          DeleteTrafficPolicyResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DeleteTrafficPolicy = DeleteTrafficPolicyResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.DELETE,
+                         Core._rqPath =
+                           "/2013-04-01/trafficpolicy/" Core.<> Core.toText id Core.<> "/"
+                             Core.<> Core.toText version,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveEmpty
+              (\ s h x ->
+                 DeleteTrafficPolicyResponse' Core.<$>
+                   (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | An empty element.
 --
 -- /See:/ 'mkDeleteTrafficPolicyResponse' smart constructor.
 newtype DeleteTrafficPolicyResponse = DeleteTrafficPolicyResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteTrafficPolicyResponse' value with any optional fields omitted.
-mkDeleteTrafficPolicyResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DeleteTrafficPolicyResponse
-mkDeleteTrafficPolicyResponse responseStatus =
-  DeleteTrafficPolicyResponse' {responseStatus}
+mkDeleteTrafficPolicyResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DeleteTrafficPolicyResponse
+mkDeleteTrafficPolicyResponse responseStatus
+  = DeleteTrafficPolicyResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dtprrsResponseStatus :: Lens.Lens' DeleteTrafficPolicyResponse Core.Int
 dtprrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED dtprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE dtprrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

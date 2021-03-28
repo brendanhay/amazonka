@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SSM.Types.PatchFilter
-  ( PatchFilter (..),
-
-    -- * Smart constructor
-    mkPatchFilter,
-
-    -- * Lenses
-    pfKey,
-    pfValues,
-  )
-where
+  ( PatchFilter (..)
+  -- * Smart constructor
+  , mkPatchFilter
+  -- * Lenses
+  , pfKey
+  , pfValues
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -34,26 +32,24 @@ import qualified Network.AWS.SSM.Types.PatchFilterValue as Types
 --
 -- /See:/ 'mkPatchFilter' smart constructor.
 data PatchFilter = PatchFilter'
-  { -- | The key for the filter.
-    --
-    -- Run the 'DescribePatchProperties' command to view lists of valid keys for each operating system type.
-    key :: Types.PatchFilterKey,
-    -- | The value for the filter key.
-    --
-    -- Run the 'DescribePatchProperties' command to view lists of valid values for each key based on operating system type.
-    values :: Core.NonEmpty Types.PatchFilterValue
+  { key :: Types.PatchFilterKey
+    -- ^ The key for the filter.
+--
+-- Run the 'DescribePatchProperties' command to view lists of valid keys for each operating system type.
+  , values :: Core.NonEmpty Types.PatchFilterValue
+    -- ^ The value for the filter key.
+--
+-- Run the 'DescribePatchProperties' command to view lists of valid values for each key based on operating system type.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'PatchFilter' value with any optional fields omitted.
-mkPatchFilter ::
-  -- | 'key'
-  Types.PatchFilterKey ->
-  -- | 'values'
-  Core.NonEmpty Types.PatchFilterValue ->
-  PatchFilter
-mkPatchFilter key values = PatchFilter' {key, values}
+mkPatchFilter
+    :: Types.PatchFilterKey -- ^ 'key'
+    -> Core.NonEmpty Types.PatchFilterValue -- ^ 'values'
+    -> PatchFilter
+mkPatchFilter key values = PatchFilter'{key, values}
 
 -- | The key for the filter.
 --
@@ -62,7 +58,8 @@ mkPatchFilter key values = PatchFilter' {key, values}
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pfKey :: Lens.Lens' PatchFilter Types.PatchFilterKey
 pfKey = Lens.field @"key"
-{-# DEPRECATED pfKey "Use generic-lens or generic-optics with 'key' instead." #-}
+{-# INLINEABLE pfKey #-}
+{-# DEPRECATED key "Use generic-lens or generic-optics with 'key' instead"  #-}
 
 -- | The value for the filter key.
 --
@@ -71,20 +68,18 @@ pfKey = Lens.field @"key"
 -- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pfValues :: Lens.Lens' PatchFilter (Core.NonEmpty Types.PatchFilterValue)
 pfValues = Lens.field @"values"
-{-# DEPRECATED pfValues "Use generic-lens or generic-optics with 'values' instead." #-}
+{-# INLINEABLE pfValues #-}
+{-# DEPRECATED values "Use generic-lens or generic-optics with 'values' instead"  #-}
 
 instance Core.FromJSON PatchFilter where
-  toJSON PatchFilter {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Key" Core..= key),
-            Core.Just ("Values" Core..= values)
-          ]
-      )
+        toJSON PatchFilter{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("Key" Core..= key),
+                  Core.Just ("Values" Core..= values)])
 
 instance Core.FromJSON PatchFilter where
-  parseJSON =
-    Core.withObject "PatchFilter" Core.$
-      \x ->
-        PatchFilter'
-          Core.<$> (x Core..: "Key") Core.<*> (x Core..: "Values")
+        parseJSON
+          = Core.withObject "PatchFilter" Core.$
+              \ x ->
+                PatchFilter' Core.<$> (x Core..: "Key") Core.<*> x Core..: "Values"

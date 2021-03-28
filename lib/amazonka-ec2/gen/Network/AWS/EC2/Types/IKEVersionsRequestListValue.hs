@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.EC2.Types.IKEVersionsRequestListValue
-  ( IKEVersionsRequestListValue (..),
+  ( IKEVersionsRequestListValue (..)
+  -- * Smart constructor
+  , mkIKEVersionsRequestListValue
+  -- * Lenses
+  , ikevrlvValue
+  ) where
 
-    -- * Smart constructor
-    mkIKEVersionsRequestListValue,
-
-    -- * Lenses
-    ikevrlvValue,
-  )
-where
-
-import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
 
@@ -29,21 +26,26 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkIKEVersionsRequestListValue' smart constructor.
 newtype IKEVersionsRequestListValue = IKEVersionsRequestListValue'
-  { -- | The IKE version.
-    value :: Core.Maybe Types.String
+  { value :: Core.Maybe Core.Text
+    -- ^ The IKE version.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'IKEVersionsRequestListValue' value with any optional fields omitted.
-mkIKEVersionsRequestListValue ::
-  IKEVersionsRequestListValue
-mkIKEVersionsRequestListValue =
-  IKEVersionsRequestListValue' {value = Core.Nothing}
+mkIKEVersionsRequestListValue
+    :: IKEVersionsRequestListValue
+mkIKEVersionsRequestListValue
+  = IKEVersionsRequestListValue'{value = Core.Nothing}
 
 -- | The IKE version.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ikevrlvValue :: Lens.Lens' IKEVersionsRequestListValue (Core.Maybe Types.String)
+ikevrlvValue :: Lens.Lens' IKEVersionsRequestListValue (Core.Maybe Core.Text)
 ikevrlvValue = Lens.field @"value"
-{-# DEPRECATED ikevrlvValue "Use generic-lens or generic-optics with 'value' instead." #-}
+{-# INLINEABLE ikevrlvValue #-}
+{-# DEPRECATED value "Use generic-lens or generic-optics with 'value' instead"  #-}
+
+instance Core.ToQuery IKEVersionsRequestListValue where
+        toQuery IKEVersionsRequestListValue{..}
+          = Core.maybe Core.mempty (Core.toQueryPair "Value") value

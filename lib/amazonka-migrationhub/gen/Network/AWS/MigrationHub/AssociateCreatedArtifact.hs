@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -23,25 +23,25 @@
 --
 --
 --     * Examples of the AWS resource behind the created artifact are, AMI's, EC2 instance, or DMS endpoint, etc.
+--
+--
 module Network.AWS.MigrationHub.AssociateCreatedArtifact
-  ( -- * Creating a request
-    AssociateCreatedArtifact (..),
-    mkAssociateCreatedArtifact,
-
+    (
+    -- * Creating a request
+      AssociateCreatedArtifact (..)
+    , mkAssociateCreatedArtifact
     -- ** Request lenses
-    acaProgressUpdateStream,
-    acaMigrationTaskName,
-    acaCreatedArtifact,
-    acaDryRun,
+    , acaProgressUpdateStream
+    , acaMigrationTaskName
+    , acaCreatedArtifact
+    , acaDryRun
 
     -- * Destructuring the response
-    AssociateCreatedArtifactResponse (..),
-    mkAssociateCreatedArtifactResponse,
-
+    , AssociateCreatedArtifactResponse (..)
+    , mkAssociateCreatedArtifactResponse
     -- ** Response lenses
-    acarrsResponseStatus,
-  )
-where
+    , acarrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.MigrationHub.Types as Types
@@ -51,117 +51,115 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAssociateCreatedArtifact' smart constructor.
 data AssociateCreatedArtifact = AssociateCreatedArtifact'
-  { -- | The name of the ProgressUpdateStream.
-    progressUpdateStream :: Types.ProgressUpdateStream,
-    -- | Unique identifier that references the migration task. /Do not store personal data in this field./
-    migrationTaskName :: Types.MigrationTaskName,
-    -- | An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.)
-    createdArtifact :: Types.CreatedArtifact,
-    -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
-    dryRun :: Core.Maybe Core.Bool
+  { progressUpdateStream :: Types.ProgressUpdateStream
+    -- ^ The name of the ProgressUpdateStream. 
+  , migrationTaskName :: Types.MigrationTaskName
+    -- ^ Unique identifier that references the migration task. /Do not store personal data in this field./ 
+  , createdArtifact :: Types.CreatedArtifact
+    -- ^ An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.) 
+  , dryRun :: Core.Maybe Core.Bool
+    -- ^ Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AssociateCreatedArtifact' value with any optional fields omitted.
-mkAssociateCreatedArtifact ::
-  -- | 'progressUpdateStream'
-  Types.ProgressUpdateStream ->
-  -- | 'migrationTaskName'
-  Types.MigrationTaskName ->
-  -- | 'createdArtifact'
-  Types.CreatedArtifact ->
-  AssociateCreatedArtifact
 mkAssociateCreatedArtifact
-  progressUpdateStream
-  migrationTaskName
-  createdArtifact =
-    AssociateCreatedArtifact'
-      { progressUpdateStream,
-        migrationTaskName,
-        createdArtifact,
-        dryRun = Core.Nothing
-      }
+    :: Types.ProgressUpdateStream -- ^ 'progressUpdateStream'
+    -> Types.MigrationTaskName -- ^ 'migrationTaskName'
+    -> Types.CreatedArtifact -- ^ 'createdArtifact'
+    -> AssociateCreatedArtifact
+mkAssociateCreatedArtifact progressUpdateStream migrationTaskName
+  createdArtifact
+  = AssociateCreatedArtifact'{progressUpdateStream,
+                              migrationTaskName, createdArtifact, dryRun = Core.Nothing}
 
--- | The name of the ProgressUpdateStream.
+-- | The name of the ProgressUpdateStream. 
 --
 -- /Note:/ Consider using 'progressUpdateStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 acaProgressUpdateStream :: Lens.Lens' AssociateCreatedArtifact Types.ProgressUpdateStream
 acaProgressUpdateStream = Lens.field @"progressUpdateStream"
-{-# DEPRECATED acaProgressUpdateStream "Use generic-lens or generic-optics with 'progressUpdateStream' instead." #-}
+{-# INLINEABLE acaProgressUpdateStream #-}
+{-# DEPRECATED progressUpdateStream "Use generic-lens or generic-optics with 'progressUpdateStream' instead"  #-}
 
--- | Unique identifier that references the migration task. /Do not store personal data in this field./
+-- | Unique identifier that references the migration task. /Do not store personal data in this field./ 
 --
 -- /Note:/ Consider using 'migrationTaskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 acaMigrationTaskName :: Lens.Lens' AssociateCreatedArtifact Types.MigrationTaskName
 acaMigrationTaskName = Lens.field @"migrationTaskName"
-{-# DEPRECATED acaMigrationTaskName "Use generic-lens or generic-optics with 'migrationTaskName' instead." #-}
+{-# INLINEABLE acaMigrationTaskName #-}
+{-# DEPRECATED migrationTaskName "Use generic-lens or generic-optics with 'migrationTaskName' instead"  #-}
 
--- | An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.)
+-- | An ARN of the AWS resource related to the migration (e.g., AMI, EC2 instance, RDS instance, etc.) 
 --
 -- /Note:/ Consider using 'createdArtifact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 acaCreatedArtifact :: Lens.Lens' AssociateCreatedArtifact Types.CreatedArtifact
 acaCreatedArtifact = Lens.field @"createdArtifact"
-{-# DEPRECATED acaCreatedArtifact "Use generic-lens or generic-optics with 'createdArtifact' instead." #-}
+{-# INLINEABLE acaCreatedArtifact #-}
+{-# DEPRECATED createdArtifact "Use generic-lens or generic-optics with 'createdArtifact' instead"  #-}
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 acaDryRun :: Lens.Lens' AssociateCreatedArtifact (Core.Maybe Core.Bool)
 acaDryRun = Lens.field @"dryRun"
-{-# DEPRECATED acaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+{-# INLINEABLE acaDryRun #-}
+{-# DEPRECATED dryRun "Use generic-lens or generic-optics with 'dryRun' instead"  #-}
+
+instance Core.ToQuery AssociateCreatedArtifact where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders AssociateCreatedArtifact where
+        toHeaders AssociateCreatedArtifact{..}
+          = Core.pure
+              ("X-Amz-Target", "AWSMigrationHub.AssociateCreatedArtifact")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON AssociateCreatedArtifact where
-  toJSON AssociateCreatedArtifact {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ProgressUpdateStream" Core..= progressUpdateStream),
-            Core.Just ("MigrationTaskName" Core..= migrationTaskName),
-            Core.Just ("CreatedArtifact" Core..= createdArtifact),
-            ("DryRun" Core..=) Core.<$> dryRun
-          ]
-      )
+        toJSON AssociateCreatedArtifact{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("ProgressUpdateStream" Core..= progressUpdateStream),
+                  Core.Just ("MigrationTaskName" Core..= migrationTaskName),
+                  Core.Just ("CreatedArtifact" Core..= createdArtifact),
+                  ("DryRun" Core..=) Core.<$> dryRun])
 
 instance Core.AWSRequest AssociateCreatedArtifact where
-  type Rs AssociateCreatedArtifact = AssociateCreatedArtifactResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "AWSMigrationHub.AssociateCreatedArtifact")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveEmpty
-      ( \s h x ->
-          AssociateCreatedArtifactResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs AssociateCreatedArtifact = AssociateCreatedArtifactResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveEmpty
+              (\ s h x ->
+                 AssociateCreatedArtifactResponse' Core.<$>
+                   (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkAssociateCreatedArtifactResponse' smart constructor.
 newtype AssociateCreatedArtifactResponse = AssociateCreatedArtifactResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AssociateCreatedArtifactResponse' value with any optional fields omitted.
-mkAssociateCreatedArtifactResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  AssociateCreatedArtifactResponse
-mkAssociateCreatedArtifactResponse responseStatus =
-  AssociateCreatedArtifactResponse' {responseStatus}
+mkAssociateCreatedArtifactResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> AssociateCreatedArtifactResponse
+mkAssociateCreatedArtifactResponse responseStatus
+  = AssociateCreatedArtifactResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 acarrsResponseStatus :: Lens.Lens' AssociateCreatedArtifactResponse Core.Int
 acarrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED acarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE acarrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

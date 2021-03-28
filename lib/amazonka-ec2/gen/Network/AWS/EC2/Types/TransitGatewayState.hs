@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,48 +10,30 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.EC2.Types.TransitGatewayState
   ( TransitGatewayState
-      ( TransitGatewayState',
-        TransitGatewayStatePending,
-        TransitGatewayStateAvailable,
-        TransitGatewayStateModifying,
-        TransitGatewayStateDeleting,
-        TransitGatewayStateDeleted,
-        fromTransitGatewayState
-      ),
-  )
-where
+    ( TransitGatewayState'
+    , TransitGatewayStatePending
+    , TransitGatewayStateAvailable
+    , TransitGatewayStateModifying
+    , TransitGatewayStateDeleting
+    , TransitGatewayStateDeleted
+    , fromTransitGatewayState
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype TransitGatewayState = TransitGatewayState'
-  { fromTransitGatewayState ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype TransitGatewayState = TransitGatewayState'{fromTransitGatewayState
+                                                   :: Core.Text}
+                                deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                Core.Generic)
+                                deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                  Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                  Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                  Core.ToText, Core.FromText, Core.ToByteString,
+                                                  Core.ToQuery, Core.ToHeader)
 
 pattern TransitGatewayStatePending :: TransitGatewayState
 pattern TransitGatewayStatePending = TransitGatewayState' "pending"
@@ -68,11 +50,15 @@ pattern TransitGatewayStateDeleting = TransitGatewayState' "deleting"
 pattern TransitGatewayStateDeleted :: TransitGatewayState
 pattern TransitGatewayStateDeleted = TransitGatewayState' "deleted"
 
-{-# COMPLETE
+{-# COMPLETE 
   TransitGatewayStatePending,
+
   TransitGatewayStateAvailable,
+
   TransitGatewayStateModifying,
+
   TransitGatewayStateDeleting,
+
   TransitGatewayStateDeleted,
   TransitGatewayState'
   #-}

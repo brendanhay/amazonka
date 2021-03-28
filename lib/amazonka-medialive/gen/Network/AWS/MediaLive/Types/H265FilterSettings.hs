@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaLive.Types.H265FilterSettings
-  ( H265FilterSettings (..),
-
-    -- * Smart constructor
-    mkH265FilterSettings,
-
-    -- * Lenses
-    hTemporalFilterSettings,
-  )
-where
+  ( H265FilterSettings (..)
+  -- * Smart constructor
+  , mkH265FilterSettings
+  -- * Lenses
+  , hTemporalFilterSettings
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.MediaLive.Types.TemporalFilterSettings as Types
@@ -35,29 +33,28 @@ newtype H265FilterSettings = H265FilterSettings'
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'H265FilterSettings' value with any optional fields omitted.
-mkH265FilterSettings ::
-  H265FilterSettings
-mkH265FilterSettings =
-  H265FilterSettings' {temporalFilterSettings = Core.Nothing}
+mkH265FilterSettings
+    :: H265FilterSettings
+mkH265FilterSettings
+  = H265FilterSettings'{temporalFilterSettings = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'temporalFilterSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 hTemporalFilterSettings :: Lens.Lens' H265FilterSettings (Core.Maybe Types.TemporalFilterSettings)
 hTemporalFilterSettings = Lens.field @"temporalFilterSettings"
-{-# DEPRECATED hTemporalFilterSettings "Use generic-lens or generic-optics with 'temporalFilterSettings' instead." #-}
+{-# INLINEABLE hTemporalFilterSettings #-}
+{-# DEPRECATED temporalFilterSettings "Use generic-lens or generic-optics with 'temporalFilterSettings' instead"  #-}
 
 instance Core.FromJSON H265FilterSettings where
-  toJSON H265FilterSettings {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("temporalFilterSettings" Core..=)
-              Core.<$> temporalFilterSettings
-          ]
-      )
+        toJSON H265FilterSettings{..}
+          = Core.object
+              (Core.catMaybes
+                 [("temporalFilterSettings" Core..=) Core.<$>
+                    temporalFilterSettings])
 
 instance Core.FromJSON H265FilterSettings where
-  parseJSON =
-    Core.withObject "H265FilterSettings" Core.$
-      \x ->
-        H265FilterSettings' Core.<$> (x Core..:? "temporalFilterSettings")
+        parseJSON
+          = Core.withObject "H265FilterSettings" Core.$
+              \ x ->
+                H265FilterSettings' Core.<$> (x Core..:? "temporalFilterSettings")

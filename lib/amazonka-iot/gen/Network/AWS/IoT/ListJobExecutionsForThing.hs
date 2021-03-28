@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,27 +17,25 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.IoT.ListJobExecutionsForThing
-  ( -- * Creating a request
-    ListJobExecutionsForThing (..),
-    mkListJobExecutionsForThing,
-
+    (
+    -- * Creating a request
+      ListJobExecutionsForThing (..)
+    , mkListJobExecutionsForThing
     -- ** Request lenses
-    ljeftThingName,
-    ljeftMaxResults,
-    ljeftNamespaceId,
-    ljeftNextToken,
-    ljeftStatus,
+    , ljeftThingName
+    , ljeftMaxResults
+    , ljeftNamespaceId
+    , ljeftNextToken
+    , ljeftStatus
 
     -- * Destructuring the response
-    ListJobExecutionsForThingResponse (..),
-    mkListJobExecutionsForThingResponse,
-
+    , ListJobExecutionsForThingResponse (..)
+    , mkListJobExecutionsForThingResponse
     -- ** Response lenses
-    ljeftrrsExecutionSummaries,
-    ljeftrrsNextToken,
-    ljeftrrsResponseStatus,
-  )
-where
+    , ljeftrrsExecutionSummaries
+    , ljeftrrsNextToken
+    , ljeftrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -48,157 +46,160 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListJobExecutionsForThing' smart constructor.
 data ListJobExecutionsForThing = ListJobExecutionsForThing'
-  { -- | The thing name.
-    thingName :: Types.ThingName,
-    -- | The maximum number of results to be returned per request.
-    maxResults :: Core.Maybe Core.Natural,
-    -- | The namespace used to indicate that a job is a customer-managed job.
-    --
-    -- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
-    -- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
-    namespaceId :: Core.Maybe Types.NamespaceId,
-    -- | The token to retrieve the next set of results.
-    nextToken :: Core.Maybe Types.NextToken,
-    -- | An optional filter that lets you search for jobs that have the specified status.
-    status :: Core.Maybe Types.JobExecutionStatus
+  { thingName :: Types.ThingName
+    -- ^ The thing name.
+  , maxResults :: Core.Maybe Core.Natural
+    -- ^ The maximum number of results to be returned per request.
+  , namespaceId :: Core.Maybe Types.NamespaceId
+    -- ^ The namespace used to indicate that a job is a customer-managed job.
+--
+-- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
+-- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@ 
+  , nextToken :: Core.Maybe Types.NextToken
+    -- ^ The token to retrieve the next set of results.
+  , status :: Core.Maybe Types.JobExecutionStatus
+    -- ^ An optional filter that lets you search for jobs that have the specified status.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ListJobExecutionsForThing' value with any optional fields omitted.
-mkListJobExecutionsForThing ::
-  -- | 'thingName'
-  Types.ThingName ->
-  ListJobExecutionsForThing
-mkListJobExecutionsForThing thingName =
-  ListJobExecutionsForThing'
-    { thingName,
-      maxResults = Core.Nothing,
-      namespaceId = Core.Nothing,
-      nextToken = Core.Nothing,
-      status = Core.Nothing
-    }
+mkListJobExecutionsForThing
+    :: Types.ThingName -- ^ 'thingName'
+    -> ListJobExecutionsForThing
+mkListJobExecutionsForThing thingName
+  = ListJobExecutionsForThing'{thingName, maxResults = Core.Nothing,
+                               namespaceId = Core.Nothing, nextToken = Core.Nothing,
+                               status = Core.Nothing}
 
 -- | The thing name.
 --
 -- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ljeftThingName :: Lens.Lens' ListJobExecutionsForThing Types.ThingName
 ljeftThingName = Lens.field @"thingName"
-{-# DEPRECATED ljeftThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
+{-# INLINEABLE ljeftThingName #-}
+{-# DEPRECATED thingName "Use generic-lens or generic-optics with 'thingName' instead"  #-}
 
 -- | The maximum number of results to be returned per request.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ljeftMaxResults :: Lens.Lens' ListJobExecutionsForThing (Core.Maybe Core.Natural)
 ljeftMaxResults = Lens.field @"maxResults"
-{-# DEPRECATED ljeftMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+{-# INLINEABLE ljeftMaxResults #-}
+{-# DEPRECATED maxResults "Use generic-lens or generic-optics with 'maxResults' instead"  #-}
 
 -- | The namespace used to indicate that a job is a customer-managed job.
 --
 -- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
--- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
+-- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@ 
 --
 -- /Note:/ Consider using 'namespaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ljeftNamespaceId :: Lens.Lens' ListJobExecutionsForThing (Core.Maybe Types.NamespaceId)
 ljeftNamespaceId = Lens.field @"namespaceId"
-{-# DEPRECATED ljeftNamespaceId "Use generic-lens or generic-optics with 'namespaceId' instead." #-}
+{-# INLINEABLE ljeftNamespaceId #-}
+{-# DEPRECATED namespaceId "Use generic-lens or generic-optics with 'namespaceId' instead"  #-}
 
 -- | The token to retrieve the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ljeftNextToken :: Lens.Lens' ListJobExecutionsForThing (Core.Maybe Types.NextToken)
 ljeftNextToken = Lens.field @"nextToken"
-{-# DEPRECATED ljeftNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE ljeftNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
 
 -- | An optional filter that lets you search for jobs that have the specified status.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ljeftStatus :: Lens.Lens' ListJobExecutionsForThing (Core.Maybe Types.JobExecutionStatus)
 ljeftStatus = Lens.field @"status"
-{-# DEPRECATED ljeftStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+{-# INLINEABLE ljeftStatus #-}
+{-# DEPRECATED status "Use generic-lens or generic-optics with 'status' instead"  #-}
+
+instance Core.ToQuery ListJobExecutionsForThing where
+        toQuery ListJobExecutionsForThing{..}
+          = Core.maybe Core.mempty (Core.toQueryPair "maxResults") maxResults
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "namespaceId") namespaceId
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "nextToken") nextToken
+              Core.<> Core.maybe Core.mempty (Core.toQueryPair "status") status
+
+instance Core.ToHeaders ListJobExecutionsForThing where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest ListJobExecutionsForThing where
-  type
-    Rs ListJobExecutionsForThing =
-      ListJobExecutionsForThingResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.GET,
-        Core._rqPath =
-          Core.rawPath
-            ("/things/" Core.<> (Core.toText thingName) Core.<> ("/jobs")),
-        Core._rqQuery =
-          Core.toQueryValue "maxResults" Core.<$> maxResults
-            Core.<> (Core.toQueryValue "namespaceId" Core.<$> namespaceId)
-            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken)
-            Core.<> (Core.toQueryValue "status" Core.<$> status),
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = ""
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          ListJobExecutionsForThingResponse'
-            Core.<$> (x Core..:? "executionSummaries")
-            Core.<*> (x Core..:? "nextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs ListJobExecutionsForThing =
+             ListJobExecutionsForThingResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.GET,
+                         Core._rqPath =
+                           "/things/" Core.<> Core.toText thingName Core.<> "/jobs",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 ListJobExecutionsForThingResponse' Core.<$>
+                   (x Core..:? "executionSummaries") Core.<*> x Core..:? "nextToken"
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 instance Pager.AWSPager ListJobExecutionsForThing where
-  page rq rs
-    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
-    | Pager.stop
-        (rs Lens.^? Lens.field @"executionSummaries" Core.. Lens._Just) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just
-        ( rq
-            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
-        )
+        page rq rs
+          | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+          | Pager.stop
+              (rs Lens.^? Lens.field @"executionSummaries" Core.. Lens._Just)
+            = Core.Nothing
+          | Core.otherwise =
+            Core.Just
+              (rq Core.&
+                 Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken")
 
 -- | /See:/ 'mkListJobExecutionsForThingResponse' smart constructor.
 data ListJobExecutionsForThingResponse = ListJobExecutionsForThingResponse'
-  { -- | A list of job execution summaries.
-    executionSummaries :: Core.Maybe [Types.JobExecutionSummaryForThing],
-    -- | The token for the next set of results, or __null__ if there are no additional results.
-    nextToken :: Core.Maybe Types.NextToken,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { executionSummaries :: Core.Maybe [Types.JobExecutionSummaryForThing]
+    -- ^ A list of job execution summaries.
+  , nextToken :: Core.Maybe Types.NextToken
+    -- ^ The token for the next set of results, or __null__ if there are no additional results.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'ListJobExecutionsForThingResponse' value with any optional fields omitted.
-mkListJobExecutionsForThingResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  ListJobExecutionsForThingResponse
-mkListJobExecutionsForThingResponse responseStatus =
-  ListJobExecutionsForThingResponse'
-    { executionSummaries =
-        Core.Nothing,
-      nextToken = Core.Nothing,
-      responseStatus
-    }
+mkListJobExecutionsForThingResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> ListJobExecutionsForThingResponse
+mkListJobExecutionsForThingResponse responseStatus
+  = ListJobExecutionsForThingResponse'{executionSummaries =
+                                         Core.Nothing,
+                                       nextToken = Core.Nothing, responseStatus}
 
 -- | A list of job execution summaries.
 --
 -- /Note:/ Consider using 'executionSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ljeftrrsExecutionSummaries :: Lens.Lens' ListJobExecutionsForThingResponse (Core.Maybe [Types.JobExecutionSummaryForThing])
 ljeftrrsExecutionSummaries = Lens.field @"executionSummaries"
-{-# DEPRECATED ljeftrrsExecutionSummaries "Use generic-lens or generic-optics with 'executionSummaries' instead." #-}
+{-# INLINEABLE ljeftrrsExecutionSummaries #-}
+{-# DEPRECATED executionSummaries "Use generic-lens or generic-optics with 'executionSummaries' instead"  #-}
 
 -- | The token for the next set of results, or __null__ if there are no additional results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ljeftrrsNextToken :: Lens.Lens' ListJobExecutionsForThingResponse (Core.Maybe Types.NextToken)
 ljeftrrsNextToken = Lens.field @"nextToken"
-{-# DEPRECATED ljeftrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE ljeftrrsNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ljeftrrsResponseStatus :: Lens.Lens' ListJobExecutionsForThingResponse Core.Int
 ljeftrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED ljeftrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE ljeftrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

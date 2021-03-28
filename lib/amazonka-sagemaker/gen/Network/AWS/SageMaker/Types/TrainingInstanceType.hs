@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,82 +10,64 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SageMaker.Types.TrainingInstanceType
   ( TrainingInstanceType
-      ( TrainingInstanceType',
-        TrainingInstanceTypeMl_M4_Xlarge,
-        TrainingInstanceTypeMl_M4_2xlarge,
-        TrainingInstanceTypeMl_M4_4xlarge,
-        TrainingInstanceTypeMl_M4_10xlarge,
-        TrainingInstanceTypeMl_M4_16xlarge,
-        TrainingInstanceTypeMl_G4dn_Xlarge,
-        TrainingInstanceTypeMl_G4dn_2xlarge,
-        TrainingInstanceTypeMl_G4dn_4xlarge,
-        TrainingInstanceTypeMl_G4dn_8xlarge,
-        TrainingInstanceTypeMl_G4dn_12xlarge,
-        TrainingInstanceTypeMl_G4dn_16xlarge,
-        TrainingInstanceTypeMl_M5_Large,
-        TrainingInstanceTypeMl_M5_Xlarge,
-        TrainingInstanceTypeMl_M5_2xlarge,
-        TrainingInstanceTypeMl_M5_4xlarge,
-        TrainingInstanceTypeMl_M5_12xlarge,
-        TrainingInstanceTypeMl_M5_24xlarge,
-        TrainingInstanceTypeMl_C4_Xlarge,
-        TrainingInstanceTypeMl_C4_2xlarge,
-        TrainingInstanceTypeMl_C4_4xlarge,
-        TrainingInstanceTypeMl_C4_8xlarge,
-        TrainingInstanceTypeMl_P2_Xlarge,
-        TrainingInstanceTypeMl_P2_8xlarge,
-        TrainingInstanceTypeMl_P2_16xlarge,
-        TrainingInstanceTypeMl_P3_2xlarge,
-        TrainingInstanceTypeMl_P3_8xlarge,
-        TrainingInstanceTypeMl_P3_16xlarge,
-        TrainingInstanceTypeMl_P3dn_24xlarge,
-        TrainingInstanceTypeMl_P4d_24xlarge,
-        TrainingInstanceTypeMl_C5_Xlarge,
-        TrainingInstanceTypeMl_C5_2xlarge,
-        TrainingInstanceTypeMl_C5_4xlarge,
-        TrainingInstanceTypeMl_C5_9xlarge,
-        TrainingInstanceTypeMl_C5_18xlarge,
-        TrainingInstanceTypeMl_C5n_Xlarge,
-        TrainingInstanceTypeMl_C5n_2xlarge,
-        TrainingInstanceTypeMl_C5n_4xlarge,
-        TrainingInstanceTypeMl_C5n_9xlarge,
-        TrainingInstanceTypeMl_C5n_18xlarge,
-        fromTrainingInstanceType
-      ),
-  )
-where
+    ( TrainingInstanceType'
+    , TrainingInstanceTypeMl_M4_Xlarge
+    , TrainingInstanceTypeMl_M4_2xlarge
+    , TrainingInstanceTypeMl_M4_4xlarge
+    , TrainingInstanceTypeMl_M4_10xlarge
+    , TrainingInstanceTypeMl_M4_16xlarge
+    , TrainingInstanceTypeMl_G4dn_Xlarge
+    , TrainingInstanceTypeMl_G4dn_2xlarge
+    , TrainingInstanceTypeMl_G4dn_4xlarge
+    , TrainingInstanceTypeMl_G4dn_8xlarge
+    , TrainingInstanceTypeMl_G4dn_12xlarge
+    , TrainingInstanceTypeMl_G4dn_16xlarge
+    , TrainingInstanceTypeMl_M5_Large
+    , TrainingInstanceTypeMl_M5_Xlarge
+    , TrainingInstanceTypeMl_M5_2xlarge
+    , TrainingInstanceTypeMl_M5_4xlarge
+    , TrainingInstanceTypeMl_M5_12xlarge
+    , TrainingInstanceTypeMl_M5_24xlarge
+    , TrainingInstanceTypeMl_C4_Xlarge
+    , TrainingInstanceTypeMl_C4_2xlarge
+    , TrainingInstanceTypeMl_C4_4xlarge
+    , TrainingInstanceTypeMl_C4_8xlarge
+    , TrainingInstanceTypeMl_P2_Xlarge
+    , TrainingInstanceTypeMl_P2_8xlarge
+    , TrainingInstanceTypeMl_P2_16xlarge
+    , TrainingInstanceTypeMl_P3_2xlarge
+    , TrainingInstanceTypeMl_P3_8xlarge
+    , TrainingInstanceTypeMl_P3_16xlarge
+    , TrainingInstanceTypeMl_P3dn_24xlarge
+    , TrainingInstanceTypeMl_P4d_24xlarge
+    , TrainingInstanceTypeMl_C5_Xlarge
+    , TrainingInstanceTypeMl_C5_2xlarge
+    , TrainingInstanceTypeMl_C5_4xlarge
+    , TrainingInstanceTypeMl_C5_9xlarge
+    , TrainingInstanceTypeMl_C5_18xlarge
+    , TrainingInstanceTypeMl_C5n_Xlarge
+    , TrainingInstanceTypeMl_C5n_2xlarge
+    , TrainingInstanceTypeMl_C5n_4xlarge
+    , TrainingInstanceTypeMl_C5n_9xlarge
+    , TrainingInstanceTypeMl_C5n_18xlarge
+    , fromTrainingInstanceType
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype TrainingInstanceType = TrainingInstanceType'
-  { fromTrainingInstanceType ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype TrainingInstanceType = TrainingInstanceType'{fromTrainingInstanceType
+                                                     :: Core.Text}
+                                 deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                 Core.Generic)
+                                 deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                   Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                   Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                   Core.ToText, Core.FromText, Core.ToByteString,
+                                                   Core.ToQuery, Core.ToHeader)
 
 pattern TrainingInstanceTypeMl_M4_Xlarge :: TrainingInstanceType
 pattern TrainingInstanceTypeMl_M4_Xlarge = TrainingInstanceType' "ml.m4.xlarge"
@@ -204,45 +186,83 @@ pattern TrainingInstanceTypeMl_C5n_9xlarge = TrainingInstanceType' "ml.c5n.9xlar
 pattern TrainingInstanceTypeMl_C5n_18xlarge :: TrainingInstanceType
 pattern TrainingInstanceTypeMl_C5n_18xlarge = TrainingInstanceType' "ml.c5n.18xlarge"
 
-{-# COMPLETE
+{-# COMPLETE 
   TrainingInstanceTypeMl_M4_Xlarge,
+
   TrainingInstanceTypeMl_M4_2xlarge,
+
   TrainingInstanceTypeMl_M4_4xlarge,
+
   TrainingInstanceTypeMl_M4_10xlarge,
+
   TrainingInstanceTypeMl_M4_16xlarge,
+
   TrainingInstanceTypeMl_G4dn_Xlarge,
+
   TrainingInstanceTypeMl_G4dn_2xlarge,
+
   TrainingInstanceTypeMl_G4dn_4xlarge,
+
   TrainingInstanceTypeMl_G4dn_8xlarge,
+
   TrainingInstanceTypeMl_G4dn_12xlarge,
+
   TrainingInstanceTypeMl_G4dn_16xlarge,
+
   TrainingInstanceTypeMl_M5_Large,
+
   TrainingInstanceTypeMl_M5_Xlarge,
+
   TrainingInstanceTypeMl_M5_2xlarge,
+
   TrainingInstanceTypeMl_M5_4xlarge,
+
   TrainingInstanceTypeMl_M5_12xlarge,
+
   TrainingInstanceTypeMl_M5_24xlarge,
+
   TrainingInstanceTypeMl_C4_Xlarge,
+
   TrainingInstanceTypeMl_C4_2xlarge,
+
   TrainingInstanceTypeMl_C4_4xlarge,
+
   TrainingInstanceTypeMl_C4_8xlarge,
+
   TrainingInstanceTypeMl_P2_Xlarge,
+
   TrainingInstanceTypeMl_P2_8xlarge,
+
   TrainingInstanceTypeMl_P2_16xlarge,
+
   TrainingInstanceTypeMl_P3_2xlarge,
+
   TrainingInstanceTypeMl_P3_8xlarge,
+
   TrainingInstanceTypeMl_P3_16xlarge,
+
   TrainingInstanceTypeMl_P3dn_24xlarge,
+
   TrainingInstanceTypeMl_P4d_24xlarge,
+
   TrainingInstanceTypeMl_C5_Xlarge,
+
   TrainingInstanceTypeMl_C5_2xlarge,
+
   TrainingInstanceTypeMl_C5_4xlarge,
+
   TrainingInstanceTypeMl_C5_9xlarge,
+
   TrainingInstanceTypeMl_C5_18xlarge,
+
   TrainingInstanceTypeMl_C5n_Xlarge,
+
   TrainingInstanceTypeMl_C5n_2xlarge,
+
   TrainingInstanceTypeMl_C5n_4xlarge,
+
   TrainingInstanceTypeMl_C5n_9xlarge,
+
   TrainingInstanceTypeMl_C5n_18xlarge,
   TrainingInstanceType'
   #-}

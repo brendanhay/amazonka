@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SageMaker.Types.TargetPlatform
-  ( TargetPlatform (..),
-
-    -- * Smart constructor
-    mkTargetPlatform,
-
-    -- * Lenses
-    tpOs,
-    tpArch,
-    tpAccelerator,
-  )
-where
+  ( TargetPlatform (..)
+  -- * Smart constructor
+  , mkTargetPlatform
+  -- * Lenses
+  , tpOs
+  , tpArch
+  , tpAccelerator
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -33,55 +31,59 @@ import qualified Network.AWS.SageMaker.Types.TargetPlatformOs as Types
 --
 -- /See:/ 'mkTargetPlatform' smart constructor.
 data TargetPlatform = TargetPlatform'
-  { -- | Specifies a target platform OS.
-    --
-    --
-    --     * @LINUX@ : Linux-based operating systems.
-    --
-    --
-    --     * @ANDROID@ : Android operating systems. Android API level can be specified using the @ANDROID_PLATFORM@ compiler option. For example, @"CompilerOptions": {'ANDROID_PLATFORM': 28}@
-    os :: Types.TargetPlatformOs,
-    -- | Specifies a target platform architecture.
-    --
-    --
-    --     * @X86_64@ : 64-bit version of the x86 instruction set.
-    --
-    --
-    --     * @X86@ : 32-bit version of the x86 instruction set.
-    --
-    --
-    --     * @ARM64@ : ARMv8 64-bit CPU.
-    --
-    --
-    --     * @ARM_EABIHF@ : ARMv7 32-bit, Hard Float.
-    --
-    --
-    --     * @ARM_EABI@ : ARMv7 32-bit, Soft Float. Used by Android 32-bit ARM platform.
-    arch :: Types.TargetPlatformArch,
-    -- | Specifies a target platform accelerator (optional).
-    --
-    --
-    --     * @NVIDIA@ : Nvidia graphics processing unit. It also requires @gpu-code@ , @trt-ver@ , @cuda-ver@ compiler options
-    --
-    --
-    --     * @MALI@ : ARM Mali graphics processor
-    --
-    --
-    --     * @INTEL_GRAPHICS@ : Integrated Intel graphics
-    accelerator :: Core.Maybe Types.TargetPlatformAccelerator
+  { os :: Types.TargetPlatformOs
+    -- ^ Specifies a target platform OS.
+--
+--
+--     * @LINUX@ : Linux-based operating systems.
+--
+--
+--     * @ANDROID@ : Android operating systems. Android API level can be specified using the @ANDROID_PLATFORM@ compiler option. For example, @"CompilerOptions": {'ANDROID_PLATFORM': 28}@ 
+--
+--
+  , arch :: Types.TargetPlatformArch
+    -- ^ Specifies a target platform architecture.
+--
+--
+--     * @X86_64@ : 64-bit version of the x86 instruction set.
+--
+--
+--     * @X86@ : 32-bit version of the x86 instruction set.
+--
+--
+--     * @ARM64@ : ARMv8 64-bit CPU.
+--
+--
+--     * @ARM_EABIHF@ : ARMv7 32-bit, Hard Float.
+--
+--
+--     * @ARM_EABI@ : ARMv7 32-bit, Soft Float. Used by Android 32-bit ARM platform.
+--
+--
+  , accelerator :: Core.Maybe Types.TargetPlatformAccelerator
+    -- ^ Specifies a target platform accelerator (optional).
+--
+--
+--     * @NVIDIA@ : Nvidia graphics processing unit. It also requires @gpu-code@ , @trt-ver@ , @cuda-ver@ compiler options
+--
+--
+--     * @MALI@ : ARM Mali graphics processor
+--
+--
+--     * @INTEL_GRAPHICS@ : Integrated Intel graphics
+--
+--
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'TargetPlatform' value with any optional fields omitted.
-mkTargetPlatform ::
-  -- | 'os'
-  Types.TargetPlatformOs ->
-  -- | 'arch'
-  Types.TargetPlatformArch ->
-  TargetPlatform
-mkTargetPlatform os arch =
-  TargetPlatform' {os, arch, accelerator = Core.Nothing}
+mkTargetPlatform
+    :: Types.TargetPlatformOs -- ^ 'os'
+    -> Types.TargetPlatformArch -- ^ 'arch'
+    -> TargetPlatform
+mkTargetPlatform os arch
+  = TargetPlatform'{os, arch, accelerator = Core.Nothing}
 
 -- | Specifies a target platform OS.
 --
@@ -89,14 +91,15 @@ mkTargetPlatform os arch =
 --     * @LINUX@ : Linux-based operating systems.
 --
 --
---     * @ANDROID@ : Android operating systems. Android API level can be specified using the @ANDROID_PLATFORM@ compiler option. For example, @"CompilerOptions": {'ANDROID_PLATFORM': 28}@
+--     * @ANDROID@ : Android operating systems. Android API level can be specified using the @ANDROID_PLATFORM@ compiler option. For example, @"CompilerOptions": {'ANDROID_PLATFORM': 28}@ 
 --
 --
 --
 -- /Note:/ Consider using 'os' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 tpOs :: Lens.Lens' TargetPlatform Types.TargetPlatformOs
 tpOs = Lens.field @"os"
-{-# DEPRECATED tpOs "Use generic-lens or generic-optics with 'os' instead." #-}
+{-# INLINEABLE tpOs #-}
+{-# DEPRECATED os "Use generic-lens or generic-optics with 'os' instead"  #-}
 
 -- | Specifies a target platform architecture.
 --
@@ -120,7 +123,8 @@ tpOs = Lens.field @"os"
 -- /Note:/ Consider using 'arch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 tpArch :: Lens.Lens' TargetPlatform Types.TargetPlatformArch
 tpArch = Lens.field @"arch"
-{-# DEPRECATED tpArch "Use generic-lens or generic-optics with 'arch' instead." #-}
+{-# INLINEABLE tpArch #-}
+{-# DEPRECATED arch "Use generic-lens or generic-optics with 'arch' instead"  #-}
 
 -- | Specifies a target platform accelerator (optional).
 --
@@ -138,23 +142,20 @@ tpArch = Lens.field @"arch"
 -- /Note:/ Consider using 'accelerator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 tpAccelerator :: Lens.Lens' TargetPlatform (Core.Maybe Types.TargetPlatformAccelerator)
 tpAccelerator = Lens.field @"accelerator"
-{-# DEPRECATED tpAccelerator "Use generic-lens or generic-optics with 'accelerator' instead." #-}
+{-# INLINEABLE tpAccelerator #-}
+{-# DEPRECATED accelerator "Use generic-lens or generic-optics with 'accelerator' instead"  #-}
 
 instance Core.FromJSON TargetPlatform where
-  toJSON TargetPlatform {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Os" Core..= os),
-            Core.Just ("Arch" Core..= arch),
-            ("Accelerator" Core..=) Core.<$> accelerator
-          ]
-      )
+        toJSON TargetPlatform{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("Os" Core..= os), Core.Just ("Arch" Core..= arch),
+                  ("Accelerator" Core..=) Core.<$> accelerator])
 
 instance Core.FromJSON TargetPlatform where
-  parseJSON =
-    Core.withObject "TargetPlatform" Core.$
-      \x ->
-        TargetPlatform'
-          Core.<$> (x Core..: "Os")
-          Core.<*> (x Core..: "Arch")
-          Core.<*> (x Core..:? "Accelerator")
+        parseJSON
+          = Core.withObject "TargetPlatform" Core.$
+              \ x ->
+                TargetPlatform' Core.<$>
+                  (x Core..: "Os") Core.<*> x Core..: "Arch" Core.<*>
+                    x Core..:? "Accelerator"

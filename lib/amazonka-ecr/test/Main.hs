@@ -7,17 +7,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Main (main) where
 
+import Test.Tasty
 import Test.AWS.ECR
 import Test.AWS.ECR.Internal
-import Test.Tasty
 
 main :: IO ()
-main =
-  defaultMain $
-    testGroup
-      "ECR"
-      [ testGroup "tests" tests,
-        testGroup "fixtures" fixtures
-      ]
+main = defaultMain $ testGroup "ECR"
+    [ testGroup "tests"    tests
+    , testGroup "fixtures" fixtures
+    ]

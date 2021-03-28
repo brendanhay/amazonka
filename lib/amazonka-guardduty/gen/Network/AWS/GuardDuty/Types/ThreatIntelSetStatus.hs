@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,50 +10,32 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.GuardDuty.Types.ThreatIntelSetStatus
   ( ThreatIntelSetStatus
-      ( ThreatIntelSetStatus',
-        ThreatIntelSetStatusInactive,
-        ThreatIntelSetStatusActivating,
-        ThreatIntelSetStatusActive,
-        ThreatIntelSetStatusDeactivating,
-        ThreatIntelSetStatusError,
-        ThreatIntelSetStatusDeletePending,
-        ThreatIntelSetStatusDeleted,
-        fromThreatIntelSetStatus
-      ),
-  )
-where
+    ( ThreatIntelSetStatus'
+    , ThreatIntelSetStatusInactive
+    , ThreatIntelSetStatusActivating
+    , ThreatIntelSetStatusActive
+    , ThreatIntelSetStatusDeactivating
+    , ThreatIntelSetStatusError
+    , ThreatIntelSetStatusDeletePending
+    , ThreatIntelSetStatusDeleted
+    , fromThreatIntelSetStatus
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype ThreatIntelSetStatus = ThreatIntelSetStatus'
-  { fromThreatIntelSetStatus ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype ThreatIntelSetStatus = ThreatIntelSetStatus'{fromThreatIntelSetStatus
+                                                     :: Core.Text}
+                                 deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                 Core.Generic)
+                                 deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                   Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                   Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                   Core.ToText, Core.FromText, Core.ToByteString,
+                                                   Core.ToQuery, Core.ToHeader)
 
 pattern ThreatIntelSetStatusInactive :: ThreatIntelSetStatus
 pattern ThreatIntelSetStatusInactive = ThreatIntelSetStatus' "INACTIVE"
@@ -76,13 +58,19 @@ pattern ThreatIntelSetStatusDeletePending = ThreatIntelSetStatus' "DELETE_PENDIN
 pattern ThreatIntelSetStatusDeleted :: ThreatIntelSetStatus
 pattern ThreatIntelSetStatusDeleted = ThreatIntelSetStatus' "DELETED"
 
-{-# COMPLETE
+{-# COMPLETE 
   ThreatIntelSetStatusInactive,
+
   ThreatIntelSetStatusActivating,
+
   ThreatIntelSetStatusActive,
+
   ThreatIntelSetStatusDeactivating,
+
   ThreatIntelSetStatusError,
+
   ThreatIntelSetStatusDeletePending,
+
   ThreatIntelSetStatusDeleted,
   ThreatIntelSetStatus'
   #-}

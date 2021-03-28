@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelector
-  ( HLSFragmentSelector (..),
-
-    -- * Smart constructor
-    mkHLSFragmentSelector,
-
-    -- * Lenses
-    hlsfsFragmentSelectorType,
-    hlsfsTimestampRange,
-  )
-where
+  ( HLSFragmentSelector (..)
+  -- * Smart constructor
+  , mkHLSFragmentSelector
+  -- * Lenses
+  , hlsfsFragmentSelectorType
+  , hlsfsTimestampRange
+  ) where
 
 import qualified Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType as Types
 import qualified Network.AWS.KinesisVideoArchivedMedia.Types.HLSTimestampRange as Types
@@ -31,33 +29,31 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkHLSFragmentSelector' smart constructor.
 data HLSFragmentSelector = HLSFragmentSelector'
-  { -- | The source of the timestamps for the requested media.
-    --
-    -- When @FragmentSelectorType@ is set to @PRODUCER_TIMESTAMP@ and 'GetHLSStreamingSessionURLInput$PlaybackMode' is @ON_DEMAND@ or @LIVE_REPLAY@ , the first fragment ingested with a producer timestamp within the specified 'FragmentSelector$TimestampRange' is included in the media playlist. In addition, the fragments with producer timestamps within the @TimestampRange@ ingested immediately following the first fragment (up to the 'GetHLSStreamingSessionURLInput$MaxMediaPlaylistFragmentResults' value) are included.
-    -- Fragments that have duplicate producer timestamps are deduplicated. This means that if producers are producing a stream of fragments with producer timestamps that are approximately equal to the true clock time, the HLS media playlists will contain all of the fragments within the requested timestamp range. If some fragments are ingested within the same time range and very different points in time, only the oldest ingested collection of fragments are returned.
-    -- When @FragmentSelectorType@ is set to @PRODUCER_TIMESTAMP@ and 'GetHLSStreamingSessionURLInput$PlaybackMode' is @LIVE@ , the producer timestamps are used in the MP4 fragments and for deduplication. But the most recently ingested fragments based on server timestamps are included in the HLS media playlist. This means that even if fragments ingested in the past have producer timestamps with values now, they are not included in the HLS media playlist.
-    -- The default is @SERVER_TIMESTAMP@ .
-    fragmentSelectorType :: Core.Maybe Types.HLSFragmentSelectorType,
-    -- | The start and end of the timestamp range for the requested media.
-    --
-    -- This value should not be present if @PlaybackType@ is @LIVE@ .
-    timestampRange :: Core.Maybe Types.HLSTimestampRange
+  { fragmentSelectorType :: Core.Maybe Types.HLSFragmentSelectorType
+    -- ^ The source of the timestamps for the requested media.
+--
+-- When @FragmentSelectorType@ is set to @PRODUCER_TIMESTAMP@ and 'GetHLSStreamingSessionURLInput$PlaybackMode' is @ON_DEMAND@ or @LIVE_REPLAY@ , the first fragment ingested with a producer timestamp within the specified 'FragmentSelector$TimestampRange' is included in the media playlist. In addition, the fragments with producer timestamps within the @TimestampRange@ ingested immediately following the first fragment (up to the 'GetHLSStreamingSessionURLInput$MaxMediaPlaylistFragmentResults' value) are included. 
+-- Fragments that have duplicate producer timestamps are deduplicated. This means that if producers are producing a stream of fragments with producer timestamps that are approximately equal to the true clock time, the HLS media playlists will contain all of the fragments within the requested timestamp range. If some fragments are ingested within the same time range and very different points in time, only the oldest ingested collection of fragments are returned.
+-- When @FragmentSelectorType@ is set to @PRODUCER_TIMESTAMP@ and 'GetHLSStreamingSessionURLInput$PlaybackMode' is @LIVE@ , the producer timestamps are used in the MP4 fragments and for deduplication. But the most recently ingested fragments based on server timestamps are included in the HLS media playlist. This means that even if fragments ingested in the past have producer timestamps with values now, they are not included in the HLS media playlist.
+-- The default is @SERVER_TIMESTAMP@ .
+  , timestampRange :: Core.Maybe Types.HLSTimestampRange
+    -- ^ The start and end of the timestamp range for the requested media.
+--
+-- This value should not be present if @PlaybackType@ is @LIVE@ .
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'HLSFragmentSelector' value with any optional fields omitted.
-mkHLSFragmentSelector ::
-  HLSFragmentSelector
-mkHLSFragmentSelector =
-  HLSFragmentSelector'
-    { fragmentSelectorType = Core.Nothing,
-      timestampRange = Core.Nothing
-    }
+mkHLSFragmentSelector
+    :: HLSFragmentSelector
+mkHLSFragmentSelector
+  = HLSFragmentSelector'{fragmentSelectorType = Core.Nothing,
+                         timestampRange = Core.Nothing}
 
 -- | The source of the timestamps for the requested media.
 --
--- When @FragmentSelectorType@ is set to @PRODUCER_TIMESTAMP@ and 'GetHLSStreamingSessionURLInput$PlaybackMode' is @ON_DEMAND@ or @LIVE_REPLAY@ , the first fragment ingested with a producer timestamp within the specified 'FragmentSelector$TimestampRange' is included in the media playlist. In addition, the fragments with producer timestamps within the @TimestampRange@ ingested immediately following the first fragment (up to the 'GetHLSStreamingSessionURLInput$MaxMediaPlaylistFragmentResults' value) are included.
+-- When @FragmentSelectorType@ is set to @PRODUCER_TIMESTAMP@ and 'GetHLSStreamingSessionURLInput$PlaybackMode' is @ON_DEMAND@ or @LIVE_REPLAY@ , the first fragment ingested with a producer timestamp within the specified 'FragmentSelector$TimestampRange' is included in the media playlist. In addition, the fragments with producer timestamps within the @TimestampRange@ ingested immediately following the first fragment (up to the 'GetHLSStreamingSessionURLInput$MaxMediaPlaylistFragmentResults' value) are included. 
 -- Fragments that have duplicate producer timestamps are deduplicated. This means that if producers are producing a stream of fragments with producer timestamps that are approximately equal to the true clock time, the HLS media playlists will contain all of the fragments within the requested timestamp range. If some fragments are ingested within the same time range and very different points in time, only the oldest ingested collection of fragments are returned.
 -- When @FragmentSelectorType@ is set to @PRODUCER_TIMESTAMP@ and 'GetHLSStreamingSessionURLInput$PlaybackMode' is @LIVE@ , the producer timestamps are used in the MP4 fragments and for deduplication. But the most recently ingested fragments based on server timestamps are included in the HLS media playlist. This means that even if fragments ingested in the past have producer timestamps with values now, they are not included in the HLS media playlist.
 -- The default is @SERVER_TIMESTAMP@ .
@@ -65,7 +61,8 @@ mkHLSFragmentSelector =
 -- /Note:/ Consider using 'fragmentSelectorType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 hlsfsFragmentSelectorType :: Lens.Lens' HLSFragmentSelector (Core.Maybe Types.HLSFragmentSelectorType)
 hlsfsFragmentSelectorType = Lens.field @"fragmentSelectorType"
-{-# DEPRECATED hlsfsFragmentSelectorType "Use generic-lens or generic-optics with 'fragmentSelectorType' instead." #-}
+{-# INLINEABLE hlsfsFragmentSelectorType #-}
+{-# DEPRECATED fragmentSelectorType "Use generic-lens or generic-optics with 'fragmentSelectorType' instead"  #-}
 
 -- | The start and end of the timestamp range for the requested media.
 --
@@ -74,13 +71,12 @@ hlsfsFragmentSelectorType = Lens.field @"fragmentSelectorType"
 -- /Note:/ Consider using 'timestampRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 hlsfsTimestampRange :: Lens.Lens' HLSFragmentSelector (Core.Maybe Types.HLSTimestampRange)
 hlsfsTimestampRange = Lens.field @"timestampRange"
-{-# DEPRECATED hlsfsTimestampRange "Use generic-lens or generic-optics with 'timestampRange' instead." #-}
+{-# INLINEABLE hlsfsTimestampRange #-}
+{-# DEPRECATED timestampRange "Use generic-lens or generic-optics with 'timestampRange' instead"  #-}
 
 instance Core.FromJSON HLSFragmentSelector where
-  toJSON HLSFragmentSelector {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("FragmentSelectorType" Core..=) Core.<$> fragmentSelectorType,
-            ("TimestampRange" Core..=) Core.<$> timestampRange
-          ]
-      )
+        toJSON HLSFragmentSelector{..}
+          = Core.object
+              (Core.catMaybes
+                 [("FragmentSelectorType" Core..=) Core.<$> fragmentSelectorType,
+                  ("TimestampRange" Core..=) Core.<$> timestampRange])

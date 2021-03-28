@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,21 +17,20 @@
 --
 -- The maximum number of metric filters that can be associated with a log group is 100.
 module Network.AWS.CloudWatchLogs.PutMetricFilter
-  ( -- * Creating a request
-    PutMetricFilter (..),
-    mkPutMetricFilter,
-
+    (
+    -- * Creating a request
+      PutMetricFilter (..)
+    , mkPutMetricFilter
     -- ** Request lenses
-    pmfLogGroupName,
-    pmfFilterName,
-    pmfFilterPattern,
-    pmfMetricTransformations,
+    , pmfLogGroupName
+    , pmfFilterName
+    , pmfFilterPattern
+    , pmfMetricTransformations
 
     -- * Destructuring the response
-    PutMetricFilterResponse (..),
-    mkPutMetricFilterResponse,
-  )
-where
+    , PutMetricFilterResponse (..)
+    , mkPutMetricFilterResponse
+    ) where
 
 import qualified Network.AWS.CloudWatchLogs.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -41,94 +40,91 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutMetricFilter' smart constructor.
 data PutMetricFilter = PutMetricFilter'
-  { -- | The name of the log group.
-    logGroupName :: Types.LogGroupName,
-    -- | A name for the metric filter.
-    filterName :: Types.FilterName,
-    -- | A filter pattern for extracting metric data out of ingested log events.
-    filterPattern :: Types.FilterPattern,
-    -- | A collection of information that defines how metric data gets emitted.
-    metricTransformations :: Core.NonEmpty Types.MetricTransformation
+  { logGroupName :: Types.LogGroupName
+    -- ^ The name of the log group.
+  , filterName :: Types.FilterName
+    -- ^ A name for the metric filter.
+  , filterPattern :: Types.FilterPattern
+    -- ^ A filter pattern for extracting metric data out of ingested log events.
+  , metricTransformations :: Core.NonEmpty Types.MetricTransformation
+    -- ^ A collection of information that defines how metric data gets emitted.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'PutMetricFilter' value with any optional fields omitted.
-mkPutMetricFilter ::
-  -- | 'logGroupName'
-  Types.LogGroupName ->
-  -- | 'filterName'
-  Types.FilterName ->
-  -- | 'filterPattern'
-  Types.FilterPattern ->
-  -- | 'metricTransformations'
-  Core.NonEmpty Types.MetricTransformation ->
-  PutMetricFilter
 mkPutMetricFilter
-  logGroupName
-  filterName
-  filterPattern
-  metricTransformations =
-    PutMetricFilter'
-      { logGroupName,
-        filterName,
-        filterPattern,
-        metricTransformations
-      }
+    :: Types.LogGroupName -- ^ 'logGroupName'
+    -> Types.FilterName -- ^ 'filterName'
+    -> Types.FilterPattern -- ^ 'filterPattern'
+    -> Core.NonEmpty Types.MetricTransformation -- ^ 'metricTransformations'
+    -> PutMetricFilter
+mkPutMetricFilter logGroupName filterName filterPattern
+  metricTransformations
+  = PutMetricFilter'{logGroupName, filterName, filterPattern,
+                     metricTransformations}
 
 -- | The name of the log group.
 --
 -- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pmfLogGroupName :: Lens.Lens' PutMetricFilter Types.LogGroupName
 pmfLogGroupName = Lens.field @"logGroupName"
-{-# DEPRECATED pmfLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
+{-# INLINEABLE pmfLogGroupName #-}
+{-# DEPRECATED logGroupName "Use generic-lens or generic-optics with 'logGroupName' instead"  #-}
 
 -- | A name for the metric filter.
 --
 -- /Note:/ Consider using 'filterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pmfFilterName :: Lens.Lens' PutMetricFilter Types.FilterName
 pmfFilterName = Lens.field @"filterName"
-{-# DEPRECATED pmfFilterName "Use generic-lens or generic-optics with 'filterName' instead." #-}
+{-# INLINEABLE pmfFilterName #-}
+{-# DEPRECATED filterName "Use generic-lens or generic-optics with 'filterName' instead"  #-}
 
 -- | A filter pattern for extracting metric data out of ingested log events.
 --
 -- /Note:/ Consider using 'filterPattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pmfFilterPattern :: Lens.Lens' PutMetricFilter Types.FilterPattern
 pmfFilterPattern = Lens.field @"filterPattern"
-{-# DEPRECATED pmfFilterPattern "Use generic-lens or generic-optics with 'filterPattern' instead." #-}
+{-# INLINEABLE pmfFilterPattern #-}
+{-# DEPRECATED filterPattern "Use generic-lens or generic-optics with 'filterPattern' instead"  #-}
 
 -- | A collection of information that defines how metric data gets emitted.
 --
 -- /Note:/ Consider using 'metricTransformations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pmfMetricTransformations :: Lens.Lens' PutMetricFilter (Core.NonEmpty Types.MetricTransformation)
 pmfMetricTransformations = Lens.field @"metricTransformations"
-{-# DEPRECATED pmfMetricTransformations "Use generic-lens or generic-optics with 'metricTransformations' instead." #-}
+{-# INLINEABLE pmfMetricTransformations #-}
+{-# DEPRECATED metricTransformations "Use generic-lens or generic-optics with 'metricTransformations' instead"  #-}
+
+instance Core.ToQuery PutMetricFilter where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders PutMetricFilter where
+        toHeaders PutMetricFilter{..}
+          = Core.pure ("X-Amz-Target", "Logs_20140328.PutMetricFilter")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON PutMetricFilter where
-  toJSON PutMetricFilter {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("logGroupName" Core..= logGroupName),
-            Core.Just ("filterName" Core..= filterName),
-            Core.Just ("filterPattern" Core..= filterPattern),
-            Core.Just ("metricTransformations" Core..= metricTransformations)
-          ]
-      )
+        toJSON PutMetricFilter{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("logGroupName" Core..= logGroupName),
+                  Core.Just ("filterName" Core..= filterName),
+                  Core.Just ("filterPattern" Core..= filterPattern),
+                  Core.Just ("metricTransformations" Core..= metricTransformations)])
 
 instance Core.AWSRequest PutMetricFilter where
-  type Rs PutMetricFilter = PutMetricFilterResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "Logs_20140328.PutMetricFilter")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response = Response.receiveNull PutMetricFilterResponse'
+        type Rs PutMetricFilter = PutMetricFilterResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull PutMetricFilterResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkPutMetricFilterResponse' smart constructor.
 data PutMetricFilterResponse = PutMetricFilterResponse'
@@ -136,6 +132,6 @@ data PutMetricFilterResponse = PutMetricFilterResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'PutMetricFilterResponse' value with any optional fields omitted.
-mkPutMetricFilterResponse ::
-  PutMetricFilterResponse
+mkPutMetricFilterResponse
+    :: PutMetricFilterResponse
 mkPutMetricFilterResponse = PutMetricFilterResponse'

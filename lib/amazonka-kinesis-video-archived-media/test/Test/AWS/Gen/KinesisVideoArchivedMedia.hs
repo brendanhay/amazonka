@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.KinesisVideoArchivedMedia where
 
 import Data.Proxy
-import Network.AWS.KinesisVideoArchivedMedia
 import Test.AWS.Fixture
-import Test.AWS.KinesisVideoArchivedMedia.Internal
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.KinesisVideoArchivedMedia
+import Test.AWS.KinesisVideoArchivedMedia.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -66,56 +67,48 @@ import Test.Tasty
 -- Requests
 
 requestGetHLSStreamingSessionURL :: GetHLSStreamingSessionURL -> TestTree
-requestGetHLSStreamingSessionURL =
-  req
+requestGetHLSStreamingSessionURL = req
     "GetHLSStreamingSessionURL"
     "fixture/GetHLSStreamingSessionURL.yaml"
 
 requestGetClip :: GetClip -> TestTree
-requestGetClip =
-  req
+requestGetClip = req
     "GetClip"
     "fixture/GetClip.yaml"
 
 requestGetMediaForFragmentList :: GetMediaForFragmentList -> TestTree
-requestGetMediaForFragmentList =
-  req
+requestGetMediaForFragmentList = req
     "GetMediaForFragmentList"
     "fixture/GetMediaForFragmentList.yaml"
 
 requestListFragments :: ListFragments -> TestTree
-requestListFragments =
-  req
+requestListFragments = req
     "ListFragments"
     "fixture/ListFragments.yaml"
 
 requestGetDASHStreamingSessionURL :: GetDASHStreamingSessionURL -> TestTree
-requestGetDASHStreamingSessionURL =
-  req
+requestGetDASHStreamingSessionURL = req
     "GetDASHStreamingSessionURL"
     "fixture/GetDASHStreamingSessionURL.yaml"
 
 -- Responses
 
 responseGetHLSStreamingSessionURL :: GetHLSStreamingSessionURLResponse -> TestTree
-responseGetHLSStreamingSessionURL =
-  res
+responseGetHLSStreamingSessionURL = res
     "GetHLSStreamingSessionURLResponse"
     "fixture/GetHLSStreamingSessionURLResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetHLSStreamingSessionURL)
 
 responseListFragments :: ListFragmentsResponse -> TestTree
-responseListFragments =
-  res
+responseListFragments = res
     "ListFragmentsResponse"
     "fixture/ListFragmentsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListFragments)
 
 responseGetDASHStreamingSessionURL :: GetDASHStreamingSessionURLResponse -> TestTree
-responseGetDASHStreamingSessionURL =
-  res
+responseGetDASHStreamingSessionURL = res
     "GetDASHStreamingSessionURLResponse"
     "fixture/GetDASHStreamingSessionURLResponse.proto"
     mkServiceConfig

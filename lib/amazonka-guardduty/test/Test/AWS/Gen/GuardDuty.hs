@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.GuardDuty where
 
 import Data.Proxy
-import Network.AWS.GuardDuty
 import Test.AWS.Fixture
-import Test.AWS.GuardDuty.Internal
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.GuardDuty
+import Test.AWS.GuardDuty.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -384,814 +385,698 @@ import Test.Tasty
 -- Requests
 
 requestCreateFilter :: CreateFilter -> TestTree
-requestCreateFilter =
-  req
+requestCreateFilter = req
     "CreateFilter"
     "fixture/CreateFilter.yaml"
 
 requestEnableOrganizationAdminAccount :: EnableOrganizationAdminAccount -> TestTree
-requestEnableOrganizationAdminAccount =
-  req
+requestEnableOrganizationAdminAccount = req
     "EnableOrganizationAdminAccount"
     "fixture/EnableOrganizationAdminAccount.yaml"
 
 requestListFindings :: ListFindings -> TestTree
-requestListFindings =
-  req
+requestListFindings = req
     "ListFindings"
     "fixture/ListFindings.yaml"
 
 requestListOrganizationAdminAccounts :: ListOrganizationAdminAccounts -> TestTree
-requestListOrganizationAdminAccounts =
-  req
+requestListOrganizationAdminAccounts = req
     "ListOrganizationAdminAccounts"
     "fixture/ListOrganizationAdminAccounts.yaml"
 
 requestCreateIPSet :: CreateIPSet -> TestTree
-requestCreateIPSet =
-  req
+requestCreateIPSet = req
     "CreateIPSet"
     "fixture/CreateIPSet.yaml"
 
 requestDeleteThreatIntelSet :: DeleteThreatIntelSet -> TestTree
-requestDeleteThreatIntelSet =
-  req
+requestDeleteThreatIntelSet = req
     "DeleteThreatIntelSet"
     "fixture/DeleteThreatIntelSet.yaml"
 
 requestUpdateThreatIntelSet :: UpdateThreatIntelSet -> TestTree
-requestUpdateThreatIntelSet =
-  req
+requestUpdateThreatIntelSet = req
     "UpdateThreatIntelSet"
     "fixture/UpdateThreatIntelSet.yaml"
 
 requestStopMonitoringMembers :: StopMonitoringMembers -> TestTree
-requestStopMonitoringMembers =
-  req
+requestStopMonitoringMembers = req
     "StopMonitoringMembers"
     "fixture/StopMonitoringMembers.yaml"
 
 requestListThreatIntelSets :: ListThreatIntelSets -> TestTree
-requestListThreatIntelSets =
-  req
+requestListThreatIntelSets = req
     "ListThreatIntelSets"
     "fixture/ListThreatIntelSets.yaml"
 
 requestCreateThreatIntelSet :: CreateThreatIntelSet -> TestTree
-requestCreateThreatIntelSet =
-  req
+requestCreateThreatIntelSet = req
     "CreateThreatIntelSet"
     "fixture/CreateThreatIntelSet.yaml"
 
 requestDeleteMembers :: DeleteMembers -> TestTree
-requestDeleteMembers =
-  req
+requestDeleteMembers = req
     "DeleteMembers"
     "fixture/DeleteMembers.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
+requestListTagsForResource = req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
 requestGetFindingsStatistics :: GetFindingsStatistics -> TestTree
-requestGetFindingsStatistics =
-  req
+requestGetFindingsStatistics = req
     "GetFindingsStatistics"
     "fixture/GetFindingsStatistics.yaml"
 
 requestGetIPSet :: GetIPSet -> TestTree
-requestGetIPSet =
-  req
+requestGetIPSet = req
     "GetIPSet"
     "fixture/GetIPSet.yaml"
 
 requestListInvitations :: ListInvitations -> TestTree
-requestListInvitations =
-  req
+requestListInvitations = req
     "ListInvitations"
     "fixture/ListInvitations.yaml"
 
 requestUpdateMemberDetectors :: UpdateMemberDetectors -> TestTree
-requestUpdateMemberDetectors =
-  req
+requestUpdateMemberDetectors = req
     "UpdateMemberDetectors"
     "fixture/UpdateMemberDetectors.yaml"
 
 requestGetThreatIntelSet :: GetThreatIntelSet -> TestTree
-requestGetThreatIntelSet =
-  req
+requestGetThreatIntelSet = req
     "GetThreatIntelSet"
     "fixture/GetThreatIntelSet.yaml"
 
 requestDeleteInvitations :: DeleteInvitations -> TestTree
-requestDeleteInvitations =
-  req
+requestDeleteInvitations = req
     "DeleteInvitations"
     "fixture/DeleteInvitations.yaml"
 
 requestGetMasterAccount :: GetMasterAccount -> TestTree
-requestGetMasterAccount =
-  req
+requestGetMasterAccount = req
     "GetMasterAccount"
     "fixture/GetMasterAccount.yaml"
 
 requestGetUsageStatistics :: GetUsageStatistics -> TestTree
-requestGetUsageStatistics =
-  req
+requestGetUsageStatistics = req
     "GetUsageStatistics"
     "fixture/GetUsageStatistics.yaml"
 
 requestCreateDetector :: CreateDetector -> TestTree
-requestCreateDetector =
-  req
+requestCreateDetector = req
     "CreateDetector"
     "fixture/CreateDetector.yaml"
 
 requestDeclineInvitations :: DeclineInvitations -> TestTree
-requestDeclineInvitations =
-  req
+requestDeclineInvitations = req
     "DeclineInvitations"
     "fixture/DeclineInvitations.yaml"
 
 requestDescribeOrganizationConfiguration :: DescribeOrganizationConfiguration -> TestTree
-requestDescribeOrganizationConfiguration =
-  req
+requestDescribeOrganizationConfiguration = req
     "DescribeOrganizationConfiguration"
     "fixture/DescribeOrganizationConfiguration.yaml"
 
 requestCreatePublishingDestination :: CreatePublishingDestination -> TestTree
-requestCreatePublishingDestination =
-  req
+requestCreatePublishingDestination = req
     "CreatePublishingDestination"
     "fixture/CreatePublishingDestination.yaml"
 
 requestUpdateFilter :: UpdateFilter -> TestTree
-requestUpdateFilter =
-  req
+requestUpdateFilter = req
     "UpdateFilter"
     "fixture/UpdateFilter.yaml"
 
 requestDeleteFilter :: DeleteFilter -> TestTree
-requestDeleteFilter =
-  req
+requestDeleteFilter = req
     "DeleteFilter"
     "fixture/DeleteFilter.yaml"
 
 requestDisassociateMembers :: DisassociateMembers -> TestTree
-requestDisassociateMembers =
-  req
+requestDisassociateMembers = req
     "DisassociateMembers"
     "fixture/DisassociateMembers.yaml"
 
 requestDisassociateFromMasterAccount :: DisassociateFromMasterAccount -> TestTree
-requestDisassociateFromMasterAccount =
-  req
+requestDisassociateFromMasterAccount = req
     "DisassociateFromMasterAccount"
     "fixture/DisassociateFromMasterAccount.yaml"
 
 requestAcceptInvitation :: AcceptInvitation -> TestTree
-requestAcceptInvitation =
-  req
+requestAcceptInvitation = req
     "AcceptInvitation"
     "fixture/AcceptInvitation.yaml"
 
 requestListFilters :: ListFilters -> TestTree
-requestListFilters =
-  req
+requestListFilters = req
     "ListFilters"
     "fixture/ListFilters.yaml"
 
 requestListMembers :: ListMembers -> TestTree
-requestListMembers =
-  req
+requestListMembers = req
     "ListMembers"
     "fixture/ListMembers.yaml"
 
 requestListPublishingDestinations :: ListPublishingDestinations -> TestTree
-requestListPublishingDestinations =
-  req
+requestListPublishingDestinations = req
     "ListPublishingDestinations"
     "fixture/ListPublishingDestinations.yaml"
 
 requestDeletePublishingDestination :: DeletePublishingDestination -> TestTree
-requestDeletePublishingDestination =
-  req
+requestDeletePublishingDestination = req
     "DeletePublishingDestination"
     "fixture/DeletePublishingDestination.yaml"
 
 requestUpdatePublishingDestination :: UpdatePublishingDestination -> TestTree
-requestUpdatePublishingDestination =
-  req
+requestUpdatePublishingDestination = req
     "UpdatePublishingDestination"
     "fixture/UpdatePublishingDestination.yaml"
 
 requestGetDetector :: GetDetector -> TestTree
-requestGetDetector =
-  req
+requestGetDetector = req
     "GetDetector"
     "fixture/GetDetector.yaml"
 
 requestCreateSampleFindings :: CreateSampleFindings -> TestTree
-requestCreateSampleFindings =
-  req
+requestCreateSampleFindings = req
     "CreateSampleFindings"
     "fixture/CreateSampleFindings.yaml"
 
 requestArchiveFindings :: ArchiveFindings -> TestTree
-requestArchiveFindings =
-  req
+requestArchiveFindings = req
     "ArchiveFindings"
     "fixture/ArchiveFindings.yaml"
 
 requestCreateMembers :: CreateMembers -> TestTree
-requestCreateMembers =
-  req
+requestCreateMembers = req
     "CreateMembers"
     "fixture/CreateMembers.yaml"
 
 requestUnarchiveFindings :: UnarchiveFindings -> TestTree
-requestUnarchiveFindings =
-  req
+requestUnarchiveFindings = req
     "UnarchiveFindings"
     "fixture/UnarchiveFindings.yaml"
 
 requestGetMemberDetectors :: GetMemberDetectors -> TestTree
-requestGetMemberDetectors =
-  req
+requestGetMemberDetectors = req
     "GetMemberDetectors"
     "fixture/GetMemberDetectors.yaml"
 
 requestGetInvitationsCount :: GetInvitationsCount -> TestTree
-requestGetInvitationsCount =
-  req
+requestGetInvitationsCount = req
     "GetInvitationsCount"
     "fixture/GetInvitationsCount.yaml"
 
 requestStartMonitoringMembers :: StartMonitoringMembers -> TestTree
-requestStartMonitoringMembers =
-  req
+requestStartMonitoringMembers = req
     "StartMonitoringMembers"
     "fixture/StartMonitoringMembers.yaml"
 
 requestUpdateOrganizationConfiguration :: UpdateOrganizationConfiguration -> TestTree
-requestUpdateOrganizationConfiguration =
-  req
+requestUpdateOrganizationConfiguration = req
     "UpdateOrganizationConfiguration"
     "fixture/UpdateOrganizationConfiguration.yaml"
 
 requestInviteMembers :: InviteMembers -> TestTree
-requestInviteMembers =
-  req
+requestInviteMembers = req
     "InviteMembers"
     "fixture/InviteMembers.yaml"
 
 requestDeleteIPSet :: DeleteIPSet -> TestTree
-requestDeleteIPSet =
-  req
+requestDeleteIPSet = req
     "DeleteIPSet"
     "fixture/DeleteIPSet.yaml"
 
 requestUpdateIPSet :: UpdateIPSet -> TestTree
-requestUpdateIPSet =
-  req
+requestUpdateIPSet = req
     "UpdateIPSet"
     "fixture/UpdateIPSet.yaml"
 
 requestListIPSets :: ListIPSets -> TestTree
-requestListIPSets =
-  req
+requestListIPSets = req
     "ListIPSets"
     "fixture/ListIPSets.yaml"
 
 requestGetMembers :: GetMembers -> TestTree
-requestGetMembers =
-  req
+requestGetMembers = req
     "GetMembers"
     "fixture/GetMembers.yaml"
 
 requestDescribePublishingDestination :: DescribePublishingDestination -> TestTree
-requestDescribePublishingDestination =
-  req
+requestDescribePublishingDestination = req
     "DescribePublishingDestination"
     "fixture/DescribePublishingDestination.yaml"
 
 requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
+requestTagResource = req
     "TagResource"
     "fixture/TagResource.yaml"
 
 requestGetFindings :: GetFindings -> TestTree
-requestGetFindings =
-  req
+requestGetFindings = req
     "GetFindings"
     "fixture/GetFindings.yaml"
 
 requestListDetectors :: ListDetectors -> TestTree
-requestListDetectors =
-  req
+requestListDetectors = req
     "ListDetectors"
     "fixture/ListDetectors.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
+requestUntagResource = req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
 requestUpdateDetector :: UpdateDetector -> TestTree
-requestUpdateDetector =
-  req
+requestUpdateDetector = req
     "UpdateDetector"
     "fixture/UpdateDetector.yaml"
 
 requestDeleteDetector :: DeleteDetector -> TestTree
-requestDeleteDetector =
-  req
+requestDeleteDetector = req
     "DeleteDetector"
     "fixture/DeleteDetector.yaml"
 
 requestUpdateFindingsFeedback :: UpdateFindingsFeedback -> TestTree
-requestUpdateFindingsFeedback =
-  req
+requestUpdateFindingsFeedback = req
     "UpdateFindingsFeedback"
     "fixture/UpdateFindingsFeedback.yaml"
 
 requestGetFilter :: GetFilter -> TestTree
-requestGetFilter =
-  req
+requestGetFilter = req
     "GetFilter"
     "fixture/GetFilter.yaml"
 
 requestDisableOrganizationAdminAccount :: DisableOrganizationAdminAccount -> TestTree
-requestDisableOrganizationAdminAccount =
-  req
+requestDisableOrganizationAdminAccount = req
     "DisableOrganizationAdminAccount"
     "fixture/DisableOrganizationAdminAccount.yaml"
 
 -- Responses
 
 responseCreateFilter :: CreateFilterResponse -> TestTree
-responseCreateFilter =
-  res
+responseCreateFilter = res
     "CreateFilterResponse"
     "fixture/CreateFilterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateFilter)
 
 responseEnableOrganizationAdminAccount :: EnableOrganizationAdminAccountResponse -> TestTree
-responseEnableOrganizationAdminAccount =
-  res
+responseEnableOrganizationAdminAccount = res
     "EnableOrganizationAdminAccountResponse"
     "fixture/EnableOrganizationAdminAccountResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy EnableOrganizationAdminAccount)
 
 responseListFindings :: ListFindingsResponse -> TestTree
-responseListFindings =
-  res
+responseListFindings = res
     "ListFindingsResponse"
     "fixture/ListFindingsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListFindings)
 
 responseListOrganizationAdminAccounts :: ListOrganizationAdminAccountsResponse -> TestTree
-responseListOrganizationAdminAccounts =
-  res
+responseListOrganizationAdminAccounts = res
     "ListOrganizationAdminAccountsResponse"
     "fixture/ListOrganizationAdminAccountsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListOrganizationAdminAccounts)
 
 responseCreateIPSet :: CreateIPSetResponse -> TestTree
-responseCreateIPSet =
-  res
+responseCreateIPSet = res
     "CreateIPSetResponse"
     "fixture/CreateIPSetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateIPSet)
 
 responseDeleteThreatIntelSet :: DeleteThreatIntelSetResponse -> TestTree
-responseDeleteThreatIntelSet =
-  res
+responseDeleteThreatIntelSet = res
     "DeleteThreatIntelSetResponse"
     "fixture/DeleteThreatIntelSetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteThreatIntelSet)
 
 responseUpdateThreatIntelSet :: UpdateThreatIntelSetResponse -> TestTree
-responseUpdateThreatIntelSet =
-  res
+responseUpdateThreatIntelSet = res
     "UpdateThreatIntelSetResponse"
     "fixture/UpdateThreatIntelSetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateThreatIntelSet)
 
 responseStopMonitoringMembers :: StopMonitoringMembersResponse -> TestTree
-responseStopMonitoringMembers =
-  res
+responseStopMonitoringMembers = res
     "StopMonitoringMembersResponse"
     "fixture/StopMonitoringMembersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StopMonitoringMembers)
 
 responseListThreatIntelSets :: ListThreatIntelSetsResponse -> TestTree
-responseListThreatIntelSets =
-  res
+responseListThreatIntelSets = res
     "ListThreatIntelSetsResponse"
     "fixture/ListThreatIntelSetsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListThreatIntelSets)
 
 responseCreateThreatIntelSet :: CreateThreatIntelSetResponse -> TestTree
-responseCreateThreatIntelSet =
-  res
+responseCreateThreatIntelSet = res
     "CreateThreatIntelSetResponse"
     "fixture/CreateThreatIntelSetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateThreatIntelSet)
 
 responseDeleteMembers :: DeleteMembersResponse -> TestTree
-responseDeleteMembers =
-  res
+responseDeleteMembers = res
     "DeleteMembersResponse"
     "fixture/DeleteMembersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteMembers)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
+responseListTagsForResource = res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseGetFindingsStatistics :: GetFindingsStatisticsResponse -> TestTree
-responseGetFindingsStatistics =
-  res
+responseGetFindingsStatistics = res
     "GetFindingsStatisticsResponse"
     "fixture/GetFindingsStatisticsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetFindingsStatistics)
 
 responseGetIPSet :: GetIPSetResponse -> TestTree
-responseGetIPSet =
-  res
+responseGetIPSet = res
     "GetIPSetResponse"
     "fixture/GetIPSetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetIPSet)
 
 responseListInvitations :: ListInvitationsResponse -> TestTree
-responseListInvitations =
-  res
+responseListInvitations = res
     "ListInvitationsResponse"
     "fixture/ListInvitationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListInvitations)
 
 responseUpdateMemberDetectors :: UpdateMemberDetectorsResponse -> TestTree
-responseUpdateMemberDetectors =
-  res
+responseUpdateMemberDetectors = res
     "UpdateMemberDetectorsResponse"
     "fixture/UpdateMemberDetectorsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateMemberDetectors)
 
 responseGetThreatIntelSet :: GetThreatIntelSetResponse -> TestTree
-responseGetThreatIntelSet =
-  res
+responseGetThreatIntelSet = res
     "GetThreatIntelSetResponse"
     "fixture/GetThreatIntelSetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetThreatIntelSet)
 
 responseDeleteInvitations :: DeleteInvitationsResponse -> TestTree
-responseDeleteInvitations =
-  res
+responseDeleteInvitations = res
     "DeleteInvitationsResponse"
     "fixture/DeleteInvitationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteInvitations)
 
 responseGetMasterAccount :: GetMasterAccountResponse -> TestTree
-responseGetMasterAccount =
-  res
+responseGetMasterAccount = res
     "GetMasterAccountResponse"
     "fixture/GetMasterAccountResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetMasterAccount)
 
 responseGetUsageStatistics :: GetUsageStatisticsResponse -> TestTree
-responseGetUsageStatistics =
-  res
+responseGetUsageStatistics = res
     "GetUsageStatisticsResponse"
     "fixture/GetUsageStatisticsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetUsageStatistics)
 
 responseCreateDetector :: CreateDetectorResponse -> TestTree
-responseCreateDetector =
-  res
+responseCreateDetector = res
     "CreateDetectorResponse"
     "fixture/CreateDetectorResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateDetector)
 
 responseDeclineInvitations :: DeclineInvitationsResponse -> TestTree
-responseDeclineInvitations =
-  res
+responseDeclineInvitations = res
     "DeclineInvitationsResponse"
     "fixture/DeclineInvitationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeclineInvitations)
 
 responseDescribeOrganizationConfiguration :: DescribeOrganizationConfigurationResponse -> TestTree
-responseDescribeOrganizationConfiguration =
-  res
+responseDescribeOrganizationConfiguration = res
     "DescribeOrganizationConfigurationResponse"
     "fixture/DescribeOrganizationConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeOrganizationConfiguration)
 
 responseCreatePublishingDestination :: CreatePublishingDestinationResponse -> TestTree
-responseCreatePublishingDestination =
-  res
+responseCreatePublishingDestination = res
     "CreatePublishingDestinationResponse"
     "fixture/CreatePublishingDestinationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreatePublishingDestination)
 
 responseUpdateFilter :: UpdateFilterResponse -> TestTree
-responseUpdateFilter =
-  res
+responseUpdateFilter = res
     "UpdateFilterResponse"
     "fixture/UpdateFilterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateFilter)
 
 responseDeleteFilter :: DeleteFilterResponse -> TestTree
-responseDeleteFilter =
-  res
+responseDeleteFilter = res
     "DeleteFilterResponse"
     "fixture/DeleteFilterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteFilter)
 
 responseDisassociateMembers :: DisassociateMembersResponse -> TestTree
-responseDisassociateMembers =
-  res
+responseDisassociateMembers = res
     "DisassociateMembersResponse"
     "fixture/DisassociateMembersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateMembers)
 
 responseDisassociateFromMasterAccount :: DisassociateFromMasterAccountResponse -> TestTree
-responseDisassociateFromMasterAccount =
-  res
+responseDisassociateFromMasterAccount = res
     "DisassociateFromMasterAccountResponse"
     "fixture/DisassociateFromMasterAccountResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateFromMasterAccount)
 
 responseAcceptInvitation :: AcceptInvitationResponse -> TestTree
-responseAcceptInvitation =
-  res
+responseAcceptInvitation = res
     "AcceptInvitationResponse"
     "fixture/AcceptInvitationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AcceptInvitation)
 
 responseListFilters :: ListFiltersResponse -> TestTree
-responseListFilters =
-  res
+responseListFilters = res
     "ListFiltersResponse"
     "fixture/ListFiltersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListFilters)
 
 responseListMembers :: ListMembersResponse -> TestTree
-responseListMembers =
-  res
+responseListMembers = res
     "ListMembersResponse"
     "fixture/ListMembersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListMembers)
 
 responseListPublishingDestinations :: ListPublishingDestinationsResponse -> TestTree
-responseListPublishingDestinations =
-  res
+responseListPublishingDestinations = res
     "ListPublishingDestinationsResponse"
     "fixture/ListPublishingDestinationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListPublishingDestinations)
 
 responseDeletePublishingDestination :: DeletePublishingDestinationResponse -> TestTree
-responseDeletePublishingDestination =
-  res
+responseDeletePublishingDestination = res
     "DeletePublishingDestinationResponse"
     "fixture/DeletePublishingDestinationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeletePublishingDestination)
 
 responseUpdatePublishingDestination :: UpdatePublishingDestinationResponse -> TestTree
-responseUpdatePublishingDestination =
-  res
+responseUpdatePublishingDestination = res
     "UpdatePublishingDestinationResponse"
     "fixture/UpdatePublishingDestinationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdatePublishingDestination)
 
 responseGetDetector :: GetDetectorResponse -> TestTree
-responseGetDetector =
-  res
+responseGetDetector = res
     "GetDetectorResponse"
     "fixture/GetDetectorResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetDetector)
 
 responseCreateSampleFindings :: CreateSampleFindingsResponse -> TestTree
-responseCreateSampleFindings =
-  res
+responseCreateSampleFindings = res
     "CreateSampleFindingsResponse"
     "fixture/CreateSampleFindingsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateSampleFindings)
 
 responseArchiveFindings :: ArchiveFindingsResponse -> TestTree
-responseArchiveFindings =
-  res
+responseArchiveFindings = res
     "ArchiveFindingsResponse"
     "fixture/ArchiveFindingsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ArchiveFindings)
 
 responseCreateMembers :: CreateMembersResponse -> TestTree
-responseCreateMembers =
-  res
+responseCreateMembers = res
     "CreateMembersResponse"
     "fixture/CreateMembersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateMembers)
 
 responseUnarchiveFindings :: UnarchiveFindingsResponse -> TestTree
-responseUnarchiveFindings =
-  res
+responseUnarchiveFindings = res
     "UnarchiveFindingsResponse"
     "fixture/UnarchiveFindingsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UnarchiveFindings)
 
 responseGetMemberDetectors :: GetMemberDetectorsResponse -> TestTree
-responseGetMemberDetectors =
-  res
+responseGetMemberDetectors = res
     "GetMemberDetectorsResponse"
     "fixture/GetMemberDetectorsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetMemberDetectors)
 
 responseGetInvitationsCount :: GetInvitationsCountResponse -> TestTree
-responseGetInvitationsCount =
-  res
+responseGetInvitationsCount = res
     "GetInvitationsCountResponse"
     "fixture/GetInvitationsCountResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetInvitationsCount)
 
 responseStartMonitoringMembers :: StartMonitoringMembersResponse -> TestTree
-responseStartMonitoringMembers =
-  res
+responseStartMonitoringMembers = res
     "StartMonitoringMembersResponse"
     "fixture/StartMonitoringMembersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartMonitoringMembers)
 
 responseUpdateOrganizationConfiguration :: UpdateOrganizationConfigurationResponse -> TestTree
-responseUpdateOrganizationConfiguration =
-  res
+responseUpdateOrganizationConfiguration = res
     "UpdateOrganizationConfigurationResponse"
     "fixture/UpdateOrganizationConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateOrganizationConfiguration)
 
 responseInviteMembers :: InviteMembersResponse -> TestTree
-responseInviteMembers =
-  res
+responseInviteMembers = res
     "InviteMembersResponse"
     "fixture/InviteMembersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy InviteMembers)
 
 responseDeleteIPSet :: DeleteIPSetResponse -> TestTree
-responseDeleteIPSet =
-  res
+responseDeleteIPSet = res
     "DeleteIPSetResponse"
     "fixture/DeleteIPSetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteIPSet)
 
 responseUpdateIPSet :: UpdateIPSetResponse -> TestTree
-responseUpdateIPSet =
-  res
+responseUpdateIPSet = res
     "UpdateIPSetResponse"
     "fixture/UpdateIPSetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateIPSet)
 
 responseListIPSets :: ListIPSetsResponse -> TestTree
-responseListIPSets =
-  res
+responseListIPSets = res
     "ListIPSetsResponse"
     "fixture/ListIPSetsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListIPSets)
 
 responseGetMembers :: GetMembersResponse -> TestTree
-responseGetMembers =
-  res
+responseGetMembers = res
     "GetMembersResponse"
     "fixture/GetMembersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetMembers)
 
 responseDescribePublishingDestination :: DescribePublishingDestinationResponse -> TestTree
-responseDescribePublishingDestination =
-  res
+responseDescribePublishingDestination = res
     "DescribePublishingDestinationResponse"
     "fixture/DescribePublishingDestinationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribePublishingDestination)
 
 responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
+responseTagResource = res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseGetFindings :: GetFindingsResponse -> TestTree
-responseGetFindings =
-  res
+responseGetFindings = res
     "GetFindingsResponse"
     "fixture/GetFindingsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetFindings)
 
 responseListDetectors :: ListDetectorsResponse -> TestTree
-responseListDetectors =
-  res
+responseListDetectors = res
     "ListDetectorsResponse"
     "fixture/ListDetectorsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListDetectors)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
+responseUntagResource = res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseUpdateDetector :: UpdateDetectorResponse -> TestTree
-responseUpdateDetector =
-  res
+responseUpdateDetector = res
     "UpdateDetectorResponse"
     "fixture/UpdateDetectorResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateDetector)
 
 responseDeleteDetector :: DeleteDetectorResponse -> TestTree
-responseDeleteDetector =
-  res
+responseDeleteDetector = res
     "DeleteDetectorResponse"
     "fixture/DeleteDetectorResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteDetector)
 
 responseUpdateFindingsFeedback :: UpdateFindingsFeedbackResponse -> TestTree
-responseUpdateFindingsFeedback =
-  res
+responseUpdateFindingsFeedback = res
     "UpdateFindingsFeedbackResponse"
     "fixture/UpdateFindingsFeedbackResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateFindingsFeedback)
 
 responseGetFilter :: GetFilterResponse -> TestTree
-responseGetFilter =
-  res
+responseGetFilter = res
     "GetFilterResponse"
     "fixture/GetFilterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetFilter)
 
 responseDisableOrganizationAdminAccount :: DisableOrganizationAdminAccountResponse -> TestTree
-responseDisableOrganizationAdminAccount =
-  res
+responseDisableOrganizationAdminAccount = res
     "DisableOrganizationAdminAccountResponse"
     "fixture/DisableOrganizationAdminAccountResponse.proto"
     mkServiceConfig

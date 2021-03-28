@@ -1,604 +1,606 @@
-cabal-version:      2.2
-name:               amazonka-glue
-version:            2.0.0.0
-synopsis:           Amazon Glue SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-glue
+version:               2.0.0.0
+synopsis:              Amazon Glue SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.Glue" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.Glue" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-glue
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-glue
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.Glue
-    Network.AWS.Glue.BatchCreatePartition
-    Network.AWS.Glue.BatchDeleteConnection
-    Network.AWS.Glue.BatchDeletePartition
-    Network.AWS.Glue.BatchDeleteTable
-    Network.AWS.Glue.BatchDeleteTableVersion
-    Network.AWS.Glue.BatchGetCrawlers
-    Network.AWS.Glue.BatchGetDevEndpoints
-    Network.AWS.Glue.BatchGetJobs
-    Network.AWS.Glue.BatchGetPartition
-    Network.AWS.Glue.BatchGetTriggers
-    Network.AWS.Glue.BatchGetWorkflows
-    Network.AWS.Glue.BatchStopJobRun
-    Network.AWS.Glue.BatchUpdatePartition
-    Network.AWS.Glue.CancelMLTaskRun
-    Network.AWS.Glue.CheckSchemaVersionValidity
-    Network.AWS.Glue.CreateClassifier
-    Network.AWS.Glue.CreateConnection
-    Network.AWS.Glue.CreateCrawler
-    Network.AWS.Glue.CreateDatabase
-    Network.AWS.Glue.CreateDevEndpoint
-    Network.AWS.Glue.CreateJob
-    Network.AWS.Glue.CreateMLTransform
-    Network.AWS.Glue.CreatePartition
-    Network.AWS.Glue.CreatePartitionIndex
-    Network.AWS.Glue.CreateRegistry
-    Network.AWS.Glue.CreateSchema
-    Network.AWS.Glue.CreateScript
-    Network.AWS.Glue.CreateSecurityConfiguration
-    Network.AWS.Glue.CreateTable
-    Network.AWS.Glue.CreateTrigger
-    Network.AWS.Glue.CreateUserDefinedFunction
-    Network.AWS.Glue.CreateWorkflow
-    Network.AWS.Glue.DeleteClassifier
-    Network.AWS.Glue.DeleteColumnStatisticsForPartition
-    Network.AWS.Glue.DeleteColumnStatisticsForTable
-    Network.AWS.Glue.DeleteConnection
-    Network.AWS.Glue.DeleteCrawler
-    Network.AWS.Glue.DeleteDatabase
-    Network.AWS.Glue.DeleteDevEndpoint
-    Network.AWS.Glue.DeleteJob
-    Network.AWS.Glue.DeleteMLTransform
-    Network.AWS.Glue.DeletePartition
-    Network.AWS.Glue.DeletePartitionIndex
-    Network.AWS.Glue.DeleteRegistry
-    Network.AWS.Glue.DeleteResourcePolicy
-    Network.AWS.Glue.DeleteSchema
-    Network.AWS.Glue.DeleteSchemaVersions
-    Network.AWS.Glue.DeleteSecurityConfiguration
-    Network.AWS.Glue.DeleteTable
-    Network.AWS.Glue.DeleteTableVersion
-    Network.AWS.Glue.DeleteTrigger
-    Network.AWS.Glue.DeleteUserDefinedFunction
-    Network.AWS.Glue.DeleteWorkflow
-    Network.AWS.Glue.GetCatalogImportStatus
-    Network.AWS.Glue.GetClassifier
-    Network.AWS.Glue.GetClassifiers
-    Network.AWS.Glue.GetColumnStatisticsForPartition
-    Network.AWS.Glue.GetColumnStatisticsForTable
-    Network.AWS.Glue.GetConnection
-    Network.AWS.Glue.GetConnections
-    Network.AWS.Glue.GetCrawler
-    Network.AWS.Glue.GetCrawlerMetrics
-    Network.AWS.Glue.GetCrawlers
-    Network.AWS.Glue.GetDatabase
-    Network.AWS.Glue.GetDatabases
-    Network.AWS.Glue.GetDataCatalogEncryptionSettings
-    Network.AWS.Glue.GetDataflowGraph
-    Network.AWS.Glue.GetDevEndpoint
-    Network.AWS.Glue.GetDevEndpoints
-    Network.AWS.Glue.GetJob
-    Network.AWS.Glue.GetJobBookmark
-    Network.AWS.Glue.GetJobRun
-    Network.AWS.Glue.GetJobRuns
-    Network.AWS.Glue.GetJobs
-    Network.AWS.Glue.GetMapping
-    Network.AWS.Glue.GetMLTaskRun
-    Network.AWS.Glue.GetMLTaskRuns
-    Network.AWS.Glue.GetMLTransform
-    Network.AWS.Glue.GetMLTransforms
-    Network.AWS.Glue.GetPartition
-    Network.AWS.Glue.GetPartitionIndexes
-    Network.AWS.Glue.GetPartitions
-    Network.AWS.Glue.GetPlan
-    Network.AWS.Glue.GetRegistry
-    Network.AWS.Glue.GetResourcePolicies
-    Network.AWS.Glue.GetResourcePolicy
-    Network.AWS.Glue.GetSchema
-    Network.AWS.Glue.GetSchemaByDefinition
-    Network.AWS.Glue.GetSchemaVersion
-    Network.AWS.Glue.GetSchemaVersionsDiff
-    Network.AWS.Glue.GetSecurityConfiguration
-    Network.AWS.Glue.GetSecurityConfigurations
-    Network.AWS.Glue.GetTable
-    Network.AWS.Glue.GetTables
-    Network.AWS.Glue.GetTableVersion
-    Network.AWS.Glue.GetTableVersions
-    Network.AWS.Glue.GetTags
-    Network.AWS.Glue.GetTrigger
-    Network.AWS.Glue.GetTriggers
-    Network.AWS.Glue.GetUserDefinedFunction
-    Network.AWS.Glue.GetUserDefinedFunctions
-    Network.AWS.Glue.GetWorkflow
-    Network.AWS.Glue.GetWorkflowRun
-    Network.AWS.Glue.GetWorkflowRunProperties
-    Network.AWS.Glue.GetWorkflowRuns
-    Network.AWS.Glue.ImportCatalogToGlue
-    Network.AWS.Glue.ListCrawlers
-    Network.AWS.Glue.ListDevEndpoints
-    Network.AWS.Glue.ListJobs
-    Network.AWS.Glue.ListMLTransforms
-    Network.AWS.Glue.ListRegistries
-    Network.AWS.Glue.ListSchemas
-    Network.AWS.Glue.ListSchemaVersions
-    Network.AWS.Glue.ListTriggers
-    Network.AWS.Glue.ListWorkflows
-    Network.AWS.Glue.PutDataCatalogEncryptionSettings
-    Network.AWS.Glue.PutResourcePolicy
-    Network.AWS.Glue.PutSchemaVersionMetadata
-    Network.AWS.Glue.PutWorkflowRunProperties
-    Network.AWS.Glue.QuerySchemaVersionMetadata
-    Network.AWS.Glue.RegisterSchemaVersion
-    Network.AWS.Glue.RemoveSchemaVersionMetadata
-    Network.AWS.Glue.ResetJobBookmark
-    Network.AWS.Glue.ResumeWorkflowRun
-    Network.AWS.Glue.SearchTables
-    Network.AWS.Glue.StartCrawler
-    Network.AWS.Glue.StartCrawlerSchedule
-    Network.AWS.Glue.StartExportLabelsTaskRun
-    Network.AWS.Glue.StartImportLabelsTaskRun
-    Network.AWS.Glue.StartJobRun
-    Network.AWS.Glue.StartMLEvaluationTaskRun
-    Network.AWS.Glue.StartMLLabelingSetGenerationTaskRun
-    Network.AWS.Glue.StartTrigger
-    Network.AWS.Glue.StartWorkflowRun
-    Network.AWS.Glue.StopCrawler
-    Network.AWS.Glue.StopCrawlerSchedule
-    Network.AWS.Glue.StopTrigger
-    Network.AWS.Glue.StopWorkflowRun
-    Network.AWS.Glue.TagResource
-    Network.AWS.Glue.Types
-    Network.AWS.Glue.UntagResource
-    Network.AWS.Glue.UpdateClassifier
-    Network.AWS.Glue.UpdateColumnStatisticsForPartition
-    Network.AWS.Glue.UpdateColumnStatisticsForTable
-    Network.AWS.Glue.UpdateConnection
-    Network.AWS.Glue.UpdateCrawler
-    Network.AWS.Glue.UpdateCrawlerSchedule
-    Network.AWS.Glue.UpdateDatabase
-    Network.AWS.Glue.UpdateDevEndpoint
-    Network.AWS.Glue.UpdateJob
-    Network.AWS.Glue.UpdateMLTransform
-    Network.AWS.Glue.UpdatePartition
-    Network.AWS.Glue.UpdateRegistry
-    Network.AWS.Glue.UpdateSchema
-    Network.AWS.Glue.UpdateTable
-    Network.AWS.Glue.UpdateTrigger
-    Network.AWS.Glue.UpdateUserDefinedFunction
-    Network.AWS.Glue.UpdateWorkflow
-    Network.AWS.Glue.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.Glue.Types.Action
-    Network.AWS.Glue.Types.AvailabilityZone
-    Network.AWS.Glue.Types.AwsKmsKeyId
-    Network.AWS.Glue.Types.BackfillError
-    Network.AWS.Glue.Types.BackfillErrorCode
-    Network.AWS.Glue.Types.BatchStopJobRunError
-    Network.AWS.Glue.Types.BatchStopJobRunSuccessfulSubmission
-    Network.AWS.Glue.Types.BatchUpdatePartitionFailureEntry
-    Network.AWS.Glue.Types.BatchUpdatePartitionRequestEntry
-    Network.AWS.Glue.Types.BinaryColumnStatisticsData
-    Network.AWS.Glue.Types.BooleanColumnStatisticsData
-    Network.AWS.Glue.Types.CatalogEncryptionMode
-    Network.AWS.Glue.Types.CatalogEntry
-    Network.AWS.Glue.Types.CatalogId
-    Network.AWS.Glue.Types.CatalogIdString
-    Network.AWS.Glue.Types.CatalogImportStatus
-    Network.AWS.Glue.Types.CatalogTarget
-    Network.AWS.Glue.Types.Classification
-    Network.AWS.Glue.Types.Classifier
-    Network.AWS.Glue.Types.ClassName
-    Network.AWS.Glue.Types.CloudWatchEncryption
-    Network.AWS.Glue.Types.CloudWatchEncryptionMode
-    Network.AWS.Glue.Types.CodeGenArgName
-    Network.AWS.Glue.Types.CodeGenEdge
-    Network.AWS.Glue.Types.CodeGenIdentifier
-    Network.AWS.Glue.Types.CodeGenNode
-    Network.AWS.Glue.Types.CodeGenNodeArg
-    Network.AWS.Glue.Types.CodeGenNodeType
-    Network.AWS.Glue.Types.Column
-    Network.AWS.Glue.Types.ColumnError
-    Network.AWS.Glue.Types.ColumnNameString
-    Network.AWS.Glue.Types.ColumnStatistics
-    Network.AWS.Glue.Types.ColumnStatisticsData
-    Network.AWS.Glue.Types.ColumnStatisticsError
-    Network.AWS.Glue.Types.ColumnStatisticsType
-    Network.AWS.Glue.Types.ColumnTypeString
-    Network.AWS.Glue.Types.ColumnValuesString
-    Network.AWS.Glue.Types.CommentString
-    Network.AWS.Glue.Types.Comparator
-    Network.AWS.Glue.Types.Compatibility
-    Network.AWS.Glue.Types.Condition
-    Network.AWS.Glue.Types.Configuration
-    Network.AWS.Glue.Types.ConfusionMatrix
-    Network.AWS.Glue.Types.Connection
-    Network.AWS.Glue.Types.ConnectionInput
-    Network.AWS.Glue.Types.ConnectionName
-    Network.AWS.Glue.Types.ConnectionPasswordEncryption
-    Network.AWS.Glue.Types.ConnectionPropertyKey
-    Network.AWS.Glue.Types.ConnectionsList
-    Network.AWS.Glue.Types.ConnectionType
-    Network.AWS.Glue.Types.Crawl
-    Network.AWS.Glue.Types.Crawler
-    Network.AWS.Glue.Types.CrawlerLineageSettings
-    Network.AWS.Glue.Types.CrawlerMetrics
-    Network.AWS.Glue.Types.CrawlerName
-    Network.AWS.Glue.Types.CrawlerNodeDetails
-    Network.AWS.Glue.Types.CrawlerSecurityConfiguration
-    Network.AWS.Glue.Types.CrawlerState
-    Network.AWS.Glue.Types.CrawlerTargets
-    Network.AWS.Glue.Types.CrawlState
-    Network.AWS.Glue.Types.CreateCsvClassifierRequest
-    Network.AWS.Glue.Types.CreatedTime
-    Network.AWS.Glue.Types.CreateGrokClassifierRequest
-    Network.AWS.Glue.Types.CreateJsonClassifierRequest
-    Network.AWS.Glue.Types.CreateXMLClassifierRequest
-    Network.AWS.Glue.Types.CronExpression
-    Network.AWS.Glue.Types.CsvClassifier
-    Network.AWS.Glue.Types.CsvColumnDelimiter
-    Network.AWS.Glue.Types.CsvHeaderOption
-    Network.AWS.Glue.Types.CsvQuoteSymbol
-    Network.AWS.Glue.Types.CustomPatterns
-    Network.AWS.Glue.Types.Database
-    Network.AWS.Glue.Types.DatabaseIdentifier
-    Network.AWS.Glue.Types.DatabaseInput
-    Network.AWS.Glue.Types.DatabaseName
-    Network.AWS.Glue.Types.DataCatalogEncryptionSettings
-    Network.AWS.Glue.Types.DataFormat
-    Network.AWS.Glue.Types.DataLakePrincipal
-    Network.AWS.Glue.Types.DataLakePrincipalString
-    Network.AWS.Glue.Types.DataType
-    Network.AWS.Glue.Types.DateColumnStatisticsData
-    Network.AWS.Glue.Types.DecimalColumnStatisticsData
-    Network.AWS.Glue.Types.DecimalNumber
-    Network.AWS.Glue.Types.DeleteBehavior
-    Network.AWS.Glue.Types.DependentJobName
-    Network.AWS.Glue.Types.Description
-    Network.AWS.Glue.Types.DescriptionString
-    Network.AWS.Glue.Types.DevEndpoint
-    Network.AWS.Glue.Types.DevEndpointCustomLibraries
-    Network.AWS.Glue.Types.DoubleColumnStatisticsData
-    Network.AWS.Glue.Types.DynamoDBTarget
-    Network.AWS.Glue.Types.Edge
-    Network.AWS.Glue.Types.EnableHybridValues
-    Network.AWS.Glue.Types.EncryptionAtRest
-    Network.AWS.Glue.Types.EncryptionConfiguration
-    Network.AWS.Glue.Types.EndpointName
-    Network.AWS.Glue.Types.Error
-    Network.AWS.Glue.Types.ErrorCode
-    Network.AWS.Glue.Types.ErrorDetail
-    Network.AWS.Glue.Types.ErrorDetails
-    Network.AWS.Glue.Types.ErrorMessage
-    Network.AWS.Glue.Types.ErrorMessageString
-    Network.AWS.Glue.Types.ErrorString
-    Network.AWS.Glue.Types.EvaluationMetrics
-    Network.AWS.Glue.Types.ExecutionProperty
-    Network.AWS.Glue.Types.ExistCondition
-    Network.AWS.Glue.Types.ExportLabelsTaskRunProperties
-    Network.AWS.Glue.Types.Expression
-    Network.AWS.Glue.Types.ExtraJarsS3Path
-    Network.AWS.Glue.Types.ExtraPythonLibsS3Path
-    Network.AWS.Glue.Types.FailureReason
-    Network.AWS.Glue.Types.FindMatchesMetrics
-    Network.AWS.Glue.Types.FindMatchesParameters
-    Network.AWS.Glue.Types.FindMatchesTaskRunProperties
-    Network.AWS.Glue.Types.FunctionName
-    Network.AWS.Glue.Types.GenericString
-    Network.AWS.Glue.Types.GetConnectionsFilter
-    Network.AWS.Glue.Types.GluePolicy
-    Network.AWS.Glue.Types.GlueResourceArn
-    Network.AWS.Glue.Types.GlueTable
-    Network.AWS.Glue.Types.GlueVersionString
-    Network.AWS.Glue.Types.GrokClassifier
-    Network.AWS.Glue.Types.GrokPattern
-    Network.AWS.Glue.Types.HashString
-    Network.AWS.Glue.Types.Id
-    Network.AWS.Glue.Types.IdString
-    Network.AWS.Glue.Types.ImportLabelsTaskRunProperties
-    Network.AWS.Glue.Types.IndexName
-    Network.AWS.Glue.Types.InputFormat
-    Network.AWS.Glue.Types.InputS3Path
-    Network.AWS.Glue.Types.JdbcTarget
-    Network.AWS.Glue.Types.Job
-    Network.AWS.Glue.Types.JobBookmarkEntry
-    Network.AWS.Glue.Types.JobBookmarksEncryption
-    Network.AWS.Glue.Types.JobBookmarksEncryptionMode
-    Network.AWS.Glue.Types.JobCommand
-    Network.AWS.Glue.Types.JobName
-    Network.AWS.Glue.Types.JobNodeDetails
-    Network.AWS.Glue.Types.JobRun
-    Network.AWS.Glue.Types.JobRunId
-    Network.AWS.Glue.Types.JobRunState
-    Network.AWS.Glue.Types.JobUpdate
-    Network.AWS.Glue.Types.JsonClassifier
-    Network.AWS.Glue.Types.JsonPath
-    Network.AWS.Glue.Types.JsonValue
-    Network.AWS.Glue.Types.Key
-    Network.AWS.Glue.Types.KeySchemaElement
-    Network.AWS.Glue.Types.KeyString
-    Network.AWS.Glue.Types.KmsKeyArn
-    Network.AWS.Glue.Types.KmsKeyId
-    Network.AWS.Glue.Types.LabelingSetGenerationTaskRunProperties
-    Network.AWS.Glue.Types.Language
-    Network.AWS.Glue.Types.LastCrawlInfo
-    Network.AWS.Glue.Types.LastCrawlStatus
-    Network.AWS.Glue.Types.LastUpdatedBy
-    Network.AWS.Glue.Types.LastUpdateStatus
-    Network.AWS.Glue.Types.LineageConfiguration
-    Network.AWS.Glue.Types.Location
-    Network.AWS.Glue.Types.LocationString
-    Network.AWS.Glue.Types.LocationUri
-    Network.AWS.Glue.Types.LogGroup
-    Network.AWS.Glue.Types.LogGroupName
-    Network.AWS.Glue.Types.Logical
-    Network.AWS.Glue.Types.LogicalOperator
-    Network.AWS.Glue.Types.LogStream
-    Network.AWS.Glue.Types.LogUri
-    Network.AWS.Glue.Types.LongColumnStatisticsData
-    Network.AWS.Glue.Types.MappingEntry
-    Network.AWS.Glue.Types.MessagePrefix
-    Network.AWS.Glue.Types.MetadataInfo
-    Network.AWS.Glue.Types.MetadataKey
-    Network.AWS.Glue.Types.MetadataKeyString
-    Network.AWS.Glue.Types.MetadataKeyValuePair
-    Network.AWS.Glue.Types.MetadataValueString
-    Network.AWS.Glue.Types.MLTransform
-    Network.AWS.Glue.Types.MLUserDataEncryption
-    Network.AWS.Glue.Types.MLUserDataEncryptionModeString
-    Network.AWS.Glue.Types.MongoDBTarget
-    Network.AWS.Glue.Types.Name
-    Network.AWS.Glue.Types.NameString
-    Network.AWS.Glue.Types.NextToken
-    Network.AWS.Glue.Types.Node
-    Network.AWS.Glue.Types.NodeType
-    Network.AWS.Glue.Types.NotificationProperty
-    Network.AWS.Glue.Types.Order
-    Network.AWS.Glue.Types.OutputFormat
-    Network.AWS.Glue.Types.OutputS3Path
-    Network.AWS.Glue.Types.OwnerName
-    Network.AWS.Glue.Types.PaginationToken
-    Network.AWS.Glue.Types.ParametersMapValue
-    Network.AWS.Glue.Types.Partition
-    Network.AWS.Glue.Types.PartitionError
-    Network.AWS.Glue.Types.PartitionIndex
-    Network.AWS.Glue.Types.PartitionIndexDescriptor
-    Network.AWS.Glue.Types.PartitionIndexStatus
-    Network.AWS.Glue.Types.PartitionInput
-    Network.AWS.Glue.Types.PartitionValueList
-    Network.AWS.Glue.Types.Path
-    Network.AWS.Glue.Types.Permission
-    Network.AWS.Glue.Types.PhysicalConnectionRequirements
-    Network.AWS.Glue.Types.PolicyInJson
-    Network.AWS.Glue.Types.PolicyJsonString
-    Network.AWS.Glue.Types.Predecessor
-    Network.AWS.Glue.Types.Predicate
-    Network.AWS.Glue.Types.PredicateString
-    Network.AWS.Glue.Types.PreviousRunId
-    Network.AWS.Glue.Types.PrincipalPermissions
-    Network.AWS.Glue.Types.PrincipalType
-    Network.AWS.Glue.Types.PrivateAddress
-    Network.AWS.Glue.Types.PropertyPredicate
-    Network.AWS.Glue.Types.PublicAddress
-    Network.AWS.Glue.Types.PublicKey
-    Network.AWS.Glue.Types.PythonScript
-    Network.AWS.Glue.Types.PythonVersion
-    Network.AWS.Glue.Types.QuoteSymbol
-    Network.AWS.Glue.Types.RecrawlBehavior
-    Network.AWS.Glue.Types.RecrawlPolicy
-    Network.AWS.Glue.Types.RegistryId
-    Network.AWS.Glue.Types.RegistryListItem
-    Network.AWS.Glue.Types.RegistryName
-    Network.AWS.Glue.Types.RegistryStatus
-    Network.AWS.Glue.Types.ResourceShareType
-    Network.AWS.Glue.Types.ResourceType
-    Network.AWS.Glue.Types.ResourceUri
-    Network.AWS.Glue.Types.Role
-    Network.AWS.Glue.Types.RoleArn
-    Network.AWS.Glue.Types.RowTag
-    Network.AWS.Glue.Types.RunId
-    Network.AWS.Glue.Types.S3Encryption
-    Network.AWS.Glue.Types.S3EncryptionMode
-    Network.AWS.Glue.Types.S3Target
-    Network.AWS.Glue.Types.ScalaCode
-    Network.AWS.Glue.Types.Schedule
-    Network.AWS.Glue.Types.ScheduleExpression
-    Network.AWS.Glue.Types.ScheduleState
-    Network.AWS.Glue.Types.SchemaChangePolicy
-    Network.AWS.Glue.Types.SchemaColumn
-    Network.AWS.Glue.Types.SchemaDefinition
-    Network.AWS.Glue.Types.SchemaDefinitionDiff
-    Network.AWS.Glue.Types.SchemaDefinitionString
-    Network.AWS.Glue.Types.SchemaDiffType
-    Network.AWS.Glue.Types.SchemaId
-    Network.AWS.Glue.Types.SchemaListItem
-    Network.AWS.Glue.Types.SchemaName
-    Network.AWS.Glue.Types.SchemaReference
-    Network.AWS.Glue.Types.SchemaRegistryTokenString
-    Network.AWS.Glue.Types.SchemaStatus
-    Network.AWS.Glue.Types.SchemaVersionErrorItem
-    Network.AWS.Glue.Types.SchemaVersionId
-    Network.AWS.Glue.Types.SchemaVersionIdString
-    Network.AWS.Glue.Types.SchemaVersionListItem
-    Network.AWS.Glue.Types.SchemaVersionNumber
-    Network.AWS.Glue.Types.SchemaVersionStatus
-    Network.AWS.Glue.Types.ScriptLocationString
-    Network.AWS.Glue.Types.SearchText
-    Network.AWS.Glue.Types.SecurityConfiguration
-    Network.AWS.Glue.Types.Segment
-    Network.AWS.Glue.Types.SerDeInfo
-    Network.AWS.Glue.Types.SerializationLibrary
-    Network.AWS.Glue.Types.SkewedInfo
-    Network.AWS.Glue.Types.Sort
-    Network.AWS.Glue.Types.SortCriterion
-    Network.AWS.Glue.Types.SortDirectionType
-    Network.AWS.Glue.Types.Source
-    Network.AWS.Glue.Types.SourcePath
-    Network.AWS.Glue.Types.SourceTable
-    Network.AWS.Glue.Types.SourceType
-    Network.AWS.Glue.Types.SseAwsKmsKeyId
-    Network.AWS.Glue.Types.Status
-    Network.AWS.Glue.Types.StorageDescriptor
-    Network.AWS.Glue.Types.StringColumnStatisticsData
-    Network.AWS.Glue.Types.SubnetId
-    Network.AWS.Glue.Types.Table
-    Network.AWS.Glue.Types.TableError
-    Network.AWS.Glue.Types.TableIdentifier
-    Network.AWS.Glue.Types.TableInput
-    Network.AWS.Glue.Types.TableName
-    Network.AWS.Glue.Types.TablePrefix
-    Network.AWS.Glue.Types.TableType
-    Network.AWS.Glue.Types.TableTypeString
-    Network.AWS.Glue.Types.TableVersion
-    Network.AWS.Glue.Types.TableVersionError
-    Network.AWS.Glue.Types.TagKey
-    Network.AWS.Glue.Types.TagValue
-    Network.AWS.Glue.Types.Target
-    Network.AWS.Glue.Types.TargetPath
-    Network.AWS.Glue.Types.TargetTable
-    Network.AWS.Glue.Types.TargetType
-    Network.AWS.Glue.Types.TaskRun
-    Network.AWS.Glue.Types.TaskRunFilterCriteria
-    Network.AWS.Glue.Types.TaskRunId
-    Network.AWS.Glue.Types.TaskRunProperties
-    Network.AWS.Glue.Types.TaskRunSortColumnType
-    Network.AWS.Glue.Types.TaskRunSortCriteria
-    Network.AWS.Glue.Types.TaskStatusType
-    Network.AWS.Glue.Types.TaskType
-    Network.AWS.Glue.Types.Token
-    Network.AWS.Glue.Types.TransformEncryption
-    Network.AWS.Glue.Types.TransformFilterCriteria
-    Network.AWS.Glue.Types.TransformId
-    Network.AWS.Glue.Types.TransformParameters
-    Network.AWS.Glue.Types.TransformSortColumnType
-    Network.AWS.Glue.Types.TransformSortCriteria
-    Network.AWS.Glue.Types.TransformStatusType
-    Network.AWS.Glue.Types.TransformType
-    Network.AWS.Glue.Types.Trigger
-    Network.AWS.Glue.Types.TriggerNodeDetails
-    Network.AWS.Glue.Types.TriggerState
-    Network.AWS.Glue.Types.TriggerType
-    Network.AWS.Glue.Types.TriggerUpdate
-    Network.AWS.Glue.Types.Type
-    Network.AWS.Glue.Types.TypeString
-    Network.AWS.Glue.Types.UniqueId
-    Network.AWS.Glue.Types.UpdateBehavior
-    Network.AWS.Glue.Types.UpdateCsvClassifierRequest
-    Network.AWS.Glue.Types.UpdatedTime
-    Network.AWS.Glue.Types.UpdatedTimestamp
-    Network.AWS.Glue.Types.UpdateGrokClassifierRequest
-    Network.AWS.Glue.Types.UpdateJsonClassifierRequest
-    Network.AWS.Glue.Types.UpdateXMLClassifierRequest
-    Network.AWS.Glue.Types.Uri
-    Network.AWS.Glue.Types.UriString
-    Network.AWS.Glue.Types.UserDefinedFunction
-    Network.AWS.Glue.Types.UserDefinedFunctionInput
-    Network.AWS.Glue.Types.Value
-    Network.AWS.Glue.Types.ValueString
-    Network.AWS.Glue.Types.VersionsString
-    Network.AWS.Glue.Types.VersionString
-    Network.AWS.Glue.Types.ViewTextString
-    Network.AWS.Glue.Types.VpcId
-    Network.AWS.Glue.Types.WorkerType
-    Network.AWS.Glue.Types.Workflow
-    Network.AWS.Glue.Types.WorkflowGraph
-    Network.AWS.Glue.Types.WorkflowRun
-    Network.AWS.Glue.Types.WorkflowRunId
-    Network.AWS.Glue.Types.WorkflowRunStatistics
-    Network.AWS.Glue.Types.WorkflowRunStatus
-    Network.AWS.Glue.Types.XMLClassifier
-    Network.AWS.Glue.Types.YarnEndpointAddress
+    exposed-modules:
+          Network.AWS.Glue
+        , Network.AWS.Glue.Types
+        , Network.AWS.Glue.Waiters
+        , Network.AWS.Glue.StartImportLabelsTaskRun
+        , Network.AWS.Glue.UpdateMLTransform
+        , Network.AWS.Glue.UpdateRegistry
+        , Network.AWS.Glue.DeleteRegistry
+        , Network.AWS.Glue.DeleteMLTransform
+        , Network.AWS.Glue.StartCrawler
+        , Network.AWS.Glue.GetCatalogImportStatus
+        , Network.AWS.Glue.ListMLTransforms
+        , Network.AWS.Glue.GetPartition
+        , Network.AWS.Glue.QuerySchemaVersionMetadata
+        , Network.AWS.Glue.CreateTrigger
+        , Network.AWS.Glue.CheckSchemaVersionValidity
+        , Network.AWS.Glue.DeleteTable
+        , Network.AWS.Glue.UpdateTable
+        , Network.AWS.Glue.GetWorkflowRuns
+        , Network.AWS.Glue.CreateWorkflow
+        , Network.AWS.Glue.UpdateColumnStatisticsForTable
+        , Network.AWS.Glue.DeleteColumnStatisticsForTable
+        , Network.AWS.Glue.DeleteConnection
+        , Network.AWS.Glue.UpdateConnection
+        , Network.AWS.Glue.GetUserDefinedFunctions
+        , Network.AWS.Glue.GetTags
+        , Network.AWS.Glue.GetDataCatalogEncryptionSettings
+        , Network.AWS.Glue.BatchCreatePartition
+        , Network.AWS.Glue.GetMapping
+        , Network.AWS.Glue.DeleteWorkflow
+        , Network.AWS.Glue.UpdateWorkflow
+        , Network.AWS.Glue.GetTableVersion
+        , Network.AWS.Glue.CreateSecurityConfiguration
+        , Network.AWS.Glue.StartWorkflowRun
+        , Network.AWS.Glue.GetJobs
+        , Network.AWS.Glue.BatchGetWorkflows
+        , Network.AWS.Glue.GetClassifiers
+        , Network.AWS.Glue.GetResourcePolicies
+        , Network.AWS.Glue.CreateConnection
+        , Network.AWS.Glue.ListSchemaVersions
+        , Network.AWS.Glue.GetWorkflowRunProperties
+        , Network.AWS.Glue.BatchGetDevEndpoints
+        , Network.AWS.Glue.DeletePartitionIndex
+        , Network.AWS.Glue.DeleteTableVersion
+        , Network.AWS.Glue.DeleteDevEndpoint
+        , Network.AWS.Glue.UpdateDevEndpoint
+        , Network.AWS.Glue.GetWorkflow
+        , Network.AWS.Glue.BatchGetCrawlers
+        , Network.AWS.Glue.GetJobBookmark
+        , Network.AWS.Glue.DeleteCrawler
+        , Network.AWS.Glue.UpdateCrawler
+        , Network.AWS.Glue.StartExportLabelsTaskRun
+        , Network.AWS.Glue.GetSecurityConfiguration
+        , Network.AWS.Glue.CreatePartitionIndex
+        , Network.AWS.Glue.RemoveSchemaVersionMetadata
+        , Network.AWS.Glue.ListSchemas
+        , Network.AWS.Glue.GetConnection
+        , Network.AWS.Glue.GetColumnStatisticsForTable
+        , Network.AWS.Glue.BatchGetPartition
+        , Network.AWS.Glue.StopTrigger
+        , Network.AWS.Glue.UpdateCrawlerSchedule
+        , Network.AWS.Glue.StartMLEvaluationTaskRun
+        , Network.AWS.Glue.DeleteUserDefinedFunction
+        , Network.AWS.Glue.UpdateUserDefinedFunction
+        , Network.AWS.Glue.GetRegistry
+        , Network.AWS.Glue.BatchDeleteTable
+        , Network.AWS.Glue.CancelMLTaskRun
+        , Network.AWS.Glue.GetTables
+        , Network.AWS.Glue.ResumeWorkflowRun
+        , Network.AWS.Glue.CreateClassifier
+        , Network.AWS.Glue.BatchDeleteConnection
+        , Network.AWS.Glue.CreateJob
+        , Network.AWS.Glue.GetJobRuns
+        , Network.AWS.Glue.CreateUserDefinedFunction
+        , Network.AWS.Glue.ResetJobBookmark
+        , Network.AWS.Glue.ListJobs
+        , Network.AWS.Glue.DeleteJob
+        , Network.AWS.Glue.UpdateJob
+        , Network.AWS.Glue.CreateRegistry
+        , Network.AWS.Glue.GetCrawlers
+        , Network.AWS.Glue.ListTriggers
+        , Network.AWS.Glue.GetClassifier
+        , Network.AWS.Glue.GetJob
+        , Network.AWS.Glue.ListRegistries
+        , Network.AWS.Glue.BatchDeleteTableVersion
+        , Network.AWS.Glue.GetDevEndpoints
+        , Network.AWS.Glue.StartCrawlerSchedule
+        , Network.AWS.Glue.GetPartitionIndexes
+        , Network.AWS.Glue.GetUserDefinedFunction
+        , Network.AWS.Glue.GetResourcePolicy
+        , Network.AWS.Glue.GetWorkflowRun
+        , Network.AWS.Glue.DeleteDatabase
+        , Network.AWS.Glue.UpdateDatabase
+        , Network.AWS.Glue.GetColumnStatisticsForPartition
+        , Network.AWS.Glue.StopCrawler
+        , Network.AWS.Glue.DeleteSecurityConfiguration
+        , Network.AWS.Glue.GetPartitions
+        , Network.AWS.Glue.PutSchemaVersionMetadata
+        , Network.AWS.Glue.GetSchema
+        , Network.AWS.Glue.BatchDeletePartition
+        , Network.AWS.Glue.StartMLLabelingSetGenerationTaskRun
+        , Network.AWS.Glue.BatchUpdatePartition
+        , Network.AWS.Glue.RegisterSchemaVersion
+        , Network.AWS.Glue.StopWorkflowRun
+        , Network.AWS.Glue.GetCrawler
+        , Network.AWS.Glue.ListWorkflows
+        , Network.AWS.Glue.BatchStopJobRun
+        , Network.AWS.Glue.GetDevEndpoint
+        , Network.AWS.Glue.PutWorkflowRunProperties
+        , Network.AWS.Glue.CreateTable
+        , Network.AWS.Glue.ListCrawlers
+        , Network.AWS.Glue.GetCrawlerMetrics
+        , Network.AWS.Glue.GetSchemaVersion
+        , Network.AWS.Glue.GetPlan
+        , Network.AWS.Glue.GetTriggers
+        , Network.AWS.Glue.CreateSchema
+        , Network.AWS.Glue.ListDevEndpoints
+        , Network.AWS.Glue.StartTrigger
+        , Network.AWS.Glue.GetDataflowGraph
+        , Network.AWS.Glue.GetDatabases
+        , Network.AWS.Glue.GetTable
+        , Network.AWS.Glue.CreateCrawler
+        , Network.AWS.Glue.GetJobRun
+        , Network.AWS.Glue.CreateDevEndpoint
+        , Network.AWS.Glue.GetMLTaskRuns
+        , Network.AWS.Glue.TagResource
+        , Network.AWS.Glue.PutDataCatalogEncryptionSettings
+        , Network.AWS.Glue.GetMLTransforms
+        , Network.AWS.Glue.UpdateSchema
+        , Network.AWS.Glue.DeleteSchema
+        , Network.AWS.Glue.GetDatabase
+        , Network.AWS.Glue.DeleteColumnStatisticsForPartition
+        , Network.AWS.Glue.UpdateColumnStatisticsForPartition
+        , Network.AWS.Glue.GetMLTaskRun
+        , Network.AWS.Glue.DeletePartition
+        , Network.AWS.Glue.UpdatePartition
+        , Network.AWS.Glue.GetMLTransform
+        , Network.AWS.Glue.CreateScript
+        , Network.AWS.Glue.PutResourcePolicy
+        , Network.AWS.Glue.GetSecurityConfigurations
+        , Network.AWS.Glue.DeleteResourcePolicy
+        , Network.AWS.Glue.GetConnections
+        , Network.AWS.Glue.UntagResource
+        , Network.AWS.Glue.GetSchemaVersionsDiff
+        , Network.AWS.Glue.SearchTables
+        , Network.AWS.Glue.GetTrigger
+        , Network.AWS.Glue.BatchGetJobs
+        , Network.AWS.Glue.ImportCatalogToGlue
+        , Network.AWS.Glue.DeleteClassifier
+        , Network.AWS.Glue.UpdateClassifier
+        , Network.AWS.Glue.StartJobRun
+        , Network.AWS.Glue.CreatePartition
+        , Network.AWS.Glue.BatchGetTriggers
+        , Network.AWS.Glue.StopCrawlerSchedule
+        , Network.AWS.Glue.GetSchemaByDefinition
+        , Network.AWS.Glue.CreateDatabase
+        , Network.AWS.Glue.GetTableVersions
+        , Network.AWS.Glue.CreateMLTransform
+        , Network.AWS.Glue.DeleteSchemaVersions
+        , Network.AWS.Glue.DeleteTrigger
+        , Network.AWS.Glue.UpdateTrigger
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.Glue.Types.S3EncryptionMode
+        , Network.AWS.Glue.Types.TaskRun
+        , Network.AWS.Glue.Types.GlueResourceArn
+        , Network.AWS.Glue.Types.GlueVersionString
+        , Network.AWS.Glue.Types.DataLakePrincipalString
+        , Network.AWS.Glue.Types.BinaryColumnStatisticsData
+        , Network.AWS.Glue.Types.ResourceUri
+        , Network.AWS.Glue.Types.VersionsString
+        , Network.AWS.Glue.Types.JobBookmarksEncryptionMode
+        , Network.AWS.Glue.Types.CloudWatchEncryptionMode
+        , Network.AWS.Glue.Types.CrawlState
+        , Network.AWS.Glue.Types.PredicateString
+        , Network.AWS.Glue.Types.BackfillError
+        , Network.AWS.Glue.Types.Crawler
+        , Network.AWS.Glue.Types.DevEndpoint
+        , Network.AWS.Glue.Types.PartitionInput
+        , Network.AWS.Glue.Types.HashString
+        , Network.AWS.Glue.Types.PartitionIndexDescriptor
+        , Network.AWS.Glue.Types.PaginationToken
+        , Network.AWS.Glue.Types.SchemaColumn
+        , Network.AWS.Glue.Types.WorkflowGraph
+        , Network.AWS.Glue.Types.TaskRunFilterCriteria
+        , Network.AWS.Glue.Types.ResourceShareType
+        , Network.AWS.Glue.Types.MLUserDataEncryption
+        , Network.AWS.Glue.Types.S3Encryption
+        , Network.AWS.Glue.Types.ConnectionsList
+        , Network.AWS.Glue.Types.SchemaChangePolicy
+        , Network.AWS.Glue.Types.DateColumnStatisticsData
+        , Network.AWS.Glue.Types.FindMatchesMetrics
+        , Network.AWS.Glue.Types.SortDirectionType
+        , Network.AWS.Glue.Types.SchemaVersionStatus
+        , Network.AWS.Glue.Types.CatalogEntry
+        , Network.AWS.Glue.Types.JobBookmarksEncryption
+        , Network.AWS.Glue.Types.TransformFilterCriteria
+        , Network.AWS.Glue.Types.KmsKeyArn
+        , Network.AWS.Glue.Types.ScriptLocationString
+        , Network.AWS.Glue.Types.CloudWatchEncryption
+        , Network.AWS.Glue.Types.BooleanColumnStatisticsData
+        , Network.AWS.Glue.Types.LastCrawlInfo
+        , Network.AWS.Glue.Types.DynamoDBTarget
+        , Network.AWS.Glue.Types.UserDefinedFunction
+        , Network.AWS.Glue.Types.TriggerNodeDetails
+        , Network.AWS.Glue.Types.BatchUpdatePartitionRequestEntry
+        , Network.AWS.Glue.Types.WorkflowRun
+        , Network.AWS.Glue.Types.EncryptionAtRest
+        , Network.AWS.Glue.Types.CodeGenArgName
+        , Network.AWS.Glue.Types.ResourceType
+        , Network.AWS.Glue.Types.CreateJsonClassifierRequest
+        , Network.AWS.Glue.Types.PrincipalPermissions
+        , Network.AWS.Glue.Types.RegistryListItem
+        , Network.AWS.Glue.Types.NotificationProperty
+        , Network.AWS.Glue.Types.PrincipalType
+        , Network.AWS.Glue.Types.CodeGenEdge
+        , Network.AWS.Glue.Types.Location
+        , Network.AWS.Glue.Types.ErrorString
+        , Network.AWS.Glue.Types.DeleteBehavior
+        , Network.AWS.Glue.Types.UpdateBehavior
+        , Network.AWS.Glue.Types.Database
+        , Network.AWS.Glue.Types.LastCrawlStatus
+        , Network.AWS.Glue.Types.Path
+        , Network.AWS.Glue.Types.JsonPath
+        , Network.AWS.Glue.Types.MLTransform
+        , Network.AWS.Glue.Types.SchemaStatus
+        , Network.AWS.Glue.Types.TaskType
+        , Network.AWS.Glue.Types.Schedule
+        , Network.AWS.Glue.Types.TaskRunSortCriteria
+        , Network.AWS.Glue.Types.ParametersMapValue
+        , Network.AWS.Glue.Types.TransformSortCriteria
+        , Network.AWS.Glue.Types.TableIdentifier
+        , Network.AWS.Glue.Types.RegistryId
+        , Network.AWS.Glue.Types.TaskRunSortColumnType
+        , Network.AWS.Glue.Types.MappingEntry
+        , Network.AWS.Glue.Types.Node
+        , Network.AWS.Glue.Types.JobCommand
+        , Network.AWS.Glue.Types.ConnectionInput
+        , Network.AWS.Glue.Types.DecimalColumnStatisticsData
+        , Network.AWS.Glue.Types.LocationString
+        , Network.AWS.Glue.Types.TransformSortColumnType
+        , Network.AWS.Glue.Types.JobName
+        , Network.AWS.Glue.Types.ExistCondition
+        , Network.AWS.Glue.Types.LogStream
+        , Network.AWS.Glue.Types.TriggerType
+        , Network.AWS.Glue.Types.DecimalNumber
+        , Network.AWS.Glue.Types.ColumnStatisticsError
+        , Network.AWS.Glue.Types.Token
+        , Network.AWS.Glue.Types.UpdatedTimestamp
+        , Network.AWS.Glue.Types.SerDeInfo
+        , Network.AWS.Glue.Types.MongoDBTarget
+        , Network.AWS.Glue.Types.LogicalOperator
+        , Network.AWS.Glue.Types.CrawlerState
+        , Network.AWS.Glue.Types.DataFormat
+        , Network.AWS.Glue.Types.MetadataValueString
+        , Network.AWS.Glue.Types.CsvColumnDelimiter
+        , Network.AWS.Glue.Types.PythonScript
+        , Network.AWS.Glue.Types.DatabaseInput
+        , Network.AWS.Glue.Types.MetadataKeyValuePair
+        , Network.AWS.Glue.Types.LogGroup
+        , Network.AWS.Glue.Types.ColumnStatisticsType
+        , Network.AWS.Glue.Types.JsonValue
+        , Network.AWS.Glue.Types.ColumnValuesString
+        , Network.AWS.Glue.Types.Logical
+        , Network.AWS.Glue.Types.CrawlerMetrics
+        , Network.AWS.Glue.Types.GetConnectionsFilter
+        , Network.AWS.Glue.Types.DescriptionString
+        , Network.AWS.Glue.Types.WorkerType
+        , Network.AWS.Glue.Types.PropertyPredicate
+        , Network.AWS.Glue.Types.GrokClassifier
+        , Network.AWS.Glue.Types.Action
+        , Network.AWS.Glue.Types.ConnectionPropertyKey
+        , Network.AWS.Glue.Types.DoubleColumnStatisticsData
+        , Network.AWS.Glue.Types.StringColumnStatisticsData
+        , Network.AWS.Glue.Types.SecurityConfiguration
+        , Network.AWS.Glue.Types.Classification
+        , Network.AWS.Glue.Types.UpdateXMLClassifierRequest
+        , Network.AWS.Glue.Types.ErrorMessageString
+        , Network.AWS.Glue.Types.CrawlerNodeDetails
+        , Network.AWS.Glue.Types.XMLClassifier
+        , Network.AWS.Glue.Types.TransformParameters
+        , Network.AWS.Glue.Types.SchemaListItem
+        , Network.AWS.Glue.Types.CommentString
+        , Network.AWS.Glue.Types.CrawlerTargets
+        , Network.AWS.Glue.Types.BatchStopJobRunSuccessfulSubmission
+        , Network.AWS.Glue.Types.ConnectionPasswordEncryption
+        , Network.AWS.Glue.Types.Connection
+        , Network.AWS.Glue.Types.DataLakePrincipal
+        , Network.AWS.Glue.Types.TriggerUpdate
+        , Network.AWS.Glue.Types.TagValue
+        , Network.AWS.Glue.Types.CsvClassifier
+        , Network.AWS.Glue.Types.SchemaDefinitionDiff
+        , Network.AWS.Glue.Types.SchemaDefinitionString
+        , Network.AWS.Glue.Types.EvaluationMetrics
+        , Network.AWS.Glue.Types.CodeGenNodeType
+        , Network.AWS.Glue.Types.ScalaCode
+        , Network.AWS.Glue.Types.ConnectionName
+        , Network.AWS.Glue.Types.S3Target
+        , Network.AWS.Glue.Types.Predicate
+        , Network.AWS.Glue.Types.JobRunState
+        , Network.AWS.Glue.Types.TaskStatusType
+        , Network.AWS.Glue.Types.MLUserDataEncryptionModeString
+        , Network.AWS.Glue.Types.CrawlerLineageSettings
+        , Network.AWS.Glue.Types.PartitionIndex
+        , Network.AWS.Glue.Types.UserDefinedFunctionInput
+        , Network.AWS.Glue.Types.TableVersionError
+        , Network.AWS.Glue.Types.CreateCsvClassifierRequest
+        , Network.AWS.Glue.Types.SchemaId
+        , Network.AWS.Glue.Types.GenericString
+        , Network.AWS.Glue.Types.RecrawlPolicy
+        , Network.AWS.Glue.Types.SchemaVersionListItem
+        , Network.AWS.Glue.Types.ExportLabelsTaskRunProperties
+        , Network.AWS.Glue.Types.TransformType
+        , Network.AWS.Glue.Types.TableVersion
+        , Network.AWS.Glue.Types.RunId
+        , Network.AWS.Glue.Types.SchemaDiffType
+        , Network.AWS.Glue.Types.ColumnNameString
+        , Network.AWS.Glue.Types.Role
+        , Network.AWS.Glue.Types.JobBookmarkEntry
+        , Network.AWS.Glue.Types.MetadataKeyString
+        , Network.AWS.Glue.Types.Job
+        , Network.AWS.Glue.Types.PhysicalConnectionRequirements
+        , Network.AWS.Glue.Types.WorkflowRunStatistics
+        , Network.AWS.Glue.Types.Classifier
+        , Network.AWS.Glue.Types.TriggerState
+        , Network.AWS.Glue.Types.JsonClassifier
+        , Network.AWS.Glue.Types.LabelingSetGenerationTaskRunProperties
+        , Network.AWS.Glue.Types.VersionString
+        , Network.AWS.Glue.Types.CatalogEncryptionMode
+        , Network.AWS.Glue.Types.UpdateJsonClassifierRequest
+        , Network.AWS.Glue.Types.EncryptionConfiguration
+        , Network.AWS.Glue.Types.SchemaReference
+        , Network.AWS.Glue.Types.CodeGenIdentifier
+        , Network.AWS.Glue.Types.PartitionError
+        , Network.AWS.Glue.Types.SchemaRegistryTokenString
+        , Network.AWS.Glue.Types.NameString
+        , Network.AWS.Glue.Types.CatalogTarget
+        , Network.AWS.Glue.Types.Sort
+        , Network.AWS.Glue.Types.StorageDescriptor
+        , Network.AWS.Glue.Types.Language
+        , Network.AWS.Glue.Types.FindMatchesParameters
+        , Network.AWS.Glue.Types.CsvHeaderOption
+        , Network.AWS.Glue.Types.CatalogImportStatus
+        , Network.AWS.Glue.Types.KeyString
+        , Network.AWS.Glue.Types.ScheduleState
+        , Network.AWS.Glue.Types.DatabaseName
+        , Network.AWS.Glue.Types.BatchStopJobRunError
+        , Network.AWS.Glue.Types.CsvQuoteSymbol
+        , Network.AWS.Glue.Types.ErrorDetails
+        , Network.AWS.Glue.Types.Partition
+        , Network.AWS.Glue.Types.CronExpression
+        , Network.AWS.Glue.Types.CrawlerSecurityConfiguration
+        , Network.AWS.Glue.Types.Comparator
+        , Network.AWS.Glue.Types.LineageConfiguration
+        , Network.AWS.Glue.Types.PolicyJsonString
+        , Network.AWS.Glue.Types.EnableHybridValues
+        , Network.AWS.Glue.Types.ExecutionProperty
+        , Network.AWS.Glue.Types.JobNodeDetails
+        , Network.AWS.Glue.Types.FindMatchesTaskRunProperties
+        , Network.AWS.Glue.Types.TaskRunProperties
+        , Network.AWS.Glue.Types.Predecessor
+        , Network.AWS.Glue.Types.TypeString
+        , Network.AWS.Glue.Types.ImportLabelsTaskRunProperties
+        , Network.AWS.Glue.Types.GlueTable
+        , Network.AWS.Glue.Types.CodeGenNodeArg
+        , Network.AWS.Glue.Types.SkewedInfo
+        , Network.AWS.Glue.Types.ViewTextString
+        , Network.AWS.Glue.Types.TagKey
+        , Network.AWS.Glue.Types.TransformStatusType
+        , Network.AWS.Glue.Types.PartitionIndexStatus
+        , Network.AWS.Glue.Types.KeySchemaElement
+        , Network.AWS.Glue.Types.TableInput
+        , Network.AWS.Glue.Types.SchemaVersionNumber
+        , Network.AWS.Glue.Types.RecrawlBehavior
+        , Network.AWS.Glue.Types.Trigger
+        , Network.AWS.Glue.Types.IdString
+        , Network.AWS.Glue.Types.CustomPatterns
+        , Network.AWS.Glue.Types.RowTag
+        , Network.AWS.Glue.Types.NodeType
+        , Network.AWS.Glue.Types.TransformEncryption
+        , Network.AWS.Glue.Types.ColumnStatisticsData
+        , Network.AWS.Glue.Types.Condition
+        , Network.AWS.Glue.Types.Segment
+        , Network.AWS.Glue.Types.TableTypeString
+        , Network.AWS.Glue.Types.Crawl
+        , Network.AWS.Glue.Types.ColumnTypeString
+        , Network.AWS.Glue.Types.MessagePrefix
+        , Network.AWS.Glue.Types.Edge
+        , Network.AWS.Glue.Types.Permission
+        , Network.AWS.Glue.Types.ColumnStatistics
+        , Network.AWS.Glue.Types.CreateGrokClassifierRequest
+        , Network.AWS.Glue.Types.BatchUpdatePartitionFailureEntry
+        , Network.AWS.Glue.Types.GluePolicy
+        , Network.AWS.Glue.Types.MetadataInfo
+        , Network.AWS.Glue.Types.PartitionValueList
+        , Network.AWS.Glue.Types.UriString
+        , Network.AWS.Glue.Types.CreateXMLClassifierRequest
+        , Network.AWS.Glue.Types.Workflow
+        , Network.AWS.Glue.Types.CatalogIdString
+        , Network.AWS.Glue.Types.SchemaVersionIdString
+        , Network.AWS.Glue.Types.UpdateGrokClassifierRequest
+        , Network.AWS.Glue.Types.TablePrefix
+        , Network.AWS.Glue.Types.ColumnError
+        , Network.AWS.Glue.Types.DevEndpointCustomLibraries
+        , Network.AWS.Glue.Types.JobRun
+        , Network.AWS.Glue.Types.SchemaVersionErrorItem
+        , Network.AWS.Glue.Types.WorkflowRunStatus
+        , Network.AWS.Glue.Types.JdbcTarget
+        , Network.AWS.Glue.Types.Table
+        , Network.AWS.Glue.Types.Order
+        , Network.AWS.Glue.Types.Column
+        , Network.AWS.Glue.Types.ConnectionType
+        , Network.AWS.Glue.Types.JobUpdate
+        , Network.AWS.Glue.Types.DatabaseIdentifier
+        , Network.AWS.Glue.Types.TableError
+        , Network.AWS.Glue.Types.Compatibility
+        , Network.AWS.Glue.Types.ValueString
+        , Network.AWS.Glue.Types.RegistryStatus
+        , Network.AWS.Glue.Types.DataCatalogEncryptionSettings
+        , Network.AWS.Glue.Types.TableName
+        , Network.AWS.Glue.Types.GrokPattern
+        , Network.AWS.Glue.Types.SortCriterion
+        , Network.AWS.Glue.Types.BackfillErrorCode
+        , Network.AWS.Glue.Types.CodeGenNode
+        , Network.AWS.Glue.Types.LongColumnStatisticsData
+        , Network.AWS.Glue.Types.ErrorDetail
+        , Network.AWS.Glue.Types.RoleArn
+        , Network.AWS.Glue.Types.UpdateCsvClassifierRequest
+        , Network.AWS.Glue.Types.ConfusionMatrix
+        , Network.AWS.Glue.Types.Name
+        , Network.AWS.Glue.Types.EndpointName
+        , Network.AWS.Glue.Types.SchemaDefinition
+        , Network.AWS.Glue.Types.PublicKey
+        , Network.AWS.Glue.Types.LogGroupName
+        , Network.AWS.Glue.Types.TaskRunId
+        , Network.AWS.Glue.Types.TransformId
+        , Network.AWS.Glue.Types.CatalogId
+        , Network.AWS.Glue.Types.IndexName
+        , Network.AWS.Glue.Types.Uri
+        , Network.AWS.Glue.Types.Configuration
+        , Network.AWS.Glue.Types.Description
+        , Network.AWS.Glue.Types.OutputS3Path
+        , Network.AWS.Glue.Types.Error
+        , Network.AWS.Glue.Types.NextToken
+        , Network.AWS.Glue.Types.AvailabilityZone
+        , Network.AWS.Glue.Types.ExtraJarsS3Path
+        , Network.AWS.Glue.Types.ExtraPythonLibsS3Path
+        , Network.AWS.Glue.Types.FailureReason
+        , Network.AWS.Glue.Types.LastUpdateStatus
+        , Network.AWS.Glue.Types.PrivateAddress
+        , Network.AWS.Glue.Types.PublicAddress
+        , Network.AWS.Glue.Types.Status
+        , Network.AWS.Glue.Types.SubnetId
+        , Network.AWS.Glue.Types.VpcId
+        , Network.AWS.Glue.Types.YarnEndpointAddress
+        , Network.AWS.Glue.Types.DataType
+        , Network.AWS.Glue.Types.KmsKeyId
+        , Network.AWS.Glue.Types.RegistryName
+        , Network.AWS.Glue.Types.ErrorMessage
+        , Network.AWS.Glue.Types.SchemaVersionId
+        , Network.AWS.Glue.Types.ClassName
+        , Network.AWS.Glue.Types.FunctionName
+        , Network.AWS.Glue.Types.OwnerName
+        , Network.AWS.Glue.Types.PreviousRunId
+        , Network.AWS.Glue.Types.WorkflowRunId
+        , Network.AWS.Glue.Types.SseAwsKmsKeyId
+        , Network.AWS.Glue.Types.LogUri
+        , Network.AWS.Glue.Types.Expression
+        , Network.AWS.Glue.Types.CreatedTime
+        , Network.AWS.Glue.Types.UpdatedTime
+        , Network.AWS.Glue.Types.Source
+        , Network.AWS.Glue.Types.Target
+        , Network.AWS.Glue.Types.LocationUri
+        , Network.AWS.Glue.Types.ScheduleExpression
+        , Network.AWS.Glue.Types.JobRunId
+        , Network.AWS.Glue.Types.SourcePath
+        , Network.AWS.Glue.Types.SourceTable
+        , Network.AWS.Glue.Types.SourceType
+        , Network.AWS.Glue.Types.TargetPath
+        , Network.AWS.Glue.Types.TargetTable
+        , Network.AWS.Glue.Types.TargetType
+        , Network.AWS.Glue.Types.UniqueId
+        , Network.AWS.Glue.Types.PythonVersion
+        , Network.AWS.Glue.Types.DependentJobName
+        , Network.AWS.Glue.Types.CrawlerName
+        , Network.AWS.Glue.Types.SerializationLibrary
+        , Network.AWS.Glue.Types.MetadataKey
+        , Network.AWS.Glue.Types.SchemaName
+        , Network.AWS.Glue.Types.Key
+        , Network.AWS.Glue.Types.Value
+        , Network.AWS.Glue.Types.AwsKmsKeyId
+        , Network.AWS.Glue.Types.LastUpdatedBy
+        , Network.AWS.Glue.Types.QuoteSymbol
+        , Network.AWS.Glue.Types.PolicyInJson
+        , Network.AWS.Glue.Types.InputFormat
+        , Network.AWS.Glue.Types.OutputFormat
+        , Network.AWS.Glue.Types.SearchText
+        , Network.AWS.Glue.Types.ErrorCode
+        , Network.AWS.Glue.Types.InputS3Path
+        , Network.AWS.Glue.Types.Type
+        , Network.AWS.Glue.Types.TableType
+        , Network.AWS.Glue.Types.Id
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-glue-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.Gen.Glue
-    Test.AWS.Glue
-    Test.AWS.Glue.Internal
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core         >=2.0.0.0 && <2.0.0.1
-    , amazonka-glue
-    , amazonka-test         >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.Glue
+        , Test.AWS.Gen.Glue
+        , Test.AWS.Glue.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-glue
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

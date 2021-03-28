@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,19 +15,18 @@
 --
 -- Remove tags from a CloudFront resource.
 module Network.AWS.CloudFront.UntagResource
-  ( -- * Creating a request
-    UntagResource (..),
-    mkUntagResource,
-
+    (
+    -- * Creating a request
+      UntagResource (..)
+    , mkUntagResource
     -- ** Request lenses
-    urResource,
-    urTagKeys,
+    , urResource
+    , urTagKeys
 
     -- * Destructuring the response
-    UntagResourceResponse (..),
-    mkUntagResourceResponse,
-  )
-where
+    , UntagResourceResponse (..)
+    , mkUntagResourceResponse
+    ) where
 
 import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -39,52 +38,59 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | An ARN of a CloudFront resource.
-    resource :: Types.ResourceARN,
-    -- | A complex type that contains zero or more @Tag@ key elements.
-    tagKeys :: Types.TagKeys
+  { resource :: Types.ResourceARN
+    -- ^ An ARN of a CloudFront resource.
+  , tagKeys :: Types.TagKeys
+    -- ^ A complex type that contains zero or more @Tag@ key elements.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UntagResource' value with any optional fields omitted.
-mkUntagResource ::
-  -- | 'resource'
-  Types.ResourceARN ->
-  -- | 'tagKeys'
-  Types.TagKeys ->
-  UntagResource
-mkUntagResource resource tagKeys =
-  UntagResource' {resource, tagKeys}
+mkUntagResource
+    :: Types.ResourceARN -- ^ 'resource'
+    -> Types.TagKeys -- ^ 'tagKeys'
+    -> UntagResource
+mkUntagResource resource tagKeys
+  = UntagResource'{resource, tagKeys}
 
 -- | An ARN of a CloudFront resource.
 --
 -- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 urResource :: Lens.Lens' UntagResource Types.ResourceARN
 urResource = Lens.field @"resource"
-{-# DEPRECATED urResource "Use generic-lens or generic-optics with 'resource' instead." #-}
+{-# INLINEABLE urResource #-}
+{-# DEPRECATED resource "Use generic-lens or generic-optics with 'resource' instead"  #-}
 
 -- | A complex type that contains zero or more @Tag@ key elements.
 --
 -- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 urTagKeys :: Lens.Lens' UntagResource Types.TagKeys
 urTagKeys = Lens.field @"tagKeys"
-{-# DEPRECATED urTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+{-# INLINEABLE urTagKeys #-}
+{-# DEPRECATED tagKeys "Use generic-lens or generic-optics with 'tagKeys' instead"  #-}
+
+instance Core.ToQuery UntagResource where
+        toQuery UntagResource{..}
+          = Core.toQueryPair "Resource" resource Core.<>
+              Core.toQueryPair "Operation=Untag" ("" :: Core.Text)
+
+instance Core.ToHeaders UntagResource where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest UntagResource where
-  type Rs UntagResource = UntagResourceResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/2020-05-31/tagging",
-        Core._rqQuery =
-          Core.toQueryValue "Resource" resource
-            Core.<> (Core.pure ("Operation=Untag", "")),
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = Core.toXMLBody x
-      }
-  response = Response.receiveNull UntagResourceResponse'
+        type Rs UntagResource = UntagResourceResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST,
+                         Core._rqPath = "/2020-05-31/tagging",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toXMLBody (Core.toXMLDocument x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull UntagResourceResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkUntagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'
@@ -92,6 +98,6 @@ data UntagResourceResponse = UntagResourceResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UntagResourceResponse' value with any optional fields omitted.
-mkUntagResourceResponse ::
-  UntagResourceResponse
+mkUntagResourceResponse
+    :: UntagResourceResponse
 mkUntagResourceResponse = UntagResourceResponse'

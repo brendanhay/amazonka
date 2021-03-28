@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,29 +13,27 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds one or more tags to a stream. A /tag/ is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
+-- Adds one or more tags to a stream. A /tag/ is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ . 
 --
 -- You must provide either the @StreamName@ or the @StreamARN@ .
 -- This operation requires permission for the @KinesisVideo:TagStream@ action.
 -- Kinesis video streams support up to 50 tags.
 module Network.AWS.KinesisVideo.TagStream
-  ( -- * Creating a request
-    TagStream (..),
-    mkTagStream,
-
+    (
+    -- * Creating a request
+      TagStream (..)
+    , mkTagStream
     -- ** Request lenses
-    tsTags,
-    tsStreamARN,
-    tsStreamName,
+    , tsTags
+    , tsStreamARN
+    , tsStreamName
 
     -- * Destructuring the response
-    TagStreamResponse (..),
-    mkTagStreamResponse,
-
+    , TagStreamResponse (..)
+    , mkTagStreamResponse
     -- ** Response lenses
-    tsrrsResponseStatus,
-  )
-where
+    , tsrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.KinesisVideo.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -45,93 +43,96 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTagStream' smart constructor.
 data TagStream = TagStream'
-  { -- | A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).
-    tags :: Core.HashMap Types.TagKey Types.TagValue,
-    -- | The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags to.
-    streamARN :: Core.Maybe Types.ResourceARN,
-    -- | The name of the stream that you want to add the tag or tags to.
-    streamName :: Core.Maybe Types.StreamName
+  { tags :: Core.HashMap Types.TagKey Types.TagValue
+    -- ^ A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).
+  , streamARN :: Core.Maybe Types.ResourceARN
+    -- ^ The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags to.
+  , streamName :: Core.Maybe Types.StreamName
+    -- ^ The name of the stream that you want to add the tag or tags to.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'TagStream' value with any optional fields omitted.
-mkTagStream ::
-  TagStream
-mkTagStream =
-  TagStream'
-    { tags = Core.mempty,
-      streamARN = Core.Nothing,
-      streamName = Core.Nothing
-    }
+mkTagStream
+    :: TagStream
+mkTagStream
+  = TagStream'{tags = Core.mempty, streamARN = Core.Nothing,
+               streamName = Core.Nothing}
 
 -- | A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 tsTags :: Lens.Lens' TagStream (Core.HashMap Types.TagKey Types.TagValue)
 tsTags = Lens.field @"tags"
-{-# DEPRECATED tsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+{-# INLINEABLE tsTags #-}
+{-# DEPRECATED tags "Use generic-lens or generic-optics with 'tags' instead"  #-}
 
 -- | The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags to.
 --
 -- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 tsStreamARN :: Lens.Lens' TagStream (Core.Maybe Types.ResourceARN)
 tsStreamARN = Lens.field @"streamARN"
-{-# DEPRECATED tsStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
+{-# INLINEABLE tsStreamARN #-}
+{-# DEPRECATED streamARN "Use generic-lens or generic-optics with 'streamARN' instead"  #-}
 
 -- | The name of the stream that you want to add the tag or tags to.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 tsStreamName :: Lens.Lens' TagStream (Core.Maybe Types.StreamName)
 tsStreamName = Lens.field @"streamName"
-{-# DEPRECATED tsStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+{-# INLINEABLE tsStreamName #-}
+{-# DEPRECATED streamName "Use generic-lens or generic-optics with 'streamName' instead"  #-}
+
+instance Core.ToQuery TagStream where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders TagStream where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.FromJSON TagStream where
-  toJSON TagStream {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Tags" Core..= tags),
-            ("StreamARN" Core..=) Core.<$> streamARN,
-            ("StreamName" Core..=) Core.<$> streamName
-          ]
-      )
+        toJSON TagStream{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("Tags" Core..= tags),
+                  ("StreamARN" Core..=) Core.<$> streamARN,
+                  ("StreamName" Core..=) Core.<$> streamName])
 
 instance Core.AWSRequest TagStream where
-  type Rs TagStream = TagStreamResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/tagStream",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveEmpty
-      ( \s h x ->
-          TagStreamResponse' Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs TagStream = TagStreamResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/tagStream",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveEmpty
+              (\ s h x ->
+                 TagStreamResponse' Core.<$> (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkTagStreamResponse' smart constructor.
 newtype TagStreamResponse = TagStreamResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'TagStreamResponse' value with any optional fields omitted.
-mkTagStreamResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  TagStreamResponse
-mkTagStreamResponse responseStatus =
-  TagStreamResponse' {responseStatus}
+mkTagStreamResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> TagStreamResponse
+mkTagStreamResponse responseStatus
+  = TagStreamResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 tsrrsResponseStatus :: Lens.Lens' TagStreamResponse Core.Int
 tsrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED tsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE tsrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,18 +17,17 @@
 --
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack or an attached policy that explicitly grants permissions. For more information about user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.UnassignInstance
-  ( -- * Creating a request
-    UnassignInstance (..),
-    mkUnassignInstance,
-
+    (
+    -- * Creating a request
+      UnassignInstance (..)
+    , mkUnassignInstance
     -- ** Request lenses
-    uInstanceId,
+    , uInstanceId
 
     -- * Destructuring the response
-    UnassignInstanceResponse (..),
-    mkUnassignInstanceResponse,
-  )
-where
+    , UnassignInstanceResponse (..)
+    , mkUnassignInstanceResponse
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.OpsWorks.Types as Types
@@ -38,45 +37,51 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUnassignInstance' smart constructor.
 newtype UnassignInstance = UnassignInstance'
-  { -- | The instance ID.
-    instanceId :: Types.String
+  { instanceId :: Core.Text
+    -- ^ The instance ID.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UnassignInstance' value with any optional fields omitted.
-mkUnassignInstance ::
-  -- | 'instanceId'
-  Types.String ->
-  UnassignInstance
-mkUnassignInstance instanceId = UnassignInstance' {instanceId}
+mkUnassignInstance
+    :: Core.Text -- ^ 'instanceId'
+    -> UnassignInstance
+mkUnassignInstance instanceId = UnassignInstance'{instanceId}
 
 -- | The instance ID.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uInstanceId :: Lens.Lens' UnassignInstance Types.String
+uInstanceId :: Lens.Lens' UnassignInstance Core.Text
 uInstanceId = Lens.field @"instanceId"
-{-# DEPRECATED uInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+{-# INLINEABLE uInstanceId #-}
+{-# DEPRECATED instanceId "Use generic-lens or generic-optics with 'instanceId' instead"  #-}
+
+instance Core.ToQuery UnassignInstance where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders UnassignInstance where
+        toHeaders UnassignInstance{..}
+          = Core.pure ("X-Amz-Target", "OpsWorks_20130218.UnassignInstance")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON UnassignInstance where
-  toJSON UnassignInstance {..} =
-    Core.object
-      (Core.catMaybes [Core.Just ("InstanceId" Core..= instanceId)])
+        toJSON UnassignInstance{..}
+          = Core.object
+              (Core.catMaybes [Core.Just ("InstanceId" Core..= instanceId)])
 
 instance Core.AWSRequest UnassignInstance where
-  type Rs UnassignInstance = UnassignInstanceResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "OpsWorks_20130218.UnassignInstance")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response = Response.receiveNull UnassignInstanceResponse'
+        type Rs UnassignInstance = UnassignInstanceResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull UnassignInstanceResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkUnassignInstanceResponse' smart constructor.
 data UnassignInstanceResponse = UnassignInstanceResponse'
@@ -84,6 +89,6 @@ data UnassignInstanceResponse = UnassignInstanceResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'UnassignInstanceResponse' value with any optional fields omitted.
-mkUnassignInstanceResponse ::
-  UnassignInstanceResponse
+mkUnassignInstanceResponse
+    :: UnassignInstanceResponse
 mkUnassignInstanceResponse = UnassignInstanceResponse'

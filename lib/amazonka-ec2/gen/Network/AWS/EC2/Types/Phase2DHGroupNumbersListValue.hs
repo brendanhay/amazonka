@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.EC2.Types.Phase2DHGroupNumbersListValue
-  ( Phase2DHGroupNumbersListValue (..),
-
-    -- * Smart constructor
-    mkPhase2DHGroupNumbersListValue,
-
-    -- * Lenses
-    pValue,
-  )
-where
+  ( Phase2DHGroupNumbersListValue (..)
+  -- * Smart constructor
+  , mkPhase2DHGroupNumbersListValue
+  -- * Lenses
+  , pValue
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -28,25 +26,26 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkPhase2DHGroupNumbersListValue' smart constructor.
 newtype Phase2DHGroupNumbersListValue = Phase2DHGroupNumbersListValue'
-  { -- | The Diffie-Hellmann group number.
-    value :: Core.Maybe Core.Int
+  { value :: Core.Maybe Core.Int
+    -- ^ The Diffie-Hellmann group number.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'Phase2DHGroupNumbersListValue' value with any optional fields omitted.
-mkPhase2DHGroupNumbersListValue ::
-  Phase2DHGroupNumbersListValue
-mkPhase2DHGroupNumbersListValue =
-  Phase2DHGroupNumbersListValue' {value = Core.Nothing}
+mkPhase2DHGroupNumbersListValue
+    :: Phase2DHGroupNumbersListValue
+mkPhase2DHGroupNumbersListValue
+  = Phase2DHGroupNumbersListValue'{value = Core.Nothing}
 
 -- | The Diffie-Hellmann group number.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pValue :: Lens.Lens' Phase2DHGroupNumbersListValue (Core.Maybe Core.Int)
 pValue = Lens.field @"value"
-{-# DEPRECATED pValue "Use generic-lens or generic-optics with 'value' instead." #-}
+{-# INLINEABLE pValue #-}
+{-# DEPRECATED value "Use generic-lens or generic-optics with 'value' instead"  #-}
 
 instance Core.FromXML Phase2DHGroupNumbersListValue where
-  parseXML x =
-    Phase2DHGroupNumbersListValue' Core.<$> (x Core..@? "value")
+        parseXML x
+          = Phase2DHGroupNumbersListValue' Core.<$> (x Core..@? "value")

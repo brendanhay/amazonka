@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -18,22 +18,20 @@
 -- For information about managing receipt rule sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide> .
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.ReorderReceiptRuleSet
-  ( -- * Creating a request
-    ReorderReceiptRuleSet (..),
-    mkReorderReceiptRuleSet,
-
+    (
+    -- * Creating a request
+      ReorderReceiptRuleSet (..)
+    , mkReorderReceiptRuleSet
     -- ** Request lenses
-    rrrsRuleSetName,
-    rrrsRuleNames,
+    , rrrsRuleSetName
+    , rrrsRuleNames
 
     -- * Destructuring the response
-    ReorderReceiptRuleSetResponse (..),
-    mkReorderReceiptRuleSetResponse,
-
+    , ReorderReceiptRuleSetResponse (..)
+    , mkReorderReceiptRuleSetResponse
     -- ** Response lenses
-    rrrsrrsResponseStatus,
-  )
-where
+    , rrrsrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -45,89 +43,91 @@ import qualified Network.AWS.SES.Types as Types
 --
 -- /See:/ 'mkReorderReceiptRuleSet' smart constructor.
 data ReorderReceiptRuleSet = ReorderReceiptRuleSet'
-  { -- | The name of the receipt rule set to reorder.
-    ruleSetName :: Types.ReceiptRuleSetName,
-    -- | A list of the specified receipt rule set's receipt rules in the order that you want to put them.
-    ruleNames :: [Types.ReceiptRuleName]
+  { ruleSetName :: Types.ReceiptRuleSetName
+    -- ^ The name of the receipt rule set to reorder.
+  , ruleNames :: [Types.ReceiptRuleName]
+    -- ^ A list of the specified receipt rule set's receipt rules in the order that you want to put them.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ReorderReceiptRuleSet' value with any optional fields omitted.
-mkReorderReceiptRuleSet ::
-  -- | 'ruleSetName'
-  Types.ReceiptRuleSetName ->
-  ReorderReceiptRuleSet
-mkReorderReceiptRuleSet ruleSetName =
-  ReorderReceiptRuleSet' {ruleSetName, ruleNames = Core.mempty}
+mkReorderReceiptRuleSet
+    :: Types.ReceiptRuleSetName -- ^ 'ruleSetName'
+    -> ReorderReceiptRuleSet
+mkReorderReceiptRuleSet ruleSetName
+  = ReorderReceiptRuleSet'{ruleSetName, ruleNames = Core.mempty}
 
 -- | The name of the receipt rule set to reorder.
 --
 -- /Note:/ Consider using 'ruleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rrrsRuleSetName :: Lens.Lens' ReorderReceiptRuleSet Types.ReceiptRuleSetName
 rrrsRuleSetName = Lens.field @"ruleSetName"
-{-# DEPRECATED rrrsRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
+{-# INLINEABLE rrrsRuleSetName #-}
+{-# DEPRECATED ruleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead"  #-}
 
 -- | A list of the specified receipt rule set's receipt rules in the order that you want to put them.
 --
 -- /Note:/ Consider using 'ruleNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rrrsRuleNames :: Lens.Lens' ReorderReceiptRuleSet [Types.ReceiptRuleName]
 rrrsRuleNames = Lens.field @"ruleNames"
-{-# DEPRECATED rrrsRuleNames "Use generic-lens or generic-optics with 'ruleNames' instead." #-}
+{-# INLINEABLE rrrsRuleNames #-}
+{-# DEPRECATED ruleNames "Use generic-lens or generic-optics with 'ruleNames' instead"  #-}
+
+instance Core.ToQuery ReorderReceiptRuleSet where
+        toQuery ReorderReceiptRuleSet{..}
+          = Core.toQueryPair "Action" ("ReorderReceiptRuleSet" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2010-12-01" :: Core.Text)
+              Core.<> Core.toQueryPair "RuleSetName" ruleSetName
+              Core.<>
+              Core.toQueryPair "RuleNames" (Core.toQueryList "member" ruleNames)
+
+instance Core.ToHeaders ReorderReceiptRuleSet where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest ReorderReceiptRuleSet where
-  type Rs ReorderReceiptRuleSet = ReorderReceiptRuleSetResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "ReorderReceiptRuleSet")
-                Core.<> (Core.pure ("Version", "2010-12-01"))
-                Core.<> (Core.toQueryValue "RuleSetName" ruleSetName)
-                Core.<> ( Core.toQueryValue
-                            "RuleNames"
-                            (Core.toQueryList "member" ruleNames)
-                        )
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "ReorderReceiptRuleSetResult"
-      ( \s h x ->
-          ReorderReceiptRuleSetResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs ReorderReceiptRuleSet = ReorderReceiptRuleSetResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "ReorderReceiptRuleSetResult"
+              (\ s h x ->
+                 ReorderReceiptRuleSetResponse' Core.<$>
+                   (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkReorderReceiptRuleSetResponse' smart constructor.
 newtype ReorderReceiptRuleSetResponse = ReorderReceiptRuleSetResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ReorderReceiptRuleSetResponse' value with any optional fields omitted.
-mkReorderReceiptRuleSetResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  ReorderReceiptRuleSetResponse
-mkReorderReceiptRuleSetResponse responseStatus =
-  ReorderReceiptRuleSetResponse' {responseStatus}
+mkReorderReceiptRuleSetResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> ReorderReceiptRuleSetResponse
+mkReorderReceiptRuleSetResponse responseStatus
+  = ReorderReceiptRuleSetResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rrrsrrsResponseStatus :: Lens.Lens' ReorderReceiptRuleSetResponse Core.Int
 rrrsrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED rrrsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE rrrsrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

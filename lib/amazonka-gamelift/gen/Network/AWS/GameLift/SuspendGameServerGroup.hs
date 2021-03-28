@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,58 +13,58 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __This operation is used with the Amazon GameLift FleetIQ solution and game server groups.__
+-- __This operation is used with the Amazon GameLift FleetIQ solution and game server groups.__ 
 --
 -- Temporarily stops activity on a game server group without terminating instances or the game server group. You can restart activity by calling 'ResumeGameServerGroup' . You can suspend the following activity:
 --
---     * __Instance type replacement__ - This activity evaluates the current game hosting viability of all Spot instance types that are defined for the game server group. It updates the Auto Scaling group to remove nonviable Spot Instance types, which have a higher chance of game server interruptions. It then balances capacity across the remaining viable Spot Instance types. When this activity is suspended, the Auto Scaling group continues with its current balance, regardless of viability. Instance protection, utilization metrics, and capacity scaling activities continue to be active.
+--     * __Instance type replacement__ - This activity evaluates the current game hosting viability of all Spot instance types that are defined for the game server group. It updates the Auto Scaling group to remove nonviable Spot Instance types, which have a higher chance of game server interruptions. It then balances capacity across the remaining viable Spot Instance types. When this activity is suspended, the Auto Scaling group continues with its current balance, regardless of viability. Instance protection, utilization metrics, and capacity scaling activities continue to be active. 
 --
 --
 -- To suspend activity, specify a game server group ARN and the type of activity to be suspended. If successful, a 'GameServerGroup' object is returned showing that the activity is listed in @SuspendedActions@ .
--- __Learn more__
--- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide>
--- __Related operations__
+-- __Learn more__ 
+-- <https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html GameLift FleetIQ Guide> 
+-- __Related operations__ 
 --
---     * 'CreateGameServerGroup'
---
---
---     * 'ListGameServerGroups'
+--     * 'CreateGameServerGroup' 
 --
 --
---     * 'DescribeGameServerGroup'
+--     * 'ListGameServerGroups' 
 --
 --
---     * 'UpdateGameServerGroup'
+--     * 'DescribeGameServerGroup' 
 --
 --
---     * 'DeleteGameServerGroup'
+--     * 'UpdateGameServerGroup' 
 --
 --
---     * 'ResumeGameServerGroup'
+--     * 'DeleteGameServerGroup' 
 --
 --
---     * 'SuspendGameServerGroup'
+--     * 'ResumeGameServerGroup' 
 --
 --
---     * 'DescribeGameServerInstances'
+--     * 'SuspendGameServerGroup' 
+--
+--
+--     * 'DescribeGameServerInstances' 
+--
+--
 module Network.AWS.GameLift.SuspendGameServerGroup
-  ( -- * Creating a request
-    SuspendGameServerGroup (..),
-    mkSuspendGameServerGroup,
-
+    (
+    -- * Creating a request
+      SuspendGameServerGroup (..)
+    , mkSuspendGameServerGroup
     -- ** Request lenses
-    sgsgGameServerGroupName,
-    sgsgSuspendActions,
+    , sgsgGameServerGroupName
+    , sgsgSuspendActions
 
     -- * Destructuring the response
-    SuspendGameServerGroupResponse (..),
-    mkSuspendGameServerGroupResponse,
-
+    , SuspendGameServerGroupResponse (..)
+    , mkSuspendGameServerGroupResponse
     -- ** Response lenses
-    sgsgrrsGameServerGroup,
-    sgsgrrsResponseStatus,
-  )
-where
+    , sgsgrrsGameServerGroup
+    , sgsgrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -74,99 +74,101 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSuspendGameServerGroup' smart constructor.
 data SuspendGameServerGroup = SuspendGameServerGroup'
-  { -- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
-    gameServerGroupName :: Types.GameServerGroupName,
-    -- | The activity to suspend for this game server group.
-    suspendActions :: Core.NonEmpty Types.GameServerGroupAction
+  { gameServerGroupName :: Types.GameServerGroupName
+    -- ^ A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
+  , suspendActions :: Core.NonEmpty Types.GameServerGroupAction
+    -- ^ The activity to suspend for this game server group.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'SuspendGameServerGroup' value with any optional fields omitted.
-mkSuspendGameServerGroup ::
-  -- | 'gameServerGroupName'
-  Types.GameServerGroupName ->
-  -- | 'suspendActions'
-  Core.NonEmpty Types.GameServerGroupAction ->
-  SuspendGameServerGroup
-mkSuspendGameServerGroup gameServerGroupName suspendActions =
-  SuspendGameServerGroup' {gameServerGroupName, suspendActions}
+mkSuspendGameServerGroup
+    :: Types.GameServerGroupName -- ^ 'gameServerGroupName'
+    -> Core.NonEmpty Types.GameServerGroupAction -- ^ 'suspendActions'
+    -> SuspendGameServerGroup
+mkSuspendGameServerGroup gameServerGroupName suspendActions
+  = SuspendGameServerGroup'{gameServerGroupName, suspendActions}
 
 -- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
 --
 -- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sgsgGameServerGroupName :: Lens.Lens' SuspendGameServerGroup Types.GameServerGroupName
 sgsgGameServerGroupName = Lens.field @"gameServerGroupName"
-{-# DEPRECATED sgsgGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
+{-# INLINEABLE sgsgGameServerGroupName #-}
+{-# DEPRECATED gameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead"  #-}
 
 -- | The activity to suspend for this game server group.
 --
 -- /Note:/ Consider using 'suspendActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sgsgSuspendActions :: Lens.Lens' SuspendGameServerGroup (Core.NonEmpty Types.GameServerGroupAction)
 sgsgSuspendActions = Lens.field @"suspendActions"
-{-# DEPRECATED sgsgSuspendActions "Use generic-lens or generic-optics with 'suspendActions' instead." #-}
+{-# INLINEABLE sgsgSuspendActions #-}
+{-# DEPRECATED suspendActions "Use generic-lens or generic-optics with 'suspendActions' instead"  #-}
+
+instance Core.ToQuery SuspendGameServerGroup where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders SuspendGameServerGroup where
+        toHeaders SuspendGameServerGroup{..}
+          = Core.pure ("X-Amz-Target", "GameLift.SuspendGameServerGroup")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON SuspendGameServerGroup where
-  toJSON SuspendGameServerGroup {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("GameServerGroupName" Core..= gameServerGroupName),
-            Core.Just ("SuspendActions" Core..= suspendActions)
-          ]
-      )
+        toJSON SuspendGameServerGroup{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("GameServerGroupName" Core..= gameServerGroupName),
+                  Core.Just ("SuspendActions" Core..= suspendActions)])
 
 instance Core.AWSRequest SuspendGameServerGroup where
-  type Rs SuspendGameServerGroup = SuspendGameServerGroupResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "GameLift.SuspendGameServerGroup")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          SuspendGameServerGroupResponse'
-            Core.<$> (x Core..:? "GameServerGroup")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs SuspendGameServerGroup = SuspendGameServerGroupResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 SuspendGameServerGroupResponse' Core.<$>
+                   (x Core..:? "GameServerGroup") Core.<*>
+                     Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkSuspendGameServerGroupResponse' smart constructor.
 data SuspendGameServerGroupResponse = SuspendGameServerGroupResponse'
-  { -- | An object that describes the game server group resource, with the @SuspendedActions@ property updated to reflect the suspended activity.
-    gameServerGroup :: Core.Maybe Types.GameServerGroup,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { gameServerGroup :: Core.Maybe Types.GameServerGroup
+    -- ^ An object that describes the game server group resource, with the @SuspendedActions@ property updated to reflect the suspended activity.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'SuspendGameServerGroupResponse' value with any optional fields omitted.
-mkSuspendGameServerGroupResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  SuspendGameServerGroupResponse
-mkSuspendGameServerGroupResponse responseStatus =
-  SuspendGameServerGroupResponse'
-    { gameServerGroup = Core.Nothing,
-      responseStatus
-    }
+mkSuspendGameServerGroupResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> SuspendGameServerGroupResponse
+mkSuspendGameServerGroupResponse responseStatus
+  = SuspendGameServerGroupResponse'{gameServerGroup = Core.Nothing,
+                                    responseStatus}
 
 -- | An object that describes the game server group resource, with the @SuspendedActions@ property updated to reflect the suspended activity.
 --
 -- /Note:/ Consider using 'gameServerGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sgsgrrsGameServerGroup :: Lens.Lens' SuspendGameServerGroupResponse (Core.Maybe Types.GameServerGroup)
 sgsgrrsGameServerGroup = Lens.field @"gameServerGroup"
-{-# DEPRECATED sgsgrrsGameServerGroup "Use generic-lens or generic-optics with 'gameServerGroup' instead." #-}
+{-# INLINEABLE sgsgrrsGameServerGroup #-}
+{-# DEPRECATED gameServerGroup "Use generic-lens or generic-optics with 'gameServerGroup' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sgsgrrsResponseStatus :: Lens.Lens' SuspendGameServerGroupResponse Core.Int
 sgsgrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED sgsgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE sgsgrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

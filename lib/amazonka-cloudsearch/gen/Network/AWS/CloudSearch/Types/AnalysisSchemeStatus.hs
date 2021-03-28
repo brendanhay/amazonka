@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CloudSearch.Types.AnalysisSchemeStatus
-  ( AnalysisSchemeStatus (..),
-
-    -- * Smart constructor
-    mkAnalysisSchemeStatus,
-
-    -- * Lenses
-    assOptions,
-    assStatus,
-  )
-where
+  ( AnalysisSchemeStatus (..)
+  -- * Smart constructor
+  , mkAnalysisSchemeStatus
+  -- * Lenses
+  , assOptions
+  , assStatus
+  ) where
 
 import qualified Network.AWS.CloudSearch.Types.AnalysisScheme as Types
 import qualified Network.AWS.CloudSearch.Types.OptionStatus as Types
@@ -31,37 +29,37 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkAnalysisSchemeStatus' smart constructor.
 data AnalysisSchemeStatus = AnalysisSchemeStatus'
-  { options :: Types.AnalysisScheme,
-    status :: Types.OptionStatus
+  { options :: Types.AnalysisScheme
+  , status :: Types.OptionStatus
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'AnalysisSchemeStatus' value with any optional fields omitted.
-mkAnalysisSchemeStatus ::
-  -- | 'options'
-  Types.AnalysisScheme ->
-  -- | 'status'
-  Types.OptionStatus ->
-  AnalysisSchemeStatus
-mkAnalysisSchemeStatus options status =
-  AnalysisSchemeStatus' {options, status}
+mkAnalysisSchemeStatus
+    :: Types.AnalysisScheme -- ^ 'options'
+    -> Types.OptionStatus -- ^ 'status'
+    -> AnalysisSchemeStatus
+mkAnalysisSchemeStatus options status
+  = AnalysisSchemeStatus'{options, status}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 assOptions :: Lens.Lens' AnalysisSchemeStatus Types.AnalysisScheme
 assOptions = Lens.field @"options"
-{-# DEPRECATED assOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+{-# INLINEABLE assOptions #-}
+{-# DEPRECATED options "Use generic-lens or generic-optics with 'options' instead"  #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 assStatus :: Lens.Lens' AnalysisSchemeStatus Types.OptionStatus
 assStatus = Lens.field @"status"
-{-# DEPRECATED assStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+{-# INLINEABLE assStatus #-}
+{-# DEPRECATED status "Use generic-lens or generic-optics with 'status' instead"  #-}
 
 instance Core.FromXML AnalysisSchemeStatus where
-  parseXML x =
-    AnalysisSchemeStatus'
-      Core.<$> (x Core..@ "Options") Core.<*> (x Core..@ "Status")
+        parseXML x
+          = AnalysisSchemeStatus' Core.<$>
+              (x Core..@ "Options") Core.<*> x Core..@ "Status"

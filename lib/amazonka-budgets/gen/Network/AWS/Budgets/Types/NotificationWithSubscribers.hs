@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Budgets.Types.NotificationWithSubscribers
-  ( NotificationWithSubscribers (..),
-
-    -- * Smart constructor
-    mkNotificationWithSubscribers,
-
-    -- * Lenses
-    nwsNotification,
-    nwsSubscribers,
-  )
-where
+  ( NotificationWithSubscribers (..)
+  -- * Smart constructor
+  , mkNotificationWithSubscribers
+  -- * Lenses
+  , nwsNotification
+  , nwsSubscribers
+  ) where
 
 import qualified Network.AWS.Budgets.Types.Notification as Types
 import qualified Network.AWS.Budgets.Types.Subscriber as Types
@@ -31,43 +29,41 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkNotificationWithSubscribers' smart constructor.
 data NotificationWithSubscribers = NotificationWithSubscribers'
-  { -- | The notification that is associated with a budget.
-    notification :: Types.Notification,
-    -- | A list of subscribers who are subscribed to this notification.
-    subscribers :: Core.NonEmpty Types.Subscriber
+  { notification :: Types.Notification
+    -- ^ The notification that is associated with a budget.
+  , subscribers :: Core.NonEmpty Types.Subscriber
+    -- ^ A list of subscribers who are subscribed to this notification.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'NotificationWithSubscribers' value with any optional fields omitted.
-mkNotificationWithSubscribers ::
-  -- | 'notification'
-  Types.Notification ->
-  -- | 'subscribers'
-  Core.NonEmpty Types.Subscriber ->
-  NotificationWithSubscribers
-mkNotificationWithSubscribers notification subscribers =
-  NotificationWithSubscribers' {notification, subscribers}
+mkNotificationWithSubscribers
+    :: Types.Notification -- ^ 'notification'
+    -> Core.NonEmpty Types.Subscriber -- ^ 'subscribers'
+    -> NotificationWithSubscribers
+mkNotificationWithSubscribers notification subscribers
+  = NotificationWithSubscribers'{notification, subscribers}
 
 -- | The notification that is associated with a budget.
 --
 -- /Note:/ Consider using 'notification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 nwsNotification :: Lens.Lens' NotificationWithSubscribers Types.Notification
 nwsNotification = Lens.field @"notification"
-{-# DEPRECATED nwsNotification "Use generic-lens or generic-optics with 'notification' instead." #-}
+{-# INLINEABLE nwsNotification #-}
+{-# DEPRECATED notification "Use generic-lens or generic-optics with 'notification' instead"  #-}
 
 -- | A list of subscribers who are subscribed to this notification.
 --
 -- /Note:/ Consider using 'subscribers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 nwsSubscribers :: Lens.Lens' NotificationWithSubscribers (Core.NonEmpty Types.Subscriber)
 nwsSubscribers = Lens.field @"subscribers"
-{-# DEPRECATED nwsSubscribers "Use generic-lens or generic-optics with 'subscribers' instead." #-}
+{-# INLINEABLE nwsSubscribers #-}
+{-# DEPRECATED subscribers "Use generic-lens or generic-optics with 'subscribers' instead"  #-}
 
 instance Core.FromJSON NotificationWithSubscribers where
-  toJSON NotificationWithSubscribers {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Notification" Core..= notification),
-            Core.Just ("Subscribers" Core..= subscribers)
-          ]
-      )
+        toJSON NotificationWithSubscribers{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("Notification" Core..= notification),
+                  Core.Just ("Subscribers" Core..= subscribers)])

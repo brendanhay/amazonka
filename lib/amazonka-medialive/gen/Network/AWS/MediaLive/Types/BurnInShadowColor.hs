@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,47 +10,29 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaLive.Types.BurnInShadowColor
   ( BurnInShadowColor
-      ( BurnInShadowColor',
-        BurnInShadowColorBlack,
-        BurnInShadowColorNone,
-        BurnInShadowColorWhite,
-        fromBurnInShadowColor
-      ),
-  )
-where
+    ( BurnInShadowColor'
+    , BurnInShadowColorBlack
+    , BurnInShadowColorNone
+    , BurnInShadowColorWhite
+    , fromBurnInShadowColor
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
 -- | Burn In Shadow Color
-newtype BurnInShadowColor = BurnInShadowColor'
-  { fromBurnInShadowColor ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype BurnInShadowColor = BurnInShadowColor'{fromBurnInShadowColor
+                                               :: Core.Text}
+                              deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                              Core.Generic)
+                              deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                Core.ToText, Core.FromText, Core.ToByteString,
+                                                Core.ToQuery, Core.ToHeader)
 
 pattern BurnInShadowColorBlack :: BurnInShadowColor
 pattern BurnInShadowColorBlack = BurnInShadowColor' "BLACK"
@@ -61,9 +43,11 @@ pattern BurnInShadowColorNone = BurnInShadowColor' "NONE"
 pattern BurnInShadowColorWhite :: BurnInShadowColor
 pattern BurnInShadowColorWhite = BurnInShadowColor' "WHITE"
 
-{-# COMPLETE
+{-# COMPLETE 
   BurnInShadowColorBlack,
+
   BurnInShadowColorNone,
+
   BurnInShadowColorWhite,
   BurnInShadowColor'
   #-}

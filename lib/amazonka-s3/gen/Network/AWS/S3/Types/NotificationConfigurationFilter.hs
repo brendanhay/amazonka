@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.S3.Types.NotificationConfigurationFilter
-  ( NotificationConfigurationFilter (..),
-
-    -- * Smart constructor
-    mkNotificationConfigurationFilter,
-
-    -- * Lenses
-    ncfKey,
-  )
-where
+  ( NotificationConfigurationFilter (..)
+  -- * Smart constructor
+  , mkNotificationConfigurationFilter
+  -- * Lenses
+  , ncfKey
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -36,22 +34,23 @@ newtype NotificationConfigurationFilter = NotificationConfigurationFilter'
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'NotificationConfigurationFilter' value with any optional fields omitted.
-mkNotificationConfigurationFilter ::
-  NotificationConfigurationFilter
-mkNotificationConfigurationFilter =
-  NotificationConfigurationFilter' {key = Core.Nothing}
+mkNotificationConfigurationFilter
+    :: NotificationConfigurationFilter
+mkNotificationConfigurationFilter
+  = NotificationConfigurationFilter'{key = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ncfKey :: Lens.Lens' NotificationConfigurationFilter (Core.Maybe Types.S3KeyFilter)
 ncfKey = Lens.field @"key"
-{-# DEPRECATED ncfKey "Use generic-lens or generic-optics with 'key' instead." #-}
+{-# INLINEABLE ncfKey #-}
+{-# DEPRECATED key "Use generic-lens or generic-optics with 'key' instead"  #-}
 
 instance Core.ToXML NotificationConfigurationFilter where
-  toXML NotificationConfigurationFilter {..} =
-    Core.toXMLNode "S3Key" Core.<$> key
+        toXML NotificationConfigurationFilter{..}
+          = Core.maybe Core.mempty (Core.toXMLElement "S3Key") key
 
 instance Core.FromXML NotificationConfigurationFilter where
-  parseXML x =
-    NotificationConfigurationFilter' Core.<$> (x Core..@? "S3Key")
+        parseXML x
+          = NotificationConfigurationFilter' Core.<$> (x Core..@? "S3Key")

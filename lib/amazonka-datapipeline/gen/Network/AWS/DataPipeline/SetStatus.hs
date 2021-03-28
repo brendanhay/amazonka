@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,20 +15,19 @@
 --
 -- Requests that the status of the specified physical or logical pipeline objects be updated in the specified pipeline. This update might not occur immediately, but is eventually consistent. The status that can be set depends on the type of object (for example, DataNode or Activity). You cannot perform this operation on @FINISHED@ pipelines and attempting to do so returns @InvalidRequestException@ .
 module Network.AWS.DataPipeline.SetStatus
-  ( -- * Creating a request
-    SetStatus (..),
-    mkSetStatus,
-
+    (
+    -- * Creating a request
+      SetStatus (..)
+    , mkSetStatus
     -- ** Request lenses
-    ssPipelineId,
-    ssObjectIds,
-    ssStatus,
+    , ssPipelineId
+    , ssObjectIds
+    , ssStatus
 
     -- * Destructuring the response
-    SetStatusResponse (..),
-    mkSetStatusResponse,
-  )
-where
+    , SetStatusResponse (..)
+    , mkSetStatusResponse
+    ) where
 
 import qualified Network.AWS.DataPipeline.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -40,71 +39,76 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkSetStatus' smart constructor.
 data SetStatus = SetStatus'
-  { -- | The ID of the pipeline that contains the objects.
-    pipelineId :: Types.Id,
-    -- | The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.
-    objectIds :: [Types.Id],
-    -- | The status to be set on all the objects specified in @objectIds@ . For components, use @PAUSE@ or @RESUME@ . For instances, use @TRY_CANCEL@ , @RERUN@ , or @MARK_FINISHED@ .
-    status :: Types.String
+  { pipelineId :: Types.Id
+    -- ^ The ID of the pipeline that contains the objects.
+  , objectIds :: [Types.Id]
+    -- ^ The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.
+  , status :: Core.Text
+    -- ^ The status to be set on all the objects specified in @objectIds@ . For components, use @PAUSE@ or @RESUME@ . For instances, use @TRY_CANCEL@ , @RERUN@ , or @MARK_FINISHED@ .
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'SetStatus' value with any optional fields omitted.
-mkSetStatus ::
-  -- | 'pipelineId'
-  Types.Id ->
-  -- | 'status'
-  Types.String ->
-  SetStatus
-mkSetStatus pipelineId status =
-  SetStatus' {pipelineId, objectIds = Core.mempty, status}
+mkSetStatus
+    :: Types.Id -- ^ 'pipelineId'
+    -> Core.Text -- ^ 'status'
+    -> SetStatus
+mkSetStatus pipelineId status
+  = SetStatus'{pipelineId, objectIds = Core.mempty, status}
 
 -- | The ID of the pipeline that contains the objects.
 --
 -- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ssPipelineId :: Lens.Lens' SetStatus Types.Id
 ssPipelineId = Lens.field @"pipelineId"
-{-# DEPRECATED ssPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
+{-# INLINEABLE ssPipelineId #-}
+{-# DEPRECATED pipelineId "Use generic-lens or generic-optics with 'pipelineId' instead"  #-}
 
 -- | The IDs of the objects. The corresponding objects can be either physical or components, but not a mix of both types.
 --
 -- /Note:/ Consider using 'objectIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ssObjectIds :: Lens.Lens' SetStatus [Types.Id]
 ssObjectIds = Lens.field @"objectIds"
-{-# DEPRECATED ssObjectIds "Use generic-lens or generic-optics with 'objectIds' instead." #-}
+{-# INLINEABLE ssObjectIds #-}
+{-# DEPRECATED objectIds "Use generic-lens or generic-optics with 'objectIds' instead"  #-}
 
 -- | The status to be set on all the objects specified in @objectIds@ . For components, use @PAUSE@ or @RESUME@ . For instances, use @TRY_CANCEL@ , @RERUN@ , or @MARK_FINISHED@ .
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssStatus :: Lens.Lens' SetStatus Types.String
+ssStatus :: Lens.Lens' SetStatus Core.Text
 ssStatus = Lens.field @"status"
-{-# DEPRECATED ssStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+{-# INLINEABLE ssStatus #-}
+{-# DEPRECATED status "Use generic-lens or generic-optics with 'status' instead"  #-}
+
+instance Core.ToQuery SetStatus where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders SetStatus where
+        toHeaders SetStatus{..}
+          = Core.pure ("X-Amz-Target", "DataPipeline.SetStatus") Core.<>
+              Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON SetStatus where
-  toJSON SetStatus {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("pipelineId" Core..= pipelineId),
-            Core.Just ("objectIds" Core..= objectIds),
-            Core.Just ("status" Core..= status)
-          ]
-      )
+        toJSON SetStatus{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("pipelineId" Core..= pipelineId),
+                  Core.Just ("objectIds" Core..= objectIds),
+                  Core.Just ("status" Core..= status)])
 
 instance Core.AWSRequest SetStatus where
-  type Rs SetStatus = SetStatusResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "DataPipeline.SetStatus")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response = Response.receiveNull SetStatusResponse'
+        type Rs SetStatus = SetStatusResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull SetStatusResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkSetStatusResponse' smart constructor.
 data SetStatusResponse = SetStatusResponse'
@@ -112,6 +116,6 @@ data SetStatusResponse = SetStatusResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'SetStatusResponse' value with any optional fields omitted.
-mkSetStatusResponse ::
-  SetStatusResponse
+mkSetStatusResponse
+    :: SetStatusResponse
 mkSetStatusResponse = SetStatusResponse'

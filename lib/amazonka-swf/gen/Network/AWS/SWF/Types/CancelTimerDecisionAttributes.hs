@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SWF.Types.CancelTimerDecisionAttributes
-  ( CancelTimerDecisionAttributes (..),
-
-    -- * Smart constructor
-    mkCancelTimerDecisionAttributes,
-
-    -- * Lenses
-    ctdaTimerId,
-  )
-where
+  ( CancelTimerDecisionAttributes (..)
+  -- * Smart constructor
+  , mkCancelTimerDecisionAttributes
+  -- * Lenses
+  , ctdaTimerId
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -27,7 +25,7 @@ import qualified Network.AWS.SWF.Types.TimerId as Types
 
 -- | Provides the details of the @CancelTimer@ decision.
 --
--- __Access Control__
+-- __Access Control__ 
 -- You can use IAM policies to control this decision's access to Amazon SWF resources as follows:
 --
 --     * Use a @Resource@ element with the domain name to limit the action to only specified domains.
@@ -43,28 +41,28 @@ import qualified Network.AWS.SWF.Types.TimerId as Types
 --
 -- /See:/ 'mkCancelTimerDecisionAttributes' smart constructor.
 newtype CancelTimerDecisionAttributes = CancelTimerDecisionAttributes'
-  { -- | The unique ID of the timer to cancel.
-    timerId :: Types.TimerId
+  { timerId :: Types.TimerId
+    -- ^ The unique ID of the timer to cancel.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CancelTimerDecisionAttributes' value with any optional fields omitted.
-mkCancelTimerDecisionAttributes ::
-  -- | 'timerId'
-  Types.TimerId ->
-  CancelTimerDecisionAttributes
-mkCancelTimerDecisionAttributes timerId =
-  CancelTimerDecisionAttributes' {timerId}
+mkCancelTimerDecisionAttributes
+    :: Types.TimerId -- ^ 'timerId'
+    -> CancelTimerDecisionAttributes
+mkCancelTimerDecisionAttributes timerId
+  = CancelTimerDecisionAttributes'{timerId}
 
 -- | The unique ID of the timer to cancel.
 --
 -- /Note:/ Consider using 'timerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ctdaTimerId :: Lens.Lens' CancelTimerDecisionAttributes Types.TimerId
 ctdaTimerId = Lens.field @"timerId"
-{-# DEPRECATED ctdaTimerId "Use generic-lens or generic-optics with 'timerId' instead." #-}
+{-# INLINEABLE ctdaTimerId #-}
+{-# DEPRECATED timerId "Use generic-lens or generic-optics with 'timerId' instead"  #-}
 
 instance Core.FromJSON CancelTimerDecisionAttributes where
-  toJSON CancelTimerDecisionAttributes {..} =
-    Core.object
-      (Core.catMaybes [Core.Just ("timerId" Core..= timerId)])
+        toJSON CancelTimerDecisionAttributes{..}
+          = Core.object
+              (Core.catMaybes [Core.Just ("timerId" Core..= timerId)])

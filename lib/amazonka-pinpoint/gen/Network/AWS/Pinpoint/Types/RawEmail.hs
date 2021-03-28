@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Pinpoint.Types.RawEmail
-  ( RawEmail (..),
-
-    -- * Smart constructor
-    mkRawEmail,
-
-    -- * Lenses
-    reData,
-  )
-where
+  ( RawEmail (..)
+  -- * Smart constructor
+  , mkRawEmail
+  -- * Lenses
+  , reData
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -28,16 +26,16 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkRawEmail' smart constructor.
 newtype RawEmail = RawEmail'
-  { -- | The email message, represented as a raw MIME message. The entire message must be base64 encoded.
-    data' :: Core.Maybe Core.Base64
+  { data' :: Core.Maybe Core.Base64
+    -- ^ The email message, represented as a raw MIME message. The entire message must be base64 encoded.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'RawEmail' value with any optional fields omitted.
-mkRawEmail ::
-  RawEmail
-mkRawEmail = RawEmail' {data' = Core.Nothing}
+mkRawEmail
+    :: RawEmail
+mkRawEmail = RawEmail'{data' = Core.Nothing}
 
 -- | The email message, represented as a raw MIME message. The entire message must be base64 encoded.--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -48,8 +46,9 @@ mkRawEmail = RawEmail' {data' = Core.Nothing}
 -- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 reData :: Lens.Lens' RawEmail (Core.Maybe Core.Base64)
 reData = Lens.field @"data'"
-{-# DEPRECATED reData "Use generic-lens or generic-optics with 'data'' instead." #-}
+{-# INLINEABLE reData #-}
+{-# DEPRECATED data' "Use generic-lens or generic-optics with 'data'' instead"  #-}
 
 instance Core.FromJSON RawEmail where
-  toJSON RawEmail {..} =
-    Core.object (Core.catMaybes [("Data" Core..=) Core.<$> data'])
+        toJSON RawEmail{..}
+          = Core.object (Core.catMaybes [("Data" Core..=) Core.<$> data'])

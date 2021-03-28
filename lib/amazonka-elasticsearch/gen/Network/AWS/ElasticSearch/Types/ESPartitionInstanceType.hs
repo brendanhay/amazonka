@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,101 +10,83 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.ElasticSearch.Types.ESPartitionInstanceType
   ( ESPartitionInstanceType
-      ( ESPartitionInstanceType',
-        ESPartitionInstanceTypeM3_Medium_Elasticsearch,
-        ESPartitionInstanceTypeM3_Large_Elasticsearch,
-        ESPartitionInstanceTypeM3_Xlarge_Elasticsearch,
-        ESPartitionInstanceTypeM3_2xlarge_Elasticsearch,
-        ESPartitionInstanceTypeM4_Large_Elasticsearch,
-        ESPartitionInstanceTypeM4_Xlarge_Elasticsearch,
-        ESPartitionInstanceTypeM4_2xlarge_Elasticsearch,
-        ESPartitionInstanceTypeM4_4xlarge_Elasticsearch,
-        ESPartitionInstanceTypeM4_10xlarge_Elasticsearch,
-        ESPartitionInstanceTypeM5_Large_Elasticsearch,
-        ESPartitionInstanceTypeM5_Xlarge_Elasticsearch,
-        ESPartitionInstanceTypeM5_2xlarge_Elasticsearch,
-        ESPartitionInstanceTypeM5_4xlarge_Elasticsearch,
-        ESPartitionInstanceTypeM5_12xlarge_Elasticsearch,
-        ESPartitionInstanceTypeR5_Large_Elasticsearch,
-        ESPartitionInstanceTypeR5_Xlarge_Elasticsearch,
-        ESPartitionInstanceTypeR5_2xlarge_Elasticsearch,
-        ESPartitionInstanceTypeR5_4xlarge_Elasticsearch,
-        ESPartitionInstanceTypeR5_12xlarge_Elasticsearch,
-        ESPartitionInstanceTypeC5_Large_Elasticsearch,
-        ESPartitionInstanceTypeC5_Xlarge_Elasticsearch,
-        ESPartitionInstanceTypeC5_2xlarge_Elasticsearch,
-        ESPartitionInstanceTypeC5_4xlarge_Elasticsearch,
-        ESPartitionInstanceTypeC5_9xlarge_Elasticsearch,
-        ESPartitionInstanceTypeC5_18xlarge_Elasticsearch,
-        ESPartitionInstanceTypeULTRAWARM1_Medium_Elasticsearch,
-        ESPartitionInstanceTypeULTRAWARM1_Large_Elasticsearch,
-        ESPartitionInstanceTypeT2_Micro_Elasticsearch,
-        ESPartitionInstanceTypeT2_Small_Elasticsearch,
-        ESPartitionInstanceTypeT2_Medium_Elasticsearch,
-        ESPartitionInstanceTypeR3_Large_Elasticsearch,
-        ESPartitionInstanceTypeR3_Xlarge_Elasticsearch,
-        ESPartitionInstanceTypeR3_2xlarge_Elasticsearch,
-        ESPartitionInstanceTypeR3_4xlarge_Elasticsearch,
-        ESPartitionInstanceTypeR3_8xlarge_Elasticsearch,
-        ESPartitionInstanceTypeI2_Xlarge_Elasticsearch,
-        ESPartitionInstanceTypeI2_2xlarge_Elasticsearch,
-        ESPartitionInstanceTypeD2_Xlarge_Elasticsearch,
-        ESPartitionInstanceTypeD2_2xlarge_Elasticsearch,
-        ESPartitionInstanceTypeD2_4xlarge_Elasticsearch,
-        ESPartitionInstanceTypeD2_8xlarge_Elasticsearch,
-        ESPartitionInstanceTypeC4_Large_Elasticsearch,
-        ESPartitionInstanceTypeC4_Xlarge_Elasticsearch,
-        ESPartitionInstanceTypeC4_2xlarge_Elasticsearch,
-        ESPartitionInstanceTypeC4_4xlarge_Elasticsearch,
-        ESPartitionInstanceTypeC4_8xlarge_Elasticsearch,
-        ESPartitionInstanceTypeR4_Large_Elasticsearch,
-        ESPartitionInstanceTypeR4_Xlarge_Elasticsearch,
-        ESPartitionInstanceTypeR4_2xlarge_Elasticsearch,
-        ESPartitionInstanceTypeR4_4xlarge_Elasticsearch,
-        ESPartitionInstanceTypeR4_8xlarge_Elasticsearch,
-        ESPartitionInstanceTypeR4_16xlarge_Elasticsearch,
-        ESPartitionInstanceTypeI3_Large_Elasticsearch,
-        ESPartitionInstanceTypeI3_Xlarge_Elasticsearch,
-        ESPartitionInstanceTypeI3_2xlarge_Elasticsearch,
-        ESPartitionInstanceTypeI3_4xlarge_Elasticsearch,
-        ESPartitionInstanceTypeI3_8xlarge_Elasticsearch,
-        ESPartitionInstanceTypeI3_16xlarge_Elasticsearch,
-        fromESPartitionInstanceType
-      ),
-  )
-where
+    ( ESPartitionInstanceType'
+    , ESPartitionInstanceTypeM3_Medium_Elasticsearch
+    , ESPartitionInstanceTypeM3_Large_Elasticsearch
+    , ESPartitionInstanceTypeM3_Xlarge_Elasticsearch
+    , ESPartitionInstanceTypeM3_2xlarge_Elasticsearch
+    , ESPartitionInstanceTypeM4_Large_Elasticsearch
+    , ESPartitionInstanceTypeM4_Xlarge_Elasticsearch
+    , ESPartitionInstanceTypeM4_2xlarge_Elasticsearch
+    , ESPartitionInstanceTypeM4_4xlarge_Elasticsearch
+    , ESPartitionInstanceTypeM4_10xlarge_Elasticsearch
+    , ESPartitionInstanceTypeM5_Large_Elasticsearch
+    , ESPartitionInstanceTypeM5_Xlarge_Elasticsearch
+    , ESPartitionInstanceTypeM5_2xlarge_Elasticsearch
+    , ESPartitionInstanceTypeM5_4xlarge_Elasticsearch
+    , ESPartitionInstanceTypeM5_12xlarge_Elasticsearch
+    , ESPartitionInstanceTypeR5_Large_Elasticsearch
+    , ESPartitionInstanceTypeR5_Xlarge_Elasticsearch
+    , ESPartitionInstanceTypeR5_2xlarge_Elasticsearch
+    , ESPartitionInstanceTypeR5_4xlarge_Elasticsearch
+    , ESPartitionInstanceTypeR5_12xlarge_Elasticsearch
+    , ESPartitionInstanceTypeC5_Large_Elasticsearch
+    , ESPartitionInstanceTypeC5_Xlarge_Elasticsearch
+    , ESPartitionInstanceTypeC5_2xlarge_Elasticsearch
+    , ESPartitionInstanceTypeC5_4xlarge_Elasticsearch
+    , ESPartitionInstanceTypeC5_9xlarge_Elasticsearch
+    , ESPartitionInstanceTypeC5_18xlarge_Elasticsearch
+    , ESPartitionInstanceTypeULTRAWARM1_Medium_Elasticsearch
+    , ESPartitionInstanceTypeULTRAWARM1_Large_Elasticsearch
+    , ESPartitionInstanceTypeT2_Micro_Elasticsearch
+    , ESPartitionInstanceTypeT2_Small_Elasticsearch
+    , ESPartitionInstanceTypeT2_Medium_Elasticsearch
+    , ESPartitionInstanceTypeR3_Large_Elasticsearch
+    , ESPartitionInstanceTypeR3_Xlarge_Elasticsearch
+    , ESPartitionInstanceTypeR3_2xlarge_Elasticsearch
+    , ESPartitionInstanceTypeR3_4xlarge_Elasticsearch
+    , ESPartitionInstanceTypeR3_8xlarge_Elasticsearch
+    , ESPartitionInstanceTypeI2_Xlarge_Elasticsearch
+    , ESPartitionInstanceTypeI2_2xlarge_Elasticsearch
+    , ESPartitionInstanceTypeD2_Xlarge_Elasticsearch
+    , ESPartitionInstanceTypeD2_2xlarge_Elasticsearch
+    , ESPartitionInstanceTypeD2_4xlarge_Elasticsearch
+    , ESPartitionInstanceTypeD2_8xlarge_Elasticsearch
+    , ESPartitionInstanceTypeC4_Large_Elasticsearch
+    , ESPartitionInstanceTypeC4_Xlarge_Elasticsearch
+    , ESPartitionInstanceTypeC4_2xlarge_Elasticsearch
+    , ESPartitionInstanceTypeC4_4xlarge_Elasticsearch
+    , ESPartitionInstanceTypeC4_8xlarge_Elasticsearch
+    , ESPartitionInstanceTypeR4_Large_Elasticsearch
+    , ESPartitionInstanceTypeR4_Xlarge_Elasticsearch
+    , ESPartitionInstanceTypeR4_2xlarge_Elasticsearch
+    , ESPartitionInstanceTypeR4_4xlarge_Elasticsearch
+    , ESPartitionInstanceTypeR4_8xlarge_Elasticsearch
+    , ESPartitionInstanceTypeR4_16xlarge_Elasticsearch
+    , ESPartitionInstanceTypeI3_Large_Elasticsearch
+    , ESPartitionInstanceTypeI3_Xlarge_Elasticsearch
+    , ESPartitionInstanceTypeI3_2xlarge_Elasticsearch
+    , ESPartitionInstanceTypeI3_4xlarge_Elasticsearch
+    , ESPartitionInstanceTypeI3_8xlarge_Elasticsearch
+    , ESPartitionInstanceTypeI3_16xlarge_Elasticsearch
+    , fromESPartitionInstanceType
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype ESPartitionInstanceType = ESPartitionInstanceType'
-  { fromESPartitionInstanceType ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype ESPartitionInstanceType = ESPartitionInstanceType'{fromESPartitionInstanceType
+                                                           :: Core.Text}
+                                    deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                    Core.Generic)
+                                    deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                      Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                      Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                      Core.ToText, Core.FromText, Core.ToByteString,
+                                                      Core.ToQuery, Core.ToHeader)
 
 pattern ESPartitionInstanceTypeM3_Medium_Elasticsearch :: ESPartitionInstanceType
 pattern ESPartitionInstanceTypeM3_Medium_Elasticsearch = ESPartitionInstanceType' "m3.medium.elasticsearch"
@@ -280,64 +262,121 @@ pattern ESPartitionInstanceTypeI3_8xlarge_Elasticsearch = ESPartitionInstanceTyp
 pattern ESPartitionInstanceTypeI3_16xlarge_Elasticsearch :: ESPartitionInstanceType
 pattern ESPartitionInstanceTypeI3_16xlarge_Elasticsearch = ESPartitionInstanceType' "i3.16xlarge.elasticsearch"
 
-{-# COMPLETE
+{-# COMPLETE 
   ESPartitionInstanceTypeM3_Medium_Elasticsearch,
+
   ESPartitionInstanceTypeM3_Large_Elasticsearch,
+
   ESPartitionInstanceTypeM3_Xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeM3_2xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeM4_Large_Elasticsearch,
+
   ESPartitionInstanceTypeM4_Xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeM4_2xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeM4_4xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeM4_10xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeM5_Large_Elasticsearch,
+
   ESPartitionInstanceTypeM5_Xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeM5_2xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeM5_4xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeM5_12xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeR5_Large_Elasticsearch,
+
   ESPartitionInstanceTypeR5_Xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeR5_2xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeR5_4xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeR5_12xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeC5_Large_Elasticsearch,
+
   ESPartitionInstanceTypeC5_Xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeC5_2xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeC5_4xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeC5_9xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeC5_18xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeULTRAWARM1_Medium_Elasticsearch,
+
   ESPartitionInstanceTypeULTRAWARM1_Large_Elasticsearch,
+
   ESPartitionInstanceTypeT2_Micro_Elasticsearch,
+
   ESPartitionInstanceTypeT2_Small_Elasticsearch,
+
   ESPartitionInstanceTypeT2_Medium_Elasticsearch,
+
   ESPartitionInstanceTypeR3_Large_Elasticsearch,
+
   ESPartitionInstanceTypeR3_Xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeR3_2xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeR3_4xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeR3_8xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeI2_Xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeI2_2xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeD2_Xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeD2_2xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeD2_4xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeD2_8xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeC4_Large_Elasticsearch,
+
   ESPartitionInstanceTypeC4_Xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeC4_2xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeC4_4xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeC4_8xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeR4_Large_Elasticsearch,
+
   ESPartitionInstanceTypeR4_Xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeR4_2xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeR4_4xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeR4_8xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeR4_16xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeI3_Large_Elasticsearch,
+
   ESPartitionInstanceTypeI3_Xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeI3_2xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeI3_4xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeI3_8xlarge_Elasticsearch,
+
   ESPartitionInstanceTypeI3_16xlarge_Elasticsearch,
   ESPartitionInstanceType'
   #-}

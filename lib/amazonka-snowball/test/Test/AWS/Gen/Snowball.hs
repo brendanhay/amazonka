@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.Snowball where
 
 import Data.Proxy
-import Network.AWS.Snowball
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.AWS.Snowball.Internal
 import Test.Tasty
+import Network.AWS.Snowball
+import Test.AWS.Snowball.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -168,310 +169,266 @@ import Test.Tasty
 -- Requests
 
 requestCancelCluster :: CancelCluster -> TestTree
-requestCancelCluster =
-  req
+requestCancelCluster = req
     "CancelCluster"
     "fixture/CancelCluster.yaml"
 
 requestDescribeCluster :: DescribeCluster -> TestTree
-requestDescribeCluster =
-  req
+requestDescribeCluster = req
     "DescribeCluster"
     "fixture/DescribeCluster.yaml"
 
 requestCreateAddress :: CreateAddress -> TestTree
-requestCreateAddress =
-  req
+requestCreateAddress = req
     "CreateAddress"
     "fixture/CreateAddress.yaml"
 
 requestCreateReturnShippingLabel :: CreateReturnShippingLabel -> TestTree
-requestCreateReturnShippingLabel =
-  req
+requestCreateReturnShippingLabel = req
     "CreateReturnShippingLabel"
     "fixture/CreateReturnShippingLabel.yaml"
 
 requestGetSnowballUsage :: GetSnowballUsage -> TestTree
-requestGetSnowballUsage =
-  req
+requestGetSnowballUsage = req
     "GetSnowballUsage"
     "fixture/GetSnowballUsage.yaml"
 
 requestDescribeAddresses :: DescribeAddresses -> TestTree
-requestDescribeAddresses =
-  req
+requestDescribeAddresses = req
     "DescribeAddresses"
     "fixture/DescribeAddresses.yaml"
 
 requestListCompatibleImages :: ListCompatibleImages -> TestTree
-requestListCompatibleImages =
-  req
+requestListCompatibleImages = req
     "ListCompatibleImages"
     "fixture/ListCompatibleImages.yaml"
 
 requestUpdateCluster :: UpdateCluster -> TestTree
-requestUpdateCluster =
-  req
+requestUpdateCluster = req
     "UpdateCluster"
     "fixture/UpdateCluster.yaml"
 
 requestGetSoftwareUpdates :: GetSoftwareUpdates -> TestTree
-requestGetSoftwareUpdates =
-  req
+requestGetSoftwareUpdates = req
     "GetSoftwareUpdates"
     "fixture/GetSoftwareUpdates.yaml"
 
 requestCreateJob :: CreateJob -> TestTree
-requestCreateJob =
-  req
+requestCreateJob = req
     "CreateJob"
     "fixture/CreateJob.yaml"
 
 requestGetJobManifest :: GetJobManifest -> TestTree
-requestGetJobManifest =
-  req
+requestGetJobManifest = req
     "GetJobManifest"
     "fixture/GetJobManifest.yaml"
 
 requestCreateCluster :: CreateCluster -> TestTree
-requestCreateCluster =
-  req
+requestCreateCluster = req
     "CreateCluster"
     "fixture/CreateCluster.yaml"
 
 requestListJobs :: ListJobs -> TestTree
-requestListJobs =
-  req
+requestListJobs = req
     "ListJobs"
     "fixture/ListJobs.yaml"
 
 requestUpdateJob :: UpdateJob -> TestTree
-requestUpdateJob =
-  req
+requestUpdateJob = req
     "UpdateJob"
     "fixture/UpdateJob.yaml"
 
 requestUpdateJobShipmentState :: UpdateJobShipmentState -> TestTree
-requestUpdateJobShipmentState =
-  req
+requestUpdateJobShipmentState = req
     "UpdateJobShipmentState"
     "fixture/UpdateJobShipmentState.yaml"
 
 requestGetJobUnlockCode :: GetJobUnlockCode -> TestTree
-requestGetJobUnlockCode =
-  req
+requestGetJobUnlockCode = req
     "GetJobUnlockCode"
     "fixture/GetJobUnlockCode.yaml"
 
 requestListClusterJobs :: ListClusterJobs -> TestTree
-requestListClusterJobs =
-  req
+requestListClusterJobs = req
     "ListClusterJobs"
     "fixture/ListClusterJobs.yaml"
 
 requestDescribeJob :: DescribeJob -> TestTree
-requestDescribeJob =
-  req
+requestDescribeJob = req
     "DescribeJob"
     "fixture/DescribeJob.yaml"
 
 requestListClusters :: ListClusters -> TestTree
-requestListClusters =
-  req
+requestListClusters = req
     "ListClusters"
     "fixture/ListClusters.yaml"
 
 requestDescribeAddress :: DescribeAddress -> TestTree
-requestDescribeAddress =
-  req
+requestDescribeAddress = req
     "DescribeAddress"
     "fixture/DescribeAddress.yaml"
 
 requestDescribeReturnShippingLabel :: DescribeReturnShippingLabel -> TestTree
-requestDescribeReturnShippingLabel =
-  req
+requestDescribeReturnShippingLabel = req
     "DescribeReturnShippingLabel"
     "fixture/DescribeReturnShippingLabel.yaml"
 
 requestCancelJob :: CancelJob -> TestTree
-requestCancelJob =
-  req
+requestCancelJob = req
     "CancelJob"
     "fixture/CancelJob.yaml"
 
 -- Responses
 
 responseCancelCluster :: CancelClusterResponse -> TestTree
-responseCancelCluster =
-  res
+responseCancelCluster = res
     "CancelClusterResponse"
     "fixture/CancelClusterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CancelCluster)
 
 responseDescribeCluster :: DescribeClusterResponse -> TestTree
-responseDescribeCluster =
-  res
+responseDescribeCluster = res
     "DescribeClusterResponse"
     "fixture/DescribeClusterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeCluster)
 
 responseCreateAddress :: CreateAddressResponse -> TestTree
-responseCreateAddress =
-  res
+responseCreateAddress = res
     "CreateAddressResponse"
     "fixture/CreateAddressResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateAddress)
 
 responseCreateReturnShippingLabel :: CreateReturnShippingLabelResponse -> TestTree
-responseCreateReturnShippingLabel =
-  res
+responseCreateReturnShippingLabel = res
     "CreateReturnShippingLabelResponse"
     "fixture/CreateReturnShippingLabelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateReturnShippingLabel)
 
 responseGetSnowballUsage :: GetSnowballUsageResponse -> TestTree
-responseGetSnowballUsage =
-  res
+responseGetSnowballUsage = res
     "GetSnowballUsageResponse"
     "fixture/GetSnowballUsageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetSnowballUsage)
 
 responseDescribeAddresses :: DescribeAddressesResponse -> TestTree
-responseDescribeAddresses =
-  res
+responseDescribeAddresses = res
     "DescribeAddressesResponse"
     "fixture/DescribeAddressesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAddresses)
 
 responseListCompatibleImages :: ListCompatibleImagesResponse -> TestTree
-responseListCompatibleImages =
-  res
+responseListCompatibleImages = res
     "ListCompatibleImagesResponse"
     "fixture/ListCompatibleImagesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListCompatibleImages)
 
 responseUpdateCluster :: UpdateClusterResponse -> TestTree
-responseUpdateCluster =
-  res
+responseUpdateCluster = res
     "UpdateClusterResponse"
     "fixture/UpdateClusterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateCluster)
 
 responseGetSoftwareUpdates :: GetSoftwareUpdatesResponse -> TestTree
-responseGetSoftwareUpdates =
-  res
+responseGetSoftwareUpdates = res
     "GetSoftwareUpdatesResponse"
     "fixture/GetSoftwareUpdatesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetSoftwareUpdates)
 
 responseCreateJob :: CreateJobResponse -> TestTree
-responseCreateJob =
-  res
+responseCreateJob = res
     "CreateJobResponse"
     "fixture/CreateJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateJob)
 
 responseGetJobManifest :: GetJobManifestResponse -> TestTree
-responseGetJobManifest =
-  res
+responseGetJobManifest = res
     "GetJobManifestResponse"
     "fixture/GetJobManifestResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetJobManifest)
 
 responseCreateCluster :: CreateClusterResponse -> TestTree
-responseCreateCluster =
-  res
+responseCreateCluster = res
     "CreateClusterResponse"
     "fixture/CreateClusterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateCluster)
 
 responseListJobs :: ListJobsResponse -> TestTree
-responseListJobs =
-  res
+responseListJobs = res
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListJobs)
 
 responseUpdateJob :: UpdateJobResponse -> TestTree
-responseUpdateJob =
-  res
+responseUpdateJob = res
     "UpdateJobResponse"
     "fixture/UpdateJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateJob)
 
 responseUpdateJobShipmentState :: UpdateJobShipmentStateResponse -> TestTree
-responseUpdateJobShipmentState =
-  res
+responseUpdateJobShipmentState = res
     "UpdateJobShipmentStateResponse"
     "fixture/UpdateJobShipmentStateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateJobShipmentState)
 
 responseGetJobUnlockCode :: GetJobUnlockCodeResponse -> TestTree
-responseGetJobUnlockCode =
-  res
+responseGetJobUnlockCode = res
     "GetJobUnlockCodeResponse"
     "fixture/GetJobUnlockCodeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetJobUnlockCode)
 
 responseListClusterJobs :: ListClusterJobsResponse -> TestTree
-responseListClusterJobs =
-  res
+responseListClusterJobs = res
     "ListClusterJobsResponse"
     "fixture/ListClusterJobsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListClusterJobs)
 
 responseDescribeJob :: DescribeJobResponse -> TestTree
-responseDescribeJob =
-  res
+responseDescribeJob = res
     "DescribeJobResponse"
     "fixture/DescribeJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeJob)
 
 responseListClusters :: ListClustersResponse -> TestTree
-responseListClusters =
-  res
+responseListClusters = res
     "ListClustersResponse"
     "fixture/ListClustersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListClusters)
 
 responseDescribeAddress :: DescribeAddressResponse -> TestTree
-responseDescribeAddress =
-  res
+responseDescribeAddress = res
     "DescribeAddressResponse"
     "fixture/DescribeAddressResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAddress)
 
 responseDescribeReturnShippingLabel :: DescribeReturnShippingLabelResponse -> TestTree
-responseDescribeReturnShippingLabel =
-  res
+responseDescribeReturnShippingLabel = res
     "DescribeReturnShippingLabelResponse"
     "fixture/DescribeReturnShippingLabelResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeReturnShippingLabel)
 
 responseCancelJob :: CancelJobResponse -> TestTree
-responseCancelJob =
-  res
+responseCancelJob = res
     "CancelJobResponse"
     "fixture/CancelJobResponse.proto"
     mkServiceConfig

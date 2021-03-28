@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SWF.Types.CancelWorkflowExecutionDecisionAttributes
-  ( CancelWorkflowExecutionDecisionAttributes (..),
-
-    -- * Smart constructor
-    mkCancelWorkflowExecutionDecisionAttributes,
-
-    -- * Lenses
-    cwedaDetails,
-  )
-where
+  ( CancelWorkflowExecutionDecisionAttributes (..)
+  -- * Smart constructor
+  , mkCancelWorkflowExecutionDecisionAttributes
+  -- * Lenses
+  , cwedaDetails
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -27,7 +25,7 @@ import qualified Network.AWS.SWF.Types.Data as Types
 
 -- | Provides the details of the @CancelWorkflowExecution@ decision.
 --
--- __Access Control__
+-- __Access Control__ 
 -- You can use IAM policies to control this decision's access to Amazon SWF resources as follows:
 --
 --     * Use a @Resource@ element with the domain name to limit the action to only specified domains.
@@ -43,29 +41,29 @@ import qualified Network.AWS.SWF.Types.Data as Types
 --
 -- /See:/ 'mkCancelWorkflowExecutionDecisionAttributes' smart constructor.
 newtype CancelWorkflowExecutionDecisionAttributes = CancelWorkflowExecutionDecisionAttributes'
-  { -- | Details of the cancellation.
-    details :: Core.Maybe Types.Data
+  { details :: Core.Maybe Types.Data
+    -- ^ Details of the cancellation.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CancelWorkflowExecutionDecisionAttributes' value with any optional fields omitted.
-mkCancelWorkflowExecutionDecisionAttributes ::
-  CancelWorkflowExecutionDecisionAttributes
-mkCancelWorkflowExecutionDecisionAttributes =
-  CancelWorkflowExecutionDecisionAttributes'
-    { details =
-        Core.Nothing
-    }
+mkCancelWorkflowExecutionDecisionAttributes
+    :: CancelWorkflowExecutionDecisionAttributes
+mkCancelWorkflowExecutionDecisionAttributes
+  = CancelWorkflowExecutionDecisionAttributes'{details =
+                                                 Core.Nothing}
 
 -- | Details of the cancellation.
 --
 -- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cwedaDetails :: Lens.Lens' CancelWorkflowExecutionDecisionAttributes (Core.Maybe Types.Data)
 cwedaDetails = Lens.field @"details"
-{-# DEPRECATED cwedaDetails "Use generic-lens or generic-optics with 'details' instead." #-}
+{-# INLINEABLE cwedaDetails #-}
+{-# DEPRECATED details "Use generic-lens or generic-optics with 'details' instead"  #-}
 
-instance Core.FromJSON CancelWorkflowExecutionDecisionAttributes where
-  toJSON CancelWorkflowExecutionDecisionAttributes {..} =
-    Core.object
-      (Core.catMaybes [("details" Core..=) Core.<$> details])
+instance Core.FromJSON CancelWorkflowExecutionDecisionAttributes
+         where
+        toJSON CancelWorkflowExecutionDecisionAttributes{..}
+          = Core.object
+              (Core.catMaybes [("details" Core..=) Core.<$> details])

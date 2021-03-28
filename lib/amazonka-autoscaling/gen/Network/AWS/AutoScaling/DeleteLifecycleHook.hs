@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,22 +17,20 @@
 --
 -- If there are any outstanding lifecycle actions, they are completed first (@ABANDON@ for launching instances, @CONTINUE@ for terminating instances).
 module Network.AWS.AutoScaling.DeleteLifecycleHook
-  ( -- * Creating a request
-    DeleteLifecycleHook (..),
-    mkDeleteLifecycleHook,
-
+    (
+    -- * Creating a request
+      DeleteLifecycleHook (..)
+    , mkDeleteLifecycleHook
     -- ** Request lenses
-    dlhfLifecycleHookName,
-    dlhfAutoScalingGroupName,
+    , dlhfLifecycleHookName
+    , dlhfAutoScalingGroupName
 
     -- * Destructuring the response
-    DeleteLifecycleHookResponse (..),
-    mkDeleteLifecycleHookResponse,
-
+    , DeleteLifecycleHookResponse (..)
+    , mkDeleteLifecycleHookResponse
     -- ** Response lenses
-    dlhrfrsResponseStatus,
-  )
-where
+    , dlhrfrsResponseStatus
+    ) where
 
 import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -42,86 +40,90 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteLifecycleHook' smart constructor.
 data DeleteLifecycleHook = DeleteLifecycleHook'
-  { -- | The name of the lifecycle hook.
-    lifecycleHookName :: Types.LifecycleHookName,
-    -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Types.AutoScalingGroupName
+  { lifecycleHookName :: Types.LifecycleHookName
+    -- ^ The name of the lifecycle hook.
+  , autoScalingGroupName :: Types.AutoScalingGroupName
+    -- ^ The name of the Auto Scaling group.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteLifecycleHook' value with any optional fields omitted.
-mkDeleteLifecycleHook ::
-  -- | 'lifecycleHookName'
-  Types.LifecycleHookName ->
-  -- | 'autoScalingGroupName'
-  Types.AutoScalingGroupName ->
-  DeleteLifecycleHook
-mkDeleteLifecycleHook lifecycleHookName autoScalingGroupName =
-  DeleteLifecycleHook' {lifecycleHookName, autoScalingGroupName}
+mkDeleteLifecycleHook
+    :: Types.LifecycleHookName -- ^ 'lifecycleHookName'
+    -> Types.AutoScalingGroupName -- ^ 'autoScalingGroupName'
+    -> DeleteLifecycleHook
+mkDeleteLifecycleHook lifecycleHookName autoScalingGroupName
+  = DeleteLifecycleHook'{lifecycleHookName, autoScalingGroupName}
 
 -- | The name of the lifecycle hook.
 --
 -- /Note:/ Consider using 'lifecycleHookName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dlhfLifecycleHookName :: Lens.Lens' DeleteLifecycleHook Types.LifecycleHookName
 dlhfLifecycleHookName = Lens.field @"lifecycleHookName"
-{-# DEPRECATED dlhfLifecycleHookName "Use generic-lens or generic-optics with 'lifecycleHookName' instead." #-}
+{-# INLINEABLE dlhfLifecycleHookName #-}
+{-# DEPRECATED lifecycleHookName "Use generic-lens or generic-optics with 'lifecycleHookName' instead"  #-}
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dlhfAutoScalingGroupName :: Lens.Lens' DeleteLifecycleHook Types.AutoScalingGroupName
 dlhfAutoScalingGroupName = Lens.field @"autoScalingGroupName"
-{-# DEPRECATED dlhfAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
+{-# INLINEABLE dlhfAutoScalingGroupName #-}
+{-# DEPRECATED autoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead"  #-}
+
+instance Core.ToQuery DeleteLifecycleHook where
+        toQuery DeleteLifecycleHook{..}
+          = Core.toQueryPair "Action" ("DeleteLifecycleHook" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2011-01-01" :: Core.Text)
+              Core.<> Core.toQueryPair "LifecycleHookName" lifecycleHookName
+              Core.<>
+              Core.toQueryPair "AutoScalingGroupName" autoScalingGroupName
+
+instance Core.ToHeaders DeleteLifecycleHook where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest DeleteLifecycleHook where
-  type Rs DeleteLifecycleHook = DeleteLifecycleHookResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "DeleteLifecycleHook")
-                Core.<> (Core.pure ("Version", "2011-01-01"))
-                Core.<> (Core.toQueryValue "LifecycleHookName" lifecycleHookName)
-                Core.<> (Core.toQueryValue "AutoScalingGroupName" autoScalingGroupName)
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "DeleteLifecycleHookResult"
-      ( \s h x ->
-          DeleteLifecycleHookResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DeleteLifecycleHook = DeleteLifecycleHookResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "DeleteLifecycleHookResult"
+              (\ s h x ->
+                 DeleteLifecycleHookResponse' Core.<$>
+                   (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteLifecycleHookResponse' smart constructor.
 newtype DeleteLifecycleHookResponse = DeleteLifecycleHookResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteLifecycleHookResponse' value with any optional fields omitted.
-mkDeleteLifecycleHookResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DeleteLifecycleHookResponse
-mkDeleteLifecycleHookResponse responseStatus =
-  DeleteLifecycleHookResponse' {responseStatus}
+mkDeleteLifecycleHookResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DeleteLifecycleHookResponse
+mkDeleteLifecycleHookResponse responseStatus
+  = DeleteLifecycleHookResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dlhrfrsResponseStatus :: Lens.Lens' DeleteLifecycleHookResponse Core.Int
 dlhrfrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED dlhrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE dlhrfrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

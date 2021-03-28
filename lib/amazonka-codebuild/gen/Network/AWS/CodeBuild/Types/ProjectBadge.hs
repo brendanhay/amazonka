@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,19 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CodeBuild.Types.ProjectBadge
-  ( ProjectBadge (..),
+  ( ProjectBadge (..)
+  -- * Smart constructor
+  , mkProjectBadge
+  -- * Lenses
+  , pbBadgeEnabled
+  , pbBadgeRequestUrl
+  ) where
 
-    -- * Smart constructor
-    mkProjectBadge,
-
-    -- * Lenses
-    pbBadgeEnabled,
-    pbBadgeRequestUrl,
-  )
-where
-
-import qualified Network.AWS.CodeBuild.Types.String as Types
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
 
@@ -30,44 +27,44 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkProjectBadge' smart constructor.
 data ProjectBadge = ProjectBadge'
-  { -- | Set this to true to generate a publicly accessible URL for your project's build badge.
-    badgeEnabled :: Core.Maybe Core.Bool,
-    -- | The publicly-accessible URL through which you can access the build badge for your project.
-    --
-    -- The publicly accessible URL through which you can access the build badge for your project.
-    badgeRequestUrl :: Core.Maybe Types.String
+  { badgeEnabled :: Core.Maybe Core.Bool
+    -- ^ Set this to true to generate a publicly accessible URL for your project's build badge.
+  , badgeRequestUrl :: Core.Maybe Core.Text
+    -- ^ The publicly-accessible URL through which you can access the build badge for your project. 
+--
+-- The publicly accessible URL through which you can access the build badge for your project. 
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ProjectBadge' value with any optional fields omitted.
-mkProjectBadge ::
-  ProjectBadge
-mkProjectBadge =
-  ProjectBadge'
-    { badgeEnabled = Core.Nothing,
-      badgeRequestUrl = Core.Nothing
-    }
+mkProjectBadge
+    :: ProjectBadge
+mkProjectBadge
+  = ProjectBadge'{badgeEnabled = Core.Nothing,
+                  badgeRequestUrl = Core.Nothing}
 
 -- | Set this to true to generate a publicly accessible URL for your project's build badge.
 --
 -- /Note:/ Consider using 'badgeEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pbBadgeEnabled :: Lens.Lens' ProjectBadge (Core.Maybe Core.Bool)
 pbBadgeEnabled = Lens.field @"badgeEnabled"
-{-# DEPRECATED pbBadgeEnabled "Use generic-lens or generic-optics with 'badgeEnabled' instead." #-}
+{-# INLINEABLE pbBadgeEnabled #-}
+{-# DEPRECATED badgeEnabled "Use generic-lens or generic-optics with 'badgeEnabled' instead"  #-}
 
--- | The publicly-accessible URL through which you can access the build badge for your project.
+-- | The publicly-accessible URL through which you can access the build badge for your project. 
 --
--- The publicly accessible URL through which you can access the build badge for your project.
+-- The publicly accessible URL through which you can access the build badge for your project. 
 --
 -- /Note:/ Consider using 'badgeRequestUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbBadgeRequestUrl :: Lens.Lens' ProjectBadge (Core.Maybe Types.String)
+pbBadgeRequestUrl :: Lens.Lens' ProjectBadge (Core.Maybe Core.Text)
 pbBadgeRequestUrl = Lens.field @"badgeRequestUrl"
-{-# DEPRECATED pbBadgeRequestUrl "Use generic-lens or generic-optics with 'badgeRequestUrl' instead." #-}
+{-# INLINEABLE pbBadgeRequestUrl #-}
+{-# DEPRECATED badgeRequestUrl "Use generic-lens or generic-optics with 'badgeRequestUrl' instead"  #-}
 
 instance Core.FromJSON ProjectBadge where
-  parseJSON =
-    Core.withObject "ProjectBadge" Core.$
-      \x ->
-        ProjectBadge'
-          Core.<$> (x Core..:? "badgeEnabled") Core.<*> (x Core..:? "badgeRequestUrl")
+        parseJSON
+          = Core.withObject "ProjectBadge" Core.$
+              \ x ->
+                ProjectBadge' Core.<$>
+                  (x Core..:? "badgeEnabled") Core.<*> x Core..:? "badgeRequestUrl"

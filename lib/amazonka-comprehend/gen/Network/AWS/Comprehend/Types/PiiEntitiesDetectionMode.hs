@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,45 +10,28 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Comprehend.Types.PiiEntitiesDetectionMode
   ( PiiEntitiesDetectionMode
-      ( PiiEntitiesDetectionMode',
-        PiiEntitiesDetectionModeOnlyRedaction,
-        PiiEntitiesDetectionModeOnlyOffsets,
-        fromPiiEntitiesDetectionMode
-      ),
-  )
-where
+    ( PiiEntitiesDetectionMode'
+    , PiiEntitiesDetectionModeOnlyRedaction
+    , PiiEntitiesDetectionModeOnlyOffsets
+    , fromPiiEntitiesDetectionMode
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype PiiEntitiesDetectionMode = PiiEntitiesDetectionMode'
-  { fromPiiEntitiesDetectionMode ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype PiiEntitiesDetectionMode = PiiEntitiesDetectionMode'{fromPiiEntitiesDetectionMode
+                                                             :: Core.Text}
+                                     deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                     Core.Generic)
+                                     deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                       Core.ToJSONKey, Core.FromJSONKey,
+                                                       Core.ToJSON, Core.FromJSON, Core.ToXML,
+                                                       Core.FromXML, Core.ToText, Core.FromText,
+                                                       Core.ToByteString, Core.ToQuery,
+                                                       Core.ToHeader)
 
 pattern PiiEntitiesDetectionModeOnlyRedaction :: PiiEntitiesDetectionMode
 pattern PiiEntitiesDetectionModeOnlyRedaction = PiiEntitiesDetectionMode' "ONLY_REDACTION"
@@ -56,8 +39,9 @@ pattern PiiEntitiesDetectionModeOnlyRedaction = PiiEntitiesDetectionMode' "ONLY_
 pattern PiiEntitiesDetectionModeOnlyOffsets :: PiiEntitiesDetectionMode
 pattern PiiEntitiesDetectionModeOnlyOffsets = PiiEntitiesDetectionMode' "ONLY_OFFSETS"
 
-{-# COMPLETE
+{-# COMPLETE 
   PiiEntitiesDetectionModeOnlyRedaction,
+
   PiiEntitiesDetectionModeOnlyOffsets,
   PiiEntitiesDetectionMode'
   #-}

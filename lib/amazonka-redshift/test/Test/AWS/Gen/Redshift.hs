@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.Redshift where
 
 import Data.Proxy
-import Network.AWS.Redshift
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.AWS.Redshift.Internal
 import Test.Tasty
+import Network.AWS.Redshift
+import Test.AWS.Redshift.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -588,1290 +589,1106 @@ import Test.Tasty
 -- Requests
 
 requestCancelResize :: CancelResize -> TestTree
-requestCancelResize =
-  req
+requestCancelResize = req
     "CancelResize"
     "fixture/CancelResize.yaml"
 
 requestDescribeStorage :: DescribeStorage -> TestTree
-requestDescribeStorage =
-  req
+requestDescribeStorage = req
     "DescribeStorage"
     "fixture/DescribeStorage.yaml"
 
 requestDescribeClusters :: DescribeClusters -> TestTree
-requestDescribeClusters =
-  req
+requestDescribeClusters = req
     "DescribeClusters"
     "fixture/DescribeClusters.yaml"
 
 requestDescribeTags :: DescribeTags -> TestTree
-requestDescribeTags =
-  req
+requestDescribeTags = req
     "DescribeTags"
     "fixture/DescribeTags.yaml"
 
 requestCreateUsageLimit :: CreateUsageLimit -> TestTree
-requestCreateUsageLimit =
-  req
+requestCreateUsageLimit = req
     "CreateUsageLimit"
     "fixture/CreateUsageLimit.yaml"
 
 requestDeleteClusterSubnetGroup :: DeleteClusterSubnetGroup -> TestTree
-requestDeleteClusterSubnetGroup =
-  req
+requestDeleteClusterSubnetGroup = req
     "DeleteClusterSubnetGroup"
     "fixture/DeleteClusterSubnetGroup.yaml"
 
 requestModifyScheduledAction :: ModifyScheduledAction -> TestTree
-requestModifyScheduledAction =
-  req
+requestModifyScheduledAction = req
     "ModifyScheduledAction"
     "fixture/ModifyScheduledAction.yaml"
 
 requestDisableLogging :: DisableLogging -> TestTree
-requestDisableLogging =
-  req
+requestDisableLogging = req
     "DisableLogging"
     "fixture/DisableLogging.yaml"
 
 requestDescribeSnapshotSchedules :: DescribeSnapshotSchedules -> TestTree
-requestDescribeSnapshotSchedules =
-  req
+requestDescribeSnapshotSchedules = req
     "DescribeSnapshotSchedules"
     "fixture/DescribeSnapshotSchedules.yaml"
 
 requestModifyEventSubscription :: ModifyEventSubscription -> TestTree
-requestModifyEventSubscription =
-  req
+requestModifyEventSubscription = req
     "ModifyEventSubscription"
     "fixture/ModifyEventSubscription.yaml"
 
 requestModifyClusterDbRevision :: ModifyClusterDbRevision -> TestTree
-requestModifyClusterDbRevision =
-  req
+requestModifyClusterDbRevision = req
     "ModifyClusterDbRevision"
     "fixture/ModifyClusterDbRevision.yaml"
 
 requestDeleteClusterSnapshot :: DeleteClusterSnapshot -> TestTree
-requestDeleteClusterSnapshot =
-  req
+requestDeleteClusterSnapshot = req
     "DeleteClusterSnapshot"
     "fixture/DeleteClusterSnapshot.yaml"
 
 requestPurchaseReservedNodeOffering :: PurchaseReservedNodeOffering -> TestTree
-requestPurchaseReservedNodeOffering =
-  req
+requestPurchaseReservedNodeOffering = req
     "PurchaseReservedNodeOffering"
     "fixture/PurchaseReservedNodeOffering.yaml"
 
 requestDescribeReservedNodeOfferings :: DescribeReservedNodeOfferings -> TestTree
-requestDescribeReservedNodeOfferings =
-  req
+requestDescribeReservedNodeOfferings = req
     "DescribeReservedNodeOfferings"
     "fixture/DescribeReservedNodeOfferings.yaml"
 
 requestDescribeEvents :: DescribeEvents -> TestTree
-requestDescribeEvents =
-  req
+requestDescribeEvents = req
     "DescribeEvents"
     "fixture/DescribeEvents.yaml"
 
 requestDescribeReservedNodes :: DescribeReservedNodes -> TestTree
-requestDescribeReservedNodes =
-  req
+requestDescribeReservedNodes = req
     "DescribeReservedNodes"
     "fixture/DescribeReservedNodes.yaml"
 
 requestGetReservedNodeExchangeOfferings :: GetReservedNodeExchangeOfferings -> TestTree
-requestGetReservedNodeExchangeOfferings =
-  req
+requestGetReservedNodeExchangeOfferings = req
     "GetReservedNodeExchangeOfferings"
     "fixture/GetReservedNodeExchangeOfferings.yaml"
 
 requestDescribeClusterParameterGroups :: DescribeClusterParameterGroups -> TestTree
-requestDescribeClusterParameterGroups =
-  req
+requestDescribeClusterParameterGroups = req
     "DescribeClusterParameterGroups"
     "fixture/DescribeClusterParameterGroups.yaml"
 
 requestEnableLogging :: EnableLogging -> TestTree
-requestEnableLogging =
-  req
+requestEnableLogging = req
     "EnableLogging"
     "fixture/EnableLogging.yaml"
 
 requestCreateClusterSubnetGroup :: CreateClusterSubnetGroup -> TestTree
-requestCreateClusterSubnetGroup =
-  req
+requestCreateClusterSubnetGroup = req
     "CreateClusterSubnetGroup"
     "fixture/CreateClusterSubnetGroup.yaml"
 
 requestDeleteClusterParameterGroup :: DeleteClusterParameterGroup -> TestTree
-requestDeleteClusterParameterGroup =
-  req
+requestDeleteClusterParameterGroup = req
     "DeleteClusterParameterGroup"
     "fixture/DeleteClusterParameterGroup.yaml"
 
 requestDescribeClusterSecurityGroups :: DescribeClusterSecurityGroups -> TestTree
-requestDescribeClusterSecurityGroups =
-  req
+requestDescribeClusterSecurityGroups = req
     "DescribeClusterSecurityGroups"
     "fixture/DescribeClusterSecurityGroups.yaml"
 
 requestCreateTags :: CreateTags -> TestTree
-requestCreateTags =
-  req
+requestCreateTags = req
     "CreateTags"
     "fixture/CreateTags.yaml"
 
 requestEnableSnapshotCopy :: EnableSnapshotCopy -> TestTree
-requestEnableSnapshotCopy =
-  req
+requestEnableSnapshotCopy = req
     "EnableSnapshotCopy"
     "fixture/EnableSnapshotCopy.yaml"
 
 requestDescribeClusterSnapshots :: DescribeClusterSnapshots -> TestTree
-requestDescribeClusterSnapshots =
-  req
+requestDescribeClusterSnapshots = req
     "DescribeClusterSnapshots"
     "fixture/DescribeClusterSnapshots.yaml"
 
 requestBatchDeleteClusterSnapshots :: BatchDeleteClusterSnapshots -> TestTree
-requestBatchDeleteClusterSnapshots =
-  req
+requestBatchDeleteClusterSnapshots = req
     "BatchDeleteClusterSnapshots"
     "fixture/BatchDeleteClusterSnapshots.yaml"
 
 requestDeleteTags :: DeleteTags -> TestTree
-requestDeleteTags =
-  req
+requestDeleteTags = req
     "DeleteTags"
     "fixture/DeleteTags.yaml"
 
 requestModifyUsageLimit :: ModifyUsageLimit -> TestTree
-requestModifyUsageLimit =
-  req
+requestModifyUsageLimit = req
     "ModifyUsageLimit"
     "fixture/ModifyUsageLimit.yaml"
 
 requestDescribeClusterSubnetGroups :: DescribeClusterSubnetGroups -> TestTree
-requestDescribeClusterSubnetGroups =
-  req
+requestDescribeClusterSubnetGroups = req
     "DescribeClusterSubnetGroups"
     "fixture/DescribeClusterSubnetGroups.yaml"
 
 requestResizeCluster :: ResizeCluster -> TestTree
-requestResizeCluster =
-  req
+requestResizeCluster = req
     "ResizeCluster"
     "fixture/ResizeCluster.yaml"
 
 requestModifySnapshotCopyRetentionPeriod :: ModifySnapshotCopyRetentionPeriod -> TestTree
-requestModifySnapshotCopyRetentionPeriod =
-  req
+requestModifySnapshotCopyRetentionPeriod = req
     "ModifySnapshotCopyRetentionPeriod"
     "fixture/ModifySnapshotCopyRetentionPeriod.yaml"
 
 requestModifyClusterIamRoles :: ModifyClusterIamRoles -> TestTree
-requestModifyClusterIamRoles =
-  req
+requestModifyClusterIamRoles = req
     "ModifyClusterIamRoles"
     "fixture/ModifyClusterIamRoles.yaml"
 
 requestAuthorizeSnapshotAccess :: AuthorizeSnapshotAccess -> TestTree
-requestAuthorizeSnapshotAccess =
-  req
+requestAuthorizeSnapshotAccess = req
     "AuthorizeSnapshotAccess"
     "fixture/AuthorizeSnapshotAccess.yaml"
 
 requestRebootCluster :: RebootCluster -> TestTree
-requestRebootCluster =
-  req
+requestRebootCluster = req
     "RebootCluster"
     "fixture/RebootCluster.yaml"
 
 requestResumeCluster :: ResumeCluster -> TestTree
-requestResumeCluster =
-  req
+requestResumeCluster = req
     "ResumeCluster"
     "fixture/ResumeCluster.yaml"
 
 requestDeleteCluster :: DeleteCluster -> TestTree
-requestDeleteCluster =
-  req
+requestDeleteCluster = req
     "DeleteCluster"
     "fixture/DeleteCluster.yaml"
 
 requestCreateEventSubscription :: CreateEventSubscription -> TestTree
-requestCreateEventSubscription =
-  req
+requestCreateEventSubscription = req
     "CreateEventSubscription"
     "fixture/CreateEventSubscription.yaml"
 
 requestCreateScheduledAction :: CreateScheduledAction -> TestTree
-requestCreateScheduledAction =
-  req
+requestCreateScheduledAction = req
     "CreateScheduledAction"
     "fixture/CreateScheduledAction.yaml"
 
 requestDescribeOrderableClusterOptions :: DescribeOrderableClusterOptions -> TestTree
-requestDescribeOrderableClusterOptions =
-  req
+requestDescribeOrderableClusterOptions = req
     "DescribeOrderableClusterOptions"
     "fixture/DescribeOrderableClusterOptions.yaml"
 
 requestDescribeClusterTracks :: DescribeClusterTracks -> TestTree
-requestDescribeClusterTracks =
-  req
+requestDescribeClusterTracks = req
     "DescribeClusterTracks"
     "fixture/DescribeClusterTracks.yaml"
 
 requestCreateCluster :: CreateCluster -> TestTree
-requestCreateCluster =
-  req
+requestCreateCluster = req
     "CreateCluster"
     "fixture/CreateCluster.yaml"
 
 requestCreateHsmClientCertificate :: CreateHsmClientCertificate -> TestTree
-requestCreateHsmClientCertificate =
-  req
+requestCreateHsmClientCertificate = req
     "CreateHsmClientCertificate"
     "fixture/CreateHsmClientCertificate.yaml"
 
 requestRestoreTableFromClusterSnapshot :: RestoreTableFromClusterSnapshot -> TestTree
-requestRestoreTableFromClusterSnapshot =
-  req
+requestRestoreTableFromClusterSnapshot = req
     "RestoreTableFromClusterSnapshot"
     "fixture/RestoreTableFromClusterSnapshot.yaml"
 
 requestDeleteScheduledAction :: DeleteScheduledAction -> TestTree
-requestDeleteScheduledAction =
-  req
+requestDeleteScheduledAction = req
     "DeleteScheduledAction"
     "fixture/DeleteScheduledAction.yaml"
 
 requestDescribeDefaultClusterParameters :: DescribeDefaultClusterParameters -> TestTree
-requestDescribeDefaultClusterParameters =
-  req
+requestDescribeDefaultClusterParameters = req
     "DescribeDefaultClusterParameters"
     "fixture/DescribeDefaultClusterParameters.yaml"
 
 requestDeleteEventSubscription :: DeleteEventSubscription -> TestTree
-requestDeleteEventSubscription =
-  req
+requestDeleteEventSubscription = req
     "DeleteEventSubscription"
     "fixture/DeleteEventSubscription.yaml"
 
 requestModifyClusterSnapshot :: ModifyClusterSnapshot -> TestTree
-requestModifyClusterSnapshot =
-  req
+requestModifyClusterSnapshot = req
     "ModifyClusterSnapshot"
     "fixture/ModifyClusterSnapshot.yaml"
 
 requestResetClusterParameterGroup :: ResetClusterParameterGroup -> TestTree
-requestResetClusterParameterGroup =
-  req
+requestResetClusterParameterGroup = req
     "ResetClusterParameterGroup"
     "fixture/ResetClusterParameterGroup.yaml"
 
 requestDescribeScheduledActions :: DescribeScheduledActions -> TestTree
-requestDescribeScheduledActions =
-  req
+requestDescribeScheduledActions = req
     "DescribeScheduledActions"
     "fixture/DescribeScheduledActions.yaml"
 
 requestDescribeEventSubscriptions :: DescribeEventSubscriptions -> TestTree
-requestDescribeEventSubscriptions =
-  req
+requestDescribeEventSubscriptions = req
     "DescribeEventSubscriptions"
     "fixture/DescribeEventSubscriptions.yaml"
 
 requestDescribeClusterDbRevisions :: DescribeClusterDbRevisions -> TestTree
-requestDescribeClusterDbRevisions =
-  req
+requestDescribeClusterDbRevisions = req
     "DescribeClusterDbRevisions"
     "fixture/DescribeClusterDbRevisions.yaml"
 
 requestBatchModifyClusterSnapshots :: BatchModifyClusterSnapshots -> TestTree
-requestBatchModifyClusterSnapshots =
-  req
+requestBatchModifyClusterSnapshots = req
     "BatchModifyClusterSnapshots"
     "fixture/BatchModifyClusterSnapshots.yaml"
 
 requestDeleteUsageLimit :: DeleteUsageLimit -> TestTree
-requestDeleteUsageLimit =
-  req
+requestDeleteUsageLimit = req
     "DeleteUsageLimit"
     "fixture/DeleteUsageLimit.yaml"
 
 requestRevokeClusterSecurityGroupIngress :: RevokeClusterSecurityGroupIngress -> TestTree
-requestRevokeClusterSecurityGroupIngress =
-  req
+requestRevokeClusterSecurityGroupIngress = req
     "RevokeClusterSecurityGroupIngress"
     "fixture/RevokeClusterSecurityGroupIngress.yaml"
 
 requestDescribeHsmClientCertificates :: DescribeHsmClientCertificates -> TestTree
-requestDescribeHsmClientCertificates =
-  req
+requestDescribeHsmClientCertificates = req
     "DescribeHsmClientCertificates"
     "fixture/DescribeHsmClientCertificates.yaml"
 
 requestModifyClusterParameterGroup :: ModifyClusterParameterGroup -> TestTree
-requestModifyClusterParameterGroup =
-  req
+requestModifyClusterParameterGroup = req
     "ModifyClusterParameterGroup"
     "fixture/ModifyClusterParameterGroup.yaml"
 
 requestGetClusterCredentials :: GetClusterCredentials -> TestTree
-requestGetClusterCredentials =
-  req
+requestGetClusterCredentials = req
     "GetClusterCredentials"
     "fixture/GetClusterCredentials.yaml"
 
 requestModifyClusterMaintenance :: ModifyClusterMaintenance -> TestTree
-requestModifyClusterMaintenance =
-  req
+requestModifyClusterMaintenance = req
     "ModifyClusterMaintenance"
     "fixture/ModifyClusterMaintenance.yaml"
 
 requestCreateClusterSecurityGroup :: CreateClusterSecurityGroup -> TestTree
-requestCreateClusterSecurityGroup =
-  req
+requestCreateClusterSecurityGroup = req
     "CreateClusterSecurityGroup"
     "fixture/CreateClusterSecurityGroup.yaml"
 
 requestDescribeEventCategories :: DescribeEventCategories -> TestTree
-requestDescribeEventCategories =
-  req
+requestDescribeEventCategories = req
     "DescribeEventCategories"
     "fixture/DescribeEventCategories.yaml"
 
 requestDescribeResize :: DescribeResize -> TestTree
-requestDescribeResize =
-  req
+requestDescribeResize = req
     "DescribeResize"
     "fixture/DescribeResize.yaml"
 
 requestDeleteHsmConfiguration :: DeleteHsmConfiguration -> TestTree
-requestDeleteHsmConfiguration =
-  req
+requestDeleteHsmConfiguration = req
     "DeleteHsmConfiguration"
     "fixture/DeleteHsmConfiguration.yaml"
 
 requestAcceptReservedNodeExchange :: AcceptReservedNodeExchange -> TestTree
-requestAcceptReservedNodeExchange =
-  req
+requestAcceptReservedNodeExchange = req
     "AcceptReservedNodeExchange"
     "fixture/AcceptReservedNodeExchange.yaml"
 
 requestAuthorizeClusterSecurityGroupIngress :: AuthorizeClusterSecurityGroupIngress -> TestTree
-requestAuthorizeClusterSecurityGroupIngress =
-  req
+requestAuthorizeClusterSecurityGroupIngress = req
     "AuthorizeClusterSecurityGroupIngress"
     "fixture/AuthorizeClusterSecurityGroupIngress.yaml"
 
 requestDescribeTableRestoreStatus :: DescribeTableRestoreStatus -> TestTree
-requestDescribeTableRestoreStatus =
-  req
+requestDescribeTableRestoreStatus = req
     "DescribeTableRestoreStatus"
     "fixture/DescribeTableRestoreStatus.yaml"
 
 requestCreateClusterSnapshot :: CreateClusterSnapshot -> TestTree
-requestCreateClusterSnapshot =
-  req
+requestCreateClusterSnapshot = req
     "CreateClusterSnapshot"
     "fixture/CreateClusterSnapshot.yaml"
 
 requestCreateHsmConfiguration :: CreateHsmConfiguration -> TestTree
-requestCreateHsmConfiguration =
-  req
+requestCreateHsmConfiguration = req
     "CreateHsmConfiguration"
     "fixture/CreateHsmConfiguration.yaml"
 
 requestDescribeLoggingStatus :: DescribeLoggingStatus -> TestTree
-requestDescribeLoggingStatus =
-  req
+requestDescribeLoggingStatus = req
     "DescribeLoggingStatus"
     "fixture/DescribeLoggingStatus.yaml"
 
 requestModifyCluster :: ModifyCluster -> TestTree
-requestModifyCluster =
-  req
+requestModifyCluster = req
     "ModifyCluster"
     "fixture/ModifyCluster.yaml"
 
 requestDeleteClusterSecurityGroup :: DeleteClusterSecurityGroup -> TestTree
-requestDeleteClusterSecurityGroup =
-  req
+requestDeleteClusterSecurityGroup = req
     "DeleteClusterSecurityGroup"
     "fixture/DeleteClusterSecurityGroup.yaml"
 
 requestCreateSnapshotSchedule :: CreateSnapshotSchedule -> TestTree
-requestCreateSnapshotSchedule =
-  req
+requestCreateSnapshotSchedule = req
     "CreateSnapshotSchedule"
     "fixture/CreateSnapshotSchedule.yaml"
 
 requestDescribeNodeConfigurationOptions :: DescribeNodeConfigurationOptions -> TestTree
-requestDescribeNodeConfigurationOptions =
-  req
+requestDescribeNodeConfigurationOptions = req
     "DescribeNodeConfigurationOptions"
     "fixture/DescribeNodeConfigurationOptions.yaml"
 
 requestDisableSnapshotCopy :: DisableSnapshotCopy -> TestTree
-requestDisableSnapshotCopy =
-  req
+requestDisableSnapshotCopy = req
     "DisableSnapshotCopy"
     "fixture/DisableSnapshotCopy.yaml"
 
 requestDescribeClusterParameters :: DescribeClusterParameters -> TestTree
-requestDescribeClusterParameters =
-  req
+requestDescribeClusterParameters = req
     "DescribeClusterParameters"
     "fixture/DescribeClusterParameters.yaml"
 
 requestPauseCluster :: PauseCluster -> TestTree
-requestPauseCluster =
-  req
+requestPauseCluster = req
     "PauseCluster"
     "fixture/PauseCluster.yaml"
 
 requestDeleteSnapshotSchedule :: DeleteSnapshotSchedule -> TestTree
-requestDeleteSnapshotSchedule =
-  req
+requestDeleteSnapshotSchedule = req
     "DeleteSnapshotSchedule"
     "fixture/DeleteSnapshotSchedule.yaml"
 
 requestRestoreFromClusterSnapshot :: RestoreFromClusterSnapshot -> TestTree
-requestRestoreFromClusterSnapshot =
-  req
+requestRestoreFromClusterSnapshot = req
     "RestoreFromClusterSnapshot"
     "fixture/RestoreFromClusterSnapshot.yaml"
 
 requestCreateClusterParameterGroup :: CreateClusterParameterGroup -> TestTree
-requestCreateClusterParameterGroup =
-  req
+requestCreateClusterParameterGroup = req
     "CreateClusterParameterGroup"
     "fixture/CreateClusterParameterGroup.yaml"
 
 requestRevokeSnapshotAccess :: RevokeSnapshotAccess -> TestTree
-requestRevokeSnapshotAccess =
-  req
+requestRevokeSnapshotAccess = req
     "RevokeSnapshotAccess"
     "fixture/RevokeSnapshotAccess.yaml"
 
 requestDescribeHsmConfigurations :: DescribeHsmConfigurations -> TestTree
-requestDescribeHsmConfigurations =
-  req
+requestDescribeHsmConfigurations = req
     "DescribeHsmConfigurations"
     "fixture/DescribeHsmConfigurations.yaml"
 
 requestDescribeAccountAttributes :: DescribeAccountAttributes -> TestTree
-requestDescribeAccountAttributes =
-  req
+requestDescribeAccountAttributes = req
     "DescribeAccountAttributes"
     "fixture/DescribeAccountAttributes.yaml"
 
 requestCreateSnapshotCopyGrant :: CreateSnapshotCopyGrant -> TestTree
-requestCreateSnapshotCopyGrant =
-  req
+requestCreateSnapshotCopyGrant = req
     "CreateSnapshotCopyGrant"
     "fixture/CreateSnapshotCopyGrant.yaml"
 
 requestCopyClusterSnapshot :: CopyClusterSnapshot -> TestTree
-requestCopyClusterSnapshot =
-  req
+requestCopyClusterSnapshot = req
     "CopyClusterSnapshot"
     "fixture/CopyClusterSnapshot.yaml"
 
 requestDeleteHsmClientCertificate :: DeleteHsmClientCertificate -> TestTree
-requestDeleteHsmClientCertificate =
-  req
+requestDeleteHsmClientCertificate = req
     "DeleteHsmClientCertificate"
     "fixture/DeleteHsmClientCertificate.yaml"
 
 requestModifyClusterSnapshotSchedule :: ModifyClusterSnapshotSchedule -> TestTree
-requestModifyClusterSnapshotSchedule =
-  req
+requestModifyClusterSnapshotSchedule = req
     "ModifyClusterSnapshotSchedule"
     "fixture/ModifyClusterSnapshotSchedule.yaml"
 
 requestDeleteSnapshotCopyGrant :: DeleteSnapshotCopyGrant -> TestTree
-requestDeleteSnapshotCopyGrant =
-  req
+requestDeleteSnapshotCopyGrant = req
     "DeleteSnapshotCopyGrant"
     "fixture/DeleteSnapshotCopyGrant.yaml"
 
 requestDescribeClusterVersions :: DescribeClusterVersions -> TestTree
-requestDescribeClusterVersions =
-  req
+requestDescribeClusterVersions = req
     "DescribeClusterVersions"
     "fixture/DescribeClusterVersions.yaml"
 
 requestModifyClusterSubnetGroup :: ModifyClusterSubnetGroup -> TestTree
-requestModifyClusterSubnetGroup =
-  req
+requestModifyClusterSubnetGroup = req
     "ModifyClusterSubnetGroup"
     "fixture/ModifyClusterSubnetGroup.yaml"
 
 requestDescribeUsageLimits :: DescribeUsageLimits -> TestTree
-requestDescribeUsageLimits =
-  req
+requestDescribeUsageLimits = req
     "DescribeUsageLimits"
     "fixture/DescribeUsageLimits.yaml"
 
 requestModifySnapshotSchedule :: ModifySnapshotSchedule -> TestTree
-requestModifySnapshotSchedule =
-  req
+requestModifySnapshotSchedule = req
     "ModifySnapshotSchedule"
     "fixture/ModifySnapshotSchedule.yaml"
 
 requestRotateEncryptionKey :: RotateEncryptionKey -> TestTree
-requestRotateEncryptionKey =
-  req
+requestRotateEncryptionKey = req
     "RotateEncryptionKey"
     "fixture/RotateEncryptionKey.yaml"
 
 requestDescribeSnapshotCopyGrants :: DescribeSnapshotCopyGrants -> TestTree
-requestDescribeSnapshotCopyGrants =
-  req
+requestDescribeSnapshotCopyGrants = req
     "DescribeSnapshotCopyGrants"
     "fixture/DescribeSnapshotCopyGrants.yaml"
 
 -- Responses
 
 responseCancelResize :: ResizeProgressMessage -> TestTree
-responseCancelResize =
-  res
+responseCancelResize = res
     "CancelResizeResponse"
     "fixture/CancelResizeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CancelResize)
 
 responseDescribeStorage :: DescribeStorageResponse -> TestTree
-responseDescribeStorage =
-  res
+responseDescribeStorage = res
     "DescribeStorageResponse"
     "fixture/DescribeStorageResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeStorage)
 
 responseDescribeClusters :: DescribeClustersResponse -> TestTree
-responseDescribeClusters =
-  res
+responseDescribeClusters = res
     "DescribeClustersResponse"
     "fixture/DescribeClustersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeClusters)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
-responseDescribeTags =
-  res
+responseDescribeTags = res
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeTags)
 
 responseCreateUsageLimit :: UsageLimit -> TestTree
-responseCreateUsageLimit =
-  res
+responseCreateUsageLimit = res
     "CreateUsageLimitResponse"
     "fixture/CreateUsageLimitResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateUsageLimit)
 
 responseDeleteClusterSubnetGroup :: DeleteClusterSubnetGroupResponse -> TestTree
-responseDeleteClusterSubnetGroup =
-  res
+responseDeleteClusterSubnetGroup = res
     "DeleteClusterSubnetGroupResponse"
     "fixture/DeleteClusterSubnetGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteClusterSubnetGroup)
 
 responseModifyScheduledAction :: ScheduledAction -> TestTree
-responseModifyScheduledAction =
-  res
+responseModifyScheduledAction = res
     "ModifyScheduledActionResponse"
     "fixture/ModifyScheduledActionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyScheduledAction)
 
 responseDisableLogging :: LoggingStatus -> TestTree
-responseDisableLogging =
-  res
+responseDisableLogging = res
     "DisableLoggingResponse"
     "fixture/DisableLoggingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisableLogging)
 
 responseDescribeSnapshotSchedules :: DescribeSnapshotSchedulesResponse -> TestTree
-responseDescribeSnapshotSchedules =
-  res
+responseDescribeSnapshotSchedules = res
     "DescribeSnapshotSchedulesResponse"
     "fixture/DescribeSnapshotSchedulesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeSnapshotSchedules)
 
 responseModifyEventSubscription :: ModifyEventSubscriptionResponse -> TestTree
-responseModifyEventSubscription =
-  res
+responseModifyEventSubscription = res
     "ModifyEventSubscriptionResponse"
     "fixture/ModifyEventSubscriptionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyEventSubscription)
 
 responseModifyClusterDbRevision :: ModifyClusterDbRevisionResponse -> TestTree
-responseModifyClusterDbRevision =
-  res
+responseModifyClusterDbRevision = res
     "ModifyClusterDbRevisionResponse"
     "fixture/ModifyClusterDbRevisionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyClusterDbRevision)
 
 responseDeleteClusterSnapshot :: DeleteClusterSnapshotResponse -> TestTree
-responseDeleteClusterSnapshot =
-  res
+responseDeleteClusterSnapshot = res
     "DeleteClusterSnapshotResponse"
     "fixture/DeleteClusterSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteClusterSnapshot)
 
 responsePurchaseReservedNodeOffering :: PurchaseReservedNodeOfferingResponse -> TestTree
-responsePurchaseReservedNodeOffering =
-  res
+responsePurchaseReservedNodeOffering = res
     "PurchaseReservedNodeOfferingResponse"
     "fixture/PurchaseReservedNodeOfferingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PurchaseReservedNodeOffering)
 
 responseDescribeReservedNodeOfferings :: DescribeReservedNodeOfferingsResponse -> TestTree
-responseDescribeReservedNodeOfferings =
-  res
+responseDescribeReservedNodeOfferings = res
     "DescribeReservedNodeOfferingsResponse"
     "fixture/DescribeReservedNodeOfferingsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeReservedNodeOfferings)
 
 responseDescribeEvents :: DescribeEventsResponse -> TestTree
-responseDescribeEvents =
-  res
+responseDescribeEvents = res
     "DescribeEventsResponse"
     "fixture/DescribeEventsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeEvents)
 
 responseDescribeReservedNodes :: DescribeReservedNodesResponse -> TestTree
-responseDescribeReservedNodes =
-  res
+responseDescribeReservedNodes = res
     "DescribeReservedNodesResponse"
     "fixture/DescribeReservedNodesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeReservedNodes)
 
 responseGetReservedNodeExchangeOfferings :: GetReservedNodeExchangeOfferingsResponse -> TestTree
-responseGetReservedNodeExchangeOfferings =
-  res
+responseGetReservedNodeExchangeOfferings = res
     "GetReservedNodeExchangeOfferingsResponse"
     "fixture/GetReservedNodeExchangeOfferingsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetReservedNodeExchangeOfferings)
 
 responseDescribeClusterParameterGroups :: DescribeClusterParameterGroupsResponse -> TestTree
-responseDescribeClusterParameterGroups =
-  res
+responseDescribeClusterParameterGroups = res
     "DescribeClusterParameterGroupsResponse"
     "fixture/DescribeClusterParameterGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeClusterParameterGroups)
 
 responseEnableLogging :: LoggingStatus -> TestTree
-responseEnableLogging =
-  res
+responseEnableLogging = res
     "EnableLoggingResponse"
     "fixture/EnableLoggingResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy EnableLogging)
 
 responseCreateClusterSubnetGroup :: CreateClusterSubnetGroupResponse -> TestTree
-responseCreateClusterSubnetGroup =
-  res
+responseCreateClusterSubnetGroup = res
     "CreateClusterSubnetGroupResponse"
     "fixture/CreateClusterSubnetGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateClusterSubnetGroup)
 
 responseDeleteClusterParameterGroup :: DeleteClusterParameterGroupResponse -> TestTree
-responseDeleteClusterParameterGroup =
-  res
+responseDeleteClusterParameterGroup = res
     "DeleteClusterParameterGroupResponse"
     "fixture/DeleteClusterParameterGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteClusterParameterGroup)
 
 responseDescribeClusterSecurityGroups :: DescribeClusterSecurityGroupsResponse -> TestTree
-responseDescribeClusterSecurityGroups =
-  res
+responseDescribeClusterSecurityGroups = res
     "DescribeClusterSecurityGroupsResponse"
     "fixture/DescribeClusterSecurityGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeClusterSecurityGroups)
 
 responseCreateTags :: CreateTagsResponse -> TestTree
-responseCreateTags =
-  res
+responseCreateTags = res
     "CreateTagsResponse"
     "fixture/CreateTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateTags)
 
 responseEnableSnapshotCopy :: EnableSnapshotCopyResponse -> TestTree
-responseEnableSnapshotCopy =
-  res
+responseEnableSnapshotCopy = res
     "EnableSnapshotCopyResponse"
     "fixture/EnableSnapshotCopyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy EnableSnapshotCopy)
 
 responseDescribeClusterSnapshots :: DescribeClusterSnapshotsResponse -> TestTree
-responseDescribeClusterSnapshots =
-  res
+responseDescribeClusterSnapshots = res
     "DescribeClusterSnapshotsResponse"
     "fixture/DescribeClusterSnapshotsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeClusterSnapshots)
 
 responseBatchDeleteClusterSnapshots :: BatchDeleteClusterSnapshotsResponse -> TestTree
-responseBatchDeleteClusterSnapshots =
-  res
+responseBatchDeleteClusterSnapshots = res
     "BatchDeleteClusterSnapshotsResponse"
     "fixture/BatchDeleteClusterSnapshotsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy BatchDeleteClusterSnapshots)
 
 responseDeleteTags :: DeleteTagsResponse -> TestTree
-responseDeleteTags =
-  res
+responseDeleteTags = res
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteTags)
 
 responseModifyUsageLimit :: UsageLimit -> TestTree
-responseModifyUsageLimit =
-  res
+responseModifyUsageLimit = res
     "ModifyUsageLimitResponse"
     "fixture/ModifyUsageLimitResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyUsageLimit)
 
 responseDescribeClusterSubnetGroups :: DescribeClusterSubnetGroupsResponse -> TestTree
-responseDescribeClusterSubnetGroups =
-  res
+responseDescribeClusterSubnetGroups = res
     "DescribeClusterSubnetGroupsResponse"
     "fixture/DescribeClusterSubnetGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeClusterSubnetGroups)
 
 responseResizeCluster :: ResizeClusterResponse -> TestTree
-responseResizeCluster =
-  res
+responseResizeCluster = res
     "ResizeClusterResponse"
     "fixture/ResizeClusterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ResizeCluster)
 
 responseModifySnapshotCopyRetentionPeriod :: ModifySnapshotCopyRetentionPeriodResponse -> TestTree
-responseModifySnapshotCopyRetentionPeriod =
-  res
+responseModifySnapshotCopyRetentionPeriod = res
     "ModifySnapshotCopyRetentionPeriodResponse"
     "fixture/ModifySnapshotCopyRetentionPeriodResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifySnapshotCopyRetentionPeriod)
 
 responseModifyClusterIamRoles :: ModifyClusterIamRolesResponse -> TestTree
-responseModifyClusterIamRoles =
-  res
+responseModifyClusterIamRoles = res
     "ModifyClusterIamRolesResponse"
     "fixture/ModifyClusterIamRolesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyClusterIamRoles)
 
 responseAuthorizeSnapshotAccess :: AuthorizeSnapshotAccessResponse -> TestTree
-responseAuthorizeSnapshotAccess =
-  res
+responseAuthorizeSnapshotAccess = res
     "AuthorizeSnapshotAccessResponse"
     "fixture/AuthorizeSnapshotAccessResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AuthorizeSnapshotAccess)
 
 responseRebootCluster :: RebootClusterResponse -> TestTree
-responseRebootCluster =
-  res
+responseRebootCluster = res
     "RebootClusterResponse"
     "fixture/RebootClusterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RebootCluster)
 
 responseResumeCluster :: ResumeClusterResponse -> TestTree
-responseResumeCluster =
-  res
+responseResumeCluster = res
     "ResumeClusterResponse"
     "fixture/ResumeClusterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ResumeCluster)
 
 responseDeleteCluster :: DeleteClusterResponse -> TestTree
-responseDeleteCluster =
-  res
+responseDeleteCluster = res
     "DeleteClusterResponse"
     "fixture/DeleteClusterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteCluster)
 
 responseCreateEventSubscription :: CreateEventSubscriptionResponse -> TestTree
-responseCreateEventSubscription =
-  res
+responseCreateEventSubscription = res
     "CreateEventSubscriptionResponse"
     "fixture/CreateEventSubscriptionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateEventSubscription)
 
 responseCreateScheduledAction :: ScheduledAction -> TestTree
-responseCreateScheduledAction =
-  res
+responseCreateScheduledAction = res
     "CreateScheduledActionResponse"
     "fixture/CreateScheduledActionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateScheduledAction)
 
 responseDescribeOrderableClusterOptions :: DescribeOrderableClusterOptionsResponse -> TestTree
-responseDescribeOrderableClusterOptions =
-  res
+responseDescribeOrderableClusterOptions = res
     "DescribeOrderableClusterOptionsResponse"
     "fixture/DescribeOrderableClusterOptionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeOrderableClusterOptions)
 
 responseDescribeClusterTracks :: DescribeClusterTracksResponse -> TestTree
-responseDescribeClusterTracks =
-  res
+responseDescribeClusterTracks = res
     "DescribeClusterTracksResponse"
     "fixture/DescribeClusterTracksResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeClusterTracks)
 
 responseCreateCluster :: CreateClusterResponse -> TestTree
-responseCreateCluster =
-  res
+responseCreateCluster = res
     "CreateClusterResponse"
     "fixture/CreateClusterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateCluster)
 
 responseCreateHsmClientCertificate :: CreateHsmClientCertificateResponse -> TestTree
-responseCreateHsmClientCertificate =
-  res
+responseCreateHsmClientCertificate = res
     "CreateHsmClientCertificateResponse"
     "fixture/CreateHsmClientCertificateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateHsmClientCertificate)
 
 responseRestoreTableFromClusterSnapshot :: RestoreTableFromClusterSnapshotResponse -> TestTree
-responseRestoreTableFromClusterSnapshot =
-  res
+responseRestoreTableFromClusterSnapshot = res
     "RestoreTableFromClusterSnapshotResponse"
     "fixture/RestoreTableFromClusterSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RestoreTableFromClusterSnapshot)
 
 responseDeleteScheduledAction :: DeleteScheduledActionResponse -> TestTree
-responseDeleteScheduledAction =
-  res
+responseDeleteScheduledAction = res
     "DeleteScheduledActionResponse"
     "fixture/DeleteScheduledActionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteScheduledAction)
 
 responseDescribeDefaultClusterParameters :: DescribeDefaultClusterParametersResponse -> TestTree
-responseDescribeDefaultClusterParameters =
-  res
+responseDescribeDefaultClusterParameters = res
     "DescribeDefaultClusterParametersResponse"
     "fixture/DescribeDefaultClusterParametersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeDefaultClusterParameters)
 
 responseDeleteEventSubscription :: DeleteEventSubscriptionResponse -> TestTree
-responseDeleteEventSubscription =
-  res
+responseDeleteEventSubscription = res
     "DeleteEventSubscriptionResponse"
     "fixture/DeleteEventSubscriptionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteEventSubscription)
 
 responseModifyClusterSnapshot :: ModifyClusterSnapshotResponse -> TestTree
-responseModifyClusterSnapshot =
-  res
+responseModifyClusterSnapshot = res
     "ModifyClusterSnapshotResponse"
     "fixture/ModifyClusterSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyClusterSnapshot)
 
 responseResetClusterParameterGroup :: ClusterParameterGroupNameMessage -> TestTree
-responseResetClusterParameterGroup =
-  res
+responseResetClusterParameterGroup = res
     "ResetClusterParameterGroupResponse"
     "fixture/ResetClusterParameterGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ResetClusterParameterGroup)
 
 responseDescribeScheduledActions :: DescribeScheduledActionsResponse -> TestTree
-responseDescribeScheduledActions =
-  res
+responseDescribeScheduledActions = res
     "DescribeScheduledActionsResponse"
     "fixture/DescribeScheduledActionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeScheduledActions)
 
 responseDescribeEventSubscriptions :: DescribeEventSubscriptionsResponse -> TestTree
-responseDescribeEventSubscriptions =
-  res
+responseDescribeEventSubscriptions = res
     "DescribeEventSubscriptionsResponse"
     "fixture/DescribeEventSubscriptionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeEventSubscriptions)
 
 responseDescribeClusterDbRevisions :: DescribeClusterDbRevisionsResponse -> TestTree
-responseDescribeClusterDbRevisions =
-  res
+responseDescribeClusterDbRevisions = res
     "DescribeClusterDbRevisionsResponse"
     "fixture/DescribeClusterDbRevisionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeClusterDbRevisions)
 
 responseBatchModifyClusterSnapshots :: BatchModifyClusterSnapshotsResponse -> TestTree
-responseBatchModifyClusterSnapshots =
-  res
+responseBatchModifyClusterSnapshots = res
     "BatchModifyClusterSnapshotsResponse"
     "fixture/BatchModifyClusterSnapshotsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy BatchModifyClusterSnapshots)
 
 responseDeleteUsageLimit :: DeleteUsageLimitResponse -> TestTree
-responseDeleteUsageLimit =
-  res
+responseDeleteUsageLimit = res
     "DeleteUsageLimitResponse"
     "fixture/DeleteUsageLimitResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteUsageLimit)
 
 responseRevokeClusterSecurityGroupIngress :: RevokeClusterSecurityGroupIngressResponse -> TestTree
-responseRevokeClusterSecurityGroupIngress =
-  res
+responseRevokeClusterSecurityGroupIngress = res
     "RevokeClusterSecurityGroupIngressResponse"
     "fixture/RevokeClusterSecurityGroupIngressResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RevokeClusterSecurityGroupIngress)
 
 responseDescribeHsmClientCertificates :: DescribeHsmClientCertificatesResponse -> TestTree
-responseDescribeHsmClientCertificates =
-  res
+responseDescribeHsmClientCertificates = res
     "DescribeHsmClientCertificatesResponse"
     "fixture/DescribeHsmClientCertificatesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeHsmClientCertificates)
 
 responseModifyClusterParameterGroup :: ClusterParameterGroupNameMessage -> TestTree
-responseModifyClusterParameterGroup =
-  res
+responseModifyClusterParameterGroup = res
     "ModifyClusterParameterGroupResponse"
     "fixture/ModifyClusterParameterGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyClusterParameterGroup)
 
 responseGetClusterCredentials :: GetClusterCredentialsResponse -> TestTree
-responseGetClusterCredentials =
-  res
+responseGetClusterCredentials = res
     "GetClusterCredentialsResponse"
     "fixture/GetClusterCredentialsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetClusterCredentials)
 
 responseModifyClusterMaintenance :: ModifyClusterMaintenanceResponse -> TestTree
-responseModifyClusterMaintenance =
-  res
+responseModifyClusterMaintenance = res
     "ModifyClusterMaintenanceResponse"
     "fixture/ModifyClusterMaintenanceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyClusterMaintenance)
 
 responseCreateClusterSecurityGroup :: CreateClusterSecurityGroupResponse -> TestTree
-responseCreateClusterSecurityGroup =
-  res
+responseCreateClusterSecurityGroup = res
     "CreateClusterSecurityGroupResponse"
     "fixture/CreateClusterSecurityGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateClusterSecurityGroup)
 
 responseDescribeEventCategories :: DescribeEventCategoriesResponse -> TestTree
-responseDescribeEventCategories =
-  res
+responseDescribeEventCategories = res
     "DescribeEventCategoriesResponse"
     "fixture/DescribeEventCategoriesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeEventCategories)
 
 responseDescribeResize :: ResizeProgressMessage -> TestTree
-responseDescribeResize =
-  res
+responseDescribeResize = res
     "DescribeResizeResponse"
     "fixture/DescribeResizeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeResize)
 
 responseDeleteHsmConfiguration :: DeleteHsmConfigurationResponse -> TestTree
-responseDeleteHsmConfiguration =
-  res
+responseDeleteHsmConfiguration = res
     "DeleteHsmConfigurationResponse"
     "fixture/DeleteHsmConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteHsmConfiguration)
 
 responseAcceptReservedNodeExchange :: AcceptReservedNodeExchangeResponse -> TestTree
-responseAcceptReservedNodeExchange =
-  res
+responseAcceptReservedNodeExchange = res
     "AcceptReservedNodeExchangeResponse"
     "fixture/AcceptReservedNodeExchangeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AcceptReservedNodeExchange)
 
 responseAuthorizeClusterSecurityGroupIngress :: AuthorizeClusterSecurityGroupIngressResponse -> TestTree
-responseAuthorizeClusterSecurityGroupIngress =
-  res
+responseAuthorizeClusterSecurityGroupIngress = res
     "AuthorizeClusterSecurityGroupIngressResponse"
     "fixture/AuthorizeClusterSecurityGroupIngressResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AuthorizeClusterSecurityGroupIngress)
 
 responseDescribeTableRestoreStatus :: DescribeTableRestoreStatusResponse -> TestTree
-responseDescribeTableRestoreStatus =
-  res
+responseDescribeTableRestoreStatus = res
     "DescribeTableRestoreStatusResponse"
     "fixture/DescribeTableRestoreStatusResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeTableRestoreStatus)
 
 responseCreateClusterSnapshot :: CreateClusterSnapshotResponse -> TestTree
-responseCreateClusterSnapshot =
-  res
+responseCreateClusterSnapshot = res
     "CreateClusterSnapshotResponse"
     "fixture/CreateClusterSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateClusterSnapshot)
 
 responseCreateHsmConfiguration :: CreateHsmConfigurationResponse -> TestTree
-responseCreateHsmConfiguration =
-  res
+responseCreateHsmConfiguration = res
     "CreateHsmConfigurationResponse"
     "fixture/CreateHsmConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateHsmConfiguration)
 
 responseDescribeLoggingStatus :: LoggingStatus -> TestTree
-responseDescribeLoggingStatus =
-  res
+responseDescribeLoggingStatus = res
     "DescribeLoggingStatusResponse"
     "fixture/DescribeLoggingStatusResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeLoggingStatus)
 
 responseModifyCluster :: ModifyClusterResponse -> TestTree
-responseModifyCluster =
-  res
+responseModifyCluster = res
     "ModifyClusterResponse"
     "fixture/ModifyClusterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyCluster)
 
 responseDeleteClusterSecurityGroup :: DeleteClusterSecurityGroupResponse -> TestTree
-responseDeleteClusterSecurityGroup =
-  res
+responseDeleteClusterSecurityGroup = res
     "DeleteClusterSecurityGroupResponse"
     "fixture/DeleteClusterSecurityGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteClusterSecurityGroup)
 
 responseCreateSnapshotSchedule :: SnapshotSchedule -> TestTree
-responseCreateSnapshotSchedule =
-  res
+responseCreateSnapshotSchedule = res
     "CreateSnapshotScheduleResponse"
     "fixture/CreateSnapshotScheduleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateSnapshotSchedule)
 
 responseDescribeNodeConfigurationOptions :: DescribeNodeConfigurationOptionsResponse -> TestTree
-responseDescribeNodeConfigurationOptions =
-  res
+responseDescribeNodeConfigurationOptions = res
     "DescribeNodeConfigurationOptionsResponse"
     "fixture/DescribeNodeConfigurationOptionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeNodeConfigurationOptions)
 
 responseDisableSnapshotCopy :: DisableSnapshotCopyResponse -> TestTree
-responseDisableSnapshotCopy =
-  res
+responseDisableSnapshotCopy = res
     "DisableSnapshotCopyResponse"
     "fixture/DisableSnapshotCopyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisableSnapshotCopy)
 
 responseDescribeClusterParameters :: DescribeClusterParametersResponse -> TestTree
-responseDescribeClusterParameters =
-  res
+responseDescribeClusterParameters = res
     "DescribeClusterParametersResponse"
     "fixture/DescribeClusterParametersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeClusterParameters)
 
 responsePauseCluster :: PauseClusterResponse -> TestTree
-responsePauseCluster =
-  res
+responsePauseCluster = res
     "PauseClusterResponse"
     "fixture/PauseClusterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PauseCluster)
 
 responseDeleteSnapshotSchedule :: DeleteSnapshotScheduleResponse -> TestTree
-responseDeleteSnapshotSchedule =
-  res
+responseDeleteSnapshotSchedule = res
     "DeleteSnapshotScheduleResponse"
     "fixture/DeleteSnapshotScheduleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteSnapshotSchedule)
 
 responseRestoreFromClusterSnapshot :: RestoreFromClusterSnapshotResponse -> TestTree
-responseRestoreFromClusterSnapshot =
-  res
+responseRestoreFromClusterSnapshot = res
     "RestoreFromClusterSnapshotResponse"
     "fixture/RestoreFromClusterSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RestoreFromClusterSnapshot)
 
 responseCreateClusterParameterGroup :: CreateClusterParameterGroupResponse -> TestTree
-responseCreateClusterParameterGroup =
-  res
+responseCreateClusterParameterGroup = res
     "CreateClusterParameterGroupResponse"
     "fixture/CreateClusterParameterGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateClusterParameterGroup)
 
 responseRevokeSnapshotAccess :: RevokeSnapshotAccessResponse -> TestTree
-responseRevokeSnapshotAccess =
-  res
+responseRevokeSnapshotAccess = res
     "RevokeSnapshotAccessResponse"
     "fixture/RevokeSnapshotAccessResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RevokeSnapshotAccess)
 
 responseDescribeHsmConfigurations :: DescribeHsmConfigurationsResponse -> TestTree
-responseDescribeHsmConfigurations =
-  res
+responseDescribeHsmConfigurations = res
     "DescribeHsmConfigurationsResponse"
     "fixture/DescribeHsmConfigurationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeHsmConfigurations)
 
 responseDescribeAccountAttributes :: DescribeAccountAttributesResponse -> TestTree
-responseDescribeAccountAttributes =
-  res
+responseDescribeAccountAttributes = res
     "DescribeAccountAttributesResponse"
     "fixture/DescribeAccountAttributesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAccountAttributes)
 
 responseCreateSnapshotCopyGrant :: CreateSnapshotCopyGrantResponse -> TestTree
-responseCreateSnapshotCopyGrant =
-  res
+responseCreateSnapshotCopyGrant = res
     "CreateSnapshotCopyGrantResponse"
     "fixture/CreateSnapshotCopyGrantResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateSnapshotCopyGrant)
 
 responseCopyClusterSnapshot :: CopyClusterSnapshotResponse -> TestTree
-responseCopyClusterSnapshot =
-  res
+responseCopyClusterSnapshot = res
     "CopyClusterSnapshotResponse"
     "fixture/CopyClusterSnapshotResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CopyClusterSnapshot)
 
 responseDeleteHsmClientCertificate :: DeleteHsmClientCertificateResponse -> TestTree
-responseDeleteHsmClientCertificate =
-  res
+responseDeleteHsmClientCertificate = res
     "DeleteHsmClientCertificateResponse"
     "fixture/DeleteHsmClientCertificateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteHsmClientCertificate)
 
 responseModifyClusterSnapshotSchedule :: ModifyClusterSnapshotScheduleResponse -> TestTree
-responseModifyClusterSnapshotSchedule =
-  res
+responseModifyClusterSnapshotSchedule = res
     "ModifyClusterSnapshotScheduleResponse"
     "fixture/ModifyClusterSnapshotScheduleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyClusterSnapshotSchedule)
 
 responseDeleteSnapshotCopyGrant :: DeleteSnapshotCopyGrantResponse -> TestTree
-responseDeleteSnapshotCopyGrant =
-  res
+responseDeleteSnapshotCopyGrant = res
     "DeleteSnapshotCopyGrantResponse"
     "fixture/DeleteSnapshotCopyGrantResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteSnapshotCopyGrant)
 
 responseDescribeClusterVersions :: DescribeClusterVersionsResponse -> TestTree
-responseDescribeClusterVersions =
-  res
+responseDescribeClusterVersions = res
     "DescribeClusterVersionsResponse"
     "fixture/DescribeClusterVersionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeClusterVersions)
 
 responseModifyClusterSubnetGroup :: ModifyClusterSubnetGroupResponse -> TestTree
-responseModifyClusterSubnetGroup =
-  res
+responseModifyClusterSubnetGroup = res
     "ModifyClusterSubnetGroupResponse"
     "fixture/ModifyClusterSubnetGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifyClusterSubnetGroup)
 
 responseDescribeUsageLimits :: DescribeUsageLimitsResponse -> TestTree
-responseDescribeUsageLimits =
-  res
+responseDescribeUsageLimits = res
     "DescribeUsageLimitsResponse"
     "fixture/DescribeUsageLimitsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeUsageLimits)
 
 responseModifySnapshotSchedule :: SnapshotSchedule -> TestTree
-responseModifySnapshotSchedule =
-  res
+responseModifySnapshotSchedule = res
     "ModifySnapshotScheduleResponse"
     "fixture/ModifySnapshotScheduleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ModifySnapshotSchedule)
 
 responseRotateEncryptionKey :: RotateEncryptionKeyResponse -> TestTree
-responseRotateEncryptionKey =
-  res
+responseRotateEncryptionKey = res
     "RotateEncryptionKeyResponse"
     "fixture/RotateEncryptionKeyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RotateEncryptionKey)
 
 responseDescribeSnapshotCopyGrants :: DescribeSnapshotCopyGrantsResponse -> TestTree
-responseDescribeSnapshotCopyGrants =
-  res
+responseDescribeSnapshotCopyGrants = res
     "DescribeSnapshotCopyGrantsResponse"
     "fixture/DescribeSnapshotCopyGrantsResponse.proto"
     mkServiceConfig

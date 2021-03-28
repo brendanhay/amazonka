@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,42 +10,26 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.LexModels.Types.StatusType
   ( StatusType
-      ( StatusType',
-        StatusTypeDetected,
-        StatusTypeMissed,
-        fromStatusType
-      ),
-  )
-where
+    ( StatusType'
+    , StatusTypeDetected
+    , StatusTypeMissed
+    , fromStatusType
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype StatusType = StatusType' {fromStatusType :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype StatusType = StatusType'{fromStatusType :: Core.Text}
+                       deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                       Core.Generic)
+                       deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                         Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                         Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                         Core.FromText, Core.ToByteString, Core.ToQuery,
+                                         Core.ToHeader)
 
 pattern StatusTypeDetected :: StatusType
 pattern StatusTypeDetected = StatusType' "Detected"
@@ -53,8 +37,9 @@ pattern StatusTypeDetected = StatusType' "Detected"
 pattern StatusTypeMissed :: StatusType
 pattern StatusTypeMissed = StatusType' "Missed"
 
-{-# COMPLETE
+{-# COMPLETE 
   StatusTypeDetected,
+
   StatusTypeMissed,
   StatusType'
   #-}

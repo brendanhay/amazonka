@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,26 +15,24 @@
 --
 -- Creates a snapshot copy grant that permits Amazon Redshift to use a customer master key (CMK) from AWS Key Management Service (AWS KMS) to encrypt copied snapshots in a destination region.
 --
--- For more information about managing snapshot copy grants, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html Amazon Redshift Database Encryption> in the /Amazon Redshift Cluster Management Guide/ .
+-- For more information about managing snapshot copy grants, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html Amazon Redshift Database Encryption> in the /Amazon Redshift Cluster Management Guide/ . 
 module Network.AWS.Redshift.CreateSnapshotCopyGrant
-  ( -- * Creating a request
-    CreateSnapshotCopyGrant (..),
-    mkCreateSnapshotCopyGrant,
-
+    (
+    -- * Creating a request
+      CreateSnapshotCopyGrant (..)
+    , mkCreateSnapshotCopyGrant
     -- ** Request lenses
-    cscgSnapshotCopyGrantName,
-    cscgKmsKeyId,
-    cscgTags,
+    , cscgSnapshotCopyGrantName
+    , cscgKmsKeyId
+    , cscgTags
 
     -- * Destructuring the response
-    CreateSnapshotCopyGrantResponse (..),
-    mkCreateSnapshotCopyGrantResponse,
-
+    , CreateSnapshotCopyGrantResponse (..)
+    , mkCreateSnapshotCopyGrantResponse
     -- ** Response lenses
-    cscgrrsSnapshotCopyGrant,
-    cscgrrsResponseStatus,
-  )
-where
+    , cscgrrsSnapshotCopyGrant
+    , cscgrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -46,43 +44,41 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkCreateSnapshotCopyGrant' smart constructor.
 data CreateSnapshotCopyGrant = CreateSnapshotCopyGrant'
-  { -- | The name of the snapshot copy grant. This name must be unique in the region for the AWS account.
-    --
-    -- Constraints:
-    --
-    --     * Must contain from 1 to 63 alphanumeric characters or hyphens.
-    --
-    --
-    --     * Alphabetic characters must be lowercase.
-    --
-    --
-    --     * First character must be a letter.
-    --
-    --
-    --     * Cannot end with a hyphen or contain two consecutive hyphens.
-    --
-    --
-    --     * Must be unique for all clusters within an AWS account.
-    snapshotCopyGrantName :: Types.String,
-    -- | The unique identifier of the customer master key (CMK) to which to grant Amazon Redshift permission. If no key is specified, the default key is used.
-    kmsKeyId :: Core.Maybe Types.String,
-    -- | A list of tag instances.
-    tags :: Core.Maybe [Types.Tag]
+  { snapshotCopyGrantName :: Core.Text
+    -- ^ The name of the snapshot copy grant. This name must be unique in the region for the AWS account.
+--
+-- Constraints:
+--
+--     * Must contain from 1 to 63 alphanumeric characters or hyphens.
+--
+--
+--     * Alphabetic characters must be lowercase.
+--
+--
+--     * First character must be a letter.
+--
+--
+--     * Cannot end with a hyphen or contain two consecutive hyphens.
+--
+--
+--     * Must be unique for all clusters within an AWS account.
+--
+--
+  , kmsKeyId :: Core.Maybe Core.Text
+    -- ^ The unique identifier of the customer master key (CMK) to which to grant Amazon Redshift permission. If no key is specified, the default key is used.
+  , tags :: Core.Maybe [Types.Tag]
+    -- ^ A list of tag instances.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CreateSnapshotCopyGrant' value with any optional fields omitted.
-mkCreateSnapshotCopyGrant ::
-  -- | 'snapshotCopyGrantName'
-  Types.String ->
-  CreateSnapshotCopyGrant
-mkCreateSnapshotCopyGrant snapshotCopyGrantName =
-  CreateSnapshotCopyGrant'
-    { snapshotCopyGrantName,
-      kmsKeyId = Core.Nothing,
-      tags = Core.Nothing
-    }
+mkCreateSnapshotCopyGrant
+    :: Core.Text -- ^ 'snapshotCopyGrantName'
+    -> CreateSnapshotCopyGrant
+mkCreateSnapshotCopyGrant snapshotCopyGrantName
+  = CreateSnapshotCopyGrant'{snapshotCopyGrantName,
+                             kmsKeyId = Core.Nothing, tags = Core.Nothing}
 
 -- | The name of the snapshot copy grant. This name must be unique in the region for the AWS account.
 --
@@ -105,86 +101,96 @@ mkCreateSnapshotCopyGrant snapshotCopyGrantName =
 --
 --
 -- /Note:/ Consider using 'snapshotCopyGrantName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscgSnapshotCopyGrantName :: Lens.Lens' CreateSnapshotCopyGrant Types.String
+cscgSnapshotCopyGrantName :: Lens.Lens' CreateSnapshotCopyGrant Core.Text
 cscgSnapshotCopyGrantName = Lens.field @"snapshotCopyGrantName"
-{-# DEPRECATED cscgSnapshotCopyGrantName "Use generic-lens or generic-optics with 'snapshotCopyGrantName' instead." #-}
+{-# INLINEABLE cscgSnapshotCopyGrantName #-}
+{-# DEPRECATED snapshotCopyGrantName "Use generic-lens or generic-optics with 'snapshotCopyGrantName' instead"  #-}
 
 -- | The unique identifier of the customer master key (CMK) to which to grant Amazon Redshift permission. If no key is specified, the default key is used.
 --
 -- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscgKmsKeyId :: Lens.Lens' CreateSnapshotCopyGrant (Core.Maybe Types.String)
+cscgKmsKeyId :: Lens.Lens' CreateSnapshotCopyGrant (Core.Maybe Core.Text)
 cscgKmsKeyId = Lens.field @"kmsKeyId"
-{-# DEPRECATED cscgKmsKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
+{-# INLINEABLE cscgKmsKeyId #-}
+{-# DEPRECATED kmsKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead"  #-}
 
 -- | A list of tag instances.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cscgTags :: Lens.Lens' CreateSnapshotCopyGrant (Core.Maybe [Types.Tag])
 cscgTags = Lens.field @"tags"
-{-# DEPRECATED cscgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+{-# INLINEABLE cscgTags #-}
+{-# DEPRECATED tags "Use generic-lens or generic-optics with 'tags' instead"  #-}
+
+instance Core.ToQuery CreateSnapshotCopyGrant where
+        toQuery CreateSnapshotCopyGrant{..}
+          = Core.toQueryPair "Action"
+              ("CreateSnapshotCopyGrant" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2012-12-01" :: Core.Text)
+              Core.<>
+              Core.toQueryPair "SnapshotCopyGrantName" snapshotCopyGrantName
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "KmsKeyId") kmsKeyId
+              Core.<>
+              Core.toQueryPair "Tags"
+                (Core.maybe Core.mempty (Core.toQueryList "Tag") tags)
+
+instance Core.ToHeaders CreateSnapshotCopyGrant where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest CreateSnapshotCopyGrant where
-  type Rs CreateSnapshotCopyGrant = CreateSnapshotCopyGrantResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "CreateSnapshotCopyGrant")
-                Core.<> (Core.pure ("Version", "2012-12-01"))
-                Core.<> (Core.toQueryValue "SnapshotCopyGrantName" snapshotCopyGrantName)
-                Core.<> (Core.toQueryValue "KmsKeyId" Core.<$> kmsKeyId)
-                Core.<> (Core.toQueryValue "Tags" (Core.toQueryList "Tag" Core.<$> tags))
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "CreateSnapshotCopyGrantResult"
-      ( \s h x ->
-          CreateSnapshotCopyGrantResponse'
-            Core.<$> (x Core..@? "SnapshotCopyGrant")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs CreateSnapshotCopyGrant = CreateSnapshotCopyGrantResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "CreateSnapshotCopyGrantResult"
+              (\ s h x ->
+                 CreateSnapshotCopyGrantResponse' Core.<$>
+                   (x Core..@? "SnapshotCopyGrant") Core.<*>
+                     Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkCreateSnapshotCopyGrantResponse' smart constructor.
 data CreateSnapshotCopyGrantResponse = CreateSnapshotCopyGrantResponse'
-  { snapshotCopyGrant :: Core.Maybe Types.SnapshotCopyGrant,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { snapshotCopyGrant :: Core.Maybe Types.SnapshotCopyGrant
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CreateSnapshotCopyGrantResponse' value with any optional fields omitted.
-mkCreateSnapshotCopyGrantResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  CreateSnapshotCopyGrantResponse
-mkCreateSnapshotCopyGrantResponse responseStatus =
-  CreateSnapshotCopyGrantResponse'
-    { snapshotCopyGrant =
-        Core.Nothing,
-      responseStatus
-    }
+mkCreateSnapshotCopyGrantResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> CreateSnapshotCopyGrantResponse
+mkCreateSnapshotCopyGrantResponse responseStatus
+  = CreateSnapshotCopyGrantResponse'{snapshotCopyGrant =
+                                       Core.Nothing,
+                                     responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'snapshotCopyGrant' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cscgrrsSnapshotCopyGrant :: Lens.Lens' CreateSnapshotCopyGrantResponse (Core.Maybe Types.SnapshotCopyGrant)
 cscgrrsSnapshotCopyGrant = Lens.field @"snapshotCopyGrant"
-{-# DEPRECATED cscgrrsSnapshotCopyGrant "Use generic-lens or generic-optics with 'snapshotCopyGrant' instead." #-}
+{-# INLINEABLE cscgrrsSnapshotCopyGrant #-}
+{-# DEPRECATED snapshotCopyGrant "Use generic-lens or generic-optics with 'snapshotCopyGrant' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cscgrrsResponseStatus :: Lens.Lens' CreateSnapshotCopyGrantResponse Core.Int
 cscgrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED cscgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE cscgrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

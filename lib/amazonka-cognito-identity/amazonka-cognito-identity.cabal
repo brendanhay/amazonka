@@ -1,167 +1,169 @@
-cabal-version:      2.2
-name:               amazonka-cognito-identity
-version:            2.0.0.0
-synopsis:           Amazon Cognito Identity SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-cognito-identity
+version:               2.0.0.0
+synopsis:              Amazon Cognito Identity SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.CognitoIdentity" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.CognitoIdentity" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-cognito-identity
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-cognito-identity
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.CognitoIdentity
-    Network.AWS.CognitoIdentity.CreateIdentityPool
-    Network.AWS.CognitoIdentity.DeleteIdentities
-    Network.AWS.CognitoIdentity.DeleteIdentityPool
-    Network.AWS.CognitoIdentity.DescribeIdentity
-    Network.AWS.CognitoIdentity.DescribeIdentityPool
-    Network.AWS.CognitoIdentity.GetCredentialsForIdentity
-    Network.AWS.CognitoIdentity.GetId
-    Network.AWS.CognitoIdentity.GetIdentityPoolRoles
-    Network.AWS.CognitoIdentity.GetOpenIdToken
-    Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
-    Network.AWS.CognitoIdentity.ListIdentities
-    Network.AWS.CognitoIdentity.ListIdentityPools
-    Network.AWS.CognitoIdentity.ListTagsForResource
-    Network.AWS.CognitoIdentity.LookupDeveloperIdentity
-    Network.AWS.CognitoIdentity.MergeDeveloperIdentities
-    Network.AWS.CognitoIdentity.SetIdentityPoolRoles
-    Network.AWS.CognitoIdentity.TagResource
-    Network.AWS.CognitoIdentity.Types
-    Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
-    Network.AWS.CognitoIdentity.UnlinkIdentity
-    Network.AWS.CognitoIdentity.UntagResource
-    Network.AWS.CognitoIdentity.UpdateIdentityPool
-    Network.AWS.CognitoIdentity.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.CognitoIdentity.Types.AccessKeyId
-    Network.AWS.CognitoIdentity.Types.AccountId
-    Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType
-    Network.AWS.CognitoIdentity.Types.ARNString
-    Network.AWS.CognitoIdentity.Types.Claim
-    Network.AWS.CognitoIdentity.Types.CognitoErrorCode
-    Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider
-    Network.AWS.CognitoIdentity.Types.CognitoIdentityProviderClientId
-    Network.AWS.CognitoIdentity.Types.Credentials
-    Network.AWS.CognitoIdentity.Types.CustomRoleArn
-    Network.AWS.CognitoIdentity.Types.DeveloperProviderName
-    Network.AWS.CognitoIdentity.Types.DeveloperUserIdentifier
-    Network.AWS.CognitoIdentity.Types.IdentityDescription
-    Network.AWS.CognitoIdentity.Types.IdentityId
-    Network.AWS.CognitoIdentity.Types.IdentityPool
-    Network.AWS.CognitoIdentity.Types.IdentityPoolId
-    Network.AWS.CognitoIdentity.Types.IdentityPoolName
-    Network.AWS.CognitoIdentity.Types.IdentityPoolShortDescription
-    Network.AWS.CognitoIdentity.Types.IdentityProviderId
-    Network.AWS.CognitoIdentity.Types.IdentityProviderName
-    Network.AWS.CognitoIdentity.Types.IdentityProviderToken
-    Network.AWS.CognitoIdentity.Types.MappingRule
-    Network.AWS.CognitoIdentity.Types.MappingRuleMatchType
-    Network.AWS.CognitoIdentity.Types.NextToken
-    Network.AWS.CognitoIdentity.Types.PaginationKey
-    Network.AWS.CognitoIdentity.Types.ProviderName
-    Network.AWS.CognitoIdentity.Types.RoleARN
-    Network.AWS.CognitoIdentity.Types.RoleMapping
-    Network.AWS.CognitoIdentity.Types.RoleMappingType
-    Network.AWS.CognitoIdentity.Types.RoleType
-    Network.AWS.CognitoIdentity.Types.RulesConfigurationType
-    Network.AWS.CognitoIdentity.Types.SecretKeyString
-    Network.AWS.CognitoIdentity.Types.SessionToken
-    Network.AWS.CognitoIdentity.Types.TagKeysType
-    Network.AWS.CognitoIdentity.Types.TagValueType
-    Network.AWS.CognitoIdentity.Types.Token
-    Network.AWS.CognitoIdentity.Types.UnprocessedIdentityId
-    Network.AWS.CognitoIdentity.Types.Value
+    exposed-modules:
+          Network.AWS.CognitoIdentity
+        , Network.AWS.CognitoIdentity.Types
+        , Network.AWS.CognitoIdentity.Waiters
+        , Network.AWS.CognitoIdentity.GetOpenIdToken
+        , Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
+        , Network.AWS.CognitoIdentity.DescribeIdentityPool
+        , Network.AWS.CognitoIdentity.ListTagsForResource
+        , Network.AWS.CognitoIdentity.GetId
+        , Network.AWS.CognitoIdentity.DeleteIdentityPool
+        , Network.AWS.CognitoIdentity.UpdateIdentityPool
+        , Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
+        , Network.AWS.CognitoIdentity.GetIdentityPoolRoles
+        , Network.AWS.CognitoIdentity.ListIdentityPools
+        , Network.AWS.CognitoIdentity.GetCredentialsForIdentity
+        , Network.AWS.CognitoIdentity.DeleteIdentities
+        , Network.AWS.CognitoIdentity.SetIdentityPoolRoles
+        , Network.AWS.CognitoIdentity.ListIdentities
+        , Network.AWS.CognitoIdentity.LookupDeveloperIdentity
+        , Network.AWS.CognitoIdentity.UnlinkIdentity
+        , Network.AWS.CognitoIdentity.TagResource
+        , Network.AWS.CognitoIdentity.DescribeIdentity
+        , Network.AWS.CognitoIdentity.UntagResource
+        , Network.AWS.CognitoIdentity.CreateIdentityPool
+        , Network.AWS.CognitoIdentity.MergeDeveloperIdentities
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.CognitoIdentity.Types.RoleType
+        , Network.AWS.CognitoIdentity.Types.IdentityProviderToken
+        , Network.AWS.CognitoIdentity.Types.CognitoIdentityProviderClientId
+        , Network.AWS.CognitoIdentity.Types.DeveloperUserIdentifier
+        , Network.AWS.CognitoIdentity.Types.SecretKeyString
+        , Network.AWS.CognitoIdentity.Types.IdentityPoolId
+        , Network.AWS.CognitoIdentity.Types.MappingRule
+        , Network.AWS.CognitoIdentity.Types.UnprocessedIdentityId
+        , Network.AWS.CognitoIdentity.Types.IdentityProviderId
+        , Network.AWS.CognitoIdentity.Types.IdentityPoolName
+        , Network.AWS.CognitoIdentity.Types.Credentials
+        , Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider
+        , Network.AWS.CognitoIdentity.Types.IdentityProviderName
+        , Network.AWS.CognitoIdentity.Types.IdentityDescription
+        , Network.AWS.CognitoIdentity.Types.ARNString
+        , Network.AWS.CognitoIdentity.Types.DeveloperProviderName
+        , Network.AWS.CognitoIdentity.Types.RoleMapping
+        , Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType
+        , Network.AWS.CognitoIdentity.Types.MappingRuleMatchType
+        , Network.AWS.CognitoIdentity.Types.AccountId
+        , Network.AWS.CognitoIdentity.Types.IdentityPool
+        , Network.AWS.CognitoIdentity.Types.CognitoErrorCode
+        , Network.AWS.CognitoIdentity.Types.RulesConfigurationType
+        , Network.AWS.CognitoIdentity.Types.RoleMappingType
+        , Network.AWS.CognitoIdentity.Types.IdentityId
+        , Network.AWS.CognitoIdentity.Types.PaginationKey
+        , Network.AWS.CognitoIdentity.Types.TagKeysType
+        , Network.AWS.CognitoIdentity.Types.IdentityPoolShortDescription
+        , Network.AWS.CognitoIdentity.Types.TagValueType
+        , Network.AWS.CognitoIdentity.Types.Token
+        , Network.AWS.CognitoIdentity.Types.NextToken
+        , Network.AWS.CognitoIdentity.Types.Claim
+        , Network.AWS.CognitoIdentity.Types.Value
+        , Network.AWS.CognitoIdentity.Types.RoleARN
+        , Network.AWS.CognitoIdentity.Types.CustomRoleArn
+        , Network.AWS.CognitoIdentity.Types.AccessKeyId
+        , Network.AWS.CognitoIdentity.Types.SessionToken
+        , Network.AWS.CognitoIdentity.Types.ProviderName
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-cognito-identity-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.CognitoIdentity
-    Test.AWS.CognitoIdentity.Internal
-    Test.AWS.Gen.CognitoIdentity
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-cognito-identity
-    , amazonka-core              >=2.0.0.0 && <2.0.0.1
-    , amazonka-test              >=2.0.0.0 && <2.0.0.1
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.CognitoIdentity
+        , Test.AWS.Gen.CognitoIdentity
+        , Test.AWS.CognitoIdentity.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-cognito-identity
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

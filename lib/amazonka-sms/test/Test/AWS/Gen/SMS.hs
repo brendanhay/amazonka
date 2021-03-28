@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.SMS where
 
 import Data.Proxy
-import Network.AWS.SMS
 import Test.AWS.Fixture
 import Test.AWS.Prelude
-import Test.AWS.SMS.Internal
 import Test.Tasty
+import Network.AWS.SMS
+import Test.AWS.SMS.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -246,492 +247,422 @@ import Test.Tasty
 -- Requests
 
 requestDeleteAppReplicationConfiguration :: DeleteAppReplicationConfiguration -> TestTree
-requestDeleteAppReplicationConfiguration =
-  req
+requestDeleteAppReplicationConfiguration = req
     "DeleteAppReplicationConfiguration"
     "fixture/DeleteAppReplicationConfiguration.yaml"
 
 requestPutAppReplicationConfiguration :: PutAppReplicationConfiguration -> TestTree
-requestPutAppReplicationConfiguration =
-  req
+requestPutAppReplicationConfiguration = req
     "PutAppReplicationConfiguration"
     "fixture/PutAppReplicationConfiguration.yaml"
 
 requestDeleteServerCatalog :: DeleteServerCatalog -> TestTree
-requestDeleteServerCatalog =
-  req
+requestDeleteServerCatalog = req
     "DeleteServerCatalog"
     "fixture/DeleteServerCatalog.yaml"
 
 requestImportAppCatalog :: ImportAppCatalog -> TestTree
-requestImportAppCatalog =
-  req
+requestImportAppCatalog = req
     "ImportAppCatalog"
     "fixture/ImportAppCatalog.yaml"
 
 requestGetAppLaunchConfiguration :: GetAppLaunchConfiguration -> TestTree
-requestGetAppLaunchConfiguration =
-  req
+requestGetAppLaunchConfiguration = req
     "GetAppLaunchConfiguration"
     "fixture/GetAppLaunchConfiguration.yaml"
 
 requestDeleteAppLaunchConfiguration :: DeleteAppLaunchConfiguration -> TestTree
-requestDeleteAppLaunchConfiguration =
-  req
+requestDeleteAppLaunchConfiguration = req
     "DeleteAppLaunchConfiguration"
     "fixture/DeleteAppLaunchConfiguration.yaml"
 
 requestStartAppReplication :: StartAppReplication -> TestTree
-requestStartAppReplication =
-  req
+requestStartAppReplication = req
     "StartAppReplication"
     "fixture/StartAppReplication.yaml"
 
 requestPutAppLaunchConfiguration :: PutAppLaunchConfiguration -> TestTree
-requestPutAppLaunchConfiguration =
-  req
+requestPutAppLaunchConfiguration = req
     "PutAppLaunchConfiguration"
     "fixture/PutAppLaunchConfiguration.yaml"
 
 requestGetReplicationRuns :: GetReplicationRuns -> TestTree
-requestGetReplicationRuns =
-  req
+requestGetReplicationRuns = req
     "GetReplicationRuns"
     "fixture/GetReplicationRuns.yaml"
 
 requestTerminateApp :: TerminateApp -> TestTree
-requestTerminateApp =
-  req
+requestTerminateApp = req
     "TerminateApp"
     "fixture/TerminateApp.yaml"
 
 requestListApps :: ListApps -> TestTree
-requestListApps =
-  req
+requestListApps = req
     "ListApps"
     "fixture/ListApps.yaml"
 
 requestGetServers :: GetServers -> TestTree
-requestGetServers =
-  req
+requestGetServers = req
     "GetServers"
     "fixture/GetServers.yaml"
 
 requestDeleteApp :: DeleteApp -> TestTree
-requestDeleteApp =
-  req
+requestDeleteApp = req
     "DeleteApp"
     "fixture/DeleteApp.yaml"
 
 requestUpdateApp :: UpdateApp -> TestTree
-requestUpdateApp =
-  req
+requestUpdateApp = req
     "UpdateApp"
     "fixture/UpdateApp.yaml"
 
 requestStartOnDemandAppReplication :: StartOnDemandAppReplication -> TestTree
-requestStartOnDemandAppReplication =
-  req
+requestStartOnDemandAppReplication = req
     "StartOnDemandAppReplication"
     "fixture/StartOnDemandAppReplication.yaml"
 
 requestImportServerCatalog :: ImportServerCatalog -> TestTree
-requestImportServerCatalog =
-  req
+requestImportServerCatalog = req
     "ImportServerCatalog"
     "fixture/ImportServerCatalog.yaml"
 
 requestGenerateTemplate :: GenerateTemplate -> TestTree
-requestGenerateTemplate =
-  req
+requestGenerateTemplate = req
     "GenerateTemplate"
     "fixture/GenerateTemplate.yaml"
 
 requestGetConnectors :: GetConnectors -> TestTree
-requestGetConnectors =
-  req
+requestGetConnectors = req
     "GetConnectors"
     "fixture/GetConnectors.yaml"
 
 requestGetReplicationJobs :: GetReplicationJobs -> TestTree
-requestGetReplicationJobs =
-  req
+requestGetReplicationJobs = req
     "GetReplicationJobs"
     "fixture/GetReplicationJobs.yaml"
 
 requestDisassociateConnector :: DisassociateConnector -> TestTree
-requestDisassociateConnector =
-  req
+requestDisassociateConnector = req
     "DisassociateConnector"
     "fixture/DisassociateConnector.yaml"
 
 requestLaunchApp :: LaunchApp -> TestTree
-requestLaunchApp =
-  req
+requestLaunchApp = req
     "LaunchApp"
     "fixture/LaunchApp.yaml"
 
 requestGetAppValidationConfiguration :: GetAppValidationConfiguration -> TestTree
-requestGetAppValidationConfiguration =
-  req
+requestGetAppValidationConfiguration = req
     "GetAppValidationConfiguration"
     "fixture/GetAppValidationConfiguration.yaml"
 
 requestCreateReplicationJob :: CreateReplicationJob -> TestTree
-requestCreateReplicationJob =
-  req
+requestCreateReplicationJob = req
     "CreateReplicationJob"
     "fixture/CreateReplicationJob.yaml"
 
 requestGenerateChangeSet :: GenerateChangeSet -> TestTree
-requestGenerateChangeSet =
-  req
+requestGenerateChangeSet = req
     "GenerateChangeSet"
     "fixture/GenerateChangeSet.yaml"
 
 requestGetApp :: GetApp -> TestTree
-requestGetApp =
-  req
+requestGetApp = req
     "GetApp"
     "fixture/GetApp.yaml"
 
 requestUpdateReplicationJob :: UpdateReplicationJob -> TestTree
-requestUpdateReplicationJob =
-  req
+requestUpdateReplicationJob = req
     "UpdateReplicationJob"
     "fixture/UpdateReplicationJob.yaml"
 
 requestDeleteReplicationJob :: DeleteReplicationJob -> TestTree
-requestDeleteReplicationJob =
-  req
+requestDeleteReplicationJob = req
     "DeleteReplicationJob"
     "fixture/DeleteReplicationJob.yaml"
 
 requestCreateApp :: CreateApp -> TestTree
-requestCreateApp =
-  req
+requestCreateApp = req
     "CreateApp"
     "fixture/CreateApp.yaml"
 
 requestStopAppReplication :: StopAppReplication -> TestTree
-requestStopAppReplication =
-  req
+requestStopAppReplication = req
     "StopAppReplication"
     "fixture/StopAppReplication.yaml"
 
 requestDeleteAppValidationConfiguration :: DeleteAppValidationConfiguration -> TestTree
-requestDeleteAppValidationConfiguration =
-  req
+requestDeleteAppValidationConfiguration = req
     "DeleteAppValidationConfiguration"
     "fixture/DeleteAppValidationConfiguration.yaml"
 
 requestPutAppValidationConfiguration :: PutAppValidationConfiguration -> TestTree
-requestPutAppValidationConfiguration =
-  req
+requestPutAppValidationConfiguration = req
     "PutAppValidationConfiguration"
     "fixture/PutAppValidationConfiguration.yaml"
 
 requestGetAppValidationOutput :: GetAppValidationOutput -> TestTree
-requestGetAppValidationOutput =
-  req
+requestGetAppValidationOutput = req
     "GetAppValidationOutput"
     "fixture/GetAppValidationOutput.yaml"
 
 requestGetAppReplicationConfiguration :: GetAppReplicationConfiguration -> TestTree
-requestGetAppReplicationConfiguration =
-  req
+requestGetAppReplicationConfiguration = req
     "GetAppReplicationConfiguration"
     "fixture/GetAppReplicationConfiguration.yaml"
 
 requestStartOnDemandReplicationRun :: StartOnDemandReplicationRun -> TestTree
-requestStartOnDemandReplicationRun =
-  req
+requestStartOnDemandReplicationRun = req
     "StartOnDemandReplicationRun"
     "fixture/StartOnDemandReplicationRun.yaml"
 
 requestNotifyAppValidationOutput :: NotifyAppValidationOutput -> TestTree
-requestNotifyAppValidationOutput =
-  req
+requestNotifyAppValidationOutput = req
     "NotifyAppValidationOutput"
     "fixture/NotifyAppValidationOutput.yaml"
 
 -- Responses
 
 responseDeleteAppReplicationConfiguration :: DeleteAppReplicationConfigurationResponse -> TestTree
-responseDeleteAppReplicationConfiguration =
-  res
+responseDeleteAppReplicationConfiguration = res
     "DeleteAppReplicationConfigurationResponse"
     "fixture/DeleteAppReplicationConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteAppReplicationConfiguration)
 
 responsePutAppReplicationConfiguration :: PutAppReplicationConfigurationResponse -> TestTree
-responsePutAppReplicationConfiguration =
-  res
+responsePutAppReplicationConfiguration = res
     "PutAppReplicationConfigurationResponse"
     "fixture/PutAppReplicationConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutAppReplicationConfiguration)
 
 responseDeleteServerCatalog :: DeleteServerCatalogResponse -> TestTree
-responseDeleteServerCatalog =
-  res
+responseDeleteServerCatalog = res
     "DeleteServerCatalogResponse"
     "fixture/DeleteServerCatalogResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteServerCatalog)
 
 responseImportAppCatalog :: ImportAppCatalogResponse -> TestTree
-responseImportAppCatalog =
-  res
+responseImportAppCatalog = res
     "ImportAppCatalogResponse"
     "fixture/ImportAppCatalogResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ImportAppCatalog)
 
 responseGetAppLaunchConfiguration :: GetAppLaunchConfigurationResponse -> TestTree
-responseGetAppLaunchConfiguration =
-  res
+responseGetAppLaunchConfiguration = res
     "GetAppLaunchConfigurationResponse"
     "fixture/GetAppLaunchConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetAppLaunchConfiguration)
 
 responseDeleteAppLaunchConfiguration :: DeleteAppLaunchConfigurationResponse -> TestTree
-responseDeleteAppLaunchConfiguration =
-  res
+responseDeleteAppLaunchConfiguration = res
     "DeleteAppLaunchConfigurationResponse"
     "fixture/DeleteAppLaunchConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteAppLaunchConfiguration)
 
 responseStartAppReplication :: StartAppReplicationResponse -> TestTree
-responseStartAppReplication =
-  res
+responseStartAppReplication = res
     "StartAppReplicationResponse"
     "fixture/StartAppReplicationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartAppReplication)
 
 responsePutAppLaunchConfiguration :: PutAppLaunchConfigurationResponse -> TestTree
-responsePutAppLaunchConfiguration =
-  res
+responsePutAppLaunchConfiguration = res
     "PutAppLaunchConfigurationResponse"
     "fixture/PutAppLaunchConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutAppLaunchConfiguration)
 
 responseGetReplicationRuns :: GetReplicationRunsResponse -> TestTree
-responseGetReplicationRuns =
-  res
+responseGetReplicationRuns = res
     "GetReplicationRunsResponse"
     "fixture/GetReplicationRunsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetReplicationRuns)
 
 responseTerminateApp :: TerminateAppResponse -> TestTree
-responseTerminateApp =
-  res
+responseTerminateApp = res
     "TerminateAppResponse"
     "fixture/TerminateAppResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TerminateApp)
 
 responseListApps :: ListAppsResponse -> TestTree
-responseListApps =
-  res
+responseListApps = res
     "ListAppsResponse"
     "fixture/ListAppsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListApps)
 
 responseGetServers :: GetServersResponse -> TestTree
-responseGetServers =
-  res
+responseGetServers = res
     "GetServersResponse"
     "fixture/GetServersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetServers)
 
 responseDeleteApp :: DeleteAppResponse -> TestTree
-responseDeleteApp =
-  res
+responseDeleteApp = res
     "DeleteAppResponse"
     "fixture/DeleteAppResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteApp)
 
 responseUpdateApp :: UpdateAppResponse -> TestTree
-responseUpdateApp =
-  res
+responseUpdateApp = res
     "UpdateAppResponse"
     "fixture/UpdateAppResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateApp)
 
 responseStartOnDemandAppReplication :: StartOnDemandAppReplicationResponse -> TestTree
-responseStartOnDemandAppReplication =
-  res
+responseStartOnDemandAppReplication = res
     "StartOnDemandAppReplicationResponse"
     "fixture/StartOnDemandAppReplicationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartOnDemandAppReplication)
 
 responseImportServerCatalog :: ImportServerCatalogResponse -> TestTree
-responseImportServerCatalog =
-  res
+responseImportServerCatalog = res
     "ImportServerCatalogResponse"
     "fixture/ImportServerCatalogResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ImportServerCatalog)
 
 responseGenerateTemplate :: GenerateTemplateResponse -> TestTree
-responseGenerateTemplate =
-  res
+responseGenerateTemplate = res
     "GenerateTemplateResponse"
     "fixture/GenerateTemplateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GenerateTemplate)
 
 responseGetConnectors :: GetConnectorsResponse -> TestTree
-responseGetConnectors =
-  res
+responseGetConnectors = res
     "GetConnectorsResponse"
     "fixture/GetConnectorsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetConnectors)
 
 responseGetReplicationJobs :: GetReplicationJobsResponse -> TestTree
-responseGetReplicationJobs =
-  res
+responseGetReplicationJobs = res
     "GetReplicationJobsResponse"
     "fixture/GetReplicationJobsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetReplicationJobs)
 
 responseDisassociateConnector :: DisassociateConnectorResponse -> TestTree
-responseDisassociateConnector =
-  res
+responseDisassociateConnector = res
     "DisassociateConnectorResponse"
     "fixture/DisassociateConnectorResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateConnector)
 
 responseLaunchApp :: LaunchAppResponse -> TestTree
-responseLaunchApp =
-  res
+responseLaunchApp = res
     "LaunchAppResponse"
     "fixture/LaunchAppResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy LaunchApp)
 
 responseGetAppValidationConfiguration :: GetAppValidationConfigurationResponse -> TestTree
-responseGetAppValidationConfiguration =
-  res
+responseGetAppValidationConfiguration = res
     "GetAppValidationConfigurationResponse"
     "fixture/GetAppValidationConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetAppValidationConfiguration)
 
 responseCreateReplicationJob :: CreateReplicationJobResponse -> TestTree
-responseCreateReplicationJob =
-  res
+responseCreateReplicationJob = res
     "CreateReplicationJobResponse"
     "fixture/CreateReplicationJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateReplicationJob)
 
 responseGenerateChangeSet :: GenerateChangeSetResponse -> TestTree
-responseGenerateChangeSet =
-  res
+responseGenerateChangeSet = res
     "GenerateChangeSetResponse"
     "fixture/GenerateChangeSetResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GenerateChangeSet)
 
 responseGetApp :: GetAppResponse -> TestTree
-responseGetApp =
-  res
+responseGetApp = res
     "GetAppResponse"
     "fixture/GetAppResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetApp)
 
 responseUpdateReplicationJob :: UpdateReplicationJobResponse -> TestTree
-responseUpdateReplicationJob =
-  res
+responseUpdateReplicationJob = res
     "UpdateReplicationJobResponse"
     "fixture/UpdateReplicationJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateReplicationJob)
 
 responseDeleteReplicationJob :: DeleteReplicationJobResponse -> TestTree
-responseDeleteReplicationJob =
-  res
+responseDeleteReplicationJob = res
     "DeleteReplicationJobResponse"
     "fixture/DeleteReplicationJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteReplicationJob)
 
 responseCreateApp :: CreateAppResponse -> TestTree
-responseCreateApp =
-  res
+responseCreateApp = res
     "CreateAppResponse"
     "fixture/CreateAppResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateApp)
 
 responseStopAppReplication :: StopAppReplicationResponse -> TestTree
-responseStopAppReplication =
-  res
+responseStopAppReplication = res
     "StopAppReplicationResponse"
     "fixture/StopAppReplicationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StopAppReplication)
 
 responseDeleteAppValidationConfiguration :: DeleteAppValidationConfigurationResponse -> TestTree
-responseDeleteAppValidationConfiguration =
-  res
+responseDeleteAppValidationConfiguration = res
     "DeleteAppValidationConfigurationResponse"
     "fixture/DeleteAppValidationConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteAppValidationConfiguration)
 
 responsePutAppValidationConfiguration :: PutAppValidationConfigurationResponse -> TestTree
-responsePutAppValidationConfiguration =
-  res
+responsePutAppValidationConfiguration = res
     "PutAppValidationConfigurationResponse"
     "fixture/PutAppValidationConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutAppValidationConfiguration)
 
 responseGetAppValidationOutput :: GetAppValidationOutputResponse -> TestTree
-responseGetAppValidationOutput =
-  res
+responseGetAppValidationOutput = res
     "GetAppValidationOutputResponse"
     "fixture/GetAppValidationOutputResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetAppValidationOutput)
 
 responseGetAppReplicationConfiguration :: GetAppReplicationConfigurationResponse -> TestTree
-responseGetAppReplicationConfiguration =
-  res
+responseGetAppReplicationConfiguration = res
     "GetAppReplicationConfigurationResponse"
     "fixture/GetAppReplicationConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetAppReplicationConfiguration)
 
 responseStartOnDemandReplicationRun :: StartOnDemandReplicationRunResponse -> TestTree
-responseStartOnDemandReplicationRun =
-  res
+responseStartOnDemandReplicationRun = res
     "StartOnDemandReplicationRunResponse"
     "fixture/StartOnDemandReplicationRunResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartOnDemandReplicationRun)
 
 responseNotifyAppValidationOutput :: NotifyAppValidationOutputResponse -> TestTree
-responseNotifyAppValidationOutput =
-  res
+responseNotifyAppValidationOutput = res
     "NotifyAppValidationOutputResponse"
     "fixture/NotifyAppValidationOutputResponse.proto"
     mkServiceConfig

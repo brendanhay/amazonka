@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,19 +10,17 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.EC2.Types.TargetCapacitySpecificationRequest
-  ( TargetCapacitySpecificationRequest (..),
-
-    -- * Smart constructor
-    mkTargetCapacitySpecificationRequest,
-
-    -- * Lenses
-    tcsrTotalTargetCapacity,
-    tcsrDefaultTargetCapacityType,
-    tcsrOnDemandTargetCapacity,
-    tcsrSpotTargetCapacity,
-  )
-where
+  ( TargetCapacitySpecificationRequest (..)
+  -- * Smart constructor
+  , mkTargetCapacitySpecificationRequest
+  -- * Lenses
+  , tcsrTotalTargetCapacity
+  , tcsrDefaultTargetCapacityType
+  , tcsrOnDemandTargetCapacity
+  , tcsrSpotTargetCapacity
+  ) where
 
 import qualified Network.AWS.EC2.Types.DefaultTargetCapacityType as Types
 import qualified Network.AWS.Lens as Lens
@@ -34,55 +32,70 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkTargetCapacitySpecificationRequest' smart constructor.
 data TargetCapacitySpecificationRequest = TargetCapacitySpecificationRequest'
-  { -- | The number of units to request, filled using @DefaultTargetCapacityType@ .
-    totalTargetCapacity :: Core.Int,
-    -- | The default @TotalTargetCapacity@ , which is either @Spot@ or @On-Demand@ .
-    defaultTargetCapacityType :: Core.Maybe Types.DefaultTargetCapacityType,
-    -- | The number of On-Demand units to request.
-    onDemandTargetCapacity :: Core.Maybe Core.Int,
-    -- | The number of Spot units to request.
-    spotTargetCapacity :: Core.Maybe Core.Int
+  { totalTargetCapacity :: Core.Int
+    -- ^ The number of units to request, filled using @DefaultTargetCapacityType@ .
+  , defaultTargetCapacityType :: Core.Maybe Types.DefaultTargetCapacityType
+    -- ^ The default @TotalTargetCapacity@ , which is either @Spot@ or @On-Demand@ .
+  , onDemandTargetCapacity :: Core.Maybe Core.Int
+    -- ^ The number of On-Demand units to request.
+  , spotTargetCapacity :: Core.Maybe Core.Int
+    -- ^ The number of Spot units to request.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'TargetCapacitySpecificationRequest' value with any optional fields omitted.
-mkTargetCapacitySpecificationRequest ::
-  -- | 'totalTargetCapacity'
-  Core.Int ->
-  TargetCapacitySpecificationRequest
-mkTargetCapacitySpecificationRequest totalTargetCapacity =
-  TargetCapacitySpecificationRequest'
-    { totalTargetCapacity,
-      defaultTargetCapacityType = Core.Nothing,
-      onDemandTargetCapacity = Core.Nothing,
-      spotTargetCapacity = Core.Nothing
-    }
+mkTargetCapacitySpecificationRequest
+    :: Core.Int -- ^ 'totalTargetCapacity'
+    -> TargetCapacitySpecificationRequest
+mkTargetCapacitySpecificationRequest totalTargetCapacity
+  = TargetCapacitySpecificationRequest'{totalTargetCapacity,
+                                        defaultTargetCapacityType = Core.Nothing,
+                                        onDemandTargetCapacity = Core.Nothing,
+                                        spotTargetCapacity = Core.Nothing}
 
 -- | The number of units to request, filled using @DefaultTargetCapacityType@ .
 --
 -- /Note:/ Consider using 'totalTargetCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 tcsrTotalTargetCapacity :: Lens.Lens' TargetCapacitySpecificationRequest Core.Int
 tcsrTotalTargetCapacity = Lens.field @"totalTargetCapacity"
-{-# DEPRECATED tcsrTotalTargetCapacity "Use generic-lens or generic-optics with 'totalTargetCapacity' instead." #-}
+{-# INLINEABLE tcsrTotalTargetCapacity #-}
+{-# DEPRECATED totalTargetCapacity "Use generic-lens or generic-optics with 'totalTargetCapacity' instead"  #-}
 
 -- | The default @TotalTargetCapacity@ , which is either @Spot@ or @On-Demand@ .
 --
 -- /Note:/ Consider using 'defaultTargetCapacityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 tcsrDefaultTargetCapacityType :: Lens.Lens' TargetCapacitySpecificationRequest (Core.Maybe Types.DefaultTargetCapacityType)
 tcsrDefaultTargetCapacityType = Lens.field @"defaultTargetCapacityType"
-{-# DEPRECATED tcsrDefaultTargetCapacityType "Use generic-lens or generic-optics with 'defaultTargetCapacityType' instead." #-}
+{-# INLINEABLE tcsrDefaultTargetCapacityType #-}
+{-# DEPRECATED defaultTargetCapacityType "Use generic-lens or generic-optics with 'defaultTargetCapacityType' instead"  #-}
 
 -- | The number of On-Demand units to request.
 --
 -- /Note:/ Consider using 'onDemandTargetCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 tcsrOnDemandTargetCapacity :: Lens.Lens' TargetCapacitySpecificationRequest (Core.Maybe Core.Int)
 tcsrOnDemandTargetCapacity = Lens.field @"onDemandTargetCapacity"
-{-# DEPRECATED tcsrOnDemandTargetCapacity "Use generic-lens or generic-optics with 'onDemandTargetCapacity' instead." #-}
+{-# INLINEABLE tcsrOnDemandTargetCapacity #-}
+{-# DEPRECATED onDemandTargetCapacity "Use generic-lens or generic-optics with 'onDemandTargetCapacity' instead"  #-}
 
 -- | The number of Spot units to request.
 --
 -- /Note:/ Consider using 'spotTargetCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 tcsrSpotTargetCapacity :: Lens.Lens' TargetCapacitySpecificationRequest (Core.Maybe Core.Int)
 tcsrSpotTargetCapacity = Lens.field @"spotTargetCapacity"
-{-# DEPRECATED tcsrSpotTargetCapacity "Use generic-lens or generic-optics with 'spotTargetCapacity' instead." #-}
+{-# INLINEABLE tcsrSpotTargetCapacity #-}
+{-# DEPRECATED spotTargetCapacity "Use generic-lens or generic-optics with 'spotTargetCapacity' instead"  #-}
+
+instance Core.ToQuery TargetCapacitySpecificationRequest where
+        toQuery TargetCapacitySpecificationRequest{..}
+          = Core.toQueryPair "TotalTargetCapacity" totalTargetCapacity
+              Core.<>
+              Core.maybe Core.mempty
+                (Core.toQueryPair "DefaultTargetCapacityType")
+                defaultTargetCapacityType
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "OnDemandTargetCapacity")
+                onDemandTargetCapacity
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "SpotTargetCapacity")
+                spotTargetCapacity

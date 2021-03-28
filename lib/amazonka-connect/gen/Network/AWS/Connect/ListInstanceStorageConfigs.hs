@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,26 +17,24 @@
 --
 -- This operation returns paginated results.
 module Network.AWS.Connect.ListInstanceStorageConfigs
-  ( -- * Creating a request
-    ListInstanceStorageConfigs (..),
-    mkListInstanceStorageConfigs,
-
+    (
+    -- * Creating a request
+      ListInstanceStorageConfigs (..)
+    , mkListInstanceStorageConfigs
     -- ** Request lenses
-    liscInstanceId,
-    liscResourceType,
-    liscMaxResults,
-    liscNextToken,
+    , liscInstanceId
+    , liscResourceType
+    , liscMaxResults
+    , liscNextToken
 
     -- * Destructuring the response
-    ListInstanceStorageConfigsResponse (..),
-    mkListInstanceStorageConfigsResponse,
-
+    , ListInstanceStorageConfigsResponse (..)
+    , mkListInstanceStorageConfigsResponse
     -- ** Response lenses
-    liscrrsNextToken,
-    liscrrsStorageConfigs,
-    liscrrsResponseStatus,
-  )
-where
+    , liscrrsNextToken
+    , liscrrsStorageConfigs
+    , liscrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -47,144 +45,143 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListInstanceStorageConfigs' smart constructor.
 data ListInstanceStorageConfigs = ListInstanceStorageConfigs'
-  { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Types.InstanceId,
-    -- | A valid resource type.
-    resourceType :: Types.InstanceStorageResourceType,
-    -- | The maximimum number of results to return per page.
-    maxResults :: Core.Maybe Core.Natural,
-    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-    nextToken :: Core.Maybe Types.NextToken
+  { instanceId :: Types.InstanceId
+    -- ^ The identifier of the Amazon Connect instance.
+  , resourceType :: Types.InstanceStorageResourceType
+    -- ^ A valid resource type.
+  , maxResults :: Core.Maybe Core.Natural
+    -- ^ The maximimum number of results to return per page.
+  , nextToken :: Core.Maybe Types.NextToken
+    -- ^ The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ListInstanceStorageConfigs' value with any optional fields omitted.
-mkListInstanceStorageConfigs ::
-  -- | 'instanceId'
-  Types.InstanceId ->
-  -- | 'resourceType'
-  Types.InstanceStorageResourceType ->
-  ListInstanceStorageConfigs
-mkListInstanceStorageConfigs instanceId resourceType =
-  ListInstanceStorageConfigs'
-    { instanceId,
-      resourceType,
-      maxResults = Core.Nothing,
-      nextToken = Core.Nothing
-    }
+mkListInstanceStorageConfigs
+    :: Types.InstanceId -- ^ 'instanceId'
+    -> Types.InstanceStorageResourceType -- ^ 'resourceType'
+    -> ListInstanceStorageConfigs
+mkListInstanceStorageConfigs instanceId resourceType
+  = ListInstanceStorageConfigs'{instanceId, resourceType,
+                                maxResults = Core.Nothing, nextToken = Core.Nothing}
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 liscInstanceId :: Lens.Lens' ListInstanceStorageConfigs Types.InstanceId
 liscInstanceId = Lens.field @"instanceId"
-{-# DEPRECATED liscInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+{-# INLINEABLE liscInstanceId #-}
+{-# DEPRECATED instanceId "Use generic-lens or generic-optics with 'instanceId' instead"  #-}
 
 -- | A valid resource type.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 liscResourceType :: Lens.Lens' ListInstanceStorageConfigs Types.InstanceStorageResourceType
 liscResourceType = Lens.field @"resourceType"
-{-# DEPRECATED liscResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+{-# INLINEABLE liscResourceType #-}
+{-# DEPRECATED resourceType "Use generic-lens or generic-optics with 'resourceType' instead"  #-}
 
 -- | The maximimum number of results to return per page.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 liscMaxResults :: Lens.Lens' ListInstanceStorageConfigs (Core.Maybe Core.Natural)
 liscMaxResults = Lens.field @"maxResults"
-{-# DEPRECATED liscMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+{-# INLINEABLE liscMaxResults #-}
+{-# DEPRECATED maxResults "Use generic-lens or generic-optics with 'maxResults' instead"  #-}
 
 -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 liscNextToken :: Lens.Lens' ListInstanceStorageConfigs (Core.Maybe Types.NextToken)
 liscNextToken = Lens.field @"nextToken"
-{-# DEPRECATED liscNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE liscNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
+
+instance Core.ToQuery ListInstanceStorageConfigs where
+        toQuery ListInstanceStorageConfigs{..}
+          = Core.toQueryPair "resourceType" resourceType Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "maxResults") maxResults
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "nextToken") nextToken
+
+instance Core.ToHeaders ListInstanceStorageConfigs where
+        toHeaders ListInstanceStorageConfigs{..}
+          = Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.AWSRequest ListInstanceStorageConfigs where
-  type
-    Rs ListInstanceStorageConfigs =
-      ListInstanceStorageConfigsResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.GET,
-        Core._rqPath =
-          Core.rawPath
-            ( "/instance/" Core.<> (Core.toText instanceId)
-                Core.<> ("/storage-configs")
-            ),
-        Core._rqQuery =
-          Core.toQueryValue "resourceType" resourceType
-            Core.<> (Core.toQueryValue "maxResults" Core.<$> maxResults)
-            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
-        Core._rqHeaders =
-          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
-        Core._rqBody = ""
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          ListInstanceStorageConfigsResponse'
-            Core.<$> (x Core..:? "NextToken")
-            Core.<*> (x Core..:? "StorageConfigs")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs ListInstanceStorageConfigs =
+             ListInstanceStorageConfigsResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.GET,
+                         Core._rqPath =
+                           "/instance/" Core.<> Core.toText instanceId Core.<>
+                             "/storage-configs",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 ListInstanceStorageConfigsResponse' Core.<$>
+                   (x Core..:? "NextToken") Core.<*> x Core..:? "StorageConfigs"
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 instance Pager.AWSPager ListInstanceStorageConfigs where
-  page rq rs
-    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
-    | Pager.stop
-        (rs Lens.^? Lens.field @"storageConfigs" Core.. Lens._Just) =
-      Core.Nothing
-    | Core.otherwise =
-      Core.Just
-        ( rq
-            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
-        )
+        page rq rs
+          | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+          | Pager.stop
+              (rs Lens.^? Lens.field @"storageConfigs" Core.. Lens._Just)
+            = Core.Nothing
+          | Core.otherwise =
+            Core.Just
+              (rq Core.&
+                 Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken")
 
 -- | /See:/ 'mkListInstanceStorageConfigsResponse' smart constructor.
 data ListInstanceStorageConfigsResponse = ListInstanceStorageConfigsResponse'
-  { -- | If there are additional results, this is the token for the next set of results.
-    nextToken :: Core.Maybe Types.NextToken,
-    -- | A valid storage type.
-    storageConfigs :: Core.Maybe [Types.InstanceStorageConfig],
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { nextToken :: Core.Maybe Types.NextToken
+    -- ^ If there are additional results, this is the token for the next set of results.
+  , storageConfigs :: Core.Maybe [Types.InstanceStorageConfig]
+    -- ^ A valid storage type.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ListInstanceStorageConfigsResponse' value with any optional fields omitted.
-mkListInstanceStorageConfigsResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  ListInstanceStorageConfigsResponse
-mkListInstanceStorageConfigsResponse responseStatus =
-  ListInstanceStorageConfigsResponse'
-    { nextToken = Core.Nothing,
-      storageConfigs = Core.Nothing,
-      responseStatus
-    }
+mkListInstanceStorageConfigsResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> ListInstanceStorageConfigsResponse
+mkListInstanceStorageConfigsResponse responseStatus
+  = ListInstanceStorageConfigsResponse'{nextToken = Core.Nothing,
+                                        storageConfigs = Core.Nothing, responseStatus}
 
 -- | If there are additional results, this is the token for the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 liscrrsNextToken :: Lens.Lens' ListInstanceStorageConfigsResponse (Core.Maybe Types.NextToken)
 liscrrsNextToken = Lens.field @"nextToken"
-{-# DEPRECATED liscrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE liscrrsNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
 
 -- | A valid storage type.
 --
 -- /Note:/ Consider using 'storageConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 liscrrsStorageConfigs :: Lens.Lens' ListInstanceStorageConfigsResponse (Core.Maybe [Types.InstanceStorageConfig])
 liscrrsStorageConfigs = Lens.field @"storageConfigs"
-{-# DEPRECATED liscrrsStorageConfigs "Use generic-lens or generic-optics with 'storageConfigs' instead." #-}
+{-# INLINEABLE liscrrsStorageConfigs #-}
+{-# DEPRECATED storageConfigs "Use generic-lens or generic-optics with 'storageConfigs' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 liscrrsResponseStatus :: Lens.Lens' ListInstanceStorageConfigsResponse Core.Int
 liscrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED liscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE liscrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

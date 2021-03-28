@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,20 +17,19 @@
 --
 -- Calling this action requires developer credentials.
 module Network.AWS.CognitoIdentityProvider.AdminForgetDevice
-  ( -- * Creating a request
-    AdminForgetDevice (..),
-    mkAdminForgetDevice,
-
+    (
+    -- * Creating a request
+      AdminForgetDevice (..)
+    , mkAdminForgetDevice
     -- ** Request lenses
-    afdUserPoolId,
-    afdUsername,
-    afdDeviceKey,
+    , afdUserPoolId
+    , afdUsername
+    , afdDeviceKey
 
     -- * Destructuring the response
-    AdminForgetDeviceResponse (..),
-    mkAdminForgetDeviceResponse,
-  )
-where
+    , AdminForgetDeviceResponse (..)
+    , mkAdminForgetDeviceResponse
+    ) where
 
 import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -42,76 +41,79 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkAdminForgetDevice' smart constructor.
 data AdminForgetDevice = AdminForgetDevice'
-  { -- | The user pool ID.
-    userPoolId :: Types.UserPoolId,
-    -- | The user name.
-    username :: Types.Username,
-    -- | The device key.
-    deviceKey :: Types.DeviceKeyType
+  { userPoolId :: Types.UserPoolId
+    -- ^ The user pool ID.
+  , username :: Types.Username
+    -- ^ The user name.
+  , deviceKey :: Types.DeviceKeyType
+    -- ^ The device key.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AdminForgetDevice' value with any optional fields omitted.
-mkAdminForgetDevice ::
-  -- | 'userPoolId'
-  Types.UserPoolId ->
-  -- | 'username'
-  Types.Username ->
-  -- | 'deviceKey'
-  Types.DeviceKeyType ->
-  AdminForgetDevice
-mkAdminForgetDevice userPoolId username deviceKey =
-  AdminForgetDevice' {userPoolId, username, deviceKey}
+mkAdminForgetDevice
+    :: Types.UserPoolId -- ^ 'userPoolId'
+    -> Types.Username -- ^ 'username'
+    -> Types.DeviceKeyType -- ^ 'deviceKey'
+    -> AdminForgetDevice
+mkAdminForgetDevice userPoolId username deviceKey
+  = AdminForgetDevice'{userPoolId, username, deviceKey}
 
 -- | The user pool ID.
 --
 -- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 afdUserPoolId :: Lens.Lens' AdminForgetDevice Types.UserPoolId
 afdUserPoolId = Lens.field @"userPoolId"
-{-# DEPRECATED afdUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+{-# INLINEABLE afdUserPoolId #-}
+{-# DEPRECATED userPoolId "Use generic-lens or generic-optics with 'userPoolId' instead"  #-}
 
 -- | The user name.
 --
 -- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 afdUsername :: Lens.Lens' AdminForgetDevice Types.Username
 afdUsername = Lens.field @"username"
-{-# DEPRECATED afdUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+{-# INLINEABLE afdUsername #-}
+{-# DEPRECATED username "Use generic-lens or generic-optics with 'username' instead"  #-}
 
 -- | The device key.
 --
 -- /Note:/ Consider using 'deviceKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 afdDeviceKey :: Lens.Lens' AdminForgetDevice Types.DeviceKeyType
 afdDeviceKey = Lens.field @"deviceKey"
-{-# DEPRECATED afdDeviceKey "Use generic-lens or generic-optics with 'deviceKey' instead." #-}
+{-# INLINEABLE afdDeviceKey #-}
+{-# DEPRECATED deviceKey "Use generic-lens or generic-optics with 'deviceKey' instead"  #-}
+
+instance Core.ToQuery AdminForgetDevice where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders AdminForgetDevice where
+        toHeaders AdminForgetDevice{..}
+          = Core.pure
+              ("X-Amz-Target",
+               "AWSCognitoIdentityProviderService.AdminForgetDevice")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON AdminForgetDevice where
-  toJSON AdminForgetDevice {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("UserPoolId" Core..= userPoolId),
-            Core.Just ("Username" Core..= username),
-            Core.Just ("DeviceKey" Core..= deviceKey)
-          ]
-      )
+        toJSON AdminForgetDevice{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("UserPoolId" Core..= userPoolId),
+                  Core.Just ("Username" Core..= username),
+                  Core.Just ("DeviceKey" Core..= deviceKey)])
 
 instance Core.AWSRequest AdminForgetDevice where
-  type Rs AdminForgetDevice = AdminForgetDeviceResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "X-Amz-Target",
-              "AWSCognitoIdentityProviderService.AdminForgetDevice"
-            )
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response = Response.receiveNull AdminForgetDeviceResponse'
+        type Rs AdminForgetDevice = AdminForgetDeviceResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull AdminForgetDeviceResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkAdminForgetDeviceResponse' smart constructor.
 data AdminForgetDeviceResponse = AdminForgetDeviceResponse'
@@ -119,6 +121,6 @@ data AdminForgetDeviceResponse = AdminForgetDeviceResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AdminForgetDeviceResponse' value with any optional fields omitted.
-mkAdminForgetDeviceResponse ::
-  AdminForgetDeviceResponse
+mkAdminForgetDeviceResponse
+    :: AdminForgetDeviceResponse
 mkAdminForgetDeviceResponse = AdminForgetDeviceResponse'

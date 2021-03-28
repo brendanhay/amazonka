@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,48 +10,32 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Redshift.Types.OperatorType
   ( OperatorType
-      ( OperatorType',
-        OperatorTypeEQ,
-        OperatorTypeLT,
-        OperatorTypeGT,
-        OperatorTypeLE,
-        OperatorTypeGE,
-        OperatorTypeIN,
-        OperatorTypeBetween,
-        fromOperatorType
-      ),
-  )
-where
+    ( OperatorType'
+    , OperatorTypeEQ
+    , OperatorTypeLT
+    , OperatorTypeGT
+    , OperatorTypeLE
+    , OperatorTypeGE
+    , OperatorTypeIN
+    , OperatorTypeBetween
+    , fromOperatorType
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Redshift.Internal as Types
 
-newtype OperatorType = OperatorType' {fromOperatorType :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype OperatorType = OperatorType'{fromOperatorType :: Core.Text}
+                         deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                         Core.Generic)
+                         deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                           Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                           Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                           Core.FromText, Core.ToByteString, Core.ToQuery,
+                                           Core.ToHeader)
 
 pattern OperatorTypeEQ :: OperatorType
 pattern OperatorTypeEQ = OperatorType' "eq"
@@ -74,13 +58,19 @@ pattern OperatorTypeIN = OperatorType' "in"
 pattern OperatorTypeBetween :: OperatorType
 pattern OperatorTypeBetween = OperatorType' "between"
 
-{-# COMPLETE
+{-# COMPLETE 
   OperatorTypeEQ,
+
   OperatorTypeLT,
+
   OperatorTypeGT,
+
   OperatorTypeLE,
+
   OperatorTypeGE,
+
   OperatorTypeIN,
+
   OperatorTypeBetween,
   OperatorType'
   #-}

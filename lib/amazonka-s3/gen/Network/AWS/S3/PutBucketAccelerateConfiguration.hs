@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -30,25 +30,26 @@
 -- For more information about transfer acceleration, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/transfer-acceleration.html Transfer Acceleration> .
 -- The following operations are related to @PutBucketAccelerateConfiguration@ :
 --
---     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html GetBucketAccelerateConfiguration>
+--     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketAccelerateConfiguration.html GetBucketAccelerateConfiguration> 
 --
 --
---     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html CreateBucket>
+--     * <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html CreateBucket> 
+--
+--
 module Network.AWS.S3.PutBucketAccelerateConfiguration
-  ( -- * Creating a request
-    PutBucketAccelerateConfiguration (..),
-    mkPutBucketAccelerateConfiguration,
-
+    (
+    -- * Creating a request
+      PutBucketAccelerateConfiguration (..)
+    , mkPutBucketAccelerateConfiguration
     -- ** Request lenses
-    pbacBucket,
-    pbacAccelerateConfiguration,
-    pbacExpectedBucketOwner,
+    , pbacBucket
+    , pbacAccelerateConfiguration
+    , pbacExpectedBucketOwner
 
     -- * Destructuring the response
-    PutBucketAccelerateConfigurationResponse (..),
-    mkPutBucketAccelerateConfigurationResponse,
-  )
-where
+    , PutBucketAccelerateConfigurationResponse (..)
+    , mkPutBucketAccelerateConfigurationResponse
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -58,67 +59,72 @@ import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkPutBucketAccelerateConfiguration' smart constructor.
 data PutBucketAccelerateConfiguration = PutBucketAccelerateConfiguration'
-  { -- | The name of the bucket for which the accelerate configuration is set.
-    bucket :: Types.BucketName,
-    -- | Container for setting the transfer acceleration state.
-    accelerateConfiguration :: Types.AccelerateConfiguration,
-    -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Core.Maybe Types.AccountId
+  { bucket :: Types.BucketName
+    -- ^ The name of the bucket for which the accelerate configuration is set.
+  , accelerateConfiguration :: Types.AccelerateConfiguration
+    -- ^ Container for setting the transfer acceleration state.
+  , expectedBucketOwner :: Core.Maybe Types.AccountId
+    -- ^ The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'PutBucketAccelerateConfiguration' value with any optional fields omitted.
-mkPutBucketAccelerateConfiguration ::
-  -- | 'bucket'
-  Types.BucketName ->
-  -- | 'accelerateConfiguration'
-  Types.AccelerateConfiguration ->
-  PutBucketAccelerateConfiguration
-mkPutBucketAccelerateConfiguration bucket accelerateConfiguration =
-  PutBucketAccelerateConfiguration'
-    { bucket,
-      accelerateConfiguration,
-      expectedBucketOwner = Core.Nothing
-    }
+mkPutBucketAccelerateConfiguration
+    :: Types.BucketName -- ^ 'bucket'
+    -> Types.AccelerateConfiguration -- ^ 'accelerateConfiguration'
+    -> PutBucketAccelerateConfiguration
+mkPutBucketAccelerateConfiguration bucket accelerateConfiguration
+  = PutBucketAccelerateConfiguration'{bucket,
+                                      accelerateConfiguration, expectedBucketOwner = Core.Nothing}
 
 -- | The name of the bucket for which the accelerate configuration is set.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pbacBucket :: Lens.Lens' PutBucketAccelerateConfiguration Types.BucketName
 pbacBucket = Lens.field @"bucket"
-{-# DEPRECATED pbacBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+{-# INLINEABLE pbacBucket #-}
+{-# DEPRECATED bucket "Use generic-lens or generic-optics with 'bucket' instead"  #-}
 
 -- | Container for setting the transfer acceleration state.
 --
 -- /Note:/ Consider using 'accelerateConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pbacAccelerateConfiguration :: Lens.Lens' PutBucketAccelerateConfiguration Types.AccelerateConfiguration
 pbacAccelerateConfiguration = Lens.field @"accelerateConfiguration"
-{-# DEPRECATED pbacAccelerateConfiguration "Use generic-lens or generic-optics with 'accelerateConfiguration' instead." #-}
+{-# INLINEABLE pbacAccelerateConfiguration #-}
+{-# DEPRECATED accelerateConfiguration "Use generic-lens or generic-optics with 'accelerateConfiguration' instead"  #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pbacExpectedBucketOwner :: Lens.Lens' PutBucketAccelerateConfiguration (Core.Maybe Types.AccountId)
 pbacExpectedBucketOwner = Lens.field @"expectedBucketOwner"
-{-# DEPRECATED pbacExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
+{-# INLINEABLE pbacExpectedBucketOwner #-}
+{-# DEPRECATED expectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead"  #-}
+
+instance Core.ToQuery PutBucketAccelerateConfiguration where
+        toQuery PutBucketAccelerateConfiguration{..}
+          = Core.toQueryPair "accelerate" ("" :: Core.Text)
+
+instance Core.ToHeaders PutBucketAccelerateConfiguration where
+        toHeaders PutBucketAccelerateConfiguration{..}
+          = Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner
 
 instance Core.AWSRequest PutBucketAccelerateConfiguration where
-  type
-    Rs PutBucketAccelerateConfiguration =
-      PutBucketAccelerateConfigurationResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.PUT,
-        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
-        Core._rqQuery = Core.pure ("accelerate", ""),
-        Core._rqHeaders =
-          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
-        Core._rqBody = Core.toXMLBody x
-      }
-  response =
-    Response.receiveNull PutBucketAccelerateConfigurationResponse'
+        type Rs PutBucketAccelerateConfiguration =
+             PutBucketAccelerateConfigurationResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.PUT,
+                         Core._rqPath = "/" Core.<> Core.toText bucket,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toXMLBody (Core.toXMLDocument x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveNull PutBucketAccelerateConfigurationResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkPutBucketAccelerateConfigurationResponse' smart constructor.
 data PutBucketAccelerateConfigurationResponse = PutBucketAccelerateConfigurationResponse'
@@ -126,7 +132,7 @@ data PutBucketAccelerateConfigurationResponse = PutBucketAccelerateConfiguration
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'PutBucketAccelerateConfigurationResponse' value with any optional fields omitted.
-mkPutBucketAccelerateConfigurationResponse ::
-  PutBucketAccelerateConfigurationResponse
-mkPutBucketAccelerateConfigurationResponse =
-  PutBucketAccelerateConfigurationResponse'
+mkPutBucketAccelerateConfigurationResponse
+    :: PutBucketAccelerateConfigurationResponse
+mkPutBucketAccelerateConfigurationResponse
+  = PutBucketAccelerateConfigurationResponse'

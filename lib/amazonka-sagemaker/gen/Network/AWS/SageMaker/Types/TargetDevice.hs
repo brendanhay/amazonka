@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,67 +10,51 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SageMaker.Types.TargetDevice
   ( TargetDevice
-      ( TargetDevice',
-        TargetDeviceLambda,
-        TargetDeviceMlM4,
-        TargetDeviceMlM5,
-        TargetDeviceMlC4,
-        TargetDeviceMlC5,
-        TargetDeviceMlP2,
-        TargetDeviceMlP3,
-        TargetDeviceMlG4dn,
-        TargetDeviceMlINF1,
-        TargetDeviceJetsonTX1,
-        TargetDeviceJetsonTX2,
-        TargetDeviceJetsonNano,
-        TargetDeviceJetsonXavier,
-        TargetDeviceRasp3b,
-        TargetDeviceImx8qm,
-        TargetDeviceDeeplens,
-        TargetDeviceRK3399,
-        TargetDeviceRK3288,
-        TargetDeviceAisage,
-        TargetDeviceSbec,
-        TargetDeviceQCS605,
-        TargetDeviceQCS603,
-        TargetDeviceSitaraAm57x,
-        TargetDeviceAmbaCV22,
-        TargetDeviceX86WIN32,
-        TargetDeviceX86WIN64,
-        TargetDeviceCoreml,
-        fromTargetDevice
-      ),
-  )
-where
+    ( TargetDevice'
+    , TargetDeviceLambda
+    , TargetDeviceMlM4
+    , TargetDeviceMlM5
+    , TargetDeviceMlC4
+    , TargetDeviceMlC5
+    , TargetDeviceMlP2
+    , TargetDeviceMlP3
+    , TargetDeviceMlG4dn
+    , TargetDeviceMlINF1
+    , TargetDeviceJetsonTX1
+    , TargetDeviceJetsonTX2
+    , TargetDeviceJetsonNano
+    , TargetDeviceJetsonXavier
+    , TargetDeviceRasp3b
+    , TargetDeviceImx8qm
+    , TargetDeviceDeeplens
+    , TargetDeviceRK3399
+    , TargetDeviceRK3288
+    , TargetDeviceAisage
+    , TargetDeviceSbec
+    , TargetDeviceQCS605
+    , TargetDeviceQCS603
+    , TargetDeviceSitaraAm57x
+    , TargetDeviceAmbaCV22
+    , TargetDeviceX86WIN32
+    , TargetDeviceX86WIN64
+    , TargetDeviceCoreml
+    , fromTargetDevice
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype TargetDevice = TargetDevice' {fromTargetDevice :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype TargetDevice = TargetDevice'{fromTargetDevice :: Core.Text}
+                         deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                         Core.Generic)
+                         deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                           Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                           Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                           Core.FromText, Core.ToByteString, Core.ToQuery,
+                                           Core.ToHeader)
 
 pattern TargetDeviceLambda :: TargetDevice
 pattern TargetDeviceLambda = TargetDevice' "lambda"
@@ -153,33 +137,59 @@ pattern TargetDeviceX86WIN64 = TargetDevice' "x86_win64"
 pattern TargetDeviceCoreml :: TargetDevice
 pattern TargetDeviceCoreml = TargetDevice' "coreml"
 
-{-# COMPLETE
+{-# COMPLETE 
   TargetDeviceLambda,
+
   TargetDeviceMlM4,
+
   TargetDeviceMlM5,
+
   TargetDeviceMlC4,
+
   TargetDeviceMlC5,
+
   TargetDeviceMlP2,
+
   TargetDeviceMlP3,
+
   TargetDeviceMlG4dn,
+
   TargetDeviceMlINF1,
+
   TargetDeviceJetsonTX1,
+
   TargetDeviceJetsonTX2,
+
   TargetDeviceJetsonNano,
+
   TargetDeviceJetsonXavier,
+
   TargetDeviceRasp3b,
+
   TargetDeviceImx8qm,
+
   TargetDeviceDeeplens,
+
   TargetDeviceRK3399,
+
   TargetDeviceRK3288,
+
   TargetDeviceAisage,
+
   TargetDeviceSbec,
+
   TargetDeviceQCS605,
+
   TargetDeviceQCS603,
+
   TargetDeviceSitaraAm57x,
+
   TargetDeviceAmbaCV22,
+
   TargetDeviceX86WIN32,
+
   TargetDeviceX86WIN64,
+
   TargetDeviceCoreml,
   TargetDevice'
   #-}

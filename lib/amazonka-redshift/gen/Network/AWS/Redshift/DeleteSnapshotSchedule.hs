@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,18 +15,17 @@
 --
 -- Deletes a snapshot schedule.
 module Network.AWS.Redshift.DeleteSnapshotSchedule
-  ( -- * Creating a request
-    DeleteSnapshotSchedule (..),
-    mkDeleteSnapshotSchedule,
-
+    (
+    -- * Creating a request
+      DeleteSnapshotSchedule (..)
+    , mkDeleteSnapshotSchedule
     -- ** Request lenses
-    dScheduleIdentifier,
+    , dScheduleIdentifier
 
     -- * Destructuring the response
-    DeleteSnapshotScheduleResponse (..),
-    mkDeleteSnapshotScheduleResponse,
-  )
-where
+    , DeleteSnapshotScheduleResponse (..)
+    , mkDeleteSnapshotScheduleResponse
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -36,48 +35,54 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteSnapshotSchedule' smart constructor.
 newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule'
-  { -- | A unique identifier of the snapshot schedule to delete.
-    scheduleIdentifier :: Types.String
+  { scheduleIdentifier :: Core.Text
+    -- ^ A unique identifier of the snapshot schedule to delete.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteSnapshotSchedule' value with any optional fields omitted.
-mkDeleteSnapshotSchedule ::
-  -- | 'scheduleIdentifier'
-  Types.String ->
-  DeleteSnapshotSchedule
-mkDeleteSnapshotSchedule scheduleIdentifier =
-  DeleteSnapshotSchedule' {scheduleIdentifier}
+mkDeleteSnapshotSchedule
+    :: Core.Text -- ^ 'scheduleIdentifier'
+    -> DeleteSnapshotSchedule
+mkDeleteSnapshotSchedule scheduleIdentifier
+  = DeleteSnapshotSchedule'{scheduleIdentifier}
 
 -- | A unique identifier of the snapshot schedule to delete.
 --
 -- /Note:/ Consider using 'scheduleIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dScheduleIdentifier :: Lens.Lens' DeleteSnapshotSchedule Types.String
+dScheduleIdentifier :: Lens.Lens' DeleteSnapshotSchedule Core.Text
 dScheduleIdentifier = Lens.field @"scheduleIdentifier"
-{-# DEPRECATED dScheduleIdentifier "Use generic-lens or generic-optics with 'scheduleIdentifier' instead." #-}
+{-# INLINEABLE dScheduleIdentifier #-}
+{-# DEPRECATED scheduleIdentifier "Use generic-lens or generic-optics with 'scheduleIdentifier' instead"  #-}
+
+instance Core.ToQuery DeleteSnapshotSchedule where
+        toQuery DeleteSnapshotSchedule{..}
+          = Core.toQueryPair "Action" ("DeleteSnapshotSchedule" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2012-12-01" :: Core.Text)
+              Core.<> Core.toQueryPair "ScheduleIdentifier" scheduleIdentifier
+
+instance Core.ToHeaders DeleteSnapshotSchedule where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest DeleteSnapshotSchedule where
-  type Rs DeleteSnapshotSchedule = DeleteSnapshotScheduleResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "DeleteSnapshotSchedule")
-                Core.<> (Core.pure ("Version", "2012-12-01"))
-                Core.<> (Core.toQueryValue "ScheduleIdentifier" scheduleIdentifier)
-            )
-      }
-  response = Response.receiveNull DeleteSnapshotScheduleResponse'
+        type Rs DeleteSnapshotSchedule = DeleteSnapshotScheduleResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveNull DeleteSnapshotScheduleResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteSnapshotScheduleResponse' smart constructor.
 data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
@@ -85,6 +90,6 @@ data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteSnapshotScheduleResponse' value with any optional fields omitted.
-mkDeleteSnapshotScheduleResponse ::
-  DeleteSnapshotScheduleResponse
+mkDeleteSnapshotScheduleResponse
+    :: DeleteSnapshotScheduleResponse
 mkDeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'

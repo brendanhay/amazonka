@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.Discovery where
 
 import Data.Proxy
-import Network.AWS.Discovery
-import Test.AWS.Discovery.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.Discovery
+import Test.AWS.Discovery.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -174,324 +175,278 @@ import Test.Tasty
 -- Requests
 
 requestDescribeTags :: DescribeTags -> TestTree
-requestDescribeTags =
-  req
+requestDescribeTags = req
     "DescribeTags"
     "fixture/DescribeTags.yaml"
 
 requestDescribeContinuousExports :: DescribeContinuousExports -> TestTree
-requestDescribeContinuousExports =
-  req
+requestDescribeContinuousExports = req
     "DescribeContinuousExports"
     "fixture/DescribeContinuousExports.yaml"
 
 requestStopDataCollectionByAgentIds :: StopDataCollectionByAgentIds -> TestTree
-requestStopDataCollectionByAgentIds =
-  req
+requestStopDataCollectionByAgentIds = req
     "StopDataCollectionByAgentIds"
     "fixture/StopDataCollectionByAgentIds.yaml"
 
 requestCreateTags :: CreateTags -> TestTree
-requestCreateTags =
-  req
+requestCreateTags = req
     "CreateTags"
     "fixture/CreateTags.yaml"
 
 requestBatchDeleteImportData :: BatchDeleteImportData -> TestTree
-requestBatchDeleteImportData =
-  req
+requestBatchDeleteImportData = req
     "BatchDeleteImportData"
     "fixture/BatchDeleteImportData.yaml"
 
 requestDeleteTags :: DeleteTags -> TestTree
-requestDeleteTags =
-  req
+requestDeleteTags = req
     "DeleteTags"
     "fixture/DeleteTags.yaml"
 
 requestStartImportTask :: StartImportTask -> TestTree
-requestStartImportTask =
-  req
+requestStartImportTask = req
     "StartImportTask"
     "fixture/StartImportTask.yaml"
 
 requestDeleteApplications :: DeleteApplications -> TestTree
-requestDeleteApplications =
-  req
+requestDeleteApplications = req
     "DeleteApplications"
     "fixture/DeleteApplications.yaml"
 
 requestUpdateApplication :: UpdateApplication -> TestTree
-requestUpdateApplication =
-  req
+requestUpdateApplication = req
     "UpdateApplication"
     "fixture/UpdateApplication.yaml"
 
 requestDescribeConfigurations :: DescribeConfigurations -> TestTree
-requestDescribeConfigurations =
-  req
+requestDescribeConfigurations = req
     "DescribeConfigurations"
     "fixture/DescribeConfigurations.yaml"
 
 requestDescribeImportTasks :: DescribeImportTasks -> TestTree
-requestDescribeImportTasks =
-  req
+requestDescribeImportTasks = req
     "DescribeImportTasks"
     "fixture/DescribeImportTasks.yaml"
 
 requestCreateApplication :: CreateApplication -> TestTree
-requestCreateApplication =
-  req
+requestCreateApplication = req
     "CreateApplication"
     "fixture/CreateApplication.yaml"
 
 requestListConfigurations :: ListConfigurations -> TestTree
-requestListConfigurations =
-  req
+requestListConfigurations = req
     "ListConfigurations"
     "fixture/ListConfigurations.yaml"
 
 requestStartContinuousExport :: StartContinuousExport -> TestTree
-requestStartContinuousExport =
-  req
+requestStartContinuousExport = req
     "StartContinuousExport"
     "fixture/StartContinuousExport.yaml"
 
 requestDescribeAgents :: DescribeAgents -> TestTree
-requestDescribeAgents =
-  req
+requestDescribeAgents = req
     "DescribeAgents"
     "fixture/DescribeAgents.yaml"
 
 requestDescribeExportTasks :: DescribeExportTasks -> TestTree
-requestDescribeExportTasks =
-  req
+requestDescribeExportTasks = req
     "DescribeExportTasks"
     "fixture/DescribeExportTasks.yaml"
 
 requestStartDataCollectionByAgentIds :: StartDataCollectionByAgentIds -> TestTree
-requestStartDataCollectionByAgentIds =
-  req
+requestStartDataCollectionByAgentIds = req
     "StartDataCollectionByAgentIds"
     "fixture/StartDataCollectionByAgentIds.yaml"
 
 requestGetDiscoverySummary :: GetDiscoverySummary -> TestTree
-requestGetDiscoverySummary =
-  req
+requestGetDiscoverySummary = req
     "GetDiscoverySummary"
     "fixture/GetDiscoverySummary.yaml"
 
 requestDisassociateConfigurationItemsFromApplication :: DisassociateConfigurationItemsFromApplication -> TestTree
-requestDisassociateConfigurationItemsFromApplication =
-  req
+requestDisassociateConfigurationItemsFromApplication = req
     "DisassociateConfigurationItemsFromApplication"
     "fixture/DisassociateConfigurationItemsFromApplication.yaml"
 
 requestAssociateConfigurationItemsToApplication :: AssociateConfigurationItemsToApplication -> TestTree
-requestAssociateConfigurationItemsToApplication =
-  req
+requestAssociateConfigurationItemsToApplication = req
     "AssociateConfigurationItemsToApplication"
     "fixture/AssociateConfigurationItemsToApplication.yaml"
 
 requestListServerNeighbors :: ListServerNeighbors -> TestTree
-requestListServerNeighbors =
-  req
+requestListServerNeighbors = req
     "ListServerNeighbors"
     "fixture/ListServerNeighbors.yaml"
 
 requestStopContinuousExport :: StopContinuousExport -> TestTree
-requestStopContinuousExport =
-  req
+requestStopContinuousExport = req
     "StopContinuousExport"
     "fixture/StopContinuousExport.yaml"
 
 requestStartExportTask :: StartExportTask -> TestTree
-requestStartExportTask =
-  req
+requestStartExportTask = req
     "StartExportTask"
     "fixture/StartExportTask.yaml"
 
 -- Responses
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
-responseDescribeTags =
-  res
+responseDescribeTags = res
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeTags)
 
 responseDescribeContinuousExports :: DescribeContinuousExportsResponse -> TestTree
-responseDescribeContinuousExports =
-  res
+responseDescribeContinuousExports = res
     "DescribeContinuousExportsResponse"
     "fixture/DescribeContinuousExportsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeContinuousExports)
 
 responseStopDataCollectionByAgentIds :: StopDataCollectionByAgentIdsResponse -> TestTree
-responseStopDataCollectionByAgentIds =
-  res
+responseStopDataCollectionByAgentIds = res
     "StopDataCollectionByAgentIdsResponse"
     "fixture/StopDataCollectionByAgentIdsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StopDataCollectionByAgentIds)
 
 responseCreateTags :: CreateTagsResponse -> TestTree
-responseCreateTags =
-  res
+responseCreateTags = res
     "CreateTagsResponse"
     "fixture/CreateTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateTags)
 
 responseBatchDeleteImportData :: BatchDeleteImportDataResponse -> TestTree
-responseBatchDeleteImportData =
-  res
+responseBatchDeleteImportData = res
     "BatchDeleteImportDataResponse"
     "fixture/BatchDeleteImportDataResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy BatchDeleteImportData)
 
 responseDeleteTags :: DeleteTagsResponse -> TestTree
-responseDeleteTags =
-  res
+responseDeleteTags = res
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteTags)
 
 responseStartImportTask :: StartImportTaskResponse -> TestTree
-responseStartImportTask =
-  res
+responseStartImportTask = res
     "StartImportTaskResponse"
     "fixture/StartImportTaskResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartImportTask)
 
 responseDeleteApplications :: DeleteApplicationsResponse -> TestTree
-responseDeleteApplications =
-  res
+responseDeleteApplications = res
     "DeleteApplicationsResponse"
     "fixture/DeleteApplicationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteApplications)
 
 responseUpdateApplication :: UpdateApplicationResponse -> TestTree
-responseUpdateApplication =
-  res
+responseUpdateApplication = res
     "UpdateApplicationResponse"
     "fixture/UpdateApplicationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateApplication)
 
 responseDescribeConfigurations :: DescribeConfigurationsResponse -> TestTree
-responseDescribeConfigurations =
-  res
+responseDescribeConfigurations = res
     "DescribeConfigurationsResponse"
     "fixture/DescribeConfigurationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeConfigurations)
 
 responseDescribeImportTasks :: DescribeImportTasksResponse -> TestTree
-responseDescribeImportTasks =
-  res
+responseDescribeImportTasks = res
     "DescribeImportTasksResponse"
     "fixture/DescribeImportTasksResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeImportTasks)
 
 responseCreateApplication :: CreateApplicationResponse -> TestTree
-responseCreateApplication =
-  res
+responseCreateApplication = res
     "CreateApplicationResponse"
     "fixture/CreateApplicationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateApplication)
 
 responseListConfigurations :: ListConfigurationsResponse -> TestTree
-responseListConfigurations =
-  res
+responseListConfigurations = res
     "ListConfigurationsResponse"
     "fixture/ListConfigurationsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListConfigurations)
 
 responseStartContinuousExport :: StartContinuousExportResponse -> TestTree
-responseStartContinuousExport =
-  res
+responseStartContinuousExport = res
     "StartContinuousExportResponse"
     "fixture/StartContinuousExportResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartContinuousExport)
 
 responseDescribeAgents :: DescribeAgentsResponse -> TestTree
-responseDescribeAgents =
-  res
+responseDescribeAgents = res
     "DescribeAgentsResponse"
     "fixture/DescribeAgentsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeAgents)
 
 responseDescribeExportTasks :: DescribeExportTasksResponse -> TestTree
-responseDescribeExportTasks =
-  res
+responseDescribeExportTasks = res
     "DescribeExportTasksResponse"
     "fixture/DescribeExportTasksResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DescribeExportTasks)
 
 responseStartDataCollectionByAgentIds :: StartDataCollectionByAgentIdsResponse -> TestTree
-responseStartDataCollectionByAgentIds =
-  res
+responseStartDataCollectionByAgentIds = res
     "StartDataCollectionByAgentIdsResponse"
     "fixture/StartDataCollectionByAgentIdsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartDataCollectionByAgentIds)
 
 responseGetDiscoverySummary :: GetDiscoverySummaryResponse -> TestTree
-responseGetDiscoverySummary =
-  res
+responseGetDiscoverySummary = res
     "GetDiscoverySummaryResponse"
     "fixture/GetDiscoverySummaryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetDiscoverySummary)
 
 responseDisassociateConfigurationItemsFromApplication :: DisassociateConfigurationItemsFromApplicationResponse -> TestTree
-responseDisassociateConfigurationItemsFromApplication =
-  res
+responseDisassociateConfigurationItemsFromApplication = res
     "DisassociateConfigurationItemsFromApplicationResponse"
     "fixture/DisassociateConfigurationItemsFromApplicationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateConfigurationItemsFromApplication)
 
 responseAssociateConfigurationItemsToApplication :: AssociateConfigurationItemsToApplicationResponse -> TestTree
-responseAssociateConfigurationItemsToApplication =
-  res
+responseAssociateConfigurationItemsToApplication = res
     "AssociateConfigurationItemsToApplicationResponse"
     "fixture/AssociateConfigurationItemsToApplicationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateConfigurationItemsToApplication)
 
 responseListServerNeighbors :: ListServerNeighborsResponse -> TestTree
-responseListServerNeighbors =
-  res
+responseListServerNeighbors = res
     "ListServerNeighborsResponse"
     "fixture/ListServerNeighborsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListServerNeighbors)
 
 responseStopContinuousExport :: StopContinuousExportResponse -> TestTree
-responseStopContinuousExport =
-  res
+responseStopContinuousExport = res
     "StopContinuousExportResponse"
     "fixture/StopContinuousExportResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StopContinuousExport)
 
 responseStartExportTask :: StartExportTaskResponse -> TestTree
-responseStartExportTask =
-  res
+responseStartExportTask = res
     "StartExportTaskResponse"
     "fixture/StartExportTaskResponse.proto"
     mkServiceConfig

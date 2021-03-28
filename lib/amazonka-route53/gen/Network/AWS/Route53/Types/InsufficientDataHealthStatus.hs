@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,47 +10,31 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Route53.Types.InsufficientDataHealthStatus
   ( InsufficientDataHealthStatus
-      ( InsufficientDataHealthStatus',
-        InsufficientDataHealthStatusHealthy,
-        InsufficientDataHealthStatusUnhealthy,
-        InsufficientDataHealthStatusLastKnownStatus,
-        fromInsufficientDataHealthStatus
-      ),
-  )
-where
+    ( InsufficientDataHealthStatus'
+    , InsufficientDataHealthStatusHealthy
+    , InsufficientDataHealthStatusUnhealthy
+    , InsufficientDataHealthStatusLastKnownStatus
+    , fromInsufficientDataHealthStatus
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Route53.Internal as Types
 
-newtype InsufficientDataHealthStatus = InsufficientDataHealthStatus'
-  { fromInsufficientDataHealthStatus ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype InsufficientDataHealthStatus = InsufficientDataHealthStatus'{fromInsufficientDataHealthStatus
+                                                                     :: Core.Text}
+                                         deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                         Core.Generic)
+                                         deriving newtype (Core.IsString, Core.Hashable,
+                                                           Core.NFData, Core.ToJSONKey,
+                                                           Core.FromJSONKey, Core.ToJSON,
+                                                           Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                           Core.ToText, Core.FromText,
+                                                           Core.ToByteString, Core.ToQuery,
+                                                           Core.ToHeader)
 
 pattern InsufficientDataHealthStatusHealthy :: InsufficientDataHealthStatus
 pattern InsufficientDataHealthStatusHealthy = InsufficientDataHealthStatus' "Healthy"
@@ -61,9 +45,11 @@ pattern InsufficientDataHealthStatusUnhealthy = InsufficientDataHealthStatus' "U
 pattern InsufficientDataHealthStatusLastKnownStatus :: InsufficientDataHealthStatus
 pattern InsufficientDataHealthStatusLastKnownStatus = InsufficientDataHealthStatus' "LastKnownStatus"
 
-{-# COMPLETE
+{-# COMPLETE 
   InsufficientDataHealthStatusHealthy,
+
   InsufficientDataHealthStatusUnhealthy,
+
   InsufficientDataHealthStatusLastKnownStatus,
   InsufficientDataHealthStatus'
   #-}

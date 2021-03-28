@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.DMS.Types.AvailabilityZone
-  ( AvailabilityZone (..),
+  ( AvailabilityZone (..)
+  -- * Smart constructor
+  , mkAvailabilityZone
+  -- * Lenses
+  , azName
+  ) where
 
-    -- * Smart constructor
-    mkAvailabilityZone,
-
-    -- * Lenses
-    azName,
-  )
-where
-
-import qualified Network.AWS.DMS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
 
@@ -29,25 +26,26 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkAvailabilityZone' smart constructor.
 newtype AvailabilityZone = AvailabilityZone'
-  { -- | The name of the Availability Zone.
-    name :: Core.Maybe Types.String
+  { name :: Core.Maybe Core.Text
+    -- ^ The name of the Availability Zone.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'AvailabilityZone' value with any optional fields omitted.
-mkAvailabilityZone ::
-  AvailabilityZone
-mkAvailabilityZone = AvailabilityZone' {name = Core.Nothing}
+mkAvailabilityZone
+    :: AvailabilityZone
+mkAvailabilityZone = AvailabilityZone'{name = Core.Nothing}
 
 -- | The name of the Availability Zone.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-azName :: Lens.Lens' AvailabilityZone (Core.Maybe Types.String)
+azName :: Lens.Lens' AvailabilityZone (Core.Maybe Core.Text)
 azName = Lens.field @"name"
-{-# DEPRECATED azName "Use generic-lens or generic-optics with 'name' instead." #-}
+{-# INLINEABLE azName #-}
+{-# DEPRECATED name "Use generic-lens or generic-optics with 'name' instead"  #-}
 
 instance Core.FromJSON AvailabilityZone where
-  parseJSON =
-    Core.withObject "AvailabilityZone" Core.$
-      \x -> AvailabilityZone' Core.<$> (x Core..:? "Name")
+        parseJSON
+          = Core.withObject "AvailabilityZone" Core.$
+              \ x -> AvailabilityZone' Core.<$> (x Core..:? "Name")

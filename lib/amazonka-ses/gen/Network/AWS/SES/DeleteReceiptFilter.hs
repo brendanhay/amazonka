@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -18,21 +18,19 @@
 -- For information about managing IP address filters, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-ip-filters.html Amazon SES Developer Guide> .
 -- You can execute this operation no more than once per second.
 module Network.AWS.SES.DeleteReceiptFilter
-  ( -- * Creating a request
-    DeleteReceiptFilter (..),
-    mkDeleteReceiptFilter,
-
+    (
+    -- * Creating a request
+      DeleteReceiptFilter (..)
+    , mkDeleteReceiptFilter
     -- ** Request lenses
-    drfFilterName,
+    , drfFilterName
 
     -- * Destructuring the response
-    DeleteReceiptFilterResponse (..),
-    mkDeleteReceiptFilterResponse,
-
+    , DeleteReceiptFilterResponse (..)
+    , mkDeleteReceiptFilterResponse
     -- ** Response lenses
-    drfrrsResponseStatus,
-  )
-where
+    , drfrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -44,75 +42,78 @@ import qualified Network.AWS.SES.Types as Types
 --
 -- /See:/ 'mkDeleteReceiptFilter' smart constructor.
 newtype DeleteReceiptFilter = DeleteReceiptFilter'
-  { -- | The name of the IP address filter to delete.
-    filterName :: Types.ReceiptFilterName
+  { filterName :: Types.ReceiptFilterName
+    -- ^ The name of the IP address filter to delete.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteReceiptFilter' value with any optional fields omitted.
-mkDeleteReceiptFilter ::
-  -- | 'filterName'
-  Types.ReceiptFilterName ->
-  DeleteReceiptFilter
-mkDeleteReceiptFilter filterName = DeleteReceiptFilter' {filterName}
+mkDeleteReceiptFilter
+    :: Types.ReceiptFilterName -- ^ 'filterName'
+    -> DeleteReceiptFilter
+mkDeleteReceiptFilter filterName = DeleteReceiptFilter'{filterName}
 
 -- | The name of the IP address filter to delete.
 --
 -- /Note:/ Consider using 'filterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 drfFilterName :: Lens.Lens' DeleteReceiptFilter Types.ReceiptFilterName
 drfFilterName = Lens.field @"filterName"
-{-# DEPRECATED drfFilterName "Use generic-lens or generic-optics with 'filterName' instead." #-}
+{-# INLINEABLE drfFilterName #-}
+{-# DEPRECATED filterName "Use generic-lens or generic-optics with 'filterName' instead"  #-}
+
+instance Core.ToQuery DeleteReceiptFilter where
+        toQuery DeleteReceiptFilter{..}
+          = Core.toQueryPair "Action" ("DeleteReceiptFilter" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2010-12-01" :: Core.Text)
+              Core.<> Core.toQueryPair "FilterName" filterName
+
+instance Core.ToHeaders DeleteReceiptFilter where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest DeleteReceiptFilter where
-  type Rs DeleteReceiptFilter = DeleteReceiptFilterResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "DeleteReceiptFilter")
-                Core.<> (Core.pure ("Version", "2010-12-01"))
-                Core.<> (Core.toQueryValue "FilterName" filterName)
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "DeleteReceiptFilterResult"
-      ( \s h x ->
-          DeleteReceiptFilterResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DeleteReceiptFilter = DeleteReceiptFilterResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "DeleteReceiptFilterResult"
+              (\ s h x ->
+                 DeleteReceiptFilterResponse' Core.<$>
+                   (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkDeleteReceiptFilterResponse' smart constructor.
 newtype DeleteReceiptFilterResponse = DeleteReceiptFilterResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteReceiptFilterResponse' value with any optional fields omitted.
-mkDeleteReceiptFilterResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DeleteReceiptFilterResponse
-mkDeleteReceiptFilterResponse responseStatus =
-  DeleteReceiptFilterResponse' {responseStatus}
+mkDeleteReceiptFilterResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DeleteReceiptFilterResponse
+mkDeleteReceiptFilterResponse responseStatus
+  = DeleteReceiptFilterResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 drfrrsResponseStatus :: Lens.Lens' DeleteReceiptFilterResponse Core.Int
 drfrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED drfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE drfrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

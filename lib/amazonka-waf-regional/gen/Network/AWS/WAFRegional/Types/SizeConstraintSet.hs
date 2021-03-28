@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.WAFRegional.Types.SizeConstraintSet
-  ( SizeConstraintSet (..),
-
-    -- * Smart constructor
-    mkSizeConstraintSet,
-
-    -- * Lenses
-    scsSizeConstraintSetId,
-    scsSizeConstraints,
-    scsName,
-  )
-where
+  ( SizeConstraintSet (..)
+  -- * Smart constructor
+  , mkSizeConstraintSet
+  -- * Lenses
+  , scsSizeConstraintSetId
+  , scsSizeConstraints
+  , scsName
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -33,29 +31,25 @@ import qualified Network.AWS.WAFRegional.Types.SizeConstraint as Types
 --
 -- /See:/ 'mkSizeConstraintSet' smart constructor.
 data SizeConstraintSet = SizeConstraintSet'
-  { -- | A unique identifier for a @SizeConstraintSet@ . You use @SizeConstraintSetId@ to get information about a @SizeConstraintSet@ (see 'GetSizeConstraintSet' ), update a @SizeConstraintSet@ (see 'UpdateSizeConstraintSet' ), insert a @SizeConstraintSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @SizeConstraintSet@ from AWS WAF (see 'DeleteSizeConstraintSet' ).
-    --
-    -- @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
-    sizeConstraintSetId :: Types.ResourceId,
-    -- | Specifies the parts of web requests that you want to inspect the size of.
-    sizeConstraints :: [Types.SizeConstraint],
-    -- | The name, if any, of the @SizeConstraintSet@ .
-    name :: Core.Maybe Types.ResourceName
+  { sizeConstraintSetId :: Types.ResourceId
+    -- ^ A unique identifier for a @SizeConstraintSet@ . You use @SizeConstraintSetId@ to get information about a @SizeConstraintSet@ (see 'GetSizeConstraintSet' ), update a @SizeConstraintSet@ (see 'UpdateSizeConstraintSet' ), insert a @SizeConstraintSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @SizeConstraintSet@ from AWS WAF (see 'DeleteSizeConstraintSet' ).
+--
+-- @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
+  , sizeConstraints :: [Types.SizeConstraint]
+    -- ^ Specifies the parts of web requests that you want to inspect the size of.
+  , name :: Core.Maybe Types.ResourceName
+    -- ^ The name, if any, of the @SizeConstraintSet@ .
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'SizeConstraintSet' value with any optional fields omitted.
-mkSizeConstraintSet ::
-  -- | 'sizeConstraintSetId'
-  Types.ResourceId ->
-  SizeConstraintSet
-mkSizeConstraintSet sizeConstraintSetId =
-  SizeConstraintSet'
-    { sizeConstraintSetId,
-      sizeConstraints = Core.mempty,
-      name = Core.Nothing
-    }
+mkSizeConstraintSet
+    :: Types.ResourceId -- ^ 'sizeConstraintSetId'
+    -> SizeConstraintSet
+mkSizeConstraintSet sizeConstraintSetId
+  = SizeConstraintSet'{sizeConstraintSetId,
+                       sizeConstraints = Core.mempty, name = Core.Nothing}
 
 -- | A unique identifier for a @SizeConstraintSet@ . You use @SizeConstraintSetId@ to get information about a @SizeConstraintSet@ (see 'GetSizeConstraintSet' ), update a @SizeConstraintSet@ (see 'UpdateSizeConstraintSet' ), insert a @SizeConstraintSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @SizeConstraintSet@ from AWS WAF (see 'DeleteSizeConstraintSet' ).
 --
@@ -64,27 +58,30 @@ mkSizeConstraintSet sizeConstraintSetId =
 -- /Note:/ Consider using 'sizeConstraintSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 scsSizeConstraintSetId :: Lens.Lens' SizeConstraintSet Types.ResourceId
 scsSizeConstraintSetId = Lens.field @"sizeConstraintSetId"
-{-# DEPRECATED scsSizeConstraintSetId "Use generic-lens or generic-optics with 'sizeConstraintSetId' instead." #-}
+{-# INLINEABLE scsSizeConstraintSetId #-}
+{-# DEPRECATED sizeConstraintSetId "Use generic-lens or generic-optics with 'sizeConstraintSetId' instead"  #-}
 
 -- | Specifies the parts of web requests that you want to inspect the size of.
 --
 -- /Note:/ Consider using 'sizeConstraints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 scsSizeConstraints :: Lens.Lens' SizeConstraintSet [Types.SizeConstraint]
 scsSizeConstraints = Lens.field @"sizeConstraints"
-{-# DEPRECATED scsSizeConstraints "Use generic-lens or generic-optics with 'sizeConstraints' instead." #-}
+{-# INLINEABLE scsSizeConstraints #-}
+{-# DEPRECATED sizeConstraints "Use generic-lens or generic-optics with 'sizeConstraints' instead"  #-}
 
 -- | The name, if any, of the @SizeConstraintSet@ .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 scsName :: Lens.Lens' SizeConstraintSet (Core.Maybe Types.ResourceName)
 scsName = Lens.field @"name"
-{-# DEPRECATED scsName "Use generic-lens or generic-optics with 'name' instead." #-}
+{-# INLINEABLE scsName #-}
+{-# DEPRECATED name "Use generic-lens or generic-optics with 'name' instead"  #-}
 
 instance Core.FromJSON SizeConstraintSet where
-  parseJSON =
-    Core.withObject "SizeConstraintSet" Core.$
-      \x ->
-        SizeConstraintSet'
-          Core.<$> (x Core..: "SizeConstraintSetId")
-          Core.<*> (x Core..:? "SizeConstraints" Core..!= Core.mempty)
-          Core.<*> (x Core..:? "Name")
+        parseJSON
+          = Core.withObject "SizeConstraintSet" Core.$
+              \ x ->
+                SizeConstraintSet' Core.<$>
+                  (x Core..: "SizeConstraintSetId") Core.<*>
+                    x Core..:? "SizeConstraints" Core..!= Core.mempty
+                    Core.<*> x Core..:? "Name"

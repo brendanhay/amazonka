@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,232 +10,216 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaConvert.Types.LanguageCode
   ( LanguageCode
-      ( LanguageCode',
-        LanguageCodeEng,
-        LanguageCodeSpa,
-        LanguageCodeFra,
-        LanguageCodeDeu,
-        LanguageCodeGer,
-        LanguageCodeZho,
-        LanguageCodeAra,
-        LanguageCodeHin,
-        LanguageCodeJpn,
-        LanguageCodeRus,
-        LanguageCodePor,
-        LanguageCodeIta,
-        LanguageCodeUrd,
-        LanguageCodeVie,
-        LanguageCodeKor,
-        LanguageCodePan,
-        LanguageCodeAbk,
-        LanguageCodeAar,
-        LanguageCodeAfr,
-        LanguageCodeAka,
-        LanguageCodeSqi,
-        LanguageCodeAmh,
-        LanguageCodeArg,
-        LanguageCodeHye,
-        LanguageCodeAsm,
-        LanguageCodeAva,
-        LanguageCodeAve,
-        LanguageCodeAym,
-        LanguageCodeAze,
-        LanguageCodeBam,
-        LanguageCodeBak,
-        LanguageCodeEus,
-        LanguageCodeBel,
-        LanguageCodeBen,
-        LanguageCodeBih,
-        LanguageCodeBis,
-        LanguageCodeBos,
-        LanguageCodeBre,
-        LanguageCodeBul,
-        LanguageCodeMya,
-        LanguageCodeCat,
-        LanguageCodeKhm,
-        LanguageCodeCha,
-        LanguageCodeChe,
-        LanguageCodeNya,
-        LanguageCodeChu,
-        LanguageCodeChv,
-        LanguageCodeCor,
-        LanguageCodeCos,
-        LanguageCodeCre,
-        LanguageCodeHrv,
-        LanguageCodeCes,
-        LanguageCodeDan,
-        LanguageCodeDiv,
-        LanguageCodeNld,
-        LanguageCodeDzo,
-        LanguageCodeEnm,
-        LanguageCodeEpo,
-        LanguageCodeEst,
-        LanguageCodeEwe,
-        LanguageCodeFao,
-        LanguageCodeFij,
-        LanguageCodeFin,
-        LanguageCodeFrm,
-        LanguageCodeFul,
-        LanguageCodeGla,
-        LanguageCodeGlg,
-        LanguageCodeLug,
-        LanguageCodeKat,
-        LanguageCodeEll,
-        LanguageCodeGrn,
-        LanguageCodeGuj,
-        LanguageCodeHat,
-        LanguageCodeHau,
-        LanguageCodeHeb,
-        LanguageCodeHer,
-        LanguageCodeHmo,
-        LanguageCodeHun,
-        LanguageCodeIsl,
-        LanguageCodeIdo,
-        LanguageCodeIbo,
-        LanguageCodeInd,
-        LanguageCodeIna,
-        LanguageCodeIle,
-        LanguageCodeIku,
-        LanguageCodeIpk,
-        LanguageCodeGle,
-        LanguageCodeJav,
-        LanguageCodeKal,
-        LanguageCodeKan,
-        LanguageCodeKau,
-        LanguageCodeKas,
-        LanguageCodeKaz,
-        LanguageCodeKik,
-        LanguageCodeKin,
-        LanguageCodeKir,
-        LanguageCodeKom,
-        LanguageCodeKon,
-        LanguageCodeKua,
-        LanguageCodeKur,
-        LanguageCodeLao,
-        LanguageCodeLat,
-        LanguageCodeLav,
-        LanguageCodeLim,
-        LanguageCodeLin,
-        LanguageCodeLit,
-        LanguageCodeLub,
-        LanguageCodeLtz,
-        LanguageCodeMkd,
-        LanguageCodeMlg,
-        LanguageCodeMsa,
-        LanguageCodeMal,
-        LanguageCodeMlt,
-        LanguageCodeGlv,
-        LanguageCodeMri,
-        LanguageCodeMar,
-        LanguageCodeMah,
-        LanguageCodeMon,
-        LanguageCodeNau,
-        LanguageCodeNav,
-        LanguageCodeNde,
-        LanguageCodeNbl,
-        LanguageCodeNdo,
-        LanguageCodeNep,
-        LanguageCodeSme,
-        LanguageCodeNor,
-        LanguageCodeNob,
-        LanguageCodeNno,
-        LanguageCodeOci,
-        LanguageCodeOji,
-        LanguageCodeOri,
-        LanguageCodeOrm,
-        LanguageCodeOss,
-        LanguageCodePli,
-        LanguageCodeFas,
-        LanguageCodePol,
-        LanguageCodePus,
-        LanguageCodeQue,
-        LanguageCodeQaa,
-        LanguageCodeRon,
-        LanguageCodeRoh,
-        LanguageCodeRun,
-        LanguageCodeSmo,
-        LanguageCodeSag,
-        LanguageCodeSan,
-        LanguageCodeSrd,
-        LanguageCodeSrb,
-        LanguageCodeSna,
-        LanguageCodeIii,
-        LanguageCodeSnd,
-        LanguageCodeSin,
-        LanguageCodeSlk,
-        LanguageCodeSlv,
-        LanguageCodeSom,
-        LanguageCodeSot,
-        LanguageCodeSun,
-        LanguageCodeSwa,
-        LanguageCodeSsw,
-        LanguageCodeSwe,
-        LanguageCodeTgl,
-        LanguageCodeTah,
-        LanguageCodeTgk,
-        LanguageCodeTam,
-        LanguageCodeTat,
-        LanguageCodeTel,
-        LanguageCodeTha,
-        LanguageCodeBod,
-        LanguageCodeTir,
-        LanguageCodeTon,
-        LanguageCodeTso,
-        LanguageCodeTsn,
-        LanguageCodeTur,
-        LanguageCodeTuk,
-        LanguageCodeTwi,
-        LanguageCodeUig,
-        LanguageCodeUkr,
-        LanguageCodeUzb,
-        LanguageCodeVen,
-        LanguageCodeVol,
-        LanguageCodeWln,
-        LanguageCodeCym,
-        LanguageCodeFry,
-        LanguageCodeWol,
-        LanguageCodeXho,
-        LanguageCodeYid,
-        LanguageCodeYor,
-        LanguageCodeZha,
-        LanguageCodeZul,
-        LanguageCodeOrj,
-        LanguageCodeQpc,
-        LanguageCodeTng,
-        fromLanguageCode
-      ),
-  )
-where
+    ( LanguageCode'
+    , LanguageCodeEng
+    , LanguageCodeSpa
+    , LanguageCodeFra
+    , LanguageCodeDeu
+    , LanguageCodeGer
+    , LanguageCodeZho
+    , LanguageCodeAra
+    , LanguageCodeHin
+    , LanguageCodeJpn
+    , LanguageCodeRus
+    , LanguageCodePor
+    , LanguageCodeIta
+    , LanguageCodeUrd
+    , LanguageCodeVie
+    , LanguageCodeKor
+    , LanguageCodePan
+    , LanguageCodeAbk
+    , LanguageCodeAar
+    , LanguageCodeAfr
+    , LanguageCodeAka
+    , LanguageCodeSqi
+    , LanguageCodeAmh
+    , LanguageCodeArg
+    , LanguageCodeHye
+    , LanguageCodeAsm
+    , LanguageCodeAva
+    , LanguageCodeAve
+    , LanguageCodeAym
+    , LanguageCodeAze
+    , LanguageCodeBam
+    , LanguageCodeBak
+    , LanguageCodeEus
+    , LanguageCodeBel
+    , LanguageCodeBen
+    , LanguageCodeBih
+    , LanguageCodeBis
+    , LanguageCodeBos
+    , LanguageCodeBre
+    , LanguageCodeBul
+    , LanguageCodeMya
+    , LanguageCodeCat
+    , LanguageCodeKhm
+    , LanguageCodeCha
+    , LanguageCodeChe
+    , LanguageCodeNya
+    , LanguageCodeChu
+    , LanguageCodeChv
+    , LanguageCodeCor
+    , LanguageCodeCos
+    , LanguageCodeCre
+    , LanguageCodeHrv
+    , LanguageCodeCes
+    , LanguageCodeDan
+    , LanguageCodeDiv
+    , LanguageCodeNld
+    , LanguageCodeDzo
+    , LanguageCodeEnm
+    , LanguageCodeEpo
+    , LanguageCodeEst
+    , LanguageCodeEwe
+    , LanguageCodeFao
+    , LanguageCodeFij
+    , LanguageCodeFin
+    , LanguageCodeFrm
+    , LanguageCodeFul
+    , LanguageCodeGla
+    , LanguageCodeGlg
+    , LanguageCodeLug
+    , LanguageCodeKat
+    , LanguageCodeEll
+    , LanguageCodeGrn
+    , LanguageCodeGuj
+    , LanguageCodeHat
+    , LanguageCodeHau
+    , LanguageCodeHeb
+    , LanguageCodeHer
+    , LanguageCodeHmo
+    , LanguageCodeHun
+    , LanguageCodeIsl
+    , LanguageCodeIdo
+    , LanguageCodeIbo
+    , LanguageCodeInd
+    , LanguageCodeIna
+    , LanguageCodeIle
+    , LanguageCodeIku
+    , LanguageCodeIpk
+    , LanguageCodeGle
+    , LanguageCodeJav
+    , LanguageCodeKal
+    , LanguageCodeKan
+    , LanguageCodeKau
+    , LanguageCodeKas
+    , LanguageCodeKaz
+    , LanguageCodeKik
+    , LanguageCodeKin
+    , LanguageCodeKir
+    , LanguageCodeKom
+    , LanguageCodeKon
+    , LanguageCodeKua
+    , LanguageCodeKur
+    , LanguageCodeLao
+    , LanguageCodeLat
+    , LanguageCodeLav
+    , LanguageCodeLim
+    , LanguageCodeLin
+    , LanguageCodeLit
+    , LanguageCodeLub
+    , LanguageCodeLtz
+    , LanguageCodeMkd
+    , LanguageCodeMlg
+    , LanguageCodeMsa
+    , LanguageCodeMal
+    , LanguageCodeMlt
+    , LanguageCodeGlv
+    , LanguageCodeMri
+    , LanguageCodeMar
+    , LanguageCodeMah
+    , LanguageCodeMon
+    , LanguageCodeNau
+    , LanguageCodeNav
+    , LanguageCodeNde
+    , LanguageCodeNbl
+    , LanguageCodeNdo
+    , LanguageCodeNep
+    , LanguageCodeSme
+    , LanguageCodeNor
+    , LanguageCodeNob
+    , LanguageCodeNno
+    , LanguageCodeOci
+    , LanguageCodeOji
+    , LanguageCodeOri
+    , LanguageCodeOrm
+    , LanguageCodeOss
+    , LanguageCodePli
+    , LanguageCodeFas
+    , LanguageCodePol
+    , LanguageCodePus
+    , LanguageCodeQue
+    , LanguageCodeQaa
+    , LanguageCodeRon
+    , LanguageCodeRoh
+    , LanguageCodeRun
+    , LanguageCodeSmo
+    , LanguageCodeSag
+    , LanguageCodeSan
+    , LanguageCodeSrd
+    , LanguageCodeSrb
+    , LanguageCodeSna
+    , LanguageCodeIii
+    , LanguageCodeSnd
+    , LanguageCodeSin
+    , LanguageCodeSlk
+    , LanguageCodeSlv
+    , LanguageCodeSom
+    , LanguageCodeSot
+    , LanguageCodeSun
+    , LanguageCodeSwa
+    , LanguageCodeSsw
+    , LanguageCodeSwe
+    , LanguageCodeTgl
+    , LanguageCodeTah
+    , LanguageCodeTgk
+    , LanguageCodeTam
+    , LanguageCodeTat
+    , LanguageCodeTel
+    , LanguageCodeTha
+    , LanguageCodeBod
+    , LanguageCodeTir
+    , LanguageCodeTon
+    , LanguageCodeTso
+    , LanguageCodeTsn
+    , LanguageCodeTur
+    , LanguageCodeTuk
+    , LanguageCodeTwi
+    , LanguageCodeUig
+    , LanguageCodeUkr
+    , LanguageCodeUzb
+    , LanguageCodeVen
+    , LanguageCodeVol
+    , LanguageCodeWln
+    , LanguageCodeCym
+    , LanguageCodeFry
+    , LanguageCodeWol
+    , LanguageCodeXho
+    , LanguageCodeYid
+    , LanguageCodeYor
+    , LanguageCodeZha
+    , LanguageCodeZul
+    , LanguageCodeOrj
+    , LanguageCodeQpc
+    , LanguageCodeTng
+    , fromLanguageCode
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
 -- | Specify the language, using the ISO 639-2 three-letter code listed at https://www.loc.gov/standards/iso639-2/php/code_list.php.
-newtype LanguageCode = LanguageCode' {fromLanguageCode :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype LanguageCode = LanguageCode'{fromLanguageCode :: Core.Text}
+                         deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                         Core.Generic)
+                         deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                           Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                           Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                           Core.FromText, Core.ToByteString, Core.ToQuery,
+                                           Core.ToHeader)
 
 pattern LanguageCodeEng :: LanguageCode
 pattern LanguageCodeEng = LanguageCode' "ENG"
@@ -810,197 +794,387 @@ pattern LanguageCodeQpc = LanguageCode' "QPC"
 pattern LanguageCodeTng :: LanguageCode
 pattern LanguageCodeTng = LanguageCode' "TNG"
 
-{-# COMPLETE
+{-# COMPLETE 
   LanguageCodeEng,
+
   LanguageCodeSpa,
+
   LanguageCodeFra,
+
   LanguageCodeDeu,
+
   LanguageCodeGer,
+
   LanguageCodeZho,
+
   LanguageCodeAra,
+
   LanguageCodeHin,
+
   LanguageCodeJpn,
+
   LanguageCodeRus,
+
   LanguageCodePor,
+
   LanguageCodeIta,
+
   LanguageCodeUrd,
+
   LanguageCodeVie,
+
   LanguageCodeKor,
+
   LanguageCodePan,
+
   LanguageCodeAbk,
+
   LanguageCodeAar,
+
   LanguageCodeAfr,
+
   LanguageCodeAka,
+
   LanguageCodeSqi,
+
   LanguageCodeAmh,
+
   LanguageCodeArg,
+
   LanguageCodeHye,
+
   LanguageCodeAsm,
+
   LanguageCodeAva,
+
   LanguageCodeAve,
+
   LanguageCodeAym,
+
   LanguageCodeAze,
+
   LanguageCodeBam,
+
   LanguageCodeBak,
+
   LanguageCodeEus,
+
   LanguageCodeBel,
+
   LanguageCodeBen,
+
   LanguageCodeBih,
+
   LanguageCodeBis,
+
   LanguageCodeBos,
+
   LanguageCodeBre,
+
   LanguageCodeBul,
+
   LanguageCodeMya,
+
   LanguageCodeCat,
+
   LanguageCodeKhm,
+
   LanguageCodeCha,
+
   LanguageCodeChe,
+
   LanguageCodeNya,
+
   LanguageCodeChu,
+
   LanguageCodeChv,
+
   LanguageCodeCor,
+
   LanguageCodeCos,
+
   LanguageCodeCre,
+
   LanguageCodeHrv,
+
   LanguageCodeCes,
+
   LanguageCodeDan,
+
   LanguageCodeDiv,
+
   LanguageCodeNld,
+
   LanguageCodeDzo,
+
   LanguageCodeEnm,
+
   LanguageCodeEpo,
+
   LanguageCodeEst,
+
   LanguageCodeEwe,
+
   LanguageCodeFao,
+
   LanguageCodeFij,
+
   LanguageCodeFin,
+
   LanguageCodeFrm,
+
   LanguageCodeFul,
+
   LanguageCodeGla,
+
   LanguageCodeGlg,
+
   LanguageCodeLug,
+
   LanguageCodeKat,
+
   LanguageCodeEll,
+
   LanguageCodeGrn,
+
   LanguageCodeGuj,
+
   LanguageCodeHat,
+
   LanguageCodeHau,
+
   LanguageCodeHeb,
+
   LanguageCodeHer,
+
   LanguageCodeHmo,
+
   LanguageCodeHun,
+
   LanguageCodeIsl,
+
   LanguageCodeIdo,
+
   LanguageCodeIbo,
+
   LanguageCodeInd,
+
   LanguageCodeIna,
+
   LanguageCodeIle,
+
   LanguageCodeIku,
+
   LanguageCodeIpk,
+
   LanguageCodeGle,
+
   LanguageCodeJav,
+
   LanguageCodeKal,
+
   LanguageCodeKan,
+
   LanguageCodeKau,
+
   LanguageCodeKas,
+
   LanguageCodeKaz,
+
   LanguageCodeKik,
+
   LanguageCodeKin,
+
   LanguageCodeKir,
+
   LanguageCodeKom,
+
   LanguageCodeKon,
+
   LanguageCodeKua,
+
   LanguageCodeKur,
+
   LanguageCodeLao,
+
   LanguageCodeLat,
+
   LanguageCodeLav,
+
   LanguageCodeLim,
+
   LanguageCodeLin,
+
   LanguageCodeLit,
+
   LanguageCodeLub,
+
   LanguageCodeLtz,
+
   LanguageCodeMkd,
+
   LanguageCodeMlg,
+
   LanguageCodeMsa,
+
   LanguageCodeMal,
+
   LanguageCodeMlt,
+
   LanguageCodeGlv,
+
   LanguageCodeMri,
+
   LanguageCodeMar,
+
   LanguageCodeMah,
+
   LanguageCodeMon,
+
   LanguageCodeNau,
+
   LanguageCodeNav,
+
   LanguageCodeNde,
+
   LanguageCodeNbl,
+
   LanguageCodeNdo,
+
   LanguageCodeNep,
+
   LanguageCodeSme,
+
   LanguageCodeNor,
+
   LanguageCodeNob,
+
   LanguageCodeNno,
+
   LanguageCodeOci,
+
   LanguageCodeOji,
+
   LanguageCodeOri,
+
   LanguageCodeOrm,
+
   LanguageCodeOss,
+
   LanguageCodePli,
+
   LanguageCodeFas,
+
   LanguageCodePol,
+
   LanguageCodePus,
+
   LanguageCodeQue,
+
   LanguageCodeQaa,
+
   LanguageCodeRon,
+
   LanguageCodeRoh,
+
   LanguageCodeRun,
+
   LanguageCodeSmo,
+
   LanguageCodeSag,
+
   LanguageCodeSan,
+
   LanguageCodeSrd,
+
   LanguageCodeSrb,
+
   LanguageCodeSna,
+
   LanguageCodeIii,
+
   LanguageCodeSnd,
+
   LanguageCodeSin,
+
   LanguageCodeSlk,
+
   LanguageCodeSlv,
+
   LanguageCodeSom,
+
   LanguageCodeSot,
+
   LanguageCodeSun,
+
   LanguageCodeSwa,
+
   LanguageCodeSsw,
+
   LanguageCodeSwe,
+
   LanguageCodeTgl,
+
   LanguageCodeTah,
+
   LanguageCodeTgk,
+
   LanguageCodeTam,
+
   LanguageCodeTat,
+
   LanguageCodeTel,
+
   LanguageCodeTha,
+
   LanguageCodeBod,
+
   LanguageCodeTir,
+
   LanguageCodeTon,
+
   LanguageCodeTso,
+
   LanguageCodeTsn,
+
   LanguageCodeTur,
+
   LanguageCodeTuk,
+
   LanguageCodeTwi,
+
   LanguageCodeUig,
+
   LanguageCodeUkr,
+
   LanguageCodeUzb,
+
   LanguageCodeVen,
+
   LanguageCodeVol,
+
   LanguageCodeWln,
+
   LanguageCodeCym,
+
   LanguageCodeFry,
+
   LanguageCodeWol,
+
   LanguageCodeXho,
+
   LanguageCodeYid,
+
   LanguageCodeYor,
+
   LanguageCodeZha,
+
   LanguageCodeZul,
+
   LanguageCodeOrj,
+
   LanguageCodeQpc,
+
   LanguageCodeTng,
   LanguageCode'
   #-}

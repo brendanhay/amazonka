@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,46 +10,28 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CognitoIdentityProvider.Types.EventFilterType
   ( EventFilterType
-      ( EventFilterType',
-        EventFilterTypeSignIn,
-        EventFilterTypePasswordChange,
-        EventFilterTypeSignUp,
-        fromEventFilterType
-      ),
-  )
-where
+    ( EventFilterType'
+    , EventFilterTypeSignIn
+    , EventFilterTypePasswordChange
+    , EventFilterTypeSignUp
+    , fromEventFilterType
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype EventFilterType = EventFilterType'
-  { fromEventFilterType ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype EventFilterType = EventFilterType'{fromEventFilterType ::
+                                           Core.Text}
+                            deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                            Core.Generic)
+                            deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                              Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                              Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                              Core.FromText, Core.ToByteString, Core.ToQuery,
+                                              Core.ToHeader)
 
 pattern EventFilterTypeSignIn :: EventFilterType
 pattern EventFilterTypeSignIn = EventFilterType' "SIGN_IN"
@@ -60,9 +42,11 @@ pattern EventFilterTypePasswordChange = EventFilterType' "PASSWORD_CHANGE"
 pattern EventFilterTypeSignUp :: EventFilterType
 pattern EventFilterTypeSignUp = EventFilterType' "SIGN_UP"
 
-{-# COMPLETE
+{-# COMPLETE 
   EventFilterTypeSignIn,
+
   EventFilterTypePasswordChange,
+
   EventFilterTypeSignUp,
   EventFilterType'
   #-}

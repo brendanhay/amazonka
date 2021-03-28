@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,34 +10,35 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __AWS Firewall Manager__
+-- __AWS Firewall Manager__ 
 --
 -- This is the /AWS Firewall Manager API Reference/ . This guide is for developers who need detailed information about the AWS Firewall Manager API actions, data types, and errors. For detailed information about AWS Firewall Manager features, see the <https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html AWS Firewall Manager Developer Guide> .
--- Some API actions require explicit resource permissions. For information, see the developer guide topic <https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html Firewall Manager required permissions for API actions> .
+-- Some API actions require explicit resource permissions. For information, see the developer guide topic <https://docs.aws.amazon.com/waf/latest/developerguide/fms-api-permissions-ref.html Firewall Manager required permissions for API actions> . 
 module Network.AWS.FMS
-  ( -- * Service configuration
-    mkServiceConfig,
+    (
+    -- * Service configuration
+      mkServiceConfig
 
     -- * Errors
     -- $errors
 
     -- ** InternalErrorException
-    _InternalErrorException,
+    , _InternalErrorException
 
     -- ** InvalidInputException
-    _InvalidInputException,
+    , _InvalidInputException
 
     -- ** InvalidOperationException
-    _InvalidOperationException,
+    , _InvalidOperationException
 
     -- ** InvalidTypeException
-    _InvalidTypeException,
+    , _InvalidTypeException
 
     -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    , _ResourceNotFoundException
 
     -- ** LimitExceededException
-    _LimitExceededException,
+    , _LimitExceededException
 
     -- * Waiters
     -- $waiters
@@ -46,533 +47,535 @@ module Network.AWS.FMS
     -- $operations
 
     -- ** ListPolicies (Paginated)
-    module Network.AWS.FMS.ListPolicies,
+    , module Network.AWS.FMS.ListPolicies
 
-    -- ** GetComplianceDetail
-    module Network.AWS.FMS.GetComplianceDetail,
+    -- ** GetComplianceDetail 
+    , module Network.AWS.FMS.GetComplianceDetail
 
-    -- ** ListTagsForResource
-    module Network.AWS.FMS.ListTagsForResource,
+    -- ** ListTagsForResource 
+    , module Network.AWS.FMS.ListTagsForResource
 
-    -- ** GetNotificationChannel
-    module Network.AWS.FMS.GetNotificationChannel,
+    -- ** GetNotificationChannel 
+    , module Network.AWS.FMS.GetNotificationChannel
 
-    -- ** GetAdminAccount
-    module Network.AWS.FMS.GetAdminAccount,
+    -- ** GetAdminAccount 
+    , module Network.AWS.FMS.GetAdminAccount
 
     -- ** ListComplianceStatus (Paginated)
-    module Network.AWS.FMS.ListComplianceStatus,
+    , module Network.AWS.FMS.ListComplianceStatus
 
-    -- ** GetAppsList
-    module Network.AWS.FMS.GetAppsList,
+    -- ** GetAppsList 
+    , module Network.AWS.FMS.GetAppsList
 
-    -- ** PutPolicy
-    module Network.AWS.FMS.PutPolicy,
+    -- ** PutPolicy 
+    , module Network.AWS.FMS.PutPolicy
 
-    -- ** DeletePolicy
-    module Network.AWS.FMS.DeletePolicy,
+    -- ** DeletePolicy 
+    , module Network.AWS.FMS.DeletePolicy
 
-    -- ** DisassociateAdminAccount
-    module Network.AWS.FMS.DisassociateAdminAccount,
+    -- ** DisassociateAdminAccount 
+    , module Network.AWS.FMS.DisassociateAdminAccount
 
-    -- ** PutNotificationChannel
-    module Network.AWS.FMS.PutNotificationChannel,
+    -- ** PutNotificationChannel 
+    , module Network.AWS.FMS.PutNotificationChannel
 
-    -- ** DeleteNotificationChannel
-    module Network.AWS.FMS.DeleteNotificationChannel,
+    -- ** DeleteNotificationChannel 
+    , module Network.AWS.FMS.DeleteNotificationChannel
 
-    -- ** AssociateAdminAccount
-    module Network.AWS.FMS.AssociateAdminAccount,
+    -- ** AssociateAdminAccount 
+    , module Network.AWS.FMS.AssociateAdminAccount
 
-    -- ** GetViolationDetails
-    module Network.AWS.FMS.GetViolationDetails,
+    -- ** GetViolationDetails 
+    , module Network.AWS.FMS.GetViolationDetails
 
     -- ** ListMemberAccounts (Paginated)
-    module Network.AWS.FMS.ListMemberAccounts,
+    , module Network.AWS.FMS.ListMemberAccounts
 
-    -- ** TagResource
-    module Network.AWS.FMS.TagResource,
+    -- ** TagResource 
+    , module Network.AWS.FMS.TagResource
 
-    -- ** UntagResource
-    module Network.AWS.FMS.UntagResource,
+    -- ** UntagResource 
+    , module Network.AWS.FMS.UntagResource
 
-    -- ** DeleteProtocolsList
-    module Network.AWS.FMS.DeleteProtocolsList,
+    -- ** DeleteProtocolsList 
+    , module Network.AWS.FMS.DeleteProtocolsList
 
-    -- ** GetPolicy
-    module Network.AWS.FMS.GetPolicy,
+    -- ** GetPolicy 
+    , module Network.AWS.FMS.GetPolicy
 
-    -- ** ListProtocolsLists
-    module Network.AWS.FMS.ListProtocolsLists,
+    -- ** ListProtocolsLists 
+    , module Network.AWS.FMS.ListProtocolsLists
 
-    -- ** PutProtocolsList
-    module Network.AWS.FMS.PutProtocolsList,
+    -- ** PutProtocolsList 
+    , module Network.AWS.FMS.PutProtocolsList
 
-    -- ** PutAppsList
-    module Network.AWS.FMS.PutAppsList,
+    -- ** PutAppsList 
+    , module Network.AWS.FMS.PutAppsList
 
-    -- ** DeleteAppsList
-    module Network.AWS.FMS.DeleteAppsList,
+    -- ** DeleteAppsList 
+    , module Network.AWS.FMS.DeleteAppsList
 
-    -- ** ListAppsLists
-    module Network.AWS.FMS.ListAppsLists,
+    -- ** ListAppsLists 
+    , module Network.AWS.FMS.ListAppsLists
 
-    -- ** GetProtocolsList
-    module Network.AWS.FMS.GetProtocolsList,
+    -- ** GetProtocolsList 
+    , module Network.AWS.FMS.GetProtocolsList
 
-    -- ** GetProtectionStatus
-    module Network.AWS.FMS.GetProtectionStatus,
+    -- ** GetProtectionStatus 
+    , module Network.AWS.FMS.GetProtectionStatus
 
     -- * Types
 
     -- ** AppsListDataSummary
-    AppsListDataSummary (..),
-    mkAppsListDataSummary,
-    aldsAppsList,
-    aldsListArn,
-    aldsListId,
-    aldsListName,
+    , AppsListDataSummary (..)
+    , mkAppsListDataSummary
+    , aldsAppsList
+    , aldsListArn
+    , aldsListId
+    , aldsListName
 
     -- ** PolicyComplianceDetail
-    PolicyComplianceDetail (..),
-    mkPolicyComplianceDetail,
-    pcdEvaluationLimitExceeded,
-    pcdExpiredAt,
-    pcdIssueInfoMap,
-    pcdMemberAccount,
-    pcdPolicyId,
-    pcdPolicyOwner,
-    pcdViolators,
+    , PolicyComplianceDetail (..)
+    , mkPolicyComplianceDetail
+    , pcdEvaluationLimitExceeded
+    , pcdExpiredAt
+    , pcdIssueInfoMap
+    , pcdMemberAccount
+    , pcdPolicyId
+    , pcdPolicyOwner
+    , pcdViolators
 
     -- ** PaginationToken
-    PaginationToken (..),
+    , PaginationToken (..)
 
     -- ** ResourceTagKey
-    ResourceTagKey (..),
+    , ResourceTagKey (..)
 
     -- ** EvaluationResult
-    EvaluationResult (..),
-    mkEvaluationResult,
-    erComplianceStatus,
-    erEvaluationLimitExceeded,
-    erViolatorCount,
+    , EvaluationResult (..)
+    , mkEvaluationResult
+    , erComplianceStatus
+    , erEvaluationLimitExceeded
+    , erViolatorCount
 
     -- ** ProtocolsListData
-    ProtocolsListData (..),
-    mkProtocolsListData,
-    pldListName,
-    pldProtocolsList,
-    pldCreateTime,
-    pldLastUpdateTime,
-    pldListId,
-    pldListUpdateToken,
-    pldPreviousProtocolsList,
+    , ProtocolsListData (..)
+    , mkProtocolsListData
+    , pldListName
+    , pldProtocolsList
+    , pldCreateTime
+    , pldLastUpdateTime
+    , pldListId
+    , pldListUpdateToken
+    , pldPreviousProtocolsList
 
     -- ** ResourceId
-    ResourceId (..),
+    , ResourceId (..)
 
     -- ** Tag
-    Tag (..),
-    mkTag,
-    tKey,
-    tValue,
+    , Tag (..)
+    , mkTag
+    , tKey
+    , tValue
 
     -- ** UpdateToken
-    UpdateToken (..),
+    , UpdateToken (..)
 
     -- ** ResourceType
-    ResourceType (..),
+    , ResourceType (..)
 
     -- ** NetworkFirewallMissingExpectedRTViolation
-    NetworkFirewallMissingExpectedRTViolation (..),
-    mkNetworkFirewallMissingExpectedRTViolation,
-    nfmertvAvailabilityZone,
-    nfmertvCurrentRouteTable,
-    nfmertvExpectedRouteTable,
-    nfmertvVPC,
-    nfmertvViolationTarget,
+    , NetworkFirewallMissingExpectedRTViolation (..)
+    , mkNetworkFirewallMissingExpectedRTViolation
+    , nfmertvAvailabilityZone
+    , nfmertvCurrentRouteTable
+    , nfmertvExpectedRouteTable
+    , nfmertvVPC
+    , nfmertvViolationTarget
 
     -- ** ResourceName
-    ResourceName (..),
+    , ResourceName (..)
 
     -- ** PolicyId
-    PolicyId (..),
+    , PolicyId (..)
 
     -- ** AppsListData
-    AppsListData (..),
-    mkAppsListData,
-    aldListName,
-    aldAppsList,
-    aldCreateTime,
-    aldLastUpdateTime,
-    aldListId,
-    aldListUpdateToken,
-    aldPreviousAppsList,
+    , AppsListData (..)
+    , mkAppsListData
+    , aldListName
+    , aldAppsList
+    , aldCreateTime
+    , aldLastUpdateTime
+    , aldListId
+    , aldListUpdateToken
+    , aldPreviousAppsList
 
     -- ** DependentServiceName
-    DependentServiceName (..),
+    , DependentServiceName (..)
 
     -- ** ProtectionData
-    ProtectionData (..),
+    , ProtectionData (..)
 
     -- ** NetworkFirewallMissingFirewallViolation
-    NetworkFirewallMissingFirewallViolation (..),
-    mkNetworkFirewallMissingFirewallViolation,
-    nfmfvAvailabilityZone,
-    nfmfvTargetViolationReason,
-    nfmfvVPC,
-    nfmfvViolationTarget,
+    , NetworkFirewallMissingFirewallViolation (..)
+    , mkNetworkFirewallMissingFirewallViolation
+    , nfmfvAvailabilityZone
+    , nfmfvTargetViolationReason
+    , nfmfvVPC
+    , nfmfvViolationTarget
 
     -- ** CustomerPolicyScopeId
-    CustomerPolicyScopeId (..),
+    , CustomerPolicyScopeId (..)
 
     -- ** Protocol
-    Protocol (..),
+    , Protocol (..)
 
     -- ** NetworkFirewallMissingSubnetViolation
-    NetworkFirewallMissingSubnetViolation (..),
-    mkNetworkFirewallMissingSubnetViolation,
-    nfmsvAvailabilityZone,
-    nfmsvTargetViolationReason,
-    nfmsvVPC,
-    nfmsvViolationTarget,
+    , NetworkFirewallMissingSubnetViolation (..)
+    , mkNetworkFirewallMissingSubnetViolation
+    , nfmsvAvailabilityZone
+    , nfmsvTargetViolationReason
+    , nfmsvVPC
+    , nfmsvViolationTarget
 
     -- ** SecurityGroupRuleDescription
-    SecurityGroupRuleDescription (..),
-    mkSecurityGroupRuleDescription,
-    sgrdFromPort,
-    sgrdIPV4Range,
-    sgrdIPV6Range,
-    sgrdPrefixListId,
-    sgrdProtocol,
-    sgrdToPort,
+    , SecurityGroupRuleDescription (..)
+    , mkSecurityGroupRuleDescription
+    , sgrdFromPort
+    , sgrdIPV4Range
+    , sgrdIPV6Range
+    , sgrdPrefixListId
+    , sgrdProtocol
+    , sgrdToPort
 
     -- ** AWSAccountId
-    AWSAccountId (..),
+    , AWSAccountId (..)
 
     -- ** AwsEc2InstanceViolation
-    AwsEc2InstanceViolation (..),
-    mkAwsEc2InstanceViolation,
-    aeivAwsEc2NetworkInterfaceViolations,
-    aeivViolationTarget,
+    , AwsEc2InstanceViolation (..)
+    , mkAwsEc2InstanceViolation
+    , aeivAwsEc2NetworkInterfaceViolations
+    , aeivViolationTarget
 
     -- ** ComplianceViolator
-    ComplianceViolator (..),
-    mkComplianceViolator,
-    cvResourceId,
-    cvResourceType,
-    cvViolationReason,
+    , ComplianceViolator (..)
+    , mkComplianceViolator
+    , cvResourceId
+    , cvResourceType
+    , cvViolationReason
 
     -- ** PolicyComplianceStatusType
-    PolicyComplianceStatusType (..),
+    , PolicyComplianceStatusType (..)
 
     -- ** App
-    App (..),
-    mkApp,
-    aAppName,
-    aProtocol,
-    aPort,
+    , App (..)
+    , mkApp
+    , aAppName
+    , aProtocol
+    , aPort
 
     -- ** StatefulRuleGroup
-    StatefulRuleGroup (..),
-    mkStatefulRuleGroup,
-    srgResourceId,
-    srgRuleGroupName,
+    , StatefulRuleGroup (..)
+    , mkStatefulRuleGroup
+    , srgResourceId
+    , srgRuleGroupName
 
     -- ** TargetViolationReason
-    TargetViolationReason (..),
+    , TargetViolationReason (..)
 
     -- ** PolicySummary
-    PolicySummary (..),
-    mkPolicySummary,
-    psPolicyArn,
-    psPolicyId,
-    psPolicyName,
-    psRemediationEnabled,
-    psResourceType,
-    psSecurityServiceType,
+    , PolicySummary (..)
+    , mkPolicySummary
+    , psPolicyArn
+    , psPolicyId
+    , psPolicyName
+    , psRemediationEnabled
+    , psResourceType
+    , psSecurityServiceType
 
     -- ** ListId
-    ListId (..),
+    , ListId (..)
 
     -- ** ResourceArn
-    ResourceArn (..),
+    , ResourceArn (..)
 
     -- ** StatelessRuleGroup
-    StatelessRuleGroup (..),
-    mkStatelessRuleGroup,
-    sPriority,
-    sResourceId,
-    sRuleGroupName,
+    , StatelessRuleGroup (..)
+    , mkStatelessRuleGroup
+    , sPriority
+    , sResourceId
+    , sRuleGroupName
 
     -- ** RemediationActionDescription
-    RemediationActionDescription (..),
+    , RemediationActionDescription (..)
 
     -- ** LengthBoundedString
-    LengthBoundedString (..),
+    , LengthBoundedString (..)
 
     -- ** PolicyUpdateToken
-    PolicyUpdateToken (..),
+    , PolicyUpdateToken (..)
 
     -- ** ViolationReason
-    ViolationReason (..),
+    , ViolationReason (..)
 
     -- ** ReferenceRule
-    ReferenceRule (..),
+    , ReferenceRule (..)
 
     -- ** TagKey
-    TagKey (..),
+    , TagKey (..)
 
     -- ** AwsVPCSecurityGroupViolation
-    AwsVPCSecurityGroupViolation (..),
-    mkAwsVPCSecurityGroupViolation,
-    avpcsgvPartialMatches,
-    avpcsgvPossibleSecurityGroupRemediationActions,
-    avpcsgvViolationTarget,
-    avpcsgvViolationTargetDescription,
+    , AwsVPCSecurityGroupViolation (..)
+    , mkAwsVPCSecurityGroupViolation
+    , avpcsgvPartialMatches
+    , avpcsgvPossibleSecurityGroupRemediationActions
+    , avpcsgvViolationTarget
+    , avpcsgvViolationTargetDescription
 
     -- ** ViolationTarget
-    ViolationTarget (..),
+    , ViolationTarget (..)
 
     -- ** NetworkFirewallPolicyModifiedViolation
-    NetworkFirewallPolicyModifiedViolation (..),
-    mkNetworkFirewallPolicyModifiedViolation,
-    nfpmvCurrentPolicyDescription,
-    nfpmvExpectedPolicyDescription,
-    nfpmvViolationTarget,
+    , NetworkFirewallPolicyModifiedViolation (..)
+    , mkNetworkFirewallPolicyModifiedViolation
+    , nfpmvCurrentPolicyDescription
+    , nfpmvExpectedPolicyDescription
+    , nfpmvViolationTarget
 
     -- ** ResourceTag
-    ResourceTag (..),
-    mkResourceTag,
-    rtKey,
-    rtValue,
+    , ResourceTag (..)
+    , mkResourceTag
+    , rtKey
+    , rtValue
 
     -- ** ManagedServiceData
-    ManagedServiceData (..),
+    , ManagedServiceData (..)
 
     -- ** Policy
-    Policy (..),
-    mkPolicy,
-    pPolicyName,
-    pSecurityServicePolicyData,
-    pResourceType,
-    pExcludeResourceTags,
-    pRemediationEnabled,
-    pExcludeMap,
-    pIncludeMap,
-    pPolicyId,
-    pPolicyUpdateToken,
-    pResourceTags,
-    pResourceTypeList,
+    , Policy (..)
+    , mkPolicy
+    , pPolicyName
+    , pSecurityServicePolicyData
+    , pResourceType
+    , pExcludeResourceTags
+    , pRemediationEnabled
+    , pExcludeMap
+    , pIncludeMap
+    , pPolicyId
+    , pPolicyUpdateToken
+    , pResourceTags
+    , pResourceTypeList
 
     -- ** SecurityGroupRemediationAction
-    SecurityGroupRemediationAction (..),
-    mkSecurityGroupRemediationAction,
-    sgraDescription,
-    sgraIsDefaultAction,
-    sgraRemediationActionType,
-    sgraRemediationResult,
+    , SecurityGroupRemediationAction (..)
+    , mkSecurityGroupRemediationAction
+    , sgraDescription
+    , sgraIsDefaultAction
+    , sgraRemediationActionType
+    , sgraRemediationResult
 
     -- ** PartialMatch
-    PartialMatch (..),
-    mkPartialMatch,
-    pmReference,
-    pmTargetViolationReasons,
+    , PartialMatch (..)
+    , mkPartialMatch
+    , pmReference
+    , pmTargetViolationReasons
 
     -- ** ViolationDetail
-    ViolationDetail (..),
-    mkViolationDetail,
-    vdPolicyId,
-    vdMemberAccount,
-    vdResourceId,
-    vdResourceType,
-    vdResourceViolations,
-    vdResourceDescription,
-    vdResourceTags,
+    , ViolationDetail (..)
+    , mkViolationDetail
+    , vdPolicyId
+    , vdMemberAccount
+    , vdResourceId
+    , vdResourceType
+    , vdResourceViolations
+    , vdResourceDescription
+    , vdResourceTags
 
     -- ** ProtocolsListDataSummary
-    ProtocolsListDataSummary (..),
-    mkProtocolsListDataSummary,
-    pldsListArn,
-    pldsListId,
-    pldsListName,
-    pldsProtocolsList,
+    , ProtocolsListDataSummary (..)
+    , mkProtocolsListDataSummary
+    , pldsListArn
+    , pldsListId
+    , pldsListName
+    , pldsProtocolsList
 
     -- ** AwsEc2NetworkInterfaceViolation
-    AwsEc2NetworkInterfaceViolation (..),
-    mkAwsEc2NetworkInterfaceViolation,
-    aenivViolatingSecurityGroups,
-    aenivViolationTarget,
+    , AwsEc2NetworkInterfaceViolation (..)
+    , mkAwsEc2NetworkInterfaceViolation
+    , aenivViolatingSecurityGroups
+    , aenivViolationTarget
 
     -- ** SecurityServiceType
-    SecurityServiceType (..),
+    , SecurityServiceType (..)
 
     -- ** CustomerPolicyScopeIdType
-    CustomerPolicyScopeIdType (..),
+    , CustomerPolicyScopeIdType (..)
 
     -- ** ResourceViolation
-    ResourceViolation (..),
-    mkResourceViolation,
-    rvAwsEc2InstanceViolation,
-    rvAwsEc2NetworkInterfaceViolation,
-    rvAwsVPCSecurityGroupViolation,
-    rvNetworkFirewallMissingExpectedRTViolation,
-    rvNetworkFirewallMissingFirewallViolation,
-    rvNetworkFirewallMissingSubnetViolation,
-    rvNetworkFirewallPolicyModifiedViolation,
+    , ResourceViolation (..)
+    , mkResourceViolation
+    , rvAwsEc2InstanceViolation
+    , rvAwsEc2NetworkInterfaceViolation
+    , rvAwsVPCSecurityGroupViolation
+    , rvNetworkFirewallMissingExpectedRTViolation
+    , rvNetworkFirewallMissingFirewallViolation
+    , rvNetworkFirewallMissingSubnetViolation
+    , rvNetworkFirewallPolicyModifiedViolation
 
     -- ** SecurityServicePolicyData
-    SecurityServicePolicyData (..),
-    mkSecurityServicePolicyData,
-    sspdType,
-    sspdManagedServiceData,
+    , SecurityServicePolicyData (..)
+    , mkSecurityServicePolicyData
+    , sspdType
+    , sspdManagedServiceData
 
     -- ** DetailedInfo
-    DetailedInfo (..),
+    , DetailedInfo (..)
 
     -- ** NetworkFirewallAction
-    NetworkFirewallAction (..),
+    , NetworkFirewallAction (..)
 
     -- ** NetworkFirewallPolicyDescription
-    NetworkFirewallPolicyDescription (..),
-    mkNetworkFirewallPolicyDescription,
-    nfpdStatefulRuleGroups,
-    nfpdStatelessCustomActions,
-    nfpdStatelessDefaultActions,
-    nfpdStatelessFragmentDefaultActions,
-    nfpdStatelessRuleGroups,
+    , NetworkFirewallPolicyDescription (..)
+    , mkNetworkFirewallPolicyDescription
+    , nfpdStatefulRuleGroups
+    , nfpdStatelessCustomActions
+    , nfpdStatelessDefaultActions
+    , nfpdStatelessFragmentDefaultActions
+    , nfpdStatelessRuleGroups
 
     -- ** PolicyComplianceStatus
-    PolicyComplianceStatus (..),
-    mkPolicyComplianceStatus,
-    pcsEvaluationResults,
-    pcsIssueInfoMap,
-    pcsLastUpdated,
-    pcsMemberAccount,
-    pcsPolicyId,
-    pcsPolicyName,
-    pcsPolicyOwner,
+    , PolicyComplianceStatus (..)
+    , mkPolicyComplianceStatus
+    , pcsEvaluationResults
+    , pcsIssueInfoMap
+    , pcsLastUpdated
+    , pcsMemberAccount
+    , pcsPolicyId
+    , pcsPolicyName
+    , pcsPolicyOwner
 
     -- ** RemediationActionType
-    RemediationActionType (..),
+    , RemediationActionType (..)
 
     -- ** PreviousListVersion
-    PreviousListVersion (..),
+    , PreviousListVersion (..)
 
     -- ** AccountRoleStatus
-    AccountRoleStatus (..),
+    , AccountRoleStatus (..)
 
     -- ** ListArn
-    ListArn (..),
+    , ListArn (..)
 
     -- ** ListName
-    ListName (..),
+    , ListName (..)
 
     -- ** MemberAccount
-    MemberAccount (..),
+    , MemberAccount (..)
 
     -- ** PolicyOwner
-    PolicyOwner (..),
+    , PolicyOwner (..)
 
     -- ** ListUpdateToken
-    ListUpdateToken (..),
+    , ListUpdateToken (..)
 
     -- ** PolicyArn
-    PolicyArn (..),
+    , PolicyArn (..)
 
     -- ** Key
-    Key (..),
+    , Key (..)
 
     -- ** Value
-    Value (..),
+    , Value (..)
 
     -- ** ProtocolsListArn
-    ProtocolsListArn (..),
+    , ProtocolsListArn (..)
 
     -- ** AvailabilityZone
-    AvailabilityZone (..),
+    , AvailabilityZone (..)
 
     -- ** SnsRoleName
-    SnsRoleName (..),
+    , SnsRoleName (..)
 
     -- ** SnsTopicArn
-    SnsTopicArn (..),
+    , SnsTopicArn (..)
 
     -- ** AdminAccount
-    AdminAccount (..),
+    , AdminAccount (..)
 
     -- ** IPV4Range
-    IPV4Range (..),
+    , IPV4Range (..)
 
     -- ** IPV6Range
-    IPV6Range (..),
+    , IPV6Range (..)
 
     -- ** RuleGroupName
-    RuleGroupName (..),
+    , RuleGroupName (..)
 
     -- * Serialization types
-    Lude.Base64 (..),
-    Lude._Base64,
-    Lude.Sensitive (..),
-    Lude._Sensitive,
-    Lude.UTCTime,
-    Lude.NominalDiffTime,
-  )
-where
+    , Lude.Base64 (..)
+    , Lude._Base64
+    , Lude.Sensitive (..)
+    , Lude._Sensitive
+    , Lude.UTCTime
+    , Lude.NominalDiffTime
+    ) where
 
-import Network.AWS.FMS.AssociateAdminAccount
-import Network.AWS.FMS.DeleteAppsList
-import Network.AWS.FMS.DeleteNotificationChannel
-import Network.AWS.FMS.DeletePolicy
-import Network.AWS.FMS.DeleteProtocolsList
-import Network.AWS.FMS.DisassociateAdminAccount
-import Network.AWS.FMS.GetAdminAccount
-import Network.AWS.FMS.GetAppsList
-import Network.AWS.FMS.GetComplianceDetail
-import Network.AWS.FMS.GetNotificationChannel
-import Network.AWS.FMS.GetPolicy
-import Network.AWS.FMS.GetProtectionStatus
-import Network.AWS.FMS.GetProtocolsList
-import Network.AWS.FMS.GetViolationDetails
-import Network.AWS.FMS.ListAppsLists
-import Network.AWS.FMS.ListComplianceStatus
-import Network.AWS.FMS.ListMemberAccounts
-import Network.AWS.FMS.ListPolicies
-import Network.AWS.FMS.ListProtocolsLists
-import Network.AWS.FMS.ListTagsForResource
-import Network.AWS.FMS.PutAppsList
-import Network.AWS.FMS.PutNotificationChannel
-import Network.AWS.FMS.PutPolicy
-import Network.AWS.FMS.PutProtocolsList
-import Network.AWS.FMS.TagResource
 import Network.AWS.FMS.Types
-import Network.AWS.FMS.UntagResource
 import Network.AWS.FMS.Waiters
+import Network.AWS.FMS.ListPolicies
+import Network.AWS.FMS.GetComplianceDetail
+import Network.AWS.FMS.ListTagsForResource
+import Network.AWS.FMS.GetNotificationChannel
+import Network.AWS.FMS.GetAdminAccount
+import Network.AWS.FMS.ListComplianceStatus
+import Network.AWS.FMS.GetAppsList
+import Network.AWS.FMS.PutPolicy
+import Network.AWS.FMS.DeletePolicy
+import Network.AWS.FMS.DisassociateAdminAccount
+import Network.AWS.FMS.PutNotificationChannel
+import Network.AWS.FMS.DeleteNotificationChannel
+import Network.AWS.FMS.AssociateAdminAccount
+import Network.AWS.FMS.GetViolationDetails
+import Network.AWS.FMS.ListMemberAccounts
+import Network.AWS.FMS.TagResource
+import Network.AWS.FMS.UntagResource
+import Network.AWS.FMS.DeleteProtocolsList
+import Network.AWS.FMS.GetPolicy
+import Network.AWS.FMS.ListProtocolsLists
+import Network.AWS.FMS.PutProtocolsList
+import Network.AWS.FMS.PutAppsList
+import Network.AWS.FMS.DeleteAppsList
+import Network.AWS.FMS.ListAppsLists
+import Network.AWS.FMS.GetProtocolsList
+import Network.AWS.FMS.GetProtectionStatus
 import qualified Network.AWS.Prelude as Lude
 
--- $errors
--- Error matchers are designed for use with the functions provided by
--- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
--- This allows catching (and rethrowing) service specific errors returned
--- by 'FMS'.
+{- $errors
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by 'FMS'.
+-}
 
--- $operations
--- Some AWS operations return results that are incomplete and require subsequent
--- requests in order to obtain the entire result set. The process of sending
--- subsequent requests to continue where a previous request left off is called
--- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
--- 1000 objects at a time, and you must send subsequent requests with the
--- appropriate Marker in order to retrieve the next page of results.
---
--- Operations that have an 'AWSPager' instance can transparently perform subsequent
--- requests, correctly setting Markers and other request facets to iterate through
--- the entire result set of a truncated API operation. Operations which support
--- this have an additional note in the documentation.
---
--- Many operations have the ability to filter results on the server side. See the
--- individual operation parameters for details.
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
 
--- $waiters
--- Waiters poll by repeatedly sending a request until some remote success condition
--- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
--- determines how many attempts should be made, in addition to delay and retry strategies.
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly sending a request until some remote success condition
+configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+determines how many attempts should be made, in addition to delay and retry strategies.
+-}

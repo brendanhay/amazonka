@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,19 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.EC2.Types.PrincipalIdFormat
-  ( PrincipalIdFormat (..),
+  ( PrincipalIdFormat (..)
+  -- * Smart constructor
+  , mkPrincipalIdFormat
+  -- * Lenses
+  , pifArn
+  , pifStatuses
+  ) where
 
-    -- * Smart constructor
-    mkPrincipalIdFormat,
-
-    -- * Lenses
-    pifArn,
-    pifStatuses,
-  )
-where
-
-import qualified Network.AWS.EC2.Types.Arn as Types
 import qualified Network.AWS.EC2.Types.IdFormat as Types
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -31,36 +28,38 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkPrincipalIdFormat' smart constructor.
 data PrincipalIdFormat = PrincipalIdFormat'
-  { -- | PrincipalIdFormatARN description
-    arn :: Core.Maybe Types.Arn,
-    -- | PrincipalIdFormatStatuses description
-    statuses :: Core.Maybe [Types.IdFormat]
+  { arn :: Core.Maybe Core.Text
+    -- ^ PrincipalIdFormatARN description
+  , statuses :: Core.Maybe [Types.IdFormat]
+    -- ^ PrincipalIdFormatStatuses description
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'PrincipalIdFormat' value with any optional fields omitted.
-mkPrincipalIdFormat ::
-  PrincipalIdFormat
-mkPrincipalIdFormat =
-  PrincipalIdFormat' {arn = Core.Nothing, statuses = Core.Nothing}
+mkPrincipalIdFormat
+    :: PrincipalIdFormat
+mkPrincipalIdFormat
+  = PrincipalIdFormat'{arn = Core.Nothing, statuses = Core.Nothing}
 
 -- | PrincipalIdFormatARN description
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pifArn :: Lens.Lens' PrincipalIdFormat (Core.Maybe Types.Arn)
+pifArn :: Lens.Lens' PrincipalIdFormat (Core.Maybe Core.Text)
 pifArn = Lens.field @"arn"
-{-# DEPRECATED pifArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+{-# INLINEABLE pifArn #-}
+{-# DEPRECATED arn "Use generic-lens or generic-optics with 'arn' instead"  #-}
 
 -- | PrincipalIdFormatStatuses description
 --
 -- /Note:/ Consider using 'statuses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 pifStatuses :: Lens.Lens' PrincipalIdFormat (Core.Maybe [Types.IdFormat])
 pifStatuses = Lens.field @"statuses"
-{-# DEPRECATED pifStatuses "Use generic-lens or generic-optics with 'statuses' instead." #-}
+{-# INLINEABLE pifStatuses #-}
+{-# DEPRECATED statuses "Use generic-lens or generic-optics with 'statuses' instead"  #-}
 
 instance Core.FromXML PrincipalIdFormat where
-  parseXML x =
-    PrincipalIdFormat'
-      Core.<$> (x Core..@? "arn")
-      Core.<*> (x Core..@? "statusSet" Core..<@> Core.parseXMLList "item")
+        parseXML x
+          = PrincipalIdFormat' Core.<$>
+              (x Core..@? "arn") Core.<*>
+                x Core..@? "statusSet" Core..<@> Core.parseXMLList "item"

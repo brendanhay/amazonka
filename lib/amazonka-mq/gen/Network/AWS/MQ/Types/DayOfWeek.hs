@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,47 +10,31 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MQ.Types.DayOfWeek
   ( DayOfWeek
-      ( DayOfWeek',
-        DayOfWeekMonday,
-        DayOfWeekTuesday,
-        DayOfWeekWednesday,
-        DayOfWeekThursday,
-        DayOfWeekFriday,
-        DayOfWeekSaturday,
-        DayOfWeekSunday,
-        fromDayOfWeek
-      ),
-  )
-where
+    ( DayOfWeek'
+    , DayOfWeekMonday
+    , DayOfWeekTuesday
+    , DayOfWeekWednesday
+    , DayOfWeekThursday
+    , DayOfWeekFriday
+    , DayOfWeekSaturday
+    , DayOfWeekSunday
+    , fromDayOfWeek
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype DayOfWeek = DayOfWeek' {fromDayOfWeek :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype DayOfWeek = DayOfWeek'{fromDayOfWeek :: Core.Text}
+                      deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                      Core.Generic)
+                      deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                        Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                        Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                        Core.FromText, Core.ToByteString, Core.ToQuery,
+                                        Core.ToHeader)
 
 pattern DayOfWeekMonday :: DayOfWeek
 pattern DayOfWeekMonday = DayOfWeek' "MONDAY"
@@ -73,13 +57,19 @@ pattern DayOfWeekSaturday = DayOfWeek' "SATURDAY"
 pattern DayOfWeekSunday :: DayOfWeek
 pattern DayOfWeekSunday = DayOfWeek' "SUNDAY"
 
-{-# COMPLETE
+{-# COMPLETE 
   DayOfWeekMonday,
+
   DayOfWeekTuesday,
+
   DayOfWeekWednesday,
+
   DayOfWeekThursday,
+
   DayOfWeekFriday,
+
   DayOfWeekSaturday,
+
   DayOfWeekSunday,
   DayOfWeek'
   #-}

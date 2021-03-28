@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Greengrass.Types.FunctionDefaultConfig
-  ( FunctionDefaultConfig (..),
-
-    -- * Smart constructor
-    mkFunctionDefaultConfig,
-
-    -- * Lenses
-    fdcExecution,
-  )
-where
+  ( FunctionDefaultConfig (..)
+  -- * Smart constructor
+  , mkFunctionDefaultConfig
+  -- * Lenses
+  , fdcExecution
+  ) where
 
 import qualified Network.AWS.Greengrass.Types.FunctionDefaultExecutionConfig as Types
 import qualified Network.AWS.Lens as Lens
@@ -35,24 +33,25 @@ newtype FunctionDefaultConfig = FunctionDefaultConfig'
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'FunctionDefaultConfig' value with any optional fields omitted.
-mkFunctionDefaultConfig ::
-  FunctionDefaultConfig
-mkFunctionDefaultConfig =
-  FunctionDefaultConfig' {execution = Core.Nothing}
+mkFunctionDefaultConfig
+    :: FunctionDefaultConfig
+mkFunctionDefaultConfig
+  = FunctionDefaultConfig'{execution = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'execution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 fdcExecution :: Lens.Lens' FunctionDefaultConfig (Core.Maybe Types.FunctionDefaultExecutionConfig)
 fdcExecution = Lens.field @"execution"
-{-# DEPRECATED fdcExecution "Use generic-lens or generic-optics with 'execution' instead." #-}
+{-# INLINEABLE fdcExecution #-}
+{-# DEPRECATED execution "Use generic-lens or generic-optics with 'execution' instead"  #-}
 
 instance Core.FromJSON FunctionDefaultConfig where
-  toJSON FunctionDefaultConfig {..} =
-    Core.object
-      (Core.catMaybes [("Execution" Core..=) Core.<$> execution])
+        toJSON FunctionDefaultConfig{..}
+          = Core.object
+              (Core.catMaybes [("Execution" Core..=) Core.<$> execution])
 
 instance Core.FromJSON FunctionDefaultConfig where
-  parseJSON =
-    Core.withObject "FunctionDefaultConfig" Core.$
-      \x -> FunctionDefaultConfig' Core.<$> (x Core..:? "Execution")
+        parseJSON
+          = Core.withObject "FunctionDefaultConfig" Core.$
+              \ x -> FunctionDefaultConfig' Core.<$> (x Core..:? "Execution")

@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,22 +17,20 @@
 --
 -- To maintain a WorkSpace without being interrupted, set the WorkSpace state to @ADMIN_MAINTENANCE@ . WorkSpaces in this state do not respond to requests to reboot, stop, start, rebuild, or restore. An AutoStop WorkSpace in this state is not stopped. Users cannot log into a WorkSpace in the @ADMIN_MAINTENANCE@ state.
 module Network.AWS.WorkSpaces.ModifyWorkspaceState
-  ( -- * Creating a request
-    ModifyWorkspaceState (..),
-    mkModifyWorkspaceState,
-
+    (
+    -- * Creating a request
+      ModifyWorkspaceState (..)
+    , mkModifyWorkspaceState
     -- ** Request lenses
-    mwsWorkspaceId,
-    mwsWorkspaceState,
+    , mwsWorkspaceId
+    , mwsWorkspaceState
 
     -- * Destructuring the response
-    ModifyWorkspaceStateResponse (..),
-    mkModifyWorkspaceStateResponse,
-
+    , ModifyWorkspaceStateResponse (..)
+    , mkModifyWorkspaceStateResponse
     -- ** Response lenses
-    mwsrrsResponseStatus,
-  )
-where
+    , mwsrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -42,87 +40,90 @@ import qualified Network.AWS.WorkSpaces.Types as Types
 
 -- | /See:/ 'mkModifyWorkspaceState' smart constructor.
 data ModifyWorkspaceState = ModifyWorkspaceState'
-  { -- | The identifier of the WorkSpace.
-    workspaceId :: Types.WorkspaceId,
-    -- | The WorkSpace state.
-    workspaceState :: Types.TargetWorkspaceState
+  { workspaceId :: Types.WorkspaceId
+    -- ^ The identifier of the WorkSpace.
+  , workspaceState :: Types.TargetWorkspaceState
+    -- ^ The WorkSpace state.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ModifyWorkspaceState' value with any optional fields omitted.
-mkModifyWorkspaceState ::
-  -- | 'workspaceId'
-  Types.WorkspaceId ->
-  -- | 'workspaceState'
-  Types.TargetWorkspaceState ->
-  ModifyWorkspaceState
-mkModifyWorkspaceState workspaceId workspaceState =
-  ModifyWorkspaceState' {workspaceId, workspaceState}
+mkModifyWorkspaceState
+    :: Types.WorkspaceId -- ^ 'workspaceId'
+    -> Types.TargetWorkspaceState -- ^ 'workspaceState'
+    -> ModifyWorkspaceState
+mkModifyWorkspaceState workspaceId workspaceState
+  = ModifyWorkspaceState'{workspaceId, workspaceState}
 
 -- | The identifier of the WorkSpace.
 --
 -- /Note:/ Consider using 'workspaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mwsWorkspaceId :: Lens.Lens' ModifyWorkspaceState Types.WorkspaceId
 mwsWorkspaceId = Lens.field @"workspaceId"
-{-# DEPRECATED mwsWorkspaceId "Use generic-lens or generic-optics with 'workspaceId' instead." #-}
+{-# INLINEABLE mwsWorkspaceId #-}
+{-# DEPRECATED workspaceId "Use generic-lens or generic-optics with 'workspaceId' instead"  #-}
 
 -- | The WorkSpace state.
 --
 -- /Note:/ Consider using 'workspaceState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mwsWorkspaceState :: Lens.Lens' ModifyWorkspaceState Types.TargetWorkspaceState
 mwsWorkspaceState = Lens.field @"workspaceState"
-{-# DEPRECATED mwsWorkspaceState "Use generic-lens or generic-optics with 'workspaceState' instead." #-}
+{-# INLINEABLE mwsWorkspaceState #-}
+{-# DEPRECATED workspaceState "Use generic-lens or generic-optics with 'workspaceState' instead"  #-}
+
+instance Core.ToQuery ModifyWorkspaceState where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders ModifyWorkspaceState where
+        toHeaders ModifyWorkspaceState{..}
+          = Core.pure
+              ("X-Amz-Target", "WorkspacesService.ModifyWorkspaceState")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON ModifyWorkspaceState where
-  toJSON ModifyWorkspaceState {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("WorkspaceId" Core..= workspaceId),
-            Core.Just ("WorkspaceState" Core..= workspaceState)
-          ]
-      )
+        toJSON ModifyWorkspaceState{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("WorkspaceId" Core..= workspaceId),
+                  Core.Just ("WorkspaceState" Core..= workspaceState)])
 
 instance Core.AWSRequest ModifyWorkspaceState where
-  type Rs ModifyWorkspaceState = ModifyWorkspaceStateResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "WorkspacesService.ModifyWorkspaceState")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveEmpty
-      ( \s h x ->
-          ModifyWorkspaceStateResponse'
-            Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs ModifyWorkspaceState = ModifyWorkspaceStateResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveEmpty
+              (\ s h x ->
+                 ModifyWorkspaceStateResponse' Core.<$>
+                   (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkModifyWorkspaceStateResponse' smart constructor.
 newtype ModifyWorkspaceStateResponse = ModifyWorkspaceStateResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ModifyWorkspaceStateResponse' value with any optional fields omitted.
-mkModifyWorkspaceStateResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  ModifyWorkspaceStateResponse
-mkModifyWorkspaceStateResponse responseStatus =
-  ModifyWorkspaceStateResponse' {responseStatus}
+mkModifyWorkspaceStateResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> ModifyWorkspaceStateResponse
+mkModifyWorkspaceStateResponse responseStatus
+  = ModifyWorkspaceStateResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mwsrrsResponseStatus :: Lens.Lens' ModifyWorkspaceStateResponse Core.Int
 mwsrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED mwsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE mwsrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,15 +10,13 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaLive.Types.PassThroughSettings
-  ( PassThroughSettings (..),
-
-    -- * Smart constructor
-    mkPassThroughSettings,
-
-    -- * Lenses
-  )
-where
+  ( PassThroughSettings (..)
+  -- * Smart constructor
+  , mkPassThroughSettings
+  -- * Lenses
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -31,14 +29,14 @@ data PassThroughSettings = PassThroughSettings'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'PassThroughSettings' value with any optional fields omitted.
-mkPassThroughSettings ::
-  PassThroughSettings
+mkPassThroughSettings
+    :: PassThroughSettings
 mkPassThroughSettings = PassThroughSettings'
 
 instance Core.FromJSON PassThroughSettings where
-  toJSON _ = Core.Object Core.mempty
+        toJSON _ = Core.Object Core.mempty
 
 instance Core.FromJSON PassThroughSettings where
-  parseJSON =
-    Core.withObject "PassThroughSettings" Core.$
-      \x -> Core.pure PassThroughSettings'
+        parseJSON
+          = Core.withObject "PassThroughSettings" Core.$
+              \ x -> Core.pure PassThroughSettings'

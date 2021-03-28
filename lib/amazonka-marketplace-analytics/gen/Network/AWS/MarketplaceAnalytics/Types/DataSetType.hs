@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,65 +10,49 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MarketplaceAnalytics.Types.DataSetType
   ( DataSetType
-      ( DataSetType',
-        DataSetTypeCustomerSubscriberHourlyMonthlySubscriptions,
-        DataSetTypeCustomerSubscriberAnnualSubscriptions,
-        DataSetTypeDailyBusinessUsageByInstanceType,
-        DataSetTypeDailyBusinessFees,
-        DataSetTypeDailyBusinessFreeTrialConversions,
-        DataSetTypeDailyBusinessNewInstances,
-        DataSetTypeDailyBusinessNewProductSubscribers,
-        DataSetTypeDailyBusinessCanceledProductSubscribers,
-        DataSetTypeMonthlyRevenueBillingAndRevenueData,
-        DataSetTypeMonthlyRevenueAnnualSubscriptions,
-        DataSetTypeMonthlyRevenueFieldDemonstrationUsage,
-        DataSetTypeMonthlyRevenueFlexiblePaymentSchedule,
-        DataSetTypeDisbursedAmountByProduct,
-        DataSetTypeDisbursedAmountByProductWithUncollectedFunds,
-        DataSetTypeDisbursedAmountByInstanceHours,
-        DataSetTypeDisbursedAmountByCustomerGeo,
-        DataSetTypeDisbursedAmountByAgeOfUncollectedFunds,
-        DataSetTypeDisbursedAmountByAgeOfDisbursedFunds,
-        DataSetTypeDisbursedAmountByAgeOfPastDueFunds,
-        DataSetTypeDisbursedAmountByUncollectedFundsBreakdown,
-        DataSetTypeCustomerProfileByIndustry,
-        DataSetTypeCustomerProfileByRevenue,
-        DataSetTypeCustomerProfileByGeography,
-        DataSetTypeSalesCompensationBilledRevenue,
-        DataSetTypeUsSalesAndUseTaxRecords,
-        fromDataSetType
-      ),
-  )
-where
+    ( DataSetType'
+    , DataSetTypeCustomerSubscriberHourlyMonthlySubscriptions
+    , DataSetTypeCustomerSubscriberAnnualSubscriptions
+    , DataSetTypeDailyBusinessUsageByInstanceType
+    , DataSetTypeDailyBusinessFees
+    , DataSetTypeDailyBusinessFreeTrialConversions
+    , DataSetTypeDailyBusinessNewInstances
+    , DataSetTypeDailyBusinessNewProductSubscribers
+    , DataSetTypeDailyBusinessCanceledProductSubscribers
+    , DataSetTypeMonthlyRevenueBillingAndRevenueData
+    , DataSetTypeMonthlyRevenueAnnualSubscriptions
+    , DataSetTypeMonthlyRevenueFieldDemonstrationUsage
+    , DataSetTypeMonthlyRevenueFlexiblePaymentSchedule
+    , DataSetTypeDisbursedAmountByProduct
+    , DataSetTypeDisbursedAmountByProductWithUncollectedFunds
+    , DataSetTypeDisbursedAmountByInstanceHours
+    , DataSetTypeDisbursedAmountByCustomerGeo
+    , DataSetTypeDisbursedAmountByAgeOfUncollectedFunds
+    , DataSetTypeDisbursedAmountByAgeOfDisbursedFunds
+    , DataSetTypeDisbursedAmountByAgeOfPastDueFunds
+    , DataSetTypeDisbursedAmountByUncollectedFundsBreakdown
+    , DataSetTypeCustomerProfileByIndustry
+    , DataSetTypeCustomerProfileByRevenue
+    , DataSetTypeCustomerProfileByGeography
+    , DataSetTypeSalesCompensationBilledRevenue
+    , DataSetTypeUsSalesAndUseTaxRecords
+    , fromDataSetType
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype DataSetType = DataSetType' {fromDataSetType :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype DataSetType = DataSetType'{fromDataSetType :: Core.Text}
+                        deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                        Core.Generic)
+                        deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                          Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                          Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                          Core.FromText, Core.ToByteString, Core.ToQuery,
+                                          Core.ToHeader)
 
 pattern DataSetTypeCustomerSubscriberHourlyMonthlySubscriptions :: DataSetType
 pattern DataSetTypeCustomerSubscriberHourlyMonthlySubscriptions = DataSetType' "customer_subscriber_hourly_monthly_subscriptions"
@@ -145,31 +129,55 @@ pattern DataSetTypeSalesCompensationBilledRevenue = DataSetType' "sales_compensa
 pattern DataSetTypeUsSalesAndUseTaxRecords :: DataSetType
 pattern DataSetTypeUsSalesAndUseTaxRecords = DataSetType' "us_sales_and_use_tax_records"
 
-{-# COMPLETE
+{-# COMPLETE 
   DataSetTypeCustomerSubscriberHourlyMonthlySubscriptions,
+
   DataSetTypeCustomerSubscriberAnnualSubscriptions,
+
   DataSetTypeDailyBusinessUsageByInstanceType,
+
   DataSetTypeDailyBusinessFees,
+
   DataSetTypeDailyBusinessFreeTrialConversions,
+
   DataSetTypeDailyBusinessNewInstances,
+
   DataSetTypeDailyBusinessNewProductSubscribers,
+
   DataSetTypeDailyBusinessCanceledProductSubscribers,
+
   DataSetTypeMonthlyRevenueBillingAndRevenueData,
+
   DataSetTypeMonthlyRevenueAnnualSubscriptions,
+
   DataSetTypeMonthlyRevenueFieldDemonstrationUsage,
+
   DataSetTypeMonthlyRevenueFlexiblePaymentSchedule,
+
   DataSetTypeDisbursedAmountByProduct,
+
   DataSetTypeDisbursedAmountByProductWithUncollectedFunds,
+
   DataSetTypeDisbursedAmountByInstanceHours,
+
   DataSetTypeDisbursedAmountByCustomerGeo,
+
   DataSetTypeDisbursedAmountByAgeOfUncollectedFunds,
+
   DataSetTypeDisbursedAmountByAgeOfDisbursedFunds,
+
   DataSetTypeDisbursedAmountByAgeOfPastDueFunds,
+
   DataSetTypeDisbursedAmountByUncollectedFundsBreakdown,
+
   DataSetTypeCustomerProfileByIndustry,
+
   DataSetTypeCustomerProfileByRevenue,
+
   DataSetTypeCustomerProfileByGeography,
+
   DataSetTypeSalesCompensationBilledRevenue,
+
   DataSetTypeUsSalesAndUseTaxRecords,
   DataSetType'
   #-}

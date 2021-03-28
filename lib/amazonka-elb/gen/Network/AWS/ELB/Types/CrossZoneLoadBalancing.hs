@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.ELB.Types.CrossZoneLoadBalancing
-  ( CrossZoneLoadBalancing (..),
-
-    -- * Smart constructor
-    mkCrossZoneLoadBalancing,
-
-    -- * Lenses
-    czlbEnabled,
-  )
-where
+  ( CrossZoneLoadBalancing (..)
+  -- * Smart constructor
+  , mkCrossZoneLoadBalancing
+  -- * Lenses
+  , czlbEnabled
+  ) where
 
 import qualified Network.AWS.ELB.Internal as Types
 import qualified Network.AWS.Lens as Lens
@@ -29,25 +27,29 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkCrossZoneLoadBalancing' smart constructor.
 newtype CrossZoneLoadBalancing = CrossZoneLoadBalancing'
-  { -- | Specifies whether cross-zone load balancing is enabled for the load balancer.
-    enabled :: Core.Bool
+  { enabled :: Core.Bool
+    -- ^ Specifies whether cross-zone load balancing is enabled for the load balancer.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'CrossZoneLoadBalancing' value with any optional fields omitted.
-mkCrossZoneLoadBalancing ::
-  -- | 'enabled'
-  Core.Bool ->
-  CrossZoneLoadBalancing
-mkCrossZoneLoadBalancing enabled = CrossZoneLoadBalancing' {enabled}
+mkCrossZoneLoadBalancing
+    :: Core.Bool -- ^ 'enabled'
+    -> CrossZoneLoadBalancing
+mkCrossZoneLoadBalancing enabled = CrossZoneLoadBalancing'{enabled}
 
 -- | Specifies whether cross-zone load balancing is enabled for the load balancer.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 czlbEnabled :: Lens.Lens' CrossZoneLoadBalancing Core.Bool
 czlbEnabled = Lens.field @"enabled"
-{-# DEPRECATED czlbEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+{-# INLINEABLE czlbEnabled #-}
+{-# DEPRECATED enabled "Use generic-lens or generic-optics with 'enabled' instead"  #-}
+
+instance Core.ToQuery CrossZoneLoadBalancing where
+        toQuery CrossZoneLoadBalancing{..}
+          = Core.toQueryPair "Enabled" enabled
 
 instance Core.FromXML CrossZoneLoadBalancing where
-  parseXML x = CrossZoneLoadBalancing' Core.<$> (x Core..@ "Enabled")
+        parseXML x = CrossZoneLoadBalancing' Core.<$> (x Core..@ "Enabled")

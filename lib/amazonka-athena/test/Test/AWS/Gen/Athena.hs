@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.Athena where
 
 import Data.Proxy
-import Network.AWS.Athena
-import Test.AWS.Athena.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.Athena
+import Test.AWS.Athena.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -204,394 +205,338 @@ import Test.Tasty
 -- Requests
 
 requestListDatabases :: ListDatabases -> TestTree
-requestListDatabases =
-  req
+requestListDatabases = req
     "ListDatabases"
     "fixture/ListDatabases.yaml"
 
 requestDeleteWorkGroup :: DeleteWorkGroup -> TestTree
-requestDeleteWorkGroup =
-  req
+requestDeleteWorkGroup = req
     "DeleteWorkGroup"
     "fixture/DeleteWorkGroup.yaml"
 
 requestUpdateWorkGroup :: UpdateWorkGroup -> TestTree
-requestUpdateWorkGroup =
-  req
+requestUpdateWorkGroup = req
     "UpdateWorkGroup"
     "fixture/UpdateWorkGroup.yaml"
 
 requestGetNamedQuery :: GetNamedQuery -> TestTree
-requestGetNamedQuery =
-  req
+requestGetNamedQuery = req
     "GetNamedQuery"
     "fixture/GetNamedQuery.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
+requestListTagsForResource = req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
 requestDeleteDataCatalog :: DeleteDataCatalog -> TestTree
-requestDeleteDataCatalog =
-  req
+requestDeleteDataCatalog = req
     "DeleteDataCatalog"
     "fixture/DeleteDataCatalog.yaml"
 
 requestUpdateDataCatalog :: UpdateDataCatalog -> TestTree
-requestUpdateDataCatalog =
-  req
+requestUpdateDataCatalog = req
     "UpdateDataCatalog"
     "fixture/UpdateDataCatalog.yaml"
 
 requestListDataCatalogs :: ListDataCatalogs -> TestTree
-requestListDataCatalogs =
-  req
+requestListDataCatalogs = req
     "ListDataCatalogs"
     "fixture/ListDataCatalogs.yaml"
 
 requestCreateNamedQuery :: CreateNamedQuery -> TestTree
-requestCreateNamedQuery =
-  req
+requestCreateNamedQuery = req
     "CreateNamedQuery"
     "fixture/CreateNamedQuery.yaml"
 
 requestGetTableMetadata :: GetTableMetadata -> TestTree
-requestGetTableMetadata =
-  req
+requestGetTableMetadata = req
     "GetTableMetadata"
     "fixture/GetTableMetadata.yaml"
 
 requestListNamedQueries :: ListNamedQueries -> TestTree
-requestListNamedQueries =
-  req
+requestListNamedQueries = req
     "ListNamedQueries"
     "fixture/ListNamedQueries.yaml"
 
 requestDeleteNamedQuery :: DeleteNamedQuery -> TestTree
-requestDeleteNamedQuery =
-  req
+requestDeleteNamedQuery = req
     "DeleteNamedQuery"
     "fixture/DeleteNamedQuery.yaml"
 
 requestStartQueryExecution :: StartQueryExecution -> TestTree
-requestStartQueryExecution =
-  req
+requestStartQueryExecution = req
     "StartQueryExecution"
     "fixture/StartQueryExecution.yaml"
 
 requestBatchGetNamedQuery :: BatchGetNamedQuery -> TestTree
-requestBatchGetNamedQuery =
-  req
+requestBatchGetNamedQuery = req
     "BatchGetNamedQuery"
     "fixture/BatchGetNamedQuery.yaml"
 
 requestGetQueryExecution :: GetQueryExecution -> TestTree
-requestGetQueryExecution =
-  req
+requestGetQueryExecution = req
     "GetQueryExecution"
     "fixture/GetQueryExecution.yaml"
 
 requestCreateDataCatalog :: CreateDataCatalog -> TestTree
-requestCreateDataCatalog =
-  req
+requestCreateDataCatalog = req
     "CreateDataCatalog"
     "fixture/CreateDataCatalog.yaml"
 
 requestListWorkGroups :: ListWorkGroups -> TestTree
-requestListWorkGroups =
-  req
+requestListWorkGroups = req
     "ListWorkGroups"
     "fixture/ListWorkGroups.yaml"
 
 requestCreateWorkGroup :: CreateWorkGroup -> TestTree
-requestCreateWorkGroup =
-  req
+requestCreateWorkGroup = req
     "CreateWorkGroup"
     "fixture/CreateWorkGroup.yaml"
 
 requestBatchGetQueryExecution :: BatchGetQueryExecution -> TestTree
-requestBatchGetQueryExecution =
-  req
+requestBatchGetQueryExecution = req
     "BatchGetQueryExecution"
     "fixture/BatchGetQueryExecution.yaml"
 
 requestGetDataCatalog :: GetDataCatalog -> TestTree
-requestGetDataCatalog =
-  req
+requestGetDataCatalog = req
     "GetDataCatalog"
     "fixture/GetDataCatalog.yaml"
 
 requestStopQueryExecution :: StopQueryExecution -> TestTree
-requestStopQueryExecution =
-  req
+requestStopQueryExecution = req
     "StopQueryExecution"
     "fixture/StopQueryExecution.yaml"
 
 requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
+requestTagResource = req
     "TagResource"
     "fixture/TagResource.yaml"
 
 requestGetWorkGroup :: GetWorkGroup -> TestTree
-requestGetWorkGroup =
-  req
+requestGetWorkGroup = req
     "GetWorkGroup"
     "fixture/GetWorkGroup.yaml"
 
 requestGetDatabase :: GetDatabase -> TestTree
-requestGetDatabase =
-  req
+requestGetDatabase = req
     "GetDatabase"
     "fixture/GetDatabase.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
+requestUntagResource = req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
 requestGetQueryResults :: GetQueryResults -> TestTree
-requestGetQueryResults =
-  req
+requestGetQueryResults = req
     "GetQueryResults"
     "fixture/GetQueryResults.yaml"
 
 requestListTableMetadata :: ListTableMetadata -> TestTree
-requestListTableMetadata =
-  req
+requestListTableMetadata = req
     "ListTableMetadata"
     "fixture/ListTableMetadata.yaml"
 
 requestListQueryExecutions :: ListQueryExecutions -> TestTree
-requestListQueryExecutions =
-  req
+requestListQueryExecutions = req
     "ListQueryExecutions"
     "fixture/ListQueryExecutions.yaml"
 
 -- Responses
 
 responseListDatabases :: ListDatabasesResponse -> TestTree
-responseListDatabases =
-  res
+responseListDatabases = res
     "ListDatabasesResponse"
     "fixture/ListDatabasesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListDatabases)
 
 responseDeleteWorkGroup :: DeleteWorkGroupResponse -> TestTree
-responseDeleteWorkGroup =
-  res
+responseDeleteWorkGroup = res
     "DeleteWorkGroupResponse"
     "fixture/DeleteWorkGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteWorkGroup)
 
 responseUpdateWorkGroup :: UpdateWorkGroupResponse -> TestTree
-responseUpdateWorkGroup =
-  res
+responseUpdateWorkGroup = res
     "UpdateWorkGroupResponse"
     "fixture/UpdateWorkGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateWorkGroup)
 
 responseGetNamedQuery :: GetNamedQueryResponse -> TestTree
-responseGetNamedQuery =
-  res
+responseGetNamedQuery = res
     "GetNamedQueryResponse"
     "fixture/GetNamedQueryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetNamedQuery)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
+responseListTagsForResource = res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseDeleteDataCatalog :: DeleteDataCatalogResponse -> TestTree
-responseDeleteDataCatalog =
-  res
+responseDeleteDataCatalog = res
     "DeleteDataCatalogResponse"
     "fixture/DeleteDataCatalogResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteDataCatalog)
 
 responseUpdateDataCatalog :: UpdateDataCatalogResponse -> TestTree
-responseUpdateDataCatalog =
-  res
+responseUpdateDataCatalog = res
     "UpdateDataCatalogResponse"
     "fixture/UpdateDataCatalogResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateDataCatalog)
 
 responseListDataCatalogs :: ListDataCatalogsResponse -> TestTree
-responseListDataCatalogs =
-  res
+responseListDataCatalogs = res
     "ListDataCatalogsResponse"
     "fixture/ListDataCatalogsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListDataCatalogs)
 
 responseCreateNamedQuery :: CreateNamedQueryResponse -> TestTree
-responseCreateNamedQuery =
-  res
+responseCreateNamedQuery = res
     "CreateNamedQueryResponse"
     "fixture/CreateNamedQueryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateNamedQuery)
 
 responseGetTableMetadata :: GetTableMetadataResponse -> TestTree
-responseGetTableMetadata =
-  res
+responseGetTableMetadata = res
     "GetTableMetadataResponse"
     "fixture/GetTableMetadataResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetTableMetadata)
 
 responseListNamedQueries :: ListNamedQueriesResponse -> TestTree
-responseListNamedQueries =
-  res
+responseListNamedQueries = res
     "ListNamedQueriesResponse"
     "fixture/ListNamedQueriesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListNamedQueries)
 
 responseDeleteNamedQuery :: DeleteNamedQueryResponse -> TestTree
-responseDeleteNamedQuery =
-  res
+responseDeleteNamedQuery = res
     "DeleteNamedQueryResponse"
     "fixture/DeleteNamedQueryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteNamedQuery)
 
 responseStartQueryExecution :: StartQueryExecutionResponse -> TestTree
-responseStartQueryExecution =
-  res
+responseStartQueryExecution = res
     "StartQueryExecutionResponse"
     "fixture/StartQueryExecutionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartQueryExecution)
 
 responseBatchGetNamedQuery :: BatchGetNamedQueryResponse -> TestTree
-responseBatchGetNamedQuery =
-  res
+responseBatchGetNamedQuery = res
     "BatchGetNamedQueryResponse"
     "fixture/BatchGetNamedQueryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy BatchGetNamedQuery)
 
 responseGetQueryExecution :: GetQueryExecutionResponse -> TestTree
-responseGetQueryExecution =
-  res
+responseGetQueryExecution = res
     "GetQueryExecutionResponse"
     "fixture/GetQueryExecutionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetQueryExecution)
 
 responseCreateDataCatalog :: CreateDataCatalogResponse -> TestTree
-responseCreateDataCatalog =
-  res
+responseCreateDataCatalog = res
     "CreateDataCatalogResponse"
     "fixture/CreateDataCatalogResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateDataCatalog)
 
 responseListWorkGroups :: ListWorkGroupsResponse -> TestTree
-responseListWorkGroups =
-  res
+responseListWorkGroups = res
     "ListWorkGroupsResponse"
     "fixture/ListWorkGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListWorkGroups)
 
 responseCreateWorkGroup :: CreateWorkGroupResponse -> TestTree
-responseCreateWorkGroup =
-  res
+responseCreateWorkGroup = res
     "CreateWorkGroupResponse"
     "fixture/CreateWorkGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateWorkGroup)
 
 responseBatchGetQueryExecution :: BatchGetQueryExecutionResponse -> TestTree
-responseBatchGetQueryExecution =
-  res
+responseBatchGetQueryExecution = res
     "BatchGetQueryExecutionResponse"
     "fixture/BatchGetQueryExecutionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy BatchGetQueryExecution)
 
 responseGetDataCatalog :: GetDataCatalogResponse -> TestTree
-responseGetDataCatalog =
-  res
+responseGetDataCatalog = res
     "GetDataCatalogResponse"
     "fixture/GetDataCatalogResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetDataCatalog)
 
 responseStopQueryExecution :: StopQueryExecutionResponse -> TestTree
-responseStopQueryExecution =
-  res
+responseStopQueryExecution = res
     "StopQueryExecutionResponse"
     "fixture/StopQueryExecutionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StopQueryExecution)
 
 responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
+responseTagResource = res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseGetWorkGroup :: GetWorkGroupResponse -> TestTree
-responseGetWorkGroup =
-  res
+responseGetWorkGroup = res
     "GetWorkGroupResponse"
     "fixture/GetWorkGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetWorkGroup)
 
 responseGetDatabase :: GetDatabaseResponse -> TestTree
-responseGetDatabase =
-  res
+responseGetDatabase = res
     "GetDatabaseResponse"
     "fixture/GetDatabaseResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetDatabase)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
+responseUntagResource = res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseGetQueryResults :: GetQueryResultsResponse -> TestTree
-responseGetQueryResults =
-  res
+responseGetQueryResults = res
     "GetQueryResultsResponse"
     "fixture/GetQueryResultsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetQueryResults)
 
 responseListTableMetadata :: ListTableMetadataResponse -> TestTree
-responseListTableMetadata =
-  res
+responseListTableMetadata = res
     "ListTableMetadataResponse"
     "fixture/ListTableMetadataResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTableMetadata)
 
 responseListQueryExecutions :: ListQueryExecutionsResponse -> TestTree
-responseListQueryExecutions =
-  res
+responseListQueryExecutions = res
     "ListQueryExecutionsResponse"
     "fixture/ListQueryExecutionsResponse.proto"
     mkServiceConfig

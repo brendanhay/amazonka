@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,46 +10,28 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MachineLearning.Types.DetailsAttributes
   ( DetailsAttributes
-      ( DetailsAttributes',
-        DetailsAttributesPredictiveModelType,
-        DetailsAttributesAlgorithm,
-        fromDetailsAttributes
-      ),
-  )
-where
+    ( DetailsAttributes'
+    , DetailsAttributesPredictiveModelType
+    , DetailsAttributesAlgorithm
+    , fromDetailsAttributes
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
 -- | Contains the key values of @DetailsMap@ : @PredictiveModelType@ - Indicates the type of the @MLModel@ . @Algorithm@ - Indicates the algorithm that was used for the @MLModel@ .
-newtype DetailsAttributes = DetailsAttributes'
-  { fromDetailsAttributes ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype DetailsAttributes = DetailsAttributes'{fromDetailsAttributes
+                                               :: Core.Text}
+                              deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                              Core.Generic)
+                              deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                Core.ToText, Core.FromText, Core.ToByteString,
+                                                Core.ToQuery, Core.ToHeader)
 
 pattern DetailsAttributesPredictiveModelType :: DetailsAttributes
 pattern DetailsAttributesPredictiveModelType = DetailsAttributes' "PredictiveModelType"
@@ -57,8 +39,9 @@ pattern DetailsAttributesPredictiveModelType = DetailsAttributes' "PredictiveMod
 pattern DetailsAttributesAlgorithm :: DetailsAttributes
 pattern DetailsAttributesAlgorithm = DetailsAttributes' "Algorithm"
 
-{-# COMPLETE
+{-# COMPLETE 
   DetailsAttributesPredictiveModelType,
+
   DetailsAttributesAlgorithm,
   DetailsAttributes'
   #-}

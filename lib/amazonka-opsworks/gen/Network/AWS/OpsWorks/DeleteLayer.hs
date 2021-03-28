@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,18 +17,17 @@
 --
 -- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
 module Network.AWS.OpsWorks.DeleteLayer
-  ( -- * Creating a request
-    DeleteLayer (..),
-    mkDeleteLayer,
-
+    (
+    -- * Creating a request
+      DeleteLayer (..)
+    , mkDeleteLayer
     -- ** Request lenses
-    dlLayerId,
+    , dlLayerId
 
     -- * Destructuring the response
-    DeleteLayerResponse (..),
-    mkDeleteLayerResponse,
-  )
-where
+    , DeleteLayerResponse (..)
+    , mkDeleteLayerResponse
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.OpsWorks.Types as Types
@@ -38,45 +37,51 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteLayer' smart constructor.
 newtype DeleteLayer = DeleteLayer'
-  { -- | The layer ID.
-    layerId :: Types.String
+  { layerId :: Core.Text
+    -- ^ The layer ID.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteLayer' value with any optional fields omitted.
-mkDeleteLayer ::
-  -- | 'layerId'
-  Types.String ->
-  DeleteLayer
-mkDeleteLayer layerId = DeleteLayer' {layerId}
+mkDeleteLayer
+    :: Core.Text -- ^ 'layerId'
+    -> DeleteLayer
+mkDeleteLayer layerId = DeleteLayer'{layerId}
 
 -- | The layer ID.
 --
 -- /Note:/ Consider using 'layerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlLayerId :: Lens.Lens' DeleteLayer Types.String
+dlLayerId :: Lens.Lens' DeleteLayer Core.Text
 dlLayerId = Lens.field @"layerId"
-{-# DEPRECATED dlLayerId "Use generic-lens or generic-optics with 'layerId' instead." #-}
+{-# INLINEABLE dlLayerId #-}
+{-# DEPRECATED layerId "Use generic-lens or generic-optics with 'layerId' instead"  #-}
+
+instance Core.ToQuery DeleteLayer where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DeleteLayer where
+        toHeaders DeleteLayer{..}
+          = Core.pure ("X-Amz-Target", "OpsWorks_20130218.DeleteLayer")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON DeleteLayer where
-  toJSON DeleteLayer {..} =
-    Core.object
-      (Core.catMaybes [Core.Just ("LayerId" Core..= layerId)])
+        toJSON DeleteLayer{..}
+          = Core.object
+              (Core.catMaybes [Core.Just ("LayerId" Core..= layerId)])
 
 instance Core.AWSRequest DeleteLayer where
-  type Rs DeleteLayer = DeleteLayerResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "OpsWorks_20130218.DeleteLayer")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response = Response.receiveNull DeleteLayerResponse'
+        type Rs DeleteLayer = DeleteLayerResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse = Response.receiveNull DeleteLayerResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteLayerResponse' smart constructor.
 data DeleteLayerResponse = DeleteLayerResponse'
@@ -84,6 +89,6 @@ data DeleteLayerResponse = DeleteLayerResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteLayerResponse' value with any optional fields omitted.
-mkDeleteLayerResponse ::
-  DeleteLayerResponse
+mkDeleteLayerResponse
+    :: DeleteLayerResponse
 mkDeleteLayerResponse = DeleteLayerResponse'

@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SageMaker.Types.ModelPackageValidationProfile
-  ( ModelPackageValidationProfile (..),
-
-    -- * Smart constructor
-    mkModelPackageValidationProfile,
-
-    -- * Lenses
-    mpvpProfileName,
-    mpvpTransformJobDefinition,
-  )
-where
+  ( ModelPackageValidationProfile (..)
+  -- * Smart constructor
+  , mkModelPackageValidationProfile
+  -- * Lenses
+  , mpvpProfileName
+  , mpvpTransformJobDefinition
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -33,55 +31,51 @@ import qualified Network.AWS.SageMaker.Types.TransformJobDefinition as Types
 --
 -- /See:/ 'mkModelPackageValidationProfile' smart constructor.
 data ModelPackageValidationProfile = ModelPackageValidationProfile'
-  { -- | The name of the profile for the model package.
-    profileName :: Types.EntityName,
-    -- | The @TransformJobDefinition@ object that describes the transform job used for the validation of the model package.
-    transformJobDefinition :: Types.TransformJobDefinition
+  { profileName :: Types.EntityName
+    -- ^ The name of the profile for the model package.
+  , transformJobDefinition :: Types.TransformJobDefinition
+    -- ^ The @TransformJobDefinition@ object that describes the transform job used for the validation of the model package.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ModelPackageValidationProfile' value with any optional fields omitted.
-mkModelPackageValidationProfile ::
-  -- | 'profileName'
-  Types.EntityName ->
-  -- | 'transformJobDefinition'
-  Types.TransformJobDefinition ->
-  ModelPackageValidationProfile
-mkModelPackageValidationProfile profileName transformJobDefinition =
-  ModelPackageValidationProfile'
-    { profileName,
-      transformJobDefinition
-    }
+mkModelPackageValidationProfile
+    :: Types.EntityName -- ^ 'profileName'
+    -> Types.TransformJobDefinition -- ^ 'transformJobDefinition'
+    -> ModelPackageValidationProfile
+mkModelPackageValidationProfile profileName transformJobDefinition
+  = ModelPackageValidationProfile'{profileName,
+                                   transformJobDefinition}
 
 -- | The name of the profile for the model package.
 --
 -- /Note:/ Consider using 'profileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mpvpProfileName :: Lens.Lens' ModelPackageValidationProfile Types.EntityName
 mpvpProfileName = Lens.field @"profileName"
-{-# DEPRECATED mpvpProfileName "Use generic-lens or generic-optics with 'profileName' instead." #-}
+{-# INLINEABLE mpvpProfileName #-}
+{-# DEPRECATED profileName "Use generic-lens or generic-optics with 'profileName' instead"  #-}
 
 -- | The @TransformJobDefinition@ object that describes the transform job used for the validation of the model package.
 --
 -- /Note:/ Consider using 'transformJobDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 mpvpTransformJobDefinition :: Lens.Lens' ModelPackageValidationProfile Types.TransformJobDefinition
 mpvpTransformJobDefinition = Lens.field @"transformJobDefinition"
-{-# DEPRECATED mpvpTransformJobDefinition "Use generic-lens or generic-optics with 'transformJobDefinition' instead." #-}
+{-# INLINEABLE mpvpTransformJobDefinition #-}
+{-# DEPRECATED transformJobDefinition "Use generic-lens or generic-optics with 'transformJobDefinition' instead"  #-}
 
 instance Core.FromJSON ModelPackageValidationProfile where
-  toJSON ModelPackageValidationProfile {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ProfileName" Core..= profileName),
-            Core.Just
-              ("TransformJobDefinition" Core..= transformJobDefinition)
-          ]
-      )
+        toJSON ModelPackageValidationProfile{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("ProfileName" Core..= profileName),
+                  Core.Just
+                    ("TransformJobDefinition" Core..= transformJobDefinition)])
 
 instance Core.FromJSON ModelPackageValidationProfile where
-  parseJSON =
-    Core.withObject "ModelPackageValidationProfile" Core.$
-      \x ->
-        ModelPackageValidationProfile'
-          Core.<$> (x Core..: "ProfileName")
-          Core.<*> (x Core..: "TransformJobDefinition")
+        parseJSON
+          = Core.withObject "ModelPackageValidationProfile" Core.$
+              \ x ->
+                ModelPackageValidationProfile' Core.<$>
+                  (x Core..: "ProfileName") Core.<*>
+                    x Core..: "TransformJobDefinition"

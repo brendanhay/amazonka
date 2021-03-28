@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,23 +15,21 @@
 --
 -- Deletes an existing trust relationship between your AWS Managed Microsoft AD directory and an external domain.
 module Network.AWS.DirectoryService.DeleteTrust
-  ( -- * Creating a request
-    DeleteTrust (..),
-    mkDeleteTrust,
-
+    (
+    -- * Creating a request
+      DeleteTrust (..)
+    , mkDeleteTrust
     -- ** Request lenses
-    dtTrustId,
-    dtDeleteAssociatedConditionalForwarder,
+    , dtTrustId
+    , dtDeleteAssociatedConditionalForwarder
 
     -- * Destructuring the response
-    DeleteTrustResponse (..),
-    mkDeleteTrustResponse,
-
+    , DeleteTrustResponse (..)
+    , mkDeleteTrustResponse
     -- ** Response lenses
-    drsTrustId,
-    drsResponseStatus,
-  )
-where
+    , drsTrustId
+    , drsResponseStatus
+    ) where
 
 import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -43,99 +41,103 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkDeleteTrust' smart constructor.
 data DeleteTrust = DeleteTrust'
-  { -- | The Trust ID of the trust relationship to be deleted.
-    trustId :: Types.TrustId,
-    -- | Delete a conditional forwarder as part of a DeleteTrustRequest.
-    deleteAssociatedConditionalForwarder :: Core.Maybe Core.Bool
+  { trustId :: Types.TrustId
+    -- ^ The Trust ID of the trust relationship to be deleted.
+  , deleteAssociatedConditionalForwarder :: Core.Maybe Core.Bool
+    -- ^ Delete a conditional forwarder as part of a DeleteTrustRequest.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteTrust' value with any optional fields omitted.
-mkDeleteTrust ::
-  -- | 'trustId'
-  Types.TrustId ->
-  DeleteTrust
-mkDeleteTrust trustId =
-  DeleteTrust'
-    { trustId,
-      deleteAssociatedConditionalForwarder = Core.Nothing
-    }
+mkDeleteTrust
+    :: Types.TrustId -- ^ 'trustId'
+    -> DeleteTrust
+mkDeleteTrust trustId
+  = DeleteTrust'{trustId,
+                 deleteAssociatedConditionalForwarder = Core.Nothing}
 
 -- | The Trust ID of the trust relationship to be deleted.
 --
 -- /Note:/ Consider using 'trustId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dtTrustId :: Lens.Lens' DeleteTrust Types.TrustId
 dtTrustId = Lens.field @"trustId"
-{-# DEPRECATED dtTrustId "Use generic-lens or generic-optics with 'trustId' instead." #-}
+{-# INLINEABLE dtTrustId #-}
+{-# DEPRECATED trustId "Use generic-lens or generic-optics with 'trustId' instead"  #-}
 
 -- | Delete a conditional forwarder as part of a DeleteTrustRequest.
 --
 -- /Note:/ Consider using 'deleteAssociatedConditionalForwarder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dtDeleteAssociatedConditionalForwarder :: Lens.Lens' DeleteTrust (Core.Maybe Core.Bool)
 dtDeleteAssociatedConditionalForwarder = Lens.field @"deleteAssociatedConditionalForwarder"
-{-# DEPRECATED dtDeleteAssociatedConditionalForwarder "Use generic-lens or generic-optics with 'deleteAssociatedConditionalForwarder' instead." #-}
+{-# INLINEABLE dtDeleteAssociatedConditionalForwarder #-}
+{-# DEPRECATED deleteAssociatedConditionalForwarder "Use generic-lens or generic-optics with 'deleteAssociatedConditionalForwarder' instead"  #-}
+
+instance Core.ToQuery DeleteTrust where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DeleteTrust where
+        toHeaders DeleteTrust{..}
+          = Core.pure
+              ("X-Amz-Target", "DirectoryService_20150416.DeleteTrust")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON DeleteTrust where
-  toJSON DeleteTrust {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("TrustId" Core..= trustId),
-            ("DeleteAssociatedConditionalForwarder" Core..=)
-              Core.<$> deleteAssociatedConditionalForwarder
-          ]
-      )
+        toJSON DeleteTrust{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("TrustId" Core..= trustId),
+                  ("DeleteAssociatedConditionalForwarder" Core..=) Core.<$>
+                    deleteAssociatedConditionalForwarder])
 
 instance Core.AWSRequest DeleteTrust where
-  type Rs DeleteTrust = DeleteTrustResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "DirectoryService_20150416.DeleteTrust")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          DeleteTrustResponse'
-            Core.<$> (x Core..:? "TrustId") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DeleteTrust = DeleteTrustResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 DeleteTrustResponse' Core.<$>
+                   (x Core..:? "TrustId") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | The result of a DeleteTrust request.
 --
 -- /See:/ 'mkDeleteTrustResponse' smart constructor.
 data DeleteTrustResponse = DeleteTrustResponse'
-  { -- | The Trust ID of the trust relationship that was deleted.
-    trustId :: Core.Maybe Types.TrustId,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { trustId :: Core.Maybe Types.TrustId
+    -- ^ The Trust ID of the trust relationship that was deleted.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteTrustResponse' value with any optional fields omitted.
-mkDeleteTrustResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DeleteTrustResponse
-mkDeleteTrustResponse responseStatus =
-  DeleteTrustResponse' {trustId = Core.Nothing, responseStatus}
+mkDeleteTrustResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DeleteTrustResponse
+mkDeleteTrustResponse responseStatus
+  = DeleteTrustResponse'{trustId = Core.Nothing, responseStatus}
 
 -- | The Trust ID of the trust relationship that was deleted.
 --
 -- /Note:/ Consider using 'trustId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 drsTrustId :: Lens.Lens' DeleteTrustResponse (Core.Maybe Types.TrustId)
 drsTrustId = Lens.field @"trustId"
-{-# DEPRECATED drsTrustId "Use generic-lens or generic-optics with 'trustId' instead." #-}
+{-# INLINEABLE drsTrustId #-}
+{-# DEPRECATED trustId "Use generic-lens or generic-optics with 'trustId' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 drsResponseStatus :: Lens.Lens' DeleteTrustResponse Core.Int
 drsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE drsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

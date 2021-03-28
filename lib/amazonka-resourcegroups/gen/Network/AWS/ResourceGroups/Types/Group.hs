@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.ResourceGroups.Types.Group
-  ( Group (..),
-
-    -- * Smart constructor
-    mkGroup,
-
-    -- * Lenses
-    gGroupArn,
-    gName,
-    gDescription,
-  )
-where
+  ( Group (..)
+  -- * Smart constructor
+  , mkGroup
+  -- * Lenses
+  , gGroupArn
+  , gName
+  , gDescription
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -41,52 +39,52 @@ import qualified Network.AWS.ResourceGroups.Types.Name as Types
 --
 -- /See:/ 'mkGroup' smart constructor.
 data Group = Group'
-  { -- | The ARN of the resource group.
-    groupArn :: Types.GroupArn,
-    -- | The name of the resource group.
-    name :: Types.Name,
-    -- | The description of the resource group.
-    description :: Core.Maybe Types.Description
+  { groupArn :: Types.GroupArn
+    -- ^ The ARN of the resource group.
+  , name :: Types.Name
+    -- ^ The name of the resource group.
+  , description :: Core.Maybe Types.Description
+    -- ^ The description of the resource group.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'Group' value with any optional fields omitted.
-mkGroup ::
-  -- | 'groupArn'
-  Types.GroupArn ->
-  -- | 'name'
-  Types.Name ->
-  Group
-mkGroup groupArn name =
-  Group' {groupArn, name, description = Core.Nothing}
+mkGroup
+    :: Types.GroupArn -- ^ 'groupArn'
+    -> Types.Name -- ^ 'name'
+    -> Group
+mkGroup groupArn name
+  = Group'{groupArn, name, description = Core.Nothing}
 
 -- | The ARN of the resource group.
 --
 -- /Note:/ Consider using 'groupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gGroupArn :: Lens.Lens' Group Types.GroupArn
 gGroupArn = Lens.field @"groupArn"
-{-# DEPRECATED gGroupArn "Use generic-lens or generic-optics with 'groupArn' instead." #-}
+{-# INLINEABLE gGroupArn #-}
+{-# DEPRECATED groupArn "Use generic-lens or generic-optics with 'groupArn' instead"  #-}
 
 -- | The name of the resource group.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gName :: Lens.Lens' Group Types.Name
 gName = Lens.field @"name"
-{-# DEPRECATED gName "Use generic-lens or generic-optics with 'name' instead." #-}
+{-# INLINEABLE gName #-}
+{-# DEPRECATED name "Use generic-lens or generic-optics with 'name' instead"  #-}
 
 -- | The description of the resource group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gDescription :: Lens.Lens' Group (Core.Maybe Types.Description)
 gDescription = Lens.field @"description"
-{-# DEPRECATED gDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+{-# INLINEABLE gDescription #-}
+{-# DEPRECATED description "Use generic-lens or generic-optics with 'description' instead"  #-}
 
 instance Core.FromJSON Group where
-  parseJSON =
-    Core.withObject "Group" Core.$
-      \x ->
-        Group'
-          Core.<$> (x Core..: "GroupArn")
-          Core.<*> (x Core..: "Name")
-          Core.<*> (x Core..:? "Description")
+        parseJSON
+          = Core.withObject "Group" Core.$
+              \ x ->
+                Group' Core.<$>
+                  (x Core..: "GroupArn") Core.<*> x Core..: "Name" Core.<*>
+                    x Core..:? "Description"

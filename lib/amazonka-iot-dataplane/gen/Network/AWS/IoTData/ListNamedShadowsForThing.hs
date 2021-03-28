@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,26 +15,24 @@
 --
 -- Lists the shadows for the specified thing.
 module Network.AWS.IoTData.ListNamedShadowsForThing
-  ( -- * Creating a request
-    ListNamedShadowsForThing (..),
-    mkListNamedShadowsForThing,
-
+    (
+    -- * Creating a request
+      ListNamedShadowsForThing (..)
+    , mkListNamedShadowsForThing
     -- ** Request lenses
-    lnsftThingName,
-    lnsftNextToken,
-    lnsftPageSize,
+    , lnsftThingName
+    , lnsftNextToken
+    , lnsftPageSize
 
     -- * Destructuring the response
-    ListNamedShadowsForThingResponse (..),
-    mkListNamedShadowsForThingResponse,
-
+    , ListNamedShadowsForThingResponse (..)
+    , mkListNamedShadowsForThingResponse
     -- ** Response lenses
-    lnsftrrsNextToken,
-    lnsftrrsResults,
-    lnsftrrsTimestamp,
-    lnsftrrsResponseStatus,
-  )
-where
+    , lnsftrrsNextToken
+    , lnsftrrsResults
+    , lnsftrrsTimestamp
+    , lnsftrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.IoTData.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -44,127 +42,130 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListNamedShadowsForThing' smart constructor.
 data ListNamedShadowsForThing = ListNamedShadowsForThing'
-  { -- | The name of the thing.
-    thingName :: Types.ThingName,
-    -- | The token to retrieve the next set of results.
-    nextToken :: Core.Maybe Types.NextToken,
-    -- | The result page size.
-    pageSize :: Core.Maybe Core.Natural
+  { thingName :: Types.ThingName
+    -- ^ The name of the thing.
+  , nextToken :: Core.Maybe Types.NextToken
+    -- ^ The token to retrieve the next set of results.
+  , pageSize :: Core.Maybe Core.Natural
+    -- ^ The result page size.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ListNamedShadowsForThing' value with any optional fields omitted.
-mkListNamedShadowsForThing ::
-  -- | 'thingName'
-  Types.ThingName ->
-  ListNamedShadowsForThing
-mkListNamedShadowsForThing thingName =
-  ListNamedShadowsForThing'
-    { thingName,
-      nextToken = Core.Nothing,
-      pageSize = Core.Nothing
-    }
+mkListNamedShadowsForThing
+    :: Types.ThingName -- ^ 'thingName'
+    -> ListNamedShadowsForThing
+mkListNamedShadowsForThing thingName
+  = ListNamedShadowsForThing'{thingName, nextToken = Core.Nothing,
+                              pageSize = Core.Nothing}
 
 -- | The name of the thing.
 --
 -- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lnsftThingName :: Lens.Lens' ListNamedShadowsForThing Types.ThingName
 lnsftThingName = Lens.field @"thingName"
-{-# DEPRECATED lnsftThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
+{-# INLINEABLE lnsftThingName #-}
+{-# DEPRECATED thingName "Use generic-lens or generic-optics with 'thingName' instead"  #-}
 
 -- | The token to retrieve the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lnsftNextToken :: Lens.Lens' ListNamedShadowsForThing (Core.Maybe Types.NextToken)
 lnsftNextToken = Lens.field @"nextToken"
-{-# DEPRECATED lnsftNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE lnsftNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
 
 -- | The result page size.
 --
 -- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lnsftPageSize :: Lens.Lens' ListNamedShadowsForThing (Core.Maybe Core.Natural)
 lnsftPageSize = Lens.field @"pageSize"
-{-# DEPRECATED lnsftPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
+{-# INLINEABLE lnsftPageSize #-}
+{-# DEPRECATED pageSize "Use generic-lens or generic-optics with 'pageSize' instead"  #-}
+
+instance Core.ToQuery ListNamedShadowsForThing where
+        toQuery ListNamedShadowsForThing{..}
+          = Core.maybe Core.mempty (Core.toQueryPair "nextToken") nextToken
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "pageSize") pageSize
+
+instance Core.ToHeaders ListNamedShadowsForThing where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest ListNamedShadowsForThing where
-  type Rs ListNamedShadowsForThing = ListNamedShadowsForThingResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.GET,
-        Core._rqPath =
-          Core.rawPath
-            ( "/api/things/shadow/ListNamedShadowsForThing/"
-                Core.<> (Core.toText thingName)
-            ),
-        Core._rqQuery =
-          Core.toQueryValue "nextToken" Core.<$> nextToken
-            Core.<> (Core.toQueryValue "pageSize" Core.<$> pageSize),
-        Core._rqHeaders = Core.mempty,
-        Core._rqBody = ""
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          ListNamedShadowsForThingResponse'
-            Core.<$> (x Core..:? "nextToken")
-            Core.<*> (x Core..:? "results")
-            Core.<*> (x Core..:? "timestamp")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs ListNamedShadowsForThing = ListNamedShadowsForThingResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.GET,
+                         Core._rqPath =
+                           "/api/things/shadow/ListNamedShadowsForThing/" Core.<>
+                             Core.toText thingName,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 ListNamedShadowsForThingResponse' Core.<$>
+                   (x Core..:? "nextToken") Core.<*> x Core..:? "results" Core.<*>
+                     x Core..:? "timestamp"
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkListNamedShadowsForThingResponse' smart constructor.
 data ListNamedShadowsForThingResponse = ListNamedShadowsForThingResponse'
-  { -- | The token for the next set of results, or null if there are no additional results.
-    nextToken :: Core.Maybe Types.NextToken,
-    -- | The list of shadows for the specified thing.
-    results :: Core.Maybe [Types.ShadowName],
-    -- | The Epoch date and time the response was generated by AWS IoT.
-    timestamp :: Core.Maybe Core.Integer,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { nextToken :: Core.Maybe Types.NextToken
+    -- ^ The token for the next set of results, or null if there are no additional results.
+  , results :: Core.Maybe [Types.ShadowName]
+    -- ^ The list of shadows for the specified thing.
+  , timestamp :: Core.Maybe Core.Integer
+    -- ^ The Epoch date and time the response was generated by AWS IoT.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ListNamedShadowsForThingResponse' value with any optional fields omitted.
-mkListNamedShadowsForThingResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  ListNamedShadowsForThingResponse
-mkListNamedShadowsForThingResponse responseStatus =
-  ListNamedShadowsForThingResponse'
-    { nextToken = Core.Nothing,
-      results = Core.Nothing,
-      timestamp = Core.Nothing,
-      responseStatus
-    }
+mkListNamedShadowsForThingResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> ListNamedShadowsForThingResponse
+mkListNamedShadowsForThingResponse responseStatus
+  = ListNamedShadowsForThingResponse'{nextToken = Core.Nothing,
+                                      results = Core.Nothing, timestamp = Core.Nothing,
+                                      responseStatus}
 
 -- | The token for the next set of results, or null if there are no additional results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lnsftrrsNextToken :: Lens.Lens' ListNamedShadowsForThingResponse (Core.Maybe Types.NextToken)
 lnsftrrsNextToken = Lens.field @"nextToken"
-{-# DEPRECATED lnsftrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE lnsftrrsNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
 
 -- | The list of shadows for the specified thing.
 --
 -- /Note:/ Consider using 'results' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lnsftrrsResults :: Lens.Lens' ListNamedShadowsForThingResponse (Core.Maybe [Types.ShadowName])
 lnsftrrsResults = Lens.field @"results"
-{-# DEPRECATED lnsftrrsResults "Use generic-lens or generic-optics with 'results' instead." #-}
+{-# INLINEABLE lnsftrrsResults #-}
+{-# DEPRECATED results "Use generic-lens or generic-optics with 'results' instead"  #-}
 
 -- | The Epoch date and time the response was generated by AWS IoT.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lnsftrrsTimestamp :: Lens.Lens' ListNamedShadowsForThingResponse (Core.Maybe Core.Integer)
 lnsftrrsTimestamp = Lens.field @"timestamp"
-{-# DEPRECATED lnsftrrsTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
+{-# INLINEABLE lnsftrrsTimestamp #-}
+{-# DEPRECATED timestamp "Use generic-lens or generic-optics with 'timestamp' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lnsftrrsResponseStatus :: Lens.Lens' ListNamedShadowsForThingResponse Core.Int
 lnsftrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED lnsftrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE lnsftrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

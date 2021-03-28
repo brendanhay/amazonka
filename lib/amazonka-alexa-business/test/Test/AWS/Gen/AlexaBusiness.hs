@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.AlexaBusiness where
 
 import Data.Proxy
-import Network.AWS.AlexaBusiness
-import Test.AWS.AlexaBusiness.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.AlexaBusiness
+import Test.AWS.AlexaBusiness.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -594,1304 +595,1118 @@ import Test.Tasty
 -- Requests
 
 requestSearchUsers :: SearchUsers -> TestTree
-requestSearchUsers =
-  req
+requestSearchUsers = req
     "SearchUsers"
     "fixture/SearchUsers.yaml"
 
 requestPutConferencePreference :: PutConferencePreference -> TestTree
-requestPutConferencePreference =
-  req
+requestPutConferencePreference = req
     "PutConferencePreference"
     "fixture/PutConferencePreference.yaml"
 
 requestUpdateNetworkProfile :: UpdateNetworkProfile -> TestTree
-requestUpdateNetworkProfile =
-  req
+requestUpdateNetworkProfile = req
     "UpdateNetworkProfile"
     "fixture/UpdateNetworkProfile.yaml"
 
 requestDeleteNetworkProfile :: DeleteNetworkProfile -> TestTree
-requestDeleteNetworkProfile =
-  req
+requestDeleteNetworkProfile = req
     "DeleteNetworkProfile"
     "fixture/DeleteNetworkProfile.yaml"
 
 requestUpdateBusinessReportSchedule :: UpdateBusinessReportSchedule -> TestTree
-requestUpdateBusinessReportSchedule =
-  req
+requestUpdateBusinessReportSchedule = req
     "UpdateBusinessReportSchedule"
     "fixture/UpdateBusinessReportSchedule.yaml"
 
 requestDeleteBusinessReportSchedule :: DeleteBusinessReportSchedule -> TestTree
-requestDeleteBusinessReportSchedule =
-  req
+requestDeleteBusinessReportSchedule = req
     "DeleteBusinessReportSchedule"
     "fixture/DeleteBusinessReportSchedule.yaml"
 
 requestAssociateSkillGroupWithRoom :: AssociateSkillGroupWithRoom -> TestTree
-requestAssociateSkillGroupWithRoom =
-  req
+requestAssociateSkillGroupWithRoom = req
     "AssociateSkillGroupWithRoom"
     "fixture/AssociateSkillGroupWithRoom.yaml"
 
 requestListSmartHomeAppliances :: ListSmartHomeAppliances -> TestTree
-requestListSmartHomeAppliances =
-  req
+requestListSmartHomeAppliances = req
     "ListSmartHomeAppliances"
     "fixture/ListSmartHomeAppliances.yaml"
 
 requestDeleteProfile :: DeleteProfile -> TestTree
-requestDeleteProfile =
-  req
+requestDeleteProfile = req
     "DeleteProfile"
     "fixture/DeleteProfile.yaml"
 
 requestUpdateProfile :: UpdateProfile -> TestTree
-requestUpdateProfile =
-  req
+requestUpdateProfile = req
     "UpdateProfile"
     "fixture/UpdateProfile.yaml"
 
 requestSearchRooms :: SearchRooms -> TestTree
-requestSearchRooms =
-  req
+requestSearchRooms = req
     "SearchRooms"
     "fixture/SearchRooms.yaml"
 
 requestAssociateSkillWithUsers :: AssociateSkillWithUsers -> TestTree
-requestAssociateSkillWithUsers =
-  req
+requestAssociateSkillWithUsers = req
     "AssociateSkillWithUsers"
     "fixture/AssociateSkillWithUsers.yaml"
 
 requestRegisterAVSDevice :: RegisterAVSDevice -> TestTree
-requestRegisterAVSDevice =
-  req
+requestRegisterAVSDevice = req
     "RegisterAVSDevice"
     "fixture/RegisterAVSDevice.yaml"
 
 requestForgetSmartHomeAppliances :: ForgetSmartHomeAppliances -> TestTree
-requestForgetSmartHomeAppliances =
-  req
+requestForgetSmartHomeAppliances = req
     "ForgetSmartHomeAppliances"
     "fixture/ForgetSmartHomeAppliances.yaml"
 
 requestPutInvitationConfiguration :: PutInvitationConfiguration -> TestTree
-requestPutInvitationConfiguration =
-  req
+requestPutInvitationConfiguration = req
     "PutInvitationConfiguration"
     "fixture/PutInvitationConfiguration.yaml"
 
 requestDisassociateContactFromAddressBook :: DisassociateContactFromAddressBook -> TestTree
-requestDisassociateContactFromAddressBook =
-  req
+requestDisassociateContactFromAddressBook = req
     "DisassociateContactFromAddressBook"
     "fixture/DisassociateContactFromAddressBook.yaml"
 
 requestGetNetworkProfile :: GetNetworkProfile -> TestTree
-requestGetNetworkProfile =
-  req
+requestGetNetworkProfile = req
     "GetNetworkProfile"
     "fixture/GetNetworkProfile.yaml"
 
 requestGetConferencePreference :: GetConferencePreference -> TestTree
-requestGetConferencePreference =
-  req
+requestGetConferencePreference = req
     "GetConferencePreference"
     "fixture/GetConferencePreference.yaml"
 
 requestDisassociateSkillFromSkillGroup :: DisassociateSkillFromSkillGroup -> TestTree
-requestDisassociateSkillFromSkillGroup =
-  req
+requestDisassociateSkillFromSkillGroup = req
     "DisassociateSkillFromSkillGroup"
     "fixture/DisassociateSkillFromSkillGroup.yaml"
 
 requestCreateAddressBook :: CreateAddressBook -> TestTree
-requestCreateAddressBook =
-  req
+requestCreateAddressBook = req
     "CreateAddressBook"
     "fixture/CreateAddressBook.yaml"
 
 requestDeleteAddressBook :: DeleteAddressBook -> TestTree
-requestDeleteAddressBook =
-  req
+requestDeleteAddressBook = req
     "DeleteAddressBook"
     "fixture/DeleteAddressBook.yaml"
 
 requestUpdateAddressBook :: UpdateAddressBook -> TestTree
-requestUpdateAddressBook =
-  req
+requestUpdateAddressBook = req
     "UpdateAddressBook"
     "fixture/UpdateAddressBook.yaml"
 
 requestDeleteGatewayGroup :: DeleteGatewayGroup -> TestTree
-requestDeleteGatewayGroup =
-  req
+requestDeleteGatewayGroup = req
     "DeleteGatewayGroup"
     "fixture/DeleteGatewayGroup.yaml"
 
 requestUpdateGatewayGroup :: UpdateGatewayGroup -> TestTree
-requestUpdateGatewayGroup =
-  req
+requestUpdateGatewayGroup = req
     "UpdateGatewayGroup"
     "fixture/UpdateGatewayGroup.yaml"
 
 requestUpdateRoom :: UpdateRoom -> TestTree
-requestUpdateRoom =
-  req
+requestUpdateRoom = req
     "UpdateRoom"
     "fixture/UpdateRoom.yaml"
 
 requestDeleteRoom :: DeleteRoom -> TestTree
-requestDeleteRoom =
-  req
+requestDeleteRoom = req
     "DeleteRoom"
     "fixture/DeleteRoom.yaml"
 
 requestGetDevice :: GetDevice -> TestTree
-requestGetDevice =
-  req
+requestGetDevice = req
     "GetDevice"
     "fixture/GetDevice.yaml"
 
 requestGetGateway :: GetGateway -> TestTree
-requestGetGateway =
-  req
+requestGetGateway = req
     "GetGateway"
     "fixture/GetGateway.yaml"
 
 requestListSkillsStoreSkillsByCategory :: ListSkillsStoreSkillsByCategory -> TestTree
-requestListSkillsStoreSkillsByCategory =
-  req
+requestListSkillsStoreSkillsByCategory = req
     "ListSkillsStoreSkillsByCategory"
     "fixture/ListSkillsStoreSkillsByCategory.yaml"
 
 requestDeleteConferenceProvider :: DeleteConferenceProvider -> TestTree
-requestDeleteConferenceProvider =
-  req
+requestDeleteConferenceProvider = req
     "DeleteConferenceProvider"
     "fixture/DeleteConferenceProvider.yaml"
 
 requestUpdateConferenceProvider :: UpdateConferenceProvider -> TestTree
-requestUpdateConferenceProvider =
-  req
+requestUpdateConferenceProvider = req
     "UpdateConferenceProvider"
     "fixture/UpdateConferenceProvider.yaml"
 
 requestGetContact :: GetContact -> TestTree
-requestGetContact =
-  req
+requestGetContact = req
     "GetContact"
     "fixture/GetContact.yaml"
 
 requestApproveSkill :: ApproveSkill -> TestTree
-requestApproveSkill =
-  req
+requestApproveSkill = req
     "ApproveSkill"
     "fixture/ApproveSkill.yaml"
 
 requestCreateNetworkProfile :: CreateNetworkProfile -> TestTree
-requestCreateNetworkProfile =
-  req
+requestCreateNetworkProfile = req
     "CreateNetworkProfile"
     "fixture/CreateNetworkProfile.yaml"
 
 requestAssociateDeviceWithRoom :: AssociateDeviceWithRoom -> TestTree
-requestAssociateDeviceWithRoom =
-  req
+requestAssociateDeviceWithRoom = req
     "AssociateDeviceWithRoom"
     "fixture/AssociateDeviceWithRoom.yaml"
 
 requestGetRoomSkillParameter :: GetRoomSkillParameter -> TestTree
-requestGetRoomSkillParameter =
-  req
+requestGetRoomSkillParameter = req
     "GetRoomSkillParameter"
     "fixture/GetRoomSkillParameter.yaml"
 
 requestUpdateGateway :: UpdateGateway -> TestTree
-requestUpdateGateway =
-  req
+requestUpdateGateway = req
     "UpdateGateway"
     "fixture/UpdateGateway.yaml"
 
 requestCreateBusinessReportSchedule :: CreateBusinessReportSchedule -> TestTree
-requestCreateBusinessReportSchedule =
-  req
+requestCreateBusinessReportSchedule = req
     "CreateBusinessReportSchedule"
     "fixture/CreateBusinessReportSchedule.yaml"
 
 requestDeleteContact :: DeleteContact -> TestTree
-requestDeleteContact =
-  req
+requestDeleteContact = req
     "DeleteContact"
     "fixture/DeleteContact.yaml"
 
 requestUpdateContact :: UpdateContact -> TestTree
-requestUpdateContact =
-  req
+requestUpdateContact = req
     "UpdateContact"
     "fixture/UpdateContact.yaml"
 
 requestGetAddressBook :: GetAddressBook -> TestTree
-requestGetAddressBook =
-  req
+requestGetAddressBook = req
     "GetAddressBook"
     "fixture/GetAddressBook.yaml"
 
 requestListBusinessReportSchedules :: ListBusinessReportSchedules -> TestTree
-requestListBusinessReportSchedules =
-  req
+requestListBusinessReportSchedules = req
     "ListBusinessReportSchedules"
     "fixture/ListBusinessReportSchedules.yaml"
 
 requestDeleteDeviceUsageData :: DeleteDeviceUsageData -> TestTree
-requestDeleteDeviceUsageData =
-  req
+requestDeleteDeviceUsageData = req
     "DeleteDeviceUsageData"
     "fixture/DeleteDeviceUsageData.yaml"
 
 requestCreateContact :: CreateContact -> TestTree
-requestCreateContact =
-  req
+requestCreateContact = req
     "CreateContact"
     "fixture/CreateContact.yaml"
 
 requestCreateProfile :: CreateProfile -> TestTree
-requestCreateProfile =
-  req
+requestCreateProfile = req
     "CreateProfile"
     "fixture/CreateProfile.yaml"
 
 requestDeleteSkillGroup :: DeleteSkillGroup -> TestTree
-requestDeleteSkillGroup =
-  req
+requestDeleteSkillGroup = req
     "DeleteSkillGroup"
     "fixture/DeleteSkillGroup.yaml"
 
 requestUpdateSkillGroup :: UpdateSkillGroup -> TestTree
-requestUpdateSkillGroup =
-  req
+requestUpdateSkillGroup = req
     "UpdateSkillGroup"
     "fixture/UpdateSkillGroup.yaml"
 
 requestStartDeviceSync :: StartDeviceSync -> TestTree
-requestStartDeviceSync =
-  req
+requestStartDeviceSync = req
     "StartDeviceSync"
     "fixture/StartDeviceSync.yaml"
 
 requestGetInvitationConfiguration :: GetInvitationConfiguration -> TestTree
-requestGetInvitationConfiguration =
-  req
+requestGetInvitationConfiguration = req
     "GetInvitationConfiguration"
     "fixture/GetInvitationConfiguration.yaml"
 
 requestDisassociateSkillFromUsers :: DisassociateSkillFromUsers -> TestTree
-requestDisassociateSkillFromUsers =
-  req
+requestDisassociateSkillFromUsers = req
     "DisassociateSkillFromUsers"
     "fixture/DisassociateSkillFromUsers.yaml"
 
 requestSearchAddressBooks :: SearchAddressBooks -> TestTree
-requestSearchAddressBooks =
-  req
+requestSearchAddressBooks = req
     "SearchAddressBooks"
     "fixture/SearchAddressBooks.yaml"
 
 requestCreateSkillGroup :: CreateSkillGroup -> TestTree
-requestCreateSkillGroup =
-  req
+requestCreateSkillGroup = req
     "CreateSkillGroup"
     "fixture/CreateSkillGroup.yaml"
 
 requestGetProfile :: GetProfile -> TestTree
-requestGetProfile =
-  req
+requestGetProfile = req
     "GetProfile"
     "fixture/GetProfile.yaml"
 
 requestDisassociateSkillGroupFromRoom :: DisassociateSkillGroupFromRoom -> TestTree
-requestDisassociateSkillGroupFromRoom =
-  req
+requestDisassociateSkillGroupFromRoom = req
     "DisassociateSkillGroupFromRoom"
     "fixture/DisassociateSkillGroupFromRoom.yaml"
 
 requestSendInvitation :: SendInvitation -> TestTree
-requestSendInvitation =
-  req
+requestSendInvitation = req
     "SendInvitation"
     "fixture/SendInvitation.yaml"
 
 requestListDeviceEvents :: ListDeviceEvents -> TestTree
-requestListDeviceEvents =
-  req
+requestListDeviceEvents = req
     "ListDeviceEvents"
     "fixture/ListDeviceEvents.yaml"
 
 requestCreateUser :: CreateUser -> TestTree
-requestCreateUser =
-  req
+requestCreateUser = req
     "CreateUser"
     "fixture/CreateUser.yaml"
 
 requestSearchDevices :: SearchDevices -> TestTree
-requestSearchDevices =
-  req
+requestSearchDevices = req
     "SearchDevices"
     "fixture/SearchDevices.yaml"
 
 requestSearchContacts :: SearchContacts -> TestTree
-requestSearchContacts =
-  req
+requestSearchContacts = req
     "SearchContacts"
     "fixture/SearchContacts.yaml"
 
 requestSendAnnouncement :: SendAnnouncement -> TestTree
-requestSendAnnouncement =
-  req
+requestSendAnnouncement = req
     "SendAnnouncement"
     "fixture/SendAnnouncement.yaml"
 
 requestDeleteUser :: DeleteUser -> TestTree
-requestDeleteUser =
-  req
+requestDeleteUser = req
     "DeleteUser"
     "fixture/DeleteUser.yaml"
 
 requestSearchNetworkProfiles :: SearchNetworkProfiles -> TestTree
-requestSearchNetworkProfiles =
-  req
+requestSearchNetworkProfiles = req
     "SearchNetworkProfiles"
     "fixture/SearchNetworkProfiles.yaml"
 
 requestGetSkillGroup :: GetSkillGroup -> TestTree
-requestGetSkillGroup =
-  req
+requestGetSkillGroup = req
     "GetSkillGroup"
     "fixture/GetSkillGroup.yaml"
 
 requestListSkills :: ListSkills -> TestTree
-requestListSkills =
-  req
+requestListSkills = req
     "ListSkills"
     "fixture/ListSkills.yaml"
 
 requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
+requestTagResource = req
     "TagResource"
     "fixture/TagResource.yaml"
 
 requestDisassociateDeviceFromRoom :: DisassociateDeviceFromRoom -> TestTree
-requestDisassociateDeviceFromRoom =
-  req
+requestDisassociateDeviceFromRoom = req
     "DisassociateDeviceFromRoom"
     "fixture/DisassociateDeviceFromRoom.yaml"
 
 requestSearchSkillGroups :: SearchSkillGroups -> TestTree
-requestSearchSkillGroups =
-  req
+requestSearchSkillGroups = req
     "SearchSkillGroups"
     "fixture/SearchSkillGroups.yaml"
 
 requestPutSkillAuthorization :: PutSkillAuthorization -> TestTree
-requestPutSkillAuthorization =
-  req
+requestPutSkillAuthorization = req
     "PutSkillAuthorization"
     "fixture/PutSkillAuthorization.yaml"
 
 requestListTags :: ListTags -> TestTree
-requestListTags =
-  req
+requestListTags = req
     "ListTags"
     "fixture/ListTags.yaml"
 
 requestDeleteSkillAuthorization :: DeleteSkillAuthorization -> TestTree
-requestDeleteSkillAuthorization =
-  req
+requestDeleteSkillAuthorization = req
     "DeleteSkillAuthorization"
     "fixture/DeleteSkillAuthorization.yaml"
 
 requestAssociateDeviceWithNetworkProfile :: AssociateDeviceWithNetworkProfile -> TestTree
-requestAssociateDeviceWithNetworkProfile =
-  req
+requestAssociateDeviceWithNetworkProfile = req
     "AssociateDeviceWithNetworkProfile"
     "fixture/AssociateDeviceWithNetworkProfile.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
+requestUntagResource = req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
 requestCreateConferenceProvider :: CreateConferenceProvider -> TestTree
-requestCreateConferenceProvider =
-  req
+requestCreateConferenceProvider = req
     "CreateConferenceProvider"
     "fixture/CreateConferenceProvider.yaml"
 
 requestResolveRoom :: ResolveRoom -> TestTree
-requestResolveRoom =
-  req
+requestResolveRoom = req
     "ResolveRoom"
     "fixture/ResolveRoom.yaml"
 
 requestCreateGatewayGroup :: CreateGatewayGroup -> TestTree
-requestCreateGatewayGroup =
-  req
+requestCreateGatewayGroup = req
     "CreateGatewayGroup"
     "fixture/CreateGatewayGroup.yaml"
 
 requestCreateRoom :: CreateRoom -> TestTree
-requestCreateRoom =
-  req
+requestCreateRoom = req
     "CreateRoom"
     "fixture/CreateRoom.yaml"
 
 requestDeleteRoomSkillParameter :: DeleteRoomSkillParameter -> TestTree
-requestDeleteRoomSkillParameter =
-  req
+requestDeleteRoomSkillParameter = req
     "DeleteRoomSkillParameter"
     "fixture/DeleteRoomSkillParameter.yaml"
 
 requestListGatewayGroups :: ListGatewayGroups -> TestTree
-requestListGatewayGroups =
-  req
+requestListGatewayGroups = req
     "ListGatewayGroups"
     "fixture/ListGatewayGroups.yaml"
 
 requestPutRoomSkillParameter :: PutRoomSkillParameter -> TestTree
-requestPutRoomSkillParameter =
-  req
+requestPutRoomSkillParameter = req
     "PutRoomSkillParameter"
     "fixture/PutRoomSkillParameter.yaml"
 
 requestSearchProfiles :: SearchProfiles -> TestTree
-requestSearchProfiles =
-  req
+requestSearchProfiles = req
     "SearchProfiles"
     "fixture/SearchProfiles.yaml"
 
 requestRejectSkill :: RejectSkill -> TestTree
-requestRejectSkill =
-  req
+requestRejectSkill = req
     "RejectSkill"
     "fixture/RejectSkill.yaml"
 
 requestListConferenceProviders :: ListConferenceProviders -> TestTree
-requestListConferenceProviders =
-  req
+requestListConferenceProviders = req
     "ListConferenceProviders"
     "fixture/ListConferenceProviders.yaml"
 
 requestRevokeInvitation :: RevokeInvitation -> TestTree
-requestRevokeInvitation =
-  req
+requestRevokeInvitation = req
     "RevokeInvitation"
     "fixture/RevokeInvitation.yaml"
 
 requestListGateways :: ListGateways -> TestTree
-requestListGateways =
-  req
+requestListGateways = req
     "ListGateways"
     "fixture/ListGateways.yaml"
 
 requestDeleteDevice :: DeleteDevice -> TestTree
-requestDeleteDevice =
-  req
+requestDeleteDevice = req
     "DeleteDevice"
     "fixture/DeleteDevice.yaml"
 
 requestUpdateDevice :: UpdateDevice -> TestTree
-requestUpdateDevice =
-  req
+requestUpdateDevice = req
     "UpdateDevice"
     "fixture/UpdateDevice.yaml"
 
 requestAssociateSkillWithSkillGroup :: AssociateSkillWithSkillGroup -> TestTree
-requestAssociateSkillWithSkillGroup =
-  req
+requestAssociateSkillWithSkillGroup = req
     "AssociateSkillWithSkillGroup"
     "fixture/AssociateSkillWithSkillGroup.yaml"
 
 requestGetConferenceProvider :: GetConferenceProvider -> TestTree
-requestGetConferenceProvider =
-  req
+requestGetConferenceProvider = req
     "GetConferenceProvider"
     "fixture/GetConferenceProvider.yaml"
 
 requestGetRoom :: GetRoom -> TestTree
-requestGetRoom =
-  req
+requestGetRoom = req
     "GetRoom"
     "fixture/GetRoom.yaml"
 
 requestGetGatewayGroup :: GetGatewayGroup -> TestTree
-requestGetGatewayGroup =
-  req
+requestGetGatewayGroup = req
     "GetGatewayGroup"
     "fixture/GetGatewayGroup.yaml"
 
 requestListSkillsStoreCategories :: ListSkillsStoreCategories -> TestTree
-requestListSkillsStoreCategories =
-  req
+requestListSkillsStoreCategories = req
     "ListSkillsStoreCategories"
     "fixture/ListSkillsStoreCategories.yaml"
 
 requestStartSmartHomeApplianceDiscovery :: StartSmartHomeApplianceDiscovery -> TestTree
-requestStartSmartHomeApplianceDiscovery =
-  req
+requestStartSmartHomeApplianceDiscovery = req
     "StartSmartHomeApplianceDiscovery"
     "fixture/StartSmartHomeApplianceDiscovery.yaml"
 
 requestAssociateContactWithAddressBook :: AssociateContactWithAddressBook -> TestTree
-requestAssociateContactWithAddressBook =
-  req
+requestAssociateContactWithAddressBook = req
     "AssociateContactWithAddressBook"
     "fixture/AssociateContactWithAddressBook.yaml"
 
 -- Responses
 
 responseSearchUsers :: SearchUsersResponse -> TestTree
-responseSearchUsers =
-  res
+responseSearchUsers = res
     "SearchUsersResponse"
     "fixture/SearchUsersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SearchUsers)
 
 responsePutConferencePreference :: PutConferencePreferenceResponse -> TestTree
-responsePutConferencePreference =
-  res
+responsePutConferencePreference = res
     "PutConferencePreferenceResponse"
     "fixture/PutConferencePreferenceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutConferencePreference)
 
 responseUpdateNetworkProfile :: UpdateNetworkProfileResponse -> TestTree
-responseUpdateNetworkProfile =
-  res
+responseUpdateNetworkProfile = res
     "UpdateNetworkProfileResponse"
     "fixture/UpdateNetworkProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateNetworkProfile)
 
 responseDeleteNetworkProfile :: DeleteNetworkProfileResponse -> TestTree
-responseDeleteNetworkProfile =
-  res
+responseDeleteNetworkProfile = res
     "DeleteNetworkProfileResponse"
     "fixture/DeleteNetworkProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteNetworkProfile)
 
 responseUpdateBusinessReportSchedule :: UpdateBusinessReportScheduleResponse -> TestTree
-responseUpdateBusinessReportSchedule =
-  res
+responseUpdateBusinessReportSchedule = res
     "UpdateBusinessReportScheduleResponse"
     "fixture/UpdateBusinessReportScheduleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateBusinessReportSchedule)
 
 responseDeleteBusinessReportSchedule :: DeleteBusinessReportScheduleResponse -> TestTree
-responseDeleteBusinessReportSchedule =
-  res
+responseDeleteBusinessReportSchedule = res
     "DeleteBusinessReportScheduleResponse"
     "fixture/DeleteBusinessReportScheduleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteBusinessReportSchedule)
 
 responseAssociateSkillGroupWithRoom :: AssociateSkillGroupWithRoomResponse -> TestTree
-responseAssociateSkillGroupWithRoom =
-  res
+responseAssociateSkillGroupWithRoom = res
     "AssociateSkillGroupWithRoomResponse"
     "fixture/AssociateSkillGroupWithRoomResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateSkillGroupWithRoom)
 
 responseListSmartHomeAppliances :: ListSmartHomeAppliancesResponse -> TestTree
-responseListSmartHomeAppliances =
-  res
+responseListSmartHomeAppliances = res
     "ListSmartHomeAppliancesResponse"
     "fixture/ListSmartHomeAppliancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListSmartHomeAppliances)
 
 responseDeleteProfile :: DeleteProfileResponse -> TestTree
-responseDeleteProfile =
-  res
+responseDeleteProfile = res
     "DeleteProfileResponse"
     "fixture/DeleteProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteProfile)
 
 responseUpdateProfile :: UpdateProfileResponse -> TestTree
-responseUpdateProfile =
-  res
+responseUpdateProfile = res
     "UpdateProfileResponse"
     "fixture/UpdateProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateProfile)
 
 responseSearchRooms :: SearchRoomsResponse -> TestTree
-responseSearchRooms =
-  res
+responseSearchRooms = res
     "SearchRoomsResponse"
     "fixture/SearchRoomsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SearchRooms)
 
 responseAssociateSkillWithUsers :: AssociateSkillWithUsersResponse -> TestTree
-responseAssociateSkillWithUsers =
-  res
+responseAssociateSkillWithUsers = res
     "AssociateSkillWithUsersResponse"
     "fixture/AssociateSkillWithUsersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateSkillWithUsers)
 
 responseRegisterAVSDevice :: RegisterAVSDeviceResponse -> TestTree
-responseRegisterAVSDevice =
-  res
+responseRegisterAVSDevice = res
     "RegisterAVSDeviceResponse"
     "fixture/RegisterAVSDeviceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RegisterAVSDevice)
 
 responseForgetSmartHomeAppliances :: ForgetSmartHomeAppliancesResponse -> TestTree
-responseForgetSmartHomeAppliances =
-  res
+responseForgetSmartHomeAppliances = res
     "ForgetSmartHomeAppliancesResponse"
     "fixture/ForgetSmartHomeAppliancesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ForgetSmartHomeAppliances)
 
 responsePutInvitationConfiguration :: PutInvitationConfigurationResponse -> TestTree
-responsePutInvitationConfiguration =
-  res
+responsePutInvitationConfiguration = res
     "PutInvitationConfigurationResponse"
     "fixture/PutInvitationConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutInvitationConfiguration)
 
 responseDisassociateContactFromAddressBook :: DisassociateContactFromAddressBookResponse -> TestTree
-responseDisassociateContactFromAddressBook =
-  res
+responseDisassociateContactFromAddressBook = res
     "DisassociateContactFromAddressBookResponse"
     "fixture/DisassociateContactFromAddressBookResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateContactFromAddressBook)
 
 responseGetNetworkProfile :: GetNetworkProfileResponse -> TestTree
-responseGetNetworkProfile =
-  res
+responseGetNetworkProfile = res
     "GetNetworkProfileResponse"
     "fixture/GetNetworkProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetNetworkProfile)
 
 responseGetConferencePreference :: GetConferencePreferenceResponse -> TestTree
-responseGetConferencePreference =
-  res
+responseGetConferencePreference = res
     "GetConferencePreferenceResponse"
     "fixture/GetConferencePreferenceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetConferencePreference)
 
 responseDisassociateSkillFromSkillGroup :: DisassociateSkillFromSkillGroupResponse -> TestTree
-responseDisassociateSkillFromSkillGroup =
-  res
+responseDisassociateSkillFromSkillGroup = res
     "DisassociateSkillFromSkillGroupResponse"
     "fixture/DisassociateSkillFromSkillGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateSkillFromSkillGroup)
 
 responseCreateAddressBook :: CreateAddressBookResponse -> TestTree
-responseCreateAddressBook =
-  res
+responseCreateAddressBook = res
     "CreateAddressBookResponse"
     "fixture/CreateAddressBookResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateAddressBook)
 
 responseDeleteAddressBook :: DeleteAddressBookResponse -> TestTree
-responseDeleteAddressBook =
-  res
+responseDeleteAddressBook = res
     "DeleteAddressBookResponse"
     "fixture/DeleteAddressBookResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteAddressBook)
 
 responseUpdateAddressBook :: UpdateAddressBookResponse -> TestTree
-responseUpdateAddressBook =
-  res
+responseUpdateAddressBook = res
     "UpdateAddressBookResponse"
     "fixture/UpdateAddressBookResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateAddressBook)
 
 responseDeleteGatewayGroup :: DeleteGatewayGroupResponse -> TestTree
-responseDeleteGatewayGroup =
-  res
+responseDeleteGatewayGroup = res
     "DeleteGatewayGroupResponse"
     "fixture/DeleteGatewayGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteGatewayGroup)
 
 responseUpdateGatewayGroup :: UpdateGatewayGroupResponse -> TestTree
-responseUpdateGatewayGroup =
-  res
+responseUpdateGatewayGroup = res
     "UpdateGatewayGroupResponse"
     "fixture/UpdateGatewayGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateGatewayGroup)
 
 responseUpdateRoom :: UpdateRoomResponse -> TestTree
-responseUpdateRoom =
-  res
+responseUpdateRoom = res
     "UpdateRoomResponse"
     "fixture/UpdateRoomResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateRoom)
 
 responseDeleteRoom :: DeleteRoomResponse -> TestTree
-responseDeleteRoom =
-  res
+responseDeleteRoom = res
     "DeleteRoomResponse"
     "fixture/DeleteRoomResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteRoom)
 
 responseGetDevice :: GetDeviceResponse -> TestTree
-responseGetDevice =
-  res
+responseGetDevice = res
     "GetDeviceResponse"
     "fixture/GetDeviceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetDevice)
 
 responseGetGateway :: GetGatewayResponse -> TestTree
-responseGetGateway =
-  res
+responseGetGateway = res
     "GetGatewayResponse"
     "fixture/GetGatewayResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetGateway)
 
 responseListSkillsStoreSkillsByCategory :: ListSkillsStoreSkillsByCategoryResponse -> TestTree
-responseListSkillsStoreSkillsByCategory =
-  res
+responseListSkillsStoreSkillsByCategory = res
     "ListSkillsStoreSkillsByCategoryResponse"
     "fixture/ListSkillsStoreSkillsByCategoryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListSkillsStoreSkillsByCategory)
 
 responseDeleteConferenceProvider :: DeleteConferenceProviderResponse -> TestTree
-responseDeleteConferenceProvider =
-  res
+responseDeleteConferenceProvider = res
     "DeleteConferenceProviderResponse"
     "fixture/DeleteConferenceProviderResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteConferenceProvider)
 
 responseUpdateConferenceProvider :: UpdateConferenceProviderResponse -> TestTree
-responseUpdateConferenceProvider =
-  res
+responseUpdateConferenceProvider = res
     "UpdateConferenceProviderResponse"
     "fixture/UpdateConferenceProviderResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateConferenceProvider)
 
 responseGetContact :: GetContactResponse -> TestTree
-responseGetContact =
-  res
+responseGetContact = res
     "GetContactResponse"
     "fixture/GetContactResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetContact)
 
 responseApproveSkill :: ApproveSkillResponse -> TestTree
-responseApproveSkill =
-  res
+responseApproveSkill = res
     "ApproveSkillResponse"
     "fixture/ApproveSkillResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ApproveSkill)
 
 responseCreateNetworkProfile :: CreateNetworkProfileResponse -> TestTree
-responseCreateNetworkProfile =
-  res
+responseCreateNetworkProfile = res
     "CreateNetworkProfileResponse"
     "fixture/CreateNetworkProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateNetworkProfile)
 
 responseAssociateDeviceWithRoom :: AssociateDeviceWithRoomResponse -> TestTree
-responseAssociateDeviceWithRoom =
-  res
+responseAssociateDeviceWithRoom = res
     "AssociateDeviceWithRoomResponse"
     "fixture/AssociateDeviceWithRoomResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateDeviceWithRoom)
 
 responseGetRoomSkillParameter :: GetRoomSkillParameterResponse -> TestTree
-responseGetRoomSkillParameter =
-  res
+responseGetRoomSkillParameter = res
     "GetRoomSkillParameterResponse"
     "fixture/GetRoomSkillParameterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetRoomSkillParameter)
 
 responseUpdateGateway :: UpdateGatewayResponse -> TestTree
-responseUpdateGateway =
-  res
+responseUpdateGateway = res
     "UpdateGatewayResponse"
     "fixture/UpdateGatewayResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateGateway)
 
 responseCreateBusinessReportSchedule :: CreateBusinessReportScheduleResponse -> TestTree
-responseCreateBusinessReportSchedule =
-  res
+responseCreateBusinessReportSchedule = res
     "CreateBusinessReportScheduleResponse"
     "fixture/CreateBusinessReportScheduleResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateBusinessReportSchedule)
 
 responseDeleteContact :: DeleteContactResponse -> TestTree
-responseDeleteContact =
-  res
+responseDeleteContact = res
     "DeleteContactResponse"
     "fixture/DeleteContactResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteContact)
 
 responseUpdateContact :: UpdateContactResponse -> TestTree
-responseUpdateContact =
-  res
+responseUpdateContact = res
     "UpdateContactResponse"
     "fixture/UpdateContactResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateContact)
 
 responseGetAddressBook :: GetAddressBookResponse -> TestTree
-responseGetAddressBook =
-  res
+responseGetAddressBook = res
     "GetAddressBookResponse"
     "fixture/GetAddressBookResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetAddressBook)
 
 responseListBusinessReportSchedules :: ListBusinessReportSchedulesResponse -> TestTree
-responseListBusinessReportSchedules =
-  res
+responseListBusinessReportSchedules = res
     "ListBusinessReportSchedulesResponse"
     "fixture/ListBusinessReportSchedulesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListBusinessReportSchedules)
 
 responseDeleteDeviceUsageData :: DeleteDeviceUsageDataResponse -> TestTree
-responseDeleteDeviceUsageData =
-  res
+responseDeleteDeviceUsageData = res
     "DeleteDeviceUsageDataResponse"
     "fixture/DeleteDeviceUsageDataResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteDeviceUsageData)
 
 responseCreateContact :: CreateContactResponse -> TestTree
-responseCreateContact =
-  res
+responseCreateContact = res
     "CreateContactResponse"
     "fixture/CreateContactResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateContact)
 
 responseCreateProfile :: CreateProfileResponse -> TestTree
-responseCreateProfile =
-  res
+responseCreateProfile = res
     "CreateProfileResponse"
     "fixture/CreateProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateProfile)
 
 responseDeleteSkillGroup :: DeleteSkillGroupResponse -> TestTree
-responseDeleteSkillGroup =
-  res
+responseDeleteSkillGroup = res
     "DeleteSkillGroupResponse"
     "fixture/DeleteSkillGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteSkillGroup)
 
 responseUpdateSkillGroup :: UpdateSkillGroupResponse -> TestTree
-responseUpdateSkillGroup =
-  res
+responseUpdateSkillGroup = res
     "UpdateSkillGroupResponse"
     "fixture/UpdateSkillGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateSkillGroup)
 
 responseStartDeviceSync :: StartDeviceSyncResponse -> TestTree
-responseStartDeviceSync =
-  res
+responseStartDeviceSync = res
     "StartDeviceSyncResponse"
     "fixture/StartDeviceSyncResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartDeviceSync)
 
 responseGetInvitationConfiguration :: GetInvitationConfigurationResponse -> TestTree
-responseGetInvitationConfiguration =
-  res
+responseGetInvitationConfiguration = res
     "GetInvitationConfigurationResponse"
     "fixture/GetInvitationConfigurationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetInvitationConfiguration)
 
 responseDisassociateSkillFromUsers :: DisassociateSkillFromUsersResponse -> TestTree
-responseDisassociateSkillFromUsers =
-  res
+responseDisassociateSkillFromUsers = res
     "DisassociateSkillFromUsersResponse"
     "fixture/DisassociateSkillFromUsersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateSkillFromUsers)
 
 responseSearchAddressBooks :: SearchAddressBooksResponse -> TestTree
-responseSearchAddressBooks =
-  res
+responseSearchAddressBooks = res
     "SearchAddressBooksResponse"
     "fixture/SearchAddressBooksResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SearchAddressBooks)
 
 responseCreateSkillGroup :: CreateSkillGroupResponse -> TestTree
-responseCreateSkillGroup =
-  res
+responseCreateSkillGroup = res
     "CreateSkillGroupResponse"
     "fixture/CreateSkillGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateSkillGroup)
 
 responseGetProfile :: GetProfileResponse -> TestTree
-responseGetProfile =
-  res
+responseGetProfile = res
     "GetProfileResponse"
     "fixture/GetProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetProfile)
 
 responseDisassociateSkillGroupFromRoom :: DisassociateSkillGroupFromRoomResponse -> TestTree
-responseDisassociateSkillGroupFromRoom =
-  res
+responseDisassociateSkillGroupFromRoom = res
     "DisassociateSkillGroupFromRoomResponse"
     "fixture/DisassociateSkillGroupFromRoomResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateSkillGroupFromRoom)
 
 responseSendInvitation :: SendInvitationResponse -> TestTree
-responseSendInvitation =
-  res
+responseSendInvitation = res
     "SendInvitationResponse"
     "fixture/SendInvitationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SendInvitation)
 
 responseListDeviceEvents :: ListDeviceEventsResponse -> TestTree
-responseListDeviceEvents =
-  res
+responseListDeviceEvents = res
     "ListDeviceEventsResponse"
     "fixture/ListDeviceEventsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListDeviceEvents)
 
 responseCreateUser :: CreateUserResponse -> TestTree
-responseCreateUser =
-  res
+responseCreateUser = res
     "CreateUserResponse"
     "fixture/CreateUserResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateUser)
 
 responseSearchDevices :: SearchDevicesResponse -> TestTree
-responseSearchDevices =
-  res
+responseSearchDevices = res
     "SearchDevicesResponse"
     "fixture/SearchDevicesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SearchDevices)
 
 responseSearchContacts :: SearchContactsResponse -> TestTree
-responseSearchContacts =
-  res
+responseSearchContacts = res
     "SearchContactsResponse"
     "fixture/SearchContactsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SearchContacts)
 
 responseSendAnnouncement :: SendAnnouncementResponse -> TestTree
-responseSendAnnouncement =
-  res
+responseSendAnnouncement = res
     "SendAnnouncementResponse"
     "fixture/SendAnnouncementResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SendAnnouncement)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
-responseDeleteUser =
-  res
+responseDeleteUser = res
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteUser)
 
 responseSearchNetworkProfiles :: SearchNetworkProfilesResponse -> TestTree
-responseSearchNetworkProfiles =
-  res
+responseSearchNetworkProfiles = res
     "SearchNetworkProfilesResponse"
     "fixture/SearchNetworkProfilesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SearchNetworkProfiles)
 
 responseGetSkillGroup :: GetSkillGroupResponse -> TestTree
-responseGetSkillGroup =
-  res
+responseGetSkillGroup = res
     "GetSkillGroupResponse"
     "fixture/GetSkillGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetSkillGroup)
 
 responseListSkills :: ListSkillsResponse -> TestTree
-responseListSkills =
-  res
+responseListSkills = res
     "ListSkillsResponse"
     "fixture/ListSkillsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListSkills)
 
 responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
+responseTagResource = res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseDisassociateDeviceFromRoom :: DisassociateDeviceFromRoomResponse -> TestTree
-responseDisassociateDeviceFromRoom =
-  res
+responseDisassociateDeviceFromRoom = res
     "DisassociateDeviceFromRoomResponse"
     "fixture/DisassociateDeviceFromRoomResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisassociateDeviceFromRoom)
 
 responseSearchSkillGroups :: SearchSkillGroupsResponse -> TestTree
-responseSearchSkillGroups =
-  res
+responseSearchSkillGroups = res
     "SearchSkillGroupsResponse"
     "fixture/SearchSkillGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SearchSkillGroups)
 
 responsePutSkillAuthorization :: PutSkillAuthorizationResponse -> TestTree
-responsePutSkillAuthorization =
-  res
+responsePutSkillAuthorization = res
     "PutSkillAuthorizationResponse"
     "fixture/PutSkillAuthorizationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutSkillAuthorization)
 
 responseListTags :: ListTagsResponse -> TestTree
-responseListTags =
-  res
+responseListTags = res
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTags)
 
 responseDeleteSkillAuthorization :: DeleteSkillAuthorizationResponse -> TestTree
-responseDeleteSkillAuthorization =
-  res
+responseDeleteSkillAuthorization = res
     "DeleteSkillAuthorizationResponse"
     "fixture/DeleteSkillAuthorizationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteSkillAuthorization)
 
 responseAssociateDeviceWithNetworkProfile :: AssociateDeviceWithNetworkProfileResponse -> TestTree
-responseAssociateDeviceWithNetworkProfile =
-  res
+responseAssociateDeviceWithNetworkProfile = res
     "AssociateDeviceWithNetworkProfileResponse"
     "fixture/AssociateDeviceWithNetworkProfileResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateDeviceWithNetworkProfile)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
+responseUntagResource = res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseCreateConferenceProvider :: CreateConferenceProviderResponse -> TestTree
-responseCreateConferenceProvider =
-  res
+responseCreateConferenceProvider = res
     "CreateConferenceProviderResponse"
     "fixture/CreateConferenceProviderResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateConferenceProvider)
 
 responseResolveRoom :: ResolveRoomResponse -> TestTree
-responseResolveRoom =
-  res
+responseResolveRoom = res
     "ResolveRoomResponse"
     "fixture/ResolveRoomResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ResolveRoom)
 
 responseCreateGatewayGroup :: CreateGatewayGroupResponse -> TestTree
-responseCreateGatewayGroup =
-  res
+responseCreateGatewayGroup = res
     "CreateGatewayGroupResponse"
     "fixture/CreateGatewayGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateGatewayGroup)
 
 responseCreateRoom :: CreateRoomResponse -> TestTree
-responseCreateRoom =
-  res
+responseCreateRoom = res
     "CreateRoomResponse"
     "fixture/CreateRoomResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateRoom)
 
 responseDeleteRoomSkillParameter :: DeleteRoomSkillParameterResponse -> TestTree
-responseDeleteRoomSkillParameter =
-  res
+responseDeleteRoomSkillParameter = res
     "DeleteRoomSkillParameterResponse"
     "fixture/DeleteRoomSkillParameterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteRoomSkillParameter)
 
 responseListGatewayGroups :: ListGatewayGroupsResponse -> TestTree
-responseListGatewayGroups =
-  res
+responseListGatewayGroups = res
     "ListGatewayGroupsResponse"
     "fixture/ListGatewayGroupsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListGatewayGroups)
 
 responsePutRoomSkillParameter :: PutRoomSkillParameterResponse -> TestTree
-responsePutRoomSkillParameter =
-  res
+responsePutRoomSkillParameter = res
     "PutRoomSkillParameterResponse"
     "fixture/PutRoomSkillParameterResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutRoomSkillParameter)
 
 responseSearchProfiles :: SearchProfilesResponse -> TestTree
-responseSearchProfiles =
-  res
+responseSearchProfiles = res
     "SearchProfilesResponse"
     "fixture/SearchProfilesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy SearchProfiles)
 
 responseRejectSkill :: RejectSkillResponse -> TestTree
-responseRejectSkill =
-  res
+responseRejectSkill = res
     "RejectSkillResponse"
     "fixture/RejectSkillResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RejectSkill)
 
 responseListConferenceProviders :: ListConferenceProvidersResponse -> TestTree
-responseListConferenceProviders =
-  res
+responseListConferenceProviders = res
     "ListConferenceProvidersResponse"
     "fixture/ListConferenceProvidersResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListConferenceProviders)
 
 responseRevokeInvitation :: RevokeInvitationResponse -> TestTree
-responseRevokeInvitation =
-  res
+responseRevokeInvitation = res
     "RevokeInvitationResponse"
     "fixture/RevokeInvitationResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RevokeInvitation)
 
 responseListGateways :: ListGatewaysResponse -> TestTree
-responseListGateways =
-  res
+responseListGateways = res
     "ListGatewaysResponse"
     "fixture/ListGatewaysResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListGateways)
 
 responseDeleteDevice :: DeleteDeviceResponse -> TestTree
-responseDeleteDevice =
-  res
+responseDeleteDevice = res
     "DeleteDeviceResponse"
     "fixture/DeleteDeviceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteDevice)
 
 responseUpdateDevice :: UpdateDeviceResponse -> TestTree
-responseUpdateDevice =
-  res
+responseUpdateDevice = res
     "UpdateDeviceResponse"
     "fixture/UpdateDeviceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdateDevice)
 
 responseAssociateSkillWithSkillGroup :: AssociateSkillWithSkillGroupResponse -> TestTree
-responseAssociateSkillWithSkillGroup =
-  res
+responseAssociateSkillWithSkillGroup = res
     "AssociateSkillWithSkillGroupResponse"
     "fixture/AssociateSkillWithSkillGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AssociateSkillWithSkillGroup)
 
 responseGetConferenceProvider :: GetConferenceProviderResponse -> TestTree
-responseGetConferenceProvider =
-  res
+responseGetConferenceProvider = res
     "GetConferenceProviderResponse"
     "fixture/GetConferenceProviderResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetConferenceProvider)
 
 responseGetRoom :: GetRoomResponse -> TestTree
-responseGetRoom =
-  res
+responseGetRoom = res
     "GetRoomResponse"
     "fixture/GetRoomResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetRoom)
 
 responseGetGatewayGroup :: GetGatewayGroupResponse -> TestTree
-responseGetGatewayGroup =
-  res
+responseGetGatewayGroup = res
     "GetGatewayGroupResponse"
     "fixture/GetGatewayGroupResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetGatewayGroup)
 
 responseListSkillsStoreCategories :: ListSkillsStoreCategoriesResponse -> TestTree
-responseListSkillsStoreCategories =
-  res
+responseListSkillsStoreCategories = res
     "ListSkillsStoreCategoriesResponse"
     "fixture/ListSkillsStoreCategoriesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListSkillsStoreCategories)
 
 responseStartSmartHomeApplianceDiscovery :: StartSmartHomeApplianceDiscoveryResponse -> TestTree
-responseStartSmartHomeApplianceDiscovery =
-  res
+responseStartSmartHomeApplianceDiscovery = res
     "StartSmartHomeApplianceDiscoveryResponse"
     "fixture/StartSmartHomeApplianceDiscoveryResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartSmartHomeApplianceDiscovery)
 
 responseAssociateContactWithAddressBook :: AssociateContactWithAddressBookResponse -> TestTree
-responseAssociateContactWithAddressBook =
-  res
+responseAssociateContactWithAddressBook = res
     "AssociateContactWithAddressBookResponse"
     "fixture/AssociateContactWithAddressBookResponse.proto"
     mkServiceConfig

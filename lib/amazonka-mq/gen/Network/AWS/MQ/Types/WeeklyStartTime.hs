@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MQ.Types.WeeklyStartTime
-  ( WeeklyStartTime (..),
-
-    -- * Smart constructor
-    mkWeeklyStartTime,
-
-    -- * Lenses
-    wstDayOfWeek,
-    wstTimeOfDay,
-    wstTimeZone,
-  )
-where
+  ( WeeklyStartTime (..)
+  -- * Smart constructor
+  , mkWeeklyStartTime
+  -- * Lenses
+  , wstDayOfWeek
+  , wstTimeOfDay
+  , wstTimeZone
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.MQ.Types.DayOfWeek as Types
@@ -31,62 +29,59 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkWeeklyStartTime' smart constructor.
 data WeeklyStartTime = WeeklyStartTime'
-  { -- | Required. The day of the week.
-    dayOfWeek :: Core.Maybe Types.DayOfWeek,
-    -- | Required. The time, in 24-hour format.
-    timeOfDay :: Core.Maybe Core.Text,
-    -- | The time zone, UTC by default, in either the Country/City format, or the UTC offset format.
-    timeZone :: Core.Maybe Core.Text
+  { dayOfWeek :: Core.Maybe Types.DayOfWeek
+    -- ^ Required. The day of the week.
+  , timeOfDay :: Core.Maybe Core.Text
+    -- ^ Required. The time, in 24-hour format.
+  , timeZone :: Core.Maybe Core.Text
+    -- ^ The time zone, UTC by default, in either the Country/City format, or the UTC offset format.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'WeeklyStartTime' value with any optional fields omitted.
-mkWeeklyStartTime ::
-  WeeklyStartTime
-mkWeeklyStartTime =
-  WeeklyStartTime'
-    { dayOfWeek = Core.Nothing,
-      timeOfDay = Core.Nothing,
-      timeZone = Core.Nothing
-    }
+mkWeeklyStartTime
+    :: WeeklyStartTime
+mkWeeklyStartTime
+  = WeeklyStartTime'{dayOfWeek = Core.Nothing,
+                     timeOfDay = Core.Nothing, timeZone = Core.Nothing}
 
 -- | Required. The day of the week.
 --
 -- /Note:/ Consider using 'dayOfWeek' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 wstDayOfWeek :: Lens.Lens' WeeklyStartTime (Core.Maybe Types.DayOfWeek)
 wstDayOfWeek = Lens.field @"dayOfWeek"
-{-# DEPRECATED wstDayOfWeek "Use generic-lens or generic-optics with 'dayOfWeek' instead." #-}
+{-# INLINEABLE wstDayOfWeek #-}
+{-# DEPRECATED dayOfWeek "Use generic-lens or generic-optics with 'dayOfWeek' instead"  #-}
 
 -- | Required. The time, in 24-hour format.
 --
 -- /Note:/ Consider using 'timeOfDay' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 wstTimeOfDay :: Lens.Lens' WeeklyStartTime (Core.Maybe Core.Text)
 wstTimeOfDay = Lens.field @"timeOfDay"
-{-# DEPRECATED wstTimeOfDay "Use generic-lens or generic-optics with 'timeOfDay' instead." #-}
+{-# INLINEABLE wstTimeOfDay #-}
+{-# DEPRECATED timeOfDay "Use generic-lens or generic-optics with 'timeOfDay' instead"  #-}
 
 -- | The time zone, UTC by default, in either the Country/City format, or the UTC offset format.
 --
 -- /Note:/ Consider using 'timeZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 wstTimeZone :: Lens.Lens' WeeklyStartTime (Core.Maybe Core.Text)
 wstTimeZone = Lens.field @"timeZone"
-{-# DEPRECATED wstTimeZone "Use generic-lens or generic-optics with 'timeZone' instead." #-}
+{-# INLINEABLE wstTimeZone #-}
+{-# DEPRECATED timeZone "Use generic-lens or generic-optics with 'timeZone' instead"  #-}
 
 instance Core.FromJSON WeeklyStartTime where
-  toJSON WeeklyStartTime {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("dayOfWeek" Core..=) Core.<$> dayOfWeek,
-            ("timeOfDay" Core..=) Core.<$> timeOfDay,
-            ("timeZone" Core..=) Core.<$> timeZone
-          ]
-      )
+        toJSON WeeklyStartTime{..}
+          = Core.object
+              (Core.catMaybes
+                 [("dayOfWeek" Core..=) Core.<$> dayOfWeek,
+                  ("timeOfDay" Core..=) Core.<$> timeOfDay,
+                  ("timeZone" Core..=) Core.<$> timeZone])
 
 instance Core.FromJSON WeeklyStartTime where
-  parseJSON =
-    Core.withObject "WeeklyStartTime" Core.$
-      \x ->
-        WeeklyStartTime'
-          Core.<$> (x Core..:? "dayOfWeek")
-          Core.<*> (x Core..:? "timeOfDay")
-          Core.<*> (x Core..:? "timeZone")
+        parseJSON
+          = Core.withObject "WeeklyStartTime" Core.$
+              \ x ->
+                WeeklyStartTime' Core.<$>
+                  (x Core..:? "dayOfWeek") Core.<*> x Core..:? "timeOfDay" Core.<*>
+                    x Core..:? "timeZone"

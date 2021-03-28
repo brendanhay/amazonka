@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -24,20 +24,21 @@
 --
 --
 --     * PercentChangeInCapacity
+--
+--
 module Network.AWS.AutoScaling.DescribeAdjustmentTypes
-  ( -- * Creating a request
-    DescribeAdjustmentTypes (..),
-    mkDescribeAdjustmentTypes,
+    (
+    -- * Creating a request
+      DescribeAdjustmentTypes (..)
+    , mkDescribeAdjustmentTypes
 
     -- * Destructuring the response
-    DescribeAdjustmentTypesResponse (..),
-    mkDescribeAdjustmentTypesResponse,
-
+    , DescribeAdjustmentTypesResponse (..)
+    , mkDescribeAdjustmentTypesResponse
     -- ** Response lenses
-    datrrsAdjustmentTypes,
-    datrrsResponseStatus,
-  )
-where
+    , datrrsAdjustmentTypes
+    , datrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -51,69 +52,72 @@ data DescribeAdjustmentTypes = DescribeAdjustmentTypes'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DescribeAdjustmentTypes' value with any optional fields omitted.
-mkDescribeAdjustmentTypes ::
-  DescribeAdjustmentTypes
+mkDescribeAdjustmentTypes
+    :: DescribeAdjustmentTypes
 mkDescribeAdjustmentTypes = DescribeAdjustmentTypes'
 
+instance Core.ToQuery DescribeAdjustmentTypes where
+        toQuery DescribeAdjustmentTypes{..}
+          = Core.toQueryPair "Action"
+              ("DescribeAdjustmentTypes" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2011-01-01" :: Core.Text)
+
+instance Core.ToHeaders DescribeAdjustmentTypes where
+        toHeaders _ = Core.pure Core.mempty
+
 instance Core.AWSRequest DescribeAdjustmentTypes where
-  type Rs DescribeAdjustmentTypes = DescribeAdjustmentTypesResponse
-  request x@_ =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "DescribeAdjustmentTypes")
-                Core.<> (Core.pure ("Version", "2011-01-01"))
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "DescribeAdjustmentTypesResult"
-      ( \s h x ->
-          DescribeAdjustmentTypesResponse'
-            Core.<$> (x Core..@? "AdjustmentTypes" Core..<@> Core.parseXMLList "member")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DescribeAdjustmentTypes = DescribeAdjustmentTypesResponse
+        toRequest x@_
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "DescribeAdjustmentTypesResult"
+              (\ s h x ->
+                 DescribeAdjustmentTypesResponse' Core.<$>
+                   (x Core..@? "AdjustmentTypes" Core..<@> Core.parseXMLList "member")
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDescribeAdjustmentTypesResponse' smart constructor.
 data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'
-  { -- | The policy adjustment types.
-    adjustmentTypes :: Core.Maybe [Types.AdjustmentType],
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { adjustmentTypes :: Core.Maybe [Types.AdjustmentType]
+    -- ^ The policy adjustment types.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DescribeAdjustmentTypesResponse' value with any optional fields omitted.
-mkDescribeAdjustmentTypesResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DescribeAdjustmentTypesResponse
-mkDescribeAdjustmentTypesResponse responseStatus =
-  DescribeAdjustmentTypesResponse'
-    { adjustmentTypes = Core.Nothing,
-      responseStatus
-    }
+mkDescribeAdjustmentTypesResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DescribeAdjustmentTypesResponse
+mkDescribeAdjustmentTypesResponse responseStatus
+  = DescribeAdjustmentTypesResponse'{adjustmentTypes = Core.Nothing,
+                                     responseStatus}
 
 -- | The policy adjustment types.
 --
 -- /Note:/ Consider using 'adjustmentTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 datrrsAdjustmentTypes :: Lens.Lens' DescribeAdjustmentTypesResponse (Core.Maybe [Types.AdjustmentType])
 datrrsAdjustmentTypes = Lens.field @"adjustmentTypes"
-{-# DEPRECATED datrrsAdjustmentTypes "Use generic-lens or generic-optics with 'adjustmentTypes' instead." #-}
+{-# INLINEABLE datrrsAdjustmentTypes #-}
+{-# DEPRECATED adjustmentTypes "Use generic-lens or generic-optics with 'adjustmentTypes' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 datrrsResponseStatus :: Lens.Lens' DescribeAdjustmentTypesResponse Core.Int
 datrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED datrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE datrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

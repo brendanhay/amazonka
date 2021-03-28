@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.MarketplaceAnalytics where
 
 import Data.Proxy
-import Network.AWS.MarketplaceAnalytics
 import Test.AWS.Fixture
-import Test.AWS.MarketplaceAnalytics.Internal
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.MarketplaceAnalytics
+import Test.AWS.MarketplaceAnalytics.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -48,30 +49,26 @@ import Test.Tasty
 -- Requests
 
 requestStartSupportDataExport :: StartSupportDataExport -> TestTree
-requestStartSupportDataExport =
-  req
+requestStartSupportDataExport = req
     "StartSupportDataExport"
     "fixture/StartSupportDataExport.yaml"
 
 requestGenerateDataSet :: GenerateDataSet -> TestTree
-requestGenerateDataSet =
-  req
+requestGenerateDataSet = req
     "GenerateDataSet"
     "fixture/GenerateDataSet.yaml"
 
 -- Responses
 
 responseStartSupportDataExport :: StartSupportDataExportResponse -> TestTree
-responseStartSupportDataExport =
-  res
+responseStartSupportDataExport = res
     "StartSupportDataExportResponse"
     "fixture/StartSupportDataExportResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartSupportDataExport)
 
 responseGenerateDataSet :: GenerateDataSetResponse -> TestTree
-responseGenerateDataSet =
-  res
+responseGenerateDataSet = res
     "GenerateDataSetResponse"
     "fixture/GenerateDataSetResponse.proto"
     mkServiceConfig

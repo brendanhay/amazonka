@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,46 +10,29 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.MediaLive.Types.HlsId3SegmentTaggingState
   ( HlsId3SegmentTaggingState
-      ( HlsId3SegmentTaggingState',
-        HlsId3SegmentTaggingStateDisabled,
-        HlsId3SegmentTaggingStateEnabled,
-        fromHlsId3SegmentTaggingState
-      ),
-  )
-where
+    ( HlsId3SegmentTaggingState'
+    , HlsId3SegmentTaggingStateDisabled
+    , HlsId3SegmentTaggingStateEnabled
+    , fromHlsId3SegmentTaggingState
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
 -- | State of HLS ID3 Segment Tagging
-newtype HlsId3SegmentTaggingState = HlsId3SegmentTaggingState'
-  { fromHlsId3SegmentTaggingState ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype HlsId3SegmentTaggingState = HlsId3SegmentTaggingState'{fromHlsId3SegmentTaggingState
+                                                               :: Core.Text}
+                                      deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                                      Core.Generic)
+                                      deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                        Core.ToJSONKey, Core.FromJSONKey,
+                                                        Core.ToJSON, Core.FromJSON, Core.ToXML,
+                                                        Core.FromXML, Core.ToText, Core.FromText,
+                                                        Core.ToByteString, Core.ToQuery,
+                                                        Core.ToHeader)
 
 pattern HlsId3SegmentTaggingStateDisabled :: HlsId3SegmentTaggingState
 pattern HlsId3SegmentTaggingStateDisabled = HlsId3SegmentTaggingState' "DISABLED"
@@ -57,8 +40,9 @@ pattern HlsId3SegmentTaggingStateDisabled = HlsId3SegmentTaggingState' "DISABLED
 pattern HlsId3SegmentTaggingStateEnabled :: HlsId3SegmentTaggingState
 pattern HlsId3SegmentTaggingStateEnabled = HlsId3SegmentTaggingState' "ENABLED"
 
-{-# COMPLETE
+{-# COMPLETE 
   HlsId3SegmentTaggingStateDisabled,
+
   HlsId3SegmentTaggingStateEnabled,
   HlsId3SegmentTaggingState'
   #-}

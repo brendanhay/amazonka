@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,46 +10,28 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.WorkMail.Types.RetentionAction
   ( RetentionAction
-      ( RetentionAction',
-        RetentionActionNone,
-        RetentionActionDelete,
-        RetentionActionPermanentlyDelete,
-        fromRetentionAction
-      ),
-  )
-where
+    ( RetentionAction'
+    , RetentionActionNone
+    , RetentionActionDelete
+    , RetentionActionPermanentlyDelete
+    , fromRetentionAction
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype RetentionAction = RetentionAction'
-  { fromRetentionAction ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype RetentionAction = RetentionAction'{fromRetentionAction ::
+                                           Core.Text}
+                            deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                            Core.Generic)
+                            deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                              Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                              Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                              Core.FromText, Core.ToByteString, Core.ToQuery,
+                                              Core.ToHeader)
 
 pattern RetentionActionNone :: RetentionAction
 pattern RetentionActionNone = RetentionAction' "NONE"
@@ -60,9 +42,11 @@ pattern RetentionActionDelete = RetentionAction' "DELETE"
 pattern RetentionActionPermanentlyDelete :: RetentionAction
 pattern RetentionActionPermanentlyDelete = RetentionAction' "PERMANENTLY_DELETE"
 
-{-# COMPLETE
+{-# COMPLETE 
   RetentionActionNone,
+
   RetentionActionDelete,
+
   RetentionActionPermanentlyDelete,
   RetentionAction'
   #-}

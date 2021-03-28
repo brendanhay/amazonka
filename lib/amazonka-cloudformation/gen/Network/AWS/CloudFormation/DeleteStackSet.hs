@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -13,23 +13,21 @@
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a stack set. Before you can delete a stack set, all of its member stack instances must be deleted. For more information about how to do this, see 'DeleteStackInstances' .
+-- Deletes a stack set. Before you can delete a stack set, all of its member stack instances must be deleted. For more information about how to do this, see 'DeleteStackInstances' . 
 module Network.AWS.CloudFormation.DeleteStackSet
-  ( -- * Creating a request
-    DeleteStackSet (..),
-    mkDeleteStackSet,
-
+    (
+    -- * Creating a request
+      DeleteStackSet (..)
+    , mkDeleteStackSet
     -- ** Request lenses
-    dssStackSetName,
+    , dssStackSetName
 
     -- * Destructuring the response
-    DeleteStackSetResponse (..),
-    mkDeleteStackSetResponse,
-
+    , DeleteStackSetResponse (..)
+    , mkDeleteStackSetResponse
     -- ** Response lenses
-    dssrrsResponseStatus,
-  )
-where
+    , dssrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.CloudFormation.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -39,72 +37,75 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteStackSet' smart constructor.
 newtype DeleteStackSet = DeleteStackSet'
-  { -- | The name or unique ID of the stack set that you're deleting. You can obtain this value by running 'ListStackSets' .
-    stackSetName :: Types.StackSetName
+  { stackSetName :: Types.StackSetName
+    -- ^ The name or unique ID of the stack set that you're deleting. You can obtain this value by running 'ListStackSets' .
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteStackSet' value with any optional fields omitted.
-mkDeleteStackSet ::
-  -- | 'stackSetName'
-  Types.StackSetName ->
-  DeleteStackSet
-mkDeleteStackSet stackSetName = DeleteStackSet' {stackSetName}
+mkDeleteStackSet
+    :: Types.StackSetName -- ^ 'stackSetName'
+    -> DeleteStackSet
+mkDeleteStackSet stackSetName = DeleteStackSet'{stackSetName}
 
 -- | The name or unique ID of the stack set that you're deleting. You can obtain this value by running 'ListStackSets' .
 --
 -- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dssStackSetName :: Lens.Lens' DeleteStackSet Types.StackSetName
 dssStackSetName = Lens.field @"stackSetName"
-{-# DEPRECATED dssStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
+{-# INLINEABLE dssStackSetName #-}
+{-# DEPRECATED stackSetName "Use generic-lens or generic-optics with 'stackSetName' instead"  #-}
+
+instance Core.ToQuery DeleteStackSet where
+        toQuery DeleteStackSet{..}
+          = Core.toQueryPair "Action" ("DeleteStackSet" :: Core.Text) Core.<>
+              Core.toQueryPair "Version" ("2010-05-15" :: Core.Text)
+              Core.<> Core.toQueryPair "StackSetName" stackSetName
+
+instance Core.ToHeaders DeleteStackSet where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest DeleteStackSet where
-  type Rs DeleteStackSet = DeleteStackSetResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "DeleteStackSet")
-                Core.<> (Core.pure ("Version", "2010-05-15"))
-                Core.<> (Core.toQueryValue "StackSetName" stackSetName)
-            )
-      }
-  response =
-    Response.receiveXMLWrapper
-      "DeleteStackSetResult"
-      ( \s h x ->
-          DeleteStackSetResponse' Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DeleteStackSet = DeleteStackSetResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXMLWrapper "DeleteStackSetResult"
+              (\ s h x ->
+                 DeleteStackSetResponse' Core.<$> (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDeleteStackSetResponse' smart constructor.
 newtype DeleteStackSetResponse = DeleteStackSetResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DeleteStackSetResponse' value with any optional fields omitted.
-mkDeleteStackSetResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DeleteStackSetResponse
-mkDeleteStackSetResponse responseStatus =
-  DeleteStackSetResponse' {responseStatus}
+mkDeleteStackSetResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DeleteStackSetResponse
+mkDeleteStackSetResponse responseStatus
+  = DeleteStackSetResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dssrrsResponseStatus :: Lens.Lens' DeleteStackSetResponse Core.Int
 dssrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED dssrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE dssrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

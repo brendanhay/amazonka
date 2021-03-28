@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CloudDirectory.Types.FacetAttributeReference
-  ( FacetAttributeReference (..),
-
-    -- * Smart constructor
-    mkFacetAttributeReference,
-
-    -- * Lenses
-    farTargetFacetName,
-    farTargetAttributeName,
-  )
-where
+  ( FacetAttributeReference (..)
+  -- * Smart constructor
+  , mkFacetAttributeReference
+  -- * Lenses
+  , farTargetFacetName
+  , farTargetAttributeName
+  ) where
 
 import qualified Network.AWS.CloudDirectory.Types.FacetName as Types
 import qualified Network.AWS.CloudDirectory.Types.TargetAttributeName as Types
@@ -31,51 +29,49 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkFacetAttributeReference' smart constructor.
 data FacetAttributeReference = FacetAttributeReference'
-  { -- | The target facet name that is associated with the facet reference. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
-    targetFacetName :: Types.FacetName,
-    -- | The target attribute name that is associated with the facet reference. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
-    targetAttributeName :: Types.TargetAttributeName
+  { targetFacetName :: Types.FacetName
+    -- ^ The target facet name that is associated with the facet reference. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
+  , targetAttributeName :: Types.TargetAttributeName
+    -- ^ The target attribute name that is associated with the facet reference. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'FacetAttributeReference' value with any optional fields omitted.
-mkFacetAttributeReference ::
-  -- | 'targetFacetName'
-  Types.FacetName ->
-  -- | 'targetAttributeName'
-  Types.TargetAttributeName ->
-  FacetAttributeReference
-mkFacetAttributeReference targetFacetName targetAttributeName =
-  FacetAttributeReference' {targetFacetName, targetAttributeName}
+mkFacetAttributeReference
+    :: Types.FacetName -- ^ 'targetFacetName'
+    -> Types.TargetAttributeName -- ^ 'targetAttributeName'
+    -> FacetAttributeReference
+mkFacetAttributeReference targetFacetName targetAttributeName
+  = FacetAttributeReference'{targetFacetName, targetAttributeName}
 
 -- | The target facet name that is associated with the facet reference. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
 --
 -- /Note:/ Consider using 'targetFacetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 farTargetFacetName :: Lens.Lens' FacetAttributeReference Types.FacetName
 farTargetFacetName = Lens.field @"targetFacetName"
-{-# DEPRECATED farTargetFacetName "Use generic-lens or generic-optics with 'targetFacetName' instead." #-}
+{-# INLINEABLE farTargetFacetName #-}
+{-# DEPRECATED targetFacetName "Use generic-lens or generic-optics with 'targetFacetName' instead"  #-}
 
 -- | The target attribute name that is associated with the facet reference. See <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html Attribute References> for more information.
 --
 -- /Note:/ Consider using 'targetAttributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 farTargetAttributeName :: Lens.Lens' FacetAttributeReference Types.TargetAttributeName
 farTargetAttributeName = Lens.field @"targetAttributeName"
-{-# DEPRECATED farTargetAttributeName "Use generic-lens or generic-optics with 'targetAttributeName' instead." #-}
+{-# INLINEABLE farTargetAttributeName #-}
+{-# DEPRECATED targetAttributeName "Use generic-lens or generic-optics with 'targetAttributeName' instead"  #-}
 
 instance Core.FromJSON FacetAttributeReference where
-  toJSON FacetAttributeReference {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("TargetFacetName" Core..= targetFacetName),
-            Core.Just ("TargetAttributeName" Core..= targetAttributeName)
-          ]
-      )
+        toJSON FacetAttributeReference{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("TargetFacetName" Core..= targetFacetName),
+                  Core.Just ("TargetAttributeName" Core..= targetAttributeName)])
 
 instance Core.FromJSON FacetAttributeReference where
-  parseJSON =
-    Core.withObject "FacetAttributeReference" Core.$
-      \x ->
-        FacetAttributeReference'
-          Core.<$> (x Core..: "TargetFacetName")
-          Core.<*> (x Core..: "TargetAttributeName")
+        parseJSON
+          = Core.withObject "FacetAttributeReference" Core.$
+              \ x ->
+                FacetAttributeReference' Core.<$>
+                  (x Core..: "TargetFacetName") Core.<*>
+                    x Core..: "TargetAttributeName"

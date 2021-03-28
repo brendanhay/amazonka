@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -17,15 +17,15 @@
 --
 -- This operation doesn't remove the service-linked role (SLR) from the AWS master account in your organization. You must use the IAM console, API, or AWS Command Line Interface (AWS CLI) to remove the SLR. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role Deleting a Service-Linked Role> in the /IAM User Guide/ .
 module Network.AWS.AWSHealth.DisableHealthServiceAccessForOrganization
-  ( -- * Creating a request
-    DisableHealthServiceAccessForOrganization (..),
-    mkDisableHealthServiceAccessForOrganization,
+    (
+    -- * Creating a request
+      DisableHealthServiceAccessForOrganization (..)
+    , mkDisableHealthServiceAccessForOrganization
 
     -- * Destructuring the response
-    DisableHealthServiceAccessForOrganizationResponse (..),
-    mkDisableHealthServiceAccessForOrganizationResponse,
-  )
-where
+    , DisableHealthServiceAccessForOrganizationResponse (..)
+    , mkDisableHealthServiceAccessForOrganizationResponse
+    ) where
 
 import qualified Network.AWS.AWSHealth.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -39,35 +39,43 @@ data DisableHealthServiceAccessForOrganization = DisableHealthServiceAccessForOr
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DisableHealthServiceAccessForOrganization' value with any optional fields omitted.
-mkDisableHealthServiceAccessForOrganization ::
-  DisableHealthServiceAccessForOrganization
-mkDisableHealthServiceAccessForOrganization =
-  DisableHealthServiceAccessForOrganization'
+mkDisableHealthServiceAccessForOrganization
+    :: DisableHealthServiceAccessForOrganization
+mkDisableHealthServiceAccessForOrganization
+  = DisableHealthServiceAccessForOrganization'
 
-instance Core.FromJSON DisableHealthServiceAccessForOrganization where
-  toJSON _ = Core.Object Core.mempty
+instance Core.ToQuery DisableHealthServiceAccessForOrganization
+         where
+        toQuery _ = Core.pure Core.mempty
 
-instance Core.AWSRequest DisableHealthServiceAccessForOrganization where
-  type
-    Rs DisableHealthServiceAccessForOrganization =
-      DisableHealthServiceAccessForOrganizationResponse
-  request x@_ =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "X-Amz-Target",
-              "AWSHealth_20160804.DisableHealthServiceAccessForOrganization"
-            )
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveNull
-      DisableHealthServiceAccessForOrganizationResponse'
+instance Core.ToHeaders DisableHealthServiceAccessForOrganization
+         where
+        toHeaders DisableHealthServiceAccessForOrganization{..}
+          = Core.pure
+              ("X-Amz-Target",
+               "AWSHealth_20160804.DisableHealthServiceAccessForOrganization")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
+
+instance Core.FromJSON DisableHealthServiceAccessForOrganization
+         where
+        toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest DisableHealthServiceAccessForOrganization
+         where
+        type Rs DisableHealthServiceAccessForOrganization =
+             DisableHealthServiceAccessForOrganizationResponse
+        toRequest x@_
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveNull
+              DisableHealthServiceAccessForOrganizationResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDisableHealthServiceAccessForOrganizationResponse' smart constructor.
 data DisableHealthServiceAccessForOrganizationResponse = DisableHealthServiceAccessForOrganizationResponse'
@@ -75,7 +83,7 @@ data DisableHealthServiceAccessForOrganizationResponse = DisableHealthServiceAcc
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DisableHealthServiceAccessForOrganizationResponse' value with any optional fields omitted.
-mkDisableHealthServiceAccessForOrganizationResponse ::
-  DisableHealthServiceAccessForOrganizationResponse
-mkDisableHealthServiceAccessForOrganizationResponse =
-  DisableHealthServiceAccessForOrganizationResponse'
+mkDisableHealthServiceAccessForOrganizationResponse
+    :: DisableHealthServiceAccessForOrganizationResponse
+mkDisableHealthServiceAccessForOrganizationResponse
+  = DisableHealthServiceAccessForOrganizationResponse'

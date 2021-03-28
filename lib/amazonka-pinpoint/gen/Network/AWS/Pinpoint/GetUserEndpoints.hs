@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,23 +15,21 @@
 --
 -- Retrieves information about all the endpoints that are associated with a specific user ID.
 module Network.AWS.Pinpoint.GetUserEndpoints
-  ( -- * Creating a request
-    GetUserEndpoints (..),
-    mkGetUserEndpoints,
-
+    (
+    -- * Creating a request
+      GetUserEndpoints (..)
+    , mkGetUserEndpoints
     -- ** Request lenses
-    gueApplicationId,
-    gueUserId,
+    , gueApplicationId
+    , gueUserId
 
     -- * Destructuring the response
-    GetUserEndpointsResponse (..),
-    mkGetUserEndpointsResponse,
-
+    , GetUserEndpointsResponse (..)
+    , mkGetUserEndpointsResponse
     -- ** Response lenses
-    guerrsEndpointsResponse,
-    guerrsResponseStatus,
-  )
-where
+    , guerrsEndpointsResponse
+    , guerrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Pinpoint.Types as Types
@@ -41,91 +39,94 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetUserEndpoints' smart constructor.
 data GetUserEndpoints = GetUserEndpoints'
-  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Core.Text,
-    -- | The unique identifier for the user.
-    userId :: Core.Text
+  { applicationId :: Core.Text
+    -- ^ The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+  , userId :: Core.Text
+    -- ^ The unique identifier for the user.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetUserEndpoints' value with any optional fields omitted.
-mkGetUserEndpoints ::
-  -- | 'applicationId'
-  Core.Text ->
-  -- | 'userId'
-  Core.Text ->
-  GetUserEndpoints
-mkGetUserEndpoints applicationId userId =
-  GetUserEndpoints' {applicationId, userId}
+mkGetUserEndpoints
+    :: Core.Text -- ^ 'applicationId'
+    -> Core.Text -- ^ 'userId'
+    -> GetUserEndpoints
+mkGetUserEndpoints applicationId userId
+  = GetUserEndpoints'{applicationId, userId}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gueApplicationId :: Lens.Lens' GetUserEndpoints Core.Text
 gueApplicationId = Lens.field @"applicationId"
-{-# DEPRECATED gueApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+{-# INLINEABLE gueApplicationId #-}
+{-# DEPRECATED applicationId "Use generic-lens or generic-optics with 'applicationId' instead"  #-}
 
 -- | The unique identifier for the user.
 --
 -- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 gueUserId :: Lens.Lens' GetUserEndpoints Core.Text
 gueUserId = Lens.field @"userId"
-{-# DEPRECATED gueUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+{-# INLINEABLE gueUserId #-}
+{-# DEPRECATED userId "Use generic-lens or generic-optics with 'userId' instead"  #-}
+
+instance Core.ToQuery GetUserEndpoints where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders GetUserEndpoints where
+        toHeaders GetUserEndpoints{..}
+          = Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.AWSRequest GetUserEndpoints where
-  type Rs GetUserEndpoints = GetUserEndpointsResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.GET,
-        Core._rqPath =
-          Core.rawPath
-            ( "/v1/apps/" Core.<> (Core.toText applicationId)
-                Core.<> ("/users/")
-                Core.<> (Core.toText userId)
-            ),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
-        Core._rqBody = ""
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          GetUserEndpointsResponse'
-            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs GetUserEndpoints = GetUserEndpointsResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.GET,
+                         Core._rqPath =
+                           "/v1/apps/" Core.<> Core.toText applicationId Core.<> "/users/"
+                             Core.<> Core.toText userId,
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = ""}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 GetUserEndpointsResponse' Core.<$>
+                   (Core.eitherParseJSON x) Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkGetUserEndpointsResponse' smart constructor.
 data GetUserEndpointsResponse = GetUserEndpointsResponse'
-  { endpointsResponse :: Types.EndpointsResponse,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { endpointsResponse :: Types.EndpointsResponse
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetUserEndpointsResponse' value with any optional fields omitted.
-mkGetUserEndpointsResponse ::
-  -- | 'endpointsResponse'
-  Types.EndpointsResponse ->
-  -- | 'responseStatus'
-  Core.Int ->
-  GetUserEndpointsResponse
-mkGetUserEndpointsResponse endpointsResponse responseStatus =
-  GetUserEndpointsResponse' {endpointsResponse, responseStatus}
+mkGetUserEndpointsResponse
+    :: Types.EndpointsResponse -- ^ 'endpointsResponse'
+    -> Core.Int -- ^ 'responseStatus'
+    -> GetUserEndpointsResponse
+mkGetUserEndpointsResponse endpointsResponse responseStatus
+  = GetUserEndpointsResponse'{endpointsResponse, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'endpointsResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 guerrsEndpointsResponse :: Lens.Lens' GetUserEndpointsResponse Types.EndpointsResponse
 guerrsEndpointsResponse = Lens.field @"endpointsResponse"
-{-# DEPRECATED guerrsEndpointsResponse "Use generic-lens or generic-optics with 'endpointsResponse' instead." #-}
+{-# INLINEABLE guerrsEndpointsResponse #-}
+{-# DEPRECATED endpointsResponse "Use generic-lens or generic-optics with 'endpointsResponse' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 guerrsResponseStatus :: Lens.Lens' GetUserEndpointsResponse Core.Int
 guerrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED guerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE guerrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

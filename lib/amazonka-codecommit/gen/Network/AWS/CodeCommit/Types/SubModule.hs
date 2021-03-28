@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CodeCommit.Types.SubModule
-  ( SubModule (..),
-
-    -- * Smart constructor
-    mkSubModule,
-
-    -- * Lenses
-    smAbsolutePath,
-    smCommitId,
-    smRelativePath,
-  )
-where
+  ( SubModule (..)
+  -- * Smart constructor
+  , mkSubModule
+  -- * Lenses
+  , smAbsolutePath
+  , smCommitId
+  , smRelativePath
+  ) where
 
 import qualified Network.AWS.CodeCommit.Types.ObjectId as Types
 import qualified Network.AWS.CodeCommit.Types.Path as Types
@@ -32,52 +30,51 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkSubModule' smart constructor.
 data SubModule = SubModule'
-  { -- | The fully qualified path to the folder that contains the reference to the submodule.
-    absolutePath :: Core.Maybe Types.Path,
-    -- | The commit ID that contains the reference to the submodule.
-    commitId :: Core.Maybe Types.ObjectId,
-    -- | The relative path of the submodule from the folder where the query originated.
-    relativePath :: Core.Maybe Types.Path
+  { absolutePath :: Core.Maybe Types.Path
+    -- ^ The fully qualified path to the folder that contains the reference to the submodule.
+  , commitId :: Core.Maybe Types.ObjectId
+    -- ^ The commit ID that contains the reference to the submodule.
+  , relativePath :: Core.Maybe Types.Path
+    -- ^ The relative path of the submodule from the folder where the query originated.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'SubModule' value with any optional fields omitted.
-mkSubModule ::
-  SubModule
-mkSubModule =
-  SubModule'
-    { absolutePath = Core.Nothing,
-      commitId = Core.Nothing,
-      relativePath = Core.Nothing
-    }
+mkSubModule
+    :: SubModule
+mkSubModule
+  = SubModule'{absolutePath = Core.Nothing, commitId = Core.Nothing,
+               relativePath = Core.Nothing}
 
 -- | The fully qualified path to the folder that contains the reference to the submodule.
 --
 -- /Note:/ Consider using 'absolutePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 smAbsolutePath :: Lens.Lens' SubModule (Core.Maybe Types.Path)
 smAbsolutePath = Lens.field @"absolutePath"
-{-# DEPRECATED smAbsolutePath "Use generic-lens or generic-optics with 'absolutePath' instead." #-}
+{-# INLINEABLE smAbsolutePath #-}
+{-# DEPRECATED absolutePath "Use generic-lens or generic-optics with 'absolutePath' instead"  #-}
 
 -- | The commit ID that contains the reference to the submodule.
 --
 -- /Note:/ Consider using 'commitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 smCommitId :: Lens.Lens' SubModule (Core.Maybe Types.ObjectId)
 smCommitId = Lens.field @"commitId"
-{-# DEPRECATED smCommitId "Use generic-lens or generic-optics with 'commitId' instead." #-}
+{-# INLINEABLE smCommitId #-}
+{-# DEPRECATED commitId "Use generic-lens or generic-optics with 'commitId' instead"  #-}
 
 -- | The relative path of the submodule from the folder where the query originated.
 --
 -- /Note:/ Consider using 'relativePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 smRelativePath :: Lens.Lens' SubModule (Core.Maybe Types.Path)
 smRelativePath = Lens.field @"relativePath"
-{-# DEPRECATED smRelativePath "Use generic-lens or generic-optics with 'relativePath' instead." #-}
+{-# INLINEABLE smRelativePath #-}
+{-# DEPRECATED relativePath "Use generic-lens or generic-optics with 'relativePath' instead"  #-}
 
 instance Core.FromJSON SubModule where
-  parseJSON =
-    Core.withObject "SubModule" Core.$
-      \x ->
-        SubModule'
-          Core.<$> (x Core..:? "absolutePath")
-          Core.<*> (x Core..:? "commitId")
-          Core.<*> (x Core..:? "relativePath")
+        parseJSON
+          = Core.withObject "SubModule" Core.$
+              \ x ->
+                SubModule' Core.<$>
+                  (x Core..:? "absolutePath") Core.<*> x Core..:? "commitId" Core.<*>
+                    x Core..:? "relativePath"

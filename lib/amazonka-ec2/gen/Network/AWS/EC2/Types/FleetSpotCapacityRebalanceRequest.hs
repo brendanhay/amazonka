@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.EC2.Types.FleetSpotCapacityRebalanceRequest
-  ( FleetSpotCapacityRebalanceRequest (..),
-
-    -- * Smart constructor
-    mkFleetSpotCapacityRebalanceRequest,
-
-    -- * Lenses
-    fscrrReplacementStrategy,
-  )
-where
+  ( FleetSpotCapacityRebalanceRequest (..)
+  -- * Smart constructor
+  , mkFleetSpotCapacityRebalanceRequest
+  -- * Lenses
+  , fscrrReplacementStrategy
+  ) where
 
 import qualified Network.AWS.EC2.Types.FleetReplacementStrategy as Types
 import qualified Network.AWS.Lens as Lens
@@ -29,22 +27,20 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkFleetSpotCapacityRebalanceRequest' smart constructor.
 newtype FleetSpotCapacityRebalanceRequest = FleetSpotCapacityRebalanceRequest'
-  { -- | The replacement strategy to use. Only available for fleets of type @maintain@ .
-    --
-    -- To allow EC2 Fleet to launch a replacement Spot Instance when an instance rebalance notification is emitted for an existing Spot Instance in the fleet, specify @launch@ . You must specify a value, otherwise you get an error.
-    replacementStrategy :: Core.Maybe Types.FleetReplacementStrategy
+  { replacementStrategy :: Core.Maybe Types.FleetReplacementStrategy
+    -- ^ The replacement strategy to use. Only available for fleets of type @maintain@ .
+--
+-- To allow EC2 Fleet to launch a replacement Spot Instance when an instance rebalance notification is emitted for an existing Spot Instance in the fleet, specify @launch@ . You must specify a value, otherwise you get an error.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'FleetSpotCapacityRebalanceRequest' value with any optional fields omitted.
-mkFleetSpotCapacityRebalanceRequest ::
-  FleetSpotCapacityRebalanceRequest
-mkFleetSpotCapacityRebalanceRequest =
-  FleetSpotCapacityRebalanceRequest'
-    { replacementStrategy =
-        Core.Nothing
-    }
+mkFleetSpotCapacityRebalanceRequest
+    :: FleetSpotCapacityRebalanceRequest
+mkFleetSpotCapacityRebalanceRequest
+  = FleetSpotCapacityRebalanceRequest'{replacementStrategy =
+                                         Core.Nothing}
 
 -- | The replacement strategy to use. Only available for fleets of type @maintain@ .
 --
@@ -53,4 +49,10 @@ mkFleetSpotCapacityRebalanceRequest =
 -- /Note:/ Consider using 'replacementStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 fscrrReplacementStrategy :: Lens.Lens' FleetSpotCapacityRebalanceRequest (Core.Maybe Types.FleetReplacementStrategy)
 fscrrReplacementStrategy = Lens.field @"replacementStrategy"
-{-# DEPRECATED fscrrReplacementStrategy "Use generic-lens or generic-optics with 'replacementStrategy' instead." #-}
+{-# INLINEABLE fscrrReplacementStrategy #-}
+{-# DEPRECATED replacementStrategy "Use generic-lens or generic-optics with 'replacementStrategy' instead"  #-}
+
+instance Core.ToQuery FleetSpotCapacityRebalanceRequest where
+        toQuery FleetSpotCapacityRebalanceRequest{..}
+          = Core.maybe Core.mempty (Core.toQueryPair "ReplacementStrategy")
+              replacementStrategy

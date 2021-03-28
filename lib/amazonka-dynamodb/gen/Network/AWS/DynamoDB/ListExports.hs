@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,25 +15,23 @@
 --
 -- Lists completed exports within the past 90 days.
 module Network.AWS.DynamoDB.ListExports
-  ( -- * Creating a request
-    ListExports (..),
-    mkListExports,
-
+    (
+    -- * Creating a request
+      ListExports (..)
+    , mkListExports
     -- ** Request lenses
-    leMaxResults,
-    leNextToken,
-    leTableArn,
+    , leMaxResults
+    , leNextToken
+    , leTableArn
 
     -- * Destructuring the response
-    ListExportsResponse (..),
-    mkListExportsResponse,
-
+    , ListExportsResponse (..)
+    , mkListExportsResponse
     -- ** Response lenses
-    lerrsExportSummaries,
-    lerrsNextToken,
-    lerrsResponseStatus,
-  )
-where
+    , lerrsExportSummaries
+    , lerrsNextToken
+    , lerrsResponseStatus
+    ) where
 
 import qualified Network.AWS.DynamoDB.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -43,120 +41,121 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListExports' smart constructor.
 data ListExports = ListExports'
-  { -- | Maximum number of results to return per page.
-    maxResults :: Core.Maybe Core.Natural,
-    -- | An optional string that, if supplied, must be copied from the output of a previous call to @ListExports@ . When provided in this manner, the API fetches the next page of results.
-    nextToken :: Core.Maybe Types.ExportNextToken,
-    -- | The Amazon Resource Name (ARN) associated with the exported table.
-    tableArn :: Core.Maybe Types.TableArn
+  { maxResults :: Core.Maybe Core.Natural
+    -- ^ Maximum number of results to return per page.
+  , nextToken :: Core.Maybe Types.ExportNextToken
+    -- ^ An optional string that, if supplied, must be copied from the output of a previous call to @ListExports@ . When provided in this manner, the API fetches the next page of results.
+  , tableArn :: Core.Maybe Types.TableArn
+    -- ^ The Amazon Resource Name (ARN) associated with the exported table.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ListExports' value with any optional fields omitted.
-mkListExports ::
-  ListExports
-mkListExports =
-  ListExports'
-    { maxResults = Core.Nothing,
-      nextToken = Core.Nothing,
-      tableArn = Core.Nothing
-    }
+mkListExports
+    :: ListExports
+mkListExports
+  = ListExports'{maxResults = Core.Nothing, nextToken = Core.Nothing,
+                 tableArn = Core.Nothing}
 
 -- | Maximum number of results to return per page.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 leMaxResults :: Lens.Lens' ListExports (Core.Maybe Core.Natural)
 leMaxResults = Lens.field @"maxResults"
-{-# DEPRECATED leMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+{-# INLINEABLE leMaxResults #-}
+{-# DEPRECATED maxResults "Use generic-lens or generic-optics with 'maxResults' instead"  #-}
 
 -- | An optional string that, if supplied, must be copied from the output of a previous call to @ListExports@ . When provided in this manner, the API fetches the next page of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 leNextToken :: Lens.Lens' ListExports (Core.Maybe Types.ExportNextToken)
 leNextToken = Lens.field @"nextToken"
-{-# DEPRECATED leNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE leNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
 
 -- | The Amazon Resource Name (ARN) associated with the exported table.
 --
 -- /Note:/ Consider using 'tableArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 leTableArn :: Lens.Lens' ListExports (Core.Maybe Types.TableArn)
 leTableArn = Lens.field @"tableArn"
-{-# DEPRECATED leTableArn "Use generic-lens or generic-optics with 'tableArn' instead." #-}
+{-# INLINEABLE leTableArn #-}
+{-# DEPRECATED tableArn "Use generic-lens or generic-optics with 'tableArn' instead"  #-}
+
+instance Core.ToQuery ListExports where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders ListExports where
+        toHeaders ListExports{..}
+          = Core.pure ("X-Amz-Target", "DynamoDB_20120810.ListExports")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.0")
 
 instance Core.FromJSON ListExports where
-  toJSON ListExports {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("MaxResults" Core..=) Core.<$> maxResults,
-            ("NextToken" Core..=) Core.<$> nextToken,
-            ("TableArn" Core..=) Core.<$> tableArn
-          ]
-      )
+        toJSON ListExports{..}
+          = Core.object
+              (Core.catMaybes
+                 [("MaxResults" Core..=) Core.<$> maxResults,
+                  ("NextToken" Core..=) Core.<$> nextToken,
+                  ("TableArn" Core..=) Core.<$> tableArn])
 
 instance Core.AWSRequest ListExports where
-  type Rs ListExports = ListExportsResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "DynamoDB_20120810.ListExports")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          ListExportsResponse'
-            Core.<$> (x Core..:? "ExportSummaries")
-            Core.<*> (x Core..:? "NextToken")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs ListExports = ListExportsResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 ListExportsResponse' Core.<$>
+                   (x Core..:? "ExportSummaries") Core.<*> x Core..:? "NextToken"
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkListExportsResponse' smart constructor.
 data ListExportsResponse = ListExportsResponse'
-  { -- | A list of @ExportSummary@ objects.
-    exportSummaries :: Core.Maybe [Types.ExportSummary],
-    -- | If this value is returned, there are additional results to be displayed. To retrieve them, call @ListExports@ again, with @NextToken@ set to this value.
-    nextToken :: Core.Maybe Types.NextToken,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { exportSummaries :: Core.Maybe [Types.ExportSummary]
+    -- ^ A list of @ExportSummary@ objects.
+  , nextToken :: Core.Maybe Types.NextToken
+    -- ^ If this value is returned, there are additional results to be displayed. To retrieve them, call @ListExports@ again, with @NextToken@ set to this value.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ListExportsResponse' value with any optional fields omitted.
-mkListExportsResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  ListExportsResponse
-mkListExportsResponse responseStatus =
-  ListExportsResponse'
-    { exportSummaries = Core.Nothing,
-      nextToken = Core.Nothing,
-      responseStatus
-    }
+mkListExportsResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> ListExportsResponse
+mkListExportsResponse responseStatus
+  = ListExportsResponse'{exportSummaries = Core.Nothing,
+                         nextToken = Core.Nothing, responseStatus}
 
 -- | A list of @ExportSummary@ objects.
 --
 -- /Note:/ Consider using 'exportSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lerrsExportSummaries :: Lens.Lens' ListExportsResponse (Core.Maybe [Types.ExportSummary])
 lerrsExportSummaries = Lens.field @"exportSummaries"
-{-# DEPRECATED lerrsExportSummaries "Use generic-lens or generic-optics with 'exportSummaries' instead." #-}
+{-# INLINEABLE lerrsExportSummaries #-}
+{-# DEPRECATED exportSummaries "Use generic-lens or generic-optics with 'exportSummaries' instead"  #-}
 
 -- | If this value is returned, there are additional results to be displayed. To retrieve them, call @ListExports@ again, with @NextToken@ set to this value.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lerrsNextToken :: Lens.Lens' ListExportsResponse (Core.Maybe Types.NextToken)
 lerrsNextToken = Lens.field @"nextToken"
-{-# DEPRECATED lerrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+{-# INLINEABLE lerrsNextToken #-}
+{-# DEPRECATED nextToken "Use generic-lens or generic-optics with 'nextToken' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 lerrsResponseStatus :: Lens.Lens' ListExportsResponse Core.Int
 lerrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED lerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE lerrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

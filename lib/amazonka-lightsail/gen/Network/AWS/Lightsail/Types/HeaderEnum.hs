@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,55 +10,39 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Lightsail.Types.HeaderEnum
   ( HeaderEnum
-      ( HeaderEnum',
-        HeaderEnumAccept,
-        HeaderEnumAcceptCharset,
-        HeaderEnumAcceptDatetime,
-        HeaderEnumAcceptEncoding,
-        HeaderEnumAcceptLanguage,
-        HeaderEnumAuthorization,
-        HeaderEnumCloudFrontForwardedProto,
-        HeaderEnumCloudFrontIsDesktopViewer,
-        HeaderEnumCloudFrontIsMobileViewer,
-        HeaderEnumCloudFrontIsSmartTVViewer,
-        HeaderEnumCloudFrontIsTabletViewer,
-        HeaderEnumCloudFrontViewerCountry,
-        HeaderEnumHost,
-        HeaderEnumOrigin,
-        HeaderEnumReferer,
-        fromHeaderEnum
-      ),
-  )
-where
+    ( HeaderEnum'
+    , HeaderEnumAccept
+    , HeaderEnumAcceptCharset
+    , HeaderEnumAcceptDatetime
+    , HeaderEnumAcceptEncoding
+    , HeaderEnumAcceptLanguage
+    , HeaderEnumAuthorization
+    , HeaderEnumCloudFrontForwardedProto
+    , HeaderEnumCloudFrontIsDesktopViewer
+    , HeaderEnumCloudFrontIsMobileViewer
+    , HeaderEnumCloudFrontIsSmartTVViewer
+    , HeaderEnumCloudFrontIsTabletViewer
+    , HeaderEnumCloudFrontViewerCountry
+    , HeaderEnumHost
+    , HeaderEnumOrigin
+    , HeaderEnumReferer
+    , fromHeaderEnum
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype HeaderEnum = HeaderEnum' {fromHeaderEnum :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype HeaderEnum = HeaderEnum'{fromHeaderEnum :: Core.Text}
+                       deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                       Core.Generic)
+                       deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                         Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                         Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                         Core.FromText, Core.ToByteString, Core.ToQuery,
+                                         Core.ToHeader)
 
 pattern HeaderEnumAccept :: HeaderEnum
 pattern HeaderEnumAccept = HeaderEnum' "Accept"
@@ -105,21 +89,35 @@ pattern HeaderEnumOrigin = HeaderEnum' "Origin"
 pattern HeaderEnumReferer :: HeaderEnum
 pattern HeaderEnumReferer = HeaderEnum' "Referer"
 
-{-# COMPLETE
+{-# COMPLETE 
   HeaderEnumAccept,
+
   HeaderEnumAcceptCharset,
+
   HeaderEnumAcceptDatetime,
+
   HeaderEnumAcceptEncoding,
+
   HeaderEnumAcceptLanguage,
+
   HeaderEnumAuthorization,
+
   HeaderEnumCloudFrontForwardedProto,
+
   HeaderEnumCloudFrontIsDesktopViewer,
+
   HeaderEnumCloudFrontIsMobileViewer,
+
   HeaderEnumCloudFrontIsSmartTVViewer,
+
   HeaderEnumCloudFrontIsTabletViewer,
+
   HeaderEnumCloudFrontViewerCountry,
+
   HeaderEnumHost,
+
   HeaderEnumOrigin,
+
   HeaderEnumReferer,
   HeaderEnum'
   #-}

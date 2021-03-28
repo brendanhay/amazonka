@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Translate.Types.InputDataConfig
-  ( InputDataConfig (..),
-
-    -- * Smart constructor
-    mkInputDataConfig,
-
-    -- * Lenses
-    idcS3Uri,
-    idcContentType,
-  )
-where
+  ( InputDataConfig (..)
+  -- * Smart constructor
+  , mkInputDataConfig
+  -- * Lenses
+  , idcS3Uri
+  , idcContentType
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -31,48 +29,47 @@ import qualified Network.AWS.Translate.Types.S3Uri as Types
 --
 -- /See:/ 'mkInputDataConfig' smart constructor.
 data InputDataConfig = InputDataConfig'
-  { -- | The URI of the AWS S3 folder that contains the input file. The folder must be in the same Region as the API endpoint you are calling.
-    s3Uri :: Types.S3Uri,
-    -- | Describes the format of the data that you submit to Amazon Translate as input. You can specify one of the following multipurpose internet mail extension (MIME) types:
-    --
-    --
-    --     * @text/html@ : The input data consists of one or more HTML files. Amazon Translate translates only the text that resides in the @html@ element in each file.
-    --
-    --
-    --     * @text/plain@ : The input data consists of one or more unformatted text files. Amazon Translate translates every character in this type of input.
-    --
-    --
-    --     * @application/vnd.openxmlformats-officedocument.wordprocessingml.document@ : The input data consists of one or more Word documents (.docx).
-    --
-    --
-    --     * @application/vnd.openxmlformats-officedocument.presentationml.presentation@ : The input data consists of one or more PowerPoint Presentation files (.pptx).
-    --
-    --
-    --     * @application/vnd.openxmlformats-officedocument.spreadsheetml.sheet@ : The input data consists of one or more Excel Workbook files (.xlsx).
-    --
-    --
-    -- /Important:/ If you structure your input data as HTML, ensure that you set this parameter to @text/html@ . By doing so, you cut costs by limiting the translation to the contents of the @html@ element in each file. Otherwise, if you set this parameter to @text/plain@ , your costs will cover the translation of every character.
-    contentType :: Types.ContentType
+  { s3Uri :: Types.S3Uri
+    -- ^ The URI of the AWS S3 folder that contains the input file. The folder must be in the same Region as the API endpoint you are calling.
+  , contentType :: Types.ContentType
+    -- ^ Describes the format of the data that you submit to Amazon Translate as input. You can specify one of the following multipurpose internet mail extension (MIME) types:
+--
+--
+--     * @text/html@ : The input data consists of one or more HTML files. Amazon Translate translates only the text that resides in the @html@ element in each file.
+--
+--
+--     * @text/plain@ : The input data consists of one or more unformatted text files. Amazon Translate translates every character in this type of input.
+--
+--
+--     * @application/vnd.openxmlformats-officedocument.wordprocessingml.document@ : The input data consists of one or more Word documents (.docx).
+--
+--
+--     * @application/vnd.openxmlformats-officedocument.presentationml.presentation@ : The input data consists of one or more PowerPoint Presentation files (.pptx).
+--
+--
+--     * @application/vnd.openxmlformats-officedocument.spreadsheetml.sheet@ : The input data consists of one or more Excel Workbook files (.xlsx).
+--
+--
+-- /Important:/ If you structure your input data as HTML, ensure that you set this parameter to @text/html@ . By doing so, you cut costs by limiting the translation to the contents of the @html@ element in each file. Otherwise, if you set this parameter to @text/plain@ , your costs will cover the translation of every character.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'InputDataConfig' value with any optional fields omitted.
-mkInputDataConfig ::
-  -- | 's3Uri'
-  Types.S3Uri ->
-  -- | 'contentType'
-  Types.ContentType ->
-  InputDataConfig
-mkInputDataConfig s3Uri contentType =
-  InputDataConfig' {s3Uri, contentType}
+mkInputDataConfig
+    :: Types.S3Uri -- ^ 's3Uri'
+    -> Types.ContentType -- ^ 'contentType'
+    -> InputDataConfig
+mkInputDataConfig s3Uri contentType
+  = InputDataConfig'{s3Uri, contentType}
 
 -- | The URI of the AWS S3 folder that contains the input file. The folder must be in the same Region as the API endpoint you are calling.
 --
 -- /Note:/ Consider using 's3Uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 idcS3Uri :: Lens.Lens' InputDataConfig Types.S3Uri
 idcS3Uri = Lens.field @"s3Uri"
-{-# DEPRECATED idcS3Uri "Use generic-lens or generic-optics with 's3Uri' instead." #-}
+{-# INLINEABLE idcS3Uri #-}
+{-# DEPRECATED s3Uri "Use generic-lens or generic-optics with 's3Uri' instead"  #-}
 
 -- | Describes the format of the data that you submit to Amazon Translate as input. You can specify one of the following multipurpose internet mail extension (MIME) types:
 --
@@ -97,20 +94,19 @@ idcS3Uri = Lens.field @"s3Uri"
 -- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 idcContentType :: Lens.Lens' InputDataConfig Types.ContentType
 idcContentType = Lens.field @"contentType"
-{-# DEPRECATED idcContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
+{-# INLINEABLE idcContentType #-}
+{-# DEPRECATED contentType "Use generic-lens or generic-optics with 'contentType' instead"  #-}
 
 instance Core.FromJSON InputDataConfig where
-  toJSON InputDataConfig {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("S3Uri" Core..= s3Uri),
-            Core.Just ("ContentType" Core..= contentType)
-          ]
-      )
+        toJSON InputDataConfig{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("S3Uri" Core..= s3Uri),
+                  Core.Just ("ContentType" Core..= contentType)])
 
 instance Core.FromJSON InputDataConfig where
-  parseJSON =
-    Core.withObject "InputDataConfig" Core.$
-      \x ->
-        InputDataConfig'
-          Core.<$> (x Core..: "S3Uri") Core.<*> (x Core..: "ContentType")
+        parseJSON
+          = Core.withObject "InputDataConfig" Core.$
+              \ x ->
+                InputDataConfig' Core.<$>
+                  (x Core..: "S3Uri") Core.<*> x Core..: "ContentType"

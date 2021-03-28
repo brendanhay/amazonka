@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,67 +10,50 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.EMR.Types.Unit
   ( Unit
-      ( Unit',
-        UnitNone,
-        UnitSeconds,
-        UnitMicroSeconds,
-        UnitMilliSeconds,
-        UnitBytes,
-        UnitKiloBytes,
-        UnitMegaBytes,
-        UnitGigaBytes,
-        UnitTeraBytes,
-        UnitBits,
-        UnitKiloBits,
-        UnitMegaBits,
-        UnitGigaBits,
-        UnitTeraBits,
-        UnitPercent,
-        UnitCount,
-        UnitBytesPerSecond,
-        UnitKiloBytesPerSecond,
-        UnitMegaBytesPerSecond,
-        UnitGigaBytesPerSecond,
-        UnitTeraBytesPerSecond,
-        UnitBitsPerSecond,
-        UnitKiloBitsPerSecond,
-        UnitMegaBitsPerSecond,
-        UnitGigaBitsPerSecond,
-        UnitTeraBitsPerSecond,
-        UnitCountPerSecond,
-        fromUnit
-      ),
-  )
-where
+    ( Unit'
+    , UnitNone
+    , UnitSeconds
+    , UnitMicroSeconds
+    , UnitMilliSeconds
+    , UnitBytes
+    , UnitKiloBytes
+    , UnitMegaBytes
+    , UnitGigaBytes
+    , UnitTeraBytes
+    , UnitBits
+    , UnitKiloBits
+    , UnitMegaBits
+    , UnitGigaBits
+    , UnitTeraBits
+    , UnitPercent
+    , UnitCount
+    , UnitBytesPerSecond
+    , UnitKiloBytesPerSecond
+    , UnitMegaBytesPerSecond
+    , UnitGigaBytesPerSecond
+    , UnitTeraBytesPerSecond
+    , UnitBitsPerSecond
+    , UnitKiloBitsPerSecond
+    , UnitMegaBitsPerSecond
+    , UnitGigaBitsPerSecond
+    , UnitTeraBitsPerSecond
+    , UnitCountPerSecond
+    , fromUnit
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype Unit = Unit' {fromUnit :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype Unit = Unit'{fromUnit :: Core.Text}
+                 deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                 Core.Generic)
+                 deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                   Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON, Core.FromJSON,
+                                   Core.ToXML, Core.FromXML, Core.ToText, Core.FromText,
+                                   Core.ToByteString, Core.ToQuery, Core.ToHeader)
 
 pattern UnitNone :: Unit
 pattern UnitNone = Unit' "NONE"
@@ -153,33 +136,59 @@ pattern UnitTeraBitsPerSecond = Unit' "TERA_BITS_PER_SECOND"
 pattern UnitCountPerSecond :: Unit
 pattern UnitCountPerSecond = Unit' "COUNT_PER_SECOND"
 
-{-# COMPLETE
+{-# COMPLETE 
   UnitNone,
+
   UnitSeconds,
+
   UnitMicroSeconds,
+
   UnitMilliSeconds,
+
   UnitBytes,
+
   UnitKiloBytes,
+
   UnitMegaBytes,
+
   UnitGigaBytes,
+
   UnitTeraBytes,
+
   UnitBits,
+
   UnitKiloBits,
+
   UnitMegaBits,
+
   UnitGigaBits,
+
   UnitTeraBits,
+
   UnitPercent,
+
   UnitCount,
+
   UnitBytesPerSecond,
+
   UnitKiloBytesPerSecond,
+
   UnitMegaBytesPerSecond,
+
   UnitGigaBytesPerSecond,
+
   UnitTeraBytesPerSecond,
+
   UnitBitsPerSecond,
+
   UnitKiloBitsPerSecond,
+
   UnitMegaBitsPerSecond,
+
   UnitGigaBitsPerSecond,
+
   UnitTeraBitsPerSecond,
+
   UnitCountPerSecond,
   Unit'
   #-}

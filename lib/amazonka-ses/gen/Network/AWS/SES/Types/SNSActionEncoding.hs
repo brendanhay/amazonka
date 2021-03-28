@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,45 +10,27 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.SES.Types.SNSActionEncoding
   ( SNSActionEncoding
-      ( SNSActionEncoding',
-        SNSActionEncodingUtf8,
-        SNSActionEncodingBASE64,
-        fromSNSActionEncoding
-      ),
-  )
-where
+    ( SNSActionEncoding'
+    , SNSActionEncodingUtf8
+    , SNSActionEncodingBASE64
+    , fromSNSActionEncoding
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype SNSActionEncoding = SNSActionEncoding'
-  { fromSNSActionEncoding ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype SNSActionEncoding = SNSActionEncoding'{fromSNSActionEncoding
+                                               :: Core.Text}
+                              deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                              Core.Generic)
+                              deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                                Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                                Core.FromJSON, Core.ToXML, Core.FromXML,
+                                                Core.ToText, Core.FromText, Core.ToByteString,
+                                                Core.ToQuery, Core.ToHeader)
 
 pattern SNSActionEncodingUtf8 :: SNSActionEncoding
 pattern SNSActionEncodingUtf8 = SNSActionEncoding' "UTF-8"
@@ -56,8 +38,9 @@ pattern SNSActionEncodingUtf8 = SNSActionEncoding' "UTF-8"
 pattern SNSActionEncodingBASE64 :: SNSActionEncoding
 pattern SNSActionEncodingBASE64 = SNSActionEncoding' "Base64"
 
-{-# COMPLETE
+{-# COMPLETE 
   SNSActionEncodingUtf8,
+
   SNSActionEncodingBASE64,
   SNSActionEncoding'
   #-}

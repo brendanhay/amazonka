@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,47 +10,29 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Lightsail.Types.TreatMissingData
   ( TreatMissingData
-      ( TreatMissingData',
-        TreatMissingDataBreaching,
-        TreatMissingDataNotBreaching,
-        TreatMissingDataIgnore,
-        TreatMissingDataMissing,
-        fromTreatMissingData
-      ),
-  )
-where
+    ( TreatMissingData'
+    , TreatMissingDataBreaching
+    , TreatMissingDataNotBreaching
+    , TreatMissingDataIgnore
+    , TreatMissingDataMissing
+    , fromTreatMissingData
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype TreatMissingData = TreatMissingData'
-  { fromTreatMissingData ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype TreatMissingData = TreatMissingData'{fromTreatMissingData
+                                             :: Core.Text}
+                             deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                             Core.Generic)
+                             deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                               Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                               Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                               Core.FromText, Core.ToByteString, Core.ToQuery,
+                                               Core.ToHeader)
 
 pattern TreatMissingDataBreaching :: TreatMissingData
 pattern TreatMissingDataBreaching = TreatMissingData' "breaching"
@@ -64,10 +46,13 @@ pattern TreatMissingDataIgnore = TreatMissingData' "ignore"
 pattern TreatMissingDataMissing :: TreatMissingData
 pattern TreatMissingDataMissing = TreatMissingData' "missing"
 
-{-# COMPLETE
+{-# COMPLETE 
   TreatMissingDataBreaching,
+
   TreatMissingDataNotBreaching,
+
   TreatMissingDataIgnore,
+
   TreatMissingDataMissing,
   TreatMissingData'
   #-}

@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,22 +15,20 @@
 --
 -- Gets the properties associated with a document classifier.
 module Network.AWS.Comprehend.DescribeDocumentClassifier
-  ( -- * Creating a request
-    DescribeDocumentClassifier (..),
-    mkDescribeDocumentClassifier,
-
+    (
+    -- * Creating a request
+      DescribeDocumentClassifier (..)
+    , mkDescribeDocumentClassifier
     -- ** Request lenses
-    ddcDocumentClassifierArn,
+    , ddcDocumentClassifierArn
 
     -- * Destructuring the response
-    DescribeDocumentClassifierResponse (..),
-    mkDescribeDocumentClassifierResponse,
-
+    , DescribeDocumentClassifierResponse (..)
+    , mkDescribeDocumentClassifierResponse
     -- ** Response lenses
-    ddcrrsDocumentClassifierProperties,
-    ddcrrsResponseStatus,
-  )
-where
+    , ddcrrsDocumentClassifierProperties
+    , ddcrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -40,92 +38,93 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeDocumentClassifier' smart constructor.
 newtype DescribeDocumentClassifier = DescribeDocumentClassifier'
-  { -- | The Amazon Resource Name (ARN) that identifies the document classifier. The operation returns this identifier in its response.
-    documentClassifierArn :: Types.DocumentClassifierArn
+  { documentClassifierArn :: Types.DocumentClassifierArn
+    -- ^ The Amazon Resource Name (ARN) that identifies the document classifier. The operation returns this identifier in its response.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'DescribeDocumentClassifier' value with any optional fields omitted.
-mkDescribeDocumentClassifier ::
-  -- | 'documentClassifierArn'
-  Types.DocumentClassifierArn ->
-  DescribeDocumentClassifier
-mkDescribeDocumentClassifier documentClassifierArn =
-  DescribeDocumentClassifier' {documentClassifierArn}
+mkDescribeDocumentClassifier
+    :: Types.DocumentClassifierArn -- ^ 'documentClassifierArn'
+    -> DescribeDocumentClassifier
+mkDescribeDocumentClassifier documentClassifierArn
+  = DescribeDocumentClassifier'{documentClassifierArn}
 
 -- | The Amazon Resource Name (ARN) that identifies the document classifier. The operation returns this identifier in its response.
 --
 -- /Note:/ Consider using 'documentClassifierArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ddcDocumentClassifierArn :: Lens.Lens' DescribeDocumentClassifier Types.DocumentClassifierArn
 ddcDocumentClassifierArn = Lens.field @"documentClassifierArn"
-{-# DEPRECATED ddcDocumentClassifierArn "Use generic-lens or generic-optics with 'documentClassifierArn' instead." #-}
+{-# INLINEABLE ddcDocumentClassifierArn #-}
+{-# DEPRECATED documentClassifierArn "Use generic-lens or generic-optics with 'documentClassifierArn' instead"  #-}
+
+instance Core.ToQuery DescribeDocumentClassifier where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders DescribeDocumentClassifier where
+        toHeaders DescribeDocumentClassifier{..}
+          = Core.pure
+              ("X-Amz-Target", "Comprehend_20171127.DescribeDocumentClassifier")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON DescribeDocumentClassifier where
-  toJSON DescribeDocumentClassifier {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just
-              ("DocumentClassifierArn" Core..= documentClassifierArn)
-          ]
-      )
+        toJSON DescribeDocumentClassifier{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just
+                    ("DocumentClassifierArn" Core..= documentClassifierArn)])
 
 instance Core.AWSRequest DescribeDocumentClassifier where
-  type
-    Rs DescribeDocumentClassifier =
-      DescribeDocumentClassifierResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ("X-Amz-Target", "Comprehend_20171127.DescribeDocumentClassifier")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          DescribeDocumentClassifierResponse'
-            Core.<$> (x Core..:? "DocumentClassifierProperties")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs DescribeDocumentClassifier =
+             DescribeDocumentClassifierResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 DescribeDocumentClassifierResponse' Core.<$>
+                   (x Core..:? "DocumentClassifierProperties") Core.<*>
+                     Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkDescribeDocumentClassifierResponse' smart constructor.
 data DescribeDocumentClassifierResponse = DescribeDocumentClassifierResponse'
-  { -- | An object that contains the properties associated with a document classifier.
-    documentClassifierProperties :: Core.Maybe Types.DocumentClassifierProperties,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { documentClassifierProperties :: Core.Maybe Types.DocumentClassifierProperties
+    -- ^ An object that contains the properties associated with a document classifier.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'DescribeDocumentClassifierResponse' value with any optional fields omitted.
-mkDescribeDocumentClassifierResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  DescribeDocumentClassifierResponse
-mkDescribeDocumentClassifierResponse responseStatus =
-  DescribeDocumentClassifierResponse'
-    { documentClassifierProperties =
-        Core.Nothing,
-      responseStatus
-    }
+mkDescribeDocumentClassifierResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> DescribeDocumentClassifierResponse
+mkDescribeDocumentClassifierResponse responseStatus
+  = DescribeDocumentClassifierResponse'{documentClassifierProperties
+                                          = Core.Nothing,
+                                        responseStatus}
 
 -- | An object that contains the properties associated with a document classifier.
 --
 -- /Note:/ Consider using 'documentClassifierProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ddcrrsDocumentClassifierProperties :: Lens.Lens' DescribeDocumentClassifierResponse (Core.Maybe Types.DocumentClassifierProperties)
 ddcrrsDocumentClassifierProperties = Lens.field @"documentClassifierProperties"
-{-# DEPRECATED ddcrrsDocumentClassifierProperties "Use generic-lens or generic-optics with 'documentClassifierProperties' instead." #-}
+{-# INLINEABLE ddcrrsDocumentClassifierProperties #-}
+{-# DEPRECATED documentClassifierProperties "Use generic-lens or generic-optics with 'documentClassifierProperties' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 ddcrrsResponseStatus :: Lens.Lens' DescribeDocumentClassifierResponse Core.Int
 ddcrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED ddcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE ddcrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

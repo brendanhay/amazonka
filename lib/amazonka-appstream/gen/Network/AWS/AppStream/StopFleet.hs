@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,21 +15,19 @@
 --
 -- Stops the specified fleet.
 module Network.AWS.AppStream.StopFleet
-  ( -- * Creating a request
-    StopFleet (..),
-    mkStopFleet,
-
+    (
+    -- * Creating a request
+      StopFleet (..)
+    , mkStopFleet
     -- ** Request lenses
-    sfName,
+    , sfName
 
     -- * Destructuring the response
-    StopFleetResponse (..),
-    mkStopFleetResponse,
-
+    , StopFleetResponse (..)
+    , mkStopFleetResponse
     -- ** Response lenses
-    sfrrsResponseStatus,
-  )
-where
+    , sfrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.AppStream.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -39,68 +37,73 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopFleet' smart constructor.
 newtype StopFleet = StopFleet'
-  { -- | The name of the fleet.
-    name :: Types.String
+  { name :: Core.Text
+    -- ^ The name of the fleet.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'StopFleet' value with any optional fields omitted.
-mkStopFleet ::
-  -- | 'name'
-  Types.String ->
-  StopFleet
-mkStopFleet name = StopFleet' {name}
+mkStopFleet
+    :: Core.Text -- ^ 'name'
+    -> StopFleet
+mkStopFleet name = StopFleet'{name}
 
 -- | The name of the fleet.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfName :: Lens.Lens' StopFleet Types.String
+sfName :: Lens.Lens' StopFleet Core.Text
 sfName = Lens.field @"name"
-{-# DEPRECATED sfName "Use generic-lens or generic-optics with 'name' instead." #-}
+{-# INLINEABLE sfName #-}
+{-# DEPRECATED name "Use generic-lens or generic-optics with 'name' instead"  #-}
+
+instance Core.ToQuery StopFleet where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders StopFleet where
+        toHeaders StopFleet{..}
+          = Core.pure ("X-Amz-Target", "PhotonAdminProxyService.StopFleet")
+              Core.<> Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON StopFleet where
-  toJSON StopFleet {..} =
-    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+        toJSON StopFleet{..}
+          = Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
 
 instance Core.AWSRequest StopFleet where
-  type Rs StopFleet = StopFleetResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "PhotonAdminProxyService.StopFleet")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveEmpty
-      ( \s h x ->
-          StopFleetResponse' Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs StopFleet = StopFleetResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveEmpty
+              (\ s h x ->
+                 StopFleetResponse' Core.<$> (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkStopFleetResponse' smart constructor.
 newtype StopFleetResponse = StopFleetResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'StopFleetResponse' value with any optional fields omitted.
-mkStopFleetResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  StopFleetResponse
-mkStopFleetResponse responseStatus =
-  StopFleetResponse' {responseStatus}
+mkStopFleetResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> StopFleetResponse
+mkStopFleetResponse responseStatus
+  = StopFleetResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 sfrrsResponseStatus :: Lens.Lens' StopFleetResponse Core.Int
 sfrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED sfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE sfrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

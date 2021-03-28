@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,63 +10,46 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Lambda.Types.Runtime
   ( Runtime
-      ( Runtime',
-        RuntimeNodejs,
-        RuntimeNODEJS4_3,
-        RuntimeNODEJS6_10,
-        RuntimeNODEJS8_10,
-        RuntimeNODEJS10_x,
-        RuntimeNODEJS12_x,
-        RuntimeJAVA8,
-        RuntimeJAVA8_AL2,
-        RuntimeJAVA11,
-        RuntimePYTHON2_7,
-        RuntimePYTHON3_6,
-        RuntimePYTHON3_7,
-        RuntimePYTHON3_8,
-        RuntimeDOTNETCORE1_0,
-        RuntimeDOTNETCORE2_0,
-        RuntimeDOTNETCORE2_1,
-        RuntimeDOTNETCORE3_1,
-        RuntimeNODEJS4_3Edge,
-        RuntimeGO1_x,
-        RuntimeRUBY2_5,
-        RuntimeRUBY2_7,
-        RuntimeProvided,
-        RuntimeProvided_AL2,
-        fromRuntime
-      ),
-  )
-where
+    ( Runtime'
+    , RuntimeNodejs
+    , RuntimeNODEJS4_3
+    , RuntimeNODEJS6_10
+    , RuntimeNODEJS8_10
+    , RuntimeNODEJS10_x
+    , RuntimeNODEJS12_x
+    , RuntimeJAVA8
+    , RuntimeJAVA8_AL2
+    , RuntimeJAVA11
+    , RuntimePYTHON2_7
+    , RuntimePYTHON3_6
+    , RuntimePYTHON3_7
+    , RuntimePYTHON3_8
+    , RuntimeDOTNETCORE1_0
+    , RuntimeDOTNETCORE2_0
+    , RuntimeDOTNETCORE2_1
+    , RuntimeDOTNETCORE3_1
+    , RuntimeNODEJS4_3Edge
+    , RuntimeGO1_x
+    , RuntimeRUBY2_5
+    , RuntimeRUBY2_7
+    , RuntimeProvided
+    , RuntimeProvided_AL2
+    , fromRuntime
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype Runtime = Runtime' {fromRuntime :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype Runtime = Runtime'{fromRuntime :: Core.Text}
+                    deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                    Core.Generic)
+                    deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                      Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON, Core.FromJSON,
+                                      Core.ToXML, Core.FromXML, Core.ToText, Core.FromText,
+                                      Core.ToByteString, Core.ToQuery, Core.ToHeader)
 
 pattern RuntimeNodejs :: Runtime
 pattern RuntimeNodejs = Runtime' "nodejs"
@@ -137,29 +120,51 @@ pattern RuntimeProvided = Runtime' "provided"
 pattern RuntimeProvided_AL2 :: Runtime
 pattern RuntimeProvided_AL2 = Runtime' "provided.al2"
 
-{-# COMPLETE
+{-# COMPLETE 
   RuntimeNodejs,
+
   RuntimeNODEJS4_3,
+
   RuntimeNODEJS6_10,
+
   RuntimeNODEJS8_10,
+
   RuntimeNODEJS10_x,
+
   RuntimeNODEJS12_x,
+
   RuntimeJAVA8,
+
   RuntimeJAVA8_AL2,
+
   RuntimeJAVA11,
+
   RuntimePYTHON2_7,
+
   RuntimePYTHON3_6,
+
   RuntimePYTHON3_7,
+
   RuntimePYTHON3_8,
+
   RuntimeDOTNETCORE1_0,
+
   RuntimeDOTNETCORE2_0,
+
   RuntimeDOTNETCORE2_1,
+
   RuntimeDOTNETCORE3_1,
+
   RuntimeNODEJS4_3Edge,
+
   RuntimeGO1_x,
+
   RuntimeRUBY2_5,
+
   RuntimeRUBY2_7,
+
   RuntimeProvided,
+
   RuntimeProvided_AL2,
   Runtime'
   #-}

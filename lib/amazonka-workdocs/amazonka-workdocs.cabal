@@ -1,250 +1,252 @@
-cabal-version:      2.2
-name:               amazonka-workdocs
-version:            2.0.0.0
-synopsis:           Amazon WorkDocs SDK.
-homepage:           https://github.com/brendanhay/amazonka
-bug-reports:        https://github.com/brendanhay/amazonka/issues
-license:            MPL-2.0
-license-file:       LICENSE
-author:             Brendan Hay
-maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:          Copyright (c) 2013-2020 Brendan Hay
-category:           AWS, Cloud
-build-type:         Simple
-extra-source-files:
-  fixture/*.proto
-  fixture/*.yaml
-  README.md
-  src/.gitkeep
-
+cabal-version:         2.2
+name:                  amazonka-workdocs
+version:               2.0.0.0
+synopsis:              Amazon WorkDocs SDK.
+homepage:              https://github.com/brendanhay/amazonka
+bug-reports:           https://github.com/brendanhay/amazonka/issues
+license:               MPL-2.0
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:             Copyright (c) 2013-2020 Brendan Hay
+category:              AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-  The types from this library are intended to be used with
-  <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-  mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
-  .
-  Lenses are used for constructing and manipulating types,
-  due to the depth of nesting of AWS types and transparency regarding
-  de/serialisation into more palatable Haskell values.
-  The provided lenses should be compatible with any of the major lens libraries
-  such as <http://hackage.haskell.org/package/lens lens> or
-  <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-  .
-  See "Network.AWS.WorkDocs" or <https://aws.amazon.com/documentation/ the AWS documentation>
-  to get started.
+    The types from this library are intended to be used with
+    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
+    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    and receiving responses.
+    .
+    Lenses are used for constructing and manipulating types,
+    due to the depth of nesting of AWS types and transparency regarding
+    de/serialisation into more palatable Haskell values.
+    The provided lenses should be compatible with any of the major lens libraries
+    such as <http://hackage.haskell.org/package/lens lens> or
+    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    See "Network.AWS.WorkDocs" or <https://aws.amazon.com/documentation/ the AWS documentation>
+    to get started.
 
 source-repository head
-  type:     git
-  location: git://github.com/brendanhay/amazonka.git
-  subdir:   lib/amazonka-workdocs
+    type:           git
+    location:       git://github.com/brendanhay/amazonka.git
+    subdir:         lib/amazonka-workdocs
 
 common base
-  default-language:   Haskell2010
+  default-language: Haskell2010
+
   ghc-options:
-    -Wall -funbox-strict-fields -fwarn-incomplete-uni-patterns
+    -Wall
+    -Wmissing-deriving-strategies
+    -funbox-strict-fields
+    -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates
 
   default-extensions:
     NoImplicitPrelude
-    DataKinds
+    DataKinds 
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
-    FlexibleContexts
+    FlexibleContexts 
     FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
-    NamedFieldPuns
+    NamedFieldPuns 
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
-    ScopedTypeVariables
+    ScopedTypeVariables 
     StandaloneDeriving
     StrictData
     TupleSections
     TypeApplications
     TypeFamilies
 
-  build-depends:      base >=4.12 && <5
+  build-depends:    base >=4.12 && <5
 
 library
-  import:          base
-  hs-source-dirs:  gen
-  exposed-modules:
-    Network.AWS.WorkDocs
-    Network.AWS.WorkDocs.AbortDocumentVersionUpload
-    Network.AWS.WorkDocs.ActivateUser
-    Network.AWS.WorkDocs.AddResourcePermissions
-    Network.AWS.WorkDocs.CreateComment
-    Network.AWS.WorkDocs.CreateCustomMetadata
-    Network.AWS.WorkDocs.CreateFolder
-    Network.AWS.WorkDocs.CreateLabels
-    Network.AWS.WorkDocs.CreateNotificationSubscription
-    Network.AWS.WorkDocs.CreateUser
-    Network.AWS.WorkDocs.DeactivateUser
-    Network.AWS.WorkDocs.DeleteComment
-    Network.AWS.WorkDocs.DeleteCustomMetadata
-    Network.AWS.WorkDocs.DeleteDocument
-    Network.AWS.WorkDocs.DeleteFolder
-    Network.AWS.WorkDocs.DeleteFolderContents
-    Network.AWS.WorkDocs.DeleteLabels
-    Network.AWS.WorkDocs.DeleteNotificationSubscription
-    Network.AWS.WorkDocs.DeleteUser
-    Network.AWS.WorkDocs.DescribeActivities
-    Network.AWS.WorkDocs.DescribeComments
-    Network.AWS.WorkDocs.DescribeDocumentVersions
-    Network.AWS.WorkDocs.DescribeFolderContents
-    Network.AWS.WorkDocs.DescribeGroups
-    Network.AWS.WorkDocs.DescribeNotificationSubscriptions
-    Network.AWS.WorkDocs.DescribeResourcePermissions
-    Network.AWS.WorkDocs.DescribeRootFolders
-    Network.AWS.WorkDocs.DescribeUsers
-    Network.AWS.WorkDocs.GetCurrentUser
-    Network.AWS.WorkDocs.GetDocument
-    Network.AWS.WorkDocs.GetDocumentPath
-    Network.AWS.WorkDocs.GetDocumentVersion
-    Network.AWS.WorkDocs.GetFolder
-    Network.AWS.WorkDocs.GetFolderPath
-    Network.AWS.WorkDocs.GetResources
-    Network.AWS.WorkDocs.InitiateDocumentVersionUpload
-    Network.AWS.WorkDocs.RemoveAllResourcePermissions
-    Network.AWS.WorkDocs.RemoveResourcePermission
-    Network.AWS.WorkDocs.Types
-    Network.AWS.WorkDocs.UpdateDocument
-    Network.AWS.WorkDocs.UpdateDocumentVersion
-    Network.AWS.WorkDocs.UpdateFolder
-    Network.AWS.WorkDocs.UpdateUser
-    Network.AWS.WorkDocs.Waiters
+    import:         base
+    hs-source-dirs: gen
 
-  other-modules:
-    Network.AWS.WorkDocs.Types.Activity
-    Network.AWS.WorkDocs.Types.ActivityType
-    Network.AWS.WorkDocs.Types.ActivityTypes
-    Network.AWS.WorkDocs.Types.AuthenticationHeaderType
-    Network.AWS.WorkDocs.Types.AuthenticationToken
-    Network.AWS.WorkDocs.Types.BooleanEnumType
-    Network.AWS.WorkDocs.Types.Comment
-    Network.AWS.WorkDocs.Types.CommentId
-    Network.AWS.WorkDocs.Types.CommentIdType
-    Network.AWS.WorkDocs.Types.CommentMetadata
-    Network.AWS.WorkDocs.Types.CommentStatusType
-    Network.AWS.WorkDocs.Types.CommentTextType
-    Network.AWS.WorkDocs.Types.CommentVisibilityType
-    Network.AWS.WorkDocs.Types.ContentType
-    Network.AWS.WorkDocs.Types.CreatorId
-    Network.AWS.WorkDocs.Types.CustomMetadataKeyType
-    Network.AWS.WorkDocs.Types.CustomMetadataValueType
-    Network.AWS.WorkDocs.Types.DocumentContentType
-    Network.AWS.WorkDocs.Types.DocumentId
-    Network.AWS.WorkDocs.Types.DocumentMetadata
-    Network.AWS.WorkDocs.Types.DocumentSourceType
-    Network.AWS.WorkDocs.Types.DocumentStatusType
-    Network.AWS.WorkDocs.Types.DocumentThumbnailType
-    Network.AWS.WorkDocs.Types.DocumentVersionIdType
-    Network.AWS.WorkDocs.Types.DocumentVersionMetadata
-    Network.AWS.WorkDocs.Types.DocumentVersionStatus
-    Network.AWS.WorkDocs.Types.EmailAddressType
-    Network.AWS.WorkDocs.Types.EmailMessage
-    Network.AWS.WorkDocs.Types.Fields
-    Network.AWS.WorkDocs.Types.FolderContentType
-    Network.AWS.WorkDocs.Types.FolderId
-    Network.AWS.WorkDocs.Types.FolderMetadata
-    Network.AWS.WorkDocs.Types.GroupMetadata
-    Network.AWS.WorkDocs.Types.GroupNameType
-    Network.AWS.WorkDocs.Types.HeaderNameType
-    Network.AWS.WorkDocs.Types.HeaderValueType
-    Network.AWS.WorkDocs.Types.Id
-    Network.AWS.WorkDocs.Types.IdType
-    Network.AWS.WorkDocs.Types.Include
-    Network.AWS.WorkDocs.Types.InviteePrincipalId
-    Network.AWS.WorkDocs.Types.LocaleType
-    Network.AWS.WorkDocs.Types.Marker
-    Network.AWS.WorkDocs.Types.MarkerType
-    Network.AWS.WorkDocs.Types.Name
-    Network.AWS.WorkDocs.Types.NotificationOptions
-    Network.AWS.WorkDocs.Types.OrderType
-    Network.AWS.WorkDocs.Types.OrganizationId
-    Network.AWS.WorkDocs.Types.OriginalName
-    Network.AWS.WorkDocs.Types.PageMarkerType
-    Network.AWS.WorkDocs.Types.ParentFolderId
-    Network.AWS.WorkDocs.Types.ParentId
-    Network.AWS.WorkDocs.Types.Participants
-    Network.AWS.WorkDocs.Types.PasswordType
-    Network.AWS.WorkDocs.Types.PermissionInfo
-    Network.AWS.WorkDocs.Types.Principal
-    Network.AWS.WorkDocs.Types.PrincipalId
-    Network.AWS.WorkDocs.Types.PrincipalType
-    Network.AWS.WorkDocs.Types.RecycleBinFolderId
-    Network.AWS.WorkDocs.Types.ResourceCollectionType
-    Network.AWS.WorkDocs.Types.ResourceId
-    Network.AWS.WorkDocs.Types.ResourceIdType
-    Network.AWS.WorkDocs.Types.ResourceMetadata
-    Network.AWS.WorkDocs.Types.ResourceNameType
-    Network.AWS.WorkDocs.Types.ResourcePath
-    Network.AWS.WorkDocs.Types.ResourcePathComponent
-    Network.AWS.WorkDocs.Types.ResourceSortType
-    Network.AWS.WorkDocs.Types.ResourceStateType
-    Network.AWS.WorkDocs.Types.ResourceType
-    Network.AWS.WorkDocs.Types.RolePermissionType
-    Network.AWS.WorkDocs.Types.RoleType
-    Network.AWS.WorkDocs.Types.RootFolderId
-    Network.AWS.WorkDocs.Types.SearchQueryType
-    Network.AWS.WorkDocs.Types.SharedLabel
-    Network.AWS.WorkDocs.Types.ShareId
-    Network.AWS.WorkDocs.Types.SharePrincipal
-    Network.AWS.WorkDocs.Types.ShareResult
-    Network.AWS.WorkDocs.Types.ShareStatusType
-    Network.AWS.WorkDocs.Types.Signature
-    Network.AWS.WorkDocs.Types.StatusMessage
-    Network.AWS.WorkDocs.Types.StorageRuleType
-    Network.AWS.WorkDocs.Types.StorageType
-    Network.AWS.WorkDocs.Types.Subscription
-    Network.AWS.WorkDocs.Types.SubscriptionEndPointType
-    Network.AWS.WorkDocs.Types.SubscriptionProtocolType
-    Network.AWS.WorkDocs.Types.SubscriptionType
-    Network.AWS.WorkDocs.Types.Text
-    Network.AWS.WorkDocs.Types.TimeZoneIdType
-    Network.AWS.WorkDocs.Types.UploadMetadata
-    Network.AWS.WorkDocs.Types.UrlType
-    Network.AWS.WorkDocs.Types.User
-    Network.AWS.WorkDocs.Types.UserAttributeValueType
-    Network.AWS.WorkDocs.Types.UserFilterType
-    Network.AWS.WorkDocs.Types.UserId
-    Network.AWS.WorkDocs.Types.UserIdsType
-    Network.AWS.WorkDocs.Types.UserMetadata
-    Network.AWS.WorkDocs.Types.Username
-    Network.AWS.WorkDocs.Types.UserSortType
-    Network.AWS.WorkDocs.Types.UserStatusType
-    Network.AWS.WorkDocs.Types.UserStorageMetadata
-    Network.AWS.WorkDocs.Types.UserType
-    Network.AWS.WorkDocs.Types.VersionId
+    exposed-modules:
+          Network.AWS.WorkDocs
+        , Network.AWS.WorkDocs.Types
+        , Network.AWS.WorkDocs.Waiters
+        , Network.AWS.WorkDocs.DeleteLabels
+        , Network.AWS.WorkDocs.AbortDocumentVersionUpload
+        , Network.AWS.WorkDocs.GetDocumentPath
+        , Network.AWS.WorkDocs.CreateComment
+        , Network.AWS.WorkDocs.DescribeUsers
+        , Network.AWS.WorkDocs.DeleteFolder
+        , Network.AWS.WorkDocs.UpdateFolder
+        , Network.AWS.WorkDocs.DeleteCustomMetadata
+        , Network.AWS.WorkDocs.DescribeResourcePermissions
+        , Network.AWS.WorkDocs.DeleteNotificationSubscription
+        , Network.AWS.WorkDocs.CreateFolder
+        , Network.AWS.WorkDocs.CreateNotificationSubscription
+        , Network.AWS.WorkDocs.CreateCustomMetadata
+        , Network.AWS.WorkDocs.GetFolderPath
+        , Network.AWS.WorkDocs.DescribeComments
+        , Network.AWS.WorkDocs.DeleteFolderContents
+        , Network.AWS.WorkDocs.RemoveAllResourcePermissions
+        , Network.AWS.WorkDocs.GetFolder
+        , Network.AWS.WorkDocs.DescribeNotificationSubscriptions
+        , Network.AWS.WorkDocs.ActivateUser
+        , Network.AWS.WorkDocs.DescribeDocumentVersions
+        , Network.AWS.WorkDocs.GetDocumentVersion
+        , Network.AWS.WorkDocs.DescribeActivities
+        , Network.AWS.WorkDocs.DescribeRootFolders
+        , Network.AWS.WorkDocs.GetCurrentUser
+        , Network.AWS.WorkDocs.DeactivateUser
+        , Network.AWS.WorkDocs.GetDocument
+        , Network.AWS.WorkDocs.DescribeFolderContents
+        , Network.AWS.WorkDocs.CreateLabels
+        , Network.AWS.WorkDocs.UpdateDocumentVersion
+        , Network.AWS.WorkDocs.RemoveResourcePermission
+        , Network.AWS.WorkDocs.GetResources
+        , Network.AWS.WorkDocs.DeleteComment
+        , Network.AWS.WorkDocs.InitiateDocumentVersionUpload
+        , Network.AWS.WorkDocs.CreateUser
+        , Network.AWS.WorkDocs.UpdateUser
+        , Network.AWS.WorkDocs.DeleteUser
+        , Network.AWS.WorkDocs.AddResourcePermissions
+        , Network.AWS.WorkDocs.UpdateDocument
+        , Network.AWS.WorkDocs.DeleteDocument
+        , Network.AWS.WorkDocs.DescribeGroups
 
-  build-depends:   amazonka-core ==2.0.0.0.*
+    other-modules:
+          Network.AWS.WorkDocs.Types.RoleType
+        , Network.AWS.WorkDocs.Types.ShareResult
+        , Network.AWS.WorkDocs.Types.SearchQueryType
+        , Network.AWS.WorkDocs.Types.SharePrincipal
+        , Network.AWS.WorkDocs.Types.FolderContentType
+        , Network.AWS.WorkDocs.Types.AuthenticationHeaderType
+        , Network.AWS.WorkDocs.Types.ResourceMetadata
+        , Network.AWS.WorkDocs.Types.CommentStatusType
+        , Network.AWS.WorkDocs.Types.StorageRuleType
+        , Network.AWS.WorkDocs.Types.PasswordType
+        , Network.AWS.WorkDocs.Types.DocumentMetadata
+        , Network.AWS.WorkDocs.Types.EmailAddressType
+        , Network.AWS.WorkDocs.Types.MarkerType
+        , Network.AWS.WorkDocs.Types.ResourceType
+        , Network.AWS.WorkDocs.Types.PrincipalType
+        , Network.AWS.WorkDocs.Types.UserStorageMetadata
+        , Network.AWS.WorkDocs.Types.CustomMetadataValueType
+        , Network.AWS.WorkDocs.Types.ActivityType
+        , Network.AWS.WorkDocs.Types.ResourceStateType
+        , Network.AWS.WorkDocs.Types.IdType
+        , Network.AWS.WorkDocs.Types.NotificationOptions
+        , Network.AWS.WorkDocs.Types.ResourcePathComponent
+        , Network.AWS.WorkDocs.Types.GroupNameType
+        , Network.AWS.WorkDocs.Types.DocumentVersionMetadata
+        , Network.AWS.WorkDocs.Types.DocumentStatusType
+        , Network.AWS.WorkDocs.Types.SubscriptionType
+        , Network.AWS.WorkDocs.Types.UserSortType
+        , Network.AWS.WorkDocs.Types.FolderMetadata
+        , Network.AWS.WorkDocs.Types.DocumentContentType
+        , Network.AWS.WorkDocs.Types.UserAttributeValueType
+        , Network.AWS.WorkDocs.Types.TimeZoneIdType
+        , Network.AWS.WorkDocs.Types.CommentIdType
+        , Network.AWS.WorkDocs.Types.OrderType
+        , Network.AWS.WorkDocs.Types.PageMarkerType
+        , Network.AWS.WorkDocs.Types.UserFilterType
+        , Network.AWS.WorkDocs.Types.User
+        , Network.AWS.WorkDocs.Types.Participants
+        , Network.AWS.WorkDocs.Types.UserMetadata
+        , Network.AWS.WorkDocs.Types.ResourceCollectionType
+        , Network.AWS.WorkDocs.Types.HeaderValueType
+        , Network.AWS.WorkDocs.Types.SharedLabel
+        , Network.AWS.WorkDocs.Types.RolePermissionType
+        , Network.AWS.WorkDocs.Types.BooleanEnumType
+        , Network.AWS.WorkDocs.Types.ResourceIdType
+        , Network.AWS.WorkDocs.Types.ResourcePath
+        , Network.AWS.WorkDocs.Types.UserIdsType
+        , Network.AWS.WorkDocs.Types.Principal
+        , Network.AWS.WorkDocs.Types.GroupMetadata
+        , Network.AWS.WorkDocs.Types.DocumentSourceType
+        , Network.AWS.WorkDocs.Types.ResourceNameType
+        , Network.AWS.WorkDocs.Types.PermissionInfo
+        , Network.AWS.WorkDocs.Types.SubscriptionProtocolType
+        , Network.AWS.WorkDocs.Types.UserStatusType
+        , Network.AWS.WorkDocs.Types.Activity
+        , Network.AWS.WorkDocs.Types.CommentVisibilityType
+        , Network.AWS.WorkDocs.Types.ResourceSortType
+        , Network.AWS.WorkDocs.Types.HeaderNameType
+        , Network.AWS.WorkDocs.Types.DocumentVersionIdType
+        , Network.AWS.WorkDocs.Types.LocaleType
+        , Network.AWS.WorkDocs.Types.SubscriptionEndPointType
+        , Network.AWS.WorkDocs.Types.DocumentThumbnailType
+        , Network.AWS.WorkDocs.Types.Subscription
+        , Network.AWS.WorkDocs.Types.UrlType
+        , Network.AWS.WorkDocs.Types.Comment
+        , Network.AWS.WorkDocs.Types.CommentMetadata
+        , Network.AWS.WorkDocs.Types.CommentTextType
+        , Network.AWS.WorkDocs.Types.UploadMetadata
+        , Network.AWS.WorkDocs.Types.CustomMetadataKeyType
+        , Network.AWS.WorkDocs.Types.DocumentVersionStatus
+        , Network.AWS.WorkDocs.Types.StorageType
+        , Network.AWS.WorkDocs.Types.UserType
+        , Network.AWS.WorkDocs.Types.ShareStatusType
+        , Network.AWS.WorkDocs.Types.FolderId
+        , Network.AWS.WorkDocs.Types.AuthenticationToken
+        , Network.AWS.WorkDocs.Types.Marker
+        , Network.AWS.WorkDocs.Types.DocumentId
+        , Network.AWS.WorkDocs.Types.VersionId
+        , Network.AWS.WorkDocs.Types.InviteePrincipalId
+        , Network.AWS.WorkDocs.Types.PrincipalId
+        , Network.AWS.WorkDocs.Types.ShareId
+        , Network.AWS.WorkDocs.Types.StatusMessage
+        , Network.AWS.WorkDocs.Types.Fields
+        , Network.AWS.WorkDocs.Types.ResourceId
+        , Network.AWS.WorkDocs.Types.Id
+        , Network.AWS.WorkDocs.Types.Name
+        , Network.AWS.WorkDocs.Types.OriginalName
+        , Network.AWS.WorkDocs.Types.ParentId
+        , Network.AWS.WorkDocs.Types.ActivityTypes
+        , Network.AWS.WorkDocs.Types.OrganizationId
+        , Network.AWS.WorkDocs.Types.UserId
+        , Network.AWS.WorkDocs.Types.CreatorId
+        , Network.AWS.WorkDocs.Types.ParentFolderId
+        , Network.AWS.WorkDocs.Types.Include
+        , Network.AWS.WorkDocs.Types.EmailMessage
+        , Network.AWS.WorkDocs.Types.ContentType
+        , Network.AWS.WorkDocs.Types.Signature
+        , Network.AWS.WorkDocs.Types.CommentId
+        , Network.AWS.WorkDocs.Types.RecycleBinFolderId
+        , Network.AWS.WorkDocs.Types.RootFolderId
+        , Network.AWS.WorkDocs.Types.Username
+        , Network.AWS.WorkDocs.Types.Text
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
 
 test-suite amazonka-workdocs-test
-  import:         base
-  type:           exitcode-stdio-1.0
-  hs-source-dirs: test
-  main-is:        Main.hs
-  ghc-options:    -threaded
+    import:            base
+    type:              exitcode-stdio-1.0
+    hs-source-dirs:    test
+    main-is:           Main.hs
 
-  -- This section is encoded by the template and any modules added by
-  -- hand outside these namespaces will not correctly be added to the
-  -- distribution package.
-  other-modules:
-    Test.AWS.Gen.WorkDocs
-    Test.AWS.WorkDocs
-    Test.AWS.WorkDocs.Internal
+    ghc-options:       -threaded
 
-  build-depends:
-    , amazonka-core         >=2.0.0.0 && <2.0.0.1
-    , amazonka-test         >=2.0.0.0 && <2.0.0.1
-    , amazonka-workdocs
-    , bytestring
-    , case-insensitive
-    , tasty
-    , tasty-hunit
-    , text
-    , time
-    , unordered-containers
+    -- This section is encoded by the template and any modules added by
+    -- hand outside these namespaces will not correctly be added to the
+    -- distribution package.
+    other-modules:
+          Test.AWS.WorkDocs
+        , Test.AWS.Gen.WorkDocs
+        , Test.AWS.WorkDocs.Internal
+
+    build-depends:
+          amazonka-core == 2.0.0.0.*
+        , amazonka-test == 2.0.0.0.*
+        , amazonka-workdocs
+        , bytestring
+        , case-insensitive
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

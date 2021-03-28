@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -15,21 +15,19 @@
 --
 -- Reboots a broker. Note: This API is asynchronous.
 module Network.AWS.MQ.RebootBroker
-  ( -- * Creating a request
-    RebootBroker (..),
-    mkRebootBroker,
-
+    (
+    -- * Creating a request
+      RebootBroker (..)
+    , mkRebootBroker
     -- ** Request lenses
-    rbBrokerId,
+    , rbBrokerId
 
     -- * Destructuring the response
-    RebootBrokerResponse (..),
-    mkRebootBrokerResponse,
-
+    , RebootBrokerResponse (..)
+    , mkRebootBrokerResponse
     -- ** Response lenses
-    rbrrsResponseStatus,
-  )
-where
+    , rbrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.MQ.Types as Types
@@ -39,70 +37,73 @@ import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRebootBroker' smart constructor.
 newtype RebootBroker = RebootBroker'
-  { -- | The unique ID that Amazon MQ generates for the broker.
-    brokerId :: Core.Text
+  { brokerId :: Core.Text
+    -- ^ The unique ID that Amazon MQ generates for the broker.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'RebootBroker' value with any optional fields omitted.
-mkRebootBroker ::
-  -- | 'brokerId'
-  Core.Text ->
-  RebootBroker
-mkRebootBroker brokerId = RebootBroker' {brokerId}
+mkRebootBroker
+    :: Core.Text -- ^ 'brokerId'
+    -> RebootBroker
+mkRebootBroker brokerId = RebootBroker'{brokerId}
 
 -- | The unique ID that Amazon MQ generates for the broker.
 --
 -- /Note:/ Consider using 'brokerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rbBrokerId :: Lens.Lens' RebootBroker Core.Text
 rbBrokerId = Lens.field @"brokerId"
-{-# DEPRECATED rbBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
+{-# INLINEABLE rbBrokerId #-}
+{-# DEPRECATED brokerId "Use generic-lens or generic-optics with 'brokerId' instead"  #-}
+
+instance Core.ToQuery RebootBroker where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders RebootBroker where
+        toHeaders RebootBroker{..}
+          = Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON RebootBroker where
-  toJSON _ = Core.Object Core.mempty
+        toJSON _ = Core.Object Core.mempty
 
 instance Core.AWSRequest RebootBroker where
-  type Rs RebootBroker = RebootBrokerResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath =
-          Core.rawPath
-            ( "/v1/brokers/" Core.<> (Core.toText brokerId)
-                Core.<> ("/reboot")
-            ),
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveEmpty
-      ( \s h x ->
-          RebootBrokerResponse' Core.<$> (Core.pure (Core.fromEnum s))
-      )
+        type Rs RebootBroker = RebootBrokerResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST,
+                         Core._rqPath =
+                           "/v1/brokers/" Core.<> Core.toText brokerId Core.<> "/reboot",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveEmpty
+              (\ s h x ->
+                 RebootBrokerResponse' Core.<$> (Core.pure (Core.fromEnum s)))
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkRebootBrokerResponse' smart constructor.
 newtype RebootBrokerResponse = RebootBrokerResponse'
-  { -- | The response status code.
-    responseStatus :: Core.Int
+  { responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'RebootBrokerResponse' value with any optional fields omitted.
-mkRebootBrokerResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  RebootBrokerResponse
-mkRebootBrokerResponse responseStatus =
-  RebootBrokerResponse' {responseStatus}
+mkRebootBrokerResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> RebootBrokerResponse
+mkRebootBrokerResponse responseStatus
+  = RebootBrokerResponse'{responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rbrrsResponseStatus :: Lens.Lens' RebootBrokerResponse Core.Int
 rbrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED rbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE rbrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

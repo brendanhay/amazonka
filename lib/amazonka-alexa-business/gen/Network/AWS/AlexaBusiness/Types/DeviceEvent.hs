@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.AlexaBusiness.Types.DeviceEvent
-  ( DeviceEvent (..),
-
-    -- * Smart constructor
-    mkDeviceEvent,
-
-    -- * Lenses
-    deTimestamp,
-    deType,
-    deValue,
-  )
-where
+  ( DeviceEvent (..)
+  -- * Smart constructor
+  , mkDeviceEvent
+  -- * Lenses
+  , deTimestamp
+  , deType
+  , deValue
+  ) where
 
 import qualified Network.AWS.AlexaBusiness.Types.DeviceEventType as Types
 import qualified Network.AWS.AlexaBusiness.Types.DeviceEventValue as Types
@@ -32,52 +30,51 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkDeviceEvent' smart constructor.
 data DeviceEvent = DeviceEvent'
-  { -- | The time (in epoch) when the event occurred.
-    timestamp :: Core.Maybe Core.NominalDiffTime,
-    -- | The type of device event.
-    type' :: Core.Maybe Types.DeviceEventType,
-    -- | The value of the event.
-    value :: Core.Maybe Types.DeviceEventValue
+  { timestamp :: Core.Maybe Core.NominalDiffTime
+    -- ^ The time (in epoch) when the event occurred. 
+  , type' :: Core.Maybe Types.DeviceEventType
+    -- ^ The type of device event.
+  , value :: Core.Maybe Types.DeviceEventValue
+    -- ^ The value of the event.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'DeviceEvent' value with any optional fields omitted.
-mkDeviceEvent ::
-  DeviceEvent
-mkDeviceEvent =
-  DeviceEvent'
-    { timestamp = Core.Nothing,
-      type' = Core.Nothing,
-      value = Core.Nothing
-    }
+mkDeviceEvent
+    :: DeviceEvent
+mkDeviceEvent
+  = DeviceEvent'{timestamp = Core.Nothing, type' = Core.Nothing,
+                 value = Core.Nothing}
 
--- | The time (in epoch) when the event occurred.
+-- | The time (in epoch) when the event occurred. 
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 deTimestamp :: Lens.Lens' DeviceEvent (Core.Maybe Core.NominalDiffTime)
 deTimestamp = Lens.field @"timestamp"
-{-# DEPRECATED deTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
+{-# INLINEABLE deTimestamp #-}
+{-# DEPRECATED timestamp "Use generic-lens or generic-optics with 'timestamp' instead"  #-}
 
 -- | The type of device event.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 deType :: Lens.Lens' DeviceEvent (Core.Maybe Types.DeviceEventType)
 deType = Lens.field @"type'"
-{-# DEPRECATED deType "Use generic-lens or generic-optics with 'type'' instead." #-}
+{-# INLINEABLE deType #-}
+{-# DEPRECATED type' "Use generic-lens or generic-optics with 'type'' instead"  #-}
 
 -- | The value of the event.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 deValue :: Lens.Lens' DeviceEvent (Core.Maybe Types.DeviceEventValue)
 deValue = Lens.field @"value"
-{-# DEPRECATED deValue "Use generic-lens or generic-optics with 'value' instead." #-}
+{-# INLINEABLE deValue #-}
+{-# DEPRECATED value "Use generic-lens or generic-optics with 'value' instead"  #-}
 
 instance Core.FromJSON DeviceEvent where
-  parseJSON =
-    Core.withObject "DeviceEvent" Core.$
-      \x ->
-        DeviceEvent'
-          Core.<$> (x Core..:? "Timestamp")
-          Core.<*> (x Core..:? "Type")
-          Core.<*> (x Core..:? "Value")
+        parseJSON
+          = Core.withObject "DeviceEvent" Core.$
+              \ x ->
+                DeviceEvent' Core.<$>
+                  (x Core..:? "Timestamp") Core.<*> x Core..:? "Type" Core.<*>
+                    x Core..:? "Value"

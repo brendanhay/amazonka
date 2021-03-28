@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,16 +10,14 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.ELB.Types.Instance
-  ( Instance (..),
-
-    -- * Smart constructor
-    mkInstance,
-
-    -- * Lenses
-    iInstanceId,
-  )
-where
+  ( Instance (..)
+  -- * Smart constructor
+  , mkInstance
+  -- * Lenses
+  , iInstanceId
+  ) where
 
 import qualified Network.AWS.ELB.Internal as Types
 import qualified Network.AWS.ELB.Types.InstanceId as Types
@@ -30,23 +28,28 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkInstance' smart constructor.
 newtype Instance = Instance'
-  { -- | The instance ID.
-    instanceId :: Core.Maybe Types.InstanceId
+  { instanceId :: Core.Maybe Types.InstanceId
+    -- ^ The instance ID.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving newtype (Core.Hashable, Core.NFData)
 
 -- | Creates a 'Instance' value with any optional fields omitted.
-mkInstance ::
-  Instance
-mkInstance = Instance' {instanceId = Core.Nothing}
+mkInstance
+    :: Instance
+mkInstance = Instance'{instanceId = Core.Nothing}
 
 -- | The instance ID.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 iInstanceId :: Lens.Lens' Instance (Core.Maybe Types.InstanceId)
 iInstanceId = Lens.field @"instanceId"
-{-# DEPRECATED iInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+{-# INLINEABLE iInstanceId #-}
+{-# DEPRECATED instanceId "Use generic-lens or generic-optics with 'instanceId' instead"  #-}
+
+instance Core.ToQuery Instance where
+        toQuery Instance{..}
+          = Core.maybe Core.mempty (Core.toQueryPair "InstanceId") instanceId
 
 instance Core.FromXML Instance where
-  parseXML x = Instance' Core.<$> (x Core..@? "InstanceId")
+        parseXML x = Instance' Core.<$> (x Core..@? "InstanceId")

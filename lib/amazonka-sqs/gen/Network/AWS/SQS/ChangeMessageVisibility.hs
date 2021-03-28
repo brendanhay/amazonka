@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -34,20 +34,19 @@
 -- /Important:/ If you attempt to set the @VisibilityTimeout@ to a value greater than the maximum time left, Amazon SQS returns an error. Amazon SQS doesn't automatically recalculate and increase the timeout to the maximum remaining time.
 -- Unlike with a queue, when you change the visibility timeout for a specific message the timeout value is applied immediately but isn't saved in memory for that message. If you don't delete a message after it is received, the visibility timeout for the message reverts to the original timeout value (not to the value you set using the @ChangeMessageVisibility@ action) the next time the message is received.
 module Network.AWS.SQS.ChangeMessageVisibility
-  ( -- * Creating a request
-    ChangeMessageVisibility (..),
-    mkChangeMessageVisibility,
-
+    (
+    -- * Creating a request
+      ChangeMessageVisibility (..)
+    , mkChangeMessageVisibility
     -- ** Request lenses
-    cmvQueueUrl,
-    cmvReceiptHandle,
-    cmvVisibilityTimeout,
+    , cmvQueueUrl
+    , cmvReceiptHandle
+    , cmvVisibilityTimeout
 
     -- * Destructuring the response
-    ChangeMessageVisibilityResponse (..),
-    mkChangeMessageVisibilityResponse,
-  )
-where
+    , ChangeMessageVisibilityResponse (..)
+    , mkChangeMessageVisibilityResponse
+    ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -57,80 +56,84 @@ import qualified Network.AWS.SQS.Types as Types
 
 -- | /See:/ 'mkChangeMessageVisibility' smart constructor.
 data ChangeMessageVisibility = ChangeMessageVisibility'
-  { -- | The URL of the Amazon SQS queue whose message's visibility is changed.
-    --
-    -- Queue URLs and names are case-sensitive.
-    queueUrl :: Types.String,
-    -- | The receipt handle associated with the message whose visibility timeout is changed. This parameter is returned by the @'ReceiveMessage' @ action.
-    receiptHandle :: Types.String,
-    -- | The new value for the message's visibility timeout (in seconds). Values range: @0@ to @43200@ . Maximum: 12 hours.
-    visibilityTimeout :: Core.Int
+  { queueUrl :: Core.Text
+    -- ^ The URL of the Amazon SQS queue whose message's visibility is changed.
+--
+-- Queue URLs and names are case-sensitive.
+  , receiptHandle :: Core.Text
+    -- ^ The receipt handle associated with the message whose visibility timeout is changed. This parameter is returned by the @'ReceiveMessage' @ action.
+  , visibilityTimeout :: Core.Int
+    -- ^ The new value for the message's visibility timeout (in seconds). Values range: @0@ to @43200@ . Maximum: 12 hours.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ChangeMessageVisibility' value with any optional fields omitted.
-mkChangeMessageVisibility ::
-  -- | 'queueUrl'
-  Types.String ->
-  -- | 'receiptHandle'
-  Types.String ->
-  -- | 'visibilityTimeout'
-  Core.Int ->
-  ChangeMessageVisibility
-mkChangeMessageVisibility queueUrl receiptHandle visibilityTimeout =
-  ChangeMessageVisibility'
-    { queueUrl,
-      receiptHandle,
-      visibilityTimeout
-    }
+mkChangeMessageVisibility
+    :: Core.Text -- ^ 'queueUrl'
+    -> Core.Text -- ^ 'receiptHandle'
+    -> Core.Int -- ^ 'visibilityTimeout'
+    -> ChangeMessageVisibility
+mkChangeMessageVisibility queueUrl receiptHandle visibilityTimeout
+  = ChangeMessageVisibility'{queueUrl, receiptHandle,
+                             visibilityTimeout}
 
 -- | The URL of the Amazon SQS queue whose message's visibility is changed.
 --
 -- Queue URLs and names are case-sensitive.
 --
 -- /Note:/ Consider using 'queueUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmvQueueUrl :: Lens.Lens' ChangeMessageVisibility Types.String
+cmvQueueUrl :: Lens.Lens' ChangeMessageVisibility Core.Text
 cmvQueueUrl = Lens.field @"queueUrl"
-{-# DEPRECATED cmvQueueUrl "Use generic-lens or generic-optics with 'queueUrl' instead." #-}
+{-# INLINEABLE cmvQueueUrl #-}
+{-# DEPRECATED queueUrl "Use generic-lens or generic-optics with 'queueUrl' instead"  #-}
 
 -- | The receipt handle associated with the message whose visibility timeout is changed. This parameter is returned by the @'ReceiveMessage' @ action.
 --
 -- /Note:/ Consider using 'receiptHandle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmvReceiptHandle :: Lens.Lens' ChangeMessageVisibility Types.String
+cmvReceiptHandle :: Lens.Lens' ChangeMessageVisibility Core.Text
 cmvReceiptHandle = Lens.field @"receiptHandle"
-{-# DEPRECATED cmvReceiptHandle "Use generic-lens or generic-optics with 'receiptHandle' instead." #-}
+{-# INLINEABLE cmvReceiptHandle #-}
+{-# DEPRECATED receiptHandle "Use generic-lens or generic-optics with 'receiptHandle' instead"  #-}
 
 -- | The new value for the message's visibility timeout (in seconds). Values range: @0@ to @43200@ . Maximum: 12 hours.
 --
 -- /Note:/ Consider using 'visibilityTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 cmvVisibilityTimeout :: Lens.Lens' ChangeMessageVisibility Core.Int
 cmvVisibilityTimeout = Lens.field @"visibilityTimeout"
-{-# DEPRECATED cmvVisibilityTimeout "Use generic-lens or generic-optics with 'visibilityTimeout' instead." #-}
+{-# INLINEABLE cmvVisibilityTimeout #-}
+{-# DEPRECATED visibilityTimeout "Use generic-lens or generic-optics with 'visibilityTimeout' instead"  #-}
+
+instance Core.ToQuery ChangeMessageVisibility where
+        toQuery ChangeMessageVisibility{..}
+          = Core.toQueryPair "Action"
+              ("ChangeMessageVisibility" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2012-11-05" :: Core.Text)
+              Core.<> Core.toQueryPair "QueueUrl" queueUrl
+              Core.<> Core.toQueryPair "ReceiptHandle" receiptHandle
+              Core.<> Core.toQueryPair "VisibilityTimeout" visibilityTimeout
+
+instance Core.ToHeaders ChangeMessageVisibility where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest ChangeMessageVisibility where
-  type Rs ChangeMessageVisibility = ChangeMessageVisibilityResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "ChangeMessageVisibility")
-                Core.<> (Core.pure ("Version", "2012-11-05"))
-                Core.<> (Core.toQueryValue "QueueUrl" queueUrl)
-                Core.<> (Core.toQueryValue "ReceiptHandle" receiptHandle)
-                Core.<> (Core.toQueryValue "VisibilityTimeout" visibilityTimeout)
-            )
-      }
-  response = Response.receiveNull ChangeMessageVisibilityResponse'
+        type Rs ChangeMessageVisibility = ChangeMessageVisibilityResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveNull ChangeMessageVisibilityResponse'
+        
+        {-# INLINE parseResponse #-}
 
 -- | /See:/ 'mkChangeMessageVisibilityResponse' smart constructor.
 data ChangeMessageVisibilityResponse = ChangeMessageVisibilityResponse'
@@ -138,7 +141,7 @@ data ChangeMessageVisibilityResponse = ChangeMessageVisibilityResponse'
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ChangeMessageVisibilityResponse' value with any optional fields omitted.
-mkChangeMessageVisibilityResponse ::
-  ChangeMessageVisibilityResponse
-mkChangeMessageVisibilityResponse =
-  ChangeMessageVisibilityResponse'
+mkChangeMessageVisibilityResponse
+    :: ChangeMessageVisibilityResponse
+mkChangeMessageVisibilityResponse
+  = ChangeMessageVisibilityResponse'

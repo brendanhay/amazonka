@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,49 +10,31 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Glue.Types.TransformType
   ( TransformType
-      ( TransformType',
-        TransformTypeFindMatches,
-        fromTransformType
-      ),
-  )
-where
+    ( TransformType'
+    , TransformTypeFindMatches
+    , fromTransformType
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype TransformType = TransformType'
-  { fromTransformType ::
-      Core.Text
-  }
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype TransformType = TransformType'{fromTransformType ::
+                                       Core.Text}
+                          deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                          Core.Generic)
+                          deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                            Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                            Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                            Core.FromText, Core.ToByteString, Core.ToQuery,
+                                            Core.ToHeader)
 
 pattern TransformTypeFindMatches :: TransformType
 pattern TransformTypeFindMatches = TransformType' "FIND_MATCHES"
 
-{-# COMPLETE
+{-# COMPLETE 
   TransformTypeFindMatches,
   TransformType'
   #-}

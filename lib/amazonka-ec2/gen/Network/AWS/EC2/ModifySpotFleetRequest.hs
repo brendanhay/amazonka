@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -21,26 +21,24 @@
 -- To scale down your Spot Fleet, decrease its target capacity. First, the Spot Fleet cancels any open requests that exceed the new target capacity. You can request that the Spot Fleet terminate Spot Instances until the size of the fleet no longer exceeds the new target capacity. If the allocation strategy is @lowestPrice@ , the Spot Fleet terminates the instances with the highest price per unit. If the allocation strategy is @capacityOptimized@ , the Spot Fleet terminates the instances in the Spot Instance pools that have the least available Spot Instance capacity. If the allocation strategy is @diversified@ , the Spot Fleet terminates instances across the Spot Instance pools. Alternatively, you can request that the Spot Fleet keep the fleet at its current size, but not replace any Spot Instances that are interrupted or that you terminate manually.
 -- If you are finished with your Spot Fleet for now, but will use it again later, you can set the target capacity to 0.
 module Network.AWS.EC2.ModifySpotFleetRequest
-  ( -- * Creating a request
-    ModifySpotFleetRequest (..),
-    mkModifySpotFleetRequest,
-
+    (
+    -- * Creating a request
+      ModifySpotFleetRequest (..)
+    , mkModifySpotFleetRequest
     -- ** Request lenses
-    msfrSpotFleetRequestId,
-    msfrExcessCapacityTerminationPolicy,
-    msfrLaunchTemplateConfigs,
-    msfrOnDemandTargetCapacity,
-    msfrTargetCapacity,
+    , msfrSpotFleetRequestId
+    , msfrExcessCapacityTerminationPolicy
+    , msfrLaunchTemplateConfigs
+    , msfrOnDemandTargetCapacity
+    , msfrTargetCapacity
 
     -- * Destructuring the response
-    ModifySpotFleetRequestResponse (..),
-    mkModifySpotFleetRequestResponse,
-
+    , ModifySpotFleetRequestResponse (..)
+    , mkModifySpotFleetRequestResponse
     -- ** Response lenses
-    msfrrrsReturn,
-    msfrrrsResponseStatus,
-  )
-where
+    , msfrrrsReturn
+    , msfrrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -52,139 +50,147 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkModifySpotFleetRequest' smart constructor.
 data ModifySpotFleetRequest = ModifySpotFleetRequest'
-  { -- | The ID of the Spot Fleet request.
-    spotFleetRequestId :: Types.SpotFleetRequestId,
-    -- | Indicates whether running Spot Instances should be terminated if the target capacity of the Spot Fleet request is decreased below the current size of the Spot Fleet.
-    excessCapacityTerminationPolicy :: Core.Maybe Types.ExcessCapacityTerminationPolicy,
-    -- | The launch template and overrides. You can only use this parameter if you specified a launch template (@LaunchTemplateConfigs@ ) in your Spot Fleet request. If you specified @LaunchSpecifications@ in your Spot Fleet request, then omit this parameter.
-    launchTemplateConfigs :: Core.Maybe [Types.LaunchTemplateConfig],
-    -- | The number of On-Demand Instances in the fleet.
-    onDemandTargetCapacity :: Core.Maybe Core.Int,
-    -- | The size of the fleet.
-    targetCapacity :: Core.Maybe Core.Int
+  { spotFleetRequestId :: Types.SpotFleetRequestId
+    -- ^ The ID of the Spot Fleet request.
+  , excessCapacityTerminationPolicy :: Core.Maybe Types.ExcessCapacityTerminationPolicy
+    -- ^ Indicates whether running Spot Instances should be terminated if the target capacity of the Spot Fleet request is decreased below the current size of the Spot Fleet.
+  , launchTemplateConfigs :: Core.Maybe [Types.LaunchTemplateConfig]
+    -- ^ The launch template and overrides. You can only use this parameter if you specified a launch template (@LaunchTemplateConfigs@ ) in your Spot Fleet request. If you specified @LaunchSpecifications@ in your Spot Fleet request, then omit this parameter.
+  , onDemandTargetCapacity :: Core.Maybe Core.Int
+    -- ^ The number of On-Demand Instances in the fleet.
+  , targetCapacity :: Core.Maybe Core.Int
+    -- ^ The size of the fleet.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ModifySpotFleetRequest' value with any optional fields omitted.
-mkModifySpotFleetRequest ::
-  -- | 'spotFleetRequestId'
-  Types.SpotFleetRequestId ->
-  ModifySpotFleetRequest
-mkModifySpotFleetRequest spotFleetRequestId =
-  ModifySpotFleetRequest'
-    { spotFleetRequestId,
-      excessCapacityTerminationPolicy = Core.Nothing,
-      launchTemplateConfigs = Core.Nothing,
-      onDemandTargetCapacity = Core.Nothing,
-      targetCapacity = Core.Nothing
-    }
+mkModifySpotFleetRequest
+    :: Types.SpotFleetRequestId -- ^ 'spotFleetRequestId'
+    -> ModifySpotFleetRequest
+mkModifySpotFleetRequest spotFleetRequestId
+  = ModifySpotFleetRequest'{spotFleetRequestId,
+                            excessCapacityTerminationPolicy = Core.Nothing,
+                            launchTemplateConfigs = Core.Nothing,
+                            onDemandTargetCapacity = Core.Nothing,
+                            targetCapacity = Core.Nothing}
 
 -- | The ID of the Spot Fleet request.
 --
 -- /Note:/ Consider using 'spotFleetRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 msfrSpotFleetRequestId :: Lens.Lens' ModifySpotFleetRequest Types.SpotFleetRequestId
 msfrSpotFleetRequestId = Lens.field @"spotFleetRequestId"
-{-# DEPRECATED msfrSpotFleetRequestId "Use generic-lens or generic-optics with 'spotFleetRequestId' instead." #-}
+{-# INLINEABLE msfrSpotFleetRequestId #-}
+{-# DEPRECATED spotFleetRequestId "Use generic-lens or generic-optics with 'spotFleetRequestId' instead"  #-}
 
 -- | Indicates whether running Spot Instances should be terminated if the target capacity of the Spot Fleet request is decreased below the current size of the Spot Fleet.
 --
 -- /Note:/ Consider using 'excessCapacityTerminationPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 msfrExcessCapacityTerminationPolicy :: Lens.Lens' ModifySpotFleetRequest (Core.Maybe Types.ExcessCapacityTerminationPolicy)
 msfrExcessCapacityTerminationPolicy = Lens.field @"excessCapacityTerminationPolicy"
-{-# DEPRECATED msfrExcessCapacityTerminationPolicy "Use generic-lens or generic-optics with 'excessCapacityTerminationPolicy' instead." #-}
+{-# INLINEABLE msfrExcessCapacityTerminationPolicy #-}
+{-# DEPRECATED excessCapacityTerminationPolicy "Use generic-lens or generic-optics with 'excessCapacityTerminationPolicy' instead"  #-}
 
 -- | The launch template and overrides. You can only use this parameter if you specified a launch template (@LaunchTemplateConfigs@ ) in your Spot Fleet request. If you specified @LaunchSpecifications@ in your Spot Fleet request, then omit this parameter.
 --
 -- /Note:/ Consider using 'launchTemplateConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 msfrLaunchTemplateConfigs :: Lens.Lens' ModifySpotFleetRequest (Core.Maybe [Types.LaunchTemplateConfig])
 msfrLaunchTemplateConfigs = Lens.field @"launchTemplateConfigs"
-{-# DEPRECATED msfrLaunchTemplateConfigs "Use generic-lens or generic-optics with 'launchTemplateConfigs' instead." #-}
+{-# INLINEABLE msfrLaunchTemplateConfigs #-}
+{-# DEPRECATED launchTemplateConfigs "Use generic-lens or generic-optics with 'launchTemplateConfigs' instead"  #-}
 
 -- | The number of On-Demand Instances in the fleet.
 --
 -- /Note:/ Consider using 'onDemandTargetCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 msfrOnDemandTargetCapacity :: Lens.Lens' ModifySpotFleetRequest (Core.Maybe Core.Int)
 msfrOnDemandTargetCapacity = Lens.field @"onDemandTargetCapacity"
-{-# DEPRECATED msfrOnDemandTargetCapacity "Use generic-lens or generic-optics with 'onDemandTargetCapacity' instead." #-}
+{-# INLINEABLE msfrOnDemandTargetCapacity #-}
+{-# DEPRECATED onDemandTargetCapacity "Use generic-lens or generic-optics with 'onDemandTargetCapacity' instead"  #-}
 
 -- | The size of the fleet.
 --
 -- /Note:/ Consider using 'targetCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 msfrTargetCapacity :: Lens.Lens' ModifySpotFleetRequest (Core.Maybe Core.Int)
 msfrTargetCapacity = Lens.field @"targetCapacity"
-{-# DEPRECATED msfrTargetCapacity "Use generic-lens or generic-optics with 'targetCapacity' instead." #-}
+{-# INLINEABLE msfrTargetCapacity #-}
+{-# DEPRECATED targetCapacity "Use generic-lens or generic-optics with 'targetCapacity' instead"  #-}
+
+instance Core.ToQuery ModifySpotFleetRequest where
+        toQuery ModifySpotFleetRequest{..}
+          = Core.toQueryPair "Action" ("ModifySpotFleetRequest" :: Core.Text)
+              Core.<> Core.toQueryPair "Version" ("2016-11-15" :: Core.Text)
+              Core.<> Core.toQueryPair "SpotFleetRequestId" spotFleetRequestId
+              Core.<>
+              Core.maybe Core.mempty
+                (Core.toQueryPair "ExcessCapacityTerminationPolicy")
+                excessCapacityTerminationPolicy
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryList "LaunchTemplateConfig")
+                launchTemplateConfigs
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "OnDemandTargetCapacity")
+                onDemandTargetCapacity
+              Core.<>
+              Core.maybe Core.mempty (Core.toQueryPair "TargetCapacity")
+                targetCapacity
+
+instance Core.ToHeaders ModifySpotFleetRequest where
+        toHeaders _ = Core.pure Core.mempty
 
 instance Core.AWSRequest ModifySpotFleetRequest where
-  type Rs ModifySpotFleetRequest = ModifySpotFleetRequestResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure
-            ( "Content-Type",
-              "application/x-www-form-urlencoded; charset=utf-8"
-            ),
-        Core._rqBody =
-          Core.toFormBody
-            ( Core.pure ("Action", "ModifySpotFleetRequest")
-                Core.<> (Core.pure ("Version", "2016-11-15"))
-                Core.<> (Core.toQueryValue "SpotFleetRequestId" spotFleetRequestId)
-                Core.<> ( Core.toQueryValue "ExcessCapacityTerminationPolicy"
-                            Core.<$> excessCapacityTerminationPolicy
-                        )
-                Core.<> ( Core.toQueryList "LaunchTemplateConfig"
-                            Core.<$> launchTemplateConfigs
-                        )
-                Core.<> ( Core.toQueryValue "OnDemandTargetCapacity"
-                            Core.<$> onDemandTargetCapacity
-                        )
-                Core.<> (Core.toQueryValue "TargetCapacity" Core.<$> targetCapacity)
-            )
-      }
-  response =
-    Response.receiveXML
-      ( \s h x ->
-          ModifySpotFleetRequestResponse'
-            Core.<$> (x Core..@? "return") Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs ModifySpotFleetRequest = ModifySpotFleetRequestResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.mempty,
+                         Core._rqHeaders =
+                           Core.pure
+                             ("Content-Type",
+                              "application/x-www-form-urlencoded; charset=utf-8")
+                             Core.<> Core.toHeaders x,
+                         Core._rqBody = Core.toFormBody (Core.toQuery x)}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveXML
+              (\ s h x ->
+                 ModifySpotFleetRequestResponse' Core.<$>
+                   (x Core..@? "return") Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | Contains the output of ModifySpotFleetRequest.
 --
 -- /See:/ 'mkModifySpotFleetRequestResponse' smart constructor.
 data ModifySpotFleetRequestResponse = ModifySpotFleetRequestResponse'
-  { -- | Is @true@ if the request succeeds, and an error otherwise.
-    return :: Core.Maybe Core.Bool,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { return :: Core.Maybe Core.Bool
+    -- ^ Is @true@ if the request succeeds, and an error otherwise.
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'ModifySpotFleetRequestResponse' value with any optional fields omitted.
-mkModifySpotFleetRequestResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  ModifySpotFleetRequestResponse
-mkModifySpotFleetRequestResponse responseStatus =
-  ModifySpotFleetRequestResponse'
-    { return = Core.Nothing,
-      responseStatus
-    }
+mkModifySpotFleetRequestResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> ModifySpotFleetRequestResponse
+mkModifySpotFleetRequestResponse responseStatus
+  = ModifySpotFleetRequestResponse'{return = Core.Nothing,
+                                    responseStatus}
 
 -- | Is @true@ if the request succeeds, and an error otherwise.
 --
 -- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 msfrrrsReturn :: Lens.Lens' ModifySpotFleetRequestResponse (Core.Maybe Core.Bool)
 msfrrrsReturn = Lens.field @"return"
-{-# DEPRECATED msfrrrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
+{-# INLINEABLE msfrrrsReturn #-}
+{-# DEPRECATED return "Use generic-lens or generic-optics with 'return' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 msfrrrsResponseStatus :: Lens.Lens' ModifySpotFleetRequestResponse Core.Int
 msfrrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED msfrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE msfrrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

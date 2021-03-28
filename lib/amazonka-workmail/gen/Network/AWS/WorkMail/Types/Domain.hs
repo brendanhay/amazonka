@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,17 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.WorkMail.Types.Domain
-  ( Domain (..),
-
-    -- * Smart constructor
-    mkDomain,
-
-    -- * Lenses
-    dDomainName,
-    dHostedZoneId,
-  )
-where
+  ( Domain (..)
+  -- * Smart constructor
+  , mkDomain
+  -- * Lenses
+  , dDomainName
+  , dHostedZoneId
+  ) where
 
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Core
@@ -33,39 +31,39 @@ import qualified Network.AWS.WorkMail.Types.HostedZoneId as Types
 --
 -- /See:/ 'mkDomain' smart constructor.
 data Domain = Domain'
-  { -- | The fully qualified domain name.
-    domainName :: Core.Maybe Types.DomainName,
-    -- | The hosted zone ID for a domain hosted in Route 53. Required when configuring a domain hosted in Route 53.
-    hostedZoneId :: Core.Maybe Types.HostedZoneId
+  { domainName :: Core.Maybe Types.DomainName
+    -- ^ The fully qualified domain name.
+  , hostedZoneId :: Core.Maybe Types.HostedZoneId
+    -- ^ The hosted zone ID for a domain hosted in Route 53. Required when configuring a domain hosted in Route 53.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'Domain' value with any optional fields omitted.
-mkDomain ::
-  Domain
-mkDomain =
-  Domain' {domainName = Core.Nothing, hostedZoneId = Core.Nothing}
+mkDomain
+    :: Domain
+mkDomain
+  = Domain'{domainName = Core.Nothing, hostedZoneId = Core.Nothing}
 
 -- | The fully qualified domain name.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dDomainName :: Lens.Lens' Domain (Core.Maybe Types.DomainName)
 dDomainName = Lens.field @"domainName"
-{-# DEPRECATED dDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+{-# INLINEABLE dDomainName #-}
+{-# DEPRECATED domainName "Use generic-lens or generic-optics with 'domainName' instead"  #-}
 
 -- | The hosted zone ID for a domain hosted in Route 53. Required when configuring a domain hosted in Route 53.
 --
 -- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 dHostedZoneId :: Lens.Lens' Domain (Core.Maybe Types.HostedZoneId)
 dHostedZoneId = Lens.field @"hostedZoneId"
-{-# DEPRECATED dHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
+{-# INLINEABLE dHostedZoneId #-}
+{-# DEPRECATED hostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead"  #-}
 
 instance Core.FromJSON Domain where
-  toJSON Domain {..} =
-    Core.object
-      ( Core.catMaybes
-          [ ("DomainName" Core..=) Core.<$> domainName,
-            ("HostedZoneId" Core..=) Core.<$> hostedZoneId
-          ]
-      )
+        toJSON Domain{..}
+          = Core.object
+              (Core.catMaybes
+                 [("DomainName" Core..=) Core.<$> domainName,
+                  ("HostedZoneId" Core..=) Core.<$> hostedZoneId])

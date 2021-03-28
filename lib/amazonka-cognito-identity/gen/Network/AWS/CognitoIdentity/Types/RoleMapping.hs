@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,18 +10,16 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.CognitoIdentity.Types.RoleMapping
-  ( RoleMapping (..),
-
-    -- * Smart constructor
-    mkRoleMapping,
-
-    -- * Lenses
-    rmType,
-    rmAmbiguousRoleResolution,
-    rmRulesConfiguration,
-  )
-where
+  ( RoleMapping (..)
+  -- * Smart constructor
+  , mkRoleMapping
+  -- * Lenses
+  , rmType
+  , rmAmbiguousRoleResolution
+  , rmRulesConfiguration
+  ) where
 
 import qualified Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType as Types
 import qualified Network.AWS.CognitoIdentity.Types.RoleMappingType as Types
@@ -33,38 +31,35 @@ import qualified Network.AWS.Prelude as Core
 --
 -- /See:/ 'mkRoleMapping' smart constructor.
 data RoleMapping = RoleMapping'
-  { -- | The role mapping type. Token will use @cognito:roles@ and @cognito:preferred_role@ claims from the Cognito identity provider token to map groups to roles. Rules will attempt to match claims from the token to map to a role.
-    type' :: Types.RoleMappingType,
-    -- | If you specify Token or Rules as the @Type@ , @AmbiguousRoleResolution@ is required.
-    --
-    -- Specifies the action to be taken if either no rules match the claim value for the @Rules@ type, or there is no @cognito:preferred_role@ claim and there are multiple @cognito:roles@ matches for the @Token@ type.
-    ambiguousRoleResolution :: Core.Maybe Types.AmbiguousRoleResolutionType,
-    -- | The rules to be used for mapping users to roles.
-    --
-    -- If you specify Rules as the role mapping type, @RulesConfiguration@ is required.
-    rulesConfiguration :: Core.Maybe Types.RulesConfigurationType
+  { type' :: Types.RoleMappingType
+    -- ^ The role mapping type. Token will use @cognito:roles@ and @cognito:preferred_role@ claims from the Cognito identity provider token to map groups to roles. Rules will attempt to match claims from the token to map to a role.
+  , ambiguousRoleResolution :: Core.Maybe Types.AmbiguousRoleResolutionType
+    -- ^ If you specify Token or Rules as the @Type@ , @AmbiguousRoleResolution@ is required.
+--
+-- Specifies the action to be taken if either no rules match the claim value for the @Rules@ type, or there is no @cognito:preferred_role@ claim and there are multiple @cognito:roles@ matches for the @Token@ type.
+  , rulesConfiguration :: Core.Maybe Types.RulesConfigurationType
+    -- ^ The rules to be used for mapping users to roles.
+--
+-- If you specify Rules as the role mapping type, @RulesConfiguration@ is required.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'RoleMapping' value with any optional fields omitted.
-mkRoleMapping ::
-  -- | 'type\''
-  Types.RoleMappingType ->
-  RoleMapping
-mkRoleMapping type' =
-  RoleMapping'
-    { type',
-      ambiguousRoleResolution = Core.Nothing,
-      rulesConfiguration = Core.Nothing
-    }
+mkRoleMapping
+    :: Types.RoleMappingType -- ^ 'type\''
+    -> RoleMapping
+mkRoleMapping type'
+  = RoleMapping'{type', ambiguousRoleResolution = Core.Nothing,
+                 rulesConfiguration = Core.Nothing}
 
 -- | The role mapping type. Token will use @cognito:roles@ and @cognito:preferred_role@ claims from the Cognito identity provider token to map groups to roles. Rules will attempt to match claims from the token to map to a role.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rmType :: Lens.Lens' RoleMapping Types.RoleMappingType
 rmType = Lens.field @"type'"
-{-# DEPRECATED rmType "Use generic-lens or generic-optics with 'type'' instead." #-}
+{-# INLINEABLE rmType #-}
+{-# DEPRECATED type' "Use generic-lens or generic-optics with 'type'' instead"  #-}
 
 -- | If you specify Token or Rules as the @Type@ , @AmbiguousRoleResolution@ is required.
 --
@@ -73,7 +68,8 @@ rmType = Lens.field @"type'"
 -- /Note:/ Consider using 'ambiguousRoleResolution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rmAmbiguousRoleResolution :: Lens.Lens' RoleMapping (Core.Maybe Types.AmbiguousRoleResolutionType)
 rmAmbiguousRoleResolution = Lens.field @"ambiguousRoleResolution"
-{-# DEPRECATED rmAmbiguousRoleResolution "Use generic-lens or generic-optics with 'ambiguousRoleResolution' instead." #-}
+{-# INLINEABLE rmAmbiguousRoleResolution #-}
+{-# DEPRECATED ambiguousRoleResolution "Use generic-lens or generic-optics with 'ambiguousRoleResolution' instead"  #-}
 
 -- | The rules to be used for mapping users to roles.
 --
@@ -82,24 +78,22 @@ rmAmbiguousRoleResolution = Lens.field @"ambiguousRoleResolution"
 -- /Note:/ Consider using 'rulesConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 rmRulesConfiguration :: Lens.Lens' RoleMapping (Core.Maybe Types.RulesConfigurationType)
 rmRulesConfiguration = Lens.field @"rulesConfiguration"
-{-# DEPRECATED rmRulesConfiguration "Use generic-lens or generic-optics with 'rulesConfiguration' instead." #-}
+{-# INLINEABLE rmRulesConfiguration #-}
+{-# DEPRECATED rulesConfiguration "Use generic-lens or generic-optics with 'rulesConfiguration' instead"  #-}
 
 instance Core.FromJSON RoleMapping where
-  toJSON RoleMapping {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("Type" Core..= type'),
-            ("AmbiguousRoleResolution" Core..=)
-              Core.<$> ambiguousRoleResolution,
-            ("RulesConfiguration" Core..=) Core.<$> rulesConfiguration
-          ]
-      )
+        toJSON RoleMapping{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("Type" Core..= type'),
+                  ("AmbiguousRoleResolution" Core..=) Core.<$>
+                    ambiguousRoleResolution,
+                  ("RulesConfiguration" Core..=) Core.<$> rulesConfiguration])
 
 instance Core.FromJSON RoleMapping where
-  parseJSON =
-    Core.withObject "RoleMapping" Core.$
-      \x ->
-        RoleMapping'
-          Core.<$> (x Core..: "Type")
-          Core.<*> (x Core..:? "AmbiguousRoleResolution")
-          Core.<*> (x Core..:? "RulesConfiguration")
+        parseJSON
+          = Core.withObject "RoleMapping" Core.$
+              \ x ->
+                RoleMapping' Core.<$>
+                  (x Core..: "Type") Core.<*> x Core..:? "AmbiguousRoleResolution"
+                    Core.<*> x Core..:? "RulesConfiguration"

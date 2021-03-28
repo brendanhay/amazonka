@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -31,71 +31,72 @@
 --
 -- All WorkMail API operations are Amazon-authenticated and certificate-signed. They not only require the use of the AWS SDK, but also allow for the exclusive use of AWS Identity and Access Management users and roles to help facilitate access, trust, and permission policies. By creating a role and allowing an IAM user to access the WorkMail site, the IAM user gains full administrative visibility into the entire WorkMail organization (or as set in the IAM policy). This includes, but is not limited to, the ability to create, update, and delete users, groups, and resources. This allows developers to perform the scenarios listed above, as well as give users the ability to grant access on a selective basis using the IAM model.
 module Network.AWS.WorkMail
-  ( -- * Service configuration
-    mkServiceConfig,
+    (
+    -- * Service configuration
+      mkServiceConfig
 
     -- * Errors
     -- $errors
 
     -- ** DirectoryUnavailableException
-    _DirectoryUnavailableException,
+    , _DirectoryUnavailableException
 
     -- ** InvalidParameterException
-    _InvalidParameterException,
+    , _InvalidParameterException
 
     -- ** UnsupportedOperationException
-    _UnsupportedOperationException,
+    , _UnsupportedOperationException
 
     -- ** DirectoryServiceAuthenticationFailedException
-    _DirectoryServiceAuthenticationFailedException,
+    , _DirectoryServiceAuthenticationFailedException
 
     -- ** OrganizationStateException
-    _OrganizationStateException,
+    , _OrganizationStateException
 
     -- ** EntityStateException
-    _EntityStateException,
+    , _EntityStateException
 
     -- ** InvalidConfigurationException
-    _InvalidConfigurationException,
+    , _InvalidConfigurationException
 
     -- ** TooManyTagsException
-    _TooManyTagsException,
+    , _TooManyTagsException
 
     -- ** MailDomainStateException
-    _MailDomainStateException,
+    , _MailDomainStateException
 
     -- ** ReservedNameException
-    _ReservedNameException,
+    , _ReservedNameException
 
     -- ** OrganizationNotFoundException
-    _OrganizationNotFoundException,
+    , _OrganizationNotFoundException
 
     -- ** EntityNotFoundException
-    _EntityNotFoundException,
+    , _EntityNotFoundException
 
     -- ** EntityAlreadyRegisteredException
-    _EntityAlreadyRegisteredException,
+    , _EntityAlreadyRegisteredException
 
     -- ** DirectoryInUseException
-    _DirectoryInUseException,
+    , _DirectoryInUseException
 
     -- ** MailDomainNotFoundException
-    _MailDomainNotFoundException,
+    , _MailDomainNotFoundException
 
     -- ** ResourceNotFoundException
-    _ResourceNotFoundException,
+    , _ResourceNotFoundException
 
     -- ** EmailAddressInUseException
-    _EmailAddressInUseException,
+    , _EmailAddressInUseException
 
     -- ** NameAvailabilityException
-    _NameAvailabilityException,
+    , _NameAvailabilityException
 
     -- ** LimitExceededException
-    _LimitExceededException,
+    , _LimitExceededException
 
     -- ** InvalidPasswordException
-    _InvalidPasswordException,
+    , _InvalidPasswordException
 
     -- * Waiters
     -- $waiters
@@ -103,525 +104,518 @@ module Network.AWS.WorkMail
     -- * Operations
     -- $operations
 
-    -- ** UpdatePrimaryEmailAddress
-    module Network.AWS.WorkMail.UpdatePrimaryEmailAddress,
+    -- ** UpdatePrimaryEmailAddress 
+    , module Network.AWS.WorkMail.UpdatePrimaryEmailAddress
 
-    -- ** DescribeResource
-    module Network.AWS.WorkMail.DescribeResource,
+    -- ** DescribeResource 
+    , module Network.AWS.WorkMail.DescribeResource
 
-    -- ** CreateOrganization
-    module Network.AWS.WorkMail.CreateOrganization,
+    -- ** CreateOrganization 
+    , module Network.AWS.WorkMail.CreateOrganization
 
-    -- ** CreateAlias
-    module Network.AWS.WorkMail.CreateAlias,
+    -- ** CreateAlias 
+    , module Network.AWS.WorkMail.CreateAlias
 
-    -- ** DeleteOrganization
-    module Network.AWS.WorkMail.DeleteOrganization,
+    -- ** DeleteOrganization 
+    , module Network.AWS.WorkMail.DeleteOrganization
 
-    -- ** ResetPassword
-    module Network.AWS.WorkMail.ResetPassword,
+    -- ** ResetPassword 
+    , module Network.AWS.WorkMail.ResetPassword
 
-    -- ** DescribeGroup
-    module Network.AWS.WorkMail.DescribeGroup,
+    -- ** DescribeGroup 
+    , module Network.AWS.WorkMail.DescribeGroup
 
-    -- ** DescribeMailboxExportJob
-    module Network.AWS.WorkMail.DescribeMailboxExportJob,
+    -- ** DescribeMailboxExportJob 
+    , module Network.AWS.WorkMail.DescribeMailboxExportJob
 
-    -- ** ListTagsForResource
-    module Network.AWS.WorkMail.ListTagsForResource,
+    -- ** ListTagsForResource 
+    , module Network.AWS.WorkMail.ListTagsForResource
 
-    -- ** RegisterToWorkMail
-    module Network.AWS.WorkMail.RegisterToWorkMail,
+    -- ** RegisterToWorkMail 
+    , module Network.AWS.WorkMail.RegisterToWorkMail
 
     -- ** ListAliases (Paginated)
-    module Network.AWS.WorkMail.ListAliases,
+    , module Network.AWS.WorkMail.ListAliases
 
-    -- ** PutMailboxPermissions
-    module Network.AWS.WorkMail.PutMailboxPermissions,
+    -- ** PutMailboxPermissions 
+    , module Network.AWS.WorkMail.PutMailboxPermissions
 
-    -- ** DeleteMailboxPermissions
-    module Network.AWS.WorkMail.DeleteMailboxPermissions,
+    -- ** DeleteMailboxPermissions 
+    , module Network.AWS.WorkMail.DeleteMailboxPermissions
 
     -- ** ListUsers (Paginated)
-    module Network.AWS.WorkMail.ListUsers,
+    , module Network.AWS.WorkMail.ListUsers
 
-    -- ** GetMailboxDetails
-    module Network.AWS.WorkMail.GetMailboxDetails,
+    -- ** GetMailboxDetails 
+    , module Network.AWS.WorkMail.GetMailboxDetails
 
-    -- ** AssociateMemberToGroup
-    module Network.AWS.WorkMail.AssociateMemberToGroup,
+    -- ** AssociateMemberToGroup 
+    , module Network.AWS.WorkMail.AssociateMemberToGroup
 
-    -- ** DeleteResource
-    module Network.AWS.WorkMail.DeleteResource,
+    -- ** DeleteResource 
+    , module Network.AWS.WorkMail.DeleteResource
 
-    -- ** UpdateResource
-    module Network.AWS.WorkMail.UpdateResource,
+    -- ** UpdateResource 
+    , module Network.AWS.WorkMail.UpdateResource
 
-    -- ** DisassociateMemberFromGroup
-    module Network.AWS.WorkMail.DisassociateMemberFromGroup,
+    -- ** DisassociateMemberFromGroup 
+    , module Network.AWS.WorkMail.DisassociateMemberFromGroup
 
     -- ** ListResources (Paginated)
-    module Network.AWS.WorkMail.ListResources,
+    , module Network.AWS.WorkMail.ListResources
 
-    -- ** DeregisterFromWorkMail
-    module Network.AWS.WorkMail.DeregisterFromWorkMail,
+    -- ** DeregisterFromWorkMail 
+    , module Network.AWS.WorkMail.DeregisterFromWorkMail
 
-    -- ** ListMailboxExportJobs
-    module Network.AWS.WorkMail.ListMailboxExportJobs,
+    -- ** ListMailboxExportJobs 
+    , module Network.AWS.WorkMail.ListMailboxExportJobs
 
     -- ** ListMailboxPermissions (Paginated)
-    module Network.AWS.WorkMail.ListMailboxPermissions,
+    , module Network.AWS.WorkMail.ListMailboxPermissions
 
     -- ** ListGroupMembers (Paginated)
-    module Network.AWS.WorkMail.ListGroupMembers,
+    , module Network.AWS.WorkMail.ListGroupMembers
 
-    -- ** DisassociateDelegateFromResource
-    module Network.AWS.WorkMail.DisassociateDelegateFromResource,
+    -- ** DisassociateDelegateFromResource 
+    , module Network.AWS.WorkMail.DisassociateDelegateFromResource
 
-    -- ** DeleteAccessControlRule
-    module Network.AWS.WorkMail.DeleteAccessControlRule,
+    -- ** DeleteAccessControlRule 
+    , module Network.AWS.WorkMail.DeleteAccessControlRule
 
     -- ** ListResourceDelegates (Paginated)
-    module Network.AWS.WorkMail.ListResourceDelegates,
+    , module Network.AWS.WorkMail.ListResourceDelegates
 
-    -- ** ListAccessControlRules
-    module Network.AWS.WorkMail.ListAccessControlRules,
+    -- ** ListAccessControlRules 
+    , module Network.AWS.WorkMail.ListAccessControlRules
 
-    -- ** DescribeUser
-    module Network.AWS.WorkMail.DescribeUser,
+    -- ** DescribeUser 
+    , module Network.AWS.WorkMail.DescribeUser
 
-    -- ** PutAccessControlRule
-    module Network.AWS.WorkMail.PutAccessControlRule,
+    -- ** PutAccessControlRule 
+    , module Network.AWS.WorkMail.PutAccessControlRule
 
-    -- ** StartMailboxExportJob
-    module Network.AWS.WorkMail.StartMailboxExportJob,
+    -- ** StartMailboxExportJob 
+    , module Network.AWS.WorkMail.StartMailboxExportJob
 
-    -- ** DeleteAlias
-    module Network.AWS.WorkMail.DeleteAlias,
+    -- ** DeleteAlias 
+    , module Network.AWS.WorkMail.DeleteAlias
 
     -- ** ListOrganizations (Paginated)
-    module Network.AWS.WorkMail.ListOrganizations,
+    , module Network.AWS.WorkMail.ListOrganizations
 
-    -- ** AssociateDelegateToResource
-    module Network.AWS.WorkMail.AssociateDelegateToResource,
+    -- ** AssociateDelegateToResource 
+    , module Network.AWS.WorkMail.AssociateDelegateToResource
 
-    -- ** GetAccessControlEffect
-    module Network.AWS.WorkMail.GetAccessControlEffect,
+    -- ** GetAccessControlEffect 
+    , module Network.AWS.WorkMail.GetAccessControlEffect
 
-    -- ** DeleteRetentionPolicy
-    module Network.AWS.WorkMail.DeleteRetentionPolicy,
+    -- ** DeleteRetentionPolicy 
+    , module Network.AWS.WorkMail.DeleteRetentionPolicy
 
-    -- ** CreateUser
-    module Network.AWS.WorkMail.CreateUser,
+    -- ** CreateUser 
+    , module Network.AWS.WorkMail.CreateUser
 
-    -- ** PutRetentionPolicy
-    module Network.AWS.WorkMail.PutRetentionPolicy,
+    -- ** PutRetentionPolicy 
+    , module Network.AWS.WorkMail.PutRetentionPolicy
 
-    -- ** DeleteUser
-    module Network.AWS.WorkMail.DeleteUser,
+    -- ** DeleteUser 
+    , module Network.AWS.WorkMail.DeleteUser
 
-    -- ** TagResource
-    module Network.AWS.WorkMail.TagResource,
+    -- ** TagResource 
+    , module Network.AWS.WorkMail.TagResource
 
-    -- ** CreateGroup
-    module Network.AWS.WorkMail.CreateGroup,
+    -- ** CreateGroup 
+    , module Network.AWS.WorkMail.CreateGroup
 
-    -- ** UpdateMailboxQuota
-    module Network.AWS.WorkMail.UpdateMailboxQuota,
+    -- ** UpdateMailboxQuota 
+    , module Network.AWS.WorkMail.UpdateMailboxQuota
 
-    -- ** UntagResource
-    module Network.AWS.WorkMail.UntagResource,
+    -- ** UntagResource 
+    , module Network.AWS.WorkMail.UntagResource
 
-    -- ** DeleteGroup
-    module Network.AWS.WorkMail.DeleteGroup,
+    -- ** DeleteGroup 
+    , module Network.AWS.WorkMail.DeleteGroup
 
     -- ** ListGroups (Paginated)
-    module Network.AWS.WorkMail.ListGroups,
+    , module Network.AWS.WorkMail.ListGroups
 
-    -- ** DescribeOrganization
-    module Network.AWS.WorkMail.DescribeOrganization,
+    -- ** DescribeOrganization 
+    , module Network.AWS.WorkMail.DescribeOrganization
 
-    -- ** CreateResource
-    module Network.AWS.WorkMail.CreateResource,
+    -- ** CreateResource 
+    , module Network.AWS.WorkMail.CreateResource
 
-    -- ** GetDefaultRetentionPolicy
-    module Network.AWS.WorkMail.GetDefaultRetentionPolicy,
+    -- ** GetDefaultRetentionPolicy 
+    , module Network.AWS.WorkMail.GetDefaultRetentionPolicy
 
-    -- ** CancelMailboxExportJob
-    module Network.AWS.WorkMail.CancelMailboxExportJob,
+    -- ** CancelMailboxExportJob 
+    , module Network.AWS.WorkMail.CancelMailboxExportJob
 
     -- * Types
 
     -- ** EntityState
-    EntityState (..),
+    , EntityState (..)
 
     -- ** OrganizationName
-    OrganizationName (..),
+    , OrganizationName (..)
 
     -- ** DirectoryId
-    DirectoryId (..),
+    , DirectoryId (..)
 
     -- ** Delegate
-    Delegate (..),
-    mkDelegate,
-    dId,
-    dType,
+    , Delegate (..)
+    , mkDelegate
+    , dId
+    , dType
 
     -- ** Group
-    Group (..),
-    mkGroup,
-    gDisabledDate,
-    gEmail,
-    gEnabledDate,
-    gId,
-    gName,
-    gState,
+    , Group (..)
+    , mkGroup
+    , gDisabledDate
+    , gEmail
+    , gEnabledDate
+    , gId
+    , gName
+    , gState
 
     -- ** OrganizationSummary
-    OrganizationSummary (..),
-    mkOrganizationSummary,
-    osAlias,
-    osDefaultMailDomain,
-    osErrorMessage,
-    osOrganizationId,
-    osState,
+    , OrganizationSummary (..)
+    , mkOrganizationSummary
+    , osAlias
+    , osDefaultMailDomain
+    , osErrorMessage
+    , osOrganizationId
+    , osState
 
     -- ** KmsKeyArn
-    KmsKeyArn (..),
+    , KmsKeyArn (..)
 
     -- ** IpAddress
-    IpAddress (..),
+    , IpAddress (..)
 
     -- ** ResourceId
-    ResourceId (..),
+    , ResourceId (..)
 
     -- ** Tag
-    Tag (..),
-    mkTag,
-    tKey,
-    tValue,
+    , Tag (..)
+    , mkTag
+    , tKey
+    , tValue
 
     -- ** MailboxExportJobId
-    MailboxExportJobId (..),
+    , MailboxExportJobId (..)
 
     -- ** S3ObjectKey
-    S3ObjectKey (..),
+    , S3ObjectKey (..)
 
     -- ** HostedZoneId
-    HostedZoneId (..),
+    , HostedZoneId (..)
 
     -- ** AccessControlRuleName
-    AccessControlRuleName (..),
+    , AccessControlRuleName (..)
 
     -- ** ResourceType
-    ResourceType (..),
+    , ResourceType (..)
 
     -- ** IdempotencyClientToken
-    IdempotencyClientToken (..),
+    , IdempotencyClientToken (..)
 
     -- ** ResourceName
-    ResourceName (..),
-
-    -- ** String
-    String (..),
+    , ResourceName (..)
 
     -- ** MemberType
-    MemberType (..),
+    , MemberType (..)
 
     -- ** MailboxExportJobState
-    MailboxExportJobState (..),
+    , MailboxExportJobState (..)
 
     -- ** Domain
-    Domain (..),
-    mkDomain,
-    dDomainName,
-    dHostedZoneId,
+    , Domain (..)
+    , mkDomain
+    , dDomainName
+    , dHostedZoneId
 
     -- ** AccessControlRuleAction
-    AccessControlRuleAction (..),
+    , AccessControlRuleAction (..)
 
     -- ** AccessControlRuleDescription
-    AccessControlRuleDescription (..),
+    , AccessControlRuleDescription (..)
 
     -- ** WorkMailIdentifier
-    WorkMailIdentifier (..),
+    , WorkMailIdentifier (..)
 
     -- ** PermissionType
-    PermissionType (..),
+    , PermissionType (..)
 
     -- ** UserName
-    UserName (..),
+    , UserName (..)
 
     -- ** PolicyDescription
-    PolicyDescription (..),
+    , PolicyDescription (..)
 
     -- ** User
-    User (..),
-    mkUser,
-    uDisabledDate,
-    uDisplayName,
-    uEmail,
-    uEnabledDate,
-    uId,
-    uName,
-    uState,
-    uUserRole,
+    , User (..)
+    , mkUser
+    , uDisabledDate
+    , uDisplayName
+    , uEmail
+    , uEnabledDate
+    , uId
+    , uName
+    , uState
+    , uUserRole
 
     -- ** FolderName
-    FolderName (..),
+    , FolderName (..)
 
     -- ** NextToken
-    NextToken (..),
+    , NextToken (..)
 
     -- ** MailboxExportJob
-    MailboxExportJob (..),
-    mkMailboxExportJob,
-    mejDescription,
-    mejEndTime,
-    mejEntityId,
-    mejEstimatedProgress,
-    mejJobId,
-    mejS3BucketName,
-    mejS3Path,
-    mejStartTime,
-    mejState,
+    , MailboxExportJob (..)
+    , mkMailboxExportJob
+    , mejDescription
+    , mejEndTime
+    , mejEntityId
+    , mejEstimatedProgress
+    , mejJobId
+    , mejS3BucketName
+    , mejS3Path
+    , mejStartTime
+    , mejState
 
     -- ** DomainName
-    DomainName (..),
+    , DomainName (..)
 
     -- ** ShortString
-    ShortString (..),
+    , ShortString (..)
 
     -- ** Password
-    Password (..),
+    , Password (..)
 
     -- ** EmailAddress
-    EmailAddress (..),
+    , EmailAddress (..)
 
     -- ** RetentionAction
-    RetentionAction (..),
+    , RetentionAction (..)
 
     -- ** AccessControlRuleEffect
-    AccessControlRuleEffect (..),
+    , AccessControlRuleEffect (..)
 
     -- ** Resource
-    Resource (..),
-    mkResource,
-    rDisabledDate,
-    rEmail,
-    rEnabledDate,
-    rId,
-    rName,
-    rState,
-    rType,
+    , Resource (..)
+    , mkResource
+    , rDisabledDate
+    , rEmail
+    , rEnabledDate
+    , rId
+    , rName
+    , rState
+    , rType
 
     -- ** AccessControlRule
-    AccessControlRule (..),
-    mkAccessControlRule,
-    acrActions,
-    acrDateCreated,
-    acrDateModified,
-    acrDescription,
-    acrEffect,
-    acrIpRanges,
-    acrName,
-    acrNotActions,
-    acrNotIpRanges,
-    acrNotUserIds,
-    acrUserIds,
+    , AccessControlRule (..)
+    , mkAccessControlRule
+    , acrActions
+    , acrDateCreated
+    , acrDateModified
+    , acrDescription
+    , acrEffect
+    , acrIpRanges
+    , acrName
+    , acrNotActions
+    , acrNotIpRanges
+    , acrNotUserIds
+    , acrUserIds
 
     -- ** UserRole
-    UserRole (..),
+    , UserRole (..)
 
     -- ** TagKey
-    TagKey (..),
+    , TagKey (..)
 
     -- ** Member
-    Member (..),
-    mkMember,
-    mDisabledDate,
-    mEnabledDate,
-    mId,
-    mName,
-    mState,
-    mType,
+    , Member (..)
+    , mkMember
+    , mDisabledDate
+    , mEnabledDate
+    , mId
+    , mName
+    , mState
+    , mType
 
     -- ** Permission
-    Permission (..),
-    mkPermission,
-    pGranteeId,
-    pGranteeType,
-    pPermissionValues,
+    , Permission (..)
+    , mkPermission
+    , pGranteeId
+    , pGranteeType
+    , pPermissionValues
 
     -- ** AmazonResourceName
-    AmazonResourceName (..),
+    , AmazonResourceName (..)
 
     -- ** IpRange
-    IpRange (..),
+    , IpRange (..)
 
     -- ** Description
-    Description (..),
+    , Description (..)
 
     -- ** FolderConfiguration
-    FolderConfiguration (..),
-    mkFolderConfiguration,
-    fcName,
-    fcAction,
-    fcPeriod,
+    , FolderConfiguration (..)
+    , mkFolderConfiguration
+    , fcName
+    , fcAction
+    , fcPeriod
 
     -- ** OrganizationId
-    OrganizationId (..),
+    , OrganizationId (..)
 
     -- ** S3BucketName
-    S3BucketName (..),
+    , S3BucketName (..)
 
     -- ** BookingOptions
-    BookingOptions (..),
-    mkBookingOptions,
-    boAutoAcceptRequests,
-    boAutoDeclineConflictingRequests,
-    boAutoDeclineRecurringRequests,
+    , BookingOptions (..)
+    , mkBookingOptions
+    , boAutoAcceptRequests
+    , boAutoDeclineConflictingRequests
+    , boAutoDeclineRecurringRequests
 
     -- ** RoleArn
-    RoleArn (..),
+    , RoleArn (..)
 
     -- ** Email
-    Email (..),
+    , Email (..)
 
     -- ** Name
-    Name (..),
+    , Name (..)
 
     -- ** EntityId
-    EntityId (..),
+    , EntityId (..)
 
     -- ** GranteeId
-    GranteeId (..),
+    , GranteeId (..)
 
     -- ** Id
-    Id (..),
+    , Id (..)
 
     -- ** DefaultMailDomain
-    DefaultMailDomain (..),
-
-    -- ** ErrorMessage
-    ErrorMessage (..),
-
-    -- ** State
-    State (..),
+    , DefaultMailDomain (..)
 
     -- ** GroupId
-    GroupId (..),
+    , GroupId (..)
 
     -- ** Key
-    Key (..),
+    , Key (..)
 
     -- ** Value
-    Value (..),
+    , Value (..)
 
     -- ** MemberId
-    MemberId (..),
+    , MemberId (..)
 
     -- ** UserId
-    UserId (..),
+    , UserId (..)
 
     -- ** ARN
-    ARN (..),
+    , ARN (..)
 
     -- ** Alias
-    Alias (..),
+    , Alias (..)
 
     -- ** ResourceARN
-    ResourceARN (..),
+    , ResourceARN (..)
 
     -- ** ErrorInfo
-    ErrorInfo (..),
+    , ErrorInfo (..)
 
     -- * Serialization types
-    Lude.Base64 (..),
-    Lude._Base64,
-    Lude.Sensitive (..),
-    Lude._Sensitive,
-    Lude.UTCTime,
-    Lude.NominalDiffTime,
-  )
-where
+    , Lude.Base64 (..)
+    , Lude._Base64
+    , Lude.Sensitive (..)
+    , Lude._Sensitive
+    , Lude.UTCTime
+    , Lude.NominalDiffTime
+    ) where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WorkMail.AssociateDelegateToResource
-import Network.AWS.WorkMail.AssociateMemberToGroup
-import Network.AWS.WorkMail.CancelMailboxExportJob
-import Network.AWS.WorkMail.CreateAlias
-import Network.AWS.WorkMail.CreateGroup
+import Network.AWS.WorkMail.Types
+import Network.AWS.WorkMail.Waiters
+import Network.AWS.WorkMail.UpdatePrimaryEmailAddress
+import Network.AWS.WorkMail.DescribeResource
 import Network.AWS.WorkMail.CreateOrganization
-import Network.AWS.WorkMail.CreateResource
-import Network.AWS.WorkMail.CreateUser
-import Network.AWS.WorkMail.DeleteAccessControlRule
-import Network.AWS.WorkMail.DeleteAlias
-import Network.AWS.WorkMail.DeleteGroup
-import Network.AWS.WorkMail.DeleteMailboxPermissions
+import Network.AWS.WorkMail.CreateAlias
 import Network.AWS.WorkMail.DeleteOrganization
-import Network.AWS.WorkMail.DeleteResource
-import Network.AWS.WorkMail.DeleteRetentionPolicy
-import Network.AWS.WorkMail.DeleteUser
-import Network.AWS.WorkMail.DeregisterFromWorkMail
+import Network.AWS.WorkMail.ResetPassword
 import Network.AWS.WorkMail.DescribeGroup
 import Network.AWS.WorkMail.DescribeMailboxExportJob
-import Network.AWS.WorkMail.DescribeOrganization
-import Network.AWS.WorkMail.DescribeResource
-import Network.AWS.WorkMail.DescribeUser
-import Network.AWS.WorkMail.DisassociateDelegateFromResource
-import Network.AWS.WorkMail.DisassociateMemberFromGroup
-import Network.AWS.WorkMail.GetAccessControlEffect
-import Network.AWS.WorkMail.GetDefaultRetentionPolicy
-import Network.AWS.WorkMail.GetMailboxDetails
-import Network.AWS.WorkMail.ListAccessControlRules
+import Network.AWS.WorkMail.ListTagsForResource
+import Network.AWS.WorkMail.RegisterToWorkMail
 import Network.AWS.WorkMail.ListAliases
-import Network.AWS.WorkMail.ListGroupMembers
-import Network.AWS.WorkMail.ListGroups
+import Network.AWS.WorkMail.PutMailboxPermissions
+import Network.AWS.WorkMail.DeleteMailboxPermissions
+import Network.AWS.WorkMail.ListUsers
+import Network.AWS.WorkMail.GetMailboxDetails
+import Network.AWS.WorkMail.AssociateMemberToGroup
+import Network.AWS.WorkMail.DeleteResource
+import Network.AWS.WorkMail.UpdateResource
+import Network.AWS.WorkMail.DisassociateMemberFromGroup
+import Network.AWS.WorkMail.ListResources
+import Network.AWS.WorkMail.DeregisterFromWorkMail
 import Network.AWS.WorkMail.ListMailboxExportJobs
 import Network.AWS.WorkMail.ListMailboxPermissions
-import Network.AWS.WorkMail.ListOrganizations
+import Network.AWS.WorkMail.ListGroupMembers
+import Network.AWS.WorkMail.DisassociateDelegateFromResource
+import Network.AWS.WorkMail.DeleteAccessControlRule
 import Network.AWS.WorkMail.ListResourceDelegates
-import Network.AWS.WorkMail.ListResources
-import Network.AWS.WorkMail.ListTagsForResource
-import Network.AWS.WorkMail.ListUsers
+import Network.AWS.WorkMail.ListAccessControlRules
+import Network.AWS.WorkMail.DescribeUser
 import Network.AWS.WorkMail.PutAccessControlRule
-import Network.AWS.WorkMail.PutMailboxPermissions
-import Network.AWS.WorkMail.PutRetentionPolicy
-import Network.AWS.WorkMail.RegisterToWorkMail
-import Network.AWS.WorkMail.ResetPassword
 import Network.AWS.WorkMail.StartMailboxExportJob
+import Network.AWS.WorkMail.DeleteAlias
+import Network.AWS.WorkMail.ListOrganizations
+import Network.AWS.WorkMail.AssociateDelegateToResource
+import Network.AWS.WorkMail.GetAccessControlEffect
+import Network.AWS.WorkMail.DeleteRetentionPolicy
+import Network.AWS.WorkMail.CreateUser
+import Network.AWS.WorkMail.PutRetentionPolicy
+import Network.AWS.WorkMail.DeleteUser
 import Network.AWS.WorkMail.TagResource
-import Network.AWS.WorkMail.Types
-import Network.AWS.WorkMail.UntagResource
+import Network.AWS.WorkMail.CreateGroup
 import Network.AWS.WorkMail.UpdateMailboxQuota
-import Network.AWS.WorkMail.UpdatePrimaryEmailAddress
-import Network.AWS.WorkMail.UpdateResource
-import Network.AWS.WorkMail.Waiters
+import Network.AWS.WorkMail.UntagResource
+import Network.AWS.WorkMail.DeleteGroup
+import Network.AWS.WorkMail.ListGroups
+import Network.AWS.WorkMail.DescribeOrganization
+import Network.AWS.WorkMail.CreateResource
+import Network.AWS.WorkMail.GetDefaultRetentionPolicy
+import Network.AWS.WorkMail.CancelMailboxExportJob
+import qualified Network.AWS.Prelude as Lude
 
--- $errors
--- Error matchers are designed for use with the functions provided by
--- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
--- This allows catching (and rethrowing) service specific errors returned
--- by 'WorkMail'.
+{- $errors
+Error matchers are designed for use with the functions provided by
+<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+This allows catching (and rethrowing) service specific errors returned
+by 'WorkMail'.
+-}
 
--- $operations
--- Some AWS operations return results that are incomplete and require subsequent
--- requests in order to obtain the entire result set. The process of sending
--- subsequent requests to continue where a previous request left off is called
--- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
--- 1000 objects at a time, and you must send subsequent requests with the
--- appropriate Marker in order to retrieve the next page of results.
---
--- Operations that have an 'AWSPager' instance can transparently perform subsequent
--- requests, correctly setting Markers and other request facets to iterate through
--- the entire result set of a truncated API operation. Operations which support
--- this have an additional note in the documentation.
---
--- Many operations have the ability to filter results on the server side. See the
--- individual operation parameters for details.
+{- $operations
+Some AWS operations return results that are incomplete and require subsequent
+requests in order to obtain the entire result set. The process of sending
+subsequent requests to continue where a previous request left off is called
+pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+1000 objects at a time, and you must send subsequent requests with the
+appropriate Marker in order to retrieve the next page of results.
 
--- $waiters
--- Waiters poll by repeatedly sending a request until some remote success condition
--- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
--- determines how many attempts should be made, in addition to delay and retry strategies.
+Operations that have an 'AWSPager' instance can transparently perform subsequent
+requests, correctly setting Markers and other request facets to iterate through
+the entire result set of a truncated API operation. Operations which support
+this have an additional note in the documentation.
+
+Many operations have the ability to filter results on the server side. See the
+individual operation parameters for details.
+-}
+
+{- $waiters
+Waiters poll by repeatedly sending a request until some remote success condition
+configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+determines how many attempts should be made, in addition to delay and retry strategies.
+-}

@@ -1,7 +1,7 @@
-{-# OPTIONS_GHC -fno-warn-deprecations #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -23,26 +23,24 @@
 -- Each Amazon Kinesis record includes a value, @ApproximateArrivalTimestamp@ , that is set when a stream successfully receives and stores a record. This is commonly referred to as a server-side time stamp, whereas a client-side time stamp is set when a data producer creates or sends the record to a stream (a data producer is any data source putting data records into a stream, for example with 'PutRecords' ). The time stamp has millisecond precision. There are no guarantees about the time stamp accuracy, or that the time stamp is always increasing. For example, records in a shard or across a stream might have time stamps that are out of order.
 -- This operation has a limit of five transactions per second per shard.
 module Network.AWS.Kinesis.GetRecords
-  ( -- * Creating a request
-    GetRecords (..),
-    mkGetRecords,
-
+    (
+    -- * Creating a request
+      GetRecords (..)
+    , mkGetRecords
     -- ** Request lenses
-    grShardIterator,
-    grLimit,
+    , grShardIterator
+    , grLimit
 
     -- * Destructuring the response
-    GetRecordsResponse (..),
-    mkGetRecordsResponse,
-
+    , GetRecordsResponse (..)
+    , mkGetRecordsResponse
     -- ** Response lenses
-    grrrsRecords,
-    grrrsChildShards,
-    grrrsMillisBehindLatest,
-    grrrsNextShardIterator,
-    grrrsResponseStatus,
-  )
-where
+    , grrrsRecords
+    , grrrsChildShards
+    , grrrsMillisBehindLatest
+    , grrrsNextShardIterator
+    , grrrsResponseStatus
+    ) where
 
 import qualified Network.AWS.Kinesis.Types as Types
 import qualified Network.AWS.Lens as Lens
@@ -54,131 +52,135 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'mkGetRecords' smart constructor.
 data GetRecords = GetRecords'
-  { -- | The position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.
-    shardIterator :: Types.ShardIterator,
-    -- | The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, 'GetRecords' throws @InvalidArgumentException@ . The default value is 10,000.
-    limit :: Core.Maybe Core.Natural
+  { shardIterator :: Types.ShardIterator
+    -- ^ The position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.
+  , limit :: Core.Maybe Core.Natural
+    -- ^ The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, 'GetRecords' throws @InvalidArgumentException@ . The default value is 10,000.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
   deriving anyclass (Core.Hashable, Core.NFData)
 
 -- | Creates a 'GetRecords' value with any optional fields omitted.
-mkGetRecords ::
-  -- | 'shardIterator'
-  Types.ShardIterator ->
-  GetRecords
-mkGetRecords shardIterator =
-  GetRecords' {shardIterator, limit = Core.Nothing}
+mkGetRecords
+    :: Types.ShardIterator -- ^ 'shardIterator'
+    -> GetRecords
+mkGetRecords shardIterator
+  = GetRecords'{shardIterator, limit = Core.Nothing}
 
 -- | The position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.
 --
 -- /Note:/ Consider using 'shardIterator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 grShardIterator :: Lens.Lens' GetRecords Types.ShardIterator
 grShardIterator = Lens.field @"shardIterator"
-{-# DEPRECATED grShardIterator "Use generic-lens or generic-optics with 'shardIterator' instead." #-}
+{-# INLINEABLE grShardIterator #-}
+{-# DEPRECATED shardIterator "Use generic-lens or generic-optics with 'shardIterator' instead"  #-}
 
 -- | The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, 'GetRecords' throws @InvalidArgumentException@ . The default value is 10,000.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 grLimit :: Lens.Lens' GetRecords (Core.Maybe Core.Natural)
 grLimit = Lens.field @"limit"
-{-# DEPRECATED grLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+{-# INLINEABLE grLimit #-}
+{-# DEPRECATED limit "Use generic-lens or generic-optics with 'limit' instead"  #-}
+
+instance Core.ToQuery GetRecords where
+        toQuery _ = Core.pure Core.mempty
+
+instance Core.ToHeaders GetRecords where
+        toHeaders GetRecords{..}
+          = Core.pure ("X-Amz-Target", "Kinesis_20131202.GetRecords") Core.<>
+              Core.pure ("Content-Type", "application/x-amz-json-1.1")
 
 instance Core.FromJSON GetRecords where
-  toJSON GetRecords {..} =
-    Core.object
-      ( Core.catMaybes
-          [ Core.Just ("ShardIterator" Core..= shardIterator),
-            ("Limit" Core..=) Core.<$> limit
-          ]
-      )
+        toJSON GetRecords{..}
+          = Core.object
+              (Core.catMaybes
+                 [Core.Just ("ShardIterator" Core..= shardIterator),
+                  ("Limit" Core..=) Core.<$> limit])
 
 instance Core.AWSRequest GetRecords where
-  type Rs GetRecords = GetRecordsResponse
-  request x@Core.Request {..} =
-    Core.Request
-      { Core._rqService = Types.mkServiceConfig,
-        Core._rqMethod = Request.POST,
-        Core._rqPath = Core.rawPath "/",
-        Core._rqQuery = Core.mempty,
-        Core._rqHeaders =
-          Core.pure ("X-Amz-Target", "Kinesis_20131202.GetRecords")
-            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
-        Core._rqBody = Core.toJSONBody x
-      }
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          GetRecordsResponse'
-            Core.<$> (x Core..:? "Records" Core..!= Core.mempty)
-            Core.<*> (x Core..:? "ChildShards")
-            Core.<*> (x Core..:? "MillisBehindLatest")
-            Core.<*> (x Core..:? "NextShardIterator")
-            Core.<*> (Core.pure (Core.fromEnum s))
-      )
+        type Rs GetRecords = GetRecordsResponse
+        toRequest x@Core.Request{..}
+          = Core.Request{Core._rqService = Types.mkServiceConfig,
+                         Core._rqMethod = Request.POST, Core._rqPath = "/",
+                         Core._rqQuery = Core.toQuery x, Core._rqHeaders = Core.toHeaders x,
+                         Core._rqBody = Core.toJSONBody x}
+        
+        {-# INLINE toRequest #-}
+        parseResponse
+          = Response.receiveJSON
+              (\ s h x ->
+                 GetRecordsResponse' Core.<$>
+                   (x Core..:? "Records" Core..!= Core.mempty) Core.<*>
+                     x Core..:? "ChildShards"
+                     Core.<*> x Core..:? "MillisBehindLatest"
+                     Core.<*> x Core..:? "NextShardIterator"
+                     Core.<*> Core.pure (Core.fromEnum s))
+        
+        {-# INLINE parseResponse #-}
 
 -- | Represents the output for 'GetRecords' .
 --
 -- /See:/ 'mkGetRecordsResponse' smart constructor.
 data GetRecordsResponse = GetRecordsResponse'
-  { -- | The data records retrieved from the shard.
-    records :: [Types.Record],
-    childShards :: Core.Maybe [Types.ChildShard],
-    -- | The number of milliseconds the 'GetRecords' response is from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.
-    millisBehindLatest :: Core.Maybe Core.Natural,
-    -- | The next position in the shard from which to start sequentially reading data records. If set to @null@ , the shard has been closed and the requested iterator does not return any more data.
-    nextShardIterator :: Core.Maybe Types.ShardIterator,
-    -- | The response status code.
-    responseStatus :: Core.Int
+  { records :: [Types.Record]
+    -- ^ The data records retrieved from the shard.
+  , childShards :: Core.Maybe [Types.ChildShard]
+  , millisBehindLatest :: Core.Maybe Core.Natural
+    -- ^ The number of milliseconds the 'GetRecords' response is from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.
+  , nextShardIterator :: Core.Maybe Types.ShardIterator
+    -- ^ The next position in the shard from which to start sequentially reading data records. If set to @null@ , the shard has been closed and the requested iterator does not return any more data. 
+  , responseStatus :: Core.Int
+    -- ^ The response status code.
   }
   deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
-  deriving anyclass (Core.NFData)
+  deriving anyclass Core.NFData
 
 -- | Creates a 'GetRecordsResponse' value with any optional fields omitted.
-mkGetRecordsResponse ::
-  -- | 'responseStatus'
-  Core.Int ->
-  GetRecordsResponse
-mkGetRecordsResponse responseStatus =
-  GetRecordsResponse'
-    { records = Core.mempty,
-      childShards = Core.Nothing,
-      millisBehindLatest = Core.Nothing,
-      nextShardIterator = Core.Nothing,
-      responseStatus
-    }
+mkGetRecordsResponse
+    :: Core.Int -- ^ 'responseStatus'
+    -> GetRecordsResponse
+mkGetRecordsResponse responseStatus
+  = GetRecordsResponse'{records = Core.mempty,
+                        childShards = Core.Nothing, millisBehindLatest = Core.Nothing,
+                        nextShardIterator = Core.Nothing, responseStatus}
 
 -- | The data records retrieved from the shard.
 --
 -- /Note:/ Consider using 'records' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 grrrsRecords :: Lens.Lens' GetRecordsResponse [Types.Record]
 grrrsRecords = Lens.field @"records"
-{-# DEPRECATED grrrsRecords "Use generic-lens or generic-optics with 'records' instead." #-}
+{-# INLINEABLE grrrsRecords #-}
+{-# DEPRECATED records "Use generic-lens or generic-optics with 'records' instead"  #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'childShards' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 grrrsChildShards :: Lens.Lens' GetRecordsResponse (Core.Maybe [Types.ChildShard])
 grrrsChildShards = Lens.field @"childShards"
-{-# DEPRECATED grrrsChildShards "Use generic-lens or generic-optics with 'childShards' instead." #-}
+{-# INLINEABLE grrrsChildShards #-}
+{-# DEPRECATED childShards "Use generic-lens or generic-optics with 'childShards' instead"  #-}
 
 -- | The number of milliseconds the 'GetRecords' response is from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.
 --
 -- /Note:/ Consider using 'millisBehindLatest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 grrrsMillisBehindLatest :: Lens.Lens' GetRecordsResponse (Core.Maybe Core.Natural)
 grrrsMillisBehindLatest = Lens.field @"millisBehindLatest"
-{-# DEPRECATED grrrsMillisBehindLatest "Use generic-lens or generic-optics with 'millisBehindLatest' instead." #-}
+{-# INLINEABLE grrrsMillisBehindLatest #-}
+{-# DEPRECATED millisBehindLatest "Use generic-lens or generic-optics with 'millisBehindLatest' instead"  #-}
 
--- | The next position in the shard from which to start sequentially reading data records. If set to @null@ , the shard has been closed and the requested iterator does not return any more data.
+-- | The next position in the shard from which to start sequentially reading data records. If set to @null@ , the shard has been closed and the requested iterator does not return any more data. 
 --
 -- /Note:/ Consider using 'nextShardIterator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 grrrsNextShardIterator :: Lens.Lens' GetRecordsResponse (Core.Maybe Types.ShardIterator)
 grrrsNextShardIterator = Lens.field @"nextShardIterator"
-{-# DEPRECATED grrrsNextShardIterator "Use generic-lens or generic-optics with 'nextShardIterator' instead." #-}
+{-# INLINEABLE grrrsNextShardIterator #-}
+{-# DEPRECATED nextShardIterator "Use generic-lens or generic-optics with 'nextShardIterator' instead"  #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
 grrrsResponseStatus :: Lens.Lens' GetRecordsResponse Core.Int
 grrrsResponseStatus = Lens.field @"responseStatus"
-{-# DEPRECATED grrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+{-# INLINEABLE grrrsResponseStatus #-}
+{-# DEPRECATED responseStatus "Use generic-lens or generic-optics with 'responseStatus' instead"  #-}

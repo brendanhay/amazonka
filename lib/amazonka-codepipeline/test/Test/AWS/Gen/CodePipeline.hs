@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,14 +10,15 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Test.AWS.Gen.CodePipeline where
 
 import Data.Proxy
-import Network.AWS.CodePipeline
-import Test.AWS.CodePipeline.Internal
 import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
+import Network.AWS.CodePipeline
+import Test.AWS.CodePipeline.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.
@@ -258,520 +259,446 @@ import Test.Tasty
 -- Requests
 
 requestGetPipeline :: GetPipeline -> TestTree
-requestGetPipeline =
-  req
+requestGetPipeline = req
     "GetPipeline"
     "fixture/GetPipeline.yaml"
 
 requestPutJobFailureResult :: PutJobFailureResult -> TestTree
-requestPutJobFailureResult =
-  req
+requestPutJobFailureResult = req
     "PutJobFailureResult"
     "fixture/PutJobFailureResult.yaml"
 
 requestPutApprovalResult :: PutApprovalResult -> TestTree
-requestPutApprovalResult =
-  req
+requestPutApprovalResult = req
     "PutApprovalResult"
     "fixture/PutApprovalResult.yaml"
 
 requestAcknowledgeThirdPartyJob :: AcknowledgeThirdPartyJob -> TestTree
-requestAcknowledgeThirdPartyJob =
-  req
+requestAcknowledgeThirdPartyJob = req
     "AcknowledgeThirdPartyJob"
     "fixture/AcknowledgeThirdPartyJob.yaml"
 
 requestPutThirdPartyJobFailureResult :: PutThirdPartyJobFailureResult -> TestTree
-requestPutThirdPartyJobFailureResult =
-  req
+requestPutThirdPartyJobFailureResult = req
     "PutThirdPartyJobFailureResult"
     "fixture/PutThirdPartyJobFailureResult.yaml"
 
 requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource =
-  req
+requestListTagsForResource = req
     "ListTagsForResource"
     "fixture/ListTagsForResource.yaml"
 
 requestRegisterWebhookWithThirdParty :: RegisterWebhookWithThirdParty -> TestTree
-requestRegisterWebhookWithThirdParty =
-  req
+requestRegisterWebhookWithThirdParty = req
     "RegisterWebhookWithThirdParty"
     "fixture/RegisterWebhookWithThirdParty.yaml"
 
 requestPollForThirdPartyJobs :: PollForThirdPartyJobs -> TestTree
-requestPollForThirdPartyJobs =
-  req
+requestPollForThirdPartyJobs = req
     "PollForThirdPartyJobs"
     "fixture/PollForThirdPartyJobs.yaml"
 
 requestPollForJobs :: PollForJobs -> TestTree
-requestPollForJobs =
-  req
+requestPollForJobs = req
     "PollForJobs"
     "fixture/PollForJobs.yaml"
 
 requestStartPipelineExecution :: StartPipelineExecution -> TestTree
-requestStartPipelineExecution =
-  req
+requestStartPipelineExecution = req
     "StartPipelineExecution"
     "fixture/StartPipelineExecution.yaml"
 
 requestUpdatePipeline :: UpdatePipeline -> TestTree
-requestUpdatePipeline =
-  req
+requestUpdatePipeline = req
     "UpdatePipeline"
     "fixture/UpdatePipeline.yaml"
 
 requestDeletePipeline :: DeletePipeline -> TestTree
-requestDeletePipeline =
-  req
+requestDeletePipeline = req
     "DeletePipeline"
     "fixture/DeletePipeline.yaml"
 
 requestGetPipelineState :: GetPipelineState -> TestTree
-requestGetPipelineState =
-  req
+requestGetPipelineState = req
     "GetPipelineState"
     "fixture/GetPipelineState.yaml"
 
 requestGetJobDetails :: GetJobDetails -> TestTree
-requestGetJobDetails =
-  req
+requestGetJobDetails = req
     "GetJobDetails"
     "fixture/GetJobDetails.yaml"
 
 requestListPipelines :: ListPipelines -> TestTree
-requestListPipelines =
-  req
+requestListPipelines = req
     "ListPipelines"
     "fixture/ListPipelines.yaml"
 
 requestRetryStageExecution :: RetryStageExecution -> TestTree
-requestRetryStageExecution =
-  req
+requestRetryStageExecution = req
     "RetryStageExecution"
     "fixture/RetryStageExecution.yaml"
 
 requestGetPipelineExecution :: GetPipelineExecution -> TestTree
-requestGetPipelineExecution =
-  req
+requestGetPipelineExecution = req
     "GetPipelineExecution"
     "fixture/GetPipelineExecution.yaml"
 
 requestPutJobSuccessResult :: PutJobSuccessResult -> TestTree
-requestPutJobSuccessResult =
-  req
+requestPutJobSuccessResult = req
     "PutJobSuccessResult"
     "fixture/PutJobSuccessResult.yaml"
 
 requestDeregisterWebhookWithThirdParty :: DeregisterWebhookWithThirdParty -> TestTree
-requestDeregisterWebhookWithThirdParty =
-  req
+requestDeregisterWebhookWithThirdParty = req
     "DeregisterWebhookWithThirdParty"
     "fixture/DeregisterWebhookWithThirdParty.yaml"
 
 requestDeleteCustomActionType :: DeleteCustomActionType -> TestTree
-requestDeleteCustomActionType =
-  req
+requestDeleteCustomActionType = req
     "DeleteCustomActionType"
     "fixture/DeleteCustomActionType.yaml"
 
 requestPutActionRevision :: PutActionRevision -> TestTree
-requestPutActionRevision =
-  req
+requestPutActionRevision = req
     "PutActionRevision"
     "fixture/PutActionRevision.yaml"
 
 requestDisableStageTransition :: DisableStageTransition -> TestTree
-requestDisableStageTransition =
-  req
+requestDisableStageTransition = req
     "DisableStageTransition"
     "fixture/DisableStageTransition.yaml"
 
 requestListActionTypes :: ListActionTypes -> TestTree
-requestListActionTypes =
-  req
+requestListActionTypes = req
     "ListActionTypes"
     "fixture/ListActionTypes.yaml"
 
 requestAcknowledgeJob :: AcknowledgeJob -> TestTree
-requestAcknowledgeJob =
-  req
+requestAcknowledgeJob = req
     "AcknowledgeJob"
     "fixture/AcknowledgeJob.yaml"
 
 requestEnableStageTransition :: EnableStageTransition -> TestTree
-requestEnableStageTransition =
-  req
+requestEnableStageTransition = req
     "EnableStageTransition"
     "fixture/EnableStageTransition.yaml"
 
 requestDeleteWebhook :: DeleteWebhook -> TestTree
-requestDeleteWebhook =
-  req
+requestDeleteWebhook = req
     "DeleteWebhook"
     "fixture/DeleteWebhook.yaml"
 
 requestPutWebhook :: PutWebhook -> TestTree
-requestPutWebhook =
-  req
+requestPutWebhook = req
     "PutWebhook"
     "fixture/PutWebhook.yaml"
 
 requestListWebhooks :: ListWebhooks -> TestTree
-requestListWebhooks =
-  req
+requestListWebhooks = req
     "ListWebhooks"
     "fixture/ListWebhooks.yaml"
 
 requestListActionExecutions :: ListActionExecutions -> TestTree
-requestListActionExecutions =
-  req
+requestListActionExecutions = req
     "ListActionExecutions"
     "fixture/ListActionExecutions.yaml"
 
 requestStopPipelineExecution :: StopPipelineExecution -> TestTree
-requestStopPipelineExecution =
-  req
+requestStopPipelineExecution = req
     "StopPipelineExecution"
     "fixture/StopPipelineExecution.yaml"
 
 requestTagResource :: TagResource -> TestTree
-requestTagResource =
-  req
+requestTagResource = req
     "TagResource"
     "fixture/TagResource.yaml"
 
 requestUntagResource :: UntagResource -> TestTree
-requestUntagResource =
-  req
+requestUntagResource = req
     "UntagResource"
     "fixture/UntagResource.yaml"
 
 requestCreatePipeline :: CreatePipeline -> TestTree
-requestCreatePipeline =
-  req
+requestCreatePipeline = req
     "CreatePipeline"
     "fixture/CreatePipeline.yaml"
 
 requestGetThirdPartyJobDetails :: GetThirdPartyJobDetails -> TestTree
-requestGetThirdPartyJobDetails =
-  req
+requestGetThirdPartyJobDetails = req
     "GetThirdPartyJobDetails"
     "fixture/GetThirdPartyJobDetails.yaml"
 
 requestPutThirdPartyJobSuccessResult :: PutThirdPartyJobSuccessResult -> TestTree
-requestPutThirdPartyJobSuccessResult =
-  req
+requestPutThirdPartyJobSuccessResult = req
     "PutThirdPartyJobSuccessResult"
     "fixture/PutThirdPartyJobSuccessResult.yaml"
 
 requestCreateCustomActionType :: CreateCustomActionType -> TestTree
-requestCreateCustomActionType =
-  req
+requestCreateCustomActionType = req
     "CreateCustomActionType"
     "fixture/CreateCustomActionType.yaml"
 
 requestListPipelineExecutions :: ListPipelineExecutions -> TestTree
-requestListPipelineExecutions =
-  req
+requestListPipelineExecutions = req
     "ListPipelineExecutions"
     "fixture/ListPipelineExecutions.yaml"
 
 -- Responses
 
 responseGetPipeline :: GetPipelineResponse -> TestTree
-responseGetPipeline =
-  res
+responseGetPipeline = res
     "GetPipelineResponse"
     "fixture/GetPipelineResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetPipeline)
 
 responsePutJobFailureResult :: PutJobFailureResultResponse -> TestTree
-responsePutJobFailureResult =
-  res
+responsePutJobFailureResult = res
     "PutJobFailureResultResponse"
     "fixture/PutJobFailureResultResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutJobFailureResult)
 
 responsePutApprovalResult :: PutApprovalResultResponse -> TestTree
-responsePutApprovalResult =
-  res
+responsePutApprovalResult = res
     "PutApprovalResultResponse"
     "fixture/PutApprovalResultResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutApprovalResult)
 
 responseAcknowledgeThirdPartyJob :: AcknowledgeThirdPartyJobResponse -> TestTree
-responseAcknowledgeThirdPartyJob =
-  res
+responseAcknowledgeThirdPartyJob = res
     "AcknowledgeThirdPartyJobResponse"
     "fixture/AcknowledgeThirdPartyJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AcknowledgeThirdPartyJob)
 
 responsePutThirdPartyJobFailureResult :: PutThirdPartyJobFailureResultResponse -> TestTree
-responsePutThirdPartyJobFailureResult =
-  res
+responsePutThirdPartyJobFailureResult = res
     "PutThirdPartyJobFailureResultResponse"
     "fixture/PutThirdPartyJobFailureResultResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutThirdPartyJobFailureResult)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource =
-  res
+responseListTagsForResource = res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseRegisterWebhookWithThirdParty :: RegisterWebhookWithThirdPartyResponse -> TestTree
-responseRegisterWebhookWithThirdParty =
-  res
+responseRegisterWebhookWithThirdParty = res
     "RegisterWebhookWithThirdPartyResponse"
     "fixture/RegisterWebhookWithThirdPartyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RegisterWebhookWithThirdParty)
 
 responsePollForThirdPartyJobs :: PollForThirdPartyJobsResponse -> TestTree
-responsePollForThirdPartyJobs =
-  res
+responsePollForThirdPartyJobs = res
     "PollForThirdPartyJobsResponse"
     "fixture/PollForThirdPartyJobsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PollForThirdPartyJobs)
 
 responsePollForJobs :: PollForJobsResponse -> TestTree
-responsePollForJobs =
-  res
+responsePollForJobs = res
     "PollForJobsResponse"
     "fixture/PollForJobsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PollForJobs)
 
 responseStartPipelineExecution :: StartPipelineExecutionResponse -> TestTree
-responseStartPipelineExecution =
-  res
+responseStartPipelineExecution = res
     "StartPipelineExecutionResponse"
     "fixture/StartPipelineExecutionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StartPipelineExecution)
 
 responseUpdatePipeline :: UpdatePipelineResponse -> TestTree
-responseUpdatePipeline =
-  res
+responseUpdatePipeline = res
     "UpdatePipelineResponse"
     "fixture/UpdatePipelineResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UpdatePipeline)
 
 responseDeletePipeline :: DeletePipelineResponse -> TestTree
-responseDeletePipeline =
-  res
+responseDeletePipeline = res
     "DeletePipelineResponse"
     "fixture/DeletePipelineResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeletePipeline)
 
 responseGetPipelineState :: GetPipelineStateResponse -> TestTree
-responseGetPipelineState =
-  res
+responseGetPipelineState = res
     "GetPipelineStateResponse"
     "fixture/GetPipelineStateResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetPipelineState)
 
 responseGetJobDetails :: GetJobDetailsResponse -> TestTree
-responseGetJobDetails =
-  res
+responseGetJobDetails = res
     "GetJobDetailsResponse"
     "fixture/GetJobDetailsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetJobDetails)
 
 responseListPipelines :: ListPipelinesResponse -> TestTree
-responseListPipelines =
-  res
+responseListPipelines = res
     "ListPipelinesResponse"
     "fixture/ListPipelinesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListPipelines)
 
 responseRetryStageExecution :: RetryStageExecutionResponse -> TestTree
-responseRetryStageExecution =
-  res
+responseRetryStageExecution = res
     "RetryStageExecutionResponse"
     "fixture/RetryStageExecutionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy RetryStageExecution)
 
 responseGetPipelineExecution :: GetPipelineExecutionResponse -> TestTree
-responseGetPipelineExecution =
-  res
+responseGetPipelineExecution = res
     "GetPipelineExecutionResponse"
     "fixture/GetPipelineExecutionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetPipelineExecution)
 
 responsePutJobSuccessResult :: PutJobSuccessResultResponse -> TestTree
-responsePutJobSuccessResult =
-  res
+responsePutJobSuccessResult = res
     "PutJobSuccessResultResponse"
     "fixture/PutJobSuccessResultResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutJobSuccessResult)
 
 responseDeregisterWebhookWithThirdParty :: DeregisterWebhookWithThirdPartyResponse -> TestTree
-responseDeregisterWebhookWithThirdParty =
-  res
+responseDeregisterWebhookWithThirdParty = res
     "DeregisterWebhookWithThirdPartyResponse"
     "fixture/DeregisterWebhookWithThirdPartyResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeregisterWebhookWithThirdParty)
 
 responseDeleteCustomActionType :: DeleteCustomActionTypeResponse -> TestTree
-responseDeleteCustomActionType =
-  res
+responseDeleteCustomActionType = res
     "DeleteCustomActionTypeResponse"
     "fixture/DeleteCustomActionTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteCustomActionType)
 
 responsePutActionRevision :: PutActionRevisionResponse -> TestTree
-responsePutActionRevision =
-  res
+responsePutActionRevision = res
     "PutActionRevisionResponse"
     "fixture/PutActionRevisionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutActionRevision)
 
 responseDisableStageTransition :: DisableStageTransitionResponse -> TestTree
-responseDisableStageTransition =
-  res
+responseDisableStageTransition = res
     "DisableStageTransitionResponse"
     "fixture/DisableStageTransitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DisableStageTransition)
 
 responseListActionTypes :: ListActionTypesResponse -> TestTree
-responseListActionTypes =
-  res
+responseListActionTypes = res
     "ListActionTypesResponse"
     "fixture/ListActionTypesResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListActionTypes)
 
 responseAcknowledgeJob :: AcknowledgeJobResponse -> TestTree
-responseAcknowledgeJob =
-  res
+responseAcknowledgeJob = res
     "AcknowledgeJobResponse"
     "fixture/AcknowledgeJobResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy AcknowledgeJob)
 
 responseEnableStageTransition :: EnableStageTransitionResponse -> TestTree
-responseEnableStageTransition =
-  res
+responseEnableStageTransition = res
     "EnableStageTransitionResponse"
     "fixture/EnableStageTransitionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy EnableStageTransition)
 
 responseDeleteWebhook :: DeleteWebhookResponse -> TestTree
-responseDeleteWebhook =
-  res
+responseDeleteWebhook = res
     "DeleteWebhookResponse"
     "fixture/DeleteWebhookResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy DeleteWebhook)
 
 responsePutWebhook :: PutWebhookResponse -> TestTree
-responsePutWebhook =
-  res
+responsePutWebhook = res
     "PutWebhookResponse"
     "fixture/PutWebhookResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutWebhook)
 
 responseListWebhooks :: ListWebhooksResponse -> TestTree
-responseListWebhooks =
-  res
+responseListWebhooks = res
     "ListWebhooksResponse"
     "fixture/ListWebhooksResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListWebhooks)
 
 responseListActionExecutions :: ListActionExecutionsResponse -> TestTree
-responseListActionExecutions =
-  res
+responseListActionExecutions = res
     "ListActionExecutionsResponse"
     "fixture/ListActionExecutionsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy ListActionExecutions)
 
 responseStopPipelineExecution :: StopPipelineExecutionResponse -> TestTree
-responseStopPipelineExecution =
-  res
+responseStopPipelineExecution = res
     "StopPipelineExecutionResponse"
     "fixture/StopPipelineExecutionResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy StopPipelineExecution)
 
 responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource =
-  res
+responseTagResource = res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource =
-  res
+responseUntagResource = res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseCreatePipeline :: CreatePipelineResponse -> TestTree
-responseCreatePipeline =
-  res
+responseCreatePipeline = res
     "CreatePipelineResponse"
     "fixture/CreatePipelineResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreatePipeline)
 
 responseGetThirdPartyJobDetails :: GetThirdPartyJobDetailsResponse -> TestTree
-responseGetThirdPartyJobDetails =
-  res
+responseGetThirdPartyJobDetails = res
     "GetThirdPartyJobDetailsResponse"
     "fixture/GetThirdPartyJobDetailsResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy GetThirdPartyJobDetails)
 
 responsePutThirdPartyJobSuccessResult :: PutThirdPartyJobSuccessResultResponse -> TestTree
-responsePutThirdPartyJobSuccessResult =
-  res
+responsePutThirdPartyJobSuccessResult = res
     "PutThirdPartyJobSuccessResultResponse"
     "fixture/PutThirdPartyJobSuccessResultResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy PutThirdPartyJobSuccessResult)
 
 responseCreateCustomActionType :: CreateCustomActionTypeResponse -> TestTree
-responseCreateCustomActionType =
-  res
+responseCreateCustomActionType = res
     "CreateCustomActionTypeResponse"
     "fixture/CreateCustomActionTypeResponse.proto"
     mkServiceConfig
     (Proxy :: Proxy CreateCustomActionType)
 
 responseListPipelineExecutions :: ListPipelineExecutionsResponse -> TestTree
-responseListPipelineExecutions =
-  res
+responseListPipelineExecutions = res
     "ListPipelineExecutionsResponse"
     "fixture/ListPipelineExecutionsResponse.proto"
     mkServiceConfig

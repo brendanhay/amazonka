@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -10,133 +10,117 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
 module Network.AWS.Config.Types.ResourceType
   ( ResourceType
-      ( ResourceType',
-        ResourceTypeAwsEC2CustomerGateway,
-        ResourceTypeAwsEC2Eip,
-        ResourceTypeAwsEC2Host,
-        ResourceTypeAwsEC2Instance,
-        ResourceTypeAwsEC2InternetGateway,
-        ResourceTypeAwsEC2NetworkAcl,
-        ResourceTypeAwsEC2NetworkInterface,
-        ResourceTypeAwsEC2RouteTable,
-        ResourceTypeAwsEC2SecurityGroup,
-        ResourceTypeAwsEC2Subnet,
-        ResourceTypeAwsCloudTrailTrail,
-        ResourceTypeAwsEC2Volume,
-        ResourceTypeAwsEC2Vpc,
-        ResourceTypeAwsEC2VPNConnection,
-        ResourceTypeAwsEC2VPNGateway,
-        ResourceTypeAwsEC2RegisteredHAInstance,
-        ResourceTypeAwsEC2NatGateway,
-        ResourceTypeAwsEC2EgressOnlyInternetGateway,
-        ResourceTypeAwsEC2VPCEndpoint,
-        ResourceTypeAwsEC2VPCEndpointService,
-        ResourceTypeAwsEC2FlowLog,
-        ResourceTypeAwsEC2VPCPeeringConnection,
-        ResourceTypeAwsElasticsearchDomain,
-        ResourceTypeAwsIamGroup,
-        ResourceTypeAwsIamPolicy,
-        ResourceTypeAwsIamRole,
-        ResourceTypeAwsIamUser,
-        ResourceTypeAwsELASTICLOADBALANCINGV2LoadBalancer,
-        ResourceTypeAwsAcmCertificate,
-        ResourceTypeAwsRdsDBInstance,
-        ResourceTypeAwsRdsDBSubnetGroup,
-        ResourceTypeAwsRdsDBSecurityGroup,
-        ResourceTypeAwsRdsDBSnapshot,
-        ResourceTypeAwsRdsDBCluster,
-        ResourceTypeAwsRdsDBClusterSnapshot,
-        ResourceTypeAwsRdsEventSubscription,
-        ResourceTypeAwsS3Bucket,
-        ResourceTypeAwsS3AccountPublicAccessBlock,
-        ResourceTypeAwsRedshiftCluster,
-        ResourceTypeAwsRedshiftClusterSnapshot,
-        ResourceTypeAwsRedshiftClusterParameterGroup,
-        ResourceTypeAwsRedshiftClusterSecurityGroup,
-        ResourceTypeAwsRedshiftClusterSubnetGroup,
-        ResourceTypeAwsRedshiftEventSubscription,
-        ResourceTypeAwsSsmManagedInstanceInventory,
-        ResourceTypeAwsCloudWatchAlarm,
-        ResourceTypeAwsCloudFormationStack,
-        ResourceTypeAwsElasticLoadBalancingLoadBalancer,
-        ResourceTypeAwsAutoScalingAutoScalingGroup,
-        ResourceTypeAwsAutoScalingLaunchConfiguration,
-        ResourceTypeAwsAutoScalingScalingPolicy,
-        ResourceTypeAwsAutoScalingScheduledAction,
-        ResourceTypeAwsDynamoDBTable,
-        ResourceTypeAwsCodeBuildProject,
-        ResourceTypeAwsWafRateBasedRule,
-        ResourceTypeAwsWafRule,
-        ResourceTypeAwsWafRuleGroup,
-        ResourceTypeAwsWafWebACL,
-        ResourceTypeAwsWAFRegionalRateBasedRule,
-        ResourceTypeAwsWAFRegionalRule,
-        ResourceTypeAwsWAFRegionalRuleGroup,
-        ResourceTypeAwsWAFRegionalWebACL,
-        ResourceTypeAwsCloudFrontDistribution,
-        ResourceTypeAwsCloudFrontStreamingDistribution,
-        ResourceTypeAwsLambdaFunction,
-        ResourceTypeAwsElasticBeanstalkApplication,
-        ResourceTypeAwsElasticBeanstalkApplicationVersion,
-        ResourceTypeAwsElasticBeanstalkEnvironment,
-        ResourceTypeAwsWAFV2WebACL,
-        ResourceTypeAwsWAFV2RuleGroup,
-        ResourceTypeAwsWAFV2IPSet,
-        ResourceTypeAwsWAFV2RegexPatternSet,
-        ResourceTypeAwsWAFV2ManagedRuleSet,
-        ResourceTypeAwsXRayEncryptionConfig,
-        ResourceTypeAwsSsmAssociationCompliance,
-        ResourceTypeAwsSsmPatchCompliance,
-        ResourceTypeAwsShieldProtection,
-        ResourceTypeAwsShieldRegionalProtection,
-        ResourceTypeAwsConfigResourceCompliance,
-        ResourceTypeAwsApiGatewayStage,
-        ResourceTypeAwsApiGatewayRestApi,
-        ResourceTypeAwsAPIGATEWAYV2Stage,
-        ResourceTypeAwsAPIGATEWAYV2Api,
-        ResourceTypeAwsCodePipelinePipeline,
-        ResourceTypeAwsServiceCatalogCloudFormationProvisionedProduct,
-        ResourceTypeAwsServiceCatalogCloudFormationProduct,
-        ResourceTypeAwsServiceCatalogPortfolio,
-        ResourceTypeAwsSqsQueue,
-        ResourceTypeAwsKmsKey,
-        ResourceTypeAwsQldbLedger,
-        ResourceTypeAwsSecretsManagerSecret,
-        ResourceTypeAwsSnsTopic,
-        ResourceTypeAwsSsmFileData,
-        fromResourceType
-      ),
-  )
-where
+    ( ResourceType'
+    , ResourceTypeAwsEC2CustomerGateway
+    , ResourceTypeAwsEC2Eip
+    , ResourceTypeAwsEC2Host
+    , ResourceTypeAwsEC2Instance
+    , ResourceTypeAwsEC2InternetGateway
+    , ResourceTypeAwsEC2NetworkAcl
+    , ResourceTypeAwsEC2NetworkInterface
+    , ResourceTypeAwsEC2RouteTable
+    , ResourceTypeAwsEC2SecurityGroup
+    , ResourceTypeAwsEC2Subnet
+    , ResourceTypeAwsCloudTrailTrail
+    , ResourceTypeAwsEC2Volume
+    , ResourceTypeAwsEC2Vpc
+    , ResourceTypeAwsEC2VPNConnection
+    , ResourceTypeAwsEC2VPNGateway
+    , ResourceTypeAwsEC2RegisteredHAInstance
+    , ResourceTypeAwsEC2NatGateway
+    , ResourceTypeAwsEC2EgressOnlyInternetGateway
+    , ResourceTypeAwsEC2VPCEndpoint
+    , ResourceTypeAwsEC2VPCEndpointService
+    , ResourceTypeAwsEC2FlowLog
+    , ResourceTypeAwsEC2VPCPeeringConnection
+    , ResourceTypeAwsElasticsearchDomain
+    , ResourceTypeAwsIamGroup
+    , ResourceTypeAwsIamPolicy
+    , ResourceTypeAwsIamRole
+    , ResourceTypeAwsIamUser
+    , ResourceTypeAwsELASTICLOADBALANCINGV2LoadBalancer
+    , ResourceTypeAwsAcmCertificate
+    , ResourceTypeAwsRdsDBInstance
+    , ResourceTypeAwsRdsDBSubnetGroup
+    , ResourceTypeAwsRdsDBSecurityGroup
+    , ResourceTypeAwsRdsDBSnapshot
+    , ResourceTypeAwsRdsDBCluster
+    , ResourceTypeAwsRdsDBClusterSnapshot
+    , ResourceTypeAwsRdsEventSubscription
+    , ResourceTypeAwsS3Bucket
+    , ResourceTypeAwsS3AccountPublicAccessBlock
+    , ResourceTypeAwsRedshiftCluster
+    , ResourceTypeAwsRedshiftClusterSnapshot
+    , ResourceTypeAwsRedshiftClusterParameterGroup
+    , ResourceTypeAwsRedshiftClusterSecurityGroup
+    , ResourceTypeAwsRedshiftClusterSubnetGroup
+    , ResourceTypeAwsRedshiftEventSubscription
+    , ResourceTypeAwsSsmManagedInstanceInventory
+    , ResourceTypeAwsCloudWatchAlarm
+    , ResourceTypeAwsCloudFormationStack
+    , ResourceTypeAwsElasticLoadBalancingLoadBalancer
+    , ResourceTypeAwsAutoScalingAutoScalingGroup
+    , ResourceTypeAwsAutoScalingLaunchConfiguration
+    , ResourceTypeAwsAutoScalingScalingPolicy
+    , ResourceTypeAwsAutoScalingScheduledAction
+    , ResourceTypeAwsDynamoDBTable
+    , ResourceTypeAwsCodeBuildProject
+    , ResourceTypeAwsWafRateBasedRule
+    , ResourceTypeAwsWafRule
+    , ResourceTypeAwsWafRuleGroup
+    , ResourceTypeAwsWafWebACL
+    , ResourceTypeAwsWAFRegionalRateBasedRule
+    , ResourceTypeAwsWAFRegionalRule
+    , ResourceTypeAwsWAFRegionalRuleGroup
+    , ResourceTypeAwsWAFRegionalWebACL
+    , ResourceTypeAwsCloudFrontDistribution
+    , ResourceTypeAwsCloudFrontStreamingDistribution
+    , ResourceTypeAwsLambdaFunction
+    , ResourceTypeAwsElasticBeanstalkApplication
+    , ResourceTypeAwsElasticBeanstalkApplicationVersion
+    , ResourceTypeAwsElasticBeanstalkEnvironment
+    , ResourceTypeAwsWAFV2WebACL
+    , ResourceTypeAwsWAFV2RuleGroup
+    , ResourceTypeAwsWAFV2IPSet
+    , ResourceTypeAwsWAFV2RegexPatternSet
+    , ResourceTypeAwsWAFV2ManagedRuleSet
+    , ResourceTypeAwsXRayEncryptionConfig
+    , ResourceTypeAwsSsmAssociationCompliance
+    , ResourceTypeAwsSsmPatchCompliance
+    , ResourceTypeAwsShieldProtection
+    , ResourceTypeAwsShieldRegionalProtection
+    , ResourceTypeAwsConfigResourceCompliance
+    , ResourceTypeAwsApiGatewayStage
+    , ResourceTypeAwsApiGatewayRestApi
+    , ResourceTypeAwsAPIGATEWAYV2Stage
+    , ResourceTypeAwsAPIGATEWAYV2Api
+    , ResourceTypeAwsCodePipelinePipeline
+    , ResourceTypeAwsServiceCatalogCloudFormationProvisionedProduct
+    , ResourceTypeAwsServiceCatalogCloudFormationProduct
+    , ResourceTypeAwsServiceCatalogPortfolio
+    , ResourceTypeAwsSqsQueue
+    , ResourceTypeAwsKmsKey
+    , ResourceTypeAwsQldbLedger
+    , ResourceTypeAwsSecretsManagerSecret
+    , ResourceTypeAwsSnsTopic
+    , ResourceTypeAwsSsmFileData
+    , fromResourceType
+    )
+  ) where
 
 import qualified Network.AWS.Prelude as Core
 
-newtype ResourceType = ResourceType' {fromResourceType :: Core.Text}
-  deriving stock
-    ( Core.Eq,
-      Core.Ord,
-      Core.Read,
-      Core.Show,
-      Core.Generic
-    )
-  deriving newtype
-    ( Core.IsString,
-      Core.Hashable,
-      Core.NFData,
-      Core.ToJSONKey,
-      Core.FromJSONKey,
-      Core.ToJSON,
-      Core.FromJSON,
-      Core.ToXML,
-      Core.FromXML,
-      Core.ToText,
-      Core.FromText,
-      Core.ToByteString,
-      Core.ToQuery,
-      Core.ToHeader
-    )
+newtype ResourceType = ResourceType'{fromResourceType :: Core.Text}
+                         deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show,
+                                         Core.Generic)
+                         deriving newtype (Core.IsString, Core.Hashable, Core.NFData,
+                                           Core.ToJSONKey, Core.FromJSONKey, Core.ToJSON,
+                                           Core.FromJSON, Core.ToXML, Core.FromXML, Core.ToText,
+                                           Core.FromText, Core.ToByteString, Core.ToQuery,
+                                           Core.ToHeader)
 
 pattern ResourceTypeAwsEC2CustomerGateway :: ResourceType
 pattern ResourceTypeAwsEC2CustomerGateway = ResourceType' "AWS::EC2::CustomerGateway"
@@ -417,99 +401,191 @@ pattern ResourceTypeAwsSnsTopic = ResourceType' "AWS::SNS::Topic"
 pattern ResourceTypeAwsSsmFileData :: ResourceType
 pattern ResourceTypeAwsSsmFileData = ResourceType' "AWS::SSM::FileData"
 
-{-# COMPLETE
+{-# COMPLETE 
   ResourceTypeAwsEC2CustomerGateway,
+
   ResourceTypeAwsEC2Eip,
+
   ResourceTypeAwsEC2Host,
+
   ResourceTypeAwsEC2Instance,
+
   ResourceTypeAwsEC2InternetGateway,
+
   ResourceTypeAwsEC2NetworkAcl,
+
   ResourceTypeAwsEC2NetworkInterface,
+
   ResourceTypeAwsEC2RouteTable,
+
   ResourceTypeAwsEC2SecurityGroup,
+
   ResourceTypeAwsEC2Subnet,
+
   ResourceTypeAwsCloudTrailTrail,
+
   ResourceTypeAwsEC2Volume,
+
   ResourceTypeAwsEC2Vpc,
+
   ResourceTypeAwsEC2VPNConnection,
+
   ResourceTypeAwsEC2VPNGateway,
+
   ResourceTypeAwsEC2RegisteredHAInstance,
+
   ResourceTypeAwsEC2NatGateway,
+
   ResourceTypeAwsEC2EgressOnlyInternetGateway,
+
   ResourceTypeAwsEC2VPCEndpoint,
+
   ResourceTypeAwsEC2VPCEndpointService,
+
   ResourceTypeAwsEC2FlowLog,
+
   ResourceTypeAwsEC2VPCPeeringConnection,
+
   ResourceTypeAwsElasticsearchDomain,
+
   ResourceTypeAwsIamGroup,
+
   ResourceTypeAwsIamPolicy,
+
   ResourceTypeAwsIamRole,
+
   ResourceTypeAwsIamUser,
+
   ResourceTypeAwsELASTICLOADBALANCINGV2LoadBalancer,
+
   ResourceTypeAwsAcmCertificate,
+
   ResourceTypeAwsRdsDBInstance,
+
   ResourceTypeAwsRdsDBSubnetGroup,
+
   ResourceTypeAwsRdsDBSecurityGroup,
+
   ResourceTypeAwsRdsDBSnapshot,
+
   ResourceTypeAwsRdsDBCluster,
+
   ResourceTypeAwsRdsDBClusterSnapshot,
+
   ResourceTypeAwsRdsEventSubscription,
+
   ResourceTypeAwsS3Bucket,
+
   ResourceTypeAwsS3AccountPublicAccessBlock,
+
   ResourceTypeAwsRedshiftCluster,
+
   ResourceTypeAwsRedshiftClusterSnapshot,
+
   ResourceTypeAwsRedshiftClusterParameterGroup,
+
   ResourceTypeAwsRedshiftClusterSecurityGroup,
+
   ResourceTypeAwsRedshiftClusterSubnetGroup,
+
   ResourceTypeAwsRedshiftEventSubscription,
+
   ResourceTypeAwsSsmManagedInstanceInventory,
+
   ResourceTypeAwsCloudWatchAlarm,
+
   ResourceTypeAwsCloudFormationStack,
+
   ResourceTypeAwsElasticLoadBalancingLoadBalancer,
+
   ResourceTypeAwsAutoScalingAutoScalingGroup,
+
   ResourceTypeAwsAutoScalingLaunchConfiguration,
+
   ResourceTypeAwsAutoScalingScalingPolicy,
+
   ResourceTypeAwsAutoScalingScheduledAction,
+
   ResourceTypeAwsDynamoDBTable,
+
   ResourceTypeAwsCodeBuildProject,
+
   ResourceTypeAwsWafRateBasedRule,
+
   ResourceTypeAwsWafRule,
+
   ResourceTypeAwsWafRuleGroup,
+
   ResourceTypeAwsWafWebACL,
+
   ResourceTypeAwsWAFRegionalRateBasedRule,
+
   ResourceTypeAwsWAFRegionalRule,
+
   ResourceTypeAwsWAFRegionalRuleGroup,
+
   ResourceTypeAwsWAFRegionalWebACL,
+
   ResourceTypeAwsCloudFrontDistribution,
+
   ResourceTypeAwsCloudFrontStreamingDistribution,
+
   ResourceTypeAwsLambdaFunction,
+
   ResourceTypeAwsElasticBeanstalkApplication,
+
   ResourceTypeAwsElasticBeanstalkApplicationVersion,
+
   ResourceTypeAwsElasticBeanstalkEnvironment,
+
   ResourceTypeAwsWAFV2WebACL,
+
   ResourceTypeAwsWAFV2RuleGroup,
+
   ResourceTypeAwsWAFV2IPSet,
+
   ResourceTypeAwsWAFV2RegexPatternSet,
+
   ResourceTypeAwsWAFV2ManagedRuleSet,
+
   ResourceTypeAwsXRayEncryptionConfig,
+
   ResourceTypeAwsSsmAssociationCompliance,
+
   ResourceTypeAwsSsmPatchCompliance,
+
   ResourceTypeAwsShieldProtection,
+
   ResourceTypeAwsShieldRegionalProtection,
+
   ResourceTypeAwsConfigResourceCompliance,
+
   ResourceTypeAwsApiGatewayStage,
+
   ResourceTypeAwsApiGatewayRestApi,
+
   ResourceTypeAwsAPIGATEWAYV2Stage,
+
   ResourceTypeAwsAPIGATEWAYV2Api,
+
   ResourceTypeAwsCodePipelinePipeline,
+
   ResourceTypeAwsServiceCatalogCloudFormationProvisionedProduct,
+
   ResourceTypeAwsServiceCatalogCloudFormationProduct,
+
   ResourceTypeAwsServiceCatalogPortfolio,
+
   ResourceTypeAwsSqsQueue,
+
   ResourceTypeAwsKmsKey,
+
   ResourceTypeAwsQldbLedger,
+
   ResourceTypeAwsSecretsManagerSecret,
+
   ResourceTypeAwsSnsTopic,
+
   ResourceTypeAwsSsmFileData,
   ResourceType'
   #-}

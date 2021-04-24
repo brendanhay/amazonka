@@ -16,7 +16,7 @@
   # Setting to an empty list will use file names from ./config
 , models ? [ ]
   # Whether the formatPhase (cabal-fmt, ormolu) should be run.
-, format ? false
+, format ? true
   # Report botocore service definitions lacking amazonka configuration.
 , audit ? false }:
 
@@ -26,7 +26,7 @@ let
     inherit system sources config overlays crossOverlays ghcVersion;
   };
 
-  inherit (pkgs) lib localLib localTools cabalProject;
+  inherit (pkgs) lib cabalProject;
 
   botocore = pkgs.sources.botocore;
   botocoreDir = "${botocore}/botocore/data";
@@ -79,8 +79,8 @@ in pkgs.stdenvNoCC.mkDerivation {
   phases = [ "generatePhase" ] ++ lib.optionals format [ "formatPhase" ];
 
   buildInputs = [
-    localTools.cabal-fmt
-    localTools.ormolu
+    (pkgs.haskell-nix.tool ghcVersion "ormolu" "0.1.4.1")
+    (pkgs.haskell-nix.tool ghcVersion "cabal-fmt" "0.1.5.1")
     cabalProject.amazonka-gen.components.exes.amazonka-gen
   ];
 
@@ -103,7 +103,7 @@ in pkgs.stdenvNoCC.mkDerivation {
     # Reproduce, without re-running nix.
     echo "cabal new-run amazonka-gen -- ''${args[@]}"
 
-    amazonka-gen +RTS -A128m -qg -RTS "''${args[@]}"
+    amazonka-gen +RTS -N1 -A128m -qg -RTS "''${args[@]}"
   '';
 
   formatPhase = ''

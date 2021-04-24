@@ -1,10 +1,12 @@
+{-# LANGUAGE OverloadedStrings  #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 {% include "_include/license.ede" %}
 --
 module {{ moduleName }}
     (
-    -- * Service configuration
+    -- * Service Configuration
       {{ serviceConfig }}
   {% for shape in shapes %}
     {% if shape.first %}
@@ -19,7 +21,7 @@ module {{ moduleName }}
   {% for module in typeModules %}
     {% if module.first %}
 
-    -- * Re-exported types
+    -- * Re-exported Types
     {% endif %}
     , module {{ module.value }}
   {% endfor %}

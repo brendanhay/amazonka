@@ -1,17 +1,19 @@
 {
     "libraryName": "amazonka-ec2",
+    "ignoredWaiters": [
+        "ConsoleOutputAvailable",
+        "KeyPairExists",
+        "ImageExists"
+    ],
+    "typeModules": [
+        "Network.AWS.EC2.Internal"
+    ],
     "typeOverrides": {
         "Status": {
             "renamedTo": "AddressStatus"
         },
         "Region": {
             "renamedTo": "RegionInfo"
-        },
-        "DescribeStaleSecurityGroupsNextToken":{
-            "renamedTo": "NextToken"
-        },
-        "DescribeVpcClassicLinkDnsSupportNextToken":{
-            "renamedTo": "NextToken"
         },
         "IpRange": {
             "requiredFields": [
@@ -220,6 +222,12 @@
         },
         "VolumeAttachmentState": {
             "enumPrefix": "V"
+        },
+        "DeleteTag": {
+            "replacedBy": {
+                "name": "DeleteTag",
+                "underive": []
+            }
         },
         "FleetType": {
             "enumPrefix": "FT"

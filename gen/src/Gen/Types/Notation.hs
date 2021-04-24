@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveFoldable    #-}
-{-# LANGUAGE DeriveFunctor     #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Module      : Gen.Types.Notation
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -16,69 +11,89 @@
 module Gen.Types.Notation where
 
 import Control.Applicative
-
+import Control.Monad qualified as Monad
 import Data.Aeson
+import Data.Attoparsec.Text qualified as A
 import Data.Bifunctor
 import Data.List.NonEmpty (NonEmpty (..))
-import Data.Text          (Text)
-
+import Data.Text (Text)
+import Data.Text qualified as Text
 import Gen.Types.Id
 
-import qualified Data.Attoparsec.Text as A
-import qualified Data.Text            as Text
-
 data Key a
-    = Key  { fromKey :: a }
-    | Each { fromKey :: a }
-    | Last { fromKey :: a }
-      deriving (Eq, Show, Functor, Foldable)
+  = Key {fromKey :: a}
+  | Each {fromKey :: a}
+  | Last {fromKey :: a}
+  deriving (Eq, Show, Functor, Foldable)
 
 data Notation a
-    = Access       (NonEmpty (Key a))
-    | NonEmptyList (Key a)
-    | NonEmptyText (Key a)
-    | Choice       (Notation a) (Notation a)
-      deriving (Eq, Show, Functor, Foldable)
+  = Access (NonEmpty (Key a))
+  | IsEmptyList (NonEmpty (Key a))
+  | NonEmptyList (NonEmpty (Key a))
+  | NonEmptyText (Key a)
+  | Choice (Notation a) (Notation a)
+  deriving (Eq, Show, Functor, Foldable)
 
 instance FromJSON (Notation Id) where
-    parseJSON = withText "notation" (either fail pure . parseNotation)
+  parseJSON = withText "notation" (either fail pure . parseNotation)
 
 parseNotation :: Text -> Either String (Notation Id)
 parseNotation t = mappend msg `first` A.parseOnly expr1 t
   where
-    msg = "Failed parsing index notation: "
+    msg =
+      "Failed parsing index notation: "
         ++ Text.unpack t
         ++ ", with: "
 
-    expr0 = nonEmptyList <|> nonEmptyText <|> access
+    expr0 = nonEmptyText <|> isEmptyList <|> nonEmptyList <|> fmap Access access
     expr1 = choice <|> expr0
 
-    choice = Choice
+    choice =
+      Choice
         <$> expr0
-         <* A.string "||"
+          <* A.string "||"
         <*> expr1
 
-    nonEmptyList = NonEmptyList
-        <$> (A.string "length(" *> key1 <* A.char ')')
-        <*  strip (A.char '>')
-        <*  strip (A.string "`0`")
+    isEmptyList =
+      IsEmptyList
+        <$> (A.string "length(" *> access <* A.char ')')
+        <* strip (A.string "==")
+        <* strip (A.string "`0`")
 
-    nonEmptyText = NonEmptyText
+    nonEmptyList =
+      NonEmptyList
+        <$> (A.string "length(" *> access <* A.char ')')
+        <* strip (A.char '>')
+        <* strip (A.string "`0`")
+
+    nonEmptyText =
+      NonEmptyText
         <$> (A.string "length(" *> key0 <* A.char ')')
-        <*  strip (A.char '>')
-        <*  strip (A.string "`0`")
+        <* strip (A.char '>')
+        <* strip (A.string "`0`")
 
     access = do
-        x:xs <- A.sepBy1 key (A.char '.')
-        pure $! Access (x :| xs)
+      x : xs <- A.sepBy1 key (A.char '.')
+      pure (x :| xs)
 
-    key   = key1 <|> key0
-    key1  = (Each <$> label <* A.string "[]")
+    key = key1 <|> key0
+    key1 =
+      (Each <$> label <* A.string "[]")
         <|> (Last <$> label <* A.string "[-1]")
-    key0  = (Key  <$> label)
+    key0 = (Key <$> label)
 
-    label = mkId <$> strip (A.takeWhile1 delim)
+    label =
+      strip $ do
+        text <- A.takeWhile1 (A.notInClass "[].()|><= ")
+        next <- A.peekChar
 
-    delim = A.notInClass "0-9[].`()|><= "
+        Monad.when (next == Just '(') $
+          fail $
+            "encountered start of unexpected function application "
+              ++ show text
+              ++ "(...)"
 
-    strip p = A.skipSpace *> p <* A.skipSpace
+        pure (mkId text)
+
+    strip p =
+      A.skipSpace *> p <* A.skipSpace

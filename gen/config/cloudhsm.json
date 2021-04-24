@@ -1,8 +1,0 @@
-{
-    "libraryName": "amazonka-cloudhsm",
-    "typeOverrides": {
-        "ClientVersion": {
-            "enumPrefix": "V"
-        }
-    }
-}

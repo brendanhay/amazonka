@@ -1,14 +1,7 @@
-{-# LANGUAGE DeriveGeneric          #-}
-{-# LANGUAGE FlexibleInstances      #-}
-{-# LANGUAGE FunctionalDependencies #-}
-{-# LANGUAGE LambdaCase             #-}
-{-# LANGUAGE MultiParamTypeClasses  #-}
-{-# LANGUAGE OverloadedStrings      #-}
-{-# LANGUAGE StandaloneDeriving     #-}
-{-# LANGUAGE TemplateHaskell        #-}
+{-# LANGUAGE TemplateHaskell #-}
 
 -- Module      : Gen.Types.URI
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -21,31 +14,28 @@ module Gen.Types.URI where
 
 import Control.Applicative
 import Control.Lens
-
 import Data.Aeson
 import Data.Attoparsec.Text (Parser)
-import Data.Text            (Text)
-
+import Data.Attoparsec.Text qualified as Parse
+import Data.Text (Text)
+import Data.Text qualified as Text
+import Data.Text.Read qualified as Text
+import GHC.Generics (Generic)
 import Gen.TH
 import Gen.Types.Id
 
-import GHC.Generics (Generic)
-
-import qualified Data.Attoparsec.Text as Parse
-import qualified Data.Text            as Text
-import qualified Data.Text.Read       as Text
-
 data Segment
-    = Tok Text
-    | Var Id
-      deriving (Eq, Show)
+  = Tok Text
+  | Var Id
+  deriving (Eq, Show)
 
 makePrisms ''Segment
 
 data URI = URI'
-    { _uriPath  :: [Segment]
-    , _uriQuery :: [Segment]
-    } deriving (Eq, Show)
+  { _uriPath :: [Segment],
+    _uriQuery :: [Segment]
+  }
+  deriving (Eq, Show)
 
 makeClassy ''URI
 
@@ -56,75 +46,80 @@ segments f x = URI' <$> traverse f (_uriPath x) <*> traverse f (_uriQuery x)
 -- variables = segments . _Var
 
 instance FromJSON URI where
-    parseJSON = withText "uri" (either fail return . Parse.parseOnly uriParser)
+  parseJSON = withText "uri" (either fail return . Parse.parseOnly uriParser)
 
 uriParser :: Parser URI
-uriParser = URI'
+uriParser =
+  URI'
     <$> some seg
     <*> Parse.option [] (Parse.char '?' *> some seg)
-    <*  Parse.endOfInput
+    <* Parse.endOfInput
   where
-    seg = Tok <$> Parse.takeWhile1 (end '{')
-      <|> Var <$> var
+    seg =
+      Tok <$> Parse.takeWhile1 (end '{')
+        <|> Var <$> var
 
-    var = mkId . Text.filter rep <$>
-        (Parse.char '{' *> Parse.takeWhile1 (end '}') <* Parse.char '}')
+    var =
+      mkId . Text.filter rep
+        <$> (Parse.char '{' *> Parse.takeWhile1 (end '}') <* Parse.char '}')
 
-    end x y   | x == y = False
+    end x y | x == y = False
     end _ '?' = False
-    end _  _  = True
+    end _ _ = True
 
     rep '+' = False
-    rep  _  = True
+    rep _ = True
 
 data Method
-    = GET
-    | POST
-    | HEAD
-    | PUT
-    | DELETE
-    | PATCH
-      deriving (Eq, Show, Generic)
+  = GET
+  | POST
+  | HEAD
+  | PUT
+  | DELETE
+  | PATCH
+  deriving (Eq, Show, Generic)
 
 instance FromJSON Method where
-    parseJSON = gParseJSON' upper
+  parseJSON = gParseJSON' upper
 
 instance ToJSON Method where
-    toJSON = toJSON . methodToText
+  toJSON = toJSON . methodToText
 
 methodToText :: Method -> Text
 methodToText = \case
-   GET    -> "get"
-   POST   -> "post"
-   HEAD   -> "head'"
-   PUT    -> "put"
-   DELETE -> "delete"
-   PATCH  -> "patch"
+  GET -> "get"
+  POST -> "post"
+  HEAD -> "head'"
+  PUT -> "put"
+  DELETE -> "delete"
+  PATCH -> "patch"
 
 data HTTP = HTTP
-    { _method       :: !Method
-    , _requestURI   :: !URI
-    , _responseCode :: !Int
-    } deriving (Show, Generic)
+  { _method :: !Method,
+    _requestURI :: !URI,
+    _responseCode :: !Int
+  }
+  deriving (Show, Generic)
 
 makeClassy ''HTTP
 
 instance HasURI HTTP where
-    uRI = requestURI
+  uRI = requestURI
 
 instance FromJSON HTTP where
-    parseJSON = withObject "HTTP" $ \o -> HTTP
-        <$> o .: "method"
-        <*> o .: "requestUri"
-        <*> ((o .: "responseCode" <&> parseStatusCode) <|> pure 200)
+  parseJSON = withObject "HTTP" $ \o ->
+    HTTP
+      <$> o .: "method"
+      <*> o .: "requestUri"
+      <*> ((o .: "responseCode" <&> parseStatusCode) <|> pure 200)
 
-newtype StatusCodeParser = StatusCodeParser { parseStatusCode :: Int }
+newtype StatusCodeParser = StatusCodeParser {parseStatusCode :: Int}
 
 instance FromJSON StatusCodeParser where
-   parseJSON (Number n) = StatusCodeParser <$> parseJSON (Number n)
-   parseJSON (String s) =
-       case Text.decimal s of
-           Right (n, "") -> pure (StatusCodeParser n)
-           v             -> fail ("Failure parsing responseCode from: " ++ show v)
-   parseJSON v =
-       fail ("Failure parsing responseCode from: " ++ show v)
+  parseJSON (Number n) = StatusCodeParser <$> parseJSON (Number n)
+  parseJSON (String s) =
+    case Text.decimal s of
+      Right (n, "") -> pure (StatusCodeParser n)
+      v -> fail ("Failure parsing responseCode from: " ++ show v)
+  parseJSON v =
+    fail ("Failure parsing responseCode from: " ++ show v)

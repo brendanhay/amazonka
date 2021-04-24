@@ -1,4 +1,3 @@
-cabal-version:         2.2
 name:                  {{ libraryName }}
 version:               {{ libraryVersion }}
 synopsis:              {{ serviceFullName }}.
@@ -8,9 +7,10 @@ license:               MPL-2.0
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2020 Brendan Hay
-category:              AWS, Cloud
+copyright:             Copyright (c) 2013-2021 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
+cabal-version:         >= 1.10
 extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
     The types from this library are intended to be used with
@@ -29,47 +29,19 @@ description:
     to get started.
 
 source-repository head
-    type:           git
-    location:       git://github.com/brendanhay/amazonka.git
-    subdir:         lib/{{ libraryName }}
-
-common base
-  default-language: Haskell2010
-
-  ghc-options:
-    -Wall
-    -Wmissing-deriving-strategies
-    -funbox-strict-fields
-    -fwarn-incomplete-uni-patterns
-    -fwarn-incomplete-record-updates
-
-  default-extensions:
-    NoImplicitPrelude
-    DataKinds 
-    DeriveAnyClass
-    DeriveGeneric
-    DerivingStrategies
-    DuplicateRecordFields
-    FlexibleContexts 
-    FlexibleInstances
-    GeneralizedNewtypeDeriving
-    LambdaCase
-    NamedFieldPuns 
-    OverloadedStrings
-    PatternSynonyms
-    RecordWildCards
-    ScopedTypeVariables 
-    StandaloneDeriving
-    StrictData
-    TupleSections
-    TypeApplications
-    TypeFamilies
-
-  build-depends:    base >=4.12 && <5
+    type:              git
+    location:          git://github.com/brendanhay/amazonka.git
+    subdir:            {{ libraryName }}
 
 library
-    import:         base
-    hs-source-dirs: gen{% if !(typeModules | empty) %} src{% endif %}
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:
+        -Wall
+        -fwarn-incomplete-uni-patterns
+        -fwarn-incomplete-record-updates
+        -funbox-strict-fields
 
     exposed-modules:
           Network.AWS.{{ serviceAbbrev }}
@@ -84,17 +56,19 @@ library
 
     build-depends:
           amazonka-core == {{ coreVersion }}.*
+        , base          >= 4.7     && < 5
+        , case-insensitive
       {% for dep in extraDependencies %}
         , {{ dep.value }}
       {% endfor %}
 
 test-suite {{ libraryName }}-test
-    import:            base
     type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
     hs-source-dirs:    test
     main-is:           Main.hs
 
-    ghc-options:       -threaded
+    ghc-options:       -Wall -threaded
 
     -- This section is encoded by the template and any modules added by
     -- hand outside these namespaces will not correctly be added to the
@@ -108,6 +82,7 @@ test-suite {{ libraryName }}-test
           amazonka-core == {{ coreVersion }}.*
         , amazonka-test == {{ coreVersion }}.*
         , {{ libraryName }}
+        , base
         , bytestring
         , case-insensitive
         , tasty

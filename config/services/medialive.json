@@ -1,5 +1,11 @@
 {
     "libraryName": "amazonka-medialive",
     "typeOverrides": {
+        "HlsAkamaiHttpTransferMode": {
+            "enumPrefix": "Akamai"
+        },
+        "HlsWebdavHttpTransferMode": {
+            "enumPrefix": "Webdav"
+        }
     }
 }

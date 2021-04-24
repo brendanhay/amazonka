@@ -1,102 +1,98 @@
-name:                  amazonka
-version:               1.6.1
-synopsis:              Comprehensive Amazon Web Services SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-extra-source-files:    README.md CHANGELOG.md
-cabal-version:         >= 1.10
+name:               amazonka
+version:            1.6.1
+synopsis:           Comprehensive Amazon Web Services SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2017 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+extra-source-files:
+  CHANGELOG.md
+  README.md
 
+cabal-version:      >=1.10
 description:
-    This client library contains request and response logic to communicate
-    with Amazon Web Service compatible APIs using the types supplied by the
-    various @amazonka-*@ service libraries. See the <http://hackage.haskell.org/packages/#cat:AWS AWS>
-    category on Hackage for supported services.
-    .
-    To get started, import the desired @amazonka-*@ library (such as
-    <http://hackage.haskell.org/package/amazonka-ml/docs/Network-AWS-MachineLearning.html Network.AWS.MachineLearning>)
-    and one of the following:
-    .
-    * "Control.Monad.Trans.AWS": The 'AWST' transformer and generalised operations.
-    .
-    * "Network.AWS": The 'AWS' monad and 'MonadAWS' type class for automatically
-    lifting operations when embedded as a layer in a transformer stack.
-    .
-    GHC 7.8.4 and higher is officially supported.
+  This client library contains request and response logic to communicate
+  with Amazon Web Service compatible APIs using the types supplied by the
+  various @amazonka-*@ service libraries. See the <http://hackage.haskell.org/packages/#cat:AWS AWS>
+  category on Hackage for supported services.
+  .
+  To get started, import the desired @amazonka-*@ library (such as
+  <http://hackage.haskell.org/package/amazonka-ml/docs/Network-AWS-MachineLearning.html Network.AWS.MachineLearning>)
+  and one of the following:
+  .
+  * "Control.Monad.Trans.AWS": The 'AWST' transformer and generalised operations.
+  .
+  * "Network.AWS": The 'AWS' monad and 'MonadAWS' type class for automatically
+  lifting operations when embedded as a layer in a transformer stack.
+  .
+  GHC 7.8.4 and higher is officially supported.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src
+  default-language: Haskell2010
+  hs-source-dirs:   src
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Control.Monad.Trans.AWS
+    Network.AWS
+    Network.AWS.Auth
+    Network.AWS.Data
+    Network.AWS.EC2.Metadata
+    Network.AWS.Env
+    Network.AWS.Presign
 
-    exposed-modules:
-          Control.Monad.Trans.AWS
-        , Network.AWS
-        , Network.AWS.Auth
-        , Network.AWS.Data
-        , Network.AWS.EC2.Metadata
-        , Network.AWS.Env
-        , Network.AWS.Presign
+  other-modules:
+    Network.AWS.Internal.Body
+    Network.AWS.Internal.HTTP
+    Network.AWS.Internal.Logger
 
-    other-modules:
-          Network.AWS.Internal.Body
-        , Network.AWS.Internal.HTTP
-        , Network.AWS.Internal.Logger
-
-    build-depends:
-          amazonka-core       == 1.6.1.*
-        , base                >= 4.7 && < 5
-        , bytestring          >= 0.9
-        , conduit             >= 1.1
-        , conduit-extra       >= 1.1
-        , directory           >= 1.2
-        , exceptions          >= 0.6
-        , http-client         >= 0.4 && < 0.7
-        , http-conduit        >= 2.1.7 && < 3
-        , http-types          >= 0.8
-        , ini                 >= 0.3.5
-        , mmorph              >= 1
-        , monad-control       >= 1
-        , mtl                 >= 2.1.3.1
-        , primitive           >= 0.6
-        , resourcet           >= 1.1
-        , retry               >= 0.7
-        , text                >= 1.1
-        , time                >= 1.2
-        , transformers        >= 0.2
-        , transformers-base   >= 0.4
-        , transformers-compat >= 0.3
-        , unliftio-core       >= 0.1
-        , void                >= 0.1
+  build-depends:
+      amazonka-core        >=1.6.1   && <1.6.2
+    , base                 >=4.7     && <5
+    , bytestring           >=0.9
+    , conduit              >=1.1
+    , conduit-extra        >=1.1
+    , directory            >=1.2
+    , exceptions           >=0.6
+    , http-client          >=0.4     && <0.7
+    , http-conduit         >=2.1.7   && <3
+    , http-types           >=0.8
+    , ini                  >=0.3.5
+    , mmorph               >=1
+    , monad-control        >=1
+    , mtl                  >=2.1.3.1
+    , primitive            >=0.6
+    , resourcet            >=1.1
+    , retry                >=0.7
+    , text                 >=1.1
+    , time                 >=1.2
+    , transformers         >=0.2
+    , transformers-base    >=0.4
+    , transformers-compat  >=0.3
+    , unliftio-core        >=0.1
+    , void                 >=0.1
 
 test-suite tests
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
-
-    ghc-options:       -Wall -threaded
-
-    other-modules:
-
-    build-depends:
-          amazonka
-        , base
-        , tasty
-        , tasty-hunit
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
+  other-modules:
+  build-depends:
+      amazonka
+    , base
+    , tasty
+    , tasty-hunit

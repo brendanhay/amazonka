@@ -1,12 +1,7 @@
-{-# LANGUAGE DeriveFoldable    #-}
-{-# LANGUAGE DeriveFunctor     #-}
-{-# LANGUAGE FlexibleContexts  #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TemplateHaskell #-}
 
 -- Module      : Gen.Types.Pager
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -20,51 +15,52 @@ module Gen.Types.Pager where
 import Control.Applicative
 import Control.Lens
 import Control.Monad
-
 import Data.Aeson
 import Data.List.NonEmpty (NonEmpty (..))
-
+import Data.List.NonEmpty qualified as NE
 import Gen.Types.Id
 import Gen.Types.Notation
 
-import qualified Data.List.NonEmpty as NE
-
 data Token a = Token
-    { _tokenInput  :: Notation a
-    , _tokenOutput :: Notation a
-    } deriving (Eq, Show, Functor, Foldable)
+  { _tokenInput :: Notation a,
+    _tokenOutput :: Notation a
+  }
+  deriving (Eq, Show, Functor, Foldable)
 
 makeLenses ''Token
 
 instance FromJSON (Token Id) where
-    parseJSON = withObject "token" $ \o -> Token
-        <$> o .: "input_token"
-        <*> o .: "output_token"
+  parseJSON = withObject "token" $ \o ->
+    Token
+      <$> o .: "input_token"
+      <*> o .: "output_token"
 
 data Pager a
-    = Next  (NonEmpty (Notation a)) (Token a)
-    | Many  (Notation a)  (NonEmpty (Token a))
-    | Only                         (Token a)
-      deriving (Eq, Show, Functor, Foldable)
+  = Next (NonEmpty (Notation a)) (Token a)
+  | Many (Notation a) (NonEmpty (Token a))
+  | Only (Token a)
+  deriving (Eq, Show, Functor, Foldable)
 
 instance FromJSON (Pager Id) where
-    parseJSON = withObject "pager" $ \o -> more o <|> next o <|> limit o
-      where
-        limit o = Only
-            <$> parseJSON (Object o)
+  parseJSON = withObject "pager" $ \o -> more o <|> next o <|> limit o
+    where
+      limit o =
+        Only
+          <$> parseJSON (Object o)
 
-        next o = Next
-            <$> oneOrMany o "result_key"
-            <*> parseJSON (Object o)
+      next o =
+        Next
+          <$> oneOrMany o "result_key"
+          <*> parseJSON (Object o)
 
-        more o = do
-            inp <- oneOrMany o "input_token"
-            out <- oneOrMany o "output_token"
+      more o = do
+        inp <- oneOrMany o "input_token"
+        out <- oneOrMany o "output_token"
 
-            unless (NE.length inp == NE.length out) $
-                fail "input_token and output_token contain differing number of keys."
+        unless (NE.length inp == NE.length out) $
+          fail "input_token and output_token contain differing number of keys."
 
-            Many <$> o .: "more_results"
-                 <*> pure (NE.zipWith Token inp out)
+        Many <$> o .: "more_results"
+          <*> pure (NE.zipWith Token inp out)
 
-        oneOrMany o k = o .: k <|> ((:|[]) <$> o .: k)
+      oneOrMany o k = o .: k <|> ((:| []) <$> o .: k)

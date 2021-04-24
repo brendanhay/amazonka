@@ -1,6 +1,6 @@
 {
     "metadata": {
-        "serviceAbbreviation": "ApiGateway",
+        "serviceAbbreviation": "APIGateway",
         "protocol": "api-gateway"
     },
     "shapes": {

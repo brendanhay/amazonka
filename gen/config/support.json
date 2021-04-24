@@ -1,8 +1,0 @@
-{
-    "libraryName": "amazonka-support",
-    "typeOverrides": {
-        "Service": {
-            "renamedTo": "SupportService"
-        }
-    }
-}

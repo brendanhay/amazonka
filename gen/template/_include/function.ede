@@ -1,5 +1,0 @@
-{% if function.documentation %}
--- | {{ function.documentation }}
-{% endif %}
-{{ function.signature }}
-{{ function.declaration }}

@@ -1,8 +1,0 @@
-{
-    "libraryName": "amazonka-guardduty",
-    "typeOverrides": {
-        "Service": {
-            "renamedTo": "ServiceInfo"
-        }
-    }
-}

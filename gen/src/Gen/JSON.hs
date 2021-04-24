@@ -1,8 +1,5 @@
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 -- Module      : Gen.JSON
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -15,32 +12,30 @@ module Gen.JSON where
 
 import Control.Error
 import Control.Monad.Except
-
-import Data.Aeson       hiding (decode)
+import Data.Aeson hiding (decode)
 import Data.Aeson.Types
 import Data.Bifunctor
-import Data.ByteString  (ByteString)
+import Data.ByteString (ByteString)
+import Data.ByteString.Lazy qualified as LBS
+import Data.HashMap.Strict qualified as Map
 import Data.List
-
+import Data.Text.Lazy qualified as LText
 import Gen.Formatting
 import Gen.IO
 import Gen.Types
-
-import qualified Data.ByteString.Lazy as LBS
-import qualified Data.HashMap.Strict  as Map
-import qualified Data.Text.Lazy       as LText
-import qualified Text.EDE             as EDE
+import Text.EDE qualified as EDE
 
 required :: MonadIO m => Path -> ExceptT Error m Object
 required = readBSFile >=> hoistEither . decode
 
 optional :: MonadIO m => Path -> ExceptT Error m Object
-optional f = readBSFile f `catchError` const (return "{}")
+optional f =
+  readBSFile f `catchError` const (return "{}")
     >>= hoistEither . decode
 
 objectErr :: ToJSON a => String -> a -> Either Error Object
 objectErr n =
-      note (format ("Failed to extract JSON object from value " % string) n)
+  note (format ("Failed to extract JSON object from value " % string) n)
     . EDE.fromValue
     . toJSON
 
@@ -58,6 +53,6 @@ merge = foldl' go mempty
 
     value :: Value -> Value -> Value
     value l r =
-        case (l, r) of
-            (Object x, Object y) -> Object (x `go` y)
-            (_,        _)        -> l
+      case (l, r) of
+        (Object x, Object y) -> Object (x `go` y)
+        (_, _) -> l

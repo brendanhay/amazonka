@@ -1,7 +1,12 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
+
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
-{-# OPTIONS_GHC -fno-warn-deprecations   #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -14,37 +19,25 @@
 {% endif %}
 module {{ moduleName }}
     (
-    -- * Creating a request
-      {{ input.name }} (..)
-    , {{ input.constructor.name}}
+    -- * Creating a Request
+      {{ input.constructor.name}}
+    , {{ input.name }}
   {% for lens in input.lenses %}
     {% if lens.first %}
-    -- ** Request lenses
+    -- * Request Lenses
     {% endif %}
     , {{ lens.value.name }}
   {% endfor %}
 
-{% if !output.shared %}
-    -- * Destructuring the response
-    , {{ output.name }} (..)
+    -- * Destructuring the Response
     , {{ output.constructor.name}}
+    , {{ output.name }}
   {% for lens in output.lenses %}
     {% if lens.first %}
-    -- ** Response lenses
+    -- * Response Lenses
     {% endif %}
     , {{ lens.value.name }}
   {% endfor %}
-{% else %}
-     -- * Destructuring the response
-    , Types.{{ output.name }} (..)
-    , Types.{{ output.constructor.name}}
-  {% for lens in output.lenses %}
-    {% if lens.first %}
-    -- ** Response lenses
-    {% endif %}
-    , Types.{{ lens.value.name }}
-  {% endfor %}
-{% endif %}
     ) where
 
 {% for import in moduleImports %}
@@ -54,5 +47,5 @@ import {{ import.value }}
 {% include "_include/shape.ede" with shape = input %}
 {% if !output.shared %}
 
-{% include "_include/shape.ede" with shape = output %}
+  {% include "_include/shape.ede" with shape = output %}
 {% endif %}

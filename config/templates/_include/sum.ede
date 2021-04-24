@@ -3,13 +3,49 @@
 {% endif %}
 {{ shape.declaration }}
 
-{% for pattern in shape.patterns %}
-pattern {{ pattern.value.name }} :: {{ shape.name }}
-pattern {{ pattern.value.name }} = {{ shape.name }}' "{{ pattern.value.text }}"
+{% for ctor in shape.constructors %}
+pattern {{ ctor.key }} :: {{ shape.name }}
+pattern {{ ctor.key }} = {{ shape.constructor }} "{{ ctor.value }}"
 
 {% endfor %}
-{-# COMPLETE {% for pattern in shape.patterns %}
-  {{ pattern.value.name }},
+{-# COMPLETE
+{% for ctor in shape.constructors %}
+  {{ ctor.key }},
 {% endfor %}
-  {{ shape.name }}'
-  #-}
+  {{ shape.constructor }} #-}
+
+instance FromText {{ shape.name }} where
+    parser = ({{ shape.constructor}} . mk) <$> takeText
+
+instance ToText {{ shape.name }} where
+    toText ({{ shape.constructor }} ci) = original ci
+
+instance Hashable     {{ shape.name }}
+instance NFData       {{ shape.name }}
+instance ToByteString {{ shape.name }}
+instance ToQuery      {{ shape.name }}
+instance ToHeader     {{ shape.name }}
+{% for inst in shape.instances %}
+  {% case inst.value %}
+  {% when "ToQuery" %}
+  {% when "FromJSON" %}
+
+instance FromJSON {{ shape.name }} where
+    parseJSON = parseJSONText "{{ shape.name }}"
+  {% when "ToJSON" %}
+
+instance ToJSON {{ shape.name }} where
+    toJSON = toJSONText
+  {% when "FromXML" %}
+
+instance FromXML {{ shape.name }} where
+    parseXML = parseXMLText "{{ shape.name }}"
+  {% when "ToXML" %}
+
+instance ToXML {{ shape.name }} where
+    toXML = toXMLText
+  {% else %}
+
+Error: Attempting to render unrecognized instance '{{ inst.value }}'
+  {% endcase %}
+{% endfor %}

@@ -1,8 +1,0 @@
-{
-    "libraryName": "amazonka-pinpoint",
-    "typeOverrides": {
-        "Format": {
-            "renamedTo": "DefinitionFormat"
-        }
-    }
-}

@@ -1,14 +1,8 @@
-{-# LANGUAGE LambdaCase            #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings     #-}
-{-# LANGUAGE RankNTypes            #-}
-{-# LANGUAGE RecordWildCards       #-}
-{-# LANGUAGE TemplateHaskell       #-}
-
+{-# LANGUAGE TemplateHaskell #-}
 {-# OPTIONS_GHC -fno-warn-unused-top-binds #-}
 
 -- Module      : Main
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -24,98 +18,103 @@ import Control.Lens
 import Control.Monad
 import Control.Monad.Except
 import Control.Monad.State
-
 import Data.String
-
+import Data.Text qualified as Text
+import Filesystem qualified as FS
 import Filesystem.Path.CurrentOS
-
-import           Gen.Formatting
-import           Gen.IO
-import qualified Gen.JSON       as JS
-import           Gen.Types      hiding (info)
-
+import Gen.AST qualified as AST
+import Gen.Formatting
+import Gen.IO
+import Gen.JSON qualified as JS
+import Gen.Tree qualified as Tree
+import Gen.Types hiding (info)
 import Options.Applicative
 
-import qualified Data.Text  as Text
-import qualified Filesystem as FS
-import qualified Gen.AST    as AST
-import qualified Gen.Tree   as Tree
+data Options = Options
+  { _optionOutput :: Path,
+    _optionModels :: [Path],
+    _optionAnnexes :: Path,
+    _optionServices :: Path,
+    _optionTemplates :: Path,
+    _optionAssets :: Path,
+    _optionRetry :: Path,
+    _optionVersions :: Versions
+  }
+  deriving (Show)
 
-data Opt = Opt
-    { _optOutput    :: Path
-    , _optModels    :: [Path]
-    , _optAnnexes   :: Path
-    , _optConfigs   :: Path
-    , _optTemplates :: Path
-    , _optStatic    :: Path
-    , _optRetry     :: Path
-    , _optVersions  :: Versions
-    } deriving (Show)
+makeLenses ''Options
 
-makeLenses ''Opt
-
-parser :: Parser Opt
-parser = Opt
-    <$> option isPath
-         ( long "out"
-        <> metavar "DIR"
-        <> help "Directory to place the generated library."
-         )
-
-    <*> some (option isPath
-         ( long "model"
-        <> metavar "DIR"
-        <> help "Directory for a service's botocore models."
-         ))
-
-    <*> option isPath
-         ( long "annexes"
-        <> metavar "DIR"
-        <> help "Directory containing botocore model annexes."
-         )
-
-    <*> option isPath
-         ( long "configs"
-        <> metavar "DIR"
-        <> help "Directory containing service configuration."
-         )
-
-    <*> option isPath
-         ( long "templates"
-        <> metavar "DIR"
-        <> help "Directory containing ED-E templates."
-         )
-
-    <*> option isPath
-         ( long "static"
-        <> metavar "DIR"
-        <> help "Directory containing static files for generated libraries."
-         )
-
-    <*> option isPath
-         ( long "retry"
-        <> metavar "PATH"
-        <> help "Path to the file containing retry definitions."
-         )
-
-    <*> (Versions
-        <$> option version
-             ( long "library-version"
-            <> metavar "VER"
-            <> help "Version of the library to generate."
-             )
-
-        <*> option version
-             ( long "client-version"
-            <> metavar "VER"
-            <> help "Client library version dependecy for examples."
-             )
-
-        <*> option version
-             ( long "core-version"
-            <> metavar "VER"
-            <> help "Core library version dependency."
-             ))
+parser :: Parser Options
+parser =
+  Options
+    <$> option
+      isPath
+      ( long "out"
+          <> metavar "DIR"
+          <> help "Directory to place the generated library."
+      )
+    <*> some
+      ( option
+          isPath
+          ( long "model"
+              <> metavar "DIR"
+              <> help "Directory for a service's botocore models."
+          )
+      )
+    <*> option
+      isPath
+      ( long "annexes"
+          <> metavar "DIR"
+          <> help "Directory containing botocore model annexes."
+          <> value "config/annexes"
+      )
+    <*> option
+      isPath
+      ( long "services"
+          <> metavar "DIR"
+          <> help "Directory containing service configuration."
+          <> value "config/services"
+      )
+    <*> option
+      isPath
+      ( long "templates"
+          <> metavar "DIR"
+          <> help "Directory containing ED-E templates."
+          <> value "config/templates"
+      )
+    <*> option
+      isPath
+      ( long "assets"
+          <> metavar "DIR"
+          <> help "Directory containing static files for generated libraries."
+          <> value "config/assets"
+      )
+    <*> option
+      isPath
+      ( long "retry"
+          <> metavar "PATH"
+          <> help "Path to the file containing retry definitions."
+      )
+    <*> ( Versions
+            <$> option
+              version
+              ( long "library-version"
+                  <> metavar "VER"
+                  <> help "Version of the library to generate."
+              )
+            <*> option
+              version
+              ( long "client-version"
+                  <> metavar "VER"
+                  <> help "Client library version dependecy for examples."
+              )
+            <*> option
+              version
+              ( long "core-version"
+                  <> metavar "VER"
+                  <> help "Core library version dependency."
+              )
+        )
 
 isPath :: ReadM Path
 isPath = eitherReader (Right . fromText . Text.dropWhileEnd (== '/') . fromString)
@@ -123,20 +122,20 @@ isPath = eitherReader (Right . fromText . Text.dropWhileEnd (== '/') . fromStrin
 version :: ReadM (Version v)
 version = eitherReader (Right . Version . Text.pack)
 
-options :: ParserInfo Opt
+options :: ParserInfo Options
 options = info (helper <*> parser) fullDesc
 
-validate :: MonadIO m => Opt -> m Opt
+validate :: MonadIO m => Options -> m Options
 validate o = flip execStateT o $ do
-    sequence_
-        [ check optOutput
-        , check optAnnexes
-        , check optConfigs
-        , check optTemplates
-        , check optStatic
-        , check optRetry
-        ]
-    mapM canon (o ^. optModels) >>= assign optModels
+  sequence_
+    [ check optionOutput,
+      check optionAnnexes,
+      check optionServices,
+      check optionTemplates,
+      check optionAssets,
+      check optionRetry
+    ]
+  mapM canon (o ^. optionModels) >>= assign optionModels
   where
     check :: (MonadIO m, MonadState s m) => Lens' s Path -> m ()
     check l = gets (view l) >>= canon >>= assign l
@@ -146,75 +145,83 @@ validate o = flip execStateT o $ do
 
 main :: IO ()
 main = do
-    Opt{..} <- customExecParser (prefs showHelpOnError) options
-        >>= validate
+  Options {..} <-
+    customExecParser (prefs showHelpOnError) options
+      >>= validate
 
-    let i = length _optModels
+  let i = length _optionModels
 
-    run $ do
-        title "Initialising..." <* done
+  run $ do
+    title "Initialising..." <* done
 
-        let load = readTemplate _optTemplates
+    let load = readTemplate _optionTemplates
 
-        tmpl <- flip evalStateT mempty $ do
-            lift (title ("Loading templates from " % path) _optTemplates)
+    tmpl <- flip evalStateT mempty $ do
+      lift (title ("Loading templates from " % path) _optionTemplates)
 
-            cabalTemplate          <- load "cabal.ede"
-            tocTemplate            <- load "toc.ede"
-            waitersTemplate        <- load "waiters.ede"
-            readmeTemplate         <- load "readme.ede"
-            operationTemplate      <- load "operation.ede"
-            typesTemplate          <- load "types.ede"
-            sumTemplate            <- load "types/sum.ede"
-            productTemplate        <- load "types/product.ede"
-            testMainTemplate       <- load "test/main.ede"
-            testNamespaceTemplate  <- load "test/namespace.ede"
-            testInternalTemplate   <- load "test/internal.ede"
-            fixturesTemplate       <- load "test/fixtures.ede"
-            fixtureRequestTemplate <- load "test/fixtures/request.ede"
-            blankTemplate          <- load "blank.ede"
+      cabalTemplate <- load "cabal.ede"
+      tocTemplate <- load "toc.ede"
+      waitersTemplate <- load "waiters.ede"
+      readmeTemplate <- load "readme.ede"
+      operationTemplate <- load "operation.ede"
+      typesTemplate <- load "types.ede"
+      sumTemplate <- load "types/sum.ede"
+      productTemplate <- load "types/product.ede"
+      testMainTemplate <- load "test/main.ede"
+      testNamespaceTemplate <- load "test/namespace.ede"
+      testInternalTemplate <- load "test/internal.ede"
+      fixturesTemplate <- load "test/fixtures.ede"
+      fixtureRequestTemplate <- load "test/fixtures/request.ede"
+      blankTemplate <- load "blank.ede"
 
-            lift done
+      lift done
 
-            pure Templates{..}
+      pure Templates {..}
 
-        r  <- JS.required _optRetry
+    r <- JS.required _optionRetry
 
-        forM_ (zip [1..] _optModels) $ \(j, f) -> do
-            title ("[" % int % "/" % int % "] model:" % path)
-                  (j :: Int)
-                  (i :: Int)
-                  (filename f)
+    forM_ (zip [1 ..] _optionModels) $ \(j, f) -> do
+      title
+        ("[" % int % "/" % int % "] model:" % path)
+        (j :: Int)
+        (i :: Int)
+        (filename f)
 
-            m <- listDir f >>= hoistEither . loadModel f
+      m <- listDir f >>= hoistEither . loadModel f
 
-            say ("Using version " % dateDash) (m ^. modelVersion)
+      say ("Using version " % dateDash) (m ^. modelVersion)
 
-            cfg <- JS.required (_optConfigs </> (m ^. configFile))
-                >>= hoistEither . JS.parse
+      cfg <-
+        JS.required (_optionServices </> (m ^. configFile))
+          >>= hoistEither . JS.parse
 
-            api <- sequence
-                [ JS.optional (_optAnnexes </> (m ^. annexFile))
-                , JS.required (m ^. serviceFile)
-                , JS.optional (m ^. waitersFile)
-                , JS.optional (m ^. pagersFile)
-                , pure r
-                ] >>= hoistEither . JS.parse . JS.merge
+      api <-
+        sequence
+          [ JS.optional (_optionAnnexes </> (m ^. annexFile)),
+            JS.required (m ^. serviceFile),
+            JS.optional (m ^. waitersFile),
+            JS.optional (m ^. pagersFile),
+            pure r
+          ]
+          >>= hoistEither . JS.parse . JS.merge
 
-            say ("Successfully parsed '" % stext % "' API definition")
-                (api ^. serviceFullName)
+      say
+        ("Successfully parsed '" % stext % "' API definition")
+        (api ^. serviceFullName)
 
-            lib <- hoistEither (AST.rewrite _optVersions cfg api)
+      lib <- hoistEither (AST.rewrite _optionVersions cfg api)
 
-            dir <- hoistEither (Tree.populate _optOutput tmpl lib)
-                >>= Tree.fold createDir (\x -> either (touchFile x) (writeLTFile x))
+      dir <-
+        hoistEither (Tree.populate _optionOutput tmpl lib)
+          >>= Tree.fold createDir (\x -> either (touchFile x) (writeLTFile x))
 
-            say ("Successfully rendered " % stext % "-" % semver % " package")
-                (lib ^. libraryName)
-                (lib ^. libraryVersion)
+      say
+        ("Successfully rendered " % stext % "-" % semver % " package")
+        (lib ^. libraryName)
+        (lib ^. libraryVersion)
 
-            copyDir _optStatic (Tree.root dir)
+      copyDir _optionAssets (Tree.root dir)
 
-            done
+      done
 
-        title ("Successfully processed " % int % " models.") i
+    title ("Successfully processed " % int % " models.") i

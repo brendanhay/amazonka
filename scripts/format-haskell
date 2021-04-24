@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Usage: format-haskell
+
+set -euo pipefail
+
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
+
+echo "Formatting Cabal"
+
+find gen amazonka core test \
+  -type f -name '*.cabal' \
+  -exec cabal-fmt --inplace --indent=2 {} \+
+
+echo "Formatting Haskell"
+
+find gen \
+  -type f -name '*.hs' \
+  -exec ormolu -i \
+  -o '-XBangPatterns' \
+  -o '-XPatternSynonyms' \
+  -o '-XTypeApplications' \
+  -o '-XPatternSynonyms' \
+  -o '-XImportQualifiedPost' \
+  {} \+

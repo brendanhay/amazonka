@@ -5,7 +5,7 @@
             "renamedTo": "TaskStatus"
         },
         "DeleteStream": {
-            "renamedTo": "DeleteStreamAfterOTA"
+            "renamedTo": "ConfirmDeleteStream"
         }
     }
 }

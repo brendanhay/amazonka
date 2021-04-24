@@ -1,8 +1,0 @@
-{
-    "libraryName": "amazonka-greengrass",
-    "typeOverrides": {
-        "Logger": {
-            "renamedTo": "GreengrassLogger"
-        }
-    }
-}

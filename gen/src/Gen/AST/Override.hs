@@ -1,12 +1,7 @@
-{-# LANGUAGE FlexibleContexts  #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RankNTypes        #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TemplateHaskell   #-}
-{-# LANGUAGE TupleSections     #-}
+{-# LANGUAGE TemplateHaskell #-}
 
 -- Module      : Gen.AST.Override
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -16,57 +11,58 @@
 -- Portability : non-portable (GHC extensions)
 
 module Gen.AST.Override
-    ( override
-    ) where
+  ( override,
+  )
+where
 
 import Control.Comonad
 import Control.Comonad.Cofree
 import Control.Error
-import Control.Lens           hiding ((:<))
+import Control.Lens hiding ((:<))
 import Control.Monad.State
-
 import Data.Bifunctor
-import Data.List      ((\\))
-
+import Data.HashMap.Strict qualified as Map
+import Data.List ((\\))
 import Gen.Types
 
-import qualified Data.HashMap.Strict as Map
-
 data Env = Env
-    { _renamed  :: Map Id Id
-    , _replaced :: Map Id Replace
-    , _memo     :: Map Id (Shape Related)
-    }
+  { _renamed :: Map Id Id,
+    _replaced :: Map Id Replace,
+    _memo :: Map Id (Shape Related)
+  }
 
 makeLenses ''Env
 
 -- | Apply the override rules to shapes and their respective fields.
-override :: Functor f
-         => Map Id Override
-         -> Service f (RefF a) (Shape Related) b
-         -> Service f (RefF a) (Shape Related) b
+override ::
+  Functor f =>
+  Map Id Override ->
+  Service f (RefF a) (Shape Related) b ->
+  Service f (RefF a) (Shape Related) b
 override ovs svc =
-   svc & operations . each %~ operation
-       & shapes            .~ evalState ss (Env rename replace mempty)
+  svc & operations . each %~ operation
+    & shapes .~ evalState ss (Env rename replace mempty)
   where
-    ss = fmap Map.fromList
-       . traverse (uncurry (overrideShape ovs))
-       . Map.toList
-       $ svc ^. shapes
+    ss =
+      fmap Map.fromList
+        . traverse (uncurry (overrideShape ovs))
+        . Map.toList
+        $ svc ^. shapes
 
     operation :: Functor f => Operation f (RefF a) b -> Operation f (RefF a) b
-    operation o = o
-        { _opInput  = ref <$> _opInput  o
-        , _opOutput = ref <$> _opOutput o
+    operation o =
+      o
+        { _opInput = ref <$> _opInput o,
+          _opOutput = ref <$> _opOutput o
         }
 
     ref :: RefF a -> RefF a
     ref r
-        | Just x <- ptr rename  = r & refShape .~ x
-        | Just x <- ptr replace = r & refShape .~ x ^. replaceName
-        | otherwise             = r
+      | Just x <- Map.lookup ptr rename = r & refShape .~ x
+      | Just x <- Map.lookup ptr replace = r & refShape .~ x ^. replaceName
+      | otherwise = r
       where
-        ptr = Map.lookup (r ^. refShape)
+        ptr = r ^. refShape
 
     rename :: Map Id Id
     rename = vMapMaybe _renamedTo ovs
@@ -76,51 +72,54 @@ override ovs svc =
 
 type MemoS = State Env
 
-overrideShape :: Map Id Override
-              -> Id
-              -> Shape Related
-              -> MemoS (Id, Shape Related)
+overrideShape ::
+  Map Id Override ->
+  Id ->
+  Shape Related ->
+  MemoS (Id, Shape Related)
 overrideShape ovs n c@(_ :< s) = go -- env memo n >>= maybe go (return . (n,))
   where
     go = do
-        rp <- env replaced n
-        rn <- env renamed n
-        case (rp, rn) of
-            (Nothing, Nothing) -> (n,) <$> shape
-            (Just x,  _)       -> (n,) <$> pointer x
-            (_,       Just x)
-                | x == n       -> (n,) <$> shape
-                | otherwise    -> overrideShape ovs x c
+      rp <- env replaced n
+      rn <- env renamed n
+      case (rp, rn) of
+        (Nothing, Nothing) -> (n,) <$> shape
+        (Just x, _) -> (n,) <$> pointer x
+        (_, Just x)
+          | x == n -> (n,) <$> shape
+          | otherwise -> overrideShape ovs x c
 
-    Override{..} = fromMaybe defaultOverride (Map.lookup n ovs)
+    Override {..} = fromMaybe defaultOverride (Map.lookup n ovs)
 
     pointer :: Replace -> MemoS (Shape Related)
-    pointer r = save $
+    pointer r =
+      save $
         (extract c & annId .~ n) :< Ptr (s ^. info) (typeOf r)
 
     shape :: MemoS (Shape Related)
     shape = do
-        let a = extract c & annId .~ n
-        traverseOf references ref s
-            >>= rules
-            >>= save . (a :<)
+      let a = extract c & annId .~ n
+      traverseOf references ref s
+        >>= rules
+        >>= save . (a :<)
 
     ref :: RefF (Shape Related) -> MemoS (RefF (Shape Related))
-    ref r = flip (set refAnn) r . snd <$>
-        overrideShape ovs (r ^. refShape) (r ^. refAnn)
+    ref r =
+      flip (set refAnn) r . snd
+        <$> overrideShape ovs (r ^. refShape) (r ^. refAnn)
 
     rules :: ShapeF a -> MemoS (ShapeF a)
     rules = retype . fields . prefix . require . optional
 
     require, optional :: ShapeF a -> ShapeF a
-    require  = setRequired (<> _requiredFields)
+    require = setRequired (<> _requiredFields)
     optional = setRequired (\\ _optionalFields)
 
     prefix :: ShapeF a -> ShapeF a
     prefix =
-        case _enumPrefix of
-            Nothing -> id
-            Just  p -> _Enum . _2 . kvTraversal %~ first (prependId p)
+      case _enumPrefix of
+        Nothing -> id
+        Just p -> _Enum . _2 . kvTraversal %~ first (prependId p)
 
     fields :: ShapeF a -> ShapeF a
     fields = _Struct . members . kvTraversal %~ first f
@@ -129,13 +128,16 @@ overrideShape ovs n c@(_ :< s) = go -- env memo n >>= maybe go (return . (n,))
 
     retype :: ShapeF a -> MemoS (ShapeF a)
     retype x = do
-        rp <- use replaced
-        rn <- use renamed
-        let f g m v = maybe v (flip (set refShape) v . g)
-                            (Map.lookup (v ^. refShape) m)
-        return $! x
-                & references
-               %~ f _replaceName rp . f id rn
+      rp <- use replaced
+      rn <- use renamed
+      let f g m v =
+            maybe
+              v
+              (flip (set refShape) v . g)
+              (Map.lookup (v ^. refShape) m)
+      return $! x
+        & references
+        %~ f _replaceName rp . f id rn
 
 env :: MonadState Env m => Getter Env (Map Id a) -> Id -> m (Maybe a)
 env l n = uses l (Map.lookup n)

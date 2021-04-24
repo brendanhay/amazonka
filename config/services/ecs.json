@@ -4,5 +4,8 @@
         "Service": {
             "renamedTo": "ContainerService"
         }
-    }
+    },
+    "ignoredWaiters": [
+        "ServicesStable"
+    ]
 }

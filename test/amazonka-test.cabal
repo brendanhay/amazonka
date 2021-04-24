@@ -1,67 +1,64 @@
-name:                  amazonka-test
-version:               1.6.1
-synopsis:              Common functionality for Amazonka library test-suites.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2017 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-extra-source-files:    README.md
-cabal-version:         >= 1.10
-
+name:               amazonka-test
+version:            1.6.1
+synopsis:           Common functionality for Amazonka library test-suites.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2017 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+extra-source-files: README.md
+cabal-version:      >=1.10
 description:
-    Common functionality depended upon by test suites of the various @amazonka-*@
-    service libraries.
-    .
-    The external interface of this library is stable with respect to the
-    downstream Amazonka libraries, only, and as such is not suitable
-    for use in non-Amazonka projects.
+  Common functionality depended upon by test suites of the various @amazonka-*@
+  service libraries.
+  .
+  The external interface of this library is stable with respect to the
+  downstream Amazonka libraries, only, and as such is not suitable
+  for use in non-Amazonka projects.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            test
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   test
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src
+  default-language: Haskell2010
+  hs-source-dirs:   src
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
+  exposed-modules:
+    Test.AWS.Assert
+    Test.AWS.Diff
+    Test.AWS.Fixture
+    Test.AWS.Orphans
+    Test.AWS.Prelude
+    Test.AWS.TH
 
-    exposed-modules:
-          Test.AWS.Assert
-        , Test.AWS.Diff
-        , Test.AWS.Fixture
-        , Test.AWS.Orphans
-        , Test.AWS.Prelude
-        , Test.AWS.TH
-
-    build-depends:
-          aeson                >= 0.8
-        , amazonka-core        == 1.6.1.*
-        , base                 >= 4.7     && < 5
-        , bifunctors           >= 4.1
-        , bytestring           >= 0.9
-        , case-insensitive     >= 1.2
-        , conduit              >= 1.1
-        , conduit-extra        >= 1.1
-        , groom                >= 0.1.1
-        , http-client          >= 0.4.9
-        , http-types           >= 0.8
-        , process              >= 1.2
-        , resourcet            >= 1.1
-        , tasty                >= 0.10
-        , tasty-hunit          >= 0.9
-        , template-haskell     >= 2.5
-        , temporary            >= 1.2
-        , text                 >= 1.1
-        , time                 >= 1.2
-        , unordered-containers >= 0.2.5
-        , yaml                 >= 0.8.7
+  build-depends:
+      aeson                 >=0.8
+    , amazonka-core         >=1.6.1 && <1.6.2
+    , base                  >=4.7   && <5
+    , bifunctors            >=4.1
+    , bytestring            >=0.9
+    , case-insensitive      >=1.2
+    , conduit               >=1.1
+    , conduit-extra         >=1.1
+    , groom                 >=0.1.1
+    , http-client           >=0.4.9
+    , http-types            >=0.8
+    , process               >=1.2
+    , resourcet             >=1.1
+    , tasty                 >=0.10
+    , tasty-hunit           >=0.9
+    , template-haskell      >=2.5
+    , temporary             >=1.2
+    , text                  >=1.1
+    , time                  >=1.2
+    , unordered-containers  >=0.2.5
+    , yaml                  >=0.8.7

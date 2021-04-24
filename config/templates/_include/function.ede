@@ -3,6 +3,3 @@
 {% endif %}
 {{ function.signature }}
 {{ function.declaration }}
-{% for pragma in function.pragmas %}
-{{ pragma.value }}
-{% endfor %}

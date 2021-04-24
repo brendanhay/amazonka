@@ -6,25 +6,20 @@
 -- | /See:/ '{{ shape.constructor.name }}' smart constructor.
 {% endif %}
 {{ shape.declaration }}
-{% for accessor in shape.accessors %}
-  {% if accessor.first %}{ {% else %}, {% endif %}{{ accessor.value.declaration }}
-  {% if accessor.value.documentation %}
-    -- ^ {{ accessor.value.documentation }}
-  {% endif %}
-  {% if accessor.last %}
-  }
-  {% endif %}
-{% endfor %}
-{% for deriving in shape.deriving %}
-  {{ deriving.value }}
-{% endfor %}
 
 {% if shape.constructor.documentation %}
 -- | {{ shape.constructor.documentation }}
+--
 {% endif %}
+{% for lens in shape.lenses %}
+  {% if lens.first %}
+-- Use one of the following lenses to modify other fields as desired:
+  {% endif %}
+--
+-- * '{{ lens.value.name }}' - {{ lens.value.documentation }}
+{% endfor %}
 {{ shape.constructor.signature }}
 {{ shape.constructor.declaration }}
-{-# INLINEABLE {{ shape.constructor.name }} #-}
 {% for lens in shape.lenses %}
 
 {% include "function.ede" with function = lens.value %}

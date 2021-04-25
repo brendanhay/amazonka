@@ -186,7 +186,7 @@ prodData m s st = (,fields) <$> mk
     mkLens f =
       Fun' (fieldLens f) (fieldHelp f)
         <$> pp None (lensS m (s ^. annType) f)
-        <*> pp None (lensD f)
+        <*> pp None (lensD n f)
 
     mkCtor :: Either Error Fun
     mkCtor =

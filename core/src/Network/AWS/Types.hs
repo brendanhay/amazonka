@@ -30,10 +30,10 @@ module Network.AWS.Types
     , withAuth
 
     , AuthEnv        (..)
-    , accessKeyId
-    , secretAccessKey
-    , sessionToken
-    , expiration
+    , authAccessKeyId
+    , authSecretAccessKey
+    , authSessionToken
+    , authExpiration
 
     -- * Logging
     , LogLevel       (..)
@@ -96,7 +96,7 @@ module Network.AWS.Types
     , serviceRequestId
     -- ** Error Types
     , ErrorCode      (..)
-    , errorCode
+    , newErrorCode
     , ErrorMessage   (..)
     , RequestId      (..)
 
@@ -118,12 +118,11 @@ module Network.AWS.Types
 
     -- ** Seconds
     , Seconds         (..)
-    , seconds
-    , microseconds
+    , toSeconds
+    , toMicroseconds
 
     -- * Isomorphisms
     , _Coerce
-    , _Default
     ) where
 
 import Control.Applicative
@@ -189,16 +188,16 @@ newtype Abbrev = Abbrev Text
 newtype ErrorCode = ErrorCode Text
     deriving (Eq, Ord, Show, ToText, ToLog)
 
-instance IsString ErrorCode where fromString = errorCode . fromString
+instance IsString ErrorCode where fromString = newErrorCode . fromString
 instance FromJSON ErrorCode where parseJSON  = parseJSONText "ErrorCode"
 instance FromXML  ErrorCode where parseXML   = parseXMLText  "ErrorCode"
 
 instance FromText ErrorCode where
-    parser = errorCode <$> parser
+    parser = newErrorCode <$> parser
 
 -- | Construct an 'ErrorCode'.
-errorCode :: Text -> ErrorCode
-errorCode = ErrorCode . strip . unnamespace
+newErrorCode :: Text -> ErrorCode
+newErrorCode = ErrorCode . strip . unnamespace
   where
     -- Common suffixes are stripped since the service definitions are ambigiuous
     -- as to whether the error shape's name, or the error code is present
@@ -470,7 +469,7 @@ clientRequest e t =
 #if MIN_VERSION_http_client(0,5,0)
         case t of
             Nothing -> Client.responseTimeoutNone
-            Just x  -> Client.responseTimeoutMicro (microseconds x)
+            Just x  -> Client.responseTimeoutMicro (toMicroseconds x)
 #else
         microseconds <$> t
 #endif
@@ -599,10 +598,10 @@ instance FromJSON SessionToken where parseJSON = parseJSONText "SessionToken"
 
 -- | The AuthN/AuthZ credential environment.
 data AuthEnv = AuthEnv
-    { _authAccess :: !AccessKey
-    , _authSecret :: !(Sensitive SecretKey)
-    , _authToken  :: Maybe (Sensitive SessionToken)
-    , _authExpiry :: Maybe ISO8601
+    { _authAccessKeyId :: !AccessKey
+    , _authSecretAccessKey :: !(Sensitive SecretKey)
+    , _authSessionToken  :: Maybe (Sensitive SessionToken)
+    , _authExpiration :: Maybe ISO8601
     } deriving (Eq, Show, Data, Typeable, Generic)
 
 instance NFData AuthEnv
@@ -610,10 +609,10 @@ instance NFData AuthEnv
 instance ToLog AuthEnv where
     build AuthEnv{..} = buildLines
         [ "[Amazonka Auth] {"
-        , "  access key id     = " <> build _authAccess
-        , "  secret access key = " <> build _authSecret
-        , "  session token     = " <> build _authToken
-        , "  expiration        = " <> build (fmap (view _Time) _authExpiry)
+        , "  access key id     = " <> build _authAccessKeyId
+        , "  secret access key = " <> build _authSecretAccessKey
+        , "  session token     = " <> build _authSessionToken
+        , "  expiration        = " <> build (fmap (view _Time) _authExpiration)
         , "}"
         ]
 
@@ -632,26 +631,26 @@ instance FromXML AuthEnv where
         <*> x .@? "Expiration"
 
 -- | The access key ID that identifies the temporary security credentials.
-accessKeyId :: Lens' AuthEnv AccessKey
-accessKeyId = lens _authAccess (\s a -> s{ _authAccess = a })
+authAccessKeyId :: Lens' AuthEnv AccessKey
+authAccessKeyId = lens _authAccessKeyId (\s a -> s{ _authAccessKeyId = a })
 
 -- | The secret access key that can be used to sign requests.
-secretAccessKey :: Lens' AuthEnv SecretKey
-secretAccessKey =
-    lens _authSecret (\s a -> s { _authSecret = a })
+authSecretAccessKey :: Lens' AuthEnv SecretKey
+authSecretAccessKey =
+    lens _authSecretAccessKey (\s a -> s { _authSecretAccessKey = a })
         . _Sensitive
 
 -- | The token that users must pass to the service API to use the temporary
 -- credentials.
-sessionToken :: Lens' AuthEnv (Maybe SessionToken)
-sessionToken =
-    lens _authToken (\s a -> s { _authToken = a })
+authSessionToken :: Lens' AuthEnv (Maybe SessionToken)
+authSessionToken =
+    lens _authSessionToken (\s a -> s { _authSessionToken = a })
         . mapping _Sensitive
 
 -- | The date on which the current credentials expire.
-expiration :: Lens' AuthEnv (Maybe UTCTime)
-expiration =
-    lens _authExpiry (\s a -> s { _authExpiry = a })
+authExpiration :: Lens' AuthEnv (Maybe UTCTime)
+authExpiration =
+    lens _authExpiration (\s a -> s { _authExpiration = a })
         . mapping _Time
 
 -- | An authorisation environment containing AWS credentials, and potentially
@@ -787,23 +786,15 @@ instance Hashable Seconds
 instance NFData   Seconds
 
 instance ToLog Seconds where
-    build s = build (seconds s) <> "s"
+    build s = build (toSeconds s) <> "s"
 
-seconds :: Seconds -> Int
-seconds (Seconds n)
+toSeconds :: Seconds -> Int
+toSeconds (Seconds n)
     | n < 0     = 0
     | otherwise = n
 
-microseconds :: Seconds -> Int
-microseconds =  (1000000 *) . seconds
+toMicroseconds :: Seconds -> Int
+toMicroseconds =  (1000000 *) . toSeconds
 
 _Coerce :: (Coercible a b, Coercible b a) => Iso' a b
 _Coerce = iso coerce coerce
-
--- | Invalid Iso, should be a Prism but exists for ease of composition
--- with the current 'Lens . Iso' chaining to hide internal types from the user.
-_Default :: Monoid a => Iso' (Maybe a) a
-_Default = iso f Just
-  where
-    f (Just x) = x
-    f Nothing  = mempty

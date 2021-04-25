@@ -43,7 +43,7 @@ v4 = Signer sign presign
 presign :: Seconds -> Algorithm a
 presign ex rq a r ts = signRequest meta mempty auth
   where
-    auth = queryString <>~ ("&X-Amz-Signature=" <> toBS (metaSignature meta))
+    auth = requestQuery <>~ ("&X-Amz-Signature=" <> toBS (metaSignature meta))
 
     meta = signMetadata a r ts presigner digest (prepare rq)
 
@@ -53,7 +53,7 @@ presign ex rq a r ts = signRequest meta mempty auth
         . pair (CI.original hAMZDate)          (Time ts :: AWSTime)
         . pair (CI.original hAMZExpires)       ex
         . pair (CI.original hAMZSignedHeaders) (toBS shs)
-        . pair (CI.original hAMZToken)         (toBS <$> _authToken a)
+        . pair (CI.original hAMZToken)         (toBS <$> _authSessionToken a)
 
     digest = Tag "UNSIGNED-PAYLOAD"
 

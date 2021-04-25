@@ -137,7 +137,7 @@ fieldAnn = fieldRef . refAnn
 
 fieldLens, fieldAccessor :: Field -> Text
 fieldLens f = lensId (_fieldPrefix f) (_fieldId f)
-fieldAccessor f = accessorId (_fieldPrefix f) (_fieldId f)
+fieldAccessor f = accessorId (_fieldId f)
 
 fieldIsParam :: Field -> Bool
 fieldIsParam f = not (fieldMaybe f) && not (fieldMonoid f)

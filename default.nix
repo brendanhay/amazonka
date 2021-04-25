@@ -22,15 +22,11 @@ let
   projectPackages =
     pkgs.haskell-nix.haskellLib.selectProjectPackages pkgs.cabalProject;
 
-  collectChecks = _:
-    pkgs.recurseIntoAttrs (builtins.mapAttrs (_: p: p.checks) projectPackages);
-  collectComponents = type:
-    pkgs.haskell-nix.haskellLib.collectComponents' type projectPackages;
-
 in projectPackages // {
-  ci = builtins.mapAttrs (type: f: f type) {
-    "library" = collectComponents;
-    "checks" = collectChecks;
+  ci = {
+    "library" =
+      pkgs.haskell-nix.haskellLib.collectComponents' "library" projectPackages;
+    "checks" = builtins.mapAttrs (_: p: p.checks) projectPackages;
   };
 
   shell = pkgs.cabalProject.shellFor {

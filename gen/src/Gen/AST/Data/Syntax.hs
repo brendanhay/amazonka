@@ -124,46 +124,49 @@ fieldUpdate f = field (unqual (fieldAccessor f)) rhs
     pat = Exts.Var () (Exts.UnQual () (fieldParamName f))
 
 lensS :: HasMetadata a Identity => a -> TType -> Field -> Decl
-lensS m t f =
+lensS m type' f =
   Exts.TypeSig () [ident (fieldLens f)] $
     tyapp
       ( tyapp
           (tycon "Lens'")
-          (signature m t)
+          (signature m type')
       )
       (external m f)
 
-lensD :: Field -> Decl
-lensD f = Exts.sfun (ident l) [] (unguarded rhs) Exts.noBinds
+lensD :: Id -> Field -> Decl
+lensD type' f = Exts.sfun (ident l) [] (unguarded rhs) Exts.noBinds
   where
     l = fieldLens f
     a = fieldAccessor f
 
     rhs =
       mapping (typeOf f) $
-        Exts.app
-          (Exts.app (var "lens") (var a))
-          ( Exts.paren
-              ( Exts.lamE
-                  [pvar "s", pvar "a"]
-                  (Exts.RecUpdate () (var "s") [field (unqual a) (var "a")])
-              )
-          )
+        var "lens"
+          `Exts.app` Exts.lamE [recordPat [Exts.PFieldPun () (unqual a)]] (var a)
+          `Exts.app` Exts.lamE
+            [Exts.PAsPat () (ident "s") (recordPat []), pvar "a"]
+            (recordSig (Exts.RecUpdate () (var "s") [field (unqual a) (var "a")]))
+
+    -- rhs =
+    --   mapping (typeOf f) $
+    --     var "lens"
+    --       `Exts.app` Exts.lamE [recordPat [Exts.PFieldPun () (unqual a)]] (var a)
+    --       `Exts.app` Exts.lamE
+    --         [Exts.PAsPat () (ident "s") (recordPat []), pvar "a"]
+    --         (Exts.RecUpdate () (var "s") [field (unqual a) (var "a")])
+
+    recordPat = Exts.PRec () (unqual (ctorId type'))
+    recordSig e = Exts.ExpTypeSig () e (tycon (typeId type'))
 
 errorS :: Text -> Decl
 errorS n =
   let cxt = Exts.CxSingle () (Exts.ClassA () (unqual "AsError") [tyvar "a"])
       forall = Exts.TyForall () Nothing (Just cxt)
    in Exts.TypeSig () [ident n] . forall $
-        tyapp
-          ( tyapp
-              ( tyapp
-                  (tycon "Getting")
-                  (tyapp (tycon "First") (tycon "ServiceError"))
-              )
-              (tyvar "a")
-          )
-          (tycon "ServiceError")
+        tycon "Getting"
+          `tyapp` (tyapp (tycon "First") (tycon "ServiceError"))
+          `tyapp` tyvar "a"
+          `tyapp` tycon "ServiceError"
 
 errorD :: HasMetadata a Identity => a -> Text -> Maybe Int -> Text -> Decl
 errorD m n s c =
@@ -330,9 +333,12 @@ getterN e = if go e then "^?" else "^."
       Exts.Var _ (Exts.UnQual _ (Exts.Ident _ "_Just")) -> True
       _ -> False
 
--- FIXME: doesn't support Maybe fields currently.
 notationE :: Notation Field -> Exp
-notationE = \case
+notationE = notationE' False
+
+-- FIXME: doesn't support Maybe fields properly.
+notationE' :: Bool -> Notation Field -> Exp
+notationE' may = \case
   NonEmptyText k -> Exts.app (var "nonEmptyText") (label False k)
   IsEmptyList (k :| ks) -> Exts.app (var "isEmptyList") (labels k ks)
   NonEmptyList (k :| ks) -> labels k ks
@@ -340,7 +346,7 @@ notationE = \case
   Choice x y -> Exts.appFun (var "choice") [branch x, branch y]
   where
     branch x =
-      let e = notationE x
+      let e = notationE' may x
        in Exts.paren (Exts.app (var (getterN e)) e)
 
     labels k [] = label False k
@@ -353,10 +359,12 @@ notationE = \case
       Each f -> Exts.app (var "folding") . Exts.paren $ Exts.app (var "concatOf") (key False f)
       Last f -> Exts.infixApp (key False f) "." (var "_last")
 
-    key False f = var (fieldLens f)
+    key False f
+      | may && fieldMaybe f = Exts.infixApp (var (fieldLens f)) "." (var "_Just")
+      | otherwise = var (fieldLens f)
     key True f
-      | fieldMonoid f = key False f
       | fieldMaybe f = Exts.infixApp (key False f) "." (var "_Just")
+      | fieldMonoid f = key False f
       | otherwise = key False f
 
 requestD ::
@@ -828,7 +836,7 @@ waiterD n w = Exts.sfun (ident c) [] (unguarded rhs) Exts.noBinds
         Success -> var "AcceptSuccess"
         Failure -> var "AcceptFailure"
 
-    argument' x = go <$> maybeToList (notationE <$> _acceptArgument x)
+    argument' x = go <$> maybeToList (notationE' True <$> _acceptArgument x)
       where
         go = case _acceptExpect x of
           Textual {} ->
@@ -873,8 +881,6 @@ directed i m d (typeOf -> t) = case t of
       | i = tyapp (tycon "Sensitive")
       | otherwise = id
 
-    may x@(TMap {}) | not i = go x
-    may x@(TList {}) | not i = go x
     may x = tycon "Maybe" `tyapp` go x
 
     list1
@@ -898,8 +904,6 @@ mapping t e = infixE e "." (go t)
   where
     go = \case
       TSensitive x -> var "_Sensitive" : go x
-      TMaybe x@(TMap {}) -> var "_Default" : go x
-      TMaybe x@(TList {}) -> var "_Default" : go x
       TMaybe x -> nest (go x)
       x -> maybeToList (iso x)
 

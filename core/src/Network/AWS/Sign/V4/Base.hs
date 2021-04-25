@@ -98,7 +98,7 @@ base h rq a r ts = (meta, auth)
         ( hdr hHost             (_endpointHost end)
         . hdr hAMZDate          (toBS (Time ts :: AWSTime))
         . hdr hAMZContentSHA256 (toBS h)
-        . maybe id (hdr hAMZToken . toBS) (_authToken a)
+        . maybe id (hdr hAMZToken . toBS) (_authSessionToken a)
         )
 
     end = _svcEndpoint (_rqService rq) r
@@ -173,7 +173,7 @@ signMetadata a r ts presign digest rq = V4
     , metaCanonicalHeaders = chs
     , metaSignedHeaders    = shs
     , metaStringToSign     = sts
-    , metaSignature        = signature (_authSecret a ^. _Sensitive) scope sts
+    , metaSignature        = signature (_authSecretAccessKey a ^. _Sensitive) scope sts
     , metaHeaders          = _rqHeaders rq
     , metaTimeout          = _svcTimeout svc
     }
@@ -181,7 +181,7 @@ signMetadata a r ts presign digest rq = V4
     query = canonicalQuery . presign cred shs $ _rqQuery rq
 
     sts   = stringToSign ts scope crq
-    cred  = credential (_authAccess a) scope
+    cred  = credential (_authAccessKeyId a) scope
     scope = credentialScope svc end ts
     crq   = canonicalRequest method path digest query chs shs
 

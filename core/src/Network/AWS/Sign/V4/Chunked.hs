@@ -77,7 +77,7 @@ chunked c rq a r ts = signRequest meta (toRequestBody body) auth
         <> byteString crlf
 
     chunkSignature prev x =
-        signature (_authSecret a ^. _Sensitive) scope (chunkStringToSign prev x)
+        signature (_authSecretAccessKey a ^. _Sensitive) scope (chunkStringToSign prev x)
 
     chunkStringToSign prev x = Tag $ BS8.intercalate "\n"
         [ algorithm

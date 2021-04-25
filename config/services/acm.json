@@ -1,6 +1,3 @@
 {
-    "libraryName": "amazonka-certificatemanager",
-    "ignoredWaiters": [
-        "CertificateValidated"
-    ]
+    "libraryName": "amazonka-certificatemanager"
 }

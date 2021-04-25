@@ -1,8 +1,11 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
+{-# LANGUAGE NoImplicitPrelude     #-}
+{-# LANGUAGE DeriveDataTypeable    #-}
+{-# LANGUAGE DeriveGeneric         #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE RecordWildCards       #-}
+{-# LANGUAGE TypeFamilies          #-}
+{-# LANGUAGE NamedFieldPuns        #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
@@ -20,8 +23,8 @@
 module {{ moduleName }}
     (
     -- * Creating a Request
-      {{ input.constructor.name}}
-    , {{ input.name }}
+      {{ input.name }} (..)
+    , {{ input.constructor.name }} 
   {% for lens in input.lenses %}
     {% if lens.first %}
     -- * Request Lenses
@@ -30,8 +33,8 @@ module {{ moduleName }}
   {% endfor %}
 
     -- * Destructuring the Response
-    , {{ output.constructor.name}}
-    , {{ output.name }}
+    , {{ output.name }} (..)
+    , {{ output.constructor.name }} 
   {% for lens in output.lenses %}
     {% if lens.first %}
     -- * Response Lenses

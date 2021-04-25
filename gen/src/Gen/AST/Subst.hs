@@ -129,31 +129,37 @@ substitute svc@Service {..} = do
             --
             -- Also adds a required status code field to any
             -- non-shared response.
-            save k (Related k (_annRelation x) :< addStatus d s)
+            save k (Related k (_annRelation x) :< addStatus d k s)
             rename k n
             return r
 
-addStatus :: Direction -> ShapeF (Shape Related) -> ShapeF (Shape Related)
-addStatus Input = id
-addStatus Output = go
+addStatus :: Direction -> Id -> ShapeF (Shape Related) -> ShapeF (Shape Related)
+addStatus Input _k = id
+addStatus Output k = go
   where
-    go (Struct st) = Struct (maybe missing exists x)
-      where
-        ms = Map.toList (st ^. members)
-        x = find ((Just StatusCode ==) . view refLocation . snd) ms
+    go = \case
+      Struct st -> Struct (maybe missing exists mstatus)
+        where
+          mstatus =
+            find ((Just StatusCode ==) . view refLocation . snd) $
+              Map.toList (st ^. members)
 
-        missing = st & required' %~ cons n & members %~ Map.insert n ref
-        exists (k, _) = st & required' %~ cons k
-    go s = s
+          missing =
+            st & required' %~ cons n & members %~ Map.insert n ref
 
-    ref =
-      emptyRef n
-        & refLocation ?~ StatusCode
-        & refDocumentation ?~ "-- | The response status code."
-        & refAnn
-          .~ Related n mempty :< Lit emptyInfo Int
+          exists (name, _) =
+            st & required' %~ cons name
 
-    n = mkId "ResponseStatus"
+          ref =
+            emptyRef n
+              & refLocation ?~ StatusCode
+              & refDocumentation ?~ "-- | The response status code."
+              & refAnn .~ Related n mempty :< Lit emptyInfo Int
+
+          n = mkId (typeId k <> "Status")
+      --
+      other ->
+        other
 
 save :: Id -> Shape a -> MemoS a ()
 save n s = memo %= Map.insert n s

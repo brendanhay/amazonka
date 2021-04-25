@@ -42,7 +42,7 @@ module Network.AWS.Request
 
     -- ** Lenses
     , requestHeaders
-    , queryString
+    , requestQuery
     , requestURL
     ) where
 
@@ -128,8 +128,8 @@ defaultRequest s x = Request
     , _rqBody    = ""
     }
 
-queryString :: Lens' Client.Request ByteString
-queryString f x =
+requestQuery :: Lens' Client.Request ByteString
+requestQuery f x =
     f (Client.queryString x) <&> \y -> x { Client.queryString = y }
 
 requestHeaders :: Lens' Client.Request HTTP.RequestHeaders

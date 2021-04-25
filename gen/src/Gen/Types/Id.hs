@@ -102,10 +102,10 @@ branchId p = f . typeId
       | otherwise = id
 
 smartCtorId :: Id -> Text
-smartCtorId = renameReserved . lowerHead . lowerFirstAcronym . typeId
+smartCtorId = mappend "new" . typeId
 
-accessorId :: Maybe Text -> Id -> Text
-accessorId p = Text.cons '_' . accessor p
+accessorId :: Id -> Text
+accessorId = renameReserved . lowerHead . lowerFirstAcronym . memberId
 
 lensId :: Maybe Text -> Id -> Text
 lensId p = renameReserved . accessor p

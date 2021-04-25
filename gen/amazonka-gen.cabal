@@ -135,7 +135,6 @@ executable amazonka-gen
     , scientific
     , system-fileio
     , system-filepath
-    , template-haskell
     , text
     , text-icu
     , text-manipulate

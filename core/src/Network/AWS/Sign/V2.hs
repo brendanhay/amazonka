@@ -72,7 +72,7 @@ sign Request{..} AuthEnv{..} r t = Signed meta rq
     authorised = pair "Signature" (urlEncode True signature) query
 
     signature = digestToBase Base64
-        . hmacSHA256 (toBS _authSecret)
+        . hmacSHA256 (toBS _authSecretAccessKey)
         $ BS8.intercalate "\n"
             [ meth
             , _endpointHost
@@ -85,10 +85,10 @@ sign Request{..} AuthEnv{..} r t = Signed meta rq
        . pair "SignatureVersion" ("2"          :: ByteString)
        . pair "SignatureMethod"  ("HmacSHA256" :: ByteString)
        . pair "Timestamp"        time
-       . pair "AWSAccessKeyId"   (toBS _authAccess)
+       . pair "AWSAccessKeyId"   (toBS _authAccessKeyId)
        $ _rqQuery <> maybe mempty toQuery token
 
-    token = ("SecurityToken" :: ByteString,) . toBS <$> _authToken
+    token = ("SecurityToken" :: ByteString,) . toBS <$> _authSessionToken
 
     headers = hdr hDate time _rqHeaders
 

@@ -49,6 +49,8 @@ import Network.AWS.Error           as Export
 import Network.AWS.Types           as Export hiding (Algorithm, Endpoint,
                                               LogLevel (..), Seconds, Signer,
                                               serviceEndpoint)
+       
+import Prelude                     as Export hiding (log, min, max, maximum, minimum)
 
 infixl 7 .!@
 

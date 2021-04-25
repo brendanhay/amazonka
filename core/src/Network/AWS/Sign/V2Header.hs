@@ -72,16 +72,16 @@ sign Request{..} AuthEnv{..} r t = Signed meta rq
     meth  = toBS _rqMethod
     path' = toBS (escapePath _rqPath)
 
-    end@Endpoint{..} = _svcEndpoint r
+    end@Endpoint{} = _svcEndpoint r
 
     Service{..} = _rqService
 
     signature = digestToBase Base64
-        . hmacSHA1 (toBS _authSecret) $ signer
+        . hmacSHA1 (toBS _authSecretAccessKey) $ signer
 
     headers =
           hdr hDate time
-        . hdr hAuthorization ("AWS " <> toBS _authAccess <> ":" <> signature)
+        . hdr hAuthorization ("AWS " <> toBS _authAccessKeyId <> ":" <> signature)
         $ _rqHeaders
 
     time = toBS (Time t :: RFC822)

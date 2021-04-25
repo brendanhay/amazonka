@@ -119,7 +119,8 @@ renameReserved x
   where
     xs =
       Set.fromList $
-        [ "head",
+        [ "id",
+          "head",
           "tail",
           "delete",
           "filter",
@@ -136,7 +137,10 @@ renameReserved x
           "Error",
           "lex",
           "Left",
-          "Right"
+          "Right",
+          "Status",
+          "Text",
+          "Service"
         ]
           ++ map Text.pack (reservedNames haskellDef)
 

@@ -114,8 +114,8 @@ getRequestId h =
 getErrorCode :: Status -> [Header] -> ErrorCode
 getErrorCode s h =
     case h .# hAMZNErrorType of
-        Left  _ -> errorCode (toText (statusMessage s))
-        Right x -> errorCode x
+        Left  _ -> newErrorCode (toText (statusMessage s))
+        Right x -> newErrorCode x
 
 parseJSONError :: Abbrev
                -> Status
@@ -152,7 +152,7 @@ parseXMLError a s h bs = decodeError a s h bs (decodeXML bs >>= go)
     code x = Just <$> (firstElement "Code" x >>= parseXML)
          <|> return root
 
-    root = errorCode <$> rootElementName bs
+    root = newErrorCode <$> rootElementName bs
 
     may (Left  _) = pure Nothing
     may (Right x) = Just <$> parseXML x

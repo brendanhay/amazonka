@@ -21,7 +21,7 @@ import Control.Comonad.Cofree
 import Control.Lens hiding (List)
 import Data.Maybe
 import Data.Text (Text)
-import Data.Text.Manipulate
+import Gen.Text
 import Gen.Types
 
 data Level = Flat | Nest

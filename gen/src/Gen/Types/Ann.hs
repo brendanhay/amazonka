@@ -105,7 +105,7 @@ data Derive
 instance Hashable Derive
 
 instance FromJSON Derive where
-  parseJSON = gParseJSON' (spinal & ctor %~ (. Text.drop 1))
+  parseJSON = gParseJSON' (camel & ctor %~ (. Text.drop 1))
 
 derivingName :: Derive -> Maybe String
 derivingName DHashable = Nothing

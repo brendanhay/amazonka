@@ -83,7 +83,8 @@ populate d Templates {..} l = (encodeString d :/) . dir lib <$> layout
                         [ dir "Types" $
                             mapMaybe shape (l ^.. shapes . each),
                           mod (l ^. typesNS) (typeImports l) typesTemplate,
-                          mod (l ^. waitersNS) (waiterImports l) waitersTemplate
+                          mod (l ^. waitersNS) (waiterImports l) waitersTemplate,
+                          mod (l ^. lensNS) (lensImports l) lensTemplate
                         ]
                           ++ map op (l ^.. operations . each),
                       mod (l ^. libraryNS) mempty tocTemplate
@@ -142,7 +143,7 @@ populate d Templates {..} l = (encodeString d :/) . dir lib <$> layout
       [ touch (n <> "Response.proto") blankTemplate mempty,
         touch (n <> ".yaml") fixtureRequestTemplate $
           fromPairs
-            [ "method" .= (o ^. opHTTP . method),
+            [ "method" .= (o ^. opHttp . method),
               "endpointPrefix" .= (l ^. endpointPrefix)
             ]
       ]

@@ -21,7 +21,7 @@ import Data.List (elemIndex, sortBy)
 import Data.Maybe
 import Data.Text (Text)
 import Data.Text qualified as Text
-import Data.Text.Manipulate
+import Gen.Text
 import Gen.Types
 import Language.Haskell.Exts.Syntax (Name (..))
 

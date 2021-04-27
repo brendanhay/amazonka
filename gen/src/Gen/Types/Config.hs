@@ -63,8 +63,6 @@ data Override = Override
     _renamedTo :: Maybe Id,
     -- | Existing type that supplants this type
     _replacedBy :: Maybe Replace,
-    -- | Enum constructor prefix
-    _enumPrefix :: Maybe Text,
     -- | Required fields
     _requiredFields :: [Id],
     -- | Optional fields
@@ -81,7 +79,6 @@ instance FromJSON Override where
     Override
       <$> (o .:? "renamedTo" <&> fmap (\unsafe -> Id unsafe unsafe))
       <*> o .:? "replacedBy"
-      <*> o .:? "enumPrefix"
       <*> o .:? "requiredFields" .!= mempty
       <*> o .:? "optionalFields" .!= mempty
       <*> o .:? "renamedFields" .!= mempty
@@ -91,7 +88,6 @@ defaultOverride =
   Override
     { _renamedTo = Nothing,
       _replacedBy = Nothing,
-      _enumPrefix = Nothing,
       _requiredFields = mempty,
       _optionalFields = mempty,
       _renamedFields = mempty
@@ -194,11 +190,12 @@ instance ToJSON Library where
           ]
 
 -- FIXME: Remove explicit construction of getters, just use functions.
-libraryNS, typesNS, waitersNS, fixturesNS :: Getter Library NS
+libraryNS, typesNS, waitersNS, fixturesNS, lensNS :: Getter Library NS
 libraryNS = serviceAbbrev . to (mappend "Network.AWS" . mkNS)
 typesNS = libraryNS . to (<> "Types")
 waitersNS = libraryNS . to (<> "Waiters")
 fixturesNS = serviceAbbrev . to (mappend "Test.AWS.Gen" . mkNS)
+lensNS = libraryNS . to (<> "Lens")
 
 otherModules :: Getter Library [NS]
 otherModules = to f
@@ -217,6 +214,7 @@ exposedModules = to f
     f x =
       let ns = x ^. libraryNS
        in x ^. typesNS :
+          x ^. lensNS :
           x ^. waitersNS :
           x ^.. operations . each . to (operationNS ns . view opName)
 
@@ -227,6 +225,7 @@ data Templates = Templates
     readmeTemplate :: !Template,
     operationTemplate :: !Template,
     typesTemplate :: !Template,
+    lensTemplate :: !Template,
     sumTemplate :: !Template,
     productTemplate :: !Template,
     testMainTemplate :: !Template,

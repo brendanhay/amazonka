@@ -5,7 +5,7 @@
 
 {% include "_include/license.ede" %}
 --
--- {{ documentation | stripPrefix("-- | ") }}
+-- {{ documentation }}
 module {{ moduleName }}
     (
     -- * Service Configuration
@@ -35,7 +35,10 @@ module {{ moduleName }}
   {% for op in operations %}
 
     -- ** {{ op.value.name }} {% if op.value.pager %}(Paginated){% endif %}
-    , module Network.AWS.{{ serviceAbbrev }}.{{ op.value.name }}
+    , {{ op.value.input.name }} ({{ op.value.input.name }}')
+    , {{ op.value.input.constructor.name }}
+    , {{ op.value.output.name }} ({{ op.value.output.name }}')
+    , {{ op.value.output.constructor.name }}
   {% endfor %}
 
     -- * Types
@@ -51,11 +54,8 @@ module {{ moduleName }}
     {% when "product" %}
 
     -- ** {{ shape.value.name }}
-    , {{ shape.value.name }}
+    , {{ shape.value.name }} ({{ shape.value.name }}')
     , {{ shape.value.constructor.name }}
-      {% for lens in shape.value.lenses %}
-    , {{ lens.value.name }}
-      {% endfor %}
     {% when "sum" %}
 
     -- ** {{ shape.value.name }}

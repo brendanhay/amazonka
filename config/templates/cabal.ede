@@ -13,20 +13,18 @@ build-type:            Simple
 cabal-version:         >= 1.10
 extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
+    The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+    which provides mechanisms for specifying AuthN/AuthZ information, sending requests,
     and receiving responses.
     .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
     .
-    See "Network.AWS.{{ serviceAbbrev }}" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+    Generated lenses for legacy behaviour can be found in "Network.AWS.{{ serviceAbbrev }}.Lens"
+    and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+    .
+    Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+    .
+    See "Network.AWS.{{ serviceAbbrev }}" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
     type:              git
@@ -45,19 +43,21 @@ library
 
     exposed-modules:
           Network.AWS.{{ serviceAbbrev }}
+
       {% for module in exposedModules %}
         , {{ module.value }}
       {% endfor %}
 
-    other-modules:
       {% for module in otherModules %}
-        {% if module.first %}  {% else %}, {% endif %}{{ module.value }}
+        , {{ module.value }}
       {% endfor %}
+
+    reexported-modules:
+      Network.AWS.Prelude
 
     build-depends:
           amazonka-core == {{ coreVersion }}.*
         , base          >= 4.7     && < 5
-        , case-insensitive
       {% for dep in extraDependencies %}
         , {{ dep.value }}
       {% endfor %}

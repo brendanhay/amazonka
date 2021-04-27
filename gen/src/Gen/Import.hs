@@ -18,57 +18,69 @@ import Gen.Types
 
 operationImports :: Library -> Operation Identity SData a -> [NS]
 operationImports l o =
-  sort $
-    "Network.AWS.Request" :
-    "Network.AWS.Response" :
-    "Network.AWS.Lens" :
-    "Network.AWS.Prelude" :
+  Set.toList . Set.fromList $
+    "qualified Network.AWS.Request as Request" :
+    "qualified Network.AWS.Response as Response" :
+    "qualified Network.AWS.Lens as Lens" :
+    "qualified Network.AWS.Prelude as Prelude" :
     l ^. typesNS :
     l ^. operationModules
-      ++ maybeToList (const "Network.AWS.Pager" <$> o ^. opPager)
+      ++ maybeToList (const "qualified Network.AWS.Pager as Pager" <$> o ^. opPager)
 
 typeImports :: Library -> [NS]
 typeImports l =
   sort $
-    "Network.AWS.Lens" :
-    "Network.AWS.Prelude" :
+    "qualified Network.AWS.Lens as Lens" :
+    "qualified Network.AWS.Prelude as Prelude" :
     signatureImport (l ^. signatureVersion) :
     l ^. typeModules
+
+lensImports :: Library -> [NS]
+lensImports l =
+  l ^. typeModules
 
 sumImports :: Library -> [NS]
 sumImports l =
   sort $
-    "Data.CaseInsensitive" :
-    "Network.AWS.Prelude" :
+    "qualified Network.AWS.Prelude as Prelude" :
     l ^. typeModules
 
 productImports :: Library -> Prod -> [NS]
 productImports l p =
   sort $
-    "Network.AWS.Lens" :
-    "Network.AWS.Prelude" :
+    "qualified Network.AWS.Lens as Lens" :
+    "qualified Network.AWS.Prelude as Prelude" :
     l ^. typeModules
-      ++ (Set.toList $ Set.map (l ^. typesNS <>) moduleDependencies)
+      ++ productDependencies l p
+
+productDependencies :: Library -> Prod -> [NS]
+productDependencies l p =
+  Set.toList (Set.map (l ^. typesNS <>) moduleDependencies)
   where
-    moduleDependencies = Set.intersection dependencies moduleShapes
-    dependencies = Set.map mkNS $ _prodDeps p
-    moduleShapes = Set.fromList (mkNS . typeId . identifier <$> l ^.. shapes . each)
+    moduleDependencies = Set.intersection dependencies (moduleShapes l)
+    dependencies = Set.map mkNS (_prodDeps p)
+
+moduleShapes :: Library -> Set.Set NS
+moduleShapes l =
+  Set.fromList $
+    map (mkNS . typeId . identifier) (l ^.. shapes . each)
 
 waiterImports :: Library -> [NS]
 waiterImports l =
   sort $
-    "Network.AWS.Lens" :
-    "Network.AWS.Prelude" :
-    "Network.AWS.Waiter" :
+    "qualified Network.AWS.Lens as Lens" :
+    "qualified Network.AWS.Prelude as Prelude" :
+    "qualified Network.AWS.Waiter as Waiter" :
     l ^. typesNS :
+    l ^. lensNS :
     map (operationNS ns . _waitOpName) (l ^.. waiters . each)
   where
     ns = l ^. libraryNS
 
 signatureImport :: Signature -> NS
 signatureImport = \case
-  V2 -> "Network.AWS.Sign.V2"
-  _ -> "Network.AWS.Sign.V4"
+  V2 -> "qualified Network.AWS.Sign.V2 as Sign"
+  _ -> "qualified Network.AWS.Sign.V4 as Sign"
 
 testImports :: Library -> [NS]
 testImports l =

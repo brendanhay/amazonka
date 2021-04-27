@@ -32,7 +32,8 @@ data Fun = Fun'
   { _funName :: Text,
     _funDoc :: Help,
     _funSig :: Rendered,
-    _funDecl :: Rendered
+    _funDecl :: Rendered,
+    _funMeta :: Rendered
   }
   deriving (Eq, Show)
 
@@ -43,7 +44,8 @@ instance ToJSON Fun where
         "name" .= _funName,
         "documentation" .= _funDoc,
         "signature" .= _funSig,
-        "declaration" .= _funDecl
+        "declaration" .= _funDecl,
+        "meta" .= _funMeta
       ]
 
 data Prod = Prod'
@@ -63,15 +65,11 @@ prodToJSON s Prod' {..} is =
     "constructor" .= _prodCtor,
     "documentation" .= _prodDoc,
     "declaration" .= _prodDecl,
-    "lenses" .= map flatten _prodLenses,
+    "lenses" .= _prodLenses,
     "instances" .= is,
     "shared" .= isShared s,
     "eq" .= isEq s
   ]
-  where
-    flatten fun = fun {_funDoc = go (_funDoc fun)}
-      where
-        go (Help h) = Help (Text.replace "\n--" "" h)
 
 data Sum = Sum'
   { _sumName :: Text,
@@ -141,7 +139,7 @@ instance HasId SData where
   identifier = \case
     Prod _ p _ -> mkId (_prodName p)
     Sum _ s _ -> mkId (_sumName s)
-    Fun (Fun' n _ _ _) -> mkId n
+    Fun (Fun' n _ _ _ _) -> mkId n
 
 data WData = WData
   { _waitName :: Text,

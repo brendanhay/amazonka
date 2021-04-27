@@ -14,38 +14,38 @@ pattern {{ ctor.key }} = {{ shape.constructor }} "{{ ctor.value }}"
 {% endfor %}
   {{ shape.constructor }} #-}
 
-instance FromText {{ shape.name }} where
-    parser = ({{ shape.constructor}} . mk) <$> takeText
+instance Prelude.FromText {{ shape.name }} where
+    parser = {{ shape.constructor}} Prelude.<$> Prelude.takeText
 
-instance ToText {{ shape.name }} where
-    toText ({{ shape.constructor }} ci) = original ci
+instance Prelude.ToText {{ shape.name }} where
+    toText ({{ shape.constructor }} x) = x
 
-instance Hashable     {{ shape.name }}
-instance NFData       {{ shape.name }}
-instance ToByteString {{ shape.name }}
-instance ToQuery      {{ shape.name }}
-instance ToHeader     {{ shape.name }}
+instance Prelude.Hashable     {{ shape.name }}
+instance Prelude.NFData       {{ shape.name }}
+instance Prelude.ToByteString {{ shape.name }}
+instance Prelude.ToQuery      {{ shape.name }}
+instance Prelude.ToHeader     {{ shape.name }}
 {% for inst in shape.instances %}
   {% case inst.value %}
   {% when "ToQuery" %}
   {% when "FromJSON" %}
 
-instance FromJSON {{ shape.name }} where
-    parseJSON = parseJSONText "{{ shape.name }}"
+instance Prelude.FromJSON {{ shape.name }} where
+    parseJSON = Prelude.parseJSONText "{{ shape.name }}"
   {% when "ToJSON" %}
 
-instance ToJSON {{ shape.name }} where
-    toJSON = toJSONText
+instance Prelude.ToJSON {{ shape.name }} where
+    toJSON = Prelude.toJSONText
   {% when "FromXML" %}
 
-instance FromXML {{ shape.name }} where
-    parseXML = parseXMLText "{{ shape.name }}"
+instance Prelude.FromXML {{ shape.name }} where
+    parseXML = Prelude.parseXMLText "{{ shape.name }}"
   {% when "ToXML" %}
 
-instance ToXML {{ shape.name }} where
-    toXML = toXMLText
+instance Prelude.ToXML {{ shape.name }} where
+    toXML = Prelude.toXMLText
   {% else %}
 
-Error: Attempting to render unrecognized instance '{{ inst.value }}'
+Error: Attempting to render unrecognized instance Prelude.'{{ inst.value }}'
   {% endcase %}
 {% endfor %}

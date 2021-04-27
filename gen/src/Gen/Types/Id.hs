@@ -36,10 +36,10 @@ import Control.Comonad
 import Control.Comonad.Cofree
 import Control.Lens
 import Data.Aeson
+import Data.Char qualified as Char
 import Data.Hashable
 import Data.Text (Text)
 import Data.Text qualified as Text
-import Data.Text.Manipulate
 import Gen.Text
 
 -- | A class to extract identifiers from arbitrary products.
@@ -76,7 +76,7 @@ mkId :: Text -> Id
 mkId t = Id t (format t)
 
 format :: Text -> Text
-format = upperHead . upperAcronym
+format = upperHead . Text.dropWhile (not . Char.isAlpha)
 
 representation :: Lens' Id Text
 representation =
@@ -105,10 +105,10 @@ smartCtorId :: Id -> Text
 smartCtorId = mappend "new" . typeId
 
 accessorId :: Id -> Text
-accessorId = renameReserved . lowerHead . lowerFirstAcronym . memberId
+accessorId = renameReserved . lowerHead . memberId
 
 lensId :: Maybe Text -> Id -> Text
-lensId p = renameReserved . accessor p
+lensId p = accessor p
 
 accessor :: Maybe Text -> Id -> Text
 accessor Nothing = lowerHead . view representation
@@ -116,7 +116,7 @@ accessor (Just p) = f . view representation
   where
     f
       | Text.null p = lowerHead
-      | otherwise = mappend (Text.toLower p) . upperHead
+      | otherwise = mappend (lowerHead p) . mappend "_" . lowerHead
 
 prependId :: Text -> Id -> Id
 prependId t i = i & representation %~ mappend t

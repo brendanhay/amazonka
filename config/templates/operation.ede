@@ -2,10 +2,11 @@
 {-# LANGUAGE DeriveDataTypeable    #-}
 {-# LANGUAGE DeriveGeneric         #-}
 {-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns        #-}
 {-# LANGUAGE OverloadedStrings     #-}
 {-# LANGUAGE RecordWildCards       #-}
 {-# LANGUAGE TypeFamilies          #-}
-{-# LANGUAGE NamedFieldPuns        #-}
+{-# LANGUAGE StrictData            #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds   #-}
@@ -15,7 +16,7 @@
 
 {% include "_include/license.ede" %}
 --
--- {{ documentation | stripPrefix("-- | ") }}
+-- {{ documentation }}
 {% if pager %}
 --
 -- This operation returns paginated results.

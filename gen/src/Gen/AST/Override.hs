@@ -109,17 +109,11 @@ overrideShape ovs n c@(_ :< s) = go -- env memo n >>= maybe go (return . (n,))
         <$> overrideShape ovs (r ^. refShape) (r ^. refAnn)
 
     rules :: ShapeF a -> MemoS (ShapeF a)
-    rules = retype . fields . prefix . require . optional
+    rules = retype . fields . require . optional
 
     require, optional :: ShapeF a -> ShapeF a
     require = setRequired (<> _requiredFields)
     optional = setRequired (\\ _optionalFields)
-
-    prefix :: ShapeF a -> ShapeF a
-    prefix =
-      case _enumPrefix of
-        Nothing -> id
-        Just p -> _Enum . _2 . kvTraversal %~ first (prependId p)
 
     fields :: ShapeF a -> ShapeF a
     fields = _Struct . members . kvTraversal %~ first f

@@ -5,12 +5,12 @@
         "lens >= 4.4"
     ],
     "operationPlugins": {
-        "DeleteObjects": ["contentMD5Header"],
-        "PutBucketCORS": ["contentMD5Header"],
-        "PutBucketLifecycle": ["contentMD5Header"],
-        "PutBucketPolicy": ["contentMD5Header"],
-        "PutBucketTagging": ["contentMD5Header"],
-        "PutObject": ["expectHeader"]
+        "DeleteObjects": ["Request.contentMD5Header"],
+        "PutBucketCORS": ["Request.contentMD5Header"],
+        "PutBucketLifecycle": ["Request.contentMD5Header"],
+        "PutBucketPolicy": ["Request.contentMD5Header"],
+        "PutBucketTagging": ["Request.contentMD5Header"],
+        "PutObject": ["Request.expectHeader"]
     },
     "typeModules": [
         "Network.AWS.S3.Internal"
@@ -91,15 +91,6 @@
                 "NoncurrentDays",
                 "StorageClass"
             ]
-        },
-        "BucketCannedACL": {
-            "enumPrefix": "B"
-        },
-        "ObjectCannedACL": {
-            "enumPrefix": "O"
-        },
-        "InventoryOptionalField": {
-            "enumPrefix": "Field"
         }
     }
 }

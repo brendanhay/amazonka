@@ -211,24 +211,6 @@
             "requiredFields": [
                 "Status"
             ]
-        },
-        "AttachmentStatus": {
-            "enumPrefix": "A"
-        },
-        "VolumeAttachmentState": {
-            "enumPrefix": "V"
-        },
-        "DeleteTag": {
-            "replacedBy": {
-                "name": "DeleteTag",
-                "underive": []
-            }
-        },
-        "FleetType": {
-            "enumPrefix": "FT"
-        },
-        "FleetEventType": {
-            "enumPrefix": "FET"
         }
     }
 }

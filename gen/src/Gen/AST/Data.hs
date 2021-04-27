@@ -26,7 +26,7 @@ import Data.Bifunctor
 import Data.ByteString.Char8 qualified as BS8
 import Data.Char (isSpace)
 import Data.HashMap.Strict qualified as Map
-import Data.List (find)
+import Data.List qualified as List
 import Data.Set qualified as Set
 import Data.String
 import Data.Text (Text)
@@ -35,7 +35,7 @@ import Data.Text.Encoding qualified as Text
 import Data.Text.Lazy qualified as LText
 import Gen.AST.Data.Field
 import Gen.AST.Data.Instance
-import Gen.AST.Data.Syntax
+import Gen.AST.Data.Syntax as Syntax
 import Gen.Formatting
 import Gen.Types
 import Language.Haskell.Exts qualified as Exts
@@ -79,7 +79,7 @@ operationData cfg m o = do
           xn
 
     p = m ^. protocol
-    h = o ^. opHTTP
+    h = o ^. opHttp
 
     xr = o ^. opInput . _Identity
     yr = o ^. opOutput . _Identity
@@ -123,6 +123,7 @@ errorData m s i = Fun <$> mk
       Fun' p h
         <$> pp None (errorS p)
         <*> pp Print (errorD m p status code)
+        <*> pure mempty
 
     h =
       flip fromMaybe (i ^. infoDocumentation)
@@ -142,25 +143,32 @@ sumData ::
   Info ->
   Map Id Text ->
   Either Error SData
-sumData p s i vs = Sum s <$> mk <*> (Map.keys <$> insts)
+sumData p s i vs = Sum s <$> mk <*> fmap Map.keys insts
   where
     mk =
       Sum' (typeId n) (i ^. infoDocumentation)
         <$> pp Print decl
         <*> pure ctor
-        <*> pure bs
+        <*> pure branches
 
-    decl = dataD n [newt] (derivingOf s)
-      where
-        newt = conD (Exts.ConDecl () (ident ctor) [tyapp (tycon "CI") (tycon "Text")])
+    decl = dataD n [conD newt] (derivingOf s)
 
-    -- Sometimes the values share a name with a type, so we prime the data constructor to avoid clashes.
+    newt =
+      Exts.RecDecl
+        ()
+        (ident ctor)
+        [ Exts.FieldDecl () [ident ("from" <> typeId n)] (tycon "Prelude.Text")
+        ]
+
+    -- Sometimes the values share a name with a type, so we prime the
+    -- data constructor to avoid clashes.
     ctor = ((<> "'") . typeId) n
 
     insts = renderInsts p n $ shapeInsts p (s ^. relMode) []
 
+    branches = vs & kvTraversal %~ first (branchId (s ^. annPrefix))
+
     n = s ^. annId
-    bs = vs & kvTraversal %~ first (branchId (s ^. annPrefix))
 
 prodData ::
   HasMetadata a Identity =>
@@ -172,12 +180,57 @@ prodData m s st = (,fields) <$> mk
   where
     mk =
       Prod' (typeId n) (st ^. infoDocumentation)
-        <$> pp Print decl
+        <$> declaration
         <*> mkCtor
         <*> traverse mkLens fields
         <*> pure dependencies
 
-    decl = dataD n [recordD m n fields] (derivingOf s)
+    declaration = do
+      decl <- datatype
+      sels <- sequenceA selectors
+      derv <- derivings
+
+      pure $
+        LText.intercalate
+          "\n"
+          [ decl,
+            "    {",
+            LText.intercalate "\n" sels,
+            "    } " <> derv
+          ]
+
+    datatype =
+      pp None $
+        Exts.DataDecl
+          ()
+          (Exts.DataType ())
+          Nothing
+          (Exts.DHead () (ident (typeId n)))
+          [recordD m n []]
+          []
+
+    selectors =
+      case fields of
+        x : xs -> selector False x : map (selector True) xs
+        [] -> []
+      where
+        selector comma f = do
+          doc <- pp None (Exts.FieldDecl () [ident (fieldAccessor f)] (Syntax.internal m f))
+          pure (annotate f <> "    " <> (if comma then ", " else "") <> doc)
+
+        annotate f =
+          maybe mempty (renderHaddock True 4) $
+            f ^. fieldRef . refDocumentation
+
+    derivings =
+      pp None $
+        Exts.Deriving () Nothing $
+          flip map (mapMaybe derivingName (derivingOf s)) $
+            Exts.IRule () Nothing Nothing
+              . Exts.IHCon ()
+              . unqual
+              . mappend "Prelude."
+              . Text.pack
 
     fields :: [Field]
     fields = mkFields m s st
@@ -187,20 +240,20 @@ prodData m s st = (,fields) <$> mk
       Fun' (fieldLens f) (fieldHelp f)
         <$> pp None (lensS m (s ^. annType) f)
         <*> pp None (lensD n f)
+        <*> pure (LText.fromStrict (fieldAccessor f))
 
     mkCtor :: Either Error Fun
     mkCtor =
       Fun' (smartCtorId n) mkHelp
         <$> (pp None (ctorS m n fields) <&> addParamComments fields)
         <*> pp Print (ctorD n fields)
+        <*> pure mempty
 
     mkHelp :: Help
     mkHelp =
       Help $
         sformat
-          ( "Creates a value of '" % itype
-              % "' with the minimum fields required to make a request."
-          )
+          ("Create a value of '" % itype % "' with all optional fields omitted.")
           n
 
     -- FIXME: dirty hack to render smart ctor parameter haddock comments.
@@ -213,14 +266,12 @@ prodData m s st = (,fields) <$> mk
         . LText.splitOn "->"
       where
         rel Nothing t = t
-        rel (Just p) t = t <> " -- ^ '" <> LText.fromStrict (fieldLens p) <> "'"
+        rel (Just p) t = t <> " -- ^ '" <> LText.fromStrict (fieldAccessor p) <> "'"
 
         ps = map Just (filter fieldIsParam fs) ++ repeat Nothing
 
     dependencies = foldMap go fields
       where
-        tTypeDep :: Text -> Set.Set Text
-
         go :: TypeOf a => a -> Set.Set Text
         go f = case (typeOf f) of
           TType x _ -> tTypeDep x
@@ -233,6 +284,7 @@ prodData m s st = (,fields) <$> mk
           TList1 x -> go x
           TMap k v -> go k <> go v
 
+        tTypeDep :: Text -> Set.Set Text
         tTypeDep x =
           if (stripped /= typeId n)
             then Set.singleton stripped
@@ -256,6 +308,7 @@ serviceData m r =
   Fun' (m ^. serviceConfig) (Help h)
     <$> pp None (serviceS m)
     <*> pp Print (serviceD m r)
+    <*> pure mempty
   where
     h =
       sformat
@@ -277,6 +330,8 @@ waiterData m os n w = do
     Fun' (smartCtorId n) (Help h)
       <$> pp None (waiterS n wf)
       <*> pp Print (waiterD n wf)
+      <*> pure mempty
+
   return $! WData (typeId n) (_opName o) c
   where
     missingErr =
@@ -373,7 +428,7 @@ notation m = go
     field' n = \case
       a :< Struct st ->
         note (missingErr n (identifier a) (Map.keys (st ^. members)))
-          . find ((n ==) . _fieldId)
+          . List.find ((n ==) . _fieldId)
           $ mkFields m a st
       _ -> throwError (descendErr n)
 

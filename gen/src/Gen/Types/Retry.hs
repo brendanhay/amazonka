@@ -19,8 +19,8 @@ import Data.Aeson.Types
 import Data.Maybe
 import Data.Text (Text)
 import Data.Text qualified as Text
-import Data.Text.Manipulate
 import GHC.Generics
+import Gen.Text
 import Gen.Types.Map
 
 defKey :: Text

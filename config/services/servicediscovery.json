@@ -3,9 +3,6 @@
     "typeOverrides": {
         "Service": {
             "renamedTo": "ServiceInfo"
-        },
-        "OperationTargetType": {
-            "enumPrefix": "OTT"
         }
     }
 }

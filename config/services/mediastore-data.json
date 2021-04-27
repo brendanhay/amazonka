@@ -1,8 +1,3 @@
 {
-    "libraryName": "amazonka-mediastore-dataplane",
-    "typeOverrides": {
-        "ItemType": {
-            "enumPrefix": "Type"
-        }
-    }
+    "libraryName": "amazonka-mediastore-dataplane"
 }

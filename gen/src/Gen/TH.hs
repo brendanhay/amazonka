@@ -19,7 +19,6 @@ module Gen.TH
     lenses,
     upper,
     lower,
-    spinal,
     camel,
   )
 where
@@ -29,7 +28,6 @@ import Data.Aeson.TH
 import Data.Aeson.Types
 import Data.Text (Text)
 import Data.Text qualified as Text
-import Data.Text.Manipulate qualified as Text
 import GHC.Generics
 import Gen.Text
 
@@ -47,11 +45,10 @@ gParseJSON' th = genericParseJSON (aeson th)
 gToJSON' :: (Generic a, GToJSON Zero (Rep a)) => TH -> a -> Value
 gToJSON' th = genericToJSON (aeson th)
 
-upper, lower, spinal, camel :: TH
+upper, lower, camel :: TH
 upper = TH Text.toUpper Text.toUpper False
 lower = TH Text.toLower Text.toLower False
-spinal = TH Text.toSpinal Text.toSpinal False
-camel = TH Text.toCamel Text.toCamel False
+camel = TH toCamelCase toCamelCase False
 
 aeson :: TH -> Options
 aeson TH {..} =
@@ -66,8 +63,11 @@ aeson TH {..} =
           }
     }
   where
-    f g = asText (g . camelAcronym . h . stripSuffix "'")
+    f g = asText (g . h . stripSuffix "'")
 
     h
       | _lenses = stripLens
       | otherwise = stripPrefix "_"
+
+asText :: (Text -> Text) -> String -> String
+asText f = Text.unpack . f . Text.pack

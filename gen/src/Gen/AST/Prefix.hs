@@ -15,7 +15,6 @@ module Gen.AST.Prefix
   )
 where
 
-import Control.Applicative
 import Control.Comonad.Cofree
 import Control.Lens hiding ((:<))
 import Control.Monad.Except
@@ -29,7 +28,6 @@ import Data.Hashable
 import Data.Maybe
 import Data.Text (Text)
 import Data.Text qualified as Text
-import Data.Text.Manipulate
 import Gen.AST.Cofree
 import Gen.Formatting
 import Gen.Text
@@ -61,7 +59,7 @@ smartCtors = Map.fromListWith (<>) . mapMaybe go . Map.toList
       where
         n = smartCtorId s
         k = CI.mk (Text.takeWhile isLower n)
-        v = CI.mk (dropLower n)
+        v = CI.mk (stripTilUpper n)
     go _ = Nothing
 
 assignPrefix :: Shape Related -> MemoP (Shape Prefixed)
@@ -74,7 +72,7 @@ assignPrefix = annotate Prefixed memo go
        in case s of
             Enum _ vs ->
               Just <$> do
-                let hs = mempty : acronymPrefixes r n
+                let hs = acronymPrefixes r n
                     ks = keys vs
                 unique r branches n hs ks
             Struct st ->
@@ -123,66 +121,5 @@ overlap xs ys = not . Set.null $ Set.intersection xs ys
 keys :: Map Id a -> Set (CI Text)
 keys = Set.fromList . map (CI.mk . typeId) . Map.keys
 
--- | Acronym preference list.
---
--- Prefixing occurs as follows:
--- * Requests  - prefer acronyms
--- * Responses - prefer acronyms, and append 'rs'
--- * Shapes    - prefer single letters, then acronyms
 acronymPrefixes :: Relation -> Text -> [CI Text]
-acronymPrefixes r n
-  | isOrphan r,
-    Uni d <- _relMode r =
-    case d of
-      Input -> ci ss
-      Output -> ci rs
-  | otherwise = ci ss
-  where
-    rs = map (<> "rs") ss
-    ss = xs ++ map suffix ys
-
-    ci = map CI.mk
-
-    -- Take the next char
-    suffix x = Text.snoc x c
-      where
-        c
-          | Text.length x >= 2 = Text.head (Text.drop 1 x)
-          | otherwise = Text.head x
-
-    xs = catMaybes [r1, r2, r3, r4, r5, r6]
-    ys = catMaybes [r1, r2, r3, r4, r6, r7]
-
-    a = camelAcronym n
-    a' = upperAcronym n
-
-    limit = 3
-
-    -- Full name if leq limit
-    r1
-      | Text.length n <= limit = Just n
-      | otherwise = Nothing
-
-    -- VpcPeeringInfo -> VPI
-    r2 = toAcronym a
-
-    -- VpcPeeringInfo -> VPCPI
-    r3
-      | x /= r2 = x
-      | otherwise = Nothing
-      where
-        x = toAcronym a'
-
-    -- SomeTestTType -> S
-    r4 = Text.toUpper <$> safeHead n
-
-    -- SomeTypes -> STS (retain pural)
-    r5
-      | Text.isSuffixOf "s" n = flip Text.snoc 's' <$> (r2 <|> r3)
-      | otherwise = Nothing
-
-    -- SomeTestTType -> Som
-    r6 = Text.take limit <$> listToMaybe (splitWords a)
-
-    -- SomeTestTType -> SomeTestTType
-    r7 = Just n
+acronymPrefixes _relation name = [CI.mk (upperHead name)]

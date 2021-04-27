@@ -90,17 +90,24 @@ data Protocol
   deriving (Eq, Show, Generic)
 
 instance FromJSON Protocol where
-  parseJSON = gParseJSON' spinal
+  parseJSON = JSON.withText "protocol" $ \case
+    "json" -> pure JSON
+    "rest-json" -> pure RestJSON
+    "rest-xml" -> pure RestXML
+    "query" -> pure Query
+    "ec2" -> pure EC2
+    "api-gateway" -> pure APIGateway
+    other -> fail $ "Failed to parse protocol from " ++ show other
 
 instance ToJSON Protocol where
   toJSON =
     JSON.String . \case
-      JSON -> "JSON"
-      RestJSON -> "JSON"
-      RestXML -> "XML"
-      Query -> "Query"
-      EC2 -> "Query"
-      APIGateway -> "APIGateway"
+      JSON -> "json"
+      RestJSON -> "rest-json"
+      RestXML -> "rest-xml"
+      Query -> "query"
+      EC2 -> "ec2"
+      APIGateway -> "api-gateway"
 
 timestamp :: Protocol -> Timestamp
 timestamp = \case
@@ -125,7 +132,7 @@ instance ToJSON Checksum where
 data Location
   = Headers
   | Header
-  | URI
+  | Uri
   | Querystring
   | StatusCode
   | Body
@@ -373,7 +380,7 @@ data Operation f a b = Operation
   { _opName :: Id,
     _opDocumentation :: f Help,
     _opDeprecated :: !Bool,
-    _opHTTP :: !HTTP,
+    _opHttp :: !HTTP,
     _opInput :: f a,
     _opOutput :: f a,
     _opPager :: Maybe b
@@ -389,7 +396,7 @@ inputName = identifier . Lens.view (opInput . _Identity)
 outputName = identifier . Lens.view (opOutput . _Identity)
 
 instance HasHTTP (Operation f a b) where
-  hTTP = opHTTP
+  hTTP = opHttp
 
 instance FromJSON (Operation Maybe (RefF ()) ()) where
   parseJSON = JSON.withObject "operation" $ \o ->
@@ -439,7 +446,7 @@ instance FromJSON (Metadata Maybe) where
     Metadata
       <$> o .: "protocol"
       <*> o .: "serviceAbbreviation"
-      <*> (o .: "serviceAbbreviation" <&> serviceFunction)
+      <*> (o .: "serviceAbbreviation" <&> renameServiceFunction)
       <*> (o .: "serviceFullName" <&> renameService)
       <*> o .: "apiVersion"
       <*> o .: "signatureVersion"

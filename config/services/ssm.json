@@ -1,11 +1,3 @@
 {
-    "libraryName": "amazonka-ssm",
-    "typeOverrides": {
-        "CommandFilterKey": {
-            "enumPrefix": "Command"
-        },
-        "DocumentHashType": {
-            "enumPrefix": "Hash"
-        }
-    }
+    "libraryName": "amazonka-ssm"
 }

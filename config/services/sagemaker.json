@@ -1,9 +1,9 @@
 {
     "libraryName": "amazonka-sagemaker",
     "typeOverrides": {
-        "DescribeNotebookInstanceOutput": {
-            "requiredFields": [
-                "NotebookInstanceStatus"
+        "ListFeatureGroupsResponse": {
+            "optionalFields": [
+                "NextToken"
             ]
         }
     }

@@ -135,7 +135,7 @@ substitute svc@Service {..} = do
 
 addStatus :: Direction -> Id -> ShapeF (Shape Related) -> ShapeF (Shape Related)
 addStatus Input _k = id
-addStatus Output k = go
+addStatus Output _k = go
   where
     go = \case
       Struct st -> Struct (maybe missing exists mstatus)
@@ -153,10 +153,10 @@ addStatus Output k = go
           ref =
             emptyRef n
               & refLocation ?~ StatusCode
-              & refDocumentation ?~ "-- | The response status code."
+              & refDocumentation ?~ "The response\'s http status code."
               & refAnn .~ Related n mempty :< Lit emptyInfo Int
 
-          n = mkId (typeId k <> "Status")
+          n = mkId "HttpStatus"
       --
       other ->
         other

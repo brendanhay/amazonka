@@ -4,6 +4,7 @@
 {-# LANGUAGE LambdaCase         #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE PatternSynonyms    #-}
+{-# LANGUAGE StrictData         #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 

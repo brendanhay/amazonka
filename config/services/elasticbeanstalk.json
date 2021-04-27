@@ -1,8 +1,3 @@
 {
-    "libraryName": "amazonka-elasticbeanstalk",
-    "typeOverrides": {
-        "EventSeverity": {
-            "enumPrefix": "Level"
-        }
-    }
+    "libraryName": "amazonka-elasticbeanstalk"
 }

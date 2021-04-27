@@ -3,8 +3,8 @@
     "typeOverrides": {
         "BodyBlob": {
             "replacedBy": {
-                "name": "ByteString",
-                "underive": []
+                "name": "Prelude.Text",
+                "underive": ["show", "read", "eq"]
             }
         }
     }

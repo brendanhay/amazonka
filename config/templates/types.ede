@@ -1,5 +1,6 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData        #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
@@ -35,9 +36,9 @@ module {{ moduleName }}
     -- * {{ shape.value.name }}
     , {{ shape.value.name }} (..)
     , {{ shape.value.constructor.name }}
-      {% for lens in shape.value.lenses %}
+    {% for lens in shape.value.lenses %}
     , {{ lens.value.name }}
-      {% endfor %}
+    {% endfor %}
     {% when "sum" %}
 
     -- * {{ shape.value.name }}
@@ -52,9 +53,9 @@ import {{ import.value }}
 {% for shape in shapes %}
 {% case shape.value.type %}
 {% when "product" %}
-import {{moduleName}}.{{ shape.value.name }}
+import {{ moduleName }}.{{ shape.value.name }}
 {% when "sum" %}
-import {{moduleName}}.{{ shape.value.name }}
+import {{ moduleName }}.{{ shape.value.name }}
 {% endcase %}  
 {% endfor %}
 

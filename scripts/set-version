@@ -21,11 +21,12 @@ specs=(
 
 echo "Bumping version to $pvp and dependencies to == $semantic ..."
 
-for cabal in ${specs[@]}; do
+for cabal in "${specs[@]}"; do
   sed -e "s/^\(version: *\).*$/\1$pvp/;" \
     -e "s/^\(.*amazonka-[a-z0-9]* *== *\)\([0-9\.]\+\*\)$/\1$semantic.*/" \
-    -e "s/^\(.*amazonka *== *\)\([0-9\.]\+\*\)$/\1$semantic.*/" $cabal >$cabal.new
-  mv $cabal.new $cabal
+    -e "s/^\(.*amazonka *== *\)\([0-9\.]\+\*\)$/\1$semantic.*/" "$cabal" >"$cabal.new"
+
+  mv "$cabal.new" "$cabal"
 done
 
 echo "Done."

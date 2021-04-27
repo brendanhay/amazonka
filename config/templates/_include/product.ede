@@ -7,18 +7,20 @@
 {% endif %}
 {{ shape.declaration }}
 
+-- |
 {% if shape.constructor.documentation %}
--- | {{ shape.constructor.documentation }}
+-- {{ shape.constructor.documentation }}
 --
 {% endif %}
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 {% for lens in shape.lenses %}
   {% if lens.first %}
 --
--- The following lenses are provided for backwards compatibility:
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
   {% endif %}
 --
--- * '{{ lens.value.name }}' - {{ lens.value.documentation }}
+-- '{{ lens.value.meta }}', '{{ lens.value.name }}' - {{ lens.value.documentation }}
 {% endfor %}
 {{ shape.constructor.signature }}
 {{ shape.constructor.declaration }}

@@ -69,8 +69,7 @@ let
      - ${lib.concatStringsSep "\n - " unconfigured}
   '' selected;
 
-  modelArguments =
-    builtins.map (v: ''--model="${botocoreDir + "/${v}"}"'') modelNames;
+  modelArguments = builtins.map (v: "${botocoreDir + "/${v}"}") modelNames;
 
 in pkgs.stdenvNoCC.mkDerivation {
   pname = "amazonka";

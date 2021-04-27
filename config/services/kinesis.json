@@ -1,9 +1,10 @@
 {
     "libraryName": "amazonka-kinesis",
     "typeOverrides": {
-        "PutRecordsInput": {
-            "renamedFields": {
-                "Records": "RecordEntries"
+        "SubscribeToShardEventStream": {
+            "replacedBy": {
+                "name": "Prelude.Value",
+                "underive": ["show", "read", "eq", "ord"]
             }
         }
     }

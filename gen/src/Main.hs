@@ -14,7 +14,8 @@
 module Main (main) where
 
 import Control.Error
-import Control.Lens
+import Control.Lens (Lens', (^.))
+import Control.Lens qualified as Lens
 import Control.Monad
 import Control.Monad.Except
 import Control.Monad.State
@@ -32,17 +33,17 @@ import Options.Applicative
 
 data Options = Options
   { _optionOutput :: Path,
-    _optionModels :: [Path],
     _optionAnnexes :: Path,
     _optionServices :: Path,
     _optionTemplates :: Path,
     _optionAssets :: Path,
     _optionRetry :: Path,
-    _optionVersions :: Versions
+    _optionVersions :: Versions,
+    _optionModels :: [Path]
   }
   deriving (Show)
 
-makeLenses ''Options
+$(Lens.makeLenses ''Options)
 
 parser :: Parser Options
 parser =
@@ -52,14 +53,6 @@ parser =
       ( long "out"
           <> metavar "DIR"
           <> help "Directory to place the generated library."
-      )
-    <*> some
-      ( option
-          isPath
-          ( long "model"
-              <> metavar "DIR"
-              <> help "Directory for a service's botocore models."
-          )
       )
     <*> option
       isPath
@@ -115,6 +108,13 @@ parser =
                   <> help "Core library version dependency."
               )
         )
+    <*> some
+      ( argument
+          isPath
+          ( metavar "DIR"
+              <> help "Directory for a service's botocore models."
+          )
+      )
 
 isPath :: ReadM Path
 isPath = eitherReader (Right . fromText . Text.dropWhileEnd (== '/') . fromString)
@@ -135,10 +135,10 @@ validate o = flip execStateT o $ do
       check optionAssets,
       check optionRetry
     ]
-  mapM canon (o ^. optionModels) >>= assign optionModels
+  mapM canon (o ^. optionModels) >>= Lens.assign optionModels
   where
     check :: (MonadIO m, MonadState s m) => Lens' s Path -> m ()
-    check l = gets (view l) >>= canon >>= assign l
+    check l = gets (Lens.view l) >>= canon >>= Lens.assign l
 
     canon :: MonadIO m => Path -> m Path
     canon = liftIO . FS.canonicalizePath
@@ -165,6 +165,7 @@ main = do
       readmeTemplate <- load "readme.ede"
       operationTemplate <- load "operation.ede"
       typesTemplate <- load "types.ede"
+      lensTemplate <- load "lens.ede"
       sumTemplate <- load "types/sum.ede"
       productTemplate <- load "types/product.ede"
       testMainTemplate <- load "test/main.ede"

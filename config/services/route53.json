@@ -14,15 +14,9 @@
         },
         "ResourceRecordSetRegion": {
             "replacedBy": {
-                "name": "Region",
+                "name": "Prelude.Region",
                 "underive": []
             }
-        },
-        "RRType": {
-            "renamedTo": "RecordType"
-        },
-        "ResourceRecordSetFailover": {
-            "renamedTo": "Failover"
         },
         "ResourceId": {
             "replacedBy": {

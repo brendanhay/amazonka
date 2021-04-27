@@ -127,20 +127,15 @@ executable amazonka-gen
     , free
     , hashable
     , haskell-src-exts      >=1.19.0 && <1.22
-    , html-conduit
     , lens
     , mtl
     , optparse-applicative
-    , parsec
+    , pandoc                ^>=2.13
     , scientific
     , system-fileio
     , system-filepath
     , text
-    , text-icu
-    , text-manipulate
-    , text-regex-replace
     , time                  >=1.5
     , transformers
     , unexceptionalio       >=0.4    && <0.6
     , unordered-containers
-    , xml-conduit

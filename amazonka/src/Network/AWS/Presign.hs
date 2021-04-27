@@ -22,8 +22,6 @@ import           Network.AWS.Lens         ((%~), (&))
 import           Network.AWS.Prelude
 import           Network.AWS.Request      (requestURL)
 import           Network.AWS.Types
-import           Network.AWS.Data.Headers (hExpect)
-import           Network.HTTP.Types       (Header)
 
 -- | Presign an URL that is valid from the specified time until the
 -- number of seconds expiry has elapsed.

@@ -60,8 +60,8 @@ _MatchServiceError s c = _ServiceError . hasService s . hasCode c
 statusSuccess :: Status -> Bool
 statusSuccess (statusCode -> n) = n >= 200 && n < 300
 
-httpStatus :: AsError a => Getting (First Status) a Status
-httpStatus = _Error . f
+_HttpStatus :: AsError a => Getting (First Status) a Status
+_HttpStatus = _Error . f
   where
     f g = \case
 #if MIN_VERSION_http_client(0,5,0)

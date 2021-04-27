@@ -22,6 +22,7 @@ import Data.List.NonEmpty        as Export (NonEmpty (..))
 import Data.Maybe                as Export
 import Data.Monoid               as Export (First, mconcat, mempty)
 import Data.Monoid               as Export ((<>))
+import GHC.Exts                  as Export (toList)
 import GHC.Generics              as Export (Generic)
 import Network.HTTP.Types.Status as Export (Status (..))
 import Network.HTTP.Types.URI    as Export (urlDecode, urlEncode)
@@ -50,7 +51,9 @@ import Network.AWS.Types           as Export hiding (Algorithm, Endpoint,
                                               LogLevel (..), Seconds, Signer,
                                               serviceEndpoint)
        
-import Prelude                     as Export hiding (log, min, max, maximum, minimum)
+import Prelude                     as Export hiding
+  (log, min, max, maximum, minimum, sum, compare, even, odd, flip, until,
+   error, head, tail, init, last, id)
 
 infixl 7 .!@
 

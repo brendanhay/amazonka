@@ -23,7 +23,7 @@ module Network.AWS.Internal.HTTP
 
 import Control.Arrow                (first)
 import Control.Monad
-import Control.Monad.Catch (MonadThrow, MonadCatch, Handler(Handler), catches)
+import Control.Monad.Catch (MonadCatch, Handler (Handler), catches)
 import Control.Monad.IO.Class
 import Control.Monad.Reader
 import Control.Monad.Trans.Resource
@@ -99,7 +99,7 @@ waiter w@Wait{..} x = do
    retrying policy (check _envLogger) (\_ -> result rq <$> perform e rq) >>= exit
   where
     policy = limitRetries _waitAttempts
-          <> constantDelay (microseconds _waitDelay)
+          <> constantDelay (toMicroseconds _waitDelay)
 
     check e n (a, _) = msg e n a >> return (retry a)
       where

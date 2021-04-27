@@ -78,9 +78,9 @@ matchNonEmpty x a l = match (\rs -> null (rs ^.. l) == x) a
 
 matchStatus :: Int -> Accept -> Acceptor a
 matchStatus x a _ = \case
-    Right (s, _) | x == fromEnum s                          -> Just a
-    Left  e      | Just x == (fromEnum <$> e ^? httpStatus) -> Just a
-    _                                                       -> Nothing
+    Right (s, _) | x == fromEnum s                           -> Just a
+    Left  e      | Just x == (fromEnum <$> e ^? _HttpStatus) -> Just a
+    _                                                        -> Nothing
 
 matchError :: ErrorCode -> Accept -> Acceptor a
 matchError c a _ = \case

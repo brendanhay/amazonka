@@ -595,7 +595,7 @@ fromContainer m = do
 -- the temporary credentials up to date.
 fetchAuthInBackground :: IO AuthEnv -> IO Auth
 fetchAuthInBackground menv = menv >>= \(!env) -> liftIO $
-    case _authExpiry env of
+    case _authExpiration env of
         Nothing -> return (Auth env)
         Just x  -> do
           r <- newIORef env
@@ -621,7 +621,7 @@ fetchAuthInBackground menv = menv >>= \(!env) -> liftIO $
                      Nothing -> return ()
                      Just  r -> do
                          atomicWriteIORef r a
-                         maybe (return ()) (loop ma w p) (_authExpiry a)
+                         maybe (return ()) (loop ma w p) (_authExpiration a)
 
     diff (Time !x) !y = (* 1000000) $ if n > 0 then n else 1
       where

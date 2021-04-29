@@ -1,750 +1,756 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EMR
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon EMR is a web service that makes it easy to process large amounts of data efficiently. Amazon EMR uses Hadoop processing combined with several AWS products to do tasks such as web indexing, data mining, log file analysis, machine learning, scientific simulation, and data warehousing.
---
---
+-- Amazon EMR is a web service that makes it easier to process large
+-- amounts of data efficiently. Amazon EMR uses Hadoop processing combined
+-- with several AWS services to do tasks such as web indexing, data mining,
+-- log file analysis, machine learning, scientific simulation, and data
+-- warehouse management.
 module Network.AWS.EMR
-    (
-    -- * Service Configuration
-      emr
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
     -- $errors
 
-    -- ** InvalidRequestException
-    , _InvalidRequestException
-
     -- ** InternalServerError
-    , _InternalServerError
+    _InternalServerError,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- ** InternalServerException
-    , _InternalServerException
+    _InternalServerException,
 
     -- * Waiters
     -- $waiters
 
-    -- ** StepComplete
-    , stepComplete
-
     -- ** ClusterTerminated
-    , clusterTerminated
+    newClusterTerminated,
+
+    -- ** StepComplete
+    newStepComplete,
 
     -- ** ClusterRunning
-    , clusterRunning
+    newClusterRunning,
 
     -- * Operations
     -- $operations
 
-    -- ** RunJobFlow
-    , module Network.AWS.EMR.RunJobFlow
-
-    -- ** RemoveAutoScalingPolicy
-    , module Network.AWS.EMR.RemoveAutoScalingPolicy
-
-    -- ** SetVisibleToAllUsers
-    , module Network.AWS.EMR.SetVisibleToAllUsers
-
-    -- ** TerminateJobFlows
-    , module Network.AWS.EMR.TerminateJobFlows
-
     -- ** DescribeStep
-    , module Network.AWS.EMR.DescribeStep
+    DescribeStep (DescribeStep'),
+    newDescribeStep,
+    DescribeStepResponse (DescribeStepResponse'),
+    newDescribeStepResponse,
 
     -- ** RemoveTags
-    , module Network.AWS.EMR.RemoveTags
-
-    -- ** DescribeCluster
-    , module Network.AWS.EMR.DescribeCluster
-
-    -- ** ListSecurityConfigurations
-    , module Network.AWS.EMR.ListSecurityConfigurations
-
-    -- ** CancelSteps
-    , module Network.AWS.EMR.CancelSteps
-
-    -- ** CreateSecurityConfiguration
-    , module Network.AWS.EMR.CreateSecurityConfiguration
-
-    -- ** SetTerminationProtection
-    , module Network.AWS.EMR.SetTerminationProtection
-
-    -- ** AddJobFlowSteps
-    , module Network.AWS.EMR.AddJobFlowSteps
-
-    -- ** ModifyInstanceGroups
-    , module Network.AWS.EMR.ModifyInstanceGroups
-
-    -- ** ListSteps (Paginated)
-    , module Network.AWS.EMR.ListSteps
-
-    -- ** AddInstanceFleet
-    , module Network.AWS.EMR.AddInstanceFleet
-
-    -- ** AddInstanceGroups
-    , module Network.AWS.EMR.AddInstanceGroups
+    RemoveTags (RemoveTags'),
+    newRemoveTags,
+    RemoveTagsResponse (RemoveTagsResponse'),
+    newRemoveTagsResponse,
 
     -- ** DeleteSecurityConfiguration
-    , module Network.AWS.EMR.DeleteSecurityConfiguration
+    DeleteSecurityConfiguration (DeleteSecurityConfiguration'),
+    newDeleteSecurityConfiguration,
+    DeleteSecurityConfigurationResponse (DeleteSecurityConfigurationResponse'),
+    newDeleteSecurityConfigurationResponse,
+
+    -- ** ListSecurityConfigurations (Paginated)
+    ListSecurityConfigurations (ListSecurityConfigurations'),
+    newListSecurityConfigurations,
+    ListSecurityConfigurationsResponse (ListSecurityConfigurationsResponse'),
+    newListSecurityConfigurationsResponse,
 
     -- ** ModifyInstanceFleet
-    , module Network.AWS.EMR.ModifyInstanceFleet
+    ModifyInstanceFleet (ModifyInstanceFleet'),
+    newModifyInstanceFleet,
+    ModifyInstanceFleetResponse (ModifyInstanceFleetResponse'),
+    newModifyInstanceFleetResponse,
 
-    -- ** ListInstanceGroups (Paginated)
-    , module Network.AWS.EMR.ListInstanceGroups
+    -- ** RunJobFlow
+    RunJobFlow (RunJobFlow'),
+    newRunJobFlow,
+    RunJobFlowResponse (RunJobFlowResponse'),
+    newRunJobFlowResponse,
 
-    -- ** ListBootstrapActions (Paginated)
-    , module Network.AWS.EMR.ListBootstrapActions
+    -- ** GetStudioSessionMapping
+    GetStudioSessionMapping (GetStudioSessionMapping'),
+    newGetStudioSessionMapping,
+    GetStudioSessionMappingResponse (GetStudioSessionMappingResponse'),
+    newGetStudioSessionMappingResponse,
 
-    -- ** AddTags
-    , module Network.AWS.EMR.AddTags
+    -- ** SetVisibleToAllUsers
+    SetVisibleToAllUsers (SetVisibleToAllUsers'),
+    newSetVisibleToAllUsers,
+    SetVisibleToAllUsersResponse (SetVisibleToAllUsersResponse'),
+    newSetVisibleToAllUsersResponse,
 
-    -- ** ListInstances (Paginated)
-    , module Network.AWS.EMR.ListInstances
+    -- ** AddInstanceGroups
+    AddInstanceGroups (AddInstanceGroups'),
+    newAddInstanceGroups,
+    AddInstanceGroupsResponse (AddInstanceGroupsResponse'),
+    newAddInstanceGroupsResponse,
 
-    -- ** PutAutoScalingPolicy
-    , module Network.AWS.EMR.PutAutoScalingPolicy
+    -- ** CreateStudio
+    CreateStudio (CreateStudio'),
+    newCreateStudio,
+    CreateStudioResponse (CreateStudioResponse'),
+    newCreateStudioResponse,
 
-    -- ** ListClusters (Paginated)
-    , module Network.AWS.EMR.ListClusters
+    -- ** DeleteStudio
+    DeleteStudio (DeleteStudio'),
+    newDeleteStudio,
+    DeleteStudioResponse (DeleteStudioResponse'),
+    newDeleteStudioResponse,
 
-    -- ** DescribeSecurityConfiguration
-    , module Network.AWS.EMR.DescribeSecurityConfiguration
+    -- ** UpdateStudio
+    UpdateStudio (UpdateStudio'),
+    newUpdateStudio,
+    UpdateStudioResponse (UpdateStudioResponse'),
+    newUpdateStudioResponse,
 
     -- ** ListInstanceFleets (Paginated)
-    , module Network.AWS.EMR.ListInstanceFleets
+    ListInstanceFleets (ListInstanceFleets'),
+    newListInstanceFleets,
+    ListInstanceFleetsResponse (ListInstanceFleetsResponse'),
+    newListInstanceFleetsResponse,
+
+    -- ** RemoveManagedScalingPolicy
+    RemoveManagedScalingPolicy (RemoveManagedScalingPolicy'),
+    newRemoveManagedScalingPolicy,
+    RemoveManagedScalingPolicyResponse (RemoveManagedScalingPolicyResponse'),
+    newRemoveManagedScalingPolicyResponse,
+
+    -- ** DescribeSecurityConfiguration
+    DescribeSecurityConfiguration (DescribeSecurityConfiguration'),
+    newDescribeSecurityConfiguration,
+    DescribeSecurityConfigurationResponse (DescribeSecurityConfigurationResponse'),
+    newDescribeSecurityConfigurationResponse,
+
+    -- ** StartNotebookExecution
+    StartNotebookExecution (StartNotebookExecution'),
+    newStartNotebookExecution,
+    StartNotebookExecutionResponse (StartNotebookExecutionResponse'),
+    newStartNotebookExecutionResponse,
+
+    -- ** ListStudioSessionMappings (Paginated)
+    ListStudioSessionMappings (ListStudioSessionMappings'),
+    newListStudioSessionMappings,
+    ListStudioSessionMappingsResponse (ListStudioSessionMappingsResponse'),
+    newListStudioSessionMappingsResponse,
+
+    -- ** StopNotebookExecution
+    StopNotebookExecution (StopNotebookExecution'),
+    newStopNotebookExecution,
+    StopNotebookExecutionResponse (StopNotebookExecutionResponse'),
+    newStopNotebookExecutionResponse,
+
+    -- ** ListInstances (Paginated)
+    ListInstances (ListInstances'),
+    newListInstances,
+    ListInstancesResponse (ListInstancesResponse'),
+    newListInstancesResponse,
+
+    -- ** AddTags
+    AddTags (AddTags'),
+    newAddTags,
+    AddTagsResponse (AddTagsResponse'),
+    newAddTagsResponse,
+
+    -- ** AddJobFlowSteps
+    AddJobFlowSteps (AddJobFlowSteps'),
+    newAddJobFlowSteps,
+    AddJobFlowStepsResponse (AddJobFlowStepsResponse'),
+    newAddJobFlowStepsResponse,
+
+    -- ** ListBootstrapActions (Paginated)
+    ListBootstrapActions (ListBootstrapActions'),
+    newListBootstrapActions,
+    ListBootstrapActionsResponse (ListBootstrapActionsResponse'),
+    newListBootstrapActionsResponse,
+
+    -- ** ListNotebookExecutions (Paginated)
+    ListNotebookExecutions (ListNotebookExecutions'),
+    newListNotebookExecutions,
+    ListNotebookExecutionsResponse (ListNotebookExecutionsResponse'),
+    newListNotebookExecutionsResponse,
+
+    -- ** GetBlockPublicAccessConfiguration
+    GetBlockPublicAccessConfiguration (GetBlockPublicAccessConfiguration'),
+    newGetBlockPublicAccessConfiguration,
+    GetBlockPublicAccessConfigurationResponse (GetBlockPublicAccessConfigurationResponse'),
+    newGetBlockPublicAccessConfigurationResponse,
+
+    -- ** ModifyCluster
+    ModifyCluster (ModifyCluster'),
+    newModifyCluster,
+    ModifyClusterResponse (ModifyClusterResponse'),
+    newModifyClusterResponse,
+
+    -- ** TerminateJobFlows
+    TerminateJobFlows (TerminateJobFlows'),
+    newTerminateJobFlows,
+    TerminateJobFlowsResponse (TerminateJobFlowsResponse'),
+    newTerminateJobFlowsResponse,
+
+    -- ** DescribeCluster
+    DescribeCluster (DescribeCluster'),
+    newDescribeCluster,
+    DescribeClusterResponse (DescribeClusterResponse'),
+    newDescribeClusterResponse,
+
+    -- ** CancelSteps
+    CancelSteps (CancelSteps'),
+    newCancelSteps,
+    CancelStepsResponse (CancelStepsResponse'),
+    newCancelStepsResponse,
+
+    -- ** ListInstanceGroups (Paginated)
+    ListInstanceGroups (ListInstanceGroups'),
+    newListInstanceGroups,
+    ListInstanceGroupsResponse (ListInstanceGroupsResponse'),
+    newListInstanceGroupsResponse,
+
+    -- ** RemoveAutoScalingPolicy
+    RemoveAutoScalingPolicy (RemoveAutoScalingPolicy'),
+    newRemoveAutoScalingPolicy,
+    RemoveAutoScalingPolicyResponse (RemoveAutoScalingPolicyResponse'),
+    newRemoveAutoScalingPolicyResponse,
+
+    -- ** PutManagedScalingPolicy
+    PutManagedScalingPolicy (PutManagedScalingPolicy'),
+    newPutManagedScalingPolicy,
+    PutManagedScalingPolicyResponse (PutManagedScalingPolicyResponse'),
+    newPutManagedScalingPolicyResponse,
+
+    -- ** ListStudios (Paginated)
+    ListStudios (ListStudios'),
+    newListStudios,
+    ListStudiosResponse (ListStudiosResponse'),
+    newListStudiosResponse,
+
+    -- ** AddInstanceFleet
+    AddInstanceFleet (AddInstanceFleet'),
+    newAddInstanceFleet,
+    AddInstanceFleetResponse (AddInstanceFleetResponse'),
+    newAddInstanceFleetResponse,
+
+    -- ** CreateStudioSessionMapping
+    CreateStudioSessionMapping (CreateStudioSessionMapping'),
+    newCreateStudioSessionMapping,
+    CreateStudioSessionMappingResponse (CreateStudioSessionMappingResponse'),
+    newCreateStudioSessionMappingResponse,
+
+    -- ** GetManagedScalingPolicy
+    GetManagedScalingPolicy (GetManagedScalingPolicy'),
+    newGetManagedScalingPolicy,
+    GetManagedScalingPolicyResponse (GetManagedScalingPolicyResponse'),
+    newGetManagedScalingPolicyResponse,
+
+    -- ** DescribeNotebookExecution
+    DescribeNotebookExecution (DescribeNotebookExecution'),
+    newDescribeNotebookExecution,
+    DescribeNotebookExecutionResponse (DescribeNotebookExecutionResponse'),
+    newDescribeNotebookExecutionResponse,
+
+    -- ** UpdateStudioSessionMapping
+    UpdateStudioSessionMapping (UpdateStudioSessionMapping'),
+    newUpdateStudioSessionMapping,
+    UpdateStudioSessionMappingResponse (UpdateStudioSessionMappingResponse'),
+    newUpdateStudioSessionMappingResponse,
+
+    -- ** DeleteStudioSessionMapping
+    DeleteStudioSessionMapping (DeleteStudioSessionMapping'),
+    newDeleteStudioSessionMapping,
+    DeleteStudioSessionMappingResponse (DeleteStudioSessionMappingResponse'),
+    newDeleteStudioSessionMappingResponse,
+
+    -- ** ListSteps (Paginated)
+    ListSteps (ListSteps'),
+    newListSteps,
+    ListStepsResponse (ListStepsResponse'),
+    newListStepsResponse,
+
+    -- ** ListClusters (Paginated)
+    ListClusters (ListClusters'),
+    newListClusters,
+    ListClustersResponse (ListClustersResponse'),
+    newListClustersResponse,
+
+    -- ** PutAutoScalingPolicy
+    PutAutoScalingPolicy (PutAutoScalingPolicy'),
+    newPutAutoScalingPolicy,
+    PutAutoScalingPolicyResponse (PutAutoScalingPolicyResponse'),
+    newPutAutoScalingPolicyResponse,
+
+    -- ** SetTerminationProtection
+    SetTerminationProtection (SetTerminationProtection'),
+    newSetTerminationProtection,
+    SetTerminationProtectionResponse (SetTerminationProtectionResponse'),
+    newSetTerminationProtectionResponse,
+
+    -- ** PutBlockPublicAccessConfiguration
+    PutBlockPublicAccessConfiguration (PutBlockPublicAccessConfiguration'),
+    newPutBlockPublicAccessConfiguration,
+    PutBlockPublicAccessConfigurationResponse (PutBlockPublicAccessConfigurationResponse'),
+    newPutBlockPublicAccessConfigurationResponse,
+
+    -- ** DescribeStudio
+    DescribeStudio (DescribeStudio'),
+    newDescribeStudio,
+    DescribeStudioResponse (DescribeStudioResponse'),
+    newDescribeStudioResponse,
+
+    -- ** ModifyInstanceGroups
+    ModifyInstanceGroups (ModifyInstanceGroups'),
+    newModifyInstanceGroups,
+    ModifyInstanceGroupsResponse (ModifyInstanceGroupsResponse'),
+    newModifyInstanceGroupsResponse,
+
+    -- ** CreateSecurityConfiguration
+    CreateSecurityConfiguration (CreateSecurityConfiguration'),
+    newCreateSecurityConfiguration,
+    CreateSecurityConfigurationResponse (CreateSecurityConfigurationResponse'),
+    newCreateSecurityConfigurationResponse,
 
     -- * Types
 
     -- ** ActionOnFailure
-    , ActionOnFailure (..)
+    ActionOnFailure (..),
 
     -- ** AdjustmentType
-    , AdjustmentType (..)
+    AdjustmentType (..),
+
+    -- ** AuthMode
+    AuthMode (..),
 
     -- ** AutoScalingPolicyState
-    , AutoScalingPolicyState (..)
+    AutoScalingPolicyState (..),
 
     -- ** AutoScalingPolicyStateChangeReasonCode
-    , AutoScalingPolicyStateChangeReasonCode (..)
+    AutoScalingPolicyStateChangeReasonCode (..),
 
     -- ** CancelStepsRequestStatus
-    , CancelStepsRequestStatus (..)
+    CancelStepsRequestStatus (..),
 
     -- ** ClusterState
-    , ClusterState (..)
+    ClusterState (..),
 
     -- ** ClusterStateChangeReasonCode
-    , ClusterStateChangeReasonCode (..)
+    ClusterStateChangeReasonCode (..),
 
     -- ** ComparisonOperator
-    , ComparisonOperator (..)
+    ComparisonOperator (..),
+
+    -- ** ComputeLimitsUnitType
+    ComputeLimitsUnitType (..),
+
+    -- ** ExecutionEngineType
+    ExecutionEngineType (..),
+
+    -- ** IdentityType
+    IdentityType (..),
 
     -- ** InstanceCollectionType
-    , InstanceCollectionType (..)
+    InstanceCollectionType (..),
 
     -- ** InstanceFleetState
-    , InstanceFleetState (..)
+    InstanceFleetState (..),
 
     -- ** InstanceFleetStateChangeReasonCode
-    , InstanceFleetStateChangeReasonCode (..)
+    InstanceFleetStateChangeReasonCode (..),
 
     -- ** InstanceFleetType
-    , InstanceFleetType (..)
+    InstanceFleetType (..),
 
     -- ** InstanceGroupState
-    , InstanceGroupState (..)
+    InstanceGroupState (..),
 
     -- ** InstanceGroupStateChangeReasonCode
-    , InstanceGroupStateChangeReasonCode (..)
+    InstanceGroupStateChangeReasonCode (..),
 
     -- ** InstanceGroupType
-    , InstanceGroupType (..)
+    InstanceGroupType (..),
 
     -- ** InstanceRoleType
-    , InstanceRoleType (..)
+    InstanceRoleType (..),
 
     -- ** InstanceState
-    , InstanceState (..)
+    InstanceState (..),
 
     -- ** InstanceStateChangeReasonCode
-    , InstanceStateChangeReasonCode (..)
+    InstanceStateChangeReasonCode (..),
 
     -- ** MarketType
-    , MarketType (..)
+    MarketType (..),
+
+    -- ** NotebookExecutionStatus
+    NotebookExecutionStatus (..),
+
+    -- ** OnDemandProvisioningAllocationStrategy
+    OnDemandProvisioningAllocationStrategy (..),
+
+    -- ** PlacementGroupStrategy
+    PlacementGroupStrategy (..),
 
     -- ** RepoUpgradeOnBoot
-    , RepoUpgradeOnBoot (..)
+    RepoUpgradeOnBoot (..),
 
     -- ** ScaleDownBehavior
-    , ScaleDownBehavior (..)
+    ScaleDownBehavior (..),
+
+    -- ** SpotProvisioningAllocationStrategy
+    SpotProvisioningAllocationStrategy (..),
 
     -- ** SpotProvisioningTimeoutAction
-    , SpotProvisioningTimeoutAction (..)
+    SpotProvisioningTimeoutAction (..),
 
     -- ** Statistic
-    , Statistic (..)
+    Statistic (..),
+
+    -- ** StepCancellationOption
+    StepCancellationOption (..),
 
     -- ** StepState
-    , StepState (..)
+    StepState (..),
 
     -- ** StepStateChangeReasonCode
-    , StepStateChangeReasonCode (..)
+    StepStateChangeReasonCode (..),
 
     -- ** Unit
-    , Unit (..)
+    Unit (..),
 
     -- ** Application
-    , Application
-    , application
-    , aArgs
-    , aAdditionalInfo
-    , aName
-    , aVersion
+    Application (Application'),
+    newApplication,
 
     -- ** AutoScalingPolicy
-    , AutoScalingPolicy
-    , autoScalingPolicy
-    , aspConstraints
-    , aspRules
+    AutoScalingPolicy (AutoScalingPolicy'),
+    newAutoScalingPolicy,
 
     -- ** AutoScalingPolicyDescription
-    , AutoScalingPolicyDescription
-    , autoScalingPolicyDescription
-    , aspdStatus
-    , aspdRules
-    , aspdConstraints
+    AutoScalingPolicyDescription (AutoScalingPolicyDescription'),
+    newAutoScalingPolicyDescription,
 
     -- ** AutoScalingPolicyStateChangeReason
-    , AutoScalingPolicyStateChangeReason
-    , autoScalingPolicyStateChangeReason
-    , aspscrCode
-    , aspscrMessage
+    AutoScalingPolicyStateChangeReason (AutoScalingPolicyStateChangeReason'),
+    newAutoScalingPolicyStateChangeReason,
 
     -- ** AutoScalingPolicyStatus
-    , AutoScalingPolicyStatus
-    , autoScalingPolicyStatus
-    , aspsState
-    , aspsStateChangeReason
+    AutoScalingPolicyStatus (AutoScalingPolicyStatus'),
+    newAutoScalingPolicyStatus,
+
+    -- ** BlockPublicAccessConfiguration
+    BlockPublicAccessConfiguration (BlockPublicAccessConfiguration'),
+    newBlockPublicAccessConfiguration,
+
+    -- ** BlockPublicAccessConfigurationMetadata
+    BlockPublicAccessConfigurationMetadata (BlockPublicAccessConfigurationMetadata'),
+    newBlockPublicAccessConfigurationMetadata,
 
     -- ** BootstrapActionConfig
-    , BootstrapActionConfig
-    , bootstrapActionConfig
-    , bacName
-    , bacScriptBootstrapAction
+    BootstrapActionConfig (BootstrapActionConfig'),
+    newBootstrapActionConfig,
 
     -- ** CancelStepsInfo
-    , CancelStepsInfo
-    , cancelStepsInfo
-    , csiStatus
-    , csiStepId
-    , csiReason
+    CancelStepsInfo (CancelStepsInfo'),
+    newCancelStepsInfo,
 
     -- ** CloudWatchAlarmDefinition
-    , CloudWatchAlarmDefinition
-    , cloudWatchAlarmDefinition
-    , cwadEvaluationPeriods
-    , cwadNamespace
-    , cwadDimensions
-    , cwadUnit
-    , cwadStatistic
-    , cwadComparisonOperator
-    , cwadMetricName
-    , cwadPeriod
-    , cwadThreshold
+    CloudWatchAlarmDefinition (CloudWatchAlarmDefinition'),
+    newCloudWatchAlarmDefinition,
 
     -- ** Cluster
-    , Cluster
-    , cluster
-    , cluRequestedAMIVersion
-    , cluEBSRootVolumeSize
-    , cluEC2InstanceAttributes
-    , cluNormalizedInstanceHours
-    , cluConfigurations
-    , cluCustomAMIId
-    , cluAutoScalingRole
-    , cluSecurityConfiguration
-    , cluScaleDownBehavior
-    , cluInstanceCollectionType
-    , cluReleaseLabel
-    , cluRepoUpgradeOnBoot
-    , cluLogURI
-    , cluKerberosAttributes
-    , cluRunningAMIVersion
-    , cluMasterPublicDNSName
-    , cluTerminationProtected
-    , cluVisibleToAllUsers
-    , cluAutoTerminate
-    , cluApplications
-    , cluTags
-    , cluServiceRole
-    , cluId
-    , cluName
-    , cluStatus
+    Cluster (Cluster'),
+    newCluster,
 
     -- ** ClusterStateChangeReason
-    , ClusterStateChangeReason
-    , clusterStateChangeReason
-    , cscrCode
-    , cscrMessage
+    ClusterStateChangeReason (ClusterStateChangeReason'),
+    newClusterStateChangeReason,
 
     -- ** ClusterStatus
-    , ClusterStatus
-    , clusterStatus
-    , csState
-    , csStateChangeReason
-    , csTimeline
+    ClusterStatus (ClusterStatus'),
+    newClusterStatus,
 
     -- ** ClusterSummary
-    , ClusterSummary
-    , clusterSummary
-    , csStatus
-    , csNormalizedInstanceHours
-    , csName
-    , csId
+    ClusterSummary (ClusterSummary'),
+    newClusterSummary,
 
     -- ** ClusterTimeline
-    , ClusterTimeline
-    , clusterTimeline
-    , ctReadyDateTime
-    , ctCreationDateTime
-    , ctEndDateTime
+    ClusterTimeline (ClusterTimeline'),
+    newClusterTimeline,
 
     -- ** Command
-    , Command
-    , command
-    , cArgs
-    , cScriptPath
-    , cName
+    Command (Command'),
+    newCommand,
+
+    -- ** ComputeLimits
+    ComputeLimits (ComputeLimits'),
+    newComputeLimits,
 
     -- ** Configuration
-    , Configuration
-    , configuration
-    , cConfigurations
-    , cClassification
-    , cProperties
+    Configuration (Configuration'),
+    newConfiguration,
 
-    -- ** EBSBlockDevice
-    , EBSBlockDevice
-    , ebsBlockDevice
-    , ebdDevice
-    , ebdVolumeSpecification
+    -- ** EbsBlockDevice
+    EbsBlockDevice (EbsBlockDevice'),
+    newEbsBlockDevice,
 
-    -- ** EBSBlockDeviceConfig
-    , EBSBlockDeviceConfig
-    , ebsBlockDeviceConfig
-    , ebdcVolumesPerInstance
-    , ebdcVolumeSpecification
+    -- ** EbsBlockDeviceConfig
+    EbsBlockDeviceConfig (EbsBlockDeviceConfig'),
+    newEbsBlockDeviceConfig,
 
-    -- ** EBSConfiguration
-    , EBSConfiguration
-    , ebsConfiguration
-    , ecEBSOptimized
-    , ecEBSBlockDeviceConfigs
+    -- ** EbsConfiguration
+    EbsConfiguration (EbsConfiguration'),
+    newEbsConfiguration,
 
-    -- ** EBSVolume
-    , EBSVolume
-    , ebsVolume
-    , evDevice
-    , evVolumeId
+    -- ** EbsVolume
+    EbsVolume (EbsVolume'),
+    newEbsVolume,
 
-    -- ** EC2InstanceAttributes
-    , EC2InstanceAttributes
-    , ec2InstanceAttributes
-    , eiaEC2KeyName
-    , eiaEmrManagedSlaveSecurityGroup
-    , eiaAdditionalSlaveSecurityGroups
-    , eiaRequestedEC2SubnetIds
-    , eiaAdditionalMasterSecurityGroups
-    , eiaIAMInstanceProfile
-    , eiaEmrManagedMasterSecurityGroup
-    , eiaEC2SubnetId
-    , eiaRequestedEC2AvailabilityZones
-    , eiaServiceAccessSecurityGroup
-    , eiaEC2AvailabilityZone
+    -- ** Ec2InstanceAttributes
+    Ec2InstanceAttributes (Ec2InstanceAttributes'),
+    newEc2InstanceAttributes,
+
+    -- ** ExecutionEngineConfig
+    ExecutionEngineConfig (ExecutionEngineConfig'),
+    newExecutionEngineConfig,
 
     -- ** FailureDetails
-    , FailureDetails
-    , failureDetails
-    , fdLogFile
-    , fdReason
-    , fdMessage
+    FailureDetails (FailureDetails'),
+    newFailureDetails,
 
-    -- ** HadoopJARStepConfig
-    , HadoopJARStepConfig
-    , hadoopJARStepConfig
-    , hjscArgs
-    , hjscMainClass
-    , hjscProperties
-    , hjscJAR
+    -- ** HadoopJarStepConfig
+    HadoopJarStepConfig (HadoopJarStepConfig'),
+    newHadoopJarStepConfig,
 
     -- ** HadoopStepConfig
-    , HadoopStepConfig
-    , hadoopStepConfig
-    , hscArgs
-    , hscJAR
-    , hscMainClass
-    , hscProperties
+    HadoopStepConfig (HadoopStepConfig'),
+    newHadoopStepConfig,
 
     -- ** Instance
-    , Instance
-    , instance'
-    , iStatus
-    , iPublicDNSName
-    , iEBSVolumes
-    , iEC2InstanceId
-    , iInstanceType
-    , iMarket
-    , iPrivateIPAddress
-    , iInstanceFleetId
-    , iId
-    , iInstanceGroupId
-    , iPrivateDNSName
-    , iPublicIPAddress
+    Instance (Instance'),
+    newInstance,
 
     -- ** InstanceFleet
-    , InstanceFleet
-    , instanceFleet
-    , ifProvisionedSpotCapacity
-    , ifStatus
-    , ifTargetOnDemandCapacity
-    , ifInstanceFleetType
-    , ifInstanceTypeSpecifications
-    , ifName
-    , ifProvisionedOnDemandCapacity
-    , ifTargetSpotCapacity
-    , ifId
-    , ifLaunchSpecifications
+    InstanceFleet (InstanceFleet'),
+    newInstanceFleet,
 
     -- ** InstanceFleetConfig
-    , InstanceFleetConfig
-    , instanceFleetConfig
-    , ifcInstanceTypeConfigs
-    , ifcTargetOnDemandCapacity
-    , ifcName
-    , ifcTargetSpotCapacity
-    , ifcLaunchSpecifications
-    , ifcInstanceFleetType
+    InstanceFleetConfig (InstanceFleetConfig'),
+    newInstanceFleetConfig,
 
     -- ** InstanceFleetModifyConfig
-    , InstanceFleetModifyConfig
-    , instanceFleetModifyConfig
-    , ifmcTargetOnDemandCapacity
-    , ifmcTargetSpotCapacity
-    , ifmcInstanceFleetId
+    InstanceFleetModifyConfig (InstanceFleetModifyConfig'),
+    newInstanceFleetModifyConfig,
 
     -- ** InstanceFleetProvisioningSpecifications
-    , InstanceFleetProvisioningSpecifications
-    , instanceFleetProvisioningSpecifications
-    , ifpsSpotSpecification
+    InstanceFleetProvisioningSpecifications (InstanceFleetProvisioningSpecifications'),
+    newInstanceFleetProvisioningSpecifications,
 
     -- ** InstanceFleetStateChangeReason
-    , InstanceFleetStateChangeReason
-    , instanceFleetStateChangeReason
-    , ifscrCode
-    , ifscrMessage
+    InstanceFleetStateChangeReason (InstanceFleetStateChangeReason'),
+    newInstanceFleetStateChangeReason,
 
     -- ** InstanceFleetStatus
-    , InstanceFleetStatus
-    , instanceFleetStatus
-    , ifsState
-    , ifsStateChangeReason
-    , ifsTimeline
+    InstanceFleetStatus (InstanceFleetStatus'),
+    newInstanceFleetStatus,
 
     -- ** InstanceFleetTimeline
-    , InstanceFleetTimeline
-    , instanceFleetTimeline
-    , iftReadyDateTime
-    , iftCreationDateTime
-    , iftEndDateTime
+    InstanceFleetTimeline (InstanceFleetTimeline'),
+    newInstanceFleetTimeline,
 
     -- ** InstanceGroup
-    , InstanceGroup
-    , instanceGroup
-    , igStatus
-    , igBidPrice
-    , igRequestedInstanceCount
-    , igRunningInstanceCount
-    , igConfigurations
-    , igInstanceGroupType
-    , igEBSBlockDevices
-    , igInstanceType
-    , igEBSOptimized
-    , igMarket
-    , igName
-    , igAutoScalingPolicy
-    , igShrinkPolicy
-    , igId
+    InstanceGroup (InstanceGroup'),
+    newInstanceGroup,
 
     -- ** InstanceGroupConfig
-    , InstanceGroupConfig
-    , instanceGroupConfig
-    , igcEBSConfiguration
-    , igcBidPrice
-    , igcConfigurations
-    , igcMarket
-    , igcName
-    , igcAutoScalingPolicy
-    , igcInstanceRole
-    , igcInstanceType
-    , igcInstanceCount
+    InstanceGroupConfig (InstanceGroupConfig'),
+    newInstanceGroupConfig,
 
     -- ** InstanceGroupModifyConfig
-    , InstanceGroupModifyConfig
-    , instanceGroupModifyConfig
-    , igmcInstanceCount
-    , igmcEC2InstanceIdsToTerminate
-    , igmcShrinkPolicy
-    , igmcInstanceGroupId
+    InstanceGroupModifyConfig (InstanceGroupModifyConfig'),
+    newInstanceGroupModifyConfig,
 
     -- ** InstanceGroupStateChangeReason
-    , InstanceGroupStateChangeReason
-    , instanceGroupStateChangeReason
-    , igscrCode
-    , igscrMessage
+    InstanceGroupStateChangeReason (InstanceGroupStateChangeReason'),
+    newInstanceGroupStateChangeReason,
 
     -- ** InstanceGroupStatus
-    , InstanceGroupStatus
-    , instanceGroupStatus
-    , igsState
-    , igsStateChangeReason
-    , igsTimeline
+    InstanceGroupStatus (InstanceGroupStatus'),
+    newInstanceGroupStatus,
 
     -- ** InstanceGroupTimeline
-    , InstanceGroupTimeline
-    , instanceGroupTimeline
-    , igtReadyDateTime
-    , igtCreationDateTime
-    , igtEndDateTime
+    InstanceGroupTimeline (InstanceGroupTimeline'),
+    newInstanceGroupTimeline,
 
     -- ** InstanceResizePolicy
-    , InstanceResizePolicy
-    , instanceResizePolicy
-    , irpInstancesToProtect
-    , irpInstancesToTerminate
-    , irpInstanceTerminationTimeout
+    InstanceResizePolicy (InstanceResizePolicy'),
+    newInstanceResizePolicy,
 
     -- ** InstanceStateChangeReason
-    , InstanceStateChangeReason
-    , instanceStateChangeReason
-    , iscrCode
-    , iscrMessage
+    InstanceStateChangeReason (InstanceStateChangeReason'),
+    newInstanceStateChangeReason,
 
     -- ** InstanceStatus
-    , InstanceStatus
-    , instanceStatus
-    , isState
-    , isStateChangeReason
-    , isTimeline
+    InstanceStatus (InstanceStatus'),
+    newInstanceStatus,
 
     -- ** InstanceTimeline
-    , InstanceTimeline
-    , instanceTimeline
-    , itReadyDateTime
-    , itCreationDateTime
-    , itEndDateTime
+    InstanceTimeline (InstanceTimeline'),
+    newInstanceTimeline,
 
     -- ** InstanceTypeConfig
-    , InstanceTypeConfig
-    , instanceTypeConfig
-    , itcEBSConfiguration
-    , itcBidPrice
-    , itcWeightedCapacity
-    , itcConfigurations
-    , itcBidPriceAsPercentageOfOnDemandPrice
-    , itcInstanceType
+    InstanceTypeConfig (InstanceTypeConfig'),
+    newInstanceTypeConfig,
 
     -- ** InstanceTypeSpecification
-    , InstanceTypeSpecification
-    , instanceTypeSpecification
-    , itsBidPrice
-    , itsWeightedCapacity
-    , itsConfigurations
-    , itsEBSBlockDevices
-    , itsInstanceType
-    , itsEBSOptimized
-    , itsBidPriceAsPercentageOfOnDemandPrice
+    InstanceTypeSpecification (InstanceTypeSpecification'),
+    newInstanceTypeSpecification,
 
     -- ** JobFlowInstancesConfig
-    , JobFlowInstancesConfig
-    , jobFlowInstancesConfig
-    , jficInstanceFleets
-    , jficEC2KeyName
-    , jficSlaveInstanceType
-    , jficInstanceCount
-    , jficEmrManagedSlaveSecurityGroup
-    , jficAdditionalSlaveSecurityGroups
-    , jficEC2SubnetIds
-    , jficHadoopVersion
-    , jficAdditionalMasterSecurityGroups
-    , jficEmrManagedMasterSecurityGroup
-    , jficEC2SubnetId
-    , jficMasterInstanceType
-    , jficInstanceGroups
-    , jficKeepJobFlowAliveWhenNoSteps
-    , jficServiceAccessSecurityGroup
-    , jficTerminationProtected
-    , jficPlacement
+    JobFlowInstancesConfig (JobFlowInstancesConfig'),
+    newJobFlowInstancesConfig,
 
     -- ** KerberosAttributes
-    , KerberosAttributes
-    , kerberosAttributes
-    , kaADDomainJoinPassword
-    , kaCrossRealmTrustPrincipalPassword
-    , kaADDomainJoinUser
-    , kaRealm
-    , kaKdcAdminPassword
+    KerberosAttributes (KerberosAttributes'),
+    newKerberosAttributes,
 
     -- ** KeyValue
-    , KeyValue
-    , keyValue
-    , kvValue
-    , kvKey
+    KeyValue (KeyValue'),
+    newKeyValue,
+
+    -- ** ManagedScalingPolicy
+    ManagedScalingPolicy (ManagedScalingPolicy'),
+    newManagedScalingPolicy,
 
     -- ** MetricDimension
-    , MetricDimension
-    , metricDimension
-    , mdValue
-    , mdKey
+    MetricDimension (MetricDimension'),
+    newMetricDimension,
+
+    -- ** NotebookExecution
+    NotebookExecution (NotebookExecution'),
+    newNotebookExecution,
+
+    -- ** NotebookExecutionSummary
+    NotebookExecutionSummary (NotebookExecutionSummary'),
+    newNotebookExecutionSummary,
+
+    -- ** OnDemandProvisioningSpecification
+    OnDemandProvisioningSpecification (OnDemandProvisioningSpecification'),
+    newOnDemandProvisioningSpecification,
+
+    -- ** PlacementGroupConfig
+    PlacementGroupConfig (PlacementGroupConfig'),
+    newPlacementGroupConfig,
 
     -- ** PlacementType
-    , PlacementType
-    , placementType
-    , ptAvailabilityZones
-    , ptAvailabilityZone
+    PlacementType (PlacementType'),
+    newPlacementType,
+
+    -- ** PortRange
+    PortRange (PortRange'),
+    newPortRange,
 
     -- ** ScalingAction
-    , ScalingAction
-    , scalingAction
-    , saMarket
-    , saSimpleScalingPolicyConfiguration
+    ScalingAction (ScalingAction'),
+    newScalingAction,
 
     -- ** ScalingConstraints
-    , ScalingConstraints
-    , scalingConstraints
-    , scMinCapacity
-    , scMaxCapacity
+    ScalingConstraints (ScalingConstraints'),
+    newScalingConstraints,
 
     -- ** ScalingRule
-    , ScalingRule
-    , scalingRule
-    , srDescription
-    , srName
-    , srAction
-    , srTrigger
+    ScalingRule (ScalingRule'),
+    newScalingRule,
 
     -- ** ScalingTrigger
-    , ScalingTrigger
-    , scalingTrigger
-    , stCloudWatchAlarmDefinition
+    ScalingTrigger (ScalingTrigger'),
+    newScalingTrigger,
 
     -- ** ScriptBootstrapActionConfig
-    , ScriptBootstrapActionConfig
-    , scriptBootstrapActionConfig
-    , sbacArgs
-    , sbacPath
+    ScriptBootstrapActionConfig (ScriptBootstrapActionConfig'),
+    newScriptBootstrapActionConfig,
 
     -- ** SecurityConfigurationSummary
-    , SecurityConfigurationSummary
-    , securityConfigurationSummary
-    , scsName
-    , scsCreationDateTime
+    SecurityConfigurationSummary (SecurityConfigurationSummary'),
+    newSecurityConfigurationSummary,
+
+    -- ** SessionMappingDetail
+    SessionMappingDetail (SessionMappingDetail'),
+    newSessionMappingDetail,
+
+    -- ** SessionMappingSummary
+    SessionMappingSummary (SessionMappingSummary'),
+    newSessionMappingSummary,
 
     -- ** ShrinkPolicy
-    , ShrinkPolicy
-    , shrinkPolicy
-    , spDecommissionTimeout
-    , spInstanceResizePolicy
+    ShrinkPolicy (ShrinkPolicy'),
+    newShrinkPolicy,
 
     -- ** SimpleScalingPolicyConfiguration
-    , SimpleScalingPolicyConfiguration
-    , simpleScalingPolicyConfiguration
-    , sspcAdjustmentType
-    , sspcCoolDown
-    , sspcScalingAdjustment
+    SimpleScalingPolicyConfiguration (SimpleScalingPolicyConfiguration'),
+    newSimpleScalingPolicyConfiguration,
 
     -- ** SpotProvisioningSpecification
-    , SpotProvisioningSpecification
-    , spotProvisioningSpecification
-    , spsBlockDurationMinutes
-    , spsTimeoutDurationMinutes
-    , spsTimeoutAction
+    SpotProvisioningSpecification (SpotProvisioningSpecification'),
+    newSpotProvisioningSpecification,
 
     -- ** Step
-    , Step
-    , step
-    , sStatus
-    , sActionOnFailure
-    , sConfig
-    , sName
-    , sId
+    Step (Step'),
+    newStep,
 
     -- ** StepConfig
-    , StepConfig
-    , stepConfig
-    , scActionOnFailure
-    , scName
-    , scHadoopJARStep
+    StepConfig (StepConfig'),
+    newStepConfig,
 
     -- ** StepStateChangeReason
-    , StepStateChangeReason
-    , stepStateChangeReason
-    , sscrCode
-    , sscrMessage
+    StepStateChangeReason (StepStateChangeReason'),
+    newStepStateChangeReason,
 
     -- ** StepStatus
-    , StepStatus
-    , stepStatus
-    , ssState
-    , ssFailureDetails
-    , ssStateChangeReason
-    , ssTimeline
+    StepStatus (StepStatus'),
+    newStepStatus,
 
     -- ** StepSummary
-    , StepSummary
-    , stepSummary
-    , ssStatus
-    , ssActionOnFailure
-    , ssConfig
-    , ssName
-    , ssId
+    StepSummary (StepSummary'),
+    newStepSummary,
 
     -- ** StepTimeline
-    , StepTimeline
-    , stepTimeline
-    , stCreationDateTime
-    , stEndDateTime
-    , stStartDateTime
+    StepTimeline (StepTimeline'),
+    newStepTimeline,
+
+    -- ** Studio
+    Studio (Studio'),
+    newStudio,
+
+    -- ** StudioSummary
+    StudioSummary (StudioSummary'),
+    newStudioSummary,
 
     -- ** SupportedProductConfig
-    , SupportedProductConfig
-    , supportedProductConfig
-    , spcArgs
-    , spcName
+    SupportedProductConfig (SupportedProductConfig'),
+    newSupportedProductConfig,
 
     -- ** Tag
-    , Tag
-    , tag
-    , tagValue
-    , tagKey
+    Tag (Tag'),
+    newTag,
 
     -- ** VolumeSpecification
-    , VolumeSpecification
-    , volumeSpecification
-    , vsIOPS
-    , vsVolumeType
-    , vsSizeInGB
-    ) where
+    VolumeSpecification (VolumeSpecification'),
+    newVolumeSpecification,
+  )
+where
 
 import Network.AWS.EMR.AddInstanceFleet
 import Network.AWS.EMR.AddInstanceGroups
@@ -752,55 +758,73 @@ import Network.AWS.EMR.AddJobFlowSteps
 import Network.AWS.EMR.AddTags
 import Network.AWS.EMR.CancelSteps
 import Network.AWS.EMR.CreateSecurityConfiguration
+import Network.AWS.EMR.CreateStudio
+import Network.AWS.EMR.CreateStudioSessionMapping
 import Network.AWS.EMR.DeleteSecurityConfiguration
+import Network.AWS.EMR.DeleteStudio
+import Network.AWS.EMR.DeleteStudioSessionMapping
 import Network.AWS.EMR.DescribeCluster
+import Network.AWS.EMR.DescribeNotebookExecution
 import Network.AWS.EMR.DescribeSecurityConfiguration
 import Network.AWS.EMR.DescribeStep
+import Network.AWS.EMR.DescribeStudio
+import Network.AWS.EMR.GetBlockPublicAccessConfiguration
+import Network.AWS.EMR.GetManagedScalingPolicy
+import Network.AWS.EMR.GetStudioSessionMapping
+import Network.AWS.EMR.Lens
 import Network.AWS.EMR.ListBootstrapActions
 import Network.AWS.EMR.ListClusters
 import Network.AWS.EMR.ListInstanceFleets
 import Network.AWS.EMR.ListInstanceGroups
 import Network.AWS.EMR.ListInstances
+import Network.AWS.EMR.ListNotebookExecutions
 import Network.AWS.EMR.ListSecurityConfigurations
 import Network.AWS.EMR.ListSteps
+import Network.AWS.EMR.ListStudioSessionMappings
+import Network.AWS.EMR.ListStudios
+import Network.AWS.EMR.ModifyCluster
 import Network.AWS.EMR.ModifyInstanceFleet
 import Network.AWS.EMR.ModifyInstanceGroups
 import Network.AWS.EMR.PutAutoScalingPolicy
+import Network.AWS.EMR.PutBlockPublicAccessConfiguration
+import Network.AWS.EMR.PutManagedScalingPolicy
 import Network.AWS.EMR.RemoveAutoScalingPolicy
+import Network.AWS.EMR.RemoveManagedScalingPolicy
 import Network.AWS.EMR.RemoveTags
 import Network.AWS.EMR.RunJobFlow
 import Network.AWS.EMR.SetTerminationProtection
 import Network.AWS.EMR.SetVisibleToAllUsers
+import Network.AWS.EMR.StartNotebookExecution
+import Network.AWS.EMR.StopNotebookExecution
 import Network.AWS.EMR.TerminateJobFlows
 import Network.AWS.EMR.Types
+import Network.AWS.EMR.UpdateStudio
+import Network.AWS.EMR.UpdateStudioSessionMapping
 import Network.AWS.EMR.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'EMR'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'EMR'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

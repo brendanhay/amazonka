@@ -1,142 +1,171 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EMR.RemoveTags
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes tags from an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see <http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html Tag Clusters> .
+-- Removes tags from an Amazon EMR resource. Tags make it easier to
+-- associate clusters in various ways, such as grouping clusters to track
+-- your Amazon EMR resource allocation costs. For more information, see
+-- <https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-tags.html Tag Clusters>.
 --
---
--- The following example removes the stack tag with value Prod from a cluster:
---
+-- The following example removes the stack tag with value Prod from a
+-- cluster:
 module Network.AWS.EMR.RemoveTags
-    (
-    -- * Creating a Request
-      removeTags
-    , RemoveTags
+  ( -- * Creating a Request
+    RemoveTags (..),
+    newRemoveTags,
+
     -- * Request Lenses
-    , rtResourceId
-    , rtTagKeys
+    removeTags_resourceId,
+    removeTags_tagKeys,
 
     -- * Destructuring the Response
-    , removeTagsResponse
-    , RemoveTagsResponse
+    RemoveTagsResponse (..),
+    newRemoveTagsResponse,
+
     -- * Response Lenses
-    , rtrsResponseStatus
-    ) where
+    removeTagsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.EMR.Types
-import Network.AWS.EMR.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | This input identifies a cluster and a list of tags to remove.
 --
---
---
--- /See:/ 'removeTags' smart constructor.
+-- /See:/ 'newRemoveTags' smart constructor.
 data RemoveTags = RemoveTags'
-  { _rtResourceId :: !Text
-  , _rtTagKeys    :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon EMR resource identifier from which tags will be removed. This
+    -- value must be a cluster identifier.
+    resourceId :: Prelude.Text,
+    -- | A list of tag keys to remove from a resource.
+    tagKeys :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'RemoveTags' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RemoveTags' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rtResourceId' - The Amazon EMR resource identifier from which tags will be removed. This value must be a cluster identifier.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rtTagKeys' - A list of tag keys to remove from a resource.
-removeTags
-    :: Text -- ^ 'rtResourceId'
-    -> RemoveTags
-removeTags pResourceId_ =
-  RemoveTags' {_rtResourceId = pResourceId_, _rtTagKeys = mempty}
+-- 'resourceId', 'removeTags_resourceId' - The Amazon EMR resource identifier from which tags will be removed. This
+-- value must be a cluster identifier.
+--
+-- 'tagKeys', 'removeTags_tagKeys' - A list of tag keys to remove from a resource.
+newRemoveTags ::
+  -- | 'resourceId'
+  Prelude.Text ->
+  RemoveTags
+newRemoveTags pResourceId_ =
+  RemoveTags'
+    { resourceId = pResourceId_,
+      tagKeys = Prelude.mempty
+    }
 
-
--- | The Amazon EMR resource identifier from which tags will be removed. This value must be a cluster identifier.
-rtResourceId :: Lens' RemoveTags Text
-rtResourceId = lens _rtResourceId (\ s a -> s{_rtResourceId = a})
+-- | The Amazon EMR resource identifier from which tags will be removed. This
+-- value must be a cluster identifier.
+removeTags_resourceId :: Lens.Lens' RemoveTags Prelude.Text
+removeTags_resourceId = Lens.lens (\RemoveTags' {resourceId} -> resourceId) (\s@RemoveTags' {} a -> s {resourceId = a} :: RemoveTags)
 
 -- | A list of tag keys to remove from a resource.
-rtTagKeys :: Lens' RemoveTags [Text]
-rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a}) . _Coerce
+removeTags_tagKeys :: Lens.Lens' RemoveTags [Prelude.Text]
+removeTags_tagKeys = Lens.lens (\RemoveTags' {tagKeys} -> tagKeys) (\s@RemoveTags' {} a -> s {tagKeys = a} :: RemoveTags) Prelude.. Prelude._Coerce
 
-instance AWSRequest RemoveTags where
-        type Rs RemoveTags = RemoveTagsResponse
-        request = postJSON emr
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 RemoveTagsResponse' <$> (pure (fromEnum s)))
+instance Prelude.AWSRequest RemoveTags where
+  type Rs RemoveTags = RemoveTagsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          RemoveTagsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable RemoveTags where
+instance Prelude.Hashable RemoveTags
 
-instance NFData RemoveTags where
+instance Prelude.NFData RemoveTags
 
-instance ToHeaders RemoveTags where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("ElasticMapReduce.RemoveTags" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders RemoveTags where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "ElasticMapReduce.RemoveTags" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON RemoveTags where
-        toJSON RemoveTags'{..}
-          = object
-              (catMaybes
-                 [Just ("ResourceId" .= _rtResourceId),
-                  Just ("TagKeys" .= _rtTagKeys)])
+instance Prelude.ToJSON RemoveTags where
+  toJSON RemoveTags' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ResourceId" Prelude..= resourceId),
+            Prelude.Just ("TagKeys" Prelude..= tagKeys)
+          ]
+      )
 
-instance ToPath RemoveTags where
-        toPath = const "/"
+instance Prelude.ToPath RemoveTags where
+  toPath = Prelude.const "/"
 
-instance ToQuery RemoveTags where
-        toQuery = const mempty
+instance Prelude.ToQuery RemoveTags where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | This output indicates the result of removing tags from a resource.
 --
+-- /See:/ 'newRemoveTagsResponse' smart constructor.
+data RemoveTagsResponse = RemoveTagsResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'RemoveTagsResponse' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'removeTagsResponse' smart constructor.
-newtype RemoveTagsResponse = RemoveTagsResponse'
-  { _rtrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'RemoveTagsResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtrsResponseStatus' - -- | The response status code.
-removeTagsResponse
-    :: Int -- ^ 'rtrsResponseStatus'
-    -> RemoveTagsResponse
-removeTagsResponse pResponseStatus_ =
-  RemoveTagsResponse' {_rtrsResponseStatus = pResponseStatus_}
+-- 'httpStatus', 'removeTagsResponse_httpStatus' - The response's http status code.
+newRemoveTagsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  RemoveTagsResponse
+newRemoveTagsResponse pHttpStatus_ =
+  RemoveTagsResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+removeTagsResponse_httpStatus :: Lens.Lens' RemoveTagsResponse Prelude.Int
+removeTagsResponse_httpStatus = Lens.lens (\RemoveTagsResponse' {httpStatus} -> httpStatus) (\s@RemoveTagsResponse' {} a -> s {httpStatus = a} :: RemoveTagsResponse)
 
--- | -- | The response status code.
-rtrsResponseStatus :: Lens' RemoveTagsResponse Int
-rtrsResponseStatus = lens _rtrsResponseStatus (\ s a -> s{_rtrsResponseStatus = a})
-
-instance NFData RemoveTagsResponse where
+instance Prelude.NFData RemoveTagsResponse

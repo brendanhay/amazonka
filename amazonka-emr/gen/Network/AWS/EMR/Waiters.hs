@@ -1,100 +1,150 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
-
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EMR.Waiters
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.EMR.Waiters where
 
 import Network.AWS.EMR.DescribeCluster
-import Network.AWS.EMR.DescribeCluster
 import Network.AWS.EMR.DescribeStep
+import Network.AWS.EMR.Lens
 import Network.AWS.EMR.Types
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Waiter
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Waiter as Waiter
+
+-- | Polls 'Network.AWS.EMR.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
+newClusterTerminated :: Waiter.Wait DescribeCluster
+newClusterTerminated =
+  Waiter.Wait
+    { Waiter._waitName = "ClusterTerminated",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 30,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
+            "TERMINATED"
+            Waiter.AcceptSuccess
+            ( describeClusterResponse_cluster
+                Prelude.. cluster_status
+                Prelude.. clusterStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Prelude.toTextCI
+            ),
+          Waiter.matchAll
+            "TERMINATED_WITH_ERRORS"
+            Waiter.AcceptFailure
+            ( describeClusterResponse_cluster
+                Prelude.. cluster_status
+                Prelude.. clusterStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Prelude.toTextCI
+            )
+        ]
+    }
 
 -- | Polls 'Network.AWS.EMR.DescribeStep' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-stepComplete :: Wait DescribeStep
-stepComplete =
-  Wait
-    { _waitName = "StepComplete"
-    , _waitAttempts = 60
-    , _waitDelay = 30
-    , _waitAcceptors =
-        [ matchAll
+newStepComplete :: Waiter.Wait DescribeStep
+newStepComplete =
+  Waiter.Wait
+    { Waiter._waitName = "StepComplete",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 30,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "COMPLETED"
-            AcceptSuccess
-            (dsrsStep . _Just . sStatus . _Just . ssState . _Just . to toTextCI)
-        , matchAll
+            Waiter.AcceptSuccess
+            ( describeStepResponse_step Prelude.. Lens._Just
+                Prelude.. step_status
+                Prelude.. Lens._Just
+                Prelude.. stepStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Prelude.toTextCI
+            ),
+          Waiter.matchAll
             "FAILED"
-            AcceptFailure
-            (dsrsStep . _Just . sStatus . _Just . ssState . _Just . to toTextCI)
-        , matchAll
+            Waiter.AcceptFailure
+            ( describeStepResponse_step Prelude.. Lens._Just
+                Prelude.. step_status
+                Prelude.. Lens._Just
+                Prelude.. stepStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Prelude.toTextCI
+            ),
+          Waiter.matchAll
             "CANCELLED"
-            AcceptFailure
-            (dsrsStep . _Just . sStatus . _Just . ssState . _Just . to toTextCI)
+            Waiter.AcceptFailure
+            ( describeStepResponse_step Prelude.. Lens._Just
+                Prelude.. step_status
+                Prelude.. Lens._Just
+                Prelude.. stepStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Prelude.toTextCI
+            )
         ]
     }
 
-
 -- | Polls 'Network.AWS.EMR.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-clusterTerminated :: Wait DescribeCluster
-clusterTerminated =
-  Wait
-    { _waitName = "ClusterTerminated"
-    , _waitAttempts = 60
-    , _waitDelay = 30
-    , _waitAcceptors =
-        [ matchAll
-            "TERMINATED"
-            AcceptSuccess
-            (dcrsCluster . cluStatus . csState . _Just . to toTextCI)
-        , matchAll
-            "TERMINATED_WITH_ERRORS"
-            AcceptFailure
-            (dcrsCluster . cluStatus . csState . _Just . to toTextCI)
-        ]
-    }
-
-
--- | Polls 'Network.AWS.EMR.DescribeCluster' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-clusterRunning :: Wait DescribeCluster
-clusterRunning =
-  Wait
-    { _waitName = "ClusterRunning"
-    , _waitAttempts = 60
-    , _waitDelay = 30
-    , _waitAcceptors =
-        [ matchAll
+newClusterRunning :: Waiter.Wait DescribeCluster
+newClusterRunning =
+  Waiter.Wait
+    { Waiter._waitName = "ClusterRunning",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 30,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "RUNNING"
-            AcceptSuccess
-            (dcrsCluster . cluStatus . csState . _Just . to toTextCI)
-        , matchAll
+            Waiter.AcceptSuccess
+            ( describeClusterResponse_cluster
+                Prelude.. cluster_status
+                Prelude.. clusterStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Prelude.toTextCI
+            ),
+          Waiter.matchAll
             "WAITING"
-            AcceptSuccess
-            (dcrsCluster . cluStatus . csState . _Just . to toTextCI)
-        , matchAll
+            Waiter.AcceptSuccess
+            ( describeClusterResponse_cluster
+                Prelude.. cluster_status
+                Prelude.. clusterStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Prelude.toTextCI
+            ),
+          Waiter.matchAll
             "TERMINATING"
-            AcceptFailure
-            (dcrsCluster . cluStatus . csState . _Just . to toTextCI)
-        , matchAll
+            Waiter.AcceptFailure
+            ( describeClusterResponse_cluster
+                Prelude.. cluster_status
+                Prelude.. clusterStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Prelude.toTextCI
+            ),
+          Waiter.matchAll
             "TERMINATED"
-            AcceptFailure
-            (dcrsCluster . cluStatus . csState . _Just . to toTextCI)
-        , matchAll
+            Waiter.AcceptFailure
+            ( describeClusterResponse_cluster
+                Prelude.. cluster_status
+                Prelude.. clusterStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Prelude.toTextCI
+            ),
+          Waiter.matchAll
             "TERMINATED_WITH_ERRORS"
-            AcceptFailure
-            (dcrsCluster . cluStatus . csState . _Just . to toTextCI)
+            Waiter.AcceptFailure
+            ( describeClusterResponse_cluster
+                Prelude.. cluster_status
+                Prelude.. clusterStatus_state
+                Prelude.. Lens._Just
+                Prelude.. Lens.to Prelude.toTextCI
+            )
         ]
     }
-

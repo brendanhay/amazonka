@@ -1,1095 +1,1294 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.S3
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Amazon Simple Storage Service is storage for the Internet. Amazon S3 has a simple web services interface that you can use to store and retrieve any amount of data, at any time, from anywhere on the web. It gives any developer access to the same highly scalable, reliable, fast, inexpensive data storage infrastructure that Amazon uses to run its own global network of web sites. The service aims to maximize benefits of scale and to pass those benefits on to developers.
+-- Amazon Simple Storage Service is storage for the Internet. Amazon S3 has
+-- a simple web services interface that you can use to store and retrieve
+-- any amount of data, at any time, from anywhere on the web. It gives any
+-- developer access to the same highly scalable, reliable, fast,
+-- inexpensive data storage infrastructure that Amazon uses to run its own
+-- global network of web sites. The service aims to maximize benefits of
+-- scale and to pass those benefits on to developers.
 module Network.AWS.S3
-    (
-    -- * Service Configuration
-      s3
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
     -- $errors
 
-    -- ** BucketAlreadyOwnedByYou
-    , _BucketAlreadyOwnedByYou
-
-    -- ** ObjectAlreadyInActiveTierError
-    , _ObjectAlreadyInActiveTierError
-
-    -- ** BucketAlreadyExists
-    , _BucketAlreadyExists
-
     -- ** ObjectNotInActiveTierError
-    , _ObjectNotInActiveTierError
-
-    -- ** NoSuchUpload
-    , _NoSuchUpload
-
-    -- ** NoSuchBucket
-    , _NoSuchBucket
+    _ObjectNotInActiveTierError,
 
     -- ** NoSuchKey
-    , _NoSuchKey
+    _NoSuchKey,
+
+    -- ** ObjectAlreadyInActiveTierError
+    _ObjectAlreadyInActiveTierError,
+
+    -- ** BucketAlreadyOwnedByYou
+    _BucketAlreadyOwnedByYou,
+
+    -- ** NoSuchUpload
+    _NoSuchUpload,
+
+    -- ** InvalidObjectState
+    _InvalidObjectState,
+
+    -- ** BucketAlreadyExists
+    _BucketAlreadyExists,
+
+    -- ** NoSuchBucket
+    _NoSuchBucket,
 
     -- * Waiters
     -- $waiters
 
-    -- ** ObjectNotExists
-    , objectNotExists
-
-    -- ** BucketExists
-    , bucketExists
+    -- ** BucketNotExists
+    newBucketNotExists,
 
     -- ** ObjectExists
-    , objectExists
+    newObjectExists,
 
-    -- ** BucketNotExists
-    , bucketNotExists
+    -- ** BucketExists
+    newBucketExists,
+
+    -- ** ObjectNotExists
+    newObjectNotExists,
 
     -- * Operations
     -- $operations
 
-    -- ** PutBucketRequestPayment
-    , module Network.AWS.S3.PutBucketRequestPayment
-
-    -- ** PutObject
-    , module Network.AWS.S3.PutObject
-
-    -- ** DeleteObject
-    , module Network.AWS.S3.DeleteObject
-
-    -- ** PutBucketLogging
-    , module Network.AWS.S3.PutBucketLogging
-
-    -- ** GetBucketMetricsConfiguration
-    , module Network.AWS.S3.GetBucketMetricsConfiguration
-
-    -- ** ListBuckets
-    , module Network.AWS.S3.ListBuckets
-
-    -- ** DeleteBucket
-    , module Network.AWS.S3.DeleteBucket
-
-    -- ** CreateBucket
-    , module Network.AWS.S3.CreateBucket
-
-    -- ** DeleteBucketTagging
-    , module Network.AWS.S3.DeleteBucketTagging
-
-    -- ** PutObjectACL
-    , module Network.AWS.S3.PutObjectACL
-
-    -- ** PutBucketTagging
-    , module Network.AWS.S3.PutBucketTagging
-
-    -- ** GetBucketInventoryConfiguration
-    , module Network.AWS.S3.GetBucketInventoryConfiguration
-
-    -- ** PutBucketInventoryConfiguration
-    , module Network.AWS.S3.PutBucketInventoryConfiguration
-
-    -- ** GetBucketLocation
-    , module Network.AWS.S3.GetBucketLocation
-
-    -- ** ListBucketInventoryConfigurations
-    , module Network.AWS.S3.ListBucketInventoryConfigurations
-
-    -- ** DeleteBucketInventoryConfiguration
-    , module Network.AWS.S3.DeleteBucketInventoryConfiguration
-
-    -- ** GetBucketNotificationConfiguration
-    , module Network.AWS.S3.GetBucketNotificationConfiguration
-
-    -- ** PutBucketAccelerateConfiguration
-    , module Network.AWS.S3.PutBucketAccelerateConfiguration
-
-    -- ** PutBucketMetricsConfiguration
-    , module Network.AWS.S3.PutBucketMetricsConfiguration
-
-    -- ** DeleteBucketMetricsConfiguration
-    , module Network.AWS.S3.DeleteBucketMetricsConfiguration
-
-    -- ** ListObjectsV2 (Paginated)
-    , module Network.AWS.S3.ListObjectsV2
-
-    -- ** GetObject
-    , module Network.AWS.S3.GetObject
-
-    -- ** PutBucketReplication
-    , module Network.AWS.S3.PutBucketReplication
-
-    -- ** GetBucketWebsite
-    , module Network.AWS.S3.GetBucketWebsite
-
-    -- ** GetBucketRequestPayment
-    , module Network.AWS.S3.GetBucketRequestPayment
-
-    -- ** DeleteBucketReplication
-    , module Network.AWS.S3.DeleteBucketReplication
-
-    -- ** ListObjectVersions (Paginated)
-    , module Network.AWS.S3.ListObjectVersions
-
-    -- ** HeadBucket
-    , module Network.AWS.S3.HeadBucket
-
-    -- ** DeleteBucketLifecycle
-    , module Network.AWS.S3.DeleteBucketLifecycle
-
-    -- ** PutBucketLifecycleConfiguration
-    , module Network.AWS.S3.PutBucketLifecycleConfiguration
-
-    -- ** PutBucketAnalyticsConfiguration
-    , module Network.AWS.S3.PutBucketAnalyticsConfiguration
-
-    -- ** ListBucketAnalyticsConfigurations
-    , module Network.AWS.S3.ListBucketAnalyticsConfigurations
-
-    -- ** DeleteBucketAnalyticsConfiguration
-    , module Network.AWS.S3.DeleteBucketAnalyticsConfiguration
-
-    -- ** CreateMultipartUpload
-    , module Network.AWS.S3.CreateMultipartUpload
-
-    -- ** UploadPart
-    , module Network.AWS.S3.UploadPart
-
-    -- ** SelectObjectContent
-    , module Network.AWS.S3.SelectObjectContent
-
-    -- ** GetBucketReplication
-    , module Network.AWS.S3.GetBucketReplication
-
-    -- ** PutBucketWebsite
-    , module Network.AWS.S3.PutBucketWebsite
-
-    -- ** DeleteBucketWebsite
-    , module Network.AWS.S3.DeleteBucketWebsite
-
-    -- ** CompleteMultipartUpload
-    , module Network.AWS.S3.CompleteMultipartUpload
-
-    -- ** ListMultipartUploads (Paginated)
-    , module Network.AWS.S3.ListMultipartUploads
-
-    -- ** ListObjects (Paginated)
-    , module Network.AWS.S3.ListObjects
-
-    -- ** DeleteBucketPolicy
-    , module Network.AWS.S3.DeleteBucketPolicy
+    -- ** PutBucketPolicy
+    PutBucketPolicy (PutBucketPolicy'),
+    newPutBucketPolicy,
+    PutBucketPolicyResponse (PutBucketPolicyResponse'),
+    newPutBucketPolicyResponse,
 
     -- ** GetBucketEncryption
-    , module Network.AWS.S3.GetBucketEncryption
+    GetBucketEncryption (GetBucketEncryption'),
+    newGetBucketEncryption,
+    GetBucketEncryptionResponse (GetBucketEncryptionResponse'),
+    newGetBucketEncryptionResponse,
 
-    -- ** AbortMultipartUpload
-    , module Network.AWS.S3.AbortMultipartUpload
-
-    -- ** PutBucketPolicy
-    , module Network.AWS.S3.PutBucketPolicy
-
-    -- ** GetBucketAccelerateConfiguration
-    , module Network.AWS.S3.GetBucketAccelerateConfiguration
-
-    -- ** GetObjectTorrent
-    , module Network.AWS.S3.GetObjectTorrent
+    -- ** DeleteBucket
+    DeleteBucket (DeleteBucket'),
+    newDeleteBucket,
+    DeleteBucketResponse (DeleteBucketResponse'),
+    newDeleteBucketResponse,
 
     -- ** DeleteObjects
-    , module Network.AWS.S3.DeleteObjects
+    DeleteObjects (DeleteObjects'),
+    newDeleteObjects,
+    DeleteObjectsResponse (DeleteObjectsResponse'),
+    newDeleteObjectsResponse,
 
-    -- ** PutBucketNotificationConfiguration
-    , module Network.AWS.S3.PutBucketNotificationConfiguration
+    -- ** PutBucketLogging
+    PutBucketLogging (PutBucketLogging'),
+    newPutBucketLogging,
+    PutBucketLoggingResponse (PutBucketLoggingResponse'),
+    newPutBucketLoggingResponse,
 
-    -- ** GetBucketVersioning
-    , module Network.AWS.S3.GetBucketVersioning
+    -- ** DeleteBucketWebsite
+    DeleteBucketWebsite (DeleteBucketWebsite'),
+    newDeleteBucketWebsite,
+    DeleteBucketWebsiteResponse (DeleteBucketWebsiteResponse'),
+    newDeleteBucketWebsiteResponse,
 
-    -- ** DeleteBucketCORS
-    , module Network.AWS.S3.DeleteBucketCORS
+    -- ** CompleteMultipartUpload
+    CompleteMultipartUpload (CompleteMultipartUpload'),
+    newCompleteMultipartUpload,
+    CompleteMultipartUploadResponse (CompleteMultipartUploadResponse'),
+    newCompleteMultipartUploadResponse,
 
-    -- ** PutBucketCORS
-    , module Network.AWS.S3.PutBucketCORS
+    -- ** SelectObjectContent
+    SelectObjectContent (SelectObjectContent'),
+    newSelectObjectContent,
+    SelectObjectContentResponse (SelectObjectContentResponse'),
+    newSelectObjectContentResponse,
 
-    -- ** GetBucketCORS
-    , module Network.AWS.S3.GetBucketCORS
+    -- ** GetBucketPolicyStatus
+    GetBucketPolicyStatus (GetBucketPolicyStatus'),
+    newGetBucketPolicyStatus,
+    GetBucketPolicyStatusResponse (GetBucketPolicyStatusResponse'),
+    newGetBucketPolicyStatusResponse,
 
-    -- ** GetObjectACL
-    , module Network.AWS.S3.GetObjectACL
+    -- ** ListObjects (Paginated)
+    ListObjects (ListObjects'),
+    newListObjects,
+    ListObjectsResponse (ListObjectsResponse'),
+    newListObjectsResponse,
 
-    -- ** RestoreObject
-    , module Network.AWS.S3.RestoreObject
+    -- ** DeleteObject
+    DeleteObject (DeleteObject'),
+    newDeleteObject,
+    DeleteObjectResponse (DeleteObjectResponse'),
+    newDeleteObjectResponse,
 
-    -- ** HeadObject
-    , module Network.AWS.S3.HeadObject
-
-    -- ** PutBucketVersioning
-    , module Network.AWS.S3.PutBucketVersioning
-
-    -- ** GetBucketTagging
-    , module Network.AWS.S3.GetBucketTagging
-
-    -- ** CopyObject
-    , module Network.AWS.S3.CopyObject
-
-    -- ** ListBucketMetricsConfigurations
-    , module Network.AWS.S3.ListBucketMetricsConfigurations
-
-    -- ** GetBucketPolicy
-    , module Network.AWS.S3.GetBucketPolicy
-
-    -- ** PutBucketEncryption
-    , module Network.AWS.S3.PutBucketEncryption
-
-    -- ** DeleteBucketEncryption
-    , module Network.AWS.S3.DeleteBucketEncryption
-
-    -- ** GetBucketLogging
-    , module Network.AWS.S3.GetBucketLogging
-
-    -- ** GetBucketACL
-    , module Network.AWS.S3.GetBucketACL
-
-    -- ** GetBucketLifecycleConfiguration
-    , module Network.AWS.S3.GetBucketLifecycleConfiguration
-
-    -- ** GetBucketAnalyticsConfiguration
-    , module Network.AWS.S3.GetBucketAnalyticsConfiguration
-
-    -- ** GetObjectTagging
-    , module Network.AWS.S3.GetObjectTagging
-
-    -- ** ListParts (Paginated)
-    , module Network.AWS.S3.ListParts
+    -- ** DeleteBucketAnalyticsConfiguration
+    DeleteBucketAnalyticsConfiguration (DeleteBucketAnalyticsConfiguration'),
+    newDeleteBucketAnalyticsConfiguration,
+    DeleteBucketAnalyticsConfigurationResponse (DeleteBucketAnalyticsConfigurationResponse'),
+    newDeleteBucketAnalyticsConfigurationResponse,
 
     -- ** DeleteObjectTagging
-    , module Network.AWS.S3.DeleteObjectTagging
+    DeleteObjectTagging (DeleteObjectTagging'),
+    newDeleteObjectTagging,
+    DeleteObjectTaggingResponse (DeleteObjectTaggingResponse'),
+    newDeleteObjectTaggingResponse,
 
-    -- ** UploadPartCopy
-    , module Network.AWS.S3.UploadPartCopy
+    -- ** GetBucketAcl
+    GetBucketAcl (GetBucketAcl'),
+    newGetBucketAcl,
+    GetBucketAclResponse (GetBucketAclResponse'),
+    newGetBucketAclResponse,
+
+    -- ** GetObjectTagging
+    GetObjectTagging (GetObjectTagging'),
+    newGetObjectTagging,
+    GetObjectTaggingResponse (GetObjectTaggingResponse'),
+    newGetObjectTaggingResponse,
+
+    -- ** PutBucketReplication
+    PutBucketReplication (PutBucketReplication'),
+    newPutBucketReplication,
+    PutBucketReplicationResponse (PutBucketReplicationResponse'),
+    newPutBucketReplicationResponse,
+
+    -- ** GetBucketWebsite
+    GetBucketWebsite (GetBucketWebsite'),
+    newGetBucketWebsite,
+    GetBucketWebsiteResponse (GetBucketWebsiteResponse'),
+    newGetBucketWebsiteResponse,
+
+    -- ** GetObjectLockConfiguration
+    GetObjectLockConfiguration (GetObjectLockConfiguration'),
+    newGetObjectLockConfiguration,
+    GetObjectLockConfigurationResponse (GetObjectLockConfigurationResponse'),
+    newGetObjectLockConfigurationResponse,
+
+    -- ** DeleteBucketMetricsConfiguration
+    DeleteBucketMetricsConfiguration (DeleteBucketMetricsConfiguration'),
+    newDeleteBucketMetricsConfiguration,
+    DeleteBucketMetricsConfigurationResponse (DeleteBucketMetricsConfigurationResponse'),
+    newDeleteBucketMetricsConfigurationResponse,
+
+    -- ** GetBucketPolicy
+    GetBucketPolicy (GetBucketPolicy'),
+    newGetBucketPolicy,
+    GetBucketPolicyResponse (GetBucketPolicyResponse'),
+    newGetBucketPolicyResponse,
+
+    -- ** PutBucketEncryption
+    PutBucketEncryption (PutBucketEncryption'),
+    newPutBucketEncryption,
+    PutBucketEncryptionResponse (PutBucketEncryptionResponse'),
+    newPutBucketEncryptionResponse,
+
+    -- ** ListBucketMetricsConfigurations
+    ListBucketMetricsConfigurations (ListBucketMetricsConfigurations'),
+    newListBucketMetricsConfigurations,
+    ListBucketMetricsConfigurationsResponse (ListBucketMetricsConfigurationsResponse'),
+    newListBucketMetricsConfigurationsResponse,
+
+    -- ** PutBucketAccelerateConfiguration
+    PutBucketAccelerateConfiguration (PutBucketAccelerateConfiguration'),
+    newPutBucketAccelerateConfiguration,
+    PutBucketAccelerateConfigurationResponse (PutBucketAccelerateConfigurationResponse'),
+    newPutBucketAccelerateConfigurationResponse,
+
+    -- ** PutBucketOwnershipControls
+    PutBucketOwnershipControls (PutBucketOwnershipControls'),
+    newPutBucketOwnershipControls,
+    PutBucketOwnershipControlsResponse (PutBucketOwnershipControlsResponse'),
+    newPutBucketOwnershipControlsResponse,
+
+    -- ** PutObjectRetention
+    PutObjectRetention (PutObjectRetention'),
+    newPutObjectRetention,
+    PutObjectRetentionResponse (PutObjectRetentionResponse'),
+    newPutObjectRetentionResponse,
+
+    -- ** PutObjectLegalHold
+    PutObjectLegalHold (PutObjectLegalHold'),
+    newPutObjectLegalHold,
+    PutObjectLegalHoldResponse (PutObjectLegalHoldResponse'),
+    newPutObjectLegalHoldResponse,
+
+    -- ** HeadObject
+    HeadObject (HeadObject'),
+    newHeadObject,
+    HeadObjectResponse (HeadObjectResponse'),
+    newHeadObjectResponse,
+
+    -- ** GetBucketTagging
+    GetBucketTagging (GetBucketTagging'),
+    newGetBucketTagging,
+    GetBucketTaggingResponse (GetBucketTaggingResponse'),
+    newGetBucketTaggingResponse,
+
+    -- ** GetBucketLocation
+    GetBucketLocation (GetBucketLocation'),
+    newGetBucketLocation,
+    GetBucketLocationResponse (GetBucketLocationResponse'),
+    newGetBucketLocationResponse,
+
+    -- ** PutBucketInventoryConfiguration
+    PutBucketInventoryConfiguration (PutBucketInventoryConfiguration'),
+    newPutBucketInventoryConfiguration,
+    PutBucketInventoryConfigurationResponse (PutBucketInventoryConfigurationResponse'),
+    newPutBucketInventoryConfigurationResponse,
+
+    -- ** ListBucketInventoryConfigurations
+    ListBucketInventoryConfigurations (ListBucketInventoryConfigurations'),
+    newListBucketInventoryConfigurations,
+    ListBucketInventoryConfigurationsResponse (ListBucketInventoryConfigurationsResponse'),
+    newListBucketInventoryConfigurationsResponse,
+
+    -- ** GetObjectAcl
+    GetObjectAcl (GetObjectAcl'),
+    newGetObjectAcl,
+    GetObjectAclResponse (GetObjectAclResponse'),
+    newGetObjectAclResponse,
+
+    -- ** DeletePublicAccessBlock
+    DeletePublicAccessBlock (DeletePublicAccessBlock'),
+    newDeletePublicAccessBlock,
+    DeletePublicAccessBlockResponse (DeletePublicAccessBlockResponse'),
+    newDeletePublicAccessBlockResponse,
+
+    -- ** DeleteBucketIntelligentTieringConfiguration
+    DeleteBucketIntelligentTieringConfiguration (DeleteBucketIntelligentTieringConfiguration'),
+    newDeleteBucketIntelligentTieringConfiguration,
+    DeleteBucketIntelligentTieringConfigurationResponse (DeleteBucketIntelligentTieringConfigurationResponse'),
+    newDeleteBucketIntelligentTieringConfigurationResponse,
+
+    -- ** GetBucketVersioning
+    GetBucketVersioning (GetBucketVersioning'),
+    newGetBucketVersioning,
+    GetBucketVersioningResponse (GetBucketVersioningResponse'),
+    newGetBucketVersioningResponse,
+
+    -- ** PutBucketTagging
+    PutBucketTagging (PutBucketTagging'),
+    newPutBucketTagging,
+    PutBucketTaggingResponse (PutBucketTaggingResponse'),
+    newPutBucketTaggingResponse,
+
+    -- ** CreateBucket
+    CreateBucket (CreateBucket'),
+    newCreateBucket,
+    CreateBucketResponse (CreateBucketResponse'),
+    newCreateBucketResponse,
+
+    -- ** PutObjectAcl
+    PutObjectAcl (PutObjectAcl'),
+    newPutObjectAcl,
+    PutObjectAclResponse (PutObjectAclResponse'),
+    newPutObjectAclResponse,
+
+    -- ** PutBucketCors
+    PutBucketCors (PutBucketCors'),
+    newPutBucketCors,
+    PutBucketCorsResponse (PutBucketCorsResponse'),
+    newPutBucketCorsResponse,
+
+    -- ** GetObjectRetention
+    GetObjectRetention (GetObjectRetention'),
+    newGetObjectRetention,
+    GetObjectRetentionResponse (GetObjectRetentionResponse'),
+    newGetObjectRetentionResponse,
+
+    -- ** GetObjectTorrent
+    GetObjectTorrent (GetObjectTorrent'),
+    newGetObjectTorrent,
+    GetObjectTorrentResponse (GetObjectTorrentResponse'),
+    newGetObjectTorrentResponse,
+
+    -- ** GetBucketOwnershipControls
+    GetBucketOwnershipControls (GetBucketOwnershipControls'),
+    newGetBucketOwnershipControls,
+    GetBucketOwnershipControlsResponse (GetBucketOwnershipControlsResponse'),
+    newGetBucketOwnershipControlsResponse,
+
+    -- ** GetBucketMetricsConfiguration
+    GetBucketMetricsConfiguration (GetBucketMetricsConfiguration'),
+    newGetBucketMetricsConfiguration,
+    GetBucketMetricsConfigurationResponse (GetBucketMetricsConfigurationResponse'),
+    newGetBucketMetricsConfigurationResponse,
+
+    -- ** GetBucketAccelerateConfiguration
+    GetBucketAccelerateConfiguration (GetBucketAccelerateConfiguration'),
+    newGetBucketAccelerateConfiguration,
+    GetBucketAccelerateConfigurationResponse (GetBucketAccelerateConfigurationResponse'),
+    newGetBucketAccelerateConfigurationResponse,
+
+    -- ** GetObjectLegalHold
+    GetObjectLegalHold (GetObjectLegalHold'),
+    newGetObjectLegalHold,
+    GetObjectLegalHoldResponse (GetObjectLegalHoldResponse'),
+    newGetObjectLegalHoldResponse,
+
+    -- ** ListBuckets
+    ListBuckets (ListBuckets'),
+    newListBuckets,
+    ListBucketsResponse (ListBucketsResponse'),
+    newListBucketsResponse,
+
+    -- ** DeleteBucketPolicy
+    DeleteBucketPolicy (DeleteBucketPolicy'),
+    newDeleteBucketPolicy,
+    DeleteBucketPolicyResponse (DeleteBucketPolicyResponse'),
+    newDeleteBucketPolicyResponse,
+
+    -- ** PutObjectLockConfiguration
+    PutObjectLockConfiguration (PutObjectLockConfiguration'),
+    newPutObjectLockConfiguration,
+    PutObjectLockConfigurationResponse (PutObjectLockConfigurationResponse'),
+    newPutObjectLockConfigurationResponse,
+
+    -- ** AbortMultipartUpload
+    AbortMultipartUpload (AbortMultipartUpload'),
+    newAbortMultipartUpload,
+    AbortMultipartUploadResponse (AbortMultipartUploadResponse'),
+    newAbortMultipartUploadResponse,
+
+    -- ** UploadPart
+    UploadPart (UploadPart'),
+    newUploadPart,
+    UploadPartResponse (UploadPartResponse'),
+    newUploadPartResponse,
+
+    -- ** PutObject
+    PutObject (PutObject'),
+    newPutObject,
+    PutObjectResponse (PutObjectResponse'),
+    newPutObjectResponse,
+
+    -- ** PutBucketRequestPayment
+    PutBucketRequestPayment (PutBucketRequestPayment'),
+    newPutBucketRequestPayment,
+    PutBucketRequestPaymentResponse (PutBucketRequestPaymentResponse'),
+    newPutBucketRequestPaymentResponse,
+
+    -- ** ListMultipartUploads (Paginated)
+    ListMultipartUploads (ListMultipartUploads'),
+    newListMultipartUploads,
+    ListMultipartUploadsResponse (ListMultipartUploadsResponse'),
+    newListMultipartUploadsResponse,
+
+    -- ** GetBucketReplication
+    GetBucketReplication (GetBucketReplication'),
+    newGetBucketReplication,
+    GetBucketReplicationResponse (GetBucketReplicationResponse'),
+    newGetBucketReplicationResponse,
+
+    -- ** PutBucketWebsite
+    PutBucketWebsite (PutBucketWebsite'),
+    newPutBucketWebsite,
+    PutBucketWebsiteResponse (PutBucketWebsiteResponse'),
+    newPutBucketWebsiteResponse,
+
+    -- ** PutBucketAnalyticsConfiguration
+    PutBucketAnalyticsConfiguration (PutBucketAnalyticsConfiguration'),
+    newPutBucketAnalyticsConfiguration,
+    PutBucketAnalyticsConfigurationResponse (PutBucketAnalyticsConfigurationResponse'),
+    newPutBucketAnalyticsConfigurationResponse,
 
     -- ** PutObjectTagging
-    , module Network.AWS.S3.PutObjectTagging
+    PutObjectTagging (PutObjectTagging'),
+    newPutObjectTagging,
+    PutObjectTaggingResponse (PutObjectTaggingResponse'),
+    newPutObjectTaggingResponse,
 
-    -- ** PutBucketACL
-    , module Network.AWS.S3.PutBucketACL
+    -- ** UploadPartCopy
+    UploadPartCopy (UploadPartCopy'),
+    newUploadPartCopy,
+    UploadPartCopyResponse (UploadPartCopyResponse'),
+    newUploadPartCopyResponse,
+
+    -- ** CreateMultipartUpload
+    CreateMultipartUpload (CreateMultipartUpload'),
+    newCreateMultipartUpload,
+    CreateMultipartUploadResponse (CreateMultipartUploadResponse'),
+    newCreateMultipartUploadResponse,
+
+    -- ** PutBucketLifecycleConfiguration
+    PutBucketLifecycleConfiguration (PutBucketLifecycleConfiguration'),
+    newPutBucketLifecycleConfiguration,
+    PutBucketLifecycleConfigurationResponse (PutBucketLifecycleConfigurationResponse'),
+    newPutBucketLifecycleConfigurationResponse,
+
+    -- ** PutBucketAcl
+    PutBucketAcl (PutBucketAcl'),
+    newPutBucketAcl,
+    PutBucketAclResponse (PutBucketAclResponse'),
+    newPutBucketAclResponse,
+
+    -- ** DeleteBucketLifecycle
+    DeleteBucketLifecycle (DeleteBucketLifecycle'),
+    newDeleteBucketLifecycle,
+    DeleteBucketLifecycleResponse (DeleteBucketLifecycleResponse'),
+    newDeleteBucketLifecycleResponse,
+
+    -- ** ListBucketAnalyticsConfigurations
+    ListBucketAnalyticsConfigurations (ListBucketAnalyticsConfigurations'),
+    newListBucketAnalyticsConfigurations,
+    ListBucketAnalyticsConfigurationsResponse (ListBucketAnalyticsConfigurationsResponse'),
+    newListBucketAnalyticsConfigurationsResponse,
+
+    -- ** GetBucketAnalyticsConfiguration
+    GetBucketAnalyticsConfiguration (GetBucketAnalyticsConfiguration'),
+    newGetBucketAnalyticsConfiguration,
+    GetBucketAnalyticsConfigurationResponse (GetBucketAnalyticsConfigurationResponse'),
+    newGetBucketAnalyticsConfigurationResponse,
+
+    -- ** HeadBucket
+    HeadBucket (HeadBucket'),
+    newHeadBucket,
+    HeadBucketResponse (HeadBucketResponse'),
+    newHeadBucketResponse,
+
+    -- ** ListObjectVersions (Paginated)
+    ListObjectVersions (ListObjectVersions'),
+    newListObjectVersions,
+    ListObjectVersionsResponse (ListObjectVersionsResponse'),
+    newListObjectVersionsResponse,
+
+    -- ** GetBucketLifecycleConfiguration
+    GetBucketLifecycleConfiguration (GetBucketLifecycleConfiguration'),
+    newGetBucketLifecycleConfiguration,
+    GetBucketLifecycleConfigurationResponse (GetBucketLifecycleConfigurationResponse'),
+    newGetBucketLifecycleConfigurationResponse,
+
+    -- ** ListParts (Paginated)
+    ListParts (ListParts'),
+    newListParts,
+    ListPartsResponse (ListPartsResponse'),
+    newListPartsResponse,
+
+    -- ** GetBucketRequestPayment
+    GetBucketRequestPayment (GetBucketRequestPayment'),
+    newGetBucketRequestPayment,
+    GetBucketRequestPaymentResponse (GetBucketRequestPaymentResponse'),
+    newGetBucketRequestPaymentResponse,
+
+    -- ** DeleteBucketReplication
+    DeleteBucketReplication (DeleteBucketReplication'),
+    newDeleteBucketReplication,
+    DeleteBucketReplicationResponse (DeleteBucketReplicationResponse'),
+    newDeleteBucketReplicationResponse,
+
+    -- ** GetBucketLogging
+    GetBucketLogging (GetBucketLogging'),
+    newGetBucketLogging,
+    GetBucketLoggingResponse (GetBucketLoggingResponse'),
+    newGetBucketLoggingResponse,
+
+    -- ** GetObject
+    GetObject (GetObject'),
+    newGetObject,
+    GetObjectResponse (GetObjectResponse'),
+    newGetObjectResponse,
+
+    -- ** DeleteBucketOwnershipControls
+    DeleteBucketOwnershipControls (DeleteBucketOwnershipControls'),
+    newDeleteBucketOwnershipControls,
+    DeleteBucketOwnershipControlsResponse (DeleteBucketOwnershipControlsResponse'),
+    newDeleteBucketOwnershipControlsResponse,
+
+    -- ** PutBucketMetricsConfiguration
+    PutBucketMetricsConfiguration (PutBucketMetricsConfiguration'),
+    newPutBucketMetricsConfiguration,
+    PutBucketMetricsConfigurationResponse (PutBucketMetricsConfigurationResponse'),
+    newPutBucketMetricsConfigurationResponse,
+
+    -- ** ListObjectsV
+    ListObjectsV (ListObjectsV'),
+    newListObjectsV,
+    ListObjectsVResponse (ListObjectsVResponse'),
+    newListObjectsVResponse,
+
+    -- ** CopyObject
+    CopyObject (CopyObject'),
+    newCopyObject,
+    CopyObjectResponse (CopyObjectResponse'),
+    newCopyObjectResponse,
+
+    -- ** DeleteBucketEncryption
+    DeleteBucketEncryption (DeleteBucketEncryption'),
+    newDeleteBucketEncryption,
+    DeleteBucketEncryptionResponse (DeleteBucketEncryptionResponse'),
+    newDeleteBucketEncryptionResponse,
+
+    -- ** PutBucketVersioning
+    PutBucketVersioning (PutBucketVersioning'),
+    newPutBucketVersioning,
+    PutBucketVersioningResponse (PutBucketVersioningResponse'),
+    newPutBucketVersioningResponse,
+
+    -- ** GetBucketNotificationConfiguration
+    GetBucketNotificationConfiguration (GetBucketNotificationConfiguration'),
+    newGetBucketNotificationConfiguration,
+    NotificationConfiguration (NotificationConfiguration'),
+    newNotificationConfiguration,
+
+    -- ** PutPublicAccessBlock
+    PutPublicAccessBlock (PutPublicAccessBlock'),
+    newPutPublicAccessBlock,
+    PutPublicAccessBlockResponse (PutPublicAccessBlockResponse'),
+    newPutPublicAccessBlockResponse,
+
+    -- ** DeleteBucketInventoryConfiguration
+    DeleteBucketInventoryConfiguration (DeleteBucketInventoryConfiguration'),
+    newDeleteBucketInventoryConfiguration,
+    DeleteBucketInventoryConfigurationResponse (DeleteBucketInventoryConfigurationResponse'),
+    newDeleteBucketInventoryConfigurationResponse,
+
+    -- ** GetBucketIntelligentTieringConfiguration
+    GetBucketIntelligentTieringConfiguration (GetBucketIntelligentTieringConfiguration'),
+    newGetBucketIntelligentTieringConfiguration,
+    GetBucketIntelligentTieringConfigurationResponse (GetBucketIntelligentTieringConfigurationResponse'),
+    newGetBucketIntelligentTieringConfigurationResponse,
+
+    -- ** RestoreObject
+    RestoreObject (RestoreObject'),
+    newRestoreObject,
+    RestoreObjectResponse (RestoreObjectResponse'),
+    newRestoreObjectResponse,
+
+    -- ** GetBucketCors
+    GetBucketCors (GetBucketCors'),
+    newGetBucketCors,
+    GetBucketCorsResponse (GetBucketCorsResponse'),
+    newGetBucketCorsResponse,
+
+    -- ** GetBucketInventoryConfiguration
+    GetBucketInventoryConfiguration (GetBucketInventoryConfiguration'),
+    newGetBucketInventoryConfiguration,
+    GetBucketInventoryConfigurationResponse (GetBucketInventoryConfigurationResponse'),
+    newGetBucketInventoryConfigurationResponse,
+
+    -- ** GetPublicAccessBlock
+    GetPublicAccessBlock (GetPublicAccessBlock'),
+    newGetPublicAccessBlock,
+    GetPublicAccessBlockResponse (GetPublicAccessBlockResponse'),
+    newGetPublicAccessBlockResponse,
+
+    -- ** DeleteBucketCors
+    DeleteBucketCors (DeleteBucketCors'),
+    newDeleteBucketCors,
+    DeleteBucketCorsResponse (DeleteBucketCorsResponse'),
+    newDeleteBucketCorsResponse,
+
+    -- ** DeleteBucketTagging
+    DeleteBucketTagging (DeleteBucketTagging'),
+    newDeleteBucketTagging,
+    DeleteBucketTaggingResponse (DeleteBucketTaggingResponse'),
+    newDeleteBucketTaggingResponse,
+
+    -- ** ListBucketIntelligentTieringConfigurations
+    ListBucketIntelligentTieringConfigurations (ListBucketIntelligentTieringConfigurations'),
+    newListBucketIntelligentTieringConfigurations,
+    ListBucketIntelligentTieringConfigurationsResponse (ListBucketIntelligentTieringConfigurationsResponse'),
+    newListBucketIntelligentTieringConfigurationsResponse,
+
+    -- ** PutBucketNotificationConfiguration
+    PutBucketNotificationConfiguration (PutBucketNotificationConfiguration'),
+    newPutBucketNotificationConfiguration,
+    PutBucketNotificationConfigurationResponse (PutBucketNotificationConfigurationResponse'),
+    newPutBucketNotificationConfigurationResponse,
+
+    -- ** PutBucketIntelligentTieringConfiguration
+    PutBucketIntelligentTieringConfiguration (PutBucketIntelligentTieringConfiguration'),
+    newPutBucketIntelligentTieringConfiguration,
+    PutBucketIntelligentTieringConfigurationResponse (PutBucketIntelligentTieringConfigurationResponse'),
+    newPutBucketIntelligentTieringConfigurationResponse,
 
     -- * Types
 
     -- ** Common
-    , module Network.AWS.S3.Internal
+    module Network.AWS.S3.Internal,
 
     -- ** AnalyticsS3ExportFileFormat
-    , AnalyticsS3ExportFileFormat (..)
+    AnalyticsS3ExportFileFormat (..),
+
+    -- ** ArchiveStatus
+    ArchiveStatus (..),
 
     -- ** BucketAccelerateStatus
-    , BucketAccelerateStatus (..)
+    BucketAccelerateStatus (..),
 
     -- ** BucketCannedACL
-    , BucketCannedACL (..)
+    BucketCannedACL (..),
 
     -- ** BucketLogsPermission
-    , BucketLogsPermission (..)
+    BucketLogsPermission (..),
 
     -- ** BucketVersioningStatus
-    , BucketVersioningStatus (..)
+    BucketVersioningStatus (..),
 
     -- ** CompressionType
-    , CompressionType (..)
+    CompressionType (..),
+
+    -- ** DeleteMarkerReplicationStatus
+    DeleteMarkerReplicationStatus (..),
 
     -- ** EncodingType
-    , EncodingType (..)
+    EncodingType (..),
 
     -- ** Event
-    , Event (..)
+    Event (..),
+
+    -- ** ExistingObjectReplicationStatus
+    ExistingObjectReplicationStatus (..),
 
     -- ** ExpirationStatus
-    , ExpirationStatus (..)
+    ExpirationStatus (..),
 
     -- ** ExpressionType
-    , ExpressionType (..)
+    ExpressionType (..),
 
     -- ** FileHeaderInfo
-    , FileHeaderInfo (..)
+    FileHeaderInfo (..),
 
     -- ** FilterRuleName
-    , FilterRuleName (..)
+    FilterRuleName (..),
+
+    -- ** IntelligentTieringAccessTier
+    IntelligentTieringAccessTier (..),
+
+    -- ** IntelligentTieringStatus
+    IntelligentTieringStatus (..),
 
     -- ** InventoryFormat
-    , InventoryFormat (..)
+    InventoryFormat (..),
 
     -- ** InventoryFrequency
-    , InventoryFrequency (..)
+    InventoryFrequency (..),
 
     -- ** InventoryIncludedObjectVersions
-    , InventoryIncludedObjectVersions (..)
+    InventoryIncludedObjectVersions (..),
 
     -- ** InventoryOptionalField
-    , InventoryOptionalField (..)
+    InventoryOptionalField (..),
 
     -- ** JSONType
-    , JSONType (..)
+    JSONType (..),
 
     -- ** MFADelete
-    , MFADelete (..)
+    MFADelete (..),
 
     -- ** MFADeleteStatus
-    , MFADeleteStatus (..)
+    MFADeleteStatus (..),
 
     -- ** MetadataDirective
-    , MetadataDirective (..)
+    MetadataDirective (..),
+
+    -- ** MetricsStatus
+    MetricsStatus (..),
 
     -- ** ObjectCannedACL
-    , ObjectCannedACL (..)
+    ObjectCannedACL (..),
+
+    -- ** ObjectLockEnabled
+    ObjectLockEnabled (..),
+
+    -- ** ObjectLockLegalHoldStatus
+    ObjectLockLegalHoldStatus (..),
+
+    -- ** ObjectLockMode
+    ObjectLockMode (..),
+
+    -- ** ObjectLockRetentionMode
+    ObjectLockRetentionMode (..),
+
+    -- ** ObjectOwnership
+    ObjectOwnership (..),
 
     -- ** ObjectStorageClass
-    , ObjectStorageClass (..)
+    ObjectStorageClass (..),
 
     -- ** ObjectVersionStorageClass
-    , ObjectVersionStorageClass (..)
+    ObjectVersionStorageClass (..),
 
     -- ** OwnerOverride
-    , OwnerOverride (..)
+    OwnerOverride (..),
 
     -- ** Payer
-    , Payer (..)
+    Payer (..),
 
     -- ** Permission
-    , Permission (..)
+    Permission (..),
 
     -- ** Protocol
-    , Protocol (..)
+    Protocol (..),
 
     -- ** QuoteFields
-    , QuoteFields (..)
+    QuoteFields (..),
+
+    -- ** ReplicaModificationsStatus
+    ReplicaModificationsStatus (..),
 
     -- ** ReplicationRuleStatus
-    , ReplicationRuleStatus (..)
+    ReplicationRuleStatus (..),
 
     -- ** ReplicationStatus
-    , ReplicationStatus (..)
+    ReplicationStatus (..),
+
+    -- ** ReplicationTimeStatus
+    ReplicationTimeStatus (..),
 
     -- ** RequestCharged
-    , RequestCharged (..)
+    RequestCharged (..),
 
     -- ** RequestPayer
-    , RequestPayer (..)
+    RequestPayer (..),
 
     -- ** RestoreRequestType
-    , RestoreRequestType (..)
+    RestoreRequestType (..),
 
     -- ** ServerSideEncryption
-    , ServerSideEncryption (..)
+    ServerSideEncryption (..),
 
-    -- ** SseKMSEncryptedObjectsStatus
-    , SseKMSEncryptedObjectsStatus (..)
+    -- ** SseKmsEncryptedObjectsStatus
+    SseKmsEncryptedObjectsStatus (..),
 
     -- ** StorageClass
-    , StorageClass (..)
+    StorageClass (..),
 
     -- ** StorageClassAnalysisSchemaVersion
-    , StorageClassAnalysisSchemaVersion (..)
+    StorageClassAnalysisSchemaVersion (..),
 
     -- ** TaggingDirective
-    , TaggingDirective (..)
+    TaggingDirective (..),
 
     -- ** Tier
-    , Tier (..)
+    Tier (..),
 
     -- ** TransitionStorageClass
-    , TransitionStorageClass (..)
+    TransitionStorageClass (..),
 
     -- ** Type
-    , Type (..)
+    Type (..),
 
     -- ** AbortIncompleteMultipartUpload
-    , AbortIncompleteMultipartUpload
-    , abortIncompleteMultipartUpload
-    , aimuDaysAfterInitiation
+    AbortIncompleteMultipartUpload (AbortIncompleteMultipartUpload'),
+    newAbortIncompleteMultipartUpload,
 
     -- ** AccelerateConfiguration
-    , AccelerateConfiguration
-    , accelerateConfiguration
-    , acStatus
+    AccelerateConfiguration (AccelerateConfiguration'),
+    newAccelerateConfiguration,
 
     -- ** AccessControlPolicy
-    , AccessControlPolicy
-    , accessControlPolicy
-    , acpGrants
-    , acpOwner
+    AccessControlPolicy (AccessControlPolicy'),
+    newAccessControlPolicy,
 
     -- ** AccessControlTranslation
-    , AccessControlTranslation
-    , accessControlTranslation
-    , actOwner
+    AccessControlTranslation (AccessControlTranslation'),
+    newAccessControlTranslation,
 
     -- ** AnalyticsAndOperator
-    , AnalyticsAndOperator
-    , analyticsAndOperator
-    , aaoPrefix
-    , aaoTags
+    AnalyticsAndOperator (AnalyticsAndOperator'),
+    newAnalyticsAndOperator,
 
     -- ** AnalyticsConfiguration
-    , AnalyticsConfiguration
-    , analyticsConfiguration
-    , acFilter
-    , acId
-    , acStorageClassAnalysis
+    AnalyticsConfiguration (AnalyticsConfiguration'),
+    newAnalyticsConfiguration,
 
     -- ** AnalyticsExportDestination
-    , AnalyticsExportDestination
-    , analyticsExportDestination
-    , aedS3BucketDestination
+    AnalyticsExportDestination (AnalyticsExportDestination'),
+    newAnalyticsExportDestination,
 
     -- ** AnalyticsFilter
-    , AnalyticsFilter
-    , analyticsFilter
-    , afTag
-    , afPrefix
-    , afAnd
+    AnalyticsFilter (AnalyticsFilter'),
+    newAnalyticsFilter,
 
     -- ** AnalyticsS3BucketDestination
-    , AnalyticsS3BucketDestination
-    , analyticsS3BucketDestination
-    , asbdBucketAccountId
-    , asbdPrefix
-    , asbdFormat
-    , asbdBucket
+    AnalyticsS3BucketDestination (AnalyticsS3BucketDestination'),
+    newAnalyticsS3BucketDestination,
 
     -- ** Bucket
-    , Bucket
-    , bucket
-    , bCreationDate
-    , bName
+    Bucket (Bucket'),
+    newBucket,
 
     -- ** BucketLifecycleConfiguration
-    , BucketLifecycleConfiguration
-    , bucketLifecycleConfiguration
-    , blcRules
+    BucketLifecycleConfiguration (BucketLifecycleConfiguration'),
+    newBucketLifecycleConfiguration,
 
     -- ** BucketLoggingStatus
-    , BucketLoggingStatus
-    , bucketLoggingStatus
-    , blsLoggingEnabled
+    BucketLoggingStatus (BucketLoggingStatus'),
+    newBucketLoggingStatus,
 
     -- ** CORSConfiguration
-    , CORSConfiguration
-    , corsConfiguration
-    , ccCORSRules
+    CORSConfiguration (CORSConfiguration'),
+    newCORSConfiguration,
 
     -- ** CORSRule
-    , CORSRule
-    , corsRule
-    , crMaxAgeSeconds
-    , crAllowedHeaders
-    , crExposeHeaders
-    , crAllowedMethods
-    , crAllowedOrigins
+    CORSRule (CORSRule'),
+    newCORSRule,
 
     -- ** CSVInput
-    , CSVInput
-    , csvInput
-    , ciQuoteCharacter
-    , ciRecordDelimiter
-    , ciFileHeaderInfo
-    , ciQuoteEscapeCharacter
-    , ciComments
-    , ciFieldDelimiter
+    CSVInput (CSVInput'),
+    newCSVInput,
 
     -- ** CSVOutput
-    , CSVOutput
-    , csvOutput
-    , coQuoteCharacter
-    , coQuoteFields
-    , coRecordDelimiter
-    , coQuoteEscapeCharacter
-    , coFieldDelimiter
+    CSVOutput (CSVOutput'),
+    newCSVOutput,
 
     -- ** CommonPrefix
-    , CommonPrefix
-    , commonPrefix
-    , cpPrefix
+    CommonPrefix (CommonPrefix'),
+    newCommonPrefix,
 
     -- ** CompletedMultipartUpload
-    , CompletedMultipartUpload
-    , completedMultipartUpload
-    , cmuParts
+    CompletedMultipartUpload (CompletedMultipartUpload'),
+    newCompletedMultipartUpload,
 
     -- ** CompletedPart
-    , CompletedPart
-    , completedPart
-    , cpPartNumber
-    , cpETag
+    CompletedPart (CompletedPart'),
+    newCompletedPart,
 
     -- ** Condition
-    , Condition
-    , condition
-    , cKeyPrefixEquals
-    , cHTTPErrorCodeReturnedEquals
+    Condition (Condition'),
+    newCondition,
 
     -- ** ContinuationEvent
-    , ContinuationEvent
-    , continuationEvent
+    ContinuationEvent (ContinuationEvent'),
+    newContinuationEvent,
 
     -- ** CopyObjectResult
-    , CopyObjectResult
-    , copyObjectResult
-    , corETag
-    , corLastModified
+    CopyObjectResult (CopyObjectResult'),
+    newCopyObjectResult,
 
     -- ** CopyPartResult
-    , CopyPartResult
-    , copyPartResult
-    , cprETag
-    , cprLastModified
+    CopyPartResult (CopyPartResult'),
+    newCopyPartResult,
 
     -- ** CreateBucketConfiguration
-    , CreateBucketConfiguration
-    , createBucketConfiguration
-    , cbcLocationConstraint
+    CreateBucketConfiguration (CreateBucketConfiguration'),
+    newCreateBucketConfiguration,
+
+    -- ** DefaultRetention
+    DefaultRetention (DefaultRetention'),
+    newDefaultRetention,
 
     -- ** Delete
-    , Delete
-    , delete'
-    , dQuiet
-    , dObjects
+    Delete (Delete'),
+    newDelete,
 
     -- ** DeleteMarkerEntry
-    , DeleteMarkerEntry
-    , deleteMarkerEntry
-    , dmeVersionId
-    , dmeIsLatest
-    , dmeOwner
-    , dmeKey
-    , dmeLastModified
+    DeleteMarkerEntry (DeleteMarkerEntry'),
+    newDeleteMarkerEntry,
+
+    -- ** DeleteMarkerReplication
+    DeleteMarkerReplication (DeleteMarkerReplication'),
+    newDeleteMarkerReplication,
 
     -- ** DeletedObject
-    , DeletedObject
-    , deletedObject
-    , dVersionId
-    , dDeleteMarker
-    , dDeleteMarkerVersionId
-    , dKey
+    DeletedObject (DeletedObject'),
+    newDeletedObject,
 
     -- ** Destination
-    , Destination
-    , destination
-    , dAccessControlTranslation
-    , dAccount
-    , dStorageClass
-    , dEncryptionConfiguration
-    , dBucket
+    Destination (Destination'),
+    newDestination,
 
     -- ** Encryption
-    , Encryption
-    , encryption
-    , eKMSKeyId
-    , eKMSContext
-    , eEncryptionType
+    Encryption (Encryption'),
+    newEncryption,
 
     -- ** EncryptionConfiguration
-    , EncryptionConfiguration
-    , encryptionConfiguration
-    , ecReplicaKMSKeyId
+    EncryptionConfiguration (EncryptionConfiguration'),
+    newEncryptionConfiguration,
 
     -- ** EndEvent
-    , EndEvent
-    , endEvent
+    EndEvent (EndEvent'),
+    newEndEvent,
 
     -- ** ErrorDocument
-    , ErrorDocument
-    , errorDocument
-    , edKey
+    ErrorDocument (ErrorDocument'),
+    newErrorDocument,
+
+    -- ** ExistingObjectReplication
+    ExistingObjectReplication (ExistingObjectReplication'),
+    newExistingObjectReplication,
 
     -- ** FilterRule
-    , FilterRule
-    , filterRule
-    , frValue
-    , frName
+    FilterRule (FilterRule'),
+    newFilterRule,
 
     -- ** GlacierJobParameters
-    , GlacierJobParameters
-    , glacierJobParameters
-    , gjpTier
+    GlacierJobParameters (GlacierJobParameters'),
+    newGlacierJobParameters,
 
     -- ** Grant
-    , Grant
-    , grant
-    , gPermission
-    , gGrantee
+    Grant (Grant'),
+    newGrant,
 
     -- ** Grantee
-    , Grantee
-    , grantee
-    , gURI
-    , gEmailAddress
-    , gDisplayName
-    , gId
-    , gType
+    Grantee (Grantee'),
+    newGrantee,
 
     -- ** IndexDocument
-    , IndexDocument
-    , indexDocument
-    , idSuffix
+    IndexDocument (IndexDocument'),
+    newIndexDocument,
 
     -- ** Initiator
-    , Initiator
-    , initiator
-    , iDisplayName
-    , iId
+    Initiator (Initiator'),
+    newInitiator,
 
     -- ** InputSerialization
-    , InputSerialization
-    , inputSerialization
-    , isJSON
-    , isCSV
-    , isCompressionType
+    InputSerialization (InputSerialization'),
+    newInputSerialization,
+
+    -- ** IntelligentTieringAndOperator
+    IntelligentTieringAndOperator (IntelligentTieringAndOperator'),
+    newIntelligentTieringAndOperator,
+
+    -- ** IntelligentTieringConfiguration
+    IntelligentTieringConfiguration (IntelligentTieringConfiguration'),
+    newIntelligentTieringConfiguration,
+
+    -- ** IntelligentTieringFilter
+    IntelligentTieringFilter (IntelligentTieringFilter'),
+    newIntelligentTieringFilter,
 
     -- ** InventoryConfiguration
-    , InventoryConfiguration
-    , inventoryConfiguration
-    , icOptionalFields
-    , icFilter
-    , icDestination
-    , icIsEnabled
-    , icId
-    , icIncludedObjectVersions
-    , icSchedule
+    InventoryConfiguration (InventoryConfiguration'),
+    newInventoryConfiguration,
 
     -- ** InventoryDestination
-    , InventoryDestination
-    , inventoryDestination
-    , idS3BucketDestination
+    InventoryDestination (InventoryDestination'),
+    newInventoryDestination,
 
     -- ** InventoryEncryption
-    , InventoryEncryption
-    , inventoryEncryption
-    , ieSSES3
-    , ieSSEKMS
+    InventoryEncryption (InventoryEncryption'),
+    newInventoryEncryption,
 
     -- ** InventoryFilter
-    , InventoryFilter
-    , inventoryFilter
-    , ifPrefix
+    InventoryFilter (InventoryFilter'),
+    newInventoryFilter,
 
     -- ** InventoryS3BucketDestination
-    , InventoryS3BucketDestination
-    , inventoryS3BucketDestination
-    , isbdPrefix
-    , isbdAccountId
-    , isbdEncryption
-    , isbdBucket
-    , isbdFormat
+    InventoryS3BucketDestination (InventoryS3BucketDestination'),
+    newInventoryS3BucketDestination,
 
     -- ** InventorySchedule
-    , InventorySchedule
-    , inventorySchedule
-    , isFrequency
+    InventorySchedule (InventorySchedule'),
+    newInventorySchedule,
 
     -- ** JSONInput
-    , JSONInput
-    , jsonInput
-    , jiType
+    JSONInput (JSONInput'),
+    newJSONInput,
 
     -- ** JSONOutput
-    , JSONOutput
-    , jsonOutput
-    , joRecordDelimiter
+    JSONOutput (JSONOutput'),
+    newJSONOutput,
 
     -- ** LambdaFunctionConfiguration
-    , LambdaFunctionConfiguration
-    , lambdaFunctionConfiguration
-    , lfcId
-    , lfcFilter
-    , lfcLambdaFunctionARN
-    , lfcEvents
+    LambdaFunctionConfiguration (LambdaFunctionConfiguration'),
+    newLambdaFunctionConfiguration,
 
     -- ** LifecycleExpiration
-    , LifecycleExpiration
-    , lifecycleExpiration
-    , leDays
-    , leDate
-    , leExpiredObjectDeleteMarker
+    LifecycleExpiration (LifecycleExpiration'),
+    newLifecycleExpiration,
 
     -- ** LifecycleRule
-    , LifecycleRule
-    , lifecycleRule
-    , lrTransitions
-    , lrNoncurrentVersionExpiration
-    , lrPrefix
-    , lrNoncurrentVersionTransitions
-    , lrExpiration
-    , lrId
-    , lrFilter
-    , lrAbortIncompleteMultipartUpload
-    , lrStatus
+    LifecycleRule (LifecycleRule'),
+    newLifecycleRule,
 
     -- ** LifecycleRuleAndOperator
-    , LifecycleRuleAndOperator
-    , lifecycleRuleAndOperator
-    , lraoPrefix
-    , lraoTags
+    LifecycleRuleAndOperator (LifecycleRuleAndOperator'),
+    newLifecycleRuleAndOperator,
 
     -- ** LifecycleRuleFilter
-    , LifecycleRuleFilter
-    , lifecycleRuleFilter
-    , lrfTag
-    , lrfPrefix
-    , lrfAnd
+    LifecycleRuleFilter (LifecycleRuleFilter'),
+    newLifecycleRuleFilter,
 
     -- ** LoggingEnabled
-    , LoggingEnabled
-    , loggingEnabled
-    , leTargetGrants
-    , leTargetBucket
-    , leTargetPrefix
+    LoggingEnabled (LoggingEnabled'),
+    newLoggingEnabled,
 
     -- ** MetadataEntry
-    , MetadataEntry
-    , metadataEntry
-    , meValue
-    , meName
+    MetadataEntry (MetadataEntry'),
+    newMetadataEntry,
+
+    -- ** Metrics
+    Metrics (Metrics'),
+    newMetrics,
 
     -- ** MetricsAndOperator
-    , MetricsAndOperator
-    , metricsAndOperator
-    , maoPrefix
-    , maoTags
+    MetricsAndOperator (MetricsAndOperator'),
+    newMetricsAndOperator,
 
     -- ** MetricsConfiguration
-    , MetricsConfiguration
-    , metricsConfiguration
-    , mcFilter
-    , mcId
+    MetricsConfiguration (MetricsConfiguration'),
+    newMetricsConfiguration,
 
     -- ** MetricsFilter
-    , MetricsFilter
-    , metricsFilter
-    , mfTag
-    , mfPrefix
-    , mfAnd
+    MetricsFilter (MetricsFilter'),
+    newMetricsFilter,
 
     -- ** MultipartUpload
-    , MultipartUpload
-    , multipartUpload
-    , muInitiated
-    , muInitiator
-    , muOwner
-    , muKey
-    , muStorageClass
-    , muUploadId
+    MultipartUpload (MultipartUpload'),
+    newMultipartUpload,
 
     -- ** NoncurrentVersionExpiration
-    , NoncurrentVersionExpiration
-    , noncurrentVersionExpiration
-    , nveNoncurrentDays
+    NoncurrentVersionExpiration (NoncurrentVersionExpiration'),
+    newNoncurrentVersionExpiration,
 
     -- ** NoncurrentVersionTransition
-    , NoncurrentVersionTransition
-    , noncurrentVersionTransition
-    , nvtNoncurrentDays
-    , nvtStorageClass
+    NoncurrentVersionTransition (NoncurrentVersionTransition'),
+    newNoncurrentVersionTransition,
 
     -- ** NotificationConfiguration
-    , NotificationConfiguration
-    , notificationConfiguration
-    , ncQueueConfigurations
-    , ncTopicConfigurations
-    , ncLambdaFunctionConfigurations
+    NotificationConfiguration (NotificationConfiguration'),
+    newNotificationConfiguration,
 
     -- ** NotificationConfigurationFilter
-    , NotificationConfigurationFilter
-    , notificationConfigurationFilter
-    , ncfKey
+    NotificationConfigurationFilter (NotificationConfigurationFilter'),
+    newNotificationConfigurationFilter,
 
     -- ** Object
-    , Object
-    , object'
-    , oOwner
-    , oETag
-    , oSize
-    , oKey
-    , oStorageClass
-    , oLastModified
+    Object (Object'),
+    newObject,
 
     -- ** ObjectIdentifier
-    , ObjectIdentifier
-    , objectIdentifier
-    , oiVersionId
-    , oiKey
+    ObjectIdentifier (ObjectIdentifier'),
+    newObjectIdentifier,
+
+    -- ** ObjectLockConfiguration
+    ObjectLockConfiguration (ObjectLockConfiguration'),
+    newObjectLockConfiguration,
+
+    -- ** ObjectLockLegalHold
+    ObjectLockLegalHold (ObjectLockLegalHold'),
+    newObjectLockLegalHold,
+
+    -- ** ObjectLockRetention
+    ObjectLockRetention (ObjectLockRetention'),
+    newObjectLockRetention,
+
+    -- ** ObjectLockRule
+    ObjectLockRule (ObjectLockRule'),
+    newObjectLockRule,
 
     -- ** ObjectVersion
-    , ObjectVersion
-    , objectVersion
-    , ovETag
-    , ovVersionId
-    , ovSize
-    , ovIsLatest
-    , ovOwner
-    , ovKey
-    , ovStorageClass
-    , ovLastModified
+    ObjectVersion (ObjectVersion'),
+    newObjectVersion,
 
     -- ** OutputLocation
-    , OutputLocation
-    , outputLocation
-    , olS3
+    OutputLocation (OutputLocation'),
+    newOutputLocation,
 
     -- ** OutputSerialization
-    , OutputSerialization
-    , outputSerialization
-    , osJSON
-    , osCSV
+    OutputSerialization (OutputSerialization'),
+    newOutputSerialization,
 
     -- ** Owner
-    , Owner
-    , owner
-    , oDisplayName
-    , oId
+    Owner (Owner'),
+    newOwner,
+
+    -- ** OwnershipControls
+    OwnershipControls (OwnershipControls'),
+    newOwnershipControls,
+
+    -- ** OwnershipControlsRule
+    OwnershipControlsRule (OwnershipControlsRule'),
+    newOwnershipControlsRule,
+
+    -- ** ParquetInput
+    ParquetInput (ParquetInput'),
+    newParquetInput,
 
     -- ** Part
-    , Part
-    , part
-    , pETag
-    , pSize
-    , pPartNumber
-    , pLastModified
+    Part (Part'),
+    newPart,
+
+    -- ** PolicyStatus
+    PolicyStatus (PolicyStatus'),
+    newPolicyStatus,
 
     -- ** Progress
-    , Progress
-    , progress
-    , pBytesReturned
-    , pBytesScanned
-    , pBytesProcessed
+    Progress (Progress'),
+    newProgress,
 
     -- ** ProgressEvent
-    , ProgressEvent
-    , progressEvent
-    , peDetails
+    ProgressEvent (ProgressEvent'),
+    newProgressEvent,
+
+    -- ** PublicAccessBlockConfiguration
+    PublicAccessBlockConfiguration (PublicAccessBlockConfiguration'),
+    newPublicAccessBlockConfiguration,
 
     -- ** QueueConfiguration
-    , QueueConfiguration
-    , queueConfiguration
-    , qcId
-    , qcFilter
-    , qcQueueARN
-    , qcEvents
+    QueueConfiguration (QueueConfiguration'),
+    newQueueConfiguration,
 
     -- ** RecordsEvent
-    , RecordsEvent
-    , recordsEvent
-    , rePayload
+    RecordsEvent (RecordsEvent'),
+    newRecordsEvent,
 
     -- ** Redirect
-    , Redirect
-    , redirect
-    , rHostName
-    , rProtocol
-    , rHTTPRedirectCode
-    , rReplaceKeyWith
-    , rReplaceKeyPrefixWith
+    Redirect (Redirect'),
+    newRedirect,
 
     -- ** RedirectAllRequestsTo
-    , RedirectAllRequestsTo
-    , redirectAllRequestsTo
-    , rartProtocol
-    , rartHostName
+    RedirectAllRequestsTo (RedirectAllRequestsTo'),
+    newRedirectAllRequestsTo,
+
+    -- ** ReplicaModifications
+    ReplicaModifications (ReplicaModifications'),
+    newReplicaModifications,
 
     -- ** ReplicationConfiguration
-    , ReplicationConfiguration
-    , replicationConfiguration
-    , rcRole
-    , rcRules
+    ReplicationConfiguration (ReplicationConfiguration'),
+    newReplicationConfiguration,
 
     -- ** ReplicationRule
-    , ReplicationRule
-    , replicationRule
-    , rrId
-    , rrSourceSelectionCriteria
-    , rrPrefix
-    , rrStatus
-    , rrDestination
+    ReplicationRule (ReplicationRule'),
+    newReplicationRule,
+
+    -- ** ReplicationRuleAndOperator
+    ReplicationRuleAndOperator (ReplicationRuleAndOperator'),
+    newReplicationRuleAndOperator,
+
+    -- ** ReplicationRuleFilter
+    ReplicationRuleFilter (ReplicationRuleFilter'),
+    newReplicationRuleFilter,
+
+    -- ** ReplicationTime
+    ReplicationTime (ReplicationTime'),
+    newReplicationTime,
+
+    -- ** ReplicationTimeValue
+    ReplicationTimeValue (ReplicationTimeValue'),
+    newReplicationTimeValue,
 
     -- ** RequestPaymentConfiguration
-    , RequestPaymentConfiguration
-    , requestPaymentConfiguration
-    , rpcPayer
+    RequestPaymentConfiguration (RequestPaymentConfiguration'),
+    newRequestPaymentConfiguration,
 
     -- ** RequestProgress
-    , RequestProgress
-    , requestProgress
-    , rpEnabled
+    RequestProgress (RequestProgress'),
+    newRequestProgress,
 
     -- ** RestoreRequest
-    , RestoreRequest
-    , restoreRequest
-    , rrDays
-    , rrSelectParameters
-    , rrOutputLocation
-    , rrTier
-    , rrGlacierJobParameters
-    , rrType
-    , rrDescription
+    RestoreRequest (RestoreRequest'),
+    newRestoreRequest,
 
     -- ** RoutingRule
-    , RoutingRule
-    , routingRule
-    , rrCondition
-    , rrRedirect
+    RoutingRule (RoutingRule'),
+    newRoutingRule,
 
     -- ** S3KeyFilter
-    , S3KeyFilter
-    , s3KeyFilter
-    , skfFilterRules
+    S3KeyFilter (S3KeyFilter'),
+    newS3KeyFilter,
 
     -- ** S3Location
-    , S3Location
-    , s3Location
-    , slCannedACL
-    , slAccessControlList
-    , slUserMetadata
-    , slEncryption
-    , slStorageClass
-    , slTagging
-    , slBucketName
-    , slPrefix
+    S3Location (S3Location'),
+    newS3Location,
 
     -- ** S3ServiceError
-    , S3ServiceError
-    , s3ServiceError
-    , sseVersionId
-    , sseKey
-    , sseCode
-    , sseMessage
+    S3ServiceError (S3ServiceError'),
+    newS3ServiceError,
 
     -- ** SSEKMS
-    , SSEKMS
-    , sSEKMS
-    , ssekKeyId
+    SSEKMS (SSEKMS'),
+    newSSEKMS,
 
     -- ** SSES3
-    , SSES3
-    , sSES3
+    SSES3 (SSES3'),
+    newSSES3,
+
+    -- ** ScanRange
+    ScanRange (ScanRange'),
+    newScanRange,
 
     -- ** SelectObjectContentEventStream
-    , SelectObjectContentEventStream
-    , selectObjectContentEventStream
-    , socesProgress
-    , socesRecords
-    , socesCont
-    , socesStats
-    , socesEnd
+    SelectObjectContentEventStream (SelectObjectContentEventStream'),
+    newSelectObjectContentEventStream,
 
     -- ** SelectParameters
-    , SelectParameters
-    , selectParameters
-    , spInputSerialization
-    , spExpressionType
-    , spExpression
-    , spOutputSerialization
+    SelectParameters (SelectParameters'),
+    newSelectParameters,
 
     -- ** ServerSideEncryptionByDefault
-    , ServerSideEncryptionByDefault
-    , serverSideEncryptionByDefault
-    , ssebdKMSMasterKeyId
-    , ssebdSSEAlgorithm
+    ServerSideEncryptionByDefault (ServerSideEncryptionByDefault'),
+    newServerSideEncryptionByDefault,
 
     -- ** ServerSideEncryptionConfiguration
-    , ServerSideEncryptionConfiguration
-    , serverSideEncryptionConfiguration
-    , ssecRules
+    ServerSideEncryptionConfiguration (ServerSideEncryptionConfiguration'),
+    newServerSideEncryptionConfiguration,
 
     -- ** ServerSideEncryptionRule
-    , ServerSideEncryptionRule
-    , serverSideEncryptionRule
-    , sserApplyServerSideEncryptionByDefault
+    ServerSideEncryptionRule (ServerSideEncryptionRule'),
+    newServerSideEncryptionRule,
 
     -- ** SourceSelectionCriteria
-    , SourceSelectionCriteria
-    , sourceSelectionCriteria
-    , sscSseKMSEncryptedObjects
+    SourceSelectionCriteria (SourceSelectionCriteria'),
+    newSourceSelectionCriteria,
 
-    -- ** SseKMSEncryptedObjects
-    , SseKMSEncryptedObjects
-    , sseKMSEncryptedObjects
-    , skeoStatus
+    -- ** SseKmsEncryptedObjects
+    SseKmsEncryptedObjects (SseKmsEncryptedObjects'),
+    newSseKmsEncryptedObjects,
 
     -- ** Stats
-    , Stats
-    , stats
-    , sBytesReturned
-    , sBytesScanned
-    , sBytesProcessed
+    Stats (Stats'),
+    newStats,
 
     -- ** StatsEvent
-    , StatsEvent
-    , statsEvent
-    , seDetails
+    StatsEvent (StatsEvent'),
+    newStatsEvent,
 
     -- ** StorageClassAnalysis
-    , StorageClassAnalysis
-    , storageClassAnalysis
-    , scaDataExport
+    StorageClassAnalysis (StorageClassAnalysis'),
+    newStorageClassAnalysis,
 
     -- ** StorageClassAnalysisDataExport
-    , StorageClassAnalysisDataExport
-    , storageClassAnalysisDataExport
-    , scadeOutputSchemaVersion
-    , scadeDestination
+    StorageClassAnalysisDataExport (StorageClassAnalysisDataExport'),
+    newStorageClassAnalysisDataExport,
 
     -- ** Tag
-    , Tag
-    , tag
-    , tagKey
-    , tagValue
+    Tag (Tag'),
+    newTag,
 
     -- ** Tagging
-    , Tagging
-    , tagging
-    , tTagSet
+    Tagging (Tagging'),
+    newTagging,
 
     -- ** TargetGrant
-    , TargetGrant
-    , targetGrant
-    , tgPermission
-    , tgGrantee
+    TargetGrant (TargetGrant'),
+    newTargetGrant,
+
+    -- ** Tiering
+    Tiering (Tiering'),
+    newTiering,
 
     -- ** TopicConfiguration
-    , TopicConfiguration
-    , topicConfiguration
-    , tcId
-    , tcFilter
-    , tcTopicARN
-    , tcEvents
+    TopicConfiguration (TopicConfiguration'),
+    newTopicConfiguration,
 
     -- ** Transition
-    , Transition
-    , transition
-    , tDays
-    , tDate
-    , tStorageClass
+    Transition (Transition'),
+    newTransition,
 
     -- ** VersioningConfiguration
-    , VersioningConfiguration
-    , versioningConfiguration
-    , vcStatus
-    , vcMFADelete
+    VersioningConfiguration (VersioningConfiguration'),
+    newVersioningConfiguration,
 
     -- ** WebsiteConfiguration
-    , WebsiteConfiguration
-    , websiteConfiguration
-    , wcRedirectAllRequestsTo
-    , wcErrorDocument
-    , wcIndexDocument
-    , wcRoutingRules
-    ) where
+    WebsiteConfiguration (WebsiteConfiguration'),
+    newWebsiteConfiguration,
+  )
+where
 
 import Network.AWS.S3.AbortMultipartUpload
 import Network.AWS.S3.CompleteMultipartUpload
@@ -1098,61 +1297,75 @@ import Network.AWS.S3.CreateBucket
 import Network.AWS.S3.CreateMultipartUpload
 import Network.AWS.S3.DeleteBucket
 import Network.AWS.S3.DeleteBucketAnalyticsConfiguration
-import Network.AWS.S3.DeleteBucketCORS
+import Network.AWS.S3.DeleteBucketCors
 import Network.AWS.S3.DeleteBucketEncryption
+import Network.AWS.S3.DeleteBucketIntelligentTieringConfiguration
 import Network.AWS.S3.DeleteBucketInventoryConfiguration
 import Network.AWS.S3.DeleteBucketLifecycle
 import Network.AWS.S3.DeleteBucketMetricsConfiguration
+import Network.AWS.S3.DeleteBucketOwnershipControls
 import Network.AWS.S3.DeleteBucketPolicy
 import Network.AWS.S3.DeleteBucketReplication
 import Network.AWS.S3.DeleteBucketTagging
 import Network.AWS.S3.DeleteBucketWebsite
 import Network.AWS.S3.DeleteObject
-import Network.AWS.S3.DeleteObjects
 import Network.AWS.S3.DeleteObjectTagging
+import Network.AWS.S3.DeleteObjects
+import Network.AWS.S3.DeletePublicAccessBlock
 import Network.AWS.S3.GetBucketAccelerateConfiguration
-import Network.AWS.S3.GetBucketACL
+import Network.AWS.S3.GetBucketAcl
 import Network.AWS.S3.GetBucketAnalyticsConfiguration
-import Network.AWS.S3.GetBucketCORS
+import Network.AWS.S3.GetBucketCors
 import Network.AWS.S3.GetBucketEncryption
+import Network.AWS.S3.GetBucketIntelligentTieringConfiguration
 import Network.AWS.S3.GetBucketInventoryConfiguration
 import Network.AWS.S3.GetBucketLifecycleConfiguration
 import Network.AWS.S3.GetBucketLocation
 import Network.AWS.S3.GetBucketLogging
 import Network.AWS.S3.GetBucketMetricsConfiguration
 import Network.AWS.S3.GetBucketNotificationConfiguration
+import Network.AWS.S3.GetBucketOwnershipControls
 import Network.AWS.S3.GetBucketPolicy
+import Network.AWS.S3.GetBucketPolicyStatus
 import Network.AWS.S3.GetBucketReplication
 import Network.AWS.S3.GetBucketRequestPayment
 import Network.AWS.S3.GetBucketTagging
 import Network.AWS.S3.GetBucketVersioning
 import Network.AWS.S3.GetBucketWebsite
 import Network.AWS.S3.GetObject
-import Network.AWS.S3.GetObjectACL
+import Network.AWS.S3.GetObjectAcl
+import Network.AWS.S3.GetObjectLegalHold
+import Network.AWS.S3.GetObjectLockConfiguration
+import Network.AWS.S3.GetObjectRetention
 import Network.AWS.S3.GetObjectTagging
 import Network.AWS.S3.GetObjectTorrent
+import Network.AWS.S3.GetPublicAccessBlock
 import Network.AWS.S3.HeadBucket
 import Network.AWS.S3.HeadObject
 import Network.AWS.S3.Internal
+import Network.AWS.S3.Lens
 import Network.AWS.S3.ListBucketAnalyticsConfigurations
+import Network.AWS.S3.ListBucketIntelligentTieringConfigurations
 import Network.AWS.S3.ListBucketInventoryConfigurations
 import Network.AWS.S3.ListBucketMetricsConfigurations
 import Network.AWS.S3.ListBuckets
 import Network.AWS.S3.ListMultipartUploads
-import Network.AWS.S3.ListObjects
-import Network.AWS.S3.ListObjectsV2
 import Network.AWS.S3.ListObjectVersions
+import Network.AWS.S3.ListObjects
+import Network.AWS.S3.ListObjectsV
 import Network.AWS.S3.ListParts
 import Network.AWS.S3.PutBucketAccelerateConfiguration
-import Network.AWS.S3.PutBucketACL
+import Network.AWS.S3.PutBucketAcl
 import Network.AWS.S3.PutBucketAnalyticsConfiguration
-import Network.AWS.S3.PutBucketCORS
+import Network.AWS.S3.PutBucketCors
 import Network.AWS.S3.PutBucketEncryption
+import Network.AWS.S3.PutBucketIntelligentTieringConfiguration
 import Network.AWS.S3.PutBucketInventoryConfiguration
 import Network.AWS.S3.PutBucketLifecycleConfiguration
 import Network.AWS.S3.PutBucketLogging
 import Network.AWS.S3.PutBucketMetricsConfiguration
 import Network.AWS.S3.PutBucketNotificationConfiguration
+import Network.AWS.S3.PutBucketOwnershipControls
 import Network.AWS.S3.PutBucketPolicy
 import Network.AWS.S3.PutBucketReplication
 import Network.AWS.S3.PutBucketRequestPayment
@@ -1160,8 +1373,12 @@ import Network.AWS.S3.PutBucketTagging
 import Network.AWS.S3.PutBucketVersioning
 import Network.AWS.S3.PutBucketWebsite
 import Network.AWS.S3.PutObject
-import Network.AWS.S3.PutObjectACL
+import Network.AWS.S3.PutObjectAcl
+import Network.AWS.S3.PutObjectLegalHold
+import Network.AWS.S3.PutObjectLockConfiguration
+import Network.AWS.S3.PutObjectRetention
 import Network.AWS.S3.PutObjectTagging
+import Network.AWS.S3.PutPublicAccessBlock
 import Network.AWS.S3.RestoreObject
 import Network.AWS.S3.SelectObjectContent
 import Network.AWS.S3.Types
@@ -1169,32 +1386,29 @@ import Network.AWS.S3.UploadPart
 import Network.AWS.S3.UploadPartCopy
 import Network.AWS.S3.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'S3'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'S3'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

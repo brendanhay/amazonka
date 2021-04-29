@@ -1,120 +1,181 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketTagging
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the tag set associated with the bucket.
+--
+-- To use this operation, you must have permission to perform the
+-- @s3:GetBucketTagging@ action. By default, the bucket owner has this
+-- permission and can grant this permission to others.
+--
+-- @GetBucketTagging@ has the following special error:
+--
+-- -   Error code: @NoSuchTagSetError@
+--
+--     -   Description: There is no tag set associated with the bucket.
+--
+-- The following operations are related to @GetBucketTagging@:
+--
+-- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketTagging.html PutBucketTagging>
+--
+-- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteBucketTagging.html DeleteBucketTagging>
 module Network.AWS.S3.GetBucketTagging
-    (
-    -- * Creating a Request
-      getBucketTagging
-    , GetBucketTagging
+  ( -- * Creating a Request
+    GetBucketTagging (..),
+    newGetBucketTagging,
+
     -- * Request Lenses
-    , gbtBucket
+    getBucketTagging_expectedBucketOwner,
+    getBucketTagging_bucket,
 
     -- * Destructuring the Response
-    , getBucketTaggingResponse
-    , GetBucketTaggingResponse
+    GetBucketTaggingResponse (..),
+    newGetBucketTaggingResponse,
+
     -- * Response Lenses
-    , gbtrsResponseStatus
-    , gbtrsTagSet
-    ) where
+    getBucketTaggingResponse_httpStatus,
+    getBucketTaggingResponse_tagSet,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
-import Network.AWS.S3.Types.Product
 
--- | /See:/ 'getBucketTagging' smart constructor.
-newtype GetBucketTagging = GetBucketTagging'
-  { _gbtBucket :: BucketName
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetBucketTagging' smart constructor.
+data GetBucketTagging = GetBucketTagging'
+  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    -- | The name of the bucket for which to get the tagging information.
+    bucket :: BucketName
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetBucketTagging' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetBucketTagging' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gbtBucket' - Undocumented member.
-getBucketTagging
-    :: BucketName -- ^ 'gbtBucket'
-    -> GetBucketTagging
-getBucketTagging pBucket_ = GetBucketTagging' {_gbtBucket = pBucket_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'expectedBucketOwner', 'getBucketTagging_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+--
+-- 'bucket', 'getBucketTagging_bucket' - The name of the bucket for which to get the tagging information.
+newGetBucketTagging ::
+  -- | 'bucket'
+  BucketName ->
+  GetBucketTagging
+newGetBucketTagging pBucket_ =
+  GetBucketTagging'
+    { expectedBucketOwner =
+        Prelude.Nothing,
+      bucket = pBucket_
+    }
 
+-- | The account id of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+getBucketTagging_expectedBucketOwner :: Lens.Lens' GetBucketTagging (Prelude.Maybe Prelude.Text)
+getBucketTagging_expectedBucketOwner = Lens.lens (\GetBucketTagging' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketTagging' {} a -> s {expectedBucketOwner = a} :: GetBucketTagging)
 
--- | Undocumented member.
-gbtBucket :: Lens' GetBucketTagging BucketName
-gbtBucket = lens _gbtBucket (\ s a -> s{_gbtBucket = a})
+-- | The name of the bucket for which to get the tagging information.
+getBucketTagging_bucket :: Lens.Lens' GetBucketTagging BucketName
+getBucketTagging_bucket = Lens.lens (\GetBucketTagging' {bucket} -> bucket) (\s@GetBucketTagging' {} a -> s {bucket = a} :: GetBucketTagging)
 
-instance AWSRequest GetBucketTagging where
-        type Rs GetBucketTagging = GetBucketTaggingResponse
-        request = get s3
-        response
-          = receiveXML
-              (\ s h x ->
-                 GetBucketTaggingResponse' <$>
-                   (pure (fromEnum s)) <*>
-                     (x .@? "TagSet" .!@ mempty >>= parseXMLList "Tag"))
+instance Prelude.AWSRequest GetBucketTagging where
+  type Rs GetBucketTagging = GetBucketTaggingResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          GetBucketTaggingResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Prelude..@? "TagSet" Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.parseXMLList "Tag"
+                        )
+      )
 
-instance Hashable GetBucketTagging where
+instance Prelude.Hashable GetBucketTagging
 
-instance NFData GetBucketTagging where
+instance Prelude.NFData GetBucketTagging
 
-instance ToHeaders GetBucketTagging where
-        toHeaders = const mempty
+instance Prelude.ToHeaders GetBucketTagging where
+  toHeaders GetBucketTagging' {..} =
+    Prelude.mconcat
+      [ "x-amz-expected-bucket-owner"
+          Prelude.=# expectedBucketOwner
+      ]
 
-instance ToPath GetBucketTagging where
-        toPath GetBucketTagging'{..}
-          = mconcat ["/", toBS _gbtBucket]
+instance Prelude.ToPath GetBucketTagging where
+  toPath GetBucketTagging' {..} =
+    Prelude.mconcat ["/", Prelude.toBS bucket]
 
-instance ToQuery GetBucketTagging where
-        toQuery = const (mconcat ["tagging"])
+instance Prelude.ToQuery GetBucketTagging where
+  toQuery = Prelude.const (Prelude.mconcat ["tagging"])
 
--- | /See:/ 'getBucketTaggingResponse' smart constructor.
+-- | /See:/ 'newGetBucketTaggingResponse' smart constructor.
 data GetBucketTaggingResponse = GetBucketTaggingResponse'
-  { _gbtrsResponseStatus :: !Int
-  , _gbtrsTagSet         :: ![Tag]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | Contains the tag set.
+    tagSet :: [Tag]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetBucketTaggingResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetBucketTaggingResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gbtrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gbtrsTagSet' - Undocumented member.
-getBucketTaggingResponse
-    :: Int -- ^ 'gbtrsResponseStatus'
-    -> GetBucketTaggingResponse
-getBucketTaggingResponse pResponseStatus_ =
+-- 'httpStatus', 'getBucketTaggingResponse_httpStatus' - The response's http status code.
+--
+-- 'tagSet', 'getBucketTaggingResponse_tagSet' - Contains the tag set.
+newGetBucketTaggingResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetBucketTaggingResponse
+newGetBucketTaggingResponse pHttpStatus_ =
   GetBucketTaggingResponse'
-    {_gbtrsResponseStatus = pResponseStatus_, _gbtrsTagSet = mempty}
+    { httpStatus =
+        pHttpStatus_,
+      tagSet = Prelude.mempty
+    }
 
+-- | The response's http status code.
+getBucketTaggingResponse_httpStatus :: Lens.Lens' GetBucketTaggingResponse Prelude.Int
+getBucketTaggingResponse_httpStatus = Lens.lens (\GetBucketTaggingResponse' {httpStatus} -> httpStatus) (\s@GetBucketTaggingResponse' {} a -> s {httpStatus = a} :: GetBucketTaggingResponse)
 
--- | -- | The response status code.
-gbtrsResponseStatus :: Lens' GetBucketTaggingResponse Int
-gbtrsResponseStatus = lens _gbtrsResponseStatus (\ s a -> s{_gbtrsResponseStatus = a})
+-- | Contains the tag set.
+getBucketTaggingResponse_tagSet :: Lens.Lens' GetBucketTaggingResponse [Tag]
+getBucketTaggingResponse_tagSet = Lens.lens (\GetBucketTaggingResponse' {tagSet} -> tagSet) (\s@GetBucketTaggingResponse' {} a -> s {tagSet = a} :: GetBucketTaggingResponse) Prelude.. Prelude._Coerce
 
--- | Undocumented member.
-gbtrsTagSet :: Lens' GetBucketTaggingResponse [Tag]
-gbtrsTagSet = lens _gbtrsTagSet (\ s a -> s{_gbtrsTagSet = a}) . _Coerce
-
-instance NFData GetBucketTaggingResponse where
+instance Prelude.NFData GetBucketTaggingResponse

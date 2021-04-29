@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaLive.DescribeInputSecurityGroup
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,156 +23,200 @@
 --
 -- Produces a summary of an Input Security Group
 module Network.AWS.MediaLive.DescribeInputSecurityGroup
-    (
-    -- * Creating a Request
-      describeInputSecurityGroup
-    , DescribeInputSecurityGroup
+  ( -- * Creating a Request
+    DescribeInputSecurityGroup (..),
+    newDescribeInputSecurityGroup,
+
     -- * Request Lenses
-    , disgInputSecurityGroupId
+    describeInputSecurityGroup_inputSecurityGroupId,
 
     -- * Destructuring the Response
-    , describeInputSecurityGroupResponse
-    , DescribeInputSecurityGroupResponse
-    -- * Response Lenses
-    , desrsState
-    , desrsARN
-    , desrsInputs
-    , desrsId
-    , desrsWhitelistRules
-    , desrsResponseStatus
-    ) where
+    DescribeInputSecurityGroupResponse (..),
+    newDescribeInputSecurityGroupResponse,
 
-import Network.AWS.Lens
+    -- * Response Lenses
+    describeInputSecurityGroupResponse_arn,
+    describeInputSecurityGroupResponse_id,
+    describeInputSecurityGroupResponse_state,
+    describeInputSecurityGroupResponse_tags,
+    describeInputSecurityGroupResponse_whitelistRules,
+    describeInputSecurityGroupResponse_inputs,
+    describeInputSecurityGroupResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaLive.Types
-import Network.AWS.MediaLive.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Placeholder documentation for DescribeInputSecurityGroupRequest
 --
--- /See:/ 'describeInputSecurityGroup' smart constructor.
-newtype DescribeInputSecurityGroup = DescribeInputSecurityGroup'
-  { _disgInputSecurityGroupId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDescribeInputSecurityGroup' smart constructor.
+data DescribeInputSecurityGroup = DescribeInputSecurityGroup'
+  { -- | The id of the Input Security Group to describe
+    inputSecurityGroupId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeInputSecurityGroup' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeInputSecurityGroup' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'disgInputSecurityGroupId' - The id of the Input Security Group to describe
-describeInputSecurityGroup
-    :: Text -- ^ 'disgInputSecurityGroupId'
-    -> DescribeInputSecurityGroup
-describeInputSecurityGroup pInputSecurityGroupId_ =
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'inputSecurityGroupId', 'describeInputSecurityGroup_inputSecurityGroupId' - The id of the Input Security Group to describe
+newDescribeInputSecurityGroup ::
+  -- | 'inputSecurityGroupId'
+  Prelude.Text ->
+  DescribeInputSecurityGroup
+newDescribeInputSecurityGroup pInputSecurityGroupId_ =
   DescribeInputSecurityGroup'
-    {_disgInputSecurityGroupId = pInputSecurityGroupId_}
-
+    { inputSecurityGroupId =
+        pInputSecurityGroupId_
+    }
 
 -- | The id of the Input Security Group to describe
-disgInputSecurityGroupId :: Lens' DescribeInputSecurityGroup Text
-disgInputSecurityGroupId = lens _disgInputSecurityGroupId (\ s a -> s{_disgInputSecurityGroupId = a})
+describeInputSecurityGroup_inputSecurityGroupId :: Lens.Lens' DescribeInputSecurityGroup Prelude.Text
+describeInputSecurityGroup_inputSecurityGroupId = Lens.lens (\DescribeInputSecurityGroup' {inputSecurityGroupId} -> inputSecurityGroupId) (\s@DescribeInputSecurityGroup' {} a -> s {inputSecurityGroupId = a} :: DescribeInputSecurityGroup)
 
-instance AWSRequest DescribeInputSecurityGroup where
-        type Rs DescribeInputSecurityGroup =
-             DescribeInputSecurityGroupResponse
-        request = get mediaLive
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeInputSecurityGroupResponse' <$>
-                   (x .?> "state") <*> (x .?> "arn") <*>
-                     (x .?> "inputs" .!@ mempty)
-                     <*> (x .?> "id")
-                     <*> (x .?> "whitelistRules" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance
+  Prelude.AWSRequest
+    DescribeInputSecurityGroup
+  where
+  type
+    Rs DescribeInputSecurityGroup =
+      DescribeInputSecurityGroupResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeInputSecurityGroupResponse'
+            Prelude.<$> (x Prelude..?> "arn")
+            Prelude.<*> (x Prelude..?> "id")
+            Prelude.<*> (x Prelude..?> "state")
+            Prelude.<*> (x Prelude..?> "tags" Prelude..!@ Prelude.mempty)
+            Prelude.<*> ( x Prelude..?> "whitelistRules"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Prelude..?> "inputs" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeInputSecurityGroup where
+instance Prelude.Hashable DescribeInputSecurityGroup
 
-instance NFData DescribeInputSecurityGroup where
+instance Prelude.NFData DescribeInputSecurityGroup
 
-instance ToHeaders DescribeInputSecurityGroup where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DescribeInputSecurityGroup where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToPath DescribeInputSecurityGroup where
-        toPath DescribeInputSecurityGroup'{..}
-          = mconcat
-              ["/prod/inputSecurityGroups/",
-               toBS _disgInputSecurityGroupId]
+instance Prelude.ToPath DescribeInputSecurityGroup where
+  toPath DescribeInputSecurityGroup' {..} =
+    Prelude.mconcat
+      [ "/prod/inputSecurityGroups/",
+        Prelude.toBS inputSecurityGroupId
+      ]
 
-instance ToQuery DescribeInputSecurityGroup where
-        toQuery = const mempty
+instance Prelude.ToQuery DescribeInputSecurityGroup where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Placeholder documentation for DescribeInputSecurityGroupResponse
 --
--- /See:/ 'describeInputSecurityGroupResponse' smart constructor.
+-- /See:/ 'newDescribeInputSecurityGroupResponse' smart constructor.
 data DescribeInputSecurityGroupResponse = DescribeInputSecurityGroupResponse'
-  { _desrsState          :: !(Maybe InputSecurityGroupState)
-  , _desrsARN            :: !(Maybe Text)
-  , _desrsInputs         :: !(Maybe [Text])
-  , _desrsId             :: !(Maybe Text)
-  , _desrsWhitelistRules :: !(Maybe [InputWhitelistRule])
-  , _desrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Unique ARN of Input Security Group
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The Id of the Input Security Group
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The current state of the Input Security Group.
+    state :: Prelude.Maybe InputSecurityGroupState,
+    -- | A collection of key-value pairs.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Whitelist rules and their sync status
+    whitelistRules :: Prelude.Maybe [InputWhitelistRule],
+    -- | The list of inputs currently using this Input Security Group.
+    inputs :: Prelude.Maybe [Prelude.Text],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeInputSecurityGroupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeInputSecurityGroupResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'desrsState' - The current state of the Input Security Group.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'desrsARN' - Unique ARN of Input Security Group
+-- 'arn', 'describeInputSecurityGroupResponse_arn' - Unique ARN of Input Security Group
 --
--- * 'desrsInputs' - The list of inputs currently using this Input Security Group.
+-- 'id', 'describeInputSecurityGroupResponse_id' - The Id of the Input Security Group
 --
--- * 'desrsId' - The Id of the Input Security Group
+-- 'state', 'describeInputSecurityGroupResponse_state' - The current state of the Input Security Group.
 --
--- * 'desrsWhitelistRules' - Whitelist rules and their sync status
+-- 'tags', 'describeInputSecurityGroupResponse_tags' - A collection of key-value pairs.
 --
--- * 'desrsResponseStatus' - -- | The response status code.
-describeInputSecurityGroupResponse
-    :: Int -- ^ 'desrsResponseStatus'
-    -> DescribeInputSecurityGroupResponse
-describeInputSecurityGroupResponse pResponseStatus_ =
+-- 'whitelistRules', 'describeInputSecurityGroupResponse_whitelistRules' - Whitelist rules and their sync status
+--
+-- 'inputs', 'describeInputSecurityGroupResponse_inputs' - The list of inputs currently using this Input Security Group.
+--
+-- 'httpStatus', 'describeInputSecurityGroupResponse_httpStatus' - The response's http status code.
+newDescribeInputSecurityGroupResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeInputSecurityGroupResponse
+newDescribeInputSecurityGroupResponse pHttpStatus_ =
   DescribeInputSecurityGroupResponse'
-    { _desrsState = Nothing
-    , _desrsARN = Nothing
-    , _desrsInputs = Nothing
-    , _desrsId = Nothing
-    , _desrsWhitelistRules = Nothing
-    , _desrsResponseStatus = pResponseStatus_
+    { arn =
+        Prelude.Nothing,
+      id = Prelude.Nothing,
+      state = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      whitelistRules = Prelude.Nothing,
+      inputs = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | The current state of the Input Security Group.
-desrsState :: Lens' DescribeInputSecurityGroupResponse (Maybe InputSecurityGroupState)
-desrsState = lens _desrsState (\ s a -> s{_desrsState = a})
-
 -- | Unique ARN of Input Security Group
-desrsARN :: Lens' DescribeInputSecurityGroupResponse (Maybe Text)
-desrsARN = lens _desrsARN (\ s a -> s{_desrsARN = a})
-
--- | The list of inputs currently using this Input Security Group.
-desrsInputs :: Lens' DescribeInputSecurityGroupResponse [Text]
-desrsInputs = lens _desrsInputs (\ s a -> s{_desrsInputs = a}) . _Default . _Coerce
+describeInputSecurityGroupResponse_arn :: Lens.Lens' DescribeInputSecurityGroupResponse (Prelude.Maybe Prelude.Text)
+describeInputSecurityGroupResponse_arn = Lens.lens (\DescribeInputSecurityGroupResponse' {arn} -> arn) (\s@DescribeInputSecurityGroupResponse' {} a -> s {arn = a} :: DescribeInputSecurityGroupResponse)
 
 -- | The Id of the Input Security Group
-desrsId :: Lens' DescribeInputSecurityGroupResponse (Maybe Text)
-desrsId = lens _desrsId (\ s a -> s{_desrsId = a})
+describeInputSecurityGroupResponse_id :: Lens.Lens' DescribeInputSecurityGroupResponse (Prelude.Maybe Prelude.Text)
+describeInputSecurityGroupResponse_id = Lens.lens (\DescribeInputSecurityGroupResponse' {id} -> id) (\s@DescribeInputSecurityGroupResponse' {} a -> s {id = a} :: DescribeInputSecurityGroupResponse)
+
+-- | The current state of the Input Security Group.
+describeInputSecurityGroupResponse_state :: Lens.Lens' DescribeInputSecurityGroupResponse (Prelude.Maybe InputSecurityGroupState)
+describeInputSecurityGroupResponse_state = Lens.lens (\DescribeInputSecurityGroupResponse' {state} -> state) (\s@DescribeInputSecurityGroupResponse' {} a -> s {state = a} :: DescribeInputSecurityGroupResponse)
+
+-- | A collection of key-value pairs.
+describeInputSecurityGroupResponse_tags :: Lens.Lens' DescribeInputSecurityGroupResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+describeInputSecurityGroupResponse_tags = Lens.lens (\DescribeInputSecurityGroupResponse' {tags} -> tags) (\s@DescribeInputSecurityGroupResponse' {} a -> s {tags = a} :: DescribeInputSecurityGroupResponse) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | Whitelist rules and their sync status
-desrsWhitelistRules :: Lens' DescribeInputSecurityGroupResponse [InputWhitelistRule]
-desrsWhitelistRules = lens _desrsWhitelistRules (\ s a -> s{_desrsWhitelistRules = a}) . _Default . _Coerce
+describeInputSecurityGroupResponse_whitelistRules :: Lens.Lens' DescribeInputSecurityGroupResponse (Prelude.Maybe [InputWhitelistRule])
+describeInputSecurityGroupResponse_whitelistRules = Lens.lens (\DescribeInputSecurityGroupResponse' {whitelistRules} -> whitelistRules) (\s@DescribeInputSecurityGroupResponse' {} a -> s {whitelistRules = a} :: DescribeInputSecurityGroupResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeInputSecurityGroupResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a})
+-- | The list of inputs currently using this Input Security Group.
+describeInputSecurityGroupResponse_inputs :: Lens.Lens' DescribeInputSecurityGroupResponse (Prelude.Maybe [Prelude.Text])
+describeInputSecurityGroupResponse_inputs = Lens.lens (\DescribeInputSecurityGroupResponse' {inputs} -> inputs) (\s@DescribeInputSecurityGroupResponse' {} a -> s {inputs = a} :: DescribeInputSecurityGroupResponse) Prelude.. Lens.mapping Prelude._Coerce
 
-instance NFData DescribeInputSecurityGroupResponse
-         where
+-- | The response's http status code.
+describeInputSecurityGroupResponse_httpStatus :: Lens.Lens' DescribeInputSecurityGroupResponse Prelude.Int
+describeInputSecurityGroupResponse_httpStatus = Lens.lens (\DescribeInputSecurityGroupResponse' {httpStatus} -> httpStatus) (\s@DescribeInputSecurityGroupResponse' {} a -> s {httpStatus = a} :: DescribeInputSecurityGroupResponse)
+
+instance
+  Prelude.NFData
+    DescribeInputSecurityGroupResponse

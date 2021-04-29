@@ -1,138 +1,163 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoSync.GetCognitoEvents
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the events and the corresponding Lambda functions associated with an identity pool.
+-- Gets the events and the corresponding Lambda functions associated with
+-- an identity pool.
 --
---
--- This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
---
+-- This API can only be called with developer credentials. You cannot call
+-- this API with the temporary user credentials provided by Cognito
+-- Identity.
 module Network.AWS.CognitoSync.GetCognitoEvents
-    (
-    -- * Creating a Request
-      getCognitoEvents
-    , GetCognitoEvents
+  ( -- * Creating a Request
+    GetCognitoEvents (..),
+    newGetCognitoEvents,
+
     -- * Request Lenses
-    , gceIdentityPoolId
+    getCognitoEvents_identityPoolId,
 
     -- * Destructuring the Response
-    , getCognitoEventsResponse
-    , GetCognitoEventsResponse
+    GetCognitoEventsResponse (..),
+    newGetCognitoEventsResponse,
+
     -- * Response Lenses
-    , gcersEvents
-    , gcersResponseStatus
-    ) where
+    getCognitoEventsResponse_events,
+    getCognitoEventsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoSync.Types
-import Network.AWS.CognitoSync.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | A request for a list of the configured Cognito Events
 --
---
---
--- /See:/ 'getCognitoEvents' smart constructor.
-newtype GetCognitoEvents = GetCognitoEvents'
-  { _gceIdentityPoolId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newGetCognitoEvents' smart constructor.
+data GetCognitoEvents = GetCognitoEvents'
+  { -- | The Cognito Identity Pool ID for the request
+    identityPoolId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetCognitoEvents' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetCognitoEvents' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gceIdentityPoolId' - The Cognito Identity Pool ID for the request
-getCognitoEvents
-    :: Text -- ^ 'gceIdentityPoolId'
-    -> GetCognitoEvents
-getCognitoEvents pIdentityPoolId_ =
-  GetCognitoEvents' {_gceIdentityPoolId = pIdentityPoolId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'identityPoolId', 'getCognitoEvents_identityPoolId' - The Cognito Identity Pool ID for the request
+newGetCognitoEvents ::
+  -- | 'identityPoolId'
+  Prelude.Text ->
+  GetCognitoEvents
+newGetCognitoEvents pIdentityPoolId_ =
+  GetCognitoEvents'
+    { identityPoolId =
+        pIdentityPoolId_
+    }
 
 -- | The Cognito Identity Pool ID for the request
-gceIdentityPoolId :: Lens' GetCognitoEvents Text
-gceIdentityPoolId = lens _gceIdentityPoolId (\ s a -> s{_gceIdentityPoolId = a})
+getCognitoEvents_identityPoolId :: Lens.Lens' GetCognitoEvents Prelude.Text
+getCognitoEvents_identityPoolId = Lens.lens (\GetCognitoEvents' {identityPoolId} -> identityPoolId) (\s@GetCognitoEvents' {} a -> s {identityPoolId = a} :: GetCognitoEvents)
 
-instance AWSRequest GetCognitoEvents where
-        type Rs GetCognitoEvents = GetCognitoEventsResponse
-        request = get cognitoSync
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetCognitoEventsResponse' <$>
-                   (x .?> "Events" .!@ mempty) <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest GetCognitoEvents where
+  type Rs GetCognitoEvents = GetCognitoEventsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetCognitoEventsResponse'
+            Prelude.<$> (x Prelude..?> "Events" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetCognitoEvents where
+instance Prelude.Hashable GetCognitoEvents
 
-instance NFData GetCognitoEvents where
+instance Prelude.NFData GetCognitoEvents
 
-instance ToHeaders GetCognitoEvents where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders GetCognitoEvents where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToPath GetCognitoEvents where
-        toPath GetCognitoEvents'{..}
-          = mconcat
-              ["/identitypools/", toBS _gceIdentityPoolId,
-               "/events"]
+instance Prelude.ToPath GetCognitoEvents where
+  toPath GetCognitoEvents' {..} =
+    Prelude.mconcat
+      [ "/identitypools/",
+        Prelude.toBS identityPoolId,
+        "/events"
+      ]
 
-instance ToQuery GetCognitoEvents where
-        toQuery = const mempty
+instance Prelude.ToQuery GetCognitoEvents where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The response from the GetCognitoEvents request
 --
---
---
--- /See:/ 'getCognitoEventsResponse' smart constructor.
+-- /See:/ 'newGetCognitoEventsResponse' smart constructor.
 data GetCognitoEventsResponse = GetCognitoEventsResponse'
-  { _gcersEvents         :: !(Maybe (Map Text Text))
-  , _gcersResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Cognito Events returned from the GetCognitoEvents request
+    events :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetCognitoEventsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetCognitoEventsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gcersEvents' - The Cognito Events returned from the GetCognitoEvents request
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gcersResponseStatus' - -- | The response status code.
-getCognitoEventsResponse
-    :: Int -- ^ 'gcersResponseStatus'
-    -> GetCognitoEventsResponse
-getCognitoEventsResponse pResponseStatus_ =
+-- 'events', 'getCognitoEventsResponse_events' - The Cognito Events returned from the GetCognitoEvents request
+--
+-- 'httpStatus', 'getCognitoEventsResponse_httpStatus' - The response's http status code.
+newGetCognitoEventsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetCognitoEventsResponse
+newGetCognitoEventsResponse pHttpStatus_ =
   GetCognitoEventsResponse'
-    {_gcersEvents = Nothing, _gcersResponseStatus = pResponseStatus_}
-
+    { events = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The Cognito Events returned from the GetCognitoEvents request
-gcersEvents :: Lens' GetCognitoEventsResponse (HashMap Text Text)
-gcersEvents = lens _gcersEvents (\ s a -> s{_gcersEvents = a}) . _Default . _Map
+getCognitoEventsResponse_events :: Lens.Lens' GetCognitoEventsResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getCognitoEventsResponse_events = Lens.lens (\GetCognitoEventsResponse' {events} -> events) (\s@GetCognitoEventsResponse' {} a -> s {events = a} :: GetCognitoEventsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-gcersResponseStatus :: Lens' GetCognitoEventsResponse Int
-gcersResponseStatus = lens _gcersResponseStatus (\ s a -> s{_gcersResponseStatus = a})
+-- | The response's http status code.
+getCognitoEventsResponse_httpStatus :: Lens.Lens' GetCognitoEventsResponse Prelude.Int
+getCognitoEventsResponse_httpStatus = Lens.lens (\GetCognitoEventsResponse' {httpStatus} -> httpStatus) (\s@GetCognitoEventsResponse' {} a -> s {httpStatus = a} :: GetCognitoEventsResponse)
 
-instance NFData GetCognitoEventsResponse where
+instance Prelude.NFData GetCognitoEventsResponse

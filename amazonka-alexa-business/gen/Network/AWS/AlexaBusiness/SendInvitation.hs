@@ -1,119 +1,144 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AlexaBusiness.SendInvitation
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sends an enrollment invitation email with a URL to a user. The URL is valid for 72 hours or until you call this operation again, whichever comes first.
---
---
+-- Sends an enrollment invitation email with a URL to a user. The URL is
+-- valid for 30 days or until you call this operation again, whichever
+-- comes first.
 module Network.AWS.AlexaBusiness.SendInvitation
-    (
-    -- * Creating a Request
-      sendInvitation
-    , SendInvitation
+  ( -- * Creating a Request
+    SendInvitation (..),
+    newSendInvitation,
+
     -- * Request Lenses
-    , siUserARN
+    sendInvitation_userArn,
 
     -- * Destructuring the Response
-    , sendInvitationResponse
-    , SendInvitationResponse
+    SendInvitationResponse (..),
+    newSendInvitationResponse,
+
     -- * Response Lenses
-    , sirsResponseStatus
-    ) where
+    sendInvitationResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.AlexaBusiness.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'sendInvitation' smart constructor.
-newtype SendInvitation = SendInvitation'
-  { _siUserARN :: Maybe Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newSendInvitation' smart constructor.
+data SendInvitation = SendInvitation'
+  { -- | The ARN of the user to whom to send an invitation. Required.
+    userArn :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'SendInvitation' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SendInvitation' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'siUserARN' - The ARN of the user to whom to send an invitation. Required.
-sendInvitation
-    :: SendInvitation
-sendInvitation = SendInvitation' {_siUserARN = Nothing}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'userArn', 'sendInvitation_userArn' - The ARN of the user to whom to send an invitation. Required.
+newSendInvitation ::
+  SendInvitation
+newSendInvitation =
+  SendInvitation' {userArn = Prelude.Nothing}
 
 -- | The ARN of the user to whom to send an invitation. Required.
-siUserARN :: Lens' SendInvitation (Maybe Text)
-siUserARN = lens _siUserARN (\ s a -> s{_siUserARN = a})
+sendInvitation_userArn :: Lens.Lens' SendInvitation (Prelude.Maybe Prelude.Text)
+sendInvitation_userArn = Lens.lens (\SendInvitation' {userArn} -> userArn) (\s@SendInvitation' {} a -> s {userArn = a} :: SendInvitation)
 
-instance AWSRequest SendInvitation where
-        type Rs SendInvitation = SendInvitationResponse
-        request = postJSON alexaBusiness
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 SendInvitationResponse' <$> (pure (fromEnum s)))
+instance Prelude.AWSRequest SendInvitation where
+  type Rs SendInvitation = SendInvitationResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          SendInvitationResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable SendInvitation where
+instance Prelude.Hashable SendInvitation
 
-instance NFData SendInvitation where
+instance Prelude.NFData SendInvitation
 
-instance ToHeaders SendInvitation where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AlexaForBusiness.SendInvitation" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders SendInvitation where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AlexaForBusiness.SendInvitation" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON SendInvitation where
-        toJSON SendInvitation'{..}
-          = object (catMaybes [("UserArn" .=) <$> _siUserARN])
+instance Prelude.ToJSON SendInvitation where
+  toJSON SendInvitation' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [("UserArn" Prelude..=) Prelude.<$> userArn]
+      )
 
-instance ToPath SendInvitation where
-        toPath = const "/"
+instance Prelude.ToPath SendInvitation where
+  toPath = Prelude.const "/"
 
-instance ToQuery SendInvitation where
-        toQuery = const mempty
+instance Prelude.ToQuery SendInvitation where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'sendInvitationResponse' smart constructor.
-newtype SendInvitationResponse = SendInvitationResponse'
-  { _sirsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newSendInvitationResponse' smart constructor.
+data SendInvitationResponse = SendInvitationResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'SendInvitationResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SendInvitationResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'sirsResponseStatus' - -- | The response status code.
-sendInvitationResponse
-    :: Int -- ^ 'sirsResponseStatus'
-    -> SendInvitationResponse
-sendInvitationResponse pResponseStatus_ =
-  SendInvitationResponse' {_sirsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'sendInvitationResponse_httpStatus' - The response's http status code.
+newSendInvitationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  SendInvitationResponse
+newSendInvitationResponse pHttpStatus_ =
+  SendInvitationResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+sendInvitationResponse_httpStatus :: Lens.Lens' SendInvitationResponse Prelude.Int
+sendInvitationResponse_httpStatus = Lens.lens (\SendInvitationResponse' {httpStatus} -> httpStatus) (\s@SendInvitationResponse' {} a -> s {httpStatus = a} :: SendInvitationResponse)
 
--- | -- | The response status code.
-sirsResponseStatus :: Lens' SendInvitationResponse Int
-sirsResponseStatus = lens _sirsResponseStatus (\ s a -> s{_sirsResponseStatus = a})
-
-instance NFData SendInvitationResponse where
+instance Prelude.NFData SendInvitationResponse

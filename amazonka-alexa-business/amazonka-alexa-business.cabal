@@ -1,134 +1,265 @@
-name:                  amazonka-alexa-business
-version:               1.6.1
-synopsis:              Amazon Alexa For Business SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-alexa-business
+version:            1.6.1
+synopsis:           Amazon Alexa For Business SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.AlexaBusiness" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.AlexaBusiness.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.AlexaBusiness" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-alexa-business
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-alexa-business
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.AlexaBusiness
+    Network.AWS.AlexaBusiness.ApproveSkill
+    Network.AWS.AlexaBusiness.AssociateContactWithAddressBook
+    Network.AWS.AlexaBusiness.AssociateDeviceWithNetworkProfile
+    Network.AWS.AlexaBusiness.AssociateDeviceWithRoom
+    Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom
+    Network.AWS.AlexaBusiness.AssociateSkillWithSkillGroup
+    Network.AWS.AlexaBusiness.AssociateSkillWithUsers
+    Network.AWS.AlexaBusiness.CreateAddressBook
+    Network.AWS.AlexaBusiness.CreateBusinessReportSchedule
+    Network.AWS.AlexaBusiness.CreateConferenceProvider
+    Network.AWS.AlexaBusiness.CreateContact
+    Network.AWS.AlexaBusiness.CreateGatewayGroup
+    Network.AWS.AlexaBusiness.CreateNetworkProfile
+    Network.AWS.AlexaBusiness.CreateProfile
+    Network.AWS.AlexaBusiness.CreateRoom
+    Network.AWS.AlexaBusiness.CreateSkillGroup
+    Network.AWS.AlexaBusiness.CreateUser
+    Network.AWS.AlexaBusiness.DeleteAddressBook
+    Network.AWS.AlexaBusiness.DeleteBusinessReportSchedule
+    Network.AWS.AlexaBusiness.DeleteConferenceProvider
+    Network.AWS.AlexaBusiness.DeleteContact
+    Network.AWS.AlexaBusiness.DeleteDevice
+    Network.AWS.AlexaBusiness.DeleteDeviceUsageData
+    Network.AWS.AlexaBusiness.DeleteGatewayGroup
+    Network.AWS.AlexaBusiness.DeleteNetworkProfile
+    Network.AWS.AlexaBusiness.DeleteProfile
+    Network.AWS.AlexaBusiness.DeleteRoom
+    Network.AWS.AlexaBusiness.DeleteRoomSkillParameter
+    Network.AWS.AlexaBusiness.DeleteSkillAuthorization
+    Network.AWS.AlexaBusiness.DeleteSkillGroup
+    Network.AWS.AlexaBusiness.DeleteUser
+    Network.AWS.AlexaBusiness.DisassociateContactFromAddressBook
+    Network.AWS.AlexaBusiness.DisassociateDeviceFromRoom
+    Network.AWS.AlexaBusiness.DisassociateSkillFromSkillGroup
+    Network.AWS.AlexaBusiness.DisassociateSkillFromUsers
+    Network.AWS.AlexaBusiness.DisassociateSkillGroupFromRoom
+    Network.AWS.AlexaBusiness.ForgetSmartHomeAppliances
+    Network.AWS.AlexaBusiness.GetAddressBook
+    Network.AWS.AlexaBusiness.GetConferencePreference
+    Network.AWS.AlexaBusiness.GetConferenceProvider
+    Network.AWS.AlexaBusiness.GetContact
+    Network.AWS.AlexaBusiness.GetDevice
+    Network.AWS.AlexaBusiness.GetGateway
+    Network.AWS.AlexaBusiness.GetGatewayGroup
+    Network.AWS.AlexaBusiness.GetInvitationConfiguration
+    Network.AWS.AlexaBusiness.GetNetworkProfile
+    Network.AWS.AlexaBusiness.GetProfile
+    Network.AWS.AlexaBusiness.GetRoom
+    Network.AWS.AlexaBusiness.GetRoomSkillParameter
+    Network.AWS.AlexaBusiness.GetSkillGroup
+    Network.AWS.AlexaBusiness.Lens
+    Network.AWS.AlexaBusiness.ListBusinessReportSchedules
+    Network.AWS.AlexaBusiness.ListConferenceProviders
+    Network.AWS.AlexaBusiness.ListDeviceEvents
+    Network.AWS.AlexaBusiness.ListGatewayGroups
+    Network.AWS.AlexaBusiness.ListGateways
+    Network.AWS.AlexaBusiness.ListSkills
+    Network.AWS.AlexaBusiness.ListSkillsStoreCategories
+    Network.AWS.AlexaBusiness.ListSkillsStoreSkillsByCategory
+    Network.AWS.AlexaBusiness.ListSmartHomeAppliances
+    Network.AWS.AlexaBusiness.ListTags
+    Network.AWS.AlexaBusiness.PutConferencePreference
+    Network.AWS.AlexaBusiness.PutInvitationConfiguration
+    Network.AWS.AlexaBusiness.PutRoomSkillParameter
+    Network.AWS.AlexaBusiness.PutSkillAuthorization
+    Network.AWS.AlexaBusiness.RegisterAVSDevice
+    Network.AWS.AlexaBusiness.RejectSkill
+    Network.AWS.AlexaBusiness.ResolveRoom
+    Network.AWS.AlexaBusiness.RevokeInvitation
+    Network.AWS.AlexaBusiness.SearchAddressBooks
+    Network.AWS.AlexaBusiness.SearchContacts
+    Network.AWS.AlexaBusiness.SearchDevices
+    Network.AWS.AlexaBusiness.SearchNetworkProfiles
+    Network.AWS.AlexaBusiness.SearchProfiles
+    Network.AWS.AlexaBusiness.SearchRooms
+    Network.AWS.AlexaBusiness.SearchSkillGroups
+    Network.AWS.AlexaBusiness.SearchUsers
+    Network.AWS.AlexaBusiness.SendAnnouncement
+    Network.AWS.AlexaBusiness.SendInvitation
+    Network.AWS.AlexaBusiness.StartDeviceSync
+    Network.AWS.AlexaBusiness.StartSmartHomeApplianceDiscovery
+    Network.AWS.AlexaBusiness.TagResource
+    Network.AWS.AlexaBusiness.Types
+    Network.AWS.AlexaBusiness.Types.AddressBook
+    Network.AWS.AlexaBusiness.Types.AddressBookData
+    Network.AWS.AlexaBusiness.Types.Audio
+    Network.AWS.AlexaBusiness.Types.BusinessReport
+    Network.AWS.AlexaBusiness.Types.BusinessReportContentRange
+    Network.AWS.AlexaBusiness.Types.BusinessReportFailureCode
+    Network.AWS.AlexaBusiness.Types.BusinessReportFormat
+    Network.AWS.AlexaBusiness.Types.BusinessReportInterval
+    Network.AWS.AlexaBusiness.Types.BusinessReportRecurrence
+    Network.AWS.AlexaBusiness.Types.BusinessReportS3Location
+    Network.AWS.AlexaBusiness.Types.BusinessReportSchedule
+    Network.AWS.AlexaBusiness.Types.BusinessReportStatus
+    Network.AWS.AlexaBusiness.Types.Category
+    Network.AWS.AlexaBusiness.Types.CommsProtocol
+    Network.AWS.AlexaBusiness.Types.ConferencePreference
+    Network.AWS.AlexaBusiness.Types.ConferenceProvider
+    Network.AWS.AlexaBusiness.Types.ConferenceProviderType
+    Network.AWS.AlexaBusiness.Types.ConnectionStatus
+    Network.AWS.AlexaBusiness.Types.Contact
+    Network.AWS.AlexaBusiness.Types.ContactData
+    Network.AWS.AlexaBusiness.Types.Content
+    Network.AWS.AlexaBusiness.Types.CreateEndOfMeetingReminder
+    Network.AWS.AlexaBusiness.Types.CreateInstantBooking
+    Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration
+    Network.AWS.AlexaBusiness.Types.CreateRequireCheckIn
+    Network.AWS.AlexaBusiness.Types.DeveloperInfo
+    Network.AWS.AlexaBusiness.Types.Device
+    Network.AWS.AlexaBusiness.Types.DeviceData
+    Network.AWS.AlexaBusiness.Types.DeviceEvent
+    Network.AWS.AlexaBusiness.Types.DeviceEventType
+    Network.AWS.AlexaBusiness.Types.DeviceNetworkProfileInfo
+    Network.AWS.AlexaBusiness.Types.DeviceStatus
+    Network.AWS.AlexaBusiness.Types.DeviceStatusDetail
+    Network.AWS.AlexaBusiness.Types.DeviceStatusDetailCode
+    Network.AWS.AlexaBusiness.Types.DeviceStatusInfo
+    Network.AWS.AlexaBusiness.Types.DeviceUsageType
+    Network.AWS.AlexaBusiness.Types.DistanceUnit
+    Network.AWS.AlexaBusiness.Types.EnablementType
+    Network.AWS.AlexaBusiness.Types.EnablementTypeFilter
+    Network.AWS.AlexaBusiness.Types.EndOfMeetingReminder
+    Network.AWS.AlexaBusiness.Types.EndOfMeetingReminderType
+    Network.AWS.AlexaBusiness.Types.EnrollmentStatus
+    Network.AWS.AlexaBusiness.Types.Feature
+    Network.AWS.AlexaBusiness.Types.Filter
+    Network.AWS.AlexaBusiness.Types.Gateway
+    Network.AWS.AlexaBusiness.Types.GatewayGroup
+    Network.AWS.AlexaBusiness.Types.GatewayGroupSummary
+    Network.AWS.AlexaBusiness.Types.GatewaySummary
+    Network.AWS.AlexaBusiness.Types.InstantBooking
+    Network.AWS.AlexaBusiness.Types.IPDialIn
+    Network.AWS.AlexaBusiness.Types.Locale
+    Network.AWS.AlexaBusiness.Types.MeetingRoomConfiguration
+    Network.AWS.AlexaBusiness.Types.MeetingSetting
+    Network.AWS.AlexaBusiness.Types.NetworkEapMethod
+    Network.AWS.AlexaBusiness.Types.NetworkProfile
+    Network.AWS.AlexaBusiness.Types.NetworkProfileData
+    Network.AWS.AlexaBusiness.Types.NetworkSecurityType
+    Network.AWS.AlexaBusiness.Types.PhoneNumber
+    Network.AWS.AlexaBusiness.Types.PhoneNumberType
+    Network.AWS.AlexaBusiness.Types.Profile
+    Network.AWS.AlexaBusiness.Types.ProfileData
+    Network.AWS.AlexaBusiness.Types.PSTNDialIn
+    Network.AWS.AlexaBusiness.Types.RequireCheckIn
+    Network.AWS.AlexaBusiness.Types.RequirePin
+    Network.AWS.AlexaBusiness.Types.Room
+    Network.AWS.AlexaBusiness.Types.RoomData
+    Network.AWS.AlexaBusiness.Types.RoomSkillParameter
+    Network.AWS.AlexaBusiness.Types.SipAddress
+    Network.AWS.AlexaBusiness.Types.SipType
+    Network.AWS.AlexaBusiness.Types.SkillDetails
+    Network.AWS.AlexaBusiness.Types.SkillGroup
+    Network.AWS.AlexaBusiness.Types.SkillGroupData
+    Network.AWS.AlexaBusiness.Types.SkillsStoreSkill
+    Network.AWS.AlexaBusiness.Types.SkillSummary
+    Network.AWS.AlexaBusiness.Types.SkillType
+    Network.AWS.AlexaBusiness.Types.SkillTypeFilter
+    Network.AWS.AlexaBusiness.Types.SmartHomeAppliance
+    Network.AWS.AlexaBusiness.Types.Sort
+    Network.AWS.AlexaBusiness.Types.SortValue
+    Network.AWS.AlexaBusiness.Types.Ssml
+    Network.AWS.AlexaBusiness.Types.Tag
+    Network.AWS.AlexaBusiness.Types.TemperatureUnit
+    Network.AWS.AlexaBusiness.Types.TextMessage
+    Network.AWS.AlexaBusiness.Types.UpdateEndOfMeetingReminder
+    Network.AWS.AlexaBusiness.Types.UpdateInstantBooking
+    Network.AWS.AlexaBusiness.Types.UpdateMeetingRoomConfiguration
+    Network.AWS.AlexaBusiness.Types.UpdateRequireCheckIn
+    Network.AWS.AlexaBusiness.Types.UserData
+    Network.AWS.AlexaBusiness.Types.WakeWord
+    Network.AWS.AlexaBusiness.UntagResource
+    Network.AWS.AlexaBusiness.UpdateAddressBook
+    Network.AWS.AlexaBusiness.UpdateBusinessReportSchedule
+    Network.AWS.AlexaBusiness.UpdateConferenceProvider
+    Network.AWS.AlexaBusiness.UpdateContact
+    Network.AWS.AlexaBusiness.UpdateDevice
+    Network.AWS.AlexaBusiness.UpdateGateway
+    Network.AWS.AlexaBusiness.UpdateGatewayGroup
+    Network.AWS.AlexaBusiness.UpdateNetworkProfile
+    Network.AWS.AlexaBusiness.UpdateProfile
+    Network.AWS.AlexaBusiness.UpdateRoom
+    Network.AWS.AlexaBusiness.UpdateSkillGroup
+    Network.AWS.AlexaBusiness.Waiters
 
-    exposed-modules:
-          Network.AWS.AlexaBusiness
-        , Network.AWS.AlexaBusiness.AssociateContactWithAddressBook
-        , Network.AWS.AlexaBusiness.AssociateDeviceWithRoom
-        , Network.AWS.AlexaBusiness.AssociateSkillGroupWithRoom
-        , Network.AWS.AlexaBusiness.CreateAddressBook
-        , Network.AWS.AlexaBusiness.CreateContact
-        , Network.AWS.AlexaBusiness.CreateProfile
-        , Network.AWS.AlexaBusiness.CreateRoom
-        , Network.AWS.AlexaBusiness.CreateSkillGroup
-        , Network.AWS.AlexaBusiness.CreateUser
-        , Network.AWS.AlexaBusiness.DeleteAddressBook
-        , Network.AWS.AlexaBusiness.DeleteContact
-        , Network.AWS.AlexaBusiness.DeleteProfile
-        , Network.AWS.AlexaBusiness.DeleteRoom
-        , Network.AWS.AlexaBusiness.DeleteRoomSkillParameter
-        , Network.AWS.AlexaBusiness.DeleteSkillGroup
-        , Network.AWS.AlexaBusiness.DeleteUser
-        , Network.AWS.AlexaBusiness.DisassociateContactFromAddressBook
-        , Network.AWS.AlexaBusiness.DisassociateDeviceFromRoom
-        , Network.AWS.AlexaBusiness.DisassociateSkillGroupFromRoom
-        , Network.AWS.AlexaBusiness.GetAddressBook
-        , Network.AWS.AlexaBusiness.GetContact
-        , Network.AWS.AlexaBusiness.GetDevice
-        , Network.AWS.AlexaBusiness.GetProfile
-        , Network.AWS.AlexaBusiness.GetRoom
-        , Network.AWS.AlexaBusiness.GetRoomSkillParameter
-        , Network.AWS.AlexaBusiness.GetSkillGroup
-        , Network.AWS.AlexaBusiness.ListDeviceEvents
-        , Network.AWS.AlexaBusiness.ListSkills
-        , Network.AWS.AlexaBusiness.ListTags
-        , Network.AWS.AlexaBusiness.PutRoomSkillParameter
-        , Network.AWS.AlexaBusiness.ResolveRoom
-        , Network.AWS.AlexaBusiness.RevokeInvitation
-        , Network.AWS.AlexaBusiness.SearchAddressBooks
-        , Network.AWS.AlexaBusiness.SearchContacts
-        , Network.AWS.AlexaBusiness.SearchDevices
-        , Network.AWS.AlexaBusiness.SearchProfiles
-        , Network.AWS.AlexaBusiness.SearchRooms
-        , Network.AWS.AlexaBusiness.SearchSkillGroups
-        , Network.AWS.AlexaBusiness.SearchUsers
-        , Network.AWS.AlexaBusiness.SendInvitation
-        , Network.AWS.AlexaBusiness.StartDeviceSync
-        , Network.AWS.AlexaBusiness.TagResource
-        , Network.AWS.AlexaBusiness.Types
-        , Network.AWS.AlexaBusiness.UntagResource
-        , Network.AWS.AlexaBusiness.UpdateAddressBook
-        , Network.AWS.AlexaBusiness.UpdateContact
-        , Network.AWS.AlexaBusiness.UpdateDevice
-        , Network.AWS.AlexaBusiness.UpdateProfile
-        , Network.AWS.AlexaBusiness.UpdateRoom
-        , Network.AWS.AlexaBusiness.UpdateSkillGroup
-        , Network.AWS.AlexaBusiness.Waiters
-
-    other-modules:
-          Network.AWS.AlexaBusiness.Types.Product
-        , Network.AWS.AlexaBusiness.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS.Prelude
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.13  && <5
 
 test-suite amazonka-alexa-business-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.AlexaBusiness
+    Test.AWS.AlexaBusiness.Internal
+    Test.AWS.Gen.AlexaBusiness
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.AlexaBusiness
-        , Test.AWS.Gen.AlexaBusiness
-        , Test.AWS.AlexaBusiness.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-alexa-business
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-alexa-business
+    , amazonka-core            >=1.6.1 && <1.6.2
+    , amazonka-test            >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

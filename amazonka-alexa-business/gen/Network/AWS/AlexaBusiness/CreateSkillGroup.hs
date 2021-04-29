@@ -1,156 +1,199 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AlexaBusiness.CreateSkillGroup
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a skill group with a specified name and description.
---
---
 module Network.AWS.AlexaBusiness.CreateSkillGroup
-    (
-    -- * Creating a Request
-      createSkillGroup
-    , CreateSkillGroup
+  ( -- * Creating a Request
+    CreateSkillGroup (..),
+    newCreateSkillGroup,
+
     -- * Request Lenses
-    , csgClientRequestToken
-    , csgDescription
-    , csgSkillGroupName
+    createSkillGroup_tags,
+    createSkillGroup_description,
+    createSkillGroup_clientRequestToken,
+    createSkillGroup_skillGroupName,
 
     -- * Destructuring the Response
-    , createSkillGroupResponse
-    , CreateSkillGroupResponse
+    CreateSkillGroupResponse (..),
+    newCreateSkillGroupResponse,
+
     -- * Response Lenses
-    , csgrsSkillGroupARN
-    , csgrsResponseStatus
-    ) where
+    createSkillGroupResponse_skillGroupArn,
+    createSkillGroupResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.AlexaBusiness.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createSkillGroup' smart constructor.
+-- | /See:/ 'newCreateSkillGroup' smart constructor.
 data CreateSkillGroup = CreateSkillGroup'
-  { _csgClientRequestToken :: !(Maybe Text)
-  , _csgDescription        :: !(Maybe Text)
-  , _csgSkillGroupName     :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The tags for the skill group.
+    tags :: Prelude.Maybe [Tag],
+    -- | The description for the skill group.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | A unique, user-specified identifier for this request that ensures
+    -- idempotency.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The name for the skill group.
+    skillGroupName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateSkillGroup' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateSkillGroup' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'csgClientRequestToken' - A unique, user-specified identifier for this request that ensures idempotency.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'csgDescription' - The description for the skill group.
+-- 'tags', 'createSkillGroup_tags' - The tags for the skill group.
 --
--- * 'csgSkillGroupName' - The name for the skill group.
-createSkillGroup
-    :: Text -- ^ 'csgSkillGroupName'
-    -> CreateSkillGroup
-createSkillGroup pSkillGroupName_ =
+-- 'description', 'createSkillGroup_description' - The description for the skill group.
+--
+-- 'clientRequestToken', 'createSkillGroup_clientRequestToken' - A unique, user-specified identifier for this request that ensures
+-- idempotency.
+--
+-- 'skillGroupName', 'createSkillGroup_skillGroupName' - The name for the skill group.
+newCreateSkillGroup ::
+  -- | 'skillGroupName'
+  Prelude.Text ->
+  CreateSkillGroup
+newCreateSkillGroup pSkillGroupName_ =
   CreateSkillGroup'
-    { _csgClientRequestToken = Nothing
-    , _csgDescription = Nothing
-    , _csgSkillGroupName = pSkillGroupName_
+    { tags = Prelude.Nothing,
+      description = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
+      skillGroupName = pSkillGroupName_
     }
 
-
--- | A unique, user-specified identifier for this request that ensures idempotency.
-csgClientRequestToken :: Lens' CreateSkillGroup (Maybe Text)
-csgClientRequestToken = lens _csgClientRequestToken (\ s a -> s{_csgClientRequestToken = a})
+-- | The tags for the skill group.
+createSkillGroup_tags :: Lens.Lens' CreateSkillGroup (Prelude.Maybe [Tag])
+createSkillGroup_tags = Lens.lens (\CreateSkillGroup' {tags} -> tags) (\s@CreateSkillGroup' {} a -> s {tags = a} :: CreateSkillGroup) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | The description for the skill group.
-csgDescription :: Lens' CreateSkillGroup (Maybe Text)
-csgDescription = lens _csgDescription (\ s a -> s{_csgDescription = a})
+createSkillGroup_description :: Lens.Lens' CreateSkillGroup (Prelude.Maybe Prelude.Text)
+createSkillGroup_description = Lens.lens (\CreateSkillGroup' {description} -> description) (\s@CreateSkillGroup' {} a -> s {description = a} :: CreateSkillGroup)
+
+-- | A unique, user-specified identifier for this request that ensures
+-- idempotency.
+createSkillGroup_clientRequestToken :: Lens.Lens' CreateSkillGroup (Prelude.Maybe Prelude.Text)
+createSkillGroup_clientRequestToken = Lens.lens (\CreateSkillGroup' {clientRequestToken} -> clientRequestToken) (\s@CreateSkillGroup' {} a -> s {clientRequestToken = a} :: CreateSkillGroup)
 
 -- | The name for the skill group.
-csgSkillGroupName :: Lens' CreateSkillGroup Text
-csgSkillGroupName = lens _csgSkillGroupName (\ s a -> s{_csgSkillGroupName = a})
+createSkillGroup_skillGroupName :: Lens.Lens' CreateSkillGroup Prelude.Text
+createSkillGroup_skillGroupName = Lens.lens (\CreateSkillGroup' {skillGroupName} -> skillGroupName) (\s@CreateSkillGroup' {} a -> s {skillGroupName = a} :: CreateSkillGroup)
 
-instance AWSRequest CreateSkillGroup where
-        type Rs CreateSkillGroup = CreateSkillGroupResponse
-        request = postJSON alexaBusiness
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateSkillGroupResponse' <$>
-                   (x .?> "SkillGroupArn") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest CreateSkillGroup where
+  type Rs CreateSkillGroup = CreateSkillGroupResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateSkillGroupResponse'
+            Prelude.<$> (x Prelude..?> "SkillGroupArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateSkillGroup where
+instance Prelude.Hashable CreateSkillGroup
 
-instance NFData CreateSkillGroup where
+instance Prelude.NFData CreateSkillGroup
 
-instance ToHeaders CreateSkillGroup where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AlexaForBusiness.CreateSkillGroup" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders CreateSkillGroup where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AlexaForBusiness.CreateSkillGroup" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON CreateSkillGroup where
-        toJSON CreateSkillGroup'{..}
-          = object
-              (catMaybes
-                 [("ClientRequestToken" .=) <$>
-                    _csgClientRequestToken,
-                  ("Description" .=) <$> _csgDescription,
-                  Just ("SkillGroupName" .= _csgSkillGroupName)])
+instance Prelude.ToJSON CreateSkillGroup where
+  toJSON CreateSkillGroup' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("Tags" Prelude..=) Prelude.<$> tags,
+            ("Description" Prelude..=) Prelude.<$> description,
+            ("ClientRequestToken" Prelude..=)
+              Prelude.<$> clientRequestToken,
+            Prelude.Just
+              ("SkillGroupName" Prelude..= skillGroupName)
+          ]
+      )
 
-instance ToPath CreateSkillGroup where
-        toPath = const "/"
+instance Prelude.ToPath CreateSkillGroup where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateSkillGroup where
-        toQuery = const mempty
+instance Prelude.ToQuery CreateSkillGroup where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createSkillGroupResponse' smart constructor.
+-- | /See:/ 'newCreateSkillGroupResponse' smart constructor.
 data CreateSkillGroupResponse = CreateSkillGroupResponse'
-  { _csgrsSkillGroupARN  :: !(Maybe Text)
-  , _csgrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ARN of the newly created skill group in the response.
+    skillGroupArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateSkillGroupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateSkillGroupResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'csgrsSkillGroupARN' - The ARN of the newly created skill group in the response.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'csgrsResponseStatus' - -- | The response status code.
-createSkillGroupResponse
-    :: Int -- ^ 'csgrsResponseStatus'
-    -> CreateSkillGroupResponse
-createSkillGroupResponse pResponseStatus_ =
+-- 'skillGroupArn', 'createSkillGroupResponse_skillGroupArn' - The ARN of the newly created skill group in the response.
+--
+-- 'httpStatus', 'createSkillGroupResponse_httpStatus' - The response's http status code.
+newCreateSkillGroupResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateSkillGroupResponse
+newCreateSkillGroupResponse pHttpStatus_ =
   CreateSkillGroupResponse'
-    {_csgrsSkillGroupARN = Nothing, _csgrsResponseStatus = pResponseStatus_}
-
+    { skillGroupArn =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The ARN of the newly created skill group in the response.
-csgrsSkillGroupARN :: Lens' CreateSkillGroupResponse (Maybe Text)
-csgrsSkillGroupARN = lens _csgrsSkillGroupARN (\ s a -> s{_csgrsSkillGroupARN = a})
+createSkillGroupResponse_skillGroupArn :: Lens.Lens' CreateSkillGroupResponse (Prelude.Maybe Prelude.Text)
+createSkillGroupResponse_skillGroupArn = Lens.lens (\CreateSkillGroupResponse' {skillGroupArn} -> skillGroupArn) (\s@CreateSkillGroupResponse' {} a -> s {skillGroupArn = a} :: CreateSkillGroupResponse)
 
--- | -- | The response status code.
-csgrsResponseStatus :: Lens' CreateSkillGroupResponse Int
-csgrsResponseStatus = lens _csgrsResponseStatus (\ s a -> s{_csgrsResponseStatus = a})
+-- | The response's http status code.
+createSkillGroupResponse_httpStatus :: Lens.Lens' CreateSkillGroupResponse Prelude.Int
+createSkillGroupResponse_httpStatus = Lens.lens (\CreateSkillGroupResponse' {httpStatus} -> httpStatus) (\s@CreateSkillGroupResponse' {} a -> s {httpStatus = a} :: CreateSkillGroupResponse)
 
-instance NFData CreateSkillGroupResponse where
+instance Prelude.NFData CreateSkillGroupResponse

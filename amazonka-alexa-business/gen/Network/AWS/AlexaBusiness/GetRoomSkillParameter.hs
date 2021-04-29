@@ -1,160 +1,191 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AlexaBusiness.GetRoomSkillParameter
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets room skill parameter details by room, skill, and parameter key ARN.
---
---
 module Network.AWS.AlexaBusiness.GetRoomSkillParameter
-    (
-    -- * Creating a Request
-      getRoomSkillParameter
-    , GetRoomSkillParameter
+  ( -- * Creating a Request
+    GetRoomSkillParameter (..),
+    newGetRoomSkillParameter,
+
     -- * Request Lenses
-    , grspRoomARN
-    , grspSkillId
-    , grspParameterKey
+    getRoomSkillParameter_roomArn,
+    getRoomSkillParameter_skillId,
+    getRoomSkillParameter_parameterKey,
 
     -- * Destructuring the Response
-    , getRoomSkillParameterResponse
-    , GetRoomSkillParameterResponse
+    GetRoomSkillParameterResponse (..),
+    newGetRoomSkillParameterResponse,
+
     -- * Response Lenses
-    , grsprsRoomSkillParameter
-    , grsprsResponseStatus
-    ) where
+    getRoomSkillParameterResponse_roomSkillParameter,
+    getRoomSkillParameterResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.AlexaBusiness.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getRoomSkillParameter' smart constructor.
+-- | /See:/ 'newGetRoomSkillParameter' smart constructor.
 data GetRoomSkillParameter = GetRoomSkillParameter'
-  { _grspRoomARN      :: !(Maybe Text)
-  , _grspSkillId      :: !Text
-  , _grspParameterKey :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ARN of the room from which to get the room skill parameter details.
+    roomArn :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the skill from which to get the room skill parameter details.
+    -- Required.
+    skillId :: Prelude.Text,
+    -- | The room skill parameter key for which to get details. Required.
+    parameterKey :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetRoomSkillParameter' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetRoomSkillParameter' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'grspRoomARN' - The ARN of the room from which to get the room skill parameter details.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'grspSkillId' - The ARN of the skill from which to get the room skill parameter details. Required.
+-- 'roomArn', 'getRoomSkillParameter_roomArn' - The ARN of the room from which to get the room skill parameter details.
 --
--- * 'grspParameterKey' - The room skill parameter key for which to get details. Required.
-getRoomSkillParameter
-    :: Text -- ^ 'grspSkillId'
-    -> Text -- ^ 'grspParameterKey'
-    -> GetRoomSkillParameter
-getRoomSkillParameter pSkillId_ pParameterKey_ =
+-- 'skillId', 'getRoomSkillParameter_skillId' - The ARN of the skill from which to get the room skill parameter details.
+-- Required.
+--
+-- 'parameterKey', 'getRoomSkillParameter_parameterKey' - The room skill parameter key for which to get details. Required.
+newGetRoomSkillParameter ::
+  -- | 'skillId'
+  Prelude.Text ->
+  -- | 'parameterKey'
+  Prelude.Text ->
+  GetRoomSkillParameter
+newGetRoomSkillParameter pSkillId_ pParameterKey_ =
   GetRoomSkillParameter'
-    { _grspRoomARN = Nothing
-    , _grspSkillId = pSkillId_
-    , _grspParameterKey = pParameterKey_
+    { roomArn = Prelude.Nothing,
+      skillId = pSkillId_,
+      parameterKey = pParameterKey_
     }
-
 
 -- | The ARN of the room from which to get the room skill parameter details.
-grspRoomARN :: Lens' GetRoomSkillParameter (Maybe Text)
-grspRoomARN = lens _grspRoomARN (\ s a -> s{_grspRoomARN = a})
+getRoomSkillParameter_roomArn :: Lens.Lens' GetRoomSkillParameter (Prelude.Maybe Prelude.Text)
+getRoomSkillParameter_roomArn = Lens.lens (\GetRoomSkillParameter' {roomArn} -> roomArn) (\s@GetRoomSkillParameter' {} a -> s {roomArn = a} :: GetRoomSkillParameter)
 
--- | The ARN of the skill from which to get the room skill parameter details. Required.
-grspSkillId :: Lens' GetRoomSkillParameter Text
-grspSkillId = lens _grspSkillId (\ s a -> s{_grspSkillId = a})
+-- | The ARN of the skill from which to get the room skill parameter details.
+-- Required.
+getRoomSkillParameter_skillId :: Lens.Lens' GetRoomSkillParameter Prelude.Text
+getRoomSkillParameter_skillId = Lens.lens (\GetRoomSkillParameter' {skillId} -> skillId) (\s@GetRoomSkillParameter' {} a -> s {skillId = a} :: GetRoomSkillParameter)
 
 -- | The room skill parameter key for which to get details. Required.
-grspParameterKey :: Lens' GetRoomSkillParameter Text
-grspParameterKey = lens _grspParameterKey (\ s a -> s{_grspParameterKey = a})
+getRoomSkillParameter_parameterKey :: Lens.Lens' GetRoomSkillParameter Prelude.Text
+getRoomSkillParameter_parameterKey = Lens.lens (\GetRoomSkillParameter' {parameterKey} -> parameterKey) (\s@GetRoomSkillParameter' {} a -> s {parameterKey = a} :: GetRoomSkillParameter)
 
-instance AWSRequest GetRoomSkillParameter where
-        type Rs GetRoomSkillParameter =
-             GetRoomSkillParameterResponse
-        request = postJSON alexaBusiness
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetRoomSkillParameterResponse' <$>
-                   (x .?> "RoomSkillParameter") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest GetRoomSkillParameter where
+  type
+    Rs GetRoomSkillParameter =
+      GetRoomSkillParameterResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetRoomSkillParameterResponse'
+            Prelude.<$> (x Prelude..?> "RoomSkillParameter")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetRoomSkillParameter where
+instance Prelude.Hashable GetRoomSkillParameter
 
-instance NFData GetRoomSkillParameter where
+instance Prelude.NFData GetRoomSkillParameter
 
-instance ToHeaders GetRoomSkillParameter where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AlexaForBusiness.GetRoomSkillParameter" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders GetRoomSkillParameter where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AlexaForBusiness.GetRoomSkillParameter" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON GetRoomSkillParameter where
-        toJSON GetRoomSkillParameter'{..}
-          = object
-              (catMaybes
-                 [("RoomArn" .=) <$> _grspRoomARN,
-                  Just ("SkillId" .= _grspSkillId),
-                  Just ("ParameterKey" .= _grspParameterKey)])
+instance Prelude.ToJSON GetRoomSkillParameter where
+  toJSON GetRoomSkillParameter' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("RoomArn" Prelude..=) Prelude.<$> roomArn,
+            Prelude.Just ("SkillId" Prelude..= skillId),
+            Prelude.Just
+              ("ParameterKey" Prelude..= parameterKey)
+          ]
+      )
 
-instance ToPath GetRoomSkillParameter where
-        toPath = const "/"
+instance Prelude.ToPath GetRoomSkillParameter where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetRoomSkillParameter where
-        toQuery = const mempty
+instance Prelude.ToQuery GetRoomSkillParameter where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getRoomSkillParameterResponse' smart constructor.
+-- | /See:/ 'newGetRoomSkillParameterResponse' smart constructor.
 data GetRoomSkillParameterResponse = GetRoomSkillParameterResponse'
-  { _grsprsRoomSkillParameter :: !(Maybe RoomSkillParameter)
-  , _grsprsResponseStatus     :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The details of the room skill parameter requested. Required.
+    roomSkillParameter :: Prelude.Maybe RoomSkillParameter,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetRoomSkillParameterResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetRoomSkillParameterResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'grsprsRoomSkillParameter' - The details of the room skill parameter requested. Required.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'grsprsResponseStatus' - -- | The response status code.
-getRoomSkillParameterResponse
-    :: Int -- ^ 'grsprsResponseStatus'
-    -> GetRoomSkillParameterResponse
-getRoomSkillParameterResponse pResponseStatus_ =
+-- 'roomSkillParameter', 'getRoomSkillParameterResponse_roomSkillParameter' - The details of the room skill parameter requested. Required.
+--
+-- 'httpStatus', 'getRoomSkillParameterResponse_httpStatus' - The response's http status code.
+newGetRoomSkillParameterResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetRoomSkillParameterResponse
+newGetRoomSkillParameterResponse pHttpStatus_ =
   GetRoomSkillParameterResponse'
-    { _grsprsRoomSkillParameter = Nothing
-    , _grsprsResponseStatus = pResponseStatus_
+    { roomSkillParameter =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | The details of the room skill parameter requested. Required.
-grsprsRoomSkillParameter :: Lens' GetRoomSkillParameterResponse (Maybe RoomSkillParameter)
-grsprsRoomSkillParameter = lens _grsprsRoomSkillParameter (\ s a -> s{_grsprsRoomSkillParameter = a})
+getRoomSkillParameterResponse_roomSkillParameter :: Lens.Lens' GetRoomSkillParameterResponse (Prelude.Maybe RoomSkillParameter)
+getRoomSkillParameterResponse_roomSkillParameter = Lens.lens (\GetRoomSkillParameterResponse' {roomSkillParameter} -> roomSkillParameter) (\s@GetRoomSkillParameterResponse' {} a -> s {roomSkillParameter = a} :: GetRoomSkillParameterResponse)
 
--- | -- | The response status code.
-grsprsResponseStatus :: Lens' GetRoomSkillParameterResponse Int
-grsprsResponseStatus = lens _grsprsResponseStatus (\ s a -> s{_grsprsResponseStatus = a})
+-- | The response's http status code.
+getRoomSkillParameterResponse_httpStatus :: Lens.Lens' GetRoomSkillParameterResponse Prelude.Int
+getRoomSkillParameterResponse_httpStatus = Lens.lens (\GetRoomSkillParameterResponse' {httpStatus} -> httpStatus) (\s@GetRoomSkillParameterResponse' {} a -> s {httpStatus = a} :: GetRoomSkillParameterResponse)
 
-instance NFData GetRoomSkillParameterResponse where
+instance Prelude.NFData GetRoomSkillParameterResponse

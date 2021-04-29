@@ -1,194 +1,229 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ImportExport.UpdateJob
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- You use this operation to change the parameters specified in the original manifest file by supplying a new manifest file. The manifest file attached to this request replaces the original manifest file. You can only use the operation after a CreateJob request but before the data transfer starts and you can only use it on jobs you own.
+-- You use this operation to change the parameters specified in the
+-- original manifest file by supplying a new manifest file. The manifest
+-- file attached to this request replaces the original manifest file. You
+-- can only use the operation after a CreateJob request but before the data
+-- transfer starts and you can only use it on jobs you own.
 module Network.AWS.ImportExport.UpdateJob
-    (
-    -- * Creating a Request
-      updateJob
-    , UpdateJob
+  ( -- * Creating a Request
+    UpdateJob (..),
+    newUpdateJob,
+
     -- * Request Lenses
-    , ujAPIVersion
-    , ujJobId
-    , ujManifest
-    , ujJobType
-    , ujValidateOnly
+    updateJob_aPIVersion,
+    updateJob_jobId,
+    updateJob_manifest,
+    updateJob_jobType,
+    updateJob_validateOnly,
 
     -- * Destructuring the Response
-    , updateJobResponse
-    , UpdateJobResponse
+    UpdateJobResponse (..),
+    newUpdateJobResponse,
+
     -- * Response Lenses
-    , ujrsSuccess
-    , ujrsWarningMessage
-    , ujrsArtifactList
-    , ujrsResponseStatus
-    ) where
+    updateJobResponse_warningMessage,
+    updateJobResponse_artifactList,
+    updateJobResponse_success,
+    updateJobResponse_httpStatus,
+  )
+where
 
 import Network.AWS.ImportExport.Types
-import Network.AWS.ImportExport.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Input structure for the UpateJob operation.
 --
--- /See:/ 'updateJob' smart constructor.
+-- /See:/ 'newUpdateJob' smart constructor.
 data UpdateJob = UpdateJob'
-  { _ujAPIVersion   :: !(Maybe Text)
-  , _ujJobId        :: !Text
-  , _ujManifest     :: !Text
-  , _ujJobType      :: !JobType
-  , _ujValidateOnly :: !Bool
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { aPIVersion :: Prelude.Maybe Prelude.Text,
+    jobId :: Prelude.Text,
+    manifest :: Prelude.Text,
+    jobType :: JobType,
+    validateOnly :: Prelude.Bool
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateJob' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateJob' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ujAPIVersion' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ujJobId' - Undocumented member.
+-- 'aPIVersion', 'updateJob_aPIVersion' - Undocumented member.
 --
--- * 'ujManifest' - Undocumented member.
+-- 'jobId', 'updateJob_jobId' - Undocumented member.
 --
--- * 'ujJobType' - Undocumented member.
+-- 'manifest', 'updateJob_manifest' - Undocumented member.
 --
--- * 'ujValidateOnly' - Undocumented member.
-updateJob
-    :: Text -- ^ 'ujJobId'
-    -> Text -- ^ 'ujManifest'
-    -> JobType -- ^ 'ujJobType'
-    -> Bool -- ^ 'ujValidateOnly'
-    -> UpdateJob
-updateJob pJobId_ pManifest_ pJobType_ pValidateOnly_ =
-  UpdateJob'
-    { _ujAPIVersion = Nothing
-    , _ujJobId = pJobId_
-    , _ujManifest = pManifest_
-    , _ujJobType = pJobType_
-    , _ujValidateOnly = pValidateOnly_
-    }
-
+-- 'jobType', 'updateJob_jobType' - Undocumented member.
+--
+-- 'validateOnly', 'updateJob_validateOnly' - Undocumented member.
+newUpdateJob ::
+  -- | 'jobId'
+  Prelude.Text ->
+  -- | 'manifest'
+  Prelude.Text ->
+  -- | 'jobType'
+  JobType ->
+  -- | 'validateOnly'
+  Prelude.Bool ->
+  UpdateJob
+newUpdateJob
+  pJobId_
+  pManifest_
+  pJobType_
+  pValidateOnly_ =
+    UpdateJob'
+      { aPIVersion = Prelude.Nothing,
+        jobId = pJobId_,
+        manifest = pManifest_,
+        jobType = pJobType_,
+        validateOnly = pValidateOnly_
+      }
 
 -- | Undocumented member.
-ujAPIVersion :: Lens' UpdateJob (Maybe Text)
-ujAPIVersion = lens _ujAPIVersion (\ s a -> s{_ujAPIVersion = a})
+updateJob_aPIVersion :: Lens.Lens' UpdateJob (Prelude.Maybe Prelude.Text)
+updateJob_aPIVersion = Lens.lens (\UpdateJob' {aPIVersion} -> aPIVersion) (\s@UpdateJob' {} a -> s {aPIVersion = a} :: UpdateJob)
 
 -- | Undocumented member.
-ujJobId :: Lens' UpdateJob Text
-ujJobId = lens _ujJobId (\ s a -> s{_ujJobId = a})
+updateJob_jobId :: Lens.Lens' UpdateJob Prelude.Text
+updateJob_jobId = Lens.lens (\UpdateJob' {jobId} -> jobId) (\s@UpdateJob' {} a -> s {jobId = a} :: UpdateJob)
 
 -- | Undocumented member.
-ujManifest :: Lens' UpdateJob Text
-ujManifest = lens _ujManifest (\ s a -> s{_ujManifest = a})
+updateJob_manifest :: Lens.Lens' UpdateJob Prelude.Text
+updateJob_manifest = Lens.lens (\UpdateJob' {manifest} -> manifest) (\s@UpdateJob' {} a -> s {manifest = a} :: UpdateJob)
 
 -- | Undocumented member.
-ujJobType :: Lens' UpdateJob JobType
-ujJobType = lens _ujJobType (\ s a -> s{_ujJobType = a})
+updateJob_jobType :: Lens.Lens' UpdateJob JobType
+updateJob_jobType = Lens.lens (\UpdateJob' {jobType} -> jobType) (\s@UpdateJob' {} a -> s {jobType = a} :: UpdateJob)
 
 -- | Undocumented member.
-ujValidateOnly :: Lens' UpdateJob Bool
-ujValidateOnly = lens _ujValidateOnly (\ s a -> s{_ujValidateOnly = a})
+updateJob_validateOnly :: Lens.Lens' UpdateJob Prelude.Bool
+updateJob_validateOnly = Lens.lens (\UpdateJob' {validateOnly} -> validateOnly) (\s@UpdateJob' {} a -> s {validateOnly = a} :: UpdateJob)
 
-instance AWSRequest UpdateJob where
-        type Rs UpdateJob = UpdateJobResponse
-        request = postQuery importExport
-        response
-          = receiveXMLWrapper "UpdateJobResult"
-              (\ s h x ->
-                 UpdateJobResponse' <$>
-                   (x .@? "Success") <*> (x .@? "WarningMessage") <*>
-                     (x .@? "ArtifactList" .!@ mempty >>=
-                        may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest UpdateJob where
+  type Rs UpdateJob = UpdateJobResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "UpdateJobResult"
+      ( \s h x ->
+          UpdateJobResponse'
+            Prelude.<$> (x Prelude..@? "WarningMessage")
+            Prelude.<*> ( x Prelude..@? "ArtifactList"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
+                        )
+            Prelude.<*> (x Prelude..@? "Success")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateJob where
+instance Prelude.Hashable UpdateJob
 
-instance NFData UpdateJob where
+instance Prelude.NFData UpdateJob
 
-instance ToHeaders UpdateJob where
-        toHeaders = const mempty
+instance Prelude.ToHeaders UpdateJob where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath UpdateJob where
-        toPath = const "/"
+instance Prelude.ToPath UpdateJob where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateJob where
-        toQuery UpdateJob'{..}
-          = mconcat
-              ["Operation=UpdateJob",
-               "Action" =: ("UpdateJob" :: ByteString),
-               "Version" =: ("2010-06-01" :: ByteString),
-               "APIVersion" =: _ujAPIVersion, "JobId" =: _ujJobId,
-               "Manifest" =: _ujManifest, "JobType" =: _ujJobType,
-               "ValidateOnly" =: _ujValidateOnly]
+instance Prelude.ToQuery UpdateJob where
+  toQuery UpdateJob' {..} =
+    Prelude.mconcat
+      [ "Operation=UpdateJob",
+        "Action"
+          Prelude.=: ("UpdateJob" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2010-06-01" :: Prelude.ByteString),
+        "APIVersion" Prelude.=: aPIVersion,
+        "JobId" Prelude.=: jobId,
+        "Manifest" Prelude.=: manifest,
+        "JobType" Prelude.=: jobType,
+        "ValidateOnly" Prelude.=: validateOnly
+      ]
 
 -- | Output structure for the UpateJob operation.
 --
--- /See:/ 'updateJobResponse' smart constructor.
+-- /See:/ 'newUpdateJobResponse' smart constructor.
 data UpdateJobResponse = UpdateJobResponse'
-  { _ujrsSuccess        :: !(Maybe Bool)
-  , _ujrsWarningMessage :: !(Maybe Text)
-  , _ujrsArtifactList   :: !(Maybe [Artifact])
-  , _ujrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { warningMessage :: Prelude.Maybe Prelude.Text,
+    artifactList :: Prelude.Maybe [Artifact],
+    success :: Prelude.Maybe Prelude.Bool,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateJobResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateJobResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ujrsSuccess' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ujrsWarningMessage' - Undocumented member.
+-- 'warningMessage', 'updateJobResponse_warningMessage' - Undocumented member.
 --
--- * 'ujrsArtifactList' - Undocumented member.
+-- 'artifactList', 'updateJobResponse_artifactList' - Undocumented member.
 --
--- * 'ujrsResponseStatus' - -- | The response status code.
-updateJobResponse
-    :: Int -- ^ 'ujrsResponseStatus'
-    -> UpdateJobResponse
-updateJobResponse pResponseStatus_ =
+-- 'success', 'updateJobResponse_success' - Undocumented member.
+--
+-- 'httpStatus', 'updateJobResponse_httpStatus' - The response's http status code.
+newUpdateJobResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateJobResponse
+newUpdateJobResponse pHttpStatus_ =
   UpdateJobResponse'
-    { _ujrsSuccess = Nothing
-    , _ujrsWarningMessage = Nothing
-    , _ujrsArtifactList = Nothing
-    , _ujrsResponseStatus = pResponseStatus_
+    { warningMessage =
+        Prelude.Nothing,
+      artifactList = Prelude.Nothing,
+      success = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | Undocumented member.
+updateJobResponse_warningMessage :: Lens.Lens' UpdateJobResponse (Prelude.Maybe Prelude.Text)
+updateJobResponse_warningMessage = Lens.lens (\UpdateJobResponse' {warningMessage} -> warningMessage) (\s@UpdateJobResponse' {} a -> s {warningMessage = a} :: UpdateJobResponse)
 
 -- | Undocumented member.
-ujrsSuccess :: Lens' UpdateJobResponse (Maybe Bool)
-ujrsSuccess = lens _ujrsSuccess (\ s a -> s{_ujrsSuccess = a})
+updateJobResponse_artifactList :: Lens.Lens' UpdateJobResponse (Prelude.Maybe [Artifact])
+updateJobResponse_artifactList = Lens.lens (\UpdateJobResponse' {artifactList} -> artifactList) (\s@UpdateJobResponse' {} a -> s {artifactList = a} :: UpdateJobResponse) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | Undocumented member.
-ujrsWarningMessage :: Lens' UpdateJobResponse (Maybe Text)
-ujrsWarningMessage = lens _ujrsWarningMessage (\ s a -> s{_ujrsWarningMessage = a})
+updateJobResponse_success :: Lens.Lens' UpdateJobResponse (Prelude.Maybe Prelude.Bool)
+updateJobResponse_success = Lens.lens (\UpdateJobResponse' {success} -> success) (\s@UpdateJobResponse' {} a -> s {success = a} :: UpdateJobResponse)
 
--- | Undocumented member.
-ujrsArtifactList :: Lens' UpdateJobResponse [Artifact]
-ujrsArtifactList = lens _ujrsArtifactList (\ s a -> s{_ujrsArtifactList = a}) . _Default . _Coerce
+-- | The response's http status code.
+updateJobResponse_httpStatus :: Lens.Lens' UpdateJobResponse Prelude.Int
+updateJobResponse_httpStatus = Lens.lens (\UpdateJobResponse' {httpStatus} -> httpStatus) (\s@UpdateJobResponse' {} a -> s {httpStatus = a} :: UpdateJobResponse)
 
--- | -- | The response status code.
-ujrsResponseStatus :: Lens' UpdateJobResponse Int
-ujrsResponseStatus = lens _ujrsResponseStatus (\ s a -> s{_ujrsResponseStatus = a})
-
-instance NFData UpdateJobResponse where
+instance Prelude.NFData UpdateJobResponse

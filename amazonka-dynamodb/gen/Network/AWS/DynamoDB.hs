@@ -1,664 +1,924 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DynamoDB
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __Amazon DynamoDB__
+-- Amazon DynamoDB
 --
--- Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. DynamoDB lets you offload the administrative burdens of operating and scaling a distributed database, so that you don't have to worry about hardware provisioning, setup and configuration, replication, software patching, or cluster scaling.
+-- Amazon DynamoDB is a fully managed NoSQL database service that provides
+-- fast and predictable performance with seamless scalability. DynamoDB
+-- lets you offload the administrative burdens of operating and scaling a
+-- distributed database, so that you don\'t have to worry about hardware
+-- provisioning, setup and configuration, replication, software patching,
+-- or cluster scaling.
 --
--- With DynamoDB, you can create database tables that can store and retrieve any amount of data, and serve any level of request traffic. You can scale up or scale down your tables' throughput capacity without downtime or performance degradation, and use the AWS Management Console to monitor resource utilization and performance metrics.
+-- With DynamoDB, you can create database tables that can store and
+-- retrieve any amount of data, and serve any level of request traffic. You
+-- can scale up or scale down your tables\' throughput capacity without
+-- downtime or performance degradation, and use the AWS Management Console
+-- to monitor resource utilization and performance metrics.
 --
--- DynamoDB automatically spreads the data and traffic for your tables over a sufficient number of servers to handle your throughput and storage requirements, while maintaining consistent and fast performance. All of your data is stored on solid state disks (SSDs) and automatically replicated across multiple Availability Zones in an AWS region, providing built-in high availability and data durability.
---
+-- DynamoDB automatically spreads the data and traffic for your tables over
+-- a sufficient number of servers to handle your throughput and storage
+-- requirements, while maintaining consistent and fast performance. All of
+-- your data is stored on solid state disks (SSDs) and automatically
+-- replicated across multiple Availability Zones in an AWS region,
+-- providing built-in high availability and data durability.
 module Network.AWS.DynamoDB
-    (
-    -- * Service Configuration
-      dynamoDB
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
     -- $errors
 
-    -- ** BackupNotFoundException
-    , _BackupNotFoundException
-
-    -- ** TableInUseException
-    , _TableInUseException
-
-    -- ** ContinuousBackupsUnavailableException
-    , _ContinuousBackupsUnavailableException
-
-    -- ** ProvisionedThroughputExceededException
-    , _ProvisionedThroughputExceededException
-
-    -- ** GlobalTableNotFoundException
-    , _GlobalTableNotFoundException
-
-    -- ** ConditionalCheckFailedException
-    , _ConditionalCheckFailedException
-
-    -- ** GlobalTableAlreadyExistsException
-    , _GlobalTableAlreadyExistsException
-
-    -- ** ReplicaNotFoundException
-    , _ReplicaNotFoundException
+    -- ** InvalidExportTimeException
+    _InvalidExportTimeException,
 
     -- ** TableAlreadyExistsException
-    , _TableAlreadyExistsException
+    _TableAlreadyExistsException,
 
-    -- ** ItemCollectionSizeLimitExceededException
-    , _ItemCollectionSizeLimitExceededException
+    -- ** GlobalTableAlreadyExistsException
+    _GlobalTableAlreadyExistsException,
 
-    -- ** InternalServerError
-    , _InternalServerError
-
-    -- ** TableNotFoundException
-    , _TableNotFoundException
-
-    -- ** IndexNotFoundException
-    , _IndexNotFoundException
-
-    -- ** BackupInUseException
-    , _BackupInUseException
-
-    -- ** PointInTimeRecoveryUnavailableException
-    , _PointInTimeRecoveryUnavailableException
-
-    -- ** InvalidRestoreTimeException
-    , _InvalidRestoreTimeException
-
-    -- ** ResourceNotFoundException
-    , _ResourceNotFoundException
+    -- ** ConditionalCheckFailedException
+    _ConditionalCheckFailedException,
 
     -- ** ReplicaAlreadyExistsException
-    , _ReplicaAlreadyExistsException
+    _ReplicaAlreadyExistsException,
 
-    -- ** LimitExceededException
-    , _LimitExceededException
+    -- ** TransactionInProgressException
+    _TransactionInProgressException,
+
+    -- ** GlobalTableNotFoundException
+    _GlobalTableNotFoundException,
+
+    -- ** InvalidRestoreTimeException
+    _InvalidRestoreTimeException,
+
+    -- ** PointInTimeRecoveryUnavailableException
+    _PointInTimeRecoveryUnavailableException,
+
+    -- ** ExportNotFoundException
+    _ExportNotFoundException,
+
+    -- ** BackupInUseException
+    _BackupInUseException,
+
+    -- ** ContinuousBackupsUnavailableException
+    _ContinuousBackupsUnavailableException,
+
+    -- ** ExportConflictException
+    _ExportConflictException,
+
+    -- ** DuplicateItemException
+    _DuplicateItemException,
+
+    -- ** TableInUseException
+    _TableInUseException,
+
+    -- ** TransactionConflictException
+    _TransactionConflictException,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** RequestLimitExceeded
+    _RequestLimitExceeded,
+
+    -- ** ItemCollectionSizeLimitExceededException
+    _ItemCollectionSizeLimitExceededException,
+
+    -- ** ReplicaNotFoundException
+    _ReplicaNotFoundException,
+
+    -- ** TransactionCanceledException
+    _TransactionCanceledException,
 
     -- ** ResourceInUseException
-    , _ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ProvisionedThroughputExceededException
+    _ProvisionedThroughputExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** IdempotentParameterMismatchException
+    _IdempotentParameterMismatchException,
+
+    -- ** BackupNotFoundException
+    _BackupNotFoundException,
+
+    -- ** IndexNotFoundException
+    _IndexNotFoundException,
+
+    -- ** TableNotFoundException
+    _TableNotFoundException,
 
     -- * Waiters
     -- $waiters
 
     -- ** TableNotExists
-    , tableNotExists
+    newTableNotExists,
 
     -- ** TableExists
-    , tableExists
+    newTableExists,
 
     -- * Operations
     -- $operations
 
-    -- ** PutItem
-    , module Network.AWS.DynamoDB.PutItem
-
-    -- ** DeleteItem
-    , module Network.AWS.DynamoDB.DeleteItem
-
-    -- ** UpdateItem
-    , module Network.AWS.DynamoDB.UpdateItem
-
-    -- ** ListGlobalTables
-    , module Network.AWS.DynamoDB.ListGlobalTables
-
-    -- ** UpdateGlobalTable
-    , module Network.AWS.DynamoDB.UpdateGlobalTable
-
-    -- ** DeleteTable
-    , module Network.AWS.DynamoDB.DeleteTable
-
-    -- ** UpdateTable
-    , module Network.AWS.DynamoDB.UpdateTable
-
     -- ** BatchGetItem
-    , module Network.AWS.DynamoDB.BatchGetItem
+    BatchGetItem (BatchGetItem'),
+    newBatchGetItem,
+    BatchGetItemResponse (BatchGetItemResponse'),
+    newBatchGetItemResponse,
 
-    -- ** ListBackups (Paginated)
-    , module Network.AWS.DynamoDB.ListBackups
+    -- ** UpdateContributorInsights
+    UpdateContributorInsights (UpdateContributorInsights'),
+    newUpdateContributorInsights,
+    UpdateContributorInsightsResponse (UpdateContributorInsightsResponse'),
+    newUpdateContributorInsightsResponse,
 
     -- ** DeleteBackup
-    , module Network.AWS.DynamoDB.DeleteBackup
+    DeleteBackup (DeleteBackup'),
+    newDeleteBackup,
+    DeleteBackupResponse (DeleteBackupResponse'),
+    newDeleteBackupResponse,
 
-    -- ** CreateBackup
-    , module Network.AWS.DynamoDB.CreateBackup
+    -- ** DeleteItem
+    DeleteItem (DeleteItem'),
+    newDeleteItem,
+    DeleteItemResponse (DeleteItemResponse'),
+    newDeleteItemResponse,
 
-    -- ** DescribeGlobalTableSettings
-    , module Network.AWS.DynamoDB.DescribeGlobalTableSettings
+    -- ** UpdateItem
+    UpdateItem (UpdateItem'),
+    newUpdateItem,
+    UpdateItemResponse (UpdateItemResponse'),
+    newUpdateItemResponse,
 
-    -- ** ListTagsOfResource
-    , module Network.AWS.DynamoDB.ListTagsOfResource
+    -- ** ListContributorInsights
+    ListContributorInsights (ListContributorInsights'),
+    newListContributorInsights,
+    ListContributorInsightsResponse (ListContributorInsightsResponse'),
+    newListContributorInsightsResponse,
 
-    -- ** DescribeGlobalTable
-    , module Network.AWS.DynamoDB.DescribeGlobalTable
+    -- ** ListGlobalTables
+    ListGlobalTables (ListGlobalTables'),
+    newListGlobalTables,
+    ListGlobalTablesResponse (ListGlobalTablesResponse'),
+    newListGlobalTablesResponse,
 
-    -- ** DescribeTable
-    , module Network.AWS.DynamoDB.DescribeTable
-
-    -- ** DescribeLimits
-    , module Network.AWS.DynamoDB.DescribeLimits
-
-    -- ** GetItem
-    , module Network.AWS.DynamoDB.GetItem
-
-    -- ** DescribeBackup
-    , module Network.AWS.DynamoDB.DescribeBackup
-
-    -- ** UpdateGlobalTableSettings
-    , module Network.AWS.DynamoDB.UpdateGlobalTableSettings
-
-    -- ** BatchWriteItem
-    , module Network.AWS.DynamoDB.BatchWriteItem
-
-    -- ** ListTables (Paginated)
-    , module Network.AWS.DynamoDB.ListTables
-
-    -- ** Scan (Paginated)
-    , module Network.AWS.DynamoDB.Scan
-
-    -- ** Query (Paginated)
-    , module Network.AWS.DynamoDB.Query
-
-    -- ** CreateTable
-    , module Network.AWS.DynamoDB.CreateTable
-
-    -- ** DescribeTimeToLive
-    , module Network.AWS.DynamoDB.DescribeTimeToLive
-
-    -- ** DescribeContinuousBackups
-    , module Network.AWS.DynamoDB.DescribeContinuousBackups
-
-    -- ** TagResource
-    , module Network.AWS.DynamoDB.TagResource
-
-    -- ** UntagResource
-    , module Network.AWS.DynamoDB.UntagResource
-
-    -- ** RestoreTableToPointInTime
-    , module Network.AWS.DynamoDB.RestoreTableToPointInTime
-
-    -- ** RestoreTableFromBackup
-    , module Network.AWS.DynamoDB.RestoreTableFromBackup
-
-    -- ** UpdateTimeToLive
-    , module Network.AWS.DynamoDB.UpdateTimeToLive
-
-    -- ** CreateGlobalTable
-    , module Network.AWS.DynamoDB.CreateGlobalTable
+    -- ** DisableKinesisStreamingDestination
+    DisableKinesisStreamingDestination (DisableKinesisStreamingDestination'),
+    newDisableKinesisStreamingDestination,
+    KinesisStreamingDestinationOutput (KinesisStreamingDestinationOutput'),
+    newKinesisStreamingDestinationOutput,
 
     -- ** UpdateContinuousBackups
-    , module Network.AWS.DynamoDB.UpdateContinuousBackups
+    UpdateContinuousBackups (UpdateContinuousBackups'),
+    newUpdateContinuousBackups,
+    UpdateContinuousBackupsResponse (UpdateContinuousBackupsResponse'),
+    newUpdateContinuousBackupsResponse,
+
+    -- ** CreateGlobalTable
+    CreateGlobalTable (CreateGlobalTable'),
+    newCreateGlobalTable,
+    CreateGlobalTableResponse (CreateGlobalTableResponse'),
+    newCreateGlobalTableResponse,
+
+    -- ** BatchExecuteStatement
+    BatchExecuteStatement (BatchExecuteStatement'),
+    newBatchExecuteStatement,
+    BatchExecuteStatementResponse (BatchExecuteStatementResponse'),
+    newBatchExecuteStatementResponse,
+
+    -- ** RestoreTableFromBackup
+    RestoreTableFromBackup (RestoreTableFromBackup'),
+    newRestoreTableFromBackup,
+    RestoreTableFromBackupResponse (RestoreTableFromBackupResponse'),
+    newRestoreTableFromBackupResponse,
+
+    -- ** DescribeLimits
+    DescribeLimits (DescribeLimits'),
+    newDescribeLimits,
+    DescribeLimitsResponse (DescribeLimitsResponse'),
+    newDescribeLimitsResponse,
+
+    -- ** ExecuteTransaction
+    ExecuteTransaction (ExecuteTransaction'),
+    newExecuteTransaction,
+    ExecuteTransactionResponse (ExecuteTransactionResponse'),
+    newExecuteTransactionResponse,
+
+    -- ** RestoreTableToPointInTime
+    RestoreTableToPointInTime (RestoreTableToPointInTime'),
+    newRestoreTableToPointInTime,
+    RestoreTableToPointInTimeResponse (RestoreTableToPointInTimeResponse'),
+    newRestoreTableToPointInTimeResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** DescribeContributorInsights
+    DescribeContributorInsights (DescribeContributorInsights'),
+    newDescribeContributorInsights,
+    DescribeContributorInsightsResponse (DescribeContributorInsightsResponse'),
+    newDescribeContributorInsightsResponse,
+
+    -- ** DescribeBackup
+    DescribeBackup (DescribeBackup'),
+    newDescribeBackup,
+    DescribeBackupResponse (DescribeBackupResponse'),
+    newDescribeBackupResponse,
+
+    -- ** ListTagsOfResource (Paginated)
+    ListTagsOfResource (ListTagsOfResource'),
+    newListTagsOfResource,
+    ListTagsOfResourceResponse (ListTagsOfResourceResponse'),
+    newListTagsOfResourceResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** DescribeGlobalTableSettings
+    DescribeGlobalTableSettings (DescribeGlobalTableSettings'),
+    newDescribeGlobalTableSettings,
+    DescribeGlobalTableSettingsResponse (DescribeGlobalTableSettingsResponse'),
+    newDescribeGlobalTableSettingsResponse,
+
+    -- ** UpdateTableReplicaAutoScaling
+    UpdateTableReplicaAutoScaling (UpdateTableReplicaAutoScaling'),
+    newUpdateTableReplicaAutoScaling,
+    UpdateTableReplicaAutoScalingResponse (UpdateTableReplicaAutoScalingResponse'),
+    newUpdateTableReplicaAutoScalingResponse,
+
+    -- ** DescribeTimeToLive
+    DescribeTimeToLive (DescribeTimeToLive'),
+    newDescribeTimeToLive,
+    DescribeTimeToLiveResponse (DescribeTimeToLiveResponse'),
+    newDescribeTimeToLiveResponse,
+
+    -- ** Query (Paginated)
+    Query (Query'),
+    newQuery,
+    QueryResponse (QueryResponse'),
+    newQueryResponse,
+
+    -- ** CreateTable
+    CreateTable (CreateTable'),
+    newCreateTable,
+    CreateTableResponse (CreateTableResponse'),
+    newCreateTableResponse,
+
+    -- ** CreateBackup
+    CreateBackup (CreateBackup'),
+    newCreateBackup,
+    CreateBackupResponse (CreateBackupResponse'),
+    newCreateBackupResponse,
+
+    -- ** ListTables (Paginated)
+    ListTables (ListTables'),
+    newListTables,
+    ListTablesResponse (ListTablesResponse'),
+    newListTablesResponse,
+
+    -- ** Scan (Paginated)
+    Scan (Scan'),
+    newScan,
+    ScanResponse (ScanResponse'),
+    newScanResponse,
+
+    -- ** UpdateTable
+    UpdateTable (UpdateTable'),
+    newUpdateTable,
+    UpdateTableResponse (UpdateTableResponse'),
+    newUpdateTableResponse,
+
+    -- ** DeleteTable
+    DeleteTable (DeleteTable'),
+    newDeleteTable,
+    DeleteTableResponse (DeleteTableResponse'),
+    newDeleteTableResponse,
+
+    -- ** TransactWriteItems
+    TransactWriteItems (TransactWriteItems'),
+    newTransactWriteItems,
+    TransactWriteItemsResponse (TransactWriteItemsResponse'),
+    newTransactWriteItemsResponse,
+
+    -- ** ExportTableToPointInTime
+    ExportTableToPointInTime (ExportTableToPointInTime'),
+    newExportTableToPointInTime,
+    ExportTableToPointInTimeResponse (ExportTableToPointInTimeResponse'),
+    newExportTableToPointInTimeResponse,
+
+    -- ** ListBackups (Paginated)
+    ListBackups (ListBackups'),
+    newListBackups,
+    ListBackupsResponse (ListBackupsResponse'),
+    newListBackupsResponse,
+
+    -- ** TransactGetItems
+    TransactGetItems (TransactGetItems'),
+    newTransactGetItems,
+    TransactGetItemsResponse (TransactGetItemsResponse'),
+    newTransactGetItemsResponse,
+
+    -- ** UpdateGlobalTable
+    UpdateGlobalTable (UpdateGlobalTable'),
+    newUpdateGlobalTable,
+    UpdateGlobalTableResponse (UpdateGlobalTableResponse'),
+    newUpdateGlobalTableResponse,
+
+    -- ** BatchWriteItem
+    BatchWriteItem (BatchWriteItem'),
+    newBatchWriteItem,
+    BatchWriteItemResponse (BatchWriteItemResponse'),
+    newBatchWriteItemResponse,
+
+    -- ** PutItem
+    PutItem (PutItem'),
+    newPutItem,
+    PutItemResponse (PutItemResponse'),
+    newPutItemResponse,
+
+    -- ** UpdateTimeToLive
+    UpdateTimeToLive (UpdateTimeToLive'),
+    newUpdateTimeToLive,
+    UpdateTimeToLiveResponse (UpdateTimeToLiveResponse'),
+    newUpdateTimeToLiveResponse,
+
+    -- ** UpdateGlobalTableSettings
+    UpdateGlobalTableSettings (UpdateGlobalTableSettings'),
+    newUpdateGlobalTableSettings,
+    UpdateGlobalTableSettingsResponse (UpdateGlobalTableSettingsResponse'),
+    newUpdateGlobalTableSettingsResponse,
+
+    -- ** EnableKinesisStreamingDestination
+    EnableKinesisStreamingDestination (EnableKinesisStreamingDestination'),
+    newEnableKinesisStreamingDestination,
+    KinesisStreamingDestinationOutput (KinesisStreamingDestinationOutput'),
+    newKinesisStreamingDestinationOutput,
+
+    -- ** DescribeExport
+    DescribeExport (DescribeExport'),
+    newDescribeExport,
+    DescribeExportResponse (DescribeExportResponse'),
+    newDescribeExportResponse,
+
+    -- ** DescribeTableReplicaAutoScaling
+    DescribeTableReplicaAutoScaling (DescribeTableReplicaAutoScaling'),
+    newDescribeTableReplicaAutoScaling,
+    DescribeTableReplicaAutoScalingResponse (DescribeTableReplicaAutoScalingResponse'),
+    newDescribeTableReplicaAutoScalingResponse,
+
+    -- ** GetItem
+    GetItem (GetItem'),
+    newGetItem,
+    GetItemResponse (GetItemResponse'),
+    newGetItemResponse,
+
+    -- ** DescribeTable
+    DescribeTable (DescribeTable'),
+    newDescribeTable,
+    DescribeTableResponse (DescribeTableResponse'),
+    newDescribeTableResponse,
+
+    -- ** DescribeGlobalTable
+    DescribeGlobalTable (DescribeGlobalTable'),
+    newDescribeGlobalTable,
+    DescribeGlobalTableResponse (DescribeGlobalTableResponse'),
+    newDescribeGlobalTableResponse,
+
+    -- ** ListExports
+    ListExports (ListExports'),
+    newListExports,
+    ListExportsResponse (ListExportsResponse'),
+    newListExportsResponse,
+
+    -- ** DescribeContinuousBackups
+    DescribeContinuousBackups (DescribeContinuousBackups'),
+    newDescribeContinuousBackups,
+    DescribeContinuousBackupsResponse (DescribeContinuousBackupsResponse'),
+    newDescribeContinuousBackupsResponse,
+
+    -- ** DescribeKinesisStreamingDestination
+    DescribeKinesisStreamingDestination (DescribeKinesisStreamingDestination'),
+    newDescribeKinesisStreamingDestination,
+    DescribeKinesisStreamingDestinationResponse (DescribeKinesisStreamingDestinationResponse'),
+    newDescribeKinesisStreamingDestinationResponse,
+
+    -- ** DescribeEndpoints
+    DescribeEndpoints (DescribeEndpoints'),
+    newDescribeEndpoints,
+    DescribeEndpointsResponse (DescribeEndpointsResponse'),
+    newDescribeEndpointsResponse,
+
+    -- ** ExecuteStatement
+    ExecuteStatement (ExecuteStatement'),
+    newExecuteStatement,
+    ExecuteStatementResponse (ExecuteStatementResponse'),
+    newExecuteStatementResponse,
 
     -- * Types
 
     -- ** AttributeAction
-    , AttributeAction (..)
+    AttributeAction (..),
 
     -- ** BackupStatus
-    , BackupStatus (..)
+    BackupStatus (..),
+
+    -- ** BackupType
+    BackupType (..),
+
+    -- ** BackupTypeFilter
+    BackupTypeFilter (..),
+
+    -- ** BatchStatementErrorCodeEnum
+    BatchStatementErrorCodeEnum (..),
+
+    -- ** BillingMode
+    BillingMode (..),
 
     -- ** ComparisonOperator
-    , ComparisonOperator (..)
+    ComparisonOperator (..),
 
     -- ** ConditionalOperator
-    , ConditionalOperator (..)
+    ConditionalOperator (..),
 
     -- ** ContinuousBackupsStatus
-    , ContinuousBackupsStatus (..)
+    ContinuousBackupsStatus (..),
+
+    -- ** ContributorInsightsAction
+    ContributorInsightsAction (..),
+
+    -- ** ContributorInsightsStatus
+    ContributorInsightsStatus (..),
+
+    -- ** DestinationStatus
+    DestinationStatus (..),
+
+    -- ** ExportFormat
+    ExportFormat (..),
+
+    -- ** ExportStatus
+    ExportStatus (..),
 
     -- ** GlobalTableStatus
-    , GlobalTableStatus (..)
+    GlobalTableStatus (..),
 
     -- ** IndexStatus
-    , IndexStatus (..)
+    IndexStatus (..),
 
     -- ** KeyType
-    , KeyType (..)
+    KeyType (..),
 
     -- ** PointInTimeRecoveryStatus
-    , PointInTimeRecoveryStatus (..)
+    PointInTimeRecoveryStatus (..),
 
     -- ** ProjectionType
-    , ProjectionType (..)
+    ProjectionType (..),
 
     -- ** ReplicaStatus
-    , ReplicaStatus (..)
+    ReplicaStatus (..),
 
     -- ** ReturnConsumedCapacity
-    , ReturnConsumedCapacity (..)
+    ReturnConsumedCapacity (..),
 
     -- ** ReturnItemCollectionMetrics
-    , ReturnItemCollectionMetrics (..)
+    ReturnItemCollectionMetrics (..),
 
     -- ** ReturnValue
-    , ReturnValue (..)
+    ReturnValue (..),
+
+    -- ** ReturnValuesOnConditionCheckFailure
+    ReturnValuesOnConditionCheckFailure (..),
+
+    -- ** S3SseAlgorithm
+    S3SseAlgorithm (..),
 
     -- ** SSEStatus
-    , SSEStatus (..)
+    SSEStatus (..),
+
+    -- ** SSEType
+    SSEType (..),
 
     -- ** ScalarAttributeType
-    , ScalarAttributeType (..)
+    ScalarAttributeType (..),
 
     -- ** Select
-    , Select (..)
+    Select (..),
 
     -- ** StreamViewType
-    , StreamViewType (..)
+    StreamViewType (..),
 
     -- ** TableStatus
-    , TableStatus (..)
+    TableStatus (..),
 
     -- ** TimeToLiveStatus
-    , TimeToLiveStatus (..)
+    TimeToLiveStatus (..),
+
+    -- ** ArchivalSummary
+    ArchivalSummary (ArchivalSummary'),
+    newArchivalSummary,
 
     -- ** AttributeDefinition
-    , AttributeDefinition
-    , attributeDefinition
-    , adAttributeName
-    , adAttributeType
+    AttributeDefinition (AttributeDefinition'),
+    newAttributeDefinition,
 
     -- ** AttributeValue
-    , AttributeValue
-    , attributeValue
-    , avL
-    , avNS
-    , avM
-    , avNULL
-    , avN
-    , avBS
-    , avB
-    , avSS
-    , avS
-    , avBOOL
+    AttributeValue (AttributeValue'),
+    newAttributeValue,
 
     -- ** AttributeValueUpdate
-    , AttributeValueUpdate
-    , attributeValueUpdate
-    , avuValue
-    , avuAction
+    AttributeValueUpdate (AttributeValueUpdate'),
+    newAttributeValueUpdate,
+
+    -- ** AutoScalingPolicyDescription
+    AutoScalingPolicyDescription (AutoScalingPolicyDescription'),
+    newAutoScalingPolicyDescription,
+
+    -- ** AutoScalingPolicyUpdate
+    AutoScalingPolicyUpdate (AutoScalingPolicyUpdate'),
+    newAutoScalingPolicyUpdate,
+
+    -- ** AutoScalingSettingsDescription
+    AutoScalingSettingsDescription (AutoScalingSettingsDescription'),
+    newAutoScalingSettingsDescription,
+
+    -- ** AutoScalingSettingsUpdate
+    AutoScalingSettingsUpdate (AutoScalingSettingsUpdate'),
+    newAutoScalingSettingsUpdate,
+
+    -- ** AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+    AutoScalingTargetTrackingScalingPolicyConfigurationDescription (AutoScalingTargetTrackingScalingPolicyConfigurationDescription'),
+    newAutoScalingTargetTrackingScalingPolicyConfigurationDescription,
+
+    -- ** AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+    AutoScalingTargetTrackingScalingPolicyConfigurationUpdate (AutoScalingTargetTrackingScalingPolicyConfigurationUpdate'),
+    newAutoScalingTargetTrackingScalingPolicyConfigurationUpdate,
 
     -- ** BackupDescription
-    , BackupDescription
-    , backupDescription
-    , bdBackupDetails
-    , bdSourceTableDetails
-    , bdSourceTableFeatureDetails
+    BackupDescription (BackupDescription'),
+    newBackupDescription,
 
     -- ** BackupDetails
-    , BackupDetails
-    , backupDetails
-    , bdBackupSizeBytes
-    , bdBackupARN
-    , bdBackupName
-    , bdBackupStatus
-    , bdBackupCreationDateTime
+    BackupDetails (BackupDetails'),
+    newBackupDetails,
 
     -- ** BackupSummary
-    , BackupSummary
-    , backupSummary
-    , bsTableARN
-    , bsBackupName
-    , bsBackupStatus
-    , bsBackupSizeBytes
-    , bsBackupARN
-    , bsTableId
-    , bsBackupCreationDateTime
-    , bsTableName
+    BackupSummary (BackupSummary'),
+    newBackupSummary,
+
+    -- ** BatchStatementError
+    BatchStatementError (BatchStatementError'),
+    newBatchStatementError,
+
+    -- ** BatchStatementRequest
+    BatchStatementRequest (BatchStatementRequest'),
+    newBatchStatementRequest,
+
+    -- ** BatchStatementResponse
+    BatchStatementResponse (BatchStatementResponse'),
+    newBatchStatementResponse,
+
+    -- ** BillingModeSummary
+    BillingModeSummary (BillingModeSummary'),
+    newBillingModeSummary,
 
     -- ** Capacity
-    , Capacity
-    , capacity
-    , cCapacityUnits
+    Capacity (Capacity'),
+    newCapacity,
 
     -- ** Condition
-    , Condition
-    , condition
-    , cAttributeValueList
-    , cComparisonOperator
+    Condition (Condition'),
+    newCondition,
+
+    -- ** ConditionCheck
+    ConditionCheck (ConditionCheck'),
+    newConditionCheck,
 
     -- ** ConsumedCapacity
-    , ConsumedCapacity
-    , consumedCapacity
-    , ccGlobalSecondaryIndexes
-    , ccCapacityUnits
-    , ccLocalSecondaryIndexes
-    , ccTable
-    , ccTableName
+    ConsumedCapacity (ConsumedCapacity'),
+    newConsumedCapacity,
 
     -- ** ContinuousBackupsDescription
-    , ContinuousBackupsDescription
-    , continuousBackupsDescription
-    , cbdPointInTimeRecoveryDescription
-    , cbdContinuousBackupsStatus
+    ContinuousBackupsDescription (ContinuousBackupsDescription'),
+    newContinuousBackupsDescription,
+
+    -- ** ContributorInsightsSummary
+    ContributorInsightsSummary (ContributorInsightsSummary'),
+    newContributorInsightsSummary,
 
     -- ** CreateGlobalSecondaryIndexAction
-    , CreateGlobalSecondaryIndexAction
-    , createGlobalSecondaryIndexAction
-    , cgsiaIndexName
-    , cgsiaKeySchema
-    , cgsiaProjection
-    , cgsiaProvisionedThroughput
+    CreateGlobalSecondaryIndexAction (CreateGlobalSecondaryIndexAction'),
+    newCreateGlobalSecondaryIndexAction,
 
     -- ** CreateReplicaAction
-    , CreateReplicaAction
-    , createReplicaAction
-    , craRegionName
+    CreateReplicaAction (CreateReplicaAction'),
+    newCreateReplicaAction,
+
+    -- ** CreateReplicationGroupMemberAction
+    CreateReplicationGroupMemberAction (CreateReplicationGroupMemberAction'),
+    newCreateReplicationGroupMemberAction,
+
+    -- ** Delete
+    Delete (Delete'),
+    newDelete,
 
     -- ** DeleteGlobalSecondaryIndexAction
-    , DeleteGlobalSecondaryIndexAction
-    , deleteGlobalSecondaryIndexAction
-    , dgsiaIndexName
+    DeleteGlobalSecondaryIndexAction (DeleteGlobalSecondaryIndexAction'),
+    newDeleteGlobalSecondaryIndexAction,
 
     -- ** DeleteReplicaAction
-    , DeleteReplicaAction
-    , deleteReplicaAction
-    , draRegionName
+    DeleteReplicaAction (DeleteReplicaAction'),
+    newDeleteReplicaAction,
+
+    -- ** DeleteReplicationGroupMemberAction
+    DeleteReplicationGroupMemberAction (DeleteReplicationGroupMemberAction'),
+    newDeleteReplicationGroupMemberAction,
 
     -- ** DeleteRequest
-    , DeleteRequest
-    , deleteRequest
-    , drKey
+    DeleteRequest (DeleteRequest'),
+    newDeleteRequest,
+
+    -- ** Endpoint
+    Endpoint (Endpoint'),
+    newEndpoint,
 
     -- ** ExpectedAttributeValue
-    , ExpectedAttributeValue
-    , expectedAttributeValue
-    , eavAttributeValueList
-    , eavExists
-    , eavValue
-    , eavComparisonOperator
+    ExpectedAttributeValue (ExpectedAttributeValue'),
+    newExpectedAttributeValue,
+
+    -- ** ExportDescription
+    ExportDescription (ExportDescription'),
+    newExportDescription,
+
+    -- ** ExportSummary
+    ExportSummary (ExportSummary'),
+    newExportSummary,
+
+    -- ** FailureException
+    FailureException (FailureException'),
+    newFailureException,
+
+    -- ** Get
+    Get (Get'),
+    newGet,
 
     -- ** GlobalSecondaryIndex
-    , GlobalSecondaryIndex
-    , globalSecondaryIndex
-    , gsiIndexName
-    , gsiKeySchema
-    , gsiProjection
-    , gsiProvisionedThroughput
+    GlobalSecondaryIndex (GlobalSecondaryIndex'),
+    newGlobalSecondaryIndex,
+
+    -- ** GlobalSecondaryIndexAutoScalingUpdate
+    GlobalSecondaryIndexAutoScalingUpdate (GlobalSecondaryIndexAutoScalingUpdate'),
+    newGlobalSecondaryIndexAutoScalingUpdate,
 
     -- ** GlobalSecondaryIndexDescription
-    , GlobalSecondaryIndexDescription
-    , globalSecondaryIndexDescription
-    , gsidBackfilling
-    , gsidIndexSizeBytes
-    , gsidIndexStatus
-    , gsidProvisionedThroughput
-    , gsidIndexARN
-    , gsidKeySchema
-    , gsidProjection
-    , gsidItemCount
-    , gsidIndexName
+    GlobalSecondaryIndexDescription (GlobalSecondaryIndexDescription'),
+    newGlobalSecondaryIndexDescription,
 
     -- ** GlobalSecondaryIndexInfo
-    , GlobalSecondaryIndexInfo
-    , globalSecondaryIndexInfo
-    , gsiiProvisionedThroughput
-    , gsiiKeySchema
-    , gsiiProjection
-    , gsiiIndexName
+    GlobalSecondaryIndexInfo (GlobalSecondaryIndexInfo'),
+    newGlobalSecondaryIndexInfo,
 
     -- ** GlobalSecondaryIndexUpdate
-    , GlobalSecondaryIndexUpdate
-    , globalSecondaryIndexUpdate
-    , gsiuCreate
-    , gsiuDelete
-    , gsiuUpdate
+    GlobalSecondaryIndexUpdate (GlobalSecondaryIndexUpdate'),
+    newGlobalSecondaryIndexUpdate,
 
     -- ** GlobalTable
-    , GlobalTable
-    , globalTable
-    , gtGlobalTableName
-    , gtReplicationGroup
+    GlobalTable (GlobalTable'),
+    newGlobalTable,
 
     -- ** GlobalTableDescription
-    , GlobalTableDescription
-    , globalTableDescription
-    , gtdGlobalTableStatus
-    , gtdGlobalTableName
-    , gtdGlobalTableARN
-    , gtdCreationDateTime
-    , gtdReplicationGroup
+    GlobalTableDescription (GlobalTableDescription'),
+    newGlobalTableDescription,
 
     -- ** GlobalTableGlobalSecondaryIndexSettingsUpdate
-    , GlobalTableGlobalSecondaryIndexSettingsUpdate
-    , globalTableGlobalSecondaryIndexSettingsUpdate
-    , gtgsisuProvisionedWriteCapacityUnits
-    , gtgsisuIndexName
+    GlobalTableGlobalSecondaryIndexSettingsUpdate (GlobalTableGlobalSecondaryIndexSettingsUpdate'),
+    newGlobalTableGlobalSecondaryIndexSettingsUpdate,
 
     -- ** ItemCollectionMetrics
-    , ItemCollectionMetrics
-    , itemCollectionMetrics
-    , icmItemCollectionKey
-    , icmSizeEstimateRangeGB
+    ItemCollectionMetrics (ItemCollectionMetrics'),
+    newItemCollectionMetrics,
+
+    -- ** ItemResponse
+    ItemResponse (ItemResponse'),
+    newItemResponse,
 
     -- ** KeySchemaElement
-    , KeySchemaElement
-    , keySchemaElement
-    , kseAttributeName
-    , kseKeyType
+    KeySchemaElement (KeySchemaElement'),
+    newKeySchemaElement,
 
     -- ** KeysAndAttributes
-    , KeysAndAttributes
-    , keysAndAttributes
-    , kaaProjectionExpression
-    , kaaAttributesToGet
-    , kaaExpressionAttributeNames
-    , kaaConsistentRead
-    , kaaKeys
+    KeysAndAttributes (KeysAndAttributes'),
+    newKeysAndAttributes,
+
+    -- ** KinesisDataStreamDestination
+    KinesisDataStreamDestination (KinesisDataStreamDestination'),
+    newKinesisDataStreamDestination,
+
+    -- ** KinesisStreamingDestinationInput
+    KinesisStreamingDestinationInput (KinesisStreamingDestinationInput'),
+    newKinesisStreamingDestinationInput,
+
+    -- ** KinesisStreamingDestinationOutput
+    KinesisStreamingDestinationOutput (KinesisStreamingDestinationOutput'),
+    newKinesisStreamingDestinationOutput,
 
     -- ** LocalSecondaryIndex
-    , LocalSecondaryIndex
-    , localSecondaryIndex
-    , lsiIndexName
-    , lsiKeySchema
-    , lsiProjection
+    LocalSecondaryIndex (LocalSecondaryIndex'),
+    newLocalSecondaryIndex,
 
     -- ** LocalSecondaryIndexDescription
-    , LocalSecondaryIndexDescription
-    , localSecondaryIndexDescription
-    , lsidIndexSizeBytes
-    , lsidIndexARN
-    , lsidKeySchema
-    , lsidProjection
-    , lsidItemCount
-    , lsidIndexName
+    LocalSecondaryIndexDescription (LocalSecondaryIndexDescription'),
+    newLocalSecondaryIndexDescription,
 
     -- ** LocalSecondaryIndexInfo
-    , LocalSecondaryIndexInfo
-    , localSecondaryIndexInfo
-    , lsiiKeySchema
-    , lsiiProjection
-    , lsiiIndexName
+    LocalSecondaryIndexInfo (LocalSecondaryIndexInfo'),
+    newLocalSecondaryIndexInfo,
+
+    -- ** ParameterizedStatement
+    ParameterizedStatement (ParameterizedStatement'),
+    newParameterizedStatement,
 
     -- ** PointInTimeRecoveryDescription
-    , PointInTimeRecoveryDescription
-    , pointInTimeRecoveryDescription
-    , pitrdPointInTimeRecoveryStatus
-    , pitrdEarliestRestorableDateTime
-    , pitrdLatestRestorableDateTime
+    PointInTimeRecoveryDescription (PointInTimeRecoveryDescription'),
+    newPointInTimeRecoveryDescription,
 
     -- ** PointInTimeRecoverySpecification
-    , PointInTimeRecoverySpecification
-    , pointInTimeRecoverySpecification
-    , pitrsPointInTimeRecoveryEnabled
+    PointInTimeRecoverySpecification (PointInTimeRecoverySpecification'),
+    newPointInTimeRecoverySpecification,
 
     -- ** Projection
-    , Projection
-    , projection
-    , pProjectionType
-    , pNonKeyAttributes
+    Projection (Projection'),
+    newProjection,
 
     -- ** ProvisionedThroughput
-    , ProvisionedThroughput
-    , provisionedThroughput
-    , ptReadCapacityUnits
-    , ptWriteCapacityUnits
+    ProvisionedThroughput (ProvisionedThroughput'),
+    newProvisionedThroughput,
 
     -- ** ProvisionedThroughputDescription
-    , ProvisionedThroughputDescription
-    , provisionedThroughputDescription
-    , ptdReadCapacityUnits
-    , ptdLastDecreaseDateTime
-    , ptdWriteCapacityUnits
-    , ptdNumberOfDecreasesToday
-    , ptdLastIncreaseDateTime
+    ProvisionedThroughputDescription (ProvisionedThroughputDescription'),
+    newProvisionedThroughputDescription,
+
+    -- ** ProvisionedThroughputOverride
+    ProvisionedThroughputOverride (ProvisionedThroughputOverride'),
+    newProvisionedThroughputOverride,
+
+    -- ** Put
+    Put (Put'),
+    newPut,
 
     -- ** PutRequest
-    , PutRequest
-    , putRequest
-    , prItem
+    PutRequest (PutRequest'),
+    newPutRequest,
 
     -- ** Replica
-    , Replica
-    , replica
-    , rRegionName
+    Replica (Replica'),
+    newReplica,
+
+    -- ** ReplicaAutoScalingDescription
+    ReplicaAutoScalingDescription (ReplicaAutoScalingDescription'),
+    newReplicaAutoScalingDescription,
+
+    -- ** ReplicaAutoScalingUpdate
+    ReplicaAutoScalingUpdate (ReplicaAutoScalingUpdate'),
+    newReplicaAutoScalingUpdate,
 
     -- ** ReplicaDescription
-    , ReplicaDescription
-    , replicaDescription
-    , rdRegionName
+    ReplicaDescription (ReplicaDescription'),
+    newReplicaDescription,
+
+    -- ** ReplicaGlobalSecondaryIndex
+    ReplicaGlobalSecondaryIndex (ReplicaGlobalSecondaryIndex'),
+    newReplicaGlobalSecondaryIndex,
+
+    -- ** ReplicaGlobalSecondaryIndexAutoScalingDescription
+    ReplicaGlobalSecondaryIndexAutoScalingDescription (ReplicaGlobalSecondaryIndexAutoScalingDescription'),
+    newReplicaGlobalSecondaryIndexAutoScalingDescription,
+
+    -- ** ReplicaGlobalSecondaryIndexAutoScalingUpdate
+    ReplicaGlobalSecondaryIndexAutoScalingUpdate (ReplicaGlobalSecondaryIndexAutoScalingUpdate'),
+    newReplicaGlobalSecondaryIndexAutoScalingUpdate,
+
+    -- ** ReplicaGlobalSecondaryIndexDescription
+    ReplicaGlobalSecondaryIndexDescription (ReplicaGlobalSecondaryIndexDescription'),
+    newReplicaGlobalSecondaryIndexDescription,
 
     -- ** ReplicaGlobalSecondaryIndexSettingsDescription
-    , ReplicaGlobalSecondaryIndexSettingsDescription
-    , replicaGlobalSecondaryIndexSettingsDescription
-    , rgsisdIndexStatus
-    , rgsisdProvisionedReadCapacityUnits
-    , rgsisdProvisionedWriteCapacityUnits
-    , rgsisdIndexName
+    ReplicaGlobalSecondaryIndexSettingsDescription (ReplicaGlobalSecondaryIndexSettingsDescription'),
+    newReplicaGlobalSecondaryIndexSettingsDescription,
 
     -- ** ReplicaGlobalSecondaryIndexSettingsUpdate
-    , ReplicaGlobalSecondaryIndexSettingsUpdate
-    , replicaGlobalSecondaryIndexSettingsUpdate
-    , rgsisuProvisionedReadCapacityUnits
-    , rgsisuIndexName
+    ReplicaGlobalSecondaryIndexSettingsUpdate (ReplicaGlobalSecondaryIndexSettingsUpdate'),
+    newReplicaGlobalSecondaryIndexSettingsUpdate,
 
     -- ** ReplicaSettingsDescription
-    , ReplicaSettingsDescription
-    , replicaSettingsDescription
-    , rsdReplicaStatus
-    , rsdReplicaProvisionedReadCapacityUnits
-    , rsdReplicaProvisionedWriteCapacityUnits
-    , rsdReplicaGlobalSecondaryIndexSettings
-    , rsdRegionName
+    ReplicaSettingsDescription (ReplicaSettingsDescription'),
+    newReplicaSettingsDescription,
 
     -- ** ReplicaSettingsUpdate
-    , ReplicaSettingsUpdate
-    , replicaSettingsUpdate
-    , rsuReplicaProvisionedReadCapacityUnits
-    , rsuReplicaGlobalSecondaryIndexSettingsUpdate
-    , rsuRegionName
+    ReplicaSettingsUpdate (ReplicaSettingsUpdate'),
+    newReplicaSettingsUpdate,
 
     -- ** ReplicaUpdate
-    , ReplicaUpdate
-    , replicaUpdate
-    , ruCreate
-    , ruDelete
+    ReplicaUpdate (ReplicaUpdate'),
+    newReplicaUpdate,
+
+    -- ** ReplicationGroupUpdate
+    ReplicationGroupUpdate (ReplicationGroupUpdate'),
+    newReplicationGroupUpdate,
 
     -- ** RestoreSummary
-    , RestoreSummary
-    , restoreSummary
-    , rsSourceTableARN
-    , rsSourceBackupARN
-    , rsRestoreDateTime
-    , rsRestoreInProgress
+    RestoreSummary (RestoreSummary'),
+    newRestoreSummary,
 
     -- ** SSEDescription
-    , SSEDescription
-    , sSEDescription
-    , ssedStatus
+    SSEDescription (SSEDescription'),
+    newSSEDescription,
 
     -- ** SSESpecification
-    , SSESpecification
-    , sSESpecification
-    , ssesEnabled
+    SSESpecification (SSESpecification'),
+    newSSESpecification,
 
     -- ** SourceTableDetails
-    , SourceTableDetails
-    , sourceTableDetails
-    , stdTableSizeBytes
-    , stdTableARN
-    , stdItemCount
-    , stdTableName
-    , stdTableId
-    , stdKeySchema
-    , stdTableCreationDateTime
-    , stdProvisionedThroughput
+    SourceTableDetails (SourceTableDetails'),
+    newSourceTableDetails,
 
     -- ** SourceTableFeatureDetails
-    , SourceTableFeatureDetails
-    , sourceTableFeatureDetails
-    , stfdStreamDescription
-    , stfdGlobalSecondaryIndexes
-    , stfdLocalSecondaryIndexes
-    , stfdSSEDescription
-    , stfdTimeToLiveDescription
+    SourceTableFeatureDetails (SourceTableFeatureDetails'),
+    newSourceTableFeatureDetails,
 
     -- ** StreamSpecification
-    , StreamSpecification
-    , streamSpecification
-    , ssStreamViewType
-    , ssStreamEnabled
+    StreamSpecification (StreamSpecification'),
+    newStreamSpecification,
+
+    -- ** TableAutoScalingDescription
+    TableAutoScalingDescription (TableAutoScalingDescription'),
+    newTableAutoScalingDescription,
 
     -- ** TableDescription
-    , TableDescription
-    , tableDescription
-    , tdRestoreSummary
-    , tdTableSizeBytes
-    , tdAttributeDefinitions
-    , tdLatestStreamARN
-    , tdProvisionedThroughput
-    , tdTableStatus
-    , tdTableARN
-    , tdKeySchema
-    , tdGlobalSecondaryIndexes
-    , tdLatestStreamLabel
-    , tdLocalSecondaryIndexes
-    , tdCreationDateTime
-    , tdSSEDescription
-    , tdTableId
-    , tdItemCount
-    , tdTableName
-    , tdStreamSpecification
+    TableDescription (TableDescription'),
+    newTableDescription,
 
     -- ** Tag
-    , Tag
-    , tag
-    , tagKey
-    , tagValue
+    Tag (Tag'),
+    newTag,
 
     -- ** TimeToLiveDescription
-    , TimeToLiveDescription
-    , timeToLiveDescription
-    , ttldTimeToLiveStatus
-    , ttldAttributeName
+    TimeToLiveDescription (TimeToLiveDescription'),
+    newTimeToLiveDescription,
 
     -- ** TimeToLiveSpecification
-    , TimeToLiveSpecification
-    , timeToLiveSpecification
-    , ttlsEnabled
-    , ttlsAttributeName
+    TimeToLiveSpecification (TimeToLiveSpecification'),
+    newTimeToLiveSpecification,
+
+    -- ** TransactGetItem
+    TransactGetItem (TransactGetItem'),
+    newTransactGetItem,
+
+    -- ** TransactWriteItem
+    TransactWriteItem (TransactWriteItem'),
+    newTransactWriteItem,
+
+    -- ** Update
+    Update (Update'),
+    newUpdate,
 
     -- ** UpdateGlobalSecondaryIndexAction
-    , UpdateGlobalSecondaryIndexAction
-    , updateGlobalSecondaryIndexAction
-    , ugsiaIndexName
-    , ugsiaProvisionedThroughput
+    UpdateGlobalSecondaryIndexAction (UpdateGlobalSecondaryIndexAction'),
+    newUpdateGlobalSecondaryIndexAction,
+
+    -- ** UpdateReplicationGroupMemberAction
+    UpdateReplicationGroupMemberAction (UpdateReplicationGroupMemberAction'),
+    newUpdateReplicationGroupMemberAction,
 
     -- ** WriteRequest
-    , WriteRequest
-    , writeRequest
-    , wrDeleteRequest
-    , wrPutRequest
-    ) where
+    WriteRequest (WriteRequest'),
+    newWriteRequest,
+  )
+where
 
+import Network.AWS.DynamoDB.BatchExecuteStatement
 import Network.AWS.DynamoDB.BatchGetItem
 import Network.AWS.DynamoDB.BatchWriteItem
 import Network.AWS.DynamoDB.CreateBackup
@@ -669,13 +929,26 @@ import Network.AWS.DynamoDB.DeleteItem
 import Network.AWS.DynamoDB.DeleteTable
 import Network.AWS.DynamoDB.DescribeBackup
 import Network.AWS.DynamoDB.DescribeContinuousBackups
+import Network.AWS.DynamoDB.DescribeContributorInsights
+import Network.AWS.DynamoDB.DescribeEndpoints
+import Network.AWS.DynamoDB.DescribeExport
 import Network.AWS.DynamoDB.DescribeGlobalTable
 import Network.AWS.DynamoDB.DescribeGlobalTableSettings
+import Network.AWS.DynamoDB.DescribeKinesisStreamingDestination
 import Network.AWS.DynamoDB.DescribeLimits
 import Network.AWS.DynamoDB.DescribeTable
+import Network.AWS.DynamoDB.DescribeTableReplicaAutoScaling
 import Network.AWS.DynamoDB.DescribeTimeToLive
+import Network.AWS.DynamoDB.DisableKinesisStreamingDestination
+import Network.AWS.DynamoDB.EnableKinesisStreamingDestination
+import Network.AWS.DynamoDB.ExecuteStatement
+import Network.AWS.DynamoDB.ExecuteTransaction
+import Network.AWS.DynamoDB.ExportTableToPointInTime
 import Network.AWS.DynamoDB.GetItem
+import Network.AWS.DynamoDB.Lens
 import Network.AWS.DynamoDB.ListBackups
+import Network.AWS.DynamoDB.ListContributorInsights
+import Network.AWS.DynamoDB.ListExports
 import Network.AWS.DynamoDB.ListGlobalTables
 import Network.AWS.DynamoDB.ListTables
 import Network.AWS.DynamoDB.ListTagsOfResource
@@ -685,42 +958,43 @@ import Network.AWS.DynamoDB.RestoreTableFromBackup
 import Network.AWS.DynamoDB.RestoreTableToPointInTime
 import Network.AWS.DynamoDB.Scan
 import Network.AWS.DynamoDB.TagResource
+import Network.AWS.DynamoDB.TransactGetItems
+import Network.AWS.DynamoDB.TransactWriteItems
 import Network.AWS.DynamoDB.Types
 import Network.AWS.DynamoDB.UntagResource
 import Network.AWS.DynamoDB.UpdateContinuousBackups
+import Network.AWS.DynamoDB.UpdateContributorInsights
 import Network.AWS.DynamoDB.UpdateGlobalTable
 import Network.AWS.DynamoDB.UpdateGlobalTableSettings
 import Network.AWS.DynamoDB.UpdateItem
 import Network.AWS.DynamoDB.UpdateTable
+import Network.AWS.DynamoDB.UpdateTableReplicaAutoScaling
 import Network.AWS.DynamoDB.UpdateTimeToLive
 import Network.AWS.DynamoDB.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'DynamoDB'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'DynamoDB'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

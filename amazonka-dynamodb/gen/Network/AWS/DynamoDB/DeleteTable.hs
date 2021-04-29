@@ -1,145 +1,181 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DynamoDB.DeleteTable
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The @DeleteTable@ operation deletes a table and all of its items. After a @DeleteTable@ request, the specified table is in the @DELETING@ state until DynamoDB completes the deletion. If the table is in the @ACTIVE@ state, you can delete it. If a table is in @CREATING@ or @UPDATING@ states, then DynamoDB returns a @ResourceInUseException@ . If the specified table does not exist, DynamoDB returns a @ResourceNotFoundException@ . If table is already in the @DELETING@ state, no error is returned.
+-- The @DeleteTable@ operation deletes a table and all of its items. After
+-- a @DeleteTable@ request, the specified table is in the @DELETING@ state
+-- until DynamoDB completes the deletion. If the table is in the @ACTIVE@
+-- state, you can delete it. If a table is in @CREATING@ or @UPDATING@
+-- states, then DynamoDB returns a @ResourceInUseException@. If the
+-- specified table does not exist, DynamoDB returns a
+-- @ResourceNotFoundException@. If table is already in the @DELETING@
+-- state, no error is returned.
 --
+-- DynamoDB might continue to accept data read and write operations, such
+-- as @GetItem@ and @PutItem@, on a table in the @DELETING@ state until the
+-- table deletion is complete.
 --
 -- When you delete a table, any indexes on that table are also deleted.
 --
--- If you have DynamoDB Streams enabled on the table, then the corresponding stream on that table goes into the @DISABLED@ state, and the stream is automatically deleted after 24 hours.
+-- If you have DynamoDB Streams enabled on the table, then the
+-- corresponding stream on that table goes into the @DISABLED@ state, and
+-- the stream is automatically deleted after 24 hours.
 --
 -- Use the @DescribeTable@ action to check the status of the table.
---
 module Network.AWS.DynamoDB.DeleteTable
-    (
-    -- * Creating a Request
-      deleteTable
-    , DeleteTable
+  ( -- * Creating a Request
+    DeleteTable (..),
+    newDeleteTable,
+
     -- * Request Lenses
-    , dtTableName
+    deleteTable_tableName,
 
     -- * Destructuring the Response
-    , deleteTableResponse
-    , DeleteTableResponse
+    DeleteTableResponse (..),
+    newDeleteTableResponse,
+
     -- * Response Lenses
-    , dtrsTableDescription
-    , dtrsResponseStatus
-    ) where
+    deleteTableResponse_tableDescription,
+    deleteTableResponse_httpStatus,
+  )
+where
 
 import Network.AWS.DynamoDB.Types
-import Network.AWS.DynamoDB.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @DeleteTable@ operation.
 --
---
---
--- /See:/ 'deleteTable' smart constructor.
-newtype DeleteTable = DeleteTable'
-  { _dtTableName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDeleteTable' smart constructor.
+data DeleteTable = DeleteTable'
+  { -- | The name of the table to delete.
+    tableName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteTable' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteTable' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtTableName' - The name of the table to delete.
-deleteTable
-    :: Text -- ^ 'dtTableName'
-    -> DeleteTable
-deleteTable pTableName_ = DeleteTable' {_dtTableName = pTableName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'tableName', 'deleteTable_tableName' - The name of the table to delete.
+newDeleteTable ::
+  -- | 'tableName'
+  Prelude.Text ->
+  DeleteTable
+newDeleteTable pTableName_ =
+  DeleteTable' {tableName = pTableName_}
 
 -- | The name of the table to delete.
-dtTableName :: Lens' DeleteTable Text
-dtTableName = lens _dtTableName (\ s a -> s{_dtTableName = a})
+deleteTable_tableName :: Lens.Lens' DeleteTable Prelude.Text
+deleteTable_tableName = Lens.lens (\DeleteTable' {tableName} -> tableName) (\s@DeleteTable' {} a -> s {tableName = a} :: DeleteTable)
 
-instance AWSRequest DeleteTable where
-        type Rs DeleteTable = DeleteTableResponse
-        request = postJSON dynamoDB
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DeleteTableResponse' <$>
-                   (x .?> "TableDescription") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest DeleteTable where
+  type Rs DeleteTable = DeleteTableResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteTableResponse'
+            Prelude.<$> (x Prelude..?> "TableDescription")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteTable where
+instance Prelude.Hashable DeleteTable
 
-instance NFData DeleteTable where
+instance Prelude.NFData DeleteTable
 
-instance ToHeaders DeleteTable where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DynamoDB_20120810.DeleteTable" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.0" :: ByteString)])
+instance Prelude.ToHeaders DeleteTable where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "DynamoDB_20120810.DeleteTable" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.0" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DeleteTable where
-        toJSON DeleteTable'{..}
-          = object
-              (catMaybes [Just ("TableName" .= _dtTableName)])
+instance Prelude.ToJSON DeleteTable where
+  toJSON DeleteTable' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("TableName" Prelude..= tableName)]
+      )
 
-instance ToPath DeleteTable where
-        toPath = const "/"
+instance Prelude.ToPath DeleteTable where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteTable where
-        toQuery = const mempty
+instance Prelude.ToQuery DeleteTable where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a @DeleteTable@ operation.
 --
---
---
--- /See:/ 'deleteTableResponse' smart constructor.
+-- /See:/ 'newDeleteTableResponse' smart constructor.
 data DeleteTableResponse = DeleteTableResponse'
-  { _dtrsTableDescription :: !(Maybe TableDescription)
-  , _dtrsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Represents the properties of a table.
+    tableDescription :: Prelude.Maybe TableDescription,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteTableResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteTableResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtrsTableDescription' - Represents the properties of a table.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dtrsResponseStatus' - -- | The response status code.
-deleteTableResponse
-    :: Int -- ^ 'dtrsResponseStatus'
-    -> DeleteTableResponse
-deleteTableResponse pResponseStatus_ =
+-- 'tableDescription', 'deleteTableResponse_tableDescription' - Represents the properties of a table.
+--
+-- 'httpStatus', 'deleteTableResponse_httpStatus' - The response's http status code.
+newDeleteTableResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteTableResponse
+newDeleteTableResponse pHttpStatus_ =
   DeleteTableResponse'
-    {_dtrsTableDescription = Nothing, _dtrsResponseStatus = pResponseStatus_}
-
+    { tableDescription =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Represents the properties of a table.
-dtrsTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)
-dtrsTableDescription = lens _dtrsTableDescription (\ s a -> s{_dtrsTableDescription = a})
+deleteTableResponse_tableDescription :: Lens.Lens' DeleteTableResponse (Prelude.Maybe TableDescription)
+deleteTableResponse_tableDescription = Lens.lens (\DeleteTableResponse' {tableDescription} -> tableDescription) (\s@DeleteTableResponse' {} a -> s {tableDescription = a} :: DeleteTableResponse)
 
--- | -- | The response status code.
-dtrsResponseStatus :: Lens' DeleteTableResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a})
+-- | The response's http status code.
+deleteTableResponse_httpStatus :: Lens.Lens' DeleteTableResponse Prelude.Int
+deleteTableResponse_httpStatus = Lens.lens (\DeleteTableResponse' {httpStatus} -> httpStatus) (\s@DeleteTableResponse' {} a -> s {httpStatus = a} :: DeleteTableResponse)
 
-instance NFData DeleteTableResponse where
+instance Prelude.NFData DeleteTableResponse

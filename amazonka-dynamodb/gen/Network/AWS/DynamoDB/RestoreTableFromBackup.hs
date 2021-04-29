@@ -1,166 +1,273 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DynamoDB.RestoreTableFromBackup
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new table from an existing backup. Any number of users can execute up to 4 concurrent restores (any type of restore) in a given account.
+-- Creates a new table from an existing backup. Any number of users can
+-- execute up to 4 concurrent restores (any type of restore) in a given
+-- account.
 --
---
--- You can call @RestoreTableFromBackup@ at a maximum rate of 10 times per second.
+-- You can call @RestoreTableFromBackup@ at a maximum rate of 10 times per
+-- second.
 --
 -- You must manually set up the following on the restored table:
 --
---     * Auto scaling policies
+-- -   Auto scaling policies
 --
---     * IAM policies
+-- -   IAM policies
 --
---     * Cloudwatch metrics and alarms
+-- -   Amazon CloudWatch metrics and alarms
 --
---     * Tags
+-- -   Tags
 --
---     * Stream settings
+-- -   Stream settings
 --
---     * Time to Live (TTL) settings
---
---
---
+-- -   Time to Live (TTL) settings
 module Network.AWS.DynamoDB.RestoreTableFromBackup
-    (
-    -- * Creating a Request
-      restoreTableFromBackup
-    , RestoreTableFromBackup
+  ( -- * Creating a Request
+    RestoreTableFromBackup (..),
+    newRestoreTableFromBackup,
+
     -- * Request Lenses
-    , rtfbTargetTableName
-    , rtfbBackupARN
+    restoreTableFromBackup_provisionedThroughputOverride,
+    restoreTableFromBackup_globalSecondaryIndexOverride,
+    restoreTableFromBackup_billingModeOverride,
+    restoreTableFromBackup_sSESpecificationOverride,
+    restoreTableFromBackup_localSecondaryIndexOverride,
+    restoreTableFromBackup_targetTableName,
+    restoreTableFromBackup_backupArn,
 
     -- * Destructuring the Response
-    , restoreTableFromBackupResponse
-    , RestoreTableFromBackupResponse
+    RestoreTableFromBackupResponse (..),
+    newRestoreTableFromBackupResponse,
+
     -- * Response Lenses
-    , rtfbrsTableDescription
-    , rtfbrsResponseStatus
-    ) where
+    restoreTableFromBackupResponse_tableDescription,
+    restoreTableFromBackupResponse_httpStatus,
+  )
+where
 
 import Network.AWS.DynamoDB.Types
-import Network.AWS.DynamoDB.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'restoreTableFromBackup' smart constructor.
+-- | /See:/ 'newRestoreTableFromBackup' smart constructor.
 data RestoreTableFromBackup = RestoreTableFromBackup'
-  { _rtfbTargetTableName :: !Text
-  , _rtfbBackupARN       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Provisioned throughput settings for the restored table.
+    provisionedThroughputOverride :: Prelude.Maybe ProvisionedThroughput,
+    -- | List of global secondary indexes for the restored table. The indexes
+    -- provided should match existing secondary indexes. You can choose to
+    -- exclude some or all of the indexes at the time of restore.
+    globalSecondaryIndexOverride :: Prelude.Maybe [GlobalSecondaryIndex],
+    -- | The billing mode of the restored table.
+    billingModeOverride :: Prelude.Maybe BillingMode,
+    -- | The new server-side encryption settings for the restored table.
+    sSESpecificationOverride :: Prelude.Maybe SSESpecification,
+    -- | List of local secondary indexes for the restored table. The indexes
+    -- provided should match existing secondary indexes. You can choose to
+    -- exclude some or all of the indexes at the time of restore.
+    localSecondaryIndexOverride :: Prelude.Maybe [LocalSecondaryIndex],
+    -- | The name of the new table to which the backup must be restored.
+    targetTableName :: Prelude.Text,
+    -- | The Amazon Resource Name (ARN) associated with the backup.
+    backupArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
+-- |
+-- Create a value of 'RestoreTableFromBackup' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'provisionedThroughputOverride', 'restoreTableFromBackup_provisionedThroughputOverride' - Provisioned throughput settings for the restored table.
+--
+-- 'globalSecondaryIndexOverride', 'restoreTableFromBackup_globalSecondaryIndexOverride' - List of global secondary indexes for the restored table. The indexes
+-- provided should match existing secondary indexes. You can choose to
+-- exclude some or all of the indexes at the time of restore.
+--
+-- 'billingModeOverride', 'restoreTableFromBackup_billingModeOverride' - The billing mode of the restored table.
+--
+-- 'sSESpecificationOverride', 'restoreTableFromBackup_sSESpecificationOverride' - The new server-side encryption settings for the restored table.
+--
+-- 'localSecondaryIndexOverride', 'restoreTableFromBackup_localSecondaryIndexOverride' - List of local secondary indexes for the restored table. The indexes
+-- provided should match existing secondary indexes. You can choose to
+-- exclude some or all of the indexes at the time of restore.
+--
+-- 'targetTableName', 'restoreTableFromBackup_targetTableName' - The name of the new table to which the backup must be restored.
+--
+-- 'backupArn', 'restoreTableFromBackup_backupArn' - The Amazon Resource Name (ARN) associated with the backup.
+newRestoreTableFromBackup ::
+  -- | 'targetTableName'
+  Prelude.Text ->
+  -- | 'backupArn'
+  Prelude.Text ->
+  RestoreTableFromBackup
+newRestoreTableFromBackup
+  pTargetTableName_
+  pBackupArn_ =
+    RestoreTableFromBackup'
+      { provisionedThroughputOverride =
+          Prelude.Nothing,
+        globalSecondaryIndexOverride = Prelude.Nothing,
+        billingModeOverride = Prelude.Nothing,
+        sSESpecificationOverride = Prelude.Nothing,
+        localSecondaryIndexOverride = Prelude.Nothing,
+        targetTableName = pTargetTableName_,
+        backupArn = pBackupArn_
+      }
 
--- | Creates a value of 'RestoreTableFromBackup' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rtfbTargetTableName' - The name of the new table to which the backup must be restored.
---
--- * 'rtfbBackupARN' - The ARN associated with the backup.
-restoreTableFromBackup
-    :: Text -- ^ 'rtfbTargetTableName'
-    -> Text -- ^ 'rtfbBackupARN'
-    -> RestoreTableFromBackup
-restoreTableFromBackup pTargetTableName_ pBackupARN_ =
-  RestoreTableFromBackup'
-    {_rtfbTargetTableName = pTargetTableName_, _rtfbBackupARN = pBackupARN_}
+-- | Provisioned throughput settings for the restored table.
+restoreTableFromBackup_provisionedThroughputOverride :: Lens.Lens' RestoreTableFromBackup (Prelude.Maybe ProvisionedThroughput)
+restoreTableFromBackup_provisionedThroughputOverride = Lens.lens (\RestoreTableFromBackup' {provisionedThroughputOverride} -> provisionedThroughputOverride) (\s@RestoreTableFromBackup' {} a -> s {provisionedThroughputOverride = a} :: RestoreTableFromBackup)
 
+-- | List of global secondary indexes for the restored table. The indexes
+-- provided should match existing secondary indexes. You can choose to
+-- exclude some or all of the indexes at the time of restore.
+restoreTableFromBackup_globalSecondaryIndexOverride :: Lens.Lens' RestoreTableFromBackup (Prelude.Maybe [GlobalSecondaryIndex])
+restoreTableFromBackup_globalSecondaryIndexOverride = Lens.lens (\RestoreTableFromBackup' {globalSecondaryIndexOverride} -> globalSecondaryIndexOverride) (\s@RestoreTableFromBackup' {} a -> s {globalSecondaryIndexOverride = a} :: RestoreTableFromBackup) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The billing mode of the restored table.
+restoreTableFromBackup_billingModeOverride :: Lens.Lens' RestoreTableFromBackup (Prelude.Maybe BillingMode)
+restoreTableFromBackup_billingModeOverride = Lens.lens (\RestoreTableFromBackup' {billingModeOverride} -> billingModeOverride) (\s@RestoreTableFromBackup' {} a -> s {billingModeOverride = a} :: RestoreTableFromBackup)
+
+-- | The new server-side encryption settings for the restored table.
+restoreTableFromBackup_sSESpecificationOverride :: Lens.Lens' RestoreTableFromBackup (Prelude.Maybe SSESpecification)
+restoreTableFromBackup_sSESpecificationOverride = Lens.lens (\RestoreTableFromBackup' {sSESpecificationOverride} -> sSESpecificationOverride) (\s@RestoreTableFromBackup' {} a -> s {sSESpecificationOverride = a} :: RestoreTableFromBackup)
+
+-- | List of local secondary indexes for the restored table. The indexes
+-- provided should match existing secondary indexes. You can choose to
+-- exclude some or all of the indexes at the time of restore.
+restoreTableFromBackup_localSecondaryIndexOverride :: Lens.Lens' RestoreTableFromBackup (Prelude.Maybe [LocalSecondaryIndex])
+restoreTableFromBackup_localSecondaryIndexOverride = Lens.lens (\RestoreTableFromBackup' {localSecondaryIndexOverride} -> localSecondaryIndexOverride) (\s@RestoreTableFromBackup' {} a -> s {localSecondaryIndexOverride = a} :: RestoreTableFromBackup) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | The name of the new table to which the backup must be restored.
-rtfbTargetTableName :: Lens' RestoreTableFromBackup Text
-rtfbTargetTableName = lens _rtfbTargetTableName (\ s a -> s{_rtfbTargetTableName = a})
+restoreTableFromBackup_targetTableName :: Lens.Lens' RestoreTableFromBackup Prelude.Text
+restoreTableFromBackup_targetTableName = Lens.lens (\RestoreTableFromBackup' {targetTableName} -> targetTableName) (\s@RestoreTableFromBackup' {} a -> s {targetTableName = a} :: RestoreTableFromBackup)
 
--- | The ARN associated with the backup.
-rtfbBackupARN :: Lens' RestoreTableFromBackup Text
-rtfbBackupARN = lens _rtfbBackupARN (\ s a -> s{_rtfbBackupARN = a})
+-- | The Amazon Resource Name (ARN) associated with the backup.
+restoreTableFromBackup_backupArn :: Lens.Lens' RestoreTableFromBackup Prelude.Text
+restoreTableFromBackup_backupArn = Lens.lens (\RestoreTableFromBackup' {backupArn} -> backupArn) (\s@RestoreTableFromBackup' {} a -> s {backupArn = a} :: RestoreTableFromBackup)
 
-instance AWSRequest RestoreTableFromBackup where
-        type Rs RestoreTableFromBackup =
-             RestoreTableFromBackupResponse
-        request = postJSON dynamoDB
-        response
-          = receiveJSON
-              (\ s h x ->
-                 RestoreTableFromBackupResponse' <$>
-                   (x .?> "TableDescription") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest RestoreTableFromBackup where
+  type
+    Rs RestoreTableFromBackup =
+      RestoreTableFromBackupResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          RestoreTableFromBackupResponse'
+            Prelude.<$> (x Prelude..?> "TableDescription")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable RestoreTableFromBackup where
+instance Prelude.Hashable RestoreTableFromBackup
 
-instance NFData RestoreTableFromBackup where
+instance Prelude.NFData RestoreTableFromBackup
 
-instance ToHeaders RestoreTableFromBackup where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DynamoDB_20120810.RestoreTableFromBackup" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.0" :: ByteString)])
+instance Prelude.ToHeaders RestoreTableFromBackup where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "DynamoDB_20120810.RestoreTableFromBackup" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.0" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON RestoreTableFromBackup where
-        toJSON RestoreTableFromBackup'{..}
-          = object
-              (catMaybes
-                 [Just ("TargetTableName" .= _rtfbTargetTableName),
-                  Just ("BackupArn" .= _rtfbBackupARN)])
+instance Prelude.ToJSON RestoreTableFromBackup where
+  toJSON RestoreTableFromBackup' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("ProvisionedThroughputOverride" Prelude..=)
+              Prelude.<$> provisionedThroughputOverride,
+            ("GlobalSecondaryIndexOverride" Prelude..=)
+              Prelude.<$> globalSecondaryIndexOverride,
+            ("BillingModeOverride" Prelude..=)
+              Prelude.<$> billingModeOverride,
+            ("SSESpecificationOverride" Prelude..=)
+              Prelude.<$> sSESpecificationOverride,
+            ("LocalSecondaryIndexOverride" Prelude..=)
+              Prelude.<$> localSecondaryIndexOverride,
+            Prelude.Just
+              ("TargetTableName" Prelude..= targetTableName),
+            Prelude.Just ("BackupArn" Prelude..= backupArn)
+          ]
+      )
 
-instance ToPath RestoreTableFromBackup where
-        toPath = const "/"
+instance Prelude.ToPath RestoreTableFromBackup where
+  toPath = Prelude.const "/"
 
-instance ToQuery RestoreTableFromBackup where
-        toQuery = const mempty
+instance Prelude.ToQuery RestoreTableFromBackup where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'restoreTableFromBackupResponse' smart constructor.
+-- | /See:/ 'newRestoreTableFromBackupResponse' smart constructor.
 data RestoreTableFromBackupResponse = RestoreTableFromBackupResponse'
-  { _rtfbrsTableDescription :: !(Maybe TableDescription)
-  , _rtfbrsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The description of the table created from an existing backup.
+    tableDescription :: Prelude.Maybe TableDescription,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'RestoreTableFromBackupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RestoreTableFromBackupResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rtfbrsTableDescription' - The description of the table created from an existing backup.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rtfbrsResponseStatus' - -- | The response status code.
-restoreTableFromBackupResponse
-    :: Int -- ^ 'rtfbrsResponseStatus'
-    -> RestoreTableFromBackupResponse
-restoreTableFromBackupResponse pResponseStatus_ =
+-- 'tableDescription', 'restoreTableFromBackupResponse_tableDescription' - The description of the table created from an existing backup.
+--
+-- 'httpStatus', 'restoreTableFromBackupResponse_httpStatus' - The response's http status code.
+newRestoreTableFromBackupResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  RestoreTableFromBackupResponse
+newRestoreTableFromBackupResponse pHttpStatus_ =
   RestoreTableFromBackupResponse'
-    { _rtfbrsTableDescription = Nothing
-    , _rtfbrsResponseStatus = pResponseStatus_
+    { tableDescription =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | The description of the table created from an existing backup.
-rtfbrsTableDescription :: Lens' RestoreTableFromBackupResponse (Maybe TableDescription)
-rtfbrsTableDescription = lens _rtfbrsTableDescription (\ s a -> s{_rtfbrsTableDescription = a})
+restoreTableFromBackupResponse_tableDescription :: Lens.Lens' RestoreTableFromBackupResponse (Prelude.Maybe TableDescription)
+restoreTableFromBackupResponse_tableDescription = Lens.lens (\RestoreTableFromBackupResponse' {tableDescription} -> tableDescription) (\s@RestoreTableFromBackupResponse' {} a -> s {tableDescription = a} :: RestoreTableFromBackupResponse)
 
--- | -- | The response status code.
-rtfbrsResponseStatus :: Lens' RestoreTableFromBackupResponse Int
-rtfbrsResponseStatus = lens _rtfbrsResponseStatus (\ s a -> s{_rtfbrsResponseStatus = a})
+-- | The response's http status code.
+restoreTableFromBackupResponse_httpStatus :: Lens.Lens' RestoreTableFromBackupResponse Prelude.Int
+restoreTableFromBackupResponse_httpStatus = Lens.lens (\RestoreTableFromBackupResponse' {httpStatus} -> httpStatus) (\s@RestoreTableFromBackupResponse' {} a -> s {httpStatus = a} :: RestoreTableFromBackupResponse)
 
-instance NFData RestoreTableFromBackupResponse where
+instance
+  Prelude.NFData
+    RestoreTableFromBackupResponse

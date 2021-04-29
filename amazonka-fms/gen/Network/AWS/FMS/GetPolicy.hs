@@ -1,143 +1,166 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.FMS.GetPolicy
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns information about the specified AWS Firewall Manager policy.
---
---
 module Network.AWS.FMS.GetPolicy
-    (
-    -- * Creating a Request
-      getPolicy
-    , GetPolicy
+  ( -- * Creating a Request
+    GetPolicy (..),
+    newGetPolicy,
+
     -- * Request Lenses
-    , gpPolicyId
+    getPolicy_policyId,
 
     -- * Destructuring the Response
-    , getPolicyResponse
-    , GetPolicyResponse
+    GetPolicyResponse (..),
+    newGetPolicyResponse,
+
     -- * Response Lenses
-    , gprsPolicyARN
-    , gprsPolicy
-    , gprsResponseStatus
-    ) where
+    getPolicyResponse_policy,
+    getPolicyResponse_policyArn,
+    getPolicyResponse_httpStatus,
+  )
+where
 
 import Network.AWS.FMS.Types
-import Network.AWS.FMS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getPolicy' smart constructor.
-newtype GetPolicy = GetPolicy'
-  { _gpPolicyId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetPolicy' smart constructor.
+data GetPolicy = GetPolicy'
+  { -- | The ID of the AWS Firewall Manager policy that you want the details for.
+    policyId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetPolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetPolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gpPolicyId' - The ID of the AWS Firewall Manager policy that you want the details for.
-getPolicy
-    :: Text -- ^ 'gpPolicyId'
-    -> GetPolicy
-getPolicy pPolicyId_ = GetPolicy' {_gpPolicyId = pPolicyId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'policyId', 'getPolicy_policyId' - The ID of the AWS Firewall Manager policy that you want the details for.
+newGetPolicy ::
+  -- | 'policyId'
+  Prelude.Text ->
+  GetPolicy
+newGetPolicy pPolicyId_ =
+  GetPolicy' {policyId = pPolicyId_}
 
 -- | The ID of the AWS Firewall Manager policy that you want the details for.
-gpPolicyId :: Lens' GetPolicy Text
-gpPolicyId = lens _gpPolicyId (\ s a -> s{_gpPolicyId = a})
+getPolicy_policyId :: Lens.Lens' GetPolicy Prelude.Text
+getPolicy_policyId = Lens.lens (\GetPolicy' {policyId} -> policyId) (\s@GetPolicy' {} a -> s {policyId = a} :: GetPolicy)
 
-instance AWSRequest GetPolicy where
-        type Rs GetPolicy = GetPolicyResponse
-        request = postJSON fms
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetPolicyResponse' <$>
-                   (x .?> "PolicyArn") <*> (x .?> "Policy") <*>
-                     (pure (fromEnum s)))
+instance Prelude.AWSRequest GetPolicy where
+  type Rs GetPolicy = GetPolicyResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetPolicyResponse'
+            Prelude.<$> (x Prelude..?> "Policy")
+            Prelude.<*> (x Prelude..?> "PolicyArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetPolicy where
+instance Prelude.Hashable GetPolicy
 
-instance NFData GetPolicy where
+instance Prelude.NFData GetPolicy
 
-instance ToHeaders GetPolicy where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSFMS_20180101.GetPolicy" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders GetPolicy where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ("AWSFMS_20180101.GetPolicy" :: Prelude.ByteString),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON GetPolicy where
-        toJSON GetPolicy'{..}
-          = object
-              (catMaybes [Just ("PolicyId" .= _gpPolicyId)])
+instance Prelude.ToJSON GetPolicy where
+  toJSON GetPolicy' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("PolicyId" Prelude..= policyId)]
+      )
 
-instance ToPath GetPolicy where
-        toPath = const "/"
+instance Prelude.ToPath GetPolicy where
+  toPath = Prelude.const "/"
 
-instance ToQuery GetPolicy where
-        toQuery = const mempty
+instance Prelude.ToQuery GetPolicy where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getPolicyResponse' smart constructor.
+-- | /See:/ 'newGetPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
-  { _gprsPolicyARN      :: !(Maybe Text)
-  , _gprsPolicy         :: !(Maybe Policy)
-  , _gprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the specified AWS Firewall Manager policy.
+    policy :: Prelude.Maybe Policy,
+    -- | The Amazon Resource Name (ARN) of the specified policy.
+    policyArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetPolicyResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetPolicyResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gprsPolicyARN' - The Amazon Resource Name (ARN) of the specified policy.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gprsPolicy' - Information about the specified AWS Firewall Manager policy.
+-- 'policy', 'getPolicyResponse_policy' - Information about the specified AWS Firewall Manager policy.
 --
--- * 'gprsResponseStatus' - -- | The response status code.
-getPolicyResponse
-    :: Int -- ^ 'gprsResponseStatus'
-    -> GetPolicyResponse
-getPolicyResponse pResponseStatus_ =
+-- 'policyArn', 'getPolicyResponse_policyArn' - The Amazon Resource Name (ARN) of the specified policy.
+--
+-- 'httpStatus', 'getPolicyResponse_httpStatus' - The response's http status code.
+newGetPolicyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetPolicyResponse
+newGetPolicyResponse pHttpStatus_ =
   GetPolicyResponse'
-    { _gprsPolicyARN = Nothing
-    , _gprsPolicy = Nothing
-    , _gprsResponseStatus = pResponseStatus_
+    { policy = Prelude.Nothing,
+      policyArn = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | Information about the specified AWS Firewall Manager policy.
+getPolicyResponse_policy :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Policy)
+getPolicyResponse_policy = Lens.lens (\GetPolicyResponse' {policy} -> policy) (\s@GetPolicyResponse' {} a -> s {policy = a} :: GetPolicyResponse)
 
 -- | The Amazon Resource Name (ARN) of the specified policy.
-gprsPolicyARN :: Lens' GetPolicyResponse (Maybe Text)
-gprsPolicyARN = lens _gprsPolicyARN (\ s a -> s{_gprsPolicyARN = a})
+getPolicyResponse_policyArn :: Lens.Lens' GetPolicyResponse (Prelude.Maybe Prelude.Text)
+getPolicyResponse_policyArn = Lens.lens (\GetPolicyResponse' {policyArn} -> policyArn) (\s@GetPolicyResponse' {} a -> s {policyArn = a} :: GetPolicyResponse)
 
--- | Information about the specified AWS Firewall Manager policy.
-gprsPolicy :: Lens' GetPolicyResponse (Maybe Policy)
-gprsPolicy = lens _gprsPolicy (\ s a -> s{_gprsPolicy = a})
+-- | The response's http status code.
+getPolicyResponse_httpStatus :: Lens.Lens' GetPolicyResponse Prelude.Int
+getPolicyResponse_httpStatus = Lens.lens (\GetPolicyResponse' {httpStatus} -> httpStatus) (\s@GetPolicyResponse' {} a -> s {httpStatus = a} :: GetPolicyResponse)
 
--- | -- | The response status code.
-gprsResponseStatus :: Lens' GetPolicyResponse Int
-gprsResponseStatus = lens _gprsResponseStatus (\ s a -> s{_gprsResponseStatus = a})
-
-instance NFData GetPolicyResponse where
+instance Prelude.NFData GetPolicyResponse

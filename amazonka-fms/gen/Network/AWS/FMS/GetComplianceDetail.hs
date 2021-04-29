@@ -1,149 +1,198 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.FMS.GetComplianceDetail
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns detailed compliance information about the specified member account. Details include resources that are in and out of compliance with the specified policy. Resources are considered non-compliant if the specified policy has not been applied to them.
---
---
+-- Returns detailed compliance information about the specified member
+-- account. Details include resources that are in and out of compliance
+-- with the specified policy. Resources are considered noncompliant for AWS
+-- WAF and Shield Advanced policies if the specified policy has not been
+-- applied to them. Resources are considered noncompliant for security
+-- group policies if they are in scope of the policy, they violate one or
+-- more of the policy rules, and remediation is disabled or not possible.
+-- Resources are considered noncompliant for Network Firewall policies if a
+-- firewall is missing in the VPC, if the firewall endpoint isn\'t set up
+-- in an expected Availability Zone and subnet, if a subnet created by the
+-- Firewall Manager doesn\'t have the expected route table, and for
+-- modifications to a firewall policy that violate the Firewall Manager
+-- policy\'s rules.
 module Network.AWS.FMS.GetComplianceDetail
-    (
-    -- * Creating a Request
-      getComplianceDetail
-    , GetComplianceDetail
+  ( -- * Creating a Request
+    GetComplianceDetail (..),
+    newGetComplianceDetail,
+
     -- * Request Lenses
-    , gcdPolicyId
-    , gcdMemberAccount
+    getComplianceDetail_policyId,
+    getComplianceDetail_memberAccount,
 
     -- * Destructuring the Response
-    , getComplianceDetailResponse
-    , GetComplianceDetailResponse
+    GetComplianceDetailResponse (..),
+    newGetComplianceDetailResponse,
+
     -- * Response Lenses
-    , gcdrsPolicyComplianceDetail
-    , gcdrsResponseStatus
-    ) where
+    getComplianceDetailResponse_policyComplianceDetail,
+    getComplianceDetailResponse_httpStatus,
+  )
+where
 
 import Network.AWS.FMS.Types
-import Network.AWS.FMS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getComplianceDetail' smart constructor.
+-- | /See:/ 'newGetComplianceDetail' smart constructor.
 data GetComplianceDetail = GetComplianceDetail'
-  { _gcdPolicyId      :: !Text
-  , _gcdMemberAccount :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the policy that you want to get the details for. @PolicyId@ is
+    -- returned by @PutPolicy@ and by @ListPolicies@.
+    policyId :: Prelude.Text,
+    -- | The AWS account that owns the resources that you want to get the details
+    -- for.
+    memberAccount :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetComplianceDetail' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetComplianceDetail' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gcdPolicyId' - The ID of the policy that you want to get the details for. @PolicyId@ is returned by @PutPolicy@ and by @ListPolicies@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gcdMemberAccount' - The AWS account that owns the resources that you want to get the details for.
-getComplianceDetail
-    :: Text -- ^ 'gcdPolicyId'
-    -> Text -- ^ 'gcdMemberAccount'
-    -> GetComplianceDetail
-getComplianceDetail pPolicyId_ pMemberAccount_ =
+-- 'policyId', 'getComplianceDetail_policyId' - The ID of the policy that you want to get the details for. @PolicyId@ is
+-- returned by @PutPolicy@ and by @ListPolicies@.
+--
+-- 'memberAccount', 'getComplianceDetail_memberAccount' - The AWS account that owns the resources that you want to get the details
+-- for.
+newGetComplianceDetail ::
+  -- | 'policyId'
+  Prelude.Text ->
+  -- | 'memberAccount'
+  Prelude.Text ->
+  GetComplianceDetail
+newGetComplianceDetail pPolicyId_ pMemberAccount_ =
   GetComplianceDetail'
-    {_gcdPolicyId = pPolicyId_, _gcdMemberAccount = pMemberAccount_}
-
-
--- | The ID of the policy that you want to get the details for. @PolicyId@ is returned by @PutPolicy@ and by @ListPolicies@ .
-gcdPolicyId :: Lens' GetComplianceDetail Text
-gcdPolicyId = lens _gcdPolicyId (\ s a -> s{_gcdPolicyId = a})
-
--- | The AWS account that owns the resources that you want to get the details for.
-gcdMemberAccount :: Lens' GetComplianceDetail Text
-gcdMemberAccount = lens _gcdMemberAccount (\ s a -> s{_gcdMemberAccount = a})
-
-instance AWSRequest GetComplianceDetail where
-        type Rs GetComplianceDetail =
-             GetComplianceDetailResponse
-        request = postJSON fms
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetComplianceDetailResponse' <$>
-                   (x .?> "PolicyComplianceDetail") <*>
-                     (pure (fromEnum s)))
-
-instance Hashable GetComplianceDetail where
-
-instance NFData GetComplianceDetail where
-
-instance ToHeaders GetComplianceDetail where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSFMS_20180101.GetComplianceDetail" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON GetComplianceDetail where
-        toJSON GetComplianceDetail'{..}
-          = object
-              (catMaybes
-                 [Just ("PolicyId" .= _gcdPolicyId),
-                  Just ("MemberAccount" .= _gcdMemberAccount)])
-
-instance ToPath GetComplianceDetail where
-        toPath = const "/"
-
-instance ToQuery GetComplianceDetail where
-        toQuery = const mempty
-
--- | /See:/ 'getComplianceDetailResponse' smart constructor.
-data GetComplianceDetailResponse = GetComplianceDetailResponse'
-  { _gcdrsPolicyComplianceDetail :: !(Maybe PolicyComplianceDetail)
-  , _gcdrsResponseStatus         :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetComplianceDetailResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcdrsPolicyComplianceDetail' - Information about the resources and the policy that you specified in the @GetComplianceDetail@ request.
---
--- * 'gcdrsResponseStatus' - -- | The response status code.
-getComplianceDetailResponse
-    :: Int -- ^ 'gcdrsResponseStatus'
-    -> GetComplianceDetailResponse
-getComplianceDetailResponse pResponseStatus_ =
-  GetComplianceDetailResponse'
-    { _gcdrsPolicyComplianceDetail = Nothing
-    , _gcdrsResponseStatus = pResponseStatus_
+    { policyId = pPolicyId_,
+      memberAccount = pMemberAccount_
     }
 
+-- | The ID of the policy that you want to get the details for. @PolicyId@ is
+-- returned by @PutPolicy@ and by @ListPolicies@.
+getComplianceDetail_policyId :: Lens.Lens' GetComplianceDetail Prelude.Text
+getComplianceDetail_policyId = Lens.lens (\GetComplianceDetail' {policyId} -> policyId) (\s@GetComplianceDetail' {} a -> s {policyId = a} :: GetComplianceDetail)
 
--- | Information about the resources and the policy that you specified in the @GetComplianceDetail@ request.
-gcdrsPolicyComplianceDetail :: Lens' GetComplianceDetailResponse (Maybe PolicyComplianceDetail)
-gcdrsPolicyComplianceDetail = lens _gcdrsPolicyComplianceDetail (\ s a -> s{_gcdrsPolicyComplianceDetail = a})
+-- | The AWS account that owns the resources that you want to get the details
+-- for.
+getComplianceDetail_memberAccount :: Lens.Lens' GetComplianceDetail Prelude.Text
+getComplianceDetail_memberAccount = Lens.lens (\GetComplianceDetail' {memberAccount} -> memberAccount) (\s@GetComplianceDetail' {} a -> s {memberAccount = a} :: GetComplianceDetail)
 
--- | -- | The response status code.
-gcdrsResponseStatus :: Lens' GetComplianceDetailResponse Int
-gcdrsResponseStatus = lens _gcdrsResponseStatus (\ s a -> s{_gcdrsResponseStatus = a})
+instance Prelude.AWSRequest GetComplianceDetail where
+  type
+    Rs GetComplianceDetail =
+      GetComplianceDetailResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetComplianceDetailResponse'
+            Prelude.<$> (x Prelude..?> "PolicyComplianceDetail")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData GetComplianceDetailResponse where
+instance Prelude.Hashable GetComplianceDetail
+
+instance Prelude.NFData GetComplianceDetail
+
+instance Prelude.ToHeaders GetComplianceDetail where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSFMS_20180101.GetComplianceDetail" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON GetComplianceDetail where
+  toJSON GetComplianceDetail' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("PolicyId" Prelude..= policyId),
+            Prelude.Just
+              ("MemberAccount" Prelude..= memberAccount)
+          ]
+      )
+
+instance Prelude.ToPath GetComplianceDetail where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery GetComplianceDetail where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newGetComplianceDetailResponse' smart constructor.
+data GetComplianceDetailResponse = GetComplianceDetailResponse'
+  { -- | Information about the resources and the policy that you specified in the
+    -- @GetComplianceDetail@ request.
+    policyComplianceDetail :: Prelude.Maybe PolicyComplianceDetail,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetComplianceDetailResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'policyComplianceDetail', 'getComplianceDetailResponse_policyComplianceDetail' - Information about the resources and the policy that you specified in the
+-- @GetComplianceDetail@ request.
+--
+-- 'httpStatus', 'getComplianceDetailResponse_httpStatus' - The response's http status code.
+newGetComplianceDetailResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetComplianceDetailResponse
+newGetComplianceDetailResponse pHttpStatus_ =
+  GetComplianceDetailResponse'
+    { policyComplianceDetail =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | Information about the resources and the policy that you specified in the
+-- @GetComplianceDetail@ request.
+getComplianceDetailResponse_policyComplianceDetail :: Lens.Lens' GetComplianceDetailResponse (Prelude.Maybe PolicyComplianceDetail)
+getComplianceDetailResponse_policyComplianceDetail = Lens.lens (\GetComplianceDetailResponse' {policyComplianceDetail} -> policyComplianceDetail) (\s@GetComplianceDetailResponse' {} a -> s {policyComplianceDetail = a} :: GetComplianceDetailResponse)
+
+-- | The response's http status code.
+getComplianceDetailResponse_httpStatus :: Lens.Lens' GetComplianceDetailResponse Prelude.Int
+getComplianceDetailResponse_httpStatus = Lens.lens (\GetComplianceDetailResponse' {httpStatus} -> httpStatus) (\s@GetComplianceDetailResponse' {} a -> s {httpStatus = a} :: GetComplianceDetailResponse)
+
+instance Prelude.NFData GetComplianceDetailResponse

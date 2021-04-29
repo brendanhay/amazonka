@@ -1,181 +1,454 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.FMS.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.FMS.Types
-    (
-    -- * Service Configuration
-      fms
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _InternalErrorException
-    , _InvalidInputException
-    , _InvalidOperationException
-    , _ResourceNotFoundException
-    , _LimitExceededException
+    _InvalidTypeException,
+    _InvalidOperationException,
+    _InternalErrorException,
+    _InvalidInputException,
+    _LimitExceededException,
+    _ResourceNotFoundException,
+
+    -- * AccountRoleStatus
+    AccountRoleStatus (..),
+
+    -- * CustomerPolicyScopeIdType
+    CustomerPolicyScopeIdType (..),
+
+    -- * DependentServiceName
+    DependentServiceName (..),
 
     -- * PolicyComplianceStatusType
-    , PolicyComplianceStatusType (..)
+    PolicyComplianceStatusType (..),
+
+    -- * RemediationActionType
+    RemediationActionType (..),
 
     -- * SecurityServiceType
-    , SecurityServiceType (..)
+    SecurityServiceType (..),
 
     -- * ViolationReason
-    , ViolationReason (..)
+    ViolationReason (..),
+
+    -- * App
+    App (..),
+    newApp,
+    app_appName,
+    app_protocol,
+    app_port,
+
+    -- * AppsListData
+    AppsListData (..),
+    newAppsListData,
+    appsListData_lastUpdateTime,
+    appsListData_listId,
+    appsListData_previousAppsList,
+    appsListData_createTime,
+    appsListData_listUpdateToken,
+    appsListData_listName,
+    appsListData_appsList,
+
+    -- * AppsListDataSummary
+    AppsListDataSummary (..),
+    newAppsListDataSummary,
+    appsListDataSummary_appsList,
+    appsListDataSummary_listName,
+    appsListDataSummary_listArn,
+    appsListDataSummary_listId,
+
+    -- * AwsEc2InstanceViolation
+    AwsEc2InstanceViolation (..),
+    newAwsEc2InstanceViolation,
+    awsEc2InstanceViolation_violationTarget,
+    awsEc2InstanceViolation_awsEc2NetworkInterfaceViolations,
+
+    -- * AwsEc2NetworkInterfaceViolation
+    AwsEc2NetworkInterfaceViolation (..),
+    newAwsEc2NetworkInterfaceViolation,
+    awsEc2NetworkInterfaceViolation_violationTarget,
+    awsEc2NetworkInterfaceViolation_violatingSecurityGroups,
+
+    -- * AwsVPCSecurityGroupViolation
+    AwsVPCSecurityGroupViolation (..),
+    newAwsVPCSecurityGroupViolation,
+    awsVPCSecurityGroupViolation_partialMatches,
+    awsVPCSecurityGroupViolation_possibleSecurityGroupRemediationActions,
+    awsVPCSecurityGroupViolation_violationTarget,
+    awsVPCSecurityGroupViolation_violationTargetDescription,
 
     -- * ComplianceViolator
-    , ComplianceViolator
-    , complianceViolator
-    , cvResourceId
-    , cvResourceType
-    , cvViolationReason
+    ComplianceViolator (..),
+    newComplianceViolator,
+    complianceViolator_resourceId,
+    complianceViolator_resourceType,
+    complianceViolator_violationReason,
 
     -- * EvaluationResult
-    , EvaluationResult
-    , evaluationResult
-    , erViolatorCount
-    , erComplianceStatus
-    , erEvaluationLimitExceeded
+    EvaluationResult (..),
+    newEvaluationResult,
+    evaluationResult_complianceStatus,
+    evaluationResult_evaluationLimitExceeded,
+    evaluationResult_violatorCount,
+
+    -- * NetworkFirewallMissingExpectedRTViolation
+    NetworkFirewallMissingExpectedRTViolation (..),
+    newNetworkFirewallMissingExpectedRTViolation,
+    networkFirewallMissingExpectedRTViolation_currentRouteTable,
+    networkFirewallMissingExpectedRTViolation_violationTarget,
+    networkFirewallMissingExpectedRTViolation_availabilityZone,
+    networkFirewallMissingExpectedRTViolation_expectedRouteTable,
+    networkFirewallMissingExpectedRTViolation_vpc,
+
+    -- * NetworkFirewallMissingFirewallViolation
+    NetworkFirewallMissingFirewallViolation (..),
+    newNetworkFirewallMissingFirewallViolation,
+    networkFirewallMissingFirewallViolation_targetViolationReason,
+    networkFirewallMissingFirewallViolation_violationTarget,
+    networkFirewallMissingFirewallViolation_availabilityZone,
+    networkFirewallMissingFirewallViolation_vpc,
+
+    -- * NetworkFirewallMissingSubnetViolation
+    NetworkFirewallMissingSubnetViolation (..),
+    newNetworkFirewallMissingSubnetViolation,
+    networkFirewallMissingSubnetViolation_targetViolationReason,
+    networkFirewallMissingSubnetViolation_violationTarget,
+    networkFirewallMissingSubnetViolation_availabilityZone,
+    networkFirewallMissingSubnetViolation_vpc,
+
+    -- * NetworkFirewallPolicyDescription
+    NetworkFirewallPolicyDescription (..),
+    newNetworkFirewallPolicyDescription,
+    networkFirewallPolicyDescription_statelessRuleGroups,
+    networkFirewallPolicyDescription_statelessFragmentDefaultActions,
+    networkFirewallPolicyDescription_statelessDefaultActions,
+    networkFirewallPolicyDescription_statefulRuleGroups,
+    networkFirewallPolicyDescription_statelessCustomActions,
+
+    -- * NetworkFirewallPolicyModifiedViolation
+    NetworkFirewallPolicyModifiedViolation (..),
+    newNetworkFirewallPolicyModifiedViolation,
+    networkFirewallPolicyModifiedViolation_currentPolicyDescription,
+    networkFirewallPolicyModifiedViolation_violationTarget,
+    networkFirewallPolicyModifiedViolation_expectedPolicyDescription,
+
+    -- * PartialMatch
+    PartialMatch (..),
+    newPartialMatch,
+    partialMatch_targetViolationReasons,
+    partialMatch_reference,
 
     -- * Policy
-    , Policy
-    , policy
-    , pPolicyId
-    , pResourceTags
-    , pPolicyUpdateToken
-    , pPolicyName
-    , pSecurityServicePolicyData
-    , pResourceType
-    , pExcludeResourceTags
-    , pRemediationEnabled
+    Policy (..),
+    newPolicy,
+    policy_resourceTags,
+    policy_resourceTypeList,
+    policy_policyUpdateToken,
+    policy_includeMap,
+    policy_policyId,
+    policy_excludeMap,
+    policy_policyName,
+    policy_securityServicePolicyData,
+    policy_resourceType,
+    policy_excludeResourceTags,
+    policy_remediationEnabled,
 
     -- * PolicyComplianceDetail
-    , PolicyComplianceDetail
-    , policyComplianceDetail
-    , pcdExpiredAt
-    , pcdPolicyId
-    , pcdViolators
-    , pcdEvaluationLimitExceeded
-    , pcdPolicyOwner
-    , pcdMemberAccount
+    PolicyComplianceDetail (..),
+    newPolicyComplianceDetail,
+    policyComplianceDetail_violators,
+    policyComplianceDetail_policyOwner,
+    policyComplianceDetail_memberAccount,
+    policyComplianceDetail_evaluationLimitExceeded,
+    policyComplianceDetail_issueInfoMap,
+    policyComplianceDetail_policyId,
+    policyComplianceDetail_expiredAt,
 
     -- * PolicyComplianceStatus
-    , PolicyComplianceStatus
-    , policyComplianceStatus
-    , pcsEvaluationResults
-    , pcsLastUpdated
-    , pcsPolicyName
-    , pcsPolicyId
-    , pcsPolicyOwner
-    , pcsMemberAccount
+    PolicyComplianceStatus (..),
+    newPolicyComplianceStatus,
+    policyComplianceStatus_policyName,
+    policyComplianceStatus_policyOwner,
+    policyComplianceStatus_memberAccount,
+    policyComplianceStatus_lastUpdated,
+    policyComplianceStatus_evaluationResults,
+    policyComplianceStatus_issueInfoMap,
+    policyComplianceStatus_policyId,
 
     -- * PolicySummary
-    , PolicySummary
-    , policySummary
-    , psPolicyName
-    , psRemediationEnabled
-    , psResourceType
-    , psPolicyId
-    , psPolicyARN
-    , psSecurityServiceType
+    PolicySummary (..),
+    newPolicySummary,
+    policySummary_policyName,
+    policySummary_securityServiceType,
+    policySummary_resourceType,
+    policySummary_remediationEnabled,
+    policySummary_policyId,
+    policySummary_policyArn,
+
+    -- * ProtocolsListData
+    ProtocolsListData (..),
+    newProtocolsListData,
+    protocolsListData_lastUpdateTime,
+    protocolsListData_listId,
+    protocolsListData_createTime,
+    protocolsListData_previousProtocolsList,
+    protocolsListData_listUpdateToken,
+    protocolsListData_listName,
+    protocolsListData_protocolsList,
+
+    -- * ProtocolsListDataSummary
+    ProtocolsListDataSummary (..),
+    newProtocolsListDataSummary,
+    protocolsListDataSummary_listName,
+    protocolsListDataSummary_protocolsList,
+    protocolsListDataSummary_listArn,
+    protocolsListDataSummary_listId,
 
     -- * ResourceTag
-    , ResourceTag
-    , resourceTag
-    , rtValue
-    , rtKey
+    ResourceTag (..),
+    newResourceTag,
+    resourceTag_value,
+    resourceTag_key,
+
+    -- * ResourceViolation
+    ResourceViolation (..),
+    newResourceViolation,
+    resourceViolation_networkFirewallMissingSubnetViolation,
+    resourceViolation_awsEc2NetworkInterfaceViolation,
+    resourceViolation_networkFirewallMissingExpectedRTViolation,
+    resourceViolation_awsEc2InstanceViolation,
+    resourceViolation_networkFirewallMissingFirewallViolation,
+    resourceViolation_networkFirewallPolicyModifiedViolation,
+    resourceViolation_awsVPCSecurityGroupViolation,
+
+    -- * SecurityGroupRemediationAction
+    SecurityGroupRemediationAction (..),
+    newSecurityGroupRemediationAction,
+    securityGroupRemediationAction_remediationActionType,
+    securityGroupRemediationAction_remediationResult,
+    securityGroupRemediationAction_isDefaultAction,
+    securityGroupRemediationAction_description,
+
+    -- * SecurityGroupRuleDescription
+    SecurityGroupRuleDescription (..),
+    newSecurityGroupRuleDescription,
+    securityGroupRuleDescription_fromPort,
+    securityGroupRuleDescription_iPV4Range,
+    securityGroupRuleDescription_prefixListId,
+    securityGroupRuleDescription_iPV6Range,
+    securityGroupRuleDescription_protocol,
+    securityGroupRuleDescription_toPort,
 
     -- * SecurityServicePolicyData
-    , SecurityServicePolicyData
-    , securityServicePolicyData
-    , sspdManagedServiceData
-    , sspdType
-    ) where
+    SecurityServicePolicyData (..),
+    newSecurityServicePolicyData,
+    securityServicePolicyData_managedServiceData,
+    securityServicePolicyData_type,
 
-import Network.AWS.FMS.Types.Product
-import Network.AWS.FMS.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+    -- * StatefulRuleGroup
+    StatefulRuleGroup (..),
+    newStatefulRuleGroup,
+    statefulRuleGroup_resourceId,
+    statefulRuleGroup_ruleGroupName,
+
+    -- * StatelessRuleGroup
+    StatelessRuleGroup (..),
+    newStatelessRuleGroup,
+    statelessRuleGroup_resourceId,
+    statelessRuleGroup_priority,
+    statelessRuleGroup_ruleGroupName,
+
+    -- * Tag
+    Tag (..),
+    newTag,
+    tag_key,
+    tag_value,
+
+    -- * ViolationDetail
+    ViolationDetail (..),
+    newViolationDetail,
+    violationDetail_resourceDescription,
+    violationDetail_resourceTags,
+    violationDetail_policyId,
+    violationDetail_memberAccount,
+    violationDetail_resourceId,
+    violationDetail_resourceType,
+    violationDetail_resourceViolations,
+  )
+where
+
+import Network.AWS.FMS.Types.AccountRoleStatus
+import Network.AWS.FMS.Types.App
+import Network.AWS.FMS.Types.AppsListData
+import Network.AWS.FMS.Types.AppsListDataSummary
+import Network.AWS.FMS.Types.AwsEc2InstanceViolation
+import Network.AWS.FMS.Types.AwsEc2NetworkInterfaceViolation
+import Network.AWS.FMS.Types.AwsVPCSecurityGroupViolation
+import Network.AWS.FMS.Types.ComplianceViolator
+import Network.AWS.FMS.Types.CustomerPolicyScopeIdType
+import Network.AWS.FMS.Types.DependentServiceName
+import Network.AWS.FMS.Types.EvaluationResult
+import Network.AWS.FMS.Types.NetworkFirewallMissingExpectedRTViolation
+import Network.AWS.FMS.Types.NetworkFirewallMissingFirewallViolation
+import Network.AWS.FMS.Types.NetworkFirewallMissingSubnetViolation
+import Network.AWS.FMS.Types.NetworkFirewallPolicyDescription
+import Network.AWS.FMS.Types.NetworkFirewallPolicyModifiedViolation
+import Network.AWS.FMS.Types.PartialMatch
+import Network.AWS.FMS.Types.Policy
+import Network.AWS.FMS.Types.PolicyComplianceDetail
+import Network.AWS.FMS.Types.PolicyComplianceStatus
+import Network.AWS.FMS.Types.PolicyComplianceStatusType
+import Network.AWS.FMS.Types.PolicySummary
+import Network.AWS.FMS.Types.ProtocolsListData
+import Network.AWS.FMS.Types.ProtocolsListDataSummary
+import Network.AWS.FMS.Types.RemediationActionType
+import Network.AWS.FMS.Types.ResourceTag
+import Network.AWS.FMS.Types.ResourceViolation
+import Network.AWS.FMS.Types.SecurityGroupRemediationAction
+import Network.AWS.FMS.Types.SecurityGroupRuleDescription
+import Network.AWS.FMS.Types.SecurityServicePolicyData
+import Network.AWS.FMS.Types.SecurityServiceType
+import Network.AWS.FMS.Types.StatefulRuleGroup
+import Network.AWS.FMS.Types.StatelessRuleGroup
+import Network.AWS.FMS.Types.Tag
+import Network.AWS.FMS.Types.ViolationDetail
+import Network.AWS.FMS.Types.ViolationReason
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2018-01-01@ of the Amazon Firewall Management Service SDK configuration.
-fms :: Service
-fms =
-  Service
-    { _svcAbbrev = "FMS"
-    , _svcSigner = v4
-    , _svcPrefix = "fms"
-    , _svcVersion = "2018-01-01"
-    , _svcEndpoint = defaultEndpoint fms
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "FMS"
-    , _svcRetry = retry
+defaultService :: Prelude.Service
+defaultService =
+  Prelude.Service
+    { Prelude._svcAbbrev = "FMS",
+      Prelude._svcSigner = Sign.v4,
+      Prelude._svcPrefix = "fms",
+      Prelude._svcVersion = "2018-01-01",
+      Prelude._svcEndpoint =
+        Prelude.defaultEndpoint defaultService,
+      Prelude._svcTimeout = Prelude.Just 70,
+      Prelude._svcCheck = Prelude.statusSuccess,
+      Prelude._svcError = Prelude.parseJSONError "FMS",
+      Prelude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Prelude.Exponential
+        { Prelude._retryBase = 5.0e-2,
+          Prelude._retryGrowth = 2,
+          Prelude._retryAttempts = 5,
+          Prelude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+      | Lens.has (Prelude.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Prelude.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Prelude.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Prelude.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Prelude.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Prelude.hasCode "RequestThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Prelude.hasCode "ThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Prelude.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Prelude.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Prelude.hasCode "ThrottlingException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Prelude.hasCode "Throttling"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
+-- | The value of the @Type@ parameter is invalid.
+_InvalidTypeException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidTypeException =
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidTypeException"
 
--- | The operation failed because of a system problem, even though the request was valid. Retry your request.
---
---
-_InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalErrorException = _MatchServiceError fms "InternalErrorException"
+-- | The operation failed because there was nothing to do or the operation
+-- wasn\'t possible. For example, you might have submitted an
+-- @AssociateAdminAccount@ request for an account ID that was already set
+-- as the AWS Firewall Manager administrator. Or you might have tried to
+-- access a Region that\'s disabled by default, and that you need to enable
+-- for the Firewall Manager administrator account and for AWS Organizations
+-- before you can access it.
+_InvalidOperationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidOperationException =
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidOperationException"
 
+-- | The operation failed because of a system problem, even though the
+-- request was valid. Retry your request.
+_InternalErrorException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InternalErrorException =
+  Prelude._MatchServiceError
+    defaultService
+    "InternalErrorException"
 
 -- | The parameters of the request were invalid.
---
---
-_InvalidInputException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidInputException = _MatchServiceError fms "InvalidInputException"
+_InvalidInputException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidInputException =
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidInputException"
 
-
--- | The operation failed because there was nothing to do. For example, you might have submitted an @AssociateAdminAccount@ request, but the account ID that you submitted was already set as the AWS Firewall Manager administrator.
---
---
-_InvalidOperationException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidOperationException = _MatchServiceError fms "InvalidOperationException"
-
+-- | The operation exceeds a resource limit, for example, the maximum number
+-- of @policy@ objects that you can create for an AWS account. For more
+-- information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html Firewall Manager Limits>
+-- in the /AWS WAF Developer Guide/.
+_LimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LimitExceededException =
+  Prelude._MatchServiceError
+    defaultService
+    "LimitExceededException"
 
 -- | The specified resource was not found.
---
---
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFoundException = _MatchServiceError fms "ResourceNotFoundException"
-
-
--- | The operation exceeds a resource limit, for example, the maximum number of @policy@ objects that you can create for an AWS account. For more information, see <http://docs.aws.amazon.com/waf/latest/developerguide/fms-limits.html Firewall Manager Limits> in the /AWS WAF Developer Guide/ .
---
---
-_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException = _MatchServiceError fms "LimitExceededException"
-
+_ResourceNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNotFoundException =
+  Prelude._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"

@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Rekognition.StartFaceDetection
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,161 +23,245 @@
 --
 -- Starts asynchronous detection of faces in a stored video.
 --
+-- Amazon Rekognition Video can detect faces in a video stored in an Amazon
+-- S3 bucket. Use Video to specify the bucket name and the filename of the
+-- video. @StartFaceDetection@ returns a job identifier (@JobId@) that you
+-- use to get the results of the operation. When face detection is
+-- finished, Amazon Rekognition Video publishes a completion status to the
+-- Amazon Simple Notification Service topic that you specify in
+-- @NotificationChannel@. To get the results of the face detection
+-- operation, first check that the status value published to the Amazon SNS
+-- topic is @SUCCEEDED@. If so, call GetFaceDetection and pass the job
+-- identifier (@JobId@) from the initial call to @StartFaceDetection@.
 --
--- Rekognition Video can detect faces in a video stored in an Amazon S3 bucket. Use 'Video' to specify the bucket name and the filename of the video. @StartFaceDetection@ returns a job identifier (@JobId@ ) that you use to get the results of the operation. When face detection is finished, Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in @NotificationChannel@ . To get the results of the label detection operation, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . If so, call and pass the job identifier (@JobId@ ) from the initial call to @StartFaceDetection@ . For more information, see 'faces-video' .
---
+-- For more information, see Detecting Faces in a Stored Video in the
+-- Amazon Rekognition Developer Guide.
 module Network.AWS.Rekognition.StartFaceDetection
-    (
-    -- * Creating a Request
-      startFaceDetection
-    , StartFaceDetection
+  ( -- * Creating a Request
+    StartFaceDetection (..),
+    newStartFaceDetection,
+
     -- * Request Lenses
-    , sfdJobTag
-    , sfdNotificationChannel
-    , sfdClientRequestToken
-    , sfdFaceAttributes
-    , sfdVideo
+    startFaceDetection_notificationChannel,
+    startFaceDetection_faceAttributes,
+    startFaceDetection_clientRequestToken,
+    startFaceDetection_jobTag,
+    startFaceDetection_video,
 
     -- * Destructuring the Response
-    , startFaceDetectionResponse
-    , StartFaceDetectionResponse
+    StartFaceDetectionResponse (..),
+    newStartFaceDetectionResponse,
+
     -- * Response Lenses
-    , sfdrsJobId
-    , sfdrsResponseStatus
-    ) where
+    startFaceDetectionResponse_jobId,
+    startFaceDetectionResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Rekognition.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'startFaceDetection' smart constructor.
+-- | /See:/ 'newStartFaceDetection' smart constructor.
 data StartFaceDetection = StartFaceDetection'
-  { _sfdJobTag              :: !(Maybe Text)
-  , _sfdNotificationChannel :: !(Maybe NotificationChannel)
-  , _sfdClientRequestToken  :: !(Maybe Text)
-  , _sfdFaceAttributes      :: !(Maybe FaceAttributes)
-  , _sfdVideo               :: !Video
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition
+    -- Video to publish the completion status of the face detection operation.
+    notificationChannel :: Prelude.Maybe NotificationChannel,
+    -- | The face attributes you want returned.
+    --
+    -- @DEFAULT@ - The following subset of facial attributes are returned:
+    -- BoundingBox, Confidence, Pose, Quality and Landmarks.
+    --
+    -- @ALL@ - All facial attributes are returned.
+    faceAttributes :: Prelude.Maybe FaceAttributes,
+    -- | Idempotent token used to identify the start request. If you use the same
+    -- token with multiple @StartFaceDetection@ requests, the same @JobId@ is
+    -- returned. Use @ClientRequestToken@ to prevent the same job from being
+    -- accidently started more than once.
+    clientRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | An identifier you specify that\'s returned in the completion
+    -- notification that\'s published to your Amazon Simple Notification
+    -- Service topic. For example, you can use @JobTag@ to group related jobs
+    -- and identify them in the completion notification.
+    jobTag :: Prelude.Maybe Prelude.Text,
+    -- | The video in which you want to detect faces. The video must be stored in
+    -- an Amazon S3 bucket.
+    video :: Video
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'StartFaceDetection' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StartFaceDetection' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'sfdJobTag' - Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'sfdNotificationChannel' - The ARN of the Amazon SNS topic to which you want Rekognition Video to publish the completion status of the face detection operation.
+-- 'notificationChannel', 'startFaceDetection_notificationChannel' - The ARN of the Amazon SNS topic to which you want Amazon Rekognition
+-- Video to publish the completion status of the face detection operation.
 --
--- * 'sfdClientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartFaceDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
+-- 'faceAttributes', 'startFaceDetection_faceAttributes' - The face attributes you want returned.
 --
--- * 'sfdFaceAttributes' - The face attributes you want returned. @DEFAULT@ - The following subset of facial attributes are returned: BoundingBox, Confidence, Pose, Quality and Landmarks.  @ALL@ - All facial attributes are returned.
+-- @DEFAULT@ - The following subset of facial attributes are returned:
+-- BoundingBox, Confidence, Pose, Quality and Landmarks.
 --
--- * 'sfdVideo' - The video in which you want to detect faces. The video must be stored in an Amazon S3 bucket.
-startFaceDetection
-    :: Video -- ^ 'sfdVideo'
-    -> StartFaceDetection
-startFaceDetection pVideo_ =
+-- @ALL@ - All facial attributes are returned.
+--
+-- 'clientRequestToken', 'startFaceDetection_clientRequestToken' - Idempotent token used to identify the start request. If you use the same
+-- token with multiple @StartFaceDetection@ requests, the same @JobId@ is
+-- returned. Use @ClientRequestToken@ to prevent the same job from being
+-- accidently started more than once.
+--
+-- 'jobTag', 'startFaceDetection_jobTag' - An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+--
+-- 'video', 'startFaceDetection_video' - The video in which you want to detect faces. The video must be stored in
+-- an Amazon S3 bucket.
+newStartFaceDetection ::
+  -- | 'video'
+  Video ->
+  StartFaceDetection
+newStartFaceDetection pVideo_ =
   StartFaceDetection'
-    { _sfdJobTag = Nothing
-    , _sfdNotificationChannel = Nothing
-    , _sfdClientRequestToken = Nothing
-    , _sfdFaceAttributes = Nothing
-    , _sfdVideo = pVideo_
+    { notificationChannel =
+        Prelude.Nothing,
+      faceAttributes = Prelude.Nothing,
+      clientRequestToken = Prelude.Nothing,
+      jobTag = Prelude.Nothing,
+      video = pVideo_
     }
 
+-- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition
+-- Video to publish the completion status of the face detection operation.
+startFaceDetection_notificationChannel :: Lens.Lens' StartFaceDetection (Prelude.Maybe NotificationChannel)
+startFaceDetection_notificationChannel = Lens.lens (\StartFaceDetection' {notificationChannel} -> notificationChannel) (\s@StartFaceDetection' {} a -> s {notificationChannel = a} :: StartFaceDetection)
 
--- | Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic.
-sfdJobTag :: Lens' StartFaceDetection (Maybe Text)
-sfdJobTag = lens _sfdJobTag (\ s a -> s{_sfdJobTag = a})
+-- | The face attributes you want returned.
+--
+-- @DEFAULT@ - The following subset of facial attributes are returned:
+-- BoundingBox, Confidence, Pose, Quality and Landmarks.
+--
+-- @ALL@ - All facial attributes are returned.
+startFaceDetection_faceAttributes :: Lens.Lens' StartFaceDetection (Prelude.Maybe FaceAttributes)
+startFaceDetection_faceAttributes = Lens.lens (\StartFaceDetection' {faceAttributes} -> faceAttributes) (\s@StartFaceDetection' {} a -> s {faceAttributes = a} :: StartFaceDetection)
 
--- | The ARN of the Amazon SNS topic to which you want Rekognition Video to publish the completion status of the face detection operation.
-sfdNotificationChannel :: Lens' StartFaceDetection (Maybe NotificationChannel)
-sfdNotificationChannel = lens _sfdNotificationChannel (\ s a -> s{_sfdNotificationChannel = a})
+-- | Idempotent token used to identify the start request. If you use the same
+-- token with multiple @StartFaceDetection@ requests, the same @JobId@ is
+-- returned. Use @ClientRequestToken@ to prevent the same job from being
+-- accidently started more than once.
+startFaceDetection_clientRequestToken :: Lens.Lens' StartFaceDetection (Prelude.Maybe Prelude.Text)
+startFaceDetection_clientRequestToken = Lens.lens (\StartFaceDetection' {clientRequestToken} -> clientRequestToken) (\s@StartFaceDetection' {} a -> s {clientRequestToken = a} :: StartFaceDetection)
 
--- | Idempotent token used to identify the start request. If you use the same token with multiple @StartFaceDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
-sfdClientRequestToken :: Lens' StartFaceDetection (Maybe Text)
-sfdClientRequestToken = lens _sfdClientRequestToken (\ s a -> s{_sfdClientRequestToken = a})
+-- | An identifier you specify that\'s returned in the completion
+-- notification that\'s published to your Amazon Simple Notification
+-- Service topic. For example, you can use @JobTag@ to group related jobs
+-- and identify them in the completion notification.
+startFaceDetection_jobTag :: Lens.Lens' StartFaceDetection (Prelude.Maybe Prelude.Text)
+startFaceDetection_jobTag = Lens.lens (\StartFaceDetection' {jobTag} -> jobTag) (\s@StartFaceDetection' {} a -> s {jobTag = a} :: StartFaceDetection)
 
--- | The face attributes you want returned. @DEFAULT@ - The following subset of facial attributes are returned: BoundingBox, Confidence, Pose, Quality and Landmarks.  @ALL@ - All facial attributes are returned.
-sfdFaceAttributes :: Lens' StartFaceDetection (Maybe FaceAttributes)
-sfdFaceAttributes = lens _sfdFaceAttributes (\ s a -> s{_sfdFaceAttributes = a})
+-- | The video in which you want to detect faces. The video must be stored in
+-- an Amazon S3 bucket.
+startFaceDetection_video :: Lens.Lens' StartFaceDetection Video
+startFaceDetection_video = Lens.lens (\StartFaceDetection' {video} -> video) (\s@StartFaceDetection' {} a -> s {video = a} :: StartFaceDetection)
 
--- | The video in which you want to detect faces. The video must be stored in an Amazon S3 bucket.
-sfdVideo :: Lens' StartFaceDetection Video
-sfdVideo = lens _sfdVideo (\ s a -> s{_sfdVideo = a})
+instance Prelude.AWSRequest StartFaceDetection where
+  type
+    Rs StartFaceDetection =
+      StartFaceDetectionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          StartFaceDetectionResponse'
+            Prelude.<$> (x Prelude..?> "JobId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest StartFaceDetection where
-        type Rs StartFaceDetection =
-             StartFaceDetectionResponse
-        request = postJSON rekognition
-        response
-          = receiveJSON
-              (\ s h x ->
-                 StartFaceDetectionResponse' <$>
-                   (x .?> "JobId") <*> (pure (fromEnum s)))
+instance Prelude.Hashable StartFaceDetection
 
-instance Hashable StartFaceDetection where
+instance Prelude.NFData StartFaceDetection
 
-instance NFData StartFaceDetection where
+instance Prelude.ToHeaders StartFaceDetection where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "RekognitionService.StartFaceDetection" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders StartFaceDetection where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("RekognitionService.StartFaceDetection" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToJSON StartFaceDetection where
+  toJSON StartFaceDetection' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NotificationChannel" Prelude..=)
+              Prelude.<$> notificationChannel,
+            ("FaceAttributes" Prelude..=)
+              Prelude.<$> faceAttributes,
+            ("ClientRequestToken" Prelude..=)
+              Prelude.<$> clientRequestToken,
+            ("JobTag" Prelude..=) Prelude.<$> jobTag,
+            Prelude.Just ("Video" Prelude..= video)
+          ]
+      )
 
-instance ToJSON StartFaceDetection where
-        toJSON StartFaceDetection'{..}
-          = object
-              (catMaybes
-                 [("JobTag" .=) <$> _sfdJobTag,
-                  ("NotificationChannel" .=) <$>
-                    _sfdNotificationChannel,
-                  ("ClientRequestToken" .=) <$> _sfdClientRequestToken,
-                  ("FaceAttributes" .=) <$> _sfdFaceAttributes,
-                  Just ("Video" .= _sfdVideo)])
+instance Prelude.ToPath StartFaceDetection where
+  toPath = Prelude.const "/"
 
-instance ToPath StartFaceDetection where
-        toPath = const "/"
+instance Prelude.ToQuery StartFaceDetection where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery StartFaceDetection where
-        toQuery = const mempty
-
--- | /See:/ 'startFaceDetectionResponse' smart constructor.
+-- | /See:/ 'newStartFaceDetectionResponse' smart constructor.
 data StartFaceDetectionResponse = StartFaceDetectionResponse'
-  { _sfdrsJobId          :: !(Maybe Text)
-  , _sfdrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The identifier for the face detection job. Use @JobId@ to identify the
+    -- job in a subsequent call to @GetFaceDetection@.
+    jobId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'StartFaceDetectionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StartFaceDetectionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'sfdrsJobId' - The identifier for the face detection job. Use @JobId@ to identify the job in a subsequent call to @GetFaceDetection@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'sfdrsResponseStatus' - -- | The response status code.
-startFaceDetectionResponse
-    :: Int -- ^ 'sfdrsResponseStatus'
-    -> StartFaceDetectionResponse
-startFaceDetectionResponse pResponseStatus_ =
+-- 'jobId', 'startFaceDetectionResponse_jobId' - The identifier for the face detection job. Use @JobId@ to identify the
+-- job in a subsequent call to @GetFaceDetection@.
+--
+-- 'httpStatus', 'startFaceDetectionResponse_httpStatus' - The response's http status code.
+newStartFaceDetectionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  StartFaceDetectionResponse
+newStartFaceDetectionResponse pHttpStatus_ =
   StartFaceDetectionResponse'
-    {_sfdrsJobId = Nothing, _sfdrsResponseStatus = pResponseStatus_}
+    { jobId =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The identifier for the face detection job. Use @JobId@ to identify the
+-- job in a subsequent call to @GetFaceDetection@.
+startFaceDetectionResponse_jobId :: Lens.Lens' StartFaceDetectionResponse (Prelude.Maybe Prelude.Text)
+startFaceDetectionResponse_jobId = Lens.lens (\StartFaceDetectionResponse' {jobId} -> jobId) (\s@StartFaceDetectionResponse' {} a -> s {jobId = a} :: StartFaceDetectionResponse)
 
--- | The identifier for the face detection job. Use @JobId@ to identify the job in a subsequent call to @GetFaceDetection@ .
-sfdrsJobId :: Lens' StartFaceDetectionResponse (Maybe Text)
-sfdrsJobId = lens _sfdrsJobId (\ s a -> s{_sfdrsJobId = a})
+-- | The response's http status code.
+startFaceDetectionResponse_httpStatus :: Lens.Lens' StartFaceDetectionResponse Prelude.Int
+startFaceDetectionResponse_httpStatus = Lens.lens (\StartFaceDetectionResponse' {httpStatus} -> httpStatus) (\s@StartFaceDetectionResponse' {} a -> s {httpStatus = a} :: StartFaceDetectionResponse)
 
--- | -- | The response status code.
-sfdrsResponseStatus :: Lens' StartFaceDetectionResponse Int
-sfdrsResponseStatus = lens _sfdrsResponseStatus (\ s a -> s{_sfdrsResponseStatus = a})
-
-instance NFData StartFaceDetectionResponse where
+instance Prelude.NFData StartFaceDetectionResponse

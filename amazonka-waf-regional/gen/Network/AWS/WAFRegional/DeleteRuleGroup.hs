@@ -1,157 +1,208 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WAFRegional.DeleteRuleGroup
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Permanently deletes a 'RuleGroup' . You can't delete a @RuleGroup@ if it's still used in any @WebACL@ objects or if it still includes any rules.
+-- This is __AWS WAF Classic__ documentation. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
+-- in the developer guide.
 --
+-- __For the latest version of AWS WAF__, use the AWS WAFV2 API and see the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html AWS WAF Developer Guide>.
+-- With the latest version, AWS WAF has a single set of endpoints for
+-- regional and global use.
 --
--- If you just want to remove a @RuleGroup@ from a @WebACL@ , use 'UpdateWebACL' .
+-- Permanently deletes a RuleGroup. You can\'t delete a @RuleGroup@ if
+-- it\'s still used in any @WebACL@ objects or if it still includes any
+-- rules.
 --
--- To permanently delete a @RuleGroup@ from AWS WAF, perform the following steps:
+-- If you just want to remove a @RuleGroup@ from a @WebACL@, use
+-- UpdateWebACL.
 --
---     * Update the @RuleGroup@ to remove rules, if any. For more information, see 'UpdateRuleGroup' .
+-- To permanently delete a @RuleGroup@ from AWS WAF, perform the following
+-- steps:
 --
---     * Use 'GetChangeToken' to get the change token that you provide in the @ChangeToken@ parameter of a @DeleteRuleGroup@ request.
+-- 1.  Update the @RuleGroup@ to remove rules, if any. For more
+--     information, see UpdateRuleGroup.
 --
---     * Submit a @DeleteRuleGroup@ request.
+-- 2.  Use GetChangeToken to get the change token that you provide in the
+--     @ChangeToken@ parameter of a @DeleteRuleGroup@ request.
 --
---
---
+-- 3.  Submit a @DeleteRuleGroup@ request.
 module Network.AWS.WAFRegional.DeleteRuleGroup
-    (
-    -- * Creating a Request
-      deleteRuleGroup
-    , DeleteRuleGroup
+  ( -- * Creating a Request
+    DeleteRuleGroup (..),
+    newDeleteRuleGroup,
+
     -- * Request Lenses
-    , drgRuleGroupId
-    , drgChangeToken
+    deleteRuleGroup_ruleGroupId,
+    deleteRuleGroup_changeToken,
 
     -- * Destructuring the Response
-    , deleteRuleGroupResponse
-    , DeleteRuleGroupResponse
+    DeleteRuleGroupResponse (..),
+    newDeleteRuleGroupResponse,
+
     -- * Response Lenses
-    , drgrsChangeToken
-    , drgrsResponseStatus
-    ) where
+    deleteRuleGroupResponse_changeToken,
+    deleteRuleGroupResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
-import Network.AWS.WAFRegional.Types.Product
 
--- | /See:/ 'deleteRuleGroup' smart constructor.
+-- | /See:/ 'newDeleteRuleGroup' smart constructor.
 data DeleteRuleGroup = DeleteRuleGroup'
-  { _drgRuleGroupId :: !Text
-  , _drgChangeToken :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @RuleGroupId@ of the RuleGroup that you want to delete.
+    -- @RuleGroupId@ is returned by CreateRuleGroup and by ListRuleGroups.
+    ruleGroupId :: Prelude.Text,
+    -- | The value returned by the most recent call to GetChangeToken.
+    changeToken :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteRuleGroup' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteRuleGroup' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drgRuleGroupId' - The @RuleGroupId@ of the 'RuleGroup' that you want to delete. @RuleGroupId@ is returned by 'CreateRuleGroup' and by 'ListRuleGroups' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drgChangeToken' - The value returned by the most recent call to 'GetChangeToken' .
-deleteRuleGroup
-    :: Text -- ^ 'drgRuleGroupId'
-    -> Text -- ^ 'drgChangeToken'
-    -> DeleteRuleGroup
-deleteRuleGroup pRuleGroupId_ pChangeToken_ =
+-- 'ruleGroupId', 'deleteRuleGroup_ruleGroupId' - The @RuleGroupId@ of the RuleGroup that you want to delete.
+-- @RuleGroupId@ is returned by CreateRuleGroup and by ListRuleGroups.
+--
+-- 'changeToken', 'deleteRuleGroup_changeToken' - The value returned by the most recent call to GetChangeToken.
+newDeleteRuleGroup ::
+  -- | 'ruleGroupId'
+  Prelude.Text ->
+  -- | 'changeToken'
+  Prelude.Text ->
+  DeleteRuleGroup
+newDeleteRuleGroup pRuleGroupId_ pChangeToken_ =
   DeleteRuleGroup'
-    {_drgRuleGroupId = pRuleGroupId_, _drgChangeToken = pChangeToken_}
+    { ruleGroupId = pRuleGroupId_,
+      changeToken = pChangeToken_
+    }
 
+-- | The @RuleGroupId@ of the RuleGroup that you want to delete.
+-- @RuleGroupId@ is returned by CreateRuleGroup and by ListRuleGroups.
+deleteRuleGroup_ruleGroupId :: Lens.Lens' DeleteRuleGroup Prelude.Text
+deleteRuleGroup_ruleGroupId = Lens.lens (\DeleteRuleGroup' {ruleGroupId} -> ruleGroupId) (\s@DeleteRuleGroup' {} a -> s {ruleGroupId = a} :: DeleteRuleGroup)
 
--- | The @RuleGroupId@ of the 'RuleGroup' that you want to delete. @RuleGroupId@ is returned by 'CreateRuleGroup' and by 'ListRuleGroups' .
-drgRuleGroupId :: Lens' DeleteRuleGroup Text
-drgRuleGroupId = lens _drgRuleGroupId (\ s a -> s{_drgRuleGroupId = a})
+-- | The value returned by the most recent call to GetChangeToken.
+deleteRuleGroup_changeToken :: Lens.Lens' DeleteRuleGroup Prelude.Text
+deleteRuleGroup_changeToken = Lens.lens (\DeleteRuleGroup' {changeToken} -> changeToken) (\s@DeleteRuleGroup' {} a -> s {changeToken = a} :: DeleteRuleGroup)
 
--- | The value returned by the most recent call to 'GetChangeToken' .
-drgChangeToken :: Lens' DeleteRuleGroup Text
-drgChangeToken = lens _drgChangeToken (\ s a -> s{_drgChangeToken = a})
+instance Prelude.AWSRequest DeleteRuleGroup where
+  type Rs DeleteRuleGroup = DeleteRuleGroupResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteRuleGroupResponse'
+            Prelude.<$> (x Prelude..?> "ChangeToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DeleteRuleGroup where
-        type Rs DeleteRuleGroup = DeleteRuleGroupResponse
-        request = postJSON wAFRegional
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DeleteRuleGroupResponse' <$>
-                   (x .?> "ChangeToken") <*> (pure (fromEnum s)))
+instance Prelude.Hashable DeleteRuleGroup
 
-instance Hashable DeleteRuleGroup where
+instance Prelude.NFData DeleteRuleGroup
 
-instance NFData DeleteRuleGroup where
+instance Prelude.ToHeaders DeleteRuleGroup where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSWAF_Regional_20161128.DeleteRuleGroup" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders DeleteRuleGroup where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSWAF_Regional_20161128.DeleteRuleGroup" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToJSON DeleteRuleGroup where
+  toJSON DeleteRuleGroup' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("RuleGroupId" Prelude..= ruleGroupId),
+            Prelude.Just ("ChangeToken" Prelude..= changeToken)
+          ]
+      )
 
-instance ToJSON DeleteRuleGroup where
-        toJSON DeleteRuleGroup'{..}
-          = object
-              (catMaybes
-                 [Just ("RuleGroupId" .= _drgRuleGroupId),
-                  Just ("ChangeToken" .= _drgChangeToken)])
+instance Prelude.ToPath DeleteRuleGroup where
+  toPath = Prelude.const "/"
 
-instance ToPath DeleteRuleGroup where
-        toPath = const "/"
+instance Prelude.ToQuery DeleteRuleGroup where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DeleteRuleGroup where
-        toQuery = const mempty
-
--- | /See:/ 'deleteRuleGroupResponse' smart constructor.
+-- | /See:/ 'newDeleteRuleGroupResponse' smart constructor.
 data DeleteRuleGroupResponse = DeleteRuleGroupResponse'
-  { _drgrsChangeToken    :: !(Maybe Text)
-  , _drgrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @ChangeToken@ that you used to submit the @DeleteRuleGroup@ request.
+    -- You can also use this value to query the status of the request. For more
+    -- information, see GetChangeTokenStatus.
+    changeToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteRuleGroupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteRuleGroupResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drgrsChangeToken' - The @ChangeToken@ that you used to submit the @DeleteRuleGroup@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drgrsResponseStatus' - -- | The response status code.
-deleteRuleGroupResponse
-    :: Int -- ^ 'drgrsResponseStatus'
-    -> DeleteRuleGroupResponse
-deleteRuleGroupResponse pResponseStatus_ =
+-- 'changeToken', 'deleteRuleGroupResponse_changeToken' - The @ChangeToken@ that you used to submit the @DeleteRuleGroup@ request.
+-- You can also use this value to query the status of the request. For more
+-- information, see GetChangeTokenStatus.
+--
+-- 'httpStatus', 'deleteRuleGroupResponse_httpStatus' - The response's http status code.
+newDeleteRuleGroupResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteRuleGroupResponse
+newDeleteRuleGroupResponse pHttpStatus_ =
   DeleteRuleGroupResponse'
-    {_drgrsChangeToken = Nothing, _drgrsResponseStatus = pResponseStatus_}
+    { changeToken =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The @ChangeToken@ that you used to submit the @DeleteRuleGroup@ request.
+-- You can also use this value to query the status of the request. For more
+-- information, see GetChangeTokenStatus.
+deleteRuleGroupResponse_changeToken :: Lens.Lens' DeleteRuleGroupResponse (Prelude.Maybe Prelude.Text)
+deleteRuleGroupResponse_changeToken = Lens.lens (\DeleteRuleGroupResponse' {changeToken} -> changeToken) (\s@DeleteRuleGroupResponse' {} a -> s {changeToken = a} :: DeleteRuleGroupResponse)
 
--- | The @ChangeToken@ that you used to submit the @DeleteRuleGroup@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-drgrsChangeToken :: Lens' DeleteRuleGroupResponse (Maybe Text)
-drgrsChangeToken = lens _drgrsChangeToken (\ s a -> s{_drgrsChangeToken = a})
+-- | The response's http status code.
+deleteRuleGroupResponse_httpStatus :: Lens.Lens' DeleteRuleGroupResponse Prelude.Int
+deleteRuleGroupResponse_httpStatus = Lens.lens (\DeleteRuleGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteRuleGroupResponse' {} a -> s {httpStatus = a} :: DeleteRuleGroupResponse)
 
--- | -- | The response status code.
-drgrsResponseStatus :: Lens' DeleteRuleGroupResponse Int
-drgrsResponseStatus = lens _drgrsResponseStatus (\ s a -> s{_drgrsResponseStatus = a})
-
-instance NFData DeleteRuleGroupResponse where
+instance Prelude.NFData DeleteRuleGroupResponse

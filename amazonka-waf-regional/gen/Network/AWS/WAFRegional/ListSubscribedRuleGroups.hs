@@ -1,157 +1,236 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WAFRegional.ListSubscribedRuleGroups
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an array of 'RuleGroup' objects that you are subscribed to.
+-- This is __AWS WAF Classic__ documentation. For more information, see
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/classic-waf-chapter.html AWS WAF Classic>
+-- in the developer guide.
 --
+-- __For the latest version of AWS WAF__, use the AWS WAFV2 API and see the
+-- <https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html AWS WAF Developer Guide>.
+-- With the latest version, AWS WAF has a single set of endpoints for
+-- regional and global use.
 --
+-- Returns an array of RuleGroup objects that you are subscribed to.
 module Network.AWS.WAFRegional.ListSubscribedRuleGroups
-    (
-    -- * Creating a Request
-      listSubscribedRuleGroups
-    , ListSubscribedRuleGroups
+  ( -- * Creating a Request
+    ListSubscribedRuleGroups (..),
+    newListSubscribedRuleGroups,
+
     -- * Request Lenses
-    , lsrgNextMarker
-    , lsrgLimit
+    listSubscribedRuleGroups_nextMarker,
+    listSubscribedRuleGroups_limit,
 
     -- * Destructuring the Response
-    , listSubscribedRuleGroupsResponse
-    , ListSubscribedRuleGroupsResponse
+    ListSubscribedRuleGroupsResponse (..),
+    newListSubscribedRuleGroupsResponse,
+
     -- * Response Lenses
-    , lsrgrsRuleGroups
-    , lsrgrsNextMarker
-    , lsrgrsResponseStatus
-    ) where
+    listSubscribedRuleGroupsResponse_nextMarker,
+    listSubscribedRuleGroupsResponse_ruleGroups,
+    listSubscribedRuleGroupsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WAFRegional.Types
-import Network.AWS.WAFRegional.Types.Product
 
--- | /See:/ 'listSubscribedRuleGroups' smart constructor.
+-- | /See:/ 'newListSubscribedRuleGroups' smart constructor.
 data ListSubscribedRuleGroups = ListSubscribedRuleGroups'
-  { _lsrgNextMarker :: !(Maybe Text)
-  , _lsrgLimit      :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | If you specify a value for @Limit@ and you have more
+    -- @ByteMatchSets@subscribed rule groups than the value of @Limit@, AWS WAF
+    -- returns a @NextMarker@ value in the response that allows you to list
+    -- another group of subscribed rule groups. For the second and subsequent
+    -- @ListSubscribedRuleGroupsRequest@ requests, specify the value of
+    -- @NextMarker@ from the previous response to get information about another
+    -- batch of subscribed rule groups.
+    nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the number of subscribed rule groups that you want AWS WAF to
+    -- return for this request. If you have more objects than the number you
+    -- specify for @Limit@, the response includes a @NextMarker@ value that you
+    -- can use to get another batch of objects.
+    limit :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListSubscribedRuleGroups' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListSubscribedRuleGroups' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lsrgNextMarker' - If you specify a value for @Limit@ and you have more @ByteMatchSets@ subscribed rule groups than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of subscribed rule groups. For the second and subsequent @ListSubscribedRuleGroupsRequest@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of subscribed rule groups.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lsrgLimit' - Specifies the number of subscribed rule groups that you want AWS WAF to return for this request. If you have more objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of objects.
-listSubscribedRuleGroups
-    :: ListSubscribedRuleGroups
-listSubscribedRuleGroups =
-  ListSubscribedRuleGroups' {_lsrgNextMarker = Nothing, _lsrgLimit = Nothing}
-
-
--- | If you specify a value for @Limit@ and you have more @ByteMatchSets@ subscribed rule groups than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of subscribed rule groups. For the second and subsequent @ListSubscribedRuleGroupsRequest@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of subscribed rule groups.
-lsrgNextMarker :: Lens' ListSubscribedRuleGroups (Maybe Text)
-lsrgNextMarker = lens _lsrgNextMarker (\ s a -> s{_lsrgNextMarker = a})
-
--- | Specifies the number of subscribed rule groups that you want AWS WAF to return for this request. If you have more objects than the number you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of objects.
-lsrgLimit :: Lens' ListSubscribedRuleGroups (Maybe Natural)
-lsrgLimit = lens _lsrgLimit (\ s a -> s{_lsrgLimit = a}) . mapping _Nat
-
-instance AWSRequest ListSubscribedRuleGroups where
-        type Rs ListSubscribedRuleGroups =
-             ListSubscribedRuleGroupsResponse
-        request = postJSON wAFRegional
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListSubscribedRuleGroupsResponse' <$>
-                   (x .?> "RuleGroups" .!@ mempty) <*>
-                     (x .?> "NextMarker")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListSubscribedRuleGroups where
-
-instance NFData ListSubscribedRuleGroups where
-
-instance ToHeaders ListSubscribedRuleGroups where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSWAF_Regional_20161128.ListSubscribedRuleGroups"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ListSubscribedRuleGroups where
-        toJSON ListSubscribedRuleGroups'{..}
-          = object
-              (catMaybes
-                 [("NextMarker" .=) <$> _lsrgNextMarker,
-                  ("Limit" .=) <$> _lsrgLimit])
-
-instance ToPath ListSubscribedRuleGroups where
-        toPath = const "/"
-
-instance ToQuery ListSubscribedRuleGroups where
-        toQuery = const mempty
-
--- | /See:/ 'listSubscribedRuleGroupsResponse' smart constructor.
-data ListSubscribedRuleGroupsResponse = ListSubscribedRuleGroupsResponse'
-  { _lsrgrsRuleGroups     :: !(Maybe [SubscribedRuleGroupSummary])
-  , _lsrgrsNextMarker     :: !(Maybe Text)
-  , _lsrgrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListSubscribedRuleGroupsResponse' with the minimum fields required to make a request.
+-- 'nextMarker', 'listSubscribedRuleGroups_nextMarker' - If you specify a value for @Limit@ and you have more
+-- @ByteMatchSets@subscribed rule groups than the value of @Limit@, AWS WAF
+-- returns a @NextMarker@ value in the response that allows you to list
+-- another group of subscribed rule groups. For the second and subsequent
+-- @ListSubscribedRuleGroupsRequest@ requests, specify the value of
+-- @NextMarker@ from the previous response to get information about another
+-- batch of subscribed rule groups.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lsrgrsRuleGroups' - An array of 'RuleGroup' objects.
---
--- * 'lsrgrsNextMarker' - If you have more objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more objects, submit another @ListSubscribedRuleGroups@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
---
--- * 'lsrgrsResponseStatus' - -- | The response status code.
-listSubscribedRuleGroupsResponse
-    :: Int -- ^ 'lsrgrsResponseStatus'
-    -> ListSubscribedRuleGroupsResponse
-listSubscribedRuleGroupsResponse pResponseStatus_ =
-  ListSubscribedRuleGroupsResponse'
-    { _lsrgrsRuleGroups = Nothing
-    , _lsrgrsNextMarker = Nothing
-    , _lsrgrsResponseStatus = pResponseStatus_
+-- 'limit', 'listSubscribedRuleGroups_limit' - Specifies the number of subscribed rule groups that you want AWS WAF to
+-- return for this request. If you have more objects than the number you
+-- specify for @Limit@, the response includes a @NextMarker@ value that you
+-- can use to get another batch of objects.
+newListSubscribedRuleGroups ::
+  ListSubscribedRuleGroups
+newListSubscribedRuleGroups =
+  ListSubscribedRuleGroups'
+    { nextMarker =
+        Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
+-- | If you specify a value for @Limit@ and you have more
+-- @ByteMatchSets@subscribed rule groups than the value of @Limit@, AWS WAF
+-- returns a @NextMarker@ value in the response that allows you to list
+-- another group of subscribed rule groups. For the second and subsequent
+-- @ListSubscribedRuleGroupsRequest@ requests, specify the value of
+-- @NextMarker@ from the previous response to get information about another
+-- batch of subscribed rule groups.
+listSubscribedRuleGroups_nextMarker :: Lens.Lens' ListSubscribedRuleGroups (Prelude.Maybe Prelude.Text)
+listSubscribedRuleGroups_nextMarker = Lens.lens (\ListSubscribedRuleGroups' {nextMarker} -> nextMarker) (\s@ListSubscribedRuleGroups' {} a -> s {nextMarker = a} :: ListSubscribedRuleGroups)
 
--- | An array of 'RuleGroup' objects.
-lsrgrsRuleGroups :: Lens' ListSubscribedRuleGroupsResponse [SubscribedRuleGroupSummary]
-lsrgrsRuleGroups = lens _lsrgrsRuleGroups (\ s a -> s{_lsrgrsRuleGroups = a}) . _Default . _Coerce
+-- | Specifies the number of subscribed rule groups that you want AWS WAF to
+-- return for this request. If you have more objects than the number you
+-- specify for @Limit@, the response includes a @NextMarker@ value that you
+-- can use to get another batch of objects.
+listSubscribedRuleGroups_limit :: Lens.Lens' ListSubscribedRuleGroups (Prelude.Maybe Prelude.Natural)
+listSubscribedRuleGroups_limit = Lens.lens (\ListSubscribedRuleGroups' {limit} -> limit) (\s@ListSubscribedRuleGroups' {} a -> s {limit = a} :: ListSubscribedRuleGroups)
 
--- | If you have more objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more objects, submit another @ListSubscribedRuleGroups@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
-lsrgrsNextMarker :: Lens' ListSubscribedRuleGroupsResponse (Maybe Text)
-lsrgrsNextMarker = lens _lsrgrsNextMarker (\ s a -> s{_lsrgrsNextMarker = a})
+instance Prelude.AWSRequest ListSubscribedRuleGroups where
+  type
+    Rs ListSubscribedRuleGroups =
+      ListSubscribedRuleGroupsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListSubscribedRuleGroupsResponse'
+            Prelude.<$> (x Prelude..?> "NextMarker")
+            Prelude.<*> ( x Prelude..?> "RuleGroups"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | -- | The response status code.
-lsrgrsResponseStatus :: Lens' ListSubscribedRuleGroupsResponse Int
-lsrgrsResponseStatus = lens _lsrgrsResponseStatus (\ s a -> s{_lsrgrsResponseStatus = a})
+instance Prelude.Hashable ListSubscribedRuleGroups
 
-instance NFData ListSubscribedRuleGroupsResponse
-         where
+instance Prelude.NFData ListSubscribedRuleGroups
+
+instance Prelude.ToHeaders ListSubscribedRuleGroups where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSWAF_Regional_20161128.ListSubscribedRuleGroups" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON ListSubscribedRuleGroups where
+  toJSON ListSubscribedRuleGroups' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextMarker" Prelude..=) Prelude.<$> nextMarker,
+            ("Limit" Prelude..=) Prelude.<$> limit
+          ]
+      )
+
+instance Prelude.ToPath ListSubscribedRuleGroups where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery ListSubscribedRuleGroups where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListSubscribedRuleGroupsResponse' smart constructor.
+data ListSubscribedRuleGroupsResponse = ListSubscribedRuleGroupsResponse'
+  { -- | If you have more objects than the number that you specified for @Limit@
+    -- in the request, the response includes a @NextMarker@ value. To list more
+    -- objects, submit another @ListSubscribedRuleGroups@ request, and specify
+    -- the @NextMarker@ value from the response in the @NextMarker@ value in
+    -- the next request.
+    nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | An array of RuleGroup objects.
+    ruleGroups :: Prelude.Maybe [SubscribedRuleGroupSummary],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListSubscribedRuleGroupsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextMarker', 'listSubscribedRuleGroupsResponse_nextMarker' - If you have more objects than the number that you specified for @Limit@
+-- in the request, the response includes a @NextMarker@ value. To list more
+-- objects, submit another @ListSubscribedRuleGroups@ request, and specify
+-- the @NextMarker@ value from the response in the @NextMarker@ value in
+-- the next request.
+--
+-- 'ruleGroups', 'listSubscribedRuleGroupsResponse_ruleGroups' - An array of RuleGroup objects.
+--
+-- 'httpStatus', 'listSubscribedRuleGroupsResponse_httpStatus' - The response's http status code.
+newListSubscribedRuleGroupsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListSubscribedRuleGroupsResponse
+newListSubscribedRuleGroupsResponse pHttpStatus_ =
+  ListSubscribedRuleGroupsResponse'
+    { nextMarker =
+        Prelude.Nothing,
+      ruleGroups = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | If you have more objects than the number that you specified for @Limit@
+-- in the request, the response includes a @NextMarker@ value. To list more
+-- objects, submit another @ListSubscribedRuleGroups@ request, and specify
+-- the @NextMarker@ value from the response in the @NextMarker@ value in
+-- the next request.
+listSubscribedRuleGroupsResponse_nextMarker :: Lens.Lens' ListSubscribedRuleGroupsResponse (Prelude.Maybe Prelude.Text)
+listSubscribedRuleGroupsResponse_nextMarker = Lens.lens (\ListSubscribedRuleGroupsResponse' {nextMarker} -> nextMarker) (\s@ListSubscribedRuleGroupsResponse' {} a -> s {nextMarker = a} :: ListSubscribedRuleGroupsResponse)
+
+-- | An array of RuleGroup objects.
+listSubscribedRuleGroupsResponse_ruleGroups :: Lens.Lens' ListSubscribedRuleGroupsResponse (Prelude.Maybe [SubscribedRuleGroupSummary])
+listSubscribedRuleGroupsResponse_ruleGroups = Lens.lens (\ListSubscribedRuleGroupsResponse' {ruleGroups} -> ruleGroups) (\s@ListSubscribedRuleGroupsResponse' {} a -> s {ruleGroups = a} :: ListSubscribedRuleGroupsResponse) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The response's http status code.
+listSubscribedRuleGroupsResponse_httpStatus :: Lens.Lens' ListSubscribedRuleGroupsResponse Prelude.Int
+listSubscribedRuleGroupsResponse_httpStatus = Lens.lens (\ListSubscribedRuleGroupsResponse' {httpStatus} -> httpStatus) (\s@ListSubscribedRuleGroupsResponse' {} a -> s {httpStatus = a} :: ListSubscribedRuleGroupsResponse)
+
+instance
+  Prelude.NFData
+    ListSubscribedRuleGroupsResponse

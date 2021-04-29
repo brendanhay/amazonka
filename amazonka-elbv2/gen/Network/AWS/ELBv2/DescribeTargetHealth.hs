@@ -1,141 +1,167 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ELBv2.DescribeTargetHealth
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes the health of the specified targets or all of your targets.
---
---
 module Network.AWS.ELBv2.DescribeTargetHealth
-    (
-    -- * Creating a Request
-      describeTargetHealth
-    , DescribeTargetHealth
+  ( -- * Creating a Request
+    DescribeTargetHealth (..),
+    newDescribeTargetHealth,
+
     -- * Request Lenses
-    , dthTargets
-    , dthTargetGroupARN
+    describeTargetHealth_targets,
+    describeTargetHealth_targetGroupArn,
 
     -- * Destructuring the Response
-    , describeTargetHealthResponse
-    , DescribeTargetHealthResponse
+    DescribeTargetHealthResponse (..),
+    newDescribeTargetHealthResponse,
+
     -- * Response Lenses
-    , dthrsTargetHealthDescriptions
-    , dthrsResponseStatus
-    ) where
+    describeTargetHealthResponse_targetHealthDescriptions,
+    describeTargetHealthResponse_httpStatus,
+  )
+where
 
 import Network.AWS.ELBv2.Types
-import Network.AWS.ELBv2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeTargetHealth' smart constructor.
+-- | /See:/ 'newDescribeTargetHealth' smart constructor.
 data DescribeTargetHealth = DescribeTargetHealth'
-  { _dthTargets        :: !(Maybe [TargetDescription])
-  , _dthTargetGroupARN :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The targets.
+    targets :: Prelude.Maybe [TargetDescription],
+    -- | The Amazon Resource Name (ARN) of the target group.
+    targetGroupArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeTargetHealth' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeTargetHealth' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dthTargets' - The targets.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dthTargetGroupARN' - The Amazon Resource Name (ARN) of the target group.
-describeTargetHealth
-    :: Text -- ^ 'dthTargetGroupARN'
-    -> DescribeTargetHealth
-describeTargetHealth pTargetGroupARN_ =
+-- 'targets', 'describeTargetHealth_targets' - The targets.
+--
+-- 'targetGroupArn', 'describeTargetHealth_targetGroupArn' - The Amazon Resource Name (ARN) of the target group.
+newDescribeTargetHealth ::
+  -- | 'targetGroupArn'
+  Prelude.Text ->
+  DescribeTargetHealth
+newDescribeTargetHealth pTargetGroupArn_ =
   DescribeTargetHealth'
-    {_dthTargets = Nothing, _dthTargetGroupARN = pTargetGroupARN_}
-
-
--- | The targets.
-dthTargets :: Lens' DescribeTargetHealth [TargetDescription]
-dthTargets = lens _dthTargets (\ s a -> s{_dthTargets = a}) . _Default . _Coerce
-
--- | The Amazon Resource Name (ARN) of the target group.
-dthTargetGroupARN :: Lens' DescribeTargetHealth Text
-dthTargetGroupARN = lens _dthTargetGroupARN (\ s a -> s{_dthTargetGroupARN = a})
-
-instance AWSRequest DescribeTargetHealth where
-        type Rs DescribeTargetHealth =
-             DescribeTargetHealthResponse
-        request = postQuery eLBv2
-        response
-          = receiveXMLWrapper "DescribeTargetHealthResult"
-              (\ s h x ->
-                 DescribeTargetHealthResponse' <$>
-                   (x .@? "TargetHealthDescriptions" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeTargetHealth where
-
-instance NFData DescribeTargetHealth where
-
-instance ToHeaders DescribeTargetHealth where
-        toHeaders = const mempty
-
-instance ToPath DescribeTargetHealth where
-        toPath = const "/"
-
-instance ToQuery DescribeTargetHealth where
-        toQuery DescribeTargetHealth'{..}
-          = mconcat
-              ["Action" =: ("DescribeTargetHealth" :: ByteString),
-               "Version" =: ("2015-12-01" :: ByteString),
-               "Targets" =:
-                 toQuery (toQueryList "member" <$> _dthTargets),
-               "TargetGroupArn" =: _dthTargetGroupARN]
-
--- | /See:/ 'describeTargetHealthResponse' smart constructor.
-data DescribeTargetHealthResponse = DescribeTargetHealthResponse'
-  { _dthrsTargetHealthDescriptions :: !(Maybe [TargetHealthDescription])
-  , _dthrsResponseStatus           :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeTargetHealthResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dthrsTargetHealthDescriptions' - Information about the health of the targets.
---
--- * 'dthrsResponseStatus' - -- | The response status code.
-describeTargetHealthResponse
-    :: Int -- ^ 'dthrsResponseStatus'
-    -> DescribeTargetHealthResponse
-describeTargetHealthResponse pResponseStatus_ =
-  DescribeTargetHealthResponse'
-    { _dthrsTargetHealthDescriptions = Nothing
-    , _dthrsResponseStatus = pResponseStatus_
+    { targets = Prelude.Nothing,
+      targetGroupArn = pTargetGroupArn_
     }
 
+-- | The targets.
+describeTargetHealth_targets :: Lens.Lens' DescribeTargetHealth (Prelude.Maybe [TargetDescription])
+describeTargetHealth_targets = Lens.lens (\DescribeTargetHealth' {targets} -> targets) (\s@DescribeTargetHealth' {} a -> s {targets = a} :: DescribeTargetHealth) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The Amazon Resource Name (ARN) of the target group.
+describeTargetHealth_targetGroupArn :: Lens.Lens' DescribeTargetHealth Prelude.Text
+describeTargetHealth_targetGroupArn = Lens.lens (\DescribeTargetHealth' {targetGroupArn} -> targetGroupArn) (\s@DescribeTargetHealth' {} a -> s {targetGroupArn = a} :: DescribeTargetHealth)
+
+instance Prelude.AWSRequest DescribeTargetHealth where
+  type
+    Rs DescribeTargetHealth =
+      DescribeTargetHealthResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeTargetHealthResult"
+      ( \s h x ->
+          DescribeTargetHealthResponse'
+            Prelude.<$> ( x Prelude..@? "TargetHealthDescriptions"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeTargetHealth
+
+instance Prelude.NFData DescribeTargetHealth
+
+instance Prelude.ToHeaders DescribeTargetHealth where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToPath DescribeTargetHealth where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery DescribeTargetHealth where
+  toQuery DescribeTargetHealth' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DescribeTargetHealth" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2015-12-01" :: Prelude.ByteString),
+        "Targets"
+          Prelude.=: Prelude.toQuery
+            (Prelude.toQueryList "member" Prelude.<$> targets),
+        "TargetGroupArn" Prelude.=: targetGroupArn
+      ]
+
+-- | /See:/ 'newDescribeTargetHealthResponse' smart constructor.
+data DescribeTargetHealthResponse = DescribeTargetHealthResponse'
+  { -- | Information about the health of the targets.
+    targetHealthDescriptions :: Prelude.Maybe [TargetHealthDescription],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeTargetHealthResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'targetHealthDescriptions', 'describeTargetHealthResponse_targetHealthDescriptions' - Information about the health of the targets.
+--
+-- 'httpStatus', 'describeTargetHealthResponse_httpStatus' - The response's http status code.
+newDescribeTargetHealthResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeTargetHealthResponse
+newDescribeTargetHealthResponse pHttpStatus_ =
+  DescribeTargetHealthResponse'
+    { targetHealthDescriptions =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Information about the health of the targets.
-dthrsTargetHealthDescriptions :: Lens' DescribeTargetHealthResponse [TargetHealthDescription]
-dthrsTargetHealthDescriptions = lens _dthrsTargetHealthDescriptions (\ s a -> s{_dthrsTargetHealthDescriptions = a}) . _Default . _Coerce
+describeTargetHealthResponse_targetHealthDescriptions :: Lens.Lens' DescribeTargetHealthResponse (Prelude.Maybe [TargetHealthDescription])
+describeTargetHealthResponse_targetHealthDescriptions = Lens.lens (\DescribeTargetHealthResponse' {targetHealthDescriptions} -> targetHealthDescriptions) (\s@DescribeTargetHealthResponse' {} a -> s {targetHealthDescriptions = a} :: DescribeTargetHealthResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-dthrsResponseStatus :: Lens' DescribeTargetHealthResponse Int
-dthrsResponseStatus = lens _dthrsResponseStatus (\ s a -> s{_dthrsResponseStatus = a})
+-- | The response's http status code.
+describeTargetHealthResponse_httpStatus :: Lens.Lens' DescribeTargetHealthResponse Prelude.Int
+describeTargetHealthResponse_httpStatus = Lens.lens (\DescribeTargetHealthResponse' {httpStatus} -> httpStatus) (\s@DescribeTargetHealthResponse' {} a -> s {httpStatus = a} :: DescribeTargetHealthResponse)
 
-instance NFData DescribeTargetHealthResponse where
+instance Prelude.NFData DescribeTargetHealthResponse

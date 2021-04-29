@@ -1,163 +1,201 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaStoreData.DescribeObject
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets the headers for an object at the specified path.
---
---
 module Network.AWS.MediaStoreData.DescribeObject
-    (
-    -- * Creating a Request
-      describeObject
-    , DescribeObject
+  ( -- * Creating a Request
+    DescribeObject (..),
+    newDescribeObject,
+
     -- * Request Lenses
-    , dPath
+    describeObject_path,
 
     -- * Destructuring the Response
-    , describeObjectResponse
-    , DescribeObjectResponse
+    DescribeObjectResponse (..),
+    newDescribeObjectResponse,
+
     -- * Response Lenses
-    , drsETag
-    , drsContentLength
-    , drsCacheControl
-    , drsLastModified
-    , drsContentType
-    , drsResponseStatus
-    ) where
+    describeObjectResponse_eTag,
+    describeObjectResponse_contentType,
+    describeObjectResponse_contentLength,
+    describeObjectResponse_lastModified,
+    describeObjectResponse_cacheControl,
+    describeObjectResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStoreData.Types
-import Network.AWS.MediaStoreData.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeObject' smart constructor.
-newtype DescribeObject = DescribeObject'
-  { _dPath :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeObject' smart constructor.
+data DescribeObject = DescribeObject'
+  { -- | The path (including the file name) where the object is stored in the
+    -- container. Format: \<folder name>\/\<folder name>\/\<file name>
+    path :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeObject' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeObject' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dPath' - The path (including the file name) where the object is stored in the container. Format: <folder name>/<folder name>/<file name>
-describeObject
-    :: Text -- ^ 'dPath'
-    -> DescribeObject
-describeObject pPath_ = DescribeObject' {_dPath = pPath_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'path', 'describeObject_path' - The path (including the file name) where the object is stored in the
+-- container. Format: \<folder name>\/\<folder name>\/\<file name>
+newDescribeObject ::
+  -- | 'path'
+  Prelude.Text ->
+  DescribeObject
+newDescribeObject pPath_ =
+  DescribeObject' {path = pPath_}
 
+-- | The path (including the file name) where the object is stored in the
+-- container. Format: \<folder name>\/\<folder name>\/\<file name>
+describeObject_path :: Lens.Lens' DescribeObject Prelude.Text
+describeObject_path = Lens.lens (\DescribeObject' {path} -> path) (\s@DescribeObject' {} a -> s {path = a} :: DescribeObject)
 
--- | The path (including the file name) where the object is stored in the container. Format: <folder name>/<folder name>/<file name>
-dPath :: Lens' DescribeObject Text
-dPath = lens _dPath (\ s a -> s{_dPath = a})
+instance Prelude.AWSRequest DescribeObject where
+  type Rs DescribeObject = DescribeObjectResponse
+  request = Request.head' defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DescribeObjectResponse'
+            Prelude.<$> (h Prelude..#? "ETag")
+            Prelude.<*> (h Prelude..#? "Content-Type")
+            Prelude.<*> (h Prelude..#? "Content-Length")
+            Prelude.<*> (h Prelude..#? "Last-Modified")
+            Prelude.<*> (h Prelude..#? "Cache-Control")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeObject where
-        type Rs DescribeObject = DescribeObjectResponse
-        request = head' mediaStoreData
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DescribeObjectResponse' <$>
-                   (h .#? "ETag") <*> (h .#? "Content-Length") <*>
-                     (h .#? "Cache-Control")
-                     <*> (h .#? "Last-Modified")
-                     <*> (h .#? "Content-Type")
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable DescribeObject
 
-instance Hashable DescribeObject where
+instance Prelude.NFData DescribeObject
 
-instance NFData DescribeObject where
+instance Prelude.ToHeaders DescribeObject where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders DescribeObject where
-        toHeaders = const mempty
+instance Prelude.ToPath DescribeObject where
+  toPath DescribeObject' {..} =
+    Prelude.mconcat ["/", Prelude.toBS path]
 
-instance ToPath DescribeObject where
-        toPath DescribeObject'{..}
-          = mconcat ["/", toBS _dPath]
+instance Prelude.ToQuery DescribeObject where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DescribeObject where
-        toQuery = const mempty
-
--- | /See:/ 'describeObjectResponse' smart constructor.
+-- | /See:/ 'newDescribeObjectResponse' smart constructor.
 data DescribeObjectResponse = DescribeObjectResponse'
-  { _drsETag           :: !(Maybe Text)
-  , _drsContentLength  :: !(Maybe Nat)
-  , _drsCacheControl   :: !(Maybe Text)
-  , _drsLastModified   :: !(Maybe POSIX)
-  , _drsContentType    :: !(Maybe Text)
-  , _drsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ETag that represents a unique instance of the object.
+    eTag :: Prelude.Maybe Prelude.Text,
+    -- | The content type of the object.
+    contentType :: Prelude.Maybe Prelude.Text,
+    -- | The length of the object in bytes.
+    contentLength :: Prelude.Maybe Prelude.Natural,
+    -- | The date and time that the object was last modified.
+    lastModified :: Prelude.Maybe Prelude.POSIX,
+    -- | An optional @CacheControl@ header that allows the caller to control the
+    -- object\'s cache behavior. Headers can be passed in as specified in the
+    -- HTTP at
+    -- <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9>.
+    --
+    -- Headers with a custom user-defined value are also accepted.
+    cacheControl :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeObjectResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeObjectResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drsETag' - The ETag that represents a unique instance of the object.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drsContentLength' - The length of the object in bytes.
+-- 'eTag', 'describeObjectResponse_eTag' - The ETag that represents a unique instance of the object.
 --
--- * 'drsCacheControl' - An optional @CacheControl@ header that allows the caller to control the object's cache behavior. Headers can be passed in as specified in the HTTP at <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9> . Headers with a custom user-defined value are also accepted.
+-- 'contentType', 'describeObjectResponse_contentType' - The content type of the object.
 --
--- * 'drsLastModified' - The date and time that the object was last modified.
+-- 'contentLength', 'describeObjectResponse_contentLength' - The length of the object in bytes.
 --
--- * 'drsContentType' - The content type of the object.
+-- 'lastModified', 'describeObjectResponse_lastModified' - The date and time that the object was last modified.
 --
--- * 'drsResponseStatus' - -- | The response status code.
-describeObjectResponse
-    :: Int -- ^ 'drsResponseStatus'
-    -> DescribeObjectResponse
-describeObjectResponse pResponseStatus_ =
+-- 'cacheControl', 'describeObjectResponse_cacheControl' - An optional @CacheControl@ header that allows the caller to control the
+-- object\'s cache behavior. Headers can be passed in as specified in the
+-- HTTP at
+-- <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9>.
+--
+-- Headers with a custom user-defined value are also accepted.
+--
+-- 'httpStatus', 'describeObjectResponse_httpStatus' - The response's http status code.
+newDescribeObjectResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeObjectResponse
+newDescribeObjectResponse pHttpStatus_ =
   DescribeObjectResponse'
-    { _drsETag = Nothing
-    , _drsContentLength = Nothing
-    , _drsCacheControl = Nothing
-    , _drsLastModified = Nothing
-    , _drsContentType = Nothing
-    , _drsResponseStatus = pResponseStatus_
+    { eTag = Prelude.Nothing,
+      contentType = Prelude.Nothing,
+      contentLength = Prelude.Nothing,
+      lastModified = Prelude.Nothing,
+      cacheControl = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | The ETag that represents a unique instance of the object.
-drsETag :: Lens' DescribeObjectResponse (Maybe Text)
-drsETag = lens _drsETag (\ s a -> s{_drsETag = a})
-
--- | The length of the object in bytes.
-drsContentLength :: Lens' DescribeObjectResponse (Maybe Natural)
-drsContentLength = lens _drsContentLength (\ s a -> s{_drsContentLength = a}) . mapping _Nat
-
--- | An optional @CacheControl@ header that allows the caller to control the object's cache behavior. Headers can be passed in as specified in the HTTP at <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9 https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9> . Headers with a custom user-defined value are also accepted.
-drsCacheControl :: Lens' DescribeObjectResponse (Maybe Text)
-drsCacheControl = lens _drsCacheControl (\ s a -> s{_drsCacheControl = a})
-
--- | The date and time that the object was last modified.
-drsLastModified :: Lens' DescribeObjectResponse (Maybe UTCTime)
-drsLastModified = lens _drsLastModified (\ s a -> s{_drsLastModified = a}) . mapping _Time
+describeObjectResponse_eTag :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.Text)
+describeObjectResponse_eTag = Lens.lens (\DescribeObjectResponse' {eTag} -> eTag) (\s@DescribeObjectResponse' {} a -> s {eTag = a} :: DescribeObjectResponse)
 
 -- | The content type of the object.
-drsContentType :: Lens' DescribeObjectResponse (Maybe Text)
-drsContentType = lens _drsContentType (\ s a -> s{_drsContentType = a})
+describeObjectResponse_contentType :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.Text)
+describeObjectResponse_contentType = Lens.lens (\DescribeObjectResponse' {contentType} -> contentType) (\s@DescribeObjectResponse' {} a -> s {contentType = a} :: DescribeObjectResponse)
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeObjectResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
+-- | The length of the object in bytes.
+describeObjectResponse_contentLength :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.Natural)
+describeObjectResponse_contentLength = Lens.lens (\DescribeObjectResponse' {contentLength} -> contentLength) (\s@DescribeObjectResponse' {} a -> s {contentLength = a} :: DescribeObjectResponse)
 
-instance NFData DescribeObjectResponse where
+-- | The date and time that the object was last modified.
+describeObjectResponse_lastModified :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.UTCTime)
+describeObjectResponse_lastModified = Lens.lens (\DescribeObjectResponse' {lastModified} -> lastModified) (\s@DescribeObjectResponse' {} a -> s {lastModified = a} :: DescribeObjectResponse) Prelude.. Lens.mapping Prelude._Time
+
+-- | An optional @CacheControl@ header that allows the caller to control the
+-- object\'s cache behavior. Headers can be passed in as specified in the
+-- HTTP at
+-- <https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9>.
+--
+-- Headers with a custom user-defined value are also accepted.
+describeObjectResponse_cacheControl :: Lens.Lens' DescribeObjectResponse (Prelude.Maybe Prelude.Text)
+describeObjectResponse_cacheControl = Lens.lens (\DescribeObjectResponse' {cacheControl} -> cacheControl) (\s@DescribeObjectResponse' {} a -> s {cacheControl = a} :: DescribeObjectResponse)
+
+-- | The response's http status code.
+describeObjectResponse_httpStatus :: Lens.Lens' DescribeObjectResponse Prelude.Int
+describeObjectResponse_httpStatus = Lens.lens (\DescribeObjectResponse' {httpStatus} -> httpStatus) (\s@DescribeObjectResponse' {} a -> s {httpStatus = a} :: DescribeObjectResponse)
+
+instance Prelude.NFData DescribeObjectResponse

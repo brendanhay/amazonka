@@ -1,164 +1,265 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Shield.ListProtections
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists all 'Protection' objects for the account.
---
---
+-- Lists all Protection objects for the account.
 --
 -- This operation returns paginated results.
 module Network.AWS.Shield.ListProtections
-    (
-    -- * Creating a Request
-      listProtections
-    , ListProtections
+  ( -- * Creating a Request
+    ListProtections (..),
+    newListProtections,
+
     -- * Request Lenses
-    , lpNextToken
-    , lpMaxResults
+    listProtections_nextToken,
+    listProtections_maxResults,
 
     -- * Destructuring the Response
-    , listProtectionsResponse
-    , ListProtectionsResponse
+    ListProtectionsResponse (..),
+    newListProtectionsResponse,
+
     -- * Response Lenses
-    , lprsProtections
-    , lprsNextToken
-    , lprsResponseStatus
-    ) where
+    listProtectionsResponse_nextToken,
+    listProtectionsResponse_protections,
+    listProtectionsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Shield.Types
-import Network.AWS.Shield.Types.Product
 
--- | /See:/ 'listProtections' smart constructor.
+-- | /See:/ 'newListProtections' smart constructor.
 data ListProtections = ListProtections'
-  { _lpNextToken  :: !(Maybe Text)
-  , _lpMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @ListProtectionsRequest.NextToken@ value from a previous call to
+    -- @ListProtections@. Pass null if this is the first call.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of Protection objects to return. If you leave this
+    -- blank, Shield Advanced returns the first 20 results.
+    --
+    -- This is a maximum value. Shield Advanced might return the results in
+    -- smaller batches. That is, the number of objects returned could be less
+    -- than @MaxResults@, even if there are still more objects yet to return.
+    -- If there are more objects to return, Shield Advanced returns a value in
+    -- @NextToken@ that you can use in your next request, to get the next batch
+    -- of objects.
+    maxResults :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListProtections' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListProtections' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lpNextToken' - The @ListProtectionsRequest.NextToken@ value from a previous call to @ListProtections@ . Pass null if this is the first call.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lpMaxResults' - The maximum number of 'Protection' objects to be returned. If this is left blank the first 20 results will be returned.
-listProtections
-    :: ListProtections
-listProtections =
-  ListProtections' {_lpNextToken = Nothing, _lpMaxResults = Nothing}
-
-
--- | The @ListProtectionsRequest.NextToken@ value from a previous call to @ListProtections@ . Pass null if this is the first call.
-lpNextToken :: Lens' ListProtections (Maybe Text)
-lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a})
-
--- | The maximum number of 'Protection' objects to be returned. If this is left blank the first 20 results will be returned.
-lpMaxResults :: Lens' ListProtections (Maybe Natural)
-lpMaxResults = lens _lpMaxResults (\ s a -> s{_lpMaxResults = a}) . mapping _Nat
-
-instance AWSPager ListProtections where
-        page rq rs
-          | stop (rs ^. lprsNextToken) = Nothing
-          | stop (rs ^. lprsProtections) = Nothing
-          | otherwise =
-            Just $ rq & lpNextToken .~ rs ^. lprsNextToken
-
-instance AWSRequest ListProtections where
-        type Rs ListProtections = ListProtectionsResponse
-        request = postJSON shield
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListProtectionsResponse' <$>
-                   (x .?> "Protections" .!@ mempty) <*>
-                     (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListProtections where
-
-instance NFData ListProtections where
-
-instance ToHeaders ListProtections where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSShield_20160616.ListProtections" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ListProtections where
-        toJSON ListProtections'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _lpNextToken,
-                  ("MaxResults" .=) <$> _lpMaxResults])
-
-instance ToPath ListProtections where
-        toPath = const "/"
-
-instance ToQuery ListProtections where
-        toQuery = const mempty
-
--- | /See:/ 'listProtectionsResponse' smart constructor.
-data ListProtectionsResponse = ListProtectionsResponse'
-  { _lprsProtections    :: !(Maybe [Protection])
-  , _lprsNextToken      :: !(Maybe Text)
-  , _lprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListProtectionsResponse' with the minimum fields required to make a request.
+-- 'nextToken', 'listProtections_nextToken' - The @ListProtectionsRequest.NextToken@ value from a previous call to
+-- @ListProtections@. Pass null if this is the first call.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'maxResults', 'listProtections_maxResults' - The maximum number of Protection objects to return. If you leave this
+-- blank, Shield Advanced returns the first 20 results.
 --
--- * 'lprsProtections' - The array of enabled 'Protection' objects.
---
--- * 'lprsNextToken' - If you specify a value for @MaxResults@ and you have more Protections than the value of MaxResults, AWS Shield Advanced returns a NextToken value in the response that allows you to list another group of Protections. For the second and subsequent ListProtections requests, specify the value of NextToken from the previous response to get information about another batch of Protections.
---
--- * 'lprsResponseStatus' - -- | The response status code.
-listProtectionsResponse
-    :: Int -- ^ 'lprsResponseStatus'
-    -> ListProtectionsResponse
-listProtectionsResponse pResponseStatus_ =
-  ListProtectionsResponse'
-    { _lprsProtections = Nothing
-    , _lprsNextToken = Nothing
-    , _lprsResponseStatus = pResponseStatus_
+-- This is a maximum value. Shield Advanced might return the results in
+-- smaller batches. That is, the number of objects returned could be less
+-- than @MaxResults@, even if there are still more objects yet to return.
+-- If there are more objects to return, Shield Advanced returns a value in
+-- @NextToken@ that you can use in your next request, to get the next batch
+-- of objects.
+newListProtections ::
+  ListProtections
+newListProtections =
+  ListProtections'
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
+-- | The @ListProtectionsRequest.NextToken@ value from a previous call to
+-- @ListProtections@. Pass null if this is the first call.
+listProtections_nextToken :: Lens.Lens' ListProtections (Prelude.Maybe Prelude.Text)
+listProtections_nextToken = Lens.lens (\ListProtections' {nextToken} -> nextToken) (\s@ListProtections' {} a -> s {nextToken = a} :: ListProtections)
 
--- | The array of enabled 'Protection' objects.
-lprsProtections :: Lens' ListProtectionsResponse [Protection]
-lprsProtections = lens _lprsProtections (\ s a -> s{_lprsProtections = a}) . _Default . _Coerce
+-- | The maximum number of Protection objects to return. If you leave this
+-- blank, Shield Advanced returns the first 20 results.
+--
+-- This is a maximum value. Shield Advanced might return the results in
+-- smaller batches. That is, the number of objects returned could be less
+-- than @MaxResults@, even if there are still more objects yet to return.
+-- If there are more objects to return, Shield Advanced returns a value in
+-- @NextToken@ that you can use in your next request, to get the next batch
+-- of objects.
+listProtections_maxResults :: Lens.Lens' ListProtections (Prelude.Maybe Prelude.Natural)
+listProtections_maxResults = Lens.lens (\ListProtections' {maxResults} -> maxResults) (\s@ListProtections' {} a -> s {maxResults = a} :: ListProtections)
 
--- | If you specify a value for @MaxResults@ and you have more Protections than the value of MaxResults, AWS Shield Advanced returns a NextToken value in the response that allows you to list another group of Protections. For the second and subsequent ListProtections requests, specify the value of NextToken from the previous response to get information about another batch of Protections.
-lprsNextToken :: Lens' ListProtectionsResponse (Maybe Text)
-lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a})
+instance Pager.AWSPager ListProtections where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listProtectionsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listProtectionsResponse_protections
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listProtections_nextToken
+          Lens..~ rs
+          Lens.^? listProtectionsResponse_nextToken
+            Prelude.. Lens._Just
 
--- | -- | The response status code.
-lprsResponseStatus :: Lens' ListProtectionsResponse Int
-lprsResponseStatus = lens _lprsResponseStatus (\ s a -> s{_lprsResponseStatus = a})
+instance Prelude.AWSRequest ListProtections where
+  type Rs ListProtections = ListProtectionsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListProtectionsResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> ( x Prelude..?> "Protections"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData ListProtectionsResponse where
+instance Prelude.Hashable ListProtections
+
+instance Prelude.NFData ListProtections
+
+instance Prelude.ToHeaders ListProtections where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSShield_20160616.ListProtections" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON ListProtections where
+  toJSON ListProtections' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("MaxResults" Prelude..=) Prelude.<$> maxResults
+          ]
+      )
+
+instance Prelude.ToPath ListProtections where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery ListProtections where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListProtectionsResponse' smart constructor.
+data ListProtectionsResponse = ListProtectionsResponse'
+  { -- | If you specify a value for @MaxResults@ and you have more Protections
+    -- than the value of MaxResults, AWS Shield Advanced returns a NextToken
+    -- value in the response that allows you to list another group of
+    -- Protections. For the second and subsequent ListProtections requests,
+    -- specify the value of NextToken from the previous response to get
+    -- information about another batch of Protections.
+    --
+    -- Shield Advanced might return the list of Protection objects in batches
+    -- smaller than the number specified by MaxResults. If there are more
+    -- Protection objects to return, Shield Advanced will always also return a
+    -- @NextToken@.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The array of enabled Protection objects.
+    protections :: Prelude.Maybe [Protection],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListProtectionsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listProtectionsResponse_nextToken' - If you specify a value for @MaxResults@ and you have more Protections
+-- than the value of MaxResults, AWS Shield Advanced returns a NextToken
+-- value in the response that allows you to list another group of
+-- Protections. For the second and subsequent ListProtections requests,
+-- specify the value of NextToken from the previous response to get
+-- information about another batch of Protections.
+--
+-- Shield Advanced might return the list of Protection objects in batches
+-- smaller than the number specified by MaxResults. If there are more
+-- Protection objects to return, Shield Advanced will always also return a
+-- @NextToken@.
+--
+-- 'protections', 'listProtectionsResponse_protections' - The array of enabled Protection objects.
+--
+-- 'httpStatus', 'listProtectionsResponse_httpStatus' - The response's http status code.
+newListProtectionsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListProtectionsResponse
+newListProtectionsResponse pHttpStatus_ =
+  ListProtectionsResponse'
+    { nextToken =
+        Prelude.Nothing,
+      protections = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | If you specify a value for @MaxResults@ and you have more Protections
+-- than the value of MaxResults, AWS Shield Advanced returns a NextToken
+-- value in the response that allows you to list another group of
+-- Protections. For the second and subsequent ListProtections requests,
+-- specify the value of NextToken from the previous response to get
+-- information about another batch of Protections.
+--
+-- Shield Advanced might return the list of Protection objects in batches
+-- smaller than the number specified by MaxResults. If there are more
+-- Protection objects to return, Shield Advanced will always also return a
+-- @NextToken@.
+listProtectionsResponse_nextToken :: Lens.Lens' ListProtectionsResponse (Prelude.Maybe Prelude.Text)
+listProtectionsResponse_nextToken = Lens.lens (\ListProtectionsResponse' {nextToken} -> nextToken) (\s@ListProtectionsResponse' {} a -> s {nextToken = a} :: ListProtectionsResponse)
+
+-- | The array of enabled Protection objects.
+listProtectionsResponse_protections :: Lens.Lens' ListProtectionsResponse (Prelude.Maybe [Protection])
+listProtectionsResponse_protections = Lens.lens (\ListProtectionsResponse' {protections} -> protections) (\s@ListProtectionsResponse' {} a -> s {protections = a} :: ListProtectionsResponse) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The response's http status code.
+listProtectionsResponse_httpStatus :: Lens.Lens' ListProtectionsResponse Prelude.Int
+listProtectionsResponse_httpStatus = Lens.lens (\ListProtectionsResponse' {httpStatus} -> httpStatus) (\s@ListProtectionsResponse' {} a -> s {httpStatus = a} :: ListProtectionsResponse)
+
+instance Prelude.NFData ListProtectionsResponse

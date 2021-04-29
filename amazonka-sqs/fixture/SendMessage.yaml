@@ -1,10 +1,10 @@
 ---
 method: POST
 headers:
-  Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/sqs/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=1774ca8b3fb3f4881ec018411b88af217c153a93b43d728cac91381aed334017
-  Host:                  queue.amazonaws.com
+  Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/sqs/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=?
+  Host:                  sqs.us-east-1.amazonaws.com
   Content-Type:          application/x-www-form-urlencoded; charset=utf-8
-  X-Amz-Content-SHA256:  86d98b475266ec71127d8e7f9f673df127a3d51346cc9f1aab01c59172c10c88
+  X-Amz-Content-SHA256:  abcdef
   X-Amz-Date:            20091028T223200Z
 body:
-  Action=SendMessage&MessageAttribute.1.Name=test_attribute_foo&MessageAttribute.1.Value.DataType=String&MessageAttribute.1.Value.StringValue=test_attribute_foo_value&MessageAttribute.2.Name=test_attribute_bar&MessageAttribute.2.Value.DataType=String&MessageAttribute.2.Value.StringValue=test_attribute_bar_value&MessageBody=This%2Bis%2Ba%2Btest%2Bmessage&QueueUrl=http%3A%2F%2Fsqs.us-east-1.amazonaws.com%2F123456789012%2FtestQueue%2F&Version=2012-11-05
+  ''

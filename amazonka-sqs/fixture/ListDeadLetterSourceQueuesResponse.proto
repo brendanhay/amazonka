@@ -1,8 +1,0 @@
-<ListDeadLetterSourceQueuesResponse xmlns="http://queue.amazonaws.com/doc/2012-11-05/">
-    <ListDeadLetterSourceQueuesResult>
-        <QueueUrl>http://sqs.us-east-1.amazonaws.com/123456789012/MySourceQueue</QueueUrl>
-    </ListDeadLetterSourceQueuesResult>
-    <ResponseMetadata>
-        <RequestId>8ffb921f-b85e-53d9-abcf-d8d0057f38fc</RequestId>
-    </ResponseMetadata>
-</ListDeadLetterSourceQueuesResponse>

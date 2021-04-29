@@ -1,137 +1,167 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.BatchWrite
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Performs all the write operations in a batch. Either all the operations succeed or none.
---
---
+-- Performs all the write operations in a batch. Either all the operations
+-- succeed or none.
 module Network.AWS.CloudDirectory.BatchWrite
-    (
-    -- * Creating a Request
-      batchWrite
-    , BatchWrite
+  ( -- * Creating a Request
+    BatchWrite (..),
+    newBatchWrite,
+
     -- * Request Lenses
-    , bwDirectoryARN
-    , bwOperations
+    batchWrite_directoryArn,
+    batchWrite_operations,
 
     -- * Destructuring the Response
-    , batchWriteResponse
-    , BatchWriteResponse
+    BatchWriteResponse (..),
+    newBatchWriteResponse,
+
     -- * Response Lenses
-    , bwrsResponses
-    , bwrsResponseStatus
-    ) where
+    batchWriteResponse_responses,
+    batchWriteResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.CloudDirectory.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'batchWrite' smart constructor.
+-- | /See:/ 'newBatchWrite' smart constructor.
 data BatchWrite = BatchWrite'
-  { _bwDirectoryARN :: !Text
-  , _bwOperations   :: ![BatchWriteOperation]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) that is associated with the Directory.
+    -- For more information, see arns.
+    directoryArn :: Prelude.Text,
+    -- | A list of operations that are part of the batch.
+    operations :: [BatchWriteOperation]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'BatchWrite' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'BatchWrite' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'bwDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'bwOperations' - A list of operations that are part of the batch.
-batchWrite
-    :: Text -- ^ 'bwDirectoryARN'
-    -> BatchWrite
-batchWrite pDirectoryARN_ =
-  BatchWrite' {_bwDirectoryARN = pDirectoryARN_, _bwOperations = mempty}
+-- 'directoryArn', 'batchWrite_directoryArn' - The Amazon Resource Name (ARN) that is associated with the Directory.
+-- For more information, see arns.
+--
+-- 'operations', 'batchWrite_operations' - A list of operations that are part of the batch.
+newBatchWrite ::
+  -- | 'directoryArn'
+  Prelude.Text ->
+  BatchWrite
+newBatchWrite pDirectoryArn_ =
+  BatchWrite'
+    { directoryArn = pDirectoryArn_,
+      operations = Prelude.mempty
+    }
 
-
--- | The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
-bwDirectoryARN :: Lens' BatchWrite Text
-bwDirectoryARN = lens _bwDirectoryARN (\ s a -> s{_bwDirectoryARN = a})
+-- | The Amazon Resource Name (ARN) that is associated with the Directory.
+-- For more information, see arns.
+batchWrite_directoryArn :: Lens.Lens' BatchWrite Prelude.Text
+batchWrite_directoryArn = Lens.lens (\BatchWrite' {directoryArn} -> directoryArn) (\s@BatchWrite' {} a -> s {directoryArn = a} :: BatchWrite)
 
 -- | A list of operations that are part of the batch.
-bwOperations :: Lens' BatchWrite [BatchWriteOperation]
-bwOperations = lens _bwOperations (\ s a -> s{_bwOperations = a}) . _Coerce
+batchWrite_operations :: Lens.Lens' BatchWrite [BatchWriteOperation]
+batchWrite_operations = Lens.lens (\BatchWrite' {operations} -> operations) (\s@BatchWrite' {} a -> s {operations = a} :: BatchWrite) Prelude.. Prelude._Coerce
 
-instance AWSRequest BatchWrite where
-        type Rs BatchWrite = BatchWriteResponse
-        request = putJSON cloudDirectory
-        response
-          = receiveJSON
-              (\ s h x ->
-                 BatchWriteResponse' <$>
-                   (x .?> "Responses" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+instance Prelude.AWSRequest BatchWrite where
+  type Rs BatchWrite = BatchWriteResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          BatchWriteResponse'
+            Prelude.<$> ( x Prelude..?> "Responses"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable BatchWrite where
+instance Prelude.Hashable BatchWrite
 
-instance NFData BatchWrite where
+instance Prelude.NFData BatchWrite
 
-instance ToHeaders BatchWrite where
-        toHeaders BatchWrite'{..}
-          = mconcat ["x-amz-data-partition" =# _bwDirectoryARN]
+instance Prelude.ToHeaders BatchWrite where
+  toHeaders BatchWrite' {..} =
+    Prelude.mconcat
+      ["x-amz-data-partition" Prelude.=# directoryArn]
 
-instance ToJSON BatchWrite where
-        toJSON BatchWrite'{..}
-          = object
-              (catMaybes [Just ("Operations" .= _bwOperations)])
+instance Prelude.ToJSON BatchWrite where
+  toJSON BatchWrite' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Operations" Prelude..= operations)]
+      )
 
-instance ToPath BatchWrite where
-        toPath
-          = const "/amazonclouddirectory/2017-01-11/batchwrite"
+instance Prelude.ToPath BatchWrite where
+  toPath =
+    Prelude.const
+      "/amazonclouddirectory/2017-01-11/batchwrite"
 
-instance ToQuery BatchWrite where
-        toQuery = const mempty
+instance Prelude.ToQuery BatchWrite where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'batchWriteResponse' smart constructor.
+-- | /See:/ 'newBatchWriteResponse' smart constructor.
 data BatchWriteResponse = BatchWriteResponse'
-  { _bwrsResponses      :: !(Maybe [BatchWriteOperationResponse])
-  , _bwrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of all the responses for each batch write.
+    responses :: Prelude.Maybe [BatchWriteOperationResponse],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'BatchWriteResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'BatchWriteResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'bwrsResponses' - A list of all the responses for each batch write.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'bwrsResponseStatus' - -- | The response status code.
-batchWriteResponse
-    :: Int -- ^ 'bwrsResponseStatus'
-    -> BatchWriteResponse
-batchWriteResponse pResponseStatus_ =
+-- 'responses', 'batchWriteResponse_responses' - A list of all the responses for each batch write.
+--
+-- 'httpStatus', 'batchWriteResponse_httpStatus' - The response's http status code.
+newBatchWriteResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  BatchWriteResponse
+newBatchWriteResponse pHttpStatus_ =
   BatchWriteResponse'
-    {_bwrsResponses = Nothing, _bwrsResponseStatus = pResponseStatus_}
-
+    { responses = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | A list of all the responses for each batch write.
-bwrsResponses :: Lens' BatchWriteResponse [BatchWriteOperationResponse]
-bwrsResponses = lens _bwrsResponses (\ s a -> s{_bwrsResponses = a}) . _Default . _Coerce
+batchWriteResponse_responses :: Lens.Lens' BatchWriteResponse (Prelude.Maybe [BatchWriteOperationResponse])
+batchWriteResponse_responses = Lens.lens (\BatchWriteResponse' {responses} -> responses) (\s@BatchWriteResponse' {} a -> s {responses = a} :: BatchWriteResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-bwrsResponseStatus :: Lens' BatchWriteResponse Int
-bwrsResponseStatus = lens _bwrsResponseStatus (\ s a -> s{_bwrsResponseStatus = a})
+-- | The response's http status code.
+batchWriteResponse_httpStatus :: Lens.Lens' BatchWriteResponse Prelude.Int
+batchWriteResponse_httpStatus = Lens.lens (\BatchWriteResponse' {httpStatus} -> httpStatus) (\s@BatchWriteResponse' {} a -> s {httpStatus = a} :: BatchWriteResponse)
 
-instance NFData BatchWriteResponse where
+instance Prelude.NFData BatchWriteResponse

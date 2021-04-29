@@ -1,156 +1,213 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.UpdateTypedLinkFacet
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates a 'TypedLinkFacet' . For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink Typed link> .
---
---
+-- Updates a TypedLinkFacet. For more information, see
+-- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
 module Network.AWS.CloudDirectory.UpdateTypedLinkFacet
-    (
-    -- * Creating a Request
-      updateTypedLinkFacet
-    , UpdateTypedLinkFacet
+  ( -- * Creating a Request
+    UpdateTypedLinkFacet (..),
+    newUpdateTypedLinkFacet,
+
     -- * Request Lenses
-    , utlfSchemaARN
-    , utlfName
-    , utlfAttributeUpdates
-    , utlfIdentityAttributeOrder
+    updateTypedLinkFacet_schemaArn,
+    updateTypedLinkFacet_name,
+    updateTypedLinkFacet_attributeUpdates,
+    updateTypedLinkFacet_identityAttributeOrder,
 
     -- * Destructuring the Response
-    , updateTypedLinkFacetResponse
-    , UpdateTypedLinkFacetResponse
+    UpdateTypedLinkFacetResponse (..),
+    newUpdateTypedLinkFacetResponse,
+
     -- * Response Lenses
-    , utlfrsResponseStatus
-    ) where
+    updateTypedLinkFacetResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.CloudDirectory.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateTypedLinkFacet' smart constructor.
+-- | /See:/ 'newUpdateTypedLinkFacet' smart constructor.
 data UpdateTypedLinkFacet = UpdateTypedLinkFacet'
-  { _utlfSchemaARN              :: !Text
-  , _utlfName                   :: !Text
-  , _utlfAttributeUpdates       :: ![TypedLinkFacetAttributeUpdate]
-  , _utlfIdentityAttributeOrder :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) that is associated with the schema. For
+    -- more information, see arns.
+    schemaArn :: Prelude.Text,
+    -- | The unique name of the typed link facet.
+    name :: Prelude.Text,
+    -- | Attributes update structure.
+    attributeUpdates :: [TypedLinkFacetAttributeUpdate],
+    -- | The order of identity attributes for the facet, from most significant to
+    -- least significant. The ability to filter typed links considers the order
+    -- that the attributes are defined on the typed link facet. When providing
+    -- ranges to a typed link selection, any inexact ranges must be specified
+    -- at the end. Any attributes that do not have a range specified are
+    -- presumed to match the entire range. Filters are interpreted in the order
+    -- of the attributes on the typed link facet, not the order in which they
+    -- are supplied to any API calls. For more information about identity
+    -- attributes, see
+    -- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
+    identityAttributeOrder :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateTypedLinkFacet' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateTypedLinkFacet' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'utlfSchemaARN' - The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'utlfName' - The unique name of the typed link facet.
+-- 'schemaArn', 'updateTypedLinkFacet_schemaArn' - The Amazon Resource Name (ARN) that is associated with the schema. For
+-- more information, see arns.
 --
--- * 'utlfAttributeUpdates' - Attributes update structure.
+-- 'name', 'updateTypedLinkFacet_name' - The unique name of the typed link facet.
 --
--- * 'utlfIdentityAttributeOrder' - The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed links considers the order that the attributes are defined on the typed link facet. When providing ranges to a typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range. Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls. For more information about identity attributes, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink Typed link> .
-updateTypedLinkFacet
-    :: Text -- ^ 'utlfSchemaARN'
-    -> Text -- ^ 'utlfName'
-    -> UpdateTypedLinkFacet
-updateTypedLinkFacet pSchemaARN_ pName_ =
+-- 'attributeUpdates', 'updateTypedLinkFacet_attributeUpdates' - Attributes update structure.
+--
+-- 'identityAttributeOrder', 'updateTypedLinkFacet_identityAttributeOrder' - The order of identity attributes for the facet, from most significant to
+-- least significant. The ability to filter typed links considers the order
+-- that the attributes are defined on the typed link facet. When providing
+-- ranges to a typed link selection, any inexact ranges must be specified
+-- at the end. Any attributes that do not have a range specified are
+-- presumed to match the entire range. Filters are interpreted in the order
+-- of the attributes on the typed link facet, not the order in which they
+-- are supplied to any API calls. For more information about identity
+-- attributes, see
+-- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
+newUpdateTypedLinkFacet ::
+  -- | 'schemaArn'
+  Prelude.Text ->
+  -- | 'name'
+  Prelude.Text ->
+  UpdateTypedLinkFacet
+newUpdateTypedLinkFacet pSchemaArn_ pName_ =
   UpdateTypedLinkFacet'
-    { _utlfSchemaARN = pSchemaARN_
-    , _utlfName = pName_
-    , _utlfAttributeUpdates = mempty
-    , _utlfIdentityAttributeOrder = mempty
+    { schemaArn = pSchemaArn_,
+      name = pName_,
+      attributeUpdates = Prelude.mempty,
+      identityAttributeOrder = Prelude.mempty
     }
 
-
--- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
-utlfSchemaARN :: Lens' UpdateTypedLinkFacet Text
-utlfSchemaARN = lens _utlfSchemaARN (\ s a -> s{_utlfSchemaARN = a})
+-- | The Amazon Resource Name (ARN) that is associated with the schema. For
+-- more information, see arns.
+updateTypedLinkFacet_schemaArn :: Lens.Lens' UpdateTypedLinkFacet Prelude.Text
+updateTypedLinkFacet_schemaArn = Lens.lens (\UpdateTypedLinkFacet' {schemaArn} -> schemaArn) (\s@UpdateTypedLinkFacet' {} a -> s {schemaArn = a} :: UpdateTypedLinkFacet)
 
 -- | The unique name of the typed link facet.
-utlfName :: Lens' UpdateTypedLinkFacet Text
-utlfName = lens _utlfName (\ s a -> s{_utlfName = a})
+updateTypedLinkFacet_name :: Lens.Lens' UpdateTypedLinkFacet Prelude.Text
+updateTypedLinkFacet_name = Lens.lens (\UpdateTypedLinkFacet' {name} -> name) (\s@UpdateTypedLinkFacet' {} a -> s {name = a} :: UpdateTypedLinkFacet)
 
 -- | Attributes update structure.
-utlfAttributeUpdates :: Lens' UpdateTypedLinkFacet [TypedLinkFacetAttributeUpdate]
-utlfAttributeUpdates = lens _utlfAttributeUpdates (\ s a -> s{_utlfAttributeUpdates = a}) . _Coerce
+updateTypedLinkFacet_attributeUpdates :: Lens.Lens' UpdateTypedLinkFacet [TypedLinkFacetAttributeUpdate]
+updateTypedLinkFacet_attributeUpdates = Lens.lens (\UpdateTypedLinkFacet' {attributeUpdates} -> attributeUpdates) (\s@UpdateTypedLinkFacet' {} a -> s {attributeUpdates = a} :: UpdateTypedLinkFacet) Prelude.. Prelude._Coerce
 
--- | The order of identity attributes for the facet, from most significant to least significant. The ability to filter typed links considers the order that the attributes are defined on the typed link facet. When providing ranges to a typed link selection, any inexact ranges must be specified at the end. Any attributes that do not have a range specified are presumed to match the entire range. Filters are interpreted in the order of the attributes on the typed link facet, not the order in which they are supplied to any API calls. For more information about identity attributes, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink Typed link> .
-utlfIdentityAttributeOrder :: Lens' UpdateTypedLinkFacet [Text]
-utlfIdentityAttributeOrder = lens _utlfIdentityAttributeOrder (\ s a -> s{_utlfIdentityAttributeOrder = a}) . _Coerce
+-- | The order of identity attributes for the facet, from most significant to
+-- least significant. The ability to filter typed links considers the order
+-- that the attributes are defined on the typed link facet. When providing
+-- ranges to a typed link selection, any inexact ranges must be specified
+-- at the end. Any attributes that do not have a range specified are
+-- presumed to match the entire range. Filters are interpreted in the order
+-- of the attributes on the typed link facet, not the order in which they
+-- are supplied to any API calls. For more information about identity
+-- attributes, see
+-- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
+updateTypedLinkFacet_identityAttributeOrder :: Lens.Lens' UpdateTypedLinkFacet [Prelude.Text]
+updateTypedLinkFacet_identityAttributeOrder = Lens.lens (\UpdateTypedLinkFacet' {identityAttributeOrder} -> identityAttributeOrder) (\s@UpdateTypedLinkFacet' {} a -> s {identityAttributeOrder = a} :: UpdateTypedLinkFacet) Prelude.. Prelude._Coerce
 
-instance AWSRequest UpdateTypedLinkFacet where
-        type Rs UpdateTypedLinkFacet =
-             UpdateTypedLinkFacetResponse
-        request = putJSON cloudDirectory
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 UpdateTypedLinkFacetResponse' <$>
-                   (pure (fromEnum s)))
+instance Prelude.AWSRequest UpdateTypedLinkFacet where
+  type
+    Rs UpdateTypedLinkFacet =
+      UpdateTypedLinkFacetResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateTypedLinkFacetResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateTypedLinkFacet where
+instance Prelude.Hashable UpdateTypedLinkFacet
 
-instance NFData UpdateTypedLinkFacet where
+instance Prelude.NFData UpdateTypedLinkFacet
 
-instance ToHeaders UpdateTypedLinkFacet where
-        toHeaders UpdateTypedLinkFacet'{..}
-          = mconcat ["x-amz-data-partition" =# _utlfSchemaARN]
+instance Prelude.ToHeaders UpdateTypedLinkFacet where
+  toHeaders UpdateTypedLinkFacet' {..} =
+    Prelude.mconcat
+      ["x-amz-data-partition" Prelude.=# schemaArn]
 
-instance ToJSON UpdateTypedLinkFacet where
-        toJSON UpdateTypedLinkFacet'{..}
-          = object
-              (catMaybes
-                 [Just ("Name" .= _utlfName),
-                  Just ("AttributeUpdates" .= _utlfAttributeUpdates),
-                  Just
-                    ("IdentityAttributeOrder" .=
-                       _utlfIdentityAttributeOrder)])
+instance Prelude.ToJSON UpdateTypedLinkFacet where
+  toJSON UpdateTypedLinkFacet' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Prelude..= name),
+            Prelude.Just
+              ("AttributeUpdates" Prelude..= attributeUpdates),
+            Prelude.Just
+              ( "IdentityAttributeOrder"
+                  Prelude..= identityAttributeOrder
+              )
+          ]
+      )
 
-instance ToPath UpdateTypedLinkFacet where
-        toPath
-          = const
-              "/amazonclouddirectory/2017-01-11/typedlink/facet"
+instance Prelude.ToPath UpdateTypedLinkFacet where
+  toPath =
+    Prelude.const
+      "/amazonclouddirectory/2017-01-11/typedlink/facet"
 
-instance ToQuery UpdateTypedLinkFacet where
-        toQuery = const mempty
+instance Prelude.ToQuery UpdateTypedLinkFacet where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateTypedLinkFacetResponse' smart constructor.
-newtype UpdateTypedLinkFacetResponse = UpdateTypedLinkFacetResponse'
-  { _utlfrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUpdateTypedLinkFacetResponse' smart constructor.
+data UpdateTypedLinkFacetResponse = UpdateTypedLinkFacetResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateTypedLinkFacetResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateTypedLinkFacetResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'utlfrsResponseStatus' - -- | The response status code.
-updateTypedLinkFacetResponse
-    :: Int -- ^ 'utlfrsResponseStatus'
-    -> UpdateTypedLinkFacetResponse
-updateTypedLinkFacetResponse pResponseStatus_ =
-  UpdateTypedLinkFacetResponse' {_utlfrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'updateTypedLinkFacetResponse_httpStatus' - The response's http status code.
+newUpdateTypedLinkFacetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateTypedLinkFacetResponse
+newUpdateTypedLinkFacetResponse pHttpStatus_ =
+  UpdateTypedLinkFacetResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+updateTypedLinkFacetResponse_httpStatus :: Lens.Lens' UpdateTypedLinkFacetResponse Prelude.Int
+updateTypedLinkFacetResponse_httpStatus = Lens.lens (\UpdateTypedLinkFacetResponse' {httpStatus} -> httpStatus) (\s@UpdateTypedLinkFacetResponse' {} a -> s {httpStatus = a} :: UpdateTypedLinkFacetResponse)
 
--- | -- | The response status code.
-utlfrsResponseStatus :: Lens' UpdateTypedLinkFacetResponse Int
-utlfrsResponseStatus = lens _utlfrsResponseStatus (\ s a -> s{_utlfrsResponseStatus = a})
-
-instance NFData UpdateTypedLinkFacetResponse where
+instance Prelude.NFData UpdateTypedLinkFacetResponse

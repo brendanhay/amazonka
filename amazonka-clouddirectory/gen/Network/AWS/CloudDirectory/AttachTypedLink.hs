@@ -1,181 +1,218 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.AttachTypedLink
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches a typed link to a specified source and target object. For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink Typed link> .
---
---
+-- Attaches a typed link to a specified source and target object. For more
+-- information, see
+-- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
 module Network.AWS.CloudDirectory.AttachTypedLink
-    (
-    -- * Creating a Request
-      attachTypedLink
-    , AttachTypedLink
+  ( -- * Creating a Request
+    AttachTypedLink (..),
+    newAttachTypedLink,
+
     -- * Request Lenses
-    , atlDirectoryARN
-    , atlSourceObjectReference
-    , atlTargetObjectReference
-    , atlTypedLinkFacet
-    , atlAttributes
+    attachTypedLink_directoryArn,
+    attachTypedLink_sourceObjectReference,
+    attachTypedLink_targetObjectReference,
+    attachTypedLink_typedLinkFacet,
+    attachTypedLink_attributes,
 
     -- * Destructuring the Response
-    , attachTypedLinkResponse
-    , AttachTypedLinkResponse
+    AttachTypedLinkResponse (..),
+    newAttachTypedLinkResponse,
+
     -- * Response Lenses
-    , atlrsTypedLinkSpecifier
-    , atlrsResponseStatus
-    ) where
+    attachTypedLinkResponse_typedLinkSpecifier,
+    attachTypedLinkResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.CloudDirectory.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'attachTypedLink' smart constructor.
+-- | /See:/ 'newAttachTypedLink' smart constructor.
 data AttachTypedLink = AttachTypedLink'
-  { _atlDirectoryARN          :: !Text
-  , _atlSourceObjectReference :: !ObjectReference
-  , _atlTargetObjectReference :: !ObjectReference
-  , _atlTypedLinkFacet        :: !TypedLinkSchemaAndFacetName
-  , _atlAttributes            :: ![AttributeNameAndValue]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) of the directory where you want to attach
+    -- the typed link.
+    directoryArn :: Prelude.Text,
+    -- | Identifies the source object that the typed link will attach to.
+    sourceObjectReference :: ObjectReference,
+    -- | Identifies the target object that the typed link will attach to.
+    targetObjectReference :: ObjectReference,
+    -- | Identifies the typed link facet that is associated with the typed link.
+    typedLinkFacet :: TypedLinkSchemaAndFacetName,
+    -- | A set of attributes that are associated with the typed link.
+    attributes :: [AttributeNameAndValue]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
+-- |
+-- Create a value of 'AttachTypedLink' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'directoryArn', 'attachTypedLink_directoryArn' - The Amazon Resource Name (ARN) of the directory where you want to attach
+-- the typed link.
+--
+-- 'sourceObjectReference', 'attachTypedLink_sourceObjectReference' - Identifies the source object that the typed link will attach to.
+--
+-- 'targetObjectReference', 'attachTypedLink_targetObjectReference' - Identifies the target object that the typed link will attach to.
+--
+-- 'typedLinkFacet', 'attachTypedLink_typedLinkFacet' - Identifies the typed link facet that is associated with the typed link.
+--
+-- 'attributes', 'attachTypedLink_attributes' - A set of attributes that are associated with the typed link.
+newAttachTypedLink ::
+  -- | 'directoryArn'
+  Prelude.Text ->
+  -- | 'sourceObjectReference'
+  ObjectReference ->
+  -- | 'targetObjectReference'
+  ObjectReference ->
+  -- | 'typedLinkFacet'
+  TypedLinkSchemaAndFacetName ->
+  AttachTypedLink
+newAttachTypedLink
+  pDirectoryArn_
+  pSourceObjectReference_
+  pTargetObjectReference_
+  pTypedLinkFacet_ =
+    AttachTypedLink'
+      { directoryArn = pDirectoryArn_,
+        sourceObjectReference = pSourceObjectReference_,
+        targetObjectReference = pTargetObjectReference_,
+        typedLinkFacet = pTypedLinkFacet_,
+        attributes = Prelude.mempty
+      }
 
--- | Creates a value of 'AttachTypedLink' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'atlDirectoryARN' - The Amazon Resource Name (ARN) of the directory where you want to attach the typed link.
---
--- * 'atlSourceObjectReference' - Identifies the source object that the typed link will attach to.
---
--- * 'atlTargetObjectReference' - Identifies the target object that the typed link will attach to.
---
--- * 'atlTypedLinkFacet' - Identifies the typed link facet that is associated with the typed link.
---
--- * 'atlAttributes' - A set of attributes that are associated with the typed link.
-attachTypedLink
-    :: Text -- ^ 'atlDirectoryARN'
-    -> ObjectReference -- ^ 'atlSourceObjectReference'
-    -> ObjectReference -- ^ 'atlTargetObjectReference'
-    -> TypedLinkSchemaAndFacetName -- ^ 'atlTypedLinkFacet'
-    -> AttachTypedLink
-attachTypedLink pDirectoryARN_ pSourceObjectReference_ pTargetObjectReference_ pTypedLinkFacet_ =
-  AttachTypedLink'
-    { _atlDirectoryARN = pDirectoryARN_
-    , _atlSourceObjectReference = pSourceObjectReference_
-    , _atlTargetObjectReference = pTargetObjectReference_
-    , _atlTypedLinkFacet = pTypedLinkFacet_
-    , _atlAttributes = mempty
-    }
-
-
--- | The Amazon Resource Name (ARN) of the directory where you want to attach the typed link.
-atlDirectoryARN :: Lens' AttachTypedLink Text
-atlDirectoryARN = lens _atlDirectoryARN (\ s a -> s{_atlDirectoryARN = a})
+-- | The Amazon Resource Name (ARN) of the directory where you want to attach
+-- the typed link.
+attachTypedLink_directoryArn :: Lens.Lens' AttachTypedLink Prelude.Text
+attachTypedLink_directoryArn = Lens.lens (\AttachTypedLink' {directoryArn} -> directoryArn) (\s@AttachTypedLink' {} a -> s {directoryArn = a} :: AttachTypedLink)
 
 -- | Identifies the source object that the typed link will attach to.
-atlSourceObjectReference :: Lens' AttachTypedLink ObjectReference
-atlSourceObjectReference = lens _atlSourceObjectReference (\ s a -> s{_atlSourceObjectReference = a})
+attachTypedLink_sourceObjectReference :: Lens.Lens' AttachTypedLink ObjectReference
+attachTypedLink_sourceObjectReference = Lens.lens (\AttachTypedLink' {sourceObjectReference} -> sourceObjectReference) (\s@AttachTypedLink' {} a -> s {sourceObjectReference = a} :: AttachTypedLink)
 
 -- | Identifies the target object that the typed link will attach to.
-atlTargetObjectReference :: Lens' AttachTypedLink ObjectReference
-atlTargetObjectReference = lens _atlTargetObjectReference (\ s a -> s{_atlTargetObjectReference = a})
+attachTypedLink_targetObjectReference :: Lens.Lens' AttachTypedLink ObjectReference
+attachTypedLink_targetObjectReference = Lens.lens (\AttachTypedLink' {targetObjectReference} -> targetObjectReference) (\s@AttachTypedLink' {} a -> s {targetObjectReference = a} :: AttachTypedLink)
 
 -- | Identifies the typed link facet that is associated with the typed link.
-atlTypedLinkFacet :: Lens' AttachTypedLink TypedLinkSchemaAndFacetName
-atlTypedLinkFacet = lens _atlTypedLinkFacet (\ s a -> s{_atlTypedLinkFacet = a})
+attachTypedLink_typedLinkFacet :: Lens.Lens' AttachTypedLink TypedLinkSchemaAndFacetName
+attachTypedLink_typedLinkFacet = Lens.lens (\AttachTypedLink' {typedLinkFacet} -> typedLinkFacet) (\s@AttachTypedLink' {} a -> s {typedLinkFacet = a} :: AttachTypedLink)
 
 -- | A set of attributes that are associated with the typed link.
-atlAttributes :: Lens' AttachTypedLink [AttributeNameAndValue]
-atlAttributes = lens _atlAttributes (\ s a -> s{_atlAttributes = a}) . _Coerce
+attachTypedLink_attributes :: Lens.Lens' AttachTypedLink [AttributeNameAndValue]
+attachTypedLink_attributes = Lens.lens (\AttachTypedLink' {attributes} -> attributes) (\s@AttachTypedLink' {} a -> s {attributes = a} :: AttachTypedLink) Prelude.. Prelude._Coerce
 
-instance AWSRequest AttachTypedLink where
-        type Rs AttachTypedLink = AttachTypedLinkResponse
-        request = putJSON cloudDirectory
-        response
-          = receiveJSON
-              (\ s h x ->
-                 AttachTypedLinkResponse' <$>
-                   (x .?> "TypedLinkSpecifier") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest AttachTypedLink where
+  type Rs AttachTypedLink = AttachTypedLinkResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          AttachTypedLinkResponse'
+            Prelude.<$> (x Prelude..?> "TypedLinkSpecifier")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable AttachTypedLink where
+instance Prelude.Hashable AttachTypedLink
 
-instance NFData AttachTypedLink where
+instance Prelude.NFData AttachTypedLink
 
-instance ToHeaders AttachTypedLink where
-        toHeaders AttachTypedLink'{..}
-          = mconcat
-              ["x-amz-data-partition" =# _atlDirectoryARN]
+instance Prelude.ToHeaders AttachTypedLink where
+  toHeaders AttachTypedLink' {..} =
+    Prelude.mconcat
+      ["x-amz-data-partition" Prelude.=# directoryArn]
 
-instance ToJSON AttachTypedLink where
-        toJSON AttachTypedLink'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("SourceObjectReference" .=
-                       _atlSourceObjectReference),
-                  Just
-                    ("TargetObjectReference" .=
-                       _atlTargetObjectReference),
-                  Just ("TypedLinkFacet" .= _atlTypedLinkFacet),
-                  Just ("Attributes" .= _atlAttributes)])
+instance Prelude.ToJSON AttachTypedLink where
+  toJSON AttachTypedLink' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ( "SourceObjectReference"
+                  Prelude..= sourceObjectReference
+              ),
+            Prelude.Just
+              ( "TargetObjectReference"
+                  Prelude..= targetObjectReference
+              ),
+            Prelude.Just
+              ("TypedLinkFacet" Prelude..= typedLinkFacet),
+            Prelude.Just ("Attributes" Prelude..= attributes)
+          ]
+      )
 
-instance ToPath AttachTypedLink where
-        toPath
-          = const
-              "/amazonclouddirectory/2017-01-11/typedlink/attach"
+instance Prelude.ToPath AttachTypedLink where
+  toPath =
+    Prelude.const
+      "/amazonclouddirectory/2017-01-11/typedlink/attach"
 
-instance ToQuery AttachTypedLink where
-        toQuery = const mempty
+instance Prelude.ToQuery AttachTypedLink where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'attachTypedLinkResponse' smart constructor.
+-- | /See:/ 'newAttachTypedLinkResponse' smart constructor.
 data AttachTypedLinkResponse = AttachTypedLinkResponse'
-  { _atlrsTypedLinkSpecifier :: !(Maybe TypedLinkSpecifier)
-  , _atlrsResponseStatus     :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Returns a typed link specifier as output.
+    typedLinkSpecifier :: Prelude.Maybe TypedLinkSpecifier,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'AttachTypedLinkResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AttachTypedLinkResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'atlrsTypedLinkSpecifier' - Returns a typed link specifier as output.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'atlrsResponseStatus' - -- | The response status code.
-attachTypedLinkResponse
-    :: Int -- ^ 'atlrsResponseStatus'
-    -> AttachTypedLinkResponse
-attachTypedLinkResponse pResponseStatus_ =
+-- 'typedLinkSpecifier', 'attachTypedLinkResponse_typedLinkSpecifier' - Returns a typed link specifier as output.
+--
+-- 'httpStatus', 'attachTypedLinkResponse_httpStatus' - The response's http status code.
+newAttachTypedLinkResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AttachTypedLinkResponse
+newAttachTypedLinkResponse pHttpStatus_ =
   AttachTypedLinkResponse'
-    { _atlrsTypedLinkSpecifier = Nothing
-    , _atlrsResponseStatus = pResponseStatus_
+    { typedLinkSpecifier =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | Returns a typed link specifier as output.
-atlrsTypedLinkSpecifier :: Lens' AttachTypedLinkResponse (Maybe TypedLinkSpecifier)
-atlrsTypedLinkSpecifier = lens _atlrsTypedLinkSpecifier (\ s a -> s{_atlrsTypedLinkSpecifier = a})
+attachTypedLinkResponse_typedLinkSpecifier :: Lens.Lens' AttachTypedLinkResponse (Prelude.Maybe TypedLinkSpecifier)
+attachTypedLinkResponse_typedLinkSpecifier = Lens.lens (\AttachTypedLinkResponse' {typedLinkSpecifier} -> typedLinkSpecifier) (\s@AttachTypedLinkResponse' {} a -> s {typedLinkSpecifier = a} :: AttachTypedLinkResponse)
 
--- | -- | The response status code.
-atlrsResponseStatus :: Lens' AttachTypedLinkResponse Int
-atlrsResponseStatus = lens _atlrsResponseStatus (\ s a -> s{_atlrsResponseStatus = a})
+-- | The response's http status code.
+attachTypedLinkResponse_httpStatus :: Lens.Lens' AttachTypedLinkResponse Prelude.Int
+attachTypedLinkResponse_httpStatus = Lens.lens (\AttachTypedLinkResponse' {httpStatus} -> httpStatus) (\s@AttachTypedLinkResponse' {} a -> s {httpStatus = a} :: AttachTypedLinkResponse)
 
-instance NFData AttachTypedLinkResponse where
+instance Prelude.NFData AttachTypedLinkResponse

@@ -1,137 +1,170 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.UpdateSchema
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the schema name with a new name. Only development schema names can be updated.
---
---
+-- Updates the schema name with a new name. Only development schema names
+-- can be updated.
 module Network.AWS.CloudDirectory.UpdateSchema
-    (
-    -- * Creating a Request
-      updateSchema
-    , UpdateSchema
+  ( -- * Creating a Request
+    UpdateSchema (..),
+    newUpdateSchema,
+
     -- * Request Lenses
-    , usSchemaARN
-    , usName
+    updateSchema_schemaArn,
+    updateSchema_name,
 
     -- * Destructuring the Response
-    , updateSchemaResponse
-    , UpdateSchemaResponse
+    UpdateSchemaResponse (..),
+    newUpdateSchemaResponse,
+
     -- * Response Lenses
-    , usrsSchemaARN
-    , usrsResponseStatus
-    ) where
+    updateSchemaResponse_schemaArn,
+    updateSchemaResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.CloudDirectory.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateSchema' smart constructor.
+-- | /See:/ 'newUpdateSchema' smart constructor.
 data UpdateSchema = UpdateSchema'
-  { _usSchemaARN :: !Text
-  , _usName      :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) of the development schema. For more
+    -- information, see arns.
+    schemaArn :: Prelude.Text,
+    -- | The name of the schema.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateSchema' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateSchema' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'usSchemaARN' - The Amazon Resource Name (ARN) of the development schema. For more information, see 'arns' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'usName' - The name of the schema.
-updateSchema
-    :: Text -- ^ 'usSchemaARN'
-    -> Text -- ^ 'usName'
-    -> UpdateSchema
-updateSchema pSchemaARN_ pName_ =
-  UpdateSchema' {_usSchemaARN = pSchemaARN_, _usName = pName_}
+-- 'schemaArn', 'updateSchema_schemaArn' - The Amazon Resource Name (ARN) of the development schema. For more
+-- information, see arns.
+--
+-- 'name', 'updateSchema_name' - The name of the schema.
+newUpdateSchema ::
+  -- | 'schemaArn'
+  Prelude.Text ->
+  -- | 'name'
+  Prelude.Text ->
+  UpdateSchema
+newUpdateSchema pSchemaArn_ pName_ =
+  UpdateSchema'
+    { schemaArn = pSchemaArn_,
+      name = pName_
+    }
 
-
--- | The Amazon Resource Name (ARN) of the development schema. For more information, see 'arns' .
-usSchemaARN :: Lens' UpdateSchema Text
-usSchemaARN = lens _usSchemaARN (\ s a -> s{_usSchemaARN = a})
+-- | The Amazon Resource Name (ARN) of the development schema. For more
+-- information, see arns.
+updateSchema_schemaArn :: Lens.Lens' UpdateSchema Prelude.Text
+updateSchema_schemaArn = Lens.lens (\UpdateSchema' {schemaArn} -> schemaArn) (\s@UpdateSchema' {} a -> s {schemaArn = a} :: UpdateSchema)
 
 -- | The name of the schema.
-usName :: Lens' UpdateSchema Text
-usName = lens _usName (\ s a -> s{_usName = a})
+updateSchema_name :: Lens.Lens' UpdateSchema Prelude.Text
+updateSchema_name = Lens.lens (\UpdateSchema' {name} -> name) (\s@UpdateSchema' {} a -> s {name = a} :: UpdateSchema)
 
-instance AWSRequest UpdateSchema where
-        type Rs UpdateSchema = UpdateSchemaResponse
-        request = putJSON cloudDirectory
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateSchemaResponse' <$>
-                   (x .?> "SchemaArn") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest UpdateSchema where
+  type Rs UpdateSchema = UpdateSchemaResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateSchemaResponse'
+            Prelude.<$> (x Prelude..?> "SchemaArn")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateSchema where
+instance Prelude.Hashable UpdateSchema
 
-instance NFData UpdateSchema where
+instance Prelude.NFData UpdateSchema
 
-instance ToHeaders UpdateSchema where
-        toHeaders UpdateSchema'{..}
-          = mconcat ["x-amz-data-partition" =# _usSchemaARN]
+instance Prelude.ToHeaders UpdateSchema where
+  toHeaders UpdateSchema' {..} =
+    Prelude.mconcat
+      ["x-amz-data-partition" Prelude.=# schemaArn]
 
-instance ToJSON UpdateSchema where
-        toJSON UpdateSchema'{..}
-          = object (catMaybes [Just ("Name" .= _usName)])
+instance Prelude.ToJSON UpdateSchema where
+  toJSON UpdateSchema' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Prelude..= name)]
+      )
 
-instance ToPath UpdateSchema where
-        toPath
-          = const
-              "/amazonclouddirectory/2017-01-11/schema/update"
+instance Prelude.ToPath UpdateSchema where
+  toPath =
+    Prelude.const
+      "/amazonclouddirectory/2017-01-11/schema/update"
 
-instance ToQuery UpdateSchema where
-        toQuery = const mempty
+instance Prelude.ToQuery UpdateSchema where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateSchemaResponse' smart constructor.
+-- | /See:/ 'newUpdateSchemaResponse' smart constructor.
 data UpdateSchemaResponse = UpdateSchemaResponse'
-  { _usrsSchemaARN      :: !(Maybe Text)
-  , _usrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ARN that is associated with the updated schema. For more
+    -- information, see arns.
+    schemaArn :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateSchemaResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateSchemaResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'usrsSchemaARN' - The ARN that is associated with the updated schema. For more information, see 'arns' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'usrsResponseStatus' - -- | The response status code.
-updateSchemaResponse
-    :: Int -- ^ 'usrsResponseStatus'
-    -> UpdateSchemaResponse
-updateSchemaResponse pResponseStatus_ =
+-- 'schemaArn', 'updateSchemaResponse_schemaArn' - The ARN that is associated with the updated schema. For more
+-- information, see arns.
+--
+-- 'httpStatus', 'updateSchemaResponse_httpStatus' - The response's http status code.
+newUpdateSchemaResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateSchemaResponse
+newUpdateSchemaResponse pHttpStatus_ =
   UpdateSchemaResponse'
-    {_usrsSchemaARN = Nothing, _usrsResponseStatus = pResponseStatus_}
+    { schemaArn = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The ARN that is associated with the updated schema. For more
+-- information, see arns.
+updateSchemaResponse_schemaArn :: Lens.Lens' UpdateSchemaResponse (Prelude.Maybe Prelude.Text)
+updateSchemaResponse_schemaArn = Lens.lens (\UpdateSchemaResponse' {schemaArn} -> schemaArn) (\s@UpdateSchemaResponse' {} a -> s {schemaArn = a} :: UpdateSchemaResponse)
 
--- | The ARN that is associated with the updated schema. For more information, see 'arns' .
-usrsSchemaARN :: Lens' UpdateSchemaResponse (Maybe Text)
-usrsSchemaARN = lens _usrsSchemaARN (\ s a -> s{_usrsSchemaARN = a})
+-- | The response's http status code.
+updateSchemaResponse_httpStatus :: Lens.Lens' UpdateSchemaResponse Prelude.Int
+updateSchemaResponse_httpStatus = Lens.lens (\UpdateSchemaResponse' {httpStatus} -> httpStatus) (\s@UpdateSchemaResponse' {} a -> s {httpStatus = a} :: UpdateSchemaResponse)
 
--- | -- | The response status code.
-usrsResponseStatus :: Lens' UpdateSchemaResponse Int
-usrsResponseStatus = lens _usrsResponseStatus (\ s a -> s{_usrsResponseStatus = a})
-
-instance NFData UpdateSchemaResponse where
+instance Prelude.NFData UpdateSchemaResponse

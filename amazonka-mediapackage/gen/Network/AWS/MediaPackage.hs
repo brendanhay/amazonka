@@ -1,11 +1,11 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaPackage
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -13,30 +13,29 @@
 --
 -- AWS Elemental MediaPackage
 module Network.AWS.MediaPackage
-    (
-    -- * Service Configuration
-      mediaPackage
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
     -- $errors
 
-    -- ** UnprocessableEntityException
-    , _UnprocessableEntityException
-
-    -- ** ForbiddenException
-    , _ForbiddenException
-
     -- ** NotFoundException
-    , _NotFoundException
-
-    -- ** TooManyRequestsException
-    , _TooManyRequestsException
-
-    -- ** InternalServerErrorException
-    , _InternalServerErrorException
+    _NotFoundException,
 
     -- ** ServiceUnavailableException
-    , _ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** UnprocessableEntityException
+    _UnprocessableEntityException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
 
     -- * Waiters
     -- $waiters
@@ -44,249 +43,290 @@ module Network.AWS.MediaPackage
     -- * Operations
     -- $operations
 
-    -- ** RotateChannelCredentials
-    , module Network.AWS.MediaPackage.RotateChannelCredentials
-
-    -- ** DescribeOriginEndpoint
-    , module Network.AWS.MediaPackage.DescribeOriginEndpoint
-
-    -- ** ListChannels (Paginated)
-    , module Network.AWS.MediaPackage.ListChannels
-
-    -- ** DeleteChannel
-    , module Network.AWS.MediaPackage.DeleteChannel
-
-    -- ** UpdateChannel
-    , module Network.AWS.MediaPackage.UpdateChannel
-
-    -- ** CreateOriginEndpoint
-    , module Network.AWS.MediaPackage.CreateOriginEndpoint
-
-    -- ** ListOriginEndpoints (Paginated)
-    , module Network.AWS.MediaPackage.ListOriginEndpoints
-
     -- ** CreateChannel
-    , module Network.AWS.MediaPackage.CreateChannel
+    CreateChannel (CreateChannel'),
+    newCreateChannel,
+    CreateChannelResponse (CreateChannelResponse'),
+    newCreateChannelResponse,
 
-    -- ** DescribeChannel
-    , module Network.AWS.MediaPackage.DescribeChannel
-
-    -- ** DeleteOriginEndpoint
-    , module Network.AWS.MediaPackage.DeleteOriginEndpoint
+    -- ** CreateHarvestJob
+    CreateHarvestJob (CreateHarvestJob'),
+    newCreateHarvestJob,
+    CreateHarvestJobResponse (CreateHarvestJobResponse'),
+    newCreateHarvestJobResponse,
 
     -- ** UpdateOriginEndpoint
-    , module Network.AWS.MediaPackage.UpdateOriginEndpoint
+    UpdateOriginEndpoint (UpdateOriginEndpoint'),
+    newUpdateOriginEndpoint,
+    UpdateOriginEndpointResponse (UpdateOriginEndpointResponse'),
+    newUpdateOriginEndpointResponse,
+
+    -- ** DeleteOriginEndpoint
+    DeleteOriginEndpoint (DeleteOriginEndpoint'),
+    newDeleteOriginEndpoint,
+    DeleteOriginEndpointResponse (DeleteOriginEndpointResponse'),
+    newDeleteOriginEndpointResponse,
+
+    -- ** ListOriginEndpoints (Paginated)
+    ListOriginEndpoints (ListOriginEndpoints'),
+    newListOriginEndpoints,
+    ListOriginEndpointsResponse (ListOriginEndpointsResponse'),
+    newListOriginEndpointsResponse,
+
+    -- ** CreateOriginEndpoint
+    CreateOriginEndpoint (CreateOriginEndpoint'),
+    newCreateOriginEndpoint,
+    CreateOriginEndpointResponse (CreateOriginEndpointResponse'),
+    newCreateOriginEndpointResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** DescribeOriginEndpoint
+    DescribeOriginEndpoint (DescribeOriginEndpoint'),
+    newDescribeOriginEndpoint,
+    DescribeOriginEndpointResponse (DescribeOriginEndpointResponse'),
+    newDescribeOriginEndpointResponse,
+
+    -- ** ListChannels (Paginated)
+    ListChannels (ListChannels'),
+    newListChannels,
+    ListChannelsResponse (ListChannelsResponse'),
+    newListChannelsResponse,
+
+    -- ** ConfigureLogs
+    ConfigureLogs (ConfigureLogs'),
+    newConfigureLogs,
+    ConfigureLogsResponse (ConfigureLogsResponse'),
+    newConfigureLogsResponse,
+
+    -- ** ListHarvestJobs (Paginated)
+    ListHarvestJobs (ListHarvestJobs'),
+    newListHarvestJobs,
+    ListHarvestJobsResponse (ListHarvestJobsResponse'),
+    newListHarvestJobsResponse,
+
+    -- ** DescribeChannel
+    DescribeChannel (DescribeChannel'),
+    newDescribeChannel,
+    DescribeChannelResponse (DescribeChannelResponse'),
+    newDescribeChannelResponse,
+
+    -- ** RotateIngestEndpointCredentials
+    RotateIngestEndpointCredentials (RotateIngestEndpointCredentials'),
+    newRotateIngestEndpointCredentials,
+    RotateIngestEndpointCredentialsResponse (RotateIngestEndpointCredentialsResponse'),
+    newRotateIngestEndpointCredentialsResponse,
+
+    -- ** DescribeHarvestJob
+    DescribeHarvestJob (DescribeHarvestJob'),
+    newDescribeHarvestJob,
+    DescribeHarvestJobResponse (DescribeHarvestJobResponse'),
+    newDescribeHarvestJobResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** DeleteChannel
+    DeleteChannel (DeleteChannel'),
+    newDeleteChannel,
+    DeleteChannelResponse (DeleteChannelResponse'),
+    newDeleteChannelResponse,
+
+    -- ** UpdateChannel
+    UpdateChannel (UpdateChannel'),
+    newUpdateChannel,
+    UpdateChannelResponse (UpdateChannelResponse'),
+    newUpdateChannelResponse,
 
     -- * Types
 
     -- ** AdMarkers
-    , AdMarkers (..)
+    AdMarkers (..),
+
+    -- ** AdTriggersElement
+    AdTriggersElement (..),
+
+    -- ** AdsOnDeliveryRestrictions
+    AdsOnDeliveryRestrictions (..),
 
     -- ** EncryptionMethod
-    , EncryptionMethod (..)
+    EncryptionMethod (..),
+
+    -- ** ManifestLayout
+    ManifestLayout (..),
+
+    -- ** Origination
+    Origination (..),
+
+    -- ** PeriodTriggersElement
+    PeriodTriggersElement (..),
 
     -- ** PlaylistType
-    , PlaylistType (..)
+    PlaylistType (..),
 
     -- ** Profile
-    , Profile (..)
+    Profile (..),
+
+    -- ** SegmentTemplateFormat
+    SegmentTemplateFormat (..),
+
+    -- ** Status
+    Status (..),
 
     -- ** StreamOrder
-    , StreamOrder (..)
+    StreamOrder (..),
+
+    -- ** UtcTiming
+    UtcTiming (..),
+
+    -- ** Authorization
+    Authorization (Authorization'),
+    newAuthorization,
 
     -- ** Channel
-    , Channel
-    , channel
-    , cHlsIngest
-    , cARN
-    , cId
-    , cDescription
+    Channel (Channel'),
+    newChannel,
 
     -- ** CmafEncryption
-    , CmafEncryption
-    , cmafEncryption
-    , ceKeyRotationIntervalSeconds
-    , ceSpekeKeyProvider
+    CmafEncryption (CmafEncryption'),
+    newCmafEncryption,
 
     -- ** CmafPackage
-    , CmafPackage
-    , cmafPackage
-    , cpHlsManifests
-    , cpSegmentDurationSeconds
-    , cpStreamSelection
-    , cpEncryption
-    , cpSegmentPrefix
+    CmafPackage (CmafPackage'),
+    newCmafPackage,
 
     -- ** CmafPackageCreateOrUpdateParameters
-    , CmafPackageCreateOrUpdateParameters
-    , cmafPackageCreateOrUpdateParameters
-    , cpcoupHlsManifests
-    , cpcoupSegmentDurationSeconds
-    , cpcoupStreamSelection
-    , cpcoupEncryption
-    , cpcoupSegmentPrefix
+    CmafPackageCreateOrUpdateParameters (CmafPackageCreateOrUpdateParameters'),
+    newCmafPackageCreateOrUpdateParameters,
 
     -- ** DashEncryption
-    , DashEncryption
-    , dashEncryption
-    , deKeyRotationIntervalSeconds
-    , deSpekeKeyProvider
+    DashEncryption (DashEncryption'),
+    newDashEncryption,
 
     -- ** DashPackage
-    , DashPackage
-    , dashPackage
-    , dpMinBufferTimeSeconds
-    , dpProfile
-    , dpSegmentDurationSeconds
-    , dpStreamSelection
-    , dpEncryption
-    , dpMinUpdatePeriodSeconds
-    , dpSuggestedPresentationDelaySeconds
-    , dpManifestWindowSeconds
+    DashPackage (DashPackage'),
+    newDashPackage,
+
+    -- ** EgressAccessLogs
+    EgressAccessLogs (EgressAccessLogs'),
+    newEgressAccessLogs,
+
+    -- ** HarvestJob
+    HarvestJob (HarvestJob'),
+    newHarvestJob,
 
     -- ** HlsEncryption
-    , HlsEncryption
-    , hlsEncryption
-    , heEncryptionMethod
-    , heKeyRotationIntervalSeconds
-    , heConstantInitializationVector
-    , heRepeatExtXKey
-    , heSpekeKeyProvider
+    HlsEncryption (HlsEncryption'),
+    newHlsEncryption,
 
     -- ** HlsIngest
-    , HlsIngest
-    , hlsIngest
-    , hiIngestEndpoints
+    HlsIngest (HlsIngest'),
+    newHlsIngest,
 
     -- ** HlsManifest
-    , HlsManifest
-    , hlsManifest
-    , hmManifestName
-    , hmURL
-    , hmPlaylistType
-    , hmProgramDateTimeIntervalSeconds
-    , hmAdMarkers
-    , hmIncludeIframeOnlyStream
-    , hmPlaylistWindowSeconds
-    , hmId
+    HlsManifest (HlsManifest'),
+    newHlsManifest,
 
     -- ** HlsManifestCreateOrUpdateParameters
-    , HlsManifestCreateOrUpdateParameters
-    , hlsManifestCreateOrUpdateParameters
-    , hmcoupManifestName
-    , hmcoupPlaylistType
-    , hmcoupProgramDateTimeIntervalSeconds
-    , hmcoupAdMarkers
-    , hmcoupIncludeIframeOnlyStream
-    , hmcoupPlaylistWindowSeconds
-    , hmcoupId
+    HlsManifestCreateOrUpdateParameters (HlsManifestCreateOrUpdateParameters'),
+    newHlsManifestCreateOrUpdateParameters,
 
     -- ** HlsPackage
-    , HlsPackage
-    , hlsPackage
-    , hpUseAudioRenditionGroup
-    , hpPlaylistType
-    , hpSegmentDurationSeconds
-    , hpProgramDateTimeIntervalSeconds
-    , hpStreamSelection
-    , hpAdMarkers
-    , hpEncryption
-    , hpIncludeIframeOnlyStream
-    , hpPlaylistWindowSeconds
+    HlsPackage (HlsPackage'),
+    newHlsPackage,
 
     -- ** IngestEndpoint
-    , IngestEndpoint
-    , ingestEndpoint
-    , ieURL
-    , ieUsername
-    , iePassword
+    IngestEndpoint (IngestEndpoint'),
+    newIngestEndpoint,
+
+    -- ** IngressAccessLogs
+    IngressAccessLogs (IngressAccessLogs'),
+    newIngressAccessLogs,
 
     -- ** MssEncryption
-    , MssEncryption
-    , mssEncryption
-    , meSpekeKeyProvider
+    MssEncryption (MssEncryption'),
+    newMssEncryption,
 
     -- ** MssPackage
-    , MssPackage
-    , mssPackage
-    , mpSegmentDurationSeconds
-    , mpStreamSelection
-    , mpEncryption
-    , mpManifestWindowSeconds
+    MssPackage (MssPackage'),
+    newMssPackage,
 
     -- ** OriginEndpoint
-    , OriginEndpoint
-    , originEndpoint
-    , oeWhitelist
-    , oeHlsPackage
-    , oeARN
-    , oeManifestName
-    , oeURL
-    , oeChannelId
-    , oeStartoverWindowSeconds
-    , oeDashPackage
-    , oeMssPackage
-    , oeId
-    , oeTimeDelaySeconds
-    , oeCmafPackage
-    , oeDescription
+    OriginEndpoint (OriginEndpoint'),
+    newOriginEndpoint,
+
+    -- ** S3Destination
+    S3Destination (S3Destination'),
+    newS3Destination,
 
     -- ** SpekeKeyProvider
-    , SpekeKeyProvider
-    , spekeKeyProvider
-    , skpURL
-    , skpResourceId
-    , skpRoleARN
-    , skpSystemIds
+    SpekeKeyProvider (SpekeKeyProvider'),
+    newSpekeKeyProvider,
 
     -- ** StreamSelection
-    , StreamSelection
-    , streamSelection
-    , ssStreamOrder
-    , ssMinVideoBitsPerSecond
-    , ssMaxVideoBitsPerSecond
-    ) where
+    StreamSelection (StreamSelection'),
+    newStreamSelection,
+  )
+where
 
+import Network.AWS.MediaPackage.ConfigureLogs
 import Network.AWS.MediaPackage.CreateChannel
+import Network.AWS.MediaPackage.CreateHarvestJob
 import Network.AWS.MediaPackage.CreateOriginEndpoint
 import Network.AWS.MediaPackage.DeleteChannel
 import Network.AWS.MediaPackage.DeleteOriginEndpoint
 import Network.AWS.MediaPackage.DescribeChannel
+import Network.AWS.MediaPackage.DescribeHarvestJob
 import Network.AWS.MediaPackage.DescribeOriginEndpoint
+import Network.AWS.MediaPackage.Lens
 import Network.AWS.MediaPackage.ListChannels
+import Network.AWS.MediaPackage.ListHarvestJobs
 import Network.AWS.MediaPackage.ListOriginEndpoints
-import Network.AWS.MediaPackage.RotateChannelCredentials
+import Network.AWS.MediaPackage.ListTagsForResource
+import Network.AWS.MediaPackage.RotateIngestEndpointCredentials
+import Network.AWS.MediaPackage.TagResource
 import Network.AWS.MediaPackage.Types
+import Network.AWS.MediaPackage.UntagResource
 import Network.AWS.MediaPackage.UpdateChannel
 import Network.AWS.MediaPackage.UpdateOriginEndpoint
 import Network.AWS.MediaPackage.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'MediaPackage'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'MediaPackage'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

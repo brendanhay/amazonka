@@ -1,273 +1,431 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaPackage.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.MediaPackage.Types
-    (
-    -- * Service Configuration
-      mediaPackage
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _UnprocessableEntityException
-    , _ForbiddenException
-    , _NotFoundException
-    , _TooManyRequestsException
-    , _InternalServerErrorException
-    , _ServiceUnavailableException
+    _NotFoundException,
+    _ServiceUnavailableException,
+    _InternalServerErrorException,
+    _ForbiddenException,
+    _UnprocessableEntityException,
+    _TooManyRequestsException,
 
     -- * AdMarkers
-    , AdMarkers (..)
+    AdMarkers (..),
+
+    -- * AdTriggersElement
+    AdTriggersElement (..),
+
+    -- * AdsOnDeliveryRestrictions
+    AdsOnDeliveryRestrictions (..),
 
     -- * EncryptionMethod
-    , EncryptionMethod (..)
+    EncryptionMethod (..),
+
+    -- * ManifestLayout
+    ManifestLayout (..),
+
+    -- * Origination
+    Origination (..),
+
+    -- * PeriodTriggersElement
+    PeriodTriggersElement (..),
 
     -- * PlaylistType
-    , PlaylistType (..)
+    PlaylistType (..),
 
     -- * Profile
-    , Profile (..)
+    Profile (..),
+
+    -- * SegmentTemplateFormat
+    SegmentTemplateFormat (..),
+
+    -- * Status
+    Status (..),
 
     -- * StreamOrder
-    , StreamOrder (..)
+    StreamOrder (..),
+
+    -- * UtcTiming
+    UtcTiming (..),
+
+    -- * Authorization
+    Authorization (..),
+    newAuthorization,
+    authorization_secretsRoleArn,
+    authorization_cdnIdentifierSecret,
 
     -- * Channel
-    , Channel
-    , channel
-    , cHlsIngest
-    , cARN
-    , cId
-    , cDescription
+    Channel (..),
+    newChannel,
+    channel_egressAccessLogs,
+    channel_hlsIngest,
+    channel_arn,
+    channel_id,
+    channel_ingressAccessLogs,
+    channel_tags,
+    channel_description,
 
     -- * CmafEncryption
-    , CmafEncryption
-    , cmafEncryption
-    , ceKeyRotationIntervalSeconds
-    , ceSpekeKeyProvider
+    CmafEncryption (..),
+    newCmafEncryption,
+    cmafEncryption_keyRotationIntervalSeconds,
+    cmafEncryption_spekeKeyProvider,
 
     -- * CmafPackage
-    , CmafPackage
-    , cmafPackage
-    , cpHlsManifests
-    , cpSegmentDurationSeconds
-    , cpStreamSelection
-    , cpEncryption
-    , cpSegmentPrefix
+    CmafPackage (..),
+    newCmafPackage,
+    cmafPackage_streamSelection,
+    cmafPackage_hlsManifests,
+    cmafPackage_segmentPrefix,
+    cmafPackage_encryption,
+    cmafPackage_segmentDurationSeconds,
 
     -- * CmafPackageCreateOrUpdateParameters
-    , CmafPackageCreateOrUpdateParameters
-    , cmafPackageCreateOrUpdateParameters
-    , cpcoupHlsManifests
-    , cpcoupSegmentDurationSeconds
-    , cpcoupStreamSelection
-    , cpcoupEncryption
-    , cpcoupSegmentPrefix
+    CmafPackageCreateOrUpdateParameters (..),
+    newCmafPackageCreateOrUpdateParameters,
+    cmafPackageCreateOrUpdateParameters_streamSelection,
+    cmafPackageCreateOrUpdateParameters_hlsManifests,
+    cmafPackageCreateOrUpdateParameters_segmentPrefix,
+    cmafPackageCreateOrUpdateParameters_encryption,
+    cmafPackageCreateOrUpdateParameters_segmentDurationSeconds,
 
     -- * DashEncryption
-    , DashEncryption
-    , dashEncryption
-    , deKeyRotationIntervalSeconds
-    , deSpekeKeyProvider
+    DashEncryption (..),
+    newDashEncryption,
+    dashEncryption_keyRotationIntervalSeconds,
+    dashEncryption_spekeKeyProvider,
 
     -- * DashPackage
-    , DashPackage
-    , dashPackage
-    , dpMinBufferTimeSeconds
-    , dpProfile
-    , dpSegmentDurationSeconds
-    , dpStreamSelection
-    , dpEncryption
-    , dpMinUpdatePeriodSeconds
-    , dpSuggestedPresentationDelaySeconds
-    , dpManifestWindowSeconds
+    DashPackage (..),
+    newDashPackage,
+    dashPackage_minBufferTimeSeconds,
+    dashPackage_streamSelection,
+    dashPackage_periodTriggers,
+    dashPackage_adTriggers,
+    dashPackage_manifestWindowSeconds,
+    dashPackage_manifestLayout,
+    dashPackage_minUpdatePeriodSeconds,
+    dashPackage_encryption,
+    dashPackage_adsOnDeliveryRestrictions,
+    dashPackage_utcTimingUri,
+    dashPackage_segmentDurationSeconds,
+    dashPackage_profile,
+    dashPackage_segmentTemplateFormat,
+    dashPackage_suggestedPresentationDelaySeconds,
+    dashPackage_utcTiming,
+
+    -- * EgressAccessLogs
+    EgressAccessLogs (..),
+    newEgressAccessLogs,
+    egressAccessLogs_logGroupName,
+
+    -- * HarvestJob
+    HarvestJob (..),
+    newHarvestJob,
+    harvestJob_status,
+    harvestJob_s3Destination,
+    harvestJob_channelId,
+    harvestJob_startTime,
+    harvestJob_arn,
+    harvestJob_id,
+    harvestJob_createdAt,
+    harvestJob_originEndpointId,
+    harvestJob_endTime,
 
     -- * HlsEncryption
-    , HlsEncryption
-    , hlsEncryption
-    , heEncryptionMethod
-    , heKeyRotationIntervalSeconds
-    , heConstantInitializationVector
-    , heRepeatExtXKey
-    , heSpekeKeyProvider
+    HlsEncryption (..),
+    newHlsEncryption,
+    hlsEncryption_repeatExtXKey,
+    hlsEncryption_encryptionMethod,
+    hlsEncryption_constantInitializationVector,
+    hlsEncryption_keyRotationIntervalSeconds,
+    hlsEncryption_spekeKeyProvider,
 
     -- * HlsIngest
-    , HlsIngest
-    , hlsIngest
-    , hiIngestEndpoints
+    HlsIngest (..),
+    newHlsIngest,
+    hlsIngest_ingestEndpoints,
 
     -- * HlsManifest
-    , HlsManifest
-    , hlsManifest
-    , hmManifestName
-    , hmURL
-    , hmPlaylistType
-    , hmProgramDateTimeIntervalSeconds
-    , hmAdMarkers
-    , hmIncludeIframeOnlyStream
-    , hmPlaylistWindowSeconds
-    , hmId
+    HlsManifest (..),
+    newHlsManifest,
+    hlsManifest_adMarkers,
+    hlsManifest_programDateTimeIntervalSeconds,
+    hlsManifest_playlistWindowSeconds,
+    hlsManifest_includeIframeOnlyStream,
+    hlsManifest_manifestName,
+    hlsManifest_playlistType,
+    hlsManifest_url,
+    hlsManifest_id,
 
     -- * HlsManifestCreateOrUpdateParameters
-    , HlsManifestCreateOrUpdateParameters
-    , hlsManifestCreateOrUpdateParameters
-    , hmcoupManifestName
-    , hmcoupPlaylistType
-    , hmcoupProgramDateTimeIntervalSeconds
-    , hmcoupAdMarkers
-    , hmcoupIncludeIframeOnlyStream
-    , hmcoupPlaylistWindowSeconds
-    , hmcoupId
+    HlsManifestCreateOrUpdateParameters (..),
+    newHlsManifestCreateOrUpdateParameters,
+    hlsManifestCreateOrUpdateParameters_adMarkers,
+    hlsManifestCreateOrUpdateParameters_programDateTimeIntervalSeconds,
+    hlsManifestCreateOrUpdateParameters_playlistWindowSeconds,
+    hlsManifestCreateOrUpdateParameters_adTriggers,
+    hlsManifestCreateOrUpdateParameters_includeIframeOnlyStream,
+    hlsManifestCreateOrUpdateParameters_manifestName,
+    hlsManifestCreateOrUpdateParameters_adsOnDeliveryRestrictions,
+    hlsManifestCreateOrUpdateParameters_playlistType,
+    hlsManifestCreateOrUpdateParameters_id,
 
     -- * HlsPackage
-    , HlsPackage
-    , hlsPackage
-    , hpUseAudioRenditionGroup
-    , hpPlaylistType
-    , hpSegmentDurationSeconds
-    , hpProgramDateTimeIntervalSeconds
-    , hpStreamSelection
-    , hpAdMarkers
-    , hpEncryption
-    , hpIncludeIframeOnlyStream
-    , hpPlaylistWindowSeconds
+    HlsPackage (..),
+    newHlsPackage,
+    hlsPackage_adMarkers,
+    hlsPackage_streamSelection,
+    hlsPackage_programDateTimeIntervalSeconds,
+    hlsPackage_playlistWindowSeconds,
+    hlsPackage_adTriggers,
+    hlsPackage_includeIframeOnlyStream,
+    hlsPackage_useAudioRenditionGroup,
+    hlsPackage_encryption,
+    hlsPackage_adsOnDeliveryRestrictions,
+    hlsPackage_segmentDurationSeconds,
+    hlsPackage_playlistType,
 
     -- * IngestEndpoint
-    , IngestEndpoint
-    , ingestEndpoint
-    , ieURL
-    , ieUsername
-    , iePassword
+    IngestEndpoint (..),
+    newIngestEndpoint,
+    ingestEndpoint_id,
+    ingestEndpoint_password,
+    ingestEndpoint_username,
+    ingestEndpoint_url,
+
+    -- * IngressAccessLogs
+    IngressAccessLogs (..),
+    newIngressAccessLogs,
+    ingressAccessLogs_logGroupName,
 
     -- * MssEncryption
-    , MssEncryption
-    , mssEncryption
-    , meSpekeKeyProvider
+    MssEncryption (..),
+    newMssEncryption,
+    mssEncryption_spekeKeyProvider,
 
     -- * MssPackage
-    , MssPackage
-    , mssPackage
-    , mpSegmentDurationSeconds
-    , mpStreamSelection
-    , mpEncryption
-    , mpManifestWindowSeconds
+    MssPackage (..),
+    newMssPackage,
+    mssPackage_streamSelection,
+    mssPackage_manifestWindowSeconds,
+    mssPackage_encryption,
+    mssPackage_segmentDurationSeconds,
 
     -- * OriginEndpoint
-    , OriginEndpoint
-    , originEndpoint
-    , oeWhitelist
-    , oeHlsPackage
-    , oeARN
-    , oeManifestName
-    , oeURL
-    , oeChannelId
-    , oeStartoverWindowSeconds
-    , oeDashPackage
-    , oeMssPackage
-    , oeId
-    , oeTimeDelaySeconds
-    , oeCmafPackage
-    , oeDescription
+    OriginEndpoint (..),
+    newOriginEndpoint,
+    originEndpoint_dashPackage,
+    originEndpoint_startoverWindowSeconds,
+    originEndpoint_origination,
+    originEndpoint_channelId,
+    originEndpoint_cmafPackage,
+    originEndpoint_manifestName,
+    originEndpoint_arn,
+    originEndpoint_id,
+    originEndpoint_whitelist,
+    originEndpoint_mssPackage,
+    originEndpoint_tags,
+    originEndpoint_description,
+    originEndpoint_timeDelaySeconds,
+    originEndpoint_authorization,
+    originEndpoint_url,
+    originEndpoint_hlsPackage,
+
+    -- * S3Destination
+    S3Destination (..),
+    newS3Destination,
+    s3Destination_manifestKey,
+    s3Destination_bucketName,
+    s3Destination_roleArn,
 
     -- * SpekeKeyProvider
-    , SpekeKeyProvider
-    , spekeKeyProvider
-    , skpURL
-    , skpResourceId
-    , skpRoleARN
-    , skpSystemIds
+    SpekeKeyProvider (..),
+    newSpekeKeyProvider,
+    spekeKeyProvider_certificateArn,
+    spekeKeyProvider_resourceId,
+    spekeKeyProvider_systemIds,
+    spekeKeyProvider_url,
+    spekeKeyProvider_roleArn,
 
     -- * StreamSelection
-    , StreamSelection
-    , streamSelection
-    , ssStreamOrder
-    , ssMinVideoBitsPerSecond
-    , ssMaxVideoBitsPerSecond
-    ) where
+    StreamSelection (..),
+    newStreamSelection,
+    streamSelection_minVideoBitsPerSecond,
+    streamSelection_maxVideoBitsPerSecond,
+    streamSelection_streamOrder,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.MediaPackage.Types.Product
-import Network.AWS.MediaPackage.Types.Sum
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import Network.AWS.MediaPackage.Types.AdMarkers
+import Network.AWS.MediaPackage.Types.AdTriggersElement
+import Network.AWS.MediaPackage.Types.AdsOnDeliveryRestrictions
+import Network.AWS.MediaPackage.Types.Authorization
+import Network.AWS.MediaPackage.Types.Channel
+import Network.AWS.MediaPackage.Types.CmafEncryption
+import Network.AWS.MediaPackage.Types.CmafPackage
+import Network.AWS.MediaPackage.Types.CmafPackageCreateOrUpdateParameters
+import Network.AWS.MediaPackage.Types.DashEncryption
+import Network.AWS.MediaPackage.Types.DashPackage
+import Network.AWS.MediaPackage.Types.EgressAccessLogs
+import Network.AWS.MediaPackage.Types.EncryptionMethod
+import Network.AWS.MediaPackage.Types.HarvestJob
+import Network.AWS.MediaPackage.Types.HlsEncryption
+import Network.AWS.MediaPackage.Types.HlsIngest
+import Network.AWS.MediaPackage.Types.HlsManifest
+import Network.AWS.MediaPackage.Types.HlsManifestCreateOrUpdateParameters
+import Network.AWS.MediaPackage.Types.HlsPackage
+import Network.AWS.MediaPackage.Types.IngestEndpoint
+import Network.AWS.MediaPackage.Types.IngressAccessLogs
+import Network.AWS.MediaPackage.Types.ManifestLayout
+import Network.AWS.MediaPackage.Types.MssEncryption
+import Network.AWS.MediaPackage.Types.MssPackage
+import Network.AWS.MediaPackage.Types.OriginEndpoint
+import Network.AWS.MediaPackage.Types.Origination
+import Network.AWS.MediaPackage.Types.PeriodTriggersElement
+import Network.AWS.MediaPackage.Types.PlaylistType
+import Network.AWS.MediaPackage.Types.Profile
+import Network.AWS.MediaPackage.Types.S3Destination
+import Network.AWS.MediaPackage.Types.SegmentTemplateFormat
+import Network.AWS.MediaPackage.Types.SpekeKeyProvider
+import Network.AWS.MediaPackage.Types.Status
+import Network.AWS.MediaPackage.Types.StreamOrder
+import Network.AWS.MediaPackage.Types.StreamSelection
+import Network.AWS.MediaPackage.Types.UtcTiming
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-10-12@ of the Amazon Elemental MediaPackage SDK configuration.
-mediaPackage :: Service
-mediaPackage =
-  Service
-    { _svcAbbrev = "MediaPackage"
-    , _svcSigner = v4
-    , _svcPrefix = "mediapackage"
-    , _svcVersion = "2017-10-12"
-    , _svcEndpoint = defaultEndpoint mediaPackage
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "MediaPackage"
-    , _svcRetry = retry
+defaultService :: Prelude.Service
+defaultService =
+  Prelude.Service
+    { Prelude._svcAbbrev =
+        "MediaPackage",
+      Prelude._svcSigner = Sign.v4,
+      Prelude._svcPrefix = "mediapackage",
+      Prelude._svcVersion = "2017-10-12",
+      Prelude._svcEndpoint =
+        Prelude.defaultEndpoint defaultService,
+      Prelude._svcTimeout = Prelude.Just 70,
+      Prelude._svcCheck = Prelude.statusSuccess,
+      Prelude._svcError =
+        Prelude.parseJSONError "MediaPackage",
+      Prelude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Prelude.Exponential
+        { Prelude._retryBase = 5.0e-2,
+          Prelude._retryGrowth = 2,
+          Prelude._retryAttempts = 5,
+          Prelude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
-
-
--- | The parameters sent in the request are not valid.
-_UnprocessableEntityException :: AsError a => Getting (First ServiceError) a ServiceError
-_UnprocessableEntityException =
-  _MatchServiceError mediaPackage "UnprocessableEntityException" . hasStatus 422
-
-
--- | The client is not authorized to access the requested resource.
-_ForbiddenException :: AsError a => Getting (First ServiceError) a ServiceError
-_ForbiddenException =
-  _MatchServiceError mediaPackage "ForbiddenException" . hasStatus 403
-
+      | Lens.has (Prelude.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Prelude.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Prelude.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Prelude.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Prelude.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Prelude.hasCode "RequestThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Prelude.hasCode "ThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Prelude.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Prelude.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Prelude.hasCode "ThrottlingException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Prelude.hasCode "Throttling"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | The requested resource does not exist.
-_NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_NotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
 _NotFoundException =
-  _MatchServiceError mediaPackage "NotFoundException" . hasStatus 404
+  Prelude._MatchServiceError
+    defaultService
+    "NotFoundException"
+    Prelude.. Prelude.hasStatus 404
 
+-- | An unexpected error occurred.
+_ServiceUnavailableException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServiceUnavailableException =
+  Prelude._MatchServiceError
+    defaultService
+    "ServiceUnavailableException"
+    Prelude.. Prelude.hasStatus 503
+
+-- | An unexpected error occurred.
+_InternalServerErrorException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InternalServerErrorException =
+  Prelude._MatchServiceError
+    defaultService
+    "InternalServerErrorException"
+    Prelude.. Prelude.hasStatus 500
+
+-- | The client is not authorized to access the requested resource.
+_ForbiddenException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ForbiddenException =
+  Prelude._MatchServiceError
+    defaultService
+    "ForbiddenException"
+    Prelude.. Prelude.hasStatus 403
+
+-- | The parameters sent in the request are not valid.
+_UnprocessableEntityException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnprocessableEntityException =
+  Prelude._MatchServiceError
+    defaultService
+    "UnprocessableEntityException"
+    Prelude.. Prelude.hasStatus 422
 
 -- | The client has exceeded their resource or throttling limits.
-_TooManyRequestsException :: AsError a => Getting (First ServiceError) a ServiceError
+_TooManyRequestsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
 _TooManyRequestsException =
-  _MatchServiceError mediaPackage "TooManyRequestsException" . hasStatus 429
-
-
--- | An unexpected error occurred.
-_InternalServerErrorException :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServerErrorException =
-  _MatchServiceError mediaPackage "InternalServerErrorException" . hasStatus 500
-
-
--- | An unexpected error occurred.
-_ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
-_ServiceUnavailableException =
-  _MatchServiceError mediaPackage "ServiceUnavailableException" . hasStatus 503
-
+  Prelude._MatchServiceError
+    defaultService
+    "TooManyRequestsException"
+    Prelude.. Prelude.hasStatus 429

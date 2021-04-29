@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UpdateLayer
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,263 +23,387 @@
 --
 -- Updates a specified layer.
 --
---
--- __Required Permissions__ : To use this action, an IAM user must have a Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
---
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Manage permissions level for the stack, or an attached policy that
+-- explicitly grants permissions. For more information on user permissions,
+-- see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.UpdateLayer
-    (
-    -- * Creating a Request
-      updateLayer
-    , UpdateLayer
+  ( -- * Creating a Request
+    UpdateLayer (..),
+    newUpdateLayer,
+
     -- * Request Lenses
-    , ulCustomInstanceProfileARN
-    , ulCustomSecurityGroupIds
-    , ulInstallUpdatesOnBoot
-    , ulCloudWatchLogsConfiguration
-    , ulLifecycleEventConfiguration
-    , ulShortname
-    , ulCustomRecipes
-    , ulCustomJSON
-    , ulVolumeConfigurations
-    , ulEnableAutoHealing
-    , ulPackages
-    , ulAttributes
-    , ulName
-    , ulAutoAssignPublicIPs
-    , ulUseEBSOptimizedInstances
-    , ulAutoAssignElasticIPs
-    , ulLayerId
+    updateLayer_installUpdatesOnBoot,
+    updateLayer_customInstanceProfileArn,
+    updateLayer_customSecurityGroupIds,
+    updateLayer_packages,
+    updateLayer_enableAutoHealing,
+    updateLayer_volumeConfigurations,
+    updateLayer_customJson,
+    updateLayer_shortname,
+    updateLayer_attributes,
+    updateLayer_name,
+    updateLayer_cloudWatchLogsConfiguration,
+    updateLayer_autoAssignElasticIps,
+    updateLayer_useEbsOptimizedInstances,
+    updateLayer_customRecipes,
+    updateLayer_autoAssignPublicIps,
+    updateLayer_lifecycleEventConfiguration,
+    updateLayer_layerId,
 
     -- * Destructuring the Response
-    , updateLayerResponse
-    , UpdateLayerResponse
-    ) where
+    UpdateLayerResponse (..),
+    newUpdateLayerResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateLayer' smart constructor.
+-- | /See:/ 'newUpdateLayer' smart constructor.
 data UpdateLayer = UpdateLayer'
-  { _ulCustomInstanceProfileARN :: !(Maybe Text)
-  , _ulCustomSecurityGroupIds :: !(Maybe [Text])
-  , _ulInstallUpdatesOnBoot :: !(Maybe Bool)
-  , _ulCloudWatchLogsConfiguration :: !(Maybe CloudWatchLogsConfiguration)
-  , _ulLifecycleEventConfiguration :: !(Maybe LifecycleEventConfiguration)
-  , _ulShortname :: !(Maybe Text)
-  , _ulCustomRecipes :: !(Maybe Recipes)
-  , _ulCustomJSON :: !(Maybe Text)
-  , _ulVolumeConfigurations :: !(Maybe [VolumeConfiguration])
-  , _ulEnableAutoHealing :: !(Maybe Bool)
-  , _ulPackages :: !(Maybe [Text])
-  , _ulAttributes :: !(Maybe (Map LayerAttributesKeys (Maybe Text)))
-  , _ulName :: !(Maybe Text)
-  , _ulAutoAssignPublicIPs :: !(Maybe Bool)
-  , _ulUseEBSOptimizedInstances :: !(Maybe Bool)
-  , _ulAutoAssignElasticIPs :: !(Maybe Bool)
-  , _ulLayerId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateLayer' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ulCustomInstanceProfileARN' - The ARN of an IAM profile to be used for all of the layer's EC2 instances. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
---
--- * 'ulCustomSecurityGroupIds' - An array containing the layer's custom security group IDs.
---
--- * 'ulInstallUpdatesOnBoot' - Whether to install operating system and package updates when the instance boots. The default value is @true@ . To control when updates are installed, set this value to @false@ . You must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
---
--- * 'ulCloudWatchLogsConfiguration' - Specifies CloudWatch Logs configuration options for the layer. For more information, see 'CloudWatchLogsLogStream' .
---
--- * 'ulLifecycleEventConfiguration' -
---
--- * 'ulShortname' - For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters and must be in the following format: /\A[a-z0-9\-\_\.]+\Z/. The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information, see the <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
---
--- * 'ulCustomRecipes' - A @LayerCustomRecipes@ object that specifies the layer's custom recipes.
---
--- * 'ulCustomJSON' - A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer's instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON> .
---
--- * 'ulVolumeConfigurations' - A @VolumeConfigurations@ object that describes the layer's Amazon EBS volumes.
---
--- * 'ulEnableAutoHealing' - Whether to disable auto healing for the layer.
---
--- * 'ulPackages' - An array of @Package@ objects that describe the layer's packages.
---
--- * 'ulAttributes' - One or more user-defined key/value pairs to be added to the stack attributes.
---
--- * 'ulName' - The layer name, which is used by the console.
---
--- * 'ulAutoAssignPublicIPs' - For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
---
--- * 'ulUseEBSOptimizedInstances' - Whether to use Amazon EBS-optimized instances.
---
--- * 'ulAutoAssignElasticIPs' - Whether to automatically assign an <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address> to the layer's instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
---
--- * 'ulLayerId' - The layer ID.
-updateLayer
-    :: Text -- ^ 'ulLayerId'
-    -> UpdateLayer
-updateLayer pLayerId_ =
-  UpdateLayer'
-    { _ulCustomInstanceProfileARN = Nothing
-    , _ulCustomSecurityGroupIds = Nothing
-    , _ulInstallUpdatesOnBoot = Nothing
-    , _ulCloudWatchLogsConfiguration = Nothing
-    , _ulLifecycleEventConfiguration = Nothing
-    , _ulShortname = Nothing
-    , _ulCustomRecipes = Nothing
-    , _ulCustomJSON = Nothing
-    , _ulVolumeConfigurations = Nothing
-    , _ulEnableAutoHealing = Nothing
-    , _ulPackages = Nothing
-    , _ulAttributes = Nothing
-    , _ulName = Nothing
-    , _ulAutoAssignPublicIPs = Nothing
-    , _ulUseEBSOptimizedInstances = Nothing
-    , _ulAutoAssignElasticIPs = Nothing
-    , _ulLayerId = pLayerId_
-    }
-
-
--- | The ARN of an IAM profile to be used for all of the layer's EC2 instances. For more information about IAM ARNs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
-ulCustomInstanceProfileARN :: Lens' UpdateLayer (Maybe Text)
-ulCustomInstanceProfileARN = lens _ulCustomInstanceProfileARN (\ s a -> s{_ulCustomInstanceProfileARN = a})
-
--- | An array containing the layer's custom security group IDs.
-ulCustomSecurityGroupIds :: Lens' UpdateLayer [Text]
-ulCustomSecurityGroupIds = lens _ulCustomSecurityGroupIds (\ s a -> s{_ulCustomSecurityGroupIds = a}) . _Default . _Coerce
-
--- | Whether to install operating system and package updates when the instance boots. The default value is @true@ . To control when updates are installed, set this value to @false@ . You must then update your instances manually by using 'CreateDeployment' to run the @update_dependencies@ stack command or manually running @yum@ (Amazon Linux) or @apt-get@ (Ubuntu) on the instances.
-ulInstallUpdatesOnBoot :: Lens' UpdateLayer (Maybe Bool)
-ulInstallUpdatesOnBoot = lens _ulInstallUpdatesOnBoot (\ s a -> s{_ulInstallUpdatesOnBoot = a})
-
--- | Specifies CloudWatch Logs configuration options for the layer. For more information, see 'CloudWatchLogsLogStream' .
-ulCloudWatchLogsConfiguration :: Lens' UpdateLayer (Maybe CloudWatchLogsConfiguration)
-ulCloudWatchLogsConfiguration = lens _ulCloudWatchLogsConfiguration (\ s a -> s{_ulCloudWatchLogsConfiguration = a})
+  { -- | Whether to install operating system and package updates when the
+    -- instance boots. The default value is @true@. To control when updates are
+    -- installed, set this value to @false@. You must then update your
+    -- instances manually by using CreateDeployment to run the
+    -- @update_dependencies@ stack command or manually running @yum@ (Amazon
+    -- Linux) or @apt-get@ (Ubuntu) on the instances.
+    --
+    -- We strongly recommend using the default value of @true@, to ensure that
+    -- your instances have the latest security updates.
+    installUpdatesOnBoot :: Prelude.Maybe Prelude.Bool,
+    -- | The ARN of an IAM profile to be used for all of the layer\'s EC2
+    -- instances. For more information about IAM ARNs, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+    customInstanceProfileArn :: Prelude.Maybe Prelude.Text,
+    -- | An array containing the layer\'s custom security group IDs.
+    customSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | An array of @Package@ objects that describe the layer\'s packages.
+    packages :: Prelude.Maybe [Prelude.Text],
+    -- | Whether to disable auto healing for the layer.
+    enableAutoHealing :: Prelude.Maybe Prelude.Bool,
+    -- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
+    -- volumes.
+    volumeConfigurations :: Prelude.Maybe [VolumeConfiguration],
+    -- | A JSON-formatted string containing custom stack configuration and
+    -- deployment attributes to be installed on the layer\'s instances. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON>.
+    customJson :: Prelude.Maybe Prelude.Text,
+    -- | For custom layers only, use this parameter to specify the layer\'s short
+    -- name, which is used internally by AWS OpsWorks Stacks and by Chef. The
+    -- short name is also used as the name for the directory where your app
+    -- files are installed. It can have a maximum of 200 characters and must be
+    -- in the following format: \/\\A[a-z0-9\\-\\_\\.]+\\Z\/.
+    --
+    -- The built-in layers\' short names are defined by AWS OpsWorks Stacks.
+    -- For more information, see the
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
+    shortname :: Prelude.Maybe Prelude.Text,
+    -- | One or more user-defined key\/value pairs to be added to the stack
+    -- attributes.
+    attributes :: Prelude.Maybe (Prelude.HashMap LayerAttributesKeys (Prelude.Maybe Prelude.Text)),
+    -- | The layer name, which is used by the console.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Specifies CloudWatch Logs configuration options for the layer. For more
+    -- information, see CloudWatchLogsLogStream.
+    cloudWatchLogsConfiguration :: Prelude.Maybe CloudWatchLogsConfiguration,
+    -- | Whether to automatically assign an
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address>
+    -- to the layer\'s instances. For more information, see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
+    autoAssignElasticIps :: Prelude.Maybe Prelude.Bool,
+    -- | Whether to use Amazon EBS-optimized instances.
+    useEbsOptimizedInstances :: Prelude.Maybe Prelude.Bool,
+    -- | A @LayerCustomRecipes@ object that specifies the layer\'s custom
+    -- recipes.
+    customRecipes :: Prelude.Maybe Recipes,
+    -- | For stacks that are running in a VPC, whether to automatically assign a
+    -- public IP address to the layer\'s instances. For more information, see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
+    autoAssignPublicIps :: Prelude.Maybe Prelude.Bool,
+    lifecycleEventConfiguration :: Prelude.Maybe LifecycleEventConfiguration,
+    -- | The layer ID.
+    layerId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
-ulLifecycleEventConfiguration :: Lens' UpdateLayer (Maybe LifecycleEventConfiguration)
-ulLifecycleEventConfiguration = lens _ulLifecycleEventConfiguration (\ s a -> s{_ulLifecycleEventConfiguration = a})
+-- Create a value of 'UpdateLayer' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'installUpdatesOnBoot', 'updateLayer_installUpdatesOnBoot' - Whether to install operating system and package updates when the
+-- instance boots. The default value is @true@. To control when updates are
+-- installed, set this value to @false@. You must then update your
+-- instances manually by using CreateDeployment to run the
+-- @update_dependencies@ stack command or manually running @yum@ (Amazon
+-- Linux) or @apt-get@ (Ubuntu) on the instances.
+--
+-- We strongly recommend using the default value of @true@, to ensure that
+-- your instances have the latest security updates.
+--
+-- 'customInstanceProfileArn', 'updateLayer_customInstanceProfileArn' - The ARN of an IAM profile to be used for all of the layer\'s EC2
+-- instances. For more information about IAM ARNs, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+--
+-- 'customSecurityGroupIds', 'updateLayer_customSecurityGroupIds' - An array containing the layer\'s custom security group IDs.
+--
+-- 'packages', 'updateLayer_packages' - An array of @Package@ objects that describe the layer\'s packages.
+--
+-- 'enableAutoHealing', 'updateLayer_enableAutoHealing' - Whether to disable auto healing for the layer.
+--
+-- 'volumeConfigurations', 'updateLayer_volumeConfigurations' - A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
+-- volumes.
+--
+-- 'customJson', 'updateLayer_customJson' - A JSON-formatted string containing custom stack configuration and
+-- deployment attributes to be installed on the layer\'s instances. For
+-- more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON>.
+--
+-- 'shortname', 'updateLayer_shortname' - For custom layers only, use this parameter to specify the layer\'s short
+-- name, which is used internally by AWS OpsWorks Stacks and by Chef. The
+-- short name is also used as the name for the directory where your app
+-- files are installed. It can have a maximum of 200 characters and must be
+-- in the following format: \/\\A[a-z0-9\\-\\_\\.]+\\Z\/.
+--
+-- The built-in layers\' short names are defined by AWS OpsWorks Stacks.
+-- For more information, see the
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
+--
+-- 'attributes', 'updateLayer_attributes' - One or more user-defined key\/value pairs to be added to the stack
+-- attributes.
+--
+-- 'name', 'updateLayer_name' - The layer name, which is used by the console.
+--
+-- 'cloudWatchLogsConfiguration', 'updateLayer_cloudWatchLogsConfiguration' - Specifies CloudWatch Logs configuration options for the layer. For more
+-- information, see CloudWatchLogsLogStream.
+--
+-- 'autoAssignElasticIps', 'updateLayer_autoAssignElasticIps' - Whether to automatically assign an
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address>
+-- to the layer\'s instances. For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
+--
+-- 'useEbsOptimizedInstances', 'updateLayer_useEbsOptimizedInstances' - Whether to use Amazon EBS-optimized instances.
+--
+-- 'customRecipes', 'updateLayer_customRecipes' - A @LayerCustomRecipes@ object that specifies the layer\'s custom
+-- recipes.
+--
+-- 'autoAssignPublicIps', 'updateLayer_autoAssignPublicIps' - For stacks that are running in a VPC, whether to automatically assign a
+-- public IP address to the layer\'s instances. For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
+--
+-- 'lifecycleEventConfiguration', 'updateLayer_lifecycleEventConfiguration' -
+--
+-- 'layerId', 'updateLayer_layerId' - The layer ID.
+newUpdateLayer ::
+  -- | 'layerId'
+  Prelude.Text ->
+  UpdateLayer
+newUpdateLayer pLayerId_ =
+  UpdateLayer'
+    { installUpdatesOnBoot =
+        Prelude.Nothing,
+      customInstanceProfileArn = Prelude.Nothing,
+      customSecurityGroupIds = Prelude.Nothing,
+      packages = Prelude.Nothing,
+      enableAutoHealing = Prelude.Nothing,
+      volumeConfigurations = Prelude.Nothing,
+      customJson = Prelude.Nothing,
+      shortname = Prelude.Nothing,
+      attributes = Prelude.Nothing,
+      name = Prelude.Nothing,
+      cloudWatchLogsConfiguration = Prelude.Nothing,
+      autoAssignElasticIps = Prelude.Nothing,
+      useEbsOptimizedInstances = Prelude.Nothing,
+      customRecipes = Prelude.Nothing,
+      autoAssignPublicIps = Prelude.Nothing,
+      lifecycleEventConfiguration = Prelude.Nothing,
+      layerId = pLayerId_
+    }
 
--- | For custom layers only, use this parameter to specify the layer's short name, which is used internally by AWS OpsWorks Stacks and by Chef. The short name is also used as the name for the directory where your app files are installed. It can have a maximum of 200 characters and must be in the following format: /\A[a-z0-9\-\_\.]+\Z/. The built-in layers' short names are defined by AWS OpsWorks Stacks. For more information, see the <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
-ulShortname :: Lens' UpdateLayer (Maybe Text)
-ulShortname = lens _ulShortname (\ s a -> s{_ulShortname = a})
+-- | Whether to install operating system and package updates when the
+-- instance boots. The default value is @true@. To control when updates are
+-- installed, set this value to @false@. You must then update your
+-- instances manually by using CreateDeployment to run the
+-- @update_dependencies@ stack command or manually running @yum@ (Amazon
+-- Linux) or @apt-get@ (Ubuntu) on the instances.
+--
+-- We strongly recommend using the default value of @true@, to ensure that
+-- your instances have the latest security updates.
+updateLayer_installUpdatesOnBoot :: Lens.Lens' UpdateLayer (Prelude.Maybe Prelude.Bool)
+updateLayer_installUpdatesOnBoot = Lens.lens (\UpdateLayer' {installUpdatesOnBoot} -> installUpdatesOnBoot) (\s@UpdateLayer' {} a -> s {installUpdatesOnBoot = a} :: UpdateLayer)
 
--- | A @LayerCustomRecipes@ object that specifies the layer's custom recipes.
-ulCustomRecipes :: Lens' UpdateLayer (Maybe Recipes)
-ulCustomRecipes = lens _ulCustomRecipes (\ s a -> s{_ulCustomRecipes = a})
+-- | The ARN of an IAM profile to be used for all of the layer\'s EC2
+-- instances. For more information about IAM ARNs, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
+updateLayer_customInstanceProfileArn :: Lens.Lens' UpdateLayer (Prelude.Maybe Prelude.Text)
+updateLayer_customInstanceProfileArn = Lens.lens (\UpdateLayer' {customInstanceProfileArn} -> customInstanceProfileArn) (\s@UpdateLayer' {} a -> s {customInstanceProfileArn = a} :: UpdateLayer)
 
--- | A JSON-formatted string containing custom stack configuration and deployment attributes to be installed on the layer's instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON> .
-ulCustomJSON :: Lens' UpdateLayer (Maybe Text)
-ulCustomJSON = lens _ulCustomJSON (\ s a -> s{_ulCustomJSON = a})
+-- | An array containing the layer\'s custom security group IDs.
+updateLayer_customSecurityGroupIds :: Lens.Lens' UpdateLayer (Prelude.Maybe [Prelude.Text])
+updateLayer_customSecurityGroupIds = Lens.lens (\UpdateLayer' {customSecurityGroupIds} -> customSecurityGroupIds) (\s@UpdateLayer' {} a -> s {customSecurityGroupIds = a} :: UpdateLayer) Prelude.. Lens.mapping Prelude._Coerce
 
--- | A @VolumeConfigurations@ object that describes the layer's Amazon EBS volumes.
-ulVolumeConfigurations :: Lens' UpdateLayer [VolumeConfiguration]
-ulVolumeConfigurations = lens _ulVolumeConfigurations (\ s a -> s{_ulVolumeConfigurations = a}) . _Default . _Coerce
+-- | An array of @Package@ objects that describe the layer\'s packages.
+updateLayer_packages :: Lens.Lens' UpdateLayer (Prelude.Maybe [Prelude.Text])
+updateLayer_packages = Lens.lens (\UpdateLayer' {packages} -> packages) (\s@UpdateLayer' {} a -> s {packages = a} :: UpdateLayer) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | Whether to disable auto healing for the layer.
-ulEnableAutoHealing :: Lens' UpdateLayer (Maybe Bool)
-ulEnableAutoHealing = lens _ulEnableAutoHealing (\ s a -> s{_ulEnableAutoHealing = a})
+updateLayer_enableAutoHealing :: Lens.Lens' UpdateLayer (Prelude.Maybe Prelude.Bool)
+updateLayer_enableAutoHealing = Lens.lens (\UpdateLayer' {enableAutoHealing} -> enableAutoHealing) (\s@UpdateLayer' {} a -> s {enableAutoHealing = a} :: UpdateLayer)
 
--- | An array of @Package@ objects that describe the layer's packages.
-ulPackages :: Lens' UpdateLayer [Text]
-ulPackages = lens _ulPackages (\ s a -> s{_ulPackages = a}) . _Default . _Coerce
+-- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
+-- volumes.
+updateLayer_volumeConfigurations :: Lens.Lens' UpdateLayer (Prelude.Maybe [VolumeConfiguration])
+updateLayer_volumeConfigurations = Lens.lens (\UpdateLayer' {volumeConfigurations} -> volumeConfigurations) (\s@UpdateLayer' {} a -> s {volumeConfigurations = a} :: UpdateLayer) Prelude.. Lens.mapping Prelude._Coerce
 
--- | One or more user-defined key/value pairs to be added to the stack attributes.
-ulAttributes :: Lens' UpdateLayer (HashMap LayerAttributesKeys (Maybe Text))
-ulAttributes = lens _ulAttributes (\ s a -> s{_ulAttributes = a}) . _Default . _Map
+-- | A JSON-formatted string containing custom stack configuration and
+-- deployment attributes to be installed on the layer\'s instances. For
+-- more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON>.
+updateLayer_customJson :: Lens.Lens' UpdateLayer (Prelude.Maybe Prelude.Text)
+updateLayer_customJson = Lens.lens (\UpdateLayer' {customJson} -> customJson) (\s@UpdateLayer' {} a -> s {customJson = a} :: UpdateLayer)
+
+-- | For custom layers only, use this parameter to specify the layer\'s short
+-- name, which is used internally by AWS OpsWorks Stacks and by Chef. The
+-- short name is also used as the name for the directory where your app
+-- files are installed. It can have a maximum of 200 characters and must be
+-- in the following format: \/\\A[a-z0-9\\-\\_\\.]+\\Z\/.
+--
+-- The built-in layers\' short names are defined by AWS OpsWorks Stacks.
+-- For more information, see the
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
+updateLayer_shortname :: Lens.Lens' UpdateLayer (Prelude.Maybe Prelude.Text)
+updateLayer_shortname = Lens.lens (\UpdateLayer' {shortname} -> shortname) (\s@UpdateLayer' {} a -> s {shortname = a} :: UpdateLayer)
+
+-- | One or more user-defined key\/value pairs to be added to the stack
+-- attributes.
+updateLayer_attributes :: Lens.Lens' UpdateLayer (Prelude.Maybe (Prelude.HashMap LayerAttributesKeys (Prelude.Maybe Prelude.Text)))
+updateLayer_attributes = Lens.lens (\UpdateLayer' {attributes} -> attributes) (\s@UpdateLayer' {} a -> s {attributes = a} :: UpdateLayer) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | The layer name, which is used by the console.
-ulName :: Lens' UpdateLayer (Maybe Text)
-ulName = lens _ulName (\ s a -> s{_ulName = a})
+updateLayer_name :: Lens.Lens' UpdateLayer (Prelude.Maybe Prelude.Text)
+updateLayer_name = Lens.lens (\UpdateLayer' {name} -> name) (\s@UpdateLayer' {} a -> s {name = a} :: UpdateLayer)
 
--- | For stacks that are running in a VPC, whether to automatically assign a public IP address to the layer's instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
-ulAutoAssignPublicIPs :: Lens' UpdateLayer (Maybe Bool)
-ulAutoAssignPublicIPs = lens _ulAutoAssignPublicIPs (\ s a -> s{_ulAutoAssignPublicIPs = a})
+-- | Specifies CloudWatch Logs configuration options for the layer. For more
+-- information, see CloudWatchLogsLogStream.
+updateLayer_cloudWatchLogsConfiguration :: Lens.Lens' UpdateLayer (Prelude.Maybe CloudWatchLogsConfiguration)
+updateLayer_cloudWatchLogsConfiguration = Lens.lens (\UpdateLayer' {cloudWatchLogsConfiguration} -> cloudWatchLogsConfiguration) (\s@UpdateLayer' {} a -> s {cloudWatchLogsConfiguration = a} :: UpdateLayer)
+
+-- | Whether to automatically assign an
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address>
+-- to the layer\'s instances. For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
+updateLayer_autoAssignElasticIps :: Lens.Lens' UpdateLayer (Prelude.Maybe Prelude.Bool)
+updateLayer_autoAssignElasticIps = Lens.lens (\UpdateLayer' {autoAssignElasticIps} -> autoAssignElasticIps) (\s@UpdateLayer' {} a -> s {autoAssignElasticIps = a} :: UpdateLayer)
 
 -- | Whether to use Amazon EBS-optimized instances.
-ulUseEBSOptimizedInstances :: Lens' UpdateLayer (Maybe Bool)
-ulUseEBSOptimizedInstances = lens _ulUseEBSOptimizedInstances (\ s a -> s{_ulUseEBSOptimizedInstances = a})
+updateLayer_useEbsOptimizedInstances :: Lens.Lens' UpdateLayer (Prelude.Maybe Prelude.Bool)
+updateLayer_useEbsOptimizedInstances = Lens.lens (\UpdateLayer' {useEbsOptimizedInstances} -> useEbsOptimizedInstances) (\s@UpdateLayer' {} a -> s {useEbsOptimizedInstances = a} :: UpdateLayer)
 
--- | Whether to automatically assign an <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address> to the layer's instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer> .
-ulAutoAssignElasticIPs :: Lens' UpdateLayer (Maybe Bool)
-ulAutoAssignElasticIPs = lens _ulAutoAssignElasticIPs (\ s a -> s{_ulAutoAssignElasticIPs = a})
+-- | A @LayerCustomRecipes@ object that specifies the layer\'s custom
+-- recipes.
+updateLayer_customRecipes :: Lens.Lens' UpdateLayer (Prelude.Maybe Recipes)
+updateLayer_customRecipes = Lens.lens (\UpdateLayer' {customRecipes} -> customRecipes) (\s@UpdateLayer' {} a -> s {customRecipes = a} :: UpdateLayer)
+
+-- | For stacks that are running in a VPC, whether to automatically assign a
+-- public IP address to the layer\'s instances. For more information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer>.
+updateLayer_autoAssignPublicIps :: Lens.Lens' UpdateLayer (Prelude.Maybe Prelude.Bool)
+updateLayer_autoAssignPublicIps = Lens.lens (\UpdateLayer' {autoAssignPublicIps} -> autoAssignPublicIps) (\s@UpdateLayer' {} a -> s {autoAssignPublicIps = a} :: UpdateLayer)
+
+-- |
+updateLayer_lifecycleEventConfiguration :: Lens.Lens' UpdateLayer (Prelude.Maybe LifecycleEventConfiguration)
+updateLayer_lifecycleEventConfiguration = Lens.lens (\UpdateLayer' {lifecycleEventConfiguration} -> lifecycleEventConfiguration) (\s@UpdateLayer' {} a -> s {lifecycleEventConfiguration = a} :: UpdateLayer)
 
 -- | The layer ID.
-ulLayerId :: Lens' UpdateLayer Text
-ulLayerId = lens _ulLayerId (\ s a -> s{_ulLayerId = a})
+updateLayer_layerId :: Lens.Lens' UpdateLayer Prelude.Text
+updateLayer_layerId = Lens.lens (\UpdateLayer' {layerId} -> layerId) (\s@UpdateLayer' {} a -> s {layerId = a} :: UpdateLayer)
 
-instance AWSRequest UpdateLayer where
-        type Rs UpdateLayer = UpdateLayerResponse
-        request = postJSON opsWorks
-        response = receiveNull UpdateLayerResponse'
+instance Prelude.AWSRequest UpdateLayer where
+  type Rs UpdateLayer = UpdateLayerResponse
+  request = Request.postJSON defaultService
+  response = Response.receiveNull UpdateLayerResponse'
 
-instance Hashable UpdateLayer where
+instance Prelude.Hashable UpdateLayer
 
-instance NFData UpdateLayer where
+instance Prelude.NFData UpdateLayer
 
-instance ToHeaders UpdateLayer where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.UpdateLayer" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders UpdateLayer where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "OpsWorks_20130218.UpdateLayer" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON UpdateLayer where
-        toJSON UpdateLayer'{..}
-          = object
-              (catMaybes
-                 [("CustomInstanceProfileArn" .=) <$>
-                    _ulCustomInstanceProfileARN,
-                  ("CustomSecurityGroupIds" .=) <$>
-                    _ulCustomSecurityGroupIds,
-                  ("InstallUpdatesOnBoot" .=) <$>
-                    _ulInstallUpdatesOnBoot,
-                  ("CloudWatchLogsConfiguration" .=) <$>
-                    _ulCloudWatchLogsConfiguration,
-                  ("LifecycleEventConfiguration" .=) <$>
-                    _ulLifecycleEventConfiguration,
-                  ("Shortname" .=) <$> _ulShortname,
-                  ("CustomRecipes" .=) <$> _ulCustomRecipes,
-                  ("CustomJson" .=) <$> _ulCustomJSON,
-                  ("VolumeConfigurations" .=) <$>
-                    _ulVolumeConfigurations,
-                  ("EnableAutoHealing" .=) <$> _ulEnableAutoHealing,
-                  ("Packages" .=) <$> _ulPackages,
-                  ("Attributes" .=) <$> _ulAttributes,
-                  ("Name" .=) <$> _ulName,
-                  ("AutoAssignPublicIps" .=) <$>
-                    _ulAutoAssignPublicIPs,
-                  ("UseEbsOptimizedInstances" .=) <$>
-                    _ulUseEBSOptimizedInstances,
-                  ("AutoAssignElasticIps" .=) <$>
-                    _ulAutoAssignElasticIPs,
-                  Just ("LayerId" .= _ulLayerId)])
+instance Prelude.ToJSON UpdateLayer where
+  toJSON UpdateLayer' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("InstallUpdatesOnBoot" Prelude..=)
+              Prelude.<$> installUpdatesOnBoot,
+            ("CustomInstanceProfileArn" Prelude..=)
+              Prelude.<$> customInstanceProfileArn,
+            ("CustomSecurityGroupIds" Prelude..=)
+              Prelude.<$> customSecurityGroupIds,
+            ("Packages" Prelude..=) Prelude.<$> packages,
+            ("EnableAutoHealing" Prelude..=)
+              Prelude.<$> enableAutoHealing,
+            ("VolumeConfigurations" Prelude..=)
+              Prelude.<$> volumeConfigurations,
+            ("CustomJson" Prelude..=) Prelude.<$> customJson,
+            ("Shortname" Prelude..=) Prelude.<$> shortname,
+            ("Attributes" Prelude..=) Prelude.<$> attributes,
+            ("Name" Prelude..=) Prelude.<$> name,
+            ("CloudWatchLogsConfiguration" Prelude..=)
+              Prelude.<$> cloudWatchLogsConfiguration,
+            ("AutoAssignElasticIps" Prelude..=)
+              Prelude.<$> autoAssignElasticIps,
+            ("UseEbsOptimizedInstances" Prelude..=)
+              Prelude.<$> useEbsOptimizedInstances,
+            ("CustomRecipes" Prelude..=)
+              Prelude.<$> customRecipes,
+            ("AutoAssignPublicIps" Prelude..=)
+              Prelude.<$> autoAssignPublicIps,
+            ("LifecycleEventConfiguration" Prelude..=)
+              Prelude.<$> lifecycleEventConfiguration,
+            Prelude.Just ("LayerId" Prelude..= layerId)
+          ]
+      )
 
-instance ToPath UpdateLayer where
-        toPath = const "/"
+instance Prelude.ToPath UpdateLayer where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateLayer where
-        toQuery = const mempty
+instance Prelude.ToQuery UpdateLayer where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateLayerResponse' smart constructor.
-data UpdateLayerResponse =
-  UpdateLayerResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUpdateLayerResponse' smart constructor.
+data UpdateLayerResponse = UpdateLayerResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateLayerResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateLayerResponse' with all optional fields omitted.
 --
-updateLayerResponse
-    :: UpdateLayerResponse
-updateLayerResponse = UpdateLayerResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newUpdateLayerResponse ::
+  UpdateLayerResponse
+newUpdateLayerResponse = UpdateLayerResponse'
 
-
-instance NFData UpdateLayerResponse where
+instance Prelude.NFData UpdateLayerResponse

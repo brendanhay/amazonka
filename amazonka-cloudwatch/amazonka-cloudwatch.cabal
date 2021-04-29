@@ -1,101 +1,148 @@
-name:                  amazonka-cloudwatch
-version:               1.6.1
-synopsis:              Amazon CloudWatch SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-cloudwatch
+version:            1.6.1
+synopsis:           Amazon CloudWatch SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.CloudWatch" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.CloudWatch.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.CloudWatch" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-cloudwatch
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-cloudwatch
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.CloudWatch
+    Network.AWS.CloudWatch.DeleteAlarms
+    Network.AWS.CloudWatch.DeleteAnomalyDetector
+    Network.AWS.CloudWatch.DeleteDashboards
+    Network.AWS.CloudWatch.DeleteInsightRules
+    Network.AWS.CloudWatch.DescribeAlarmHistory
+    Network.AWS.CloudWatch.DescribeAlarms
+    Network.AWS.CloudWatch.DescribeAlarmsForMetric
+    Network.AWS.CloudWatch.DescribeAnomalyDetectors
+    Network.AWS.CloudWatch.DescribeInsightRules
+    Network.AWS.CloudWatch.DisableAlarmActions
+    Network.AWS.CloudWatch.DisableInsightRules
+    Network.AWS.CloudWatch.EnableAlarmActions
+    Network.AWS.CloudWatch.EnableInsightRules
+    Network.AWS.CloudWatch.GetDashboard
+    Network.AWS.CloudWatch.GetInsightRuleReport
+    Network.AWS.CloudWatch.GetMetricData
+    Network.AWS.CloudWatch.GetMetricStatistics
+    Network.AWS.CloudWatch.GetMetricWidgetImage
+    Network.AWS.CloudWatch.Lens
+    Network.AWS.CloudWatch.ListDashboards
+    Network.AWS.CloudWatch.ListMetrics
+    Network.AWS.CloudWatch.ListTagsForResource
+    Network.AWS.CloudWatch.PutAnomalyDetector
+    Network.AWS.CloudWatch.PutCompositeAlarm
+    Network.AWS.CloudWatch.PutDashboard
+    Network.AWS.CloudWatch.PutInsightRule
+    Network.AWS.CloudWatch.PutMetricAlarm
+    Network.AWS.CloudWatch.PutMetricData
+    Network.AWS.CloudWatch.SetAlarmState
+    Network.AWS.CloudWatch.TagResource
+    Network.AWS.CloudWatch.Types
+    Network.AWS.CloudWatch.Types.AlarmHistoryItem
+    Network.AWS.CloudWatch.Types.AlarmType
+    Network.AWS.CloudWatch.Types.AnomalyDetector
+    Network.AWS.CloudWatch.Types.AnomalyDetectorConfiguration
+    Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue
+    Network.AWS.CloudWatch.Types.ComparisonOperator
+    Network.AWS.CloudWatch.Types.CompositeAlarm
+    Network.AWS.CloudWatch.Types.DashboardEntry
+    Network.AWS.CloudWatch.Types.DashboardValidationMessage
+    Network.AWS.CloudWatch.Types.Datapoint
+    Network.AWS.CloudWatch.Types.Dimension
+    Network.AWS.CloudWatch.Types.DimensionFilter
+    Network.AWS.CloudWatch.Types.HistoryItemType
+    Network.AWS.CloudWatch.Types.InsightRule
+    Network.AWS.CloudWatch.Types.InsightRuleContributor
+    Network.AWS.CloudWatch.Types.InsightRuleContributorDatapoint
+    Network.AWS.CloudWatch.Types.InsightRuleMetricDatapoint
+    Network.AWS.CloudWatch.Types.LabelOptions
+    Network.AWS.CloudWatch.Types.MessageData
+    Network.AWS.CloudWatch.Types.Metric
+    Network.AWS.CloudWatch.Types.MetricAlarm
+    Network.AWS.CloudWatch.Types.MetricDataQuery
+    Network.AWS.CloudWatch.Types.MetricDataResult
+    Network.AWS.CloudWatch.Types.MetricDatum
+    Network.AWS.CloudWatch.Types.MetricStat
+    Network.AWS.CloudWatch.Types.PartialFailure
+    Network.AWS.CloudWatch.Types.Range
+    Network.AWS.CloudWatch.Types.RecentlyActive
+    Network.AWS.CloudWatch.Types.ScanBy
+    Network.AWS.CloudWatch.Types.StandardUnit
+    Network.AWS.CloudWatch.Types.StateValue
+    Network.AWS.CloudWatch.Types.Statistic
+    Network.AWS.CloudWatch.Types.StatisticSet
+    Network.AWS.CloudWatch.Types.StatusCode
+    Network.AWS.CloudWatch.Types.Tag
+    Network.AWS.CloudWatch.UntagResource
+    Network.AWS.CloudWatch.Waiters
 
-    exposed-modules:
-          Network.AWS.CloudWatch
-        , Network.AWS.CloudWatch.DeleteAlarms
-        , Network.AWS.CloudWatch.DeleteDashboards
-        , Network.AWS.CloudWatch.DescribeAlarmHistory
-        , Network.AWS.CloudWatch.DescribeAlarms
-        , Network.AWS.CloudWatch.DescribeAlarmsForMetric
-        , Network.AWS.CloudWatch.DisableAlarmActions
-        , Network.AWS.CloudWatch.EnableAlarmActions
-        , Network.AWS.CloudWatch.GetDashboard
-        , Network.AWS.CloudWatch.GetMetricData
-        , Network.AWS.CloudWatch.GetMetricStatistics
-        , Network.AWS.CloudWatch.ListDashboards
-        , Network.AWS.CloudWatch.ListMetrics
-        , Network.AWS.CloudWatch.PutDashboard
-        , Network.AWS.CloudWatch.PutMetricAlarm
-        , Network.AWS.CloudWatch.PutMetricData
-        , Network.AWS.CloudWatch.SetAlarmState
-        , Network.AWS.CloudWatch.Types
-        , Network.AWS.CloudWatch.Waiters
-
-    other-modules:
-          Network.AWS.CloudWatch.Types.Product
-        , Network.AWS.CloudWatch.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS.Prelude
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.13  && <5
 
 test-suite amazonka-cloudwatch-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.CloudWatch
+    Test.AWS.CloudWatch.Internal
+    Test.AWS.Gen.CloudWatch
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.CloudWatch
-        , Test.AWS.Gen.CloudWatch
-        , Test.AWS.CloudWatch.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-cloudwatch
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-cloudwatch
+    , amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

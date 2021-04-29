@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudHSMv2.ListTags
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,160 +23,213 @@
 --
 -- Gets a list of tags for the specified AWS CloudHSM cluster.
 --
---
--- This is a paginated operation, which means that each response might contain only a subset of all the tags. When the response contains only a subset of tags, it includes a @NextToken@ value. Use this value in a subsequent @ListTags@ request to get more tags. When you receive a response with no @NextToken@ (or an empty or null value), that means there are no more tags to get.
---
+-- This is a paginated operation, which means that each response might
+-- contain only a subset of all the tags. When the response contains only a
+-- subset of tags, it includes a @NextToken@ value. Use this value in a
+-- subsequent @ListTags@ request to get more tags. When you receive a
+-- response with no @NextToken@ (or an empty or null value), that means
+-- there are no more tags to get.
 --
 -- This operation returns paginated results.
 module Network.AWS.CloudHSMv2.ListTags
-    (
-    -- * Creating a Request
-      listTags
-    , ListTags
+  ( -- * Creating a Request
+    ListTags (..),
+    newListTags,
+
     -- * Request Lenses
-    , ltNextToken
-    , ltMaxResults
-    , ltResourceId
+    listTags_nextToken,
+    listTags_maxResults,
+    listTags_resourceId,
 
     -- * Destructuring the Response
-    , listTagsResponse
-    , ListTagsResponse
+    ListTagsResponse (..),
+    newListTagsResponse,
+
     -- * Response Lenses
-    , ltrsNextToken
-    , ltrsResponseStatus
-    , ltrsTagList
-    ) where
+    listTagsResponse_nextToken,
+    listTagsResponse_httpStatus,
+    listTagsResponse_tagList,
+  )
+where
 
 import Network.AWS.CloudHSMv2.Types
-import Network.AWS.CloudHSMv2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listTags' smart constructor.
+-- | /See:/ 'newListTags' smart constructor.
 data ListTags = ListTags'
-  { _ltNextToken  :: !(Maybe Text)
-  , _ltMaxResults :: !(Maybe Nat)
-  , _ltResourceId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @NextToken@ value that you received in the previous response. Use
+    -- this value to get more tags.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of tags to return in the response. When there are
+    -- more tags than the number you specify, the response contains a
+    -- @NextToken@ value.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The cluster identifier (ID) for the cluster whose tags you are getting.
+    -- To find the cluster ID, use DescribeClusters.
+    resourceId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListTags' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListTags' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ltNextToken' - The @NextToken@ value that you received in the previous response. Use this value to get more tags.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ltMaxResults' - The maximum number of tags to return in the response. When there are more tags than the number you specify, the response contains a @NextToken@ value.
+-- 'nextToken', 'listTags_nextToken' - The @NextToken@ value that you received in the previous response. Use
+-- this value to get more tags.
 --
--- * 'ltResourceId' - The cluster identifier (ID) for the cluster whose tags you are getting. To find the cluster ID, use 'DescribeClusters' .
-listTags
-    :: Text -- ^ 'ltResourceId'
-    -> ListTags
-listTags pResourceId_ =
+-- 'maxResults', 'listTags_maxResults' - The maximum number of tags to return in the response. When there are
+-- more tags than the number you specify, the response contains a
+-- @NextToken@ value.
+--
+-- 'resourceId', 'listTags_resourceId' - The cluster identifier (ID) for the cluster whose tags you are getting.
+-- To find the cluster ID, use DescribeClusters.
+newListTags ::
+  -- | 'resourceId'
+  Prelude.Text ->
+  ListTags
+newListTags pResourceId_ =
   ListTags'
-    { _ltNextToken = Nothing
-    , _ltMaxResults = Nothing
-    , _ltResourceId = pResourceId_
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      resourceId = pResourceId_
     }
 
+-- | The @NextToken@ value that you received in the previous response. Use
+-- this value to get more tags.
+listTags_nextToken :: Lens.Lens' ListTags (Prelude.Maybe Prelude.Text)
+listTags_nextToken = Lens.lens (\ListTags' {nextToken} -> nextToken) (\s@ListTags' {} a -> s {nextToken = a} :: ListTags)
 
--- | The @NextToken@ value that you received in the previous response. Use this value to get more tags.
-ltNextToken :: Lens' ListTags (Maybe Text)
-ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a})
+-- | The maximum number of tags to return in the response. When there are
+-- more tags than the number you specify, the response contains a
+-- @NextToken@ value.
+listTags_maxResults :: Lens.Lens' ListTags (Prelude.Maybe Prelude.Natural)
+listTags_maxResults = Lens.lens (\ListTags' {maxResults} -> maxResults) (\s@ListTags' {} a -> s {maxResults = a} :: ListTags)
 
--- | The maximum number of tags to return in the response. When there are more tags than the number you specify, the response contains a @NextToken@ value.
-ltMaxResults :: Lens' ListTags (Maybe Natural)
-ltMaxResults = lens _ltMaxResults (\ s a -> s{_ltMaxResults = a}) . mapping _Nat
+-- | The cluster identifier (ID) for the cluster whose tags you are getting.
+-- To find the cluster ID, use DescribeClusters.
+listTags_resourceId :: Lens.Lens' ListTags Prelude.Text
+listTags_resourceId = Lens.lens (\ListTags' {resourceId} -> resourceId) (\s@ListTags' {} a -> s {resourceId = a} :: ListTags)
 
--- | The cluster identifier (ID) for the cluster whose tags you are getting. To find the cluster ID, use 'DescribeClusters' .
-ltResourceId :: Lens' ListTags Text
-ltResourceId = lens _ltResourceId (\ s a -> s{_ltResourceId = a})
+instance Pager.AWSPager ListTags where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listTagsResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop (rs Lens.^. listTagsResponse_tagList) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listTags_nextToken
+          Lens..~ rs
+          Lens.^? listTagsResponse_nextToken Prelude.. Lens._Just
 
-instance AWSPager ListTags where
-        page rq rs
-          | stop (rs ^. ltrsNextToken) = Nothing
-          | stop (rs ^. ltrsTagList) = Nothing
-          | otherwise =
-            Just $ rq & ltNextToken .~ rs ^. ltrsNextToken
+instance Prelude.AWSRequest ListTags where
+  type Rs ListTags = ListTagsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListTagsResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Prelude..?> "TagList" Prelude..!@ Prelude.mempty)
+      )
 
-instance AWSRequest ListTags where
-        type Rs ListTags = ListTagsResponse
-        request = postJSON cloudHSMv2
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListTagsResponse' <$>
-                   (x .?> "NextToken") <*> (pure (fromEnum s)) <*>
-                     (x .?> "TagList" .!@ mempty))
+instance Prelude.Hashable ListTags
 
-instance Hashable ListTags where
+instance Prelude.NFData ListTags
 
-instance NFData ListTags where
+instance Prelude.ToHeaders ListTags where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ("BaldrApiService.ListTags" :: Prelude.ByteString),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders ListTags where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("BaldrApiService.ListTags" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToJSON ListTags where
+  toJSON ListTags' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
+            Prelude.Just ("ResourceId" Prelude..= resourceId)
+          ]
+      )
 
-instance ToJSON ListTags where
-        toJSON ListTags'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _ltNextToken,
-                  ("MaxResults" .=) <$> _ltMaxResults,
-                  Just ("ResourceId" .= _ltResourceId)])
+instance Prelude.ToPath ListTags where
+  toPath = Prelude.const "/"
 
-instance ToPath ListTags where
-        toPath = const "/"
+instance Prelude.ToQuery ListTags where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery ListTags where
-        toQuery = const mempty
-
--- | /See:/ 'listTagsResponse' smart constructor.
+-- | /See:/ 'newListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
-  { _ltrsNextToken      :: !(Maybe Text)
-  , _ltrsResponseStatus :: !Int
-  , _ltrsTagList        :: ![Tag]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An opaque string that indicates that the response contains only a subset
+    -- of tags. Use this value in a subsequent @ListTags@ request to get more
+    -- tags.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A list of tags.
+    tagList :: [Tag]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListTagsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListTagsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ltrsNextToken' - An opaque string that indicates that the response contains only a subset of tags. Use this value in a subsequent @ListTags@ request to get more tags.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ltrsResponseStatus' - -- | The response status code.
+-- 'nextToken', 'listTagsResponse_nextToken' - An opaque string that indicates that the response contains only a subset
+-- of tags. Use this value in a subsequent @ListTags@ request to get more
+-- tags.
 --
--- * 'ltrsTagList' - A list of tags.
-listTagsResponse
-    :: Int -- ^ 'ltrsResponseStatus'
-    -> ListTagsResponse
-listTagsResponse pResponseStatus_ =
+-- 'httpStatus', 'listTagsResponse_httpStatus' - The response's http status code.
+--
+-- 'tagList', 'listTagsResponse_tagList' - A list of tags.
+newListTagsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListTagsResponse
+newListTagsResponse pHttpStatus_ =
   ListTagsResponse'
-    { _ltrsNextToken = Nothing
-    , _ltrsResponseStatus = pResponseStatus_
-    , _ltrsTagList = mempty
+    { nextToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_,
+      tagList = Prelude.mempty
     }
 
+-- | An opaque string that indicates that the response contains only a subset
+-- of tags. Use this value in a subsequent @ListTags@ request to get more
+-- tags.
+listTagsResponse_nextToken :: Lens.Lens' ListTagsResponse (Prelude.Maybe Prelude.Text)
+listTagsResponse_nextToken = Lens.lens (\ListTagsResponse' {nextToken} -> nextToken) (\s@ListTagsResponse' {} a -> s {nextToken = a} :: ListTagsResponse)
 
--- | An opaque string that indicates that the response contains only a subset of tags. Use this value in a subsequent @ListTags@ request to get more tags.
-ltrsNextToken :: Lens' ListTagsResponse (Maybe Text)
-ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a})
-
--- | -- | The response status code.
-ltrsResponseStatus :: Lens' ListTagsResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a})
+-- | The response's http status code.
+listTagsResponse_httpStatus :: Lens.Lens' ListTagsResponse Prelude.Int
+listTagsResponse_httpStatus = Lens.lens (\ListTagsResponse' {httpStatus} -> httpStatus) (\s@ListTagsResponse' {} a -> s {httpStatus = a} :: ListTagsResponse)
 
 -- | A list of tags.
-ltrsTagList :: Lens' ListTagsResponse [Tag]
-ltrsTagList = lens _ltrsTagList (\ s a -> s{_ltrsTagList = a}) . _Coerce
+listTagsResponse_tagList :: Lens.Lens' ListTagsResponse [Tag]
+listTagsResponse_tagList = Lens.lens (\ListTagsResponse' {tagList} -> tagList) (\s@ListTagsResponse' {} a -> s {tagList = a} :: ListTagsResponse) Prelude.. Prelude._Coerce
 
-instance NFData ListTagsResponse where
+instance Prelude.NFData ListTagsResponse

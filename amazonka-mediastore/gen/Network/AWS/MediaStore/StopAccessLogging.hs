@@ -14,30 +14,31 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.MediaStore.DeleteContainer
+-- Module      : Network.AWS.MediaStore.StopAccessLogging
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified container. Before you make a @DeleteContainer@
--- request, delete any objects in the container or in any folders in the
--- container. You can delete only empty containers.
-module Network.AWS.MediaStore.DeleteContainer
+-- Stops access logging on the specified container. When you stop access
+-- logging on a container, MediaStore stops sending access logs to Amazon
+-- CloudWatch Logs. These access logs are not saved and are not
+-- retrievable.
+module Network.AWS.MediaStore.StopAccessLogging
   ( -- * Creating a Request
-    DeleteContainer (..),
-    newDeleteContainer,
+    StopAccessLogging (..),
+    newStopAccessLogging,
 
     -- * Request Lenses
-    deleteContainer_containerName,
+    stopAccessLogging_containerName,
 
     -- * Destructuring the Response
-    DeleteContainerResponse (..),
-    newDeleteContainerResponse,
+    StopAccessLoggingResponse (..),
+    newStopAccessLoggingResponse,
 
     -- * Response Lenses
-    deleteContainerResponse_httpStatus,
+    stopAccessLoggingResponse_httpStatus,
   )
 where
 
@@ -47,53 +48,53 @@ import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- | /See:/ 'newDeleteContainer' smart constructor.
-data DeleteContainer = DeleteContainer'
-  { -- | The name of the container to delete.
+-- | /See:/ 'newStopAccessLogging' smart constructor.
+data StopAccessLogging = StopAccessLogging'
+  { -- | The name of the container that you want to stop access logging on.
     containerName :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
--- Create a value of 'DeleteContainer' with all optional fields omitted.
+-- Create a value of 'StopAccessLogging' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'containerName', 'deleteContainer_containerName' - The name of the container to delete.
-newDeleteContainer ::
+-- 'containerName', 'stopAccessLogging_containerName' - The name of the container that you want to stop access logging on.
+newStopAccessLogging ::
   -- | 'containerName'
   Prelude.Text ->
-  DeleteContainer
-newDeleteContainer pContainerName_ =
-  DeleteContainer' {containerName = pContainerName_}
+  StopAccessLogging
+newStopAccessLogging pContainerName_ =
+  StopAccessLogging' {containerName = pContainerName_}
 
--- | The name of the container to delete.
-deleteContainer_containerName :: Lens.Lens' DeleteContainer Prelude.Text
-deleteContainer_containerName = Lens.lens (\DeleteContainer' {containerName} -> containerName) (\s@DeleteContainer' {} a -> s {containerName = a} :: DeleteContainer)
+-- | The name of the container that you want to stop access logging on.
+stopAccessLogging_containerName :: Lens.Lens' StopAccessLogging Prelude.Text
+stopAccessLogging_containerName = Lens.lens (\StopAccessLogging' {containerName} -> containerName) (\s@StopAccessLogging' {} a -> s {containerName = a} :: StopAccessLogging)
 
-instance Prelude.AWSRequest DeleteContainer where
-  type Rs DeleteContainer = DeleteContainerResponse
+instance Prelude.AWSRequest StopAccessLogging where
+  type Rs StopAccessLogging = StopAccessLoggingResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
-          DeleteContainerResponse'
+          StopAccessLoggingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable DeleteContainer
+instance Prelude.Hashable StopAccessLogging
 
-instance Prelude.NFData DeleteContainer
+instance Prelude.NFData StopAccessLogging
 
-instance Prelude.ToHeaders DeleteContainer where
+instance Prelude.ToHeaders StopAccessLogging where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "MediaStore_20170901.DeleteContainer" ::
+              Prelude.=# ( "MediaStore_20170901.StopAccessLogging" ::
                              Prelude.ByteString
                          ),
             "Content-Type"
@@ -103,8 +104,8 @@ instance Prelude.ToHeaders DeleteContainer where
           ]
       )
 
-instance Prelude.ToJSON DeleteContainer where
-  toJSON DeleteContainer' {..} =
+instance Prelude.ToJSON StopAccessLogging where
+  toJSON StopAccessLogging' {..} =
     Prelude.object
       ( Prelude.catMaybes
           [ Prelude.Just
@@ -112,37 +113,40 @@ instance Prelude.ToJSON DeleteContainer where
           ]
       )
 
-instance Prelude.ToPath DeleteContainer where
+instance Prelude.ToPath StopAccessLogging where
   toPath = Prelude.const "/"
 
-instance Prelude.ToQuery DeleteContainer where
+instance Prelude.ToQuery StopAccessLogging where
   toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'newDeleteContainerResponse' smart constructor.
-data DeleteContainerResponse = DeleteContainerResponse'
+-- | /See:/ 'newStopAccessLoggingResponse' smart constructor.
+data StopAccessLoggingResponse = StopAccessLoggingResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
--- Create a value of 'DeleteContainerResponse' with all optional fields omitted.
+-- Create a value of 'StopAccessLoggingResponse' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'httpStatus', 'deleteContainerResponse_httpStatus' - The response's http status code.
-newDeleteContainerResponse ::
+-- 'httpStatus', 'stopAccessLoggingResponse_httpStatus' - The response's http status code.
+newStopAccessLoggingResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  DeleteContainerResponse
-newDeleteContainerResponse pHttpStatus_ =
-  DeleteContainerResponse' {httpStatus = pHttpStatus_}
+  StopAccessLoggingResponse
+newStopAccessLoggingResponse pHttpStatus_ =
+  StopAccessLoggingResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
 -- | The response's http status code.
-deleteContainerResponse_httpStatus :: Lens.Lens' DeleteContainerResponse Prelude.Int
-deleteContainerResponse_httpStatus = Lens.lens (\DeleteContainerResponse' {httpStatus} -> httpStatus) (\s@DeleteContainerResponse' {} a -> s {httpStatus = a} :: DeleteContainerResponse)
+stopAccessLoggingResponse_httpStatus :: Lens.Lens' StopAccessLoggingResponse Prelude.Int
+stopAccessLoggingResponse_httpStatus = Lens.lens (\StopAccessLoggingResponse' {httpStatus} -> httpStatus) (\s@StopAccessLoggingResponse' {} a -> s {httpStatus = a} :: StopAccessLoggingResponse)
 
-instance Prelude.NFData DeleteContainerResponse
+instance Prelude.NFData StopAccessLoggingResponse

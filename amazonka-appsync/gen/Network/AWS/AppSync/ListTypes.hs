@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AppSync.ListTypes
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,152 +23,207 @@
 --
 -- Lists the types for a given API.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.AppSync.ListTypes
-    (
-    -- * Creating a Request
-      listTypes
-    , ListTypes
+  ( -- * Creating a Request
+    ListTypes (..),
+    newListTypes,
+
     -- * Request Lenses
-    , ltNextToken
-    , ltMaxResults
-    , ltApiId
-    , ltFormat
+    listTypes_nextToken,
+    listTypes_maxResults,
+    listTypes_apiId,
+    listTypes_format,
 
     -- * Destructuring the Response
-    , listTypesResponse
-    , ListTypesResponse
+    ListTypesResponse (..),
+    newListTypesResponse,
+
     -- * Response Lenses
-    , ltrsTypes
-    , ltrsNextToken
-    , ltrsResponseStatus
-    ) where
+    listTypesResponse_nextToken,
+    listTypesResponse_types,
+    listTypesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.AppSync.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listTypes' smart constructor.
+-- | /See:/ 'newListTypes' smart constructor.
 data ListTypes = ListTypes'
-  { _ltNextToken  :: !(Maybe Text)
-  , _ltMaxResults :: !(Maybe Nat)
-  , _ltApiId      :: !Text
-  , _ltFormat     :: !TypeDefinitionFormat
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An identifier that was returned from the previous call to this
+    -- operation, which can be used to return the next set of items in the
+    -- list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results you want the request to return.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The API ID.
+    apiId :: Prelude.Text,
+    -- | The type format: SDL or JSON.
+    format :: TypeDefinitionFormat
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListTypes' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListTypes' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ltNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ltMaxResults' - The maximum number of results you want the request to return.
+-- 'nextToken', 'listTypes_nextToken' - An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
 --
--- * 'ltApiId' - The API ID.
+-- 'maxResults', 'listTypes_maxResults' - The maximum number of results you want the request to return.
 --
--- * 'ltFormat' - The type format: SDL or JSON.
-listTypes
-    :: Text -- ^ 'ltApiId'
-    -> TypeDefinitionFormat -- ^ 'ltFormat'
-    -> ListTypes
-listTypes pApiId_ pFormat_ =
+-- 'apiId', 'listTypes_apiId' - The API ID.
+--
+-- 'format', 'listTypes_format' - The type format: SDL or JSON.
+newListTypes ::
+  -- | 'apiId'
+  Prelude.Text ->
+  -- | 'format'
+  TypeDefinitionFormat ->
+  ListTypes
+newListTypes pApiId_ pFormat_ =
   ListTypes'
-    { _ltNextToken = Nothing
-    , _ltMaxResults = Nothing
-    , _ltApiId = pApiId_
-    , _ltFormat = pFormat_
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      apiId = pApiId_,
+      format = pFormat_
     }
 
-
--- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-ltNextToken :: Lens' ListTypes (Maybe Text)
-ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a})
+-- | An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+listTypes_nextToken :: Lens.Lens' ListTypes (Prelude.Maybe Prelude.Text)
+listTypes_nextToken = Lens.lens (\ListTypes' {nextToken} -> nextToken) (\s@ListTypes' {} a -> s {nextToken = a} :: ListTypes)
 
 -- | The maximum number of results you want the request to return.
-ltMaxResults :: Lens' ListTypes (Maybe Natural)
-ltMaxResults = lens _ltMaxResults (\ s a -> s{_ltMaxResults = a}) . mapping _Nat
+listTypes_maxResults :: Lens.Lens' ListTypes (Prelude.Maybe Prelude.Natural)
+listTypes_maxResults = Lens.lens (\ListTypes' {maxResults} -> maxResults) (\s@ListTypes' {} a -> s {maxResults = a} :: ListTypes)
 
 -- | The API ID.
-ltApiId :: Lens' ListTypes Text
-ltApiId = lens _ltApiId (\ s a -> s{_ltApiId = a})
+listTypes_apiId :: Lens.Lens' ListTypes Prelude.Text
+listTypes_apiId = Lens.lens (\ListTypes' {apiId} -> apiId) (\s@ListTypes' {} a -> s {apiId = a} :: ListTypes)
 
 -- | The type format: SDL or JSON.
-ltFormat :: Lens' ListTypes TypeDefinitionFormat
-ltFormat = lens _ltFormat (\ s a -> s{_ltFormat = a})
+listTypes_format :: Lens.Lens' ListTypes TypeDefinitionFormat
+listTypes_format = Lens.lens (\ListTypes' {format} -> format) (\s@ListTypes' {} a -> s {format = a} :: ListTypes)
 
-instance AWSRequest ListTypes where
-        type Rs ListTypes = ListTypesResponse
-        request = get appSync
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListTypesResponse' <$>
-                   (x .?> "types" .!@ mempty) <*> (x .?> "nextToken")
-                     <*> (pure (fromEnum s)))
+instance Pager.AWSPager ListTypes where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listTypesResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listTypesResponse_types Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listTypes_nextToken
+          Lens..~ rs
+          Lens.^? listTypesResponse_nextToken Prelude.. Lens._Just
 
-instance Hashable ListTypes where
+instance Prelude.AWSRequest ListTypes where
+  type Rs ListTypes = ListTypesResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListTypesResponse'
+            Prelude.<$> (x Prelude..?> "nextToken")
+            Prelude.<*> (x Prelude..?> "types" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData ListTypes where
+instance Prelude.Hashable ListTypes
 
-instance ToHeaders ListTypes where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.NFData ListTypes
 
-instance ToPath ListTypes where
-        toPath ListTypes'{..}
-          = mconcat ["/v1/apis/", toBS _ltApiId, "/types"]
+instance Prelude.ToHeaders ListTypes where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToQuery ListTypes where
-        toQuery ListTypes'{..}
-          = mconcat
-              ["nextToken" =: _ltNextToken,
-               "maxResults" =: _ltMaxResults, "format" =: _ltFormat]
+instance Prelude.ToPath ListTypes where
+  toPath ListTypes' {..} =
+    Prelude.mconcat
+      ["/v1/apis/", Prelude.toBS apiId, "/types"]
 
--- | /See:/ 'listTypesResponse' smart constructor.
+instance Prelude.ToQuery ListTypes where
+  toQuery ListTypes' {..} =
+    Prelude.mconcat
+      [ "nextToken" Prelude.=: nextToken,
+        "maxResults" Prelude.=: maxResults,
+        "format" Prelude.=: format
+      ]
+
+-- | /See:/ 'newListTypesResponse' smart constructor.
 data ListTypesResponse = ListTypesResponse'
-  { _ltrsTypes          :: !(Maybe [Type])
-  , _ltrsNextToken      :: !(Maybe Text)
-  , _ltrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An identifier to be passed in the next request to this operation to
+    -- return the next set of items in the list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The @Type@ objects.
+    types :: Prelude.Maybe [Type],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListTypesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListTypesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ltrsTypes' - The @Type@ objects.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ltrsNextToken' - An identifier to be passed in the next request to this operation to return the next set of items in the list.
+-- 'nextToken', 'listTypesResponse_nextToken' - An identifier to be passed in the next request to this operation to
+-- return the next set of items in the list.
 --
--- * 'ltrsResponseStatus' - -- | The response status code.
-listTypesResponse
-    :: Int -- ^ 'ltrsResponseStatus'
-    -> ListTypesResponse
-listTypesResponse pResponseStatus_ =
+-- 'types', 'listTypesResponse_types' - The @Type@ objects.
+--
+-- 'httpStatus', 'listTypesResponse_httpStatus' - The response's http status code.
+newListTypesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListTypesResponse
+newListTypesResponse pHttpStatus_ =
   ListTypesResponse'
-    { _ltrsTypes = Nothing
-    , _ltrsNextToken = Nothing
-    , _ltrsResponseStatus = pResponseStatus_
+    { nextToken = Prelude.Nothing,
+      types = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | An identifier to be passed in the next request to this operation to
+-- return the next set of items in the list.
+listTypesResponse_nextToken :: Lens.Lens' ListTypesResponse (Prelude.Maybe Prelude.Text)
+listTypesResponse_nextToken = Lens.lens (\ListTypesResponse' {nextToken} -> nextToken) (\s@ListTypesResponse' {} a -> s {nextToken = a} :: ListTypesResponse)
 
 -- | The @Type@ objects.
-ltrsTypes :: Lens' ListTypesResponse [Type]
-ltrsTypes = lens _ltrsTypes (\ s a -> s{_ltrsTypes = a}) . _Default . _Coerce
+listTypesResponse_types :: Lens.Lens' ListTypesResponse (Prelude.Maybe [Type])
+listTypesResponse_types = Lens.lens (\ListTypesResponse' {types} -> types) (\s@ListTypesResponse' {} a -> s {types = a} :: ListTypesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | An identifier to be passed in the next request to this operation to return the next set of items in the list.
-ltrsNextToken :: Lens' ListTypesResponse (Maybe Text)
-ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a})
+-- | The response's http status code.
+listTypesResponse_httpStatus :: Lens.Lens' ListTypesResponse Prelude.Int
+listTypesResponse_httpStatus = Lens.lens (\ListTypesResponse' {httpStatus} -> httpStatus) (\s@ListTypesResponse' {} a -> s {httpStatus = a} :: ListTypesResponse)
 
--- | -- | The response status code.
-ltrsResponseStatus :: Lens' ListTypesResponse Int
-ltrsResponseStatus = lens _ltrsResponseStatus (\ s a -> s{_ltrsResponseStatus = a})
-
-instance NFData ListTypesResponse where
+instance Prelude.NFData ListTypesResponse

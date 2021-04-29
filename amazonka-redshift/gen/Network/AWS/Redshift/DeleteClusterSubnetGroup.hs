@@ -1,111 +1,124 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteClusterSubnetGroup
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified cluster subnet group.
---
---
 module Network.AWS.Redshift.DeleteClusterSubnetGroup
-    (
-    -- * Creating a Request
-      deleteClusterSubnetGroup
-    , DeleteClusterSubnetGroup
+  ( -- * Creating a Request
+    DeleteClusterSubnetGroup (..),
+    newDeleteClusterSubnetGroup,
+
     -- * Request Lenses
-    , dcsgClusterSubnetGroupName
+    deleteClusterSubnetGroup_clusterSubnetGroupName,
 
     -- * Destructuring the Response
-    , deleteClusterSubnetGroupResponse
-    , DeleteClusterSubnetGroupResponse
-    ) where
+    DeleteClusterSubnetGroupResponse (..),
+    newDeleteClusterSubnetGroupResponse,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
-import Network.AWS.Redshift.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'deleteClusterSubnetGroup' smart constructor.
-newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup'
-  { _dcsgClusterSubnetGroupName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDeleteClusterSubnetGroup' smart constructor.
+data DeleteClusterSubnetGroup = DeleteClusterSubnetGroup'
+  { -- | The name of the cluster subnet group name to be deleted.
+    clusterSubnetGroupName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteClusterSubnetGroup' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteClusterSubnetGroup' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dcsgClusterSubnetGroupName' - The name of the cluster subnet group name to be deleted.
-deleteClusterSubnetGroup
-    :: Text -- ^ 'dcsgClusterSubnetGroupName'
-    -> DeleteClusterSubnetGroup
-deleteClusterSubnetGroup pClusterSubnetGroupName_ =
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'clusterSubnetGroupName', 'deleteClusterSubnetGroup_clusterSubnetGroupName' - The name of the cluster subnet group name to be deleted.
+newDeleteClusterSubnetGroup ::
+  -- | 'clusterSubnetGroupName'
+  Prelude.Text ->
+  DeleteClusterSubnetGroup
+newDeleteClusterSubnetGroup pClusterSubnetGroupName_ =
   DeleteClusterSubnetGroup'
-    {_dcsgClusterSubnetGroupName = pClusterSubnetGroupName_}
-
+    { clusterSubnetGroupName =
+        pClusterSubnetGroupName_
+    }
 
 -- | The name of the cluster subnet group name to be deleted.
-dcsgClusterSubnetGroupName :: Lens' DeleteClusterSubnetGroup Text
-dcsgClusterSubnetGroupName = lens _dcsgClusterSubnetGroupName (\ s a -> s{_dcsgClusterSubnetGroupName = a})
+deleteClusterSubnetGroup_clusterSubnetGroupName :: Lens.Lens' DeleteClusterSubnetGroup Prelude.Text
+deleteClusterSubnetGroup_clusterSubnetGroupName = Lens.lens (\DeleteClusterSubnetGroup' {clusterSubnetGroupName} -> clusterSubnetGroupName) (\s@DeleteClusterSubnetGroup' {} a -> s {clusterSubnetGroupName = a} :: DeleteClusterSubnetGroup)
 
-instance AWSRequest DeleteClusterSubnetGroup where
-        type Rs DeleteClusterSubnetGroup =
-             DeleteClusterSubnetGroupResponse
-        request = postQuery redshift
-        response
-          = receiveNull DeleteClusterSubnetGroupResponse'
+instance Prelude.AWSRequest DeleteClusterSubnetGroup where
+  type
+    Rs DeleteClusterSubnetGroup =
+      DeleteClusterSubnetGroupResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull
+      DeleteClusterSubnetGroupResponse'
 
-instance Hashable DeleteClusterSubnetGroup where
+instance Prelude.Hashable DeleteClusterSubnetGroup
 
-instance NFData DeleteClusterSubnetGroup where
+instance Prelude.NFData DeleteClusterSubnetGroup
 
-instance ToHeaders DeleteClusterSubnetGroup where
-        toHeaders = const mempty
+instance Prelude.ToHeaders DeleteClusterSubnetGroup where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeleteClusterSubnetGroup where
-        toPath = const "/"
+instance Prelude.ToPath DeleteClusterSubnetGroup where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteClusterSubnetGroup where
-        toQuery DeleteClusterSubnetGroup'{..}
-          = mconcat
-              ["Action" =:
-                 ("DeleteClusterSubnetGroup" :: ByteString),
-               "Version" =: ("2012-12-01" :: ByteString),
-               "ClusterSubnetGroupName" =:
-                 _dcsgClusterSubnetGroupName]
+instance Prelude.ToQuery DeleteClusterSubnetGroup where
+  toQuery DeleteClusterSubnetGroup' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DeleteClusterSubnetGroup" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
+        "ClusterSubnetGroupName"
+          Prelude.=: clusterSubnetGroupName
+      ]
 
--- | /See:/ 'deleteClusterSubnetGroupResponse' smart constructor.
-data DeleteClusterSubnetGroupResponse =
-  DeleteClusterSubnetGroupResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteClusterSubnetGroupResponse' smart constructor.
+data DeleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteClusterSubnetGroupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteClusterSubnetGroupResponse' with all optional fields omitted.
 --
-deleteClusterSubnetGroupResponse
-    :: DeleteClusterSubnetGroupResponse
-deleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteClusterSubnetGroupResponse ::
+  DeleteClusterSubnetGroupResponse
+newDeleteClusterSubnetGroupResponse =
+  DeleteClusterSubnetGroupResponse'
 
-
-instance NFData DeleteClusterSubnetGroupResponse
-         where
+instance
+  Prelude.NFData
+    DeleteClusterSubnetGroupResponse

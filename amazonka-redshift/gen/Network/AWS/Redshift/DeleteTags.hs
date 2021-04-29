@@ -1,114 +1,131 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Redshift.DeleteTags
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a tag or tags from a resource. You must provide the ARN of the resource from which you want to delete the tag or tags.
---
---
+-- Deletes tags from a resource. You must provide the ARN of the resource
+-- from which you want to delete the tag or tags.
 module Network.AWS.Redshift.DeleteTags
-    (
-    -- * Creating a Request
-      deleteTags
-    , DeleteTags
+  ( -- * Creating a Request
+    DeleteTags (..),
+    newDeleteTags,
+
     -- * Request Lenses
-    , dtsResourceName
-    , dtsTagKeys
+    deleteTags_resourceName,
+    deleteTags_tagKeys,
 
     -- * Destructuring the Response
-    , deleteTagsResponse
-    , DeleteTagsResponse
-    ) where
+    DeleteTagsResponse (..),
+    newDeleteTagsResponse,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
-import Network.AWS.Redshift.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the output from the @DeleteTags@ action.
 --
---
---
--- /See:/ 'deleteTags' smart constructor.
+-- /See:/ 'newDeleteTags' smart constructor.
 data DeleteTags = DeleteTags'
-  { _dtsResourceName :: !Text
-  , _dtsTagKeys      :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) from which you want to remove the tag or
+    -- tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
+    resourceName :: Prelude.Text,
+    -- | The tag key that you want to delete.
+    tagKeys :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteTags' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtsResourceName' - The Amazon Resource Name (ARN) from which you want to remove the tag or tags. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dtsTagKeys' - The tag key that you want to delete.
-deleteTags
-    :: Text -- ^ 'dtsResourceName'
-    -> DeleteTags
-deleteTags pResourceName_ =
-  DeleteTags' {_dtsResourceName = pResourceName_, _dtsTagKeys = mempty}
+-- 'resourceName', 'deleteTags_resourceName' - The Amazon Resource Name (ARN) from which you want to remove the tag or
+-- tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
+--
+-- 'tagKeys', 'deleteTags_tagKeys' - The tag key that you want to delete.
+newDeleteTags ::
+  -- | 'resourceName'
+  Prelude.Text ->
+  DeleteTags
+newDeleteTags pResourceName_ =
+  DeleteTags'
+    { resourceName = pResourceName_,
+      tagKeys = Prelude.mempty
+    }
 
-
--- | The Amazon Resource Name (ARN) from which you want to remove the tag or tags. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@ .
-dtsResourceName :: Lens' DeleteTags Text
-dtsResourceName = lens _dtsResourceName (\ s a -> s{_dtsResourceName = a})
+-- | The Amazon Resource Name (ARN) from which you want to remove the tag or
+-- tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.
+deleteTags_resourceName :: Lens.Lens' DeleteTags Prelude.Text
+deleteTags_resourceName = Lens.lens (\DeleteTags' {resourceName} -> resourceName) (\s@DeleteTags' {} a -> s {resourceName = a} :: DeleteTags)
 
 -- | The tag key that you want to delete.
-dtsTagKeys :: Lens' DeleteTags [Text]
-dtsTagKeys = lens _dtsTagKeys (\ s a -> s{_dtsTagKeys = a}) . _Coerce
+deleteTags_tagKeys :: Lens.Lens' DeleteTags [Prelude.Text]
+deleteTags_tagKeys = Lens.lens (\DeleteTags' {tagKeys} -> tagKeys) (\s@DeleteTags' {} a -> s {tagKeys = a} :: DeleteTags) Prelude.. Prelude._Coerce
 
-instance AWSRequest DeleteTags where
-        type Rs DeleteTags = DeleteTagsResponse
-        request = postQuery redshift
-        response = receiveNull DeleteTagsResponse'
+instance Prelude.AWSRequest DeleteTags where
+  type Rs DeleteTags = DeleteTagsResponse
+  request = Request.postQuery defaultService
+  response = Response.receiveNull DeleteTagsResponse'
 
-instance Hashable DeleteTags where
+instance Prelude.Hashable DeleteTags
 
-instance NFData DeleteTags where
+instance Prelude.NFData DeleteTags
 
-instance ToHeaders DeleteTags where
-        toHeaders = const mempty
+instance Prelude.ToHeaders DeleteTags where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeleteTags where
-        toPath = const "/"
+instance Prelude.ToPath DeleteTags where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteTags where
-        toQuery DeleteTags'{..}
-          = mconcat
-              ["Action" =: ("DeleteTags" :: ByteString),
-               "Version" =: ("2012-12-01" :: ByteString),
-               "ResourceName" =: _dtsResourceName,
-               "TagKeys" =: toQueryList "TagKey" _dtsTagKeys]
+instance Prelude.ToQuery DeleteTags where
+  toQuery DeleteTags' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DeleteTags" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
+        "ResourceName" Prelude.=: resourceName,
+        "TagKeys"
+          Prelude.=: Prelude.toQueryList "TagKey" tagKeys
+      ]
 
--- | /See:/ 'deleteTagsResponse' smart constructor.
-data DeleteTagsResponse =
-  DeleteTagsResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteTagsResponse' smart constructor.
+data DeleteTagsResponse = DeleteTagsResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteTagsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteTagsResponse' with all optional fields omitted.
 --
-deleteTagsResponse
-    :: DeleteTagsResponse
-deleteTagsResponse = DeleteTagsResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteTagsResponse ::
+  DeleteTagsResponse
+newDeleteTagsResponse = DeleteTagsResponse'
 
-
-instance NFData DeleteTagsResponse where
+instance Prelude.NFData DeleteTagsResponse

@@ -1,146 +1,173 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Discovery.UpdateApplication
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates metadata about an application.
---
---
 module Network.AWS.Discovery.UpdateApplication
-    (
-    -- * Creating a Request
-      updateApplication
-    , UpdateApplication
+  ( -- * Creating a Request
+    UpdateApplication (..),
+    newUpdateApplication,
+
     -- * Request Lenses
-    , uaName
-    , uaDescription
-    , uaConfigurationId
+    updateApplication_name,
+    updateApplication_description,
+    updateApplication_configurationId,
 
     -- * Destructuring the Response
-    , updateApplicationResponse
-    , UpdateApplicationResponse
+    UpdateApplicationResponse (..),
+    newUpdateApplicationResponse,
+
     -- * Response Lenses
-    , uarsResponseStatus
-    ) where
+    updateApplicationResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Discovery.Types
-import Network.AWS.Discovery.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateApplication' smart constructor.
+-- | /See:/ 'newUpdateApplication' smart constructor.
 data UpdateApplication = UpdateApplication'
-  { _uaName            :: !(Maybe Text)
-  , _uaDescription     :: !(Maybe Text)
-  , _uaConfigurationId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | New name of the application to be updated.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | New description of the application to be updated.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Configuration ID of the application to be updated.
+    configurationId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateApplication' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateApplication' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uaName' - New name of the application to be updated.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'uaDescription' - New description of the application to be updated.
+-- 'name', 'updateApplication_name' - New name of the application to be updated.
 --
--- * 'uaConfigurationId' - Configuration ID of the application to be updated.
-updateApplication
-    :: Text -- ^ 'uaConfigurationId'
-    -> UpdateApplication
-updateApplication pConfigurationId_ =
+-- 'description', 'updateApplication_description' - New description of the application to be updated.
+--
+-- 'configurationId', 'updateApplication_configurationId' - Configuration ID of the application to be updated.
+newUpdateApplication ::
+  -- | 'configurationId'
+  Prelude.Text ->
+  UpdateApplication
+newUpdateApplication pConfigurationId_ =
   UpdateApplication'
-    { _uaName = Nothing
-    , _uaDescription = Nothing
-    , _uaConfigurationId = pConfigurationId_
+    { name = Prelude.Nothing,
+      description = Prelude.Nothing,
+      configurationId = pConfigurationId_
     }
 
-
 -- | New name of the application to be updated.
-uaName :: Lens' UpdateApplication (Maybe Text)
-uaName = lens _uaName (\ s a -> s{_uaName = a})
+updateApplication_name :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
+updateApplication_name = Lens.lens (\UpdateApplication' {name} -> name) (\s@UpdateApplication' {} a -> s {name = a} :: UpdateApplication)
 
 -- | New description of the application to be updated.
-uaDescription :: Lens' UpdateApplication (Maybe Text)
-uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a})
+updateApplication_description :: Lens.Lens' UpdateApplication (Prelude.Maybe Prelude.Text)
+updateApplication_description = Lens.lens (\UpdateApplication' {description} -> description) (\s@UpdateApplication' {} a -> s {description = a} :: UpdateApplication)
 
 -- | Configuration ID of the application to be updated.
-uaConfigurationId :: Lens' UpdateApplication Text
-uaConfigurationId = lens _uaConfigurationId (\ s a -> s{_uaConfigurationId = a})
+updateApplication_configurationId :: Lens.Lens' UpdateApplication Prelude.Text
+updateApplication_configurationId = Lens.lens (\UpdateApplication' {configurationId} -> configurationId) (\s@UpdateApplication' {} a -> s {configurationId = a} :: UpdateApplication)
 
-instance AWSRequest UpdateApplication where
-        type Rs UpdateApplication = UpdateApplicationResponse
-        request = postJSON discovery
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 UpdateApplicationResponse' <$> (pure (fromEnum s)))
+instance Prelude.AWSRequest UpdateApplication where
+  type Rs UpdateApplication = UpdateApplicationResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateApplicationResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateApplication where
+instance Prelude.Hashable UpdateApplication
 
-instance NFData UpdateApplication where
+instance Prelude.NFData UpdateApplication
 
-instance ToHeaders UpdateApplication where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSPoseidonService_V2015_11_01.UpdateApplication"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders UpdateApplication where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSPoseidonService_V2015_11_01.UpdateApplication" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON UpdateApplication where
-        toJSON UpdateApplication'{..}
-          = object
-              (catMaybes
-                 [("name" .=) <$> _uaName,
-                  ("description" .=) <$> _uaDescription,
-                  Just ("configurationId" .= _uaConfigurationId)])
+instance Prelude.ToJSON UpdateApplication where
+  toJSON UpdateApplication' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("name" Prelude..=) Prelude.<$> name,
+            ("description" Prelude..=) Prelude.<$> description,
+            Prelude.Just
+              ("configurationId" Prelude..= configurationId)
+          ]
+      )
 
-instance ToPath UpdateApplication where
-        toPath = const "/"
+instance Prelude.ToPath UpdateApplication where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateApplication where
-        toQuery = const mempty
+instance Prelude.ToQuery UpdateApplication where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateApplicationResponse' smart constructor.
-newtype UpdateApplicationResponse = UpdateApplicationResponse'
-  { _uarsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUpdateApplicationResponse' smart constructor.
+data UpdateApplicationResponse = UpdateApplicationResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateApplicationResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateApplicationResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uarsResponseStatus' - -- | The response status code.
-updateApplicationResponse
-    :: Int -- ^ 'uarsResponseStatus'
-    -> UpdateApplicationResponse
-updateApplicationResponse pResponseStatus_ =
-  UpdateApplicationResponse' {_uarsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'updateApplicationResponse_httpStatus' - The response's http status code.
+newUpdateApplicationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateApplicationResponse
+newUpdateApplicationResponse pHttpStatus_ =
+  UpdateApplicationResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+updateApplicationResponse_httpStatus :: Lens.Lens' UpdateApplicationResponse Prelude.Int
+updateApplicationResponse_httpStatus = Lens.lens (\UpdateApplicationResponse' {httpStatus} -> httpStatus) (\s@UpdateApplicationResponse' {} a -> s {httpStatus = a} :: UpdateApplicationResponse)
 
--- | -- | The response status code.
-uarsResponseStatus :: Lens' UpdateApplicationResponse Int
-uarsResponseStatus = lens _uarsResponseStatus (\ s a -> s{_uarsResponseStatus = a})
-
-instance NFData UpdateApplicationResponse where
+instance Prelude.NFData UpdateApplicationResponse

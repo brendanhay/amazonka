@@ -1,178 +1,288 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Discovery.DescribeAgents
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists agents or the Connector by ID or lists all agents/Connectors associated with your user account if you did not specify an ID.
+-- Lists agents or connectors as specified by ID or other filters. All
+-- agents\/connectors associated with your user account can be listed if
+-- you call @DescribeAgents@ as is without passing any parameters.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.Discovery.DescribeAgents
-    (
-    -- * Creating a Request
-      describeAgents
-    , DescribeAgents
+  ( -- * Creating a Request
+    DescribeAgents (..),
+    newDescribeAgents,
+
     -- * Request Lenses
-    , daAgentIds
-    , daFilters
-    , daNextToken
-    , daMaxResults
+    describeAgents_agentIds,
+    describeAgents_nextToken,
+    describeAgents_maxResults,
+    describeAgents_filters,
 
     -- * Destructuring the Response
-    , describeAgentsResponse
-    , DescribeAgentsResponse
+    DescribeAgentsResponse (..),
+    newDescribeAgentsResponse,
+
     -- * Response Lenses
-    , dasrsAgentsInfo
-    , dasrsNextToken
-    , dasrsResponseStatus
-    ) where
+    describeAgentsResponse_nextToken,
+    describeAgentsResponse_agentsInfo,
+    describeAgentsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Discovery.Types
-import Network.AWS.Discovery.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeAgents' smart constructor.
+-- | /See:/ 'newDescribeAgents' smart constructor.
 data DescribeAgents = DescribeAgents'
-  { _daAgentIds   :: !(Maybe [Text])
-  , _daFilters    :: !(Maybe [Filter])
-  , _daNextToken  :: !(Maybe Text)
-  , _daMaxResults :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The agent or the Connector IDs for which you want information. If you
+    -- specify no IDs, the system returns information about all
+    -- agents\/Connectors associated with your AWS user account.
+    agentIds :: Prelude.Maybe [Prelude.Text],
+    -- | Token to retrieve the next set of results. For example, if you
+    -- previously specified 100 IDs for @DescribeAgentsRequest$agentIds@ but
+    -- set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10
+    -- results along with a token. Use that token in this query to get the next
+    -- set of 10.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The total number of agents\/Connectors to return in a single page of
+    -- output. The maximum value is 100.
+    maxResults :: Prelude.Maybe Prelude.Int,
+    -- | You can filter the request using various logical operators and a
+    -- /key/-/value/ format. For example:
+    --
+    -- @{\"key\": \"collectionStatus\", \"value\": \"STARTED\"}@
+    filters :: Prelude.Maybe [Filter]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeAgents' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeAgents' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'daAgentIds' - The agent or the Connector IDs for which you want information. If you specify no IDs, the system returns information about all agents/Connectors associated with your AWS user account.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'daFilters' - You can filter the request using various logical operators and a /key/ -/value/ format. For example:  @{"key": "collectionStatus", "value": "STARTED"}@
+-- 'agentIds', 'describeAgents_agentIds' - The agent or the Connector IDs for which you want information. If you
+-- specify no IDs, the system returns information about all
+-- agents\/Connectors associated with your AWS user account.
 --
--- * 'daNextToken' - Token to retrieve the next set of results. For example, if you previously specified 100 IDs for @DescribeAgentsRequest$agentIds@ but set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.
+-- 'nextToken', 'describeAgents_nextToken' - Token to retrieve the next set of results. For example, if you
+-- previously specified 100 IDs for @DescribeAgentsRequest$agentIds@ but
+-- set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10
+-- results along with a token. Use that token in this query to get the next
+-- set of 10.
 --
--- * 'daMaxResults' - The total number of agents/Connectors to return in a single page of output. The maximum value is 100.
-describeAgents
-    :: DescribeAgents
-describeAgents =
+-- 'maxResults', 'describeAgents_maxResults' - The total number of agents\/Connectors to return in a single page of
+-- output. The maximum value is 100.
+--
+-- 'filters', 'describeAgents_filters' - You can filter the request using various logical operators and a
+-- /key/-/value/ format. For example:
+--
+-- @{\"key\": \"collectionStatus\", \"value\": \"STARTED\"}@
+newDescribeAgents ::
+  DescribeAgents
+newDescribeAgents =
   DescribeAgents'
-    { _daAgentIds = Nothing
-    , _daFilters = Nothing
-    , _daNextToken = Nothing
-    , _daMaxResults = Nothing
+    { agentIds = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
+-- | The agent or the Connector IDs for which you want information. If you
+-- specify no IDs, the system returns information about all
+-- agents\/Connectors associated with your AWS user account.
+describeAgents_agentIds :: Lens.Lens' DescribeAgents (Prelude.Maybe [Prelude.Text])
+describeAgents_agentIds = Lens.lens (\DescribeAgents' {agentIds} -> agentIds) (\s@DescribeAgents' {} a -> s {agentIds = a} :: DescribeAgents) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The agent or the Connector IDs for which you want information. If you specify no IDs, the system returns information about all agents/Connectors associated with your AWS user account.
-daAgentIds :: Lens' DescribeAgents [Text]
-daAgentIds = lens _daAgentIds (\ s a -> s{_daAgentIds = a}) . _Default . _Coerce
+-- | Token to retrieve the next set of results. For example, if you
+-- previously specified 100 IDs for @DescribeAgentsRequest$agentIds@ but
+-- set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10
+-- results along with a token. Use that token in this query to get the next
+-- set of 10.
+describeAgents_nextToken :: Lens.Lens' DescribeAgents (Prelude.Maybe Prelude.Text)
+describeAgents_nextToken = Lens.lens (\DescribeAgents' {nextToken} -> nextToken) (\s@DescribeAgents' {} a -> s {nextToken = a} :: DescribeAgents)
 
--- | You can filter the request using various logical operators and a /key/ -/value/ format. For example:  @{"key": "collectionStatus", "value": "STARTED"}@
-daFilters :: Lens' DescribeAgents [Filter]
-daFilters = lens _daFilters (\ s a -> s{_daFilters = a}) . _Default . _Coerce
+-- | The total number of agents\/Connectors to return in a single page of
+-- output. The maximum value is 100.
+describeAgents_maxResults :: Lens.Lens' DescribeAgents (Prelude.Maybe Prelude.Int)
+describeAgents_maxResults = Lens.lens (\DescribeAgents' {maxResults} -> maxResults) (\s@DescribeAgents' {} a -> s {maxResults = a} :: DescribeAgents)
 
--- | Token to retrieve the next set of results. For example, if you previously specified 100 IDs for @DescribeAgentsRequest$agentIds@ but set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10 results along with a token. Use that token in this query to get the next set of 10.
-daNextToken :: Lens' DescribeAgents (Maybe Text)
-daNextToken = lens _daNextToken (\ s a -> s{_daNextToken = a})
+-- | You can filter the request using various logical operators and a
+-- /key/-/value/ format. For example:
+--
+-- @{\"key\": \"collectionStatus\", \"value\": \"STARTED\"}@
+describeAgents_filters :: Lens.Lens' DescribeAgents (Prelude.Maybe [Filter])
+describeAgents_filters = Lens.lens (\DescribeAgents' {filters} -> filters) (\s@DescribeAgents' {} a -> s {filters = a} :: DescribeAgents) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The total number of agents/Connectors to return in a single page of output. The maximum value is 100.
-daMaxResults :: Lens' DescribeAgents (Maybe Int)
-daMaxResults = lens _daMaxResults (\ s a -> s{_daMaxResults = a})
+instance Pager.AWSPager DescribeAgents where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describeAgentsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describeAgentsResponse_agentsInfo
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describeAgents_nextToken
+          Lens..~ rs
+          Lens.^? describeAgentsResponse_nextToken Prelude.. Lens._Just
 
-instance AWSRequest DescribeAgents where
-        type Rs DescribeAgents = DescribeAgentsResponse
-        request = postJSON discovery
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeAgentsResponse' <$>
-                   (x .?> "agentsInfo" .!@ mempty) <*>
-                     (x .?> "nextToken")
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest DescribeAgents where
+  type Rs DescribeAgents = DescribeAgentsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeAgentsResponse'
+            Prelude.<$> (x Prelude..?> "nextToken")
+            Prelude.<*> ( x Prelude..?> "agentsInfo"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeAgents where
+instance Prelude.Hashable DescribeAgents
 
-instance NFData DescribeAgents where
+instance Prelude.NFData DescribeAgents
 
-instance ToHeaders DescribeAgents where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSPoseidonService_V2015_11_01.DescribeAgents" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DescribeAgents where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSPoseidonService_V2015_11_01.DescribeAgents" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DescribeAgents where
-        toJSON DescribeAgents'{..}
-          = object
-              (catMaybes
-                 [("agentIds" .=) <$> _daAgentIds,
-                  ("filters" .=) <$> _daFilters,
-                  ("nextToken" .=) <$> _daNextToken,
-                  ("maxResults" .=) <$> _daMaxResults])
+instance Prelude.ToJSON DescribeAgents where
+  toJSON DescribeAgents' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("agentIds" Prelude..=) Prelude.<$> agentIds,
+            ("nextToken" Prelude..=) Prelude.<$> nextToken,
+            ("maxResults" Prelude..=) Prelude.<$> maxResults,
+            ("filters" Prelude..=) Prelude.<$> filters
+          ]
+      )
 
-instance ToPath DescribeAgents where
-        toPath = const "/"
+instance Prelude.ToPath DescribeAgents where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeAgents where
-        toQuery = const mempty
+instance Prelude.ToQuery DescribeAgents where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'describeAgentsResponse' smart constructor.
+-- | /See:/ 'newDescribeAgentsResponse' smart constructor.
 data DescribeAgentsResponse = DescribeAgentsResponse'
-  { _dasrsAgentsInfo     :: !(Maybe [AgentInfo])
-  , _dasrsNextToken      :: !(Maybe Text)
-  , _dasrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Token to retrieve the next set of results. For example, if you specified
+    -- 100 IDs for @DescribeAgentsRequest$agentIds@ but set
+    -- @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10
+    -- results along with this token. Use this token in the next query to
+    -- retrieve the next set of 10.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Lists agents or the Connector by ID or lists all agents\/Connectors
+    -- associated with your user account if you did not specify an
+    -- agent\/Connector ID. The output includes agent\/Connector IDs, IP
+    -- addresses, media access control (MAC) addresses, agent\/Connector
+    -- health, host name where the agent\/Connector resides, and the version
+    -- number of each agent\/Connector.
+    agentsInfo :: Prelude.Maybe [AgentInfo],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeAgentsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeAgentsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dasrsAgentsInfo' - Lists agents or the Connector by ID or lists all agents/Connectors associated with your user account if you did not specify an agent/Connector ID. The output includes agent/Connector IDs, IP addresses, media access control (MAC) addresses, agent/Connector health, host name where the agent/Connector resides, and the version number of each agent/Connector.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dasrsNextToken' - Token to retrieve the next set of results. For example, if you specified 100 IDs for @DescribeAgentsRequest$agentIds@ but set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10.
+-- 'nextToken', 'describeAgentsResponse_nextToken' - Token to retrieve the next set of results. For example, if you specified
+-- 100 IDs for @DescribeAgentsRequest$agentIds@ but set
+-- @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10
+-- results along with this token. Use this token in the next query to
+-- retrieve the next set of 10.
 --
--- * 'dasrsResponseStatus' - -- | The response status code.
-describeAgentsResponse
-    :: Int -- ^ 'dasrsResponseStatus'
-    -> DescribeAgentsResponse
-describeAgentsResponse pResponseStatus_ =
+-- 'agentsInfo', 'describeAgentsResponse_agentsInfo' - Lists agents or the Connector by ID or lists all agents\/Connectors
+-- associated with your user account if you did not specify an
+-- agent\/Connector ID. The output includes agent\/Connector IDs, IP
+-- addresses, media access control (MAC) addresses, agent\/Connector
+-- health, host name where the agent\/Connector resides, and the version
+-- number of each agent\/Connector.
+--
+-- 'httpStatus', 'describeAgentsResponse_httpStatus' - The response's http status code.
+newDescribeAgentsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeAgentsResponse
+newDescribeAgentsResponse pHttpStatus_ =
   DescribeAgentsResponse'
-    { _dasrsAgentsInfo = Nothing
-    , _dasrsNextToken = Nothing
-    , _dasrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      agentsInfo = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | Token to retrieve the next set of results. For example, if you specified
+-- 100 IDs for @DescribeAgentsRequest$agentIds@ but set
+-- @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10
+-- results along with this token. Use this token in the next query to
+-- retrieve the next set of 10.
+describeAgentsResponse_nextToken :: Lens.Lens' DescribeAgentsResponse (Prelude.Maybe Prelude.Text)
+describeAgentsResponse_nextToken = Lens.lens (\DescribeAgentsResponse' {nextToken} -> nextToken) (\s@DescribeAgentsResponse' {} a -> s {nextToken = a} :: DescribeAgentsResponse)
 
--- | Lists agents or the Connector by ID or lists all agents/Connectors associated with your user account if you did not specify an agent/Connector ID. The output includes agent/Connector IDs, IP addresses, media access control (MAC) addresses, agent/Connector health, host name where the agent/Connector resides, and the version number of each agent/Connector.
-dasrsAgentsInfo :: Lens' DescribeAgentsResponse [AgentInfo]
-dasrsAgentsInfo = lens _dasrsAgentsInfo (\ s a -> s{_dasrsAgentsInfo = a}) . _Default . _Coerce
+-- | Lists agents or the Connector by ID or lists all agents\/Connectors
+-- associated with your user account if you did not specify an
+-- agent\/Connector ID. The output includes agent\/Connector IDs, IP
+-- addresses, media access control (MAC) addresses, agent\/Connector
+-- health, host name where the agent\/Connector resides, and the version
+-- number of each agent\/Connector.
+describeAgentsResponse_agentsInfo :: Lens.Lens' DescribeAgentsResponse (Prelude.Maybe [AgentInfo])
+describeAgentsResponse_agentsInfo = Lens.lens (\DescribeAgentsResponse' {agentsInfo} -> agentsInfo) (\s@DescribeAgentsResponse' {} a -> s {agentsInfo = a} :: DescribeAgentsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | Token to retrieve the next set of results. For example, if you specified 100 IDs for @DescribeAgentsRequest$agentIds@ but set @DescribeAgentsRequest$maxResults@ to 10, you received a set of 10 results along with this token. Use this token in the next query to retrieve the next set of 10.
-dasrsNextToken :: Lens' DescribeAgentsResponse (Maybe Text)
-dasrsNextToken = lens _dasrsNextToken (\ s a -> s{_dasrsNextToken = a})
+-- | The response's http status code.
+describeAgentsResponse_httpStatus :: Lens.Lens' DescribeAgentsResponse Prelude.Int
+describeAgentsResponse_httpStatus = Lens.lens (\DescribeAgentsResponse' {httpStatus} -> httpStatus) (\s@DescribeAgentsResponse' {} a -> s {httpStatus = a} :: DescribeAgentsResponse)
 
--- | -- | The response status code.
-dasrsResponseStatus :: Lens' DescribeAgentsResponse Int
-dasrsResponseStatus = lens _dasrsResponseStatus (\ s a -> s{_dasrsResponseStatus = a})
-
-instance NFData DescribeAgentsResponse where
+instance Prelude.NFData DescribeAgentsResponse

@@ -1,143 +1,172 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Discovery.CreateApplication
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an application with the given name and description.
---
---
 module Network.AWS.Discovery.CreateApplication
-    (
-    -- * Creating a Request
-      createApplication
-    , CreateApplication
+  ( -- * Creating a Request
+    CreateApplication (..),
+    newCreateApplication,
+
     -- * Request Lenses
-    , caDescription
-    , caName
+    createApplication_description,
+    createApplication_name,
 
     -- * Destructuring the Response
-    , createApplicationResponse
-    , CreateApplicationResponse
+    CreateApplicationResponse (..),
+    newCreateApplicationResponse,
+
     -- * Response Lenses
-    , carsConfigurationId
-    , carsResponseStatus
-    ) where
+    createApplicationResponse_configurationId,
+    createApplicationResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Discovery.Types
-import Network.AWS.Discovery.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createApplication' smart constructor.
+-- | /See:/ 'newCreateApplication' smart constructor.
 data CreateApplication = CreateApplication'
-  { _caDescription :: !(Maybe Text)
-  , _caName        :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Description of the application to be created.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Name of the application to be created.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateApplication' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateApplication' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'caDescription' - Description of the application to be created.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'caName' - Name of the application to be created.
-createApplication
-    :: Text -- ^ 'caName'
-    -> CreateApplication
-createApplication pName_ =
-  CreateApplication' {_caDescription = Nothing, _caName = pName_}
-
+-- 'description', 'createApplication_description' - Description of the application to be created.
+--
+-- 'name', 'createApplication_name' - Name of the application to be created.
+newCreateApplication ::
+  -- | 'name'
+  Prelude.Text ->
+  CreateApplication
+newCreateApplication pName_ =
+  CreateApplication'
+    { description = Prelude.Nothing,
+      name = pName_
+    }
 
 -- | Description of the application to be created.
-caDescription :: Lens' CreateApplication (Maybe Text)
-caDescription = lens _caDescription (\ s a -> s{_caDescription = a})
+createApplication_description :: Lens.Lens' CreateApplication (Prelude.Maybe Prelude.Text)
+createApplication_description = Lens.lens (\CreateApplication' {description} -> description) (\s@CreateApplication' {} a -> s {description = a} :: CreateApplication)
 
 -- | Name of the application to be created.
-caName :: Lens' CreateApplication Text
-caName = lens _caName (\ s a -> s{_caName = a})
+createApplication_name :: Lens.Lens' CreateApplication Prelude.Text
+createApplication_name = Lens.lens (\CreateApplication' {name} -> name) (\s@CreateApplication' {} a -> s {name = a} :: CreateApplication)
 
-instance AWSRequest CreateApplication where
-        type Rs CreateApplication = CreateApplicationResponse
-        request = postJSON discovery
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateApplicationResponse' <$>
-                   (x .?> "configurationId") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest CreateApplication where
+  type Rs CreateApplication = CreateApplicationResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateApplicationResponse'
+            Prelude.<$> (x Prelude..?> "configurationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateApplication where
+instance Prelude.Hashable CreateApplication
 
-instance NFData CreateApplication where
+instance Prelude.NFData CreateApplication
 
-instance ToHeaders CreateApplication where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSPoseidonService_V2015_11_01.CreateApplication"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders CreateApplication where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSPoseidonService_V2015_11_01.CreateApplication" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON CreateApplication where
-        toJSON CreateApplication'{..}
-          = object
-              (catMaybes
-                 [("description" .=) <$> _caDescription,
-                  Just ("name" .= _caName)])
+instance Prelude.ToJSON CreateApplication where
+  toJSON CreateApplication' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("description" Prelude..=) Prelude.<$> description,
+            Prelude.Just ("name" Prelude..= name)
+          ]
+      )
 
-instance ToPath CreateApplication where
-        toPath = const "/"
+instance Prelude.ToPath CreateApplication where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateApplication where
-        toQuery = const mempty
+instance Prelude.ToQuery CreateApplication where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createApplicationResponse' smart constructor.
+-- | /See:/ 'newCreateApplicationResponse' smart constructor.
 data CreateApplicationResponse = CreateApplicationResponse'
-  { _carsConfigurationId :: !(Maybe Text)
-  , _carsResponseStatus  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Configuration ID of an application to be created.
+    configurationId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateApplicationResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateApplicationResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'carsConfigurationId' - Configuration ID of an application to be created.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'carsResponseStatus' - -- | The response status code.
-createApplicationResponse
-    :: Int -- ^ 'carsResponseStatus'
-    -> CreateApplicationResponse
-createApplicationResponse pResponseStatus_ =
+-- 'configurationId', 'createApplicationResponse_configurationId' - Configuration ID of an application to be created.
+--
+-- 'httpStatus', 'createApplicationResponse_httpStatus' - The response's http status code.
+newCreateApplicationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateApplicationResponse
+newCreateApplicationResponse pHttpStatus_ =
   CreateApplicationResponse'
-    {_carsConfigurationId = Nothing, _carsResponseStatus = pResponseStatus_}
-
+    { configurationId =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Configuration ID of an application to be created.
-carsConfigurationId :: Lens' CreateApplicationResponse (Maybe Text)
-carsConfigurationId = lens _carsConfigurationId (\ s a -> s{_carsConfigurationId = a})
+createApplicationResponse_configurationId :: Lens.Lens' CreateApplicationResponse (Prelude.Maybe Prelude.Text)
+createApplicationResponse_configurationId = Lens.lens (\CreateApplicationResponse' {configurationId} -> configurationId) (\s@CreateApplicationResponse' {} a -> s {configurationId = a} :: CreateApplicationResponse)
 
--- | -- | The response status code.
-carsResponseStatus :: Lens' CreateApplicationResponse Int
-carsResponseStatus = lens _carsResponseStatus (\ s a -> s{_carsResponseStatus = a})
+-- | The response's http status code.
+createApplicationResponse_httpStatus :: Lens.Lens' CreateApplicationResponse Prelude.Int
+createApplicationResponse_httpStatus = Lens.lens (\CreateApplicationResponse' {httpStatus} -> httpStatus) (\s@CreateApplicationResponse' {} a -> s {httpStatus = a} :: CreateApplicationResponse)
 
-instance NFData CreateApplicationResponse where
+instance Prelude.NFData CreateApplicationResponse

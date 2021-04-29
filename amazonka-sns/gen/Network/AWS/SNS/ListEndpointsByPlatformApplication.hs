@@ -1,183 +1,258 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SNS.ListEndpointsByPlatformApplication
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the endpoints and endpoint attributes for devices in a supported push notification service, such as GCM and APNS. The results for @ListEndpointsByPlatformApplication@ are paginated and return a limited list of endpoints, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call @ListEndpointsByPlatformApplication@ again using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications> .
+-- Lists the endpoints and endpoint attributes for devices in a supported
+-- push notification service, such as GCM (Firebase Cloud Messaging) and
+-- APNS. The results for @ListEndpointsByPlatformApplication@ are paginated
+-- and return a limited list of endpoints, up to 100. If additional records
+-- are available after the first page results, then a NextToken string will
+-- be returned. To receive the next page, you call
+-- @ListEndpointsByPlatformApplication@ again using the NextToken string
+-- received from the previous call. When there are no more records to
+-- return, NextToken will be null. For more information, see
+-- <https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.
 --
---
+-- This action is throttled at 30 transactions per second (TPS).
 --
 -- This operation returns paginated results.
 module Network.AWS.SNS.ListEndpointsByPlatformApplication
-    (
-    -- * Creating a Request
-      listEndpointsByPlatformApplication
-    , ListEndpointsByPlatformApplication
+  ( -- * Creating a Request
+    ListEndpointsByPlatformApplication (..),
+    newListEndpointsByPlatformApplication,
+
     -- * Request Lenses
-    , lebpaNextToken
-    , lebpaPlatformApplicationARN
+    listEndpointsByPlatformApplication_nextToken,
+    listEndpointsByPlatformApplication_platformApplicationArn,
 
     -- * Destructuring the Response
-    , listEndpointsByPlatformApplicationResponse
-    , ListEndpointsByPlatformApplicationResponse
-    -- * Response Lenses
-    , lebparsNextToken
-    , lebparsEndpoints
-    , lebparsResponseStatus
-    ) where
+    ListEndpointsByPlatformApplicationResponse (..),
+    newListEndpointsByPlatformApplicationResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    listEndpointsByPlatformApplicationResponse_nextToken,
+    listEndpointsByPlatformApplicationResponse_endpoints,
+    listEndpointsByPlatformApplicationResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SNS.Types
-import Network.AWS.SNS.Types.Product
 
 -- | Input for ListEndpointsByPlatformApplication action.
 --
---
---
--- /See:/ 'listEndpointsByPlatformApplication' smart constructor.
+-- /See:/ 'newListEndpointsByPlatformApplication' smart constructor.
 data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication'
-  { _lebpaNextToken              :: !(Maybe Text)
-  , _lebpaPlatformApplicationARN :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | NextToken string is used when calling ListEndpointsByPlatformApplication
+    -- action to retrieve additional records that are available after the first
+    -- page results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput
+    -- action.
+    platformApplicationArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListEndpointsByPlatformApplication' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListEndpointsByPlatformApplication' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lebpaNextToken' - NextToken string is used when calling ListEndpointsByPlatformApplication action to retrieve additional records that are available after the first page results.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lebpaPlatformApplicationARN' - PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.
-listEndpointsByPlatformApplication
-    :: Text -- ^ 'lebpaPlatformApplicationARN'
-    -> ListEndpointsByPlatformApplication
-listEndpointsByPlatformApplication pPlatformApplicationARN_ =
-  ListEndpointsByPlatformApplication'
-    { _lebpaNextToken = Nothing
-    , _lebpaPlatformApplicationARN = pPlatformApplicationARN_
-    }
+-- 'nextToken', 'listEndpointsByPlatformApplication_nextToken' - NextToken string is used when calling ListEndpointsByPlatformApplication
+-- action to retrieve additional records that are available after the first
+-- page results.
+--
+-- 'platformApplicationArn', 'listEndpointsByPlatformApplication_platformApplicationArn' - PlatformApplicationArn for ListEndpointsByPlatformApplicationInput
+-- action.
+newListEndpointsByPlatformApplication ::
+  -- | 'platformApplicationArn'
+  Prelude.Text ->
+  ListEndpointsByPlatformApplication
+newListEndpointsByPlatformApplication
+  pPlatformApplicationArn_ =
+    ListEndpointsByPlatformApplication'
+      { nextToken =
+          Prelude.Nothing,
+        platformApplicationArn =
+          pPlatformApplicationArn_
+      }
 
+-- | NextToken string is used when calling ListEndpointsByPlatformApplication
+-- action to retrieve additional records that are available after the first
+-- page results.
+listEndpointsByPlatformApplication_nextToken :: Lens.Lens' ListEndpointsByPlatformApplication (Prelude.Maybe Prelude.Text)
+listEndpointsByPlatformApplication_nextToken = Lens.lens (\ListEndpointsByPlatformApplication' {nextToken} -> nextToken) (\s@ListEndpointsByPlatformApplication' {} a -> s {nextToken = a} :: ListEndpointsByPlatformApplication)
 
--- | NextToken string is used when calling ListEndpointsByPlatformApplication action to retrieve additional records that are available after the first page results.
-lebpaNextToken :: Lens' ListEndpointsByPlatformApplication (Maybe Text)
-lebpaNextToken = lens _lebpaNextToken (\ s a -> s{_lebpaNextToken = a})
+-- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput
+-- action.
+listEndpointsByPlatformApplication_platformApplicationArn :: Lens.Lens' ListEndpointsByPlatformApplication Prelude.Text
+listEndpointsByPlatformApplication_platformApplicationArn = Lens.lens (\ListEndpointsByPlatformApplication' {platformApplicationArn} -> platformApplicationArn) (\s@ListEndpointsByPlatformApplication' {} a -> s {platformApplicationArn = a} :: ListEndpointsByPlatformApplication)
 
--- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.
-lebpaPlatformApplicationARN :: Lens' ListEndpointsByPlatformApplication Text
-lebpaPlatformApplicationARN = lens _lebpaPlatformApplicationARN (\ s a -> s{_lebpaPlatformApplicationARN = a})
+instance
+  Pager.AWSPager
+    ListEndpointsByPlatformApplication
+  where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listEndpointsByPlatformApplicationResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listEndpointsByPlatformApplicationResponse_endpoints
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listEndpointsByPlatformApplication_nextToken
+          Lens..~ rs
+          Lens.^? listEndpointsByPlatformApplicationResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSPager ListEndpointsByPlatformApplication
-         where
-        page rq rs
-          | stop (rs ^. lebparsNextToken) = Nothing
-          | stop (rs ^. lebparsEndpoints) = Nothing
-          | otherwise =
-            Just $ rq & lebpaNextToken .~ rs ^. lebparsNextToken
+instance
+  Prelude.AWSRequest
+    ListEndpointsByPlatformApplication
+  where
+  type
+    Rs ListEndpointsByPlatformApplication =
+      ListEndpointsByPlatformApplicationResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "ListEndpointsByPlatformApplicationResult"
+      ( \s h x ->
+          ListEndpointsByPlatformApplicationResponse'
+            Prelude.<$> (x Prelude..@? "NextToken")
+              Prelude.<*> ( x Prelude..@? "Endpoints" Prelude..!@ Prelude.mempty
+                              Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
+                          )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest
-           ListEndpointsByPlatformApplication
-         where
-        type Rs ListEndpointsByPlatformApplication =
-             ListEndpointsByPlatformApplicationResponse
-        request = postQuery sns
-        response
-          = receiveXMLWrapper
-              "ListEndpointsByPlatformApplicationResult"
-              (\ s h x ->
-                 ListEndpointsByPlatformApplicationResponse' <$>
-                   (x .@? "NextToken") <*>
-                     (x .@? "Endpoints" .!@ mempty >>=
-                        may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+instance
+  Prelude.Hashable
+    ListEndpointsByPlatformApplication
 
-instance Hashable ListEndpointsByPlatformApplication
-         where
+instance
+  Prelude.NFData
+    ListEndpointsByPlatformApplication
 
-instance NFData ListEndpointsByPlatformApplication
-         where
+instance
+  Prelude.ToHeaders
+    ListEndpointsByPlatformApplication
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders ListEndpointsByPlatformApplication
-         where
-        toHeaders = const mempty
+instance
+  Prelude.ToPath
+    ListEndpointsByPlatformApplication
+  where
+  toPath = Prelude.const "/"
 
-instance ToPath ListEndpointsByPlatformApplication
-         where
-        toPath = const "/"
-
-instance ToQuery ListEndpointsByPlatformApplication
-         where
-        toQuery ListEndpointsByPlatformApplication'{..}
-          = mconcat
-              ["Action" =:
-                 ("ListEndpointsByPlatformApplication" :: ByteString),
-               "Version" =: ("2010-03-31" :: ByteString),
-               "NextToken" =: _lebpaNextToken,
-               "PlatformApplicationArn" =:
-                 _lebpaPlatformApplicationARN]
+instance
+  Prelude.ToQuery
+    ListEndpointsByPlatformApplication
+  where
+  toQuery ListEndpointsByPlatformApplication' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ( "ListEndpointsByPlatformApplication" ::
+                         Prelude.ByteString
+                     ),
+        "Version"
+          Prelude.=: ("2010-03-31" :: Prelude.ByteString),
+        "NextToken" Prelude.=: nextToken,
+        "PlatformApplicationArn"
+          Prelude.=: platformApplicationArn
+      ]
 
 -- | Response for ListEndpointsByPlatformApplication action.
 --
---
---
--- /See:/ 'listEndpointsByPlatformApplicationResponse' smart constructor.
+-- /See:/ 'newListEndpointsByPlatformApplicationResponse' smart constructor.
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse'
-  { _lebparsNextToken      :: !(Maybe Text)
-  , _lebparsEndpoints      :: !(Maybe [Endpoint])
-  , _lebparsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | NextToken string is returned when calling
+    -- ListEndpointsByPlatformApplication action if additional records are
+    -- available after the first page results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Endpoints returned for ListEndpointsByPlatformApplication action.
+    endpoints :: Prelude.Maybe [Endpoint],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
+-- |
+-- Create a value of 'ListEndpointsByPlatformApplicationResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listEndpointsByPlatformApplicationResponse_nextToken' - NextToken string is returned when calling
+-- ListEndpointsByPlatformApplication action if additional records are
+-- available after the first page results.
+--
+-- 'endpoints', 'listEndpointsByPlatformApplicationResponse_endpoints' - Endpoints returned for ListEndpointsByPlatformApplication action.
+--
+-- 'httpStatus', 'listEndpointsByPlatformApplicationResponse_httpStatus' - The response's http status code.
+newListEndpointsByPlatformApplicationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListEndpointsByPlatformApplicationResponse
+newListEndpointsByPlatformApplicationResponse
+  pHttpStatus_ =
+    ListEndpointsByPlatformApplicationResponse'
+      { nextToken =
+          Prelude.Nothing,
+        endpoints = Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
--- | Creates a value of 'ListEndpointsByPlatformApplicationResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lebparsNextToken' - NextToken string is returned when calling ListEndpointsByPlatformApplication action if additional records are available after the first page results.
---
--- * 'lebparsEndpoints' - Endpoints returned for ListEndpointsByPlatformApplication action.
---
--- * 'lebparsResponseStatus' - -- | The response status code.
-listEndpointsByPlatformApplicationResponse
-    :: Int -- ^ 'lebparsResponseStatus'
-    -> ListEndpointsByPlatformApplicationResponse
-listEndpointsByPlatformApplicationResponse pResponseStatus_ =
-  ListEndpointsByPlatformApplicationResponse'
-    { _lebparsNextToken = Nothing
-    , _lebparsEndpoints = Nothing
-    , _lebparsResponseStatus = pResponseStatus_
-    }
-
-
--- | NextToken string is returned when calling ListEndpointsByPlatformApplication action if additional records are available after the first page results.
-lebparsNextToken :: Lens' ListEndpointsByPlatformApplicationResponse (Maybe Text)
-lebparsNextToken = lens _lebparsNextToken (\ s a -> s{_lebparsNextToken = a})
+-- | NextToken string is returned when calling
+-- ListEndpointsByPlatformApplication action if additional records are
+-- available after the first page results.
+listEndpointsByPlatformApplicationResponse_nextToken :: Lens.Lens' ListEndpointsByPlatformApplicationResponse (Prelude.Maybe Prelude.Text)
+listEndpointsByPlatformApplicationResponse_nextToken = Lens.lens (\ListEndpointsByPlatformApplicationResponse' {nextToken} -> nextToken) (\s@ListEndpointsByPlatformApplicationResponse' {} a -> s {nextToken = a} :: ListEndpointsByPlatformApplicationResponse)
 
 -- | Endpoints returned for ListEndpointsByPlatformApplication action.
-lebparsEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint]
-lebparsEndpoints = lens _lebparsEndpoints (\ s a -> s{_lebparsEndpoints = a}) . _Default . _Coerce
+listEndpointsByPlatformApplicationResponse_endpoints :: Lens.Lens' ListEndpointsByPlatformApplicationResponse (Prelude.Maybe [Endpoint])
+listEndpointsByPlatformApplicationResponse_endpoints = Lens.lens (\ListEndpointsByPlatformApplicationResponse' {endpoints} -> endpoints) (\s@ListEndpointsByPlatformApplicationResponse' {} a -> s {endpoints = a} :: ListEndpointsByPlatformApplicationResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-lebparsResponseStatus :: Lens' ListEndpointsByPlatformApplicationResponse Int
-lebparsResponseStatus = lens _lebparsResponseStatus (\ s a -> s{_lebparsResponseStatus = a})
+-- | The response's http status code.
+listEndpointsByPlatformApplicationResponse_httpStatus :: Lens.Lens' ListEndpointsByPlatformApplicationResponse Prelude.Int
+listEndpointsByPlatformApplicationResponse_httpStatus = Lens.lens (\ListEndpointsByPlatformApplicationResponse' {httpStatus} -> httpStatus) (\s@ListEndpointsByPlatformApplicationResponse' {} a -> s {httpStatus = a} :: ListEndpointsByPlatformApplicationResponse)
 
-instance NFData
-           ListEndpointsByPlatformApplicationResponse
-         where
+instance
+  Prelude.NFData
+    ListEndpointsByPlatformApplicationResponse

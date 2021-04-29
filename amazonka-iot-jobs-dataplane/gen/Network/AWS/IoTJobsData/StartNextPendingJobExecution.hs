@@ -1,141 +1,215 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoTJobsData.StartNextPendingJobExecution
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets and starts the next pending (status IN_PROGRESS or QUEUED) job execution for a thing.
---
---
+-- Gets and starts the next pending (status IN_PROGRESS or QUEUED) job
+-- execution for a thing.
 module Network.AWS.IoTJobsData.StartNextPendingJobExecution
-    (
-    -- * Creating a Request
-      startNextPendingJobExecution
-    , StartNextPendingJobExecution
+  ( -- * Creating a Request
+    StartNextPendingJobExecution (..),
+    newStartNextPendingJobExecution,
+
     -- * Request Lenses
-    , snpjeStatusDetails
-    , snpjeThingName
+    startNextPendingJobExecution_statusDetails,
+    startNextPendingJobExecution_stepTimeoutInMinutes,
+    startNextPendingJobExecution_thingName,
 
     -- * Destructuring the Response
-    , startNextPendingJobExecutionResponse
-    , StartNextPendingJobExecutionResponse
+    StartNextPendingJobExecutionResponse (..),
+    newStartNextPendingJobExecutionResponse,
+
     -- * Response Lenses
-    , snpjersExecution
-    , snpjersResponseStatus
-    ) where
+    startNextPendingJobExecutionResponse_execution,
+    startNextPendingJobExecutionResponse_httpStatus,
+  )
+where
 
 import Network.AWS.IoTJobsData.Types
-import Network.AWS.IoTJobsData.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'startNextPendingJobExecution' smart constructor.
+-- | /See:/ 'newStartNextPendingJobExecution' smart constructor.
 data StartNextPendingJobExecution = StartNextPendingJobExecution'
-  { _snpjeStatusDetails :: !(Maybe (Map Text Text))
-  , _snpjeThingName     :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A collection of name\/value pairs that describe the status of the job
+    -- execution. If not specified, the statusDetails are unchanged.
+    statusDetails :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Specifies the amount of time this device has to finish execution of this
+    -- job. If the job execution status is not set to a terminal state before
+    -- this timer expires, or before the timer is reset (by calling
+    -- @UpdateJobExecution@, setting the status to @IN_PROGRESS@ and specifying
+    -- a new timeout value in field @stepTimeoutInMinutes@) the job execution
+    -- status will be automatically set to @TIMED_OUT@. Note that setting this
+    -- timeout has no effect on that job execution timeout which may have been
+    -- specified when the job was created (@CreateJob@ using field
+    -- @timeoutConfig@).
+    stepTimeoutInMinutes :: Prelude.Maybe Prelude.Integer,
+    -- | The name of the thing associated with the device.
+    thingName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'StartNextPendingJobExecution' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StartNextPendingJobExecution' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'snpjeStatusDetails' - A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'snpjeThingName' - The name of the thing associated with the device.
-startNextPendingJobExecution
-    :: Text -- ^ 'snpjeThingName'
-    -> StartNextPendingJobExecution
-startNextPendingJobExecution pThingName_ =
+-- 'statusDetails', 'startNextPendingJobExecution_statusDetails' - A collection of name\/value pairs that describe the status of the job
+-- execution. If not specified, the statusDetails are unchanged.
+--
+-- 'stepTimeoutInMinutes', 'startNextPendingJobExecution_stepTimeoutInMinutes' - Specifies the amount of time this device has to finish execution of this
+-- job. If the job execution status is not set to a terminal state before
+-- this timer expires, or before the timer is reset (by calling
+-- @UpdateJobExecution@, setting the status to @IN_PROGRESS@ and specifying
+-- a new timeout value in field @stepTimeoutInMinutes@) the job execution
+-- status will be automatically set to @TIMED_OUT@. Note that setting this
+-- timeout has no effect on that job execution timeout which may have been
+-- specified when the job was created (@CreateJob@ using field
+-- @timeoutConfig@).
+--
+-- 'thingName', 'startNextPendingJobExecution_thingName' - The name of the thing associated with the device.
+newStartNextPendingJobExecution ::
+  -- | 'thingName'
+  Prelude.Text ->
+  StartNextPendingJobExecution
+newStartNextPendingJobExecution pThingName_ =
   StartNextPendingJobExecution'
-    {_snpjeStatusDetails = Nothing, _snpjeThingName = pThingName_}
+    { statusDetails =
+        Prelude.Nothing,
+      stepTimeoutInMinutes = Prelude.Nothing,
+      thingName = pThingName_
+    }
 
+-- | A collection of name\/value pairs that describe the status of the job
+-- execution. If not specified, the statusDetails are unchanged.
+startNextPendingJobExecution_statusDetails :: Lens.Lens' StartNextPendingJobExecution (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+startNextPendingJobExecution_statusDetails = Lens.lens (\StartNextPendingJobExecution' {statusDetails} -> statusDetails) (\s@StartNextPendingJobExecution' {} a -> s {statusDetails = a} :: StartNextPendingJobExecution) Prelude.. Lens.mapping Prelude._Coerce
 
--- | A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged.
-snpjeStatusDetails :: Lens' StartNextPendingJobExecution (HashMap Text Text)
-snpjeStatusDetails = lens _snpjeStatusDetails (\ s a -> s{_snpjeStatusDetails = a}) . _Default . _Map
+-- | Specifies the amount of time this device has to finish execution of this
+-- job. If the job execution status is not set to a terminal state before
+-- this timer expires, or before the timer is reset (by calling
+-- @UpdateJobExecution@, setting the status to @IN_PROGRESS@ and specifying
+-- a new timeout value in field @stepTimeoutInMinutes@) the job execution
+-- status will be automatically set to @TIMED_OUT@. Note that setting this
+-- timeout has no effect on that job execution timeout which may have been
+-- specified when the job was created (@CreateJob@ using field
+-- @timeoutConfig@).
+startNextPendingJobExecution_stepTimeoutInMinutes :: Lens.Lens' StartNextPendingJobExecution (Prelude.Maybe Prelude.Integer)
+startNextPendingJobExecution_stepTimeoutInMinutes = Lens.lens (\StartNextPendingJobExecution' {stepTimeoutInMinutes} -> stepTimeoutInMinutes) (\s@StartNextPendingJobExecution' {} a -> s {stepTimeoutInMinutes = a} :: StartNextPendingJobExecution)
 
 -- | The name of the thing associated with the device.
-snpjeThingName :: Lens' StartNextPendingJobExecution Text
-snpjeThingName = lens _snpjeThingName (\ s a -> s{_snpjeThingName = a})
+startNextPendingJobExecution_thingName :: Lens.Lens' StartNextPendingJobExecution Prelude.Text
+startNextPendingJobExecution_thingName = Lens.lens (\StartNextPendingJobExecution' {thingName} -> thingName) (\s@StartNextPendingJobExecution' {} a -> s {thingName = a} :: StartNextPendingJobExecution)
 
-instance AWSRequest StartNextPendingJobExecution
-         where
-        type Rs StartNextPendingJobExecution =
-             StartNextPendingJobExecutionResponse
-        request = putJSON ioTJobsData
-        response
-          = receiveJSON
-              (\ s h x ->
-                 StartNextPendingJobExecutionResponse' <$>
-                   (x .?> "execution") <*> (pure (fromEnum s)))
+instance
+  Prelude.AWSRequest
+    StartNextPendingJobExecution
+  where
+  type
+    Rs StartNextPendingJobExecution =
+      StartNextPendingJobExecutionResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          StartNextPendingJobExecutionResponse'
+            Prelude.<$> (x Prelude..?> "execution")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable StartNextPendingJobExecution where
+instance
+  Prelude.Hashable
+    StartNextPendingJobExecution
 
-instance NFData StartNextPendingJobExecution where
+instance Prelude.NFData StartNextPendingJobExecution
 
-instance ToHeaders StartNextPendingJobExecution where
-        toHeaders = const mempty
+instance
+  Prelude.ToHeaders
+    StartNextPendingJobExecution
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToJSON StartNextPendingJobExecution where
-        toJSON StartNextPendingJobExecution'{..}
-          = object
-              (catMaybes
-                 [("statusDetails" .=) <$> _snpjeStatusDetails])
+instance Prelude.ToJSON StartNextPendingJobExecution where
+  toJSON StartNextPendingJobExecution' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("statusDetails" Prelude..=)
+              Prelude.<$> statusDetails,
+            ("stepTimeoutInMinutes" Prelude..=)
+              Prelude.<$> stepTimeoutInMinutes
+          ]
+      )
 
-instance ToPath StartNextPendingJobExecution where
-        toPath StartNextPendingJobExecution'{..}
-          = mconcat
-              ["/things/", toBS _snpjeThingName, "/jobs/$next"]
+instance Prelude.ToPath StartNextPendingJobExecution where
+  toPath StartNextPendingJobExecution' {..} =
+    Prelude.mconcat
+      ["/things/", Prelude.toBS thingName, "/jobs/$next"]
 
-instance ToQuery StartNextPendingJobExecution where
-        toQuery = const mempty
+instance Prelude.ToQuery StartNextPendingJobExecution where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'startNextPendingJobExecutionResponse' smart constructor.
+-- | /See:/ 'newStartNextPendingJobExecutionResponse' smart constructor.
 data StartNextPendingJobExecutionResponse = StartNextPendingJobExecutionResponse'
-  { _snpjersExecution      :: !(Maybe JobExecution)
-  , _snpjersResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A JobExecution object.
+    execution :: Prelude.Maybe JobExecution,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'StartNextPendingJobExecutionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StartNextPendingJobExecutionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'snpjersExecution' - A JobExecution object.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'snpjersResponseStatus' - -- | The response status code.
-startNextPendingJobExecutionResponse
-    :: Int -- ^ 'snpjersResponseStatus'
-    -> StartNextPendingJobExecutionResponse
-startNextPendingJobExecutionResponse pResponseStatus_ =
+-- 'execution', 'startNextPendingJobExecutionResponse_execution' - A JobExecution object.
+--
+-- 'httpStatus', 'startNextPendingJobExecutionResponse_httpStatus' - The response's http status code.
+newStartNextPendingJobExecutionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  StartNextPendingJobExecutionResponse
+newStartNextPendingJobExecutionResponse pHttpStatus_ =
   StartNextPendingJobExecutionResponse'
-    {_snpjersExecution = Nothing, _snpjersResponseStatus = pResponseStatus_}
-
+    { execution =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | A JobExecution object.
-snpjersExecution :: Lens' StartNextPendingJobExecutionResponse (Maybe JobExecution)
-snpjersExecution = lens _snpjersExecution (\ s a -> s{_snpjersExecution = a})
+startNextPendingJobExecutionResponse_execution :: Lens.Lens' StartNextPendingJobExecutionResponse (Prelude.Maybe JobExecution)
+startNextPendingJobExecutionResponse_execution = Lens.lens (\StartNextPendingJobExecutionResponse' {execution} -> execution) (\s@StartNextPendingJobExecutionResponse' {} a -> s {execution = a} :: StartNextPendingJobExecutionResponse)
 
--- | -- | The response status code.
-snpjersResponseStatus :: Lens' StartNextPendingJobExecutionResponse Int
-snpjersResponseStatus = lens _snpjersResponseStatus (\ s a -> s{_snpjersResponseStatus = a})
+-- | The response's http status code.
+startNextPendingJobExecutionResponse_httpStatus :: Lens.Lens' StartNextPendingJobExecutionResponse Prelude.Int
+startNextPendingJobExecutionResponse_httpStatus = Lens.lens (\StartNextPendingJobExecutionResponse' {httpStatus} -> httpStatus) (\s@StartNextPendingJobExecutionResponse' {} a -> s {httpStatus = a} :: StartNextPendingJobExecutionResponse)
 
-instance NFData StartNextPendingJobExecutionResponse
-         where
+instance
+  Prelude.NFData
+    StartNextPendingJobExecutionResponse

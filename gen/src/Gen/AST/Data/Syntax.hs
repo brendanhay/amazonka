@@ -884,9 +884,7 @@ directed i m d (typeOf -> t) = case t of
   where
     go = directed i m d
 
-    nat
-      | i = "Prelude.Nat"
-      | otherwise = "Prelude.Natural"
+    nat = "Prelude.Natural"
 
     sensitive
       | i = tyapp (tycon "Prelude.Sensitive")
@@ -894,13 +892,9 @@ directed i m d (typeOf -> t) = case t of
 
     may x = tycon "Prelude.Maybe" `tyapp` go x
 
-    list1
-      | i = tyapp (tycon "Prelude.List1")
-      | otherwise = tyapp (tycon "Prelude.NonEmpty")
+    list1 = tyapp (tycon "Prelude.NonEmpty")
 
-    hmap k v
-      | i = tycon "Prelude.Map" `tyapp` go k `tyapp` go v
-      | otherwise = tycon "Prelude.HashMap" `tyapp` go k `tyapp` go v
+    hmap k v = tycon "Prelude.HashMap" `tyapp` go k `tyapp` go v
 
     stream = case d of
       Nothing -> "Prelude.RsBody"
@@ -925,11 +919,10 @@ iso :: TType -> Maybe Exp
 iso = \case
   TLit Time -> Just (var "Prelude._Time")
   TLit Base64 -> Just (var "Prelude._Base64")
-  TNatural -> Just (var "Prelude._Nat")
-  TSensitive x -> Just (infixE (var "Prelude._Sensitive") "Prelude.." (maybeToList (iso x)))
-  TList1 {} -> Just (var "Prelude._List1")
+  TMap {} -> Just (var "Prelude._Coerce")
+  TList1 {} -> Just (var "Prelude._Coerce")
   TList {} -> Just (var "Prelude._Coerce")
-  TMap {} -> Just (var "Prelude._Map")
+  TSensitive x -> Just (infixE (var "Prelude._Sensitive") "Prelude.." (maybeToList (iso x)))
   _ -> Nothing
 
 literal :: Bool -> Timestamp -> Lit -> Type

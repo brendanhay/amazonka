@@ -1,0 +1,66 @@
+{-# LANGUAGE DeriveDataTypeable         #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE LambdaCase                 #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE PatternSynonyms            #-}
+{-# LANGUAGE StrictData                 #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+{% include "_include/license.ede" %}
+--
+module {{ moduleName }} (
+  {{ shape.name }} (
+    ..
+    {% for ctor in shape.constructors %}
+    , {{ ctor.key }}
+    {% endfor %}
+    )
+  ) where
+
+{% for import in moduleImports %}
+import {{ import.value }}
+{% endfor %}
+
+{% if shape.documentation %}
+-- | {{ shape.documentation }}
+{% endif %}
+{{ shape.declaration }}
+  deriving
+      ( Prelude.Show
+      , Prelude.Read
+      , Prelude.Eq
+      , Prelude.Ord
+      , Prelude.Data
+      , Prelude.Typeable
+      , Prelude.Generic
+      , Prelude.Hashable
+      , Prelude.NFData
+      , Prelude.FromText
+      , Prelude.ToText
+      , Prelude.ToByteString
+      , Prelude.ToLog
+      , Prelude.ToHeader
+      , Prelude.ToQuery
+      , Prelude.FromJSON
+      , Prelude.FromJSONKey
+      , Prelude.ToJSON 
+      , Prelude.ToJSONKey
+      , Prelude.FromXML
+      , Prelude.ToXML
+    )
+
+{% for ctor in shape.constructors %}
+pattern {{ ctor.key }} :: {{ shape.name }}
+pattern {{ ctor.key }} = {{ shape.constructor }} "{{ ctor.value }}"
+
+{% endfor %}
+{-# COMPLETE
+{% for ctor in shape.constructors %}
+  {{ ctor.key }},
+{% endfor %}
+  {{ shape.constructor }} #-}

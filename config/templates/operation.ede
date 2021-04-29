@@ -48,8 +48,8 @@ module {{ moduleName }}
 import {{ import.value }}
 {% endfor %}
 
-{% include "_include/shape.ede" with shape = input %}
+{% include "_include/product.ede" with shape = input %}
 {% if !output.shared %}
 
-  {% include "_include/shape.ede" with shape = output %}
+{% include "_include/product.ede" with shape = output %}
 {% endif %}

@@ -8,7 +8,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
 echo "Formatting Cabal"
 
-find gen amazonka core test \
+find gen core test amazonka amazonka-s3-encryption \
   -type f -name '*.cabal' \
   -exec cabal-fmt --inplace --indent=2 {} \+
 
@@ -22,4 +22,10 @@ find gen \
   -o '-XTypeApplications' \
   -o '-XPatternSynonyms' \
   -o '-XImportQualifiedPost' \
+  {} \+
+
+find core test amazonka amazonka-s3-encryption \
+  -type f -name '*.hs' \
+  -exec ormolu -i \
+  -o '-XPatternSynonyms' \
   {} \+

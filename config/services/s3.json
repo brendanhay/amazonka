@@ -2,7 +2,7 @@
     "libraryName": "amazonka-s3",
     "extraDependencies": [
         "text >= 1.1",
-        "lens >= 4.4"
+        "lens >= 4.14"
     ],
     "operationPlugins": {
         "DeleteObjects": ["Request.contentMD5Header"],

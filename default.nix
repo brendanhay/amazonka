@@ -1,33 +1,26 @@
 # The build system where packages will be built.
 { system ? builtins.currentSystem
-  # The host system where packages will run.
-, crossSystem ? null
   # Additional sources.json overrides.
 , sources ? { }
   # Additional nixpkgs.config overrides.
 , config ? { }
   # Additional nixpkgs.overlays.
 , overlays ? [ ]
-  # Overlays to apply to the last package set in cross compilation.
-, crossOverlays ? [ ]
   # The GHC version to use. (compiler-nix-name in haskell.nix)
 , ghcVersion ? "ghc8104" }:
 
 let
 
   pkgs = import ./nix/default.nix {
-    inherit system sources config overlays crossOverlays ghcVersion;
+    inherit system sources config overlays ghcVersion;
   };
 
-  projectPackages =
-    pkgs.haskell-nix.haskellLib.selectProjectPackages pkgs.cabalProject;
+  project = pkgs.haskell-nix.haskellLib.selectProjectPackages pkgs.cabalProject;
+  libraries = pkgs.haskell-nix.haskellLib.collectComponents' "library" project;
+  checks = builtins.mapAttrs (_: p: p.checks) project;
 
-in projectPackages // {
-  ci = {
-    "library" =
-      pkgs.haskell-nix.haskellLib.collectComponents' "library" projectPackages;
-    "checks" = builtins.mapAttrs (_: p: p.checks) projectPackages;
-  };
+in project // {
+  ci = { inherit libraries checks; };
 
   shell = pkgs.cabalProject.shellFor {
     exactDeps = true;

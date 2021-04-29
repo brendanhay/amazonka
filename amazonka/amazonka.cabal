@@ -38,8 +38,8 @@ source-repository head
   subdir:   amazonka
 
 library
-  default-language: Haskell2010
-  hs-source-dirs:   src
+  default-language:   Haskell2010
+  hs-source-dirs:     src
   ghc-options:
     -Wall -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates -funbox-strict-fields
@@ -48,7 +48,6 @@ library
     Control.Monad.Trans.AWS
     Network.AWS
     Network.AWS.Auth
-    Network.AWS.Data
     Network.AWS.EC2.Metadata
     Network.AWS.Env
     Network.AWS.Presign
@@ -58,16 +57,17 @@ library
     Network.AWS.Internal.HTTP
     Network.AWS.Internal.Logger
 
+  reexported-modules: Network.AWS.Prelude
   build-depends:
       amazonka-core        >=1.6.1   && <1.6.2
-    , base                 >=4.7     && <5
+    , base                 >=4.13    && <5
     , bytestring           >=0.9
-    , conduit              >=1.1
-    , conduit-extra        >=1.1
+    , conduit              >=1.3
+    , conduit-extra        >=1.3
     , directory            >=1.2
-    , exceptions           >=0.6
-    , http-client          >=0.4     && <0.7
-    , http-conduit         >=2.1.7   && <3
+    , exceptions           >=0.10
+    , http-client          >=0.5     && <0.8
+    , http-conduit         >=2.3     && <3
     , http-types           >=0.8
     , ini                  >=0.3.5
     , mmorph               >=1
@@ -75,7 +75,7 @@ library
     , mtl                  >=2.1.3.1
     , primitive            >=0.6
     , resourcet            >=1.1
-    , retry                >=0.7
+    , retry                >=0.7.6.2
     , text                 >=1.1
     , time                 >=1.2
     , transformers         >=0.2

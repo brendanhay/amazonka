@@ -8,5 +8,7 @@ final: prev: {
       name = "amazonka";
       src = ../..;
     };
+
+    modules = [{ packages = { amazonka-gen.dontStrip = false; }; }];
   };
 }

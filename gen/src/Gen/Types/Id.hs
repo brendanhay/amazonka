@@ -94,12 +94,8 @@ ctorId :: Id -> Text
 ctorId = (`Text.snoc` '\'') . typeId
 
 branchId :: Maybe Text -> Id -> Text
-branchId p = f . typeId
-  where
-    f :: Text -> Text
-    f
-      | Just x <- p = mappend (upperHead x)
-      | otherwise = id
+branchId Nothing = typeId
+branchId (Just p) = mappend p . mappend "_" . typeId
 
 smartCtorId :: Id -> Text
 smartCtorId = mappend "new" . typeId

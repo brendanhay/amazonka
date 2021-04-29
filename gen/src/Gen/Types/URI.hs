@@ -42,9 +42,6 @@ makeClassy ''URI
 segments :: Traversal' URI Segment
 segments f x = URI' <$> traverse f (_uriPath x) <*> traverse f (_uriQuery x)
 
--- variables :: HasUrTraversal' URI Id
--- variables = segments . _Var
-
 instance FromJSON URI where
   parseJSON = withText "uri" (either fail return . Parse.parseOnly uriParser)
 

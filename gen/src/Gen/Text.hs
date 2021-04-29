@@ -30,7 +30,6 @@ import Control.Error
 import Control.Monad
 import Data.Bifunctor
 import Data.Char qualified as Char
-import Data.Foldable qualified as Fold
 import Data.HashSet qualified as Set
 import Data.Text (Text)
 import Data.Text qualified as Text
@@ -64,44 +63,10 @@ renameService =
     . stripPrefix "Service"
     . stripSuffix "SDK"
 
--- Since 'takeLowerText' is used for FromText parser instances,
--- the branch value is lowercased here.
---
--- Tangentially the 'takeLowerText' function exists to avoid the
--- horrendous inlining that use Data.CaseInsensitive provokes and
--- the subsequent compilation time explosion on a project of this size.
 renameBranch :: Text -> (Text, Text)
-renameBranch = first (renameReserved . go) . join (,)
+renameBranch = first go . join (,)
   where
-    go x
-      | decimal x = Text.cons 'D' . cat $ split x
-      | Text.all Char.isDigit x = Text.cons 'N' x
-      | Text.length x <= 2 = Text.toUpper x
-      | otherwise = upperHead . cat $ split x
-
-    cat = Fold.foldMap (Text.intercalate "_" . map component . Text.split dot)
-    split = Text.split seperator
-
-    dot x = x == '.'
-
-    seperator x =
-      x == '\\'
-        || x == '/'
-        || x == '+'
-        || x == ' '
-        || x == '('
-        || x == ')'
-        || x == ':'
-        || x == '-'
-        || x == '_'
-        || x == '*'
-
-    component x
-      | Text.length x <= 1 = x
-      | Char.isDigit (Text.last x) = Text.toUpper x
-      | otherwise = toPascalCase x
-
-    decimal = Text.all (\c -> Char.isDigit c || c == '.')
+    go = Text.map (\c -> if Char.isAlphaNum c then c else '_') . upperHead
 
 renameReserved :: Text -> Text
 renameReserved x
@@ -172,14 +137,18 @@ toCamelCase = toCamelCase' . Text.split (not . Char.isAlphaNum) . Text.dropWhile
         y : ys -> mconcat (lowerHead y : map upperHead ys)
 
 lowerHead :: Text -> Text
-lowerHead text =
-  fromMaybe (mapHead Char.toLower text)
-    . msum
-    $ map
-      (\acronym -> mappend (Text.toLower acronym) <$> Text.stripPrefix acronym text)
-      [ "KMS",
-        "DB"
-      ]
+lowerHead text
+  | Text.all (\c -> Char.isUpper c || Char.isDigit c) text =
+    Text.toLower text
+  | otherwise =
+    fromMaybe (mapHead Char.toLower text)
+      . msum
+      $ map
+        (\acronym -> mappend (Text.toLower acronym) <$> Text.stripPrefix acronym text)
+        [ "KMS",
+          "DB",
+          "MFA"
+        ]
 
 upperHead :: Text -> Text
 upperHead = mapHead Char.toUpper

@@ -1,15 +1,11 @@
 # The build system where packages will be built.
 { system ? builtins.currentSystem
-  # The host system where packages will run.
-, crossSystem ? null
   # Additional sources.json overrides.
 , sources ? { }
   # Additional nixpkgs.config overrides.
 , config ? { }
   # Additional nixpkgs.overlays.
 , overlays ? [ ]
-  # Overlays to apply to the last package set in cross compilation.
-, crossOverlays ? [ ]
   # The GHC version to use. (compiler-nix-name in haskell.nix)
 , ghcVersion ? "ghc8104"
   # The names of the models to generate - ie. [ "ec2", "s3" ]
@@ -23,7 +19,7 @@
 let
 
   pkgs = import ./nix/default.nix {
-    inherit system sources config overlays crossOverlays ghcVersion;
+    inherit system sources config overlays ghcVersion;
   };
 
   inherit (pkgs) lib cabalProject;

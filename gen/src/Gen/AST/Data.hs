@@ -147,11 +147,18 @@ sumData p s i vs = Sum s <$> mk <*> fmap Map.keys insts
   where
     mk =
       Sum' (typeId n) (i ^. infoDocumentation)
-        <$> pp Print decl
+        <$> pp Print datatype
         <*> pure ctor
         <*> pure branches
 
-    decl = dataD n [conD newt] (derivingOf s)
+    datatype =
+      Exts.DataDecl
+        ()
+        (Exts.NewType ())
+        Nothing
+        (Exts.DHead () (ident (typeId n)))
+        [conD newt]
+        []
 
     newt =
       Exts.RecDecl

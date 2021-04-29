@@ -70,7 +70,7 @@ common base
     TypeSynonymInstances
     ViewPatterns
 
-  build-depends:      base >=4.12 && <5
+  build-depends:      base >=4.13 && <5
 
 executable amazonka-gen
   import:           base
@@ -113,7 +113,7 @@ executable amazonka-gen
 
   ghc-options:      -rtsopts -threaded
   build-depends:
-    , aeson                 >=1.2
+    , aeson                 >=1.3
     , attoparsec
     , bytestring
     , case-insensitive
@@ -135,7 +135,7 @@ executable amazonka-gen
     , system-fileio
     , system-filepath
     , text
-    , time                  >=1.5
+    , time                  >=1.9
     , transformers
     , unexceptionalio       >=0.4    && <0.6
     , unordered-containers

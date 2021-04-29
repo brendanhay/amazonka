@@ -57,7 +57,7 @@ library
 
     build-depends:
           amazonka-core == {{ coreVersion }}.*
-        , base          >= 4.7     && < 5
+        , base          >= 4.13 && < 5
       {% for dep in extraDependencies %}
         , {{ dep.value }}
       {% endfor %}

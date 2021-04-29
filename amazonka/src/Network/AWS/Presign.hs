@@ -2,7 +2,7 @@
 
 -- |
 -- Module      : Network.AWS.Presign
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : provisional
@@ -15,52 +15,65 @@
 -- and no other AWS actions are required.
 module Network.AWS.Presign where
 
-import           Control.Monad
-import           Control.Monad.IO.Class
-import           Network.AWS.Data.Time
-import           Network.AWS.Lens         ((%~), (&))
-import           Network.AWS.Prelude
-import           Network.AWS.Request      (requestURL)
-import           Network.AWS.Types
+import Control.Monad
+import Control.Monad.IO.Class
+import Network.AWS.Data.Time
+import Network.AWS.Lens ((%~), (&))
+import Network.AWS.Prelude
+import Network.AWS.Request (requestURL)
+import Network.AWS.Types
 
 -- | Presign an URL that is valid from the specified time until the
 -- number of seconds expiry has elapsed.
 --
 -- /See:/ 'presign', 'presignWith'
-presignURL :: (MonadIO m, AWSRequest a)
-           => Auth
-           -> Region
-           -> UTCTime     -- ^ Signing time.
-           -> Seconds     -- ^ Expiry time.
-           -> a           -- ^ Request to presign.
-           -> m ByteString
+presignURL ::
+  (MonadIO m, AWSRequest a) =>
+  Auth ->
+  Region ->
+  -- | Signing time.
+  UTCTime ->
+  -- | Expiry time.
+  Seconds ->
+  -- | Request to presign.
+  a ->
+  m ByteString
 presignURL a r e ts = liftM requestURL . presign a r e ts
 
 -- | Presign an HTTP request that is valid from the specified time until the
 -- number of seconds expiry has elapsed.
 --
 -- /See:/ 'presignWith', 'presignWithHeaders'
-presign :: (MonadIO m, AWSRequest a)
-        => Auth
-        -> Region
-        -> UTCTime     -- ^ Signing time.
-        -> Seconds     -- ^ Expiry time.
-        -> a           -- ^ Request to presign.
-        -> m ClientRequest
+presign ::
+  (MonadIO m, AWSRequest a) =>
+  Auth ->
+  Region ->
+  -- | Signing time.
+  UTCTime ->
+  -- | Expiry time.
+  Seconds ->
+  -- | Request to presign.
+  a ->
+  m ClientRequest
 presign = presignWith id
 
 -- | A variant of 'presign' that allows modifying the default 'Service'
 -- definition used to configure the request.
 --
 -- /See:/ 'presignWithHeaders'
-presignWith :: (MonadIO m, AWSRequest a)
-            => (Service -> Service) -- ^ Modify the default service configuration.
-            -> Auth
-            -> Region
-            -> UTCTime              -- ^ Signing time.
-            -> Seconds              -- ^ Expiry time.
-            -> a                    -- ^ Request to presign.
-            -> m ClientRequest
+presignWith ::
+  (MonadIO m, AWSRequest a) =>
+  -- | Modify the default service configuration.
+  (Service -> Service) ->
+  Auth ->
+  Region ->
+  -- | Signing time.
+  UTCTime ->
+  -- | Expiry time.
+  Seconds ->
+  -- | Request to presign.
+  a ->
+  m ClientRequest
 presignWith = presignWithHeaders defaultHeaders
 
 -- | Modification to the headers that is applied by default (in 'presignWith');
@@ -70,16 +83,22 @@ defaultHeaders = filter ((/= hExpect) . fst)
 
 -- | A variant of 'presign' that allows modifying the default 'Headers'
 -- and the default 'Service' definition used to configure the request.
-presignWithHeaders :: (MonadIO m, AWSRequest a)
-            => ([Header] -> [Header]) -- ^ Modify the default headers.
-            -> (Service -> Service) -- ^ Modify the default service configuration.
-            -> Auth
-            -> Region
-            -> UTCTime              -- ^ Signing time.
-            -> Seconds              -- ^ Expiry time.
-            -> a                    -- ^ Request to presign.
-            -> m ClientRequest
+presignWithHeaders ::
+  (MonadIO m, AWSRequest a) =>
+  -- | Modify the default headers.
+  ([Header] -> [Header]) ->
+  -- | Modify the default service configuration.
+  (Service -> Service) ->
+  Auth ->
+  Region ->
+  -- | Signing time.
+  UTCTime ->
+  -- | Expiry time.
+  Seconds ->
+  -- | Request to presign.
+  a ->
+  m ClientRequest
 presignWithHeaders f g a r ts ex x =
-    withAuth a $ \ae ->
-        return $! sgRequest $
-            rqPresign ex (request x & rqHeaders %~ f & rqService %~ g) ae r ts
+  withAuth a $ \ae ->
+    return $! sgRequest $
+      rqPresign ex (request x & rqHeaders %~ f & rqService %~ g) ae r ts

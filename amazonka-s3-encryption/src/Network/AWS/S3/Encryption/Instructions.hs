@@ -15,8 +15,8 @@
 module Network.AWS.S3.Encryption.Instructions where
 
 import Control.Arrow ((&&&))
+import Control.Lens (Lens', (%~), (&))
 import qualified Control.Lens as Lens
-import Control.Lens (Lens', (&), (%~))
 import Control.Monad.Trans.AWS
 import qualified Data.Aeson.Types as Aeson
 import Data.Coerce (coerce)
@@ -24,9 +24,9 @@ import Data.Proxy (Proxy (Proxy))
 import Network.AWS.Prelude
 import qualified Network.AWS.Response as Response
 import qualified Network.AWS.S3 as S3
-import qualified Network.AWS.S3.Lens as S3
 import Network.AWS.S3.Encryption.Envelope
 import Network.AWS.S3.Encryption.Types
+import qualified Network.AWS.S3.Lens as S3
 
 newtype Instructions = Instructions
   { runInstructions :: forall m r. (AWSConstraint r m, HasKeyEnv r) => m Envelope
@@ -39,22 +39,22 @@ class AWSRequest a => AddInstructions a where
 instance AddInstructions S3.PutObject where
   addInstructions =
     Lens.view S3.putObject_bucket
-    &&& Lens.view S3.putObject_key
+      &&& Lens.view S3.putObject_key
 
 instance AddInstructions S3.GetObject where
   addInstructions =
     Lens.view S3.getObject_bucket
-    &&& Lens.view S3.getObject_key
+      &&& Lens.view S3.getObject_key
 
 instance AddInstructions S3.CreateMultipartUpload where
   addInstructions =
     Lens.view S3.createMultipartUpload_bucket
-    &&& Lens.view S3.createMultipartUpload_key
+      &&& Lens.view S3.createMultipartUpload_key
 
 instance AddInstructions S3.UploadPart where
   addInstructions =
     Lens.view S3.uploadPart_bucket
-    &&& Lens.view S3.uploadPart_key
+      &&& Lens.view S3.uploadPart_key
 
 data PutInstructions = PutInstructions
   { _piExt :: Ext,
@@ -101,16 +101,16 @@ instance AWSRequest GetInstructions where
       _giGet x & S3.getObject_key %~ appendExtension (_giExt x)
 
   response =
-   Response.receiveJSON $ \_ _ o ->
-    pure $
-      Instructions $ do
-        k <- Lens.view envKey
-        e <- Lens.view environment
-        
-        hoistError
-          (EnvelopeInvalid "Instructions")
-          (Aeson.parseEither Aeson.parseJSON (Aeson.Object o))
-          >>= fromMetadata k e
+    Response.receiveJSON $ \_ _ o ->
+      pure $
+        Instructions $ do
+          k <- Lens.view envKey
+          e <- Lens.view environment
+
+          hoistError
+            (EnvelopeInvalid "Instructions")
+            (Aeson.parseEither Aeson.parseJSON (Aeson.Object o))
+            >>= fromMetadata k e
 
 class AWSRequest a => RemoveInstructions a where
   -- | Determine the bucket and key an instructions file is adjacent to.
@@ -134,9 +134,9 @@ data DeleteInstructions = DeleteInstructions
 
 deleteInstructions :: RemoveInstructions a => a -> DeleteInstructions
 deleteInstructions =
- DeleteInstructions defaultExtension
-  . uncurry S3.newDeleteObject
-  . removeInstructions
+  DeleteInstructions defaultExtension
+    . uncurry S3.newDeleteObject
+    . removeInstructions
 
 diExtension :: Lens' DeleteInstructions Ext
 diExtension = Lens.lens _diExt (\s a -> s {_diExt = a})

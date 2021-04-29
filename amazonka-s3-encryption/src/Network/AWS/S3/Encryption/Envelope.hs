@@ -13,15 +13,15 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Encryption.Envelope where
 
-import Control.Monad.IO.Class (MonadIO (liftIO))
-import Control.Monad.Catch (MonadThrow (throwM))
-import Control.Monad ((>=>))
-import qualified Conduit
 import Conduit (MonadResource)
-import Control.Lens ((^.), (&), (+~), (?~))
+import qualified Conduit
+import Control.Lens ((&), (+~), (?~), (^.))
+import Control.Monad ((>=>))
+import Control.Monad.Catch (MonadThrow (throwM))
+import Control.Monad.IO.Class (MonadIO (liftIO))
 import qualified Crypto.Cipher.AES as AES
+import Crypto.Cipher.Types (BlockCipher, Cipher)
 import qualified Crypto.Cipher.Types as Cipher
-import Crypto.Cipher.Types (Cipher, BlockCipher)
 import qualified Crypto.Data.Padding as Padding
 import qualified Crypto.Error
 import qualified Crypto.PubKey.RSA.PKCS15 as RSA
@@ -29,8 +29,8 @@ import Crypto.PubKey.RSA.Types (KeyPair, toPrivateKey, toPublicKey)
 import Crypto.Random (MonadRandom, getRandomBytes)
 import qualified Data.Aeson as Aeson
 import Data.Bifunctor (bimap, first)
-import qualified Data.ByteArray as ByteArray
 import Data.ByteArray (ByteArray)
+import qualified Data.ByteArray as ByteArray
 import Data.CaseInsensitive (CI)
 import qualified Data.CaseInsensitive as CI
 import qualified Data.HashMap.Strict as Map
@@ -110,7 +110,7 @@ newV2 kid d e = do
       KMS.newGenerateDataKey kid
         & KMS.generateDataKey_encryptionContext ?~ ctx
         & KMS.generateDataKey_keySpec ?~ KMS.DataKeySpec_AES_256
-  
+
   c <- createCipher (rs ^. KMS.generateDataKeyResponse_plaintext)
   iv <- createIV =<< liftIO (getRandomBytes aesBlockSize)
 
@@ -207,9 +207,13 @@ decodeEnvelope k e xs =
     KMS _ d -> decodeV2 xs d e
 
 fromMetadata ::
-  (MonadResource m,
-   MonadThrow m) =>
-  Key -> AWS.Env -> HashMap Text Text -> m Envelope
+  ( MonadResource m,
+    MonadThrow m
+  ) =>
+  Key ->
+  AWS.Env ->
+  HashMap Text Text ->
+  m Envelope
 fromMetadata key e = decodeEnvelope key e . map (first CI.mk) . Map.toList
 
 aesKeySize, aesBlockSize :: Int

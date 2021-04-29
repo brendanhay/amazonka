@@ -13,17 +13,17 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Encryption.Decrypt where
 
+import Control.Lens ((%~), (&), (^.))
 import qualified Control.Lens as Lens
 import Control.Monad.Trans.AWS
 import Data.Coerce (coerce)
 import Data.Proxy (Proxy (Proxy))
-import qualified Network.AWS.S3 as S3
-import qualified Network.AWS.S3.Lens as S3
-import Control.Lens ((&), (%~), (^.))
 import Network.AWS.Prelude
+import qualified Network.AWS.S3 as S3
 import Network.AWS.S3.Encryption.Envelope
 import Network.AWS.S3.Encryption.Instructions
 import Network.AWS.S3.Encryption.Types
+import qualified Network.AWS.S3.Lens as S3
 
 decrypted :: S3.GetObject -> (Decrypt S3.GetObject, GetInstructions)
 decrypted x = (Decrypt x, getInstructions x)
@@ -41,18 +41,18 @@ instance AWSRequest (Decrypt S3.GetObject) where
 
   response l s p r = do
     (n, rs) <- response l s (proxy p) r
-    
+
     pure
       ( n,
         Decrypted $ \m -> do
           key <- Lens.view envKey
           env <- Lens.view environment
-          
+
           enc <-
             case m of
               Nothing -> fromMetadata key env (rs ^. S3.getObjectResponse_metadata)
               Just e' -> pure e'
-            
+
           pure (rs & S3.getObjectResponse_body %~ bodyDecrypt enc)
       )
 

@@ -14,18 +14,18 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.S3.Encryption.Encrypt where
 
+import Control.Lens (Setter', (%~), (&), (<>~), (^.))
 import qualified Control.Lens as Lens
-import Control.Lens (Setter', (^.), (<>~), (&), (%~))
 import qualified Control.Monad as Monad
 import Control.Monad.Trans.AWS
 import Data.Coerce (coerce)
 import Data.Proxy (Proxy (Proxy))
 import Network.AWS.Prelude
 import qualified Network.AWS.S3 as S3
-import qualified Network.AWS.S3.Lens as S3
 import Network.AWS.S3.Encryption.Envelope
 import Network.AWS.S3.Encryption.Instructions
 import Network.AWS.S3.Encryption.Types
+import qualified Network.AWS.S3.Lens as S3
 
 -- FIXME: Material
 
@@ -37,7 +37,7 @@ encrypted ::
   m (Encrypted a, PutInstructions)
 encrypted x = do
   e <- Monad.join (newEnvelope <$> Lens.view envKey <*> Lens.view environment)
-  
+
   return
     ( encryptWith x Discard e,
       putInstructions x e
@@ -93,7 +93,7 @@ instance ToEncrypted S3.CreateMultipartUpload where
 instance ToEncrypted S3.PutObject where
   encryptWith x = Encrypted x (len : maybeToList md5)
     where
-      len = ( "X-Amz-Unencrypted-Content-Length", toBS (contentLength body))
+      len = ("X-Amz-Unencrypted-Content-Length", toBS (contentLength body))
       md5 = ("X-Amz-Unencrypted-Content-MD5",) <$> md5Base64 body
 
       body = x ^. S3.putObject_body

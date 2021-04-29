@@ -15,20 +15,20 @@ module Network.AWS.S3.Encryption.Types where
 
 import Control.Exception (Exception, SomeException)
 import qualified Control.Exception.Lens as Exception.Lens
-import qualified Control.Lens as Lens
 import Control.Lens (Lens')
+import qualified Control.Lens as Lens
 import qualified Crypto.Cipher.AES as AES
 import qualified Crypto.Error
 import qualified Crypto.PubKey.RSA.Types as RSA
 import qualified Data.Aeson as Aeson
-import qualified Data.ByteString.Lazy as LBS
 import Data.CaseInsensitive (CI)
-import Data.String (IsString )
+import Data.String (IsString)
 import qualified Data.Text as Text
+import qualified Data.Text.Encoding as Text
 import qualified Network.AWS as AWS
 import Network.AWS.Prelude
-import Prelude
 import qualified Network.AWS.S3 as S3
+import Prelude
 
 -- | An error thrown when performing encryption or decryption.
 data EncryptionError
@@ -58,12 +58,9 @@ data ContentAlgorithm
     AES_CBC_PKCS5Padding
 
 instance FromText ContentAlgorithm where
-  parser =
-    takeText >>= \case
-      "AES/CBC/PKCS5Padding" -> pure AES_CBC_PKCS5Padding
-      e ->
-        fromTextError $
-          "Unrecognised content encryption algorithm: " <> e
+  fromText = \case
+    "AES/CBC/PKCS5Padding" -> pure AES_CBC_PKCS5Padding
+    other -> Left ("Unrecognised content encryption algorithm: " ++ show other)
 
 instance ToByteString ContentAlgorithm where
   toBS AES_CBC_PKCS5Padding = "AES/CBC/PKCS5Padding"
@@ -73,12 +70,9 @@ data WrappingAlgorithm
     KMSWrap
 
 instance FromText WrappingAlgorithm where
-  parser =
-    takeText >>= \case
-      "kms" -> pure KMSWrap
-      e ->
-        fromTextError $
-          "Unrecognised key wrapping algorithm: " <> e
+  fromText = \case
+    "kms" -> pure KMSWrap
+    other -> Left ("Unrecognised key wrapping algorithm: " ++ show other)
 
 instance ToByteString WrappingAlgorithm where
   toBS KMSWrap = "kms"
@@ -110,7 +104,7 @@ instance ToByteString Description where
   toBS = toBS . Aeson.encode
 
 instance FromText Description where
-  parser = parser >>= either fail pure . Aeson.eitherDecode . LBS.fromStrict
+  fromText = Aeson.eitherDecodeStrict' . Text.encodeUtf8
 
 -- | Master key used for encryption and decryption.
 data Key

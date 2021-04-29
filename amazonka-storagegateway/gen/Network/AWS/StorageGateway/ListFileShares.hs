@@ -1,183 +1,260 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.StorageGateway.ListFileShares
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of the file shares for a specific file gateway, or the list of file shares that belong to the calling user account. This operation is only supported in the file gateway type.
+-- Gets a list of the file shares for a specific file gateway, or the list
+-- of file shares that belong to the calling user account. This operation
+-- is only supported for file gateways.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.StorageGateway.ListFileShares
-    (
-    -- * Creating a Request
-      listFileShares
-    , ListFileShares
+  ( -- * Creating a Request
+    ListFileShares (..),
+    newListFileShares,
+
     -- * Request Lenses
-    , lfsGatewayARN
-    , lfsMarker
-    , lfsLimit
+    listFileShares_limit,
+    listFileShares_gatewayARN,
+    listFileShares_marker,
 
     -- * Destructuring the Response
-    , listFileSharesResponse
-    , ListFileSharesResponse
-    -- * Response Lenses
-    , lfsrsFileShareInfoList
-    , lfsrsMarker
-    , lfsrsNextMarker
-    , lfsrsResponseStatus
-    ) where
+    ListFileSharesResponse (..),
+    newListFileSharesResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    listFileSharesResponse_nextMarker,
+    listFileSharesResponse_fileShareInfoList,
+    listFileSharesResponse_marker,
+    listFileSharesResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
-import Network.AWS.StorageGateway.Types.Product
 
 -- | ListFileShareInput
 --
---
---
--- /See:/ 'listFileShares' smart constructor.
+-- /See:/ 'newListFileShares' smart constructor.
 data ListFileShares = ListFileShares'
-  { _lfsGatewayARN :: !(Maybe Text)
-  , _lfsMarker     :: !(Maybe Text)
-  , _lfsLimit      :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The maximum number of file shares to return in the response. The value
+    -- must be an integer with a value greater than zero. Optional.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Name (ARN) of the gateway whose file shares you want
+    -- to list. If this field is not present, all file shares under your
+    -- account are listed.
+    gatewayARN :: Prelude.Maybe Prelude.Text,
+    -- | Opaque pagination token returned from a previous ListFileShares
+    -- operation. If present, @Marker@ specifies where to continue the list
+    -- from after a previous call to ListFileShares. Optional.
+    marker :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListFileShares' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListFileShares' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lfsGatewayARN' - The Amazon resource Name (ARN) of the gateway whose file shares you want to list. If this field is not present, all file shares under your account are listed.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lfsMarker' - Opaque pagination token returned from a previous ListFileShares operation. If present, @Marker@ specifies where to continue the list from after a previous call to ListFileShares. Optional.
+-- 'limit', 'listFileShares_limit' - The maximum number of file shares to return in the response. The value
+-- must be an integer with a value greater than zero. Optional.
 --
--- * 'lfsLimit' - The maximum number of file shares to return in the response. The value must be an integer with a value greater than zero. Optional.
-listFileShares
-    :: ListFileShares
-listFileShares =
+-- 'gatewayARN', 'listFileShares_gatewayARN' - The Amazon Resource Name (ARN) of the gateway whose file shares you want
+-- to list. If this field is not present, all file shares under your
+-- account are listed.
+--
+-- 'marker', 'listFileShares_marker' - Opaque pagination token returned from a previous ListFileShares
+-- operation. If present, @Marker@ specifies where to continue the list
+-- from after a previous call to ListFileShares. Optional.
+newListFileShares ::
+  ListFileShares
+newListFileShares =
   ListFileShares'
-    {_lfsGatewayARN = Nothing, _lfsMarker = Nothing, _lfsLimit = Nothing}
+    { limit = Prelude.Nothing,
+      gatewayARN = Prelude.Nothing,
+      marker = Prelude.Nothing
+    }
 
+-- | The maximum number of file shares to return in the response. The value
+-- must be an integer with a value greater than zero. Optional.
+listFileShares_limit :: Lens.Lens' ListFileShares (Prelude.Maybe Prelude.Natural)
+listFileShares_limit = Lens.lens (\ListFileShares' {limit} -> limit) (\s@ListFileShares' {} a -> s {limit = a} :: ListFileShares)
 
--- | The Amazon resource Name (ARN) of the gateway whose file shares you want to list. If this field is not present, all file shares under your account are listed.
-lfsGatewayARN :: Lens' ListFileShares (Maybe Text)
-lfsGatewayARN = lens _lfsGatewayARN (\ s a -> s{_lfsGatewayARN = a})
+-- | The Amazon Resource Name (ARN) of the gateway whose file shares you want
+-- to list. If this field is not present, all file shares under your
+-- account are listed.
+listFileShares_gatewayARN :: Lens.Lens' ListFileShares (Prelude.Maybe Prelude.Text)
+listFileShares_gatewayARN = Lens.lens (\ListFileShares' {gatewayARN} -> gatewayARN) (\s@ListFileShares' {} a -> s {gatewayARN = a} :: ListFileShares)
 
--- | Opaque pagination token returned from a previous ListFileShares operation. If present, @Marker@ specifies where to continue the list from after a previous call to ListFileShares. Optional.
-lfsMarker :: Lens' ListFileShares (Maybe Text)
-lfsMarker = lens _lfsMarker (\ s a -> s{_lfsMarker = a})
+-- | Opaque pagination token returned from a previous ListFileShares
+-- operation. If present, @Marker@ specifies where to continue the list
+-- from after a previous call to ListFileShares. Optional.
+listFileShares_marker :: Lens.Lens' ListFileShares (Prelude.Maybe Prelude.Text)
+listFileShares_marker = Lens.lens (\ListFileShares' {marker} -> marker) (\s@ListFileShares' {} a -> s {marker = a} :: ListFileShares)
 
--- | The maximum number of file shares to return in the response. The value must be an integer with a value greater than zero. Optional.
-lfsLimit :: Lens' ListFileShares (Maybe Natural)
-lfsLimit = lens _lfsLimit (\ s a -> s{_lfsLimit = a}) . mapping _Nat
+instance Pager.AWSPager ListFileShares where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listFileSharesResponse_nextMarker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listFileSharesResponse_fileShareInfoList
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listFileShares_marker
+          Lens..~ rs
+          Lens.^? listFileSharesResponse_nextMarker
+            Prelude.. Lens._Just
 
-instance AWSRequest ListFileShares where
-        type Rs ListFileShares = ListFileSharesResponse
-        request = postJSON storageGateway
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListFileSharesResponse' <$>
-                   (x .?> "FileShareInfoList" .!@ mempty) <*>
-                     (x .?> "Marker")
-                     <*> (x .?> "NextMarker")
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest ListFileShares where
+  type Rs ListFileShares = ListFileSharesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListFileSharesResponse'
+            Prelude.<$> (x Prelude..?> "NextMarker")
+            Prelude.<*> ( x Prelude..?> "FileShareInfoList"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Prelude..?> "Marker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListFileShares where
+instance Prelude.Hashable ListFileShares
 
-instance NFData ListFileShares where
+instance Prelude.NFData ListFileShares
 
-instance ToHeaders ListFileShares where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("StorageGateway_20130630.ListFileShares" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders ListFileShares where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "StorageGateway_20130630.ListFileShares" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON ListFileShares where
-        toJSON ListFileShares'{..}
-          = object
-              (catMaybes
-                 [("GatewayARN" .=) <$> _lfsGatewayARN,
-                  ("Marker" .=) <$> _lfsMarker,
-                  ("Limit" .=) <$> _lfsLimit])
+instance Prelude.ToJSON ListFileShares where
+  toJSON ListFileShares' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("Limit" Prelude..=) Prelude.<$> limit,
+            ("GatewayARN" Prelude..=) Prelude.<$> gatewayARN,
+            ("Marker" Prelude..=) Prelude.<$> marker
+          ]
+      )
 
-instance ToPath ListFileShares where
-        toPath = const "/"
+instance Prelude.ToPath ListFileShares where
+  toPath = Prelude.const "/"
 
-instance ToQuery ListFileShares where
-        toQuery = const mempty
+instance Prelude.ToQuery ListFileShares where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | ListFileShareOutput
 --
---
---
--- /See:/ 'listFileSharesResponse' smart constructor.
+-- /See:/ 'newListFileSharesResponse' smart constructor.
 data ListFileSharesResponse = ListFileSharesResponse'
-  { _lfsrsFileShareInfoList :: !(Maybe [FileShareInfo])
-  , _lfsrsMarker            :: !(Maybe Text)
-  , _lfsrsNextMarker        :: !(Maybe Text)
-  , _lfsrsResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | If a value is present, there are more file shares to return. In a
+    -- subsequent request, use @NextMarker@ as the value for @Marker@ to
+    -- retrieve the next set of file shares.
+    nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | An array of information about the file gateway\'s file shares.
+    fileShareInfoList :: Prelude.Maybe [FileShareInfo],
+    -- | If the request includes @Marker@, the response returns that value in
+    -- this field.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListFileSharesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListFileSharesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lfsrsFileShareInfoList' - An array of information about the file gateway's file shares.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lfsrsMarker' - If the request includes @Marker@ , the response returns that value in this field.
+-- 'nextMarker', 'listFileSharesResponse_nextMarker' - If a value is present, there are more file shares to return. In a
+-- subsequent request, use @NextMarker@ as the value for @Marker@ to
+-- retrieve the next set of file shares.
 --
--- * 'lfsrsNextMarker' - If a value is present, there are more file shares to return. In a subsequent request, use @NextMarker@ as the value for @Marker@ to retrieve the next set of file shares.
+-- 'fileShareInfoList', 'listFileSharesResponse_fileShareInfoList' - An array of information about the file gateway\'s file shares.
 --
--- * 'lfsrsResponseStatus' - -- | The response status code.
-listFileSharesResponse
-    :: Int -- ^ 'lfsrsResponseStatus'
-    -> ListFileSharesResponse
-listFileSharesResponse pResponseStatus_ =
+-- 'marker', 'listFileSharesResponse_marker' - If the request includes @Marker@, the response returns that value in
+-- this field.
+--
+-- 'httpStatus', 'listFileSharesResponse_httpStatus' - The response's http status code.
+newListFileSharesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListFileSharesResponse
+newListFileSharesResponse pHttpStatus_ =
   ListFileSharesResponse'
-    { _lfsrsFileShareInfoList = Nothing
-    , _lfsrsMarker = Nothing
-    , _lfsrsNextMarker = Nothing
-    , _lfsrsResponseStatus = pResponseStatus_
+    { nextMarker =
+        Prelude.Nothing,
+      fileShareInfoList = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | If a value is present, there are more file shares to return. In a
+-- subsequent request, use @NextMarker@ as the value for @Marker@ to
+-- retrieve the next set of file shares.
+listFileSharesResponse_nextMarker :: Lens.Lens' ListFileSharesResponse (Prelude.Maybe Prelude.Text)
+listFileSharesResponse_nextMarker = Lens.lens (\ListFileSharesResponse' {nextMarker} -> nextMarker) (\s@ListFileSharesResponse' {} a -> s {nextMarker = a} :: ListFileSharesResponse)
 
--- | An array of information about the file gateway's file shares.
-lfsrsFileShareInfoList :: Lens' ListFileSharesResponse [FileShareInfo]
-lfsrsFileShareInfoList = lens _lfsrsFileShareInfoList (\ s a -> s{_lfsrsFileShareInfoList = a}) . _Default . _Coerce
+-- | An array of information about the file gateway\'s file shares.
+listFileSharesResponse_fileShareInfoList :: Lens.Lens' ListFileSharesResponse (Prelude.Maybe [FileShareInfo])
+listFileSharesResponse_fileShareInfoList = Lens.lens (\ListFileSharesResponse' {fileShareInfoList} -> fileShareInfoList) (\s@ListFileSharesResponse' {} a -> s {fileShareInfoList = a} :: ListFileSharesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | If the request includes @Marker@ , the response returns that value in this field.
-lfsrsMarker :: Lens' ListFileSharesResponse (Maybe Text)
-lfsrsMarker = lens _lfsrsMarker (\ s a -> s{_lfsrsMarker = a})
+-- | If the request includes @Marker@, the response returns that value in
+-- this field.
+listFileSharesResponse_marker :: Lens.Lens' ListFileSharesResponse (Prelude.Maybe Prelude.Text)
+listFileSharesResponse_marker = Lens.lens (\ListFileSharesResponse' {marker} -> marker) (\s@ListFileSharesResponse' {} a -> s {marker = a} :: ListFileSharesResponse)
 
--- | If a value is present, there are more file shares to return. In a subsequent request, use @NextMarker@ as the value for @Marker@ to retrieve the next set of file shares.
-lfsrsNextMarker :: Lens' ListFileSharesResponse (Maybe Text)
-lfsrsNextMarker = lens _lfsrsNextMarker (\ s a -> s{_lfsrsNextMarker = a})
+-- | The response's http status code.
+listFileSharesResponse_httpStatus :: Lens.Lens' ListFileSharesResponse Prelude.Int
+listFileSharesResponse_httpStatus = Lens.lens (\ListFileSharesResponse' {httpStatus} -> httpStatus) (\s@ListFileSharesResponse' {} a -> s {httpStatus = a} :: ListFileSharesResponse)
 
--- | -- | The response status code.
-lfsrsResponseStatus :: Lens' ListFileSharesResponse Int
-lfsrsResponseStatus = lens _lfsrsResponseStatus (\ s a -> s{_lfsrsResponseStatus = a})
-
-instance NFData ListFileSharesResponse where
+instance Prelude.NFData ListFileSharesResponse

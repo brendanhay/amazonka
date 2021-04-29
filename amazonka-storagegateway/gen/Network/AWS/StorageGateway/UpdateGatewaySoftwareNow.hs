@@ -1,145 +1,184 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the gateway virtual machine (VM) software. The request immediately triggers the software update.
+-- Updates the gateway virtual machine (VM) software. The request
+-- immediately triggers the software update.
 --
+-- When you make this request, you get a @200 OK@ success response
+-- immediately. However, it might take some time for the update to
+-- complete. You can call DescribeGatewayInformation to verify the gateway
+-- is in the @STATE_RUNNING@ state.
 --
--- /Important:/ A software update forces a system restart of your gateway. You can minimize the chance of any disruption to your applications by increasing your iSCSI Initiators' timeouts. For more information about increasing iSCSI Initiator timeouts for Windows and Linux, see <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings Customizing Your Windows iSCSI Settings> and <http://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings Customizing Your Linux iSCSI Settings> , respectively.
---
+-- A software update forces a system restart of your gateway. You can
+-- minimize the chance of any disruption to your applications by increasing
+-- your iSCSI Initiators\' timeouts. For more information about increasing
+-- iSCSI Initiator timeouts for Windows and Linux, see
+-- <https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorWindowsClient.html#CustomizeWindowsiSCSISettings Customizing your Windows iSCSI settings>
+-- and
+-- <https://docs.aws.amazon.com/storagegateway/latest/userguide/ConfiguringiSCSIClientInitiatorRedHatClient.html#CustomizeLinuxiSCSISettings Customizing your Linux iSCSI settings>,
+-- respectively.
 module Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
-    (
-    -- * Creating a Request
-      updateGatewaySoftwareNow
-    , UpdateGatewaySoftwareNow
+  ( -- * Creating a Request
+    UpdateGatewaySoftwareNow (..),
+    newUpdateGatewaySoftwareNow,
+
     -- * Request Lenses
-    , ugsnGatewayARN
+    updateGatewaySoftwareNow_gatewayARN,
 
     -- * Destructuring the Response
-    , updateGatewaySoftwareNowResponse
-    , UpdateGatewaySoftwareNowResponse
+    UpdateGatewaySoftwareNowResponse (..),
+    newUpdateGatewaySoftwareNowResponse,
+
     -- * Response Lenses
-    , ugsnrsGatewayARN
-    , ugsnrsResponseStatus
-    ) where
+    updateGatewaySoftwareNowResponse_gatewayARN,
+    updateGatewaySoftwareNowResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
-import Network.AWS.StorageGateway.Types.Product
 
--- | A JSON object containing the of the gateway to update.
+-- | A JSON object containing the Amazon Resource Name (ARN) of the gateway
+-- to update.
 --
---
---
--- /See:/ 'updateGatewaySoftwareNow' smart constructor.
-newtype UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow'
-  { _ugsnGatewayARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newUpdateGatewaySoftwareNow' smart constructor.
+data UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow'
+  { gatewayARN :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateGatewaySoftwareNow' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateGatewaySoftwareNow' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ugsnGatewayARN' - Undocumented member.
-updateGatewaySoftwareNow
-    :: Text -- ^ 'ugsnGatewayARN'
-    -> UpdateGatewaySoftwareNow
-updateGatewaySoftwareNow pGatewayARN_ =
-  UpdateGatewaySoftwareNow' {_ugsnGatewayARN = pGatewayARN_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'gatewayARN', 'updateGatewaySoftwareNow_gatewayARN' - Undocumented member.
+newUpdateGatewaySoftwareNow ::
+  -- | 'gatewayARN'
+  Prelude.Text ->
+  UpdateGatewaySoftwareNow
+newUpdateGatewaySoftwareNow pGatewayARN_ =
+  UpdateGatewaySoftwareNow'
+    { gatewayARN =
+        pGatewayARN_
+    }
 
 -- | Undocumented member.
-ugsnGatewayARN :: Lens' UpdateGatewaySoftwareNow Text
-ugsnGatewayARN = lens _ugsnGatewayARN (\ s a -> s{_ugsnGatewayARN = a})
+updateGatewaySoftwareNow_gatewayARN :: Lens.Lens' UpdateGatewaySoftwareNow Prelude.Text
+updateGatewaySoftwareNow_gatewayARN = Lens.lens (\UpdateGatewaySoftwareNow' {gatewayARN} -> gatewayARN) (\s@UpdateGatewaySoftwareNow' {} a -> s {gatewayARN = a} :: UpdateGatewaySoftwareNow)
 
-instance AWSRequest UpdateGatewaySoftwareNow where
-        type Rs UpdateGatewaySoftwareNow =
-             UpdateGatewaySoftwareNowResponse
-        request = postJSON storageGateway
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateGatewaySoftwareNowResponse' <$>
-                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest UpdateGatewaySoftwareNow where
+  type
+    Rs UpdateGatewaySoftwareNow =
+      UpdateGatewaySoftwareNowResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateGatewaySoftwareNowResponse'
+            Prelude.<$> (x Prelude..?> "GatewayARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateGatewaySoftwareNow where
+instance Prelude.Hashable UpdateGatewaySoftwareNow
 
-instance NFData UpdateGatewaySoftwareNow where
+instance Prelude.NFData UpdateGatewaySoftwareNow
 
-instance ToHeaders UpdateGatewaySoftwareNow where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("StorageGateway_20130630.UpdateGatewaySoftwareNow"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders UpdateGatewaySoftwareNow where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "StorageGateway_20130630.UpdateGatewaySoftwareNow" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON UpdateGatewaySoftwareNow where
-        toJSON UpdateGatewaySoftwareNow'{..}
-          = object
-              (catMaybes [Just ("GatewayARN" .= _ugsnGatewayARN)])
+instance Prelude.ToJSON UpdateGatewaySoftwareNow where
+  toJSON UpdateGatewaySoftwareNow' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("GatewayARN" Prelude..= gatewayARN)]
+      )
 
-instance ToPath UpdateGatewaySoftwareNow where
-        toPath = const "/"
+instance Prelude.ToPath UpdateGatewaySoftwareNow where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateGatewaySoftwareNow where
-        toQuery = const mempty
+instance Prelude.ToQuery UpdateGatewaySoftwareNow where
+  toQuery = Prelude.const Prelude.mempty
 
--- | A JSON object containing the of the gateway that was updated.
+-- | A JSON object containing the Amazon Resource Name (ARN) of the gateway
+-- that was updated.
 --
---
---
--- /See:/ 'updateGatewaySoftwareNowResponse' smart constructor.
+-- /See:/ 'newUpdateGatewaySoftwareNowResponse' smart constructor.
 data UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse'
-  { _ugsnrsGatewayARN     :: !(Maybe Text)
-  , _ugsnrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { gatewayARN :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateGatewaySoftwareNowResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateGatewaySoftwareNowResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ugsnrsGatewayARN' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ugsnrsResponseStatus' - -- | The response status code.
-updateGatewaySoftwareNowResponse
-    :: Int -- ^ 'ugsnrsResponseStatus'
-    -> UpdateGatewaySoftwareNowResponse
-updateGatewaySoftwareNowResponse pResponseStatus_ =
+-- 'gatewayARN', 'updateGatewaySoftwareNowResponse_gatewayARN' - Undocumented member.
+--
+-- 'httpStatus', 'updateGatewaySoftwareNowResponse_httpStatus' - The response's http status code.
+newUpdateGatewaySoftwareNowResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateGatewaySoftwareNowResponse
+newUpdateGatewaySoftwareNowResponse pHttpStatus_ =
   UpdateGatewaySoftwareNowResponse'
-    {_ugsnrsGatewayARN = Nothing, _ugsnrsResponseStatus = pResponseStatus_}
-
+    { gatewayARN =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-ugsnrsGatewayARN :: Lens' UpdateGatewaySoftwareNowResponse (Maybe Text)
-ugsnrsGatewayARN = lens _ugsnrsGatewayARN (\ s a -> s{_ugsnrsGatewayARN = a})
+updateGatewaySoftwareNowResponse_gatewayARN :: Lens.Lens' UpdateGatewaySoftwareNowResponse (Prelude.Maybe Prelude.Text)
+updateGatewaySoftwareNowResponse_gatewayARN = Lens.lens (\UpdateGatewaySoftwareNowResponse' {gatewayARN} -> gatewayARN) (\s@UpdateGatewaySoftwareNowResponse' {} a -> s {gatewayARN = a} :: UpdateGatewaySoftwareNowResponse)
 
--- | -- | The response status code.
-ugsnrsResponseStatus :: Lens' UpdateGatewaySoftwareNowResponse Int
-ugsnrsResponseStatus = lens _ugsnrsResponseStatus (\ s a -> s{_ugsnrsResponseStatus = a})
+-- | The response's http status code.
+updateGatewaySoftwareNowResponse_httpStatus :: Lens.Lens' UpdateGatewaySoftwareNowResponse Prelude.Int
+updateGatewaySoftwareNowResponse_httpStatus = Lens.lens (\UpdateGatewaySoftwareNowResponse' {httpStatus} -> httpStatus) (\s@UpdateGatewaySoftwareNowResponse' {} a -> s {httpStatus = a} :: UpdateGatewaySoftwareNowResponse)
 
-instance NFData UpdateGatewaySoftwareNowResponse
-         where
+instance
+  Prelude.NFData
+    UpdateGatewaySoftwareNowResponse

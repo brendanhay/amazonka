@@ -1,133 +1,261 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.StorageGateway.RefreshCache
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Refreshes the cache for the specified file share. This operation finds objects in the Amazon S3 bucket that were added, removed or replaced since the gateway last listed the bucket's contents and cached the results. This operation is only supported in the file gateway type.
+-- Refreshes the cache for the specified file share. This operation finds
+-- objects in the Amazon S3 bucket that were added, removed, or replaced
+-- since the gateway last listed the bucket\'s contents and cached the
+-- results. This operation is only supported in the file gateway type. You
+-- can subscribe to be notified through an Amazon CloudWatch event when
+-- your RefreshCache operation completes. For more information, see
+-- <https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification Getting notified about file operations>
+-- in the /AWS Storage Gateway User Guide/.
 --
+-- When this API is called, it only initiates the refresh operation. When
+-- the API call completes and returns a success code, it doesn\'t
+-- necessarily mean that the file refresh has completed. You should use the
+-- refresh-complete notification to determine that the operation has
+-- completed before you check for new files on the gateway file share. You
+-- can subscribe to be notified through an CloudWatch event when your
+-- @RefreshCache@ operation completes.
 --
+-- Throttle limit: This API is asynchronous so the gateway will accept no
+-- more than two refreshes at any time. We recommend using the
+-- refresh-complete CloudWatch event notification before issuing additional
+-- requests. For more information, see
+-- <https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification Getting notified about file operations>
+-- in the /AWS Storage Gateway User Guide/.
+--
+-- If you invoke the RefreshCache API when two requests are already being
+-- processed, any new request will cause an
+-- @InvalidGatewayRequestException@ error because too many requests were
+-- sent to the server.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-notification Getting notified about file operations>
+-- in the /AWS Storage Gateway User Guide/.
 module Network.AWS.StorageGateway.RefreshCache
-    (
-    -- * Creating a Request
-      refreshCache
-    , RefreshCache
+  ( -- * Creating a Request
+    RefreshCache (..),
+    newRefreshCache,
+
     -- * Request Lenses
-    , rcFileShareARN
+    refreshCache_recursive,
+    refreshCache_folderList,
+    refreshCache_fileShareARN,
 
     -- * Destructuring the Response
-    , refreshCacheResponse
-    , RefreshCacheResponse
+    RefreshCacheResponse (..),
+    newRefreshCacheResponse,
+
     -- * Response Lenses
-    , rcrsFileShareARN
-    , rcrsResponseStatus
-    ) where
+    refreshCacheResponse_fileShareARN,
+    refreshCacheResponse_notificationId,
+    refreshCacheResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
-import Network.AWS.StorageGateway.Types.Product
 
--- | /See:/ 'refreshCache' smart constructor.
-newtype RefreshCache = RefreshCache'
-  { _rcFileShareARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'RefreshCache' with the minimum fields required to make a request.
+-- | RefreshCacheInput
 --
--- Use one of the following lenses to modify other fields as desired:
+-- /See:/ 'newRefreshCache' smart constructor.
+data RefreshCache = RefreshCache'
+  { -- | A value that specifies whether to recursively refresh folders in the
+    -- cache. The refresh includes folders that were in the cache the last time
+    -- the gateway listed the folder\'s contents. If this value set to @true@,
+    -- each folder that is listed in @FolderList@ is recursively updated.
+    -- Otherwise, subfolders listed in @FolderList@ are not refreshed. Only
+    -- objects that are in folders listed directly under @FolderList@ are found
+    -- and used for the update. The default is @true@.
+    --
+    -- Valid Values: @true@ | @false@
+    recursive :: Prelude.Maybe Prelude.Bool,
+    -- | A comma-separated list of the paths of folders to refresh in the cache.
+    -- The default is [@\"\/\"@]. The default refreshes objects and folders at
+    -- the root of the Amazon S3 bucket. If @Recursive@ is set to @true@, the
+    -- entire S3 bucket that the file share has access to is refreshed.
+    folderList :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The Amazon Resource Name (ARN) of the file share you want to refresh.
+    fileShareARN :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'RefreshCache' with all optional fields omitted.
 --
--- * 'rcFileShareARN' - Undocumented member.
-refreshCache
-    :: Text -- ^ 'rcFileShareARN'
-    -> RefreshCache
-refreshCache pFileShareARN_ = RefreshCache' {_rcFileShareARN = pFileShareARN_}
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'recursive', 'refreshCache_recursive' - A value that specifies whether to recursively refresh folders in the
+-- cache. The refresh includes folders that were in the cache the last time
+-- the gateway listed the folder\'s contents. If this value set to @true@,
+-- each folder that is listed in @FolderList@ is recursively updated.
+-- Otherwise, subfolders listed in @FolderList@ are not refreshed. Only
+-- objects that are in folders listed directly under @FolderList@ are found
+-- and used for the update. The default is @true@.
+--
+-- Valid Values: @true@ | @false@
+--
+-- 'folderList', 'refreshCache_folderList' - A comma-separated list of the paths of folders to refresh in the cache.
+-- The default is [@\"\/\"@]. The default refreshes objects and folders at
+-- the root of the Amazon S3 bucket. If @Recursive@ is set to @true@, the
+-- entire S3 bucket that the file share has access to is refreshed.
+--
+-- 'fileShareARN', 'refreshCache_fileShareARN' - The Amazon Resource Name (ARN) of the file share you want to refresh.
+newRefreshCache ::
+  -- | 'fileShareARN'
+  Prelude.Text ->
+  RefreshCache
+newRefreshCache pFileShareARN_ =
+  RefreshCache'
+    { recursive = Prelude.Nothing,
+      folderList = Prelude.Nothing,
+      fileShareARN = pFileShareARN_
+    }
 
+-- | A value that specifies whether to recursively refresh folders in the
+-- cache. The refresh includes folders that were in the cache the last time
+-- the gateway listed the folder\'s contents. If this value set to @true@,
+-- each folder that is listed in @FolderList@ is recursively updated.
+-- Otherwise, subfolders listed in @FolderList@ are not refreshed. Only
+-- objects that are in folders listed directly under @FolderList@ are found
+-- and used for the update. The default is @true@.
+--
+-- Valid Values: @true@ | @false@
+refreshCache_recursive :: Lens.Lens' RefreshCache (Prelude.Maybe Prelude.Bool)
+refreshCache_recursive = Lens.lens (\RefreshCache' {recursive} -> recursive) (\s@RefreshCache' {} a -> s {recursive = a} :: RefreshCache)
 
--- | Undocumented member.
-rcFileShareARN :: Lens' RefreshCache Text
-rcFileShareARN = lens _rcFileShareARN (\ s a -> s{_rcFileShareARN = a})
+-- | A comma-separated list of the paths of folders to refresh in the cache.
+-- The default is [@\"\/\"@]. The default refreshes objects and folders at
+-- the root of the Amazon S3 bucket. If @Recursive@ is set to @true@, the
+-- entire S3 bucket that the file share has access to is refreshed.
+refreshCache_folderList :: Lens.Lens' RefreshCache (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+refreshCache_folderList = Lens.lens (\RefreshCache' {folderList} -> folderList) (\s@RefreshCache' {} a -> s {folderList = a} :: RefreshCache) Prelude.. Lens.mapping Prelude._Coerce
 
-instance AWSRequest RefreshCache where
-        type Rs RefreshCache = RefreshCacheResponse
-        request = postJSON storageGateway
-        response
-          = receiveJSON
-              (\ s h x ->
-                 RefreshCacheResponse' <$>
-                   (x .?> "FileShareARN") <*> (pure (fromEnum s)))
+-- | The Amazon Resource Name (ARN) of the file share you want to refresh.
+refreshCache_fileShareARN :: Lens.Lens' RefreshCache Prelude.Text
+refreshCache_fileShareARN = Lens.lens (\RefreshCache' {fileShareARN} -> fileShareARN) (\s@RefreshCache' {} a -> s {fileShareARN = a} :: RefreshCache)
 
-instance Hashable RefreshCache where
+instance Prelude.AWSRequest RefreshCache where
+  type Rs RefreshCache = RefreshCacheResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          RefreshCacheResponse'
+            Prelude.<$> (x Prelude..?> "FileShareARN")
+            Prelude.<*> (x Prelude..?> "NotificationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData RefreshCache where
+instance Prelude.Hashable RefreshCache
 
-instance ToHeaders RefreshCache where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("StorageGateway_20130630.RefreshCache" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.NFData RefreshCache
 
-instance ToJSON RefreshCache where
-        toJSON RefreshCache'{..}
-          = object
-              (catMaybes
-                 [Just ("FileShareARN" .= _rcFileShareARN)])
+instance Prelude.ToHeaders RefreshCache where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "StorageGateway_20130630.RefreshCache" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToPath RefreshCache where
-        toPath = const "/"
+instance Prelude.ToJSON RefreshCache where
+  toJSON RefreshCache' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("Recursive" Prelude..=) Prelude.<$> recursive,
+            ("FolderList" Prelude..=) Prelude.<$> folderList,
+            Prelude.Just
+              ("FileShareARN" Prelude..= fileShareARN)
+          ]
+      )
 
-instance ToQuery RefreshCache where
-        toQuery = const mempty
+instance Prelude.ToPath RefreshCache where
+  toPath = Prelude.const "/"
 
--- | /See:/ 'refreshCacheResponse' smart constructor.
+instance Prelude.ToQuery RefreshCache where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | RefreshCacheOutput
+--
+-- /See:/ 'newRefreshCacheResponse' smart constructor.
 data RefreshCacheResponse = RefreshCacheResponse'
-  { _rcrsFileShareARN   :: !(Maybe Text)
-  , _rcrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { fileShareARN :: Prelude.Maybe Prelude.Text,
+    notificationId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'RefreshCacheResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RefreshCacheResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rcrsFileShareARN' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rcrsResponseStatus' - -- | The response status code.
-refreshCacheResponse
-    :: Int -- ^ 'rcrsResponseStatus'
-    -> RefreshCacheResponse
-refreshCacheResponse pResponseStatus_ =
+-- 'fileShareARN', 'refreshCacheResponse_fileShareARN' - Undocumented member.
+--
+-- 'notificationId', 'refreshCacheResponse_notificationId' - Undocumented member.
+--
+-- 'httpStatus', 'refreshCacheResponse_httpStatus' - The response's http status code.
+newRefreshCacheResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  RefreshCacheResponse
+newRefreshCacheResponse pHttpStatus_ =
   RefreshCacheResponse'
-    {_rcrsFileShareARN = Nothing, _rcrsResponseStatus = pResponseStatus_}
-
+    { fileShareARN =
+        Prelude.Nothing,
+      notificationId = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-rcrsFileShareARN :: Lens' RefreshCacheResponse (Maybe Text)
-rcrsFileShareARN = lens _rcrsFileShareARN (\ s a -> s{_rcrsFileShareARN = a})
+refreshCacheResponse_fileShareARN :: Lens.Lens' RefreshCacheResponse (Prelude.Maybe Prelude.Text)
+refreshCacheResponse_fileShareARN = Lens.lens (\RefreshCacheResponse' {fileShareARN} -> fileShareARN) (\s@RefreshCacheResponse' {} a -> s {fileShareARN = a} :: RefreshCacheResponse)
 
--- | -- | The response status code.
-rcrsResponseStatus :: Lens' RefreshCacheResponse Int
-rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a})
+-- | Undocumented member.
+refreshCacheResponse_notificationId :: Lens.Lens' RefreshCacheResponse (Prelude.Maybe Prelude.Text)
+refreshCacheResponse_notificationId = Lens.lens (\RefreshCacheResponse' {notificationId} -> notificationId) (\s@RefreshCacheResponse' {} a -> s {notificationId = a} :: RefreshCacheResponse)
 
-instance NFData RefreshCacheResponse where
+-- | The response's http status code.
+refreshCacheResponse_httpStatus :: Lens.Lens' RefreshCacheResponse Prelude.Int
+refreshCacheResponse_httpStatus = Lens.lens (\RefreshCacheResponse' {httpStatus} -> httpStatus) (\s@RefreshCacheResponse' {} a -> s {httpStatus = a} :: RefreshCacheResponse)
+
+instance Prelude.NFData RefreshCacheResponse

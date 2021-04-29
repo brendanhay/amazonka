@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeCommit.UpdateDefaultBranch
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,109 +23,132 @@
 --
 -- Sets or changes the default branch name for the specified repository.
 --
---
+-- If you use this operation to change the default branch name to the
+-- current default branch name, a success message is returned even though
+-- the default branch did not change.
 module Network.AWS.CodeCommit.UpdateDefaultBranch
-    (
-    -- * Creating a Request
-      updateDefaultBranch
-    , UpdateDefaultBranch
+  ( -- * Creating a Request
+    UpdateDefaultBranch (..),
+    newUpdateDefaultBranch,
+
     -- * Request Lenses
-    , udbRepositoryName
-    , udbDefaultBranchName
+    updateDefaultBranch_repositoryName,
+    updateDefaultBranch_defaultBranchName,
 
     -- * Destructuring the Response
-    , updateDefaultBranchResponse
-    , UpdateDefaultBranchResponse
-    ) where
+    UpdateDefaultBranchResponse (..),
+    newUpdateDefaultBranchResponse,
+  )
+where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.CodeCommit.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of an update default branch operation.
 --
---
---
--- /See:/ 'updateDefaultBranch' smart constructor.
+-- /See:/ 'newUpdateDefaultBranch' smart constructor.
 data UpdateDefaultBranch = UpdateDefaultBranch'
-  { _udbRepositoryName    :: !Text
-  , _udbDefaultBranchName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the repository to set or change the default branch for.
+    repositoryName :: Prelude.Text,
+    -- | The name of the branch to set as the default.
+    defaultBranchName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateDefaultBranch' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateDefaultBranch' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'udbRepositoryName' - The name of the repository to set or change the default branch for.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'udbDefaultBranchName' - The name of the branch to set as the default.
-updateDefaultBranch
-    :: Text -- ^ 'udbRepositoryName'
-    -> Text -- ^ 'udbDefaultBranchName'
-    -> UpdateDefaultBranch
-updateDefaultBranch pRepositoryName_ pDefaultBranchName_ =
-  UpdateDefaultBranch'
-    { _udbRepositoryName = pRepositoryName_
-    , _udbDefaultBranchName = pDefaultBranchName_
-    }
-
+-- 'repositoryName', 'updateDefaultBranch_repositoryName' - The name of the repository to set or change the default branch for.
+--
+-- 'defaultBranchName', 'updateDefaultBranch_defaultBranchName' - The name of the branch to set as the default.
+newUpdateDefaultBranch ::
+  -- | 'repositoryName'
+  Prelude.Text ->
+  -- | 'defaultBranchName'
+  Prelude.Text ->
+  UpdateDefaultBranch
+newUpdateDefaultBranch
+  pRepositoryName_
+  pDefaultBranchName_ =
+    UpdateDefaultBranch'
+      { repositoryName =
+          pRepositoryName_,
+        defaultBranchName = pDefaultBranchName_
+      }
 
 -- | The name of the repository to set or change the default branch for.
-udbRepositoryName :: Lens' UpdateDefaultBranch Text
-udbRepositoryName = lens _udbRepositoryName (\ s a -> s{_udbRepositoryName = a})
+updateDefaultBranch_repositoryName :: Lens.Lens' UpdateDefaultBranch Prelude.Text
+updateDefaultBranch_repositoryName = Lens.lens (\UpdateDefaultBranch' {repositoryName} -> repositoryName) (\s@UpdateDefaultBranch' {} a -> s {repositoryName = a} :: UpdateDefaultBranch)
 
 -- | The name of the branch to set as the default.
-udbDefaultBranchName :: Lens' UpdateDefaultBranch Text
-udbDefaultBranchName = lens _udbDefaultBranchName (\ s a -> s{_udbDefaultBranchName = a})
+updateDefaultBranch_defaultBranchName :: Lens.Lens' UpdateDefaultBranch Prelude.Text
+updateDefaultBranch_defaultBranchName = Lens.lens (\UpdateDefaultBranch' {defaultBranchName} -> defaultBranchName) (\s@UpdateDefaultBranch' {} a -> s {defaultBranchName = a} :: UpdateDefaultBranch)
 
-instance AWSRequest UpdateDefaultBranch where
-        type Rs UpdateDefaultBranch =
-             UpdateDefaultBranchResponse
-        request = postJSON codeCommit
-        response = receiveNull UpdateDefaultBranchResponse'
+instance Prelude.AWSRequest UpdateDefaultBranch where
+  type
+    Rs UpdateDefaultBranch =
+      UpdateDefaultBranchResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull UpdateDefaultBranchResponse'
 
-instance Hashable UpdateDefaultBranch where
+instance Prelude.Hashable UpdateDefaultBranch
 
-instance NFData UpdateDefaultBranch where
+instance Prelude.NFData UpdateDefaultBranch
 
-instance ToHeaders UpdateDefaultBranch where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeCommit_20150413.UpdateDefaultBranch" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders UpdateDefaultBranch where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "CodeCommit_20150413.UpdateDefaultBranch" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON UpdateDefaultBranch where
-        toJSON UpdateDefaultBranch'{..}
-          = object
-              (catMaybes
-                 [Just ("repositoryName" .= _udbRepositoryName),
-                  Just ("defaultBranchName" .= _udbDefaultBranchName)])
+instance Prelude.ToJSON UpdateDefaultBranch where
+  toJSON UpdateDefaultBranch' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("repositoryName" Prelude..= repositoryName),
+            Prelude.Just
+              ("defaultBranchName" Prelude..= defaultBranchName)
+          ]
+      )
 
-instance ToPath UpdateDefaultBranch where
-        toPath = const "/"
+instance Prelude.ToPath UpdateDefaultBranch where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateDefaultBranch where
-        toQuery = const mempty
+instance Prelude.ToQuery UpdateDefaultBranch where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateDefaultBranchResponse' smart constructor.
-data UpdateDefaultBranchResponse =
-  UpdateDefaultBranchResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUpdateDefaultBranchResponse' smart constructor.
+data UpdateDefaultBranchResponse = UpdateDefaultBranchResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateDefaultBranchResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateDefaultBranchResponse' with all optional fields omitted.
 --
-updateDefaultBranchResponse
-    :: UpdateDefaultBranchResponse
-updateDefaultBranchResponse = UpdateDefaultBranchResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newUpdateDefaultBranchResponse ::
+  UpdateDefaultBranchResponse
+newUpdateDefaultBranchResponse =
+  UpdateDefaultBranchResponse'
 
-
-instance NFData UpdateDefaultBranchResponse where
+instance Prelude.NFData UpdateDefaultBranchResponse

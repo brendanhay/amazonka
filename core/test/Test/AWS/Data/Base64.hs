@@ -11,7 +11,6 @@ module Test.AWS.Data.Base64 (tests) where
 
 import Data.String
 import Network.AWS.Prelude
-import Network.HTTP.Types
 import Test.AWS.Util
 import Test.Tasty
 

@@ -11,8 +11,7 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Data.Time (tests) where
 
-import Network.AWS.Compat.Locale
-import Network.AWS.Compat.Time
+import qualified Data.Time as Time
 import Network.AWS.Prelude
 import Test.AWS.Util
 import Test.Tasty
@@ -160,8 +159,10 @@ tests =
     ]
 
 time :: Time a
-time = Time . fromMaybe (error msg) $ parseTime defaultTimeLocale fmt ts
+time =
+  Time . fromMaybe (error msg) $
+    Time.parseTimeM True Time.defaultTimeLocale fmt ts
   where
     msg = "Unable to parse time: " ++ ts
-    fmt = (iso8601DateFormat (Just "%H:%M:%S"))
+    fmt = Time.iso8601DateFormat (Just "%H:%M:%S")
     ts = "2014-11-07T04:42:13"

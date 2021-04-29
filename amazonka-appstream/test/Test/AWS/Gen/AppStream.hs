@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.AppStream
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.AppStream where
 
 import Data.Proxy
@@ -28,606 +27,952 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDisassociateFleet $
---             disassociateFleet
+--         [ requestDeleteImageBuilder $
+--             newDeleteImageBuilder
 --
 --         , requestListAssociatedFleets $
---             listAssociatedFleets
+--             newListAssociatedFleets
 --
---         , requestDeleteStack $
---             deleteStack
---
---         , requestUpdateStack $
---             updateStack
---
---         , requestCreateDirectoryConfig $
---             createDirectoryConfig
+--         , requestBatchAssociateUserStack $
+--             newBatchAssociateUserStack
 --
 --         , requestListAssociatedStacks $
---             listAssociatedStacks
+--             newListAssociatedStacks
 --
---         , requestDeleteFleet $
---             deleteFleet
---
---         , requestUpdateFleet $
---             updateFleet
---
---         , requestDeleteImageBuilder $
---             deleteImageBuilder
---
---         , requestAssociateFleet $
---             associateFleet
---
---         , requestCreateImageBuilder $
---             createImageBuilder
---
---         , requestListTagsForResource $
---             listTagsForResource
---
---         , requestDescribeDirectoryConfigs $
---             describeDirectoryConfigs
---
---         , requestCreateImageBuilderStreamingURL $
---             createImageBuilderStreamingURL
---
---         , requestDescribeSessions $
---             describeSessions
---
---         , requestDescribeStacks $
---             describeStacks
---
---         , requestDescribeFleets $
---             describeFleets
---
---         , requestDescribeImageBuilders $
---             describeImageBuilders
---
---         , requestStopFleet $
---             stopFleet
---
---         , requestStartImageBuilder $
---             startImageBuilder
---
---         , requestDeleteDirectoryConfig $
---             deleteDirectoryConfig
---
---         , requestUpdateDirectoryConfig $
---             updateDirectoryConfig
---
---         , requestCreateFleet $
---             createFleet
---
---         , requestCreateStack $
---             createStack
---
---         , requestCopyImage $
---             copyImage
---
---         , requestExpireSession $
---             expireSession
---
---         , requestTagResource $
---             tagResource
---
---         , requestCreateStreamingURL $
---             createStreamingURL
---
---         , requestUntagResource $
---             untagResource
---
---         , requestStartFleet $
---             startFleet
+--         , requestDeleteUsageReportSubscription $
+--             newDeleteUsageReportSubscription
 --
 --         , requestStopImageBuilder $
---             stopImageBuilder
+--             newStopImageBuilder
 --
---         , requestDeleteImage $
---             deleteImage
+--         , requestStartFleet $
+--             newStartFleet
+--
+--         , requestStartImageBuilder $
+--             newStartImageBuilder
+--
+--         , requestStopFleet $
+--             newStopFleet
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestEnableUser $
+--             newEnableUser
+--
+--         , requestDescribeSessions $
+--             newDescribeSessions
+--
+--         , requestDescribeFleets $
+--             newDescribeFleets
+--
+--         , requestDescribeStacks $
+--             newDescribeStacks
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestCreateUser $
+--             newCreateUser
+--
+--         , requestUpdateDirectoryConfig $
+--             newUpdateDirectoryConfig
+--
+--         , requestCreateStack $
+--             newCreateStack
+--
+--         , requestDeleteDirectoryConfig $
+--             newDeleteDirectoryConfig
+--
+--         , requestCopyImage $
+--             newCopyImage
+--
+--         , requestCreateFleet $
+--             newCreateFleet
+--
+--         , requestCreateImageBuilder $
+--             newCreateImageBuilder
+--
+--         , requestAssociateFleet $
+--             newAssociateFleet
+--
+--         , requestCreateDirectoryConfig $
+--             newCreateDirectoryConfig
+--
+--         , requestUpdateFleet $
+--             newUpdateFleet
+--
+--         , requestDeleteStack $
+--             newDeleteStack
+--
+--         , requestDeleteFleet $
+--             newDeleteFleet
+--
+--         , requestDescribeUsers $
+--             newDescribeUsers
+--
+--         , requestUpdateStack $
+--             newUpdateStack
+--
+--         , requestCreateUsageReportSubscription $
+--             newCreateUsageReportSubscription
+--
+--         , requestDisassociateFleet $
+--             newDisassociateFleet
 --
 --         , requestDescribeImages $
---             describeImages
+--             newDescribeImages
+--
+--         , requestBatchDisassociateUserStack $
+--             newBatchDisassociateUserStack
+--
+--         , requestDescribeUsageReportSubscriptions $
+--             newDescribeUsageReportSubscriptions
+--
+--         , requestDeleteImage $
+--             newDeleteImage
+--
+--         , requestDeleteImagePermissions $
+--             newDeleteImagePermissions
+--
+--         , requestUpdateImagePermissions $
+--             newUpdateImagePermissions
+--
+--         , requestCreateStreamingURL $
+--             newCreateStreamingURL
+--
+--         , requestDeleteUser $
+--             newDeleteUser
+--
+--         , requestDescribeUserStackAssociations $
+--             newDescribeUserStackAssociations
+--
+--         , requestDescribeImageBuilders $
+--             newDescribeImageBuilders
+--
+--         , requestDescribeDirectoryConfigs $
+--             newDescribeDirectoryConfigs
+--
+--         , requestDisableUser $
+--             newDisableUser
+--
+--         , requestExpireSession $
+--             newExpireSession
+--
+--         , requestCreateImageBuilderStreamingURL $
+--             newCreateImageBuilderStreamingURL
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestDescribeImagePermissions $
+--             newDescribeImagePermissions
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseDisassociateFleet $
---             disassociateFleetResponse
+--         [ responseDeleteImageBuilder $
+--             newDeleteImageBuilderResponse
 --
 --         , responseListAssociatedFleets $
---             listAssociatedFleetsResponse
+--             newListAssociatedFleetsResponse
 --
---         , responseDeleteStack $
---             deleteStackResponse
---
---         , responseUpdateStack $
---             updateStackResponse
---
---         , responseCreateDirectoryConfig $
---             createDirectoryConfigResponse
+--         , responseBatchAssociateUserStack $
+--             newBatchAssociateUserStackResponse
 --
 --         , responseListAssociatedStacks $
---             listAssociatedStacksResponse
+--             newListAssociatedStacksResponse
 --
---         , responseDeleteFleet $
---             deleteFleetResponse
---
---         , responseUpdateFleet $
---             updateFleetResponse
---
---         , responseDeleteImageBuilder $
---             deleteImageBuilderResponse
---
---         , responseAssociateFleet $
---             associateFleetResponse
---
---         , responseCreateImageBuilder $
---             createImageBuilderResponse
---
---         , responseListTagsForResource $
---             listTagsForResourceResponse
---
---         , responseDescribeDirectoryConfigs $
---             describeDirectoryConfigsResponse
---
---         , responseCreateImageBuilderStreamingURL $
---             createImageBuilderStreamingURLResponse
---
---         , responseDescribeSessions $
---             describeSessionsResponse
---
---         , responseDescribeStacks $
---             describeStacksResponse
---
---         , responseDescribeFleets $
---             describeFleetsResponse
---
---         , responseDescribeImageBuilders $
---             describeImageBuildersResponse
---
---         , responseStopFleet $
---             stopFleetResponse
---
---         , responseStartImageBuilder $
---             startImageBuilderResponse
---
---         , responseDeleteDirectoryConfig $
---             deleteDirectoryConfigResponse
---
---         , responseUpdateDirectoryConfig $
---             updateDirectoryConfigResponse
---
---         , responseCreateFleet $
---             createFleetResponse
---
---         , responseCreateStack $
---             createStackResponse
---
---         , responseCopyImage $
---             copyImageResponse
---
---         , responseExpireSession $
---             expireSessionResponse
---
---         , responseTagResource $
---             tagResourceResponse
---
---         , responseCreateStreamingURL $
---             createStreamingURLResponse
---
---         , responseUntagResource $
---             untagResourceResponse
---
---         , responseStartFleet $
---             startFleetResponse
+--         , responseDeleteUsageReportSubscription $
+--             newDeleteUsageReportSubscriptionResponse
 --
 --         , responseStopImageBuilder $
---             stopImageBuilderResponse
+--             newStopImageBuilderResponse
 --
---         , responseDeleteImage $
---             deleteImageResponse
+--         , responseStartFleet $
+--             newStartFleetResponse
+--
+--         , responseStartImageBuilder $
+--             newStartImageBuilderResponse
+--
+--         , responseStopFleet $
+--             newStopFleetResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseEnableUser $
+--             newEnableUserResponse
+--
+--         , responseDescribeSessions $
+--             newDescribeSessionsResponse
+--
+--         , responseDescribeFleets $
+--             newDescribeFleetsResponse
+--
+--         , responseDescribeStacks $
+--             newDescribeStacksResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseCreateUser $
+--             newCreateUserResponse
+--
+--         , responseUpdateDirectoryConfig $
+--             newUpdateDirectoryConfigResponse
+--
+--         , responseCreateStack $
+--             newCreateStackResponse
+--
+--         , responseDeleteDirectoryConfig $
+--             newDeleteDirectoryConfigResponse
+--
+--         , responseCopyImage $
+--             newCopyImageResponse
+--
+--         , responseCreateFleet $
+--             newCreateFleetResponse
+--
+--         , responseCreateImageBuilder $
+--             newCreateImageBuilderResponse
+--
+--         , responseAssociateFleet $
+--             newAssociateFleetResponse
+--
+--         , responseCreateDirectoryConfig $
+--             newCreateDirectoryConfigResponse
+--
+--         , responseUpdateFleet $
+--             newUpdateFleetResponse
+--
+--         , responseDeleteStack $
+--             newDeleteStackResponse
+--
+--         , responseDeleteFleet $
+--             newDeleteFleetResponse
+--
+--         , responseDescribeUsers $
+--             newDescribeUsersResponse
+--
+--         , responseUpdateStack $
+--             newUpdateStackResponse
+--
+--         , responseCreateUsageReportSubscription $
+--             newCreateUsageReportSubscriptionResponse
+--
+--         , responseDisassociateFleet $
+--             newDisassociateFleetResponse
 --
 --         , responseDescribeImages $
---             describeImagesResponse
+--             newDescribeImagesResponse
+--
+--         , responseBatchDisassociateUserStack $
+--             newBatchDisassociateUserStackResponse
+--
+--         , responseDescribeUsageReportSubscriptions $
+--             newDescribeUsageReportSubscriptionsResponse
+--
+--         , responseDeleteImage $
+--             newDeleteImageResponse
+--
+--         , responseDeleteImagePermissions $
+--             newDeleteImagePermissionsResponse
+--
+--         , responseUpdateImagePermissions $
+--             newUpdateImagePermissionsResponse
+--
+--         , responseCreateStreamingURL $
+--             newCreateStreamingURLResponse
+--
+--         , responseDeleteUser $
+--             newDeleteUserResponse
+--
+--         , responseDescribeUserStackAssociations $
+--             newDescribeUserStackAssociationsResponse
+--
+--         , responseDescribeImageBuilders $
+--             newDescribeImageBuildersResponse
+--
+--         , responseDescribeDirectoryConfigs $
+--             newDescribeDirectoryConfigsResponse
+--
+--         , responseDisableUser $
+--             newDisableUserResponse
+--
+--         , responseExpireSession $
+--             newExpireSessionResponse
+--
+--         , responseCreateImageBuilderStreamingURL $
+--             newCreateImageBuilderStreamingURLResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseDescribeImagePermissions $
+--             newDescribeImagePermissionsResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestDisassociateFleet :: DisassociateFleet -> TestTree
-requestDisassociateFleet = req
-    "DisassociateFleet"
-    "fixture/DisassociateFleet.yaml"
-
-requestListAssociatedFleets :: ListAssociatedFleets -> TestTree
-requestListAssociatedFleets = req
-    "ListAssociatedFleets"
-    "fixture/ListAssociatedFleets.yaml"
-
-requestDeleteStack :: DeleteStack -> TestTree
-requestDeleteStack = req
-    "DeleteStack"
-    "fixture/DeleteStack.yaml"
-
-requestUpdateStack :: UpdateStack -> TestTree
-requestUpdateStack = req
-    "UpdateStack"
-    "fixture/UpdateStack.yaml"
-
-requestCreateDirectoryConfig :: CreateDirectoryConfig -> TestTree
-requestCreateDirectoryConfig = req
-    "CreateDirectoryConfig"
-    "fixture/CreateDirectoryConfig.yaml"
-
-requestListAssociatedStacks :: ListAssociatedStacks -> TestTree
-requestListAssociatedStacks = req
-    "ListAssociatedStacks"
-    "fixture/ListAssociatedStacks.yaml"
-
-requestDeleteFleet :: DeleteFleet -> TestTree
-requestDeleteFleet = req
-    "DeleteFleet"
-    "fixture/DeleteFleet.yaml"
-
-requestUpdateFleet :: UpdateFleet -> TestTree
-requestUpdateFleet = req
-    "UpdateFleet"
-    "fixture/UpdateFleet.yaml"
-
 requestDeleteImageBuilder :: DeleteImageBuilder -> TestTree
-requestDeleteImageBuilder = req
+requestDeleteImageBuilder =
+  req
     "DeleteImageBuilder"
     "fixture/DeleteImageBuilder.yaml"
 
-requestAssociateFleet :: AssociateFleet -> TestTree
-requestAssociateFleet = req
-    "AssociateFleet"
-    "fixture/AssociateFleet.yaml"
+requestListAssociatedFleets :: ListAssociatedFleets -> TestTree
+requestListAssociatedFleets =
+  req
+    "ListAssociatedFleets"
+    "fixture/ListAssociatedFleets.yaml"
 
-requestCreateImageBuilder :: CreateImageBuilder -> TestTree
-requestCreateImageBuilder = req
-    "CreateImageBuilder"
-    "fixture/CreateImageBuilder.yaml"
+requestBatchAssociateUserStack :: BatchAssociateUserStack -> TestTree
+requestBatchAssociateUserStack =
+  req
+    "BatchAssociateUserStack"
+    "fixture/BatchAssociateUserStack.yaml"
 
-requestListTagsForResource :: ListTagsForResource -> TestTree
-requestListTagsForResource = req
-    "ListTagsForResource"
-    "fixture/ListTagsForResource.yaml"
+requestListAssociatedStacks :: ListAssociatedStacks -> TestTree
+requestListAssociatedStacks =
+  req
+    "ListAssociatedStacks"
+    "fixture/ListAssociatedStacks.yaml"
 
-requestDescribeDirectoryConfigs :: DescribeDirectoryConfigs -> TestTree
-requestDescribeDirectoryConfigs = req
-    "DescribeDirectoryConfigs"
-    "fixture/DescribeDirectoryConfigs.yaml"
-
-requestCreateImageBuilderStreamingURL :: CreateImageBuilderStreamingURL -> TestTree
-requestCreateImageBuilderStreamingURL = req
-    "CreateImageBuilderStreamingURL"
-    "fixture/CreateImageBuilderStreamingURL.yaml"
-
-requestDescribeSessions :: DescribeSessions -> TestTree
-requestDescribeSessions = req
-    "DescribeSessions"
-    "fixture/DescribeSessions.yaml"
-
-requestDescribeStacks :: DescribeStacks -> TestTree
-requestDescribeStacks = req
-    "DescribeStacks"
-    "fixture/DescribeStacks.yaml"
-
-requestDescribeFleets :: DescribeFleets -> TestTree
-requestDescribeFleets = req
-    "DescribeFleets"
-    "fixture/DescribeFleets.yaml"
-
-requestDescribeImageBuilders :: DescribeImageBuilders -> TestTree
-requestDescribeImageBuilders = req
-    "DescribeImageBuilders"
-    "fixture/DescribeImageBuilders.yaml"
-
-requestStopFleet :: StopFleet -> TestTree
-requestStopFleet = req
-    "StopFleet"
-    "fixture/StopFleet.yaml"
-
-requestStartImageBuilder :: StartImageBuilder -> TestTree
-requestStartImageBuilder = req
-    "StartImageBuilder"
-    "fixture/StartImageBuilder.yaml"
-
-requestDeleteDirectoryConfig :: DeleteDirectoryConfig -> TestTree
-requestDeleteDirectoryConfig = req
-    "DeleteDirectoryConfig"
-    "fixture/DeleteDirectoryConfig.yaml"
-
-requestUpdateDirectoryConfig :: UpdateDirectoryConfig -> TestTree
-requestUpdateDirectoryConfig = req
-    "UpdateDirectoryConfig"
-    "fixture/UpdateDirectoryConfig.yaml"
-
-requestCreateFleet :: CreateFleet -> TestTree
-requestCreateFleet = req
-    "CreateFleet"
-    "fixture/CreateFleet.yaml"
-
-requestCreateStack :: CreateStack -> TestTree
-requestCreateStack = req
-    "CreateStack"
-    "fixture/CreateStack.yaml"
-
-requestCopyImage :: CopyImage -> TestTree
-requestCopyImage = req
-    "CopyImage"
-    "fixture/CopyImage.yaml"
-
-requestExpireSession :: ExpireSession -> TestTree
-requestExpireSession = req
-    "ExpireSession"
-    "fixture/ExpireSession.yaml"
-
-requestTagResource :: TagResource -> TestTree
-requestTagResource = req
-    "TagResource"
-    "fixture/TagResource.yaml"
-
-requestCreateStreamingURL :: CreateStreamingURL -> TestTree
-requestCreateStreamingURL = req
-    "CreateStreamingURL"
-    "fixture/CreateStreamingURL.yaml"
-
-requestUntagResource :: UntagResource -> TestTree
-requestUntagResource = req
-    "UntagResource"
-    "fixture/UntagResource.yaml"
-
-requestStartFleet :: StartFleet -> TestTree
-requestStartFleet = req
-    "StartFleet"
-    "fixture/StartFleet.yaml"
+requestDeleteUsageReportSubscription :: DeleteUsageReportSubscription -> TestTree
+requestDeleteUsageReportSubscription =
+  req
+    "DeleteUsageReportSubscription"
+    "fixture/DeleteUsageReportSubscription.yaml"
 
 requestStopImageBuilder :: StopImageBuilder -> TestTree
-requestStopImageBuilder = req
+requestStopImageBuilder =
+  req
     "StopImageBuilder"
     "fixture/StopImageBuilder.yaml"
 
-requestDeleteImage :: DeleteImage -> TestTree
-requestDeleteImage = req
-    "DeleteImage"
-    "fixture/DeleteImage.yaml"
+requestStartFleet :: StartFleet -> TestTree
+requestStartFleet =
+  req
+    "StartFleet"
+    "fixture/StartFleet.yaml"
+
+requestStartImageBuilder :: StartImageBuilder -> TestTree
+requestStartImageBuilder =
+  req
+    "StartImageBuilder"
+    "fixture/StartImageBuilder.yaml"
+
+requestStopFleet :: StopFleet -> TestTree
+requestStopFleet =
+  req
+    "StopFleet"
+    "fixture/StopFleet.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestEnableUser :: EnableUser -> TestTree
+requestEnableUser =
+  req
+    "EnableUser"
+    "fixture/EnableUser.yaml"
+
+requestDescribeSessions :: DescribeSessions -> TestTree
+requestDescribeSessions =
+  req
+    "DescribeSessions"
+    "fixture/DescribeSessions.yaml"
+
+requestDescribeFleets :: DescribeFleets -> TestTree
+requestDescribeFleets =
+  req
+    "DescribeFleets"
+    "fixture/DescribeFleets.yaml"
+
+requestDescribeStacks :: DescribeStacks -> TestTree
+requestDescribeStacks =
+  req
+    "DescribeStacks"
+    "fixture/DescribeStacks.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestCreateUser :: CreateUser -> TestTree
+requestCreateUser =
+  req
+    "CreateUser"
+    "fixture/CreateUser.yaml"
+
+requestUpdateDirectoryConfig :: UpdateDirectoryConfig -> TestTree
+requestUpdateDirectoryConfig =
+  req
+    "UpdateDirectoryConfig"
+    "fixture/UpdateDirectoryConfig.yaml"
+
+requestCreateStack :: CreateStack -> TestTree
+requestCreateStack =
+  req
+    "CreateStack"
+    "fixture/CreateStack.yaml"
+
+requestDeleteDirectoryConfig :: DeleteDirectoryConfig -> TestTree
+requestDeleteDirectoryConfig =
+  req
+    "DeleteDirectoryConfig"
+    "fixture/DeleteDirectoryConfig.yaml"
+
+requestCopyImage :: CopyImage -> TestTree
+requestCopyImage =
+  req
+    "CopyImage"
+    "fixture/CopyImage.yaml"
+
+requestCreateFleet :: CreateFleet -> TestTree
+requestCreateFleet =
+  req
+    "CreateFleet"
+    "fixture/CreateFleet.yaml"
+
+requestCreateImageBuilder :: CreateImageBuilder -> TestTree
+requestCreateImageBuilder =
+  req
+    "CreateImageBuilder"
+    "fixture/CreateImageBuilder.yaml"
+
+requestAssociateFleet :: AssociateFleet -> TestTree
+requestAssociateFleet =
+  req
+    "AssociateFleet"
+    "fixture/AssociateFleet.yaml"
+
+requestCreateDirectoryConfig :: CreateDirectoryConfig -> TestTree
+requestCreateDirectoryConfig =
+  req
+    "CreateDirectoryConfig"
+    "fixture/CreateDirectoryConfig.yaml"
+
+requestUpdateFleet :: UpdateFleet -> TestTree
+requestUpdateFleet =
+  req
+    "UpdateFleet"
+    "fixture/UpdateFleet.yaml"
+
+requestDeleteStack :: DeleteStack -> TestTree
+requestDeleteStack =
+  req
+    "DeleteStack"
+    "fixture/DeleteStack.yaml"
+
+requestDeleteFleet :: DeleteFleet -> TestTree
+requestDeleteFleet =
+  req
+    "DeleteFleet"
+    "fixture/DeleteFleet.yaml"
+
+requestDescribeUsers :: DescribeUsers -> TestTree
+requestDescribeUsers =
+  req
+    "DescribeUsers"
+    "fixture/DescribeUsers.yaml"
+
+requestUpdateStack :: UpdateStack -> TestTree
+requestUpdateStack =
+  req
+    "UpdateStack"
+    "fixture/UpdateStack.yaml"
+
+requestCreateUsageReportSubscription :: CreateUsageReportSubscription -> TestTree
+requestCreateUsageReportSubscription =
+  req
+    "CreateUsageReportSubscription"
+    "fixture/CreateUsageReportSubscription.yaml"
+
+requestDisassociateFleet :: DisassociateFleet -> TestTree
+requestDisassociateFleet =
+  req
+    "DisassociateFleet"
+    "fixture/DisassociateFleet.yaml"
 
 requestDescribeImages :: DescribeImages -> TestTree
-requestDescribeImages = req
+requestDescribeImages =
+  req
     "DescribeImages"
     "fixture/DescribeImages.yaml"
 
+requestBatchDisassociateUserStack :: BatchDisassociateUserStack -> TestTree
+requestBatchDisassociateUserStack =
+  req
+    "BatchDisassociateUserStack"
+    "fixture/BatchDisassociateUserStack.yaml"
+
+requestDescribeUsageReportSubscriptions :: DescribeUsageReportSubscriptions -> TestTree
+requestDescribeUsageReportSubscriptions =
+  req
+    "DescribeUsageReportSubscriptions"
+    "fixture/DescribeUsageReportSubscriptions.yaml"
+
+requestDeleteImage :: DeleteImage -> TestTree
+requestDeleteImage =
+  req
+    "DeleteImage"
+    "fixture/DeleteImage.yaml"
+
+requestDeleteImagePermissions :: DeleteImagePermissions -> TestTree
+requestDeleteImagePermissions =
+  req
+    "DeleteImagePermissions"
+    "fixture/DeleteImagePermissions.yaml"
+
+requestUpdateImagePermissions :: UpdateImagePermissions -> TestTree
+requestUpdateImagePermissions =
+  req
+    "UpdateImagePermissions"
+    "fixture/UpdateImagePermissions.yaml"
+
+requestCreateStreamingURL :: CreateStreamingURL -> TestTree
+requestCreateStreamingURL =
+  req
+    "CreateStreamingURL"
+    "fixture/CreateStreamingURL.yaml"
+
+requestDeleteUser :: DeleteUser -> TestTree
+requestDeleteUser =
+  req
+    "DeleteUser"
+    "fixture/DeleteUser.yaml"
+
+requestDescribeUserStackAssociations :: DescribeUserStackAssociations -> TestTree
+requestDescribeUserStackAssociations =
+  req
+    "DescribeUserStackAssociations"
+    "fixture/DescribeUserStackAssociations.yaml"
+
+requestDescribeImageBuilders :: DescribeImageBuilders -> TestTree
+requestDescribeImageBuilders =
+  req
+    "DescribeImageBuilders"
+    "fixture/DescribeImageBuilders.yaml"
+
+requestDescribeDirectoryConfigs :: DescribeDirectoryConfigs -> TestTree
+requestDescribeDirectoryConfigs =
+  req
+    "DescribeDirectoryConfigs"
+    "fixture/DescribeDirectoryConfigs.yaml"
+
+requestDisableUser :: DisableUser -> TestTree
+requestDisableUser =
+  req
+    "DisableUser"
+    "fixture/DisableUser.yaml"
+
+requestExpireSession :: ExpireSession -> TestTree
+requestExpireSession =
+  req
+    "ExpireSession"
+    "fixture/ExpireSession.yaml"
+
+requestCreateImageBuilderStreamingURL :: CreateImageBuilderStreamingURL -> TestTree
+requestCreateImageBuilderStreamingURL =
+  req
+    "CreateImageBuilderStreamingURL"
+    "fixture/CreateImageBuilderStreamingURL.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestDescribeImagePermissions :: DescribeImagePermissions -> TestTree
+requestDescribeImagePermissions =
+  req
+    "DescribeImagePermissions"
+    "fixture/DescribeImagePermissions.yaml"
+
 -- Responses
 
-responseDisassociateFleet :: DisassociateFleetResponse -> TestTree
-responseDisassociateFleet = res
-    "DisassociateFleetResponse"
-    "fixture/DisassociateFleetResponse.proto"
-    appStream
-    (Proxy :: Proxy DisassociateFleet)
-
-responseListAssociatedFleets :: ListAssociatedFleetsResponse -> TestTree
-responseListAssociatedFleets = res
-    "ListAssociatedFleetsResponse"
-    "fixture/ListAssociatedFleetsResponse.proto"
-    appStream
-    (Proxy :: Proxy ListAssociatedFleets)
-
-responseDeleteStack :: DeleteStackResponse -> TestTree
-responseDeleteStack = res
-    "DeleteStackResponse"
-    "fixture/DeleteStackResponse.proto"
-    appStream
-    (Proxy :: Proxy DeleteStack)
-
-responseUpdateStack :: UpdateStackResponse -> TestTree
-responseUpdateStack = res
-    "UpdateStackResponse"
-    "fixture/UpdateStackResponse.proto"
-    appStream
-    (Proxy :: Proxy UpdateStack)
-
-responseCreateDirectoryConfig :: CreateDirectoryConfigResponse -> TestTree
-responseCreateDirectoryConfig = res
-    "CreateDirectoryConfigResponse"
-    "fixture/CreateDirectoryConfigResponse.proto"
-    appStream
-    (Proxy :: Proxy CreateDirectoryConfig)
-
-responseListAssociatedStacks :: ListAssociatedStacksResponse -> TestTree
-responseListAssociatedStacks = res
-    "ListAssociatedStacksResponse"
-    "fixture/ListAssociatedStacksResponse.proto"
-    appStream
-    (Proxy :: Proxy ListAssociatedStacks)
-
-responseDeleteFleet :: DeleteFleetResponse -> TestTree
-responseDeleteFleet = res
-    "DeleteFleetResponse"
-    "fixture/DeleteFleetResponse.proto"
-    appStream
-    (Proxy :: Proxy DeleteFleet)
-
-responseUpdateFleet :: UpdateFleetResponse -> TestTree
-responseUpdateFleet = res
-    "UpdateFleetResponse"
-    "fixture/UpdateFleetResponse.proto"
-    appStream
-    (Proxy :: Proxy UpdateFleet)
-
 responseDeleteImageBuilder :: DeleteImageBuilderResponse -> TestTree
-responseDeleteImageBuilder = res
+responseDeleteImageBuilder =
+  res
     "DeleteImageBuilderResponse"
     "fixture/DeleteImageBuilderResponse.proto"
-    appStream
+    defaultService
     (Proxy :: Proxy DeleteImageBuilder)
 
-responseAssociateFleet :: AssociateFleetResponse -> TestTree
-responseAssociateFleet = res
-    "AssociateFleetResponse"
-    "fixture/AssociateFleetResponse.proto"
-    appStream
-    (Proxy :: Proxy AssociateFleet)
+responseListAssociatedFleets :: ListAssociatedFleetsResponse -> TestTree
+responseListAssociatedFleets =
+  res
+    "ListAssociatedFleetsResponse"
+    "fixture/ListAssociatedFleetsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListAssociatedFleets)
 
-responseCreateImageBuilder :: CreateImageBuilderResponse -> TestTree
-responseCreateImageBuilder = res
-    "CreateImageBuilderResponse"
-    "fixture/CreateImageBuilderResponse.proto"
-    appStream
-    (Proxy :: Proxy CreateImageBuilder)
+responseBatchAssociateUserStack :: BatchAssociateUserStackResponse -> TestTree
+responseBatchAssociateUserStack =
+  res
+    "BatchAssociateUserStackResponse"
+    "fixture/BatchAssociateUserStackResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchAssociateUserStack)
 
-responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
-responseListTagsForResource = res
-    "ListTagsForResourceResponse"
-    "fixture/ListTagsForResourceResponse.proto"
-    appStream
-    (Proxy :: Proxy ListTagsForResource)
+responseListAssociatedStacks :: ListAssociatedStacksResponse -> TestTree
+responseListAssociatedStacks =
+  res
+    "ListAssociatedStacksResponse"
+    "fixture/ListAssociatedStacksResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListAssociatedStacks)
 
-responseDescribeDirectoryConfigs :: DescribeDirectoryConfigsResponse -> TestTree
-responseDescribeDirectoryConfigs = res
-    "DescribeDirectoryConfigsResponse"
-    "fixture/DescribeDirectoryConfigsResponse.proto"
-    appStream
-    (Proxy :: Proxy DescribeDirectoryConfigs)
-
-responseCreateImageBuilderStreamingURL :: CreateImageBuilderStreamingURLResponse -> TestTree
-responseCreateImageBuilderStreamingURL = res
-    "CreateImageBuilderStreamingURLResponse"
-    "fixture/CreateImageBuilderStreamingURLResponse.proto"
-    appStream
-    (Proxy :: Proxy CreateImageBuilderStreamingURL)
-
-responseDescribeSessions :: DescribeSessionsResponse -> TestTree
-responseDescribeSessions = res
-    "DescribeSessionsResponse"
-    "fixture/DescribeSessionsResponse.proto"
-    appStream
-    (Proxy :: Proxy DescribeSessions)
-
-responseDescribeStacks :: DescribeStacksResponse -> TestTree
-responseDescribeStacks = res
-    "DescribeStacksResponse"
-    "fixture/DescribeStacksResponse.proto"
-    appStream
-    (Proxy :: Proxy DescribeStacks)
-
-responseDescribeFleets :: DescribeFleetsResponse -> TestTree
-responseDescribeFleets = res
-    "DescribeFleetsResponse"
-    "fixture/DescribeFleetsResponse.proto"
-    appStream
-    (Proxy :: Proxy DescribeFleets)
-
-responseDescribeImageBuilders :: DescribeImageBuildersResponse -> TestTree
-responseDescribeImageBuilders = res
-    "DescribeImageBuildersResponse"
-    "fixture/DescribeImageBuildersResponse.proto"
-    appStream
-    (Proxy :: Proxy DescribeImageBuilders)
-
-responseStopFleet :: StopFleetResponse -> TestTree
-responseStopFleet = res
-    "StopFleetResponse"
-    "fixture/StopFleetResponse.proto"
-    appStream
-    (Proxy :: Proxy StopFleet)
-
-responseStartImageBuilder :: StartImageBuilderResponse -> TestTree
-responseStartImageBuilder = res
-    "StartImageBuilderResponse"
-    "fixture/StartImageBuilderResponse.proto"
-    appStream
-    (Proxy :: Proxy StartImageBuilder)
-
-responseDeleteDirectoryConfig :: DeleteDirectoryConfigResponse -> TestTree
-responseDeleteDirectoryConfig = res
-    "DeleteDirectoryConfigResponse"
-    "fixture/DeleteDirectoryConfigResponse.proto"
-    appStream
-    (Proxy :: Proxy DeleteDirectoryConfig)
-
-responseUpdateDirectoryConfig :: UpdateDirectoryConfigResponse -> TestTree
-responseUpdateDirectoryConfig = res
-    "UpdateDirectoryConfigResponse"
-    "fixture/UpdateDirectoryConfigResponse.proto"
-    appStream
-    (Proxy :: Proxy UpdateDirectoryConfig)
-
-responseCreateFleet :: CreateFleetResponse -> TestTree
-responseCreateFleet = res
-    "CreateFleetResponse"
-    "fixture/CreateFleetResponse.proto"
-    appStream
-    (Proxy :: Proxy CreateFleet)
-
-responseCreateStack :: CreateStackResponse -> TestTree
-responseCreateStack = res
-    "CreateStackResponse"
-    "fixture/CreateStackResponse.proto"
-    appStream
-    (Proxy :: Proxy CreateStack)
-
-responseCopyImage :: CopyImageResponse -> TestTree
-responseCopyImage = res
-    "CopyImageResponse"
-    "fixture/CopyImageResponse.proto"
-    appStream
-    (Proxy :: Proxy CopyImage)
-
-responseExpireSession :: ExpireSessionResponse -> TestTree
-responseExpireSession = res
-    "ExpireSessionResponse"
-    "fixture/ExpireSessionResponse.proto"
-    appStream
-    (Proxy :: Proxy ExpireSession)
-
-responseTagResource :: TagResourceResponse -> TestTree
-responseTagResource = res
-    "TagResourceResponse"
-    "fixture/TagResourceResponse.proto"
-    appStream
-    (Proxy :: Proxy TagResource)
-
-responseCreateStreamingURL :: CreateStreamingURLResponse -> TestTree
-responseCreateStreamingURL = res
-    "CreateStreamingURLResponse"
-    "fixture/CreateStreamingURLResponse.proto"
-    appStream
-    (Proxy :: Proxy CreateStreamingURL)
-
-responseUntagResource :: UntagResourceResponse -> TestTree
-responseUntagResource = res
-    "UntagResourceResponse"
-    "fixture/UntagResourceResponse.proto"
-    appStream
-    (Proxy :: Proxy UntagResource)
-
-responseStartFleet :: StartFleetResponse -> TestTree
-responseStartFleet = res
-    "StartFleetResponse"
-    "fixture/StartFleetResponse.proto"
-    appStream
-    (Proxy :: Proxy StartFleet)
+responseDeleteUsageReportSubscription :: DeleteUsageReportSubscriptionResponse -> TestTree
+responseDeleteUsageReportSubscription =
+  res
+    "DeleteUsageReportSubscriptionResponse"
+    "fixture/DeleteUsageReportSubscriptionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteUsageReportSubscription)
 
 responseStopImageBuilder :: StopImageBuilderResponse -> TestTree
-responseStopImageBuilder = res
+responseStopImageBuilder =
+  res
     "StopImageBuilderResponse"
     "fixture/StopImageBuilderResponse.proto"
-    appStream
+    defaultService
     (Proxy :: Proxy StopImageBuilder)
 
-responseDeleteImage :: DeleteImageResponse -> TestTree
-responseDeleteImage = res
-    "DeleteImageResponse"
-    "fixture/DeleteImageResponse.proto"
-    appStream
-    (Proxy :: Proxy DeleteImage)
+responseStartFleet :: StartFleetResponse -> TestTree
+responseStartFleet =
+  res
+    "StartFleetResponse"
+    "fixture/StartFleetResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartFleet)
+
+responseStartImageBuilder :: StartImageBuilderResponse -> TestTree
+responseStartImageBuilder =
+  res
+    "StartImageBuilderResponse"
+    "fixture/StartImageBuilderResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartImageBuilder)
+
+responseStopFleet :: StopFleetResponse -> TestTree
+responseStopFleet =
+  res
+    "StopFleetResponse"
+    "fixture/StopFleetResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopFleet)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagResource)
+
+responseEnableUser :: EnableUserResponse -> TestTree
+responseEnableUser =
+  res
+    "EnableUserResponse"
+    "fixture/EnableUserResponse.proto"
+    defaultService
+    (Proxy :: Proxy EnableUser)
+
+responseDescribeSessions :: DescribeSessionsResponse -> TestTree
+responseDescribeSessions =
+  res
+    "DescribeSessionsResponse"
+    "fixture/DescribeSessionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeSessions)
+
+responseDescribeFleets :: DescribeFleetsResponse -> TestTree
+responseDescribeFleets =
+  res
+    "DescribeFleetsResponse"
+    "fixture/DescribeFleetsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeFleets)
+
+responseDescribeStacks :: DescribeStacksResponse -> TestTree
+responseDescribeStacks =
+  res
+    "DescribeStacksResponse"
+    "fixture/DescribeStacksResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeStacks)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagResource)
+
+responseCreateUser :: CreateUserResponse -> TestTree
+responseCreateUser =
+  res
+    "CreateUserResponse"
+    "fixture/CreateUserResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateUser)
+
+responseUpdateDirectoryConfig :: UpdateDirectoryConfigResponse -> TestTree
+responseUpdateDirectoryConfig =
+  res
+    "UpdateDirectoryConfigResponse"
+    "fixture/UpdateDirectoryConfigResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateDirectoryConfig)
+
+responseCreateStack :: CreateStackResponse -> TestTree
+responseCreateStack =
+  res
+    "CreateStackResponse"
+    "fixture/CreateStackResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateStack)
+
+responseDeleteDirectoryConfig :: DeleteDirectoryConfigResponse -> TestTree
+responseDeleteDirectoryConfig =
+  res
+    "DeleteDirectoryConfigResponse"
+    "fixture/DeleteDirectoryConfigResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteDirectoryConfig)
+
+responseCopyImage :: CopyImageResponse -> TestTree
+responseCopyImage =
+  res
+    "CopyImageResponse"
+    "fixture/CopyImageResponse.proto"
+    defaultService
+    (Proxy :: Proxy CopyImage)
+
+responseCreateFleet :: CreateFleetResponse -> TestTree
+responseCreateFleet =
+  res
+    "CreateFleetResponse"
+    "fixture/CreateFleetResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateFleet)
+
+responseCreateImageBuilder :: CreateImageBuilderResponse -> TestTree
+responseCreateImageBuilder =
+  res
+    "CreateImageBuilderResponse"
+    "fixture/CreateImageBuilderResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateImageBuilder)
+
+responseAssociateFleet :: AssociateFleetResponse -> TestTree
+responseAssociateFleet =
+  res
+    "AssociateFleetResponse"
+    "fixture/AssociateFleetResponse.proto"
+    defaultService
+    (Proxy :: Proxy AssociateFleet)
+
+responseCreateDirectoryConfig :: CreateDirectoryConfigResponse -> TestTree
+responseCreateDirectoryConfig =
+  res
+    "CreateDirectoryConfigResponse"
+    "fixture/CreateDirectoryConfigResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateDirectoryConfig)
+
+responseUpdateFleet :: UpdateFleetResponse -> TestTree
+responseUpdateFleet =
+  res
+    "UpdateFleetResponse"
+    "fixture/UpdateFleetResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateFleet)
+
+responseDeleteStack :: DeleteStackResponse -> TestTree
+responseDeleteStack =
+  res
+    "DeleteStackResponse"
+    "fixture/DeleteStackResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteStack)
+
+responseDeleteFleet :: DeleteFleetResponse -> TestTree
+responseDeleteFleet =
+  res
+    "DeleteFleetResponse"
+    "fixture/DeleteFleetResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteFleet)
+
+responseDescribeUsers :: DescribeUsersResponse -> TestTree
+responseDescribeUsers =
+  res
+    "DescribeUsersResponse"
+    "fixture/DescribeUsersResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeUsers)
+
+responseUpdateStack :: UpdateStackResponse -> TestTree
+responseUpdateStack =
+  res
+    "UpdateStackResponse"
+    "fixture/UpdateStackResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateStack)
+
+responseCreateUsageReportSubscription :: CreateUsageReportSubscriptionResponse -> TestTree
+responseCreateUsageReportSubscription =
+  res
+    "CreateUsageReportSubscriptionResponse"
+    "fixture/CreateUsageReportSubscriptionResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateUsageReportSubscription)
+
+responseDisassociateFleet :: DisassociateFleetResponse -> TestTree
+responseDisassociateFleet =
+  res
+    "DisassociateFleetResponse"
+    "fixture/DisassociateFleetResponse.proto"
+    defaultService
+    (Proxy :: Proxy DisassociateFleet)
 
 responseDescribeImages :: DescribeImagesResponse -> TestTree
-responseDescribeImages = res
+responseDescribeImages =
+  res
     "DescribeImagesResponse"
     "fixture/DescribeImagesResponse.proto"
-    appStream
+    defaultService
     (Proxy :: Proxy DescribeImages)
+
+responseBatchDisassociateUserStack :: BatchDisassociateUserStackResponse -> TestTree
+responseBatchDisassociateUserStack =
+  res
+    "BatchDisassociateUserStackResponse"
+    "fixture/BatchDisassociateUserStackResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchDisassociateUserStack)
+
+responseDescribeUsageReportSubscriptions :: DescribeUsageReportSubscriptionsResponse -> TestTree
+responseDescribeUsageReportSubscriptions =
+  res
+    "DescribeUsageReportSubscriptionsResponse"
+    "fixture/DescribeUsageReportSubscriptionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeUsageReportSubscriptions)
+
+responseDeleteImage :: DeleteImageResponse -> TestTree
+responseDeleteImage =
+  res
+    "DeleteImageResponse"
+    "fixture/DeleteImageResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteImage)
+
+responseDeleteImagePermissions :: DeleteImagePermissionsResponse -> TestTree
+responseDeleteImagePermissions =
+  res
+    "DeleteImagePermissionsResponse"
+    "fixture/DeleteImagePermissionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteImagePermissions)
+
+responseUpdateImagePermissions :: UpdateImagePermissionsResponse -> TestTree
+responseUpdateImagePermissions =
+  res
+    "UpdateImagePermissionsResponse"
+    "fixture/UpdateImagePermissionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateImagePermissions)
+
+responseCreateStreamingURL :: CreateStreamingURLResponse -> TestTree
+responseCreateStreamingURL =
+  res
+    "CreateStreamingURLResponse"
+    "fixture/CreateStreamingURLResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateStreamingURL)
+
+responseDeleteUser :: DeleteUserResponse -> TestTree
+responseDeleteUser =
+  res
+    "DeleteUserResponse"
+    "fixture/DeleteUserResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteUser)
+
+responseDescribeUserStackAssociations :: DescribeUserStackAssociationsResponse -> TestTree
+responseDescribeUserStackAssociations =
+  res
+    "DescribeUserStackAssociationsResponse"
+    "fixture/DescribeUserStackAssociationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeUserStackAssociations)
+
+responseDescribeImageBuilders :: DescribeImageBuildersResponse -> TestTree
+responseDescribeImageBuilders =
+  res
+    "DescribeImageBuildersResponse"
+    "fixture/DescribeImageBuildersResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeImageBuilders)
+
+responseDescribeDirectoryConfigs :: DescribeDirectoryConfigsResponse -> TestTree
+responseDescribeDirectoryConfigs =
+  res
+    "DescribeDirectoryConfigsResponse"
+    "fixture/DescribeDirectoryConfigsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeDirectoryConfigs)
+
+responseDisableUser :: DisableUserResponse -> TestTree
+responseDisableUser =
+  res
+    "DisableUserResponse"
+    "fixture/DisableUserResponse.proto"
+    defaultService
+    (Proxy :: Proxy DisableUser)
+
+responseExpireSession :: ExpireSessionResponse -> TestTree
+responseExpireSession =
+  res
+    "ExpireSessionResponse"
+    "fixture/ExpireSessionResponse.proto"
+    defaultService
+    (Proxy :: Proxy ExpireSession)
+
+responseCreateImageBuilderStreamingURL :: CreateImageBuilderStreamingURLResponse -> TestTree
+responseCreateImageBuilderStreamingURL =
+  res
+    "CreateImageBuilderStreamingURLResponse"
+    "fixture/CreateImageBuilderStreamingURLResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateImageBuilderStreamingURL)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTagsForResource)
+
+responseDescribeImagePermissions :: DescribeImagePermissionsResponse -> TestTree
+responseDescribeImagePermissions =
+  res
+    "DescribeImagePermissionsResponse"
+    "fixture/DescribeImagePermissionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeImagePermissions)

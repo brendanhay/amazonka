@@ -1,120 +1,143 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AppStream.StopFleet
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Stops the specified fleet.
---
---
 module Network.AWS.AppStream.StopFleet
-    (
-    -- * Creating a Request
-      stopFleet
-    , StopFleet
+  ( -- * Creating a Request
+    StopFleet (..),
+    newStopFleet,
+
     -- * Request Lenses
-    , sfName
+    stopFleet_name,
 
     -- * Destructuring the Response
-    , stopFleetResponse
-    , StopFleetResponse
+    StopFleetResponse (..),
+    newStopFleetResponse,
+
     -- * Response Lenses
-    , storsResponseStatus
-    ) where
+    stopFleetResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'stopFleet' smart constructor.
-newtype StopFleet = StopFleet'
-  { _sfName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newStopFleet' smart constructor.
+data StopFleet = StopFleet'
+  { -- | The name of the fleet.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'StopFleet' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StopFleet' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'sfName' - The name of the fleet.
-stopFleet
-    :: Text -- ^ 'sfName'
-    -> StopFleet
-stopFleet pName_ = StopFleet' {_sfName = pName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'name', 'stopFleet_name' - The name of the fleet.
+newStopFleet ::
+  -- | 'name'
+  Prelude.Text ->
+  StopFleet
+newStopFleet pName_ = StopFleet' {name = pName_}
 
 -- | The name of the fleet.
-sfName :: Lens' StopFleet Text
-sfName = lens _sfName (\ s a -> s{_sfName = a})
+stopFleet_name :: Lens.Lens' StopFleet Prelude.Text
+stopFleet_name = Lens.lens (\StopFleet' {name} -> name) (\s@StopFleet' {} a -> s {name = a} :: StopFleet)
 
-instance AWSRequest StopFleet where
-        type Rs StopFleet = StopFleetResponse
-        request = postJSON appStream
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 StopFleetResponse' <$> (pure (fromEnum s)))
+instance Prelude.AWSRequest StopFleet where
+  type Rs StopFleet = StopFleetResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          StopFleetResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable StopFleet where
+instance Prelude.Hashable StopFleet
 
-instance NFData StopFleet where
+instance Prelude.NFData StopFleet
 
-instance ToHeaders StopFleet where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("PhotonAdminProxyService.StopFleet" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders StopFleet where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "PhotonAdminProxyService.StopFleet" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON StopFleet where
-        toJSON StopFleet'{..}
-          = object (catMaybes [Just ("Name" .= _sfName)])
+instance Prelude.ToJSON StopFleet where
+  toJSON StopFleet' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Prelude..= name)]
+      )
 
-instance ToPath StopFleet where
-        toPath = const "/"
+instance Prelude.ToPath StopFleet where
+  toPath = Prelude.const "/"
 
-instance ToQuery StopFleet where
-        toQuery = const mempty
+instance Prelude.ToQuery StopFleet where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'stopFleetResponse' smart constructor.
-newtype StopFleetResponse = StopFleetResponse'
-  { _storsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newStopFleetResponse' smart constructor.
+data StopFleetResponse = StopFleetResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'StopFleetResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StopFleetResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'storsResponseStatus' - -- | The response status code.
-stopFleetResponse
-    :: Int -- ^ 'storsResponseStatus'
-    -> StopFleetResponse
-stopFleetResponse pResponseStatus_ =
-  StopFleetResponse' {_storsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'stopFleetResponse_httpStatus' - The response's http status code.
+newStopFleetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  StopFleetResponse
+newStopFleetResponse pHttpStatus_ =
+  StopFleetResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+stopFleetResponse_httpStatus :: Lens.Lens' StopFleetResponse Prelude.Int
+stopFleetResponse_httpStatus = Lens.lens (\StopFleetResponse' {httpStatus} -> httpStatus) (\s@StopFleetResponse' {} a -> s {httpStatus = a} :: StopFleetResponse)
 
--- | -- | The response status code.
-storsResponseStatus :: Lens' StopFleetResponse Int
-storsResponseStatus = lens _storsResponseStatus (\ s a -> s{_storsResponseStatus = a})
-
-instance NFData StopFleetResponse where
+instance Prelude.NFData StopFleetResponse

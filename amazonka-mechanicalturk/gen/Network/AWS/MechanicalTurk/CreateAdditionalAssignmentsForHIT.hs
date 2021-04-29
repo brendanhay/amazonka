@@ -1,164 +1,239 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MechanicalTurk.CreateAdditionalAssignmentsForHIT
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The @CreateAdditionalAssignmentsForHIT@ operation increases the maximum number of assignments of an existing HIT.
+-- The @CreateAdditionalAssignmentsForHIT@ operation increases the maximum
+-- number of assignments of an existing HIT.
 --
+-- To extend the maximum number of assignments, specify the number of
+-- additional assignments.
 --
--- To extend the maximum number of assignments, specify the number of additional assignments.
+-- -   HITs created with fewer than 10 assignments cannot be extended to
+--     have 10 or more assignments. Attempting to add assignments in a way
+--     that brings the total number of assignments for a HIT from fewer
+--     than 10 assignments to 10 or more assignments will result in an
+--     @AWS.MechanicalTurk.InvalidMaximumAssignmentsIncrease@ exception.
 --
+-- -   HITs that were created before July 22, 2015 cannot be extended.
+--     Attempting to extend HITs that were created before July 22, 2015
+--     will result in an @AWS.MechanicalTurk.HITTooOldForExtension@
+--     exception.
 module Network.AWS.MechanicalTurk.CreateAdditionalAssignmentsForHIT
-    (
-    -- * Creating a Request
-      createAdditionalAssignmentsForHIT
-    , CreateAdditionalAssignmentsForHIT
+  ( -- * Creating a Request
+    CreateAdditionalAssignmentsForHIT (..),
+    newCreateAdditionalAssignmentsForHIT,
+
     -- * Request Lenses
-    , caafhitUniqueRequestToken
-    , caafhitHITId
-    , caafhitNumberOfAdditionalAssignments
+    createAdditionalAssignmentsForHIT_uniqueRequestToken,
+    createAdditionalAssignmentsForHIT_hITId,
+    createAdditionalAssignmentsForHIT_numberOfAdditionalAssignments,
 
     -- * Destructuring the Response
-    , createAdditionalAssignmentsForHITResponse
-    , CreateAdditionalAssignmentsForHITResponse
+    CreateAdditionalAssignmentsForHITResponse (..),
+    newCreateAdditionalAssignmentsForHITResponse,
+
     -- * Response Lenses
-    , caafhitrsResponseStatus
-    ) where
+    createAdditionalAssignmentsForHITResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MechanicalTurk.Types
-import Network.AWS.MechanicalTurk.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createAdditionalAssignmentsForHIT' smart constructor.
+-- | /See:/ 'newCreateAdditionalAssignmentsForHIT' smart constructor.
 data CreateAdditionalAssignmentsForHIT = CreateAdditionalAssignmentsForHIT'
-  { _caafhitUniqueRequestToken            :: !(Maybe Text)
-  , _caafhitHITId                         :: !Text
-  , _caafhitNumberOfAdditionalAssignments :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A unique identifier for this request, which allows you to retry the call
+    -- on error without extending the HIT multiple times. This is useful in
+    -- cases such as network timeouts where it is unclear whether or not the
+    -- call succeeded on the server. If the extend HIT already exists in the
+    -- system from a previous call using the same @UniqueRequestToken@,
+    -- subsequent calls will return an error with a message containing the
+    -- request ID.
+    uniqueRequestToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the HIT to extend.
+    hITId :: Prelude.Text,
+    -- | The number of additional assignments to request for this HIT.
+    numberOfAdditionalAssignments :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateAdditionalAssignmentsForHIT' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'uniqueRequestToken', 'createAdditionalAssignmentsForHIT_uniqueRequestToken' - A unique identifier for this request, which allows you to retry the call
+-- on error without extending the HIT multiple times. This is useful in
+-- cases such as network timeouts where it is unclear whether or not the
+-- call succeeded on the server. If the extend HIT already exists in the
+-- system from a previous call using the same @UniqueRequestToken@,
+-- subsequent calls will return an error with a message containing the
+-- request ID.
+--
+-- 'hITId', 'createAdditionalAssignmentsForHIT_hITId' - The ID of the HIT to extend.
+--
+-- 'numberOfAdditionalAssignments', 'createAdditionalAssignmentsForHIT_numberOfAdditionalAssignments' - The number of additional assignments to request for this HIT.
+newCreateAdditionalAssignmentsForHIT ::
+  -- | 'hITId'
+  Prelude.Text ->
+  -- | 'numberOfAdditionalAssignments'
+  Prelude.Int ->
+  CreateAdditionalAssignmentsForHIT
+newCreateAdditionalAssignmentsForHIT
+  pHITId_
+  pNumberOfAdditionalAssignments_ =
+    CreateAdditionalAssignmentsForHIT'
+      { uniqueRequestToken =
+          Prelude.Nothing,
+        hITId = pHITId_,
+        numberOfAdditionalAssignments =
+          pNumberOfAdditionalAssignments_
+      }
 
--- | Creates a value of 'CreateAdditionalAssignmentsForHIT' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'caafhitUniqueRequestToken' - A unique identifier for this request, which allows you to retry the call on error without extending the HIT multiple times. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the extend HIT already exists in the system from a previous call using the same @UniqueRequestToken@ , subsequent calls will return an error with a message containing the request ID.
---
--- * 'caafhitHITId' - The ID of the HIT to extend.
---
--- * 'caafhitNumberOfAdditionalAssignments' - The number of additional assignments to request for this HIT.
-createAdditionalAssignmentsForHIT
-    :: Text -- ^ 'caafhitHITId'
-    -> Int -- ^ 'caafhitNumberOfAdditionalAssignments'
-    -> CreateAdditionalAssignmentsForHIT
-createAdditionalAssignmentsForHIT pHITId_ pNumberOfAdditionalAssignments_ =
-  CreateAdditionalAssignmentsForHIT'
-    { _caafhitUniqueRequestToken = Nothing
-    , _caafhitHITId = pHITId_
-    , _caafhitNumberOfAdditionalAssignments = pNumberOfAdditionalAssignments_
-    }
-
-
--- | A unique identifier for this request, which allows you to retry the call on error without extending the HIT multiple times. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the extend HIT already exists in the system from a previous call using the same @UniqueRequestToken@ , subsequent calls will return an error with a message containing the request ID.
-caafhitUniqueRequestToken :: Lens' CreateAdditionalAssignmentsForHIT (Maybe Text)
-caafhitUniqueRequestToken = lens _caafhitUniqueRequestToken (\ s a -> s{_caafhitUniqueRequestToken = a})
+-- | A unique identifier for this request, which allows you to retry the call
+-- on error without extending the HIT multiple times. This is useful in
+-- cases such as network timeouts where it is unclear whether or not the
+-- call succeeded on the server. If the extend HIT already exists in the
+-- system from a previous call using the same @UniqueRequestToken@,
+-- subsequent calls will return an error with a message containing the
+-- request ID.
+createAdditionalAssignmentsForHIT_uniqueRequestToken :: Lens.Lens' CreateAdditionalAssignmentsForHIT (Prelude.Maybe Prelude.Text)
+createAdditionalAssignmentsForHIT_uniqueRequestToken = Lens.lens (\CreateAdditionalAssignmentsForHIT' {uniqueRequestToken} -> uniqueRequestToken) (\s@CreateAdditionalAssignmentsForHIT' {} a -> s {uniqueRequestToken = a} :: CreateAdditionalAssignmentsForHIT)
 
 -- | The ID of the HIT to extend.
-caafhitHITId :: Lens' CreateAdditionalAssignmentsForHIT Text
-caafhitHITId = lens _caafhitHITId (\ s a -> s{_caafhitHITId = a})
+createAdditionalAssignmentsForHIT_hITId :: Lens.Lens' CreateAdditionalAssignmentsForHIT Prelude.Text
+createAdditionalAssignmentsForHIT_hITId = Lens.lens (\CreateAdditionalAssignmentsForHIT' {hITId} -> hITId) (\s@CreateAdditionalAssignmentsForHIT' {} a -> s {hITId = a} :: CreateAdditionalAssignmentsForHIT)
 
 -- | The number of additional assignments to request for this HIT.
-caafhitNumberOfAdditionalAssignments :: Lens' CreateAdditionalAssignmentsForHIT Int
-caafhitNumberOfAdditionalAssignments = lens _caafhitNumberOfAdditionalAssignments (\ s a -> s{_caafhitNumberOfAdditionalAssignments = a})
+createAdditionalAssignmentsForHIT_numberOfAdditionalAssignments :: Lens.Lens' CreateAdditionalAssignmentsForHIT Prelude.Int
+createAdditionalAssignmentsForHIT_numberOfAdditionalAssignments = Lens.lens (\CreateAdditionalAssignmentsForHIT' {numberOfAdditionalAssignments} -> numberOfAdditionalAssignments) (\s@CreateAdditionalAssignmentsForHIT' {} a -> s {numberOfAdditionalAssignments = a} :: CreateAdditionalAssignmentsForHIT)
 
-instance AWSRequest CreateAdditionalAssignmentsForHIT
-         where
-        type Rs CreateAdditionalAssignmentsForHIT =
-             CreateAdditionalAssignmentsForHITResponse
-        request = postJSON mechanicalTurk
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 CreateAdditionalAssignmentsForHITResponse' <$>
-                   (pure (fromEnum s)))
+instance
+  Prelude.AWSRequest
+    CreateAdditionalAssignmentsForHIT
+  where
+  type
+    Rs CreateAdditionalAssignmentsForHIT =
+      CreateAdditionalAssignmentsForHITResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          CreateAdditionalAssignmentsForHITResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateAdditionalAssignmentsForHIT
-         where
+instance
+  Prelude.Hashable
+    CreateAdditionalAssignmentsForHIT
 
-instance NFData CreateAdditionalAssignmentsForHIT
-         where
+instance
+  Prelude.NFData
+    CreateAdditionalAssignmentsForHIT
 
-instance ToHeaders CreateAdditionalAssignmentsForHIT
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance
+  Prelude.ToHeaders
+    CreateAdditionalAssignmentsForHIT
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "MTurkRequesterServiceV20170117.CreateAdditionalAssignmentsForHIT" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON CreateAdditionalAssignmentsForHIT
-         where
-        toJSON CreateAdditionalAssignmentsForHIT'{..}
-          = object
-              (catMaybes
-                 [("UniqueRequestToken" .=) <$>
-                    _caafhitUniqueRequestToken,
-                  Just ("HITId" .= _caafhitHITId),
-                  Just
-                    ("NumberOfAdditionalAssignments" .=
-                       _caafhitNumberOfAdditionalAssignments)])
+instance
+  Prelude.ToJSON
+    CreateAdditionalAssignmentsForHIT
+  where
+  toJSON CreateAdditionalAssignmentsForHIT' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("UniqueRequestToken" Prelude..=)
+              Prelude.<$> uniqueRequestToken,
+            Prelude.Just ("HITId" Prelude..= hITId),
+            Prelude.Just
+              ( "NumberOfAdditionalAssignments"
+                  Prelude..= numberOfAdditionalAssignments
+              )
+          ]
+      )
 
-instance ToPath CreateAdditionalAssignmentsForHIT
-         where
-        toPath = const "/"
+instance
+  Prelude.ToPath
+    CreateAdditionalAssignmentsForHIT
+  where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateAdditionalAssignmentsForHIT
-         where
-        toQuery = const mempty
+instance
+  Prelude.ToQuery
+    CreateAdditionalAssignmentsForHIT
+  where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createAdditionalAssignmentsForHITResponse' smart constructor.
-newtype CreateAdditionalAssignmentsForHITResponse = CreateAdditionalAssignmentsForHITResponse'
-  { _caafhitrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCreateAdditionalAssignmentsForHITResponse' smart constructor.
+data CreateAdditionalAssignmentsForHITResponse = CreateAdditionalAssignmentsForHITResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateAdditionalAssignmentsForHITResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateAdditionalAssignmentsForHITResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'caafhitrsResponseStatus' - -- | The response status code.
-createAdditionalAssignmentsForHITResponse
-    :: Int -- ^ 'caafhitrsResponseStatus'
-    -> CreateAdditionalAssignmentsForHITResponse
-createAdditionalAssignmentsForHITResponse pResponseStatus_ =
-  CreateAdditionalAssignmentsForHITResponse'
-    {_caafhitrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'createAdditionalAssignmentsForHITResponse_httpStatus' - The response's http status code.
+newCreateAdditionalAssignmentsForHITResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateAdditionalAssignmentsForHITResponse
+newCreateAdditionalAssignmentsForHITResponse
+  pHttpStatus_ =
+    CreateAdditionalAssignmentsForHITResponse'
+      { httpStatus =
+          pHttpStatus_
+      }
 
+-- | The response's http status code.
+createAdditionalAssignmentsForHITResponse_httpStatus :: Lens.Lens' CreateAdditionalAssignmentsForHITResponse Prelude.Int
+createAdditionalAssignmentsForHITResponse_httpStatus = Lens.lens (\CreateAdditionalAssignmentsForHITResponse' {httpStatus} -> httpStatus) (\s@CreateAdditionalAssignmentsForHITResponse' {} a -> s {httpStatus = a} :: CreateAdditionalAssignmentsForHITResponse)
 
--- | -- | The response status code.
-caafhitrsResponseStatus :: Lens' CreateAdditionalAssignmentsForHITResponse Int
-caafhitrsResponseStatus = lens _caafhitrsResponseStatus (\ s a -> s{_caafhitrsResponseStatus = a})
-
-instance NFData
-           CreateAdditionalAssignmentsForHITResponse
-         where
+instance
+  Prelude.NFData
+    CreateAdditionalAssignmentsForHITResponse

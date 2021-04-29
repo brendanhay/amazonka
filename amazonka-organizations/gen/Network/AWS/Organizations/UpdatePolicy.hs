@@ -1,168 +1,237 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Organizations.UpdatePolicy
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates an existing policy with a new name, description, or content. If any parameter is not supplied, that value remains unchanged. Note that you cannot change a policy's type.
+-- Updates an existing policy with a new name, description, or content. If
+-- you don\'t supply any parameter, that value remains unchanged. You
+-- can\'t change a policy\'s type.
 --
---
--- This operation can be called only from the organization's master account.
---
+-- This operation can be called only from the organization\'s management
+-- account.
 module Network.AWS.Organizations.UpdatePolicy
-    (
-    -- * Creating a Request
-      updatePolicy
-    , UpdatePolicy
+  ( -- * Creating a Request
+    UpdatePolicy (..),
+    newUpdatePolicy,
+
     -- * Request Lenses
-    , upContent
-    , upName
-    , upDescription
-    , upPolicyId
+    updatePolicy_name,
+    updatePolicy_content,
+    updatePolicy_description,
+    updatePolicy_policyId,
 
     -- * Destructuring the Response
-    , updatePolicyResponse
-    , UpdatePolicyResponse
+    UpdatePolicyResponse (..),
+    newUpdatePolicyResponse,
+
     -- * Response Lenses
-    , uprsPolicy
-    , uprsResponseStatus
-    ) where
+    updatePolicyResponse_policy,
+    updatePolicyResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Organizations.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updatePolicy' smart constructor.
+-- | /See:/ 'newUpdatePolicy' smart constructor.
 data UpdatePolicy = UpdatePolicy'
-  { _upContent     :: !(Maybe Text)
-  , _upName        :: !(Maybe Text)
-  , _upDescription :: !(Maybe Text)
-  , _upPolicyId    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | If provided, the new name for the policy.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
+    -- validate this parameter is a string of any of the characters in the
+    -- ASCII character range.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | If provided, the new content for the policy. The text must be correctly
+    -- formatted JSON that complies with the syntax for the policy\'s type. For
+    -- more information, see
+    -- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax>
+    -- in the /AWS Organizations User Guide./
+    content :: Prelude.Maybe Prelude.Text,
+    -- | If provided, the new description for the policy.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier (ID) of the policy that you want to update.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
+    -- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
+    -- letters, digits, or the underscore character (_).
+    policyId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdatePolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdatePolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'upContent' - If provided, the new content for the policy. The text must be correctly formatted JSON that complies with the syntax for the policy's type. For more information, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide/ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'upName' - If provided, the new name for the policy. The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
+-- 'name', 'updatePolicy_name' - If provided, the new name for the policy.
 --
--- * 'upDescription' - If provided, the new description for the policy.
+-- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
+-- validate this parameter is a string of any of the characters in the
+-- ASCII character range.
 --
--- * 'upPolicyId' - The unique identifier (ID) of the policy that you want to update. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
-updatePolicy
-    :: Text -- ^ 'upPolicyId'
-    -> UpdatePolicy
-updatePolicy pPolicyId_ =
+-- 'content', 'updatePolicy_content' - If provided, the new content for the policy. The text must be correctly
+-- formatted JSON that complies with the syntax for the policy\'s type. For
+-- more information, see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax>
+-- in the /AWS Organizations User Guide./
+--
+-- 'description', 'updatePolicy_description' - If provided, the new description for the policy.
+--
+-- 'policyId', 'updatePolicy_policyId' - The unique identifier (ID) of the policy that you want to update.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
+-- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
+-- letters, digits, or the underscore character (_).
+newUpdatePolicy ::
+  -- | 'policyId'
+  Prelude.Text ->
+  UpdatePolicy
+newUpdatePolicy pPolicyId_ =
   UpdatePolicy'
-    { _upContent = Nothing
-    , _upName = Nothing
-    , _upDescription = Nothing
-    , _upPolicyId = pPolicyId_
+    { name = Prelude.Nothing,
+      content = Prelude.Nothing,
+      description = Prelude.Nothing,
+      policyId = pPolicyId_
     }
 
+-- | If provided, the new name for the policy.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> that is used to
+-- validate this parameter is a string of any of the characters in the
+-- ASCII character range.
+updatePolicy_name :: Lens.Lens' UpdatePolicy (Prelude.Maybe Prelude.Text)
+updatePolicy_name = Lens.lens (\UpdatePolicy' {name} -> name) (\s@UpdatePolicy' {} a -> s {name = a} :: UpdatePolicy)
 
--- | If provided, the new content for the policy. The text must be correctly formatted JSON that complies with the syntax for the policy's type. For more information, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax> in the /AWS Organizations User Guide/ .
-upContent :: Lens' UpdatePolicy (Maybe Text)
-upContent = lens _upContent (\ s a -> s{_upContent = a})
-
--- | If provided, the new name for the policy. The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of any of the characters in the ASCII character range.
-upName :: Lens' UpdatePolicy (Maybe Text)
-upName = lens _upName (\ s a -> s{_upName = a})
+-- | If provided, the new content for the policy. The text must be correctly
+-- formatted JSON that complies with the syntax for the policy\'s type. For
+-- more information, see
+-- <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html Service Control Policy Syntax>
+-- in the /AWS Organizations User Guide./
+updatePolicy_content :: Lens.Lens' UpdatePolicy (Prelude.Maybe Prelude.Text)
+updatePolicy_content = Lens.lens (\UpdatePolicy' {content} -> content) (\s@UpdatePolicy' {} a -> s {content = a} :: UpdatePolicy)
 
 -- | If provided, the new description for the policy.
-upDescription :: Lens' UpdatePolicy (Maybe Text)
-upDescription = lens _upDescription (\ s a -> s{_upDescription = a})
+updatePolicy_description :: Lens.Lens' UpdatePolicy (Prelude.Maybe Prelude.Text)
+updatePolicy_description = Lens.lens (\UpdatePolicy' {description} -> description) (\s@UpdatePolicy' {} a -> s {description = a} :: UpdatePolicy)
 
--- | The unique identifier (ID) of the policy that you want to update. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
-upPolicyId :: Lens' UpdatePolicy Text
-upPolicyId = lens _upPolicyId (\ s a -> s{_upPolicyId = a})
+-- | The unique identifier (ID) of the policy that you want to update.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
+-- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
+-- letters, digits, or the underscore character (_).
+updatePolicy_policyId :: Lens.Lens' UpdatePolicy Prelude.Text
+updatePolicy_policyId = Lens.lens (\UpdatePolicy' {policyId} -> policyId) (\s@UpdatePolicy' {} a -> s {policyId = a} :: UpdatePolicy)
 
-instance AWSRequest UpdatePolicy where
-        type Rs UpdatePolicy = UpdatePolicyResponse
-        request = postJSON organizations
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdatePolicyResponse' <$>
-                   (x .?> "Policy") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest UpdatePolicy where
+  type Rs UpdatePolicy = UpdatePolicyResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdatePolicyResponse'
+            Prelude.<$> (x Prelude..?> "Policy")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdatePolicy where
+instance Prelude.Hashable UpdatePolicy
 
-instance NFData UpdatePolicy where
+instance Prelude.NFData UpdatePolicy
 
-instance ToHeaders UpdatePolicy where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSOrganizationsV20161128.UpdatePolicy" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders UpdatePolicy where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSOrganizationsV20161128.UpdatePolicy" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON UpdatePolicy where
-        toJSON UpdatePolicy'{..}
-          = object
-              (catMaybes
-                 [("Content" .=) <$> _upContent,
-                  ("Name" .=) <$> _upName,
-                  ("Description" .=) <$> _upDescription,
-                  Just ("PolicyId" .= _upPolicyId)])
+instance Prelude.ToJSON UpdatePolicy where
+  toJSON UpdatePolicy' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("Name" Prelude..=) Prelude.<$> name,
+            ("Content" Prelude..=) Prelude.<$> content,
+            ("Description" Prelude..=) Prelude.<$> description,
+            Prelude.Just ("PolicyId" Prelude..= policyId)
+          ]
+      )
 
-instance ToPath UpdatePolicy where
-        toPath = const "/"
+instance Prelude.ToPath UpdatePolicy where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdatePolicy where
-        toQuery = const mempty
+instance Prelude.ToQuery UpdatePolicy where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updatePolicyResponse' smart constructor.
+-- | /See:/ 'newUpdatePolicyResponse' smart constructor.
 data UpdatePolicyResponse = UpdatePolicyResponse'
-  { _uprsPolicy         :: !(Maybe Policy)
-  , _uprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A structure that contains details about the updated policy, showing the
+    -- requested changes.
+    policy :: Prelude.Maybe Policy,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdatePolicyResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdatePolicyResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uprsPolicy' - A structure that contains details about the updated policy, showing the requested changes.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'uprsResponseStatus' - -- | The response status code.
-updatePolicyResponse
-    :: Int -- ^ 'uprsResponseStatus'
-    -> UpdatePolicyResponse
-updatePolicyResponse pResponseStatus_ =
+-- 'policy', 'updatePolicyResponse_policy' - A structure that contains details about the updated policy, showing the
+-- requested changes.
+--
+-- 'httpStatus', 'updatePolicyResponse_httpStatus' - The response's http status code.
+newUpdatePolicyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdatePolicyResponse
+newUpdatePolicyResponse pHttpStatus_ =
   UpdatePolicyResponse'
-    {_uprsPolicy = Nothing, _uprsResponseStatus = pResponseStatus_}
+    { policy = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | A structure that contains details about the updated policy, showing the
+-- requested changes.
+updatePolicyResponse_policy :: Lens.Lens' UpdatePolicyResponse (Prelude.Maybe Policy)
+updatePolicyResponse_policy = Lens.lens (\UpdatePolicyResponse' {policy} -> policy) (\s@UpdatePolicyResponse' {} a -> s {policy = a} :: UpdatePolicyResponse)
 
--- | A structure that contains details about the updated policy, showing the requested changes.
-uprsPolicy :: Lens' UpdatePolicyResponse (Maybe Policy)
-uprsPolicy = lens _uprsPolicy (\ s a -> s{_uprsPolicy = a})
+-- | The response's http status code.
+updatePolicyResponse_httpStatus :: Lens.Lens' UpdatePolicyResponse Prelude.Int
+updatePolicyResponse_httpStatus = Lens.lens (\UpdatePolicyResponse' {httpStatus} -> httpStatus) (\s@UpdatePolicyResponse' {} a -> s {httpStatus = a} :: UpdatePolicyResponse)
 
--- | -- | The response status code.
-uprsResponseStatus :: Lens' UpdatePolicyResponse Int
-uprsResponseStatus = lens _uprsResponseStatus (\ s a -> s{_uprsResponseStatus = a})
-
-instance NFData UpdatePolicyResponse where
+instance Prelude.NFData UpdatePolicyResponse

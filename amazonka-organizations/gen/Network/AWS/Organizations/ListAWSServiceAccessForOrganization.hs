@@ -1,185 +1,310 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Organizations.ListAWSServiceAccessForOrganization
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the AWS services that you enabled to integrate with your organization. After a service on this list creates the resources that it requires for the integration, it can perform operations on your organization and its accounts.
+-- Returns a list of the AWS services that you enabled to integrate with
+-- your organization. After a service on this list creates the resources
+-- that it requires for the integration, it can perform operations on your
+-- organization and its accounts.
 --
+-- For more information about integrating other services with AWS
+-- Organizations, including the list of services that currently work with
+-- Organizations, see
+-- <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html Integrating AWS Organizations with Other AWS Services>
+-- in the /AWS Organizations User Guide./
 --
--- For more information about integrating other services with AWS Organizations, including the list of services that currently work with Organizations, see <http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html Integrating AWS Organizations with Other AWS Services> in the /AWS Organizations User Guide/ .
---
--- This operation can be called only from the organization's master account.
---
+-- This operation can be called only from the organization\'s management
+-- account or by a member account that is a delegated administrator for an
+-- AWS service.
 --
 -- This operation returns paginated results.
 module Network.AWS.Organizations.ListAWSServiceAccessForOrganization
-    (
-    -- * Creating a Request
-      listAWSServiceAccessForOrganization
-    , ListAWSServiceAccessForOrganization
+  ( -- * Creating a Request
+    ListAWSServiceAccessForOrganization (..),
+    newListAWSServiceAccessForOrganization,
+
     -- * Request Lenses
-    , lasafoNextToken
-    , lasafoMaxResults
+    listAWSServiceAccessForOrganization_nextToken,
+    listAWSServiceAccessForOrganization_maxResults,
 
     -- * Destructuring the Response
-    , listAWSServiceAccessForOrganizationResponse
-    , ListAWSServiceAccessForOrganizationResponse
+    ListAWSServiceAccessForOrganizationResponse (..),
+    newListAWSServiceAccessForOrganizationResponse,
+
     -- * Response Lenses
-    , lasaforsNextToken
-    , lasaforsEnabledServicePrincipals
-    , lasaforsResponseStatus
-    ) where
+    listAWSServiceAccessForOrganizationResponse_nextToken,
+    listAWSServiceAccessForOrganizationResponse_enabledServicePrincipals,
+    listAWSServiceAccessForOrganizationResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Organizations.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listAWSServiceAccessForOrganization' smart constructor.
+-- | /See:/ 'newListAWSServiceAccessForOrganization' smart constructor.
 data ListAWSServiceAccessForOrganization = ListAWSServiceAccessForOrganization'
-  { _lasafoNextToken  :: !(Maybe Text)
-  , _lasafoMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The parameter for receiving additional results if you receive a
+    -- @NextToken@ response in a previous request. A @NextToken@ response
+    -- indicates that more output is available. Set this parameter to the value
+    -- of the previous call\'s @NextToken@ response to indicate where the
+    -- output should continue from.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The total number of results that you want included on each page of the
+    -- response. If you do not include this parameter, it defaults to a value
+    -- that is specific to the operation. If additional items exist beyond the
+    -- maximum you specify, the @NextToken@ response element is present and has
+    -- a value (is not null). Include that value as the @NextToken@ request
+    -- parameter in the next call to the operation to get the next part of the
+    -- results. Note that Organizations might return fewer results than the
+    -- maximum even when there are more results available. You should check
+    -- @NextToken@ after every operation to ensure that you receive all of the
+    -- results.
+    maxResults :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListAWSServiceAccessForOrganization' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListAWSServiceAccessForOrganization' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lasafoNextToken' - Use this parameter if you receive a @NextToken@ response in a previous request that indicates that there is more output available. Set it to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lasafoMaxResults' - (Optional) Use this to limit the number of results you want included in the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
-listAWSServiceAccessForOrganization
-    :: ListAWSServiceAccessForOrganization
-listAWSServiceAccessForOrganization =
+-- 'nextToken', 'listAWSServiceAccessForOrganization_nextToken' - The parameter for receiving additional results if you receive a
+-- @NextToken@ response in a previous request. A @NextToken@ response
+-- indicates that more output is available. Set this parameter to the value
+-- of the previous call\'s @NextToken@ response to indicate where the
+-- output should continue from.
+--
+-- 'maxResults', 'listAWSServiceAccessForOrganization_maxResults' - The total number of results that you want included on each page of the
+-- response. If you do not include this parameter, it defaults to a value
+-- that is specific to the operation. If additional items exist beyond the
+-- maximum you specify, the @NextToken@ response element is present and has
+-- a value (is not null). Include that value as the @NextToken@ request
+-- parameter in the next call to the operation to get the next part of the
+-- results. Note that Organizations might return fewer results than the
+-- maximum even when there are more results available. You should check
+-- @NextToken@ after every operation to ensure that you receive all of the
+-- results.
+newListAWSServiceAccessForOrganization ::
+  ListAWSServiceAccessForOrganization
+newListAWSServiceAccessForOrganization =
   ListAWSServiceAccessForOrganization'
-    {_lasafoNextToken = Nothing, _lasafoMaxResults = Nothing}
-
-
--- | Use this parameter if you receive a @NextToken@ response in a previous request that indicates that there is more output available. Set it to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
-lasafoNextToken :: Lens' ListAWSServiceAccessForOrganization (Maybe Text)
-lasafoNextToken = lens _lasafoNextToken (\ s a -> s{_lasafoNextToken = a})
-
--- | (Optional) Use this to limit the number of results you want included in the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
-lasafoMaxResults :: Lens' ListAWSServiceAccessForOrganization (Maybe Natural)
-lasafoMaxResults = lens _lasafoMaxResults (\ s a -> s{_lasafoMaxResults = a}) . mapping _Nat
-
-instance AWSPager ListAWSServiceAccessForOrganization
-         where
-        page rq rs
-          | stop (rs ^. lasaforsNextToken) = Nothing
-          | stop (rs ^. lasaforsEnabledServicePrincipals) =
-            Nothing
-          | otherwise =
-            Just $ rq &
-              lasafoNextToken .~ rs ^. lasaforsNextToken
-
-instance AWSRequest
-           ListAWSServiceAccessForOrganization
-         where
-        type Rs ListAWSServiceAccessForOrganization =
-             ListAWSServiceAccessForOrganizationResponse
-        request = postJSON organizations
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListAWSServiceAccessForOrganizationResponse' <$>
-                   (x .?> "NextToken") <*>
-                     (x .?> "EnabledServicePrincipals" .!@ mempty)
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListAWSServiceAccessForOrganization
-         where
-
-instance NFData ListAWSServiceAccessForOrganization
-         where
-
-instance ToHeaders
-           ListAWSServiceAccessForOrganization
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSOrganizationsV20161128.ListAWSServiceAccessForOrganization"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ListAWSServiceAccessForOrganization
-         where
-        toJSON ListAWSServiceAccessForOrganization'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _lasafoNextToken,
-                  ("MaxResults" .=) <$> _lasafoMaxResults])
-
-instance ToPath ListAWSServiceAccessForOrganization
-         where
-        toPath = const "/"
-
-instance ToQuery ListAWSServiceAccessForOrganization
-         where
-        toQuery = const mempty
-
--- | /See:/ 'listAWSServiceAccessForOrganizationResponse' smart constructor.
-data ListAWSServiceAccessForOrganizationResponse = ListAWSServiceAccessForOrganizationResponse'
-  { _lasaforsNextToken                :: !(Maybe Text)
-  , _lasaforsEnabledServicePrincipals :: !(Maybe [EnabledServicePrincipal])
-  , _lasaforsResponseStatus           :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListAWSServiceAccessForOrganizationResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lasaforsNextToken' - If present, this value indicates that there is more output available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
---
--- * 'lasaforsEnabledServicePrincipals' - A list of the service principals for the services that are enabled to integrate with your organization. Each principal is a structure that includes the name and the date that it was enabled for integration with AWS Organizations.
---
--- * 'lasaforsResponseStatus' - -- | The response status code.
-listAWSServiceAccessForOrganizationResponse
-    :: Int -- ^ 'lasaforsResponseStatus'
-    -> ListAWSServiceAccessForOrganizationResponse
-listAWSServiceAccessForOrganizationResponse pResponseStatus_ =
-  ListAWSServiceAccessForOrganizationResponse'
-    { _lasaforsNextToken = Nothing
-    , _lasaforsEnabledServicePrincipals = Nothing
-    , _lasaforsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
+-- | The parameter for receiving additional results if you receive a
+-- @NextToken@ response in a previous request. A @NextToken@ response
+-- indicates that more output is available. Set this parameter to the value
+-- of the previous call\'s @NextToken@ response to indicate where the
+-- output should continue from.
+listAWSServiceAccessForOrganization_nextToken :: Lens.Lens' ListAWSServiceAccessForOrganization (Prelude.Maybe Prelude.Text)
+listAWSServiceAccessForOrganization_nextToken = Lens.lens (\ListAWSServiceAccessForOrganization' {nextToken} -> nextToken) (\s@ListAWSServiceAccessForOrganization' {} a -> s {nextToken = a} :: ListAWSServiceAccessForOrganization)
 
--- | If present, this value indicates that there is more output available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
-lasaforsNextToken :: Lens' ListAWSServiceAccessForOrganizationResponse (Maybe Text)
-lasaforsNextToken = lens _lasaforsNextToken (\ s a -> s{_lasaforsNextToken = a})
+-- | The total number of results that you want included on each page of the
+-- response. If you do not include this parameter, it defaults to a value
+-- that is specific to the operation. If additional items exist beyond the
+-- maximum you specify, the @NextToken@ response element is present and has
+-- a value (is not null). Include that value as the @NextToken@ request
+-- parameter in the next call to the operation to get the next part of the
+-- results. Note that Organizations might return fewer results than the
+-- maximum even when there are more results available. You should check
+-- @NextToken@ after every operation to ensure that you receive all of the
+-- results.
+listAWSServiceAccessForOrganization_maxResults :: Lens.Lens' ListAWSServiceAccessForOrganization (Prelude.Maybe Prelude.Natural)
+listAWSServiceAccessForOrganization_maxResults = Lens.lens (\ListAWSServiceAccessForOrganization' {maxResults} -> maxResults) (\s@ListAWSServiceAccessForOrganization' {} a -> s {maxResults = a} :: ListAWSServiceAccessForOrganization)
 
--- | A list of the service principals for the services that are enabled to integrate with your organization. Each principal is a structure that includes the name and the date that it was enabled for integration with AWS Organizations.
-lasaforsEnabledServicePrincipals :: Lens' ListAWSServiceAccessForOrganizationResponse [EnabledServicePrincipal]
-lasaforsEnabledServicePrincipals = lens _lasaforsEnabledServicePrincipals (\ s a -> s{_lasaforsEnabledServicePrincipals = a}) . _Default . _Coerce
+instance
+  Pager.AWSPager
+    ListAWSServiceAccessForOrganization
+  where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listAWSServiceAccessForOrganizationResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listAWSServiceAccessForOrganizationResponse_enabledServicePrincipals
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listAWSServiceAccessForOrganization_nextToken
+          Lens..~ rs
+          Lens.^? listAWSServiceAccessForOrganizationResponse_nextToken
+            Prelude.. Lens._Just
 
--- | -- | The response status code.
-lasaforsResponseStatus :: Lens' ListAWSServiceAccessForOrganizationResponse Int
-lasaforsResponseStatus = lens _lasaforsResponseStatus (\ s a -> s{_lasaforsResponseStatus = a})
+instance
+  Prelude.AWSRequest
+    ListAWSServiceAccessForOrganization
+  where
+  type
+    Rs ListAWSServiceAccessForOrganization =
+      ListAWSServiceAccessForOrganizationResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListAWSServiceAccessForOrganizationResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+              Prelude.<*> ( x Prelude..?> "EnabledServicePrincipals"
+                              Prelude..!@ Prelude.mempty
+                          )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData
-           ListAWSServiceAccessForOrganizationResponse
-         where
+instance
+  Prelude.Hashable
+    ListAWSServiceAccessForOrganization
+
+instance
+  Prelude.NFData
+    ListAWSServiceAccessForOrganization
+
+instance
+  Prelude.ToHeaders
+    ListAWSServiceAccessForOrganization
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSOrganizationsV20161128.ListAWSServiceAccessForOrganization" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance
+  Prelude.ToJSON
+    ListAWSServiceAccessForOrganization
+  where
+  toJSON ListAWSServiceAccessForOrganization' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("MaxResults" Prelude..=) Prelude.<$> maxResults
+          ]
+      )
+
+instance
+  Prelude.ToPath
+    ListAWSServiceAccessForOrganization
+  where
+  toPath = Prelude.const "/"
+
+instance
+  Prelude.ToQuery
+    ListAWSServiceAccessForOrganization
+  where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListAWSServiceAccessForOrganizationResponse' smart constructor.
+data ListAWSServiceAccessForOrganizationResponse = ListAWSServiceAccessForOrganizationResponse'
+  { -- | If present, indicates that more output is available than is included in
+    -- the current response. Use this value in the @NextToken@ request
+    -- parameter in a subsequent call to the operation to get the next part of
+    -- the output. You should repeat this until the @NextToken@ response
+    -- element comes back as @null@.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of the service principals for the services that are enabled to
+    -- integrate with your organization. Each principal is a structure that
+    -- includes the name and the date that it was enabled for integration with
+    -- AWS Organizations.
+    enabledServicePrincipals :: Prelude.Maybe [EnabledServicePrincipal],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListAWSServiceAccessForOrganizationResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listAWSServiceAccessForOrganizationResponse_nextToken' - If present, indicates that more output is available than is included in
+-- the current response. Use this value in the @NextToken@ request
+-- parameter in a subsequent call to the operation to get the next part of
+-- the output. You should repeat this until the @NextToken@ response
+-- element comes back as @null@.
+--
+-- 'enabledServicePrincipals', 'listAWSServiceAccessForOrganizationResponse_enabledServicePrincipals' - A list of the service principals for the services that are enabled to
+-- integrate with your organization. Each principal is a structure that
+-- includes the name and the date that it was enabled for integration with
+-- AWS Organizations.
+--
+-- 'httpStatus', 'listAWSServiceAccessForOrganizationResponse_httpStatus' - The response's http status code.
+newListAWSServiceAccessForOrganizationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListAWSServiceAccessForOrganizationResponse
+newListAWSServiceAccessForOrganizationResponse
+  pHttpStatus_ =
+    ListAWSServiceAccessForOrganizationResponse'
+      { nextToken =
+          Prelude.Nothing,
+        enabledServicePrincipals =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
+
+-- | If present, indicates that more output is available than is included in
+-- the current response. Use this value in the @NextToken@ request
+-- parameter in a subsequent call to the operation to get the next part of
+-- the output. You should repeat this until the @NextToken@ response
+-- element comes back as @null@.
+listAWSServiceAccessForOrganizationResponse_nextToken :: Lens.Lens' ListAWSServiceAccessForOrganizationResponse (Prelude.Maybe Prelude.Text)
+listAWSServiceAccessForOrganizationResponse_nextToken = Lens.lens (\ListAWSServiceAccessForOrganizationResponse' {nextToken} -> nextToken) (\s@ListAWSServiceAccessForOrganizationResponse' {} a -> s {nextToken = a} :: ListAWSServiceAccessForOrganizationResponse)
+
+-- | A list of the service principals for the services that are enabled to
+-- integrate with your organization. Each principal is a structure that
+-- includes the name and the date that it was enabled for integration with
+-- AWS Organizations.
+listAWSServiceAccessForOrganizationResponse_enabledServicePrincipals :: Lens.Lens' ListAWSServiceAccessForOrganizationResponse (Prelude.Maybe [EnabledServicePrincipal])
+listAWSServiceAccessForOrganizationResponse_enabledServicePrincipals = Lens.lens (\ListAWSServiceAccessForOrganizationResponse' {enabledServicePrincipals} -> enabledServicePrincipals) (\s@ListAWSServiceAccessForOrganizationResponse' {} a -> s {enabledServicePrincipals = a} :: ListAWSServiceAccessForOrganizationResponse) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The response's http status code.
+listAWSServiceAccessForOrganizationResponse_httpStatus :: Lens.Lens' ListAWSServiceAccessForOrganizationResponse Prelude.Int
+listAWSServiceAccessForOrganizationResponse_httpStatus = Lens.lens (\ListAWSServiceAccessForOrganizationResponse' {httpStatus} -> httpStatus) (\s@ListAWSServiceAccessForOrganizationResponse' {} a -> s {httpStatus = a} :: ListAWSServiceAccessForOrganizationResponse)
+
+instance
+  Prelude.NFData
+    ListAWSServiceAccessForOrganizationResponse

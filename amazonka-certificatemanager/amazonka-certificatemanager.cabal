@@ -1,97 +1,123 @@
-name:                  amazonka-certificatemanager
-version:               1.6.1
-synopsis:              Amazon Certificate Manager SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-certificatemanager
+version:            1.6.1
+synopsis:           Amazon Certificate Manager SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.CertificateManager" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.CertificateManager.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.CertificateManager" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-certificatemanager
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-certificatemanager
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.CertificateManager
+    Network.AWS.CertificateManager.AddTagsToCertificate
+    Network.AWS.CertificateManager.DeleteCertificate
+    Network.AWS.CertificateManager.DescribeCertificate
+    Network.AWS.CertificateManager.ExportCertificate
+    Network.AWS.CertificateManager.GetAccountConfiguration
+    Network.AWS.CertificateManager.GetCertificate
+    Network.AWS.CertificateManager.ImportCertificate
+    Network.AWS.CertificateManager.Lens
+    Network.AWS.CertificateManager.ListCertificates
+    Network.AWS.CertificateManager.ListTagsForCertificate
+    Network.AWS.CertificateManager.PutAccountConfiguration
+    Network.AWS.CertificateManager.RemoveTagsFromCertificate
+    Network.AWS.CertificateManager.RenewCertificate
+    Network.AWS.CertificateManager.RequestCertificate
+    Network.AWS.CertificateManager.ResendValidationEmail
+    Network.AWS.CertificateManager.Types
+    Network.AWS.CertificateManager.Types.CertificateDetail
+    Network.AWS.CertificateManager.Types.CertificateOptions
+    Network.AWS.CertificateManager.Types.CertificateStatus
+    Network.AWS.CertificateManager.Types.CertificateSummary
+    Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference
+    Network.AWS.CertificateManager.Types.CertificateType
+    Network.AWS.CertificateManager.Types.DomainStatus
+    Network.AWS.CertificateManager.Types.DomainValidation
+    Network.AWS.CertificateManager.Types.DomainValidationOption
+    Network.AWS.CertificateManager.Types.ExpiryEventsConfiguration
+    Network.AWS.CertificateManager.Types.ExtendedKeyUsage
+    Network.AWS.CertificateManager.Types.ExtendedKeyUsageName
+    Network.AWS.CertificateManager.Types.FailureReason
+    Network.AWS.CertificateManager.Types.Filters
+    Network.AWS.CertificateManager.Types.KeyAlgorithm
+    Network.AWS.CertificateManager.Types.KeyUsage
+    Network.AWS.CertificateManager.Types.KeyUsageName
+    Network.AWS.CertificateManager.Types.RecordType
+    Network.AWS.CertificateManager.Types.RenewalEligibility
+    Network.AWS.CertificateManager.Types.RenewalStatus
+    Network.AWS.CertificateManager.Types.RenewalSummary
+    Network.AWS.CertificateManager.Types.ResourceRecord
+    Network.AWS.CertificateManager.Types.RevocationReason
+    Network.AWS.CertificateManager.Types.Tag
+    Network.AWS.CertificateManager.Types.ValidationMethod
+    Network.AWS.CertificateManager.UpdateCertificateOptions
+    Network.AWS.CertificateManager.Waiters
 
-    exposed-modules:
-          Network.AWS.CertificateManager
-        , Network.AWS.CertificateManager.AddTagsToCertificate
-        , Network.AWS.CertificateManager.DeleteCertificate
-        , Network.AWS.CertificateManager.DescribeCertificate
-        , Network.AWS.CertificateManager.ExportCertificate
-        , Network.AWS.CertificateManager.GetCertificate
-        , Network.AWS.CertificateManager.ImportCertificate
-        , Network.AWS.CertificateManager.ListCertificates
-        , Network.AWS.CertificateManager.ListTagsForCertificate
-        , Network.AWS.CertificateManager.RemoveTagsFromCertificate
-        , Network.AWS.CertificateManager.RequestCertificate
-        , Network.AWS.CertificateManager.ResendValidationEmail
-        , Network.AWS.CertificateManager.Types
-        , Network.AWS.CertificateManager.UpdateCertificateOptions
-        , Network.AWS.CertificateManager.Waiters
-
-    other-modules:
-          Network.AWS.CertificateManager.Types.Product
-        , Network.AWS.CertificateManager.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS.Prelude
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.13  && <5
 
 test-suite amazonka-certificatemanager-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.CertificateManager
+    Test.AWS.CertificateManager.Internal
+    Test.AWS.Gen.CertificateManager
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.CertificateManager
-        , Test.AWS.Gen.CertificateManager
-        , Test.AWS.CertificateManager.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-certificatemanager
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-certificatemanager
+    , amazonka-core                >=1.6.1 && <1.6.2
+    , amazonka-test                >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

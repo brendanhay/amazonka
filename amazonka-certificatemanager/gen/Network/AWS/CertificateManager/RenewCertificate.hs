@@ -14,33 +14,31 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CertificateManager.DeleteCertificate
+-- Module      : Network.AWS.CertificateManager.RenewCertificate
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a certificate and its associated private key. If this action
--- succeeds, the certificate no longer appears in the list that can be
--- displayed by calling the ListCertificates action or be retrieved by
--- calling the GetCertificate action. The certificate will not be available
--- for use by AWS services integrated with ACM.
---
--- You cannot delete an ACM certificate that is being used by another AWS
--- service. To delete a certificate that is in use, the certificate
--- association must first be removed.
-module Network.AWS.CertificateManager.DeleteCertificate
+-- Renews an eligible ACM certificate. At this time, only exported private
+-- certificates can be renewed with this operation. In order to renew your
+-- ACM PCA certificates with ACM, you must first
+-- <https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaPermissions.html grant the ACM service principal permission to do so>.
+-- For more information, see
+-- <https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html Testing Managed Renewal>
+-- in the ACM User Guide.
+module Network.AWS.CertificateManager.RenewCertificate
   ( -- * Creating a Request
-    DeleteCertificate (..),
-    newDeleteCertificate,
+    RenewCertificate (..),
+    newRenewCertificate,
 
     -- * Request Lenses
-    deleteCertificate_certificateArn,
+    renewCertificate_certificateArn,
 
     -- * Destructuring the Response
-    DeleteCertificateResponse (..),
-    newDeleteCertificateResponse,
+    RenewCertificateResponse (..),
+    newRenewCertificateResponse,
   )
 where
 
@@ -50,9 +48,9 @@ import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- | /See:/ 'newDeleteCertificate' smart constructor.
-data DeleteCertificate = DeleteCertificate'
-  { -- | String that contains the ARN of the ACM certificate to be deleted. This
+-- | /See:/ 'newRenewCertificate' smart constructor.
+data RenewCertificate = RenewCertificate'
+  { -- | String that contains the ARN of the ACM certificate to be renewed. This
     -- must be of the form:
     --
     -- @arn:aws:acm:region:123456789012:certificate\/12345678-1234-1234-1234-123456789012@
@@ -64,56 +62,56 @@ data DeleteCertificate = DeleteCertificate'
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
--- Create a value of 'DeleteCertificate' with all optional fields omitted.
+-- Create a value of 'RenewCertificate' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'certificateArn', 'deleteCertificate_certificateArn' - String that contains the ARN of the ACM certificate to be deleted. This
+-- 'certificateArn', 'renewCertificate_certificateArn' - String that contains the ARN of the ACM certificate to be renewed. This
 -- must be of the form:
 --
 -- @arn:aws:acm:region:123456789012:certificate\/12345678-1234-1234-1234-123456789012@
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-newDeleteCertificate ::
+newRenewCertificate ::
   -- | 'certificateArn'
   Prelude.Text ->
-  DeleteCertificate
-newDeleteCertificate pCertificateArn_ =
-  DeleteCertificate'
+  RenewCertificate
+newRenewCertificate pCertificateArn_ =
+  RenewCertificate'
     { certificateArn =
         pCertificateArn_
     }
 
--- | String that contains the ARN of the ACM certificate to be deleted. This
+-- | String that contains the ARN of the ACM certificate to be renewed. This
 -- must be of the form:
 --
 -- @arn:aws:acm:region:123456789012:certificate\/12345678-1234-1234-1234-123456789012@
 --
 -- For more information about ARNs, see
 -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
-deleteCertificate_certificateArn :: Lens.Lens' DeleteCertificate Prelude.Text
-deleteCertificate_certificateArn = Lens.lens (\DeleteCertificate' {certificateArn} -> certificateArn) (\s@DeleteCertificate' {} a -> s {certificateArn = a} :: DeleteCertificate)
+renewCertificate_certificateArn :: Lens.Lens' RenewCertificate Prelude.Text
+renewCertificate_certificateArn = Lens.lens (\RenewCertificate' {certificateArn} -> certificateArn) (\s@RenewCertificate' {} a -> s {certificateArn = a} :: RenewCertificate)
 
-instance Prelude.AWSRequest DeleteCertificate where
-  type Rs DeleteCertificate = DeleteCertificateResponse
+instance Prelude.AWSRequest RenewCertificate where
+  type Rs RenewCertificate = RenewCertificateResponse
   request = Request.postJSON defaultService
   response =
-    Response.receiveNull DeleteCertificateResponse'
+    Response.receiveNull RenewCertificateResponse'
 
-instance Prelude.Hashable DeleteCertificate
+instance Prelude.Hashable RenewCertificate
 
-instance Prelude.NFData DeleteCertificate
+instance Prelude.NFData RenewCertificate
 
-instance Prelude.ToHeaders DeleteCertificate where
+instance Prelude.ToHeaders RenewCertificate where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CertificateManager.DeleteCertificate" ::
+              Prelude.=# ( "CertificateManager.RenewCertificate" ::
                              Prelude.ByteString
                          ),
             "Content-Type"
@@ -123,8 +121,8 @@ instance Prelude.ToHeaders DeleteCertificate where
           ]
       )
 
-instance Prelude.ToJSON DeleteCertificate where
-  toJSON DeleteCertificate' {..} =
+instance Prelude.ToJSON RenewCertificate where
+  toJSON RenewCertificate' {..} =
     Prelude.object
       ( Prelude.catMaybes
           [ Prelude.Just
@@ -132,25 +130,25 @@ instance Prelude.ToJSON DeleteCertificate where
           ]
       )
 
-instance Prelude.ToPath DeleteCertificate where
+instance Prelude.ToPath RenewCertificate where
   toPath = Prelude.const "/"
 
-instance Prelude.ToQuery DeleteCertificate where
+instance Prelude.ToQuery RenewCertificate where
   toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'newDeleteCertificateResponse' smart constructor.
-data DeleteCertificateResponse = DeleteCertificateResponse'
+-- | /See:/ 'newRenewCertificateResponse' smart constructor.
+data RenewCertificateResponse = RenewCertificateResponse'
   {
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
--- Create a value of 'DeleteCertificateResponse' with all optional fields omitted.
+-- Create a value of 'RenewCertificateResponse' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
-newDeleteCertificateResponse ::
-  DeleteCertificateResponse
-newDeleteCertificateResponse =
-  DeleteCertificateResponse'
+newRenewCertificateResponse ::
+  RenewCertificateResponse
+newRenewCertificateResponse =
+  RenewCertificateResponse'
 
-instance Prelude.NFData DeleteCertificateResponse
+instance Prelude.NFData RenewCertificateResponse

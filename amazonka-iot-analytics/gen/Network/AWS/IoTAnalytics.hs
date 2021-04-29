@@ -1,51 +1,69 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoTAnalytics
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- AWS IoT Analytics provides advanced data analysis for AWS IoT. It allows you to collect large amounts of device data, process messages, store them, and then query the data and run sophisticated analytics to make accurate decisions in your IoT applications and machine learning use cases. AWS IoT Analytics enables advanced data exploration through integration with Jupyter Notebooks and data visualization through integration with Amazon QuickSight.
+-- AWS IoT Analytics allows you to collect large amounts of device data,
+-- process messages, and store them. You can then query the data and run
+-- sophisticated analytics on it. AWS IoT Analytics enables advanced data
+-- exploration through integration with Jupyter Notebooks and data
+-- visualization through integration with Amazon QuickSight.
 --
+-- Traditional analytics and business intelligence tools are designed to
+-- process structured data. IoT data often comes from devices that record
+-- noisy processes (such as temperature, motion, or sound). As a result the
+-- data from these devices can have significant gaps, corrupted messages,
+-- and false readings that must be cleaned up before analysis can occur.
+-- Also, IoT data is often only meaningful in the context of other data
+-- from external sources.
 --
--- Traditional analytics and business intelligence tools are designed to process structured data. IoT data often comes from devices that record noisy processes (such as temperature, motion, or sound). As a result, the data from these devices can have significant gaps, corrupted messages, and false readings that must be cleaned up before analysis can occur. Also, IoT data is often only meaningful in the context of other data from external sources.
---
--- AWS IoT Analytics automates each of the steps required to analyze data from IoT devices. AWS IoT Analytics filters, transforms, and enriches IoT data before storing it in a time-series data store for analysis. You can set up the service to collect only the data you need from your devices, apply mathematical transforms to process the data, and enrich the data with device-specific metadata such as device type and location before storing it. Then, you can analyze your data by running queries using the built-in SQL query engine, or perform more complex analytics and machine learning inference. AWS IoT Analytics includes models for common IoT use cases so you can answer questions like which devices are about to fail or which customers are at risk of abandoning their wearable devices.
---
+-- AWS IoT Analytics automates the steps required to analyze data from IoT
+-- devices. AWS IoT Analytics filters, transforms, and enriches IoT data
+-- before storing it in a time-series data store for analysis. You can set
+-- up the service to collect only the data you need from your devices,
+-- apply mathematical transforms to process the data, and enrich the data
+-- with device-specific metadata such as device type and location before
+-- storing it. Then, you can analyze your data by running queries using the
+-- built-in SQL query engine, or perform more complex analytics and machine
+-- learning inference. AWS IoT Analytics includes pre-built models for
+-- common IoT use cases so you can answer questions like which devices are
+-- about to fail or which customers are at risk of abandoning their
+-- wearable devices.
 module Network.AWS.IoTAnalytics
-    (
-    -- * Service Configuration
-      ioTAnalytics
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
     -- $errors
 
-    -- ** InvalidRequestException
-    , _InvalidRequestException
-
     -- ** ResourceAlreadyExistsException
-    , _ResourceAlreadyExistsException
-
-    -- ** ThrottlingException
-    , _ThrottlingException
-
-    -- ** InternalFailureException
-    , _InternalFailureException
+    _ResourceAlreadyExistsException,
 
     -- ** ServiceUnavailableException
-    , _ServiceUnavailableException
+    _ServiceUnavailableException,
 
-    -- ** ResourceNotFoundException
-    , _ResourceNotFoundException
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
 
     -- ** LimitExceededException
-    , _LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
 
     -- * Waiters
     -- $waiters
@@ -53,344 +71,524 @@ module Network.AWS.IoTAnalytics
     -- * Operations
     -- $operations
 
+    -- ** CreateChannel
+    CreateChannel (CreateChannel'),
+    newCreateChannel,
+    CreateChannelResponse (CreateChannelResponse'),
+    newCreateChannelResponse,
+
     -- ** DescribePipeline
-    , module Network.AWS.IoTAnalytics.DescribePipeline
-
-    -- ** DescribeDataset
-    , module Network.AWS.IoTAnalytics.DescribeDataset
-
-    -- ** ListChannels
-    , module Network.AWS.IoTAnalytics.ListChannels
-
-    -- ** PutLoggingOptions
-    , module Network.AWS.IoTAnalytics.PutLoggingOptions
-
-    -- ** DeleteChannel
-    , module Network.AWS.IoTAnalytics.DeleteChannel
-
-    -- ** UpdateChannel
-    , module Network.AWS.IoTAnalytics.UpdateChannel
-
-    -- ** SampleChannelData
-    , module Network.AWS.IoTAnalytics.SampleChannelData
-
-    -- ** CancelPipelineReprocessing
-    , module Network.AWS.IoTAnalytics.CancelPipelineReprocessing
-
-    -- ** CreateDatastore
-    , module Network.AWS.IoTAnalytics.CreateDatastore
-
-    -- ** UpdatePipeline
-    , module Network.AWS.IoTAnalytics.UpdatePipeline
-
-    -- ** DeletePipeline
-    , module Network.AWS.IoTAnalytics.DeletePipeline
-
-    -- ** DeleteDataset
-    , module Network.AWS.IoTAnalytics.DeleteDataset
-
-    -- ** UpdateDataset
-    , module Network.AWS.IoTAnalytics.UpdateDataset
-
-    -- ** ListPipelines
-    , module Network.AWS.IoTAnalytics.ListPipelines
-
-    -- ** DeleteDatastore
-    , module Network.AWS.IoTAnalytics.DeleteDatastore
-
-    -- ** UpdateDatastore
-    , module Network.AWS.IoTAnalytics.UpdateDatastore
-
-    -- ** CreateDataset
-    , module Network.AWS.IoTAnalytics.CreateDataset
+    DescribePipeline (DescribePipeline'),
+    newDescribePipeline,
+    DescribePipelineResponse (DescribePipelineResponse'),
+    newDescribePipelineResponse,
 
     -- ** BatchPutMessage
-    , module Network.AWS.IoTAnalytics.BatchPutMessage
-
-    -- ** ListDatastores
-    , module Network.AWS.IoTAnalytics.ListDatastores
-
-    -- ** CreateDatasetContent
-    , module Network.AWS.IoTAnalytics.CreateDatasetContent
-
-    -- ** CreateChannel
-    , module Network.AWS.IoTAnalytics.CreateChannel
-
-    -- ** DeleteDatasetContent
-    , module Network.AWS.IoTAnalytics.DeleteDatasetContent
-
-    -- ** DescribeDatastore
-    , module Network.AWS.IoTAnalytics.DescribeDatastore
-
-    -- ** GetDatasetContent
-    , module Network.AWS.IoTAnalytics.GetDatasetContent
-
-    -- ** ListDatasets
-    , module Network.AWS.IoTAnalytics.ListDatasets
-
-    -- ** RunPipelineActivity
-    , module Network.AWS.IoTAnalytics.RunPipelineActivity
-
-    -- ** DescribeChannel
-    , module Network.AWS.IoTAnalytics.DescribeChannel
-
-    -- ** CreatePipeline
-    , module Network.AWS.IoTAnalytics.CreatePipeline
-
-    -- ** StartPipelineReprocessing
-    , module Network.AWS.IoTAnalytics.StartPipelineReprocessing
+    BatchPutMessage (BatchPutMessage'),
+    newBatchPutMessage,
+    BatchPutMessageResponse (BatchPutMessageResponse'),
+    newBatchPutMessageResponse,
 
     -- ** DescribeLoggingOptions
-    , module Network.AWS.IoTAnalytics.DescribeLoggingOptions
+    DescribeLoggingOptions (DescribeLoggingOptions'),
+    newDescribeLoggingOptions,
+    DescribeLoggingOptionsResponse (DescribeLoggingOptionsResponse'),
+    newDescribeLoggingOptionsResponse,
+
+    -- ** DeleteDatastore
+    DeleteDatastore (DeleteDatastore'),
+    newDeleteDatastore,
+    DeleteDatastoreResponse (DeleteDatastoreResponse'),
+    newDeleteDatastoreResponse,
+
+    -- ** UpdateDatastore
+    UpdateDatastore (UpdateDatastore'),
+    newUpdateDatastore,
+    UpdateDatastoreResponse (UpdateDatastoreResponse'),
+    newUpdateDatastoreResponse,
+
+    -- ** CreatePipeline
+    CreatePipeline (CreatePipeline'),
+    newCreatePipeline,
+    CreatePipelineResponse (CreatePipelineResponse'),
+    newCreatePipelineResponse,
+
+    -- ** CreateDataset
+    CreateDataset (CreateDataset'),
+    newCreateDataset,
+    CreateDatasetResponse (CreateDatasetResponse'),
+    newCreateDatasetResponse,
+
+    -- ** UpdatePipeline
+    UpdatePipeline (UpdatePipeline'),
+    newUpdatePipeline,
+    UpdatePipelineResponse (UpdatePipelineResponse'),
+    newUpdatePipelineResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** DeletePipeline
+    DeletePipeline (DeletePipeline'),
+    newDeletePipeline,
+    DeletePipelineResponse (DeletePipelineResponse'),
+    newDeletePipelineResponse,
+
+    -- ** CancelPipelineReprocessing
+    CancelPipelineReprocessing (CancelPipelineReprocessing'),
+    newCancelPipelineReprocessing,
+    CancelPipelineReprocessingResponse (CancelPipelineReprocessingResponse'),
+    newCancelPipelineReprocessingResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** SampleChannelData
+    SampleChannelData (SampleChannelData'),
+    newSampleChannelData,
+    SampleChannelDataResponse (SampleChannelDataResponse'),
+    newSampleChannelDataResponse,
+
+    -- ** DescribeDatastore
+    DescribeDatastore (DescribeDatastore'),
+    newDescribeDatastore,
+    DescribeDatastoreResponse (DescribeDatastoreResponse'),
+    newDescribeDatastoreResponse,
+
+    -- ** ListChannels (Paginated)
+    ListChannels (ListChannels'),
+    newListChannels,
+    ListChannelsResponse (ListChannelsResponse'),
+    newListChannelsResponse,
+
+    -- ** DescribeDataset
+    DescribeDataset (DescribeDataset'),
+    newDescribeDataset,
+    DescribeDatasetResponse (DescribeDatasetResponse'),
+    newDescribeDatasetResponse,
+
+    -- ** CreateDatasetContent
+    CreateDatasetContent (CreateDatasetContent'),
+    newCreateDatasetContent,
+    CreateDatasetContentResponse (CreateDatasetContentResponse'),
+    newCreateDatasetContentResponse,
+
+    -- ** DescribeChannel
+    DescribeChannel (DescribeChannel'),
+    newDescribeChannel,
+    DescribeChannelResponse (DescribeChannelResponse'),
+    newDescribeChannelResponse,
+
+    -- ** ListDatastores (Paginated)
+    ListDatastores (ListDatastores'),
+    newListDatastores,
+    ListDatastoresResponse (ListDatastoresResponse'),
+    newListDatastoresResponse,
+
+    -- ** StartPipelineReprocessing
+    StartPipelineReprocessing (StartPipelineReprocessing'),
+    newStartPipelineReprocessing,
+    StartPipelineReprocessingResponse (StartPipelineReprocessingResponse'),
+    newStartPipelineReprocessingResponse,
+
+    -- ** RunPipelineActivity
+    RunPipelineActivity (RunPipelineActivity'),
+    newRunPipelineActivity,
+    RunPipelineActivityResponse (RunPipelineActivityResponse'),
+    newRunPipelineActivityResponse,
+
+    -- ** DeleteDataset
+    DeleteDataset (DeleteDataset'),
+    newDeleteDataset,
+    DeleteDatasetResponse (DeleteDatasetResponse'),
+    newDeleteDatasetResponse,
+
+    -- ** ListDatasets (Paginated)
+    ListDatasets (ListDatasets'),
+    newListDatasets,
+    ListDatasetsResponse (ListDatasetsResponse'),
+    newListDatasetsResponse,
+
+    -- ** CreateDatastore
+    CreateDatastore (CreateDatastore'),
+    newCreateDatastore,
+    CreateDatastoreResponse (CreateDatastoreResponse'),
+    newCreateDatastoreResponse,
+
+    -- ** ListPipelines (Paginated)
+    ListPipelines (ListPipelines'),
+    newListPipelines,
+    ListPipelinesResponse (ListPipelinesResponse'),
+    newListPipelinesResponse,
+
+    -- ** UpdateDataset
+    UpdateDataset (UpdateDataset'),
+    newUpdateDataset,
+    UpdateDatasetResponse (UpdateDatasetResponse'),
+    newUpdateDatasetResponse,
+
+    -- ** GetDatasetContent
+    GetDatasetContent (GetDatasetContent'),
+    newGetDatasetContent,
+    GetDatasetContentResponse (GetDatasetContentResponse'),
+    newGetDatasetContentResponse,
+
+    -- ** ListDatasetContents (Paginated)
+    ListDatasetContents (ListDatasetContents'),
+    newListDatasetContents,
+    ListDatasetContentsResponse (ListDatasetContentsResponse'),
+    newListDatasetContentsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
+
+    -- ** DeleteChannel
+    DeleteChannel (DeleteChannel'),
+    newDeleteChannel,
+    DeleteChannelResponse (DeleteChannelResponse'),
+    newDeleteChannelResponse,
+
+    -- ** UpdateChannel
+    UpdateChannel (UpdateChannel'),
+    newUpdateChannel,
+    UpdateChannelResponse (UpdateChannelResponse'),
+    newUpdateChannelResponse,
+
+    -- ** PutLoggingOptions
+    PutLoggingOptions (PutLoggingOptions'),
+    newPutLoggingOptions,
+    PutLoggingOptionsResponse (PutLoggingOptionsResponse'),
+    newPutLoggingOptionsResponse,
+
+    -- ** DeleteDatasetContent
+    DeleteDatasetContent (DeleteDatasetContent'),
+    newDeleteDatasetContent,
+    DeleteDatasetContentResponse (DeleteDatasetContentResponse'),
+    newDeleteDatasetContentResponse,
 
     -- * Types
 
     -- ** ChannelStatus
-    , ChannelStatus (..)
+    ChannelStatus (..),
+
+    -- ** ComputeType
+    ComputeType (..),
+
+    -- ** DatasetActionType
+    DatasetActionType (..),
 
     -- ** DatasetContentState
-    , DatasetContentState (..)
+    DatasetContentState (..),
 
     -- ** DatasetStatus
-    , DatasetStatus (..)
+    DatasetStatus (..),
 
     -- ** DatastoreStatus
-    , DatastoreStatus (..)
+    DatastoreStatus (..),
+
+    -- ** FileFormatType
+    FileFormatType (..),
 
     -- ** LoggingLevel
-    , LoggingLevel (..)
+    LoggingLevel (..),
 
     -- ** ReprocessingStatus
-    , ReprocessingStatus (..)
+    ReprocessingStatus (..),
 
     -- ** AddAttributesActivity
-    , AddAttributesActivity
-    , addAttributesActivity
-    , aaaNext
-    , aaaName
-    , aaaAttributes
+    AddAttributesActivity (AddAttributesActivity'),
+    newAddAttributesActivity,
 
     -- ** BatchPutMessageErrorEntry
-    , BatchPutMessageErrorEntry
-    , batchPutMessageErrorEntry
-    , bpmeeErrorCode
-    , bpmeeErrorMessage
-    , bpmeeMessageId
+    BatchPutMessageErrorEntry (BatchPutMessageErrorEntry'),
+    newBatchPutMessageErrorEntry,
 
     -- ** Channel
-    , Channel
-    , channel
-    , cCreationTime
-    , cStatus
-    , cArn
-    , cRetentionPeriod
-    , cName
-    , cLastUpdateTime
+    Channel (Channel'),
+    newChannel,
 
     -- ** ChannelActivity
-    , ChannelActivity
-    , channelActivity
-    , caNext
-    , caName
-    , caChannelName
+    ChannelActivity (ChannelActivity'),
+    newChannelActivity,
+
+    -- ** ChannelMessages
+    ChannelMessages (ChannelMessages'),
+    newChannelMessages,
+
+    -- ** ChannelStatistics
+    ChannelStatistics (ChannelStatistics'),
+    newChannelStatistics,
+
+    -- ** ChannelStorage
+    ChannelStorage (ChannelStorage'),
+    newChannelStorage,
+
+    -- ** ChannelStorageSummary
+    ChannelStorageSummary (ChannelStorageSummary'),
+    newChannelStorageSummary,
 
     -- ** ChannelSummary
-    , ChannelSummary
-    , channelSummary
-    , csCreationTime
-    , csStatus
-    , csChannelName
-    , csLastUpdateTime
+    ChannelSummary (ChannelSummary'),
+    newChannelSummary,
+
+    -- ** Column
+    Column (Column'),
+    newColumn,
+
+    -- ** ContainerDatasetAction
+    ContainerDatasetAction (ContainerDatasetAction'),
+    newContainerDatasetAction,
+
+    -- ** CustomerManagedChannelS3Storage
+    CustomerManagedChannelS3Storage (CustomerManagedChannelS3Storage'),
+    newCustomerManagedChannelS3Storage,
+
+    -- ** CustomerManagedChannelS3StorageSummary
+    CustomerManagedChannelS3StorageSummary (CustomerManagedChannelS3StorageSummary'),
+    newCustomerManagedChannelS3StorageSummary,
+
+    -- ** CustomerManagedDatastoreS3Storage
+    CustomerManagedDatastoreS3Storage (CustomerManagedDatastoreS3Storage'),
+    newCustomerManagedDatastoreS3Storage,
+
+    -- ** CustomerManagedDatastoreS3StorageSummary
+    CustomerManagedDatastoreS3StorageSummary (CustomerManagedDatastoreS3StorageSummary'),
+    newCustomerManagedDatastoreS3StorageSummary,
 
     -- ** Dataset
-    , Dataset
-    , dataset
-    , dCreationTime
-    , dStatus
-    , dArn
-    , dActions
-    , dTriggers
-    , dName
-    , dLastUpdateTime
+    Dataset (Dataset'),
+    newDataset,
 
     -- ** DatasetAction
-    , DatasetAction
-    , datasetAction
-    , daQueryAction
-    , daActionName
+    DatasetAction (DatasetAction'),
+    newDatasetAction,
+
+    -- ** DatasetActionSummary
+    DatasetActionSummary (DatasetActionSummary'),
+    newDatasetActionSummary,
+
+    -- ** DatasetContentDeliveryDestination
+    DatasetContentDeliveryDestination (DatasetContentDeliveryDestination'),
+    newDatasetContentDeliveryDestination,
+
+    -- ** DatasetContentDeliveryRule
+    DatasetContentDeliveryRule (DatasetContentDeliveryRule'),
+    newDatasetContentDeliveryRule,
 
     -- ** DatasetContentStatus
-    , DatasetContentStatus
-    , datasetContentStatus
-    , dcsState
-    , dcsReason
+    DatasetContentStatus (DatasetContentStatus'),
+    newDatasetContentStatus,
+
+    -- ** DatasetContentSummary
+    DatasetContentSummary (DatasetContentSummary'),
+    newDatasetContentSummary,
+
+    -- ** DatasetContentVersionValue
+    DatasetContentVersionValue (DatasetContentVersionValue'),
+    newDatasetContentVersionValue,
 
     -- ** DatasetEntry
-    , DatasetEntry
-    , datasetEntry
-    , deEntryName
-    , deDataURI
+    DatasetEntry (DatasetEntry'),
+    newDatasetEntry,
 
     -- ** DatasetSummary
-    , DatasetSummary
-    , datasetSummary
-    , dssCreationTime
-    , dssStatus
-    , dssDatasetName
-    , dssLastUpdateTime
+    DatasetSummary (DatasetSummary'),
+    newDatasetSummary,
 
     -- ** DatasetTrigger
-    , DatasetTrigger
-    , datasetTrigger
-    , dtSchedule
+    DatasetTrigger (DatasetTrigger'),
+    newDatasetTrigger,
 
     -- ** Datastore
-    , Datastore
-    , datastore
-    , datCreationTime
-    , datStatus
-    , datArn
-    , datRetentionPeriod
-    , datName
-    , datLastUpdateTime
+    Datastore (Datastore'),
+    newDatastore,
 
     -- ** DatastoreActivity
-    , DatastoreActivity
-    , datastoreActivity
-    , daName
-    , daDatastoreName
+    DatastoreActivity (DatastoreActivity'),
+    newDatastoreActivity,
+
+    -- ** DatastoreStatistics
+    DatastoreStatistics (DatastoreStatistics'),
+    newDatastoreStatistics,
+
+    -- ** DatastoreStorage
+    DatastoreStorage (DatastoreStorage'),
+    newDatastoreStorage,
+
+    -- ** DatastoreStorageSummary
+    DatastoreStorageSummary (DatastoreStorageSummary'),
+    newDatastoreStorageSummary,
 
     -- ** DatastoreSummary
-    , DatastoreSummary
-    , datastoreSummary
-    , dsCreationTime
-    , dsStatus
-    , dsDatastoreName
-    , dsLastUpdateTime
+    DatastoreSummary (DatastoreSummary'),
+    newDatastoreSummary,
+
+    -- ** DeltaTime
+    DeltaTime (DeltaTime'),
+    newDeltaTime,
+
+    -- ** DeltaTimeSessionWindowConfiguration
+    DeltaTimeSessionWindowConfiguration (DeltaTimeSessionWindowConfiguration'),
+    newDeltaTimeSessionWindowConfiguration,
 
     -- ** DeviceRegistryEnrichActivity
-    , DeviceRegistryEnrichActivity
-    , deviceRegistryEnrichActivity
-    , dreaNext
-    , dreaName
-    , dreaAttribute
-    , dreaThingName
-    , dreaRoleARN
+    DeviceRegistryEnrichActivity (DeviceRegistryEnrichActivity'),
+    newDeviceRegistryEnrichActivity,
 
     -- ** DeviceShadowEnrichActivity
-    , DeviceShadowEnrichActivity
-    , deviceShadowEnrichActivity
-    , dseaNext
-    , dseaName
-    , dseaAttribute
-    , dseaThingName
-    , dseaRoleARN
+    DeviceShadowEnrichActivity (DeviceShadowEnrichActivity'),
+    newDeviceShadowEnrichActivity,
+
+    -- ** EstimatedResourceSize
+    EstimatedResourceSize (EstimatedResourceSize'),
+    newEstimatedResourceSize,
+
+    -- ** FileFormatConfiguration
+    FileFormatConfiguration (FileFormatConfiguration'),
+    newFileFormatConfiguration,
 
     -- ** FilterActivity
-    , FilterActivity
-    , filterActivity
-    , faNext
-    , faName
-    , faFilter
+    FilterActivity (FilterActivity'),
+    newFilterActivity,
+
+    -- ** GlueConfiguration
+    GlueConfiguration (GlueConfiguration'),
+    newGlueConfiguration,
+
+    -- ** IotEventsDestinationConfiguration
+    IotEventsDestinationConfiguration (IotEventsDestinationConfiguration'),
+    newIotEventsDestinationConfiguration,
+
+    -- ** JsonConfiguration
+    JsonConfiguration (JsonConfiguration'),
+    newJsonConfiguration,
 
     -- ** LambdaActivity
-    , LambdaActivity
-    , lambdaActivity
-    , laNext
-    , laName
-    , laLambdaName
-    , laBatchSize
+    LambdaActivity (LambdaActivity'),
+    newLambdaActivity,
+
+    -- ** LateDataRule
+    LateDataRule (LateDataRule'),
+    newLateDataRule,
+
+    -- ** LateDataRuleConfiguration
+    LateDataRuleConfiguration (LateDataRuleConfiguration'),
+    newLateDataRuleConfiguration,
 
     -- ** LoggingOptions
-    , LoggingOptions
-    , loggingOptions
-    , loRoleARN
-    , loLevel
-    , loEnabled
+    LoggingOptions (LoggingOptions'),
+    newLoggingOptions,
 
     -- ** MathActivity
-    , MathActivity
-    , mathActivity
-    , maNext
-    , maName
-    , maAttribute
-    , maMath
+    MathActivity (MathActivity'),
+    newMathActivity,
 
     -- ** Message
-    , Message
-    , message
-    , mMessageId
-    , mPayload
+    Message (Message'),
+    newMessage,
+
+    -- ** OutputFileUriValue
+    OutputFileUriValue (OutputFileUriValue'),
+    newOutputFileUriValue,
+
+    -- ** ParquetConfiguration
+    ParquetConfiguration (ParquetConfiguration'),
+    newParquetConfiguration,
 
     -- ** Pipeline
-    , Pipeline
-    , pipeline
-    , pCreationTime
-    , pArn
-    , pActivities
-    , pName
-    , pReprocessingSummaries
-    , pLastUpdateTime
+    Pipeline (Pipeline'),
+    newPipeline,
 
     -- ** PipelineActivity
-    , PipelineActivity
-    , pipelineActivity
-    , paSelectAttributes
-    , paChannel
-    , paAddAttributes
-    , paDeviceRegistryEnrich
-    , paRemoveAttributes
-    , paLambda
-    , paDatastore
-    , paDeviceShadowEnrich
-    , paFilter
-    , paMath
+    PipelineActivity (PipelineActivity'),
+    newPipelineActivity,
 
     -- ** PipelineSummary
-    , PipelineSummary
-    , pipelineSummary
-    , psCreationTime
-    , psPipelineName
-    , psReprocessingSummaries
-    , psLastUpdateTime
+    PipelineSummary (PipelineSummary'),
+    newPipelineSummary,
+
+    -- ** QueryFilter
+    QueryFilter (QueryFilter'),
+    newQueryFilter,
 
     -- ** RemoveAttributesActivity
-    , RemoveAttributesActivity
-    , removeAttributesActivity
-    , raaNext
-    , raaName
-    , raaAttributes
+    RemoveAttributesActivity (RemoveAttributesActivity'),
+    newRemoveAttributesActivity,
 
     -- ** ReprocessingSummary
-    , ReprocessingSummary
-    , reprocessingSummary
-    , rsCreationTime
-    , rsStatus
-    , rsId
+    ReprocessingSummary (ReprocessingSummary'),
+    newReprocessingSummary,
+
+    -- ** ResourceConfiguration
+    ResourceConfiguration (ResourceConfiguration'),
+    newResourceConfiguration,
 
     -- ** RetentionPeriod
-    , RetentionPeriod
-    , retentionPeriod
-    , rpUnlimited
-    , rpNumberOfDays
+    RetentionPeriod (RetentionPeriod'),
+    newRetentionPeriod,
+
+    -- ** S3DestinationConfiguration
+    S3DestinationConfiguration (S3DestinationConfiguration'),
+    newS3DestinationConfiguration,
 
     -- ** Schedule
-    , Schedule
-    , schedule
-    , sExpression
+    Schedule (Schedule'),
+    newSchedule,
+
+    -- ** SchemaDefinition
+    SchemaDefinition (SchemaDefinition'),
+    newSchemaDefinition,
 
     -- ** SelectAttributesActivity
-    , SelectAttributesActivity
-    , selectAttributesActivity
-    , saaNext
-    , saaName
-    , saaAttributes
+    SelectAttributesActivity (SelectAttributesActivity'),
+    newSelectAttributesActivity,
+
+    -- ** ServiceManagedChannelS3Storage
+    ServiceManagedChannelS3Storage (ServiceManagedChannelS3Storage'),
+    newServiceManagedChannelS3Storage,
+
+    -- ** ServiceManagedChannelS3StorageSummary
+    ServiceManagedChannelS3StorageSummary (ServiceManagedChannelS3StorageSummary'),
+    newServiceManagedChannelS3StorageSummary,
+
+    -- ** ServiceManagedDatastoreS3Storage
+    ServiceManagedDatastoreS3Storage (ServiceManagedDatastoreS3Storage'),
+    newServiceManagedDatastoreS3Storage,
+
+    -- ** ServiceManagedDatastoreS3StorageSummary
+    ServiceManagedDatastoreS3StorageSummary (ServiceManagedDatastoreS3StorageSummary'),
+    newServiceManagedDatastoreS3StorageSummary,
 
     -- ** SqlQueryDatasetAction
-    , SqlQueryDatasetAction
-    , sqlQueryDatasetAction
-    , sqdaSqlQuery
-    ) where
+    SqlQueryDatasetAction (SqlQueryDatasetAction'),
+    newSqlQueryDatasetAction,
+
+    -- ** Tag
+    Tag (Tag'),
+    newTag,
+
+    -- ** TriggeringDataset
+    TriggeringDataset (TriggeringDataset'),
+    newTriggeringDataset,
+
+    -- ** Variable
+    Variable (Variable'),
+    newVariable,
+
+    -- ** VersioningConfiguration
+    VersioningConfiguration (VersioningConfiguration'),
+    newVersioningConfiguration,
+  )
+where
 
 import Network.AWS.IoTAnalytics.BatchPutMessage
 import Network.AWS.IoTAnalytics.CancelPipelineReprocessing
@@ -410,47 +608,49 @@ import Network.AWS.IoTAnalytics.DescribeDatastore
 import Network.AWS.IoTAnalytics.DescribeLoggingOptions
 import Network.AWS.IoTAnalytics.DescribePipeline
 import Network.AWS.IoTAnalytics.GetDatasetContent
+import Network.AWS.IoTAnalytics.Lens
 import Network.AWS.IoTAnalytics.ListChannels
+import Network.AWS.IoTAnalytics.ListDatasetContents
 import Network.AWS.IoTAnalytics.ListDatasets
 import Network.AWS.IoTAnalytics.ListDatastores
 import Network.AWS.IoTAnalytics.ListPipelines
+import Network.AWS.IoTAnalytics.ListTagsForResource
 import Network.AWS.IoTAnalytics.PutLoggingOptions
 import Network.AWS.IoTAnalytics.RunPipelineActivity
 import Network.AWS.IoTAnalytics.SampleChannelData
 import Network.AWS.IoTAnalytics.StartPipelineReprocessing
+import Network.AWS.IoTAnalytics.TagResource
 import Network.AWS.IoTAnalytics.Types
+import Network.AWS.IoTAnalytics.UntagResource
 import Network.AWS.IoTAnalytics.UpdateChannel
 import Network.AWS.IoTAnalytics.UpdateDataset
 import Network.AWS.IoTAnalytics.UpdateDatastore
 import Network.AWS.IoTAnalytics.UpdatePipeline
 import Network.AWS.IoTAnalytics.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'IoTAnalytics'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'IoTAnalytics'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

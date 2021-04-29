@@ -1,117 +1,165 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoTAnalytics.UpdatePipeline
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the settings of a pipeline.
---
---
+-- Updates the settings of a pipeline. You must specify both a @channel@
+-- and a @datastore@ activity and, optionally, as many as 23 additional
+-- activities in the @pipelineActivities@ array.
 module Network.AWS.IoTAnalytics.UpdatePipeline
-    (
-    -- * Creating a Request
-      updatePipeline
-    , UpdatePipeline
+  ( -- * Creating a Request
+    UpdatePipeline (..),
+    newUpdatePipeline,
+
     -- * Request Lenses
-    , upPipelineName
-    , upPipelineActivities
+    updatePipeline_pipelineName,
+    updatePipeline_pipelineActivities,
 
     -- * Destructuring the Response
-    , updatePipelineResponse
-    , UpdatePipelineResponse
-    ) where
+    UpdatePipelineResponse (..),
+    newUpdatePipelineResponse,
+  )
+where
 
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.IoTAnalytics.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updatePipeline' smart constructor.
+-- | /See:/ 'newUpdatePipeline' smart constructor.
 data UpdatePipeline = UpdatePipeline'
-  { _upPipelineName       :: !Text
-  , _upPipelineActivities :: !(List1 PipelineActivity)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the pipeline to update.
+    pipelineName :: Prelude.Text,
+    -- | A list of @PipelineActivity@ objects. Activities perform transformations
+    -- on your messages, such as removing, renaming or adding message
+    -- attributes; filtering messages based on attribute values; invoking your
+    -- Lambda functions on messages for advanced processing; or performing
+    -- mathematical transformations to normalize device data.
+    --
+    -- The list can be 2-25 @PipelineActivity@ objects and must contain both a
+    -- @channel@ and a @datastore@ activity. Each entry in the list must
+    -- contain only one activity. For example:
+    --
+    -- @pipelineActivities = [ { \"channel\": { ... } }, { \"lambda\": { ... } }, ... ]@
+    pipelineActivities :: Prelude.NonEmpty PipelineActivity
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdatePipeline' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdatePipeline' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'upPipelineName' - The name of the pipeline to update.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'upPipelineActivities' - A list of "PipelineActivity" objects. The list can be 1-25 __PipelineActivity__ objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
-updatePipeline
-    :: Text -- ^ 'upPipelineName'
-    -> NonEmpty PipelineActivity -- ^ 'upPipelineActivities'
-    -> UpdatePipeline
-updatePipeline pPipelineName_ pPipelineActivities_ =
+-- 'pipelineName', 'updatePipeline_pipelineName' - The name of the pipeline to update.
+--
+-- 'pipelineActivities', 'updatePipeline_pipelineActivities' - A list of @PipelineActivity@ objects. Activities perform transformations
+-- on your messages, such as removing, renaming or adding message
+-- attributes; filtering messages based on attribute values; invoking your
+-- Lambda functions on messages for advanced processing; or performing
+-- mathematical transformations to normalize device data.
+--
+-- The list can be 2-25 @PipelineActivity@ objects and must contain both a
+-- @channel@ and a @datastore@ activity. Each entry in the list must
+-- contain only one activity. For example:
+--
+-- @pipelineActivities = [ { \"channel\": { ... } }, { \"lambda\": { ... } }, ... ]@
+newUpdatePipeline ::
+  -- | 'pipelineName'
+  Prelude.Text ->
+  -- | 'pipelineActivities'
+  Prelude.NonEmpty PipelineActivity ->
+  UpdatePipeline
+newUpdatePipeline pPipelineName_ pPipelineActivities_ =
   UpdatePipeline'
-    { _upPipelineName = pPipelineName_
-    , _upPipelineActivities = _List1 # pPipelineActivities_
+    { pipelineName = pPipelineName_,
+      pipelineActivities =
+        Prelude._Coerce Lens.# pPipelineActivities_
     }
 
-
 -- | The name of the pipeline to update.
-upPipelineName :: Lens' UpdatePipeline Text
-upPipelineName = lens _upPipelineName (\ s a -> s{_upPipelineName = a})
+updatePipeline_pipelineName :: Lens.Lens' UpdatePipeline Prelude.Text
+updatePipeline_pipelineName = Lens.lens (\UpdatePipeline' {pipelineName} -> pipelineName) (\s@UpdatePipeline' {} a -> s {pipelineName = a} :: UpdatePipeline)
 
--- | A list of "PipelineActivity" objects. The list can be 1-25 __PipelineActivity__ objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
-upPipelineActivities :: Lens' UpdatePipeline (NonEmpty PipelineActivity)
-upPipelineActivities = lens _upPipelineActivities (\ s a -> s{_upPipelineActivities = a}) . _List1
-
-instance AWSRequest UpdatePipeline where
-        type Rs UpdatePipeline = UpdatePipelineResponse
-        request = putJSON ioTAnalytics
-        response = receiveNull UpdatePipelineResponse'
-
-instance Hashable UpdatePipeline where
-
-instance NFData UpdatePipeline where
-
-instance ToHeaders UpdatePipeline where
-        toHeaders = const mempty
-
-instance ToJSON UpdatePipeline where
-        toJSON UpdatePipeline'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("pipelineActivities" .= _upPipelineActivities)])
-
-instance ToPath UpdatePipeline where
-        toPath UpdatePipeline'{..}
-          = mconcat ["/pipelines/", toBS _upPipelineName]
-
-instance ToQuery UpdatePipeline where
-        toQuery = const mempty
-
--- | /See:/ 'updatePipelineResponse' smart constructor.
-data UpdatePipelineResponse =
-  UpdatePipelineResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdatePipelineResponse' with the minimum fields required to make a request.
+-- | A list of @PipelineActivity@ objects. Activities perform transformations
+-- on your messages, such as removing, renaming or adding message
+-- attributes; filtering messages based on attribute values; invoking your
+-- Lambda functions on messages for advanced processing; or performing
+-- mathematical transformations to normalize device data.
 --
-updatePipelineResponse
-    :: UpdatePipelineResponse
-updatePipelineResponse = UpdatePipelineResponse'
+-- The list can be 2-25 @PipelineActivity@ objects and must contain both a
+-- @channel@ and a @datastore@ activity. Each entry in the list must
+-- contain only one activity. For example:
+--
+-- @pipelineActivities = [ { \"channel\": { ... } }, { \"lambda\": { ... } }, ... ]@
+updatePipeline_pipelineActivities :: Lens.Lens' UpdatePipeline (Prelude.NonEmpty PipelineActivity)
+updatePipeline_pipelineActivities = Lens.lens (\UpdatePipeline' {pipelineActivities} -> pipelineActivities) (\s@UpdatePipeline' {} a -> s {pipelineActivities = a} :: UpdatePipeline) Prelude.. Prelude._Coerce
 
+instance Prelude.AWSRequest UpdatePipeline where
+  type Rs UpdatePipeline = UpdatePipelineResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveNull UpdatePipelineResponse'
 
-instance NFData UpdatePipelineResponse where
+instance Prelude.Hashable UpdatePipeline
+
+instance Prelude.NFData UpdatePipeline
+
+instance Prelude.ToHeaders UpdatePipeline where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToJSON UpdatePipeline where
+  toJSON UpdatePipeline' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ( "pipelineActivities"
+                  Prelude..= pipelineActivities
+              )
+          ]
+      )
+
+instance Prelude.ToPath UpdatePipeline where
+  toPath UpdatePipeline' {..} =
+    Prelude.mconcat
+      ["/pipelines/", Prelude.toBS pipelineName]
+
+instance Prelude.ToQuery UpdatePipeline where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newUpdatePipelineResponse' smart constructor.
+data UpdatePipelineResponse = UpdatePipelineResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'UpdatePipelineResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newUpdatePipelineResponse ::
+  UpdatePipelineResponse
+newUpdatePipelineResponse = UpdatePipelineResponse'
+
+instance Prelude.NFData UpdatePipelineResponse

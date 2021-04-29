@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.Route53AutoNaming
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.Route53AutoNaming where
 
 import Data.Proxy
@@ -28,336 +27,472 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestListServices $
---             listServices
+--         [ requestCreatePublicDnsNamespace $
+--             newCreatePublicDnsNamespace
 --
---         , requestDeleteService $
---             deleteService
---
---         , requestUpdateService $
---             updateService
+--         , requestListServices $
+--             newListServices
 --
 --         , requestListOperations $
---             listOperations
---
---         , requestCreatePublicDNSNamespace $
---             createPublicDNSNamespace
---
---         , requestGetInstance $
---             getInstance
---
---         , requestListNamespaces $
---             listNamespaces
---
---         , requestDeleteNamespace $
---             deleteNamespace
---
---         , requestGetInstancesHealthStatus $
---             getInstancesHealthStatus
---
---         , requestGetNamespace $
---             getNamespace
---
---         , requestRegisterInstance $
---             registerInstance
---
---         , requestListInstances $
---             listInstances
---
---         , requestGetOperation $
---             getOperation
---
---         , requestUpdateInstanceCustomHealthStatus $
---             updateInstanceCustomHealthStatus
---
---         , requestGetService $
---             getService
---
---         , requestCreatePrivateDNSNamespace $
---             createPrivateDNSNamespace
+--             newListOperations
 --
 --         , requestCreateService $
---             createService
+--             newCreateService
+--
+--         , requestCreatePrivateDnsNamespace $
+--             newCreatePrivateDnsNamespace
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestListInstances $
+--             newListInstances
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestGetNamespace $
+--             newGetNamespace
+--
+--         , requestListNamespaces $
+--             newListNamespaces
+--
+--         , requestCreateHttpNamespace $
+--             newCreateHttpNamespace
+--
+--         , requestGetInstance $
+--             newGetInstance
+--
+--         , requestGetInstancesHealthStatus $
+--             newGetInstancesHealthStatus
+--
+--         , requestDeleteService $
+--             newDeleteService
+--
+--         , requestUpdateService $
+--             newUpdateService
+--
+--         , requestDiscoverInstances $
+--             newDiscoverInstances
 --
 --         , requestDeregisterInstance $
---             deregisterInstance
+--             newDeregisterInstance
+--
+--         , requestGetOperation $
+--             newGetOperation
+--
+--         , requestGetService $
+--             newGetService
+--
+--         , requestUpdateInstanceCustomHealthStatus $
+--             newUpdateInstanceCustomHealthStatus
+--
+--         , requestRegisterInstance $
+--             newRegisterInstance
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestDeleteNamespace $
+--             newDeleteNamespace
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseListServices $
---             listServicesResponse
+--         [ responseCreatePublicDnsNamespace $
+--             newCreatePublicDnsNamespaceResponse
 --
---         , responseDeleteService $
---             deleteServiceResponse
---
---         , responseUpdateService $
---             updateServiceResponse
+--         , responseListServices $
+--             newListServicesResponse
 --
 --         , responseListOperations $
---             listOperationsResponse
---
---         , responseCreatePublicDNSNamespace $
---             createPublicDNSNamespaceResponse
---
---         , responseGetInstance $
---             getInstanceResponse
---
---         , responseListNamespaces $
---             listNamespacesResponse
---
---         , responseDeleteNamespace $
---             deleteNamespaceResponse
---
---         , responseGetInstancesHealthStatus $
---             getInstancesHealthStatusResponse
---
---         , responseGetNamespace $
---             getNamespaceResponse
---
---         , responseRegisterInstance $
---             registerInstanceResponse
---
---         , responseListInstances $
---             listInstancesResponse
---
---         , responseGetOperation $
---             getOperationResponse
---
---         , responseUpdateInstanceCustomHealthStatus $
---             updateInstanceCustomHealthStatusResponse
---
---         , responseGetService $
---             getServiceResponse
---
---         , responseCreatePrivateDNSNamespace $
---             createPrivateDNSNamespaceResponse
+--             newListOperationsResponse
 --
 --         , responseCreateService $
---             createServiceResponse
+--             newCreateServiceResponse
+--
+--         , responseCreatePrivateDnsNamespace $
+--             newCreatePrivateDnsNamespaceResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseListInstances $
+--             newListInstancesResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseGetNamespace $
+--             newGetNamespaceResponse
+--
+--         , responseListNamespaces $
+--             newListNamespacesResponse
+--
+--         , responseCreateHttpNamespace $
+--             newCreateHttpNamespaceResponse
+--
+--         , responseGetInstance $
+--             newGetInstanceResponse
+--
+--         , responseGetInstancesHealthStatus $
+--             newGetInstancesHealthStatusResponse
+--
+--         , responseDeleteService $
+--             newDeleteServiceResponse
+--
+--         , responseUpdateService $
+--             newUpdateServiceResponse
+--
+--         , responseDiscoverInstances $
+--             newDiscoverInstancesResponse
 --
 --         , responseDeregisterInstance $
---             deregisterInstanceResponse
+--             newDeregisterInstanceResponse
+--
+--         , responseGetOperation $
+--             newGetOperationResponse
+--
+--         , responseGetService $
+--             newGetServiceResponse
+--
+--         , responseUpdateInstanceCustomHealthStatus $
+--             newUpdateInstanceCustomHealthStatusResponse
+--
+--         , responseRegisterInstance $
+--             newRegisterInstanceResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseDeleteNamespace $
+--             newDeleteNamespaceResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
+requestCreatePublicDnsNamespace :: CreatePublicDnsNamespace -> TestTree
+requestCreatePublicDnsNamespace =
+  req
+    "CreatePublicDnsNamespace"
+    "fixture/CreatePublicDnsNamespace.yaml"
+
 requestListServices :: ListServices -> TestTree
-requestListServices = req
+requestListServices =
+  req
     "ListServices"
     "fixture/ListServices.yaml"
 
+requestListOperations :: ListOperations -> TestTree
+requestListOperations =
+  req
+    "ListOperations"
+    "fixture/ListOperations.yaml"
+
+requestCreateService :: CreateService -> TestTree
+requestCreateService =
+  req
+    "CreateService"
+    "fixture/CreateService.yaml"
+
+requestCreatePrivateDnsNamespace :: CreatePrivateDnsNamespace -> TestTree
+requestCreatePrivateDnsNamespace =
+  req
+    "CreatePrivateDnsNamespace"
+    "fixture/CreatePrivateDnsNamespace.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestListInstances :: ListInstances -> TestTree
+requestListInstances =
+  req
+    "ListInstances"
+    "fixture/ListInstances.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestGetNamespace :: GetNamespace -> TestTree
+requestGetNamespace =
+  req
+    "GetNamespace"
+    "fixture/GetNamespace.yaml"
+
+requestListNamespaces :: ListNamespaces -> TestTree
+requestListNamespaces =
+  req
+    "ListNamespaces"
+    "fixture/ListNamespaces.yaml"
+
+requestCreateHttpNamespace :: CreateHttpNamespace -> TestTree
+requestCreateHttpNamespace =
+  req
+    "CreateHttpNamespace"
+    "fixture/CreateHttpNamespace.yaml"
+
+requestGetInstance :: GetInstance -> TestTree
+requestGetInstance =
+  req
+    "GetInstance"
+    "fixture/GetInstance.yaml"
+
+requestGetInstancesHealthStatus :: GetInstancesHealthStatus -> TestTree
+requestGetInstancesHealthStatus =
+  req
+    "GetInstancesHealthStatus"
+    "fixture/GetInstancesHealthStatus.yaml"
+
 requestDeleteService :: DeleteService -> TestTree
-requestDeleteService = req
+requestDeleteService =
+  req
     "DeleteService"
     "fixture/DeleteService.yaml"
 
 requestUpdateService :: UpdateService -> TestTree
-requestUpdateService = req
+requestUpdateService =
+  req
     "UpdateService"
     "fixture/UpdateService.yaml"
 
-requestListOperations :: ListOperations -> TestTree
-requestListOperations = req
-    "ListOperations"
-    "fixture/ListOperations.yaml"
-
-requestCreatePublicDNSNamespace :: CreatePublicDNSNamespace -> TestTree
-requestCreatePublicDNSNamespace = req
-    "CreatePublicDNSNamespace"
-    "fixture/CreatePublicDNSNamespace.yaml"
-
-requestGetInstance :: GetInstance -> TestTree
-requestGetInstance = req
-    "GetInstance"
-    "fixture/GetInstance.yaml"
-
-requestListNamespaces :: ListNamespaces -> TestTree
-requestListNamespaces = req
-    "ListNamespaces"
-    "fixture/ListNamespaces.yaml"
-
-requestDeleteNamespace :: DeleteNamespace -> TestTree
-requestDeleteNamespace = req
-    "DeleteNamespace"
-    "fixture/DeleteNamespace.yaml"
-
-requestGetInstancesHealthStatus :: GetInstancesHealthStatus -> TestTree
-requestGetInstancesHealthStatus = req
-    "GetInstancesHealthStatus"
-    "fixture/GetInstancesHealthStatus.yaml"
-
-requestGetNamespace :: GetNamespace -> TestTree
-requestGetNamespace = req
-    "GetNamespace"
-    "fixture/GetNamespace.yaml"
-
-requestRegisterInstance :: RegisterInstance -> TestTree
-requestRegisterInstance = req
-    "RegisterInstance"
-    "fixture/RegisterInstance.yaml"
-
-requestListInstances :: ListInstances -> TestTree
-requestListInstances = req
-    "ListInstances"
-    "fixture/ListInstances.yaml"
-
-requestGetOperation :: GetOperation -> TestTree
-requestGetOperation = req
-    "GetOperation"
-    "fixture/GetOperation.yaml"
-
-requestUpdateInstanceCustomHealthStatus :: UpdateInstanceCustomHealthStatus -> TestTree
-requestUpdateInstanceCustomHealthStatus = req
-    "UpdateInstanceCustomHealthStatus"
-    "fixture/UpdateInstanceCustomHealthStatus.yaml"
-
-requestGetService :: GetService -> TestTree
-requestGetService = req
-    "GetService"
-    "fixture/GetService.yaml"
-
-requestCreatePrivateDNSNamespace :: CreatePrivateDNSNamespace -> TestTree
-requestCreatePrivateDNSNamespace = req
-    "CreatePrivateDNSNamespace"
-    "fixture/CreatePrivateDNSNamespace.yaml"
-
-requestCreateService :: CreateService -> TestTree
-requestCreateService = req
-    "CreateService"
-    "fixture/CreateService.yaml"
+requestDiscoverInstances :: DiscoverInstances -> TestTree
+requestDiscoverInstances =
+  req
+    "DiscoverInstances"
+    "fixture/DiscoverInstances.yaml"
 
 requestDeregisterInstance :: DeregisterInstance -> TestTree
-requestDeregisterInstance = req
+requestDeregisterInstance =
+  req
     "DeregisterInstance"
     "fixture/DeregisterInstance.yaml"
 
+requestGetOperation :: GetOperation -> TestTree
+requestGetOperation =
+  req
+    "GetOperation"
+    "fixture/GetOperation.yaml"
+
+requestGetService :: GetService -> TestTree
+requestGetService =
+  req
+    "GetService"
+    "fixture/GetService.yaml"
+
+requestUpdateInstanceCustomHealthStatus :: UpdateInstanceCustomHealthStatus -> TestTree
+requestUpdateInstanceCustomHealthStatus =
+  req
+    "UpdateInstanceCustomHealthStatus"
+    "fixture/UpdateInstanceCustomHealthStatus.yaml"
+
+requestRegisterInstance :: RegisterInstance -> TestTree
+requestRegisterInstance =
+  req
+    "RegisterInstance"
+    "fixture/RegisterInstance.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestDeleteNamespace :: DeleteNamespace -> TestTree
+requestDeleteNamespace =
+  req
+    "DeleteNamespace"
+    "fixture/DeleteNamespace.yaml"
+
 -- Responses
 
+responseCreatePublicDnsNamespace :: CreatePublicDnsNamespaceResponse -> TestTree
+responseCreatePublicDnsNamespace =
+  res
+    "CreatePublicDnsNamespaceResponse"
+    "fixture/CreatePublicDnsNamespaceResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreatePublicDnsNamespace)
+
 responseListServices :: ListServicesResponse -> TestTree
-responseListServices = res
+responseListServices =
+  res
     "ListServicesResponse"
     "fixture/ListServicesResponse.proto"
-    route53AutoNaming
+    defaultService
     (Proxy :: Proxy ListServices)
 
+responseListOperations :: ListOperationsResponse -> TestTree
+responseListOperations =
+  res
+    "ListOperationsResponse"
+    "fixture/ListOperationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListOperations)
+
+responseCreateService :: CreateServiceResponse -> TestTree
+responseCreateService =
+  res
+    "CreateServiceResponse"
+    "fixture/CreateServiceResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateService)
+
+responseCreatePrivateDnsNamespace :: CreatePrivateDnsNamespaceResponse -> TestTree
+responseCreatePrivateDnsNamespace =
+  res
+    "CreatePrivateDnsNamespaceResponse"
+    "fixture/CreatePrivateDnsNamespaceResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreatePrivateDnsNamespace)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagResource)
+
+responseListInstances :: ListInstancesResponse -> TestTree
+responseListInstances =
+  res
+    "ListInstancesResponse"
+    "fixture/ListInstancesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListInstances)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagResource)
+
+responseGetNamespace :: GetNamespaceResponse -> TestTree
+responseGetNamespace =
+  res
+    "GetNamespaceResponse"
+    "fixture/GetNamespaceResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetNamespace)
+
+responseListNamespaces :: ListNamespacesResponse -> TestTree
+responseListNamespaces =
+  res
+    "ListNamespacesResponse"
+    "fixture/ListNamespacesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListNamespaces)
+
+responseCreateHttpNamespace :: CreateHttpNamespaceResponse -> TestTree
+responseCreateHttpNamespace =
+  res
+    "CreateHttpNamespaceResponse"
+    "fixture/CreateHttpNamespaceResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateHttpNamespace)
+
+responseGetInstance :: GetInstanceResponse -> TestTree
+responseGetInstance =
+  res
+    "GetInstanceResponse"
+    "fixture/GetInstanceResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetInstance)
+
+responseGetInstancesHealthStatus :: GetInstancesHealthStatusResponse -> TestTree
+responseGetInstancesHealthStatus =
+  res
+    "GetInstancesHealthStatusResponse"
+    "fixture/GetInstancesHealthStatusResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetInstancesHealthStatus)
+
 responseDeleteService :: DeleteServiceResponse -> TestTree
-responseDeleteService = res
+responseDeleteService =
+  res
     "DeleteServiceResponse"
     "fixture/DeleteServiceResponse.proto"
-    route53AutoNaming
+    defaultService
     (Proxy :: Proxy DeleteService)
 
 responseUpdateService :: UpdateServiceResponse -> TestTree
-responseUpdateService = res
+responseUpdateService =
+  res
     "UpdateServiceResponse"
     "fixture/UpdateServiceResponse.proto"
-    route53AutoNaming
+    defaultService
     (Proxy :: Proxy UpdateService)
 
-responseListOperations :: ListOperationsResponse -> TestTree
-responseListOperations = res
-    "ListOperationsResponse"
-    "fixture/ListOperationsResponse.proto"
-    route53AutoNaming
-    (Proxy :: Proxy ListOperations)
-
-responseCreatePublicDNSNamespace :: CreatePublicDNSNamespaceResponse -> TestTree
-responseCreatePublicDNSNamespace = res
-    "CreatePublicDNSNamespaceResponse"
-    "fixture/CreatePublicDNSNamespaceResponse.proto"
-    route53AutoNaming
-    (Proxy :: Proxy CreatePublicDNSNamespace)
-
-responseGetInstance :: GetInstanceResponse -> TestTree
-responseGetInstance = res
-    "GetInstanceResponse"
-    "fixture/GetInstanceResponse.proto"
-    route53AutoNaming
-    (Proxy :: Proxy GetInstance)
-
-responseListNamespaces :: ListNamespacesResponse -> TestTree
-responseListNamespaces = res
-    "ListNamespacesResponse"
-    "fixture/ListNamespacesResponse.proto"
-    route53AutoNaming
-    (Proxy :: Proxy ListNamespaces)
-
-responseDeleteNamespace :: DeleteNamespaceResponse -> TestTree
-responseDeleteNamespace = res
-    "DeleteNamespaceResponse"
-    "fixture/DeleteNamespaceResponse.proto"
-    route53AutoNaming
-    (Proxy :: Proxy DeleteNamespace)
-
-responseGetInstancesHealthStatus :: GetInstancesHealthStatusResponse -> TestTree
-responseGetInstancesHealthStatus = res
-    "GetInstancesHealthStatusResponse"
-    "fixture/GetInstancesHealthStatusResponse.proto"
-    route53AutoNaming
-    (Proxy :: Proxy GetInstancesHealthStatus)
-
-responseGetNamespace :: GetNamespaceResponse -> TestTree
-responseGetNamespace = res
-    "GetNamespaceResponse"
-    "fixture/GetNamespaceResponse.proto"
-    route53AutoNaming
-    (Proxy :: Proxy GetNamespace)
-
-responseRegisterInstance :: RegisterInstanceResponse -> TestTree
-responseRegisterInstance = res
-    "RegisterInstanceResponse"
-    "fixture/RegisterInstanceResponse.proto"
-    route53AutoNaming
-    (Proxy :: Proxy RegisterInstance)
-
-responseListInstances :: ListInstancesResponse -> TestTree
-responseListInstances = res
-    "ListInstancesResponse"
-    "fixture/ListInstancesResponse.proto"
-    route53AutoNaming
-    (Proxy :: Proxy ListInstances)
-
-responseGetOperation :: GetOperationResponse -> TestTree
-responseGetOperation = res
-    "GetOperationResponse"
-    "fixture/GetOperationResponse.proto"
-    route53AutoNaming
-    (Proxy :: Proxy GetOperation)
-
-responseUpdateInstanceCustomHealthStatus :: UpdateInstanceCustomHealthStatusResponse -> TestTree
-responseUpdateInstanceCustomHealthStatus = res
-    "UpdateInstanceCustomHealthStatusResponse"
-    "fixture/UpdateInstanceCustomHealthStatusResponse.proto"
-    route53AutoNaming
-    (Proxy :: Proxy UpdateInstanceCustomHealthStatus)
-
-responseGetService :: GetServiceResponse -> TestTree
-responseGetService = res
-    "GetServiceResponse"
-    "fixture/GetServiceResponse.proto"
-    route53AutoNaming
-    (Proxy :: Proxy GetService)
-
-responseCreatePrivateDNSNamespace :: CreatePrivateDNSNamespaceResponse -> TestTree
-responseCreatePrivateDNSNamespace = res
-    "CreatePrivateDNSNamespaceResponse"
-    "fixture/CreatePrivateDNSNamespaceResponse.proto"
-    route53AutoNaming
-    (Proxy :: Proxy CreatePrivateDNSNamespace)
-
-responseCreateService :: CreateServiceResponse -> TestTree
-responseCreateService = res
-    "CreateServiceResponse"
-    "fixture/CreateServiceResponse.proto"
-    route53AutoNaming
-    (Proxy :: Proxy CreateService)
+responseDiscoverInstances :: DiscoverInstancesResponse -> TestTree
+responseDiscoverInstances =
+  res
+    "DiscoverInstancesResponse"
+    "fixture/DiscoverInstancesResponse.proto"
+    defaultService
+    (Proxy :: Proxy DiscoverInstances)
 
 responseDeregisterInstance :: DeregisterInstanceResponse -> TestTree
-responseDeregisterInstance = res
+responseDeregisterInstance =
+  res
     "DeregisterInstanceResponse"
     "fixture/DeregisterInstanceResponse.proto"
-    route53AutoNaming
+    defaultService
     (Proxy :: Proxy DeregisterInstance)
+
+responseGetOperation :: GetOperationResponse -> TestTree
+responseGetOperation =
+  res
+    "GetOperationResponse"
+    "fixture/GetOperationResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetOperation)
+
+responseGetService :: GetServiceResponse -> TestTree
+responseGetService =
+  res
+    "GetServiceResponse"
+    "fixture/GetServiceResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetService)
+
+responseUpdateInstanceCustomHealthStatus :: UpdateInstanceCustomHealthStatusResponse -> TestTree
+responseUpdateInstanceCustomHealthStatus =
+  res
+    "UpdateInstanceCustomHealthStatusResponse"
+    "fixture/UpdateInstanceCustomHealthStatusResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateInstanceCustomHealthStatus)
+
+responseRegisterInstance :: RegisterInstanceResponse -> TestTree
+responseRegisterInstance =
+  res
+    "RegisterInstanceResponse"
+    "fixture/RegisterInstanceResponse.proto"
+    defaultService
+    (Proxy :: Proxy RegisterInstance)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTagsForResource)
+
+responseDeleteNamespace :: DeleteNamespaceResponse -> TestTree
+responseDeleteNamespace =
+  res
+    "DeleteNamespaceResponse"
+    "fixture/DeleteNamespaceResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteNamespace)

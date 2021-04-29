@@ -1,162 +1,234 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodePipeline.ListActionTypes
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a summary of all AWS CodePipeline action types associated with your account.
+-- Gets a summary of all AWS CodePipeline action types associated with your
+-- account.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.CodePipeline.ListActionTypes
-    (
-    -- * Creating a Request
-      listActionTypes
-    , ListActionTypes
+  ( -- * Creating a Request
+    ListActionTypes (..),
+    newListActionTypes,
+
     -- * Request Lenses
-    , latActionOwnerFilter
-    , latNextToken
+    listActionTypes_nextToken,
+    listActionTypes_regionFilter,
+    listActionTypes_actionOwnerFilter,
 
     -- * Destructuring the Response
-    , listActionTypesResponse
-    , ListActionTypesResponse
+    ListActionTypesResponse (..),
+    newListActionTypesResponse,
+
     -- * Response Lenses
-    , latrsNextToken
-    , latrsResponseStatus
-    , latrsActionTypes
-    ) where
+    listActionTypesResponse_nextToken,
+    listActionTypesResponse_httpStatus,
+    listActionTypesResponse_actionTypes,
+  )
+where
 
 import Network.AWS.CodePipeline.Types
-import Network.AWS.CodePipeline.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input of a ListActionTypes action.
+-- | Represents the input of a @ListActionTypes@ action.
 --
---
---
--- /See:/ 'listActionTypes' smart constructor.
+-- /See:/ 'newListActionTypes' smart constructor.
 data ListActionTypes = ListActionTypes'
-  { _latActionOwnerFilter :: !(Maybe ActionOwner)
-  , _latNextToken         :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An identifier that was returned from the previous list action types
+    -- call, which can be used to return the next set of action types in the
+    -- list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The Region to filter on for the list of action types.
+    regionFilter :: Prelude.Maybe Prelude.Text,
+    -- | Filters the list of action types to those created by a specified entity.
+    actionOwnerFilter :: Prelude.Maybe ActionOwner
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListActionTypes' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListActionTypes' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'latActionOwnerFilter' - Filters the list of action types to those created by a specified entity.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'latNextToken' - An identifier that was returned from the previous list action types call, which can be used to return the next set of action types in the list.
-listActionTypes
-    :: ListActionTypes
-listActionTypes =
-  ListActionTypes' {_latActionOwnerFilter = Nothing, _latNextToken = Nothing}
-
-
--- | Filters the list of action types to those created by a specified entity.
-latActionOwnerFilter :: Lens' ListActionTypes (Maybe ActionOwner)
-latActionOwnerFilter = lens _latActionOwnerFilter (\ s a -> s{_latActionOwnerFilter = a})
-
--- | An identifier that was returned from the previous list action types call, which can be used to return the next set of action types in the list.
-latNextToken :: Lens' ListActionTypes (Maybe Text)
-latNextToken = lens _latNextToken (\ s a -> s{_latNextToken = a})
-
-instance AWSRequest ListActionTypes where
-        type Rs ListActionTypes = ListActionTypesResponse
-        request = postJSON codePipeline
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListActionTypesResponse' <$>
-                   (x .?> "nextToken") <*> (pure (fromEnum s)) <*>
-                     (x .?> "actionTypes" .!@ mempty))
-
-instance Hashable ListActionTypes where
-
-instance NFData ListActionTypes where
-
-instance ToHeaders ListActionTypes where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodePipeline_20150709.ListActionTypes" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ListActionTypes where
-        toJSON ListActionTypes'{..}
-          = object
-              (catMaybes
-                 [("actionOwnerFilter" .=) <$> _latActionOwnerFilter,
-                  ("nextToken" .=) <$> _latNextToken])
-
-instance ToPath ListActionTypes where
-        toPath = const "/"
-
-instance ToQuery ListActionTypes where
-        toQuery = const mempty
-
--- | Represents the output of a ListActionTypes action.
+-- 'nextToken', 'listActionTypes_nextToken' - An identifier that was returned from the previous list action types
+-- call, which can be used to return the next set of action types in the
+-- list.
 --
+-- 'regionFilter', 'listActionTypes_regionFilter' - The Region to filter on for the list of action types.
 --
---
--- /See:/ 'listActionTypesResponse' smart constructor.
-data ListActionTypesResponse = ListActionTypesResponse'
-  { _latrsNextToken      :: !(Maybe Text)
-  , _latrsResponseStatus :: !Int
-  , _latrsActionTypes    :: ![ActionType]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListActionTypesResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'latrsNextToken' - If the amount of returned information is significantly large, an identifier is also returned which can be used in a subsequent list action types call to return the next set of action types in the list.
---
--- * 'latrsResponseStatus' - -- | The response status code.
---
--- * 'latrsActionTypes' - Provides details of the action types.
-listActionTypesResponse
-    :: Int -- ^ 'latrsResponseStatus'
-    -> ListActionTypesResponse
-listActionTypesResponse pResponseStatus_ =
-  ListActionTypesResponse'
-    { _latrsNextToken = Nothing
-    , _latrsResponseStatus = pResponseStatus_
-    , _latrsActionTypes = mempty
+-- 'actionOwnerFilter', 'listActionTypes_actionOwnerFilter' - Filters the list of action types to those created by a specified entity.
+newListActionTypes ::
+  ListActionTypes
+newListActionTypes =
+  ListActionTypes'
+    { nextToken = Prelude.Nothing,
+      regionFilter = Prelude.Nothing,
+      actionOwnerFilter = Prelude.Nothing
     }
 
+-- | An identifier that was returned from the previous list action types
+-- call, which can be used to return the next set of action types in the
+-- list.
+listActionTypes_nextToken :: Lens.Lens' ListActionTypes (Prelude.Maybe Prelude.Text)
+listActionTypes_nextToken = Lens.lens (\ListActionTypes' {nextToken} -> nextToken) (\s@ListActionTypes' {} a -> s {nextToken = a} :: ListActionTypes)
 
--- | If the amount of returned information is significantly large, an identifier is also returned which can be used in a subsequent list action types call to return the next set of action types in the list.
-latrsNextToken :: Lens' ListActionTypesResponse (Maybe Text)
-latrsNextToken = lens _latrsNextToken (\ s a -> s{_latrsNextToken = a})
+-- | The Region to filter on for the list of action types.
+listActionTypes_regionFilter :: Lens.Lens' ListActionTypes (Prelude.Maybe Prelude.Text)
+listActionTypes_regionFilter = Lens.lens (\ListActionTypes' {regionFilter} -> regionFilter) (\s@ListActionTypes' {} a -> s {regionFilter = a} :: ListActionTypes)
 
--- | -- | The response status code.
-latrsResponseStatus :: Lens' ListActionTypesResponse Int
-latrsResponseStatus = lens _latrsResponseStatus (\ s a -> s{_latrsResponseStatus = a})
+-- | Filters the list of action types to those created by a specified entity.
+listActionTypes_actionOwnerFilter :: Lens.Lens' ListActionTypes (Prelude.Maybe ActionOwner)
+listActionTypes_actionOwnerFilter = Lens.lens (\ListActionTypes' {actionOwnerFilter} -> actionOwnerFilter) (\s@ListActionTypes' {} a -> s {actionOwnerFilter = a} :: ListActionTypes)
+
+instance Pager.AWSPager ListActionTypes where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listActionTypesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        (rs Lens.^. listActionTypesResponse_actionTypes) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listActionTypes_nextToken
+          Lens..~ rs
+          Lens.^? listActionTypesResponse_nextToken
+            Prelude.. Lens._Just
+
+instance Prelude.AWSRequest ListActionTypes where
+  type Rs ListActionTypes = ListActionTypesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListActionTypesResponse'
+            Prelude.<$> (x Prelude..?> "nextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Prelude..?> "actionTypes"
+                            Prelude..!@ Prelude.mempty
+                        )
+      )
+
+instance Prelude.Hashable ListActionTypes
+
+instance Prelude.NFData ListActionTypes
+
+instance Prelude.ToHeaders ListActionTypes where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "CodePipeline_20150709.ListActionTypes" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON ListActionTypes where
+  toJSON ListActionTypes' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
+            ("regionFilter" Prelude..=) Prelude.<$> regionFilter,
+            ("actionOwnerFilter" Prelude..=)
+              Prelude.<$> actionOwnerFilter
+          ]
+      )
+
+instance Prelude.ToPath ListActionTypes where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery ListActionTypes where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | Represents the output of a @ListActionTypes@ action.
+--
+-- /See:/ 'newListActionTypesResponse' smart constructor.
+data ListActionTypesResponse = ListActionTypesResponse'
+  { -- | If the amount of returned information is significantly large, an
+    -- identifier is also returned. It can be used in a subsequent list action
+    -- types call to return the next set of action types in the list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | Provides details of the action types.
+    actionTypes :: [ActionType]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListActionTypesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listActionTypesResponse_nextToken' - If the amount of returned information is significantly large, an
+-- identifier is also returned. It can be used in a subsequent list action
+-- types call to return the next set of action types in the list.
+--
+-- 'httpStatus', 'listActionTypesResponse_httpStatus' - The response's http status code.
+--
+-- 'actionTypes', 'listActionTypesResponse_actionTypes' - Provides details of the action types.
+newListActionTypesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListActionTypesResponse
+newListActionTypesResponse pHttpStatus_ =
+  ListActionTypesResponse'
+    { nextToken =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_,
+      actionTypes = Prelude.mempty
+    }
+
+-- | If the amount of returned information is significantly large, an
+-- identifier is also returned. It can be used in a subsequent list action
+-- types call to return the next set of action types in the list.
+listActionTypesResponse_nextToken :: Lens.Lens' ListActionTypesResponse (Prelude.Maybe Prelude.Text)
+listActionTypesResponse_nextToken = Lens.lens (\ListActionTypesResponse' {nextToken} -> nextToken) (\s@ListActionTypesResponse' {} a -> s {nextToken = a} :: ListActionTypesResponse)
+
+-- | The response's http status code.
+listActionTypesResponse_httpStatus :: Lens.Lens' ListActionTypesResponse Prelude.Int
+listActionTypesResponse_httpStatus = Lens.lens (\ListActionTypesResponse' {httpStatus} -> httpStatus) (\s@ListActionTypesResponse' {} a -> s {httpStatus = a} :: ListActionTypesResponse)
 
 -- | Provides details of the action types.
-latrsActionTypes :: Lens' ListActionTypesResponse [ActionType]
-latrsActionTypes = lens _latrsActionTypes (\ s a -> s{_latrsActionTypes = a}) . _Coerce
+listActionTypesResponse_actionTypes :: Lens.Lens' ListActionTypesResponse [ActionType]
+listActionTypesResponse_actionTypes = Lens.lens (\ListActionTypesResponse' {actionTypes} -> actionTypes) (\s@ListActionTypesResponse' {} a -> s {actionTypes = a} :: ListActionTypesResponse) Prelude.. Prelude._Coerce
 
-instance NFData ListActionTypesResponse where
+instance Prelude.NFData ListActionTypesResponse

@@ -1,380 +1,481 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudSearch.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.CloudSearch.Types
-    (
-    -- * Service Configuration
-      cloudSearch
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _BaseException
-    , _DisabledOperationException
-    , _InternalException
-    , _InvalidTypeException
-    , _ResourceNotFoundException
-    , _LimitExceededException
+    _InvalidTypeException,
+    _InternalException,
+    _BaseException,
+    _ValidationException,
+    _LimitExceededException,
+    _ResourceNotFoundException,
+    _DisabledOperationException,
 
     -- * AlgorithmicStemming
-    , AlgorithmicStemming (..)
+    AlgorithmicStemming (..),
 
     -- * AnalysisSchemeLanguage
-    , AnalysisSchemeLanguage (..)
+    AnalysisSchemeLanguage (..),
 
     -- * IndexFieldType
-    , IndexFieldType (..)
+    IndexFieldType (..),
 
     -- * OptionState
-    , OptionState (..)
+    OptionState (..),
 
     -- * PartitionInstanceType
-    , PartitionInstanceType (..)
+    PartitionInstanceType (..),
 
     -- * SuggesterFuzzyMatching
-    , SuggesterFuzzyMatching (..)
+    SuggesterFuzzyMatching (..),
+
+    -- * TLSSecurityPolicy
+    TLSSecurityPolicy (..),
 
     -- * AccessPoliciesStatus
-    , AccessPoliciesStatus
-    , accessPoliciesStatus
-    , apsOptions
-    , apsStatus
+    AccessPoliciesStatus (..),
+    newAccessPoliciesStatus,
+    accessPoliciesStatus_options,
+    accessPoliciesStatus_status,
 
     -- * AnalysisOptions
-    , AnalysisOptions
-    , analysisOptions
-    , aoAlgorithmicStemming
-    , aoStopwords
-    , aoJapaneseTokenizationDictionary
-    , aoSynonyms
-    , aoStemmingDictionary
+    AnalysisOptions (..),
+    newAnalysisOptions,
+    analysisOptions_stopwords,
+    analysisOptions_algorithmicStemming,
+    analysisOptions_stemmingDictionary,
+    analysisOptions_japaneseTokenizationDictionary,
+    analysisOptions_synonyms,
 
     -- * AnalysisScheme
-    , AnalysisScheme
-    , analysisScheme
-    , asAnalysisOptions
-    , asAnalysisSchemeName
-    , asAnalysisSchemeLanguage
+    AnalysisScheme (..),
+    newAnalysisScheme,
+    analysisScheme_analysisOptions,
+    analysisScheme_analysisSchemeName,
+    analysisScheme_analysisSchemeLanguage,
 
     -- * AnalysisSchemeStatus
-    , AnalysisSchemeStatus
-    , analysisSchemeStatus
-    , assOptions
-    , assStatus
+    AnalysisSchemeStatus (..),
+    newAnalysisSchemeStatus,
+    analysisSchemeStatus_options,
+    analysisSchemeStatus_status,
 
     -- * AvailabilityOptionsStatus
-    , AvailabilityOptionsStatus
-    , availabilityOptionsStatus
-    , aosOptions
-    , aosStatus
+    AvailabilityOptionsStatus (..),
+    newAvailabilityOptionsStatus,
+    availabilityOptionsStatus_options,
+    availabilityOptionsStatus_status,
 
     -- * DateArrayOptions
-    , DateArrayOptions
-    , dateArrayOptions
-    , daosSourceFields
-    , daosReturnEnabled
-    , daosFacetEnabled
-    , daosSearchEnabled
-    , daosDefaultValue
+    DateArrayOptions (..),
+    newDateArrayOptions,
+    dateArrayOptions_sourceFields,
+    dateArrayOptions_facetEnabled,
+    dateArrayOptions_returnEnabled,
+    dateArrayOptions_searchEnabled,
+    dateArrayOptions_defaultValue,
 
     -- * DateOptions
-    , DateOptions
-    , dateOptions
-    , doSourceField
-    , doReturnEnabled
-    , doFacetEnabled
-    , doSearchEnabled
-    , doSortEnabled
-    , doDefaultValue
+    DateOptions (..),
+    newDateOptions,
+    dateOptions_sortEnabled,
+    dateOptions_facetEnabled,
+    dateOptions_returnEnabled,
+    dateOptions_sourceField,
+    dateOptions_searchEnabled,
+    dateOptions_defaultValue,
 
     -- * DocumentSuggesterOptions
-    , DocumentSuggesterOptions
-    , documentSuggesterOptions
-    , dsoSortExpression
-    , dsoFuzzyMatching
-    , dsoSourceField
+    DocumentSuggesterOptions (..),
+    newDocumentSuggesterOptions,
+    documentSuggesterOptions_fuzzyMatching,
+    documentSuggesterOptions_sortExpression,
+    documentSuggesterOptions_sourceField,
+
+    -- * DomainEndpointOptions
+    DomainEndpointOptions (..),
+    newDomainEndpointOptions,
+    domainEndpointOptions_enforceHTTPS,
+    domainEndpointOptions_tLSSecurityPolicy,
+
+    -- * DomainEndpointOptionsStatus
+    DomainEndpointOptionsStatus (..),
+    newDomainEndpointOptionsStatus,
+    domainEndpointOptionsStatus_options,
+    domainEndpointOptionsStatus_status,
 
     -- * DomainStatus
-    , DomainStatus
-    , domainStatus
-    , dsSearchInstanceCount
-    , dsSearchInstanceType
-    , dsDocService
-    , dsARN
-    , dsCreated
-    , dsSearchService
-    , dsLimits
-    , dsSearchPartitionCount
-    , dsDeleted
-    , dsProcessing
-    , dsDomainId
-    , dsDomainName
-    , dsRequiresIndexDocuments
+    DomainStatus (..),
+    newDomainStatus,
+    domainStatus_searchInstanceType,
+    domainStatus_arn,
+    domainStatus_searchPartitionCount,
+    domainStatus_searchInstanceCount,
+    domainStatus_limits,
+    domainStatus_searchService,
+    domainStatus_processing,
+    domainStatus_created,
+    domainStatus_deleted,
+    domainStatus_docService,
+    domainStatus_domainId,
+    domainStatus_domainName,
+    domainStatus_requiresIndexDocuments,
 
     -- * DoubleArrayOptions
-    , DoubleArrayOptions
-    , doubleArrayOptions
-    , daoSourceFields
-    , daoReturnEnabled
-    , daoFacetEnabled
-    , daoSearchEnabled
-    , daoDefaultValue
+    DoubleArrayOptions (..),
+    newDoubleArrayOptions,
+    doubleArrayOptions_sourceFields,
+    doubleArrayOptions_facetEnabled,
+    doubleArrayOptions_returnEnabled,
+    doubleArrayOptions_searchEnabled,
+    doubleArrayOptions_defaultValue,
 
     -- * DoubleOptions
-    , DoubleOptions
-    , doubleOptions
-    , dSourceField
-    , dReturnEnabled
-    , dFacetEnabled
-    , dSearchEnabled
-    , dSortEnabled
-    , dDefaultValue
+    DoubleOptions (..),
+    newDoubleOptions,
+    doubleOptions_sortEnabled,
+    doubleOptions_facetEnabled,
+    doubleOptions_returnEnabled,
+    doubleOptions_sourceField,
+    doubleOptions_searchEnabled,
+    doubleOptions_defaultValue,
 
     -- * Expression
-    , Expression
-    , expression
-    , eExpressionName
-    , eExpressionValue
+    Expression (..),
+    newExpression,
+    expression_expressionName,
+    expression_expressionValue,
 
     -- * ExpressionStatus
-    , ExpressionStatus
-    , expressionStatus
-    , esOptions
-    , esStatus
+    ExpressionStatus (..),
+    newExpressionStatus,
+    expressionStatus_options,
+    expressionStatus_status,
 
     -- * IndexField
-    , IndexField
-    , indexField
-    , ifDoubleArrayOptions
-    , ifDateOptions
-    , ifTextArrayOptions
-    , ifDoubleOptions
-    , ifTextOptions
-    , ifLatLonOptions
-    , ifLiteralArrayOptions
-    , ifIntArrayOptions
-    , ifDateArrayOptions
-    , ifIntOptions
-    , ifLiteralOptions
-    , ifIndexFieldName
-    , ifIndexFieldType
+    IndexField (..),
+    newIndexField,
+    indexField_doubleArrayOptions,
+    indexField_latLonOptions,
+    indexField_textArrayOptions,
+    indexField_dateArrayOptions,
+    indexField_doubleOptions,
+    indexField_textOptions,
+    indexField_intArrayOptions,
+    indexField_literalArrayOptions,
+    indexField_dateOptions,
+    indexField_intOptions,
+    indexField_literalOptions,
+    indexField_indexFieldName,
+    indexField_indexFieldType,
 
     -- * IndexFieldStatus
-    , IndexFieldStatus
-    , indexFieldStatus
-    , ifsOptions
-    , ifsStatus
+    IndexFieldStatus (..),
+    newIndexFieldStatus,
+    indexFieldStatus_options,
+    indexFieldStatus_status,
 
     -- * IntArrayOptions
-    , IntArrayOptions
-    , intArrayOptions
-    , iaoSourceFields
-    , iaoReturnEnabled
-    , iaoFacetEnabled
-    , iaoSearchEnabled
-    , iaoDefaultValue
+    IntArrayOptions (..),
+    newIntArrayOptions,
+    intArrayOptions_sourceFields,
+    intArrayOptions_facetEnabled,
+    intArrayOptions_returnEnabled,
+    intArrayOptions_searchEnabled,
+    intArrayOptions_defaultValue,
 
     -- * IntOptions
-    , IntOptions
-    , intOptions
-    , ioSourceField
-    , ioReturnEnabled
-    , ioFacetEnabled
-    , ioSearchEnabled
-    , ioSortEnabled
-    , ioDefaultValue
+    IntOptions (..),
+    newIntOptions,
+    intOptions_sortEnabled,
+    intOptions_facetEnabled,
+    intOptions_returnEnabled,
+    intOptions_sourceField,
+    intOptions_searchEnabled,
+    intOptions_defaultValue,
 
     -- * LatLonOptions
-    , LatLonOptions
-    , latLonOptions
-    , lloSourceField
-    , lloReturnEnabled
-    , lloFacetEnabled
-    , lloSearchEnabled
-    , lloSortEnabled
-    , lloDefaultValue
+    LatLonOptions (..),
+    newLatLonOptions,
+    latLonOptions_sortEnabled,
+    latLonOptions_facetEnabled,
+    latLonOptions_returnEnabled,
+    latLonOptions_sourceField,
+    latLonOptions_searchEnabled,
+    latLonOptions_defaultValue,
 
     -- * Limits
-    , Limits
-    , limits
-    , lMaximumReplicationCount
-    , lMaximumPartitionCount
+    Limits (..),
+    newLimits,
+    limits_maximumReplicationCount,
+    limits_maximumPartitionCount,
 
     -- * LiteralArrayOptions
-    , LiteralArrayOptions
-    , literalArrayOptions
-    , laoSourceFields
-    , laoReturnEnabled
-    , laoFacetEnabled
-    , laoSearchEnabled
-    , laoDefaultValue
+    LiteralArrayOptions (..),
+    newLiteralArrayOptions,
+    literalArrayOptions_sourceFields,
+    literalArrayOptions_facetEnabled,
+    literalArrayOptions_returnEnabled,
+    literalArrayOptions_searchEnabled,
+    literalArrayOptions_defaultValue,
 
     -- * LiteralOptions
-    , LiteralOptions
-    , literalOptions
-    , loSourceField
-    , loReturnEnabled
-    , loFacetEnabled
-    , loSearchEnabled
-    , loSortEnabled
-    , loDefaultValue
+    LiteralOptions (..),
+    newLiteralOptions,
+    literalOptions_sortEnabled,
+    literalOptions_facetEnabled,
+    literalOptions_returnEnabled,
+    literalOptions_sourceField,
+    literalOptions_searchEnabled,
+    literalOptions_defaultValue,
 
     -- * OptionStatus
-    , OptionStatus
-    , optionStatus
-    , osPendingDeletion
-    , osUpdateVersion
-    , osCreationDate
-    , osUpdateDate
-    , osState
+    OptionStatus (..),
+    newOptionStatus,
+    optionStatus_updateVersion,
+    optionStatus_pendingDeletion,
+    optionStatus_creationDate,
+    optionStatus_updateDate,
+    optionStatus_state,
 
     -- * ScalingParameters
-    , ScalingParameters
-    , scalingParameters
-    , spDesiredInstanceType
-    , spDesiredReplicationCount
-    , spDesiredPartitionCount
+    ScalingParameters (..),
+    newScalingParameters,
+    scalingParameters_desiredReplicationCount,
+    scalingParameters_desiredPartitionCount,
+    scalingParameters_desiredInstanceType,
 
     -- * ScalingParametersStatus
-    , ScalingParametersStatus
-    , scalingParametersStatus
-    , spsOptions
-    , spsStatus
+    ScalingParametersStatus (..),
+    newScalingParametersStatus,
+    scalingParametersStatus_options,
+    scalingParametersStatus_status,
 
     -- * ServiceEndpoint
-    , ServiceEndpoint
-    , serviceEndpoint
-    , seEndpoint
+    ServiceEndpoint (..),
+    newServiceEndpoint,
+    serviceEndpoint_endpoint,
 
     -- * Suggester
-    , Suggester
-    , suggester
-    , sSuggesterName
-    , sDocumentSuggesterOptions
+    Suggester (..),
+    newSuggester,
+    suggester_suggesterName,
+    suggester_documentSuggesterOptions,
 
     -- * SuggesterStatus
-    , SuggesterStatus
-    , suggesterStatus
-    , ssOptions
-    , ssStatus
+    SuggesterStatus (..),
+    newSuggesterStatus,
+    suggesterStatus_options,
+    suggesterStatus_status,
 
     -- * TextArrayOptions
-    , TextArrayOptions
-    , textArrayOptions
-    , taoSourceFields
-    , taoReturnEnabled
-    , taoAnalysisScheme
-    , taoHighlightEnabled
-    , taoDefaultValue
+    TextArrayOptions (..),
+    newTextArrayOptions,
+    textArrayOptions_analysisScheme,
+    textArrayOptions_sourceFields,
+    textArrayOptions_returnEnabled,
+    textArrayOptions_defaultValue,
+    textArrayOptions_highlightEnabled,
 
     -- * TextOptions
-    , TextOptions
-    , textOptions
-    , toSourceField
-    , toReturnEnabled
-    , toAnalysisScheme
-    , toHighlightEnabled
-    , toSortEnabled
-    , toDefaultValue
-    ) where
+    TextOptions (..),
+    newTextOptions,
+    textOptions_sortEnabled,
+    textOptions_analysisScheme,
+    textOptions_returnEnabled,
+    textOptions_sourceField,
+    textOptions_defaultValue,
+    textOptions_highlightEnabled,
+  )
+where
 
-import Network.AWS.CloudSearch.Types.Product
-import Network.AWS.CloudSearch.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import Network.AWS.CloudSearch.Types.AccessPoliciesStatus
+import Network.AWS.CloudSearch.Types.AlgorithmicStemming
+import Network.AWS.CloudSearch.Types.AnalysisOptions
+import Network.AWS.CloudSearch.Types.AnalysisScheme
+import Network.AWS.CloudSearch.Types.AnalysisSchemeLanguage
+import Network.AWS.CloudSearch.Types.AnalysisSchemeStatus
+import Network.AWS.CloudSearch.Types.AvailabilityOptionsStatus
+import Network.AWS.CloudSearch.Types.DateArrayOptions
+import Network.AWS.CloudSearch.Types.DateOptions
+import Network.AWS.CloudSearch.Types.DocumentSuggesterOptions
+import Network.AWS.CloudSearch.Types.DomainEndpointOptions
+import Network.AWS.CloudSearch.Types.DomainEndpointOptionsStatus
+import Network.AWS.CloudSearch.Types.DomainStatus
+import Network.AWS.CloudSearch.Types.DoubleArrayOptions
+import Network.AWS.CloudSearch.Types.DoubleOptions
+import Network.AWS.CloudSearch.Types.Expression
+import Network.AWS.CloudSearch.Types.ExpressionStatus
+import Network.AWS.CloudSearch.Types.IndexField
+import Network.AWS.CloudSearch.Types.IndexFieldStatus
+import Network.AWS.CloudSearch.Types.IndexFieldType
+import Network.AWS.CloudSearch.Types.IntArrayOptions
+import Network.AWS.CloudSearch.Types.IntOptions
+import Network.AWS.CloudSearch.Types.LatLonOptions
+import Network.AWS.CloudSearch.Types.Limits
+import Network.AWS.CloudSearch.Types.LiteralArrayOptions
+import Network.AWS.CloudSearch.Types.LiteralOptions
+import Network.AWS.CloudSearch.Types.OptionState
+import Network.AWS.CloudSearch.Types.OptionStatus
+import Network.AWS.CloudSearch.Types.PartitionInstanceType
+import Network.AWS.CloudSearch.Types.ScalingParameters
+import Network.AWS.CloudSearch.Types.ScalingParametersStatus
+import Network.AWS.CloudSearch.Types.ServiceEndpoint
+import Network.AWS.CloudSearch.Types.Suggester
+import Network.AWS.CloudSearch.Types.SuggesterFuzzyMatching
+import Network.AWS.CloudSearch.Types.SuggesterStatus
+import Network.AWS.CloudSearch.Types.TLSSecurityPolicy
+import Network.AWS.CloudSearch.Types.TextArrayOptions
+import Network.AWS.CloudSearch.Types.TextOptions
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2013-01-01@ of the Amazon CloudSearch SDK configuration.
-cloudSearch :: Service
-cloudSearch =
-  Service
-    { _svcAbbrev = "CloudSearch"
-    , _svcSigner = v4
-    , _svcPrefix = "cloudsearch"
-    , _svcVersion = "2013-01-01"
-    , _svcEndpoint = defaultEndpoint cloudSearch
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseXMLError "CloudSearch"
-    , _svcRetry = retry
+defaultService :: Prelude.Service
+defaultService =
+  Prelude.Service
+    { Prelude._svcAbbrev = "CloudSearch",
+      Prelude._svcSigner = Sign.v4,
+      Prelude._svcPrefix = "cloudsearch",
+      Prelude._svcVersion = "2013-01-01",
+      Prelude._svcEndpoint =
+        Prelude.defaultEndpoint defaultService,
+      Prelude._svcTimeout = Prelude.Just 70,
+      Prelude._svcCheck = Prelude.statusSuccess,
+      Prelude._svcError =
+        Prelude.parseXMLError "CloudSearch",
+      Prelude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Prelude.Exponential
+        { Prelude._retryBase = 5.0e-2,
+          Prelude._retryGrowth = 2,
+          Prelude._retryAttempts = 5,
+          Prelude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasCode "BandwidthLimitExceeded" . hasStatus 509) e =
-        Just "request_limit_exceeded"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+      | Lens.has
+          ( Prelude.hasCode "BandwidthLimitExceeded"
+              Prelude.. Prelude.hasStatus 509
+          )
+          e =
+        Prelude.Just "request_limit_exceeded"
+      | Lens.has (Prelude.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Prelude.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Prelude.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Prelude.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Prelude.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Prelude.hasCode "RequestThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Prelude.hasCode "ThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Prelude.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Prelude.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Prelude.hasCode "ThrottlingException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Prelude.hasCode "Throttling"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
+-- | The request was rejected because it specified an invalid type
+-- definition.
+_InvalidTypeException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidTypeException =
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidType"
+    Prelude.. Prelude.hasStatus 409
+
+-- | An internal error occurred while processing the request. If this problem
+-- persists, report an issue from the
+-- <http://status.aws.amazon.com/ Service Health Dashboard>.
+_InternalException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InternalException =
+  Prelude._MatchServiceError
+    defaultService
+    "InternalException"
+    Prelude.. Prelude.hasStatus 500
 
 -- | An error occurred while processing the request.
---
---
-_BaseException :: AsError a => Getting (First ServiceError) a ServiceError
-_BaseException = _MatchServiceError cloudSearch "BaseException"
+_BaseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_BaseException =
+  Prelude._MatchServiceError
+    defaultService
+    "BaseException"
 
-
--- | The request was rejected because it attempted an operation which is not enabled.
---
---
-_DisabledOperationException :: AsError a => Getting (First ServiceError) a ServiceError
-_DisabledOperationException =
-  _MatchServiceError cloudSearch "DisabledAction" . hasStatus 409
-
-
--- | An internal error occurred while processing the request. If this problem persists, report an issue from the <http://status.aws.amazon.com/ Service Health Dashboard> .
---
---
-_InternalException :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalException =
-  _MatchServiceError cloudSearch "InternalException" . hasStatus 500
-
-
--- | The request was rejected because it specified an invalid type definition.
---
---
-_InvalidTypeException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidTypeException =
-  _MatchServiceError cloudSearch "InvalidType" . hasStatus 409
-
-
--- | The request was rejected because it attempted to reference a resource that does not exist.
---
---
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFoundException =
-  _MatchServiceError cloudSearch "ResourceNotFound" . hasStatus 409
-
+-- | The request was rejected because it has invalid parameters.
+_ValidationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ValidationException =
+  Prelude._MatchServiceError
+    defaultService
+    "ValidationException"
 
 -- | The request was rejected because a resource limit has already been met.
---
---
-_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_LimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
 _LimitExceededException =
-  _MatchServiceError cloudSearch "LimitExceeded" . hasStatus 409
+  Prelude._MatchServiceError
+    defaultService
+    "LimitExceeded"
+    Prelude.. Prelude.hasStatus 409
 
+-- | The request was rejected because it attempted to reference a resource
+-- that does not exist.
+_ResourceNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNotFoundException =
+  Prelude._MatchServiceError
+    defaultService
+    "ResourceNotFound"
+    Prelude.. Prelude.hasStatus 409
+
+-- | The request was rejected because it attempted an operation which is not
+-- enabled.
+_DisabledOperationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DisabledOperationException =
+  Prelude._MatchServiceError
+    defaultService
+    "DisabledAction"
+    Prelude.. Prelude.hasStatus 409

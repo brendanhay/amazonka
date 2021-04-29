@@ -1,156 +1,193 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glue.GetTable
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the @Table@ definition in a Data Catalog for a specified table.
---
---
+-- Retrieves the @Table@ definition in a Data Catalog for a specified
+-- table.
 module Network.AWS.Glue.GetTable
-    (
-    -- * Creating a Request
-      getTable
-    , GetTable
+  ( -- * Creating a Request
+    GetTable (..),
+    newGetTable,
+
     -- * Request Lenses
-    , gttCatalogId
-    , gttDatabaseName
-    , gttName
+    getTable_catalogId,
+    getTable_databaseName,
+    getTable_name,
 
     -- * Destructuring the Response
-    , getTableResponse
-    , GetTableResponse
+    GetTableResponse (..),
+    newGetTableResponse,
+
     -- * Response Lenses
-    , ggrsTable
-    , ggrsResponseStatus
-    ) where
+    getTableResponse_table,
+    getTableResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Glue.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getTable' smart constructor.
+-- | /See:/ 'newGetTable' smart constructor.
 data GetTable = GetTable'
-  { _gttCatalogId    :: !(Maybe Text)
-  , _gttDatabaseName :: !Text
-  , _gttName         :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the Data Catalog where the table resides. If none is provided,
+    -- the AWS account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the database in the catalog in which the table resides. For
+    -- Hive compatibility, this name is entirely lowercase.
+    databaseName :: Prelude.Text,
+    -- | The name of the table for which to retrieve the definition. For Hive
+    -- compatibility, this name is entirely lowercase.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetTable' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetTable' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gttCatalogId' - The ID of the Data Catalog where the table resides. If none is supplied, the AWS account ID is used by default.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gttDatabaseName' - The name of the database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
+-- 'catalogId', 'getTable_catalogId' - The ID of the Data Catalog where the table resides. If none is provided,
+-- the AWS account ID is used by default.
 --
--- * 'gttName' - The name of the table for which to retrieve the definition. For Hive compatibility, this name is entirely lowercase.
-getTable
-    :: Text -- ^ 'gttDatabaseName'
-    -> Text -- ^ 'gttName'
-    -> GetTable
-getTable pDatabaseName_ pName_ =
+-- 'databaseName', 'getTable_databaseName' - The name of the database in the catalog in which the table resides. For
+-- Hive compatibility, this name is entirely lowercase.
+--
+-- 'name', 'getTable_name' - The name of the table for which to retrieve the definition. For Hive
+-- compatibility, this name is entirely lowercase.
+newGetTable ::
+  -- | 'databaseName'
+  Prelude.Text ->
+  -- | 'name'
+  Prelude.Text ->
+  GetTable
+newGetTable pDatabaseName_ pName_ =
   GetTable'
-    { _gttCatalogId = Nothing
-    , _gttDatabaseName = pDatabaseName_
-    , _gttName = pName_
+    { catalogId = Prelude.Nothing,
+      databaseName = pDatabaseName_,
+      name = pName_
     }
 
+-- | The ID of the Data Catalog where the table resides. If none is provided,
+-- the AWS account ID is used by default.
+getTable_catalogId :: Lens.Lens' GetTable (Prelude.Maybe Prelude.Text)
+getTable_catalogId = Lens.lens (\GetTable' {catalogId} -> catalogId) (\s@GetTable' {} a -> s {catalogId = a} :: GetTable)
 
--- | The ID of the Data Catalog where the table resides. If none is supplied, the AWS account ID is used by default.
-gttCatalogId :: Lens' GetTable (Maybe Text)
-gttCatalogId = lens _gttCatalogId (\ s a -> s{_gttCatalogId = a})
+-- | The name of the database in the catalog in which the table resides. For
+-- Hive compatibility, this name is entirely lowercase.
+getTable_databaseName :: Lens.Lens' GetTable Prelude.Text
+getTable_databaseName = Lens.lens (\GetTable' {databaseName} -> databaseName) (\s@GetTable' {} a -> s {databaseName = a} :: GetTable)
 
--- | The name of the database in the catalog in which the table resides. For Hive compatibility, this name is entirely lowercase.
-gttDatabaseName :: Lens' GetTable Text
-gttDatabaseName = lens _gttDatabaseName (\ s a -> s{_gttDatabaseName = a})
+-- | The name of the table for which to retrieve the definition. For Hive
+-- compatibility, this name is entirely lowercase.
+getTable_name :: Lens.Lens' GetTable Prelude.Text
+getTable_name = Lens.lens (\GetTable' {name} -> name) (\s@GetTable' {} a -> s {name = a} :: GetTable)
 
--- | The name of the table for which to retrieve the definition. For Hive compatibility, this name is entirely lowercase.
-gttName :: Lens' GetTable Text
-gttName = lens _gttName (\ s a -> s{_gttName = a})
+instance Prelude.AWSRequest GetTable where
+  type Rs GetTable = GetTableResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetTableResponse'
+            Prelude.<$> (x Prelude..?> "Table")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetTable where
-        type Rs GetTable = GetTableResponse
-        request = postJSON glue
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetTableResponse' <$>
-                   (x .?> "Table") <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetTable
 
-instance Hashable GetTable where
+instance Prelude.NFData GetTable
 
-instance NFData GetTable where
+instance Prelude.ToHeaders GetTable where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ("AWSGlue.GetTable" :: Prelude.ByteString),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders GetTable where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSGlue.GetTable" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToJSON GetTable where
+  toJSON GetTable' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
+            Prelude.Just
+              ("DatabaseName" Prelude..= databaseName),
+            Prelude.Just ("Name" Prelude..= name)
+          ]
+      )
 
-instance ToJSON GetTable where
-        toJSON GetTable'{..}
-          = object
-              (catMaybes
-                 [("CatalogId" .=) <$> _gttCatalogId,
-                  Just ("DatabaseName" .= _gttDatabaseName),
-                  Just ("Name" .= _gttName)])
+instance Prelude.ToPath GetTable where
+  toPath = Prelude.const "/"
 
-instance ToPath GetTable where
-        toPath = const "/"
+instance Prelude.ToQuery GetTable where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery GetTable where
-        toQuery = const mempty
-
--- | /See:/ 'getTableResponse' smart constructor.
+-- | /See:/ 'newGetTableResponse' smart constructor.
 data GetTableResponse = GetTableResponse'
-  { _ggrsTable          :: !(Maybe Table)
-  , _ggrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @Table@ object that defines the specified table.
+    table :: Prelude.Maybe Table,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetTableResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetTableResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ggrsTable' - The @Table@ object that defines the specified table.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ggrsResponseStatus' - -- | The response status code.
-getTableResponse
-    :: Int -- ^ 'ggrsResponseStatus'
-    -> GetTableResponse
-getTableResponse pResponseStatus_ =
+-- 'table', 'getTableResponse_table' - The @Table@ object that defines the specified table.
+--
+-- 'httpStatus', 'getTableResponse_httpStatus' - The response's http status code.
+newGetTableResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetTableResponse
+newGetTableResponse pHttpStatus_ =
   GetTableResponse'
-    {_ggrsTable = Nothing, _ggrsResponseStatus = pResponseStatus_}
-
+    { table = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The @Table@ object that defines the specified table.
-ggrsTable :: Lens' GetTableResponse (Maybe Table)
-ggrsTable = lens _ggrsTable (\ s a -> s{_ggrsTable = a})
+getTableResponse_table :: Lens.Lens' GetTableResponse (Prelude.Maybe Table)
+getTableResponse_table = Lens.lens (\GetTableResponse' {table} -> table) (\s@GetTableResponse' {} a -> s {table = a} :: GetTableResponse)
 
--- | -- | The response status code.
-ggrsResponseStatus :: Lens' GetTableResponse Int
-ggrsResponseStatus = lens _ggrsResponseStatus (\ s a -> s{_ggrsResponseStatus = a})
+-- | The response's http status code.
+getTableResponse_httpStatus :: Lens.Lens' GetTableResponse Prelude.Int
+getTableResponse_httpStatus = Lens.lens (\GetTableResponse' {httpStatus} -> httpStatus) (\s@GetTableResponse' {} a -> s {httpStatus = a} :: GetTableResponse)
 
-instance NFData GetTableResponse where
+instance Prelude.NFData GetTableResponse

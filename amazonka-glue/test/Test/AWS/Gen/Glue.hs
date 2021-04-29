@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.Glue
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.Glue where
 
 import Data.Proxy
@@ -28,1416 +27,3152 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestStartCrawler $
---             startCrawler
+--         [ requestGetDataCatalogEncryptionSettings $
+--             newGetDataCatalogEncryptionSettings
 --
---         , requestGetCatalogImportStatus $
---             getCatalogImportStatus
+--         , requestUpdateColumnStatisticsForTable $
+--             newUpdateColumnStatisticsForTable
 --
---         , requestGetPartition $
---             getPartition
+--         , requestStartMLLabelingSetGenerationTaskRun $
+--             newStartMLLabelingSetGenerationTaskRun
 --
---         , requestCreateTrigger $
---             createTrigger
+--         , requestDeleteColumnStatisticsForTable $
+--             newDeleteColumnStatisticsForTable
 --
---         , requestDeleteTable $
---             deleteTable
---
---         , requestUpdateTable $
---             updateTable
+--         , requestGetSchema $
+--             newGetSchema
 --
 --         , requestDeleteConnection $
---             deleteConnection
+--             newDeleteConnection
 --
 --         , requestUpdateConnection $
---             updateConnection
+--             newUpdateConnection
 --
---         , requestGetUserDefinedFunctions $
---             getUserDefinedFunctions
+--         , requestCheckSchemaVersionValidity $
+--             newCheckSchemaVersionValidity
 --
---         , requestBatchCreatePartition $
---             batchCreatePartition
---
---         , requestGetMapping $
---             getMapping
---
---         , requestGetTableVersion $
---             getTableVersion
---
---         , requestGetJobs $
---             getJobs
---
---         , requestGetClassifiers $
---             getClassifiers
---
---         , requestCreateConnection $
---             createConnection
---
---         , requestDeleteTableVersion $
---             deleteTableVersion
---
---         , requestDeleteDevEndpoint $
---             deleteDevEndpoint
---
---         , requestUpdateDevEndpoint $
---             updateDevEndpoint
---
---         , requestDeleteCrawler $
---             deleteCrawler
---
---         , requestUpdateCrawler $
---             updateCrawler
---
---         , requestGetConnection $
---             getConnection
---
---         , requestBatchGetPartition $
---             batchGetPartition
---
---         , requestStopTrigger $
---             stopTrigger
---
---         , requestUpdateCrawlerSchedule $
---             updateCrawlerSchedule
---
---         , requestDeleteUserDefinedFunction $
---             deleteUserDefinedFunction
---
---         , requestUpdateUserDefinedFunction $
---             updateUserDefinedFunction
---
---         , requestBatchDeleteTable $
---             batchDeleteTable
---
---         , requestGetTables $
---             getTables
---
---         , requestCreateClassifier $
---             createClassifier
---
---         , requestBatchDeleteConnection $
---             batchDeleteConnection
---
---         , requestCreateJob $
---             createJob
---
---         , requestGetJobRuns $
---             getJobRuns
---
---         , requestCreateUserDefinedFunction $
---             createUserDefinedFunction
---
---         , requestResetJobBookmark $
---             resetJobBookmark
---
---         , requestDeleteJob $
---             deleteJob
---
---         , requestUpdateJob $
---             updateJob
---
---         , requestGetCrawlers $
---             getCrawlers
---
---         , requestGetClassifier $
---             getClassifier
---
---         , requestGetJob $
---             getJob
---
---         , requestBatchDeleteTableVersion $
---             batchDeleteTableVersion
---
---         , requestGetDevEndpoints $
---             getDevEndpoints
---
---         , requestStartCrawlerSchedule $
---             startCrawlerSchedule
---
---         , requestGetUserDefinedFunction $
---             getUserDefinedFunction
---
---         , requestDeleteDatabase $
---             deleteDatabase
---
---         , requestUpdateDatabase $
---             updateDatabase
---
---         , requestStopCrawler $
---             stopCrawler
+--         , requestCreateWorkflow $
+--             newCreateWorkflow
 --
 --         , requestGetPartitions $
---             getPartitions
+--             newGetPartitions
 --
---         , requestBatchDeletePartition $
---             batchDeletePartition
+--         , requestDeleteSecurityConfiguration $
+--             newDeleteSecurityConfiguration
 --
---         , requestGetCrawler $
---             getCrawler
+--         , requestGetPartition $
+--             newGetPartition
 --
---         , requestBatchStopJobRun $
---             batchStopJobRun
+--         , requestUpdateRegistry $
+--             newUpdateRegistry
 --
---         , requestGetDevEndpoint $
---             getDevEndpoint
+--         , requestListMLTransforms $
+--             newListMLTransforms
 --
---         , requestCreateTable $
---             createTable
+--         , requestStopCrawler $
+--             newStopCrawler
 --
---         , requestGetCrawlerMetrics $
---             getCrawlerMetrics
+--         , requestStartImportLabelsTaskRun $
+--             newStartImportLabelsTaskRun
 --
---         , requestGetPlan $
---             getPlan
+--         , requestGetResourcePolicy $
+--             newGetResourcePolicy
 --
---         , requestGetTriggers $
---             getTriggers
+--         , requestQuerySchemaVersionMetadata $
+--             newQuerySchemaVersionMetadata
 --
---         , requestStartTrigger $
---             startTrigger
+--         , requestDeleteRegistry $
+--             newDeleteRegistry
 --
---         , requestGetDataflowGraph $
---             getDataflowGraph
+--         , requestGetPartitionIndexes $
+--             newGetPartitionIndexes
 --
---         , requestGetDatabases $
---             getDatabases
+--         , requestStartCrawler $
+--             newStartCrawler
 --
---         , requestGetTable $
---             getTable
+--         , requestGetCatalogImportStatus $
+--             newGetCatalogImportStatus
 --
---         , requestCreateCrawler $
---             createCrawler
+--         , requestGetColumnStatisticsForPartition $
+--             newGetColumnStatisticsForPartition
 --
---         , requestGetJobRun $
---             getJobRun
+--         , requestCreateRegistry $
+--             newCreateRegistry
 --
---         , requestCreateDevEndpoint $
---             createDevEndpoint
+--         , requestListTriggers $
+--             newListTriggers
 --
---         , requestGetDatabase $
---             getDatabase
---
---         , requestDeletePartition $
---             deletePartition
---
---         , requestUpdatePartition $
---             updatePartition
---
---         , requestCreateScript $
---             createScript
---
---         , requestGetConnections $
---             getConnections
---
---         , requestGetTrigger $
---             getTrigger
---
---         , requestImportCatalogToGlue $
---             importCatalogToGlue
---
---         , requestDeleteClassifier $
---             deleteClassifier
---
---         , requestUpdateClassifier $
---             updateClassifier
---
---         , requestStartJobRun $
---             startJobRun
---
---         , requestCreatePartition $
---             createPartition
+--         , requestCreateMLTransform $
+--             newCreateMLTransform
 --
 --         , requestStopCrawlerSchedule $
---             stopCrawlerSchedule
---
---         , requestCreateDatabase $
---             createDatabase
---
---         , requestGetTableVersions $
---             getTableVersions
---
---         , requestDeleteTrigger $
---             deleteTrigger
+--             newStopCrawlerSchedule
 --
 --         , requestUpdateTrigger $
---             updateTrigger
+--             newUpdateTrigger
+--
+--         , requestGetSchemaByDefinition $
+--             newGetSchemaByDefinition
+--
+--         , requestListRegistries $
+--             newListRegistries
+--
+--         , requestStartCrawlerSchedule $
+--             newStartCrawlerSchedule
+--
+--         , requestDeleteTrigger $
+--             newDeleteTrigger
+--
+--         , requestGetJob $
+--             newGetJob
+--
+--         , requestUpdateClassifier $
+--             newUpdateClassifier
+--
+--         , requestDeleteClassifier $
+--             newDeleteClassifier
+--
+--         , requestDeleteJob $
+--             newDeleteJob
+--
+--         , requestUpdateJob $
+--             newUpdateJob
+--
+--         , requestCreateUserDefinedFunction $
+--             newCreateUserDefinedFunction
+--
+--         , requestGetTrigger $
+--             newGetTrigger
+--
+--         , requestBatchGetJobs $
+--             newBatchGetJobs
+--
+--         , requestCreateClassifier $
+--             newCreateClassifier
+--
+--         , requestGetSecurityConfigurations $
+--             newGetSecurityConfigurations
+--
+--         , requestPutResourcePolicy $
+--             newPutResourcePolicy
+--
+--         , requestUpdatePartition $
+--             newUpdatePartition
+--
+--         , requestGetSchemaVersionsDiff $
+--             newGetSchemaVersionsDiff
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestBatchDeleteTable $
+--             newBatchDeleteTable
+--
+--         , requestStartMLEvaluationTaskRun $
+--             newStartMLEvaluationTaskRun
+--
+--         , requestGetDatabase $
+--             newGetDatabase
+--
+--         , requestDeletePartition $
+--             newDeletePartition
+--
+--         , requestGetJobRuns $
+--             newGetJobRuns
+--
+--         , requestGetMLTransforms $
+--             newGetMLTransforms
+--
+--         , requestGetJobRun $
+--             newGetJobRun
+--
+--         , requestCreateDevEndpoint $
+--             newCreateDevEndpoint
+--
+--         , requestCreatePartitionIndex $
+--             newCreatePartitionIndex
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestGetSecurityConfiguration $
+--             newGetSecurityConfiguration
+--
+--         , requestCreateCrawler $
+--             newCreateCrawler
+--
+--         , requestGetMLTaskRuns $
+--             newGetMLTaskRuns
+--
+--         , requestListCrawlers $
+--             newListCrawlers
+--
+--         , requestUpdateDevEndpoint $
+--             newUpdateDevEndpoint
+--
+--         , requestCreateSchema $
+--             newCreateSchema
+--
+--         , requestListDevEndpoints $
+--             newListDevEndpoints
+--
+--         , requestDeleteCrawler $
+--             newDeleteCrawler
+--
+--         , requestDeleteDevEndpoint $
+--             newDeleteDevEndpoint
+--
+--         , requestGetWorkflow $
+--             newGetWorkflow
+--
+--         , requestGetSchemaVersion $
+--             newGetSchemaVersion
+--
+--         , requestUpdateCrawler $
+--             newUpdateCrawler
+--
+--         , requestDeleteWorkflow $
+--             newDeleteWorkflow
+--
+--         , requestRegisterSchemaVersion $
+--             newRegisterSchemaVersion
+--
+--         , requestGetMapping $
+--             newGetMapping
+--
+--         , requestStopWorkflowRun $
+--             newStopWorkflowRun
+--
+--         , requestCreateConnection $
+--             newCreateConnection
+--
+--         , requestBatchCreatePartition $
+--             newBatchCreatePartition
+--
+--         , requestCreateTable $
+--             newCreateTable
+--
+--         , requestUpdateWorkflow $
+--             newUpdateWorkflow
+--
+--         , requestGetClassifiers $
+--             newGetClassifiers
+--
+--         , requestBatchStopJobRun $
+--             newBatchStopJobRun
+--
+--         , requestStartWorkflowRun $
+--             newStartWorkflowRun
+--
+--         , requestListWorkflows $
+--             newListWorkflows
+--
+--         , requestListSchemaVersions $
+--             newListSchemaVersions
+--
+--         , requestBatchDeletePartition $
+--             newBatchDeletePartition
+--
+--         , requestPutSchemaVersionMetadata $
+--             newPutSchemaVersionMetadata
+--
+--         , requestGetWorkflowRuns $
+--             newGetWorkflowRuns
+--
+--         , requestGetTags $
+--             newGetTags
+--
+--         , requestBatchUpdatePartition $
+--             newBatchUpdatePartition
+--
+--         , requestGetUserDefinedFunctions $
+--             newGetUserDefinedFunctions
+--
+--         , requestUpdateTable $
+--             newUpdateTable
+--
+--         , requestDeleteTable $
+--             newDeleteTable
+--
+--         , requestDeleteDatabase $
+--             newDeleteDatabase
+--
+--         , requestUpdateDatabase $
+--             newUpdateDatabase
+--
+--         , requestGetUserDefinedFunction $
+--             newGetUserDefinedFunction
+--
+--         , requestUpdateMLTransform $
+--             newUpdateMLTransform
+--
+--         , requestGetWorkflowRun $
+--             newGetWorkflowRun
+--
+--         , requestDeleteMLTransform $
+--             newDeleteMLTransform
+--
+--         , requestCreateTrigger $
+--             newCreateTrigger
+--
+--         , requestCreateDatabase $
+--             newCreateDatabase
+--
+--         , requestGetClassifier $
+--             newGetClassifier
+--
+--         , requestDeleteSchemaVersions $
+--             newDeleteSchemaVersions
+--
+--         , requestBatchGetTriggers $
+--             newBatchGetTriggers
+--
+--         , requestBatchDeleteTableVersion $
+--             newBatchDeleteTableVersion
+--
+--         , requestGetTableVersions $
+--             newGetTableVersions
+--
+--         , requestGetDevEndpoints $
+--             newGetDevEndpoints
+--
+--         , requestGetCrawlers $
+--             newGetCrawlers
+--
+--         , requestStartJobRun $
+--             newStartJobRun
+--
+--         , requestImportCatalogToGlue $
+--             newImportCatalogToGlue
+--
+--         , requestCreatePartition $
+--             newCreatePartition
+--
+--         , requestResetJobBookmark $
+--             newResetJobBookmark
+--
+--         , requestListJobs $
+--             newListJobs
+--
+--         , requestBatchDeleteConnection $
+--             newBatchDeleteConnection
+--
+--         , requestGetTables $
+--             newGetTables
+--
+--         , requestDeleteColumnStatisticsForPartition $
+--             newDeleteColumnStatisticsForPartition
+--
+--         , requestDeleteResourcePolicy $
+--             newDeleteResourcePolicy
+--
+--         , requestGetRegistry $
+--             newGetRegistry
+--
+--         , requestResumeWorkflowRun $
+--             newResumeWorkflowRun
+--
+--         , requestCancelMLTaskRun $
+--             newCancelMLTaskRun
+--
+--         , requestCreateJob $
+--             newCreateJob
+--
+--         , requestSearchTables $
+--             newSearchTables
+--
+--         , requestUpdateUserDefinedFunction $
+--             newUpdateUserDefinedFunction
+--
+--         , requestUpdateColumnStatisticsForPartition $
+--             newUpdateColumnStatisticsForPartition
+--
+--         , requestGetConnections $
+--             newGetConnections
+--
+--         , requestGetMLTransform $
+--             newGetMLTransform
+--
+--         , requestCreateScript $
+--             newCreateScript
+--
+--         , requestGetMLTaskRun $
+--             newGetMLTaskRun
+--
+--         , requestDeleteUserDefinedFunction $
+--             newDeleteUserDefinedFunction
+--
+--         , requestStartTrigger $
+--             newStartTrigger
+--
+--         , requestPutDataCatalogEncryptionSettings $
+--             newPutDataCatalogEncryptionSettings
+--
+--         , requestRemoveSchemaVersionMetadata $
+--             newRemoveSchemaVersionMetadata
+--
+--         , requestBatchGetPartition $
+--             newBatchGetPartition
+--
+--         , requestGetTable $
+--             newGetTable
+--
+--         , requestUpdateCrawlerSchedule $
+--             newUpdateCrawlerSchedule
+--
+--         , requestGetColumnStatisticsForTable $
+--             newGetColumnStatisticsForTable
+--
+--         , requestStopTrigger $
+--             newStopTrigger
+--
+--         , requestListSchemas $
+--             newListSchemas
+--
+--         , requestGetConnection $
+--             newGetConnection
+--
+--         , requestGetDatabases $
+--             newGetDatabases
+--
+--         , requestDeleteSchema $
+--             newDeleteSchema
+--
+--         , requestUpdateSchema $
+--             newUpdateSchema
+--
+--         , requestGetDataflowGraph $
+--             newGetDataflowGraph
+--
+--         , requestBatchGetDevEndpoints $
+--             newBatchGetDevEndpoints
+--
+--         , requestStartExportLabelsTaskRun $
+--             newStartExportLabelsTaskRun
+--
+--         , requestGetTriggers $
+--             newGetTriggers
+--
+--         , requestBatchGetCrawlers $
+--             newBatchGetCrawlers
+--
+--         , requestGetPlan $
+--             newGetPlan
+--
+--         , requestGetCrawlerMetrics $
+--             newGetCrawlerMetrics
+--
+--         , requestGetWorkflowRunProperties $
+--             newGetWorkflowRunProperties
+--
+--         , requestDeletePartitionIndex $
+--             newDeletePartitionIndex
+--
+--         , requestGetJobBookmark $
+--             newGetJobBookmark
+--
+--         , requestDeleteTableVersion $
+--             newDeleteTableVersion
+--
+--         , requestGetTableVersion $
+--             newGetTableVersion
+--
+--         , requestPutWorkflowRunProperties $
+--             newPutWorkflowRunProperties
+--
+--         , requestBatchGetWorkflows $
+--             newBatchGetWorkflows
+--
+--         , requestGetResourcePolicies $
+--             newGetResourcePolicies
+--
+--         , requestGetJobs $
+--             newGetJobs
+--
+--         , requestGetDevEndpoint $
+--             newGetDevEndpoint
+--
+--         , requestGetCrawler $
+--             newGetCrawler
+--
+--         , requestCreateSecurityConfiguration $
+--             newCreateSecurityConfiguration
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseStartCrawler $
---             startCrawlerResponse
+--         [ responseGetDataCatalogEncryptionSettings $
+--             newGetDataCatalogEncryptionSettingsResponse
 --
---         , responseGetCatalogImportStatus $
---             getCatalogImportStatusResponse
+--         , responseUpdateColumnStatisticsForTable $
+--             newUpdateColumnStatisticsForTableResponse
 --
---         , responseGetPartition $
---             getPartitionResponse
+--         , responseStartMLLabelingSetGenerationTaskRun $
+--             newStartMLLabelingSetGenerationTaskRunResponse
 --
---         , responseCreateTrigger $
---             createTriggerResponse
+--         , responseDeleteColumnStatisticsForTable $
+--             newDeleteColumnStatisticsForTableResponse
 --
---         , responseDeleteTable $
---             deleteTableResponse
---
---         , responseUpdateTable $
---             updateTableResponse
+--         , responseGetSchema $
+--             newGetSchemaResponse
 --
 --         , responseDeleteConnection $
---             deleteConnectionResponse
+--             newDeleteConnectionResponse
 --
 --         , responseUpdateConnection $
---             updateConnectionResponse
+--             newUpdateConnectionResponse
 --
---         , responseGetUserDefinedFunctions $
---             getUserDefinedFunctionsResponse
+--         , responseCheckSchemaVersionValidity $
+--             newCheckSchemaVersionValidityResponse
 --
---         , responseBatchCreatePartition $
---             batchCreatePartitionResponse
---
---         , responseGetMapping $
---             getMappingResponse
---
---         , responseGetTableVersion $
---             getTableVersionResponse
---
---         , responseGetJobs $
---             getJobsResponse
---
---         , responseGetClassifiers $
---             getClassifiersResponse
---
---         , responseCreateConnection $
---             createConnectionResponse
---
---         , responseDeleteTableVersion $
---             deleteTableVersionResponse
---
---         , responseDeleteDevEndpoint $
---             deleteDevEndpointResponse
---
---         , responseUpdateDevEndpoint $
---             updateDevEndpointResponse
---
---         , responseDeleteCrawler $
---             deleteCrawlerResponse
---
---         , responseUpdateCrawler $
---             updateCrawlerResponse
---
---         , responseGetConnection $
---             getConnectionResponse
---
---         , responseBatchGetPartition $
---             batchGetPartitionResponse
---
---         , responseStopTrigger $
---             stopTriggerResponse
---
---         , responseUpdateCrawlerSchedule $
---             updateCrawlerScheduleResponse
---
---         , responseDeleteUserDefinedFunction $
---             deleteUserDefinedFunctionResponse
---
---         , responseUpdateUserDefinedFunction $
---             updateUserDefinedFunctionResponse
---
---         , responseBatchDeleteTable $
---             batchDeleteTableResponse
---
---         , responseGetTables $
---             getTablesResponse
---
---         , responseCreateClassifier $
---             createClassifierResponse
---
---         , responseBatchDeleteConnection $
---             batchDeleteConnectionResponse
---
---         , responseCreateJob $
---             createJobResponse
---
---         , responseGetJobRuns $
---             getJobRunsResponse
---
---         , responseCreateUserDefinedFunction $
---             createUserDefinedFunctionResponse
---
---         , responseResetJobBookmark $
---             resetJobBookmarkResponse
---
---         , responseDeleteJob $
---             deleteJobResponse
---
---         , responseUpdateJob $
---             updateJobResponse
---
---         , responseGetCrawlers $
---             getCrawlersResponse
---
---         , responseGetClassifier $
---             getClassifierResponse
---
---         , responseGetJob $
---             getJobResponse
---
---         , responseBatchDeleteTableVersion $
---             batchDeleteTableVersionResponse
---
---         , responseGetDevEndpoints $
---             getDevEndpointsResponse
---
---         , responseStartCrawlerSchedule $
---             startCrawlerScheduleResponse
---
---         , responseGetUserDefinedFunction $
---             getUserDefinedFunctionResponse
---
---         , responseDeleteDatabase $
---             deleteDatabaseResponse
---
---         , responseUpdateDatabase $
---             updateDatabaseResponse
---
---         , responseStopCrawler $
---             stopCrawlerResponse
+--         , responseCreateWorkflow $
+--             newCreateWorkflowResponse
 --
 --         , responseGetPartitions $
---             getPartitionsResponse
+--             newGetPartitionsResponse
 --
---         , responseBatchDeletePartition $
---             batchDeletePartitionResponse
+--         , responseDeleteSecurityConfiguration $
+--             newDeleteSecurityConfigurationResponse
 --
---         , responseGetCrawler $
---             getCrawlerResponse
+--         , responseGetPartition $
+--             newGetPartitionResponse
 --
---         , responseBatchStopJobRun $
---             batchStopJobRunResponse
+--         , responseUpdateRegistry $
+--             newUpdateRegistryResponse
 --
---         , responseGetDevEndpoint $
---             getDevEndpointResponse
+--         , responseListMLTransforms $
+--             newListMLTransformsResponse
 --
---         , responseCreateTable $
---             createTableResponse
+--         , responseStopCrawler $
+--             newStopCrawlerResponse
 --
---         , responseGetCrawlerMetrics $
---             getCrawlerMetricsResponse
+--         , responseStartImportLabelsTaskRun $
+--             newStartImportLabelsTaskRunResponse
 --
---         , responseGetPlan $
---             getPlanResponse
+--         , responseGetResourcePolicy $
+--             newGetResourcePolicyResponse
 --
---         , responseGetTriggers $
---             getTriggersResponse
+--         , responseQuerySchemaVersionMetadata $
+--             newQuerySchemaVersionMetadataResponse
 --
---         , responseStartTrigger $
---             startTriggerResponse
+--         , responseDeleteRegistry $
+--             newDeleteRegistryResponse
 --
---         , responseGetDataflowGraph $
---             getDataflowGraphResponse
+--         , responseGetPartitionIndexes $
+--             newGetPartitionIndexesResponse
 --
---         , responseGetDatabases $
---             getDatabasesResponse
+--         , responseStartCrawler $
+--             newStartCrawlerResponse
 --
---         , responseGetTable $
---             getTableResponse
+--         , responseGetCatalogImportStatus $
+--             newGetCatalogImportStatusResponse
 --
---         , responseCreateCrawler $
---             createCrawlerResponse
+--         , responseGetColumnStatisticsForPartition $
+--             newGetColumnStatisticsForPartitionResponse
 --
---         , responseGetJobRun $
---             getJobRunResponse
+--         , responseCreateRegistry $
+--             newCreateRegistryResponse
 --
---         , responseCreateDevEndpoint $
---             createDevEndpointResponse
+--         , responseListTriggers $
+--             newListTriggersResponse
 --
---         , responseGetDatabase $
---             getDatabaseResponse
---
---         , responseDeletePartition $
---             deletePartitionResponse
---
---         , responseUpdatePartition $
---             updatePartitionResponse
---
---         , responseCreateScript $
---             createScriptResponse
---
---         , responseGetConnections $
---             getConnectionsResponse
---
---         , responseGetTrigger $
---             getTriggerResponse
---
---         , responseImportCatalogToGlue $
---             importCatalogToGlueResponse
---
---         , responseDeleteClassifier $
---             deleteClassifierResponse
---
---         , responseUpdateClassifier $
---             updateClassifierResponse
---
---         , responseStartJobRun $
---             startJobRunResponse
---
---         , responseCreatePartition $
---             createPartitionResponse
+--         , responseCreateMLTransform $
+--             newCreateMLTransformResponse
 --
 --         , responseStopCrawlerSchedule $
---             stopCrawlerScheduleResponse
---
---         , responseCreateDatabase $
---             createDatabaseResponse
---
---         , responseGetTableVersions $
---             getTableVersionsResponse
---
---         , responseDeleteTrigger $
---             deleteTriggerResponse
+--             newStopCrawlerScheduleResponse
 --
 --         , responseUpdateTrigger $
---             updateTriggerResponse
+--             newUpdateTriggerResponse
+--
+--         , responseGetSchemaByDefinition $
+--             newGetSchemaByDefinitionResponse
+--
+--         , responseListRegistries $
+--             newListRegistriesResponse
+--
+--         , responseStartCrawlerSchedule $
+--             newStartCrawlerScheduleResponse
+--
+--         , responseDeleteTrigger $
+--             newDeleteTriggerResponse
+--
+--         , responseGetJob $
+--             newGetJobResponse
+--
+--         , responseUpdateClassifier $
+--             newUpdateClassifierResponse
+--
+--         , responseDeleteClassifier $
+--             newDeleteClassifierResponse
+--
+--         , responseDeleteJob $
+--             newDeleteJobResponse
+--
+--         , responseUpdateJob $
+--             newUpdateJobResponse
+--
+--         , responseCreateUserDefinedFunction $
+--             newCreateUserDefinedFunctionResponse
+--
+--         , responseGetTrigger $
+--             newGetTriggerResponse
+--
+--         , responseBatchGetJobs $
+--             newBatchGetJobsResponse
+--
+--         , responseCreateClassifier $
+--             newCreateClassifierResponse
+--
+--         , responseGetSecurityConfigurations $
+--             newGetSecurityConfigurationsResponse
+--
+--         , responsePutResourcePolicy $
+--             newPutResourcePolicyResponse
+--
+--         , responseUpdatePartition $
+--             newUpdatePartitionResponse
+--
+--         , responseGetSchemaVersionsDiff $
+--             newGetSchemaVersionsDiffResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseBatchDeleteTable $
+--             newBatchDeleteTableResponse
+--
+--         , responseStartMLEvaluationTaskRun $
+--             newStartMLEvaluationTaskRunResponse
+--
+--         , responseGetDatabase $
+--             newGetDatabaseResponse
+--
+--         , responseDeletePartition $
+--             newDeletePartitionResponse
+--
+--         , responseGetJobRuns $
+--             newGetJobRunsResponse
+--
+--         , responseGetMLTransforms $
+--             newGetMLTransformsResponse
+--
+--         , responseGetJobRun $
+--             newGetJobRunResponse
+--
+--         , responseCreateDevEndpoint $
+--             newCreateDevEndpointResponse
+--
+--         , responseCreatePartitionIndex $
+--             newCreatePartitionIndexResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseGetSecurityConfiguration $
+--             newGetSecurityConfigurationResponse
+--
+--         , responseCreateCrawler $
+--             newCreateCrawlerResponse
+--
+--         , responseGetMLTaskRuns $
+--             newGetMLTaskRunsResponse
+--
+--         , responseListCrawlers $
+--             newListCrawlersResponse
+--
+--         , responseUpdateDevEndpoint $
+--             newUpdateDevEndpointResponse
+--
+--         , responseCreateSchema $
+--             newCreateSchemaResponse
+--
+--         , responseListDevEndpoints $
+--             newListDevEndpointsResponse
+--
+--         , responseDeleteCrawler $
+--             newDeleteCrawlerResponse
+--
+--         , responseDeleteDevEndpoint $
+--             newDeleteDevEndpointResponse
+--
+--         , responseGetWorkflow $
+--             newGetWorkflowResponse
+--
+--         , responseGetSchemaVersion $
+--             newGetSchemaVersionResponse
+--
+--         , responseUpdateCrawler $
+--             newUpdateCrawlerResponse
+--
+--         , responseDeleteWorkflow $
+--             newDeleteWorkflowResponse
+--
+--         , responseRegisterSchemaVersion $
+--             newRegisterSchemaVersionResponse
+--
+--         , responseGetMapping $
+--             newGetMappingResponse
+--
+--         , responseStopWorkflowRun $
+--             newStopWorkflowRunResponse
+--
+--         , responseCreateConnection $
+--             newCreateConnectionResponse
+--
+--         , responseBatchCreatePartition $
+--             newBatchCreatePartitionResponse
+--
+--         , responseCreateTable $
+--             newCreateTableResponse
+--
+--         , responseUpdateWorkflow $
+--             newUpdateWorkflowResponse
+--
+--         , responseGetClassifiers $
+--             newGetClassifiersResponse
+--
+--         , responseBatchStopJobRun $
+--             newBatchStopJobRunResponse
+--
+--         , responseStartWorkflowRun $
+--             newStartWorkflowRunResponse
+--
+--         , responseListWorkflows $
+--             newListWorkflowsResponse
+--
+--         , responseListSchemaVersions $
+--             newListSchemaVersionsResponse
+--
+--         , responseBatchDeletePartition $
+--             newBatchDeletePartitionResponse
+--
+--         , responsePutSchemaVersionMetadata $
+--             newPutSchemaVersionMetadataResponse
+--
+--         , responseGetWorkflowRuns $
+--             newGetWorkflowRunsResponse
+--
+--         , responseGetTags $
+--             newGetTagsResponse
+--
+--         , responseBatchUpdatePartition $
+--             newBatchUpdatePartitionResponse
+--
+--         , responseGetUserDefinedFunctions $
+--             newGetUserDefinedFunctionsResponse
+--
+--         , responseUpdateTable $
+--             newUpdateTableResponse
+--
+--         , responseDeleteTable $
+--             newDeleteTableResponse
+--
+--         , responseDeleteDatabase $
+--             newDeleteDatabaseResponse
+--
+--         , responseUpdateDatabase $
+--             newUpdateDatabaseResponse
+--
+--         , responseGetUserDefinedFunction $
+--             newGetUserDefinedFunctionResponse
+--
+--         , responseUpdateMLTransform $
+--             newUpdateMLTransformResponse
+--
+--         , responseGetWorkflowRun $
+--             newGetWorkflowRunResponse
+--
+--         , responseDeleteMLTransform $
+--             newDeleteMLTransformResponse
+--
+--         , responseCreateTrigger $
+--             newCreateTriggerResponse
+--
+--         , responseCreateDatabase $
+--             newCreateDatabaseResponse
+--
+--         , responseGetClassifier $
+--             newGetClassifierResponse
+--
+--         , responseDeleteSchemaVersions $
+--             newDeleteSchemaVersionsResponse
+--
+--         , responseBatchGetTriggers $
+--             newBatchGetTriggersResponse
+--
+--         , responseBatchDeleteTableVersion $
+--             newBatchDeleteTableVersionResponse
+--
+--         , responseGetTableVersions $
+--             newGetTableVersionsResponse
+--
+--         , responseGetDevEndpoints $
+--             newGetDevEndpointsResponse
+--
+--         , responseGetCrawlers $
+--             newGetCrawlersResponse
+--
+--         , responseStartJobRun $
+--             newStartJobRunResponse
+--
+--         , responseImportCatalogToGlue $
+--             newImportCatalogToGlueResponse
+--
+--         , responseCreatePartition $
+--             newCreatePartitionResponse
+--
+--         , responseResetJobBookmark $
+--             newResetJobBookmarkResponse
+--
+--         , responseListJobs $
+--             newListJobsResponse
+--
+--         , responseBatchDeleteConnection $
+--             newBatchDeleteConnectionResponse
+--
+--         , responseGetTables $
+--             newGetTablesResponse
+--
+--         , responseDeleteColumnStatisticsForPartition $
+--             newDeleteColumnStatisticsForPartitionResponse
+--
+--         , responseDeleteResourcePolicy $
+--             newDeleteResourcePolicyResponse
+--
+--         , responseGetRegistry $
+--             newGetRegistryResponse
+--
+--         , responseResumeWorkflowRun $
+--             newResumeWorkflowRunResponse
+--
+--         , responseCancelMLTaskRun $
+--             newCancelMLTaskRunResponse
+--
+--         , responseCreateJob $
+--             newCreateJobResponse
+--
+--         , responseSearchTables $
+--             newSearchTablesResponse
+--
+--         , responseUpdateUserDefinedFunction $
+--             newUpdateUserDefinedFunctionResponse
+--
+--         , responseUpdateColumnStatisticsForPartition $
+--             newUpdateColumnStatisticsForPartitionResponse
+--
+--         , responseGetConnections $
+--             newGetConnectionsResponse
+--
+--         , responseGetMLTransform $
+--             newGetMLTransformResponse
+--
+--         , responseCreateScript $
+--             newCreateScriptResponse
+--
+--         , responseGetMLTaskRun $
+--             newGetMLTaskRunResponse
+--
+--         , responseDeleteUserDefinedFunction $
+--             newDeleteUserDefinedFunctionResponse
+--
+--         , responseStartTrigger $
+--             newStartTriggerResponse
+--
+--         , responsePutDataCatalogEncryptionSettings $
+--             newPutDataCatalogEncryptionSettingsResponse
+--
+--         , responseRemoveSchemaVersionMetadata $
+--             newRemoveSchemaVersionMetadataResponse
+--
+--         , responseBatchGetPartition $
+--             newBatchGetPartitionResponse
+--
+--         , responseGetTable $
+--             newGetTableResponse
+--
+--         , responseUpdateCrawlerSchedule $
+--             newUpdateCrawlerScheduleResponse
+--
+--         , responseGetColumnStatisticsForTable $
+--             newGetColumnStatisticsForTableResponse
+--
+--         , responseStopTrigger $
+--             newStopTriggerResponse
+--
+--         , responseListSchemas $
+--             newListSchemasResponse
+--
+--         , responseGetConnection $
+--             newGetConnectionResponse
+--
+--         , responseGetDatabases $
+--             newGetDatabasesResponse
+--
+--         , responseDeleteSchema $
+--             newDeleteSchemaResponse
+--
+--         , responseUpdateSchema $
+--             newUpdateSchemaResponse
+--
+--         , responseGetDataflowGraph $
+--             newGetDataflowGraphResponse
+--
+--         , responseBatchGetDevEndpoints $
+--             newBatchGetDevEndpointsResponse
+--
+--         , responseStartExportLabelsTaskRun $
+--             newStartExportLabelsTaskRunResponse
+--
+--         , responseGetTriggers $
+--             newGetTriggersResponse
+--
+--         , responseBatchGetCrawlers $
+--             newBatchGetCrawlersResponse
+--
+--         , responseGetPlan $
+--             newGetPlanResponse
+--
+--         , responseGetCrawlerMetrics $
+--             newGetCrawlerMetricsResponse
+--
+--         , responseGetWorkflowRunProperties $
+--             newGetWorkflowRunPropertiesResponse
+--
+--         , responseDeletePartitionIndex $
+--             newDeletePartitionIndexResponse
+--
+--         , responseGetJobBookmark $
+--             newGetJobBookmarkResponse
+--
+--         , responseDeleteTableVersion $
+--             newDeleteTableVersionResponse
+--
+--         , responseGetTableVersion $
+--             newGetTableVersionResponse
+--
+--         , responsePutWorkflowRunProperties $
+--             newPutWorkflowRunPropertiesResponse
+--
+--         , responseBatchGetWorkflows $
+--             newBatchGetWorkflowsResponse
+--
+--         , responseGetResourcePolicies $
+--             newGetResourcePoliciesResponse
+--
+--         , responseGetJobs $
+--             newGetJobsResponse
+--
+--         , responseGetDevEndpoint $
+--             newGetDevEndpointResponse
+--
+--         , responseGetCrawler $
+--             newGetCrawlerResponse
+--
+--         , responseCreateSecurityConfiguration $
+--             newCreateSecurityConfigurationResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestStartCrawler :: StartCrawler -> TestTree
-requestStartCrawler = req
-    "StartCrawler"
-    "fixture/StartCrawler.yaml"
+requestGetDataCatalogEncryptionSettings :: GetDataCatalogEncryptionSettings -> TestTree
+requestGetDataCatalogEncryptionSettings =
+  req
+    "GetDataCatalogEncryptionSettings"
+    "fixture/GetDataCatalogEncryptionSettings.yaml"
 
-requestGetCatalogImportStatus :: GetCatalogImportStatus -> TestTree
-requestGetCatalogImportStatus = req
-    "GetCatalogImportStatus"
-    "fixture/GetCatalogImportStatus.yaml"
+requestUpdateColumnStatisticsForTable :: UpdateColumnStatisticsForTable -> TestTree
+requestUpdateColumnStatisticsForTable =
+  req
+    "UpdateColumnStatisticsForTable"
+    "fixture/UpdateColumnStatisticsForTable.yaml"
 
-requestGetPartition :: GetPartition -> TestTree
-requestGetPartition = req
-    "GetPartition"
-    "fixture/GetPartition.yaml"
+requestStartMLLabelingSetGenerationTaskRun :: StartMLLabelingSetGenerationTaskRun -> TestTree
+requestStartMLLabelingSetGenerationTaskRun =
+  req
+    "StartMLLabelingSetGenerationTaskRun"
+    "fixture/StartMLLabelingSetGenerationTaskRun.yaml"
 
-requestCreateTrigger :: CreateTrigger -> TestTree
-requestCreateTrigger = req
-    "CreateTrigger"
-    "fixture/CreateTrigger.yaml"
+requestDeleteColumnStatisticsForTable :: DeleteColumnStatisticsForTable -> TestTree
+requestDeleteColumnStatisticsForTable =
+  req
+    "DeleteColumnStatisticsForTable"
+    "fixture/DeleteColumnStatisticsForTable.yaml"
 
-requestDeleteTable :: DeleteTable -> TestTree
-requestDeleteTable = req
-    "DeleteTable"
-    "fixture/DeleteTable.yaml"
-
-requestUpdateTable :: UpdateTable -> TestTree
-requestUpdateTable = req
-    "UpdateTable"
-    "fixture/UpdateTable.yaml"
+requestGetSchema :: GetSchema -> TestTree
+requestGetSchema =
+  req
+    "GetSchema"
+    "fixture/GetSchema.yaml"
 
 requestDeleteConnection :: DeleteConnection -> TestTree
-requestDeleteConnection = req
+requestDeleteConnection =
+  req
     "DeleteConnection"
     "fixture/DeleteConnection.yaml"
 
 requestUpdateConnection :: UpdateConnection -> TestTree
-requestUpdateConnection = req
+requestUpdateConnection =
+  req
     "UpdateConnection"
     "fixture/UpdateConnection.yaml"
 
-requestGetUserDefinedFunctions :: GetUserDefinedFunctions -> TestTree
-requestGetUserDefinedFunctions = req
-    "GetUserDefinedFunctions"
-    "fixture/GetUserDefinedFunctions.yaml"
+requestCheckSchemaVersionValidity :: CheckSchemaVersionValidity -> TestTree
+requestCheckSchemaVersionValidity =
+  req
+    "CheckSchemaVersionValidity"
+    "fixture/CheckSchemaVersionValidity.yaml"
 
-requestBatchCreatePartition :: BatchCreatePartition -> TestTree
-requestBatchCreatePartition = req
-    "BatchCreatePartition"
-    "fixture/BatchCreatePartition.yaml"
+requestCreateWorkflow :: CreateWorkflow -> TestTree
+requestCreateWorkflow =
+  req
+    "CreateWorkflow"
+    "fixture/CreateWorkflow.yaml"
 
-requestGetMapping :: GetMapping -> TestTree
-requestGetMapping = req
-    "GetMapping"
-    "fixture/GetMapping.yaml"
+requestGetPartitions :: GetPartitions -> TestTree
+requestGetPartitions =
+  req
+    "GetPartitions"
+    "fixture/GetPartitions.yaml"
 
-requestGetTableVersion :: GetTableVersion -> TestTree
-requestGetTableVersion = req
-    "GetTableVersion"
-    "fixture/GetTableVersion.yaml"
+requestDeleteSecurityConfiguration :: DeleteSecurityConfiguration -> TestTree
+requestDeleteSecurityConfiguration =
+  req
+    "DeleteSecurityConfiguration"
+    "fixture/DeleteSecurityConfiguration.yaml"
 
-requestGetJobs :: GetJobs -> TestTree
-requestGetJobs = req
-    "GetJobs"
-    "fixture/GetJobs.yaml"
+requestGetPartition :: GetPartition -> TestTree
+requestGetPartition =
+  req
+    "GetPartition"
+    "fixture/GetPartition.yaml"
 
-requestGetClassifiers :: GetClassifiers -> TestTree
-requestGetClassifiers = req
-    "GetClassifiers"
-    "fixture/GetClassifiers.yaml"
+requestUpdateRegistry :: UpdateRegistry -> TestTree
+requestUpdateRegistry =
+  req
+    "UpdateRegistry"
+    "fixture/UpdateRegistry.yaml"
 
-requestCreateConnection :: CreateConnection -> TestTree
-requestCreateConnection = req
-    "CreateConnection"
-    "fixture/CreateConnection.yaml"
+requestListMLTransforms :: ListMLTransforms -> TestTree
+requestListMLTransforms =
+  req
+    "ListMLTransforms"
+    "fixture/ListMLTransforms.yaml"
 
-requestDeleteTableVersion :: DeleteTableVersion -> TestTree
-requestDeleteTableVersion = req
-    "DeleteTableVersion"
-    "fixture/DeleteTableVersion.yaml"
+requestStopCrawler :: StopCrawler -> TestTree
+requestStopCrawler =
+  req
+    "StopCrawler"
+    "fixture/StopCrawler.yaml"
 
-requestDeleteDevEndpoint :: DeleteDevEndpoint -> TestTree
-requestDeleteDevEndpoint = req
-    "DeleteDevEndpoint"
-    "fixture/DeleteDevEndpoint.yaml"
+requestStartImportLabelsTaskRun :: StartImportLabelsTaskRun -> TestTree
+requestStartImportLabelsTaskRun =
+  req
+    "StartImportLabelsTaskRun"
+    "fixture/StartImportLabelsTaskRun.yaml"
 
-requestUpdateDevEndpoint :: UpdateDevEndpoint -> TestTree
-requestUpdateDevEndpoint = req
-    "UpdateDevEndpoint"
-    "fixture/UpdateDevEndpoint.yaml"
+requestGetResourcePolicy :: GetResourcePolicy -> TestTree
+requestGetResourcePolicy =
+  req
+    "GetResourcePolicy"
+    "fixture/GetResourcePolicy.yaml"
 
-requestDeleteCrawler :: DeleteCrawler -> TestTree
-requestDeleteCrawler = req
-    "DeleteCrawler"
-    "fixture/DeleteCrawler.yaml"
+requestQuerySchemaVersionMetadata :: QuerySchemaVersionMetadata -> TestTree
+requestQuerySchemaVersionMetadata =
+  req
+    "QuerySchemaVersionMetadata"
+    "fixture/QuerySchemaVersionMetadata.yaml"
 
-requestUpdateCrawler :: UpdateCrawler -> TestTree
-requestUpdateCrawler = req
-    "UpdateCrawler"
-    "fixture/UpdateCrawler.yaml"
+requestDeleteRegistry :: DeleteRegistry -> TestTree
+requestDeleteRegistry =
+  req
+    "DeleteRegistry"
+    "fixture/DeleteRegistry.yaml"
 
-requestGetConnection :: GetConnection -> TestTree
-requestGetConnection = req
-    "GetConnection"
-    "fixture/GetConnection.yaml"
+requestGetPartitionIndexes :: GetPartitionIndexes -> TestTree
+requestGetPartitionIndexes =
+  req
+    "GetPartitionIndexes"
+    "fixture/GetPartitionIndexes.yaml"
 
-requestBatchGetPartition :: BatchGetPartition -> TestTree
-requestBatchGetPartition = req
-    "BatchGetPartition"
-    "fixture/BatchGetPartition.yaml"
+requestStartCrawler :: StartCrawler -> TestTree
+requestStartCrawler =
+  req
+    "StartCrawler"
+    "fixture/StartCrawler.yaml"
 
-requestStopTrigger :: StopTrigger -> TestTree
-requestStopTrigger = req
-    "StopTrigger"
-    "fixture/StopTrigger.yaml"
+requestGetCatalogImportStatus :: GetCatalogImportStatus -> TestTree
+requestGetCatalogImportStatus =
+  req
+    "GetCatalogImportStatus"
+    "fixture/GetCatalogImportStatus.yaml"
 
-requestUpdateCrawlerSchedule :: UpdateCrawlerSchedule -> TestTree
-requestUpdateCrawlerSchedule = req
-    "UpdateCrawlerSchedule"
-    "fixture/UpdateCrawlerSchedule.yaml"
+requestGetColumnStatisticsForPartition :: GetColumnStatisticsForPartition -> TestTree
+requestGetColumnStatisticsForPartition =
+  req
+    "GetColumnStatisticsForPartition"
+    "fixture/GetColumnStatisticsForPartition.yaml"
 
-requestDeleteUserDefinedFunction :: DeleteUserDefinedFunction -> TestTree
-requestDeleteUserDefinedFunction = req
-    "DeleteUserDefinedFunction"
-    "fixture/DeleteUserDefinedFunction.yaml"
+requestCreateRegistry :: CreateRegistry -> TestTree
+requestCreateRegistry =
+  req
+    "CreateRegistry"
+    "fixture/CreateRegistry.yaml"
 
-requestUpdateUserDefinedFunction :: UpdateUserDefinedFunction -> TestTree
-requestUpdateUserDefinedFunction = req
-    "UpdateUserDefinedFunction"
-    "fixture/UpdateUserDefinedFunction.yaml"
+requestListTriggers :: ListTriggers -> TestTree
+requestListTriggers =
+  req
+    "ListTriggers"
+    "fixture/ListTriggers.yaml"
 
-requestBatchDeleteTable :: BatchDeleteTable -> TestTree
-requestBatchDeleteTable = req
-    "BatchDeleteTable"
-    "fixture/BatchDeleteTable.yaml"
+requestCreateMLTransform :: CreateMLTransform -> TestTree
+requestCreateMLTransform =
+  req
+    "CreateMLTransform"
+    "fixture/CreateMLTransform.yaml"
 
-requestGetTables :: GetTables -> TestTree
-requestGetTables = req
-    "GetTables"
-    "fixture/GetTables.yaml"
+requestStopCrawlerSchedule :: StopCrawlerSchedule -> TestTree
+requestStopCrawlerSchedule =
+  req
+    "StopCrawlerSchedule"
+    "fixture/StopCrawlerSchedule.yaml"
 
-requestCreateClassifier :: CreateClassifier -> TestTree
-requestCreateClassifier = req
-    "CreateClassifier"
-    "fixture/CreateClassifier.yaml"
+requestUpdateTrigger :: UpdateTrigger -> TestTree
+requestUpdateTrigger =
+  req
+    "UpdateTrigger"
+    "fixture/UpdateTrigger.yaml"
 
-requestBatchDeleteConnection :: BatchDeleteConnection -> TestTree
-requestBatchDeleteConnection = req
-    "BatchDeleteConnection"
-    "fixture/BatchDeleteConnection.yaml"
+requestGetSchemaByDefinition :: GetSchemaByDefinition -> TestTree
+requestGetSchemaByDefinition =
+  req
+    "GetSchemaByDefinition"
+    "fixture/GetSchemaByDefinition.yaml"
 
-requestCreateJob :: CreateJob -> TestTree
-requestCreateJob = req
-    "CreateJob"
-    "fixture/CreateJob.yaml"
+requestListRegistries :: ListRegistries -> TestTree
+requestListRegistries =
+  req
+    "ListRegistries"
+    "fixture/ListRegistries.yaml"
 
-requestGetJobRuns :: GetJobRuns -> TestTree
-requestGetJobRuns = req
-    "GetJobRuns"
-    "fixture/GetJobRuns.yaml"
+requestStartCrawlerSchedule :: StartCrawlerSchedule -> TestTree
+requestStartCrawlerSchedule =
+  req
+    "StartCrawlerSchedule"
+    "fixture/StartCrawlerSchedule.yaml"
 
-requestCreateUserDefinedFunction :: CreateUserDefinedFunction -> TestTree
-requestCreateUserDefinedFunction = req
-    "CreateUserDefinedFunction"
-    "fixture/CreateUserDefinedFunction.yaml"
+requestDeleteTrigger :: DeleteTrigger -> TestTree
+requestDeleteTrigger =
+  req
+    "DeleteTrigger"
+    "fixture/DeleteTrigger.yaml"
 
-requestResetJobBookmark :: ResetJobBookmark -> TestTree
-requestResetJobBookmark = req
-    "ResetJobBookmark"
-    "fixture/ResetJobBookmark.yaml"
+requestGetJob :: GetJob -> TestTree
+requestGetJob =
+  req
+    "GetJob"
+    "fixture/GetJob.yaml"
+
+requestUpdateClassifier :: UpdateClassifier -> TestTree
+requestUpdateClassifier =
+  req
+    "UpdateClassifier"
+    "fixture/UpdateClassifier.yaml"
+
+requestDeleteClassifier :: DeleteClassifier -> TestTree
+requestDeleteClassifier =
+  req
+    "DeleteClassifier"
+    "fixture/DeleteClassifier.yaml"
 
 requestDeleteJob :: DeleteJob -> TestTree
-requestDeleteJob = req
+requestDeleteJob =
+  req
     "DeleteJob"
     "fixture/DeleteJob.yaml"
 
 requestUpdateJob :: UpdateJob -> TestTree
-requestUpdateJob = req
+requestUpdateJob =
+  req
     "UpdateJob"
     "fixture/UpdateJob.yaml"
 
-requestGetCrawlers :: GetCrawlers -> TestTree
-requestGetCrawlers = req
-    "GetCrawlers"
-    "fixture/GetCrawlers.yaml"
+requestCreateUserDefinedFunction :: CreateUserDefinedFunction -> TestTree
+requestCreateUserDefinedFunction =
+  req
+    "CreateUserDefinedFunction"
+    "fixture/CreateUserDefinedFunction.yaml"
 
-requestGetClassifier :: GetClassifier -> TestTree
-requestGetClassifier = req
-    "GetClassifier"
-    "fixture/GetClassifier.yaml"
+requestGetTrigger :: GetTrigger -> TestTree
+requestGetTrigger =
+  req
+    "GetTrigger"
+    "fixture/GetTrigger.yaml"
 
-requestGetJob :: GetJob -> TestTree
-requestGetJob = req
-    "GetJob"
-    "fixture/GetJob.yaml"
+requestBatchGetJobs :: BatchGetJobs -> TestTree
+requestBatchGetJobs =
+  req
+    "BatchGetJobs"
+    "fixture/BatchGetJobs.yaml"
 
-requestBatchDeleteTableVersion :: BatchDeleteTableVersion -> TestTree
-requestBatchDeleteTableVersion = req
-    "BatchDeleteTableVersion"
-    "fixture/BatchDeleteTableVersion.yaml"
+requestCreateClassifier :: CreateClassifier -> TestTree
+requestCreateClassifier =
+  req
+    "CreateClassifier"
+    "fixture/CreateClassifier.yaml"
 
-requestGetDevEndpoints :: GetDevEndpoints -> TestTree
-requestGetDevEndpoints = req
-    "GetDevEndpoints"
-    "fixture/GetDevEndpoints.yaml"
+requestGetSecurityConfigurations :: GetSecurityConfigurations -> TestTree
+requestGetSecurityConfigurations =
+  req
+    "GetSecurityConfigurations"
+    "fixture/GetSecurityConfigurations.yaml"
 
-requestStartCrawlerSchedule :: StartCrawlerSchedule -> TestTree
-requestStartCrawlerSchedule = req
-    "StartCrawlerSchedule"
-    "fixture/StartCrawlerSchedule.yaml"
+requestPutResourcePolicy :: PutResourcePolicy -> TestTree
+requestPutResourcePolicy =
+  req
+    "PutResourcePolicy"
+    "fixture/PutResourcePolicy.yaml"
 
-requestGetUserDefinedFunction :: GetUserDefinedFunction -> TestTree
-requestGetUserDefinedFunction = req
-    "GetUserDefinedFunction"
-    "fixture/GetUserDefinedFunction.yaml"
+requestUpdatePartition :: UpdatePartition -> TestTree
+requestUpdatePartition =
+  req
+    "UpdatePartition"
+    "fixture/UpdatePartition.yaml"
 
-requestDeleteDatabase :: DeleteDatabase -> TestTree
-requestDeleteDatabase = req
-    "DeleteDatabase"
-    "fixture/DeleteDatabase.yaml"
+requestGetSchemaVersionsDiff :: GetSchemaVersionsDiff -> TestTree
+requestGetSchemaVersionsDiff =
+  req
+    "GetSchemaVersionsDiff"
+    "fixture/GetSchemaVersionsDiff.yaml"
 
-requestUpdateDatabase :: UpdateDatabase -> TestTree
-requestUpdateDatabase = req
-    "UpdateDatabase"
-    "fixture/UpdateDatabase.yaml"
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
 
-requestStopCrawler :: StopCrawler -> TestTree
-requestStopCrawler = req
-    "StopCrawler"
-    "fixture/StopCrawler.yaml"
+requestBatchDeleteTable :: BatchDeleteTable -> TestTree
+requestBatchDeleteTable =
+  req
+    "BatchDeleteTable"
+    "fixture/BatchDeleteTable.yaml"
 
-requestGetPartitions :: GetPartitions -> TestTree
-requestGetPartitions = req
-    "GetPartitions"
-    "fixture/GetPartitions.yaml"
-
-requestBatchDeletePartition :: BatchDeletePartition -> TestTree
-requestBatchDeletePartition = req
-    "BatchDeletePartition"
-    "fixture/BatchDeletePartition.yaml"
-
-requestGetCrawler :: GetCrawler -> TestTree
-requestGetCrawler = req
-    "GetCrawler"
-    "fixture/GetCrawler.yaml"
-
-requestBatchStopJobRun :: BatchStopJobRun -> TestTree
-requestBatchStopJobRun = req
-    "BatchStopJobRun"
-    "fixture/BatchStopJobRun.yaml"
-
-requestGetDevEndpoint :: GetDevEndpoint -> TestTree
-requestGetDevEndpoint = req
-    "GetDevEndpoint"
-    "fixture/GetDevEndpoint.yaml"
-
-requestCreateTable :: CreateTable -> TestTree
-requestCreateTable = req
-    "CreateTable"
-    "fixture/CreateTable.yaml"
-
-requestGetCrawlerMetrics :: GetCrawlerMetrics -> TestTree
-requestGetCrawlerMetrics = req
-    "GetCrawlerMetrics"
-    "fixture/GetCrawlerMetrics.yaml"
-
-requestGetPlan :: GetPlan -> TestTree
-requestGetPlan = req
-    "GetPlan"
-    "fixture/GetPlan.yaml"
-
-requestGetTriggers :: GetTriggers -> TestTree
-requestGetTriggers = req
-    "GetTriggers"
-    "fixture/GetTriggers.yaml"
-
-requestStartTrigger :: StartTrigger -> TestTree
-requestStartTrigger = req
-    "StartTrigger"
-    "fixture/StartTrigger.yaml"
-
-requestGetDataflowGraph :: GetDataflowGraph -> TestTree
-requestGetDataflowGraph = req
-    "GetDataflowGraph"
-    "fixture/GetDataflowGraph.yaml"
-
-requestGetDatabases :: GetDatabases -> TestTree
-requestGetDatabases = req
-    "GetDatabases"
-    "fixture/GetDatabases.yaml"
-
-requestGetTable :: GetTable -> TestTree
-requestGetTable = req
-    "GetTable"
-    "fixture/GetTable.yaml"
-
-requestCreateCrawler :: CreateCrawler -> TestTree
-requestCreateCrawler = req
-    "CreateCrawler"
-    "fixture/CreateCrawler.yaml"
-
-requestGetJobRun :: GetJobRun -> TestTree
-requestGetJobRun = req
-    "GetJobRun"
-    "fixture/GetJobRun.yaml"
-
-requestCreateDevEndpoint :: CreateDevEndpoint -> TestTree
-requestCreateDevEndpoint = req
-    "CreateDevEndpoint"
-    "fixture/CreateDevEndpoint.yaml"
+requestStartMLEvaluationTaskRun :: StartMLEvaluationTaskRun -> TestTree
+requestStartMLEvaluationTaskRun =
+  req
+    "StartMLEvaluationTaskRun"
+    "fixture/StartMLEvaluationTaskRun.yaml"
 
 requestGetDatabase :: GetDatabase -> TestTree
-requestGetDatabase = req
+requestGetDatabase =
+  req
     "GetDatabase"
     "fixture/GetDatabase.yaml"
 
 requestDeletePartition :: DeletePartition -> TestTree
-requestDeletePartition = req
+requestDeletePartition =
+  req
     "DeletePartition"
     "fixture/DeletePartition.yaml"
 
-requestUpdatePartition :: UpdatePartition -> TestTree
-requestUpdatePartition = req
-    "UpdatePartition"
-    "fixture/UpdatePartition.yaml"
+requestGetJobRuns :: GetJobRuns -> TestTree
+requestGetJobRuns =
+  req
+    "GetJobRuns"
+    "fixture/GetJobRuns.yaml"
 
-requestCreateScript :: CreateScript -> TestTree
-requestCreateScript = req
-    "CreateScript"
-    "fixture/CreateScript.yaml"
+requestGetMLTransforms :: GetMLTransforms -> TestTree
+requestGetMLTransforms =
+  req
+    "GetMLTransforms"
+    "fixture/GetMLTransforms.yaml"
 
-requestGetConnections :: GetConnections -> TestTree
-requestGetConnections = req
-    "GetConnections"
-    "fixture/GetConnections.yaml"
+requestGetJobRun :: GetJobRun -> TestTree
+requestGetJobRun =
+  req
+    "GetJobRun"
+    "fixture/GetJobRun.yaml"
 
-requestGetTrigger :: GetTrigger -> TestTree
-requestGetTrigger = req
-    "GetTrigger"
-    "fixture/GetTrigger.yaml"
+requestCreateDevEndpoint :: CreateDevEndpoint -> TestTree
+requestCreateDevEndpoint =
+  req
+    "CreateDevEndpoint"
+    "fixture/CreateDevEndpoint.yaml"
 
-requestImportCatalogToGlue :: ImportCatalogToGlue -> TestTree
-requestImportCatalogToGlue = req
-    "ImportCatalogToGlue"
-    "fixture/ImportCatalogToGlue.yaml"
+requestCreatePartitionIndex :: CreatePartitionIndex -> TestTree
+requestCreatePartitionIndex =
+  req
+    "CreatePartitionIndex"
+    "fixture/CreatePartitionIndex.yaml"
 
-requestDeleteClassifier :: DeleteClassifier -> TestTree
-requestDeleteClassifier = req
-    "DeleteClassifier"
-    "fixture/DeleteClassifier.yaml"
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
 
-requestUpdateClassifier :: UpdateClassifier -> TestTree
-requestUpdateClassifier = req
-    "UpdateClassifier"
-    "fixture/UpdateClassifier.yaml"
+requestGetSecurityConfiguration :: GetSecurityConfiguration -> TestTree
+requestGetSecurityConfiguration =
+  req
+    "GetSecurityConfiguration"
+    "fixture/GetSecurityConfiguration.yaml"
 
-requestStartJobRun :: StartJobRun -> TestTree
-requestStartJobRun = req
-    "StartJobRun"
-    "fixture/StartJobRun.yaml"
+requestCreateCrawler :: CreateCrawler -> TestTree
+requestCreateCrawler =
+  req
+    "CreateCrawler"
+    "fixture/CreateCrawler.yaml"
 
-requestCreatePartition :: CreatePartition -> TestTree
-requestCreatePartition = req
-    "CreatePartition"
-    "fixture/CreatePartition.yaml"
+requestGetMLTaskRuns :: GetMLTaskRuns -> TestTree
+requestGetMLTaskRuns =
+  req
+    "GetMLTaskRuns"
+    "fixture/GetMLTaskRuns.yaml"
 
-requestStopCrawlerSchedule :: StopCrawlerSchedule -> TestTree
-requestStopCrawlerSchedule = req
-    "StopCrawlerSchedule"
-    "fixture/StopCrawlerSchedule.yaml"
+requestListCrawlers :: ListCrawlers -> TestTree
+requestListCrawlers =
+  req
+    "ListCrawlers"
+    "fixture/ListCrawlers.yaml"
+
+requestUpdateDevEndpoint :: UpdateDevEndpoint -> TestTree
+requestUpdateDevEndpoint =
+  req
+    "UpdateDevEndpoint"
+    "fixture/UpdateDevEndpoint.yaml"
+
+requestCreateSchema :: CreateSchema -> TestTree
+requestCreateSchema =
+  req
+    "CreateSchema"
+    "fixture/CreateSchema.yaml"
+
+requestListDevEndpoints :: ListDevEndpoints -> TestTree
+requestListDevEndpoints =
+  req
+    "ListDevEndpoints"
+    "fixture/ListDevEndpoints.yaml"
+
+requestDeleteCrawler :: DeleteCrawler -> TestTree
+requestDeleteCrawler =
+  req
+    "DeleteCrawler"
+    "fixture/DeleteCrawler.yaml"
+
+requestDeleteDevEndpoint :: DeleteDevEndpoint -> TestTree
+requestDeleteDevEndpoint =
+  req
+    "DeleteDevEndpoint"
+    "fixture/DeleteDevEndpoint.yaml"
+
+requestGetWorkflow :: GetWorkflow -> TestTree
+requestGetWorkflow =
+  req
+    "GetWorkflow"
+    "fixture/GetWorkflow.yaml"
+
+requestGetSchemaVersion :: GetSchemaVersion -> TestTree
+requestGetSchemaVersion =
+  req
+    "GetSchemaVersion"
+    "fixture/GetSchemaVersion.yaml"
+
+requestUpdateCrawler :: UpdateCrawler -> TestTree
+requestUpdateCrawler =
+  req
+    "UpdateCrawler"
+    "fixture/UpdateCrawler.yaml"
+
+requestDeleteWorkflow :: DeleteWorkflow -> TestTree
+requestDeleteWorkflow =
+  req
+    "DeleteWorkflow"
+    "fixture/DeleteWorkflow.yaml"
+
+requestRegisterSchemaVersion :: RegisterSchemaVersion -> TestTree
+requestRegisterSchemaVersion =
+  req
+    "RegisterSchemaVersion"
+    "fixture/RegisterSchemaVersion.yaml"
+
+requestGetMapping :: GetMapping -> TestTree
+requestGetMapping =
+  req
+    "GetMapping"
+    "fixture/GetMapping.yaml"
+
+requestStopWorkflowRun :: StopWorkflowRun -> TestTree
+requestStopWorkflowRun =
+  req
+    "StopWorkflowRun"
+    "fixture/StopWorkflowRun.yaml"
+
+requestCreateConnection :: CreateConnection -> TestTree
+requestCreateConnection =
+  req
+    "CreateConnection"
+    "fixture/CreateConnection.yaml"
+
+requestBatchCreatePartition :: BatchCreatePartition -> TestTree
+requestBatchCreatePartition =
+  req
+    "BatchCreatePartition"
+    "fixture/BatchCreatePartition.yaml"
+
+requestCreateTable :: CreateTable -> TestTree
+requestCreateTable =
+  req
+    "CreateTable"
+    "fixture/CreateTable.yaml"
+
+requestUpdateWorkflow :: UpdateWorkflow -> TestTree
+requestUpdateWorkflow =
+  req
+    "UpdateWorkflow"
+    "fixture/UpdateWorkflow.yaml"
+
+requestGetClassifiers :: GetClassifiers -> TestTree
+requestGetClassifiers =
+  req
+    "GetClassifiers"
+    "fixture/GetClassifiers.yaml"
+
+requestBatchStopJobRun :: BatchStopJobRun -> TestTree
+requestBatchStopJobRun =
+  req
+    "BatchStopJobRun"
+    "fixture/BatchStopJobRun.yaml"
+
+requestStartWorkflowRun :: StartWorkflowRun -> TestTree
+requestStartWorkflowRun =
+  req
+    "StartWorkflowRun"
+    "fixture/StartWorkflowRun.yaml"
+
+requestListWorkflows :: ListWorkflows -> TestTree
+requestListWorkflows =
+  req
+    "ListWorkflows"
+    "fixture/ListWorkflows.yaml"
+
+requestListSchemaVersions :: ListSchemaVersions -> TestTree
+requestListSchemaVersions =
+  req
+    "ListSchemaVersions"
+    "fixture/ListSchemaVersions.yaml"
+
+requestBatchDeletePartition :: BatchDeletePartition -> TestTree
+requestBatchDeletePartition =
+  req
+    "BatchDeletePartition"
+    "fixture/BatchDeletePartition.yaml"
+
+requestPutSchemaVersionMetadata :: PutSchemaVersionMetadata -> TestTree
+requestPutSchemaVersionMetadata =
+  req
+    "PutSchemaVersionMetadata"
+    "fixture/PutSchemaVersionMetadata.yaml"
+
+requestGetWorkflowRuns :: GetWorkflowRuns -> TestTree
+requestGetWorkflowRuns =
+  req
+    "GetWorkflowRuns"
+    "fixture/GetWorkflowRuns.yaml"
+
+requestGetTags :: GetTags -> TestTree
+requestGetTags =
+  req
+    "GetTags"
+    "fixture/GetTags.yaml"
+
+requestBatchUpdatePartition :: BatchUpdatePartition -> TestTree
+requestBatchUpdatePartition =
+  req
+    "BatchUpdatePartition"
+    "fixture/BatchUpdatePartition.yaml"
+
+requestGetUserDefinedFunctions :: GetUserDefinedFunctions -> TestTree
+requestGetUserDefinedFunctions =
+  req
+    "GetUserDefinedFunctions"
+    "fixture/GetUserDefinedFunctions.yaml"
+
+requestUpdateTable :: UpdateTable -> TestTree
+requestUpdateTable =
+  req
+    "UpdateTable"
+    "fixture/UpdateTable.yaml"
+
+requestDeleteTable :: DeleteTable -> TestTree
+requestDeleteTable =
+  req
+    "DeleteTable"
+    "fixture/DeleteTable.yaml"
+
+requestDeleteDatabase :: DeleteDatabase -> TestTree
+requestDeleteDatabase =
+  req
+    "DeleteDatabase"
+    "fixture/DeleteDatabase.yaml"
+
+requestUpdateDatabase :: UpdateDatabase -> TestTree
+requestUpdateDatabase =
+  req
+    "UpdateDatabase"
+    "fixture/UpdateDatabase.yaml"
+
+requestGetUserDefinedFunction :: GetUserDefinedFunction -> TestTree
+requestGetUserDefinedFunction =
+  req
+    "GetUserDefinedFunction"
+    "fixture/GetUserDefinedFunction.yaml"
+
+requestUpdateMLTransform :: UpdateMLTransform -> TestTree
+requestUpdateMLTransform =
+  req
+    "UpdateMLTransform"
+    "fixture/UpdateMLTransform.yaml"
+
+requestGetWorkflowRun :: GetWorkflowRun -> TestTree
+requestGetWorkflowRun =
+  req
+    "GetWorkflowRun"
+    "fixture/GetWorkflowRun.yaml"
+
+requestDeleteMLTransform :: DeleteMLTransform -> TestTree
+requestDeleteMLTransform =
+  req
+    "DeleteMLTransform"
+    "fixture/DeleteMLTransform.yaml"
+
+requestCreateTrigger :: CreateTrigger -> TestTree
+requestCreateTrigger =
+  req
+    "CreateTrigger"
+    "fixture/CreateTrigger.yaml"
 
 requestCreateDatabase :: CreateDatabase -> TestTree
-requestCreateDatabase = req
+requestCreateDatabase =
+  req
     "CreateDatabase"
     "fixture/CreateDatabase.yaml"
 
+requestGetClassifier :: GetClassifier -> TestTree
+requestGetClassifier =
+  req
+    "GetClassifier"
+    "fixture/GetClassifier.yaml"
+
+requestDeleteSchemaVersions :: DeleteSchemaVersions -> TestTree
+requestDeleteSchemaVersions =
+  req
+    "DeleteSchemaVersions"
+    "fixture/DeleteSchemaVersions.yaml"
+
+requestBatchGetTriggers :: BatchGetTriggers -> TestTree
+requestBatchGetTriggers =
+  req
+    "BatchGetTriggers"
+    "fixture/BatchGetTriggers.yaml"
+
+requestBatchDeleteTableVersion :: BatchDeleteTableVersion -> TestTree
+requestBatchDeleteTableVersion =
+  req
+    "BatchDeleteTableVersion"
+    "fixture/BatchDeleteTableVersion.yaml"
+
 requestGetTableVersions :: GetTableVersions -> TestTree
-requestGetTableVersions = req
+requestGetTableVersions =
+  req
     "GetTableVersions"
     "fixture/GetTableVersions.yaml"
 
-requestDeleteTrigger :: DeleteTrigger -> TestTree
-requestDeleteTrigger = req
-    "DeleteTrigger"
-    "fixture/DeleteTrigger.yaml"
+requestGetDevEndpoints :: GetDevEndpoints -> TestTree
+requestGetDevEndpoints =
+  req
+    "GetDevEndpoints"
+    "fixture/GetDevEndpoints.yaml"
 
-requestUpdateTrigger :: UpdateTrigger -> TestTree
-requestUpdateTrigger = req
-    "UpdateTrigger"
-    "fixture/UpdateTrigger.yaml"
+requestGetCrawlers :: GetCrawlers -> TestTree
+requestGetCrawlers =
+  req
+    "GetCrawlers"
+    "fixture/GetCrawlers.yaml"
+
+requestStartJobRun :: StartJobRun -> TestTree
+requestStartJobRun =
+  req
+    "StartJobRun"
+    "fixture/StartJobRun.yaml"
+
+requestImportCatalogToGlue :: ImportCatalogToGlue -> TestTree
+requestImportCatalogToGlue =
+  req
+    "ImportCatalogToGlue"
+    "fixture/ImportCatalogToGlue.yaml"
+
+requestCreatePartition :: CreatePartition -> TestTree
+requestCreatePartition =
+  req
+    "CreatePartition"
+    "fixture/CreatePartition.yaml"
+
+requestResetJobBookmark :: ResetJobBookmark -> TestTree
+requestResetJobBookmark =
+  req
+    "ResetJobBookmark"
+    "fixture/ResetJobBookmark.yaml"
+
+requestListJobs :: ListJobs -> TestTree
+requestListJobs =
+  req
+    "ListJobs"
+    "fixture/ListJobs.yaml"
+
+requestBatchDeleteConnection :: BatchDeleteConnection -> TestTree
+requestBatchDeleteConnection =
+  req
+    "BatchDeleteConnection"
+    "fixture/BatchDeleteConnection.yaml"
+
+requestGetTables :: GetTables -> TestTree
+requestGetTables =
+  req
+    "GetTables"
+    "fixture/GetTables.yaml"
+
+requestDeleteColumnStatisticsForPartition :: DeleteColumnStatisticsForPartition -> TestTree
+requestDeleteColumnStatisticsForPartition =
+  req
+    "DeleteColumnStatisticsForPartition"
+    "fixture/DeleteColumnStatisticsForPartition.yaml"
+
+requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
+requestDeleteResourcePolicy =
+  req
+    "DeleteResourcePolicy"
+    "fixture/DeleteResourcePolicy.yaml"
+
+requestGetRegistry :: GetRegistry -> TestTree
+requestGetRegistry =
+  req
+    "GetRegistry"
+    "fixture/GetRegistry.yaml"
+
+requestResumeWorkflowRun :: ResumeWorkflowRun -> TestTree
+requestResumeWorkflowRun =
+  req
+    "ResumeWorkflowRun"
+    "fixture/ResumeWorkflowRun.yaml"
+
+requestCancelMLTaskRun :: CancelMLTaskRun -> TestTree
+requestCancelMLTaskRun =
+  req
+    "CancelMLTaskRun"
+    "fixture/CancelMLTaskRun.yaml"
+
+requestCreateJob :: CreateJob -> TestTree
+requestCreateJob =
+  req
+    "CreateJob"
+    "fixture/CreateJob.yaml"
+
+requestSearchTables :: SearchTables -> TestTree
+requestSearchTables =
+  req
+    "SearchTables"
+    "fixture/SearchTables.yaml"
+
+requestUpdateUserDefinedFunction :: UpdateUserDefinedFunction -> TestTree
+requestUpdateUserDefinedFunction =
+  req
+    "UpdateUserDefinedFunction"
+    "fixture/UpdateUserDefinedFunction.yaml"
+
+requestUpdateColumnStatisticsForPartition :: UpdateColumnStatisticsForPartition -> TestTree
+requestUpdateColumnStatisticsForPartition =
+  req
+    "UpdateColumnStatisticsForPartition"
+    "fixture/UpdateColumnStatisticsForPartition.yaml"
+
+requestGetConnections :: GetConnections -> TestTree
+requestGetConnections =
+  req
+    "GetConnections"
+    "fixture/GetConnections.yaml"
+
+requestGetMLTransform :: GetMLTransform -> TestTree
+requestGetMLTransform =
+  req
+    "GetMLTransform"
+    "fixture/GetMLTransform.yaml"
+
+requestCreateScript :: CreateScript -> TestTree
+requestCreateScript =
+  req
+    "CreateScript"
+    "fixture/CreateScript.yaml"
+
+requestGetMLTaskRun :: GetMLTaskRun -> TestTree
+requestGetMLTaskRun =
+  req
+    "GetMLTaskRun"
+    "fixture/GetMLTaskRun.yaml"
+
+requestDeleteUserDefinedFunction :: DeleteUserDefinedFunction -> TestTree
+requestDeleteUserDefinedFunction =
+  req
+    "DeleteUserDefinedFunction"
+    "fixture/DeleteUserDefinedFunction.yaml"
+
+requestStartTrigger :: StartTrigger -> TestTree
+requestStartTrigger =
+  req
+    "StartTrigger"
+    "fixture/StartTrigger.yaml"
+
+requestPutDataCatalogEncryptionSettings :: PutDataCatalogEncryptionSettings -> TestTree
+requestPutDataCatalogEncryptionSettings =
+  req
+    "PutDataCatalogEncryptionSettings"
+    "fixture/PutDataCatalogEncryptionSettings.yaml"
+
+requestRemoveSchemaVersionMetadata :: RemoveSchemaVersionMetadata -> TestTree
+requestRemoveSchemaVersionMetadata =
+  req
+    "RemoveSchemaVersionMetadata"
+    "fixture/RemoveSchemaVersionMetadata.yaml"
+
+requestBatchGetPartition :: BatchGetPartition -> TestTree
+requestBatchGetPartition =
+  req
+    "BatchGetPartition"
+    "fixture/BatchGetPartition.yaml"
+
+requestGetTable :: GetTable -> TestTree
+requestGetTable =
+  req
+    "GetTable"
+    "fixture/GetTable.yaml"
+
+requestUpdateCrawlerSchedule :: UpdateCrawlerSchedule -> TestTree
+requestUpdateCrawlerSchedule =
+  req
+    "UpdateCrawlerSchedule"
+    "fixture/UpdateCrawlerSchedule.yaml"
+
+requestGetColumnStatisticsForTable :: GetColumnStatisticsForTable -> TestTree
+requestGetColumnStatisticsForTable =
+  req
+    "GetColumnStatisticsForTable"
+    "fixture/GetColumnStatisticsForTable.yaml"
+
+requestStopTrigger :: StopTrigger -> TestTree
+requestStopTrigger =
+  req
+    "StopTrigger"
+    "fixture/StopTrigger.yaml"
+
+requestListSchemas :: ListSchemas -> TestTree
+requestListSchemas =
+  req
+    "ListSchemas"
+    "fixture/ListSchemas.yaml"
+
+requestGetConnection :: GetConnection -> TestTree
+requestGetConnection =
+  req
+    "GetConnection"
+    "fixture/GetConnection.yaml"
+
+requestGetDatabases :: GetDatabases -> TestTree
+requestGetDatabases =
+  req
+    "GetDatabases"
+    "fixture/GetDatabases.yaml"
+
+requestDeleteSchema :: DeleteSchema -> TestTree
+requestDeleteSchema =
+  req
+    "DeleteSchema"
+    "fixture/DeleteSchema.yaml"
+
+requestUpdateSchema :: UpdateSchema -> TestTree
+requestUpdateSchema =
+  req
+    "UpdateSchema"
+    "fixture/UpdateSchema.yaml"
+
+requestGetDataflowGraph :: GetDataflowGraph -> TestTree
+requestGetDataflowGraph =
+  req
+    "GetDataflowGraph"
+    "fixture/GetDataflowGraph.yaml"
+
+requestBatchGetDevEndpoints :: BatchGetDevEndpoints -> TestTree
+requestBatchGetDevEndpoints =
+  req
+    "BatchGetDevEndpoints"
+    "fixture/BatchGetDevEndpoints.yaml"
+
+requestStartExportLabelsTaskRun :: StartExportLabelsTaskRun -> TestTree
+requestStartExportLabelsTaskRun =
+  req
+    "StartExportLabelsTaskRun"
+    "fixture/StartExportLabelsTaskRun.yaml"
+
+requestGetTriggers :: GetTriggers -> TestTree
+requestGetTriggers =
+  req
+    "GetTriggers"
+    "fixture/GetTriggers.yaml"
+
+requestBatchGetCrawlers :: BatchGetCrawlers -> TestTree
+requestBatchGetCrawlers =
+  req
+    "BatchGetCrawlers"
+    "fixture/BatchGetCrawlers.yaml"
+
+requestGetPlan :: GetPlan -> TestTree
+requestGetPlan =
+  req
+    "GetPlan"
+    "fixture/GetPlan.yaml"
+
+requestGetCrawlerMetrics :: GetCrawlerMetrics -> TestTree
+requestGetCrawlerMetrics =
+  req
+    "GetCrawlerMetrics"
+    "fixture/GetCrawlerMetrics.yaml"
+
+requestGetWorkflowRunProperties :: GetWorkflowRunProperties -> TestTree
+requestGetWorkflowRunProperties =
+  req
+    "GetWorkflowRunProperties"
+    "fixture/GetWorkflowRunProperties.yaml"
+
+requestDeletePartitionIndex :: DeletePartitionIndex -> TestTree
+requestDeletePartitionIndex =
+  req
+    "DeletePartitionIndex"
+    "fixture/DeletePartitionIndex.yaml"
+
+requestGetJobBookmark :: GetJobBookmark -> TestTree
+requestGetJobBookmark =
+  req
+    "GetJobBookmark"
+    "fixture/GetJobBookmark.yaml"
+
+requestDeleteTableVersion :: DeleteTableVersion -> TestTree
+requestDeleteTableVersion =
+  req
+    "DeleteTableVersion"
+    "fixture/DeleteTableVersion.yaml"
+
+requestGetTableVersion :: GetTableVersion -> TestTree
+requestGetTableVersion =
+  req
+    "GetTableVersion"
+    "fixture/GetTableVersion.yaml"
+
+requestPutWorkflowRunProperties :: PutWorkflowRunProperties -> TestTree
+requestPutWorkflowRunProperties =
+  req
+    "PutWorkflowRunProperties"
+    "fixture/PutWorkflowRunProperties.yaml"
+
+requestBatchGetWorkflows :: BatchGetWorkflows -> TestTree
+requestBatchGetWorkflows =
+  req
+    "BatchGetWorkflows"
+    "fixture/BatchGetWorkflows.yaml"
+
+requestGetResourcePolicies :: GetResourcePolicies -> TestTree
+requestGetResourcePolicies =
+  req
+    "GetResourcePolicies"
+    "fixture/GetResourcePolicies.yaml"
+
+requestGetJobs :: GetJobs -> TestTree
+requestGetJobs =
+  req
+    "GetJobs"
+    "fixture/GetJobs.yaml"
+
+requestGetDevEndpoint :: GetDevEndpoint -> TestTree
+requestGetDevEndpoint =
+  req
+    "GetDevEndpoint"
+    "fixture/GetDevEndpoint.yaml"
+
+requestGetCrawler :: GetCrawler -> TestTree
+requestGetCrawler =
+  req
+    "GetCrawler"
+    "fixture/GetCrawler.yaml"
+
+requestCreateSecurityConfiguration :: CreateSecurityConfiguration -> TestTree
+requestCreateSecurityConfiguration =
+  req
+    "CreateSecurityConfiguration"
+    "fixture/CreateSecurityConfiguration.yaml"
 
 -- Responses
 
-responseStartCrawler :: StartCrawlerResponse -> TestTree
-responseStartCrawler = res
-    "StartCrawlerResponse"
-    "fixture/StartCrawlerResponse.proto"
-    glue
-    (Proxy :: Proxy StartCrawler)
+responseGetDataCatalogEncryptionSettings :: GetDataCatalogEncryptionSettingsResponse -> TestTree
+responseGetDataCatalogEncryptionSettings =
+  res
+    "GetDataCatalogEncryptionSettingsResponse"
+    "fixture/GetDataCatalogEncryptionSettingsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetDataCatalogEncryptionSettings)
 
-responseGetCatalogImportStatus :: GetCatalogImportStatusResponse -> TestTree
-responseGetCatalogImportStatus = res
-    "GetCatalogImportStatusResponse"
-    "fixture/GetCatalogImportStatusResponse.proto"
-    glue
-    (Proxy :: Proxy GetCatalogImportStatus)
+responseUpdateColumnStatisticsForTable :: UpdateColumnStatisticsForTableResponse -> TestTree
+responseUpdateColumnStatisticsForTable =
+  res
+    "UpdateColumnStatisticsForTableResponse"
+    "fixture/UpdateColumnStatisticsForTableResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateColumnStatisticsForTable)
 
-responseGetPartition :: GetPartitionResponse -> TestTree
-responseGetPartition = res
-    "GetPartitionResponse"
-    "fixture/GetPartitionResponse.proto"
-    glue
-    (Proxy :: Proxy GetPartition)
+responseStartMLLabelingSetGenerationTaskRun :: StartMLLabelingSetGenerationTaskRunResponse -> TestTree
+responseStartMLLabelingSetGenerationTaskRun =
+  res
+    "StartMLLabelingSetGenerationTaskRunResponse"
+    "fixture/StartMLLabelingSetGenerationTaskRunResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartMLLabelingSetGenerationTaskRun)
 
-responseCreateTrigger :: CreateTriggerResponse -> TestTree
-responseCreateTrigger = res
-    "CreateTriggerResponse"
-    "fixture/CreateTriggerResponse.proto"
-    glue
-    (Proxy :: Proxy CreateTrigger)
+responseDeleteColumnStatisticsForTable :: DeleteColumnStatisticsForTableResponse -> TestTree
+responseDeleteColumnStatisticsForTable =
+  res
+    "DeleteColumnStatisticsForTableResponse"
+    "fixture/DeleteColumnStatisticsForTableResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteColumnStatisticsForTable)
 
-responseDeleteTable :: DeleteTableResponse -> TestTree
-responseDeleteTable = res
-    "DeleteTableResponse"
-    "fixture/DeleteTableResponse.proto"
-    glue
-    (Proxy :: Proxy DeleteTable)
-
-responseUpdateTable :: UpdateTableResponse -> TestTree
-responseUpdateTable = res
-    "UpdateTableResponse"
-    "fixture/UpdateTableResponse.proto"
-    glue
-    (Proxy :: Proxy UpdateTable)
+responseGetSchema :: GetSchemaResponse -> TestTree
+responseGetSchema =
+  res
+    "GetSchemaResponse"
+    "fixture/GetSchemaResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSchema)
 
 responseDeleteConnection :: DeleteConnectionResponse -> TestTree
-responseDeleteConnection = res
+responseDeleteConnection =
+  res
     "DeleteConnectionResponse"
     "fixture/DeleteConnectionResponse.proto"
-    glue
+    defaultService
     (Proxy :: Proxy DeleteConnection)
 
 responseUpdateConnection :: UpdateConnectionResponse -> TestTree
-responseUpdateConnection = res
+responseUpdateConnection =
+  res
     "UpdateConnectionResponse"
     "fixture/UpdateConnectionResponse.proto"
-    glue
+    defaultService
     (Proxy :: Proxy UpdateConnection)
 
-responseGetUserDefinedFunctions :: GetUserDefinedFunctionsResponse -> TestTree
-responseGetUserDefinedFunctions = res
-    "GetUserDefinedFunctionsResponse"
-    "fixture/GetUserDefinedFunctionsResponse.proto"
-    glue
-    (Proxy :: Proxy GetUserDefinedFunctions)
+responseCheckSchemaVersionValidity :: CheckSchemaVersionValidityResponse -> TestTree
+responseCheckSchemaVersionValidity =
+  res
+    "CheckSchemaVersionValidityResponse"
+    "fixture/CheckSchemaVersionValidityResponse.proto"
+    defaultService
+    (Proxy :: Proxy CheckSchemaVersionValidity)
 
-responseBatchCreatePartition :: BatchCreatePartitionResponse -> TestTree
-responseBatchCreatePartition = res
-    "BatchCreatePartitionResponse"
-    "fixture/BatchCreatePartitionResponse.proto"
-    glue
-    (Proxy :: Proxy BatchCreatePartition)
+responseCreateWorkflow :: CreateWorkflowResponse -> TestTree
+responseCreateWorkflow =
+  res
+    "CreateWorkflowResponse"
+    "fixture/CreateWorkflowResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateWorkflow)
 
-responseGetMapping :: GetMappingResponse -> TestTree
-responseGetMapping = res
-    "GetMappingResponse"
-    "fixture/GetMappingResponse.proto"
-    glue
-    (Proxy :: Proxy GetMapping)
+responseGetPartitions :: GetPartitionsResponse -> TestTree
+responseGetPartitions =
+  res
+    "GetPartitionsResponse"
+    "fixture/GetPartitionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetPartitions)
 
-responseGetTableVersion :: GetTableVersionResponse -> TestTree
-responseGetTableVersion = res
-    "GetTableVersionResponse"
-    "fixture/GetTableVersionResponse.proto"
-    glue
-    (Proxy :: Proxy GetTableVersion)
+responseDeleteSecurityConfiguration :: DeleteSecurityConfigurationResponse -> TestTree
+responseDeleteSecurityConfiguration =
+  res
+    "DeleteSecurityConfigurationResponse"
+    "fixture/DeleteSecurityConfigurationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteSecurityConfiguration)
 
-responseGetJobs :: GetJobsResponse -> TestTree
-responseGetJobs = res
-    "GetJobsResponse"
-    "fixture/GetJobsResponse.proto"
-    glue
-    (Proxy :: Proxy GetJobs)
+responseGetPartition :: GetPartitionResponse -> TestTree
+responseGetPartition =
+  res
+    "GetPartitionResponse"
+    "fixture/GetPartitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetPartition)
 
-responseGetClassifiers :: GetClassifiersResponse -> TestTree
-responseGetClassifiers = res
-    "GetClassifiersResponse"
-    "fixture/GetClassifiersResponse.proto"
-    glue
-    (Proxy :: Proxy GetClassifiers)
+responseUpdateRegistry :: UpdateRegistryResponse -> TestTree
+responseUpdateRegistry =
+  res
+    "UpdateRegistryResponse"
+    "fixture/UpdateRegistryResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateRegistry)
 
-responseCreateConnection :: CreateConnectionResponse -> TestTree
-responseCreateConnection = res
-    "CreateConnectionResponse"
-    "fixture/CreateConnectionResponse.proto"
-    glue
-    (Proxy :: Proxy CreateConnection)
+responseListMLTransforms :: ListMLTransformsResponse -> TestTree
+responseListMLTransforms =
+  res
+    "ListMLTransformsResponse"
+    "fixture/ListMLTransformsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListMLTransforms)
 
-responseDeleteTableVersion :: DeleteTableVersionResponse -> TestTree
-responseDeleteTableVersion = res
-    "DeleteTableVersionResponse"
-    "fixture/DeleteTableVersionResponse.proto"
-    glue
-    (Proxy :: Proxy DeleteTableVersion)
+responseStopCrawler :: StopCrawlerResponse -> TestTree
+responseStopCrawler =
+  res
+    "StopCrawlerResponse"
+    "fixture/StopCrawlerResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopCrawler)
 
-responseDeleteDevEndpoint :: DeleteDevEndpointResponse -> TestTree
-responseDeleteDevEndpoint = res
-    "DeleteDevEndpointResponse"
-    "fixture/DeleteDevEndpointResponse.proto"
-    glue
-    (Proxy :: Proxy DeleteDevEndpoint)
+responseStartImportLabelsTaskRun :: StartImportLabelsTaskRunResponse -> TestTree
+responseStartImportLabelsTaskRun =
+  res
+    "StartImportLabelsTaskRunResponse"
+    "fixture/StartImportLabelsTaskRunResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartImportLabelsTaskRun)
 
-responseUpdateDevEndpoint :: UpdateDevEndpointResponse -> TestTree
-responseUpdateDevEndpoint = res
-    "UpdateDevEndpointResponse"
-    "fixture/UpdateDevEndpointResponse.proto"
-    glue
-    (Proxy :: Proxy UpdateDevEndpoint)
+responseGetResourcePolicy :: GetResourcePolicyResponse -> TestTree
+responseGetResourcePolicy =
+  res
+    "GetResourcePolicyResponse"
+    "fixture/GetResourcePolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetResourcePolicy)
 
-responseDeleteCrawler :: DeleteCrawlerResponse -> TestTree
-responseDeleteCrawler = res
-    "DeleteCrawlerResponse"
-    "fixture/DeleteCrawlerResponse.proto"
-    glue
-    (Proxy :: Proxy DeleteCrawler)
+responseQuerySchemaVersionMetadata :: QuerySchemaVersionMetadataResponse -> TestTree
+responseQuerySchemaVersionMetadata =
+  res
+    "QuerySchemaVersionMetadataResponse"
+    "fixture/QuerySchemaVersionMetadataResponse.proto"
+    defaultService
+    (Proxy :: Proxy QuerySchemaVersionMetadata)
 
-responseUpdateCrawler :: UpdateCrawlerResponse -> TestTree
-responseUpdateCrawler = res
-    "UpdateCrawlerResponse"
-    "fixture/UpdateCrawlerResponse.proto"
-    glue
-    (Proxy :: Proxy UpdateCrawler)
+responseDeleteRegistry :: DeleteRegistryResponse -> TestTree
+responseDeleteRegistry =
+  res
+    "DeleteRegistryResponse"
+    "fixture/DeleteRegistryResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteRegistry)
 
-responseGetConnection :: GetConnectionResponse -> TestTree
-responseGetConnection = res
-    "GetConnectionResponse"
-    "fixture/GetConnectionResponse.proto"
-    glue
-    (Proxy :: Proxy GetConnection)
+responseGetPartitionIndexes :: GetPartitionIndexesResponse -> TestTree
+responseGetPartitionIndexes =
+  res
+    "GetPartitionIndexesResponse"
+    "fixture/GetPartitionIndexesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetPartitionIndexes)
 
-responseBatchGetPartition :: BatchGetPartitionResponse -> TestTree
-responseBatchGetPartition = res
-    "BatchGetPartitionResponse"
-    "fixture/BatchGetPartitionResponse.proto"
-    glue
-    (Proxy :: Proxy BatchGetPartition)
+responseStartCrawler :: StartCrawlerResponse -> TestTree
+responseStartCrawler =
+  res
+    "StartCrawlerResponse"
+    "fixture/StartCrawlerResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartCrawler)
 
-responseStopTrigger :: StopTriggerResponse -> TestTree
-responseStopTrigger = res
-    "StopTriggerResponse"
-    "fixture/StopTriggerResponse.proto"
-    glue
-    (Proxy :: Proxy StopTrigger)
+responseGetCatalogImportStatus :: GetCatalogImportStatusResponse -> TestTree
+responseGetCatalogImportStatus =
+  res
+    "GetCatalogImportStatusResponse"
+    "fixture/GetCatalogImportStatusResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetCatalogImportStatus)
 
-responseUpdateCrawlerSchedule :: UpdateCrawlerScheduleResponse -> TestTree
-responseUpdateCrawlerSchedule = res
-    "UpdateCrawlerScheduleResponse"
-    "fixture/UpdateCrawlerScheduleResponse.proto"
-    glue
-    (Proxy :: Proxy UpdateCrawlerSchedule)
+responseGetColumnStatisticsForPartition :: GetColumnStatisticsForPartitionResponse -> TestTree
+responseGetColumnStatisticsForPartition =
+  res
+    "GetColumnStatisticsForPartitionResponse"
+    "fixture/GetColumnStatisticsForPartitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetColumnStatisticsForPartition)
 
-responseDeleteUserDefinedFunction :: DeleteUserDefinedFunctionResponse -> TestTree
-responseDeleteUserDefinedFunction = res
-    "DeleteUserDefinedFunctionResponse"
-    "fixture/DeleteUserDefinedFunctionResponse.proto"
-    glue
-    (Proxy :: Proxy DeleteUserDefinedFunction)
+responseCreateRegistry :: CreateRegistryResponse -> TestTree
+responseCreateRegistry =
+  res
+    "CreateRegistryResponse"
+    "fixture/CreateRegistryResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateRegistry)
 
-responseUpdateUserDefinedFunction :: UpdateUserDefinedFunctionResponse -> TestTree
-responseUpdateUserDefinedFunction = res
-    "UpdateUserDefinedFunctionResponse"
-    "fixture/UpdateUserDefinedFunctionResponse.proto"
-    glue
-    (Proxy :: Proxy UpdateUserDefinedFunction)
+responseListTriggers :: ListTriggersResponse -> TestTree
+responseListTriggers =
+  res
+    "ListTriggersResponse"
+    "fixture/ListTriggersResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTriggers)
 
-responseBatchDeleteTable :: BatchDeleteTableResponse -> TestTree
-responseBatchDeleteTable = res
-    "BatchDeleteTableResponse"
-    "fixture/BatchDeleteTableResponse.proto"
-    glue
-    (Proxy :: Proxy BatchDeleteTable)
+responseCreateMLTransform :: CreateMLTransformResponse -> TestTree
+responseCreateMLTransform =
+  res
+    "CreateMLTransformResponse"
+    "fixture/CreateMLTransformResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateMLTransform)
 
-responseGetTables :: GetTablesResponse -> TestTree
-responseGetTables = res
-    "GetTablesResponse"
-    "fixture/GetTablesResponse.proto"
-    glue
-    (Proxy :: Proxy GetTables)
+responseStopCrawlerSchedule :: StopCrawlerScheduleResponse -> TestTree
+responseStopCrawlerSchedule =
+  res
+    "StopCrawlerScheduleResponse"
+    "fixture/StopCrawlerScheduleResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopCrawlerSchedule)
 
-responseCreateClassifier :: CreateClassifierResponse -> TestTree
-responseCreateClassifier = res
-    "CreateClassifierResponse"
-    "fixture/CreateClassifierResponse.proto"
-    glue
-    (Proxy :: Proxy CreateClassifier)
+responseUpdateTrigger :: UpdateTriggerResponse -> TestTree
+responseUpdateTrigger =
+  res
+    "UpdateTriggerResponse"
+    "fixture/UpdateTriggerResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateTrigger)
 
-responseBatchDeleteConnection :: BatchDeleteConnectionResponse -> TestTree
-responseBatchDeleteConnection = res
-    "BatchDeleteConnectionResponse"
-    "fixture/BatchDeleteConnectionResponse.proto"
-    glue
-    (Proxy :: Proxy BatchDeleteConnection)
+responseGetSchemaByDefinition :: GetSchemaByDefinitionResponse -> TestTree
+responseGetSchemaByDefinition =
+  res
+    "GetSchemaByDefinitionResponse"
+    "fixture/GetSchemaByDefinitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSchemaByDefinition)
 
-responseCreateJob :: CreateJobResponse -> TestTree
-responseCreateJob = res
-    "CreateJobResponse"
-    "fixture/CreateJobResponse.proto"
-    glue
-    (Proxy :: Proxy CreateJob)
+responseListRegistries :: ListRegistriesResponse -> TestTree
+responseListRegistries =
+  res
+    "ListRegistriesResponse"
+    "fixture/ListRegistriesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListRegistries)
 
-responseGetJobRuns :: GetJobRunsResponse -> TestTree
-responseGetJobRuns = res
-    "GetJobRunsResponse"
-    "fixture/GetJobRunsResponse.proto"
-    glue
-    (Proxy :: Proxy GetJobRuns)
+responseStartCrawlerSchedule :: StartCrawlerScheduleResponse -> TestTree
+responseStartCrawlerSchedule =
+  res
+    "StartCrawlerScheduleResponse"
+    "fixture/StartCrawlerScheduleResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartCrawlerSchedule)
 
-responseCreateUserDefinedFunction :: CreateUserDefinedFunctionResponse -> TestTree
-responseCreateUserDefinedFunction = res
-    "CreateUserDefinedFunctionResponse"
-    "fixture/CreateUserDefinedFunctionResponse.proto"
-    glue
-    (Proxy :: Proxy CreateUserDefinedFunction)
+responseDeleteTrigger :: DeleteTriggerResponse -> TestTree
+responseDeleteTrigger =
+  res
+    "DeleteTriggerResponse"
+    "fixture/DeleteTriggerResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteTrigger)
 
-responseResetJobBookmark :: ResetJobBookmarkResponse -> TestTree
-responseResetJobBookmark = res
-    "ResetJobBookmarkResponse"
-    "fixture/ResetJobBookmarkResponse.proto"
-    glue
-    (Proxy :: Proxy ResetJobBookmark)
+responseGetJob :: GetJobResponse -> TestTree
+responseGetJob =
+  res
+    "GetJobResponse"
+    "fixture/GetJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetJob)
+
+responseUpdateClassifier :: UpdateClassifierResponse -> TestTree
+responseUpdateClassifier =
+  res
+    "UpdateClassifierResponse"
+    "fixture/UpdateClassifierResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateClassifier)
+
+responseDeleteClassifier :: DeleteClassifierResponse -> TestTree
+responseDeleteClassifier =
+  res
+    "DeleteClassifierResponse"
+    "fixture/DeleteClassifierResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteClassifier)
 
 responseDeleteJob :: DeleteJobResponse -> TestTree
-responseDeleteJob = res
+responseDeleteJob =
+  res
     "DeleteJobResponse"
     "fixture/DeleteJobResponse.proto"
-    glue
+    defaultService
     (Proxy :: Proxy DeleteJob)
 
 responseUpdateJob :: UpdateJobResponse -> TestTree
-responseUpdateJob = res
+responseUpdateJob =
+  res
     "UpdateJobResponse"
     "fixture/UpdateJobResponse.proto"
-    glue
+    defaultService
     (Proxy :: Proxy UpdateJob)
 
-responseGetCrawlers :: GetCrawlersResponse -> TestTree
-responseGetCrawlers = res
-    "GetCrawlersResponse"
-    "fixture/GetCrawlersResponse.proto"
-    glue
-    (Proxy :: Proxy GetCrawlers)
+responseCreateUserDefinedFunction :: CreateUserDefinedFunctionResponse -> TestTree
+responseCreateUserDefinedFunction =
+  res
+    "CreateUserDefinedFunctionResponse"
+    "fixture/CreateUserDefinedFunctionResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateUserDefinedFunction)
 
-responseGetClassifier :: GetClassifierResponse -> TestTree
-responseGetClassifier = res
-    "GetClassifierResponse"
-    "fixture/GetClassifierResponse.proto"
-    glue
-    (Proxy :: Proxy GetClassifier)
+responseGetTrigger :: GetTriggerResponse -> TestTree
+responseGetTrigger =
+  res
+    "GetTriggerResponse"
+    "fixture/GetTriggerResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetTrigger)
 
-responseGetJob :: GetJobResponse -> TestTree
-responseGetJob = res
-    "GetJobResponse"
-    "fixture/GetJobResponse.proto"
-    glue
-    (Proxy :: Proxy GetJob)
+responseBatchGetJobs :: BatchGetJobsResponse -> TestTree
+responseBatchGetJobs =
+  res
+    "BatchGetJobsResponse"
+    "fixture/BatchGetJobsResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchGetJobs)
 
-responseBatchDeleteTableVersion :: BatchDeleteTableVersionResponse -> TestTree
-responseBatchDeleteTableVersion = res
-    "BatchDeleteTableVersionResponse"
-    "fixture/BatchDeleteTableVersionResponse.proto"
-    glue
-    (Proxy :: Proxy BatchDeleteTableVersion)
+responseCreateClassifier :: CreateClassifierResponse -> TestTree
+responseCreateClassifier =
+  res
+    "CreateClassifierResponse"
+    "fixture/CreateClassifierResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateClassifier)
 
-responseGetDevEndpoints :: GetDevEndpointsResponse -> TestTree
-responseGetDevEndpoints = res
-    "GetDevEndpointsResponse"
-    "fixture/GetDevEndpointsResponse.proto"
-    glue
-    (Proxy :: Proxy GetDevEndpoints)
+responseGetSecurityConfigurations :: GetSecurityConfigurationsResponse -> TestTree
+responseGetSecurityConfigurations =
+  res
+    "GetSecurityConfigurationsResponse"
+    "fixture/GetSecurityConfigurationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSecurityConfigurations)
 
-responseStartCrawlerSchedule :: StartCrawlerScheduleResponse -> TestTree
-responseStartCrawlerSchedule = res
-    "StartCrawlerScheduleResponse"
-    "fixture/StartCrawlerScheduleResponse.proto"
-    glue
-    (Proxy :: Proxy StartCrawlerSchedule)
+responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
+responsePutResourcePolicy =
+  res
+    "PutResourcePolicyResponse"
+    "fixture/PutResourcePolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutResourcePolicy)
 
-responseGetUserDefinedFunction :: GetUserDefinedFunctionResponse -> TestTree
-responseGetUserDefinedFunction = res
-    "GetUserDefinedFunctionResponse"
-    "fixture/GetUserDefinedFunctionResponse.proto"
-    glue
-    (Proxy :: Proxy GetUserDefinedFunction)
+responseUpdatePartition :: UpdatePartitionResponse -> TestTree
+responseUpdatePartition =
+  res
+    "UpdatePartitionResponse"
+    "fixture/UpdatePartitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdatePartition)
 
-responseDeleteDatabase :: DeleteDatabaseResponse -> TestTree
-responseDeleteDatabase = res
-    "DeleteDatabaseResponse"
-    "fixture/DeleteDatabaseResponse.proto"
-    glue
-    (Proxy :: Proxy DeleteDatabase)
+responseGetSchemaVersionsDiff :: GetSchemaVersionsDiffResponse -> TestTree
+responseGetSchemaVersionsDiff =
+  res
+    "GetSchemaVersionsDiffResponse"
+    "fixture/GetSchemaVersionsDiffResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSchemaVersionsDiff)
 
-responseUpdateDatabase :: UpdateDatabaseResponse -> TestTree
-responseUpdateDatabase = res
-    "UpdateDatabaseResponse"
-    "fixture/UpdateDatabaseResponse.proto"
-    glue
-    (Proxy :: Proxy UpdateDatabase)
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagResource)
 
-responseStopCrawler :: StopCrawlerResponse -> TestTree
-responseStopCrawler = res
-    "StopCrawlerResponse"
-    "fixture/StopCrawlerResponse.proto"
-    glue
-    (Proxy :: Proxy StopCrawler)
+responseBatchDeleteTable :: BatchDeleteTableResponse -> TestTree
+responseBatchDeleteTable =
+  res
+    "BatchDeleteTableResponse"
+    "fixture/BatchDeleteTableResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchDeleteTable)
 
-responseGetPartitions :: GetPartitionsResponse -> TestTree
-responseGetPartitions = res
-    "GetPartitionsResponse"
-    "fixture/GetPartitionsResponse.proto"
-    glue
-    (Proxy :: Proxy GetPartitions)
-
-responseBatchDeletePartition :: BatchDeletePartitionResponse -> TestTree
-responseBatchDeletePartition = res
-    "BatchDeletePartitionResponse"
-    "fixture/BatchDeletePartitionResponse.proto"
-    glue
-    (Proxy :: Proxy BatchDeletePartition)
-
-responseGetCrawler :: GetCrawlerResponse -> TestTree
-responseGetCrawler = res
-    "GetCrawlerResponse"
-    "fixture/GetCrawlerResponse.proto"
-    glue
-    (Proxy :: Proxy GetCrawler)
-
-responseBatchStopJobRun :: BatchStopJobRunResponse -> TestTree
-responseBatchStopJobRun = res
-    "BatchStopJobRunResponse"
-    "fixture/BatchStopJobRunResponse.proto"
-    glue
-    (Proxy :: Proxy BatchStopJobRun)
-
-responseGetDevEndpoint :: GetDevEndpointResponse -> TestTree
-responseGetDevEndpoint = res
-    "GetDevEndpointResponse"
-    "fixture/GetDevEndpointResponse.proto"
-    glue
-    (Proxy :: Proxy GetDevEndpoint)
-
-responseCreateTable :: CreateTableResponse -> TestTree
-responseCreateTable = res
-    "CreateTableResponse"
-    "fixture/CreateTableResponse.proto"
-    glue
-    (Proxy :: Proxy CreateTable)
-
-responseGetCrawlerMetrics :: GetCrawlerMetricsResponse -> TestTree
-responseGetCrawlerMetrics = res
-    "GetCrawlerMetricsResponse"
-    "fixture/GetCrawlerMetricsResponse.proto"
-    glue
-    (Proxy :: Proxy GetCrawlerMetrics)
-
-responseGetPlan :: GetPlanResponse -> TestTree
-responseGetPlan = res
-    "GetPlanResponse"
-    "fixture/GetPlanResponse.proto"
-    glue
-    (Proxy :: Proxy GetPlan)
-
-responseGetTriggers :: GetTriggersResponse -> TestTree
-responseGetTriggers = res
-    "GetTriggersResponse"
-    "fixture/GetTriggersResponse.proto"
-    glue
-    (Proxy :: Proxy GetTriggers)
-
-responseStartTrigger :: StartTriggerResponse -> TestTree
-responseStartTrigger = res
-    "StartTriggerResponse"
-    "fixture/StartTriggerResponse.proto"
-    glue
-    (Proxy :: Proxy StartTrigger)
-
-responseGetDataflowGraph :: GetDataflowGraphResponse -> TestTree
-responseGetDataflowGraph = res
-    "GetDataflowGraphResponse"
-    "fixture/GetDataflowGraphResponse.proto"
-    glue
-    (Proxy :: Proxy GetDataflowGraph)
-
-responseGetDatabases :: GetDatabasesResponse -> TestTree
-responseGetDatabases = res
-    "GetDatabasesResponse"
-    "fixture/GetDatabasesResponse.proto"
-    glue
-    (Proxy :: Proxy GetDatabases)
-
-responseGetTable :: GetTableResponse -> TestTree
-responseGetTable = res
-    "GetTableResponse"
-    "fixture/GetTableResponse.proto"
-    glue
-    (Proxy :: Proxy GetTable)
-
-responseCreateCrawler :: CreateCrawlerResponse -> TestTree
-responseCreateCrawler = res
-    "CreateCrawlerResponse"
-    "fixture/CreateCrawlerResponse.proto"
-    glue
-    (Proxy :: Proxy CreateCrawler)
-
-responseGetJobRun :: GetJobRunResponse -> TestTree
-responseGetJobRun = res
-    "GetJobRunResponse"
-    "fixture/GetJobRunResponse.proto"
-    glue
-    (Proxy :: Proxy GetJobRun)
-
-responseCreateDevEndpoint :: CreateDevEndpointResponse -> TestTree
-responseCreateDevEndpoint = res
-    "CreateDevEndpointResponse"
-    "fixture/CreateDevEndpointResponse.proto"
-    glue
-    (Proxy :: Proxy CreateDevEndpoint)
+responseStartMLEvaluationTaskRun :: StartMLEvaluationTaskRunResponse -> TestTree
+responseStartMLEvaluationTaskRun =
+  res
+    "StartMLEvaluationTaskRunResponse"
+    "fixture/StartMLEvaluationTaskRunResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartMLEvaluationTaskRun)
 
 responseGetDatabase :: GetDatabaseResponse -> TestTree
-responseGetDatabase = res
+responseGetDatabase =
+  res
     "GetDatabaseResponse"
     "fixture/GetDatabaseResponse.proto"
-    glue
+    defaultService
     (Proxy :: Proxy GetDatabase)
 
 responseDeletePartition :: DeletePartitionResponse -> TestTree
-responseDeletePartition = res
+responseDeletePartition =
+  res
     "DeletePartitionResponse"
     "fixture/DeletePartitionResponse.proto"
-    glue
+    defaultService
     (Proxy :: Proxy DeletePartition)
 
-responseUpdatePartition :: UpdatePartitionResponse -> TestTree
-responseUpdatePartition = res
-    "UpdatePartitionResponse"
-    "fixture/UpdatePartitionResponse.proto"
-    glue
-    (Proxy :: Proxy UpdatePartition)
+responseGetJobRuns :: GetJobRunsResponse -> TestTree
+responseGetJobRuns =
+  res
+    "GetJobRunsResponse"
+    "fixture/GetJobRunsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetJobRuns)
 
-responseCreateScript :: CreateScriptResponse -> TestTree
-responseCreateScript = res
-    "CreateScriptResponse"
-    "fixture/CreateScriptResponse.proto"
-    glue
-    (Proxy :: Proxy CreateScript)
+responseGetMLTransforms :: GetMLTransformsResponse -> TestTree
+responseGetMLTransforms =
+  res
+    "GetMLTransformsResponse"
+    "fixture/GetMLTransformsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetMLTransforms)
 
-responseGetConnections :: GetConnectionsResponse -> TestTree
-responseGetConnections = res
-    "GetConnectionsResponse"
-    "fixture/GetConnectionsResponse.proto"
-    glue
-    (Proxy :: Proxy GetConnections)
+responseGetJobRun :: GetJobRunResponse -> TestTree
+responseGetJobRun =
+  res
+    "GetJobRunResponse"
+    "fixture/GetJobRunResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetJobRun)
 
-responseGetTrigger :: GetTriggerResponse -> TestTree
-responseGetTrigger = res
-    "GetTriggerResponse"
-    "fixture/GetTriggerResponse.proto"
-    glue
-    (Proxy :: Proxy GetTrigger)
+responseCreateDevEndpoint :: CreateDevEndpointResponse -> TestTree
+responseCreateDevEndpoint =
+  res
+    "CreateDevEndpointResponse"
+    "fixture/CreateDevEndpointResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateDevEndpoint)
 
-responseImportCatalogToGlue :: ImportCatalogToGlueResponse -> TestTree
-responseImportCatalogToGlue = res
-    "ImportCatalogToGlueResponse"
-    "fixture/ImportCatalogToGlueResponse.proto"
-    glue
-    (Proxy :: Proxy ImportCatalogToGlue)
+responseCreatePartitionIndex :: CreatePartitionIndexResponse -> TestTree
+responseCreatePartitionIndex =
+  res
+    "CreatePartitionIndexResponse"
+    "fixture/CreatePartitionIndexResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreatePartitionIndex)
 
-responseDeleteClassifier :: DeleteClassifierResponse -> TestTree
-responseDeleteClassifier = res
-    "DeleteClassifierResponse"
-    "fixture/DeleteClassifierResponse.proto"
-    glue
-    (Proxy :: Proxy DeleteClassifier)
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagResource)
 
-responseUpdateClassifier :: UpdateClassifierResponse -> TestTree
-responseUpdateClassifier = res
-    "UpdateClassifierResponse"
-    "fixture/UpdateClassifierResponse.proto"
-    glue
-    (Proxy :: Proxy UpdateClassifier)
+responseGetSecurityConfiguration :: GetSecurityConfigurationResponse -> TestTree
+responseGetSecurityConfiguration =
+  res
+    "GetSecurityConfigurationResponse"
+    "fixture/GetSecurityConfigurationResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSecurityConfiguration)
 
-responseStartJobRun :: StartJobRunResponse -> TestTree
-responseStartJobRun = res
-    "StartJobRunResponse"
-    "fixture/StartJobRunResponse.proto"
-    glue
-    (Proxy :: Proxy StartJobRun)
+responseCreateCrawler :: CreateCrawlerResponse -> TestTree
+responseCreateCrawler =
+  res
+    "CreateCrawlerResponse"
+    "fixture/CreateCrawlerResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateCrawler)
 
-responseCreatePartition :: CreatePartitionResponse -> TestTree
-responseCreatePartition = res
-    "CreatePartitionResponse"
-    "fixture/CreatePartitionResponse.proto"
-    glue
-    (Proxy :: Proxy CreatePartition)
+responseGetMLTaskRuns :: GetMLTaskRunsResponse -> TestTree
+responseGetMLTaskRuns =
+  res
+    "GetMLTaskRunsResponse"
+    "fixture/GetMLTaskRunsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetMLTaskRuns)
 
-responseStopCrawlerSchedule :: StopCrawlerScheduleResponse -> TestTree
-responseStopCrawlerSchedule = res
-    "StopCrawlerScheduleResponse"
-    "fixture/StopCrawlerScheduleResponse.proto"
-    glue
-    (Proxy :: Proxy StopCrawlerSchedule)
+responseListCrawlers :: ListCrawlersResponse -> TestTree
+responseListCrawlers =
+  res
+    "ListCrawlersResponse"
+    "fixture/ListCrawlersResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListCrawlers)
+
+responseUpdateDevEndpoint :: UpdateDevEndpointResponse -> TestTree
+responseUpdateDevEndpoint =
+  res
+    "UpdateDevEndpointResponse"
+    "fixture/UpdateDevEndpointResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateDevEndpoint)
+
+responseCreateSchema :: CreateSchemaResponse -> TestTree
+responseCreateSchema =
+  res
+    "CreateSchemaResponse"
+    "fixture/CreateSchemaResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateSchema)
+
+responseListDevEndpoints :: ListDevEndpointsResponse -> TestTree
+responseListDevEndpoints =
+  res
+    "ListDevEndpointsResponse"
+    "fixture/ListDevEndpointsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListDevEndpoints)
+
+responseDeleteCrawler :: DeleteCrawlerResponse -> TestTree
+responseDeleteCrawler =
+  res
+    "DeleteCrawlerResponse"
+    "fixture/DeleteCrawlerResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteCrawler)
+
+responseDeleteDevEndpoint :: DeleteDevEndpointResponse -> TestTree
+responseDeleteDevEndpoint =
+  res
+    "DeleteDevEndpointResponse"
+    "fixture/DeleteDevEndpointResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteDevEndpoint)
+
+responseGetWorkflow :: GetWorkflowResponse -> TestTree
+responseGetWorkflow =
+  res
+    "GetWorkflowResponse"
+    "fixture/GetWorkflowResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetWorkflow)
+
+responseGetSchemaVersion :: GetSchemaVersionResponse -> TestTree
+responseGetSchemaVersion =
+  res
+    "GetSchemaVersionResponse"
+    "fixture/GetSchemaVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSchemaVersion)
+
+responseUpdateCrawler :: UpdateCrawlerResponse -> TestTree
+responseUpdateCrawler =
+  res
+    "UpdateCrawlerResponse"
+    "fixture/UpdateCrawlerResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateCrawler)
+
+responseDeleteWorkflow :: DeleteWorkflowResponse -> TestTree
+responseDeleteWorkflow =
+  res
+    "DeleteWorkflowResponse"
+    "fixture/DeleteWorkflowResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteWorkflow)
+
+responseRegisterSchemaVersion :: RegisterSchemaVersionResponse -> TestTree
+responseRegisterSchemaVersion =
+  res
+    "RegisterSchemaVersionResponse"
+    "fixture/RegisterSchemaVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy RegisterSchemaVersion)
+
+responseGetMapping :: GetMappingResponse -> TestTree
+responseGetMapping =
+  res
+    "GetMappingResponse"
+    "fixture/GetMappingResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetMapping)
+
+responseStopWorkflowRun :: StopWorkflowRunResponse -> TestTree
+responseStopWorkflowRun =
+  res
+    "StopWorkflowRunResponse"
+    "fixture/StopWorkflowRunResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopWorkflowRun)
+
+responseCreateConnection :: CreateConnectionResponse -> TestTree
+responseCreateConnection =
+  res
+    "CreateConnectionResponse"
+    "fixture/CreateConnectionResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateConnection)
+
+responseBatchCreatePartition :: BatchCreatePartitionResponse -> TestTree
+responseBatchCreatePartition =
+  res
+    "BatchCreatePartitionResponse"
+    "fixture/BatchCreatePartitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchCreatePartition)
+
+responseCreateTable :: CreateTableResponse -> TestTree
+responseCreateTable =
+  res
+    "CreateTableResponse"
+    "fixture/CreateTableResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateTable)
+
+responseUpdateWorkflow :: UpdateWorkflowResponse -> TestTree
+responseUpdateWorkflow =
+  res
+    "UpdateWorkflowResponse"
+    "fixture/UpdateWorkflowResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateWorkflow)
+
+responseGetClassifiers :: GetClassifiersResponse -> TestTree
+responseGetClassifiers =
+  res
+    "GetClassifiersResponse"
+    "fixture/GetClassifiersResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetClassifiers)
+
+responseBatchStopJobRun :: BatchStopJobRunResponse -> TestTree
+responseBatchStopJobRun =
+  res
+    "BatchStopJobRunResponse"
+    "fixture/BatchStopJobRunResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchStopJobRun)
+
+responseStartWorkflowRun :: StartWorkflowRunResponse -> TestTree
+responseStartWorkflowRun =
+  res
+    "StartWorkflowRunResponse"
+    "fixture/StartWorkflowRunResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartWorkflowRun)
+
+responseListWorkflows :: ListWorkflowsResponse -> TestTree
+responseListWorkflows =
+  res
+    "ListWorkflowsResponse"
+    "fixture/ListWorkflowsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListWorkflows)
+
+responseListSchemaVersions :: ListSchemaVersionsResponse -> TestTree
+responseListSchemaVersions =
+  res
+    "ListSchemaVersionsResponse"
+    "fixture/ListSchemaVersionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListSchemaVersions)
+
+responseBatchDeletePartition :: BatchDeletePartitionResponse -> TestTree
+responseBatchDeletePartition =
+  res
+    "BatchDeletePartitionResponse"
+    "fixture/BatchDeletePartitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchDeletePartition)
+
+responsePutSchemaVersionMetadata :: PutSchemaVersionMetadataResponse -> TestTree
+responsePutSchemaVersionMetadata =
+  res
+    "PutSchemaVersionMetadataResponse"
+    "fixture/PutSchemaVersionMetadataResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutSchemaVersionMetadata)
+
+responseGetWorkflowRuns :: GetWorkflowRunsResponse -> TestTree
+responseGetWorkflowRuns =
+  res
+    "GetWorkflowRunsResponse"
+    "fixture/GetWorkflowRunsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetWorkflowRuns)
+
+responseGetTags :: GetTagsResponse -> TestTree
+responseGetTags =
+  res
+    "GetTagsResponse"
+    "fixture/GetTagsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetTags)
+
+responseBatchUpdatePartition :: BatchUpdatePartitionResponse -> TestTree
+responseBatchUpdatePartition =
+  res
+    "BatchUpdatePartitionResponse"
+    "fixture/BatchUpdatePartitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchUpdatePartition)
+
+responseGetUserDefinedFunctions :: GetUserDefinedFunctionsResponse -> TestTree
+responseGetUserDefinedFunctions =
+  res
+    "GetUserDefinedFunctionsResponse"
+    "fixture/GetUserDefinedFunctionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetUserDefinedFunctions)
+
+responseUpdateTable :: UpdateTableResponse -> TestTree
+responseUpdateTable =
+  res
+    "UpdateTableResponse"
+    "fixture/UpdateTableResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateTable)
+
+responseDeleteTable :: DeleteTableResponse -> TestTree
+responseDeleteTable =
+  res
+    "DeleteTableResponse"
+    "fixture/DeleteTableResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteTable)
+
+responseDeleteDatabase :: DeleteDatabaseResponse -> TestTree
+responseDeleteDatabase =
+  res
+    "DeleteDatabaseResponse"
+    "fixture/DeleteDatabaseResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteDatabase)
+
+responseUpdateDatabase :: UpdateDatabaseResponse -> TestTree
+responseUpdateDatabase =
+  res
+    "UpdateDatabaseResponse"
+    "fixture/UpdateDatabaseResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateDatabase)
+
+responseGetUserDefinedFunction :: GetUserDefinedFunctionResponse -> TestTree
+responseGetUserDefinedFunction =
+  res
+    "GetUserDefinedFunctionResponse"
+    "fixture/GetUserDefinedFunctionResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetUserDefinedFunction)
+
+responseUpdateMLTransform :: UpdateMLTransformResponse -> TestTree
+responseUpdateMLTransform =
+  res
+    "UpdateMLTransformResponse"
+    "fixture/UpdateMLTransformResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateMLTransform)
+
+responseGetWorkflowRun :: GetWorkflowRunResponse -> TestTree
+responseGetWorkflowRun =
+  res
+    "GetWorkflowRunResponse"
+    "fixture/GetWorkflowRunResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetWorkflowRun)
+
+responseDeleteMLTransform :: DeleteMLTransformResponse -> TestTree
+responseDeleteMLTransform =
+  res
+    "DeleteMLTransformResponse"
+    "fixture/DeleteMLTransformResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteMLTransform)
+
+responseCreateTrigger :: CreateTriggerResponse -> TestTree
+responseCreateTrigger =
+  res
+    "CreateTriggerResponse"
+    "fixture/CreateTriggerResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateTrigger)
 
 responseCreateDatabase :: CreateDatabaseResponse -> TestTree
-responseCreateDatabase = res
+responseCreateDatabase =
+  res
     "CreateDatabaseResponse"
     "fixture/CreateDatabaseResponse.proto"
-    glue
+    defaultService
     (Proxy :: Proxy CreateDatabase)
 
+responseGetClassifier :: GetClassifierResponse -> TestTree
+responseGetClassifier =
+  res
+    "GetClassifierResponse"
+    "fixture/GetClassifierResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetClassifier)
+
+responseDeleteSchemaVersions :: DeleteSchemaVersionsResponse -> TestTree
+responseDeleteSchemaVersions =
+  res
+    "DeleteSchemaVersionsResponse"
+    "fixture/DeleteSchemaVersionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteSchemaVersions)
+
+responseBatchGetTriggers :: BatchGetTriggersResponse -> TestTree
+responseBatchGetTriggers =
+  res
+    "BatchGetTriggersResponse"
+    "fixture/BatchGetTriggersResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchGetTriggers)
+
+responseBatchDeleteTableVersion :: BatchDeleteTableVersionResponse -> TestTree
+responseBatchDeleteTableVersion =
+  res
+    "BatchDeleteTableVersionResponse"
+    "fixture/BatchDeleteTableVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchDeleteTableVersion)
+
 responseGetTableVersions :: GetTableVersionsResponse -> TestTree
-responseGetTableVersions = res
+responseGetTableVersions =
+  res
     "GetTableVersionsResponse"
     "fixture/GetTableVersionsResponse.proto"
-    glue
+    defaultService
     (Proxy :: Proxy GetTableVersions)
 
-responseDeleteTrigger :: DeleteTriggerResponse -> TestTree
-responseDeleteTrigger = res
-    "DeleteTriggerResponse"
-    "fixture/DeleteTriggerResponse.proto"
-    glue
-    (Proxy :: Proxy DeleteTrigger)
+responseGetDevEndpoints :: GetDevEndpointsResponse -> TestTree
+responseGetDevEndpoints =
+  res
+    "GetDevEndpointsResponse"
+    "fixture/GetDevEndpointsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetDevEndpoints)
 
-responseUpdateTrigger :: UpdateTriggerResponse -> TestTree
-responseUpdateTrigger = res
-    "UpdateTriggerResponse"
-    "fixture/UpdateTriggerResponse.proto"
-    glue
-    (Proxy :: Proxy UpdateTrigger)
+responseGetCrawlers :: GetCrawlersResponse -> TestTree
+responseGetCrawlers =
+  res
+    "GetCrawlersResponse"
+    "fixture/GetCrawlersResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetCrawlers)
+
+responseStartJobRun :: StartJobRunResponse -> TestTree
+responseStartJobRun =
+  res
+    "StartJobRunResponse"
+    "fixture/StartJobRunResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartJobRun)
+
+responseImportCatalogToGlue :: ImportCatalogToGlueResponse -> TestTree
+responseImportCatalogToGlue =
+  res
+    "ImportCatalogToGlueResponse"
+    "fixture/ImportCatalogToGlueResponse.proto"
+    defaultService
+    (Proxy :: Proxy ImportCatalogToGlue)
+
+responseCreatePartition :: CreatePartitionResponse -> TestTree
+responseCreatePartition =
+  res
+    "CreatePartitionResponse"
+    "fixture/CreatePartitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreatePartition)
+
+responseResetJobBookmark :: ResetJobBookmarkResponse -> TestTree
+responseResetJobBookmark =
+  res
+    "ResetJobBookmarkResponse"
+    "fixture/ResetJobBookmarkResponse.proto"
+    defaultService
+    (Proxy :: Proxy ResetJobBookmark)
+
+responseListJobs :: ListJobsResponse -> TestTree
+responseListJobs =
+  res
+    "ListJobsResponse"
+    "fixture/ListJobsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListJobs)
+
+responseBatchDeleteConnection :: BatchDeleteConnectionResponse -> TestTree
+responseBatchDeleteConnection =
+  res
+    "BatchDeleteConnectionResponse"
+    "fixture/BatchDeleteConnectionResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchDeleteConnection)
+
+responseGetTables :: GetTablesResponse -> TestTree
+responseGetTables =
+  res
+    "GetTablesResponse"
+    "fixture/GetTablesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetTables)
+
+responseDeleteColumnStatisticsForPartition :: DeleteColumnStatisticsForPartitionResponse -> TestTree
+responseDeleteColumnStatisticsForPartition =
+  res
+    "DeleteColumnStatisticsForPartitionResponse"
+    "fixture/DeleteColumnStatisticsForPartitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteColumnStatisticsForPartition)
+
+responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
+responseDeleteResourcePolicy =
+  res
+    "DeleteResourcePolicyResponse"
+    "fixture/DeleteResourcePolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteResourcePolicy)
+
+responseGetRegistry :: GetRegistryResponse -> TestTree
+responseGetRegistry =
+  res
+    "GetRegistryResponse"
+    "fixture/GetRegistryResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetRegistry)
+
+responseResumeWorkflowRun :: ResumeWorkflowRunResponse -> TestTree
+responseResumeWorkflowRun =
+  res
+    "ResumeWorkflowRunResponse"
+    "fixture/ResumeWorkflowRunResponse.proto"
+    defaultService
+    (Proxy :: Proxy ResumeWorkflowRun)
+
+responseCancelMLTaskRun :: CancelMLTaskRunResponse -> TestTree
+responseCancelMLTaskRun =
+  res
+    "CancelMLTaskRunResponse"
+    "fixture/CancelMLTaskRunResponse.proto"
+    defaultService
+    (Proxy :: Proxy CancelMLTaskRun)
+
+responseCreateJob :: CreateJobResponse -> TestTree
+responseCreateJob =
+  res
+    "CreateJobResponse"
+    "fixture/CreateJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateJob)
+
+responseSearchTables :: SearchTablesResponse -> TestTree
+responseSearchTables =
+  res
+    "SearchTablesResponse"
+    "fixture/SearchTablesResponse.proto"
+    defaultService
+    (Proxy :: Proxy SearchTables)
+
+responseUpdateUserDefinedFunction :: UpdateUserDefinedFunctionResponse -> TestTree
+responseUpdateUserDefinedFunction =
+  res
+    "UpdateUserDefinedFunctionResponse"
+    "fixture/UpdateUserDefinedFunctionResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateUserDefinedFunction)
+
+responseUpdateColumnStatisticsForPartition :: UpdateColumnStatisticsForPartitionResponse -> TestTree
+responseUpdateColumnStatisticsForPartition =
+  res
+    "UpdateColumnStatisticsForPartitionResponse"
+    "fixture/UpdateColumnStatisticsForPartitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateColumnStatisticsForPartition)
+
+responseGetConnections :: GetConnectionsResponse -> TestTree
+responseGetConnections =
+  res
+    "GetConnectionsResponse"
+    "fixture/GetConnectionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetConnections)
+
+responseGetMLTransform :: GetMLTransformResponse -> TestTree
+responseGetMLTransform =
+  res
+    "GetMLTransformResponse"
+    "fixture/GetMLTransformResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetMLTransform)
+
+responseCreateScript :: CreateScriptResponse -> TestTree
+responseCreateScript =
+  res
+    "CreateScriptResponse"
+    "fixture/CreateScriptResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateScript)
+
+responseGetMLTaskRun :: GetMLTaskRunResponse -> TestTree
+responseGetMLTaskRun =
+  res
+    "GetMLTaskRunResponse"
+    "fixture/GetMLTaskRunResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetMLTaskRun)
+
+responseDeleteUserDefinedFunction :: DeleteUserDefinedFunctionResponse -> TestTree
+responseDeleteUserDefinedFunction =
+  res
+    "DeleteUserDefinedFunctionResponse"
+    "fixture/DeleteUserDefinedFunctionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteUserDefinedFunction)
+
+responseStartTrigger :: StartTriggerResponse -> TestTree
+responseStartTrigger =
+  res
+    "StartTriggerResponse"
+    "fixture/StartTriggerResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartTrigger)
+
+responsePutDataCatalogEncryptionSettings :: PutDataCatalogEncryptionSettingsResponse -> TestTree
+responsePutDataCatalogEncryptionSettings =
+  res
+    "PutDataCatalogEncryptionSettingsResponse"
+    "fixture/PutDataCatalogEncryptionSettingsResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutDataCatalogEncryptionSettings)
+
+responseRemoveSchemaVersionMetadata :: RemoveSchemaVersionMetadataResponse -> TestTree
+responseRemoveSchemaVersionMetadata =
+  res
+    "RemoveSchemaVersionMetadataResponse"
+    "fixture/RemoveSchemaVersionMetadataResponse.proto"
+    defaultService
+    (Proxy :: Proxy RemoveSchemaVersionMetadata)
+
+responseBatchGetPartition :: BatchGetPartitionResponse -> TestTree
+responseBatchGetPartition =
+  res
+    "BatchGetPartitionResponse"
+    "fixture/BatchGetPartitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchGetPartition)
+
+responseGetTable :: GetTableResponse -> TestTree
+responseGetTable =
+  res
+    "GetTableResponse"
+    "fixture/GetTableResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetTable)
+
+responseUpdateCrawlerSchedule :: UpdateCrawlerScheduleResponse -> TestTree
+responseUpdateCrawlerSchedule =
+  res
+    "UpdateCrawlerScheduleResponse"
+    "fixture/UpdateCrawlerScheduleResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateCrawlerSchedule)
+
+responseGetColumnStatisticsForTable :: GetColumnStatisticsForTableResponse -> TestTree
+responseGetColumnStatisticsForTable =
+  res
+    "GetColumnStatisticsForTableResponse"
+    "fixture/GetColumnStatisticsForTableResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetColumnStatisticsForTable)
+
+responseStopTrigger :: StopTriggerResponse -> TestTree
+responseStopTrigger =
+  res
+    "StopTriggerResponse"
+    "fixture/StopTriggerResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopTrigger)
+
+responseListSchemas :: ListSchemasResponse -> TestTree
+responseListSchemas =
+  res
+    "ListSchemasResponse"
+    "fixture/ListSchemasResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListSchemas)
+
+responseGetConnection :: GetConnectionResponse -> TestTree
+responseGetConnection =
+  res
+    "GetConnectionResponse"
+    "fixture/GetConnectionResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetConnection)
+
+responseGetDatabases :: GetDatabasesResponse -> TestTree
+responseGetDatabases =
+  res
+    "GetDatabasesResponse"
+    "fixture/GetDatabasesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetDatabases)
+
+responseDeleteSchema :: DeleteSchemaResponse -> TestTree
+responseDeleteSchema =
+  res
+    "DeleteSchemaResponse"
+    "fixture/DeleteSchemaResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteSchema)
+
+responseUpdateSchema :: UpdateSchemaResponse -> TestTree
+responseUpdateSchema =
+  res
+    "UpdateSchemaResponse"
+    "fixture/UpdateSchemaResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateSchema)
+
+responseGetDataflowGraph :: GetDataflowGraphResponse -> TestTree
+responseGetDataflowGraph =
+  res
+    "GetDataflowGraphResponse"
+    "fixture/GetDataflowGraphResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetDataflowGraph)
+
+responseBatchGetDevEndpoints :: BatchGetDevEndpointsResponse -> TestTree
+responseBatchGetDevEndpoints =
+  res
+    "BatchGetDevEndpointsResponse"
+    "fixture/BatchGetDevEndpointsResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchGetDevEndpoints)
+
+responseStartExportLabelsTaskRun :: StartExportLabelsTaskRunResponse -> TestTree
+responseStartExportLabelsTaskRun =
+  res
+    "StartExportLabelsTaskRunResponse"
+    "fixture/StartExportLabelsTaskRunResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartExportLabelsTaskRun)
+
+responseGetTriggers :: GetTriggersResponse -> TestTree
+responseGetTriggers =
+  res
+    "GetTriggersResponse"
+    "fixture/GetTriggersResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetTriggers)
+
+responseBatchGetCrawlers :: BatchGetCrawlersResponse -> TestTree
+responseBatchGetCrawlers =
+  res
+    "BatchGetCrawlersResponse"
+    "fixture/BatchGetCrawlersResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchGetCrawlers)
+
+responseGetPlan :: GetPlanResponse -> TestTree
+responseGetPlan =
+  res
+    "GetPlanResponse"
+    "fixture/GetPlanResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetPlan)
+
+responseGetCrawlerMetrics :: GetCrawlerMetricsResponse -> TestTree
+responseGetCrawlerMetrics =
+  res
+    "GetCrawlerMetricsResponse"
+    "fixture/GetCrawlerMetricsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetCrawlerMetrics)
+
+responseGetWorkflowRunProperties :: GetWorkflowRunPropertiesResponse -> TestTree
+responseGetWorkflowRunProperties =
+  res
+    "GetWorkflowRunPropertiesResponse"
+    "fixture/GetWorkflowRunPropertiesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetWorkflowRunProperties)
+
+responseDeletePartitionIndex :: DeletePartitionIndexResponse -> TestTree
+responseDeletePartitionIndex =
+  res
+    "DeletePartitionIndexResponse"
+    "fixture/DeletePartitionIndexResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeletePartitionIndex)
+
+responseGetJobBookmark :: GetJobBookmarkResponse -> TestTree
+responseGetJobBookmark =
+  res
+    "GetJobBookmarkResponse"
+    "fixture/GetJobBookmarkResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetJobBookmark)
+
+responseDeleteTableVersion :: DeleteTableVersionResponse -> TestTree
+responseDeleteTableVersion =
+  res
+    "DeleteTableVersionResponse"
+    "fixture/DeleteTableVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteTableVersion)
+
+responseGetTableVersion :: GetTableVersionResponse -> TestTree
+responseGetTableVersion =
+  res
+    "GetTableVersionResponse"
+    "fixture/GetTableVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetTableVersion)
+
+responsePutWorkflowRunProperties :: PutWorkflowRunPropertiesResponse -> TestTree
+responsePutWorkflowRunProperties =
+  res
+    "PutWorkflowRunPropertiesResponse"
+    "fixture/PutWorkflowRunPropertiesResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutWorkflowRunProperties)
+
+responseBatchGetWorkflows :: BatchGetWorkflowsResponse -> TestTree
+responseBatchGetWorkflows =
+  res
+    "BatchGetWorkflowsResponse"
+    "fixture/BatchGetWorkflowsResponse.proto"
+    defaultService
+    (Proxy :: Proxy BatchGetWorkflows)
+
+responseGetResourcePolicies :: GetResourcePoliciesResponse -> TestTree
+responseGetResourcePolicies =
+  res
+    "GetResourcePoliciesResponse"
+    "fixture/GetResourcePoliciesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetResourcePolicies)
+
+responseGetJobs :: GetJobsResponse -> TestTree
+responseGetJobs =
+  res
+    "GetJobsResponse"
+    "fixture/GetJobsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetJobs)
+
+responseGetDevEndpoint :: GetDevEndpointResponse -> TestTree
+responseGetDevEndpoint =
+  res
+    "GetDevEndpointResponse"
+    "fixture/GetDevEndpointResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetDevEndpoint)
+
+responseGetCrawler :: GetCrawlerResponse -> TestTree
+responseGetCrawler =
+  res
+    "GetCrawlerResponse"
+    "fixture/GetCrawlerResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetCrawler)
+
+responseCreateSecurityConfiguration :: CreateSecurityConfigurationResponse -> TestTree
+responseCreateSecurityConfiguration =
+  res
+    "CreateSecurityConfigurationResponse"
+    "fixture/CreateSecurityConfigurationResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateSecurityConfiguration)

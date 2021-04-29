@@ -1,339 +1,772 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glue.CreateDevEndpoint
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new DevEndpoint.
---
---
+-- Creates a new development endpoint.
 module Network.AWS.Glue.CreateDevEndpoint
-    (
-    -- * Creating a Request
-      createDevEndpoint
-    , CreateDevEndpoint
+  ( -- * Creating a Request
+    CreateDevEndpoint (..),
+    newCreateDevEndpoint,
+
     -- * Request Lenses
-    , cdeExtraPythonLibsS3Path
-    , cdeSecurityGroupIds
-    , cdePublicKey
-    , cdeSubnetId
-    , cdeNumberOfNodes
-    , cdeExtraJARsS3Path
-    , cdeEndpointName
-    , cdeRoleARN
+    createDevEndpoint_securityGroupIds,
+    createDevEndpoint_securityConfiguration,
+    createDevEndpoint_publicKey,
+    createDevEndpoint_extraPythonLibsS3Path,
+    createDevEndpoint_numberOfWorkers,
+    createDevEndpoint_glueVersion,
+    createDevEndpoint_tags,
+    createDevEndpoint_numberOfNodes,
+    createDevEndpoint_workerType,
+    createDevEndpoint_subnetId,
+    createDevEndpoint_arguments,
+    createDevEndpoint_publicKeys,
+    createDevEndpoint_extraJarsS3Path,
+    createDevEndpoint_endpointName,
+    createDevEndpoint_roleArn,
 
     -- * Destructuring the Response
-    , createDevEndpointResponse
-    , CreateDevEndpointResponse
+    CreateDevEndpointResponse (..),
+    newCreateDevEndpointResponse,
+
     -- * Response Lenses
-    , cdersStatus
-    , cdersFailureReason
-    , cdersEndpointName
-    , cdersExtraPythonLibsS3Path
-    , cdersSecurityGroupIds
-    , cdersVPCId
-    , cdersSubnetId
-    , cdersNumberOfNodes
-    , cdersAvailabilityZone
-    , cdersZeppelinRemoteSparkInterpreterPort
-    , cdersExtraJARsS3Path
-    , cdersCreatedTimestamp
-    , cdersYarnEndpointAddress
-    , cdersRoleARN
-    , cdersResponseStatus
-    ) where
+    createDevEndpointResponse_securityGroupIds,
+    createDevEndpointResponse_status,
+    createDevEndpointResponse_endpointName,
+    createDevEndpointResponse_roleArn,
+    createDevEndpointResponse_yarnEndpointAddress,
+    createDevEndpointResponse_securityConfiguration,
+    createDevEndpointResponse_createdTimestamp,
+    createDevEndpointResponse_extraPythonLibsS3Path,
+    createDevEndpointResponse_numberOfWorkers,
+    createDevEndpointResponse_zeppelinRemoteSparkInterpreterPort,
+    createDevEndpointResponse_availabilityZone,
+    createDevEndpointResponse_failureReason,
+    createDevEndpointResponse_glueVersion,
+    createDevEndpointResponse_numberOfNodes,
+    createDevEndpointResponse_workerType,
+    createDevEndpointResponse_subnetId,
+    createDevEndpointResponse_vpcId,
+    createDevEndpointResponse_arguments,
+    createDevEndpointResponse_extraJarsS3Path,
+    createDevEndpointResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Glue.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createDevEndpoint' smart constructor.
+-- | /See:/ 'newCreateDevEndpoint' smart constructor.
 data CreateDevEndpoint = CreateDevEndpoint'
-  { _cdeExtraPythonLibsS3Path :: !(Maybe Text)
-  , _cdeSecurityGroupIds      :: !(Maybe [Text])
-  , _cdePublicKey             :: !(Maybe Text)
-  , _cdeSubnetId              :: !(Maybe Text)
-  , _cdeNumberOfNodes         :: !(Maybe Int)
-  , _cdeExtraJARsS3Path       :: !(Maybe Text)
-  , _cdeEndpointName          :: !Text
-  , _cdeRoleARN               :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Security group IDs for the security groups to be used by the new
+    -- @DevEndpoint@.
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the @SecurityConfiguration@ structure to be used with this
+    -- @DevEndpoint@.
+    securityConfiguration :: Prelude.Maybe Prelude.Text,
+    -- | The public key to be used by this @DevEndpoint@ for authentication. This
+    -- attribute is provided for backward compatibility because the recommended
+    -- attribute to use is public keys.
+    publicKey :: Prelude.Maybe Prelude.Text,
+    -- | The paths to one or more Python libraries in an Amazon S3 bucket that
+    -- should be loaded in your @DevEndpoint@. Multiple values must be complete
+    -- paths separated by a comma.
+    --
+    -- You can only use pure Python libraries with a @DevEndpoint@. Libraries
+    -- that rely on C extensions, such as the
+    -- <http://pandas.pydata.org/ pandas> Python data analysis library, are not
+    -- yet supported.
+    extraPythonLibsS3Path :: Prelude.Maybe Prelude.Text,
+    -- | The number of workers of a defined @workerType@ that are allocated to
+    -- the development endpoint.
+    --
+    -- The maximum number of workers you can define are 299 for @G.1X@, and 149
+    -- for @G.2X@.
+    numberOfWorkers :: Prelude.Maybe Prelude.Int,
+    -- | Glue version determines the versions of Apache Spark and Python that AWS
+    -- Glue supports. The Python version indicates the version supported for
+    -- running your ETL scripts on development endpoints.
+    --
+    -- For more information about the available AWS Glue versions and
+    -- corresponding Spark and Python versions, see
+    -- <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version>
+    -- in the developer guide.
+    --
+    -- Development endpoints that are created without specifying a Glue version
+    -- default to Glue 0.9.
+    --
+    -- You can specify a version of Python support for development endpoints by
+    -- using the @Arguments@ parameter in the @CreateDevEndpoint@ or
+    -- @UpdateDevEndpoint@ APIs. If no arguments are provided, the version
+    -- defaults to Python 2.
+    glueVersion :: Prelude.Maybe Prelude.Text,
+    -- | The tags to use with this DevEndpoint. You may use tags to limit access
+    -- to the DevEndpoint. For more information about tags in AWS Glue, see
+    -- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue>
+    -- in the developer guide.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The number of AWS Glue Data Processing Units (DPUs) to allocate to this
+    -- @DevEndpoint@.
+    numberOfNodes :: Prelude.Maybe Prelude.Int,
+    -- | The type of predefined worker that is allocated to the development
+    -- endpoint. Accepts a value of Standard, G.1X, or G.2X.
+    --
+    -- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
+    --     of memory and a 50GB disk, and 2 executors per worker.
+    --
+    -- -   For the @G.1X@ worker type, each worker maps to 1 DPU (4 vCPU, 16 GB
+    --     of memory, 64 GB disk), and provides 1 executor per worker. We
+    --     recommend this worker type for memory-intensive jobs.
+    --
+    -- -   For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB
+    --     of memory, 128 GB disk), and provides 1 executor per worker. We
+    --     recommend this worker type for memory-intensive jobs.
+    --
+    -- Known issue: when a development endpoint is created with the @G.2X@
+    -- @WorkerType@ configuration, the Spark drivers for the development
+    -- endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk.
+    workerType :: Prelude.Maybe WorkerType,
+    -- | The subnet ID for the new @DevEndpoint@ to use.
+    subnetId :: Prelude.Maybe Prelude.Text,
+    -- | A map of arguments used to configure the @DevEndpoint@.
+    arguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A list of public keys to be used by the development endpoints for
+    -- authentication. The use of this attribute is preferred over a single
+    -- public key because the public keys allow you to have a different private
+    -- key per client.
+    --
+    -- If you previously created an endpoint with a public key, you must remove
+    -- that key to be able to set a list of public keys. Call the
+    -- @UpdateDevEndpoint@ API with the public key content in the
+    -- @deletePublicKeys@ attribute, and the list of new keys in the
+    -- @addPublicKeys@ attribute.
+    publicKeys :: Prelude.Maybe [Prelude.Text],
+    -- | The path to one or more Java @.jar@ files in an S3 bucket that should be
+    -- loaded in your @DevEndpoint@.
+    extraJarsS3Path :: Prelude.Maybe Prelude.Text,
+    -- | The name to be assigned to the new @DevEndpoint@.
+    endpointName :: Prelude.Text,
+    -- | The IAM role for the @DevEndpoint@.
+    roleArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateDevEndpoint' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateDevEndpoint' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cdeExtraPythonLibsS3Path' - Path(s) to one or more Python libraries in an S3 bucket that should be loaded in your DevEndpoint. Multiple values must be complete paths separated by a comma. Please note that only pure Python libraries can currently be used on a DevEndpoint. Libraries that rely on C extensions, such as the <http://pandas.pydata.org/ pandas> Python data analysis library, are not yet supported.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cdeSecurityGroupIds' - Security group IDs for the security groups to be used by the new DevEndpoint.
+-- 'securityGroupIds', 'createDevEndpoint_securityGroupIds' - Security group IDs for the security groups to be used by the new
+-- @DevEndpoint@.
 --
--- * 'cdePublicKey' - The public key to use for authentication.
+-- 'securityConfiguration', 'createDevEndpoint_securityConfiguration' - The name of the @SecurityConfiguration@ structure to be used with this
+-- @DevEndpoint@.
 --
--- * 'cdeSubnetId' - The subnet ID for the new DevEndpoint to use.
+-- 'publicKey', 'createDevEndpoint_publicKey' - The public key to be used by this @DevEndpoint@ for authentication. This
+-- attribute is provided for backward compatibility because the recommended
+-- attribute to use is public keys.
 --
--- * 'cdeNumberOfNodes' - The number of AWS Glue Data Processing Units (DPUs) to allocate to this DevEndpoint.
+-- 'extraPythonLibsS3Path', 'createDevEndpoint_extraPythonLibsS3Path' - The paths to one or more Python libraries in an Amazon S3 bucket that
+-- should be loaded in your @DevEndpoint@. Multiple values must be complete
+-- paths separated by a comma.
 --
--- * 'cdeExtraJARsS3Path' - Path to one or more Java Jars in an S3 bucket that should be loaded in your DevEndpoint.
+-- You can only use pure Python libraries with a @DevEndpoint@. Libraries
+-- that rely on C extensions, such as the
+-- <http://pandas.pydata.org/ pandas> Python data analysis library, are not
+-- yet supported.
 --
--- * 'cdeEndpointName' - The name to be assigned to the new DevEndpoint.
+-- 'numberOfWorkers', 'createDevEndpoint_numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated to
+-- the development endpoint.
 --
--- * 'cdeRoleARN' - The IAM role for the DevEndpoint.
-createDevEndpoint
-    :: Text -- ^ 'cdeEndpointName'
-    -> Text -- ^ 'cdeRoleARN'
-    -> CreateDevEndpoint
-createDevEndpoint pEndpointName_ pRoleARN_ =
+-- The maximum number of workers you can define are 299 for @G.1X@, and 149
+-- for @G.2X@.
+--
+-- 'glueVersion', 'createDevEndpoint_glueVersion' - Glue version determines the versions of Apache Spark and Python that AWS
+-- Glue supports. The Python version indicates the version supported for
+-- running your ETL scripts on development endpoints.
+--
+-- For more information about the available AWS Glue versions and
+-- corresponding Spark and Python versions, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version>
+-- in the developer guide.
+--
+-- Development endpoints that are created without specifying a Glue version
+-- default to Glue 0.9.
+--
+-- You can specify a version of Python support for development endpoints by
+-- using the @Arguments@ parameter in the @CreateDevEndpoint@ or
+-- @UpdateDevEndpoint@ APIs. If no arguments are provided, the version
+-- defaults to Python 2.
+--
+-- 'tags', 'createDevEndpoint_tags' - The tags to use with this DevEndpoint. You may use tags to limit access
+-- to the DevEndpoint. For more information about tags in AWS Glue, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue>
+-- in the developer guide.
+--
+-- 'numberOfNodes', 'createDevEndpoint_numberOfNodes' - The number of AWS Glue Data Processing Units (DPUs) to allocate to this
+-- @DevEndpoint@.
+--
+-- 'workerType', 'createDevEndpoint_workerType' - The type of predefined worker that is allocated to the development
+-- endpoint. Accepts a value of Standard, G.1X, or G.2X.
+--
+-- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
+--     of memory and a 50GB disk, and 2 executors per worker.
+--
+-- -   For the @G.1X@ worker type, each worker maps to 1 DPU (4 vCPU, 16 GB
+--     of memory, 64 GB disk), and provides 1 executor per worker. We
+--     recommend this worker type for memory-intensive jobs.
+--
+-- -   For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB
+--     of memory, 128 GB disk), and provides 1 executor per worker. We
+--     recommend this worker type for memory-intensive jobs.
+--
+-- Known issue: when a development endpoint is created with the @G.2X@
+-- @WorkerType@ configuration, the Spark drivers for the development
+-- endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk.
+--
+-- 'subnetId', 'createDevEndpoint_subnetId' - The subnet ID for the new @DevEndpoint@ to use.
+--
+-- 'arguments', 'createDevEndpoint_arguments' - A map of arguments used to configure the @DevEndpoint@.
+--
+-- 'publicKeys', 'createDevEndpoint_publicKeys' - A list of public keys to be used by the development endpoints for
+-- authentication. The use of this attribute is preferred over a single
+-- public key because the public keys allow you to have a different private
+-- key per client.
+--
+-- If you previously created an endpoint with a public key, you must remove
+-- that key to be able to set a list of public keys. Call the
+-- @UpdateDevEndpoint@ API with the public key content in the
+-- @deletePublicKeys@ attribute, and the list of new keys in the
+-- @addPublicKeys@ attribute.
+--
+-- 'extraJarsS3Path', 'createDevEndpoint_extraJarsS3Path' - The path to one or more Java @.jar@ files in an S3 bucket that should be
+-- loaded in your @DevEndpoint@.
+--
+-- 'endpointName', 'createDevEndpoint_endpointName' - The name to be assigned to the new @DevEndpoint@.
+--
+-- 'roleArn', 'createDevEndpoint_roleArn' - The IAM role for the @DevEndpoint@.
+newCreateDevEndpoint ::
+  -- | 'endpointName'
+  Prelude.Text ->
+  -- | 'roleArn'
+  Prelude.Text ->
+  CreateDevEndpoint
+newCreateDevEndpoint pEndpointName_ pRoleArn_ =
   CreateDevEndpoint'
-    { _cdeExtraPythonLibsS3Path = Nothing
-    , _cdeSecurityGroupIds = Nothing
-    , _cdePublicKey = Nothing
-    , _cdeSubnetId = Nothing
-    , _cdeNumberOfNodes = Nothing
-    , _cdeExtraJARsS3Path = Nothing
-    , _cdeEndpointName = pEndpointName_
-    , _cdeRoleARN = pRoleARN_
+    { securityGroupIds =
+        Prelude.Nothing,
+      securityConfiguration = Prelude.Nothing,
+      publicKey = Prelude.Nothing,
+      extraPythonLibsS3Path = Prelude.Nothing,
+      numberOfWorkers = Prelude.Nothing,
+      glueVersion = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      numberOfNodes = Prelude.Nothing,
+      workerType = Prelude.Nothing,
+      subnetId = Prelude.Nothing,
+      arguments = Prelude.Nothing,
+      publicKeys = Prelude.Nothing,
+      extraJarsS3Path = Prelude.Nothing,
+      endpointName = pEndpointName_,
+      roleArn = pRoleArn_
     }
 
+-- | Security group IDs for the security groups to be used by the new
+-- @DevEndpoint@.
+createDevEndpoint_securityGroupIds :: Lens.Lens' CreateDevEndpoint (Prelude.Maybe [Prelude.Text])
+createDevEndpoint_securityGroupIds = Lens.lens (\CreateDevEndpoint' {securityGroupIds} -> securityGroupIds) (\s@CreateDevEndpoint' {} a -> s {securityGroupIds = a} :: CreateDevEndpoint) Prelude.. Lens.mapping Prelude._Coerce
 
--- | Path(s) to one or more Python libraries in an S3 bucket that should be loaded in your DevEndpoint. Multiple values must be complete paths separated by a comma. Please note that only pure Python libraries can currently be used on a DevEndpoint. Libraries that rely on C extensions, such as the <http://pandas.pydata.org/ pandas> Python data analysis library, are not yet supported.
-cdeExtraPythonLibsS3Path :: Lens' CreateDevEndpoint (Maybe Text)
-cdeExtraPythonLibsS3Path = lens _cdeExtraPythonLibsS3Path (\ s a -> s{_cdeExtraPythonLibsS3Path = a})
+-- | The name of the @SecurityConfiguration@ structure to be used with this
+-- @DevEndpoint@.
+createDevEndpoint_securityConfiguration :: Lens.Lens' CreateDevEndpoint (Prelude.Maybe Prelude.Text)
+createDevEndpoint_securityConfiguration = Lens.lens (\CreateDevEndpoint' {securityConfiguration} -> securityConfiguration) (\s@CreateDevEndpoint' {} a -> s {securityConfiguration = a} :: CreateDevEndpoint)
 
--- | Security group IDs for the security groups to be used by the new DevEndpoint.
-cdeSecurityGroupIds :: Lens' CreateDevEndpoint [Text]
-cdeSecurityGroupIds = lens _cdeSecurityGroupIds (\ s a -> s{_cdeSecurityGroupIds = a}) . _Default . _Coerce
+-- | The public key to be used by this @DevEndpoint@ for authentication. This
+-- attribute is provided for backward compatibility because the recommended
+-- attribute to use is public keys.
+createDevEndpoint_publicKey :: Lens.Lens' CreateDevEndpoint (Prelude.Maybe Prelude.Text)
+createDevEndpoint_publicKey = Lens.lens (\CreateDevEndpoint' {publicKey} -> publicKey) (\s@CreateDevEndpoint' {} a -> s {publicKey = a} :: CreateDevEndpoint)
 
--- | The public key to use for authentication.
-cdePublicKey :: Lens' CreateDevEndpoint (Maybe Text)
-cdePublicKey = lens _cdePublicKey (\ s a -> s{_cdePublicKey = a})
+-- | The paths to one or more Python libraries in an Amazon S3 bucket that
+-- should be loaded in your @DevEndpoint@. Multiple values must be complete
+-- paths separated by a comma.
+--
+-- You can only use pure Python libraries with a @DevEndpoint@. Libraries
+-- that rely on C extensions, such as the
+-- <http://pandas.pydata.org/ pandas> Python data analysis library, are not
+-- yet supported.
+createDevEndpoint_extraPythonLibsS3Path :: Lens.Lens' CreateDevEndpoint (Prelude.Maybe Prelude.Text)
+createDevEndpoint_extraPythonLibsS3Path = Lens.lens (\CreateDevEndpoint' {extraPythonLibsS3Path} -> extraPythonLibsS3Path) (\s@CreateDevEndpoint' {} a -> s {extraPythonLibsS3Path = a} :: CreateDevEndpoint)
 
--- | The subnet ID for the new DevEndpoint to use.
-cdeSubnetId :: Lens' CreateDevEndpoint (Maybe Text)
-cdeSubnetId = lens _cdeSubnetId (\ s a -> s{_cdeSubnetId = a})
+-- | The number of workers of a defined @workerType@ that are allocated to
+-- the development endpoint.
+--
+-- The maximum number of workers you can define are 299 for @G.1X@, and 149
+-- for @G.2X@.
+createDevEndpoint_numberOfWorkers :: Lens.Lens' CreateDevEndpoint (Prelude.Maybe Prelude.Int)
+createDevEndpoint_numberOfWorkers = Lens.lens (\CreateDevEndpoint' {numberOfWorkers} -> numberOfWorkers) (\s@CreateDevEndpoint' {} a -> s {numberOfWorkers = a} :: CreateDevEndpoint)
 
--- | The number of AWS Glue Data Processing Units (DPUs) to allocate to this DevEndpoint.
-cdeNumberOfNodes :: Lens' CreateDevEndpoint (Maybe Int)
-cdeNumberOfNodes = lens _cdeNumberOfNodes (\ s a -> s{_cdeNumberOfNodes = a})
+-- | Glue version determines the versions of Apache Spark and Python that AWS
+-- Glue supports. The Python version indicates the version supported for
+-- running your ETL scripts on development endpoints.
+--
+-- For more information about the available AWS Glue versions and
+-- corresponding Spark and Python versions, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/add-job.html Glue version>
+-- in the developer guide.
+--
+-- Development endpoints that are created without specifying a Glue version
+-- default to Glue 0.9.
+--
+-- You can specify a version of Python support for development endpoints by
+-- using the @Arguments@ parameter in the @CreateDevEndpoint@ or
+-- @UpdateDevEndpoint@ APIs. If no arguments are provided, the version
+-- defaults to Python 2.
+createDevEndpoint_glueVersion :: Lens.Lens' CreateDevEndpoint (Prelude.Maybe Prelude.Text)
+createDevEndpoint_glueVersion = Lens.lens (\CreateDevEndpoint' {glueVersion} -> glueVersion) (\s@CreateDevEndpoint' {} a -> s {glueVersion = a} :: CreateDevEndpoint)
 
--- | Path to one or more Java Jars in an S3 bucket that should be loaded in your DevEndpoint.
-cdeExtraJARsS3Path :: Lens' CreateDevEndpoint (Maybe Text)
-cdeExtraJARsS3Path = lens _cdeExtraJARsS3Path (\ s a -> s{_cdeExtraJARsS3Path = a})
+-- | The tags to use with this DevEndpoint. You may use tags to limit access
+-- to the DevEndpoint. For more information about tags in AWS Glue, see
+-- <https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html AWS Tags in AWS Glue>
+-- in the developer guide.
+createDevEndpoint_tags :: Lens.Lens' CreateDevEndpoint (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createDevEndpoint_tags = Lens.lens (\CreateDevEndpoint' {tags} -> tags) (\s@CreateDevEndpoint' {} a -> s {tags = a} :: CreateDevEndpoint) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The name to be assigned to the new DevEndpoint.
-cdeEndpointName :: Lens' CreateDevEndpoint Text
-cdeEndpointName = lens _cdeEndpointName (\ s a -> s{_cdeEndpointName = a})
+-- | The number of AWS Glue Data Processing Units (DPUs) to allocate to this
+-- @DevEndpoint@.
+createDevEndpoint_numberOfNodes :: Lens.Lens' CreateDevEndpoint (Prelude.Maybe Prelude.Int)
+createDevEndpoint_numberOfNodes = Lens.lens (\CreateDevEndpoint' {numberOfNodes} -> numberOfNodes) (\s@CreateDevEndpoint' {} a -> s {numberOfNodes = a} :: CreateDevEndpoint)
 
--- | The IAM role for the DevEndpoint.
-cdeRoleARN :: Lens' CreateDevEndpoint Text
-cdeRoleARN = lens _cdeRoleARN (\ s a -> s{_cdeRoleARN = a})
+-- | The type of predefined worker that is allocated to the development
+-- endpoint. Accepts a value of Standard, G.1X, or G.2X.
+--
+-- -   For the @Standard@ worker type, each worker provides 4 vCPU, 16 GB
+--     of memory and a 50GB disk, and 2 executors per worker.
+--
+-- -   For the @G.1X@ worker type, each worker maps to 1 DPU (4 vCPU, 16 GB
+--     of memory, 64 GB disk), and provides 1 executor per worker. We
+--     recommend this worker type for memory-intensive jobs.
+--
+-- -   For the @G.2X@ worker type, each worker maps to 2 DPU (8 vCPU, 32 GB
+--     of memory, 128 GB disk), and provides 1 executor per worker. We
+--     recommend this worker type for memory-intensive jobs.
+--
+-- Known issue: when a development endpoint is created with the @G.2X@
+-- @WorkerType@ configuration, the Spark drivers for the development
+-- endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk.
+createDevEndpoint_workerType :: Lens.Lens' CreateDevEndpoint (Prelude.Maybe WorkerType)
+createDevEndpoint_workerType = Lens.lens (\CreateDevEndpoint' {workerType} -> workerType) (\s@CreateDevEndpoint' {} a -> s {workerType = a} :: CreateDevEndpoint)
 
-instance AWSRequest CreateDevEndpoint where
-        type Rs CreateDevEndpoint = CreateDevEndpointResponse
-        request = postJSON glue
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateDevEndpointResponse' <$>
-                   (x .?> "Status") <*> (x .?> "FailureReason") <*>
-                     (x .?> "EndpointName")
-                     <*> (x .?> "ExtraPythonLibsS3Path")
-                     <*> (x .?> "SecurityGroupIds" .!@ mempty)
-                     <*> (x .?> "VpcId")
-                     <*> (x .?> "SubnetId")
-                     <*> (x .?> "NumberOfNodes")
-                     <*> (x .?> "AvailabilityZone")
-                     <*> (x .?> "ZeppelinRemoteSparkInterpreterPort")
-                     <*> (x .?> "ExtraJarsS3Path")
-                     <*> (x .?> "CreatedTimestamp")
-                     <*> (x .?> "YarnEndpointAddress")
-                     <*> (x .?> "RoleArn")
-                     <*> (pure (fromEnum s)))
+-- | The subnet ID for the new @DevEndpoint@ to use.
+createDevEndpoint_subnetId :: Lens.Lens' CreateDevEndpoint (Prelude.Maybe Prelude.Text)
+createDevEndpoint_subnetId = Lens.lens (\CreateDevEndpoint' {subnetId} -> subnetId) (\s@CreateDevEndpoint' {} a -> s {subnetId = a} :: CreateDevEndpoint)
 
-instance Hashable CreateDevEndpoint where
+-- | A map of arguments used to configure the @DevEndpoint@.
+createDevEndpoint_arguments :: Lens.Lens' CreateDevEndpoint (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createDevEndpoint_arguments = Lens.lens (\CreateDevEndpoint' {arguments} -> arguments) (\s@CreateDevEndpoint' {} a -> s {arguments = a} :: CreateDevEndpoint) Prelude.. Lens.mapping Prelude._Coerce
 
-instance NFData CreateDevEndpoint where
+-- | A list of public keys to be used by the development endpoints for
+-- authentication. The use of this attribute is preferred over a single
+-- public key because the public keys allow you to have a different private
+-- key per client.
+--
+-- If you previously created an endpoint with a public key, you must remove
+-- that key to be able to set a list of public keys. Call the
+-- @UpdateDevEndpoint@ API with the public key content in the
+-- @deletePublicKeys@ attribute, and the list of new keys in the
+-- @addPublicKeys@ attribute.
+createDevEndpoint_publicKeys :: Lens.Lens' CreateDevEndpoint (Prelude.Maybe [Prelude.Text])
+createDevEndpoint_publicKeys = Lens.lens (\CreateDevEndpoint' {publicKeys} -> publicKeys) (\s@CreateDevEndpoint' {} a -> s {publicKeys = a} :: CreateDevEndpoint) Prelude.. Lens.mapping Prelude._Coerce
 
-instance ToHeaders CreateDevEndpoint where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSGlue.CreateDevEndpoint" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+-- | The path to one or more Java @.jar@ files in an S3 bucket that should be
+-- loaded in your @DevEndpoint@.
+createDevEndpoint_extraJarsS3Path :: Lens.Lens' CreateDevEndpoint (Prelude.Maybe Prelude.Text)
+createDevEndpoint_extraJarsS3Path = Lens.lens (\CreateDevEndpoint' {extraJarsS3Path} -> extraJarsS3Path) (\s@CreateDevEndpoint' {} a -> s {extraJarsS3Path = a} :: CreateDevEndpoint)
 
-instance ToJSON CreateDevEndpoint where
-        toJSON CreateDevEndpoint'{..}
-          = object
-              (catMaybes
-                 [("ExtraPythonLibsS3Path" .=) <$>
-                    _cdeExtraPythonLibsS3Path,
-                  ("SecurityGroupIds" .=) <$> _cdeSecurityGroupIds,
-                  ("PublicKey" .=) <$> _cdePublicKey,
-                  ("SubnetId" .=) <$> _cdeSubnetId,
-                  ("NumberOfNodes" .=) <$> _cdeNumberOfNodes,
-                  ("ExtraJarsS3Path" .=) <$> _cdeExtraJARsS3Path,
-                  Just ("EndpointName" .= _cdeEndpointName),
-                  Just ("RoleArn" .= _cdeRoleARN)])
+-- | The name to be assigned to the new @DevEndpoint@.
+createDevEndpoint_endpointName :: Lens.Lens' CreateDevEndpoint Prelude.Text
+createDevEndpoint_endpointName = Lens.lens (\CreateDevEndpoint' {endpointName} -> endpointName) (\s@CreateDevEndpoint' {} a -> s {endpointName = a} :: CreateDevEndpoint)
 
-instance ToPath CreateDevEndpoint where
-        toPath = const "/"
+-- | The IAM role for the @DevEndpoint@.
+createDevEndpoint_roleArn :: Lens.Lens' CreateDevEndpoint Prelude.Text
+createDevEndpoint_roleArn = Lens.lens (\CreateDevEndpoint' {roleArn} -> roleArn) (\s@CreateDevEndpoint' {} a -> s {roleArn = a} :: CreateDevEndpoint)
 
-instance ToQuery CreateDevEndpoint where
-        toQuery = const mempty
+instance Prelude.AWSRequest CreateDevEndpoint where
+  type Rs CreateDevEndpoint = CreateDevEndpointResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateDevEndpointResponse'
+            Prelude.<$> ( x Prelude..?> "SecurityGroupIds"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Prelude..?> "Status")
+            Prelude.<*> (x Prelude..?> "EndpointName")
+            Prelude.<*> (x Prelude..?> "RoleArn")
+            Prelude.<*> (x Prelude..?> "YarnEndpointAddress")
+            Prelude.<*> (x Prelude..?> "SecurityConfiguration")
+            Prelude.<*> (x Prelude..?> "CreatedTimestamp")
+            Prelude.<*> (x Prelude..?> "ExtraPythonLibsS3Path")
+            Prelude.<*> (x Prelude..?> "NumberOfWorkers")
+            Prelude.<*> (x Prelude..?> "ZeppelinRemoteSparkInterpreterPort")
+            Prelude.<*> (x Prelude..?> "AvailabilityZone")
+            Prelude.<*> (x Prelude..?> "FailureReason")
+            Prelude.<*> (x Prelude..?> "GlueVersion")
+            Prelude.<*> (x Prelude..?> "NumberOfNodes")
+            Prelude.<*> (x Prelude..?> "WorkerType")
+            Prelude.<*> (x Prelude..?> "SubnetId")
+            Prelude.<*> (x Prelude..?> "VpcId")
+            Prelude.<*> ( x Prelude..?> "Arguments"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Prelude..?> "ExtraJarsS3Path")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | /See:/ 'createDevEndpointResponse' smart constructor.
+instance Prelude.Hashable CreateDevEndpoint
+
+instance Prelude.NFData CreateDevEndpoint
+
+instance Prelude.ToHeaders CreateDevEndpoint where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ("AWSGlue.CreateDevEndpoint" :: Prelude.ByteString),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON CreateDevEndpoint where
+  toJSON CreateDevEndpoint' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("SecurityGroupIds" Prelude..=)
+              Prelude.<$> securityGroupIds,
+            ("SecurityConfiguration" Prelude..=)
+              Prelude.<$> securityConfiguration,
+            ("PublicKey" Prelude..=) Prelude.<$> publicKey,
+            ("ExtraPythonLibsS3Path" Prelude..=)
+              Prelude.<$> extraPythonLibsS3Path,
+            ("NumberOfWorkers" Prelude..=)
+              Prelude.<$> numberOfWorkers,
+            ("GlueVersion" Prelude..=) Prelude.<$> glueVersion,
+            ("Tags" Prelude..=) Prelude.<$> tags,
+            ("NumberOfNodes" Prelude..=)
+              Prelude.<$> numberOfNodes,
+            ("WorkerType" Prelude..=) Prelude.<$> workerType,
+            ("SubnetId" Prelude..=) Prelude.<$> subnetId,
+            ("Arguments" Prelude..=) Prelude.<$> arguments,
+            ("PublicKeys" Prelude..=) Prelude.<$> publicKeys,
+            ("ExtraJarsS3Path" Prelude..=)
+              Prelude.<$> extraJarsS3Path,
+            Prelude.Just
+              ("EndpointName" Prelude..= endpointName),
+            Prelude.Just ("RoleArn" Prelude..= roleArn)
+          ]
+      )
+
+instance Prelude.ToPath CreateDevEndpoint where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery CreateDevEndpoint where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newCreateDevEndpointResponse' smart constructor.
 data CreateDevEndpointResponse = CreateDevEndpointResponse'
-  { _cdersStatus                             :: !(Maybe Text)
-  , _cdersFailureReason                      :: !(Maybe Text)
-  , _cdersEndpointName                       :: !(Maybe Text)
-  , _cdersExtraPythonLibsS3Path              :: !(Maybe Text)
-  , _cdersSecurityGroupIds                   :: !(Maybe [Text])
-  , _cdersVPCId                              :: !(Maybe Text)
-  , _cdersSubnetId                           :: !(Maybe Text)
-  , _cdersNumberOfNodes                      :: !(Maybe Int)
-  , _cdersAvailabilityZone                   :: !(Maybe Text)
-  , _cdersZeppelinRemoteSparkInterpreterPort :: !(Maybe Int)
-  , _cdersExtraJARsS3Path                    :: !(Maybe Text)
-  , _cdersCreatedTimestamp                   :: !(Maybe POSIX)
-  , _cdersYarnEndpointAddress                :: !(Maybe Text)
-  , _cdersRoleARN                            :: !(Maybe Text)
-  , _cdersResponseStatus                     :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The security groups assigned to the new @DevEndpoint@.
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | The current status of the new @DevEndpoint@.
+    status :: Prelude.Maybe Prelude.Text,
+    -- | The name assigned to the new @DevEndpoint@.
+    endpointName :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the role assigned to the new
+    -- @DevEndpoint@.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The address of the YARN endpoint used by this @DevEndpoint@.
+    yarnEndpointAddress :: Prelude.Maybe Prelude.Text,
+    -- | The name of the @SecurityConfiguration@ structure being used with this
+    -- @DevEndpoint@.
+    securityConfiguration :: Prelude.Maybe Prelude.Text,
+    -- | The point in time at which this @DevEndpoint@ was created.
+    createdTimestamp :: Prelude.Maybe Prelude.POSIX,
+    -- | The paths to one or more Python libraries in an S3 bucket that will be
+    -- loaded in your @DevEndpoint@.
+    extraPythonLibsS3Path :: Prelude.Maybe Prelude.Text,
+    -- | The number of workers of a defined @workerType@ that are allocated to
+    -- the development endpoint.
+    numberOfWorkers :: Prelude.Maybe Prelude.Int,
+    -- | The Apache Zeppelin port for the remote Apache Spark interpreter.
+    zeppelinRemoteSparkInterpreterPort :: Prelude.Maybe Prelude.Int,
+    -- | The AWS Availability Zone where this @DevEndpoint@ is located.
+    availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The reason for a current failure in this @DevEndpoint@.
+    failureReason :: Prelude.Maybe Prelude.Text,
+    -- | Glue version determines the versions of Apache Spark and Python that AWS
+    -- Glue supports. The Python version indicates the version supported for
+    -- running your ETL scripts on development endpoints.
+    glueVersion :: Prelude.Maybe Prelude.Text,
+    -- | The number of AWS Glue Data Processing Units (DPUs) allocated to this
+    -- DevEndpoint.
+    numberOfNodes :: Prelude.Maybe Prelude.Int,
+    -- | The type of predefined worker that is allocated to the development
+    -- endpoint. May be a value of Standard, G.1X, or G.2X.
+    workerType :: Prelude.Maybe WorkerType,
+    -- | The subnet ID assigned to the new @DevEndpoint@.
+    subnetId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the virtual private cloud (VPC) used by this @DevEndpoint@.
+    vpcId :: Prelude.Maybe Prelude.Text,
+    -- | The map of arguments used to configure this @DevEndpoint@.
+    --
+    -- Valid arguments are:
+    --
+    -- -   @\"--enable-glue-datacatalog\": \"\"@
+    --
+    -- -   @\"GLUE_PYTHON_VERSION\": \"3\"@
+    --
+    -- -   @\"GLUE_PYTHON_VERSION\": \"2\"@
+    --
+    -- You can specify a version of Python support for development endpoints by
+    -- using the @Arguments@ parameter in the @CreateDevEndpoint@ or
+    -- @UpdateDevEndpoint@ APIs. If no arguments are provided, the version
+    -- defaults to Python 2.
+    arguments :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Path to one or more Java @.jar@ files in an S3 bucket that will be
+    -- loaded in your @DevEndpoint@.
+    extraJarsS3Path :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateDevEndpointResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateDevEndpointResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cdersStatus' - The current status of the new DevEndpoint.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cdersFailureReason' - The reason for a current failure in this DevEndpoint.
+-- 'securityGroupIds', 'createDevEndpointResponse_securityGroupIds' - The security groups assigned to the new @DevEndpoint@.
 --
--- * 'cdersEndpointName' - The name assigned to the new DevEndpoint.
+-- 'status', 'createDevEndpointResponse_status' - The current status of the new @DevEndpoint@.
 --
--- * 'cdersExtraPythonLibsS3Path' - Path(s) to one or more Python libraries in an S3 bucket that will be loaded in your DevEndpoint.
+-- 'endpointName', 'createDevEndpointResponse_endpointName' - The name assigned to the new @DevEndpoint@.
 --
--- * 'cdersSecurityGroupIds' - The security groups assigned to the new DevEndpoint.
+-- 'roleArn', 'createDevEndpointResponse_roleArn' - The Amazon Resource Name (ARN) of the role assigned to the new
+-- @DevEndpoint@.
 --
--- * 'cdersVPCId' - The ID of the VPC used by this DevEndpoint.
+-- 'yarnEndpointAddress', 'createDevEndpointResponse_yarnEndpointAddress' - The address of the YARN endpoint used by this @DevEndpoint@.
 --
--- * 'cdersSubnetId' - The subnet ID assigned to the new DevEndpoint.
+-- 'securityConfiguration', 'createDevEndpointResponse_securityConfiguration' - The name of the @SecurityConfiguration@ structure being used with this
+-- @DevEndpoint@.
 --
--- * 'cdersNumberOfNodes' - The number of AWS Glue Data Processing Units (DPUs) allocated to this DevEndpoint.
+-- 'createdTimestamp', 'createDevEndpointResponse_createdTimestamp' - The point in time at which this @DevEndpoint@ was created.
 --
--- * 'cdersAvailabilityZone' - The AWS availability zone where this DevEndpoint is located.
+-- 'extraPythonLibsS3Path', 'createDevEndpointResponse_extraPythonLibsS3Path' - The paths to one or more Python libraries in an S3 bucket that will be
+-- loaded in your @DevEndpoint@.
 --
--- * 'cdersZeppelinRemoteSparkInterpreterPort' - The Apache Zeppelin port for the remote Apache Spark interpreter.
+-- 'numberOfWorkers', 'createDevEndpointResponse_numberOfWorkers' - The number of workers of a defined @workerType@ that are allocated to
+-- the development endpoint.
 --
--- * 'cdersExtraJARsS3Path' - Path to one or more Java Jars in an S3 bucket that will be loaded in your DevEndpoint.
+-- 'zeppelinRemoteSparkInterpreterPort', 'createDevEndpointResponse_zeppelinRemoteSparkInterpreterPort' - The Apache Zeppelin port for the remote Apache Spark interpreter.
 --
--- * 'cdersCreatedTimestamp' - The point in time at which this DevEndpoint was created.
+-- 'availabilityZone', 'createDevEndpointResponse_availabilityZone' - The AWS Availability Zone where this @DevEndpoint@ is located.
 --
--- * 'cdersYarnEndpointAddress' - The address of the YARN endpoint used by this DevEndpoint.
+-- 'failureReason', 'createDevEndpointResponse_failureReason' - The reason for a current failure in this @DevEndpoint@.
 --
--- * 'cdersRoleARN' - The AWS ARN of the role assigned to the new DevEndpoint.
+-- 'glueVersion', 'createDevEndpointResponse_glueVersion' - Glue version determines the versions of Apache Spark and Python that AWS
+-- Glue supports. The Python version indicates the version supported for
+-- running your ETL scripts on development endpoints.
 --
--- * 'cdersResponseStatus' - -- | The response status code.
-createDevEndpointResponse
-    :: Int -- ^ 'cdersResponseStatus'
-    -> CreateDevEndpointResponse
-createDevEndpointResponse pResponseStatus_ =
+-- 'numberOfNodes', 'createDevEndpointResponse_numberOfNodes' - The number of AWS Glue Data Processing Units (DPUs) allocated to this
+-- DevEndpoint.
+--
+-- 'workerType', 'createDevEndpointResponse_workerType' - The type of predefined worker that is allocated to the development
+-- endpoint. May be a value of Standard, G.1X, or G.2X.
+--
+-- 'subnetId', 'createDevEndpointResponse_subnetId' - The subnet ID assigned to the new @DevEndpoint@.
+--
+-- 'vpcId', 'createDevEndpointResponse_vpcId' - The ID of the virtual private cloud (VPC) used by this @DevEndpoint@.
+--
+-- 'arguments', 'createDevEndpointResponse_arguments' - The map of arguments used to configure this @DevEndpoint@.
+--
+-- Valid arguments are:
+--
+-- -   @\"--enable-glue-datacatalog\": \"\"@
+--
+-- -   @\"GLUE_PYTHON_VERSION\": \"3\"@
+--
+-- -   @\"GLUE_PYTHON_VERSION\": \"2\"@
+--
+-- You can specify a version of Python support for development endpoints by
+-- using the @Arguments@ parameter in the @CreateDevEndpoint@ or
+-- @UpdateDevEndpoint@ APIs. If no arguments are provided, the version
+-- defaults to Python 2.
+--
+-- 'extraJarsS3Path', 'createDevEndpointResponse_extraJarsS3Path' - Path to one or more Java @.jar@ files in an S3 bucket that will be
+-- loaded in your @DevEndpoint@.
+--
+-- 'httpStatus', 'createDevEndpointResponse_httpStatus' - The response's http status code.
+newCreateDevEndpointResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateDevEndpointResponse
+newCreateDevEndpointResponse pHttpStatus_ =
   CreateDevEndpointResponse'
-    { _cdersStatus = Nothing
-    , _cdersFailureReason = Nothing
-    , _cdersEndpointName = Nothing
-    , _cdersExtraPythonLibsS3Path = Nothing
-    , _cdersSecurityGroupIds = Nothing
-    , _cdersVPCId = Nothing
-    , _cdersSubnetId = Nothing
-    , _cdersNumberOfNodes = Nothing
-    , _cdersAvailabilityZone = Nothing
-    , _cdersZeppelinRemoteSparkInterpreterPort = Nothing
-    , _cdersExtraJARsS3Path = Nothing
-    , _cdersCreatedTimestamp = Nothing
-    , _cdersYarnEndpointAddress = Nothing
-    , _cdersRoleARN = Nothing
-    , _cdersResponseStatus = pResponseStatus_
+    { securityGroupIds =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      endpointName = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      yarnEndpointAddress = Prelude.Nothing,
+      securityConfiguration = Prelude.Nothing,
+      createdTimestamp = Prelude.Nothing,
+      extraPythonLibsS3Path = Prelude.Nothing,
+      numberOfWorkers = Prelude.Nothing,
+      zeppelinRemoteSparkInterpreterPort =
+        Prelude.Nothing,
+      availabilityZone = Prelude.Nothing,
+      failureReason = Prelude.Nothing,
+      glueVersion = Prelude.Nothing,
+      numberOfNodes = Prelude.Nothing,
+      workerType = Prelude.Nothing,
+      subnetId = Prelude.Nothing,
+      vpcId = Prelude.Nothing,
+      arguments = Prelude.Nothing,
+      extraJarsS3Path = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The security groups assigned to the new @DevEndpoint@.
+createDevEndpointResponse_securityGroupIds :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe [Prelude.Text])
+createDevEndpointResponse_securityGroupIds = Lens.lens (\CreateDevEndpointResponse' {securityGroupIds} -> securityGroupIds) (\s@CreateDevEndpointResponse' {} a -> s {securityGroupIds = a} :: CreateDevEndpointResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The current status of the new DevEndpoint.
-cdersStatus :: Lens' CreateDevEndpointResponse (Maybe Text)
-cdersStatus = lens _cdersStatus (\ s a -> s{_cdersStatus = a})
+-- | The current status of the new @DevEndpoint@.
+createDevEndpointResponse_status :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe Prelude.Text)
+createDevEndpointResponse_status = Lens.lens (\CreateDevEndpointResponse' {status} -> status) (\s@CreateDevEndpointResponse' {} a -> s {status = a} :: CreateDevEndpointResponse)
 
--- | The reason for a current failure in this DevEndpoint.
-cdersFailureReason :: Lens' CreateDevEndpointResponse (Maybe Text)
-cdersFailureReason = lens _cdersFailureReason (\ s a -> s{_cdersFailureReason = a})
+-- | The name assigned to the new @DevEndpoint@.
+createDevEndpointResponse_endpointName :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe Prelude.Text)
+createDevEndpointResponse_endpointName = Lens.lens (\CreateDevEndpointResponse' {endpointName} -> endpointName) (\s@CreateDevEndpointResponse' {} a -> s {endpointName = a} :: CreateDevEndpointResponse)
 
--- | The name assigned to the new DevEndpoint.
-cdersEndpointName :: Lens' CreateDevEndpointResponse (Maybe Text)
-cdersEndpointName = lens _cdersEndpointName (\ s a -> s{_cdersEndpointName = a})
+-- | The Amazon Resource Name (ARN) of the role assigned to the new
+-- @DevEndpoint@.
+createDevEndpointResponse_roleArn :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe Prelude.Text)
+createDevEndpointResponse_roleArn = Lens.lens (\CreateDevEndpointResponse' {roleArn} -> roleArn) (\s@CreateDevEndpointResponse' {} a -> s {roleArn = a} :: CreateDevEndpointResponse)
 
--- | Path(s) to one or more Python libraries in an S3 bucket that will be loaded in your DevEndpoint.
-cdersExtraPythonLibsS3Path :: Lens' CreateDevEndpointResponse (Maybe Text)
-cdersExtraPythonLibsS3Path = lens _cdersExtraPythonLibsS3Path (\ s a -> s{_cdersExtraPythonLibsS3Path = a})
+-- | The address of the YARN endpoint used by this @DevEndpoint@.
+createDevEndpointResponse_yarnEndpointAddress :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe Prelude.Text)
+createDevEndpointResponse_yarnEndpointAddress = Lens.lens (\CreateDevEndpointResponse' {yarnEndpointAddress} -> yarnEndpointAddress) (\s@CreateDevEndpointResponse' {} a -> s {yarnEndpointAddress = a} :: CreateDevEndpointResponse)
 
--- | The security groups assigned to the new DevEndpoint.
-cdersSecurityGroupIds :: Lens' CreateDevEndpointResponse [Text]
-cdersSecurityGroupIds = lens _cdersSecurityGroupIds (\ s a -> s{_cdersSecurityGroupIds = a}) . _Default . _Coerce
+-- | The name of the @SecurityConfiguration@ structure being used with this
+-- @DevEndpoint@.
+createDevEndpointResponse_securityConfiguration :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe Prelude.Text)
+createDevEndpointResponse_securityConfiguration = Lens.lens (\CreateDevEndpointResponse' {securityConfiguration} -> securityConfiguration) (\s@CreateDevEndpointResponse' {} a -> s {securityConfiguration = a} :: CreateDevEndpointResponse)
 
--- | The ID of the VPC used by this DevEndpoint.
-cdersVPCId :: Lens' CreateDevEndpointResponse (Maybe Text)
-cdersVPCId = lens _cdersVPCId (\ s a -> s{_cdersVPCId = a})
+-- | The point in time at which this @DevEndpoint@ was created.
+createDevEndpointResponse_createdTimestamp :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe Prelude.UTCTime)
+createDevEndpointResponse_createdTimestamp = Lens.lens (\CreateDevEndpointResponse' {createdTimestamp} -> createdTimestamp) (\s@CreateDevEndpointResponse' {} a -> s {createdTimestamp = a} :: CreateDevEndpointResponse) Prelude.. Lens.mapping Prelude._Time
 
--- | The subnet ID assigned to the new DevEndpoint.
-cdersSubnetId :: Lens' CreateDevEndpointResponse (Maybe Text)
-cdersSubnetId = lens _cdersSubnetId (\ s a -> s{_cdersSubnetId = a})
+-- | The paths to one or more Python libraries in an S3 bucket that will be
+-- loaded in your @DevEndpoint@.
+createDevEndpointResponse_extraPythonLibsS3Path :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe Prelude.Text)
+createDevEndpointResponse_extraPythonLibsS3Path = Lens.lens (\CreateDevEndpointResponse' {extraPythonLibsS3Path} -> extraPythonLibsS3Path) (\s@CreateDevEndpointResponse' {} a -> s {extraPythonLibsS3Path = a} :: CreateDevEndpointResponse)
 
--- | The number of AWS Glue Data Processing Units (DPUs) allocated to this DevEndpoint.
-cdersNumberOfNodes :: Lens' CreateDevEndpointResponse (Maybe Int)
-cdersNumberOfNodes = lens _cdersNumberOfNodes (\ s a -> s{_cdersNumberOfNodes = a})
-
--- | The AWS availability zone where this DevEndpoint is located.
-cdersAvailabilityZone :: Lens' CreateDevEndpointResponse (Maybe Text)
-cdersAvailabilityZone = lens _cdersAvailabilityZone (\ s a -> s{_cdersAvailabilityZone = a})
+-- | The number of workers of a defined @workerType@ that are allocated to
+-- the development endpoint.
+createDevEndpointResponse_numberOfWorkers :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe Prelude.Int)
+createDevEndpointResponse_numberOfWorkers = Lens.lens (\CreateDevEndpointResponse' {numberOfWorkers} -> numberOfWorkers) (\s@CreateDevEndpointResponse' {} a -> s {numberOfWorkers = a} :: CreateDevEndpointResponse)
 
 -- | The Apache Zeppelin port for the remote Apache Spark interpreter.
-cdersZeppelinRemoteSparkInterpreterPort :: Lens' CreateDevEndpointResponse (Maybe Int)
-cdersZeppelinRemoteSparkInterpreterPort = lens _cdersZeppelinRemoteSparkInterpreterPort (\ s a -> s{_cdersZeppelinRemoteSparkInterpreterPort = a})
+createDevEndpointResponse_zeppelinRemoteSparkInterpreterPort :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe Prelude.Int)
+createDevEndpointResponse_zeppelinRemoteSparkInterpreterPort = Lens.lens (\CreateDevEndpointResponse' {zeppelinRemoteSparkInterpreterPort} -> zeppelinRemoteSparkInterpreterPort) (\s@CreateDevEndpointResponse' {} a -> s {zeppelinRemoteSparkInterpreterPort = a} :: CreateDevEndpointResponse)
 
--- | Path to one or more Java Jars in an S3 bucket that will be loaded in your DevEndpoint.
-cdersExtraJARsS3Path :: Lens' CreateDevEndpointResponse (Maybe Text)
-cdersExtraJARsS3Path = lens _cdersExtraJARsS3Path (\ s a -> s{_cdersExtraJARsS3Path = a})
+-- | The AWS Availability Zone where this @DevEndpoint@ is located.
+createDevEndpointResponse_availabilityZone :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe Prelude.Text)
+createDevEndpointResponse_availabilityZone = Lens.lens (\CreateDevEndpointResponse' {availabilityZone} -> availabilityZone) (\s@CreateDevEndpointResponse' {} a -> s {availabilityZone = a} :: CreateDevEndpointResponse)
 
--- | The point in time at which this DevEndpoint was created.
-cdersCreatedTimestamp :: Lens' CreateDevEndpointResponse (Maybe UTCTime)
-cdersCreatedTimestamp = lens _cdersCreatedTimestamp (\ s a -> s{_cdersCreatedTimestamp = a}) . mapping _Time
+-- | The reason for a current failure in this @DevEndpoint@.
+createDevEndpointResponse_failureReason :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe Prelude.Text)
+createDevEndpointResponse_failureReason = Lens.lens (\CreateDevEndpointResponse' {failureReason} -> failureReason) (\s@CreateDevEndpointResponse' {} a -> s {failureReason = a} :: CreateDevEndpointResponse)
 
--- | The address of the YARN endpoint used by this DevEndpoint.
-cdersYarnEndpointAddress :: Lens' CreateDevEndpointResponse (Maybe Text)
-cdersYarnEndpointAddress = lens _cdersYarnEndpointAddress (\ s a -> s{_cdersYarnEndpointAddress = a})
+-- | Glue version determines the versions of Apache Spark and Python that AWS
+-- Glue supports. The Python version indicates the version supported for
+-- running your ETL scripts on development endpoints.
+createDevEndpointResponse_glueVersion :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe Prelude.Text)
+createDevEndpointResponse_glueVersion = Lens.lens (\CreateDevEndpointResponse' {glueVersion} -> glueVersion) (\s@CreateDevEndpointResponse' {} a -> s {glueVersion = a} :: CreateDevEndpointResponse)
 
--- | The AWS ARN of the role assigned to the new DevEndpoint.
-cdersRoleARN :: Lens' CreateDevEndpointResponse (Maybe Text)
-cdersRoleARN = lens _cdersRoleARN (\ s a -> s{_cdersRoleARN = a})
+-- | The number of AWS Glue Data Processing Units (DPUs) allocated to this
+-- DevEndpoint.
+createDevEndpointResponse_numberOfNodes :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe Prelude.Int)
+createDevEndpointResponse_numberOfNodes = Lens.lens (\CreateDevEndpointResponse' {numberOfNodes} -> numberOfNodes) (\s@CreateDevEndpointResponse' {} a -> s {numberOfNodes = a} :: CreateDevEndpointResponse)
 
--- | -- | The response status code.
-cdersResponseStatus :: Lens' CreateDevEndpointResponse Int
-cdersResponseStatus = lens _cdersResponseStatus (\ s a -> s{_cdersResponseStatus = a})
+-- | The type of predefined worker that is allocated to the development
+-- endpoint. May be a value of Standard, G.1X, or G.2X.
+createDevEndpointResponse_workerType :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe WorkerType)
+createDevEndpointResponse_workerType = Lens.lens (\CreateDevEndpointResponse' {workerType} -> workerType) (\s@CreateDevEndpointResponse' {} a -> s {workerType = a} :: CreateDevEndpointResponse)
 
-instance NFData CreateDevEndpointResponse where
+-- | The subnet ID assigned to the new @DevEndpoint@.
+createDevEndpointResponse_subnetId :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe Prelude.Text)
+createDevEndpointResponse_subnetId = Lens.lens (\CreateDevEndpointResponse' {subnetId} -> subnetId) (\s@CreateDevEndpointResponse' {} a -> s {subnetId = a} :: CreateDevEndpointResponse)
+
+-- | The ID of the virtual private cloud (VPC) used by this @DevEndpoint@.
+createDevEndpointResponse_vpcId :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe Prelude.Text)
+createDevEndpointResponse_vpcId = Lens.lens (\CreateDevEndpointResponse' {vpcId} -> vpcId) (\s@CreateDevEndpointResponse' {} a -> s {vpcId = a} :: CreateDevEndpointResponse)
+
+-- | The map of arguments used to configure this @DevEndpoint@.
+--
+-- Valid arguments are:
+--
+-- -   @\"--enable-glue-datacatalog\": \"\"@
+--
+-- -   @\"GLUE_PYTHON_VERSION\": \"3\"@
+--
+-- -   @\"GLUE_PYTHON_VERSION\": \"2\"@
+--
+-- You can specify a version of Python support for development endpoints by
+-- using the @Arguments@ parameter in the @CreateDevEndpoint@ or
+-- @UpdateDevEndpoint@ APIs. If no arguments are provided, the version
+-- defaults to Python 2.
+createDevEndpointResponse_arguments :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createDevEndpointResponse_arguments = Lens.lens (\CreateDevEndpointResponse' {arguments} -> arguments) (\s@CreateDevEndpointResponse' {} a -> s {arguments = a} :: CreateDevEndpointResponse) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | Path to one or more Java @.jar@ files in an S3 bucket that will be
+-- loaded in your @DevEndpoint@.
+createDevEndpointResponse_extraJarsS3Path :: Lens.Lens' CreateDevEndpointResponse (Prelude.Maybe Prelude.Text)
+createDevEndpointResponse_extraJarsS3Path = Lens.lens (\CreateDevEndpointResponse' {extraJarsS3Path} -> extraJarsS3Path) (\s@CreateDevEndpointResponse' {} a -> s {extraJarsS3Path = a} :: CreateDevEndpointResponse)
+
+-- | The response's http status code.
+createDevEndpointResponse_httpStatus :: Lens.Lens' CreateDevEndpointResponse Prelude.Int
+createDevEndpointResponse_httpStatus = Lens.lens (\CreateDevEndpointResponse' {httpStatus} -> httpStatus) (\s@CreateDevEndpointResponse' {} a -> s {httpStatus = a} :: CreateDevEndpointResponse)
+
+instance Prelude.NFData CreateDevEndpointResponse

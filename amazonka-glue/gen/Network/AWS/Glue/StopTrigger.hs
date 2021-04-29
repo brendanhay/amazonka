@@ -1,130 +1,154 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glue.StopTrigger
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Stops a specified trigger.
---
---
 module Network.AWS.Glue.StopTrigger
-    (
-    -- * Creating a Request
-      stopTrigger
-    , StopTrigger
+  ( -- * Creating a Request
+    StopTrigger (..),
+    newStopTrigger,
+
     -- * Request Lenses
-    , stName
+    stopTrigger_name,
 
     -- * Destructuring the Response
-    , stopTriggerResponse
-    , StopTriggerResponse
+    StopTriggerResponse (..),
+    newStopTriggerResponse,
+
     -- * Response Lenses
-    , strsName
-    , strsResponseStatus
-    ) where
+    stopTriggerResponse_name,
+    stopTriggerResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Glue.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'stopTrigger' smart constructor.
-newtype StopTrigger = StopTrigger'
-  { _stName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newStopTrigger' smart constructor.
+data StopTrigger = StopTrigger'
+  { -- | The name of the trigger to stop.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'StopTrigger' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StopTrigger' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'stName' - The name of the trigger to stop.
-stopTrigger
-    :: Text -- ^ 'stName'
-    -> StopTrigger
-stopTrigger pName_ = StopTrigger' {_stName = pName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'name', 'stopTrigger_name' - The name of the trigger to stop.
+newStopTrigger ::
+  -- | 'name'
+  Prelude.Text ->
+  StopTrigger
+newStopTrigger pName_ = StopTrigger' {name = pName_}
 
 -- | The name of the trigger to stop.
-stName :: Lens' StopTrigger Text
-stName = lens _stName (\ s a -> s{_stName = a})
+stopTrigger_name :: Lens.Lens' StopTrigger Prelude.Text
+stopTrigger_name = Lens.lens (\StopTrigger' {name} -> name) (\s@StopTrigger' {} a -> s {name = a} :: StopTrigger)
 
-instance AWSRequest StopTrigger where
-        type Rs StopTrigger = StopTriggerResponse
-        request = postJSON glue
-        response
-          = receiveJSON
-              (\ s h x ->
-                 StopTriggerResponse' <$>
-                   (x .?> "Name") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest StopTrigger where
+  type Rs StopTrigger = StopTriggerResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          StopTriggerResponse'
+            Prelude.<$> (x Prelude..?> "Name")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable StopTrigger where
+instance Prelude.Hashable StopTrigger
 
-instance NFData StopTrigger where
+instance Prelude.NFData StopTrigger
 
-instance ToHeaders StopTrigger where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSGlue.StopTrigger" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders StopTrigger where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ("AWSGlue.StopTrigger" :: Prelude.ByteString),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON StopTrigger where
-        toJSON StopTrigger'{..}
-          = object (catMaybes [Just ("Name" .= _stName)])
+instance Prelude.ToJSON StopTrigger where
+  toJSON StopTrigger' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Prelude..= name)]
+      )
 
-instance ToPath StopTrigger where
-        toPath = const "/"
+instance Prelude.ToPath StopTrigger where
+  toPath = Prelude.const "/"
 
-instance ToQuery StopTrigger where
-        toQuery = const mempty
+instance Prelude.ToQuery StopTrigger where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'stopTriggerResponse' smart constructor.
+-- | /See:/ 'newStopTriggerResponse' smart constructor.
 data StopTriggerResponse = StopTriggerResponse'
-  { _strsName           :: !(Maybe Text)
-  , _strsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the trigger that was stopped.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'StopTriggerResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StopTriggerResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'strsName' - The name of the trigger that was stopped.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'strsResponseStatus' - -- | The response status code.
-stopTriggerResponse
-    :: Int -- ^ 'strsResponseStatus'
-    -> StopTriggerResponse
-stopTriggerResponse pResponseStatus_ =
+-- 'name', 'stopTriggerResponse_name' - The name of the trigger that was stopped.
+--
+-- 'httpStatus', 'stopTriggerResponse_httpStatus' - The response's http status code.
+newStopTriggerResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  StopTriggerResponse
+newStopTriggerResponse pHttpStatus_ =
   StopTriggerResponse'
-    {_strsName = Nothing, _strsResponseStatus = pResponseStatus_}
-
+    { name = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The name of the trigger that was stopped.
-strsName :: Lens' StopTriggerResponse (Maybe Text)
-strsName = lens _strsName (\ s a -> s{_strsName = a})
+stopTriggerResponse_name :: Lens.Lens' StopTriggerResponse (Prelude.Maybe Prelude.Text)
+stopTriggerResponse_name = Lens.lens (\StopTriggerResponse' {name} -> name) (\s@StopTriggerResponse' {} a -> s {name = a} :: StopTriggerResponse)
 
--- | -- | The response status code.
-strsResponseStatus :: Lens' StopTriggerResponse Int
-strsResponseStatus = lens _strsResponseStatus (\ s a -> s{_strsResponseStatus = a})
+-- | The response's http status code.
+stopTriggerResponse_httpStatus :: Lens.Lens' StopTriggerResponse Prelude.Int
+stopTriggerResponse_httpStatus = Lens.lens (\StopTriggerResponse' {httpStatus} -> httpStatus) (\s@StopTriggerResponse' {} a -> s {httpStatus = a} :: StopTriggerResponse)
 
-instance NFData StopTriggerResponse where
+instance Prelude.NFData StopTriggerResponse

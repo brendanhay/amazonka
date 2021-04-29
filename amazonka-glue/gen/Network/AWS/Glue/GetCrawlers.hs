@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glue.GetCrawlers
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,143 +23,181 @@
 --
 -- Retrieves metadata for all crawlers defined in the customer account.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.Glue.GetCrawlers
-    (
-    -- * Creating a Request
-      getCrawlers
-    , GetCrawlers
+  ( -- * Creating a Request
+    GetCrawlers (..),
+    newGetCrawlers,
+
     -- * Request Lenses
-    , gNextToken
-    , gMaxResults
+    getCrawlers_nextToken,
+    getCrawlers_maxResults,
 
     -- * Destructuring the Response
-    , getCrawlersResponse
-    , GetCrawlersResponse
+    GetCrawlersResponse (..),
+    newGetCrawlersResponse,
+
     -- * Response Lenses
-    , grsNextToken
-    , grsCrawlers
-    , grsResponseStatus
-    ) where
+    getCrawlersResponse_nextToken,
+    getCrawlersResponse_crawlers,
+    getCrawlersResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Glue.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getCrawlers' smart constructor.
+-- | /See:/ 'newGetCrawlers' smart constructor.
 data GetCrawlers = GetCrawlers'
-  { _gNextToken  :: !(Maybe Text)
-  , _gMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A continuation token, if this is a continuation request.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The number of crawlers to return on each call.
+    maxResults :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetCrawlers' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetCrawlers' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gNextToken' - A continuation token, if this is a continuation request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gMaxResults' - The number of crawlers to return on each call.
-getCrawlers
-    :: GetCrawlers
-getCrawlers = GetCrawlers' {_gNextToken = Nothing, _gMaxResults = Nothing}
-
-
--- | A continuation token, if this is a continuation request.
-gNextToken :: Lens' GetCrawlers (Maybe Text)
-gNextToken = lens _gNextToken (\ s a -> s{_gNextToken = a})
-
--- | The number of crawlers to return on each call.
-gMaxResults :: Lens' GetCrawlers (Maybe Natural)
-gMaxResults = lens _gMaxResults (\ s a -> s{_gMaxResults = a}) . mapping _Nat
-
-instance AWSPager GetCrawlers where
-        page rq rs
-          | stop (rs ^. grsNextToken) = Nothing
-          | stop (rs ^. grsCrawlers) = Nothing
-          | otherwise =
-            Just $ rq & gNextToken .~ rs ^. grsNextToken
-
-instance AWSRequest GetCrawlers where
-        type Rs GetCrawlers = GetCrawlersResponse
-        request = postJSON glue
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetCrawlersResponse' <$>
-                   (x .?> "NextToken") <*> (x .?> "Crawlers" .!@ mempty)
-                     <*> (pure (fromEnum s)))
-
-instance Hashable GetCrawlers where
-
-instance NFData GetCrawlers where
-
-instance ToHeaders GetCrawlers where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSGlue.GetCrawlers" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON GetCrawlers where
-        toJSON GetCrawlers'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _gNextToken,
-                  ("MaxResults" .=) <$> _gMaxResults])
-
-instance ToPath GetCrawlers where
-        toPath = const "/"
-
-instance ToQuery GetCrawlers where
-        toQuery = const mempty
-
--- | /See:/ 'getCrawlersResponse' smart constructor.
-data GetCrawlersResponse = GetCrawlersResponse'
-  { _grsNextToken      :: !(Maybe Text)
-  , _grsCrawlers       :: !(Maybe [Crawler])
-  , _grsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetCrawlersResponse' with the minimum fields required to make a request.
+-- 'nextToken', 'getCrawlers_nextToken' - A continuation token, if this is a continuation request.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'grsNextToken' - A continuation token, if the returned list has not reached the end of those defined in this customer account.
---
--- * 'grsCrawlers' - A list of crawler metadata.
---
--- * 'grsResponseStatus' - -- | The response status code.
-getCrawlersResponse
-    :: Int -- ^ 'grsResponseStatus'
-    -> GetCrawlersResponse
-getCrawlersResponse pResponseStatus_ =
-  GetCrawlersResponse'
-    { _grsNextToken = Nothing
-    , _grsCrawlers = Nothing
-    , _grsResponseStatus = pResponseStatus_
+-- 'maxResults', 'getCrawlers_maxResults' - The number of crawlers to return on each call.
+newGetCrawlers ::
+  GetCrawlers
+newGetCrawlers =
+  GetCrawlers'
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
+-- | A continuation token, if this is a continuation request.
+getCrawlers_nextToken :: Lens.Lens' GetCrawlers (Prelude.Maybe Prelude.Text)
+getCrawlers_nextToken = Lens.lens (\GetCrawlers' {nextToken} -> nextToken) (\s@GetCrawlers' {} a -> s {nextToken = a} :: GetCrawlers)
 
--- | A continuation token, if the returned list has not reached the end of those defined in this customer account.
-grsNextToken :: Lens' GetCrawlersResponse (Maybe Text)
-grsNextToken = lens _grsNextToken (\ s a -> s{_grsNextToken = a})
+-- | The number of crawlers to return on each call.
+getCrawlers_maxResults :: Lens.Lens' GetCrawlers (Prelude.Maybe Prelude.Natural)
+getCrawlers_maxResults = Lens.lens (\GetCrawlers' {maxResults} -> maxResults) (\s@GetCrawlers' {} a -> s {maxResults = a} :: GetCrawlers)
+
+instance Pager.AWSPager GetCrawlers where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? getCrawlersResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? getCrawlersResponse_crawlers Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& getCrawlers_nextToken
+          Lens..~ rs
+          Lens.^? getCrawlersResponse_nextToken Prelude.. Lens._Just
+
+instance Prelude.AWSRequest GetCrawlers where
+  type Rs GetCrawlers = GetCrawlersResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetCrawlersResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> (x Prelude..?> "Crawlers" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable GetCrawlers
+
+instance Prelude.NFData GetCrawlers
+
+instance Prelude.ToHeaders GetCrawlers where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ("AWSGlue.GetCrawlers" :: Prelude.ByteString),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON GetCrawlers where
+  toJSON GetCrawlers' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("MaxResults" Prelude..=) Prelude.<$> maxResults
+          ]
+      )
+
+instance Prelude.ToPath GetCrawlers where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery GetCrawlers where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newGetCrawlersResponse' smart constructor.
+data GetCrawlersResponse = GetCrawlersResponse'
+  { -- | A continuation token, if the returned list has not reached the end of
+    -- those defined in this customer account.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of crawler metadata.
+    crawlers :: Prelude.Maybe [Crawler],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetCrawlersResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'getCrawlersResponse_nextToken' - A continuation token, if the returned list has not reached the end of
+-- those defined in this customer account.
+--
+-- 'crawlers', 'getCrawlersResponse_crawlers' - A list of crawler metadata.
+--
+-- 'httpStatus', 'getCrawlersResponse_httpStatus' - The response's http status code.
+newGetCrawlersResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetCrawlersResponse
+newGetCrawlersResponse pHttpStatus_ =
+  GetCrawlersResponse'
+    { nextToken = Prelude.Nothing,
+      crawlers = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | A continuation token, if the returned list has not reached the end of
+-- those defined in this customer account.
+getCrawlersResponse_nextToken :: Lens.Lens' GetCrawlersResponse (Prelude.Maybe Prelude.Text)
+getCrawlersResponse_nextToken = Lens.lens (\GetCrawlersResponse' {nextToken} -> nextToken) (\s@GetCrawlersResponse' {} a -> s {nextToken = a} :: GetCrawlersResponse)
 
 -- | A list of crawler metadata.
-grsCrawlers :: Lens' GetCrawlersResponse [Crawler]
-grsCrawlers = lens _grsCrawlers (\ s a -> s{_grsCrawlers = a}) . _Default . _Coerce
+getCrawlersResponse_crawlers :: Lens.Lens' GetCrawlersResponse (Prelude.Maybe [Crawler])
+getCrawlersResponse_crawlers = Lens.lens (\GetCrawlersResponse' {crawlers} -> crawlers) (\s@GetCrawlersResponse' {} a -> s {crawlers = a} :: GetCrawlersResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-grsResponseStatus :: Lens' GetCrawlersResponse Int
-grsResponseStatus = lens _grsResponseStatus (\ s a -> s{_grsResponseStatus = a})
+-- | The response's http status code.
+getCrawlersResponse_httpStatus :: Lens.Lens' GetCrawlersResponse Prelude.Int
+getCrawlersResponse_httpStatus = Lens.lens (\GetCrawlersResponse' {httpStatus} -> httpStatus) (\s@GetCrawlersResponse' {} a -> s {httpStatus = a} :: GetCrawlersResponse)
 
-instance NFData GetCrawlersResponse where
+instance Prelude.NFData GetCrawlersResponse

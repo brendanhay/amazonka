@@ -1,340 +1,615 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Batch.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.Batch.Types
-    (
-    -- * Service Configuration
-      batch
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _ServerException
-    , _ClientException
+    _ClientException,
+    _ServerException,
 
     -- * ArrayJobDependency
-    , ArrayJobDependency (..)
+    ArrayJobDependency (..),
+
+    -- * AssignPublicIp
+    AssignPublicIp (..),
 
     -- * CEState
-    , CEState (..)
+    CEState (..),
 
     -- * CEStatus
-    , CEStatus (..)
+    CEStatus (..),
 
     -- * CEType
-    , CEType (..)
+    CEType (..),
+
+    -- * CRAllocationStrategy
+    CRAllocationStrategy (..),
 
     -- * CRType
-    , CRType (..)
+    CRType (..),
+
+    -- * DeviceCgroupPermission
+    DeviceCgroupPermission (..),
 
     -- * JQState
-    , JQState (..)
+    JQState (..),
 
     -- * JQStatus
-    , JQStatus (..)
+    JQStatus (..),
 
     -- * JobDefinitionType
-    , JobDefinitionType (..)
+    JobDefinitionType (..),
 
     -- * JobStatus
-    , JobStatus (..)
+    JobStatus (..),
+
+    -- * LogDriver
+    LogDriver (..),
+
+    -- * PlatformCapability
+    PlatformCapability (..),
+
+    -- * ResourceType
+    ResourceType (..),
+
+    -- * RetryAction
+    RetryAction (..),
 
     -- * ArrayProperties
-    , ArrayProperties
-    , arrayProperties
-    , apSize
+    ArrayProperties (..),
+    newArrayProperties,
+    arrayProperties_size,
 
     -- * ArrayPropertiesDetail
-    , ArrayPropertiesDetail
-    , arrayPropertiesDetail
-    , apdSize
-    , apdStatusSummary
-    , apdIndex
+    ArrayPropertiesDetail (..),
+    newArrayPropertiesDetail,
+    arrayPropertiesDetail_index,
+    arrayPropertiesDetail_statusSummary,
+    arrayPropertiesDetail_size,
 
     -- * ArrayPropertiesSummary
-    , ArrayPropertiesSummary
-    , arrayPropertiesSummary
-    , apsSize
-    , apsIndex
+    ArrayPropertiesSummary (..),
+    newArrayPropertiesSummary,
+    arrayPropertiesSummary_index,
+    arrayPropertiesSummary_size,
 
     -- * AttemptContainerDetail
-    , AttemptContainerDetail
-    , attemptContainerDetail
-    , acdTaskARN
-    , acdContainerInstanceARN
-    , acdReason
-    , acdLogStreamName
-    , acdExitCode
+    AttemptContainerDetail (..),
+    newAttemptContainerDetail,
+    attemptContainerDetail_logStreamName,
+    attemptContainerDetail_containerInstanceArn,
+    attemptContainerDetail_exitCode,
+    attemptContainerDetail_reason,
+    attemptContainerDetail_taskArn,
+    attemptContainerDetail_networkInterfaces,
 
     -- * AttemptDetail
-    , AttemptDetail
-    , attemptDetail
-    , adStoppedAt
-    , adStartedAt
-    , adContainer
-    , adStatusReason
+    AttemptDetail (..),
+    newAttemptDetail,
+    attemptDetail_container,
+    attemptDetail_startedAt,
+    attemptDetail_stoppedAt,
+    attemptDetail_statusReason,
 
     -- * ComputeEnvironmentDetail
-    , ComputeEnvironmentDetail
-    , computeEnvironmentDetail
-    , cedStatus
-    , cedState
-    , cedComputeResources
-    , cedStatusReason
-    , cedType
-    , cedServiceRole
-    , cedComputeEnvironmentName
-    , cedComputeEnvironmentARN
-    , cedEcsClusterARN
+    ComputeEnvironmentDetail (..),
+    newComputeEnvironmentDetail,
+    computeEnvironmentDetail_status,
+    computeEnvironmentDetail_serviceRole,
+    computeEnvironmentDetail_state,
+    computeEnvironmentDetail_computeResources,
+    computeEnvironmentDetail_tags,
+    computeEnvironmentDetail_statusReason,
+    computeEnvironmentDetail_type,
+    computeEnvironmentDetail_computeEnvironmentName,
+    computeEnvironmentDetail_computeEnvironmentArn,
+    computeEnvironmentDetail_ecsClusterArn,
 
     -- * ComputeEnvironmentOrder
-    , ComputeEnvironmentOrder
-    , computeEnvironmentOrder
-    , ceoOrder
-    , ceoComputeEnvironment
+    ComputeEnvironmentOrder (..),
+    newComputeEnvironmentOrder,
+    computeEnvironmentOrder_order,
+    computeEnvironmentOrder_computeEnvironment,
 
     -- * ComputeResource
-    , ComputeResource
-    , computeResource
-    , crEc2KeyPair
-    , crBidPercentage
-    , crSpotIAMFleetRole
-    , crImageId
-    , crDesiredvCPUs
-    , crTags
-    , crType
-    , crMinvCPUs
-    , crMaxvCPUs
-    , crInstanceTypes
-    , crSubnets
-    , crSecurityGroupIds
-    , crInstanceRole
+    ComputeResource (..),
+    newComputeResource,
+    computeResource_securityGroupIds,
+    computeResource_bidPercentage,
+    computeResource_minvCpus,
+    computeResource_ec2KeyPair,
+    computeResource_placementGroup,
+    computeResource_launchTemplate,
+    computeResource_imageId,
+    computeResource_spotIamFleetRole,
+    computeResource_ec2Configuration,
+    computeResource_tags,
+    computeResource_desiredvCpus,
+    computeResource_allocationStrategy,
+    computeResource_instanceRole,
+    computeResource_instanceTypes,
+    computeResource_type,
+    computeResource_maxvCpus,
+    computeResource_subnets,
 
     -- * ComputeResourceUpdate
-    , ComputeResourceUpdate
-    , computeResourceUpdate
-    , cruMinvCPUs
-    , cruMaxvCPUs
-    , cruDesiredvCPUs
+    ComputeResourceUpdate (..),
+    newComputeResourceUpdate,
+    computeResourceUpdate_securityGroupIds,
+    computeResourceUpdate_minvCpus,
+    computeResourceUpdate_maxvCpus,
+    computeResourceUpdate_desiredvCpus,
+    computeResourceUpdate_subnets,
 
     -- * ContainerDetail
-    , ContainerDetail
-    , containerDetail
-    , cdImage
-    , cdCommand
-    , cdEnvironment
-    , cdTaskARN
-    , cdUlimits
-    , cdContainerInstanceARN
-    , cdPrivileged
-    , cdJobRoleARN
-    , cdMemory
-    , cdUser
-    , cdReason
-    , cdLogStreamName
-    , cdMountPoints
-    , cdExitCode
-    , cdVcpus
-    , cdReadonlyRootFilesystem
-    , cdVolumes
+    ContainerDetail (..),
+    newContainerDetail,
+    containerDetail_logStreamName,
+    containerDetail_linuxParameters,
+    containerDetail_memory,
+    containerDetail_user,
+    containerDetail_instanceType,
+    containerDetail_networkConfiguration,
+    containerDetail_executionRoleArn,
+    containerDetail_privileged,
+    containerDetail_vcpus,
+    containerDetail_containerInstanceArn,
+    containerDetail_volumes,
+    containerDetail_environment,
+    containerDetail_fargatePlatformConfiguration,
+    containerDetail_exitCode,
+    containerDetail_secrets,
+    containerDetail_mountPoints,
+    containerDetail_image,
+    containerDetail_command,
+    containerDetail_logConfiguration,
+    containerDetail_reason,
+    containerDetail_resourceRequirements,
+    containerDetail_jobRoleArn,
+    containerDetail_readonlyRootFilesystem,
+    containerDetail_ulimits,
+    containerDetail_taskArn,
+    containerDetail_networkInterfaces,
 
     -- * ContainerOverrides
-    , ContainerOverrides
-    , containerOverrides
-    , coCommand
-    , coEnvironment
-    , coMemory
-    , coVcpus
+    ContainerOverrides (..),
+    newContainerOverrides,
+    containerOverrides_memory,
+    containerOverrides_instanceType,
+    containerOverrides_vcpus,
+    containerOverrides_environment,
+    containerOverrides_command,
+    containerOverrides_resourceRequirements,
 
     -- * ContainerProperties
-    , ContainerProperties
-    , containerProperties
-    , cpCommand
-    , cpEnvironment
-    , cpUlimits
-    , cpPrivileged
-    , cpJobRoleARN
-    , cpUser
-    , cpMountPoints
-    , cpReadonlyRootFilesystem
-    , cpVolumes
-    , cpImage
-    , cpVcpus
-    , cpMemory
+    ContainerProperties (..),
+    newContainerProperties,
+    containerProperties_linuxParameters,
+    containerProperties_memory,
+    containerProperties_user,
+    containerProperties_instanceType,
+    containerProperties_networkConfiguration,
+    containerProperties_executionRoleArn,
+    containerProperties_privileged,
+    containerProperties_vcpus,
+    containerProperties_volumes,
+    containerProperties_environment,
+    containerProperties_fargatePlatformConfiguration,
+    containerProperties_secrets,
+    containerProperties_mountPoints,
+    containerProperties_image,
+    containerProperties_command,
+    containerProperties_logConfiguration,
+    containerProperties_resourceRequirements,
+    containerProperties_jobRoleArn,
+    containerProperties_readonlyRootFilesystem,
+    containerProperties_ulimits,
 
     -- * ContainerSummary
-    , ContainerSummary
-    , containerSummary
-    , csReason
-    , csExitCode
+    ContainerSummary (..),
+    newContainerSummary,
+    containerSummary_exitCode,
+    containerSummary_reason,
+
+    -- * Device
+    Device (..),
+    newDevice,
+    device_permissions,
+    device_containerPath,
+    device_hostPath,
+
+    -- * Ec2Configuration
+    Ec2Configuration (..),
+    newEc2Configuration,
+    ec2Configuration_imageIdOverride,
+    ec2Configuration_imageType,
+
+    -- * EvaluateOnExit
+    EvaluateOnExit (..),
+    newEvaluateOnExit,
+    evaluateOnExit_onExitCode,
+    evaluateOnExit_onStatusReason,
+    evaluateOnExit_onReason,
+    evaluateOnExit_action,
+
+    -- * FargatePlatformConfiguration
+    FargatePlatformConfiguration (..),
+    newFargatePlatformConfiguration,
+    fargatePlatformConfiguration_platformVersion,
 
     -- * Host
-    , Host
-    , host
-    , hSourcePath
+    Host (..),
+    newHost,
+    host_sourcePath,
 
     -- * JobDefinition
-    , JobDefinition
-    , jobDefinition
-    , jddStatus
-    , jddRetryStrategy
-    , jddParameters
-    , jddTimeout
-    , jddContainerProperties
-    , jddJobDefinitionName
-    , jddJobDefinitionARN
-    , jddRevision
-    , jddType
+    JobDefinition (..),
+    newJobDefinition,
+    jobDefinition_status,
+    jobDefinition_platformCapabilities,
+    jobDefinition_timeout,
+    jobDefinition_nodeProperties,
+    jobDefinition_tags,
+    jobDefinition_containerProperties,
+    jobDefinition_retryStrategy,
+    jobDefinition_parameters,
+    jobDefinition_propagateTags,
+    jobDefinition_jobDefinitionName,
+    jobDefinition_jobDefinitionArn,
+    jobDefinition_revision,
+    jobDefinition_type,
 
     -- * JobDependency
-    , JobDependency
-    , jobDependency
-    , jJobId
-    , jType
+    JobDependency (..),
+    newJobDependency,
+    jobDependency_type,
+    jobDependency_jobId,
 
     -- * JobDetail
-    , JobDetail
-    , jobDetail
-    , jdStoppedAt
-    , jdCreatedAt
-    , jdRetryStrategy
-    , jdAttempts
-    , jdDependsOn
-    , jdContainer
-    , jdParameters
-    , jdStatusReason
-    , jdArrayProperties
-    , jdTimeout
-    , jdJobName
-    , jdJobId
-    , jdJobQueue
-    , jdStatus
-    , jdStartedAt
-    , jdJobDefinition
+    JobDetail (..),
+    newJobDetail,
+    jobDetail_container,
+    jobDetail_startedAt,
+    jobDetail_dependsOn,
+    jobDetail_platformCapabilities,
+    jobDetail_timeout,
+    jobDetail_arrayProperties,
+    jobDetail_createdAt,
+    jobDetail_jobArn,
+    jobDetail_nodeDetails,
+    jobDetail_stoppedAt,
+    jobDetail_nodeProperties,
+    jobDetail_tags,
+    jobDetail_attempts,
+    jobDetail_retryStrategy,
+    jobDetail_statusReason,
+    jobDetail_parameters,
+    jobDetail_propagateTags,
+    jobDetail_jobName,
+    jobDetail_jobId,
+    jobDetail_jobQueue,
+    jobDetail_status,
+    jobDetail_jobDefinition,
 
     -- * JobQueueDetail
-    , JobQueueDetail
-    , jobQueueDetail
-    , jqdStatus
-    , jqdStatusReason
-    , jqdJobQueueName
-    , jqdJobQueueARN
-    , jqdState
-    , jqdPriority
-    , jqdComputeEnvironmentOrder
+    JobQueueDetail (..),
+    newJobQueueDetail,
+    jobQueueDetail_status,
+    jobQueueDetail_tags,
+    jobQueueDetail_statusReason,
+    jobQueueDetail_jobQueueName,
+    jobQueueDetail_jobQueueArn,
+    jobQueueDetail_state,
+    jobQueueDetail_priority,
+    jobQueueDetail_computeEnvironmentOrder,
 
     -- * JobSummary
-    , JobSummary
-    , jobSummary
-    , jsStoppedAt
-    , jsStatus
-    , jsCreatedAt
-    , jsStartedAt
-    , jsContainer
-    , jsStatusReason
-    , jsArrayProperties
-    , jsJobId
-    , jsJobName
+    JobSummary (..),
+    newJobSummary,
+    jobSummary_container,
+    jobSummary_startedAt,
+    jobSummary_status,
+    jobSummary_arrayProperties,
+    jobSummary_createdAt,
+    jobSummary_jobArn,
+    jobSummary_stoppedAt,
+    jobSummary_nodeProperties,
+    jobSummary_statusReason,
+    jobSummary_jobId,
+    jobSummary_jobName,
 
     -- * JobTimeout
-    , JobTimeout
-    , jobTimeout
-    , jtAttemptDurationSeconds
+    JobTimeout (..),
+    newJobTimeout,
+    jobTimeout_attemptDurationSeconds,
 
     -- * KeyValuePair
-    , KeyValuePair
-    , keyValuePair
-    , kvpValue
-    , kvpName
+    KeyValuePair (..),
+    newKeyValuePair,
+    keyValuePair_name,
+    keyValuePair_value,
+
+    -- * LaunchTemplateSpecification
+    LaunchTemplateSpecification (..),
+    newLaunchTemplateSpecification,
+    launchTemplateSpecification_launchTemplateId,
+    launchTemplateSpecification_launchTemplateName,
+    launchTemplateSpecification_version,
+
+    -- * LinuxParameters
+    LinuxParameters (..),
+    newLinuxParameters,
+    linuxParameters_tmpfs,
+    linuxParameters_maxSwap,
+    linuxParameters_devices,
+    linuxParameters_swappiness,
+    linuxParameters_initProcessEnabled,
+    linuxParameters_sharedMemorySize,
+
+    -- * LogConfiguration
+    LogConfiguration (..),
+    newLogConfiguration,
+    logConfiguration_options,
+    logConfiguration_secretOptions,
+    logConfiguration_logDriver,
 
     -- * MountPoint
-    , MountPoint
-    , mountPoint
-    , mpContainerPath
-    , mpSourceVolume
-    , mpReadOnly
+    MountPoint (..),
+    newMountPoint,
+    mountPoint_readOnly,
+    mountPoint_sourceVolume,
+    mountPoint_containerPath,
+
+    -- * NetworkConfiguration
+    NetworkConfiguration (..),
+    newNetworkConfiguration,
+    networkConfiguration_assignPublicIp,
+
+    -- * NetworkInterface
+    NetworkInterface (..),
+    newNetworkInterface,
+    networkInterface_privateIpv4Address,
+    networkInterface_ipv6Address,
+    networkInterface_attachmentId,
+
+    -- * NodeDetails
+    NodeDetails (..),
+    newNodeDetails,
+    nodeDetails_isMainNode,
+    nodeDetails_nodeIndex,
+
+    -- * NodeOverrides
+    NodeOverrides (..),
+    newNodeOverrides,
+    nodeOverrides_nodePropertyOverrides,
+    nodeOverrides_numNodes,
+
+    -- * NodeProperties
+    NodeProperties (..),
+    newNodeProperties,
+    nodeProperties_numNodes,
+    nodeProperties_mainNode,
+    nodeProperties_nodeRangeProperties,
+
+    -- * NodePropertiesSummary
+    NodePropertiesSummary (..),
+    newNodePropertiesSummary,
+    nodePropertiesSummary_isMainNode,
+    nodePropertiesSummary_nodeIndex,
+    nodePropertiesSummary_numNodes,
+
+    -- * NodePropertyOverride
+    NodePropertyOverride (..),
+    newNodePropertyOverride,
+    nodePropertyOverride_containerOverrides,
+    nodePropertyOverride_targetNodes,
+
+    -- * NodeRangeProperty
+    NodeRangeProperty (..),
+    newNodeRangeProperty,
+    nodeRangeProperty_container,
+    nodeRangeProperty_targetNodes,
+
+    -- * ResourceRequirement
+    ResourceRequirement (..),
+    newResourceRequirement,
+    resourceRequirement_value,
+    resourceRequirement_type,
 
     -- * RetryStrategy
-    , RetryStrategy
-    , retryStrategy
-    , rsAttempts
+    RetryStrategy (..),
+    newRetryStrategy,
+    retryStrategy_evaluateOnExit,
+    retryStrategy_attempts,
+
+    -- * Secret
+    Secret (..),
+    newSecret,
+    secret_name,
+    secret_valueFrom,
+
+    -- * Tmpfs
+    Tmpfs (..),
+    newTmpfs,
+    tmpfs_mountOptions,
+    tmpfs_containerPath,
+    tmpfs_size,
 
     -- * Ulimit
-    , Ulimit
-    , ulimit
-    , uHardLimit
-    , uName
-    , uSoftLimit
+    Ulimit (..),
+    newUlimit,
+    ulimit_hardLimit,
+    ulimit_name,
+    ulimit_softLimit,
 
     -- * Volume
-    , Volume
-    , volume
-    , vName
-    , vHost
-    ) where
+    Volume (..),
+    newVolume,
+    volume_name,
+    volume_host,
+  )
+where
 
-import Network.AWS.Batch.Types.Product
-import Network.AWS.Batch.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import Network.AWS.Batch.Types.ArrayJobDependency
+import Network.AWS.Batch.Types.ArrayProperties
+import Network.AWS.Batch.Types.ArrayPropertiesDetail
+import Network.AWS.Batch.Types.ArrayPropertiesSummary
+import Network.AWS.Batch.Types.AssignPublicIp
+import Network.AWS.Batch.Types.AttemptContainerDetail
+import Network.AWS.Batch.Types.AttemptDetail
+import Network.AWS.Batch.Types.CEState
+import Network.AWS.Batch.Types.CEStatus
+import Network.AWS.Batch.Types.CEType
+import Network.AWS.Batch.Types.CRAllocationStrategy
+import Network.AWS.Batch.Types.CRType
+import Network.AWS.Batch.Types.ComputeEnvironmentDetail
+import Network.AWS.Batch.Types.ComputeEnvironmentOrder
+import Network.AWS.Batch.Types.ComputeResource
+import Network.AWS.Batch.Types.ComputeResourceUpdate
+import Network.AWS.Batch.Types.ContainerDetail
+import Network.AWS.Batch.Types.ContainerOverrides
+import Network.AWS.Batch.Types.ContainerProperties
+import Network.AWS.Batch.Types.ContainerSummary
+import Network.AWS.Batch.Types.Device
+import Network.AWS.Batch.Types.DeviceCgroupPermission
+import Network.AWS.Batch.Types.Ec2Configuration
+import Network.AWS.Batch.Types.EvaluateOnExit
+import Network.AWS.Batch.Types.FargatePlatformConfiguration
+import Network.AWS.Batch.Types.Host
+import Network.AWS.Batch.Types.JQState
+import Network.AWS.Batch.Types.JQStatus
+import Network.AWS.Batch.Types.JobDefinition
+import Network.AWS.Batch.Types.JobDefinitionType
+import Network.AWS.Batch.Types.JobDependency
+import Network.AWS.Batch.Types.JobDetail
+import Network.AWS.Batch.Types.JobQueueDetail
+import Network.AWS.Batch.Types.JobStatus
+import Network.AWS.Batch.Types.JobSummary
+import Network.AWS.Batch.Types.JobTimeout
+import Network.AWS.Batch.Types.KeyValuePair
+import Network.AWS.Batch.Types.LaunchTemplateSpecification
+import Network.AWS.Batch.Types.LinuxParameters
+import Network.AWS.Batch.Types.LogConfiguration
+import Network.AWS.Batch.Types.LogDriver
+import Network.AWS.Batch.Types.MountPoint
+import Network.AWS.Batch.Types.NetworkConfiguration
+import Network.AWS.Batch.Types.NetworkInterface
+import Network.AWS.Batch.Types.NodeDetails
+import Network.AWS.Batch.Types.NodeOverrides
+import Network.AWS.Batch.Types.NodeProperties
+import Network.AWS.Batch.Types.NodePropertiesSummary
+import Network.AWS.Batch.Types.NodePropertyOverride
+import Network.AWS.Batch.Types.NodeRangeProperty
+import Network.AWS.Batch.Types.PlatformCapability
+import Network.AWS.Batch.Types.ResourceRequirement
+import Network.AWS.Batch.Types.ResourceType
+import Network.AWS.Batch.Types.RetryAction
+import Network.AWS.Batch.Types.RetryStrategy
+import Network.AWS.Batch.Types.Secret
+import Network.AWS.Batch.Types.Tmpfs
+import Network.AWS.Batch.Types.Ulimit
+import Network.AWS.Batch.Types.Volume
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2016-08-10@ of the Amazon Batch SDK configuration.
-batch :: Service
-batch =
-  Service
-    { _svcAbbrev = "Batch"
-    , _svcSigner = v4
-    , _svcPrefix = "batch"
-    , _svcVersion = "2016-08-10"
-    , _svcEndpoint = defaultEndpoint batch
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "Batch"
-    , _svcRetry = retry
+defaultService :: Prelude.Service
+defaultService =
+  Prelude.Service
+    { Prelude._svcAbbrev = "Batch",
+      Prelude._svcSigner = Sign.v4,
+      Prelude._svcPrefix = "batch",
+      Prelude._svcVersion = "2016-08-10",
+      Prelude._svcEndpoint =
+        Prelude.defaultEndpoint defaultService,
+      Prelude._svcTimeout = Prelude.Just 70,
+      Prelude._svcCheck = Prelude.statusSuccess,
+      Prelude._svcError = Prelude.parseJSONError "Batch",
+      Prelude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Prelude.Exponential
+        { Prelude._retryBase = 5.0e-2,
+          Prelude._retryGrowth = 2,
+          Prelude._retryAttempts = 5,
+          Prelude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+      | Lens.has (Prelude.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Prelude.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Prelude.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Prelude.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Prelude.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Prelude.hasCode "RequestThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Prelude.hasCode "ThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Prelude.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Prelude.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Prelude.hasCode "ThrottlingException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Prelude.hasCode "Throttling"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
+-- | These errors are usually caused by a client action, such as using an
+-- action or resource on behalf of a user that doesn\'t have permissions to
+-- use the action or resource, or specifying an identifier that\'s not
+-- valid.
+_ClientException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ClientException =
+  Prelude._MatchServiceError
+    defaultService
+    "ClientException"
+    Prelude.. Prelude.hasStatus 400
 
 -- | These errors are usually caused by a server issue.
---
---
-_ServerException :: AsError a => Getting (First ServiceError) a ServiceError
-_ServerException = _MatchServiceError batch "ServerException" . hasStatus 500
-
-
--- | These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an identifier that is not valid.
---
---
-_ClientException :: AsError a => Getting (First ServiceError) a ServiceError
-_ClientException = _MatchServiceError batch "ClientException" . hasStatus 400
-
+_ServerException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ServerException =
+  Prelude._MatchServiceError
+    defaultService
+    "ServerException"
+    Prelude.. Prelude.hasStatus 500

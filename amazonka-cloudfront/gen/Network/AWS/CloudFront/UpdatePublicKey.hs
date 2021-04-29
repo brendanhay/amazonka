@@ -1,164 +1,189 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudFront.UpdatePublicKey
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Update public key information. Note that the only value you can change is the comment.
---
---
+-- Update public key information. Note that the only value you can change
+-- is the comment.
 module Network.AWS.CloudFront.UpdatePublicKey
-    (
-    -- * Creating a Request
-      updatePublicKey
-    , UpdatePublicKey
+  ( -- * Creating a Request
+    UpdatePublicKey (..),
+    newUpdatePublicKey,
+
     -- * Request Lenses
-    , upkIfMatch
-    , upkPublicKeyConfig
-    , upkId
+    updatePublicKey_ifMatch,
+    updatePublicKey_publicKeyConfig,
+    updatePublicKey_id,
 
     -- * Destructuring the Response
-    , updatePublicKeyResponse
-    , UpdatePublicKeyResponse
+    UpdatePublicKeyResponse (..),
+    newUpdatePublicKeyResponse,
+
     -- * Response Lenses
-    , upkrsETag
-    , upkrsPublicKey
-    , upkrsResponseStatus
-    ) where
+    updatePublicKeyResponse_eTag,
+    updatePublicKeyResponse_publicKey,
+    updatePublicKeyResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.CloudFront.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updatePublicKey' smart constructor.
+-- | /See:/ 'newUpdatePublicKey' smart constructor.
 data UpdatePublicKey = UpdatePublicKey'
-  { _upkIfMatch         :: !(Maybe Text)
-  , _upkPublicKeyConfig :: !PublicKeyConfig
-  , _upkId              :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The value of the @ETag@ header that you received when retrieving the
+    -- public key to update. For example: @E2QWRUHAPOMQZL@.
+    ifMatch :: Prelude.Maybe Prelude.Text,
+    -- | A public key configuration.
+    publicKeyConfig :: PublicKeyConfig,
+    -- | The identifier of the public key that you are updating.
+    id :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdatePublicKey' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdatePublicKey' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'upkIfMatch' - The value of the @ETag@ header that you received when retrieving the public key to update. For example: @E2QWRUHAPOMQZL@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'upkPublicKeyConfig' - Request to update public key information.
+-- 'ifMatch', 'updatePublicKey_ifMatch' - The value of the @ETag@ header that you received when retrieving the
+-- public key to update. For example: @E2QWRUHAPOMQZL@.
 --
--- * 'upkId' - ID of the public key to be updated.
-updatePublicKey
-    :: PublicKeyConfig -- ^ 'upkPublicKeyConfig'
-    -> Text -- ^ 'upkId'
-    -> UpdatePublicKey
-updatePublicKey pPublicKeyConfig_ pId_ =
+-- 'publicKeyConfig', 'updatePublicKey_publicKeyConfig' - A public key configuration.
+--
+-- 'id', 'updatePublicKey_id' - The identifier of the public key that you are updating.
+newUpdatePublicKey ::
+  -- | 'publicKeyConfig'
+  PublicKeyConfig ->
+  -- | 'id'
+  Prelude.Text ->
+  UpdatePublicKey
+newUpdatePublicKey pPublicKeyConfig_ pId_ =
   UpdatePublicKey'
-    { _upkIfMatch = Nothing
-    , _upkPublicKeyConfig = pPublicKeyConfig_
-    , _upkId = pId_
+    { ifMatch = Prelude.Nothing,
+      publicKeyConfig = pPublicKeyConfig_,
+      id = pId_
     }
 
+-- | The value of the @ETag@ header that you received when retrieving the
+-- public key to update. For example: @E2QWRUHAPOMQZL@.
+updatePublicKey_ifMatch :: Lens.Lens' UpdatePublicKey (Prelude.Maybe Prelude.Text)
+updatePublicKey_ifMatch = Lens.lens (\UpdatePublicKey' {ifMatch} -> ifMatch) (\s@UpdatePublicKey' {} a -> s {ifMatch = a} :: UpdatePublicKey)
 
--- | The value of the @ETag@ header that you received when retrieving the public key to update. For example: @E2QWRUHAPOMQZL@ .
-upkIfMatch :: Lens' UpdatePublicKey (Maybe Text)
-upkIfMatch = lens _upkIfMatch (\ s a -> s{_upkIfMatch = a})
+-- | A public key configuration.
+updatePublicKey_publicKeyConfig :: Lens.Lens' UpdatePublicKey PublicKeyConfig
+updatePublicKey_publicKeyConfig = Lens.lens (\UpdatePublicKey' {publicKeyConfig} -> publicKeyConfig) (\s@UpdatePublicKey' {} a -> s {publicKeyConfig = a} :: UpdatePublicKey)
 
--- | Request to update public key information.
-upkPublicKeyConfig :: Lens' UpdatePublicKey PublicKeyConfig
-upkPublicKeyConfig = lens _upkPublicKeyConfig (\ s a -> s{_upkPublicKeyConfig = a})
+-- | The identifier of the public key that you are updating.
+updatePublicKey_id :: Lens.Lens' UpdatePublicKey Prelude.Text
+updatePublicKey_id = Lens.lens (\UpdatePublicKey' {id} -> id) (\s@UpdatePublicKey' {} a -> s {id = a} :: UpdatePublicKey)
 
--- | ID of the public key to be updated.
-upkId :: Lens' UpdatePublicKey Text
-upkId = lens _upkId (\ s a -> s{_upkId = a})
+instance Prelude.AWSRequest UpdatePublicKey where
+  type Rs UpdatePublicKey = UpdatePublicKeyResponse
+  request = Request.putXML defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          UpdatePublicKeyResponse'
+            Prelude.<$> (h Prelude..#? "ETag")
+            Prelude.<*> (Prelude.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest UpdatePublicKey where
-        type Rs UpdatePublicKey = UpdatePublicKeyResponse
-        request = putXML cloudFront
-        response
-          = receiveXML
-              (\ s h x ->
-                 UpdatePublicKeyResponse' <$>
-                   (h .#? "ETag") <*> (parseXML x) <*>
-                     (pure (fromEnum s)))
+instance Prelude.Hashable UpdatePublicKey
 
-instance Hashable UpdatePublicKey where
+instance Prelude.NFData UpdatePublicKey
 
-instance NFData UpdatePublicKey where
+instance Prelude.ToElement UpdatePublicKey where
+  toElement UpdatePublicKey' {..} =
+    Prelude.mkElement
+      "{http://cloudfront.amazonaws.com/doc/2020-05-31/}PublicKeyConfig"
+      publicKeyConfig
 
-instance ToElement UpdatePublicKey where
-        toElement
-          = mkElement
-              "{http://cloudfront.amazonaws.com/doc/2017-10-30/}PublicKeyConfig"
-              .
-              _upkPublicKeyConfig
+instance Prelude.ToHeaders UpdatePublicKey where
+  toHeaders UpdatePublicKey' {..} =
+    Prelude.mconcat ["If-Match" Prelude.=# ifMatch]
 
-instance ToHeaders UpdatePublicKey where
-        toHeaders UpdatePublicKey'{..}
-          = mconcat ["If-Match" =# _upkIfMatch]
+instance Prelude.ToPath UpdatePublicKey where
+  toPath UpdatePublicKey' {..} =
+    Prelude.mconcat
+      [ "/2020-05-31/public-key/",
+        Prelude.toBS id,
+        "/config"
+      ]
 
-instance ToPath UpdatePublicKey where
-        toPath UpdatePublicKey'{..}
-          = mconcat
-              ["/2017-10-30/public-key/", toBS _upkId, "/config"]
+instance Prelude.ToQuery UpdatePublicKey where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery UpdatePublicKey where
-        toQuery = const mempty
-
--- | /See:/ 'updatePublicKeyResponse' smart constructor.
+-- | /See:/ 'newUpdatePublicKeyResponse' smart constructor.
 data UpdatePublicKeyResponse = UpdatePublicKeyResponse'
-  { _upkrsETag           :: !(Maybe Text)
-  , _upkrsPublicKey      :: !(Maybe PublicKey)
-  , _upkrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The identifier of the current version of the public key.
+    eTag :: Prelude.Maybe Prelude.Text,
+    -- | The public key.
+    publicKey :: Prelude.Maybe PublicKey,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdatePublicKeyResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdatePublicKeyResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'upkrsETag' - The current version of the update public key result. For example: @E2QWRUHAPOMQZL@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'upkrsPublicKey' - Return the results of updating the public key.
+-- 'eTag', 'updatePublicKeyResponse_eTag' - The identifier of the current version of the public key.
 --
--- * 'upkrsResponseStatus' - -- | The response status code.
-updatePublicKeyResponse
-    :: Int -- ^ 'upkrsResponseStatus'
-    -> UpdatePublicKeyResponse
-updatePublicKeyResponse pResponseStatus_ =
+-- 'publicKey', 'updatePublicKeyResponse_publicKey' - The public key.
+--
+-- 'httpStatus', 'updatePublicKeyResponse_httpStatus' - The response's http status code.
+newUpdatePublicKeyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdatePublicKeyResponse
+newUpdatePublicKeyResponse pHttpStatus_ =
   UpdatePublicKeyResponse'
-    { _upkrsETag = Nothing
-    , _upkrsPublicKey = Nothing
-    , _upkrsResponseStatus = pResponseStatus_
+    { eTag = Prelude.Nothing,
+      publicKey = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The identifier of the current version of the public key.
+updatePublicKeyResponse_eTag :: Lens.Lens' UpdatePublicKeyResponse (Prelude.Maybe Prelude.Text)
+updatePublicKeyResponse_eTag = Lens.lens (\UpdatePublicKeyResponse' {eTag} -> eTag) (\s@UpdatePublicKeyResponse' {} a -> s {eTag = a} :: UpdatePublicKeyResponse)
 
--- | The current version of the update public key result. For example: @E2QWRUHAPOMQZL@ .
-upkrsETag :: Lens' UpdatePublicKeyResponse (Maybe Text)
-upkrsETag = lens _upkrsETag (\ s a -> s{_upkrsETag = a})
+-- | The public key.
+updatePublicKeyResponse_publicKey :: Lens.Lens' UpdatePublicKeyResponse (Prelude.Maybe PublicKey)
+updatePublicKeyResponse_publicKey = Lens.lens (\UpdatePublicKeyResponse' {publicKey} -> publicKey) (\s@UpdatePublicKeyResponse' {} a -> s {publicKey = a} :: UpdatePublicKeyResponse)
 
--- | Return the results of updating the public key.
-upkrsPublicKey :: Lens' UpdatePublicKeyResponse (Maybe PublicKey)
-upkrsPublicKey = lens _upkrsPublicKey (\ s a -> s{_upkrsPublicKey = a})
+-- | The response's http status code.
+updatePublicKeyResponse_httpStatus :: Lens.Lens' UpdatePublicKeyResponse Prelude.Int
+updatePublicKeyResponse_httpStatus = Lens.lens (\UpdatePublicKeyResponse' {httpStatus} -> httpStatus) (\s@UpdatePublicKeyResponse' {} a -> s {httpStatus = a} :: UpdatePublicKeyResponse)
 
--- | -- | The response status code.
-upkrsResponseStatus :: Lens' UpdatePublicKeyResponse Int
-upkrsResponseStatus = lens _upkrsResponseStatus (\ s a -> s{_upkrsResponseStatus = a})
-
-instance NFData UpdatePublicKeyResponse where
+instance Prelude.NFData UpdatePublicKeyResponse

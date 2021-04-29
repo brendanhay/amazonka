@@ -1,135 +1,286 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ECS.DescribeTaskDefinition
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes a task definition. You can specify a @family@ and @revision@ to find information about a specific task definition, or you can simply specify the family to find the latest @ACTIVE@ revision in that family.
+-- Describes a task definition. You can specify a @family@ and @revision@
+-- to find information about a specific task definition, or you can simply
+-- specify the family to find the latest @ACTIVE@ revision in that family.
 --
---
+-- You can only describe @INACTIVE@ task definitions while an active task
+-- or service references them.
 module Network.AWS.ECS.DescribeTaskDefinition
-    (
-    -- * Creating a Request
-      describeTaskDefinition
-    , DescribeTaskDefinition
+  ( -- * Creating a Request
+    DescribeTaskDefinition (..),
+    newDescribeTaskDefinition,
+
     -- * Request Lenses
-    , dtdTaskDefinition
+    describeTaskDefinition_include,
+    describeTaskDefinition_taskDefinition,
 
     -- * Destructuring the Response
-    , describeTaskDefinitionResponse
-    , DescribeTaskDefinitionResponse
+    DescribeTaskDefinitionResponse (..),
+    newDescribeTaskDefinitionResponse,
+
     -- * Response Lenses
-    , desrsTaskDefinition
-    , desrsResponseStatus
-    ) where
+    describeTaskDefinitionResponse_tags,
+    describeTaskDefinitionResponse_taskDefinition,
+    describeTaskDefinitionResponse_httpStatus,
+  )
+where
 
 import Network.AWS.ECS.Types
-import Network.AWS.ECS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeTaskDefinition' smart constructor.
-newtype DescribeTaskDefinition = DescribeTaskDefinition'
-  { _dtdTaskDefinition :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeTaskDefinition' smart constructor.
+data DescribeTaskDefinition = DescribeTaskDefinition'
+  { -- | Specifies whether to see the resource tags for the task definition. If
+    -- @TAGS@ is specified, the tags are included in the response. If this
+    -- field is omitted, tags are not included in the response.
+    include :: Prelude.Maybe [TaskDefinitionField],
+    -- | The @family@ for the latest @ACTIVE@ revision, @family@ and @revision@
+    -- (@family:revision@) for a specific revision in the family, or full
+    -- Amazon Resource Name (ARN) of the task definition to describe.
+    taskDefinition :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeTaskDefinition' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeTaskDefinition' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtdTaskDefinition' - The @family@ for the latest @ACTIVE@ revision, @family@ and @revision@ (@family:revision@ ) for a specific revision in the family, or full Amazon Resource Name (ARN) of the task definition to describe.
-describeTaskDefinition
-    :: Text -- ^ 'dtdTaskDefinition'
-    -> DescribeTaskDefinition
-describeTaskDefinition pTaskDefinition_ =
-  DescribeTaskDefinition' {_dtdTaskDefinition = pTaskDefinition_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'include', 'describeTaskDefinition_include' - Specifies whether to see the resource tags for the task definition. If
+-- @TAGS@ is specified, the tags are included in the response. If this
+-- field is omitted, tags are not included in the response.
+--
+-- 'taskDefinition', 'describeTaskDefinition_taskDefinition' - The @family@ for the latest @ACTIVE@ revision, @family@ and @revision@
+-- (@family:revision@) for a specific revision in the family, or full
+-- Amazon Resource Name (ARN) of the task definition to describe.
+newDescribeTaskDefinition ::
+  -- | 'taskDefinition'
+  Prelude.Text ->
+  DescribeTaskDefinition
+newDescribeTaskDefinition pTaskDefinition_ =
+  DescribeTaskDefinition'
+    { include = Prelude.Nothing,
+      taskDefinition = pTaskDefinition_
+    }
 
+-- | Specifies whether to see the resource tags for the task definition. If
+-- @TAGS@ is specified, the tags are included in the response. If this
+-- field is omitted, tags are not included in the response.
+describeTaskDefinition_include :: Lens.Lens' DescribeTaskDefinition (Prelude.Maybe [TaskDefinitionField])
+describeTaskDefinition_include = Lens.lens (\DescribeTaskDefinition' {include} -> include) (\s@DescribeTaskDefinition' {} a -> s {include = a} :: DescribeTaskDefinition) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The @family@ for the latest @ACTIVE@ revision, @family@ and @revision@ (@family:revision@ ) for a specific revision in the family, or full Amazon Resource Name (ARN) of the task definition to describe.
-dtdTaskDefinition :: Lens' DescribeTaskDefinition Text
-dtdTaskDefinition = lens _dtdTaskDefinition (\ s a -> s{_dtdTaskDefinition = a})
+-- | The @family@ for the latest @ACTIVE@ revision, @family@ and @revision@
+-- (@family:revision@) for a specific revision in the family, or full
+-- Amazon Resource Name (ARN) of the task definition to describe.
+describeTaskDefinition_taskDefinition :: Lens.Lens' DescribeTaskDefinition Prelude.Text
+describeTaskDefinition_taskDefinition = Lens.lens (\DescribeTaskDefinition' {taskDefinition} -> taskDefinition) (\s@DescribeTaskDefinition' {} a -> s {taskDefinition = a} :: DescribeTaskDefinition)
 
-instance AWSRequest DescribeTaskDefinition where
-        type Rs DescribeTaskDefinition =
-             DescribeTaskDefinitionResponse
-        request = postJSON ecs
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeTaskDefinitionResponse' <$>
-                   (x .?> "taskDefinition") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest DescribeTaskDefinition where
+  type
+    Rs DescribeTaskDefinition =
+      DescribeTaskDefinitionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeTaskDefinitionResponse'
+            Prelude.<$> (x Prelude..?> "tags" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (x Prelude..?> "taskDefinition")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeTaskDefinition where
+instance Prelude.Hashable DescribeTaskDefinition
 
-instance NFData DescribeTaskDefinition where
+instance Prelude.NFData DescribeTaskDefinition
 
-instance ToHeaders DescribeTaskDefinition where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonEC2ContainerServiceV20141113.DescribeTaskDefinition"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DescribeTaskDefinition where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.DescribeTaskDefinition" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DescribeTaskDefinition where
-        toJSON DescribeTaskDefinition'{..}
-          = object
-              (catMaybes
-                 [Just ("taskDefinition" .= _dtdTaskDefinition)])
+instance Prelude.ToJSON DescribeTaskDefinition where
+  toJSON DescribeTaskDefinition' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("include" Prelude..=) Prelude.<$> include,
+            Prelude.Just
+              ("taskDefinition" Prelude..= taskDefinition)
+          ]
+      )
 
-instance ToPath DescribeTaskDefinition where
-        toPath = const "/"
+instance Prelude.ToPath DescribeTaskDefinition where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeTaskDefinition where
-        toQuery = const mempty
+instance Prelude.ToQuery DescribeTaskDefinition where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'describeTaskDefinitionResponse' smart constructor.
+-- | /See:/ 'newDescribeTaskDefinitionResponse' smart constructor.
 data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
-  { _desrsTaskDefinition :: !(Maybe TaskDefinition)
-  , _desrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The metadata that is applied to the task definition to help you
+    -- categorize and organize them. Each tag consists of a key and an optional
+    -- value, both of which you define.
+    --
+    -- The following basic restrictions apply to tags:
+    --
+    -- -   Maximum number of tags per resource - 50
+    --
+    -- -   For each resource, each tag key must be unique, and each tag key can
+    --     have only one value.
+    --
+    -- -   Maximum key length - 128 Unicode characters in UTF-8
+    --
+    -- -   Maximum value length - 256 Unicode characters in UTF-8
+    --
+    -- -   If your tagging schema is used across multiple services and
+    --     resources, remember that other services may have restrictions on
+    --     allowed characters. Generally allowed characters are: letters,
+    --     numbers, and spaces representable in UTF-8, and the following
+    --     characters: + - = . _ : \/ \@.
+    --
+    -- -   Tag keys and values are case-sensitive.
+    --
+    -- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
+    --     such as a prefix for either keys or values as it is reserved for AWS
+    --     use. You cannot edit or delete tag keys or values with this prefix.
+    --     Tags with this prefix do not count against your tags per resource
+    --     limit.
+    tags :: Prelude.Maybe [Tag],
+    -- | The full task definition description.
+    taskDefinition :: Prelude.Maybe TaskDefinition,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeTaskDefinitionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeTaskDefinitionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'desrsTaskDefinition' - The full task definition description.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'desrsResponseStatus' - -- | The response status code.
-describeTaskDefinitionResponse
-    :: Int -- ^ 'desrsResponseStatus'
-    -> DescribeTaskDefinitionResponse
-describeTaskDefinitionResponse pResponseStatus_ =
+-- 'tags', 'describeTaskDefinitionResponse_tags' - The metadata that is applied to the task definition to help you
+-- categorize and organize them. Each tag consists of a key and an optional
+-- value, both of which you define.
+--
+-- The following basic restrictions apply to tags:
+--
+-- -   Maximum number of tags per resource - 50
+--
+-- -   For each resource, each tag key must be unique, and each tag key can
+--     have only one value.
+--
+-- -   Maximum key length - 128 Unicode characters in UTF-8
+--
+-- -   Maximum value length - 256 Unicode characters in UTF-8
+--
+-- -   If your tagging schema is used across multiple services and
+--     resources, remember that other services may have restrictions on
+--     allowed characters. Generally allowed characters are: letters,
+--     numbers, and spaces representable in UTF-8, and the following
+--     characters: + - = . _ : \/ \@.
+--
+-- -   Tag keys and values are case-sensitive.
+--
+-- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
+--     such as a prefix for either keys or values as it is reserved for AWS
+--     use. You cannot edit or delete tag keys or values with this prefix.
+--     Tags with this prefix do not count against your tags per resource
+--     limit.
+--
+-- 'taskDefinition', 'describeTaskDefinitionResponse_taskDefinition' - The full task definition description.
+--
+-- 'httpStatus', 'describeTaskDefinitionResponse_httpStatus' - The response's http status code.
+newDescribeTaskDefinitionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeTaskDefinitionResponse
+newDescribeTaskDefinitionResponse pHttpStatus_ =
   DescribeTaskDefinitionResponse'
-    {_desrsTaskDefinition = Nothing, _desrsResponseStatus = pResponseStatus_}
+    { tags =
+        Prelude.Nothing,
+      taskDefinition = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The metadata that is applied to the task definition to help you
+-- categorize and organize them. Each tag consists of a key and an optional
+-- value, both of which you define.
+--
+-- The following basic restrictions apply to tags:
+--
+-- -   Maximum number of tags per resource - 50
+--
+-- -   For each resource, each tag key must be unique, and each tag key can
+--     have only one value.
+--
+-- -   Maximum key length - 128 Unicode characters in UTF-8
+--
+-- -   Maximum value length - 256 Unicode characters in UTF-8
+--
+-- -   If your tagging schema is used across multiple services and
+--     resources, remember that other services may have restrictions on
+--     allowed characters. Generally allowed characters are: letters,
+--     numbers, and spaces representable in UTF-8, and the following
+--     characters: + - = . _ : \/ \@.
+--
+-- -   Tag keys and values are case-sensitive.
+--
+-- -   Do not use @aws:@, @AWS:@, or any upper or lowercase combination of
+--     such as a prefix for either keys or values as it is reserved for AWS
+--     use. You cannot edit or delete tag keys or values with this prefix.
+--     Tags with this prefix do not count against your tags per resource
+--     limit.
+describeTaskDefinitionResponse_tags :: Lens.Lens' DescribeTaskDefinitionResponse (Prelude.Maybe [Tag])
+describeTaskDefinitionResponse_tags = Lens.lens (\DescribeTaskDefinitionResponse' {tags} -> tags) (\s@DescribeTaskDefinitionResponse' {} a -> s {tags = a} :: DescribeTaskDefinitionResponse) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | The full task definition description.
-desrsTaskDefinition :: Lens' DescribeTaskDefinitionResponse (Maybe TaskDefinition)
-desrsTaskDefinition = lens _desrsTaskDefinition (\ s a -> s{_desrsTaskDefinition = a})
+describeTaskDefinitionResponse_taskDefinition :: Lens.Lens' DescribeTaskDefinitionResponse (Prelude.Maybe TaskDefinition)
+describeTaskDefinitionResponse_taskDefinition = Lens.lens (\DescribeTaskDefinitionResponse' {taskDefinition} -> taskDefinition) (\s@DescribeTaskDefinitionResponse' {} a -> s {taskDefinition = a} :: DescribeTaskDefinitionResponse)
 
--- | -- | The response status code.
-desrsResponseStatus :: Lens' DescribeTaskDefinitionResponse Int
-desrsResponseStatus = lens _desrsResponseStatus (\ s a -> s{_desrsResponseStatus = a})
+-- | The response's http status code.
+describeTaskDefinitionResponse_httpStatus :: Lens.Lens' DescribeTaskDefinitionResponse Prelude.Int
+describeTaskDefinitionResponse_httpStatus = Lens.lens (\DescribeTaskDefinitionResponse' {httpStatus} -> httpStatus) (\s@DescribeTaskDefinitionResponse' {} a -> s {httpStatus = a} :: DescribeTaskDefinitionResponse)
 
-instance NFData DescribeTaskDefinitionResponse where
+instance
+  Prelude.NFData
+    DescribeTaskDefinitionResponse

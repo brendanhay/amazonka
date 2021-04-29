@@ -1,253 +1,295 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SDB.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.SDB.Types
-    (
-    -- * Service Configuration
-      sdb
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _InvalidNumberValueTests
-    , _NoSuchDomain
-    , _NumberSubmittedItemsExceeded
-    , _AttributeDoesNotExist
-    , _NumberDomainAttributesExceeded
-    , _DuplicateItemName
-    , _MissingParameter
-    , _InvalidNextToken
-    , _InvalidParameterValue
-    , _NumberItemAttributesExceeded
-    , _RequestTimeout
-    , _TooManyRequestedAttributes
-    , _InvalidNumberPredicates
-    , _NumberDomainsExceeded
-    , _NumberSubmittedAttributesExceeded
-    , _NumberDomainBytesExceeded
-    , _InvalidQueryExpression
+    _NumberDomainAttributesExceeded,
+    _NumberSubmittedItemsExceeded,
+    _NoSuchDomain,
+    _NumberDomainBytesExceeded,
+    _NumberDomainsExceeded,
+    _InvalidNumberPredicates,
+    _DuplicateItemName,
+    _AttributeDoesNotExist,
+    _InvalidNumberValueTests,
+    _InvalidQueryExpression,
+    _NumberSubmittedAttributesExceeded,
+    _InvalidParameterValue,
+    _TooManyRequestedAttributes,
+    _MissingParameter,
+    _InvalidNextToken,
+    _RequestTimeout,
+    _NumberItemAttributesExceeded,
 
     -- * Attribute
-    , Attribute
-    , attribute
-    , aAlternateValueEncoding
-    , aAlternateNameEncoding
-    , aName
-    , aValue
+    Attribute (..),
+    newAttribute,
+    attribute_alternateNameEncoding,
+    attribute_alternateValueEncoding,
+    attribute_name,
+    attribute_value,
 
     -- * DeletableItem
-    , DeletableItem
-    , deletableItem
-    , diAttributes
-    , diName
+    DeletableItem (..),
+    newDeletableItem,
+    deletableItem_attributes,
+    deletableItem_name,
 
     -- * Item
-    , Item
-    , item
-    , iAlternateNameEncoding
-    , iName
-    , iAttributes
+    Item (..),
+    newItem,
+    item_alternateNameEncoding,
+    item_name,
+    item_attributes,
 
     -- * ReplaceableAttribute
-    , ReplaceableAttribute
-    , replaceableAttribute
-    , raReplace
-    , raName
-    , raValue
+    ReplaceableAttribute (..),
+    newReplaceableAttribute,
+    replaceableAttribute_replace,
+    replaceableAttribute_name,
+    replaceableAttribute_value,
 
     -- * ReplaceableItem
-    , ReplaceableItem
-    , replaceableItem
-    , riName
-    , riAttributes
+    ReplaceableItem (..),
+    newReplaceableItem,
+    replaceableItem_name,
+    replaceableItem_attributes,
 
     -- * UpdateCondition
-    , UpdateCondition
-    , updateCondition
-    , ucExists
-    , ucValue
-    , ucName
-    ) where
+    UpdateCondition (..),
+    newUpdateCondition,
+    updateCondition_exists,
+    updateCondition_name,
+    updateCondition_value,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.SDB.Types.Product
-import Network.AWS.SDB.Types.Sum
-import Network.AWS.Sign.V2
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import Network.AWS.SDB.Types.Attribute
+import Network.AWS.SDB.Types.DeletableItem
+import Network.AWS.SDB.Types.Item
+import Network.AWS.SDB.Types.ReplaceableAttribute
+import Network.AWS.SDB.Types.ReplaceableItem
+import Network.AWS.SDB.Types.UpdateCondition
+import qualified Network.AWS.Sign.V2 as Sign
 
 -- | API version @2009-04-15@ of the Amazon SimpleDB SDK configuration.
-sdb :: Service
-sdb =
-  Service
-    { _svcAbbrev = "SDB"
-    , _svcSigner = v2
-    , _svcPrefix = "sdb"
-    , _svcVersion = "2009-04-15"
-    , _svcEndpoint = defaultEndpoint sdb
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseXMLError "SDB"
-    , _svcRetry = retry
+defaultService :: Prelude.Service
+defaultService =
+  Prelude.Service
+    { Prelude._svcAbbrev = "SDB",
+      Prelude._svcSigner = Sign.v2,
+      Prelude._svcPrefix = "sdb",
+      Prelude._svcVersion = "2009-04-15",
+      Prelude._svcEndpoint =
+        Prelude.defaultEndpoint defaultService,
+      Prelude._svcTimeout = Prelude.Just 70,
+      Prelude._svcCheck = Prelude.statusSuccess,
+      Prelude._svcError = Prelude.parseXMLError "SDB",
+      Prelude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Prelude.Exponential
+        { Prelude._retryBase = 5.0e-2,
+          Prelude._retryGrowth = 2,
+          Prelude._retryAttempts = 5,
+          Prelude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
-
-
--- | Too many predicates exist in the query expression.
---
---
-_InvalidNumberValueTests :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidNumberValueTests =
-  _MatchServiceError sdb "InvalidNumberValueTests" . hasStatus 400
-
-
--- | The specified domain does not exist.
---
---
-_NoSuchDomain :: AsError a => Getting (First ServiceError) a ServiceError
-_NoSuchDomain = _MatchServiceError sdb "NoSuchDomain" . hasStatus 400
-
-
--- | Too many items exist in a single call.
---
---
-_NumberSubmittedItemsExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_NumberSubmittedItemsExceeded =
-  _MatchServiceError sdb "NumberSubmittedItemsExceeded" . hasStatus 409
-
-
--- | The specified attribute does not exist.
---
---
-_AttributeDoesNotExist :: AsError a => Getting (First ServiceError) a ServiceError
-_AttributeDoesNotExist =
-  _MatchServiceError sdb "AttributeDoesNotExist" . hasStatus 404
-
+      | Lens.has (Prelude.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Prelude.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Prelude.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Prelude.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Prelude.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Prelude.hasCode "RequestThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Prelude.hasCode "ThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Prelude.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Prelude.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Prelude.hasCode "ThrottlingException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Prelude.hasCode "Throttling"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | Too many attributes in this domain.
---
---
-_NumberDomainAttributesExceeded :: AsError a => Getting (First ServiceError) a ServiceError
+_NumberDomainAttributesExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
 _NumberDomainAttributesExceeded =
-  _MatchServiceError sdb "NumberDomainAttributesExceeded" . hasStatus 409
+  Prelude._MatchServiceError
+    defaultService
+    "NumberDomainAttributesExceeded"
+    Prelude.. Prelude.hasStatus 409
 
+-- | Too many items exist in a single call.
+_NumberSubmittedItemsExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NumberSubmittedItemsExceeded =
+  Prelude._MatchServiceError
+    defaultService
+    "NumberSubmittedItemsExceeded"
+    Prelude.. Prelude.hasStatus 409
 
--- | The item name was specified more than once.
---
---
-_DuplicateItemName :: AsError a => Getting (First ServiceError) a ServiceError
-_DuplicateItemName = _MatchServiceError sdb "DuplicateItemName" . hasStatus 400
-
-
--- | The request must contain the specified missing parameter.
---
---
-_MissingParameter :: AsError a => Getting (First ServiceError) a ServiceError
-_MissingParameter = _MatchServiceError sdb "MissingParameter" . hasStatus 400
-
-
--- | The specified NextToken is not valid.
---
---
-_InvalidNextToken :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidNextToken = _MatchServiceError sdb "InvalidNextToken" . hasStatus 400
-
-
--- | The value for a parameter is invalid.
---
---
-_InvalidParameterValue :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidParameterValue =
-  _MatchServiceError sdb "InvalidParameterValue" . hasStatus 400
-
-
--- | Too many attributes in this item.
---
---
-_NumberItemAttributesExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_NumberItemAttributesExceeded =
-  _MatchServiceError sdb "NumberItemAttributesExceeded" . hasStatus 409
-
-
--- | A timeout occurred when attempting to query the specified domain with specified query expression.
---
---
-_RequestTimeout :: AsError a => Getting (First ServiceError) a ServiceError
-_RequestTimeout = _MatchServiceError sdb "RequestTimeout" . hasStatus 408
-
-
--- | Too many attributes requested.
---
---
-_TooManyRequestedAttributes :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyRequestedAttributes =
-  _MatchServiceError sdb "TooManyRequestedAttributes" . hasStatus 400
-
-
--- | Too many predicates exist in the query expression.
---
---
-_InvalidNumberPredicates :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidNumberPredicates =
-  _MatchServiceError sdb "InvalidNumberPredicates" . hasStatus 400
-
-
--- | Too many domains exist per this account.
---
---
-_NumberDomainsExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_NumberDomainsExceeded =
-  _MatchServiceError sdb "NumberDomainsExceeded" . hasStatus 409
-
-
--- | Too many attributes exist in a single call.
---
---
-_NumberSubmittedAttributesExceeded :: AsError a => Getting (First ServiceError) a ServiceError
-_NumberSubmittedAttributesExceeded =
-  _MatchServiceError sdb "NumberSubmittedAttributesExceeded" . hasStatus 409
-
+-- | The specified domain does not exist.
+_NoSuchDomain :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NoSuchDomain =
+  Prelude._MatchServiceError
+    defaultService
+    "NoSuchDomain"
+    Prelude.. Prelude.hasStatus 400
 
 -- | Too many bytes in this domain.
---
---
-_NumberDomainBytesExceeded :: AsError a => Getting (First ServiceError) a ServiceError
+_NumberDomainBytesExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
 _NumberDomainBytesExceeded =
-  _MatchServiceError sdb "NumberDomainBytesExceeded" . hasStatus 409
+  Prelude._MatchServiceError
+    defaultService
+    "NumberDomainBytesExceeded"
+    Prelude.. Prelude.hasStatus 409
 
+-- | Too many domains exist per this account.
+_NumberDomainsExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NumberDomainsExceeded =
+  Prelude._MatchServiceError
+    defaultService
+    "NumberDomainsExceeded"
+    Prelude.. Prelude.hasStatus 409
+
+-- | Too many predicates exist in the query expression.
+_InvalidNumberPredicates :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidNumberPredicates =
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidNumberPredicates"
+    Prelude.. Prelude.hasStatus 400
+
+-- | The item name was specified more than once.
+_DuplicateItemName :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DuplicateItemName =
+  Prelude._MatchServiceError
+    defaultService
+    "DuplicateItemName"
+    Prelude.. Prelude.hasStatus 400
+
+-- | The specified attribute does not exist.
+_AttributeDoesNotExist :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AttributeDoesNotExist =
+  Prelude._MatchServiceError
+    defaultService
+    "AttributeDoesNotExist"
+    Prelude.. Prelude.hasStatus 404
+
+-- | Too many predicates exist in the query expression.
+_InvalidNumberValueTests :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidNumberValueTests =
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidNumberValueTests"
+    Prelude.. Prelude.hasStatus 400
 
 -- | The specified query expression syntax is not valid.
---
---
-_InvalidQueryExpression :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidQueryExpression :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
 _InvalidQueryExpression =
-  _MatchServiceError sdb "InvalidQueryExpression" . hasStatus 400
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidQueryExpression"
+    Prelude.. Prelude.hasStatus 400
 
+-- | Too many attributes exist in a single call.
+_NumberSubmittedAttributesExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NumberSubmittedAttributesExceeded =
+  Prelude._MatchServiceError
+    defaultService
+    "NumberSubmittedAttributesExceeded"
+    Prelude.. Prelude.hasStatus 409
+
+-- | The value for a parameter is invalid.
+_InvalidParameterValue :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidParameterValue =
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidParameterValue"
+    Prelude.. Prelude.hasStatus 400
+
+-- | Too many attributes requested.
+_TooManyRequestedAttributes :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyRequestedAttributes =
+  Prelude._MatchServiceError
+    defaultService
+    "TooManyRequestedAttributes"
+    Prelude.. Prelude.hasStatus 400
+
+-- | The request must contain the specified missing parameter.
+_MissingParameter :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_MissingParameter =
+  Prelude._MatchServiceError
+    defaultService
+    "MissingParameter"
+    Prelude.. Prelude.hasStatus 400
+
+-- | The specified NextToken is not valid.
+_InvalidNextToken :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidNextToken =
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidNextToken"
+    Prelude.. Prelude.hasStatus 400
+
+-- | A timeout occurred when attempting to query the specified domain with
+-- specified query expression.
+_RequestTimeout :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_RequestTimeout =
+  Prelude._MatchServiceError
+    defaultService
+    "RequestTimeout"
+    Prelude.. Prelude.hasStatus 408
+
+-- | Too many attributes in this item.
+_NumberItemAttributesExceeded :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NumberItemAttributesExceeded =
+  Prelude._MatchServiceError
+    defaultService
+    "NumberItemAttributesExceeded"
+    Prelude.. Prelude.hasStatus 409

@@ -1,100 +1,113 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SDB.DeleteDomain
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The @DeleteDomain@ operation deletes a domain. Any items (and their attributes) in the domain are deleted as well. The @DeleteDomain@ operation might take 10 or more seconds to complete.
---
---
+-- The @DeleteDomain@ operation deletes a domain. Any items (and their
+-- attributes) in the domain are deleted as well. The @DeleteDomain@
+-- operation might take 10 or more seconds to complete.
 module Network.AWS.SDB.DeleteDomain
-    (
-    -- * Creating a Request
-      deleteDomain
-    , DeleteDomain
+  ( -- * Creating a Request
+    DeleteDomain (..),
+    newDeleteDomain,
+
     -- * Request Lenses
-    , ddDomainName
+    deleteDomain_domainName,
 
     -- * Destructuring the Response
-    , deleteDomainResponse
-    , DeleteDomainResponse
-    ) where
+    DeleteDomainResponse (..),
+    newDeleteDomainResponse,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SDB.Types
-import Network.AWS.SDB.Types.Product
 
--- | /See:/ 'deleteDomain' smart constructor.
-newtype DeleteDomain = DeleteDomain'
-  { _ddDomainName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteDomain' smart constructor.
+data DeleteDomain = DeleteDomain'
+  { -- | The name of the domain to delete.
+    domainName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteDomain' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteDomain' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddDomainName' - The name of the domain to delete.
-deleteDomain
-    :: Text -- ^ 'ddDomainName'
-    -> DeleteDomain
-deleteDomain pDomainName_ = DeleteDomain' {_ddDomainName = pDomainName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'domainName', 'deleteDomain_domainName' - The name of the domain to delete.
+newDeleteDomain ::
+  -- | 'domainName'
+  Prelude.Text ->
+  DeleteDomain
+newDeleteDomain pDomainName_ =
+  DeleteDomain' {domainName = pDomainName_}
 
 -- | The name of the domain to delete.
-ddDomainName :: Lens' DeleteDomain Text
-ddDomainName = lens _ddDomainName (\ s a -> s{_ddDomainName = a})
+deleteDomain_domainName :: Lens.Lens' DeleteDomain Prelude.Text
+deleteDomain_domainName = Lens.lens (\DeleteDomain' {domainName} -> domainName) (\s@DeleteDomain' {} a -> s {domainName = a} :: DeleteDomain)
 
-instance AWSRequest DeleteDomain where
-        type Rs DeleteDomain = DeleteDomainResponse
-        request = postQuery sdb
-        response = receiveNull DeleteDomainResponse'
+instance Prelude.AWSRequest DeleteDomain where
+  type Rs DeleteDomain = DeleteDomainResponse
+  request = Request.postQuery defaultService
+  response = Response.receiveNull DeleteDomainResponse'
 
-instance Hashable DeleteDomain where
+instance Prelude.Hashable DeleteDomain
 
-instance NFData DeleteDomain where
+instance Prelude.NFData DeleteDomain
 
-instance ToHeaders DeleteDomain where
-        toHeaders = const mempty
+instance Prelude.ToHeaders DeleteDomain where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeleteDomain where
-        toPath = const "/"
+instance Prelude.ToPath DeleteDomain where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteDomain where
-        toQuery DeleteDomain'{..}
-          = mconcat
-              ["Action" =: ("DeleteDomain" :: ByteString),
-               "Version" =: ("2009-04-15" :: ByteString),
-               "DomainName" =: _ddDomainName]
+instance Prelude.ToQuery DeleteDomain where
+  toQuery DeleteDomain' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DeleteDomain" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2009-04-15" :: Prelude.ByteString),
+        "DomainName" Prelude.=: domainName
+      ]
 
--- | /See:/ 'deleteDomainResponse' smart constructor.
-data DeleteDomainResponse =
-  DeleteDomainResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteDomainResponse' smart constructor.
+data DeleteDomainResponse = DeleteDomainResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteDomainResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteDomainResponse' with all optional fields omitted.
 --
-deleteDomainResponse
-    :: DeleteDomainResponse
-deleteDomainResponse = DeleteDomainResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteDomainResponse ::
+  DeleteDomainResponse
+newDeleteDomainResponse = DeleteDomainResponse'
 
-
-instance NFData DeleteDomainResponse where
+instance Prelude.NFData DeleteDomainResponse

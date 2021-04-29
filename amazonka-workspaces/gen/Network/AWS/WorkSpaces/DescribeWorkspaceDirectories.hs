@@ -1,169 +1,242 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the available AWS Directory Service directories that are registered with Amazon WorkSpaces.
---
---
+-- Describes the available directories that are registered with Amazon
+-- WorkSpaces.
 --
 -- This operation returns paginated results.
 module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
-    (
-    -- * Creating a Request
-      describeWorkspaceDirectories
-    , DescribeWorkspaceDirectories
+  ( -- * Creating a Request
+    DescribeWorkspaceDirectories (..),
+    newDescribeWorkspaceDirectories,
+
     -- * Request Lenses
-    , dwdNextToken
-    , dwdDirectoryIds
+    describeWorkspaceDirectories_nextToken,
+    describeWorkspaceDirectories_directoryIds,
+    describeWorkspaceDirectories_limit,
 
     -- * Destructuring the Response
-    , describeWorkspaceDirectoriesResponse
-    , DescribeWorkspaceDirectoriesResponse
+    DescribeWorkspaceDirectoriesResponse (..),
+    newDescribeWorkspaceDirectoriesResponse,
+
     -- * Response Lenses
-    , dwdrsDirectories
-    , dwdrsNextToken
-    , dwdrsResponseStatus
-    ) where
+    describeWorkspaceDirectoriesResponse_nextToken,
+    describeWorkspaceDirectoriesResponse_directories,
+    describeWorkspaceDirectoriesResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
-import Network.AWS.WorkSpaces.Types.Product
 
--- | /See:/ 'describeWorkspaceDirectories' smart constructor.
+-- | /See:/ 'newDescribeWorkspaceDirectories' smart constructor.
 data DescribeWorkspaceDirectories = DescribeWorkspaceDirectories'
-  { _dwdNextToken    :: !(Maybe Text)
-  , _dwdDirectoryIds :: !(Maybe (List1 Text))
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | If you received a @NextToken@ from a previous call that was paginated,
+    -- provide this token to receive the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The identifiers of the directories. If the value is null, all
+    -- directories are retrieved.
+    directoryIds :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The maximum number of directories to return.
+    limit :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeWorkspaceDirectories' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeWorkspaceDirectories' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dwdNextToken' - The token for the next set of results. (You received this token from a previous call.)
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dwdDirectoryIds' - The identifiers of the directories. If the value is null, all directories are retrieved.
-describeWorkspaceDirectories
-    :: DescribeWorkspaceDirectories
-describeWorkspaceDirectories =
+-- 'nextToken', 'describeWorkspaceDirectories_nextToken' - If you received a @NextToken@ from a previous call that was paginated,
+-- provide this token to receive the next set of results.
+--
+-- 'directoryIds', 'describeWorkspaceDirectories_directoryIds' - The identifiers of the directories. If the value is null, all
+-- directories are retrieved.
+--
+-- 'limit', 'describeWorkspaceDirectories_limit' - The maximum number of directories to return.
+newDescribeWorkspaceDirectories ::
+  DescribeWorkspaceDirectories
+newDescribeWorkspaceDirectories =
   DescribeWorkspaceDirectories'
-    {_dwdNextToken = Nothing, _dwdDirectoryIds = Nothing}
-
-
--- | The token for the next set of results. (You received this token from a previous call.)
-dwdNextToken :: Lens' DescribeWorkspaceDirectories (Maybe Text)
-dwdNextToken = lens _dwdNextToken (\ s a -> s{_dwdNextToken = a})
-
--- | The identifiers of the directories. If the value is null, all directories are retrieved.
-dwdDirectoryIds :: Lens' DescribeWorkspaceDirectories (Maybe (NonEmpty Text))
-dwdDirectoryIds = lens _dwdDirectoryIds (\ s a -> s{_dwdDirectoryIds = a}) . mapping _List1
-
-instance AWSPager DescribeWorkspaceDirectories where
-        page rq rs
-          | stop (rs ^. dwdrsNextToken) = Nothing
-          | stop (rs ^. dwdrsDirectories) = Nothing
-          | otherwise =
-            Just $ rq & dwdNextToken .~ rs ^. dwdrsNextToken
-
-instance AWSRequest DescribeWorkspaceDirectories
-         where
-        type Rs DescribeWorkspaceDirectories =
-             DescribeWorkspaceDirectoriesResponse
-        request = postJSON workSpaces
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeWorkspaceDirectoriesResponse' <$>
-                   (x .?> "Directories" .!@ mempty) <*>
-                     (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeWorkspaceDirectories where
-
-instance NFData DescribeWorkspaceDirectories where
-
-instance ToHeaders DescribeWorkspaceDirectories where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("WorkspacesService.DescribeWorkspaceDirectories" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DescribeWorkspaceDirectories where
-        toJSON DescribeWorkspaceDirectories'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _dwdNextToken,
-                  ("DirectoryIds" .=) <$> _dwdDirectoryIds])
-
-instance ToPath DescribeWorkspaceDirectories where
-        toPath = const "/"
-
-instance ToQuery DescribeWorkspaceDirectories where
-        toQuery = const mempty
-
--- | /See:/ 'describeWorkspaceDirectoriesResponse' smart constructor.
-data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse'
-  { _dwdrsDirectories    :: !(Maybe [WorkspaceDirectory])
-  , _dwdrsNextToken      :: !(Maybe Text)
-  , _dwdrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeWorkspaceDirectoriesResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dwdrsDirectories' - Information about the directories.
---
--- * 'dwdrsNextToken' - The token to use to retrieve the next set of results, or null if there are no more results available. This token is valid for one day and must be used within that time frame.
---
--- * 'dwdrsResponseStatus' - -- | The response status code.
-describeWorkspaceDirectoriesResponse
-    :: Int -- ^ 'dwdrsResponseStatus'
-    -> DescribeWorkspaceDirectoriesResponse
-describeWorkspaceDirectoriesResponse pResponseStatus_ =
-  DescribeWorkspaceDirectoriesResponse'
-    { _dwdrsDirectories = Nothing
-    , _dwdrsNextToken = Nothing
-    , _dwdrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      directoryIds = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
+-- | If you received a @NextToken@ from a previous call that was paginated,
+-- provide this token to receive the next set of results.
+describeWorkspaceDirectories_nextToken :: Lens.Lens' DescribeWorkspaceDirectories (Prelude.Maybe Prelude.Text)
+describeWorkspaceDirectories_nextToken = Lens.lens (\DescribeWorkspaceDirectories' {nextToken} -> nextToken) (\s@DescribeWorkspaceDirectories' {} a -> s {nextToken = a} :: DescribeWorkspaceDirectories)
+
+-- | The identifiers of the directories. If the value is null, all
+-- directories are retrieved.
+describeWorkspaceDirectories_directoryIds :: Lens.Lens' DescribeWorkspaceDirectories (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+describeWorkspaceDirectories_directoryIds = Lens.lens (\DescribeWorkspaceDirectories' {directoryIds} -> directoryIds) (\s@DescribeWorkspaceDirectories' {} a -> s {directoryIds = a} :: DescribeWorkspaceDirectories) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The maximum number of directories to return.
+describeWorkspaceDirectories_limit :: Lens.Lens' DescribeWorkspaceDirectories (Prelude.Maybe Prelude.Natural)
+describeWorkspaceDirectories_limit = Lens.lens (\DescribeWorkspaceDirectories' {limit} -> limit) (\s@DescribeWorkspaceDirectories' {} a -> s {limit = a} :: DescribeWorkspaceDirectories)
+
+instance Pager.AWSPager DescribeWorkspaceDirectories where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describeWorkspaceDirectoriesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describeWorkspaceDirectoriesResponse_directories
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describeWorkspaceDirectories_nextToken
+          Lens..~ rs
+          Lens.^? describeWorkspaceDirectoriesResponse_nextToken
+            Prelude.. Lens._Just
+
+instance
+  Prelude.AWSRequest
+    DescribeWorkspaceDirectories
+  where
+  type
+    Rs DescribeWorkspaceDirectories =
+      DescribeWorkspaceDirectoriesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeWorkspaceDirectoriesResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> ( x Prelude..?> "Directories"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance
+  Prelude.Hashable
+    DescribeWorkspaceDirectories
+
+instance Prelude.NFData DescribeWorkspaceDirectories
+
+instance
+  Prelude.ToHeaders
+    DescribeWorkspaceDirectories
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "WorkspacesService.DescribeWorkspaceDirectories" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON DescribeWorkspaceDirectories where
+  toJSON DescribeWorkspaceDirectories' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("DirectoryIds" Prelude..=) Prelude.<$> directoryIds,
+            ("Limit" Prelude..=) Prelude.<$> limit
+          ]
+      )
+
+instance Prelude.ToPath DescribeWorkspaceDirectories where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery DescribeWorkspaceDirectories where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeWorkspaceDirectoriesResponse' smart constructor.
+data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse'
+  { -- | The token to use to retrieve the next set of results, or null if no more
+    -- results are available.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the directories.
+    directories :: Prelude.Maybe [WorkspaceDirectory],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeWorkspaceDirectoriesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'describeWorkspaceDirectoriesResponse_nextToken' - The token to use to retrieve the next set of results, or null if no more
+-- results are available.
+--
+-- 'directories', 'describeWorkspaceDirectoriesResponse_directories' - Information about the directories.
+--
+-- 'httpStatus', 'describeWorkspaceDirectoriesResponse_httpStatus' - The response's http status code.
+newDescribeWorkspaceDirectoriesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeWorkspaceDirectoriesResponse
+newDescribeWorkspaceDirectoriesResponse pHttpStatus_ =
+  DescribeWorkspaceDirectoriesResponse'
+    { nextToken =
+        Prelude.Nothing,
+      directories = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The token to use to retrieve the next set of results, or null if no more
+-- results are available.
+describeWorkspaceDirectoriesResponse_nextToken :: Lens.Lens' DescribeWorkspaceDirectoriesResponse (Prelude.Maybe Prelude.Text)
+describeWorkspaceDirectoriesResponse_nextToken = Lens.lens (\DescribeWorkspaceDirectoriesResponse' {nextToken} -> nextToken) (\s@DescribeWorkspaceDirectoriesResponse' {} a -> s {nextToken = a} :: DescribeWorkspaceDirectoriesResponse)
 
 -- | Information about the directories.
-dwdrsDirectories :: Lens' DescribeWorkspaceDirectoriesResponse [WorkspaceDirectory]
-dwdrsDirectories = lens _dwdrsDirectories (\ s a -> s{_dwdrsDirectories = a}) . _Default . _Coerce
+describeWorkspaceDirectoriesResponse_directories :: Lens.Lens' DescribeWorkspaceDirectoriesResponse (Prelude.Maybe [WorkspaceDirectory])
+describeWorkspaceDirectoriesResponse_directories = Lens.lens (\DescribeWorkspaceDirectoriesResponse' {directories} -> directories) (\s@DescribeWorkspaceDirectoriesResponse' {} a -> s {directories = a} :: DescribeWorkspaceDirectoriesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The token to use to retrieve the next set of results, or null if there are no more results available. This token is valid for one day and must be used within that time frame.
-dwdrsNextToken :: Lens' DescribeWorkspaceDirectoriesResponse (Maybe Text)
-dwdrsNextToken = lens _dwdrsNextToken (\ s a -> s{_dwdrsNextToken = a})
+-- | The response's http status code.
+describeWorkspaceDirectoriesResponse_httpStatus :: Lens.Lens' DescribeWorkspaceDirectoriesResponse Prelude.Int
+describeWorkspaceDirectoriesResponse_httpStatus = Lens.lens (\DescribeWorkspaceDirectoriesResponse' {httpStatus} -> httpStatus) (\s@DescribeWorkspaceDirectoriesResponse' {} a -> s {httpStatus = a} :: DescribeWorkspaceDirectoriesResponse)
 
--- | -- | The response status code.
-dwdrsResponseStatus :: Lens' DescribeWorkspaceDirectoriesResponse Int
-dwdrsResponseStatus = lens _dwdrsResponseStatus (\ s a -> s{_dwdrsResponseStatus = a})
-
-instance NFData DescribeWorkspaceDirectoriesResponse
-         where
+instance
+  Prelude.NFData
+    DescribeWorkspaceDirectoriesResponse

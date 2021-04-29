@@ -14,41 +14,49 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecretsManager.RestoreSecret
+-- Module      : Network.AWS.SecretsManager.GetResourcePolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Cancels the scheduled deletion of a secret by removing the @DeletedDate@
--- time stamp. This makes the secret accessible to query once again.
+-- Retrieves the JSON text of the resource-based policy document attached
+-- to the specified secret. The JSON request string input and response
+-- output displays formatted code with white space and line breaks for
+-- better readability. Submit your input as a single line JSON string.
 --
 -- __Minimum permissions__
 --
 -- To run this command, you must have the following permissions:
 --
--- -   secretsmanager:RestoreSecret
+-- -   secretsmanager:GetResourcePolicy
 --
 -- __Related operations__
 --
--- -   To delete a secret, use DeleteSecret.
-module Network.AWS.SecretsManager.RestoreSecret
+-- -   To attach a resource policy to a secret, use PutResourcePolicy.
+--
+-- -   To delete the resource-based policy attached to a secret, use
+--     DeleteResourcePolicy.
+--
+-- -   To list all of the currently available secrets, use ListSecrets.
+module Network.AWS.SecretsManager.GetResourcePolicy
   ( -- * Creating a Request
-    RestoreSecret (..),
-    newRestoreSecret,
+    GetResourcePolicy (..),
+    newGetResourcePolicy,
 
     -- * Request Lenses
-    restoreSecret_secretId,
+    getResourcePolicy_secretId,
 
     -- * Destructuring the Response
-    RestoreSecretResponse (..),
-    newRestoreSecretResponse,
+    GetResourcePolicyResponse (..),
+    newGetResourcePolicyResponse,
 
     -- * Response Lenses
-    restoreSecretResponse_arn,
-    restoreSecretResponse_name,
-    restoreSecretResponse_httpStatus,
+    getResourcePolicyResponse_arn,
+    getResourcePolicyResponse_resourcePolicy,
+    getResourcePolicyResponse_name,
+    getResourcePolicyResponse_httpStatus,
   )
 where
 
@@ -58,11 +66,11 @@ import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
 
--- | /See:/ 'newRestoreSecret' smart constructor.
-data RestoreSecret = RestoreSecret'
-  { -- | Specifies the secret that you want to restore from a previously
-    -- scheduled deletion. You can specify either the Amazon Resource Name
-    -- (ARN) or the friendly name of the secret.
+-- | /See:/ 'newGetResourcePolicy' smart constructor.
+data GetResourcePolicy = GetResourcePolicy'
+  { -- | Specifies the secret that you want to retrieve the attached
+    -- resource-based policy for. You can specify either the Amazon Resource
+    -- Name (ARN) or the friendly name of the secret.
     --
     -- If you specify an ARN, we generally recommend that you specify a
     -- complete ARN. You can specify a partial ARN too—for example, if you
@@ -87,16 +95,16 @@ data RestoreSecret = RestoreSecret'
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
--- Create a value of 'RestoreSecret' with all optional fields omitted.
+-- Create a value of 'GetResourcePolicy' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'secretId', 'restoreSecret_secretId' - Specifies the secret that you want to restore from a previously
--- scheduled deletion. You can specify either the Amazon Resource Name
--- (ARN) or the friendly name of the secret.
+-- 'secretId', 'getResourcePolicy_secretId' - Specifies the secret that you want to retrieve the attached
+-- resource-based policy for. You can specify either the Amazon Resource
+-- Name (ARN) or the friendly name of the secret.
 --
 -- If you specify an ARN, we generally recommend that you specify a
 -- complete ARN. You can specify a partial ARN too—for example, if you
@@ -116,16 +124,16 @@ data RestoreSecret = RestoreSecret'
 -- If you do include the random suffix added by Secrets Manager, you
 -- receive either a /ResourceNotFoundException/ or an
 -- /AccessDeniedException/ error, depending on your permissions.
-newRestoreSecret ::
+newGetResourcePolicy ::
   -- | 'secretId'
   Prelude.Text ->
-  RestoreSecret
-newRestoreSecret pSecretId_ =
-  RestoreSecret' {secretId = pSecretId_}
+  GetResourcePolicy
+newGetResourcePolicy pSecretId_ =
+  GetResourcePolicy' {secretId = pSecretId_}
 
--- | Specifies the secret that you want to restore from a previously
--- scheduled deletion. You can specify either the Amazon Resource Name
--- (ARN) or the friendly name of the secret.
+-- | Specifies the secret that you want to retrieve the attached
+-- resource-based policy for. You can specify either the Amazon Resource
+-- Name (ARN) or the friendly name of the secret.
 --
 -- If you specify an ARN, we generally recommend that you specify a
 -- complete ARN. You can specify a partial ARN too—for example, if you
@@ -145,31 +153,32 @@ newRestoreSecret pSecretId_ =
 -- If you do include the random suffix added by Secrets Manager, you
 -- receive either a /ResourceNotFoundException/ or an
 -- /AccessDeniedException/ error, depending on your permissions.
-restoreSecret_secretId :: Lens.Lens' RestoreSecret Prelude.Text
-restoreSecret_secretId = Lens.lens (\RestoreSecret' {secretId} -> secretId) (\s@RestoreSecret' {} a -> s {secretId = a} :: RestoreSecret)
+getResourcePolicy_secretId :: Lens.Lens' GetResourcePolicy Prelude.Text
+getResourcePolicy_secretId = Lens.lens (\GetResourcePolicy' {secretId} -> secretId) (\s@GetResourcePolicy' {} a -> s {secretId = a} :: GetResourcePolicy)
 
-instance Prelude.AWSRequest RestoreSecret where
-  type Rs RestoreSecret = RestoreSecretResponse
+instance Prelude.AWSRequest GetResourcePolicy where
+  type Rs GetResourcePolicy = GetResourcePolicyResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
-          RestoreSecretResponse'
+          GetResourcePolicyResponse'
             Prelude.<$> (x Prelude..?> "ARN")
+            Prelude.<*> (x Prelude..?> "ResourcePolicy")
             Prelude.<*> (x Prelude..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable RestoreSecret
+instance Prelude.Hashable GetResourcePolicy
 
-instance Prelude.NFData RestoreSecret
+instance Prelude.NFData GetResourcePolicy
 
-instance Prelude.ToHeaders RestoreSecret where
+instance Prelude.ToHeaders GetResourcePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "secretsmanager.RestoreSecret" ::
+              Prelude.=# ( "secretsmanager.GetResourcePolicy" ::
                              Prelude.ByteString
                          ),
             "Content-Type"
@@ -179,24 +188,33 @@ instance Prelude.ToHeaders RestoreSecret where
           ]
       )
 
-instance Prelude.ToJSON RestoreSecret where
-  toJSON RestoreSecret' {..} =
+instance Prelude.ToJSON GetResourcePolicy where
+  toJSON GetResourcePolicy' {..} =
     Prelude.object
       ( Prelude.catMaybes
           [Prelude.Just ("SecretId" Prelude..= secretId)]
       )
 
-instance Prelude.ToPath RestoreSecret where
+instance Prelude.ToPath GetResourcePolicy where
   toPath = Prelude.const "/"
 
-instance Prelude.ToQuery RestoreSecret where
+instance Prelude.ToQuery GetResourcePolicy where
   toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'newRestoreSecretResponse' smart constructor.
-data RestoreSecretResponse = RestoreSecretResponse'
-  { -- | The ARN of the secret that was restored.
+-- | /See:/ 'newGetResourcePolicyResponse' smart constructor.
+data GetResourcePolicyResponse = GetResourcePolicyResponse'
+  { -- | The ARN of the secret that the resource-based policy was retrieved for.
     arn :: Prelude.Maybe Prelude.Text,
-    -- | The friendly name of the secret that was restored.
+    -- | A JSON-formatted string that describes the permissions that are
+    -- associated with the attached secret. These permissions are combined with
+    -- any permissions that are associated with the user or role that attempts
+    -- to access this secret. The combined permissions specify who can access
+    -- the secret and what actions they can perform. For more information, see
+    -- <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for AWS Secrets Manager>
+    -- in the /AWS Secrets Manager User Guide/.
+    resourcePolicy :: Prelude.Maybe Prelude.Text,
+    -- | The friendly name of the secret that the resource-based policy was
+    -- retrieved for.
     name :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
@@ -204,39 +222,60 @@ data RestoreSecretResponse = RestoreSecretResponse'
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
--- Create a value of 'RestoreSecretResponse' with all optional fields omitted.
+-- Create a value of 'GetResourcePolicyResponse' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'arn', 'restoreSecretResponse_arn' - The ARN of the secret that was restored.
+-- 'arn', 'getResourcePolicyResponse_arn' - The ARN of the secret that the resource-based policy was retrieved for.
 --
--- 'name', 'restoreSecretResponse_name' - The friendly name of the secret that was restored.
+-- 'resourcePolicy', 'getResourcePolicyResponse_resourcePolicy' - A JSON-formatted string that describes the permissions that are
+-- associated with the attached secret. These permissions are combined with
+-- any permissions that are associated with the user or role that attempts
+-- to access this secret. The combined permissions specify who can access
+-- the secret and what actions they can perform. For more information, see
+-- <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for AWS Secrets Manager>
+-- in the /AWS Secrets Manager User Guide/.
 --
--- 'httpStatus', 'restoreSecretResponse_httpStatus' - The response's http status code.
-newRestoreSecretResponse ::
+-- 'name', 'getResourcePolicyResponse_name' - The friendly name of the secret that the resource-based policy was
+-- retrieved for.
+--
+-- 'httpStatus', 'getResourcePolicyResponse_httpStatus' - The response's http status code.
+newGetResourcePolicyResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  RestoreSecretResponse
-newRestoreSecretResponse pHttpStatus_ =
-  RestoreSecretResponse'
+  GetResourcePolicyResponse
+newGetResourcePolicyResponse pHttpStatus_ =
+  GetResourcePolicyResponse'
     { arn = Prelude.Nothing,
+      resourcePolicy = Prelude.Nothing,
       name = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The ARN of the secret that was restored.
-restoreSecretResponse_arn :: Lens.Lens' RestoreSecretResponse (Prelude.Maybe Prelude.Text)
-restoreSecretResponse_arn = Lens.lens (\RestoreSecretResponse' {arn} -> arn) (\s@RestoreSecretResponse' {} a -> s {arn = a} :: RestoreSecretResponse)
+-- | The ARN of the secret that the resource-based policy was retrieved for.
+getResourcePolicyResponse_arn :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.Text)
+getResourcePolicyResponse_arn = Lens.lens (\GetResourcePolicyResponse' {arn} -> arn) (\s@GetResourcePolicyResponse' {} a -> s {arn = a} :: GetResourcePolicyResponse)
 
--- | The friendly name of the secret that was restored.
-restoreSecretResponse_name :: Lens.Lens' RestoreSecretResponse (Prelude.Maybe Prelude.Text)
-restoreSecretResponse_name = Lens.lens (\RestoreSecretResponse' {name} -> name) (\s@RestoreSecretResponse' {} a -> s {name = a} :: RestoreSecretResponse)
+-- | A JSON-formatted string that describes the permissions that are
+-- associated with the attached secret. These permissions are combined with
+-- any permissions that are associated with the user or role that attempts
+-- to access this secret. The combined permissions specify who can access
+-- the secret and what actions they can perform. For more information, see
+-- <http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html Authentication and Access Control for AWS Secrets Manager>
+-- in the /AWS Secrets Manager User Guide/.
+getResourcePolicyResponse_resourcePolicy :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.Text)
+getResourcePolicyResponse_resourcePolicy = Lens.lens (\GetResourcePolicyResponse' {resourcePolicy} -> resourcePolicy) (\s@GetResourcePolicyResponse' {} a -> s {resourcePolicy = a} :: GetResourcePolicyResponse)
+
+-- | The friendly name of the secret that the resource-based policy was
+-- retrieved for.
+getResourcePolicyResponse_name :: Lens.Lens' GetResourcePolicyResponse (Prelude.Maybe Prelude.Text)
+getResourcePolicyResponse_name = Lens.lens (\GetResourcePolicyResponse' {name} -> name) (\s@GetResourcePolicyResponse' {} a -> s {name = a} :: GetResourcePolicyResponse)
 
 -- | The response's http status code.
-restoreSecretResponse_httpStatus :: Lens.Lens' RestoreSecretResponse Prelude.Int
-restoreSecretResponse_httpStatus = Lens.lens (\RestoreSecretResponse' {httpStatus} -> httpStatus) (\s@RestoreSecretResponse' {} a -> s {httpStatus = a} :: RestoreSecretResponse)
+getResourcePolicyResponse_httpStatus :: Lens.Lens' GetResourcePolicyResponse Prelude.Int
+getResourcePolicyResponse_httpStatus = Lens.lens (\GetResourcePolicyResponse' {httpStatus} -> httpStatus) (\s@GetResourcePolicyResponse' {} a -> s {httpStatus = a} :: GetResourcePolicyResponse)
 
-instance Prelude.NFData RestoreSecretResponse
+instance Prelude.NFData GetResourcePolicyResponse

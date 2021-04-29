@@ -14,69 +14,45 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.SecretsManager.TagResource
+-- Module      : Network.AWS.SecretsManager.DeleteResourcePolicy
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Attaches one or more tags, each consisting of a key name and a value, to
--- the specified secret. Tags are part of the secret\'s overall metadata,
--- and are not associated with any specific version of the secret. This
--- operation only appends tags to the existing list of tags. To remove
--- tags, you must use UntagResource.
---
--- The following basic restrictions apply to tags:
---
--- -   Maximum number of tags per secret—50
---
--- -   Maximum key length—127 Unicode characters in UTF-8
---
--- -   Maximum value length—255 Unicode characters in UTF-8
---
--- -   Tag keys and values are case sensitive.
---
--- -   Do not use the @aws:@ prefix in your tag names or values because AWS
---     reserves it for AWS use. You can\'t edit or delete tag names or
---     values with this prefix. Tags with this prefix do not count against
---     your tags per secret limit.
---
--- -   If you use your tagging schema across multiple services and
---     resources, remember other services might have restrictions on
---     allowed characters. Generally allowed characters: letters, spaces,
---     and numbers representable in UTF-8, plus the following special
---     characters: + - = . _ : \/ \@.
---
--- If you use tags as part of your security strategy, then adding or
--- removing a tag can change permissions. If successfully completing this
--- operation would result in you losing your permissions for this secret,
--- then the operation is blocked and returns an Access Denied error.
+-- Deletes the resource-based permission policy attached to the secret.
 --
 -- __Minimum permissions__
 --
 -- To run this command, you must have the following permissions:
 --
--- -   secretsmanager:TagResource
+-- -   secretsmanager:DeleteResourcePolicy
 --
 -- __Related operations__
 --
--- -   To remove one or more tags from the collection attached to a secret,
---     use UntagResource.
+-- -   To attach a resource policy to a secret, use PutResourcePolicy.
 --
--- -   To view the list of tags attached to a secret, use DescribeSecret.
-module Network.AWS.SecretsManager.TagResource
+-- -   To retrieve the current resource-based policy attached to a secret,
+--     use GetResourcePolicy.
+--
+-- -   To list all of the currently available secrets, use ListSecrets.
+module Network.AWS.SecretsManager.DeleteResourcePolicy
   ( -- * Creating a Request
-    TagResource (..),
-    newTagResource,
+    DeleteResourcePolicy (..),
+    newDeleteResourcePolicy,
 
     -- * Request Lenses
-    tagResource_secretId,
-    tagResource_tags,
+    deleteResourcePolicy_secretId,
 
     -- * Destructuring the Response
-    TagResourceResponse (..),
-    newTagResourceResponse,
+    DeleteResourcePolicyResponse (..),
+    newDeleteResourcePolicyResponse,
+
+    -- * Response Lenses
+    deleteResourcePolicyResponse_arn,
+    deleteResourcePolicyResponse_name,
+    deleteResourcePolicyResponse_httpStatus,
   )
 where
 
@@ -86,11 +62,11 @@ import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 import Network.AWS.SecretsManager.Types
 
--- | /See:/ 'newTagResource' smart constructor.
-data TagResource = TagResource'
-  { -- | The identifier for the secret that you want to attach tags to. You can
-    -- specify either the Amazon Resource Name (ARN) or the friendly name of
-    -- the secret.
+-- | /See:/ 'newDeleteResourcePolicy' smart constructor.
+data DeleteResourcePolicy = DeleteResourcePolicy'
+  { -- | Specifies the secret that you want to delete the attached resource-based
+    -- policy for. You can specify either the Amazon Resource Name (ARN) or the
+    -- friendly name of the secret.
     --
     -- If you specify an ARN, we generally recommend that you specify a
     -- complete ARN. You can specify a partial ARN too—for example, if you
@@ -110,32 +86,21 @@ data TagResource = TagResource'
     -- If you do include the random suffix added by Secrets Manager, you
     -- receive either a /ResourceNotFoundException/ or an
     -- /AccessDeniedException/ error, depending on your permissions.
-    secretId :: Prelude.Text,
-    -- | The tags to attach to the secret. Each element in the list consists of a
-    -- @Key@ and a @Value@.
-    --
-    -- This parameter to the API requires a JSON text string argument. For
-    -- information on how to format a JSON parameter for the various command
-    -- line tool environments, see
-    -- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
-    -- in the /AWS CLI User Guide/. For the AWS CLI, you can also use the
-    -- syntax:
-    -- @--Tags Key=\"Key1\",Value=\"Value1\" Key=\"Key2\",Value=\"Value2\"[,…]@
-    tags :: [Tag]
+    secretId :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
--- Create a value of 'TagResource' with all optional fields omitted.
+-- Create a value of 'DeleteResourcePolicy' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'secretId', 'tagResource_secretId' - The identifier for the secret that you want to attach tags to. You can
--- specify either the Amazon Resource Name (ARN) or the friendly name of
--- the secret.
+-- 'secretId', 'deleteResourcePolicy_secretId' - Specifies the secret that you want to delete the attached resource-based
+-- policy for. You can specify either the Amazon Resource Name (ARN) or the
+-- friendly name of the secret.
 --
 -- If you specify an ARN, we generally recommend that you specify a
 -- complete ARN. You can specify a partial ARN too—for example, if you
@@ -155,30 +120,16 @@ data TagResource = TagResource'
 -- If you do include the random suffix added by Secrets Manager, you
 -- receive either a /ResourceNotFoundException/ or an
 -- /AccessDeniedException/ error, depending on your permissions.
---
--- 'tags', 'tagResource_tags' - The tags to attach to the secret. Each element in the list consists of a
--- @Key@ and a @Value@.
---
--- This parameter to the API requires a JSON text string argument. For
--- information on how to format a JSON parameter for the various command
--- line tool environments, see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /AWS CLI User Guide/. For the AWS CLI, you can also use the
--- syntax:
--- @--Tags Key=\"Key1\",Value=\"Value1\" Key=\"Key2\",Value=\"Value2\"[,…]@
-newTagResource ::
+newDeleteResourcePolicy ::
   -- | 'secretId'
   Prelude.Text ->
-  TagResource
-newTagResource pSecretId_ =
-  TagResource'
-    { secretId = pSecretId_,
-      tags = Prelude.mempty
-    }
+  DeleteResourcePolicy
+newDeleteResourcePolicy pSecretId_ =
+  DeleteResourcePolicy' {secretId = pSecretId_}
 
--- | The identifier for the secret that you want to attach tags to. You can
--- specify either the Amazon Resource Name (ARN) or the friendly name of
--- the secret.
+-- | Specifies the secret that you want to delete the attached resource-based
+-- policy for. You can specify either the Amazon Resource Name (ARN) or the
+-- friendly name of the secret.
 --
 -- If you specify an ARN, we generally recommend that you specify a
 -- complete ARN. You can specify a partial ARN too—for example, if you
@@ -198,37 +149,35 @@ newTagResource pSecretId_ =
 -- If you do include the random suffix added by Secrets Manager, you
 -- receive either a /ResourceNotFoundException/ or an
 -- /AccessDeniedException/ error, depending on your permissions.
-tagResource_secretId :: Lens.Lens' TagResource Prelude.Text
-tagResource_secretId = Lens.lens (\TagResource' {secretId} -> secretId) (\s@TagResource' {} a -> s {secretId = a} :: TagResource)
+deleteResourcePolicy_secretId :: Lens.Lens' DeleteResourcePolicy Prelude.Text
+deleteResourcePolicy_secretId = Lens.lens (\DeleteResourcePolicy' {secretId} -> secretId) (\s@DeleteResourcePolicy' {} a -> s {secretId = a} :: DeleteResourcePolicy)
 
--- | The tags to attach to the secret. Each element in the list consists of a
--- @Key@ and a @Value@.
---
--- This parameter to the API requires a JSON text string argument. For
--- information on how to format a JSON parameter for the various command
--- line tool environments, see
--- <https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json Using JSON for Parameters>
--- in the /AWS CLI User Guide/. For the AWS CLI, you can also use the
--- syntax:
--- @--Tags Key=\"Key1\",Value=\"Value1\" Key=\"Key2\",Value=\"Value2\"[,…]@
-tagResource_tags :: Lens.Lens' TagResource [Tag]
-tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Prelude._Coerce
-
-instance Prelude.AWSRequest TagResource where
-  type Rs TagResource = TagResourceResponse
+instance Prelude.AWSRequest DeleteResourcePolicy where
+  type
+    Rs DeleteResourcePolicy =
+      DeleteResourcePolicyResponse
   request = Request.postJSON defaultService
-  response = Response.receiveNull TagResourceResponse'
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteResourcePolicyResponse'
+            Prelude.<$> (x Prelude..?> "ARN")
+            Prelude.<*> (x Prelude..?> "Name")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Prelude.Hashable TagResource
+instance Prelude.Hashable DeleteResourcePolicy
 
-instance Prelude.NFData TagResource
+instance Prelude.NFData DeleteResourcePolicy
 
-instance Prelude.ToHeaders TagResource where
+instance Prelude.ToHeaders DeleteResourcePolicy where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ("secretsmanager.TagResource" :: Prelude.ByteString),
+              Prelude.=# ( "secretsmanager.DeleteResourcePolicy" ::
+                             Prelude.ByteString
+                         ),
             "Content-Type"
               Prelude.=# ( "application/x-amz-json-1.1" ::
                              Prelude.ByteString
@@ -236,33 +185,68 @@ instance Prelude.ToHeaders TagResource where
           ]
       )
 
-instance Prelude.ToJSON TagResource where
-  toJSON TagResource' {..} =
+instance Prelude.ToJSON DeleteResourcePolicy where
+  toJSON DeleteResourcePolicy' {..} =
     Prelude.object
       ( Prelude.catMaybes
-          [ Prelude.Just ("SecretId" Prelude..= secretId),
-            Prelude.Just ("Tags" Prelude..= tags)
-          ]
+          [Prelude.Just ("SecretId" Prelude..= secretId)]
       )
 
-instance Prelude.ToPath TagResource where
+instance Prelude.ToPath DeleteResourcePolicy where
   toPath = Prelude.const "/"
 
-instance Prelude.ToQuery TagResource where
+instance Prelude.ToQuery DeleteResourcePolicy where
   toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'newTagResourceResponse' smart constructor.
-data TagResourceResponse = TagResourceResponse'
-  {
+-- | /See:/ 'newDeleteResourcePolicyResponse' smart constructor.
+data DeleteResourcePolicyResponse = DeleteResourcePolicyResponse'
+  { -- | The ARN of the secret that the resource-based policy was deleted for.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The friendly name of the secret that the resource-based policy was
+    -- deleted for.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
--- Create a value of 'TagResourceResponse' with all optional fields omitted.
+-- Create a value of 'DeleteResourcePolicyResponse' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
-newTagResourceResponse ::
-  TagResourceResponse
-newTagResourceResponse = TagResourceResponse'
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'arn', 'deleteResourcePolicyResponse_arn' - The ARN of the secret that the resource-based policy was deleted for.
+--
+-- 'name', 'deleteResourcePolicyResponse_name' - The friendly name of the secret that the resource-based policy was
+-- deleted for.
+--
+-- 'httpStatus', 'deleteResourcePolicyResponse_httpStatus' - The response's http status code.
+newDeleteResourcePolicyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteResourcePolicyResponse
+newDeleteResourcePolicyResponse pHttpStatus_ =
+  DeleteResourcePolicyResponse'
+    { arn =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
-instance Prelude.NFData TagResourceResponse
+-- | The ARN of the secret that the resource-based policy was deleted for.
+deleteResourcePolicyResponse_arn :: Lens.Lens' DeleteResourcePolicyResponse (Prelude.Maybe Prelude.Text)
+deleteResourcePolicyResponse_arn = Lens.lens (\DeleteResourcePolicyResponse' {arn} -> arn) (\s@DeleteResourcePolicyResponse' {} a -> s {arn = a} :: DeleteResourcePolicyResponse)
+
+-- | The friendly name of the secret that the resource-based policy was
+-- deleted for.
+deleteResourcePolicyResponse_name :: Lens.Lens' DeleteResourcePolicyResponse (Prelude.Maybe Prelude.Text)
+deleteResourcePolicyResponse_name = Lens.lens (\DeleteResourcePolicyResponse' {name} -> name) (\s@DeleteResourcePolicyResponse' {} a -> s {name = a} :: DeleteResourcePolicyResponse)
+
+-- | The response's http status code.
+deleteResourcePolicyResponse_httpStatus :: Lens.Lens' DeleteResourcePolicyResponse Prelude.Int
+deleteResourcePolicyResponse_httpStatus = Lens.lens (\DeleteResourcePolicyResponse' {httpStatus} -> httpStatus) (\s@DeleteResourcePolicyResponse' {} a -> s {httpStatus = a} :: DeleteResourcePolicyResponse)
+
+instance Prelude.NFData DeleteResourcePolicyResponse

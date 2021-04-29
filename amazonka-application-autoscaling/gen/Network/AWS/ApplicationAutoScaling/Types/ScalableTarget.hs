@@ -5,125 +5,36 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE StrictData #-}
-{-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE NoImplicitPrelude #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApplicationAutoScaling.PutScalingPolicy
+-- Module      : Network.AWS.ApplicationAutoScaling.Types.ScalableTarget
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
--- Creates or updates a scaling policy for an Application Auto Scaling
--- scalable target.
---
--- Each scalable target is identified by a service namespace, resource ID,
--- and scalable dimension. A scaling policy applies to the scalable target
--- identified by those three attributes. You cannot create a scaling policy
--- until you have registered the resource as a scalable target.
---
--- Multiple scaling policies can be in force at the same time for the same
--- scalable target. You can have one or more target tracking scaling
--- policies, one or more step scaling policies, or both. However, there is
--- a chance that multiple policies could conflict, instructing the scalable
--- target to scale out or in at the same time. Application Auto Scaling
--- gives precedence to the policy that provides the largest capacity for
--- both scale out and scale in. For example, if one policy increases
--- capacity by 3, another policy increases capacity by 200 percent, and the
--- current capacity is 10, Application Auto Scaling uses the policy with
--- the highest calculated capacity (200% of 10 = 20) and scales out to 30.
---
--- We recommend caution, however, when using target tracking scaling
--- policies with step scaling policies because conflicts between these
--- policies can cause undesirable behavior. For example, if the step
--- scaling policy initiates a scale-in activity before the target tracking
--- policy is ready to scale in, the scale-in activity will not be blocked.
--- After the scale-in activity completes, the target tracking policy could
--- instruct the scalable target to scale out again.
---
--- For more information, see
--- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html Target tracking scaling policies>
--- and
--- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html Step scaling policies>
--- in the /Application Auto Scaling User Guide/.
---
--- If a scalable target is deregistered, the scalable target is no longer
--- available to execute scaling policies. Any scaling policies that were
--- specified for the scalable target are deleted.
-module Network.AWS.ApplicationAutoScaling.PutScalingPolicy
-  ( -- * Creating a Request
-    PutScalingPolicy (..),
-    newPutScalingPolicy,
+module Network.AWS.ApplicationAutoScaling.Types.ScalableTarget where
 
-    -- * Request Lenses
-    putScalingPolicy_targetTrackingScalingPolicyConfiguration,
-    putScalingPolicy_policyType,
-    putScalingPolicy_stepScalingPolicyConfiguration,
-    putScalingPolicy_policyName,
-    putScalingPolicy_serviceNamespace,
-    putScalingPolicy_resourceId,
-    putScalingPolicy_scalableDimension,
-
-    -- * Destructuring the Response
-    PutScalingPolicyResponse (..),
-    newPutScalingPolicyResponse,
-
-    -- * Response Lenses
-    putScalingPolicyResponse_alarms,
-    putScalingPolicyResponse_httpStatus,
-    putScalingPolicyResponse_policyARN,
-  )
-where
-
-import Network.AWS.ApplicationAutoScaling.Types
+import Network.AWS.ApplicationAutoScaling.Types.ScalableDimension
+import Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace
+import Network.AWS.ApplicationAutoScaling.Types.SuspendedState
 import qualified Network.AWS.Lens as Lens
 import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
 
--- | /See:/ 'newPutScalingPolicy' smart constructor.
-data PutScalingPolicy = PutScalingPolicy'
-  { -- | A target tracking scaling policy. Includes support for predefined or
-    -- customized metrics.
-    --
-    -- This parameter is required if you are creating a policy and the policy
-    -- type is @TargetTrackingScaling@.
-    targetTrackingScalingPolicyConfiguration :: Prelude.Maybe TargetTrackingScalingPolicyConfiguration,
-    -- | The policy type. This parameter is required if you are creating a
-    -- scaling policy.
-    --
-    -- The following policy types are supported:
-    --
-    -- @TargetTrackingScaling@—Not supported for Amazon EMR
-    --
-    -- @StepScaling@—Not supported for DynamoDB, Amazon Comprehend, Lambda,
-    -- Amazon Keyspaces (for Apache Cassandra), or Amazon MSK.
-    --
-    -- For more information, see
-    -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html Target tracking scaling policies>
-    -- and
-    -- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html Step scaling policies>
-    -- in the /Application Auto Scaling User Guide/.
-    policyType :: Prelude.Maybe PolicyType,
-    -- | A step scaling policy.
-    --
-    -- This parameter is required if you are creating a policy and the policy
-    -- type is @StepScaling@.
-    stepScalingPolicyConfiguration :: Prelude.Maybe StepScalingPolicyConfiguration,
-    -- | The name of the scaling policy.
-    policyName :: Prelude.Text,
-    -- | The namespace of the AWS service that provides the resource. For a
-    -- resource provided by your own application or service, use
-    -- @custom-resource@ instead.
+-- | Represents a scalable target.
+--
+-- /See:/ 'newScalableTarget' smart constructor.
+data ScalableTarget = ScalableTarget'
+  { suspendedState :: Prelude.Maybe SuspendedState,
+    -- | The namespace of the AWS service that provides the resource, or a
+    -- @custom-resource@.
     serviceNamespace :: ServiceNamespace,
-    -- | The identifier of the resource associated with the scaling policy. This
+    -- | The identifier of the resource associated with the scalable target. This
     -- string consists of the resource type and unique identifier.
     --
     -- -   ECS service - The resource type is @service@ and the unique
@@ -184,8 +95,8 @@ data PutScalingPolicy = PutScalingPolicy'
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
     resourceId :: Prelude.Text,
-    -- | The scalable dimension. This string consists of the service namespace,
-    -- resource type, and scaling property.
+    -- | The scalable dimension associated with the scalable target. This string
+    -- consists of the service namespace, resource type, and scaling property.
     --
     -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
     --     service.
@@ -240,52 +151,33 @@ data PutScalingPolicy = PutScalingPolicy'
     --
     -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
     --     GiB) for brokers in an Amazon MSK cluster.
-    scalableDimension :: ScalableDimension
+    scalableDimension :: ScalableDimension,
+    -- | The minimum value to scale to in response to a scale-in activity.
+    minCapacity :: Prelude.Int,
+    -- | The maximum value to scale to in response to a scale-out activity.
+    maxCapacity :: Prelude.Int,
+    -- | The ARN of an IAM role that allows Application Auto Scaling to modify
+    -- the scalable target on your behalf.
+    roleARN :: Prelude.Text,
+    -- | The Unix timestamp for when the scalable target was created.
+    creationTime :: Prelude.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
--- Create a value of 'PutScalingPolicy' with all optional fields omitted.
+-- Create a value of 'ScalableTarget' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'targetTrackingScalingPolicyConfiguration', 'putScalingPolicy_targetTrackingScalingPolicyConfiguration' - A target tracking scaling policy. Includes support for predefined or
--- customized metrics.
+-- 'suspendedState', 'scalableTarget_suspendedState' - Undocumented member.
 --
--- This parameter is required if you are creating a policy and the policy
--- type is @TargetTrackingScaling@.
+-- 'serviceNamespace', 'scalableTarget_serviceNamespace' - The namespace of the AWS service that provides the resource, or a
+-- @custom-resource@.
 --
--- 'policyType', 'putScalingPolicy_policyType' - The policy type. This parameter is required if you are creating a
--- scaling policy.
---
--- The following policy types are supported:
---
--- @TargetTrackingScaling@—Not supported for Amazon EMR
---
--- @StepScaling@—Not supported for DynamoDB, Amazon Comprehend, Lambda,
--- Amazon Keyspaces (for Apache Cassandra), or Amazon MSK.
---
--- For more information, see
--- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html Target tracking scaling policies>
--- and
--- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html Step scaling policies>
--- in the /Application Auto Scaling User Guide/.
---
--- 'stepScalingPolicyConfiguration', 'putScalingPolicy_stepScalingPolicyConfiguration' - A step scaling policy.
---
--- This parameter is required if you are creating a policy and the policy
--- type is @StepScaling@.
---
--- 'policyName', 'putScalingPolicy_policyName' - The name of the scaling policy.
---
--- 'serviceNamespace', 'putScalingPolicy_serviceNamespace' - The namespace of the AWS service that provides the resource. For a
--- resource provided by your own application or service, use
--- @custom-resource@ instead.
---
--- 'resourceId', 'putScalingPolicy_resourceId' - The identifier of the resource associated with the scaling policy. This
+-- 'resourceId', 'scalableTarget_resourceId' - The identifier of the resource associated with the scalable target. This
 -- string consists of the resource type and unique identifier.
 --
 -- -   ECS service - The resource type is @service@ and the unique
@@ -346,8 +238,8 @@ data PutScalingPolicy = PutScalingPolicy'
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
 --
--- 'scalableDimension', 'putScalingPolicy_scalableDimension' - The scalable dimension. This string consists of the service namespace,
--- resource type, and scaling property.
+-- 'scalableDimension', 'scalableTarget_scalableDimension' - The scalable dimension associated with the scalable target. This string
+-- consists of the service namespace, resource type, and scaling property.
 --
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
@@ -402,76 +294,60 @@ data PutScalingPolicy = PutScalingPolicy'
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
-newPutScalingPolicy ::
-  -- | 'policyName'
-  Prelude.Text ->
+--
+-- 'minCapacity', 'scalableTarget_minCapacity' - The minimum value to scale to in response to a scale-in activity.
+--
+-- 'maxCapacity', 'scalableTarget_maxCapacity' - The maximum value to scale to in response to a scale-out activity.
+--
+-- 'roleARN', 'scalableTarget_roleARN' - The ARN of an IAM role that allows Application Auto Scaling to modify
+-- the scalable target on your behalf.
+--
+-- 'creationTime', 'scalableTarget_creationTime' - The Unix timestamp for when the scalable target was created.
+newScalableTarget ::
   -- | 'serviceNamespace'
   ServiceNamespace ->
   -- | 'resourceId'
   Prelude.Text ->
   -- | 'scalableDimension'
   ScalableDimension ->
-  PutScalingPolicy
-newPutScalingPolicy
-  pPolicyName_
+  -- | 'minCapacity'
+  Prelude.Int ->
+  -- | 'maxCapacity'
+  Prelude.Int ->
+  -- | 'roleARN'
+  Prelude.Text ->
+  -- | 'creationTime'
+  Prelude.UTCTime ->
+  ScalableTarget
+newScalableTarget
   pServiceNamespace_
   pResourceId_
-  pScalableDimension_ =
-    PutScalingPolicy'
-      { targetTrackingScalingPolicyConfiguration =
-          Prelude.Nothing,
-        policyType = Prelude.Nothing,
-        stepScalingPolicyConfiguration = Prelude.Nothing,
-        policyName = pPolicyName_,
+  pScalableDimension_
+  pMinCapacity_
+  pMaxCapacity_
+  pRoleARN_
+  pCreationTime_ =
+    ScalableTarget'
+      { suspendedState = Prelude.Nothing,
         serviceNamespace = pServiceNamespace_,
         resourceId = pResourceId_,
-        scalableDimension = pScalableDimension_
+        scalableDimension = pScalableDimension_,
+        minCapacity = pMinCapacity_,
+        maxCapacity = pMaxCapacity_,
+        roleARN = pRoleARN_,
+        creationTime = Prelude._Time Lens.# pCreationTime_
       }
 
--- | A target tracking scaling policy. Includes support for predefined or
--- customized metrics.
---
--- This parameter is required if you are creating a policy and the policy
--- type is @TargetTrackingScaling@.
-putScalingPolicy_targetTrackingScalingPolicyConfiguration :: Lens.Lens' PutScalingPolicy (Prelude.Maybe TargetTrackingScalingPolicyConfiguration)
-putScalingPolicy_targetTrackingScalingPolicyConfiguration = Lens.lens (\PutScalingPolicy' {targetTrackingScalingPolicyConfiguration} -> targetTrackingScalingPolicyConfiguration) (\s@PutScalingPolicy' {} a -> s {targetTrackingScalingPolicyConfiguration = a} :: PutScalingPolicy)
+-- | Undocumented member.
+scalableTarget_suspendedState :: Lens.Lens' ScalableTarget (Prelude.Maybe SuspendedState)
+scalableTarget_suspendedState = Lens.lens (\ScalableTarget' {suspendedState} -> suspendedState) (\s@ScalableTarget' {} a -> s {suspendedState = a} :: ScalableTarget)
 
--- | The policy type. This parameter is required if you are creating a
--- scaling policy.
---
--- The following policy types are supported:
---
--- @TargetTrackingScaling@—Not supported for Amazon EMR
---
--- @StepScaling@—Not supported for DynamoDB, Amazon Comprehend, Lambda,
--- Amazon Keyspaces (for Apache Cassandra), or Amazon MSK.
---
--- For more information, see
--- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html Target tracking scaling policies>
--- and
--- <https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html Step scaling policies>
--- in the /Application Auto Scaling User Guide/.
-putScalingPolicy_policyType :: Lens.Lens' PutScalingPolicy (Prelude.Maybe PolicyType)
-putScalingPolicy_policyType = Lens.lens (\PutScalingPolicy' {policyType} -> policyType) (\s@PutScalingPolicy' {} a -> s {policyType = a} :: PutScalingPolicy)
+-- | The namespace of the AWS service that provides the resource, or a
+-- @custom-resource@.
+scalableTarget_serviceNamespace :: Lens.Lens' ScalableTarget ServiceNamespace
+scalableTarget_serviceNamespace = Lens.lens (\ScalableTarget' {serviceNamespace} -> serviceNamespace) (\s@ScalableTarget' {} a -> s {serviceNamespace = a} :: ScalableTarget)
 
--- | A step scaling policy.
---
--- This parameter is required if you are creating a policy and the policy
--- type is @StepScaling@.
-putScalingPolicy_stepScalingPolicyConfiguration :: Lens.Lens' PutScalingPolicy (Prelude.Maybe StepScalingPolicyConfiguration)
-putScalingPolicy_stepScalingPolicyConfiguration = Lens.lens (\PutScalingPolicy' {stepScalingPolicyConfiguration} -> stepScalingPolicyConfiguration) (\s@PutScalingPolicy' {} a -> s {stepScalingPolicyConfiguration = a} :: PutScalingPolicy)
-
--- | The name of the scaling policy.
-putScalingPolicy_policyName :: Lens.Lens' PutScalingPolicy Prelude.Text
-putScalingPolicy_policyName = Lens.lens (\PutScalingPolicy' {policyName} -> policyName) (\s@PutScalingPolicy' {} a -> s {policyName = a} :: PutScalingPolicy)
-
--- | The namespace of the AWS service that provides the resource. For a
--- resource provided by your own application or service, use
--- @custom-resource@ instead.
-putScalingPolicy_serviceNamespace :: Lens.Lens' PutScalingPolicy ServiceNamespace
-putScalingPolicy_serviceNamespace = Lens.lens (\PutScalingPolicy' {serviceNamespace} -> serviceNamespace) (\s@PutScalingPolicy' {} a -> s {serviceNamespace = a} :: PutScalingPolicy)
-
--- | The identifier of the resource associated with the scaling policy. This
+-- | The identifier of the resource associated with the scalable target. This
 -- string consists of the resource type and unique identifier.
 --
 -- -   ECS service - The resource type is @service@ and the unique
@@ -531,11 +407,11 @@ putScalingPolicy_serviceNamespace = Lens.lens (\PutScalingPolicy' {serviceNamesp
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-putScalingPolicy_resourceId :: Lens.Lens' PutScalingPolicy Prelude.Text
-putScalingPolicy_resourceId = Lens.lens (\PutScalingPolicy' {resourceId} -> resourceId) (\s@PutScalingPolicy' {} a -> s {resourceId = a} :: PutScalingPolicy)
+scalableTarget_resourceId :: Lens.Lens' ScalableTarget Prelude.Text
+scalableTarget_resourceId = Lens.lens (\ScalableTarget' {resourceId} -> resourceId) (\s@ScalableTarget' {} a -> s {resourceId = a} :: ScalableTarget)
 
--- | The scalable dimension. This string consists of the service namespace,
--- resource type, and scaling property.
+-- | The scalable dimension associated with the scalable target. This string
+-- consists of the service namespace, resource type, and scaling property.
 --
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
@@ -590,113 +466,42 @@ putScalingPolicy_resourceId = Lens.lens (\PutScalingPolicy' {resourceId} -> reso
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
-putScalingPolicy_scalableDimension :: Lens.Lens' PutScalingPolicy ScalableDimension
-putScalingPolicy_scalableDimension = Lens.lens (\PutScalingPolicy' {scalableDimension} -> scalableDimension) (\s@PutScalingPolicy' {} a -> s {scalableDimension = a} :: PutScalingPolicy)
+scalableTarget_scalableDimension :: Lens.Lens' ScalableTarget ScalableDimension
+scalableTarget_scalableDimension = Lens.lens (\ScalableTarget' {scalableDimension} -> scalableDimension) (\s@ScalableTarget' {} a -> s {scalableDimension = a} :: ScalableTarget)
 
-instance Prelude.AWSRequest PutScalingPolicy where
-  type Rs PutScalingPolicy = PutScalingPolicyResponse
-  request = Request.postJSON defaultService
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          PutScalingPolicyResponse'
-            Prelude.<$> (x Prelude..?> "Alarms" Prelude..!@ Prelude.mempty)
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..:> "PolicyARN")
+-- | The minimum value to scale to in response to a scale-in activity.
+scalableTarget_minCapacity :: Lens.Lens' ScalableTarget Prelude.Int
+scalableTarget_minCapacity = Lens.lens (\ScalableTarget' {minCapacity} -> minCapacity) (\s@ScalableTarget' {} a -> s {minCapacity = a} :: ScalableTarget)
+
+-- | The maximum value to scale to in response to a scale-out activity.
+scalableTarget_maxCapacity :: Lens.Lens' ScalableTarget Prelude.Int
+scalableTarget_maxCapacity = Lens.lens (\ScalableTarget' {maxCapacity} -> maxCapacity) (\s@ScalableTarget' {} a -> s {maxCapacity = a} :: ScalableTarget)
+
+-- | The ARN of an IAM role that allows Application Auto Scaling to modify
+-- the scalable target on your behalf.
+scalableTarget_roleARN :: Lens.Lens' ScalableTarget Prelude.Text
+scalableTarget_roleARN = Lens.lens (\ScalableTarget' {roleARN} -> roleARN) (\s@ScalableTarget' {} a -> s {roleARN = a} :: ScalableTarget)
+
+-- | The Unix timestamp for when the scalable target was created.
+scalableTarget_creationTime :: Lens.Lens' ScalableTarget Prelude.UTCTime
+scalableTarget_creationTime = Lens.lens (\ScalableTarget' {creationTime} -> creationTime) (\s@ScalableTarget' {} a -> s {creationTime = a} :: ScalableTarget) Prelude.. Prelude._Time
+
+instance Prelude.FromJSON ScalableTarget where
+  parseJSON =
+    Prelude.withObject
+      "ScalableTarget"
+      ( \x ->
+          ScalableTarget'
+            Prelude.<$> (x Prelude..:? "SuspendedState")
+            Prelude.<*> (x Prelude..: "ServiceNamespace")
+            Prelude.<*> (x Prelude..: "ResourceId")
+            Prelude.<*> (x Prelude..: "ScalableDimension")
+            Prelude.<*> (x Prelude..: "MinCapacity")
+            Prelude.<*> (x Prelude..: "MaxCapacity")
+            Prelude.<*> (x Prelude..: "RoleARN")
+            Prelude.<*> (x Prelude..: "CreationTime")
       )
 
-instance Prelude.Hashable PutScalingPolicy
+instance Prelude.Hashable ScalableTarget
 
-instance Prelude.NFData PutScalingPolicy
-
-instance Prelude.ToHeaders PutScalingPolicy where
-  toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
-          [ "X-Amz-Target"
-              Prelude.=# ( "AnyScaleFrontendService.PutScalingPolicy" ::
-                             Prelude.ByteString
-                         ),
-            "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
-          ]
-      )
-
-instance Prelude.ToJSON PutScalingPolicy where
-  toJSON PutScalingPolicy' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ( "TargetTrackingScalingPolicyConfiguration"
-                Prelude..=
-            )
-              Prelude.<$> targetTrackingScalingPolicyConfiguration,
-            ("PolicyType" Prelude..=) Prelude.<$> policyType,
-            ("StepScalingPolicyConfiguration" Prelude..=)
-              Prelude.<$> stepScalingPolicyConfiguration,
-            Prelude.Just ("PolicyName" Prelude..= policyName),
-            Prelude.Just
-              ("ServiceNamespace" Prelude..= serviceNamespace),
-            Prelude.Just ("ResourceId" Prelude..= resourceId),
-            Prelude.Just
-              ("ScalableDimension" Prelude..= scalableDimension)
-          ]
-      )
-
-instance Prelude.ToPath PutScalingPolicy where
-  toPath = Prelude.const "/"
-
-instance Prelude.ToQuery PutScalingPolicy where
-  toQuery = Prelude.const Prelude.mempty
-
--- | /See:/ 'newPutScalingPolicyResponse' smart constructor.
-data PutScalingPolicyResponse = PutScalingPolicyResponse'
-  { -- | The CloudWatch alarms created for the target tracking scaling policy.
-    alarms :: Prelude.Maybe [Alarm],
-    -- | The response's http status code.
-    httpStatus :: Prelude.Int,
-    -- | The Amazon Resource Name (ARN) of the resulting scaling policy.
-    policyARN :: Prelude.Text
-  }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
-
--- |
--- Create a value of 'PutScalingPolicyResponse' with all optional fields omitted.
---
--- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
---
--- The following record fields are available, with the corresponding lenses provided
--- for backwards compatibility:
---
--- 'alarms', 'putScalingPolicyResponse_alarms' - The CloudWatch alarms created for the target tracking scaling policy.
---
--- 'httpStatus', 'putScalingPolicyResponse_httpStatus' - The response's http status code.
---
--- 'policyARN', 'putScalingPolicyResponse_policyARN' - The Amazon Resource Name (ARN) of the resulting scaling policy.
-newPutScalingPolicyResponse ::
-  -- | 'httpStatus'
-  Prelude.Int ->
-  -- | 'policyARN'
-  Prelude.Text ->
-  PutScalingPolicyResponse
-newPutScalingPolicyResponse pHttpStatus_ pPolicyARN_ =
-  PutScalingPolicyResponse'
-    { alarms = Prelude.Nothing,
-      httpStatus = pHttpStatus_,
-      policyARN = pPolicyARN_
-    }
-
--- | The CloudWatch alarms created for the target tracking scaling policy.
-putScalingPolicyResponse_alarms :: Lens.Lens' PutScalingPolicyResponse (Prelude.Maybe [Alarm])
-putScalingPolicyResponse_alarms = Lens.lens (\PutScalingPolicyResponse' {alarms} -> alarms) (\s@PutScalingPolicyResponse' {} a -> s {alarms = a} :: PutScalingPolicyResponse) Prelude.. Lens.mapping Prelude._Coerce
-
--- | The response's http status code.
-putScalingPolicyResponse_httpStatus :: Lens.Lens' PutScalingPolicyResponse Prelude.Int
-putScalingPolicyResponse_httpStatus = Lens.lens (\PutScalingPolicyResponse' {httpStatus} -> httpStatus) (\s@PutScalingPolicyResponse' {} a -> s {httpStatus = a} :: PutScalingPolicyResponse)
-
--- | The Amazon Resource Name (ARN) of the resulting scaling policy.
-putScalingPolicyResponse_policyARN :: Lens.Lens' PutScalingPolicyResponse Prelude.Text
-putScalingPolicyResponse_policyARN = Lens.lens (\PutScalingPolicyResponse' {policyARN} -> policyARN) (\s@PutScalingPolicyResponse' {} a -> s {policyARN = a} :: PutScalingPolicyResponse)
-
-instance Prelude.NFData PutScalingPolicyResponse
+instance Prelude.NFData ScalableTarget

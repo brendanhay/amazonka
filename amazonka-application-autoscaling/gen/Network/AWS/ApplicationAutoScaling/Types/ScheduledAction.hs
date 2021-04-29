@@ -5,74 +5,37 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE StrictData #-}
-{-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE NoImplicitPrelude #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
+-- Module      : Network.AWS.ApplicationAutoScaling.Types.ScheduledAction
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
--- Gets information about the scalable targets in the specified namespace.
---
--- You can filter the results using @ResourceIds@ and @ScalableDimension@.
---
--- This operation returns paginated results.
-module Network.AWS.ApplicationAutoScaling.DescribeScalableTargets
-  ( -- * Creating a Request
-    DescribeScalableTargets (..),
-    newDescribeScalableTargets,
+module Network.AWS.ApplicationAutoScaling.Types.ScheduledAction where
 
-    -- * Request Lenses
-    describeScalableTargets_nextToken,
-    describeScalableTargets_maxResults,
-    describeScalableTargets_scalableDimension,
-    describeScalableTargets_resourceIds,
-    describeScalableTargets_serviceNamespace,
-
-    -- * Destructuring the Response
-    DescribeScalableTargetsResponse (..),
-    newDescribeScalableTargetsResponse,
-
-    -- * Response Lenses
-    describeScalableTargetsResponse_nextToken,
-    describeScalableTargetsResponse_scalableTargets,
-    describeScalableTargetsResponse_httpStatus,
-  )
-where
-
-import Network.AWS.ApplicationAutoScaling.Types
+import Network.AWS.ApplicationAutoScaling.Types.ScalableDimension
+import Network.AWS.ApplicationAutoScaling.Types.ScalableTargetAction
+import Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Pager
 import qualified Network.AWS.Prelude as Prelude
-import qualified Network.AWS.Request as Request
-import qualified Network.AWS.Response as Response
 
--- | /See:/ 'newDescribeScalableTargets' smart constructor.
-data DescribeScalableTargets = DescribeScalableTargets'
-  { -- | The token for the next set of results.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The maximum number of scalable targets. This value can be between 1 and
-    -- 50. The default value is 50.
-    --
-    -- If this parameter is used, the operation returns up to @MaxResults@
-    -- results at a time, along with a @NextToken@ value. To get the next set
-    -- of results, include the @NextToken@ value in a subsequent call. If this
-    -- parameter is not used, the operation returns up to 50 results and a
-    -- @NextToken@ value, if applicable.
-    maxResults :: Prelude.Maybe Prelude.Int,
-    -- | The scalable dimension associated with the scalable target. This string
-    -- consists of the service namespace, resource type, and scaling property.
-    -- If you specify a scalable dimension, you must also specify a resource
-    -- ID.
+-- | Represents a scheduled action.
+--
+-- /See:/ 'newScheduledAction' smart constructor.
+data ScheduledAction = ScheduledAction'
+  { -- | The date and time that the action is scheduled to begin, in UTC.
+    startTime :: Prelude.Maybe Prelude.POSIX,
+    -- | The date and time that the action is scheduled to end, in UTC.
+    endTime :: Prelude.Maybe Prelude.POSIX,
+    -- | The scalable dimension. This string consists of the service namespace,
+    -- resource type, and scaling property.
     --
     -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
     --     service.
@@ -128,7 +91,48 @@ data DescribeScalableTargets = DescribeScalableTargets'
     -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
     --     GiB) for brokers in an Amazon MSK cluster.
     scalableDimension :: Prelude.Maybe ScalableDimension,
-    -- | The identifier of the resource associated with the scalable target. This
+    -- | The time zone used when referring to the date and time of a scheduled
+    -- action, when the scheduled action uses an at or cron expression.
+    timezone :: Prelude.Maybe Prelude.Text,
+    -- | The new minimum and maximum capacity. You can set both values or just
+    -- one. At the scheduled time, if the current capacity is below the minimum
+    -- capacity, Application Auto Scaling scales out to the minimum capacity.
+    -- If the current capacity is above the maximum capacity, Application Auto
+    -- Scaling scales in to the maximum capacity.
+    scalableTargetAction :: Prelude.Maybe ScalableTargetAction,
+    -- | The name of the scheduled action.
+    scheduledActionName :: Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the scheduled action.
+    scheduledActionARN :: Prelude.Text,
+    -- | The namespace of the AWS service that provides the resource, or a
+    -- @custom-resource@.
+    serviceNamespace :: ServiceNamespace,
+    -- | The schedule for this action. The following formats are supported:
+    --
+    -- -   At expressions - \"@at(yyyy-mm-ddThh:mm:ss)@\"
+    --
+    -- -   Rate expressions - \"@rate(value unit)@\"
+    --
+    -- -   Cron expressions - \"@cron(fields)@\"
+    --
+    -- At expressions are useful for one-time schedules. Cron expressions are
+    -- useful for scheduled actions that run periodically at a specified date
+    -- and time, and rate expressions are useful for scheduled actions that run
+    -- at a regular interval.
+    --
+    -- At and cron expressions use Universal Coordinated Time (UTC) by default.
+    --
+    -- The cron format consists of six fields separated by white spaces:
+    -- [Minutes] [Hours] [Day_of_Month] [Month] [Day_of_Week] [Year].
+    --
+    -- For rate expressions, /value/ is a positive integer and /unit/ is
+    -- @minute@ | @minutes@ | @hour@ | @hours@ | @day@ | @days@.
+    --
+    -- For more information and examples, see
+    -- <https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html Example scheduled actions for Application Auto Scaling>
+    -- in the /Application Auto Scaling User Guide/.
+    schedule :: Prelude.Text,
+    -- | The identifier of the resource associated with the scaling policy. This
     -- string consists of the resource type and unique identifier.
     --
     -- -   ECS service - The resource type is @service@ and the unique
@@ -188,37 +192,26 @@ data DescribeScalableTargets = DescribeScalableTargets'
     -- -   Amazon MSK cluster - The resource type and unique identifier are
     --     specified using the cluster ARN. Example:
     --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-    resourceIds :: Prelude.Maybe [Prelude.Text],
-    -- | The namespace of the AWS service that provides the resource. For a
-    -- resource provided by your own application or service, use
-    -- @custom-resource@ instead.
-    serviceNamespace :: ServiceNamespace
+    resourceId :: Prelude.Text,
+    -- | The date and time that the scheduled action was created.
+    creationTime :: Prelude.POSIX
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
--- Create a value of 'DescribeScalableTargets' with all optional fields omitted.
+-- Create a value of 'ScheduledAction' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'describeScalableTargets_nextToken' - The token for the next set of results.
+-- 'startTime', 'scheduledAction_startTime' - The date and time that the action is scheduled to begin, in UTC.
 --
--- 'maxResults', 'describeScalableTargets_maxResults' - The maximum number of scalable targets. This value can be between 1 and
--- 50. The default value is 50.
+-- 'endTime', 'scheduledAction_endTime' - The date and time that the action is scheduled to end, in UTC.
 --
--- If this parameter is used, the operation returns up to @MaxResults@
--- results at a time, along with a @NextToken@ value. To get the next set
--- of results, include the @NextToken@ value in a subsequent call. If this
--- parameter is not used, the operation returns up to 50 results and a
--- @NextToken@ value, if applicable.
---
--- 'scalableDimension', 'describeScalableTargets_scalableDimension' - The scalable dimension associated with the scalable target. This string
--- consists of the service namespace, resource type, and scaling property.
--- If you specify a scalable dimension, you must also specify a resource
--- ID.
+-- 'scalableDimension', 'scheduledAction_scalableDimension' - The scalable dimension. This string consists of the service namespace,
+-- resource type, and scaling property.
 --
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
@@ -274,7 +267,48 @@ data DescribeScalableTargets = DescribeScalableTargets'
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
 --
--- 'resourceIds', 'describeScalableTargets_resourceIds' - The identifier of the resource associated with the scalable target. This
+-- 'timezone', 'scheduledAction_timezone' - The time zone used when referring to the date and time of a scheduled
+-- action, when the scheduled action uses an at or cron expression.
+--
+-- 'scalableTargetAction', 'scheduledAction_scalableTargetAction' - The new minimum and maximum capacity. You can set both values or just
+-- one. At the scheduled time, if the current capacity is below the minimum
+-- capacity, Application Auto Scaling scales out to the minimum capacity.
+-- If the current capacity is above the maximum capacity, Application Auto
+-- Scaling scales in to the maximum capacity.
+--
+-- 'scheduledActionName', 'scheduledAction_scheduledActionName' - The name of the scheduled action.
+--
+-- 'scheduledActionARN', 'scheduledAction_scheduledActionARN' - The Amazon Resource Name (ARN) of the scheduled action.
+--
+-- 'serviceNamespace', 'scheduledAction_serviceNamespace' - The namespace of the AWS service that provides the resource, or a
+-- @custom-resource@.
+--
+-- 'schedule', 'scheduledAction_schedule' - The schedule for this action. The following formats are supported:
+--
+-- -   At expressions - \"@at(yyyy-mm-ddThh:mm:ss)@\"
+--
+-- -   Rate expressions - \"@rate(value unit)@\"
+--
+-- -   Cron expressions - \"@cron(fields)@\"
+--
+-- At expressions are useful for one-time schedules. Cron expressions are
+-- useful for scheduled actions that run periodically at a specified date
+-- and time, and rate expressions are useful for scheduled actions that run
+-- at a regular interval.
+--
+-- At and cron expressions use Universal Coordinated Time (UTC) by default.
+--
+-- The cron format consists of six fields separated by white spaces:
+-- [Minutes] [Hours] [Day_of_Month] [Month] [Day_of_Week] [Year].
+--
+-- For rate expressions, /value/ is a positive integer and /unit/ is
+-- @minute@ | @minutes@ | @hour@ | @hours@ | @day@ | @days@.
+--
+-- For more information and examples, see
+-- <https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html Example scheduled actions for Application Auto Scaling>
+-- in the /Application Auto Scaling User Guide/.
+--
+-- 'resourceId', 'scheduledAction_resourceId' - The identifier of the resource associated with the scaling policy. This
 -- string consists of the resource type and unique identifier.
 --
 -- -   ECS service - The resource type is @service@ and the unique
@@ -335,42 +369,52 @@ data DescribeScalableTargets = DescribeScalableTargets'
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
 --
--- 'serviceNamespace', 'describeScalableTargets_serviceNamespace' - The namespace of the AWS service that provides the resource. For a
--- resource provided by your own application or service, use
--- @custom-resource@ instead.
-newDescribeScalableTargets ::
+-- 'creationTime', 'scheduledAction_creationTime' - The date and time that the scheduled action was created.
+newScheduledAction ::
+  -- | 'scheduledActionName'
+  Prelude.Text ->
+  -- | 'scheduledActionARN'
+  Prelude.Text ->
   -- | 'serviceNamespace'
   ServiceNamespace ->
-  DescribeScalableTargets
-newDescribeScalableTargets pServiceNamespace_ =
-  DescribeScalableTargets'
-    { nextToken =
-        Prelude.Nothing,
-      maxResults = Prelude.Nothing,
-      scalableDimension = Prelude.Nothing,
-      resourceIds = Prelude.Nothing,
-      serviceNamespace = pServiceNamespace_
-    }
+  -- | 'schedule'
+  Prelude.Text ->
+  -- | 'resourceId'
+  Prelude.Text ->
+  -- | 'creationTime'
+  Prelude.UTCTime ->
+  ScheduledAction
+newScheduledAction
+  pScheduledActionName_
+  pScheduledActionARN_
+  pServiceNamespace_
+  pSchedule_
+  pResourceId_
+  pCreationTime_ =
+    ScheduledAction'
+      { startTime = Prelude.Nothing,
+        endTime = Prelude.Nothing,
+        scalableDimension = Prelude.Nothing,
+        timezone = Prelude.Nothing,
+        scalableTargetAction = Prelude.Nothing,
+        scheduledActionName = pScheduledActionName_,
+        scheduledActionARN = pScheduledActionARN_,
+        serviceNamespace = pServiceNamespace_,
+        schedule = pSchedule_,
+        resourceId = pResourceId_,
+        creationTime = Prelude._Time Lens.# pCreationTime_
+      }
 
--- | The token for the next set of results.
-describeScalableTargets_nextToken :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe Prelude.Text)
-describeScalableTargets_nextToken = Lens.lens (\DescribeScalableTargets' {nextToken} -> nextToken) (\s@DescribeScalableTargets' {} a -> s {nextToken = a} :: DescribeScalableTargets)
+-- | The date and time that the action is scheduled to begin, in UTC.
+scheduledAction_startTime :: Lens.Lens' ScheduledAction (Prelude.Maybe Prelude.UTCTime)
+scheduledAction_startTime = Lens.lens (\ScheduledAction' {startTime} -> startTime) (\s@ScheduledAction' {} a -> s {startTime = a} :: ScheduledAction) Prelude.. Lens.mapping Prelude._Time
 
--- | The maximum number of scalable targets. This value can be between 1 and
--- 50. The default value is 50.
---
--- If this parameter is used, the operation returns up to @MaxResults@
--- results at a time, along with a @NextToken@ value. To get the next set
--- of results, include the @NextToken@ value in a subsequent call. If this
--- parameter is not used, the operation returns up to 50 results and a
--- @NextToken@ value, if applicable.
-describeScalableTargets_maxResults :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe Prelude.Int)
-describeScalableTargets_maxResults = Lens.lens (\DescribeScalableTargets' {maxResults} -> maxResults) (\s@DescribeScalableTargets' {} a -> s {maxResults = a} :: DescribeScalableTargets)
+-- | The date and time that the action is scheduled to end, in UTC.
+scheduledAction_endTime :: Lens.Lens' ScheduledAction (Prelude.Maybe Prelude.UTCTime)
+scheduledAction_endTime = Lens.lens (\ScheduledAction' {endTime} -> endTime) (\s@ScheduledAction' {} a -> s {endTime = a} :: ScheduledAction) Prelude.. Lens.mapping Prelude._Time
 
--- | The scalable dimension associated with the scalable target. This string
--- consists of the service namespace, resource type, and scaling property.
--- If you specify a scalable dimension, you must also specify a resource
--- ID.
+-- | The scalable dimension. This string consists of the service namespace,
+-- resource type, and scaling property.
 --
 -- -   @ecs:service:DesiredCount@ - The desired task count of an ECS
 --     service.
@@ -425,10 +469,63 @@ describeScalableTargets_maxResults = Lens.lens (\DescribeScalableTargets' {maxRe
 --
 -- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in
 --     GiB) for brokers in an Amazon MSK cluster.
-describeScalableTargets_scalableDimension :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe ScalableDimension)
-describeScalableTargets_scalableDimension = Lens.lens (\DescribeScalableTargets' {scalableDimension} -> scalableDimension) (\s@DescribeScalableTargets' {} a -> s {scalableDimension = a} :: DescribeScalableTargets)
+scheduledAction_scalableDimension :: Lens.Lens' ScheduledAction (Prelude.Maybe ScalableDimension)
+scheduledAction_scalableDimension = Lens.lens (\ScheduledAction' {scalableDimension} -> scalableDimension) (\s@ScheduledAction' {} a -> s {scalableDimension = a} :: ScheduledAction)
 
--- | The identifier of the resource associated with the scalable target. This
+-- | The time zone used when referring to the date and time of a scheduled
+-- action, when the scheduled action uses an at or cron expression.
+scheduledAction_timezone :: Lens.Lens' ScheduledAction (Prelude.Maybe Prelude.Text)
+scheduledAction_timezone = Lens.lens (\ScheduledAction' {timezone} -> timezone) (\s@ScheduledAction' {} a -> s {timezone = a} :: ScheduledAction)
+
+-- | The new minimum and maximum capacity. You can set both values or just
+-- one. At the scheduled time, if the current capacity is below the minimum
+-- capacity, Application Auto Scaling scales out to the minimum capacity.
+-- If the current capacity is above the maximum capacity, Application Auto
+-- Scaling scales in to the maximum capacity.
+scheduledAction_scalableTargetAction :: Lens.Lens' ScheduledAction (Prelude.Maybe ScalableTargetAction)
+scheduledAction_scalableTargetAction = Lens.lens (\ScheduledAction' {scalableTargetAction} -> scalableTargetAction) (\s@ScheduledAction' {} a -> s {scalableTargetAction = a} :: ScheduledAction)
+
+-- | The name of the scheduled action.
+scheduledAction_scheduledActionName :: Lens.Lens' ScheduledAction Prelude.Text
+scheduledAction_scheduledActionName = Lens.lens (\ScheduledAction' {scheduledActionName} -> scheduledActionName) (\s@ScheduledAction' {} a -> s {scheduledActionName = a} :: ScheduledAction)
+
+-- | The Amazon Resource Name (ARN) of the scheduled action.
+scheduledAction_scheduledActionARN :: Lens.Lens' ScheduledAction Prelude.Text
+scheduledAction_scheduledActionARN = Lens.lens (\ScheduledAction' {scheduledActionARN} -> scheduledActionARN) (\s@ScheduledAction' {} a -> s {scheduledActionARN = a} :: ScheduledAction)
+
+-- | The namespace of the AWS service that provides the resource, or a
+-- @custom-resource@.
+scheduledAction_serviceNamespace :: Lens.Lens' ScheduledAction ServiceNamespace
+scheduledAction_serviceNamespace = Lens.lens (\ScheduledAction' {serviceNamespace} -> serviceNamespace) (\s@ScheduledAction' {} a -> s {serviceNamespace = a} :: ScheduledAction)
+
+-- | The schedule for this action. The following formats are supported:
+--
+-- -   At expressions - \"@at(yyyy-mm-ddThh:mm:ss)@\"
+--
+-- -   Rate expressions - \"@rate(value unit)@\"
+--
+-- -   Cron expressions - \"@cron(fields)@\"
+--
+-- At expressions are useful for one-time schedules. Cron expressions are
+-- useful for scheduled actions that run periodically at a specified date
+-- and time, and rate expressions are useful for scheduled actions that run
+-- at a regular interval.
+--
+-- At and cron expressions use Universal Coordinated Time (UTC) by default.
+--
+-- The cron format consists of six fields separated by white spaces:
+-- [Minutes] [Hours] [Day_of_Month] [Month] [Day_of_Week] [Year].
+--
+-- For rate expressions, /value/ is a positive integer and /unit/ is
+-- @minute@ | @minutes@ | @hour@ | @hours@ | @day@ | @days@.
+--
+-- For more information and examples, see
+-- <https://docs.aws.amazon.com/autoscaling/application/userguide/examples-scheduled-actions.html Example scheduled actions for Application Auto Scaling>
+-- in the /Application Auto Scaling User Guide/.
+scheduledAction_schedule :: Lens.Lens' ScheduledAction Prelude.Text
+scheduledAction_schedule = Lens.lens (\ScheduledAction' {schedule} -> schedule) (\s@ScheduledAction' {} a -> s {schedule = a} :: ScheduledAction)
+
+-- | The identifier of the resource associated with the scaling policy. This
 -- string consists of the resource type and unique identifier.
 --
 -- -   ECS service - The resource type is @service@ and the unique
@@ -488,143 +585,32 @@ describeScalableTargets_scalableDimension = Lens.lens (\DescribeScalableTargets'
 -- -   Amazon MSK cluster - The resource type and unique identifier are
 --     specified using the cluster ARN. Example:
 --     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.
-describeScalableTargets_resourceIds :: Lens.Lens' DescribeScalableTargets (Prelude.Maybe [Prelude.Text])
-describeScalableTargets_resourceIds = Lens.lens (\DescribeScalableTargets' {resourceIds} -> resourceIds) (\s@DescribeScalableTargets' {} a -> s {resourceIds = a} :: DescribeScalableTargets) Prelude.. Lens.mapping Prelude._Coerce
+scheduledAction_resourceId :: Lens.Lens' ScheduledAction Prelude.Text
+scheduledAction_resourceId = Lens.lens (\ScheduledAction' {resourceId} -> resourceId) (\s@ScheduledAction' {} a -> s {resourceId = a} :: ScheduledAction)
 
--- | The namespace of the AWS service that provides the resource. For a
--- resource provided by your own application or service, use
--- @custom-resource@ instead.
-describeScalableTargets_serviceNamespace :: Lens.Lens' DescribeScalableTargets ServiceNamespace
-describeScalableTargets_serviceNamespace = Lens.lens (\DescribeScalableTargets' {serviceNamespace} -> serviceNamespace) (\s@DescribeScalableTargets' {} a -> s {serviceNamespace = a} :: DescribeScalableTargets)
+-- | The date and time that the scheduled action was created.
+scheduledAction_creationTime :: Lens.Lens' ScheduledAction Prelude.UTCTime
+scheduledAction_creationTime = Lens.lens (\ScheduledAction' {creationTime} -> creationTime) (\s@ScheduledAction' {} a -> s {creationTime = a} :: ScheduledAction) Prelude.. Prelude._Time
 
-instance Pager.AWSPager DescribeScalableTargets where
-  page rq rs
-    | Pager.stop
-        ( rs
-            Lens.^? describeScalableTargetsResponse_nextToken
-              Prelude.. Lens._Just
-        ) =
-      Prelude.Nothing
-    | Pager.stop
-        ( rs
-            Lens.^? describeScalableTargetsResponse_scalableTargets
-              Prelude.. Lens._Just
-        ) =
-      Prelude.Nothing
-    | Prelude.otherwise =
-      Prelude.Just Prelude.$
-        rq
-          Lens.& describeScalableTargets_nextToken
-          Lens..~ rs
-          Lens.^? describeScalableTargetsResponse_nextToken
-            Prelude.. Lens._Just
-
-instance Prelude.AWSRequest DescribeScalableTargets where
-  type
-    Rs DescribeScalableTargets =
-      DescribeScalableTargetsResponse
-  request = Request.postJSON defaultService
-  response =
-    Response.receiveJSON
-      ( \s h x ->
-          DescribeScalableTargetsResponse'
-            Prelude.<$> (x Prelude..?> "NextToken")
-            Prelude.<*> ( x Prelude..?> "ScalableTargets"
-                            Prelude..!@ Prelude.mempty
-                        )
-            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+instance Prelude.FromJSON ScheduledAction where
+  parseJSON =
+    Prelude.withObject
+      "ScheduledAction"
+      ( \x ->
+          ScheduledAction'
+            Prelude.<$> (x Prelude..:? "StartTime")
+            Prelude.<*> (x Prelude..:? "EndTime")
+            Prelude.<*> (x Prelude..:? "ScalableDimension")
+            Prelude.<*> (x Prelude..:? "Timezone")
+            Prelude.<*> (x Prelude..:? "ScalableTargetAction")
+            Prelude.<*> (x Prelude..: "ScheduledActionName")
+            Prelude.<*> (x Prelude..: "ScheduledActionARN")
+            Prelude.<*> (x Prelude..: "ServiceNamespace")
+            Prelude.<*> (x Prelude..: "Schedule")
+            Prelude.<*> (x Prelude..: "ResourceId")
+            Prelude.<*> (x Prelude..: "CreationTime")
       )
 
-instance Prelude.Hashable DescribeScalableTargets
+instance Prelude.Hashable ScheduledAction
 
-instance Prelude.NFData DescribeScalableTargets
-
-instance Prelude.ToHeaders DescribeScalableTargets where
-  toHeaders =
-    Prelude.const
-      ( Prelude.mconcat
-          [ "X-Amz-Target"
-              Prelude.=# ( "AnyScaleFrontendService.DescribeScalableTargets" ::
-                             Prelude.ByteString
-                         ),
-            "Content-Type"
-              Prelude.=# ( "application/x-amz-json-1.1" ::
-                             Prelude.ByteString
-                         )
-          ]
-      )
-
-instance Prelude.ToJSON DescribeScalableTargets where
-  toJSON DescribeScalableTargets' {..} =
-    Prelude.object
-      ( Prelude.catMaybes
-          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
-            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
-            ("ScalableDimension" Prelude..=)
-              Prelude.<$> scalableDimension,
-            ("ResourceIds" Prelude..=) Prelude.<$> resourceIds,
-            Prelude.Just
-              ("ServiceNamespace" Prelude..= serviceNamespace)
-          ]
-      )
-
-instance Prelude.ToPath DescribeScalableTargets where
-  toPath = Prelude.const "/"
-
-instance Prelude.ToQuery DescribeScalableTargets where
-  toQuery = Prelude.const Prelude.mempty
-
--- | /See:/ 'newDescribeScalableTargetsResponse' smart constructor.
-data DescribeScalableTargetsResponse = DescribeScalableTargetsResponse'
-  { -- | The token required to get the next set of results. This value is @null@
-    -- if there are no more results to return.
-    nextToken :: Prelude.Maybe Prelude.Text,
-    -- | The scalable targets that match the request parameters.
-    scalableTargets :: Prelude.Maybe [ScalableTarget],
-    -- | The response's http status code.
-    httpStatus :: Prelude.Int
-  }
-  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
-
--- |
--- Create a value of 'DescribeScalableTargetsResponse' with all optional fields omitted.
---
--- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
---
--- The following record fields are available, with the corresponding lenses provided
--- for backwards compatibility:
---
--- 'nextToken', 'describeScalableTargetsResponse_nextToken' - The token required to get the next set of results. This value is @null@
--- if there are no more results to return.
---
--- 'scalableTargets', 'describeScalableTargetsResponse_scalableTargets' - The scalable targets that match the request parameters.
---
--- 'httpStatus', 'describeScalableTargetsResponse_httpStatus' - The response's http status code.
-newDescribeScalableTargetsResponse ::
-  -- | 'httpStatus'
-  Prelude.Int ->
-  DescribeScalableTargetsResponse
-newDescribeScalableTargetsResponse pHttpStatus_ =
-  DescribeScalableTargetsResponse'
-    { nextToken =
-        Prelude.Nothing,
-      scalableTargets = Prelude.Nothing,
-      httpStatus = pHttpStatus_
-    }
-
--- | The token required to get the next set of results. This value is @null@
--- if there are no more results to return.
-describeScalableTargetsResponse_nextToken :: Lens.Lens' DescribeScalableTargetsResponse (Prelude.Maybe Prelude.Text)
-describeScalableTargetsResponse_nextToken = Lens.lens (\DescribeScalableTargetsResponse' {nextToken} -> nextToken) (\s@DescribeScalableTargetsResponse' {} a -> s {nextToken = a} :: DescribeScalableTargetsResponse)
-
--- | The scalable targets that match the request parameters.
-describeScalableTargetsResponse_scalableTargets :: Lens.Lens' DescribeScalableTargetsResponse (Prelude.Maybe [ScalableTarget])
-describeScalableTargetsResponse_scalableTargets = Lens.lens (\DescribeScalableTargetsResponse' {scalableTargets} -> scalableTargets) (\s@DescribeScalableTargetsResponse' {} a -> s {scalableTargets = a} :: DescribeScalableTargetsResponse) Prelude.. Lens.mapping Prelude._Coerce
-
--- | The response's http status code.
-describeScalableTargetsResponse_httpStatus :: Lens.Lens' DescribeScalableTargetsResponse Prelude.Int
-describeScalableTargetsResponse_httpStatus = Lens.lens (\DescribeScalableTargetsResponse' {httpStatus} -> httpStatus) (\s@DescribeScalableTargetsResponse' {} a -> s {httpStatus = a} :: DescribeScalableTargetsResponse)
-
-instance
-  Prelude.NFData
-    DescribeScalableTargetsResponse
+instance Prelude.NFData ScheduledAction

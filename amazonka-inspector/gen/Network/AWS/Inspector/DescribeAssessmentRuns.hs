@@ -1,149 +1,186 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Inspector.DescribeAssessmentRuns
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the assessment runs that are specified by the ARNs of the assessment runs.
---
---
+-- Describes the assessment runs that are specified by the ARNs of the
+-- assessment runs.
 module Network.AWS.Inspector.DescribeAssessmentRuns
-    (
-    -- * Creating a Request
-      describeAssessmentRuns
-    , DescribeAssessmentRuns
+  ( -- * Creating a Request
+    DescribeAssessmentRuns (..),
+    newDescribeAssessmentRuns,
+
     -- * Request Lenses
-    , darAssessmentRunARNs
+    describeAssessmentRuns_assessmentRunArns,
 
     -- * Destructuring the Response
-    , describeAssessmentRunsResponse
-    , DescribeAssessmentRunsResponse
+    DescribeAssessmentRunsResponse (..),
+    newDescribeAssessmentRunsResponse,
+
     -- * Response Lenses
-    , darrsResponseStatus
-    , darrsAssessmentRuns
-    , darrsFailedItems
-    ) where
+    describeAssessmentRunsResponse_httpStatus,
+    describeAssessmentRunsResponse_assessmentRuns,
+    describeAssessmentRunsResponse_failedItems,
+  )
+where
 
 import Network.AWS.Inspector.Types
-import Network.AWS.Inspector.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeAssessmentRuns' smart constructor.
-newtype DescribeAssessmentRuns = DescribeAssessmentRuns'
-  { _darAssessmentRunARNs :: List1 Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeAssessmentRuns' smart constructor.
+data DescribeAssessmentRuns = DescribeAssessmentRuns'
+  { -- | The ARN that specifies the assessment run that you want to describe.
+    assessmentRunArns :: Prelude.NonEmpty Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeAssessmentRuns' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeAssessmentRuns' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'darAssessmentRunARNs' - The ARN that specifies the assessment run that you want to describe.
-describeAssessmentRuns
-    :: NonEmpty Text -- ^ 'darAssessmentRunARNs'
-    -> DescribeAssessmentRuns
-describeAssessmentRuns pAssessmentRunARNs_ =
-  DescribeAssessmentRuns' {_darAssessmentRunARNs = _List1 # pAssessmentRunARNs_}
-
-
--- | The ARN that specifies the assessment run that you want to describe.
-darAssessmentRunARNs :: Lens' DescribeAssessmentRuns (NonEmpty Text)
-darAssessmentRunARNs = lens _darAssessmentRunARNs (\ s a -> s{_darAssessmentRunARNs = a}) . _List1
-
-instance AWSRequest DescribeAssessmentRuns where
-        type Rs DescribeAssessmentRuns =
-             DescribeAssessmentRunsResponse
-        request = postJSON inspector
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeAssessmentRunsResponse' <$>
-                   (pure (fromEnum s)) <*>
-                     (x .?> "assessmentRuns" .!@ mempty)
-                     <*> (x .?> "failedItems" .!@ mempty))
-
-instance Hashable DescribeAssessmentRuns where
-
-instance NFData DescribeAssessmentRuns where
-
-instance ToHeaders DescribeAssessmentRuns where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("InspectorService.DescribeAssessmentRuns" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DescribeAssessmentRuns where
-        toJSON DescribeAssessmentRuns'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("assessmentRunArns" .= _darAssessmentRunARNs)])
-
-instance ToPath DescribeAssessmentRuns where
-        toPath = const "/"
-
-instance ToQuery DescribeAssessmentRuns where
-        toQuery = const mempty
-
--- | /See:/ 'describeAssessmentRunsResponse' smart constructor.
-data DescribeAssessmentRunsResponse = DescribeAssessmentRunsResponse'
-  { _darrsResponseStatus :: !Int
-  , _darrsAssessmentRuns :: ![AssessmentRun]
-  , _darrsFailedItems    :: !(Map Text FailedItemDetails)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeAssessmentRunsResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'darrsResponseStatus' - -- | The response status code.
---
--- * 'darrsAssessmentRuns' - Information about the assessment run.
---
--- * 'darrsFailedItems' - Assessment run details that cannot be described. An error code is provided for each failed item.
-describeAssessmentRunsResponse
-    :: Int -- ^ 'darrsResponseStatus'
-    -> DescribeAssessmentRunsResponse
-describeAssessmentRunsResponse pResponseStatus_ =
-  DescribeAssessmentRunsResponse'
-    { _darrsResponseStatus = pResponseStatus_
-    , _darrsAssessmentRuns = mempty
-    , _darrsFailedItems = mempty
+-- 'assessmentRunArns', 'describeAssessmentRuns_assessmentRunArns' - The ARN that specifies the assessment run that you want to describe.
+newDescribeAssessmentRuns ::
+  -- | 'assessmentRunArns'
+  Prelude.NonEmpty Prelude.Text ->
+  DescribeAssessmentRuns
+newDescribeAssessmentRuns pAssessmentRunArns_ =
+  DescribeAssessmentRuns'
+    { assessmentRunArns =
+        Prelude._Coerce Lens.# pAssessmentRunArns_
     }
 
+-- | The ARN that specifies the assessment run that you want to describe.
+describeAssessmentRuns_assessmentRunArns :: Lens.Lens' DescribeAssessmentRuns (Prelude.NonEmpty Prelude.Text)
+describeAssessmentRuns_assessmentRunArns = Lens.lens (\DescribeAssessmentRuns' {assessmentRunArns} -> assessmentRunArns) (\s@DescribeAssessmentRuns' {} a -> s {assessmentRunArns = a} :: DescribeAssessmentRuns) Prelude.. Prelude._Coerce
 
--- | -- | The response status code.
-darrsResponseStatus :: Lens' DescribeAssessmentRunsResponse Int
-darrsResponseStatus = lens _darrsResponseStatus (\ s a -> s{_darrsResponseStatus = a})
+instance Prelude.AWSRequest DescribeAssessmentRuns where
+  type
+    Rs DescribeAssessmentRuns =
+      DescribeAssessmentRunsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeAssessmentRunsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Prelude..?> "assessmentRuns"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> ( x Prelude..?> "failedItems"
+                            Prelude..!@ Prelude.mempty
+                        )
+      )
+
+instance Prelude.Hashable DescribeAssessmentRuns
+
+instance Prelude.NFData DescribeAssessmentRuns
+
+instance Prelude.ToHeaders DescribeAssessmentRuns where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "InspectorService.DescribeAssessmentRuns" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON DescribeAssessmentRuns where
+  toJSON DescribeAssessmentRuns' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("assessmentRunArns" Prelude..= assessmentRunArns)
+          ]
+      )
+
+instance Prelude.ToPath DescribeAssessmentRuns where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery DescribeAssessmentRuns where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeAssessmentRunsResponse' smart constructor.
+data DescribeAssessmentRunsResponse = DescribeAssessmentRunsResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | Information about the assessment run.
+    assessmentRuns :: [AssessmentRun],
+    -- | Assessment run details that cannot be described. An error code is
+    -- provided for each failed item.
+    failedItems :: Prelude.HashMap Prelude.Text FailedItemDetails
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeAssessmentRunsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'describeAssessmentRunsResponse_httpStatus' - The response's http status code.
+--
+-- 'assessmentRuns', 'describeAssessmentRunsResponse_assessmentRuns' - Information about the assessment run.
+--
+-- 'failedItems', 'describeAssessmentRunsResponse_failedItems' - Assessment run details that cannot be described. An error code is
+-- provided for each failed item.
+newDescribeAssessmentRunsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeAssessmentRunsResponse
+newDescribeAssessmentRunsResponse pHttpStatus_ =
+  DescribeAssessmentRunsResponse'
+    { httpStatus =
+        pHttpStatus_,
+      assessmentRuns = Prelude.mempty,
+      failedItems = Prelude.mempty
+    }
+
+-- | The response's http status code.
+describeAssessmentRunsResponse_httpStatus :: Lens.Lens' DescribeAssessmentRunsResponse Prelude.Int
+describeAssessmentRunsResponse_httpStatus = Lens.lens (\DescribeAssessmentRunsResponse' {httpStatus} -> httpStatus) (\s@DescribeAssessmentRunsResponse' {} a -> s {httpStatus = a} :: DescribeAssessmentRunsResponse)
 
 -- | Information about the assessment run.
-darrsAssessmentRuns :: Lens' DescribeAssessmentRunsResponse [AssessmentRun]
-darrsAssessmentRuns = lens _darrsAssessmentRuns (\ s a -> s{_darrsAssessmentRuns = a}) . _Coerce
+describeAssessmentRunsResponse_assessmentRuns :: Lens.Lens' DescribeAssessmentRunsResponse [AssessmentRun]
+describeAssessmentRunsResponse_assessmentRuns = Lens.lens (\DescribeAssessmentRunsResponse' {assessmentRuns} -> assessmentRuns) (\s@DescribeAssessmentRunsResponse' {} a -> s {assessmentRuns = a} :: DescribeAssessmentRunsResponse) Prelude.. Prelude._Coerce
 
--- | Assessment run details that cannot be described. An error code is provided for each failed item.
-darrsFailedItems :: Lens' DescribeAssessmentRunsResponse (HashMap Text FailedItemDetails)
-darrsFailedItems = lens _darrsFailedItems (\ s a -> s{_darrsFailedItems = a}) . _Map
+-- | Assessment run details that cannot be described. An error code is
+-- provided for each failed item.
+describeAssessmentRunsResponse_failedItems :: Lens.Lens' DescribeAssessmentRunsResponse (Prelude.HashMap Prelude.Text FailedItemDetails)
+describeAssessmentRunsResponse_failedItems = Lens.lens (\DescribeAssessmentRunsResponse' {failedItems} -> failedItems) (\s@DescribeAssessmentRunsResponse' {} a -> s {failedItems = a} :: DescribeAssessmentRunsResponse) Prelude.. Prelude._Coerce
 
-instance NFData DescribeAssessmentRunsResponse where
+instance
+  Prelude.NFData
+    DescribeAssessmentRunsResponse

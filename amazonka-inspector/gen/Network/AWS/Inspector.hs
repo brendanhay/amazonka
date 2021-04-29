@@ -1,54 +1,61 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Inspector
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __Amazon Inspector__
+-- Amazon Inspector
 --
--- Amazon Inspector enables you to analyze the behavior of your AWS resources and to identify potential security issues. For more information, see <http://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html Amazon Inspector User Guide> .
---
+-- Amazon Inspector enables you to analyze the behavior of your AWS
+-- resources and to identify potential security issues. For more
+-- information, see
+-- <https://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html Amazon Inspector User Guide>.
 module Network.AWS.Inspector
-    (
-    -- * Service Configuration
-      inspector
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
     -- $errors
 
-    -- ** AccessDeniedException
-    , _AccessDeniedException
+    -- ** PreviewGenerationInProgressException
+    _PreviewGenerationInProgressException,
 
-    -- ** AssessmentRunInProgressException
-    , _AssessmentRunInProgressException
-
-    -- ** NoSuchEntityException
-    , _NoSuchEntityException
+    -- ** ServiceTemporarilyUnavailableException
+    _ServiceTemporarilyUnavailableException,
 
     -- ** UnsupportedFeatureException
-    , _UnsupportedFeatureException
-
-    -- ** AgentsAlreadyRunningAssessmentException
-    , _AgentsAlreadyRunningAssessmentException
-
-    -- ** InvalidCrossAccountRoleException
-    , _InvalidCrossAccountRoleException
-
-    -- ** InvalidInputException
-    , _InvalidInputException
+    _UnsupportedFeatureException,
 
     -- ** InternalException
-    , _InternalException
+    _InternalException,
+
+    -- ** InvalidInputException
+    _InvalidInputException,
+
+    -- ** InvalidCrossAccountRoleException
+    _InvalidCrossAccountRoleException,
+
+    -- ** AssessmentRunInProgressException
+    _AssessmentRunInProgressException,
+
+    -- ** AgentsAlreadyRunningAssessmentException
+    _AgentsAlreadyRunningAssessmentException,
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
 
     -- ** LimitExceededException
-    , _LimitExceededException
+    _LimitExceededException,
+
+    -- ** NoSuchEntityException
+    _NoSuchEntityException,
 
     -- * Waiters
     -- $waiters
@@ -56,382 +63,409 @@ module Network.AWS.Inspector
     -- * Operations
     -- $operations
 
-    -- ** GetTelemetryMetadata
-    , module Network.AWS.Inspector.GetTelemetryMetadata
-
-    -- ** ListFindings (Paginated)
-    , module Network.AWS.Inspector.ListFindings
-
-    -- ** ListAssessmentTemplates (Paginated)
-    , module Network.AWS.Inspector.ListAssessmentTemplates
-
-    -- ** SubscribeToEvent
-    , module Network.AWS.Inspector.SubscribeToEvent
-
-    -- ** ListAssessmentRunAgents (Paginated)
-    , module Network.AWS.Inspector.ListAssessmentRunAgents
-
     -- ** StartAssessmentRun
-    , module Network.AWS.Inspector.StartAssessmentRun
+    StartAssessmentRun (StartAssessmentRun'),
+    newStartAssessmentRun,
+    StartAssessmentRunResponse (StartAssessmentRunResponse'),
+    newStartAssessmentRunResponse,
 
     -- ** DeleteAssessmentTemplate
-    , module Network.AWS.Inspector.DeleteAssessmentTemplate
+    DeleteAssessmentTemplate (DeleteAssessmentTemplate'),
+    newDeleteAssessmentTemplate,
+    DeleteAssessmentTemplateResponse (DeleteAssessmentTemplateResponse'),
+    newDeleteAssessmentTemplateResponse,
 
-    -- ** CreateAssessmentTemplate
-    , module Network.AWS.Inspector.CreateAssessmentTemplate
-
-    -- ** ListTagsForResource
-    , module Network.AWS.Inspector.ListTagsForResource
-
-    -- ** SetTagsForResource
-    , module Network.AWS.Inspector.SetTagsForResource
-
-    -- ** DescribeCrossAccountAccessRole
-    , module Network.AWS.Inspector.DescribeCrossAccountAccessRole
-
-    -- ** DescribeAssessmentTemplates
-    , module Network.AWS.Inspector.DescribeAssessmentTemplates
-
-    -- ** DescribeResourceGroups
-    , module Network.AWS.Inspector.DescribeResourceGroups
-
-    -- ** CreateAssessmentTarget
-    , module Network.AWS.Inspector.CreateAssessmentTarget
-
-    -- ** ListEventSubscriptions (Paginated)
-    , module Network.AWS.Inspector.ListEventSubscriptions
-
-    -- ** RegisterCrossAccountAccessRole
-    , module Network.AWS.Inspector.RegisterCrossAccountAccessRole
-
-    -- ** ListAssessmentTargets (Paginated)
-    , module Network.AWS.Inspector.ListAssessmentTargets
-
-    -- ** CreateResourceGroup
-    , module Network.AWS.Inspector.CreateResourceGroup
-
-    -- ** DescribeRulesPackages
-    , module Network.AWS.Inspector.DescribeRulesPackages
+    -- ** SubscribeToEvent
+    SubscribeToEvent (SubscribeToEvent'),
+    newSubscribeToEvent,
+    SubscribeToEventResponse (SubscribeToEventResponse'),
+    newSubscribeToEventResponse,
 
     -- ** StopAssessmentRun
-    , module Network.AWS.Inspector.StopAssessmentRun
+    StopAssessmentRun (StopAssessmentRun'),
+    newStopAssessmentRun,
+    StopAssessmentRunResponse (StopAssessmentRunResponse'),
+    newStopAssessmentRunResponse,
 
-    -- ** PreviewAgents (Paginated)
-    , module Network.AWS.Inspector.PreviewAgents
+    -- ** GetTelemetryMetadata
+    GetTelemetryMetadata (GetTelemetryMetadata'),
+    newGetTelemetryMetadata,
+    GetTelemetryMetadataResponse (GetTelemetryMetadataResponse'),
+    newGetTelemetryMetadataResponse,
 
-    -- ** DescribeFindings
-    , module Network.AWS.Inspector.DescribeFindings
-
-    -- ** AddAttributesToFindings
-    , module Network.AWS.Inspector.AddAttributesToFindings
-
-    -- ** UpdateAssessmentTarget
-    , module Network.AWS.Inspector.UpdateAssessmentTarget
-
-    -- ** DeleteAssessmentTarget
-    , module Network.AWS.Inspector.DeleteAssessmentTarget
-
-    -- ** DeleteAssessmentRun
-    , module Network.AWS.Inspector.DeleteAssessmentRun
-
-    -- ** ListAssessmentRuns (Paginated)
-    , module Network.AWS.Inspector.ListAssessmentRuns
-
-    -- ** GetAssessmentReport
-    , module Network.AWS.Inspector.GetAssessmentReport
-
-    -- ** ListRulesPackages (Paginated)
-    , module Network.AWS.Inspector.ListRulesPackages
-
-    -- ** DescribeAssessmentRuns
-    , module Network.AWS.Inspector.DescribeAssessmentRuns
-
-    -- ** UnsubscribeFromEvent
-    , module Network.AWS.Inspector.UnsubscribeFromEvent
-
-    -- ** RemoveAttributesFromFindings
-    , module Network.AWS.Inspector.RemoveAttributesFromFindings
+    -- ** ListFindings (Paginated)
+    ListFindings (ListFindings'),
+    newListFindings,
+    ListFindingsResponse (ListFindingsResponse'),
+    newListFindingsResponse,
 
     -- ** DescribeAssessmentTargets
-    , module Network.AWS.Inspector.DescribeAssessmentTargets
+    DescribeAssessmentTargets (DescribeAssessmentTargets'),
+    newDescribeAssessmentTargets,
+    DescribeAssessmentTargetsResponse (DescribeAssessmentTargetsResponse'),
+    newDescribeAssessmentTargetsResponse,
+
+    -- ** UpdateAssessmentTarget
+    UpdateAssessmentTarget (UpdateAssessmentTarget'),
+    newUpdateAssessmentTarget,
+    UpdateAssessmentTargetResponse (UpdateAssessmentTargetResponse'),
+    newUpdateAssessmentTargetResponse,
+
+    -- ** ListAssessmentTargets (Paginated)
+    ListAssessmentTargets (ListAssessmentTargets'),
+    newListAssessmentTargets,
+    ListAssessmentTargetsResponse (ListAssessmentTargetsResponse'),
+    newListAssessmentTargetsResponse,
+
+    -- ** ListAssessmentRuns (Paginated)
+    ListAssessmentRuns (ListAssessmentRuns'),
+    newListAssessmentRuns,
+    ListAssessmentRunsResponse (ListAssessmentRunsResponse'),
+    newListAssessmentRunsResponse,
+
+    -- ** DeleteAssessmentTarget
+    DeleteAssessmentTarget (DeleteAssessmentTarget'),
+    newDeleteAssessmentTarget,
+    DeleteAssessmentTargetResponse (DeleteAssessmentTargetResponse'),
+    newDeleteAssessmentTargetResponse,
+
+    -- ** AddAttributesToFindings
+    AddAttributesToFindings (AddAttributesToFindings'),
+    newAddAttributesToFindings,
+    AddAttributesToFindingsResponse (AddAttributesToFindingsResponse'),
+    newAddAttributesToFindingsResponse,
+
+    -- ** CreateAssessmentTarget
+    CreateAssessmentTarget (CreateAssessmentTarget'),
+    newCreateAssessmentTarget,
+    CreateAssessmentTargetResponse (CreateAssessmentTargetResponse'),
+    newCreateAssessmentTargetResponse,
+
+    -- ** GetExclusionsPreview
+    GetExclusionsPreview (GetExclusionsPreview'),
+    newGetExclusionsPreview,
+    GetExclusionsPreviewResponse (GetExclusionsPreviewResponse'),
+    newGetExclusionsPreviewResponse,
+
+    -- ** DescribeResourceGroups
+    DescribeResourceGroups (DescribeResourceGroups'),
+    newDescribeResourceGroups,
+    DescribeResourceGroupsResponse (DescribeResourceGroupsResponse'),
+    newDescribeResourceGroupsResponse,
+
+    -- ** PreviewAgents (Paginated)
+    PreviewAgents (PreviewAgents'),
+    newPreviewAgents,
+    PreviewAgentsResponse (PreviewAgentsResponse'),
+    newPreviewAgentsResponse,
+
+    -- ** ListExclusions (Paginated)
+    ListExclusions (ListExclusions'),
+    newListExclusions,
+    ListExclusionsResponse (ListExclusionsResponse'),
+    newListExclusionsResponse,
+
+    -- ** CreateAssessmentTemplate
+    CreateAssessmentTemplate (CreateAssessmentTemplate'),
+    newCreateAssessmentTemplate,
+    CreateAssessmentTemplateResponse (CreateAssessmentTemplateResponse'),
+    newCreateAssessmentTemplateResponse,
+
+    -- ** DescribeCrossAccountAccessRole
+    DescribeCrossAccountAccessRole (DescribeCrossAccountAccessRole'),
+    newDescribeCrossAccountAccessRole,
+    DescribeCrossAccountAccessRoleResponse (DescribeCrossAccountAccessRoleResponse'),
+    newDescribeCrossAccountAccessRoleResponse,
+
+    -- ** SetTagsForResource
+    SetTagsForResource (SetTagsForResource'),
+    newSetTagsForResource,
+    SetTagsForResourceResponse (SetTagsForResourceResponse'),
+    newSetTagsForResourceResponse,
+
+    -- ** DescribeExclusions
+    DescribeExclusions (DescribeExclusions'),
+    newDescribeExclusions,
+    DescribeExclusionsResponse (DescribeExclusionsResponse'),
+    newDescribeExclusionsResponse,
+
+    -- ** ListAssessmentTemplates (Paginated)
+    ListAssessmentTemplates (ListAssessmentTemplates'),
+    newListAssessmentTemplates,
+    ListAssessmentTemplatesResponse (ListAssessmentTemplatesResponse'),
+    newListAssessmentTemplatesResponse,
+
+    -- ** ListAssessmentRunAgents (Paginated)
+    ListAssessmentRunAgents (ListAssessmentRunAgents'),
+    newListAssessmentRunAgents,
+    ListAssessmentRunAgentsResponse (ListAssessmentRunAgentsResponse'),
+    newListAssessmentRunAgentsResponse,
+
+    -- ** DescribeAssessmentRuns
+    DescribeAssessmentRuns (DescribeAssessmentRuns'),
+    newDescribeAssessmentRuns,
+    DescribeAssessmentRunsResponse (DescribeAssessmentRunsResponse'),
+    newDescribeAssessmentRunsResponse,
+
+    -- ** DescribeRulesPackages
+    DescribeRulesPackages (DescribeRulesPackages'),
+    newDescribeRulesPackages,
+    DescribeRulesPackagesResponse (DescribeRulesPackagesResponse'),
+    newDescribeRulesPackagesResponse,
+
+    -- ** CreateExclusionsPreview
+    CreateExclusionsPreview (CreateExclusionsPreview'),
+    newCreateExclusionsPreview,
+    CreateExclusionsPreviewResponse (CreateExclusionsPreviewResponse'),
+    newCreateExclusionsPreviewResponse,
+
+    -- ** CreateResourceGroup
+    CreateResourceGroup (CreateResourceGroup'),
+    newCreateResourceGroup,
+    CreateResourceGroupResponse (CreateResourceGroupResponse'),
+    newCreateResourceGroupResponse,
+
+    -- ** UnsubscribeFromEvent
+    UnsubscribeFromEvent (UnsubscribeFromEvent'),
+    newUnsubscribeFromEvent,
+    UnsubscribeFromEventResponse (UnsubscribeFromEventResponse'),
+    newUnsubscribeFromEventResponse,
+
+    -- ** RemoveAttributesFromFindings
+    RemoveAttributesFromFindings (RemoveAttributesFromFindings'),
+    newRemoveAttributesFromFindings,
+    RemoveAttributesFromFindingsResponse (RemoveAttributesFromFindingsResponse'),
+    newRemoveAttributesFromFindingsResponse,
+
+    -- ** DeleteAssessmentRun
+    DeleteAssessmentRun (DeleteAssessmentRun'),
+    newDeleteAssessmentRun,
+    DeleteAssessmentRunResponse (DeleteAssessmentRunResponse'),
+    newDeleteAssessmentRunResponse,
+
+    -- ** RegisterCrossAccountAccessRole
+    RegisterCrossAccountAccessRole (RegisterCrossAccountAccessRole'),
+    newRegisterCrossAccountAccessRole,
+    RegisterCrossAccountAccessRoleResponse (RegisterCrossAccountAccessRoleResponse'),
+    newRegisterCrossAccountAccessRoleResponse,
+
+    -- ** ListEventSubscriptions (Paginated)
+    ListEventSubscriptions (ListEventSubscriptions'),
+    newListEventSubscriptions,
+    ListEventSubscriptionsResponse (ListEventSubscriptionsResponse'),
+    newListEventSubscriptionsResponse,
+
+    -- ** GetAssessmentReport
+    GetAssessmentReport (GetAssessmentReport'),
+    newGetAssessmentReport,
+    GetAssessmentReportResponse (GetAssessmentReportResponse'),
+    newGetAssessmentReportResponse,
+
+    -- ** ListRulesPackages (Paginated)
+    ListRulesPackages (ListRulesPackages'),
+    newListRulesPackages,
+    ListRulesPackagesResponse (ListRulesPackagesResponse'),
+    newListRulesPackagesResponse,
+
+    -- ** DescribeFindings
+    DescribeFindings (DescribeFindings'),
+    newDescribeFindings,
+    DescribeFindingsResponse (DescribeFindingsResponse'),
+    newDescribeFindingsResponse,
+
+    -- ** DescribeAssessmentTemplates
+    DescribeAssessmentTemplates (DescribeAssessmentTemplates'),
+    newDescribeAssessmentTemplates,
+    DescribeAssessmentTemplatesResponse (DescribeAssessmentTemplatesResponse'),
+    newDescribeAssessmentTemplatesResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- * Types
 
     -- ** AgentHealth
-    , AgentHealth (..)
+    AgentHealth (..),
 
     -- ** AgentHealthCode
-    , AgentHealthCode (..)
+    AgentHealthCode (..),
 
-    -- ** AssessmentRunNotificationSNSStatusCode
-    , AssessmentRunNotificationSNSStatusCode (..)
+    -- ** AssessmentRunNotificationSnsStatusCode
+    AssessmentRunNotificationSnsStatusCode (..),
 
     -- ** AssessmentRunState
-    , AssessmentRunState (..)
+    AssessmentRunState (..),
 
     -- ** AssetType
-    , AssetType (..)
+    AssetType (..),
 
     -- ** FailedItemErrorCode
-    , FailedItemErrorCode (..)
+    FailedItemErrorCode (..),
 
     -- ** InspectorEvent
-    , InspectorEvent (..)
+    InspectorEvent (..),
 
     -- ** Locale
-    , Locale (..)
+    Locale (..),
+
+    -- ** PreviewStatus
+    PreviewStatus (..),
 
     -- ** ReportFileFormat
-    , ReportFileFormat (..)
+    ReportFileFormat (..),
 
     -- ** ReportStatus
-    , ReportStatus (..)
+    ReportStatus (..),
 
     -- ** ReportType
-    , ReportType (..)
+    ReportType (..),
+
+    -- ** ScopeType
+    ScopeType (..),
 
     -- ** Severity
-    , Severity (..)
+    Severity (..),
 
     -- ** StopAction
-    , StopAction (..)
+    StopAction (..),
 
     -- ** AgentFilter
-    , AgentFilter
-    , agentFilter
-    , afAgentHealths
-    , afAgentHealthCodes
+    AgentFilter (AgentFilter'),
+    newAgentFilter,
 
     -- ** AgentPreview
-    , AgentPreview
-    , agentPreview
-    , apHostname
-    , apAutoScalingGroup
-    , apOperatingSystem
-    , apAgentVersion
-    , apKernelVersion
-    , apAgentHealth
-    , apIpv4Address
-    , apAgentId
+    AgentPreview (AgentPreview'),
+    newAgentPreview,
 
     -- ** AssessmentRun
-    , AssessmentRun
-    , assessmentRun
-    , arStartedAt
-    , arCompletedAt
-    , arArn
-    , arName
-    , arAssessmentTemplateARN
-    , arState
-    , arDurationInSeconds
-    , arRulesPackageARNs
-    , arUserAttributesForFindings
-    , arCreatedAt
-    , arStateChangedAt
-    , arDataCollected
-    , arStateChanges
-    , arNotifications
-    , arFindingCounts
+    AssessmentRun (AssessmentRun'),
+    newAssessmentRun,
 
     -- ** AssessmentRunAgent
-    , AssessmentRunAgent
-    , assessmentRunAgent
-    , araAutoScalingGroup
-    , araAgentHealthDetails
-    , araAgentId
-    , araAssessmentRunARN
-    , araAgentHealth
-    , araAgentHealthCode
-    , araTelemetryMetadata
+    AssessmentRunAgent (AssessmentRunAgent'),
+    newAssessmentRunAgent,
 
     -- ** AssessmentRunFilter
-    , AssessmentRunFilter
-    , assessmentRunFilter
-    , arfStates
-    , arfNamePattern
-    , arfStartTimeRange
-    , arfStateChangeTimeRange
-    , arfRulesPackageARNs
-    , arfCompletionTimeRange
-    , arfDurationRange
+    AssessmentRunFilter (AssessmentRunFilter'),
+    newAssessmentRunFilter,
 
     -- ** AssessmentRunNotification
-    , AssessmentRunNotification
-    , assessmentRunNotification
-    , arnSnsTopicARN
-    , arnSnsPublishStatusCode
-    , arnMessage
-    , arnDate
-    , arnEvent
-    , arnError
+    AssessmentRunNotification (AssessmentRunNotification'),
+    newAssessmentRunNotification,
 
     -- ** AssessmentRunStateChange
-    , AssessmentRunStateChange
-    , assessmentRunStateChange
-    , arscStateChangedAt
-    , arscState
+    AssessmentRunStateChange (AssessmentRunStateChange'),
+    newAssessmentRunStateChange,
 
     -- ** AssessmentTarget
-    , AssessmentTarget
-    , assessmentTarget
-    , aArn
-    , aName
-    , aResourceGroupARN
-    , aCreatedAt
-    , aUpdatedAt
+    AssessmentTarget (AssessmentTarget'),
+    newAssessmentTarget,
 
     -- ** AssessmentTargetFilter
-    , AssessmentTargetFilter
-    , assessmentTargetFilter
-    , atfAssessmentTargetNamePattern
+    AssessmentTargetFilter (AssessmentTargetFilter'),
+    newAssessmentTargetFilter,
 
     -- ** AssessmentTemplate
-    , AssessmentTemplate
-    , assessmentTemplate
-    , atLastAssessmentRunARN
-    , atArn
-    , atName
-    , atAssessmentTargetARN
-    , atDurationInSeconds
-    , atRulesPackageARNs
-    , atUserAttributesForFindings
-    , atAssessmentRunCount
-    , atCreatedAt
+    AssessmentTemplate (AssessmentTemplate'),
+    newAssessmentTemplate,
 
     -- ** AssessmentTemplateFilter
-    , AssessmentTemplateFilter
-    , assessmentTemplateFilter
-    , atfNamePattern
-    , atfRulesPackageARNs
-    , atfDurationRange
+    AssessmentTemplateFilter (AssessmentTemplateFilter'),
+    newAssessmentTemplateFilter,
 
     -- ** AssetAttributes
-    , AssetAttributes
-    , assetAttributes
-    , aaHostname
-    , aaAutoScalingGroup
-    , aaIpv4Addresses
-    , aaAgentId
-    , aaAmiId
-    , aaSchemaVersion
+    AssetAttributes (AssetAttributes'),
+    newAssetAttributes,
 
     -- ** Attribute
-    , Attribute
-    , attribute
-    , aValue
-    , aKey
+    Attribute (Attribute'),
+    newAttribute,
 
     -- ** DurationRange
-    , DurationRange
-    , durationRange
-    , drMinSeconds
-    , drMaxSeconds
+    DurationRange (DurationRange'),
+    newDurationRange,
 
     -- ** EventSubscription
-    , EventSubscription
-    , eventSubscription
-    , esEvent
-    , esSubscribedAt
+    EventSubscription (EventSubscription'),
+    newEventSubscription,
+
+    -- ** Exclusion
+    Exclusion (Exclusion'),
+    newExclusion,
+
+    -- ** ExclusionPreview
+    ExclusionPreview (ExclusionPreview'),
+    newExclusionPreview,
 
     -- ** FailedItemDetails
-    , FailedItemDetails
-    , failedItemDetails
-    , fidFailureCode
-    , fidRetryable
+    FailedItemDetails (FailedItemDetails'),
+    newFailedItemDetails,
 
     -- ** Finding
-    , Finding
-    , finding
-    , fService
-    , fSeverity
-    , fSchemaVersion
-    , fConfidence
-    , fAssetAttributes
-    , fServiceAttributes
-    , fId
-    , fNumericSeverity
-    , fAssetType
-    , fTitle
-    , fIndicatorOfCompromise
-    , fDescription
-    , fRecommendation
-    , fArn
-    , fAttributes
-    , fUserAttributes
-    , fCreatedAt
-    , fUpdatedAt
+    Finding (Finding'),
+    newFinding,
 
     -- ** FindingFilter
-    , FindingFilter
-    , findingFilter
-    , ffAgentIds
-    , ffRuleNames
-    , ffUserAttributes
-    , ffRulesPackageARNs
-    , ffAttributes
-    , ffSeverities
-    , ffCreationTimeRange
-    , ffAutoScalingGroups
+    FindingFilter (FindingFilter'),
+    newFindingFilter,
 
     -- ** InspectorServiceAttributes
-    , InspectorServiceAttributes
-    , inspectorServiceAttributes
-    , isaRulesPackageARN
-    , isaAssessmentRunARN
-    , isaSchemaVersion
+    InspectorServiceAttributes (InspectorServiceAttributes'),
+    newInspectorServiceAttributes,
+
+    -- ** NetworkInterface
+    NetworkInterface (NetworkInterface'),
+    newNetworkInterface,
+
+    -- ** PrivateIp
+    PrivateIp (PrivateIp'),
+    newPrivateIp,
 
     -- ** ResourceGroup
-    , ResourceGroup
-    , resourceGroup
-    , rgArn
-    , rgTags
-    , rgCreatedAt
+    ResourceGroup (ResourceGroup'),
+    newResourceGroup,
 
     -- ** ResourceGroupTag
-    , ResourceGroupTag
-    , resourceGroupTag
-    , rgtValue
-    , rgtKey
+    ResourceGroupTag (ResourceGroupTag'),
+    newResourceGroupTag,
 
     -- ** RulesPackage
-    , RulesPackage
-    , rulesPackage
-    , rpDescription
-    , rpArn
-    , rpName
-    , rpVersion
-    , rpProvider
+    RulesPackage (RulesPackage'),
+    newRulesPackage,
+
+    -- ** Scope
+    Scope (Scope'),
+    newScope,
+
+    -- ** SecurityGroup
+    SecurityGroup (SecurityGroup'),
+    newSecurityGroup,
 
     -- ** Subscription
-    , Subscription
-    , subscription
-    , sResourceARN
-    , sTopicARN
-    , sEventSubscriptions
+    Subscription (Subscription'),
+    newSubscription,
 
     -- ** Tag
-    , Tag
-    , tag
-    , tagValue
-    , tagKey
+    Tag (Tag'),
+    newTag,
 
     -- ** TelemetryMetadata
-    , TelemetryMetadata
-    , telemetryMetadata
-    , tmDataSize
-    , tmMessageType
-    , tmCount
+    TelemetryMetadata (TelemetryMetadata'),
+    newTelemetryMetadata,
 
     -- ** TimestampRange
-    , TimestampRange
-    , timestampRange
-    , trEndDate
-    , trBeginDate
-    ) where
+    TimestampRange (TimestampRange'),
+    newTimestampRange,
+  )
+where
 
 import Network.AWS.Inspector.AddAttributesToFindings
 import Network.AWS.Inspector.CreateAssessmentTarget
 import Network.AWS.Inspector.CreateAssessmentTemplate
+import Network.AWS.Inspector.CreateExclusionsPreview
 import Network.AWS.Inspector.CreateResourceGroup
 import Network.AWS.Inspector.DeleteAssessmentRun
 import Network.AWS.Inspector.DeleteAssessmentTarget
@@ -440,16 +474,20 @@ import Network.AWS.Inspector.DescribeAssessmentRuns
 import Network.AWS.Inspector.DescribeAssessmentTargets
 import Network.AWS.Inspector.DescribeAssessmentTemplates
 import Network.AWS.Inspector.DescribeCrossAccountAccessRole
+import Network.AWS.Inspector.DescribeExclusions
 import Network.AWS.Inspector.DescribeFindings
 import Network.AWS.Inspector.DescribeResourceGroups
 import Network.AWS.Inspector.DescribeRulesPackages
 import Network.AWS.Inspector.GetAssessmentReport
+import Network.AWS.Inspector.GetExclusionsPreview
 import Network.AWS.Inspector.GetTelemetryMetadata
+import Network.AWS.Inspector.Lens
 import Network.AWS.Inspector.ListAssessmentRunAgents
 import Network.AWS.Inspector.ListAssessmentRuns
 import Network.AWS.Inspector.ListAssessmentTargets
 import Network.AWS.Inspector.ListAssessmentTemplates
 import Network.AWS.Inspector.ListEventSubscriptions
+import Network.AWS.Inspector.ListExclusions
 import Network.AWS.Inspector.ListFindings
 import Network.AWS.Inspector.ListRulesPackages
 import Network.AWS.Inspector.ListTagsForResource
@@ -465,32 +503,29 @@ import Network.AWS.Inspector.UnsubscribeFromEvent
 import Network.AWS.Inspector.UpdateAssessmentTarget
 import Network.AWS.Inspector.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'Inspector'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'Inspector'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

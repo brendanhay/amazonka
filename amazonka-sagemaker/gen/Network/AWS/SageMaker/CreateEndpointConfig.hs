@@ -1,176 +1,373 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SageMaker.CreateEndpointConfig
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates an endpoint configuration that Amazon SageMaker hosting services uses to deploy models. In the configuration, you identify one or more models, created using the @CreateModel@ API, to deploy and the resources that you want Amazon SageMaker to provision. Then you call the <http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html CreateEndpoint> API.
+-- Creates an endpoint configuration that Amazon SageMaker hosting services
+-- uses to deploy models. In the configuration, you identify one or more
+-- models, created using the @CreateModel@ API, to deploy and the resources
+-- that you want Amazon SageMaker to provision. Then you call the
+-- CreateEndpoint API.
 --
+-- Use this API if you want to use Amazon SageMaker hosting services to
+-- deploy models into production.
 --
--- In the request, you define one or more @ProductionVariant@ s, each of which identifies a model. Each @ProductionVariant@ parameter also describes the resources that you want Amazon SageMaker to provision. This includes the number and type of ML compute instances to deploy.
+-- In the request, you define a @ProductionVariant@, for each model that
+-- you want to deploy. Each @ProductionVariant@ parameter also describes
+-- the resources that you want Amazon SageMaker to provision. This includes
+-- the number and type of ML compute instances to deploy.
 --
--- If you are hosting multiple models, you also assign a @VariantWeight@ to specify how much traffic you want to allocate to each model. For example, suppose that you want to host two models, A and B, and you assign traffic weight 2 for model A and 1 for model B. Amazon SageMaker distributes two-thirds of the traffic to Model A, and one-third to model B.
+-- If you are hosting multiple models, you also assign a @VariantWeight@ to
+-- specify how much traffic you want to allocate to each model. For
+-- example, suppose that you want to host two models, A and B, and you
+-- assign traffic weight 2 for model A and 1 for model B. Amazon SageMaker
+-- distributes two-thirds of the traffic to Model A, and one-third to model
+-- B.
 --
+-- For an example that calls this method when deploying a model to Amazon
+-- SageMaker hosting services, see
+-- <https://docs.aws.amazon.com/sagemaker/latest/dg/ex1-deploy-model.html#ex1-deploy-model-boto Deploy the Model to Amazon SageMaker Hosting Services (AWS SDK for Python (Boto 3)).>
+--
+-- When you call CreateEndpoint, a load call is made to DynamoDB to verify
+-- that your endpoint configuration exists. When you read data from a
+-- DynamoDB table supporting
+-- <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html Eventually Consistent Reads>
+-- , the response might not reflect the results of a recently completed
+-- write operation. The response might include some stale data. If the
+-- dependent entities are not yet in DynamoDB, this causes a validation
+-- error. If you repeat your read request after a short time, the response
+-- should return the latest data. So retry logic is recommended to handle
+-- these possible issues. We also recommend that customers call
+-- DescribeEndpointConfig before calling CreateEndpoint to minimize the
+-- potential impact of a DynamoDB eventually consistent read.
 module Network.AWS.SageMaker.CreateEndpointConfig
-    (
-    -- * Creating a Request
-      createEndpointConfig
-    , CreateEndpointConfig
+  ( -- * Creating a Request
+    CreateEndpointConfig (..),
+    newCreateEndpointConfig,
+
     -- * Request Lenses
-    , cecKMSKeyId
-    , cecTags
-    , cecEndpointConfigName
-    , cecProductionVariants
+    createEndpointConfig_kmsKeyId,
+    createEndpointConfig_tags,
+    createEndpointConfig_dataCaptureConfig,
+    createEndpointConfig_endpointConfigName,
+    createEndpointConfig_productionVariants,
 
     -- * Destructuring the Response
-    , createEndpointConfigResponse
-    , CreateEndpointConfigResponse
+    CreateEndpointConfigResponse (..),
+    newCreateEndpointConfigResponse,
+
     -- * Response Lenses
-    , cecrsResponseStatus
-    , cecrsEndpointConfigARN
-    ) where
+    createEndpointConfigResponse_httpStatus,
+    createEndpointConfigResponse_endpointConfigArn,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
-import Network.AWS.SageMaker.Types.Product
 
--- | /See:/ 'createEndpointConfig' smart constructor.
+-- | /See:/ 'newCreateEndpointConfig' smart constructor.
 data CreateEndpointConfig = CreateEndpointConfig'
-  { _cecKMSKeyId           :: !(Maybe Text)
-  , _cecTags               :: !(Maybe [Tag])
-  , _cecEndpointConfigName :: !Text
-  , _cecProductionVariants :: !(List1 ProductionVariant)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) of a AWS Key Management Service key that
+    -- Amazon SageMaker uses to encrypt data on the storage volume attached to
+    -- the ML compute instance that hosts the endpoint.
+    --
+    -- The KmsKeyId can be any of the following formats:
+    --
+    -- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    -- -   Key ARN:
+    --     @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
+    --
+    -- -   Alias name: @alias\/ExampleAlias@
+    --
+    -- -   Alias name ARN:
+    --     @arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias@
+    --
+    -- The KMS key policy must grant permission to the IAM role that you
+    -- specify in your @CreateEndpoint@, @UpdateEndpoint@ requests. For more
+    -- information, refer to the AWS Key Management Service section
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
+    --
+    -- Certain Nitro-based instances include local storage, dependent on the
+    -- instance type. Local storage volumes are encrypted using a hardware
+    -- module on the instance. You can\'t request a @KmsKeyId@ when using an
+    -- instance type with local storage. If any of the models that you specify
+    -- in the @ProductionVariants@ parameter use nitro-based instances with
+    -- local storage, do not specify a value for the @KmsKeyId@ parameter. If
+    -- you specify a value for @KmsKeyId@ when using any nitro-based instances
+    -- with local storage, the call to @CreateEndpointConfig@ fails.
+    --
+    -- For a list of instance types that support local instance storage, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes Instance Store Volumes>.
+    --
+    -- For more information about local instance storage encryption, see
+    -- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html SSD Instance Store Volumes>.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | An array of key-value pairs. You can use tags to categorize your AWS
+    -- resources in different ways, for example, by purpose, owner, or
+    -- environment. For more information, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+    tags :: Prelude.Maybe [Tag],
+    dataCaptureConfig :: Prelude.Maybe DataCaptureConfig,
+    -- | The name of the endpoint configuration. You specify this name in a
+    -- CreateEndpoint request.
+    endpointConfigName :: Prelude.Text,
+    -- | An list of @ProductionVariant@ objects, one for each model that you want
+    -- to host at this endpoint.
+    productionVariants :: Prelude.NonEmpty ProductionVariant
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateEndpointConfig' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateEndpointConfig' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cecKMSKeyId' - The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cecTags' - An array of key-value pairs. For more information, see <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
+-- 'kmsKeyId', 'createEndpointConfig_kmsKeyId' - The Amazon Resource Name (ARN) of a AWS Key Management Service key that
+-- Amazon SageMaker uses to encrypt data on the storage volume attached to
+-- the ML compute instance that hosts the endpoint.
 --
--- * 'cecEndpointConfigName' - The name of the endpoint configuration. You specify this name in a <http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html CreateEndpoint> request.
+-- The KmsKeyId can be any of the following formats:
 --
--- * 'cecProductionVariants' - An array of @ProductionVariant@ objects, one for each model that you want to host at this endpoint.
-createEndpointConfig
-    :: Text -- ^ 'cecEndpointConfigName'
-    -> NonEmpty ProductionVariant -- ^ 'cecProductionVariants'
-    -> CreateEndpointConfig
-createEndpointConfig pEndpointConfigName_ pProductionVariants_ =
-  CreateEndpointConfig'
-    { _cecKMSKeyId = Nothing
-    , _cecTags = Nothing
-    , _cecEndpointConfigName = pEndpointConfigName_
-    , _cecProductionVariants = _List1 # pProductionVariants_
-    }
+-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+-- -   Key ARN:
+--     @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+-- -   Alias name: @alias\/ExampleAlias@
+--
+-- -   Alias name ARN:
+--     @arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias@
+--
+-- The KMS key policy must grant permission to the IAM role that you
+-- specify in your @CreateEndpoint@, @UpdateEndpoint@ requests. For more
+-- information, refer to the AWS Key Management Service section
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
+--
+-- Certain Nitro-based instances include local storage, dependent on the
+-- instance type. Local storage volumes are encrypted using a hardware
+-- module on the instance. You can\'t request a @KmsKeyId@ when using an
+-- instance type with local storage. If any of the models that you specify
+-- in the @ProductionVariants@ parameter use nitro-based instances with
+-- local storage, do not specify a value for the @KmsKeyId@ parameter. If
+-- you specify a value for @KmsKeyId@ when using any nitro-based instances
+-- with local storage, the call to @CreateEndpointConfig@ fails.
+--
+-- For a list of instance types that support local instance storage, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes Instance Store Volumes>.
+--
+-- For more information about local instance storage encryption, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html SSD Instance Store Volumes>.
+--
+-- 'tags', 'createEndpointConfig_tags' - An array of key-value pairs. You can use tags to categorize your AWS
+-- resources in different ways, for example, by purpose, owner, or
+-- environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+--
+-- 'dataCaptureConfig', 'createEndpointConfig_dataCaptureConfig' - Undocumented member.
+--
+-- 'endpointConfigName', 'createEndpointConfig_endpointConfigName' - The name of the endpoint configuration. You specify this name in a
+-- CreateEndpoint request.
+--
+-- 'productionVariants', 'createEndpointConfig_productionVariants' - An list of @ProductionVariant@ objects, one for each model that you want
+-- to host at this endpoint.
+newCreateEndpointConfig ::
+  -- | 'endpointConfigName'
+  Prelude.Text ->
+  -- | 'productionVariants'
+  Prelude.NonEmpty ProductionVariant ->
+  CreateEndpointConfig
+newCreateEndpointConfig
+  pEndpointConfigName_
+  pProductionVariants_ =
+    CreateEndpointConfig'
+      { kmsKeyId = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        dataCaptureConfig = Prelude.Nothing,
+        endpointConfigName = pEndpointConfigName_,
+        productionVariants =
+          Prelude._Coerce Lens.# pProductionVariants_
+      }
 
+-- | The Amazon Resource Name (ARN) of a AWS Key Management Service key that
+-- Amazon SageMaker uses to encrypt data on the storage volume attached to
+-- the ML compute instance that hosts the endpoint.
+--
+-- The KmsKeyId can be any of the following formats:
+--
+-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+-- -   Key ARN:
+--     @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@
+--
+-- -   Alias name: @alias\/ExampleAlias@
+--
+-- -   Alias name ARN:
+--     @arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias@
+--
+-- The KMS key policy must grant permission to the IAM role that you
+-- specify in your @CreateEndpoint@, @UpdateEndpoint@ requests. For more
+-- information, refer to the AWS Key Management Service section
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in AWS KMS>
+--
+-- Certain Nitro-based instances include local storage, dependent on the
+-- instance type. Local storage volumes are encrypted using a hardware
+-- module on the instance. You can\'t request a @KmsKeyId@ when using an
+-- instance type with local storage. If any of the models that you specify
+-- in the @ProductionVariants@ parameter use nitro-based instances with
+-- local storage, do not specify a value for the @KmsKeyId@ parameter. If
+-- you specify a value for @KmsKeyId@ when using any nitro-based instances
+-- with local storage, the call to @CreateEndpointConfig@ fails.
+--
+-- For a list of instance types that support local instance storage, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes Instance Store Volumes>.
+--
+-- For more information about local instance storage encryption, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html SSD Instance Store Volumes>.
+createEndpointConfig_kmsKeyId :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe Prelude.Text)
+createEndpointConfig_kmsKeyId = Lens.lens (\CreateEndpointConfig' {kmsKeyId} -> kmsKeyId) (\s@CreateEndpointConfig' {} a -> s {kmsKeyId = a} :: CreateEndpointConfig)
 
--- | The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
-cecKMSKeyId :: Lens' CreateEndpointConfig (Maybe Text)
-cecKMSKeyId = lens _cecKMSKeyId (\ s a -> s{_cecKMSKeyId = a})
+-- | An array of key-value pairs. You can use tags to categorize your AWS
+-- resources in different ways, for example, by purpose, owner, or
+-- environment. For more information, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources>.
+createEndpointConfig_tags :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe [Tag])
+createEndpointConfig_tags = Lens.lens (\CreateEndpointConfig' {tags} -> tags) (\s@CreateEndpointConfig' {} a -> s {tags = a} :: CreateEndpointConfig) Prelude.. Lens.mapping Prelude._Coerce
 
--- | An array of key-value pairs. For more information, see <http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
-cecTags :: Lens' CreateEndpointConfig [Tag]
-cecTags = lens _cecTags (\ s a -> s{_cecTags = a}) . _Default . _Coerce
+-- | Undocumented member.
+createEndpointConfig_dataCaptureConfig :: Lens.Lens' CreateEndpointConfig (Prelude.Maybe DataCaptureConfig)
+createEndpointConfig_dataCaptureConfig = Lens.lens (\CreateEndpointConfig' {dataCaptureConfig} -> dataCaptureConfig) (\s@CreateEndpointConfig' {} a -> s {dataCaptureConfig = a} :: CreateEndpointConfig)
 
--- | The name of the endpoint configuration. You specify this name in a <http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html CreateEndpoint> request.
-cecEndpointConfigName :: Lens' CreateEndpointConfig Text
-cecEndpointConfigName = lens _cecEndpointConfigName (\ s a -> s{_cecEndpointConfigName = a})
+-- | The name of the endpoint configuration. You specify this name in a
+-- CreateEndpoint request.
+createEndpointConfig_endpointConfigName :: Lens.Lens' CreateEndpointConfig Prelude.Text
+createEndpointConfig_endpointConfigName = Lens.lens (\CreateEndpointConfig' {endpointConfigName} -> endpointConfigName) (\s@CreateEndpointConfig' {} a -> s {endpointConfigName = a} :: CreateEndpointConfig)
 
--- | An array of @ProductionVariant@ objects, one for each model that you want to host at this endpoint.
-cecProductionVariants :: Lens' CreateEndpointConfig (NonEmpty ProductionVariant)
-cecProductionVariants = lens _cecProductionVariants (\ s a -> s{_cecProductionVariants = a}) . _List1
+-- | An list of @ProductionVariant@ objects, one for each model that you want
+-- to host at this endpoint.
+createEndpointConfig_productionVariants :: Lens.Lens' CreateEndpointConfig (Prelude.NonEmpty ProductionVariant)
+createEndpointConfig_productionVariants = Lens.lens (\CreateEndpointConfig' {productionVariants} -> productionVariants) (\s@CreateEndpointConfig' {} a -> s {productionVariants = a} :: CreateEndpointConfig) Prelude.. Prelude._Coerce
 
-instance AWSRequest CreateEndpointConfig where
-        type Rs CreateEndpointConfig =
-             CreateEndpointConfigResponse
-        request = postJSON sageMaker
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateEndpointConfigResponse' <$>
-                   (pure (fromEnum s)) <*> (x .:> "EndpointConfigArn"))
+instance Prelude.AWSRequest CreateEndpointConfig where
+  type
+    Rs CreateEndpointConfig =
+      CreateEndpointConfigResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateEndpointConfigResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Prelude..:> "EndpointConfigArn")
+      )
 
-instance Hashable CreateEndpointConfig where
+instance Prelude.Hashable CreateEndpointConfig
 
-instance NFData CreateEndpointConfig where
+instance Prelude.NFData CreateEndpointConfig
 
-instance ToHeaders CreateEndpointConfig where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("SageMaker.CreateEndpointConfig" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders CreateEndpointConfig where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "SageMaker.CreateEndpointConfig" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON CreateEndpointConfig where
-        toJSON CreateEndpointConfig'{..}
-          = object
-              (catMaybes
-                 [("KmsKeyId" .=) <$> _cecKMSKeyId,
-                  ("Tags" .=) <$> _cecTags,
-                  Just
-                    ("EndpointConfigName" .= _cecEndpointConfigName),
-                  Just
-                    ("ProductionVariants" .= _cecProductionVariants)])
+instance Prelude.ToJSON CreateEndpointConfig where
+  toJSON CreateEndpointConfig' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("KmsKeyId" Prelude..=) Prelude.<$> kmsKeyId,
+            ("Tags" Prelude..=) Prelude.<$> tags,
+            ("DataCaptureConfig" Prelude..=)
+              Prelude.<$> dataCaptureConfig,
+            Prelude.Just
+              ("EndpointConfigName" Prelude..= endpointConfigName),
+            Prelude.Just
+              ( "ProductionVariants"
+                  Prelude..= productionVariants
+              )
+          ]
+      )
 
-instance ToPath CreateEndpointConfig where
-        toPath = const "/"
+instance Prelude.ToPath CreateEndpointConfig where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateEndpointConfig where
-        toQuery = const mempty
+instance Prelude.ToQuery CreateEndpointConfig where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createEndpointConfigResponse' smart constructor.
+-- | /See:/ 'newCreateEndpointConfigResponse' smart constructor.
 data CreateEndpointConfigResponse = CreateEndpointConfigResponse'
-  { _cecrsResponseStatus    :: !Int
-  , _cecrsEndpointConfigARN :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The Amazon Resource Name (ARN) of the endpoint configuration.
+    endpointConfigArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateEndpointConfigResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateEndpointConfigResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cecrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cecrsEndpointConfigARN' - The Amazon Resource Name (ARN) of the endpoint configuration.
-createEndpointConfigResponse
-    :: Int -- ^ 'cecrsResponseStatus'
-    -> Text -- ^ 'cecrsEndpointConfigARN'
-    -> CreateEndpointConfigResponse
-createEndpointConfigResponse pResponseStatus_ pEndpointConfigARN_ =
-  CreateEndpointConfigResponse'
-    { _cecrsResponseStatus = pResponseStatus_
-    , _cecrsEndpointConfigARN = pEndpointConfigARN_
-    }
+-- 'httpStatus', 'createEndpointConfigResponse_httpStatus' - The response's http status code.
+--
+-- 'endpointConfigArn', 'createEndpointConfigResponse_endpointConfigArn' - The Amazon Resource Name (ARN) of the endpoint configuration.
+newCreateEndpointConfigResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'endpointConfigArn'
+  Prelude.Text ->
+  CreateEndpointConfigResponse
+newCreateEndpointConfigResponse
+  pHttpStatus_
+  pEndpointConfigArn_ =
+    CreateEndpointConfigResponse'
+      { httpStatus =
+          pHttpStatus_,
+        endpointConfigArn = pEndpointConfigArn_
+      }
 
-
--- | -- | The response status code.
-cecrsResponseStatus :: Lens' CreateEndpointConfigResponse Int
-cecrsResponseStatus = lens _cecrsResponseStatus (\ s a -> s{_cecrsResponseStatus = a})
+-- | The response's http status code.
+createEndpointConfigResponse_httpStatus :: Lens.Lens' CreateEndpointConfigResponse Prelude.Int
+createEndpointConfigResponse_httpStatus = Lens.lens (\CreateEndpointConfigResponse' {httpStatus} -> httpStatus) (\s@CreateEndpointConfigResponse' {} a -> s {httpStatus = a} :: CreateEndpointConfigResponse)
 
 -- | The Amazon Resource Name (ARN) of the endpoint configuration.
-cecrsEndpointConfigARN :: Lens' CreateEndpointConfigResponse Text
-cecrsEndpointConfigARN = lens _cecrsEndpointConfigARN (\ s a -> s{_cecrsEndpointConfigARN = a})
+createEndpointConfigResponse_endpointConfigArn :: Lens.Lens' CreateEndpointConfigResponse Prelude.Text
+createEndpointConfigResponse_endpointConfigArn = Lens.lens (\CreateEndpointConfigResponse' {endpointConfigArn} -> endpointConfigArn) (\s@CreateEndpointConfigResponse' {} a -> s {endpointConfigArn = a} :: CreateEndpointConfigResponse)
 
-instance NFData CreateEndpointConfigResponse where
+instance Prelude.NFData CreateEndpointConfigResponse

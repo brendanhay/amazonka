@@ -1,113 +1,134 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SageMaker.StopTrainingJob
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Stops a training job. To stop a job, Amazon SageMaker sends the algorithm the @SIGTERM@ signal, which delays job termination for 120 seconds. Algorithms might use this 120-second window to save the model artifacts, so the results of the training is not lost.
+-- Stops a training job. To stop a job, Amazon SageMaker sends the
+-- algorithm the @SIGTERM@ signal, which delays job termination for 120
+-- seconds. Algorithms might use this 120-second window to save the model
+-- artifacts, so the results of the training is not lost.
 --
---
--- Training algorithms provided by Amazon SageMaker save the intermediate results of a model training job. This intermediate data is a valid model artifact. You can use the model artifacts that are saved when Amazon SageMaker stops a training job to create a model.
---
--- When it receives a @StopTrainingJob@ request, Amazon SageMaker changes the status of the job to @Stopping@ . After Amazon SageMaker stops the job, it sets the status to @Stopped@ .
---
+-- When it receives a @StopTrainingJob@ request, Amazon SageMaker changes
+-- the status of the job to @Stopping@. After Amazon SageMaker stops the
+-- job, it sets the status to @Stopped@.
 module Network.AWS.SageMaker.StopTrainingJob
-    (
-    -- * Creating a Request
-      stopTrainingJob
-    , StopTrainingJob
+  ( -- * Creating a Request
+    StopTrainingJob (..),
+    newStopTrainingJob,
+
     -- * Request Lenses
-    , stjTrainingJobName
+    stopTrainingJob_trainingJobName,
 
     -- * Destructuring the Response
-    , stopTrainingJobResponse
-    , StopTrainingJobResponse
-    ) where
+    StopTrainingJobResponse (..),
+    newStopTrainingJobResponse,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SageMaker.Types
-import Network.AWS.SageMaker.Types.Product
 
--- | /See:/ 'stopTrainingJob' smart constructor.
-newtype StopTrainingJob = StopTrainingJob'
-  { _stjTrainingJobName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newStopTrainingJob' smart constructor.
+data StopTrainingJob = StopTrainingJob'
+  { -- | The name of the training job to stop.
+    trainingJobName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'StopTrainingJob' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StopTrainingJob' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'stjTrainingJobName' - The name of the training job to stop.
-stopTrainingJob
-    :: Text -- ^ 'stjTrainingJobName'
-    -> StopTrainingJob
-stopTrainingJob pTrainingJobName_ =
-  StopTrainingJob' {_stjTrainingJobName = pTrainingJobName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'trainingJobName', 'stopTrainingJob_trainingJobName' - The name of the training job to stop.
+newStopTrainingJob ::
+  -- | 'trainingJobName'
+  Prelude.Text ->
+  StopTrainingJob
+newStopTrainingJob pTrainingJobName_ =
+  StopTrainingJob'
+    { trainingJobName =
+        pTrainingJobName_
+    }
 
 -- | The name of the training job to stop.
-stjTrainingJobName :: Lens' StopTrainingJob Text
-stjTrainingJobName = lens _stjTrainingJobName (\ s a -> s{_stjTrainingJobName = a})
+stopTrainingJob_trainingJobName :: Lens.Lens' StopTrainingJob Prelude.Text
+stopTrainingJob_trainingJobName = Lens.lens (\StopTrainingJob' {trainingJobName} -> trainingJobName) (\s@StopTrainingJob' {} a -> s {trainingJobName = a} :: StopTrainingJob)
 
-instance AWSRequest StopTrainingJob where
-        type Rs StopTrainingJob = StopTrainingJobResponse
-        request = postJSON sageMaker
-        response = receiveNull StopTrainingJobResponse'
+instance Prelude.AWSRequest StopTrainingJob where
+  type Rs StopTrainingJob = StopTrainingJobResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull StopTrainingJobResponse'
 
-instance Hashable StopTrainingJob where
+instance Prelude.Hashable StopTrainingJob
 
-instance NFData StopTrainingJob where
+instance Prelude.NFData StopTrainingJob
 
-instance ToHeaders StopTrainingJob where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("SageMaker.StopTrainingJob" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders StopTrainingJob where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ("SageMaker.StopTrainingJob" :: Prelude.ByteString),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON StopTrainingJob where
-        toJSON StopTrainingJob'{..}
-          = object
-              (catMaybes
-                 [Just ("TrainingJobName" .= _stjTrainingJobName)])
+instance Prelude.ToJSON StopTrainingJob where
+  toJSON StopTrainingJob' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("TrainingJobName" Prelude..= trainingJobName)
+          ]
+      )
 
-instance ToPath StopTrainingJob where
-        toPath = const "/"
+instance Prelude.ToPath StopTrainingJob where
+  toPath = Prelude.const "/"
 
-instance ToQuery StopTrainingJob where
-        toQuery = const mempty
+instance Prelude.ToQuery StopTrainingJob where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'stopTrainingJobResponse' smart constructor.
-data StopTrainingJobResponse =
-  StopTrainingJobResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newStopTrainingJobResponse' smart constructor.
+data StopTrainingJobResponse = StopTrainingJobResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'StopTrainingJobResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StopTrainingJobResponse' with all optional fields omitted.
 --
-stopTrainingJobResponse
-    :: StopTrainingJobResponse
-stopTrainingJobResponse = StopTrainingJobResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newStopTrainingJobResponse ::
+  StopTrainingJobResponse
+newStopTrainingJobResponse = StopTrainingJobResponse'
 
-
-instance NFData StopTrainingJobResponse where
+instance Prelude.NFData StopTrainingJobResponse

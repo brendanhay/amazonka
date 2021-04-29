@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.ELB.Internal
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
@@ -21,28 +21,31 @@ import Network.AWS.Prelude
 -- allowing ELB to upload and write access logs.
 --
 -- /See:/ <http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy Attach a Policy to Your S3 Bucket>.
-getAccountId :: Region -> Text
+getAccountId :: Region -> Maybe Text
 getAccountId = \case
-    NorthVirginia   -> "127311923021"
-    Ohio            -> "033677994240"
-    NorthCalifornia -> "027434742980"
-    Oregon          -> "797873946194"
-    Montreal        -> "985666609251"
-    HongKong        -> "754344448648"
-    Tokyo           -> "582318560864"
-    Seoul           -> "600734575887"
-    Osaka           -> "383597477331"
-    Mumbai          -> "718504428378"
-    Singapore       -> "114774131450"
-    Sydney          -> "783225319266"
-    SaoPaulo        -> "507241528517"
-    Ireland         -> "156460612806"
-    London          -> "652711504416"
-    Paris           -> "009996457667"
-    Frankfurt       -> "054676820928"
-    Stockholm       -> "897822967062"
-    GovCloud        -> "048591011584"
-    GovCloudFIPS    -> "048591011584"
-    GovCloudEast    -> "190560391635"
-    Beijing         -> "638102146993"
-    Ningxia         -> "037604701340"
+    NorthVirginia   -> Just "127311923021"
+    Ohio            -> Just "033677994240"
+    NorthCalifornia -> Just "027434742980"
+    Oregon          -> Just "797873946194"
+    CapeTown        -> Just "098369216593"
+    Montreal        -> Just "985666609251"
+    Frankfurt       -> Just "054676820928"
+    Ireland         -> Just "156460612806"
+    London          -> Just "652711504416"
+    Milan           -> Just "635631232127"
+    Paris           -> Just "009996457667"
+    Stockholm       -> Just "897822967062"
+    HongKong        -> Just "754344448648"
+    Tokyo           -> Just "582318560864"
+    Seoul           -> Just "600734575887"
+    Osaka           -> Just "383597477331"
+    Singapore       -> Just "114774131450"
+    Sydney          -> Just "783225319266"
+    Mumbai          -> Just "718504428378"
+    Bahrain         -> Just "076674570225"
+    SaoPaulo        -> Just "507241528517"
+    GovCloudWest    -> Just "048591011584"
+    GovCloudEast    -> Just "190560391635"
+    Beijing         -> Just "638102146993"
+    Ningxia         -> Just "037604701340"
+    _other          -> Nothing

@@ -1,181 +1,282 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53Domains.UpdateDomainContactPrivacy
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation updates the specified domain contact's privacy setting. When privacy protection is enabled, contact information such as email address is replaced either with contact information for Amazon Registrar (for .com, .net, and .org domains) or with contact information for our registrar associate, Gandi.
+-- This operation updates the specified domain contact\'s privacy setting.
+-- When privacy protection is enabled, contact information such as email
+-- address is replaced either with contact information for Amazon Registrar
+-- (for .com, .net, and .org domains) or with contact information for our
+-- registrar associate, Gandi.
 --
+-- This operation affects only the contact information for the specified
+-- contact type (registrant, administrator, or tech). If the request
+-- succeeds, Amazon Route 53 returns an operation ID that you can use with
+-- <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail>
+-- to track the progress and completion of the action. If the request
+-- doesn\'t complete successfully, the domain registrant will be notified
+-- by email.
 --
--- This operation affects only the contact information for the specified contact type (registrant, administrator, or tech). If the request succeeds, Amazon Route 53 returns an operation ID that you can use with 'GetOperationDetail' to track the progress and completion of the action. If the request doesn't complete successfully, the domain registrant will be notified by email.
---
+-- By disabling the privacy service via API, you consent to the publication
+-- of the contact information provided for this domain via the public WHOIS
+-- database. You certify that you are the registrant of this domain name
+-- and have the authority to make this decision. You may withdraw your
+-- consent at any time by enabling privacy protection using either
+-- @UpdateDomainContactPrivacy@ or the Route 53 console. Enabling privacy
+-- protection removes the contact information provided for this domain from
+-- the WHOIS database. For more information on our privacy practices, see
+-- <https://aws.amazon.com/privacy/>.
 module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
-    (
-    -- * Creating a Request
-      updateDomainContactPrivacy
-    , UpdateDomainContactPrivacy
+  ( -- * Creating a Request
+    UpdateDomainContactPrivacy (..),
+    newUpdateDomainContactPrivacy,
+
     -- * Request Lenses
-    , udcpTechPrivacy
-    , udcpRegistrantPrivacy
-    , udcpAdminPrivacy
-    , udcpDomainName
+    updateDomainContactPrivacy_adminPrivacy,
+    updateDomainContactPrivacy_techPrivacy,
+    updateDomainContactPrivacy_registrantPrivacy,
+    updateDomainContactPrivacy_domainName,
 
     -- * Destructuring the Response
-    , updateDomainContactPrivacyResponse
-    , UpdateDomainContactPrivacyResponse
-    -- * Response Lenses
-    , udcprsResponseStatus
-    , udcprsOperationId
-    ) where
+    UpdateDomainContactPrivacyResponse (..),
+    newUpdateDomainContactPrivacyResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    updateDomainContactPrivacyResponse_httpStatus,
+    updateDomainContactPrivacyResponse_operationId,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
-import Network.AWS.Route53Domains.Types.Product
 
 -- | The UpdateDomainContactPrivacy request includes the following elements.
 --
---
---
--- /See:/ 'updateDomainContactPrivacy' smart constructor.
+-- /See:/ 'newUpdateDomainContactPrivacy' smart constructor.
 data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy'
-  { _udcpTechPrivacy       :: !(Maybe Bool)
-  , _udcpRegistrantPrivacy :: !(Maybe Bool)
-  , _udcpAdminPrivacy      :: !(Maybe Bool)
-  , _udcpDomainName        :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Whether you want to conceal contact information from WHOIS queries. If
+    -- you specify @true@, WHOIS (\"who is\") queries return contact
+    -- information either for Amazon Registrar (for .com, .net, and .org
+    -- domains) or for our registrar associate, Gandi (for all other TLDs). If
+    -- you specify @false@, WHOIS queries return the information that you
+    -- entered for the admin contact.
+    adminPrivacy :: Prelude.Maybe Prelude.Bool,
+    -- | Whether you want to conceal contact information from WHOIS queries. If
+    -- you specify @true@, WHOIS (\"who is\") queries return contact
+    -- information either for Amazon Registrar (for .com, .net, and .org
+    -- domains) or for our registrar associate, Gandi (for all other TLDs). If
+    -- you specify @false@, WHOIS queries return the information that you
+    -- entered for the technical contact.
+    techPrivacy :: Prelude.Maybe Prelude.Bool,
+    -- | Whether you want to conceal contact information from WHOIS queries. If
+    -- you specify @true@, WHOIS (\"who is\") queries return contact
+    -- information either for Amazon Registrar (for .com, .net, and .org
+    -- domains) or for our registrar associate, Gandi (for all other TLDs). If
+    -- you specify @false@, WHOIS queries return the information that you
+    -- entered for the registrant contact (domain owner).
+    registrantPrivacy :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the domain that you want to update the privacy setting for.
+    domainName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateDomainContactPrivacy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateDomainContactPrivacy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'udcpTechPrivacy' - Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the technical contact.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'udcpRegistrantPrivacy' - Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the registrant contact (domain owner).
+-- 'adminPrivacy', 'updateDomainContactPrivacy_adminPrivacy' - Whether you want to conceal contact information from WHOIS queries. If
+-- you specify @true@, WHOIS (\"who is\") queries return contact
+-- information either for Amazon Registrar (for .com, .net, and .org
+-- domains) or for our registrar associate, Gandi (for all other TLDs). If
+-- you specify @false@, WHOIS queries return the information that you
+-- entered for the admin contact.
 --
--- * 'udcpAdminPrivacy' - Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the admin contact.
+-- 'techPrivacy', 'updateDomainContactPrivacy_techPrivacy' - Whether you want to conceal contact information from WHOIS queries. If
+-- you specify @true@, WHOIS (\"who is\") queries return contact
+-- information either for Amazon Registrar (for .com, .net, and .org
+-- domains) or for our registrar associate, Gandi (for all other TLDs). If
+-- you specify @false@, WHOIS queries return the information that you
+-- entered for the technical contact.
 --
--- * 'udcpDomainName' - The name of the domain that you want to update the privacy setting for.
-updateDomainContactPrivacy
-    :: Text -- ^ 'udcpDomainName'
-    -> UpdateDomainContactPrivacy
-updateDomainContactPrivacy pDomainName_ =
+-- 'registrantPrivacy', 'updateDomainContactPrivacy_registrantPrivacy' - Whether you want to conceal contact information from WHOIS queries. If
+-- you specify @true@, WHOIS (\"who is\") queries return contact
+-- information either for Amazon Registrar (for .com, .net, and .org
+-- domains) or for our registrar associate, Gandi (for all other TLDs). If
+-- you specify @false@, WHOIS queries return the information that you
+-- entered for the registrant contact (domain owner).
+--
+-- 'domainName', 'updateDomainContactPrivacy_domainName' - The name of the domain that you want to update the privacy setting for.
+newUpdateDomainContactPrivacy ::
+  -- | 'domainName'
+  Prelude.Text ->
+  UpdateDomainContactPrivacy
+newUpdateDomainContactPrivacy pDomainName_ =
   UpdateDomainContactPrivacy'
-    { _udcpTechPrivacy = Nothing
-    , _udcpRegistrantPrivacy = Nothing
-    , _udcpAdminPrivacy = Nothing
-    , _udcpDomainName = pDomainName_
+    { adminPrivacy =
+        Prelude.Nothing,
+      techPrivacy = Prelude.Nothing,
+      registrantPrivacy = Prelude.Nothing,
+      domainName = pDomainName_
     }
 
+-- | Whether you want to conceal contact information from WHOIS queries. If
+-- you specify @true@, WHOIS (\"who is\") queries return contact
+-- information either for Amazon Registrar (for .com, .net, and .org
+-- domains) or for our registrar associate, Gandi (for all other TLDs). If
+-- you specify @false@, WHOIS queries return the information that you
+-- entered for the admin contact.
+updateDomainContactPrivacy_adminPrivacy :: Lens.Lens' UpdateDomainContactPrivacy (Prelude.Maybe Prelude.Bool)
+updateDomainContactPrivacy_adminPrivacy = Lens.lens (\UpdateDomainContactPrivacy' {adminPrivacy} -> adminPrivacy) (\s@UpdateDomainContactPrivacy' {} a -> s {adminPrivacy = a} :: UpdateDomainContactPrivacy)
 
--- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the technical contact.
-udcpTechPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
-udcpTechPrivacy = lens _udcpTechPrivacy (\ s a -> s{_udcpTechPrivacy = a})
+-- | Whether you want to conceal contact information from WHOIS queries. If
+-- you specify @true@, WHOIS (\"who is\") queries return contact
+-- information either for Amazon Registrar (for .com, .net, and .org
+-- domains) or for our registrar associate, Gandi (for all other TLDs). If
+-- you specify @false@, WHOIS queries return the information that you
+-- entered for the technical contact.
+updateDomainContactPrivacy_techPrivacy :: Lens.Lens' UpdateDomainContactPrivacy (Prelude.Maybe Prelude.Bool)
+updateDomainContactPrivacy_techPrivacy = Lens.lens (\UpdateDomainContactPrivacy' {techPrivacy} -> techPrivacy) (\s@UpdateDomainContactPrivacy' {} a -> s {techPrivacy = a} :: UpdateDomainContactPrivacy)
 
--- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the registrant contact (domain owner).
-udcpRegistrantPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
-udcpRegistrantPrivacy = lens _udcpRegistrantPrivacy (\ s a -> s{_udcpRegistrantPrivacy = a})
-
--- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the admin contact.
-udcpAdminPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
-udcpAdminPrivacy = lens _udcpAdminPrivacy (\ s a -> s{_udcpAdminPrivacy = a})
+-- | Whether you want to conceal contact information from WHOIS queries. If
+-- you specify @true@, WHOIS (\"who is\") queries return contact
+-- information either for Amazon Registrar (for .com, .net, and .org
+-- domains) or for our registrar associate, Gandi (for all other TLDs). If
+-- you specify @false@, WHOIS queries return the information that you
+-- entered for the registrant contact (domain owner).
+updateDomainContactPrivacy_registrantPrivacy :: Lens.Lens' UpdateDomainContactPrivacy (Prelude.Maybe Prelude.Bool)
+updateDomainContactPrivacy_registrantPrivacy = Lens.lens (\UpdateDomainContactPrivacy' {registrantPrivacy} -> registrantPrivacy) (\s@UpdateDomainContactPrivacy' {} a -> s {registrantPrivacy = a} :: UpdateDomainContactPrivacy)
 
 -- | The name of the domain that you want to update the privacy setting for.
-udcpDomainName :: Lens' UpdateDomainContactPrivacy Text
-udcpDomainName = lens _udcpDomainName (\ s a -> s{_udcpDomainName = a})
+updateDomainContactPrivacy_domainName :: Lens.Lens' UpdateDomainContactPrivacy Prelude.Text
+updateDomainContactPrivacy_domainName = Lens.lens (\UpdateDomainContactPrivacy' {domainName} -> domainName) (\s@UpdateDomainContactPrivacy' {} a -> s {domainName = a} :: UpdateDomainContactPrivacy)
 
-instance AWSRequest UpdateDomainContactPrivacy where
-        type Rs UpdateDomainContactPrivacy =
-             UpdateDomainContactPrivacyResponse
-        request = postJSON route53Domains
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateDomainContactPrivacyResponse' <$>
-                   (pure (fromEnum s)) <*> (x .:> "OperationId"))
+instance
+  Prelude.AWSRequest
+    UpdateDomainContactPrivacy
+  where
+  type
+    Rs UpdateDomainContactPrivacy =
+      UpdateDomainContactPrivacyResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateDomainContactPrivacyResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Prelude..:> "OperationId")
+      )
 
-instance Hashable UpdateDomainContactPrivacy where
+instance Prelude.Hashable UpdateDomainContactPrivacy
 
-instance NFData UpdateDomainContactPrivacy where
+instance Prelude.NFData UpdateDomainContactPrivacy
 
-instance ToHeaders UpdateDomainContactPrivacy where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Route53Domains_v20140515.UpdateDomainContactPrivacy"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders UpdateDomainContactPrivacy where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "Route53Domains_v20140515.UpdateDomainContactPrivacy" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON UpdateDomainContactPrivacy where
-        toJSON UpdateDomainContactPrivacy'{..}
-          = object
-              (catMaybes
-                 [("TechPrivacy" .=) <$> _udcpTechPrivacy,
-                  ("RegistrantPrivacy" .=) <$> _udcpRegistrantPrivacy,
-                  ("AdminPrivacy" .=) <$> _udcpAdminPrivacy,
-                  Just ("DomainName" .= _udcpDomainName)])
+instance Prelude.ToJSON UpdateDomainContactPrivacy where
+  toJSON UpdateDomainContactPrivacy' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("AdminPrivacy" Prelude..=)
+              Prelude.<$> adminPrivacy,
+            ("TechPrivacy" Prelude..=) Prelude.<$> techPrivacy,
+            ("RegistrantPrivacy" Prelude..=)
+              Prelude.<$> registrantPrivacy,
+            Prelude.Just ("DomainName" Prelude..= domainName)
+          ]
+      )
 
-instance ToPath UpdateDomainContactPrivacy where
-        toPath = const "/"
+instance Prelude.ToPath UpdateDomainContactPrivacy where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateDomainContactPrivacy where
-        toQuery = const mempty
+instance Prelude.ToQuery UpdateDomainContactPrivacy where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The UpdateDomainContactPrivacy response includes the following element.
 --
---
---
--- /See:/ 'updateDomainContactPrivacyResponse' smart constructor.
+-- /See:/ 'newUpdateDomainContactPrivacyResponse' smart constructor.
 data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse'
-  { _udcprsResponseStatus :: !Int
-  , _udcprsOperationId    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | Identifier for tracking the progress of the request. To use this ID to
+    -- query the operation status, use GetOperationDetail.
+    operationId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateDomainContactPrivacyResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateDomainContactPrivacyResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'udcprsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'udcprsOperationId' - Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
-updateDomainContactPrivacyResponse
-    :: Int -- ^ 'udcprsResponseStatus'
-    -> Text -- ^ 'udcprsOperationId'
-    -> UpdateDomainContactPrivacyResponse
-updateDomainContactPrivacyResponse pResponseStatus_ pOperationId_ =
-  UpdateDomainContactPrivacyResponse'
-    { _udcprsResponseStatus = pResponseStatus_
-    , _udcprsOperationId = pOperationId_
-    }
+-- 'httpStatus', 'updateDomainContactPrivacyResponse_httpStatus' - The response's http status code.
+--
+-- 'operationId', 'updateDomainContactPrivacyResponse_operationId' - Identifier for tracking the progress of the request. To use this ID to
+-- query the operation status, use GetOperationDetail.
+newUpdateDomainContactPrivacyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'operationId'
+  Prelude.Text ->
+  UpdateDomainContactPrivacyResponse
+newUpdateDomainContactPrivacyResponse
+  pHttpStatus_
+  pOperationId_ =
+    UpdateDomainContactPrivacyResponse'
+      { httpStatus =
+          pHttpStatus_,
+        operationId = pOperationId_
+      }
 
+-- | The response's http status code.
+updateDomainContactPrivacyResponse_httpStatus :: Lens.Lens' UpdateDomainContactPrivacyResponse Prelude.Int
+updateDomainContactPrivacyResponse_httpStatus = Lens.lens (\UpdateDomainContactPrivacyResponse' {httpStatus} -> httpStatus) (\s@UpdateDomainContactPrivacyResponse' {} a -> s {httpStatus = a} :: UpdateDomainContactPrivacyResponse)
 
--- | -- | The response status code.
-udcprsResponseStatus :: Lens' UpdateDomainContactPrivacyResponse Int
-udcprsResponseStatus = lens _udcprsResponseStatus (\ s a -> s{_udcprsResponseStatus = a})
+-- | Identifier for tracking the progress of the request. To use this ID to
+-- query the operation status, use GetOperationDetail.
+updateDomainContactPrivacyResponse_operationId :: Lens.Lens' UpdateDomainContactPrivacyResponse Prelude.Text
+updateDomainContactPrivacyResponse_operationId = Lens.lens (\UpdateDomainContactPrivacyResponse' {operationId} -> operationId) (\s@UpdateDomainContactPrivacyResponse' {} a -> s {operationId = a} :: UpdateDomainContactPrivacyResponse)
 
--- | Identifier for tracking the progress of the request. To use this ID to query the operation status, use GetOperationDetail.
-udcprsOperationId :: Lens' UpdateDomainContactPrivacyResponse Text
-udcprsOperationId = lens _udcprsOperationId (\ s a -> s{_udcprsOperationId = a})
-
-instance NFData UpdateDomainContactPrivacyResponse
-         where
+instance
+  Prelude.NFData
+    UpdateDomainContactPrivacyResponse

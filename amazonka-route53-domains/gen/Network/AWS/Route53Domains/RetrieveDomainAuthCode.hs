@@ -1,145 +1,174 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53Domains.RetrieveDomainAuthCode
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns the AuthCode for the domain. To transfer a domain to another registrar, you provide this value to the new registrar.
---
---
+-- This operation returns the AuthCode for the domain. To transfer a domain
+-- to another registrar, you provide this value to the new registrar.
 module Network.AWS.Route53Domains.RetrieveDomainAuthCode
-    (
-    -- * Creating a Request
-      retrieveDomainAuthCode
-    , RetrieveDomainAuthCode
+  ( -- * Creating a Request
+    RetrieveDomainAuthCode (..),
+    newRetrieveDomainAuthCode,
+
     -- * Request Lenses
-    , rdacDomainName
+    retrieveDomainAuthCode_domainName,
 
     -- * Destructuring the Response
-    , retrieveDomainAuthCodeResponse
-    , RetrieveDomainAuthCodeResponse
+    RetrieveDomainAuthCodeResponse (..),
+    newRetrieveDomainAuthCodeResponse,
+
     -- * Response Lenses
-    , rdacrsResponseStatus
-    , rdacrsAuthCode
-    ) where
+    retrieveDomainAuthCodeResponse_httpStatus,
+    retrieveDomainAuthCodeResponse_authCode,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Route53Domains.Types
-import Network.AWS.Route53Domains.Types.Product
 
--- | A request for the authorization code for the specified domain. To transfer a domain to another registrar, you provide this value to the new registrar.
+-- | A request for the authorization code for the specified domain. To
+-- transfer a domain to another registrar, you provide this value to the
+-- new registrar.
 --
---
---
--- /See:/ 'retrieveDomainAuthCode' smart constructor.
-newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode'
-  { _rdacDomainName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newRetrieveDomainAuthCode' smart constructor.
+data RetrieveDomainAuthCode = RetrieveDomainAuthCode'
+  { -- | The name of the domain that you want to get an authorization code for.
+    domainName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'RetrieveDomainAuthCode' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RetrieveDomainAuthCode' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rdacDomainName' - The name of the domain that you want to get an authorization code for.
-retrieveDomainAuthCode
-    :: Text -- ^ 'rdacDomainName'
-    -> RetrieveDomainAuthCode
-retrieveDomainAuthCode pDomainName_ =
-  RetrieveDomainAuthCode' {_rdacDomainName = pDomainName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'domainName', 'retrieveDomainAuthCode_domainName' - The name of the domain that you want to get an authorization code for.
+newRetrieveDomainAuthCode ::
+  -- | 'domainName'
+  Prelude.Text ->
+  RetrieveDomainAuthCode
+newRetrieveDomainAuthCode pDomainName_ =
+  RetrieveDomainAuthCode' {domainName = pDomainName_}
 
 -- | The name of the domain that you want to get an authorization code for.
-rdacDomainName :: Lens' RetrieveDomainAuthCode Text
-rdacDomainName = lens _rdacDomainName (\ s a -> s{_rdacDomainName = a})
+retrieveDomainAuthCode_domainName :: Lens.Lens' RetrieveDomainAuthCode Prelude.Text
+retrieveDomainAuthCode_domainName = Lens.lens (\RetrieveDomainAuthCode' {domainName} -> domainName) (\s@RetrieveDomainAuthCode' {} a -> s {domainName = a} :: RetrieveDomainAuthCode)
 
-instance AWSRequest RetrieveDomainAuthCode where
-        type Rs RetrieveDomainAuthCode =
-             RetrieveDomainAuthCodeResponse
-        request = postJSON route53Domains
-        response
-          = receiveJSON
-              (\ s h x ->
-                 RetrieveDomainAuthCodeResponse' <$>
-                   (pure (fromEnum s)) <*> (x .:> "AuthCode"))
+instance Prelude.AWSRequest RetrieveDomainAuthCode where
+  type
+    Rs RetrieveDomainAuthCode =
+      RetrieveDomainAuthCodeResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          RetrieveDomainAuthCodeResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Prelude..:> "AuthCode")
+      )
 
-instance Hashable RetrieveDomainAuthCode where
+instance Prelude.Hashable RetrieveDomainAuthCode
 
-instance NFData RetrieveDomainAuthCode where
+instance Prelude.NFData RetrieveDomainAuthCode
 
-instance ToHeaders RetrieveDomainAuthCode where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Route53Domains_v20140515.RetrieveDomainAuthCode" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders RetrieveDomainAuthCode where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "Route53Domains_v20140515.RetrieveDomainAuthCode" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON RetrieveDomainAuthCode where
-        toJSON RetrieveDomainAuthCode'{..}
-          = object
-              (catMaybes [Just ("DomainName" .= _rdacDomainName)])
+instance Prelude.ToJSON RetrieveDomainAuthCode where
+  toJSON RetrieveDomainAuthCode' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("DomainName" Prelude..= domainName)]
+      )
 
-instance ToPath RetrieveDomainAuthCode where
-        toPath = const "/"
+instance Prelude.ToPath RetrieveDomainAuthCode where
+  toPath = Prelude.const "/"
 
-instance ToQuery RetrieveDomainAuthCode where
-        toQuery = const mempty
+instance Prelude.ToQuery RetrieveDomainAuthCode where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The RetrieveDomainAuthCode response includes the following element.
 --
---
---
--- /See:/ 'retrieveDomainAuthCodeResponse' smart constructor.
+-- /See:/ 'newRetrieveDomainAuthCodeResponse' smart constructor.
 data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
-  { _rdacrsResponseStatus :: !Int
-  , _rdacrsAuthCode       :: !(Sensitive Text)
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The authorization code for the domain.
+    authCode :: Prelude.Sensitive Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'RetrieveDomainAuthCodeResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RetrieveDomainAuthCodeResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rdacrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rdacrsAuthCode' - The authorization code for the domain.
-retrieveDomainAuthCodeResponse
-    :: Int -- ^ 'rdacrsResponseStatus'
-    -> Text -- ^ 'rdacrsAuthCode'
-    -> RetrieveDomainAuthCodeResponse
-retrieveDomainAuthCodeResponse pResponseStatus_ pAuthCode_ =
-  RetrieveDomainAuthCodeResponse'
-    { _rdacrsResponseStatus = pResponseStatus_
-    , _rdacrsAuthCode = _Sensitive # pAuthCode_
-    }
+-- 'httpStatus', 'retrieveDomainAuthCodeResponse_httpStatus' - The response's http status code.
+--
+-- 'authCode', 'retrieveDomainAuthCodeResponse_authCode' - The authorization code for the domain.
+newRetrieveDomainAuthCodeResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'authCode'
+  Prelude.Text ->
+  RetrieveDomainAuthCodeResponse
+newRetrieveDomainAuthCodeResponse
+  pHttpStatus_
+  pAuthCode_ =
+    RetrieveDomainAuthCodeResponse'
+      { httpStatus =
+          pHttpStatus_,
+        authCode =
+          Prelude._Sensitive Lens.# pAuthCode_
+      }
 
-
--- | -- | The response status code.
-rdacrsResponseStatus :: Lens' RetrieveDomainAuthCodeResponse Int
-rdacrsResponseStatus = lens _rdacrsResponseStatus (\ s a -> s{_rdacrsResponseStatus = a})
+-- | The response's http status code.
+retrieveDomainAuthCodeResponse_httpStatus :: Lens.Lens' RetrieveDomainAuthCodeResponse Prelude.Int
+retrieveDomainAuthCodeResponse_httpStatus = Lens.lens (\RetrieveDomainAuthCodeResponse' {httpStatus} -> httpStatus) (\s@RetrieveDomainAuthCodeResponse' {} a -> s {httpStatus = a} :: RetrieveDomainAuthCodeResponse)
 
 -- | The authorization code for the domain.
-rdacrsAuthCode :: Lens' RetrieveDomainAuthCodeResponse Text
-rdacrsAuthCode = lens _rdacrsAuthCode (\ s a -> s{_rdacrsAuthCode = a}) . _Sensitive
+retrieveDomainAuthCodeResponse_authCode :: Lens.Lens' RetrieveDomainAuthCodeResponse Prelude.Text
+retrieveDomainAuthCodeResponse_authCode = Lens.lens (\RetrieveDomainAuthCodeResponse' {authCode} -> authCode) (\s@RetrieveDomainAuthCodeResponse' {} a -> s {authCode = a} :: RetrieveDomainAuthCodeResponse) Prelude.. Prelude._Sensitive
 
-instance NFData RetrieveDomainAuthCodeResponse where
+instance
+  Prelude.NFData
+    RetrieveDomainAuthCodeResponse

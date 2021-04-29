@@ -1,166 +1,250 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Config.DescribeAggregationAuthorizations
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of authorizations granted to various aggregator accounts and regions.
+-- Returns a list of authorizations granted to various aggregator accounts
+-- and regions.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.Config.DescribeAggregationAuthorizations
-    (
-    -- * Creating a Request
-      describeAggregationAuthorizations
-    , DescribeAggregationAuthorizations
+  ( -- * Creating a Request
+    DescribeAggregationAuthorizations (..),
+    newDescribeAggregationAuthorizations,
+
     -- * Request Lenses
-    , daaNextToken
-    , daaLimit
+    describeAggregationAuthorizations_nextToken,
+    describeAggregationAuthorizations_limit,
 
     -- * Destructuring the Response
-    , describeAggregationAuthorizationsResponse
-    , DescribeAggregationAuthorizationsResponse
+    DescribeAggregationAuthorizationsResponse (..),
+    newDescribeAggregationAuthorizationsResponse,
+
     -- * Response Lenses
-    , daarsAggregationAuthorizations
-    , daarsNextToken
-    , daarsResponseStatus
-    ) where
+    describeAggregationAuthorizationsResponse_nextToken,
+    describeAggregationAuthorizationsResponse_aggregationAuthorizations,
+    describeAggregationAuthorizationsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Config.Types
-import Network.AWS.Config.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeAggregationAuthorizations' smart constructor.
+-- | /See:/ 'newDescribeAggregationAuthorizations' smart constructor.
 data DescribeAggregationAuthorizations = DescribeAggregationAuthorizations'
-  { _daaNextToken :: !(Maybe Text)
-  , _daaLimit     :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of AggregationAuthorizations returned on each page.
+    -- The default is maximum. If you specify 0, AWS Config uses the default.
+    limit :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeAggregationAuthorizations' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeAggregationAuthorizations' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'daaNextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'daaLimit' - The maximum number of AggregationAuthorizations returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
-describeAggregationAuthorizations
-    :: DescribeAggregationAuthorizations
-describeAggregationAuthorizations =
+-- 'nextToken', 'describeAggregationAuthorizations_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+--
+-- 'limit', 'describeAggregationAuthorizations_limit' - The maximum number of AggregationAuthorizations returned on each page.
+-- The default is maximum. If you specify 0, AWS Config uses the default.
+newDescribeAggregationAuthorizations ::
+  DescribeAggregationAuthorizations
+newDescribeAggregationAuthorizations =
   DescribeAggregationAuthorizations'
-    {_daaNextToken = Nothing, _daaLimit = Nothing}
-
-
--- | The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
-daaNextToken :: Lens' DescribeAggregationAuthorizations (Maybe Text)
-daaNextToken = lens _daaNextToken (\ s a -> s{_daaNextToken = a})
-
--- | The maximum number of AggregationAuthorizations returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
-daaLimit :: Lens' DescribeAggregationAuthorizations (Maybe Natural)
-daaLimit = lens _daaLimit (\ s a -> s{_daaLimit = a}) . mapping _Nat
-
-instance AWSRequest DescribeAggregationAuthorizations
-         where
-        type Rs DescribeAggregationAuthorizations =
-             DescribeAggregationAuthorizationsResponse
-        request = postJSON config
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeAggregationAuthorizationsResponse' <$>
-                   (x .?> "AggregationAuthorizations" .!@ mempty) <*>
-                     (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeAggregationAuthorizations
-         where
-
-instance NFData DescribeAggregationAuthorizations
-         where
-
-instance ToHeaders DescribeAggregationAuthorizations
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("StarlingDoveService.DescribeAggregationAuthorizations"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DescribeAggregationAuthorizations
-         where
-        toJSON DescribeAggregationAuthorizations'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _daaNextToken,
-                  ("Limit" .=) <$> _daaLimit])
-
-instance ToPath DescribeAggregationAuthorizations
-         where
-        toPath = const "/"
-
-instance ToQuery DescribeAggregationAuthorizations
-         where
-        toQuery = const mempty
-
--- | /See:/ 'describeAggregationAuthorizationsResponse' smart constructor.
-data DescribeAggregationAuthorizationsResponse = DescribeAggregationAuthorizationsResponse'
-  { _daarsAggregationAuthorizations :: !(Maybe [AggregationAuthorization])
-  , _daarsNextToken                 :: !(Maybe Text)
-  , _daarsResponseStatus            :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeAggregationAuthorizationsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daarsAggregationAuthorizations' - Returns a list of authorizations granted to various aggregator accounts and regions.
---
--- * 'daarsNextToken' - The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- * 'daarsResponseStatus' - -- | The response status code.
-describeAggregationAuthorizationsResponse
-    :: Int -- ^ 'daarsResponseStatus'
-    -> DescribeAggregationAuthorizationsResponse
-describeAggregationAuthorizationsResponse pResponseStatus_ =
-  DescribeAggregationAuthorizationsResponse'
-    { _daarsAggregationAuthorizations = Nothing
-    , _daarsNextToken = Nothing
-    , _daarsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
+-- | The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+describeAggregationAuthorizations_nextToken :: Lens.Lens' DescribeAggregationAuthorizations (Prelude.Maybe Prelude.Text)
+describeAggregationAuthorizations_nextToken = Lens.lens (\DescribeAggregationAuthorizations' {nextToken} -> nextToken) (\s@DescribeAggregationAuthorizations' {} a -> s {nextToken = a} :: DescribeAggregationAuthorizations)
 
--- | Returns a list of authorizations granted to various aggregator accounts and regions.
-daarsAggregationAuthorizations :: Lens' DescribeAggregationAuthorizationsResponse [AggregationAuthorization]
-daarsAggregationAuthorizations = lens _daarsAggregationAuthorizations (\ s a -> s{_daarsAggregationAuthorizations = a}) . _Default . _Coerce
+-- | The maximum number of AggregationAuthorizations returned on each page.
+-- The default is maximum. If you specify 0, AWS Config uses the default.
+describeAggregationAuthorizations_limit :: Lens.Lens' DescribeAggregationAuthorizations (Prelude.Maybe Prelude.Natural)
+describeAggregationAuthorizations_limit = Lens.lens (\DescribeAggregationAuthorizations' {limit} -> limit) (\s@DescribeAggregationAuthorizations' {} a -> s {limit = a} :: DescribeAggregationAuthorizations)
 
--- | The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.
-daarsNextToken :: Lens' DescribeAggregationAuthorizationsResponse (Maybe Text)
-daarsNextToken = lens _daarsNextToken (\ s a -> s{_daarsNextToken = a})
+instance
+  Pager.AWSPager
+    DescribeAggregationAuthorizations
+  where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describeAggregationAuthorizationsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describeAggregationAuthorizationsResponse_aggregationAuthorizations
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describeAggregationAuthorizations_nextToken
+          Lens..~ rs
+          Lens.^? describeAggregationAuthorizationsResponse_nextToken
+            Prelude.. Lens._Just
 
--- | -- | The response status code.
-daarsResponseStatus :: Lens' DescribeAggregationAuthorizationsResponse Int
-daarsResponseStatus = lens _daarsResponseStatus (\ s a -> s{_daarsResponseStatus = a})
+instance
+  Prelude.AWSRequest
+    DescribeAggregationAuthorizations
+  where
+  type
+    Rs DescribeAggregationAuthorizations =
+      DescribeAggregationAuthorizationsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeAggregationAuthorizationsResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+              Prelude.<*> ( x Prelude..?> "AggregationAuthorizations"
+                              Prelude..!@ Prelude.mempty
+                          )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData
-           DescribeAggregationAuthorizationsResponse
-         where
+instance
+  Prelude.Hashable
+    DescribeAggregationAuthorizations
+
+instance
+  Prelude.NFData
+    DescribeAggregationAuthorizations
+
+instance
+  Prelude.ToHeaders
+    DescribeAggregationAuthorizations
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "StarlingDoveService.DescribeAggregationAuthorizations" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance
+  Prelude.ToJSON
+    DescribeAggregationAuthorizations
+  where
+  toJSON DescribeAggregationAuthorizations' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("Limit" Prelude..=) Prelude.<$> limit
+          ]
+      )
+
+instance
+  Prelude.ToPath
+    DescribeAggregationAuthorizations
+  where
+  toPath = Prelude.const "/"
+
+instance
+  Prelude.ToQuery
+    DescribeAggregationAuthorizations
+  where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeAggregationAuthorizationsResponse' smart constructor.
+data DescribeAggregationAuthorizationsResponse = DescribeAggregationAuthorizationsResponse'
+  { -- | The @nextToken@ string returned on a previous page that you use to get
+    -- the next page of results in a paginated response.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Returns a list of authorizations granted to various aggregator accounts
+    -- and regions.
+    aggregationAuthorizations :: Prelude.Maybe [AggregationAuthorization],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeAggregationAuthorizationsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'describeAggregationAuthorizationsResponse_nextToken' - The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+--
+-- 'aggregationAuthorizations', 'describeAggregationAuthorizationsResponse_aggregationAuthorizations' - Returns a list of authorizations granted to various aggregator accounts
+-- and regions.
+--
+-- 'httpStatus', 'describeAggregationAuthorizationsResponse_httpStatus' - The response's http status code.
+newDescribeAggregationAuthorizationsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeAggregationAuthorizationsResponse
+newDescribeAggregationAuthorizationsResponse
+  pHttpStatus_ =
+    DescribeAggregationAuthorizationsResponse'
+      { nextToken =
+          Prelude.Nothing,
+        aggregationAuthorizations =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
+
+-- | The @nextToken@ string returned on a previous page that you use to get
+-- the next page of results in a paginated response.
+describeAggregationAuthorizationsResponse_nextToken :: Lens.Lens' DescribeAggregationAuthorizationsResponse (Prelude.Maybe Prelude.Text)
+describeAggregationAuthorizationsResponse_nextToken = Lens.lens (\DescribeAggregationAuthorizationsResponse' {nextToken} -> nextToken) (\s@DescribeAggregationAuthorizationsResponse' {} a -> s {nextToken = a} :: DescribeAggregationAuthorizationsResponse)
+
+-- | Returns a list of authorizations granted to various aggregator accounts
+-- and regions.
+describeAggregationAuthorizationsResponse_aggregationAuthorizations :: Lens.Lens' DescribeAggregationAuthorizationsResponse (Prelude.Maybe [AggregationAuthorization])
+describeAggregationAuthorizationsResponse_aggregationAuthorizations = Lens.lens (\DescribeAggregationAuthorizationsResponse' {aggregationAuthorizations} -> aggregationAuthorizations) (\s@DescribeAggregationAuthorizationsResponse' {} a -> s {aggregationAuthorizations = a} :: DescribeAggregationAuthorizationsResponse) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The response's http status code.
+describeAggregationAuthorizationsResponse_httpStatus :: Lens.Lens' DescribeAggregationAuthorizationsResponse Prelude.Int
+describeAggregationAuthorizationsResponse_httpStatus = Lens.lens (\DescribeAggregationAuthorizationsResponse' {httpStatus} -> httpStatus) (\s@DescribeAggregationAuthorizationsResponse' {} a -> s {httpStatus = a} :: DescribeAggregationAuthorizationsResponse)
+
+instance
+  Prelude.NFData
+    DescribeAggregationAuthorizationsResponse

@@ -1,167 +1,226 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GuardDuty.GetIPSet
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves the IPSet specified by the IPSet ID.
+-- Retrieves the IPSet specified by the @ipSetId@.
 module Network.AWS.GuardDuty.GetIPSet
-    (
-    -- * Creating a Request
-      getIPSet
-    , GetIPSet
+  ( -- * Creating a Request
+    GetIPSet (..),
+    newGetIPSet,
+
     -- * Request Lenses
-    , gisDetectorId
-    , gisIPSetId
+    getIPSet_detectorId,
+    getIPSet_ipSetId,
 
     -- * Destructuring the Response
-    , getIPSetResponse
-    , GetIPSetResponse
+    GetIPSetResponse (..),
+    newGetIPSetResponse,
+
     -- * Response Lenses
-    , gisrsStatus
-    , gisrsLocation
-    , gisrsFormat
-    , gisrsName
-    , gisrsResponseStatus
-    ) where
+    getIPSetResponse_tags,
+    getIPSetResponse_httpStatus,
+    getIPSetResponse_name,
+    getIPSetResponse_format,
+    getIPSetResponse_location,
+    getIPSetResponse_status,
+  )
+where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.GuardDuty.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getIPSet' smart constructor.
+-- | /See:/ 'newGetIPSet' smart constructor.
 data GetIPSet = GetIPSet'
-  { _gisDetectorId :: !Text
-  , _gisIPSetId    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The unique ID of the detector that the IPSet is associated with.
+    detectorId :: Prelude.Text,
+    -- | The unique ID of the IPSet to retrieve.
+    ipSetId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetIPSet' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetIPSet' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gisDetectorId' - The detectorID that specifies the GuardDuty service whose IPSet you want to retrieve.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gisIPSetId' - The unique ID that specifies the IPSet that you want to describe.
-getIPSet
-    :: Text -- ^ 'gisDetectorId'
-    -> Text -- ^ 'gisIPSetId'
-    -> GetIPSet
-getIPSet pDetectorId_ pIPSetId_ =
-  GetIPSet' {_gisDetectorId = pDetectorId_, _gisIPSetId = pIPSetId_}
-
-
--- | The detectorID that specifies the GuardDuty service whose IPSet you want to retrieve.
-gisDetectorId :: Lens' GetIPSet Text
-gisDetectorId = lens _gisDetectorId (\ s a -> s{_gisDetectorId = a})
-
--- | The unique ID that specifies the IPSet that you want to describe.
-gisIPSetId :: Lens' GetIPSet Text
-gisIPSetId = lens _gisIPSetId (\ s a -> s{_gisIPSetId = a})
-
-instance AWSRequest GetIPSet where
-        type Rs GetIPSet = GetIPSetResponse
-        request = get guardDuty
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetIPSetResponse' <$>
-                   (x .?> "status") <*> (x .?> "location") <*>
-                     (x .?> "format")
-                     <*> (x .?> "name")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable GetIPSet where
-
-instance NFData GetIPSet where
-
-instance ToHeaders GetIPSet where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToPath GetIPSet where
-        toPath GetIPSet'{..}
-          = mconcat
-              ["/detector/", toBS _gisDetectorId, "/ipset/",
-               toBS _gisIPSetId]
-
-instance ToQuery GetIPSet where
-        toQuery = const mempty
-
--- | /See:/ 'getIPSetResponse' smart constructor.
-data GetIPSetResponse = GetIPSetResponse'
-  { _gisrsStatus         :: !(Maybe IPSetStatus)
-  , _gisrsLocation       :: !(Maybe Text)
-  , _gisrsFormat         :: !(Maybe IPSetFormat)
-  , _gisrsName           :: !(Maybe Text)
-  , _gisrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetIPSetResponse' with the minimum fields required to make a request.
+-- 'detectorId', 'getIPSet_detectorId' - The unique ID of the detector that the IPSet is associated with.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gisrsStatus' - The status of ipSet file uploaded.
---
--- * 'gisrsLocation' - The URI of the file that contains the IPSet. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key)
---
--- * 'gisrsFormat' - The format of the file that contains the IPSet.
---
--- * 'gisrsName' - The user friendly name to identify the IPSet. This name is displayed in all findings that are triggered by activity that involves IP addresses included in this IPSet.
---
--- * 'gisrsResponseStatus' - -- | The response status code.
-getIPSetResponse
-    :: Int -- ^ 'gisrsResponseStatus'
-    -> GetIPSetResponse
-getIPSetResponse pResponseStatus_ =
-  GetIPSetResponse'
-    { _gisrsStatus = Nothing
-    , _gisrsLocation = Nothing
-    , _gisrsFormat = Nothing
-    , _gisrsName = Nothing
-    , _gisrsResponseStatus = pResponseStatus_
+-- 'ipSetId', 'getIPSet_ipSetId' - The unique ID of the IPSet to retrieve.
+newGetIPSet ::
+  -- | 'detectorId'
+  Prelude.Text ->
+  -- | 'ipSetId'
+  Prelude.Text ->
+  GetIPSet
+newGetIPSet pDetectorId_ pIpSetId_ =
+  GetIPSet'
+    { detectorId = pDetectorId_,
+      ipSetId = pIpSetId_
     }
 
+-- | The unique ID of the detector that the IPSet is associated with.
+getIPSet_detectorId :: Lens.Lens' GetIPSet Prelude.Text
+getIPSet_detectorId = Lens.lens (\GetIPSet' {detectorId} -> detectorId) (\s@GetIPSet' {} a -> s {detectorId = a} :: GetIPSet)
 
--- | The status of ipSet file uploaded.
-gisrsStatus :: Lens' GetIPSetResponse (Maybe IPSetStatus)
-gisrsStatus = lens _gisrsStatus (\ s a -> s{_gisrsStatus = a})
+-- | The unique ID of the IPSet to retrieve.
+getIPSet_ipSetId :: Lens.Lens' GetIPSet Prelude.Text
+getIPSet_ipSetId = Lens.lens (\GetIPSet' {ipSetId} -> ipSetId) (\s@GetIPSet' {} a -> s {ipSetId = a} :: GetIPSet)
 
--- | The URI of the file that contains the IPSet. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key)
-gisrsLocation :: Lens' GetIPSetResponse (Maybe Text)
-gisrsLocation = lens _gisrsLocation (\ s a -> s{_gisrsLocation = a})
+instance Prelude.AWSRequest GetIPSet where
+  type Rs GetIPSet = GetIPSetResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetIPSetResponse'
+            Prelude.<$> (x Prelude..?> "tags" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Prelude..:> "name")
+            Prelude.<*> (x Prelude..:> "format")
+            Prelude.<*> (x Prelude..:> "location")
+            Prelude.<*> (x Prelude..:> "status")
+      )
+
+instance Prelude.Hashable GetIPSet
+
+instance Prelude.NFData GetIPSet
+
+instance Prelude.ToHeaders GetIPSet where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToPath GetIPSet where
+  toPath GetIPSet' {..} =
+    Prelude.mconcat
+      [ "/detector/",
+        Prelude.toBS detectorId,
+        "/ipset/",
+        Prelude.toBS ipSetId
+      ]
+
+instance Prelude.ToQuery GetIPSet where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newGetIPSetResponse' smart constructor.
+data GetIPSetResponse = GetIPSetResponse'
+  { -- | The tags of the IPSet resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The user-friendly name for the IPSet.
+    name :: Prelude.Text,
+    -- | The format of the file that contains the IPSet.
+    format :: IpSetFormat,
+    -- | The URI of the file that contains the IPSet. For example:
+    -- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+    location :: Prelude.Text,
+    -- | The status of IPSet file that was uploaded.
+    status :: IpSetStatus
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetIPSetResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'tags', 'getIPSetResponse_tags' - The tags of the IPSet resource.
+--
+-- 'httpStatus', 'getIPSetResponse_httpStatus' - The response's http status code.
+--
+-- 'name', 'getIPSetResponse_name' - The user-friendly name for the IPSet.
+--
+-- 'format', 'getIPSetResponse_format' - The format of the file that contains the IPSet.
+--
+-- 'location', 'getIPSetResponse_location' - The URI of the file that contains the IPSet. For example:
+-- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+--
+-- 'status', 'getIPSetResponse_status' - The status of IPSet file that was uploaded.
+newGetIPSetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'format'
+  IpSetFormat ->
+  -- | 'location'
+  Prelude.Text ->
+  -- | 'status'
+  IpSetStatus ->
+  GetIPSetResponse
+newGetIPSetResponse
+  pHttpStatus_
+  pName_
+  pFormat_
+  pLocation_
+  pStatus_ =
+    GetIPSetResponse'
+      { tags = Prelude.Nothing,
+        httpStatus = pHttpStatus_,
+        name = pName_,
+        format = pFormat_,
+        location = pLocation_,
+        status = pStatus_
+      }
+
+-- | The tags of the IPSet resource.
+getIPSetResponse_tags :: Lens.Lens' GetIPSetResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getIPSetResponse_tags = Lens.lens (\GetIPSetResponse' {tags} -> tags) (\s@GetIPSetResponse' {} a -> s {tags = a} :: GetIPSetResponse) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The response's http status code.
+getIPSetResponse_httpStatus :: Lens.Lens' GetIPSetResponse Prelude.Int
+getIPSetResponse_httpStatus = Lens.lens (\GetIPSetResponse' {httpStatus} -> httpStatus) (\s@GetIPSetResponse' {} a -> s {httpStatus = a} :: GetIPSetResponse)
+
+-- | The user-friendly name for the IPSet.
+getIPSetResponse_name :: Lens.Lens' GetIPSetResponse Prelude.Text
+getIPSetResponse_name = Lens.lens (\GetIPSetResponse' {name} -> name) (\s@GetIPSetResponse' {} a -> s {name = a} :: GetIPSetResponse)
 
 -- | The format of the file that contains the IPSet.
-gisrsFormat :: Lens' GetIPSetResponse (Maybe IPSetFormat)
-gisrsFormat = lens _gisrsFormat (\ s a -> s{_gisrsFormat = a})
+getIPSetResponse_format :: Lens.Lens' GetIPSetResponse IpSetFormat
+getIPSetResponse_format = Lens.lens (\GetIPSetResponse' {format} -> format) (\s@GetIPSetResponse' {} a -> s {format = a} :: GetIPSetResponse)
 
--- | The user friendly name to identify the IPSet. This name is displayed in all findings that are triggered by activity that involves IP addresses included in this IPSet.
-gisrsName :: Lens' GetIPSetResponse (Maybe Text)
-gisrsName = lens _gisrsName (\ s a -> s{_gisrsName = a})
+-- | The URI of the file that contains the IPSet. For example:
+-- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+getIPSetResponse_location :: Lens.Lens' GetIPSetResponse Prelude.Text
+getIPSetResponse_location = Lens.lens (\GetIPSetResponse' {location} -> location) (\s@GetIPSetResponse' {} a -> s {location = a} :: GetIPSetResponse)
 
--- | -- | The response status code.
-gisrsResponseStatus :: Lens' GetIPSetResponse Int
-gisrsResponseStatus = lens _gisrsResponseStatus (\ s a -> s{_gisrsResponseStatus = a})
+-- | The status of IPSet file that was uploaded.
+getIPSetResponse_status :: Lens.Lens' GetIPSetResponse IpSetStatus
+getIPSetResponse_status = Lens.lens (\GetIPSetResponse' {status} -> status) (\s@GetIPSetResponse' {} a -> s {status = a} :: GetIPSetResponse)
 
-instance NFData GetIPSetResponse where
+instance Prelude.NFData GetIPSetResponse

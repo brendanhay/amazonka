@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GuardDuty.GetThreatIntelSet
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,149 +23,213 @@
 --
 -- Retrieves the ThreatIntelSet that is specified by the ThreatIntelSet ID.
 module Network.AWS.GuardDuty.GetThreatIntelSet
-    (
-    -- * Creating a Request
-      getThreatIntelSet
-    , GetThreatIntelSet
+  ( -- * Creating a Request
+    GetThreatIntelSet (..),
+    newGetThreatIntelSet,
+
     -- * Request Lenses
-    , gtisThreatIntelSetId
-    , gtisDetectorId
+    getThreatIntelSet_detectorId,
+    getThreatIntelSet_threatIntelSetId,
 
     -- * Destructuring the Response
-    , getThreatIntelSetResponse
-    , GetThreatIntelSetResponse
+    GetThreatIntelSetResponse (..),
+    newGetThreatIntelSetResponse,
+
     -- * Response Lenses
-    , gtisrsStatus
-    , gtisrsLocation
-    , gtisrsFormat
-    , gtisrsName
-    , gtisrsResponseStatus
-    ) where
+    getThreatIntelSetResponse_tags,
+    getThreatIntelSetResponse_httpStatus,
+    getThreatIntelSetResponse_name,
+    getThreatIntelSetResponse_format,
+    getThreatIntelSetResponse_location,
+    getThreatIntelSetResponse_status,
+  )
+where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.GuardDuty.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getThreatIntelSet' smart constructor.
+-- | /See:/ 'newGetThreatIntelSet' smart constructor.
 data GetThreatIntelSet = GetThreatIntelSet'
-  { _gtisThreatIntelSetId :: !Text
-  , _gtisDetectorId       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The unique ID of the detector that the threatIntelSet is associated
+    -- with.
+    detectorId :: Prelude.Text,
+    -- | The unique ID of the threatIntelSet that you want to get.
+    threatIntelSetId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetThreatIntelSet' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetThreatIntelSet' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gtisThreatIntelSetId' - The unique ID that specifies the ThreatIntelSet that you want to describe.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gtisDetectorId' - The detectorID that specifies the GuardDuty service whose ThreatIntelSet you want to describe.
-getThreatIntelSet
-    :: Text -- ^ 'gtisThreatIntelSetId'
-    -> Text -- ^ 'gtisDetectorId'
-    -> GetThreatIntelSet
-getThreatIntelSet pThreatIntelSetId_ pDetectorId_ =
+-- 'detectorId', 'getThreatIntelSet_detectorId' - The unique ID of the detector that the threatIntelSet is associated
+-- with.
+--
+-- 'threatIntelSetId', 'getThreatIntelSet_threatIntelSetId' - The unique ID of the threatIntelSet that you want to get.
+newGetThreatIntelSet ::
+  -- | 'detectorId'
+  Prelude.Text ->
+  -- | 'threatIntelSetId'
+  Prelude.Text ->
+  GetThreatIntelSet
+newGetThreatIntelSet pDetectorId_ pThreatIntelSetId_ =
   GetThreatIntelSet'
-    {_gtisThreatIntelSetId = pThreatIntelSetId_, _gtisDetectorId = pDetectorId_}
-
-
--- | The unique ID that specifies the ThreatIntelSet that you want to describe.
-gtisThreatIntelSetId :: Lens' GetThreatIntelSet Text
-gtisThreatIntelSetId = lens _gtisThreatIntelSetId (\ s a -> s{_gtisThreatIntelSetId = a})
-
--- | The detectorID that specifies the GuardDuty service whose ThreatIntelSet you want to describe.
-gtisDetectorId :: Lens' GetThreatIntelSet Text
-gtisDetectorId = lens _gtisDetectorId (\ s a -> s{_gtisDetectorId = a})
-
-instance AWSRequest GetThreatIntelSet where
-        type Rs GetThreatIntelSet = GetThreatIntelSetResponse
-        request = get guardDuty
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetThreatIntelSetResponse' <$>
-                   (x .?> "status") <*> (x .?> "location") <*>
-                     (x .?> "format")
-                     <*> (x .?> "name")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable GetThreatIntelSet where
-
-instance NFData GetThreatIntelSet where
-
-instance ToHeaders GetThreatIntelSet where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToPath GetThreatIntelSet where
-        toPath GetThreatIntelSet'{..}
-          = mconcat
-              ["/detector/", toBS _gtisDetectorId,
-               "/threatintelset/", toBS _gtisThreatIntelSetId]
-
-instance ToQuery GetThreatIntelSet where
-        toQuery = const mempty
-
--- | /See:/ 'getThreatIntelSetResponse' smart constructor.
-data GetThreatIntelSetResponse = GetThreatIntelSetResponse'
-  { _gtisrsStatus         :: !(Maybe ThreatIntelSetStatus)
-  , _gtisrsLocation       :: !(Maybe Text)
-  , _gtisrsFormat         :: !(Maybe ThreatIntelSetFormat)
-  , _gtisrsName           :: !(Maybe Text)
-  , _gtisrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetThreatIntelSetResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gtisrsStatus' - The status of threatIntelSet file uploaded.
---
--- * 'gtisrsLocation' - The URI of the file that contains the ThreatIntelSet. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key).
---
--- * 'gtisrsFormat' - The format of the threatIntelSet.
---
--- * 'gtisrsName' - A user-friendly ThreatIntelSet name that is displayed in all finding generated by activity that involves IP addresses included in this ThreatIntelSet.
---
--- * 'gtisrsResponseStatus' - -- | The response status code.
-getThreatIntelSetResponse
-    :: Int -- ^ 'gtisrsResponseStatus'
-    -> GetThreatIntelSetResponse
-getThreatIntelSetResponse pResponseStatus_ =
-  GetThreatIntelSetResponse'
-    { _gtisrsStatus = Nothing
-    , _gtisrsLocation = Nothing
-    , _gtisrsFormat = Nothing
-    , _gtisrsName = Nothing
-    , _gtisrsResponseStatus = pResponseStatus_
+    { detectorId = pDetectorId_,
+      threatIntelSetId = pThreatIntelSetId_
     }
 
+-- | The unique ID of the detector that the threatIntelSet is associated
+-- with.
+getThreatIntelSet_detectorId :: Lens.Lens' GetThreatIntelSet Prelude.Text
+getThreatIntelSet_detectorId = Lens.lens (\GetThreatIntelSet' {detectorId} -> detectorId) (\s@GetThreatIntelSet' {} a -> s {detectorId = a} :: GetThreatIntelSet)
 
--- | The status of threatIntelSet file uploaded.
-gtisrsStatus :: Lens' GetThreatIntelSetResponse (Maybe ThreatIntelSetStatus)
-gtisrsStatus = lens _gtisrsStatus (\ s a -> s{_gtisrsStatus = a})
+-- | The unique ID of the threatIntelSet that you want to get.
+getThreatIntelSet_threatIntelSetId :: Lens.Lens' GetThreatIntelSet Prelude.Text
+getThreatIntelSet_threatIntelSetId = Lens.lens (\GetThreatIntelSet' {threatIntelSetId} -> threatIntelSetId) (\s@GetThreatIntelSet' {} a -> s {threatIntelSetId = a} :: GetThreatIntelSet)
 
--- | The URI of the file that contains the ThreatIntelSet. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key).
-gtisrsLocation :: Lens' GetThreatIntelSetResponse (Maybe Text)
-gtisrsLocation = lens _gtisrsLocation (\ s a -> s{_gtisrsLocation = a})
+instance Prelude.AWSRequest GetThreatIntelSet where
+  type Rs GetThreatIntelSet = GetThreatIntelSetResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetThreatIntelSetResponse'
+            Prelude.<$> (x Prelude..?> "tags" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Prelude..:> "name")
+            Prelude.<*> (x Prelude..:> "format")
+            Prelude.<*> (x Prelude..:> "location")
+            Prelude.<*> (x Prelude..:> "status")
+      )
+
+instance Prelude.Hashable GetThreatIntelSet
+
+instance Prelude.NFData GetThreatIntelSet
+
+instance Prelude.ToHeaders GetThreatIntelSet where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToPath GetThreatIntelSet where
+  toPath GetThreatIntelSet' {..} =
+    Prelude.mconcat
+      [ "/detector/",
+        Prelude.toBS detectorId,
+        "/threatintelset/",
+        Prelude.toBS threatIntelSetId
+      ]
+
+instance Prelude.ToQuery GetThreatIntelSet where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newGetThreatIntelSetResponse' smart constructor.
+data GetThreatIntelSetResponse = GetThreatIntelSetResponse'
+  { -- | The tags of the threat list resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A user-friendly ThreatIntelSet name displayed in all findings that are
+    -- generated by activity that involves IP addresses included in this
+    -- ThreatIntelSet.
+    name :: Prelude.Text,
+    -- | The format of the threatIntelSet.
+    format :: ThreatIntelSetFormat,
+    -- | The URI of the file that contains the ThreatIntelSet. For example:
+    -- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+    location :: Prelude.Text,
+    -- | The status of threatIntelSet file uploaded.
+    status :: ThreatIntelSetStatus
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetThreatIntelSetResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'tags', 'getThreatIntelSetResponse_tags' - The tags of the threat list resource.
+--
+-- 'httpStatus', 'getThreatIntelSetResponse_httpStatus' - The response's http status code.
+--
+-- 'name', 'getThreatIntelSetResponse_name' - A user-friendly ThreatIntelSet name displayed in all findings that are
+-- generated by activity that involves IP addresses included in this
+-- ThreatIntelSet.
+--
+-- 'format', 'getThreatIntelSetResponse_format' - The format of the threatIntelSet.
+--
+-- 'location', 'getThreatIntelSetResponse_location' - The URI of the file that contains the ThreatIntelSet. For example:
+-- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+--
+-- 'status', 'getThreatIntelSetResponse_status' - The status of threatIntelSet file uploaded.
+newGetThreatIntelSetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'format'
+  ThreatIntelSetFormat ->
+  -- | 'location'
+  Prelude.Text ->
+  -- | 'status'
+  ThreatIntelSetStatus ->
+  GetThreatIntelSetResponse
+newGetThreatIntelSetResponse
+  pHttpStatus_
+  pName_
+  pFormat_
+  pLocation_
+  pStatus_ =
+    GetThreatIntelSetResponse'
+      { tags = Prelude.Nothing,
+        httpStatus = pHttpStatus_,
+        name = pName_,
+        format = pFormat_,
+        location = pLocation_,
+        status = pStatus_
+      }
+
+-- | The tags of the threat list resource.
+getThreatIntelSetResponse_tags :: Lens.Lens' GetThreatIntelSetResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getThreatIntelSetResponse_tags = Lens.lens (\GetThreatIntelSetResponse' {tags} -> tags) (\s@GetThreatIntelSetResponse' {} a -> s {tags = a} :: GetThreatIntelSetResponse) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The response's http status code.
+getThreatIntelSetResponse_httpStatus :: Lens.Lens' GetThreatIntelSetResponse Prelude.Int
+getThreatIntelSetResponse_httpStatus = Lens.lens (\GetThreatIntelSetResponse' {httpStatus} -> httpStatus) (\s@GetThreatIntelSetResponse' {} a -> s {httpStatus = a} :: GetThreatIntelSetResponse)
+
+-- | A user-friendly ThreatIntelSet name displayed in all findings that are
+-- generated by activity that involves IP addresses included in this
+-- ThreatIntelSet.
+getThreatIntelSetResponse_name :: Lens.Lens' GetThreatIntelSetResponse Prelude.Text
+getThreatIntelSetResponse_name = Lens.lens (\GetThreatIntelSetResponse' {name} -> name) (\s@GetThreatIntelSetResponse' {} a -> s {name = a} :: GetThreatIntelSetResponse)
 
 -- | The format of the threatIntelSet.
-gtisrsFormat :: Lens' GetThreatIntelSetResponse (Maybe ThreatIntelSetFormat)
-gtisrsFormat = lens _gtisrsFormat (\ s a -> s{_gtisrsFormat = a})
+getThreatIntelSetResponse_format :: Lens.Lens' GetThreatIntelSetResponse ThreatIntelSetFormat
+getThreatIntelSetResponse_format = Lens.lens (\GetThreatIntelSetResponse' {format} -> format) (\s@GetThreatIntelSetResponse' {} a -> s {format = a} :: GetThreatIntelSetResponse)
 
--- | A user-friendly ThreatIntelSet name that is displayed in all finding generated by activity that involves IP addresses included in this ThreatIntelSet.
-gtisrsName :: Lens' GetThreatIntelSetResponse (Maybe Text)
-gtisrsName = lens _gtisrsName (\ s a -> s{_gtisrsName = a})
+-- | The URI of the file that contains the ThreatIntelSet. For example:
+-- https:\/\/s3.us-west-2.amazonaws.com\/my-bucket\/my-object-key.
+getThreatIntelSetResponse_location :: Lens.Lens' GetThreatIntelSetResponse Prelude.Text
+getThreatIntelSetResponse_location = Lens.lens (\GetThreatIntelSetResponse' {location} -> location) (\s@GetThreatIntelSetResponse' {} a -> s {location = a} :: GetThreatIntelSetResponse)
 
--- | -- | The response status code.
-gtisrsResponseStatus :: Lens' GetThreatIntelSetResponse Int
-gtisrsResponseStatus = lens _gtisrsResponseStatus (\ s a -> s{_gtisrsResponseStatus = a})
+-- | The status of threatIntelSet file uploaded.
+getThreatIntelSetResponse_status :: Lens.Lens' GetThreatIntelSetResponse ThreatIntelSetStatus
+getThreatIntelSetResponse_status = Lens.lens (\GetThreatIntelSetResponse' {status} -> status) (\s@GetThreatIntelSetResponse' {} a -> s {status = a} :: GetThreatIntelSetResponse)
 
-instance NFData GetThreatIntelSetResponse where
+instance Prelude.NFData GetThreatIntelSetResponse

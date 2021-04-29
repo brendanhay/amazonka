@@ -1,131 +1,164 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GuardDuty.ArchiveFindings
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Archives Amazon GuardDuty findings specified by the list of finding IDs.
+-- Archives GuardDuty findings that are specified by the list of finding
+-- IDs.
+--
+-- Only the administrator account can archive findings. Member accounts
+-- don\'t have permission to archive findings from their accounts.
 module Network.AWS.GuardDuty.ArchiveFindings
-    (
-    -- * Creating a Request
-      archiveFindings
-    , ArchiveFindings
+  ( -- * Creating a Request
+    ArchiveFindings (..),
+    newArchiveFindings,
+
     -- * Request Lenses
-    , afFindingIds
-    , afDetectorId
+    archiveFindings_detectorId,
+    archiveFindings_findingIds,
 
     -- * Destructuring the Response
-    , archiveFindingsResponse
-    , ArchiveFindingsResponse
+    ArchiveFindingsResponse (..),
+    newArchiveFindingsResponse,
+
     -- * Response Lenses
-    , afrsResponseStatus
-    ) where
+    archiveFindingsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.GuardDuty.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | ArchiveFindings request body.
---
--- /See:/ 'archiveFindings' smart constructor.
+-- | /See:/ 'newArchiveFindings' smart constructor.
 data ArchiveFindings = ArchiveFindings'
-  { _afFindingIds :: !(Maybe [Text])
-  , _afDetectorId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the detector that specifies the GuardDuty service whose
+    -- findings you want to archive.
+    detectorId :: Prelude.Text,
+    -- | The IDs of the findings that you want to archive.
+    findingIds :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ArchiveFindings' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ArchiveFindings' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'afFindingIds' - IDs of the findings that you want to archive.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'afDetectorId' - The ID of the detector that specifies the GuardDuty service whose findings you want to archive.
-archiveFindings
-    :: Text -- ^ 'afDetectorId'
-    -> ArchiveFindings
-archiveFindings pDetectorId_ =
-  ArchiveFindings' {_afFindingIds = Nothing, _afDetectorId = pDetectorId_}
-
-
--- | IDs of the findings that you want to archive.
-afFindingIds :: Lens' ArchiveFindings [Text]
-afFindingIds = lens _afFindingIds (\ s a -> s{_afFindingIds = a}) . _Default . _Coerce
-
--- | The ID of the detector that specifies the GuardDuty service whose findings you want to archive.
-afDetectorId :: Lens' ArchiveFindings Text
-afDetectorId = lens _afDetectorId (\ s a -> s{_afDetectorId = a})
-
-instance AWSRequest ArchiveFindings where
-        type Rs ArchiveFindings = ArchiveFindingsResponse
-        request = postJSON guardDuty
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 ArchiveFindingsResponse' <$> (pure (fromEnum s)))
-
-instance Hashable ArchiveFindings where
-
-instance NFData ArchiveFindings where
-
-instance ToHeaders ArchiveFindings where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ArchiveFindings where
-        toJSON ArchiveFindings'{..}
-          = object
-              (catMaybes [("findingIds" .=) <$> _afFindingIds])
-
-instance ToPath ArchiveFindings where
-        toPath ArchiveFindings'{..}
-          = mconcat
-              ["/detector/", toBS _afDetectorId,
-               "/findings/archive"]
-
-instance ToQuery ArchiveFindings where
-        toQuery = const mempty
-
--- | /See:/ 'archiveFindingsResponse' smart constructor.
-newtype ArchiveFindingsResponse = ArchiveFindingsResponse'
-  { _afrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ArchiveFindingsResponse' with the minimum fields required to make a request.
+-- 'detectorId', 'archiveFindings_detectorId' - The ID of the detector that specifies the GuardDuty service whose
+-- findings you want to archive.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'findingIds', 'archiveFindings_findingIds' - The IDs of the findings that you want to archive.
+newArchiveFindings ::
+  -- | 'detectorId'
+  Prelude.Text ->
+  ArchiveFindings
+newArchiveFindings pDetectorId_ =
+  ArchiveFindings'
+    { detectorId = pDetectorId_,
+      findingIds = Prelude.mempty
+    }
+
+-- | The ID of the detector that specifies the GuardDuty service whose
+-- findings you want to archive.
+archiveFindings_detectorId :: Lens.Lens' ArchiveFindings Prelude.Text
+archiveFindings_detectorId = Lens.lens (\ArchiveFindings' {detectorId} -> detectorId) (\s@ArchiveFindings' {} a -> s {detectorId = a} :: ArchiveFindings)
+
+-- | The IDs of the findings that you want to archive.
+archiveFindings_findingIds :: Lens.Lens' ArchiveFindings [Prelude.Text]
+archiveFindings_findingIds = Lens.lens (\ArchiveFindings' {findingIds} -> findingIds) (\s@ArchiveFindings' {} a -> s {findingIds = a} :: ArchiveFindings) Prelude.. Prelude._Coerce
+
+instance Prelude.AWSRequest ArchiveFindings where
+  type Rs ArchiveFindings = ArchiveFindingsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          ArchiveFindingsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ArchiveFindings
+
+instance Prelude.NFData ArchiveFindings
+
+instance Prelude.ToHeaders ArchiveFindings where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON ArchiveFindings where
+  toJSON ArchiveFindings' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("findingIds" Prelude..= findingIds)]
+      )
+
+instance Prelude.ToPath ArchiveFindings where
+  toPath ArchiveFindings' {..} =
+    Prelude.mconcat
+      [ "/detector/",
+        Prelude.toBS detectorId,
+        "/findings/archive"
+      ]
+
+instance Prelude.ToQuery ArchiveFindings where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newArchiveFindingsResponse' smart constructor.
+data ArchiveFindingsResponse = ArchiveFindingsResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'ArchiveFindingsResponse' with all optional fields omitted.
 --
--- * 'afrsResponseStatus' - -- | The response status code.
-archiveFindingsResponse
-    :: Int -- ^ 'afrsResponseStatus'
-    -> ArchiveFindingsResponse
-archiveFindingsResponse pResponseStatus_ =
-  ArchiveFindingsResponse' {_afrsResponseStatus = pResponseStatus_}
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'archiveFindingsResponse_httpStatus' - The response's http status code.
+newArchiveFindingsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ArchiveFindingsResponse
+newArchiveFindingsResponse pHttpStatus_ =
+  ArchiveFindingsResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+archiveFindingsResponse_httpStatus :: Lens.Lens' ArchiveFindingsResponse Prelude.Int
+archiveFindingsResponse_httpStatus = Lens.lens (\ArchiveFindingsResponse' {httpStatus} -> httpStatus) (\s@ArchiveFindingsResponse' {} a -> s {httpStatus = a} :: ArchiveFindingsResponse)
 
--- | -- | The response status code.
-afrsResponseStatus :: Lens' ArchiveFindingsResponse Int
-afrsResponseStatus = lens _afrsResponseStatus (\ s a -> s{_afrsResponseStatus = a})
-
-instance NFData ArchiveFindingsResponse where
+instance Prelude.NFData ArchiveFindingsResponse

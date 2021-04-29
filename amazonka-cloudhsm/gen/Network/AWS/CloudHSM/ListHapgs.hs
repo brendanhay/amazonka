@@ -14,7 +14,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudHSM.ListLunaClients
+-- Module      : Network.AWS.CloudHSM.ListHapgs
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -35,30 +35,30 @@
 -- and the
 -- <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference>.
 --
--- Lists all of the clients.
+-- Lists the high-availability partition groups for the account.
 --
 -- This operation supports pagination with the use of the @NextToken@
 -- member. If more results are available, the @NextToken@ member of the
--- response contains a token that you pass in the next call to
--- @ListLunaClients@ to retrieve the next set of items.
+-- response contains a token that you pass in the next call to @ListHapgs@
+-- to retrieve the next set of items.
 --
 -- This operation returns paginated results.
-module Network.AWS.CloudHSM.ListLunaClients
+module Network.AWS.CloudHSM.ListHapgs
   ( -- * Creating a Request
-    ListLunaClients (..),
-    newListLunaClients,
+    ListHapgs (..),
+    newListHapgs,
 
     -- * Request Lenses
-    listLunaClients_nextToken,
+    listHapgs_nextToken,
 
     -- * Destructuring the Response
-    ListLunaClientsResponse (..),
-    newListLunaClientsResponse,
+    ListHapgsResponse (..),
+    newListHapgsResponse,
 
     -- * Response Lenses
-    listLunaClientsResponse_nextToken,
-    listLunaClientsResponse_httpStatus,
-    listLunaClientsResponse_clientList,
+    listHapgsResponse_nextToken,
+    listHapgsResponse_httpStatus,
+    listHapgsResponse_hapgList,
   )
 where
 
@@ -69,77 +69,74 @@ import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- | /See:/ 'newListLunaClients' smart constructor.
-data ListLunaClients = ListLunaClients'
-  { -- | The @NextToken@ value from a previous call to @ListLunaClients@. Pass
-    -- null if this is the first call.
+-- | /See:/ 'newListHapgs' smart constructor.
+data ListHapgs = ListHapgs'
+  { -- | The @NextToken@ value from a previous call to @ListHapgs@. Pass null if
+    -- this is the first call.
     nextToken :: Prelude.Maybe Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
--- Create a value of 'ListLunaClients' with all optional fields omitted.
+-- Create a value of 'ListHapgs' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listLunaClients_nextToken' - The @NextToken@ value from a previous call to @ListLunaClients@. Pass
--- null if this is the first call.
-newListLunaClients ::
-  ListLunaClients
-newListLunaClients =
-  ListLunaClients' {nextToken = Prelude.Nothing}
+-- 'nextToken', 'listHapgs_nextToken' - The @NextToken@ value from a previous call to @ListHapgs@. Pass null if
+-- this is the first call.
+newListHapgs ::
+  ListHapgs
+newListHapgs =
+  ListHapgs' {nextToken = Prelude.Nothing}
 
--- | The @NextToken@ value from a previous call to @ListLunaClients@. Pass
--- null if this is the first call.
-listLunaClients_nextToken :: Lens.Lens' ListLunaClients (Prelude.Maybe Prelude.Text)
-listLunaClients_nextToken = Lens.lens (\ListLunaClients' {nextToken} -> nextToken) (\s@ListLunaClients' {} a -> s {nextToken = a} :: ListLunaClients)
+-- | The @NextToken@ value from a previous call to @ListHapgs@. Pass null if
+-- this is the first call.
+listHapgs_nextToken :: Lens.Lens' ListHapgs (Prelude.Maybe Prelude.Text)
+listHapgs_nextToken = Lens.lens (\ListHapgs' {nextToken} -> nextToken) (\s@ListHapgs' {} a -> s {nextToken = a} :: ListHapgs)
 
-instance Pager.AWSPager ListLunaClients where
+instance Pager.AWSPager ListHapgs where
   page rq rs
     | Pager.stop
         ( rs
-            Lens.^? listLunaClientsResponse_nextToken
-              Prelude.. Lens._Just
+            Lens.^? listHapgsResponse_nextToken Prelude.. Lens._Just
         ) =
       Prelude.Nothing
-    | Pager.stop
-        (rs Lens.^. listLunaClientsResponse_clientList) =
+    | Pager.stop (rs Lens.^. listHapgsResponse_hapgList) =
       Prelude.Nothing
     | Prelude.otherwise =
       Prelude.Just Prelude.$
         rq
-          Lens.& listLunaClients_nextToken
+          Lens.& listHapgs_nextToken
           Lens..~ rs
-          Lens.^? listLunaClientsResponse_nextToken
-            Prelude.. Lens._Just
+          Lens.^? listHapgsResponse_nextToken Prelude.. Lens._Just
 
-instance Prelude.AWSRequest ListLunaClients where
-  type Rs ListLunaClients = ListLunaClientsResponse
+instance Prelude.AWSRequest ListHapgs where
+  type Rs ListHapgs = ListHapgsResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
-          ListLunaClientsResponse'
+          ListHapgsResponse'
             Prelude.<$> (x Prelude..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> ( x Prelude..?> "ClientList"
+            Prelude.<*> ( x Prelude..?> "HapgList"
                             Prelude..!@ Prelude.mempty
                         )
       )
 
-instance Prelude.Hashable ListLunaClients
+instance Prelude.Hashable ListHapgs
 
-instance Prelude.NFData ListLunaClients
+instance Prelude.NFData ListHapgs
 
-instance Prelude.ToHeaders ListLunaClients where
+instance Prelude.ToHeaders ListHapgs where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CloudHsmFrontendService.ListLunaClients" ::
+              Prelude.=# ( "CloudHsmFrontendService.ListHapgs" ::
                              Prelude.ByteString
                          ),
             "Content-Type"
@@ -149,68 +146,67 @@ instance Prelude.ToHeaders ListLunaClients where
           ]
       )
 
-instance Prelude.ToJSON ListLunaClients where
-  toJSON ListLunaClients' {..} =
+instance Prelude.ToJSON ListHapgs where
+  toJSON ListHapgs' {..} =
     Prelude.object
       ( Prelude.catMaybes
           [("NextToken" Prelude..=) Prelude.<$> nextToken]
       )
 
-instance Prelude.ToPath ListLunaClients where
+instance Prelude.ToPath ListHapgs where
   toPath = Prelude.const "/"
 
-instance Prelude.ToQuery ListLunaClients where
+instance Prelude.ToQuery ListHapgs where
   toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'newListLunaClientsResponse' smart constructor.
-data ListLunaClientsResponse = ListLunaClientsResponse'
-  { -- | If not null, more results are available. Pass this to @ListLunaClients@
+-- | /See:/ 'newListHapgsResponse' smart constructor.
+data ListHapgsResponse = ListHapgsResponse'
+  { -- | If not null, more results are available. Pass this value to @ListHapgs@
     -- to retrieve the next set of items.
     nextToken :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | The list of clients.
-    clientList :: [Prelude.Text]
+    -- | The list of high-availability partition groups.
+    hapgList :: [Prelude.Text]
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
--- Create a value of 'ListLunaClientsResponse' with all optional fields omitted.
+-- Create a value of 'ListHapgsResponse' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'nextToken', 'listLunaClientsResponse_nextToken' - If not null, more results are available. Pass this to @ListLunaClients@
+-- 'nextToken', 'listHapgsResponse_nextToken' - If not null, more results are available. Pass this value to @ListHapgs@
 -- to retrieve the next set of items.
 --
--- 'httpStatus', 'listLunaClientsResponse_httpStatus' - The response's http status code.
+-- 'httpStatus', 'listHapgsResponse_httpStatus' - The response's http status code.
 --
--- 'clientList', 'listLunaClientsResponse_clientList' - The list of clients.
-newListLunaClientsResponse ::
+-- 'hapgList', 'listHapgsResponse_hapgList' - The list of high-availability partition groups.
+newListHapgsResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  ListLunaClientsResponse
-newListLunaClientsResponse pHttpStatus_ =
-  ListLunaClientsResponse'
-    { nextToken =
-        Prelude.Nothing,
+  ListHapgsResponse
+newListHapgsResponse pHttpStatus_ =
+  ListHapgsResponse'
+    { nextToken = Prelude.Nothing,
       httpStatus = pHttpStatus_,
-      clientList = Prelude.mempty
+      hapgList = Prelude.mempty
     }
 
--- | If not null, more results are available. Pass this to @ListLunaClients@
+-- | If not null, more results are available. Pass this value to @ListHapgs@
 -- to retrieve the next set of items.
-listLunaClientsResponse_nextToken :: Lens.Lens' ListLunaClientsResponse (Prelude.Maybe Prelude.Text)
-listLunaClientsResponse_nextToken = Lens.lens (\ListLunaClientsResponse' {nextToken} -> nextToken) (\s@ListLunaClientsResponse' {} a -> s {nextToken = a} :: ListLunaClientsResponse)
+listHapgsResponse_nextToken :: Lens.Lens' ListHapgsResponse (Prelude.Maybe Prelude.Text)
+listHapgsResponse_nextToken = Lens.lens (\ListHapgsResponse' {nextToken} -> nextToken) (\s@ListHapgsResponse' {} a -> s {nextToken = a} :: ListHapgsResponse)
 
 -- | The response's http status code.
-listLunaClientsResponse_httpStatus :: Lens.Lens' ListLunaClientsResponse Prelude.Int
-listLunaClientsResponse_httpStatus = Lens.lens (\ListLunaClientsResponse' {httpStatus} -> httpStatus) (\s@ListLunaClientsResponse' {} a -> s {httpStatus = a} :: ListLunaClientsResponse)
+listHapgsResponse_httpStatus :: Lens.Lens' ListHapgsResponse Prelude.Int
+listHapgsResponse_httpStatus = Lens.lens (\ListHapgsResponse' {httpStatus} -> httpStatus) (\s@ListHapgsResponse' {} a -> s {httpStatus = a} :: ListHapgsResponse)
 
--- | The list of clients.
-listLunaClientsResponse_clientList :: Lens.Lens' ListLunaClientsResponse [Prelude.Text]
-listLunaClientsResponse_clientList = Lens.lens (\ListLunaClientsResponse' {clientList} -> clientList) (\s@ListLunaClientsResponse' {} a -> s {clientList = a} :: ListLunaClientsResponse) Prelude.. Prelude._Coerce
+-- | The list of high-availability partition groups.
+listHapgsResponse_hapgList :: Lens.Lens' ListHapgsResponse [Prelude.Text]
+listHapgsResponse_hapgList = Lens.lens (\ListHapgsResponse' {hapgList} -> hapgList) (\s@ListHapgsResponse' {} a -> s {hapgList = a} :: ListHapgsResponse) Prelude.. Prelude._Coerce
 
-instance Prelude.NFData ListLunaClientsResponse
+instance Prelude.NFData ListHapgsResponse

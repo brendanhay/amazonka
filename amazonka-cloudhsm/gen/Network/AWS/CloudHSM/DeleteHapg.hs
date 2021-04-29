@@ -14,7 +14,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudHSM.ListTagsForResource
+-- Module      : Network.AWS.CloudHSM.DeleteHapg
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -35,22 +35,22 @@
 -- and the
 -- <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference>.
 --
--- Returns a list of all tags for the specified AWS CloudHSM resource.
-module Network.AWS.CloudHSM.ListTagsForResource
+-- Deletes a high-availability partition group.
+module Network.AWS.CloudHSM.DeleteHapg
   ( -- * Creating a Request
-    ListTagsForResource (..),
-    newListTagsForResource,
+    DeleteHapg (..),
+    newDeleteHapg,
 
     -- * Request Lenses
-    listTagsForResource_resourceArn,
+    deleteHapg_hapgArn,
 
     -- * Destructuring the Response
-    ListTagsForResourceResponse (..),
-    newListTagsForResourceResponse,
+    DeleteHapgResponse (..),
+    newDeleteHapgResponse,
 
     -- * Response Lenses
-    listTagsForResourceResponse_httpStatus,
-    listTagsForResourceResponse_tagList,
+    deleteHapgResponse_httpStatus,
+    deleteHapgResponse_status,
   )
 where
 
@@ -60,56 +60,56 @@ import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- | /See:/ 'newListTagsForResource' smart constructor.
-data ListTagsForResource = ListTagsForResource'
-  { -- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
-    resourceArn :: Prelude.Text
+-- | Contains the inputs for the DeleteHapg action.
+--
+-- /See:/ 'newDeleteHapg' smart constructor.
+data DeleteHapg = DeleteHapg'
+  { -- | The ARN of the high-availability partition group to delete.
+    hapgArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
--- Create a value of 'ListTagsForResource' with all optional fields omitted.
+-- Create a value of 'DeleteHapg' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
-newListTagsForResource ::
-  -- | 'resourceArn'
+-- 'hapgArn', 'deleteHapg_hapgArn' - The ARN of the high-availability partition group to delete.
+newDeleteHapg ::
+  -- | 'hapgArn'
   Prelude.Text ->
-  ListTagsForResource
-newListTagsForResource pResourceArn_ =
-  ListTagsForResource' {resourceArn = pResourceArn_}
+  DeleteHapg
+newDeleteHapg pHapgArn_ =
+  DeleteHapg' {hapgArn = pHapgArn_}
 
--- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
-listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
-listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
+-- | The ARN of the high-availability partition group to delete.
+deleteHapg_hapgArn :: Lens.Lens' DeleteHapg Prelude.Text
+deleteHapg_hapgArn = Lens.lens (\DeleteHapg' {hapgArn} -> hapgArn) (\s@DeleteHapg' {} a -> s {hapgArn = a} :: DeleteHapg)
 
-instance Prelude.AWSRequest ListTagsForResource where
-  type
-    Rs ListTagsForResource =
-      ListTagsForResourceResponse
+instance Prelude.AWSRequest DeleteHapg where
+  type Rs DeleteHapg = DeleteHapgResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
-          ListTagsForResourceResponse'
+          DeleteHapgResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..?> "TagList" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (x Prelude..:> "Status")
       )
 
-instance Prelude.Hashable ListTagsForResource
+instance Prelude.Hashable DeleteHapg
 
-instance Prelude.NFData ListTagsForResource
+instance Prelude.NFData DeleteHapg
 
-instance Prelude.ToHeaders ListTagsForResource where
+instance Prelude.ToHeaders DeleteHapg where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CloudHsmFrontendService.ListTagsForResource" ::
+              Prelude.=# ( "CloudHsmFrontendService.DeleteHapg" ::
                              Prelude.ByteString
                          ),
             "Content-Type"
@@ -119,58 +119,59 @@ instance Prelude.ToHeaders ListTagsForResource where
           ]
       )
 
-instance Prelude.ToJSON ListTagsForResource where
-  toJSON ListTagsForResource' {..} =
+instance Prelude.ToJSON DeleteHapg where
+  toJSON DeleteHapg' {..} =
     Prelude.object
       ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ResourceArn" Prelude..= resourceArn)
-          ]
+          [Prelude.Just ("HapgArn" Prelude..= hapgArn)]
       )
 
-instance Prelude.ToPath ListTagsForResource where
+instance Prelude.ToPath DeleteHapg where
   toPath = Prelude.const "/"
 
-instance Prelude.ToQuery ListTagsForResource where
+instance Prelude.ToQuery DeleteHapg where
   toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'newListTagsForResourceResponse' smart constructor.
-data ListTagsForResourceResponse = ListTagsForResourceResponse'
+-- | Contains the output of the DeleteHapg action.
+--
+-- /See:/ 'newDeleteHapgResponse' smart constructor.
+data DeleteHapgResponse = DeleteHapgResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | One or more tags.
-    tagList :: [Tag]
+    -- | The status of the action.
+    status :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
--- Create a value of 'ListTagsForResourceResponse' with all optional fields omitted.
+-- Create a value of 'DeleteHapgResponse' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
+-- 'httpStatus', 'deleteHapgResponse_httpStatus' - The response's http status code.
 --
--- 'tagList', 'listTagsForResourceResponse_tagList' - One or more tags.
-newListTagsForResourceResponse ::
+-- 'status', 'deleteHapgResponse_status' - The status of the action.
+newDeleteHapgResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  ListTagsForResourceResponse
-newListTagsForResourceResponse pHttpStatus_ =
-  ListTagsForResourceResponse'
-    { httpStatus =
-        pHttpStatus_,
-      tagList = Prelude.mempty
+  -- | 'status'
+  Prelude.Text ->
+  DeleteHapgResponse
+newDeleteHapgResponse pHttpStatus_ pStatus_ =
+  DeleteHapgResponse'
+    { httpStatus = pHttpStatus_,
+      status = pStatus_
     }
 
 -- | The response's http status code.
-listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
-listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse' {httpStatus} -> httpStatus) (\s@ListTagsForResourceResponse' {} a -> s {httpStatus = a} :: ListTagsForResourceResponse)
+deleteHapgResponse_httpStatus :: Lens.Lens' DeleteHapgResponse Prelude.Int
+deleteHapgResponse_httpStatus = Lens.lens (\DeleteHapgResponse' {httpStatus} -> httpStatus) (\s@DeleteHapgResponse' {} a -> s {httpStatus = a} :: DeleteHapgResponse)
 
--- | One or more tags.
-listTagsForResourceResponse_tagList :: Lens.Lens' ListTagsForResourceResponse [Tag]
-listTagsForResourceResponse_tagList = Lens.lens (\ListTagsForResourceResponse' {tagList} -> tagList) (\s@ListTagsForResourceResponse' {} a -> s {tagList = a} :: ListTagsForResourceResponse) Prelude.. Prelude._Coerce
+-- | The status of the action.
+deleteHapgResponse_status :: Lens.Lens' DeleteHapgResponse Prelude.Text
+deleteHapgResponse_status = Lens.lens (\DeleteHapgResponse' {status} -> status) (\s@DeleteHapgResponse' {} a -> s {status = a} :: DeleteHapgResponse)
 
-instance Prelude.NFData ListTagsForResourceResponse
+instance Prelude.NFData DeleteHapgResponse

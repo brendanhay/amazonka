@@ -14,7 +14,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudHSM.ListAvailableZones
+-- Module      : Network.AWS.CloudHSM.CreateHapg
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -35,19 +35,24 @@
 -- and the
 -- <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference>.
 --
--- Lists the Availability Zones that have available AWS CloudHSM capacity.
-module Network.AWS.CloudHSM.ListAvailableZones
+-- Creates a high-availability partition group. A high-availability
+-- partition group is a group of partitions that spans multiple physical
+-- HSMs.
+module Network.AWS.CloudHSM.CreateHapg
   ( -- * Creating a Request
-    ListAvailableZones (..),
-    newListAvailableZones,
+    CreateHapg (..),
+    newCreateHapg,
+
+    -- * Request Lenses
+    createHapg_label,
 
     -- * Destructuring the Response
-    ListAvailableZonesResponse (..),
-    newListAvailableZonesResponse,
+    CreateHapgResponse (..),
+    newCreateHapgResponse,
 
     -- * Response Lenses
-    listAvailableZonesResponse_aZList,
-    listAvailableZonesResponse_httpStatus,
+    createHapgResponse_hapgArn,
+    createHapgResponse_httpStatus,
   )
 where
 
@@ -57,45 +62,55 @@ import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- | Contains the inputs for the ListAvailableZones action.
+-- | Contains the inputs for the CreateHapgRequest action.
 --
--- /See:/ 'newListAvailableZones' smart constructor.
-data ListAvailableZones = ListAvailableZones'
-  {
+-- /See:/ 'newCreateHapg' smart constructor.
+data CreateHapg = CreateHapg'
+  { -- | The label of the new high-availability partition group.
+    label :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
--- Create a value of 'ListAvailableZones' with all optional fields omitted.
+-- Create a value of 'CreateHapg' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
-newListAvailableZones ::
-  ListAvailableZones
-newListAvailableZones = ListAvailableZones'
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'label', 'createHapg_label' - The label of the new high-availability partition group.
+newCreateHapg ::
+  -- | 'label'
+  Prelude.Text ->
+  CreateHapg
+newCreateHapg pLabel_ = CreateHapg' {label = pLabel_}
 
-instance Prelude.AWSRequest ListAvailableZones where
-  type
-    Rs ListAvailableZones =
-      ListAvailableZonesResponse
+-- | The label of the new high-availability partition group.
+createHapg_label :: Lens.Lens' CreateHapg Prelude.Text
+createHapg_label = Lens.lens (\CreateHapg' {label} -> label) (\s@CreateHapg' {} a -> s {label = a} :: CreateHapg)
+
+instance Prelude.AWSRequest CreateHapg where
+  type Rs CreateHapg = CreateHapgResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
-          ListAvailableZonesResponse'
-            Prelude.<$> (x Prelude..?> "AZList" Prelude..!@ Prelude.mempty)
+          CreateHapgResponse'
+            Prelude.<$> (x Prelude..?> "HapgArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
 
-instance Prelude.Hashable ListAvailableZones
+instance Prelude.Hashable CreateHapg
 
-instance Prelude.NFData ListAvailableZones
+instance Prelude.NFData CreateHapg
 
-instance Prelude.ToHeaders ListAvailableZones where
+instance Prelude.ToHeaders CreateHapg where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CloudHsmFrontendService.ListAvailableZones" ::
+              Prelude.=# ( "CloudHsmFrontendService.CreateHapg" ::
                              Prelude.ByteString
                          ),
             "Content-Type"
@@ -105,56 +120,57 @@ instance Prelude.ToHeaders ListAvailableZones where
           ]
       )
 
-instance Prelude.ToJSON ListAvailableZones where
-  toJSON =
-    Prelude.const (Prelude.Object Prelude.mempty)
+instance Prelude.ToJSON CreateHapg where
+  toJSON CreateHapg' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Label" Prelude..= label)]
+      )
 
-instance Prelude.ToPath ListAvailableZones where
+instance Prelude.ToPath CreateHapg where
   toPath = Prelude.const "/"
 
-instance Prelude.ToQuery ListAvailableZones where
+instance Prelude.ToQuery CreateHapg where
   toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'newListAvailableZonesResponse' smart constructor.
-data ListAvailableZonesResponse = ListAvailableZonesResponse'
-  { -- | The list of Availability Zones that have available AWS CloudHSM
-    -- capacity.
-    aZList :: Prelude.Maybe [Prelude.Text],
+-- | Contains the output of the CreateHAPartitionGroup action.
+--
+-- /See:/ 'newCreateHapgResponse' smart constructor.
+data CreateHapgResponse = CreateHapgResponse'
+  { -- | The ARN of the high-availability partition group.
+    hapgArn :: Prelude.Maybe Prelude.Text,
     -- | The response's http status code.
     httpStatus :: Prelude.Int
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
--- Create a value of 'ListAvailableZonesResponse' with all optional fields omitted.
+-- Create a value of 'CreateHapgResponse' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'aZList', 'listAvailableZonesResponse_aZList' - The list of Availability Zones that have available AWS CloudHSM
--- capacity.
+-- 'hapgArn', 'createHapgResponse_hapgArn' - The ARN of the high-availability partition group.
 --
--- 'httpStatus', 'listAvailableZonesResponse_httpStatus' - The response's http status code.
-newListAvailableZonesResponse ::
+-- 'httpStatus', 'createHapgResponse_httpStatus' - The response's http status code.
+newCreateHapgResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  ListAvailableZonesResponse
-newListAvailableZonesResponse pHttpStatus_ =
-  ListAvailableZonesResponse'
-    { aZList =
-        Prelude.Nothing,
+  CreateHapgResponse
+newCreateHapgResponse pHttpStatus_ =
+  CreateHapgResponse'
+    { hapgArn = Prelude.Nothing,
       httpStatus = pHttpStatus_
     }
 
--- | The list of Availability Zones that have available AWS CloudHSM
--- capacity.
-listAvailableZonesResponse_aZList :: Lens.Lens' ListAvailableZonesResponse (Prelude.Maybe [Prelude.Text])
-listAvailableZonesResponse_aZList = Lens.lens (\ListAvailableZonesResponse' {aZList} -> aZList) (\s@ListAvailableZonesResponse' {} a -> s {aZList = a} :: ListAvailableZonesResponse) Prelude.. Lens.mapping Prelude._Coerce
+-- | The ARN of the high-availability partition group.
+createHapgResponse_hapgArn :: Lens.Lens' CreateHapgResponse (Prelude.Maybe Prelude.Text)
+createHapgResponse_hapgArn = Lens.lens (\CreateHapgResponse' {hapgArn} -> hapgArn) (\s@CreateHapgResponse' {} a -> s {hapgArn = a} :: CreateHapgResponse)
 
 -- | The response's http status code.
-listAvailableZonesResponse_httpStatus :: Lens.Lens' ListAvailableZonesResponse Prelude.Int
-listAvailableZonesResponse_httpStatus = Lens.lens (\ListAvailableZonesResponse' {httpStatus} -> httpStatus) (\s@ListAvailableZonesResponse' {} a -> s {httpStatus = a} :: ListAvailableZonesResponse)
+createHapgResponse_httpStatus :: Lens.Lens' CreateHapgResponse Prelude.Int
+createHapgResponse_httpStatus = Lens.lens (\CreateHapgResponse' {httpStatus} -> httpStatus) (\s@CreateHapgResponse' {} a -> s {httpStatus = a} :: CreateHapgResponse)
 
-instance Prelude.NFData ListAvailableZonesResponse
+instance Prelude.NFData CreateHapgResponse

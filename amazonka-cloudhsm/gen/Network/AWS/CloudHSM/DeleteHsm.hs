@@ -14,7 +14,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.CloudHSM.ListTagsForResource
+-- Module      : Network.AWS.CloudHSM.DeleteHsm
 -- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
@@ -35,22 +35,23 @@
 -- and the
 -- <http://docs.aws.amazon.com/cloudhsm/latest/APIReference/ AWS CloudHSM API Reference>.
 --
--- Returns a list of all tags for the specified AWS CloudHSM resource.
-module Network.AWS.CloudHSM.ListTagsForResource
+-- Deletes an HSM. After completion, this operation cannot be undone and
+-- your key material cannot be recovered.
+module Network.AWS.CloudHSM.DeleteHsm
   ( -- * Creating a Request
-    ListTagsForResource (..),
-    newListTagsForResource,
+    DeleteHsm (..),
+    newDeleteHsm,
 
     -- * Request Lenses
-    listTagsForResource_resourceArn,
+    deleteHsm_hsmArn,
 
     -- * Destructuring the Response
-    ListTagsForResourceResponse (..),
-    newListTagsForResourceResponse,
+    DeleteHsmResponse (..),
+    newDeleteHsmResponse,
 
     -- * Response Lenses
-    listTagsForResourceResponse_httpStatus,
-    listTagsForResourceResponse_tagList,
+    deleteHsmResponse_httpStatus,
+    deleteHsmResponse_status,
   )
 where
 
@@ -60,56 +61,55 @@ import qualified Network.AWS.Prelude as Prelude
 import qualified Network.AWS.Request as Request
 import qualified Network.AWS.Response as Response
 
--- | /See:/ 'newListTagsForResource' smart constructor.
-data ListTagsForResource = ListTagsForResource'
-  { -- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
-    resourceArn :: Prelude.Text
+-- | Contains the inputs for the DeleteHsm operation.
+--
+-- /See:/ 'newDeleteHsm' smart constructor.
+data DeleteHsm = DeleteHsm'
+  { -- | The ARN of the HSM to delete.
+    hsmArn :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
--- Create a value of 'ListTagsForResource' with all optional fields omitted.
+-- Create a value of 'DeleteHsm' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'resourceArn', 'listTagsForResource_resourceArn' - The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
-newListTagsForResource ::
-  -- | 'resourceArn'
+-- 'hsmArn', 'deleteHsm_hsmArn' - The ARN of the HSM to delete.
+newDeleteHsm ::
+  -- | 'hsmArn'
   Prelude.Text ->
-  ListTagsForResource
-newListTagsForResource pResourceArn_ =
-  ListTagsForResource' {resourceArn = pResourceArn_}
+  DeleteHsm
+newDeleteHsm pHsmArn_ = DeleteHsm' {hsmArn = pHsmArn_}
 
--- | The Amazon Resource Name (ARN) of the AWS CloudHSM resource.
-listTagsForResource_resourceArn :: Lens.Lens' ListTagsForResource Prelude.Text
-listTagsForResource_resourceArn = Lens.lens (\ListTagsForResource' {resourceArn} -> resourceArn) (\s@ListTagsForResource' {} a -> s {resourceArn = a} :: ListTagsForResource)
+-- | The ARN of the HSM to delete.
+deleteHsm_hsmArn :: Lens.Lens' DeleteHsm Prelude.Text
+deleteHsm_hsmArn = Lens.lens (\DeleteHsm' {hsmArn} -> hsmArn) (\s@DeleteHsm' {} a -> s {hsmArn = a} :: DeleteHsm)
 
-instance Prelude.AWSRequest ListTagsForResource where
-  type
-    Rs ListTagsForResource =
-      ListTagsForResourceResponse
+instance Prelude.AWSRequest DeleteHsm where
+  type Rs DeleteHsm = DeleteHsmResponse
   request = Request.postJSON defaultService
   response =
     Response.receiveJSON
       ( \s h x ->
-          ListTagsForResourceResponse'
+          DeleteHsmResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
-            Prelude.<*> (x Prelude..?> "TagList" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (x Prelude..:> "Status")
       )
 
-instance Prelude.Hashable ListTagsForResource
+instance Prelude.Hashable DeleteHsm
 
-instance Prelude.NFData ListTagsForResource
+instance Prelude.NFData DeleteHsm
 
-instance Prelude.ToHeaders ListTagsForResource where
+instance Prelude.ToHeaders DeleteHsm where
   toHeaders =
     Prelude.const
       ( Prelude.mconcat
           [ "X-Amz-Target"
-              Prelude.=# ( "CloudHsmFrontendService.ListTagsForResource" ::
+              Prelude.=# ( "CloudHsmFrontendService.DeleteHsm" ::
                              Prelude.ByteString
                          ),
             "Content-Type"
@@ -119,58 +119,59 @@ instance Prelude.ToHeaders ListTagsForResource where
           ]
       )
 
-instance Prelude.ToJSON ListTagsForResource where
-  toJSON ListTagsForResource' {..} =
+instance Prelude.ToJSON DeleteHsm where
+  toJSON DeleteHsm' {..} =
     Prelude.object
       ( Prelude.catMaybes
-          [ Prelude.Just
-              ("ResourceArn" Prelude..= resourceArn)
-          ]
+          [Prelude.Just ("HsmArn" Prelude..= hsmArn)]
       )
 
-instance Prelude.ToPath ListTagsForResource where
+instance Prelude.ToPath DeleteHsm where
   toPath = Prelude.const "/"
 
-instance Prelude.ToQuery ListTagsForResource where
+instance Prelude.ToQuery DeleteHsm where
   toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'newListTagsForResourceResponse' smart constructor.
-data ListTagsForResourceResponse = ListTagsForResourceResponse'
+-- | Contains the output of the DeleteHsm operation.
+--
+-- /See:/ 'newDeleteHsmResponse' smart constructor.
+data DeleteHsmResponse = DeleteHsmResponse'
   { -- | The response's http status code.
     httpStatus :: Prelude.Int,
-    -- | One or more tags.
-    tagList :: [Tag]
+    -- | The status of the operation.
+    status :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
--- Create a value of 'ListTagsForResourceResponse' with all optional fields omitted.
+-- Create a value of 'DeleteHsmResponse' with all optional fields omitted.
 --
 -- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'httpStatus', 'listTagsForResourceResponse_httpStatus' - The response's http status code.
+-- 'httpStatus', 'deleteHsmResponse_httpStatus' - The response's http status code.
 --
--- 'tagList', 'listTagsForResourceResponse_tagList' - One or more tags.
-newListTagsForResourceResponse ::
+-- 'status', 'deleteHsmResponse_status' - The status of the operation.
+newDeleteHsmResponse ::
   -- | 'httpStatus'
   Prelude.Int ->
-  ListTagsForResourceResponse
-newListTagsForResourceResponse pHttpStatus_ =
-  ListTagsForResourceResponse'
-    { httpStatus =
-        pHttpStatus_,
-      tagList = Prelude.mempty
+  -- | 'status'
+  Prelude.Text ->
+  DeleteHsmResponse
+newDeleteHsmResponse pHttpStatus_ pStatus_ =
+  DeleteHsmResponse'
+    { httpStatus = pHttpStatus_,
+      status = pStatus_
     }
 
 -- | The response's http status code.
-listTagsForResourceResponse_httpStatus :: Lens.Lens' ListTagsForResourceResponse Prelude.Int
-listTagsForResourceResponse_httpStatus = Lens.lens (\ListTagsForResourceResponse' {httpStatus} -> httpStatus) (\s@ListTagsForResourceResponse' {} a -> s {httpStatus = a} :: ListTagsForResourceResponse)
+deleteHsmResponse_httpStatus :: Lens.Lens' DeleteHsmResponse Prelude.Int
+deleteHsmResponse_httpStatus = Lens.lens (\DeleteHsmResponse' {httpStatus} -> httpStatus) (\s@DeleteHsmResponse' {} a -> s {httpStatus = a} :: DeleteHsmResponse)
 
--- | One or more tags.
-listTagsForResourceResponse_tagList :: Lens.Lens' ListTagsForResourceResponse [Tag]
-listTagsForResourceResponse_tagList = Lens.lens (\ListTagsForResourceResponse' {tagList} -> tagList) (\s@ListTagsForResourceResponse' {} a -> s {tagList = a} :: ListTagsForResourceResponse) Prelude.. Prelude._Coerce
+-- | The status of the operation.
+deleteHsmResponse_status :: Lens.Lens' DeleteHsmResponse Prelude.Text
+deleteHsmResponse_status = Lens.lens (\DeleteHsmResponse' {status} -> status) (\s@DeleteHsmResponse' {} a -> s {status = a} :: DeleteHsmResponse)
 
-instance Prelude.NFData ListTagsForResourceResponse
+instance Prelude.NFData DeleteHsmResponse

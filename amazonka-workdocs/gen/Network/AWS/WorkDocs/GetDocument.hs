@@ -1,161 +1,188 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WorkDocs.GetDocument
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves details of a document.
---
---
 module Network.AWS.WorkDocs.GetDocument
-    (
-    -- * Creating a Request
-      getDocument
-    , GetDocument
+  ( -- * Creating a Request
+    GetDocument (..),
+    newGetDocument,
+
     -- * Request Lenses
-    , gdAuthenticationToken
-    , gdIncludeCustomMetadata
-    , gdDocumentId
+    getDocument_includeCustomMetadata,
+    getDocument_authenticationToken,
+    getDocument_documentId,
 
     -- * Destructuring the Response
-    , getDocumentResponse
-    , GetDocumentResponse
+    GetDocumentResponse (..),
+    newGetDocumentResponse,
+
     -- * Response Lenses
-    , gdrsCustomMetadata
-    , gdrsMetadata
-    , gdrsResponseStatus
-    ) where
+    getDocumentResponse_metadata,
+    getDocumentResponse_customMetadata,
+    getDocumentResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WorkDocs.Types
-import Network.AWS.WorkDocs.Types.Product
 
--- | /See:/ 'getDocument' smart constructor.
+-- | /See:/ 'newGetDocument' smart constructor.
 data GetDocument = GetDocument'
-  { _gdAuthenticationToken   :: !(Maybe (Sensitive Text))
-  , _gdIncludeCustomMetadata :: !(Maybe Bool)
-  , _gdDocumentId            :: !Text
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | Set this to @TRUE@ to include custom metadata in the response.
+    includeCustomMetadata :: Prelude.Maybe Prelude.Bool,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS
+    -- administrator credentials to access the API.
+    authenticationToken :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    -- | The ID of the document.
+    documentId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetDocument' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetDocument' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gdAuthenticationToken' - Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gdIncludeCustomMetadata' - Set this to @TRUE@ to include custom metadata in the response.
+-- 'includeCustomMetadata', 'getDocument_includeCustomMetadata' - Set this to @TRUE@ to include custom metadata in the response.
 --
--- * 'gdDocumentId' - The ID of the document.
-getDocument
-    :: Text -- ^ 'gdDocumentId'
-    -> GetDocument
-getDocument pDocumentId_ =
+-- 'authenticationToken', 'getDocument_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
+--
+-- 'documentId', 'getDocument_documentId' - The ID of the document.
+newGetDocument ::
+  -- | 'documentId'
+  Prelude.Text ->
+  GetDocument
+newGetDocument pDocumentId_ =
   GetDocument'
-    { _gdAuthenticationToken = Nothing
-    , _gdIncludeCustomMetadata = Nothing
-    , _gdDocumentId = pDocumentId_
+    { includeCustomMetadata =
+        Prelude.Nothing,
+      authenticationToken = Prelude.Nothing,
+      documentId = pDocumentId_
     }
-
-
--- | Amazon WorkDocs authentication token. Do not set this field when using administrative API actions, as in accessing the API using AWS credentials.
-gdAuthenticationToken :: Lens' GetDocument (Maybe Text)
-gdAuthenticationToken = lens _gdAuthenticationToken (\ s a -> s{_gdAuthenticationToken = a}) . mapping _Sensitive
 
 -- | Set this to @TRUE@ to include custom metadata in the response.
-gdIncludeCustomMetadata :: Lens' GetDocument (Maybe Bool)
-gdIncludeCustomMetadata = lens _gdIncludeCustomMetadata (\ s a -> s{_gdIncludeCustomMetadata = a})
+getDocument_includeCustomMetadata :: Lens.Lens' GetDocument (Prelude.Maybe Prelude.Bool)
+getDocument_includeCustomMetadata = Lens.lens (\GetDocument' {includeCustomMetadata} -> includeCustomMetadata) (\s@GetDocument' {} a -> s {includeCustomMetadata = a} :: GetDocument)
+
+-- | Amazon WorkDocs authentication token. Not required when using AWS
+-- administrator credentials to access the API.
+getDocument_authenticationToken :: Lens.Lens' GetDocument (Prelude.Maybe Prelude.Text)
+getDocument_authenticationToken = Lens.lens (\GetDocument' {authenticationToken} -> authenticationToken) (\s@GetDocument' {} a -> s {authenticationToken = a} :: GetDocument) Prelude.. Lens.mapping Prelude._Sensitive
 
 -- | The ID of the document.
-gdDocumentId :: Lens' GetDocument Text
-gdDocumentId = lens _gdDocumentId (\ s a -> s{_gdDocumentId = a})
+getDocument_documentId :: Lens.Lens' GetDocument Prelude.Text
+getDocument_documentId = Lens.lens (\GetDocument' {documentId} -> documentId) (\s@GetDocument' {} a -> s {documentId = a} :: GetDocument)
 
-instance AWSRequest GetDocument where
-        type Rs GetDocument = GetDocumentResponse
-        request = get workDocs
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetDocumentResponse' <$>
-                   (x .?> "CustomMetadata" .!@ mempty) <*>
-                     (x .?> "Metadata")
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest GetDocument where
+  type Rs GetDocument = GetDocumentResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetDocumentResponse'
+            Prelude.<$> (x Prelude..?> "Metadata")
+            Prelude.<*> ( x Prelude..?> "CustomMetadata"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetDocument where
+instance Prelude.Hashable GetDocument
 
-instance NFData GetDocument where
+instance Prelude.NFData GetDocument
 
-instance ToHeaders GetDocument where
-        toHeaders GetDocument'{..}
-          = mconcat
-              ["Authentication" =# _gdAuthenticationToken,
-               "Content-Type" =#
-                 ("application/x-amz-json-1.1" :: ByteString)]
+instance Prelude.ToHeaders GetDocument where
+  toHeaders GetDocument' {..} =
+    Prelude.mconcat
+      [ "Authentication" Prelude.=# authenticationToken,
+        "Content-Type"
+          Prelude.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+      ]
 
-instance ToPath GetDocument where
-        toPath GetDocument'{..}
-          = mconcat ["/api/v1/documents/", toBS _gdDocumentId]
+instance Prelude.ToPath GetDocument where
+  toPath GetDocument' {..} =
+    Prelude.mconcat
+      ["/api/v1/documents/", Prelude.toBS documentId]
 
-instance ToQuery GetDocument where
-        toQuery GetDocument'{..}
-          = mconcat
-              ["includeCustomMetadata" =: _gdIncludeCustomMetadata]
+instance Prelude.ToQuery GetDocument where
+  toQuery GetDocument' {..} =
+    Prelude.mconcat
+      [ "includeCustomMetadata"
+          Prelude.=: includeCustomMetadata
+      ]
 
--- | /See:/ 'getDocumentResponse' smart constructor.
+-- | /See:/ 'newGetDocumentResponse' smart constructor.
 data GetDocumentResponse = GetDocumentResponse'
-  { _gdrsCustomMetadata :: !(Maybe (Map Text Text))
-  , _gdrsMetadata       :: !(Maybe DocumentMetadata)
-  , _gdrsResponseStatus :: !Int
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The metadata details of the document.
+    metadata :: Prelude.Maybe DocumentMetadata,
+    -- | The custom metadata on the document.
+    customMetadata :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetDocumentResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetDocumentResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gdrsCustomMetadata' - The custom metadata on the document.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gdrsMetadata' - The metadata details of the document.
+-- 'metadata', 'getDocumentResponse_metadata' - The metadata details of the document.
 --
--- * 'gdrsResponseStatus' - -- | The response status code.
-getDocumentResponse
-    :: Int -- ^ 'gdrsResponseStatus'
-    -> GetDocumentResponse
-getDocumentResponse pResponseStatus_ =
+-- 'customMetadata', 'getDocumentResponse_customMetadata' - The custom metadata on the document.
+--
+-- 'httpStatus', 'getDocumentResponse_httpStatus' - The response's http status code.
+newGetDocumentResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetDocumentResponse
+newGetDocumentResponse pHttpStatus_ =
   GetDocumentResponse'
-    { _gdrsCustomMetadata = Nothing
-    , _gdrsMetadata = Nothing
-    , _gdrsResponseStatus = pResponseStatus_
+    { metadata = Prelude.Nothing,
+      customMetadata = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The metadata details of the document.
+getDocumentResponse_metadata :: Lens.Lens' GetDocumentResponse (Prelude.Maybe DocumentMetadata)
+getDocumentResponse_metadata = Lens.lens (\GetDocumentResponse' {metadata} -> metadata) (\s@GetDocumentResponse' {} a -> s {metadata = a} :: GetDocumentResponse)
 
 -- | The custom metadata on the document.
-gdrsCustomMetadata :: Lens' GetDocumentResponse (HashMap Text Text)
-gdrsCustomMetadata = lens _gdrsCustomMetadata (\ s a -> s{_gdrsCustomMetadata = a}) . _Default . _Map
+getDocumentResponse_customMetadata :: Lens.Lens' GetDocumentResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+getDocumentResponse_customMetadata = Lens.lens (\GetDocumentResponse' {customMetadata} -> customMetadata) (\s@GetDocumentResponse' {} a -> s {customMetadata = a} :: GetDocumentResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The metadata details of the document.
-gdrsMetadata :: Lens' GetDocumentResponse (Maybe DocumentMetadata)
-gdrsMetadata = lens _gdrsMetadata (\ s a -> s{_gdrsMetadata = a})
+-- | The response's http status code.
+getDocumentResponse_httpStatus :: Lens.Lens' GetDocumentResponse Prelude.Int
+getDocumentResponse_httpStatus = Lens.lens (\GetDocumentResponse' {httpStatus} -> httpStatus) (\s@GetDocumentResponse' {} a -> s {httpStatus = a} :: GetDocumentResponse)
 
--- | -- | The response status code.
-gdrsResponseStatus :: Lens' GetDocumentResponse Int
-gdrsResponseStatus = lens _gdrsResponseStatus (\ s a -> s{_gdrsResponseStatus = a})
-
-instance NFData GetDocumentResponse where
+instance Prelude.NFData GetDocumentResponse

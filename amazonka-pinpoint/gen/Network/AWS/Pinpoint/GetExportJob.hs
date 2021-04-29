@@ -1,138 +1,173 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetExportJob
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns information about an export job.
+-- Retrieves information about the status and settings of a specific export
+-- job for an application.
 module Network.AWS.Pinpoint.GetExportJob
-    (
-    -- * Creating a Request
-      getExportJob
-    , GetExportJob
+  ( -- * Creating a Request
+    GetExportJob (..),
+    newGetExportJob,
+
     -- * Request Lenses
-    , gejApplicationId
-    , gejJobId
+    getExportJob_applicationId,
+    getExportJob_jobId,
 
     -- * Destructuring the Response
-    , getExportJobResponse
-    , GetExportJobResponse
+    GetExportJobResponse (..),
+    newGetExportJobResponse,
+
     -- * Response Lenses
-    , getrsResponseStatus
-    , getrsExportJobResponse
-    ) where
+    getExportJobResponse_httpStatus,
+    getExportJobResponse_exportJobResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Pinpoint.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getExportJob' smart constructor.
+-- | /See:/ 'newGetExportJob' smart constructor.
 data GetExportJob = GetExportJob'
-  { _gejApplicationId :: !Text
-  , _gejJobId         :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The unique identifier for the application. This identifier is displayed
+    -- as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Prelude.Text,
+    -- | The unique identifier for the job.
+    jobId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetExportJob' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetExportJob' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gejApplicationId' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gejJobId' - Undocumented member.
-getExportJob
-    :: Text -- ^ 'gejApplicationId'
-    -> Text -- ^ 'gejJobId'
-    -> GetExportJob
-getExportJob pApplicationId_ pJobId_ =
-  GetExportJob' {_gejApplicationId = pApplicationId_, _gejJobId = pJobId_}
-
-
--- | Undocumented member.
-gejApplicationId :: Lens' GetExportJob Text
-gejApplicationId = lens _gejApplicationId (\ s a -> s{_gejApplicationId = a})
-
--- | Undocumented member.
-gejJobId :: Lens' GetExportJob Text
-gejJobId = lens _gejJobId (\ s a -> s{_gejJobId = a})
-
-instance AWSRequest GetExportJob where
-        type Rs GetExportJob = GetExportJobResponse
-        request = get pinpoint
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetExportJobResponse' <$>
-                   (pure (fromEnum s)) <*> (eitherParseJSON x))
-
-instance Hashable GetExportJob where
-
-instance NFData GetExportJob where
-
-instance ToHeaders GetExportJob where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToPath GetExportJob where
-        toPath GetExportJob'{..}
-          = mconcat
-              ["/v1/apps/", toBS _gejApplicationId,
-               "/jobs/export/", toBS _gejJobId]
-
-instance ToQuery GetExportJob where
-        toQuery = const mempty
-
--- | /See:/ 'getExportJobResponse' smart constructor.
-data GetExportJobResponse = GetExportJobResponse'
-  { _getrsResponseStatus    :: !Int
-  , _getrsExportJobResponse :: !ExportJobResponse
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetExportJobResponse' with the minimum fields required to make a request.
+-- 'applicationId', 'getExportJob_applicationId' - The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'getrsResponseStatus' - -- | The response status code.
---
--- * 'getrsExportJobResponse' - Undocumented member.
-getExportJobResponse
-    :: Int -- ^ 'getrsResponseStatus'
-    -> ExportJobResponse -- ^ 'getrsExportJobResponse'
-    -> GetExportJobResponse
-getExportJobResponse pResponseStatus_ pExportJobResponse_ =
-  GetExportJobResponse'
-    { _getrsResponseStatus = pResponseStatus_
-    , _getrsExportJobResponse = pExportJobResponse_
+-- 'jobId', 'getExportJob_jobId' - The unique identifier for the job.
+newGetExportJob ::
+  -- | 'applicationId'
+  Prelude.Text ->
+  -- | 'jobId'
+  Prelude.Text ->
+  GetExportJob
+newGetExportJob pApplicationId_ pJobId_ =
+  GetExportJob'
+    { applicationId = pApplicationId_,
+      jobId = pJobId_
     }
 
+-- | The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+getExportJob_applicationId :: Lens.Lens' GetExportJob Prelude.Text
+getExportJob_applicationId = Lens.lens (\GetExportJob' {applicationId} -> applicationId) (\s@GetExportJob' {} a -> s {applicationId = a} :: GetExportJob)
 
--- | -- | The response status code.
-getrsResponseStatus :: Lens' GetExportJobResponse Int
-getrsResponseStatus = lens _getrsResponseStatus (\ s a -> s{_getrsResponseStatus = a})
+-- | The unique identifier for the job.
+getExportJob_jobId :: Lens.Lens' GetExportJob Prelude.Text
+getExportJob_jobId = Lens.lens (\GetExportJob' {jobId} -> jobId) (\s@GetExportJob' {} a -> s {jobId = a} :: GetExportJob)
+
+instance Prelude.AWSRequest GetExportJob where
+  type Rs GetExportJob = GetExportJobResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetExportJobResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.eitherParseJSON x)
+      )
+
+instance Prelude.Hashable GetExportJob
+
+instance Prelude.NFData GetExportJob
+
+instance Prelude.ToHeaders GetExportJob where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToPath GetExportJob where
+  toPath GetExportJob' {..} =
+    Prelude.mconcat
+      [ "/v1/apps/",
+        Prelude.toBS applicationId,
+        "/jobs/export/",
+        Prelude.toBS jobId
+      ]
+
+instance Prelude.ToQuery GetExportJob where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newGetExportJobResponse' smart constructor.
+data GetExportJobResponse = GetExportJobResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    exportJobResponse :: ExportJobResponse
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetExportJobResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'getExportJobResponse_httpStatus' - The response's http status code.
+--
+-- 'exportJobResponse', 'getExportJobResponse_exportJobResponse' - Undocumented member.
+newGetExportJobResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'exportJobResponse'
+  ExportJobResponse ->
+  GetExportJobResponse
+newGetExportJobResponse
+  pHttpStatus_
+  pExportJobResponse_ =
+    GetExportJobResponse'
+      { httpStatus = pHttpStatus_,
+        exportJobResponse = pExportJobResponse_
+      }
+
+-- | The response's http status code.
+getExportJobResponse_httpStatus :: Lens.Lens' GetExportJobResponse Prelude.Int
+getExportJobResponse_httpStatus = Lens.lens (\GetExportJobResponse' {httpStatus} -> httpStatus) (\s@GetExportJobResponse' {} a -> s {httpStatus = a} :: GetExportJobResponse)
 
 -- | Undocumented member.
-getrsExportJobResponse :: Lens' GetExportJobResponse ExportJobResponse
-getrsExportJobResponse = lens _getrsExportJobResponse (\ s a -> s{_getrsExportJobResponse = a})
+getExportJobResponse_exportJobResponse :: Lens.Lens' GetExportJobResponse ExportJobResponse
+getExportJobResponse_exportJobResponse = Lens.lens (\GetExportJobResponse' {exportJobResponse} -> exportJobResponse) (\s@GetExportJobResponse' {} a -> s {exportJobResponse = a} :: GetExportJobResponse)
 
-instance NFData GetExportJobResponse where
+instance Prelude.NFData GetExportJobResponse

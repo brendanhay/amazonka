@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.Pinpoint
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.Pinpoint where
 
 import Data.Proxy
@@ -28,1182 +27,2252 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestGetGCMChannel $
---             getGCMChannel
---
---         , requestGetSegmentImportJobs $
---             getSegmentImportJobs
---
---         , requestSendMessages $
---             sendMessages
---
---         , requestGetImportJob $
---             getImportJob
---
---         , requestGetAPNSVoipSandboxChannel $
---             getAPNSVoipSandboxChannel
---
---         , requestGetSegmentVersions $
---             getSegmentVersions
---
---         , requestDeleteCampaign $
---             deleteCampaign
---
---         , requestUpdateCampaign $
---             updateCampaign
---
---         , requestGetSegmentVersion $
---             getSegmentVersion
---
---         , requestCreateExportJob $
---             createExportJob
---
---         , requestCreateSegment $
---             createSegment
---
---         , requestUpdateADMChannel $
---             updateADMChannel
---
---         , requestDeleteADMChannel $
---             deleteADMChannel
---
---         , requestDeleteEndpoint $
---             deleteEndpoint
---
---         , requestUpdateEndpoint $
---             updateEndpoint
---
---         , requestCreateCampaign $
---             createCampaign
---
---         , requestGetExportJob $
---             getExportJob
---
---         , requestGetEndpoint $
---             getEndpoint
---
---         , requestGetSegment $
---             getSegment
---
---         , requestUpdateEndpointsBatch $
---             updateEndpointsBatch
---
---         , requestGetADMChannel $
---             getADMChannel
---
---         , requestGetCampaign $
---             getCampaign
---
---         , requestDeleteApp $
---             deleteApp
---
---         , requestUpdateAPNSVoipSandboxChannel $
---             updateAPNSVoipSandboxChannel
---
---         , requestDeleteAPNSVoipSandboxChannel $
---             deleteAPNSVoipSandboxChannel
---
---         , requestUpdateGCMChannel $
---             updateGCMChannel
---
---         , requestDeleteGCMChannel $
---             deleteGCMChannel
---
---         , requestGetCampaignActivities $
---             getCampaignActivities
---
---         , requestGetEventStream $
---             getEventStream
---
---         , requestDeleteEmailChannel $
---             deleteEmailChannel
---
---         , requestUpdateEmailChannel $
---             updateEmailChannel
---
---         , requestGetBaiduChannel $
---             getBaiduChannel
---
---         , requestDeleteAPNSChannel $
---             deleteAPNSChannel
---
---         , requestUpdateAPNSChannel $
---             updateAPNSChannel
---
---         , requestPutEventStream $
---             putEventStream
---
---         , requestDeleteEventStream $
---             deleteEventStream
---
---         , requestGetCampaignVersions $
---             getCampaignVersions
---
---         , requestGetAPNSChannel $
---             getAPNSChannel
---
---         , requestGetApps $
---             getApps
---
---         , requestGetAPNSSandboxChannel $
---             getAPNSSandboxChannel
+--         [ requestDeleteVoiceTemplate $
+--             newDeleteVoiceTemplate
 --
 --         , requestGetImportJobs $
---             getImportJobs
+--             newGetImportJobs
 --
---         , requestDeleteSmsChannel $
---             deleteSmsChannel
+--         , requestUpdatePushTemplate $
+--             newUpdatePushTemplate
 --
---         , requestUpdateSmsChannel $
---             updateSmsChannel
+--         , requestDeleteCampaign $
+--             newDeleteCampaign
 --
---         , requestGetApp $
---             getApp
+--         , requestUpdateVoiceTemplate $
+--             newUpdateVoiceTemplate
 --
---         , requestGetCampaignVersion $
---             getCampaignVersion
+--         , requestUpdateCampaign $
+--             newUpdateCampaign
 --
---         , requestDeleteSegment $
---             deleteSegment
+--         , requestCreateRecommenderConfiguration $
+--             newCreateRecommenderConfiguration'
 --
---         , requestUpdateSegment $
---             updateSegment
+--         , requestUpdateTemplateActiveVersion $
+--             newUpdateTemplateActiveVersion
 --
---         , requestCreateApp $
---             createApp
+--         , requestDeletePushTemplate $
+--             newDeletePushTemplate
 --
---         , requestGetSegmentExportJobs $
---             getSegmentExportJobs
+--         , requestCreateJourney $
+--             newCreateJourney
 --
---         , requestGetSmsChannel $
---             getSmsChannel
+--         , requestGetImportJob $
+--             newGetImportJob
 --
---         , requestDeleteAPNSSandboxChannel $
---             deleteAPNSSandboxChannel
+--         , requestGetSegmentVersions $
+--             newGetSegmentVersions
 --
---         , requestUpdateAPNSSandboxChannel $
---             updateAPNSSandboxChannel
+--         , requestGetApps $
+--             newGetApps
 --
---         , requestGetCampaigns $
---             getCampaigns
+--         , requestGetSegmentImportJobs $
+--             newGetSegmentImportJobs
 --
---         , requestUpdateApplicationSettings $
---             updateApplicationSettings
+--         , requestGetApnsSandboxChannel $
+--             newGetApnsSandboxChannel
 --
---         , requestGetSegments $
---             getSegments
+--         , requestSendMessages $
+--             newSendMessages
 --
---         , requestGetExportJobs $
---             getExportJobs
+--         , requestCreateSmsTemplate $
+--             newCreateSmsTemplate
 --
---         , requestCreateImportJob $
---             createImportJob
+--         , requestRemoveAttributes $
+--             newRemoveAttributes
 --
---         , requestDeleteAPNSVoipChannel $
---             deleteAPNSVoipChannel
+--         , requestGetApnsChannel $
+--             newGetApnsChannel
 --
---         , requestUpdateAPNSVoipChannel $
---             updateAPNSVoipChannel
---
---         , requestSendUsersMessages $
---             sendUsersMessages
---
---         , requestGetApplicationSettings $
---             getApplicationSettings
---
---         , requestDeleteBaiduChannel $
---             deleteBaiduChannel
---
---         , requestUpdateBaiduChannel $
---             updateBaiduChannel
---
---         , requestGetAPNSVoipChannel $
---             getAPNSVoipChannel
+--         , requestPhoneNumberValidate $
+--             newPhoneNumberValidate
 --
 --         , requestGetEmailChannel $
---             getEmailChannel
+--             newGetEmailChannel
+--
+--         , requestPutEventStream $
+--             newPutEventStream
+--
+--         , requestGetJourneyExecutionActivityMetrics $
+--             newGetJourneyExecutionActivityMetrics
+--
+--         , requestUpdateApnsChannel $
+--             newUpdateApnsChannel
+--
+--         , requestDeleteApnsChannel $
+--             newDeleteApnsChannel
+--
+--         , requestGetBaiduChannel $
+--             newGetBaiduChannel
+--
+--         , requestGetChannels $
+--             newGetChannels
+--
+--         , requestGetRecommenderConfigurations $
+--             newGetRecommenderConfigurations
+--
+--         , requestUpdateGcmChannel $
+--             newUpdateGcmChannel
+--
+--         , requestDeleteGcmChannel $
+--             newDeleteGcmChannel
+--
+--         , requestGetJourneyExecutionMetrics $
+--             newGetJourneyExecutionMetrics
+--
+--         , requestGetVoiceChannel $
+--             newGetVoiceChannel
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestUpdateApnsVoipSandboxChannel $
+--             newUpdateApnsVoipSandboxChannel
+--
+--         , requestDeleteApnsVoipSandboxChannel $
+--             newDeleteApnsVoipSandboxChannel
+--
+--         , requestGetVoiceTemplate $
+--             newGetVoiceTemplate
+--
+--         , requestGetSmsChannel $
+--             newGetSmsChannel
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestGetEndpoint $
+--             newGetEndpoint
+--
+--         , requestGetApplicationDateRangeKpi $
+--             newGetApplicationDateRangeKpi
+--
+--         , requestGetAdmChannel $
+--             newGetAdmChannel
+--
+--         , requestGetRecommenderConfiguration $
+--             newGetRecommenderConfiguration
+--
+--         , requestGetSegmentExportJobs $
+--             newGetSegmentExportJobs
+--
+--         , requestUpdateSegment $
+--             newUpdateSegment
+--
+--         , requestDeleteSegment $
+--             newDeleteSegment
+--
+--         , requestCreatePushTemplate $
+--             newCreatePushTemplate
+--
+--         , requestDeleteAdmChannel $
+--             newDeleteAdmChannel
+--
+--         , requestUpdateRecommenderConfiguration $
+--             newUpdateRecommenderConfiguration'
+--
+--         , requestDeleteEndpoint $
+--             newDeleteEndpoint
+--
+--         , requestCreateCampaign $
+--             newCreateCampaign
+--
+--         , requestUpdateEndpoint $
+--             newUpdateEndpoint
+--
+--         , requestGetEmailTemplate $
+--             newGetEmailTemplate
+--
+--         , requestDeleteRecommenderConfiguration $
+--             newDeleteRecommenderConfiguration
+--
+--         , requestUpdateAdmChannel $
+--             newUpdateAdmChannel
+--
+--         , requestDeleteSmsChannel $
+--             newDeleteSmsChannel
+--
+--         , requestGetJourneyDateRangeKpi $
+--             newGetJourneyDateRangeKpi
+--
+--         , requestGetApp $
+--             newGetApp
+--
+--         , requestCreateExportJob $
+--             newCreateExportJob
+--
+--         , requestGetUserEndpoints $
+--             newGetUserEndpoints
+--
+--         , requestGetSegmentVersion $
+--             newGetSegmentVersion
+--
+--         , requestUpdateSmsChannel $
+--             newUpdateSmsChannel
+--
+--         , requestCreateSegment $
+--             newCreateSegment
+--
+--         , requestDeleteSmsTemplate $
+--             newDeleteSmsTemplate
+--
+--         , requestUpdateSmsTemplate $
+--             newUpdateSmsTemplate
+--
+--         , requestGetGcmChannel $
+--             newGetGcmChannel
+--
+--         , requestDeleteVoiceChannel $
+--             newDeleteVoiceChannel
+--
+--         , requestUpdateVoiceChannel $
+--             newUpdateVoiceChannel
+--
+--         , requestGetApnsVoipSandboxChannel $
+--             newGetApnsVoipSandboxChannel
+--
+--         , requestDeleteJourney $
+--             newDeleteJourney
+--
+--         , requestGetCampaignDateRangeKpi $
+--             newGetCampaignDateRangeKpi
+--
+--         , requestUpdateJourney $
+--             newUpdateJourney
+--
+--         , requestListTemplates $
+--             newListTemplates
+--
+--         , requestDeleteBaiduChannel $
+--             newDeleteBaiduChannel
+--
+--         , requestGetCampaignVersions $
+--             newGetCampaignVersions
+--
+--         , requestGetApplicationSettings $
+--             newGetApplicationSettings
+--
+--         , requestGetApnsVoipChannel $
+--             newGetApnsVoipChannel
+--
+--         , requestListJourneys $
+--             newListJourneys
+--
+--         , requestDeleteEventStream $
+--             newDeleteEventStream
+--
+--         , requestUpdateBaiduChannel $
+--             newUpdateBaiduChannel
+--
+--         , requestGetExportJobs $
+--             newGetExportJobs
+--
+--         , requestGetSegments $
+--             newGetSegments
+--
+--         , requestGetJourney $
+--             newGetJourney
+--
+--         , requestPutEvents $
+--             newPutEvents
+--
+--         , requestDeleteApnsVoipChannel $
+--             newDeleteApnsVoipChannel
+--
+--         , requestUpdateApnsVoipChannel $
+--             newUpdateApnsVoipChannel
+--
+--         , requestCreateImportJob $
+--             newCreateImportJob
+--
+--         , requestUpdateEmailChannel $
+--             newUpdateEmailChannel
+--
+--         , requestGetEventStream $
+--             newGetEventStream
+--
+--         , requestSendUsersMessages $
+--             newSendUsersMessages
+--
+--         , requestDeleteEmailChannel $
+--             newDeleteEmailChannel
+--
+--         , requestUpdateApplicationSettings $
+--             newUpdateApplicationSettings
+--
+--         , requestUpdateJourneyState $
+--             newUpdateJourneyState
+--
+--         , requestListTemplateVersions $
+--             newListTemplateVersions
+--
+--         , requestDeleteApnsSandboxChannel $
+--             newDeleteApnsSandboxChannel
+--
+--         , requestGetCampaignActivities $
+--             newGetCampaignActivities
+--
+--         , requestUpdateApnsSandboxChannel $
+--             newUpdateApnsSandboxChannel
+--
+--         , requestGetCampaigns $
+--             newGetCampaigns
+--
+--         , requestGetSmsTemplate $
+--             newGetSmsTemplate
+--
+--         , requestGetPushTemplate $
+--             newGetPushTemplate
+--
+--         , requestGetCampaign $
+--             newGetCampaign
+--
+--         , requestDeleteApp $
+--             newDeleteApp
+--
+--         , requestDeleteUserEndpoints $
+--             newDeleteUserEndpoints
+--
+--         , requestCreateEmailTemplate $
+--             newCreateEmailTemplate
+--
+--         , requestUpdateEmailTemplate $
+--             newUpdateEmailTemplate
+--
+--         , requestDeleteEmailTemplate $
+--             newDeleteEmailTemplate
+--
+--         , requestCreateApp $
+--             newCreateApp
+--
+--         , requestUpdateEndpointsBatch $
+--             newUpdateEndpointsBatch
+--
+--         , requestGetExportJob $
+--             newGetExportJob
+--
+--         , requestGetSegment $
+--             newGetSegment
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestGetCampaignVersion $
+--             newGetCampaignVersion
+--
+--         , requestCreateVoiceTemplate $
+--             newCreateVoiceTemplate
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseGetGCMChannel $
---             getGCMChannelResponse
---
---         , responseGetSegmentImportJobs $
---             getSegmentImportJobsResponse
---
---         , responseSendMessages $
---             sendMessagesResponse
---
---         , responseGetImportJob $
---             getImportJobResponse
---
---         , responseGetAPNSVoipSandboxChannel $
---             getAPNSVoipSandboxChannelResponse
---
---         , responseGetSegmentVersions $
---             getSegmentVersionsResponse
---
---         , responseDeleteCampaign $
---             deleteCampaignResponse
---
---         , responseUpdateCampaign $
---             updateCampaignResponse
---
---         , responseGetSegmentVersion $
---             getSegmentVersionResponse
---
---         , responseCreateExportJob $
---             createExportJobResponse
---
---         , responseCreateSegment $
---             createSegmentResponse
---
---         , responseUpdateADMChannel $
---             updateADMChannelResponse
---
---         , responseDeleteADMChannel $
---             deleteADMChannelResponse
---
---         , responseDeleteEndpoint $
---             deleteEndpointResponse
---
---         , responseUpdateEndpoint $
---             updateEndpointResponse
---
---         , responseCreateCampaign $
---             createCampaignResponse
---
---         , responseGetExportJob $
---             getExportJobResponse
---
---         , responseGetEndpoint $
---             getEndpointResponse
---
---         , responseGetSegment $
---             getSegmentResponse
---
---         , responseUpdateEndpointsBatch $
---             updateEndpointsBatchResponse
---
---         , responseGetADMChannel $
---             getADMChannelResponse
---
---         , responseGetCampaign $
---             getCampaignResponse
---
---         , responseDeleteApp $
---             deleteAppResponse
---
---         , responseUpdateAPNSVoipSandboxChannel $
---             updateAPNSVoipSandboxChannelResponse
---
---         , responseDeleteAPNSVoipSandboxChannel $
---             deleteAPNSVoipSandboxChannelResponse
---
---         , responseUpdateGCMChannel $
---             updateGCMChannelResponse
---
---         , responseDeleteGCMChannel $
---             deleteGCMChannelResponse
---
---         , responseGetCampaignActivities $
---             getCampaignActivitiesResponse
---
---         , responseGetEventStream $
---             getEventStreamResponse
---
---         , responseDeleteEmailChannel $
---             deleteEmailChannelResponse
---
---         , responseUpdateEmailChannel $
---             updateEmailChannelResponse
---
---         , responseGetBaiduChannel $
---             getBaiduChannelResponse
---
---         , responseDeleteAPNSChannel $
---             deleteAPNSChannelResponse
---
---         , responseUpdateAPNSChannel $
---             updateAPNSChannelResponse
---
---         , responsePutEventStream $
---             putEventStreamResponse
---
---         , responseDeleteEventStream $
---             deleteEventStreamResponse
---
---         , responseGetCampaignVersions $
---             getCampaignVersionsResponse
---
---         , responseGetAPNSChannel $
---             getAPNSChannelResponse
---
---         , responseGetApps $
---             getAppsResponse
---
---         , responseGetAPNSSandboxChannel $
---             getAPNSSandboxChannelResponse
+--         [ responseDeleteVoiceTemplate $
+--             newDeleteVoiceTemplateResponse
 --
 --         , responseGetImportJobs $
---             getImportJobsResponse
+--             newGetImportJobsResponse
 --
---         , responseDeleteSmsChannel $
---             deleteSmsChannelResponse
+--         , responseUpdatePushTemplate $
+--             newUpdatePushTemplateResponse
 --
---         , responseUpdateSmsChannel $
---             updateSmsChannelResponse
+--         , responseDeleteCampaign $
+--             newDeleteCampaignResponse
 --
---         , responseGetApp $
---             getAppResponse
+--         , responseUpdateVoiceTemplate $
+--             newUpdateVoiceTemplateResponse
 --
---         , responseGetCampaignVersion $
---             getCampaignVersionResponse
+--         , responseUpdateCampaign $
+--             newUpdateCampaignResponse
 --
---         , responseDeleteSegment $
---             deleteSegmentResponse
+--         , responseCreateRecommenderConfiguration $
+--             newCreateRecommenderConfigurationResponse
 --
---         , responseUpdateSegment $
---             updateSegmentResponse
+--         , responseUpdateTemplateActiveVersion $
+--             newUpdateTemplateActiveVersionResponse
 --
---         , responseCreateApp $
---             createAppResponse
+--         , responseDeletePushTemplate $
+--             newDeletePushTemplateResponse
 --
---         , responseGetSegmentExportJobs $
---             getSegmentExportJobsResponse
+--         , responseCreateJourney $
+--             newCreateJourneyResponse
 --
---         , responseGetSmsChannel $
---             getSmsChannelResponse
+--         , responseGetImportJob $
+--             newGetImportJobResponse
 --
---         , responseDeleteAPNSSandboxChannel $
---             deleteAPNSSandboxChannelResponse
+--         , responseGetSegmentVersions $
+--             newGetSegmentVersionsResponse
 --
---         , responseUpdateAPNSSandboxChannel $
---             updateAPNSSandboxChannelResponse
+--         , responseGetApps $
+--             newGetAppsResponse
 --
---         , responseGetCampaigns $
---             getCampaignsResponse
+--         , responseGetSegmentImportJobs $
+--             newGetSegmentImportJobsResponse
 --
---         , responseUpdateApplicationSettings $
---             updateApplicationSettingsResponse
+--         , responseGetApnsSandboxChannel $
+--             newGetApnsSandboxChannelResponse
 --
---         , responseGetSegments $
---             getSegmentsResponse
+--         , responseSendMessages $
+--             newSendMessagesResponse
 --
---         , responseGetExportJobs $
---             getExportJobsResponse
+--         , responseCreateSmsTemplate $
+--             newCreateSmsTemplateResponse
 --
---         , responseCreateImportJob $
---             createImportJobResponse
+--         , responseRemoveAttributes $
+--             newRemoveAttributesResponse
 --
---         , responseDeleteAPNSVoipChannel $
---             deleteAPNSVoipChannelResponse
+--         , responseGetApnsChannel $
+--             newGetApnsChannelResponse
 --
---         , responseUpdateAPNSVoipChannel $
---             updateAPNSVoipChannelResponse
---
---         , responseSendUsersMessages $
---             sendUsersMessagesResponse
---
---         , responseGetApplicationSettings $
---             getApplicationSettingsResponse
---
---         , responseDeleteBaiduChannel $
---             deleteBaiduChannelResponse
---
---         , responseUpdateBaiduChannel $
---             updateBaiduChannelResponse
---
---         , responseGetAPNSVoipChannel $
---             getAPNSVoipChannelResponse
+--         , responsePhoneNumberValidate $
+--             newPhoneNumberValidateResponse
 --
 --         , responseGetEmailChannel $
---             getEmailChannelResponse
+--             newGetEmailChannelResponse
+--
+--         , responsePutEventStream $
+--             newPutEventStreamResponse
+--
+--         , responseGetJourneyExecutionActivityMetrics $
+--             newGetJourneyExecutionActivityMetricsResponse
+--
+--         , responseUpdateApnsChannel $
+--             newUpdateApnsChannelResponse
+--
+--         , responseDeleteApnsChannel $
+--             newDeleteApnsChannelResponse
+--
+--         , responseGetBaiduChannel $
+--             newGetBaiduChannelResponse
+--
+--         , responseGetChannels $
+--             newGetChannelsResponse
+--
+--         , responseGetRecommenderConfigurations $
+--             newGetRecommenderConfigurationsResponse
+--
+--         , responseUpdateGcmChannel $
+--             newUpdateGcmChannelResponse
+--
+--         , responseDeleteGcmChannel $
+--             newDeleteGcmChannelResponse
+--
+--         , responseGetJourneyExecutionMetrics $
+--             newGetJourneyExecutionMetricsResponse
+--
+--         , responseGetVoiceChannel $
+--             newGetVoiceChannelResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseUpdateApnsVoipSandboxChannel $
+--             newUpdateApnsVoipSandboxChannelResponse
+--
+--         , responseDeleteApnsVoipSandboxChannel $
+--             newDeleteApnsVoipSandboxChannelResponse
+--
+--         , responseGetVoiceTemplate $
+--             newGetVoiceTemplateResponse
+--
+--         , responseGetSmsChannel $
+--             newGetSmsChannelResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseGetEndpoint $
+--             newGetEndpointResponse
+--
+--         , responseGetApplicationDateRangeKpi $
+--             newGetApplicationDateRangeKpiResponse
+--
+--         , responseGetAdmChannel $
+--             newGetAdmChannelResponse
+--
+--         , responseGetRecommenderConfiguration $
+--             newGetRecommenderConfigurationResponse
+--
+--         , responseGetSegmentExportJobs $
+--             newGetSegmentExportJobsResponse
+--
+--         , responseUpdateSegment $
+--             newUpdateSegmentResponse
+--
+--         , responseDeleteSegment $
+--             newDeleteSegmentResponse
+--
+--         , responseCreatePushTemplate $
+--             newCreatePushTemplateResponse
+--
+--         , responseDeleteAdmChannel $
+--             newDeleteAdmChannelResponse
+--
+--         , responseUpdateRecommenderConfiguration $
+--             newUpdateRecommenderConfigurationResponse
+--
+--         , responseDeleteEndpoint $
+--             newDeleteEndpointResponse
+--
+--         , responseCreateCampaign $
+--             newCreateCampaignResponse
+--
+--         , responseUpdateEndpoint $
+--             newUpdateEndpointResponse
+--
+--         , responseGetEmailTemplate $
+--             newGetEmailTemplateResponse
+--
+--         , responseDeleteRecommenderConfiguration $
+--             newDeleteRecommenderConfigurationResponse
+--
+--         , responseUpdateAdmChannel $
+--             newUpdateAdmChannelResponse
+--
+--         , responseDeleteSmsChannel $
+--             newDeleteSmsChannelResponse
+--
+--         , responseGetJourneyDateRangeKpi $
+--             newGetJourneyDateRangeKpiResponse
+--
+--         , responseGetApp $
+--             newGetAppResponse
+--
+--         , responseCreateExportJob $
+--             newCreateExportJobResponse
+--
+--         , responseGetUserEndpoints $
+--             newGetUserEndpointsResponse
+--
+--         , responseGetSegmentVersion $
+--             newGetSegmentVersionResponse
+--
+--         , responseUpdateSmsChannel $
+--             newUpdateSmsChannelResponse
+--
+--         , responseCreateSegment $
+--             newCreateSegmentResponse
+--
+--         , responseDeleteSmsTemplate $
+--             newDeleteSmsTemplateResponse
+--
+--         , responseUpdateSmsTemplate $
+--             newUpdateSmsTemplateResponse
+--
+--         , responseGetGcmChannel $
+--             newGetGcmChannelResponse
+--
+--         , responseDeleteVoiceChannel $
+--             newDeleteVoiceChannelResponse
+--
+--         , responseUpdateVoiceChannel $
+--             newUpdateVoiceChannelResponse
+--
+--         , responseGetApnsVoipSandboxChannel $
+--             newGetApnsVoipSandboxChannelResponse
+--
+--         , responseDeleteJourney $
+--             newDeleteJourneyResponse
+--
+--         , responseGetCampaignDateRangeKpi $
+--             newGetCampaignDateRangeKpiResponse
+--
+--         , responseUpdateJourney $
+--             newUpdateJourneyResponse
+--
+--         , responseListTemplates $
+--             newListTemplatesResponse
+--
+--         , responseDeleteBaiduChannel $
+--             newDeleteBaiduChannelResponse
+--
+--         , responseGetCampaignVersions $
+--             newGetCampaignVersionsResponse
+--
+--         , responseGetApplicationSettings $
+--             newGetApplicationSettingsResponse
+--
+--         , responseGetApnsVoipChannel $
+--             newGetApnsVoipChannelResponse
+--
+--         , responseListJourneys $
+--             newListJourneysResponse
+--
+--         , responseDeleteEventStream $
+--             newDeleteEventStreamResponse
+--
+--         , responseUpdateBaiduChannel $
+--             newUpdateBaiduChannelResponse
+--
+--         , responseGetExportJobs $
+--             newGetExportJobsResponse
+--
+--         , responseGetSegments $
+--             newGetSegmentsResponse
+--
+--         , responseGetJourney $
+--             newGetJourneyResponse
+--
+--         , responsePutEvents $
+--             newPutEventsResponse
+--
+--         , responseDeleteApnsVoipChannel $
+--             newDeleteApnsVoipChannelResponse
+--
+--         , responseUpdateApnsVoipChannel $
+--             newUpdateApnsVoipChannelResponse
+--
+--         , responseCreateImportJob $
+--             newCreateImportJobResponse
+--
+--         , responseUpdateEmailChannel $
+--             newUpdateEmailChannelResponse
+--
+--         , responseGetEventStream $
+--             newGetEventStreamResponse
+--
+--         , responseSendUsersMessages $
+--             newSendUsersMessagesResponse
+--
+--         , responseDeleteEmailChannel $
+--             newDeleteEmailChannelResponse
+--
+--         , responseUpdateApplicationSettings $
+--             newUpdateApplicationSettingsResponse
+--
+--         , responseUpdateJourneyState $
+--             newUpdateJourneyStateResponse
+--
+--         , responseListTemplateVersions $
+--             newListTemplateVersionsResponse
+--
+--         , responseDeleteApnsSandboxChannel $
+--             newDeleteApnsSandboxChannelResponse
+--
+--         , responseGetCampaignActivities $
+--             newGetCampaignActivitiesResponse
+--
+--         , responseUpdateApnsSandboxChannel $
+--             newUpdateApnsSandboxChannelResponse
+--
+--         , responseGetCampaigns $
+--             newGetCampaignsResponse
+--
+--         , responseGetSmsTemplate $
+--             newGetSmsTemplateResponse
+--
+--         , responseGetPushTemplate $
+--             newGetPushTemplateResponse
+--
+--         , responseGetCampaign $
+--             newGetCampaignResponse
+--
+--         , responseDeleteApp $
+--             newDeleteAppResponse
+--
+--         , responseDeleteUserEndpoints $
+--             newDeleteUserEndpointsResponse
+--
+--         , responseCreateEmailTemplate $
+--             newCreateEmailTemplateResponse
+--
+--         , responseUpdateEmailTemplate $
+--             newUpdateEmailTemplateResponse
+--
+--         , responseDeleteEmailTemplate $
+--             newDeleteEmailTemplateResponse
+--
+--         , responseCreateApp $
+--             newCreateAppResponse
+--
+--         , responseUpdateEndpointsBatch $
+--             newUpdateEndpointsBatchResponse
+--
+--         , responseGetExportJob $
+--             newGetExportJobResponse
+--
+--         , responseGetSegment $
+--             newGetSegmentResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseGetCampaignVersion $
+--             newGetCampaignVersionResponse
+--
+--         , responseCreateVoiceTemplate $
+--             newCreateVoiceTemplateResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestGetGCMChannel :: GetGCMChannel -> TestTree
-requestGetGCMChannel = req
-    "GetGCMChannel"
-    "fixture/GetGCMChannel.yaml"
+requestDeleteVoiceTemplate :: DeleteVoiceTemplate -> TestTree
+requestDeleteVoiceTemplate =
+  req
+    "DeleteVoiceTemplate"
+    "fixture/DeleteVoiceTemplate.yaml"
 
-requestGetSegmentImportJobs :: GetSegmentImportJobs -> TestTree
-requestGetSegmentImportJobs = req
-    "GetSegmentImportJobs"
-    "fixture/GetSegmentImportJobs.yaml"
+requestGetImportJobs :: GetImportJobs -> TestTree
+requestGetImportJobs =
+  req
+    "GetImportJobs"
+    "fixture/GetImportJobs.yaml"
 
-requestSendMessages :: SendMessages -> TestTree
-requestSendMessages = req
-    "SendMessages"
-    "fixture/SendMessages.yaml"
-
-requestGetImportJob :: GetImportJob -> TestTree
-requestGetImportJob = req
-    "GetImportJob"
-    "fixture/GetImportJob.yaml"
-
-requestGetAPNSVoipSandboxChannel :: GetAPNSVoipSandboxChannel -> TestTree
-requestGetAPNSVoipSandboxChannel = req
-    "GetAPNSVoipSandboxChannel"
-    "fixture/GetAPNSVoipSandboxChannel.yaml"
-
-requestGetSegmentVersions :: GetSegmentVersions -> TestTree
-requestGetSegmentVersions = req
-    "GetSegmentVersions"
-    "fixture/GetSegmentVersions.yaml"
+requestUpdatePushTemplate :: UpdatePushTemplate -> TestTree
+requestUpdatePushTemplate =
+  req
+    "UpdatePushTemplate"
+    "fixture/UpdatePushTemplate.yaml"
 
 requestDeleteCampaign :: DeleteCampaign -> TestTree
-requestDeleteCampaign = req
+requestDeleteCampaign =
+  req
     "DeleteCampaign"
     "fixture/DeleteCampaign.yaml"
 
+requestUpdateVoiceTemplate :: UpdateVoiceTemplate -> TestTree
+requestUpdateVoiceTemplate =
+  req
+    "UpdateVoiceTemplate"
+    "fixture/UpdateVoiceTemplate.yaml"
+
 requestUpdateCampaign :: UpdateCampaign -> TestTree
-requestUpdateCampaign = req
+requestUpdateCampaign =
+  req
     "UpdateCampaign"
     "fixture/UpdateCampaign.yaml"
 
-requestGetSegmentVersion :: GetSegmentVersion -> TestTree
-requestGetSegmentVersion = req
-    "GetSegmentVersion"
-    "fixture/GetSegmentVersion.yaml"
+requestCreateRecommenderConfiguration :: CreateRecommenderConfiguration' -> TestTree
+requestCreateRecommenderConfiguration =
+  req
+    "CreateRecommenderConfiguration"
+    "fixture/CreateRecommenderConfiguration.yaml"
 
-requestCreateExportJob :: CreateExportJob -> TestTree
-requestCreateExportJob = req
-    "CreateExportJob"
-    "fixture/CreateExportJob.yaml"
+requestUpdateTemplateActiveVersion :: UpdateTemplateActiveVersion -> TestTree
+requestUpdateTemplateActiveVersion =
+  req
+    "UpdateTemplateActiveVersion"
+    "fixture/UpdateTemplateActiveVersion.yaml"
 
-requestCreateSegment :: CreateSegment -> TestTree
-requestCreateSegment = req
-    "CreateSegment"
-    "fixture/CreateSegment.yaml"
+requestDeletePushTemplate :: DeletePushTemplate -> TestTree
+requestDeletePushTemplate =
+  req
+    "DeletePushTemplate"
+    "fixture/DeletePushTemplate.yaml"
 
-requestUpdateADMChannel :: UpdateADMChannel -> TestTree
-requestUpdateADMChannel = req
-    "UpdateADMChannel"
-    "fixture/UpdateADMChannel.yaml"
+requestCreateJourney :: CreateJourney -> TestTree
+requestCreateJourney =
+  req
+    "CreateJourney"
+    "fixture/CreateJourney.yaml"
 
-requestDeleteADMChannel :: DeleteADMChannel -> TestTree
-requestDeleteADMChannel = req
-    "DeleteADMChannel"
-    "fixture/DeleteADMChannel.yaml"
+requestGetImportJob :: GetImportJob -> TestTree
+requestGetImportJob =
+  req
+    "GetImportJob"
+    "fixture/GetImportJob.yaml"
 
-requestDeleteEndpoint :: DeleteEndpoint -> TestTree
-requestDeleteEndpoint = req
-    "DeleteEndpoint"
-    "fixture/DeleteEndpoint.yaml"
+requestGetSegmentVersions :: GetSegmentVersions -> TestTree
+requestGetSegmentVersions =
+  req
+    "GetSegmentVersions"
+    "fixture/GetSegmentVersions.yaml"
 
-requestUpdateEndpoint :: UpdateEndpoint -> TestTree
-requestUpdateEndpoint = req
-    "UpdateEndpoint"
-    "fixture/UpdateEndpoint.yaml"
+requestGetApps :: GetApps -> TestTree
+requestGetApps =
+  req
+    "GetApps"
+    "fixture/GetApps.yaml"
 
-requestCreateCampaign :: CreateCampaign -> TestTree
-requestCreateCampaign = req
-    "CreateCampaign"
-    "fixture/CreateCampaign.yaml"
+requestGetSegmentImportJobs :: GetSegmentImportJobs -> TestTree
+requestGetSegmentImportJobs =
+  req
+    "GetSegmentImportJobs"
+    "fixture/GetSegmentImportJobs.yaml"
 
-requestGetExportJob :: GetExportJob -> TestTree
-requestGetExportJob = req
-    "GetExportJob"
-    "fixture/GetExportJob.yaml"
+requestGetApnsSandboxChannel :: GetApnsSandboxChannel -> TestTree
+requestGetApnsSandboxChannel =
+  req
+    "GetApnsSandboxChannel"
+    "fixture/GetApnsSandboxChannel.yaml"
+
+requestSendMessages :: SendMessages -> TestTree
+requestSendMessages =
+  req
+    "SendMessages"
+    "fixture/SendMessages.yaml"
+
+requestCreateSmsTemplate :: CreateSmsTemplate -> TestTree
+requestCreateSmsTemplate =
+  req
+    "CreateSmsTemplate"
+    "fixture/CreateSmsTemplate.yaml"
+
+requestRemoveAttributes :: RemoveAttributes -> TestTree
+requestRemoveAttributes =
+  req
+    "RemoveAttributes"
+    "fixture/RemoveAttributes.yaml"
+
+requestGetApnsChannel :: GetApnsChannel -> TestTree
+requestGetApnsChannel =
+  req
+    "GetApnsChannel"
+    "fixture/GetApnsChannel.yaml"
+
+requestPhoneNumberValidate :: PhoneNumberValidate -> TestTree
+requestPhoneNumberValidate =
+  req
+    "PhoneNumberValidate"
+    "fixture/PhoneNumberValidate.yaml"
+
+requestGetEmailChannel :: GetEmailChannel -> TestTree
+requestGetEmailChannel =
+  req
+    "GetEmailChannel"
+    "fixture/GetEmailChannel.yaml"
+
+requestPutEventStream :: PutEventStream -> TestTree
+requestPutEventStream =
+  req
+    "PutEventStream"
+    "fixture/PutEventStream.yaml"
+
+requestGetJourneyExecutionActivityMetrics :: GetJourneyExecutionActivityMetrics -> TestTree
+requestGetJourneyExecutionActivityMetrics =
+  req
+    "GetJourneyExecutionActivityMetrics"
+    "fixture/GetJourneyExecutionActivityMetrics.yaml"
+
+requestUpdateApnsChannel :: UpdateApnsChannel -> TestTree
+requestUpdateApnsChannel =
+  req
+    "UpdateApnsChannel"
+    "fixture/UpdateApnsChannel.yaml"
+
+requestDeleteApnsChannel :: DeleteApnsChannel -> TestTree
+requestDeleteApnsChannel =
+  req
+    "DeleteApnsChannel"
+    "fixture/DeleteApnsChannel.yaml"
+
+requestGetBaiduChannel :: GetBaiduChannel -> TestTree
+requestGetBaiduChannel =
+  req
+    "GetBaiduChannel"
+    "fixture/GetBaiduChannel.yaml"
+
+requestGetChannels :: GetChannels -> TestTree
+requestGetChannels =
+  req
+    "GetChannels"
+    "fixture/GetChannels.yaml"
+
+requestGetRecommenderConfigurations :: GetRecommenderConfigurations -> TestTree
+requestGetRecommenderConfigurations =
+  req
+    "GetRecommenderConfigurations"
+    "fixture/GetRecommenderConfigurations.yaml"
+
+requestUpdateGcmChannel :: UpdateGcmChannel -> TestTree
+requestUpdateGcmChannel =
+  req
+    "UpdateGcmChannel"
+    "fixture/UpdateGcmChannel.yaml"
+
+requestDeleteGcmChannel :: DeleteGcmChannel -> TestTree
+requestDeleteGcmChannel =
+  req
+    "DeleteGcmChannel"
+    "fixture/DeleteGcmChannel.yaml"
+
+requestGetJourneyExecutionMetrics :: GetJourneyExecutionMetrics -> TestTree
+requestGetJourneyExecutionMetrics =
+  req
+    "GetJourneyExecutionMetrics"
+    "fixture/GetJourneyExecutionMetrics.yaml"
+
+requestGetVoiceChannel :: GetVoiceChannel -> TestTree
+requestGetVoiceChannel =
+  req
+    "GetVoiceChannel"
+    "fixture/GetVoiceChannel.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestUpdateApnsVoipSandboxChannel :: UpdateApnsVoipSandboxChannel -> TestTree
+requestUpdateApnsVoipSandboxChannel =
+  req
+    "UpdateApnsVoipSandboxChannel"
+    "fixture/UpdateApnsVoipSandboxChannel.yaml"
+
+requestDeleteApnsVoipSandboxChannel :: DeleteApnsVoipSandboxChannel -> TestTree
+requestDeleteApnsVoipSandboxChannel =
+  req
+    "DeleteApnsVoipSandboxChannel"
+    "fixture/DeleteApnsVoipSandboxChannel.yaml"
+
+requestGetVoiceTemplate :: GetVoiceTemplate -> TestTree
+requestGetVoiceTemplate =
+  req
+    "GetVoiceTemplate"
+    "fixture/GetVoiceTemplate.yaml"
+
+requestGetSmsChannel :: GetSmsChannel -> TestTree
+requestGetSmsChannel =
+  req
+    "GetSmsChannel"
+    "fixture/GetSmsChannel.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
 
 requestGetEndpoint :: GetEndpoint -> TestTree
-requestGetEndpoint = req
+requestGetEndpoint =
+  req
     "GetEndpoint"
     "fixture/GetEndpoint.yaml"
 
-requestGetSegment :: GetSegment -> TestTree
-requestGetSegment = req
-    "GetSegment"
-    "fixture/GetSegment.yaml"
+requestGetApplicationDateRangeKpi :: GetApplicationDateRangeKpi -> TestTree
+requestGetApplicationDateRangeKpi =
+  req
+    "GetApplicationDateRangeKpi"
+    "fixture/GetApplicationDateRangeKpi.yaml"
 
-requestUpdateEndpointsBatch :: UpdateEndpointsBatch -> TestTree
-requestUpdateEndpointsBatch = req
-    "UpdateEndpointsBatch"
-    "fixture/UpdateEndpointsBatch.yaml"
+requestGetAdmChannel :: GetAdmChannel -> TestTree
+requestGetAdmChannel =
+  req
+    "GetAdmChannel"
+    "fixture/GetAdmChannel.yaml"
 
-requestGetADMChannel :: GetADMChannel -> TestTree
-requestGetADMChannel = req
-    "GetADMChannel"
-    "fixture/GetADMChannel.yaml"
+requestGetRecommenderConfiguration :: GetRecommenderConfiguration -> TestTree
+requestGetRecommenderConfiguration =
+  req
+    "GetRecommenderConfiguration"
+    "fixture/GetRecommenderConfiguration.yaml"
+
+requestGetSegmentExportJobs :: GetSegmentExportJobs -> TestTree
+requestGetSegmentExportJobs =
+  req
+    "GetSegmentExportJobs"
+    "fixture/GetSegmentExportJobs.yaml"
+
+requestUpdateSegment :: UpdateSegment -> TestTree
+requestUpdateSegment =
+  req
+    "UpdateSegment"
+    "fixture/UpdateSegment.yaml"
+
+requestDeleteSegment :: DeleteSegment -> TestTree
+requestDeleteSegment =
+  req
+    "DeleteSegment"
+    "fixture/DeleteSegment.yaml"
+
+requestCreatePushTemplate :: CreatePushTemplate -> TestTree
+requestCreatePushTemplate =
+  req
+    "CreatePushTemplate"
+    "fixture/CreatePushTemplate.yaml"
+
+requestDeleteAdmChannel :: DeleteAdmChannel -> TestTree
+requestDeleteAdmChannel =
+  req
+    "DeleteAdmChannel"
+    "fixture/DeleteAdmChannel.yaml"
+
+requestUpdateRecommenderConfiguration :: UpdateRecommenderConfiguration' -> TestTree
+requestUpdateRecommenderConfiguration =
+  req
+    "UpdateRecommenderConfiguration"
+    "fixture/UpdateRecommenderConfiguration.yaml"
+
+requestDeleteEndpoint :: DeleteEndpoint -> TestTree
+requestDeleteEndpoint =
+  req
+    "DeleteEndpoint"
+    "fixture/DeleteEndpoint.yaml"
+
+requestCreateCampaign :: CreateCampaign -> TestTree
+requestCreateCampaign =
+  req
+    "CreateCampaign"
+    "fixture/CreateCampaign.yaml"
+
+requestUpdateEndpoint :: UpdateEndpoint -> TestTree
+requestUpdateEndpoint =
+  req
+    "UpdateEndpoint"
+    "fixture/UpdateEndpoint.yaml"
+
+requestGetEmailTemplate :: GetEmailTemplate -> TestTree
+requestGetEmailTemplate =
+  req
+    "GetEmailTemplate"
+    "fixture/GetEmailTemplate.yaml"
+
+requestDeleteRecommenderConfiguration :: DeleteRecommenderConfiguration -> TestTree
+requestDeleteRecommenderConfiguration =
+  req
+    "DeleteRecommenderConfiguration"
+    "fixture/DeleteRecommenderConfiguration.yaml"
+
+requestUpdateAdmChannel :: UpdateAdmChannel -> TestTree
+requestUpdateAdmChannel =
+  req
+    "UpdateAdmChannel"
+    "fixture/UpdateAdmChannel.yaml"
+
+requestDeleteSmsChannel :: DeleteSmsChannel -> TestTree
+requestDeleteSmsChannel =
+  req
+    "DeleteSmsChannel"
+    "fixture/DeleteSmsChannel.yaml"
+
+requestGetJourneyDateRangeKpi :: GetJourneyDateRangeKpi -> TestTree
+requestGetJourneyDateRangeKpi =
+  req
+    "GetJourneyDateRangeKpi"
+    "fixture/GetJourneyDateRangeKpi.yaml"
+
+requestGetApp :: GetApp -> TestTree
+requestGetApp =
+  req
+    "GetApp"
+    "fixture/GetApp.yaml"
+
+requestCreateExportJob :: CreateExportJob -> TestTree
+requestCreateExportJob =
+  req
+    "CreateExportJob"
+    "fixture/CreateExportJob.yaml"
+
+requestGetUserEndpoints :: GetUserEndpoints -> TestTree
+requestGetUserEndpoints =
+  req
+    "GetUserEndpoints"
+    "fixture/GetUserEndpoints.yaml"
+
+requestGetSegmentVersion :: GetSegmentVersion -> TestTree
+requestGetSegmentVersion =
+  req
+    "GetSegmentVersion"
+    "fixture/GetSegmentVersion.yaml"
+
+requestUpdateSmsChannel :: UpdateSmsChannel -> TestTree
+requestUpdateSmsChannel =
+  req
+    "UpdateSmsChannel"
+    "fixture/UpdateSmsChannel.yaml"
+
+requestCreateSegment :: CreateSegment -> TestTree
+requestCreateSegment =
+  req
+    "CreateSegment"
+    "fixture/CreateSegment.yaml"
+
+requestDeleteSmsTemplate :: DeleteSmsTemplate -> TestTree
+requestDeleteSmsTemplate =
+  req
+    "DeleteSmsTemplate"
+    "fixture/DeleteSmsTemplate.yaml"
+
+requestUpdateSmsTemplate :: UpdateSmsTemplate -> TestTree
+requestUpdateSmsTemplate =
+  req
+    "UpdateSmsTemplate"
+    "fixture/UpdateSmsTemplate.yaml"
+
+requestGetGcmChannel :: GetGcmChannel -> TestTree
+requestGetGcmChannel =
+  req
+    "GetGcmChannel"
+    "fixture/GetGcmChannel.yaml"
+
+requestDeleteVoiceChannel :: DeleteVoiceChannel -> TestTree
+requestDeleteVoiceChannel =
+  req
+    "DeleteVoiceChannel"
+    "fixture/DeleteVoiceChannel.yaml"
+
+requestUpdateVoiceChannel :: UpdateVoiceChannel -> TestTree
+requestUpdateVoiceChannel =
+  req
+    "UpdateVoiceChannel"
+    "fixture/UpdateVoiceChannel.yaml"
+
+requestGetApnsVoipSandboxChannel :: GetApnsVoipSandboxChannel -> TestTree
+requestGetApnsVoipSandboxChannel =
+  req
+    "GetApnsVoipSandboxChannel"
+    "fixture/GetApnsVoipSandboxChannel.yaml"
+
+requestDeleteJourney :: DeleteJourney -> TestTree
+requestDeleteJourney =
+  req
+    "DeleteJourney"
+    "fixture/DeleteJourney.yaml"
+
+requestGetCampaignDateRangeKpi :: GetCampaignDateRangeKpi -> TestTree
+requestGetCampaignDateRangeKpi =
+  req
+    "GetCampaignDateRangeKpi"
+    "fixture/GetCampaignDateRangeKpi.yaml"
+
+requestUpdateJourney :: UpdateJourney -> TestTree
+requestUpdateJourney =
+  req
+    "UpdateJourney"
+    "fixture/UpdateJourney.yaml"
+
+requestListTemplates :: ListTemplates -> TestTree
+requestListTemplates =
+  req
+    "ListTemplates"
+    "fixture/ListTemplates.yaml"
+
+requestDeleteBaiduChannel :: DeleteBaiduChannel -> TestTree
+requestDeleteBaiduChannel =
+  req
+    "DeleteBaiduChannel"
+    "fixture/DeleteBaiduChannel.yaml"
+
+requestGetCampaignVersions :: GetCampaignVersions -> TestTree
+requestGetCampaignVersions =
+  req
+    "GetCampaignVersions"
+    "fixture/GetCampaignVersions.yaml"
+
+requestGetApplicationSettings :: GetApplicationSettings -> TestTree
+requestGetApplicationSettings =
+  req
+    "GetApplicationSettings"
+    "fixture/GetApplicationSettings.yaml"
+
+requestGetApnsVoipChannel :: GetApnsVoipChannel -> TestTree
+requestGetApnsVoipChannel =
+  req
+    "GetApnsVoipChannel"
+    "fixture/GetApnsVoipChannel.yaml"
+
+requestListJourneys :: ListJourneys -> TestTree
+requestListJourneys =
+  req
+    "ListJourneys"
+    "fixture/ListJourneys.yaml"
+
+requestDeleteEventStream :: DeleteEventStream -> TestTree
+requestDeleteEventStream =
+  req
+    "DeleteEventStream"
+    "fixture/DeleteEventStream.yaml"
+
+requestUpdateBaiduChannel :: UpdateBaiduChannel -> TestTree
+requestUpdateBaiduChannel =
+  req
+    "UpdateBaiduChannel"
+    "fixture/UpdateBaiduChannel.yaml"
+
+requestGetExportJobs :: GetExportJobs -> TestTree
+requestGetExportJobs =
+  req
+    "GetExportJobs"
+    "fixture/GetExportJobs.yaml"
+
+requestGetSegments :: GetSegments -> TestTree
+requestGetSegments =
+  req
+    "GetSegments"
+    "fixture/GetSegments.yaml"
+
+requestGetJourney :: GetJourney -> TestTree
+requestGetJourney =
+  req
+    "GetJourney"
+    "fixture/GetJourney.yaml"
+
+requestPutEvents :: PutEvents -> TestTree
+requestPutEvents =
+  req
+    "PutEvents"
+    "fixture/PutEvents.yaml"
+
+requestDeleteApnsVoipChannel :: DeleteApnsVoipChannel -> TestTree
+requestDeleteApnsVoipChannel =
+  req
+    "DeleteApnsVoipChannel"
+    "fixture/DeleteApnsVoipChannel.yaml"
+
+requestUpdateApnsVoipChannel :: UpdateApnsVoipChannel -> TestTree
+requestUpdateApnsVoipChannel =
+  req
+    "UpdateApnsVoipChannel"
+    "fixture/UpdateApnsVoipChannel.yaml"
+
+requestCreateImportJob :: CreateImportJob -> TestTree
+requestCreateImportJob =
+  req
+    "CreateImportJob"
+    "fixture/CreateImportJob.yaml"
+
+requestUpdateEmailChannel :: UpdateEmailChannel -> TestTree
+requestUpdateEmailChannel =
+  req
+    "UpdateEmailChannel"
+    "fixture/UpdateEmailChannel.yaml"
+
+requestGetEventStream :: GetEventStream -> TestTree
+requestGetEventStream =
+  req
+    "GetEventStream"
+    "fixture/GetEventStream.yaml"
+
+requestSendUsersMessages :: SendUsersMessages -> TestTree
+requestSendUsersMessages =
+  req
+    "SendUsersMessages"
+    "fixture/SendUsersMessages.yaml"
+
+requestDeleteEmailChannel :: DeleteEmailChannel -> TestTree
+requestDeleteEmailChannel =
+  req
+    "DeleteEmailChannel"
+    "fixture/DeleteEmailChannel.yaml"
+
+requestUpdateApplicationSettings :: UpdateApplicationSettings -> TestTree
+requestUpdateApplicationSettings =
+  req
+    "UpdateApplicationSettings"
+    "fixture/UpdateApplicationSettings.yaml"
+
+requestUpdateJourneyState :: UpdateJourneyState -> TestTree
+requestUpdateJourneyState =
+  req
+    "UpdateJourneyState"
+    "fixture/UpdateJourneyState.yaml"
+
+requestListTemplateVersions :: ListTemplateVersions -> TestTree
+requestListTemplateVersions =
+  req
+    "ListTemplateVersions"
+    "fixture/ListTemplateVersions.yaml"
+
+requestDeleteApnsSandboxChannel :: DeleteApnsSandboxChannel -> TestTree
+requestDeleteApnsSandboxChannel =
+  req
+    "DeleteApnsSandboxChannel"
+    "fixture/DeleteApnsSandboxChannel.yaml"
+
+requestGetCampaignActivities :: GetCampaignActivities -> TestTree
+requestGetCampaignActivities =
+  req
+    "GetCampaignActivities"
+    "fixture/GetCampaignActivities.yaml"
+
+requestUpdateApnsSandboxChannel :: UpdateApnsSandboxChannel -> TestTree
+requestUpdateApnsSandboxChannel =
+  req
+    "UpdateApnsSandboxChannel"
+    "fixture/UpdateApnsSandboxChannel.yaml"
+
+requestGetCampaigns :: GetCampaigns -> TestTree
+requestGetCampaigns =
+  req
+    "GetCampaigns"
+    "fixture/GetCampaigns.yaml"
+
+requestGetSmsTemplate :: GetSmsTemplate -> TestTree
+requestGetSmsTemplate =
+  req
+    "GetSmsTemplate"
+    "fixture/GetSmsTemplate.yaml"
+
+requestGetPushTemplate :: GetPushTemplate -> TestTree
+requestGetPushTemplate =
+  req
+    "GetPushTemplate"
+    "fixture/GetPushTemplate.yaml"
 
 requestGetCampaign :: GetCampaign -> TestTree
-requestGetCampaign = req
+requestGetCampaign =
+  req
     "GetCampaign"
     "fixture/GetCampaign.yaml"
 
 requestDeleteApp :: DeleteApp -> TestTree
-requestDeleteApp = req
+requestDeleteApp =
+  req
     "DeleteApp"
     "fixture/DeleteApp.yaml"
 
-requestUpdateAPNSVoipSandboxChannel :: UpdateAPNSVoipSandboxChannel -> TestTree
-requestUpdateAPNSVoipSandboxChannel = req
-    "UpdateAPNSVoipSandboxChannel"
-    "fixture/UpdateAPNSVoipSandboxChannel.yaml"
+requestDeleteUserEndpoints :: DeleteUserEndpoints -> TestTree
+requestDeleteUserEndpoints =
+  req
+    "DeleteUserEndpoints"
+    "fixture/DeleteUserEndpoints.yaml"
 
-requestDeleteAPNSVoipSandboxChannel :: DeleteAPNSVoipSandboxChannel -> TestTree
-requestDeleteAPNSVoipSandboxChannel = req
-    "DeleteAPNSVoipSandboxChannel"
-    "fixture/DeleteAPNSVoipSandboxChannel.yaml"
+requestCreateEmailTemplate :: CreateEmailTemplate -> TestTree
+requestCreateEmailTemplate =
+  req
+    "CreateEmailTemplate"
+    "fixture/CreateEmailTemplate.yaml"
 
-requestUpdateGCMChannel :: UpdateGCMChannel -> TestTree
-requestUpdateGCMChannel = req
-    "UpdateGCMChannel"
-    "fixture/UpdateGCMChannel.yaml"
+requestUpdateEmailTemplate :: UpdateEmailTemplate -> TestTree
+requestUpdateEmailTemplate =
+  req
+    "UpdateEmailTemplate"
+    "fixture/UpdateEmailTemplate.yaml"
 
-requestDeleteGCMChannel :: DeleteGCMChannel -> TestTree
-requestDeleteGCMChannel = req
-    "DeleteGCMChannel"
-    "fixture/DeleteGCMChannel.yaml"
-
-requestGetCampaignActivities :: GetCampaignActivities -> TestTree
-requestGetCampaignActivities = req
-    "GetCampaignActivities"
-    "fixture/GetCampaignActivities.yaml"
-
-requestGetEventStream :: GetEventStream -> TestTree
-requestGetEventStream = req
-    "GetEventStream"
-    "fixture/GetEventStream.yaml"
-
-requestDeleteEmailChannel :: DeleteEmailChannel -> TestTree
-requestDeleteEmailChannel = req
-    "DeleteEmailChannel"
-    "fixture/DeleteEmailChannel.yaml"
-
-requestUpdateEmailChannel :: UpdateEmailChannel -> TestTree
-requestUpdateEmailChannel = req
-    "UpdateEmailChannel"
-    "fixture/UpdateEmailChannel.yaml"
-
-requestGetBaiduChannel :: GetBaiduChannel -> TestTree
-requestGetBaiduChannel = req
-    "GetBaiduChannel"
-    "fixture/GetBaiduChannel.yaml"
-
-requestDeleteAPNSChannel :: DeleteAPNSChannel -> TestTree
-requestDeleteAPNSChannel = req
-    "DeleteAPNSChannel"
-    "fixture/DeleteAPNSChannel.yaml"
-
-requestUpdateAPNSChannel :: UpdateAPNSChannel -> TestTree
-requestUpdateAPNSChannel = req
-    "UpdateAPNSChannel"
-    "fixture/UpdateAPNSChannel.yaml"
-
-requestPutEventStream :: PutEventStream -> TestTree
-requestPutEventStream = req
-    "PutEventStream"
-    "fixture/PutEventStream.yaml"
-
-requestDeleteEventStream :: DeleteEventStream -> TestTree
-requestDeleteEventStream = req
-    "DeleteEventStream"
-    "fixture/DeleteEventStream.yaml"
-
-requestGetCampaignVersions :: GetCampaignVersions -> TestTree
-requestGetCampaignVersions = req
-    "GetCampaignVersions"
-    "fixture/GetCampaignVersions.yaml"
-
-requestGetAPNSChannel :: GetAPNSChannel -> TestTree
-requestGetAPNSChannel = req
-    "GetAPNSChannel"
-    "fixture/GetAPNSChannel.yaml"
-
-requestGetApps :: GetApps -> TestTree
-requestGetApps = req
-    "GetApps"
-    "fixture/GetApps.yaml"
-
-requestGetAPNSSandboxChannel :: GetAPNSSandboxChannel -> TestTree
-requestGetAPNSSandboxChannel = req
-    "GetAPNSSandboxChannel"
-    "fixture/GetAPNSSandboxChannel.yaml"
-
-requestGetImportJobs :: GetImportJobs -> TestTree
-requestGetImportJobs = req
-    "GetImportJobs"
-    "fixture/GetImportJobs.yaml"
-
-requestDeleteSmsChannel :: DeleteSmsChannel -> TestTree
-requestDeleteSmsChannel = req
-    "DeleteSmsChannel"
-    "fixture/DeleteSmsChannel.yaml"
-
-requestUpdateSmsChannel :: UpdateSmsChannel -> TestTree
-requestUpdateSmsChannel = req
-    "UpdateSmsChannel"
-    "fixture/UpdateSmsChannel.yaml"
-
-requestGetApp :: GetApp -> TestTree
-requestGetApp = req
-    "GetApp"
-    "fixture/GetApp.yaml"
-
-requestGetCampaignVersion :: GetCampaignVersion -> TestTree
-requestGetCampaignVersion = req
-    "GetCampaignVersion"
-    "fixture/GetCampaignVersion.yaml"
-
-requestDeleteSegment :: DeleteSegment -> TestTree
-requestDeleteSegment = req
-    "DeleteSegment"
-    "fixture/DeleteSegment.yaml"
-
-requestUpdateSegment :: UpdateSegment -> TestTree
-requestUpdateSegment = req
-    "UpdateSegment"
-    "fixture/UpdateSegment.yaml"
+requestDeleteEmailTemplate :: DeleteEmailTemplate -> TestTree
+requestDeleteEmailTemplate =
+  req
+    "DeleteEmailTemplate"
+    "fixture/DeleteEmailTemplate.yaml"
 
 requestCreateApp :: CreateApp -> TestTree
-requestCreateApp = req
+requestCreateApp =
+  req
     "CreateApp"
     "fixture/CreateApp.yaml"
 
-requestGetSegmentExportJobs :: GetSegmentExportJobs -> TestTree
-requestGetSegmentExportJobs = req
-    "GetSegmentExportJobs"
-    "fixture/GetSegmentExportJobs.yaml"
+requestUpdateEndpointsBatch :: UpdateEndpointsBatch -> TestTree
+requestUpdateEndpointsBatch =
+  req
+    "UpdateEndpointsBatch"
+    "fixture/UpdateEndpointsBatch.yaml"
 
-requestGetSmsChannel :: GetSmsChannel -> TestTree
-requestGetSmsChannel = req
-    "GetSmsChannel"
-    "fixture/GetSmsChannel.yaml"
+requestGetExportJob :: GetExportJob -> TestTree
+requestGetExportJob =
+  req
+    "GetExportJob"
+    "fixture/GetExportJob.yaml"
 
-requestDeleteAPNSSandboxChannel :: DeleteAPNSSandboxChannel -> TestTree
-requestDeleteAPNSSandboxChannel = req
-    "DeleteAPNSSandboxChannel"
-    "fixture/DeleteAPNSSandboxChannel.yaml"
+requestGetSegment :: GetSegment -> TestTree
+requestGetSegment =
+  req
+    "GetSegment"
+    "fixture/GetSegment.yaml"
 
-requestUpdateAPNSSandboxChannel :: UpdateAPNSSandboxChannel -> TestTree
-requestUpdateAPNSSandboxChannel = req
-    "UpdateAPNSSandboxChannel"
-    "fixture/UpdateAPNSSandboxChannel.yaml"
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
 
-requestGetCampaigns :: GetCampaigns -> TestTree
-requestGetCampaigns = req
-    "GetCampaigns"
-    "fixture/GetCampaigns.yaml"
+requestGetCampaignVersion :: GetCampaignVersion -> TestTree
+requestGetCampaignVersion =
+  req
+    "GetCampaignVersion"
+    "fixture/GetCampaignVersion.yaml"
 
-requestUpdateApplicationSettings :: UpdateApplicationSettings -> TestTree
-requestUpdateApplicationSettings = req
-    "UpdateApplicationSettings"
-    "fixture/UpdateApplicationSettings.yaml"
-
-requestGetSegments :: GetSegments -> TestTree
-requestGetSegments = req
-    "GetSegments"
-    "fixture/GetSegments.yaml"
-
-requestGetExportJobs :: GetExportJobs -> TestTree
-requestGetExportJobs = req
-    "GetExportJobs"
-    "fixture/GetExportJobs.yaml"
-
-requestCreateImportJob :: CreateImportJob -> TestTree
-requestCreateImportJob = req
-    "CreateImportJob"
-    "fixture/CreateImportJob.yaml"
-
-requestDeleteAPNSVoipChannel :: DeleteAPNSVoipChannel -> TestTree
-requestDeleteAPNSVoipChannel = req
-    "DeleteAPNSVoipChannel"
-    "fixture/DeleteAPNSVoipChannel.yaml"
-
-requestUpdateAPNSVoipChannel :: UpdateAPNSVoipChannel -> TestTree
-requestUpdateAPNSVoipChannel = req
-    "UpdateAPNSVoipChannel"
-    "fixture/UpdateAPNSVoipChannel.yaml"
-
-requestSendUsersMessages :: SendUsersMessages -> TestTree
-requestSendUsersMessages = req
-    "SendUsersMessages"
-    "fixture/SendUsersMessages.yaml"
-
-requestGetApplicationSettings :: GetApplicationSettings -> TestTree
-requestGetApplicationSettings = req
-    "GetApplicationSettings"
-    "fixture/GetApplicationSettings.yaml"
-
-requestDeleteBaiduChannel :: DeleteBaiduChannel -> TestTree
-requestDeleteBaiduChannel = req
-    "DeleteBaiduChannel"
-    "fixture/DeleteBaiduChannel.yaml"
-
-requestUpdateBaiduChannel :: UpdateBaiduChannel -> TestTree
-requestUpdateBaiduChannel = req
-    "UpdateBaiduChannel"
-    "fixture/UpdateBaiduChannel.yaml"
-
-requestGetAPNSVoipChannel :: GetAPNSVoipChannel -> TestTree
-requestGetAPNSVoipChannel = req
-    "GetAPNSVoipChannel"
-    "fixture/GetAPNSVoipChannel.yaml"
-
-requestGetEmailChannel :: GetEmailChannel -> TestTree
-requestGetEmailChannel = req
-    "GetEmailChannel"
-    "fixture/GetEmailChannel.yaml"
+requestCreateVoiceTemplate :: CreateVoiceTemplate -> TestTree
+requestCreateVoiceTemplate =
+  req
+    "CreateVoiceTemplate"
+    "fixture/CreateVoiceTemplate.yaml"
 
 -- Responses
 
-responseGetGCMChannel :: GetGCMChannelResponse -> TestTree
-responseGetGCMChannel = res
-    "GetGCMChannelResponse"
-    "fixture/GetGCMChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetGCMChannel)
+responseDeleteVoiceTemplate :: DeleteVoiceTemplateResponse -> TestTree
+responseDeleteVoiceTemplate =
+  res
+    "DeleteVoiceTemplateResponse"
+    "fixture/DeleteVoiceTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteVoiceTemplate)
 
-responseGetSegmentImportJobs :: GetSegmentImportJobsResponse -> TestTree
-responseGetSegmentImportJobs = res
-    "GetSegmentImportJobsResponse"
-    "fixture/GetSegmentImportJobsResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetSegmentImportJobs)
+responseGetImportJobs :: GetImportJobsResponse -> TestTree
+responseGetImportJobs =
+  res
+    "GetImportJobsResponse"
+    "fixture/GetImportJobsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetImportJobs)
 
-responseSendMessages :: SendMessagesResponse -> TestTree
-responseSendMessages = res
-    "SendMessagesResponse"
-    "fixture/SendMessagesResponse.proto"
-    pinpoint
-    (Proxy :: Proxy SendMessages)
-
-responseGetImportJob :: GetImportJobResponse -> TestTree
-responseGetImportJob = res
-    "GetImportJobResponse"
-    "fixture/GetImportJobResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetImportJob)
-
-responseGetAPNSVoipSandboxChannel :: GetAPNSVoipSandboxChannelResponse -> TestTree
-responseGetAPNSVoipSandboxChannel = res
-    "GetAPNSVoipSandboxChannelResponse"
-    "fixture/GetAPNSVoipSandboxChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetAPNSVoipSandboxChannel)
-
-responseGetSegmentVersions :: GetSegmentVersionsResponse -> TestTree
-responseGetSegmentVersions = res
-    "GetSegmentVersionsResponse"
-    "fixture/GetSegmentVersionsResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetSegmentVersions)
+responseUpdatePushTemplate :: UpdatePushTemplateResponse -> TestTree
+responseUpdatePushTemplate =
+  res
+    "UpdatePushTemplateResponse"
+    "fixture/UpdatePushTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdatePushTemplate)
 
 responseDeleteCampaign :: DeleteCampaignResponse -> TestTree
-responseDeleteCampaign = res
+responseDeleteCampaign =
+  res
     "DeleteCampaignResponse"
     "fixture/DeleteCampaignResponse.proto"
-    pinpoint
+    defaultService
     (Proxy :: Proxy DeleteCampaign)
 
+responseUpdateVoiceTemplate :: UpdateVoiceTemplateResponse -> TestTree
+responseUpdateVoiceTemplate =
+  res
+    "UpdateVoiceTemplateResponse"
+    "fixture/UpdateVoiceTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateVoiceTemplate)
+
 responseUpdateCampaign :: UpdateCampaignResponse -> TestTree
-responseUpdateCampaign = res
+responseUpdateCampaign =
+  res
     "UpdateCampaignResponse"
     "fixture/UpdateCampaignResponse.proto"
-    pinpoint
+    defaultService
     (Proxy :: Proxy UpdateCampaign)
 
-responseGetSegmentVersion :: GetSegmentVersionResponse -> TestTree
-responseGetSegmentVersion = res
-    "GetSegmentVersionResponse"
-    "fixture/GetSegmentVersionResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetSegmentVersion)
+responseCreateRecommenderConfiguration :: CreateRecommenderConfigurationResponse -> TestTree
+responseCreateRecommenderConfiguration =
+  res
+    "CreateRecommenderConfigurationResponse"
+    "fixture/CreateRecommenderConfigurationResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateRecommenderConfiguration')
 
-responseCreateExportJob :: CreateExportJobResponse -> TestTree
-responseCreateExportJob = res
-    "CreateExportJobResponse"
-    "fixture/CreateExportJobResponse.proto"
-    pinpoint
-    (Proxy :: Proxy CreateExportJob)
+responseUpdateTemplateActiveVersion :: UpdateTemplateActiveVersionResponse -> TestTree
+responseUpdateTemplateActiveVersion =
+  res
+    "UpdateTemplateActiveVersionResponse"
+    "fixture/UpdateTemplateActiveVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateTemplateActiveVersion)
 
-responseCreateSegment :: CreateSegmentResponse -> TestTree
-responseCreateSegment = res
-    "CreateSegmentResponse"
-    "fixture/CreateSegmentResponse.proto"
-    pinpoint
-    (Proxy :: Proxy CreateSegment)
+responseDeletePushTemplate :: DeletePushTemplateResponse -> TestTree
+responseDeletePushTemplate =
+  res
+    "DeletePushTemplateResponse"
+    "fixture/DeletePushTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeletePushTemplate)
 
-responseUpdateADMChannel :: UpdateADMChannelResponse -> TestTree
-responseUpdateADMChannel = res
-    "UpdateADMChannelResponse"
-    "fixture/UpdateADMChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy UpdateADMChannel)
+responseCreateJourney :: CreateJourneyResponse -> TestTree
+responseCreateJourney =
+  res
+    "CreateJourneyResponse"
+    "fixture/CreateJourneyResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateJourney)
 
-responseDeleteADMChannel :: DeleteADMChannelResponse -> TestTree
-responseDeleteADMChannel = res
-    "DeleteADMChannelResponse"
-    "fixture/DeleteADMChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy DeleteADMChannel)
+responseGetImportJob :: GetImportJobResponse -> TestTree
+responseGetImportJob =
+  res
+    "GetImportJobResponse"
+    "fixture/GetImportJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetImportJob)
 
-responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
-responseDeleteEndpoint = res
-    "DeleteEndpointResponse"
-    "fixture/DeleteEndpointResponse.proto"
-    pinpoint
-    (Proxy :: Proxy DeleteEndpoint)
+responseGetSegmentVersions :: GetSegmentVersionsResponse -> TestTree
+responseGetSegmentVersions =
+  res
+    "GetSegmentVersionsResponse"
+    "fixture/GetSegmentVersionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSegmentVersions)
 
-responseUpdateEndpoint :: UpdateEndpointResponse -> TestTree
-responseUpdateEndpoint = res
-    "UpdateEndpointResponse"
-    "fixture/UpdateEndpointResponse.proto"
-    pinpoint
-    (Proxy :: Proxy UpdateEndpoint)
+responseGetApps :: GetAppsResponse -> TestTree
+responseGetApps =
+  res
+    "GetAppsResponse"
+    "fixture/GetAppsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetApps)
 
-responseCreateCampaign :: CreateCampaignResponse -> TestTree
-responseCreateCampaign = res
-    "CreateCampaignResponse"
-    "fixture/CreateCampaignResponse.proto"
-    pinpoint
-    (Proxy :: Proxy CreateCampaign)
+responseGetSegmentImportJobs :: GetSegmentImportJobsResponse -> TestTree
+responseGetSegmentImportJobs =
+  res
+    "GetSegmentImportJobsResponse"
+    "fixture/GetSegmentImportJobsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSegmentImportJobs)
 
-responseGetExportJob :: GetExportJobResponse -> TestTree
-responseGetExportJob = res
-    "GetExportJobResponse"
-    "fixture/GetExportJobResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetExportJob)
+responseGetApnsSandboxChannel :: GetApnsSandboxChannelResponse -> TestTree
+responseGetApnsSandboxChannel =
+  res
+    "GetApnsSandboxChannelResponse"
+    "fixture/GetApnsSandboxChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetApnsSandboxChannel)
+
+responseSendMessages :: SendMessagesResponse -> TestTree
+responseSendMessages =
+  res
+    "SendMessagesResponse"
+    "fixture/SendMessagesResponse.proto"
+    defaultService
+    (Proxy :: Proxy SendMessages)
+
+responseCreateSmsTemplate :: CreateSmsTemplateResponse -> TestTree
+responseCreateSmsTemplate =
+  res
+    "CreateSmsTemplateResponse"
+    "fixture/CreateSmsTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateSmsTemplate)
+
+responseRemoveAttributes :: RemoveAttributesResponse -> TestTree
+responseRemoveAttributes =
+  res
+    "RemoveAttributesResponse"
+    "fixture/RemoveAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy RemoveAttributes)
+
+responseGetApnsChannel :: GetApnsChannelResponse -> TestTree
+responseGetApnsChannel =
+  res
+    "GetApnsChannelResponse"
+    "fixture/GetApnsChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetApnsChannel)
+
+responsePhoneNumberValidate :: PhoneNumberValidateResponse -> TestTree
+responsePhoneNumberValidate =
+  res
+    "PhoneNumberValidateResponse"
+    "fixture/PhoneNumberValidateResponse.proto"
+    defaultService
+    (Proxy :: Proxy PhoneNumberValidate)
+
+responseGetEmailChannel :: GetEmailChannelResponse -> TestTree
+responseGetEmailChannel =
+  res
+    "GetEmailChannelResponse"
+    "fixture/GetEmailChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetEmailChannel)
+
+responsePutEventStream :: PutEventStreamResponse -> TestTree
+responsePutEventStream =
+  res
+    "PutEventStreamResponse"
+    "fixture/PutEventStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutEventStream)
+
+responseGetJourneyExecutionActivityMetrics :: GetJourneyExecutionActivityMetricsResponse -> TestTree
+responseGetJourneyExecutionActivityMetrics =
+  res
+    "GetJourneyExecutionActivityMetricsResponse"
+    "fixture/GetJourneyExecutionActivityMetricsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetJourneyExecutionActivityMetrics)
+
+responseUpdateApnsChannel :: UpdateApnsChannelResponse -> TestTree
+responseUpdateApnsChannel =
+  res
+    "UpdateApnsChannelResponse"
+    "fixture/UpdateApnsChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateApnsChannel)
+
+responseDeleteApnsChannel :: DeleteApnsChannelResponse -> TestTree
+responseDeleteApnsChannel =
+  res
+    "DeleteApnsChannelResponse"
+    "fixture/DeleteApnsChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteApnsChannel)
+
+responseGetBaiduChannel :: GetBaiduChannelResponse -> TestTree
+responseGetBaiduChannel =
+  res
+    "GetBaiduChannelResponse"
+    "fixture/GetBaiduChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetBaiduChannel)
+
+responseGetChannels :: GetChannelsResponse -> TestTree
+responseGetChannels =
+  res
+    "GetChannelsResponse"
+    "fixture/GetChannelsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetChannels)
+
+responseGetRecommenderConfigurations :: GetRecommenderConfigurationsResponse -> TestTree
+responseGetRecommenderConfigurations =
+  res
+    "GetRecommenderConfigurationsResponse"
+    "fixture/GetRecommenderConfigurationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetRecommenderConfigurations)
+
+responseUpdateGcmChannel :: UpdateGcmChannelResponse -> TestTree
+responseUpdateGcmChannel =
+  res
+    "UpdateGcmChannelResponse"
+    "fixture/UpdateGcmChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateGcmChannel)
+
+responseDeleteGcmChannel :: DeleteGcmChannelResponse -> TestTree
+responseDeleteGcmChannel =
+  res
+    "DeleteGcmChannelResponse"
+    "fixture/DeleteGcmChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteGcmChannel)
+
+responseGetJourneyExecutionMetrics :: GetJourneyExecutionMetricsResponse -> TestTree
+responseGetJourneyExecutionMetrics =
+  res
+    "GetJourneyExecutionMetricsResponse"
+    "fixture/GetJourneyExecutionMetricsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetJourneyExecutionMetrics)
+
+responseGetVoiceChannel :: GetVoiceChannelResponse -> TestTree
+responseGetVoiceChannel =
+  res
+    "GetVoiceChannelResponse"
+    "fixture/GetVoiceChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetVoiceChannel)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagResource)
+
+responseUpdateApnsVoipSandboxChannel :: UpdateApnsVoipSandboxChannelResponse -> TestTree
+responseUpdateApnsVoipSandboxChannel =
+  res
+    "UpdateApnsVoipSandboxChannelResponse"
+    "fixture/UpdateApnsVoipSandboxChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateApnsVoipSandboxChannel)
+
+responseDeleteApnsVoipSandboxChannel :: DeleteApnsVoipSandboxChannelResponse -> TestTree
+responseDeleteApnsVoipSandboxChannel =
+  res
+    "DeleteApnsVoipSandboxChannelResponse"
+    "fixture/DeleteApnsVoipSandboxChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteApnsVoipSandboxChannel)
+
+responseGetVoiceTemplate :: GetVoiceTemplateResponse -> TestTree
+responseGetVoiceTemplate =
+  res
+    "GetVoiceTemplateResponse"
+    "fixture/GetVoiceTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetVoiceTemplate)
+
+responseGetSmsChannel :: GetSmsChannelResponse -> TestTree
+responseGetSmsChannel =
+  res
+    "GetSmsChannelResponse"
+    "fixture/GetSmsChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSmsChannel)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagResource)
 
 responseGetEndpoint :: GetEndpointResponse -> TestTree
-responseGetEndpoint = res
+responseGetEndpoint =
+  res
     "GetEndpointResponse"
     "fixture/GetEndpointResponse.proto"
-    pinpoint
+    defaultService
     (Proxy :: Proxy GetEndpoint)
 
-responseGetSegment :: GetSegmentResponse -> TestTree
-responseGetSegment = res
-    "GetSegmentResponse"
-    "fixture/GetSegmentResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetSegment)
+responseGetApplicationDateRangeKpi :: GetApplicationDateRangeKpiResponse -> TestTree
+responseGetApplicationDateRangeKpi =
+  res
+    "GetApplicationDateRangeKpiResponse"
+    "fixture/GetApplicationDateRangeKpiResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetApplicationDateRangeKpi)
 
-responseUpdateEndpointsBatch :: UpdateEndpointsBatchResponse -> TestTree
-responseUpdateEndpointsBatch = res
-    "UpdateEndpointsBatchResponse"
-    "fixture/UpdateEndpointsBatchResponse.proto"
-    pinpoint
-    (Proxy :: Proxy UpdateEndpointsBatch)
+responseGetAdmChannel :: GetAdmChannelResponse -> TestTree
+responseGetAdmChannel =
+  res
+    "GetAdmChannelResponse"
+    "fixture/GetAdmChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetAdmChannel)
 
-responseGetADMChannel :: GetADMChannelResponse -> TestTree
-responseGetADMChannel = res
-    "GetADMChannelResponse"
-    "fixture/GetADMChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetADMChannel)
+responseGetRecommenderConfiguration :: GetRecommenderConfigurationResponse -> TestTree
+responseGetRecommenderConfiguration =
+  res
+    "GetRecommenderConfigurationResponse"
+    "fixture/GetRecommenderConfigurationResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetRecommenderConfiguration)
+
+responseGetSegmentExportJobs :: GetSegmentExportJobsResponse -> TestTree
+responseGetSegmentExportJobs =
+  res
+    "GetSegmentExportJobsResponse"
+    "fixture/GetSegmentExportJobsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSegmentExportJobs)
+
+responseUpdateSegment :: UpdateSegmentResponse -> TestTree
+responseUpdateSegment =
+  res
+    "UpdateSegmentResponse"
+    "fixture/UpdateSegmentResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateSegment)
+
+responseDeleteSegment :: DeleteSegmentResponse -> TestTree
+responseDeleteSegment =
+  res
+    "DeleteSegmentResponse"
+    "fixture/DeleteSegmentResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteSegment)
+
+responseCreatePushTemplate :: CreatePushTemplateResponse -> TestTree
+responseCreatePushTemplate =
+  res
+    "CreatePushTemplateResponse"
+    "fixture/CreatePushTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreatePushTemplate)
+
+responseDeleteAdmChannel :: DeleteAdmChannelResponse -> TestTree
+responseDeleteAdmChannel =
+  res
+    "DeleteAdmChannelResponse"
+    "fixture/DeleteAdmChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteAdmChannel)
+
+responseUpdateRecommenderConfiguration :: UpdateRecommenderConfigurationResponse -> TestTree
+responseUpdateRecommenderConfiguration =
+  res
+    "UpdateRecommenderConfigurationResponse"
+    "fixture/UpdateRecommenderConfigurationResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateRecommenderConfiguration')
+
+responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
+responseDeleteEndpoint =
+  res
+    "DeleteEndpointResponse"
+    "fixture/DeleteEndpointResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteEndpoint)
+
+responseCreateCampaign :: CreateCampaignResponse -> TestTree
+responseCreateCampaign =
+  res
+    "CreateCampaignResponse"
+    "fixture/CreateCampaignResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateCampaign)
+
+responseUpdateEndpoint :: UpdateEndpointResponse -> TestTree
+responseUpdateEndpoint =
+  res
+    "UpdateEndpointResponse"
+    "fixture/UpdateEndpointResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateEndpoint)
+
+responseGetEmailTemplate :: GetEmailTemplateResponse -> TestTree
+responseGetEmailTemplate =
+  res
+    "GetEmailTemplateResponse"
+    "fixture/GetEmailTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetEmailTemplate)
+
+responseDeleteRecommenderConfiguration :: DeleteRecommenderConfigurationResponse -> TestTree
+responseDeleteRecommenderConfiguration =
+  res
+    "DeleteRecommenderConfigurationResponse"
+    "fixture/DeleteRecommenderConfigurationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteRecommenderConfiguration)
+
+responseUpdateAdmChannel :: UpdateAdmChannelResponse -> TestTree
+responseUpdateAdmChannel =
+  res
+    "UpdateAdmChannelResponse"
+    "fixture/UpdateAdmChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateAdmChannel)
+
+responseDeleteSmsChannel :: DeleteSmsChannelResponse -> TestTree
+responseDeleteSmsChannel =
+  res
+    "DeleteSmsChannelResponse"
+    "fixture/DeleteSmsChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteSmsChannel)
+
+responseGetJourneyDateRangeKpi :: GetJourneyDateRangeKpiResponse -> TestTree
+responseGetJourneyDateRangeKpi =
+  res
+    "GetJourneyDateRangeKpiResponse"
+    "fixture/GetJourneyDateRangeKpiResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetJourneyDateRangeKpi)
+
+responseGetApp :: GetAppResponse -> TestTree
+responseGetApp =
+  res
+    "GetAppResponse"
+    "fixture/GetAppResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetApp)
+
+responseCreateExportJob :: CreateExportJobResponse -> TestTree
+responseCreateExportJob =
+  res
+    "CreateExportJobResponse"
+    "fixture/CreateExportJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateExportJob)
+
+responseGetUserEndpoints :: GetUserEndpointsResponse -> TestTree
+responseGetUserEndpoints =
+  res
+    "GetUserEndpointsResponse"
+    "fixture/GetUserEndpointsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetUserEndpoints)
+
+responseGetSegmentVersion :: GetSegmentVersionResponse -> TestTree
+responseGetSegmentVersion =
+  res
+    "GetSegmentVersionResponse"
+    "fixture/GetSegmentVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSegmentVersion)
+
+responseUpdateSmsChannel :: UpdateSmsChannelResponse -> TestTree
+responseUpdateSmsChannel =
+  res
+    "UpdateSmsChannelResponse"
+    "fixture/UpdateSmsChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateSmsChannel)
+
+responseCreateSegment :: CreateSegmentResponse -> TestTree
+responseCreateSegment =
+  res
+    "CreateSegmentResponse"
+    "fixture/CreateSegmentResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateSegment)
+
+responseDeleteSmsTemplate :: DeleteSmsTemplateResponse -> TestTree
+responseDeleteSmsTemplate =
+  res
+    "DeleteSmsTemplateResponse"
+    "fixture/DeleteSmsTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteSmsTemplate)
+
+responseUpdateSmsTemplate :: UpdateSmsTemplateResponse -> TestTree
+responseUpdateSmsTemplate =
+  res
+    "UpdateSmsTemplateResponse"
+    "fixture/UpdateSmsTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateSmsTemplate)
+
+responseGetGcmChannel :: GetGcmChannelResponse -> TestTree
+responseGetGcmChannel =
+  res
+    "GetGcmChannelResponse"
+    "fixture/GetGcmChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetGcmChannel)
+
+responseDeleteVoiceChannel :: DeleteVoiceChannelResponse -> TestTree
+responseDeleteVoiceChannel =
+  res
+    "DeleteVoiceChannelResponse"
+    "fixture/DeleteVoiceChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteVoiceChannel)
+
+responseUpdateVoiceChannel :: UpdateVoiceChannelResponse -> TestTree
+responseUpdateVoiceChannel =
+  res
+    "UpdateVoiceChannelResponse"
+    "fixture/UpdateVoiceChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateVoiceChannel)
+
+responseGetApnsVoipSandboxChannel :: GetApnsVoipSandboxChannelResponse -> TestTree
+responseGetApnsVoipSandboxChannel =
+  res
+    "GetApnsVoipSandboxChannelResponse"
+    "fixture/GetApnsVoipSandboxChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetApnsVoipSandboxChannel)
+
+responseDeleteJourney :: DeleteJourneyResponse -> TestTree
+responseDeleteJourney =
+  res
+    "DeleteJourneyResponse"
+    "fixture/DeleteJourneyResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteJourney)
+
+responseGetCampaignDateRangeKpi :: GetCampaignDateRangeKpiResponse -> TestTree
+responseGetCampaignDateRangeKpi =
+  res
+    "GetCampaignDateRangeKpiResponse"
+    "fixture/GetCampaignDateRangeKpiResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetCampaignDateRangeKpi)
+
+responseUpdateJourney :: UpdateJourneyResponse -> TestTree
+responseUpdateJourney =
+  res
+    "UpdateJourneyResponse"
+    "fixture/UpdateJourneyResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateJourney)
+
+responseListTemplates :: ListTemplatesResponse -> TestTree
+responseListTemplates =
+  res
+    "ListTemplatesResponse"
+    "fixture/ListTemplatesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTemplates)
+
+responseDeleteBaiduChannel :: DeleteBaiduChannelResponse -> TestTree
+responseDeleteBaiduChannel =
+  res
+    "DeleteBaiduChannelResponse"
+    "fixture/DeleteBaiduChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteBaiduChannel)
+
+responseGetCampaignVersions :: GetCampaignVersionsResponse -> TestTree
+responseGetCampaignVersions =
+  res
+    "GetCampaignVersionsResponse"
+    "fixture/GetCampaignVersionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetCampaignVersions)
+
+responseGetApplicationSettings :: GetApplicationSettingsResponse -> TestTree
+responseGetApplicationSettings =
+  res
+    "GetApplicationSettingsResponse"
+    "fixture/GetApplicationSettingsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetApplicationSettings)
+
+responseGetApnsVoipChannel :: GetApnsVoipChannelResponse -> TestTree
+responseGetApnsVoipChannel =
+  res
+    "GetApnsVoipChannelResponse"
+    "fixture/GetApnsVoipChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetApnsVoipChannel)
+
+responseListJourneys :: ListJourneysResponse -> TestTree
+responseListJourneys =
+  res
+    "ListJourneysResponse"
+    "fixture/ListJourneysResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListJourneys)
+
+responseDeleteEventStream :: DeleteEventStreamResponse -> TestTree
+responseDeleteEventStream =
+  res
+    "DeleteEventStreamResponse"
+    "fixture/DeleteEventStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteEventStream)
+
+responseUpdateBaiduChannel :: UpdateBaiduChannelResponse -> TestTree
+responseUpdateBaiduChannel =
+  res
+    "UpdateBaiduChannelResponse"
+    "fixture/UpdateBaiduChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateBaiduChannel)
+
+responseGetExportJobs :: GetExportJobsResponse -> TestTree
+responseGetExportJobs =
+  res
+    "GetExportJobsResponse"
+    "fixture/GetExportJobsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetExportJobs)
+
+responseGetSegments :: GetSegmentsResponse -> TestTree
+responseGetSegments =
+  res
+    "GetSegmentsResponse"
+    "fixture/GetSegmentsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSegments)
+
+responseGetJourney :: GetJourneyResponse -> TestTree
+responseGetJourney =
+  res
+    "GetJourneyResponse"
+    "fixture/GetJourneyResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetJourney)
+
+responsePutEvents :: PutEventsResponse -> TestTree
+responsePutEvents =
+  res
+    "PutEventsResponse"
+    "fixture/PutEventsResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutEvents)
+
+responseDeleteApnsVoipChannel :: DeleteApnsVoipChannelResponse -> TestTree
+responseDeleteApnsVoipChannel =
+  res
+    "DeleteApnsVoipChannelResponse"
+    "fixture/DeleteApnsVoipChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteApnsVoipChannel)
+
+responseUpdateApnsVoipChannel :: UpdateApnsVoipChannelResponse -> TestTree
+responseUpdateApnsVoipChannel =
+  res
+    "UpdateApnsVoipChannelResponse"
+    "fixture/UpdateApnsVoipChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateApnsVoipChannel)
+
+responseCreateImportJob :: CreateImportJobResponse -> TestTree
+responseCreateImportJob =
+  res
+    "CreateImportJobResponse"
+    "fixture/CreateImportJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateImportJob)
+
+responseUpdateEmailChannel :: UpdateEmailChannelResponse -> TestTree
+responseUpdateEmailChannel =
+  res
+    "UpdateEmailChannelResponse"
+    "fixture/UpdateEmailChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateEmailChannel)
+
+responseGetEventStream :: GetEventStreamResponse -> TestTree
+responseGetEventStream =
+  res
+    "GetEventStreamResponse"
+    "fixture/GetEventStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetEventStream)
+
+responseSendUsersMessages :: SendUsersMessagesResponse -> TestTree
+responseSendUsersMessages =
+  res
+    "SendUsersMessagesResponse"
+    "fixture/SendUsersMessagesResponse.proto"
+    defaultService
+    (Proxy :: Proxy SendUsersMessages)
+
+responseDeleteEmailChannel :: DeleteEmailChannelResponse -> TestTree
+responseDeleteEmailChannel =
+  res
+    "DeleteEmailChannelResponse"
+    "fixture/DeleteEmailChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteEmailChannel)
+
+responseUpdateApplicationSettings :: UpdateApplicationSettingsResponse -> TestTree
+responseUpdateApplicationSettings =
+  res
+    "UpdateApplicationSettingsResponse"
+    "fixture/UpdateApplicationSettingsResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateApplicationSettings)
+
+responseUpdateJourneyState :: UpdateJourneyStateResponse -> TestTree
+responseUpdateJourneyState =
+  res
+    "UpdateJourneyStateResponse"
+    "fixture/UpdateJourneyStateResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateJourneyState)
+
+responseListTemplateVersions :: ListTemplateVersionsResponse -> TestTree
+responseListTemplateVersions =
+  res
+    "ListTemplateVersionsResponse"
+    "fixture/ListTemplateVersionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTemplateVersions)
+
+responseDeleteApnsSandboxChannel :: DeleteApnsSandboxChannelResponse -> TestTree
+responseDeleteApnsSandboxChannel =
+  res
+    "DeleteApnsSandboxChannelResponse"
+    "fixture/DeleteApnsSandboxChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteApnsSandboxChannel)
+
+responseGetCampaignActivities :: GetCampaignActivitiesResponse -> TestTree
+responseGetCampaignActivities =
+  res
+    "GetCampaignActivitiesResponse"
+    "fixture/GetCampaignActivitiesResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetCampaignActivities)
+
+responseUpdateApnsSandboxChannel :: UpdateApnsSandboxChannelResponse -> TestTree
+responseUpdateApnsSandboxChannel =
+  res
+    "UpdateApnsSandboxChannelResponse"
+    "fixture/UpdateApnsSandboxChannelResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateApnsSandboxChannel)
+
+responseGetCampaigns :: GetCampaignsResponse -> TestTree
+responseGetCampaigns =
+  res
+    "GetCampaignsResponse"
+    "fixture/GetCampaignsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetCampaigns)
+
+responseGetSmsTemplate :: GetSmsTemplateResponse -> TestTree
+responseGetSmsTemplate =
+  res
+    "GetSmsTemplateResponse"
+    "fixture/GetSmsTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSmsTemplate)
+
+responseGetPushTemplate :: GetPushTemplateResponse -> TestTree
+responseGetPushTemplate =
+  res
+    "GetPushTemplateResponse"
+    "fixture/GetPushTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetPushTemplate)
 
 responseGetCampaign :: GetCampaignResponse -> TestTree
-responseGetCampaign = res
+responseGetCampaign =
+  res
     "GetCampaignResponse"
     "fixture/GetCampaignResponse.proto"
-    pinpoint
+    defaultService
     (Proxy :: Proxy GetCampaign)
 
 responseDeleteApp :: DeleteAppResponse -> TestTree
-responseDeleteApp = res
+responseDeleteApp =
+  res
     "DeleteAppResponse"
     "fixture/DeleteAppResponse.proto"
-    pinpoint
+    defaultService
     (Proxy :: Proxy DeleteApp)
 
-responseUpdateAPNSVoipSandboxChannel :: UpdateAPNSVoipSandboxChannelResponse -> TestTree
-responseUpdateAPNSVoipSandboxChannel = res
-    "UpdateAPNSVoipSandboxChannelResponse"
-    "fixture/UpdateAPNSVoipSandboxChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy UpdateAPNSVoipSandboxChannel)
+responseDeleteUserEndpoints :: DeleteUserEndpointsResponse -> TestTree
+responseDeleteUserEndpoints =
+  res
+    "DeleteUserEndpointsResponse"
+    "fixture/DeleteUserEndpointsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteUserEndpoints)
 
-responseDeleteAPNSVoipSandboxChannel :: DeleteAPNSVoipSandboxChannelResponse -> TestTree
-responseDeleteAPNSVoipSandboxChannel = res
-    "DeleteAPNSVoipSandboxChannelResponse"
-    "fixture/DeleteAPNSVoipSandboxChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy DeleteAPNSVoipSandboxChannel)
+responseCreateEmailTemplate :: CreateEmailTemplateResponse -> TestTree
+responseCreateEmailTemplate =
+  res
+    "CreateEmailTemplateResponse"
+    "fixture/CreateEmailTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateEmailTemplate)
 
-responseUpdateGCMChannel :: UpdateGCMChannelResponse -> TestTree
-responseUpdateGCMChannel = res
-    "UpdateGCMChannelResponse"
-    "fixture/UpdateGCMChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy UpdateGCMChannel)
+responseUpdateEmailTemplate :: UpdateEmailTemplateResponse -> TestTree
+responseUpdateEmailTemplate =
+  res
+    "UpdateEmailTemplateResponse"
+    "fixture/UpdateEmailTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateEmailTemplate)
 
-responseDeleteGCMChannel :: DeleteGCMChannelResponse -> TestTree
-responseDeleteGCMChannel = res
-    "DeleteGCMChannelResponse"
-    "fixture/DeleteGCMChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy DeleteGCMChannel)
-
-responseGetCampaignActivities :: GetCampaignActivitiesResponse -> TestTree
-responseGetCampaignActivities = res
-    "GetCampaignActivitiesResponse"
-    "fixture/GetCampaignActivitiesResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetCampaignActivities)
-
-responseGetEventStream :: GetEventStreamResponse -> TestTree
-responseGetEventStream = res
-    "GetEventStreamResponse"
-    "fixture/GetEventStreamResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetEventStream)
-
-responseDeleteEmailChannel :: DeleteEmailChannelResponse -> TestTree
-responseDeleteEmailChannel = res
-    "DeleteEmailChannelResponse"
-    "fixture/DeleteEmailChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy DeleteEmailChannel)
-
-responseUpdateEmailChannel :: UpdateEmailChannelResponse -> TestTree
-responseUpdateEmailChannel = res
-    "UpdateEmailChannelResponse"
-    "fixture/UpdateEmailChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy UpdateEmailChannel)
-
-responseGetBaiduChannel :: GetBaiduChannelResponse -> TestTree
-responseGetBaiduChannel = res
-    "GetBaiduChannelResponse"
-    "fixture/GetBaiduChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetBaiduChannel)
-
-responseDeleteAPNSChannel :: DeleteAPNSChannelResponse -> TestTree
-responseDeleteAPNSChannel = res
-    "DeleteAPNSChannelResponse"
-    "fixture/DeleteAPNSChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy DeleteAPNSChannel)
-
-responseUpdateAPNSChannel :: UpdateAPNSChannelResponse -> TestTree
-responseUpdateAPNSChannel = res
-    "UpdateAPNSChannelResponse"
-    "fixture/UpdateAPNSChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy UpdateAPNSChannel)
-
-responsePutEventStream :: PutEventStreamResponse -> TestTree
-responsePutEventStream = res
-    "PutEventStreamResponse"
-    "fixture/PutEventStreamResponse.proto"
-    pinpoint
-    (Proxy :: Proxy PutEventStream)
-
-responseDeleteEventStream :: DeleteEventStreamResponse -> TestTree
-responseDeleteEventStream = res
-    "DeleteEventStreamResponse"
-    "fixture/DeleteEventStreamResponse.proto"
-    pinpoint
-    (Proxy :: Proxy DeleteEventStream)
-
-responseGetCampaignVersions :: GetCampaignVersionsResponse -> TestTree
-responseGetCampaignVersions = res
-    "GetCampaignVersionsResponse"
-    "fixture/GetCampaignVersionsResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetCampaignVersions)
-
-responseGetAPNSChannel :: GetAPNSChannelResponse -> TestTree
-responseGetAPNSChannel = res
-    "GetAPNSChannelResponse"
-    "fixture/GetAPNSChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetAPNSChannel)
-
-responseGetApps :: GetAppsResponse -> TestTree
-responseGetApps = res
-    "GetAppsResponse"
-    "fixture/GetAppsResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetApps)
-
-responseGetAPNSSandboxChannel :: GetAPNSSandboxChannelResponse -> TestTree
-responseGetAPNSSandboxChannel = res
-    "GetAPNSSandboxChannelResponse"
-    "fixture/GetAPNSSandboxChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetAPNSSandboxChannel)
-
-responseGetImportJobs :: GetImportJobsResponse -> TestTree
-responseGetImportJobs = res
-    "GetImportJobsResponse"
-    "fixture/GetImportJobsResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetImportJobs)
-
-responseDeleteSmsChannel :: DeleteSmsChannelResponse -> TestTree
-responseDeleteSmsChannel = res
-    "DeleteSmsChannelResponse"
-    "fixture/DeleteSmsChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy DeleteSmsChannel)
-
-responseUpdateSmsChannel :: UpdateSmsChannelResponse -> TestTree
-responseUpdateSmsChannel = res
-    "UpdateSmsChannelResponse"
-    "fixture/UpdateSmsChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy UpdateSmsChannel)
-
-responseGetApp :: GetAppResponse -> TestTree
-responseGetApp = res
-    "GetAppResponse"
-    "fixture/GetAppResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetApp)
-
-responseGetCampaignVersion :: GetCampaignVersionResponse -> TestTree
-responseGetCampaignVersion = res
-    "GetCampaignVersionResponse"
-    "fixture/GetCampaignVersionResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetCampaignVersion)
-
-responseDeleteSegment :: DeleteSegmentResponse -> TestTree
-responseDeleteSegment = res
-    "DeleteSegmentResponse"
-    "fixture/DeleteSegmentResponse.proto"
-    pinpoint
-    (Proxy :: Proxy DeleteSegment)
-
-responseUpdateSegment :: UpdateSegmentResponse -> TestTree
-responseUpdateSegment = res
-    "UpdateSegmentResponse"
-    "fixture/UpdateSegmentResponse.proto"
-    pinpoint
-    (Proxy :: Proxy UpdateSegment)
+responseDeleteEmailTemplate :: DeleteEmailTemplateResponse -> TestTree
+responseDeleteEmailTemplate =
+  res
+    "DeleteEmailTemplateResponse"
+    "fixture/DeleteEmailTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteEmailTemplate)
 
 responseCreateApp :: CreateAppResponse -> TestTree
-responseCreateApp = res
+responseCreateApp =
+  res
     "CreateAppResponse"
     "fixture/CreateAppResponse.proto"
-    pinpoint
+    defaultService
     (Proxy :: Proxy CreateApp)
 
-responseGetSegmentExportJobs :: GetSegmentExportJobsResponse -> TestTree
-responseGetSegmentExportJobs = res
-    "GetSegmentExportJobsResponse"
-    "fixture/GetSegmentExportJobsResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetSegmentExportJobs)
+responseUpdateEndpointsBatch :: UpdateEndpointsBatchResponse -> TestTree
+responseUpdateEndpointsBatch =
+  res
+    "UpdateEndpointsBatchResponse"
+    "fixture/UpdateEndpointsBatchResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateEndpointsBatch)
 
-responseGetSmsChannel :: GetSmsChannelResponse -> TestTree
-responseGetSmsChannel = res
-    "GetSmsChannelResponse"
-    "fixture/GetSmsChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetSmsChannel)
+responseGetExportJob :: GetExportJobResponse -> TestTree
+responseGetExportJob =
+  res
+    "GetExportJobResponse"
+    "fixture/GetExportJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetExportJob)
 
-responseDeleteAPNSSandboxChannel :: DeleteAPNSSandboxChannelResponse -> TestTree
-responseDeleteAPNSSandboxChannel = res
-    "DeleteAPNSSandboxChannelResponse"
-    "fixture/DeleteAPNSSandboxChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy DeleteAPNSSandboxChannel)
+responseGetSegment :: GetSegmentResponse -> TestTree
+responseGetSegment =
+  res
+    "GetSegmentResponse"
+    "fixture/GetSegmentResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSegment)
 
-responseUpdateAPNSSandboxChannel :: UpdateAPNSSandboxChannelResponse -> TestTree
-responseUpdateAPNSSandboxChannel = res
-    "UpdateAPNSSandboxChannelResponse"
-    "fixture/UpdateAPNSSandboxChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy UpdateAPNSSandboxChannel)
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTagsForResource)
 
-responseGetCampaigns :: GetCampaignsResponse -> TestTree
-responseGetCampaigns = res
-    "GetCampaignsResponse"
-    "fixture/GetCampaignsResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetCampaigns)
+responseGetCampaignVersion :: GetCampaignVersionResponse -> TestTree
+responseGetCampaignVersion =
+  res
+    "GetCampaignVersionResponse"
+    "fixture/GetCampaignVersionResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetCampaignVersion)
 
-responseUpdateApplicationSettings :: UpdateApplicationSettingsResponse -> TestTree
-responseUpdateApplicationSettings = res
-    "UpdateApplicationSettingsResponse"
-    "fixture/UpdateApplicationSettingsResponse.proto"
-    pinpoint
-    (Proxy :: Proxy UpdateApplicationSettings)
-
-responseGetSegments :: GetSegmentsResponse -> TestTree
-responseGetSegments = res
-    "GetSegmentsResponse"
-    "fixture/GetSegmentsResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetSegments)
-
-responseGetExportJobs :: GetExportJobsResponse -> TestTree
-responseGetExportJobs = res
-    "GetExportJobsResponse"
-    "fixture/GetExportJobsResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetExportJobs)
-
-responseCreateImportJob :: CreateImportJobResponse -> TestTree
-responseCreateImportJob = res
-    "CreateImportJobResponse"
-    "fixture/CreateImportJobResponse.proto"
-    pinpoint
-    (Proxy :: Proxy CreateImportJob)
-
-responseDeleteAPNSVoipChannel :: DeleteAPNSVoipChannelResponse -> TestTree
-responseDeleteAPNSVoipChannel = res
-    "DeleteAPNSVoipChannelResponse"
-    "fixture/DeleteAPNSVoipChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy DeleteAPNSVoipChannel)
-
-responseUpdateAPNSVoipChannel :: UpdateAPNSVoipChannelResponse -> TestTree
-responseUpdateAPNSVoipChannel = res
-    "UpdateAPNSVoipChannelResponse"
-    "fixture/UpdateAPNSVoipChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy UpdateAPNSVoipChannel)
-
-responseSendUsersMessages :: SendUsersMessagesResponse -> TestTree
-responseSendUsersMessages = res
-    "SendUsersMessagesResponse"
-    "fixture/SendUsersMessagesResponse.proto"
-    pinpoint
-    (Proxy :: Proxy SendUsersMessages)
-
-responseGetApplicationSettings :: GetApplicationSettingsResponse -> TestTree
-responseGetApplicationSettings = res
-    "GetApplicationSettingsResponse"
-    "fixture/GetApplicationSettingsResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetApplicationSettings)
-
-responseDeleteBaiduChannel :: DeleteBaiduChannelResponse -> TestTree
-responseDeleteBaiduChannel = res
-    "DeleteBaiduChannelResponse"
-    "fixture/DeleteBaiduChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy DeleteBaiduChannel)
-
-responseUpdateBaiduChannel :: UpdateBaiduChannelResponse -> TestTree
-responseUpdateBaiduChannel = res
-    "UpdateBaiduChannelResponse"
-    "fixture/UpdateBaiduChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy UpdateBaiduChannel)
-
-responseGetAPNSVoipChannel :: GetAPNSVoipChannelResponse -> TestTree
-responseGetAPNSVoipChannel = res
-    "GetAPNSVoipChannelResponse"
-    "fixture/GetAPNSVoipChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetAPNSVoipChannel)
-
-responseGetEmailChannel :: GetEmailChannelResponse -> TestTree
-responseGetEmailChannel = res
-    "GetEmailChannelResponse"
-    "fixture/GetEmailChannelResponse.proto"
-    pinpoint
-    (Proxy :: Proxy GetEmailChannel)
+responseCreateVoiceTemplate :: CreateVoiceTemplateResponse -> TestTree
+responseCreateVoiceTemplate =
+  res
+    "CreateVoiceTemplateResponse"
+    "fixture/CreateVoiceTemplateResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateVoiceTemplate)

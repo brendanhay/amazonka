@@ -1,150 +1,193 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetSegments
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Used to get information about your segments.
+-- Retrieves information about the configuration, dimension, and other
+-- settings for all the segments that are associated with an application.
 module Network.AWS.Pinpoint.GetSegments
-    (
-    -- * Creating a Request
-      getSegments
-    , GetSegments
+  ( -- * Creating a Request
+    GetSegments (..),
+    newGetSegments,
+
     -- * Request Lenses
-    , gssToken
-    , gssPageSize
-    , gssApplicationId
+    getSegments_pageSize,
+    getSegments_token,
+    getSegments_applicationId,
 
     -- * Destructuring the Response
-    , getSegmentsResponse
-    , GetSegmentsResponse
+    GetSegmentsResponse (..),
+    newGetSegmentsResponse,
+
     -- * Response Lenses
-    , gsrsResponseStatus
-    , gsrsSegmentsResponse
-    ) where
+    getSegmentsResponse_httpStatus,
+    getSegmentsResponse_segmentsResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Pinpoint.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getSegments' smart constructor.
+-- | /See:/ 'newGetSegments' smart constructor.
 data GetSegments = GetSegments'
-  { _gssToken         :: !(Maybe Text)
-  , _gssPageSize      :: !(Maybe Text)
-  , _gssApplicationId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The maximum number of items to include in each page of a paginated
+    -- response. This parameter is not supported for application, campaign, and
+    -- journey metrics.
+    pageSize :: Prelude.Maybe Prelude.Text,
+    -- | The NextToken string that specifies which page of results to return in a
+    -- paginated response.
+    token :: Prelude.Maybe Prelude.Text,
+    -- | The unique identifier for the application. This identifier is displayed
+    -- as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetSegments' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetSegments' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gssToken' - The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gssPageSize' - The number of entries you want on each page in the response.
+-- 'pageSize', 'getSegments_pageSize' - The maximum number of items to include in each page of a paginated
+-- response. This parameter is not supported for application, campaign, and
+-- journey metrics.
 --
--- * 'gssApplicationId' - Undocumented member.
-getSegments
-    :: Text -- ^ 'gssApplicationId'
-    -> GetSegments
-getSegments pApplicationId_ =
+-- 'token', 'getSegments_token' - The NextToken string that specifies which page of results to return in a
+-- paginated response.
+--
+-- 'applicationId', 'getSegments_applicationId' - The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+newGetSegments ::
+  -- | 'applicationId'
+  Prelude.Text ->
+  GetSegments
+newGetSegments pApplicationId_ =
   GetSegments'
-    { _gssToken = Nothing
-    , _gssPageSize = Nothing
-    , _gssApplicationId = pApplicationId_
+    { pageSize = Prelude.Nothing,
+      token = Prelude.Nothing,
+      applicationId = pApplicationId_
     }
 
+-- | The maximum number of items to include in each page of a paginated
+-- response. This parameter is not supported for application, campaign, and
+-- journey metrics.
+getSegments_pageSize :: Lens.Lens' GetSegments (Prelude.Maybe Prelude.Text)
+getSegments_pageSize = Lens.lens (\GetSegments' {pageSize} -> pageSize) (\s@GetSegments' {} a -> s {pageSize = a} :: GetSegments)
 
--- | The NextToken string returned on a previous page that you use to get the next page of results in a paginated response.
-gssToken :: Lens' GetSegments (Maybe Text)
-gssToken = lens _gssToken (\ s a -> s{_gssToken = a})
+-- | The NextToken string that specifies which page of results to return in a
+-- paginated response.
+getSegments_token :: Lens.Lens' GetSegments (Prelude.Maybe Prelude.Text)
+getSegments_token = Lens.lens (\GetSegments' {token} -> token) (\s@GetSegments' {} a -> s {token = a} :: GetSegments)
 
--- | The number of entries you want on each page in the response.
-gssPageSize :: Lens' GetSegments (Maybe Text)
-gssPageSize = lens _gssPageSize (\ s a -> s{_gssPageSize = a})
+-- | The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+getSegments_applicationId :: Lens.Lens' GetSegments Prelude.Text
+getSegments_applicationId = Lens.lens (\GetSegments' {applicationId} -> applicationId) (\s@GetSegments' {} a -> s {applicationId = a} :: GetSegments)
 
--- | Undocumented member.
-gssApplicationId :: Lens' GetSegments Text
-gssApplicationId = lens _gssApplicationId (\ s a -> s{_gssApplicationId = a})
+instance Prelude.AWSRequest GetSegments where
+  type Rs GetSegments = GetSegmentsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetSegmentsResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.eitherParseJSON x)
+      )
 
-instance AWSRequest GetSegments where
-        type Rs GetSegments = GetSegmentsResponse
-        request = get pinpoint
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetSegmentsResponse' <$>
-                   (pure (fromEnum s)) <*> (eitherParseJSON x))
+instance Prelude.Hashable GetSegments
 
-instance Hashable GetSegments where
+instance Prelude.NFData GetSegments
 
-instance NFData GetSegments where
+instance Prelude.ToHeaders GetSegments where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders GetSegments where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToPath GetSegments where
+  toPath GetSegments' {..} =
+    Prelude.mconcat
+      [ "/v1/apps/",
+        Prelude.toBS applicationId,
+        "/segments"
+      ]
 
-instance ToPath GetSegments where
-        toPath GetSegments'{..}
-          = mconcat
-              ["/v1/apps/", toBS _gssApplicationId, "/segments"]
+instance Prelude.ToQuery GetSegments where
+  toQuery GetSegments' {..} =
+    Prelude.mconcat
+      [ "page-size" Prelude.=: pageSize,
+        "token" Prelude.=: token
+      ]
 
-instance ToQuery GetSegments where
-        toQuery GetSegments'{..}
-          = mconcat
-              ["token" =: _gssToken, "page-size" =: _gssPageSize]
-
--- | /See:/ 'getSegmentsResponse' smart constructor.
+-- | /See:/ 'newGetSegmentsResponse' smart constructor.
 data GetSegmentsResponse = GetSegmentsResponse'
-  { _gsrsResponseStatus   :: !Int
-  , _gsrsSegmentsResponse :: !SegmentsResponse
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    segmentsResponse :: SegmentsResponse
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetSegmentsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetSegmentsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gsrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gsrsSegmentsResponse' - Undocumented member.
-getSegmentsResponse
-    :: Int -- ^ 'gsrsResponseStatus'
-    -> SegmentsResponse -- ^ 'gsrsSegmentsResponse'
-    -> GetSegmentsResponse
-getSegmentsResponse pResponseStatus_ pSegmentsResponse_ =
-  GetSegmentsResponse'
-    { _gsrsResponseStatus = pResponseStatus_
-    , _gsrsSegmentsResponse = pSegmentsResponse_
-    }
+-- 'httpStatus', 'getSegmentsResponse_httpStatus' - The response's http status code.
+--
+-- 'segmentsResponse', 'getSegmentsResponse_segmentsResponse' - Undocumented member.
+newGetSegmentsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'segmentsResponse'
+  SegmentsResponse ->
+  GetSegmentsResponse
+newGetSegmentsResponse
+  pHttpStatus_
+  pSegmentsResponse_ =
+    GetSegmentsResponse'
+      { httpStatus = pHttpStatus_,
+        segmentsResponse = pSegmentsResponse_
+      }
 
-
--- | -- | The response status code.
-gsrsResponseStatus :: Lens' GetSegmentsResponse Int
-gsrsResponseStatus = lens _gsrsResponseStatus (\ s a -> s{_gsrsResponseStatus = a})
+-- | The response's http status code.
+getSegmentsResponse_httpStatus :: Lens.Lens' GetSegmentsResponse Prelude.Int
+getSegmentsResponse_httpStatus = Lens.lens (\GetSegmentsResponse' {httpStatus} -> httpStatus) (\s@GetSegmentsResponse' {} a -> s {httpStatus = a} :: GetSegmentsResponse)
 
 -- | Undocumented member.
-gsrsSegmentsResponse :: Lens' GetSegmentsResponse SegmentsResponse
-gsrsSegmentsResponse = lens _gsrsSegmentsResponse (\ s a -> s{_gsrsSegmentsResponse = a})
+getSegmentsResponse_segmentsResponse :: Lens.Lens' GetSegmentsResponse SegmentsResponse
+getSegmentsResponse_segmentsResponse = Lens.lens (\GetSegmentsResponse' {segmentsResponse} -> segmentsResponse) (\s@GetSegmentsResponse' {} a -> s {segmentsResponse = a} :: GetSegmentsResponse)
 
-instance NFData GetSegmentsResponse where
+instance Prelude.NFData GetSegmentsResponse

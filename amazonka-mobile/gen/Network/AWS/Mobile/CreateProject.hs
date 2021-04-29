@@ -1,167 +1,200 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Mobile.CreateProject
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates an AWS Mobile Hub project.
---
---
 module Network.AWS.Mobile.CreateProject
-    (
-    -- * Creating a Request
-      createProject
-    , CreateProject
+  ( -- * Creating a Request
+    CreateProject (..),
+    newCreateProject,
+
     -- * Request Lenses
-    , cpContents
-    , cpName
-    , cpRegion
-    , cpSnapshotId
+    createProject_contents,
+    createProject_name,
+    createProject_snapshotId,
+    createProject_region,
 
     -- * Destructuring the Response
-    , createProjectResponse
-    , CreateProjectResponse
-    -- * Response Lenses
-    , cprsDetails
-    , cprsResponseStatus
-    ) where
+    CreateProjectResponse (..),
+    newCreateProjectResponse,
 
-import Network.AWS.Lens
+    -- * Response Lenses
+    createProjectResponse_details,
+    createProjectResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Mobile.Types
-import Network.AWS.Mobile.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request structure used to request a project be created.
 --
---
---
--- /See:/ 'createProject' smart constructor.
+-- /See:/ 'newCreateProject' smart constructor.
 data CreateProject = CreateProject'
-  { _cpContents   :: !(Maybe ByteString)
-  , _cpName       :: !(Maybe Text)
-  , _cpRegion     :: !(Maybe Text)
-  , _cpSnapshotId :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | ZIP or YAML file which contains configuration settings to be used when
+    -- creating the project. This may be the contents of the file downloaded
+    -- from the URL provided in an export project operation.
+    contents :: Prelude.Maybe Prelude.ByteString,
+    -- | Name of the project.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Unique identifier for an exported snapshot of project configuration.
+    -- This snapshot identifier is included in the share URL when a project is
+    -- exported.
+    snapshotId :: Prelude.Maybe Prelude.Text,
+    -- | Default region where project resources should be created.
+    region :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateProject' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateProject' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cpContents' - ZIP or YAML file which contains configuration settings to be used when creating the project. This may be the contents of the file downloaded from the URL provided in an export project operation.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cpName' - Name of the project.
+-- 'contents', 'createProject_contents' - ZIP or YAML file which contains configuration settings to be used when
+-- creating the project. This may be the contents of the file downloaded
+-- from the URL provided in an export project operation.
 --
--- * 'cpRegion' - Default region where project resources should be created.
+-- 'name', 'createProject_name' - Name of the project.
 --
--- * 'cpSnapshotId' - Unique identifier for an exported snapshot of project configuration. This snapshot identifier is included in the share URL when a project is exported.
-createProject
-    :: CreateProject
-createProject =
+-- 'snapshotId', 'createProject_snapshotId' - Unique identifier for an exported snapshot of project configuration.
+-- This snapshot identifier is included in the share URL when a project is
+-- exported.
+--
+-- 'region', 'createProject_region' - Default region where project resources should be created.
+newCreateProject ::
+  CreateProject
+newCreateProject =
   CreateProject'
-    { _cpContents = Nothing
-    , _cpName = Nothing
-    , _cpRegion = Nothing
-    , _cpSnapshotId = Nothing
+    { contents = Prelude.Nothing,
+      name = Prelude.Nothing,
+      snapshotId = Prelude.Nothing,
+      region = Prelude.Nothing
     }
 
-
--- | ZIP or YAML file which contains configuration settings to be used when creating the project. This may be the contents of the file downloaded from the URL provided in an export project operation.
-cpContents :: Lens' CreateProject (Maybe ByteString)
-cpContents = lens _cpContents (\ s a -> s{_cpContents = a})
+-- | ZIP or YAML file which contains configuration settings to be used when
+-- creating the project. This may be the contents of the file downloaded
+-- from the URL provided in an export project operation.
+createProject_contents :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.ByteString)
+createProject_contents = Lens.lens (\CreateProject' {contents} -> contents) (\s@CreateProject' {} a -> s {contents = a} :: CreateProject)
 
 -- | Name of the project.
-cpName :: Lens' CreateProject (Maybe Text)
-cpName = lens _cpName (\ s a -> s{_cpName = a})
+createProject_name :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
+createProject_name = Lens.lens (\CreateProject' {name} -> name) (\s@CreateProject' {} a -> s {name = a} :: CreateProject)
+
+-- | Unique identifier for an exported snapshot of project configuration.
+-- This snapshot identifier is included in the share URL when a project is
+-- exported.
+createProject_snapshotId :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
+createProject_snapshotId = Lens.lens (\CreateProject' {snapshotId} -> snapshotId) (\s@CreateProject' {} a -> s {snapshotId = a} :: CreateProject)
 
 -- | Default region where project resources should be created.
-cpRegion :: Lens' CreateProject (Maybe Text)
-cpRegion = lens _cpRegion (\ s a -> s{_cpRegion = a})
+createProject_region :: Lens.Lens' CreateProject (Prelude.Maybe Prelude.Text)
+createProject_region = Lens.lens (\CreateProject' {region} -> region) (\s@CreateProject' {} a -> s {region = a} :: CreateProject)
 
--- | Unique identifier for an exported snapshot of project configuration. This snapshot identifier is included in the share URL when a project is exported.
-cpSnapshotId :: Lens' CreateProject (Maybe Text)
-cpSnapshotId = lens _cpSnapshotId (\ s a -> s{_cpSnapshotId = a})
+instance Prelude.AWSRequest CreateProject where
+  type Rs CreateProject = CreateProjectResponse
+  request = Request.postBody defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateProjectResponse'
+            Prelude.<$> (x Prelude..?> "details")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest CreateProject where
-        type Rs CreateProject = CreateProjectResponse
-        request = postBody mobile
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateProjectResponse' <$>
-                   (x .?> "details") <*> (pure (fromEnum s)))
+instance Prelude.Hashable CreateProject
 
-instance Hashable CreateProject where
+instance Prelude.NFData CreateProject
 
-instance NFData CreateProject where
+instance Prelude.ToBody CreateProject where
+  toBody CreateProject' {..} = Prelude.toBody contents
 
-instance ToBody CreateProject where
-        toBody = toBody . _cpContents
+instance Prelude.ToHeaders CreateProject where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders CreateProject where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToPath CreateProject where
+  toPath = Prelude.const "/projects"
 
-instance ToPath CreateProject where
-        toPath = const "/projects"
-
-instance ToQuery CreateProject where
-        toQuery CreateProject'{..}
-          = mconcat
-              ["name" =: _cpName, "region" =: _cpRegion,
-               "snapshotId" =: _cpSnapshotId]
+instance Prelude.ToQuery CreateProject where
+  toQuery CreateProject' {..} =
+    Prelude.mconcat
+      [ "name" Prelude.=: name,
+        "snapshotId" Prelude.=: snapshotId,
+        "region" Prelude.=: region
+      ]
 
 -- | Result structure used in response to a request to create a project.
 --
---
---
--- /See:/ 'createProjectResponse' smart constructor.
+-- /See:/ 'newCreateProjectResponse' smart constructor.
 data CreateProjectResponse = CreateProjectResponse'
-  { _cprsDetails        :: !(Maybe ProjectDetails)
-  , _cprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Detailed information about the created AWS Mobile Hub project.
+    details :: Prelude.Maybe ProjectDetails,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateProjectResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateProjectResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cprsDetails' - Detailed information about the created AWS Mobile Hub project.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cprsResponseStatus' - -- | The response status code.
-createProjectResponse
-    :: Int -- ^ 'cprsResponseStatus'
-    -> CreateProjectResponse
-createProjectResponse pResponseStatus_ =
+-- 'details', 'createProjectResponse_details' - Detailed information about the created AWS Mobile Hub project.
+--
+-- 'httpStatus', 'createProjectResponse_httpStatus' - The response's http status code.
+newCreateProjectResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateProjectResponse
+newCreateProjectResponse pHttpStatus_ =
   CreateProjectResponse'
-    {_cprsDetails = Nothing, _cprsResponseStatus = pResponseStatus_}
-
+    { details = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Detailed information about the created AWS Mobile Hub project.
-cprsDetails :: Lens' CreateProjectResponse (Maybe ProjectDetails)
-cprsDetails = lens _cprsDetails (\ s a -> s{_cprsDetails = a})
+createProjectResponse_details :: Lens.Lens' CreateProjectResponse (Prelude.Maybe ProjectDetails)
+createProjectResponse_details = Lens.lens (\CreateProjectResponse' {details} -> details) (\s@CreateProjectResponse' {} a -> s {details = a} :: CreateProjectResponse)
 
--- | -- | The response status code.
-cprsResponseStatus :: Lens' CreateProjectResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a})
+-- | The response's http status code.
+createProjectResponse_httpStatus :: Lens.Lens' CreateProjectResponse Prelude.Int
+createProjectResponse_httpStatus = Lens.lens (\CreateProjectResponse' {httpStatus} -> httpStatus) (\s@CreateProjectResponse' {} a -> s {httpStatus = a} :: CreateProjectResponse)
 
-instance NFData CreateProjectResponse where
+instance Prelude.NFData CreateProjectResponse

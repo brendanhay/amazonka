@@ -1,180 +1,257 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lambda.ListAliases
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns list of aliases created for a Lambda function. For each alias, the response includes information such as the alias ARN, description, alias name, and the function version to which it points. For more information, see <http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html Introduction to AWS Lambda Aliases> .
---
---
--- This requires permission for the lambda:ListAliases action.
---
+-- Returns a list of
+-- <https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html aliases>
+-- for a Lambda function.
 --
 -- This operation returns paginated results.
 module Network.AWS.Lambda.ListAliases
-    (
-    -- * Creating a Request
-      listAliases
-    , ListAliases
+  ( -- * Creating a Request
+    ListAliases (..),
+    newListAliases,
+
     -- * Request Lenses
-    , laMarker
-    , laMaxItems
-    , laFunctionVersion
-    , laFunctionName
+    listAliases_functionVersion,
+    listAliases_maxItems,
+    listAliases_marker,
+    listAliases_functionName,
 
     -- * Destructuring the Response
-    , listAliasesResponse
-    , ListAliasesResponse
+    ListAliasesResponse (..),
+    newListAliasesResponse,
+
     -- * Response Lenses
-    , larsAliases
-    , larsNextMarker
-    , larsResponseStatus
-    ) where
+    listAliasesResponse_nextMarker,
+    listAliasesResponse_aliases,
+    listAliasesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lambda.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listAliases' smart constructor.
+-- | /See:/ 'newListAliases' smart constructor.
 data ListAliases = ListAliases'
-  { _laMarker          :: !(Maybe Text)
-  , _laMaxItems        :: !(Maybe Nat)
-  , _laFunctionVersion :: !(Maybe Text)
-  , _laFunctionName    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Specify a function version to only list aliases that invoke that
+    -- version.
+    functionVersion :: Prelude.Maybe Prelude.Text,
+    -- | Limit the number of aliases returned.
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | Specify the pagination token that\'s returned by a previous request to
+    -- retrieve the next page of results.
+    marker :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Lambda function.
+    --
+    -- __Name formats__
+    --
+    -- -   __Function name__ - @MyFunction@.
+    --
+    -- -   __Function ARN__ -
+    --     @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@.
+    --
+    -- -   __Partial ARN__ - @123456789012:function:MyFunction@.
+    --
+    -- The length constraint applies only to the full ARN. If you specify only
+    -- the function name, it is limited to 64 characters in length.
+    functionName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListAliases' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListAliases' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'laMarker' - Optional string. An opaque pagination token returned from a previous @ListAliases@ operation. If present, indicates where to continue the listing.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'laMaxItems' - Optional integer. Specifies the maximum number of aliases to return in response. This parameter value must be greater than 0.
+-- 'functionVersion', 'listAliases_functionVersion' - Specify a function version to only list aliases that invoke that
+-- version.
 --
--- * 'laFunctionVersion' - If you specify this optional parameter, the API returns only the aliases that are pointing to the specific Lambda function version, otherwise the API returns all of the aliases created for the Lambda function.
+-- 'maxItems', 'listAliases_maxItems' - Limit the number of aliases returned.
 --
--- * 'laFunctionName' - Lambda function name for which the alias is created. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
-listAliases
-    :: Text -- ^ 'laFunctionName'
-    -> ListAliases
-listAliases pFunctionName_ =
+-- 'marker', 'listAliases_marker' - Specify the pagination token that\'s returned by a previous request to
+-- retrieve the next page of results.
+--
+-- 'functionName', 'listAliases_functionName' - The name of the Lambda function.
+--
+-- __Name formats__
+--
+-- -   __Function name__ - @MyFunction@.
+--
+-- -   __Function ARN__ -
+--     @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@.
+--
+-- -   __Partial ARN__ - @123456789012:function:MyFunction@.
+--
+-- The length constraint applies only to the full ARN. If you specify only
+-- the function name, it is limited to 64 characters in length.
+newListAliases ::
+  -- | 'functionName'
+  Prelude.Text ->
+  ListAliases
+newListAliases pFunctionName_ =
   ListAliases'
-    { _laMarker = Nothing
-    , _laMaxItems = Nothing
-    , _laFunctionVersion = Nothing
-    , _laFunctionName = pFunctionName_
+    { functionVersion = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing,
+      functionName = pFunctionName_
     }
 
+-- | Specify a function version to only list aliases that invoke that
+-- version.
+listAliases_functionVersion :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
+listAliases_functionVersion = Lens.lens (\ListAliases' {functionVersion} -> functionVersion) (\s@ListAliases' {} a -> s {functionVersion = a} :: ListAliases)
 
--- | Optional string. An opaque pagination token returned from a previous @ListAliases@ operation. If present, indicates where to continue the listing.
-laMarker :: Lens' ListAliases (Maybe Text)
-laMarker = lens _laMarker (\ s a -> s{_laMarker = a})
+-- | Limit the number of aliases returned.
+listAliases_maxItems :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Natural)
+listAliases_maxItems = Lens.lens (\ListAliases' {maxItems} -> maxItems) (\s@ListAliases' {} a -> s {maxItems = a} :: ListAliases)
 
--- | Optional integer. Specifies the maximum number of aliases to return in response. This parameter value must be greater than 0.
-laMaxItems :: Lens' ListAliases (Maybe Natural)
-laMaxItems = lens _laMaxItems (\ s a -> s{_laMaxItems = a}) . mapping _Nat
+-- | Specify the pagination token that\'s returned by a previous request to
+-- retrieve the next page of results.
+listAliases_marker :: Lens.Lens' ListAliases (Prelude.Maybe Prelude.Text)
+listAliases_marker = Lens.lens (\ListAliases' {marker} -> marker) (\s@ListAliases' {} a -> s {marker = a} :: ListAliases)
 
--- | If you specify this optional parameter, the API returns only the aliases that are pointing to the specific Lambda function version, otherwise the API returns all of the aliases created for the Lambda function.
-laFunctionVersion :: Lens' ListAliases (Maybe Text)
-laFunctionVersion = lens _laFunctionVersion (\ s a -> s{_laFunctionVersion = a})
+-- | The name of the Lambda function.
+--
+-- __Name formats__
+--
+-- -   __Function name__ - @MyFunction@.
+--
+-- -   __Function ARN__ -
+--     @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@.
+--
+-- -   __Partial ARN__ - @123456789012:function:MyFunction@.
+--
+-- The length constraint applies only to the full ARN. If you specify only
+-- the function name, it is limited to 64 characters in length.
+listAliases_functionName :: Lens.Lens' ListAliases Prelude.Text
+listAliases_functionName = Lens.lens (\ListAliases' {functionName} -> functionName) (\s@ListAliases' {} a -> s {functionName = a} :: ListAliases)
 
--- | Lambda function name for which the alias is created. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
-laFunctionName :: Lens' ListAliases Text
-laFunctionName = lens _laFunctionName (\ s a -> s{_laFunctionName = a})
+instance Pager.AWSPager ListAliases where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listAliasesResponse_nextMarker Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listAliasesResponse_aliases Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listAliases_marker
+          Lens..~ rs
+          Lens.^? listAliasesResponse_nextMarker Prelude.. Lens._Just
 
-instance AWSPager ListAliases where
-        page rq rs
-          | stop (rs ^. larsNextMarker) = Nothing
-          | stop (rs ^. larsAliases) = Nothing
-          | otherwise =
-            Just $ rq & laMarker .~ rs ^. larsNextMarker
+instance Prelude.AWSRequest ListAliases where
+  type Rs ListAliases = ListAliasesResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListAliasesResponse'
+            Prelude.<$> (x Prelude..?> "NextMarker")
+            Prelude.<*> (x Prelude..?> "Aliases" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest ListAliases where
-        type Rs ListAliases = ListAliasesResponse
-        request = get lambda
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListAliasesResponse' <$>
-                   (x .?> "Aliases" .!@ mempty) <*> (x .?> "NextMarker")
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable ListAliases
 
-instance Hashable ListAliases where
+instance Prelude.NFData ListAliases
 
-instance NFData ListAliases where
+instance Prelude.ToHeaders ListAliases where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders ListAliases where
-        toHeaders = const mempty
+instance Prelude.ToPath ListAliases where
+  toPath ListAliases' {..} =
+    Prelude.mconcat
+      [ "/2015-03-31/functions/",
+        Prelude.toBS functionName,
+        "/aliases"
+      ]
 
-instance ToPath ListAliases where
-        toPath ListAliases'{..}
-          = mconcat
-              ["/2015-03-31/functions/", toBS _laFunctionName,
-               "/aliases"]
+instance Prelude.ToQuery ListAliases where
+  toQuery ListAliases' {..} =
+    Prelude.mconcat
+      [ "FunctionVersion" Prelude.=: functionVersion,
+        "MaxItems" Prelude.=: maxItems,
+        "Marker" Prelude.=: marker
+      ]
 
-instance ToQuery ListAliases where
-        toQuery ListAliases'{..}
-          = mconcat
-              ["Marker" =: _laMarker, "MaxItems" =: _laMaxItems,
-               "FunctionVersion" =: _laFunctionVersion]
-
--- | /See:/ 'listAliasesResponse' smart constructor.
+-- | /See:/ 'newListAliasesResponse' smart constructor.
 data ListAliasesResponse = ListAliasesResponse'
-  { _larsAliases        :: !(Maybe [AliasConfiguration])
-  , _larsNextMarker     :: !(Maybe Text)
-  , _larsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The pagination token that\'s included if more results are available.
+    nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | A list of aliases.
+    aliases :: Prelude.Maybe [AliasConfiguration],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListAliasesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListAliasesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'larsAliases' - A list of aliases.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'larsNextMarker' - A string, present if there are more aliases.
+-- 'nextMarker', 'listAliasesResponse_nextMarker' - The pagination token that\'s included if more results are available.
 --
--- * 'larsResponseStatus' - -- | The response status code.
-listAliasesResponse
-    :: Int -- ^ 'larsResponseStatus'
-    -> ListAliasesResponse
-listAliasesResponse pResponseStatus_ =
+-- 'aliases', 'listAliasesResponse_aliases' - A list of aliases.
+--
+-- 'httpStatus', 'listAliasesResponse_httpStatus' - The response's http status code.
+newListAliasesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListAliasesResponse
+newListAliasesResponse pHttpStatus_ =
   ListAliasesResponse'
-    { _larsAliases = Nothing
-    , _larsNextMarker = Nothing
-    , _larsResponseStatus = pResponseStatus_
+    { nextMarker = Prelude.Nothing,
+      aliases = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The pagination token that\'s included if more results are available.
+listAliasesResponse_nextMarker :: Lens.Lens' ListAliasesResponse (Prelude.Maybe Prelude.Text)
+listAliasesResponse_nextMarker = Lens.lens (\ListAliasesResponse' {nextMarker} -> nextMarker) (\s@ListAliasesResponse' {} a -> s {nextMarker = a} :: ListAliasesResponse)
 
 -- | A list of aliases.
-larsAliases :: Lens' ListAliasesResponse [AliasConfiguration]
-larsAliases = lens _larsAliases (\ s a -> s{_larsAliases = a}) . _Default . _Coerce
+listAliasesResponse_aliases :: Lens.Lens' ListAliasesResponse (Prelude.Maybe [AliasConfiguration])
+listAliasesResponse_aliases = Lens.lens (\ListAliasesResponse' {aliases} -> aliases) (\s@ListAliasesResponse' {} a -> s {aliases = a} :: ListAliasesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | A string, present if there are more aliases.
-larsNextMarker :: Lens' ListAliasesResponse (Maybe Text)
-larsNextMarker = lens _larsNextMarker (\ s a -> s{_larsNextMarker = a})
+-- | The response's http status code.
+listAliasesResponse_httpStatus :: Lens.Lens' ListAliasesResponse Prelude.Int
+listAliasesResponse_httpStatus = Lens.lens (\ListAliasesResponse' {httpStatus} -> httpStatus) (\s@ListAliasesResponse' {} a -> s {httpStatus = a} :: ListAliasesResponse)
 
--- | -- | The response status code.
-larsResponseStatus :: Lens' ListAliasesResponse Int
-larsResponseStatus = lens _larsResponseStatus (\ s a -> s{_larsResponseStatus = a})
-
-instance NFData ListAliasesResponse where
+instance Prelude.NFData ListAliasesResponse

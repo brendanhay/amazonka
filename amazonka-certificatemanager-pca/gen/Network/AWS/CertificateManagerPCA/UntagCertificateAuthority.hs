@@ -1,128 +1,172 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CertificateManagerPCA.UntagCertificateAuthority
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Remove one or more tags from your private CA. A tag consists of a key-value pair. If you do not specify the value portion of the tag when calling this function, the tag will be removed regardless of value. If you specify a value, the tag is removed only if it is associated with the specified value. To add tags to a private CA, use the 'TagCertificateAuthority' . Call the 'ListTags' function to see what tags are associated with your CA.
---
---
+-- Remove one or more tags from your private CA. A tag consists of a
+-- key-value pair. If you do not specify the value portion of the tag when
+-- calling this action, the tag will be removed regardless of value. If you
+-- specify a value, the tag is removed only if it is associated with the
+-- specified value. To add tags to a private CA, use the
+-- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_TagCertificateAuthority.html TagCertificateAuthority>.
+-- Call the
+-- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListTags.html ListTags>
+-- action to see what tags are associated with your CA.
 module Network.AWS.CertificateManagerPCA.UntagCertificateAuthority
-    (
-    -- * Creating a Request
-      untagCertificateAuthority
-    , UntagCertificateAuthority
+  ( -- * Creating a Request
+    UntagCertificateAuthority (..),
+    newUntagCertificateAuthority,
+
     -- * Request Lenses
-    , uCertificateAuthorityARN
-    , uTags
+    untagCertificateAuthority_certificateAuthorityArn,
+    untagCertificateAuthority_tags,
 
     -- * Destructuring the Response
-    , untagCertificateAuthorityResponse
-    , UntagCertificateAuthorityResponse
-    ) where
+    UntagCertificateAuthorityResponse (..),
+    newUntagCertificateAuthorityResponse,
+  )
+where
 
 import Network.AWS.CertificateManagerPCA.Types
-import Network.AWS.CertificateManagerPCA.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'untagCertificateAuthority' smart constructor.
+-- | /See:/ 'newUntagCertificateAuthority' smart constructor.
 data UntagCertificateAuthority = UntagCertificateAuthority'
-  { _uCertificateAuthorityARN :: !Text
-  , _uTags                    :: !(List1 Tag)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) that was returned when you called
+    -- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
+    -- This must be of the form:
+    --
+    -- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
+    certificateAuthorityArn :: Prelude.Text,
+    -- | List of tags to be removed from the CA.
+    tags :: Prelude.NonEmpty Tag
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UntagCertificateAuthority' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UntagCertificateAuthority' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uCertificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called 'CreateCertificateAuthority' . This must be of the form:  @arn:aws:acm:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'uTags' - List of tags to be removed from the CA.
-untagCertificateAuthority
-    :: Text -- ^ 'uCertificateAuthorityARN'
-    -> NonEmpty Tag -- ^ 'uTags'
-    -> UntagCertificateAuthority
-untagCertificateAuthority pCertificateAuthorityARN_ pTags_ =
-  UntagCertificateAuthority'
-    { _uCertificateAuthorityARN = pCertificateAuthorityARN_
-    , _uTags = _List1 # pTags_
-    }
+-- 'certificateAuthorityArn', 'untagCertificateAuthority_certificateAuthorityArn' - The Amazon Resource Name (ARN) that was returned when you called
+-- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
+-- This must be of the form:
+--
+-- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
+--
+-- 'tags', 'untagCertificateAuthority_tags' - List of tags to be removed from the CA.
+newUntagCertificateAuthority ::
+  -- | 'certificateAuthorityArn'
+  Prelude.Text ->
+  -- | 'tags'
+  Prelude.NonEmpty Tag ->
+  UntagCertificateAuthority
+newUntagCertificateAuthority
+  pCertificateAuthorityArn_
+  pTags_ =
+    UntagCertificateAuthority'
+      { certificateAuthorityArn =
+          pCertificateAuthorityArn_,
+        tags = Prelude._Coerce Lens.# pTags_
+      }
 
-
--- | The Amazon Resource Name (ARN) that was returned when you called 'CreateCertificateAuthority' . This must be of the form:  @arn:aws:acm:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
-uCertificateAuthorityARN :: Lens' UntagCertificateAuthority Text
-uCertificateAuthorityARN = lens _uCertificateAuthorityARN (\ s a -> s{_uCertificateAuthorityARN = a})
+-- | The Amazon Resource Name (ARN) that was returned when you called
+-- <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority>.
+-- This must be of the form:
+--
+-- @arn:aws:acm-pca:region:account:certificate-authority\/12345678-1234-1234-1234-123456789012 @
+untagCertificateAuthority_certificateAuthorityArn :: Lens.Lens' UntagCertificateAuthority Prelude.Text
+untagCertificateAuthority_certificateAuthorityArn = Lens.lens (\UntagCertificateAuthority' {certificateAuthorityArn} -> certificateAuthorityArn) (\s@UntagCertificateAuthority' {} a -> s {certificateAuthorityArn = a} :: UntagCertificateAuthority)
 
 -- | List of tags to be removed from the CA.
-uTags :: Lens' UntagCertificateAuthority (NonEmpty Tag)
-uTags = lens _uTags (\ s a -> s{_uTags = a}) . _List1
+untagCertificateAuthority_tags :: Lens.Lens' UntagCertificateAuthority (Prelude.NonEmpty Tag)
+untagCertificateAuthority_tags = Lens.lens (\UntagCertificateAuthority' {tags} -> tags) (\s@UntagCertificateAuthority' {} a -> s {tags = a} :: UntagCertificateAuthority) Prelude.. Prelude._Coerce
 
-instance AWSRequest UntagCertificateAuthority where
-        type Rs UntagCertificateAuthority =
-             UntagCertificateAuthorityResponse
-        request = postJSON certificateManagerPCA
-        response
-          = receiveNull UntagCertificateAuthorityResponse'
+instance Prelude.AWSRequest UntagCertificateAuthority where
+  type
+    Rs UntagCertificateAuthority =
+      UntagCertificateAuthorityResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull
+      UntagCertificateAuthorityResponse'
 
-instance Hashable UntagCertificateAuthority where
+instance Prelude.Hashable UntagCertificateAuthority
 
-instance NFData UntagCertificateAuthority where
+instance Prelude.NFData UntagCertificateAuthority
 
-instance ToHeaders UntagCertificateAuthority where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("ACMPrivateCA.UntagCertificateAuthority" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders UntagCertificateAuthority where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "ACMPrivateCA.UntagCertificateAuthority" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON UntagCertificateAuthority where
-        toJSON UntagCertificateAuthority'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("CertificateAuthorityArn" .=
-                       _uCertificateAuthorityARN),
-                  Just ("Tags" .= _uTags)])
+instance Prelude.ToJSON UntagCertificateAuthority where
+  toJSON UntagCertificateAuthority' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ( "CertificateAuthorityArn"
+                  Prelude..= certificateAuthorityArn
+              ),
+            Prelude.Just ("Tags" Prelude..= tags)
+          ]
+      )
 
-instance ToPath UntagCertificateAuthority where
-        toPath = const "/"
+instance Prelude.ToPath UntagCertificateAuthority where
+  toPath = Prelude.const "/"
 
-instance ToQuery UntagCertificateAuthority where
-        toQuery = const mempty
+instance Prelude.ToQuery UntagCertificateAuthority where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'untagCertificateAuthorityResponse' smart constructor.
-data UntagCertificateAuthorityResponse =
-  UntagCertificateAuthorityResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUntagCertificateAuthorityResponse' smart constructor.
+data UntagCertificateAuthorityResponse = UntagCertificateAuthorityResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UntagCertificateAuthorityResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UntagCertificateAuthorityResponse' with all optional fields omitted.
 --
-untagCertificateAuthorityResponse
-    :: UntagCertificateAuthorityResponse
-untagCertificateAuthorityResponse = UntagCertificateAuthorityResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newUntagCertificateAuthorityResponse ::
+  UntagCertificateAuthorityResponse
+newUntagCertificateAuthorityResponse =
+  UntagCertificateAuthorityResponse'
 
-
-instance NFData UntagCertificateAuthorityResponse
-         where
+instance
+  Prelude.NFData
+    UntagCertificateAuthorityResponse

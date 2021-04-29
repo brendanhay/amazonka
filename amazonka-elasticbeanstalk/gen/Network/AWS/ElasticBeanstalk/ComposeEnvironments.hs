@@ -1,118 +1,166 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.ComposeEnvironments
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create or update a group of environments that each run a separate component of a single application. Takes a list of version labels that specify application source bundles for each of the environments to create or update. The name of each environment and other required information must be included in the source bundles in an environment manifest named @env.yaml@ . See <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html Compose Environments> for details.
---
---
+-- Create or update a group of environments that each run a separate
+-- component of a single application. Takes a list of version labels that
+-- specify application source bundles for each of the environments to
+-- create or update. The name of each environment and other required
+-- information must be included in the source bundles in an environment
+-- manifest named @env.yaml@. See
+-- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-mgmt-compose.html Compose Environments>
+-- for details.
 module Network.AWS.ElasticBeanstalk.ComposeEnvironments
-    (
-    -- * Creating a Request
-      composeEnvironments
-    , ComposeEnvironments
+  ( -- * Creating a Request
+    ComposeEnvironments (..),
+    newComposeEnvironments,
+
     -- * Request Lenses
-    , ceVersionLabels
-    , ceApplicationName
-    , ceGroupName
+    composeEnvironments_groupName,
+    composeEnvironments_versionLabels,
+    composeEnvironments_applicationName,
 
     -- * Destructuring the Response
-    , environmentDescriptionsMessage
-    , EnvironmentDescriptionsMessage
+    EnvironmentDescriptionsMessage (..),
+    newEnvironmentDescriptionsMessage,
+
     -- * Response Lenses
-    , edmNextToken
-    , edmEnvironments
-    ) where
+    environmentDescriptionsMessage_nextToken,
+    environmentDescriptionsMessage_environments,
+  )
+where
 
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request to create or update a group of environments.
 --
---
---
--- /See:/ 'composeEnvironments' smart constructor.
+-- /See:/ 'newComposeEnvironments' smart constructor.
 data ComposeEnvironments = ComposeEnvironments'
-  { _ceVersionLabels   :: !(Maybe [Text])
-  , _ceApplicationName :: !(Maybe Text)
-  , _ceGroupName       :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the group to which the target environments belong. Specify a
+    -- group name only if the environment name defined in each target
+    -- environment\'s manifest ends with a + (plus) character. See
+    -- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
+    -- for details.
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | A list of version labels, specifying one or more application source
+    -- bundles that belong to the target application. Each source bundle must
+    -- include an environment manifest that specifies the name of the
+    -- environment and the name of the solution stack to use, and optionally
+    -- can specify environment links to create.
+    versionLabels :: Prelude.Maybe [Prelude.Text],
+    -- | The name of the application to which the specified source bundles
+    -- belong.
+    applicationName :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ComposeEnvironments' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ComposeEnvironments' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ceVersionLabels' - A list of version labels, specifying one or more application source bundles that belong to the target application. Each source bundle must include an environment manifest that specifies the name of the environment and the name of the solution stack to use, and optionally can specify environment links to create.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ceApplicationName' - The name of the application to which the specified source bundles belong.
+-- 'groupName', 'composeEnvironments_groupName' - The name of the group to which the target environments belong. Specify a
+-- group name only if the environment name defined in each target
+-- environment\'s manifest ends with a + (plus) character. See
+-- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
+-- for details.
 --
--- * 'ceGroupName' - The name of the group to which the target environments belong. Specify a group name only if the environment name defined in each target environment's manifest ends with a + (plus) character. See <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
-composeEnvironments
-    :: ComposeEnvironments
-composeEnvironments =
+-- 'versionLabels', 'composeEnvironments_versionLabels' - A list of version labels, specifying one or more application source
+-- bundles that belong to the target application. Each source bundle must
+-- include an environment manifest that specifies the name of the
+-- environment and the name of the solution stack to use, and optionally
+-- can specify environment links to create.
+--
+-- 'applicationName', 'composeEnvironments_applicationName' - The name of the application to which the specified source bundles
+-- belong.
+newComposeEnvironments ::
+  ComposeEnvironments
+newComposeEnvironments =
   ComposeEnvironments'
-    { _ceVersionLabels = Nothing
-    , _ceApplicationName = Nothing
-    , _ceGroupName = Nothing
+    { groupName = Prelude.Nothing,
+      versionLabels = Prelude.Nothing,
+      applicationName = Prelude.Nothing
     }
 
+-- | The name of the group to which the target environments belong. Specify a
+-- group name only if the environment name defined in each target
+-- environment\'s manifest ends with a + (plus) character. See
+-- <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)>
+-- for details.
+composeEnvironments_groupName :: Lens.Lens' ComposeEnvironments (Prelude.Maybe Prelude.Text)
+composeEnvironments_groupName = Lens.lens (\ComposeEnvironments' {groupName} -> groupName) (\s@ComposeEnvironments' {} a -> s {groupName = a} :: ComposeEnvironments)
 
--- | A list of version labels, specifying one or more application source bundles that belong to the target application. Each source bundle must include an environment manifest that specifies the name of the environment and the name of the solution stack to use, and optionally can specify environment links to create.
-ceVersionLabels :: Lens' ComposeEnvironments [Text]
-ceVersionLabels = lens _ceVersionLabels (\ s a -> s{_ceVersionLabels = a}) . _Default . _Coerce
+-- | A list of version labels, specifying one or more application source
+-- bundles that belong to the target application. Each source bundle must
+-- include an environment manifest that specifies the name of the
+-- environment and the name of the solution stack to use, and optionally
+-- can specify environment links to create.
+composeEnvironments_versionLabels :: Lens.Lens' ComposeEnvironments (Prelude.Maybe [Prelude.Text])
+composeEnvironments_versionLabels = Lens.lens (\ComposeEnvironments' {versionLabels} -> versionLabels) (\s@ComposeEnvironments' {} a -> s {versionLabels = a} :: ComposeEnvironments) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The name of the application to which the specified source bundles belong.
-ceApplicationName :: Lens' ComposeEnvironments (Maybe Text)
-ceApplicationName = lens _ceApplicationName (\ s a -> s{_ceApplicationName = a})
+-- | The name of the application to which the specified source bundles
+-- belong.
+composeEnvironments_applicationName :: Lens.Lens' ComposeEnvironments (Prelude.Maybe Prelude.Text)
+composeEnvironments_applicationName = Lens.lens (\ComposeEnvironments' {applicationName} -> applicationName) (\s@ComposeEnvironments' {} a -> s {applicationName = a} :: ComposeEnvironments)
 
--- | The name of the group to which the target environments belong. Specify a group name only if the environment name defined in each target environment's manifest ends with a + (plus) character. See <http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
-ceGroupName :: Lens' ComposeEnvironments (Maybe Text)
-ceGroupName = lens _ceGroupName (\ s a -> s{_ceGroupName = a})
+instance Prelude.AWSRequest ComposeEnvironments where
+  type
+    Rs ComposeEnvironments =
+      EnvironmentDescriptionsMessage
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "ComposeEnvironmentsResult"
+      (\s h x -> Prelude.parseXML x)
 
-instance AWSRequest ComposeEnvironments where
-        type Rs ComposeEnvironments =
-             EnvironmentDescriptionsMessage
-        request = postQuery elasticBeanstalk
-        response
-          = receiveXMLWrapper "ComposeEnvironmentsResult"
-              (\ s h x -> parseXML x)
+instance Prelude.Hashable ComposeEnvironments
 
-instance Hashable ComposeEnvironments where
+instance Prelude.NFData ComposeEnvironments
 
-instance NFData ComposeEnvironments where
+instance Prelude.ToHeaders ComposeEnvironments where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders ComposeEnvironments where
-        toHeaders = const mempty
+instance Prelude.ToPath ComposeEnvironments where
+  toPath = Prelude.const "/"
 
-instance ToPath ComposeEnvironments where
-        toPath = const "/"
-
-instance ToQuery ComposeEnvironments where
-        toQuery ComposeEnvironments'{..}
-          = mconcat
-              ["Action" =: ("ComposeEnvironments" :: ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "VersionLabels" =:
-                 toQuery (toQueryList "member" <$> _ceVersionLabels),
-               "ApplicationName" =: _ceApplicationName,
-               "GroupName" =: _ceGroupName]
+instance Prelude.ToQuery ComposeEnvironments where
+  toQuery ComposeEnvironments' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("ComposeEnvironments" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
+        "GroupName" Prelude.=: groupName,
+        "VersionLabels"
+          Prelude.=: Prelude.toQuery
+            ( Prelude.toQueryList "member"
+                Prelude.<$> versionLabels
+            ),
+        "ApplicationName" Prelude.=: applicationName
+      ]

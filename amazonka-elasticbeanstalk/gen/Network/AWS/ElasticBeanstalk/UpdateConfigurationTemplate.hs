@@ -1,159 +1,221 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the specified configuration template to have the specified properties or configuration option values.
+-- Updates the specified configuration template to have the specified
+-- properties or configuration option values.
 --
+-- If a property (for example, @ApplicationName@) is not provided, its
+-- value remains unchanged. To clear such properties, specify an empty
+-- string.
 --
 -- Related Topics
 --
---     * 'DescribeConfigurationOptions'
---
---
---
+-- -   DescribeConfigurationOptions
 module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
-    (
-    -- * Creating a Request
-      updateConfigurationTemplate
-    , UpdateConfigurationTemplate
+  ( -- * Creating a Request
+    UpdateConfigurationTemplate (..),
+    newUpdateConfigurationTemplate,
+
     -- * Request Lenses
-    , uctOptionsToRemove
-    , uctOptionSettings
-    , uctDescription
-    , uctApplicationName
-    , uctTemplateName
+    updateConfigurationTemplate_optionsToRemove,
+    updateConfigurationTemplate_optionSettings,
+    updateConfigurationTemplate_description,
+    updateConfigurationTemplate_applicationName,
+    updateConfigurationTemplate_templateName,
 
     -- * Destructuring the Response
-    , configurationSettingsDescription
-    , ConfigurationSettingsDescription
+    ConfigurationSettingsDescription (..),
+    newConfigurationSettingsDescription,
+
     -- * Response Lenses
-    , csdTemplateName
-    , csdOptionSettings
-    , csdDateUpdated
-    , csdDateCreated
-    , csdPlatformARN
-    , csdEnvironmentName
-    , csdApplicationName
-    , csdDeploymentStatus
-    , csdSolutionStackName
-    , csdDescription
-    ) where
+    configurationSettingsDescription_templateName,
+    configurationSettingsDescription_dateCreated,
+    configurationSettingsDescription_solutionStackName,
+    configurationSettingsDescription_deploymentStatus,
+    configurationSettingsDescription_environmentName,
+    configurationSettingsDescription_platformArn,
+    configurationSettingsDescription_dateUpdated,
+    configurationSettingsDescription_optionSettings,
+    configurationSettingsDescription_description,
+    configurationSettingsDescription_applicationName,
+  )
+where
 
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | The result message containing the options for the specified solution stack.
+-- | The result message containing the options for the specified solution
+-- stack.
 --
---
---
--- /See:/ 'updateConfigurationTemplate' smart constructor.
+-- /See:/ 'newUpdateConfigurationTemplate' smart constructor.
 data UpdateConfigurationTemplate = UpdateConfigurationTemplate'
-  { _uctOptionsToRemove :: !(Maybe [OptionSpecification])
-  , _uctOptionSettings  :: !(Maybe [ConfigurationOptionSetting])
-  , _uctDescription     :: !(Maybe Text)
-  , _uctApplicationName :: !Text
-  , _uctTemplateName    :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of configuration options to remove from the configuration set.
+    --
+    -- Constraint: You can remove only @UserDefined@ configuration options.
+    optionsToRemove :: Prelude.Maybe [OptionSpecification],
+    -- | A list of configuration option settings to update with the new specified
+    -- option value.
+    optionSettings :: Prelude.Maybe [ConfigurationOptionSetting],
+    -- | A new description for the configuration.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the application associated with the configuration template
+    -- to update.
+    --
+    -- If no application is found with this name, @UpdateConfigurationTemplate@
+    -- returns an @InvalidParameterValue@ error.
+    applicationName :: Prelude.Text,
+    -- | The name of the configuration template to update.
+    --
+    -- If no configuration template is found with this name,
+    -- @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
+    templateName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
+-- |
+-- Create a value of 'UpdateConfigurationTemplate' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'optionsToRemove', 'updateConfigurationTemplate_optionsToRemove' - A list of configuration options to remove from the configuration set.
+--
+-- Constraint: You can remove only @UserDefined@ configuration options.
+--
+-- 'optionSettings', 'updateConfigurationTemplate_optionSettings' - A list of configuration option settings to update with the new specified
+-- option value.
+--
+-- 'description', 'updateConfigurationTemplate_description' - A new description for the configuration.
+--
+-- 'applicationName', 'updateConfigurationTemplate_applicationName' - The name of the application associated with the configuration template
+-- to update.
+--
+-- If no application is found with this name, @UpdateConfigurationTemplate@
+-- returns an @InvalidParameterValue@ error.
+--
+-- 'templateName', 'updateConfigurationTemplate_templateName' - The name of the configuration template to update.
+--
+-- If no configuration template is found with this name,
+-- @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
+newUpdateConfigurationTemplate ::
+  -- | 'applicationName'
+  Prelude.Text ->
+  -- | 'templateName'
+  Prelude.Text ->
+  UpdateConfigurationTemplate
+newUpdateConfigurationTemplate
+  pApplicationName_
+  pTemplateName_ =
+    UpdateConfigurationTemplate'
+      { optionsToRemove =
+          Prelude.Nothing,
+        optionSettings = Prelude.Nothing,
+        description = Prelude.Nothing,
+        applicationName = pApplicationName_,
+        templateName = pTemplateName_
+      }
 
--- | Creates a value of 'UpdateConfigurationTemplate' with the minimum fields required to make a request.
+-- | A list of configuration options to remove from the configuration set.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'uctOptionsToRemove' - A list of configuration options to remove from the configuration set. Constraint: You can remove only @UserDefined@ configuration options.
---
--- * 'uctOptionSettings' - A list of configuration option settings to update with the new specified option value.
---
--- * 'uctDescription' - A new description for the configuration.
---
--- * 'uctApplicationName' - The name of the application associated with the configuration template to update. If no application is found with this name, @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
---
--- * 'uctTemplateName' - The name of the configuration template to update. If no configuration template is found with this name, @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
-updateConfigurationTemplate
-    :: Text -- ^ 'uctApplicationName'
-    -> Text -- ^ 'uctTemplateName'
-    -> UpdateConfigurationTemplate
-updateConfigurationTemplate pApplicationName_ pTemplateName_ =
-  UpdateConfigurationTemplate'
-    { _uctOptionsToRemove = Nothing
-    , _uctOptionSettings = Nothing
-    , _uctDescription = Nothing
-    , _uctApplicationName = pApplicationName_
-    , _uctTemplateName = pTemplateName_
-    }
+-- Constraint: You can remove only @UserDefined@ configuration options.
+updateConfigurationTemplate_optionsToRemove :: Lens.Lens' UpdateConfigurationTemplate (Prelude.Maybe [OptionSpecification])
+updateConfigurationTemplate_optionsToRemove = Lens.lens (\UpdateConfigurationTemplate' {optionsToRemove} -> optionsToRemove) (\s@UpdateConfigurationTemplate' {} a -> s {optionsToRemove = a} :: UpdateConfigurationTemplate) Prelude.. Lens.mapping Prelude._Coerce
 
-
--- | A list of configuration options to remove from the configuration set. Constraint: You can remove only @UserDefined@ configuration options.
-uctOptionsToRemove :: Lens' UpdateConfigurationTemplate [OptionSpecification]
-uctOptionsToRemove = lens _uctOptionsToRemove (\ s a -> s{_uctOptionsToRemove = a}) . _Default . _Coerce
-
--- | A list of configuration option settings to update with the new specified option value.
-uctOptionSettings :: Lens' UpdateConfigurationTemplate [ConfigurationOptionSetting]
-uctOptionSettings = lens _uctOptionSettings (\ s a -> s{_uctOptionSettings = a}) . _Default . _Coerce
+-- | A list of configuration option settings to update with the new specified
+-- option value.
+updateConfigurationTemplate_optionSettings :: Lens.Lens' UpdateConfigurationTemplate (Prelude.Maybe [ConfigurationOptionSetting])
+updateConfigurationTemplate_optionSettings = Lens.lens (\UpdateConfigurationTemplate' {optionSettings} -> optionSettings) (\s@UpdateConfigurationTemplate' {} a -> s {optionSettings = a} :: UpdateConfigurationTemplate) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | A new description for the configuration.
-uctDescription :: Lens' UpdateConfigurationTemplate (Maybe Text)
-uctDescription = lens _uctDescription (\ s a -> s{_uctDescription = a})
+updateConfigurationTemplate_description :: Lens.Lens' UpdateConfigurationTemplate (Prelude.Maybe Prelude.Text)
+updateConfigurationTemplate_description = Lens.lens (\UpdateConfigurationTemplate' {description} -> description) (\s@UpdateConfigurationTemplate' {} a -> s {description = a} :: UpdateConfigurationTemplate)
 
--- | The name of the application associated with the configuration template to update. If no application is found with this name, @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
-uctApplicationName :: Lens' UpdateConfigurationTemplate Text
-uctApplicationName = lens _uctApplicationName (\ s a -> s{_uctApplicationName = a})
+-- | The name of the application associated with the configuration template
+-- to update.
+--
+-- If no application is found with this name, @UpdateConfigurationTemplate@
+-- returns an @InvalidParameterValue@ error.
+updateConfigurationTemplate_applicationName :: Lens.Lens' UpdateConfigurationTemplate Prelude.Text
+updateConfigurationTemplate_applicationName = Lens.lens (\UpdateConfigurationTemplate' {applicationName} -> applicationName) (\s@UpdateConfigurationTemplate' {} a -> s {applicationName = a} :: UpdateConfigurationTemplate)
 
--- | The name of the configuration template to update. If no configuration template is found with this name, @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
-uctTemplateName :: Lens' UpdateConfigurationTemplate Text
-uctTemplateName = lens _uctTemplateName (\ s a -> s{_uctTemplateName = a})
+-- | The name of the configuration template to update.
+--
+-- If no configuration template is found with this name,
+-- @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
+updateConfigurationTemplate_templateName :: Lens.Lens' UpdateConfigurationTemplate Prelude.Text
+updateConfigurationTemplate_templateName = Lens.lens (\UpdateConfigurationTemplate' {templateName} -> templateName) (\s@UpdateConfigurationTemplate' {} a -> s {templateName = a} :: UpdateConfigurationTemplate)
 
-instance AWSRequest UpdateConfigurationTemplate where
-        type Rs UpdateConfigurationTemplate =
-             ConfigurationSettingsDescription
-        request = postQuery elasticBeanstalk
-        response
-          = receiveXMLWrapper
-              "UpdateConfigurationTemplateResult"
-              (\ s h x -> parseXML x)
+instance
+  Prelude.AWSRequest
+    UpdateConfigurationTemplate
+  where
+  type
+    Rs UpdateConfigurationTemplate =
+      ConfigurationSettingsDescription
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "UpdateConfigurationTemplateResult"
+      (\s h x -> Prelude.parseXML x)
 
-instance Hashable UpdateConfigurationTemplate where
+instance Prelude.Hashable UpdateConfigurationTemplate
 
-instance NFData UpdateConfigurationTemplate where
+instance Prelude.NFData UpdateConfigurationTemplate
 
-instance ToHeaders UpdateConfigurationTemplate where
-        toHeaders = const mempty
+instance
+  Prelude.ToHeaders
+    UpdateConfigurationTemplate
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath UpdateConfigurationTemplate where
-        toPath = const "/"
+instance Prelude.ToPath UpdateConfigurationTemplate where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateConfigurationTemplate where
-        toQuery UpdateConfigurationTemplate'{..}
-          = mconcat
-              ["Action" =:
-                 ("UpdateConfigurationTemplate" :: ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "OptionsToRemove" =:
-                 toQuery
-                   (toQueryList "member" <$> _uctOptionsToRemove),
-               "OptionSettings" =:
-                 toQuery
-                   (toQueryList "member" <$> _uctOptionSettings),
-               "Description" =: _uctDescription,
-               "ApplicationName" =: _uctApplicationName,
-               "TemplateName" =: _uctTemplateName]
+instance Prelude.ToQuery UpdateConfigurationTemplate where
+  toQuery UpdateConfigurationTemplate' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ( "UpdateConfigurationTemplate" ::
+                         Prelude.ByteString
+                     ),
+        "Version"
+          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
+        "OptionsToRemove"
+          Prelude.=: Prelude.toQuery
+            ( Prelude.toQueryList "member"
+                Prelude.<$> optionsToRemove
+            ),
+        "OptionSettings"
+          Prelude.=: Prelude.toQuery
+            ( Prelude.toQueryList "member"
+                Prelude.<$> optionSettings
+            ),
+        "Description" Prelude.=: description,
+        "ApplicationName" Prelude.=: applicationName,
+        "TemplateName" Prelude.=: templateName
+      ]

@@ -1,176 +1,238 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53.CreateVPCAssociationAuthorization
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Authorizes the AWS account that created a specified VPC to submit an @AssociateVPCWithHostedZone@ request to associate the VPC with a specified hosted zone that was created by a different account. To submit a @CreateVPCAssociationAuthorization@ request, you must use the account that created the hosted zone. After you authorize the association, use the account that created the VPC to submit an @AssociateVPCWithHostedZone@ request.
+-- Authorizes the AWS account that created a specified VPC to submit an
+-- @AssociateVPCWithHostedZone@ request to associate the VPC with a
+-- specified hosted zone that was created by a different account. To submit
+-- a @CreateVPCAssociationAuthorization@ request, you must use the account
+-- that created the hosted zone. After you authorize the association, use
+-- the account that created the VPC to submit an
+-- @AssociateVPCWithHostedZone@ request.
 --
---
+-- If you want to associate multiple VPCs that you created by using one
+-- account with a hosted zone that you created by using a different
+-- account, you must submit one authorization request for each VPC.
 module Network.AWS.Route53.CreateVPCAssociationAuthorization
-    (
-    -- * Creating a Request
-      createVPCAssociationAuthorization
-    , CreateVPCAssociationAuthorization
+  ( -- * Creating a Request
+    CreateVPCAssociationAuthorization (..),
+    newCreateVPCAssociationAuthorization,
+
     -- * Request Lenses
-    , cvaaHostedZoneId
-    , cvaaVPC
+    createVPCAssociationAuthorization_hostedZoneId,
+    createVPCAssociationAuthorization_vpc,
 
     -- * Destructuring the Response
-    , createVPCAssociationAuthorizationResponse
-    , CreateVPCAssociationAuthorizationResponse
+    CreateVPCAssociationAuthorizationResponse (..),
+    newCreateVPCAssociationAuthorizationResponse,
+
     -- * Response Lenses
-    , cvaarsResponseStatus
-    , cvaarsHostedZoneId
-    , cvaarsVPC
-    ) where
+    createVPCAssociationAuthorizationResponse_httpStatus,
+    createVPCAssociationAuthorizationResponse_hostedZoneId,
+    createVPCAssociationAuthorizationResponse_vpc,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
-import Network.AWS.Route53.Types.Product
 
--- | A complex type that contains information about the request to authorize associating a VPC with your private hosted zone. Authorization is only required when a private hosted zone and a VPC were created by using different accounts.
+-- | A complex type that contains information about the request to authorize
+-- associating a VPC with your private hosted zone. Authorization is only
+-- required when a private hosted zone and a VPC were created by using
+-- different accounts.
 --
---
---
--- /See:/ 'createVPCAssociationAuthorization' smart constructor.
+-- /See:/ 'newCreateVPCAssociationAuthorization' smart constructor.
 data CreateVPCAssociationAuthorization = CreateVPCAssociationAuthorization'
-  { _cvaaHostedZoneId :: !ResourceId
-  , _cvaaVPC          :: !VPC
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the private hosted zone that you want to authorize associating
+    -- a VPC with.
+    hostedZoneId :: ResourceId,
+    -- | A complex type that contains the VPC ID and region for the VPC that you
+    -- want to authorize associating with your hosted zone.
+    vpc :: VPC
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateVPCAssociationAuthorization' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateVPCAssociationAuthorization' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cvaaHostedZoneId' - The ID of the private hosted zone that you want to authorize associating a VPC with.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cvaaVPC' - A complex type that contains the VPC ID and region for the VPC that you want to authorize associating with your hosted zone.
-createVPCAssociationAuthorization
-    :: ResourceId -- ^ 'cvaaHostedZoneId'
-    -> VPC -- ^ 'cvaaVPC'
-    -> CreateVPCAssociationAuthorization
-createVPCAssociationAuthorization pHostedZoneId_ pVPC_ =
-  CreateVPCAssociationAuthorization'
-    {_cvaaHostedZoneId = pHostedZoneId_, _cvaaVPC = pVPC_}
-
-
--- | The ID of the private hosted zone that you want to authorize associating a VPC with.
-cvaaHostedZoneId :: Lens' CreateVPCAssociationAuthorization ResourceId
-cvaaHostedZoneId = lens _cvaaHostedZoneId (\ s a -> s{_cvaaHostedZoneId = a})
-
--- | A complex type that contains the VPC ID and region for the VPC that you want to authorize associating with your hosted zone.
-cvaaVPC :: Lens' CreateVPCAssociationAuthorization VPC
-cvaaVPC = lens _cvaaVPC (\ s a -> s{_cvaaVPC = a})
-
-instance AWSRequest CreateVPCAssociationAuthorization
-         where
-        type Rs CreateVPCAssociationAuthorization =
-             CreateVPCAssociationAuthorizationResponse
-        request = postXML route53
-        response
-          = receiveXML
-              (\ s h x ->
-                 CreateVPCAssociationAuthorizationResponse' <$>
-                   (pure (fromEnum s)) <*> (x .@ "HostedZoneId") <*>
-                     (x .@ "VPC"))
-
-instance Hashable CreateVPCAssociationAuthorization
-         where
-
-instance NFData CreateVPCAssociationAuthorization
-         where
-
-instance ToElement CreateVPCAssociationAuthorization
-         where
-        toElement
-          = mkElement
-              "{https://route53.amazonaws.com/doc/2013-04-01/}CreateVPCAssociationAuthorizationRequest"
-
-instance ToHeaders CreateVPCAssociationAuthorization
-         where
-        toHeaders = const mempty
-
-instance ToPath CreateVPCAssociationAuthorization
-         where
-        toPath CreateVPCAssociationAuthorization'{..}
-          = mconcat
-              ["/2013-04-01/hostedzone/", toBS _cvaaHostedZoneId,
-               "/authorizevpcassociation"]
-
-instance ToQuery CreateVPCAssociationAuthorization
-         where
-        toQuery = const mempty
-
-instance ToXML CreateVPCAssociationAuthorization
-         where
-        toXML CreateVPCAssociationAuthorization'{..}
-          = mconcat ["VPC" @= _cvaaVPC]
-
--- | A complex type that contains the response information from a @CreateVPCAssociationAuthorization@ request.
+-- 'hostedZoneId', 'createVPCAssociationAuthorization_hostedZoneId' - The ID of the private hosted zone that you want to authorize associating
+-- a VPC with.
 --
+-- 'vpc', 'createVPCAssociationAuthorization_vpc' - A complex type that contains the VPC ID and region for the VPC that you
+-- want to authorize associating with your hosted zone.
+newCreateVPCAssociationAuthorization ::
+  -- | 'hostedZoneId'
+  ResourceId ->
+  -- | 'vpc'
+  VPC ->
+  CreateVPCAssociationAuthorization
+newCreateVPCAssociationAuthorization
+  pHostedZoneId_
+  pVPC_ =
+    CreateVPCAssociationAuthorization'
+      { hostedZoneId =
+          pHostedZoneId_,
+        vpc = pVPC_
+      }
+
+-- | The ID of the private hosted zone that you want to authorize associating
+-- a VPC with.
+createVPCAssociationAuthorization_hostedZoneId :: Lens.Lens' CreateVPCAssociationAuthorization ResourceId
+createVPCAssociationAuthorization_hostedZoneId = Lens.lens (\CreateVPCAssociationAuthorization' {hostedZoneId} -> hostedZoneId) (\s@CreateVPCAssociationAuthorization' {} a -> s {hostedZoneId = a} :: CreateVPCAssociationAuthorization)
+
+-- | A complex type that contains the VPC ID and region for the VPC that you
+-- want to authorize associating with your hosted zone.
+createVPCAssociationAuthorization_vpc :: Lens.Lens' CreateVPCAssociationAuthorization VPC
+createVPCAssociationAuthorization_vpc = Lens.lens (\CreateVPCAssociationAuthorization' {vpc} -> vpc) (\s@CreateVPCAssociationAuthorization' {} a -> s {vpc = a} :: CreateVPCAssociationAuthorization)
+
+instance
+  Prelude.AWSRequest
+    CreateVPCAssociationAuthorization
+  where
+  type
+    Rs CreateVPCAssociationAuthorization =
+      CreateVPCAssociationAuthorizationResponse
+  request = Request.postXML defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          CreateVPCAssociationAuthorizationResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+              Prelude.<*> (x Prelude..@ "HostedZoneId")
+              Prelude.<*> (x Prelude..@ "VPC")
+      )
+
+instance
+  Prelude.Hashable
+    CreateVPCAssociationAuthorization
+
+instance
+  Prelude.NFData
+    CreateVPCAssociationAuthorization
+
+instance
+  Prelude.ToElement
+    CreateVPCAssociationAuthorization
+  where
+  toElement =
+    Prelude.mkElement
+      "{https://route53.amazonaws.com/doc/2013-04-01/}CreateVPCAssociationAuthorizationRequest"
+
+instance
+  Prelude.ToHeaders
+    CreateVPCAssociationAuthorization
+  where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance
+  Prelude.ToPath
+    CreateVPCAssociationAuthorization
+  where
+  toPath CreateVPCAssociationAuthorization' {..} =
+    Prelude.mconcat
+      [ "/2013-04-01/hostedzone/",
+        Prelude.toBS hostedZoneId,
+        "/authorizevpcassociation"
+      ]
+
+instance
+  Prelude.ToQuery
+    CreateVPCAssociationAuthorization
+  where
+  toQuery = Prelude.const Prelude.mempty
+
+instance
+  Prelude.ToXML
+    CreateVPCAssociationAuthorization
+  where
+  toXML CreateVPCAssociationAuthorization' {..} =
+    Prelude.mconcat ["VPC" Prelude.@= vpc]
+
+-- | A complex type that contains the response information from a
+-- @CreateVPCAssociationAuthorization@ request.
 --
---
--- /See:/ 'createVPCAssociationAuthorizationResponse' smart constructor.
+-- /See:/ 'newCreateVPCAssociationAuthorizationResponse' smart constructor.
 data CreateVPCAssociationAuthorizationResponse = CreateVPCAssociationAuthorizationResponse'
-  { _cvaarsResponseStatus :: !Int
-  , _cvaarsHostedZoneId   :: !ResourceId
-  , _cvaarsVPC            :: !VPC
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The ID of the hosted zone that you authorized associating a VPC with.
+    hostedZoneId :: ResourceId,
+    -- | The VPC that you authorized associating with a hosted zone.
+    vpc :: VPC
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateVPCAssociationAuthorizationResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'createVPCAssociationAuthorizationResponse_httpStatus' - The response's http status code.
+--
+-- 'hostedZoneId', 'createVPCAssociationAuthorizationResponse_hostedZoneId' - The ID of the hosted zone that you authorized associating a VPC with.
+--
+-- 'vpc', 'createVPCAssociationAuthorizationResponse_vpc' - The VPC that you authorized associating with a hosted zone.
+newCreateVPCAssociationAuthorizationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'hostedZoneId'
+  ResourceId ->
+  -- | 'vpc'
+  VPC ->
+  CreateVPCAssociationAuthorizationResponse
+newCreateVPCAssociationAuthorizationResponse
+  pHttpStatus_
+  pHostedZoneId_
+  pVPC_ =
+    CreateVPCAssociationAuthorizationResponse'
+      { httpStatus =
+          pHttpStatus_,
+        hostedZoneId = pHostedZoneId_,
+        vpc = pVPC_
+      }
 
--- | Creates a value of 'CreateVPCAssociationAuthorizationResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cvaarsResponseStatus' - -- | The response status code.
---
--- * 'cvaarsHostedZoneId' - The ID of the hosted zone that you authorized associating a VPC with.
---
--- * 'cvaarsVPC' - The VPC that you authorized associating with a hosted zone.
-createVPCAssociationAuthorizationResponse
-    :: Int -- ^ 'cvaarsResponseStatus'
-    -> ResourceId -- ^ 'cvaarsHostedZoneId'
-    -> VPC -- ^ 'cvaarsVPC'
-    -> CreateVPCAssociationAuthorizationResponse
-createVPCAssociationAuthorizationResponse pResponseStatus_ pHostedZoneId_ pVPC_ =
-  CreateVPCAssociationAuthorizationResponse'
-    { _cvaarsResponseStatus = pResponseStatus_
-    , _cvaarsHostedZoneId = pHostedZoneId_
-    , _cvaarsVPC = pVPC_
-    }
-
-
--- | -- | The response status code.
-cvaarsResponseStatus :: Lens' CreateVPCAssociationAuthorizationResponse Int
-cvaarsResponseStatus = lens _cvaarsResponseStatus (\ s a -> s{_cvaarsResponseStatus = a})
+-- | The response's http status code.
+createVPCAssociationAuthorizationResponse_httpStatus :: Lens.Lens' CreateVPCAssociationAuthorizationResponse Prelude.Int
+createVPCAssociationAuthorizationResponse_httpStatus = Lens.lens (\CreateVPCAssociationAuthorizationResponse' {httpStatus} -> httpStatus) (\s@CreateVPCAssociationAuthorizationResponse' {} a -> s {httpStatus = a} :: CreateVPCAssociationAuthorizationResponse)
 
 -- | The ID of the hosted zone that you authorized associating a VPC with.
-cvaarsHostedZoneId :: Lens' CreateVPCAssociationAuthorizationResponse ResourceId
-cvaarsHostedZoneId = lens _cvaarsHostedZoneId (\ s a -> s{_cvaarsHostedZoneId = a})
+createVPCAssociationAuthorizationResponse_hostedZoneId :: Lens.Lens' CreateVPCAssociationAuthorizationResponse ResourceId
+createVPCAssociationAuthorizationResponse_hostedZoneId = Lens.lens (\CreateVPCAssociationAuthorizationResponse' {hostedZoneId} -> hostedZoneId) (\s@CreateVPCAssociationAuthorizationResponse' {} a -> s {hostedZoneId = a} :: CreateVPCAssociationAuthorizationResponse)
 
 -- | The VPC that you authorized associating with a hosted zone.
-cvaarsVPC :: Lens' CreateVPCAssociationAuthorizationResponse VPC
-cvaarsVPC = lens _cvaarsVPC (\ s a -> s{_cvaarsVPC = a})
+createVPCAssociationAuthorizationResponse_vpc :: Lens.Lens' CreateVPCAssociationAuthorizationResponse VPC
+createVPCAssociationAuthorizationResponse_vpc = Lens.lens (\CreateVPCAssociationAuthorizationResponse' {vpc} -> vpc) (\s@CreateVPCAssociationAuthorizationResponse' {} a -> s {vpc = a} :: CreateVPCAssociationAuthorizationResponse)
 
-instance NFData
-           CreateVPCAssociationAuthorizationResponse
-         where
+instance
+  Prelude.NFData
+    CreateVPCAssociationAuthorizationResponse

@@ -1,162 +1,217 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53.GetReusableDelegationSetLimit
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the maximum number of hosted zones that you can associate with the specified reusable delegation set.
+-- Gets the maximum number of hosted zones that you can associate with the
+-- specified reusable delegation set.
 --
---
--- For the default limit, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html Limits> in the /Amazon Route 53 Developer Guide/ . To request a higher limit, <https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&amp;limitType=service-code-route53 open a case> .
---
+-- For the default limit, see
+-- <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html Limits>
+-- in the /Amazon Route 53 Developer Guide/. To request a higher limit,
+-- <https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&limitType=service-code-route53 open a case>.
 module Network.AWS.Route53.GetReusableDelegationSetLimit
-    (
-    -- * Creating a Request
-      getReusableDelegationSetLimit
-    , GetReusableDelegationSetLimit
+  ( -- * Creating a Request
+    GetReusableDelegationSetLimit (..),
+    newGetReusableDelegationSetLimit,
+
     -- * Request Lenses
-    , grdslType
-    , grdslDelegationSetId
+    getReusableDelegationSetLimit_type,
+    getReusableDelegationSetLimit_delegationSetId,
 
     -- * Destructuring the Response
-    , getReusableDelegationSetLimitResponse
-    , GetReusableDelegationSetLimitResponse
+    GetReusableDelegationSetLimitResponse (..),
+    newGetReusableDelegationSetLimitResponse,
+
     -- * Response Lenses
-    , grdslrsResponseStatus
-    , grdslrsLimit
-    , grdslrsCount
-    ) where
+    getReusableDelegationSetLimitResponse_httpStatus,
+    getReusableDelegationSetLimitResponse_limit,
+    getReusableDelegationSetLimitResponse_count,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
-import Network.AWS.Route53.Types.Product
 
--- | A complex type that contains information about the request to create a hosted zone.
+-- | A complex type that contains information about the request to create a
+-- hosted zone.
 --
---
---
--- /See:/ 'getReusableDelegationSetLimit' smart constructor.
+-- /See:/ 'newGetReusableDelegationSetLimit' smart constructor.
 data GetReusableDelegationSetLimit = GetReusableDelegationSetLimit'
-  { _grdslType            :: !ReusableDelegationSetLimitType
-  , _grdslDelegationSetId :: !ResourceId
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Specify @MAX_ZONES_BY_REUSABLE_DELEGATION_SET@ to get the maximum number
+    -- of hosted zones that you can associate with the specified reusable
+    -- delegation set.
+    type' :: ReusableDelegationSetLimitType,
+    -- | The ID of the delegation set that you want to get the limit for.
+    delegationSetId :: ResourceId
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetReusableDelegationSetLimit' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetReusableDelegationSetLimit' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'grdslType' - Specify @MAX_ZONES_BY_REUSABLE_DELEGATION_SET@ to get the maximum number of hosted zones that you can associate with the specified reusable delegation set.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'grdslDelegationSetId' - The ID of the delegation set that you want to get the limit for.
-getReusableDelegationSetLimit
-    :: ReusableDelegationSetLimitType -- ^ 'grdslType'
-    -> ResourceId -- ^ 'grdslDelegationSetId'
-    -> GetReusableDelegationSetLimit
-getReusableDelegationSetLimit pType_ pDelegationSetId_ =
-  GetReusableDelegationSetLimit'
-    {_grdslType = pType_, _grdslDelegationSetId = pDelegationSetId_}
+-- 'type'', 'getReusableDelegationSetLimit_type' - Specify @MAX_ZONES_BY_REUSABLE_DELEGATION_SET@ to get the maximum number
+-- of hosted zones that you can associate with the specified reusable
+-- delegation set.
+--
+-- 'delegationSetId', 'getReusableDelegationSetLimit_delegationSetId' - The ID of the delegation set that you want to get the limit for.
+newGetReusableDelegationSetLimit ::
+  -- | 'type''
+  ReusableDelegationSetLimitType ->
+  -- | 'delegationSetId'
+  ResourceId ->
+  GetReusableDelegationSetLimit
+newGetReusableDelegationSetLimit
+  pType_
+  pDelegationSetId_ =
+    GetReusableDelegationSetLimit'
+      { type' = pType_,
+        delegationSetId = pDelegationSetId_
+      }
 
-
--- | Specify @MAX_ZONES_BY_REUSABLE_DELEGATION_SET@ to get the maximum number of hosted zones that you can associate with the specified reusable delegation set.
-grdslType :: Lens' GetReusableDelegationSetLimit ReusableDelegationSetLimitType
-grdslType = lens _grdslType (\ s a -> s{_grdslType = a})
+-- | Specify @MAX_ZONES_BY_REUSABLE_DELEGATION_SET@ to get the maximum number
+-- of hosted zones that you can associate with the specified reusable
+-- delegation set.
+getReusableDelegationSetLimit_type :: Lens.Lens' GetReusableDelegationSetLimit ReusableDelegationSetLimitType
+getReusableDelegationSetLimit_type = Lens.lens (\GetReusableDelegationSetLimit' {type'} -> type') (\s@GetReusableDelegationSetLimit' {} a -> s {type' = a} :: GetReusableDelegationSetLimit)
 
 -- | The ID of the delegation set that you want to get the limit for.
-grdslDelegationSetId :: Lens' GetReusableDelegationSetLimit ResourceId
-grdslDelegationSetId = lens _grdslDelegationSetId (\ s a -> s{_grdslDelegationSetId = a})
+getReusableDelegationSetLimit_delegationSetId :: Lens.Lens' GetReusableDelegationSetLimit ResourceId
+getReusableDelegationSetLimit_delegationSetId = Lens.lens (\GetReusableDelegationSetLimit' {delegationSetId} -> delegationSetId) (\s@GetReusableDelegationSetLimit' {} a -> s {delegationSetId = a} :: GetReusableDelegationSetLimit)
 
-instance AWSRequest GetReusableDelegationSetLimit
-         where
-        type Rs GetReusableDelegationSetLimit =
-             GetReusableDelegationSetLimitResponse
-        request = get route53
-        response
-          = receiveXML
-              (\ s h x ->
-                 GetReusableDelegationSetLimitResponse' <$>
-                   (pure (fromEnum s)) <*> (x .@ "Limit") <*>
-                     (x .@ "Count"))
+instance
+  Prelude.AWSRequest
+    GetReusableDelegationSetLimit
+  where
+  type
+    Rs GetReusableDelegationSetLimit =
+      GetReusableDelegationSetLimitResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          GetReusableDelegationSetLimitResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Prelude..@ "Limit")
+            Prelude.<*> (x Prelude..@ "Count")
+      )
 
-instance Hashable GetReusableDelegationSetLimit where
+instance
+  Prelude.Hashable
+    GetReusableDelegationSetLimit
 
-instance NFData GetReusableDelegationSetLimit where
+instance Prelude.NFData GetReusableDelegationSetLimit
 
-instance ToHeaders GetReusableDelegationSetLimit
-         where
-        toHeaders = const mempty
+instance
+  Prelude.ToHeaders
+    GetReusableDelegationSetLimit
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath GetReusableDelegationSetLimit where
-        toPath GetReusableDelegationSetLimit'{..}
-          = mconcat
-              ["/2013-04-01/reusabledelegationsetlimit/",
-               toBS _grdslDelegationSetId, "/", toBS _grdslType]
+instance Prelude.ToPath GetReusableDelegationSetLimit where
+  toPath GetReusableDelegationSetLimit' {..} =
+    Prelude.mconcat
+      [ "/2013-04-01/reusabledelegationsetlimit/",
+        Prelude.toBS delegationSetId,
+        "/",
+        Prelude.toBS type'
+      ]
 
-instance ToQuery GetReusableDelegationSetLimit where
-        toQuery = const mempty
+instance
+  Prelude.ToQuery
+    GetReusableDelegationSetLimit
+  where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | A complex type that contains the requested limit.
 --
---
---
--- /See:/ 'getReusableDelegationSetLimitResponse' smart constructor.
+-- /See:/ 'newGetReusableDelegationSetLimitResponse' smart constructor.
 data GetReusableDelegationSetLimitResponse = GetReusableDelegationSetLimitResponse'
-  { _grdslrsResponseStatus :: !Int
-  , _grdslrsLimit          :: !ReusableDelegationSetLimit
-  , _grdslrsCount          :: !Nat
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The current setting for the limit on hosted zones that you can associate
+    -- with the specified reusable delegation set.
+    limit :: ReusableDelegationSetLimit,
+    -- | The current number of hosted zones that you can associate with the
+    -- specified reusable delegation set.
+    count :: Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetReusableDelegationSetLimitResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetReusableDelegationSetLimitResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'grdslrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'grdslrsLimit' - The current setting for the limit on hosted zones that you can associate with the specified reusable delegation set.
+-- 'httpStatus', 'getReusableDelegationSetLimitResponse_httpStatus' - The response's http status code.
 --
--- * 'grdslrsCount' - The current number of hosted zones that you can associate with the specified reusable delegation set.
-getReusableDelegationSetLimitResponse
-    :: Int -- ^ 'grdslrsResponseStatus'
-    -> ReusableDelegationSetLimit -- ^ 'grdslrsLimit'
-    -> Natural -- ^ 'grdslrsCount'
-    -> GetReusableDelegationSetLimitResponse
-getReusableDelegationSetLimitResponse pResponseStatus_ pLimit_ pCount_ =
-  GetReusableDelegationSetLimitResponse'
-    { _grdslrsResponseStatus = pResponseStatus_
-    , _grdslrsLimit = pLimit_
-    , _grdslrsCount = _Nat # pCount_
-    }
+-- 'limit', 'getReusableDelegationSetLimitResponse_limit' - The current setting for the limit on hosted zones that you can associate
+-- with the specified reusable delegation set.
+--
+-- 'count', 'getReusableDelegationSetLimitResponse_count' - The current number of hosted zones that you can associate with the
+-- specified reusable delegation set.
+newGetReusableDelegationSetLimitResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'limit'
+  ReusableDelegationSetLimit ->
+  -- | 'count'
+  Prelude.Natural ->
+  GetReusableDelegationSetLimitResponse
+newGetReusableDelegationSetLimitResponse
+  pHttpStatus_
+  pLimit_
+  pCount_ =
+    GetReusableDelegationSetLimitResponse'
+      { httpStatus =
+          pHttpStatus_,
+        limit = pLimit_,
+        count = pCount_
+      }
 
+-- | The response's http status code.
+getReusableDelegationSetLimitResponse_httpStatus :: Lens.Lens' GetReusableDelegationSetLimitResponse Prelude.Int
+getReusableDelegationSetLimitResponse_httpStatus = Lens.lens (\GetReusableDelegationSetLimitResponse' {httpStatus} -> httpStatus) (\s@GetReusableDelegationSetLimitResponse' {} a -> s {httpStatus = a} :: GetReusableDelegationSetLimitResponse)
 
--- | -- | The response status code.
-grdslrsResponseStatus :: Lens' GetReusableDelegationSetLimitResponse Int
-grdslrsResponseStatus = lens _grdslrsResponseStatus (\ s a -> s{_grdslrsResponseStatus = a})
+-- | The current setting for the limit on hosted zones that you can associate
+-- with the specified reusable delegation set.
+getReusableDelegationSetLimitResponse_limit :: Lens.Lens' GetReusableDelegationSetLimitResponse ReusableDelegationSetLimit
+getReusableDelegationSetLimitResponse_limit = Lens.lens (\GetReusableDelegationSetLimitResponse' {limit} -> limit) (\s@GetReusableDelegationSetLimitResponse' {} a -> s {limit = a} :: GetReusableDelegationSetLimitResponse)
 
--- | The current setting for the limit on hosted zones that you can associate with the specified reusable delegation set.
-grdslrsLimit :: Lens' GetReusableDelegationSetLimitResponse ReusableDelegationSetLimit
-grdslrsLimit = lens _grdslrsLimit (\ s a -> s{_grdslrsLimit = a})
+-- | The current number of hosted zones that you can associate with the
+-- specified reusable delegation set.
+getReusableDelegationSetLimitResponse_count :: Lens.Lens' GetReusableDelegationSetLimitResponse Prelude.Natural
+getReusableDelegationSetLimitResponse_count = Lens.lens (\GetReusableDelegationSetLimitResponse' {count} -> count) (\s@GetReusableDelegationSetLimitResponse' {} a -> s {count = a} :: GetReusableDelegationSetLimitResponse)
 
--- | The current number of hosted zones that you can associate with the specified reusable delegation set.
-grdslrsCount :: Lens' GetReusableDelegationSetLimitResponse Natural
-grdslrsCount = lens _grdslrsCount (\ s a -> s{_grdslrsCount = a}) . _Nat
-
-instance NFData GetReusableDelegationSetLimitResponse
-         where
+instance
+  Prelude.NFData
+    GetReusableDelegationSetLimitResponse

@@ -1,161 +1,197 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.AdminSetUserMFAPreference
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Sets the user's multi-factor authentication (MFA) preference.
---
---
+-- Sets the user\'s multi-factor authentication (MFA) preference, including
+-- which MFA options are enabled and if any are preferred. Only one factor
+-- can be set as preferred. The preferred MFA factor will be used to
+-- authenticate a user if multiple factors are enabled. If multiple options
+-- are enabled and no preference is set, a challenge to choose an MFA
+-- option will be returned during sign in.
 module Network.AWS.CognitoIdentityProvider.AdminSetUserMFAPreference
-    (
-    -- * Creating a Request
-      adminSetUserMFAPreference
-    , AdminSetUserMFAPreference
+  ( -- * Creating a Request
+    AdminSetUserMFAPreference (..),
+    newAdminSetUserMFAPreference,
+
     -- * Request Lenses
-    , asumpSMSMFASettings
-    , asumpSoftwareTokenMFASettings
-    , asumpUsername
-    , asumpUserPoolId
+    adminSetUserMFAPreference_softwareTokenMfaSettings,
+    adminSetUserMFAPreference_sMSMfaSettings,
+    adminSetUserMFAPreference_username,
+    adminSetUserMFAPreference_userPoolId,
 
     -- * Destructuring the Response
-    , adminSetUserMFAPreferenceResponse
-    , AdminSetUserMFAPreferenceResponse
+    AdminSetUserMFAPreferenceResponse (..),
+    newAdminSetUserMFAPreferenceResponse,
+
     -- * Response Lenses
-    , asumprsResponseStatus
-    ) where
+    adminSetUserMFAPreferenceResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'adminSetUserMFAPreference' smart constructor.
+-- | /See:/ 'newAdminSetUserMFAPreference' smart constructor.
 data AdminSetUserMFAPreference = AdminSetUserMFAPreference'
-  { _asumpSMSMFASettings           :: !(Maybe SMSMFASettingsType)
-  , _asumpSoftwareTokenMFASettings :: !(Maybe SoftwareTokenMFASettingsType)
-  , _asumpUsername                 :: !(Sensitive Text)
-  , _asumpUserPoolId               :: !Text
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The time-based one-time password software token MFA settings.
+    softwareTokenMfaSettings :: Prelude.Maybe SoftwareTokenMfaSettingsType,
+    -- | The SMS text message MFA settings.
+    sMSMfaSettings :: Prelude.Maybe SMSMfaSettingsType,
+    -- | The user pool username or alias.
+    username :: Prelude.Sensitive Prelude.Text,
+    -- | The user pool ID.
+    userPoolId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'AdminSetUserMFAPreference' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AdminSetUserMFAPreference' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'asumpSMSMFASettings' - The SMS text message MFA settings.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'asumpSoftwareTokenMFASettings' - The time-based one-time password software token MFA settings.
+-- 'softwareTokenMfaSettings', 'adminSetUserMFAPreference_softwareTokenMfaSettings' - The time-based one-time password software token MFA settings.
 --
--- * 'asumpUsername' - The user pool username or alias.
+-- 'sMSMfaSettings', 'adminSetUserMFAPreference_sMSMfaSettings' - The SMS text message MFA settings.
 --
--- * 'asumpUserPoolId' - The user pool ID.
-adminSetUserMFAPreference
-    :: Text -- ^ 'asumpUsername'
-    -> Text -- ^ 'asumpUserPoolId'
-    -> AdminSetUserMFAPreference
-adminSetUserMFAPreference pUsername_ pUserPoolId_ =
+-- 'username', 'adminSetUserMFAPreference_username' - The user pool username or alias.
+--
+-- 'userPoolId', 'adminSetUserMFAPreference_userPoolId' - The user pool ID.
+newAdminSetUserMFAPreference ::
+  -- | 'username'
+  Prelude.Text ->
+  -- | 'userPoolId'
+  Prelude.Text ->
+  AdminSetUserMFAPreference
+newAdminSetUserMFAPreference pUsername_ pUserPoolId_ =
   AdminSetUserMFAPreference'
-    { _asumpSMSMFASettings = Nothing
-    , _asumpSoftwareTokenMFASettings = Nothing
-    , _asumpUsername = _Sensitive # pUsername_
-    , _asumpUserPoolId = pUserPoolId_
+    { softwareTokenMfaSettings =
+        Prelude.Nothing,
+      sMSMfaSettings = Prelude.Nothing,
+      username = Prelude._Sensitive Lens.# pUsername_,
+      userPoolId = pUserPoolId_
     }
 
+-- | The time-based one-time password software token MFA settings.
+adminSetUserMFAPreference_softwareTokenMfaSettings :: Lens.Lens' AdminSetUserMFAPreference (Prelude.Maybe SoftwareTokenMfaSettingsType)
+adminSetUserMFAPreference_softwareTokenMfaSettings = Lens.lens (\AdminSetUserMFAPreference' {softwareTokenMfaSettings} -> softwareTokenMfaSettings) (\s@AdminSetUserMFAPreference' {} a -> s {softwareTokenMfaSettings = a} :: AdminSetUserMFAPreference)
 
 -- | The SMS text message MFA settings.
-asumpSMSMFASettings :: Lens' AdminSetUserMFAPreference (Maybe SMSMFASettingsType)
-asumpSMSMFASettings = lens _asumpSMSMFASettings (\ s a -> s{_asumpSMSMFASettings = a})
-
--- | The time-based one-time password software token MFA settings.
-asumpSoftwareTokenMFASettings :: Lens' AdminSetUserMFAPreference (Maybe SoftwareTokenMFASettingsType)
-asumpSoftwareTokenMFASettings = lens _asumpSoftwareTokenMFASettings (\ s a -> s{_asumpSoftwareTokenMFASettings = a})
+adminSetUserMFAPreference_sMSMfaSettings :: Lens.Lens' AdminSetUserMFAPreference (Prelude.Maybe SMSMfaSettingsType)
+adminSetUserMFAPreference_sMSMfaSettings = Lens.lens (\AdminSetUserMFAPreference' {sMSMfaSettings} -> sMSMfaSettings) (\s@AdminSetUserMFAPreference' {} a -> s {sMSMfaSettings = a} :: AdminSetUserMFAPreference)
 
 -- | The user pool username or alias.
-asumpUsername :: Lens' AdminSetUserMFAPreference Text
-asumpUsername = lens _asumpUsername (\ s a -> s{_asumpUsername = a}) . _Sensitive
+adminSetUserMFAPreference_username :: Lens.Lens' AdminSetUserMFAPreference Prelude.Text
+adminSetUserMFAPreference_username = Lens.lens (\AdminSetUserMFAPreference' {username} -> username) (\s@AdminSetUserMFAPreference' {} a -> s {username = a} :: AdminSetUserMFAPreference) Prelude.. Prelude._Sensitive
 
 -- | The user pool ID.
-asumpUserPoolId :: Lens' AdminSetUserMFAPreference Text
-asumpUserPoolId = lens _asumpUserPoolId (\ s a -> s{_asumpUserPoolId = a})
+adminSetUserMFAPreference_userPoolId :: Lens.Lens' AdminSetUserMFAPreference Prelude.Text
+adminSetUserMFAPreference_userPoolId = Lens.lens (\AdminSetUserMFAPreference' {userPoolId} -> userPoolId) (\s@AdminSetUserMFAPreference' {} a -> s {userPoolId = a} :: AdminSetUserMFAPreference)
 
-instance AWSRequest AdminSetUserMFAPreference where
-        type Rs AdminSetUserMFAPreference =
-             AdminSetUserMFAPreferenceResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 AdminSetUserMFAPreferenceResponse' <$>
-                   (pure (fromEnum s)))
+instance Prelude.AWSRequest AdminSetUserMFAPreference where
+  type
+    Rs AdminSetUserMFAPreference =
+      AdminSetUserMFAPreferenceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          AdminSetUserMFAPreferenceResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable AdminSetUserMFAPreference where
+instance Prelude.Hashable AdminSetUserMFAPreference
 
-instance NFData AdminSetUserMFAPreference where
+instance Prelude.NFData AdminSetUserMFAPreference
 
-instance ToHeaders AdminSetUserMFAPreference where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.AdminSetUserMFAPreference"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders AdminSetUserMFAPreference where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSCognitoIdentityProviderService.AdminSetUserMFAPreference" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON AdminSetUserMFAPreference where
-        toJSON AdminSetUserMFAPreference'{..}
-          = object
-              (catMaybes
-                 [("SMSMfaSettings" .=) <$> _asumpSMSMFASettings,
-                  ("SoftwareTokenMfaSettings" .=) <$>
-                    _asumpSoftwareTokenMFASettings,
-                  Just ("Username" .= _asumpUsername),
-                  Just ("UserPoolId" .= _asumpUserPoolId)])
+instance Prelude.ToJSON AdminSetUserMFAPreference where
+  toJSON AdminSetUserMFAPreference' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("SoftwareTokenMfaSettings" Prelude..=)
+              Prelude.<$> softwareTokenMfaSettings,
+            ("SMSMfaSettings" Prelude..=)
+              Prelude.<$> sMSMfaSettings,
+            Prelude.Just ("Username" Prelude..= username),
+            Prelude.Just ("UserPoolId" Prelude..= userPoolId)
+          ]
+      )
 
-instance ToPath AdminSetUserMFAPreference where
-        toPath = const "/"
+instance Prelude.ToPath AdminSetUserMFAPreference where
+  toPath = Prelude.const "/"
 
-instance ToQuery AdminSetUserMFAPreference where
-        toQuery = const mempty
+instance Prelude.ToQuery AdminSetUserMFAPreference where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'adminSetUserMFAPreferenceResponse' smart constructor.
-newtype AdminSetUserMFAPreferenceResponse = AdminSetUserMFAPreferenceResponse'
-  { _asumprsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newAdminSetUserMFAPreferenceResponse' smart constructor.
+data AdminSetUserMFAPreferenceResponse = AdminSetUserMFAPreferenceResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'AdminSetUserMFAPreferenceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AdminSetUserMFAPreferenceResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'asumprsResponseStatus' - -- | The response status code.
-adminSetUserMFAPreferenceResponse
-    :: Int -- ^ 'asumprsResponseStatus'
-    -> AdminSetUserMFAPreferenceResponse
-adminSetUserMFAPreferenceResponse pResponseStatus_ =
-  AdminSetUserMFAPreferenceResponse' {_asumprsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'adminSetUserMFAPreferenceResponse_httpStatus' - The response's http status code.
+newAdminSetUserMFAPreferenceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  AdminSetUserMFAPreferenceResponse
+newAdminSetUserMFAPreferenceResponse pHttpStatus_ =
+  AdminSetUserMFAPreferenceResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+adminSetUserMFAPreferenceResponse_httpStatus :: Lens.Lens' AdminSetUserMFAPreferenceResponse Prelude.Int
+adminSetUserMFAPreferenceResponse_httpStatus = Lens.lens (\AdminSetUserMFAPreferenceResponse' {httpStatus} -> httpStatus) (\s@AdminSetUserMFAPreferenceResponse' {} a -> s {httpStatus = a} :: AdminSetUserMFAPreferenceResponse)
 
--- | -- | The response status code.
-asumprsResponseStatus :: Lens' AdminSetUserMFAPreferenceResponse Int
-asumprsResponseStatus = lens _asumprsResponseStatus (\ s a -> s{_asumprsResponseStatus = a})
-
-instance NFData AdminSetUserMFAPreferenceResponse
-         where
+instance
+  Prelude.NFData
+    AdminSetUserMFAPreferenceResponse

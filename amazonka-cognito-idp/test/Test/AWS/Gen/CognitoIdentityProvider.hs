@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.CognitoIdentityProvider
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.CognitoIdentityProvider where
 
 import Data.Proxy
@@ -28,1722 +27,2012 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDeleteUserPool $
---             deleteUserPool
---
---         , requestUpdateUserPool $
---             updateUserPool
---
---         , requestDeleteUserPoolDomain $
---             deleteUserPoolDomain
---
---         , requestAdminInitiateAuth $
---             adminInitiateAuth
---
---         , requestAdminLinkProviderForUser $
---             adminLinkProviderForUser
---
---         , requestAdminEnableUser $
---             adminEnableUser
---
---         , requestGetUserAttributeVerificationCode $
---             getUserAttributeVerificationCode
---
---         , requestSetUserPoolMFAConfig $
---             setUserPoolMFAConfig
---
---         , requestUpdateUserAttributes $
---             updateUserAttributes
---
---         , requestDeleteUserAttributes $
---             deleteUserAttributes
---
---         , requestVerifyUserAttribute $
---             verifyUserAttribute
---
---         , requestAdminDisableUser $
---             adminDisableUser
---
---         , requestConfirmDevice $
---             confirmDevice
---
---         , requestConfirmForgotPassword $
---             confirmForgotPassword
---
---         , requestListUserImportJobs $
---             listUserImportJobs
---
---         , requestDescribeIdentityProvider $
---             describeIdentityProvider
---
---         , requestListUsers $
---             listUsers
---
---         , requestAdminDeleteUserAttributes $
---             adminDeleteUserAttributes
---
---         , requestDescribeUserPoolDomain $
---             describeUserPoolDomain
---
---         , requestAdminUpdateUserAttributes $
---             adminUpdateUserAttributes
---
---         , requestAdminGetUser $
---             adminGetUser
---
---         , requestAdminUserGlobalSignOut $
---             adminUserGlobalSignOut
---
---         , requestListUsersInGroup $
---             listUsersInGroup
---
---         , requestAssociateSoftwareToken $
---             associateSoftwareToken
---
---         , requestAdminDisableProviderForUser $
---             adminDisableProviderForUser
---
---         , requestForgotPassword $
---             forgotPassword
---
---         , requestDescribeUserPool $
---             describeUserPool
---
---         , requestInitiateAuth $
---             initiateAuth
---
---         , requestAdminListGroupsForUser $
---             adminListGroupsForUser
---
---         , requestAdminConfirmSignUp $
---             adminConfirmSignUp
---
---         , requestAdminUpdateAuthEventFeedback $
---             adminUpdateAuthEventFeedback
---
---         , requestStartUserImportJob $
---             startUserImportJob
---
---         , requestCreateIdentityProvider $
---             createIdentityProvider
---
---         , requestSetUICustomization $
---             setUICustomization
---
---         , requestListIdentityProviders $
---             listIdentityProviders
---
---         , requestGetDevice $
---             getDevice
---
---         , requestSignUp $
---             signUp
---
---         , requestDeleteResourceServer $
---             deleteResourceServer
---
---         , requestUpdateResourceServer $
---             updateResourceServer
---
---         , requestChangePassword $
---             changePassword
---
---         , requestCreateUserPoolDomain $
---             createUserPoolDomain
---
---         , requestRespondToAuthChallenge $
---             respondToAuthChallenge
---
---         , requestCreateUserPool $
---             createUserPool
---
---         , requestAdminGetDevice $
---             adminGetDevice
---
---         , requestGetIdentityProviderByIdentifier $
---             getIdentityProviderByIdentifier
---
---         , requestAdminRemoveUserFromGroup $
---             adminRemoveUserFromGroup
---
---         , requestSetRiskConfiguration $
---             setRiskConfiguration
---
---         , requestConfirmSignUp $
---             confirmSignUp
---
---         , requestListUserPools $
---             listUserPools
---
---         , requestAdminResetUserPassword $
---             adminResetUserPassword
---
---         , requestUpdateAuthEventFeedback $
---             updateAuthEventFeedback
---
---         , requestCreateUserImportJob $
---             createUserImportJob
---
---         , requestGetUser $
---             getUser
---
---         , requestGetUICustomization $
---             getUICustomization
---
---         , requestGetCSVHeader $
---             getCSVHeader
+--         [ requestGetUserAttributeVerificationCode $
+--             newGetUserAttributeVerificationCode
 --
 --         , requestAdminDeleteUser $
---             adminDeleteUser
+--             newAdminDeleteUser
 --
---         , requestAdminForgetDevice $
---             adminForgetDevice
+--         , requestCreateUserImportJob $
+--             newCreateUserImportJob
 --
---         , requestDescribeResourceServer $
---             describeResourceServer
+--         , requestGetUser $
+--             newGetUser
 --
---         , requestSetUserMFAPreference $
---             setUserMFAPreference
+--         , requestSetUserPoolMfaConfig $
+--             newSetUserPoolMfaConfig
 --
---         , requestAdminUpdateDeviceStatus $
---             adminUpdateDeviceStatus
+--         , requestUpdateUserAttributes $
+--             newUpdateUserAttributes
 --
---         , requestAdminCreateUser $
---             adminCreateUser
+--         , requestDeleteUserAttributes $
+--             newDeleteUserAttributes
 --
---         , requestAddCustomAttributes $
---             addCustomAttributes
+--         , requestUpdateAuthEventFeedback $
+--             newUpdateAuthEventFeedback
 --
---         , requestListUserPoolClients $
---             listUserPoolClients
+--         , requestListUserPools $
+--             newListUserPools
 --
---         , requestAdminSetUserMFAPreference $
---             adminSetUserMFAPreference
+--         , requestConfirmSignUp $
+--             newConfirmSignUp
 --
---         , requestUpdateUserPoolClient $
---             updateUserPoolClient
+--         , requestAdminLinkProviderForUser $
+--             newAdminLinkProviderForUser
 --
---         , requestDeleteUserPoolClient $
---             deleteUserPoolClient
+--         , requestUpdateUserPool $
+--             newUpdateUserPool
 --
---         , requestUpdateDeviceStatus $
---             updateDeviceStatus
+--         , requestDeleteUserPool $
+--             newDeleteUserPool
 --
---         , requestForgetDevice $
---             forgetDevice
+--         , requestUpdateUserPoolDomain $
+--             newUpdateUserPoolDomain
 --
---         , requestGetSigningCertificate $
---             getSigningCertificate
+--         , requestDeleteUserPoolDomain $
+--             newDeleteUserPoolDomain
 --
---         , requestDeleteUser $
---             deleteUser
+--         , requestCreateUserPoolDomain $
+--             newCreateUserPoolDomain
 --
---         , requestCreateUserPoolClient $
---             createUserPoolClient
+--         , requestChangePassword $
+--             newChangePassword
 --
---         , requestGetUserPoolMFAConfig $
---             getUserPoolMFAConfig
---
---         , requestCreateResourceServer $
---             createResourceServer
---
---         , requestAdminListUserAuthEvents $
---             adminListUserAuthEvents
---
---         , requestCreateGroup $
---             createGroup
---
---         , requestAdminAddUserToGroup $
---             adminAddUserToGroup
---
---         , requestVerifySoftwareToken $
---             verifySoftwareToken
---
---         , requestStopUserImportJob $
---             stopUserImportJob
---
---         , requestDescribeUserImportJob $
---             describeUserImportJob
---
---         , requestDescribeRiskConfiguration $
---             describeRiskConfiguration
---
---         , requestDeleteGroup $
---             deleteGroup
---
---         , requestUpdateGroup $
---             updateGroup
---
---         , requestGlobalSignOut $
---             globalSignOut
---
---         , requestListGroups $
---             listGroups
---
---         , requestUpdateIdentityProvider $
---             updateIdentityProvider
---
---         , requestDeleteIdentityProvider $
---             deleteIdentityProvider
---
---         , requestListResourceServers $
---             listResourceServers
---
---         , requestAdminRespondToAuthChallenge $
---             adminRespondToAuthChallenge
---
---         , requestSetUserSettings $
---             setUserSettings
---
---         , requestAdminListDevices $
---             adminListDevices
---
---         , requestDescribeUserPoolClient $
---             describeUserPoolClient
---
---         , requestResendConfirmationCode $
---             resendConfirmationCode
---
---         , requestGetGroup $
---             getGroup
---
---         , requestAdminSetUserSettings $
---             adminSetUserSettings
+--         , requestRespondToAuthChallenge $
+--             newRespondToAuthChallenge
 --
 --         , requestListDevices $
---             listDevices
+--             newListDevices
+--
+--         , requestAdminGetDevice $
+--             newAdminGetDevice
+--
+--         , requestCreateUserPool $
+--             newCreateUserPool
+--
+--         , requestAdminRemoveUserFromGroup $
+--             newAdminRemoveUserFromGroup
+--
+--         , requestSetRiskConfiguration $
+--             newSetRiskConfiguration
+--
+--         , requestListGroups $
+--             newListGroups
+--
+--         , requestUpdateIdentityProvider $
+--             newUpdateIdentityProvider
+--
+--         , requestListIdentityProviders $
+--             newListIdentityProviders
+--
+--         , requestGetDevice $
+--             newGetDevice
+--
+--         , requestDeleteIdentityProvider $
+--             newDeleteIdentityProvider
+--
+--         , requestAdminListDevices $
+--             newAdminListDevices
+--
+--         , requestAdminConfirmSignUp $
+--             newAdminConfirmSignUp
+--
+--         , requestSetUICustomization $
+--             newSetUICustomization
+--
+--         , requestAdminListUserAuthEvents $
+--             newAdminListUserAuthEvents
+--
+--         , requestAdminAddUserToGroup $
+--             newAdminAddUserToGroup
+--
+--         , requestVerifySoftwareToken $
+--             newVerifySoftwareToken
+--
+--         , requestStopUserImportJob $
+--             newStopUserImportJob
+--
+--         , requestCreateIdentityProvider $
+--             newCreateIdentityProvider
+--
+--         , requestInitiateAuth $
+--             newInitiateAuth
+--
+--         , requestAdminSetUserPassword $
+--             newAdminSetUserPassword
+--
+--         , requestUntagResource $
+--             newUntagResource
+--
+--         , requestAdminListGroupsForUser $
+--             newAdminListGroupsForUser
+--
+--         , requestAdminUpdateAuthEventFeedback $
+--             newAdminUpdateAuthEventFeedback
+--
+--         , requestCreateGroup $
+--             newCreateGroup
+--
+--         , requestStartUserImportJob $
+--             newStartUserImportJob
+--
+--         , requestDescribeUserPoolDomain $
+--             newDescribeUserPoolDomain
+--
+--         , requestListUsersInGroup $
+--             newListUsersInGroup
+--
+--         , requestAdminUserGlobalSignOut $
+--             newAdminUserGlobalSignOut
+--
+--         , requestDescribeUserPool $
+--             newDescribeUserPool
+--
+--         , requestAdminGetUser $
+--             newAdminGetUser
+--
+--         , requestGetSigningCertificate $
+--             newGetSigningCertificate
+--
+--         , requestTagResource $
+--             newTagResource
+--
+--         , requestAssociateSoftwareToken $
+--             newAssociateSoftwareToken
+--
+--         , requestForgotPassword $
+--             newForgotPassword
+--
+--         , requestUpdateDeviceStatus $
+--             newUpdateDeviceStatus
+--
+--         , requestDeleteUserPoolClient $
+--             newDeleteUserPoolClient
+--
+--         , requestUpdateUserPoolClient $
+--             newUpdateUserPoolClient
+--
+--         , requestForgetDevice $
+--             newForgetDevice
+--
+--         , requestAdminDisableUser $
+--             newAdminDisableUser
+--
+--         , requestAdminCreateUser $
+--             newAdminCreateUser
+--
+--         , requestAdminUpdateDeviceStatus $
+--             newAdminUpdateDeviceStatus
+--
+--         , requestAdminForgetDevice $
+--             newAdminForgetDevice
+--
+--         , requestDescribeIdentityProvider $
+--             newDescribeIdentityProvider
+--
+--         , requestListUserImportJobs $
+--             newListUserImportJobs
+--
+--         , requestGetUICustomization $
+--             newGetUICustomization
+--
+--         , requestGetCSVHeader $
+--             newGetCSVHeader
+--
+--         , requestAdminEnableUser $
+--             newAdminEnableUser
+--
+--         , requestAdminInitiateAuth $
+--             newAdminInitiateAuth
+--
+--         , requestAdminResetUserPassword $
+--             newAdminResetUserPassword
+--
+--         , requestGetIdentityProviderByIdentifier $
+--             newGetIdentityProviderByIdentifier
+--
+--         , requestAdminSetUserSettings $
+--             newAdminSetUserSettings
+--
+--         , requestDescribeUserPoolClient $
+--             newDescribeUserPoolClient
+--
+--         , requestGetGroup $
+--             newGetGroup
+--
+--         , requestResendConfirmationCode $
+--             newResendConfirmationCode
+--
+--         , requestAdminRespondToAuthChallenge $
+--             newAdminRespondToAuthChallenge
+--
+--         , requestSignUp $
+--             newSignUp
+--
+--         , requestDescribeUserImportJob $
+--             newDescribeUserImportJob
+--
+--         , requestUpdateGroup $
+--             newUpdateGroup
+--
+--         , requestUpdateResourceServer $
+--             newUpdateResourceServer
+--
+--         , requestDeleteGroup $
+--             newDeleteGroup
+--
+--         , requestSetUserSettings $
+--             newSetUserSettings
+--
+--         , requestListResourceServers $
+--             newListResourceServers
+--
+--         , requestDeleteResourceServer $
+--             newDeleteResourceServer
+--
+--         , requestDescribeRiskConfiguration $
+--             newDescribeRiskConfiguration
+--
+--         , requestGlobalSignOut $
+--             newGlobalSignOut
+--
+--         , requestGetUserPoolMfaConfig $
+--             newGetUserPoolMfaConfig
+--
+--         , requestCreateResourceServer $
+--             newCreateResourceServer
+--
+--         , requestAdminUpdateUserAttributes $
+--             newAdminUpdateUserAttributes
+--
+--         , requestDeleteUser $
+--             newDeleteUser
+--
+--         , requestAdminDeleteUserAttributes $
+--             newAdminDeleteUserAttributes
+--
+--         , requestListUsers $
+--             newListUsers
+--
+--         , requestAdminDisableProviderForUser $
+--             newAdminDisableProviderForUser
+--
+--         , requestCreateUserPoolClient $
+--             newCreateUserPoolClient
+--
+--         , requestListUserPoolClients $
+--             newListUserPoolClients
+--
+--         , requestAddCustomAttributes $
+--             newAddCustomAttributes
+--
+--         , requestAdminSetUserMFAPreference $
+--             newAdminSetUserMFAPreference
+--
+--         , requestListTagsForResource $
+--             newListTagsForResource
+--
+--         , requestConfirmForgotPassword $
+--             newConfirmForgotPassword
+--
+--         , requestSetUserMFAPreference $
+--             newSetUserMFAPreference
+--
+--         , requestVerifyUserAttribute $
+--             newVerifyUserAttribute
+--
+--         , requestConfirmDevice $
+--             newConfirmDevice
+--
+--         , requestDescribeResourceServer $
+--             newDescribeResourceServer
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseDeleteUserPool $
---             deleteUserPoolResponse
---
---         , responseUpdateUserPool $
---             updateUserPoolResponse
---
---         , responseDeleteUserPoolDomain $
---             deleteUserPoolDomainResponse
---
---         , responseAdminInitiateAuth $
---             adminInitiateAuthResponse
---
---         , responseAdminLinkProviderForUser $
---             adminLinkProviderForUserResponse
---
---         , responseAdminEnableUser $
---             adminEnableUserResponse
---
---         , responseGetUserAttributeVerificationCode $
---             getUserAttributeVerificationCodeResponse
---
---         , responseSetUserPoolMFAConfig $
---             setUserPoolMFAConfigResponse
---
---         , responseUpdateUserAttributes $
---             updateUserAttributesResponse
---
---         , responseDeleteUserAttributes $
---             deleteUserAttributesResponse
---
---         , responseVerifyUserAttribute $
---             verifyUserAttributeResponse
---
---         , responseAdminDisableUser $
---             adminDisableUserResponse
---
---         , responseConfirmDevice $
---             confirmDeviceResponse
---
---         , responseConfirmForgotPassword $
---             confirmForgotPasswordResponse
---
---         , responseListUserImportJobs $
---             listUserImportJobsResponse
---
---         , responseDescribeIdentityProvider $
---             describeIdentityProviderResponse
---
---         , responseListUsers $
---             listUsersResponse
---
---         , responseAdminDeleteUserAttributes $
---             adminDeleteUserAttributesResponse
---
---         , responseDescribeUserPoolDomain $
---             describeUserPoolDomainResponse
---
---         , responseAdminUpdateUserAttributes $
---             adminUpdateUserAttributesResponse
---
---         , responseAdminGetUser $
---             adminGetUserResponse
---
---         , responseAdminUserGlobalSignOut $
---             adminUserGlobalSignOutResponse
---
---         , responseListUsersInGroup $
---             listUsersInGroupResponse
---
---         , responseAssociateSoftwareToken $
---             associateSoftwareTokenResponse
---
---         , responseAdminDisableProviderForUser $
---             adminDisableProviderForUserResponse
---
---         , responseForgotPassword $
---             forgotPasswordResponse
---
---         , responseDescribeUserPool $
---             describeUserPoolResponse
---
---         , responseInitiateAuth $
---             initiateAuthResponse
---
---         , responseAdminListGroupsForUser $
---             adminListGroupsForUserResponse
---
---         , responseAdminConfirmSignUp $
---             adminConfirmSignUpResponse
---
---         , responseAdminUpdateAuthEventFeedback $
---             adminUpdateAuthEventFeedbackResponse
---
---         , responseStartUserImportJob $
---             startUserImportJobResponse
---
---         , responseCreateIdentityProvider $
---             createIdentityProviderResponse
---
---         , responseSetUICustomization $
---             setUICustomizationResponse
---
---         , responseListIdentityProviders $
---             listIdentityProvidersResponse
---
---         , responseGetDevice $
---             getDeviceResponse
---
---         , responseSignUp $
---             signUpResponse
---
---         , responseDeleteResourceServer $
---             deleteResourceServerResponse
---
---         , responseUpdateResourceServer $
---             updateResourceServerResponse
---
---         , responseChangePassword $
---             changePasswordResponse
---
---         , responseCreateUserPoolDomain $
---             createUserPoolDomainResponse
---
---         , responseRespondToAuthChallenge $
---             respondToAuthChallengeResponse
---
---         , responseCreateUserPool $
---             createUserPoolResponse
---
---         , responseAdminGetDevice $
---             adminGetDeviceResponse
---
---         , responseGetIdentityProviderByIdentifier $
---             getIdentityProviderByIdentifierResponse
---
---         , responseAdminRemoveUserFromGroup $
---             adminRemoveUserFromGroupResponse
---
---         , responseSetRiskConfiguration $
---             setRiskConfigurationResponse
---
---         , responseConfirmSignUp $
---             confirmSignUpResponse
---
---         , responseListUserPools $
---             listUserPoolsResponse
---
---         , responseAdminResetUserPassword $
---             adminResetUserPasswordResponse
---
---         , responseUpdateAuthEventFeedback $
---             updateAuthEventFeedbackResponse
---
---         , responseCreateUserImportJob $
---             createUserImportJobResponse
---
---         , responseGetUser $
---             getUserResponse
---
---         , responseGetUICustomization $
---             getUICustomizationResponse
---
---         , responseGetCSVHeader $
---             getCSVHeaderResponse
+--         [ responseGetUserAttributeVerificationCode $
+--             newGetUserAttributeVerificationCodeResponse
 --
 --         , responseAdminDeleteUser $
---             adminDeleteUserResponse
+--             newAdminDeleteUserResponse
 --
---         , responseAdminForgetDevice $
---             adminForgetDeviceResponse
+--         , responseCreateUserImportJob $
+--             newCreateUserImportJobResponse
 --
---         , responseDescribeResourceServer $
---             describeResourceServerResponse
+--         , responseGetUser $
+--             newGetUserResponse
 --
---         , responseSetUserMFAPreference $
---             setUserMFAPreferenceResponse
+--         , responseSetUserPoolMfaConfig $
+--             newSetUserPoolMfaConfigResponse
 --
---         , responseAdminUpdateDeviceStatus $
---             adminUpdateDeviceStatusResponse
+--         , responseUpdateUserAttributes $
+--             newUpdateUserAttributesResponse
 --
---         , responseAdminCreateUser $
---             adminCreateUserResponse
+--         , responseDeleteUserAttributes $
+--             newDeleteUserAttributesResponse
 --
---         , responseAddCustomAttributes $
---             addCustomAttributesResponse
+--         , responseUpdateAuthEventFeedback $
+--             newUpdateAuthEventFeedbackResponse
 --
---         , responseListUserPoolClients $
---             listUserPoolClientsResponse
+--         , responseListUserPools $
+--             newListUserPoolsResponse
 --
---         , responseAdminSetUserMFAPreference $
---             adminSetUserMFAPreferenceResponse
+--         , responseConfirmSignUp $
+--             newConfirmSignUpResponse
 --
---         , responseUpdateUserPoolClient $
---             updateUserPoolClientResponse
+--         , responseAdminLinkProviderForUser $
+--             newAdminLinkProviderForUserResponse
 --
---         , responseDeleteUserPoolClient $
---             deleteUserPoolClientResponse
+--         , responseUpdateUserPool $
+--             newUpdateUserPoolResponse
 --
---         , responseUpdateDeviceStatus $
---             updateDeviceStatusResponse
+--         , responseDeleteUserPool $
+--             newDeleteUserPoolResponse
 --
---         , responseForgetDevice $
---             forgetDeviceResponse
+--         , responseUpdateUserPoolDomain $
+--             newUpdateUserPoolDomainResponse
 --
---         , responseGetSigningCertificate $
---             getSigningCertificateResponse
+--         , responseDeleteUserPoolDomain $
+--             newDeleteUserPoolDomainResponse
 --
---         , responseDeleteUser $
---             deleteUserResponse
+--         , responseCreateUserPoolDomain $
+--             newCreateUserPoolDomainResponse
 --
---         , responseCreateUserPoolClient $
---             createUserPoolClientResponse
+--         , responseChangePassword $
+--             newChangePasswordResponse
 --
---         , responseGetUserPoolMFAConfig $
---             getUserPoolMFAConfigResponse
---
---         , responseCreateResourceServer $
---             createResourceServerResponse
---
---         , responseAdminListUserAuthEvents $
---             adminListUserAuthEventsResponse
---
---         , responseCreateGroup $
---             createGroupResponse
---
---         , responseAdminAddUserToGroup $
---             adminAddUserToGroupResponse
---
---         , responseVerifySoftwareToken $
---             verifySoftwareTokenResponse
---
---         , responseStopUserImportJob $
---             stopUserImportJobResponse
---
---         , responseDescribeUserImportJob $
---             describeUserImportJobResponse
---
---         , responseDescribeRiskConfiguration $
---             describeRiskConfigurationResponse
---
---         , responseDeleteGroup $
---             deleteGroupResponse
---
---         , responseUpdateGroup $
---             updateGroupResponse
---
---         , responseGlobalSignOut $
---             globalSignOutResponse
---
---         , responseListGroups $
---             listGroupsResponse
---
---         , responseUpdateIdentityProvider $
---             updateIdentityProviderResponse
---
---         , responseDeleteIdentityProvider $
---             deleteIdentityProviderResponse
---
---         , responseListResourceServers $
---             listResourceServersResponse
---
---         , responseAdminRespondToAuthChallenge $
---             adminRespondToAuthChallengeResponse
---
---         , responseSetUserSettings $
---             setUserSettingsResponse
---
---         , responseAdminListDevices $
---             adminListDevicesResponse
---
---         , responseDescribeUserPoolClient $
---             describeUserPoolClientResponse
---
---         , responseResendConfirmationCode $
---             resendConfirmationCodeResponse
---
---         , responseGetGroup $
---             getGroupResponse
---
---         , responseAdminSetUserSettings $
---             adminSetUserSettingsResponse
+--         , responseRespondToAuthChallenge $
+--             newRespondToAuthChallengeResponse
 --
 --         , responseListDevices $
---             listDevicesResponse
+--             newListDevicesResponse
+--
+--         , responseAdminGetDevice $
+--             newAdminGetDeviceResponse
+--
+--         , responseCreateUserPool $
+--             newCreateUserPoolResponse
+--
+--         , responseAdminRemoveUserFromGroup $
+--             newAdminRemoveUserFromGroupResponse
+--
+--         , responseSetRiskConfiguration $
+--             newSetRiskConfigurationResponse
+--
+--         , responseListGroups $
+--             newListGroupsResponse
+--
+--         , responseUpdateIdentityProvider $
+--             newUpdateIdentityProviderResponse
+--
+--         , responseListIdentityProviders $
+--             newListIdentityProvidersResponse
+--
+--         , responseGetDevice $
+--             newGetDeviceResponse
+--
+--         , responseDeleteIdentityProvider $
+--             newDeleteIdentityProviderResponse
+--
+--         , responseAdminListDevices $
+--             newAdminListDevicesResponse
+--
+--         , responseAdminConfirmSignUp $
+--             newAdminConfirmSignUpResponse
+--
+--         , responseSetUICustomization $
+--             newSetUICustomizationResponse
+--
+--         , responseAdminListUserAuthEvents $
+--             newAdminListUserAuthEventsResponse
+--
+--         , responseAdminAddUserToGroup $
+--             newAdminAddUserToGroupResponse
+--
+--         , responseVerifySoftwareToken $
+--             newVerifySoftwareTokenResponse
+--
+--         , responseStopUserImportJob $
+--             newStopUserImportJobResponse
+--
+--         , responseCreateIdentityProvider $
+--             newCreateIdentityProviderResponse
+--
+--         , responseInitiateAuth $
+--             newInitiateAuthResponse
+--
+--         , responseAdminSetUserPassword $
+--             newAdminSetUserPasswordResponse
+--
+--         , responseUntagResource $
+--             newUntagResourceResponse
+--
+--         , responseAdminListGroupsForUser $
+--             newAdminListGroupsForUserResponse
+--
+--         , responseAdminUpdateAuthEventFeedback $
+--             newAdminUpdateAuthEventFeedbackResponse
+--
+--         , responseCreateGroup $
+--             newCreateGroupResponse
+--
+--         , responseStartUserImportJob $
+--             newStartUserImportJobResponse
+--
+--         , responseDescribeUserPoolDomain $
+--             newDescribeUserPoolDomainResponse
+--
+--         , responseListUsersInGroup $
+--             newListUsersInGroupResponse
+--
+--         , responseAdminUserGlobalSignOut $
+--             newAdminUserGlobalSignOutResponse
+--
+--         , responseDescribeUserPool $
+--             newDescribeUserPoolResponse
+--
+--         , responseAdminGetUser $
+--             newAdminGetUserResponse
+--
+--         , responseGetSigningCertificate $
+--             newGetSigningCertificateResponse
+--
+--         , responseTagResource $
+--             newTagResourceResponse
+--
+--         , responseAssociateSoftwareToken $
+--             newAssociateSoftwareTokenResponse
+--
+--         , responseForgotPassword $
+--             newForgotPasswordResponse
+--
+--         , responseUpdateDeviceStatus $
+--             newUpdateDeviceStatusResponse
+--
+--         , responseDeleteUserPoolClient $
+--             newDeleteUserPoolClientResponse
+--
+--         , responseUpdateUserPoolClient $
+--             newUpdateUserPoolClientResponse
+--
+--         , responseForgetDevice $
+--             newForgetDeviceResponse
+--
+--         , responseAdminDisableUser $
+--             newAdminDisableUserResponse
+--
+--         , responseAdminCreateUser $
+--             newAdminCreateUserResponse
+--
+--         , responseAdminUpdateDeviceStatus $
+--             newAdminUpdateDeviceStatusResponse
+--
+--         , responseAdminForgetDevice $
+--             newAdminForgetDeviceResponse
+--
+--         , responseDescribeIdentityProvider $
+--             newDescribeIdentityProviderResponse
+--
+--         , responseListUserImportJobs $
+--             newListUserImportJobsResponse
+--
+--         , responseGetUICustomization $
+--             newGetUICustomizationResponse
+--
+--         , responseGetCSVHeader $
+--             newGetCSVHeaderResponse
+--
+--         , responseAdminEnableUser $
+--             newAdminEnableUserResponse
+--
+--         , responseAdminInitiateAuth $
+--             newAdminInitiateAuthResponse
+--
+--         , responseAdminResetUserPassword $
+--             newAdminResetUserPasswordResponse
+--
+--         , responseGetIdentityProviderByIdentifier $
+--             newGetIdentityProviderByIdentifierResponse
+--
+--         , responseAdminSetUserSettings $
+--             newAdminSetUserSettingsResponse
+--
+--         , responseDescribeUserPoolClient $
+--             newDescribeUserPoolClientResponse
+--
+--         , responseGetGroup $
+--             newGetGroupResponse
+--
+--         , responseResendConfirmationCode $
+--             newResendConfirmationCodeResponse
+--
+--         , responseAdminRespondToAuthChallenge $
+--             newAdminRespondToAuthChallengeResponse
+--
+--         , responseSignUp $
+--             newSignUpResponse
+--
+--         , responseDescribeUserImportJob $
+--             newDescribeUserImportJobResponse
+--
+--         , responseUpdateGroup $
+--             newUpdateGroupResponse
+--
+--         , responseUpdateResourceServer $
+--             newUpdateResourceServerResponse
+--
+--         , responseDeleteGroup $
+--             newDeleteGroupResponse
+--
+--         , responseSetUserSettings $
+--             newSetUserSettingsResponse
+--
+--         , responseListResourceServers $
+--             newListResourceServersResponse
+--
+--         , responseDeleteResourceServer $
+--             newDeleteResourceServerResponse
+--
+--         , responseDescribeRiskConfiguration $
+--             newDescribeRiskConfigurationResponse
+--
+--         , responseGlobalSignOut $
+--             newGlobalSignOutResponse
+--
+--         , responseGetUserPoolMfaConfig $
+--             newGetUserPoolMfaConfigResponse
+--
+--         , responseCreateResourceServer $
+--             newCreateResourceServerResponse
+--
+--         , responseAdminUpdateUserAttributes $
+--             newAdminUpdateUserAttributesResponse
+--
+--         , responseDeleteUser $
+--             newDeleteUserResponse
+--
+--         , responseAdminDeleteUserAttributes $
+--             newAdminDeleteUserAttributesResponse
+--
+--         , responseListUsers $
+--             newListUsersResponse
+--
+--         , responseAdminDisableProviderForUser $
+--             newAdminDisableProviderForUserResponse
+--
+--         , responseCreateUserPoolClient $
+--             newCreateUserPoolClientResponse
+--
+--         , responseListUserPoolClients $
+--             newListUserPoolClientsResponse
+--
+--         , responseAddCustomAttributes $
+--             newAddCustomAttributesResponse
+--
+--         , responseAdminSetUserMFAPreference $
+--             newAdminSetUserMFAPreferenceResponse
+--
+--         , responseListTagsForResource $
+--             newListTagsForResourceResponse
+--
+--         , responseConfirmForgotPassword $
+--             newConfirmForgotPasswordResponse
+--
+--         , responseSetUserMFAPreference $
+--             newSetUserMFAPreferenceResponse
+--
+--         , responseVerifyUserAttribute $
+--             newVerifyUserAttributeResponse
+--
+--         , responseConfirmDevice $
+--             newConfirmDeviceResponse
+--
+--         , responseDescribeResourceServer $
+--             newDescribeResourceServerResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestDeleteUserPool :: DeleteUserPool -> TestTree
-requestDeleteUserPool = req
-    "DeleteUserPool"
-    "fixture/DeleteUserPool.yaml"
-
-requestUpdateUserPool :: UpdateUserPool -> TestTree
-requestUpdateUserPool = req
-    "UpdateUserPool"
-    "fixture/UpdateUserPool.yaml"
-
-requestDeleteUserPoolDomain :: DeleteUserPoolDomain -> TestTree
-requestDeleteUserPoolDomain = req
-    "DeleteUserPoolDomain"
-    "fixture/DeleteUserPoolDomain.yaml"
-
-requestAdminInitiateAuth :: AdminInitiateAuth -> TestTree
-requestAdminInitiateAuth = req
-    "AdminInitiateAuth"
-    "fixture/AdminInitiateAuth.yaml"
-
-requestAdminLinkProviderForUser :: AdminLinkProviderForUser -> TestTree
-requestAdminLinkProviderForUser = req
-    "AdminLinkProviderForUser"
-    "fixture/AdminLinkProviderForUser.yaml"
-
-requestAdminEnableUser :: AdminEnableUser -> TestTree
-requestAdminEnableUser = req
-    "AdminEnableUser"
-    "fixture/AdminEnableUser.yaml"
-
 requestGetUserAttributeVerificationCode :: GetUserAttributeVerificationCode -> TestTree
-requestGetUserAttributeVerificationCode = req
+requestGetUserAttributeVerificationCode =
+  req
     "GetUserAttributeVerificationCode"
     "fixture/GetUserAttributeVerificationCode.yaml"
 
-requestSetUserPoolMFAConfig :: SetUserPoolMFAConfig -> TestTree
-requestSetUserPoolMFAConfig = req
-    "SetUserPoolMFAConfig"
-    "fixture/SetUserPoolMFAConfig.yaml"
-
-requestUpdateUserAttributes :: UpdateUserAttributes -> TestTree
-requestUpdateUserAttributes = req
-    "UpdateUserAttributes"
-    "fixture/UpdateUserAttributes.yaml"
-
-requestDeleteUserAttributes :: DeleteUserAttributes -> TestTree
-requestDeleteUserAttributes = req
-    "DeleteUserAttributes"
-    "fixture/DeleteUserAttributes.yaml"
-
-requestVerifyUserAttribute :: VerifyUserAttribute -> TestTree
-requestVerifyUserAttribute = req
-    "VerifyUserAttribute"
-    "fixture/VerifyUserAttribute.yaml"
-
-requestAdminDisableUser :: AdminDisableUser -> TestTree
-requestAdminDisableUser = req
-    "AdminDisableUser"
-    "fixture/AdminDisableUser.yaml"
-
-requestConfirmDevice :: ConfirmDevice -> TestTree
-requestConfirmDevice = req
-    "ConfirmDevice"
-    "fixture/ConfirmDevice.yaml"
-
-requestConfirmForgotPassword :: ConfirmForgotPassword -> TestTree
-requestConfirmForgotPassword = req
-    "ConfirmForgotPassword"
-    "fixture/ConfirmForgotPassword.yaml"
-
-requestListUserImportJobs :: ListUserImportJobs -> TestTree
-requestListUserImportJobs = req
-    "ListUserImportJobs"
-    "fixture/ListUserImportJobs.yaml"
-
-requestDescribeIdentityProvider :: DescribeIdentityProvider -> TestTree
-requestDescribeIdentityProvider = req
-    "DescribeIdentityProvider"
-    "fixture/DescribeIdentityProvider.yaml"
-
-requestListUsers :: ListUsers -> TestTree
-requestListUsers = req
-    "ListUsers"
-    "fixture/ListUsers.yaml"
-
-requestAdminDeleteUserAttributes :: AdminDeleteUserAttributes -> TestTree
-requestAdminDeleteUserAttributes = req
-    "AdminDeleteUserAttributes"
-    "fixture/AdminDeleteUserAttributes.yaml"
-
-requestDescribeUserPoolDomain :: DescribeUserPoolDomain -> TestTree
-requestDescribeUserPoolDomain = req
-    "DescribeUserPoolDomain"
-    "fixture/DescribeUserPoolDomain.yaml"
-
-requestAdminUpdateUserAttributes :: AdminUpdateUserAttributes -> TestTree
-requestAdminUpdateUserAttributes = req
-    "AdminUpdateUserAttributes"
-    "fixture/AdminUpdateUserAttributes.yaml"
-
-requestAdminGetUser :: AdminGetUser -> TestTree
-requestAdminGetUser = req
-    "AdminGetUser"
-    "fixture/AdminGetUser.yaml"
-
-requestAdminUserGlobalSignOut :: AdminUserGlobalSignOut -> TestTree
-requestAdminUserGlobalSignOut = req
-    "AdminUserGlobalSignOut"
-    "fixture/AdminUserGlobalSignOut.yaml"
-
-requestListUsersInGroup :: ListUsersInGroup -> TestTree
-requestListUsersInGroup = req
-    "ListUsersInGroup"
-    "fixture/ListUsersInGroup.yaml"
-
-requestAssociateSoftwareToken :: AssociateSoftwareToken -> TestTree
-requestAssociateSoftwareToken = req
-    "AssociateSoftwareToken"
-    "fixture/AssociateSoftwareToken.yaml"
-
-requestAdminDisableProviderForUser :: AdminDisableProviderForUser -> TestTree
-requestAdminDisableProviderForUser = req
-    "AdminDisableProviderForUser"
-    "fixture/AdminDisableProviderForUser.yaml"
-
-requestForgotPassword :: ForgotPassword -> TestTree
-requestForgotPassword = req
-    "ForgotPassword"
-    "fixture/ForgotPassword.yaml"
-
-requestDescribeUserPool :: DescribeUserPool -> TestTree
-requestDescribeUserPool = req
-    "DescribeUserPool"
-    "fixture/DescribeUserPool.yaml"
-
-requestInitiateAuth :: InitiateAuth -> TestTree
-requestInitiateAuth = req
-    "InitiateAuth"
-    "fixture/InitiateAuth.yaml"
-
-requestAdminListGroupsForUser :: AdminListGroupsForUser -> TestTree
-requestAdminListGroupsForUser = req
-    "AdminListGroupsForUser"
-    "fixture/AdminListGroupsForUser.yaml"
-
-requestAdminConfirmSignUp :: AdminConfirmSignUp -> TestTree
-requestAdminConfirmSignUp = req
-    "AdminConfirmSignUp"
-    "fixture/AdminConfirmSignUp.yaml"
-
-requestAdminUpdateAuthEventFeedback :: AdminUpdateAuthEventFeedback -> TestTree
-requestAdminUpdateAuthEventFeedback = req
-    "AdminUpdateAuthEventFeedback"
-    "fixture/AdminUpdateAuthEventFeedback.yaml"
-
-requestStartUserImportJob :: StartUserImportJob -> TestTree
-requestStartUserImportJob = req
-    "StartUserImportJob"
-    "fixture/StartUserImportJob.yaml"
-
-requestCreateIdentityProvider :: CreateIdentityProvider -> TestTree
-requestCreateIdentityProvider = req
-    "CreateIdentityProvider"
-    "fixture/CreateIdentityProvider.yaml"
-
-requestSetUICustomization :: SetUICustomization -> TestTree
-requestSetUICustomization = req
-    "SetUICustomization"
-    "fixture/SetUICustomization.yaml"
-
-requestListIdentityProviders :: ListIdentityProviders -> TestTree
-requestListIdentityProviders = req
-    "ListIdentityProviders"
-    "fixture/ListIdentityProviders.yaml"
-
-requestGetDevice :: GetDevice -> TestTree
-requestGetDevice = req
-    "GetDevice"
-    "fixture/GetDevice.yaml"
-
-requestSignUp :: SignUp -> TestTree
-requestSignUp = req
-    "SignUp"
-    "fixture/SignUp.yaml"
-
-requestDeleteResourceServer :: DeleteResourceServer -> TestTree
-requestDeleteResourceServer = req
-    "DeleteResourceServer"
-    "fixture/DeleteResourceServer.yaml"
-
-requestUpdateResourceServer :: UpdateResourceServer -> TestTree
-requestUpdateResourceServer = req
-    "UpdateResourceServer"
-    "fixture/UpdateResourceServer.yaml"
-
-requestChangePassword :: ChangePassword -> TestTree
-requestChangePassword = req
-    "ChangePassword"
-    "fixture/ChangePassword.yaml"
-
-requestCreateUserPoolDomain :: CreateUserPoolDomain -> TestTree
-requestCreateUserPoolDomain = req
-    "CreateUserPoolDomain"
-    "fixture/CreateUserPoolDomain.yaml"
-
-requestRespondToAuthChallenge :: RespondToAuthChallenge -> TestTree
-requestRespondToAuthChallenge = req
-    "RespondToAuthChallenge"
-    "fixture/RespondToAuthChallenge.yaml"
-
-requestCreateUserPool :: CreateUserPool -> TestTree
-requestCreateUserPool = req
-    "CreateUserPool"
-    "fixture/CreateUserPool.yaml"
-
-requestAdminGetDevice :: AdminGetDevice -> TestTree
-requestAdminGetDevice = req
-    "AdminGetDevice"
-    "fixture/AdminGetDevice.yaml"
-
-requestGetIdentityProviderByIdentifier :: GetIdentityProviderByIdentifier -> TestTree
-requestGetIdentityProviderByIdentifier = req
-    "GetIdentityProviderByIdentifier"
-    "fixture/GetIdentityProviderByIdentifier.yaml"
-
-requestAdminRemoveUserFromGroup :: AdminRemoveUserFromGroup -> TestTree
-requestAdminRemoveUserFromGroup = req
-    "AdminRemoveUserFromGroup"
-    "fixture/AdminRemoveUserFromGroup.yaml"
-
-requestSetRiskConfiguration :: SetRiskConfiguration -> TestTree
-requestSetRiskConfiguration = req
-    "SetRiskConfiguration"
-    "fixture/SetRiskConfiguration.yaml"
-
-requestConfirmSignUp :: ConfirmSignUp -> TestTree
-requestConfirmSignUp = req
-    "ConfirmSignUp"
-    "fixture/ConfirmSignUp.yaml"
-
-requestListUserPools :: ListUserPools -> TestTree
-requestListUserPools = req
-    "ListUserPools"
-    "fixture/ListUserPools.yaml"
-
-requestAdminResetUserPassword :: AdminResetUserPassword -> TestTree
-requestAdminResetUserPassword = req
-    "AdminResetUserPassword"
-    "fixture/AdminResetUserPassword.yaml"
-
-requestUpdateAuthEventFeedback :: UpdateAuthEventFeedback -> TestTree
-requestUpdateAuthEventFeedback = req
-    "UpdateAuthEventFeedback"
-    "fixture/UpdateAuthEventFeedback.yaml"
+requestAdminDeleteUser :: AdminDeleteUser -> TestTree
+requestAdminDeleteUser =
+  req
+    "AdminDeleteUser"
+    "fixture/AdminDeleteUser.yaml"
 
 requestCreateUserImportJob :: CreateUserImportJob -> TestTree
-requestCreateUserImportJob = req
+requestCreateUserImportJob =
+  req
     "CreateUserImportJob"
     "fixture/CreateUserImportJob.yaml"
 
 requestGetUser :: GetUser -> TestTree
-requestGetUser = req
+requestGetUser =
+  req
     "GetUser"
     "fixture/GetUser.yaml"
 
-requestGetUICustomization :: GetUICustomization -> TestTree
-requestGetUICustomization = req
-    "GetUICustomization"
-    "fixture/GetUICustomization.yaml"
+requestSetUserPoolMfaConfig :: SetUserPoolMfaConfig -> TestTree
+requestSetUserPoolMfaConfig =
+  req
+    "SetUserPoolMfaConfig"
+    "fixture/SetUserPoolMfaConfig.yaml"
 
-requestGetCSVHeader :: GetCSVHeader -> TestTree
-requestGetCSVHeader = req
-    "GetCSVHeader"
-    "fixture/GetCSVHeader.yaml"
+requestUpdateUserAttributes :: UpdateUserAttributes -> TestTree
+requestUpdateUserAttributes =
+  req
+    "UpdateUserAttributes"
+    "fixture/UpdateUserAttributes.yaml"
 
-requestAdminDeleteUser :: AdminDeleteUser -> TestTree
-requestAdminDeleteUser = req
-    "AdminDeleteUser"
-    "fixture/AdminDeleteUser.yaml"
+requestDeleteUserAttributes :: DeleteUserAttributes -> TestTree
+requestDeleteUserAttributes =
+  req
+    "DeleteUserAttributes"
+    "fixture/DeleteUserAttributes.yaml"
 
-requestAdminForgetDevice :: AdminForgetDevice -> TestTree
-requestAdminForgetDevice = req
-    "AdminForgetDevice"
-    "fixture/AdminForgetDevice.yaml"
+requestUpdateAuthEventFeedback :: UpdateAuthEventFeedback -> TestTree
+requestUpdateAuthEventFeedback =
+  req
+    "UpdateAuthEventFeedback"
+    "fixture/UpdateAuthEventFeedback.yaml"
 
-requestDescribeResourceServer :: DescribeResourceServer -> TestTree
-requestDescribeResourceServer = req
-    "DescribeResourceServer"
-    "fixture/DescribeResourceServer.yaml"
+requestListUserPools :: ListUserPools -> TestTree
+requestListUserPools =
+  req
+    "ListUserPools"
+    "fixture/ListUserPools.yaml"
 
-requestSetUserMFAPreference :: SetUserMFAPreference -> TestTree
-requestSetUserMFAPreference = req
-    "SetUserMFAPreference"
-    "fixture/SetUserMFAPreference.yaml"
+requestConfirmSignUp :: ConfirmSignUp -> TestTree
+requestConfirmSignUp =
+  req
+    "ConfirmSignUp"
+    "fixture/ConfirmSignUp.yaml"
 
-requestAdminUpdateDeviceStatus :: AdminUpdateDeviceStatus -> TestTree
-requestAdminUpdateDeviceStatus = req
-    "AdminUpdateDeviceStatus"
-    "fixture/AdminUpdateDeviceStatus.yaml"
+requestAdminLinkProviderForUser :: AdminLinkProviderForUser -> TestTree
+requestAdminLinkProviderForUser =
+  req
+    "AdminLinkProviderForUser"
+    "fixture/AdminLinkProviderForUser.yaml"
 
-requestAdminCreateUser :: AdminCreateUser -> TestTree
-requestAdminCreateUser = req
-    "AdminCreateUser"
-    "fixture/AdminCreateUser.yaml"
+requestUpdateUserPool :: UpdateUserPool -> TestTree
+requestUpdateUserPool =
+  req
+    "UpdateUserPool"
+    "fixture/UpdateUserPool.yaml"
 
-requestAddCustomAttributes :: AddCustomAttributes -> TestTree
-requestAddCustomAttributes = req
-    "AddCustomAttributes"
-    "fixture/AddCustomAttributes.yaml"
+requestDeleteUserPool :: DeleteUserPool -> TestTree
+requestDeleteUserPool =
+  req
+    "DeleteUserPool"
+    "fixture/DeleteUserPool.yaml"
 
-requestListUserPoolClients :: ListUserPoolClients -> TestTree
-requestListUserPoolClients = req
-    "ListUserPoolClients"
-    "fixture/ListUserPoolClients.yaml"
+requestUpdateUserPoolDomain :: UpdateUserPoolDomain -> TestTree
+requestUpdateUserPoolDomain =
+  req
+    "UpdateUserPoolDomain"
+    "fixture/UpdateUserPoolDomain.yaml"
 
-requestAdminSetUserMFAPreference :: AdminSetUserMFAPreference -> TestTree
-requestAdminSetUserMFAPreference = req
-    "AdminSetUserMFAPreference"
-    "fixture/AdminSetUserMFAPreference.yaml"
+requestDeleteUserPoolDomain :: DeleteUserPoolDomain -> TestTree
+requestDeleteUserPoolDomain =
+  req
+    "DeleteUserPoolDomain"
+    "fixture/DeleteUserPoolDomain.yaml"
 
-requestUpdateUserPoolClient :: UpdateUserPoolClient -> TestTree
-requestUpdateUserPoolClient = req
-    "UpdateUserPoolClient"
-    "fixture/UpdateUserPoolClient.yaml"
+requestCreateUserPoolDomain :: CreateUserPoolDomain -> TestTree
+requestCreateUserPoolDomain =
+  req
+    "CreateUserPoolDomain"
+    "fixture/CreateUserPoolDomain.yaml"
 
-requestDeleteUserPoolClient :: DeleteUserPoolClient -> TestTree
-requestDeleteUserPoolClient = req
-    "DeleteUserPoolClient"
-    "fixture/DeleteUserPoolClient.yaml"
+requestChangePassword :: ChangePassword -> TestTree
+requestChangePassword =
+  req
+    "ChangePassword"
+    "fixture/ChangePassword.yaml"
 
-requestUpdateDeviceStatus :: UpdateDeviceStatus -> TestTree
-requestUpdateDeviceStatus = req
-    "UpdateDeviceStatus"
-    "fixture/UpdateDeviceStatus.yaml"
+requestRespondToAuthChallenge :: RespondToAuthChallenge -> TestTree
+requestRespondToAuthChallenge =
+  req
+    "RespondToAuthChallenge"
+    "fixture/RespondToAuthChallenge.yaml"
 
-requestForgetDevice :: ForgetDevice -> TestTree
-requestForgetDevice = req
-    "ForgetDevice"
-    "fixture/ForgetDevice.yaml"
+requestListDevices :: ListDevices -> TestTree
+requestListDevices =
+  req
+    "ListDevices"
+    "fixture/ListDevices.yaml"
 
-requestGetSigningCertificate :: GetSigningCertificate -> TestTree
-requestGetSigningCertificate = req
-    "GetSigningCertificate"
-    "fixture/GetSigningCertificate.yaml"
+requestAdminGetDevice :: AdminGetDevice -> TestTree
+requestAdminGetDevice =
+  req
+    "AdminGetDevice"
+    "fixture/AdminGetDevice.yaml"
 
-requestDeleteUser :: DeleteUser -> TestTree
-requestDeleteUser = req
-    "DeleteUser"
-    "fixture/DeleteUser.yaml"
+requestCreateUserPool :: CreateUserPool -> TestTree
+requestCreateUserPool =
+  req
+    "CreateUserPool"
+    "fixture/CreateUserPool.yaml"
 
-requestCreateUserPoolClient :: CreateUserPoolClient -> TestTree
-requestCreateUserPoolClient = req
-    "CreateUserPoolClient"
-    "fixture/CreateUserPoolClient.yaml"
+requestAdminRemoveUserFromGroup :: AdminRemoveUserFromGroup -> TestTree
+requestAdminRemoveUserFromGroup =
+  req
+    "AdminRemoveUserFromGroup"
+    "fixture/AdminRemoveUserFromGroup.yaml"
 
-requestGetUserPoolMFAConfig :: GetUserPoolMFAConfig -> TestTree
-requestGetUserPoolMFAConfig = req
-    "GetUserPoolMFAConfig"
-    "fixture/GetUserPoolMFAConfig.yaml"
-
-requestCreateResourceServer :: CreateResourceServer -> TestTree
-requestCreateResourceServer = req
-    "CreateResourceServer"
-    "fixture/CreateResourceServer.yaml"
-
-requestAdminListUserAuthEvents :: AdminListUserAuthEvents -> TestTree
-requestAdminListUserAuthEvents = req
-    "AdminListUserAuthEvents"
-    "fixture/AdminListUserAuthEvents.yaml"
-
-requestCreateGroup :: CreateGroup -> TestTree
-requestCreateGroup = req
-    "CreateGroup"
-    "fixture/CreateGroup.yaml"
-
-requestAdminAddUserToGroup :: AdminAddUserToGroup -> TestTree
-requestAdminAddUserToGroup = req
-    "AdminAddUserToGroup"
-    "fixture/AdminAddUserToGroup.yaml"
-
-requestVerifySoftwareToken :: VerifySoftwareToken -> TestTree
-requestVerifySoftwareToken = req
-    "VerifySoftwareToken"
-    "fixture/VerifySoftwareToken.yaml"
-
-requestStopUserImportJob :: StopUserImportJob -> TestTree
-requestStopUserImportJob = req
-    "StopUserImportJob"
-    "fixture/StopUserImportJob.yaml"
-
-requestDescribeUserImportJob :: DescribeUserImportJob -> TestTree
-requestDescribeUserImportJob = req
-    "DescribeUserImportJob"
-    "fixture/DescribeUserImportJob.yaml"
-
-requestDescribeRiskConfiguration :: DescribeRiskConfiguration -> TestTree
-requestDescribeRiskConfiguration = req
-    "DescribeRiskConfiguration"
-    "fixture/DescribeRiskConfiguration.yaml"
-
-requestDeleteGroup :: DeleteGroup -> TestTree
-requestDeleteGroup = req
-    "DeleteGroup"
-    "fixture/DeleteGroup.yaml"
-
-requestUpdateGroup :: UpdateGroup -> TestTree
-requestUpdateGroup = req
-    "UpdateGroup"
-    "fixture/UpdateGroup.yaml"
-
-requestGlobalSignOut :: GlobalSignOut -> TestTree
-requestGlobalSignOut = req
-    "GlobalSignOut"
-    "fixture/GlobalSignOut.yaml"
+requestSetRiskConfiguration :: SetRiskConfiguration -> TestTree
+requestSetRiskConfiguration =
+  req
+    "SetRiskConfiguration"
+    "fixture/SetRiskConfiguration.yaml"
 
 requestListGroups :: ListGroups -> TestTree
-requestListGroups = req
+requestListGroups =
+  req
     "ListGroups"
     "fixture/ListGroups.yaml"
 
 requestUpdateIdentityProvider :: UpdateIdentityProvider -> TestTree
-requestUpdateIdentityProvider = req
+requestUpdateIdentityProvider =
+  req
     "UpdateIdentityProvider"
     "fixture/UpdateIdentityProvider.yaml"
 
+requestListIdentityProviders :: ListIdentityProviders -> TestTree
+requestListIdentityProviders =
+  req
+    "ListIdentityProviders"
+    "fixture/ListIdentityProviders.yaml"
+
+requestGetDevice :: GetDevice -> TestTree
+requestGetDevice =
+  req
+    "GetDevice"
+    "fixture/GetDevice.yaml"
+
 requestDeleteIdentityProvider :: DeleteIdentityProvider -> TestTree
-requestDeleteIdentityProvider = req
+requestDeleteIdentityProvider =
+  req
     "DeleteIdentityProvider"
     "fixture/DeleteIdentityProvider.yaml"
 
-requestListResourceServers :: ListResourceServers -> TestTree
-requestListResourceServers = req
-    "ListResourceServers"
-    "fixture/ListResourceServers.yaml"
-
-requestAdminRespondToAuthChallenge :: AdminRespondToAuthChallenge -> TestTree
-requestAdminRespondToAuthChallenge = req
-    "AdminRespondToAuthChallenge"
-    "fixture/AdminRespondToAuthChallenge.yaml"
-
-requestSetUserSettings :: SetUserSettings -> TestTree
-requestSetUserSettings = req
-    "SetUserSettings"
-    "fixture/SetUserSettings.yaml"
-
 requestAdminListDevices :: AdminListDevices -> TestTree
-requestAdminListDevices = req
+requestAdminListDevices =
+  req
     "AdminListDevices"
     "fixture/AdminListDevices.yaml"
 
-requestDescribeUserPoolClient :: DescribeUserPoolClient -> TestTree
-requestDescribeUserPoolClient = req
-    "DescribeUserPoolClient"
-    "fixture/DescribeUserPoolClient.yaml"
+requestAdminConfirmSignUp :: AdminConfirmSignUp -> TestTree
+requestAdminConfirmSignUp =
+  req
+    "AdminConfirmSignUp"
+    "fixture/AdminConfirmSignUp.yaml"
 
-requestResendConfirmationCode :: ResendConfirmationCode -> TestTree
-requestResendConfirmationCode = req
-    "ResendConfirmationCode"
-    "fixture/ResendConfirmationCode.yaml"
+requestSetUICustomization :: SetUICustomization -> TestTree
+requestSetUICustomization =
+  req
+    "SetUICustomization"
+    "fixture/SetUICustomization.yaml"
 
-requestGetGroup :: GetGroup -> TestTree
-requestGetGroup = req
-    "GetGroup"
-    "fixture/GetGroup.yaml"
+requestAdminListUserAuthEvents :: AdminListUserAuthEvents -> TestTree
+requestAdminListUserAuthEvents =
+  req
+    "AdminListUserAuthEvents"
+    "fixture/AdminListUserAuthEvents.yaml"
+
+requestAdminAddUserToGroup :: AdminAddUserToGroup -> TestTree
+requestAdminAddUserToGroup =
+  req
+    "AdminAddUserToGroup"
+    "fixture/AdminAddUserToGroup.yaml"
+
+requestVerifySoftwareToken :: VerifySoftwareToken -> TestTree
+requestVerifySoftwareToken =
+  req
+    "VerifySoftwareToken"
+    "fixture/VerifySoftwareToken.yaml"
+
+requestStopUserImportJob :: StopUserImportJob -> TestTree
+requestStopUserImportJob =
+  req
+    "StopUserImportJob"
+    "fixture/StopUserImportJob.yaml"
+
+requestCreateIdentityProvider :: CreateIdentityProvider -> TestTree
+requestCreateIdentityProvider =
+  req
+    "CreateIdentityProvider"
+    "fixture/CreateIdentityProvider.yaml"
+
+requestInitiateAuth :: InitiateAuth -> TestTree
+requestInitiateAuth =
+  req
+    "InitiateAuth"
+    "fixture/InitiateAuth.yaml"
+
+requestAdminSetUserPassword :: AdminSetUserPassword -> TestTree
+requestAdminSetUserPassword =
+  req
+    "AdminSetUserPassword"
+    "fixture/AdminSetUserPassword.yaml"
+
+requestUntagResource :: UntagResource -> TestTree
+requestUntagResource =
+  req
+    "UntagResource"
+    "fixture/UntagResource.yaml"
+
+requestAdminListGroupsForUser :: AdminListGroupsForUser -> TestTree
+requestAdminListGroupsForUser =
+  req
+    "AdminListGroupsForUser"
+    "fixture/AdminListGroupsForUser.yaml"
+
+requestAdminUpdateAuthEventFeedback :: AdminUpdateAuthEventFeedback -> TestTree
+requestAdminUpdateAuthEventFeedback =
+  req
+    "AdminUpdateAuthEventFeedback"
+    "fixture/AdminUpdateAuthEventFeedback.yaml"
+
+requestCreateGroup :: CreateGroup -> TestTree
+requestCreateGroup =
+  req
+    "CreateGroup"
+    "fixture/CreateGroup.yaml"
+
+requestStartUserImportJob :: StartUserImportJob -> TestTree
+requestStartUserImportJob =
+  req
+    "StartUserImportJob"
+    "fixture/StartUserImportJob.yaml"
+
+requestDescribeUserPoolDomain :: DescribeUserPoolDomain -> TestTree
+requestDescribeUserPoolDomain =
+  req
+    "DescribeUserPoolDomain"
+    "fixture/DescribeUserPoolDomain.yaml"
+
+requestListUsersInGroup :: ListUsersInGroup -> TestTree
+requestListUsersInGroup =
+  req
+    "ListUsersInGroup"
+    "fixture/ListUsersInGroup.yaml"
+
+requestAdminUserGlobalSignOut :: AdminUserGlobalSignOut -> TestTree
+requestAdminUserGlobalSignOut =
+  req
+    "AdminUserGlobalSignOut"
+    "fixture/AdminUserGlobalSignOut.yaml"
+
+requestDescribeUserPool :: DescribeUserPool -> TestTree
+requestDescribeUserPool =
+  req
+    "DescribeUserPool"
+    "fixture/DescribeUserPool.yaml"
+
+requestAdminGetUser :: AdminGetUser -> TestTree
+requestAdminGetUser =
+  req
+    "AdminGetUser"
+    "fixture/AdminGetUser.yaml"
+
+requestGetSigningCertificate :: GetSigningCertificate -> TestTree
+requestGetSigningCertificate =
+  req
+    "GetSigningCertificate"
+    "fixture/GetSigningCertificate.yaml"
+
+requestTagResource :: TagResource -> TestTree
+requestTagResource =
+  req
+    "TagResource"
+    "fixture/TagResource.yaml"
+
+requestAssociateSoftwareToken :: AssociateSoftwareToken -> TestTree
+requestAssociateSoftwareToken =
+  req
+    "AssociateSoftwareToken"
+    "fixture/AssociateSoftwareToken.yaml"
+
+requestForgotPassword :: ForgotPassword -> TestTree
+requestForgotPassword =
+  req
+    "ForgotPassword"
+    "fixture/ForgotPassword.yaml"
+
+requestUpdateDeviceStatus :: UpdateDeviceStatus -> TestTree
+requestUpdateDeviceStatus =
+  req
+    "UpdateDeviceStatus"
+    "fixture/UpdateDeviceStatus.yaml"
+
+requestDeleteUserPoolClient :: DeleteUserPoolClient -> TestTree
+requestDeleteUserPoolClient =
+  req
+    "DeleteUserPoolClient"
+    "fixture/DeleteUserPoolClient.yaml"
+
+requestUpdateUserPoolClient :: UpdateUserPoolClient -> TestTree
+requestUpdateUserPoolClient =
+  req
+    "UpdateUserPoolClient"
+    "fixture/UpdateUserPoolClient.yaml"
+
+requestForgetDevice :: ForgetDevice -> TestTree
+requestForgetDevice =
+  req
+    "ForgetDevice"
+    "fixture/ForgetDevice.yaml"
+
+requestAdminDisableUser :: AdminDisableUser -> TestTree
+requestAdminDisableUser =
+  req
+    "AdminDisableUser"
+    "fixture/AdminDisableUser.yaml"
+
+requestAdminCreateUser :: AdminCreateUser -> TestTree
+requestAdminCreateUser =
+  req
+    "AdminCreateUser"
+    "fixture/AdminCreateUser.yaml"
+
+requestAdminUpdateDeviceStatus :: AdminUpdateDeviceStatus -> TestTree
+requestAdminUpdateDeviceStatus =
+  req
+    "AdminUpdateDeviceStatus"
+    "fixture/AdminUpdateDeviceStatus.yaml"
+
+requestAdminForgetDevice :: AdminForgetDevice -> TestTree
+requestAdminForgetDevice =
+  req
+    "AdminForgetDevice"
+    "fixture/AdminForgetDevice.yaml"
+
+requestDescribeIdentityProvider :: DescribeIdentityProvider -> TestTree
+requestDescribeIdentityProvider =
+  req
+    "DescribeIdentityProvider"
+    "fixture/DescribeIdentityProvider.yaml"
+
+requestListUserImportJobs :: ListUserImportJobs -> TestTree
+requestListUserImportJobs =
+  req
+    "ListUserImportJobs"
+    "fixture/ListUserImportJobs.yaml"
+
+requestGetUICustomization :: GetUICustomization -> TestTree
+requestGetUICustomization =
+  req
+    "GetUICustomization"
+    "fixture/GetUICustomization.yaml"
+
+requestGetCSVHeader :: GetCSVHeader -> TestTree
+requestGetCSVHeader =
+  req
+    "GetCSVHeader"
+    "fixture/GetCSVHeader.yaml"
+
+requestAdminEnableUser :: AdminEnableUser -> TestTree
+requestAdminEnableUser =
+  req
+    "AdminEnableUser"
+    "fixture/AdminEnableUser.yaml"
+
+requestAdminInitiateAuth :: AdminInitiateAuth -> TestTree
+requestAdminInitiateAuth =
+  req
+    "AdminInitiateAuth"
+    "fixture/AdminInitiateAuth.yaml"
+
+requestAdminResetUserPassword :: AdminResetUserPassword -> TestTree
+requestAdminResetUserPassword =
+  req
+    "AdminResetUserPassword"
+    "fixture/AdminResetUserPassword.yaml"
+
+requestGetIdentityProviderByIdentifier :: GetIdentityProviderByIdentifier -> TestTree
+requestGetIdentityProviderByIdentifier =
+  req
+    "GetIdentityProviderByIdentifier"
+    "fixture/GetIdentityProviderByIdentifier.yaml"
 
 requestAdminSetUserSettings :: AdminSetUserSettings -> TestTree
-requestAdminSetUserSettings = req
+requestAdminSetUserSettings =
+  req
     "AdminSetUserSettings"
     "fixture/AdminSetUserSettings.yaml"
 
-requestListDevices :: ListDevices -> TestTree
-requestListDevices = req
-    "ListDevices"
-    "fixture/ListDevices.yaml"
+requestDescribeUserPoolClient :: DescribeUserPoolClient -> TestTree
+requestDescribeUserPoolClient =
+  req
+    "DescribeUserPoolClient"
+    "fixture/DescribeUserPoolClient.yaml"
+
+requestGetGroup :: GetGroup -> TestTree
+requestGetGroup =
+  req
+    "GetGroup"
+    "fixture/GetGroup.yaml"
+
+requestResendConfirmationCode :: ResendConfirmationCode -> TestTree
+requestResendConfirmationCode =
+  req
+    "ResendConfirmationCode"
+    "fixture/ResendConfirmationCode.yaml"
+
+requestAdminRespondToAuthChallenge :: AdminRespondToAuthChallenge -> TestTree
+requestAdminRespondToAuthChallenge =
+  req
+    "AdminRespondToAuthChallenge"
+    "fixture/AdminRespondToAuthChallenge.yaml"
+
+requestSignUp :: SignUp -> TestTree
+requestSignUp =
+  req
+    "SignUp"
+    "fixture/SignUp.yaml"
+
+requestDescribeUserImportJob :: DescribeUserImportJob -> TestTree
+requestDescribeUserImportJob =
+  req
+    "DescribeUserImportJob"
+    "fixture/DescribeUserImportJob.yaml"
+
+requestUpdateGroup :: UpdateGroup -> TestTree
+requestUpdateGroup =
+  req
+    "UpdateGroup"
+    "fixture/UpdateGroup.yaml"
+
+requestUpdateResourceServer :: UpdateResourceServer -> TestTree
+requestUpdateResourceServer =
+  req
+    "UpdateResourceServer"
+    "fixture/UpdateResourceServer.yaml"
+
+requestDeleteGroup :: DeleteGroup -> TestTree
+requestDeleteGroup =
+  req
+    "DeleteGroup"
+    "fixture/DeleteGroup.yaml"
+
+requestSetUserSettings :: SetUserSettings -> TestTree
+requestSetUserSettings =
+  req
+    "SetUserSettings"
+    "fixture/SetUserSettings.yaml"
+
+requestListResourceServers :: ListResourceServers -> TestTree
+requestListResourceServers =
+  req
+    "ListResourceServers"
+    "fixture/ListResourceServers.yaml"
+
+requestDeleteResourceServer :: DeleteResourceServer -> TestTree
+requestDeleteResourceServer =
+  req
+    "DeleteResourceServer"
+    "fixture/DeleteResourceServer.yaml"
+
+requestDescribeRiskConfiguration :: DescribeRiskConfiguration -> TestTree
+requestDescribeRiskConfiguration =
+  req
+    "DescribeRiskConfiguration"
+    "fixture/DescribeRiskConfiguration.yaml"
+
+requestGlobalSignOut :: GlobalSignOut -> TestTree
+requestGlobalSignOut =
+  req
+    "GlobalSignOut"
+    "fixture/GlobalSignOut.yaml"
+
+requestGetUserPoolMfaConfig :: GetUserPoolMfaConfig -> TestTree
+requestGetUserPoolMfaConfig =
+  req
+    "GetUserPoolMfaConfig"
+    "fixture/GetUserPoolMfaConfig.yaml"
+
+requestCreateResourceServer :: CreateResourceServer -> TestTree
+requestCreateResourceServer =
+  req
+    "CreateResourceServer"
+    "fixture/CreateResourceServer.yaml"
+
+requestAdminUpdateUserAttributes :: AdminUpdateUserAttributes -> TestTree
+requestAdminUpdateUserAttributes =
+  req
+    "AdminUpdateUserAttributes"
+    "fixture/AdminUpdateUserAttributes.yaml"
+
+requestDeleteUser :: DeleteUser -> TestTree
+requestDeleteUser =
+  req
+    "DeleteUser"
+    "fixture/DeleteUser.yaml"
+
+requestAdminDeleteUserAttributes :: AdminDeleteUserAttributes -> TestTree
+requestAdminDeleteUserAttributes =
+  req
+    "AdminDeleteUserAttributes"
+    "fixture/AdminDeleteUserAttributes.yaml"
+
+requestListUsers :: ListUsers -> TestTree
+requestListUsers =
+  req
+    "ListUsers"
+    "fixture/ListUsers.yaml"
+
+requestAdminDisableProviderForUser :: AdminDisableProviderForUser -> TestTree
+requestAdminDisableProviderForUser =
+  req
+    "AdminDisableProviderForUser"
+    "fixture/AdminDisableProviderForUser.yaml"
+
+requestCreateUserPoolClient :: CreateUserPoolClient -> TestTree
+requestCreateUserPoolClient =
+  req
+    "CreateUserPoolClient"
+    "fixture/CreateUserPoolClient.yaml"
+
+requestListUserPoolClients :: ListUserPoolClients -> TestTree
+requestListUserPoolClients =
+  req
+    "ListUserPoolClients"
+    "fixture/ListUserPoolClients.yaml"
+
+requestAddCustomAttributes :: AddCustomAttributes -> TestTree
+requestAddCustomAttributes =
+  req
+    "AddCustomAttributes"
+    "fixture/AddCustomAttributes.yaml"
+
+requestAdminSetUserMFAPreference :: AdminSetUserMFAPreference -> TestTree
+requestAdminSetUserMFAPreference =
+  req
+    "AdminSetUserMFAPreference"
+    "fixture/AdminSetUserMFAPreference.yaml"
+
+requestListTagsForResource :: ListTagsForResource -> TestTree
+requestListTagsForResource =
+  req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource.yaml"
+
+requestConfirmForgotPassword :: ConfirmForgotPassword -> TestTree
+requestConfirmForgotPassword =
+  req
+    "ConfirmForgotPassword"
+    "fixture/ConfirmForgotPassword.yaml"
+
+requestSetUserMFAPreference :: SetUserMFAPreference -> TestTree
+requestSetUserMFAPreference =
+  req
+    "SetUserMFAPreference"
+    "fixture/SetUserMFAPreference.yaml"
+
+requestVerifyUserAttribute :: VerifyUserAttribute -> TestTree
+requestVerifyUserAttribute =
+  req
+    "VerifyUserAttribute"
+    "fixture/VerifyUserAttribute.yaml"
+
+requestConfirmDevice :: ConfirmDevice -> TestTree
+requestConfirmDevice =
+  req
+    "ConfirmDevice"
+    "fixture/ConfirmDevice.yaml"
+
+requestDescribeResourceServer :: DescribeResourceServer -> TestTree
+requestDescribeResourceServer =
+  req
+    "DescribeResourceServer"
+    "fixture/DescribeResourceServer.yaml"
 
 -- Responses
 
-responseDeleteUserPool :: DeleteUserPoolResponse -> TestTree
-responseDeleteUserPool = res
-    "DeleteUserPoolResponse"
-    "fixture/DeleteUserPoolResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy DeleteUserPool)
-
-responseUpdateUserPool :: UpdateUserPoolResponse -> TestTree
-responseUpdateUserPool = res
-    "UpdateUserPoolResponse"
-    "fixture/UpdateUserPoolResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy UpdateUserPool)
-
-responseDeleteUserPoolDomain :: DeleteUserPoolDomainResponse -> TestTree
-responseDeleteUserPoolDomain = res
-    "DeleteUserPoolDomainResponse"
-    "fixture/DeleteUserPoolDomainResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy DeleteUserPoolDomain)
-
-responseAdminInitiateAuth :: AdminInitiateAuthResponse -> TestTree
-responseAdminInitiateAuth = res
-    "AdminInitiateAuthResponse"
-    "fixture/AdminInitiateAuthResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminInitiateAuth)
-
-responseAdminLinkProviderForUser :: AdminLinkProviderForUserResponse -> TestTree
-responseAdminLinkProviderForUser = res
-    "AdminLinkProviderForUserResponse"
-    "fixture/AdminLinkProviderForUserResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminLinkProviderForUser)
-
-responseAdminEnableUser :: AdminEnableUserResponse -> TestTree
-responseAdminEnableUser = res
-    "AdminEnableUserResponse"
-    "fixture/AdminEnableUserResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminEnableUser)
-
 responseGetUserAttributeVerificationCode :: GetUserAttributeVerificationCodeResponse -> TestTree
-responseGetUserAttributeVerificationCode = res
+responseGetUserAttributeVerificationCode =
+  res
     "GetUserAttributeVerificationCodeResponse"
     "fixture/GetUserAttributeVerificationCodeResponse.proto"
-    cognitoIdentityProvider
+    defaultService
     (Proxy :: Proxy GetUserAttributeVerificationCode)
 
-responseSetUserPoolMFAConfig :: SetUserPoolMFAConfigResponse -> TestTree
-responseSetUserPoolMFAConfig = res
-    "SetUserPoolMFAConfigResponse"
-    "fixture/SetUserPoolMFAConfigResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy SetUserPoolMFAConfig)
-
-responseUpdateUserAttributes :: UpdateUserAttributesResponse -> TestTree
-responseUpdateUserAttributes = res
-    "UpdateUserAttributesResponse"
-    "fixture/UpdateUserAttributesResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy UpdateUserAttributes)
-
-responseDeleteUserAttributes :: DeleteUserAttributesResponse -> TestTree
-responseDeleteUserAttributes = res
-    "DeleteUserAttributesResponse"
-    "fixture/DeleteUserAttributesResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy DeleteUserAttributes)
-
-responseVerifyUserAttribute :: VerifyUserAttributeResponse -> TestTree
-responseVerifyUserAttribute = res
-    "VerifyUserAttributeResponse"
-    "fixture/VerifyUserAttributeResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy VerifyUserAttribute)
-
-responseAdminDisableUser :: AdminDisableUserResponse -> TestTree
-responseAdminDisableUser = res
-    "AdminDisableUserResponse"
-    "fixture/AdminDisableUserResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminDisableUser)
-
-responseConfirmDevice :: ConfirmDeviceResponse -> TestTree
-responseConfirmDevice = res
-    "ConfirmDeviceResponse"
-    "fixture/ConfirmDeviceResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy ConfirmDevice)
-
-responseConfirmForgotPassword :: ConfirmForgotPasswordResponse -> TestTree
-responseConfirmForgotPassword = res
-    "ConfirmForgotPasswordResponse"
-    "fixture/ConfirmForgotPasswordResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy ConfirmForgotPassword)
-
-responseListUserImportJobs :: ListUserImportJobsResponse -> TestTree
-responseListUserImportJobs = res
-    "ListUserImportJobsResponse"
-    "fixture/ListUserImportJobsResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy ListUserImportJobs)
-
-responseDescribeIdentityProvider :: DescribeIdentityProviderResponse -> TestTree
-responseDescribeIdentityProvider = res
-    "DescribeIdentityProviderResponse"
-    "fixture/DescribeIdentityProviderResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy DescribeIdentityProvider)
-
-responseListUsers :: ListUsersResponse -> TestTree
-responseListUsers = res
-    "ListUsersResponse"
-    "fixture/ListUsersResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy ListUsers)
-
-responseAdminDeleteUserAttributes :: AdminDeleteUserAttributesResponse -> TestTree
-responseAdminDeleteUserAttributes = res
-    "AdminDeleteUserAttributesResponse"
-    "fixture/AdminDeleteUserAttributesResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminDeleteUserAttributes)
-
-responseDescribeUserPoolDomain :: DescribeUserPoolDomainResponse -> TestTree
-responseDescribeUserPoolDomain = res
-    "DescribeUserPoolDomainResponse"
-    "fixture/DescribeUserPoolDomainResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy DescribeUserPoolDomain)
-
-responseAdminUpdateUserAttributes :: AdminUpdateUserAttributesResponse -> TestTree
-responseAdminUpdateUserAttributes = res
-    "AdminUpdateUserAttributesResponse"
-    "fixture/AdminUpdateUserAttributesResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminUpdateUserAttributes)
-
-responseAdminGetUser :: AdminGetUserResponse -> TestTree
-responseAdminGetUser = res
-    "AdminGetUserResponse"
-    "fixture/AdminGetUserResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminGetUser)
-
-responseAdminUserGlobalSignOut :: AdminUserGlobalSignOutResponse -> TestTree
-responseAdminUserGlobalSignOut = res
-    "AdminUserGlobalSignOutResponse"
-    "fixture/AdminUserGlobalSignOutResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminUserGlobalSignOut)
-
-responseListUsersInGroup :: ListUsersInGroupResponse -> TestTree
-responseListUsersInGroup = res
-    "ListUsersInGroupResponse"
-    "fixture/ListUsersInGroupResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy ListUsersInGroup)
-
-responseAssociateSoftwareToken :: AssociateSoftwareTokenResponse -> TestTree
-responseAssociateSoftwareToken = res
-    "AssociateSoftwareTokenResponse"
-    "fixture/AssociateSoftwareTokenResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AssociateSoftwareToken)
-
-responseAdminDisableProviderForUser :: AdminDisableProviderForUserResponse -> TestTree
-responseAdminDisableProviderForUser = res
-    "AdminDisableProviderForUserResponse"
-    "fixture/AdminDisableProviderForUserResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminDisableProviderForUser)
-
-responseForgotPassword :: ForgotPasswordResponse -> TestTree
-responseForgotPassword = res
-    "ForgotPasswordResponse"
-    "fixture/ForgotPasswordResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy ForgotPassword)
-
-responseDescribeUserPool :: DescribeUserPoolResponse -> TestTree
-responseDescribeUserPool = res
-    "DescribeUserPoolResponse"
-    "fixture/DescribeUserPoolResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy DescribeUserPool)
-
-responseInitiateAuth :: InitiateAuthResponse -> TestTree
-responseInitiateAuth = res
-    "InitiateAuthResponse"
-    "fixture/InitiateAuthResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy InitiateAuth)
-
-responseAdminListGroupsForUser :: AdminListGroupsForUserResponse -> TestTree
-responseAdminListGroupsForUser = res
-    "AdminListGroupsForUserResponse"
-    "fixture/AdminListGroupsForUserResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminListGroupsForUser)
-
-responseAdminConfirmSignUp :: AdminConfirmSignUpResponse -> TestTree
-responseAdminConfirmSignUp = res
-    "AdminConfirmSignUpResponse"
-    "fixture/AdminConfirmSignUpResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminConfirmSignUp)
-
-responseAdminUpdateAuthEventFeedback :: AdminUpdateAuthEventFeedbackResponse -> TestTree
-responseAdminUpdateAuthEventFeedback = res
-    "AdminUpdateAuthEventFeedbackResponse"
-    "fixture/AdminUpdateAuthEventFeedbackResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminUpdateAuthEventFeedback)
-
-responseStartUserImportJob :: StartUserImportJobResponse -> TestTree
-responseStartUserImportJob = res
-    "StartUserImportJobResponse"
-    "fixture/StartUserImportJobResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy StartUserImportJob)
-
-responseCreateIdentityProvider :: CreateIdentityProviderResponse -> TestTree
-responseCreateIdentityProvider = res
-    "CreateIdentityProviderResponse"
-    "fixture/CreateIdentityProviderResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy CreateIdentityProvider)
-
-responseSetUICustomization :: SetUICustomizationResponse -> TestTree
-responseSetUICustomization = res
-    "SetUICustomizationResponse"
-    "fixture/SetUICustomizationResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy SetUICustomization)
-
-responseListIdentityProviders :: ListIdentityProvidersResponse -> TestTree
-responseListIdentityProviders = res
-    "ListIdentityProvidersResponse"
-    "fixture/ListIdentityProvidersResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy ListIdentityProviders)
-
-responseGetDevice :: GetDeviceResponse -> TestTree
-responseGetDevice = res
-    "GetDeviceResponse"
-    "fixture/GetDeviceResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy GetDevice)
-
-responseSignUp :: SignUpResponse -> TestTree
-responseSignUp = res
-    "SignUpResponse"
-    "fixture/SignUpResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy SignUp)
-
-responseDeleteResourceServer :: DeleteResourceServerResponse -> TestTree
-responseDeleteResourceServer = res
-    "DeleteResourceServerResponse"
-    "fixture/DeleteResourceServerResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy DeleteResourceServer)
-
-responseUpdateResourceServer :: UpdateResourceServerResponse -> TestTree
-responseUpdateResourceServer = res
-    "UpdateResourceServerResponse"
-    "fixture/UpdateResourceServerResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy UpdateResourceServer)
-
-responseChangePassword :: ChangePasswordResponse -> TestTree
-responseChangePassword = res
-    "ChangePasswordResponse"
-    "fixture/ChangePasswordResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy ChangePassword)
-
-responseCreateUserPoolDomain :: CreateUserPoolDomainResponse -> TestTree
-responseCreateUserPoolDomain = res
-    "CreateUserPoolDomainResponse"
-    "fixture/CreateUserPoolDomainResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy CreateUserPoolDomain)
-
-responseRespondToAuthChallenge :: RespondToAuthChallengeResponse -> TestTree
-responseRespondToAuthChallenge = res
-    "RespondToAuthChallengeResponse"
-    "fixture/RespondToAuthChallengeResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy RespondToAuthChallenge)
-
-responseCreateUserPool :: CreateUserPoolResponse -> TestTree
-responseCreateUserPool = res
-    "CreateUserPoolResponse"
-    "fixture/CreateUserPoolResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy CreateUserPool)
-
-responseAdminGetDevice :: AdminGetDeviceResponse -> TestTree
-responseAdminGetDevice = res
-    "AdminGetDeviceResponse"
-    "fixture/AdminGetDeviceResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminGetDevice)
-
-responseGetIdentityProviderByIdentifier :: GetIdentityProviderByIdentifierResponse -> TestTree
-responseGetIdentityProviderByIdentifier = res
-    "GetIdentityProviderByIdentifierResponse"
-    "fixture/GetIdentityProviderByIdentifierResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy GetIdentityProviderByIdentifier)
-
-responseAdminRemoveUserFromGroup :: AdminRemoveUserFromGroupResponse -> TestTree
-responseAdminRemoveUserFromGroup = res
-    "AdminRemoveUserFromGroupResponse"
-    "fixture/AdminRemoveUserFromGroupResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminRemoveUserFromGroup)
-
-responseSetRiskConfiguration :: SetRiskConfigurationResponse -> TestTree
-responseSetRiskConfiguration = res
-    "SetRiskConfigurationResponse"
-    "fixture/SetRiskConfigurationResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy SetRiskConfiguration)
-
-responseConfirmSignUp :: ConfirmSignUpResponse -> TestTree
-responseConfirmSignUp = res
-    "ConfirmSignUpResponse"
-    "fixture/ConfirmSignUpResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy ConfirmSignUp)
-
-responseListUserPools :: ListUserPoolsResponse -> TestTree
-responseListUserPools = res
-    "ListUserPoolsResponse"
-    "fixture/ListUserPoolsResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy ListUserPools)
-
-responseAdminResetUserPassword :: AdminResetUserPasswordResponse -> TestTree
-responseAdminResetUserPassword = res
-    "AdminResetUserPasswordResponse"
-    "fixture/AdminResetUserPasswordResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminResetUserPassword)
-
-responseUpdateAuthEventFeedback :: UpdateAuthEventFeedbackResponse -> TestTree
-responseUpdateAuthEventFeedback = res
-    "UpdateAuthEventFeedbackResponse"
-    "fixture/UpdateAuthEventFeedbackResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy UpdateAuthEventFeedback)
+responseAdminDeleteUser :: AdminDeleteUserResponse -> TestTree
+responseAdminDeleteUser =
+  res
+    "AdminDeleteUserResponse"
+    "fixture/AdminDeleteUserResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminDeleteUser)
 
 responseCreateUserImportJob :: CreateUserImportJobResponse -> TestTree
-responseCreateUserImportJob = res
+responseCreateUserImportJob =
+  res
     "CreateUserImportJobResponse"
     "fixture/CreateUserImportJobResponse.proto"
-    cognitoIdentityProvider
+    defaultService
     (Proxy :: Proxy CreateUserImportJob)
 
 responseGetUser :: GetUserResponse -> TestTree
-responseGetUser = res
+responseGetUser =
+  res
     "GetUserResponse"
     "fixture/GetUserResponse.proto"
-    cognitoIdentityProvider
+    defaultService
     (Proxy :: Proxy GetUser)
 
-responseGetUICustomization :: GetUICustomizationResponse -> TestTree
-responseGetUICustomization = res
-    "GetUICustomizationResponse"
-    "fixture/GetUICustomizationResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy GetUICustomization)
+responseSetUserPoolMfaConfig :: SetUserPoolMfaConfigResponse -> TestTree
+responseSetUserPoolMfaConfig =
+  res
+    "SetUserPoolMfaConfigResponse"
+    "fixture/SetUserPoolMfaConfigResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetUserPoolMfaConfig)
 
-responseGetCSVHeader :: GetCSVHeaderResponse -> TestTree
-responseGetCSVHeader = res
-    "GetCSVHeaderResponse"
-    "fixture/GetCSVHeaderResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy GetCSVHeader)
+responseUpdateUserAttributes :: UpdateUserAttributesResponse -> TestTree
+responseUpdateUserAttributes =
+  res
+    "UpdateUserAttributesResponse"
+    "fixture/UpdateUserAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateUserAttributes)
 
-responseAdminDeleteUser :: AdminDeleteUserResponse -> TestTree
-responseAdminDeleteUser = res
-    "AdminDeleteUserResponse"
-    "fixture/AdminDeleteUserResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminDeleteUser)
+responseDeleteUserAttributes :: DeleteUserAttributesResponse -> TestTree
+responseDeleteUserAttributes =
+  res
+    "DeleteUserAttributesResponse"
+    "fixture/DeleteUserAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteUserAttributes)
 
-responseAdminForgetDevice :: AdminForgetDeviceResponse -> TestTree
-responseAdminForgetDevice = res
-    "AdminForgetDeviceResponse"
-    "fixture/AdminForgetDeviceResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminForgetDevice)
+responseUpdateAuthEventFeedback :: UpdateAuthEventFeedbackResponse -> TestTree
+responseUpdateAuthEventFeedback =
+  res
+    "UpdateAuthEventFeedbackResponse"
+    "fixture/UpdateAuthEventFeedbackResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateAuthEventFeedback)
 
-responseDescribeResourceServer :: DescribeResourceServerResponse -> TestTree
-responseDescribeResourceServer = res
-    "DescribeResourceServerResponse"
-    "fixture/DescribeResourceServerResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy DescribeResourceServer)
+responseListUserPools :: ListUserPoolsResponse -> TestTree
+responseListUserPools =
+  res
+    "ListUserPoolsResponse"
+    "fixture/ListUserPoolsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListUserPools)
 
-responseSetUserMFAPreference :: SetUserMFAPreferenceResponse -> TestTree
-responseSetUserMFAPreference = res
-    "SetUserMFAPreferenceResponse"
-    "fixture/SetUserMFAPreferenceResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy SetUserMFAPreference)
+responseConfirmSignUp :: ConfirmSignUpResponse -> TestTree
+responseConfirmSignUp =
+  res
+    "ConfirmSignUpResponse"
+    "fixture/ConfirmSignUpResponse.proto"
+    defaultService
+    (Proxy :: Proxy ConfirmSignUp)
 
-responseAdminUpdateDeviceStatus :: AdminUpdateDeviceStatusResponse -> TestTree
-responseAdminUpdateDeviceStatus = res
-    "AdminUpdateDeviceStatusResponse"
-    "fixture/AdminUpdateDeviceStatusResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminUpdateDeviceStatus)
+responseAdminLinkProviderForUser :: AdminLinkProviderForUserResponse -> TestTree
+responseAdminLinkProviderForUser =
+  res
+    "AdminLinkProviderForUserResponse"
+    "fixture/AdminLinkProviderForUserResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminLinkProviderForUser)
 
-responseAdminCreateUser :: AdminCreateUserResponse -> TestTree
-responseAdminCreateUser = res
-    "AdminCreateUserResponse"
-    "fixture/AdminCreateUserResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminCreateUser)
+responseUpdateUserPool :: UpdateUserPoolResponse -> TestTree
+responseUpdateUserPool =
+  res
+    "UpdateUserPoolResponse"
+    "fixture/UpdateUserPoolResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateUserPool)
 
-responseAddCustomAttributes :: AddCustomAttributesResponse -> TestTree
-responseAddCustomAttributes = res
-    "AddCustomAttributesResponse"
-    "fixture/AddCustomAttributesResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AddCustomAttributes)
+responseDeleteUserPool :: DeleteUserPoolResponse -> TestTree
+responseDeleteUserPool =
+  res
+    "DeleteUserPoolResponse"
+    "fixture/DeleteUserPoolResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteUserPool)
 
-responseListUserPoolClients :: ListUserPoolClientsResponse -> TestTree
-responseListUserPoolClients = res
-    "ListUserPoolClientsResponse"
-    "fixture/ListUserPoolClientsResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy ListUserPoolClients)
+responseUpdateUserPoolDomain :: UpdateUserPoolDomainResponse -> TestTree
+responseUpdateUserPoolDomain =
+  res
+    "UpdateUserPoolDomainResponse"
+    "fixture/UpdateUserPoolDomainResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateUserPoolDomain)
 
-responseAdminSetUserMFAPreference :: AdminSetUserMFAPreferenceResponse -> TestTree
-responseAdminSetUserMFAPreference = res
-    "AdminSetUserMFAPreferenceResponse"
-    "fixture/AdminSetUserMFAPreferenceResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminSetUserMFAPreference)
+responseDeleteUserPoolDomain :: DeleteUserPoolDomainResponse -> TestTree
+responseDeleteUserPoolDomain =
+  res
+    "DeleteUserPoolDomainResponse"
+    "fixture/DeleteUserPoolDomainResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteUserPoolDomain)
 
-responseUpdateUserPoolClient :: UpdateUserPoolClientResponse -> TestTree
-responseUpdateUserPoolClient = res
-    "UpdateUserPoolClientResponse"
-    "fixture/UpdateUserPoolClientResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy UpdateUserPoolClient)
+responseCreateUserPoolDomain :: CreateUserPoolDomainResponse -> TestTree
+responseCreateUserPoolDomain =
+  res
+    "CreateUserPoolDomainResponse"
+    "fixture/CreateUserPoolDomainResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateUserPoolDomain)
 
-responseDeleteUserPoolClient :: DeleteUserPoolClientResponse -> TestTree
-responseDeleteUserPoolClient = res
-    "DeleteUserPoolClientResponse"
-    "fixture/DeleteUserPoolClientResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy DeleteUserPoolClient)
+responseChangePassword :: ChangePasswordResponse -> TestTree
+responseChangePassword =
+  res
+    "ChangePasswordResponse"
+    "fixture/ChangePasswordResponse.proto"
+    defaultService
+    (Proxy :: Proxy ChangePassword)
 
-responseUpdateDeviceStatus :: UpdateDeviceStatusResponse -> TestTree
-responseUpdateDeviceStatus = res
-    "UpdateDeviceStatusResponse"
-    "fixture/UpdateDeviceStatusResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy UpdateDeviceStatus)
+responseRespondToAuthChallenge :: RespondToAuthChallengeResponse -> TestTree
+responseRespondToAuthChallenge =
+  res
+    "RespondToAuthChallengeResponse"
+    "fixture/RespondToAuthChallengeResponse.proto"
+    defaultService
+    (Proxy :: Proxy RespondToAuthChallenge)
 
-responseForgetDevice :: ForgetDeviceResponse -> TestTree
-responseForgetDevice = res
-    "ForgetDeviceResponse"
-    "fixture/ForgetDeviceResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy ForgetDevice)
+responseListDevices :: ListDevicesResponse -> TestTree
+responseListDevices =
+  res
+    "ListDevicesResponse"
+    "fixture/ListDevicesResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListDevices)
 
-responseGetSigningCertificate :: GetSigningCertificateResponse -> TestTree
-responseGetSigningCertificate = res
-    "GetSigningCertificateResponse"
-    "fixture/GetSigningCertificateResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy GetSigningCertificate)
+responseAdminGetDevice :: AdminGetDeviceResponse -> TestTree
+responseAdminGetDevice =
+  res
+    "AdminGetDeviceResponse"
+    "fixture/AdminGetDeviceResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminGetDevice)
 
-responseDeleteUser :: DeleteUserResponse -> TestTree
-responseDeleteUser = res
-    "DeleteUserResponse"
-    "fixture/DeleteUserResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy DeleteUser)
+responseCreateUserPool :: CreateUserPoolResponse -> TestTree
+responseCreateUserPool =
+  res
+    "CreateUserPoolResponse"
+    "fixture/CreateUserPoolResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateUserPool)
 
-responseCreateUserPoolClient :: CreateUserPoolClientResponse -> TestTree
-responseCreateUserPoolClient = res
-    "CreateUserPoolClientResponse"
-    "fixture/CreateUserPoolClientResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy CreateUserPoolClient)
+responseAdminRemoveUserFromGroup :: AdminRemoveUserFromGroupResponse -> TestTree
+responseAdminRemoveUserFromGroup =
+  res
+    "AdminRemoveUserFromGroupResponse"
+    "fixture/AdminRemoveUserFromGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminRemoveUserFromGroup)
 
-responseGetUserPoolMFAConfig :: GetUserPoolMFAConfigResponse -> TestTree
-responseGetUserPoolMFAConfig = res
-    "GetUserPoolMFAConfigResponse"
-    "fixture/GetUserPoolMFAConfigResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy GetUserPoolMFAConfig)
-
-responseCreateResourceServer :: CreateResourceServerResponse -> TestTree
-responseCreateResourceServer = res
-    "CreateResourceServerResponse"
-    "fixture/CreateResourceServerResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy CreateResourceServer)
-
-responseAdminListUserAuthEvents :: AdminListUserAuthEventsResponse -> TestTree
-responseAdminListUserAuthEvents = res
-    "AdminListUserAuthEventsResponse"
-    "fixture/AdminListUserAuthEventsResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminListUserAuthEvents)
-
-responseCreateGroup :: CreateGroupResponse -> TestTree
-responseCreateGroup = res
-    "CreateGroupResponse"
-    "fixture/CreateGroupResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy CreateGroup)
-
-responseAdminAddUserToGroup :: AdminAddUserToGroupResponse -> TestTree
-responseAdminAddUserToGroup = res
-    "AdminAddUserToGroupResponse"
-    "fixture/AdminAddUserToGroupResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminAddUserToGroup)
-
-responseVerifySoftwareToken :: VerifySoftwareTokenResponse -> TestTree
-responseVerifySoftwareToken = res
-    "VerifySoftwareTokenResponse"
-    "fixture/VerifySoftwareTokenResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy VerifySoftwareToken)
-
-responseStopUserImportJob :: StopUserImportJobResponse -> TestTree
-responseStopUserImportJob = res
-    "StopUserImportJobResponse"
-    "fixture/StopUserImportJobResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy StopUserImportJob)
-
-responseDescribeUserImportJob :: DescribeUserImportJobResponse -> TestTree
-responseDescribeUserImportJob = res
-    "DescribeUserImportJobResponse"
-    "fixture/DescribeUserImportJobResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy DescribeUserImportJob)
-
-responseDescribeRiskConfiguration :: DescribeRiskConfigurationResponse -> TestTree
-responseDescribeRiskConfiguration = res
-    "DescribeRiskConfigurationResponse"
-    "fixture/DescribeRiskConfigurationResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy DescribeRiskConfiguration)
-
-responseDeleteGroup :: DeleteGroupResponse -> TestTree
-responseDeleteGroup = res
-    "DeleteGroupResponse"
-    "fixture/DeleteGroupResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy DeleteGroup)
-
-responseUpdateGroup :: UpdateGroupResponse -> TestTree
-responseUpdateGroup = res
-    "UpdateGroupResponse"
-    "fixture/UpdateGroupResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy UpdateGroup)
-
-responseGlobalSignOut :: GlobalSignOutResponse -> TestTree
-responseGlobalSignOut = res
-    "GlobalSignOutResponse"
-    "fixture/GlobalSignOutResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy GlobalSignOut)
+responseSetRiskConfiguration :: SetRiskConfigurationResponse -> TestTree
+responseSetRiskConfiguration =
+  res
+    "SetRiskConfigurationResponse"
+    "fixture/SetRiskConfigurationResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetRiskConfiguration)
 
 responseListGroups :: ListGroupsResponse -> TestTree
-responseListGroups = res
+responseListGroups =
+  res
     "ListGroupsResponse"
     "fixture/ListGroupsResponse.proto"
-    cognitoIdentityProvider
+    defaultService
     (Proxy :: Proxy ListGroups)
 
 responseUpdateIdentityProvider :: UpdateIdentityProviderResponse -> TestTree
-responseUpdateIdentityProvider = res
+responseUpdateIdentityProvider =
+  res
     "UpdateIdentityProviderResponse"
     "fixture/UpdateIdentityProviderResponse.proto"
-    cognitoIdentityProvider
+    defaultService
     (Proxy :: Proxy UpdateIdentityProvider)
 
+responseListIdentityProviders :: ListIdentityProvidersResponse -> TestTree
+responseListIdentityProviders =
+  res
+    "ListIdentityProvidersResponse"
+    "fixture/ListIdentityProvidersResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListIdentityProviders)
+
+responseGetDevice :: GetDeviceResponse -> TestTree
+responseGetDevice =
+  res
+    "GetDeviceResponse"
+    "fixture/GetDeviceResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetDevice)
+
 responseDeleteIdentityProvider :: DeleteIdentityProviderResponse -> TestTree
-responseDeleteIdentityProvider = res
+responseDeleteIdentityProvider =
+  res
     "DeleteIdentityProviderResponse"
     "fixture/DeleteIdentityProviderResponse.proto"
-    cognitoIdentityProvider
+    defaultService
     (Proxy :: Proxy DeleteIdentityProvider)
 
-responseListResourceServers :: ListResourceServersResponse -> TestTree
-responseListResourceServers = res
-    "ListResourceServersResponse"
-    "fixture/ListResourceServersResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy ListResourceServers)
-
-responseAdminRespondToAuthChallenge :: AdminRespondToAuthChallengeResponse -> TestTree
-responseAdminRespondToAuthChallenge = res
-    "AdminRespondToAuthChallengeResponse"
-    "fixture/AdminRespondToAuthChallengeResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy AdminRespondToAuthChallenge)
-
-responseSetUserSettings :: SetUserSettingsResponse -> TestTree
-responseSetUserSettings = res
-    "SetUserSettingsResponse"
-    "fixture/SetUserSettingsResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy SetUserSettings)
-
 responseAdminListDevices :: AdminListDevicesResponse -> TestTree
-responseAdminListDevices = res
+responseAdminListDevices =
+  res
     "AdminListDevicesResponse"
     "fixture/AdminListDevicesResponse.proto"
-    cognitoIdentityProvider
+    defaultService
     (Proxy :: Proxy AdminListDevices)
 
-responseDescribeUserPoolClient :: DescribeUserPoolClientResponse -> TestTree
-responseDescribeUserPoolClient = res
-    "DescribeUserPoolClientResponse"
-    "fixture/DescribeUserPoolClientResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy DescribeUserPoolClient)
+responseAdminConfirmSignUp :: AdminConfirmSignUpResponse -> TestTree
+responseAdminConfirmSignUp =
+  res
+    "AdminConfirmSignUpResponse"
+    "fixture/AdminConfirmSignUpResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminConfirmSignUp)
 
-responseResendConfirmationCode :: ResendConfirmationCodeResponse -> TestTree
-responseResendConfirmationCode = res
-    "ResendConfirmationCodeResponse"
-    "fixture/ResendConfirmationCodeResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy ResendConfirmationCode)
+responseSetUICustomization :: SetUICustomizationResponse -> TestTree
+responseSetUICustomization =
+  res
+    "SetUICustomizationResponse"
+    "fixture/SetUICustomizationResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetUICustomization)
 
-responseGetGroup :: GetGroupResponse -> TestTree
-responseGetGroup = res
-    "GetGroupResponse"
-    "fixture/GetGroupResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy GetGroup)
+responseAdminListUserAuthEvents :: AdminListUserAuthEventsResponse -> TestTree
+responseAdminListUserAuthEvents =
+  res
+    "AdminListUserAuthEventsResponse"
+    "fixture/AdminListUserAuthEventsResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminListUserAuthEvents)
+
+responseAdminAddUserToGroup :: AdminAddUserToGroupResponse -> TestTree
+responseAdminAddUserToGroup =
+  res
+    "AdminAddUserToGroupResponse"
+    "fixture/AdminAddUserToGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminAddUserToGroup)
+
+responseVerifySoftwareToken :: VerifySoftwareTokenResponse -> TestTree
+responseVerifySoftwareToken =
+  res
+    "VerifySoftwareTokenResponse"
+    "fixture/VerifySoftwareTokenResponse.proto"
+    defaultService
+    (Proxy :: Proxy VerifySoftwareToken)
+
+responseStopUserImportJob :: StopUserImportJobResponse -> TestTree
+responseStopUserImportJob =
+  res
+    "StopUserImportJobResponse"
+    "fixture/StopUserImportJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopUserImportJob)
+
+responseCreateIdentityProvider :: CreateIdentityProviderResponse -> TestTree
+responseCreateIdentityProvider =
+  res
+    "CreateIdentityProviderResponse"
+    "fixture/CreateIdentityProviderResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateIdentityProvider)
+
+responseInitiateAuth :: InitiateAuthResponse -> TestTree
+responseInitiateAuth =
+  res
+    "InitiateAuthResponse"
+    "fixture/InitiateAuthResponse.proto"
+    defaultService
+    (Proxy :: Proxy InitiateAuth)
+
+responseAdminSetUserPassword :: AdminSetUserPasswordResponse -> TestTree
+responseAdminSetUserPassword =
+  res
+    "AdminSetUserPasswordResponse"
+    "fixture/AdminSetUserPasswordResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminSetUserPassword)
+
+responseUntagResource :: UntagResourceResponse -> TestTree
+responseUntagResource =
+  res
+    "UntagResourceResponse"
+    "fixture/UntagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagResource)
+
+responseAdminListGroupsForUser :: AdminListGroupsForUserResponse -> TestTree
+responseAdminListGroupsForUser =
+  res
+    "AdminListGroupsForUserResponse"
+    "fixture/AdminListGroupsForUserResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminListGroupsForUser)
+
+responseAdminUpdateAuthEventFeedback :: AdminUpdateAuthEventFeedbackResponse -> TestTree
+responseAdminUpdateAuthEventFeedback =
+  res
+    "AdminUpdateAuthEventFeedbackResponse"
+    "fixture/AdminUpdateAuthEventFeedbackResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminUpdateAuthEventFeedback)
+
+responseCreateGroup :: CreateGroupResponse -> TestTree
+responseCreateGroup =
+  res
+    "CreateGroupResponse"
+    "fixture/CreateGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateGroup)
+
+responseStartUserImportJob :: StartUserImportJobResponse -> TestTree
+responseStartUserImportJob =
+  res
+    "StartUserImportJobResponse"
+    "fixture/StartUserImportJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartUserImportJob)
+
+responseDescribeUserPoolDomain :: DescribeUserPoolDomainResponse -> TestTree
+responseDescribeUserPoolDomain =
+  res
+    "DescribeUserPoolDomainResponse"
+    "fixture/DescribeUserPoolDomainResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeUserPoolDomain)
+
+responseListUsersInGroup :: ListUsersInGroupResponse -> TestTree
+responseListUsersInGroup =
+  res
+    "ListUsersInGroupResponse"
+    "fixture/ListUsersInGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListUsersInGroup)
+
+responseAdminUserGlobalSignOut :: AdminUserGlobalSignOutResponse -> TestTree
+responseAdminUserGlobalSignOut =
+  res
+    "AdminUserGlobalSignOutResponse"
+    "fixture/AdminUserGlobalSignOutResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminUserGlobalSignOut)
+
+responseDescribeUserPool :: DescribeUserPoolResponse -> TestTree
+responseDescribeUserPool =
+  res
+    "DescribeUserPoolResponse"
+    "fixture/DescribeUserPoolResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeUserPool)
+
+responseAdminGetUser :: AdminGetUserResponse -> TestTree
+responseAdminGetUser =
+  res
+    "AdminGetUserResponse"
+    "fixture/AdminGetUserResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminGetUser)
+
+responseGetSigningCertificate :: GetSigningCertificateResponse -> TestTree
+responseGetSigningCertificate =
+  res
+    "GetSigningCertificateResponse"
+    "fixture/GetSigningCertificateResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetSigningCertificate)
+
+responseTagResource :: TagResourceResponse -> TestTree
+responseTagResource =
+  res
+    "TagResourceResponse"
+    "fixture/TagResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagResource)
+
+responseAssociateSoftwareToken :: AssociateSoftwareTokenResponse -> TestTree
+responseAssociateSoftwareToken =
+  res
+    "AssociateSoftwareTokenResponse"
+    "fixture/AssociateSoftwareTokenResponse.proto"
+    defaultService
+    (Proxy :: Proxy AssociateSoftwareToken)
+
+responseForgotPassword :: ForgotPasswordResponse -> TestTree
+responseForgotPassword =
+  res
+    "ForgotPasswordResponse"
+    "fixture/ForgotPasswordResponse.proto"
+    defaultService
+    (Proxy :: Proxy ForgotPassword)
+
+responseUpdateDeviceStatus :: UpdateDeviceStatusResponse -> TestTree
+responseUpdateDeviceStatus =
+  res
+    "UpdateDeviceStatusResponse"
+    "fixture/UpdateDeviceStatusResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateDeviceStatus)
+
+responseDeleteUserPoolClient :: DeleteUserPoolClientResponse -> TestTree
+responseDeleteUserPoolClient =
+  res
+    "DeleteUserPoolClientResponse"
+    "fixture/DeleteUserPoolClientResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteUserPoolClient)
+
+responseUpdateUserPoolClient :: UpdateUserPoolClientResponse -> TestTree
+responseUpdateUserPoolClient =
+  res
+    "UpdateUserPoolClientResponse"
+    "fixture/UpdateUserPoolClientResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateUserPoolClient)
+
+responseForgetDevice :: ForgetDeviceResponse -> TestTree
+responseForgetDevice =
+  res
+    "ForgetDeviceResponse"
+    "fixture/ForgetDeviceResponse.proto"
+    defaultService
+    (Proxy :: Proxy ForgetDevice)
+
+responseAdminDisableUser :: AdminDisableUserResponse -> TestTree
+responseAdminDisableUser =
+  res
+    "AdminDisableUserResponse"
+    "fixture/AdminDisableUserResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminDisableUser)
+
+responseAdminCreateUser :: AdminCreateUserResponse -> TestTree
+responseAdminCreateUser =
+  res
+    "AdminCreateUserResponse"
+    "fixture/AdminCreateUserResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminCreateUser)
+
+responseAdminUpdateDeviceStatus :: AdminUpdateDeviceStatusResponse -> TestTree
+responseAdminUpdateDeviceStatus =
+  res
+    "AdminUpdateDeviceStatusResponse"
+    "fixture/AdminUpdateDeviceStatusResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminUpdateDeviceStatus)
+
+responseAdminForgetDevice :: AdminForgetDeviceResponse -> TestTree
+responseAdminForgetDevice =
+  res
+    "AdminForgetDeviceResponse"
+    "fixture/AdminForgetDeviceResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminForgetDevice)
+
+responseDescribeIdentityProvider :: DescribeIdentityProviderResponse -> TestTree
+responseDescribeIdentityProvider =
+  res
+    "DescribeIdentityProviderResponse"
+    "fixture/DescribeIdentityProviderResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeIdentityProvider)
+
+responseListUserImportJobs :: ListUserImportJobsResponse -> TestTree
+responseListUserImportJobs =
+  res
+    "ListUserImportJobsResponse"
+    "fixture/ListUserImportJobsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListUserImportJobs)
+
+responseGetUICustomization :: GetUICustomizationResponse -> TestTree
+responseGetUICustomization =
+  res
+    "GetUICustomizationResponse"
+    "fixture/GetUICustomizationResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetUICustomization)
+
+responseGetCSVHeader :: GetCSVHeaderResponse -> TestTree
+responseGetCSVHeader =
+  res
+    "GetCSVHeaderResponse"
+    "fixture/GetCSVHeaderResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetCSVHeader)
+
+responseAdminEnableUser :: AdminEnableUserResponse -> TestTree
+responseAdminEnableUser =
+  res
+    "AdminEnableUserResponse"
+    "fixture/AdminEnableUserResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminEnableUser)
+
+responseAdminInitiateAuth :: AdminInitiateAuthResponse -> TestTree
+responseAdminInitiateAuth =
+  res
+    "AdminInitiateAuthResponse"
+    "fixture/AdminInitiateAuthResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminInitiateAuth)
+
+responseAdminResetUserPassword :: AdminResetUserPasswordResponse -> TestTree
+responseAdminResetUserPassword =
+  res
+    "AdminResetUserPasswordResponse"
+    "fixture/AdminResetUserPasswordResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminResetUserPassword)
+
+responseGetIdentityProviderByIdentifier :: GetIdentityProviderByIdentifierResponse -> TestTree
+responseGetIdentityProviderByIdentifier =
+  res
+    "GetIdentityProviderByIdentifierResponse"
+    "fixture/GetIdentityProviderByIdentifierResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetIdentityProviderByIdentifier)
 
 responseAdminSetUserSettings :: AdminSetUserSettingsResponse -> TestTree
-responseAdminSetUserSettings = res
+responseAdminSetUserSettings =
+  res
     "AdminSetUserSettingsResponse"
     "fixture/AdminSetUserSettingsResponse.proto"
-    cognitoIdentityProvider
+    defaultService
     (Proxy :: Proxy AdminSetUserSettings)
 
-responseListDevices :: ListDevicesResponse -> TestTree
-responseListDevices = res
-    "ListDevicesResponse"
-    "fixture/ListDevicesResponse.proto"
-    cognitoIdentityProvider
-    (Proxy :: Proxy ListDevices)
+responseDescribeUserPoolClient :: DescribeUserPoolClientResponse -> TestTree
+responseDescribeUserPoolClient =
+  res
+    "DescribeUserPoolClientResponse"
+    "fixture/DescribeUserPoolClientResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeUserPoolClient)
+
+responseGetGroup :: GetGroupResponse -> TestTree
+responseGetGroup =
+  res
+    "GetGroupResponse"
+    "fixture/GetGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetGroup)
+
+responseResendConfirmationCode :: ResendConfirmationCodeResponse -> TestTree
+responseResendConfirmationCode =
+  res
+    "ResendConfirmationCodeResponse"
+    "fixture/ResendConfirmationCodeResponse.proto"
+    defaultService
+    (Proxy :: Proxy ResendConfirmationCode)
+
+responseAdminRespondToAuthChallenge :: AdminRespondToAuthChallengeResponse -> TestTree
+responseAdminRespondToAuthChallenge =
+  res
+    "AdminRespondToAuthChallengeResponse"
+    "fixture/AdminRespondToAuthChallengeResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminRespondToAuthChallenge)
+
+responseSignUp :: SignUpResponse -> TestTree
+responseSignUp =
+  res
+    "SignUpResponse"
+    "fixture/SignUpResponse.proto"
+    defaultService
+    (Proxy :: Proxy SignUp)
+
+responseDescribeUserImportJob :: DescribeUserImportJobResponse -> TestTree
+responseDescribeUserImportJob =
+  res
+    "DescribeUserImportJobResponse"
+    "fixture/DescribeUserImportJobResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeUserImportJob)
+
+responseUpdateGroup :: UpdateGroupResponse -> TestTree
+responseUpdateGroup =
+  res
+    "UpdateGroupResponse"
+    "fixture/UpdateGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateGroup)
+
+responseUpdateResourceServer :: UpdateResourceServerResponse -> TestTree
+responseUpdateResourceServer =
+  res
+    "UpdateResourceServerResponse"
+    "fixture/UpdateResourceServerResponse.proto"
+    defaultService
+    (Proxy :: Proxy UpdateResourceServer)
+
+responseDeleteGroup :: DeleteGroupResponse -> TestTree
+responseDeleteGroup =
+  res
+    "DeleteGroupResponse"
+    "fixture/DeleteGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteGroup)
+
+responseSetUserSettings :: SetUserSettingsResponse -> TestTree
+responseSetUserSettings =
+  res
+    "SetUserSettingsResponse"
+    "fixture/SetUserSettingsResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetUserSettings)
+
+responseListResourceServers :: ListResourceServersResponse -> TestTree
+responseListResourceServers =
+  res
+    "ListResourceServersResponse"
+    "fixture/ListResourceServersResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListResourceServers)
+
+responseDeleteResourceServer :: DeleteResourceServerResponse -> TestTree
+responseDeleteResourceServer =
+  res
+    "DeleteResourceServerResponse"
+    "fixture/DeleteResourceServerResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteResourceServer)
+
+responseDescribeRiskConfiguration :: DescribeRiskConfigurationResponse -> TestTree
+responseDescribeRiskConfiguration =
+  res
+    "DescribeRiskConfigurationResponse"
+    "fixture/DescribeRiskConfigurationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeRiskConfiguration)
+
+responseGlobalSignOut :: GlobalSignOutResponse -> TestTree
+responseGlobalSignOut =
+  res
+    "GlobalSignOutResponse"
+    "fixture/GlobalSignOutResponse.proto"
+    defaultService
+    (Proxy :: Proxy GlobalSignOut)
+
+responseGetUserPoolMfaConfig :: GetUserPoolMfaConfigResponse -> TestTree
+responseGetUserPoolMfaConfig =
+  res
+    "GetUserPoolMfaConfigResponse"
+    "fixture/GetUserPoolMfaConfigResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetUserPoolMfaConfig)
+
+responseCreateResourceServer :: CreateResourceServerResponse -> TestTree
+responseCreateResourceServer =
+  res
+    "CreateResourceServerResponse"
+    "fixture/CreateResourceServerResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateResourceServer)
+
+responseAdminUpdateUserAttributes :: AdminUpdateUserAttributesResponse -> TestTree
+responseAdminUpdateUserAttributes =
+  res
+    "AdminUpdateUserAttributesResponse"
+    "fixture/AdminUpdateUserAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminUpdateUserAttributes)
+
+responseDeleteUser :: DeleteUserResponse -> TestTree
+responseDeleteUser =
+  res
+    "DeleteUserResponse"
+    "fixture/DeleteUserResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteUser)
+
+responseAdminDeleteUserAttributes :: AdminDeleteUserAttributesResponse -> TestTree
+responseAdminDeleteUserAttributes =
+  res
+    "AdminDeleteUserAttributesResponse"
+    "fixture/AdminDeleteUserAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminDeleteUserAttributes)
+
+responseListUsers :: ListUsersResponse -> TestTree
+responseListUsers =
+  res
+    "ListUsersResponse"
+    "fixture/ListUsersResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListUsers)
+
+responseAdminDisableProviderForUser :: AdminDisableProviderForUserResponse -> TestTree
+responseAdminDisableProviderForUser =
+  res
+    "AdminDisableProviderForUserResponse"
+    "fixture/AdminDisableProviderForUserResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminDisableProviderForUser)
+
+responseCreateUserPoolClient :: CreateUserPoolClientResponse -> TestTree
+responseCreateUserPoolClient =
+  res
+    "CreateUserPoolClientResponse"
+    "fixture/CreateUserPoolClientResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateUserPoolClient)
+
+responseListUserPoolClients :: ListUserPoolClientsResponse -> TestTree
+responseListUserPoolClients =
+  res
+    "ListUserPoolClientsResponse"
+    "fixture/ListUserPoolClientsResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListUserPoolClients)
+
+responseAddCustomAttributes :: AddCustomAttributesResponse -> TestTree
+responseAddCustomAttributes =
+  res
+    "AddCustomAttributesResponse"
+    "fixture/AddCustomAttributesResponse.proto"
+    defaultService
+    (Proxy :: Proxy AddCustomAttributes)
+
+responseAdminSetUserMFAPreference :: AdminSetUserMFAPreferenceResponse -> TestTree
+responseAdminSetUserMFAPreference =
+  res
+    "AdminSetUserMFAPreferenceResponse"
+    "fixture/AdminSetUserMFAPreferenceResponse.proto"
+    defaultService
+    (Proxy :: Proxy AdminSetUserMFAPreference)
+
+responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
+responseListTagsForResource =
+  res
+    "ListTagsForResourceResponse"
+    "fixture/ListTagsForResourceResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTagsForResource)
+
+responseConfirmForgotPassword :: ConfirmForgotPasswordResponse -> TestTree
+responseConfirmForgotPassword =
+  res
+    "ConfirmForgotPasswordResponse"
+    "fixture/ConfirmForgotPasswordResponse.proto"
+    defaultService
+    (Proxy :: Proxy ConfirmForgotPassword)
+
+responseSetUserMFAPreference :: SetUserMFAPreferenceResponse -> TestTree
+responseSetUserMFAPreference =
+  res
+    "SetUserMFAPreferenceResponse"
+    "fixture/SetUserMFAPreferenceResponse.proto"
+    defaultService
+    (Proxy :: Proxy SetUserMFAPreference)
+
+responseVerifyUserAttribute :: VerifyUserAttributeResponse -> TestTree
+responseVerifyUserAttribute =
+  res
+    "VerifyUserAttributeResponse"
+    "fixture/VerifyUserAttributeResponse.proto"
+    defaultService
+    (Proxy :: Proxy VerifyUserAttribute)
+
+responseConfirmDevice :: ConfirmDeviceResponse -> TestTree
+responseConfirmDevice =
+  res
+    "ConfirmDeviceResponse"
+    "fixture/ConfirmDeviceResponse.proto"
+    defaultService
+    (Proxy :: Proxy ConfirmDevice)
+
+responseDescribeResourceServer :: DescribeResourceServerResponse -> TestTree
+responseDescribeResourceServer =
+  res
+    "DescribeResourceServerResponse"
+    "fixture/DescribeResourceServerResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeResourceServer)

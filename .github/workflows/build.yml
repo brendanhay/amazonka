@@ -35,4 +35,4 @@ jobs:
       - if: ${{ matrix.os != 'macos-latest' }}
         run: sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt &
 
-      - run: nix-build -A ci.libraries -A ci.checks --argstr ghcVersion ${{ matrix.ghc }}
+      - run: nix-build -A ci --argstr ghcVersion ${{ matrix.ghc }}

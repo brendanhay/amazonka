@@ -1,177 +1,226 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Kinesis.ListTagsForStream
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the tags for the specified Kinesis data stream. This operation has a limit of five transactions per second per account.
---
---
+-- Lists the tags for the specified Kinesis data stream. This operation has
+-- a limit of five transactions per second per account.
 module Network.AWS.Kinesis.ListTagsForStream
-    (
-    -- * Creating a Request
-      listTagsForStream
-    , ListTagsForStream
+  ( -- * Creating a Request
+    ListTagsForStream (..),
+    newListTagsForStream,
+
     -- * Request Lenses
-    , ltfsLimit
-    , ltfsExclusiveStartTagKey
-    , ltfsStreamName
+    listTagsForStream_exclusiveStartTagKey,
+    listTagsForStream_limit,
+    listTagsForStream_streamName,
 
     -- * Destructuring the Response
-    , listTagsForStreamResponse
-    , ListTagsForStreamResponse
+    ListTagsForStreamResponse (..),
+    newListTagsForStreamResponse,
+
     -- * Response Lenses
-    , ltfsrsResponseStatus
-    , ltfsrsTags
-    , ltfsrsHasMoreTags
-    ) where
+    listTagsForStreamResponse_httpStatus,
+    listTagsForStreamResponse_tags,
+    listTagsForStreamResponse_hasMoreTags,
+  )
+where
 
 import Network.AWS.Kinesis.Types
-import Network.AWS.Kinesis.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input for @ListTagsForStream@ .
+-- | Represents the input for @ListTagsForStream@.
 --
---
---
--- /See:/ 'listTagsForStream' smart constructor.
+-- /See:/ 'newListTagsForStream' smart constructor.
 data ListTagsForStream = ListTagsForStream'
-  { _ltfsLimit                :: !(Maybe Nat)
-  , _ltfsExclusiveStartTagKey :: !(Maybe Text)
-  , _ltfsStreamName           :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The key to use as the starting point for the list of tags. If this
+    -- parameter is set, @ListTagsForStream@ gets all tags that occur after
+    -- @ExclusiveStartTagKey@.
+    exclusiveStartTagKey :: Prelude.Maybe Prelude.Text,
+    -- | The number of tags to return. If this number is less than the total
+    -- number of tags associated with the stream, @HasMoreTags@ is set to
+    -- @true@. To list additional tags, set @ExclusiveStartTagKey@ to the last
+    -- key in the response.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | The name of the stream.
+    streamName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListTagsForStream' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListTagsForStream' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ltfsLimit' - The number of tags to return. If this number is less than the total number of tags associated with the stream, @HasMoreTags@ is set to @true@ . To list additional tags, set @ExclusiveStartTagKey@ to the last key in the response.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ltfsExclusiveStartTagKey' - The key to use as the starting point for the list of tags. If this parameter is set, @ListTagsForStream@ gets all tags that occur after @ExclusiveStartTagKey@ .
+-- 'exclusiveStartTagKey', 'listTagsForStream_exclusiveStartTagKey' - The key to use as the starting point for the list of tags. If this
+-- parameter is set, @ListTagsForStream@ gets all tags that occur after
+-- @ExclusiveStartTagKey@.
 --
--- * 'ltfsStreamName' - The name of the stream.
-listTagsForStream
-    :: Text -- ^ 'ltfsStreamName'
-    -> ListTagsForStream
-listTagsForStream pStreamName_ =
+-- 'limit', 'listTagsForStream_limit' - The number of tags to return. If this number is less than the total
+-- number of tags associated with the stream, @HasMoreTags@ is set to
+-- @true@. To list additional tags, set @ExclusiveStartTagKey@ to the last
+-- key in the response.
+--
+-- 'streamName', 'listTagsForStream_streamName' - The name of the stream.
+newListTagsForStream ::
+  -- | 'streamName'
+  Prelude.Text ->
+  ListTagsForStream
+newListTagsForStream pStreamName_ =
   ListTagsForStream'
-    { _ltfsLimit = Nothing
-    , _ltfsExclusiveStartTagKey = Nothing
-    , _ltfsStreamName = pStreamName_
+    { exclusiveStartTagKey =
+        Prelude.Nothing,
+      limit = Prelude.Nothing,
+      streamName = pStreamName_
     }
 
+-- | The key to use as the starting point for the list of tags. If this
+-- parameter is set, @ListTagsForStream@ gets all tags that occur after
+-- @ExclusiveStartTagKey@.
+listTagsForStream_exclusiveStartTagKey :: Lens.Lens' ListTagsForStream (Prelude.Maybe Prelude.Text)
+listTagsForStream_exclusiveStartTagKey = Lens.lens (\ListTagsForStream' {exclusiveStartTagKey} -> exclusiveStartTagKey) (\s@ListTagsForStream' {} a -> s {exclusiveStartTagKey = a} :: ListTagsForStream)
 
--- | The number of tags to return. If this number is less than the total number of tags associated with the stream, @HasMoreTags@ is set to @true@ . To list additional tags, set @ExclusiveStartTagKey@ to the last key in the response.
-ltfsLimit :: Lens' ListTagsForStream (Maybe Natural)
-ltfsLimit = lens _ltfsLimit (\ s a -> s{_ltfsLimit = a}) . mapping _Nat
-
--- | The key to use as the starting point for the list of tags. If this parameter is set, @ListTagsForStream@ gets all tags that occur after @ExclusiveStartTagKey@ .
-ltfsExclusiveStartTagKey :: Lens' ListTagsForStream (Maybe Text)
-ltfsExclusiveStartTagKey = lens _ltfsExclusiveStartTagKey (\ s a -> s{_ltfsExclusiveStartTagKey = a})
+-- | The number of tags to return. If this number is less than the total
+-- number of tags associated with the stream, @HasMoreTags@ is set to
+-- @true@. To list additional tags, set @ExclusiveStartTagKey@ to the last
+-- key in the response.
+listTagsForStream_limit :: Lens.Lens' ListTagsForStream (Prelude.Maybe Prelude.Natural)
+listTagsForStream_limit = Lens.lens (\ListTagsForStream' {limit} -> limit) (\s@ListTagsForStream' {} a -> s {limit = a} :: ListTagsForStream)
 
 -- | The name of the stream.
-ltfsStreamName :: Lens' ListTagsForStream Text
-ltfsStreamName = lens _ltfsStreamName (\ s a -> s{_ltfsStreamName = a})
+listTagsForStream_streamName :: Lens.Lens' ListTagsForStream Prelude.Text
+listTagsForStream_streamName = Lens.lens (\ListTagsForStream' {streamName} -> streamName) (\s@ListTagsForStream' {} a -> s {streamName = a} :: ListTagsForStream)
 
-instance AWSRequest ListTagsForStream where
-        type Rs ListTagsForStream = ListTagsForStreamResponse
-        request = postJSON kinesis
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListTagsForStreamResponse' <$>
-                   (pure (fromEnum s)) <*> (x .?> "Tags" .!@ mempty) <*>
-                     (x .:> "HasMoreTags"))
+instance Prelude.AWSRequest ListTagsForStream where
+  type Rs ListTagsForStream = ListTagsForStreamResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListTagsForStreamResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Prelude..?> "Tags" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (x Prelude..:> "HasMoreTags")
+      )
 
-instance Hashable ListTagsForStream where
+instance Prelude.Hashable ListTagsForStream
 
-instance NFData ListTagsForStream where
+instance Prelude.NFData ListTagsForStream
 
-instance ToHeaders ListTagsForStream where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Kinesis_20131202.ListTagsForStream" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders ListTagsForStream where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "Kinesis_20131202.ListTagsForStream" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON ListTagsForStream where
-        toJSON ListTagsForStream'{..}
-          = object
-              (catMaybes
-                 [("Limit" .=) <$> _ltfsLimit,
-                  ("ExclusiveStartTagKey" .=) <$>
-                    _ltfsExclusiveStartTagKey,
-                  Just ("StreamName" .= _ltfsStreamName)])
+instance Prelude.ToJSON ListTagsForStream where
+  toJSON ListTagsForStream' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("ExclusiveStartTagKey" Prelude..=)
+              Prelude.<$> exclusiveStartTagKey,
+            ("Limit" Prelude..=) Prelude.<$> limit,
+            Prelude.Just ("StreamName" Prelude..= streamName)
+          ]
+      )
 
-instance ToPath ListTagsForStream where
-        toPath = const "/"
+instance Prelude.ToPath ListTagsForStream where
+  toPath = Prelude.const "/"
 
-instance ToQuery ListTagsForStream where
-        toQuery = const mempty
+instance Prelude.ToQuery ListTagsForStream where
+  toQuery = Prelude.const Prelude.mempty
 
--- | Represents the output for @ListTagsForStream@ .
+-- | Represents the output for @ListTagsForStream@.
 --
---
---
--- /See:/ 'listTagsForStreamResponse' smart constructor.
+-- /See:/ 'newListTagsForStreamResponse' smart constructor.
 data ListTagsForStreamResponse = ListTagsForStreamResponse'
-  { _ltfsrsResponseStatus :: !Int
-  , _ltfsrsTags           :: ![Tag]
-  , _ltfsrsHasMoreTags    :: !Bool
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A list of tags associated with @StreamName@, starting with the first tag
+    -- after @ExclusiveStartTagKey@ and up to the specified @Limit@.
+    tags :: [Tag],
+    -- | If set to @true@, more tags are available. To request additional tags,
+    -- set @ExclusiveStartTagKey@ to the key of the last tag returned.
+    hasMoreTags :: Prelude.Bool
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListTagsForStreamResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListTagsForStreamResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ltfsrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ltfsrsTags' - A list of tags associated with @StreamName@ , starting with the first tag after @ExclusiveStartTagKey@ and up to the specified @Limit@ .
+-- 'httpStatus', 'listTagsForStreamResponse_httpStatus' - The response's http status code.
 --
--- * 'ltfsrsHasMoreTags' - If set to @true@ , more tags are available. To request additional tags, set @ExclusiveStartTagKey@ to the key of the last tag returned.
-listTagsForStreamResponse
-    :: Int -- ^ 'ltfsrsResponseStatus'
-    -> Bool -- ^ 'ltfsrsHasMoreTags'
-    -> ListTagsForStreamResponse
-listTagsForStreamResponse pResponseStatus_ pHasMoreTags_ =
-  ListTagsForStreamResponse'
-    { _ltfsrsResponseStatus = pResponseStatus_
-    , _ltfsrsTags = mempty
-    , _ltfsrsHasMoreTags = pHasMoreTags_
-    }
+-- 'tags', 'listTagsForStreamResponse_tags' - A list of tags associated with @StreamName@, starting with the first tag
+-- after @ExclusiveStartTagKey@ and up to the specified @Limit@.
+--
+-- 'hasMoreTags', 'listTagsForStreamResponse_hasMoreTags' - If set to @true@, more tags are available. To request additional tags,
+-- set @ExclusiveStartTagKey@ to the key of the last tag returned.
+newListTagsForStreamResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'hasMoreTags'
+  Prelude.Bool ->
+  ListTagsForStreamResponse
+newListTagsForStreamResponse
+  pHttpStatus_
+  pHasMoreTags_ =
+    ListTagsForStreamResponse'
+      { httpStatus =
+          pHttpStatus_,
+        tags = Prelude.mempty,
+        hasMoreTags = pHasMoreTags_
+      }
 
+-- | The response's http status code.
+listTagsForStreamResponse_httpStatus :: Lens.Lens' ListTagsForStreamResponse Prelude.Int
+listTagsForStreamResponse_httpStatus = Lens.lens (\ListTagsForStreamResponse' {httpStatus} -> httpStatus) (\s@ListTagsForStreamResponse' {} a -> s {httpStatus = a} :: ListTagsForStreamResponse)
 
--- | -- | The response status code.
-ltfsrsResponseStatus :: Lens' ListTagsForStreamResponse Int
-ltfsrsResponseStatus = lens _ltfsrsResponseStatus (\ s a -> s{_ltfsrsResponseStatus = a})
+-- | A list of tags associated with @StreamName@, starting with the first tag
+-- after @ExclusiveStartTagKey@ and up to the specified @Limit@.
+listTagsForStreamResponse_tags :: Lens.Lens' ListTagsForStreamResponse [Tag]
+listTagsForStreamResponse_tags = Lens.lens (\ListTagsForStreamResponse' {tags} -> tags) (\s@ListTagsForStreamResponse' {} a -> s {tags = a} :: ListTagsForStreamResponse) Prelude.. Prelude._Coerce
 
--- | A list of tags associated with @StreamName@ , starting with the first tag after @ExclusiveStartTagKey@ and up to the specified @Limit@ .
-ltfsrsTags :: Lens' ListTagsForStreamResponse [Tag]
-ltfsrsTags = lens _ltfsrsTags (\ s a -> s{_ltfsrsTags = a}) . _Coerce
+-- | If set to @true@, more tags are available. To request additional tags,
+-- set @ExclusiveStartTagKey@ to the key of the last tag returned.
+listTagsForStreamResponse_hasMoreTags :: Lens.Lens' ListTagsForStreamResponse Prelude.Bool
+listTagsForStreamResponse_hasMoreTags = Lens.lens (\ListTagsForStreamResponse' {hasMoreTags} -> hasMoreTags) (\s@ListTagsForStreamResponse' {} a -> s {hasMoreTags = a} :: ListTagsForStreamResponse)
 
--- | If set to @true@ , more tags are available. To request additional tags, set @ExclusiveStartTagKey@ to the key of the last tag returned.
-ltfsrsHasMoreTags :: Lens' ListTagsForStreamResponse Bool
-ltfsrsHasMoreTags = lens _ltfsrsHasMoreTags (\ s a -> s{_ltfsrsHasMoreTags = a})
-
-instance NFData ListTagsForStreamResponse where
+instance Prelude.NFData ListTagsForStreamResponse

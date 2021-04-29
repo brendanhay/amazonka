@@ -1,308 +1,397 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Kinesis
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- __Amazon Kinesis Data Streams Service API Reference__
+-- Amazon Kinesis Data Streams Service API Reference
 --
--- Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.
---
+-- Amazon Kinesis Data Streams is a managed service that scales elastically
+-- for real-time processing of streaming big data.
 module Network.AWS.Kinesis
-    (
-    -- * Service Configuration
-      kinesis
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
     -- $errors
 
-    -- ** KMSInvalidStateException
-    , _KMSInvalidStateException
-
     -- ** KMSThrottlingException
-    , _KMSThrottlingException
-
-    -- ** ExpiredIteratorException
-    , _ExpiredIteratorException
-
-    -- ** InvalidArgumentException
-    , _InvalidArgumentException
-
-    -- ** KMSOptInRequired
-    , _KMSOptInRequired
-
-    -- ** ProvisionedThroughputExceededException
-    , _ProvisionedThroughputExceededException
-
-    -- ** KMSNotFoundException
-    , _KMSNotFoundException
+    _KMSThrottlingException,
 
     -- ** ExpiredNextTokenException
-    , _ExpiredNextTokenException
+    _ExpiredNextTokenException,
 
-    -- ** KMSDisabledException
-    , _KMSDisabledException
+    -- ** KMSInvalidStateException
+    _KMSInvalidStateException,
 
-    -- ** ResourceNotFoundException
-    , _ResourceNotFoundException
+    -- ** KMSNotFoundException
+    _KMSNotFoundException,
 
-    -- ** KMSAccessDeniedException
-    , _KMSAccessDeniedException
+    -- ** KMSOptInRequired
+    _KMSOptInRequired,
 
-    -- ** LimitExceededException
-    , _LimitExceededException
+    -- ** ExpiredIteratorException
+    _ExpiredIteratorException,
 
     -- ** ResourceInUseException
-    , _ResourceInUseException
+    _ResourceInUseException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** KMSAccessDeniedException
+    _KMSAccessDeniedException,
+
+    -- ** ProvisionedThroughputExceededException
+    _ProvisionedThroughputExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
+
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
+
+    -- ** KMSDisabledException
+    _KMSDisabledException,
 
     -- * Waiters
     -- $waiters
 
     -- ** StreamExists
-    , streamExists
+    newStreamExists,
 
     -- ** StreamNotExists
-    , streamNotExists
+    newStreamNotExists,
 
     -- * Operations
     -- $operations
 
-    -- ** PutRecord
-    , module Network.AWS.Kinesis.PutRecord
-
-    -- ** DecreaseStreamRetentionPeriod
-    , module Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
-
-    -- ** MergeShards
-    , module Network.AWS.Kinesis.MergeShards
-
-    -- ** DescribeStreamSummary
-    , module Network.AWS.Kinesis.DescribeStreamSummary
-
-    -- ** GetShardIterator
-    , module Network.AWS.Kinesis.GetShardIterator
-
-    -- ** GetRecords
-    , module Network.AWS.Kinesis.GetRecords
-
-    -- ** StopStreamEncryption
-    , module Network.AWS.Kinesis.StopStreamEncryption
-
-    -- ** EnableEnhancedMonitoring
-    , module Network.AWS.Kinesis.EnableEnhancedMonitoring
-
-    -- ** DescribeLimits
-    , module Network.AWS.Kinesis.DescribeLimits
-
-    -- ** DisableEnhancedMonitoring
-    , module Network.AWS.Kinesis.DisableEnhancedMonitoring
-
-    -- ** UpdateShardCount
-    , module Network.AWS.Kinesis.UpdateShardCount
-
-    -- ** ListTagsForStream
-    , module Network.AWS.Kinesis.ListTagsForStream
+    -- ** SubscribeToShard
+    SubscribeToShard (SubscribeToShard'),
+    newSubscribeToShard,
+    SubscribeToShardResponse (SubscribeToShardResponse'),
+    newSubscribeToShardResponse,
 
     -- ** AddTagsToStream
-    , module Network.AWS.Kinesis.AddTagsToStream
+    AddTagsToStream (AddTagsToStream'),
+    newAddTagsToStream,
+    AddTagsToStreamResponse (AddTagsToStreamResponse'),
+    newAddTagsToStreamResponse,
 
-    -- ** PutRecords
-    , module Network.AWS.Kinesis.PutRecords
-
-    -- ** ListShards
-    , module Network.AWS.Kinesis.ListShards
-
-    -- ** DeleteStream
-    , module Network.AWS.Kinesis.DeleteStream
-
-    -- ** RemoveTagsFromStream
-    , module Network.AWS.Kinesis.RemoveTagsFromStream
-
-    -- ** ListStreams (Paginated)
-    , module Network.AWS.Kinesis.ListStreams
-
-    -- ** CreateStream
-    , module Network.AWS.Kinesis.CreateStream
-
-    -- ** StartStreamEncryption
-    , module Network.AWS.Kinesis.StartStreamEncryption
-
-    -- ** SplitShard
-    , module Network.AWS.Kinesis.SplitShard
+    -- ** ListTagsForStream
+    ListTagsForStream (ListTagsForStream'),
+    newListTagsForStream,
+    ListTagsForStreamResponse (ListTagsForStreamResponse'),
+    newListTagsForStreamResponse,
 
     -- ** IncreaseStreamRetentionPeriod
-    , module Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
+    IncreaseStreamRetentionPeriod (IncreaseStreamRetentionPeriod'),
+    newIncreaseStreamRetentionPeriod,
+    IncreaseStreamRetentionPeriodResponse (IncreaseStreamRetentionPeriodResponse'),
+    newIncreaseStreamRetentionPeriodResponse,
+
+    -- ** DisableEnhancedMonitoring
+    DisableEnhancedMonitoring (DisableEnhancedMonitoring'),
+    newDisableEnhancedMonitoring,
+    EnhancedMonitoringOutput (EnhancedMonitoringOutput'),
+    newEnhancedMonitoringOutput,
+
+    -- ** SplitShard
+    SplitShard (SplitShard'),
+    newSplitShard,
+    SplitShardResponse (SplitShardResponse'),
+    newSplitShardResponse,
+
+    -- ** ListStreamConsumers (Paginated)
+    ListStreamConsumers (ListStreamConsumers'),
+    newListStreamConsumers,
+    ListStreamConsumersResponse (ListStreamConsumersResponse'),
+    newListStreamConsumersResponse,
+
+    -- ** DescribeLimits
+    DescribeLimits (DescribeLimits'),
+    newDescribeLimits,
+    DescribeLimitsResponse (DescribeLimitsResponse'),
+    newDescribeLimitsResponse,
+
+    -- ** StopStreamEncryption
+    StopStreamEncryption (StopStreamEncryption'),
+    newStopStreamEncryption,
+    StopStreamEncryptionResponse (StopStreamEncryptionResponse'),
+    newStopStreamEncryptionResponse,
+
+    -- ** RegisterStreamConsumer
+    RegisterStreamConsumer (RegisterStreamConsumer'),
+    newRegisterStreamConsumer,
+    RegisterStreamConsumerResponse (RegisterStreamConsumerResponse'),
+    newRegisterStreamConsumerResponse,
+
+    -- ** StartStreamEncryption
+    StartStreamEncryption (StartStreamEncryption'),
+    newStartStreamEncryption,
+    StartStreamEncryptionResponse (StartStreamEncryptionResponse'),
+    newStartStreamEncryptionResponse,
+
+    -- ** EnableEnhancedMonitoring
+    EnableEnhancedMonitoring (EnableEnhancedMonitoring'),
+    newEnableEnhancedMonitoring,
+    EnhancedMonitoringOutput (EnhancedMonitoringOutput'),
+    newEnhancedMonitoringOutput,
+
+    -- ** GetRecords
+    GetRecords (GetRecords'),
+    newGetRecords,
+    GetRecordsResponse (GetRecordsResponse'),
+    newGetRecordsResponse,
+
+    -- ** GetShardIterator
+    GetShardIterator (GetShardIterator'),
+    newGetShardIterator,
+    GetShardIteratorResponse (GetShardIteratorResponse'),
+    newGetShardIteratorResponse,
+
+    -- ** ListShards (Paginated)
+    ListShards (ListShards'),
+    newListShards,
+    ListShardsResponse (ListShardsResponse'),
+    newListShardsResponse,
+
+    -- ** DeleteStream
+    DeleteStream (DeleteStream'),
+    newDeleteStream,
+    DeleteStreamResponse (DeleteStreamResponse'),
+    newDeleteStreamResponse,
+
+    -- ** RemoveTagsFromStream
+    RemoveTagsFromStream (RemoveTagsFromStream'),
+    newRemoveTagsFromStream,
+    RemoveTagsFromStreamResponse (RemoveTagsFromStreamResponse'),
+    newRemoveTagsFromStreamResponse,
+
+    -- ** DescribeStreamSummary
+    DescribeStreamSummary (DescribeStreamSummary'),
+    newDescribeStreamSummary,
+    DescribeStreamSummaryResponse (DescribeStreamSummaryResponse'),
+    newDescribeStreamSummaryResponse,
+
+    -- ** DeregisterStreamConsumer
+    DeregisterStreamConsumer (DeregisterStreamConsumer'),
+    newDeregisterStreamConsumer,
+    DeregisterStreamConsumerResponse (DeregisterStreamConsumerResponse'),
+    newDeregisterStreamConsumerResponse,
+
+    -- ** PutRecords
+    PutRecords (PutRecords'),
+    newPutRecords,
+    PutRecordsResponse (PutRecordsResponse'),
+    newPutRecordsResponse,
+
+    -- ** MergeShards
+    MergeShards (MergeShards'),
+    newMergeShards,
+    MergeShardsResponse (MergeShardsResponse'),
+    newMergeShardsResponse,
+
+    -- ** DescribeStreamConsumer
+    DescribeStreamConsumer (DescribeStreamConsumer'),
+    newDescribeStreamConsumer,
+    DescribeStreamConsumerResponse (DescribeStreamConsumerResponse'),
+    newDescribeStreamConsumerResponse,
+
+    -- ** DecreaseStreamRetentionPeriod
+    DecreaseStreamRetentionPeriod (DecreaseStreamRetentionPeriod'),
+    newDecreaseStreamRetentionPeriod,
+    DecreaseStreamRetentionPeriodResponse (DecreaseStreamRetentionPeriodResponse'),
+    newDecreaseStreamRetentionPeriodResponse,
+
+    -- ** PutRecord
+    PutRecord (PutRecord'),
+    newPutRecord,
+    PutRecordResponse (PutRecordResponse'),
+    newPutRecordResponse,
 
     -- ** DescribeStream (Paginated)
-    , module Network.AWS.Kinesis.DescribeStream
+    DescribeStream (DescribeStream'),
+    newDescribeStream,
+    DescribeStreamResponse (DescribeStreamResponse'),
+    newDescribeStreamResponse,
+
+    -- ** UpdateShardCount
+    UpdateShardCount (UpdateShardCount'),
+    newUpdateShardCount,
+    UpdateShardCountResponse (UpdateShardCountResponse'),
+    newUpdateShardCountResponse,
+
+    -- ** CreateStream
+    CreateStream (CreateStream'),
+    newCreateStream,
+    CreateStreamResponse (CreateStreamResponse'),
+    newCreateStreamResponse,
+
+    -- ** ListStreams (Paginated)
+    ListStreams (ListStreams'),
+    newListStreams,
+    ListStreamsResponse (ListStreamsResponse'),
+    newListStreamsResponse,
 
     -- * Types
 
+    -- ** ConsumerStatus
+    ConsumerStatus (..),
+
     -- ** EncryptionType
-    , EncryptionType (..)
+    EncryptionType (..),
 
     -- ** MetricsName
-    , MetricsName (..)
+    MetricsName (..),
 
     -- ** ScalingType
-    , ScalingType (..)
+    ScalingType (..),
+
+    -- ** ShardFilterType
+    ShardFilterType (..),
 
     -- ** ShardIteratorType
-    , ShardIteratorType (..)
+    ShardIteratorType (..),
 
     -- ** StreamStatus
-    , StreamStatus (..)
+    StreamStatus (..),
+
+    -- ** ChildShard
+    ChildShard (ChildShard'),
+    newChildShard,
+
+    -- ** Consumer
+    Consumer (Consumer'),
+    newConsumer,
+
+    -- ** ConsumerDescription
+    ConsumerDescription (ConsumerDescription'),
+    newConsumerDescription,
 
     -- ** EnhancedMetrics
-    , EnhancedMetrics
-    , enhancedMetrics
-    , emShardLevelMetrics
+    EnhancedMetrics (EnhancedMetrics'),
+    newEnhancedMetrics,
 
     -- ** EnhancedMonitoringOutput
-    , EnhancedMonitoringOutput
-    , enhancedMonitoringOutput
-    , emoDesiredShardLevelMetrics
-    , emoCurrentShardLevelMetrics
-    , emoStreamName
+    EnhancedMonitoringOutput (EnhancedMonitoringOutput'),
+    newEnhancedMonitoringOutput,
 
     -- ** HashKeyRange
-    , HashKeyRange
-    , hashKeyRange
-    , hkrStartingHashKey
-    , hkrEndingHashKey
+    HashKeyRange (HashKeyRange'),
+    newHashKeyRange,
 
     -- ** PutRecordsRequestEntry
-    , PutRecordsRequestEntry
-    , putRecordsRequestEntry
-    , prreExplicitHashKey
-    , prreData
-    , prrePartitionKey
+    PutRecordsRequestEntry (PutRecordsRequestEntry'),
+    newPutRecordsRequestEntry,
 
     -- ** PutRecordsResultEntry
-    , PutRecordsResultEntry
-    , putRecordsResultEntry
-    , prreSequenceNumber
-    , prreErrorCode
-    , prreErrorMessage
-    , prreShardId
+    PutRecordsResultEntry (PutRecordsResultEntry'),
+    newPutRecordsResultEntry,
 
     -- ** Record
-    , Record
-    , record
-    , rEncryptionType
-    , rApproximateArrivalTimestamp
-    , rSequenceNumber
-    , rData
-    , rPartitionKey
+    Record (Record'),
+    newRecord,
 
     -- ** SequenceNumberRange
-    , SequenceNumberRange
-    , sequenceNumberRange
-    , snrEndingSequenceNumber
-    , snrStartingSequenceNumber
+    SequenceNumberRange (SequenceNumberRange'),
+    newSequenceNumberRange,
 
     -- ** Shard
-    , Shard
-    , shard
-    , sAdjacentParentShardId
-    , sParentShardId
-    , sShardId
-    , sHashKeyRange
-    , sSequenceNumberRange
+    Shard (Shard'),
+    newShard,
+
+    -- ** ShardFilter
+    ShardFilter (ShardFilter'),
+    newShardFilter,
+
+    -- ** StartingPosition
+    StartingPosition (StartingPosition'),
+    newStartingPosition,
 
     -- ** StreamDescription
-    , StreamDescription
-    , streamDescription
-    , sdEncryptionType
-    , sdKeyId
-    , sdStreamName
-    , sdStreamARN
-    , sdStreamStatus
-    , sdShards
-    , sdHasMoreShards
-    , sdRetentionPeriodHours
-    , sdStreamCreationTimestamp
-    , sdEnhancedMonitoring
+    StreamDescription (StreamDescription'),
+    newStreamDescription,
 
     -- ** StreamDescriptionSummary
-    , StreamDescriptionSummary
-    , streamDescriptionSummary
-    , sdsEncryptionType
-    , sdsKeyId
-    , sdsStreamName
-    , sdsStreamARN
-    , sdsStreamStatus
-    , sdsRetentionPeriodHours
-    , sdsStreamCreationTimestamp
-    , sdsEnhancedMonitoring
-    , sdsOpenShardCount
+    StreamDescriptionSummary (StreamDescriptionSummary'),
+    newStreamDescriptionSummary,
+
+    -- ** SubscribeToShardEvent
+    SubscribeToShardEvent (SubscribeToShardEvent'),
+    newSubscribeToShardEvent,
 
     -- ** Tag
-    , Tag
-    , tag
-    , tagValue
-    , tagKey
-    ) where
+    Tag (Tag'),
+    newTag,
+  )
+where
 
 import Network.AWS.Kinesis.AddTagsToStream
 import Network.AWS.Kinesis.CreateStream
 import Network.AWS.Kinesis.DecreaseStreamRetentionPeriod
 import Network.AWS.Kinesis.DeleteStream
+import Network.AWS.Kinesis.DeregisterStreamConsumer
 import Network.AWS.Kinesis.DescribeLimits
 import Network.AWS.Kinesis.DescribeStream
+import Network.AWS.Kinesis.DescribeStreamConsumer
 import Network.AWS.Kinesis.DescribeStreamSummary
 import Network.AWS.Kinesis.DisableEnhancedMonitoring
 import Network.AWS.Kinesis.EnableEnhancedMonitoring
 import Network.AWS.Kinesis.GetRecords
 import Network.AWS.Kinesis.GetShardIterator
 import Network.AWS.Kinesis.IncreaseStreamRetentionPeriod
+import Network.AWS.Kinesis.Lens
 import Network.AWS.Kinesis.ListShards
+import Network.AWS.Kinesis.ListStreamConsumers
 import Network.AWS.Kinesis.ListStreams
 import Network.AWS.Kinesis.ListTagsForStream
 import Network.AWS.Kinesis.MergeShards
 import Network.AWS.Kinesis.PutRecord
 import Network.AWS.Kinesis.PutRecords
+import Network.AWS.Kinesis.RegisterStreamConsumer
 import Network.AWS.Kinesis.RemoveTagsFromStream
 import Network.AWS.Kinesis.SplitShard
 import Network.AWS.Kinesis.StartStreamEncryption
 import Network.AWS.Kinesis.StopStreamEncryption
+import Network.AWS.Kinesis.SubscribeToShard
 import Network.AWS.Kinesis.Types
 import Network.AWS.Kinesis.UpdateShardCount
 import Network.AWS.Kinesis.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'Kinesis'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'Kinesis'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

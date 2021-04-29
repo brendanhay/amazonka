@@ -1,179 +1,279 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeBuild.ListBuildsForProject
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets a list of build IDs for the specified build project, with each build ID representing a single build.
---
---
+-- Gets a list of build identifiers for the specified build project, with
+-- each build identifier representing a single build.
 --
 -- This operation returns paginated results.
 module Network.AWS.CodeBuild.ListBuildsForProject
-    (
-    -- * Creating a Request
-      listBuildsForProject
-    , ListBuildsForProject
+  ( -- * Creating a Request
+    ListBuildsForProject (..),
+    newListBuildsForProject,
+
     -- * Request Lenses
-    , lbfpSortOrder
-    , lbfpNextToken
-    , lbfpProjectName
+    listBuildsForProject_sortOrder,
+    listBuildsForProject_nextToken,
+    listBuildsForProject_projectName,
 
     -- * Destructuring the Response
-    , listBuildsForProjectResponse
-    , ListBuildsForProjectResponse
+    ListBuildsForProjectResponse (..),
+    newListBuildsForProjectResponse,
+
     -- * Response Lenses
-    , lbfprsIds
-    , lbfprsNextToken
-    , lbfprsResponseStatus
-    ) where
+    listBuildsForProjectResponse_nextToken,
+    listBuildsForProjectResponse_ids,
+    listBuildsForProjectResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.CodeBuild.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listBuildsForProject' smart constructor.
+-- | /See:/ 'newListBuildsForProject' smart constructor.
 data ListBuildsForProject = ListBuildsForProject'
-  { _lbfpSortOrder   :: !(Maybe SortOrderType)
-  , _lbfpNextToken   :: !(Maybe Text)
-  , _lbfpProjectName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The order to list results in. The results are sorted by build number,
+    -- not the build identifier.
+    --
+    -- Valid values include:
+    --
+    -- -   @ASCENDING@: List the build IDs in ascending order by build ID.
+    --
+    -- -   @DESCENDING@: List the build IDs in descending order by build ID.
+    --
+    -- If the project has more than 100 builds, setting the sort order will
+    -- result in an error.
+    sortOrder :: Prelude.Maybe SortOrderType,
+    -- | During a previous call, if there are more than 100 items in the list,
+    -- only the first 100 items are returned, along with a unique string called
+    -- a /nextToken/. To get the next batch of items in the list, call this
+    -- operation again, adding the next token to the call. To get all of the
+    -- items in the list, keep calling this operation with each subsequent next
+    -- token that is returned, until no more next tokens are returned.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the AWS CodeBuild project.
+    projectName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListBuildsForProject' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListBuildsForProject' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lbfpSortOrder' - The order to list build IDs. Valid values include:     * @ASCENDING@ : List the build IDs in ascending order by build ID.     * @DESCENDING@ : List the build IDs in descending order by build ID.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lbfpNextToken' - During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
+-- 'sortOrder', 'listBuildsForProject_sortOrder' - The order to list results in. The results are sorted by build number,
+-- not the build identifier.
 --
--- * 'lbfpProjectName' - The name of the AWS CodeBuild project.
-listBuildsForProject
-    :: Text -- ^ 'lbfpProjectName'
-    -> ListBuildsForProject
-listBuildsForProject pProjectName_ =
+-- Valid values include:
+--
+-- -   @ASCENDING@: List the build IDs in ascending order by build ID.
+--
+-- -   @DESCENDING@: List the build IDs in descending order by build ID.
+--
+-- If the project has more than 100 builds, setting the sort order will
+-- result in an error.
+--
+-- 'nextToken', 'listBuildsForProject_nextToken' - During a previous call, if there are more than 100 items in the list,
+-- only the first 100 items are returned, along with a unique string called
+-- a /nextToken/. To get the next batch of items in the list, call this
+-- operation again, adding the next token to the call. To get all of the
+-- items in the list, keep calling this operation with each subsequent next
+-- token that is returned, until no more next tokens are returned.
+--
+-- 'projectName', 'listBuildsForProject_projectName' - The name of the AWS CodeBuild project.
+newListBuildsForProject ::
+  -- | 'projectName'
+  Prelude.Text ->
+  ListBuildsForProject
+newListBuildsForProject pProjectName_ =
   ListBuildsForProject'
-    { _lbfpSortOrder = Nothing
-    , _lbfpNextToken = Nothing
-    , _lbfpProjectName = pProjectName_
+    { sortOrder = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      projectName = pProjectName_
     }
 
+-- | The order to list results in. The results are sorted by build number,
+-- not the build identifier.
+--
+-- Valid values include:
+--
+-- -   @ASCENDING@: List the build IDs in ascending order by build ID.
+--
+-- -   @DESCENDING@: List the build IDs in descending order by build ID.
+--
+-- If the project has more than 100 builds, setting the sort order will
+-- result in an error.
+listBuildsForProject_sortOrder :: Lens.Lens' ListBuildsForProject (Prelude.Maybe SortOrderType)
+listBuildsForProject_sortOrder = Lens.lens (\ListBuildsForProject' {sortOrder} -> sortOrder) (\s@ListBuildsForProject' {} a -> s {sortOrder = a} :: ListBuildsForProject)
 
--- | The order to list build IDs. Valid values include:     * @ASCENDING@ : List the build IDs in ascending order by build ID.     * @DESCENDING@ : List the build IDs in descending order by build ID.
-lbfpSortOrder :: Lens' ListBuildsForProject (Maybe SortOrderType)
-lbfpSortOrder = lens _lbfpSortOrder (\ s a -> s{_lbfpSortOrder = a})
-
--- | During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.
-lbfpNextToken :: Lens' ListBuildsForProject (Maybe Text)
-lbfpNextToken = lens _lbfpNextToken (\ s a -> s{_lbfpNextToken = a})
+-- | During a previous call, if there are more than 100 items in the list,
+-- only the first 100 items are returned, along with a unique string called
+-- a /nextToken/. To get the next batch of items in the list, call this
+-- operation again, adding the next token to the call. To get all of the
+-- items in the list, keep calling this operation with each subsequent next
+-- token that is returned, until no more next tokens are returned.
+listBuildsForProject_nextToken :: Lens.Lens' ListBuildsForProject (Prelude.Maybe Prelude.Text)
+listBuildsForProject_nextToken = Lens.lens (\ListBuildsForProject' {nextToken} -> nextToken) (\s@ListBuildsForProject' {} a -> s {nextToken = a} :: ListBuildsForProject)
 
 -- | The name of the AWS CodeBuild project.
-lbfpProjectName :: Lens' ListBuildsForProject Text
-lbfpProjectName = lens _lbfpProjectName (\ s a -> s{_lbfpProjectName = a})
+listBuildsForProject_projectName :: Lens.Lens' ListBuildsForProject Prelude.Text
+listBuildsForProject_projectName = Lens.lens (\ListBuildsForProject' {projectName} -> projectName) (\s@ListBuildsForProject' {} a -> s {projectName = a} :: ListBuildsForProject)
 
-instance AWSPager ListBuildsForProject where
-        page rq rs
-          | stop (rs ^. lbfprsNextToken) = Nothing
-          | stop (rs ^. lbfprsIds) = Nothing
-          | otherwise =
-            Just $ rq & lbfpNextToken .~ rs ^. lbfprsNextToken
+instance Pager.AWSPager ListBuildsForProject where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listBuildsForProjectResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listBuildsForProjectResponse_ids Prelude.. Lens._Just
+              Prelude.. Lens.to Prelude.toList
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listBuildsForProject_nextToken
+          Lens..~ rs
+          Lens.^? listBuildsForProjectResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSRequest ListBuildsForProject where
-        type Rs ListBuildsForProject =
-             ListBuildsForProjectResponse
-        request = postJSON codeBuild
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListBuildsForProjectResponse' <$>
-                   (x .?> "ids") <*> (x .?> "nextToken") <*>
-                     (pure (fromEnum s)))
+instance Prelude.AWSRequest ListBuildsForProject where
+  type
+    Rs ListBuildsForProject =
+      ListBuildsForProjectResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListBuildsForProjectResponse'
+            Prelude.<$> (x Prelude..?> "nextToken")
+            Prelude.<*> (x Prelude..?> "ids")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListBuildsForProject where
+instance Prelude.Hashable ListBuildsForProject
 
-instance NFData ListBuildsForProject where
+instance Prelude.NFData ListBuildsForProject
 
-instance ToHeaders ListBuildsForProject where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeBuild_20161006.ListBuildsForProject" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders ListBuildsForProject where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "CodeBuild_20161006.ListBuildsForProject" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON ListBuildsForProject where
-        toJSON ListBuildsForProject'{..}
-          = object
-              (catMaybes
-                 [("sortOrder" .=) <$> _lbfpSortOrder,
-                  ("nextToken" .=) <$> _lbfpNextToken,
-                  Just ("projectName" .= _lbfpProjectName)])
+instance Prelude.ToJSON ListBuildsForProject where
+  toJSON ListBuildsForProject' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("sortOrder" Prelude..=) Prelude.<$> sortOrder,
+            ("nextToken" Prelude..=) Prelude.<$> nextToken,
+            Prelude.Just ("projectName" Prelude..= projectName)
+          ]
+      )
 
-instance ToPath ListBuildsForProject where
-        toPath = const "/"
+instance Prelude.ToPath ListBuildsForProject where
+  toPath = Prelude.const "/"
 
-instance ToQuery ListBuildsForProject where
-        toQuery = const mempty
+instance Prelude.ToQuery ListBuildsForProject where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'listBuildsForProjectResponse' smart constructor.
+-- | /See:/ 'newListBuildsForProjectResponse' smart constructor.
 data ListBuildsForProjectResponse = ListBuildsForProjectResponse'
-  { _lbfprsIds            :: !(Maybe (List1 Text))
-  , _lbfprsNextToken      :: !(Maybe Text)
-  , _lbfprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | If there are more than 100 items in the list, only the first 100 items
+    -- are returned, along with a unique string called a /nextToken/. To get
+    -- the next batch of items in the list, call this operation again, adding
+    -- the next token to the call.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | A list of build IDs for the specified build project, with each build ID
+    -- representing a single build.
+    ids :: Prelude.Maybe (Prelude.NonEmpty Prelude.Text),
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListBuildsForProjectResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListBuildsForProjectResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lbfprsIds' - A list of build IDs for the specified build project, with each build ID representing a single build.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lbfprsNextToken' - If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
+-- 'nextToken', 'listBuildsForProjectResponse_nextToken' - If there are more than 100 items in the list, only the first 100 items
+-- are returned, along with a unique string called a /nextToken/. To get
+-- the next batch of items in the list, call this operation again, adding
+-- the next token to the call.
 --
--- * 'lbfprsResponseStatus' - -- | The response status code.
-listBuildsForProjectResponse
-    :: Int -- ^ 'lbfprsResponseStatus'
-    -> ListBuildsForProjectResponse
-listBuildsForProjectResponse pResponseStatus_ =
+-- 'ids', 'listBuildsForProjectResponse_ids' - A list of build IDs for the specified build project, with each build ID
+-- representing a single build.
+--
+-- 'httpStatus', 'listBuildsForProjectResponse_httpStatus' - The response's http status code.
+newListBuildsForProjectResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListBuildsForProjectResponse
+newListBuildsForProjectResponse pHttpStatus_ =
   ListBuildsForProjectResponse'
-    { _lbfprsIds = Nothing
-    , _lbfprsNextToken = Nothing
-    , _lbfprsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      ids = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | If there are more than 100 items in the list, only the first 100 items
+-- are returned, along with a unique string called a /nextToken/. To get
+-- the next batch of items in the list, call this operation again, adding
+-- the next token to the call.
+listBuildsForProjectResponse_nextToken :: Lens.Lens' ListBuildsForProjectResponse (Prelude.Maybe Prelude.Text)
+listBuildsForProjectResponse_nextToken = Lens.lens (\ListBuildsForProjectResponse' {nextToken} -> nextToken) (\s@ListBuildsForProjectResponse' {} a -> s {nextToken = a} :: ListBuildsForProjectResponse)
 
--- | A list of build IDs for the specified build project, with each build ID representing a single build.
-lbfprsIds :: Lens' ListBuildsForProjectResponse (Maybe (NonEmpty Text))
-lbfprsIds = lens _lbfprsIds (\ s a -> s{_lbfprsIds = a}) . mapping _List1
+-- | A list of build IDs for the specified build project, with each build ID
+-- representing a single build.
+listBuildsForProjectResponse_ids :: Lens.Lens' ListBuildsForProjectResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.Text))
+listBuildsForProjectResponse_ids = Lens.lens (\ListBuildsForProjectResponse' {ids} -> ids) (\s@ListBuildsForProjectResponse' {} a -> s {ids = a} :: ListBuildsForProjectResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | If there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a /next token/ . To get the next batch of items in the list, call this operation again, adding the next token to the call.
-lbfprsNextToken :: Lens' ListBuildsForProjectResponse (Maybe Text)
-lbfprsNextToken = lens _lbfprsNextToken (\ s a -> s{_lbfprsNextToken = a})
+-- | The response's http status code.
+listBuildsForProjectResponse_httpStatus :: Lens.Lens' ListBuildsForProjectResponse Prelude.Int
+listBuildsForProjectResponse_httpStatus = Lens.lens (\ListBuildsForProjectResponse' {httpStatus} -> httpStatus) (\s@ListBuildsForProjectResponse' {} a -> s {httpStatus = a} :: ListBuildsForProjectResponse)
 
--- | -- | The response status code.
-lbfprsResponseStatus :: Lens' ListBuildsForProjectResponse Int
-lbfprsResponseStatus = lens _lbfprsResponseStatus (\ s a -> s{_lbfprsResponseStatus = a})
-
-instance NFData ListBuildsForProjectResponse where
+instance Prelude.NFData ListBuildsForProjectResponse

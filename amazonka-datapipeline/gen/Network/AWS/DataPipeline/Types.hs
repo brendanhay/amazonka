@@ -1,209 +1,259 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DataPipeline.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.DataPipeline.Types
-    (
-    -- * Service Configuration
-      dataPipeline
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _InvalidRequestException
-    , _InternalServiceError
-    , _PipelineDeletedException
-    , _PipelineNotFoundException
-    , _TaskNotFoundException
+    _TaskNotFoundException,
+    _InvalidRequestException,
+    _PipelineNotFoundException,
+    _PipelineDeletedException,
+    _InternalServiceError,
 
     -- * OperatorType
-    , OperatorType (..)
+    OperatorType (..),
 
     -- * TaskStatus
-    , TaskStatus (..)
+    TaskStatus (..),
 
     -- * Field
-    , Field
-    , field
-    , fRefValue
-    , fStringValue
-    , fKey
+    Field (..),
+    newField,
+    field_stringValue,
+    field_refValue,
+    field_key,
 
     -- * InstanceIdentity
-    , InstanceIdentity
-    , instanceIdentity
-    , iiSignature
-    , iiDocument
+    InstanceIdentity (..),
+    newInstanceIdentity,
+    instanceIdentity_document,
+    instanceIdentity_signature,
 
     -- * Operator
-    , Operator
-    , operator
-    , oValues
-    , oType
+    Operator (..),
+    newOperator,
+    operator_values,
+    operator_type,
 
     -- * ParameterAttribute
-    , ParameterAttribute
-    , parameterAttribute
-    , paKey
-    , paStringValue
+    ParameterAttribute (..),
+    newParameterAttribute,
+    parameterAttribute_key,
+    parameterAttribute_stringValue,
 
     -- * ParameterObject
-    , ParameterObject
-    , parameterObject
-    , poId
-    , poAttributes
+    ParameterObject (..),
+    newParameterObject,
+    parameterObject_id,
+    parameterObject_attributes,
 
     -- * ParameterValue
-    , ParameterValue
-    , parameterValue
-    , pvId
-    , pvStringValue
+    ParameterValue (..),
+    newParameterValue,
+    parameterValue_id,
+    parameterValue_stringValue,
 
     -- * PipelineDescription
-    , PipelineDescription
-    , pipelineDescription
-    , pdDescription
-    , pdTags
-    , pdPipelineId
-    , pdName
-    , pdFields
+    PipelineDescription (..),
+    newPipelineDescription,
+    pipelineDescription_tags,
+    pipelineDescription_description,
+    pipelineDescription_pipelineId,
+    pipelineDescription_name,
+    pipelineDescription_fields,
 
     -- * PipelineIdName
-    , PipelineIdName
-    , pipelineIdName
-    , pinName
-    , pinId
+    PipelineIdName (..),
+    newPipelineIdName,
+    pipelineIdName_id,
+    pipelineIdName_name,
 
     -- * PipelineObject
-    , PipelineObject
-    , pipelineObject
-    , pId
-    , pName
-    , pFields
+    PipelineObject (..),
+    newPipelineObject,
+    pipelineObject_id,
+    pipelineObject_name,
+    pipelineObject_fields,
 
     -- * Query
-    , Query
-    , query
-    , qSelectors
+    Query (..),
+    newQuery,
+    query_selectors,
 
     -- * Selector
-    , Selector
-    , selector
-    , sOperator
-    , sFieldName
+    Selector (..),
+    newSelector,
+    selector_operator,
+    selector_fieldName,
 
     -- * Tag
-    , Tag
-    , tag
-    , tagKey
-    , tagValue
+    Tag (..),
+    newTag,
+    tag_key,
+    tag_value,
 
     -- * TaskObject
-    , TaskObject
-    , taskObject
-    , toPipelineId
-    , toAttemptId
-    , toTaskId
-    , toObjects
+    TaskObject (..),
+    newTaskObject,
+    taskObject_pipelineId,
+    taskObject_objects,
+    taskObject_taskId,
+    taskObject_attemptId,
 
     -- * ValidationError
-    , ValidationError
-    , validationError
-    , veId
-    , veErrors
+    ValidationError (..),
+    newValidationError,
+    validationError_id,
+    validationError_errors,
 
     -- * ValidationWarning
-    , ValidationWarning
-    , validationWarning
-    , vwWarnings
-    , vwId
-    ) where
+    ValidationWarning (..),
+    newValidationWarning,
+    validationWarning_warnings,
+    validationWarning_id,
+  )
+where
 
-import Network.AWS.DataPipeline.Types.Product
-import Network.AWS.DataPipeline.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import Network.AWS.DataPipeline.Types.Field
+import Network.AWS.DataPipeline.Types.InstanceIdentity
+import Network.AWS.DataPipeline.Types.Operator
+import Network.AWS.DataPipeline.Types.OperatorType
+import Network.AWS.DataPipeline.Types.ParameterAttribute
+import Network.AWS.DataPipeline.Types.ParameterObject
+import Network.AWS.DataPipeline.Types.ParameterValue
+import Network.AWS.DataPipeline.Types.PipelineDescription
+import Network.AWS.DataPipeline.Types.PipelineIdName
+import Network.AWS.DataPipeline.Types.PipelineObject
+import Network.AWS.DataPipeline.Types.Query
+import Network.AWS.DataPipeline.Types.Selector
+import Network.AWS.DataPipeline.Types.Tag
+import Network.AWS.DataPipeline.Types.TaskObject
+import Network.AWS.DataPipeline.Types.TaskStatus
+import Network.AWS.DataPipeline.Types.ValidationError
+import Network.AWS.DataPipeline.Types.ValidationWarning
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2012-10-29@ of the Amazon Data Pipeline SDK configuration.
-dataPipeline :: Service
-dataPipeline =
-  Service
-    { _svcAbbrev = "DataPipeline"
-    , _svcSigner = v4
-    , _svcPrefix = "datapipeline"
-    , _svcVersion = "2012-10-29"
-    , _svcEndpoint = defaultEndpoint dataPipeline
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "DataPipeline"
-    , _svcRetry = retry
+defaultService :: Prelude.Service
+defaultService =
+  Prelude.Service
+    { Prelude._svcAbbrev =
+        "DataPipeline",
+      Prelude._svcSigner = Sign.v4,
+      Prelude._svcPrefix = "datapipeline",
+      Prelude._svcVersion = "2012-10-29",
+      Prelude._svcEndpoint =
+        Prelude.defaultEndpoint defaultService,
+      Prelude._svcTimeout = Prelude.Just 70,
+      Prelude._svcCheck = Prelude.statusSuccess,
+      Prelude._svcError =
+        Prelude.parseJSONError "DataPipeline",
+      Prelude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Prelude.Exponential
+        { Prelude._retryBase = 5.0e-2,
+          Prelude._retryGrowth = 2,
+          Prelude._retryAttempts = 5,
+          Prelude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
-
-
--- | The request was not valid. Verify that your request was properly formatted, that the signature was generated with the correct credentials, and that you haven't exceeded any of the service limits for your account.
---
---
-_InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidRequestException =
-  _MatchServiceError dataPipeline "InvalidRequestException"
-
-
--- | An internal service error occurred.
---
---
-_InternalServiceError :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServiceError = _MatchServiceError dataPipeline "InternalServiceError"
-
-
--- | The specified pipeline has been deleted.
---
---
-_PipelineDeletedException :: AsError a => Getting (First ServiceError) a ServiceError
-_PipelineDeletedException =
-  _MatchServiceError dataPipeline "PipelineDeletedException"
-
-
--- | The specified pipeline was not found. Verify that you used the correct user and account identifiers.
---
---
-_PipelineNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_PipelineNotFoundException =
-  _MatchServiceError dataPipeline "PipelineNotFoundException"
-
+      | Lens.has (Prelude.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Prelude.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Prelude.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Prelude.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Prelude.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Prelude.hasCode "RequestThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Prelude.hasCode "ThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Prelude.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Prelude.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Prelude.hasCode "ThrottlingException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Prelude.hasCode "Throttling"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | The specified task was not found.
---
---
-_TaskNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_TaskNotFoundException = _MatchServiceError dataPipeline "TaskNotFoundException"
+_TaskNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TaskNotFoundException =
+  Prelude._MatchServiceError
+    defaultService
+    "TaskNotFoundException"
 
+-- | The request was not valid. Verify that your request was properly
+-- formatted, that the signature was generated with the correct
+-- credentials, and that you haven\'t exceeded any of the service limits
+-- for your account.
+_InvalidRequestException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidRequestException =
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidRequestException"
+
+-- | The specified pipeline was not found. Verify that you used the correct
+-- user and account identifiers.
+_PipelineNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PipelineNotFoundException =
+  Prelude._MatchServiceError
+    defaultService
+    "PipelineNotFoundException"
+
+-- | The specified pipeline has been deleted.
+_PipelineDeletedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PipelineDeletedException =
+  Prelude._MatchServiceError
+    defaultService
+    "PipelineDeletedException"
+
+-- | An internal service error occurred.
+_InternalServiceError :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InternalServiceError =
+  Prelude._MatchServiceError
+    defaultService
+    "InternalServiceError"

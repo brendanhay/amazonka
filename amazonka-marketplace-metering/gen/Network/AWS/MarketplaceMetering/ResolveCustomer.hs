@@ -1,155 +1,201 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MarketplaceMetering.ResolveCustomer
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- ResolveCustomer is called by a SaaS application during the registration process. When a buyer visits your website during the registration process, the buyer submits a registration token through their browser. The registration token is resolved through this API to obtain a CustomerIdentifier and product code.
---
---
+-- ResolveCustomer is called by a SaaS application during the registration
+-- process. When a buyer visits your website during the registration
+-- process, the buyer submits a registration token through their browser.
+-- The registration token is resolved through this API to obtain a
+-- CustomerIdentifier and product code.
 module Network.AWS.MarketplaceMetering.ResolveCustomer
-    (
-    -- * Creating a Request
-      resolveCustomer
-    , ResolveCustomer
+  ( -- * Creating a Request
+    ResolveCustomer (..),
+    newResolveCustomer,
+
     -- * Request Lenses
-    , rcRegistrationToken
+    resolveCustomer_registrationToken,
 
     -- * Destructuring the Response
-    , resolveCustomerResponse
-    , ResolveCustomerResponse
-    -- * Response Lenses
-    , rcrsCustomerIdentifier
-    , rcrsProductCode
-    , rcrsResponseStatus
-    ) where
+    ResolveCustomerResponse (..),
+    newResolveCustomerResponse,
 
-import Network.AWS.Lens
+    -- * Response Lenses
+    resolveCustomerResponse_customerIdentifier,
+    resolveCustomerResponse_productCode,
+    resolveCustomerResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MarketplaceMetering.Types
-import Network.AWS.MarketplaceMetering.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains input to the ResolveCustomer operation.
 --
+-- /See:/ 'newResolveCustomer' smart constructor.
+data ResolveCustomer = ResolveCustomer'
+  { -- | When a buyer visits your website during the registration process, the
+    -- buyer submits a registration token through the browser. The registration
+    -- token is resolved to obtain a CustomerIdentifier and product code.
+    registrationToken :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'ResolveCustomer' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'resolveCustomer' smart constructor.
-newtype ResolveCustomer = ResolveCustomer'
-  { _rcRegistrationToken :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ResolveCustomer' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcRegistrationToken' - When a buyer visits your website during the registration process, the buyer submits a registration token through the browser. The registration token is resolved to obtain a CustomerIdentifier and product code.
-resolveCustomer
-    :: Text -- ^ 'rcRegistrationToken'
-    -> ResolveCustomer
-resolveCustomer pRegistrationToken_ =
-  ResolveCustomer' {_rcRegistrationToken = pRegistrationToken_}
-
-
--- | When a buyer visits your website during the registration process, the buyer submits a registration token through the browser. The registration token is resolved to obtain a CustomerIdentifier and product code.
-rcRegistrationToken :: Lens' ResolveCustomer Text
-rcRegistrationToken = lens _rcRegistrationToken (\ s a -> s{_rcRegistrationToken = a})
-
-instance AWSRequest ResolveCustomer where
-        type Rs ResolveCustomer = ResolveCustomerResponse
-        request = postJSON marketplaceMetering
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ResolveCustomerResponse' <$>
-                   (x .?> "CustomerIdentifier") <*>
-                     (x .?> "ProductCode")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ResolveCustomer where
-
-instance NFData ResolveCustomer where
-
-instance ToHeaders ResolveCustomer where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSMPMeteringService.ResolveCustomer" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ResolveCustomer where
-        toJSON ResolveCustomer'{..}
-          = object
-              (catMaybes
-                 [Just ("RegistrationToken" .= _rcRegistrationToken)])
-
-instance ToPath ResolveCustomer where
-        toPath = const "/"
-
-instance ToQuery ResolveCustomer where
-        toQuery = const mempty
-
--- | The result of the ResolveCustomer operation. Contains the CustomerIdentifier and product code.
---
---
---
--- /See:/ 'resolveCustomerResponse' smart constructor.
-data ResolveCustomerResponse = ResolveCustomerResponse'
-  { _rcrsCustomerIdentifier :: !(Maybe Text)
-  , _rcrsProductCode        :: !(Maybe Text)
-  , _rcrsResponseStatus     :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ResolveCustomerResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'rcrsCustomerIdentifier' - The CustomerIdentifier is used to identify an individual customer in your application. Calls to BatchMeterUsage require CustomerIdentifiers for each UsageRecord.
---
--- * 'rcrsProductCode' - The product code is returned to confirm that the buyer is registering for your product. Subsequent BatchMeterUsage calls should be made using this product code.
---
--- * 'rcrsResponseStatus' - -- | The response status code.
-resolveCustomerResponse
-    :: Int -- ^ 'rcrsResponseStatus'
-    -> ResolveCustomerResponse
-resolveCustomerResponse pResponseStatus_ =
-  ResolveCustomerResponse'
-    { _rcrsCustomerIdentifier = Nothing
-    , _rcrsProductCode = Nothing
-    , _rcrsResponseStatus = pResponseStatus_
+-- 'registrationToken', 'resolveCustomer_registrationToken' - When a buyer visits your website during the registration process, the
+-- buyer submits a registration token through the browser. The registration
+-- token is resolved to obtain a CustomerIdentifier and product code.
+newResolveCustomer ::
+  -- | 'registrationToken'
+  Prelude.Text ->
+  ResolveCustomer
+newResolveCustomer pRegistrationToken_ =
+  ResolveCustomer'
+    { registrationToken =
+        pRegistrationToken_
     }
 
+-- | When a buyer visits your website during the registration process, the
+-- buyer submits a registration token through the browser. The registration
+-- token is resolved to obtain a CustomerIdentifier and product code.
+resolveCustomer_registrationToken :: Lens.Lens' ResolveCustomer Prelude.Text
+resolveCustomer_registrationToken = Lens.lens (\ResolveCustomer' {registrationToken} -> registrationToken) (\s@ResolveCustomer' {} a -> s {registrationToken = a} :: ResolveCustomer)
 
--- | The CustomerIdentifier is used to identify an individual customer in your application. Calls to BatchMeterUsage require CustomerIdentifiers for each UsageRecord.
-rcrsCustomerIdentifier :: Lens' ResolveCustomerResponse (Maybe Text)
-rcrsCustomerIdentifier = lens _rcrsCustomerIdentifier (\ s a -> s{_rcrsCustomerIdentifier = a})
+instance Prelude.AWSRequest ResolveCustomer where
+  type Rs ResolveCustomer = ResolveCustomerResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ResolveCustomerResponse'
+            Prelude.<$> (x Prelude..?> "CustomerIdentifier")
+            Prelude.<*> (x Prelude..?> "ProductCode")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | The product code is returned to confirm that the buyer is registering for your product. Subsequent BatchMeterUsage calls should be made using this product code.
-rcrsProductCode :: Lens' ResolveCustomerResponse (Maybe Text)
-rcrsProductCode = lens _rcrsProductCode (\ s a -> s{_rcrsProductCode = a})
+instance Prelude.Hashable ResolveCustomer
 
--- | -- | The response status code.
-rcrsResponseStatus :: Lens' ResolveCustomerResponse Int
-rcrsResponseStatus = lens _rcrsResponseStatus (\ s a -> s{_rcrsResponseStatus = a})
+instance Prelude.NFData ResolveCustomer
 
-instance NFData ResolveCustomerResponse where
+instance Prelude.ToHeaders ResolveCustomer where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSMPMeteringService.ResolveCustomer" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON ResolveCustomer where
+  toJSON ResolveCustomer' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("RegistrationToken" Prelude..= registrationToken)
+          ]
+      )
+
+instance Prelude.ToPath ResolveCustomer where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery ResolveCustomer where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | The result of the ResolveCustomer operation. Contains the
+-- CustomerIdentifier and product code.
+--
+-- /See:/ 'newResolveCustomerResponse' smart constructor.
+data ResolveCustomerResponse = ResolveCustomerResponse'
+  { -- | The CustomerIdentifier is used to identify an individual customer in
+    -- your application. Calls to BatchMeterUsage require CustomerIdentifiers
+    -- for each UsageRecord.
+    customerIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | The product code is returned to confirm that the buyer is registering
+    -- for your product. Subsequent BatchMeterUsage calls should be made using
+    -- this product code.
+    productCode :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'ResolveCustomerResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'customerIdentifier', 'resolveCustomerResponse_customerIdentifier' - The CustomerIdentifier is used to identify an individual customer in
+-- your application. Calls to BatchMeterUsage require CustomerIdentifiers
+-- for each UsageRecord.
+--
+-- 'productCode', 'resolveCustomerResponse_productCode' - The product code is returned to confirm that the buyer is registering
+-- for your product. Subsequent BatchMeterUsage calls should be made using
+-- this product code.
+--
+-- 'httpStatus', 'resolveCustomerResponse_httpStatus' - The response's http status code.
+newResolveCustomerResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ResolveCustomerResponse
+newResolveCustomerResponse pHttpStatus_ =
+  ResolveCustomerResponse'
+    { customerIdentifier =
+        Prelude.Nothing,
+      productCode = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The CustomerIdentifier is used to identify an individual customer in
+-- your application. Calls to BatchMeterUsage require CustomerIdentifiers
+-- for each UsageRecord.
+resolveCustomerResponse_customerIdentifier :: Lens.Lens' ResolveCustomerResponse (Prelude.Maybe Prelude.Text)
+resolveCustomerResponse_customerIdentifier = Lens.lens (\ResolveCustomerResponse' {customerIdentifier} -> customerIdentifier) (\s@ResolveCustomerResponse' {} a -> s {customerIdentifier = a} :: ResolveCustomerResponse)
+
+-- | The product code is returned to confirm that the buyer is registering
+-- for your product. Subsequent BatchMeterUsage calls should be made using
+-- this product code.
+resolveCustomerResponse_productCode :: Lens.Lens' ResolveCustomerResponse (Prelude.Maybe Prelude.Text)
+resolveCustomerResponse_productCode = Lens.lens (\ResolveCustomerResponse' {productCode} -> productCode) (\s@ResolveCustomerResponse' {} a -> s {productCode = a} :: ResolveCustomerResponse)
+
+-- | The response's http status code.
+resolveCustomerResponse_httpStatus :: Lens.Lens' ResolveCustomerResponse Prelude.Int
+resolveCustomerResponse_httpStatus = Lens.lens (\ResolveCustomerResponse' {httpStatus} -> httpStatus) (\s@ResolveCustomerResponse' {} a -> s {httpStatus = a} :: ResolveCustomerResponse)
+
+instance Prelude.NFData ResolveCustomerResponse

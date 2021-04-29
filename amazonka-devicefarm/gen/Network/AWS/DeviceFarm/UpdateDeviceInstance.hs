@@ -1,154 +1,188 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.UpdateDeviceInstance
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates information about an existing private device instance.
---
---
+-- Updates information about a private device instance.
 module Network.AWS.DeviceFarm.UpdateDeviceInstance
-    (
-    -- * Creating a Request
-      updateDeviceInstance
-    , UpdateDeviceInstance
+  ( -- * Creating a Request
+    UpdateDeviceInstance (..),
+    newUpdateDeviceInstance,
+
     -- * Request Lenses
-    , udiProfileARN
-    , udiLabels
-    , udiArn
+    updateDeviceInstance_labels,
+    updateDeviceInstance_profileArn,
+    updateDeviceInstance_arn,
 
     -- * Destructuring the Response
-    , updateDeviceInstanceResponse
-    , UpdateDeviceInstanceResponse
+    UpdateDeviceInstanceResponse (..),
+    newUpdateDeviceInstanceResponse,
+
     -- * Response Lenses
-    , udirsDeviceInstance
-    , udirsResponseStatus
-    ) where
+    updateDeviceInstanceResponse_deviceInstance,
+    updateDeviceInstanceResponse_httpStatus,
+  )
+where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateDeviceInstance' smart constructor.
+-- | /See:/ 'newUpdateDeviceInstance' smart constructor.
 data UpdateDeviceInstance = UpdateDeviceInstance'
-  { _udiProfileARN :: !(Maybe Text)
-  , _udiLabels     :: !(Maybe [Text])
-  , _udiArn        :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of strings that you want to associate with the device instance.
+    labels :: Prelude.Maybe [Prelude.Text],
+    -- | The ARN of the profile that you want to associate with the device
+    -- instance.
+    profileArn :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the device instance.
+    arn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateDeviceInstance' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateDeviceInstance' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'udiProfileARN' - The Amazon Resource Name (ARN) of the profile that you want to associate with the device instance.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'udiLabels' - An array of strings that you want to associate with the device instance.
+-- 'labels', 'updateDeviceInstance_labels' - An array of strings that you want to associate with the device instance.
 --
--- * 'udiArn' - The Amazon Resource Name (ARN) of the device instance.
-updateDeviceInstance
-    :: Text -- ^ 'udiArn'
-    -> UpdateDeviceInstance
-updateDeviceInstance pArn_ =
+-- 'profileArn', 'updateDeviceInstance_profileArn' - The ARN of the profile that you want to associate with the device
+-- instance.
+--
+-- 'arn', 'updateDeviceInstance_arn' - The Amazon Resource Name (ARN) of the device instance.
+newUpdateDeviceInstance ::
+  -- | 'arn'
+  Prelude.Text ->
+  UpdateDeviceInstance
+newUpdateDeviceInstance pArn_ =
   UpdateDeviceInstance'
-    {_udiProfileARN = Nothing, _udiLabels = Nothing, _udiArn = pArn_}
-
-
--- | The Amazon Resource Name (ARN) of the profile that you want to associate with the device instance.
-udiProfileARN :: Lens' UpdateDeviceInstance (Maybe Text)
-udiProfileARN = lens _udiProfileARN (\ s a -> s{_udiProfileARN = a})
+    { labels = Prelude.Nothing,
+      profileArn = Prelude.Nothing,
+      arn = pArn_
+    }
 
 -- | An array of strings that you want to associate with the device instance.
-udiLabels :: Lens' UpdateDeviceInstance [Text]
-udiLabels = lens _udiLabels (\ s a -> s{_udiLabels = a}) . _Default . _Coerce
+updateDeviceInstance_labels :: Lens.Lens' UpdateDeviceInstance (Prelude.Maybe [Prelude.Text])
+updateDeviceInstance_labels = Lens.lens (\UpdateDeviceInstance' {labels} -> labels) (\s@UpdateDeviceInstance' {} a -> s {labels = a} :: UpdateDeviceInstance) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The ARN of the profile that you want to associate with the device
+-- instance.
+updateDeviceInstance_profileArn :: Lens.Lens' UpdateDeviceInstance (Prelude.Maybe Prelude.Text)
+updateDeviceInstance_profileArn = Lens.lens (\UpdateDeviceInstance' {profileArn} -> profileArn) (\s@UpdateDeviceInstance' {} a -> s {profileArn = a} :: UpdateDeviceInstance)
 
 -- | The Amazon Resource Name (ARN) of the device instance.
-udiArn :: Lens' UpdateDeviceInstance Text
-udiArn = lens _udiArn (\ s a -> s{_udiArn = a})
+updateDeviceInstance_arn :: Lens.Lens' UpdateDeviceInstance Prelude.Text
+updateDeviceInstance_arn = Lens.lens (\UpdateDeviceInstance' {arn} -> arn) (\s@UpdateDeviceInstance' {} a -> s {arn = a} :: UpdateDeviceInstance)
 
-instance AWSRequest UpdateDeviceInstance where
-        type Rs UpdateDeviceInstance =
-             UpdateDeviceInstanceResponse
-        request = postJSON deviceFarm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateDeviceInstanceResponse' <$>
-                   (x .?> "deviceInstance") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest UpdateDeviceInstance where
+  type
+    Rs UpdateDeviceInstance =
+      UpdateDeviceInstanceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateDeviceInstanceResponse'
+            Prelude.<$> (x Prelude..?> "deviceInstance")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateDeviceInstance where
+instance Prelude.Hashable UpdateDeviceInstance
 
-instance NFData UpdateDeviceInstance where
+instance Prelude.NFData UpdateDeviceInstance
 
-instance ToHeaders UpdateDeviceInstance where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DeviceFarm_20150623.UpdateDeviceInstance" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders UpdateDeviceInstance where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "DeviceFarm_20150623.UpdateDeviceInstance" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON UpdateDeviceInstance where
-        toJSON UpdateDeviceInstance'{..}
-          = object
-              (catMaybes
-                 [("profileArn" .=) <$> _udiProfileARN,
-                  ("labels" .=) <$> _udiLabels,
-                  Just ("arn" .= _udiArn)])
+instance Prelude.ToJSON UpdateDeviceInstance where
+  toJSON UpdateDeviceInstance' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("labels" Prelude..=) Prelude.<$> labels,
+            ("profileArn" Prelude..=) Prelude.<$> profileArn,
+            Prelude.Just ("arn" Prelude..= arn)
+          ]
+      )
 
-instance ToPath UpdateDeviceInstance where
-        toPath = const "/"
+instance Prelude.ToPath UpdateDeviceInstance where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateDeviceInstance where
-        toQuery = const mempty
+instance Prelude.ToQuery UpdateDeviceInstance where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateDeviceInstanceResponse' smart constructor.
+-- | /See:/ 'newUpdateDeviceInstanceResponse' smart constructor.
 data UpdateDeviceInstanceResponse = UpdateDeviceInstanceResponse'
-  { _udirsDeviceInstance :: !(Maybe DeviceInstance)
-  , _udirsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An object that contains information about your device instance.
+    deviceInstance :: Prelude.Maybe DeviceInstance,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateDeviceInstanceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateDeviceInstanceResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'udirsDeviceInstance' - An object containing information about your device instance.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'udirsResponseStatus' - -- | The response status code.
-updateDeviceInstanceResponse
-    :: Int -- ^ 'udirsResponseStatus'
-    -> UpdateDeviceInstanceResponse
-updateDeviceInstanceResponse pResponseStatus_ =
+-- 'deviceInstance', 'updateDeviceInstanceResponse_deviceInstance' - An object that contains information about your device instance.
+--
+-- 'httpStatus', 'updateDeviceInstanceResponse_httpStatus' - The response's http status code.
+newUpdateDeviceInstanceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateDeviceInstanceResponse
+newUpdateDeviceInstanceResponse pHttpStatus_ =
   UpdateDeviceInstanceResponse'
-    {_udirsDeviceInstance = Nothing, _udirsResponseStatus = pResponseStatus_}
+    { deviceInstance =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | An object that contains information about your device instance.
+updateDeviceInstanceResponse_deviceInstance :: Lens.Lens' UpdateDeviceInstanceResponse (Prelude.Maybe DeviceInstance)
+updateDeviceInstanceResponse_deviceInstance = Lens.lens (\UpdateDeviceInstanceResponse' {deviceInstance} -> deviceInstance) (\s@UpdateDeviceInstanceResponse' {} a -> s {deviceInstance = a} :: UpdateDeviceInstanceResponse)
 
--- | An object containing information about your device instance.
-udirsDeviceInstance :: Lens' UpdateDeviceInstanceResponse (Maybe DeviceInstance)
-udirsDeviceInstance = lens _udirsDeviceInstance (\ s a -> s{_udirsDeviceInstance = a})
+-- | The response's http status code.
+updateDeviceInstanceResponse_httpStatus :: Lens.Lens' UpdateDeviceInstanceResponse Prelude.Int
+updateDeviceInstanceResponse_httpStatus = Lens.lens (\UpdateDeviceInstanceResponse' {httpStatus} -> httpStatus) (\s@UpdateDeviceInstanceResponse' {} a -> s {httpStatus = a} :: UpdateDeviceInstanceResponse)
 
--- | -- | The response status code.
-udirsResponseStatus :: Lens' UpdateDeviceInstanceResponse Int
-udirsResponseStatus = lens _udirsResponseStatus (\ s a -> s{_udirsResponseStatus = a})
-
-instance NFData UpdateDeviceInstanceResponse where
+instance Prelude.NFData UpdateDeviceInstanceResponse

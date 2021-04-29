@@ -1,191 +1,281 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.ListProvisionedProductPlans
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the plans for the specified provisioned product or all plans to which the user has access.
+-- Lists the plans for the specified provisioned product or all plans to
+-- which the user has access.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.ServiceCatalog.ListProvisionedProductPlans
-    (
-    -- * Creating a Request
-      listProvisionedProductPlans
-    , ListProvisionedProductPlans
+  ( -- * Creating a Request
+    ListProvisionedProductPlans (..),
+    newListProvisionedProductPlans,
+
     -- * Request Lenses
-    , lpppProvisionProductId
-    , lpppAcceptLanguage
-    , lpppAccessLevelFilter
-    , lpppPageToken
-    , lpppPageSize
+    listProvisionedProductPlans_provisionProductId,
+    listProvisionedProductPlans_pageSize,
+    listProvisionedProductPlans_pageToken,
+    listProvisionedProductPlans_accessLevelFilter,
+    listProvisionedProductPlans_acceptLanguage,
 
     -- * Destructuring the Response
-    , listProvisionedProductPlansResponse
-    , ListProvisionedProductPlansResponse
+    ListProvisionedProductPlansResponse (..),
+    newListProvisionedProductPlansResponse,
+
     -- * Response Lenses
-    , lppprsNextPageToken
-    , lppprsProvisionedProductPlans
-    , lppprsResponseStatus
-    ) where
+    listProvisionedProductPlansResponse_nextPageToken,
+    listProvisionedProductPlansResponse_provisionedProductPlans,
+    listProvisionedProductPlansResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
-import Network.AWS.ServiceCatalog.Types.Product
 
--- | /See:/ 'listProvisionedProductPlans' smart constructor.
+-- | /See:/ 'newListProvisionedProductPlans' smart constructor.
 data ListProvisionedProductPlans = ListProvisionedProductPlans'
-  { _lpppProvisionProductId :: !(Maybe Text)
-  , _lpppAcceptLanguage     :: !(Maybe Text)
-  , _lpppAccessLevelFilter  :: !(Maybe AccessLevelFilter)
-  , _lpppPageToken          :: !(Maybe Text)
-  , _lpppPageSize           :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The product identifier.
+    provisionProductId :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call.
+    pageSize :: Prelude.Maybe Prelude.Natural,
+    -- | The page token for the next set of results. To retrieve the first set of
+    -- results, use null.
+    pageToken :: Prelude.Maybe Prelude.Text,
+    -- | The access level to use to obtain results. The default is @User@.
+    accessLevelFilter :: Prelude.Maybe AccessLevelFilter,
+    -- | The language code.
+    --
+    -- -   @en@ - English (default)
+    --
+    -- -   @jp@ - Japanese
+    --
+    -- -   @zh@ - Chinese
+    acceptLanguage :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListProvisionedProductPlans' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListProvisionedProductPlans' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lpppProvisionProductId' - The product identifier.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lpppAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
+-- 'provisionProductId', 'listProvisionedProductPlans_provisionProductId' - The product identifier.
 --
--- * 'lpppAccessLevelFilter' - The access level to use to obtain results. The default is @User@ .
+-- 'pageSize', 'listProvisionedProductPlans_pageSize' - The maximum number of items to return with this call.
 --
--- * 'lpppPageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
+-- 'pageToken', 'listProvisionedProductPlans_pageToken' - The page token for the next set of results. To retrieve the first set of
+-- results, use null.
 --
--- * 'lpppPageSize' - The maximum number of items to return with this call.
-listProvisionedProductPlans
-    :: ListProvisionedProductPlans
-listProvisionedProductPlans =
+-- 'accessLevelFilter', 'listProvisionedProductPlans_accessLevelFilter' - The access level to use to obtain results. The default is @User@.
+--
+-- 'acceptLanguage', 'listProvisionedProductPlans_acceptLanguage' - The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+newListProvisionedProductPlans ::
+  ListProvisionedProductPlans
+newListProvisionedProductPlans =
   ListProvisionedProductPlans'
-    { _lpppProvisionProductId = Nothing
-    , _lpppAcceptLanguage = Nothing
-    , _lpppAccessLevelFilter = Nothing
-    , _lpppPageToken = Nothing
-    , _lpppPageSize = Nothing
+    { provisionProductId =
+        Prelude.Nothing,
+      pageSize = Prelude.Nothing,
+      pageToken = Prelude.Nothing,
+      accessLevelFilter = Prelude.Nothing,
+      acceptLanguage = Prelude.Nothing
     }
-
 
 -- | The product identifier.
-lpppProvisionProductId :: Lens' ListProvisionedProductPlans (Maybe Text)
-lpppProvisionProductId = lens _lpppProvisionProductId (\ s a -> s{_lpppProvisionProductId = a})
-
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-lpppAcceptLanguage :: Lens' ListProvisionedProductPlans (Maybe Text)
-lpppAcceptLanguage = lens _lpppAcceptLanguage (\ s a -> s{_lpppAcceptLanguage = a})
-
--- | The access level to use to obtain results. The default is @User@ .
-lpppAccessLevelFilter :: Lens' ListProvisionedProductPlans (Maybe AccessLevelFilter)
-lpppAccessLevelFilter = lens _lpppAccessLevelFilter (\ s a -> s{_lpppAccessLevelFilter = a})
-
--- | The page token for the next set of results. To retrieve the first set of results, use null.
-lpppPageToken :: Lens' ListProvisionedProductPlans (Maybe Text)
-lpppPageToken = lens _lpppPageToken (\ s a -> s{_lpppPageToken = a})
+listProvisionedProductPlans_provisionProductId :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe Prelude.Text)
+listProvisionedProductPlans_provisionProductId = Lens.lens (\ListProvisionedProductPlans' {provisionProductId} -> provisionProductId) (\s@ListProvisionedProductPlans' {} a -> s {provisionProductId = a} :: ListProvisionedProductPlans)
 
 -- | The maximum number of items to return with this call.
-lpppPageSize :: Lens' ListProvisionedProductPlans (Maybe Natural)
-lpppPageSize = lens _lpppPageSize (\ s a -> s{_lpppPageSize = a}) . mapping _Nat
+listProvisionedProductPlans_pageSize :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe Prelude.Natural)
+listProvisionedProductPlans_pageSize = Lens.lens (\ListProvisionedProductPlans' {pageSize} -> pageSize) (\s@ListProvisionedProductPlans' {} a -> s {pageSize = a} :: ListProvisionedProductPlans)
 
-instance AWSRequest ListProvisionedProductPlans where
-        type Rs ListProvisionedProductPlans =
-             ListProvisionedProductPlansResponse
-        request = postJSON serviceCatalog
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListProvisionedProductPlansResponse' <$>
-                   (x .?> "NextPageToken") <*>
-                     (x .?> "ProvisionedProductPlans" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+-- | The page token for the next set of results. To retrieve the first set of
+-- results, use null.
+listProvisionedProductPlans_pageToken :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe Prelude.Text)
+listProvisionedProductPlans_pageToken = Lens.lens (\ListProvisionedProductPlans' {pageToken} -> pageToken) (\s@ListProvisionedProductPlans' {} a -> s {pageToken = a} :: ListProvisionedProductPlans)
 
-instance Hashable ListProvisionedProductPlans where
+-- | The access level to use to obtain results. The default is @User@.
+listProvisionedProductPlans_accessLevelFilter :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe AccessLevelFilter)
+listProvisionedProductPlans_accessLevelFilter = Lens.lens (\ListProvisionedProductPlans' {accessLevelFilter} -> accessLevelFilter) (\s@ListProvisionedProductPlans' {} a -> s {accessLevelFilter = a} :: ListProvisionedProductPlans)
 
-instance NFData ListProvisionedProductPlans where
+-- | The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+listProvisionedProductPlans_acceptLanguage :: Lens.Lens' ListProvisionedProductPlans (Prelude.Maybe Prelude.Text)
+listProvisionedProductPlans_acceptLanguage = Lens.lens (\ListProvisionedProductPlans' {acceptLanguage} -> acceptLanguage) (\s@ListProvisionedProductPlans' {} a -> s {acceptLanguage = a} :: ListProvisionedProductPlans)
 
-instance ToHeaders ListProvisionedProductPlans where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWS242ServiceCatalogService.ListProvisionedProductPlans"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Pager.AWSPager ListProvisionedProductPlans where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listProvisionedProductPlansResponse_nextPageToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listProvisionedProductPlansResponse_provisionedProductPlans
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listProvisionedProductPlans_pageToken
+          Lens..~ rs
+          Lens.^? listProvisionedProductPlansResponse_nextPageToken
+            Prelude.. Lens._Just
 
-instance ToJSON ListProvisionedProductPlans where
-        toJSON ListProvisionedProductPlans'{..}
-          = object
-              (catMaybes
-                 [("ProvisionProductId" .=) <$>
-                    _lpppProvisionProductId,
-                  ("AcceptLanguage" .=) <$> _lpppAcceptLanguage,
-                  ("AccessLevelFilter" .=) <$> _lpppAccessLevelFilter,
-                  ("PageToken" .=) <$> _lpppPageToken,
-                  ("PageSize" .=) <$> _lpppPageSize])
+instance
+  Prelude.AWSRequest
+    ListProvisionedProductPlans
+  where
+  type
+    Rs ListProvisionedProductPlans =
+      ListProvisionedProductPlansResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListProvisionedProductPlansResponse'
+            Prelude.<$> (x Prelude..?> "NextPageToken")
+            Prelude.<*> ( x Prelude..?> "ProvisionedProductPlans"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToPath ListProvisionedProductPlans where
-        toPath = const "/"
+instance Prelude.Hashable ListProvisionedProductPlans
 
-instance ToQuery ListProvisionedProductPlans where
-        toQuery = const mempty
+instance Prelude.NFData ListProvisionedProductPlans
 
--- | /See:/ 'listProvisionedProductPlansResponse' smart constructor.
+instance
+  Prelude.ToHeaders
+    ListProvisionedProductPlans
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWS242ServiceCatalogService.ListProvisionedProductPlans" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON ListProvisionedProductPlans where
+  toJSON ListProvisionedProductPlans' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("ProvisionProductId" Prelude..=)
+              Prelude.<$> provisionProductId,
+            ("PageSize" Prelude..=) Prelude.<$> pageSize,
+            ("PageToken" Prelude..=) Prelude.<$> pageToken,
+            ("AccessLevelFilter" Prelude..=)
+              Prelude.<$> accessLevelFilter,
+            ("AcceptLanguage" Prelude..=)
+              Prelude.<$> acceptLanguage
+          ]
+      )
+
+instance Prelude.ToPath ListProvisionedProductPlans where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery ListProvisionedProductPlans where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListProvisionedProductPlansResponse' smart constructor.
 data ListProvisionedProductPlansResponse = ListProvisionedProductPlansResponse'
-  { _lppprsNextPageToken           :: !(Maybe Text)
-  , _lppprsProvisionedProductPlans :: !(Maybe [ProvisionedProductPlanSummary])
-  , _lppprsResponseStatus          :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The page token to use to retrieve the next set of results. If there are
+    -- no additional results, this value is null.
+    nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the plans.
+    provisionedProductPlans :: Prelude.Maybe [ProvisionedProductPlanSummary],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListProvisionedProductPlansResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListProvisionedProductPlansResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lppprsNextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lppprsProvisionedProductPlans' - Information about the plans.
+-- 'nextPageToken', 'listProvisionedProductPlansResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are
+-- no additional results, this value is null.
 --
--- * 'lppprsResponseStatus' - -- | The response status code.
-listProvisionedProductPlansResponse
-    :: Int -- ^ 'lppprsResponseStatus'
-    -> ListProvisionedProductPlansResponse
-listProvisionedProductPlansResponse pResponseStatus_ =
+-- 'provisionedProductPlans', 'listProvisionedProductPlansResponse_provisionedProductPlans' - Information about the plans.
+--
+-- 'httpStatus', 'listProvisionedProductPlansResponse_httpStatus' - The response's http status code.
+newListProvisionedProductPlansResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListProvisionedProductPlansResponse
+newListProvisionedProductPlansResponse pHttpStatus_ =
   ListProvisionedProductPlansResponse'
-    { _lppprsNextPageToken = Nothing
-    , _lppprsProvisionedProductPlans = Nothing
-    , _lppprsResponseStatus = pResponseStatus_
+    { nextPageToken =
+        Prelude.Nothing,
+      provisionedProductPlans =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
-lppprsNextPageToken :: Lens' ListProvisionedProductPlansResponse (Maybe Text)
-lppprsNextPageToken = lens _lppprsNextPageToken (\ s a -> s{_lppprsNextPageToken = a})
+-- | The page token to use to retrieve the next set of results. If there are
+-- no additional results, this value is null.
+listProvisionedProductPlansResponse_nextPageToken :: Lens.Lens' ListProvisionedProductPlansResponse (Prelude.Maybe Prelude.Text)
+listProvisionedProductPlansResponse_nextPageToken = Lens.lens (\ListProvisionedProductPlansResponse' {nextPageToken} -> nextPageToken) (\s@ListProvisionedProductPlansResponse' {} a -> s {nextPageToken = a} :: ListProvisionedProductPlansResponse)
 
 -- | Information about the plans.
-lppprsProvisionedProductPlans :: Lens' ListProvisionedProductPlansResponse [ProvisionedProductPlanSummary]
-lppprsProvisionedProductPlans = lens _lppprsProvisionedProductPlans (\ s a -> s{_lppprsProvisionedProductPlans = a}) . _Default . _Coerce
+listProvisionedProductPlansResponse_provisionedProductPlans :: Lens.Lens' ListProvisionedProductPlansResponse (Prelude.Maybe [ProvisionedProductPlanSummary])
+listProvisionedProductPlansResponse_provisionedProductPlans = Lens.lens (\ListProvisionedProductPlansResponse' {provisionedProductPlans} -> provisionedProductPlans) (\s@ListProvisionedProductPlansResponse' {} a -> s {provisionedProductPlans = a} :: ListProvisionedProductPlansResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-lppprsResponseStatus :: Lens' ListProvisionedProductPlansResponse Int
-lppprsResponseStatus = lens _lppprsResponseStatus (\ s a -> s{_lppprsResponseStatus = a})
+-- | The response's http status code.
+listProvisionedProductPlansResponse_httpStatus :: Lens.Lens' ListProvisionedProductPlansResponse Prelude.Int
+listProvisionedProductPlansResponse_httpStatus = Lens.lens (\ListProvisionedProductPlansResponse' {httpStatus} -> httpStatus) (\s@ListProvisionedProductPlansResponse' {} a -> s {httpStatus = a} :: ListProvisionedProductPlansResponse)
 
-instance NFData ListProvisionedProductPlansResponse
-         where
+instance
+  Prelude.NFData
+    ListProvisionedProductPlansResponse

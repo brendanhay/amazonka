@@ -1,278 +1,438 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MachineLearning.GetEvaluation
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns an @Evaluation@ that includes metadata as well as the current status of the @Evaluation@ .
---
---
+-- Returns an @Evaluation@ that includes metadata as well as the current
+-- status of the @Evaluation@.
 module Network.AWS.MachineLearning.GetEvaluation
-    (
-    -- * Creating a Request
-      getEvaluation
-    , GetEvaluation
+  ( -- * Creating a Request
+    GetEvaluation (..),
+    newGetEvaluation,
+
     -- * Request Lenses
-    , geEvaluationId
+    getEvaluation_evaluationId,
 
     -- * Destructuring the Response
-    , getEvaluationResponse
-    , GetEvaluationResponse
+    GetEvaluationResponse (..),
+    newGetEvaluationResponse,
+
     -- * Response Lenses
-    , gersStatus
-    , gersPerformanceMetrics
-    , gersLastUpdatedAt
-    , gersCreatedAt
-    , gersComputeTime
-    , gersInputDataLocationS3
-    , gersMLModelId
-    , gersStartedAt
-    , gersFinishedAt
-    , gersCreatedByIAMUser
-    , gersName
-    , gersLogURI
-    , gersEvaluationId
-    , gersMessage
-    , gersEvaluationDataSourceId
-    , gersResponseStatus
-    ) where
+    getEvaluationResponse_performanceMetrics,
+    getEvaluationResponse_status,
+    getEvaluationResponse_startedAt,
+    getEvaluationResponse_evaluationDataSourceId,
+    getEvaluationResponse_message,
+    getEvaluationResponse_createdAt,
+    getEvaluationResponse_finishedAt,
+    getEvaluationResponse_createdByIamUser,
+    getEvaluationResponse_name,
+    getEvaluationResponse_evaluationId,
+    getEvaluationResponse_mLModelId,
+    getEvaluationResponse_inputDataLocationS3,
+    getEvaluationResponse_computeTime,
+    getEvaluationResponse_lastUpdatedAt,
+    getEvaluationResponse_logUri,
+    getEvaluationResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import Network.AWS.MachineLearning.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getEvaluation' smart constructor.
-newtype GetEvaluation = GetEvaluation'
-  { _geEvaluationId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetEvaluation' smart constructor.
+data GetEvaluation = GetEvaluation'
+  { -- | The ID of the @Evaluation@ to retrieve. The evaluation of each @MLModel@
+    -- is recorded and cataloged. The ID provides the means to access the
+    -- information.
+    evaluationId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetEvaluation' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetEvaluation' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'geEvaluationId' - The ID of the @Evaluation@ to retrieve. The evaluation of each @MLModel@ is recorded and cataloged. The ID provides the means to access the information.
-getEvaluation
-    :: Text -- ^ 'geEvaluationId'
-    -> GetEvaluation
-getEvaluation pEvaluationId_ = GetEvaluation' {_geEvaluationId = pEvaluationId_}
-
-
--- | The ID of the @Evaluation@ to retrieve. The evaluation of each @MLModel@ is recorded and cataloged. The ID provides the means to access the information.
-geEvaluationId :: Lens' GetEvaluation Text
-geEvaluationId = lens _geEvaluationId (\ s a -> s{_geEvaluationId = a})
-
-instance AWSRequest GetEvaluation where
-        type Rs GetEvaluation = GetEvaluationResponse
-        request = postJSON machineLearning
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetEvaluationResponse' <$>
-                   (x .?> "Status") <*> (x .?> "PerformanceMetrics") <*>
-                     (x .?> "LastUpdatedAt")
-                     <*> (x .?> "CreatedAt")
-                     <*> (x .?> "ComputeTime")
-                     <*> (x .?> "InputDataLocationS3")
-                     <*> (x .?> "MLModelId")
-                     <*> (x .?> "StartedAt")
-                     <*> (x .?> "FinishedAt")
-                     <*> (x .?> "CreatedByIamUser")
-                     <*> (x .?> "Name")
-                     <*> (x .?> "LogUri")
-                     <*> (x .?> "EvaluationId")
-                     <*> (x .?> "Message")
-                     <*> (x .?> "EvaluationDataSourceId")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable GetEvaluation where
-
-instance NFData GetEvaluation where
-
-instance ToHeaders GetEvaluation where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonML_20141212.GetEvaluation" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON GetEvaluation where
-        toJSON GetEvaluation'{..}
-          = object
-              (catMaybes
-                 [Just ("EvaluationId" .= _geEvaluationId)])
-
-instance ToPath GetEvaluation where
-        toPath = const "/"
-
-instance ToQuery GetEvaluation where
-        toQuery = const mempty
-
--- | Represents the output of a @GetEvaluation@ operation and describes an @Evaluation@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
+-- 'evaluationId', 'getEvaluation_evaluationId' - The ID of the @Evaluation@ to retrieve. The evaluation of each @MLModel@
+-- is recorded and cataloged. The ID provides the means to access the
+-- information.
+newGetEvaluation ::
+  -- | 'evaluationId'
+  Prelude.Text ->
+  GetEvaluation
+newGetEvaluation pEvaluationId_ =
+  GetEvaluation' {evaluationId = pEvaluationId_}
+
+-- | The ID of the @Evaluation@ to retrieve. The evaluation of each @MLModel@
+-- is recorded and cataloged. The ID provides the means to access the
+-- information.
+getEvaluation_evaluationId :: Lens.Lens' GetEvaluation Prelude.Text
+getEvaluation_evaluationId = Lens.lens (\GetEvaluation' {evaluationId} -> evaluationId) (\s@GetEvaluation' {} a -> s {evaluationId = a} :: GetEvaluation)
+
+instance Prelude.AWSRequest GetEvaluation where
+  type Rs GetEvaluation = GetEvaluationResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetEvaluationResponse'
+            Prelude.<$> (x Prelude..?> "PerformanceMetrics")
+            Prelude.<*> (x Prelude..?> "Status")
+            Prelude.<*> (x Prelude..?> "StartedAt")
+            Prelude.<*> (x Prelude..?> "EvaluationDataSourceId")
+            Prelude.<*> (x Prelude..?> "Message")
+            Prelude.<*> (x Prelude..?> "CreatedAt")
+            Prelude.<*> (x Prelude..?> "FinishedAt")
+            Prelude.<*> (x Prelude..?> "CreatedByIamUser")
+            Prelude.<*> (x Prelude..?> "Name")
+            Prelude.<*> (x Prelude..?> "EvaluationId")
+            Prelude.<*> (x Prelude..?> "MLModelId")
+            Prelude.<*> (x Prelude..?> "InputDataLocationS3")
+            Prelude.<*> (x Prelude..?> "ComputeTime")
+            Prelude.<*> (x Prelude..?> "LastUpdatedAt")
+            Prelude.<*> (x Prelude..?> "LogUri")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable GetEvaluation
+
+instance Prelude.NFData GetEvaluation
+
+instance Prelude.ToHeaders GetEvaluation where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AmazonML_20141212.GetEvaluation" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON GetEvaluation where
+  toJSON GetEvaluation' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("EvaluationId" Prelude..= evaluationId)
+          ]
+      )
+
+instance Prelude.ToPath GetEvaluation where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery GetEvaluation where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | Represents the output of a @GetEvaluation@ operation and describes an
+-- @Evaluation@.
 --
---
--- /See:/ 'getEvaluationResponse' smart constructor.
+-- /See:/ 'newGetEvaluationResponse' smart constructor.
 data GetEvaluationResponse = GetEvaluationResponse'
-  { _gersStatus                 :: !(Maybe EntityStatus)
-  , _gersPerformanceMetrics     :: !(Maybe PerformanceMetrics)
-  , _gersLastUpdatedAt          :: !(Maybe POSIX)
-  , _gersCreatedAt              :: !(Maybe POSIX)
-  , _gersComputeTime            :: !(Maybe Integer)
-  , _gersInputDataLocationS3    :: !(Maybe Text)
-  , _gersMLModelId              :: !(Maybe Text)
-  , _gersStartedAt              :: !(Maybe POSIX)
-  , _gersFinishedAt             :: !(Maybe POSIX)
-  , _gersCreatedByIAMUser       :: !(Maybe Text)
-  , _gersName                   :: !(Maybe Text)
-  , _gersLogURI                 :: !(Maybe Text)
-  , _gersEvaluationId           :: !(Maybe Text)
-  , _gersMessage                :: !(Maybe Text)
-  , _gersEvaluationDataSourceId :: !(Maybe Text)
-  , _gersResponseStatus         :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Measurements of how well the @MLModel@ performed using observations
+    -- referenced by the @DataSource@. One of the following metric is returned
+    -- based on the type of the @MLModel@:
+    --
+    -- -   BinaryAUC: A binary @MLModel@ uses the Area Under the Curve (AUC)
+    --     technique to measure performance.
+    --
+    -- -   RegressionRMSE: A regression @MLModel@ uses the Root Mean Square
+    --     Error (RMSE) technique to measure performance. RMSE measures the
+    --     difference between predicted and actual values for a single
+    --     variable.
+    --
+    -- -   MulticlassAvgFScore: A multiclass @MLModel@ uses the F1 score
+    --     technique to measure performance.
+    --
+    -- For more information about performance metrics, please see the
+    -- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
+    performanceMetrics :: Prelude.Maybe PerformanceMetrics,
+    -- | The status of the evaluation. This element can have one of the following
+    -- values:
+    --
+    -- -   @PENDING@ - Amazon Machine Language (Amazon ML) submitted a request
+    --     to evaluate an @MLModel@.
+    -- -   @INPROGRESS@ - The evaluation is underway.
+    -- -   @FAILED@ - The request to evaluate an @MLModel@ did not run to
+    --     completion. It is not usable.
+    -- -   @COMPLETED@ - The evaluation process completed successfully.
+    -- -   @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
+    status :: Prelude.Maybe EntityStatus,
+    -- | The epoch time when Amazon Machine Learning marked the @Evaluation@ as
+    -- @INPROGRESS@. @StartedAt@ isn\'t available if the @Evaluation@ is in the
+    -- @PENDING@ state.
+    startedAt :: Prelude.Maybe Prelude.POSIX,
+    -- | The @DataSource@ used for this evaluation.
+    evaluationDataSourceId :: Prelude.Maybe Prelude.Text,
+    -- | A description of the most recent details about evaluating the @MLModel@.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The time that the @Evaluation@ was created. The time is expressed in
+    -- epoch time.
+    createdAt :: Prelude.Maybe Prelude.POSIX,
+    -- | The epoch time when Amazon Machine Learning marked the @Evaluation@ as
+    -- @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
+    -- @Evaluation@ is in the @COMPLETED@ or @FAILED@ state.
+    finishedAt :: Prelude.Maybe Prelude.POSIX,
+    -- | The AWS user account that invoked the evaluation. The account type can
+    -- be either an AWS root account or an AWS Identity and Access Management
+    -- (IAM) user account.
+    createdByIamUser :: Prelude.Maybe Prelude.Text,
+    -- | A user-supplied name or description of the @Evaluation@.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The evaluation ID which is same as the @EvaluationId@ in the request.
+    evaluationId :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the @MLModel@ that was the focus of the evaluation.
+    mLModelId :: Prelude.Maybe Prelude.Text,
+    -- | The location of the data file or directory in Amazon Simple Storage
+    -- Service (Amazon S3).
+    inputDataLocationS3 :: Prelude.Maybe Prelude.Text,
+    -- | The approximate CPU time in milliseconds that Amazon Machine Learning
+    -- spent processing the @Evaluation@, normalized and scaled on computation
+    -- resources. @ComputeTime@ is only available if the @Evaluation@ is in the
+    -- @COMPLETED@ state.
+    computeTime :: Prelude.Maybe Prelude.Integer,
+    -- | The time of the most recent edit to the @Evaluation@. The time is
+    -- expressed in epoch time.
+    lastUpdatedAt :: Prelude.Maybe Prelude.POSIX,
+    -- | A link to the file that contains logs of the @CreateEvaluation@
+    -- operation.
+    logUri :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetEvaluationResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetEvaluationResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gersStatus' - The status of the evaluation. This element can have one of the following values:     * @PENDING@ - Amazon Machine Language (Amazon ML) submitted a request to evaluate an @MLModel@ .    * @INPROGRESS@ - The evaluation is underway.    * @FAILED@ - The request to evaluate an @MLModel@ did not run to completion. It is not usable.    * @COMPLETED@ - The evaluation process completed successfully.    * @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gersPerformanceMetrics' - Measurements of how well the @MLModel@ performed using observations referenced by the @DataSource@ . One of the following metric is returned based on the type of the @MLModel@ :      * BinaryAUC: A binary @MLModel@ uses the Area Under the Curve (AUC) technique to measure performance.      * RegressionRMSE: A regression @MLModel@ uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.     * MulticlassAvgFScore: A multiclass @MLModel@ uses the F1 score technique to measure performance.  For more information about performance metrics, please see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide> .
+-- 'performanceMetrics', 'getEvaluationResponse_performanceMetrics' - Measurements of how well the @MLModel@ performed using observations
+-- referenced by the @DataSource@. One of the following metric is returned
+-- based on the type of the @MLModel@:
 --
--- * 'gersLastUpdatedAt' - The time of the most recent edit to the @Evaluation@ . The time is expressed in epoch time.
+-- -   BinaryAUC: A binary @MLModel@ uses the Area Under the Curve (AUC)
+--     technique to measure performance.
 --
--- * 'gersCreatedAt' - The time that the @Evaluation@ was created. The time is expressed in epoch time.
+-- -   RegressionRMSE: A regression @MLModel@ uses the Root Mean Square
+--     Error (RMSE) technique to measure performance. RMSE measures the
+--     difference between predicted and actual values for a single
+--     variable.
 --
--- * 'gersComputeTime' - The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the @Evaluation@ , normalized and scaled on computation resources. @ComputeTime@ is only available if the @Evaluation@ is in the @COMPLETED@ state.
+-- -   MulticlassAvgFScore: A multiclass @MLModel@ uses the F1 score
+--     technique to measure performance.
 --
--- * 'gersInputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
+-- For more information about performance metrics, please see the
+-- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
 --
--- * 'gersMLModelId' - The ID of the @MLModel@ that was the focus of the evaluation.
+-- 'status', 'getEvaluationResponse_status' - The status of the evaluation. This element can have one of the following
+-- values:
 --
--- * 'gersStartedAt' - The epoch time when Amazon Machine Learning marked the @Evaluation@ as @INPROGRESS@ . @StartedAt@ isn't available if the @Evaluation@ is in the @PENDING@ state.
+-- -   @PENDING@ - Amazon Machine Language (Amazon ML) submitted a request
+--     to evaluate an @MLModel@.
+-- -   @INPROGRESS@ - The evaluation is underway.
+-- -   @FAILED@ - The request to evaluate an @MLModel@ did not run to
+--     completion. It is not usable.
+-- -   @COMPLETED@ - The evaluation process completed successfully.
+-- -   @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
 --
--- * 'gersFinishedAt' - The epoch time when Amazon Machine Learning marked the @Evaluation@ as @COMPLETED@ or @FAILED@ . @FinishedAt@ is only available when the @Evaluation@ is in the @COMPLETED@ or @FAILED@ state.
+-- 'startedAt', 'getEvaluationResponse_startedAt' - The epoch time when Amazon Machine Learning marked the @Evaluation@ as
+-- @INPROGRESS@. @StartedAt@ isn\'t available if the @Evaluation@ is in the
+-- @PENDING@ state.
 --
--- * 'gersCreatedByIAMUser' - The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
+-- 'evaluationDataSourceId', 'getEvaluationResponse_evaluationDataSourceId' - The @DataSource@ used for this evaluation.
 --
--- * 'gersName' - A user-supplied name or description of the @Evaluation@ .
+-- 'message', 'getEvaluationResponse_message' - A description of the most recent details about evaluating the @MLModel@.
 --
--- * 'gersLogURI' - A link to the file that contains logs of the @CreateEvaluation@ operation.
+-- 'createdAt', 'getEvaluationResponse_createdAt' - The time that the @Evaluation@ was created. The time is expressed in
+-- epoch time.
 --
--- * 'gersEvaluationId' - The evaluation ID which is same as the @EvaluationId@ in the request.
+-- 'finishedAt', 'getEvaluationResponse_finishedAt' - The epoch time when Amazon Machine Learning marked the @Evaluation@ as
+-- @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
+-- @Evaluation@ is in the @COMPLETED@ or @FAILED@ state.
 --
--- * 'gersMessage' - A description of the most recent details about evaluating the @MLModel@ .
+-- 'createdByIamUser', 'getEvaluationResponse_createdByIamUser' - The AWS user account that invoked the evaluation. The account type can
+-- be either an AWS root account or an AWS Identity and Access Management
+-- (IAM) user account.
 --
--- * 'gersEvaluationDataSourceId' - The @DataSource@ used for this evaluation.
+-- 'name', 'getEvaluationResponse_name' - A user-supplied name or description of the @Evaluation@.
 --
--- * 'gersResponseStatus' - -- | The response status code.
-getEvaluationResponse
-    :: Int -- ^ 'gersResponseStatus'
-    -> GetEvaluationResponse
-getEvaluationResponse pResponseStatus_ =
+-- 'evaluationId', 'getEvaluationResponse_evaluationId' - The evaluation ID which is same as the @EvaluationId@ in the request.
+--
+-- 'mLModelId', 'getEvaluationResponse_mLModelId' - The ID of the @MLModel@ that was the focus of the evaluation.
+--
+-- 'inputDataLocationS3', 'getEvaluationResponse_inputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage
+-- Service (Amazon S3).
+--
+-- 'computeTime', 'getEvaluationResponse_computeTime' - The approximate CPU time in milliseconds that Amazon Machine Learning
+-- spent processing the @Evaluation@, normalized and scaled on computation
+-- resources. @ComputeTime@ is only available if the @Evaluation@ is in the
+-- @COMPLETED@ state.
+--
+-- 'lastUpdatedAt', 'getEvaluationResponse_lastUpdatedAt' - The time of the most recent edit to the @Evaluation@. The time is
+-- expressed in epoch time.
+--
+-- 'logUri', 'getEvaluationResponse_logUri' - A link to the file that contains logs of the @CreateEvaluation@
+-- operation.
+--
+-- 'httpStatus', 'getEvaluationResponse_httpStatus' - The response's http status code.
+newGetEvaluationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetEvaluationResponse
+newGetEvaluationResponse pHttpStatus_ =
   GetEvaluationResponse'
-    { _gersStatus = Nothing
-    , _gersPerformanceMetrics = Nothing
-    , _gersLastUpdatedAt = Nothing
-    , _gersCreatedAt = Nothing
-    , _gersComputeTime = Nothing
-    , _gersInputDataLocationS3 = Nothing
-    , _gersMLModelId = Nothing
-    , _gersStartedAt = Nothing
-    , _gersFinishedAt = Nothing
-    , _gersCreatedByIAMUser = Nothing
-    , _gersName = Nothing
-    , _gersLogURI = Nothing
-    , _gersEvaluationId = Nothing
-    , _gersMessage = Nothing
-    , _gersEvaluationDataSourceId = Nothing
-    , _gersResponseStatus = pResponseStatus_
+    { performanceMetrics =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      startedAt = Prelude.Nothing,
+      evaluationDataSourceId = Prelude.Nothing,
+      message = Prelude.Nothing,
+      createdAt = Prelude.Nothing,
+      finishedAt = Prelude.Nothing,
+      createdByIamUser = Prelude.Nothing,
+      name = Prelude.Nothing,
+      evaluationId = Prelude.Nothing,
+      mLModelId = Prelude.Nothing,
+      inputDataLocationS3 = Prelude.Nothing,
+      computeTime = Prelude.Nothing,
+      lastUpdatedAt = Prelude.Nothing,
+      logUri = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | Measurements of how well the @MLModel@ performed using observations
+-- referenced by the @DataSource@. One of the following metric is returned
+-- based on the type of the @MLModel@:
+--
+-- -   BinaryAUC: A binary @MLModel@ uses the Area Under the Curve (AUC)
+--     technique to measure performance.
+--
+-- -   RegressionRMSE: A regression @MLModel@ uses the Root Mean Square
+--     Error (RMSE) technique to measure performance. RMSE measures the
+--     difference between predicted and actual values for a single
+--     variable.
+--
+-- -   MulticlassAvgFScore: A multiclass @MLModel@ uses the F1 score
+--     technique to measure performance.
+--
+-- For more information about performance metrics, please see the
+-- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
+getEvaluationResponse_performanceMetrics :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe PerformanceMetrics)
+getEvaluationResponse_performanceMetrics = Lens.lens (\GetEvaluationResponse' {performanceMetrics} -> performanceMetrics) (\s@GetEvaluationResponse' {} a -> s {performanceMetrics = a} :: GetEvaluationResponse)
 
--- | The status of the evaluation. This element can have one of the following values:     * @PENDING@ - Amazon Machine Language (Amazon ML) submitted a request to evaluate an @MLModel@ .    * @INPROGRESS@ - The evaluation is underway.    * @FAILED@ - The request to evaluate an @MLModel@ did not run to completion. It is not usable.    * @COMPLETED@ - The evaluation process completed successfully.    * @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
-gersStatus :: Lens' GetEvaluationResponse (Maybe EntityStatus)
-gersStatus = lens _gersStatus (\ s a -> s{_gersStatus = a})
+-- | The status of the evaluation. This element can have one of the following
+-- values:
+--
+-- -   @PENDING@ - Amazon Machine Language (Amazon ML) submitted a request
+--     to evaluate an @MLModel@.
+-- -   @INPROGRESS@ - The evaluation is underway.
+-- -   @FAILED@ - The request to evaluate an @MLModel@ did not run to
+--     completion. It is not usable.
+-- -   @COMPLETED@ - The evaluation process completed successfully.
+-- -   @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
+getEvaluationResponse_status :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe EntityStatus)
+getEvaluationResponse_status = Lens.lens (\GetEvaluationResponse' {status} -> status) (\s@GetEvaluationResponse' {} a -> s {status = a} :: GetEvaluationResponse)
 
--- | Measurements of how well the @MLModel@ performed using observations referenced by the @DataSource@ . One of the following metric is returned based on the type of the @MLModel@ :      * BinaryAUC: A binary @MLModel@ uses the Area Under the Curve (AUC) technique to measure performance.      * RegressionRMSE: A regression @MLModel@ uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.     * MulticlassAvgFScore: A multiclass @MLModel@ uses the F1 score technique to measure performance.  For more information about performance metrics, please see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide> .
-gersPerformanceMetrics :: Lens' GetEvaluationResponse (Maybe PerformanceMetrics)
-gersPerformanceMetrics = lens _gersPerformanceMetrics (\ s a -> s{_gersPerformanceMetrics = a})
-
--- | The time of the most recent edit to the @Evaluation@ . The time is expressed in epoch time.
-gersLastUpdatedAt :: Lens' GetEvaluationResponse (Maybe UTCTime)
-gersLastUpdatedAt = lens _gersLastUpdatedAt (\ s a -> s{_gersLastUpdatedAt = a}) . mapping _Time
-
--- | The time that the @Evaluation@ was created. The time is expressed in epoch time.
-gersCreatedAt :: Lens' GetEvaluationResponse (Maybe UTCTime)
-gersCreatedAt = lens _gersCreatedAt (\ s a -> s{_gersCreatedAt = a}) . mapping _Time
-
--- | The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the @Evaluation@ , normalized and scaled on computation resources. @ComputeTime@ is only available if the @Evaluation@ is in the @COMPLETED@ state.
-gersComputeTime :: Lens' GetEvaluationResponse (Maybe Integer)
-gersComputeTime = lens _gersComputeTime (\ s a -> s{_gersComputeTime = a})
-
--- | The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
-gersInputDataLocationS3 :: Lens' GetEvaluationResponse (Maybe Text)
-gersInputDataLocationS3 = lens _gersInputDataLocationS3 (\ s a -> s{_gersInputDataLocationS3 = a})
-
--- | The ID of the @MLModel@ that was the focus of the evaluation.
-gersMLModelId :: Lens' GetEvaluationResponse (Maybe Text)
-gersMLModelId = lens _gersMLModelId (\ s a -> s{_gersMLModelId = a})
-
--- | The epoch time when Amazon Machine Learning marked the @Evaluation@ as @INPROGRESS@ . @StartedAt@ isn't available if the @Evaluation@ is in the @PENDING@ state.
-gersStartedAt :: Lens' GetEvaluationResponse (Maybe UTCTime)
-gersStartedAt = lens _gersStartedAt (\ s a -> s{_gersStartedAt = a}) . mapping _Time
-
--- | The epoch time when Amazon Machine Learning marked the @Evaluation@ as @COMPLETED@ or @FAILED@ . @FinishedAt@ is only available when the @Evaluation@ is in the @COMPLETED@ or @FAILED@ state.
-gersFinishedAt :: Lens' GetEvaluationResponse (Maybe UTCTime)
-gersFinishedAt = lens _gersFinishedAt (\ s a -> s{_gersFinishedAt = a}) . mapping _Time
-
--- | The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
-gersCreatedByIAMUser :: Lens' GetEvaluationResponse (Maybe Text)
-gersCreatedByIAMUser = lens _gersCreatedByIAMUser (\ s a -> s{_gersCreatedByIAMUser = a})
-
--- | A user-supplied name or description of the @Evaluation@ .
-gersName :: Lens' GetEvaluationResponse (Maybe Text)
-gersName = lens _gersName (\ s a -> s{_gersName = a})
-
--- | A link to the file that contains logs of the @CreateEvaluation@ operation.
-gersLogURI :: Lens' GetEvaluationResponse (Maybe Text)
-gersLogURI = lens _gersLogURI (\ s a -> s{_gersLogURI = a})
-
--- | The evaluation ID which is same as the @EvaluationId@ in the request.
-gersEvaluationId :: Lens' GetEvaluationResponse (Maybe Text)
-gersEvaluationId = lens _gersEvaluationId (\ s a -> s{_gersEvaluationId = a})
-
--- | A description of the most recent details about evaluating the @MLModel@ .
-gersMessage :: Lens' GetEvaluationResponse (Maybe Text)
-gersMessage = lens _gersMessage (\ s a -> s{_gersMessage = a})
+-- | The epoch time when Amazon Machine Learning marked the @Evaluation@ as
+-- @INPROGRESS@. @StartedAt@ isn\'t available if the @Evaluation@ is in the
+-- @PENDING@ state.
+getEvaluationResponse_startedAt :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.UTCTime)
+getEvaluationResponse_startedAt = Lens.lens (\GetEvaluationResponse' {startedAt} -> startedAt) (\s@GetEvaluationResponse' {} a -> s {startedAt = a} :: GetEvaluationResponse) Prelude.. Lens.mapping Prelude._Time
 
 -- | The @DataSource@ used for this evaluation.
-gersEvaluationDataSourceId :: Lens' GetEvaluationResponse (Maybe Text)
-gersEvaluationDataSourceId = lens _gersEvaluationDataSourceId (\ s a -> s{_gersEvaluationDataSourceId = a})
+getEvaluationResponse_evaluationDataSourceId :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.Text)
+getEvaluationResponse_evaluationDataSourceId = Lens.lens (\GetEvaluationResponse' {evaluationDataSourceId} -> evaluationDataSourceId) (\s@GetEvaluationResponse' {} a -> s {evaluationDataSourceId = a} :: GetEvaluationResponse)
 
--- | -- | The response status code.
-gersResponseStatus :: Lens' GetEvaluationResponse Int
-gersResponseStatus = lens _gersResponseStatus (\ s a -> s{_gersResponseStatus = a})
+-- | A description of the most recent details about evaluating the @MLModel@.
+getEvaluationResponse_message :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.Text)
+getEvaluationResponse_message = Lens.lens (\GetEvaluationResponse' {message} -> message) (\s@GetEvaluationResponse' {} a -> s {message = a} :: GetEvaluationResponse)
 
-instance NFData GetEvaluationResponse where
+-- | The time that the @Evaluation@ was created. The time is expressed in
+-- epoch time.
+getEvaluationResponse_createdAt :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.UTCTime)
+getEvaluationResponse_createdAt = Lens.lens (\GetEvaluationResponse' {createdAt} -> createdAt) (\s@GetEvaluationResponse' {} a -> s {createdAt = a} :: GetEvaluationResponse) Prelude.. Lens.mapping Prelude._Time
+
+-- | The epoch time when Amazon Machine Learning marked the @Evaluation@ as
+-- @COMPLETED@ or @FAILED@. @FinishedAt@ is only available when the
+-- @Evaluation@ is in the @COMPLETED@ or @FAILED@ state.
+getEvaluationResponse_finishedAt :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.UTCTime)
+getEvaluationResponse_finishedAt = Lens.lens (\GetEvaluationResponse' {finishedAt} -> finishedAt) (\s@GetEvaluationResponse' {} a -> s {finishedAt = a} :: GetEvaluationResponse) Prelude.. Lens.mapping Prelude._Time
+
+-- | The AWS user account that invoked the evaluation. The account type can
+-- be either an AWS root account or an AWS Identity and Access Management
+-- (IAM) user account.
+getEvaluationResponse_createdByIamUser :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.Text)
+getEvaluationResponse_createdByIamUser = Lens.lens (\GetEvaluationResponse' {createdByIamUser} -> createdByIamUser) (\s@GetEvaluationResponse' {} a -> s {createdByIamUser = a} :: GetEvaluationResponse)
+
+-- | A user-supplied name or description of the @Evaluation@.
+getEvaluationResponse_name :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.Text)
+getEvaluationResponse_name = Lens.lens (\GetEvaluationResponse' {name} -> name) (\s@GetEvaluationResponse' {} a -> s {name = a} :: GetEvaluationResponse)
+
+-- | The evaluation ID which is same as the @EvaluationId@ in the request.
+getEvaluationResponse_evaluationId :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.Text)
+getEvaluationResponse_evaluationId = Lens.lens (\GetEvaluationResponse' {evaluationId} -> evaluationId) (\s@GetEvaluationResponse' {} a -> s {evaluationId = a} :: GetEvaluationResponse)
+
+-- | The ID of the @MLModel@ that was the focus of the evaluation.
+getEvaluationResponse_mLModelId :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.Text)
+getEvaluationResponse_mLModelId = Lens.lens (\GetEvaluationResponse' {mLModelId} -> mLModelId) (\s@GetEvaluationResponse' {} a -> s {mLModelId = a} :: GetEvaluationResponse)
+
+-- | The location of the data file or directory in Amazon Simple Storage
+-- Service (Amazon S3).
+getEvaluationResponse_inputDataLocationS3 :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.Text)
+getEvaluationResponse_inputDataLocationS3 = Lens.lens (\GetEvaluationResponse' {inputDataLocationS3} -> inputDataLocationS3) (\s@GetEvaluationResponse' {} a -> s {inputDataLocationS3 = a} :: GetEvaluationResponse)
+
+-- | The approximate CPU time in milliseconds that Amazon Machine Learning
+-- spent processing the @Evaluation@, normalized and scaled on computation
+-- resources. @ComputeTime@ is only available if the @Evaluation@ is in the
+-- @COMPLETED@ state.
+getEvaluationResponse_computeTime :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.Integer)
+getEvaluationResponse_computeTime = Lens.lens (\GetEvaluationResponse' {computeTime} -> computeTime) (\s@GetEvaluationResponse' {} a -> s {computeTime = a} :: GetEvaluationResponse)
+
+-- | The time of the most recent edit to the @Evaluation@. The time is
+-- expressed in epoch time.
+getEvaluationResponse_lastUpdatedAt :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.UTCTime)
+getEvaluationResponse_lastUpdatedAt = Lens.lens (\GetEvaluationResponse' {lastUpdatedAt} -> lastUpdatedAt) (\s@GetEvaluationResponse' {} a -> s {lastUpdatedAt = a} :: GetEvaluationResponse) Prelude.. Lens.mapping Prelude._Time
+
+-- | A link to the file that contains logs of the @CreateEvaluation@
+-- operation.
+getEvaluationResponse_logUri :: Lens.Lens' GetEvaluationResponse (Prelude.Maybe Prelude.Text)
+getEvaluationResponse_logUri = Lens.lens (\GetEvaluationResponse' {logUri} -> logUri) (\s@GetEvaluationResponse' {} a -> s {logUri = a} :: GetEvaluationResponse)
+
+-- | The response's http status code.
+getEvaluationResponse_httpStatus :: Lens.Lens' GetEvaluationResponse Prelude.Int
+getEvaluationResponse_httpStatus = Lens.lens (\GetEvaluationResponse' {httpStatus} -> httpStatus) (\s@GetEvaluationResponse' {} a -> s {httpStatus = a} :: GetEvaluationResponse)
+
+instance Prelude.NFData GetEvaluationResponse

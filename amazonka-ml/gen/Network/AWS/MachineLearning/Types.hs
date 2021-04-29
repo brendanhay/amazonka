@@ -1,351 +1,417 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MachineLearning.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.MachineLearning.Types
-    (
-    -- * Service Configuration
-      machineLearning
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _InvalidTagException
-    , _InternalServerException
-    , _InvalidInputException
-    , _IdempotentParameterMismatchException
-    , _TagLimitExceededException
-    , _PredictorNotMountedException
-    , _ResourceNotFoundException
-    , _LimitExceededException
+    _PredictorNotMountedException,
+    _TagLimitExceededException,
+    _InvalidInputException,
+    _InvalidTagException,
+    _LimitExceededException,
+    _ResourceNotFoundException,
+    _IdempotentParameterMismatchException,
+    _InternalServerException,
 
     -- * Algorithm
-    , Algorithm (..)
+    Algorithm (..),
 
     -- * BatchPredictionFilterVariable
-    , BatchPredictionFilterVariable (..)
+    BatchPredictionFilterVariable (..),
 
     -- * DataSourceFilterVariable
-    , DataSourceFilterVariable (..)
+    DataSourceFilterVariable (..),
 
     -- * DetailsAttributes
-    , DetailsAttributes (..)
+    DetailsAttributes (..),
 
     -- * EntityStatus
-    , EntityStatus (..)
+    EntityStatus (..),
 
     -- * EvaluationFilterVariable
-    , EvaluationFilterVariable (..)
+    EvaluationFilterVariable (..),
 
     -- * MLModelFilterVariable
-    , MLModelFilterVariable (..)
+    MLModelFilterVariable (..),
 
     -- * MLModelType
-    , MLModelType (..)
+    MLModelType (..),
 
     -- * RealtimeEndpointStatus
-    , RealtimeEndpointStatus (..)
+    RealtimeEndpointStatus (..),
 
     -- * SortOrder
-    , SortOrder (..)
+    SortOrder (..),
 
     -- * TaggableResourceType
-    , TaggableResourceType (..)
+    TaggableResourceType (..),
 
     -- * BatchPrediction
-    , BatchPrediction
-    , batchPrediction
-    , bpStatus
-    , bpLastUpdatedAt
-    , bpCreatedAt
-    , bpComputeTime
-    , bpInputDataLocationS3
-    , bpMLModelId
-    , bpBatchPredictionDataSourceId
-    , bpTotalRecordCount
-    , bpStartedAt
-    , bpBatchPredictionId
-    , bpFinishedAt
-    , bpInvalidRecordCount
-    , bpCreatedByIAMUser
-    , bpName
-    , bpMessage
-    , bpOutputURI
+    BatchPrediction (..),
+    newBatchPrediction,
+    batchPrediction_batchPredictionId,
+    batchPrediction_status,
+    batchPrediction_startedAt,
+    batchPrediction_outputUri,
+    batchPrediction_message,
+    batchPrediction_createdAt,
+    batchPrediction_finishedAt,
+    batchPrediction_createdByIamUser,
+    batchPrediction_name,
+    batchPrediction_invalidRecordCount,
+    batchPrediction_totalRecordCount,
+    batchPrediction_batchPredictionDataSourceId,
+    batchPrediction_mLModelId,
+    batchPrediction_inputDataLocationS3,
+    batchPrediction_computeTime,
+    batchPrediction_lastUpdatedAt,
 
     -- * DataSource
-    , DataSource
-    , dataSource
-    , dsStatus
-    , dsNumberOfFiles
-    , dsLastUpdatedAt
-    , dsCreatedAt
-    , dsComputeTime
-    , dsDataSourceId
-    , dsRDSMetadata
-    , dsDataSizeInBytes
-    , dsStartedAt
-    , dsFinishedAt
-    , dsCreatedByIAMUser
-    , dsName
-    , dsDataLocationS3
-    , dsComputeStatistics
-    , dsMessage
-    , dsRedshiftMetadata
-    , dsDataRearrangement
-    , dsRoleARN
+    DataSource (..),
+    newDataSource,
+    dataSource_status,
+    dataSource_startedAt,
+    dataSource_dataRearrangement,
+    dataSource_roleARN,
+    dataSource_redshiftMetadata,
+    dataSource_message,
+    dataSource_dataSourceId,
+    dataSource_computeStatistics,
+    dataSource_dataLocationS3,
+    dataSource_createdAt,
+    dataSource_numberOfFiles,
+    dataSource_finishedAt,
+    dataSource_createdByIamUser,
+    dataSource_name,
+    dataSource_dataSizeInBytes,
+    dataSource_computeTime,
+    dataSource_rDSMetadata,
+    dataSource_lastUpdatedAt,
 
     -- * Evaluation
-    , Evaluation
-    , evaluation
-    , eStatus
-    , ePerformanceMetrics
-    , eLastUpdatedAt
-    , eCreatedAt
-    , eComputeTime
-    , eInputDataLocationS3
-    , eMLModelId
-    , eStartedAt
-    , eFinishedAt
-    , eCreatedByIAMUser
-    , eName
-    , eEvaluationId
-    , eMessage
-    , eEvaluationDataSourceId
+    Evaluation (..),
+    newEvaluation,
+    evaluation_performanceMetrics,
+    evaluation_status,
+    evaluation_startedAt,
+    evaluation_evaluationDataSourceId,
+    evaluation_message,
+    evaluation_createdAt,
+    evaluation_finishedAt,
+    evaluation_createdByIamUser,
+    evaluation_name,
+    evaluation_evaluationId,
+    evaluation_mLModelId,
+    evaluation_inputDataLocationS3,
+    evaluation_computeTime,
+    evaluation_lastUpdatedAt,
 
     -- * MLModel
-    , MLModel
-    , mLModel
-    , mlmStatus
-    , mlmLastUpdatedAt
-    , mlmTrainingParameters
-    , mlmScoreThresholdLastUpdatedAt
-    , mlmCreatedAt
-    , mlmComputeTime
-    , mlmInputDataLocationS3
-    , mlmMLModelId
-    , mlmSizeInBytes
-    , mlmStartedAt
-    , mlmScoreThreshold
-    , mlmFinishedAt
-    , mlmAlgorithm
-    , mlmCreatedByIAMUser
-    , mlmName
-    , mlmEndpointInfo
-    , mlmTrainingDataSourceId
-    , mlmMessage
-    , mlmMLModelType
+    MLModel (..),
+    newMLModel,
+    mLModel_algorithm,
+    mLModel_status,
+    mLModel_startedAt,
+    mLModel_message,
+    mLModel_endpointInfo,
+    mLModel_scoreThresholdLastUpdatedAt,
+    mLModel_createdAt,
+    mLModel_trainingParameters,
+    mLModel_finishedAt,
+    mLModel_scoreThreshold,
+    mLModel_createdByIamUser,
+    mLModel_name,
+    mLModel_mLModelType,
+    mLModel_mLModelId,
+    mLModel_sizeInBytes,
+    mLModel_inputDataLocationS3,
+    mLModel_computeTime,
+    mLModel_trainingDataSourceId,
+    mLModel_lastUpdatedAt,
 
     -- * PerformanceMetrics
-    , PerformanceMetrics
-    , performanceMetrics
-    , pmProperties
+    PerformanceMetrics (..),
+    newPerformanceMetrics,
+    performanceMetrics_properties,
 
     -- * Prediction
-    , Prediction
-    , prediction
-    , pPredictedValue
-    , pPredictedLabel
-    , pPredictedScores
-    , pDetails
+    Prediction (..),
+    newPrediction,
+    prediction_predictedValue,
+    prediction_predictedScores,
+    prediction_predictedLabel,
+    prediction_details,
 
     -- * RDSDataSpec
-    , RDSDataSpec
-    , rdsDataSpec
-    , rdsdsDataSchemaURI
-    , rdsdsDataSchema
-    , rdsdsDataRearrangement
-    , rdsdsDatabaseInformation
-    , rdsdsSelectSqlQuery
-    , rdsdsDatabaseCredentials
-    , rdsdsS3StagingLocation
-    , rdsdsResourceRole
-    , rdsdsServiceRole
-    , rdsdsSubnetId
-    , rdsdsSecurityGroupIds
+    RDSDataSpec (..),
+    newRDSDataSpec,
+    rDSDataSpec_dataRearrangement,
+    rDSDataSpec_dataSchema,
+    rDSDataSpec_dataSchemaUri,
+    rDSDataSpec_databaseInformation,
+    rDSDataSpec_selectSqlQuery,
+    rDSDataSpec_databaseCredentials,
+    rDSDataSpec_s3StagingLocation,
+    rDSDataSpec_resourceRole,
+    rDSDataSpec_serviceRole,
+    rDSDataSpec_subnetId,
+    rDSDataSpec_securityGroupIds,
 
     -- * RDSDatabase
-    , RDSDatabase
-    , rdsDatabase
-    , rdsdInstanceIdentifier
-    , rdsdDatabaseName
+    RDSDatabase (..),
+    newRDSDatabase,
+    rDSDatabase_instanceIdentifier,
+    rDSDatabase_databaseName,
 
     -- * RDSDatabaseCredentials
-    , RDSDatabaseCredentials
-    , rdsDatabaseCredentials
-    , rdsdcUsername
-    , rdsdcPassword
+    RDSDatabaseCredentials (..),
+    newRDSDatabaseCredentials,
+    rDSDatabaseCredentials_username,
+    rDSDatabaseCredentials_password,
 
     -- * RDSMetadata
-    , RDSMetadata
-    , rdsMetadata
-    , rmSelectSqlQuery
-    , rmDataPipelineId
-    , rmDatabase
-    , rmDatabaseUserName
-    , rmResourceRole
-    , rmServiceRole
+    RDSMetadata (..),
+    newRDSMetadata,
+    rDSMetadata_dataPipelineId,
+    rDSMetadata_selectSqlQuery,
+    rDSMetadata_serviceRole,
+    rDSMetadata_resourceRole,
+    rDSMetadata_databaseUserName,
+    rDSMetadata_database,
 
     -- * RealtimeEndpointInfo
-    , RealtimeEndpointInfo
-    , realtimeEndpointInfo
-    , reiCreatedAt
-    , reiEndpointURL
-    , reiEndpointStatus
-    , reiPeakRequestsPerSecond
+    RealtimeEndpointInfo (..),
+    newRealtimeEndpointInfo,
+    realtimeEndpointInfo_createdAt,
+    realtimeEndpointInfo_peakRequestsPerSecond,
+    realtimeEndpointInfo_endpointStatus,
+    realtimeEndpointInfo_endpointUrl,
 
     -- * RedshiftDataSpec
-    , RedshiftDataSpec
-    , redshiftDataSpec
-    , rDataSchemaURI
-    , rDataSchema
-    , rDataRearrangement
-    , rDatabaseInformation
-    , rSelectSqlQuery
-    , rDatabaseCredentials
-    , rS3StagingLocation
+    RedshiftDataSpec (..),
+    newRedshiftDataSpec,
+    redshiftDataSpec_dataRearrangement,
+    redshiftDataSpec_dataSchema,
+    redshiftDataSpec_dataSchemaUri,
+    redshiftDataSpec_databaseInformation,
+    redshiftDataSpec_selectSqlQuery,
+    redshiftDataSpec_databaseCredentials,
+    redshiftDataSpec_s3StagingLocation,
 
     -- * RedshiftDatabase
-    , RedshiftDatabase
-    , redshiftDatabase
-    , rdDatabaseName
-    , rdClusterIdentifier
+    RedshiftDatabase (..),
+    newRedshiftDatabase,
+    redshiftDatabase_databaseName,
+    redshiftDatabase_clusterIdentifier,
 
     -- * RedshiftDatabaseCredentials
-    , RedshiftDatabaseCredentials
-    , redshiftDatabaseCredentials
-    , rdcUsername
-    , rdcPassword
+    RedshiftDatabaseCredentials (..),
+    newRedshiftDatabaseCredentials,
+    redshiftDatabaseCredentials_username,
+    redshiftDatabaseCredentials_password,
 
     -- * RedshiftMetadata
-    , RedshiftMetadata
-    , redshiftMetadata
-    , redSelectSqlQuery
-    , redRedshiftDatabase
-    , redDatabaseUserName
+    RedshiftMetadata (..),
+    newRedshiftMetadata,
+    redshiftMetadata_selectSqlQuery,
+    redshiftMetadata_redshiftDatabase,
+    redshiftMetadata_databaseUserName,
 
     -- * S3DataSpec
-    , S3DataSpec
-    , s3DataSpec
-    , sdsDataSchema
-    , sdsDataSchemaLocationS3
-    , sdsDataRearrangement
-    , sdsDataLocationS3
+    S3DataSpec (..),
+    newS3DataSpec,
+    s3DataSpec_dataRearrangement,
+    s3DataSpec_dataSchema,
+    s3DataSpec_dataSchemaLocationS3,
+    s3DataSpec_dataLocationS3,
 
     -- * Tag
-    , Tag
-    , tag
-    , tagValue
-    , tagKey
-    ) where
+    Tag (..),
+    newTag,
+    tag_key,
+    tag_value,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.MachineLearning.Types.Product
-import Network.AWS.MachineLearning.Types.Sum
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import Network.AWS.MachineLearning.Types.Algorithm
+import Network.AWS.MachineLearning.Types.BatchPrediction
+import Network.AWS.MachineLearning.Types.BatchPredictionFilterVariable
+import Network.AWS.MachineLearning.Types.DataSource
+import Network.AWS.MachineLearning.Types.DataSourceFilterVariable
+import Network.AWS.MachineLearning.Types.DetailsAttributes
+import Network.AWS.MachineLearning.Types.EntityStatus
+import Network.AWS.MachineLearning.Types.Evaluation
+import Network.AWS.MachineLearning.Types.EvaluationFilterVariable
+import Network.AWS.MachineLearning.Types.MLModel
+import Network.AWS.MachineLearning.Types.MLModelFilterVariable
+import Network.AWS.MachineLearning.Types.MLModelType
+import Network.AWS.MachineLearning.Types.PerformanceMetrics
+import Network.AWS.MachineLearning.Types.Prediction
+import Network.AWS.MachineLearning.Types.RDSDataSpec
+import Network.AWS.MachineLearning.Types.RDSDatabase
+import Network.AWS.MachineLearning.Types.RDSDatabaseCredentials
+import Network.AWS.MachineLearning.Types.RDSMetadata
+import Network.AWS.MachineLearning.Types.RealtimeEndpointInfo
+import Network.AWS.MachineLearning.Types.RealtimeEndpointStatus
+import Network.AWS.MachineLearning.Types.RedshiftDataSpec
+import Network.AWS.MachineLearning.Types.RedshiftDatabase
+import Network.AWS.MachineLearning.Types.RedshiftDatabaseCredentials
+import Network.AWS.MachineLearning.Types.RedshiftMetadata
+import Network.AWS.MachineLearning.Types.S3DataSpec
+import Network.AWS.MachineLearning.Types.SortOrder
+import Network.AWS.MachineLearning.Types.Tag
+import Network.AWS.MachineLearning.Types.TaggableResourceType
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2014-12-12@ of the Amazon Machine Learning SDK configuration.
-machineLearning :: Service
-machineLearning =
-  Service
-    { _svcAbbrev = "MachineLearning"
-    , _svcSigner = v4
-    , _svcPrefix = "machinelearning"
-    , _svcVersion = "2014-12-12"
-    , _svcEndpoint = defaultEndpoint machineLearning
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "MachineLearning"
-    , _svcRetry = retry
+defaultService :: Prelude.Service
+defaultService =
+  Prelude.Service
+    { Prelude._svcAbbrev =
+        "MachineLearning",
+      Prelude._svcSigner = Sign.v4,
+      Prelude._svcPrefix = "machinelearning",
+      Prelude._svcVersion = "2014-12-12",
+      Prelude._svcEndpoint =
+        Prelude.defaultEndpoint defaultService,
+      Prelude._svcTimeout = Prelude.Just 70,
+      Prelude._svcCheck = Prelude.statusSuccess,
+      Prelude._svcError =
+        Prelude.parseJSONError "MachineLearning",
+      Prelude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Prelude.Exponential
+        { Prelude._retryBase = 5.0e-2,
+          Prelude._retryGrowth = 2,
+          Prelude._retryAttempts = 5,
+          Prelude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+      | Lens.has (Prelude.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Prelude.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Prelude.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Prelude.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Prelude.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Prelude.hasCode "RequestThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Prelude.hasCode "ThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Prelude.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Prelude.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Prelude.hasCode "ThrottlingException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Prelude.hasCode "Throttling"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
-
--- | Prism for InvalidTagException' errors.
-_InvalidTagException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidTagException = _MatchServiceError machineLearning "InvalidTagException"
-
-
--- | An error on the server occurred when trying to process a request.
---
---
-_InternalServerException :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalServerException =
-  _MatchServiceError machineLearning "InternalServerException" . hasStatus 500
-
-
--- | An error on the client occurred. Typically, the cause is an invalid input value.
---
---
-_InvalidInputException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidInputException =
-  _MatchServiceError machineLearning "InvalidInputException" . hasStatus 400
-
-
--- | A second request to use or change an object was not allowed. This can result from retrying a request using a parameter that was not present in the original request.
---
---
-_IdempotentParameterMismatchException :: AsError a => Getting (First ServiceError) a ServiceError
-_IdempotentParameterMismatchException =
-  _MatchServiceError machineLearning "IdempotentParameterMismatchException" .
-  hasStatus 400
-
+-- | The exception is thrown when a predict request is made to an unmounted
+-- @MLModel@.
+_PredictorNotMountedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PredictorNotMountedException =
+  Prelude._MatchServiceError
+    defaultService
+    "PredictorNotMountedException"
+    Prelude.. Prelude.hasStatus 400
 
 -- | Prism for TagLimitExceededException' errors.
-_TagLimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+_TagLimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
 _TagLimitExceededException =
-  _MatchServiceError machineLearning "TagLimitExceededException"
+  Prelude._MatchServiceError
+    defaultService
+    "TagLimitExceededException"
 
+-- | An error on the client occurred. Typically, the cause is an invalid
+-- input value.
+_InvalidInputException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidInputException =
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidInputException"
+    Prelude.. Prelude.hasStatus 400
 
--- | The exception is thrown when a predict request is made to an unmounted @MLModel@ .
---
---
-_PredictorNotMountedException :: AsError a => Getting (First ServiceError) a ServiceError
-_PredictorNotMountedException =
-  _MatchServiceError machineLearning "PredictorNotMountedException" .
-  hasStatus 400
+-- | Prism for InvalidTagException' errors.
+_InvalidTagException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidTagException =
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidTagException"
 
+-- | The subscriber exceeded the maximum number of operations. This exception
+-- can occur when listing objects such as @DataSource@.
+_LimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LimitExceededException =
+  Prelude._MatchServiceError
+    defaultService
+    "LimitExceededException"
+    Prelude.. Prelude.hasStatus 417
 
 -- | A specified resource cannot be located.
---
---
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
 _ResourceNotFoundException =
-  _MatchServiceError machineLearning "ResourceNotFoundException" . hasStatus 404
+  Prelude._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Prelude.hasStatus 404
 
+-- | A second request to use or change an object was not allowed. This can
+-- result from retrying a request using a parameter that was not present in
+-- the original request.
+_IdempotentParameterMismatchException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_IdempotentParameterMismatchException =
+  Prelude._MatchServiceError
+    defaultService
+    "IdempotentParameterMismatchException"
+    Prelude.. Prelude.hasStatus 400
 
--- | The subscriber exceeded the maximum number of operations. This exception can occur when listing objects such as @DataSource@ .
---
---
-_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-_LimitExceededException =
-  _MatchServiceError machineLearning "LimitExceededException" . hasStatus 417
-
+-- | An error on the server occurred when trying to process a request.
+_InternalServerException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InternalServerException =
+  Prelude._MatchServiceError
+    defaultService
+    "InternalServerException"
+    Prelude.. Prelude.hasStatus 500

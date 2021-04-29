@@ -1,179 +1,353 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DeleteStackInstances
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes stack instances for the specified accounts, in the specified regions.
---
---
+-- Deletes stack instances for the specified accounts, in the specified
+-- Regions.
 module Network.AWS.CloudFormation.DeleteStackInstances
-    (
-    -- * Creating a Request
-      deleteStackInstances
-    , DeleteStackInstances
+  ( -- * Creating a Request
+    DeleteStackInstances (..),
+    newDeleteStackInstances,
+
     -- * Request Lenses
-    , dsiOperationPreferences
-    , dsiOperationId
-    , dsiStackSetName
-    , dsiAccounts
-    , dsiRegions
-    , dsiRetainStacks
+    deleteStackInstances_deploymentTargets,
+    deleteStackInstances_operationId,
+    deleteStackInstances_callAs,
+    deleteStackInstances_operationPreferences,
+    deleteStackInstances_accounts,
+    deleteStackInstances_stackSetName,
+    deleteStackInstances_regions,
+    deleteStackInstances_retainStacks,
 
     -- * Destructuring the Response
-    , deleteStackInstancesResponse
-    , DeleteStackInstancesResponse
+    DeleteStackInstancesResponse (..),
+    newDeleteStackInstancesResponse,
+
     -- * Response Lenses
-    , dsirsOperationId
-    , dsirsResponseStatus
-    ) where
+    deleteStackInstancesResponse_operationId,
+    deleteStackInstancesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.CloudFormation.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteStackInstances' smart constructor.
+-- | /See:/ 'newDeleteStackInstances' smart constructor.
 data DeleteStackInstances = DeleteStackInstances'
-  { _dsiOperationPreferences :: !(Maybe StackSetOperationPreferences)
-  , _dsiOperationId          :: !(Maybe Text)
-  , _dsiStackSetName         :: !Text
-  , _dsiAccounts             :: ![Text]
-  , _dsiRegions              :: ![Text]
-  , _dsiRetainStacks         :: !Bool
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | [Service-managed permissions] The AWS Organizations accounts from which
+    -- to delete stack instances.
+    --
+    -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
+    deploymentTargets :: Prelude.Maybe DeploymentTargets,
+    -- | The unique identifier for this stack set operation.
+    --
+    -- If you don\'t specify an operation ID, the SDK generates one
+    -- automatically.
+    --
+    -- The operation ID also functions as an idempotency token, to ensure that
+    -- AWS CloudFormation performs the stack set operation only once, even if
+    -- you retry the request multiple times. You can retry stack set operation
+    -- requests to ensure that AWS CloudFormation successfully received them.
+    --
+    -- Repeating this stack set operation with a new operation ID retries all
+    -- stack instances whose status is @OUTDATED@.
+    operationId :: Prelude.Maybe Prelude.Text,
+    -- | [Service-managed permissions] Specifies whether you are acting as an
+    -- account administrator in the organization\'s management account or as a
+    -- delegated administrator in a member account.
+    --
+    -- By default, @SELF@ is specified. Use @SELF@ for stack sets with
+    -- self-managed permissions.
+    --
+    -- -   If you are signed in to the management account, specify @SELF@.
+    --
+    -- -   If you are signed in to a delegated administrator account, specify
+    --     @DELEGATED_ADMIN@.
+    --
+    --     Your AWS account must be registered as a delegated administrator in
+    --     the management account. For more information, see
+    --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
+    --     in the /AWS CloudFormation User Guide/.
+    callAs :: Prelude.Maybe CallAs,
+    -- | Preferences for how AWS CloudFormation performs this stack set
+    -- operation.
+    operationPreferences :: Prelude.Maybe StackSetOperationPreferences,
+    -- | [Self-managed permissions] The names of the AWS accounts that you want
+    -- to delete stack instances for.
+    --
+    -- You can specify @Accounts@ or @DeploymentTargets@, but not both.
+    accounts :: Prelude.Maybe [Prelude.Text],
+    -- | The name or unique ID of the stack set that you want to delete stack
+    -- instances for.
+    stackSetName :: Prelude.Text,
+    -- | The Regions where you want to delete stack set instances.
+    regions :: [Prelude.Text],
+    -- | Removes the stack instances from the specified stack set, but doesn\'t
+    -- delete the stacks. You can\'t reassociate a retained stack or add an
+    -- existing, saved stack to a new stack set.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options Stack set operation options>.
+    retainStacks :: Prelude.Bool
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteStackInstances' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteStackInstances' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dsiOperationPreferences' - Preferences for how AWS CloudFormation performs this stack set operation.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dsiOperationId' - The unique identifier for this stack set operation.  If you don't specify an operation ID, the SDK generates one automatically.  The operation ID also functions as an idempotency token, to ensure that AWS CloudFormation performs the stack set operation only once, even if you retry the request multiple times. You can retry stack set operation requests to ensure that AWS CloudFormation successfully received them. Repeating this stack set operation with a new operation ID retries all stack instances whose status is @OUTDATED@ .
+-- 'deploymentTargets', 'deleteStackInstances_deploymentTargets' - [Service-managed permissions] The AWS Organizations accounts from which
+-- to delete stack instances.
 --
--- * 'dsiStackSetName' - The name or unique ID of the stack set that you want to delete stack instances for.
+-- You can specify @Accounts@ or @DeploymentTargets@, but not both.
 --
--- * 'dsiAccounts' - The names of the AWS accounts that you want to delete stack instances for.
+-- 'operationId', 'deleteStackInstances_operationId' - The unique identifier for this stack set operation.
 --
--- * 'dsiRegions' - The regions where you want to delete stack set instances.
+-- If you don\'t specify an operation ID, the SDK generates one
+-- automatically.
 --
--- * 'dsiRetainStacks' - Removes the stack instances from the specified stack set, but doesn't delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options Stack set operation options> .
-deleteStackInstances
-    :: Text -- ^ 'dsiStackSetName'
-    -> Bool -- ^ 'dsiRetainStacks'
-    -> DeleteStackInstances
-deleteStackInstances pStackSetName_ pRetainStacks_ =
+-- The operation ID also functions as an idempotency token, to ensure that
+-- AWS CloudFormation performs the stack set operation only once, even if
+-- you retry the request multiple times. You can retry stack set operation
+-- requests to ensure that AWS CloudFormation successfully received them.
+--
+-- Repeating this stack set operation with a new operation ID retries all
+-- stack instances whose status is @OUTDATED@.
+--
+-- 'callAs', 'deleteStackInstances_callAs' - [Service-managed permissions] Specifies whether you are acting as an
+-- account administrator in the organization\'s management account or as a
+-- delegated administrator in a member account.
+--
+-- By default, @SELF@ is specified. Use @SELF@ for stack sets with
+-- self-managed permissions.
+--
+-- -   If you are signed in to the management account, specify @SELF@.
+--
+-- -   If you are signed in to a delegated administrator account, specify
+--     @DELEGATED_ADMIN@.
+--
+--     Your AWS account must be registered as a delegated administrator in
+--     the management account. For more information, see
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
+--     in the /AWS CloudFormation User Guide/.
+--
+-- 'operationPreferences', 'deleteStackInstances_operationPreferences' - Preferences for how AWS CloudFormation performs this stack set
+-- operation.
+--
+-- 'accounts', 'deleteStackInstances_accounts' - [Self-managed permissions] The names of the AWS accounts that you want
+-- to delete stack instances for.
+--
+-- You can specify @Accounts@ or @DeploymentTargets@, but not both.
+--
+-- 'stackSetName', 'deleteStackInstances_stackSetName' - The name or unique ID of the stack set that you want to delete stack
+-- instances for.
+--
+-- 'regions', 'deleteStackInstances_regions' - The Regions where you want to delete stack set instances.
+--
+-- 'retainStacks', 'deleteStackInstances_retainStacks' - Removes the stack instances from the specified stack set, but doesn\'t
+-- delete the stacks. You can\'t reassociate a retained stack or add an
+-- existing, saved stack to a new stack set.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options Stack set operation options>.
+newDeleteStackInstances ::
+  -- | 'stackSetName'
+  Prelude.Text ->
+  -- | 'retainStacks'
+  Prelude.Bool ->
+  DeleteStackInstances
+newDeleteStackInstances pStackSetName_ pRetainStacks_ =
   DeleteStackInstances'
-    { _dsiOperationPreferences = Nothing
-    , _dsiOperationId = Nothing
-    , _dsiStackSetName = pStackSetName_
-    , _dsiAccounts = mempty
-    , _dsiRegions = mempty
-    , _dsiRetainStacks = pRetainStacks_
+    { deploymentTargets =
+        Prelude.Nothing,
+      operationId = Prelude.Nothing,
+      callAs = Prelude.Nothing,
+      operationPreferences = Prelude.Nothing,
+      accounts = Prelude.Nothing,
+      stackSetName = pStackSetName_,
+      regions = Prelude.mempty,
+      retainStacks = pRetainStacks_
     }
 
-
--- | Preferences for how AWS CloudFormation performs this stack set operation.
-dsiOperationPreferences :: Lens' DeleteStackInstances (Maybe StackSetOperationPreferences)
-dsiOperationPreferences = lens _dsiOperationPreferences (\ s a -> s{_dsiOperationPreferences = a})
-
--- | The unique identifier for this stack set operation.  If you don't specify an operation ID, the SDK generates one automatically.  The operation ID also functions as an idempotency token, to ensure that AWS CloudFormation performs the stack set operation only once, even if you retry the request multiple times. You can retry stack set operation requests to ensure that AWS CloudFormation successfully received them. Repeating this stack set operation with a new operation ID retries all stack instances whose status is @OUTDATED@ .
-dsiOperationId :: Lens' DeleteStackInstances (Maybe Text)
-dsiOperationId = lens _dsiOperationId (\ s a -> s{_dsiOperationId = a})
-
--- | The name or unique ID of the stack set that you want to delete stack instances for.
-dsiStackSetName :: Lens' DeleteStackInstances Text
-dsiStackSetName = lens _dsiStackSetName (\ s a -> s{_dsiStackSetName = a})
-
--- | The names of the AWS accounts that you want to delete stack instances for.
-dsiAccounts :: Lens' DeleteStackInstances [Text]
-dsiAccounts = lens _dsiAccounts (\ s a -> s{_dsiAccounts = a}) . _Coerce
-
--- | The regions where you want to delete stack set instances.
-dsiRegions :: Lens' DeleteStackInstances [Text]
-dsiRegions = lens _dsiRegions (\ s a -> s{_dsiRegions = a}) . _Coerce
-
--- | Removes the stack instances from the specified stack set, but doesn't delete the stacks. You can't reassociate a retained stack or add an existing, saved stack to a new stack set. For more information, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options Stack set operation options> .
-dsiRetainStacks :: Lens' DeleteStackInstances Bool
-dsiRetainStacks = lens _dsiRetainStacks (\ s a -> s{_dsiRetainStacks = a})
-
-instance AWSRequest DeleteStackInstances where
-        type Rs DeleteStackInstances =
-             DeleteStackInstancesResponse
-        request = postQuery cloudFormation
-        response
-          = receiveXMLWrapper "DeleteStackInstancesResult"
-              (\ s h x ->
-                 DeleteStackInstancesResponse' <$>
-                   (x .@? "OperationId") <*> (pure (fromEnum s)))
-
-instance Hashable DeleteStackInstances where
-
-instance NFData DeleteStackInstances where
-
-instance ToHeaders DeleteStackInstances where
-        toHeaders = const mempty
-
-instance ToPath DeleteStackInstances where
-        toPath = const "/"
-
-instance ToQuery DeleteStackInstances where
-        toQuery DeleteStackInstances'{..}
-          = mconcat
-              ["Action" =: ("DeleteStackInstances" :: ByteString),
-               "Version" =: ("2010-05-15" :: ByteString),
-               "OperationPreferences" =: _dsiOperationPreferences,
-               "OperationId" =: _dsiOperationId,
-               "StackSetName" =: _dsiStackSetName,
-               "Accounts" =: toQueryList "member" _dsiAccounts,
-               "Regions" =: toQueryList "member" _dsiRegions,
-               "RetainStacks" =: _dsiRetainStacks]
-
--- | /See:/ 'deleteStackInstancesResponse' smart constructor.
-data DeleteStackInstancesResponse = DeleteStackInstancesResponse'
-  { _dsirsOperationId    :: !(Maybe Text)
-  , _dsirsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteStackInstancesResponse' with the minimum fields required to make a request.
+-- | [Service-managed permissions] The AWS Organizations accounts from which
+-- to delete stack instances.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dsirsOperationId' - The unique identifier for this stack set operation.
---
--- * 'dsirsResponseStatus' - -- | The response status code.
-deleteStackInstancesResponse
-    :: Int -- ^ 'dsirsResponseStatus'
-    -> DeleteStackInstancesResponse
-deleteStackInstancesResponse pResponseStatus_ =
-  DeleteStackInstancesResponse'
-    {_dsirsOperationId = Nothing, _dsirsResponseStatus = pResponseStatus_}
-
+-- You can specify @Accounts@ or @DeploymentTargets@, but not both.
+deleteStackInstances_deploymentTargets :: Lens.Lens' DeleteStackInstances (Prelude.Maybe DeploymentTargets)
+deleteStackInstances_deploymentTargets = Lens.lens (\DeleteStackInstances' {deploymentTargets} -> deploymentTargets) (\s@DeleteStackInstances' {} a -> s {deploymentTargets = a} :: DeleteStackInstances)
 
 -- | The unique identifier for this stack set operation.
-dsirsOperationId :: Lens' DeleteStackInstancesResponse (Maybe Text)
-dsirsOperationId = lens _dsirsOperationId (\ s a -> s{_dsirsOperationId = a})
+--
+-- If you don\'t specify an operation ID, the SDK generates one
+-- automatically.
+--
+-- The operation ID also functions as an idempotency token, to ensure that
+-- AWS CloudFormation performs the stack set operation only once, even if
+-- you retry the request multiple times. You can retry stack set operation
+-- requests to ensure that AWS CloudFormation successfully received them.
+--
+-- Repeating this stack set operation with a new operation ID retries all
+-- stack instances whose status is @OUTDATED@.
+deleteStackInstances_operationId :: Lens.Lens' DeleteStackInstances (Prelude.Maybe Prelude.Text)
+deleteStackInstances_operationId = Lens.lens (\DeleteStackInstances' {operationId} -> operationId) (\s@DeleteStackInstances' {} a -> s {operationId = a} :: DeleteStackInstances)
 
--- | -- | The response status code.
-dsirsResponseStatus :: Lens' DeleteStackInstancesResponse Int
-dsirsResponseStatus = lens _dsirsResponseStatus (\ s a -> s{_dsirsResponseStatus = a})
+-- | [Service-managed permissions] Specifies whether you are acting as an
+-- account administrator in the organization\'s management account or as a
+-- delegated administrator in a member account.
+--
+-- By default, @SELF@ is specified. Use @SELF@ for stack sets with
+-- self-managed permissions.
+--
+-- -   If you are signed in to the management account, specify @SELF@.
+--
+-- -   If you are signed in to a delegated administrator account, specify
+--     @DELEGATED_ADMIN@.
+--
+--     Your AWS account must be registered as a delegated administrator in
+--     the management account. For more information, see
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
+--     in the /AWS CloudFormation User Guide/.
+deleteStackInstances_callAs :: Lens.Lens' DeleteStackInstances (Prelude.Maybe CallAs)
+deleteStackInstances_callAs = Lens.lens (\DeleteStackInstances' {callAs} -> callAs) (\s@DeleteStackInstances' {} a -> s {callAs = a} :: DeleteStackInstances)
 
-instance NFData DeleteStackInstancesResponse where
+-- | Preferences for how AWS CloudFormation performs this stack set
+-- operation.
+deleteStackInstances_operationPreferences :: Lens.Lens' DeleteStackInstances (Prelude.Maybe StackSetOperationPreferences)
+deleteStackInstances_operationPreferences = Lens.lens (\DeleteStackInstances' {operationPreferences} -> operationPreferences) (\s@DeleteStackInstances' {} a -> s {operationPreferences = a} :: DeleteStackInstances)
+
+-- | [Self-managed permissions] The names of the AWS accounts that you want
+-- to delete stack instances for.
+--
+-- You can specify @Accounts@ or @DeploymentTargets@, but not both.
+deleteStackInstances_accounts :: Lens.Lens' DeleteStackInstances (Prelude.Maybe [Prelude.Text])
+deleteStackInstances_accounts = Lens.lens (\DeleteStackInstances' {accounts} -> accounts) (\s@DeleteStackInstances' {} a -> s {accounts = a} :: DeleteStackInstances) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The name or unique ID of the stack set that you want to delete stack
+-- instances for.
+deleteStackInstances_stackSetName :: Lens.Lens' DeleteStackInstances Prelude.Text
+deleteStackInstances_stackSetName = Lens.lens (\DeleteStackInstances' {stackSetName} -> stackSetName) (\s@DeleteStackInstances' {} a -> s {stackSetName = a} :: DeleteStackInstances)
+
+-- | The Regions where you want to delete stack set instances.
+deleteStackInstances_regions :: Lens.Lens' DeleteStackInstances [Prelude.Text]
+deleteStackInstances_regions = Lens.lens (\DeleteStackInstances' {regions} -> regions) (\s@DeleteStackInstances' {} a -> s {regions = a} :: DeleteStackInstances) Prelude.. Prelude._Coerce
+
+-- | Removes the stack instances from the specified stack set, but doesn\'t
+-- delete the stacks. You can\'t reassociate a retained stack or add an
+-- existing, saved stack to a new stack set.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options Stack set operation options>.
+deleteStackInstances_retainStacks :: Lens.Lens' DeleteStackInstances Prelude.Bool
+deleteStackInstances_retainStacks = Lens.lens (\DeleteStackInstances' {retainStacks} -> retainStacks) (\s@DeleteStackInstances' {} a -> s {retainStacks = a} :: DeleteStackInstances)
+
+instance Prelude.AWSRequest DeleteStackInstances where
+  type
+    Rs DeleteStackInstances =
+      DeleteStackInstancesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DeleteStackInstancesResult"
+      ( \s h x ->
+          DeleteStackInstancesResponse'
+            Prelude.<$> (x Prelude..@? "OperationId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DeleteStackInstances
+
+instance Prelude.NFData DeleteStackInstances
+
+instance Prelude.ToHeaders DeleteStackInstances where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToPath DeleteStackInstances where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery DeleteStackInstances where
+  toQuery DeleteStackInstances' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DeleteStackInstances" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
+        "DeploymentTargets" Prelude.=: deploymentTargets,
+        "OperationId" Prelude.=: operationId,
+        "CallAs" Prelude.=: callAs,
+        "OperationPreferences"
+          Prelude.=: operationPreferences,
+        "Accounts"
+          Prelude.=: Prelude.toQuery
+            (Prelude.toQueryList "member" Prelude.<$> accounts),
+        "StackSetName" Prelude.=: stackSetName,
+        "Regions"
+          Prelude.=: Prelude.toQueryList "member" regions,
+        "RetainStacks" Prelude.=: retainStacks
+      ]
+
+-- | /See:/ 'newDeleteStackInstancesResponse' smart constructor.
+data DeleteStackInstancesResponse = DeleteStackInstancesResponse'
+  { -- | The unique identifier for this stack set operation.
+    operationId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteStackInstancesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'operationId', 'deleteStackInstancesResponse_operationId' - The unique identifier for this stack set operation.
+--
+-- 'httpStatus', 'deleteStackInstancesResponse_httpStatus' - The response's http status code.
+newDeleteStackInstancesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteStackInstancesResponse
+newDeleteStackInstancesResponse pHttpStatus_ =
+  DeleteStackInstancesResponse'
+    { operationId =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The unique identifier for this stack set operation.
+deleteStackInstancesResponse_operationId :: Lens.Lens' DeleteStackInstancesResponse (Prelude.Maybe Prelude.Text)
+deleteStackInstancesResponse_operationId = Lens.lens (\DeleteStackInstancesResponse' {operationId} -> operationId) (\s@DeleteStackInstancesResponse' {} a -> s {operationId = a} :: DeleteStackInstancesResponse)
+
+-- | The response's http status code.
+deleteStackInstancesResponse_httpStatus :: Lens.Lens' DeleteStackInstancesResponse Prelude.Int
+deleteStackInstancesResponse_httpStatus = Lens.lens (\DeleteStackInstancesResponse' {httpStatus} -> httpStatus) (\s@DeleteStackInstancesResponse' {} a -> s {httpStatus = a} :: DeleteStackInstancesResponse)
+
+instance Prelude.NFData DeleteStackInstancesResponse

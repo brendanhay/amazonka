@@ -1,178 +1,244 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.DescribeExportTasks
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Lists the specified export tasks. You can list all your export tasks or filter the results based on task ID or task status.
+-- Lists the specified export tasks. You can list all your export tasks or
+-- filter the results based on task ID or task status.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.CloudWatchLogs.DescribeExportTasks
-    (
-    -- * Creating a Request
-      describeExportTasks
-    , DescribeExportTasks
+  ( -- * Creating a Request
+    DescribeExportTasks (..),
+    newDescribeExportTasks,
+
     -- * Request Lenses
-    , detTaskId
-    , detNextToken
-    , detLimit
-    , detStatusCode
+    describeExportTasks_nextToken,
+    describeExportTasks_taskId,
+    describeExportTasks_statusCode,
+    describeExportTasks_limit,
 
     -- * Destructuring the Response
-    , describeExportTasksResponse
-    , DescribeExportTasksResponse
+    DescribeExportTasksResponse (..),
+    newDescribeExportTasksResponse,
+
     -- * Response Lenses
-    , detrsNextToken
-    , detrsExportTasks
-    , detrsResponseStatus
-    ) where
+    describeExportTasksResponse_nextToken,
+    describeExportTasksResponse_exportTasks,
+    describeExportTasksResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.CloudWatchLogs.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeExportTasks' smart constructor.
+-- | /See:/ 'newDescribeExportTasks' smart constructor.
 data DescribeExportTasks = DescribeExportTasks'
-  { _detTaskId     :: !(Maybe Text)
-  , _detNextToken  :: !(Maybe Text)
-  , _detLimit      :: !(Maybe Nat)
-  , _detStatusCode :: !(Maybe ExportTaskStatusCode)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the export task. Specifying a task ID filters the results to
+    -- zero or one export tasks.
+    taskId :: Prelude.Maybe Prelude.Text,
+    -- | The status code of the export task. Specifying a status code filters the
+    -- results to zero or more export tasks.
+    statusCode :: Prelude.Maybe ExportTaskStatusCode,
+    -- | The maximum number of items returned. If you don\'t specify a value, the
+    -- default is up to 50 items.
+    limit :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeExportTasks' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeExportTasks' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'detTaskId' - The ID of the export task. Specifying a task ID filters the results to zero or one export tasks.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'detNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- 'nextToken', 'describeExportTasks_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
--- * 'detLimit' - The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
+-- 'taskId', 'describeExportTasks_taskId' - The ID of the export task. Specifying a task ID filters the results to
+-- zero or one export tasks.
 --
--- * 'detStatusCode' - The status code of the export task. Specifying a status code filters the results to zero or more export tasks.
-describeExportTasks
-    :: DescribeExportTasks
-describeExportTasks =
+-- 'statusCode', 'describeExportTasks_statusCode' - The status code of the export task. Specifying a status code filters the
+-- results to zero or more export tasks.
+--
+-- 'limit', 'describeExportTasks_limit' - The maximum number of items returned. If you don\'t specify a value, the
+-- default is up to 50 items.
+newDescribeExportTasks ::
+  DescribeExportTasks
+newDescribeExportTasks =
   DescribeExportTasks'
-    { _detTaskId = Nothing
-    , _detNextToken = Nothing
-    , _detLimit = Nothing
-    , _detStatusCode = Nothing
+    { nextToken = Prelude.Nothing,
+      taskId = Prelude.Nothing,
+      statusCode = Prelude.Nothing,
+      limit = Prelude.Nothing
     }
 
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeExportTasks_nextToken :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Text)
+describeExportTasks_nextToken = Lens.lens (\DescribeExportTasks' {nextToken} -> nextToken) (\s@DescribeExportTasks' {} a -> s {nextToken = a} :: DescribeExportTasks)
 
--- | The ID of the export task. Specifying a task ID filters the results to zero or one export tasks.
-detTaskId :: Lens' DescribeExportTasks (Maybe Text)
-detTaskId = lens _detTaskId (\ s a -> s{_detTaskId = a})
+-- | The ID of the export task. Specifying a task ID filters the results to
+-- zero or one export tasks.
+describeExportTasks_taskId :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Text)
+describeExportTasks_taskId = Lens.lens (\DescribeExportTasks' {taskId} -> taskId) (\s@DescribeExportTasks' {} a -> s {taskId = a} :: DescribeExportTasks)
 
--- | The token for the next set of items to return. (You received this token from a previous call.)
-detNextToken :: Lens' DescribeExportTasks (Maybe Text)
-detNextToken = lens _detNextToken (\ s a -> s{_detNextToken = a})
+-- | The status code of the export task. Specifying a status code filters the
+-- results to zero or more export tasks.
+describeExportTasks_statusCode :: Lens.Lens' DescribeExportTasks (Prelude.Maybe ExportTaskStatusCode)
+describeExportTasks_statusCode = Lens.lens (\DescribeExportTasks' {statusCode} -> statusCode) (\s@DescribeExportTasks' {} a -> s {statusCode = a} :: DescribeExportTasks)
 
--- | The maximum number of items returned. If you don't specify a value, the default is up to 50 items.
-detLimit :: Lens' DescribeExportTasks (Maybe Natural)
-detLimit = lens _detLimit (\ s a -> s{_detLimit = a}) . mapping _Nat
+-- | The maximum number of items returned. If you don\'t specify a value, the
+-- default is up to 50 items.
+describeExportTasks_limit :: Lens.Lens' DescribeExportTasks (Prelude.Maybe Prelude.Natural)
+describeExportTasks_limit = Lens.lens (\DescribeExportTasks' {limit} -> limit) (\s@DescribeExportTasks' {} a -> s {limit = a} :: DescribeExportTasks)
 
--- | The status code of the export task. Specifying a status code filters the results to zero or more export tasks.
-detStatusCode :: Lens' DescribeExportTasks (Maybe ExportTaskStatusCode)
-detStatusCode = lens _detStatusCode (\ s a -> s{_detStatusCode = a})
+instance Pager.AWSPager DescribeExportTasks where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describeExportTasksResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describeExportTasksResponse_exportTasks
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describeExportTasks_nextToken
+          Lens..~ rs
+          Lens.^? describeExportTasksResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSRequest DescribeExportTasks where
-        type Rs DescribeExportTasks =
-             DescribeExportTasksResponse
-        request = postJSON cloudWatchLogs
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeExportTasksResponse' <$>
-                   (x .?> "nextToken") <*>
-                     (x .?> "exportTasks" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest DescribeExportTasks where
+  type
+    Rs DescribeExportTasks =
+      DescribeExportTasksResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeExportTasksResponse'
+            Prelude.<$> (x Prelude..?> "nextToken")
+            Prelude.<*> ( x Prelude..?> "exportTasks"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeExportTasks where
+instance Prelude.Hashable DescribeExportTasks
 
-instance NFData DescribeExportTasks where
+instance Prelude.NFData DescribeExportTasks
 
-instance ToHeaders DescribeExportTasks where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Logs_20140328.DescribeExportTasks" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DescribeExportTasks where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "Logs_20140328.DescribeExportTasks" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DescribeExportTasks where
-        toJSON DescribeExportTasks'{..}
-          = object
-              (catMaybes
-                 [("taskId" .=) <$> _detTaskId,
-                  ("nextToken" .=) <$> _detNextToken,
-                  ("limit" .=) <$> _detLimit,
-                  ("statusCode" .=) <$> _detStatusCode])
+instance Prelude.ToJSON DescribeExportTasks where
+  toJSON DescribeExportTasks' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
+            ("taskId" Prelude..=) Prelude.<$> taskId,
+            ("statusCode" Prelude..=) Prelude.<$> statusCode,
+            ("limit" Prelude..=) Prelude.<$> limit
+          ]
+      )
 
-instance ToPath DescribeExportTasks where
-        toPath = const "/"
+instance Prelude.ToPath DescribeExportTasks where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeExportTasks where
-        toQuery = const mempty
+instance Prelude.ToQuery DescribeExportTasks where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'describeExportTasksResponse' smart constructor.
+-- | /See:/ 'newDescribeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
-  { _detrsNextToken      :: !(Maybe Text)
-  , _detrsExportTasks    :: !(Maybe [ExportTask])
-  , _detrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The export tasks.
+    exportTasks :: Prelude.Maybe [ExportTask],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeExportTasksResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeExportTasksResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'detrsNextToken' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'detrsExportTasks' - The export tasks.
+-- 'nextToken', 'describeExportTasksResponse_nextToken' - Undocumented member.
 --
--- * 'detrsResponseStatus' - -- | The response status code.
-describeExportTasksResponse
-    :: Int -- ^ 'detrsResponseStatus'
-    -> DescribeExportTasksResponse
-describeExportTasksResponse pResponseStatus_ =
+-- 'exportTasks', 'describeExportTasksResponse_exportTasks' - The export tasks.
+--
+-- 'httpStatus', 'describeExportTasksResponse_httpStatus' - The response's http status code.
+newDescribeExportTasksResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeExportTasksResponse
+newDescribeExportTasksResponse pHttpStatus_ =
   DescribeExportTasksResponse'
-    { _detrsNextToken = Nothing
-    , _detrsExportTasks = Nothing
-    , _detrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      exportTasks = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
-
 
 -- | Undocumented member.
-detrsNextToken :: Lens' DescribeExportTasksResponse (Maybe Text)
-detrsNextToken = lens _detrsNextToken (\ s a -> s{_detrsNextToken = a})
+describeExportTasksResponse_nextToken :: Lens.Lens' DescribeExportTasksResponse (Prelude.Maybe Prelude.Text)
+describeExportTasksResponse_nextToken = Lens.lens (\DescribeExportTasksResponse' {nextToken} -> nextToken) (\s@DescribeExportTasksResponse' {} a -> s {nextToken = a} :: DescribeExportTasksResponse)
 
 -- | The export tasks.
-detrsExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
-detrsExportTasks = lens _detrsExportTasks (\ s a -> s{_detrsExportTasks = a}) . _Default . _Coerce
+describeExportTasksResponse_exportTasks :: Lens.Lens' DescribeExportTasksResponse (Prelude.Maybe [ExportTask])
+describeExportTasksResponse_exportTasks = Lens.lens (\DescribeExportTasksResponse' {exportTasks} -> exportTasks) (\s@DescribeExportTasksResponse' {} a -> s {exportTasks = a} :: DescribeExportTasksResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-detrsResponseStatus :: Lens' DescribeExportTasksResponse Int
-detrsResponseStatus = lens _detrsResponseStatus (\ s a -> s{_detrsResponseStatus = a})
+-- | The response's http status code.
+describeExportTasksResponse_httpStatus :: Lens.Lens' DescribeExportTasksResponse Prelude.Int
+describeExportTasksResponse_httpStatus = Lens.lens (\DescribeExportTasksResponse' {httpStatus} -> httpStatus) (\s@DescribeExportTasksResponse' {} a -> s {httpStatus = a} :: DescribeExportTasksResponse)
 
-instance NFData DescribeExportTasksResponse where
+instance Prelude.NFData DescribeExportTasksResponse

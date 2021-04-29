@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatchLogs.TagLogGroup
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,103 +23,123 @@
 --
 -- Adds or updates the specified tags for the specified log group.
 --
+-- To list the tags for a log group, use
+-- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html ListTagsLogGroup>.
+-- To remove tags, use
+-- <https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagLogGroup.html UntagLogGroup>.
 --
--- To list the tags for a log group, use 'ListTagsLogGroup' . To remove tags, use 'UntagLogGroup' .
---
--- For more information about tags, see <http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/log-group-tagging.html Tag Log Groups in Amazon CloudWatch Logs> in the /Amazon CloudWatch Logs User Guide/ .
---
+-- For more information about tags, see
+-- <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#log-group-tagging Tag Log Groups in Amazon CloudWatch Logs>
+-- in the /Amazon CloudWatch Logs User Guide/.
 module Network.AWS.CloudWatchLogs.TagLogGroup
-    (
-    -- * Creating a Request
-      tagLogGroup
-    , TagLogGroup
+  ( -- * Creating a Request
+    TagLogGroup (..),
+    newTagLogGroup,
+
     -- * Request Lenses
-    , tlgLogGroupName
-    , tlgTags
+    tagLogGroup_logGroupName,
+    tagLogGroup_tags,
 
     -- * Destructuring the Response
-    , tagLogGroupResponse
-    , TagLogGroupResponse
-    ) where
+    TagLogGroupResponse (..),
+    newTagLogGroupResponse,
+  )
+where
 
 import Network.AWS.CloudWatchLogs.Types
-import Network.AWS.CloudWatchLogs.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'tagLogGroup' smart constructor.
+-- | /See:/ 'newTagLogGroup' smart constructor.
 data TagLogGroup = TagLogGroup'
-  { _tlgLogGroupName :: !Text
-  , _tlgTags         :: !(Map Text Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the log group.
+    logGroupName :: Prelude.Text,
+    -- | The key-value pairs to use for the tags.
+    tags :: Prelude.HashMap Prelude.Text Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'TagLogGroup' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'TagLogGroup' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'tlgLogGroupName' - The name of the log group.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'tlgTags' - The key-value pairs to use for the tags.
-tagLogGroup
-    :: Text -- ^ 'tlgLogGroupName'
-    -> TagLogGroup
-tagLogGroup pLogGroupName_ =
-  TagLogGroup' {_tlgLogGroupName = pLogGroupName_, _tlgTags = mempty}
-
+-- 'logGroupName', 'tagLogGroup_logGroupName' - The name of the log group.
+--
+-- 'tags', 'tagLogGroup_tags' - The key-value pairs to use for the tags.
+newTagLogGroup ::
+  -- | 'logGroupName'
+  Prelude.Text ->
+  TagLogGroup
+newTagLogGroup pLogGroupName_ =
+  TagLogGroup'
+    { logGroupName = pLogGroupName_,
+      tags = Prelude.mempty
+    }
 
 -- | The name of the log group.
-tlgLogGroupName :: Lens' TagLogGroup Text
-tlgLogGroupName = lens _tlgLogGroupName (\ s a -> s{_tlgLogGroupName = a})
+tagLogGroup_logGroupName :: Lens.Lens' TagLogGroup Prelude.Text
+tagLogGroup_logGroupName = Lens.lens (\TagLogGroup' {logGroupName} -> logGroupName) (\s@TagLogGroup' {} a -> s {logGroupName = a} :: TagLogGroup)
 
 -- | The key-value pairs to use for the tags.
-tlgTags :: Lens' TagLogGroup (HashMap Text Text)
-tlgTags = lens _tlgTags (\ s a -> s{_tlgTags = a}) . _Map
+tagLogGroup_tags :: Lens.Lens' TagLogGroup (Prelude.HashMap Prelude.Text Prelude.Text)
+tagLogGroup_tags = Lens.lens (\TagLogGroup' {tags} -> tags) (\s@TagLogGroup' {} a -> s {tags = a} :: TagLogGroup) Prelude.. Prelude._Coerce
 
-instance AWSRequest TagLogGroup where
-        type Rs TagLogGroup = TagLogGroupResponse
-        request = postJSON cloudWatchLogs
-        response = receiveNull TagLogGroupResponse'
+instance Prelude.AWSRequest TagLogGroup where
+  type Rs TagLogGroup = TagLogGroupResponse
+  request = Request.postJSON defaultService
+  response = Response.receiveNull TagLogGroupResponse'
 
-instance Hashable TagLogGroup where
+instance Prelude.Hashable TagLogGroup
 
-instance NFData TagLogGroup where
+instance Prelude.NFData TagLogGroup
 
-instance ToHeaders TagLogGroup where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Logs_20140328.TagLogGroup" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders TagLogGroup where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ("Logs_20140328.TagLogGroup" :: Prelude.ByteString),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON TagLogGroup where
-        toJSON TagLogGroup'{..}
-          = object
-              (catMaybes
-                 [Just ("logGroupName" .= _tlgLogGroupName),
-                  Just ("tags" .= _tlgTags)])
+instance Prelude.ToJSON TagLogGroup where
+  toJSON TagLogGroup' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("logGroupName" Prelude..= logGroupName),
+            Prelude.Just ("tags" Prelude..= tags)
+          ]
+      )
 
-instance ToPath TagLogGroup where
-        toPath = const "/"
+instance Prelude.ToPath TagLogGroup where
+  toPath = Prelude.const "/"
 
-instance ToQuery TagLogGroup where
-        toQuery = const mempty
+instance Prelude.ToQuery TagLogGroup where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'tagLogGroupResponse' smart constructor.
-data TagLogGroupResponse =
-  TagLogGroupResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newTagLogGroupResponse' smart constructor.
+data TagLogGroupResponse = TagLogGroupResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'TagLogGroupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'TagLogGroupResponse' with all optional fields omitted.
 --
-tagLogGroupResponse
-    :: TagLogGroupResponse
-tagLogGroupResponse = TagLogGroupResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newTagLogGroupResponse ::
+  TagLogGroupResponse
+newTagLogGroupResponse = TagLogGroupResponse'
 
-
-instance NFData TagLogGroupResponse where
+instance Prelude.NFData TagLogGroupResponse

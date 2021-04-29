@@ -2,9 +2,9 @@ name: build
 
 on:
   push:
-    branches: bh/ci
+    branches: bh/release
   pull_request:
-    branches: bh/ci
+    branches: bh/release
 
 jobs:
   build:

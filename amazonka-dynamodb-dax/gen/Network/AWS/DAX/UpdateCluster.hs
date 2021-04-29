@@ -1,198 +1,246 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DAX.UpdateCluster
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Modifies the settings for a DAX cluster. You can use this action to change one or more cluster configuration parameters by specifying the parameters and the new values.
---
---
+-- Modifies the settings for a DAX cluster. You can use this action to
+-- change one or more cluster configuration parameters by specifying the
+-- parameters and the new values.
 module Network.AWS.DAX.UpdateCluster
-    (
-    -- * Creating a Request
-      updateCluster
-    , UpdateCluster
+  ( -- * Creating a Request
+    UpdateCluster (..),
+    newUpdateCluster,
+
     -- * Request Lenses
-    , ucSecurityGroupIds
-    , ucPreferredMaintenanceWindow
-    , ucNotificationTopicStatus
-    , ucDescription
-    , ucNotificationTopicARN
-    , ucParameterGroupName
-    , ucClusterName
+    updateCluster_securityGroupIds,
+    updateCluster_notificationTopicStatus,
+    updateCluster_preferredMaintenanceWindow,
+    updateCluster_notificationTopicArn,
+    updateCluster_parameterGroupName,
+    updateCluster_description,
+    updateCluster_clusterName,
 
     -- * Destructuring the Response
-    , updateClusterResponse
-    , UpdateClusterResponse
+    UpdateClusterResponse (..),
+    newUpdateClusterResponse,
+
     -- * Response Lenses
-    , ucrsCluster
-    , ucrsResponseStatus
-    ) where
+    updateClusterResponse_cluster,
+    updateClusterResponse_httpStatus,
+  )
+where
 
 import Network.AWS.DAX.Types
-import Network.AWS.DAX.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateCluster' smart constructor.
+-- | /See:/ 'newUpdateCluster' smart constructor.
 data UpdateCluster = UpdateCluster'
-  { _ucSecurityGroupIds           :: !(Maybe [Text])
-  , _ucPreferredMaintenanceWindow :: !(Maybe Text)
-  , _ucNotificationTopicStatus    :: !(Maybe Text)
-  , _ucDescription                :: !(Maybe Text)
-  , _ucNotificationTopicARN       :: !(Maybe Text)
-  , _ucParameterGroupName         :: !(Maybe Text)
-  , _ucClusterName                :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of user-specified security group IDs to be assigned to each node
+    -- in the DAX cluster. If this parameter is not specified, DAX assigns the
+    -- default VPC security group to each node.
+    securityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | The current state of the topic.
+    notificationTopicStatus :: Prelude.Maybe Prelude.Text,
+    -- | A range of time when maintenance of DAX cluster software will be
+    -- performed. For example: @sun:01:00-sun:09:00@. Cluster maintenance
+    -- normally takes less than 30 minutes, and is performed automatically
+    -- within the maintenance window.
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
+    -- | The Amazon Resource Name (ARN) that identifies the topic.
+    notificationTopicArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of a parameter group for this cluster.
+    parameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | A description of the changes being made to the cluster.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the DAX cluster to be modified.
+    clusterName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateCluster' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateCluster' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ucSecurityGroupIds' - A list of user-specified security group IDs to be assigned to each node in the DAX cluster. If this parameter is not specified, DAX assigns the default VPC security group to each node.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ucPreferredMaintenanceWindow' - A range of time when maintenance of DAX cluster software will be performed. For example: @sun:01:00-sun:09:00@ . Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window.
+-- 'securityGroupIds', 'updateCluster_securityGroupIds' - A list of user-specified security group IDs to be assigned to each node
+-- in the DAX cluster. If this parameter is not specified, DAX assigns the
+-- default VPC security group to each node.
 --
--- * 'ucNotificationTopicStatus' - The current state of the topic.
+-- 'notificationTopicStatus', 'updateCluster_notificationTopicStatus' - The current state of the topic.
 --
--- * 'ucDescription' - A description of the changes being made to the cluster.
+-- 'preferredMaintenanceWindow', 'updateCluster_preferredMaintenanceWindow' - A range of time when maintenance of DAX cluster software will be
+-- performed. For example: @sun:01:00-sun:09:00@. Cluster maintenance
+-- normally takes less than 30 minutes, and is performed automatically
+-- within the maintenance window.
 --
--- * 'ucNotificationTopicARN' - The Amazon Resource Name (ARN) that identifies the topic.
+-- 'notificationTopicArn', 'updateCluster_notificationTopicArn' - The Amazon Resource Name (ARN) that identifies the topic.
 --
--- * 'ucParameterGroupName' - The name of a parameter group for this cluster.
+-- 'parameterGroupName', 'updateCluster_parameterGroupName' - The name of a parameter group for this cluster.
 --
--- * 'ucClusterName' - The name of the DAX cluster to be modified.
-updateCluster
-    :: Text -- ^ 'ucClusterName'
-    -> UpdateCluster
-updateCluster pClusterName_ =
+-- 'description', 'updateCluster_description' - A description of the changes being made to the cluster.
+--
+-- 'clusterName', 'updateCluster_clusterName' - The name of the DAX cluster to be modified.
+newUpdateCluster ::
+  -- | 'clusterName'
+  Prelude.Text ->
+  UpdateCluster
+newUpdateCluster pClusterName_ =
   UpdateCluster'
-    { _ucSecurityGroupIds = Nothing
-    , _ucPreferredMaintenanceWindow = Nothing
-    , _ucNotificationTopicStatus = Nothing
-    , _ucDescription = Nothing
-    , _ucNotificationTopicARN = Nothing
-    , _ucParameterGroupName = Nothing
-    , _ucClusterName = pClusterName_
+    { securityGroupIds = Prelude.Nothing,
+      notificationTopicStatus = Prelude.Nothing,
+      preferredMaintenanceWindow = Prelude.Nothing,
+      notificationTopicArn = Prelude.Nothing,
+      parameterGroupName = Prelude.Nothing,
+      description = Prelude.Nothing,
+      clusterName = pClusterName_
     }
 
-
--- | A list of user-specified security group IDs to be assigned to each node in the DAX cluster. If this parameter is not specified, DAX assigns the default VPC security group to each node.
-ucSecurityGroupIds :: Lens' UpdateCluster [Text]
-ucSecurityGroupIds = lens _ucSecurityGroupIds (\ s a -> s{_ucSecurityGroupIds = a}) . _Default . _Coerce
-
--- | A range of time when maintenance of DAX cluster software will be performed. For example: @sun:01:00-sun:09:00@ . Cluster maintenance normally takes less than 30 minutes, and is performed automatically within the maintenance window.
-ucPreferredMaintenanceWindow :: Lens' UpdateCluster (Maybe Text)
-ucPreferredMaintenanceWindow = lens _ucPreferredMaintenanceWindow (\ s a -> s{_ucPreferredMaintenanceWindow = a})
+-- | A list of user-specified security group IDs to be assigned to each node
+-- in the DAX cluster. If this parameter is not specified, DAX assigns the
+-- default VPC security group to each node.
+updateCluster_securityGroupIds :: Lens.Lens' UpdateCluster (Prelude.Maybe [Prelude.Text])
+updateCluster_securityGroupIds = Lens.lens (\UpdateCluster' {securityGroupIds} -> securityGroupIds) (\s@UpdateCluster' {} a -> s {securityGroupIds = a} :: UpdateCluster) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | The current state of the topic.
-ucNotificationTopicStatus :: Lens' UpdateCluster (Maybe Text)
-ucNotificationTopicStatus = lens _ucNotificationTopicStatus (\ s a -> s{_ucNotificationTopicStatus = a})
+updateCluster_notificationTopicStatus :: Lens.Lens' UpdateCluster (Prelude.Maybe Prelude.Text)
+updateCluster_notificationTopicStatus = Lens.lens (\UpdateCluster' {notificationTopicStatus} -> notificationTopicStatus) (\s@UpdateCluster' {} a -> s {notificationTopicStatus = a} :: UpdateCluster)
 
--- | A description of the changes being made to the cluster.
-ucDescription :: Lens' UpdateCluster (Maybe Text)
-ucDescription = lens _ucDescription (\ s a -> s{_ucDescription = a})
+-- | A range of time when maintenance of DAX cluster software will be
+-- performed. For example: @sun:01:00-sun:09:00@. Cluster maintenance
+-- normally takes less than 30 minutes, and is performed automatically
+-- within the maintenance window.
+updateCluster_preferredMaintenanceWindow :: Lens.Lens' UpdateCluster (Prelude.Maybe Prelude.Text)
+updateCluster_preferredMaintenanceWindow = Lens.lens (\UpdateCluster' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@UpdateCluster' {} a -> s {preferredMaintenanceWindow = a} :: UpdateCluster)
 
 -- | The Amazon Resource Name (ARN) that identifies the topic.
-ucNotificationTopicARN :: Lens' UpdateCluster (Maybe Text)
-ucNotificationTopicARN = lens _ucNotificationTopicARN (\ s a -> s{_ucNotificationTopicARN = a})
+updateCluster_notificationTopicArn :: Lens.Lens' UpdateCluster (Prelude.Maybe Prelude.Text)
+updateCluster_notificationTopicArn = Lens.lens (\UpdateCluster' {notificationTopicArn} -> notificationTopicArn) (\s@UpdateCluster' {} a -> s {notificationTopicArn = a} :: UpdateCluster)
 
 -- | The name of a parameter group for this cluster.
-ucParameterGroupName :: Lens' UpdateCluster (Maybe Text)
-ucParameterGroupName = lens _ucParameterGroupName (\ s a -> s{_ucParameterGroupName = a})
+updateCluster_parameterGroupName :: Lens.Lens' UpdateCluster (Prelude.Maybe Prelude.Text)
+updateCluster_parameterGroupName = Lens.lens (\UpdateCluster' {parameterGroupName} -> parameterGroupName) (\s@UpdateCluster' {} a -> s {parameterGroupName = a} :: UpdateCluster)
+
+-- | A description of the changes being made to the cluster.
+updateCluster_description :: Lens.Lens' UpdateCluster (Prelude.Maybe Prelude.Text)
+updateCluster_description = Lens.lens (\UpdateCluster' {description} -> description) (\s@UpdateCluster' {} a -> s {description = a} :: UpdateCluster)
 
 -- | The name of the DAX cluster to be modified.
-ucClusterName :: Lens' UpdateCluster Text
-ucClusterName = lens _ucClusterName (\ s a -> s{_ucClusterName = a})
+updateCluster_clusterName :: Lens.Lens' UpdateCluster Prelude.Text
+updateCluster_clusterName = Lens.lens (\UpdateCluster' {clusterName} -> clusterName) (\s@UpdateCluster' {} a -> s {clusterName = a} :: UpdateCluster)
 
-instance AWSRequest UpdateCluster where
-        type Rs UpdateCluster = UpdateClusterResponse
-        request = postJSON dax
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateClusterResponse' <$>
-                   (x .?> "Cluster") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest UpdateCluster where
+  type Rs UpdateCluster = UpdateClusterResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateClusterResponse'
+            Prelude.<$> (x Prelude..?> "Cluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateCluster where
+instance Prelude.Hashable UpdateCluster
 
-instance NFData UpdateCluster where
+instance Prelude.NFData UpdateCluster
 
-instance ToHeaders UpdateCluster where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonDAXV3.UpdateCluster" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders UpdateCluster where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ("AmazonDAXV3.UpdateCluster" :: Prelude.ByteString),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON UpdateCluster where
-        toJSON UpdateCluster'{..}
-          = object
-              (catMaybes
-                 [("SecurityGroupIds" .=) <$> _ucSecurityGroupIds,
-                  ("PreferredMaintenanceWindow" .=) <$>
-                    _ucPreferredMaintenanceWindow,
-                  ("NotificationTopicStatus" .=) <$>
-                    _ucNotificationTopicStatus,
-                  ("Description" .=) <$> _ucDescription,
-                  ("NotificationTopicArn" .=) <$>
-                    _ucNotificationTopicARN,
-                  ("ParameterGroupName" .=) <$> _ucParameterGroupName,
-                  Just ("ClusterName" .= _ucClusterName)])
+instance Prelude.ToJSON UpdateCluster where
+  toJSON UpdateCluster' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("SecurityGroupIds" Prelude..=)
+              Prelude.<$> securityGroupIds,
+            ("NotificationTopicStatus" Prelude..=)
+              Prelude.<$> notificationTopicStatus,
+            ("PreferredMaintenanceWindow" Prelude..=)
+              Prelude.<$> preferredMaintenanceWindow,
+            ("NotificationTopicArn" Prelude..=)
+              Prelude.<$> notificationTopicArn,
+            ("ParameterGroupName" Prelude..=)
+              Prelude.<$> parameterGroupName,
+            ("Description" Prelude..=) Prelude.<$> description,
+            Prelude.Just ("ClusterName" Prelude..= clusterName)
+          ]
+      )
 
-instance ToPath UpdateCluster where
-        toPath = const "/"
+instance Prelude.ToPath UpdateCluster where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateCluster where
-        toQuery = const mempty
+instance Prelude.ToQuery UpdateCluster where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateClusterResponse' smart constructor.
+-- | /See:/ 'newUpdateClusterResponse' smart constructor.
 data UpdateClusterResponse = UpdateClusterResponse'
-  { _ucrsCluster        :: !(Maybe Cluster)
-  , _ucrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A description of the DAX cluster, after it has been modified.
+    cluster :: Prelude.Maybe Cluster,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateClusterResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateClusterResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ucrsCluster' - A description of the DAX cluster, after it has been modified.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ucrsResponseStatus' - -- | The response status code.
-updateClusterResponse
-    :: Int -- ^ 'ucrsResponseStatus'
-    -> UpdateClusterResponse
-updateClusterResponse pResponseStatus_ =
+-- 'cluster', 'updateClusterResponse_cluster' - A description of the DAX cluster, after it has been modified.
+--
+-- 'httpStatus', 'updateClusterResponse_httpStatus' - The response's http status code.
+newUpdateClusterResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateClusterResponse
+newUpdateClusterResponse pHttpStatus_ =
   UpdateClusterResponse'
-    {_ucrsCluster = Nothing, _ucrsResponseStatus = pResponseStatus_}
-
+    { cluster = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | A description of the DAX cluster, after it has been modified.
-ucrsCluster :: Lens' UpdateClusterResponse (Maybe Cluster)
-ucrsCluster = lens _ucrsCluster (\ s a -> s{_ucrsCluster = a})
+updateClusterResponse_cluster :: Lens.Lens' UpdateClusterResponse (Prelude.Maybe Cluster)
+updateClusterResponse_cluster = Lens.lens (\UpdateClusterResponse' {cluster} -> cluster) (\s@UpdateClusterResponse' {} a -> s {cluster = a} :: UpdateClusterResponse)
 
--- | -- | The response status code.
-ucrsResponseStatus :: Lens' UpdateClusterResponse Int
-ucrsResponseStatus = lens _ucrsResponseStatus (\ s a -> s{_ucrsResponseStatus = a})
+-- | The response's http status code.
+updateClusterResponse_httpStatus :: Lens.Lens' UpdateClusterResponse Prelude.Int
+updateClusterResponse_httpStatus = Lens.lens (\UpdateClusterResponse' {httpStatus} -> httpStatus) (\s@UpdateClusterResponse' {} a -> s {httpStatus = a} :: UpdateClusterResponse)
 
-instance NFData UpdateClusterResponse where
+instance Prelude.NFData UpdateClusterResponse

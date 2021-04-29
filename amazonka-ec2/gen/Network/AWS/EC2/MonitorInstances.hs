@@ -1,145 +1,174 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.MonitorInstances
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Enables detailed monitoring for a running instance. Otherwise, basic monitoring is enabled. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes> in the /Amazon Elastic Compute Cloud User Guide/ .
---
+-- Enables detailed monitoring for a running instance. Otherwise, basic
+-- monitoring is enabled. For more information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring your instances and volumes>
+-- in the /Amazon EC2 User Guide/.
 --
 -- To disable detailed monitoring, see .
---
 module Network.AWS.EC2.MonitorInstances
-    (
-    -- * Creating a Request
-      monitorInstances
-    , MonitorInstances
+  ( -- * Creating a Request
+    MonitorInstances (..),
+    newMonitorInstances,
+
     -- * Request Lenses
-    , miDryRun
-    , miInstanceIds
+    monitorInstances_dryRun,
+    monitorInstances_instanceIds,
 
     -- * Destructuring the Response
-    , monitorInstancesResponse
-    , MonitorInstancesResponse
+    MonitorInstancesResponse (..),
+    newMonitorInstancesResponse,
+
     -- * Response Lenses
-    , mirsInstanceMonitorings
-    , mirsResponseStatus
-    ) where
+    monitorInstancesResponse_instanceMonitorings,
+    monitorInstancesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the parameters for MonitorInstances.
---
---
---
--- /See:/ 'monitorInstances' smart constructor.
+-- | /See:/ 'newMonitorInstances' smart constructor.
 data MonitorInstances = MonitorInstances'
-  { _miDryRun      :: !(Maybe Bool)
-  , _miInstanceIds :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The IDs of the instances.
+    instanceIds :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'MonitorInstances' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'MonitorInstances' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'miDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'miInstanceIds' - One or more instance IDs.
-monitorInstances
-    :: MonitorInstances
-monitorInstances =
-  MonitorInstances' {_miDryRun = Nothing, _miInstanceIds = mempty}
-
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-miDryRun :: Lens' MonitorInstances (Maybe Bool)
-miDryRun = lens _miDryRun (\ s a -> s{_miDryRun = a})
-
--- | One or more instance IDs.
-miInstanceIds :: Lens' MonitorInstances [Text]
-miInstanceIds = lens _miInstanceIds (\ s a -> s{_miInstanceIds = a}) . _Coerce
-
-instance AWSRequest MonitorInstances where
-        type Rs MonitorInstances = MonitorInstancesResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 MonitorInstancesResponse' <$>
-                   (x .@? "instancesSet" .!@ mempty >>=
-                      may (parseXMLList "item"))
-                     <*> (pure (fromEnum s)))
-
-instance Hashable MonitorInstances where
-
-instance NFData MonitorInstances where
-
-instance ToHeaders MonitorInstances where
-        toHeaders = const mempty
-
-instance ToPath MonitorInstances where
-        toPath = const "/"
-
-instance ToQuery MonitorInstances where
-        toQuery MonitorInstances'{..}
-          = mconcat
-              ["Action" =: ("MonitorInstances" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "DryRun" =: _miDryRun,
-               toQueryList "InstanceId" _miInstanceIds]
-
--- | Contains the output of MonitorInstances.
+-- 'dryRun', 'monitorInstances_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
---
---
--- /See:/ 'monitorInstancesResponse' smart constructor.
+-- 'instanceIds', 'monitorInstances_instanceIds' - The IDs of the instances.
+newMonitorInstances ::
+  MonitorInstances
+newMonitorInstances =
+  MonitorInstances'
+    { dryRun = Prelude.Nothing,
+      instanceIds = Prelude.mempty
+    }
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+monitorInstances_dryRun :: Lens.Lens' MonitorInstances (Prelude.Maybe Prelude.Bool)
+monitorInstances_dryRun = Lens.lens (\MonitorInstances' {dryRun} -> dryRun) (\s@MonitorInstances' {} a -> s {dryRun = a} :: MonitorInstances)
+
+-- | The IDs of the instances.
+monitorInstances_instanceIds :: Lens.Lens' MonitorInstances [Prelude.Text]
+monitorInstances_instanceIds = Lens.lens (\MonitorInstances' {instanceIds} -> instanceIds) (\s@MonitorInstances' {} a -> s {instanceIds = a} :: MonitorInstances) Prelude.. Prelude._Coerce
+
+instance Prelude.AWSRequest MonitorInstances where
+  type Rs MonitorInstances = MonitorInstancesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          MonitorInstancesResponse'
+            Prelude.<$> ( x Prelude..@? "instancesSet"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable MonitorInstances
+
+instance Prelude.NFData MonitorInstances
+
+instance Prelude.ToHeaders MonitorInstances where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToPath MonitorInstances where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery MonitorInstances where
+  toQuery MonitorInstances' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("MonitorInstances" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Prelude.=: dryRun,
+        Prelude.toQueryList "InstanceId" instanceIds
+      ]
+
+-- | /See:/ 'newMonitorInstancesResponse' smart constructor.
 data MonitorInstancesResponse = MonitorInstancesResponse'
-  { _mirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
-  , _mirsResponseStatus      :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The monitoring information.
+    instanceMonitorings :: Prelude.Maybe [InstanceMonitoring],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'MonitorInstancesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'MonitorInstancesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'mirsInstanceMonitorings' - The monitoring information.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'mirsResponseStatus' - -- | The response status code.
-monitorInstancesResponse
-    :: Int -- ^ 'mirsResponseStatus'
-    -> MonitorInstancesResponse
-monitorInstancesResponse pResponseStatus_ =
+-- 'instanceMonitorings', 'monitorInstancesResponse_instanceMonitorings' - The monitoring information.
+--
+-- 'httpStatus', 'monitorInstancesResponse_httpStatus' - The response's http status code.
+newMonitorInstancesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  MonitorInstancesResponse
+newMonitorInstancesResponse pHttpStatus_ =
   MonitorInstancesResponse'
-    {_mirsInstanceMonitorings = Nothing, _mirsResponseStatus = pResponseStatus_}
-
+    { instanceMonitorings =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The monitoring information.
-mirsInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
-mirsInstanceMonitorings = lens _mirsInstanceMonitorings (\ s a -> s{_mirsInstanceMonitorings = a}) . _Default . _Coerce
+monitorInstancesResponse_instanceMonitorings :: Lens.Lens' MonitorInstancesResponse (Prelude.Maybe [InstanceMonitoring])
+monitorInstancesResponse_instanceMonitorings = Lens.lens (\MonitorInstancesResponse' {instanceMonitorings} -> instanceMonitorings) (\s@MonitorInstancesResponse' {} a -> s {instanceMonitorings = a} :: MonitorInstancesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-mirsResponseStatus :: Lens' MonitorInstancesResponse Int
-mirsResponseStatus = lens _mirsResponseStatus (\ s a -> s{_mirsResponseStatus = a})
+-- | The response's http status code.
+monitorInstancesResponse_httpStatus :: Lens.Lens' MonitorInstancesResponse Prelude.Int
+monitorInstancesResponse_httpStatus = Lens.lens (\MonitorInstancesResponse' {httpStatus} -> httpStatus) (\s@MonitorInstancesResponse' {} a -> s {httpStatus = a} :: MonitorInstancesResponse)
 
-instance NFData MonitorInstancesResponse where
+instance Prelude.NFData MonitorInstancesResponse

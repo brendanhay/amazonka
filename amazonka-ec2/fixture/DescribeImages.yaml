@@ -1,10 +1,10 @@
 ---
 method: POST
 headers:
-  Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/ec2/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=e810ca5f5663b8744c0147849e18d90dcd8ecd55d144ba8c8e3ae4269ae8f1c9
+  Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/ec2/aws4_request, SignedHeaders=content-type;host;x-amz-content-sha256;x-amz-date, Signature=?
   Host:                  ec2.us-east-1.amazonaws.com
   Content-Type:          application/x-www-form-urlencoded; charset=utf-8
-  X-Amz-Content-SHA256:  0492dc39feb964e763bac88cbf63daca20d8113880b84ace9aae14951cb777b2
+  X-Amz-Content-SHA256:  abcdef
   X-Amz-Date:            20091028T223200Z
 body:
-  Action=DescribeImages&Filter.1.Name=is-public&Filter.1.Value.1=true&Filter.2.Name=architecture&Filter.2.Value.1=x86_64&Filter.3.Name=platform&Filter.3.Value.1=windows&Version=2016-11-15
+  ''

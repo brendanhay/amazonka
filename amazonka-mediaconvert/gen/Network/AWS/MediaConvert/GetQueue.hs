@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaConvert.GetQueue
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,104 +23,137 @@
 --
 -- Retrieve the JSON for a specific queue.
 module Network.AWS.MediaConvert.GetQueue
-    (
-    -- * Creating a Request
-      getQueue
-    , GetQueue
+  ( -- * Creating a Request
+    GetQueue (..),
+    newGetQueue,
+
     -- * Request Lenses
-    , gqName
+    getQueue_name,
 
     -- * Destructuring the Response
-    , getQueueResponse
-    , GetQueueResponse
+    GetQueueResponse (..),
+    newGetQueueResponse,
+
     -- * Response Lenses
-    , gqrsQueue
-    , gqrsResponseStatus
-    ) where
+    getQueueResponse_queue,
+    getQueueResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import Network.AWS.MediaConvert.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getQueue' smart constructor.
-newtype GetQueue = GetQueue'
-  { _gqName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetQueue' smart constructor.
+data GetQueue = GetQueue'
+  { -- | The name of the queue that you want information about.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetQueue' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetQueue' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gqName' - The name of the queue.
-getQueue
-    :: Text -- ^ 'gqName'
-    -> GetQueue
-getQueue pName_ = GetQueue' {_gqName = pName_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'name', 'getQueue_name' - The name of the queue that you want information about.
+newGetQueue ::
+  -- | 'name'
+  Prelude.Text ->
+  GetQueue
+newGetQueue pName_ = GetQueue' {name = pName_}
 
+-- | The name of the queue that you want information about.
+getQueue_name :: Lens.Lens' GetQueue Prelude.Text
+getQueue_name = Lens.lens (\GetQueue' {name} -> name) (\s@GetQueue' {} a -> s {name = a} :: GetQueue)
 
--- | The name of the queue.
-gqName :: Lens' GetQueue Text
-gqName = lens _gqName (\ s a -> s{_gqName = a})
+instance Prelude.AWSRequest GetQueue where
+  type Rs GetQueue = GetQueueResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetQueueResponse'
+            Prelude.<$> (x Prelude..?> "queue")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetQueue where
-        type Rs GetQueue = GetQueueResponse
-        request = get mediaConvert
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetQueueResponse' <$>
-                   (x .?> "queue") <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetQueue
 
-instance Hashable GetQueue where
+instance Prelude.NFData GetQueue
 
-instance NFData GetQueue where
+instance Prelude.ToHeaders GetQueue where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders GetQueue where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToPath GetQueue where
+  toPath GetQueue' {..} =
+    Prelude.mconcat
+      ["/2017-08-29/queues/", Prelude.toBS name]
 
-instance ToPath GetQueue where
-        toPath GetQueue'{..}
-          = mconcat ["/2017-08-29/queues/", toBS _gqName]
+instance Prelude.ToQuery GetQueue where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery GetQueue where
-        toQuery = const mempty
-
--- | /See:/ 'getQueueResponse' smart constructor.
+-- | /See:/ 'newGetQueueResponse' smart constructor.
 data GetQueueResponse = GetQueueResponse'
-  { _gqrsQueue          :: !(Maybe Queue)
-  , _gqrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | You can use queues to manage the resources that are available to your
+    -- AWS account for running multiple transcoding jobs at the same time. If
+    -- you don\'t specify a queue, the service sends all jobs through the
+    -- default queue. For more information, see
+    -- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/working-with-queues.html.
+    queue :: Prelude.Maybe Queue,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetQueueResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetQueueResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gqrsQueue' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gqrsResponseStatus' - -- | The response status code.
-getQueueResponse
-    :: Int -- ^ 'gqrsResponseStatus'
-    -> GetQueueResponse
-getQueueResponse pResponseStatus_ =
+-- 'queue', 'getQueueResponse_queue' - You can use queues to manage the resources that are available to your
+-- AWS account for running multiple transcoding jobs at the same time. If
+-- you don\'t specify a queue, the service sends all jobs through the
+-- default queue. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/working-with-queues.html.
+--
+-- 'httpStatus', 'getQueueResponse_httpStatus' - The response's http status code.
+newGetQueueResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetQueueResponse
+newGetQueueResponse pHttpStatus_ =
   GetQueueResponse'
-    {_gqrsQueue = Nothing, _gqrsResponseStatus = pResponseStatus_}
+    { queue = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | You can use queues to manage the resources that are available to your
+-- AWS account for running multiple transcoding jobs at the same time. If
+-- you don\'t specify a queue, the service sends all jobs through the
+-- default queue. For more information, see
+-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/working-with-queues.html.
+getQueueResponse_queue :: Lens.Lens' GetQueueResponse (Prelude.Maybe Queue)
+getQueueResponse_queue = Lens.lens (\GetQueueResponse' {queue} -> queue) (\s@GetQueueResponse' {} a -> s {queue = a} :: GetQueueResponse)
 
--- | Undocumented member.
-gqrsQueue :: Lens' GetQueueResponse (Maybe Queue)
-gqrsQueue = lens _gqrsQueue (\ s a -> s{_gqrsQueue = a})
+-- | The response's http status code.
+getQueueResponse_httpStatus :: Lens.Lens' GetQueueResponse Prelude.Int
+getQueueResponse_httpStatus = Lens.lens (\GetQueueResponse' {httpStatus} -> httpStatus) (\s@GetQueueResponse' {} a -> s {httpStatus = a} :: GetQueueResponse)
 
--- | -- | The response status code.
-gqrsResponseStatus :: Lens' GetQueueResponse Int
-gqrsResponseStatus = lens _gqrsResponseStatus (\ s a -> s{_gqrsResponseStatus = a})
-
-instance NFData GetQueueResponse where
+instance Prelude.NFData GetQueueResponse

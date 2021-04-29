@@ -1,141 +1,181 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glacier.ListTagsForVault
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation lists all the tags attached to a vault. The operation returns an empty map if there are no tags. For more information about tags, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html Tagging Amazon Glacier Resources> .
---
---
+-- This operation lists all the tags attached to a vault. The operation
+-- returns an empty map if there are no tags. For more information about
+-- tags, see
+-- <https://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html Tagging Amazon S3 Glacier Resources>.
 module Network.AWS.Glacier.ListTagsForVault
-    (
-    -- * Creating a Request
-      listTagsForVault
-    , ListTagsForVault
+  ( -- * Creating a Request
+    ListTagsForVault (..),
+    newListTagsForVault,
+
     -- * Request Lenses
-    , ltfvAccountId
-    , ltfvVaultName
+    listTagsForVault_accountId,
+    listTagsForVault_vaultName,
 
     -- * Destructuring the Response
-    , listTagsForVaultResponse
-    , ListTagsForVaultResponse
+    ListTagsForVaultResponse (..),
+    newListTagsForVaultResponse,
+
     -- * Response Lenses
-    , ltfvrsTags
-    , ltfvrsResponseStatus
-    ) where
+    listTagsForVaultResponse_tags,
+    listTagsForVaultResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | The input value for @ListTagsForVaultInput@ .
+-- | The input value for @ListTagsForVaultInput@.
 --
---
---
--- /See:/ 'listTagsForVault' smart constructor.
+-- /See:/ 'newListTagsForVault' smart constructor.
 data ListTagsForVault = ListTagsForVault'
-  { _ltfvAccountId :: !Text
-  , _ltfvVaultName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @AccountId@ value is the AWS account ID of the account that owns the
+    -- vault. You can either specify an AWS account ID or optionally a single
+    -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+    -- ID associated with the credentials used to sign the request. If you use
+    -- an account ID, do not include any hyphens (\'-\') in the ID.
+    accountId :: Prelude.Text,
+    -- | The name of the vault.
+    vaultName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListTagsForVault' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListTagsForVault' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ltfvAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ltfvVaultName' - The name of the vault.
-listTagsForVault
-    :: Text -- ^ 'ltfvAccountId'
-    -> Text -- ^ 'ltfvVaultName'
-    -> ListTagsForVault
-listTagsForVault pAccountId_ pVaultName_ =
-  ListTagsForVault' {_ltfvAccountId = pAccountId_, _ltfvVaultName = pVaultName_}
+-- 'accountId', 'listTagsForVault_accountId' - The @AccountId@ value is the AWS account ID of the account that owns the
+-- vault. You can either specify an AWS account ID or optionally a single
+-- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+-- ID associated with the credentials used to sign the request. If you use
+-- an account ID, do not include any hyphens (\'-\') in the ID.
+--
+-- 'vaultName', 'listTagsForVault_vaultName' - The name of the vault.
+newListTagsForVault ::
+  -- | 'accountId'
+  Prelude.Text ->
+  -- | 'vaultName'
+  Prelude.Text ->
+  ListTagsForVault
+newListTagsForVault pAccountId_ pVaultName_ =
+  ListTagsForVault'
+    { accountId = pAccountId_,
+      vaultName = pVaultName_
+    }
 
-
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-ltfvAccountId :: Lens' ListTagsForVault Text
-ltfvAccountId = lens _ltfvAccountId (\ s a -> s{_ltfvAccountId = a})
+-- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- vault. You can either specify an AWS account ID or optionally a single
+-- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+-- ID associated with the credentials used to sign the request. If you use
+-- an account ID, do not include any hyphens (\'-\') in the ID.
+listTagsForVault_accountId :: Lens.Lens' ListTagsForVault Prelude.Text
+listTagsForVault_accountId = Lens.lens (\ListTagsForVault' {accountId} -> accountId) (\s@ListTagsForVault' {} a -> s {accountId = a} :: ListTagsForVault)
 
 -- | The name of the vault.
-ltfvVaultName :: Lens' ListTagsForVault Text
-ltfvVaultName = lens _ltfvVaultName (\ s a -> s{_ltfvVaultName = a})
+listTagsForVault_vaultName :: Lens.Lens' ListTagsForVault Prelude.Text
+listTagsForVault_vaultName = Lens.lens (\ListTagsForVault' {vaultName} -> vaultName) (\s@ListTagsForVault' {} a -> s {vaultName = a} :: ListTagsForVault)
 
-instance AWSRequest ListTagsForVault where
-        type Rs ListTagsForVault = ListTagsForVaultResponse
-        request = get glacier
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListTagsForVaultResponse' <$>
-                   (x .?> "Tags" .!@ mempty) <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest ListTagsForVault where
+  type Rs ListTagsForVault = ListTagsForVaultResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListTagsForVaultResponse'
+            Prelude.<$> (x Prelude..?> "Tags" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListTagsForVault where
+instance Prelude.Hashable ListTagsForVault
 
-instance NFData ListTagsForVault where
+instance Prelude.NFData ListTagsForVault
 
-instance ToHeaders ListTagsForVault where
-        toHeaders = const mempty
+instance Prelude.ToHeaders ListTagsForVault where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath ListTagsForVault where
-        toPath ListTagsForVault'{..}
-          = mconcat
-              ["/", toBS _ltfvAccountId, "/vaults/",
-               toBS _ltfvVaultName, "/tags"]
+instance Prelude.ToPath ListTagsForVault where
+  toPath ListTagsForVault' {..} =
+    Prelude.mconcat
+      [ "/",
+        Prelude.toBS accountId,
+        "/vaults/",
+        Prelude.toBS vaultName,
+        "/tags"
+      ]
 
-instance ToQuery ListTagsForVault where
-        toQuery = const mempty
+instance Prelude.ToQuery ListTagsForVault where
+  toQuery = Prelude.const Prelude.mempty
 
--- | Contains the Amazon Glacier response to your request.
+-- | Contains the Amazon S3 Glacier response to your request.
 --
---
---
--- /See:/ 'listTagsForVaultResponse' smart constructor.
+-- /See:/ 'newListTagsForVaultResponse' smart constructor.
 data ListTagsForVaultResponse = ListTagsForVaultResponse'
-  { _ltfvrsTags           :: !(Maybe (Map Text Text))
-  , _ltfvrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The tags attached to the vault. Each tag is composed of a key and a
+    -- value.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListTagsForVaultResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListTagsForVaultResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ltfvrsTags' - The tags attached to the vault. Each tag is composed of a key and a value.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ltfvrsResponseStatus' - -- | The response status code.
-listTagsForVaultResponse
-    :: Int -- ^ 'ltfvrsResponseStatus'
-    -> ListTagsForVaultResponse
-listTagsForVaultResponse pResponseStatus_ =
+-- 'tags', 'listTagsForVaultResponse_tags' - The tags attached to the vault. Each tag is composed of a key and a
+-- value.
+--
+-- 'httpStatus', 'listTagsForVaultResponse_httpStatus' - The response's http status code.
+newListTagsForVaultResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListTagsForVaultResponse
+newListTagsForVaultResponse pHttpStatus_ =
   ListTagsForVaultResponse'
-    {_ltfvrsTags = Nothing, _ltfvrsResponseStatus = pResponseStatus_}
+    { tags = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The tags attached to the vault. Each tag is composed of a key and a
+-- value.
+listTagsForVaultResponse_tags :: Lens.Lens' ListTagsForVaultResponse (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+listTagsForVaultResponse_tags = Lens.lens (\ListTagsForVaultResponse' {tags} -> tags) (\s@ListTagsForVaultResponse' {} a -> s {tags = a} :: ListTagsForVaultResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The tags attached to the vault. Each tag is composed of a key and a value.
-ltfvrsTags :: Lens' ListTagsForVaultResponse (HashMap Text Text)
-ltfvrsTags = lens _ltfvrsTags (\ s a -> s{_ltfvrsTags = a}) . _Default . _Map
+-- | The response's http status code.
+listTagsForVaultResponse_httpStatus :: Lens.Lens' ListTagsForVaultResponse Prelude.Int
+listTagsForVaultResponse_httpStatus = Lens.lens (\ListTagsForVaultResponse' {httpStatus} -> httpStatus) (\s@ListTagsForVaultResponse' {} a -> s {httpStatus = a} :: ListTagsForVaultResponse)
 
--- | -- | The response status code.
-ltfvrsResponseStatus :: Lens' ListTagsForVaultResponse Int
-ltfvrsResponseStatus = lens _ltfvrsResponseStatus (\ s a -> s{_ltfvrsResponseStatus = a})
-
-instance NFData ListTagsForVaultResponse where
+instance Prelude.NFData ListTagsForVaultResponse

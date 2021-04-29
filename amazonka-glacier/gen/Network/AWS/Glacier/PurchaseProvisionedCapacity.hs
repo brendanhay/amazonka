@@ -1,128 +1,173 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glacier.PurchaseProvisionedCapacity
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- This operation purchases a provisioned capacity unit for an AWS account.
---
---
 module Network.AWS.Glacier.PurchaseProvisionedCapacity
-    (
-    -- * Creating a Request
-      purchaseProvisionedCapacity
-    , PurchaseProvisionedCapacity
+  ( -- * Creating a Request
+    PurchaseProvisionedCapacity (..),
+    newPurchaseProvisionedCapacity,
+
     -- * Request Lenses
-    , ppcAccountId
+    purchaseProvisionedCapacity_accountId,
 
     -- * Destructuring the Response
-    , purchaseProvisionedCapacityResponse
-    , PurchaseProvisionedCapacityResponse
+    PurchaseProvisionedCapacityResponse (..),
+    newPurchaseProvisionedCapacityResponse,
+
     -- * Response Lenses
-    , ppcrsCapacityId
-    , ppcrsResponseStatus
-    ) where
+    purchaseProvisionedCapacityResponse_capacityId,
+    purchaseProvisionedCapacityResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'purchaseProvisionedCapacity' smart constructor.
-newtype PurchaseProvisionedCapacity = PurchaseProvisionedCapacity'
-  { _ppcAccountId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newPurchaseProvisionedCapacity' smart constructor.
+data PurchaseProvisionedCapacity = PurchaseProvisionedCapacity'
+  { -- | The AWS account ID of the account that owns the vault. You can either
+    -- specify an AWS account ID or optionally a single \'-\' (hyphen), in
+    -- which case Amazon S3 Glacier uses the AWS account ID associated with the
+    -- credentials used to sign the request. If you use an account ID, don\'t
+    -- include any hyphens (\'-\') in the ID.
+    accountId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'PurchaseProvisionedCapacity' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PurchaseProvisionedCapacity' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ppcAccountId' - The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID.
-purchaseProvisionedCapacity
-    :: Text -- ^ 'ppcAccountId'
-    -> PurchaseProvisionedCapacity
-purchaseProvisionedCapacity pAccountId_ =
-  PurchaseProvisionedCapacity' {_ppcAccountId = pAccountId_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'accountId', 'purchaseProvisionedCapacity_accountId' - The AWS account ID of the account that owns the vault. You can either
+-- specify an AWS account ID or optionally a single \'-\' (hyphen), in
+-- which case Amazon S3 Glacier uses the AWS account ID associated with the
+-- credentials used to sign the request. If you use an account ID, don\'t
+-- include any hyphens (\'-\') in the ID.
+newPurchaseProvisionedCapacity ::
+  -- | 'accountId'
+  Prelude.Text ->
+  PurchaseProvisionedCapacity
+newPurchaseProvisionedCapacity pAccountId_ =
+  PurchaseProvisionedCapacity'
+    { accountId =
+        pAccountId_
+    }
 
+-- | The AWS account ID of the account that owns the vault. You can either
+-- specify an AWS account ID or optionally a single \'-\' (hyphen), in
+-- which case Amazon S3 Glacier uses the AWS account ID associated with the
+-- credentials used to sign the request. If you use an account ID, don\'t
+-- include any hyphens (\'-\') in the ID.
+purchaseProvisionedCapacity_accountId :: Lens.Lens' PurchaseProvisionedCapacity Prelude.Text
+purchaseProvisionedCapacity_accountId = Lens.lens (\PurchaseProvisionedCapacity' {accountId} -> accountId) (\s@PurchaseProvisionedCapacity' {} a -> s {accountId = a} :: PurchaseProvisionedCapacity)
 
--- | The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID.
-ppcAccountId :: Lens' PurchaseProvisionedCapacity Text
-ppcAccountId = lens _ppcAccountId (\ s a -> s{_ppcAccountId = a})
+instance
+  Prelude.AWSRequest
+    PurchaseProvisionedCapacity
+  where
+  type
+    Rs PurchaseProvisionedCapacity =
+      PurchaseProvisionedCapacityResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          PurchaseProvisionedCapacityResponse'
+            Prelude.<$> (h Prelude..#? "x-amz-capacity-id")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest PurchaseProvisionedCapacity where
-        type Rs PurchaseProvisionedCapacity =
-             PurchaseProvisionedCapacityResponse
-        request = postJSON glacier
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 PurchaseProvisionedCapacityResponse' <$>
-                   (h .#? "x-amz-capacity-id") <*> (pure (fromEnum s)))
+instance Prelude.Hashable PurchaseProvisionedCapacity
 
-instance Hashable PurchaseProvisionedCapacity where
+instance Prelude.NFData PurchaseProvisionedCapacity
 
-instance NFData PurchaseProvisionedCapacity where
+instance
+  Prelude.ToHeaders
+    PurchaseProvisionedCapacity
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders PurchaseProvisionedCapacity where
-        toHeaders = const mempty
+instance Prelude.ToJSON PurchaseProvisionedCapacity where
+  toJSON =
+    Prelude.const (Prelude.Object Prelude.mempty)
 
-instance ToJSON PurchaseProvisionedCapacity where
-        toJSON = const (Object mempty)
+instance Prelude.ToPath PurchaseProvisionedCapacity where
+  toPath PurchaseProvisionedCapacity' {..} =
+    Prelude.mconcat
+      [ "/",
+        Prelude.toBS accountId,
+        "/provisioned-capacity"
+      ]
 
-instance ToPath PurchaseProvisionedCapacity where
-        toPath PurchaseProvisionedCapacity'{..}
-          = mconcat
-              ["/", toBS _ppcAccountId, "/provisioned-capacity"]
+instance Prelude.ToQuery PurchaseProvisionedCapacity where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery PurchaseProvisionedCapacity where
-        toQuery = const mempty
-
--- | /See:/ 'purchaseProvisionedCapacityResponse' smart constructor.
+-- | /See:/ 'newPurchaseProvisionedCapacityResponse' smart constructor.
 data PurchaseProvisionedCapacityResponse = PurchaseProvisionedCapacityResponse'
-  { _ppcrsCapacityId     :: !(Maybe Text)
-  , _ppcrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID that identifies the provisioned capacity unit.
+    capacityId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'PurchaseProvisionedCapacityResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PurchaseProvisionedCapacityResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ppcrsCapacityId' - The ID that identifies the provisioned capacity unit.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ppcrsResponseStatus' - -- | The response status code.
-purchaseProvisionedCapacityResponse
-    :: Int -- ^ 'ppcrsResponseStatus'
-    -> PurchaseProvisionedCapacityResponse
-purchaseProvisionedCapacityResponse pResponseStatus_ =
+-- 'capacityId', 'purchaseProvisionedCapacityResponse_capacityId' - The ID that identifies the provisioned capacity unit.
+--
+-- 'httpStatus', 'purchaseProvisionedCapacityResponse_httpStatus' - The response's http status code.
+newPurchaseProvisionedCapacityResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  PurchaseProvisionedCapacityResponse
+newPurchaseProvisionedCapacityResponse pHttpStatus_ =
   PurchaseProvisionedCapacityResponse'
-    {_ppcrsCapacityId = Nothing, _ppcrsResponseStatus = pResponseStatus_}
-
+    { capacityId =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The ID that identifies the provisioned capacity unit.
-ppcrsCapacityId :: Lens' PurchaseProvisionedCapacityResponse (Maybe Text)
-ppcrsCapacityId = lens _ppcrsCapacityId (\ s a -> s{_ppcrsCapacityId = a})
+purchaseProvisionedCapacityResponse_capacityId :: Lens.Lens' PurchaseProvisionedCapacityResponse (Prelude.Maybe Prelude.Text)
+purchaseProvisionedCapacityResponse_capacityId = Lens.lens (\PurchaseProvisionedCapacityResponse' {capacityId} -> capacityId) (\s@PurchaseProvisionedCapacityResponse' {} a -> s {capacityId = a} :: PurchaseProvisionedCapacityResponse)
 
--- | -- | The response status code.
-ppcrsResponseStatus :: Lens' PurchaseProvisionedCapacityResponse Int
-ppcrsResponseStatus = lens _ppcrsResponseStatus (\ s a -> s{_ppcrsResponseStatus = a})
+-- | The response's http status code.
+purchaseProvisionedCapacityResponse_httpStatus :: Lens.Lens' PurchaseProvisionedCapacityResponse Prelude.Int
+purchaseProvisionedCapacityResponse_httpStatus = Lens.lens (\PurchaseProvisionedCapacityResponse' {httpStatus} -> httpStatus) (\s@PurchaseProvisionedCapacityResponse' {} a -> s {httpStatus = a} :: PurchaseProvisionedCapacityResponse)
 
-instance NFData PurchaseProvisionedCapacityResponse
-         where
+instance
+  Prelude.NFData
+    PurchaseProvisionedCapacityResponse

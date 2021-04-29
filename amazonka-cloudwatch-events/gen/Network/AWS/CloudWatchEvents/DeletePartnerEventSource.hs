@@ -1,124 +1,153 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.DeletePartnerEventSource
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation is used by SaaS partners to delete a partner event source. AWS customers don't use this operation.
+-- This operation is used by SaaS partners to delete a partner event
+-- source. This operation is not used by AWS customers.
 --
---
--- When you delete an event source, the status of the corresponding partner event bus in the AWS customer account becomes @DELETED@ .
---
+-- When you delete an event source, the status of the corresponding partner
+-- event bus in the AWS customer account becomes DELETED.
 module Network.AWS.CloudWatchEvents.DeletePartnerEventSource
-    (
-    -- * Creating a Request
-      deletePartnerEventSource
-    , DeletePartnerEventSource
+  ( -- * Creating a Request
+    DeletePartnerEventSource (..),
+    newDeletePartnerEventSource,
+
     -- * Request Lenses
-    , dpesName
-    , dpesAccount
+    deletePartnerEventSource_name,
+    deletePartnerEventSource_account,
 
     -- * Destructuring the Response
-    , deletePartnerEventSourceResponse
-    , DeletePartnerEventSourceResponse
-    ) where
+    DeletePartnerEventSourceResponse (..),
+    newDeletePartnerEventSourceResponse,
+  )
+where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.CloudWatchEvents.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deletePartnerEventSource' smart constructor.
+-- | /See:/ 'newDeletePartnerEventSource' smart constructor.
 data DeletePartnerEventSource = DeletePartnerEventSource'
-  { _dpesName    :: !Text
-  , _dpesAccount :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the event source to delete.
+    name :: Prelude.Text,
+    -- | The AWS account ID of the AWS customer that the event source was created
+    -- for.
+    account :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeletePartnerEventSource' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeletePartnerEventSource' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dpesName' - The name of the event source to delete.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dpesAccount' - The AWS account ID of the AWS customer that the event source was created for.
-deletePartnerEventSource
-    :: Text -- ^ 'dpesName'
-    -> Text -- ^ 'dpesAccount'
-    -> DeletePartnerEventSource
-deletePartnerEventSource pName_ pAccount_ =
-  DeletePartnerEventSource' {_dpesName = pName_, _dpesAccount = pAccount_}
-
+-- 'name', 'deletePartnerEventSource_name' - The name of the event source to delete.
+--
+-- 'account', 'deletePartnerEventSource_account' - The AWS account ID of the AWS customer that the event source was created
+-- for.
+newDeletePartnerEventSource ::
+  -- | 'name'
+  Prelude.Text ->
+  -- | 'account'
+  Prelude.Text ->
+  DeletePartnerEventSource
+newDeletePartnerEventSource pName_ pAccount_ =
+  DeletePartnerEventSource'
+    { name = pName_,
+      account = pAccount_
+    }
 
 -- | The name of the event source to delete.
-dpesName :: Lens' DeletePartnerEventSource Text
-dpesName = lens _dpesName (\ s a -> s{_dpesName = a})
+deletePartnerEventSource_name :: Lens.Lens' DeletePartnerEventSource Prelude.Text
+deletePartnerEventSource_name = Lens.lens (\DeletePartnerEventSource' {name} -> name) (\s@DeletePartnerEventSource' {} a -> s {name = a} :: DeletePartnerEventSource)
 
--- | The AWS account ID of the AWS customer that the event source was created for.
-dpesAccount :: Lens' DeletePartnerEventSource Text
-dpesAccount = lens _dpesAccount (\ s a -> s{_dpesAccount = a})
+-- | The AWS account ID of the AWS customer that the event source was created
+-- for.
+deletePartnerEventSource_account :: Lens.Lens' DeletePartnerEventSource Prelude.Text
+deletePartnerEventSource_account = Lens.lens (\DeletePartnerEventSource' {account} -> account) (\s@DeletePartnerEventSource' {} a -> s {account = a} :: DeletePartnerEventSource)
 
-instance AWSRequest DeletePartnerEventSource where
-        type Rs DeletePartnerEventSource =
-             DeletePartnerEventSourceResponse
-        request = postJSON cloudWatchEvents
-        response
-          = receiveNull DeletePartnerEventSourceResponse'
+instance Prelude.AWSRequest DeletePartnerEventSource where
+  type
+    Rs DeletePartnerEventSource =
+      DeletePartnerEventSourceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull
+      DeletePartnerEventSourceResponse'
 
-instance Hashable DeletePartnerEventSource where
+instance Prelude.Hashable DeletePartnerEventSource
 
-instance NFData DeletePartnerEventSource where
+instance Prelude.NFData DeletePartnerEventSource
 
-instance ToHeaders DeletePartnerEventSource where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSEvents.DeletePartnerEventSource" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DeletePartnerEventSource where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSEvents.DeletePartnerEventSource" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DeletePartnerEventSource where
-        toJSON DeletePartnerEventSource'{..}
-          = object
-              (catMaybes
-                 [Just ("Name" .= _dpesName),
-                  Just ("Account" .= _dpesAccount)])
+instance Prelude.ToJSON DeletePartnerEventSource where
+  toJSON DeletePartnerEventSource' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Name" Prelude..= name),
+            Prelude.Just ("Account" Prelude..= account)
+          ]
+      )
 
-instance ToPath DeletePartnerEventSource where
-        toPath = const "/"
+instance Prelude.ToPath DeletePartnerEventSource where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeletePartnerEventSource where
-        toQuery = const mempty
+instance Prelude.ToQuery DeletePartnerEventSource where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deletePartnerEventSourceResponse' smart constructor.
-data DeletePartnerEventSourceResponse =
-  DeletePartnerEventSourceResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeletePartnerEventSourceResponse' smart constructor.
+data DeletePartnerEventSourceResponse = DeletePartnerEventSourceResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeletePartnerEventSourceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeletePartnerEventSourceResponse' with all optional fields omitted.
 --
-deletePartnerEventSourceResponse
-    :: DeletePartnerEventSourceResponse
-deletePartnerEventSourceResponse = DeletePartnerEventSourceResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeletePartnerEventSourceResponse ::
+  DeletePartnerEventSourceResponse
+newDeletePartnerEventSourceResponse =
+  DeletePartnerEventSourceResponse'
 
-
-instance NFData DeletePartnerEventSourceResponse
-         where
+instance
+  Prelude.NFData
+    DeletePartnerEventSourceResponse

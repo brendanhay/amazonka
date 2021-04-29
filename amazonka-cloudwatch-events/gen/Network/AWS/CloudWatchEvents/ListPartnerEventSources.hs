@@ -1,169 +1,218 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudWatchEvents.ListPartnerEventSources
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- An SaaS partner can use this operation to list all the partner event source names that they have created.
---
---
+-- An SaaS partner can use this operation to list all the partner event
+-- source names that they have created. This operation is not used by AWS
+-- customers.
 module Network.AWS.CloudWatchEvents.ListPartnerEventSources
-    (
-    -- * Creating a Request
-      listPartnerEventSources
-    , ListPartnerEventSources
+  ( -- * Creating a Request
+    ListPartnerEventSources (..),
+    newListPartnerEventSources,
+
     -- * Request Lenses
-    , lpesNextToken
-    , lpesLimit
-    , lpesNamePrefix
+    listPartnerEventSources_nextToken,
+    listPartnerEventSources_limit,
+    listPartnerEventSources_namePrefix,
 
     -- * Destructuring the Response
-    , listPartnerEventSourcesResponse
-    , ListPartnerEventSourcesResponse
+    ListPartnerEventSourcesResponse (..),
+    newListPartnerEventSourcesResponse,
+
     -- * Response Lenses
-    , lpesrsPartnerEventSources
-    , lpesrsNextToken
-    , lpesrsResponseStatus
-    ) where
+    listPartnerEventSourcesResponse_nextToken,
+    listPartnerEventSourcesResponse_partnerEventSources,
+    listPartnerEventSourcesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudWatchEvents.Types
-import Network.AWS.CloudWatchEvents.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listPartnerEventSources' smart constructor.
+-- | /See:/ 'newListPartnerEventSources' smart constructor.
 data ListPartnerEventSources = ListPartnerEventSources'
-  { _lpesNextToken  :: !(Maybe Text)
-  , _lpesLimit      :: !(Maybe Nat)
-  , _lpesNamePrefix :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token returned by a previous call to this operation. Specifying this
+    -- retrieves the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | pecifying this limits the number of results returned by this operation.
+    -- The operation also returns a NextToken which you can use in a subsequent
+    -- operation to retrieve the next set of results.
+    limit :: Prelude.Maybe Prelude.Natural,
+    -- | If you specify this, the results are limited to only those partner event
+    -- sources that start with the string you specify.
+    namePrefix :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListPartnerEventSources' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListPartnerEventSources' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lpesNextToken' - The token returned by a previous call to this operation. Specifying this retrieves the next set of results.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lpesLimit' - pecifying this limits the number of results returned by this operation. The operation also returns a @NextToken@ that you can use in a subsequent operation to retrieve the next set of results.
+-- 'nextToken', 'listPartnerEventSources_nextToken' - The token returned by a previous call to this operation. Specifying this
+-- retrieves the next set of results.
 --
--- * 'lpesNamePrefix' - If you specify this, the results are limited to only those partner event sources that start with the string you specify.
-listPartnerEventSources
-    :: Text -- ^ 'lpesNamePrefix'
-    -> ListPartnerEventSources
-listPartnerEventSources pNamePrefix_ =
+-- 'limit', 'listPartnerEventSources_limit' - pecifying this limits the number of results returned by this operation.
+-- The operation also returns a NextToken which you can use in a subsequent
+-- operation to retrieve the next set of results.
+--
+-- 'namePrefix', 'listPartnerEventSources_namePrefix' - If you specify this, the results are limited to only those partner event
+-- sources that start with the string you specify.
+newListPartnerEventSources ::
+  -- | 'namePrefix'
+  Prelude.Text ->
+  ListPartnerEventSources
+newListPartnerEventSources pNamePrefix_ =
   ListPartnerEventSources'
-    { _lpesNextToken = Nothing
-    , _lpesLimit = Nothing
-    , _lpesNamePrefix = pNamePrefix_
+    { nextToken =
+        Prelude.Nothing,
+      limit = Prelude.Nothing,
+      namePrefix = pNamePrefix_
     }
 
+-- | The token returned by a previous call to this operation. Specifying this
+-- retrieves the next set of results.
+listPartnerEventSources_nextToken :: Lens.Lens' ListPartnerEventSources (Prelude.Maybe Prelude.Text)
+listPartnerEventSources_nextToken = Lens.lens (\ListPartnerEventSources' {nextToken} -> nextToken) (\s@ListPartnerEventSources' {} a -> s {nextToken = a} :: ListPartnerEventSources)
 
--- | The token returned by a previous call to this operation. Specifying this retrieves the next set of results.
-lpesNextToken :: Lens' ListPartnerEventSources (Maybe Text)
-lpesNextToken = lens _lpesNextToken (\ s a -> s{_lpesNextToken = a})
+-- | pecifying this limits the number of results returned by this operation.
+-- The operation also returns a NextToken which you can use in a subsequent
+-- operation to retrieve the next set of results.
+listPartnerEventSources_limit :: Lens.Lens' ListPartnerEventSources (Prelude.Maybe Prelude.Natural)
+listPartnerEventSources_limit = Lens.lens (\ListPartnerEventSources' {limit} -> limit) (\s@ListPartnerEventSources' {} a -> s {limit = a} :: ListPartnerEventSources)
 
--- | pecifying this limits the number of results returned by this operation. The operation also returns a @NextToken@ that you can use in a subsequent operation to retrieve the next set of results.
-lpesLimit :: Lens' ListPartnerEventSources (Maybe Natural)
-lpesLimit = lens _lpesLimit (\ s a -> s{_lpesLimit = a}) . mapping _Nat
+-- | If you specify this, the results are limited to only those partner event
+-- sources that start with the string you specify.
+listPartnerEventSources_namePrefix :: Lens.Lens' ListPartnerEventSources Prelude.Text
+listPartnerEventSources_namePrefix = Lens.lens (\ListPartnerEventSources' {namePrefix} -> namePrefix) (\s@ListPartnerEventSources' {} a -> s {namePrefix = a} :: ListPartnerEventSources)
 
--- | If you specify this, the results are limited to only those partner event sources that start with the string you specify.
-lpesNamePrefix :: Lens' ListPartnerEventSources Text
-lpesNamePrefix = lens _lpesNamePrefix (\ s a -> s{_lpesNamePrefix = a})
+instance Prelude.AWSRequest ListPartnerEventSources where
+  type
+    Rs ListPartnerEventSources =
+      ListPartnerEventSourcesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListPartnerEventSourcesResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> ( x Prelude..?> "PartnerEventSources"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest ListPartnerEventSources where
-        type Rs ListPartnerEventSources =
-             ListPartnerEventSourcesResponse
-        request = postJSON cloudWatchEvents
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListPartnerEventSourcesResponse' <$>
-                   (x .?> "PartnerEventSources" .!@ mempty) <*>
-                     (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable ListPartnerEventSources
 
-instance Hashable ListPartnerEventSources where
+instance Prelude.NFData ListPartnerEventSources
 
-instance NFData ListPartnerEventSources where
+instance Prelude.ToHeaders ListPartnerEventSources where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSEvents.ListPartnerEventSources" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders ListPartnerEventSources where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSEvents.ListPartnerEventSources" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToJSON ListPartnerEventSources where
+  toJSON ListPartnerEventSources' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("Limit" Prelude..=) Prelude.<$> limit,
+            Prelude.Just ("NamePrefix" Prelude..= namePrefix)
+          ]
+      )
 
-instance ToJSON ListPartnerEventSources where
-        toJSON ListPartnerEventSources'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _lpesNextToken,
-                  ("Limit" .=) <$> _lpesLimit,
-                  Just ("NamePrefix" .= _lpesNamePrefix)])
+instance Prelude.ToPath ListPartnerEventSources where
+  toPath = Prelude.const "/"
 
-instance ToPath ListPartnerEventSources where
-        toPath = const "/"
+instance Prelude.ToQuery ListPartnerEventSources where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery ListPartnerEventSources where
-        toQuery = const mempty
-
--- | /See:/ 'listPartnerEventSourcesResponse' smart constructor.
+-- | /See:/ 'newListPartnerEventSourcesResponse' smart constructor.
 data ListPartnerEventSourcesResponse = ListPartnerEventSourcesResponse'
-  { _lpesrsPartnerEventSources :: !(Maybe [PartnerEventSource])
-  , _lpesrsNextToken           :: !(Maybe Text)
-  , _lpesrsResponseStatus      :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A token you can use in a subsequent operation to retrieve the next set
+    -- of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of partner event sources returned by the operation.
+    partnerEventSources :: Prelude.Maybe [PartnerEventSource],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListPartnerEventSourcesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListPartnerEventSourcesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lpesrsPartnerEventSources' - The list of partner event sources returned by the operation.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lpesrsNextToken' - A token you can use in a subsequent operation to retrieve the next set of results.
+-- 'nextToken', 'listPartnerEventSourcesResponse_nextToken' - A token you can use in a subsequent operation to retrieve the next set
+-- of results.
 --
--- * 'lpesrsResponseStatus' - -- | The response status code.
-listPartnerEventSourcesResponse
-    :: Int -- ^ 'lpesrsResponseStatus'
-    -> ListPartnerEventSourcesResponse
-listPartnerEventSourcesResponse pResponseStatus_ =
+-- 'partnerEventSources', 'listPartnerEventSourcesResponse_partnerEventSources' - The list of partner event sources returned by the operation.
+--
+-- 'httpStatus', 'listPartnerEventSourcesResponse_httpStatus' - The response's http status code.
+newListPartnerEventSourcesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListPartnerEventSourcesResponse
+newListPartnerEventSourcesResponse pHttpStatus_ =
   ListPartnerEventSourcesResponse'
-    { _lpesrsPartnerEventSources = Nothing
-    , _lpesrsNextToken = Nothing
-    , _lpesrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      partnerEventSources = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | A token you can use in a subsequent operation to retrieve the next set
+-- of results.
+listPartnerEventSourcesResponse_nextToken :: Lens.Lens' ListPartnerEventSourcesResponse (Prelude.Maybe Prelude.Text)
+listPartnerEventSourcesResponse_nextToken = Lens.lens (\ListPartnerEventSourcesResponse' {nextToken} -> nextToken) (\s@ListPartnerEventSourcesResponse' {} a -> s {nextToken = a} :: ListPartnerEventSourcesResponse)
 
 -- | The list of partner event sources returned by the operation.
-lpesrsPartnerEventSources :: Lens' ListPartnerEventSourcesResponse [PartnerEventSource]
-lpesrsPartnerEventSources = lens _lpesrsPartnerEventSources (\ s a -> s{_lpesrsPartnerEventSources = a}) . _Default . _Coerce
+listPartnerEventSourcesResponse_partnerEventSources :: Lens.Lens' ListPartnerEventSourcesResponse (Prelude.Maybe [PartnerEventSource])
+listPartnerEventSourcesResponse_partnerEventSources = Lens.lens (\ListPartnerEventSourcesResponse' {partnerEventSources} -> partnerEventSources) (\s@ListPartnerEventSourcesResponse' {} a -> s {partnerEventSources = a} :: ListPartnerEventSourcesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | A token you can use in a subsequent operation to retrieve the next set of results.
-lpesrsNextToken :: Lens' ListPartnerEventSourcesResponse (Maybe Text)
-lpesrsNextToken = lens _lpesrsNextToken (\ s a -> s{_lpesrsNextToken = a})
+-- | The response's http status code.
+listPartnerEventSourcesResponse_httpStatus :: Lens.Lens' ListPartnerEventSourcesResponse Prelude.Int
+listPartnerEventSourcesResponse_httpStatus = Lens.lens (\ListPartnerEventSourcesResponse' {httpStatus} -> httpStatus) (\s@ListPartnerEventSourcesResponse' {} a -> s {httpStatus = a} :: ListPartnerEventSourcesResponse)
 
--- | -- | The response status code.
-lpesrsResponseStatus :: Lens' ListPartnerEventSourcesResponse Int
-lpesrsResponseStatus = lens _lpesrsResponseStatus (\ s a -> s{_lpesrsResponseStatus = a})
-
-instance NFData ListPartnerEventSourcesResponse where
+instance
+  Prelude.NFData
+    ListPartnerEventSourcesResponse

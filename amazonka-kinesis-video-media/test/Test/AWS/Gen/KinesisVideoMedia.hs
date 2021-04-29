@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.KinesisVideoMedia
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.KinesisVideoMedia where
 
 import Data.Proxy
@@ -29,13 +28,13 @@ import Test.Tasty
 -- fixtures =
 --     [ testGroup "request"
 --         [ requestGetMedia $
---             getMedia
+--             newGetMedia
 --
 --           ]
 
 --     , testGroup "response"
 --         [ responseGetMedia $
---             getMediaResponse
+--             newGetMediaResponse
 --
 --           ]
 --     ]
@@ -43,7 +42,8 @@ import Test.Tasty
 -- Requests
 
 requestGetMedia :: GetMedia -> TestTree
-requestGetMedia = req
+requestGetMedia =
+  req
     "GetMedia"
     "fixture/GetMedia.yaml"
 

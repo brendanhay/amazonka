@@ -1,151 +1,193 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SES.GetIdentityDkimAttributes
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the current status of Easy DKIM signing for an entity. For domain name identities, this operation also returns the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES has successfully verified that these tokens have been published.
+-- Returns the current status of Easy DKIM signing for an entity. For
+-- domain name identities, this operation also returns the DKIM tokens that
+-- are required for Easy DKIM signing, and whether Amazon SES has
+-- successfully verified that these tokens have been published.
 --
+-- This operation takes a list of identities as input and returns the
+-- following information for each:
 --
--- This operation takes a list of identities as input and returns the following information for each:
+-- -   Whether Easy DKIM signing is enabled or disabled.
 --
---     * Whether Easy DKIM signing is enabled or disabled.
+-- -   A set of DKIM tokens that represent the identity. If the identity is
+--     an email address, the tokens represent the domain of that address.
 --
---     * A set of DKIM tokens that represent the identity. If the identity is an email address, the tokens represent the domain of that address.
+-- -   Whether Amazon SES has successfully verified the DKIM tokens
+--     published in the domain\'s DNS. This information is only returned
+--     for domain name identities, not for email addresses.
 --
---     * Whether Amazon SES has successfully verified the DKIM tokens published in the domain's DNS. This information is only returned for domain name identities, not for email addresses.
+-- This operation is throttled at one request per second and can only get
+-- DKIM attributes for up to 100 identities at a time.
 --
---
---
--- This operation is throttled at one request per second and can only get DKIM attributes for up to 100 identities at a time.
---
--- For more information about creating DNS records using DKIM tokens, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide> .
---
+-- For more information about creating DNS records using DKIM tokens, go to
+-- the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.
 module Network.AWS.SES.GetIdentityDkimAttributes
-    (
-    -- * Creating a Request
-      getIdentityDkimAttributes
-    , GetIdentityDkimAttributes
+  ( -- * Creating a Request
+    GetIdentityDkimAttributes (..),
+    newGetIdentityDkimAttributes,
+
     -- * Request Lenses
-    , gidaIdentities
+    getIdentityDkimAttributes_identities,
 
     -- * Destructuring the Response
-    , getIdentityDkimAttributesResponse
-    , GetIdentityDkimAttributesResponse
+    GetIdentityDkimAttributesResponse (..),
+    newGetIdentityDkimAttributesResponse,
+
     -- * Response Lenses
-    , gidarsResponseStatus
-    , gidarsDkimAttributes
-    ) where
+    getIdentityDkimAttributesResponse_httpStatus,
+    getIdentityDkimAttributesResponse_dkimAttributes,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SES.Types
-import Network.AWS.SES.Types.Product
 
--- | Represents a request for the status of Amazon SES Easy DKIM signing for an identity. For domain identities, this request also returns the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES successfully verified that these tokens were published. For more information about Easy DKIM, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide> .
+-- | Represents a request for the status of Amazon SES Easy DKIM signing for
+-- an identity. For domain identities, this request also returns the DKIM
+-- tokens that are required for Easy DKIM signing, and whether Amazon SES
+-- successfully verified that these tokens were published. For more
+-- information about Easy DKIM, see the
+-- <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html Amazon SES Developer Guide>.
 --
+-- /See:/ 'newGetIdentityDkimAttributes' smart constructor.
+data GetIdentityDkimAttributes = GetIdentityDkimAttributes'
+  { -- | A list of one or more verified identities - email addresses, domains, or
+    -- both.
+    identities :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetIdentityDkimAttributes' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'getIdentityDkimAttributes' smart constructor.
-newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes'
-  { _gidaIdentities :: [Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetIdentityDkimAttributes' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'identities', 'getIdentityDkimAttributes_identities' - A list of one or more verified identities - email addresses, domains, or
+-- both.
+newGetIdentityDkimAttributes ::
+  GetIdentityDkimAttributes
+newGetIdentityDkimAttributes =
+  GetIdentityDkimAttributes'
+    { identities =
+        Prelude.mempty
+    }
+
+-- | A list of one or more verified identities - email addresses, domains, or
+-- both.
+getIdentityDkimAttributes_identities :: Lens.Lens' GetIdentityDkimAttributes [Prelude.Text]
+getIdentityDkimAttributes_identities = Lens.lens (\GetIdentityDkimAttributes' {identities} -> identities) (\s@GetIdentityDkimAttributes' {} a -> s {identities = a} :: GetIdentityDkimAttributes) Prelude.. Prelude._Coerce
+
+instance Prelude.AWSRequest GetIdentityDkimAttributes where
+  type
+    Rs GetIdentityDkimAttributes =
+      GetIdentityDkimAttributesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "GetIdentityDkimAttributesResult"
+      ( \s h x ->
+          GetIdentityDkimAttributesResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> ( x Prelude..@? "DkimAttributes"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.parseXMLMap "entry" "key" "value"
+                        )
+      )
+
+instance Prelude.Hashable GetIdentityDkimAttributes
+
+instance Prelude.NFData GetIdentityDkimAttributes
+
+instance Prelude.ToHeaders GetIdentityDkimAttributes where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToPath GetIdentityDkimAttributes where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery GetIdentityDkimAttributes where
+  toQuery GetIdentityDkimAttributes' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("GetIdentityDkimAttributes" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
+        "Identities"
+          Prelude.=: Prelude.toQueryList "member" identities
+      ]
+
+-- | Represents the status of Amazon SES Easy DKIM signing for an identity.
+-- For domain identities, this response also contains the DKIM tokens that
+-- are required for Easy DKIM signing, and whether Amazon SES successfully
+-- verified that these tokens were published.
 --
--- * 'gidaIdentities' - A list of one or more verified identities - email addresses, domains, or both.
-getIdentityDkimAttributes
-    :: GetIdentityDkimAttributes
-getIdentityDkimAttributes =
-  GetIdentityDkimAttributes' {_gidaIdentities = mempty}
-
-
--- | A list of one or more verified identities - email addresses, domains, or both.
-gidaIdentities :: Lens' GetIdentityDkimAttributes [Text]
-gidaIdentities = lens _gidaIdentities (\ s a -> s{_gidaIdentities = a}) . _Coerce
-
-instance AWSRequest GetIdentityDkimAttributes where
-        type Rs GetIdentityDkimAttributes =
-             GetIdentityDkimAttributesResponse
-        request = postQuery ses
-        response
-          = receiveXMLWrapper "GetIdentityDkimAttributesResult"
-              (\ s h x ->
-                 GetIdentityDkimAttributesResponse' <$>
-                   (pure (fromEnum s)) <*>
-                     (x .@? "DkimAttributes" .!@ mempty >>=
-                        parseXMLMap "entry" "key" "value"))
-
-instance Hashable GetIdentityDkimAttributes where
-
-instance NFData GetIdentityDkimAttributes where
-
-instance ToHeaders GetIdentityDkimAttributes where
-        toHeaders = const mempty
-
-instance ToPath GetIdentityDkimAttributes where
-        toPath = const "/"
-
-instance ToQuery GetIdentityDkimAttributes where
-        toQuery GetIdentityDkimAttributes'{..}
-          = mconcat
-              ["Action" =:
-                 ("GetIdentityDkimAttributes" :: ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "Identities" =: toQueryList "member" _gidaIdentities]
-
--- | Represents the status of Amazon SES Easy DKIM signing for an identity. For domain identities, this response also contains the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES successfully verified that these tokens were published.
---
---
---
--- /See:/ 'getIdentityDkimAttributesResponse' smart constructor.
+-- /See:/ 'newGetIdentityDkimAttributesResponse' smart constructor.
 data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'
-  { _gidarsResponseStatus :: !Int
-  , _gidarsDkimAttributes :: !(Map Text IdentityDkimAttributes)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The DKIM attributes for an email address or a domain.
+    dkimAttributes :: Prelude.HashMap Prelude.Text IdentityDkimAttributes
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetIdentityDkimAttributesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetIdentityDkimAttributesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gidarsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gidarsDkimAttributes' - The DKIM attributes for an email address or a domain.
-getIdentityDkimAttributesResponse
-    :: Int -- ^ 'gidarsResponseStatus'
-    -> GetIdentityDkimAttributesResponse
-getIdentityDkimAttributesResponse pResponseStatus_ =
+-- 'httpStatus', 'getIdentityDkimAttributesResponse_httpStatus' - The response's http status code.
+--
+-- 'dkimAttributes', 'getIdentityDkimAttributesResponse_dkimAttributes' - The DKIM attributes for an email address or a domain.
+newGetIdentityDkimAttributesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetIdentityDkimAttributesResponse
+newGetIdentityDkimAttributesResponse pHttpStatus_ =
   GetIdentityDkimAttributesResponse'
-    {_gidarsResponseStatus = pResponseStatus_, _gidarsDkimAttributes = mempty}
+    { httpStatus =
+        pHttpStatus_,
+      dkimAttributes = Prelude.mempty
+    }
 
-
--- | -- | The response status code.
-gidarsResponseStatus :: Lens' GetIdentityDkimAttributesResponse Int
-gidarsResponseStatus = lens _gidarsResponseStatus (\ s a -> s{_gidarsResponseStatus = a})
+-- | The response's http status code.
+getIdentityDkimAttributesResponse_httpStatus :: Lens.Lens' GetIdentityDkimAttributesResponse Prelude.Int
+getIdentityDkimAttributesResponse_httpStatus = Lens.lens (\GetIdentityDkimAttributesResponse' {httpStatus} -> httpStatus) (\s@GetIdentityDkimAttributesResponse' {} a -> s {httpStatus = a} :: GetIdentityDkimAttributesResponse)
 
 -- | The DKIM attributes for an email address or a domain.
-gidarsDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (HashMap Text IdentityDkimAttributes)
-gidarsDkimAttributes = lens _gidarsDkimAttributes (\ s a -> s{_gidarsDkimAttributes = a}) . _Map
+getIdentityDkimAttributesResponse_dkimAttributes :: Lens.Lens' GetIdentityDkimAttributesResponse (Prelude.HashMap Prelude.Text IdentityDkimAttributes)
+getIdentityDkimAttributesResponse_dkimAttributes = Lens.lens (\GetIdentityDkimAttributesResponse' {dkimAttributes} -> dkimAttributes) (\s@GetIdentityDkimAttributesResponse' {} a -> s {dkimAttributes = a} :: GetIdentityDkimAttributesResponse) Prelude.. Prelude._Coerce
 
-instance NFData GetIdentityDkimAttributesResponse
-         where
+instance
+  Prelude.NFData
+    GetIdentityDkimAttributesResponse

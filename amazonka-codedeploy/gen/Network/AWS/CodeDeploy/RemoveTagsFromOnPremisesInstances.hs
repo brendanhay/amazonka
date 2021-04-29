@@ -1,136 +1,165 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Removes one or more tags from one or more on-premises instances.
---
---
 module Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
-    (
-    -- * Creating a Request
-      removeTagsFromOnPremisesInstances
-    , RemoveTagsFromOnPremisesInstances
+  ( -- * Creating a Request
+    RemoveTagsFromOnPremisesInstances (..),
+    newRemoveTagsFromOnPremisesInstances,
+
     -- * Request Lenses
-    , rtfopiTags
-    , rtfopiInstanceNames
+    removeTagsFromOnPremisesInstances_tags,
+    removeTagsFromOnPremisesInstances_instanceNames,
 
     -- * Destructuring the Response
-    , removeTagsFromOnPremisesInstancesResponse
-    , RemoveTagsFromOnPremisesInstancesResponse
-    ) where
+    RemoveTagsFromOnPremisesInstancesResponse (..),
+    newRemoveTagsFromOnPremisesInstancesResponse,
+  )
+where
 
 import Network.AWS.CodeDeploy.Types
-import Network.AWS.CodeDeploy.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input of a RemoveTagsFromOnPremisesInstances operation.
+-- | Represents the input of a @RemoveTagsFromOnPremisesInstances@ operation.
 --
---
---
--- /See:/ 'removeTagsFromOnPremisesInstances' smart constructor.
+-- /See:/ 'newRemoveTagsFromOnPremisesInstances' smart constructor.
 data RemoveTagsFromOnPremisesInstances = RemoveTagsFromOnPremisesInstances'
-  { _rtfopiTags          :: ![Tag]
-  , _rtfopiInstanceNames :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The tag key-value pairs to remove from the on-premises instances.
+    tags :: [Tag],
+    -- | The names of the on-premises instances from which to remove tags.
+    instanceNames :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'RemoveTagsFromOnPremisesInstances' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RemoveTagsFromOnPremisesInstances' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rtfopiTags' - The tag key-value pairs to remove from the on-premises instances.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rtfopiInstanceNames' - The names of the on-premises instances from which to remove tags.
-removeTagsFromOnPremisesInstances
-    :: RemoveTagsFromOnPremisesInstances
-removeTagsFromOnPremisesInstances =
+-- 'tags', 'removeTagsFromOnPremisesInstances_tags' - The tag key-value pairs to remove from the on-premises instances.
+--
+-- 'instanceNames', 'removeTagsFromOnPremisesInstances_instanceNames' - The names of the on-premises instances from which to remove tags.
+newRemoveTagsFromOnPremisesInstances ::
+  RemoveTagsFromOnPremisesInstances
+newRemoveTagsFromOnPremisesInstances =
   RemoveTagsFromOnPremisesInstances'
-    {_rtfopiTags = mempty, _rtfopiInstanceNames = mempty}
-
+    { tags =
+        Prelude.mempty,
+      instanceNames = Prelude.mempty
+    }
 
 -- | The tag key-value pairs to remove from the on-premises instances.
-rtfopiTags :: Lens' RemoveTagsFromOnPremisesInstances [Tag]
-rtfopiTags = lens _rtfopiTags (\ s a -> s{_rtfopiTags = a}) . _Coerce
+removeTagsFromOnPremisesInstances_tags :: Lens.Lens' RemoveTagsFromOnPremisesInstances [Tag]
+removeTagsFromOnPremisesInstances_tags = Lens.lens (\RemoveTagsFromOnPremisesInstances' {tags} -> tags) (\s@RemoveTagsFromOnPremisesInstances' {} a -> s {tags = a} :: RemoveTagsFromOnPremisesInstances) Prelude.. Prelude._Coerce
 
 -- | The names of the on-premises instances from which to remove tags.
-rtfopiInstanceNames :: Lens' RemoveTagsFromOnPremisesInstances [Text]
-rtfopiInstanceNames = lens _rtfopiInstanceNames (\ s a -> s{_rtfopiInstanceNames = a}) . _Coerce
+removeTagsFromOnPremisesInstances_instanceNames :: Lens.Lens' RemoveTagsFromOnPremisesInstances [Prelude.Text]
+removeTagsFromOnPremisesInstances_instanceNames = Lens.lens (\RemoveTagsFromOnPremisesInstances' {instanceNames} -> instanceNames) (\s@RemoveTagsFromOnPremisesInstances' {} a -> s {instanceNames = a} :: RemoveTagsFromOnPremisesInstances) Prelude.. Prelude._Coerce
 
-instance AWSRequest RemoveTagsFromOnPremisesInstances
-         where
-        type Rs RemoveTagsFromOnPremisesInstances =
-             RemoveTagsFromOnPremisesInstancesResponse
-        request = postJSON codeDeploy
-        response
-          = receiveNull
-              RemoveTagsFromOnPremisesInstancesResponse'
+instance
+  Prelude.AWSRequest
+    RemoveTagsFromOnPremisesInstances
+  where
+  type
+    Rs RemoveTagsFromOnPremisesInstances =
+      RemoveTagsFromOnPremisesInstancesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull
+      RemoveTagsFromOnPremisesInstancesResponse'
 
-instance Hashable RemoveTagsFromOnPremisesInstances
-         where
+instance
+  Prelude.Hashable
+    RemoveTagsFromOnPremisesInstances
 
-instance NFData RemoveTagsFromOnPremisesInstances
-         where
+instance
+  Prelude.NFData
+    RemoveTagsFromOnPremisesInstances
 
-instance ToHeaders RemoveTagsFromOnPremisesInstances
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeDeploy_20141006.RemoveTagsFromOnPremisesInstances"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance
+  Prelude.ToHeaders
+    RemoveTagsFromOnPremisesInstances
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "CodeDeploy_20141006.RemoveTagsFromOnPremisesInstances" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON RemoveTagsFromOnPremisesInstances
-         where
-        toJSON RemoveTagsFromOnPremisesInstances'{..}
-          = object
-              (catMaybes
-                 [Just ("tags" .= _rtfopiTags),
-                  Just ("instanceNames" .= _rtfopiInstanceNames)])
+instance
+  Prelude.ToJSON
+    RemoveTagsFromOnPremisesInstances
+  where
+  toJSON RemoveTagsFromOnPremisesInstances' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("tags" Prelude..= tags),
+            Prelude.Just
+              ("instanceNames" Prelude..= instanceNames)
+          ]
+      )
 
-instance ToPath RemoveTagsFromOnPremisesInstances
-         where
-        toPath = const "/"
+instance
+  Prelude.ToPath
+    RemoveTagsFromOnPremisesInstances
+  where
+  toPath = Prelude.const "/"
 
-instance ToQuery RemoveTagsFromOnPremisesInstances
-         where
-        toQuery = const mempty
+instance
+  Prelude.ToQuery
+    RemoveTagsFromOnPremisesInstances
+  where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'removeTagsFromOnPremisesInstancesResponse' smart constructor.
-data RemoveTagsFromOnPremisesInstancesResponse =
-  RemoveTagsFromOnPremisesInstancesResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newRemoveTagsFromOnPremisesInstancesResponse' smart constructor.
+data RemoveTagsFromOnPremisesInstancesResponse = RemoveTagsFromOnPremisesInstancesResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'RemoveTagsFromOnPremisesInstancesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RemoveTagsFromOnPremisesInstancesResponse' with all optional fields omitted.
 --
-removeTagsFromOnPremisesInstancesResponse
-    :: RemoveTagsFromOnPremisesInstancesResponse
-removeTagsFromOnPremisesInstancesResponse =
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newRemoveTagsFromOnPremisesInstancesResponse ::
+  RemoveTagsFromOnPremisesInstancesResponse
+newRemoveTagsFromOnPremisesInstancesResponse =
   RemoveTagsFromOnPremisesInstancesResponse'
 
-
-instance NFData
-           RemoveTagsFromOnPremisesInstancesResponse
-         where
+instance
+  Prelude.NFData
+    RemoveTagsFromOnPremisesInstancesResponse

@@ -1,115 +1,133 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.DeletePolicyVersion
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified version of the specified policy. You cannot delete the default version of a policy using this API. To delete the default version of a policy, use 'DeletePolicy' . To find out which version of a policy is marked as the default version, use ListPolicyVersions.
---
---
+-- Deletes the specified version of the specified policy. You cannot delete
+-- the default version of a policy using this API. To delete the default
+-- version of a policy, use DeletePolicy. To find out which version of a
+-- policy is marked as the default version, use ListPolicyVersions.
 module Network.AWS.IoT.DeletePolicyVersion
-    (
-    -- * Creating a Request
-      deletePolicyVersion
-    , DeletePolicyVersion
+  ( -- * Creating a Request
+    DeletePolicyVersion (..),
+    newDeletePolicyVersion,
+
     -- * Request Lenses
-    , dpvPolicyName
-    , dpvPolicyVersionId
+    deletePolicyVersion_policyName,
+    deletePolicyVersion_policyVersionId,
 
     -- * Destructuring the Response
-    , deletePolicyVersionResponse
-    , DeletePolicyVersionResponse
-    ) where
+    DeletePolicyVersionResponse (..),
+    newDeletePolicyVersionResponse,
+  )
+where
 
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the DeletePolicyVersion operation.
 --
---
---
--- /See:/ 'deletePolicyVersion' smart constructor.
+-- /See:/ 'newDeletePolicyVersion' smart constructor.
 data DeletePolicyVersion = DeletePolicyVersion'
-  { _dpvPolicyName      :: !Text
-  , _dpvPolicyVersionId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the policy.
+    policyName :: Prelude.Text,
+    -- | The policy version ID.
+    policyVersionId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeletePolicyVersion' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeletePolicyVersion' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dpvPolicyName' - The name of the policy.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dpvPolicyVersionId' - The policy version ID.
-deletePolicyVersion
-    :: Text -- ^ 'dpvPolicyName'
-    -> Text -- ^ 'dpvPolicyVersionId'
-    -> DeletePolicyVersion
-deletePolicyVersion pPolicyName_ pPolicyVersionId_ =
+-- 'policyName', 'deletePolicyVersion_policyName' - The name of the policy.
+--
+-- 'policyVersionId', 'deletePolicyVersion_policyVersionId' - The policy version ID.
+newDeletePolicyVersion ::
+  -- | 'policyName'
+  Prelude.Text ->
+  -- | 'policyVersionId'
+  Prelude.Text ->
+  DeletePolicyVersion
+newDeletePolicyVersion pPolicyName_ pPolicyVersionId_ =
   DeletePolicyVersion'
-    {_dpvPolicyName = pPolicyName_, _dpvPolicyVersionId = pPolicyVersionId_}
-
+    { policyName = pPolicyName_,
+      policyVersionId = pPolicyVersionId_
+    }
 
 -- | The name of the policy.
-dpvPolicyName :: Lens' DeletePolicyVersion Text
-dpvPolicyName = lens _dpvPolicyName (\ s a -> s{_dpvPolicyName = a})
+deletePolicyVersion_policyName :: Lens.Lens' DeletePolicyVersion Prelude.Text
+deletePolicyVersion_policyName = Lens.lens (\DeletePolicyVersion' {policyName} -> policyName) (\s@DeletePolicyVersion' {} a -> s {policyName = a} :: DeletePolicyVersion)
 
 -- | The policy version ID.
-dpvPolicyVersionId :: Lens' DeletePolicyVersion Text
-dpvPolicyVersionId = lens _dpvPolicyVersionId (\ s a -> s{_dpvPolicyVersionId = a})
+deletePolicyVersion_policyVersionId :: Lens.Lens' DeletePolicyVersion Prelude.Text
+deletePolicyVersion_policyVersionId = Lens.lens (\DeletePolicyVersion' {policyVersionId} -> policyVersionId) (\s@DeletePolicyVersion' {} a -> s {policyVersionId = a} :: DeletePolicyVersion)
 
-instance AWSRequest DeletePolicyVersion where
-        type Rs DeletePolicyVersion =
-             DeletePolicyVersionResponse
-        request = delete ioT
-        response = receiveNull DeletePolicyVersionResponse'
+instance Prelude.AWSRequest DeletePolicyVersion where
+  type
+    Rs DeletePolicyVersion =
+      DeletePolicyVersionResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveNull DeletePolicyVersionResponse'
 
-instance Hashable DeletePolicyVersion where
+instance Prelude.Hashable DeletePolicyVersion
 
-instance NFData DeletePolicyVersion where
+instance Prelude.NFData DeletePolicyVersion
 
-instance ToHeaders DeletePolicyVersion where
-        toHeaders = const mempty
+instance Prelude.ToHeaders DeletePolicyVersion where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeletePolicyVersion where
-        toPath DeletePolicyVersion'{..}
-          = mconcat
-              ["/policies/", toBS _dpvPolicyName, "/version/",
-               toBS _dpvPolicyVersionId]
+instance Prelude.ToPath DeletePolicyVersion where
+  toPath DeletePolicyVersion' {..} =
+    Prelude.mconcat
+      [ "/policies/",
+        Prelude.toBS policyName,
+        "/version/",
+        Prelude.toBS policyVersionId
+      ]
 
-instance ToQuery DeletePolicyVersion where
-        toQuery = const mempty
+instance Prelude.ToQuery DeletePolicyVersion where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deletePolicyVersionResponse' smart constructor.
-data DeletePolicyVersionResponse =
-  DeletePolicyVersionResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeletePolicyVersionResponse' smart constructor.
+data DeletePolicyVersionResponse = DeletePolicyVersionResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeletePolicyVersionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeletePolicyVersionResponse' with all optional fields omitted.
 --
-deletePolicyVersionResponse
-    :: DeletePolicyVersionResponse
-deletePolicyVersionResponse = DeletePolicyVersionResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeletePolicyVersionResponse ::
+  DeletePolicyVersionResponse
+newDeletePolicyVersionResponse =
+  DeletePolicyVersionResponse'
 
-
-instance NFData DeletePolicyVersionResponse where
+instance Prelude.NFData DeletePolicyVersionResponse

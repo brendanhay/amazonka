@@ -1,113 +1,129 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.SetV2LoggingLevel
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Sets the logging level.
---
---
 module Network.AWS.IoT.SetV2LoggingLevel
-    (
-    -- * Creating a Request
-      setV2LoggingLevel
-    , SetV2LoggingLevel
+  ( -- * Creating a Request
+    SetV2LoggingLevel (..),
+    newSetV2LoggingLevel,
+
     -- * Request Lenses
-    , svllLogTarget
-    , svllLogLevel
+    setV2LoggingLevel_logTarget,
+    setV2LoggingLevel_logLevel,
 
     -- * Destructuring the Response
-    , setV2LoggingLevelResponse
-    , SetV2LoggingLevelResponse
-    ) where
+    SetV2LoggingLevelResponse (..),
+    newSetV2LoggingLevelResponse,
+  )
+where
 
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'setV2LoggingLevel' smart constructor.
+-- | /See:/ 'newSetV2LoggingLevel' smart constructor.
 data SetV2LoggingLevel = SetV2LoggingLevel'
-  { _svllLogTarget :: !LogTarget
-  , _svllLogLevel  :: !LogLevel
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The log target.
+    logTarget :: LogTarget,
+    -- | The log level.
+    logLevel :: LogLevel
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'SetV2LoggingLevel' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SetV2LoggingLevel' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'svllLogTarget' - The log target.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'svllLogLevel' - The log level.
-setV2LoggingLevel
-    :: LogTarget -- ^ 'svllLogTarget'
-    -> LogLevel -- ^ 'svllLogLevel'
-    -> SetV2LoggingLevel
-setV2LoggingLevel pLogTarget_ pLogLevel_ =
-  SetV2LoggingLevel' {_svllLogTarget = pLogTarget_, _svllLogLevel = pLogLevel_}
-
+-- 'logTarget', 'setV2LoggingLevel_logTarget' - The log target.
+--
+-- 'logLevel', 'setV2LoggingLevel_logLevel' - The log level.
+newSetV2LoggingLevel ::
+  -- | 'logTarget'
+  LogTarget ->
+  -- | 'logLevel'
+  LogLevel ->
+  SetV2LoggingLevel
+newSetV2LoggingLevel pLogTarget_ pLogLevel_ =
+  SetV2LoggingLevel'
+    { logTarget = pLogTarget_,
+      logLevel = pLogLevel_
+    }
 
 -- | The log target.
-svllLogTarget :: Lens' SetV2LoggingLevel LogTarget
-svllLogTarget = lens _svllLogTarget (\ s a -> s{_svllLogTarget = a})
+setV2LoggingLevel_logTarget :: Lens.Lens' SetV2LoggingLevel LogTarget
+setV2LoggingLevel_logTarget = Lens.lens (\SetV2LoggingLevel' {logTarget} -> logTarget) (\s@SetV2LoggingLevel' {} a -> s {logTarget = a} :: SetV2LoggingLevel)
 
 -- | The log level.
-svllLogLevel :: Lens' SetV2LoggingLevel LogLevel
-svllLogLevel = lens _svllLogLevel (\ s a -> s{_svllLogLevel = a})
+setV2LoggingLevel_logLevel :: Lens.Lens' SetV2LoggingLevel LogLevel
+setV2LoggingLevel_logLevel = Lens.lens (\SetV2LoggingLevel' {logLevel} -> logLevel) (\s@SetV2LoggingLevel' {} a -> s {logLevel = a} :: SetV2LoggingLevel)
 
-instance AWSRequest SetV2LoggingLevel where
-        type Rs SetV2LoggingLevel = SetV2LoggingLevelResponse
-        request = postJSON ioT
-        response = receiveNull SetV2LoggingLevelResponse'
+instance Prelude.AWSRequest SetV2LoggingLevel where
+  type Rs SetV2LoggingLevel = SetV2LoggingLevelResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull SetV2LoggingLevelResponse'
 
-instance Hashable SetV2LoggingLevel where
+instance Prelude.Hashable SetV2LoggingLevel
 
-instance NFData SetV2LoggingLevel where
+instance Prelude.NFData SetV2LoggingLevel
 
-instance ToHeaders SetV2LoggingLevel where
-        toHeaders = const mempty
+instance Prelude.ToHeaders SetV2LoggingLevel where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToJSON SetV2LoggingLevel where
-        toJSON SetV2LoggingLevel'{..}
-          = object
-              (catMaybes
-                 [Just ("logTarget" .= _svllLogTarget),
-                  Just ("logLevel" .= _svllLogLevel)])
+instance Prelude.ToJSON SetV2LoggingLevel where
+  toJSON SetV2LoggingLevel' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("logTarget" Prelude..= logTarget),
+            Prelude.Just ("logLevel" Prelude..= logLevel)
+          ]
+      )
 
-instance ToPath SetV2LoggingLevel where
-        toPath = const "/v2LoggingLevel"
+instance Prelude.ToPath SetV2LoggingLevel where
+  toPath = Prelude.const "/v2LoggingLevel"
 
-instance ToQuery SetV2LoggingLevel where
-        toQuery = const mempty
+instance Prelude.ToQuery SetV2LoggingLevel where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'setV2LoggingLevelResponse' smart constructor.
-data SetV2LoggingLevelResponse =
-  SetV2LoggingLevelResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newSetV2LoggingLevelResponse' smart constructor.
+data SetV2LoggingLevelResponse = SetV2LoggingLevelResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'SetV2LoggingLevelResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'SetV2LoggingLevelResponse' with all optional fields omitted.
 --
-setV2LoggingLevelResponse
-    :: SetV2LoggingLevelResponse
-setV2LoggingLevelResponse = SetV2LoggingLevelResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newSetV2LoggingLevelResponse ::
+  SetV2LoggingLevelResponse
+newSetV2LoggingLevelResponse =
+  SetV2LoggingLevelResponse'
 
-
-instance NFData SetV2LoggingLevelResponse where
+instance Prelude.NFData SetV2LoggingLevelResponse

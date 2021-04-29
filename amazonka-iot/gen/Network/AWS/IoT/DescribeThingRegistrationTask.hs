@@ -1,239 +1,277 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.DescribeThingRegistrationTask
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes a bulk thing provisioning task.
---
---
 module Network.AWS.IoT.DescribeThingRegistrationTask
-    (
-    -- * Creating a Request
-      describeThingRegistrationTask
-    , DescribeThingRegistrationTask
+  ( -- * Creating a Request
+    DescribeThingRegistrationTask (..),
+    newDescribeThingRegistrationTask,
+
     -- * Request Lenses
-    , dtrtTaskId
+    describeThingRegistrationTask_taskId,
 
     -- * Destructuring the Response
-    , describeThingRegistrationTaskResponse
-    , DescribeThingRegistrationTaskResponse
+    DescribeThingRegistrationTaskResponse (..),
+    newDescribeThingRegistrationTaskResponse,
+
     -- * Response Lenses
-    , dtrtrsStatus
-    , dtrtrsLastModifiedDate
-    , dtrtrsInputFileKey
-    , dtrtrsTaskId
-    , dtrtrsCreationDate
-    , dtrtrsPercentageProgress
-    , dtrtrsTemplateBody
-    , dtrtrsSuccessCount
-    , dtrtrsMessage
-    , dtrtrsFailureCount
-    , dtrtrsInputFileBucket
-    , dtrtrsRoleARN
-    , dtrtrsResponseStatus
-    ) where
+    describeThingRegistrationTaskResponse_inputFileKey,
+    describeThingRegistrationTaskResponse_lastModifiedDate,
+    describeThingRegistrationTaskResponse_status,
+    describeThingRegistrationTaskResponse_roleArn,
+    describeThingRegistrationTaskResponse_message,
+    describeThingRegistrationTaskResponse_taskId,
+    describeThingRegistrationTaskResponse_percentageProgress,
+    describeThingRegistrationTaskResponse_creationDate,
+    describeThingRegistrationTaskResponse_inputFileBucket,
+    describeThingRegistrationTaskResponse_failureCount,
+    describeThingRegistrationTaskResponse_successCount,
+    describeThingRegistrationTaskResponse_templateBody,
+    describeThingRegistrationTaskResponse_httpStatus,
+  )
+where
 
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeThingRegistrationTask' smart constructor.
-newtype DescribeThingRegistrationTask = DescribeThingRegistrationTask'
-  { _dtrtTaskId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeThingRegistrationTask' smart constructor.
+data DescribeThingRegistrationTask = DescribeThingRegistrationTask'
+  { -- | The task ID.
+    taskId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeThingRegistrationTask' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeThingRegistrationTask' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtrtTaskId' - The task ID.
-describeThingRegistrationTask
-    :: Text -- ^ 'dtrtTaskId'
-    -> DescribeThingRegistrationTask
-describeThingRegistrationTask pTaskId_ =
-  DescribeThingRegistrationTask' {_dtrtTaskId = pTaskId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'taskId', 'describeThingRegistrationTask_taskId' - The task ID.
+newDescribeThingRegistrationTask ::
+  -- | 'taskId'
+  Prelude.Text ->
+  DescribeThingRegistrationTask
+newDescribeThingRegistrationTask pTaskId_ =
+  DescribeThingRegistrationTask' {taskId = pTaskId_}
 
 -- | The task ID.
-dtrtTaskId :: Lens' DescribeThingRegistrationTask Text
-dtrtTaskId = lens _dtrtTaskId (\ s a -> s{_dtrtTaskId = a})
+describeThingRegistrationTask_taskId :: Lens.Lens' DescribeThingRegistrationTask Prelude.Text
+describeThingRegistrationTask_taskId = Lens.lens (\DescribeThingRegistrationTask' {taskId} -> taskId) (\s@DescribeThingRegistrationTask' {} a -> s {taskId = a} :: DescribeThingRegistrationTask)
 
-instance AWSRequest DescribeThingRegistrationTask
-         where
-        type Rs DescribeThingRegistrationTask =
-             DescribeThingRegistrationTaskResponse
-        request = get ioT
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeThingRegistrationTaskResponse' <$>
-                   (x .?> "status") <*> (x .?> "lastModifiedDate") <*>
-                     (x .?> "inputFileKey")
-                     <*> (x .?> "taskId")
-                     <*> (x .?> "creationDate")
-                     <*> (x .?> "percentageProgress")
-                     <*> (x .?> "templateBody")
-                     <*> (x .?> "successCount")
-                     <*> (x .?> "message")
-                     <*> (x .?> "failureCount")
-                     <*> (x .?> "inputFileBucket")
-                     <*> (x .?> "roleArn")
-                     <*> (pure (fromEnum s)))
+instance
+  Prelude.AWSRequest
+    DescribeThingRegistrationTask
+  where
+  type
+    Rs DescribeThingRegistrationTask =
+      DescribeThingRegistrationTaskResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeThingRegistrationTaskResponse'
+            Prelude.<$> (x Prelude..?> "inputFileKey")
+            Prelude.<*> (x Prelude..?> "lastModifiedDate")
+            Prelude.<*> (x Prelude..?> "status")
+            Prelude.<*> (x Prelude..?> "roleArn")
+            Prelude.<*> (x Prelude..?> "message")
+            Prelude.<*> (x Prelude..?> "taskId")
+            Prelude.<*> (x Prelude..?> "percentageProgress")
+            Prelude.<*> (x Prelude..?> "creationDate")
+            Prelude.<*> (x Prelude..?> "inputFileBucket")
+            Prelude.<*> (x Prelude..?> "failureCount")
+            Prelude.<*> (x Prelude..?> "successCount")
+            Prelude.<*> (x Prelude..?> "templateBody")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeThingRegistrationTask where
+instance
+  Prelude.Hashable
+    DescribeThingRegistrationTask
 
-instance NFData DescribeThingRegistrationTask where
+instance Prelude.NFData DescribeThingRegistrationTask
 
-instance ToHeaders DescribeThingRegistrationTask
-         where
-        toHeaders = const mempty
+instance
+  Prelude.ToHeaders
+    DescribeThingRegistrationTask
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeThingRegistrationTask where
-        toPath DescribeThingRegistrationTask'{..}
-          = mconcat
-              ["/thing-registration-tasks/", toBS _dtrtTaskId]
+instance Prelude.ToPath DescribeThingRegistrationTask where
+  toPath DescribeThingRegistrationTask' {..} =
+    Prelude.mconcat
+      ["/thing-registration-tasks/", Prelude.toBS taskId]
 
-instance ToQuery DescribeThingRegistrationTask where
-        toQuery = const mempty
+instance
+  Prelude.ToQuery
+    DescribeThingRegistrationTask
+  where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'describeThingRegistrationTaskResponse' smart constructor.
+-- | /See:/ 'newDescribeThingRegistrationTaskResponse' smart constructor.
 data DescribeThingRegistrationTaskResponse = DescribeThingRegistrationTaskResponse'
-  { _dtrtrsStatus             :: !(Maybe TaskStatus)
-  , _dtrtrsLastModifiedDate   :: !(Maybe POSIX)
-  , _dtrtrsInputFileKey       :: !(Maybe Text)
-  , _dtrtrsTaskId             :: !(Maybe Text)
-  , _dtrtrsCreationDate       :: !(Maybe POSIX)
-  , _dtrtrsPercentageProgress :: !(Maybe Nat)
-  , _dtrtrsTemplateBody       :: !(Maybe Text)
-  , _dtrtrsSuccessCount       :: !(Maybe Int)
-  , _dtrtrsMessage            :: !(Maybe Text)
-  , _dtrtrsFailureCount       :: !(Maybe Int)
-  , _dtrtrsInputFileBucket    :: !(Maybe Text)
-  , _dtrtrsRoleARN            :: !(Maybe Text)
-  , _dtrtrsResponseStatus     :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The input file key.
+    inputFileKey :: Prelude.Maybe Prelude.Text,
+    -- | The date when the task was last modified.
+    lastModifiedDate :: Prelude.Maybe Prelude.POSIX,
+    -- | The status of the bulk thing provisioning task.
+    status :: Prelude.Maybe TaskStatus,
+    -- | The role ARN that grants access to the input file bucket.
+    roleArn :: Prelude.Maybe Prelude.Text,
+    -- | The message.
+    message :: Prelude.Maybe Prelude.Text,
+    -- | The task ID.
+    taskId :: Prelude.Maybe Prelude.Text,
+    -- | The progress of the bulk provisioning task expressed as a percentage.
+    percentageProgress :: Prelude.Maybe Prelude.Natural,
+    -- | The task creation date.
+    creationDate :: Prelude.Maybe Prelude.POSIX,
+    -- | The S3 bucket that contains the input file.
+    inputFileBucket :: Prelude.Maybe Prelude.Text,
+    -- | The number of things that failed to be provisioned.
+    failureCount :: Prelude.Maybe Prelude.Int,
+    -- | The number of things successfully provisioned.
+    successCount :: Prelude.Maybe Prelude.Int,
+    -- | The task\'s template.
+    templateBody :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeThingRegistrationTaskResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeThingRegistrationTaskResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtrtrsStatus' - The status of the bulk thing provisioning task.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dtrtrsLastModifiedDate' - The date when the task was last modified.
+-- 'inputFileKey', 'describeThingRegistrationTaskResponse_inputFileKey' - The input file key.
 --
--- * 'dtrtrsInputFileKey' - The input file key.
+-- 'lastModifiedDate', 'describeThingRegistrationTaskResponse_lastModifiedDate' - The date when the task was last modified.
 --
--- * 'dtrtrsTaskId' - The task ID.
+-- 'status', 'describeThingRegistrationTaskResponse_status' - The status of the bulk thing provisioning task.
 --
--- * 'dtrtrsCreationDate' - The task creation date.
+-- 'roleArn', 'describeThingRegistrationTaskResponse_roleArn' - The role ARN that grants access to the input file bucket.
 --
--- * 'dtrtrsPercentageProgress' - The progress of the bulk provisioning task expressed as a percentage.
+-- 'message', 'describeThingRegistrationTaskResponse_message' - The message.
 --
--- * 'dtrtrsTemplateBody' - The task's template.
+-- 'taskId', 'describeThingRegistrationTaskResponse_taskId' - The task ID.
 --
--- * 'dtrtrsSuccessCount' - The number of things successfully provisioned.
+-- 'percentageProgress', 'describeThingRegistrationTaskResponse_percentageProgress' - The progress of the bulk provisioning task expressed as a percentage.
 --
--- * 'dtrtrsMessage' - The message.
+-- 'creationDate', 'describeThingRegistrationTaskResponse_creationDate' - The task creation date.
 --
--- * 'dtrtrsFailureCount' - The number of things that failed to be provisioned.
+-- 'inputFileBucket', 'describeThingRegistrationTaskResponse_inputFileBucket' - The S3 bucket that contains the input file.
 --
--- * 'dtrtrsInputFileBucket' - The S3 bucket that contains the input file.
+-- 'failureCount', 'describeThingRegistrationTaskResponse_failureCount' - The number of things that failed to be provisioned.
 --
--- * 'dtrtrsRoleARN' - The role ARN that grants access to the input file bucket.
+-- 'successCount', 'describeThingRegistrationTaskResponse_successCount' - The number of things successfully provisioned.
 --
--- * 'dtrtrsResponseStatus' - -- | The response status code.
-describeThingRegistrationTaskResponse
-    :: Int -- ^ 'dtrtrsResponseStatus'
-    -> DescribeThingRegistrationTaskResponse
-describeThingRegistrationTaskResponse pResponseStatus_ =
+-- 'templateBody', 'describeThingRegistrationTaskResponse_templateBody' - The task\'s template.
+--
+-- 'httpStatus', 'describeThingRegistrationTaskResponse_httpStatus' - The response's http status code.
+newDescribeThingRegistrationTaskResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeThingRegistrationTaskResponse
+newDescribeThingRegistrationTaskResponse pHttpStatus_ =
   DescribeThingRegistrationTaskResponse'
-    { _dtrtrsStatus = Nothing
-    , _dtrtrsLastModifiedDate = Nothing
-    , _dtrtrsInputFileKey = Nothing
-    , _dtrtrsTaskId = Nothing
-    , _dtrtrsCreationDate = Nothing
-    , _dtrtrsPercentageProgress = Nothing
-    , _dtrtrsTemplateBody = Nothing
-    , _dtrtrsSuccessCount = Nothing
-    , _dtrtrsMessage = Nothing
-    , _dtrtrsFailureCount = Nothing
-    , _dtrtrsInputFileBucket = Nothing
-    , _dtrtrsRoleARN = Nothing
-    , _dtrtrsResponseStatus = pResponseStatus_
+    { inputFileKey =
+        Prelude.Nothing,
+      lastModifiedDate = Prelude.Nothing,
+      status = Prelude.Nothing,
+      roleArn = Prelude.Nothing,
+      message = Prelude.Nothing,
+      taskId = Prelude.Nothing,
+      percentageProgress = Prelude.Nothing,
+      creationDate = Prelude.Nothing,
+      inputFileBucket = Prelude.Nothing,
+      failureCount = Prelude.Nothing,
+      successCount = Prelude.Nothing,
+      templateBody = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | The status of the bulk thing provisioning task.
-dtrtrsStatus :: Lens' DescribeThingRegistrationTaskResponse (Maybe TaskStatus)
-dtrtrsStatus = lens _dtrtrsStatus (\ s a -> s{_dtrtrsStatus = a})
+-- | The input file key.
+describeThingRegistrationTaskResponse_inputFileKey :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Text)
+describeThingRegistrationTaskResponse_inputFileKey = Lens.lens (\DescribeThingRegistrationTaskResponse' {inputFileKey} -> inputFileKey) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {inputFileKey = a} :: DescribeThingRegistrationTaskResponse)
 
 -- | The date when the task was last modified.
-dtrtrsLastModifiedDate :: Lens' DescribeThingRegistrationTaskResponse (Maybe UTCTime)
-dtrtrsLastModifiedDate = lens _dtrtrsLastModifiedDate (\ s a -> s{_dtrtrsLastModifiedDate = a}) . mapping _Time
+describeThingRegistrationTaskResponse_lastModifiedDate :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.UTCTime)
+describeThingRegistrationTaskResponse_lastModifiedDate = Lens.lens (\DescribeThingRegistrationTaskResponse' {lastModifiedDate} -> lastModifiedDate) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {lastModifiedDate = a} :: DescribeThingRegistrationTaskResponse) Prelude.. Lens.mapping Prelude._Time
 
--- | The input file key.
-dtrtrsInputFileKey :: Lens' DescribeThingRegistrationTaskResponse (Maybe Text)
-dtrtrsInputFileKey = lens _dtrtrsInputFileKey (\ s a -> s{_dtrtrsInputFileKey = a})
-
--- | The task ID.
-dtrtrsTaskId :: Lens' DescribeThingRegistrationTaskResponse (Maybe Text)
-dtrtrsTaskId = lens _dtrtrsTaskId (\ s a -> s{_dtrtrsTaskId = a})
-
--- | The task creation date.
-dtrtrsCreationDate :: Lens' DescribeThingRegistrationTaskResponse (Maybe UTCTime)
-dtrtrsCreationDate = lens _dtrtrsCreationDate (\ s a -> s{_dtrtrsCreationDate = a}) . mapping _Time
-
--- | The progress of the bulk provisioning task expressed as a percentage.
-dtrtrsPercentageProgress :: Lens' DescribeThingRegistrationTaskResponse (Maybe Natural)
-dtrtrsPercentageProgress = lens _dtrtrsPercentageProgress (\ s a -> s{_dtrtrsPercentageProgress = a}) . mapping _Nat
-
--- | The task's template.
-dtrtrsTemplateBody :: Lens' DescribeThingRegistrationTaskResponse (Maybe Text)
-dtrtrsTemplateBody = lens _dtrtrsTemplateBody (\ s a -> s{_dtrtrsTemplateBody = a})
-
--- | The number of things successfully provisioned.
-dtrtrsSuccessCount :: Lens' DescribeThingRegistrationTaskResponse (Maybe Int)
-dtrtrsSuccessCount = lens _dtrtrsSuccessCount (\ s a -> s{_dtrtrsSuccessCount = a})
-
--- | The message.
-dtrtrsMessage :: Lens' DescribeThingRegistrationTaskResponse (Maybe Text)
-dtrtrsMessage = lens _dtrtrsMessage (\ s a -> s{_dtrtrsMessage = a})
-
--- | The number of things that failed to be provisioned.
-dtrtrsFailureCount :: Lens' DescribeThingRegistrationTaskResponse (Maybe Int)
-dtrtrsFailureCount = lens _dtrtrsFailureCount (\ s a -> s{_dtrtrsFailureCount = a})
-
--- | The S3 bucket that contains the input file.
-dtrtrsInputFileBucket :: Lens' DescribeThingRegistrationTaskResponse (Maybe Text)
-dtrtrsInputFileBucket = lens _dtrtrsInputFileBucket (\ s a -> s{_dtrtrsInputFileBucket = a})
+-- | The status of the bulk thing provisioning task.
+describeThingRegistrationTaskResponse_status :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe TaskStatus)
+describeThingRegistrationTaskResponse_status = Lens.lens (\DescribeThingRegistrationTaskResponse' {status} -> status) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {status = a} :: DescribeThingRegistrationTaskResponse)
 
 -- | The role ARN that grants access to the input file bucket.
-dtrtrsRoleARN :: Lens' DescribeThingRegistrationTaskResponse (Maybe Text)
-dtrtrsRoleARN = lens _dtrtrsRoleARN (\ s a -> s{_dtrtrsRoleARN = a})
+describeThingRegistrationTaskResponse_roleArn :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Text)
+describeThingRegistrationTaskResponse_roleArn = Lens.lens (\DescribeThingRegistrationTaskResponse' {roleArn} -> roleArn) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {roleArn = a} :: DescribeThingRegistrationTaskResponse)
 
--- | -- | The response status code.
-dtrtrsResponseStatus :: Lens' DescribeThingRegistrationTaskResponse Int
-dtrtrsResponseStatus = lens _dtrtrsResponseStatus (\ s a -> s{_dtrtrsResponseStatus = a})
+-- | The message.
+describeThingRegistrationTaskResponse_message :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Text)
+describeThingRegistrationTaskResponse_message = Lens.lens (\DescribeThingRegistrationTaskResponse' {message} -> message) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {message = a} :: DescribeThingRegistrationTaskResponse)
 
-instance NFData DescribeThingRegistrationTaskResponse
-         where
+-- | The task ID.
+describeThingRegistrationTaskResponse_taskId :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Text)
+describeThingRegistrationTaskResponse_taskId = Lens.lens (\DescribeThingRegistrationTaskResponse' {taskId} -> taskId) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {taskId = a} :: DescribeThingRegistrationTaskResponse)
+
+-- | The progress of the bulk provisioning task expressed as a percentage.
+describeThingRegistrationTaskResponse_percentageProgress :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Natural)
+describeThingRegistrationTaskResponse_percentageProgress = Lens.lens (\DescribeThingRegistrationTaskResponse' {percentageProgress} -> percentageProgress) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {percentageProgress = a} :: DescribeThingRegistrationTaskResponse)
+
+-- | The task creation date.
+describeThingRegistrationTaskResponse_creationDate :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.UTCTime)
+describeThingRegistrationTaskResponse_creationDate = Lens.lens (\DescribeThingRegistrationTaskResponse' {creationDate} -> creationDate) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {creationDate = a} :: DescribeThingRegistrationTaskResponse) Prelude.. Lens.mapping Prelude._Time
+
+-- | The S3 bucket that contains the input file.
+describeThingRegistrationTaskResponse_inputFileBucket :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Text)
+describeThingRegistrationTaskResponse_inputFileBucket = Lens.lens (\DescribeThingRegistrationTaskResponse' {inputFileBucket} -> inputFileBucket) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {inputFileBucket = a} :: DescribeThingRegistrationTaskResponse)
+
+-- | The number of things that failed to be provisioned.
+describeThingRegistrationTaskResponse_failureCount :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Int)
+describeThingRegistrationTaskResponse_failureCount = Lens.lens (\DescribeThingRegistrationTaskResponse' {failureCount} -> failureCount) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {failureCount = a} :: DescribeThingRegistrationTaskResponse)
+
+-- | The number of things successfully provisioned.
+describeThingRegistrationTaskResponse_successCount :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Int)
+describeThingRegistrationTaskResponse_successCount = Lens.lens (\DescribeThingRegistrationTaskResponse' {successCount} -> successCount) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {successCount = a} :: DescribeThingRegistrationTaskResponse)
+
+-- | The task\'s template.
+describeThingRegistrationTaskResponse_templateBody :: Lens.Lens' DescribeThingRegistrationTaskResponse (Prelude.Maybe Prelude.Text)
+describeThingRegistrationTaskResponse_templateBody = Lens.lens (\DescribeThingRegistrationTaskResponse' {templateBody} -> templateBody) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {templateBody = a} :: DescribeThingRegistrationTaskResponse)
+
+-- | The response's http status code.
+describeThingRegistrationTaskResponse_httpStatus :: Lens.Lens' DescribeThingRegistrationTaskResponse Prelude.Int
+describeThingRegistrationTaskResponse_httpStatus = Lens.lens (\DescribeThingRegistrationTaskResponse' {httpStatus} -> httpStatus) (\s@DescribeThingRegistrationTaskResponse' {} a -> s {httpStatus = a} :: DescribeThingRegistrationTaskResponse)
+
+instance
+  Prelude.NFData
+    DescribeThingRegistrationTaskResponse

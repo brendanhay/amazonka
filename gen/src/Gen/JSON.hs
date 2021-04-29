@@ -16,14 +16,14 @@ import Data.Aeson hiding (decode)
 import Data.Aeson.Types
 import Data.Bifunctor
 import Data.ByteString (ByteString)
-import Data.ByteString.Lazy qualified as LBS
-import Data.HashMap.Strict qualified as Map
+import qualified Data.ByteString.Lazy as LBS
+import qualified Data.HashMap.Strict as Map
 import Data.List
-import Data.Text.Lazy qualified as LText
+import qualified Data.Text.Lazy as LText
 import Gen.Formatting
 import Gen.IO
 import Gen.Types
-import Text.EDE qualified as EDE
+import qualified Text.EDE as EDE
 
 required :: MonadIO m => Path -> ExceptT Error m Object
 required = readBSFile >=> hoistEither . decode

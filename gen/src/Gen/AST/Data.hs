@@ -23,22 +23,22 @@ import Control.Monad
 import Control.Monad.Except
 import Control.Monad.Trans.State
 import Data.Bifunctor
-import Data.ByteString.Char8 qualified as BS8
+import qualified Data.ByteString.Char8 as BS8
 import Data.Char (isSpace)
-import Data.HashMap.Strict qualified as Map
-import Data.List qualified as List
-import Data.Set qualified as Set
+import qualified Data.HashMap.Strict as Map
+import qualified Data.List as List
+import qualified Data.Set as Set
 import Data.String
 import Data.Text (Text)
-import Data.Text qualified as Text
-import Data.Text.Encoding qualified as Text
-import Data.Text.Lazy qualified as LText
+import qualified Data.Text as Text
+import qualified Data.Text.Encoding as Text
+import qualified Data.Text.Lazy as LText
 import Gen.AST.Data.Field
 import Gen.AST.Data.Instance
 import Gen.AST.Data.Syntax as Syntax
 import Gen.Formatting
 import Gen.Types
-import Language.Haskell.Exts qualified as Exts
+import qualified Language.Haskell.Exts as Exts
 import Language.Haskell.Exts.Pretty (Pretty)
 
 operationData ::

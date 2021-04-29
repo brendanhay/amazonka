@@ -17,11 +17,11 @@ where
 import Data.Aeson
 import Data.String
 import Data.Text (Text)
-import Data.Text qualified as Text
-import Data.Text.Lazy qualified as LText
+import qualified Data.Text as Text
+import qualified Data.Text.Lazy as LText
 import Gen.Text (replaceHead)
 import System.IO.Unsafe (unsafePerformIO)
-import Text.Pandoc qualified as Pandoc
+import qualified Text.Pandoc as Pandoc
 
 newtype Help = Help {fromHelp :: Text}
   deriving (Eq, Semigroup, Monoid)

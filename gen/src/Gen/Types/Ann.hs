@@ -17,10 +17,10 @@ import Control.Comonad.Cofree
 import Control.Lens hiding ((:<))
 import Data.Aeson
 import Data.Function (on)
-import Data.HashSet qualified as Set
+import qualified Data.HashSet as Set
 import Data.Hashable
 import Data.Text (Text)
-import Data.Text qualified as Text
+import qualified Data.Text as Text
 import GHC.Generics (Generic)
 import Gen.TH
 import Gen.Types.Id

@@ -18,10 +18,10 @@ import Data.Aeson
 import Data.List (sort, sortOn, (\\))
 import Data.Ord
 import Data.Text (Text)
-import Data.Text.Lazy qualified as LText
-import Data.Text.Lazy.Builder qualified as Build
+import qualified Data.Text.Lazy as LText
+import qualified Data.Text.Lazy.Builder as Build
 import Data.Time
-import Filesystem.Path.CurrentOS qualified as Path
+import qualified Filesystem.Path.CurrentOS as Path
 import Formatting
 import GHC.Generics (Generic)
 import GHC.TypeLits

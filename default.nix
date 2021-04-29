@@ -15,8 +15,11 @@ let
     inherit system sources config overlays ghcVersion;
   };
 
-  project = pkgs.haskell-nix.haskellLib.selectProjectPackages pkgs.cabalProject;
-  libraries = pkgs.haskell-nix.haskellLib.collectComponents' "library" project;
+  inherit (pkgs) lib;
+  inherit (pkgs.haskell-nix) haskellLib;
+
+  project = haskellLib.selectProjectPackages pkgs.cabalProject;
+  libraries = haskellLib.collectComponents' "library" project;
   checks = builtins.mapAttrs (_: p: p.checks) project;
 
 in project // {

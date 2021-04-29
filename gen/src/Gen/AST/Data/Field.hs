@@ -16,11 +16,11 @@ import Control.Applicative
 import Control.Comonad.Cofree
 import Control.Lens
 import Data.Function (on)
-import Data.HashMap.Strict qualified as Map
+import qualified Data.HashMap.Strict as Map
 import Data.List (elemIndex, sortBy)
 import Data.Maybe
 import Data.Text (Text)
-import Data.Text qualified as Text
+import qualified Data.Text as Text
 import Gen.Text
 import Gen.Types
 import Language.Haskell.Exts.Syntax (Name (..))

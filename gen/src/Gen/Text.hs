@@ -29,10 +29,10 @@ where
 import Control.Error
 import Control.Monad
 import Data.Bifunctor
-import Data.Char qualified as Char
-import Data.HashSet qualified as Set
+import qualified Data.Char as Char
+import qualified Data.HashSet as Set
 import Data.Text (Text)
-import Data.Text qualified as Text
+import qualified Data.Text as Text
 
 stripLens :: Text -> Text
 stripLens t

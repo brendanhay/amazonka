@@ -20,14 +20,14 @@ import Control.Lens hiding ((:<))
 import Control.Monad.Except
 import Control.Monad.State
 import Data.CaseInsensitive (CI)
-import Data.CaseInsensitive qualified as CI
+import qualified Data.CaseInsensitive as CI
 import Data.Char (isLower)
-import Data.HashMap.Strict qualified as Map
-import Data.HashSet qualified as Set
+import qualified Data.HashMap.Strict as Map
+import qualified Data.HashSet as Set
 import Data.Hashable
 import Data.Maybe
 import Data.Text (Text)
-import Data.Text qualified as Text
+import qualified Data.Text as Text
 import Gen.AST.Cofree
 import Gen.Formatting
 import Gen.Text

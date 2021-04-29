@@ -15,8 +15,8 @@ import Control.Error
 import Control.Lens
 import Control.Monad.Except (throwError)
 import Control.Monad.State
-import Data.HashMap.Strict qualified as Map
-import Data.HashSet qualified as Set
+import qualified Data.HashMap.Strict as Map
+import qualified Data.HashSet as Set
 import Gen.AST.Cofree
 import Gen.AST.Data
 import Gen.AST.Override

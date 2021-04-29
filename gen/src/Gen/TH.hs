@@ -27,7 +27,7 @@ import Control.Lens
 import Data.Aeson.TH
 import Data.Aeson.Types
 import Data.Text (Text)
-import Data.Text qualified as Text
+import qualified Data.Text as Text
 import GHC.Generics
 import Gen.Text
 

@@ -17,12 +17,12 @@ where
 
 import Control.Monad.Except
 import Data.CaseInsensitive (CI)
-import Data.CaseInsensitive qualified as CI
-import Data.HashMap.Strict qualified as Map
+import qualified Data.CaseInsensitive as CI
+import qualified Data.HashMap.Strict as Map
 import Data.Text (Text)
-import Data.Text qualified as Text
-import Data.Text.Lazy qualified as LText
-import Data.Text.Lazy.Builder qualified as Build
+import qualified Data.Text as Text
+import qualified Data.Text.Lazy as LText
+import qualified Data.Text.Lazy.Builder as Build
 import Formatting hiding (left, right)
 import Formatting.Time hiding (fmt)
 import Gen.Types

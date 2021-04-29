@@ -11,13 +11,13 @@
 module Gen.Types.Notation where
 
 import Control.Applicative
-import Control.Monad qualified as Monad
+import qualified Control.Monad as Monad
 import Data.Aeson
-import Data.Attoparsec.Text qualified as A
+import qualified Data.Attoparsec.Text as A
 import Data.Bifunctor
 import Data.List.NonEmpty (NonEmpty (..))
 import Data.Text (Text)
-import Data.Text qualified as Text
+import qualified Data.Text as Text
 import Gen.Types.Id
 
 data Key a

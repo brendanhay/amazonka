@@ -11,7 +11,7 @@
 module Gen.Types.Map where
 
 import Control.Lens
-import Data.HashMap.Strict qualified as Map
+import qualified Data.HashMap.Strict as Map
 import Data.Hashable
 import Data.Maybe
 import Data.Tuple

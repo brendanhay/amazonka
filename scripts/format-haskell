@@ -14,18 +14,9 @@ find gen core test amazonka amazonka-s3-encryption \
 
 echo "Formatting Haskell"
 
-find gen \
+find gen core test amazonka amazonka-s3-encryption \
   -type f -name '*.hs' \
   -exec ormolu -i \
-  -o '-XBangPatterns' \
   -o '-XPatternSynonyms' \
   -o '-XTypeApplications' \
-  -o '-XPatternSynonyms' \
-  -o '-XImportQualifiedPost' \
-  {} \+
-
-find core test amazonka amazonka-s3-encryption \
-  -type f -name '*.hs' \
-  -exec ormolu -i \
-  -o '-XPatternSynonyms' \
   {} \+

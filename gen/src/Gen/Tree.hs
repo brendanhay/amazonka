@@ -24,12 +24,12 @@ import Data.Functor.Identity
 import Data.Maybe (mapMaybe)
 import Data.Monoid hiding (Sum)
 import Data.Text (Text)
-import Data.Text qualified as Text
-import Data.Text.Lazy qualified as LText
+import qualified Data.Text as Text
+import qualified Data.Text.Lazy as LText
 import Filesystem.Path.CurrentOS hiding (FilePath, root)
 import Gen.Formatting (failure, shown)
 import Gen.Import
-import Gen.JSON qualified as JS
+import qualified Gen.JSON as JS
 import Gen.Types
 import System.Directory.Tree hiding (file)
 import Text.EDE hiding (failure, render)

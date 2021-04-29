@@ -36,10 +36,10 @@ import Control.Comonad
 import Control.Comonad.Cofree
 import Control.Lens
 import Data.Aeson
-import Data.Char qualified as Char
+import qualified Data.Char as Char
 import Data.Hashable
 import Data.Text (Text)
-import Data.Text qualified as Text
+import qualified Data.Text as Text
 import Gen.Text
 
 -- | A class to extract identifiers from arbitrary products.

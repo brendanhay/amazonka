@@ -18,7 +18,7 @@ import Data.Aeson
 import Data.Aeson.Types
 import Data.Maybe
 import Data.Text (Text)
-import Data.Text qualified as Text
+import qualified Data.Text as Text
 import GHC.Generics
 import Gen.Text
 import Gen.Types.Map

@@ -21,7 +21,7 @@ import Control.Error
 import Control.Lens hiding ((:<))
 import Control.Monad.State
 import Data.Bifunctor
-import Data.HashMap.Strict qualified as Map
+import qualified Data.HashMap.Strict as Map
 import Data.List ((\\))
 import Gen.Types
 

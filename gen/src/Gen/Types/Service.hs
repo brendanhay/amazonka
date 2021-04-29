@@ -15,18 +15,18 @@ module Gen.Types.Service where
 import Control.Comonad
 import Control.Comonad.Cofree
 import Control.Lens ((%~), (&), (.~), (<&>), (?~), (^.))
-import Control.Lens qualified as Lens
-import Control.Lens.TH qualified as TH
+import qualified Control.Lens as Lens
+import qualified Control.Lens.TH as TH
 import Data.Aeson (FromJSON, ToJSON, (.!=), (.:), (.:?), (.=))
-import Data.Aeson qualified as JSON
+import qualified Data.Aeson as JSON
 import Data.Bifunctor (first)
 import Data.Functor.Identity (Identity)
-import Data.HashMap.Strict qualified as Map
+import qualified Data.HashMap.Strict as Map
 import Data.List (nub)
 import Data.Maybe (isJust)
 import Data.Scientific (Scientific)
 import Data.Text (Text)
-import Data.Text qualified as Text
+import qualified Data.Text as Text
 import GHC.Generics (Generic)
 import Gen.TH
 import Gen.Text
@@ -39,7 +39,7 @@ import Gen.Types.Pager
 import Gen.Types.Retry
 import Gen.Types.URI
 import Gen.Types.Waiter
-import Text.Show.Deriving qualified as TH (deriveShow, deriveShow1)
+import qualified Text.Show.Deriving as TH (deriveShow, deriveShow1)
 
 $(TH.makePrisms ''Identity)
 

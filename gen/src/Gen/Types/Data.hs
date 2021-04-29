@@ -16,10 +16,10 @@ import Control.Lens hiding ((.=))
 import Data.Aeson
 import Data.Aeson.Types
 import Data.Function (on)
-import Data.Set qualified as Set
+import qualified Data.Set as Set
 import Data.Text (Text)
-import Data.Text qualified as Text
-import Data.Text.Lazy qualified as LText
+import qualified Data.Text as Text
+import qualified Data.Text.Lazy as LText
 import Gen.Types.Ann
 import Gen.Types.Help
 import Gen.Types.Id

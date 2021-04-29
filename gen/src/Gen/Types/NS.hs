@@ -13,8 +13,8 @@ module Gen.Types.NS where
 import Data.Aeson
 import Data.String
 import Data.Text (Text)
-import Data.Text qualified as Text
-import Filesystem.Path.CurrentOS qualified as Path
+import qualified Data.Text as Text
+import qualified Filesystem.Path.CurrentOS as Path
 
 newtype NS = NS [Text]
   deriving (Eq, Ord, Show)

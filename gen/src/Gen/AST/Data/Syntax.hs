@@ -15,20 +15,20 @@ module Gen.AST.Data.Syntax where
 import Control.Comonad
 import Control.Error
 import Control.Lens hiding (iso, mapping, op, strict)
-import Data.Char qualified as Char
+import qualified Data.Char as Char
 import Data.Foldable (foldl', foldr')
-import Data.Foldable qualified as Fold
-import Data.HashMap.Strict qualified as Map
+import qualified Data.Foldable as Fold
+import qualified Data.HashMap.Strict as Map
 import Data.List.NonEmpty (NonEmpty (..))
 import Data.String
 import Data.Text (Text)
-import Data.Text qualified as Text
+import qualified Data.Text as Text
 import Gen.AST.Data.Field
 import Gen.AST.Data.Instance
 import Gen.Protocol (Names (..))
-import Gen.Protocol qualified as Proto
+import qualified Gen.Protocol as Proto
 import Gen.Types
-import Language.Haskell.Exts qualified as Exts
+import qualified Language.Haskell.Exts as Exts
 
 type Name = Exts.Name ()
 

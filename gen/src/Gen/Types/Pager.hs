@@ -17,7 +17,7 @@ import Control.Lens
 import Control.Monad
 import Data.Aeson
 import Data.List.NonEmpty (NonEmpty (..))
-import Data.List.NonEmpty qualified as NE
+import qualified Data.List.NonEmpty as NE
 import Gen.Types.Id
 import Gen.Types.Notation
 

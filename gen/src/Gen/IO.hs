@@ -16,17 +16,17 @@ import Control.Monad.State
 import Data.Bifunctor
 import Data.ByteString (ByteString)
 import Data.Text (Text)
-import Data.Text qualified as Text
-import Data.Text.Lazy qualified as LText
+import qualified Data.Text as Text
+import qualified Data.Text.Lazy as LText
 import Data.Text.Lazy.Builder (toLazyText)
-import Data.Text.Lazy.IO qualified as LText
-import Filesystem qualified as FS
+import qualified Data.Text.Lazy.IO as LText
+import qualified Filesystem as FS
 import Filesystem.Path.CurrentOS
 import Gen.Formatting
 import Gen.Types
 import System.IO
-import Text.EDE qualified as EDE
-import UnexceptionalIO qualified as UIO
+import qualified Text.EDE as EDE
+import qualified UnexceptionalIO as UIO
 
 run :: ExceptT Error IO a -> IO a
 run = runScript . fmapLT LText.toStrict

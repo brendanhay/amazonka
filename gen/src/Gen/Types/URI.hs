@@ -16,10 +16,10 @@ import Control.Applicative
 import Control.Lens
 import Data.Aeson
 import Data.Attoparsec.Text (Parser)
-import Data.Attoparsec.Text qualified as Parse
+import qualified Data.Attoparsec.Text as Parse
 import Data.Text (Text)
-import Data.Text qualified as Text
-import Data.Text.Read qualified as Text
+import qualified Data.Text as Text
+import qualified Data.Text.Read as Text
 import GHC.Generics (Generic)
 import Gen.TH
 import Gen.Types.Id

@@ -16,7 +16,7 @@ import Control.Error
 import Control.Lens hiding ((:<))
 import Control.Monad.Except
 import Control.Monad.State
-import Data.HashMap.Strict qualified as Map
+import qualified Data.HashMap.Strict as Map
 import Gen.Formatting
 import Gen.Types
 

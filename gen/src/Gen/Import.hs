@@ -13,7 +13,7 @@ module Gen.Import where
 import Control.Lens
 import Data.List (sort)
 import Data.Maybe
-import Data.Set qualified as Set
+import qualified Data.Set as Set
 import Gen.Types
 
 operationImports :: Library -> Operation Identity SData a -> [NS]

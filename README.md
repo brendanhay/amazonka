@@ -68,7 +68,7 @@ A change log for the entire project can be found under [`amazonka/CHANGELOG.md`]
 
 For any problems, comments, or feedback please create an issue [here on GitHub](https://github.com/brendanhay/amazonka/issues).
 
-### Package Names
+## Package Naming
 
 It is often desirable to provide supplemental functionality to `amazonka` as an additional library, for example providing S3 encryption via a package such as `amazonka-s3-encryption`.
 

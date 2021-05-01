@@ -1,32 +1,5 @@
 {
     "metadata": {
         "serviceAbbreviation": "Glacier"
-    },
-    "shapes": {
-      "InitiateMultipartUploadInput": {
-        "required": [
-          "accountId",
-          "vaultName",
-          "partSize"
-        ]
-      },
-      "UploadMultipartPartInput": {
-        "required": [
-          "accountId",
-          "vaultName",
-          "uploadId",
-          "range",
-          "checksum"
-        ]
-      },
-      "CompleteMultipartUploadInput": {
-        "required": [
-          "accountId",
-          "vaultName",
-          "uploadId",
-          "archiveSize",
-          "checksum"
-        ]
-      }
     }
 }

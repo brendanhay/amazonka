@@ -1,3 +1,4 @@
+cabal-version:      2.2
 name:               amazonka-core
 version:            1.6.1
 synopsis:           Core data types and functionality for Amazonka libraries.
@@ -8,10 +9,10 @@ license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 copyright:          Copyright (c) 2013-2017 Brendan Hay
-category:           Network, AWS, Cloud, Distributed Computing
+category:           AWS
 build-type:         Simple
 extra-source-files: README.md
-cabal-version:      >=1.10
+
 description:
   Core data types, functionality and serialisation primitives for
   Amazonka related Amazon Web Services SDKs.

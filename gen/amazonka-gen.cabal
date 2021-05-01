@@ -1,4 +1,5 @@
 cabal-version:      2.2
+
 name:               amazonka-gen
 version:            1.6.1
 synopsis:           Amazonka Code Generator
@@ -8,7 +9,7 @@ license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 copyright:          Copyright (c) 2013-2021 Brendan Hay
-category:           Network, AWS, Cloud, Distributed Computing
+category:           AWS
 build-type:         Simple
 extra-source-files: README.md
 description:        Compiler and generator for Amazonka related AWS SDKs

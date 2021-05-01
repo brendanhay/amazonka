@@ -1,3 +1,4 @@
+cabal-version:      2.2
 name:               amazonka
 version:            1.6.1
 synopsis:           Comprehensive Amazon Web Services SDK.
@@ -8,13 +9,13 @@ license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 copyright:          Copyright (c) 2013-2017 Brendan Hay
-category:           Network, AWS, Cloud, Distributed Computing
+category:           AWS
 build-type:         Simple
 extra-source-files:
   CHANGELOG.md
   README.md
 
-cabal-version:      >=1.10
+
 description:
   This client library contains request and response logic to communicate
   with Amazon Web Service compatible APIs using the types supplied by the

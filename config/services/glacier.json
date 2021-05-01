@@ -1,3 +1,6 @@
 {
-    "libraryName": "amazonka-glacier"
+    "libraryName": "amazonka-glacier",
+    "operationPlugins": {
+        "*": ["Request.glacierVersionHeader (Prelude._svcVersion defaultService)"]
+    }
 }

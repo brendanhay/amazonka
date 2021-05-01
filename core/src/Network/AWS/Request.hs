@@ -35,6 +35,7 @@ module Network.AWS.Request
     -- ** Operation Plugins
     contentMD5Header,
     expectHeader,
+    glacierVersionHeader,
 
     -- ** Lenses
     requestHeaders,
@@ -158,11 +159,17 @@ requestURL x =
 
 contentMD5Header :: Request a -> Request a
 contentMD5Header rq
-  | missing, Just x <- md5 = rq & rqHeaders %~ hdr HTTP.hContentMD5 x
+  | isMissing, Just x <- maybeMD5 = rq {_rqHeaders = hdr HTTP.hContentMD5 x headers}
   | otherwise = rq
   where
-    missing = isNothing $ lookup HTTP.hContentMD5 (_rqHeaders rq)
-    md5 = md5Base64 (_rqBody rq)
+    maybeMD5 = md5Base64 (_rqBody rq)
+    isMissing = isNothing (lookup HTTP.hContentMD5 headers)
+    headers = _rqHeaders rq
 
 expectHeader :: Request a -> Request a
-expectHeader = rqHeaders %~ hdr hExpect "100-continue"
+expectHeader rq =
+  rq {_rqHeaders = hdr hExpect "100-continue" (_rqHeaders rq)}
+
+glacierVersionHeader :: ByteString -> Request a -> Request a
+glacierVersionHeader version rq =
+  rq {_rqHeaders = hdr "x-amz-glacier-version" version (_rqHeaders rq)}

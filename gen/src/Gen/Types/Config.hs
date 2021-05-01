@@ -120,6 +120,12 @@ makeClassy ''Versions
 data Config = Config
   { _libraryName :: Text,
     _operationModules :: [NS],
+    -- | Custom plugin functions to be applied to the generated 'AWSRequest.request'
+    -- instance body. Each function is of the form @Request a -> Request a@.
+    --
+    -- Using a wildcard key of @*@ in the configuration results in the plugins
+    -- being applied to _all_ operations. The wildcard is only applied if no
+    -- matching operation name is found in the map.
     _operationPlugins :: Map Id [Text],
     _typeModules :: [NS],
     _typeOverrides :: Map Id Override,

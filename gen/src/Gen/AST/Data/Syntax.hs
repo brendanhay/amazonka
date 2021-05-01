@@ -12,6 +12,7 @@
 
 module Gen.AST.Data.Syntax where
 
+import Control.Applicative ((<|>))
 import Control.Comonad
 import Control.Error
 import Control.Lens hiding (iso, mapping, op, strict)
@@ -761,11 +762,17 @@ requestF ::
   Ref ->
   [Inst] ->
   Exp
-requestF c meta h r is = maybe e (foldr' plugin e) ps
+requestF c meta h r is =
+  maybe e (foldr' applyPlugin e) selectedPlugins
   where
-    plugin x = Exts.infixApp (var x) "Prelude.."
+    applyPlugin x =
+      -- Plugin functions are of the form :: Request a -> Request a
+      Exts.infixApp (var x) "Prelude.."
 
-    ps = Map.lookup (identifier r) (c ^. operationPlugins)
+    selectedPlugins =
+      -- Lookup a specific operationPlugins key before the wildcard.
+      Map.lookup (identifier r) (c ^. operationPlugins)
+        <|> Map.lookup (mkId "*") (c ^. operationPlugins)
 
     e = Exts.app v (var n)
 

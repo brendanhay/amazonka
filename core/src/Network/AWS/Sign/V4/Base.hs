@@ -93,11 +93,17 @@ base h rq a r ts = (meta, auth)
 
     prepare =
       rqHeaders
-        %~ ( hdr hHost (_endpointHost end)
+        %~ ( hdr hHost host
                . hdr hAMZDate (toBS (Time ts :: AWSTime))
                . hdr hAMZContentSHA256 (toBS h)
                . maybe id (hdr hAMZToken . toBS) (_authSessionToken a)
            )
+
+    host =
+      case (_endpointSecure end, _endpointPort end) of
+        (False, 80) -> _endpointHost end
+        (True, 443) -> _endpointHost end
+        (_, port) -> _endpointHost end <> ":" <> toBS port
 
     end = _svcEndpoint (_rqService rq) r
 

@@ -41,7 +41,7 @@ setEndpoint s h p = serviceEndpoint %~ addr
 -- | Determine the full host address and credential scope
 -- within the specified 'Region'.
 defaultEndpoint :: Service -> Region -> Endpoint
-defaultEndpoint (_svcPrefix -> p) r = go (CI.mk p)
+defaultEndpoint (_svcEndpointPrefix -> p) r = go (CI.mk p)
   where
     go = \case
       "iam"
@@ -76,7 +76,7 @@ defaultEndpoint (_svcPrefix -> p) r = go (CI.mk p)
         | not china -> global "cloudfront.amazonaws.com"
       "waf"
         | not china -> global "waf.amazonaws.com"
-      _
+      _other
         | china -> region (p <> "." <> reg <> ".amazonaws.com.cn")
         | otherwise -> region (p <> "." <> reg <> ".amazonaws.com")
 

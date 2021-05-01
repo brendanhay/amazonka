@@ -246,7 +246,7 @@ credentialScope s e t =
   Tag
     [ toBS (Time t :: BasicTime),
       toBS (_endpointScope e),
-      toBS (_svcPrefix s),
+      toBS (_svcSigningName s),
       "aws4_request"
     ]
 

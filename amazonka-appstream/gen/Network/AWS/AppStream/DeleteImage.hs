@@ -1,131 +1,158 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AppStream.DeleteImage
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified image. You cannot delete an image that is currently in use. After you delete an image, you cannot provision new capacity using the image.
---
---
+-- Deletes the specified image. You cannot delete an image when it is in
+-- use. After you delete an image, you cannot provision new capacity using
+-- the image.
 module Network.AWS.AppStream.DeleteImage
-    (
-    -- * Creating a Request
-      deleteImage
-    , DeleteImage
+  ( -- * Creating a Request
+    DeleteImage (..),
+    newDeleteImage,
+
     -- * Request Lenses
-    , diName
+    deleteImage_name,
 
     -- * Destructuring the Response
-    , deleteImageResponse
-    , DeleteImageResponse
+    DeleteImageResponse (..),
+    newDeleteImageResponse,
+
     -- * Response Lenses
-    , dirsImage
-    , dirsResponseStatus
-    ) where
+    deleteImageResponse_image,
+    deleteImageResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteImage' smart constructor.
-newtype DeleteImage = DeleteImage'
-  { _diName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteImage' smart constructor.
+data DeleteImage = DeleteImage'
+  { -- | The name of the image.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteImage' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteImage' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'diName' - The name of the image.
-deleteImage
-    :: Text -- ^ 'diName'
-    -> DeleteImage
-deleteImage pName_ = DeleteImage' {_diName = pName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'name', 'deleteImage_name' - The name of the image.
+newDeleteImage ::
+  -- | 'name'
+  Prelude.Text ->
+  DeleteImage
+newDeleteImage pName_ = DeleteImage' {name = pName_}
 
 -- | The name of the image.
-diName :: Lens' DeleteImage Text
-diName = lens _diName (\ s a -> s{_diName = a})
+deleteImage_name :: Lens.Lens' DeleteImage Prelude.Text
+deleteImage_name = Lens.lens (\DeleteImage' {name} -> name) (\s@DeleteImage' {} a -> s {name = a} :: DeleteImage)
 
-instance AWSRequest DeleteImage where
-        type Rs DeleteImage = DeleteImageResponse
-        request = postJSON appStream
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DeleteImageResponse' <$>
-                   (x .?> "Image") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest DeleteImage where
+  type Rs DeleteImage = DeleteImageResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteImageResponse'
+            Prelude.<$> (x Prelude..?> "Image")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteImage where
+instance Prelude.Hashable DeleteImage
 
-instance NFData DeleteImage where
+instance Prelude.NFData DeleteImage
 
-instance ToHeaders DeleteImage where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("PhotonAdminProxyService.DeleteImage" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DeleteImage where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "PhotonAdminProxyService.DeleteImage" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DeleteImage where
-        toJSON DeleteImage'{..}
-          = object (catMaybes [Just ("Name" .= _diName)])
+instance Prelude.ToJSON DeleteImage where
+  toJSON DeleteImage' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Prelude..= name)]
+      )
 
-instance ToPath DeleteImage where
-        toPath = const "/"
+instance Prelude.ToPath DeleteImage where
+  toPath = Prelude.const "/"
 
-instance ToQuery DeleteImage where
-        toQuery = const mempty
+instance Prelude.ToQuery DeleteImage where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteImageResponse' smart constructor.
+-- | /See:/ 'newDeleteImageResponse' smart constructor.
 data DeleteImageResponse = DeleteImageResponse'
-  { _dirsImage          :: !(Maybe Image)
-  , _dirsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the image.
+    image :: Prelude.Maybe Image,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteImageResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteImageResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dirsImage' - Information about the image.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dirsResponseStatus' - -- | The response status code.
-deleteImageResponse
-    :: Int -- ^ 'dirsResponseStatus'
-    -> DeleteImageResponse
-deleteImageResponse pResponseStatus_ =
+-- 'image', 'deleteImageResponse_image' - Information about the image.
+--
+-- 'httpStatus', 'deleteImageResponse_httpStatus' - The response's http status code.
+newDeleteImageResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteImageResponse
+newDeleteImageResponse pHttpStatus_ =
   DeleteImageResponse'
-    {_dirsImage = Nothing, _dirsResponseStatus = pResponseStatus_}
-
+    { image = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Information about the image.
-dirsImage :: Lens' DeleteImageResponse (Maybe Image)
-dirsImage = lens _dirsImage (\ s a -> s{_dirsImage = a})
+deleteImageResponse_image :: Lens.Lens' DeleteImageResponse (Prelude.Maybe Image)
+deleteImageResponse_image = Lens.lens (\DeleteImageResponse' {image} -> image) (\s@DeleteImageResponse' {} a -> s {image = a} :: DeleteImageResponse)
 
--- | -- | The response status code.
-dirsResponseStatus :: Lens' DeleteImageResponse Int
-dirsResponseStatus = lens _dirsResponseStatus (\ s a -> s{_dirsResponseStatus = a})
+-- | The response's http status code.
+deleteImageResponse_httpStatus :: Lens.Lens' DeleteImageResponse Prelude.Int
+deleteImageResponse_httpStatus = Lens.lens (\DeleteImageResponse' {httpStatus} -> httpStatus) (\s@DeleteImageResponse' {} a -> s {httpStatus = a} :: DeleteImageResponse)
 
-instance NFData DeleteImageResponse where
+instance Prelude.NFData DeleteImageResponse

@@ -1,236 +1,294 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeImageAttribute
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified attribute of the specified AMI. You can specify only one attribute at a time.
---
---
+-- Describes the specified attribute of the specified AMI. You can specify
+-- only one attribute at a time.
 module Network.AWS.EC2.DescribeImageAttribute
-    (
-    -- * Creating a Request
-      describeImageAttribute
-    , DescribeImageAttribute
+  ( -- * Creating a Request
+    DescribeImageAttribute (..),
+    newDescribeImageAttribute,
+
     -- * Request Lenses
-    , diaiDryRun
-    , diaiAttribute
-    , diaiImageId
+    describeImageAttribute_dryRun,
+    describeImageAttribute_attribute,
+    describeImageAttribute_imageId,
 
     -- * Destructuring the Response
-    , describeImageAttributeResponse
-    , DescribeImageAttributeResponse
+    DescribeImageAttributeResponse (..),
+    newDescribeImageAttributeResponse,
+
     -- * Response Lenses
-    , diarsLaunchPermissions
-    , diarsRAMDiskId
-    , diarsKernelId
-    , diarsSRIOVNetSupport
-    , diarsImageId
-    , diarsProductCodes
-    , diarsDescription
-    , diarsBlockDeviceMappings
-    , diarsResponseStatus
-    ) where
+    describeImageAttributeResponse_ramdiskId,
+    describeImageAttributeResponse_productCodes,
+    describeImageAttributeResponse_launchPermissions,
+    describeImageAttributeResponse_imageId,
+    describeImageAttributeResponse_sriovNetSupport,
+    describeImageAttributeResponse_blockDeviceMappings,
+    describeImageAttributeResponse_kernelId,
+    describeImageAttributeResponse_description,
+    describeImageAttributeResponse_httpStatus,
+  )
+where
 
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for DescribeImageAttribute.
 --
---
---
--- /See:/ 'describeImageAttribute' smart constructor.
+-- /See:/ 'newDescribeImageAttribute' smart constructor.
 data DescribeImageAttribute = DescribeImageAttribute'
-  { _diaiDryRun    :: !(Maybe Bool)
-  , _diaiAttribute :: !ImageAttributeName
-  , _diaiImageId   :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The AMI attribute.
+    --
+    -- __Note__: Depending on your account privileges, the @blockDeviceMapping@
+    -- attribute may return a @Client.AuthFailure@ error. If this happens, use
+    -- DescribeImages to get information about the block device mapping for the
+    -- AMI.
+    attribute :: ImageAttributeName,
+    -- | The ID of the AMI.
+    imageId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeImageAttribute' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeImageAttribute' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'diaiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'diaiAttribute' - The AMI attribute. __Note__ : Depending on your account privileges, the @blockDeviceMapping@ attribute may return a @Client.AuthFailure@ error. If this happens, use 'DescribeImages' to get information about the block device mapping for the AMI.
+-- 'dryRun', 'describeImageAttribute_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- * 'diaiImageId' - The ID of the AMI.
-describeImageAttribute
-    :: ImageAttributeName -- ^ 'diaiAttribute'
-    -> Text -- ^ 'diaiImageId'
-    -> DescribeImageAttribute
-describeImageAttribute pAttribute_ pImageId_ =
+-- 'attribute', 'describeImageAttribute_attribute' - The AMI attribute.
+--
+-- __Note__: Depending on your account privileges, the @blockDeviceMapping@
+-- attribute may return a @Client.AuthFailure@ error. If this happens, use
+-- DescribeImages to get information about the block device mapping for the
+-- AMI.
+--
+-- 'imageId', 'describeImageAttribute_imageId' - The ID of the AMI.
+newDescribeImageAttribute ::
+  -- | 'attribute'
+  ImageAttributeName ->
+  -- | 'imageId'
+  Prelude.Text ->
+  DescribeImageAttribute
+newDescribeImageAttribute pAttribute_ pImageId_ =
   DescribeImageAttribute'
-    { _diaiDryRun = Nothing
-    , _diaiAttribute = pAttribute_
-    , _diaiImageId = pImageId_
+    { dryRun = Prelude.Nothing,
+      attribute = pAttribute_,
+      imageId = pImageId_
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeImageAttribute_dryRun :: Lens.Lens' DescribeImageAttribute (Prelude.Maybe Prelude.Bool)
+describeImageAttribute_dryRun = Lens.lens (\DescribeImageAttribute' {dryRun} -> dryRun) (\s@DescribeImageAttribute' {} a -> s {dryRun = a} :: DescribeImageAttribute)
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-diaiDryRun :: Lens' DescribeImageAttribute (Maybe Bool)
-diaiDryRun = lens _diaiDryRun (\ s a -> s{_diaiDryRun = a})
-
--- | The AMI attribute. __Note__ : Depending on your account privileges, the @blockDeviceMapping@ attribute may return a @Client.AuthFailure@ error. If this happens, use 'DescribeImages' to get information about the block device mapping for the AMI.
-diaiAttribute :: Lens' DescribeImageAttribute ImageAttributeName
-diaiAttribute = lens _diaiAttribute (\ s a -> s{_diaiAttribute = a})
+-- | The AMI attribute.
+--
+-- __Note__: Depending on your account privileges, the @blockDeviceMapping@
+-- attribute may return a @Client.AuthFailure@ error. If this happens, use
+-- DescribeImages to get information about the block device mapping for the
+-- AMI.
+describeImageAttribute_attribute :: Lens.Lens' DescribeImageAttribute ImageAttributeName
+describeImageAttribute_attribute = Lens.lens (\DescribeImageAttribute' {attribute} -> attribute) (\s@DescribeImageAttribute' {} a -> s {attribute = a} :: DescribeImageAttribute)
 
 -- | The ID of the AMI.
-diaiImageId :: Lens' DescribeImageAttribute Text
-diaiImageId = lens _diaiImageId (\ s a -> s{_diaiImageId = a})
+describeImageAttribute_imageId :: Lens.Lens' DescribeImageAttribute Prelude.Text
+describeImageAttribute_imageId = Lens.lens (\DescribeImageAttribute' {imageId} -> imageId) (\s@DescribeImageAttribute' {} a -> s {imageId = a} :: DescribeImageAttribute)
 
-instance AWSRequest DescribeImageAttribute where
-        type Rs DescribeImageAttribute =
-             DescribeImageAttributeResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 DescribeImageAttributeResponse' <$>
-                   (x .@? "launchPermission" .!@ mempty >>=
-                      may (parseXMLList "item"))
-                     <*> (x .@? "ramdisk")
-                     <*> (x .@? "kernel")
-                     <*> (x .@? "sriovNetSupport")
-                     <*> (x .@? "imageId")
-                     <*>
-                     (x .@? "productCodes" .!@ mempty >>=
-                        may (parseXMLList "item"))
-                     <*> (x .@? "description")
-                     <*>
-                     (x .@? "blockDeviceMapping" .!@ mempty >>=
-                        may (parseXMLList "item"))
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest DescribeImageAttribute where
+  type
+    Rs DescribeImageAttribute =
+      DescribeImageAttributeResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          DescribeImageAttributeResponse'
+            Prelude.<$> (x Prelude..@? "ramdisk")
+            Prelude.<*> ( x Prelude..@? "productCodes"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
+                        )
+            Prelude.<*> ( x Prelude..@? "launchPermission"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
+                        )
+            Prelude.<*> (x Prelude..@? "imageId")
+            Prelude.<*> (x Prelude..@? "sriovNetSupport")
+            Prelude.<*> ( x Prelude..@? "blockDeviceMapping"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
+                        )
+            Prelude.<*> (x Prelude..@? "kernel")
+            Prelude.<*> (x Prelude..@? "description")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeImageAttribute where
+instance Prelude.Hashable DescribeImageAttribute
 
-instance NFData DescribeImageAttribute where
+instance Prelude.NFData DescribeImageAttribute
 
-instance ToHeaders DescribeImageAttribute where
-        toHeaders = const mempty
+instance Prelude.ToHeaders DescribeImageAttribute where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeImageAttribute where
-        toPath = const "/"
+instance Prelude.ToPath DescribeImageAttribute where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeImageAttribute where
-        toQuery DescribeImageAttribute'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeImageAttribute" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "DryRun" =: _diaiDryRun,
-               "Attribute" =: _diaiAttribute,
-               "ImageId" =: _diaiImageId]
+instance Prelude.ToQuery DescribeImageAttribute where
+  toQuery DescribeImageAttribute' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DescribeImageAttribute" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Prelude.=: dryRun,
+        "Attribute" Prelude.=: attribute,
+        "ImageId" Prelude.=: imageId
+      ]
 
 -- | Describes an image attribute.
 --
---
---
--- /See:/ 'describeImageAttributeResponse' smart constructor.
+-- /See:/ 'newDescribeImageAttributeResponse' smart constructor.
 data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
-  { _diarsLaunchPermissions   :: !(Maybe [LaunchPermission])
-  , _diarsRAMDiskId           :: !(Maybe AttributeValue)
-  , _diarsKernelId            :: !(Maybe AttributeValue)
-  , _diarsSRIOVNetSupport     :: !(Maybe AttributeValue)
-  , _diarsImageId             :: !(Maybe Text)
-  , _diarsProductCodes        :: !(Maybe [ProductCode])
-  , _diarsDescription         :: !(Maybe AttributeValue)
-  , _diarsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
-  , _diarsResponseStatus      :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The RAM disk ID.
+    ramdiskId :: Prelude.Maybe AttributeValue,
+    -- | The product codes.
+    productCodes :: Prelude.Maybe [ProductCode],
+    -- | The launch permissions.
+    launchPermissions :: Prelude.Maybe [LaunchPermission],
+    -- | The ID of the AMI.
+    imageId :: Prelude.Maybe Prelude.Text,
+    -- | Indicates whether enhanced networking with the Intel 82599 Virtual
+    -- Function interface is enabled.
+    sriovNetSupport :: Prelude.Maybe AttributeValue,
+    -- | The block device mapping entries.
+    blockDeviceMappings :: Prelude.Maybe [BlockDeviceMapping],
+    -- | The kernel ID.
+    kernelId :: Prelude.Maybe AttributeValue,
+    -- | A description for the AMI.
+    description :: Prelude.Maybe AttributeValue,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeImageAttributeResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeImageAttributeResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'diarsLaunchPermissions' - One or more launch permissions.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'diarsRAMDiskId' - The RAM disk ID.
+-- 'ramdiskId', 'describeImageAttributeResponse_ramdiskId' - The RAM disk ID.
 --
--- * 'diarsKernelId' - The kernel ID.
+-- 'productCodes', 'describeImageAttributeResponse_productCodes' - The product codes.
 --
--- * 'diarsSRIOVNetSupport' - Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
+-- 'launchPermissions', 'describeImageAttributeResponse_launchPermissions' - The launch permissions.
 --
--- * 'diarsImageId' - The ID of the AMI.
+-- 'imageId', 'describeImageAttributeResponse_imageId' - The ID of the AMI.
 --
--- * 'diarsProductCodes' - One or more product codes.
+-- 'sriovNetSupport', 'describeImageAttributeResponse_sriovNetSupport' - Indicates whether enhanced networking with the Intel 82599 Virtual
+-- Function interface is enabled.
 --
--- * 'diarsDescription' - A description for the AMI.
+-- 'blockDeviceMappings', 'describeImageAttributeResponse_blockDeviceMappings' - The block device mapping entries.
 --
--- * 'diarsBlockDeviceMappings' - One or more block device mapping entries.
+-- 'kernelId', 'describeImageAttributeResponse_kernelId' - The kernel ID.
 --
--- * 'diarsResponseStatus' - -- | The response status code.
-describeImageAttributeResponse
-    :: Int -- ^ 'diarsResponseStatus'
-    -> DescribeImageAttributeResponse
-describeImageAttributeResponse pResponseStatus_ =
+-- 'description', 'describeImageAttributeResponse_description' - A description for the AMI.
+--
+-- 'httpStatus', 'describeImageAttributeResponse_httpStatus' - The response's http status code.
+newDescribeImageAttributeResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeImageAttributeResponse
+newDescribeImageAttributeResponse pHttpStatus_ =
   DescribeImageAttributeResponse'
-    { _diarsLaunchPermissions = Nothing
-    , _diarsRAMDiskId = Nothing
-    , _diarsKernelId = Nothing
-    , _diarsSRIOVNetSupport = Nothing
-    , _diarsImageId = Nothing
-    , _diarsProductCodes = Nothing
-    , _diarsDescription = Nothing
-    , _diarsBlockDeviceMappings = Nothing
-    , _diarsResponseStatus = pResponseStatus_
+    { ramdiskId =
+        Prelude.Nothing,
+      productCodes = Prelude.Nothing,
+      launchPermissions = Prelude.Nothing,
+      imageId = Prelude.Nothing,
+      sriovNetSupport = Prelude.Nothing,
+      blockDeviceMappings = Prelude.Nothing,
+      kernelId = Prelude.Nothing,
+      description = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | One or more launch permissions.
-diarsLaunchPermissions :: Lens' DescribeImageAttributeResponse [LaunchPermission]
-diarsLaunchPermissions = lens _diarsLaunchPermissions (\ s a -> s{_diarsLaunchPermissions = a}) . _Default . _Coerce
-
 -- | The RAM disk ID.
-diarsRAMDiskId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diarsRAMDiskId = lens _diarsRAMDiskId (\ s a -> s{_diarsRAMDiskId = a})
+describeImageAttributeResponse_ramdiskId :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
+describeImageAttributeResponse_ramdiskId = Lens.lens (\DescribeImageAttributeResponse' {ramdiskId} -> ramdiskId) (\s@DescribeImageAttributeResponse' {} a -> s {ramdiskId = a} :: DescribeImageAttributeResponse)
 
--- | The kernel ID.
-diarsKernelId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diarsKernelId = lens _diarsKernelId (\ s a -> s{_diarsKernelId = a})
+-- | The product codes.
+describeImageAttributeResponse_productCodes :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe [ProductCode])
+describeImageAttributeResponse_productCodes = Lens.lens (\DescribeImageAttributeResponse' {productCodes} -> productCodes) (\s@DescribeImageAttributeResponse' {} a -> s {productCodes = a} :: DescribeImageAttributeResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
-diarsSRIOVNetSupport :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diarsSRIOVNetSupport = lens _diarsSRIOVNetSupport (\ s a -> s{_diarsSRIOVNetSupport = a})
+-- | The launch permissions.
+describeImageAttributeResponse_launchPermissions :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe [LaunchPermission])
+describeImageAttributeResponse_launchPermissions = Lens.lens (\DescribeImageAttributeResponse' {launchPermissions} -> launchPermissions) (\s@DescribeImageAttributeResponse' {} a -> s {launchPermissions = a} :: DescribeImageAttributeResponse) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | The ID of the AMI.
-diarsImageId :: Lens' DescribeImageAttributeResponse (Maybe Text)
-diarsImageId = lens _diarsImageId (\ s a -> s{_diarsImageId = a})
+describeImageAttributeResponse_imageId :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe Prelude.Text)
+describeImageAttributeResponse_imageId = Lens.lens (\DescribeImageAttributeResponse' {imageId} -> imageId) (\s@DescribeImageAttributeResponse' {} a -> s {imageId = a} :: DescribeImageAttributeResponse)
 
--- | One or more product codes.
-diarsProductCodes :: Lens' DescribeImageAttributeResponse [ProductCode]
-diarsProductCodes = lens _diarsProductCodes (\ s a -> s{_diarsProductCodes = a}) . _Default . _Coerce
+-- | Indicates whether enhanced networking with the Intel 82599 Virtual
+-- Function interface is enabled.
+describeImageAttributeResponse_sriovNetSupport :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
+describeImageAttributeResponse_sriovNetSupport = Lens.lens (\DescribeImageAttributeResponse' {sriovNetSupport} -> sriovNetSupport) (\s@DescribeImageAttributeResponse' {} a -> s {sriovNetSupport = a} :: DescribeImageAttributeResponse)
+
+-- | The block device mapping entries.
+describeImageAttributeResponse_blockDeviceMappings :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe [BlockDeviceMapping])
+describeImageAttributeResponse_blockDeviceMappings = Lens.lens (\DescribeImageAttributeResponse' {blockDeviceMappings} -> blockDeviceMappings) (\s@DescribeImageAttributeResponse' {} a -> s {blockDeviceMappings = a} :: DescribeImageAttributeResponse) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The kernel ID.
+describeImageAttributeResponse_kernelId :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
+describeImageAttributeResponse_kernelId = Lens.lens (\DescribeImageAttributeResponse' {kernelId} -> kernelId) (\s@DescribeImageAttributeResponse' {} a -> s {kernelId = a} :: DescribeImageAttributeResponse)
 
 -- | A description for the AMI.
-diarsDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
-diarsDescription = lens _diarsDescription (\ s a -> s{_diarsDescription = a})
+describeImageAttributeResponse_description :: Lens.Lens' DescribeImageAttributeResponse (Prelude.Maybe AttributeValue)
+describeImageAttributeResponse_description = Lens.lens (\DescribeImageAttributeResponse' {description} -> description) (\s@DescribeImageAttributeResponse' {} a -> s {description = a} :: DescribeImageAttributeResponse)
 
--- | One or more block device mapping entries.
-diarsBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
-diarsBlockDeviceMappings = lens _diarsBlockDeviceMappings (\ s a -> s{_diarsBlockDeviceMappings = a}) . _Default . _Coerce
+-- | The response's http status code.
+describeImageAttributeResponse_httpStatus :: Lens.Lens' DescribeImageAttributeResponse Prelude.Int
+describeImageAttributeResponse_httpStatus = Lens.lens (\DescribeImageAttributeResponse' {httpStatus} -> httpStatus) (\s@DescribeImageAttributeResponse' {} a -> s {httpStatus = a} :: DescribeImageAttributeResponse)
 
--- | -- | The response status code.
-diarsResponseStatus :: Lens' DescribeImageAttributeResponse Int
-diarsResponseStatus = lens _diarsResponseStatus (\ s a -> s{_diarsResponseStatus = a})
-
-instance NFData DescribeImageAttributeResponse where
+instance
+  Prelude.NFData
+    DescribeImageAttributeResponse

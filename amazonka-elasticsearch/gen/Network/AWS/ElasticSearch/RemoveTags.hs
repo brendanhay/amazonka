@@ -1,115 +1,133 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.RemoveTags
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Removes the specified set of tags from the specified Elasticsearch domain.
---
---
+-- Removes the specified set of tags from the specified Elasticsearch
+-- domain.
 module Network.AWS.ElasticSearch.RemoveTags
-    (
-    -- * Creating a Request
-      removeTags
-    , RemoveTags
+  ( -- * Creating a Request
+    RemoveTags (..),
+    newRemoveTags,
+
     -- * Request Lenses
-    , rtARN
-    , rtTagKeys
+    removeTags_arn,
+    removeTags_tagKeys,
 
     -- * Destructuring the Response
-    , removeTagsResponse
-    , RemoveTagsResponse
-    ) where
+    RemoveTagsResponse (..),
+    newRemoveTagsResponse,
+  )
+where
 
 import Network.AWS.ElasticSearch.Types
-import Network.AWS.ElasticSearch.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to the @'RemoveTags' @ operation. Specify the @ARN@ for the Elasticsearch domain from which you want to remove the specified @TagKey@ .
+-- | Container for the parameters to the @RemoveTags@ operation. Specify the
+-- @ARN@ for the Elasticsearch domain from which you want to remove the
+-- specified @TagKey@.
 --
---
---
--- /See:/ 'removeTags' smart constructor.
+-- /See:/ 'newRemoveTags' smart constructor.
 data RemoveTags = RemoveTags'
-  { _rtARN     :: !Text
-  , _rtTagKeys :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Specifies the @ARN@ for the Elasticsearch domain from which you want to
+    -- delete the specified tags.
+    arn :: Prelude.Text,
+    -- | Specifies the @TagKey@ list which you want to remove from the
+    -- Elasticsearch domain.
+    tagKeys :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'RemoveTags' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RemoveTags' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rtARN' - Specifies the @ARN@ for the Elasticsearch domain from which you want to delete the specified tags.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rtTagKeys' - Specifies the @TagKey@ list which you want to remove from the Elasticsearch domain.
-removeTags
-    :: Text -- ^ 'rtARN'
-    -> RemoveTags
-removeTags pARN_ = RemoveTags' {_rtARN = pARN_, _rtTagKeys = mempty}
-
-
--- | Specifies the @ARN@ for the Elasticsearch domain from which you want to delete the specified tags.
-rtARN :: Lens' RemoveTags Text
-rtARN = lens _rtARN (\ s a -> s{_rtARN = a})
-
--- | Specifies the @TagKey@ list which you want to remove from the Elasticsearch domain.
-rtTagKeys :: Lens' RemoveTags [Text]
-rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a}) . _Coerce
-
-instance AWSRequest RemoveTags where
-        type Rs RemoveTags = RemoveTagsResponse
-        request = postJSON elasticSearch
-        response = receiveNull RemoveTagsResponse'
-
-instance Hashable RemoveTags where
-
-instance NFData RemoveTags where
-
-instance ToHeaders RemoveTags where
-        toHeaders = const mempty
-
-instance ToJSON RemoveTags where
-        toJSON RemoveTags'{..}
-          = object
-              (catMaybes
-                 [Just ("ARN" .= _rtARN),
-                  Just ("TagKeys" .= _rtTagKeys)])
-
-instance ToPath RemoveTags where
-        toPath = const "/2015-01-01/tags-removal"
-
-instance ToQuery RemoveTags where
-        toQuery = const mempty
-
--- | /See:/ 'removeTagsResponse' smart constructor.
-data RemoveTagsResponse =
-  RemoveTagsResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'RemoveTagsResponse' with the minimum fields required to make a request.
+-- 'arn', 'removeTags_arn' - Specifies the @ARN@ for the Elasticsearch domain from which you want to
+-- delete the specified tags.
 --
-removeTagsResponse
-    :: RemoveTagsResponse
-removeTagsResponse = RemoveTagsResponse'
+-- 'tagKeys', 'removeTags_tagKeys' - Specifies the @TagKey@ list which you want to remove from the
+-- Elasticsearch domain.
+newRemoveTags ::
+  -- | 'arn'
+  Prelude.Text ->
+  RemoveTags
+newRemoveTags pARN_ =
+  RemoveTags' {arn = pARN_, tagKeys = Prelude.mempty}
 
+-- | Specifies the @ARN@ for the Elasticsearch domain from which you want to
+-- delete the specified tags.
+removeTags_arn :: Lens.Lens' RemoveTags Prelude.Text
+removeTags_arn = Lens.lens (\RemoveTags' {arn} -> arn) (\s@RemoveTags' {} a -> s {arn = a} :: RemoveTags)
 
-instance NFData RemoveTagsResponse where
+-- | Specifies the @TagKey@ list which you want to remove from the
+-- Elasticsearch domain.
+removeTags_tagKeys :: Lens.Lens' RemoveTags [Prelude.Text]
+removeTags_tagKeys = Lens.lens (\RemoveTags' {tagKeys} -> tagKeys) (\s@RemoveTags' {} a -> s {tagKeys = a} :: RemoveTags) Prelude.. Prelude._Coerce
+
+instance Prelude.AWSRequest RemoveTags where
+  type Rs RemoveTags = RemoveTagsResponse
+  request = Request.postJSON defaultService
+  response = Response.receiveNull RemoveTagsResponse'
+
+instance Prelude.Hashable RemoveTags
+
+instance Prelude.NFData RemoveTags
+
+instance Prelude.ToHeaders RemoveTags where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToJSON RemoveTags where
+  toJSON RemoveTags' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("ARN" Prelude..= arn),
+            Prelude.Just ("TagKeys" Prelude..= tagKeys)
+          ]
+      )
+
+instance Prelude.ToPath RemoveTags where
+  toPath = Prelude.const "/2015-01-01/tags-removal"
+
+instance Prelude.ToQuery RemoveTags where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newRemoveTagsResponse' smart constructor.
+data RemoveTagsResponse = RemoveTagsResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'RemoveTagsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newRemoveTagsResponse ::
+  RemoveTagsResponse
+newRemoveTagsResponse = RemoveTagsResponse'
+
+instance Prelude.NFData RemoveTagsResponse

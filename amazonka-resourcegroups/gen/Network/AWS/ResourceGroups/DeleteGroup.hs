@@ -1,121 +1,165 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ResourceGroups.DeleteGroup
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a specified resource group. Deleting a resource group does not delete resources that are members of the group; it only deletes the group structure.
+-- Deletes the specified resource group. Deleting a resource group does not
+-- delete any resources that are members of the group; it only deletes the
+-- group structure.
 --
+-- __Minimum permissions__
 --
+-- To run this command, you must have the following permissions:
+--
+-- -   @resource-groups:DeleteGroup@
 module Network.AWS.ResourceGroups.DeleteGroup
-    (
-    -- * Creating a Request
-      deleteGroup
-    , DeleteGroup
+  ( -- * Creating a Request
+    DeleteGroup (..),
+    newDeleteGroup,
+
     -- * Request Lenses
-    , dgGroupName
+    deleteGroup_groupName,
+    deleteGroup_group,
 
     -- * Destructuring the Response
-    , deleteGroupResponse
-    , DeleteGroupResponse
+    DeleteGroupResponse (..),
+    newDeleteGroupResponse,
+
     -- * Response Lenses
-    , dgrsGroup
-    , dgrsResponseStatus
-    ) where
+    deleteGroupResponse_group,
+    deleteGroupResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
 import Network.AWS.ResourceGroups.Types
-import Network.AWS.ResourceGroups.Types.Product
-import Network.AWS.Response
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteGroup' smart constructor.
-newtype DeleteGroup = DeleteGroup'
-  { _dgGroupName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteGroup' smart constructor.
+data DeleteGroup = DeleteGroup'
+  { -- | Deprecated - don\'t use this parameter. Use @Group@ instead.
+    groupName :: Prelude.Maybe Prelude.Text,
+    -- | The name or the ARN of the resource group to delete.
+    group' :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteGroup' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteGroup' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dgGroupName' - The name of the resource group to delete.
-deleteGroup
-    :: Text -- ^ 'dgGroupName'
-    -> DeleteGroup
-deleteGroup pGroupName_ = DeleteGroup' {_dgGroupName = pGroupName_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'groupName', 'deleteGroup_groupName' - Deprecated - don\'t use this parameter. Use @Group@ instead.
+--
+-- 'group'', 'deleteGroup_group' - The name or the ARN of the resource group to delete.
+newDeleteGroup ::
+  DeleteGroup
+newDeleteGroup =
+  DeleteGroup'
+    { groupName = Prelude.Nothing,
+      group' = Prelude.Nothing
+    }
 
+-- | Deprecated - don\'t use this parameter. Use @Group@ instead.
+deleteGroup_groupName :: Lens.Lens' DeleteGroup (Prelude.Maybe Prelude.Text)
+deleteGroup_groupName = Lens.lens (\DeleteGroup' {groupName} -> groupName) (\s@DeleteGroup' {} a -> s {groupName = a} :: DeleteGroup)
 
--- | The name of the resource group to delete.
-dgGroupName :: Lens' DeleteGroup Text
-dgGroupName = lens _dgGroupName (\ s a -> s{_dgGroupName = a})
+-- | The name or the ARN of the resource group to delete.
+deleteGroup_group :: Lens.Lens' DeleteGroup (Prelude.Maybe Prelude.Text)
+deleteGroup_group = Lens.lens (\DeleteGroup' {group'} -> group') (\s@DeleteGroup' {} a -> s {group' = a} :: DeleteGroup)
 
-instance AWSRequest DeleteGroup where
-        type Rs DeleteGroup = DeleteGroupResponse
-        request = delete resourceGroups
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DeleteGroupResponse' <$>
-                   (x .?> "Group") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest DeleteGroup where
+  type Rs DeleteGroup = DeleteGroupResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteGroupResponse'
+            Prelude.<$> (x Prelude..?> "Group")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DeleteGroup where
+instance Prelude.Hashable DeleteGroup
 
-instance NFData DeleteGroup where
+instance Prelude.NFData DeleteGroup
 
-instance ToHeaders DeleteGroup where
-        toHeaders = const mempty
+instance Prelude.ToHeaders DeleteGroup where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeleteGroup where
-        toPath DeleteGroup'{..}
-          = mconcat ["/groups/", toBS _dgGroupName]
+instance Prelude.ToJSON DeleteGroup where
+  toJSON DeleteGroup' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("GroupName" Prelude..=) Prelude.<$> groupName,
+            ("Group" Prelude..=) Prelude.<$> group'
+          ]
+      )
 
-instance ToQuery DeleteGroup where
-        toQuery = const mempty
+instance Prelude.ToPath DeleteGroup where
+  toPath = Prelude.const "/delete-group"
 
--- | /See:/ 'deleteGroupResponse' smart constructor.
+instance Prelude.ToQuery DeleteGroup where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDeleteGroupResponse' smart constructor.
 data DeleteGroupResponse = DeleteGroupResponse'
-  { _dgrsGroup          :: !(Maybe Group)
-  , _dgrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A full description of the deleted resource group.
+    group' :: Prelude.Maybe Group,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteGroupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteGroupResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dgrsGroup' - A full description of the deleted resource group.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dgrsResponseStatus' - -- | The response status code.
-deleteGroupResponse
-    :: Int -- ^ 'dgrsResponseStatus'
-    -> DeleteGroupResponse
-deleteGroupResponse pResponseStatus_ =
+-- 'group'', 'deleteGroupResponse_group' - A full description of the deleted resource group.
+--
+-- 'httpStatus', 'deleteGroupResponse_httpStatus' - The response's http status code.
+newDeleteGroupResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteGroupResponse
+newDeleteGroupResponse pHttpStatus_ =
   DeleteGroupResponse'
-    {_dgrsGroup = Nothing, _dgrsResponseStatus = pResponseStatus_}
-
+    { group' = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | A full description of the deleted resource group.
-dgrsGroup :: Lens' DeleteGroupResponse (Maybe Group)
-dgrsGroup = lens _dgrsGroup (\ s a -> s{_dgrsGroup = a})
+deleteGroupResponse_group :: Lens.Lens' DeleteGroupResponse (Prelude.Maybe Group)
+deleteGroupResponse_group = Lens.lens (\DeleteGroupResponse' {group'} -> group') (\s@DeleteGroupResponse' {} a -> s {group' = a} :: DeleteGroupResponse)
 
--- | -- | The response status code.
-dgrsResponseStatus :: Lens' DeleteGroupResponse Int
-dgrsResponseStatus = lens _dgrsResponseStatus (\ s a -> s{_dgrsResponseStatus = a})
+-- | The response's http status code.
+deleteGroupResponse_httpStatus :: Lens.Lens' DeleteGroupResponse Prelude.Int
+deleteGroupResponse_httpStatus = Lens.lens (\DeleteGroupResponse' {httpStatus} -> httpStatus) (\s@DeleteGroupResponse' {} a -> s {httpStatus = a} :: DeleteGroupResponse)
 
-instance NFData DeleteGroupResponse where
+instance Prelude.NFData DeleteGroupResponse

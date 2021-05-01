@@ -1,290 +1,364 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.GetMaintenanceWindowExecutionTaskInvocation
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Retrieves a task invocation. A task invocation is a specific task executing on a specific target. Maintenance Windows report status for all invocations.
---
---
+-- Retrieves information about a specific task running on a specific
+-- target.
 module Network.AWS.SSM.GetMaintenanceWindowExecutionTaskInvocation
-    (
-    -- * Creating a Request
-      getMaintenanceWindowExecutionTaskInvocation
-    , GetMaintenanceWindowExecutionTaskInvocation
+  ( -- * Creating a Request
+    GetMaintenanceWindowExecutionTaskInvocation (..),
+    newGetMaintenanceWindowExecutionTaskInvocation,
+
     -- * Request Lenses
-    , gmwetiWindowExecutionId
-    , gmwetiTaskId
-    , gmwetiInvocationId
+    getMaintenanceWindowExecutionTaskInvocation_windowExecutionId,
+    getMaintenanceWindowExecutionTaskInvocation_taskId,
+    getMaintenanceWindowExecutionTaskInvocation_invocationId,
 
     -- * Destructuring the Response
-    , getMaintenanceWindowExecutionTaskInvocationResponse
-    , GetMaintenanceWindowExecutionTaskInvocationResponse
+    GetMaintenanceWindowExecutionTaskInvocationResponse (..),
+    newGetMaintenanceWindowExecutionTaskInvocationResponse,
+
     -- * Response Lenses
-    , gmwetirsStatus
-    , gmwetirsExecutionId
-    , gmwetirsTaskExecutionId
-    , gmwetirsStartTime
-    , gmwetirsInvocationId
-    , gmwetirsOwnerInformation
-    , gmwetirsTaskType
-    , gmwetirsWindowTargetId
-    , gmwetirsWindowExecutionId
-    , gmwetirsStatusDetails
-    , gmwetirsEndTime
-    , gmwetirsParameters
-    , gmwetirsResponseStatus
-    ) where
+    getMaintenanceWindowExecutionTaskInvocationResponse_status,
+    getMaintenanceWindowExecutionTaskInvocationResponse_statusDetails,
+    getMaintenanceWindowExecutionTaskInvocationResponse_windowTargetId,
+    getMaintenanceWindowExecutionTaskInvocationResponse_startTime,
+    getMaintenanceWindowExecutionTaskInvocationResponse_endTime,
+    getMaintenanceWindowExecutionTaskInvocationResponse_executionId,
+    getMaintenanceWindowExecutionTaskInvocationResponse_windowExecutionId,
+    getMaintenanceWindowExecutionTaskInvocationResponse_ownerInformation,
+    getMaintenanceWindowExecutionTaskInvocationResponse_taskType,
+    getMaintenanceWindowExecutionTaskInvocationResponse_invocationId,
+    getMaintenanceWindowExecutionTaskInvocationResponse_parameters,
+    getMaintenanceWindowExecutionTaskInvocationResponse_taskExecutionId,
+    getMaintenanceWindowExecutionTaskInvocationResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
--- | /See:/ 'getMaintenanceWindowExecutionTaskInvocation' smart constructor.
+-- | /See:/ 'newGetMaintenanceWindowExecutionTaskInvocation' smart constructor.
 data GetMaintenanceWindowExecutionTaskInvocation = GetMaintenanceWindowExecutionTaskInvocation'
-  { _gmwetiWindowExecutionId :: !Text
-  , _gmwetiTaskId            :: !Text
-  , _gmwetiInvocationId      :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the maintenance window execution for which the task is a part.
+    windowExecutionId :: Prelude.Text,
+    -- | The ID of the specific task in the maintenance window task that should
+    -- be retrieved.
+    taskId :: Prelude.Text,
+    -- | The invocation ID to retrieve.
+    invocationId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetMaintenanceWindowExecutionTaskInvocation' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetMaintenanceWindowExecutionTaskInvocation' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gmwetiWindowExecutionId' - The ID of the Maintenance Window execution for which the task is a part.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gmwetiTaskId' - The ID of the specific task in the Maintenance Window task that should be retrieved.
+-- 'windowExecutionId', 'getMaintenanceWindowExecutionTaskInvocation_windowExecutionId' - The ID of the maintenance window execution for which the task is a part.
 --
--- * 'gmwetiInvocationId' - The invocation ID to retrieve.
-getMaintenanceWindowExecutionTaskInvocation
-    :: Text -- ^ 'gmwetiWindowExecutionId'
-    -> Text -- ^ 'gmwetiTaskId'
-    -> Text -- ^ 'gmwetiInvocationId'
-    -> GetMaintenanceWindowExecutionTaskInvocation
-getMaintenanceWindowExecutionTaskInvocation pWindowExecutionId_ pTaskId_ pInvocationId_ =
-  GetMaintenanceWindowExecutionTaskInvocation'
-    { _gmwetiWindowExecutionId = pWindowExecutionId_
-    , _gmwetiTaskId = pTaskId_
-    , _gmwetiInvocationId = pInvocationId_
-    }
+-- 'taskId', 'getMaintenanceWindowExecutionTaskInvocation_taskId' - The ID of the specific task in the maintenance window task that should
+-- be retrieved.
+--
+-- 'invocationId', 'getMaintenanceWindowExecutionTaskInvocation_invocationId' - The invocation ID to retrieve.
+newGetMaintenanceWindowExecutionTaskInvocation ::
+  -- | 'windowExecutionId'
+  Prelude.Text ->
+  -- | 'taskId'
+  Prelude.Text ->
+  -- | 'invocationId'
+  Prelude.Text ->
+  GetMaintenanceWindowExecutionTaskInvocation
+newGetMaintenanceWindowExecutionTaskInvocation
+  pWindowExecutionId_
+  pTaskId_
+  pInvocationId_ =
+    GetMaintenanceWindowExecutionTaskInvocation'
+      { windowExecutionId =
+          pWindowExecutionId_,
+        taskId = pTaskId_,
+        invocationId = pInvocationId_
+      }
 
+-- | The ID of the maintenance window execution for which the task is a part.
+getMaintenanceWindowExecutionTaskInvocation_windowExecutionId :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocation Prelude.Text
+getMaintenanceWindowExecutionTaskInvocation_windowExecutionId = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocation' {windowExecutionId} -> windowExecutionId) (\s@GetMaintenanceWindowExecutionTaskInvocation' {} a -> s {windowExecutionId = a} :: GetMaintenanceWindowExecutionTaskInvocation)
 
--- | The ID of the Maintenance Window execution for which the task is a part.
-gmwetiWindowExecutionId :: Lens' GetMaintenanceWindowExecutionTaskInvocation Text
-gmwetiWindowExecutionId = lens _gmwetiWindowExecutionId (\ s a -> s{_gmwetiWindowExecutionId = a})
-
--- | The ID of the specific task in the Maintenance Window task that should be retrieved.
-gmwetiTaskId :: Lens' GetMaintenanceWindowExecutionTaskInvocation Text
-gmwetiTaskId = lens _gmwetiTaskId (\ s a -> s{_gmwetiTaskId = a})
+-- | The ID of the specific task in the maintenance window task that should
+-- be retrieved.
+getMaintenanceWindowExecutionTaskInvocation_taskId :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocation Prelude.Text
+getMaintenanceWindowExecutionTaskInvocation_taskId = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocation' {taskId} -> taskId) (\s@GetMaintenanceWindowExecutionTaskInvocation' {} a -> s {taskId = a} :: GetMaintenanceWindowExecutionTaskInvocation)
 
 -- | The invocation ID to retrieve.
-gmwetiInvocationId :: Lens' GetMaintenanceWindowExecutionTaskInvocation Text
-gmwetiInvocationId = lens _gmwetiInvocationId (\ s a -> s{_gmwetiInvocationId = a})
+getMaintenanceWindowExecutionTaskInvocation_invocationId :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocation Prelude.Text
+getMaintenanceWindowExecutionTaskInvocation_invocationId = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocation' {invocationId} -> invocationId) (\s@GetMaintenanceWindowExecutionTaskInvocation' {} a -> s {invocationId = a} :: GetMaintenanceWindowExecutionTaskInvocation)
 
-instance AWSRequest
-           GetMaintenanceWindowExecutionTaskInvocation
-         where
-        type Rs GetMaintenanceWindowExecutionTaskInvocation =
-             GetMaintenanceWindowExecutionTaskInvocationResponse
-        request = postJSON ssm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetMaintenanceWindowExecutionTaskInvocationResponse'
-                   <$>
-                   (x .?> "Status") <*> (x .?> "ExecutionId") <*>
-                     (x .?> "TaskExecutionId")
-                     <*> (x .?> "StartTime")
-                     <*> (x .?> "InvocationId")
-                     <*> (x .?> "OwnerInformation")
-                     <*> (x .?> "TaskType")
-                     <*> (x .?> "WindowTargetId")
-                     <*> (x .?> "WindowExecutionId")
-                     <*> (x .?> "StatusDetails")
-                     <*> (x .?> "EndTime")
-                     <*> (x .?> "Parameters")
-                     <*> (pure (fromEnum s)))
+instance
+  Prelude.AWSRequest
+    GetMaintenanceWindowExecutionTaskInvocation
+  where
+  type
+    Rs GetMaintenanceWindowExecutionTaskInvocation =
+      GetMaintenanceWindowExecutionTaskInvocationResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetMaintenanceWindowExecutionTaskInvocationResponse'
+            Prelude.<$> (x Prelude..?> "Status")
+              Prelude.<*> (x Prelude..?> "StatusDetails")
+              Prelude.<*> (x Prelude..?> "WindowTargetId")
+              Prelude.<*> (x Prelude..?> "StartTime")
+              Prelude.<*> (x Prelude..?> "EndTime")
+              Prelude.<*> (x Prelude..?> "ExecutionId")
+              Prelude.<*> (x Prelude..?> "WindowExecutionId")
+              Prelude.<*> (x Prelude..?> "OwnerInformation")
+              Prelude.<*> (x Prelude..?> "TaskType")
+              Prelude.<*> (x Prelude..?> "InvocationId")
+              Prelude.<*> (x Prelude..?> "Parameters")
+              Prelude.<*> (x Prelude..?> "TaskExecutionId")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable
-           GetMaintenanceWindowExecutionTaskInvocation
-         where
+instance
+  Prelude.Hashable
+    GetMaintenanceWindowExecutionTaskInvocation
 
-instance NFData
-           GetMaintenanceWindowExecutionTaskInvocation
-         where
+instance
+  Prelude.NFData
+    GetMaintenanceWindowExecutionTaskInvocation
 
-instance ToHeaders
-           GetMaintenanceWindowExecutionTaskInvocation
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.GetMaintenanceWindowExecutionTaskInvocation"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance
+  Prelude.ToHeaders
+    GetMaintenanceWindowExecutionTaskInvocation
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AmazonSSM.GetMaintenanceWindowExecutionTaskInvocation" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON
-           GetMaintenanceWindowExecutionTaskInvocation
-         where
-        toJSON
-          GetMaintenanceWindowExecutionTaskInvocation'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("WindowExecutionId" .= _gmwetiWindowExecutionId),
-                  Just ("TaskId" .= _gmwetiTaskId),
-                  Just ("InvocationId" .= _gmwetiInvocationId)])
+instance
+  Prelude.ToJSON
+    GetMaintenanceWindowExecutionTaskInvocation
+  where
+  toJSON
+    GetMaintenanceWindowExecutionTaskInvocation' {..} =
+      Prelude.object
+        ( Prelude.catMaybes
+            [ Prelude.Just
+                ("WindowExecutionId" Prelude..= windowExecutionId),
+              Prelude.Just ("TaskId" Prelude..= taskId),
+              Prelude.Just
+                ("InvocationId" Prelude..= invocationId)
+            ]
+        )
 
-instance ToPath
-           GetMaintenanceWindowExecutionTaskInvocation
-         where
-        toPath = const "/"
+instance
+  Prelude.ToPath
+    GetMaintenanceWindowExecutionTaskInvocation
+  where
+  toPath = Prelude.const "/"
 
-instance ToQuery
-           GetMaintenanceWindowExecutionTaskInvocation
-         where
-        toQuery = const mempty
+instance
+  Prelude.ToQuery
+    GetMaintenanceWindowExecutionTaskInvocation
+  where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'getMaintenanceWindowExecutionTaskInvocationResponse' smart constructor.
+-- | /See:/ 'newGetMaintenanceWindowExecutionTaskInvocationResponse' smart constructor.
 data GetMaintenanceWindowExecutionTaskInvocationResponse = GetMaintenanceWindowExecutionTaskInvocationResponse'
-  { _gmwetirsStatus            :: !(Maybe MaintenanceWindowExecutionStatus)
-  , _gmwetirsExecutionId       :: !(Maybe Text)
-  , _gmwetirsTaskExecutionId   :: !(Maybe Text)
-  , _gmwetirsStartTime         :: !(Maybe POSIX)
-  , _gmwetirsInvocationId      :: !(Maybe Text)
-  , _gmwetirsOwnerInformation  :: !(Maybe (Sensitive Text))
-  , _gmwetirsTaskType          :: !(Maybe MaintenanceWindowTaskType)
-  , _gmwetirsWindowTargetId    :: !(Maybe Text)
-  , _gmwetirsWindowExecutionId :: !(Maybe Text)
-  , _gmwetirsStatusDetails     :: !(Maybe Text)
-  , _gmwetirsEndTime           :: !(Maybe POSIX)
-  , _gmwetirsParameters        :: !(Maybe (Sensitive Text))
-  , _gmwetirsResponseStatus    :: !Int
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The task status for an invocation.
+    status :: Prelude.Maybe MaintenanceWindowExecutionStatus,
+    -- | The details explaining the status. Details are only available for
+    -- certain status values.
+    statusDetails :: Prelude.Maybe Prelude.Text,
+    -- | The maintenance window target ID.
+    windowTargetId :: Prelude.Maybe Prelude.Text,
+    -- | The time that the task started running on the target.
+    startTime :: Prelude.Maybe Prelude.POSIX,
+    -- | The time that the task finished running on the target.
+    endTime :: Prelude.Maybe Prelude.POSIX,
+    -- | The execution ID.
+    executionId :: Prelude.Maybe Prelude.Text,
+    -- | The maintenance window execution ID.
+    windowExecutionId :: Prelude.Maybe Prelude.Text,
+    -- | User-provided value to be included in any CloudWatch events raised while
+    -- running tasks for these targets in this maintenance window.
+    ownerInformation :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    -- | Retrieves the task type for a maintenance window. Task types include the
+    -- following: LAMBDA, STEP_FUNCTIONS, AUTOMATION, RUN_COMMAND.
+    taskType :: Prelude.Maybe MaintenanceWindowTaskType,
+    -- | The invocation ID.
+    invocationId :: Prelude.Maybe Prelude.Text,
+    -- | The parameters used at the time that the task ran.
+    parameters :: Prelude.Maybe (Prelude.Sensitive Prelude.Text),
+    -- | The task execution ID.
+    taskExecutionId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetMaintenanceWindowExecutionTaskInvocationResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetMaintenanceWindowExecutionTaskInvocationResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gmwetirsStatus' - The task status for an invocation.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gmwetirsExecutionId' - The execution ID.
+-- 'status', 'getMaintenanceWindowExecutionTaskInvocationResponse_status' - The task status for an invocation.
 --
--- * 'gmwetirsTaskExecutionId' - The task execution ID.
+-- 'statusDetails', 'getMaintenanceWindowExecutionTaskInvocationResponse_statusDetails' - The details explaining the status. Details are only available for
+-- certain status values.
 --
--- * 'gmwetirsStartTime' - The time that the task started executing on the target.
+-- 'windowTargetId', 'getMaintenanceWindowExecutionTaskInvocationResponse_windowTargetId' - The maintenance window target ID.
 --
--- * 'gmwetirsInvocationId' - The invocation ID.
+-- 'startTime', 'getMaintenanceWindowExecutionTaskInvocationResponse_startTime' - The time that the task started running on the target.
 --
--- * 'gmwetirsOwnerInformation' - User-provided value to be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
+-- 'endTime', 'getMaintenanceWindowExecutionTaskInvocationResponse_endTime' - The time that the task finished running on the target.
 --
--- * 'gmwetirsTaskType' - Retrieves the task type for a Maintenance Window. Task types include the following: LAMBDA, STEP_FUNCTION, AUTOMATION, RUN_COMMAND.
+-- 'executionId', 'getMaintenanceWindowExecutionTaskInvocationResponse_executionId' - The execution ID.
 --
--- * 'gmwetirsWindowTargetId' - The Maintenance Window target ID.
+-- 'windowExecutionId', 'getMaintenanceWindowExecutionTaskInvocationResponse_windowExecutionId' - The maintenance window execution ID.
 --
--- * 'gmwetirsWindowExecutionId' - The Maintenance Window execution ID.
+-- 'ownerInformation', 'getMaintenanceWindowExecutionTaskInvocationResponse_ownerInformation' - User-provided value to be included in any CloudWatch events raised while
+-- running tasks for these targets in this maintenance window.
 --
--- * 'gmwetirsStatusDetails' - The details explaining the status. Details are only available for certain status values.
+-- 'taskType', 'getMaintenanceWindowExecutionTaskInvocationResponse_taskType' - Retrieves the task type for a maintenance window. Task types include the
+-- following: LAMBDA, STEP_FUNCTIONS, AUTOMATION, RUN_COMMAND.
 --
--- * 'gmwetirsEndTime' - The time that the task finished executing on the target.
+-- 'invocationId', 'getMaintenanceWindowExecutionTaskInvocationResponse_invocationId' - The invocation ID.
 --
--- * 'gmwetirsParameters' - The parameters used at the time that the task executed.
+-- 'parameters', 'getMaintenanceWindowExecutionTaskInvocationResponse_parameters' - The parameters used at the time that the task ran.
 --
--- * 'gmwetirsResponseStatus' - -- | The response status code.
-getMaintenanceWindowExecutionTaskInvocationResponse
-    :: Int -- ^ 'gmwetirsResponseStatus'
-    -> GetMaintenanceWindowExecutionTaskInvocationResponse
-getMaintenanceWindowExecutionTaskInvocationResponse pResponseStatus_ =
-  GetMaintenanceWindowExecutionTaskInvocationResponse'
-    { _gmwetirsStatus = Nothing
-    , _gmwetirsExecutionId = Nothing
-    , _gmwetirsTaskExecutionId = Nothing
-    , _gmwetirsStartTime = Nothing
-    , _gmwetirsInvocationId = Nothing
-    , _gmwetirsOwnerInformation = Nothing
-    , _gmwetirsTaskType = Nothing
-    , _gmwetirsWindowTargetId = Nothing
-    , _gmwetirsWindowExecutionId = Nothing
-    , _gmwetirsStatusDetails = Nothing
-    , _gmwetirsEndTime = Nothing
-    , _gmwetirsParameters = Nothing
-    , _gmwetirsResponseStatus = pResponseStatus_
-    }
-
+-- 'taskExecutionId', 'getMaintenanceWindowExecutionTaskInvocationResponse_taskExecutionId' - The task execution ID.
+--
+-- 'httpStatus', 'getMaintenanceWindowExecutionTaskInvocationResponse_httpStatus' - The response's http status code.
+newGetMaintenanceWindowExecutionTaskInvocationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetMaintenanceWindowExecutionTaskInvocationResponse
+newGetMaintenanceWindowExecutionTaskInvocationResponse
+  pHttpStatus_ =
+    GetMaintenanceWindowExecutionTaskInvocationResponse'
+      { status =
+          Prelude.Nothing,
+        statusDetails =
+          Prelude.Nothing,
+        windowTargetId =
+          Prelude.Nothing,
+        startTime =
+          Prelude.Nothing,
+        endTime =
+          Prelude.Nothing,
+        executionId =
+          Prelude.Nothing,
+        windowExecutionId =
+          Prelude.Nothing,
+        ownerInformation =
+          Prelude.Nothing,
+        taskType =
+          Prelude.Nothing,
+        invocationId =
+          Prelude.Nothing,
+        parameters =
+          Prelude.Nothing,
+        taskExecutionId =
+          Prelude.Nothing,
+        httpStatus =
+          pHttpStatus_
+      }
 
 -- | The task status for an invocation.
-gmwetirsStatus :: Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Maybe MaintenanceWindowExecutionStatus)
-gmwetirsStatus = lens _gmwetirsStatus (\ s a -> s{_gmwetirsStatus = a})
+getMaintenanceWindowExecutionTaskInvocationResponse_status :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Prelude.Maybe MaintenanceWindowExecutionStatus)
+getMaintenanceWindowExecutionTaskInvocationResponse_status = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocationResponse' {status} -> status) (\s@GetMaintenanceWindowExecutionTaskInvocationResponse' {} a -> s {status = a} :: GetMaintenanceWindowExecutionTaskInvocationResponse)
+
+-- | The details explaining the status. Details are only available for
+-- certain status values.
+getMaintenanceWindowExecutionTaskInvocationResponse_statusDetails :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Prelude.Maybe Prelude.Text)
+getMaintenanceWindowExecutionTaskInvocationResponse_statusDetails = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocationResponse' {statusDetails} -> statusDetails) (\s@GetMaintenanceWindowExecutionTaskInvocationResponse' {} a -> s {statusDetails = a} :: GetMaintenanceWindowExecutionTaskInvocationResponse)
+
+-- | The maintenance window target ID.
+getMaintenanceWindowExecutionTaskInvocationResponse_windowTargetId :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Prelude.Maybe Prelude.Text)
+getMaintenanceWindowExecutionTaskInvocationResponse_windowTargetId = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocationResponse' {windowTargetId} -> windowTargetId) (\s@GetMaintenanceWindowExecutionTaskInvocationResponse' {} a -> s {windowTargetId = a} :: GetMaintenanceWindowExecutionTaskInvocationResponse)
+
+-- | The time that the task started running on the target.
+getMaintenanceWindowExecutionTaskInvocationResponse_startTime :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Prelude.Maybe Prelude.UTCTime)
+getMaintenanceWindowExecutionTaskInvocationResponse_startTime = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocationResponse' {startTime} -> startTime) (\s@GetMaintenanceWindowExecutionTaskInvocationResponse' {} a -> s {startTime = a} :: GetMaintenanceWindowExecutionTaskInvocationResponse) Prelude.. Lens.mapping Prelude._Time
+
+-- | The time that the task finished running on the target.
+getMaintenanceWindowExecutionTaskInvocationResponse_endTime :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Prelude.Maybe Prelude.UTCTime)
+getMaintenanceWindowExecutionTaskInvocationResponse_endTime = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocationResponse' {endTime} -> endTime) (\s@GetMaintenanceWindowExecutionTaskInvocationResponse' {} a -> s {endTime = a} :: GetMaintenanceWindowExecutionTaskInvocationResponse) Prelude.. Lens.mapping Prelude._Time
 
 -- | The execution ID.
-gmwetirsExecutionId :: Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Maybe Text)
-gmwetirsExecutionId = lens _gmwetirsExecutionId (\ s a -> s{_gmwetirsExecutionId = a})
+getMaintenanceWindowExecutionTaskInvocationResponse_executionId :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Prelude.Maybe Prelude.Text)
+getMaintenanceWindowExecutionTaskInvocationResponse_executionId = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocationResponse' {executionId} -> executionId) (\s@GetMaintenanceWindowExecutionTaskInvocationResponse' {} a -> s {executionId = a} :: GetMaintenanceWindowExecutionTaskInvocationResponse)
 
--- | The task execution ID.
-gmwetirsTaskExecutionId :: Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Maybe Text)
-gmwetirsTaskExecutionId = lens _gmwetirsTaskExecutionId (\ s a -> s{_gmwetirsTaskExecutionId = a})
+-- | The maintenance window execution ID.
+getMaintenanceWindowExecutionTaskInvocationResponse_windowExecutionId :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Prelude.Maybe Prelude.Text)
+getMaintenanceWindowExecutionTaskInvocationResponse_windowExecutionId = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocationResponse' {windowExecutionId} -> windowExecutionId) (\s@GetMaintenanceWindowExecutionTaskInvocationResponse' {} a -> s {windowExecutionId = a} :: GetMaintenanceWindowExecutionTaskInvocationResponse)
 
--- | The time that the task started executing on the target.
-gmwetirsStartTime :: Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Maybe UTCTime)
-gmwetirsStartTime = lens _gmwetirsStartTime (\ s a -> s{_gmwetirsStartTime = a}) . mapping _Time
+-- | User-provided value to be included in any CloudWatch events raised while
+-- running tasks for these targets in this maintenance window.
+getMaintenanceWindowExecutionTaskInvocationResponse_ownerInformation :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Prelude.Maybe Prelude.Text)
+getMaintenanceWindowExecutionTaskInvocationResponse_ownerInformation = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocationResponse' {ownerInformation} -> ownerInformation) (\s@GetMaintenanceWindowExecutionTaskInvocationResponse' {} a -> s {ownerInformation = a} :: GetMaintenanceWindowExecutionTaskInvocationResponse) Prelude.. Lens.mapping Prelude._Sensitive
+
+-- | Retrieves the task type for a maintenance window. Task types include the
+-- following: LAMBDA, STEP_FUNCTIONS, AUTOMATION, RUN_COMMAND.
+getMaintenanceWindowExecutionTaskInvocationResponse_taskType :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Prelude.Maybe MaintenanceWindowTaskType)
+getMaintenanceWindowExecutionTaskInvocationResponse_taskType = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocationResponse' {taskType} -> taskType) (\s@GetMaintenanceWindowExecutionTaskInvocationResponse' {} a -> s {taskType = a} :: GetMaintenanceWindowExecutionTaskInvocationResponse)
 
 -- | The invocation ID.
-gmwetirsInvocationId :: Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Maybe Text)
-gmwetirsInvocationId = lens _gmwetirsInvocationId (\ s a -> s{_gmwetirsInvocationId = a})
+getMaintenanceWindowExecutionTaskInvocationResponse_invocationId :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Prelude.Maybe Prelude.Text)
+getMaintenanceWindowExecutionTaskInvocationResponse_invocationId = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocationResponse' {invocationId} -> invocationId) (\s@GetMaintenanceWindowExecutionTaskInvocationResponse' {} a -> s {invocationId = a} :: GetMaintenanceWindowExecutionTaskInvocationResponse)
 
--- | User-provided value to be included in any CloudWatch events raised while running tasks for these targets in this Maintenance Window.
-gmwetirsOwnerInformation :: Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Maybe Text)
-gmwetirsOwnerInformation = lens _gmwetirsOwnerInformation (\ s a -> s{_gmwetirsOwnerInformation = a}) . mapping _Sensitive
+-- | The parameters used at the time that the task ran.
+getMaintenanceWindowExecutionTaskInvocationResponse_parameters :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Prelude.Maybe Prelude.Text)
+getMaintenanceWindowExecutionTaskInvocationResponse_parameters = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocationResponse' {parameters} -> parameters) (\s@GetMaintenanceWindowExecutionTaskInvocationResponse' {} a -> s {parameters = a} :: GetMaintenanceWindowExecutionTaskInvocationResponse) Prelude.. Lens.mapping Prelude._Sensitive
 
--- | Retrieves the task type for a Maintenance Window. Task types include the following: LAMBDA, STEP_FUNCTION, AUTOMATION, RUN_COMMAND.
-gmwetirsTaskType :: Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Maybe MaintenanceWindowTaskType)
-gmwetirsTaskType = lens _gmwetirsTaskType (\ s a -> s{_gmwetirsTaskType = a})
+-- | The task execution ID.
+getMaintenanceWindowExecutionTaskInvocationResponse_taskExecutionId :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Prelude.Maybe Prelude.Text)
+getMaintenanceWindowExecutionTaskInvocationResponse_taskExecutionId = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocationResponse' {taskExecutionId} -> taskExecutionId) (\s@GetMaintenanceWindowExecutionTaskInvocationResponse' {} a -> s {taskExecutionId = a} :: GetMaintenanceWindowExecutionTaskInvocationResponse)
 
--- | The Maintenance Window target ID.
-gmwetirsWindowTargetId :: Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Maybe Text)
-gmwetirsWindowTargetId = lens _gmwetirsWindowTargetId (\ s a -> s{_gmwetirsWindowTargetId = a})
+-- | The response's http status code.
+getMaintenanceWindowExecutionTaskInvocationResponse_httpStatus :: Lens.Lens' GetMaintenanceWindowExecutionTaskInvocationResponse Prelude.Int
+getMaintenanceWindowExecutionTaskInvocationResponse_httpStatus = Lens.lens (\GetMaintenanceWindowExecutionTaskInvocationResponse' {httpStatus} -> httpStatus) (\s@GetMaintenanceWindowExecutionTaskInvocationResponse' {} a -> s {httpStatus = a} :: GetMaintenanceWindowExecutionTaskInvocationResponse)
 
--- | The Maintenance Window execution ID.
-gmwetirsWindowExecutionId :: Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Maybe Text)
-gmwetirsWindowExecutionId = lens _gmwetirsWindowExecutionId (\ s a -> s{_gmwetirsWindowExecutionId = a})
-
--- | The details explaining the status. Details are only available for certain status values.
-gmwetirsStatusDetails :: Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Maybe Text)
-gmwetirsStatusDetails = lens _gmwetirsStatusDetails (\ s a -> s{_gmwetirsStatusDetails = a})
-
--- | The time that the task finished executing on the target.
-gmwetirsEndTime :: Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Maybe UTCTime)
-gmwetirsEndTime = lens _gmwetirsEndTime (\ s a -> s{_gmwetirsEndTime = a}) . mapping _Time
-
--- | The parameters used at the time that the task executed.
-gmwetirsParameters :: Lens' GetMaintenanceWindowExecutionTaskInvocationResponse (Maybe Text)
-gmwetirsParameters = lens _gmwetirsParameters (\ s a -> s{_gmwetirsParameters = a}) . mapping _Sensitive
-
--- | -- | The response status code.
-gmwetirsResponseStatus :: Lens' GetMaintenanceWindowExecutionTaskInvocationResponse Int
-gmwetirsResponseStatus = lens _gmwetirsResponseStatus (\ s a -> s{_gmwetirsResponseStatus = a})
-
-instance NFData
-           GetMaintenanceWindowExecutionTaskInvocationResponse
-         where
+instance
+  Prelude.NFData
+    GetMaintenanceWindowExecutionTaskInvocationResponse

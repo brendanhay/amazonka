@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.DescribeInstanceAssociationsStatus
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,161 +23,240 @@
 --
 -- The status of the associations for the instance(s).
 --
---
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribeInstanceAssociationsStatus
-    (
-    -- * Creating a Request
-      describeInstanceAssociationsStatus
-    , DescribeInstanceAssociationsStatus
+  ( -- * Creating a Request
+    DescribeInstanceAssociationsStatus (..),
+    newDescribeInstanceAssociationsStatus,
+
     -- * Request Lenses
-    , diasNextToken
-    , diasMaxResults
-    , diasInstanceId
+    describeInstanceAssociationsStatus_nextToken,
+    describeInstanceAssociationsStatus_maxResults,
+    describeInstanceAssociationsStatus_instanceId,
 
     -- * Destructuring the Response
-    , describeInstanceAssociationsStatusResponse
-    , DescribeInstanceAssociationsStatusResponse
+    DescribeInstanceAssociationsStatusResponse (..),
+    newDescribeInstanceAssociationsStatusResponse,
+
     -- * Response Lenses
-    , diasrsInstanceAssociationStatusInfos
-    , diasrsNextToken
-    , diasrsResponseStatus
-    ) where
+    describeInstanceAssociationsStatusResponse_nextToken,
+    describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos,
+    describeInstanceAssociationsStatusResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
--- | /See:/ 'describeInstanceAssociationsStatus' smart constructor.
+-- | /See:/ 'newDescribeInstanceAssociationsStatus' smart constructor.
 data DescribeInstanceAssociationsStatus = DescribeInstanceAssociationsStatus'
-  { _diasNextToken  :: !(Maybe Text)
-  , _diasMaxResults :: !(Maybe Nat)
-  , _diasInstanceId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return for this call. The call also
+    -- returns a token that you can specify in a subsequent call to get the
+    -- next set of results.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The instance IDs for which you want association status information.
+    instanceId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeInstanceAssociationsStatus' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeInstanceAssociationsStatus' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'diasNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'diasMaxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- 'nextToken', 'describeInstanceAssociationsStatus_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
--- * 'diasInstanceId' - The instance IDs for which you want association status information.
-describeInstanceAssociationsStatus
-    :: Text -- ^ 'diasInstanceId'
-    -> DescribeInstanceAssociationsStatus
-describeInstanceAssociationsStatus pInstanceId_ =
+-- 'maxResults', 'describeInstanceAssociationsStatus_maxResults' - The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+--
+-- 'instanceId', 'describeInstanceAssociationsStatus_instanceId' - The instance IDs for which you want association status information.
+newDescribeInstanceAssociationsStatus ::
+  -- | 'instanceId'
+  Prelude.Text ->
+  DescribeInstanceAssociationsStatus
+newDescribeInstanceAssociationsStatus pInstanceId_ =
   DescribeInstanceAssociationsStatus'
-    { _diasNextToken = Nothing
-    , _diasMaxResults = Nothing
-    , _diasInstanceId = pInstanceId_
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      instanceId = pInstanceId_
     }
 
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeInstanceAssociationsStatus_nextToken :: Lens.Lens' DescribeInstanceAssociationsStatus (Prelude.Maybe Prelude.Text)
+describeInstanceAssociationsStatus_nextToken = Lens.lens (\DescribeInstanceAssociationsStatus' {nextToken} -> nextToken) (\s@DescribeInstanceAssociationsStatus' {} a -> s {nextToken = a} :: DescribeInstanceAssociationsStatus)
 
--- | The token for the next set of items to return. (You received this token from a previous call.)
-diasNextToken :: Lens' DescribeInstanceAssociationsStatus (Maybe Text)
-diasNextToken = lens _diasNextToken (\ s a -> s{_diasNextToken = a})
-
--- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-diasMaxResults :: Lens' DescribeInstanceAssociationsStatus (Maybe Natural)
-diasMaxResults = lens _diasMaxResults (\ s a -> s{_diasMaxResults = a}) . mapping _Nat
+-- | The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+describeInstanceAssociationsStatus_maxResults :: Lens.Lens' DescribeInstanceAssociationsStatus (Prelude.Maybe Prelude.Natural)
+describeInstanceAssociationsStatus_maxResults = Lens.lens (\DescribeInstanceAssociationsStatus' {maxResults} -> maxResults) (\s@DescribeInstanceAssociationsStatus' {} a -> s {maxResults = a} :: DescribeInstanceAssociationsStatus)
 
 -- | The instance IDs for which you want association status information.
-diasInstanceId :: Lens' DescribeInstanceAssociationsStatus Text
-diasInstanceId = lens _diasInstanceId (\ s a -> s{_diasInstanceId = a})
+describeInstanceAssociationsStatus_instanceId :: Lens.Lens' DescribeInstanceAssociationsStatus Prelude.Text
+describeInstanceAssociationsStatus_instanceId = Lens.lens (\DescribeInstanceAssociationsStatus' {instanceId} -> instanceId) (\s@DescribeInstanceAssociationsStatus' {} a -> s {instanceId = a} :: DescribeInstanceAssociationsStatus)
 
-instance AWSRequest
-           DescribeInstanceAssociationsStatus
-         where
-        type Rs DescribeInstanceAssociationsStatus =
-             DescribeInstanceAssociationsStatusResponse
-        request = postJSON ssm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeInstanceAssociationsStatusResponse' <$>
-                   (x .?> "InstanceAssociationStatusInfos" .!@ mempty)
-                     <*> (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+instance
+  Pager.AWSPager
+    DescribeInstanceAssociationsStatus
+  where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describeInstanceAssociationsStatusResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describeInstanceAssociationsStatus_nextToken
+          Lens..~ rs
+          Lens.^? describeInstanceAssociationsStatusResponse_nextToken
+            Prelude.. Lens._Just
 
-instance Hashable DescribeInstanceAssociationsStatus
-         where
+instance
+  Prelude.AWSRequest
+    DescribeInstanceAssociationsStatus
+  where
+  type
+    Rs DescribeInstanceAssociationsStatus =
+      DescribeInstanceAssociationsStatusResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeInstanceAssociationsStatusResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+              Prelude.<*> ( x Prelude..?> "InstanceAssociationStatusInfos"
+                              Prelude..!@ Prelude.mempty
+                          )
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData DescribeInstanceAssociationsStatus
-         where
+instance
+  Prelude.Hashable
+    DescribeInstanceAssociationsStatus
 
-instance ToHeaders DescribeInstanceAssociationsStatus
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.DescribeInstanceAssociationsStatus" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance
+  Prelude.NFData
+    DescribeInstanceAssociationsStatus
 
-instance ToJSON DescribeInstanceAssociationsStatus
-         where
-        toJSON DescribeInstanceAssociationsStatus'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _diasNextToken,
-                  ("MaxResults" .=) <$> _diasMaxResults,
-                  Just ("InstanceId" .= _diasInstanceId)])
+instance
+  Prelude.ToHeaders
+    DescribeInstanceAssociationsStatus
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AmazonSSM.DescribeInstanceAssociationsStatus" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToPath DescribeInstanceAssociationsStatus
-         where
-        toPath = const "/"
+instance
+  Prelude.ToJSON
+    DescribeInstanceAssociationsStatus
+  where
+  toJSON DescribeInstanceAssociationsStatus' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
+            Prelude.Just ("InstanceId" Prelude..= instanceId)
+          ]
+      )
 
-instance ToQuery DescribeInstanceAssociationsStatus
-         where
-        toQuery = const mempty
+instance
+  Prelude.ToPath
+    DescribeInstanceAssociationsStatus
+  where
+  toPath = Prelude.const "/"
 
--- | /See:/ 'describeInstanceAssociationsStatusResponse' smart constructor.
+instance
+  Prelude.ToQuery
+    DescribeInstanceAssociationsStatus
+  where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeInstanceAssociationsStatusResponse' smart constructor.
 data DescribeInstanceAssociationsStatusResponse = DescribeInstanceAssociationsStatusResponse'
-  { _diasrsInstanceAssociationStatusInfos :: !(Maybe [InstanceAssociationStatusInfo])
-  , _diasrsNextToken :: !(Maybe Text)
-  , _diasrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token to use when requesting the next set of items. If there are no
+    -- additional items to return, the string is empty.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Status information about the association.
+    instanceAssociationStatusInfos :: Prelude.Maybe [InstanceAssociationStatusInfo],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
+-- |
+-- Create a value of 'DescribeInstanceAssociationsStatusResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'describeInstanceAssociationsStatusResponse_nextToken' - The token to use when requesting the next set of items. If there are no
+-- additional items to return, the string is empty.
+--
+-- 'instanceAssociationStatusInfos', 'describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos' - Status information about the association.
+--
+-- 'httpStatus', 'describeInstanceAssociationsStatusResponse_httpStatus' - The response's http status code.
+newDescribeInstanceAssociationsStatusResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeInstanceAssociationsStatusResponse
+newDescribeInstanceAssociationsStatusResponse
+  pHttpStatus_ =
+    DescribeInstanceAssociationsStatusResponse'
+      { nextToken =
+          Prelude.Nothing,
+        instanceAssociationStatusInfos =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
 
--- | Creates a value of 'DescribeInstanceAssociationsStatusResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'diasrsInstanceAssociationStatusInfos' - Status information about the association.
---
--- * 'diasrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
---
--- * 'diasrsResponseStatus' - -- | The response status code.
-describeInstanceAssociationsStatusResponse
-    :: Int -- ^ 'diasrsResponseStatus'
-    -> DescribeInstanceAssociationsStatusResponse
-describeInstanceAssociationsStatusResponse pResponseStatus_ =
-  DescribeInstanceAssociationsStatusResponse'
-    { _diasrsInstanceAssociationStatusInfos = Nothing
-    , _diasrsNextToken = Nothing
-    , _diasrsResponseStatus = pResponseStatus_
-    }
-
+-- | The token to use when requesting the next set of items. If there are no
+-- additional items to return, the string is empty.
+describeInstanceAssociationsStatusResponse_nextToken :: Lens.Lens' DescribeInstanceAssociationsStatusResponse (Prelude.Maybe Prelude.Text)
+describeInstanceAssociationsStatusResponse_nextToken = Lens.lens (\DescribeInstanceAssociationsStatusResponse' {nextToken} -> nextToken) (\s@DescribeInstanceAssociationsStatusResponse' {} a -> s {nextToken = a} :: DescribeInstanceAssociationsStatusResponse)
 
 -- | Status information about the association.
-diasrsInstanceAssociationStatusInfos :: Lens' DescribeInstanceAssociationsStatusResponse [InstanceAssociationStatusInfo]
-diasrsInstanceAssociationStatusInfos = lens _diasrsInstanceAssociationStatusInfos (\ s a -> s{_diasrsInstanceAssociationStatusInfos = a}) . _Default . _Coerce
+describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos :: Lens.Lens' DescribeInstanceAssociationsStatusResponse (Prelude.Maybe [InstanceAssociationStatusInfo])
+describeInstanceAssociationsStatusResponse_instanceAssociationStatusInfos = Lens.lens (\DescribeInstanceAssociationsStatusResponse' {instanceAssociationStatusInfos} -> instanceAssociationStatusInfos) (\s@DescribeInstanceAssociationsStatusResponse' {} a -> s {instanceAssociationStatusInfos = a} :: DescribeInstanceAssociationsStatusResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-diasrsNextToken :: Lens' DescribeInstanceAssociationsStatusResponse (Maybe Text)
-diasrsNextToken = lens _diasrsNextToken (\ s a -> s{_diasrsNextToken = a})
+-- | The response's http status code.
+describeInstanceAssociationsStatusResponse_httpStatus :: Lens.Lens' DescribeInstanceAssociationsStatusResponse Prelude.Int
+describeInstanceAssociationsStatusResponse_httpStatus = Lens.lens (\DescribeInstanceAssociationsStatusResponse' {httpStatus} -> httpStatus) (\s@DescribeInstanceAssociationsStatusResponse' {} a -> s {httpStatus = a} :: DescribeInstanceAssociationsStatusResponse)
 
--- | -- | The response status code.
-diasrsResponseStatus :: Lens' DescribeInstanceAssociationsStatusResponse Int
-diasrsResponseStatus = lens _diasrsResponseStatus (\ s a -> s{_diasrsResponseStatus = a})
-
-instance NFData
-           DescribeInstanceAssociationsStatusResponse
-         where
+instance
+  Prelude.NFData
+    DescribeInstanceAssociationsStatusResponse

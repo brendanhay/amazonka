@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AutoScaling.DescribeAutoScalingInstances
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,157 +23,227 @@
 --
 -- Describes one or more Auto Scaling instances.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.AutoScaling.DescribeAutoScalingInstances
-    (
-    -- * Creating a Request
-      describeAutoScalingInstances
-    , DescribeAutoScalingInstances
+  ( -- * Creating a Request
+    DescribeAutoScalingInstances (..),
+    newDescribeAutoScalingInstances,
+
     -- * Request Lenses
-    , dasiNextToken
-    , dasiInstanceIds
-    , dasiMaxRecords
+    describeAutoScalingInstances_instanceIds,
+    describeAutoScalingInstances_nextToken,
+    describeAutoScalingInstances_maxRecords,
 
     -- * Destructuring the Response
-    , describeAutoScalingInstancesResponse
-    , DescribeAutoScalingInstancesResponse
+    DescribeAutoScalingInstancesResponse (..),
+    newDescribeAutoScalingInstancesResponse,
+
     -- * Response Lenses
-    , dasirsNextToken
-    , dasirsAutoScalingInstances
-    , dasirsResponseStatus
-    ) where
+    describeAutoScalingInstancesResponse_nextToken,
+    describeAutoScalingInstancesResponse_autoScalingInstances,
+    describeAutoScalingInstancesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AutoScaling.Types
-import Network.AWS.AutoScaling.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeAutoScalingInstances' smart constructor.
+-- | /See:/ 'newDescribeAutoScalingInstances' smart constructor.
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
-  { _dasiNextToken   :: !(Maybe Text)
-  , _dasiInstanceIds :: !(Maybe [Text])
-  , _dasiMaxRecords  :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The IDs of the instances. You can specify up to @MaxRecords@ IDs. If you
+    -- omit this parameter, all Auto Scaling instances are described. If you
+    -- specify an ID that does not exist, it is ignored with no error.
+    instanceIds :: Prelude.Maybe [Prelude.Text],
+    -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to return with this call. The default value
+    -- is @50@ and the maximum value is @50@.
+    maxRecords :: Prelude.Maybe Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeAutoScalingInstances' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeAutoScalingInstances' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dasiNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dasiInstanceIds' - The instances to describe; up to 50 instance IDs. If you omit this parameter, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.
+-- 'instanceIds', 'describeAutoScalingInstances_instanceIds' - The IDs of the instances. You can specify up to @MaxRecords@ IDs. If you
+-- omit this parameter, all Auto Scaling instances are described. If you
+-- specify an ID that does not exist, it is ignored with no error.
 --
--- * 'dasiMaxRecords' - The maximum number of items to return with this call. The default value is 50 and the maximum value is 50.
-describeAutoScalingInstances
-    :: DescribeAutoScalingInstances
-describeAutoScalingInstances =
+-- 'nextToken', 'describeAutoScalingInstances_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
+--
+-- 'maxRecords', 'describeAutoScalingInstances_maxRecords' - The maximum number of items to return with this call. The default value
+-- is @50@ and the maximum value is @50@.
+newDescribeAutoScalingInstances ::
+  DescribeAutoScalingInstances
+newDescribeAutoScalingInstances =
   DescribeAutoScalingInstances'
-    { _dasiNextToken = Nothing
-    , _dasiInstanceIds = Nothing
-    , _dasiMaxRecords = Nothing
+    { instanceIds =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxRecords = Prelude.Nothing
     }
 
+-- | The IDs of the instances. You can specify up to @MaxRecords@ IDs. If you
+-- omit this parameter, all Auto Scaling instances are described. If you
+-- specify an ID that does not exist, it is ignored with no error.
+describeAutoScalingInstances_instanceIds :: Lens.Lens' DescribeAutoScalingInstances (Prelude.Maybe [Prelude.Text])
+describeAutoScalingInstances_instanceIds = Lens.lens (\DescribeAutoScalingInstances' {instanceIds} -> instanceIds) (\s@DescribeAutoScalingInstances' {} a -> s {instanceIds = a} :: DescribeAutoScalingInstances) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The token for the next set of items to return. (You received this token from a previous call.)
-dasiNextToken :: Lens' DescribeAutoScalingInstances (Maybe Text)
-dasiNextToken = lens _dasiNextToken (\ s a -> s{_dasiNextToken = a})
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describeAutoScalingInstances_nextToken :: Lens.Lens' DescribeAutoScalingInstances (Prelude.Maybe Prelude.Text)
+describeAutoScalingInstances_nextToken = Lens.lens (\DescribeAutoScalingInstances' {nextToken} -> nextToken) (\s@DescribeAutoScalingInstances' {} a -> s {nextToken = a} :: DescribeAutoScalingInstances)
 
--- | The instances to describe; up to 50 instance IDs. If you omit this parameter, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.
-dasiInstanceIds :: Lens' DescribeAutoScalingInstances [Text]
-dasiInstanceIds = lens _dasiInstanceIds (\ s a -> s{_dasiInstanceIds = a}) . _Default . _Coerce
+-- | The maximum number of items to return with this call. The default value
+-- is @50@ and the maximum value is @50@.
+describeAutoScalingInstances_maxRecords :: Lens.Lens' DescribeAutoScalingInstances (Prelude.Maybe Prelude.Int)
+describeAutoScalingInstances_maxRecords = Lens.lens (\DescribeAutoScalingInstances' {maxRecords} -> maxRecords) (\s@DescribeAutoScalingInstances' {} a -> s {maxRecords = a} :: DescribeAutoScalingInstances)
 
--- | The maximum number of items to return with this call. The default value is 50 and the maximum value is 50.
-dasiMaxRecords :: Lens' DescribeAutoScalingInstances (Maybe Int)
-dasiMaxRecords = lens _dasiMaxRecords (\ s a -> s{_dasiMaxRecords = a})
+instance Pager.AWSPager DescribeAutoScalingInstances where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describeAutoScalingInstancesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describeAutoScalingInstancesResponse_autoScalingInstances
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describeAutoScalingInstances_nextToken
+          Lens..~ rs
+          Lens.^? describeAutoScalingInstancesResponse_nextToken
+            Prelude.. Lens._Just
 
-instance AWSPager DescribeAutoScalingInstances where
-        page rq rs
-          | stop (rs ^. dasirsNextToken) = Nothing
-          | stop (rs ^. dasirsAutoScalingInstances) = Nothing
-          | otherwise =
-            Just $ rq & dasiNextToken .~ rs ^. dasirsNextToken
+instance
+  Prelude.AWSRequest
+    DescribeAutoScalingInstances
+  where
+  type
+    Rs DescribeAutoScalingInstances =
+      DescribeAutoScalingInstancesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeAutoScalingInstancesResult"
+      ( \s h x ->
+          DescribeAutoScalingInstancesResponse'
+            Prelude.<$> (x Prelude..@? "NextToken")
+            Prelude.<*> ( x Prelude..@? "AutoScalingInstances"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeAutoScalingInstances
-         where
-        type Rs DescribeAutoScalingInstances =
-             DescribeAutoScalingInstancesResponse
-        request = postQuery autoScaling
-        response
-          = receiveXMLWrapper
-              "DescribeAutoScalingInstancesResult"
-              (\ s h x ->
-                 DescribeAutoScalingInstancesResponse' <$>
-                   (x .@? "NextToken") <*>
-                     (x .@? "AutoScalingInstances" .!@ mempty >>=
-                        may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+instance
+  Prelude.Hashable
+    DescribeAutoScalingInstances
 
-instance Hashable DescribeAutoScalingInstances where
+instance Prelude.NFData DescribeAutoScalingInstances
 
-instance NFData DescribeAutoScalingInstances where
+instance
+  Prelude.ToHeaders
+    DescribeAutoScalingInstances
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders DescribeAutoScalingInstances where
-        toHeaders = const mempty
+instance Prelude.ToPath DescribeAutoScalingInstances where
+  toPath = Prelude.const "/"
 
-instance ToPath DescribeAutoScalingInstances where
-        toPath = const "/"
+instance Prelude.ToQuery DescribeAutoScalingInstances where
+  toQuery DescribeAutoScalingInstances' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ( "DescribeAutoScalingInstances" ::
+                         Prelude.ByteString
+                     ),
+        "Version"
+          Prelude.=: ("2011-01-01" :: Prelude.ByteString),
+        "InstanceIds"
+          Prelude.=: Prelude.toQuery
+            ( Prelude.toQueryList "member"
+                Prelude.<$> instanceIds
+            ),
+        "NextToken" Prelude.=: nextToken,
+        "MaxRecords" Prelude.=: maxRecords
+      ]
 
-instance ToQuery DescribeAutoScalingInstances where
-        toQuery DescribeAutoScalingInstances'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeAutoScalingInstances" :: ByteString),
-               "Version" =: ("2011-01-01" :: ByteString),
-               "NextToken" =: _dasiNextToken,
-               "InstanceIds" =:
-                 toQuery (toQueryList "member" <$> _dasiInstanceIds),
-               "MaxRecords" =: _dasiMaxRecords]
-
--- | /See:/ 'describeAutoScalingInstancesResponse' smart constructor.
+-- | /See:/ 'newDescribeAutoScalingInstancesResponse' smart constructor.
 data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse'
-  { _dasirsNextToken            :: !(Maybe Text)
-  , _dasirsAutoScalingInstances :: !(Maybe [AutoScalingInstanceDetails])
-  , _dasirsResponseStatus       :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A string that indicates that the response contains more items than can
+    -- be returned in a single response. To receive additional items, specify
+    -- this string for the @NextToken@ value when requesting the next set of
+    -- items. This value is null when there are no more items to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The instances.
+    autoScalingInstances :: Prelude.Maybe [AutoScalingInstanceDetails],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeAutoScalingInstancesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeAutoScalingInstancesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dasirsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dasirsAutoScalingInstances' - The instances.
+-- 'nextToken', 'describeAutoScalingInstancesResponse_nextToken' - A string that indicates that the response contains more items than can
+-- be returned in a single response. To receive additional items, specify
+-- this string for the @NextToken@ value when requesting the next set of
+-- items. This value is null when there are no more items to return.
 --
--- * 'dasirsResponseStatus' - -- | The response status code.
-describeAutoScalingInstancesResponse
-    :: Int -- ^ 'dasirsResponseStatus'
-    -> DescribeAutoScalingInstancesResponse
-describeAutoScalingInstancesResponse pResponseStatus_ =
+-- 'autoScalingInstances', 'describeAutoScalingInstancesResponse_autoScalingInstances' - The instances.
+--
+-- 'httpStatus', 'describeAutoScalingInstancesResponse_httpStatus' - The response's http status code.
+newDescribeAutoScalingInstancesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeAutoScalingInstancesResponse
+newDescribeAutoScalingInstancesResponse pHttpStatus_ =
   DescribeAutoScalingInstancesResponse'
-    { _dasirsNextToken = Nothing
-    , _dasirsAutoScalingInstances = Nothing
-    , _dasirsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      autoScalingInstances =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-dasirsNextToken :: Lens' DescribeAutoScalingInstancesResponse (Maybe Text)
-dasirsNextToken = lens _dasirsNextToken (\ s a -> s{_dasirsNextToken = a})
+-- | A string that indicates that the response contains more items than can
+-- be returned in a single response. To receive additional items, specify
+-- this string for the @NextToken@ value when requesting the next set of
+-- items. This value is null when there are no more items to return.
+describeAutoScalingInstancesResponse_nextToken :: Lens.Lens' DescribeAutoScalingInstancesResponse (Prelude.Maybe Prelude.Text)
+describeAutoScalingInstancesResponse_nextToken = Lens.lens (\DescribeAutoScalingInstancesResponse' {nextToken} -> nextToken) (\s@DescribeAutoScalingInstancesResponse' {} a -> s {nextToken = a} :: DescribeAutoScalingInstancesResponse)
 
 -- | The instances.
-dasirsAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse [AutoScalingInstanceDetails]
-dasirsAutoScalingInstances = lens _dasirsAutoScalingInstances (\ s a -> s{_dasirsAutoScalingInstances = a}) . _Default . _Coerce
+describeAutoScalingInstancesResponse_autoScalingInstances :: Lens.Lens' DescribeAutoScalingInstancesResponse (Prelude.Maybe [AutoScalingInstanceDetails])
+describeAutoScalingInstancesResponse_autoScalingInstances = Lens.lens (\DescribeAutoScalingInstancesResponse' {autoScalingInstances} -> autoScalingInstances) (\s@DescribeAutoScalingInstancesResponse' {} a -> s {autoScalingInstances = a} :: DescribeAutoScalingInstancesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-dasirsResponseStatus :: Lens' DescribeAutoScalingInstancesResponse Int
-dasirsResponseStatus = lens _dasirsResponseStatus (\ s a -> s{_dasirsResponseStatus = a})
+-- | The response's http status code.
+describeAutoScalingInstancesResponse_httpStatus :: Lens.Lens' DescribeAutoScalingInstancesResponse Prelude.Int
+describeAutoScalingInstancesResponse_httpStatus = Lens.lens (\DescribeAutoScalingInstancesResponse' {httpStatus} -> httpStatus) (\s@DescribeAutoScalingInstancesResponse' {} a -> s {httpStatus = a} :: DescribeAutoScalingInstancesResponse)
 
-instance NFData DescribeAutoScalingInstancesResponse
-         where
+instance
+  Prelude.NFData
+    DescribeAutoScalingInstancesResponse

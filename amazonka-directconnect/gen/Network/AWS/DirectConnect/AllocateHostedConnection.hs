@@ -1,160 +1,223 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectConnect.AllocateHostedConnection
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a hosted connection on an interconnect or a link aggregation group (LAG).
+-- Creates a hosted connection on the specified interconnect or a link
+-- aggregation group (LAG) of interconnects.
 --
+-- Allocates a VLAN number and a specified amount of capacity (bandwidth)
+-- for use by a hosted connection on the specified interconnect or LAG of
+-- interconnects. AWS polices the hosted connection for the specified
+-- capacity and the AWS Direct Connect Partner must also police the hosted
+-- connection for the specified capacity.
 --
--- Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the given interconnect or LAG.
---
+-- Intended for use by AWS Direct Connect Partners only.
 module Network.AWS.DirectConnect.AllocateHostedConnection
-    (
-    -- * Creating a Request
-      allocateHostedConnection
-    , AllocateHostedConnection
+  ( -- * Creating a Request
+    AllocateHostedConnection (..),
+    newAllocateHostedConnection,
+
     -- * Request Lenses
-    , ahcConnectionId
-    , ahcOwnerAccount
-    , ahcBandwidth
-    , ahcConnectionName
-    , ahcVlan
+    allocateHostedConnection_tags,
+    allocateHostedConnection_connectionId,
+    allocateHostedConnection_ownerAccount,
+    allocateHostedConnection_bandwidth,
+    allocateHostedConnection_connectionName,
+    allocateHostedConnection_vlan,
 
     -- * Destructuring the Response
-    , connection
-    , Connection
+    Connection (..),
+    newConnection,
+
     -- * Response Lenses
-    , cLagId
-    , cVlan
-    , cLocation
-    , cAwsDevice
-    , cConnectionId
-    , cLoaIssueTime
-    , cPartnerName
-    , cConnectionName
-    , cBandwidth
-    , cOwnerAccount
-    , cRegion
-    , cConnectionState
-    ) where
+    connection_bandwidth,
+    connection_connectionState,
+    connection_awsDeviceV2,
+    connection_connectionName,
+    connection_providerName,
+    connection_connectionId,
+    connection_hasLogicalRedundancy,
+    connection_awsDevice,
+    connection_jumboFrameCapable,
+    connection_lagId,
+    connection_partnerName,
+    connection_tags,
+    connection_loaIssueTime,
+    connection_ownerAccount,
+    connection_region,
+    connection_location,
+    connection_vlan,
+  )
+where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for the parameters to theHostedConnection operation.
---
---
---
--- /See:/ 'allocateHostedConnection' smart constructor.
+-- | /See:/ 'newAllocateHostedConnection' smart constructor.
 data AllocateHostedConnection = AllocateHostedConnection'
-  { _ahcConnectionId   :: !Text
-  , _ahcOwnerAccount   :: !Text
-  , _ahcBandwidth      :: !Text
-  , _ahcConnectionName :: !Text
-  , _ahcVlan           :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The tags associated with the connection.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The ID of the interconnect or LAG.
+    connectionId :: Prelude.Text,
+    -- | The ID of the AWS account ID of the customer for the connection.
+    ownerAccount :: Prelude.Text,
+    -- | The bandwidth of the connection. The possible values are 50Mbps,
+    -- 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and
+    -- 10Gbps. Note that only those AWS Direct Connect Partners who have met
+    -- specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or
+    -- 10Gbps hosted connection.
+    bandwidth :: Prelude.Text,
+    -- | The name of the hosted connection.
+    connectionName :: Prelude.Text,
+    -- | The dedicated VLAN provisioned to the hosted connection.
+    vlan :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'AllocateHostedConnection' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'AllocateHostedConnection' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ahcConnectionId' - The ID of the interconnect or LAG on which the connection will be provisioned. Example: dxcon-456abc78 or dxlag-abc123 Default: None
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ahcOwnerAccount' - The numeric account ID of the customer for whom the connection will be provisioned. Example: 123443215678 Default: None
+-- 'tags', 'allocateHostedConnection_tags' - The tags associated with the connection.
 --
--- * 'ahcBandwidth' - The bandwidth of the connection. Example: @500Mbps@  Default: None Values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, or 500Mbps
+-- 'connectionId', 'allocateHostedConnection_connectionId' - The ID of the interconnect or LAG.
 --
--- * 'ahcConnectionName' - The name of the provisioned connection. Example: "@500M Connection to AWS@ " Default: None
+-- 'ownerAccount', 'allocateHostedConnection_ownerAccount' - The ID of the AWS account ID of the customer for the connection.
 --
--- * 'ahcVlan' - The dedicated VLAN provisioned to the hosted connection. Example: 101 Default: None
-allocateHostedConnection
-    :: Text -- ^ 'ahcConnectionId'
-    -> Text -- ^ 'ahcOwnerAccount'
-    -> Text -- ^ 'ahcBandwidth'
-    -> Text -- ^ 'ahcConnectionName'
-    -> Int -- ^ 'ahcVlan'
-    -> AllocateHostedConnection
-allocateHostedConnection pConnectionId_ pOwnerAccount_ pBandwidth_ pConnectionName_ pVlan_ =
-  AllocateHostedConnection'
-    { _ahcConnectionId = pConnectionId_
-    , _ahcOwnerAccount = pOwnerAccount_
-    , _ahcBandwidth = pBandwidth_
-    , _ahcConnectionName = pConnectionName_
-    , _ahcVlan = pVlan_
-    }
+-- 'bandwidth', 'allocateHostedConnection_bandwidth' - The bandwidth of the connection. The possible values are 50Mbps,
+-- 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and
+-- 10Gbps. Note that only those AWS Direct Connect Partners who have met
+-- specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or
+-- 10Gbps hosted connection.
+--
+-- 'connectionName', 'allocateHostedConnection_connectionName' - The name of the hosted connection.
+--
+-- 'vlan', 'allocateHostedConnection_vlan' - The dedicated VLAN provisioned to the hosted connection.
+newAllocateHostedConnection ::
+  -- | 'connectionId'
+  Prelude.Text ->
+  -- | 'ownerAccount'
+  Prelude.Text ->
+  -- | 'bandwidth'
+  Prelude.Text ->
+  -- | 'connectionName'
+  Prelude.Text ->
+  -- | 'vlan'
+  Prelude.Int ->
+  AllocateHostedConnection
+newAllocateHostedConnection
+  pConnectionId_
+  pOwnerAccount_
+  pBandwidth_
+  pConnectionName_
+  pVlan_ =
+    AllocateHostedConnection'
+      { tags = Prelude.Nothing,
+        connectionId = pConnectionId_,
+        ownerAccount = pOwnerAccount_,
+        bandwidth = pBandwidth_,
+        connectionName = pConnectionName_,
+        vlan = pVlan_
+      }
 
+-- | The tags associated with the connection.
+allocateHostedConnection_tags :: Lens.Lens' AllocateHostedConnection (Prelude.Maybe (Prelude.NonEmpty Tag))
+allocateHostedConnection_tags = Lens.lens (\AllocateHostedConnection' {tags} -> tags) (\s@AllocateHostedConnection' {} a -> s {tags = a} :: AllocateHostedConnection) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The ID of the interconnect or LAG on which the connection will be provisioned. Example: dxcon-456abc78 or dxlag-abc123 Default: None
-ahcConnectionId :: Lens' AllocateHostedConnection Text
-ahcConnectionId = lens _ahcConnectionId (\ s a -> s{_ahcConnectionId = a})
+-- | The ID of the interconnect or LAG.
+allocateHostedConnection_connectionId :: Lens.Lens' AllocateHostedConnection Prelude.Text
+allocateHostedConnection_connectionId = Lens.lens (\AllocateHostedConnection' {connectionId} -> connectionId) (\s@AllocateHostedConnection' {} a -> s {connectionId = a} :: AllocateHostedConnection)
 
--- | The numeric account ID of the customer for whom the connection will be provisioned. Example: 123443215678 Default: None
-ahcOwnerAccount :: Lens' AllocateHostedConnection Text
-ahcOwnerAccount = lens _ahcOwnerAccount (\ s a -> s{_ahcOwnerAccount = a})
+-- | The ID of the AWS account ID of the customer for the connection.
+allocateHostedConnection_ownerAccount :: Lens.Lens' AllocateHostedConnection Prelude.Text
+allocateHostedConnection_ownerAccount = Lens.lens (\AllocateHostedConnection' {ownerAccount} -> ownerAccount) (\s@AllocateHostedConnection' {} a -> s {ownerAccount = a} :: AllocateHostedConnection)
 
--- | The bandwidth of the connection. Example: @500Mbps@  Default: None Values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, or 500Mbps
-ahcBandwidth :: Lens' AllocateHostedConnection Text
-ahcBandwidth = lens _ahcBandwidth (\ s a -> s{_ahcBandwidth = a})
+-- | The bandwidth of the connection. The possible values are 50Mbps,
+-- 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and
+-- 10Gbps. Note that only those AWS Direct Connect Partners who have met
+-- specific requirements are allowed to create a 1Gbps, 2Gbps, 5Gbps or
+-- 10Gbps hosted connection.
+allocateHostedConnection_bandwidth :: Lens.Lens' AllocateHostedConnection Prelude.Text
+allocateHostedConnection_bandwidth = Lens.lens (\AllocateHostedConnection' {bandwidth} -> bandwidth) (\s@AllocateHostedConnection' {} a -> s {bandwidth = a} :: AllocateHostedConnection)
 
--- | The name of the provisioned connection. Example: "@500M Connection to AWS@ " Default: None
-ahcConnectionName :: Lens' AllocateHostedConnection Text
-ahcConnectionName = lens _ahcConnectionName (\ s a -> s{_ahcConnectionName = a})
+-- | The name of the hosted connection.
+allocateHostedConnection_connectionName :: Lens.Lens' AllocateHostedConnection Prelude.Text
+allocateHostedConnection_connectionName = Lens.lens (\AllocateHostedConnection' {connectionName} -> connectionName) (\s@AllocateHostedConnection' {} a -> s {connectionName = a} :: AllocateHostedConnection)
 
--- | The dedicated VLAN provisioned to the hosted connection. Example: 101 Default: None
-ahcVlan :: Lens' AllocateHostedConnection Int
-ahcVlan = lens _ahcVlan (\ s a -> s{_ahcVlan = a})
+-- | The dedicated VLAN provisioned to the hosted connection.
+allocateHostedConnection_vlan :: Lens.Lens' AllocateHostedConnection Prelude.Int
+allocateHostedConnection_vlan = Lens.lens (\AllocateHostedConnection' {vlan} -> vlan) (\s@AllocateHostedConnection' {} a -> s {vlan = a} :: AllocateHostedConnection)
 
-instance AWSRequest AllocateHostedConnection where
-        type Rs AllocateHostedConnection = Connection
-        request = postJSON directConnect
-        response = receiveJSON (\ s h x -> eitherParseJSON x)
+instance Prelude.AWSRequest AllocateHostedConnection where
+  type Rs AllocateHostedConnection = Connection
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      (\s h x -> Prelude.eitherParseJSON x)
 
-instance Hashable AllocateHostedConnection where
+instance Prelude.Hashable AllocateHostedConnection
 
-instance NFData AllocateHostedConnection where
+instance Prelude.NFData AllocateHostedConnection
 
-instance ToHeaders AllocateHostedConnection where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OvertureService.AllocateHostedConnection" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders AllocateHostedConnection where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "OvertureService.AllocateHostedConnection" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON AllocateHostedConnection where
-        toJSON AllocateHostedConnection'{..}
-          = object
-              (catMaybes
-                 [Just ("connectionId" .= _ahcConnectionId),
-                  Just ("ownerAccount" .= _ahcOwnerAccount),
-                  Just ("bandwidth" .= _ahcBandwidth),
-                  Just ("connectionName" .= _ahcConnectionName),
-                  Just ("vlan" .= _ahcVlan)])
+instance Prelude.ToJSON AllocateHostedConnection where
+  toJSON AllocateHostedConnection' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("tags" Prelude..=) Prelude.<$> tags,
+            Prelude.Just
+              ("connectionId" Prelude..= connectionId),
+            Prelude.Just
+              ("ownerAccount" Prelude..= ownerAccount),
+            Prelude.Just ("bandwidth" Prelude..= bandwidth),
+            Prelude.Just
+              ("connectionName" Prelude..= connectionName),
+            Prelude.Just ("vlan" Prelude..= vlan)
+          ]
+      )
 
-instance ToPath AllocateHostedConnection where
-        toPath = const "/"
+instance Prelude.ToPath AllocateHostedConnection where
+  toPath = Prelude.const "/"
 
-instance ToQuery AllocateHostedConnection where
-        toQuery = const mempty
+instance Prelude.ToQuery AllocateHostedConnection where
+  toQuery = Prelude.const Prelude.mempty

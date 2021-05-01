@@ -1,204 +1,266 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DataPipeline.PutPipelineDefinition
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Adds tasks, schedules, and preconditions to the specified pipeline. You can use @PutPipelineDefinition@ to populate a new pipeline.
+-- Adds tasks, schedules, and preconditions to the specified pipeline. You
+-- can use @PutPipelineDefinition@ to populate a new pipeline.
 --
+-- @PutPipelineDefinition@ also validates the configuration as it adds it
+-- to the pipeline. Changes to the pipeline are saved unless one of the
+-- following three validation errors exists in the pipeline.
 --
--- @PutPipelineDefinition@ also validates the configuration as it adds it to the pipeline. Changes to the pipeline are saved unless one of the following three validation errors exists in the pipeline.
+-- 1.  An object is missing a name or identifier field.
+-- 2.  A string or reference field is empty.
+-- 3.  The number of objects in the pipeline exceeds the maximum allowed
+--     objects.
+-- 4.  The pipeline is in a FINISHED state.
 --
---     * An object is missing a name or identifier field.    * A string or reference field is empty.    * The number of objects in the pipeline exceeds the maximum allowed objects.    * The pipeline is in a FINISHED state.
---
--- Pipeline object definitions are passed to the @PutPipelineDefinition@ action and returned by the 'GetPipelineDefinition' action.
---
+-- Pipeline object definitions are passed to the @PutPipelineDefinition@
+-- action and returned by the GetPipelineDefinition action.
 module Network.AWS.DataPipeline.PutPipelineDefinition
-    (
-    -- * Creating a Request
-      putPipelineDefinition
-    , PutPipelineDefinition
+  ( -- * Creating a Request
+    PutPipelineDefinition (..),
+    newPutPipelineDefinition,
+
     -- * Request Lenses
-    , ppdParameterObjects
-    , ppdParameterValues
-    , ppdPipelineId
-    , ppdPipelineObjects
+    putPipelineDefinition_parameterValues,
+    putPipelineDefinition_parameterObjects,
+    putPipelineDefinition_pipelineId,
+    putPipelineDefinition_pipelineObjects,
 
     -- * Destructuring the Response
-    , putPipelineDefinitionResponse
-    , PutPipelineDefinitionResponse
+    PutPipelineDefinitionResponse (..),
+    newPutPipelineDefinitionResponse,
+
     -- * Response Lenses
-    , ppdrsValidationErrors
-    , ppdrsValidationWarnings
-    , ppdrsResponseStatus
-    , ppdrsErrored
-    ) where
+    putPipelineDefinitionResponse_validationErrors,
+    putPipelineDefinitionResponse_validationWarnings,
+    putPipelineDefinitionResponse_httpStatus,
+    putPipelineDefinitionResponse_errored,
+  )
+where
 
 import Network.AWS.DataPipeline.Types
-import Network.AWS.DataPipeline.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for PutPipelineDefinition.
 --
---
---
--- /See:/ 'putPipelineDefinition' smart constructor.
+-- /See:/ 'newPutPipelineDefinition' smart constructor.
 data PutPipelineDefinition = PutPipelineDefinition'
-  { _ppdParameterObjects :: !(Maybe [ParameterObject])
-  , _ppdParameterValues  :: !(Maybe [ParameterValue])
-  , _ppdPipelineId       :: !Text
-  , _ppdPipelineObjects  :: ![PipelineObject]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The parameter values used with the pipeline.
+    parameterValues :: Prelude.Maybe [ParameterValue],
+    -- | The parameter objects used with the pipeline.
+    parameterObjects :: Prelude.Maybe [ParameterObject],
+    -- | The ID of the pipeline.
+    pipelineId :: Prelude.Text,
+    -- | The objects that define the pipeline. These objects overwrite the
+    -- existing pipeline definition.
+    pipelineObjects :: [PipelineObject]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'PutPipelineDefinition' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PutPipelineDefinition' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ppdParameterObjects' - The parameter objects used with the pipeline.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ppdParameterValues' - The parameter values used with the pipeline.
+-- 'parameterValues', 'putPipelineDefinition_parameterValues' - The parameter values used with the pipeline.
 --
--- * 'ppdPipelineId' - The ID of the pipeline.
+-- 'parameterObjects', 'putPipelineDefinition_parameterObjects' - The parameter objects used with the pipeline.
 --
--- * 'ppdPipelineObjects' - The objects that define the pipeline. These objects overwrite the existing pipeline definition.
-putPipelineDefinition
-    :: Text -- ^ 'ppdPipelineId'
-    -> PutPipelineDefinition
-putPipelineDefinition pPipelineId_ =
+-- 'pipelineId', 'putPipelineDefinition_pipelineId' - The ID of the pipeline.
+--
+-- 'pipelineObjects', 'putPipelineDefinition_pipelineObjects' - The objects that define the pipeline. These objects overwrite the
+-- existing pipeline definition.
+newPutPipelineDefinition ::
+  -- | 'pipelineId'
+  Prelude.Text ->
+  PutPipelineDefinition
+newPutPipelineDefinition pPipelineId_ =
   PutPipelineDefinition'
-    { _ppdParameterObjects = Nothing
-    , _ppdParameterValues = Nothing
-    , _ppdPipelineId = pPipelineId_
-    , _ppdPipelineObjects = mempty
+    { parameterValues =
+        Prelude.Nothing,
+      parameterObjects = Prelude.Nothing,
+      pipelineId = pPipelineId_,
+      pipelineObjects = Prelude.mempty
     }
 
+-- | The parameter values used with the pipeline.
+putPipelineDefinition_parameterValues :: Lens.Lens' PutPipelineDefinition (Prelude.Maybe [ParameterValue])
+putPipelineDefinition_parameterValues = Lens.lens (\PutPipelineDefinition' {parameterValues} -> parameterValues) (\s@PutPipelineDefinition' {} a -> s {parameterValues = a} :: PutPipelineDefinition) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | The parameter objects used with the pipeline.
-ppdParameterObjects :: Lens' PutPipelineDefinition [ParameterObject]
-ppdParameterObjects = lens _ppdParameterObjects (\ s a -> s{_ppdParameterObjects = a}) . _Default . _Coerce
-
--- | The parameter values used with the pipeline.
-ppdParameterValues :: Lens' PutPipelineDefinition [ParameterValue]
-ppdParameterValues = lens _ppdParameterValues (\ s a -> s{_ppdParameterValues = a}) . _Default . _Coerce
+putPipelineDefinition_parameterObjects :: Lens.Lens' PutPipelineDefinition (Prelude.Maybe [ParameterObject])
+putPipelineDefinition_parameterObjects = Lens.lens (\PutPipelineDefinition' {parameterObjects} -> parameterObjects) (\s@PutPipelineDefinition' {} a -> s {parameterObjects = a} :: PutPipelineDefinition) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | The ID of the pipeline.
-ppdPipelineId :: Lens' PutPipelineDefinition Text
-ppdPipelineId = lens _ppdPipelineId (\ s a -> s{_ppdPipelineId = a})
+putPipelineDefinition_pipelineId :: Lens.Lens' PutPipelineDefinition Prelude.Text
+putPipelineDefinition_pipelineId = Lens.lens (\PutPipelineDefinition' {pipelineId} -> pipelineId) (\s@PutPipelineDefinition' {} a -> s {pipelineId = a} :: PutPipelineDefinition)
 
--- | The objects that define the pipeline. These objects overwrite the existing pipeline definition.
-ppdPipelineObjects :: Lens' PutPipelineDefinition [PipelineObject]
-ppdPipelineObjects = lens _ppdPipelineObjects (\ s a -> s{_ppdPipelineObjects = a}) . _Coerce
+-- | The objects that define the pipeline. These objects overwrite the
+-- existing pipeline definition.
+putPipelineDefinition_pipelineObjects :: Lens.Lens' PutPipelineDefinition [PipelineObject]
+putPipelineDefinition_pipelineObjects = Lens.lens (\PutPipelineDefinition' {pipelineObjects} -> pipelineObjects) (\s@PutPipelineDefinition' {} a -> s {pipelineObjects = a} :: PutPipelineDefinition) Prelude.. Prelude._Coerce
 
-instance AWSRequest PutPipelineDefinition where
-        type Rs PutPipelineDefinition =
-             PutPipelineDefinitionResponse
-        request = postJSON dataPipeline
-        response
-          = receiveJSON
-              (\ s h x ->
-                 PutPipelineDefinitionResponse' <$>
-                   (x .?> "validationErrors" .!@ mempty) <*>
-                     (x .?> "validationWarnings" .!@ mempty)
-                     <*> (pure (fromEnum s))
-                     <*> (x .:> "errored"))
+instance Prelude.AWSRequest PutPipelineDefinition where
+  type
+    Rs PutPipelineDefinition =
+      PutPipelineDefinitionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          PutPipelineDefinitionResponse'
+            Prelude.<$> ( x Prelude..?> "validationErrors"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> ( x Prelude..?> "validationWarnings"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Prelude..:> "errored")
+      )
 
-instance Hashable PutPipelineDefinition where
+instance Prelude.Hashable PutPipelineDefinition
 
-instance NFData PutPipelineDefinition where
+instance Prelude.NFData PutPipelineDefinition
 
-instance ToHeaders PutPipelineDefinition where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DataPipeline.PutPipelineDefinition" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders PutPipelineDefinition where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "DataPipeline.PutPipelineDefinition" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON PutPipelineDefinition where
-        toJSON PutPipelineDefinition'{..}
-          = object
-              (catMaybes
-                 [("parameterObjects" .=) <$> _ppdParameterObjects,
-                  ("parameterValues" .=) <$> _ppdParameterValues,
-                  Just ("pipelineId" .= _ppdPipelineId),
-                  Just ("pipelineObjects" .= _ppdPipelineObjects)])
+instance Prelude.ToJSON PutPipelineDefinition where
+  toJSON PutPipelineDefinition' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("parameterValues" Prelude..=)
+              Prelude.<$> parameterValues,
+            ("parameterObjects" Prelude..=)
+              Prelude.<$> parameterObjects,
+            Prelude.Just ("pipelineId" Prelude..= pipelineId),
+            Prelude.Just
+              ("pipelineObjects" Prelude..= pipelineObjects)
+          ]
+      )
 
-instance ToPath PutPipelineDefinition where
-        toPath = const "/"
+instance Prelude.ToPath PutPipelineDefinition where
+  toPath = Prelude.const "/"
 
-instance ToQuery PutPipelineDefinition where
-        toQuery = const mempty
+instance Prelude.ToQuery PutPipelineDefinition where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the output of PutPipelineDefinition.
 --
---
---
--- /See:/ 'putPipelineDefinitionResponse' smart constructor.
+-- /See:/ 'newPutPipelineDefinitionResponse' smart constructor.
 data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'
-  { _ppdrsValidationErrors   :: !(Maybe [ValidationError])
-  , _ppdrsValidationWarnings :: !(Maybe [ValidationWarning])
-  , _ppdrsResponseStatus     :: !Int
-  , _ppdrsErrored            :: !Bool
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The validation errors that are associated with the objects defined in
+    -- @pipelineObjects@.
+    validationErrors :: Prelude.Maybe [ValidationError],
+    -- | The validation warnings that are associated with the objects defined in
+    -- @pipelineObjects@.
+    validationWarnings :: Prelude.Maybe [ValidationWarning],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | Indicates whether there were validation errors, and the pipeline
+    -- definition is stored but cannot be activated until you correct the
+    -- pipeline and call @PutPipelineDefinition@ to commit the corrected
+    -- pipeline.
+    errored :: Prelude.Bool
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'PutPipelineDefinitionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PutPipelineDefinitionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ppdrsValidationErrors' - The validation errors that are associated with the objects defined in @pipelineObjects@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ppdrsValidationWarnings' - The validation warnings that are associated with the objects defined in @pipelineObjects@ .
+-- 'validationErrors', 'putPipelineDefinitionResponse_validationErrors' - The validation errors that are associated with the objects defined in
+-- @pipelineObjects@.
 --
--- * 'ppdrsResponseStatus' - -- | The response status code.
+-- 'validationWarnings', 'putPipelineDefinitionResponse_validationWarnings' - The validation warnings that are associated with the objects defined in
+-- @pipelineObjects@.
 --
--- * 'ppdrsErrored' - Indicates whether there were validation errors, and the pipeline definition is stored but cannot be activated until you correct the pipeline and call @PutPipelineDefinition@ to commit the corrected pipeline.
-putPipelineDefinitionResponse
-    :: Int -- ^ 'ppdrsResponseStatus'
-    -> Bool -- ^ 'ppdrsErrored'
-    -> PutPipelineDefinitionResponse
-putPipelineDefinitionResponse pResponseStatus_ pErrored_ =
-  PutPipelineDefinitionResponse'
-    { _ppdrsValidationErrors = Nothing
-    , _ppdrsValidationWarnings = Nothing
-    , _ppdrsResponseStatus = pResponseStatus_
-    , _ppdrsErrored = pErrored_
-    }
+-- 'httpStatus', 'putPipelineDefinitionResponse_httpStatus' - The response's http status code.
+--
+-- 'errored', 'putPipelineDefinitionResponse_errored' - Indicates whether there were validation errors, and the pipeline
+-- definition is stored but cannot be activated until you correct the
+-- pipeline and call @PutPipelineDefinition@ to commit the corrected
+-- pipeline.
+newPutPipelineDefinitionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'errored'
+  Prelude.Bool ->
+  PutPipelineDefinitionResponse
+newPutPipelineDefinitionResponse
+  pHttpStatus_
+  pErrored_ =
+    PutPipelineDefinitionResponse'
+      { validationErrors =
+          Prelude.Nothing,
+        validationWarnings = Prelude.Nothing,
+        httpStatus = pHttpStatus_,
+        errored = pErrored_
+      }
 
+-- | The validation errors that are associated with the objects defined in
+-- @pipelineObjects@.
+putPipelineDefinitionResponse_validationErrors :: Lens.Lens' PutPipelineDefinitionResponse (Prelude.Maybe [ValidationError])
+putPipelineDefinitionResponse_validationErrors = Lens.lens (\PutPipelineDefinitionResponse' {validationErrors} -> validationErrors) (\s@PutPipelineDefinitionResponse' {} a -> s {validationErrors = a} :: PutPipelineDefinitionResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The validation errors that are associated with the objects defined in @pipelineObjects@ .
-ppdrsValidationErrors :: Lens' PutPipelineDefinitionResponse [ValidationError]
-ppdrsValidationErrors = lens _ppdrsValidationErrors (\ s a -> s{_ppdrsValidationErrors = a}) . _Default . _Coerce
+-- | The validation warnings that are associated with the objects defined in
+-- @pipelineObjects@.
+putPipelineDefinitionResponse_validationWarnings :: Lens.Lens' PutPipelineDefinitionResponse (Prelude.Maybe [ValidationWarning])
+putPipelineDefinitionResponse_validationWarnings = Lens.lens (\PutPipelineDefinitionResponse' {validationWarnings} -> validationWarnings) (\s@PutPipelineDefinitionResponse' {} a -> s {validationWarnings = a} :: PutPipelineDefinitionResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The validation warnings that are associated with the objects defined in @pipelineObjects@ .
-ppdrsValidationWarnings :: Lens' PutPipelineDefinitionResponse [ValidationWarning]
-ppdrsValidationWarnings = lens _ppdrsValidationWarnings (\ s a -> s{_ppdrsValidationWarnings = a}) . _Default . _Coerce
+-- | The response's http status code.
+putPipelineDefinitionResponse_httpStatus :: Lens.Lens' PutPipelineDefinitionResponse Prelude.Int
+putPipelineDefinitionResponse_httpStatus = Lens.lens (\PutPipelineDefinitionResponse' {httpStatus} -> httpStatus) (\s@PutPipelineDefinitionResponse' {} a -> s {httpStatus = a} :: PutPipelineDefinitionResponse)
 
--- | -- | The response status code.
-ppdrsResponseStatus :: Lens' PutPipelineDefinitionResponse Int
-ppdrsResponseStatus = lens _ppdrsResponseStatus (\ s a -> s{_ppdrsResponseStatus = a})
+-- | Indicates whether there were validation errors, and the pipeline
+-- definition is stored but cannot be activated until you correct the
+-- pipeline and call @PutPipelineDefinition@ to commit the corrected
+-- pipeline.
+putPipelineDefinitionResponse_errored :: Lens.Lens' PutPipelineDefinitionResponse Prelude.Bool
+putPipelineDefinitionResponse_errored = Lens.lens (\PutPipelineDefinitionResponse' {errored} -> errored) (\s@PutPipelineDefinitionResponse' {} a -> s {errored = a} :: PutPipelineDefinitionResponse)
 
--- | Indicates whether there were validation errors, and the pipeline definition is stored but cannot be activated until you correct the pipeline and call @PutPipelineDefinition@ to commit the corrected pipeline.
-ppdrsErrored :: Lens' PutPipelineDefinitionResponse Bool
-ppdrsErrored = lens _ppdrsErrored (\ s a -> s{_ppdrsErrored = a})
-
-instance NFData PutPipelineDefinitionResponse where
+instance Prelude.NFData PutPipelineDefinitionResponse

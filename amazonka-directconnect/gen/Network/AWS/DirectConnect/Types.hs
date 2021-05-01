@@ -1,332 +1,506 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectConnect.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.DirectConnect.Types
-    (
-    -- * Service Configuration
-      directConnect
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _DirectConnectClientException
-    , _DuplicateTagKeysException
-    , _TooManyTagsException
-    , _DirectConnectServerException
+    _TooManyTagsException,
+    _DirectConnectServerException,
+    _DuplicateTagKeysException,
+    _DirectConnectClientException,
 
     -- * AddressFamily
-    , AddressFamily (..)
+    AddressFamily (..),
 
     -- * BGPPeerState
-    , BGPPeerState (..)
+    BGPPeerState (..),
 
     -- * BGPStatus
-    , BGPStatus (..)
+    BGPStatus (..),
 
     -- * ConnectionState
-    , ConnectionState (..)
+    ConnectionState (..),
+
+    -- * DirectConnectGatewayAssociationProposalState
+    DirectConnectGatewayAssociationProposalState (..),
 
     -- * DirectConnectGatewayAssociationState
-    , DirectConnectGatewayAssociationState (..)
+    DirectConnectGatewayAssociationState (..),
 
     -- * DirectConnectGatewayAttachmentState
-    , DirectConnectGatewayAttachmentState (..)
+    DirectConnectGatewayAttachmentState (..),
+
+    -- * DirectConnectGatewayAttachmentType
+    DirectConnectGatewayAttachmentType (..),
 
     -- * DirectConnectGatewayState
-    , DirectConnectGatewayState (..)
+    DirectConnectGatewayState (..),
+
+    -- * GatewayType
+    GatewayType (..),
+
+    -- * HasLogicalRedundancy
+    HasLogicalRedundancy (..),
 
     -- * InterconnectState
-    , InterconnectState (..)
+    InterconnectState (..),
 
     -- * LagState
-    , LagState (..)
+    LagState (..),
 
     -- * LoaContentType
-    , LoaContentType (..)
+    LoaContentType (..),
 
     -- * VirtualInterfaceState
-    , VirtualInterfaceState (..)
+    VirtualInterfaceState (..),
+
+    -- * AssociatedGateway
+    AssociatedGateway (..),
+    newAssociatedGateway,
+    associatedGateway_id,
+    associatedGateway_type,
+    associatedGateway_ownerAccount,
+    associatedGateway_region,
 
     -- * BGPPeer
-    , BGPPeer
-    , bgpPeer
-    , bpCustomerAddress
-    , bpAmazonAddress
-    , bpAddressFamily
-    , bpBgpStatus
-    , bpAsn
-    , bpAuthKey
-    , bpBgpPeerState
+    BGPPeer (..),
+    newBGPPeer,
+    bGPPeer_authKey,
+    bGPPeer_asn,
+    bGPPeer_awsDeviceV2,
+    bGPPeer_bgpPeerId,
+    bGPPeer_bgpStatus,
+    bGPPeer_bgpPeerState,
+    bGPPeer_addressFamily,
+    bGPPeer_amazonAddress,
+    bGPPeer_customerAddress,
 
     -- * Connection
-    , Connection
-    , connection
-    , cLagId
-    , cVlan
-    , cLocation
-    , cAwsDevice
-    , cConnectionId
-    , cLoaIssueTime
-    , cPartnerName
-    , cConnectionName
-    , cBandwidth
-    , cOwnerAccount
-    , cRegion
-    , cConnectionState
+    Connection (..),
+    newConnection,
+    connection_bandwidth,
+    connection_connectionState,
+    connection_awsDeviceV2,
+    connection_connectionName,
+    connection_providerName,
+    connection_connectionId,
+    connection_hasLogicalRedundancy,
+    connection_awsDevice,
+    connection_jumboFrameCapable,
+    connection_lagId,
+    connection_partnerName,
+    connection_tags,
+    connection_loaIssueTime,
+    connection_ownerAccount,
+    connection_region,
+    connection_location,
+    connection_vlan,
 
     -- * Connections
-    , Connections
-    , connections
-    , cConnections
+    Connections (..),
+    newConnections,
+    connections_connections,
 
     -- * DirectConnectGateway
-    , DirectConnectGateway
-    , directConnectGateway
-    , dcgDirectConnectGatewayId
-    , dcgStateChangeError
-    , dcgAmazonSideASN
-    , dcgDirectConnectGatewayName
-    , dcgDirectConnectGatewayState
-    , dcgOwnerAccount
+    DirectConnectGateway (..),
+    newDirectConnectGateway,
+    directConnectGateway_directConnectGatewayState,
+    directConnectGateway_stateChangeError,
+    directConnectGateway_directConnectGatewayName,
+    directConnectGateway_amazonSideAsn,
+    directConnectGateway_directConnectGatewayId,
+    directConnectGateway_ownerAccount,
 
     -- * DirectConnectGatewayAssociation
-    , DirectConnectGatewayAssociation
-    , directConnectGatewayAssociation
-    , dcgaVirtualGatewayId
-    , dcgaDirectConnectGatewayId
-    , dcgaVirtualGatewayOwnerAccount
-    , dcgaStateChangeError
-    , dcgaVirtualGatewayRegion
-    , dcgaAssociationState
+    DirectConnectGatewayAssociation (..),
+    newDirectConnectGatewayAssociation,
+    directConnectGatewayAssociation_virtualGatewayId,
+    directConnectGatewayAssociation_virtualGatewayOwnerAccount,
+    directConnectGatewayAssociation_stateChangeError,
+    directConnectGatewayAssociation_virtualGatewayRegion,
+    directConnectGatewayAssociation_associationState,
+    directConnectGatewayAssociation_associatedGateway,
+    directConnectGatewayAssociation_associationId,
+    directConnectGatewayAssociation_directConnectGatewayId,
+    directConnectGatewayAssociation_allowedPrefixesToDirectConnectGateway,
+    directConnectGatewayAssociation_directConnectGatewayOwnerAccount,
+
+    -- * DirectConnectGatewayAssociationProposal
+    DirectConnectGatewayAssociationProposal (..),
+    newDirectConnectGatewayAssociationProposal,
+    directConnectGatewayAssociationProposal_proposalId,
+    directConnectGatewayAssociationProposal_requestedAllowedPrefixesToDirectConnectGateway,
+    directConnectGatewayAssociationProposal_proposalState,
+    directConnectGatewayAssociationProposal_associatedGateway,
+    directConnectGatewayAssociationProposal_existingAllowedPrefixesToDirectConnectGateway,
+    directConnectGatewayAssociationProposal_directConnectGatewayId,
+    directConnectGatewayAssociationProposal_directConnectGatewayOwnerAccount,
 
     -- * DirectConnectGatewayAttachment
-    , DirectConnectGatewayAttachment
-    , directConnectGatewayAttachment
-    , dDirectConnectGatewayId
-    , dAttachmentState
-    , dStateChangeError
-    , dVirtualInterfaceRegion
-    , dVirtualInterfaceOwnerAccount
-    , dVirtualInterfaceId
+    DirectConnectGatewayAttachment (..),
+    newDirectConnectGatewayAttachment,
+    directConnectGatewayAttachment_stateChangeError,
+    directConnectGatewayAttachment_attachmentState,
+    directConnectGatewayAttachment_virtualInterfaceOwnerAccount,
+    directConnectGatewayAttachment_virtualInterfaceRegion,
+    directConnectGatewayAttachment_attachmentType,
+    directConnectGatewayAttachment_virtualInterfaceId,
+    directConnectGatewayAttachment_directConnectGatewayId,
 
     -- * Interconnect
-    , Interconnect
-    , interconnect
-    , iLagId
-    , iInterconnectId
-    , iLocation
-    , iInterconnectName
-    , iAwsDevice
-    , iLoaIssueTime
-    , iBandwidth
-    , iInterconnectState
-    , iRegion
+    Interconnect (..),
+    newInterconnect,
+    interconnect_bandwidth,
+    interconnect_interconnectId,
+    interconnect_awsDeviceV2,
+    interconnect_providerName,
+    interconnect_hasLogicalRedundancy,
+    interconnect_awsDevice,
+    interconnect_jumboFrameCapable,
+    interconnect_lagId,
+    interconnect_tags,
+    interconnect_loaIssueTime,
+    interconnect_region,
+    interconnect_interconnectState,
+    interconnect_location,
+    interconnect_interconnectName,
 
     -- * Lag
-    , Lag
-    , lag
-    , lagLagId
-    , lagConnectionsBandwidth
-    , lagMinimumLinks
-    , lagLagName
-    , lagLocation
-    , lagConnections
-    , lagAwsDevice
-    , lagAllowsHostedConnections
-    , lagNumberOfConnections
-    , lagLagState
-    , lagOwnerAccount
-    , lagRegion
+    Lag (..),
+    newLag,
+    lag_numberOfConnections,
+    lag_awsDeviceV2,
+    lag_allowsHostedConnections,
+    lag_providerName,
+    lag_hasLogicalRedundancy,
+    lag_connections,
+    lag_awsDevice,
+    lag_lagName,
+    lag_lagState,
+    lag_jumboFrameCapable,
+    lag_connectionsBandwidth,
+    lag_lagId,
+    lag_tags,
+    lag_ownerAccount,
+    lag_region,
+    lag_location,
+    lag_minimumLinks,
 
     -- * Location
-    , Location
-    , location
-    , lLocationName
-    , lLocationCode
+    Location (..),
+    newLocation,
+    location_availablePortSpeeds,
+    location_availableProviders,
+    location_locationCode,
+    location_region,
+    location_locationName,
 
     -- * NewBGPPeer
-    , NewBGPPeer
-    , newBGPPeer
-    , nbpCustomerAddress
-    , nbpAmazonAddress
-    , nbpAddressFamily
-    , nbpAsn
-    , nbpAuthKey
+    NewBGPPeer (..),
+    newNewBGPPeer,
+    newBGPPeer_authKey,
+    newBGPPeer_asn,
+    newBGPPeer_addressFamily,
+    newBGPPeer_amazonAddress,
+    newBGPPeer_customerAddress,
 
     -- * NewPrivateVirtualInterface
-    , NewPrivateVirtualInterface
-    , newPrivateVirtualInterface
-    , nVirtualGatewayId
-    , nCustomerAddress
-    , nAmazonAddress
-    , nAddressFamily
-    , nDirectConnectGatewayId
-    , nAuthKey
-    , nVirtualInterfaceName
-    , nVlan
-    , nAsn
+    NewPrivateVirtualInterface (..),
+    newNewPrivateVirtualInterface,
+    newPrivateVirtualInterface_authKey,
+    newPrivateVirtualInterface_virtualGatewayId,
+    newPrivateVirtualInterface_mtu,
+    newPrivateVirtualInterface_tags,
+    newPrivateVirtualInterface_directConnectGatewayId,
+    newPrivateVirtualInterface_addressFamily,
+    newPrivateVirtualInterface_amazonAddress,
+    newPrivateVirtualInterface_customerAddress,
+    newPrivateVirtualInterface_virtualInterfaceName,
+    newPrivateVirtualInterface_vlan,
+    newPrivateVirtualInterface_asn,
 
     -- * NewPrivateVirtualInterfaceAllocation
-    , NewPrivateVirtualInterfaceAllocation
-    , newPrivateVirtualInterfaceAllocation
-    , npviaCustomerAddress
-    , npviaAmazonAddress
-    , npviaAddressFamily
-    , npviaAuthKey
-    , npviaVirtualInterfaceName
-    , npviaVlan
-    , npviaAsn
+    NewPrivateVirtualInterfaceAllocation (..),
+    newNewPrivateVirtualInterfaceAllocation,
+    newPrivateVirtualInterfaceAllocation_authKey,
+    newPrivateVirtualInterfaceAllocation_mtu,
+    newPrivateVirtualInterfaceAllocation_tags,
+    newPrivateVirtualInterfaceAllocation_addressFamily,
+    newPrivateVirtualInterfaceAllocation_amazonAddress,
+    newPrivateVirtualInterfaceAllocation_customerAddress,
+    newPrivateVirtualInterfaceAllocation_virtualInterfaceName,
+    newPrivateVirtualInterfaceAllocation_vlan,
+    newPrivateVirtualInterfaceAllocation_asn,
 
     -- * NewPublicVirtualInterface
-    , NewPublicVirtualInterface
-    , newPublicVirtualInterface
-    , npviRouteFilterPrefixes
-    , npviCustomerAddress
-    , npviAmazonAddress
-    , npviAddressFamily
-    , npviAuthKey
-    , npviVirtualInterfaceName
-    , npviVlan
-    , npviAsn
+    NewPublicVirtualInterface (..),
+    newNewPublicVirtualInterface,
+    newPublicVirtualInterface_authKey,
+    newPublicVirtualInterface_routeFilterPrefixes,
+    newPublicVirtualInterface_tags,
+    newPublicVirtualInterface_addressFamily,
+    newPublicVirtualInterface_amazonAddress,
+    newPublicVirtualInterface_customerAddress,
+    newPublicVirtualInterface_virtualInterfaceName,
+    newPublicVirtualInterface_vlan,
+    newPublicVirtualInterface_asn,
 
     -- * NewPublicVirtualInterfaceAllocation
-    , NewPublicVirtualInterfaceAllocation
-    , newPublicVirtualInterfaceAllocation
-    , newRouteFilterPrefixes
-    , newCustomerAddress
-    , newAmazonAddress
-    , newAddressFamily
-    , newAuthKey
-    , newVirtualInterfaceName
-    , newVlan
-    , newAsn
+    NewPublicVirtualInterfaceAllocation (..),
+    newNewPublicVirtualInterfaceAllocation,
+    newPublicVirtualInterfaceAllocation_authKey,
+    newPublicVirtualInterfaceAllocation_routeFilterPrefixes,
+    newPublicVirtualInterfaceAllocation_tags,
+    newPublicVirtualInterfaceAllocation_addressFamily,
+    newPublicVirtualInterfaceAllocation_amazonAddress,
+    newPublicVirtualInterfaceAllocation_customerAddress,
+    newPublicVirtualInterfaceAllocation_virtualInterfaceName,
+    newPublicVirtualInterfaceAllocation_vlan,
+    newPublicVirtualInterfaceAllocation_asn,
+
+    -- * NewTransitVirtualInterface
+    NewTransitVirtualInterface (..),
+    newNewTransitVirtualInterface,
+    newTransitVirtualInterface_authKey,
+    newTransitVirtualInterface_asn,
+    newTransitVirtualInterface_mtu,
+    newTransitVirtualInterface_tags,
+    newTransitVirtualInterface_directConnectGatewayId,
+    newTransitVirtualInterface_virtualInterfaceName,
+    newTransitVirtualInterface_addressFamily,
+    newTransitVirtualInterface_amazonAddress,
+    newTransitVirtualInterface_vlan,
+    newTransitVirtualInterface_customerAddress,
+
+    -- * NewTransitVirtualInterfaceAllocation
+    NewTransitVirtualInterfaceAllocation (..),
+    newNewTransitVirtualInterfaceAllocation,
+    newTransitVirtualInterfaceAllocation_authKey,
+    newTransitVirtualInterfaceAllocation_asn,
+    newTransitVirtualInterfaceAllocation_mtu,
+    newTransitVirtualInterfaceAllocation_tags,
+    newTransitVirtualInterfaceAllocation_virtualInterfaceName,
+    newTransitVirtualInterfaceAllocation_addressFamily,
+    newTransitVirtualInterfaceAllocation_amazonAddress,
+    newTransitVirtualInterfaceAllocation_vlan,
+    newTransitVirtualInterfaceAllocation_customerAddress,
 
     -- * ResourceTag
-    , ResourceTag
-    , resourceTag
-    , rtResourceARN
-    , rtTags
+    ResourceTag (..),
+    newResourceTag,
+    resourceTag_resourceArn,
+    resourceTag_tags,
 
     -- * RouteFilterPrefix
-    , RouteFilterPrefix
-    , routeFilterPrefix
-    , rfpCidr
+    RouteFilterPrefix (..),
+    newRouteFilterPrefix,
+    routeFilterPrefix_cidr,
 
     -- * Tag
-    , Tag
-    , tag
-    , tagValue
-    , tagKey
+    Tag (..),
+    newTag,
+    tag_value,
+    tag_key,
 
     -- * VirtualGateway
-    , VirtualGateway
-    , virtualGateway
-    , vgVirtualGatewayId
-    , vgVirtualGatewayState
+    VirtualGateway (..),
+    newVirtualGateway,
+    virtualGateway_virtualGatewayId,
+    virtualGateway_virtualGatewayState,
 
     -- * VirtualInterface
-    , VirtualInterface
-    , virtualInterface
-    , viBgpPeers
-    , viVirtualGatewayId
-    , viRouteFilterPrefixes
-    , viCustomerAddress
-    , viVlan
-    , viLocation
-    , viAmazonAddress
-    , viAddressFamily
-    , viVirtualInterfaceState
-    , viConnectionId
-    , viDirectConnectGatewayId
-    , viAmazonSideASN
-    , viVirtualInterfaceType
-    , viAsn
-    , viAuthKey
-    , viCustomerRouterConfig
-    , viOwnerAccount
-    , viVirtualInterfaceName
-    , viVirtualInterfaceId
-    ) where
+    VirtualInterface (..),
+    newVirtualInterface,
+    virtualInterface_authKey,
+    virtualInterface_bgpPeers,
+    virtualInterface_virtualGatewayId,
+    virtualInterface_asn,
+    virtualInterface_awsDeviceV2,
+    virtualInterface_connectionId,
+    virtualInterface_customerRouterConfig,
+    virtualInterface_jumboFrameCapable,
+    virtualInterface_routeFilterPrefixes,
+    virtualInterface_virtualInterfaceType,
+    virtualInterface_mtu,
+    virtualInterface_tags,
+    virtualInterface_virtualInterfaceId,
+    virtualInterface_amazonSideAsn,
+    virtualInterface_directConnectGatewayId,
+    virtualInterface_virtualInterfaceState,
+    virtualInterface_virtualInterfaceName,
+    virtualInterface_addressFamily,
+    virtualInterface_amazonAddress,
+    virtualInterface_ownerAccount,
+    virtualInterface_region,
+    virtualInterface_location,
+    virtualInterface_vlan,
+    virtualInterface_customerAddress,
 
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.DirectConnect.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+    -- * VirtualInterfaceTestHistory
+    VirtualInterfaceTestHistory (..),
+    newVirtualInterfaceTestHistory,
+    virtualInterfaceTestHistory_bgpPeers,
+    virtualInterfaceTestHistory_status,
+    virtualInterfaceTestHistory_testId,
+    virtualInterfaceTestHistory_startTime,
+    virtualInterfaceTestHistory_endTime,
+    virtualInterfaceTestHistory_virtualInterfaceId,
+    virtualInterfaceTestHistory_ownerAccount,
+    virtualInterfaceTestHistory_testDurationInMinutes,
+  )
+where
+
+import Network.AWS.DirectConnect.Types.AddressFamily
+import Network.AWS.DirectConnect.Types.AssociatedGateway
+import Network.AWS.DirectConnect.Types.BGPPeer
+import Network.AWS.DirectConnect.Types.BGPPeerState
+import Network.AWS.DirectConnect.Types.BGPStatus
+import Network.AWS.DirectConnect.Types.Connection
+import Network.AWS.DirectConnect.Types.ConnectionState
+import Network.AWS.DirectConnect.Types.Connections
+import Network.AWS.DirectConnect.Types.DirectConnectGateway
+import Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociation
+import Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationProposal
+import Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationProposalState
+import Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationState
+import Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment
+import Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState
+import Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentType
+import Network.AWS.DirectConnect.Types.DirectConnectGatewayState
+import Network.AWS.DirectConnect.Types.GatewayType
+import Network.AWS.DirectConnect.Types.HasLogicalRedundancy
+import Network.AWS.DirectConnect.Types.Interconnect
+import Network.AWS.DirectConnect.Types.InterconnectState
+import Network.AWS.DirectConnect.Types.Lag
+import Network.AWS.DirectConnect.Types.LagState
+import Network.AWS.DirectConnect.Types.LoaContentType
+import Network.AWS.DirectConnect.Types.Location
+import Network.AWS.DirectConnect.Types.NewBGPPeer
+import Network.AWS.DirectConnect.Types.NewPrivateVirtualInterface
+import Network.AWS.DirectConnect.Types.NewPrivateVirtualInterfaceAllocation
+import Network.AWS.DirectConnect.Types.NewPublicVirtualInterface
+import Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation
+import Network.AWS.DirectConnect.Types.NewTransitVirtualInterface
+import Network.AWS.DirectConnect.Types.NewTransitVirtualInterfaceAllocation
+import Network.AWS.DirectConnect.Types.ResourceTag
+import Network.AWS.DirectConnect.Types.RouteFilterPrefix
+import Network.AWS.DirectConnect.Types.Tag
+import Network.AWS.DirectConnect.Types.VirtualGateway
+import Network.AWS.DirectConnect.Types.VirtualInterface
+import Network.AWS.DirectConnect.Types.VirtualInterfaceState
+import Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2012-10-25@ of the Amazon Direct Connect SDK configuration.
-directConnect :: Service
-directConnect =
-  Service
-    { _svcAbbrev = "DirectConnect"
-    , _svcSigner = v4
-    , _svcPrefix = "directconnect"
-    , _svcVersion = "2012-10-25"
-    , _svcEndpoint = defaultEndpoint directConnect
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "DirectConnect"
-    , _svcRetry = retry
+defaultService :: Prelude.Service
+defaultService =
+  Prelude.Service
+    { Prelude._svcAbbrev =
+        "DirectConnect",
+      Prelude._svcSigner = Sign.v4,
+      Prelude._svcPrefix = "directconnect",
+      Prelude._svcVersion = "2012-10-25",
+      Prelude._svcEndpoint =
+        Prelude.defaultEndpoint defaultService,
+      Prelude._svcTimeout = Prelude.Just 70,
+      Prelude._svcCheck = Prelude.statusSuccess,
+      Prelude._svcError =
+        Prelude.parseJSONError "DirectConnect",
+      Prelude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Prelude.Exponential
+        { Prelude._retryBase = 5.0e-2,
+          Prelude._retryGrowth = 2,
+          Prelude._retryAttempts = 5,
+          Prelude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+      | Lens.has (Prelude.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Prelude.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Prelude.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Prelude.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Prelude.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Prelude.hasCode "RequestThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Prelude.hasCode "ThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Prelude.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Prelude.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Prelude.hasCode "ThrottlingException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Prelude.hasCode "Throttling"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
+-- | You have reached the limit on the number of tags that can be assigned.
+_TooManyTagsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyTagsException =
+  Prelude._MatchServiceError
+    defaultService
+    "TooManyTagsException"
 
--- | The API was called with invalid parameters. The error message will contain additional details about the cause.
---
---
-_DirectConnectClientException :: AsError a => Getting (First ServiceError) a ServiceError
-_DirectConnectClientException =
-  _MatchServiceError directConnect "DirectConnectClientException"
-
+-- | A server-side error occurred.
+_DirectConnectServerException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DirectConnectServerException =
+  Prelude._MatchServiceError
+    defaultService
+    "DirectConnectServerException"
 
 -- | A tag key was specified more than once.
---
---
-_DuplicateTagKeysException :: AsError a => Getting (First ServiceError) a ServiceError
+_DuplicateTagKeysException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
 _DuplicateTagKeysException =
-  _MatchServiceError directConnect "DuplicateTagKeysException"
+  Prelude._MatchServiceError
+    defaultService
+    "DuplicateTagKeysException"
 
-
--- | You have reached the limit on the number of tags that can be assigned to a Direct Connect resource.
---
---
-_TooManyTagsException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyTagsException = _MatchServiceError directConnect "TooManyTagsException"
-
-
--- | A server-side error occurred during the API call. The error message will contain additional details about the cause.
---
---
-_DirectConnectServerException :: AsError a => Getting (First ServiceError) a ServiceError
-_DirectConnectServerException =
-  _MatchServiceError directConnect "DirectConnectServerException"
-
+-- | One or more parameters are not valid.
+_DirectConnectClientException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DirectConnectClientException =
+  Prelude._MatchServiceError
+    defaultService
+    "DirectConnectClientException"

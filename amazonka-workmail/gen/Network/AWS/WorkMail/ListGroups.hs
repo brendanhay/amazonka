@@ -1,177 +1,220 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WorkMail.ListGroups
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns summaries of the organization's groups.
---
---
+-- Returns summaries of the organization\'s groups.
 --
 -- This operation returns paginated results.
 module Network.AWS.WorkMail.ListGroups
-    (
-    -- * Creating a Request
-      listGroups
-    , ListGroups
+  ( -- * Creating a Request
+    ListGroups (..),
+    newListGroups,
+
     -- * Request Lenses
-    , lgNextToken
-    , lgMaxResults
-    , lgOrganizationId
+    listGroups_nextToken,
+    listGroups_maxResults,
+    listGroups_organizationId,
 
     -- * Destructuring the Response
-    , listGroupsResponse
-    , ListGroupsResponse
+    ListGroupsResponse (..),
+    newListGroupsResponse,
+
     -- * Response Lenses
-    , lgrsGroups
-    , lgrsNextToken
-    , lgrsResponseStatus
-    ) where
+    listGroupsResponse_groups,
+    listGroupsResponse_nextToken,
+    listGroupsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WorkMail.Types
-import Network.AWS.WorkMail.Types.Product
 
--- | /See:/ 'listGroups' smart constructor.
+-- | /See:/ 'newListGroups' smart constructor.
 data ListGroups = ListGroups'
-  { _lgNextToken      :: !(Maybe Text)
-  , _lgMaxResults     :: !(Maybe Nat)
-  , _lgOrganizationId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token to use to retrieve the next page of results. The first call
+    -- does not contain any tokens.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return in a single call.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The identifier for the organization under which the groups exist.
+    organizationId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListGroups' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListGroups' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lgNextToken' - The token to use to retrieve the next page of results. The first call does not contain any tokens.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lgMaxResults' - The maximum number of results to return in a single call.
+-- 'nextToken', 'listGroups_nextToken' - The token to use to retrieve the next page of results. The first call
+-- does not contain any tokens.
 --
--- * 'lgOrganizationId' - The identifier for the organization under which the groups exist.
-listGroups
-    :: Text -- ^ 'lgOrganizationId'
-    -> ListGroups
-listGroups pOrganizationId_ =
+-- 'maxResults', 'listGroups_maxResults' - The maximum number of results to return in a single call.
+--
+-- 'organizationId', 'listGroups_organizationId' - The identifier for the organization under which the groups exist.
+newListGroups ::
+  -- | 'organizationId'
+  Prelude.Text ->
+  ListGroups
+newListGroups pOrganizationId_ =
   ListGroups'
-    { _lgNextToken = Nothing
-    , _lgMaxResults = Nothing
-    , _lgOrganizationId = pOrganizationId_
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      organizationId = pOrganizationId_
     }
 
-
--- | The token to use to retrieve the next page of results. The first call does not contain any tokens.
-lgNextToken :: Lens' ListGroups (Maybe Text)
-lgNextToken = lens _lgNextToken (\ s a -> s{_lgNextToken = a})
+-- | The token to use to retrieve the next page of results. The first call
+-- does not contain any tokens.
+listGroups_nextToken :: Lens.Lens' ListGroups (Prelude.Maybe Prelude.Text)
+listGroups_nextToken = Lens.lens (\ListGroups' {nextToken} -> nextToken) (\s@ListGroups' {} a -> s {nextToken = a} :: ListGroups)
 
 -- | The maximum number of results to return in a single call.
-lgMaxResults :: Lens' ListGroups (Maybe Natural)
-lgMaxResults = lens _lgMaxResults (\ s a -> s{_lgMaxResults = a}) . mapping _Nat
+listGroups_maxResults :: Lens.Lens' ListGroups (Prelude.Maybe Prelude.Natural)
+listGroups_maxResults = Lens.lens (\ListGroups' {maxResults} -> maxResults) (\s@ListGroups' {} a -> s {maxResults = a} :: ListGroups)
 
 -- | The identifier for the organization under which the groups exist.
-lgOrganizationId :: Lens' ListGroups Text
-lgOrganizationId = lens _lgOrganizationId (\ s a -> s{_lgOrganizationId = a})
+listGroups_organizationId :: Lens.Lens' ListGroups Prelude.Text
+listGroups_organizationId = Lens.lens (\ListGroups' {organizationId} -> organizationId) (\s@ListGroups' {} a -> s {organizationId = a} :: ListGroups)
 
-instance AWSPager ListGroups where
-        page rq rs
-          | stop (rs ^. lgrsNextToken) = Nothing
-          | stop (rs ^. lgrsGroups) = Nothing
-          | otherwise =
-            Just $ rq & lgNextToken .~ rs ^. lgrsNextToken
+instance Pager.AWSPager ListGroups where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listGroupsResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listGroupsResponse_groups Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listGroups_nextToken
+          Lens..~ rs
+          Lens.^? listGroupsResponse_nextToken Prelude.. Lens._Just
 
-instance AWSRequest ListGroups where
-        type Rs ListGroups = ListGroupsResponse
-        request = postJSON workMail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListGroupsResponse' <$>
-                   (x .?> "Groups" .!@ mempty) <*> (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest ListGroups where
+  type Rs ListGroups = ListGroupsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListGroupsResponse'
+            Prelude.<$> (x Prelude..?> "Groups" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (x Prelude..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListGroups where
+instance Prelude.Hashable ListGroups
 
-instance NFData ListGroups where
+instance Prelude.NFData ListGroups
 
-instance ToHeaders ListGroups where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("WorkMailService.ListGroups" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders ListGroups where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ("WorkMailService.ListGroups" :: Prelude.ByteString),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON ListGroups where
-        toJSON ListGroups'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _lgNextToken,
-                  ("MaxResults" .=) <$> _lgMaxResults,
-                  Just ("OrganizationId" .= _lgOrganizationId)])
+instance Prelude.ToJSON ListGroups where
+  toJSON ListGroups' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
+            Prelude.Just
+              ("OrganizationId" Prelude..= organizationId)
+          ]
+      )
 
-instance ToPath ListGroups where
-        toPath = const "/"
+instance Prelude.ToPath ListGroups where
+  toPath = Prelude.const "/"
 
-instance ToQuery ListGroups where
-        toQuery = const mempty
+instance Prelude.ToQuery ListGroups where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'listGroupsResponse' smart constructor.
+-- | /See:/ 'newListGroupsResponse' smart constructor.
 data ListGroupsResponse = ListGroupsResponse'
-  { _lgrsGroups         :: !(Maybe [Group])
-  , _lgrsNextToken      :: !(Maybe Text)
-  , _lgrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The overview of groups for an organization.
+    groups :: Prelude.Maybe [Group],
+    -- | The token to use to retrieve the next page of results. The value is
+    -- \"null\" when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListGroupsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListGroupsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lgrsGroups' - The overview of groups for an organization.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lgrsNextToken' - The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
+-- 'groups', 'listGroupsResponse_groups' - The overview of groups for an organization.
 --
--- * 'lgrsResponseStatus' - -- | The response status code.
-listGroupsResponse
-    :: Int -- ^ 'lgrsResponseStatus'
-    -> ListGroupsResponse
-listGroupsResponse pResponseStatus_ =
+-- 'nextToken', 'listGroupsResponse_nextToken' - The token to use to retrieve the next page of results. The value is
+-- \"null\" when there are no more results to return.
+--
+-- 'httpStatus', 'listGroupsResponse_httpStatus' - The response's http status code.
+newListGroupsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListGroupsResponse
+newListGroupsResponse pHttpStatus_ =
   ListGroupsResponse'
-    { _lgrsGroups = Nothing
-    , _lgrsNextToken = Nothing
-    , _lgrsResponseStatus = pResponseStatus_
+    { groups = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | The overview of groups for an organization.
-lgrsGroups :: Lens' ListGroupsResponse [Group]
-lgrsGroups = lens _lgrsGroups (\ s a -> s{_lgrsGroups = a}) . _Default . _Coerce
+listGroupsResponse_groups :: Lens.Lens' ListGroupsResponse (Prelude.Maybe [Group])
+listGroupsResponse_groups = Lens.lens (\ListGroupsResponse' {groups} -> groups) (\s@ListGroupsResponse' {} a -> s {groups = a} :: ListGroupsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The token to use to retrieve the next page of results. The value is "null" when there are no more results to return.
-lgrsNextToken :: Lens' ListGroupsResponse (Maybe Text)
-lgrsNextToken = lens _lgrsNextToken (\ s a -> s{_lgrsNextToken = a})
+-- | The token to use to retrieve the next page of results. The value is
+-- \"null\" when there are no more results to return.
+listGroupsResponse_nextToken :: Lens.Lens' ListGroupsResponse (Prelude.Maybe Prelude.Text)
+listGroupsResponse_nextToken = Lens.lens (\ListGroupsResponse' {nextToken} -> nextToken) (\s@ListGroupsResponse' {} a -> s {nextToken = a} :: ListGroupsResponse)
 
--- | -- | The response status code.
-lgrsResponseStatus :: Lens' ListGroupsResponse Int
-lgrsResponseStatus = lens _lgrsResponseStatus (\ s a -> s{_lgrsResponseStatus = a})
+-- | The response's http status code.
+listGroupsResponse_httpStatus :: Lens.Lens' ListGroupsResponse Prelude.Int
+listGroupsResponse_httpStatus = Lens.lens (\ListGroupsResponse' {httpStatus} -> httpStatus) (\s@ListGroupsResponse' {} a -> s {httpStatus = a} :: ListGroupsResponse)
 
-instance NFData ListGroupsResponse where
+instance Prelude.NFData ListGroupsResponse

@@ -1,146 +1,179 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AppSync.GetType
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Retrieves a @Type@ object.
---
---
 module Network.AWS.AppSync.GetType
-    (
-    -- * Creating a Request
-      getType
-    , GetType
+  ( -- * Creating a Request
+    GetType (..),
+    newGetType,
+
     -- * Request Lenses
-    , gtApiId
-    , gtTypeName
-    , gtFormat
+    getType_apiId,
+    getType_typeName,
+    getType_format,
 
     -- * Destructuring the Response
-    , getTypeResponse
-    , GetTypeResponse
+    GetTypeResponse (..),
+    newGetTypeResponse,
+
     -- * Response Lenses
-    , gtrsType
-    , gtrsResponseStatus
-    ) where
+    getTypeResponse_type,
+    getTypeResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AppSync.Types
-import Network.AWS.AppSync.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getType' smart constructor.
+-- | /See:/ 'newGetType' smart constructor.
 data GetType = GetType'
-  { _gtApiId    :: !Text
-  , _gtTypeName :: !Text
-  , _gtFormat   :: !TypeDefinitionFormat
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The API ID.
+    apiId :: Prelude.Text,
+    -- | The type name.
+    typeName :: Prelude.Text,
+    -- | The type format: SDL or JSON.
+    format :: TypeDefinitionFormat
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetType' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetType' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gtApiId' - The API ID.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gtTypeName' - The type name.
+-- 'apiId', 'getType_apiId' - The API ID.
 --
--- * 'gtFormat' - The type format: SDL or JSON.
-getType
-    :: Text -- ^ 'gtApiId'
-    -> Text -- ^ 'gtTypeName'
-    -> TypeDefinitionFormat -- ^ 'gtFormat'
-    -> GetType
-getType pApiId_ pTypeName_ pFormat_ =
-  GetType' {_gtApiId = pApiId_, _gtTypeName = pTypeName_, _gtFormat = pFormat_}
-
+-- 'typeName', 'getType_typeName' - The type name.
+--
+-- 'format', 'getType_format' - The type format: SDL or JSON.
+newGetType ::
+  -- | 'apiId'
+  Prelude.Text ->
+  -- | 'typeName'
+  Prelude.Text ->
+  -- | 'format'
+  TypeDefinitionFormat ->
+  GetType
+newGetType pApiId_ pTypeName_ pFormat_ =
+  GetType'
+    { apiId = pApiId_,
+      typeName = pTypeName_,
+      format = pFormat_
+    }
 
 -- | The API ID.
-gtApiId :: Lens' GetType Text
-gtApiId = lens _gtApiId (\ s a -> s{_gtApiId = a})
+getType_apiId :: Lens.Lens' GetType Prelude.Text
+getType_apiId = Lens.lens (\GetType' {apiId} -> apiId) (\s@GetType' {} a -> s {apiId = a} :: GetType)
 
 -- | The type name.
-gtTypeName :: Lens' GetType Text
-gtTypeName = lens _gtTypeName (\ s a -> s{_gtTypeName = a})
+getType_typeName :: Lens.Lens' GetType Prelude.Text
+getType_typeName = Lens.lens (\GetType' {typeName} -> typeName) (\s@GetType' {} a -> s {typeName = a} :: GetType)
 
 -- | The type format: SDL or JSON.
-gtFormat :: Lens' GetType TypeDefinitionFormat
-gtFormat = lens _gtFormat (\ s a -> s{_gtFormat = a})
+getType_format :: Lens.Lens' GetType TypeDefinitionFormat
+getType_format = Lens.lens (\GetType' {format} -> format) (\s@GetType' {} a -> s {format = a} :: GetType)
 
-instance AWSRequest GetType where
-        type Rs GetType = GetTypeResponse
-        request = get appSync
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetTypeResponse' <$>
-                   (x .?> "type") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest GetType where
+  type Rs GetType = GetTypeResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetTypeResponse'
+            Prelude.<$> (x Prelude..?> "type")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetType where
+instance Prelude.Hashable GetType
 
-instance NFData GetType where
+instance Prelude.NFData GetType
 
-instance ToHeaders GetType where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders GetType where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToPath GetType where
-        toPath GetType'{..}
-          = mconcat
-              ["/v1/apis/", toBS _gtApiId, "/types/",
-               toBS _gtTypeName]
+instance Prelude.ToPath GetType where
+  toPath GetType' {..} =
+    Prelude.mconcat
+      [ "/v1/apis/",
+        Prelude.toBS apiId,
+        "/types/",
+        Prelude.toBS typeName
+      ]
 
-instance ToQuery GetType where
-        toQuery GetType'{..}
-          = mconcat ["format" =: _gtFormat]
+instance Prelude.ToQuery GetType where
+  toQuery GetType' {..} =
+    Prelude.mconcat ["format" Prelude.=: format]
 
--- | /See:/ 'getTypeResponse' smart constructor.
+-- | /See:/ 'newGetTypeResponse' smart constructor.
 data GetTypeResponse = GetTypeResponse'
-  { _gtrsType           :: !(Maybe Type)
-  , _gtrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @Type@ object.
+    type' :: Prelude.Maybe Type,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetTypeResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetTypeResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gtrsType' - The @Type@ object.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gtrsResponseStatus' - -- | The response status code.
-getTypeResponse
-    :: Int -- ^ 'gtrsResponseStatus'
-    -> GetTypeResponse
-getTypeResponse pResponseStatus_ =
-  GetTypeResponse' {_gtrsType = Nothing, _gtrsResponseStatus = pResponseStatus_}
-
+-- 'type'', 'getTypeResponse_type' - The @Type@ object.
+--
+-- 'httpStatus', 'getTypeResponse_httpStatus' - The response's http status code.
+newGetTypeResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetTypeResponse
+newGetTypeResponse pHttpStatus_ =
+  GetTypeResponse'
+    { type' = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The @Type@ object.
-gtrsType :: Lens' GetTypeResponse (Maybe Type)
-gtrsType = lens _gtrsType (\ s a -> s{_gtrsType = a})
+getTypeResponse_type :: Lens.Lens' GetTypeResponse (Prelude.Maybe Type)
+getTypeResponse_type = Lens.lens (\GetTypeResponse' {type'} -> type') (\s@GetTypeResponse' {} a -> s {type' = a} :: GetTypeResponse)
 
--- | -- | The response status code.
-gtrsResponseStatus :: Lens' GetTypeResponse Int
-gtrsResponseStatus = lens _gtrsResponseStatus (\ s a -> s{_gtrsResponseStatus = a})
+-- | The response's http status code.
+getTypeResponse_httpStatus :: Lens.Lens' GetTypeResponse Prelude.Int
+getTypeResponse_httpStatus = Lens.lens (\GetTypeResponse' {httpStatus} -> httpStatus) (\s@GetTypeResponse' {} a -> s {httpStatus = a} :: GetTypeResponse)
 
-instance NFData GetTypeResponse where
+instance Prelude.NFData GetTypeResponse

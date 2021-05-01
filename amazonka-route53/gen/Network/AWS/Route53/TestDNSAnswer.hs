@@ -1,244 +1,371 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53.TestDNSAnswer
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the value that Amazon Route 53 returns in response to a DNS request for a specified record name and type. You can optionally specify the IP address of a DNS resolver, an EDNS0 client subnet IP address, and a subnet mask.
---
---
+-- Gets the value that Amazon Route 53 returns in response to a DNS request
+-- for a specified record name and type. You can optionally specify the IP
+-- address of a DNS resolver, an EDNS0 client subnet IP address, and a
+-- subnet mask.
 module Network.AWS.Route53.TestDNSAnswer
-    (
-    -- * Creating a Request
-      testDNSAnswer
-    , TestDNSAnswer
+  ( -- * Creating a Request
+    TestDNSAnswer (..),
+    newTestDNSAnswer,
+
     -- * Request Lenses
-    , tdaResolverIP
-    , tdaEDNS0ClientSubnetIP
-    , tdaEDNS0ClientSubnetMask
-    , tdaHostedZoneId
-    , tdaRecordName
-    , tdaRecordType
+    testDNSAnswer_resolverIP,
+    testDNSAnswer_eDNS0ClientSubnetMask,
+    testDNSAnswer_eDNS0ClientSubnetIP,
+    testDNSAnswer_hostedZoneId,
+    testDNSAnswer_recordName,
+    testDNSAnswer_recordType,
 
     -- * Destructuring the Response
-    , testDNSAnswerResponse
-    , TestDNSAnswerResponse
+    TestDNSAnswerResponse (..),
+    newTestDNSAnswerResponse,
+
     -- * Response Lenses
-    , tdarsResponseStatus
-    , tdarsNameserver
-    , tdarsRecordName
-    , tdarsRecordType
-    , tdarsRecordData
-    , tdarsResponseCode
-    , tdarsProtocol
-    ) where
+    testDNSAnswerResponse_httpStatus,
+    testDNSAnswerResponse_nameserver,
+    testDNSAnswerResponse_recordName,
+    testDNSAnswerResponse_recordType,
+    testDNSAnswerResponse_recordData,
+    testDNSAnswerResponse_responseCode,
+    testDNSAnswerResponse_protocol,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
-import Network.AWS.Route53.Types.Product
 
--- | Gets the value that Amazon Route 53 returns in response to a DNS request for a specified record name and type. You can optionally specify the IP address of a DNS resolver, an EDNS0 client subnet IP address, and a subnet mask.
+-- | Gets the value that Amazon Route 53 returns in response to a DNS request
+-- for a specified record name and type. You can optionally specify the IP
+-- address of a DNS resolver, an EDNS0 client subnet IP address, and a
+-- subnet mask.
 --
---
---
--- /See:/ 'testDNSAnswer' smart constructor.
+-- /See:/ 'newTestDNSAnswer' smart constructor.
 data TestDNSAnswer = TestDNSAnswer'
-  { _tdaResolverIP            :: !(Maybe Text)
-  , _tdaEDNS0ClientSubnetIP   :: !(Maybe Text)
-  , _tdaEDNS0ClientSubnetMask :: !(Maybe Text)
-  , _tdaHostedZoneId          :: !ResourceId
-  , _tdaRecordName            :: !Text
-  , _tdaRecordType            :: !RecordType
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | If you want to simulate a request from a specific DNS resolver, specify
+    -- the IP address for that resolver. If you omit this value,
+    -- @TestDnsAnswer@ uses the IP address of a DNS resolver in the AWS US East
+    -- (N. Virginia) Region (@us-east-1@).
+    resolverIP :: Prelude.Maybe Prelude.Text,
+    -- | If you specify an IP address for @edns0clientsubnetip@, you can
+    -- optionally specify the number of bits of the IP address that you want
+    -- the checking tool to include in the DNS query. For example, if you
+    -- specify @192.0.2.44@ for @edns0clientsubnetip@ and @24@ for
+    -- @edns0clientsubnetmask@, the checking tool will simulate a request from
+    -- 192.0.2.0\/24. The default value is 24 bits for IPv4 addresses and 64
+    -- bits for IPv6 addresses.
+    --
+    -- The range of valid values depends on whether @edns0clientsubnetip@ is an
+    -- IPv4 or an IPv6 address:
+    --
+    -- -   __IPv4__: Specify a value between 0 and 32
+    --
+    -- -   __IPv6__: Specify a value between 0 and 128
+    eDNS0ClientSubnetMask :: Prelude.Maybe Prelude.Text,
+    -- | If the resolver that you specified for resolverip supports EDNS0,
+    -- specify the IPv4 or IPv6 address of a client in the applicable location,
+    -- for example, @192.0.2.44@ or @2001:db8:85a3::8a2e:370:7334@.
+    eDNS0ClientSubnetIP :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the hosted zone that you want Amazon Route 53 to simulate a
+    -- query for.
+    hostedZoneId :: ResourceId,
+    -- | The name of the resource record set that you want Amazon Route 53 to
+    -- simulate a query for.
+    recordName :: Prelude.Text,
+    -- | The type of the resource record set.
+    recordType :: RRType
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'TestDNSAnswer' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'TestDNSAnswer' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'tdaResolverIP' - If you want to simulate a request from a specific DNS resolver, specify the IP address for that resolver. If you omit this value, @TestDnsAnswer@ uses the IP address of a DNS resolver in the AWS US East (N. Virginia) Region (@us-east-1@ ).
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'tdaEDNS0ClientSubnetIP' - If the resolver that you specified for resolverip supports EDNS0, specify the IPv4 or IPv6 address of a client in the applicable location, for example, @192.0.2.44@ or @2001:db8:85a3::8a2e:370:7334@ .
+-- 'resolverIP', 'testDNSAnswer_resolverIP' - If you want to simulate a request from a specific DNS resolver, specify
+-- the IP address for that resolver. If you omit this value,
+-- @TestDnsAnswer@ uses the IP address of a DNS resolver in the AWS US East
+-- (N. Virginia) Region (@us-east-1@).
 --
--- * 'tdaEDNS0ClientSubnetMask' - If you specify an IP address for @edns0clientsubnetip@ , you can optionally specify the number of bits of the IP address that you want the checking tool to include in the DNS query. For example, if you specify @192.0.2.44@ for @edns0clientsubnetip@ and @24@ for @edns0clientsubnetmask@ , the checking tool will simulate a request from 192.0.2.0/24. The default value is 24 bits for IPv4 addresses and 64 bits for IPv6 addresses.
+-- 'eDNS0ClientSubnetMask', 'testDNSAnswer_eDNS0ClientSubnetMask' - If you specify an IP address for @edns0clientsubnetip@, you can
+-- optionally specify the number of bits of the IP address that you want
+-- the checking tool to include in the DNS query. For example, if you
+-- specify @192.0.2.44@ for @edns0clientsubnetip@ and @24@ for
+-- @edns0clientsubnetmask@, the checking tool will simulate a request from
+-- 192.0.2.0\/24. The default value is 24 bits for IPv4 addresses and 64
+-- bits for IPv6 addresses.
 --
--- * 'tdaHostedZoneId' - The ID of the hosted zone that you want Amazon Route 53 to simulate a query for.
+-- The range of valid values depends on whether @edns0clientsubnetip@ is an
+-- IPv4 or an IPv6 address:
 --
--- * 'tdaRecordName' - The name of the resource record set that you want Amazon Route 53 to simulate a query for.
+-- -   __IPv4__: Specify a value between 0 and 32
 --
--- * 'tdaRecordType' - The type of the resource record set.
-testDNSAnswer
-    :: ResourceId -- ^ 'tdaHostedZoneId'
-    -> Text -- ^ 'tdaRecordName'
-    -> RecordType -- ^ 'tdaRecordType'
-    -> TestDNSAnswer
-testDNSAnswer pHostedZoneId_ pRecordName_ pRecordType_ =
-  TestDNSAnswer'
-    { _tdaResolverIP = Nothing
-    , _tdaEDNS0ClientSubnetIP = Nothing
-    , _tdaEDNS0ClientSubnetMask = Nothing
-    , _tdaHostedZoneId = pHostedZoneId_
-    , _tdaRecordName = pRecordName_
-    , _tdaRecordType = pRecordType_
-    }
+-- -   __IPv6__: Specify a value between 0 and 128
+--
+-- 'eDNS0ClientSubnetIP', 'testDNSAnswer_eDNS0ClientSubnetIP' - If the resolver that you specified for resolverip supports EDNS0,
+-- specify the IPv4 or IPv6 address of a client in the applicable location,
+-- for example, @192.0.2.44@ or @2001:db8:85a3::8a2e:370:7334@.
+--
+-- 'hostedZoneId', 'testDNSAnswer_hostedZoneId' - The ID of the hosted zone that you want Amazon Route 53 to simulate a
+-- query for.
+--
+-- 'recordName', 'testDNSAnswer_recordName' - The name of the resource record set that you want Amazon Route 53 to
+-- simulate a query for.
+--
+-- 'recordType', 'testDNSAnswer_recordType' - The type of the resource record set.
+newTestDNSAnswer ::
+  -- | 'hostedZoneId'
+  ResourceId ->
+  -- | 'recordName'
+  Prelude.Text ->
+  -- | 'recordType'
+  RRType ->
+  TestDNSAnswer
+newTestDNSAnswer
+  pHostedZoneId_
+  pRecordName_
+  pRecordType_ =
+    TestDNSAnswer'
+      { resolverIP = Prelude.Nothing,
+        eDNS0ClientSubnetMask = Prelude.Nothing,
+        eDNS0ClientSubnetIP = Prelude.Nothing,
+        hostedZoneId = pHostedZoneId_,
+        recordName = pRecordName_,
+        recordType = pRecordType_
+      }
 
+-- | If you want to simulate a request from a specific DNS resolver, specify
+-- the IP address for that resolver. If you omit this value,
+-- @TestDnsAnswer@ uses the IP address of a DNS resolver in the AWS US East
+-- (N. Virginia) Region (@us-east-1@).
+testDNSAnswer_resolverIP :: Lens.Lens' TestDNSAnswer (Prelude.Maybe Prelude.Text)
+testDNSAnswer_resolverIP = Lens.lens (\TestDNSAnswer' {resolverIP} -> resolverIP) (\s@TestDNSAnswer' {} a -> s {resolverIP = a} :: TestDNSAnswer)
 
--- | If you want to simulate a request from a specific DNS resolver, specify the IP address for that resolver. If you omit this value, @TestDnsAnswer@ uses the IP address of a DNS resolver in the AWS US East (N. Virginia) Region (@us-east-1@ ).
-tdaResolverIP :: Lens' TestDNSAnswer (Maybe Text)
-tdaResolverIP = lens _tdaResolverIP (\ s a -> s{_tdaResolverIP = a})
+-- | If you specify an IP address for @edns0clientsubnetip@, you can
+-- optionally specify the number of bits of the IP address that you want
+-- the checking tool to include in the DNS query. For example, if you
+-- specify @192.0.2.44@ for @edns0clientsubnetip@ and @24@ for
+-- @edns0clientsubnetmask@, the checking tool will simulate a request from
+-- 192.0.2.0\/24. The default value is 24 bits for IPv4 addresses and 64
+-- bits for IPv6 addresses.
+--
+-- The range of valid values depends on whether @edns0clientsubnetip@ is an
+-- IPv4 or an IPv6 address:
+--
+-- -   __IPv4__: Specify a value between 0 and 32
+--
+-- -   __IPv6__: Specify a value between 0 and 128
+testDNSAnswer_eDNS0ClientSubnetMask :: Lens.Lens' TestDNSAnswer (Prelude.Maybe Prelude.Text)
+testDNSAnswer_eDNS0ClientSubnetMask = Lens.lens (\TestDNSAnswer' {eDNS0ClientSubnetMask} -> eDNS0ClientSubnetMask) (\s@TestDNSAnswer' {} a -> s {eDNS0ClientSubnetMask = a} :: TestDNSAnswer)
 
--- | If the resolver that you specified for resolverip supports EDNS0, specify the IPv4 or IPv6 address of a client in the applicable location, for example, @192.0.2.44@ or @2001:db8:85a3::8a2e:370:7334@ .
-tdaEDNS0ClientSubnetIP :: Lens' TestDNSAnswer (Maybe Text)
-tdaEDNS0ClientSubnetIP = lens _tdaEDNS0ClientSubnetIP (\ s a -> s{_tdaEDNS0ClientSubnetIP = a})
+-- | If the resolver that you specified for resolverip supports EDNS0,
+-- specify the IPv4 or IPv6 address of a client in the applicable location,
+-- for example, @192.0.2.44@ or @2001:db8:85a3::8a2e:370:7334@.
+testDNSAnswer_eDNS0ClientSubnetIP :: Lens.Lens' TestDNSAnswer (Prelude.Maybe Prelude.Text)
+testDNSAnswer_eDNS0ClientSubnetIP = Lens.lens (\TestDNSAnswer' {eDNS0ClientSubnetIP} -> eDNS0ClientSubnetIP) (\s@TestDNSAnswer' {} a -> s {eDNS0ClientSubnetIP = a} :: TestDNSAnswer)
 
--- | If you specify an IP address for @edns0clientsubnetip@ , you can optionally specify the number of bits of the IP address that you want the checking tool to include in the DNS query. For example, if you specify @192.0.2.44@ for @edns0clientsubnetip@ and @24@ for @edns0clientsubnetmask@ , the checking tool will simulate a request from 192.0.2.0/24. The default value is 24 bits for IPv4 addresses and 64 bits for IPv6 addresses.
-tdaEDNS0ClientSubnetMask :: Lens' TestDNSAnswer (Maybe Text)
-tdaEDNS0ClientSubnetMask = lens _tdaEDNS0ClientSubnetMask (\ s a -> s{_tdaEDNS0ClientSubnetMask = a})
+-- | The ID of the hosted zone that you want Amazon Route 53 to simulate a
+-- query for.
+testDNSAnswer_hostedZoneId :: Lens.Lens' TestDNSAnswer ResourceId
+testDNSAnswer_hostedZoneId = Lens.lens (\TestDNSAnswer' {hostedZoneId} -> hostedZoneId) (\s@TestDNSAnswer' {} a -> s {hostedZoneId = a} :: TestDNSAnswer)
 
--- | The ID of the hosted zone that you want Amazon Route 53 to simulate a query for.
-tdaHostedZoneId :: Lens' TestDNSAnswer ResourceId
-tdaHostedZoneId = lens _tdaHostedZoneId (\ s a -> s{_tdaHostedZoneId = a})
-
--- | The name of the resource record set that you want Amazon Route 53 to simulate a query for.
-tdaRecordName :: Lens' TestDNSAnswer Text
-tdaRecordName = lens _tdaRecordName (\ s a -> s{_tdaRecordName = a})
+-- | The name of the resource record set that you want Amazon Route 53 to
+-- simulate a query for.
+testDNSAnswer_recordName :: Lens.Lens' TestDNSAnswer Prelude.Text
+testDNSAnswer_recordName = Lens.lens (\TestDNSAnswer' {recordName} -> recordName) (\s@TestDNSAnswer' {} a -> s {recordName = a} :: TestDNSAnswer)
 
 -- | The type of the resource record set.
-tdaRecordType :: Lens' TestDNSAnswer RecordType
-tdaRecordType = lens _tdaRecordType (\ s a -> s{_tdaRecordType = a})
+testDNSAnswer_recordType :: Lens.Lens' TestDNSAnswer RRType
+testDNSAnswer_recordType = Lens.lens (\TestDNSAnswer' {recordType} -> recordType) (\s@TestDNSAnswer' {} a -> s {recordType = a} :: TestDNSAnswer)
 
-instance AWSRequest TestDNSAnswer where
-        type Rs TestDNSAnswer = TestDNSAnswerResponse
-        request = get route53
-        response
-          = receiveXML
-              (\ s h x ->
-                 TestDNSAnswerResponse' <$>
-                   (pure (fromEnum s)) <*> (x .@ "Nameserver") <*>
-                     (x .@ "RecordName")
-                     <*> (x .@ "RecordType")
-                     <*>
-                     (x .@? "RecordData" .!@ mempty >>=
-                        parseXMLList "RecordDataEntry")
-                     <*> (x .@ "ResponseCode")
-                     <*> (x .@ "Protocol"))
+instance Prelude.AWSRequest TestDNSAnswer where
+  type Rs TestDNSAnswer = TestDNSAnswerResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          TestDNSAnswerResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Prelude..@ "Nameserver")
+            Prelude.<*> (x Prelude..@ "RecordName")
+            Prelude.<*> (x Prelude..@ "RecordType")
+            Prelude.<*> ( x Prelude..@? "RecordData"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.parseXMLList "RecordDataEntry"
+                        )
+            Prelude.<*> (x Prelude..@ "ResponseCode")
+            Prelude.<*> (x Prelude..@ "Protocol")
+      )
 
-instance Hashable TestDNSAnswer where
+instance Prelude.Hashable TestDNSAnswer
 
-instance NFData TestDNSAnswer where
+instance Prelude.NFData TestDNSAnswer
 
-instance ToHeaders TestDNSAnswer where
-        toHeaders = const mempty
+instance Prelude.ToHeaders TestDNSAnswer where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath TestDNSAnswer where
-        toPath = const "/2013-04-01/testdnsanswer"
+instance Prelude.ToPath TestDNSAnswer where
+  toPath = Prelude.const "/2013-04-01/testdnsanswer"
 
-instance ToQuery TestDNSAnswer where
-        toQuery TestDNSAnswer'{..}
-          = mconcat
-              ["resolverip" =: _tdaResolverIP,
-               "edns0clientsubnetip" =: _tdaEDNS0ClientSubnetIP,
-               "edns0clientsubnetmask" =: _tdaEDNS0ClientSubnetMask,
-               "hostedzoneid" =: _tdaHostedZoneId,
-               "recordname" =: _tdaRecordName,
-               "recordtype" =: _tdaRecordType]
+instance Prelude.ToQuery TestDNSAnswer where
+  toQuery TestDNSAnswer' {..} =
+    Prelude.mconcat
+      [ "resolverip" Prelude.=: resolverIP,
+        "edns0clientsubnetmask"
+          Prelude.=: eDNS0ClientSubnetMask,
+        "edns0clientsubnetip" Prelude.=: eDNS0ClientSubnetIP,
+        "hostedzoneid" Prelude.=: hostedZoneId,
+        "recordname" Prelude.=: recordName,
+        "recordtype" Prelude.=: recordType
+      ]
 
 -- | A complex type that contains the response to a @TestDNSAnswer@ request.
 --
---
---
--- /See:/ 'testDNSAnswerResponse' smart constructor.
+-- /See:/ 'newTestDNSAnswerResponse' smart constructor.
 data TestDNSAnswerResponse = TestDNSAnswerResponse'
-  { _tdarsResponseStatus :: !Int
-  , _tdarsNameserver     :: !Text
-  , _tdarsRecordName     :: !Text
-  , _tdarsRecordType     :: !RecordType
-  , _tdarsRecordData     :: ![Text]
-  , _tdarsResponseCode   :: !Text
-  , _tdarsProtocol       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The Amazon Route 53 name server used to respond to the request.
+    nameserver :: Prelude.Text,
+    -- | The name of the resource record set that you submitted a request for.
+    recordName :: Prelude.Text,
+    -- | The type of the resource record set that you submitted a request for.
+    recordType :: RRType,
+    -- | A list that contains values that Amazon Route 53 returned for this
+    -- resource record set.
+    recordData :: [Prelude.Text],
+    -- | A code that indicates whether the request is valid or not. The most
+    -- common response code is @NOERROR@, meaning that the request is valid. If
+    -- the response is not valid, Amazon Route 53 returns a response code that
+    -- describes the error. For a list of possible response codes, see
+    -- <http://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-6 DNS RCODES>
+    -- on the IANA website.
+    responseCode :: Prelude.Text,
+    -- | The protocol that Amazon Route 53 used to respond to the request, either
+    -- @UDP@ or @TCP@.
+    protocol :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
+-- |
+-- Create a value of 'TestDNSAnswerResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'testDNSAnswerResponse_httpStatus' - The response's http status code.
+--
+-- 'nameserver', 'testDNSAnswerResponse_nameserver' - The Amazon Route 53 name server used to respond to the request.
+--
+-- 'recordName', 'testDNSAnswerResponse_recordName' - The name of the resource record set that you submitted a request for.
+--
+-- 'recordType', 'testDNSAnswerResponse_recordType' - The type of the resource record set that you submitted a request for.
+--
+-- 'recordData', 'testDNSAnswerResponse_recordData' - A list that contains values that Amazon Route 53 returned for this
+-- resource record set.
+--
+-- 'responseCode', 'testDNSAnswerResponse_responseCode' - A code that indicates whether the request is valid or not. The most
+-- common response code is @NOERROR@, meaning that the request is valid. If
+-- the response is not valid, Amazon Route 53 returns a response code that
+-- describes the error. For a list of possible response codes, see
+-- <http://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-6 DNS RCODES>
+-- on the IANA website.
+--
+-- 'protocol', 'testDNSAnswerResponse_protocol' - The protocol that Amazon Route 53 used to respond to the request, either
+-- @UDP@ or @TCP@.
+newTestDNSAnswerResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'nameserver'
+  Prelude.Text ->
+  -- | 'recordName'
+  Prelude.Text ->
+  -- | 'recordType'
+  RRType ->
+  -- | 'responseCode'
+  Prelude.Text ->
+  -- | 'protocol'
+  Prelude.Text ->
+  TestDNSAnswerResponse
+newTestDNSAnswerResponse
+  pHttpStatus_
+  pNameserver_
+  pRecordName_
+  pRecordType_
+  pResponseCode_
+  pProtocol_ =
+    TestDNSAnswerResponse'
+      { httpStatus = pHttpStatus_,
+        nameserver = pNameserver_,
+        recordName = pRecordName_,
+        recordType = pRecordType_,
+        recordData = Prelude.mempty,
+        responseCode = pResponseCode_,
+        protocol = pProtocol_
+      }
 
--- | Creates a value of 'TestDNSAnswerResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'tdarsResponseStatus' - -- | The response status code.
---
--- * 'tdarsNameserver' - The Amazon Route 53 name server used to respond to the request.
---
--- * 'tdarsRecordName' - The name of the resource record set that you submitted a request for.
---
--- * 'tdarsRecordType' - The type of the resource record set that you submitted a request for.
---
--- * 'tdarsRecordData' - A list that contains values that Amazon Route 53 returned for this resource record set.
---
--- * 'tdarsResponseCode' - A code that indicates whether the request is valid or not. The most common response code is @NOERROR@ , meaning that the request is valid. If the response is not valid, Amazon Route 53 returns a response code that describes the error. For a list of possible response codes, see <http://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-6 DNS RCODES> on the IANA website.
---
--- * 'tdarsProtocol' - The protocol that Amazon Route 53 used to respond to the request, either @UDP@ or @TCP@ .
-testDNSAnswerResponse
-    :: Int -- ^ 'tdarsResponseStatus'
-    -> Text -- ^ 'tdarsNameserver'
-    -> Text -- ^ 'tdarsRecordName'
-    -> RecordType -- ^ 'tdarsRecordType'
-    -> Text -- ^ 'tdarsResponseCode'
-    -> Text -- ^ 'tdarsProtocol'
-    -> TestDNSAnswerResponse
-testDNSAnswerResponse pResponseStatus_ pNameserver_ pRecordName_ pRecordType_ pResponseCode_ pProtocol_ =
-  TestDNSAnswerResponse'
-    { _tdarsResponseStatus = pResponseStatus_
-    , _tdarsNameserver = pNameserver_
-    , _tdarsRecordName = pRecordName_
-    , _tdarsRecordType = pRecordType_
-    , _tdarsRecordData = mempty
-    , _tdarsResponseCode = pResponseCode_
-    , _tdarsProtocol = pProtocol_
-    }
-
-
--- | -- | The response status code.
-tdarsResponseStatus :: Lens' TestDNSAnswerResponse Int
-tdarsResponseStatus = lens _tdarsResponseStatus (\ s a -> s{_tdarsResponseStatus = a})
+-- | The response's http status code.
+testDNSAnswerResponse_httpStatus :: Lens.Lens' TestDNSAnswerResponse Prelude.Int
+testDNSAnswerResponse_httpStatus = Lens.lens (\TestDNSAnswerResponse' {httpStatus} -> httpStatus) (\s@TestDNSAnswerResponse' {} a -> s {httpStatus = a} :: TestDNSAnswerResponse)
 
 -- | The Amazon Route 53 name server used to respond to the request.
-tdarsNameserver :: Lens' TestDNSAnswerResponse Text
-tdarsNameserver = lens _tdarsNameserver (\ s a -> s{_tdarsNameserver = a})
+testDNSAnswerResponse_nameserver :: Lens.Lens' TestDNSAnswerResponse Prelude.Text
+testDNSAnswerResponse_nameserver = Lens.lens (\TestDNSAnswerResponse' {nameserver} -> nameserver) (\s@TestDNSAnswerResponse' {} a -> s {nameserver = a} :: TestDNSAnswerResponse)
 
 -- | The name of the resource record set that you submitted a request for.
-tdarsRecordName :: Lens' TestDNSAnswerResponse Text
-tdarsRecordName = lens _tdarsRecordName (\ s a -> s{_tdarsRecordName = a})
+testDNSAnswerResponse_recordName :: Lens.Lens' TestDNSAnswerResponse Prelude.Text
+testDNSAnswerResponse_recordName = Lens.lens (\TestDNSAnswerResponse' {recordName} -> recordName) (\s@TestDNSAnswerResponse' {} a -> s {recordName = a} :: TestDNSAnswerResponse)
 
 -- | The type of the resource record set that you submitted a request for.
-tdarsRecordType :: Lens' TestDNSAnswerResponse RecordType
-tdarsRecordType = lens _tdarsRecordType (\ s a -> s{_tdarsRecordType = a})
+testDNSAnswerResponse_recordType :: Lens.Lens' TestDNSAnswerResponse RRType
+testDNSAnswerResponse_recordType = Lens.lens (\TestDNSAnswerResponse' {recordType} -> recordType) (\s@TestDNSAnswerResponse' {} a -> s {recordType = a} :: TestDNSAnswerResponse)
 
--- | A list that contains values that Amazon Route 53 returned for this resource record set.
-tdarsRecordData :: Lens' TestDNSAnswerResponse [Text]
-tdarsRecordData = lens _tdarsRecordData (\ s a -> s{_tdarsRecordData = a}) . _Coerce
+-- | A list that contains values that Amazon Route 53 returned for this
+-- resource record set.
+testDNSAnswerResponse_recordData :: Lens.Lens' TestDNSAnswerResponse [Prelude.Text]
+testDNSAnswerResponse_recordData = Lens.lens (\TestDNSAnswerResponse' {recordData} -> recordData) (\s@TestDNSAnswerResponse' {} a -> s {recordData = a} :: TestDNSAnswerResponse) Prelude.. Prelude._Coerce
 
--- | A code that indicates whether the request is valid or not. The most common response code is @NOERROR@ , meaning that the request is valid. If the response is not valid, Amazon Route 53 returns a response code that describes the error. For a list of possible response codes, see <http://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-6 DNS RCODES> on the IANA website.
-tdarsResponseCode :: Lens' TestDNSAnswerResponse Text
-tdarsResponseCode = lens _tdarsResponseCode (\ s a -> s{_tdarsResponseCode = a})
+-- | A code that indicates whether the request is valid or not. The most
+-- common response code is @NOERROR@, meaning that the request is valid. If
+-- the response is not valid, Amazon Route 53 returns a response code that
+-- describes the error. For a list of possible response codes, see
+-- <http://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-6 DNS RCODES>
+-- on the IANA website.
+testDNSAnswerResponse_responseCode :: Lens.Lens' TestDNSAnswerResponse Prelude.Text
+testDNSAnswerResponse_responseCode = Lens.lens (\TestDNSAnswerResponse' {responseCode} -> responseCode) (\s@TestDNSAnswerResponse' {} a -> s {responseCode = a} :: TestDNSAnswerResponse)
 
--- | The protocol that Amazon Route 53 used to respond to the request, either @UDP@ or @TCP@ .
-tdarsProtocol :: Lens' TestDNSAnswerResponse Text
-tdarsProtocol = lens _tdarsProtocol (\ s a -> s{_tdarsProtocol = a})
+-- | The protocol that Amazon Route 53 used to respond to the request, either
+-- @UDP@ or @TCP@.
+testDNSAnswerResponse_protocol :: Lens.Lens' TestDNSAnswerResponse Prelude.Text
+testDNSAnswerResponse_protocol = Lens.lens (\TestDNSAnswerResponse' {protocol} -> protocol) (\s@TestDNSAnswerResponse' {} a -> s {protocol = a} :: TestDNSAnswerResponse)
 
-instance NFData TestDNSAnswerResponse where
+instance Prelude.NFData TestDNSAnswerResponse

@@ -1,130 +1,158 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AlexaBusiness.TagResource
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Adds metadata tags to a specified resource.
---
---
 module Network.AWS.AlexaBusiness.TagResource
-    (
-    -- * Creating a Request
-      tagResource
-    , TagResource
+  ( -- * Creating a Request
+    TagResource (..),
+    newTagResource,
+
     -- * Request Lenses
-    , trARN
-    , trTags
+    tagResource_arn,
+    tagResource_tags,
 
     -- * Destructuring the Response
-    , tagResourceResponse
-    , TagResourceResponse
+    TagResourceResponse (..),
+    newTagResourceResponse,
+
     -- * Response Lenses
-    , trrsResponseStatus
-    ) where
+    tagResourceResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.AlexaBusiness.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'tagResource' smart constructor.
+-- | /See:/ 'newTagResource' smart constructor.
 data TagResource = TagResource'
-  { _trARN  :: !Text
-  , _trTags :: ![Tag]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ARN of the resource to which to add metadata tags. Required.
+    arn :: Prelude.Text,
+    -- | The tags to be added to the specified resource. Do not provide system
+    -- tags. Required.
+    tags :: [Tag]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'TagResource' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'TagResource' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'trARN' - The ARN of the resource to which to add metadata tags. Required.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'trTags' - The tags to be added to the specified resource. Do not provide system tags. Required.
-tagResource
-    :: Text -- ^ 'trARN'
-    -> TagResource
-tagResource pARN_ = TagResource' {_trARN = pARN_, _trTags = mempty}
-
+-- 'arn', 'tagResource_arn' - The ARN of the resource to which to add metadata tags. Required.
+--
+-- 'tags', 'tagResource_tags' - The tags to be added to the specified resource. Do not provide system
+-- tags. Required.
+newTagResource ::
+  -- | 'arn'
+  Prelude.Text ->
+  TagResource
+newTagResource pArn_ =
+  TagResource' {arn = pArn_, tags = Prelude.mempty}
 
 -- | The ARN of the resource to which to add metadata tags. Required.
-trARN :: Lens' TagResource Text
-trARN = lens _trARN (\ s a -> s{_trARN = a})
+tagResource_arn :: Lens.Lens' TagResource Prelude.Text
+tagResource_arn = Lens.lens (\TagResource' {arn} -> arn) (\s@TagResource' {} a -> s {arn = a} :: TagResource)
 
--- | The tags to be added to the specified resource. Do not provide system tags. Required.
-trTags :: Lens' TagResource [Tag]
-trTags = lens _trTags (\ s a -> s{_trTags = a}) . _Coerce
+-- | The tags to be added to the specified resource. Do not provide system
+-- tags. Required.
+tagResource_tags :: Lens.Lens' TagResource [Tag]
+tagResource_tags = Lens.lens (\TagResource' {tags} -> tags) (\s@TagResource' {} a -> s {tags = a} :: TagResource) Prelude.. Prelude._Coerce
 
-instance AWSRequest TagResource where
-        type Rs TagResource = TagResourceResponse
-        request = postJSON alexaBusiness
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 TagResourceResponse' <$> (pure (fromEnum s)))
+instance Prelude.AWSRequest TagResource where
+  type Rs TagResource = TagResourceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          TagResourceResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable TagResource where
+instance Prelude.Hashable TagResource
 
-instance NFData TagResource where
+instance Prelude.NFData TagResource
 
-instance ToHeaders TagResource where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AlexaForBusiness.TagResource" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders TagResource where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AlexaForBusiness.TagResource" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON TagResource where
-        toJSON TagResource'{..}
-          = object
-              (catMaybes
-                 [Just ("Arn" .= _trARN), Just ("Tags" .= _trTags)])
+instance Prelude.ToJSON TagResource where
+  toJSON TagResource' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just ("Arn" Prelude..= arn),
+            Prelude.Just ("Tags" Prelude..= tags)
+          ]
+      )
 
-instance ToPath TagResource where
-        toPath = const "/"
+instance Prelude.ToPath TagResource where
+  toPath = Prelude.const "/"
 
-instance ToQuery TagResource where
-        toQuery = const mempty
+instance Prelude.ToQuery TagResource where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'tagResourceResponse' smart constructor.
-newtype TagResourceResponse = TagResourceResponse'
-  { _trrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newTagResourceResponse' smart constructor.
+data TagResourceResponse = TagResourceResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'TagResourceResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'trrsResponseStatus' - -- | The response status code.
-tagResourceResponse
-    :: Int -- ^ 'trrsResponseStatus'
-    -> TagResourceResponse
-tagResourceResponse pResponseStatus_ =
-  TagResourceResponse' {_trrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'tagResourceResponse_httpStatus' - The response's http status code.
+newTagResourceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  TagResourceResponse
+newTagResourceResponse pHttpStatus_ =
+  TagResourceResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+tagResourceResponse_httpStatus :: Lens.Lens' TagResourceResponse Prelude.Int
+tagResourceResponse_httpStatus = Lens.lens (\TagResourceResponse' {httpStatus} -> httpStatus) (\s@TagResourceResponse' {} a -> s {httpStatus = a} :: TagResourceResponse)
 
--- | -- | The response status code.
-trrsResponseStatus :: Lens' TagResourceResponse Int
-trrsResponseStatus = lens _trrsResponseStatus (\ s a -> s{_trrsResponseStatus = a})
-
-instance NFData TagResourceResponse where
+instance Prelude.NFData TagResourceResponse

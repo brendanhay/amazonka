@@ -1,164 +1,233 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Greengrass.ListLoggerDefinitionVersions
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Lists the versions of a logger definition.
+--
+-- This operation returns paginated results.
 module Network.AWS.Greengrass.ListLoggerDefinitionVersions
-    (
-    -- * Creating a Request
-      listLoggerDefinitionVersions
-    , ListLoggerDefinitionVersions
+  ( -- * Creating a Request
+    ListLoggerDefinitionVersions (..),
+    newListLoggerDefinitionVersions,
+
     -- * Request Lenses
-    , lldvNextToken
-    , lldvMaxResults
-    , lldvLoggerDefinitionId
+    listLoggerDefinitionVersions_nextToken,
+    listLoggerDefinitionVersions_maxResults,
+    listLoggerDefinitionVersions_loggerDefinitionId,
 
     -- * Destructuring the Response
-    , listLoggerDefinitionVersionsResponse
-    , ListLoggerDefinitionVersionsResponse
+    ListLoggerDefinitionVersionsResponse (..),
+    newListLoggerDefinitionVersionsResponse,
+
     -- * Response Lenses
-    , lldvrsVersions
-    , lldvrsNextToken
-    , lldvrsResponseStatus
-    ) where
+    listLoggerDefinitionVersionsResponse_nextToken,
+    listLoggerDefinitionVersionsResponse_versions,
+    listLoggerDefinitionVersionsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Greengrass.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listLoggerDefinitionVersions' smart constructor.
+-- | /See:/ 'newListLoggerDefinitionVersions' smart constructor.
 data ListLoggerDefinitionVersions = ListLoggerDefinitionVersions'
-  { _lldvNextToken          :: !(Maybe Text)
-  , _lldvMaxResults         :: !(Maybe Text)
-  , _lldvLoggerDefinitionId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token for the next set of results, or \'\'null\'\' if there are no
+    -- additional results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to be returned per request.
+    maxResults :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the logger definition.
+    loggerDefinitionId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListLoggerDefinitionVersions' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListLoggerDefinitionVersions' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lldvNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lldvMaxResults' - The maximum number of results to be returned per request.
+-- 'nextToken', 'listLoggerDefinitionVersions_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
+-- additional results.
 --
--- * 'lldvLoggerDefinitionId' - The ID of the logger definition.
-listLoggerDefinitionVersions
-    :: Text -- ^ 'lldvLoggerDefinitionId'
-    -> ListLoggerDefinitionVersions
-listLoggerDefinitionVersions pLoggerDefinitionId_ =
+-- 'maxResults', 'listLoggerDefinitionVersions_maxResults' - The maximum number of results to be returned per request.
+--
+-- 'loggerDefinitionId', 'listLoggerDefinitionVersions_loggerDefinitionId' - The ID of the logger definition.
+newListLoggerDefinitionVersions ::
+  -- | 'loggerDefinitionId'
+  Prelude.Text ->
+  ListLoggerDefinitionVersions
+newListLoggerDefinitionVersions pLoggerDefinitionId_ =
   ListLoggerDefinitionVersions'
-    { _lldvNextToken = Nothing
-    , _lldvMaxResults = Nothing
-    , _lldvLoggerDefinitionId = pLoggerDefinitionId_
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      loggerDefinitionId = pLoggerDefinitionId_
     }
 
-
--- | The token for the next set of results, or ''null'' if there are no additional results.
-lldvNextToken :: Lens' ListLoggerDefinitionVersions (Maybe Text)
-lldvNextToken = lens _lldvNextToken (\ s a -> s{_lldvNextToken = a})
+-- | The token for the next set of results, or \'\'null\'\' if there are no
+-- additional results.
+listLoggerDefinitionVersions_nextToken :: Lens.Lens' ListLoggerDefinitionVersions (Prelude.Maybe Prelude.Text)
+listLoggerDefinitionVersions_nextToken = Lens.lens (\ListLoggerDefinitionVersions' {nextToken} -> nextToken) (\s@ListLoggerDefinitionVersions' {} a -> s {nextToken = a} :: ListLoggerDefinitionVersions)
 
 -- | The maximum number of results to be returned per request.
-lldvMaxResults :: Lens' ListLoggerDefinitionVersions (Maybe Text)
-lldvMaxResults = lens _lldvMaxResults (\ s a -> s{_lldvMaxResults = a})
+listLoggerDefinitionVersions_maxResults :: Lens.Lens' ListLoggerDefinitionVersions (Prelude.Maybe Prelude.Text)
+listLoggerDefinitionVersions_maxResults = Lens.lens (\ListLoggerDefinitionVersions' {maxResults} -> maxResults) (\s@ListLoggerDefinitionVersions' {} a -> s {maxResults = a} :: ListLoggerDefinitionVersions)
 
 -- | The ID of the logger definition.
-lldvLoggerDefinitionId :: Lens' ListLoggerDefinitionVersions Text
-lldvLoggerDefinitionId = lens _lldvLoggerDefinitionId (\ s a -> s{_lldvLoggerDefinitionId = a})
+listLoggerDefinitionVersions_loggerDefinitionId :: Lens.Lens' ListLoggerDefinitionVersions Prelude.Text
+listLoggerDefinitionVersions_loggerDefinitionId = Lens.lens (\ListLoggerDefinitionVersions' {loggerDefinitionId} -> loggerDefinitionId) (\s@ListLoggerDefinitionVersions' {} a -> s {loggerDefinitionId = a} :: ListLoggerDefinitionVersions)
 
-instance AWSRequest ListLoggerDefinitionVersions
-         where
-        type Rs ListLoggerDefinitionVersions =
-             ListLoggerDefinitionVersionsResponse
-        request = get greengrass
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListLoggerDefinitionVersionsResponse' <$>
-                   (x .?> "Versions" .!@ mempty) <*> (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
+instance Pager.AWSPager ListLoggerDefinitionVersions where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listLoggerDefinitionVersionsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listLoggerDefinitionVersionsResponse_versions
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listLoggerDefinitionVersions_nextToken
+          Lens..~ rs
+          Lens.^? listLoggerDefinitionVersionsResponse_nextToken
+            Prelude.. Lens._Just
 
-instance Hashable ListLoggerDefinitionVersions where
+instance
+  Prelude.AWSRequest
+    ListLoggerDefinitionVersions
+  where
+  type
+    Rs ListLoggerDefinitionVersions =
+      ListLoggerDefinitionVersionsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListLoggerDefinitionVersionsResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> (x Prelude..?> "Versions" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData ListLoggerDefinitionVersions where
+instance
+  Prelude.Hashable
+    ListLoggerDefinitionVersions
 
-instance ToHeaders ListLoggerDefinitionVersions where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.NFData ListLoggerDefinitionVersions
 
-instance ToPath ListLoggerDefinitionVersions where
-        toPath ListLoggerDefinitionVersions'{..}
-          = mconcat
-              ["/greengrass/definition/loggers/",
-               toBS _lldvLoggerDefinitionId, "/versions"]
+instance
+  Prelude.ToHeaders
+    ListLoggerDefinitionVersions
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToQuery ListLoggerDefinitionVersions where
-        toQuery ListLoggerDefinitionVersions'{..}
-          = mconcat
-              ["NextToken" =: _lldvNextToken,
-               "MaxResults" =: _lldvMaxResults]
+instance Prelude.ToPath ListLoggerDefinitionVersions where
+  toPath ListLoggerDefinitionVersions' {..} =
+    Prelude.mconcat
+      [ "/greengrass/definition/loggers/",
+        Prelude.toBS loggerDefinitionId,
+        "/versions"
+      ]
 
--- | /See:/ 'listLoggerDefinitionVersionsResponse' smart constructor.
+instance Prelude.ToQuery ListLoggerDefinitionVersions where
+  toQuery ListLoggerDefinitionVersions' {..} =
+    Prelude.mconcat
+      [ "NextToken" Prelude.=: nextToken,
+        "MaxResults" Prelude.=: maxResults
+      ]
+
+-- | /See:/ 'newListLoggerDefinitionVersionsResponse' smart constructor.
 data ListLoggerDefinitionVersionsResponse = ListLoggerDefinitionVersionsResponse'
-  { _lldvrsVersions       :: !(Maybe [VersionInformation])
-  , _lldvrsNextToken      :: !(Maybe Text)
-  , _lldvrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token for the next set of results, or \'\'null\'\' if there are no
+    -- additional results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about a version.
+    versions :: Prelude.Maybe [VersionInformation],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListLoggerDefinitionVersionsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListLoggerDefinitionVersionsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lldvrsVersions' - Information about a version.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lldvrsNextToken' - The token for the next set of results, or ''null'' if there are no additional results.
+-- 'nextToken', 'listLoggerDefinitionVersionsResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no
+-- additional results.
 --
--- * 'lldvrsResponseStatus' - -- | The response status code.
-listLoggerDefinitionVersionsResponse
-    :: Int -- ^ 'lldvrsResponseStatus'
-    -> ListLoggerDefinitionVersionsResponse
-listLoggerDefinitionVersionsResponse pResponseStatus_ =
+-- 'versions', 'listLoggerDefinitionVersionsResponse_versions' - Information about a version.
+--
+-- 'httpStatus', 'listLoggerDefinitionVersionsResponse_httpStatus' - The response's http status code.
+newListLoggerDefinitionVersionsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListLoggerDefinitionVersionsResponse
+newListLoggerDefinitionVersionsResponse pHttpStatus_ =
   ListLoggerDefinitionVersionsResponse'
-    { _lldvrsVersions = Nothing
-    , _lldvrsNextToken = Nothing
-    , _lldvrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      versions = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The token for the next set of results, or \'\'null\'\' if there are no
+-- additional results.
+listLoggerDefinitionVersionsResponse_nextToken :: Lens.Lens' ListLoggerDefinitionVersionsResponse (Prelude.Maybe Prelude.Text)
+listLoggerDefinitionVersionsResponse_nextToken = Lens.lens (\ListLoggerDefinitionVersionsResponse' {nextToken} -> nextToken) (\s@ListLoggerDefinitionVersionsResponse' {} a -> s {nextToken = a} :: ListLoggerDefinitionVersionsResponse)
 
 -- | Information about a version.
-lldvrsVersions :: Lens' ListLoggerDefinitionVersionsResponse [VersionInformation]
-lldvrsVersions = lens _lldvrsVersions (\ s a -> s{_lldvrsVersions = a}) . _Default . _Coerce
+listLoggerDefinitionVersionsResponse_versions :: Lens.Lens' ListLoggerDefinitionVersionsResponse (Prelude.Maybe [VersionInformation])
+listLoggerDefinitionVersionsResponse_versions = Lens.lens (\ListLoggerDefinitionVersionsResponse' {versions} -> versions) (\s@ListLoggerDefinitionVersionsResponse' {} a -> s {versions = a} :: ListLoggerDefinitionVersionsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The token for the next set of results, or ''null'' if there are no additional results.
-lldvrsNextToken :: Lens' ListLoggerDefinitionVersionsResponse (Maybe Text)
-lldvrsNextToken = lens _lldvrsNextToken (\ s a -> s{_lldvrsNextToken = a})
+-- | The response's http status code.
+listLoggerDefinitionVersionsResponse_httpStatus :: Lens.Lens' ListLoggerDefinitionVersionsResponse Prelude.Int
+listLoggerDefinitionVersionsResponse_httpStatus = Lens.lens (\ListLoggerDefinitionVersionsResponse' {httpStatus} -> httpStatus) (\s@ListLoggerDefinitionVersionsResponse' {} a -> s {httpStatus = a} :: ListLoggerDefinitionVersionsResponse)
 
--- | -- | The response status code.
-lldvrsResponseStatus :: Lens' ListLoggerDefinitionVersionsResponse Int
-lldvrsResponseStatus = lens _lldvrsResponseStatus (\ s a -> s{_lldvrsResponseStatus = a})
-
-instance NFData ListLoggerDefinitionVersionsResponse
-         where
+instance
+  Prelude.NFData
+    ListLoggerDefinitionVersionsResponse

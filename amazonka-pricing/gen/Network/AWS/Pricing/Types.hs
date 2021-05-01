@@ -1,128 +1,160 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Pricing.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.Pricing.Types
-    (
-    -- * Service Configuration
-      pricing
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _InvalidParameterException
-    , _InternalErrorException
-    , _ExpiredNextTokenException
-    , _NotFoundException
-    , _InvalidNextTokenException
+    _NotFoundException,
+    _ExpiredNextTokenException,
+    _InternalErrorException,
+    _InvalidNextTokenException,
+    _InvalidParameterException,
 
     -- * FilterType
-    , FilterType (..)
+    FilterType (..),
 
     -- * AttributeValue
-    , AttributeValue
-    , attributeValue
-    , avValue
+    AttributeValue (..),
+    newAttributeValue,
+    attributeValue_value,
 
     -- * Filter
-    , Filter
-    , filter'
-    , fType
-    , fField
-    , fValue
+    Filter (..),
+    newFilter,
+    filter_type,
+    filter_field,
+    filter_value,
 
     -- * PricingService
-    , PricingService
-    , pricingService
-    , psAttributeNames
-    , psServiceCode
-    ) where
+    PricingService (..),
+    newPricingService,
+    pricingService_serviceCode,
+    pricingService_attributeNames,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Pricing.Types.Product
-import Network.AWS.Pricing.Types.Sum
-import Network.AWS.Sign.V4
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import Network.AWS.Pricing.Types.AttributeValue
+import Network.AWS.Pricing.Types.Filter
+import Network.AWS.Pricing.Types.FilterType
+import Network.AWS.Pricing.Types.PricingService
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-10-15@ of the Amazon Price List Service SDK configuration.
-pricing :: Service
-pricing =
-  Service
-    { _svcAbbrev = "Pricing"
-    , _svcSigner = v4
-    , _svcPrefix = "api.pricing"
-    , _svcVersion = "2017-10-15"
-    , _svcEndpoint = defaultEndpoint pricing
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "Pricing"
-    , _svcRetry = retry
+defaultService :: Prelude.Service
+defaultService =
+  Prelude.Service
+    { Prelude._svcAbbrev = "Pricing",
+      Prelude._svcSigner = Sign.v4,
+      Prelude._svcPrefix = "api.pricing",
+      Prelude._svcVersion = "2017-10-15",
+      Prelude._svcEndpoint =
+        Prelude.defaultEndpoint defaultService,
+      Prelude._svcTimeout = Prelude.Just 70,
+      Prelude._svcCheck = Prelude.statusSuccess,
+      Prelude._svcError = Prelude.parseJSONError "Pricing",
+      Prelude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Prelude.Exponential
+        { Prelude._retryBase = 5.0e-2,
+          Prelude._retryGrowth = 2,
+          Prelude._retryAttempts = 5,
+          Prelude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+      | Lens.has (Prelude.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Prelude.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Prelude.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Prelude.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Prelude.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Prelude.hasCode "RequestThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Prelude.hasCode "ThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Prelude.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Prelude.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Prelude.hasCode "ThrottlingException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Prelude.hasCode "Throttling"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
-
--- | One or more parameters had an invalid value.
---
---
-_InvalidParameterException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidParameterException =
-  _MatchServiceError pricing "InvalidParameterException"
-
-
--- | An error on the server occurred during the processing of your request. Try again later.
---
---
-_InternalErrorException :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalErrorException = _MatchServiceError pricing "InternalErrorException"
-
+-- | The requested resource can\'t be found.
+_NotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_NotFoundException =
+  Prelude._MatchServiceError
+    defaultService
+    "NotFoundException"
 
 -- | The pagination token expired. Try again without a pagination token.
---
---
-_ExpiredNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
+_ExpiredNextTokenException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
 _ExpiredNextTokenException =
-  _MatchServiceError pricing "ExpiredNextTokenException"
+  Prelude._MatchServiceError
+    defaultService
+    "ExpiredNextTokenException"
 
-
--- | The requested resource can't be found.
---
---
-_NotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_NotFoundException = _MatchServiceError pricing "NotFoundException"
-
+-- | An error on the server occurred during the processing of your request.
+-- Try again later.
+_InternalErrorException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InternalErrorException =
+  Prelude._MatchServiceError
+    defaultService
+    "InternalErrorException"
 
 -- | The pagination token is invalid. Try again without a pagination token.
---
---
-_InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidNextTokenException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
 _InvalidNextTokenException =
-  _MatchServiceError pricing "InvalidNextTokenException"
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidNextTokenException"
 
+-- | One or more parameters had an invalid value.
+_InvalidParameterException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidParameterException =
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidParameterException"

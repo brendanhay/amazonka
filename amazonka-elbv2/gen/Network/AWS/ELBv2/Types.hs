@@ -1,558 +1,816 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ELBv2.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.ELBv2.Types
-    (
-    -- * Service Configuration
-      eLBv2
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _InvalidConfigurationRequestException
-    , _SubnetNotFoundException
-    , _TooManyTargetsException
-    , _RuleNotFoundException
-    , _InvalidSubnetException
-    , _TooManyRulesException
-    , _TooManyTargetGroupsException
-    , _DuplicateLoadBalancerNameException
-    , _IncompatibleProtocolsException
-    , _TooManyCertificatesException
-    , _DuplicateTagKeysException
-    , _DuplicateListenerException
-    , _TooManyTagsException
-    , _DuplicateTargetGroupNameException
-    , _HealthUnavailableException
-    , _AllocationIdNotFoundException
-    , _PriorityInUseException
-    , _TooManyLoadBalancersException
-    , _UnsupportedProtocolException
-    , _InvalidTargetException
-    , _InvalidSecurityGroupException
-    , _TargetGroupNotFoundException
-    , _ListenerNotFoundException
-    , _TooManyRegistrationsForTargetIdException
-    , _TooManyListenersException
-    , _TargetGroupAssociationLimitException
-    , _OperationNotPermittedException
-    , _SSLPolicyNotFoundException
-    , _InvalidSchemeException
-    , _AvailabilityZoneNotSupportedException
-    , _LoadBalancerNotFoundException
-    , _ResourceInUseException
-    , _CertificateNotFoundException
+    _InvalidSecurityGroupException,
+    _ALPNPolicyNotSupportedException,
+    _InvalidConfigurationRequestException,
+    _TooManyTagsException,
+    _HealthUnavailableException,
+    _PriorityInUseException,
+    _DuplicateTagKeysException,
+    _AvailabilityZoneNotSupportedException,
+    _TooManyUniqueTargetGroupsPerLoadBalancerException,
+    _IncompatibleProtocolsException,
+    _TooManyRulesException,
+    _TooManyActionsException,
+    _OperationNotPermittedException,
+    _TargetGroupAssociationLimitException,
+    _TooManyRegistrationsForTargetIdException,
+    _ListenerNotFoundException,
+    _SubnetNotFoundException,
+    _InvalidTargetException,
+    _UnsupportedProtocolException,
+    _ResourceInUseException,
+    _AllocationIdNotFoundException,
+    _TooManyLoadBalancersException,
+    _CertificateNotFoundException,
+    _DuplicateTargetGroupNameException,
+    _DuplicateListenerException,
+    _LoadBalancerNotFoundException,
+    _TooManyCertificatesException,
+    _InvalidSchemeException,
+    _SSLPolicyNotFoundException,
+    _InvalidSubnetException,
+    _TooManyTargetGroupsException,
+    _DuplicateLoadBalancerNameException,
+    _TooManyListenersException,
+    _InvalidLoadBalancerActionException,
+    _TooManyTargetsException,
+    _RuleNotFoundException,
+    _TargetGroupNotFoundException,
 
     -- * ActionTypeEnum
-    , ActionTypeEnum (..)
+    ActionTypeEnum (..),
 
-    -- * IPAddressType
-    , IPAddressType (..)
+    -- * AuthenticateCognitoActionConditionalBehaviorEnum
+    AuthenticateCognitoActionConditionalBehaviorEnum (..),
+
+    -- * AuthenticateOidcActionConditionalBehaviorEnum
+    AuthenticateOidcActionConditionalBehaviorEnum (..),
+
+    -- * IpAddressType
+    IpAddressType (..),
 
     -- * LoadBalancerSchemeEnum
-    , LoadBalancerSchemeEnum (..)
+    LoadBalancerSchemeEnum (..),
 
     -- * LoadBalancerStateEnum
-    , LoadBalancerStateEnum (..)
+    LoadBalancerStateEnum (..),
 
     -- * LoadBalancerTypeEnum
-    , LoadBalancerTypeEnum (..)
+    LoadBalancerTypeEnum (..),
 
     -- * ProtocolEnum
-    , ProtocolEnum (..)
+    ProtocolEnum (..),
+
+    -- * RedirectActionStatusCodeEnum
+    RedirectActionStatusCodeEnum (..),
 
     -- * TargetHealthReasonEnum
-    , TargetHealthReasonEnum (..)
+    TargetHealthReasonEnum (..),
 
     -- * TargetHealthStateEnum
-    , TargetHealthStateEnum (..)
+    TargetHealthStateEnum (..),
 
     -- * TargetTypeEnum
-    , TargetTypeEnum (..)
+    TargetTypeEnum (..),
 
     -- * Action
-    , Action
-    , action
-    , aType
-    , aTargetGroupARN
+    Action (..),
+    newAction,
+    action_authenticateOidcConfig,
+    action_targetGroupArn,
+    action_authenticateCognitoConfig,
+    action_fixedResponseConfig,
+    action_forwardConfig,
+    action_order,
+    action_redirectConfig,
+    action_type,
+
+    -- * AuthenticateCognitoActionConfig
+    AuthenticateCognitoActionConfig (..),
+    newAuthenticateCognitoActionConfig,
+    authenticateCognitoActionConfig_sessionTimeout,
+    authenticateCognitoActionConfig_scope,
+    authenticateCognitoActionConfig_authenticationRequestExtraParams,
+    authenticateCognitoActionConfig_sessionCookieName,
+    authenticateCognitoActionConfig_onUnauthenticatedRequest,
+    authenticateCognitoActionConfig_userPoolArn,
+    authenticateCognitoActionConfig_userPoolClientId,
+    authenticateCognitoActionConfig_userPoolDomain,
+
+    -- * AuthenticateOidcActionConfig
+    AuthenticateOidcActionConfig (..),
+    newAuthenticateOidcActionConfig,
+    authenticateOidcActionConfig_useExistingClientSecret,
+    authenticateOidcActionConfig_clientSecret,
+    authenticateOidcActionConfig_sessionTimeout,
+    authenticateOidcActionConfig_scope,
+    authenticateOidcActionConfig_authenticationRequestExtraParams,
+    authenticateOidcActionConfig_sessionCookieName,
+    authenticateOidcActionConfig_onUnauthenticatedRequest,
+    authenticateOidcActionConfig_issuer,
+    authenticateOidcActionConfig_authorizationEndpoint,
+    authenticateOidcActionConfig_tokenEndpoint,
+    authenticateOidcActionConfig_userInfoEndpoint,
+    authenticateOidcActionConfig_clientId,
 
     -- * AvailabilityZone
-    , AvailabilityZone
-    , availabilityZone
-    , azSubnetId
-    , azZoneName
-    , azLoadBalancerAddresses
+    AvailabilityZone (..),
+    newAvailabilityZone,
+    availabilityZone_zoneName,
+    availabilityZone_outpostId,
+    availabilityZone_loadBalancerAddresses,
+    availabilityZone_subnetId,
 
     -- * Certificate
-    , Certificate
-    , certificate
-    , cCertificateARN
-    , cIsDefault
+    Certificate (..),
+    newCertificate,
+    certificate_isDefault,
+    certificate_certificateArn,
 
     -- * Cipher
-    , Cipher
-    , cipher
-    , cPriority
-    , cName
+    Cipher (..),
+    newCipher,
+    cipher_priority,
+    cipher_name,
+
+    -- * FixedResponseActionConfig
+    FixedResponseActionConfig (..),
+    newFixedResponseActionConfig,
+    fixedResponseActionConfig_contentType,
+    fixedResponseActionConfig_messageBody,
+    fixedResponseActionConfig_statusCode,
+
+    -- * ForwardActionConfig
+    ForwardActionConfig (..),
+    newForwardActionConfig,
+    forwardActionConfig_targetGroupStickinessConfig,
+    forwardActionConfig_targetGroups,
+
+    -- * HostHeaderConditionConfig
+    HostHeaderConditionConfig (..),
+    newHostHeaderConditionConfig,
+    hostHeaderConditionConfig_values,
+
+    -- * HttpHeaderConditionConfig
+    HttpHeaderConditionConfig (..),
+    newHttpHeaderConditionConfig,
+    httpHeaderConditionConfig_values,
+    httpHeaderConditionConfig_httpHeaderName,
+
+    -- * HttpRequestMethodConditionConfig
+    HttpRequestMethodConditionConfig (..),
+    newHttpRequestMethodConditionConfig,
+    httpRequestMethodConditionConfig_values,
 
     -- * Limit
-    , Limit
-    , limit
-    , lMax
-    , lName
+    Limit (..),
+    newLimit,
+    limit_name,
+    limit_max,
 
     -- * Listener
-    , Listener
-    , listener
-    , lSSLPolicy
-    , lListenerARN
-    , lProtocol
-    , lDefaultActions
-    , lCertificates
-    , lLoadBalancerARN
-    , lPort
+    Listener (..),
+    newListener,
+    listener_loadBalancerArn,
+    listener_sslPolicy,
+    listener_port,
+    listener_defaultActions,
+    listener_protocol,
+    listener_certificates,
+    listener_listenerArn,
+    listener_alpnPolicy,
 
     -- * LoadBalancer
-    , LoadBalancer
-    , loadBalancer
-    , lbState
-    , lbSecurityGroups
-    , lbLoadBalancerName
-    , lbCreatedTime
-    , lbVPCId
-    , lbCanonicalHostedZoneId
-    , lbAvailabilityZones
-    , lbLoadBalancerARN
-    , lbIPAddressType
-    , lbScheme
-    , lbType
-    , lbDNSName
+    LoadBalancer (..),
+    newLoadBalancer,
+    loadBalancer_ipAddressType,
+    loadBalancer_loadBalancerArn,
+    loadBalancer_customerOwnedIpv4Pool,
+    loadBalancer_availabilityZones,
+    loadBalancer_scheme,
+    loadBalancer_createdTime,
+    loadBalancer_securityGroups,
+    loadBalancer_state,
+    loadBalancer_dNSName,
+    loadBalancer_type,
+    loadBalancer_canonicalHostedZoneId,
+    loadBalancer_vpcId,
+    loadBalancer_loadBalancerName,
 
     -- * LoadBalancerAddress
-    , LoadBalancerAddress
-    , loadBalancerAddress
-    , lbaIPAddress
-    , lbaAllocationId
+    LoadBalancerAddress (..),
+    newLoadBalancerAddress,
+    loadBalancerAddress_privateIPv4Address,
+    loadBalancerAddress_ipAddress,
+    loadBalancerAddress_iPv6Address,
+    loadBalancerAddress_allocationId,
 
     -- * LoadBalancerAttribute
-    , LoadBalancerAttribute
-    , loadBalancerAttribute
-    , lbaValue
-    , lbaKey
+    LoadBalancerAttribute (..),
+    newLoadBalancerAttribute,
+    loadBalancerAttribute_key,
+    loadBalancerAttribute_value,
 
     -- * LoadBalancerState
-    , LoadBalancerState
-    , loadBalancerState
-    , lbsReason
-    , lbsCode
+    LoadBalancerState (..),
+    newLoadBalancerState,
+    loadBalancerState_code,
+    loadBalancerState_reason,
 
     -- * Matcher
-    , Matcher
-    , matcher
-    , mHTTPCode
+    Matcher (..),
+    newMatcher,
+    matcher_grpcCode,
+    matcher_httpCode,
+
+    -- * PathPatternConditionConfig
+    PathPatternConditionConfig (..),
+    newPathPatternConditionConfig,
+    pathPatternConditionConfig_values,
+
+    -- * QueryStringConditionConfig
+    QueryStringConditionConfig (..),
+    newQueryStringConditionConfig,
+    queryStringConditionConfig_values,
+
+    -- * QueryStringKeyValuePair
+    QueryStringKeyValuePair (..),
+    newQueryStringKeyValuePair,
+    queryStringKeyValuePair_key,
+    queryStringKeyValuePair_value,
+
+    -- * RedirectActionConfig
+    RedirectActionConfig (..),
+    newRedirectActionConfig,
+    redirectActionConfig_query,
+    redirectActionConfig_port,
+    redirectActionConfig_protocol,
+    redirectActionConfig_host,
+    redirectActionConfig_path,
+    redirectActionConfig_statusCode,
 
     -- * Rule
-    , Rule
-    , rule
-    , rPriority
-    , rActions
-    , rConditions
-    , rRuleARN
-    , rIsDefault
+    Rule (..),
+    newRule,
+    rule_isDefault,
+    rule_ruleArn,
+    rule_actions,
+    rule_priority,
+    rule_conditions,
 
     -- * RuleCondition
-    , RuleCondition
-    , ruleCondition
-    , rcField
-    , rcValues
+    RuleCondition (..),
+    newRuleCondition,
+    ruleCondition_pathPatternConfig,
+    ruleCondition_httpRequestMethodConfig,
+    ruleCondition_values,
+    ruleCondition_sourceIpConfig,
+    ruleCondition_httpHeaderConfig,
+    ruleCondition_hostHeaderConfig,
+    ruleCondition_queryStringConfig,
+    ruleCondition_field,
 
     -- * RulePriorityPair
-    , RulePriorityPair
-    , rulePriorityPair
-    , rppPriority
-    , rppRuleARN
+    RulePriorityPair (..),
+    newRulePriorityPair,
+    rulePriorityPair_ruleArn,
+    rulePriorityPair_priority,
 
-    -- * SSLPolicy
-    , SSLPolicy
-    , sslPolicy
-    , spCiphers
-    , spName
-    , spSSLProtocols
+    -- * SourceIpConditionConfig
+    SourceIpConditionConfig (..),
+    newSourceIpConditionConfig,
+    sourceIpConditionConfig_values,
+
+    -- * SslPolicy
+    SslPolicy (..),
+    newSslPolicy,
+    sslPolicy_ciphers,
+    sslPolicy_name,
+    sslPolicy_sslProtocols,
 
     -- * SubnetMapping
-    , SubnetMapping
-    , subnetMapping
-    , smAllocationId
-    , smSubnetId
+    SubnetMapping (..),
+    newSubnetMapping,
+    subnetMapping_privateIPv4Address,
+    subnetMapping_iPv6Address,
+    subnetMapping_subnetId,
+    subnetMapping_allocationId,
 
     -- * Tag
-    , Tag
-    , tag
-    , tagValue
-    , tagKey
+    Tag (..),
+    newTag,
+    tag_value,
+    tag_key,
 
     -- * TagDescription
-    , TagDescription
-    , tagDescription
-    , tdResourceARN
-    , tdTags
+    TagDescription (..),
+    newTagDescription,
+    tagDescription_resourceArn,
+    tagDescription_tags,
 
     -- * TargetDescription
-    , TargetDescription
-    , targetDescription
-    , tdAvailabilityZone
-    , tdPort
-    , tdId
+    TargetDescription (..),
+    newTargetDescription,
+    targetDescription_availabilityZone,
+    targetDescription_port,
+    targetDescription_id,
 
     -- * TargetGroup
-    , TargetGroup
-    , targetGroup
-    , tgMatcher
-    , tgHealthCheckPath
-    , tgUnhealthyThresholdCount
-    , tgVPCId
-    , tgTargetGroupARN
-    , tgProtocol
-    , tgHealthCheckIntervalSeconds
-    , tgTargetType
-    , tgHealthyThresholdCount
-    , tgHealthCheckProtocol
-    , tgLoadBalancerARNs
-    , tgHealthCheckTimeoutSeconds
-    , tgHealthCheckPort
-    , tgTargetGroupName
-    , tgPort
+    TargetGroup (..),
+    newTargetGroup,
+    targetGroup_healthCheckEnabled,
+    targetGroup_healthCheckProtocol,
+    targetGroup_targetGroupName,
+    targetGroup_targetType,
+    targetGroup_targetGroupArn,
+    targetGroup_healthCheckPort,
+    targetGroup_healthCheckTimeoutSeconds,
+    targetGroup_healthCheckPath,
+    targetGroup_loadBalancerArns,
+    targetGroup_matcher,
+    targetGroup_protocolVersion,
+    targetGroup_healthyThresholdCount,
+    targetGroup_port,
+    targetGroup_healthCheckIntervalSeconds,
+    targetGroup_protocol,
+    targetGroup_vpcId,
+    targetGroup_unhealthyThresholdCount,
 
     -- * TargetGroupAttribute
-    , TargetGroupAttribute
-    , targetGroupAttribute
-    , tgaValue
-    , tgaKey
+    TargetGroupAttribute (..),
+    newTargetGroupAttribute,
+    targetGroupAttribute_key,
+    targetGroupAttribute_value,
+
+    -- * TargetGroupStickinessConfig
+    TargetGroupStickinessConfig (..),
+    newTargetGroupStickinessConfig,
+    targetGroupStickinessConfig_enabled,
+    targetGroupStickinessConfig_durationSeconds,
+
+    -- * TargetGroupTuple
+    TargetGroupTuple (..),
+    newTargetGroupTuple,
+    targetGroupTuple_targetGroupArn,
+    targetGroupTuple_weight,
 
     -- * TargetHealth
-    , TargetHealth
-    , targetHealth
-    , thState
-    , thReason
-    , thDescription
+    TargetHealth (..),
+    newTargetHealth,
+    targetHealth_state,
+    targetHealth_reason,
+    targetHealth_description,
 
     -- * TargetHealthDescription
-    , TargetHealthDescription
-    , targetHealthDescription
-    , thdTargetHealth
-    , thdHealthCheckPort
-    , thdTarget
-    ) where
+    TargetHealthDescription (..),
+    newTargetHealthDescription,
+    targetHealthDescription_healthCheckPort,
+    targetHealthDescription_target,
+    targetHealthDescription_targetHealth,
+  )
+where
 
-import Network.AWS.ELBv2.Types.Product
-import Network.AWS.ELBv2.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+import Network.AWS.ELBv2.Types.Action
+import Network.AWS.ELBv2.Types.ActionTypeEnum
+import Network.AWS.ELBv2.Types.AuthenticateCognitoActionConditionalBehaviorEnum
+import Network.AWS.ELBv2.Types.AuthenticateCognitoActionConfig
+import Network.AWS.ELBv2.Types.AuthenticateOidcActionConditionalBehaviorEnum
+import Network.AWS.ELBv2.Types.AuthenticateOidcActionConfig
+import Network.AWS.ELBv2.Types.AvailabilityZone
+import Network.AWS.ELBv2.Types.Certificate
+import Network.AWS.ELBv2.Types.Cipher
+import Network.AWS.ELBv2.Types.FixedResponseActionConfig
+import Network.AWS.ELBv2.Types.ForwardActionConfig
+import Network.AWS.ELBv2.Types.HostHeaderConditionConfig
+import Network.AWS.ELBv2.Types.HttpHeaderConditionConfig
+import Network.AWS.ELBv2.Types.HttpRequestMethodConditionConfig
+import Network.AWS.ELBv2.Types.IpAddressType
+import Network.AWS.ELBv2.Types.Limit
+import Network.AWS.ELBv2.Types.Listener
+import Network.AWS.ELBv2.Types.LoadBalancer
+import Network.AWS.ELBv2.Types.LoadBalancerAddress
+import Network.AWS.ELBv2.Types.LoadBalancerAttribute
+import Network.AWS.ELBv2.Types.LoadBalancerSchemeEnum
+import Network.AWS.ELBv2.Types.LoadBalancerState
+import Network.AWS.ELBv2.Types.LoadBalancerStateEnum
+import Network.AWS.ELBv2.Types.LoadBalancerTypeEnum
+import Network.AWS.ELBv2.Types.Matcher
+import Network.AWS.ELBv2.Types.PathPatternConditionConfig
+import Network.AWS.ELBv2.Types.ProtocolEnum
+import Network.AWS.ELBv2.Types.QueryStringConditionConfig
+import Network.AWS.ELBv2.Types.QueryStringKeyValuePair
+import Network.AWS.ELBv2.Types.RedirectActionConfig
+import Network.AWS.ELBv2.Types.RedirectActionStatusCodeEnum
+import Network.AWS.ELBv2.Types.Rule
+import Network.AWS.ELBv2.Types.RuleCondition
+import Network.AWS.ELBv2.Types.RulePriorityPair
+import Network.AWS.ELBv2.Types.SourceIpConditionConfig
+import Network.AWS.ELBv2.Types.SslPolicy
+import Network.AWS.ELBv2.Types.SubnetMapping
+import Network.AWS.ELBv2.Types.Tag
+import Network.AWS.ELBv2.Types.TagDescription
+import Network.AWS.ELBv2.Types.TargetDescription
+import Network.AWS.ELBv2.Types.TargetGroup
+import Network.AWS.ELBv2.Types.TargetGroupAttribute
+import Network.AWS.ELBv2.Types.TargetGroupStickinessConfig
+import Network.AWS.ELBv2.Types.TargetGroupTuple
+import Network.AWS.ELBv2.Types.TargetHealth
+import Network.AWS.ELBv2.Types.TargetHealthDescription
+import Network.AWS.ELBv2.Types.TargetHealthReasonEnum
+import Network.AWS.ELBv2.Types.TargetHealthStateEnum
+import Network.AWS.ELBv2.Types.TargetTypeEnum
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-12-01@ of the Amazon Elastic Load Balancing SDK configuration.
-eLBv2 :: Service
-eLBv2 =
-  Service
-    { _svcAbbrev = "ELBv2"
-    , _svcSigner = v4
-    , _svcPrefix = "elasticloadbalancing"
-    , _svcVersion = "2015-12-01"
-    , _svcEndpoint = defaultEndpoint eLBv2
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseXMLError "ELBv2"
-    , _svcRetry = retry
+defaultService :: Prelude.Service
+defaultService =
+  Prelude.Service
+    { Prelude._svcAbbrev = "ELBv2",
+      Prelude._svcSigner = Sign.v4,
+      Prelude._svcPrefix = "elasticloadbalancing",
+      Prelude._svcVersion = "2015-12-01",
+      Prelude._svcEndpoint =
+        Prelude.defaultEndpoint defaultService,
+      Prelude._svcTimeout = Prelude.Just 70,
+      Prelude._svcCheck = Prelude.statusSuccess,
+      Prelude._svcError = Prelude.parseXMLError "ELBv2",
+      Prelude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Prelude.Exponential
+        { Prelude._retryBase = 5.0e-2,
+          Prelude._retryGrowth = 2,
+          Prelude._retryAttempts = 5,
+          Prelude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
-
-
--- | The requested configuration is not valid.
---
---
-_InvalidConfigurationRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidConfigurationRequestException =
-  _MatchServiceError eLBv2 "InvalidConfigurationRequest" . hasStatus 400
-
-
--- | The specified subnet does not exist.
---
---
-_SubnetNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_SubnetNotFoundException =
-  _MatchServiceError eLBv2 "SubnetNotFound" . hasStatus 400
-
-
--- | You've reached the limit on the number of targets.
---
---
-_TooManyTargetsException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyTargetsException =
-  _MatchServiceError eLBv2 "TooManyTargets" . hasStatus 400
-
-
--- | The specified rule does not exist.
---
---
-_RuleNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_RuleNotFoundException = _MatchServiceError eLBv2 "RuleNotFound" . hasStatus 400
-
-
--- | The specified subnet is out of available addresses.
---
---
-_InvalidSubnetException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidSubnetException =
-  _MatchServiceError eLBv2 "InvalidSubnet" . hasStatus 400
-
-
--- | You've reached the limit on the number of rules per load balancer.
---
---
-_TooManyRulesException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyRulesException = _MatchServiceError eLBv2 "TooManyRules" . hasStatus 400
-
-
--- | You've reached the limit on the number of target groups for your AWS account.
---
---
-_TooManyTargetGroupsException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyTargetGroupsException =
-  _MatchServiceError eLBv2 "TooManyTargetGroups" . hasStatus 400
-
-
--- | A load balancer with the specified name already exists.
---
---
-_DuplicateLoadBalancerNameException :: AsError a => Getting (First ServiceError) a ServiceError
-_DuplicateLoadBalancerNameException =
-  _MatchServiceError eLBv2 "DuplicateLoadBalancerName" . hasStatus 400
-
-
--- | The specified configuration is not valid with this protocol.
---
---
-_IncompatibleProtocolsException :: AsError a => Getting (First ServiceError) a ServiceError
-_IncompatibleProtocolsException =
-  _MatchServiceError eLBv2 "IncompatibleProtocols" . hasStatus 400
-
-
--- | You've reached the limit on the number of certificates per load balancer.
---
---
-_TooManyCertificatesException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyCertificatesException =
-  _MatchServiceError eLBv2 "TooManyCertificates" . hasStatus 400
-
-
--- | A tag key was specified more than once.
---
---
-_DuplicateTagKeysException :: AsError a => Getting (First ServiceError) a ServiceError
-_DuplicateTagKeysException =
-  _MatchServiceError eLBv2 "DuplicateTagKeys" . hasStatus 400
-
-
--- | A listener with the specified port already exists.
---
---
-_DuplicateListenerException :: AsError a => Getting (First ServiceError) a ServiceError
-_DuplicateListenerException =
-  _MatchServiceError eLBv2 "DuplicateListener" . hasStatus 400
-
-
--- | You've reached the limit on the number of tags per load balancer.
---
---
-_TooManyTagsException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyTagsException = _MatchServiceError eLBv2 "TooManyTags" . hasStatus 400
-
-
--- | A target group with the specified name already exists.
---
---
-_DuplicateTargetGroupNameException :: AsError a => Getting (First ServiceError) a ServiceError
-_DuplicateTargetGroupNameException =
-  _MatchServiceError eLBv2 "DuplicateTargetGroupName" . hasStatus 400
-
-
--- | The health of the specified targets could not be retrieved due to an internal error.
---
---
-_HealthUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
-_HealthUnavailableException =
-  _MatchServiceError eLBv2 "HealthUnavailable" . hasStatus 500
-
-
--- | The specified allocation ID does not exist.
---
---
-_AllocationIdNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_AllocationIdNotFoundException =
-  _MatchServiceError eLBv2 "AllocationIdNotFound" . hasStatus 400
-
-
--- | The specified priority is in use.
---
---
-_PriorityInUseException :: AsError a => Getting (First ServiceError) a ServiceError
-_PriorityInUseException =
-  _MatchServiceError eLBv2 "PriorityInUse" . hasStatus 400
-
-
--- | You've reached the limit on the number of load balancers for your AWS account.
---
---
-_TooManyLoadBalancersException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyLoadBalancersException =
-  _MatchServiceError eLBv2 "TooManyLoadBalancers" . hasStatus 400
-
-
--- | The specified protocol is not supported.
---
---
-_UnsupportedProtocolException :: AsError a => Getting (First ServiceError) a ServiceError
-_UnsupportedProtocolException =
-  _MatchServiceError eLBv2 "UnsupportedProtocol" . hasStatus 400
-
-
--- | The specified target does not exist, is not in the same VPC as the target group, or has an unsupported instance type.
---
---
-_InvalidTargetException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidTargetException =
-  _MatchServiceError eLBv2 "InvalidTarget" . hasStatus 400
-
+      | Lens.has (Prelude.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Prelude.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Prelude.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Prelude.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Prelude.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Prelude.hasCode "RequestThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Prelude.hasCode "ThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Prelude.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Prelude.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Prelude.hasCode "ThrottlingException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Prelude.hasCode "Throttling"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
 -- | The specified security group does not exist.
---
---
-_InvalidSecurityGroupException :: AsError a => Getting (First ServiceError) a ServiceError
+_InvalidSecurityGroupException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
 _InvalidSecurityGroupException =
-  _MatchServiceError eLBv2 "InvalidSecurityGroup" . hasStatus 400
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidSecurityGroup"
+    Prelude.. Prelude.hasStatus 400
 
+-- | The specified ALPN policy is not supported.
+_ALPNPolicyNotSupportedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ALPNPolicyNotSupportedException =
+  Prelude._MatchServiceError
+    defaultService
+    "ALPNPolicyNotFound"
+    Prelude.. Prelude.hasStatus 400
 
--- | The specified target group does not exist.
---
---
-_TargetGroupNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_TargetGroupNotFoundException =
-  _MatchServiceError eLBv2 "TargetGroupNotFound" . hasStatus 400
+-- | The requested configuration is not valid.
+_InvalidConfigurationRequestException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidConfigurationRequestException =
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidConfigurationRequest"
+    Prelude.. Prelude.hasStatus 400
 
+-- | You\'ve reached the limit on the number of tags per load balancer.
+_TooManyTagsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyTagsException =
+  Prelude._MatchServiceError
+    defaultService
+    "TooManyTags"
+    Prelude.. Prelude.hasStatus 400
 
--- | The specified listener does not exist.
---
---
-_ListenerNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ListenerNotFoundException =
-  _MatchServiceError eLBv2 "ListenerNotFound" . hasStatus 400
+-- | The health of the specified targets could not be retrieved due to an
+-- internal error.
+_HealthUnavailableException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_HealthUnavailableException =
+  Prelude._MatchServiceError
+    defaultService
+    "HealthUnavailable"
+    Prelude.. Prelude.hasStatus 500
 
+-- | The specified priority is in use.
+_PriorityInUseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_PriorityInUseException =
+  Prelude._MatchServiceError
+    defaultService
+    "PriorityInUse"
+    Prelude.. Prelude.hasStatus 400
 
--- | You've reached the limit on the number of times a target can be registered with a load balancer.
---
---
-_TooManyRegistrationsForTargetIdException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyRegistrationsForTargetIdException =
-  _MatchServiceError eLBv2 "TooManyRegistrationsForTargetId" . hasStatus 400
-
-
--- | You've reached the limit on the number of listeners per load balancer.
---
---
-_TooManyListenersException :: AsError a => Getting (First ServiceError) a ServiceError
-_TooManyListenersException =
-  _MatchServiceError eLBv2 "TooManyListeners" . hasStatus 400
-
-
--- | You've reached the limit on the number of load balancers per target group.
---
---
-_TargetGroupAssociationLimitException :: AsError a => Getting (First ServiceError) a ServiceError
-_TargetGroupAssociationLimitException =
-  _MatchServiceError eLBv2 "TargetGroupAssociationLimit" . hasStatus 400
-
-
--- | This operation is not allowed.
---
---
-_OperationNotPermittedException :: AsError a => Getting (First ServiceError) a ServiceError
-_OperationNotPermittedException =
-  _MatchServiceError eLBv2 "OperationNotPermitted" . hasStatus 400
-
-
--- | The specified SSL policy does not exist.
---
---
-_SSLPolicyNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_SSLPolicyNotFoundException =
-  _MatchServiceError eLBv2 "SSLPolicyNotFound" . hasStatus 400
-
-
--- | The requested scheme is not valid.
---
---
-_InvalidSchemeException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidSchemeException =
-  _MatchServiceError eLBv2 "InvalidScheme" . hasStatus 400
-
+-- | A tag key was specified more than once.
+_DuplicateTagKeysException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DuplicateTagKeysException =
+  Prelude._MatchServiceError
+    defaultService
+    "DuplicateTagKeys"
+    Prelude.. Prelude.hasStatus 400
 
 -- | The specified Availability Zone is not supported.
---
---
-_AvailabilityZoneNotSupportedException :: AsError a => Getting (First ServiceError) a ServiceError
+_AvailabilityZoneNotSupportedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
 _AvailabilityZoneNotSupportedException =
-  _MatchServiceError eLBv2 "AvailabilityZoneNotSupported" . hasStatus 400
+  Prelude._MatchServiceError
+    defaultService
+    "AvailabilityZoneNotSupported"
+    Prelude.. Prelude.hasStatus 400
 
+-- | You\'ve reached the limit on the number of unique target groups per load
+-- balancer across all listeners. If a target group is used by multiple
+-- actions for a load balancer, it is counted as only one use.
+_TooManyUniqueTargetGroupsPerLoadBalancerException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyUniqueTargetGroupsPerLoadBalancerException =
+  Prelude._MatchServiceError
+    defaultService
+    "TooManyUniqueTargetGroupsPerLoadBalancer"
+    Prelude.. Prelude.hasStatus 400
 
--- | The specified load balancer does not exist.
---
---
-_LoadBalancerNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_LoadBalancerNotFoundException =
-  _MatchServiceError eLBv2 "LoadBalancerNotFound" . hasStatus 400
+-- | The specified configuration is not valid with this protocol.
+_IncompatibleProtocolsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_IncompatibleProtocolsException =
+  Prelude._MatchServiceError
+    defaultService
+    "IncompatibleProtocols"
+    Prelude.. Prelude.hasStatus 400
 
+-- | You\'ve reached the limit on the number of rules per load balancer.
+_TooManyRulesException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyRulesException =
+  Prelude._MatchServiceError
+    defaultService
+    "TooManyRules"
+    Prelude.. Prelude.hasStatus 400
+
+-- | You\'ve reached the limit on the number of actions per rule.
+_TooManyActionsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyActionsException =
+  Prelude._MatchServiceError
+    defaultService
+    "TooManyActions"
+    Prelude.. Prelude.hasStatus 400
+
+-- | This operation is not allowed.
+_OperationNotPermittedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_OperationNotPermittedException =
+  Prelude._MatchServiceError
+    defaultService
+    "OperationNotPermitted"
+    Prelude.. Prelude.hasStatus 400
+
+-- | You\'ve reached the limit on the number of load balancers per target
+-- group.
+_TargetGroupAssociationLimitException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TargetGroupAssociationLimitException =
+  Prelude._MatchServiceError
+    defaultService
+    "TargetGroupAssociationLimit"
+    Prelude.. Prelude.hasStatus 400
+
+-- | You\'ve reached the limit on the number of times a target can be
+-- registered with a load balancer.
+_TooManyRegistrationsForTargetIdException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyRegistrationsForTargetIdException =
+  Prelude._MatchServiceError
+    defaultService
+    "TooManyRegistrationsForTargetId"
+    Prelude.. Prelude.hasStatus 400
+
+-- | The specified listener does not exist.
+_ListenerNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ListenerNotFoundException =
+  Prelude._MatchServiceError
+    defaultService
+    "ListenerNotFound"
+    Prelude.. Prelude.hasStatus 400
+
+-- | The specified subnet does not exist.
+_SubnetNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SubnetNotFoundException =
+  Prelude._MatchServiceError
+    defaultService
+    "SubnetNotFound"
+    Prelude.. Prelude.hasStatus 400
+
+-- | The specified target does not exist, is not in the same VPC as the
+-- target group, or has an unsupported instance type.
+_InvalidTargetException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidTargetException =
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidTarget"
+    Prelude.. Prelude.hasStatus 400
+
+-- | The specified protocol is not supported.
+_UnsupportedProtocolException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnsupportedProtocolException =
+  Prelude._MatchServiceError
+    defaultService
+    "UnsupportedProtocol"
+    Prelude.. Prelude.hasStatus 400
 
 -- | A specified resource is in use.
---
---
-_ResourceInUseException :: AsError a => Getting (First ServiceError) a ServiceError
+_ResourceInUseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
 _ResourceInUseException =
-  _MatchServiceError eLBv2 "ResourceInUse" . hasStatus 400
+  Prelude._MatchServiceError
+    defaultService
+    "ResourceInUse"
+    Prelude.. Prelude.hasStatus 400
 
+-- | The specified allocation ID does not exist.
+_AllocationIdNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AllocationIdNotFoundException =
+  Prelude._MatchServiceError
+    defaultService
+    "AllocationIdNotFound"
+    Prelude.. Prelude.hasStatus 400
+
+-- | You\'ve reached the limit on the number of load balancers for your AWS
+-- account.
+_TooManyLoadBalancersException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyLoadBalancersException =
+  Prelude._MatchServiceError
+    defaultService
+    "TooManyLoadBalancers"
+    Prelude.. Prelude.hasStatus 400
 
 -- | The specified certificate does not exist.
---
---
-_CertificateNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+_CertificateNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
 _CertificateNotFoundException =
-  _MatchServiceError eLBv2 "CertificateNotFound" . hasStatus 400
+  Prelude._MatchServiceError
+    defaultService
+    "CertificateNotFound"
+    Prelude.. Prelude.hasStatus 400
 
+-- | A target group with the specified name already exists.
+_DuplicateTargetGroupNameException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DuplicateTargetGroupNameException =
+  Prelude._MatchServiceError
+    defaultService
+    "DuplicateTargetGroupName"
+    Prelude.. Prelude.hasStatus 400
+
+-- | A listener with the specified port already exists.
+_DuplicateListenerException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DuplicateListenerException =
+  Prelude._MatchServiceError
+    defaultService
+    "DuplicateListener"
+    Prelude.. Prelude.hasStatus 400
+
+-- | The specified load balancer does not exist.
+_LoadBalancerNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_LoadBalancerNotFoundException =
+  Prelude._MatchServiceError
+    defaultService
+    "LoadBalancerNotFound"
+    Prelude.. Prelude.hasStatus 400
+
+-- | You\'ve reached the limit on the number of certificates per load
+-- balancer.
+_TooManyCertificatesException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyCertificatesException =
+  Prelude._MatchServiceError
+    defaultService
+    "TooManyCertificates"
+    Prelude.. Prelude.hasStatus 400
+
+-- | The requested scheme is not valid.
+_InvalidSchemeException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidSchemeException =
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidScheme"
+    Prelude.. Prelude.hasStatus 400
+
+-- | The specified SSL policy does not exist.
+_SSLPolicyNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_SSLPolicyNotFoundException =
+  Prelude._MatchServiceError
+    defaultService
+    "SSLPolicyNotFound"
+    Prelude.. Prelude.hasStatus 400
+
+-- | The specified subnet is out of available addresses.
+_InvalidSubnetException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidSubnetException =
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidSubnet"
+    Prelude.. Prelude.hasStatus 400
+
+-- | You\'ve reached the limit on the number of target groups for your AWS
+-- account.
+_TooManyTargetGroupsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyTargetGroupsException =
+  Prelude._MatchServiceError
+    defaultService
+    "TooManyTargetGroups"
+    Prelude.. Prelude.hasStatus 400
+
+-- | A load balancer with the specified name already exists.
+_DuplicateLoadBalancerNameException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DuplicateLoadBalancerNameException =
+  Prelude._MatchServiceError
+    defaultService
+    "DuplicateLoadBalancerName"
+    Prelude.. Prelude.hasStatus 400
+
+-- | You\'ve reached the limit on the number of listeners per load balancer.
+_TooManyListenersException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyListenersException =
+  Prelude._MatchServiceError
+    defaultService
+    "TooManyListeners"
+    Prelude.. Prelude.hasStatus 400
+
+-- | The requested action is not valid.
+_InvalidLoadBalancerActionException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidLoadBalancerActionException =
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidLoadBalancerAction"
+    Prelude.. Prelude.hasStatus 400
+
+-- | You\'ve reached the limit on the number of targets.
+_TooManyTargetsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TooManyTargetsException =
+  Prelude._MatchServiceError
+    defaultService
+    "TooManyTargets"
+    Prelude.. Prelude.hasStatus 400
+
+-- | The specified rule does not exist.
+_RuleNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_RuleNotFoundException =
+  Prelude._MatchServiceError
+    defaultService
+    "RuleNotFound"
+    Prelude.. Prelude.hasStatus 400
+
+-- | The specified target group does not exist.
+_TargetGroupNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_TargetGroupNotFoundException =
+  Prelude._MatchServiceError
+    defaultService
+    "TargetGroupNotFound"
+    Prelude.. Prelude.hasStatus 400

@@ -1,153 +1,223 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoTAnalytics.CreatePipeline
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a pipeline. A pipeline consumes messages from one or more channels and allows you to process the messages before storing them in a data store.
---
---
+-- Creates a pipeline. A pipeline consumes messages from a channel and
+-- allows you to process the messages before storing them in a data store.
+-- You must specify both a @channel@ and a @datastore@ activity and,
+-- optionally, as many as 23 additional activities in the
+-- @pipelineActivities@ array.
 module Network.AWS.IoTAnalytics.CreatePipeline
-    (
-    -- * Creating a Request
-      createPipeline
-    , CreatePipeline
+  ( -- * Creating a Request
+    CreatePipeline (..),
+    newCreatePipeline,
+
     -- * Request Lenses
-    , cpPipelineName
-    , cpPipelineActivities
+    createPipeline_tags,
+    createPipeline_pipelineName,
+    createPipeline_pipelineActivities,
 
     -- * Destructuring the Response
-    , createPipelineResponse
-    , CreatePipelineResponse
+    CreatePipelineResponse (..),
+    newCreatePipelineResponse,
+
     -- * Response Lenses
-    , cprsPipelineName
-    , cprsPipelineARN
-    , cprsResponseStatus
-    ) where
+    createPipelineResponse_pipelineArn,
+    createPipelineResponse_pipelineName,
+    createPipelineResponse_httpStatus,
+  )
+where
 
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.IoTAnalytics.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createPipeline' smart constructor.
+-- | /See:/ 'newCreatePipeline' smart constructor.
 data CreatePipeline = CreatePipeline'
-  { _cpPipelineName       :: !Text
-  , _cpPipelineActivities :: !(List1 PipelineActivity)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Metadata which can be used to manage the pipeline.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The name of the pipeline.
+    pipelineName :: Prelude.Text,
+    -- | A list of @PipelineActivity@ objects. Activities perform transformations
+    -- on your messages, such as removing, renaming or adding message
+    -- attributes; filtering messages based on attribute values; invoking your
+    -- Lambda functions on messages for advanced processing; or performing
+    -- mathematical transformations to normalize device data.
+    --
+    -- The list can be 2-25 @PipelineActivity@ objects and must contain both a
+    -- @channel@ and a @datastore@ activity. Each entry in the list must
+    -- contain only one activity. For example:
+    --
+    -- @pipelineActivities = [ { \"channel\": { ... } }, { \"lambda\": { ... } }, ... ]@
+    pipelineActivities :: Prelude.NonEmpty PipelineActivity
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreatePipeline' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreatePipeline' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cpPipelineName' - The name of the pipeline.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cpPipelineActivities' - A list of pipeline activities. The list can be 1-25 __PipelineActivity__ objects. Activities perform transformations on your messages, such as removing, renaming, or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
-createPipeline
-    :: Text -- ^ 'cpPipelineName'
-    -> NonEmpty PipelineActivity -- ^ 'cpPipelineActivities'
-    -> CreatePipeline
-createPipeline pPipelineName_ pPipelineActivities_ =
+-- 'tags', 'createPipeline_tags' - Metadata which can be used to manage the pipeline.
+--
+-- 'pipelineName', 'createPipeline_pipelineName' - The name of the pipeline.
+--
+-- 'pipelineActivities', 'createPipeline_pipelineActivities' - A list of @PipelineActivity@ objects. Activities perform transformations
+-- on your messages, such as removing, renaming or adding message
+-- attributes; filtering messages based on attribute values; invoking your
+-- Lambda functions on messages for advanced processing; or performing
+-- mathematical transformations to normalize device data.
+--
+-- The list can be 2-25 @PipelineActivity@ objects and must contain both a
+-- @channel@ and a @datastore@ activity. Each entry in the list must
+-- contain only one activity. For example:
+--
+-- @pipelineActivities = [ { \"channel\": { ... } }, { \"lambda\": { ... } }, ... ]@
+newCreatePipeline ::
+  -- | 'pipelineName'
+  Prelude.Text ->
+  -- | 'pipelineActivities'
+  Prelude.NonEmpty PipelineActivity ->
+  CreatePipeline
+newCreatePipeline pPipelineName_ pPipelineActivities_ =
   CreatePipeline'
-    { _cpPipelineName = pPipelineName_
-    , _cpPipelineActivities = _List1 # pPipelineActivities_
+    { tags = Prelude.Nothing,
+      pipelineName = pPipelineName_,
+      pipelineActivities =
+        Prelude._Coerce Lens.# pPipelineActivities_
     }
 
+-- | Metadata which can be used to manage the pipeline.
+createPipeline_tags :: Lens.Lens' CreatePipeline (Prelude.Maybe (Prelude.NonEmpty Tag))
+createPipeline_tags = Lens.lens (\CreatePipeline' {tags} -> tags) (\s@CreatePipeline' {} a -> s {tags = a} :: CreatePipeline) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | The name of the pipeline.
-cpPipelineName :: Lens' CreatePipeline Text
-cpPipelineName = lens _cpPipelineName (\ s a -> s{_cpPipelineName = a})
+createPipeline_pipelineName :: Lens.Lens' CreatePipeline Prelude.Text
+createPipeline_pipelineName = Lens.lens (\CreatePipeline' {pipelineName} -> pipelineName) (\s@CreatePipeline' {} a -> s {pipelineName = a} :: CreatePipeline)
 
--- | A list of pipeline activities. The list can be 1-25 __PipelineActivity__ objects. Activities perform transformations on your messages, such as removing, renaming, or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
-cpPipelineActivities :: Lens' CreatePipeline (NonEmpty PipelineActivity)
-cpPipelineActivities = lens _cpPipelineActivities (\ s a -> s{_cpPipelineActivities = a}) . _List1
+-- | A list of @PipelineActivity@ objects. Activities perform transformations
+-- on your messages, such as removing, renaming or adding message
+-- attributes; filtering messages based on attribute values; invoking your
+-- Lambda functions on messages for advanced processing; or performing
+-- mathematical transformations to normalize device data.
+--
+-- The list can be 2-25 @PipelineActivity@ objects and must contain both a
+-- @channel@ and a @datastore@ activity. Each entry in the list must
+-- contain only one activity. For example:
+--
+-- @pipelineActivities = [ { \"channel\": { ... } }, { \"lambda\": { ... } }, ... ]@
+createPipeline_pipelineActivities :: Lens.Lens' CreatePipeline (Prelude.NonEmpty PipelineActivity)
+createPipeline_pipelineActivities = Lens.lens (\CreatePipeline' {pipelineActivities} -> pipelineActivities) (\s@CreatePipeline' {} a -> s {pipelineActivities = a} :: CreatePipeline) Prelude.. Prelude._Coerce
 
-instance AWSRequest CreatePipeline where
-        type Rs CreatePipeline = CreatePipelineResponse
-        request = postJSON ioTAnalytics
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreatePipelineResponse' <$>
-                   (x .?> "pipelineName") <*> (x .?> "pipelineArn") <*>
-                     (pure (fromEnum s)))
+instance Prelude.AWSRequest CreatePipeline where
+  type Rs CreatePipeline = CreatePipelineResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreatePipelineResponse'
+            Prelude.<$> (x Prelude..?> "pipelineArn")
+            Prelude.<*> (x Prelude..?> "pipelineName")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreatePipeline where
+instance Prelude.Hashable CreatePipeline
 
-instance NFData CreatePipeline where
+instance Prelude.NFData CreatePipeline
 
-instance ToHeaders CreatePipeline where
-        toHeaders = const mempty
+instance Prelude.ToHeaders CreatePipeline where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToJSON CreatePipeline where
-        toJSON CreatePipeline'{..}
-          = object
-              (catMaybes
-                 [Just ("pipelineName" .= _cpPipelineName),
-                  Just
-                    ("pipelineActivities" .= _cpPipelineActivities)])
+instance Prelude.ToJSON CreatePipeline where
+  toJSON CreatePipeline' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("tags" Prelude..=) Prelude.<$> tags,
+            Prelude.Just
+              ("pipelineName" Prelude..= pipelineName),
+            Prelude.Just
+              ( "pipelineActivities"
+                  Prelude..= pipelineActivities
+              )
+          ]
+      )
 
-instance ToPath CreatePipeline where
-        toPath = const "/pipelines"
+instance Prelude.ToPath CreatePipeline where
+  toPath = Prelude.const "/pipelines"
 
-instance ToQuery CreatePipeline where
-        toQuery = const mempty
+instance Prelude.ToQuery CreatePipeline where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createPipelineResponse' smart constructor.
+-- | /See:/ 'newCreatePipelineResponse' smart constructor.
 data CreatePipelineResponse = CreatePipelineResponse'
-  { _cprsPipelineName   :: !(Maybe Text)
-  , _cprsPipelineARN    :: !(Maybe Text)
-  , _cprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ARN of the pipeline.
+    pipelineArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the pipeline.
+    pipelineName :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreatePipelineResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreatePipelineResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cprsPipelineName' - The name of the pipeline.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cprsPipelineARN' - The ARN of the pipeline.
+-- 'pipelineArn', 'createPipelineResponse_pipelineArn' - The ARN of the pipeline.
 --
--- * 'cprsResponseStatus' - -- | The response status code.
-createPipelineResponse
-    :: Int -- ^ 'cprsResponseStatus'
-    -> CreatePipelineResponse
-createPipelineResponse pResponseStatus_ =
+-- 'pipelineName', 'createPipelineResponse_pipelineName' - The name of the pipeline.
+--
+-- 'httpStatus', 'createPipelineResponse_httpStatus' - The response's http status code.
+newCreatePipelineResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreatePipelineResponse
+newCreatePipelineResponse pHttpStatus_ =
   CreatePipelineResponse'
-    { _cprsPipelineName = Nothing
-    , _cprsPipelineARN = Nothing
-    , _cprsResponseStatus = pResponseStatus_
+    { pipelineArn =
+        Prelude.Nothing,
+      pipelineName = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
-
-
--- | The name of the pipeline.
-cprsPipelineName :: Lens' CreatePipelineResponse (Maybe Text)
-cprsPipelineName = lens _cprsPipelineName (\ s a -> s{_cprsPipelineName = a})
 
 -- | The ARN of the pipeline.
-cprsPipelineARN :: Lens' CreatePipelineResponse (Maybe Text)
-cprsPipelineARN = lens _cprsPipelineARN (\ s a -> s{_cprsPipelineARN = a})
+createPipelineResponse_pipelineArn :: Lens.Lens' CreatePipelineResponse (Prelude.Maybe Prelude.Text)
+createPipelineResponse_pipelineArn = Lens.lens (\CreatePipelineResponse' {pipelineArn} -> pipelineArn) (\s@CreatePipelineResponse' {} a -> s {pipelineArn = a} :: CreatePipelineResponse)
 
--- | -- | The response status code.
-cprsResponseStatus :: Lens' CreatePipelineResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a})
+-- | The name of the pipeline.
+createPipelineResponse_pipelineName :: Lens.Lens' CreatePipelineResponse (Prelude.Maybe Prelude.Text)
+createPipelineResponse_pipelineName = Lens.lens (\CreatePipelineResponse' {pipelineName} -> pipelineName) (\s@CreatePipelineResponse' {} a -> s {pipelineName = a} :: CreatePipelineResponse)
 
-instance NFData CreatePipelineResponse where
+-- | The response's http status code.
+createPipelineResponse_httpStatus :: Lens.Lens' CreatePipelineResponse Prelude.Int
+createPipelineResponse_httpStatus = Lens.lens (\CreatePipelineResponse' {httpStatus} -> httpStatus) (\s@CreatePipelineResponse' {} a -> s {httpStatus = a} :: CreatePipelineResponse)
+
+instance Prelude.NFData CreatePipelineResponse

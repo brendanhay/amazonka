@@ -1,158 +1,196 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EMR.DescribeSecurityConfiguration
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Provides the details of a security configuration by returning the configuration JSON.
---
---
+-- Provides the details of a security configuration by returning the
+-- configuration JSON.
 module Network.AWS.EMR.DescribeSecurityConfiguration
-    (
-    -- * Creating a Request
-      describeSecurityConfiguration
-    , DescribeSecurityConfiguration
+  ( -- * Creating a Request
+    DescribeSecurityConfiguration (..),
+    newDescribeSecurityConfiguration,
+
     -- * Request Lenses
-    , dName
+    describeSecurityConfiguration_name,
 
     -- * Destructuring the Response
-    , describeSecurityConfigurationResponse
-    , DescribeSecurityConfigurationResponse
+    DescribeSecurityConfigurationResponse (..),
+    newDescribeSecurityConfigurationResponse,
+
     -- * Response Lenses
-    , drsSecurityConfiguration
-    , drsName
-    , drsCreationDateTime
-    , drsResponseStatus
-    ) where
+    describeSecurityConfigurationResponse_securityConfiguration,
+    describeSecurityConfigurationResponse_name,
+    describeSecurityConfigurationResponse_creationDateTime,
+    describeSecurityConfigurationResponse_httpStatus,
+  )
+where
 
 import Network.AWS.EMR.Types
-import Network.AWS.EMR.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeSecurityConfiguration' smart constructor.
-newtype DescribeSecurityConfiguration = DescribeSecurityConfiguration'
-  { _dName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeSecurityConfiguration' smart constructor.
+data DescribeSecurityConfiguration = DescribeSecurityConfiguration'
+  { -- | The name of the security configuration.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeSecurityConfiguration' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeSecurityConfiguration' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dName' - The name of the security configuration.
-describeSecurityConfiguration
-    :: Text -- ^ 'dName'
-    -> DescribeSecurityConfiguration
-describeSecurityConfiguration pName_ =
-  DescribeSecurityConfiguration' {_dName = pName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'name', 'describeSecurityConfiguration_name' - The name of the security configuration.
+newDescribeSecurityConfiguration ::
+  -- | 'name'
+  Prelude.Text ->
+  DescribeSecurityConfiguration
+newDescribeSecurityConfiguration pName_ =
+  DescribeSecurityConfiguration' {name = pName_}
 
 -- | The name of the security configuration.
-dName :: Lens' DescribeSecurityConfiguration Text
-dName = lens _dName (\ s a -> s{_dName = a})
+describeSecurityConfiguration_name :: Lens.Lens' DescribeSecurityConfiguration Prelude.Text
+describeSecurityConfiguration_name = Lens.lens (\DescribeSecurityConfiguration' {name} -> name) (\s@DescribeSecurityConfiguration' {} a -> s {name = a} :: DescribeSecurityConfiguration)
 
-instance AWSRequest DescribeSecurityConfiguration
-         where
-        type Rs DescribeSecurityConfiguration =
-             DescribeSecurityConfigurationResponse
-        request = postJSON emr
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeSecurityConfigurationResponse' <$>
-                   (x .?> "SecurityConfiguration") <*> (x .?> "Name")
-                     <*> (x .?> "CreationDateTime")
-                     <*> (pure (fromEnum s)))
+instance
+  Prelude.AWSRequest
+    DescribeSecurityConfiguration
+  where
+  type
+    Rs DescribeSecurityConfiguration =
+      DescribeSecurityConfigurationResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeSecurityConfigurationResponse'
+            Prelude.<$> (x Prelude..?> "SecurityConfiguration")
+            Prelude.<*> (x Prelude..?> "Name")
+            Prelude.<*> (x Prelude..?> "CreationDateTime")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeSecurityConfiguration where
+instance
+  Prelude.Hashable
+    DescribeSecurityConfiguration
 
-instance NFData DescribeSecurityConfiguration where
+instance Prelude.NFData DescribeSecurityConfiguration
 
-instance ToHeaders DescribeSecurityConfiguration
-         where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("ElasticMapReduce.DescribeSecurityConfiguration" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance
+  Prelude.ToHeaders
+    DescribeSecurityConfiguration
+  where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "ElasticMapReduce.DescribeSecurityConfiguration" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DescribeSecurityConfiguration where
-        toJSON DescribeSecurityConfiguration'{..}
-          = object (catMaybes [Just ("Name" .= _dName)])
+instance Prelude.ToJSON DescribeSecurityConfiguration where
+  toJSON DescribeSecurityConfiguration' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Name" Prelude..= name)]
+      )
 
-instance ToPath DescribeSecurityConfiguration where
-        toPath = const "/"
+instance Prelude.ToPath DescribeSecurityConfiguration where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeSecurityConfiguration where
-        toQuery = const mempty
+instance
+  Prelude.ToQuery
+    DescribeSecurityConfiguration
+  where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'describeSecurityConfigurationResponse' smart constructor.
+-- | /See:/ 'newDescribeSecurityConfigurationResponse' smart constructor.
 data DescribeSecurityConfigurationResponse = DescribeSecurityConfigurationResponse'
-  { _drsSecurityConfiguration :: !(Maybe Text)
-  , _drsName                  :: !(Maybe Text)
-  , _drsCreationDateTime      :: !(Maybe POSIX)
-  , _drsResponseStatus        :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The security configuration details in JSON format.
+    securityConfiguration :: Prelude.Maybe Prelude.Text,
+    -- | The name of the security configuration.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The date and time the security configuration was created
+    creationDateTime :: Prelude.Maybe Prelude.POSIX,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeSecurityConfigurationResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeSecurityConfigurationResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drsSecurityConfiguration' - The security configuration details in JSON format.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drsName' - The name of the security configuration.
+-- 'securityConfiguration', 'describeSecurityConfigurationResponse_securityConfiguration' - The security configuration details in JSON format.
 --
--- * 'drsCreationDateTime' - The date and time the security configuration was created
+-- 'name', 'describeSecurityConfigurationResponse_name' - The name of the security configuration.
 --
--- * 'drsResponseStatus' - -- | The response status code.
-describeSecurityConfigurationResponse
-    :: Int -- ^ 'drsResponseStatus'
-    -> DescribeSecurityConfigurationResponse
-describeSecurityConfigurationResponse pResponseStatus_ =
+-- 'creationDateTime', 'describeSecurityConfigurationResponse_creationDateTime' - The date and time the security configuration was created
+--
+-- 'httpStatus', 'describeSecurityConfigurationResponse_httpStatus' - The response's http status code.
+newDescribeSecurityConfigurationResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeSecurityConfigurationResponse
+newDescribeSecurityConfigurationResponse pHttpStatus_ =
   DescribeSecurityConfigurationResponse'
-    { _drsSecurityConfiguration = Nothing
-    , _drsName = Nothing
-    , _drsCreationDateTime = Nothing
-    , _drsResponseStatus = pResponseStatus_
+    { securityConfiguration =
+        Prelude.Nothing,
+      name = Prelude.Nothing,
+      creationDateTime = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | The security configuration details in JSON format.
-drsSecurityConfiguration :: Lens' DescribeSecurityConfigurationResponse (Maybe Text)
-drsSecurityConfiguration = lens _drsSecurityConfiguration (\ s a -> s{_drsSecurityConfiguration = a})
+describeSecurityConfigurationResponse_securityConfiguration :: Lens.Lens' DescribeSecurityConfigurationResponse (Prelude.Maybe Prelude.Text)
+describeSecurityConfigurationResponse_securityConfiguration = Lens.lens (\DescribeSecurityConfigurationResponse' {securityConfiguration} -> securityConfiguration) (\s@DescribeSecurityConfigurationResponse' {} a -> s {securityConfiguration = a} :: DescribeSecurityConfigurationResponse)
 
 -- | The name of the security configuration.
-drsName :: Lens' DescribeSecurityConfigurationResponse (Maybe Text)
-drsName = lens _drsName (\ s a -> s{_drsName = a})
+describeSecurityConfigurationResponse_name :: Lens.Lens' DescribeSecurityConfigurationResponse (Prelude.Maybe Prelude.Text)
+describeSecurityConfigurationResponse_name = Lens.lens (\DescribeSecurityConfigurationResponse' {name} -> name) (\s@DescribeSecurityConfigurationResponse' {} a -> s {name = a} :: DescribeSecurityConfigurationResponse)
 
 -- | The date and time the security configuration was created
-drsCreationDateTime :: Lens' DescribeSecurityConfigurationResponse (Maybe UTCTime)
-drsCreationDateTime = lens _drsCreationDateTime (\ s a -> s{_drsCreationDateTime = a}) . mapping _Time
+describeSecurityConfigurationResponse_creationDateTime :: Lens.Lens' DescribeSecurityConfigurationResponse (Prelude.Maybe Prelude.UTCTime)
+describeSecurityConfigurationResponse_creationDateTime = Lens.lens (\DescribeSecurityConfigurationResponse' {creationDateTime} -> creationDateTime) (\s@DescribeSecurityConfigurationResponse' {} a -> s {creationDateTime = a} :: DescribeSecurityConfigurationResponse) Prelude.. Lens.mapping Prelude._Time
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeSecurityConfigurationResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
+-- | The response's http status code.
+describeSecurityConfigurationResponse_httpStatus :: Lens.Lens' DescribeSecurityConfigurationResponse Prelude.Int
+describeSecurityConfigurationResponse_httpStatus = Lens.lens (\DescribeSecurityConfigurationResponse' {httpStatus} -> httpStatus) (\s@DescribeSecurityConfigurationResponse' {} a -> s {httpStatus = a} :: DescribeSecurityConfigurationResponse)
 
-instance NFData DescribeSecurityConfigurationResponse
-         where
+instance
+  Prelude.NFData
+    DescribeSecurityConfigurationResponse

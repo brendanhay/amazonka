@@ -1,129 +1,159 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.CreateTypedLinkFacet
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a 'TypedLinkFacet' . For more information, see <http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink Typed link> .
---
---
+-- Creates a TypedLinkFacet. For more information, see
+-- <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink Typed Links>.
 module Network.AWS.CloudDirectory.CreateTypedLinkFacet
-    (
-    -- * Creating a Request
-      createTypedLinkFacet
-    , CreateTypedLinkFacet
+  ( -- * Creating a Request
+    CreateTypedLinkFacet (..),
+    newCreateTypedLinkFacet,
+
     -- * Request Lenses
-    , ctlfSchemaARN
-    , ctlfFacet
+    createTypedLinkFacet_schemaArn,
+    createTypedLinkFacet_facet,
 
     -- * Destructuring the Response
-    , createTypedLinkFacetResponse
-    , CreateTypedLinkFacetResponse
+    CreateTypedLinkFacetResponse (..),
+    newCreateTypedLinkFacetResponse,
+
     -- * Response Lenses
-    , ctlfrsResponseStatus
-    ) where
+    createTypedLinkFacetResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.CloudDirectory.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createTypedLinkFacet' smart constructor.
+-- | /See:/ 'newCreateTypedLinkFacet' smart constructor.
 data CreateTypedLinkFacet = CreateTypedLinkFacet'
-  { _ctlfSchemaARN :: !Text
-  , _ctlfFacet     :: !TypedLinkFacet
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The Amazon Resource Name (ARN) that is associated with the schema. For
+    -- more information, see arns.
+    schemaArn :: Prelude.Text,
+    -- | Facet structure that is associated with the typed link facet.
+    facet :: TypedLinkFacet
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateTypedLinkFacet' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateTypedLinkFacet' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ctlfSchemaARN' - The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ctlfFacet' - 'Facet' structure that is associated with the typed link facet.
-createTypedLinkFacet
-    :: Text -- ^ 'ctlfSchemaARN'
-    -> TypedLinkFacet -- ^ 'ctlfFacet'
-    -> CreateTypedLinkFacet
-createTypedLinkFacet pSchemaARN_ pFacet_ =
-  CreateTypedLinkFacet' {_ctlfSchemaARN = pSchemaARN_, _ctlfFacet = pFacet_}
-
-
--- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
-ctlfSchemaARN :: Lens' CreateTypedLinkFacet Text
-ctlfSchemaARN = lens _ctlfSchemaARN (\ s a -> s{_ctlfSchemaARN = a})
-
--- | 'Facet' structure that is associated with the typed link facet.
-ctlfFacet :: Lens' CreateTypedLinkFacet TypedLinkFacet
-ctlfFacet = lens _ctlfFacet (\ s a -> s{_ctlfFacet = a})
-
-instance AWSRequest CreateTypedLinkFacet where
-        type Rs CreateTypedLinkFacet =
-             CreateTypedLinkFacetResponse
-        request = putJSON cloudDirectory
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 CreateTypedLinkFacetResponse' <$>
-                   (pure (fromEnum s)))
-
-instance Hashable CreateTypedLinkFacet where
-
-instance NFData CreateTypedLinkFacet where
-
-instance ToHeaders CreateTypedLinkFacet where
-        toHeaders CreateTypedLinkFacet'{..}
-          = mconcat ["x-amz-data-partition" =# _ctlfSchemaARN]
-
-instance ToJSON CreateTypedLinkFacet where
-        toJSON CreateTypedLinkFacet'{..}
-          = object (catMaybes [Just ("Facet" .= _ctlfFacet)])
-
-instance ToPath CreateTypedLinkFacet where
-        toPath
-          = const
-              "/amazonclouddirectory/2017-01-11/typedlink/facet/create"
-
-instance ToQuery CreateTypedLinkFacet where
-        toQuery = const mempty
-
--- | /See:/ 'createTypedLinkFacetResponse' smart constructor.
-newtype CreateTypedLinkFacetResponse = CreateTypedLinkFacetResponse'
-  { _ctlfrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateTypedLinkFacetResponse' with the minimum fields required to make a request.
+-- 'schemaArn', 'createTypedLinkFacet_schemaArn' - The Amazon Resource Name (ARN) that is associated with the schema. For
+-- more information, see arns.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'facet', 'createTypedLinkFacet_facet' - Facet structure that is associated with the typed link facet.
+newCreateTypedLinkFacet ::
+  -- | 'schemaArn'
+  Prelude.Text ->
+  -- | 'facet'
+  TypedLinkFacet ->
+  CreateTypedLinkFacet
+newCreateTypedLinkFacet pSchemaArn_ pFacet_ =
+  CreateTypedLinkFacet'
+    { schemaArn = pSchemaArn_,
+      facet = pFacet_
+    }
+
+-- | The Amazon Resource Name (ARN) that is associated with the schema. For
+-- more information, see arns.
+createTypedLinkFacet_schemaArn :: Lens.Lens' CreateTypedLinkFacet Prelude.Text
+createTypedLinkFacet_schemaArn = Lens.lens (\CreateTypedLinkFacet' {schemaArn} -> schemaArn) (\s@CreateTypedLinkFacet' {} a -> s {schemaArn = a} :: CreateTypedLinkFacet)
+
+-- | Facet structure that is associated with the typed link facet.
+createTypedLinkFacet_facet :: Lens.Lens' CreateTypedLinkFacet TypedLinkFacet
+createTypedLinkFacet_facet = Lens.lens (\CreateTypedLinkFacet' {facet} -> facet) (\s@CreateTypedLinkFacet' {} a -> s {facet = a} :: CreateTypedLinkFacet)
+
+instance Prelude.AWSRequest CreateTypedLinkFacet where
+  type
+    Rs CreateTypedLinkFacet =
+      CreateTypedLinkFacetResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          CreateTypedLinkFacetResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable CreateTypedLinkFacet
+
+instance Prelude.NFData CreateTypedLinkFacet
+
+instance Prelude.ToHeaders CreateTypedLinkFacet where
+  toHeaders CreateTypedLinkFacet' {..} =
+    Prelude.mconcat
+      ["x-amz-data-partition" Prelude.=# schemaArn]
+
+instance Prelude.ToJSON CreateTypedLinkFacet where
+  toJSON CreateTypedLinkFacet' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("Facet" Prelude..= facet)]
+      )
+
+instance Prelude.ToPath CreateTypedLinkFacet where
+  toPath =
+    Prelude.const
+      "/amazonclouddirectory/2017-01-11/typedlink/facet/create"
+
+instance Prelude.ToQuery CreateTypedLinkFacet where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newCreateTypedLinkFacetResponse' smart constructor.
+data CreateTypedLinkFacetResponse = CreateTypedLinkFacetResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreateTypedLinkFacetResponse' with all optional fields omitted.
 --
--- * 'ctlfrsResponseStatus' - -- | The response status code.
-createTypedLinkFacetResponse
-    :: Int -- ^ 'ctlfrsResponseStatus'
-    -> CreateTypedLinkFacetResponse
-createTypedLinkFacetResponse pResponseStatus_ =
-  CreateTypedLinkFacetResponse' {_ctlfrsResponseStatus = pResponseStatus_}
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'createTypedLinkFacetResponse_httpStatus' - The response's http status code.
+newCreateTypedLinkFacetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateTypedLinkFacetResponse
+newCreateTypedLinkFacetResponse pHttpStatus_ =
+  CreateTypedLinkFacetResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+createTypedLinkFacetResponse_httpStatus :: Lens.Lens' CreateTypedLinkFacetResponse Prelude.Int
+createTypedLinkFacetResponse_httpStatus = Lens.lens (\CreateTypedLinkFacetResponse' {httpStatus} -> httpStatus) (\s@CreateTypedLinkFacetResponse' {} a -> s {httpStatus = a} :: CreateTypedLinkFacetResponse)
 
--- | -- | The response status code.
-ctlfrsResponseStatus :: Lens' CreateTypedLinkFacetResponse Int
-ctlfrsResponseStatus = lens _ctlfrsResponseStatus (\ s a -> s{_ctlfrsResponseStatus = a})
-
-instance NFData CreateTypedLinkFacetResponse where
+instance Prelude.NFData CreateTypedLinkFacetResponse

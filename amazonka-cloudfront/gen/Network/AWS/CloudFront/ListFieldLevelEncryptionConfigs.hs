@@ -1,141 +1,195 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudFront.ListFieldLevelEncryptionConfigs
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- List all field-level encryption configurations that have been created in CloudFront for this account.
---
---
+-- List all field-level encryption configurations that have been created in
+-- CloudFront for this account.
 module Network.AWS.CloudFront.ListFieldLevelEncryptionConfigs
-    (
-    -- * Creating a Request
-      listFieldLevelEncryptionConfigs
-    , ListFieldLevelEncryptionConfigs
+  ( -- * Creating a Request
+    ListFieldLevelEncryptionConfigs (..),
+    newListFieldLevelEncryptionConfigs,
+
     -- * Request Lenses
-    , lflecMarker
-    , lflecMaxItems
+    listFieldLevelEncryptionConfigs_maxItems,
+    listFieldLevelEncryptionConfigs_marker,
 
     -- * Destructuring the Response
-    , listFieldLevelEncryptionConfigsResponse
-    , ListFieldLevelEncryptionConfigsResponse
+    ListFieldLevelEncryptionConfigsResponse (..),
+    newListFieldLevelEncryptionConfigsResponse,
+
     -- * Response Lenses
-    , lflecrsFieldLevelEncryptionList
-    , lflecrsResponseStatus
-    ) where
+    listFieldLevelEncryptionConfigsResponse_fieldLevelEncryptionList,
+    listFieldLevelEncryptionConfigsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudFront.Types
-import Network.AWS.CloudFront.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listFieldLevelEncryptionConfigs' smart constructor.
+-- | /See:/ 'newListFieldLevelEncryptionConfigs' smart constructor.
 data ListFieldLevelEncryptionConfigs = ListFieldLevelEncryptionConfigs'
-  { _lflecMarker   :: !(Maybe Text)
-  , _lflecMaxItems :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The maximum number of field-level encryption configurations you want in
+    -- the response body.
+    maxItems :: Prelude.Maybe Prelude.Text,
+    -- | Use this when paginating results to indicate where to begin in your list
+    -- of configurations. The results include configurations in the list that
+    -- occur after the marker. To get the next page of results, set the
+    -- @Marker@ to the value of the @NextMarker@ from the current page\'s
+    -- response (which is also the ID of the last configuration on that page).
+    marker :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListFieldLevelEncryptionConfigs' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListFieldLevelEncryptionConfigs' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lflecMarker' - Use this when paginating results to indicate where to begin in your list of configurations. The results include configurations in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last configuration on that page).
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lflecMaxItems' - The maximum number of field-level encryption configurations you want in the response body.
-listFieldLevelEncryptionConfigs
-    :: ListFieldLevelEncryptionConfigs
-listFieldLevelEncryptionConfigs =
+-- 'maxItems', 'listFieldLevelEncryptionConfigs_maxItems' - The maximum number of field-level encryption configurations you want in
+-- the response body.
+--
+-- 'marker', 'listFieldLevelEncryptionConfigs_marker' - Use this when paginating results to indicate where to begin in your list
+-- of configurations. The results include configurations in the list that
+-- occur after the marker. To get the next page of results, set the
+-- @Marker@ to the value of the @NextMarker@ from the current page\'s
+-- response (which is also the ID of the last configuration on that page).
+newListFieldLevelEncryptionConfigs ::
+  ListFieldLevelEncryptionConfigs
+newListFieldLevelEncryptionConfigs =
   ListFieldLevelEncryptionConfigs'
-    {_lflecMarker = Nothing, _lflecMaxItems = Nothing}
-
-
--- | Use this when paginating results to indicate where to begin in your list of configurations. The results include configurations in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last configuration on that page).
-lflecMarker :: Lens' ListFieldLevelEncryptionConfigs (Maybe Text)
-lflecMarker = lens _lflecMarker (\ s a -> s{_lflecMarker = a})
-
--- | The maximum number of field-level encryption configurations you want in the response body.
-lflecMaxItems :: Lens' ListFieldLevelEncryptionConfigs (Maybe Text)
-lflecMaxItems = lens _lflecMaxItems (\ s a -> s{_lflecMaxItems = a})
-
-instance AWSRequest ListFieldLevelEncryptionConfigs
-         where
-        type Rs ListFieldLevelEncryptionConfigs =
-             ListFieldLevelEncryptionConfigsResponse
-        request = get cloudFront
-        response
-          = receiveXML
-              (\ s h x ->
-                 ListFieldLevelEncryptionConfigsResponse' <$>
-                   (parseXML x) <*> (pure (fromEnum s)))
-
-instance Hashable ListFieldLevelEncryptionConfigs
-         where
-
-instance NFData ListFieldLevelEncryptionConfigs where
-
-instance ToHeaders ListFieldLevelEncryptionConfigs
-         where
-        toHeaders = const mempty
-
-instance ToPath ListFieldLevelEncryptionConfigs where
-        toPath = const "/2017-10-30/field-level-encryption"
-
-instance ToQuery ListFieldLevelEncryptionConfigs
-         where
-        toQuery ListFieldLevelEncryptionConfigs'{..}
-          = mconcat
-              ["Marker" =: _lflecMarker,
-               "MaxItems" =: _lflecMaxItems]
-
--- | /See:/ 'listFieldLevelEncryptionConfigsResponse' smart constructor.
-data ListFieldLevelEncryptionConfigsResponse = ListFieldLevelEncryptionConfigsResponse'
-  { _lflecrsFieldLevelEncryptionList :: !(Maybe FieldLevelEncryptionList)
-  , _lflecrsResponseStatus           :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListFieldLevelEncryptionConfigsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lflecrsFieldLevelEncryptionList' - Returns a list of all field-level encryption configurations that have been created in CloudFront for this account.
---
--- * 'lflecrsResponseStatus' - -- | The response status code.
-listFieldLevelEncryptionConfigsResponse
-    :: Int -- ^ 'lflecrsResponseStatus'
-    -> ListFieldLevelEncryptionConfigsResponse
-listFieldLevelEncryptionConfigsResponse pResponseStatus_ =
-  ListFieldLevelEncryptionConfigsResponse'
-    { _lflecrsFieldLevelEncryptionList = Nothing
-    , _lflecrsResponseStatus = pResponseStatus_
+    { maxItems =
+        Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
+-- | The maximum number of field-level encryption configurations you want in
+-- the response body.
+listFieldLevelEncryptionConfigs_maxItems :: Lens.Lens' ListFieldLevelEncryptionConfigs (Prelude.Maybe Prelude.Text)
+listFieldLevelEncryptionConfigs_maxItems = Lens.lens (\ListFieldLevelEncryptionConfigs' {maxItems} -> maxItems) (\s@ListFieldLevelEncryptionConfigs' {} a -> s {maxItems = a} :: ListFieldLevelEncryptionConfigs)
 
--- | Returns a list of all field-level encryption configurations that have been created in CloudFront for this account.
-lflecrsFieldLevelEncryptionList :: Lens' ListFieldLevelEncryptionConfigsResponse (Maybe FieldLevelEncryptionList)
-lflecrsFieldLevelEncryptionList = lens _lflecrsFieldLevelEncryptionList (\ s a -> s{_lflecrsFieldLevelEncryptionList = a})
+-- | Use this when paginating results to indicate where to begin in your list
+-- of configurations. The results include configurations in the list that
+-- occur after the marker. To get the next page of results, set the
+-- @Marker@ to the value of the @NextMarker@ from the current page\'s
+-- response (which is also the ID of the last configuration on that page).
+listFieldLevelEncryptionConfigs_marker :: Lens.Lens' ListFieldLevelEncryptionConfigs (Prelude.Maybe Prelude.Text)
+listFieldLevelEncryptionConfigs_marker = Lens.lens (\ListFieldLevelEncryptionConfigs' {marker} -> marker) (\s@ListFieldLevelEncryptionConfigs' {} a -> s {marker = a} :: ListFieldLevelEncryptionConfigs)
 
--- | -- | The response status code.
-lflecrsResponseStatus :: Lens' ListFieldLevelEncryptionConfigsResponse Int
-lflecrsResponseStatus = lens _lflecrsResponseStatus (\ s a -> s{_lflecrsResponseStatus = a})
+instance
+  Prelude.AWSRequest
+    ListFieldLevelEncryptionConfigs
+  where
+  type
+    Rs ListFieldLevelEncryptionConfigs =
+      ListFieldLevelEncryptionConfigsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          ListFieldLevelEncryptionConfigsResponse'
+            Prelude.<$> (Prelude.parseXML x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData
-           ListFieldLevelEncryptionConfigsResponse
-         where
+instance
+  Prelude.Hashable
+    ListFieldLevelEncryptionConfigs
+
+instance
+  Prelude.NFData
+    ListFieldLevelEncryptionConfigs
+
+instance
+  Prelude.ToHeaders
+    ListFieldLevelEncryptionConfigs
+  where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance
+  Prelude.ToPath
+    ListFieldLevelEncryptionConfigs
+  where
+  toPath =
+    Prelude.const "/2020-05-31/field-level-encryption"
+
+instance
+  Prelude.ToQuery
+    ListFieldLevelEncryptionConfigs
+  where
+  toQuery ListFieldLevelEncryptionConfigs' {..} =
+    Prelude.mconcat
+      [ "MaxItems" Prelude.=: maxItems,
+        "Marker" Prelude.=: marker
+      ]
+
+-- | /See:/ 'newListFieldLevelEncryptionConfigsResponse' smart constructor.
+data ListFieldLevelEncryptionConfigsResponse = ListFieldLevelEncryptionConfigsResponse'
+  { -- | Returns a list of all field-level encryption configurations that have
+    -- been created in CloudFront for this account.
+    fieldLevelEncryptionList :: Prelude.Maybe FieldLevelEncryptionList,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListFieldLevelEncryptionConfigsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'fieldLevelEncryptionList', 'listFieldLevelEncryptionConfigsResponse_fieldLevelEncryptionList' - Returns a list of all field-level encryption configurations that have
+-- been created in CloudFront for this account.
+--
+-- 'httpStatus', 'listFieldLevelEncryptionConfigsResponse_httpStatus' - The response's http status code.
+newListFieldLevelEncryptionConfigsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListFieldLevelEncryptionConfigsResponse
+newListFieldLevelEncryptionConfigsResponse
+  pHttpStatus_ =
+    ListFieldLevelEncryptionConfigsResponse'
+      { fieldLevelEncryptionList =
+          Prelude.Nothing,
+        httpStatus = pHttpStatus_
+      }
+
+-- | Returns a list of all field-level encryption configurations that have
+-- been created in CloudFront for this account.
+listFieldLevelEncryptionConfigsResponse_fieldLevelEncryptionList :: Lens.Lens' ListFieldLevelEncryptionConfigsResponse (Prelude.Maybe FieldLevelEncryptionList)
+listFieldLevelEncryptionConfigsResponse_fieldLevelEncryptionList = Lens.lens (\ListFieldLevelEncryptionConfigsResponse' {fieldLevelEncryptionList} -> fieldLevelEncryptionList) (\s@ListFieldLevelEncryptionConfigsResponse' {} a -> s {fieldLevelEncryptionList = a} :: ListFieldLevelEncryptionConfigsResponse)
+
+-- | The response's http status code.
+listFieldLevelEncryptionConfigsResponse_httpStatus :: Lens.Lens' ListFieldLevelEncryptionConfigsResponse Prelude.Int
+listFieldLevelEncryptionConfigsResponse_httpStatus = Lens.lens (\ListFieldLevelEncryptionConfigsResponse' {httpStatus} -> httpStatus) (\s@ListFieldLevelEncryptionConfigsResponse' {} a -> s {httpStatus = a} :: ListFieldLevelEncryptionConfigsResponse)
+
+instance
+  Prelude.NFData
+    ListFieldLevelEncryptionConfigsResponse

@@ -1,129 +1,158 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Pinpoint.GetEmailChannel
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Get an email channel
+-- Retrieves information about the status and settings of the email channel
+-- for an application.
 module Network.AWS.Pinpoint.GetEmailChannel
-    (
-    -- * Creating a Request
-      getEmailChannel
-    , GetEmailChannel
+  ( -- * Creating a Request
+    GetEmailChannel (..),
+    newGetEmailChannel,
+
     -- * Request Lenses
-    , gecApplicationId
+    getEmailChannel_applicationId,
 
     -- * Destructuring the Response
-    , getEmailChannelResponse
-    , GetEmailChannelResponse
+    GetEmailChannelResponse (..),
+    newGetEmailChannelResponse,
+
     -- * Response Lenses
-    , gecrsResponseStatus
-    , gecrsEmailChannelResponse
-    ) where
+    getEmailChannelResponse_httpStatus,
+    getEmailChannelResponse_emailChannelResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Pinpoint.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getEmailChannel' smart constructor.
-newtype GetEmailChannel = GetEmailChannel'
-  { _gecApplicationId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetEmailChannel' smart constructor.
+data GetEmailChannel = GetEmailChannel'
+  { -- | The unique identifier for the application. This identifier is displayed
+    -- as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetEmailChannel' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetEmailChannel' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gecApplicationId' - Undocumented member.
-getEmailChannel
-    :: Text -- ^ 'gecApplicationId'
-    -> GetEmailChannel
-getEmailChannel pApplicationId_ =
-  GetEmailChannel' {_gecApplicationId = pApplicationId_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'applicationId', 'getEmailChannel_applicationId' - The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+newGetEmailChannel ::
+  -- | 'applicationId'
+  Prelude.Text ->
+  GetEmailChannel
+newGetEmailChannel pApplicationId_ =
+  GetEmailChannel' {applicationId = pApplicationId_}
 
+-- | The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+getEmailChannel_applicationId :: Lens.Lens' GetEmailChannel Prelude.Text
+getEmailChannel_applicationId = Lens.lens (\GetEmailChannel' {applicationId} -> applicationId) (\s@GetEmailChannel' {} a -> s {applicationId = a} :: GetEmailChannel)
 
--- | Undocumented member.
-gecApplicationId :: Lens' GetEmailChannel Text
-gecApplicationId = lens _gecApplicationId (\ s a -> s{_gecApplicationId = a})
+instance Prelude.AWSRequest GetEmailChannel where
+  type Rs GetEmailChannel = GetEmailChannelResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetEmailChannelResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.eitherParseJSON x)
+      )
 
-instance AWSRequest GetEmailChannel where
-        type Rs GetEmailChannel = GetEmailChannelResponse
-        request = get pinpoint
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetEmailChannelResponse' <$>
-                   (pure (fromEnum s)) <*> (eitherParseJSON x))
+instance Prelude.Hashable GetEmailChannel
 
-instance Hashable GetEmailChannel where
+instance Prelude.NFData GetEmailChannel
 
-instance NFData GetEmailChannel where
+instance Prelude.ToHeaders GetEmailChannel where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders GetEmailChannel where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToPath GetEmailChannel where
+  toPath GetEmailChannel' {..} =
+    Prelude.mconcat
+      [ "/v1/apps/",
+        Prelude.toBS applicationId,
+        "/channels/email"
+      ]
 
-instance ToPath GetEmailChannel where
-        toPath GetEmailChannel'{..}
-          = mconcat
-              ["/v1/apps/", toBS _gecApplicationId,
-               "/channels/email"]
+instance Prelude.ToQuery GetEmailChannel where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery GetEmailChannel where
-        toQuery = const mempty
-
--- | /See:/ 'getEmailChannelResponse' smart constructor.
+-- | /See:/ 'newGetEmailChannelResponse' smart constructor.
 data GetEmailChannelResponse = GetEmailChannelResponse'
-  { _gecrsResponseStatus       :: !Int
-  , _gecrsEmailChannelResponse :: !EmailChannelResponse
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    emailChannelResponse :: EmailChannelResponse
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetEmailChannelResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetEmailChannelResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gecrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gecrsEmailChannelResponse' - Undocumented member.
-getEmailChannelResponse
-    :: Int -- ^ 'gecrsResponseStatus'
-    -> EmailChannelResponse -- ^ 'gecrsEmailChannelResponse'
-    -> GetEmailChannelResponse
-getEmailChannelResponse pResponseStatus_ pEmailChannelResponse_ =
-  GetEmailChannelResponse'
-    { _gecrsResponseStatus = pResponseStatus_
-    , _gecrsEmailChannelResponse = pEmailChannelResponse_
-    }
+-- 'httpStatus', 'getEmailChannelResponse_httpStatus' - The response's http status code.
+--
+-- 'emailChannelResponse', 'getEmailChannelResponse_emailChannelResponse' - Undocumented member.
+newGetEmailChannelResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'emailChannelResponse'
+  EmailChannelResponse ->
+  GetEmailChannelResponse
+newGetEmailChannelResponse
+  pHttpStatus_
+  pEmailChannelResponse_ =
+    GetEmailChannelResponse'
+      { httpStatus = pHttpStatus_,
+        emailChannelResponse = pEmailChannelResponse_
+      }
 
-
--- | -- | The response status code.
-gecrsResponseStatus :: Lens' GetEmailChannelResponse Int
-gecrsResponseStatus = lens _gecrsResponseStatus (\ s a -> s{_gecrsResponseStatus = a})
+-- | The response's http status code.
+getEmailChannelResponse_httpStatus :: Lens.Lens' GetEmailChannelResponse Prelude.Int
+getEmailChannelResponse_httpStatus = Lens.lens (\GetEmailChannelResponse' {httpStatus} -> httpStatus) (\s@GetEmailChannelResponse' {} a -> s {httpStatus = a} :: GetEmailChannelResponse)
 
 -- | Undocumented member.
-gecrsEmailChannelResponse :: Lens' GetEmailChannelResponse EmailChannelResponse
-gecrsEmailChannelResponse = lens _gecrsEmailChannelResponse (\ s a -> s{_gecrsEmailChannelResponse = a})
+getEmailChannelResponse_emailChannelResponse :: Lens.Lens' GetEmailChannelResponse EmailChannelResponse
+getEmailChannelResponse_emailChannelResponse = Lens.lens (\GetEmailChannelResponse' {emailChannelResponse} -> emailChannelResponse) (\s@GetEmailChannelResponse' {} a -> s {emailChannelResponse = a} :: GetEmailChannelResponse)
 
-instance NFData GetEmailChannelResponse where
+instance Prelude.NFData GetEmailChannelResponse

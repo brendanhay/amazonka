@@ -1,157 +1,207 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ECR.InitiateLayerUpload
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Notify Amazon ECR that you intend to upload an image layer.
+-- Notifies Amazon ECR that you intend to upload an image layer.
 --
+-- When an image is pushed, the InitiateLayerUpload API is called once per
+-- image layer that has not already been uploaded. Whether or not an image
+-- layer has been uploaded is determined by the BatchCheckLayerAvailability
+-- API action.
 --
+-- This operation is used by the Amazon ECR proxy and is not generally used
+-- by customers for pulling and pushing images. In most cases, you should
+-- use the @docker@ CLI to pull, tag, and push images.
 module Network.AWS.ECR.InitiateLayerUpload
-    (
-    -- * Creating a Request
-      initiateLayerUpload
-    , InitiateLayerUpload
+  ( -- * Creating a Request
+    InitiateLayerUpload (..),
+    newInitiateLayerUpload,
+
     -- * Request Lenses
-    , iluRegistryId
-    , iluRepositoryName
+    initiateLayerUpload_registryId,
+    initiateLayerUpload_repositoryName,
 
     -- * Destructuring the Response
-    , initiateLayerUploadResponse
-    , InitiateLayerUploadResponse
+    InitiateLayerUploadResponse (..),
+    newInitiateLayerUploadResponse,
+
     -- * Response Lenses
-    , ilursPartSize
-    , ilursUploadId
-    , ilursResponseStatus
-    ) where
+    initiateLayerUploadResponse_uploadId,
+    initiateLayerUploadResponse_partSize,
+    initiateLayerUploadResponse_httpStatus,
+  )
+where
 
 import Network.AWS.ECR.Types
-import Network.AWS.ECR.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'initiateLayerUpload' smart constructor.
+-- | /See:/ 'newInitiateLayerUpload' smart constructor.
 data InitiateLayerUpload = InitiateLayerUpload'
-  { _iluRegistryId     :: !(Maybe Text)
-  , _iluRepositoryName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The AWS account ID associated with the registry to which you intend to
+    -- upload layers. If you do not specify a registry, the default registry is
+    -- assumed.
+    registryId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the repository to which you intend to upload layers.
+    repositoryName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'InitiateLayerUpload' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'InitiateLayerUpload' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'iluRegistryId' - The AWS account ID associated with the registry to which you intend to upload layers. If you do not specify a registry, the default registry is assumed.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'iluRepositoryName' - The name of the repository to which you intend to upload layers.
-initiateLayerUpload
-    :: Text -- ^ 'iluRepositoryName'
-    -> InitiateLayerUpload
-initiateLayerUpload pRepositoryName_ =
+-- 'registryId', 'initiateLayerUpload_registryId' - The AWS account ID associated with the registry to which you intend to
+-- upload layers. If you do not specify a registry, the default registry is
+-- assumed.
+--
+-- 'repositoryName', 'initiateLayerUpload_repositoryName' - The name of the repository to which you intend to upload layers.
+newInitiateLayerUpload ::
+  -- | 'repositoryName'
+  Prelude.Text ->
+  InitiateLayerUpload
+newInitiateLayerUpload pRepositoryName_ =
   InitiateLayerUpload'
-    {_iluRegistryId = Nothing, _iluRepositoryName = pRepositoryName_}
-
-
--- | The AWS account ID associated with the registry to which you intend to upload layers. If you do not specify a registry, the default registry is assumed.
-iluRegistryId :: Lens' InitiateLayerUpload (Maybe Text)
-iluRegistryId = lens _iluRegistryId (\ s a -> s{_iluRegistryId = a})
-
--- | The name of the repository to which you intend to upload layers.
-iluRepositoryName :: Lens' InitiateLayerUpload Text
-iluRepositoryName = lens _iluRepositoryName (\ s a -> s{_iluRepositoryName = a})
-
-instance AWSRequest InitiateLayerUpload where
-        type Rs InitiateLayerUpload =
-             InitiateLayerUploadResponse
-        request = postJSON ecr
-        response
-          = receiveJSON
-              (\ s h x ->
-                 InitiateLayerUploadResponse' <$>
-                   (x .?> "partSize") <*> (x .?> "uploadId") <*>
-                     (pure (fromEnum s)))
-
-instance Hashable InitiateLayerUpload where
-
-instance NFData InitiateLayerUpload where
-
-instance ToHeaders InitiateLayerUpload where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonEC2ContainerRegistry_V20150921.InitiateLayerUpload"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON InitiateLayerUpload where
-        toJSON InitiateLayerUpload'{..}
-          = object
-              (catMaybes
-                 [("registryId" .=) <$> _iluRegistryId,
-                  Just ("repositoryName" .= _iluRepositoryName)])
-
-instance ToPath InitiateLayerUpload where
-        toPath = const "/"
-
-instance ToQuery InitiateLayerUpload where
-        toQuery = const mempty
-
--- | /See:/ 'initiateLayerUploadResponse' smart constructor.
-data InitiateLayerUploadResponse = InitiateLayerUploadResponse'
-  { _ilursPartSize       :: !(Maybe Nat)
-  , _ilursUploadId       :: !(Maybe Text)
-  , _ilursResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'InitiateLayerUploadResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ilursPartSize' - The size, in bytes, that Amazon ECR expects future layer part uploads to be.
---
--- * 'ilursUploadId' - The upload ID for the layer upload. This parameter is passed to further 'UploadLayerPart' and 'CompleteLayerUpload' operations.
---
--- * 'ilursResponseStatus' - -- | The response status code.
-initiateLayerUploadResponse
-    :: Int -- ^ 'ilursResponseStatus'
-    -> InitiateLayerUploadResponse
-initiateLayerUploadResponse pResponseStatus_ =
-  InitiateLayerUploadResponse'
-    { _ilursPartSize = Nothing
-    , _ilursUploadId = Nothing
-    , _ilursResponseStatus = pResponseStatus_
+    { registryId = Prelude.Nothing,
+      repositoryName = pRepositoryName_
     }
 
+-- | The AWS account ID associated with the registry to which you intend to
+-- upload layers. If you do not specify a registry, the default registry is
+-- assumed.
+initiateLayerUpload_registryId :: Lens.Lens' InitiateLayerUpload (Prelude.Maybe Prelude.Text)
+initiateLayerUpload_registryId = Lens.lens (\InitiateLayerUpload' {registryId} -> registryId) (\s@InitiateLayerUpload' {} a -> s {registryId = a} :: InitiateLayerUpload)
 
--- | The size, in bytes, that Amazon ECR expects future layer part uploads to be.
-ilursPartSize :: Lens' InitiateLayerUploadResponse (Maybe Natural)
-ilursPartSize = lens _ilursPartSize (\ s a -> s{_ilursPartSize = a}) . mapping _Nat
+-- | The name of the repository to which you intend to upload layers.
+initiateLayerUpload_repositoryName :: Lens.Lens' InitiateLayerUpload Prelude.Text
+initiateLayerUpload_repositoryName = Lens.lens (\InitiateLayerUpload' {repositoryName} -> repositoryName) (\s@InitiateLayerUpload' {} a -> s {repositoryName = a} :: InitiateLayerUpload)
 
--- | The upload ID for the layer upload. This parameter is passed to further 'UploadLayerPart' and 'CompleteLayerUpload' operations.
-ilursUploadId :: Lens' InitiateLayerUploadResponse (Maybe Text)
-ilursUploadId = lens _ilursUploadId (\ s a -> s{_ilursUploadId = a})
+instance Prelude.AWSRequest InitiateLayerUpload where
+  type
+    Rs InitiateLayerUpload =
+      InitiateLayerUploadResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          InitiateLayerUploadResponse'
+            Prelude.<$> (x Prelude..?> "uploadId")
+            Prelude.<*> (x Prelude..?> "partSize")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | -- | The response status code.
-ilursResponseStatus :: Lens' InitiateLayerUploadResponse Int
-ilursResponseStatus = lens _ilursResponseStatus (\ s a -> s{_ilursResponseStatus = a})
+instance Prelude.Hashable InitiateLayerUpload
 
-instance NFData InitiateLayerUploadResponse where
+instance Prelude.NFData InitiateLayerUpload
+
+instance Prelude.ToHeaders InitiateLayerUpload where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AmazonEC2ContainerRegistry_V20150921.InitiateLayerUpload" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON InitiateLayerUpload where
+  toJSON InitiateLayerUpload' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("registryId" Prelude..=) Prelude.<$> registryId,
+            Prelude.Just
+              ("repositoryName" Prelude..= repositoryName)
+          ]
+      )
+
+instance Prelude.ToPath InitiateLayerUpload where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery InitiateLayerUpload where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newInitiateLayerUploadResponse' smart constructor.
+data InitiateLayerUploadResponse = InitiateLayerUploadResponse'
+  { -- | The upload ID for the layer upload. This parameter is passed to further
+    -- UploadLayerPart and CompleteLayerUpload operations.
+    uploadId :: Prelude.Maybe Prelude.Text,
+    -- | The size, in bytes, that Amazon ECR expects future layer part uploads to
+    -- be.
+    partSize :: Prelude.Maybe Prelude.Natural,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'InitiateLayerUploadResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'uploadId', 'initiateLayerUploadResponse_uploadId' - The upload ID for the layer upload. This parameter is passed to further
+-- UploadLayerPart and CompleteLayerUpload operations.
+--
+-- 'partSize', 'initiateLayerUploadResponse_partSize' - The size, in bytes, that Amazon ECR expects future layer part uploads to
+-- be.
+--
+-- 'httpStatus', 'initiateLayerUploadResponse_httpStatus' - The response's http status code.
+newInitiateLayerUploadResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  InitiateLayerUploadResponse
+newInitiateLayerUploadResponse pHttpStatus_ =
+  InitiateLayerUploadResponse'
+    { uploadId =
+        Prelude.Nothing,
+      partSize = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The upload ID for the layer upload. This parameter is passed to further
+-- UploadLayerPart and CompleteLayerUpload operations.
+initiateLayerUploadResponse_uploadId :: Lens.Lens' InitiateLayerUploadResponse (Prelude.Maybe Prelude.Text)
+initiateLayerUploadResponse_uploadId = Lens.lens (\InitiateLayerUploadResponse' {uploadId} -> uploadId) (\s@InitiateLayerUploadResponse' {} a -> s {uploadId = a} :: InitiateLayerUploadResponse)
+
+-- | The size, in bytes, that Amazon ECR expects future layer part uploads to
+-- be.
+initiateLayerUploadResponse_partSize :: Lens.Lens' InitiateLayerUploadResponse (Prelude.Maybe Prelude.Natural)
+initiateLayerUploadResponse_partSize = Lens.lens (\InitiateLayerUploadResponse' {partSize} -> partSize) (\s@InitiateLayerUploadResponse' {} a -> s {partSize = a} :: InitiateLayerUploadResponse)
+
+-- | The response's http status code.
+initiateLayerUploadResponse_httpStatus :: Lens.Lens' InitiateLayerUploadResponse Prelude.Int
+initiateLayerUploadResponse_httpStatus = Lens.lens (\InitiateLayerUploadResponse' {httpStatus} -> httpStatus) (\s@InitiateLayerUploadResponse' {} a -> s {httpStatus = a} :: InitiateLayerUploadResponse)
+
+instance Prelude.NFData InitiateLayerUploadResponse

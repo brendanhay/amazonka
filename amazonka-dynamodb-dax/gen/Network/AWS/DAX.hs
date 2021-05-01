@@ -1,101 +1,107 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DAX
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- DAX is a managed caching service engineered for Amazon DynamoDB. DAX dramatically speeds up database reads by caching frequently-accessed data from DynamoDB, so applications can access that data with sub-millisecond latency. You can create a DAX cluster easily, using the AWS Management Console. With a few simple modifications to your code, your application can begin taking advantage of the DAX cluster and realize significant improvements in read performance.
---
---
+-- DAX is a managed caching service engineered for Amazon DynamoDB. DAX
+-- dramatically speeds up database reads by caching frequently-accessed
+-- data from DynamoDB, so applications can access that data with
+-- sub-millisecond latency. You can create a DAX cluster easily, using the
+-- AWS Management Console. With a few simple modifications to your code,
+-- your application can begin taking advantage of the DAX cluster and
+-- realize significant improvements in read performance.
 module Network.AWS.DAX
-    (
-    -- * Service Configuration
-      dax
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
     -- $errors
 
-    -- ** SubnetQuotaExceededFault
-    , _SubnetQuotaExceededFault
-
-    -- ** ParameterGroupNotFoundFault
-    , _ParameterGroupNotFoundFault
-
-    -- ** InvalidParameterGroupStateFault
-    , _InvalidParameterGroupStateFault
-
-    -- ** SubnetGroupInUseFault
-    , _SubnetGroupInUseFault
-
-    -- ** ParameterGroupAlreadyExistsFault
-    , _ParameterGroupAlreadyExistsFault
-
-    -- ** InvalidSubnet
-    , _InvalidSubnet
-
-    -- ** TagQuotaPerResourceExceeded
-    , _TagQuotaPerResourceExceeded
-
-    -- ** ClusterNotFoundFault
-    , _ClusterNotFoundFault
-
-    -- ** TagNotFoundFault
-    , _TagNotFoundFault
-
-    -- ** NodeQuotaForClusterExceededFault
-    , _NodeQuotaForClusterExceededFault
-
-    -- ** InvalidClusterStateFault
-    , _InvalidClusterStateFault
-
-    -- ** InsufficientClusterCapacityFault
-    , _InsufficientClusterCapacityFault
-
-    -- ** NodeNotFoundFault
-    , _NodeNotFoundFault
-
-    -- ** ParameterGroupQuotaExceededFault
-    , _ParameterGroupQuotaExceededFault
-
-    -- ** InvalidParameterValueException
-    , _InvalidParameterValueException
+    -- ** SubnetInUse
+    _SubnetInUse,
 
     -- ** InvalidVPCNetworkStateFault
-    , _InvalidVPCNetworkStateFault
+    _InvalidVPCNetworkStateFault,
 
-    -- ** SubnetInUse
-    , _SubnetInUse
+    -- ** SubnetQuotaExceededFault
+    _SubnetQuotaExceededFault,
 
-    -- ** ClusterQuotaForCustomerExceededFault
-    , _ClusterQuotaForCustomerExceededFault
+    -- ** ParameterGroupQuotaExceededFault
+    _ParameterGroupQuotaExceededFault,
 
-    -- ** SubnetGroupNotFoundFault
-    , _SubnetGroupNotFoundFault
+    -- ** InsufficientClusterCapacityFault
+    _InsufficientClusterCapacityFault,
 
-    -- ** SubnetGroupAlreadyExistsFault
-    , _SubnetGroupAlreadyExistsFault
-
-    -- ** NodeQuotaForCustomerExceededFault
-    , _NodeQuotaForCustomerExceededFault
-
-    -- ** SubnetGroupQuotaExceededFault
-    , _SubnetGroupQuotaExceededFault
-
-    -- ** ClusterAlreadyExistsFault
-    , _ClusterAlreadyExistsFault
-
-    -- ** InvalidARNFault
-    , _InvalidARNFault
+    -- ** ServiceLinkedRoleNotFoundFault
+    _ServiceLinkedRoleNotFoundFault,
 
     -- ** InvalidParameterCombinationException
-    , _InvalidParameterCombinationException
+    _InvalidParameterCombinationException,
+
+    -- ** SubnetGroupQuotaExceededFault
+    _SubnetGroupQuotaExceededFault,
+
+    -- ** TagNotFoundFault
+    _TagNotFoundFault,
+
+    -- ** ClusterNotFoundFault
+    _ClusterNotFoundFault,
+
+    -- ** SubnetGroupAlreadyExistsFault
+    _SubnetGroupAlreadyExistsFault,
+
+    -- ** NodeQuotaForCustomerExceededFault
+    _NodeQuotaForCustomerExceededFault,
+
+    -- ** SubnetGroupNotFoundFault
+    _SubnetGroupNotFoundFault,
+
+    -- ** ParameterGroupAlreadyExistsFault
+    _ParameterGroupAlreadyExistsFault,
+
+    -- ** ParameterGroupNotFoundFault
+    _ParameterGroupNotFoundFault,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
+    -- ** NodeNotFoundFault
+    _NodeNotFoundFault,
+
+    -- ** InvalidARNFault
+    _InvalidARNFault,
+
+    -- ** ClusterAlreadyExistsFault
+    _ClusterAlreadyExistsFault,
+
+    -- ** InvalidClusterStateFault
+    _InvalidClusterStateFault,
+
+    -- ** NodeQuotaForClusterExceededFault
+    _NodeQuotaForClusterExceededFault,
+
+    -- ** InvalidSubnet
+    _InvalidSubnet,
+
+    -- ** ClusterQuotaForCustomerExceededFault
+    _ClusterQuotaForCustomerExceededFault,
+
+    -- ** SubnetGroupInUseFault
+    _SubnetGroupInUseFault,
+
+    -- ** InvalidParameterGroupStateFault
+    _InvalidParameterGroupStateFault,
+
+    -- ** TagQuotaPerResourceExceeded
+    _TagQuotaPerResourceExceeded,
 
     -- * Waiters
     -- $waiters
@@ -103,198 +109,214 @@ module Network.AWS.DAX
     -- * Operations
     -- $operations
 
-    -- ** DescribeClusters
-    , module Network.AWS.DAX.DescribeClusters
+    -- ** DescribeParameters (Paginated)
+    DescribeParameters (DescribeParameters'),
+    newDescribeParameters,
+    DescribeParametersResponse (DescribeParametersResponse'),
+    newDescribeParametersResponse,
 
-    -- ** DescribeParameters
-    , module Network.AWS.DAX.DescribeParameters
+    -- ** DescribeDefaultParameters (Paginated)
+    DescribeDefaultParameters (DescribeDefaultParameters'),
+    newDescribeDefaultParameters,
+    DescribeDefaultParametersResponse (DescribeDefaultParametersResponse'),
+    newDescribeDefaultParametersResponse,
 
-    -- ** DescribeEvents
-    , module Network.AWS.DAX.DescribeEvents
-
-    -- ** IncreaseReplicationFactor
-    , module Network.AWS.DAX.IncreaseReplicationFactor
-
-    -- ** CreateSubnetGroup
-    , module Network.AWS.DAX.CreateSubnetGroup
-
-    -- ** DeleteCluster
-    , module Network.AWS.DAX.DeleteCluster
-
-    -- ** UpdateCluster
-    , module Network.AWS.DAX.UpdateCluster
+    -- ** DescribeClusters (Paginated)
+    DescribeClusters (DescribeClusters'),
+    newDescribeClusters,
+    DescribeClustersResponse (DescribeClustersResponse'),
+    newDescribeClustersResponse,
 
     -- ** CreateCluster
-    , module Network.AWS.DAX.CreateCluster
-
-    -- ** DescribeDefaultParameters
-    , module Network.AWS.DAX.DescribeDefaultParameters
-
-    -- ** DeleteParameterGroup
-    , module Network.AWS.DAX.DeleteParameterGroup
-
-    -- ** UpdateParameterGroup
-    , module Network.AWS.DAX.UpdateParameterGroup
-
-    -- ** DescribeSubnetGroups
-    , module Network.AWS.DAX.DescribeSubnetGroups
-
-    -- ** CreateParameterGroup
-    , module Network.AWS.DAX.CreateParameterGroup
-
-    -- ** UpdateSubnetGroup
-    , module Network.AWS.DAX.UpdateSubnetGroup
-
-    -- ** DeleteSubnetGroup
-    , module Network.AWS.DAX.DeleteSubnetGroup
-
-    -- ** DescribeParameterGroups
-    , module Network.AWS.DAX.DescribeParameterGroups
-
-    -- ** TagResource
-    , module Network.AWS.DAX.TagResource
-
-    -- ** ListTags
-    , module Network.AWS.DAX.ListTags
-
-    -- ** DecreaseReplicationFactor
-    , module Network.AWS.DAX.DecreaseReplicationFactor
+    CreateCluster (CreateCluster'),
+    newCreateCluster,
+    CreateClusterResponse (CreateClusterResponse'),
+    newCreateClusterResponse,
 
     -- ** UntagResource
-    , module Network.AWS.DAX.UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** DecreaseReplicationFactor
+    DecreaseReplicationFactor (DecreaseReplicationFactor'),
+    newDecreaseReplicationFactor,
+    DecreaseReplicationFactorResponse (DecreaseReplicationFactorResponse'),
+    newDecreaseReplicationFactorResponse,
+
+    -- ** DescribeParameterGroups (Paginated)
+    DescribeParameterGroups (DescribeParameterGroups'),
+    newDescribeParameterGroups,
+    DescribeParameterGroupsResponse (DescribeParameterGroupsResponse'),
+    newDescribeParameterGroupsResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** IncreaseReplicationFactor
+    IncreaseReplicationFactor (IncreaseReplicationFactor'),
+    newIncreaseReplicationFactor,
+    IncreaseReplicationFactorResponse (IncreaseReplicationFactorResponse'),
+    newIncreaseReplicationFactorResponse,
+
+    -- ** DescribeEvents (Paginated)
+    DescribeEvents (DescribeEvents'),
+    newDescribeEvents,
+    DescribeEventsResponse (DescribeEventsResponse'),
+    newDescribeEventsResponse,
+
+    -- ** DeleteParameterGroup
+    DeleteParameterGroup (DeleteParameterGroup'),
+    newDeleteParameterGroup,
+    DeleteParameterGroupResponse (DeleteParameterGroupResponse'),
+    newDeleteParameterGroupResponse,
+
+    -- ** UpdateParameterGroup
+    UpdateParameterGroup (UpdateParameterGroup'),
+    newUpdateParameterGroup,
+    UpdateParameterGroupResponse (UpdateParameterGroupResponse'),
+    newUpdateParameterGroupResponse,
 
     -- ** RebootNode
-    , module Network.AWS.DAX.RebootNode
+    RebootNode (RebootNode'),
+    newRebootNode,
+    RebootNodeResponse (RebootNodeResponse'),
+    newRebootNodeResponse,
+
+    -- ** DeleteCluster
+    DeleteCluster (DeleteCluster'),
+    newDeleteCluster,
+    DeleteClusterResponse (DeleteClusterResponse'),
+    newDeleteClusterResponse,
+
+    -- ** UpdateCluster
+    UpdateCluster (UpdateCluster'),
+    newUpdateCluster,
+    UpdateClusterResponse (UpdateClusterResponse'),
+    newUpdateClusterResponse,
+
+    -- ** ListTags (Paginated)
+    ListTags (ListTags'),
+    newListTags,
+    ListTagsResponse (ListTagsResponse'),
+    newListTagsResponse,
+
+    -- ** CreateSubnetGroup
+    CreateSubnetGroup (CreateSubnetGroup'),
+    newCreateSubnetGroup,
+    CreateSubnetGroupResponse (CreateSubnetGroupResponse'),
+    newCreateSubnetGroupResponse,
+
+    -- ** UpdateSubnetGroup
+    UpdateSubnetGroup (UpdateSubnetGroup'),
+    newUpdateSubnetGroup,
+    UpdateSubnetGroupResponse (UpdateSubnetGroupResponse'),
+    newUpdateSubnetGroupResponse,
+
+    -- ** DeleteSubnetGroup
+    DeleteSubnetGroup (DeleteSubnetGroup'),
+    newDeleteSubnetGroup,
+    DeleteSubnetGroupResponse (DeleteSubnetGroupResponse'),
+    newDeleteSubnetGroupResponse,
+
+    -- ** DescribeSubnetGroups (Paginated)
+    DescribeSubnetGroups (DescribeSubnetGroups'),
+    newDescribeSubnetGroups,
+    DescribeSubnetGroupsResponse (DescribeSubnetGroupsResponse'),
+    newDescribeSubnetGroupsResponse,
+
+    -- ** CreateParameterGroup
+    CreateParameterGroup (CreateParameterGroup'),
+    newCreateParameterGroup,
+    CreateParameterGroupResponse (CreateParameterGroupResponse'),
+    newCreateParameterGroupResponse,
 
     -- * Types
 
     -- ** ChangeType
-    , ChangeType (..)
+    ChangeType (..),
 
     -- ** IsModifiable
-    , IsModifiable (..)
+    IsModifiable (..),
 
     -- ** ParameterType
-    , ParameterType (..)
+    ParameterType (..),
+
+    -- ** SSEStatus
+    SSEStatus (..),
 
     -- ** SourceType
-    , SourceType (..)
+    SourceType (..),
 
     -- ** Cluster
-    , Cluster
-    , cluster
-    , cStatus
-    , cIAMRoleARN
-    , cClusterARN
-    , cActiveNodes
-    , cSecurityGroups
-    , cNotificationConfiguration
-    , cNodeIdsToRemove
-    , cTotalNodes
-    , cPreferredMaintenanceWindow
-    , cSubnetGroup
-    , cClusterName
-    , cNodeType
-    , cNodes
-    , cClusterDiscoveryEndpoint
-    , cDescription
-    , cParameterGroup
+    Cluster (Cluster'),
+    newCluster,
 
     -- ** Endpoint
-    , Endpoint
-    , endpoint
-    , eAddress
-    , ePort
+    Endpoint (Endpoint'),
+    newEndpoint,
 
     -- ** Event
-    , Event
-    , event
-    , eSourceName
-    , eSourceType
-    , eDate
-    , eMessage
+    Event (Event'),
+    newEvent,
 
     -- ** Node
-    , Node
-    , node
-    , nNodeStatus
-    , nParameterGroupStatus
-    , nAvailabilityZone
-    , nNodeId
-    , nEndpoint
-    , nNodeCreateTime
+    Node (Node'),
+    newNode,
 
     -- ** NodeTypeSpecificValue
-    , NodeTypeSpecificValue
-    , nodeTypeSpecificValue
-    , ntsvValue
-    , ntsvNodeType
+    NodeTypeSpecificValue (NodeTypeSpecificValue'),
+    newNodeTypeSpecificValue,
 
     -- ** NotificationConfiguration
-    , NotificationConfiguration
-    , notificationConfiguration
-    , ncTopicStatus
-    , ncTopicARN
+    NotificationConfiguration (NotificationConfiguration'),
+    newNotificationConfiguration,
 
     -- ** Parameter
-    , Parameter
-    , parameter
-    , pParameterValue
-    , pParameterType
-    , pSource
-    , pIsModifiable
-    , pDataType
-    , pNodeTypeSpecificValues
-    , pAllowedValues
-    , pParameterName
-    , pDescription
-    , pChangeType
+    Parameter (Parameter'),
+    newParameter,
 
     -- ** ParameterGroup
-    , ParameterGroup
-    , parameterGroup
-    , pgDescription
-    , pgParameterGroupName
+    ParameterGroup (ParameterGroup'),
+    newParameterGroup,
 
     -- ** ParameterGroupStatus
-    , ParameterGroupStatus
-    , parameterGroupStatus
-    , pgsNodeIdsToReboot
-    , pgsParameterApplyStatus
-    , pgsParameterGroupName
+    ParameterGroupStatus (ParameterGroupStatus'),
+    newParameterGroupStatus,
 
     -- ** ParameterNameValue
-    , ParameterNameValue
-    , parameterNameValue
-    , pnvParameterValue
-    , pnvParameterName
+    ParameterNameValue (ParameterNameValue'),
+    newParameterNameValue,
+
+    -- ** SSEDescription
+    SSEDescription (SSEDescription'),
+    newSSEDescription,
+
+    -- ** SSESpecification
+    SSESpecification (SSESpecification'),
+    newSSESpecification,
 
     -- ** SecurityGroupMembership
-    , SecurityGroupMembership
-    , securityGroupMembership
-    , sgmStatus
-    , sgmSecurityGroupIdentifier
+    SecurityGroupMembership (SecurityGroupMembership'),
+    newSecurityGroupMembership,
 
     -- ** Subnet
-    , Subnet
-    , subnet
-    , sSubnetIdentifier
-    , sSubnetAvailabilityZone
+    Subnet (Subnet'),
+    newSubnet,
 
     -- ** SubnetGroup
-    , SubnetGroup
-    , subnetGroup
-    , sgVPCId
-    , sgSubnets
-    , sgSubnetGroupName
-    , sgDescription
+    SubnetGroup (SubnetGroup'),
+    newSubnetGroup,
 
     -- ** Tag
-    , Tag
-    , tag
-    , tagValue
-    , tagKey
-    ) where
+    Tag (Tag'),
+    newTag,
+  )
+where
 
 import Network.AWS.DAX.CreateCluster
 import Network.AWS.DAX.CreateParameterGroup
@@ -310,6 +332,7 @@ import Network.AWS.DAX.DescribeParameterGroups
 import Network.AWS.DAX.DescribeParameters
 import Network.AWS.DAX.DescribeSubnetGroups
 import Network.AWS.DAX.IncreaseReplicationFactor
+import Network.AWS.DAX.Lens
 import Network.AWS.DAX.ListTags
 import Network.AWS.DAX.RebootNode
 import Network.AWS.DAX.TagResource
@@ -320,32 +343,29 @@ import Network.AWS.DAX.UpdateParameterGroup
 import Network.AWS.DAX.UpdateSubnetGroup
 import Network.AWS.DAX.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'DAX'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'DAX'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

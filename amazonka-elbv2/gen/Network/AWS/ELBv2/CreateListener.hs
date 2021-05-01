@@ -1,188 +1,345 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ELBv2.CreateListener
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a listener for the specified Application Load Balancer or Network Load Balancer.
+-- Creates a listener for the specified Application Load Balancer, Network
+-- Load Balancer, or Gateway Load Balancer.
 --
+-- For more information, see the following:
 --
--- To update a listener, use 'ModifyListener' . When you are finished with a listener, you can delete it using 'DeleteListener' . If you are finished with both the listener and the load balancer, you can delete them both using 'DeleteLoadBalancer' .
+-- -   <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html Listeners for your Application Load Balancers>
 --
--- This operation is idempotent, which means that it completes at most one time. If you attempt to create multiple listeners with the same settings, each call succeeds.
+-- -   <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html Listeners for your Network Load Balancers>
 --
--- For more information, see <http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html Listeners for Your Application Load Balancers> in the /Application Load Balancers Guide/ and <http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html Listeners for Your Network Load Balancers> in the /Network Load Balancers Guide/ .
+-- -   <https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-listeners.html Listeners for your Gateway Load Balancers>
 --
+-- This operation is idempotent, which means that it completes at most one
+-- time. If you attempt to create multiple listeners with the same
+-- settings, each call succeeds.
 module Network.AWS.ELBv2.CreateListener
-    (
-    -- * Creating a Request
-      createListener
-    , CreateListener
+  ( -- * Creating a Request
+    CreateListener (..),
+    newCreateListener,
+
     -- * Request Lenses
-    , clSSLPolicy
-    , clCertificates
-    , clLoadBalancerARN
-    , clProtocol
-    , clPort
-    , clDefaultActions
+    createListener_sslPolicy,
+    createListener_tags,
+    createListener_port,
+    createListener_protocol,
+    createListener_certificates,
+    createListener_alpnPolicy,
+    createListener_loadBalancerArn,
+    createListener_defaultActions,
 
     -- * Destructuring the Response
-    , createListenerResponse
-    , CreateListenerResponse
+    CreateListenerResponse (..),
+    newCreateListenerResponse,
+
     -- * Response Lenses
-    , clrsListeners
-    , clrsResponseStatus
-    ) where
+    createListenerResponse_listeners,
+    createListenerResponse_httpStatus,
+  )
+where
 
 import Network.AWS.ELBv2.Types
-import Network.AWS.ELBv2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createListener' smart constructor.
+-- | /See:/ 'newCreateListener' smart constructor.
 data CreateListener = CreateListener'
-  { _clSSLPolicy       :: !(Maybe Text)
-  , _clCertificates    :: !(Maybe [Certificate])
-  , _clLoadBalancerARN :: !Text
-  , _clProtocol        :: !ProtocolEnum
-  , _clPort            :: !Nat
-  , _clDefaultActions  :: ![Action]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | [HTTPS and TLS listeners] The security policy that defines which
+    -- protocols and ciphers are supported.
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security policies>
+    -- in the /Application Load Balancers Guide/ and
+    -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies Security policies>
+    -- in the /Network Load Balancers Guide/.
+    sslPolicy :: Prelude.Maybe Prelude.Text,
+    -- | The tags to assign to the listener.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The port on which the load balancer is listening. You cannot specify a
+    -- port for a Gateway Load Balancer.
+    port :: Prelude.Maybe Prelude.Natural,
+    -- | The protocol for connections from clients to the load balancer. For
+    -- Application Load Balancers, the supported protocols are HTTP and HTTPS.
+    -- For Network Load Balancers, the supported protocols are TCP, TLS, UDP,
+    -- and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack
+    -- mode is enabled. You cannot specify a protocol for a Gateway Load
+    -- Balancer.
+    protocol :: Prelude.Maybe ProtocolEnum,
+    -- | [HTTPS and TLS listeners] The default certificate for the listener. You
+    -- must provide exactly one certificate. Set @CertificateArn@ to the
+    -- certificate ARN but do not set @IsDefault@.
+    certificates :: Prelude.Maybe [Certificate],
+    -- | [TLS listeners] The name of the Application-Layer Protocol Negotiation
+    -- (ALPN) policy. You can specify one policy name. The following are the
+    -- possible values:
+    --
+    -- -   @HTTP1Only@
+    --
+    -- -   @HTTP2Only@
+    --
+    -- -   @HTTP2Optional@
+    --
+    -- -   @HTTP2Preferred@
+    --
+    -- -   @None@
+    --
+    -- For more information, see
+    -- <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies ALPN policies>
+    -- in the /Network Load Balancers Guide/.
+    alpnPolicy :: Prelude.Maybe [Prelude.Text],
+    -- | The Amazon Resource Name (ARN) of the load balancer.
+    loadBalancerArn :: Prelude.Text,
+    -- | The actions for the default rule.
+    defaultActions :: [Action]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateListener' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateListener' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'clSSLPolicy' - [HTTPS listeners] The security policy that defines which ciphers and protocols are supported. The default is the current predefined security policy.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'clCertificates' - [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
+-- 'sslPolicy', 'createListener_sslPolicy' - [HTTPS and TLS listeners] The security policy that defines which
+-- protocols and ciphers are supported.
 --
--- * 'clLoadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
+-- For more information, see
+-- <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security policies>
+-- in the /Application Load Balancers Guide/ and
+-- <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies Security policies>
+-- in the /Network Load Balancers Guide/.
 --
--- * 'clProtocol' - The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocol is TCP.
+-- 'tags', 'createListener_tags' - The tags to assign to the listener.
 --
--- * 'clPort' - The port on which the load balancer is listening.
+-- 'port', 'createListener_port' - The port on which the load balancer is listening. You cannot specify a
+-- port for a Gateway Load Balancer.
 --
--- * 'clDefaultActions' - The default action for the listener. For Application Load Balancers, the protocol of the specified target group must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must be TCP.
-createListener
-    :: Text -- ^ 'clLoadBalancerARN'
-    -> ProtocolEnum -- ^ 'clProtocol'
-    -> Natural -- ^ 'clPort'
-    -> CreateListener
-createListener pLoadBalancerARN_ pProtocol_ pPort_ =
+-- 'protocol', 'createListener_protocol' - The protocol for connections from clients to the load balancer. For
+-- Application Load Balancers, the supported protocols are HTTP and HTTPS.
+-- For Network Load Balancers, the supported protocols are TCP, TLS, UDP,
+-- and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack
+-- mode is enabled. You cannot specify a protocol for a Gateway Load
+-- Balancer.
+--
+-- 'certificates', 'createListener_certificates' - [HTTPS and TLS listeners] The default certificate for the listener. You
+-- must provide exactly one certificate. Set @CertificateArn@ to the
+-- certificate ARN but do not set @IsDefault@.
+--
+-- 'alpnPolicy', 'createListener_alpnPolicy' - [TLS listeners] The name of the Application-Layer Protocol Negotiation
+-- (ALPN) policy. You can specify one policy name. The following are the
+-- possible values:
+--
+-- -   @HTTP1Only@
+--
+-- -   @HTTP2Only@
+--
+-- -   @HTTP2Optional@
+--
+-- -   @HTTP2Preferred@
+--
+-- -   @None@
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies ALPN policies>
+-- in the /Network Load Balancers Guide/.
+--
+-- 'loadBalancerArn', 'createListener_loadBalancerArn' - The Amazon Resource Name (ARN) of the load balancer.
+--
+-- 'defaultActions', 'createListener_defaultActions' - The actions for the default rule.
+newCreateListener ::
+  -- | 'loadBalancerArn'
+  Prelude.Text ->
+  CreateListener
+newCreateListener pLoadBalancerArn_ =
   CreateListener'
-    { _clSSLPolicy = Nothing
-    , _clCertificates = Nothing
-    , _clLoadBalancerARN = pLoadBalancerARN_
-    , _clProtocol = pProtocol_
-    , _clPort = _Nat # pPort_
-    , _clDefaultActions = mempty
+    { sslPolicy = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      port = Prelude.Nothing,
+      protocol = Prelude.Nothing,
+      certificates = Prelude.Nothing,
+      alpnPolicy = Prelude.Nothing,
+      loadBalancerArn = pLoadBalancerArn_,
+      defaultActions = Prelude.mempty
     }
 
+-- | [HTTPS and TLS listeners] The security policy that defines which
+-- protocols and ciphers are supported.
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security policies>
+-- in the /Application Load Balancers Guide/ and
+-- <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies Security policies>
+-- in the /Network Load Balancers Guide/.
+createListener_sslPolicy :: Lens.Lens' CreateListener (Prelude.Maybe Prelude.Text)
+createListener_sslPolicy = Lens.lens (\CreateListener' {sslPolicy} -> sslPolicy) (\s@CreateListener' {} a -> s {sslPolicy = a} :: CreateListener)
 
--- | [HTTPS listeners] The security policy that defines which ciphers and protocols are supported. The default is the current predefined security policy.
-clSSLPolicy :: Lens' CreateListener (Maybe Text)
-clSSLPolicy = lens _clSSLPolicy (\ s a -> s{_clSSLPolicy = a})
+-- | The tags to assign to the listener.
+createListener_tags :: Lens.Lens' CreateListener (Prelude.Maybe (Prelude.NonEmpty Tag))
+createListener_tags = Lens.lens (\CreateListener' {tags} -> tags) (\s@CreateListener' {} a -> s {tags = a} :: CreateListener) Prelude.. Lens.mapping Prelude._Coerce
 
--- | [HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.
-clCertificates :: Lens' CreateListener [Certificate]
-clCertificates = lens _clCertificates (\ s a -> s{_clCertificates = a}) . _Default . _Coerce
+-- | The port on which the load balancer is listening. You cannot specify a
+-- port for a Gateway Load Balancer.
+createListener_port :: Lens.Lens' CreateListener (Prelude.Maybe Prelude.Natural)
+createListener_port = Lens.lens (\CreateListener' {port} -> port) (\s@CreateListener' {} a -> s {port = a} :: CreateListener)
+
+-- | The protocol for connections from clients to the load balancer. For
+-- Application Load Balancers, the supported protocols are HTTP and HTTPS.
+-- For Network Load Balancers, the supported protocols are TCP, TLS, UDP,
+-- and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack
+-- mode is enabled. You cannot specify a protocol for a Gateway Load
+-- Balancer.
+createListener_protocol :: Lens.Lens' CreateListener (Prelude.Maybe ProtocolEnum)
+createListener_protocol = Lens.lens (\CreateListener' {protocol} -> protocol) (\s@CreateListener' {} a -> s {protocol = a} :: CreateListener)
+
+-- | [HTTPS and TLS listeners] The default certificate for the listener. You
+-- must provide exactly one certificate. Set @CertificateArn@ to the
+-- certificate ARN but do not set @IsDefault@.
+createListener_certificates :: Lens.Lens' CreateListener (Prelude.Maybe [Certificate])
+createListener_certificates = Lens.lens (\CreateListener' {certificates} -> certificates) (\s@CreateListener' {} a -> s {certificates = a} :: CreateListener) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | [TLS listeners] The name of the Application-Layer Protocol Negotiation
+-- (ALPN) policy. You can specify one policy name. The following are the
+-- possible values:
+--
+-- -   @HTTP1Only@
+--
+-- -   @HTTP2Only@
+--
+-- -   @HTTP2Optional@
+--
+-- -   @HTTP2Preferred@
+--
+-- -   @None@
+--
+-- For more information, see
+-- <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies ALPN policies>
+-- in the /Network Load Balancers Guide/.
+createListener_alpnPolicy :: Lens.Lens' CreateListener (Prelude.Maybe [Prelude.Text])
+createListener_alpnPolicy = Lens.lens (\CreateListener' {alpnPolicy} -> alpnPolicy) (\s@CreateListener' {} a -> s {alpnPolicy = a} :: CreateListener) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | The Amazon Resource Name (ARN) of the load balancer.
-clLoadBalancerARN :: Lens' CreateListener Text
-clLoadBalancerARN = lens _clLoadBalancerARN (\ s a -> s{_clLoadBalancerARN = a})
+createListener_loadBalancerArn :: Lens.Lens' CreateListener Prelude.Text
+createListener_loadBalancerArn = Lens.lens (\CreateListener' {loadBalancerArn} -> loadBalancerArn) (\s@CreateListener' {} a -> s {loadBalancerArn = a} :: CreateListener)
 
--- | The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocol is TCP.
-clProtocol :: Lens' CreateListener ProtocolEnum
-clProtocol = lens _clProtocol (\ s a -> s{_clProtocol = a})
+-- | The actions for the default rule.
+createListener_defaultActions :: Lens.Lens' CreateListener [Action]
+createListener_defaultActions = Lens.lens (\CreateListener' {defaultActions} -> defaultActions) (\s@CreateListener' {} a -> s {defaultActions = a} :: CreateListener) Prelude.. Prelude._Coerce
 
--- | The port on which the load balancer is listening.
-clPort :: Lens' CreateListener Natural
-clPort = lens _clPort (\ s a -> s{_clPort = a}) . _Nat
+instance Prelude.AWSRequest CreateListener where
+  type Rs CreateListener = CreateListenerResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "CreateListenerResult"
+      ( \s h x ->
+          CreateListenerResponse'
+            Prelude.<$> ( x Prelude..@? "Listeners" Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | The default action for the listener. For Application Load Balancers, the protocol of the specified target group must be HTTP or HTTPS. For Network Load Balancers, the protocol of the specified target group must be TCP.
-clDefaultActions :: Lens' CreateListener [Action]
-clDefaultActions = lens _clDefaultActions (\ s a -> s{_clDefaultActions = a}) . _Coerce
+instance Prelude.Hashable CreateListener
 
-instance AWSRequest CreateListener where
-        type Rs CreateListener = CreateListenerResponse
-        request = postQuery eLBv2
-        response
-          = receiveXMLWrapper "CreateListenerResult"
-              (\ s h x ->
-                 CreateListenerResponse' <$>
-                   (x .@? "Listeners" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+instance Prelude.NFData CreateListener
 
-instance Hashable CreateListener where
+instance Prelude.ToHeaders CreateListener where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance NFData CreateListener where
+instance Prelude.ToPath CreateListener where
+  toPath = Prelude.const "/"
 
-instance ToHeaders CreateListener where
-        toHeaders = const mempty
+instance Prelude.ToQuery CreateListener where
+  toQuery CreateListener' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("CreateListener" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2015-12-01" :: Prelude.ByteString),
+        "SslPolicy" Prelude.=: sslPolicy,
+        "Tags"
+          Prelude.=: Prelude.toQuery
+            (Prelude.toQueryList "member" Prelude.<$> tags),
+        "Port" Prelude.=: port,
+        "Protocol" Prelude.=: protocol,
+        "Certificates"
+          Prelude.=: Prelude.toQuery
+            ( Prelude.toQueryList "member"
+                Prelude.<$> certificates
+            ),
+        "AlpnPolicy"
+          Prelude.=: Prelude.toQuery
+            ( Prelude.toQueryList "member"
+                Prelude.<$> alpnPolicy
+            ),
+        "LoadBalancerArn" Prelude.=: loadBalancerArn,
+        "DefaultActions"
+          Prelude.=: Prelude.toQueryList "member" defaultActions
+      ]
 
-instance ToPath CreateListener where
-        toPath = const "/"
-
-instance ToQuery CreateListener where
-        toQuery CreateListener'{..}
-          = mconcat
-              ["Action" =: ("CreateListener" :: ByteString),
-               "Version" =: ("2015-12-01" :: ByteString),
-               "SslPolicy" =: _clSSLPolicy,
-               "Certificates" =:
-                 toQuery (toQueryList "member" <$> _clCertificates),
-               "LoadBalancerArn" =: _clLoadBalancerARN,
-               "Protocol" =: _clProtocol, "Port" =: _clPort,
-               "DefaultActions" =:
-                 toQueryList "member" _clDefaultActions]
-
--- | /See:/ 'createListenerResponse' smart constructor.
+-- | /See:/ 'newCreateListenerResponse' smart constructor.
 data CreateListenerResponse = CreateListenerResponse'
-  { _clrsListeners      :: !(Maybe [Listener])
-  , _clrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the listener.
+    listeners :: Prelude.Maybe [Listener],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateListenerResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateListenerResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'clrsListeners' - Information about the listener.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'clrsResponseStatus' - -- | The response status code.
-createListenerResponse
-    :: Int -- ^ 'clrsResponseStatus'
-    -> CreateListenerResponse
-createListenerResponse pResponseStatus_ =
+-- 'listeners', 'createListenerResponse_listeners' - Information about the listener.
+--
+-- 'httpStatus', 'createListenerResponse_httpStatus' - The response's http status code.
+newCreateListenerResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateListenerResponse
+newCreateListenerResponse pHttpStatus_ =
   CreateListenerResponse'
-    {_clrsListeners = Nothing, _clrsResponseStatus = pResponseStatus_}
-
+    { listeners =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Information about the listener.
-clrsListeners :: Lens' CreateListenerResponse [Listener]
-clrsListeners = lens _clrsListeners (\ s a -> s{_clrsListeners = a}) . _Default . _Coerce
+createListenerResponse_listeners :: Lens.Lens' CreateListenerResponse (Prelude.Maybe [Listener])
+createListenerResponse_listeners = Lens.lens (\CreateListenerResponse' {listeners} -> listeners) (\s@CreateListenerResponse' {} a -> s {listeners = a} :: CreateListenerResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-clrsResponseStatus :: Lens' CreateListenerResponse Int
-clrsResponseStatus = lens _clrsResponseStatus (\ s a -> s{_clrsResponseStatus = a})
+-- | The response's http status code.
+createListenerResponse_httpStatus :: Lens.Lens' CreateListenerResponse Prelude.Int
+createListenerResponse_httpStatus = Lens.lens (\CreateListenerResponse' {httpStatus} -> httpStatus) (\s@CreateListenerResponse' {} a -> s {httpStatus = a} :: CreateListenerResponse)
 
-instance NFData CreateListenerResponse where
+instance Prelude.NFData CreateListenerResponse

@@ -1,153 +1,199 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoTAnalytics.RunPipelineActivity
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Simulates the results of running a pipeline activity on a message payload.
---
---
+-- Simulates the results of running a pipeline activity on a message
+-- payload.
 module Network.AWS.IoTAnalytics.RunPipelineActivity
-    (
-    -- * Creating a Request
-      runPipelineActivity
-    , RunPipelineActivity
+  ( -- * Creating a Request
+    RunPipelineActivity (..),
+    newRunPipelineActivity,
+
     -- * Request Lenses
-    , rpaPipelineActivity
-    , rpaPayloads
+    runPipelineActivity_pipelineActivity,
+    runPipelineActivity_payloads,
 
     -- * Destructuring the Response
-    , runPipelineActivityResponse
-    , RunPipelineActivityResponse
+    RunPipelineActivityResponse (..),
+    newRunPipelineActivityResponse,
+
     -- * Response Lenses
-    , rparsLogResult
-    , rparsPayloads
-    , rparsResponseStatus
-    ) where
+    runPipelineActivityResponse_logResult,
+    runPipelineActivityResponse_payloads,
+    runPipelineActivityResponse_httpStatus,
+  )
+where
 
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.IoTAnalytics.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'runPipelineActivity' smart constructor.
+-- | /See:/ 'newRunPipelineActivity' smart constructor.
 data RunPipelineActivity = RunPipelineActivity'
-  { _rpaPipelineActivity :: !PipelineActivity
-  , _rpaPayloads         :: !(List1 Base64)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The pipeline activity that is run. This must not be a channel activity
+    -- or a datastore activity because these activities are used in a pipeline
+    -- only to load the original message and to store the (possibly)
+    -- transformed message. If a lambda activity is specified, only
+    -- short-running Lambda functions (those with a timeout of less than 30
+    -- seconds or less) can be used.
+    pipelineActivity :: PipelineActivity,
+    -- | The sample message payloads on which the pipeline activity is run.
+    payloads :: Prelude.NonEmpty Prelude.Base64
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'RunPipelineActivity' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RunPipelineActivity' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rpaPipelineActivity' - The pipeline activity that is run. This must not be a 'channel' activity or a 'datastore' activity because these activities are used in a pipeline only to load the original message and to store the (possibly) transformed message. If a 'lambda' activity is specified, only short-running Lambda functions (those with a timeout of less than 30 seconds or less) can be used.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rpaPayloads' - The sample message payloads on which the pipeline activity is run.
-runPipelineActivity
-    :: PipelineActivity -- ^ 'rpaPipelineActivity'
-    -> NonEmpty ByteString -- ^ 'rpaPayloads'
-    -> RunPipelineActivity
-runPipelineActivity pPipelineActivity_ pPayloads_ =
+-- 'pipelineActivity', 'runPipelineActivity_pipelineActivity' - The pipeline activity that is run. This must not be a channel activity
+-- or a datastore activity because these activities are used in a pipeline
+-- only to load the original message and to store the (possibly)
+-- transformed message. If a lambda activity is specified, only
+-- short-running Lambda functions (those with a timeout of less than 30
+-- seconds or less) can be used.
+--
+-- 'payloads', 'runPipelineActivity_payloads' - The sample message payloads on which the pipeline activity is run.
+newRunPipelineActivity ::
+  -- | 'pipelineActivity'
+  PipelineActivity ->
+  -- | 'payloads'
+  Prelude.NonEmpty Prelude.ByteString ->
+  RunPipelineActivity
+newRunPipelineActivity pPipelineActivity_ pPayloads_ =
   RunPipelineActivity'
-    { _rpaPipelineActivity = pPipelineActivity_
-    , _rpaPayloads = _List1 # pPayloads_
+    { pipelineActivity =
+        pPipelineActivity_,
+      payloads = Prelude._Coerce Lens.# pPayloads_
     }
 
-
--- | The pipeline activity that is run. This must not be a 'channel' activity or a 'datastore' activity because these activities are used in a pipeline only to load the original message and to store the (possibly) transformed message. If a 'lambda' activity is specified, only short-running Lambda functions (those with a timeout of less than 30 seconds or less) can be used.
-rpaPipelineActivity :: Lens' RunPipelineActivity PipelineActivity
-rpaPipelineActivity = lens _rpaPipelineActivity (\ s a -> s{_rpaPipelineActivity = a})
+-- | The pipeline activity that is run. This must not be a channel activity
+-- or a datastore activity because these activities are used in a pipeline
+-- only to load the original message and to store the (possibly)
+-- transformed message. If a lambda activity is specified, only
+-- short-running Lambda functions (those with a timeout of less than 30
+-- seconds or less) can be used.
+runPipelineActivity_pipelineActivity :: Lens.Lens' RunPipelineActivity PipelineActivity
+runPipelineActivity_pipelineActivity = Lens.lens (\RunPipelineActivity' {pipelineActivity} -> pipelineActivity) (\s@RunPipelineActivity' {} a -> s {pipelineActivity = a} :: RunPipelineActivity)
 
 -- | The sample message payloads on which the pipeline activity is run.
-rpaPayloads :: Lens' RunPipelineActivity (NonEmpty ByteString)
-rpaPayloads = lens _rpaPayloads (\ s a -> s{_rpaPayloads = a}) . _List1
+runPipelineActivity_payloads :: Lens.Lens' RunPipelineActivity (Prelude.NonEmpty Prelude.ByteString)
+runPipelineActivity_payloads = Lens.lens (\RunPipelineActivity' {payloads} -> payloads) (\s@RunPipelineActivity' {} a -> s {payloads = a} :: RunPipelineActivity) Prelude.. Prelude._Coerce
 
-instance AWSRequest RunPipelineActivity where
-        type Rs RunPipelineActivity =
-             RunPipelineActivityResponse
-        request = postJSON ioTAnalytics
-        response
-          = receiveJSON
-              (\ s h x ->
-                 RunPipelineActivityResponse' <$>
-                   (x .?> "logResult") <*> (x .?> "payloads") <*>
-                     (pure (fromEnum s)))
+instance Prelude.AWSRequest RunPipelineActivity where
+  type
+    Rs RunPipelineActivity =
+      RunPipelineActivityResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          RunPipelineActivityResponse'
+            Prelude.<$> (x Prelude..?> "logResult")
+            Prelude.<*> (x Prelude..?> "payloads")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable RunPipelineActivity where
+instance Prelude.Hashable RunPipelineActivity
 
-instance NFData RunPipelineActivity where
+instance Prelude.NFData RunPipelineActivity
 
-instance ToHeaders RunPipelineActivity where
-        toHeaders = const mempty
+instance Prelude.ToHeaders RunPipelineActivity where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToJSON RunPipelineActivity where
-        toJSON RunPipelineActivity'{..}
-          = object
-              (catMaybes
-                 [Just ("pipelineActivity" .= _rpaPipelineActivity),
-                  Just ("payloads" .= _rpaPayloads)])
+instance Prelude.ToJSON RunPipelineActivity where
+  toJSON RunPipelineActivity' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("pipelineActivity" Prelude..= pipelineActivity),
+            Prelude.Just ("payloads" Prelude..= payloads)
+          ]
+      )
 
-instance ToPath RunPipelineActivity where
-        toPath = const "/pipelineactivities/run"
+instance Prelude.ToPath RunPipelineActivity where
+  toPath = Prelude.const "/pipelineactivities/run"
 
-instance ToQuery RunPipelineActivity where
-        toQuery = const mempty
+instance Prelude.ToQuery RunPipelineActivity where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'runPipelineActivityResponse' smart constructor.
+-- | /See:/ 'newRunPipelineActivityResponse' smart constructor.
 data RunPipelineActivityResponse = RunPipelineActivityResponse'
-  { _rparsLogResult      :: !(Maybe Text)
-  , _rparsPayloads       :: !(Maybe (List1 Base64))
-  , _rparsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | In case the pipeline activity fails, the log message that is generated.
+    logResult :: Prelude.Maybe Prelude.Text,
+    -- | The enriched or transformed sample message payloads as base64-encoded
+    -- strings. (The results of running the pipeline activity on each input
+    -- sample message payload, encoded in base64.)
+    payloads :: Prelude.Maybe (Prelude.NonEmpty Prelude.Base64),
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'RunPipelineActivityResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RunPipelineActivityResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'rparsLogResult' - In case the pipeline activity fails, the log message that is generated.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'rparsPayloads' - The enriched or transformed sample message payloads as base64-encoded strings. (The results of running the pipeline activity on each input sample message payload, encoded in base64.)
+-- 'logResult', 'runPipelineActivityResponse_logResult' - In case the pipeline activity fails, the log message that is generated.
 --
--- * 'rparsResponseStatus' - -- | The response status code.
-runPipelineActivityResponse
-    :: Int -- ^ 'rparsResponseStatus'
-    -> RunPipelineActivityResponse
-runPipelineActivityResponse pResponseStatus_ =
+-- 'payloads', 'runPipelineActivityResponse_payloads' - The enriched or transformed sample message payloads as base64-encoded
+-- strings. (The results of running the pipeline activity on each input
+-- sample message payload, encoded in base64.)
+--
+-- 'httpStatus', 'runPipelineActivityResponse_httpStatus' - The response's http status code.
+newRunPipelineActivityResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  RunPipelineActivityResponse
+newRunPipelineActivityResponse pHttpStatus_ =
   RunPipelineActivityResponse'
-    { _rparsLogResult = Nothing
-    , _rparsPayloads = Nothing
-    , _rparsResponseStatus = pResponseStatus_
+    { logResult =
+        Prelude.Nothing,
+      payloads = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | In case the pipeline activity fails, the log message that is generated.
-rparsLogResult :: Lens' RunPipelineActivityResponse (Maybe Text)
-rparsLogResult = lens _rparsLogResult (\ s a -> s{_rparsLogResult = a})
+runPipelineActivityResponse_logResult :: Lens.Lens' RunPipelineActivityResponse (Prelude.Maybe Prelude.Text)
+runPipelineActivityResponse_logResult = Lens.lens (\RunPipelineActivityResponse' {logResult} -> logResult) (\s@RunPipelineActivityResponse' {} a -> s {logResult = a} :: RunPipelineActivityResponse)
 
--- | The enriched or transformed sample message payloads as base64-encoded strings. (The results of running the pipeline activity on each input sample message payload, encoded in base64.)
-rparsPayloads :: Lens' RunPipelineActivityResponse (Maybe (NonEmpty ByteString))
-rparsPayloads = lens _rparsPayloads (\ s a -> s{_rparsPayloads = a}) . mapping _List1
+-- | The enriched or transformed sample message payloads as base64-encoded
+-- strings. (The results of running the pipeline activity on each input
+-- sample message payload, encoded in base64.)
+runPipelineActivityResponse_payloads :: Lens.Lens' RunPipelineActivityResponse (Prelude.Maybe (Prelude.NonEmpty Prelude.ByteString))
+runPipelineActivityResponse_payloads = Lens.lens (\RunPipelineActivityResponse' {payloads} -> payloads) (\s@RunPipelineActivityResponse' {} a -> s {payloads = a} :: RunPipelineActivityResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-rparsResponseStatus :: Lens' RunPipelineActivityResponse Int
-rparsResponseStatus = lens _rparsResponseStatus (\ s a -> s{_rparsResponseStatus = a})
+-- | The response's http status code.
+runPipelineActivityResponse_httpStatus :: Lens.Lens' RunPipelineActivityResponse Prelude.Int
+runPipelineActivityResponse_httpStatus = Lens.lens (\RunPipelineActivityResponse' {httpStatus} -> httpStatus) (\s@RunPipelineActivityResponse' {} a -> s {httpStatus = a} :: RunPipelineActivityResponse)
 
-instance NFData RunPipelineActivityResponse where
+instance Prelude.NFData RunPipelineActivityResponse

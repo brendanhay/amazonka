@@ -1,172 +1,211 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoIdentityProvider.UpdateResourceServer
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the name and scopes of resource server. All other fields are read-only.
+-- Updates the name and scopes of resource server. All other fields are
+-- read-only.
 --
---
+-- If you don\'t provide a value for an attribute, it will be set to the
+-- default value.
 module Network.AWS.CognitoIdentityProvider.UpdateResourceServer
-    (
-    -- * Creating a Request
-      updateResourceServer
-    , UpdateResourceServer
+  ( -- * Creating a Request
+    UpdateResourceServer (..),
+    newUpdateResourceServer,
+
     -- * Request Lenses
-    , ursScopes
-    , ursUserPoolId
-    , ursIdentifier
-    , ursName
+    updateResourceServer_scopes,
+    updateResourceServer_userPoolId,
+    updateResourceServer_identifier,
+    updateResourceServer_name,
 
     -- * Destructuring the Response
-    , updateResourceServerResponse
-    , UpdateResourceServerResponse
+    UpdateResourceServerResponse (..),
+    newUpdateResourceServerResponse,
+
     -- * Response Lenses
-    , ursrsResponseStatus
-    , ursrsResourceServer
-    ) where
+    updateResourceServerResponse_httpStatus,
+    updateResourceServerResponse_resourceServer,
+  )
+where
 
 import Network.AWS.CognitoIdentityProvider.Types
-import Network.AWS.CognitoIdentityProvider.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateResourceServer' smart constructor.
+-- | /See:/ 'newUpdateResourceServer' smart constructor.
 data UpdateResourceServer = UpdateResourceServer'
-  { _ursScopes     :: !(Maybe [ResourceServerScopeType])
-  , _ursUserPoolId :: !Text
-  , _ursIdentifier :: !Text
-  , _ursName       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The scope values to be set for the resource server.
+    scopes :: Prelude.Maybe [ResourceServerScopeType],
+    -- | The user pool ID for the user pool.
+    userPoolId :: Prelude.Text,
+    -- | The identifier for the resource server.
+    identifier :: Prelude.Text,
+    -- | The name of the resource server.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateResourceServer' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateResourceServer' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ursScopes' - The scope values to be set for the resource server.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ursUserPoolId' - The user pool ID for the user pool.
+-- 'scopes', 'updateResourceServer_scopes' - The scope values to be set for the resource server.
 --
--- * 'ursIdentifier' - The identifier for the resource server.
+-- 'userPoolId', 'updateResourceServer_userPoolId' - The user pool ID for the user pool.
 --
--- * 'ursName' - The name of the resource server.
-updateResourceServer
-    :: Text -- ^ 'ursUserPoolId'
-    -> Text -- ^ 'ursIdentifier'
-    -> Text -- ^ 'ursName'
-    -> UpdateResourceServer
-updateResourceServer pUserPoolId_ pIdentifier_ pName_ =
-  UpdateResourceServer'
-    { _ursScopes = Nothing
-    , _ursUserPoolId = pUserPoolId_
-    , _ursIdentifier = pIdentifier_
-    , _ursName = pName_
-    }
-
+-- 'identifier', 'updateResourceServer_identifier' - The identifier for the resource server.
+--
+-- 'name', 'updateResourceServer_name' - The name of the resource server.
+newUpdateResourceServer ::
+  -- | 'userPoolId'
+  Prelude.Text ->
+  -- | 'identifier'
+  Prelude.Text ->
+  -- | 'name'
+  Prelude.Text ->
+  UpdateResourceServer
+newUpdateResourceServer
+  pUserPoolId_
+  pIdentifier_
+  pName_ =
+    UpdateResourceServer'
+      { scopes = Prelude.Nothing,
+        userPoolId = pUserPoolId_,
+        identifier = pIdentifier_,
+        name = pName_
+      }
 
 -- | The scope values to be set for the resource server.
-ursScopes :: Lens' UpdateResourceServer [ResourceServerScopeType]
-ursScopes = lens _ursScopes (\ s a -> s{_ursScopes = a}) . _Default . _Coerce
+updateResourceServer_scopes :: Lens.Lens' UpdateResourceServer (Prelude.Maybe [ResourceServerScopeType])
+updateResourceServer_scopes = Lens.lens (\UpdateResourceServer' {scopes} -> scopes) (\s@UpdateResourceServer' {} a -> s {scopes = a} :: UpdateResourceServer) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | The user pool ID for the user pool.
-ursUserPoolId :: Lens' UpdateResourceServer Text
-ursUserPoolId = lens _ursUserPoolId (\ s a -> s{_ursUserPoolId = a})
+updateResourceServer_userPoolId :: Lens.Lens' UpdateResourceServer Prelude.Text
+updateResourceServer_userPoolId = Lens.lens (\UpdateResourceServer' {userPoolId} -> userPoolId) (\s@UpdateResourceServer' {} a -> s {userPoolId = a} :: UpdateResourceServer)
 
 -- | The identifier for the resource server.
-ursIdentifier :: Lens' UpdateResourceServer Text
-ursIdentifier = lens _ursIdentifier (\ s a -> s{_ursIdentifier = a})
+updateResourceServer_identifier :: Lens.Lens' UpdateResourceServer Prelude.Text
+updateResourceServer_identifier = Lens.lens (\UpdateResourceServer' {identifier} -> identifier) (\s@UpdateResourceServer' {} a -> s {identifier = a} :: UpdateResourceServer)
 
 -- | The name of the resource server.
-ursName :: Lens' UpdateResourceServer Text
-ursName = lens _ursName (\ s a -> s{_ursName = a})
+updateResourceServer_name :: Lens.Lens' UpdateResourceServer Prelude.Text
+updateResourceServer_name = Lens.lens (\UpdateResourceServer' {name} -> name) (\s@UpdateResourceServer' {} a -> s {name = a} :: UpdateResourceServer)
 
-instance AWSRequest UpdateResourceServer where
-        type Rs UpdateResourceServer =
-             UpdateResourceServerResponse
-        request = postJSON cognitoIdentityProvider
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateResourceServerResponse' <$>
-                   (pure (fromEnum s)) <*> (x .:> "ResourceServer"))
+instance Prelude.AWSRequest UpdateResourceServer where
+  type
+    Rs UpdateResourceServer =
+      UpdateResourceServerResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateResourceServerResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Prelude..:> "ResourceServer")
+      )
 
-instance Hashable UpdateResourceServer where
+instance Prelude.Hashable UpdateResourceServer
 
-instance NFData UpdateResourceServer where
+instance Prelude.NFData UpdateResourceServer
 
-instance ToHeaders UpdateResourceServer where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSCognitoIdentityProviderService.UpdateResourceServer"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders UpdateResourceServer where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSCognitoIdentityProviderService.UpdateResourceServer" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON UpdateResourceServer where
-        toJSON UpdateResourceServer'{..}
-          = object
-              (catMaybes
-                 [("Scopes" .=) <$> _ursScopes,
-                  Just ("UserPoolId" .= _ursUserPoolId),
-                  Just ("Identifier" .= _ursIdentifier),
-                  Just ("Name" .= _ursName)])
+instance Prelude.ToJSON UpdateResourceServer where
+  toJSON UpdateResourceServer' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("Scopes" Prelude..=) Prelude.<$> scopes,
+            Prelude.Just ("UserPoolId" Prelude..= userPoolId),
+            Prelude.Just ("Identifier" Prelude..= identifier),
+            Prelude.Just ("Name" Prelude..= name)
+          ]
+      )
 
-instance ToPath UpdateResourceServer where
-        toPath = const "/"
+instance Prelude.ToPath UpdateResourceServer where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateResourceServer where
-        toQuery = const mempty
+instance Prelude.ToQuery UpdateResourceServer where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateResourceServerResponse' smart constructor.
+-- | /See:/ 'newUpdateResourceServerResponse' smart constructor.
 data UpdateResourceServerResponse = UpdateResourceServerResponse'
-  { _ursrsResponseStatus :: !Int
-  , _ursrsResourceServer :: !ResourceServerType
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | The resource server.
+    resourceServer :: ResourceServerType
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateResourceServerResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateResourceServerResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ursrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ursrsResourceServer' - The resource server.
-updateResourceServerResponse
-    :: Int -- ^ 'ursrsResponseStatus'
-    -> ResourceServerType -- ^ 'ursrsResourceServer'
-    -> UpdateResourceServerResponse
-updateResourceServerResponse pResponseStatus_ pResourceServer_ =
-  UpdateResourceServerResponse'
-    { _ursrsResponseStatus = pResponseStatus_
-    , _ursrsResourceServer = pResourceServer_
-    }
+-- 'httpStatus', 'updateResourceServerResponse_httpStatus' - The response's http status code.
+--
+-- 'resourceServer', 'updateResourceServerResponse_resourceServer' - The resource server.
+newUpdateResourceServerResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'resourceServer'
+  ResourceServerType ->
+  UpdateResourceServerResponse
+newUpdateResourceServerResponse
+  pHttpStatus_
+  pResourceServer_ =
+    UpdateResourceServerResponse'
+      { httpStatus =
+          pHttpStatus_,
+        resourceServer = pResourceServer_
+      }
 
-
--- | -- | The response status code.
-ursrsResponseStatus :: Lens' UpdateResourceServerResponse Int
-ursrsResponseStatus = lens _ursrsResponseStatus (\ s a -> s{_ursrsResponseStatus = a})
+-- | The response's http status code.
+updateResourceServerResponse_httpStatus :: Lens.Lens' UpdateResourceServerResponse Prelude.Int
+updateResourceServerResponse_httpStatus = Lens.lens (\UpdateResourceServerResponse' {httpStatus} -> httpStatus) (\s@UpdateResourceServerResponse' {} a -> s {httpStatus = a} :: UpdateResourceServerResponse)
 
 -- | The resource server.
-ursrsResourceServer :: Lens' UpdateResourceServerResponse ResourceServerType
-ursrsResourceServer = lens _ursrsResourceServer (\ s a -> s{_ursrsResourceServer = a})
+updateResourceServerResponse_resourceServer :: Lens.Lens' UpdateResourceServerResponse ResourceServerType
+updateResourceServerResponse_resourceServer = Lens.lens (\UpdateResourceServerResponse' {resourceServer} -> resourceServer) (\s@UpdateResourceServerResponse' {} a -> s {resourceServer = a} :: UpdateResourceServerResponse)
 
-instance NFData UpdateResourceServerResponse where
+instance Prelude.NFData UpdateResourceServerResponse

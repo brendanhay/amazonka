@@ -1,147 +1,189 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Athena.BatchGetNamedQuery
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the details of a single named query or a list of up to 50 queries, which you provide as an array of query ID strings. Use 'ListNamedQueries' to get the list of named query IDs. If information could not be retrieved for a submitted query ID, information about the query ID submitted is listed under 'UnprocessedNamedQueryId' . Named queries are different from executed queries. Use 'BatchGetQueryExecution' to get details about each unique query execution, and 'ListQueryExecutions' to get a list of query execution IDs.
---
---
+-- Returns the details of a single named query or a list of up to 50
+-- queries, which you provide as an array of query ID strings. Requires you
+-- to have access to the workgroup in which the queries were saved. Use
+-- ListNamedQueriesInput to get the list of named query IDs in the
+-- specified workgroup. If information could not be retrieved for a
+-- submitted query ID, information about the query ID submitted is listed
+-- under UnprocessedNamedQueryId. Named queries differ from executed
+-- queries. Use BatchGetQueryExecutionInput to get details about each
+-- unique query execution, and ListQueryExecutionsInput to get a list of
+-- query execution IDs.
 module Network.AWS.Athena.BatchGetNamedQuery
-    (
-    -- * Creating a Request
-      batchGetNamedQuery
-    , BatchGetNamedQuery
+  ( -- * Creating a Request
+    BatchGetNamedQuery (..),
+    newBatchGetNamedQuery,
+
     -- * Request Lenses
-    , bgnqNamedQueryIds
+    batchGetNamedQuery_namedQueryIds,
 
     -- * Destructuring the Response
-    , batchGetNamedQueryResponse
-    , BatchGetNamedQueryResponse
+    BatchGetNamedQueryResponse (..),
+    newBatchGetNamedQueryResponse,
+
     -- * Response Lenses
-    , bgnqrsNamedQueries
-    , bgnqrsUnprocessedNamedQueryIds
-    , bgnqrsResponseStatus
-    ) where
+    batchGetNamedQueryResponse_namedQueries,
+    batchGetNamedQueryResponse_unprocessedNamedQueryIds,
+    batchGetNamedQueryResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Athena.Types
-import Network.AWS.Athena.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'batchGetNamedQuery' smart constructor.
-newtype BatchGetNamedQuery = BatchGetNamedQuery'
-  { _bgnqNamedQueryIds :: List1 Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newBatchGetNamedQuery' smart constructor.
+data BatchGetNamedQuery = BatchGetNamedQuery'
+  { -- | An array of query IDs.
+    namedQueryIds :: Prelude.NonEmpty Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'BatchGetNamedQuery' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'BatchGetNamedQuery' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'bgnqNamedQueryIds' - An array of query IDs.
-batchGetNamedQuery
-    :: NonEmpty Text -- ^ 'bgnqNamedQueryIds'
-    -> BatchGetNamedQuery
-batchGetNamedQuery pNamedQueryIds_ =
-  BatchGetNamedQuery' {_bgnqNamedQueryIds = _List1 # pNamedQueryIds_}
-
-
--- | An array of query IDs.
-bgnqNamedQueryIds :: Lens' BatchGetNamedQuery (NonEmpty Text)
-bgnqNamedQueryIds = lens _bgnqNamedQueryIds (\ s a -> s{_bgnqNamedQueryIds = a}) . _List1
-
-instance AWSRequest BatchGetNamedQuery where
-        type Rs BatchGetNamedQuery =
-             BatchGetNamedQueryResponse
-        request = postJSON athena
-        response
-          = receiveJSON
-              (\ s h x ->
-                 BatchGetNamedQueryResponse' <$>
-                   (x .?> "NamedQueries" .!@ mempty) <*>
-                     (x .?> "UnprocessedNamedQueryIds" .!@ mempty)
-                     <*> (pure (fromEnum s)))
-
-instance Hashable BatchGetNamedQuery where
-
-instance NFData BatchGetNamedQuery where
-
-instance ToHeaders BatchGetNamedQuery where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonAthena.BatchGetNamedQuery" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON BatchGetNamedQuery where
-        toJSON BatchGetNamedQuery'{..}
-          = object
-              (catMaybes
-                 [Just ("NamedQueryIds" .= _bgnqNamedQueryIds)])
-
-instance ToPath BatchGetNamedQuery where
-        toPath = const "/"
-
-instance ToQuery BatchGetNamedQuery where
-        toQuery = const mempty
-
--- | /See:/ 'batchGetNamedQueryResponse' smart constructor.
-data BatchGetNamedQueryResponse = BatchGetNamedQueryResponse'
-  { _bgnqrsNamedQueries             :: !(Maybe [NamedQuery])
-  , _bgnqrsUnprocessedNamedQueryIds :: !(Maybe [UnprocessedNamedQueryId])
-  , _bgnqrsResponseStatus           :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'BatchGetNamedQueryResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'bgnqrsNamedQueries' - Information about the named query IDs submitted.
---
--- * 'bgnqrsUnprocessedNamedQueryIds' - Information about provided query IDs.
---
--- * 'bgnqrsResponseStatus' - -- | The response status code.
-batchGetNamedQueryResponse
-    :: Int -- ^ 'bgnqrsResponseStatus'
-    -> BatchGetNamedQueryResponse
-batchGetNamedQueryResponse pResponseStatus_ =
-  BatchGetNamedQueryResponse'
-    { _bgnqrsNamedQueries = Nothing
-    , _bgnqrsUnprocessedNamedQueryIds = Nothing
-    , _bgnqrsResponseStatus = pResponseStatus_
+-- 'namedQueryIds', 'batchGetNamedQuery_namedQueryIds' - An array of query IDs.
+newBatchGetNamedQuery ::
+  -- | 'namedQueryIds'
+  Prelude.NonEmpty Prelude.Text ->
+  BatchGetNamedQuery
+newBatchGetNamedQuery pNamedQueryIds_ =
+  BatchGetNamedQuery'
+    { namedQueryIds =
+        Prelude._Coerce Lens.# pNamedQueryIds_
     }
 
+-- | An array of query IDs.
+batchGetNamedQuery_namedQueryIds :: Lens.Lens' BatchGetNamedQuery (Prelude.NonEmpty Prelude.Text)
+batchGetNamedQuery_namedQueryIds = Lens.lens (\BatchGetNamedQuery' {namedQueryIds} -> namedQueryIds) (\s@BatchGetNamedQuery' {} a -> s {namedQueryIds = a} :: BatchGetNamedQuery) Prelude.. Prelude._Coerce
+
+instance Prelude.AWSRequest BatchGetNamedQuery where
+  type
+    Rs BatchGetNamedQuery =
+      BatchGetNamedQueryResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          BatchGetNamedQueryResponse'
+            Prelude.<$> ( x Prelude..?> "NamedQueries"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> ( x Prelude..?> "UnprocessedNamedQueryIds"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable BatchGetNamedQuery
+
+instance Prelude.NFData BatchGetNamedQuery
+
+instance Prelude.ToHeaders BatchGetNamedQuery where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AmazonAthena.BatchGetNamedQuery" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON BatchGetNamedQuery where
+  toJSON BatchGetNamedQuery' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("NamedQueryIds" Prelude..= namedQueryIds)
+          ]
+      )
+
+instance Prelude.ToPath BatchGetNamedQuery where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery BatchGetNamedQuery where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newBatchGetNamedQueryResponse' smart constructor.
+data BatchGetNamedQueryResponse = BatchGetNamedQueryResponse'
+  { -- | Information about the named query IDs submitted.
+    namedQueries :: Prelude.Maybe [NamedQuery],
+    -- | Information about provided query IDs.
+    unprocessedNamedQueryIds :: Prelude.Maybe [UnprocessedNamedQueryId],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'BatchGetNamedQueryResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'namedQueries', 'batchGetNamedQueryResponse_namedQueries' - Information about the named query IDs submitted.
+--
+-- 'unprocessedNamedQueryIds', 'batchGetNamedQueryResponse_unprocessedNamedQueryIds' - Information about provided query IDs.
+--
+-- 'httpStatus', 'batchGetNamedQueryResponse_httpStatus' - The response's http status code.
+newBatchGetNamedQueryResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  BatchGetNamedQueryResponse
+newBatchGetNamedQueryResponse pHttpStatus_ =
+  BatchGetNamedQueryResponse'
+    { namedQueries =
+        Prelude.Nothing,
+      unprocessedNamedQueryIds = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Information about the named query IDs submitted.
-bgnqrsNamedQueries :: Lens' BatchGetNamedQueryResponse [NamedQuery]
-bgnqrsNamedQueries = lens _bgnqrsNamedQueries (\ s a -> s{_bgnqrsNamedQueries = a}) . _Default . _Coerce
+batchGetNamedQueryResponse_namedQueries :: Lens.Lens' BatchGetNamedQueryResponse (Prelude.Maybe [NamedQuery])
+batchGetNamedQueryResponse_namedQueries = Lens.lens (\BatchGetNamedQueryResponse' {namedQueries} -> namedQueries) (\s@BatchGetNamedQueryResponse' {} a -> s {namedQueries = a} :: BatchGetNamedQueryResponse) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | Information about provided query IDs.
-bgnqrsUnprocessedNamedQueryIds :: Lens' BatchGetNamedQueryResponse [UnprocessedNamedQueryId]
-bgnqrsUnprocessedNamedQueryIds = lens _bgnqrsUnprocessedNamedQueryIds (\ s a -> s{_bgnqrsUnprocessedNamedQueryIds = a}) . _Default . _Coerce
+batchGetNamedQueryResponse_unprocessedNamedQueryIds :: Lens.Lens' BatchGetNamedQueryResponse (Prelude.Maybe [UnprocessedNamedQueryId])
+batchGetNamedQueryResponse_unprocessedNamedQueryIds = Lens.lens (\BatchGetNamedQueryResponse' {unprocessedNamedQueryIds} -> unprocessedNamedQueryIds) (\s@BatchGetNamedQueryResponse' {} a -> s {unprocessedNamedQueryIds = a} :: BatchGetNamedQueryResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-bgnqrsResponseStatus :: Lens' BatchGetNamedQueryResponse Int
-bgnqrsResponseStatus = lens _bgnqrsResponseStatus (\ s a -> s{_bgnqrsResponseStatus = a})
+-- | The response's http status code.
+batchGetNamedQueryResponse_httpStatus :: Lens.Lens' BatchGetNamedQueryResponse Prelude.Int
+batchGetNamedQueryResponse_httpStatus = Lens.lens (\BatchGetNamedQueryResponse' {httpStatus} -> httpStatus) (\s@BatchGetNamedQueryResponse' {} a -> s {httpStatus = a} :: BatchGetNamedQueryResponse)
 
-instance NFData BatchGetNamedQueryResponse where
+instance Prelude.NFData BatchGetNamedQueryResponse

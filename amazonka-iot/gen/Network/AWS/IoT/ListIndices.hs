@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.ListIndices
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,124 +23,171 @@
 --
 -- Lists the search indices.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.IoT.ListIndices
-    (
-    -- * Creating a Request
-      listIndices
-    , ListIndices
+  ( -- * Creating a Request
+    ListIndices (..),
+    newListIndices,
+
     -- * Request Lenses
-    , liNextToken
-    , liMaxResults
+    listIndices_nextToken,
+    listIndices_maxResults,
 
     -- * Destructuring the Response
-    , listIndicesResponse
-    , ListIndicesResponse
+    ListIndicesResponse (..),
+    newListIndicesResponse,
+
     -- * Response Lenses
-    , lirsNextToken
-    , lirsIndexNames
-    , lirsResponseStatus
-    ) where
+    listIndicesResponse_nextToken,
+    listIndicesResponse_indexNames,
+    listIndicesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listIndices' smart constructor.
+-- | /See:/ 'newListIndices' smart constructor.
 data ListIndices = ListIndices'
-  { _liNextToken  :: !(Maybe Text)
-  , _liMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token used to get the next set of results, or @null@ if there are no
+    -- additional results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return at one time.
+    maxResults :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListIndices' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListIndices' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'liNextToken' - The token used to get the next set of results, or __null__ if there are no additional results.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'liMaxResults' - The maximum number of results to return at one time.
-listIndices
-    :: ListIndices
-listIndices = ListIndices' {_liNextToken = Nothing, _liMaxResults = Nothing}
-
-
--- | The token used to get the next set of results, or __null__ if there are no additional results.
-liNextToken :: Lens' ListIndices (Maybe Text)
-liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a})
-
--- | The maximum number of results to return at one time.
-liMaxResults :: Lens' ListIndices (Maybe Natural)
-liMaxResults = lens _liMaxResults (\ s a -> s{_liMaxResults = a}) . mapping _Nat
-
-instance AWSRequest ListIndices where
-        type Rs ListIndices = ListIndicesResponse
-        request = get ioT
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListIndicesResponse' <$>
-                   (x .?> "nextToken") <*>
-                     (x .?> "indexNames" .!@ mempty)
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListIndices where
-
-instance NFData ListIndices where
-
-instance ToHeaders ListIndices where
-        toHeaders = const mempty
-
-instance ToPath ListIndices where
-        toPath = const "/indices"
-
-instance ToQuery ListIndices where
-        toQuery ListIndices'{..}
-          = mconcat
-              ["nextToken" =: _liNextToken,
-               "maxResults" =: _liMaxResults]
-
--- | /See:/ 'listIndicesResponse' smart constructor.
-data ListIndicesResponse = ListIndicesResponse'
-  { _lirsNextToken      :: !(Maybe Text)
-  , _lirsIndexNames     :: !(Maybe [Text])
-  , _lirsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListIndicesResponse' with the minimum fields required to make a request.
+-- 'nextToken', 'listIndices_nextToken' - The token used to get the next set of results, or @null@ if there are no
+-- additional results.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'lirsNextToken' - The token used to get the next set of results, or __null__ if there are no additional results.
---
--- * 'lirsIndexNames' - The index names.
---
--- * 'lirsResponseStatus' - -- | The response status code.
-listIndicesResponse
-    :: Int -- ^ 'lirsResponseStatus'
-    -> ListIndicesResponse
-listIndicesResponse pResponseStatus_ =
-  ListIndicesResponse'
-    { _lirsNextToken = Nothing
-    , _lirsIndexNames = Nothing
-    , _lirsResponseStatus = pResponseStatus_
+-- 'maxResults', 'listIndices_maxResults' - The maximum number of results to return at one time.
+newListIndices ::
+  ListIndices
+newListIndices =
+  ListIndices'
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
+-- | The token used to get the next set of results, or @null@ if there are no
+-- additional results.
+listIndices_nextToken :: Lens.Lens' ListIndices (Prelude.Maybe Prelude.Text)
+listIndices_nextToken = Lens.lens (\ListIndices' {nextToken} -> nextToken) (\s@ListIndices' {} a -> s {nextToken = a} :: ListIndices)
 
--- | The token used to get the next set of results, or __null__ if there are no additional results.
-lirsNextToken :: Lens' ListIndicesResponse (Maybe Text)
-lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a})
+-- | The maximum number of results to return at one time.
+listIndices_maxResults :: Lens.Lens' ListIndices (Prelude.Maybe Prelude.Natural)
+listIndices_maxResults = Lens.lens (\ListIndices' {maxResults} -> maxResults) (\s@ListIndices' {} a -> s {maxResults = a} :: ListIndices)
+
+instance Pager.AWSPager ListIndices where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listIndicesResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listIndicesResponse_indexNames Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listIndices_nextToken
+          Lens..~ rs
+          Lens.^? listIndicesResponse_nextToken Prelude.. Lens._Just
+
+instance Prelude.AWSRequest ListIndices where
+  type Rs ListIndices = ListIndicesResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListIndicesResponse'
+            Prelude.<$> (x Prelude..?> "nextToken")
+            Prelude.<*> ( x Prelude..?> "indexNames"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListIndices
+
+instance Prelude.NFData ListIndices
+
+instance Prelude.ToHeaders ListIndices where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToPath ListIndices where
+  toPath = Prelude.const "/indices"
+
+instance Prelude.ToQuery ListIndices where
+  toQuery ListIndices' {..} =
+    Prelude.mconcat
+      [ "nextToken" Prelude.=: nextToken,
+        "maxResults" Prelude.=: maxResults
+      ]
+
+-- | /See:/ 'newListIndicesResponse' smart constructor.
+data ListIndicesResponse = ListIndicesResponse'
+  { -- | The token used to get the next set of results, or @null@ if there are no
+    -- additional results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The index names.
+    indexNames :: Prelude.Maybe [Prelude.Text],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListIndicesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listIndicesResponse_nextToken' - The token used to get the next set of results, or @null@ if there are no
+-- additional results.
+--
+-- 'indexNames', 'listIndicesResponse_indexNames' - The index names.
+--
+-- 'httpStatus', 'listIndicesResponse_httpStatus' - The response's http status code.
+newListIndicesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListIndicesResponse
+newListIndicesResponse pHttpStatus_ =
+  ListIndicesResponse'
+    { nextToken = Prelude.Nothing,
+      indexNames = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The token used to get the next set of results, or @null@ if there are no
+-- additional results.
+listIndicesResponse_nextToken :: Lens.Lens' ListIndicesResponse (Prelude.Maybe Prelude.Text)
+listIndicesResponse_nextToken = Lens.lens (\ListIndicesResponse' {nextToken} -> nextToken) (\s@ListIndicesResponse' {} a -> s {nextToken = a} :: ListIndicesResponse)
 
 -- | The index names.
-lirsIndexNames :: Lens' ListIndicesResponse [Text]
-lirsIndexNames = lens _lirsIndexNames (\ s a -> s{_lirsIndexNames = a}) . _Default . _Coerce
+listIndicesResponse_indexNames :: Lens.Lens' ListIndicesResponse (Prelude.Maybe [Prelude.Text])
+listIndicesResponse_indexNames = Lens.lens (\ListIndicesResponse' {indexNames} -> indexNames) (\s@ListIndicesResponse' {} a -> s {indexNames = a} :: ListIndicesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-lirsResponseStatus :: Lens' ListIndicesResponse Int
-lirsResponseStatus = lens _lirsResponseStatus (\ s a -> s{_lirsResponseStatus = a})
+-- | The response's http status code.
+listIndicesResponse_httpStatus :: Lens.Lens' ListIndicesResponse Prelude.Int
+listIndicesResponse_httpStatus = Lens.lens (\ListIndicesResponse' {httpStatus} -> httpStatus) (\s@ListIndicesResponse' {} a -> s {httpStatus = a} :: ListIndicesResponse)
 
-instance NFData ListIndicesResponse where
+instance Prelude.NFData ListIndicesResponse

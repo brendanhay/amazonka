@@ -1,8 +1,5 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RankNTypes        #-}
-
 -- Module      : Gen.Types.Id
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla xtPublic License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -12,82 +9,80 @@
 -- Portability : non-portable (GHC extensions)
 
 module Gen.Types.Id
-    (
-    -- * Class
-      HasId (..)
+  ( -- * Class
+    HasId (..),
 
     -- * Identifier
-    , Id
-    , mkId
+    Id (..),
+    mkId,
 
     -- * Lenses
-    , memberId
-    , typeId
-    , ctorId
-    , branchId
-    , smartCtorId
-    , accessorId
-    , lensId
+    memberId,
+    typeId,
+    ctorId,
+    branchId,
+    smartCtorId,
+    accessorId,
+    lensId,
 
     -- * Modify representation
-    , prependId
-    , appendId
-    , replaceId
-    ) where
+    prependId,
+    appendId,
+    replaceId,
+  )
+where
 
 import Control.Comonad
 import Control.Comonad.Cofree
 import Control.Lens
-
 import Data.Aeson
+import qualified Data.Char as Char
 import Data.Hashable
-import Data.Text            (Text)
-import Data.Text.Manipulate
-
-import Gen.Text
-
+import Data.Text (Text)
 import qualified Data.Text as Text
+import Gen.Text
 
 -- | A class to extract identifiers from arbitrary products.
 class HasId a where
-    identifier :: a -> Id
+  identifier :: a -> Id
 
 instance HasId Id where
-    identifier = id
+  identifier = id
 
 instance (Functor f, HasId a) => HasId (Cofree f a) where
-    identifier = identifier . extract
+  identifier = identifier . extract
 
 -- | A type where the actual identifier is immutable,
 -- but the usable representation can be appended/modified.
 data Id = Id Text Text
-    deriving (Show)
+  deriving (Show)
 
 instance Eq Id where
-    Id x _ == Id y _ = x == y
+  Id x _ == Id y _ = x == y
 
 instance Hashable Id where
-    hashWithSalt n (Id x _) = hashWithSalt n x
+  hashWithSalt n (Id x _) = hashWithSalt n x
 
 instance FromJSONKey Id where
-    fromJSONKey = mkId <$> fromJSONKey
+  fromJSONKey = mkId <$> fromJSONKey
 
 instance FromJSON Id where
-    parseJSON = withText "id" (pure . mkId)
+  parseJSON = withText "id" (pure . mkId)
 
 instance ToJSON Id where
-    toJSON = toJSON . view representation
+  toJSON = toJSON . view representation
 
 mkId :: Text -> Id
 mkId t = Id t (format t)
 
 format :: Text -> Text
-format = upperHead . upperAcronym
+format = upperHead . Text.dropWhile (not . Char.isAlpha)
 
 representation :: Lens' Id Text
 representation =
-    lens (\(Id _ t)   -> t)
-         (\(Id x _) t -> Id x (format t))
+  lens
+    (\(Id _ t) -> t)
+    (\(Id x _) t -> Id x (format t))
 
 memberId :: Id -> Text
 memberId (Id x _) = x
@@ -99,27 +94,25 @@ ctorId :: Id -> Text
 ctorId = (`Text.snoc` '\'') . typeId
 
 branchId :: Maybe Text -> Id -> Text
-branchId p = f . typeId
-  where
-    f :: Text -> Text
-    f | Just x <- p = mappend (upperHead x)
-      | otherwise   = id
+branchId Nothing = typeId
+branchId (Just p) = mappend p . mappend "_" . typeId
 
 smartCtorId :: Id -> Text
-smartCtorId = renameReserved . lowerHead . lowerFirstAcronym . typeId
+smartCtorId = mappend "new" . typeId
 
-accessorId :: Maybe Text -> Id -> Text
-accessorId p = Text.cons '_' . accessor p
+accessorId :: Id -> Text
+accessorId = renameReserved . lowerHead . memberId
 
 lensId :: Maybe Text -> Id -> Text
-lensId p = renameReserved . accessor p
+lensId p = accessor p
 
 accessor :: Maybe Text -> Id -> Text
-accessor Nothing  = lowerHead . view representation
+accessor Nothing = lowerHead . view representation
 accessor (Just p) = f . view representation
   where
-    f | Text.null p = lowerHead
-      | otherwise   = mappend (Text.toLower p) . upperHead
+    f
+      | Text.null p = lowerHead
+      | otherwise = mappend (lowerHead p) . mappend "_" . lowerHead
 
 prependId :: Text -> Id -> Id
 prependId t i = i & representation %~ mappend t

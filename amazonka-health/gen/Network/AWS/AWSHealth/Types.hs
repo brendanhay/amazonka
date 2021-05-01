@@ -1,195 +1,325 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AWSHealth.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.AWSHealth.Types
-    (
-    -- * Service Configuration
-      awsHealth
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _InvalidPaginationToken
-    , _UnsupportedLocale
+    _ConcurrentModificationException,
+    _InvalidPaginationToken,
+    _UnsupportedLocale,
 
     -- * EntityStatusCode
-    , EntityStatusCode (..)
+    EntityStatusCode (..),
 
     -- * EventAggregateField
-    , EventAggregateField (..)
+    EventAggregateField (..),
+
+    -- * EventScopeCode
+    EventScopeCode (..),
 
     -- * EventStatusCode
-    , EventStatusCode (..)
+    EventStatusCode (..),
 
     -- * EventTypeCategory
-    , EventTypeCategory (..)
+    EventTypeCategory (..),
 
     -- * AffectedEntity
-    , AffectedEntity
-    , affectedEntity
-    , aeLastUpdatedTime
-    , aeEntityValue
-    , aeAwsAccountId
-    , aeEventARN
-    , aeEntityARN
-    , aeTags
-    , aeStatusCode
+    AffectedEntity (..),
+    newAffectedEntity,
+    affectedEntity_eventArn,
+    affectedEntity_awsAccountId,
+    affectedEntity_statusCode,
+    affectedEntity_tags,
+    affectedEntity_entityArn,
+    affectedEntity_entityValue,
+    affectedEntity_entityUrl,
+    affectedEntity_lastUpdatedTime,
 
     -- * DateTimeRange
-    , DateTimeRange
-    , dateTimeRange
-    , dtrTo
-    , dtrFrom
+    DateTimeRange (..),
+    newDateTimeRange,
+    dateTimeRange_to,
+    dateTimeRange_from,
 
     -- * EntityAggregate
-    , EntityAggregate
-    , entityAggregate
-    , eCount
-    , eEventARN
+    EntityAggregate (..),
+    newEntityAggregate,
+    entityAggregate_eventArn,
+    entityAggregate_count,
 
     -- * EntityFilter
-    , EntityFilter
-    , entityFilter
-    , eStatusCodes
-    , eEntityARNs
-    , eEntityValues
-    , eTags
-    , eLastUpdatedTimes
-    , eEventARNs
+    EntityFilter (..),
+    newEntityFilter,
+    entityFilter_entityArns,
+    entityFilter_statusCodes,
+    entityFilter_lastUpdatedTimes,
+    entityFilter_tags,
+    entityFilter_entityValues,
+    entityFilter_eventArns,
 
     -- * Event
-    , Event
-    , event
-    , eLastUpdatedTime
-    , eArn
-    , eService
-    , eStartTime
-    , eEventTypeCode
-    , eEventTypeCategory
-    , eAvailabilityZone
-    , eEndTime
-    , eRegion
-    , eStatusCode
+    Event (..),
+    newEvent,
+    event_eventTypeCategory,
+    event_eventScopeCode,
+    event_startTime,
+    event_service,
+    event_arn,
+    event_endTime,
+    event_availabilityZone,
+    event_statusCode,
+    event_eventTypeCode,
+    event_region,
+    event_lastUpdatedTime,
+
+    -- * EventAccountFilter
+    EventAccountFilter (..),
+    newEventAccountFilter,
+    eventAccountFilter_awsAccountId,
+    eventAccountFilter_eventArn,
 
     -- * EventAggregate
-    , EventAggregate
-    , eventAggregate
-    , eaCount
-    , eaAggregateValue
+    EventAggregate (..),
+    newEventAggregate,
+    eventAggregate_count,
+    eventAggregate_aggregateValue,
 
     -- * EventDescription
-    , EventDescription
-    , eventDescription
-    , edLatestDescription
+    EventDescription (..),
+    newEventDescription,
+    eventDescription_latestDescription,
 
     -- * EventDetails
-    , EventDetails
-    , eventDetails
-    , edEvent
-    , edEventDescription
-    , edEventMetadata
+    EventDetails (..),
+    newEventDetails,
+    eventDetails_eventMetadata,
+    eventDetails_eventDescription,
+    eventDetails_event,
 
     -- * EventDetailsErrorItem
-    , EventDetailsErrorItem
-    , eventDetailsErrorItem
-    , edeiEventARN
-    , edeiErrorName
-    , edeiErrorMessage
+    EventDetailsErrorItem (..),
+    newEventDetailsErrorItem,
+    eventDetailsErrorItem_errorName,
+    eventDetailsErrorItem_eventArn,
+    eventDetailsErrorItem_errorMessage,
 
     -- * EventFilter
-    , EventFilter
-    , eventFilter
-    , efEventARNs
-    , efEventTypeCategories
-    , efEventTypeCodes
-    , efRegions
-    , efEventStatusCodes
-    , efEndTimes
-    , efAvailabilityZones
-    , efEntityARNs
-    , efEntityValues
-    , efStartTimes
-    , efServices
-    , efTags
-    , efLastUpdatedTimes
+    EventFilter (..),
+    newEventFilter,
+    eventFilter_availabilityZones,
+    eventFilter_endTimes,
+    eventFilter_startTimes,
+    eventFilter_services,
+    eventFilter_entityArns,
+    eventFilter_eventTypeCodes,
+    eventFilter_lastUpdatedTimes,
+    eventFilter_tags,
+    eventFilter_eventStatusCodes,
+    eventFilter_entityValues,
+    eventFilter_regions,
+    eventFilter_eventArns,
+    eventFilter_eventTypeCategories,
 
     -- * EventType
-    , EventType
-    , eventType
-    , etService
-    , etCategory
-    , etCode
+    EventType (..),
+    newEventType,
+    eventType_category,
+    eventType_code,
+    eventType_service,
 
     -- * EventTypeFilter
-    , EventTypeFilter
-    , eventTypeFilter
-    , etfEventTypeCategories
-    , etfEventTypeCodes
-    , etfServices
-    ) where
+    EventTypeFilter (..),
+    newEventTypeFilter,
+    eventTypeFilter_services,
+    eventTypeFilter_eventTypeCodes,
+    eventTypeFilter_eventTypeCategories,
 
-import Network.AWS.AWSHealth.Types.Product
-import Network.AWS.AWSHealth.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+    -- * OrganizationAffectedEntitiesErrorItem
+    OrganizationAffectedEntitiesErrorItem (..),
+    newOrganizationAffectedEntitiesErrorItem,
+    organizationAffectedEntitiesErrorItem_errorName,
+    organizationAffectedEntitiesErrorItem_eventArn,
+    organizationAffectedEntitiesErrorItem_awsAccountId,
+    organizationAffectedEntitiesErrorItem_errorMessage,
+
+    -- * OrganizationEvent
+    OrganizationEvent (..),
+    newOrganizationEvent,
+    organizationEvent_eventTypeCategory,
+    organizationEvent_eventScopeCode,
+    organizationEvent_startTime,
+    organizationEvent_service,
+    organizationEvent_arn,
+    organizationEvent_endTime,
+    organizationEvent_statusCode,
+    organizationEvent_eventTypeCode,
+    organizationEvent_region,
+    organizationEvent_lastUpdatedTime,
+
+    -- * OrganizationEventDetails
+    OrganizationEventDetails (..),
+    newOrganizationEventDetails,
+    organizationEventDetails_awsAccountId,
+    organizationEventDetails_eventMetadata,
+    organizationEventDetails_eventDescription,
+    organizationEventDetails_event,
+
+    -- * OrganizationEventDetailsErrorItem
+    OrganizationEventDetailsErrorItem (..),
+    newOrganizationEventDetailsErrorItem,
+    organizationEventDetailsErrorItem_errorName,
+    organizationEventDetailsErrorItem_eventArn,
+    organizationEventDetailsErrorItem_awsAccountId,
+    organizationEventDetailsErrorItem_errorMessage,
+
+    -- * OrganizationEventFilter
+    OrganizationEventFilter (..),
+    newOrganizationEventFilter,
+    organizationEventFilter_services,
+    organizationEventFilter_startTime,
+    organizationEventFilter_entityArns,
+    organizationEventFilter_eventTypeCodes,
+    organizationEventFilter_endTime,
+    organizationEventFilter_eventStatusCodes,
+    organizationEventFilter_entityValues,
+    organizationEventFilter_regions,
+    organizationEventFilter_eventTypeCategories,
+    organizationEventFilter_awsAccountIds,
+    organizationEventFilter_lastUpdatedTime,
+  )
+where
+
+import Network.AWS.AWSHealth.Types.AffectedEntity
+import Network.AWS.AWSHealth.Types.DateTimeRange
+import Network.AWS.AWSHealth.Types.EntityAggregate
+import Network.AWS.AWSHealth.Types.EntityFilter
+import Network.AWS.AWSHealth.Types.EntityStatusCode
+import Network.AWS.AWSHealth.Types.Event
+import Network.AWS.AWSHealth.Types.EventAccountFilter
+import Network.AWS.AWSHealth.Types.EventAggregate
+import Network.AWS.AWSHealth.Types.EventAggregateField
+import Network.AWS.AWSHealth.Types.EventDescription
+import Network.AWS.AWSHealth.Types.EventDetails
+import Network.AWS.AWSHealth.Types.EventDetailsErrorItem
+import Network.AWS.AWSHealth.Types.EventFilter
+import Network.AWS.AWSHealth.Types.EventScopeCode
+import Network.AWS.AWSHealth.Types.EventStatusCode
+import Network.AWS.AWSHealth.Types.EventType
+import Network.AWS.AWSHealth.Types.EventTypeCategory
+import Network.AWS.AWSHealth.Types.EventTypeFilter
+import Network.AWS.AWSHealth.Types.OrganizationAffectedEntitiesErrorItem
+import Network.AWS.AWSHealth.Types.OrganizationEvent
+import Network.AWS.AWSHealth.Types.OrganizationEventDetails
+import Network.AWS.AWSHealth.Types.OrganizationEventDetailsErrorItem
+import Network.AWS.AWSHealth.Types.OrganizationEventFilter
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2016-08-04@ of the Amazon Health APIs and Notifications SDK configuration.
-awsHealth :: Service
-awsHealth =
-  Service
-    { _svcAbbrev = "AWSHealth"
-    , _svcSigner = v4
-    , _svcPrefix = "health"
-    , _svcVersion = "2016-08-04"
-    , _svcEndpoint = defaultEndpoint awsHealth
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "AWSHealth"
-    , _svcRetry = retry
+defaultService :: Prelude.Service
+defaultService =
+  Prelude.Service
+    { Prelude._svcAbbrev = "AWSHealth",
+      Prelude._svcSigner = Sign.v4,
+      Prelude._svcPrefix = "health",
+      Prelude._svcVersion = "2016-08-04",
+      Prelude._svcEndpoint =
+        Prelude.defaultEndpoint defaultService,
+      Prelude._svcTimeout = Prelude.Just 70,
+      Prelude._svcCheck = Prelude.statusSuccess,
+      Prelude._svcError =
+        Prelude.parseJSONError "AWSHealth",
+      Prelude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Prelude.Exponential
+        { Prelude._retryBase = 5.0e-2,
+          Prelude._retryGrowth = 2,
+          Prelude._retryAttempts = 5,
+          Prelude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+      | Lens.has (Prelude.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Prelude.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Prelude.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Prelude.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Prelude.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Prelude.hasCode "RequestThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Prelude.hasCode "ThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Prelude.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Prelude.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Prelude.hasCode "ThrottlingException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Prelude.hasCode "Throttling"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
+-- | <https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html EnableHealthServiceAccessForOrganization>
+-- is already in progress. Wait for the action to complete before trying
+-- again. To get the current status, use the
+-- <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeHealthServiceStatusForOrganization.html DescribeHealthServiceStatusForOrganization>
+-- operation.
+_ConcurrentModificationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ConcurrentModificationException =
+  Prelude._MatchServiceError
+    defaultService
+    "ConcurrentModificationException"
 
--- | The specified pagination token (@nextToken@ ) is not valid.
---
---
-_InvalidPaginationToken :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidPaginationToken = _MatchServiceError awsHealth "InvalidPaginationToken"
-
+-- | The specified pagination token (@nextToken@) is not valid.
+_InvalidPaginationToken :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidPaginationToken =
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidPaginationToken"
 
 -- | The specified locale is not supported.
---
---
-_UnsupportedLocale :: AsError a => Getting (First ServiceError) a ServiceError
-_UnsupportedLocale = _MatchServiceError awsHealth "UnsupportedLocale"
-
+_UnsupportedLocale :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_UnsupportedLocale =
+  Prelude._MatchServiceError
+    defaultService
+    "UnsupportedLocale"

@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.ListDevicePools
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,164 +23,239 @@
 --
 -- Gets information about device pools.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.DeviceFarm.ListDevicePools
-    (
-    -- * Creating a Request
-      listDevicePools
-    , ListDevicePools
+  ( -- * Creating a Request
+    ListDevicePools (..),
+    newListDevicePools,
+
     -- * Request Lenses
-    , ldpNextToken
-    , ldpType
-    , ldpArn
+    listDevicePools_nextToken,
+    listDevicePools_type,
+    listDevicePools_arn,
 
     -- * Destructuring the Response
-    , listDevicePoolsResponse
-    , ListDevicePoolsResponse
+    ListDevicePoolsResponse (..),
+    newListDevicePoolsResponse,
+
     -- * Response Lenses
-    , ldprsDevicePools
-    , ldprsNextToken
-    , ldprsResponseStatus
-    ) where
+    listDevicePoolsResponse_nextToken,
+    listDevicePoolsResponse_devicePools,
+    listDevicePoolsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the result of a list device pools request.
 --
---
---
--- /See:/ 'listDevicePools' smart constructor.
+-- /See:/ 'newListDevicePools' smart constructor.
 data ListDevicePools = ListDevicePools'
-  { _ldpNextToken :: !(Maybe Text)
-  , _ldpType      :: !(Maybe DevicePoolType)
-  , _ldpArn       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An identifier that was returned from the previous call to this
+    -- operation, which can be used to return the next set of items in the
+    -- list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The device pools\' type.
+    --
+    -- Allowed values include:
+    --
+    -- -   CURATED: A device pool that is created and managed by AWS Device
+    --     Farm.
+    --
+    -- -   PRIVATE: A device pool that is created and managed by the device
+    --     pool developer.
+    type' :: Prelude.Maybe DevicePoolType,
+    -- | The project ARN.
+    arn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListDevicePools' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListDevicePools' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ldpNextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ldpType' - The device pools' type. Allowed values include:     * CURATED: A device pool that is created and managed by AWS Device Farm.     * PRIVATE: A device pool that is created and managed by the device pool developer.
+-- 'nextToken', 'listDevicePools_nextToken' - An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
 --
--- * 'ldpArn' - The project ARN.
-listDevicePools
-    :: Text -- ^ 'ldpArn'
-    -> ListDevicePools
-listDevicePools pArn_ =
+-- 'type'', 'listDevicePools_type' - The device pools\' type.
+--
+-- Allowed values include:
+--
+-- -   CURATED: A device pool that is created and managed by AWS Device
+--     Farm.
+--
+-- -   PRIVATE: A device pool that is created and managed by the device
+--     pool developer.
+--
+-- 'arn', 'listDevicePools_arn' - The project ARN.
+newListDevicePools ::
+  -- | 'arn'
+  Prelude.Text ->
+  ListDevicePools
+newListDevicePools pArn_ =
   ListDevicePools'
-    {_ldpNextToken = Nothing, _ldpType = Nothing, _ldpArn = pArn_}
-
-
--- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-ldpNextToken :: Lens' ListDevicePools (Maybe Text)
-ldpNextToken = lens _ldpNextToken (\ s a -> s{_ldpNextToken = a})
-
--- | The device pools' type. Allowed values include:     * CURATED: A device pool that is created and managed by AWS Device Farm.     * PRIVATE: A device pool that is created and managed by the device pool developer.
-ldpType :: Lens' ListDevicePools (Maybe DevicePoolType)
-ldpType = lens _ldpType (\ s a -> s{_ldpType = a})
-
--- | The project ARN.
-ldpArn :: Lens' ListDevicePools Text
-ldpArn = lens _ldpArn (\ s a -> s{_ldpArn = a})
-
-instance AWSPager ListDevicePools where
-        page rq rs
-          | stop (rs ^. ldprsNextToken) = Nothing
-          | stop (rs ^. ldprsDevicePools) = Nothing
-          | otherwise =
-            Just $ rq & ldpNextToken .~ rs ^. ldprsNextToken
-
-instance AWSRequest ListDevicePools where
-        type Rs ListDevicePools = ListDevicePoolsResponse
-        request = postJSON deviceFarm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListDevicePoolsResponse' <$>
-                   (x .?> "devicePools" .!@ mempty) <*>
-                     (x .?> "nextToken")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListDevicePools where
-
-instance NFData ListDevicePools where
-
-instance ToHeaders ListDevicePools where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DeviceFarm_20150623.ListDevicePools" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON ListDevicePools where
-        toJSON ListDevicePools'{..}
-          = object
-              (catMaybes
-                 [("nextToken" .=) <$> _ldpNextToken,
-                  ("type" .=) <$> _ldpType, Just ("arn" .= _ldpArn)])
-
-instance ToPath ListDevicePools where
-        toPath = const "/"
-
-instance ToQuery ListDevicePools where
-        toQuery = const mempty
-
--- | Represents the result of a list device pools request.
---
---
---
--- /See:/ 'listDevicePoolsResponse' smart constructor.
-data ListDevicePoolsResponse = ListDevicePoolsResponse'
-  { _ldprsDevicePools    :: !(Maybe [DevicePool])
-  , _ldprsNextToken      :: !(Maybe Text)
-  , _ldprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListDevicePoolsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ldprsDevicePools' - Information about the device pools.
---
--- * 'ldprsNextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
---
--- * 'ldprsResponseStatus' - -- | The response status code.
-listDevicePoolsResponse
-    :: Int -- ^ 'ldprsResponseStatus'
-    -> ListDevicePoolsResponse
-listDevicePoolsResponse pResponseStatus_ =
-  ListDevicePoolsResponse'
-    { _ldprsDevicePools = Nothing
-    , _ldprsNextToken = Nothing
-    , _ldprsResponseStatus = pResponseStatus_
+    { nextToken = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      arn = pArn_
     }
 
+-- | An identifier that was returned from the previous call to this
+-- operation, which can be used to return the next set of items in the
+-- list.
+listDevicePools_nextToken :: Lens.Lens' ListDevicePools (Prelude.Maybe Prelude.Text)
+listDevicePools_nextToken = Lens.lens (\ListDevicePools' {nextToken} -> nextToken) (\s@ListDevicePools' {} a -> s {nextToken = a} :: ListDevicePools)
+
+-- | The device pools\' type.
+--
+-- Allowed values include:
+--
+-- -   CURATED: A device pool that is created and managed by AWS Device
+--     Farm.
+--
+-- -   PRIVATE: A device pool that is created and managed by the device
+--     pool developer.
+listDevicePools_type :: Lens.Lens' ListDevicePools (Prelude.Maybe DevicePoolType)
+listDevicePools_type = Lens.lens (\ListDevicePools' {type'} -> type') (\s@ListDevicePools' {} a -> s {type' = a} :: ListDevicePools)
+
+-- | The project ARN.
+listDevicePools_arn :: Lens.Lens' ListDevicePools Prelude.Text
+listDevicePools_arn = Lens.lens (\ListDevicePools' {arn} -> arn) (\s@ListDevicePools' {} a -> s {arn = a} :: ListDevicePools)
+
+instance Pager.AWSPager ListDevicePools where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listDevicePoolsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listDevicePoolsResponse_devicePools
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listDevicePools_nextToken
+          Lens..~ rs
+          Lens.^? listDevicePoolsResponse_nextToken
+            Prelude.. Lens._Just
+
+instance Prelude.AWSRequest ListDevicePools where
+  type Rs ListDevicePools = ListDevicePoolsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListDevicePoolsResponse'
+            Prelude.<$> (x Prelude..?> "nextToken")
+            Prelude.<*> ( x Prelude..?> "devicePools"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListDevicePools
+
+instance Prelude.NFData ListDevicePools
+
+instance Prelude.ToHeaders ListDevicePools where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "DeviceFarm_20150623.ListDevicePools" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON ListDevicePools where
+  toJSON ListDevicePools' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
+            ("type" Prelude..=) Prelude.<$> type',
+            Prelude.Just ("arn" Prelude..= arn)
+          ]
+      )
+
+instance Prelude.ToPath ListDevicePools where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery ListDevicePools where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | Represents the result of a list device pools request.
+--
+-- /See:/ 'newListDevicePoolsResponse' smart constructor.
+data ListDevicePoolsResponse = ListDevicePoolsResponse'
+  { -- | If the number of items that are returned is significantly large, this is
+    -- an identifier that is also returned. It can be used in a subsequent call
+    -- to this operation to return the next set of items in the list.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the device pools.
+    devicePools :: Prelude.Maybe [DevicePool],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'ListDevicePoolsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'listDevicePoolsResponse_nextToken' - If the number of items that are returned is significantly large, this is
+-- an identifier that is also returned. It can be used in a subsequent call
+-- to this operation to return the next set of items in the list.
+--
+-- 'devicePools', 'listDevicePoolsResponse_devicePools' - Information about the device pools.
+--
+-- 'httpStatus', 'listDevicePoolsResponse_httpStatus' - The response's http status code.
+newListDevicePoolsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListDevicePoolsResponse
+newListDevicePoolsResponse pHttpStatus_ =
+  ListDevicePoolsResponse'
+    { nextToken =
+        Prelude.Nothing,
+      devicePools = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | If the number of items that are returned is significantly large, this is
+-- an identifier that is also returned. It can be used in a subsequent call
+-- to this operation to return the next set of items in the list.
+listDevicePoolsResponse_nextToken :: Lens.Lens' ListDevicePoolsResponse (Prelude.Maybe Prelude.Text)
+listDevicePoolsResponse_nextToken = Lens.lens (\ListDevicePoolsResponse' {nextToken} -> nextToken) (\s@ListDevicePoolsResponse' {} a -> s {nextToken = a} :: ListDevicePoolsResponse)
 
 -- | Information about the device pools.
-ldprsDevicePools :: Lens' ListDevicePoolsResponse [DevicePool]
-ldprsDevicePools = lens _ldprsDevicePools (\ s a -> s{_ldprsDevicePools = a}) . _Default . _Coerce
+listDevicePoolsResponse_devicePools :: Lens.Lens' ListDevicePoolsResponse (Prelude.Maybe [DevicePool])
+listDevicePoolsResponse_devicePools = Lens.lens (\ListDevicePoolsResponse' {devicePools} -> devicePools) (\s@ListDevicePoolsResponse' {} a -> s {devicePools = a} :: ListDevicePoolsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | If the number of items that are returned is significantly large, this is an identifier that is also returned, which can be used in a subsequent call to this operation to return the next set of items in the list.
-ldprsNextToken :: Lens' ListDevicePoolsResponse (Maybe Text)
-ldprsNextToken = lens _ldprsNextToken (\ s a -> s{_ldprsNextToken = a})
+-- | The response's http status code.
+listDevicePoolsResponse_httpStatus :: Lens.Lens' ListDevicePoolsResponse Prelude.Int
+listDevicePoolsResponse_httpStatus = Lens.lens (\ListDevicePoolsResponse' {httpStatus} -> httpStatus) (\s@ListDevicePoolsResponse' {} a -> s {httpStatus = a} :: ListDevicePoolsResponse)
 
--- | -- | The response status code.
-ldprsResponseStatus :: Lens' ListDevicePoolsResponse Int
-ldprsResponseStatus = lens _ldprsResponseStatus (\ s a -> s{_ldprsResponseStatus = a})
-
-instance NFData ListDevicePoolsResponse where
+instance Prelude.NFData ListDevicePoolsResponse

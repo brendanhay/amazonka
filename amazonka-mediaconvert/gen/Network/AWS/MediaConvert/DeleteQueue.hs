@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaConvert.DeleteQueue
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,94 +23,112 @@
 --
 -- Permanently delete a queue you have created.
 module Network.AWS.MediaConvert.DeleteQueue
-    (
-    -- * Creating a Request
-      deleteQueue
-    , DeleteQueue
+  ( -- * Creating a Request
+    DeleteQueue (..),
+    newDeleteQueue,
+
     -- * Request Lenses
-    , dqName
+    deleteQueue_name,
 
     -- * Destructuring the Response
-    , deleteQueueResponse
-    , DeleteQueueResponse
+    DeleteQueueResponse (..),
+    newDeleteQueueResponse,
+
     -- * Response Lenses
-    , dqrsResponseStatus
-    ) where
+    deleteQueueResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import Network.AWS.MediaConvert.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteQueue' smart constructor.
-newtype DeleteQueue = DeleteQueue'
-  { _dqName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteQueue' smart constructor.
+data DeleteQueue = DeleteQueue'
+  { -- | The name of the queue that you want to delete.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteQueue' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteQueue' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dqName' - The name of the queue to be deleted.
-deleteQueue
-    :: Text -- ^ 'dqName'
-    -> DeleteQueue
-deleteQueue pName_ = DeleteQueue' {_dqName = pName_}
-
-
--- | The name of the queue to be deleted.
-dqName :: Lens' DeleteQueue Text
-dqName = lens _dqName (\ s a -> s{_dqName = a})
-
-instance AWSRequest DeleteQueue where
-        type Rs DeleteQueue = DeleteQueueResponse
-        request = delete mediaConvert
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 DeleteQueueResponse' <$> (pure (fromEnum s)))
-
-instance Hashable DeleteQueue where
-
-instance NFData DeleteQueue where
-
-instance ToHeaders DeleteQueue where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToPath DeleteQueue where
-        toPath DeleteQueue'{..}
-          = mconcat ["/2017-08-29/queues/", toBS _dqName]
-
-instance ToQuery DeleteQueue where
-        toQuery = const mempty
-
--- | /See:/ 'deleteQueueResponse' smart constructor.
-newtype DeleteQueueResponse = DeleteQueueResponse'
-  { _dqrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteQueueResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'name', 'deleteQueue_name' - The name of the queue that you want to delete.
+newDeleteQueue ::
+  -- | 'name'
+  Prelude.Text ->
+  DeleteQueue
+newDeleteQueue pName_ = DeleteQueue' {name = pName_}
+
+-- | The name of the queue that you want to delete.
+deleteQueue_name :: Lens.Lens' DeleteQueue Prelude.Text
+deleteQueue_name = Lens.lens (\DeleteQueue' {name} -> name) (\s@DeleteQueue' {} a -> s {name = a} :: DeleteQueue)
+
+instance Prelude.AWSRequest DeleteQueue where
+  type Rs DeleteQueue = DeleteQueueResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteQueueResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DeleteQueue
+
+instance Prelude.NFData DeleteQueue
+
+instance Prelude.ToHeaders DeleteQueue where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToPath DeleteQueue where
+  toPath DeleteQueue' {..} =
+    Prelude.mconcat
+      ["/2017-08-29/queues/", Prelude.toBS name]
+
+instance Prelude.ToQuery DeleteQueue where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDeleteQueueResponse' smart constructor.
+data DeleteQueueResponse = DeleteQueueResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeleteQueueResponse' with all optional fields omitted.
 --
--- * 'dqrsResponseStatus' - -- | The response status code.
-deleteQueueResponse
-    :: Int -- ^ 'dqrsResponseStatus'
-    -> DeleteQueueResponse
-deleteQueueResponse pResponseStatus_ =
-  DeleteQueueResponse' {_dqrsResponseStatus = pResponseStatus_}
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'deleteQueueResponse_httpStatus' - The response's http status code.
+newDeleteQueueResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteQueueResponse
+newDeleteQueueResponse pHttpStatus_ =
+  DeleteQueueResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+deleteQueueResponse_httpStatus :: Lens.Lens' DeleteQueueResponse Prelude.Int
+deleteQueueResponse_httpStatus = Lens.lens (\DeleteQueueResponse' {httpStatus} -> httpStatus) (\s@DeleteQueueResponse' {} a -> s {httpStatus = a} :: DeleteQueueResponse)
 
--- | -- | The response status code.
-dqrsResponseStatus :: Lens' DeleteQueueResponse Int
-dqrsResponseStatus = lens _dqrsResponseStatus (\ s a -> s{_dqrsResponseStatus = a})
-
-instance NFData DeleteQueueResponse where
+instance Prelude.NFData DeleteQueueResponse

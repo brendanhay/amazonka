@@ -1,125 +1,205 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudFormation.DescribeStackSet
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Returns the description of the specified stack set.
---
---
 module Network.AWS.CloudFormation.DescribeStackSet
-    (
-    -- * Creating a Request
-      describeStackSet
-    , DescribeStackSet
+  ( -- * Creating a Request
+    DescribeStackSet (..),
+    newDescribeStackSet,
+
     -- * Request Lenses
-    , desStackSetName
+    describeStackSet_callAs,
+    describeStackSet_stackSetName,
 
     -- * Destructuring the Response
-    , describeStackSetResponse
-    , DescribeStackSetResponse
+    DescribeStackSetResponse (..),
+    newDescribeStackSetResponse,
+
     -- * Response Lenses
-    , drsStackSet
-    , drsResponseStatus
-    ) where
+    describeStackSetResponse_stackSet,
+    describeStackSetResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudFormation.Types
-import Network.AWS.CloudFormation.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeStackSet' smart constructor.
-newtype DescribeStackSet = DescribeStackSet'
-  { _desStackSetName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeStackSet' smart constructor.
+data DescribeStackSet = DescribeStackSet'
+  { -- | [Service-managed permissions] Specifies whether you are acting as an
+    -- account administrator in the organization\'s management account or as a
+    -- delegated administrator in a member account.
+    --
+    -- By default, @SELF@ is specified. Use @SELF@ for stack sets with
+    -- self-managed permissions.
+    --
+    -- -   If you are signed in to the management account, specify @SELF@.
+    --
+    -- -   If you are signed in to a delegated administrator account, specify
+    --     @DELEGATED_ADMIN@.
+    --
+    --     Your AWS account must be registered as a delegated administrator in
+    --     the management account. For more information, see
+    --     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
+    --     in the /AWS CloudFormation User Guide/.
+    callAs :: Prelude.Maybe CallAs,
+    -- | The name or unique ID of the stack set whose description you want.
+    stackSetName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeStackSet' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeStackSet' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'desStackSetName' - The name or unique ID of the stack set whose description you want.
-describeStackSet
-    :: Text -- ^ 'desStackSetName'
-    -> DescribeStackSet
-describeStackSet pStackSetName_ =
-  DescribeStackSet' {_desStackSetName = pStackSetName_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'callAs', 'describeStackSet_callAs' - [Service-managed permissions] Specifies whether you are acting as an
+-- account administrator in the organization\'s management account or as a
+-- delegated administrator in a member account.
+--
+-- By default, @SELF@ is specified. Use @SELF@ for stack sets with
+-- self-managed permissions.
+--
+-- -   If you are signed in to the management account, specify @SELF@.
+--
+-- -   If you are signed in to a delegated administrator account, specify
+--     @DELEGATED_ADMIN@.
+--
+--     Your AWS account must be registered as a delegated administrator in
+--     the management account. For more information, see
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
+--     in the /AWS CloudFormation User Guide/.
+--
+-- 'stackSetName', 'describeStackSet_stackSetName' - The name or unique ID of the stack set whose description you want.
+newDescribeStackSet ::
+  -- | 'stackSetName'
+  Prelude.Text ->
+  DescribeStackSet
+newDescribeStackSet pStackSetName_ =
+  DescribeStackSet'
+    { callAs = Prelude.Nothing,
+      stackSetName = pStackSetName_
+    }
 
+-- | [Service-managed permissions] Specifies whether you are acting as an
+-- account administrator in the organization\'s management account or as a
+-- delegated administrator in a member account.
+--
+-- By default, @SELF@ is specified. Use @SELF@ for stack sets with
+-- self-managed permissions.
+--
+-- -   If you are signed in to the management account, specify @SELF@.
+--
+-- -   If you are signed in to a delegated administrator account, specify
+--     @DELEGATED_ADMIN@.
+--
+--     Your AWS account must be registered as a delegated administrator in
+--     the management account. For more information, see
+--     <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.html Register a delegated administrator>
+--     in the /AWS CloudFormation User Guide/.
+describeStackSet_callAs :: Lens.Lens' DescribeStackSet (Prelude.Maybe CallAs)
+describeStackSet_callAs = Lens.lens (\DescribeStackSet' {callAs} -> callAs) (\s@DescribeStackSet' {} a -> s {callAs = a} :: DescribeStackSet)
 
 -- | The name or unique ID of the stack set whose description you want.
-desStackSetName :: Lens' DescribeStackSet Text
-desStackSetName = lens _desStackSetName (\ s a -> s{_desStackSetName = a})
+describeStackSet_stackSetName :: Lens.Lens' DescribeStackSet Prelude.Text
+describeStackSet_stackSetName = Lens.lens (\DescribeStackSet' {stackSetName} -> stackSetName) (\s@DescribeStackSet' {} a -> s {stackSetName = a} :: DescribeStackSet)
 
-instance AWSRequest DescribeStackSet where
-        type Rs DescribeStackSet = DescribeStackSetResponse
-        request = postQuery cloudFormation
-        response
-          = receiveXMLWrapper "DescribeStackSetResult"
-              (\ s h x ->
-                 DescribeStackSetResponse' <$>
-                   (x .@? "StackSet") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest DescribeStackSet where
+  type Rs DescribeStackSet = DescribeStackSetResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeStackSetResult"
+      ( \s h x ->
+          DescribeStackSetResponse'
+            Prelude.<$> (x Prelude..@? "StackSet")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeStackSet where
+instance Prelude.Hashable DescribeStackSet
 
-instance NFData DescribeStackSet where
+instance Prelude.NFData DescribeStackSet
 
-instance ToHeaders DescribeStackSet where
-        toHeaders = const mempty
+instance Prelude.ToHeaders DescribeStackSet where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DescribeStackSet where
-        toPath = const "/"
+instance Prelude.ToPath DescribeStackSet where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeStackSet where
-        toQuery DescribeStackSet'{..}
-          = mconcat
-              ["Action" =: ("DescribeStackSet" :: ByteString),
-               "Version" =: ("2010-05-15" :: ByteString),
-               "StackSetName" =: _desStackSetName]
+instance Prelude.ToQuery DescribeStackSet where
+  toQuery DescribeStackSet' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DescribeStackSet" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2010-05-15" :: Prelude.ByteString),
+        "CallAs" Prelude.=: callAs,
+        "StackSetName" Prelude.=: stackSetName
+      ]
 
--- | /See:/ 'describeStackSetResponse' smart constructor.
+-- | /See:/ 'newDescribeStackSetResponse' smart constructor.
 data DescribeStackSetResponse = DescribeStackSetResponse'
-  { _drsStackSet       :: !(Maybe StackSet)
-  , _drsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The specified stack set.
+    stackSet :: Prelude.Maybe StackSet,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeStackSetResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeStackSetResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'drsStackSet' - The specified stack set.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'drsResponseStatus' - -- | The response status code.
-describeStackSetResponse
-    :: Int -- ^ 'drsResponseStatus'
-    -> DescribeStackSetResponse
-describeStackSetResponse pResponseStatus_ =
+-- 'stackSet', 'describeStackSetResponse_stackSet' - The specified stack set.
+--
+-- 'httpStatus', 'describeStackSetResponse_httpStatus' - The response's http status code.
+newDescribeStackSetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeStackSetResponse
+newDescribeStackSetResponse pHttpStatus_ =
   DescribeStackSetResponse'
-    {_drsStackSet = Nothing, _drsResponseStatus = pResponseStatus_}
-
+    { stackSet =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The specified stack set.
-drsStackSet :: Lens' DescribeStackSetResponse (Maybe StackSet)
-drsStackSet = lens _drsStackSet (\ s a -> s{_drsStackSet = a})
+describeStackSetResponse_stackSet :: Lens.Lens' DescribeStackSetResponse (Prelude.Maybe StackSet)
+describeStackSetResponse_stackSet = Lens.lens (\DescribeStackSetResponse' {stackSet} -> stackSet) (\s@DescribeStackSetResponse' {} a -> s {stackSet = a} :: DescribeStackSetResponse)
 
--- | -- | The response status code.
-drsResponseStatus :: Lens' DescribeStackSetResponse Int
-drsResponseStatus = lens _drsResponseStatus (\ s a -> s{_drsResponseStatus = a})
+-- | The response's http status code.
+describeStackSetResponse_httpStatus :: Lens.Lens' DescribeStackSetResponse Prelude.Int
+describeStackSetResponse_httpStatus = Lens.lens (\DescribeStackSetResponse' {httpStatus} -> httpStatus) (\s@DescribeStackSetResponse' {} a -> s {httpStatus = a} :: DescribeStackSetResponse)
 
-instance NFData DescribeStackSetResponse where
+instance Prelude.NFData DescribeStackSetResponse

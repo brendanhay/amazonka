@@ -1,133 +1,152 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Mobile.DescribeBundle
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Get the bundle details for the requested bundle id.
---
---
 module Network.AWS.Mobile.DescribeBundle
-    (
-    -- * Creating a Request
-      describeBundle
-    , DescribeBundle
+  ( -- * Creating a Request
+    DescribeBundle (..),
+    newDescribeBundle,
+
     -- * Request Lenses
-    , dbBundleId
+    describeBundle_bundleId,
 
     -- * Destructuring the Response
-    , describeBundleResponse
-    , DescribeBundleResponse
-    -- * Response Lenses
-    , dbrsDetails
-    , dbrsResponseStatus
-    ) where
+    DescribeBundleResponse (..),
+    newDescribeBundleResponse,
 
-import Network.AWS.Lens
+    -- * Response Lenses
+    describeBundleResponse_details,
+    describeBundleResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Mobile.Types
-import Network.AWS.Mobile.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request structure to request the details of a specific bundle.
 --
---
---
--- /See:/ 'describeBundle' smart constructor.
-newtype DescribeBundle = DescribeBundle'
-  { _dbBundleId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newDescribeBundle' smart constructor.
+data DescribeBundle = DescribeBundle'
+  { -- | Unique bundle identifier.
+    bundleId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeBundle' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeBundle' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dbBundleId' - Unique bundle identifier.
-describeBundle
-    :: Text -- ^ 'dbBundleId'
-    -> DescribeBundle
-describeBundle pBundleId_ = DescribeBundle' {_dbBundleId = pBundleId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'bundleId', 'describeBundle_bundleId' - Unique bundle identifier.
+newDescribeBundle ::
+  -- | 'bundleId'
+  Prelude.Text ->
+  DescribeBundle
+newDescribeBundle pBundleId_ =
+  DescribeBundle' {bundleId = pBundleId_}
 
 -- | Unique bundle identifier.
-dbBundleId :: Lens' DescribeBundle Text
-dbBundleId = lens _dbBundleId (\ s a -> s{_dbBundleId = a})
+describeBundle_bundleId :: Lens.Lens' DescribeBundle Prelude.Text
+describeBundle_bundleId = Lens.lens (\DescribeBundle' {bundleId} -> bundleId) (\s@DescribeBundle' {} a -> s {bundleId = a} :: DescribeBundle)
 
-instance AWSRequest DescribeBundle where
-        type Rs DescribeBundle = DescribeBundleResponse
-        request = get mobile
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeBundleResponse' <$>
-                   (x .?> "details") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest DescribeBundle where
+  type Rs DescribeBundle = DescribeBundleResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeBundleResponse'
+            Prelude.<$> (x Prelude..?> "details")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeBundle where
+instance Prelude.Hashable DescribeBundle
 
-instance NFData DescribeBundle where
+instance Prelude.NFData DescribeBundle
 
-instance ToHeaders DescribeBundle where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DescribeBundle where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToPath DescribeBundle where
-        toPath DescribeBundle'{..}
-          = mconcat ["/bundles/", toBS _dbBundleId]
+instance Prelude.ToPath DescribeBundle where
+  toPath DescribeBundle' {..} =
+    Prelude.mconcat
+      ["/bundles/", Prelude.toBS bundleId]
 
-instance ToQuery DescribeBundle where
-        toQuery = const mempty
+instance Prelude.ToQuery DescribeBundle where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Result structure contains the details of the bundle.
 --
---
---
--- /See:/ 'describeBundleResponse' smart constructor.
+-- /See:/ 'newDescribeBundleResponse' smart constructor.
 data DescribeBundleResponse = DescribeBundleResponse'
-  { _dbrsDetails        :: !(Maybe BundleDetails)
-  , _dbrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The details of the bundle.
+    details :: Prelude.Maybe BundleDetails,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeBundleResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeBundleResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dbrsDetails' - The details of the bundle.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dbrsResponseStatus' - -- | The response status code.
-describeBundleResponse
-    :: Int -- ^ 'dbrsResponseStatus'
-    -> DescribeBundleResponse
-describeBundleResponse pResponseStatus_ =
+-- 'details', 'describeBundleResponse_details' - The details of the bundle.
+--
+-- 'httpStatus', 'describeBundleResponse_httpStatus' - The response's http status code.
+newDescribeBundleResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeBundleResponse
+newDescribeBundleResponse pHttpStatus_ =
   DescribeBundleResponse'
-    {_dbrsDetails = Nothing, _dbrsResponseStatus = pResponseStatus_}
-
+    { details = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The details of the bundle.
-dbrsDetails :: Lens' DescribeBundleResponse (Maybe BundleDetails)
-dbrsDetails = lens _dbrsDetails (\ s a -> s{_dbrsDetails = a})
+describeBundleResponse_details :: Lens.Lens' DescribeBundleResponse (Prelude.Maybe BundleDetails)
+describeBundleResponse_details = Lens.lens (\DescribeBundleResponse' {details} -> details) (\s@DescribeBundleResponse' {} a -> s {details = a} :: DescribeBundleResponse)
 
--- | -- | The response status code.
-dbrsResponseStatus :: Lens' DescribeBundleResponse Int
-dbrsResponseStatus = lens _dbrsResponseStatus (\ s a -> s{_dbrsResponseStatus = a})
+-- | The response's http status code.
+describeBundleResponse_httpStatus :: Lens.Lens' DescribeBundleResponse Prelude.Int
+describeBundleResponse_httpStatus = Lens.lens (\DescribeBundleResponse' {httpStatus} -> httpStatus) (\s@DescribeBundleResponse' {} a -> s {httpStatus = a} :: DescribeBundleResponse)
 
-instance NFData DescribeBundleResponse where
+instance Prelude.NFData DescribeBundleResponse

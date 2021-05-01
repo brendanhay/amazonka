@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListObjectAttributes
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,188 +23,253 @@
 --
 -- Lists all attributes that are associated with an object.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudDirectory.ListObjectAttributes
-    (
-    -- * Creating a Request
-      listObjectAttributes
-    , ListObjectAttributes
+  ( -- * Creating a Request
+    ListObjectAttributes (..),
+    newListObjectAttributes,
+
     -- * Request Lenses
-    , loaFacetFilter
-    , loaConsistencyLevel
-    , loaNextToken
-    , loaMaxResults
-    , loaDirectoryARN
-    , loaObjectReference
+    listObjectAttributes_nextToken,
+    listObjectAttributes_maxResults,
+    listObjectAttributes_consistencyLevel,
+    listObjectAttributes_facetFilter,
+    listObjectAttributes_directoryArn,
+    listObjectAttributes_objectReference,
 
     -- * Destructuring the Response
-    , listObjectAttributesResponse
-    , ListObjectAttributesResponse
+    ListObjectAttributesResponse (..),
+    newListObjectAttributesResponse,
+
     -- * Response Lenses
-    , loarsNextToken
-    , loarsAttributes
-    , loarsResponseStatus
-    ) where
+    listObjectAttributesResponse_nextToken,
+    listObjectAttributesResponse_attributes,
+    listObjectAttributesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.CloudDirectory.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listObjectAttributes' smart constructor.
+-- | /See:/ 'newListObjectAttributes' smart constructor.
 data ListObjectAttributes = ListObjectAttributes'
-  { _loaFacetFilter      :: !(Maybe SchemaFacet)
-  , _loaConsistencyLevel :: !(Maybe ConsistencyLevel)
-  , _loaNextToken        :: !(Maybe Text)
-  , _loaMaxResults       :: !(Maybe Nat)
-  , _loaDirectoryARN     :: !Text
-  , _loaObjectReference  :: !ObjectReference
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of items to be retrieved in a single call. This is an
+    -- approximate number.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Represents the manner and timing in which the successful write or update
+    -- of an object is reflected in a subsequent read operation of that same
+    -- object.
+    consistencyLevel :: Prelude.Maybe ConsistencyLevel,
+    -- | Used to filter the list of object attributes that are associated with a
+    -- certain facet.
+    facetFilter :: Prelude.Maybe SchemaFacet,
+    -- | The Amazon Resource Name (ARN) that is associated with the Directory
+    -- where the object resides. For more information, see arns.
+    directoryArn :: Prelude.Text,
+    -- | The reference that identifies the object whose attributes will be
+    -- listed.
+    objectReference :: ObjectReference
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListObjectAttributes' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListObjectAttributes' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'loaFacetFilter' - Used to filter the list of object attributes that are associated with a certain facet.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'loaConsistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
+-- 'nextToken', 'listObjectAttributes_nextToken' - The pagination token.
 --
--- * 'loaNextToken' - The pagination token.
+-- 'maxResults', 'listObjectAttributes_maxResults' - The maximum number of items to be retrieved in a single call. This is an
+-- approximate number.
 --
--- * 'loaMaxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
+-- 'consistencyLevel', 'listObjectAttributes_consistencyLevel' - Represents the manner and timing in which the successful write or update
+-- of an object is reflected in a subsequent read operation of that same
+-- object.
 --
--- * 'loaDirectoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
+-- 'facetFilter', 'listObjectAttributes_facetFilter' - Used to filter the list of object attributes that are associated with a
+-- certain facet.
 --
--- * 'loaObjectReference' - The reference that identifies the object whose attributes will be listed.
-listObjectAttributes
-    :: Text -- ^ 'loaDirectoryARN'
-    -> ObjectReference -- ^ 'loaObjectReference'
-    -> ListObjectAttributes
-listObjectAttributes pDirectoryARN_ pObjectReference_ =
-  ListObjectAttributes'
-    { _loaFacetFilter = Nothing
-    , _loaConsistencyLevel = Nothing
-    , _loaNextToken = Nothing
-    , _loaMaxResults = Nothing
-    , _loaDirectoryARN = pDirectoryARN_
-    , _loaObjectReference = pObjectReference_
-    }
-
-
--- | Used to filter the list of object attributes that are associated with a certain facet.
-loaFacetFilter :: Lens' ListObjectAttributes (Maybe SchemaFacet)
-loaFacetFilter = lens _loaFacetFilter (\ s a -> s{_loaFacetFilter = a})
-
--- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
-loaConsistencyLevel :: Lens' ListObjectAttributes (Maybe ConsistencyLevel)
-loaConsistencyLevel = lens _loaConsistencyLevel (\ s a -> s{_loaConsistencyLevel = a})
+-- 'directoryArn', 'listObjectAttributes_directoryArn' - The Amazon Resource Name (ARN) that is associated with the Directory
+-- where the object resides. For more information, see arns.
+--
+-- 'objectReference', 'listObjectAttributes_objectReference' - The reference that identifies the object whose attributes will be
+-- listed.
+newListObjectAttributes ::
+  -- | 'directoryArn'
+  Prelude.Text ->
+  -- | 'objectReference'
+  ObjectReference ->
+  ListObjectAttributes
+newListObjectAttributes
+  pDirectoryArn_
+  pObjectReference_ =
+    ListObjectAttributes'
+      { nextToken = Prelude.Nothing,
+        maxResults = Prelude.Nothing,
+        consistencyLevel = Prelude.Nothing,
+        facetFilter = Prelude.Nothing,
+        directoryArn = pDirectoryArn_,
+        objectReference = pObjectReference_
+      }
 
 -- | The pagination token.
-loaNextToken :: Lens' ListObjectAttributes (Maybe Text)
-loaNextToken = lens _loaNextToken (\ s a -> s{_loaNextToken = a})
+listObjectAttributes_nextToken :: Lens.Lens' ListObjectAttributes (Prelude.Maybe Prelude.Text)
+listObjectAttributes_nextToken = Lens.lens (\ListObjectAttributes' {nextToken} -> nextToken) (\s@ListObjectAttributes' {} a -> s {nextToken = a} :: ListObjectAttributes)
 
--- | The maximum number of items to be retrieved in a single call. This is an approximate number.
-loaMaxResults :: Lens' ListObjectAttributes (Maybe Natural)
-loaMaxResults = lens _loaMaxResults (\ s a -> s{_loaMaxResults = a}) . mapping _Nat
+-- | The maximum number of items to be retrieved in a single call. This is an
+-- approximate number.
+listObjectAttributes_maxResults :: Lens.Lens' ListObjectAttributes (Prelude.Maybe Prelude.Natural)
+listObjectAttributes_maxResults = Lens.lens (\ListObjectAttributes' {maxResults} -> maxResults) (\s@ListObjectAttributes' {} a -> s {maxResults = a} :: ListObjectAttributes)
 
--- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where the object resides. For more information, see 'arns' .
-loaDirectoryARN :: Lens' ListObjectAttributes Text
-loaDirectoryARN = lens _loaDirectoryARN (\ s a -> s{_loaDirectoryARN = a})
+-- | Represents the manner and timing in which the successful write or update
+-- of an object is reflected in a subsequent read operation of that same
+-- object.
+listObjectAttributes_consistencyLevel :: Lens.Lens' ListObjectAttributes (Prelude.Maybe ConsistencyLevel)
+listObjectAttributes_consistencyLevel = Lens.lens (\ListObjectAttributes' {consistencyLevel} -> consistencyLevel) (\s@ListObjectAttributes' {} a -> s {consistencyLevel = a} :: ListObjectAttributes)
 
--- | The reference that identifies the object whose attributes will be listed.
-loaObjectReference :: Lens' ListObjectAttributes ObjectReference
-loaObjectReference = lens _loaObjectReference (\ s a -> s{_loaObjectReference = a})
+-- | Used to filter the list of object attributes that are associated with a
+-- certain facet.
+listObjectAttributes_facetFilter :: Lens.Lens' ListObjectAttributes (Prelude.Maybe SchemaFacet)
+listObjectAttributes_facetFilter = Lens.lens (\ListObjectAttributes' {facetFilter} -> facetFilter) (\s@ListObjectAttributes' {} a -> s {facetFilter = a} :: ListObjectAttributes)
 
-instance AWSPager ListObjectAttributes where
-        page rq rs
-          | stop (rs ^. loarsNextToken) = Nothing
-          | stop (rs ^. loarsAttributes) = Nothing
-          | otherwise =
-            Just $ rq & loaNextToken .~ rs ^. loarsNextToken
+-- | The Amazon Resource Name (ARN) that is associated with the Directory
+-- where the object resides. For more information, see arns.
+listObjectAttributes_directoryArn :: Lens.Lens' ListObjectAttributes Prelude.Text
+listObjectAttributes_directoryArn = Lens.lens (\ListObjectAttributes' {directoryArn} -> directoryArn) (\s@ListObjectAttributes' {} a -> s {directoryArn = a} :: ListObjectAttributes)
 
-instance AWSRequest ListObjectAttributes where
-        type Rs ListObjectAttributes =
-             ListObjectAttributesResponse
-        request = postJSON cloudDirectory
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListObjectAttributesResponse' <$>
-                   (x .?> "NextToken") <*>
-                     (x .?> "Attributes" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+-- | The reference that identifies the object whose attributes will be
+-- listed.
+listObjectAttributes_objectReference :: Lens.Lens' ListObjectAttributes ObjectReference
+listObjectAttributes_objectReference = Lens.lens (\ListObjectAttributes' {objectReference} -> objectReference) (\s@ListObjectAttributes' {} a -> s {objectReference = a} :: ListObjectAttributes)
 
-instance Hashable ListObjectAttributes where
+instance Pager.AWSPager ListObjectAttributes where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listObjectAttributesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listObjectAttributesResponse_attributes
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listObjectAttributes_nextToken
+          Lens..~ rs
+          Lens.^? listObjectAttributesResponse_nextToken
+            Prelude.. Lens._Just
 
-instance NFData ListObjectAttributes where
+instance Prelude.AWSRequest ListObjectAttributes where
+  type
+    Rs ListObjectAttributes =
+      ListObjectAttributesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListObjectAttributesResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> ( x Prelude..?> "Attributes"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToHeaders ListObjectAttributes where
-        toHeaders ListObjectAttributes'{..}
-          = mconcat
-              ["x-amz-consistency-level" =# _loaConsistencyLevel,
-               "x-amz-data-partition" =# _loaDirectoryARN]
+instance Prelude.Hashable ListObjectAttributes
 
-instance ToJSON ListObjectAttributes where
-        toJSON ListObjectAttributes'{..}
-          = object
-              (catMaybes
-                 [("FacetFilter" .=) <$> _loaFacetFilter,
-                  ("NextToken" .=) <$> _loaNextToken,
-                  ("MaxResults" .=) <$> _loaMaxResults,
-                  Just ("ObjectReference" .= _loaObjectReference)])
+instance Prelude.NFData ListObjectAttributes
 
-instance ToPath ListObjectAttributes where
-        toPath
-          = const
-              "/amazonclouddirectory/2017-01-11/object/attributes"
+instance Prelude.ToHeaders ListObjectAttributes where
+  toHeaders ListObjectAttributes' {..} =
+    Prelude.mconcat
+      [ "x-amz-consistency-level"
+          Prelude.=# consistencyLevel,
+        "x-amz-data-partition" Prelude.=# directoryArn
+      ]
 
-instance ToQuery ListObjectAttributes where
-        toQuery = const mempty
+instance Prelude.ToJSON ListObjectAttributes where
+  toJSON ListObjectAttributes' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
+            ("FacetFilter" Prelude..=) Prelude.<$> facetFilter,
+            Prelude.Just
+              ("ObjectReference" Prelude..= objectReference)
+          ]
+      )
 
--- | /See:/ 'listObjectAttributesResponse' smart constructor.
+instance Prelude.ToPath ListObjectAttributes where
+  toPath =
+    Prelude.const
+      "/amazonclouddirectory/2017-01-11/object/attributes"
+
+instance Prelude.ToQuery ListObjectAttributes where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newListObjectAttributesResponse' smart constructor.
 data ListObjectAttributesResponse = ListObjectAttributesResponse'
-  { _loarsNextToken      :: !(Maybe Text)
-  , _loarsAttributes     :: !(Maybe [AttributeKeyAndValue])
-  , _loarsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Attributes map that is associated with the object. @AttributeArn@ is the
+    -- key, and attribute value is the value.
+    attributes :: Prelude.Maybe [AttributeKeyAndValue],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListObjectAttributesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListObjectAttributesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'loarsNextToken' - The pagination token.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'loarsAttributes' - Attributes map that is associated with the object. @AttributeArn@ is the key, and attribute value is the value.
+-- 'nextToken', 'listObjectAttributesResponse_nextToken' - The pagination token.
 --
--- * 'loarsResponseStatus' - -- | The response status code.
-listObjectAttributesResponse
-    :: Int -- ^ 'loarsResponseStatus'
-    -> ListObjectAttributesResponse
-listObjectAttributesResponse pResponseStatus_ =
+-- 'attributes', 'listObjectAttributesResponse_attributes' - Attributes map that is associated with the object. @AttributeArn@ is the
+-- key, and attribute value is the value.
+--
+-- 'httpStatus', 'listObjectAttributesResponse_httpStatus' - The response's http status code.
+newListObjectAttributesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListObjectAttributesResponse
+newListObjectAttributesResponse pHttpStatus_ =
   ListObjectAttributesResponse'
-    { _loarsNextToken = Nothing
-    , _loarsAttributes = Nothing
-    , _loarsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      attributes = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | The pagination token.
-loarsNextToken :: Lens' ListObjectAttributesResponse (Maybe Text)
-loarsNextToken = lens _loarsNextToken (\ s a -> s{_loarsNextToken = a})
+listObjectAttributesResponse_nextToken :: Lens.Lens' ListObjectAttributesResponse (Prelude.Maybe Prelude.Text)
+listObjectAttributesResponse_nextToken = Lens.lens (\ListObjectAttributesResponse' {nextToken} -> nextToken) (\s@ListObjectAttributesResponse' {} a -> s {nextToken = a} :: ListObjectAttributesResponse)
 
--- | Attributes map that is associated with the object. @AttributeArn@ is the key, and attribute value is the value.
-loarsAttributes :: Lens' ListObjectAttributesResponse [AttributeKeyAndValue]
-loarsAttributes = lens _loarsAttributes (\ s a -> s{_loarsAttributes = a}) . _Default . _Coerce
+-- | Attributes map that is associated with the object. @AttributeArn@ is the
+-- key, and attribute value is the value.
+listObjectAttributesResponse_attributes :: Lens.Lens' ListObjectAttributesResponse (Prelude.Maybe [AttributeKeyAndValue])
+listObjectAttributesResponse_attributes = Lens.lens (\ListObjectAttributesResponse' {attributes} -> attributes) (\s@ListObjectAttributesResponse' {} a -> s {attributes = a} :: ListObjectAttributesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-loarsResponseStatus :: Lens' ListObjectAttributesResponse Int
-loarsResponseStatus = lens _loarsResponseStatus (\ s a -> s{_loarsResponseStatus = a})
+-- | The response's http status code.
+listObjectAttributesResponse_httpStatus :: Lens.Lens' ListObjectAttributesResponse Prelude.Int
+listObjectAttributesResponse_httpStatus = Lens.lens (\ListObjectAttributesResponse' {httpStatus} -> httpStatus) (\s@ListObjectAttributesResponse' {} a -> s {httpStatus = a} :: ListObjectAttributesResponse)
 
-instance NFData ListObjectAttributesResponse where
+instance Prelude.NFData ListObjectAttributesResponse

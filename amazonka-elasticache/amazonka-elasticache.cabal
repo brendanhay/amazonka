@@ -1,125 +1,225 @@
-name:                  amazonka-elasticache
-version:               1.6.1
-synopsis:              Amazon ElastiCache SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-elasticache
+version:            1.6.1
+synopsis:           Amazon ElastiCache SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.ElastiCache" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.ElastiCache.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.ElastiCache" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-elasticache
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-elasticache
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.ElastiCache
+    Network.AWS.ElastiCache.AddTagsToResource
+    Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
+    Network.AWS.ElastiCache.BatchApplyUpdateAction
+    Network.AWS.ElastiCache.BatchStopUpdateAction
+    Network.AWS.ElastiCache.CompleteMigration
+    Network.AWS.ElastiCache.CopySnapshot
+    Network.AWS.ElastiCache.CreateCacheCluster
+    Network.AWS.ElastiCache.CreateCacheParameterGroup
+    Network.AWS.ElastiCache.CreateCacheSecurityGroup
+    Network.AWS.ElastiCache.CreateCacheSubnetGroup
+    Network.AWS.ElastiCache.CreateGlobalReplicationGroup
+    Network.AWS.ElastiCache.CreateReplicationGroup
+    Network.AWS.ElastiCache.CreateSnapshot
+    Network.AWS.ElastiCache.CreateUser
+    Network.AWS.ElastiCache.CreateUserGroup
+    Network.AWS.ElastiCache.DecreaseNodeGroupsInGlobalReplicationGroup
+    Network.AWS.ElastiCache.DecreaseReplicaCount
+    Network.AWS.ElastiCache.DeleteCacheCluster
+    Network.AWS.ElastiCache.DeleteCacheParameterGroup
+    Network.AWS.ElastiCache.DeleteCacheSecurityGroup
+    Network.AWS.ElastiCache.DeleteCacheSubnetGroup
+    Network.AWS.ElastiCache.DeleteGlobalReplicationGroup
+    Network.AWS.ElastiCache.DeleteReplicationGroup
+    Network.AWS.ElastiCache.DeleteSnapshot
+    Network.AWS.ElastiCache.DeleteUser
+    Network.AWS.ElastiCache.DeleteUserGroup
+    Network.AWS.ElastiCache.DescribeCacheClusters
+    Network.AWS.ElastiCache.DescribeCacheEngineVersions
+    Network.AWS.ElastiCache.DescribeCacheParameterGroups
+    Network.AWS.ElastiCache.DescribeCacheParameters
+    Network.AWS.ElastiCache.DescribeCacheSecurityGroups
+    Network.AWS.ElastiCache.DescribeCacheSubnetGroups
+    Network.AWS.ElastiCache.DescribeEngineDefaultParameters
+    Network.AWS.ElastiCache.DescribeEvents
+    Network.AWS.ElastiCache.DescribeGlobalReplicationGroups
+    Network.AWS.ElastiCache.DescribeReplicationGroups
+    Network.AWS.ElastiCache.DescribeReservedCacheNodes
+    Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
+    Network.AWS.ElastiCache.DescribeServiceUpdates
+    Network.AWS.ElastiCache.DescribeSnapshots
+    Network.AWS.ElastiCache.DescribeUpdateActions
+    Network.AWS.ElastiCache.DescribeUserGroups
+    Network.AWS.ElastiCache.DescribeUsers
+    Network.AWS.ElastiCache.DisassociateGlobalReplicationGroup
+    Network.AWS.ElastiCache.FailoverGlobalReplicationGroup
+    Network.AWS.ElastiCache.IncreaseNodeGroupsInGlobalReplicationGroup
+    Network.AWS.ElastiCache.IncreaseReplicaCount
+    Network.AWS.ElastiCache.Lens
+    Network.AWS.ElastiCache.ListAllowedNodeTypeModifications
+    Network.AWS.ElastiCache.ListTagsForResource
+    Network.AWS.ElastiCache.ModifyCacheCluster
+    Network.AWS.ElastiCache.ModifyCacheParameterGroup
+    Network.AWS.ElastiCache.ModifyCacheSubnetGroup
+    Network.AWS.ElastiCache.ModifyGlobalReplicationGroup
+    Network.AWS.ElastiCache.ModifyReplicationGroup
+    Network.AWS.ElastiCache.ModifyReplicationGroupShardConfiguration
+    Network.AWS.ElastiCache.ModifyUser
+    Network.AWS.ElastiCache.ModifyUserGroup
+    Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
+    Network.AWS.ElastiCache.RebalanceSlotsInGlobalReplicationGroup
+    Network.AWS.ElastiCache.RebootCacheCluster
+    Network.AWS.ElastiCache.RemoveTagsFromResource
+    Network.AWS.ElastiCache.ResetCacheParameterGroup
+    Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
+    Network.AWS.ElastiCache.StartMigration
+    Network.AWS.ElastiCache.TestFailover
+    Network.AWS.ElastiCache.Types
+    Network.AWS.ElastiCache.Types.Authentication
+    Network.AWS.ElastiCache.Types.AuthenticationType
+    Network.AWS.ElastiCache.Types.AuthTokenUpdateStatus
+    Network.AWS.ElastiCache.Types.AuthTokenUpdateStrategyType
+    Network.AWS.ElastiCache.Types.AutomaticFailoverStatus
+    Network.AWS.ElastiCache.Types.AvailabilityZone
+    Network.AWS.ElastiCache.Types.AZMode
+    Network.AWS.ElastiCache.Types.CacheCluster
+    Network.AWS.ElastiCache.Types.CacheEngineVersion
+    Network.AWS.ElastiCache.Types.CacheNode
+    Network.AWS.ElastiCache.Types.CacheNodeTypeSpecificParameter
+    Network.AWS.ElastiCache.Types.CacheNodeTypeSpecificValue
+    Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus
+    Network.AWS.ElastiCache.Types.CacheParameterGroup
+    Network.AWS.ElastiCache.Types.CacheParameterGroupNameMessage
+    Network.AWS.ElastiCache.Types.CacheParameterGroupStatus
+    Network.AWS.ElastiCache.Types.CacheSecurityGroup
+    Network.AWS.ElastiCache.Types.CacheSecurityGroupMembership
+    Network.AWS.ElastiCache.Types.CacheSubnetGroup
+    Network.AWS.ElastiCache.Types.ChangeType
+    Network.AWS.ElastiCache.Types.ConfigureShard
+    Network.AWS.ElastiCache.Types.CustomerNodeEndpoint
+    Network.AWS.ElastiCache.Types.EC2SecurityGroup
+    Network.AWS.ElastiCache.Types.Endpoint
+    Network.AWS.ElastiCache.Types.EngineDefaults
+    Network.AWS.ElastiCache.Types.Event
+    Network.AWS.ElastiCache.Types.Filter
+    Network.AWS.ElastiCache.Types.GlobalNodeGroup
+    Network.AWS.ElastiCache.Types.GlobalReplicationGroup
+    Network.AWS.ElastiCache.Types.GlobalReplicationGroupInfo
+    Network.AWS.ElastiCache.Types.GlobalReplicationGroupMember
+    Network.AWS.ElastiCache.Types.MultiAZStatus
+    Network.AWS.ElastiCache.Types.NodeGroup
+    Network.AWS.ElastiCache.Types.NodeGroupConfiguration
+    Network.AWS.ElastiCache.Types.NodeGroupMember
+    Network.AWS.ElastiCache.Types.NodeGroupMemberUpdateStatus
+    Network.AWS.ElastiCache.Types.NodeGroupUpdateStatus
+    Network.AWS.ElastiCache.Types.NodeSnapshot
+    Network.AWS.ElastiCache.Types.NodeUpdateInitiatedBy
+    Network.AWS.ElastiCache.Types.NodeUpdateStatus
+    Network.AWS.ElastiCache.Types.NotificationConfiguration
+    Network.AWS.ElastiCache.Types.OutpostMode
+    Network.AWS.ElastiCache.Types.Parameter
+    Network.AWS.ElastiCache.Types.ParameterNameValue
+    Network.AWS.ElastiCache.Types.PendingAutomaticFailoverStatus
+    Network.AWS.ElastiCache.Types.PendingModifiedValues
+    Network.AWS.ElastiCache.Types.ProcessedUpdateAction
+    Network.AWS.ElastiCache.Types.RecurringCharge
+    Network.AWS.ElastiCache.Types.RegionalConfiguration
+    Network.AWS.ElastiCache.Types.ReplicationGroup
+    Network.AWS.ElastiCache.Types.ReplicationGroupPendingModifiedValues
+    Network.AWS.ElastiCache.Types.ReservedCacheNode
+    Network.AWS.ElastiCache.Types.ReservedCacheNodesOffering
+    Network.AWS.ElastiCache.Types.ReshardingConfiguration
+    Network.AWS.ElastiCache.Types.ReshardingStatus
+    Network.AWS.ElastiCache.Types.SecurityGroupMembership
+    Network.AWS.ElastiCache.Types.ServiceUpdate
+    Network.AWS.ElastiCache.Types.ServiceUpdateSeverity
+    Network.AWS.ElastiCache.Types.ServiceUpdateStatus
+    Network.AWS.ElastiCache.Types.ServiceUpdateType
+    Network.AWS.ElastiCache.Types.SlaMet
+    Network.AWS.ElastiCache.Types.SlotMigration
+    Network.AWS.ElastiCache.Types.Snapshot
+    Network.AWS.ElastiCache.Types.SourceType
+    Network.AWS.ElastiCache.Types.Subnet
+    Network.AWS.ElastiCache.Types.SubnetOutpost
+    Network.AWS.ElastiCache.Types.Tag
+    Network.AWS.ElastiCache.Types.TagListMessage
+    Network.AWS.ElastiCache.Types.TimeRangeFilter
+    Network.AWS.ElastiCache.Types.UnprocessedUpdateAction
+    Network.AWS.ElastiCache.Types.UpdateAction
+    Network.AWS.ElastiCache.Types.UpdateActionResultsMessage
+    Network.AWS.ElastiCache.Types.UpdateActionStatus
+    Network.AWS.ElastiCache.Types.User
+    Network.AWS.ElastiCache.Types.UserGroup
+    Network.AWS.ElastiCache.Types.UserGroupPendingChanges
+    Network.AWS.ElastiCache.Types.UserGroupsUpdateStatus
+    Network.AWS.ElastiCache.Waiters
 
-    exposed-modules:
-          Network.AWS.ElastiCache
-        , Network.AWS.ElastiCache.AddTagsToResource
-        , Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
-        , Network.AWS.ElastiCache.CopySnapshot
-        , Network.AWS.ElastiCache.CreateCacheCluster
-        , Network.AWS.ElastiCache.CreateCacheParameterGroup
-        , Network.AWS.ElastiCache.CreateCacheSecurityGroup
-        , Network.AWS.ElastiCache.CreateCacheSubnetGroup
-        , Network.AWS.ElastiCache.CreateReplicationGroup
-        , Network.AWS.ElastiCache.CreateSnapshot
-        , Network.AWS.ElastiCache.DeleteCacheCluster
-        , Network.AWS.ElastiCache.DeleteCacheParameterGroup
-        , Network.AWS.ElastiCache.DeleteCacheSecurityGroup
-        , Network.AWS.ElastiCache.DeleteCacheSubnetGroup
-        , Network.AWS.ElastiCache.DeleteReplicationGroup
-        , Network.AWS.ElastiCache.DeleteSnapshot
-        , Network.AWS.ElastiCache.DescribeCacheClusters
-        , Network.AWS.ElastiCache.DescribeCacheEngineVersions
-        , Network.AWS.ElastiCache.DescribeCacheParameterGroups
-        , Network.AWS.ElastiCache.DescribeCacheParameters
-        , Network.AWS.ElastiCache.DescribeCacheSecurityGroups
-        , Network.AWS.ElastiCache.DescribeCacheSubnetGroups
-        , Network.AWS.ElastiCache.DescribeEngineDefaultParameters
-        , Network.AWS.ElastiCache.DescribeEvents
-        , Network.AWS.ElastiCache.DescribeReplicationGroups
-        , Network.AWS.ElastiCache.DescribeReservedCacheNodes
-        , Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
-        , Network.AWS.ElastiCache.DescribeSnapshots
-        , Network.AWS.ElastiCache.ListAllowedNodeTypeModifications
-        , Network.AWS.ElastiCache.ListTagsForResource
-        , Network.AWS.ElastiCache.ModifyCacheCluster
-        , Network.AWS.ElastiCache.ModifyCacheParameterGroup
-        , Network.AWS.ElastiCache.ModifyCacheSubnetGroup
-        , Network.AWS.ElastiCache.ModifyReplicationGroup
-        , Network.AWS.ElastiCache.ModifyReplicationGroupShardConfiguration
-        , Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
-        , Network.AWS.ElastiCache.RebootCacheCluster
-        , Network.AWS.ElastiCache.RemoveTagsFromResource
-        , Network.AWS.ElastiCache.ResetCacheParameterGroup
-        , Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
-        , Network.AWS.ElastiCache.TestFailover
-        , Network.AWS.ElastiCache.Types
-        , Network.AWS.ElastiCache.Waiters
-
-    other-modules:
-          Network.AWS.ElastiCache.Types.Product
-        , Network.AWS.ElastiCache.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS.Prelude
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.13  && <5
 
 test-suite amazonka-elasticache-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.ElastiCache
+    Test.AWS.ElastiCache.Internal
+    Test.AWS.Gen.ElastiCache
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.ElastiCache
-        , Test.AWS.Gen.ElastiCache
-        , Test.AWS.ElastiCache.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-elasticache
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka-elasticache
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

@@ -1,158 +1,249 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lightsail.CreateDisk
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a block storage disk that can be attached to a Lightsail instance in the same Availability Zone (e.g., @us-east-2a@ ). The disk is created in the regional endpoint that you send the HTTP request to. For more information, see <https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail Regions and Availability Zones in Lightsail> .
+-- Creates a block storage disk that can be attached to an Amazon Lightsail
+-- instance in the same Availability Zone (e.g., @us-east-2a@).
 --
---
+-- The @create disk@ operation supports tag-based access control via
+-- request tags. For more information, see the
+-- <https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags Lightsail Dev Guide>.
 module Network.AWS.Lightsail.CreateDisk
-    (
-    -- * Creating a Request
-      createDisk
-    , CreateDisk
+  ( -- * Creating a Request
+    CreateDisk (..),
+    newCreateDisk,
+
     -- * Request Lenses
-    , cdDiskName
-    , cdAvailabilityZone
-    , cdSizeInGb
+    createDisk_addOns,
+    createDisk_tags,
+    createDisk_diskName,
+    createDisk_availabilityZone,
+    createDisk_sizeInGb,
 
     -- * Destructuring the Response
-    , createDiskResponse
-    , CreateDiskResponse
+    CreateDiskResponse (..),
+    newCreateDiskResponse,
+
     -- * Response Lenses
-    , crsOperations
-    , crsResponseStatus
-    ) where
+    createDiskResponse_operations,
+    createDiskResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createDisk' smart constructor.
+-- | /See:/ 'newCreateDisk' smart constructor.
 data CreateDisk = CreateDisk'
-  { _cdDiskName         :: !Text
-  , _cdAvailabilityZone :: !Text
-  , _cdSizeInGb         :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of objects that represent the add-ons to enable for the new
+    -- disk.
+    addOns :: Prelude.Maybe [AddOnRequest],
+    -- | The tag keys and optional values to add to the resource during create.
+    --
+    -- Use the @TagResource@ action to tag a resource after it\'s created.
+    tags :: Prelude.Maybe [Tag],
+    -- | The unique Lightsail disk name (e.g., @my-disk@).
+    diskName :: Prelude.Text,
+    -- | The Availability Zone where you want to create the disk (e.g.,
+    -- @us-east-2a@). Use the same Availability Zone as the Lightsail instance
+    -- to which you want to attach the disk.
+    --
+    -- Use the @get regions@ operation to list the Availability Zones where
+    -- Lightsail is currently available.
+    availabilityZone :: Prelude.Text,
+    -- | The size of the disk in GB (e.g., @32@).
+    sizeInGb :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateDisk' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'addOns', 'createDisk_addOns' - An array of objects that represent the add-ons to enable for the new
+-- disk.
+--
+-- 'tags', 'createDisk_tags' - The tag keys and optional values to add to the resource during create.
+--
+-- Use the @TagResource@ action to tag a resource after it\'s created.
+--
+-- 'diskName', 'createDisk_diskName' - The unique Lightsail disk name (e.g., @my-disk@).
+--
+-- 'availabilityZone', 'createDisk_availabilityZone' - The Availability Zone where you want to create the disk (e.g.,
+-- @us-east-2a@). Use the same Availability Zone as the Lightsail instance
+-- to which you want to attach the disk.
+--
+-- Use the @get regions@ operation to list the Availability Zones where
+-- Lightsail is currently available.
+--
+-- 'sizeInGb', 'createDisk_sizeInGb' - The size of the disk in GB (e.g., @32@).
+newCreateDisk ::
+  -- | 'diskName'
+  Prelude.Text ->
+  -- | 'availabilityZone'
+  Prelude.Text ->
+  -- | 'sizeInGb'
+  Prelude.Int ->
+  CreateDisk
+newCreateDisk
+  pDiskName_
+  pAvailabilityZone_
+  pSizeInGb_ =
+    CreateDisk'
+      { addOns = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        diskName = pDiskName_,
+        availabilityZone = pAvailabilityZone_,
+        sizeInGb = pSizeInGb_
+      }
 
--- | Creates a value of 'CreateDisk' with the minimum fields required to make a request.
+-- | An array of objects that represent the add-ons to enable for the new
+-- disk.
+createDisk_addOns :: Lens.Lens' CreateDisk (Prelude.Maybe [AddOnRequest])
+createDisk_addOns = Lens.lens (\CreateDisk' {addOns} -> addOns) (\s@CreateDisk' {} a -> s {addOns = a} :: CreateDisk) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The tag keys and optional values to add to the resource during create.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use the @TagResource@ action to tag a resource after it\'s created.
+createDisk_tags :: Lens.Lens' CreateDisk (Prelude.Maybe [Tag])
+createDisk_tags = Lens.lens (\CreateDisk' {tags} -> tags) (\s@CreateDisk' {} a -> s {tags = a} :: CreateDisk) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The unique Lightsail disk name (e.g., @my-disk@).
+createDisk_diskName :: Lens.Lens' CreateDisk Prelude.Text
+createDisk_diskName = Lens.lens (\CreateDisk' {diskName} -> diskName) (\s@CreateDisk' {} a -> s {diskName = a} :: CreateDisk)
+
+-- | The Availability Zone where you want to create the disk (e.g.,
+-- @us-east-2a@). Use the same Availability Zone as the Lightsail instance
+-- to which you want to attach the disk.
 --
--- * 'cdDiskName' - The unique Lightsail disk name (e.g., @my-disk@ ).
+-- Use the @get regions@ operation to list the Availability Zones where
+-- Lightsail is currently available.
+createDisk_availabilityZone :: Lens.Lens' CreateDisk Prelude.Text
+createDisk_availabilityZone = Lens.lens (\CreateDisk' {availabilityZone} -> availabilityZone) (\s@CreateDisk' {} a -> s {availabilityZone = a} :: CreateDisk)
+
+-- | The size of the disk in GB (e.g., @32@).
+createDisk_sizeInGb :: Lens.Lens' CreateDisk Prelude.Int
+createDisk_sizeInGb = Lens.lens (\CreateDisk' {sizeInGb} -> sizeInGb) (\s@CreateDisk' {} a -> s {sizeInGb = a} :: CreateDisk)
+
+instance Prelude.AWSRequest CreateDisk where
+  type Rs CreateDisk = CreateDiskResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateDiskResponse'
+            Prelude.<$> ( x Prelude..?> "operations"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable CreateDisk
+
+instance Prelude.NFData CreateDisk
+
+instance Prelude.ToHeaders CreateDisk where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "Lightsail_20161128.CreateDisk" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON CreateDisk where
+  toJSON CreateDisk' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("addOns" Prelude..=) Prelude.<$> addOns,
+            ("tags" Prelude..=) Prelude.<$> tags,
+            Prelude.Just ("diskName" Prelude..= diskName),
+            Prelude.Just
+              ("availabilityZone" Prelude..= availabilityZone),
+            Prelude.Just ("sizeInGb" Prelude..= sizeInGb)
+          ]
+      )
+
+instance Prelude.ToPath CreateDisk where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery CreateDisk where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newCreateDiskResponse' smart constructor.
+data CreateDiskResponse = CreateDiskResponse'
+  { -- | An array of objects that describe the result of the action, such as the
+    -- status of the request, the timestamp of the request, and the resources
+    -- affected by the request.
+    operations :: Prelude.Maybe [Operation],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreateDiskResponse' with all optional fields omitted.
 --
--- * 'cdAvailabilityZone' - The Availability Zone where you want to create the disk (e.g., @us-east-2a@ ). Choose the same Availability Zone as the Lightsail instance where you want to create the disk. Use the GetRegions operation to list the Availability Zones where Lightsail is currently available.
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cdSizeInGb' - The size of the disk in GB (e.g., @32@ ).
-createDisk
-    :: Text -- ^ 'cdDiskName'
-    -> Text -- ^ 'cdAvailabilityZone'
-    -> Int -- ^ 'cdSizeInGb'
-    -> CreateDisk
-createDisk pDiskName_ pAvailabilityZone_ pSizeInGb_ =
-  CreateDisk'
-    { _cdDiskName = pDiskName_
-    , _cdAvailabilityZone = pAvailabilityZone_
-    , _cdSizeInGb = pSizeInGb_
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'operations', 'createDiskResponse_operations' - An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+--
+-- 'httpStatus', 'createDiskResponse_httpStatus' - The response's http status code.
+newCreateDiskResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateDiskResponse
+newCreateDiskResponse pHttpStatus_ =
+  CreateDiskResponse'
+    { operations = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+createDiskResponse_operations :: Lens.Lens' CreateDiskResponse (Prelude.Maybe [Operation])
+createDiskResponse_operations = Lens.lens (\CreateDiskResponse' {operations} -> operations) (\s@CreateDiskResponse' {} a -> s {operations = a} :: CreateDiskResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The unique Lightsail disk name (e.g., @my-disk@ ).
-cdDiskName :: Lens' CreateDisk Text
-cdDiskName = lens _cdDiskName (\ s a -> s{_cdDiskName = a})
+-- | The response's http status code.
+createDiskResponse_httpStatus :: Lens.Lens' CreateDiskResponse Prelude.Int
+createDiskResponse_httpStatus = Lens.lens (\CreateDiskResponse' {httpStatus} -> httpStatus) (\s@CreateDiskResponse' {} a -> s {httpStatus = a} :: CreateDiskResponse)
 
--- | The Availability Zone where you want to create the disk (e.g., @us-east-2a@ ). Choose the same Availability Zone as the Lightsail instance where you want to create the disk. Use the GetRegions operation to list the Availability Zones where Lightsail is currently available.
-cdAvailabilityZone :: Lens' CreateDisk Text
-cdAvailabilityZone = lens _cdAvailabilityZone (\ s a -> s{_cdAvailabilityZone = a})
-
--- | The size of the disk in GB (e.g., @32@ ).
-cdSizeInGb :: Lens' CreateDisk Int
-cdSizeInGb = lens _cdSizeInGb (\ s a -> s{_cdSizeInGb = a})
-
-instance AWSRequest CreateDisk where
-        type Rs CreateDisk = CreateDiskResponse
-        request = postJSON lightsail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateDiskResponse' <$>
-                   (x .?> "operations" .!@ mempty) <*>
-                     (pure (fromEnum s)))
-
-instance Hashable CreateDisk where
-
-instance NFData CreateDisk where
-
-instance ToHeaders CreateDisk where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Lightsail_20161128.CreateDisk" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON CreateDisk where
-        toJSON CreateDisk'{..}
-          = object
-              (catMaybes
-                 [Just ("diskName" .= _cdDiskName),
-                  Just ("availabilityZone" .= _cdAvailabilityZone),
-                  Just ("sizeInGb" .= _cdSizeInGb)])
-
-instance ToPath CreateDisk where
-        toPath = const "/"
-
-instance ToQuery CreateDisk where
-        toQuery = const mempty
-
--- | /See:/ 'createDiskResponse' smart constructor.
-data CreateDiskResponse = CreateDiskResponse'
-  { _crsOperations     :: !(Maybe [Operation])
-  , _crsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateDiskResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'crsOperations' - An object describing the API operations.
---
--- * 'crsResponseStatus' - -- | The response status code.
-createDiskResponse
-    :: Int -- ^ 'crsResponseStatus'
-    -> CreateDiskResponse
-createDiskResponse pResponseStatus_ =
-  CreateDiskResponse'
-    {_crsOperations = Nothing, _crsResponseStatus = pResponseStatus_}
-
-
--- | An object describing the API operations.
-crsOperations :: Lens' CreateDiskResponse [Operation]
-crsOperations = lens _crsOperations (\ s a -> s{_crsOperations = a}) . _Default . _Coerce
-
--- | -- | The response status code.
-crsResponseStatus :: Lens' CreateDiskResponse Int
-crsResponseStatus = lens _crsResponseStatus (\ s a -> s{_crsResponseStatus = a})
-
-instance NFData CreateDiskResponse where
+instance Prelude.NFData CreateDiskResponse

@@ -1,98 +1,107 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoTAnalytics.DeleteDatastore
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Deletes the specified data store.
---
---
 module Network.AWS.IoTAnalytics.DeleteDatastore
-    (
-    -- * Creating a Request
-      deleteDatastore
-    , DeleteDatastore
+  ( -- * Creating a Request
+    DeleteDatastore (..),
+    newDeleteDatastore,
+
     -- * Request Lenses
-    , ddDatastoreName
+    deleteDatastore_datastoreName,
 
     -- * Destructuring the Response
-    , deleteDatastoreResponse
-    , DeleteDatastoreResponse
-    ) where
+    DeleteDatastoreResponse (..),
+    newDeleteDatastoreResponse,
+  )
+where
 
 import Network.AWS.IoTAnalytics.Types
-import Network.AWS.IoTAnalytics.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteDatastore' smart constructor.
-newtype DeleteDatastore = DeleteDatastore'
-  { _ddDatastoreName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteDatastore' smart constructor.
+data DeleteDatastore = DeleteDatastore'
+  { -- | The name of the data store to delete.
+    datastoreName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteDatastore' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteDatastore' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ddDatastoreName' - The name of the data store to delete.
-deleteDatastore
-    :: Text -- ^ 'ddDatastoreName'
-    -> DeleteDatastore
-deleteDatastore pDatastoreName_ =
-  DeleteDatastore' {_ddDatastoreName = pDatastoreName_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'datastoreName', 'deleteDatastore_datastoreName' - The name of the data store to delete.
+newDeleteDatastore ::
+  -- | 'datastoreName'
+  Prelude.Text ->
+  DeleteDatastore
+newDeleteDatastore pDatastoreName_ =
+  DeleteDatastore' {datastoreName = pDatastoreName_}
 
 -- | The name of the data store to delete.
-ddDatastoreName :: Lens' DeleteDatastore Text
-ddDatastoreName = lens _ddDatastoreName (\ s a -> s{_ddDatastoreName = a})
+deleteDatastore_datastoreName :: Lens.Lens' DeleteDatastore Prelude.Text
+deleteDatastore_datastoreName = Lens.lens (\DeleteDatastore' {datastoreName} -> datastoreName) (\s@DeleteDatastore' {} a -> s {datastoreName = a} :: DeleteDatastore)
 
-instance AWSRequest DeleteDatastore where
-        type Rs DeleteDatastore = DeleteDatastoreResponse
-        request = delete ioTAnalytics
-        response = receiveNull DeleteDatastoreResponse'
+instance Prelude.AWSRequest DeleteDatastore where
+  type Rs DeleteDatastore = DeleteDatastoreResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveNull DeleteDatastoreResponse'
 
-instance Hashable DeleteDatastore where
+instance Prelude.Hashable DeleteDatastore
 
-instance NFData DeleteDatastore where
+instance Prelude.NFData DeleteDatastore
 
-instance ToHeaders DeleteDatastore where
-        toHeaders = const mempty
+instance Prelude.ToHeaders DeleteDatastore where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DeleteDatastore where
-        toPath DeleteDatastore'{..}
-          = mconcat ["/datastores/", toBS _ddDatastoreName]
+instance Prelude.ToPath DeleteDatastore where
+  toPath DeleteDatastore' {..} =
+    Prelude.mconcat
+      ["/datastores/", Prelude.toBS datastoreName]
 
-instance ToQuery DeleteDatastore where
-        toQuery = const mempty
+instance Prelude.ToQuery DeleteDatastore where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'deleteDatastoreResponse' smart constructor.
-data DeleteDatastoreResponse =
-  DeleteDatastoreResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteDatastoreResponse' smart constructor.
+data DeleteDatastoreResponse = DeleteDatastoreResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteDatastoreResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteDatastoreResponse' with all optional fields omitted.
 --
-deleteDatastoreResponse
-    :: DeleteDatastoreResponse
-deleteDatastoreResponse = DeleteDatastoreResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteDatastoreResponse ::
+  DeleteDatastoreResponse
+newDeleteDatastoreResponse = DeleteDatastoreResponse'
 
-
-instance NFData DeleteDatastoreResponse where
+instance Prelude.NFData DeleteDatastoreResponse

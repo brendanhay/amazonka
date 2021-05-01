@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CognitoSync.GetBulkPublishDetails
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,162 +23,239 @@
 --
 -- Get the status of the last BulkPublish operation for an identity pool.
 --
---
--- This API can only be called with developer credentials. You cannot call this API with the temporary user credentials provided by Cognito Identity.
---
+-- This API can only be called with developer credentials. You cannot call
+-- this API with the temporary user credentials provided by Cognito
+-- Identity.
 module Network.AWS.CognitoSync.GetBulkPublishDetails
-    (
-    -- * Creating a Request
-      getBulkPublishDetails
-    , GetBulkPublishDetails
+  ( -- * Creating a Request
+    GetBulkPublishDetails (..),
+    newGetBulkPublishDetails,
+
     -- * Request Lenses
-    , gbpdIdentityPoolId
+    getBulkPublishDetails_identityPoolId,
 
     -- * Destructuring the Response
-    , getBulkPublishDetailsResponse
-    , GetBulkPublishDetailsResponse
+    GetBulkPublishDetailsResponse (..),
+    newGetBulkPublishDetailsResponse,
+
     -- * Response Lenses
-    , gbpdrsBulkPublishStartTime
-    , gbpdrsIdentityPoolId
-    , gbpdrsBulkPublishCompleteTime
-    , gbpdrsFailureMessage
-    , gbpdrsBulkPublishStatus
-    , gbpdrsResponseStatus
-    ) where
+    getBulkPublishDetailsResponse_identityPoolId,
+    getBulkPublishDetailsResponse_bulkPublishStartTime,
+    getBulkPublishDetailsResponse_failureMessage,
+    getBulkPublishDetailsResponse_bulkPublishCompleteTime,
+    getBulkPublishDetailsResponse_bulkPublishStatus,
+    getBulkPublishDetailsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CognitoSync.Types
-import Network.AWS.CognitoSync.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the GetBulkPublishDetails operation.
 --
--- /See:/ 'getBulkPublishDetails' smart constructor.
-newtype GetBulkPublishDetails = GetBulkPublishDetails'
-  { _gbpdIdentityPoolId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newGetBulkPublishDetails' smart constructor.
+data GetBulkPublishDetails = GetBulkPublishDetails'
+  { -- | A name-spaced GUID (for example,
+    -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+    -- Cognito. GUID generation is unique within a region.
+    identityPoolId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetBulkPublishDetails' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetBulkPublishDetails' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gbpdIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-getBulkPublishDetails
-    :: Text -- ^ 'gbpdIdentityPoolId'
-    -> GetBulkPublishDetails
-getBulkPublishDetails pIdentityPoolId_ =
-  GetBulkPublishDetails' {_gbpdIdentityPoolId = pIdentityPoolId_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'identityPoolId', 'getBulkPublishDetails_identityPoolId' - A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
+newGetBulkPublishDetails ::
+  -- | 'identityPoolId'
+  Prelude.Text ->
+  GetBulkPublishDetails
+newGetBulkPublishDetails pIdentityPoolId_ =
+  GetBulkPublishDetails'
+    { identityPoolId =
+        pIdentityPoolId_
+    }
 
+-- | A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
+getBulkPublishDetails_identityPoolId :: Lens.Lens' GetBulkPublishDetails Prelude.Text
+getBulkPublishDetails_identityPoolId = Lens.lens (\GetBulkPublishDetails' {identityPoolId} -> identityPoolId) (\s@GetBulkPublishDetails' {} a -> s {identityPoolId = a} :: GetBulkPublishDetails)
 
--- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-gbpdIdentityPoolId :: Lens' GetBulkPublishDetails Text
-gbpdIdentityPoolId = lens _gbpdIdentityPoolId (\ s a -> s{_gbpdIdentityPoolId = a})
+instance Prelude.AWSRequest GetBulkPublishDetails where
+  type
+    Rs GetBulkPublishDetails =
+      GetBulkPublishDetailsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetBulkPublishDetailsResponse'
+            Prelude.<$> (x Prelude..?> "IdentityPoolId")
+            Prelude.<*> (x Prelude..?> "BulkPublishStartTime")
+            Prelude.<*> (x Prelude..?> "FailureMessage")
+            Prelude.<*> (x Prelude..?> "BulkPublishCompleteTime")
+            Prelude.<*> (x Prelude..?> "BulkPublishStatus")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetBulkPublishDetails where
-        type Rs GetBulkPublishDetails =
-             GetBulkPublishDetailsResponse
-        request = postJSON cognitoSync
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetBulkPublishDetailsResponse' <$>
-                   (x .?> "BulkPublishStartTime") <*>
-                     (x .?> "IdentityPoolId")
-                     <*> (x .?> "BulkPublishCompleteTime")
-                     <*> (x .?> "FailureMessage")
-                     <*> (x .?> "BulkPublishStatus")
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetBulkPublishDetails
 
-instance Hashable GetBulkPublishDetails where
+instance Prelude.NFData GetBulkPublishDetails
 
-instance NFData GetBulkPublishDetails where
+instance Prelude.ToHeaders GetBulkPublishDetails where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders GetBulkPublishDetails where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToJSON GetBulkPublishDetails where
+  toJSON =
+    Prelude.const (Prelude.Object Prelude.mempty)
 
-instance ToJSON GetBulkPublishDetails where
-        toJSON = const (Object mempty)
+instance Prelude.ToPath GetBulkPublishDetails where
+  toPath GetBulkPublishDetails' {..} =
+    Prelude.mconcat
+      [ "/identitypools/",
+        Prelude.toBS identityPoolId,
+        "/getBulkPublishDetails"
+      ]
 
-instance ToPath GetBulkPublishDetails where
-        toPath GetBulkPublishDetails'{..}
-          = mconcat
-              ["/identitypools/", toBS _gbpdIdentityPoolId,
-               "/getBulkPublishDetails"]
-
-instance ToQuery GetBulkPublishDetails where
-        toQuery = const mempty
+instance Prelude.ToQuery GetBulkPublishDetails where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | The output for the GetBulkPublishDetails operation.
 --
--- /See:/ 'getBulkPublishDetailsResponse' smart constructor.
+-- /See:/ 'newGetBulkPublishDetailsResponse' smart constructor.
 data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'
-  { _gbpdrsBulkPublishStartTime    :: !(Maybe POSIX)
-  , _gbpdrsIdentityPoolId          :: !(Maybe Text)
-  , _gbpdrsBulkPublishCompleteTime :: !(Maybe POSIX)
-  , _gbpdrsFailureMessage          :: !(Maybe Text)
-  , _gbpdrsBulkPublishStatus       :: !(Maybe BulkPublishStatus)
-  , _gbpdrsResponseStatus          :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A name-spaced GUID (for example,
+    -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+    -- Cognito. GUID generation is unique within a region.
+    identityPoolId :: Prelude.Maybe Prelude.Text,
+    -- | The date\/time at which the last bulk publish was initiated.
+    bulkPublishStartTime :: Prelude.Maybe Prelude.POSIX,
+    -- | If BulkPublishStatus is FAILED this field will contain the error message
+    -- that caused the bulk publish to fail.
+    failureMessage :: Prelude.Maybe Prelude.Text,
+    -- | If BulkPublishStatus is SUCCEEDED, the time the last bulk publish
+    -- operation completed.
+    bulkPublishCompleteTime :: Prelude.Maybe Prelude.POSIX,
+    -- | Status of the last bulk publish operation, valid values are:
+    --
+    -- NOT_STARTED - No bulk publish has been requested for this identity pool
+    --
+    -- IN_PROGRESS - Data is being published to the configured stream
+    --
+    -- SUCCEEDED - All data for the identity pool has been published to the
+    -- configured stream
+    --
+    -- FAILED - Some portion of the data has failed to publish, check
+    -- FailureMessage for the cause.
+    bulkPublishStatus :: Prelude.Maybe BulkPublishStatus,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetBulkPublishDetailsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetBulkPublishDetailsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gbpdrsBulkPublishStartTime' - The date/time at which the last bulk publish was initiated.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gbpdrsIdentityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
+-- 'identityPoolId', 'getBulkPublishDetailsResponse_identityPoolId' - A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
 --
--- * 'gbpdrsBulkPublishCompleteTime' - If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.
+-- 'bulkPublishStartTime', 'getBulkPublishDetailsResponse_bulkPublishStartTime' - The date\/time at which the last bulk publish was initiated.
 --
--- * 'gbpdrsFailureMessage' - If BulkPublishStatus is FAILED this field will contain the error message that caused the bulk publish to fail.
+-- 'failureMessage', 'getBulkPublishDetailsResponse_failureMessage' - If BulkPublishStatus is FAILED this field will contain the error message
+-- that caused the bulk publish to fail.
 --
--- * 'gbpdrsBulkPublishStatus' - Status of the last bulk publish operation, valid values are: NOT_STARTED - No bulk publish has been requested for this identity pool IN_PROGRESS - Data is being published to the configured stream SUCCEEDED - All data for the identity pool has been published to the configured stream FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.
+-- 'bulkPublishCompleteTime', 'getBulkPublishDetailsResponse_bulkPublishCompleteTime' - If BulkPublishStatus is SUCCEEDED, the time the last bulk publish
+-- operation completed.
 --
--- * 'gbpdrsResponseStatus' - -- | The response status code.
-getBulkPublishDetailsResponse
-    :: Int -- ^ 'gbpdrsResponseStatus'
-    -> GetBulkPublishDetailsResponse
-getBulkPublishDetailsResponse pResponseStatus_ =
+-- 'bulkPublishStatus', 'getBulkPublishDetailsResponse_bulkPublishStatus' - Status of the last bulk publish operation, valid values are:
+--
+-- NOT_STARTED - No bulk publish has been requested for this identity pool
+--
+-- IN_PROGRESS - Data is being published to the configured stream
+--
+-- SUCCEEDED - All data for the identity pool has been published to the
+-- configured stream
+--
+-- FAILED - Some portion of the data has failed to publish, check
+-- FailureMessage for the cause.
+--
+-- 'httpStatus', 'getBulkPublishDetailsResponse_httpStatus' - The response's http status code.
+newGetBulkPublishDetailsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetBulkPublishDetailsResponse
+newGetBulkPublishDetailsResponse pHttpStatus_ =
   GetBulkPublishDetailsResponse'
-    { _gbpdrsBulkPublishStartTime = Nothing
-    , _gbpdrsIdentityPoolId = Nothing
-    , _gbpdrsBulkPublishCompleteTime = Nothing
-    , _gbpdrsFailureMessage = Nothing
-    , _gbpdrsBulkPublishStatus = Nothing
-    , _gbpdrsResponseStatus = pResponseStatus_
+    { identityPoolId =
+        Prelude.Nothing,
+      bulkPublishStartTime = Prelude.Nothing,
+      failureMessage = Prelude.Nothing,
+      bulkPublishCompleteTime = Prelude.Nothing,
+      bulkPublishStatus = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
+getBulkPublishDetailsResponse_identityPoolId :: Lens.Lens' GetBulkPublishDetailsResponse (Prelude.Maybe Prelude.Text)
+getBulkPublishDetailsResponse_identityPoolId = Lens.lens (\GetBulkPublishDetailsResponse' {identityPoolId} -> identityPoolId) (\s@GetBulkPublishDetailsResponse' {} a -> s {identityPoolId = a} :: GetBulkPublishDetailsResponse)
 
--- | The date/time at which the last bulk publish was initiated.
-gbpdrsBulkPublishStartTime :: Lens' GetBulkPublishDetailsResponse (Maybe UTCTime)
-gbpdrsBulkPublishStartTime = lens _gbpdrsBulkPublishStartTime (\ s a -> s{_gbpdrsBulkPublishStartTime = a}) . mapping _Time
+-- | The date\/time at which the last bulk publish was initiated.
+getBulkPublishDetailsResponse_bulkPublishStartTime :: Lens.Lens' GetBulkPublishDetailsResponse (Prelude.Maybe Prelude.UTCTime)
+getBulkPublishDetailsResponse_bulkPublishStartTime = Lens.lens (\GetBulkPublishDetailsResponse' {bulkPublishStartTime} -> bulkPublishStartTime) (\s@GetBulkPublishDetailsResponse' {} a -> s {bulkPublishStartTime = a} :: GetBulkPublishDetailsResponse) Prelude.. Lens.mapping Prelude._Time
 
--- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.
-gbpdrsIdentityPoolId :: Lens' GetBulkPublishDetailsResponse (Maybe Text)
-gbpdrsIdentityPoolId = lens _gbpdrsIdentityPoolId (\ s a -> s{_gbpdrsIdentityPoolId = a})
+-- | If BulkPublishStatus is FAILED this field will contain the error message
+-- that caused the bulk publish to fail.
+getBulkPublishDetailsResponse_failureMessage :: Lens.Lens' GetBulkPublishDetailsResponse (Prelude.Maybe Prelude.Text)
+getBulkPublishDetailsResponse_failureMessage = Lens.lens (\GetBulkPublishDetailsResponse' {failureMessage} -> failureMessage) (\s@GetBulkPublishDetailsResponse' {} a -> s {failureMessage = a} :: GetBulkPublishDetailsResponse)
 
--- | If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.
-gbpdrsBulkPublishCompleteTime :: Lens' GetBulkPublishDetailsResponse (Maybe UTCTime)
-gbpdrsBulkPublishCompleteTime = lens _gbpdrsBulkPublishCompleteTime (\ s a -> s{_gbpdrsBulkPublishCompleteTime = a}) . mapping _Time
+-- | If BulkPublishStatus is SUCCEEDED, the time the last bulk publish
+-- operation completed.
+getBulkPublishDetailsResponse_bulkPublishCompleteTime :: Lens.Lens' GetBulkPublishDetailsResponse (Prelude.Maybe Prelude.UTCTime)
+getBulkPublishDetailsResponse_bulkPublishCompleteTime = Lens.lens (\GetBulkPublishDetailsResponse' {bulkPublishCompleteTime} -> bulkPublishCompleteTime) (\s@GetBulkPublishDetailsResponse' {} a -> s {bulkPublishCompleteTime = a} :: GetBulkPublishDetailsResponse) Prelude.. Lens.mapping Prelude._Time
 
--- | If BulkPublishStatus is FAILED this field will contain the error message that caused the bulk publish to fail.
-gbpdrsFailureMessage :: Lens' GetBulkPublishDetailsResponse (Maybe Text)
-gbpdrsFailureMessage = lens _gbpdrsFailureMessage (\ s a -> s{_gbpdrsFailureMessage = a})
+-- | Status of the last bulk publish operation, valid values are:
+--
+-- NOT_STARTED - No bulk publish has been requested for this identity pool
+--
+-- IN_PROGRESS - Data is being published to the configured stream
+--
+-- SUCCEEDED - All data for the identity pool has been published to the
+-- configured stream
+--
+-- FAILED - Some portion of the data has failed to publish, check
+-- FailureMessage for the cause.
+getBulkPublishDetailsResponse_bulkPublishStatus :: Lens.Lens' GetBulkPublishDetailsResponse (Prelude.Maybe BulkPublishStatus)
+getBulkPublishDetailsResponse_bulkPublishStatus = Lens.lens (\GetBulkPublishDetailsResponse' {bulkPublishStatus} -> bulkPublishStatus) (\s@GetBulkPublishDetailsResponse' {} a -> s {bulkPublishStatus = a} :: GetBulkPublishDetailsResponse)
 
--- | Status of the last bulk publish operation, valid values are: NOT_STARTED - No bulk publish has been requested for this identity pool IN_PROGRESS - Data is being published to the configured stream SUCCEEDED - All data for the identity pool has been published to the configured stream FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.
-gbpdrsBulkPublishStatus :: Lens' GetBulkPublishDetailsResponse (Maybe BulkPublishStatus)
-gbpdrsBulkPublishStatus = lens _gbpdrsBulkPublishStatus (\ s a -> s{_gbpdrsBulkPublishStatus = a})
+-- | The response's http status code.
+getBulkPublishDetailsResponse_httpStatus :: Lens.Lens' GetBulkPublishDetailsResponse Prelude.Int
+getBulkPublishDetailsResponse_httpStatus = Lens.lens (\GetBulkPublishDetailsResponse' {httpStatus} -> httpStatus) (\s@GetBulkPublishDetailsResponse' {} a -> s {httpStatus = a} :: GetBulkPublishDetailsResponse)
 
--- | -- | The response status code.
-gbpdrsResponseStatus :: Lens' GetBulkPublishDetailsResponse Int
-gbpdrsResponseStatus = lens _gbpdrsResponseStatus (\ s a -> s{_gbpdrsResponseStatus = a})
-
-instance NFData GetBulkPublishDetailsResponse where
+instance Prelude.NFData GetBulkPublishDetailsResponse

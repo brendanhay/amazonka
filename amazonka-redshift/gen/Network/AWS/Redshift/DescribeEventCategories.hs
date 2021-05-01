@@ -1,137 +1,175 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Redshift.DescribeEventCategories
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Displays a list of event categories for all event source types, or for a specified source type. For a list of the event categories and source types, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html Amazon Redshift Event Notifications> .
---
---
+-- Displays a list of event categories for all event source types, or for a
+-- specified source type. For a list of the event categories and source
+-- types, go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html Amazon Redshift Event Notifications>.
 module Network.AWS.Redshift.DescribeEventCategories
-    (
-    -- * Creating a Request
-      describeEventCategories
-    , DescribeEventCategories
+  ( -- * Creating a Request
+    DescribeEventCategories (..),
+    newDescribeEventCategories,
+
     -- * Request Lenses
-    , decSourceType
+    describeEventCategories_sourceType,
 
     -- * Destructuring the Response
-    , describeEventCategoriesResponse
-    , DescribeEventCategoriesResponse
+    DescribeEventCategoriesResponse (..),
+    newDescribeEventCategoriesResponse,
+
     -- * Response Lenses
-    , decrsEventCategoriesMapList
-    , decrsResponseStatus
-    ) where
+    describeEventCategoriesResponse_eventCategoriesMapList,
+    describeEventCategoriesResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
-import Network.AWS.Redshift.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'describeEventCategories' smart constructor.
-newtype DescribeEventCategories = DescribeEventCategories'
-  { _decSourceType :: Maybe Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeEventCategories' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'decSourceType' - The source type, such as cluster or parameter group, to which the described event categories apply. Valid values: cluster, cluster-snapshot, cluster-parameter-group, and cluster-security-group.
-describeEventCategories
-    :: DescribeEventCategories
-describeEventCategories = DescribeEventCategories' {_decSourceType = Nothing}
-
-
--- | The source type, such as cluster or parameter group, to which the described event categories apply. Valid values: cluster, cluster-snapshot, cluster-parameter-group, and cluster-security-group.
-decSourceType :: Lens' DescribeEventCategories (Maybe Text)
-decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a})
-
-instance AWSRequest DescribeEventCategories where
-        type Rs DescribeEventCategories =
-             DescribeEventCategoriesResponse
-        request = postQuery redshift
-        response
-          = receiveXMLWrapper "DescribeEventCategoriesResult"
-              (\ s h x ->
-                 DescribeEventCategoriesResponse' <$>
-                   (x .@? "EventCategoriesMapList" .!@ mempty >>=
-                      may (parseXMLList "EventCategoriesMap"))
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeEventCategories where
-
-instance NFData DescribeEventCategories where
-
-instance ToHeaders DescribeEventCategories where
-        toHeaders = const mempty
-
-instance ToPath DescribeEventCategories where
-        toPath = const "/"
-
-instance ToQuery DescribeEventCategories where
-        toQuery DescribeEventCategories'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeEventCategories" :: ByteString),
-               "Version" =: ("2012-12-01" :: ByteString),
-               "SourceType" =: _decSourceType]
+-- /See:/ 'newDescribeEventCategories' smart constructor.
+data DescribeEventCategories = DescribeEventCategories'
+  { -- | The source type, such as cluster or parameter group, to which the
+    -- described event categories apply.
+    --
+    -- Valid values: cluster, cluster-snapshot, cluster-parameter-group,
+    -- cluster-security-group, and scheduled-action.
+    sourceType :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
+-- Create a value of 'DescribeEventCategories' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- /See:/ 'describeEventCategoriesResponse' smart constructor.
-data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
-  { _decrsEventCategoriesMapList :: !(Maybe [EventCategoriesMap])
-  , _decrsResponseStatus         :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeEventCategoriesResponse' with the minimum fields required to make a request.
+-- 'sourceType', 'describeEventCategories_sourceType' - The source type, such as cluster or parameter group, to which the
+-- described event categories apply.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'decrsEventCategoriesMapList' - A list of event categories descriptions.
---
--- * 'decrsResponseStatus' - -- | The response status code.
-describeEventCategoriesResponse
-    :: Int -- ^ 'decrsResponseStatus'
-    -> DescribeEventCategoriesResponse
-describeEventCategoriesResponse pResponseStatus_ =
-  DescribeEventCategoriesResponse'
-    { _decrsEventCategoriesMapList = Nothing
-    , _decrsResponseStatus = pResponseStatus_
+-- Valid values: cluster, cluster-snapshot, cluster-parameter-group,
+-- cluster-security-group, and scheduled-action.
+newDescribeEventCategories ::
+  DescribeEventCategories
+newDescribeEventCategories =
+  DescribeEventCategories'
+    { sourceType =
+        Prelude.Nothing
     }
 
+-- | The source type, such as cluster or parameter group, to which the
+-- described event categories apply.
+--
+-- Valid values: cluster, cluster-snapshot, cluster-parameter-group,
+-- cluster-security-group, and scheduled-action.
+describeEventCategories_sourceType :: Lens.Lens' DescribeEventCategories (Prelude.Maybe Prelude.Text)
+describeEventCategories_sourceType = Lens.lens (\DescribeEventCategories' {sourceType} -> sourceType) (\s@DescribeEventCategories' {} a -> s {sourceType = a} :: DescribeEventCategories)
+
+instance Prelude.AWSRequest DescribeEventCategories where
+  type
+    Rs DescribeEventCategories =
+      DescribeEventCategoriesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "DescribeEventCategoriesResult"
+      ( \s h x ->
+          DescribeEventCategoriesResponse'
+            Prelude.<$> ( x Prelude..@? "EventCategoriesMapList"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may
+                              (Prelude.parseXMLList "EventCategoriesMap")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeEventCategories
+
+instance Prelude.NFData DescribeEventCategories
+
+instance Prelude.ToHeaders DescribeEventCategories where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToPath DescribeEventCategories where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery DescribeEventCategories where
+  toQuery DescribeEventCategories' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DescribeEventCategories" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
+        "SourceType" Prelude.=: sourceType
+      ]
+
+-- |
+--
+-- /See:/ 'newDescribeEventCategoriesResponse' smart constructor.
+data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
+  { -- | A list of event categories descriptions.
+    eventCategoriesMapList :: Prelude.Maybe [EventCategoriesMap],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeEventCategoriesResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'eventCategoriesMapList', 'describeEventCategoriesResponse_eventCategoriesMapList' - A list of event categories descriptions.
+--
+-- 'httpStatus', 'describeEventCategoriesResponse_httpStatus' - The response's http status code.
+newDescribeEventCategoriesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeEventCategoriesResponse
+newDescribeEventCategoriesResponse pHttpStatus_ =
+  DescribeEventCategoriesResponse'
+    { eventCategoriesMapList =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | A list of event categories descriptions.
-decrsEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
-decrsEventCategoriesMapList = lens _decrsEventCategoriesMapList (\ s a -> s{_decrsEventCategoriesMapList = a}) . _Default . _Coerce
+describeEventCategoriesResponse_eventCategoriesMapList :: Lens.Lens' DescribeEventCategoriesResponse (Prelude.Maybe [EventCategoriesMap])
+describeEventCategoriesResponse_eventCategoriesMapList = Lens.lens (\DescribeEventCategoriesResponse' {eventCategoriesMapList} -> eventCategoriesMapList) (\s@DescribeEventCategoriesResponse' {} a -> s {eventCategoriesMapList = a} :: DescribeEventCategoriesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-decrsResponseStatus :: Lens' DescribeEventCategoriesResponse Int
-decrsResponseStatus = lens _decrsResponseStatus (\ s a -> s{_decrsResponseStatus = a})
+-- | The response's http status code.
+describeEventCategoriesResponse_httpStatus :: Lens.Lens' DescribeEventCategoriesResponse Prelude.Int
+describeEventCategoriesResponse_httpStatus = Lens.lens (\DescribeEventCategoriesResponse' {httpStatus} -> httpStatus) (\s@DescribeEventCategoriesResponse' {} a -> s {httpStatus = a} :: DescribeEventCategoriesResponse)
 
-instance NFData DescribeEventCategoriesResponse where
+instance
+  Prelude.NFData
+    DescribeEventCategoriesResponse

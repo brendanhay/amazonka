@@ -1,145 +1,257 @@
-name:                  amazonka-servicecatalog
-version:               1.6.1
-synopsis:              Amazon Service Catalog SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-servicecatalog
+version:            1.6.1
+synopsis:           Amazon Service Catalog SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.ServiceCatalog" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.ServiceCatalog.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.ServiceCatalog" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-servicecatalog
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-servicecatalog
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.ServiceCatalog
+    Network.AWS.ServiceCatalog.AcceptPortfolioShare
+    Network.AWS.ServiceCatalog.AssociateBudgetWithResource
+    Network.AWS.ServiceCatalog.AssociatePrincipalWithPortfolio
+    Network.AWS.ServiceCatalog.AssociateProductWithPortfolio
+    Network.AWS.ServiceCatalog.AssociateServiceActionWithProvisioningArtifact
+    Network.AWS.ServiceCatalog.AssociateTagOptionWithResource
+    Network.AWS.ServiceCatalog.BatchAssociateServiceActionWithProvisioningArtifact
+    Network.AWS.ServiceCatalog.BatchDisassociateServiceActionFromProvisioningArtifact
+    Network.AWS.ServiceCatalog.CopyProduct
+    Network.AWS.ServiceCatalog.CreateConstraint
+    Network.AWS.ServiceCatalog.CreatePortfolio
+    Network.AWS.ServiceCatalog.CreatePortfolioShare
+    Network.AWS.ServiceCatalog.CreateProduct
+    Network.AWS.ServiceCatalog.CreateProvisionedProductPlan
+    Network.AWS.ServiceCatalog.CreateProvisioningArtifact
+    Network.AWS.ServiceCatalog.CreateServiceAction
+    Network.AWS.ServiceCatalog.CreateTagOption
+    Network.AWS.ServiceCatalog.DeleteConstraint
+    Network.AWS.ServiceCatalog.DeletePortfolio
+    Network.AWS.ServiceCatalog.DeletePortfolioShare
+    Network.AWS.ServiceCatalog.DeleteProduct
+    Network.AWS.ServiceCatalog.DeleteProvisionedProductPlan
+    Network.AWS.ServiceCatalog.DeleteProvisioningArtifact
+    Network.AWS.ServiceCatalog.DeleteServiceAction
+    Network.AWS.ServiceCatalog.DeleteTagOption
+    Network.AWS.ServiceCatalog.DescribeConstraint
+    Network.AWS.ServiceCatalog.DescribeCopyProductStatus
+    Network.AWS.ServiceCatalog.DescribePortfolio
+    Network.AWS.ServiceCatalog.DescribePortfolioShares
+    Network.AWS.ServiceCatalog.DescribePortfolioShareStatus
+    Network.AWS.ServiceCatalog.DescribeProduct
+    Network.AWS.ServiceCatalog.DescribeProductAsAdmin
+    Network.AWS.ServiceCatalog.DescribeProductView
+    Network.AWS.ServiceCatalog.DescribeProvisionedProduct
+    Network.AWS.ServiceCatalog.DescribeProvisionedProductPlan
+    Network.AWS.ServiceCatalog.DescribeProvisioningArtifact
+    Network.AWS.ServiceCatalog.DescribeProvisioningParameters
+    Network.AWS.ServiceCatalog.DescribeRecord
+    Network.AWS.ServiceCatalog.DescribeServiceAction
+    Network.AWS.ServiceCatalog.DescribeServiceActionExecutionParameters
+    Network.AWS.ServiceCatalog.DescribeTagOption
+    Network.AWS.ServiceCatalog.DisableAWSOrganizationsAccess
+    Network.AWS.ServiceCatalog.DisassociateBudgetFromResource
+    Network.AWS.ServiceCatalog.DisassociatePrincipalFromPortfolio
+    Network.AWS.ServiceCatalog.DisassociateProductFromPortfolio
+    Network.AWS.ServiceCatalog.DisassociateServiceActionFromProvisioningArtifact
+    Network.AWS.ServiceCatalog.DisassociateTagOptionFromResource
+    Network.AWS.ServiceCatalog.EnableAWSOrganizationsAccess
+    Network.AWS.ServiceCatalog.ExecuteProvisionedProductPlan
+    Network.AWS.ServiceCatalog.ExecuteProvisionedProductServiceAction
+    Network.AWS.ServiceCatalog.GetAWSOrganizationsAccessStatus
+    Network.AWS.ServiceCatalog.GetProvisionedProductOutputs
+    Network.AWS.ServiceCatalog.ImportAsProvisionedProduct
+    Network.AWS.ServiceCatalog.Lens
+    Network.AWS.ServiceCatalog.ListAcceptedPortfolioShares
+    Network.AWS.ServiceCatalog.ListBudgetsForResource
+    Network.AWS.ServiceCatalog.ListConstraintsForPortfolio
+    Network.AWS.ServiceCatalog.ListLaunchPaths
+    Network.AWS.ServiceCatalog.ListOrganizationPortfolioAccess
+    Network.AWS.ServiceCatalog.ListPortfolioAccess
+    Network.AWS.ServiceCatalog.ListPortfolios
+    Network.AWS.ServiceCatalog.ListPortfoliosForProduct
+    Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio
+    Network.AWS.ServiceCatalog.ListProvisionedProductPlans
+    Network.AWS.ServiceCatalog.ListProvisioningArtifacts
+    Network.AWS.ServiceCatalog.ListProvisioningArtifactsForServiceAction
+    Network.AWS.ServiceCatalog.ListRecordHistory
+    Network.AWS.ServiceCatalog.ListResourcesForTagOption
+    Network.AWS.ServiceCatalog.ListServiceActions
+    Network.AWS.ServiceCatalog.ListServiceActionsForProvisioningArtifact
+    Network.AWS.ServiceCatalog.ListStackInstancesForProvisionedProduct
+    Network.AWS.ServiceCatalog.ListTagOptions
+    Network.AWS.ServiceCatalog.ProvisionProduct
+    Network.AWS.ServiceCatalog.RejectPortfolioShare
+    Network.AWS.ServiceCatalog.ScanProvisionedProducts
+    Network.AWS.ServiceCatalog.SearchProducts
+    Network.AWS.ServiceCatalog.SearchProductsAsAdmin
+    Network.AWS.ServiceCatalog.SearchProvisionedProducts
+    Network.AWS.ServiceCatalog.TerminateProvisionedProduct
+    Network.AWS.ServiceCatalog.Types
+    Network.AWS.ServiceCatalog.Types.AccessLevelFilter
+    Network.AWS.ServiceCatalog.Types.AccessLevelFilterKey
+    Network.AWS.ServiceCatalog.Types.AccessStatus
+    Network.AWS.ServiceCatalog.Types.BudgetDetail
+    Network.AWS.ServiceCatalog.Types.ChangeAction
+    Network.AWS.ServiceCatalog.Types.CloudWatchDashboard
+    Network.AWS.ServiceCatalog.Types.ConstraintDetail
+    Network.AWS.ServiceCatalog.Types.ConstraintSummary
+    Network.AWS.ServiceCatalog.Types.CopyOption
+    Network.AWS.ServiceCatalog.Types.CopyProductStatus
+    Network.AWS.ServiceCatalog.Types.DescribePortfolioShareType
+    Network.AWS.ServiceCatalog.Types.EvaluationType
+    Network.AWS.ServiceCatalog.Types.ExecutionParameter
+    Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation
+    Network.AWS.ServiceCatalog.Types.LaunchPath
+    Network.AWS.ServiceCatalog.Types.LaunchPathSummary
+    Network.AWS.ServiceCatalog.Types.ListRecordHistorySearchFilter
+    Network.AWS.ServiceCatalog.Types.ListTagOptionsFilters
+    Network.AWS.ServiceCatalog.Types.OrganizationNode
+    Network.AWS.ServiceCatalog.Types.OrganizationNodeType
+    Network.AWS.ServiceCatalog.Types.ParameterConstraints
+    Network.AWS.ServiceCatalog.Types.PortfolioDetail
+    Network.AWS.ServiceCatalog.Types.PortfolioShareDetail
+    Network.AWS.ServiceCatalog.Types.PortfolioShareType
+    Network.AWS.ServiceCatalog.Types.Principal
+    Network.AWS.ServiceCatalog.Types.PrincipalType
+    Network.AWS.ServiceCatalog.Types.ProductSource
+    Network.AWS.ServiceCatalog.Types.ProductType
+    Network.AWS.ServiceCatalog.Types.ProductViewAggregationValue
+    Network.AWS.ServiceCatalog.Types.ProductViewDetail
+    Network.AWS.ServiceCatalog.Types.ProductViewFilterBy
+    Network.AWS.ServiceCatalog.Types.ProductViewSortBy
+    Network.AWS.ServiceCatalog.Types.ProductViewSummary
+    Network.AWS.ServiceCatalog.Types.PropertyKey
+    Network.AWS.ServiceCatalog.Types.ProvisionedProductAttribute
+    Network.AWS.ServiceCatalog.Types.ProvisionedProductDetail
+    Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanDetails
+    Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanStatus
+    Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary
+    Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType
+    Network.AWS.ServiceCatalog.Types.ProvisionedProductStatus
+    Network.AWS.ServiceCatalog.Types.ProvisionedProductViewFilterBy
+    Network.AWS.ServiceCatalog.Types.ProvisioningArtifact
+    Network.AWS.ServiceCatalog.Types.ProvisioningArtifactDetail
+    Network.AWS.ServiceCatalog.Types.ProvisioningArtifactGuidance
+    Network.AWS.ServiceCatalog.Types.ProvisioningArtifactOutput
+    Network.AWS.ServiceCatalog.Types.ProvisioningArtifactParameter
+    Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences
+    Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties
+    Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPropertyName
+    Network.AWS.ServiceCatalog.Types.ProvisioningArtifactSummary
+    Network.AWS.ServiceCatalog.Types.ProvisioningArtifactType
+    Network.AWS.ServiceCatalog.Types.ProvisioningArtifactView
+    Network.AWS.ServiceCatalog.Types.ProvisioningParameter
+    Network.AWS.ServiceCatalog.Types.ProvisioningPreferences
+    Network.AWS.ServiceCatalog.Types.RecordDetail
+    Network.AWS.ServiceCatalog.Types.RecordError
+    Network.AWS.ServiceCatalog.Types.RecordOutput
+    Network.AWS.ServiceCatalog.Types.RecordStatus
+    Network.AWS.ServiceCatalog.Types.RecordTag
+    Network.AWS.ServiceCatalog.Types.Replacement
+    Network.AWS.ServiceCatalog.Types.RequestStatus
+    Network.AWS.ServiceCatalog.Types.RequiresRecreation
+    Network.AWS.ServiceCatalog.Types.ResourceAttribute
+    Network.AWS.ServiceCatalog.Types.ResourceChange
+    Network.AWS.ServiceCatalog.Types.ResourceChangeDetail
+    Network.AWS.ServiceCatalog.Types.ResourceDetail
+    Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition
+    Network.AWS.ServiceCatalog.Types.ServiceActionAssociation
+    Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode
+    Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionKey
+    Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionType
+    Network.AWS.ServiceCatalog.Types.ServiceActionDetail
+    Network.AWS.ServiceCatalog.Types.ServiceActionSummary
+    Network.AWS.ServiceCatalog.Types.ShareDetails
+    Network.AWS.ServiceCatalog.Types.ShareError
+    Network.AWS.ServiceCatalog.Types.ShareStatus
+    Network.AWS.ServiceCatalog.Types.SortOrder
+    Network.AWS.ServiceCatalog.Types.StackInstance
+    Network.AWS.ServiceCatalog.Types.StackInstanceStatus
+    Network.AWS.ServiceCatalog.Types.StackSetOperationType
+    Network.AWS.ServiceCatalog.Types.Tag
+    Network.AWS.ServiceCatalog.Types.TagOptionDetail
+    Network.AWS.ServiceCatalog.Types.TagOptionSummary
+    Network.AWS.ServiceCatalog.Types.UpdateProvisioningParameter
+    Network.AWS.ServiceCatalog.Types.UpdateProvisioningPreferences
+    Network.AWS.ServiceCatalog.Types.UsageInstruction
+    Network.AWS.ServiceCatalog.UpdateConstraint
+    Network.AWS.ServiceCatalog.UpdatePortfolio
+    Network.AWS.ServiceCatalog.UpdatePortfolioShare
+    Network.AWS.ServiceCatalog.UpdateProduct
+    Network.AWS.ServiceCatalog.UpdateProvisionedProduct
+    Network.AWS.ServiceCatalog.UpdateProvisionedProductProperties
+    Network.AWS.ServiceCatalog.UpdateProvisioningArtifact
+    Network.AWS.ServiceCatalog.UpdateServiceAction
+    Network.AWS.ServiceCatalog.UpdateTagOption
+    Network.AWS.ServiceCatalog.Waiters
 
-    exposed-modules:
-          Network.AWS.ServiceCatalog
-        , Network.AWS.ServiceCatalog.AcceptPortfolioShare
-        , Network.AWS.ServiceCatalog.AssociatePrincipalWithPortfolio
-        , Network.AWS.ServiceCatalog.AssociateProductWithPortfolio
-        , Network.AWS.ServiceCatalog.AssociateTagOptionWithResource
-        , Network.AWS.ServiceCatalog.CopyProduct
-        , Network.AWS.ServiceCatalog.CreateConstraint
-        , Network.AWS.ServiceCatalog.CreatePortfolio
-        , Network.AWS.ServiceCatalog.CreatePortfolioShare
-        , Network.AWS.ServiceCatalog.CreateProduct
-        , Network.AWS.ServiceCatalog.CreateProvisionedProductPlan
-        , Network.AWS.ServiceCatalog.CreateProvisioningArtifact
-        , Network.AWS.ServiceCatalog.CreateTagOption
-        , Network.AWS.ServiceCatalog.DeleteConstraint
-        , Network.AWS.ServiceCatalog.DeletePortfolio
-        , Network.AWS.ServiceCatalog.DeletePortfolioShare
-        , Network.AWS.ServiceCatalog.DeleteProduct
-        , Network.AWS.ServiceCatalog.DeleteProvisionedProductPlan
-        , Network.AWS.ServiceCatalog.DeleteProvisioningArtifact
-        , Network.AWS.ServiceCatalog.DeleteTagOption
-        , Network.AWS.ServiceCatalog.DescribeConstraint
-        , Network.AWS.ServiceCatalog.DescribeCopyProductStatus
-        , Network.AWS.ServiceCatalog.DescribePortfolio
-        , Network.AWS.ServiceCatalog.DescribeProduct
-        , Network.AWS.ServiceCatalog.DescribeProductAsAdmin
-        , Network.AWS.ServiceCatalog.DescribeProductView
-        , Network.AWS.ServiceCatalog.DescribeProvisionedProduct
-        , Network.AWS.ServiceCatalog.DescribeProvisionedProductPlan
-        , Network.AWS.ServiceCatalog.DescribeProvisioningArtifact
-        , Network.AWS.ServiceCatalog.DescribeProvisioningParameters
-        , Network.AWS.ServiceCatalog.DescribeRecord
-        , Network.AWS.ServiceCatalog.DescribeTagOption
-        , Network.AWS.ServiceCatalog.DisassociatePrincipalFromPortfolio
-        , Network.AWS.ServiceCatalog.DisassociateProductFromPortfolio
-        , Network.AWS.ServiceCatalog.DisassociateTagOptionFromResource
-        , Network.AWS.ServiceCatalog.ExecuteProvisionedProductPlan
-        , Network.AWS.ServiceCatalog.ListAcceptedPortfolioShares
-        , Network.AWS.ServiceCatalog.ListConstraintsForPortfolio
-        , Network.AWS.ServiceCatalog.ListLaunchPaths
-        , Network.AWS.ServiceCatalog.ListPortfolioAccess
-        , Network.AWS.ServiceCatalog.ListPortfolios
-        , Network.AWS.ServiceCatalog.ListPortfoliosForProduct
-        , Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio
-        , Network.AWS.ServiceCatalog.ListProvisionedProductPlans
-        , Network.AWS.ServiceCatalog.ListProvisioningArtifacts
-        , Network.AWS.ServiceCatalog.ListRecordHistory
-        , Network.AWS.ServiceCatalog.ListResourcesForTagOption
-        , Network.AWS.ServiceCatalog.ListTagOptions
-        , Network.AWS.ServiceCatalog.ProvisionProduct
-        , Network.AWS.ServiceCatalog.RejectPortfolioShare
-        , Network.AWS.ServiceCatalog.ScanProvisionedProducts
-        , Network.AWS.ServiceCatalog.SearchProducts
-        , Network.AWS.ServiceCatalog.SearchProductsAsAdmin
-        , Network.AWS.ServiceCatalog.SearchProvisionedProducts
-        , Network.AWS.ServiceCatalog.TerminateProvisionedProduct
-        , Network.AWS.ServiceCatalog.Types
-        , Network.AWS.ServiceCatalog.UpdateConstraint
-        , Network.AWS.ServiceCatalog.UpdatePortfolio
-        , Network.AWS.ServiceCatalog.UpdateProduct
-        , Network.AWS.ServiceCatalog.UpdateProvisionedProduct
-        , Network.AWS.ServiceCatalog.UpdateProvisioningArtifact
-        , Network.AWS.ServiceCatalog.UpdateTagOption
-        , Network.AWS.ServiceCatalog.Waiters
-
-    other-modules:
-          Network.AWS.ServiceCatalog.Types.Product
-        , Network.AWS.ServiceCatalog.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS.Prelude
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.13  && <5
 
 test-suite amazonka-servicecatalog-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.ServiceCatalog
+    Test.AWS.ServiceCatalog
+    Test.AWS.ServiceCatalog.Internal
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.ServiceCatalog
-        , Test.AWS.Gen.ServiceCatalog
-        , Test.AWS.ServiceCatalog.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-servicecatalog
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-core            >=1.6.1 && <1.6.2
+    , amazonka-servicecatalog
+    , amazonka-test            >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

@@ -1,152 +1,190 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MachineLearning.UpdateDataSource
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the @DataSourceName@ of a @DataSource@ .
+-- Updates the @DataSourceName@ of a @DataSource@.
 --
---
--- You can use the @GetDataSource@ operation to view the contents of the updated data element.
---
+-- You can use the @GetDataSource@ operation to view the contents of the
+-- updated data element.
 module Network.AWS.MachineLearning.UpdateDataSource
-    (
-    -- * Creating a Request
-      updateDataSource
-    , UpdateDataSource
+  ( -- * Creating a Request
+    UpdateDataSource (..),
+    newUpdateDataSource,
+
     -- * Request Lenses
-    , udsDataSourceId
-    , udsDataSourceName
+    updateDataSource_dataSourceId,
+    updateDataSource_dataSourceName,
 
     -- * Destructuring the Response
-    , updateDataSourceResponse
-    , UpdateDataSourceResponse
+    UpdateDataSourceResponse (..),
+    newUpdateDataSourceResponse,
+
     -- * Response Lenses
-    , udsrsDataSourceId
-    , udsrsResponseStatus
-    ) where
+    updateDataSourceResponse_dataSourceId,
+    updateDataSourceResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MachineLearning.Types
-import Network.AWS.MachineLearning.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateDataSource' smart constructor.
+-- | /See:/ 'newUpdateDataSource' smart constructor.
 data UpdateDataSource = UpdateDataSource'
-  { _udsDataSourceId   :: !Text
-  , _udsDataSourceName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID assigned to the @DataSource@ during creation.
+    dataSourceId :: Prelude.Text,
+    -- | A new user-supplied name or description of the @DataSource@ that will
+    -- replace the current description.
+    dataSourceName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateDataSource' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateDataSource' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'udsDataSourceId' - The ID assigned to the @DataSource@ during creation.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'udsDataSourceName' - A new user-supplied name or description of the @DataSource@ that will replace the current description.
-updateDataSource
-    :: Text -- ^ 'udsDataSourceId'
-    -> Text -- ^ 'udsDataSourceName'
-    -> UpdateDataSource
-updateDataSource pDataSourceId_ pDataSourceName_ =
+-- 'dataSourceId', 'updateDataSource_dataSourceId' - The ID assigned to the @DataSource@ during creation.
+--
+-- 'dataSourceName', 'updateDataSource_dataSourceName' - A new user-supplied name or description of the @DataSource@ that will
+-- replace the current description.
+newUpdateDataSource ::
+  -- | 'dataSourceId'
+  Prelude.Text ->
+  -- | 'dataSourceName'
+  Prelude.Text ->
+  UpdateDataSource
+newUpdateDataSource pDataSourceId_ pDataSourceName_ =
   UpdateDataSource'
-    {_udsDataSourceId = pDataSourceId_, _udsDataSourceName = pDataSourceName_}
-
+    { dataSourceId = pDataSourceId_,
+      dataSourceName = pDataSourceName_
+    }
 
 -- | The ID assigned to the @DataSource@ during creation.
-udsDataSourceId :: Lens' UpdateDataSource Text
-udsDataSourceId = lens _udsDataSourceId (\ s a -> s{_udsDataSourceId = a})
+updateDataSource_dataSourceId :: Lens.Lens' UpdateDataSource Prelude.Text
+updateDataSource_dataSourceId = Lens.lens (\UpdateDataSource' {dataSourceId} -> dataSourceId) (\s@UpdateDataSource' {} a -> s {dataSourceId = a} :: UpdateDataSource)
 
--- | A new user-supplied name or description of the @DataSource@ that will replace the current description.
-udsDataSourceName :: Lens' UpdateDataSource Text
-udsDataSourceName = lens _udsDataSourceName (\ s a -> s{_udsDataSourceName = a})
+-- | A new user-supplied name or description of the @DataSource@ that will
+-- replace the current description.
+updateDataSource_dataSourceName :: Lens.Lens' UpdateDataSource Prelude.Text
+updateDataSource_dataSourceName = Lens.lens (\UpdateDataSource' {dataSourceName} -> dataSourceName) (\s@UpdateDataSource' {} a -> s {dataSourceName = a} :: UpdateDataSource)
 
-instance AWSRequest UpdateDataSource where
-        type Rs UpdateDataSource = UpdateDataSourceResponse
-        request = postJSON machineLearning
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateDataSourceResponse' <$>
-                   (x .?> "DataSourceId") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest UpdateDataSource where
+  type Rs UpdateDataSource = UpdateDataSourceResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateDataSourceResponse'
+            Prelude.<$> (x Prelude..?> "DataSourceId")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateDataSource where
+instance Prelude.Hashable UpdateDataSource
 
-instance NFData UpdateDataSource where
+instance Prelude.NFData UpdateDataSource
 
-instance ToHeaders UpdateDataSource where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonML_20141212.UpdateDataSource" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders UpdateDataSource where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AmazonML_20141212.UpdateDataSource" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON UpdateDataSource where
-        toJSON UpdateDataSource'{..}
-          = object
-              (catMaybes
-                 [Just ("DataSourceId" .= _udsDataSourceId),
-                  Just ("DataSourceName" .= _udsDataSourceName)])
+instance Prelude.ToJSON UpdateDataSource where
+  toJSON UpdateDataSource' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("DataSourceId" Prelude..= dataSourceId),
+            Prelude.Just
+              ("DataSourceName" Prelude..= dataSourceName)
+          ]
+      )
 
-instance ToPath UpdateDataSource where
-        toPath = const "/"
+instance Prelude.ToPath UpdateDataSource where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateDataSource where
-        toQuery = const mempty
+instance Prelude.ToQuery UpdateDataSource where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of an @UpdateDataSource@ operation.
 --
+-- You can see the updated content by using the @GetBatchPrediction@
+-- operation.
 --
--- You can see the updated content by using the @GetBatchPrediction@ operation.
---
---
--- /See:/ 'updateDataSourceResponse' smart constructor.
+-- /See:/ 'newUpdateDataSourceResponse' smart constructor.
 data UpdateDataSourceResponse = UpdateDataSourceResponse'
-  { _udsrsDataSourceId   :: !(Maybe Text)
-  , _udsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID assigned to the @DataSource@ during creation. This value should
+    -- be identical to the value of the @DataSourceID@ in the request.
+    dataSourceId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateDataSourceResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateDataSourceResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'udsrsDataSourceId' - The ID assigned to the @DataSource@ during creation. This value should be identical to the value of the @DataSourceID@ in the request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'udsrsResponseStatus' - -- | The response status code.
-updateDataSourceResponse
-    :: Int -- ^ 'udsrsResponseStatus'
-    -> UpdateDataSourceResponse
-updateDataSourceResponse pResponseStatus_ =
+-- 'dataSourceId', 'updateDataSourceResponse_dataSourceId' - The ID assigned to the @DataSource@ during creation. This value should
+-- be identical to the value of the @DataSourceID@ in the request.
+--
+-- 'httpStatus', 'updateDataSourceResponse_httpStatus' - The response's http status code.
+newUpdateDataSourceResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateDataSourceResponse
+newUpdateDataSourceResponse pHttpStatus_ =
   UpdateDataSourceResponse'
-    {_udsrsDataSourceId = Nothing, _udsrsResponseStatus = pResponseStatus_}
+    { dataSourceId =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The ID assigned to the @DataSource@ during creation. This value should
+-- be identical to the value of the @DataSourceID@ in the request.
+updateDataSourceResponse_dataSourceId :: Lens.Lens' UpdateDataSourceResponse (Prelude.Maybe Prelude.Text)
+updateDataSourceResponse_dataSourceId = Lens.lens (\UpdateDataSourceResponse' {dataSourceId} -> dataSourceId) (\s@UpdateDataSourceResponse' {} a -> s {dataSourceId = a} :: UpdateDataSourceResponse)
 
--- | The ID assigned to the @DataSource@ during creation. This value should be identical to the value of the @DataSourceID@ in the request.
-udsrsDataSourceId :: Lens' UpdateDataSourceResponse (Maybe Text)
-udsrsDataSourceId = lens _udsrsDataSourceId (\ s a -> s{_udsrsDataSourceId = a})
+-- | The response's http status code.
+updateDataSourceResponse_httpStatus :: Lens.Lens' UpdateDataSourceResponse Prelude.Int
+updateDataSourceResponse_httpStatus = Lens.lens (\UpdateDataSourceResponse' {httpStatus} -> httpStatus) (\s@UpdateDataSourceResponse' {} a -> s {httpStatus = a} :: UpdateDataSourceResponse)
 
--- | -- | The response status code.
-udsrsResponseStatus :: Lens' UpdateDataSourceResponse Int
-udsrsResponseStatus = lens _udsrsResponseStatus (\ s a -> s{_udsrsResponseStatus = a})
-
-instance NFData UpdateDataSourceResponse where
+instance Prelude.NFData UpdateDataSourceResponse

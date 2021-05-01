@@ -1,138 +1,165 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of the available solution stack names, with the public version first and then in reverse chronological order.
---
---
+-- Returns a list of the available solution stack names, with the public
+-- version first and then in reverse chronological order.
 module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
-    (
-    -- * Creating a Request
-      listAvailableSolutionStacks
-    , ListAvailableSolutionStacks
+  ( -- * Creating a Request
+    ListAvailableSolutionStacks (..),
+    newListAvailableSolutionStacks,
 
     -- * Destructuring the Response
-    , listAvailableSolutionStacksResponse
-    , ListAvailableSolutionStacksResponse
+    ListAvailableSolutionStacksResponse (..),
+    newListAvailableSolutionStacksResponse,
+
     -- * Response Lenses
-    , lassrsSolutionStacks
-    , lassrsSolutionStackDetails
-    , lassrsResponseStatus
-    ) where
+    listAvailableSolutionStacksResponse_solutionStacks,
+    listAvailableSolutionStacksResponse_solutionStackDetails,
+    listAvailableSolutionStacksResponse_httpStatus,
+  )
+where
 
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listAvailableSolutionStacks' smart constructor.
-data ListAvailableSolutionStacks =
-  ListAvailableSolutionStacks'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newListAvailableSolutionStacks' smart constructor.
+data ListAvailableSolutionStacks = ListAvailableSolutionStacks'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListAvailableSolutionStacks' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListAvailableSolutionStacks' with all optional fields omitted.
 --
-listAvailableSolutionStacks
-    :: ListAvailableSolutionStacks
-listAvailableSolutionStacks = ListAvailableSolutionStacks'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newListAvailableSolutionStacks ::
+  ListAvailableSolutionStacks
+newListAvailableSolutionStacks =
+  ListAvailableSolutionStacks'
 
+instance
+  Prelude.AWSRequest
+    ListAvailableSolutionStacks
+  where
+  type
+    Rs ListAvailableSolutionStacks =
+      ListAvailableSolutionStacksResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "ListAvailableSolutionStacksResult"
+      ( \s h x ->
+          ListAvailableSolutionStacksResponse'
+            Prelude.<$> ( x Prelude..@? "SolutionStacks"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
+                        )
+            Prelude.<*> ( x Prelude..@? "SolutionStackDetails"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "member")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest ListAvailableSolutionStacks where
-        type Rs ListAvailableSolutionStacks =
-             ListAvailableSolutionStacksResponse
-        request = postQuery elasticBeanstalk
-        response
-          = receiveXMLWrapper
-              "ListAvailableSolutionStacksResult"
-              (\ s h x ->
-                 ListAvailableSolutionStacksResponse' <$>
-                   (x .@? "SolutionStacks" .!@ mempty >>=
-                      may (parseXMLList "member"))
-                     <*>
-                     (x .@? "SolutionStackDetails" .!@ mempty >>=
-                        may (parseXMLList "member"))
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable ListAvailableSolutionStacks
 
-instance Hashable ListAvailableSolutionStacks where
+instance Prelude.NFData ListAvailableSolutionStacks
 
-instance NFData ListAvailableSolutionStacks where
+instance
+  Prelude.ToHeaders
+    ListAvailableSolutionStacks
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders ListAvailableSolutionStacks where
-        toHeaders = const mempty
+instance Prelude.ToPath ListAvailableSolutionStacks where
+  toPath = Prelude.const "/"
 
-instance ToPath ListAvailableSolutionStacks where
-        toPath = const "/"
-
-instance ToQuery ListAvailableSolutionStacks where
-        toQuery
-          = const
-              (mconcat
-                 ["Action" =:
-                    ("ListAvailableSolutionStacks" :: ByteString),
-                  "Version" =: ("2010-12-01" :: ByteString)])
+instance Prelude.ToQuery ListAvailableSolutionStacks where
+  toQuery =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Action"
+              Prelude.=: ( "ListAvailableSolutionStacks" ::
+                             Prelude.ByteString
+                         ),
+            "Version"
+              Prelude.=: ("2010-12-01" :: Prelude.ByteString)
+          ]
+      )
 
 -- | A list of available AWS Elastic Beanstalk solution stacks.
 --
---
---
--- /See:/ 'listAvailableSolutionStacksResponse' smart constructor.
+-- /See:/ 'newListAvailableSolutionStacksResponse' smart constructor.
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
-  { _lassrsSolutionStacks       :: !(Maybe [Text])
-  , _lassrsSolutionStackDetails :: !(Maybe [SolutionStackDescription])
-  , _lassrsResponseStatus       :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of available solution stacks.
+    solutionStacks :: Prelude.Maybe [Prelude.Text],
+    -- | A list of available solution stacks and their SolutionStackDescription.
+    solutionStackDetails :: Prelude.Maybe [SolutionStackDescription],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListAvailableSolutionStacksResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListAvailableSolutionStacksResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lassrsSolutionStacks' - A list of available solution stacks.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lassrsSolutionStackDetails' - A list of available solution stacks and their 'SolutionStackDescription' .
+-- 'solutionStacks', 'listAvailableSolutionStacksResponse_solutionStacks' - A list of available solution stacks.
 --
--- * 'lassrsResponseStatus' - -- | The response status code.
-listAvailableSolutionStacksResponse
-    :: Int -- ^ 'lassrsResponseStatus'
-    -> ListAvailableSolutionStacksResponse
-listAvailableSolutionStacksResponse pResponseStatus_ =
+-- 'solutionStackDetails', 'listAvailableSolutionStacksResponse_solutionStackDetails' - A list of available solution stacks and their SolutionStackDescription.
+--
+-- 'httpStatus', 'listAvailableSolutionStacksResponse_httpStatus' - The response's http status code.
+newListAvailableSolutionStacksResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListAvailableSolutionStacksResponse
+newListAvailableSolutionStacksResponse pHttpStatus_ =
   ListAvailableSolutionStacksResponse'
-    { _lassrsSolutionStacks = Nothing
-    , _lassrsSolutionStackDetails = Nothing
-    , _lassrsResponseStatus = pResponseStatus_
+    { solutionStacks =
+        Prelude.Nothing,
+      solutionStackDetails = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | A list of available solution stacks.
-lassrsSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
-lassrsSolutionStacks = lens _lassrsSolutionStacks (\ s a -> s{_lassrsSolutionStacks = a}) . _Default . _Coerce
+listAvailableSolutionStacksResponse_solutionStacks :: Lens.Lens' ListAvailableSolutionStacksResponse (Prelude.Maybe [Prelude.Text])
+listAvailableSolutionStacksResponse_solutionStacks = Lens.lens (\ListAvailableSolutionStacksResponse' {solutionStacks} -> solutionStacks) (\s@ListAvailableSolutionStacksResponse' {} a -> s {solutionStacks = a} :: ListAvailableSolutionStacksResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | A list of available solution stacks and their 'SolutionStackDescription' .
-lassrsSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [SolutionStackDescription]
-lassrsSolutionStackDetails = lens _lassrsSolutionStackDetails (\ s a -> s{_lassrsSolutionStackDetails = a}) . _Default . _Coerce
+-- | A list of available solution stacks and their SolutionStackDescription.
+listAvailableSolutionStacksResponse_solutionStackDetails :: Lens.Lens' ListAvailableSolutionStacksResponse (Prelude.Maybe [SolutionStackDescription])
+listAvailableSolutionStacksResponse_solutionStackDetails = Lens.lens (\ListAvailableSolutionStacksResponse' {solutionStackDetails} -> solutionStackDetails) (\s@ListAvailableSolutionStacksResponse' {} a -> s {solutionStackDetails = a} :: ListAvailableSolutionStacksResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-lassrsResponseStatus :: Lens' ListAvailableSolutionStacksResponse Int
-lassrsResponseStatus = lens _lassrsResponseStatus (\ s a -> s{_lassrsResponseStatus = a})
+-- | The response's http status code.
+listAvailableSolutionStacksResponse_httpStatus :: Lens.Lens' ListAvailableSolutionStacksResponse Prelude.Int
+listAvailableSolutionStacksResponse_httpStatus = Lens.lens (\ListAvailableSolutionStacksResponse' {httpStatus} -> httpStatus) (\s@ListAvailableSolutionStacksResponse' {} a -> s {httpStatus = a} :: ListAvailableSolutionStacksResponse)
 
-instance NFData ListAvailableSolutionStacksResponse
-         where
+instance
+  Prelude.NFData
+    ListAvailableSolutionStacksResponse

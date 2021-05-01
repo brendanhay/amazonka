@@ -1,114 +1,155 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElasticBeanstalk.RebuildEnvironment
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes and recreates all of the AWS resources (for example: the Auto Scaling group, load balancer, etc.) for a specified environment and forces a restart.
---
---
+-- Deletes and recreates all of the AWS resources (for example: the Auto
+-- Scaling group, load balancer, etc.) for a specified environment and
+-- forces a restart.
 module Network.AWS.ElasticBeanstalk.RebuildEnvironment
-    (
-    -- * Creating a Request
-      rebuildEnvironment
-    , RebuildEnvironment
+  ( -- * Creating a Request
+    RebuildEnvironment (..),
+    newRebuildEnvironment,
+
     -- * Request Lenses
-    , reEnvironmentName
-    , reEnvironmentId
+    rebuildEnvironment_environmentId,
+    rebuildEnvironment_environmentName,
 
     -- * Destructuring the Response
-    , rebuildEnvironmentResponse
-    , RebuildEnvironmentResponse
-    ) where
+    RebuildEnvironmentResponse (..),
+    newRebuildEnvironmentResponse,
+  )
+where
 
 import Network.AWS.ElasticBeanstalk.Types
-import Network.AWS.ElasticBeanstalk.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'rebuildEnvironment' smart constructor.
+-- /See:/ 'newRebuildEnvironment' smart constructor.
 data RebuildEnvironment = RebuildEnvironment'
-  { _reEnvironmentName :: !(Maybe Text)
-  , _reEnvironmentId   :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the environment to rebuild.
+    --
+    -- Condition: You must specify either this or an EnvironmentName, or both.
+    -- If you do not specify either, AWS Elastic Beanstalk returns
+    -- @MissingRequiredParameter@ error.
+    environmentId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the environment to rebuild.
+    --
+    -- Condition: You must specify either this or an EnvironmentId, or both. If
+    -- you do not specify either, AWS Elastic Beanstalk returns
+    -- @MissingRequiredParameter@ error.
+    environmentName :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'RebuildEnvironment' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'RebuildEnvironment' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'reEnvironmentName' - The name of the environment to rebuild. Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'reEnvironmentId' - The ID of the environment to rebuild. Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
-rebuildEnvironment
-    :: RebuildEnvironment
-rebuildEnvironment =
-  RebuildEnvironment' {_reEnvironmentName = Nothing, _reEnvironmentId = Nothing}
+-- 'environmentId', 'rebuildEnvironment_environmentId' - The ID of the environment to rebuild.
+--
+-- Condition: You must specify either this or an EnvironmentName, or both.
+-- If you do not specify either, AWS Elastic Beanstalk returns
+-- @MissingRequiredParameter@ error.
+--
+-- 'environmentName', 'rebuildEnvironment_environmentName' - The name of the environment to rebuild.
+--
+-- Condition: You must specify either this or an EnvironmentId, or both. If
+-- you do not specify either, AWS Elastic Beanstalk returns
+-- @MissingRequiredParameter@ error.
+newRebuildEnvironment ::
+  RebuildEnvironment
+newRebuildEnvironment =
+  RebuildEnvironment'
+    { environmentId =
+        Prelude.Nothing,
+      environmentName = Prelude.Nothing
+    }
 
+-- | The ID of the environment to rebuild.
+--
+-- Condition: You must specify either this or an EnvironmentName, or both.
+-- If you do not specify either, AWS Elastic Beanstalk returns
+-- @MissingRequiredParameter@ error.
+rebuildEnvironment_environmentId :: Lens.Lens' RebuildEnvironment (Prelude.Maybe Prelude.Text)
+rebuildEnvironment_environmentId = Lens.lens (\RebuildEnvironment' {environmentId} -> environmentId) (\s@RebuildEnvironment' {} a -> s {environmentId = a} :: RebuildEnvironment)
 
--- | The name of the environment to rebuild. Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
-reEnvironmentName :: Lens' RebuildEnvironment (Maybe Text)
-reEnvironmentName = lens _reEnvironmentName (\ s a -> s{_reEnvironmentName = a})
+-- | The name of the environment to rebuild.
+--
+-- Condition: You must specify either this or an EnvironmentId, or both. If
+-- you do not specify either, AWS Elastic Beanstalk returns
+-- @MissingRequiredParameter@ error.
+rebuildEnvironment_environmentName :: Lens.Lens' RebuildEnvironment (Prelude.Maybe Prelude.Text)
+rebuildEnvironment_environmentName = Lens.lens (\RebuildEnvironment' {environmentName} -> environmentName) (\s@RebuildEnvironment' {} a -> s {environmentName = a} :: RebuildEnvironment)
 
--- | The ID of the environment to rebuild. Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
-reEnvironmentId :: Lens' RebuildEnvironment (Maybe Text)
-reEnvironmentId = lens _reEnvironmentId (\ s a -> s{_reEnvironmentId = a})
+instance Prelude.AWSRequest RebuildEnvironment where
+  type
+    Rs RebuildEnvironment =
+      RebuildEnvironmentResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveNull RebuildEnvironmentResponse'
 
-instance AWSRequest RebuildEnvironment where
-        type Rs RebuildEnvironment =
-             RebuildEnvironmentResponse
-        request = postQuery elasticBeanstalk
-        response = receiveNull RebuildEnvironmentResponse'
+instance Prelude.Hashable RebuildEnvironment
 
-instance Hashable RebuildEnvironment where
+instance Prelude.NFData RebuildEnvironment
 
-instance NFData RebuildEnvironment where
+instance Prelude.ToHeaders RebuildEnvironment where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders RebuildEnvironment where
-        toHeaders = const mempty
+instance Prelude.ToPath RebuildEnvironment where
+  toPath = Prelude.const "/"
 
-instance ToPath RebuildEnvironment where
-        toPath = const "/"
+instance Prelude.ToQuery RebuildEnvironment where
+  toQuery RebuildEnvironment' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("RebuildEnvironment" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2010-12-01" :: Prelude.ByteString),
+        "EnvironmentId" Prelude.=: environmentId,
+        "EnvironmentName" Prelude.=: environmentName
+      ]
 
-instance ToQuery RebuildEnvironment where
-        toQuery RebuildEnvironment'{..}
-          = mconcat
-              ["Action" =: ("RebuildEnvironment" :: ByteString),
-               "Version" =: ("2010-12-01" :: ByteString),
-               "EnvironmentName" =: _reEnvironmentName,
-               "EnvironmentId" =: _reEnvironmentId]
+-- | /See:/ 'newRebuildEnvironmentResponse' smart constructor.
+data RebuildEnvironmentResponse = RebuildEnvironmentResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
--- | /See:/ 'rebuildEnvironmentResponse' smart constructor.
-data RebuildEnvironmentResponse =
+-- |
+-- Create a value of 'RebuildEnvironmentResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newRebuildEnvironmentResponse ::
+  RebuildEnvironmentResponse
+newRebuildEnvironmentResponse =
   RebuildEnvironmentResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'RebuildEnvironmentResponse' with the minimum fields required to make a request.
---
-rebuildEnvironmentResponse
-    :: RebuildEnvironmentResponse
-rebuildEnvironmentResponse = RebuildEnvironmentResponse'
-
-
-instance NFData RebuildEnvironmentResponse where
+instance Prelude.NFData RebuildEnvironmentResponse

@@ -1,23 +1,17 @@
-{-# LANGUAGE OverloadedStrings #-}
-
+-- |
 -- Module      : Test.AWS.DirectoryService
--- Copyright   : (c) 2013-2018 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
--- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
--- Stability   : experimental
+-- Copyright   : (c) 2013-2021 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+-- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
-
 module Test.AWS.DirectoryService
-    ( tests
-    , fixtures
-    ) where
+  ( tests,
+    fixtures,
+  )
+where
 
-import           Network.AWS.DirectoryService
-import           Test.AWS.Gen.DirectoryService
-import           Test.Tasty
+import Test.Tasty (TestTree)
 
 tests :: [TestTree]
 tests = []

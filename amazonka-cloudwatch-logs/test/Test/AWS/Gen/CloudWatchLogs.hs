@@ -1,16 +1,15 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-orphans        #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Test.AWS.Gen.CloudWatchLogs
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Gen.CloudWatchLogs where
 
 import Data.Proxy
@@ -28,606 +27,852 @@ import Test.Tasty
 -- fixtures :: TestTree
 -- fixtures =
 --     [ testGroup "request"
---         [ requestDescribeDestinations $
---             describeDestinations
---
---         , requestUntagLogGroup $
---             untagLogGroup
---
---         , requestCreateExportTask $
---             createExportTask
---
---         , requestPutDestination $
---             putDestination
---
---         , requestDescribeSubscriptionFilters $
---             describeSubscriptionFilters
---
---         , requestGetLogEvents $
---             getLogEvents
---
---         , requestDescribeLogGroups $
---             describeLogGroups
---
---         , requestDeleteDestination $
---             deleteDestination
---
---         , requestDisassociateKMSKey $
---             disassociateKMSKey
---
---         , requestFilterLogEvents $
---             filterLogEvents
---
---         , requestTagLogGroup $
---             tagLogGroup
---
---         , requestDescribeResourcePolicies $
---             describeResourcePolicies
---
---         , requestDeleteLogStream $
---             deleteLogStream
---
---         , requestCreateLogStream $
---             createLogStream
---
---         , requestCreateLogGroup $
---             createLogGroup
+--         [ requestGetLogRecord $
+--             newGetLogRecord
 --
 --         , requestDescribeExportTasks $
---             describeExportTasks
+--             newDescribeExportTasks
 --
---         , requestCancelExportTask $
---             cancelExportTask
+--         , requestCreateLogStream $
+--             newCreateLogStream
 --
---         , requestPutSubscriptionFilter $
---             putSubscriptionFilter
+--         , requestDescribeResourcePolicies $
+--             newDescribeResourcePolicies
 --
---         , requestDeleteLogGroup $
---             deleteLogGroup
+--         , requestDescribeQueryDefinitions $
+--             newDescribeQueryDefinitions
 --
---         , requestDeleteSubscriptionFilter $
---             deleteSubscriptionFilter
---
---         , requestPutLogEvents $
---             putLogEvents
---
---         , requestDescribeMetricFilters $
---             describeMetricFilters
---
---         , requestTestMetricFilter $
---             testMetricFilter
---
---         , requestPutDestinationPolicy $
---             putDestinationPolicy
---
---         , requestPutMetricFilter $
---             putMetricFilter
---
---         , requestDeleteRetentionPolicy $
---             deleteRetentionPolicy
---
---         , requestDeleteMetricFilter $
---             deleteMetricFilter
---
---         , requestPutRetentionPolicy $
---             putRetentionPolicy
---
---         , requestListTagsLogGroup $
---             listTagsLogGroup
---
---         , requestPutResourcePolicy $
---             putResourcePolicy
---
---         , requestDeleteResourcePolicy $
---             deleteResourcePolicy
---
---         , requestAssociateKMSKey $
---             associateKMSKey
+--         , requestDeleteQueryDefinition $
+--             newDeleteQueryDefinition
 --
 --         , requestDescribeLogStreams $
---             describeLogStreams
+--             newDescribeLogStreams
+--
+--         , requestPutResourcePolicy $
+--             newPutResourcePolicy
+--
+--         , requestDisassociateKmsKey $
+--             newDisassociateKmsKey
+--
+--         , requestDescribeSubscriptionFilters $
+--             newDescribeSubscriptionFilters
+--
+--         , requestDescribeLogGroups $
+--             newDescribeLogGroups
+--
+--         , requestPutRetentionPolicy $
+--             newPutRetentionPolicy
+--
+--         , requestPutDestinationPolicy $
+--             newPutDestinationPolicy
+--
+--         , requestDeleteDestination $
+--             newDeleteDestination
+--
+--         , requestDeleteMetricFilter $
+--             newDeleteMetricFilter
+--
+--         , requestDescribeDestinations $
+--             newDescribeDestinations
+--
+--         , requestPutSubscriptionFilter $
+--             newPutSubscriptionFilter
+--
+--         , requestDescribeMetricFilters $
+--             newDescribeMetricFilters
+--
+--         , requestCancelExportTask $
+--             newCancelExportTask
+--
+--         , requestCreateLogGroup $
+--             newCreateLogGroup
+--
+--         , requestGetLogGroupFields $
+--             newGetLogGroupFields
+--
+--         , requestDescribeQueries $
+--             newDescribeQueries
+--
+--         , requestDeleteLogStream $
+--             newDeleteLogStream
+--
+--         , requestTagLogGroup $
+--             newTagLogGroup
+--
+--         , requestAssociateKmsKey $
+--             newAssociateKmsKey
+--
+--         , requestGetQueryResults $
+--             newGetQueryResults
+--
+--         , requestPutQueryDefinition $
+--             newPutQueryDefinition
+--
+--         , requestDeleteResourcePolicy $
+--             newDeleteResourcePolicy
+--
+--         , requestFilterLogEvents $
+--             newFilterLogEvents
+--
+--         , requestListTagsLogGroup $
+--             newListTagsLogGroup
+--
+--         , requestDeleteRetentionPolicy $
+--             newDeleteRetentionPolicy
+--
+--         , requestPutDestination $
+--             newPutDestination
+--
+--         , requestPutMetricFilter $
+--             newPutMetricFilter
+--
+--         , requestCreateExportTask $
+--             newCreateExportTask
+--
+--         , requestGetLogEvents $
+--             newGetLogEvents
+--
+--         , requestPutLogEvents $
+--             newPutLogEvents
+--
+--         , requestStopQuery $
+--             newStopQuery
+--
+--         , requestDeleteLogGroup $
+--             newDeleteLogGroup
+--
+--         , requestUntagLogGroup $
+--             newUntagLogGroup
+--
+--         , requestTestMetricFilter $
+--             newTestMetricFilter
+--
+--         , requestStartQuery $
+--             newStartQuery
+--
+--         , requestDeleteSubscriptionFilter $
+--             newDeleteSubscriptionFilter
 --
 --           ]
 
 --     , testGroup "response"
---         [ responseDescribeDestinations $
---             describeDestinationsResponse
---
---         , responseUntagLogGroup $
---             untagLogGroupResponse
---
---         , responseCreateExportTask $
---             createExportTaskResponse
---
---         , responsePutDestination $
---             putDestinationResponse
---
---         , responseDescribeSubscriptionFilters $
---             describeSubscriptionFiltersResponse
---
---         , responseGetLogEvents $
---             getLogEventsResponse
---
---         , responseDescribeLogGroups $
---             describeLogGroupsResponse
---
---         , responseDeleteDestination $
---             deleteDestinationResponse
---
---         , responseDisassociateKMSKey $
---             disassociateKMSKeyResponse
---
---         , responseFilterLogEvents $
---             filterLogEventsResponse
---
---         , responseTagLogGroup $
---             tagLogGroupResponse
---
---         , responseDescribeResourcePolicies $
---             describeResourcePoliciesResponse
---
---         , responseDeleteLogStream $
---             deleteLogStreamResponse
---
---         , responseCreateLogStream $
---             createLogStreamResponse
---
---         , responseCreateLogGroup $
---             createLogGroupResponse
+--         [ responseGetLogRecord $
+--             newGetLogRecordResponse
 --
 --         , responseDescribeExportTasks $
---             describeExportTasksResponse
+--             newDescribeExportTasksResponse
 --
---         , responseCancelExportTask $
---             cancelExportTaskResponse
+--         , responseCreateLogStream $
+--             newCreateLogStreamResponse
 --
---         , responsePutSubscriptionFilter $
---             putSubscriptionFilterResponse
+--         , responseDescribeResourcePolicies $
+--             newDescribeResourcePoliciesResponse
 --
---         , responseDeleteLogGroup $
---             deleteLogGroupResponse
+--         , responseDescribeQueryDefinitions $
+--             newDescribeQueryDefinitionsResponse
 --
---         , responseDeleteSubscriptionFilter $
---             deleteSubscriptionFilterResponse
---
---         , responsePutLogEvents $
---             putLogEventsResponse
---
---         , responseDescribeMetricFilters $
---             describeMetricFiltersResponse
---
---         , responseTestMetricFilter $
---             testMetricFilterResponse
---
---         , responsePutDestinationPolicy $
---             putDestinationPolicyResponse
---
---         , responsePutMetricFilter $
---             putMetricFilterResponse
---
---         , responseDeleteRetentionPolicy $
---             deleteRetentionPolicyResponse
---
---         , responseDeleteMetricFilter $
---             deleteMetricFilterResponse
---
---         , responsePutRetentionPolicy $
---             putRetentionPolicyResponse
---
---         , responseListTagsLogGroup $
---             listTagsLogGroupResponse
---
---         , responsePutResourcePolicy $
---             putResourcePolicyResponse
---
---         , responseDeleteResourcePolicy $
---             deleteResourcePolicyResponse
---
---         , responseAssociateKMSKey $
---             associateKMSKeyResponse
+--         , responseDeleteQueryDefinition $
+--             newDeleteQueryDefinitionResponse
 --
 --         , responseDescribeLogStreams $
---             describeLogStreamsResponse
+--             newDescribeLogStreamsResponse
+--
+--         , responsePutResourcePolicy $
+--             newPutResourcePolicyResponse
+--
+--         , responseDisassociateKmsKey $
+--             newDisassociateKmsKeyResponse
+--
+--         , responseDescribeSubscriptionFilters $
+--             newDescribeSubscriptionFiltersResponse
+--
+--         , responseDescribeLogGroups $
+--             newDescribeLogGroupsResponse
+--
+--         , responsePutRetentionPolicy $
+--             newPutRetentionPolicyResponse
+--
+--         , responsePutDestinationPolicy $
+--             newPutDestinationPolicyResponse
+--
+--         , responseDeleteDestination $
+--             newDeleteDestinationResponse
+--
+--         , responseDeleteMetricFilter $
+--             newDeleteMetricFilterResponse
+--
+--         , responseDescribeDestinations $
+--             newDescribeDestinationsResponse
+--
+--         , responsePutSubscriptionFilter $
+--             newPutSubscriptionFilterResponse
+--
+--         , responseDescribeMetricFilters $
+--             newDescribeMetricFiltersResponse
+--
+--         , responseCancelExportTask $
+--             newCancelExportTaskResponse
+--
+--         , responseCreateLogGroup $
+--             newCreateLogGroupResponse
+--
+--         , responseGetLogGroupFields $
+--             newGetLogGroupFieldsResponse
+--
+--         , responseDescribeQueries $
+--             newDescribeQueriesResponse
+--
+--         , responseDeleteLogStream $
+--             newDeleteLogStreamResponse
+--
+--         , responseTagLogGroup $
+--             newTagLogGroupResponse
+--
+--         , responseAssociateKmsKey $
+--             newAssociateKmsKeyResponse
+--
+--         , responseGetQueryResults $
+--             newGetQueryResultsResponse
+--
+--         , responsePutQueryDefinition $
+--             newPutQueryDefinitionResponse
+--
+--         , responseDeleteResourcePolicy $
+--             newDeleteResourcePolicyResponse
+--
+--         , responseFilterLogEvents $
+--             newFilterLogEventsResponse
+--
+--         , responseListTagsLogGroup $
+--             newListTagsLogGroupResponse
+--
+--         , responseDeleteRetentionPolicy $
+--             newDeleteRetentionPolicyResponse
+--
+--         , responsePutDestination $
+--             newPutDestinationResponse
+--
+--         , responsePutMetricFilter $
+--             newPutMetricFilterResponse
+--
+--         , responseCreateExportTask $
+--             newCreateExportTaskResponse
+--
+--         , responseGetLogEvents $
+--             newGetLogEventsResponse
+--
+--         , responsePutLogEvents $
+--             newPutLogEventsResponse
+--
+--         , responseStopQuery $
+--             newStopQueryResponse
+--
+--         , responseDeleteLogGroup $
+--             newDeleteLogGroupResponse
+--
+--         , responseUntagLogGroup $
+--             newUntagLogGroupResponse
+--
+--         , responseTestMetricFilter $
+--             newTestMetricFilterResponse
+--
+--         , responseStartQuery $
+--             newStartQueryResponse
+--
+--         , responseDeleteSubscriptionFilter $
+--             newDeleteSubscriptionFilterResponse
 --
 --           ]
 --     ]
 
 -- Requests
 
-requestDescribeDestinations :: DescribeDestinations -> TestTree
-requestDescribeDestinations = req
-    "DescribeDestinations"
-    "fixture/DescribeDestinations.yaml"
-
-requestUntagLogGroup :: UntagLogGroup -> TestTree
-requestUntagLogGroup = req
-    "UntagLogGroup"
-    "fixture/UntagLogGroup.yaml"
-
-requestCreateExportTask :: CreateExportTask -> TestTree
-requestCreateExportTask = req
-    "CreateExportTask"
-    "fixture/CreateExportTask.yaml"
-
-requestPutDestination :: PutDestination -> TestTree
-requestPutDestination = req
-    "PutDestination"
-    "fixture/PutDestination.yaml"
-
-requestDescribeSubscriptionFilters :: DescribeSubscriptionFilters -> TestTree
-requestDescribeSubscriptionFilters = req
-    "DescribeSubscriptionFilters"
-    "fixture/DescribeSubscriptionFilters.yaml"
-
-requestGetLogEvents :: GetLogEvents -> TestTree
-requestGetLogEvents = req
-    "GetLogEvents"
-    "fixture/GetLogEvents.yaml"
-
-requestDescribeLogGroups :: DescribeLogGroups -> TestTree
-requestDescribeLogGroups = req
-    "DescribeLogGroups"
-    "fixture/DescribeLogGroups.yaml"
-
-requestDeleteDestination :: DeleteDestination -> TestTree
-requestDeleteDestination = req
-    "DeleteDestination"
-    "fixture/DeleteDestination.yaml"
-
-requestDisassociateKMSKey :: DisassociateKMSKey -> TestTree
-requestDisassociateKMSKey = req
-    "DisassociateKMSKey"
-    "fixture/DisassociateKMSKey.yaml"
-
-requestFilterLogEvents :: FilterLogEvents -> TestTree
-requestFilterLogEvents = req
-    "FilterLogEvents"
-    "fixture/FilterLogEvents.yaml"
-
-requestTagLogGroup :: TagLogGroup -> TestTree
-requestTagLogGroup = req
-    "TagLogGroup"
-    "fixture/TagLogGroup.yaml"
-
-requestDescribeResourcePolicies :: DescribeResourcePolicies -> TestTree
-requestDescribeResourcePolicies = req
-    "DescribeResourcePolicies"
-    "fixture/DescribeResourcePolicies.yaml"
-
-requestDeleteLogStream :: DeleteLogStream -> TestTree
-requestDeleteLogStream = req
-    "DeleteLogStream"
-    "fixture/DeleteLogStream.yaml"
-
-requestCreateLogStream :: CreateLogStream -> TestTree
-requestCreateLogStream = req
-    "CreateLogStream"
-    "fixture/CreateLogStream.yaml"
-
-requestCreateLogGroup :: CreateLogGroup -> TestTree
-requestCreateLogGroup = req
-    "CreateLogGroup"
-    "fixture/CreateLogGroup.yaml"
+requestGetLogRecord :: GetLogRecord -> TestTree
+requestGetLogRecord =
+  req
+    "GetLogRecord"
+    "fixture/GetLogRecord.yaml"
 
 requestDescribeExportTasks :: DescribeExportTasks -> TestTree
-requestDescribeExportTasks = req
+requestDescribeExportTasks =
+  req
     "DescribeExportTasks"
     "fixture/DescribeExportTasks.yaml"
 
-requestCancelExportTask :: CancelExportTask -> TestTree
-requestCancelExportTask = req
-    "CancelExportTask"
-    "fixture/CancelExportTask.yaml"
+requestCreateLogStream :: CreateLogStream -> TestTree
+requestCreateLogStream =
+  req
+    "CreateLogStream"
+    "fixture/CreateLogStream.yaml"
 
-requestPutSubscriptionFilter :: PutSubscriptionFilter -> TestTree
-requestPutSubscriptionFilter = req
-    "PutSubscriptionFilter"
-    "fixture/PutSubscriptionFilter.yaml"
+requestDescribeResourcePolicies :: DescribeResourcePolicies -> TestTree
+requestDescribeResourcePolicies =
+  req
+    "DescribeResourcePolicies"
+    "fixture/DescribeResourcePolicies.yaml"
 
-requestDeleteLogGroup :: DeleteLogGroup -> TestTree
-requestDeleteLogGroup = req
-    "DeleteLogGroup"
-    "fixture/DeleteLogGroup.yaml"
+requestDescribeQueryDefinitions :: DescribeQueryDefinitions -> TestTree
+requestDescribeQueryDefinitions =
+  req
+    "DescribeQueryDefinitions"
+    "fixture/DescribeQueryDefinitions.yaml"
 
-requestDeleteSubscriptionFilter :: DeleteSubscriptionFilter -> TestTree
-requestDeleteSubscriptionFilter = req
-    "DeleteSubscriptionFilter"
-    "fixture/DeleteSubscriptionFilter.yaml"
-
-requestPutLogEvents :: PutLogEvents -> TestTree
-requestPutLogEvents = req
-    "PutLogEvents"
-    "fixture/PutLogEvents.yaml"
-
-requestDescribeMetricFilters :: DescribeMetricFilters -> TestTree
-requestDescribeMetricFilters = req
-    "DescribeMetricFilters"
-    "fixture/DescribeMetricFilters.yaml"
-
-requestTestMetricFilter :: TestMetricFilter -> TestTree
-requestTestMetricFilter = req
-    "TestMetricFilter"
-    "fixture/TestMetricFilter.yaml"
-
-requestPutDestinationPolicy :: PutDestinationPolicy -> TestTree
-requestPutDestinationPolicy = req
-    "PutDestinationPolicy"
-    "fixture/PutDestinationPolicy.yaml"
-
-requestPutMetricFilter :: PutMetricFilter -> TestTree
-requestPutMetricFilter = req
-    "PutMetricFilter"
-    "fixture/PutMetricFilter.yaml"
-
-requestDeleteRetentionPolicy :: DeleteRetentionPolicy -> TestTree
-requestDeleteRetentionPolicy = req
-    "DeleteRetentionPolicy"
-    "fixture/DeleteRetentionPolicy.yaml"
-
-requestDeleteMetricFilter :: DeleteMetricFilter -> TestTree
-requestDeleteMetricFilter = req
-    "DeleteMetricFilter"
-    "fixture/DeleteMetricFilter.yaml"
-
-requestPutRetentionPolicy :: PutRetentionPolicy -> TestTree
-requestPutRetentionPolicy = req
-    "PutRetentionPolicy"
-    "fixture/PutRetentionPolicy.yaml"
-
-requestListTagsLogGroup :: ListTagsLogGroup -> TestTree
-requestListTagsLogGroup = req
-    "ListTagsLogGroup"
-    "fixture/ListTagsLogGroup.yaml"
-
-requestPutResourcePolicy :: PutResourcePolicy -> TestTree
-requestPutResourcePolicy = req
-    "PutResourcePolicy"
-    "fixture/PutResourcePolicy.yaml"
-
-requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
-requestDeleteResourcePolicy = req
-    "DeleteResourcePolicy"
-    "fixture/DeleteResourcePolicy.yaml"
-
-requestAssociateKMSKey :: AssociateKMSKey -> TestTree
-requestAssociateKMSKey = req
-    "AssociateKMSKey"
-    "fixture/AssociateKMSKey.yaml"
+requestDeleteQueryDefinition :: DeleteQueryDefinition -> TestTree
+requestDeleteQueryDefinition =
+  req
+    "DeleteQueryDefinition"
+    "fixture/DeleteQueryDefinition.yaml"
 
 requestDescribeLogStreams :: DescribeLogStreams -> TestTree
-requestDescribeLogStreams = req
+requestDescribeLogStreams =
+  req
     "DescribeLogStreams"
     "fixture/DescribeLogStreams.yaml"
 
+requestPutResourcePolicy :: PutResourcePolicy -> TestTree
+requestPutResourcePolicy =
+  req
+    "PutResourcePolicy"
+    "fixture/PutResourcePolicy.yaml"
+
+requestDisassociateKmsKey :: DisassociateKmsKey -> TestTree
+requestDisassociateKmsKey =
+  req
+    "DisassociateKmsKey"
+    "fixture/DisassociateKmsKey.yaml"
+
+requestDescribeSubscriptionFilters :: DescribeSubscriptionFilters -> TestTree
+requestDescribeSubscriptionFilters =
+  req
+    "DescribeSubscriptionFilters"
+    "fixture/DescribeSubscriptionFilters.yaml"
+
+requestDescribeLogGroups :: DescribeLogGroups -> TestTree
+requestDescribeLogGroups =
+  req
+    "DescribeLogGroups"
+    "fixture/DescribeLogGroups.yaml"
+
+requestPutRetentionPolicy :: PutRetentionPolicy -> TestTree
+requestPutRetentionPolicy =
+  req
+    "PutRetentionPolicy"
+    "fixture/PutRetentionPolicy.yaml"
+
+requestPutDestinationPolicy :: PutDestinationPolicy -> TestTree
+requestPutDestinationPolicy =
+  req
+    "PutDestinationPolicy"
+    "fixture/PutDestinationPolicy.yaml"
+
+requestDeleteDestination :: DeleteDestination -> TestTree
+requestDeleteDestination =
+  req
+    "DeleteDestination"
+    "fixture/DeleteDestination.yaml"
+
+requestDeleteMetricFilter :: DeleteMetricFilter -> TestTree
+requestDeleteMetricFilter =
+  req
+    "DeleteMetricFilter"
+    "fixture/DeleteMetricFilter.yaml"
+
+requestDescribeDestinations :: DescribeDestinations -> TestTree
+requestDescribeDestinations =
+  req
+    "DescribeDestinations"
+    "fixture/DescribeDestinations.yaml"
+
+requestPutSubscriptionFilter :: PutSubscriptionFilter -> TestTree
+requestPutSubscriptionFilter =
+  req
+    "PutSubscriptionFilter"
+    "fixture/PutSubscriptionFilter.yaml"
+
+requestDescribeMetricFilters :: DescribeMetricFilters -> TestTree
+requestDescribeMetricFilters =
+  req
+    "DescribeMetricFilters"
+    "fixture/DescribeMetricFilters.yaml"
+
+requestCancelExportTask :: CancelExportTask -> TestTree
+requestCancelExportTask =
+  req
+    "CancelExportTask"
+    "fixture/CancelExportTask.yaml"
+
+requestCreateLogGroup :: CreateLogGroup -> TestTree
+requestCreateLogGroup =
+  req
+    "CreateLogGroup"
+    "fixture/CreateLogGroup.yaml"
+
+requestGetLogGroupFields :: GetLogGroupFields -> TestTree
+requestGetLogGroupFields =
+  req
+    "GetLogGroupFields"
+    "fixture/GetLogGroupFields.yaml"
+
+requestDescribeQueries :: DescribeQueries -> TestTree
+requestDescribeQueries =
+  req
+    "DescribeQueries"
+    "fixture/DescribeQueries.yaml"
+
+requestDeleteLogStream :: DeleteLogStream -> TestTree
+requestDeleteLogStream =
+  req
+    "DeleteLogStream"
+    "fixture/DeleteLogStream.yaml"
+
+requestTagLogGroup :: TagLogGroup -> TestTree
+requestTagLogGroup =
+  req
+    "TagLogGroup"
+    "fixture/TagLogGroup.yaml"
+
+requestAssociateKmsKey :: AssociateKmsKey -> TestTree
+requestAssociateKmsKey =
+  req
+    "AssociateKmsKey"
+    "fixture/AssociateKmsKey.yaml"
+
+requestGetQueryResults :: GetQueryResults -> TestTree
+requestGetQueryResults =
+  req
+    "GetQueryResults"
+    "fixture/GetQueryResults.yaml"
+
+requestPutQueryDefinition :: PutQueryDefinition -> TestTree
+requestPutQueryDefinition =
+  req
+    "PutQueryDefinition"
+    "fixture/PutQueryDefinition.yaml"
+
+requestDeleteResourcePolicy :: DeleteResourcePolicy -> TestTree
+requestDeleteResourcePolicy =
+  req
+    "DeleteResourcePolicy"
+    "fixture/DeleteResourcePolicy.yaml"
+
+requestFilterLogEvents :: FilterLogEvents -> TestTree
+requestFilterLogEvents =
+  req
+    "FilterLogEvents"
+    "fixture/FilterLogEvents.yaml"
+
+requestListTagsLogGroup :: ListTagsLogGroup -> TestTree
+requestListTagsLogGroup =
+  req
+    "ListTagsLogGroup"
+    "fixture/ListTagsLogGroup.yaml"
+
+requestDeleteRetentionPolicy :: DeleteRetentionPolicy -> TestTree
+requestDeleteRetentionPolicy =
+  req
+    "DeleteRetentionPolicy"
+    "fixture/DeleteRetentionPolicy.yaml"
+
+requestPutDestination :: PutDestination -> TestTree
+requestPutDestination =
+  req
+    "PutDestination"
+    "fixture/PutDestination.yaml"
+
+requestPutMetricFilter :: PutMetricFilter -> TestTree
+requestPutMetricFilter =
+  req
+    "PutMetricFilter"
+    "fixture/PutMetricFilter.yaml"
+
+requestCreateExportTask :: CreateExportTask -> TestTree
+requestCreateExportTask =
+  req
+    "CreateExportTask"
+    "fixture/CreateExportTask.yaml"
+
+requestGetLogEvents :: GetLogEvents -> TestTree
+requestGetLogEvents =
+  req
+    "GetLogEvents"
+    "fixture/GetLogEvents.yaml"
+
+requestPutLogEvents :: PutLogEvents -> TestTree
+requestPutLogEvents =
+  req
+    "PutLogEvents"
+    "fixture/PutLogEvents.yaml"
+
+requestStopQuery :: StopQuery -> TestTree
+requestStopQuery =
+  req
+    "StopQuery"
+    "fixture/StopQuery.yaml"
+
+requestDeleteLogGroup :: DeleteLogGroup -> TestTree
+requestDeleteLogGroup =
+  req
+    "DeleteLogGroup"
+    "fixture/DeleteLogGroup.yaml"
+
+requestUntagLogGroup :: UntagLogGroup -> TestTree
+requestUntagLogGroup =
+  req
+    "UntagLogGroup"
+    "fixture/UntagLogGroup.yaml"
+
+requestTestMetricFilter :: TestMetricFilter -> TestTree
+requestTestMetricFilter =
+  req
+    "TestMetricFilter"
+    "fixture/TestMetricFilter.yaml"
+
+requestStartQuery :: StartQuery -> TestTree
+requestStartQuery =
+  req
+    "StartQuery"
+    "fixture/StartQuery.yaml"
+
+requestDeleteSubscriptionFilter :: DeleteSubscriptionFilter -> TestTree
+requestDeleteSubscriptionFilter =
+  req
+    "DeleteSubscriptionFilter"
+    "fixture/DeleteSubscriptionFilter.yaml"
+
 -- Responses
 
-responseDescribeDestinations :: DescribeDestinationsResponse -> TestTree
-responseDescribeDestinations = res
-    "DescribeDestinationsResponse"
-    "fixture/DescribeDestinationsResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy DescribeDestinations)
-
-responseUntagLogGroup :: UntagLogGroupResponse -> TestTree
-responseUntagLogGroup = res
-    "UntagLogGroupResponse"
-    "fixture/UntagLogGroupResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy UntagLogGroup)
-
-responseCreateExportTask :: CreateExportTaskResponse -> TestTree
-responseCreateExportTask = res
-    "CreateExportTaskResponse"
-    "fixture/CreateExportTaskResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy CreateExportTask)
-
-responsePutDestination :: PutDestinationResponse -> TestTree
-responsePutDestination = res
-    "PutDestinationResponse"
-    "fixture/PutDestinationResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy PutDestination)
-
-responseDescribeSubscriptionFilters :: DescribeSubscriptionFiltersResponse -> TestTree
-responseDescribeSubscriptionFilters = res
-    "DescribeSubscriptionFiltersResponse"
-    "fixture/DescribeSubscriptionFiltersResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy DescribeSubscriptionFilters)
-
-responseGetLogEvents :: GetLogEventsResponse -> TestTree
-responseGetLogEvents = res
-    "GetLogEventsResponse"
-    "fixture/GetLogEventsResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy GetLogEvents)
-
-responseDescribeLogGroups :: DescribeLogGroupsResponse -> TestTree
-responseDescribeLogGroups = res
-    "DescribeLogGroupsResponse"
-    "fixture/DescribeLogGroupsResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy DescribeLogGroups)
-
-responseDeleteDestination :: DeleteDestinationResponse -> TestTree
-responseDeleteDestination = res
-    "DeleteDestinationResponse"
-    "fixture/DeleteDestinationResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy DeleteDestination)
-
-responseDisassociateKMSKey :: DisassociateKMSKeyResponse -> TestTree
-responseDisassociateKMSKey = res
-    "DisassociateKMSKeyResponse"
-    "fixture/DisassociateKMSKeyResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy DisassociateKMSKey)
-
-responseFilterLogEvents :: FilterLogEventsResponse -> TestTree
-responseFilterLogEvents = res
-    "FilterLogEventsResponse"
-    "fixture/FilterLogEventsResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy FilterLogEvents)
-
-responseTagLogGroup :: TagLogGroupResponse -> TestTree
-responseTagLogGroup = res
-    "TagLogGroupResponse"
-    "fixture/TagLogGroupResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy TagLogGroup)
-
-responseDescribeResourcePolicies :: DescribeResourcePoliciesResponse -> TestTree
-responseDescribeResourcePolicies = res
-    "DescribeResourcePoliciesResponse"
-    "fixture/DescribeResourcePoliciesResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy DescribeResourcePolicies)
-
-responseDeleteLogStream :: DeleteLogStreamResponse -> TestTree
-responseDeleteLogStream = res
-    "DeleteLogStreamResponse"
-    "fixture/DeleteLogStreamResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy DeleteLogStream)
-
-responseCreateLogStream :: CreateLogStreamResponse -> TestTree
-responseCreateLogStream = res
-    "CreateLogStreamResponse"
-    "fixture/CreateLogStreamResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy CreateLogStream)
-
-responseCreateLogGroup :: CreateLogGroupResponse -> TestTree
-responseCreateLogGroup = res
-    "CreateLogGroupResponse"
-    "fixture/CreateLogGroupResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy CreateLogGroup)
+responseGetLogRecord :: GetLogRecordResponse -> TestTree
+responseGetLogRecord =
+  res
+    "GetLogRecordResponse"
+    "fixture/GetLogRecordResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetLogRecord)
 
 responseDescribeExportTasks :: DescribeExportTasksResponse -> TestTree
-responseDescribeExportTasks = res
+responseDescribeExportTasks =
+  res
     "DescribeExportTasksResponse"
     "fixture/DescribeExportTasksResponse.proto"
-    cloudWatchLogs
+    defaultService
     (Proxy :: Proxy DescribeExportTasks)
 
-responseCancelExportTask :: CancelExportTaskResponse -> TestTree
-responseCancelExportTask = res
-    "CancelExportTaskResponse"
-    "fixture/CancelExportTaskResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy CancelExportTask)
+responseCreateLogStream :: CreateLogStreamResponse -> TestTree
+responseCreateLogStream =
+  res
+    "CreateLogStreamResponse"
+    "fixture/CreateLogStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateLogStream)
 
-responsePutSubscriptionFilter :: PutSubscriptionFilterResponse -> TestTree
-responsePutSubscriptionFilter = res
-    "PutSubscriptionFilterResponse"
-    "fixture/PutSubscriptionFilterResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy PutSubscriptionFilter)
+responseDescribeResourcePolicies :: DescribeResourcePoliciesResponse -> TestTree
+responseDescribeResourcePolicies =
+  res
+    "DescribeResourcePoliciesResponse"
+    "fixture/DescribeResourcePoliciesResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeResourcePolicies)
 
-responseDeleteLogGroup :: DeleteLogGroupResponse -> TestTree
-responseDeleteLogGroup = res
-    "DeleteLogGroupResponse"
-    "fixture/DeleteLogGroupResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy DeleteLogGroup)
+responseDescribeQueryDefinitions :: DescribeQueryDefinitionsResponse -> TestTree
+responseDescribeQueryDefinitions =
+  res
+    "DescribeQueryDefinitionsResponse"
+    "fixture/DescribeQueryDefinitionsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeQueryDefinitions)
 
-responseDeleteSubscriptionFilter :: DeleteSubscriptionFilterResponse -> TestTree
-responseDeleteSubscriptionFilter = res
-    "DeleteSubscriptionFilterResponse"
-    "fixture/DeleteSubscriptionFilterResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy DeleteSubscriptionFilter)
-
-responsePutLogEvents :: PutLogEventsResponse -> TestTree
-responsePutLogEvents = res
-    "PutLogEventsResponse"
-    "fixture/PutLogEventsResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy PutLogEvents)
-
-responseDescribeMetricFilters :: DescribeMetricFiltersResponse -> TestTree
-responseDescribeMetricFilters = res
-    "DescribeMetricFiltersResponse"
-    "fixture/DescribeMetricFiltersResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy DescribeMetricFilters)
-
-responseTestMetricFilter :: TestMetricFilterResponse -> TestTree
-responseTestMetricFilter = res
-    "TestMetricFilterResponse"
-    "fixture/TestMetricFilterResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy TestMetricFilter)
-
-responsePutDestinationPolicy :: PutDestinationPolicyResponse -> TestTree
-responsePutDestinationPolicy = res
-    "PutDestinationPolicyResponse"
-    "fixture/PutDestinationPolicyResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy PutDestinationPolicy)
-
-responsePutMetricFilter :: PutMetricFilterResponse -> TestTree
-responsePutMetricFilter = res
-    "PutMetricFilterResponse"
-    "fixture/PutMetricFilterResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy PutMetricFilter)
-
-responseDeleteRetentionPolicy :: DeleteRetentionPolicyResponse -> TestTree
-responseDeleteRetentionPolicy = res
-    "DeleteRetentionPolicyResponse"
-    "fixture/DeleteRetentionPolicyResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy DeleteRetentionPolicy)
-
-responseDeleteMetricFilter :: DeleteMetricFilterResponse -> TestTree
-responseDeleteMetricFilter = res
-    "DeleteMetricFilterResponse"
-    "fixture/DeleteMetricFilterResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy DeleteMetricFilter)
-
-responsePutRetentionPolicy :: PutRetentionPolicyResponse -> TestTree
-responsePutRetentionPolicy = res
-    "PutRetentionPolicyResponse"
-    "fixture/PutRetentionPolicyResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy PutRetentionPolicy)
-
-responseListTagsLogGroup :: ListTagsLogGroupResponse -> TestTree
-responseListTagsLogGroup = res
-    "ListTagsLogGroupResponse"
-    "fixture/ListTagsLogGroupResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy ListTagsLogGroup)
-
-responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
-responsePutResourcePolicy = res
-    "PutResourcePolicyResponse"
-    "fixture/PutResourcePolicyResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy PutResourcePolicy)
-
-responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
-responseDeleteResourcePolicy = res
-    "DeleteResourcePolicyResponse"
-    "fixture/DeleteResourcePolicyResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy DeleteResourcePolicy)
-
-responseAssociateKMSKey :: AssociateKMSKeyResponse -> TestTree
-responseAssociateKMSKey = res
-    "AssociateKMSKeyResponse"
-    "fixture/AssociateKMSKeyResponse.proto"
-    cloudWatchLogs
-    (Proxy :: Proxy AssociateKMSKey)
+responseDeleteQueryDefinition :: DeleteQueryDefinitionResponse -> TestTree
+responseDeleteQueryDefinition =
+  res
+    "DeleteQueryDefinitionResponse"
+    "fixture/DeleteQueryDefinitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteQueryDefinition)
 
 responseDescribeLogStreams :: DescribeLogStreamsResponse -> TestTree
-responseDescribeLogStreams = res
+responseDescribeLogStreams =
+  res
     "DescribeLogStreamsResponse"
     "fixture/DescribeLogStreamsResponse.proto"
-    cloudWatchLogs
+    defaultService
     (Proxy :: Proxy DescribeLogStreams)
+
+responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
+responsePutResourcePolicy =
+  res
+    "PutResourcePolicyResponse"
+    "fixture/PutResourcePolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutResourcePolicy)
+
+responseDisassociateKmsKey :: DisassociateKmsKeyResponse -> TestTree
+responseDisassociateKmsKey =
+  res
+    "DisassociateKmsKeyResponse"
+    "fixture/DisassociateKmsKeyResponse.proto"
+    defaultService
+    (Proxy :: Proxy DisassociateKmsKey)
+
+responseDescribeSubscriptionFilters :: DescribeSubscriptionFiltersResponse -> TestTree
+responseDescribeSubscriptionFilters =
+  res
+    "DescribeSubscriptionFiltersResponse"
+    "fixture/DescribeSubscriptionFiltersResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeSubscriptionFilters)
+
+responseDescribeLogGroups :: DescribeLogGroupsResponse -> TestTree
+responseDescribeLogGroups =
+  res
+    "DescribeLogGroupsResponse"
+    "fixture/DescribeLogGroupsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeLogGroups)
+
+responsePutRetentionPolicy :: PutRetentionPolicyResponse -> TestTree
+responsePutRetentionPolicy =
+  res
+    "PutRetentionPolicyResponse"
+    "fixture/PutRetentionPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutRetentionPolicy)
+
+responsePutDestinationPolicy :: PutDestinationPolicyResponse -> TestTree
+responsePutDestinationPolicy =
+  res
+    "PutDestinationPolicyResponse"
+    "fixture/PutDestinationPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutDestinationPolicy)
+
+responseDeleteDestination :: DeleteDestinationResponse -> TestTree
+responseDeleteDestination =
+  res
+    "DeleteDestinationResponse"
+    "fixture/DeleteDestinationResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteDestination)
+
+responseDeleteMetricFilter :: DeleteMetricFilterResponse -> TestTree
+responseDeleteMetricFilter =
+  res
+    "DeleteMetricFilterResponse"
+    "fixture/DeleteMetricFilterResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteMetricFilter)
+
+responseDescribeDestinations :: DescribeDestinationsResponse -> TestTree
+responseDescribeDestinations =
+  res
+    "DescribeDestinationsResponse"
+    "fixture/DescribeDestinationsResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeDestinations)
+
+responsePutSubscriptionFilter :: PutSubscriptionFilterResponse -> TestTree
+responsePutSubscriptionFilter =
+  res
+    "PutSubscriptionFilterResponse"
+    "fixture/PutSubscriptionFilterResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutSubscriptionFilter)
+
+responseDescribeMetricFilters :: DescribeMetricFiltersResponse -> TestTree
+responseDescribeMetricFilters =
+  res
+    "DescribeMetricFiltersResponse"
+    "fixture/DescribeMetricFiltersResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeMetricFilters)
+
+responseCancelExportTask :: CancelExportTaskResponse -> TestTree
+responseCancelExportTask =
+  res
+    "CancelExportTaskResponse"
+    "fixture/CancelExportTaskResponse.proto"
+    defaultService
+    (Proxy :: Proxy CancelExportTask)
+
+responseCreateLogGroup :: CreateLogGroupResponse -> TestTree
+responseCreateLogGroup =
+  res
+    "CreateLogGroupResponse"
+    "fixture/CreateLogGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateLogGroup)
+
+responseGetLogGroupFields :: GetLogGroupFieldsResponse -> TestTree
+responseGetLogGroupFields =
+  res
+    "GetLogGroupFieldsResponse"
+    "fixture/GetLogGroupFieldsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetLogGroupFields)
+
+responseDescribeQueries :: DescribeQueriesResponse -> TestTree
+responseDescribeQueries =
+  res
+    "DescribeQueriesResponse"
+    "fixture/DescribeQueriesResponse.proto"
+    defaultService
+    (Proxy :: Proxy DescribeQueries)
+
+responseDeleteLogStream :: DeleteLogStreamResponse -> TestTree
+responseDeleteLogStream =
+  res
+    "DeleteLogStreamResponse"
+    "fixture/DeleteLogStreamResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteLogStream)
+
+responseTagLogGroup :: TagLogGroupResponse -> TestTree
+responseTagLogGroup =
+  res
+    "TagLogGroupResponse"
+    "fixture/TagLogGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy TagLogGroup)
+
+responseAssociateKmsKey :: AssociateKmsKeyResponse -> TestTree
+responseAssociateKmsKey =
+  res
+    "AssociateKmsKeyResponse"
+    "fixture/AssociateKmsKeyResponse.proto"
+    defaultService
+    (Proxy :: Proxy AssociateKmsKey)
+
+responseGetQueryResults :: GetQueryResultsResponse -> TestTree
+responseGetQueryResults =
+  res
+    "GetQueryResultsResponse"
+    "fixture/GetQueryResultsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetQueryResults)
+
+responsePutQueryDefinition :: PutQueryDefinitionResponse -> TestTree
+responsePutQueryDefinition =
+  res
+    "PutQueryDefinitionResponse"
+    "fixture/PutQueryDefinitionResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutQueryDefinition)
+
+responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
+responseDeleteResourcePolicy =
+  res
+    "DeleteResourcePolicyResponse"
+    "fixture/DeleteResourcePolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteResourcePolicy)
+
+responseFilterLogEvents :: FilterLogEventsResponse -> TestTree
+responseFilterLogEvents =
+  res
+    "FilterLogEventsResponse"
+    "fixture/FilterLogEventsResponse.proto"
+    defaultService
+    (Proxy :: Proxy FilterLogEvents)
+
+responseListTagsLogGroup :: ListTagsLogGroupResponse -> TestTree
+responseListTagsLogGroup =
+  res
+    "ListTagsLogGroupResponse"
+    "fixture/ListTagsLogGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy ListTagsLogGroup)
+
+responseDeleteRetentionPolicy :: DeleteRetentionPolicyResponse -> TestTree
+responseDeleteRetentionPolicy =
+  res
+    "DeleteRetentionPolicyResponse"
+    "fixture/DeleteRetentionPolicyResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteRetentionPolicy)
+
+responsePutDestination :: PutDestinationResponse -> TestTree
+responsePutDestination =
+  res
+    "PutDestinationResponse"
+    "fixture/PutDestinationResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutDestination)
+
+responsePutMetricFilter :: PutMetricFilterResponse -> TestTree
+responsePutMetricFilter =
+  res
+    "PutMetricFilterResponse"
+    "fixture/PutMetricFilterResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutMetricFilter)
+
+responseCreateExportTask :: CreateExportTaskResponse -> TestTree
+responseCreateExportTask =
+  res
+    "CreateExportTaskResponse"
+    "fixture/CreateExportTaskResponse.proto"
+    defaultService
+    (Proxy :: Proxy CreateExportTask)
+
+responseGetLogEvents :: GetLogEventsResponse -> TestTree
+responseGetLogEvents =
+  res
+    "GetLogEventsResponse"
+    "fixture/GetLogEventsResponse.proto"
+    defaultService
+    (Proxy :: Proxy GetLogEvents)
+
+responsePutLogEvents :: PutLogEventsResponse -> TestTree
+responsePutLogEvents =
+  res
+    "PutLogEventsResponse"
+    "fixture/PutLogEventsResponse.proto"
+    defaultService
+    (Proxy :: Proxy PutLogEvents)
+
+responseStopQuery :: StopQueryResponse -> TestTree
+responseStopQuery =
+  res
+    "StopQueryResponse"
+    "fixture/StopQueryResponse.proto"
+    defaultService
+    (Proxy :: Proxy StopQuery)
+
+responseDeleteLogGroup :: DeleteLogGroupResponse -> TestTree
+responseDeleteLogGroup =
+  res
+    "DeleteLogGroupResponse"
+    "fixture/DeleteLogGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteLogGroup)
+
+responseUntagLogGroup :: UntagLogGroupResponse -> TestTree
+responseUntagLogGroup =
+  res
+    "UntagLogGroupResponse"
+    "fixture/UntagLogGroupResponse.proto"
+    defaultService
+    (Proxy :: Proxy UntagLogGroup)
+
+responseTestMetricFilter :: TestMetricFilterResponse -> TestTree
+responseTestMetricFilter =
+  res
+    "TestMetricFilterResponse"
+    "fixture/TestMetricFilterResponse.proto"
+    defaultService
+    (Proxy :: Proxy TestMetricFilter)
+
+responseStartQuery :: StartQueryResponse -> TestTree
+responseStartQuery =
+  res
+    "StartQueryResponse"
+    "fixture/StartQueryResponse.proto"
+    defaultService
+    (Proxy :: Proxy StartQuery)
+
+responseDeleteSubscriptionFilter :: DeleteSubscriptionFilterResponse -> TestTree
+responseDeleteSubscriptionFilter =
+  res
+    "DeleteSubscriptionFilterResponse"
+    "fixture/DeleteSubscriptionFilterResponse.proto"
+    defaultService
+    (Proxy :: Proxy DeleteSubscriptionFilter)

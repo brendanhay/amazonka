@@ -1,396 +1,905 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.Types
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
---
 module Network.AWS.ElasticSearch.Types
-    (
-    -- * Service Configuration
-      elasticSearch
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
-    , _ValidationException
-    , _ResourceAlreadyExistsException
-    , _BaseException
-    , _DisabledOperationException
-    , _InternalException
-    , _InvalidTypeException
-    , _ResourceNotFoundException
-    , _LimitExceededException
+    _InvalidPaginationTokenException,
+    _InvalidTypeException,
+    _ResourceAlreadyExistsException,
+    _InternalException,
+    _BaseException,
+    _AccessDeniedException,
+    _ValidationException,
+    _LimitExceededException,
+    _ConflictException,
+    _ResourceNotFoundException,
+    _DisabledOperationException,
+
+    -- * AutoTuneDesiredState
+    AutoTuneDesiredState (..),
+
+    -- * AutoTuneState
+    AutoTuneState (..),
+
+    -- * AutoTuneType
+    AutoTuneType (..),
+
+    -- * DeploymentStatus
+    DeploymentStatus (..),
+
+    -- * DescribePackagesFilterName
+    DescribePackagesFilterName (..),
+
+    -- * DomainPackageStatus
+    DomainPackageStatus (..),
 
     -- * ESPartitionInstanceType
-    , ESPartitionInstanceType (..)
+    ESPartitionInstanceType (..),
+
+    -- * ESWarmPartitionInstanceType
+    ESWarmPartitionInstanceType (..),
+
+    -- * InboundCrossClusterSearchConnectionStatusCode
+    InboundCrossClusterSearchConnectionStatusCode (..),
 
     -- * LogType
-    , LogType (..)
+    LogType (..),
 
     -- * OptionState
-    , OptionState (..)
+    OptionState (..),
+
+    -- * OutboundCrossClusterSearchConnectionStatusCode
+    OutboundCrossClusterSearchConnectionStatusCode (..),
+
+    -- * PackageStatus
+    PackageStatus (..),
+
+    -- * PackageType
+    PackageType (..),
 
     -- * ReservedElasticsearchInstancePaymentOption
-    , ReservedElasticsearchInstancePaymentOption (..)
+    ReservedElasticsearchInstancePaymentOption (..),
+
+    -- * RollbackOnDisable
+    RollbackOnDisable (..),
+
+    -- * ScheduledAutoTuneActionType
+    ScheduledAutoTuneActionType (..),
+
+    -- * ScheduledAutoTuneSeverityType
+    ScheduledAutoTuneSeverityType (..),
+
+    -- * TLSSecurityPolicy
+    TLSSecurityPolicy (..),
+
+    -- * TimeUnit
+    TimeUnit (..),
+
+    -- * UpgradeStatus
+    UpgradeStatus (..),
+
+    -- * UpgradeStep
+    UpgradeStep (..),
 
     -- * VolumeType
-    , VolumeType (..)
+    VolumeType (..),
 
     -- * AccessPoliciesStatus
-    , AccessPoliciesStatus
-    , accessPoliciesStatus
-    , apsOptions
-    , apsStatus
+    AccessPoliciesStatus (..),
+    newAccessPoliciesStatus,
+    accessPoliciesStatus_options,
+    accessPoliciesStatus_status,
 
     -- * AdditionalLimit
-    , AdditionalLimit
-    , additionalLimit
-    , alLimitName
-    , alLimitValues
+    AdditionalLimit (..),
+    newAdditionalLimit,
+    additionalLimit_limitValues,
+    additionalLimit_limitName,
 
     -- * AdvancedOptionsStatus
-    , AdvancedOptionsStatus
-    , advancedOptionsStatus
-    , aosOptions
-    , aosStatus
+    AdvancedOptionsStatus (..),
+    newAdvancedOptionsStatus,
+    advancedOptionsStatus_options,
+    advancedOptionsStatus_status,
+
+    -- * AdvancedSecurityOptions
+    AdvancedSecurityOptions (..),
+    newAdvancedSecurityOptions,
+    advancedSecurityOptions_internalUserDatabaseEnabled,
+    advancedSecurityOptions_sAMLOptions,
+    advancedSecurityOptions_enabled,
+
+    -- * AdvancedSecurityOptionsInput
+    AdvancedSecurityOptionsInput (..),
+    newAdvancedSecurityOptionsInput,
+    advancedSecurityOptionsInput_internalUserDatabaseEnabled,
+    advancedSecurityOptionsInput_sAMLOptions,
+    advancedSecurityOptionsInput_enabled,
+    advancedSecurityOptionsInput_masterUserOptions,
+
+    -- * AdvancedSecurityOptionsStatus
+    AdvancedSecurityOptionsStatus (..),
+    newAdvancedSecurityOptionsStatus,
+    advancedSecurityOptionsStatus_options,
+    advancedSecurityOptionsStatus_status,
+
+    -- * AutoTune
+    AutoTune (..),
+    newAutoTune,
+    autoTune_autoTuneType,
+    autoTune_autoTuneDetails,
+
+    -- * AutoTuneDetails
+    AutoTuneDetails (..),
+    newAutoTuneDetails,
+    autoTuneDetails_scheduledAutoTuneDetails,
+
+    -- * AutoTuneMaintenanceSchedule
+    AutoTuneMaintenanceSchedule (..),
+    newAutoTuneMaintenanceSchedule,
+    autoTuneMaintenanceSchedule_duration,
+    autoTuneMaintenanceSchedule_startAt,
+    autoTuneMaintenanceSchedule_cronExpressionForRecurrence,
+
+    -- * AutoTuneOptions
+    AutoTuneOptions (..),
+    newAutoTuneOptions,
+    autoTuneOptions_desiredState,
+    autoTuneOptions_rollbackOnDisable,
+    autoTuneOptions_maintenanceSchedules,
+
+    -- * AutoTuneOptionsInput
+    AutoTuneOptionsInput (..),
+    newAutoTuneOptionsInput,
+    autoTuneOptionsInput_desiredState,
+    autoTuneOptionsInput_maintenanceSchedules,
+
+    -- * AutoTuneOptionsOutput
+    AutoTuneOptionsOutput (..),
+    newAutoTuneOptionsOutput,
+    autoTuneOptionsOutput_state,
+    autoTuneOptionsOutput_errorMessage,
+
+    -- * AutoTuneOptionsStatus
+    AutoTuneOptionsStatus (..),
+    newAutoTuneOptionsStatus,
+    autoTuneOptionsStatus_status,
+    autoTuneOptionsStatus_options,
+
+    -- * AutoTuneStatus
+    AutoTuneStatus (..),
+    newAutoTuneStatus,
+    autoTuneStatus_updateVersion,
+    autoTuneStatus_errorMessage,
+    autoTuneStatus_pendingDeletion,
+    autoTuneStatus_creationDate,
+    autoTuneStatus_updateDate,
+    autoTuneStatus_state,
 
     -- * CognitoOptions
-    , CognitoOptions
-    , cognitoOptions
-    , coIdentityPoolId
-    , coEnabled
-    , coUserPoolId
-    , coRoleARN
+    CognitoOptions (..),
+    newCognitoOptions,
+    cognitoOptions_identityPoolId,
+    cognitoOptions_roleArn,
+    cognitoOptions_userPoolId,
+    cognitoOptions_enabled,
 
     -- * CognitoOptionsStatus
-    , CognitoOptionsStatus
-    , cognitoOptionsStatus
-    , cosOptions
-    , cosStatus
+    CognitoOptionsStatus (..),
+    newCognitoOptionsStatus,
+    cognitoOptionsStatus_options,
+    cognitoOptionsStatus_status,
+
+    -- * CompatibleVersionsMap
+    CompatibleVersionsMap (..),
+    newCompatibleVersionsMap,
+    compatibleVersionsMap_sourceVersion,
+    compatibleVersionsMap_targetVersions,
+
+    -- * DescribePackagesFilter
+    DescribePackagesFilter (..),
+    newDescribePackagesFilter,
+    describePackagesFilter_name,
+    describePackagesFilter_value,
+
+    -- * DomainEndpointOptions
+    DomainEndpointOptions (..),
+    newDomainEndpointOptions,
+    domainEndpointOptions_customEndpointCertificateArn,
+    domainEndpointOptions_customEndpoint,
+    domainEndpointOptions_enforceHTTPS,
+    domainEndpointOptions_tLSSecurityPolicy,
+    domainEndpointOptions_customEndpointEnabled,
+
+    -- * DomainEndpointOptionsStatus
+    DomainEndpointOptionsStatus (..),
+    newDomainEndpointOptionsStatus,
+    domainEndpointOptionsStatus_options,
+    domainEndpointOptionsStatus_status,
 
     -- * DomainInfo
-    , DomainInfo
-    , domainInfo
-    , diDomainName
+    DomainInfo (..),
+    newDomainInfo,
+    domainInfo_domainName,
+
+    -- * DomainInformation
+    DomainInformation (..),
+    newDomainInformation,
+    domainInformation_ownerId,
+    domainInformation_region,
+    domainInformation_domainName,
+
+    -- * DomainPackageDetails
+    DomainPackageDetails (..),
+    newDomainPackageDetails,
+    domainPackageDetails_domainPackageStatus,
+    domainPackageDetails_packageVersion,
+    domainPackageDetails_packageName,
+    domainPackageDetails_lastUpdated,
+    domainPackageDetails_packageID,
+    domainPackageDetails_domainName,
+    domainPackageDetails_referencePath,
+    domainPackageDetails_packageType,
+    domainPackageDetails_errorDetails,
+
+    -- * Duration
+    Duration (..),
+    newDuration,
+    duration_unit,
+    duration_value,
 
     -- * EBSOptions
-    , EBSOptions
-    , ebsOptions
-    , eoVolumeSize
-    , eoIOPS
-    , eoVolumeType
-    , eoEBSEnabled
+    EBSOptions (..),
+    newEBSOptions,
+    eBSOptions_eBSEnabled,
+    eBSOptions_volumeType,
+    eBSOptions_volumeSize,
+    eBSOptions_iops,
 
     -- * EBSOptionsStatus
-    , EBSOptionsStatus
-    , ebsOptionsStatus
-    , eosOptions
-    , eosStatus
+    EBSOptionsStatus (..),
+    newEBSOptionsStatus,
+    eBSOptionsStatus_options,
+    eBSOptionsStatus_status,
 
     -- * ElasticsearchClusterConfig
-    , ElasticsearchClusterConfig
-    , elasticsearchClusterConfig
-    , eccDedicatedMasterCount
-    , eccDedicatedMasterType
-    , eccDedicatedMasterEnabled
-    , eccInstanceCount
-    , eccZoneAwarenessEnabled
-    , eccInstanceType
+    ElasticsearchClusterConfig (..),
+    newElasticsearchClusterConfig,
+    elasticsearchClusterConfig_zoneAwarenessConfig,
+    elasticsearchClusterConfig_dedicatedMasterCount,
+    elasticsearchClusterConfig_warmEnabled,
+    elasticsearchClusterConfig_instanceType,
+    elasticsearchClusterConfig_zoneAwarenessEnabled,
+    elasticsearchClusterConfig_dedicatedMasterEnabled,
+    elasticsearchClusterConfig_warmCount,
+    elasticsearchClusterConfig_dedicatedMasterType,
+    elasticsearchClusterConfig_warmType,
+    elasticsearchClusterConfig_instanceCount,
 
     -- * ElasticsearchClusterConfigStatus
-    , ElasticsearchClusterConfigStatus
-    , elasticsearchClusterConfigStatus
-    , eccsOptions
-    , eccsStatus
+    ElasticsearchClusterConfigStatus (..),
+    newElasticsearchClusterConfigStatus,
+    elasticsearchClusterConfigStatus_options,
+    elasticsearchClusterConfigStatus_status,
 
     -- * ElasticsearchDomainConfig
-    , ElasticsearchDomainConfig
-    , elasticsearchDomainConfig
-    , edcEBSOptions
-    , edcAccessPolicies
-    , edcLogPublishingOptions
-    , edcElasticsearchClusterConfig
-    , edcSnapshotOptions
-    , edcCognitoOptions
-    , edcEncryptionAtRestOptions
-    , edcVPCOptions
-    , edcAdvancedOptions
-    , edcElasticsearchVersion
+    ElasticsearchDomainConfig (..),
+    newElasticsearchDomainConfig,
+    elasticsearchDomainConfig_eBSOptions,
+    elasticsearchDomainConfig_snapshotOptions,
+    elasticsearchDomainConfig_elasticsearchClusterConfig,
+    elasticsearchDomainConfig_domainEndpointOptions,
+    elasticsearchDomainConfig_vPCOptions,
+    elasticsearchDomainConfig_autoTuneOptions,
+    elasticsearchDomainConfig_accessPolicies,
+    elasticsearchDomainConfig_encryptionAtRestOptions,
+    elasticsearchDomainConfig_cognitoOptions,
+    elasticsearchDomainConfig_nodeToNodeEncryptionOptions,
+    elasticsearchDomainConfig_elasticsearchVersion,
+    elasticsearchDomainConfig_advancedOptions,
+    elasticsearchDomainConfig_advancedSecurityOptions,
+    elasticsearchDomainConfig_logPublishingOptions,
 
     -- * ElasticsearchDomainStatus
-    , ElasticsearchDomainStatus
-    , elasticsearchDomainStatus
-    , edsEBSOptions
-    , edsAccessPolicies
-    , edsLogPublishingOptions
-    , edsCreated
-    , edsSnapshotOptions
-    , edsCognitoOptions
-    , edsEncryptionAtRestOptions
-    , edsDeleted
-    , edsVPCOptions
-    , edsEndpoints
-    , edsProcessing
-    , edsEndpoint
-    , edsAdvancedOptions
-    , edsElasticsearchVersion
-    , edsDomainId
-    , edsDomainName
-    , edsARN
-    , edsElasticsearchClusterConfig
+    ElasticsearchDomainStatus (..),
+    newElasticsearchDomainStatus,
+    elasticsearchDomainStatus_eBSOptions,
+    elasticsearchDomainStatus_snapshotOptions,
+    elasticsearchDomainStatus_domainEndpointOptions,
+    elasticsearchDomainStatus_upgradeProcessing,
+    elasticsearchDomainStatus_endpoints,
+    elasticsearchDomainStatus_vPCOptions,
+    elasticsearchDomainStatus_autoTuneOptions,
+    elasticsearchDomainStatus_accessPolicies,
+    elasticsearchDomainStatus_encryptionAtRestOptions,
+    elasticsearchDomainStatus_serviceSoftwareOptions,
+    elasticsearchDomainStatus_cognitoOptions,
+    elasticsearchDomainStatus_nodeToNodeEncryptionOptions,
+    elasticsearchDomainStatus_elasticsearchVersion,
+    elasticsearchDomainStatus_advancedOptions,
+    elasticsearchDomainStatus_processing,
+    elasticsearchDomainStatus_endpoint,
+    elasticsearchDomainStatus_created,
+    elasticsearchDomainStatus_advancedSecurityOptions,
+    elasticsearchDomainStatus_logPublishingOptions,
+    elasticsearchDomainStatus_deleted,
+    elasticsearchDomainStatus_domainId,
+    elasticsearchDomainStatus_domainName,
+    elasticsearchDomainStatus_arn,
+    elasticsearchDomainStatus_elasticsearchClusterConfig,
 
     -- * ElasticsearchVersionStatus
-    , ElasticsearchVersionStatus
-    , elasticsearchVersionStatus
-    , evsOptions
-    , evsStatus
+    ElasticsearchVersionStatus (..),
+    newElasticsearchVersionStatus,
+    elasticsearchVersionStatus_options,
+    elasticsearchVersionStatus_status,
 
     -- * EncryptionAtRestOptions
-    , EncryptionAtRestOptions
-    , encryptionAtRestOptions
-    , earoEnabled
-    , earoKMSKeyId
+    EncryptionAtRestOptions (..),
+    newEncryptionAtRestOptions,
+    encryptionAtRestOptions_enabled,
+    encryptionAtRestOptions_kmsKeyId,
 
     -- * EncryptionAtRestOptionsStatus
-    , EncryptionAtRestOptionsStatus
-    , encryptionAtRestOptionsStatus
-    , earosOptions
-    , earosStatus
+    EncryptionAtRestOptionsStatus (..),
+    newEncryptionAtRestOptionsStatus,
+    encryptionAtRestOptionsStatus_options,
+    encryptionAtRestOptionsStatus_status,
+
+    -- * ErrorDetails
+    ErrorDetails (..),
+    newErrorDetails,
+    errorDetails_errorType,
+    errorDetails_errorMessage,
+
+    -- * Filter
+    Filter (..),
+    newFilter,
+    filter_values,
+    filter_name,
+
+    -- * InboundCrossClusterSearchConnection
+    InboundCrossClusterSearchConnection (..),
+    newInboundCrossClusterSearchConnection,
+    inboundCrossClusterSearchConnection_crossClusterSearchConnectionId,
+    inboundCrossClusterSearchConnection_sourceDomainInfo,
+    inboundCrossClusterSearchConnection_destinationDomainInfo,
+    inboundCrossClusterSearchConnection_connectionStatus,
+
+    -- * InboundCrossClusterSearchConnectionStatus
+    InboundCrossClusterSearchConnectionStatus (..),
+    newInboundCrossClusterSearchConnectionStatus,
+    inboundCrossClusterSearchConnectionStatus_message,
+    inboundCrossClusterSearchConnectionStatus_statusCode,
 
     -- * InstanceCountLimits
-    , InstanceCountLimits
-    , instanceCountLimits
-    , iclMaximumInstanceCount
-    , iclMinimumInstanceCount
+    InstanceCountLimits (..),
+    newInstanceCountLimits,
+    instanceCountLimits_maximumInstanceCount,
+    instanceCountLimits_minimumInstanceCount,
 
     -- * InstanceLimits
-    , InstanceLimits
-    , instanceLimits
-    , ilInstanceCountLimits
+    InstanceLimits (..),
+    newInstanceLimits,
+    instanceLimits_instanceCountLimits,
 
     -- * Limits
-    , Limits
-    , limits
-    , lInstanceLimits
-    , lAdditionalLimits
-    , lStorageTypes
+    Limits (..),
+    newLimits,
+    limits_instanceLimits,
+    limits_additionalLimits,
+    limits_storageTypes,
 
     -- * LogPublishingOption
-    , LogPublishingOption
-    , logPublishingOption
-    , lpoEnabled
-    , lpoCloudWatchLogsLogGroupARN
+    LogPublishingOption (..),
+    newLogPublishingOption,
+    logPublishingOption_enabled,
+    logPublishingOption_cloudWatchLogsLogGroupArn,
 
     -- * LogPublishingOptionsStatus
-    , LogPublishingOptionsStatus
-    , logPublishingOptionsStatus
-    , lposStatus
-    , lposOptions
+    LogPublishingOptionsStatus (..),
+    newLogPublishingOptionsStatus,
+    logPublishingOptionsStatus_status,
+    logPublishingOptionsStatus_options,
+
+    -- * MasterUserOptions
+    MasterUserOptions (..),
+    newMasterUserOptions,
+    masterUserOptions_masterUserPassword,
+    masterUserOptions_masterUserName,
+    masterUserOptions_masterUserARN,
+
+    -- * NodeToNodeEncryptionOptions
+    NodeToNodeEncryptionOptions (..),
+    newNodeToNodeEncryptionOptions,
+    nodeToNodeEncryptionOptions_enabled,
+
+    -- * NodeToNodeEncryptionOptionsStatus
+    NodeToNodeEncryptionOptionsStatus (..),
+    newNodeToNodeEncryptionOptionsStatus,
+    nodeToNodeEncryptionOptionsStatus_options,
+    nodeToNodeEncryptionOptionsStatus_status,
 
     -- * OptionStatus
-    , OptionStatus
-    , optionStatus
-    , osPendingDeletion
-    , osUpdateVersion
-    , osCreationDate
-    , osUpdateDate
-    , osState
+    OptionStatus (..),
+    newOptionStatus,
+    optionStatus_updateVersion,
+    optionStatus_pendingDeletion,
+    optionStatus_creationDate,
+    optionStatus_updateDate,
+    optionStatus_state,
+
+    -- * OutboundCrossClusterSearchConnection
+    OutboundCrossClusterSearchConnection (..),
+    newOutboundCrossClusterSearchConnection,
+    outboundCrossClusterSearchConnection_crossClusterSearchConnectionId,
+    outboundCrossClusterSearchConnection_sourceDomainInfo,
+    outboundCrossClusterSearchConnection_connectionAlias,
+    outboundCrossClusterSearchConnection_destinationDomainInfo,
+    outboundCrossClusterSearchConnection_connectionStatus,
+
+    -- * OutboundCrossClusterSearchConnectionStatus
+    OutboundCrossClusterSearchConnectionStatus (..),
+    newOutboundCrossClusterSearchConnectionStatus,
+    outboundCrossClusterSearchConnectionStatus_message,
+    outboundCrossClusterSearchConnectionStatus_statusCode,
+
+    -- * PackageDetails
+    PackageDetails (..),
+    newPackageDetails,
+    packageDetails_availablePackageVersion,
+    packageDetails_packageStatus,
+    packageDetails_packageName,
+    packageDetails_createdAt,
+    packageDetails_packageID,
+    packageDetails_packageDescription,
+    packageDetails_lastUpdatedAt,
+    packageDetails_packageType,
+    packageDetails_errorDetails,
+
+    -- * PackageSource
+    PackageSource (..),
+    newPackageSource,
+    packageSource_s3Key,
+    packageSource_s3BucketName,
+
+    -- * PackageVersionHistory
+    PackageVersionHistory (..),
+    newPackageVersionHistory,
+    packageVersionHistory_packageVersion,
+    packageVersionHistory_createdAt,
+    packageVersionHistory_commitMessage,
 
     -- * RecurringCharge
-    , RecurringCharge
-    , recurringCharge
-    , rcRecurringChargeFrequency
-    , rcRecurringChargeAmount
+    RecurringCharge (..),
+    newRecurringCharge,
+    recurringCharge_recurringChargeFrequency,
+    recurringCharge_recurringChargeAmount,
 
     -- * ReservedElasticsearchInstance
-    , ReservedElasticsearchInstance
-    , reservedElasticsearchInstance
-    , reiState
-    , reiCurrencyCode
-    , reiStartTime
-    , reiReservedElasticsearchInstanceOfferingId
-    , reiReservedElasticsearchInstanceId
-    , reiElasticsearchInstanceCount
-    , reiReservationName
-    , reiElasticsearchInstanceType
-    , reiRecurringCharges
-    , reiUsagePrice
-    , reiFixedPrice
-    , reiDuration
-    , reiPaymentOption
+    ReservedElasticsearchInstance (..),
+    newReservedElasticsearchInstance,
+    reservedElasticsearchInstance_reservationName,
+    reservedElasticsearchInstance_paymentOption,
+    reservedElasticsearchInstance_elasticsearchInstanceCount,
+    reservedElasticsearchInstance_duration,
+    reservedElasticsearchInstance_startTime,
+    reservedElasticsearchInstance_currencyCode,
+    reservedElasticsearchInstance_elasticsearchInstanceType,
+    reservedElasticsearchInstance_state,
+    reservedElasticsearchInstance_fixedPrice,
+    reservedElasticsearchInstance_reservedElasticsearchInstanceId,
+    reservedElasticsearchInstance_reservedElasticsearchInstanceOfferingId,
+    reservedElasticsearchInstance_usagePrice,
+    reservedElasticsearchInstance_recurringCharges,
 
     -- * ReservedElasticsearchInstanceOffering
-    , ReservedElasticsearchInstanceOffering
-    , reservedElasticsearchInstanceOffering
-    , reioCurrencyCode
-    , reioReservedElasticsearchInstanceOfferingId
-    , reioElasticsearchInstanceType
-    , reioRecurringCharges
-    , reioUsagePrice
-    , reioFixedPrice
-    , reioDuration
-    , reioPaymentOption
+    ReservedElasticsearchInstanceOffering (..),
+    newReservedElasticsearchInstanceOffering,
+    reservedElasticsearchInstanceOffering_paymentOption,
+    reservedElasticsearchInstanceOffering_duration,
+    reservedElasticsearchInstanceOffering_currencyCode,
+    reservedElasticsearchInstanceOffering_elasticsearchInstanceType,
+    reservedElasticsearchInstanceOffering_fixedPrice,
+    reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId,
+    reservedElasticsearchInstanceOffering_usagePrice,
+    reservedElasticsearchInstanceOffering_recurringCharges,
+
+    -- * SAMLIdp
+    SAMLIdp (..),
+    newSAMLIdp,
+    sAMLIdp_metadataContent,
+    sAMLIdp_entityId,
+
+    -- * SAMLOptionsInput
+    SAMLOptionsInput (..),
+    newSAMLOptionsInput,
+    sAMLOptionsInput_masterBackendRole,
+    sAMLOptionsInput_rolesKey,
+    sAMLOptionsInput_sessionTimeoutMinutes,
+    sAMLOptionsInput_idp,
+    sAMLOptionsInput_enabled,
+    sAMLOptionsInput_masterUserName,
+    sAMLOptionsInput_subjectKey,
+
+    -- * SAMLOptionsOutput
+    SAMLOptionsOutput (..),
+    newSAMLOptionsOutput,
+    sAMLOptionsOutput_rolesKey,
+    sAMLOptionsOutput_sessionTimeoutMinutes,
+    sAMLOptionsOutput_idp,
+    sAMLOptionsOutput_enabled,
+    sAMLOptionsOutput_subjectKey,
+
+    -- * ScheduledAutoTuneDetails
+    ScheduledAutoTuneDetails (..),
+    newScheduledAutoTuneDetails,
+    scheduledAutoTuneDetails_actionType,
+    scheduledAutoTuneDetails_severity,
+    scheduledAutoTuneDetails_date,
+    scheduledAutoTuneDetails_action,
+
+    -- * ServiceSoftwareOptions
+    ServiceSoftwareOptions (..),
+    newServiceSoftwareOptions,
+    serviceSoftwareOptions_newVersion,
+    serviceSoftwareOptions_currentVersion,
+    serviceSoftwareOptions_updateAvailable,
+    serviceSoftwareOptions_cancellable,
+    serviceSoftwareOptions_updateStatus,
+    serviceSoftwareOptions_optionalDeployment,
+    serviceSoftwareOptions_description,
+    serviceSoftwareOptions_automatedUpdateDate,
 
     -- * SnapshotOptions
-    , SnapshotOptions
-    , snapshotOptions
-    , soAutomatedSnapshotStartHour
+    SnapshotOptions (..),
+    newSnapshotOptions,
+    snapshotOptions_automatedSnapshotStartHour,
 
     -- * SnapshotOptionsStatus
-    , SnapshotOptionsStatus
-    , snapshotOptionsStatus
-    , sosOptions
-    , sosStatus
+    SnapshotOptionsStatus (..),
+    newSnapshotOptionsStatus,
+    snapshotOptionsStatus_options,
+    snapshotOptionsStatus_status,
 
     -- * StorageType
-    , StorageType
-    , storageType
-    , stStorageTypeLimits
-    , stStorageSubTypeName
-    , stStorageTypeName
+    StorageType (..),
+    newStorageType,
+    storageType_storageTypeLimits,
+    storageType_storageTypeName,
+    storageType_storageSubTypeName,
 
     -- * StorageTypeLimit
-    , StorageTypeLimit
-    , storageTypeLimit
-    , stlLimitName
-    , stlLimitValues
+    StorageTypeLimit (..),
+    newStorageTypeLimit,
+    storageTypeLimit_limitValues,
+    storageTypeLimit_limitName,
 
     -- * Tag
-    , Tag
-    , tag
-    , tagKey
-    , tagValue
+    Tag (..),
+    newTag,
+    tag_key,
+    tag_value,
+
+    -- * UpgradeHistory
+    UpgradeHistory (..),
+    newUpgradeHistory,
+    upgradeHistory_upgradeName,
+    upgradeHistory_startTimestamp,
+    upgradeHistory_upgradeStatus,
+    upgradeHistory_stepsList,
+
+    -- * UpgradeStepItem
+    UpgradeStepItem (..),
+    newUpgradeStepItem,
+    upgradeStepItem_upgradeStepStatus,
+    upgradeStepItem_progressPercent,
+    upgradeStepItem_upgradeStep,
+    upgradeStepItem_issues,
 
     -- * VPCDerivedInfo
-    , VPCDerivedInfo
-    , vpcDerivedInfo
-    , vdiSecurityGroupIds
-    , vdiSubnetIds
-    , vdiVPCId
-    , vdiAvailabilityZones
+    VPCDerivedInfo (..),
+    newVPCDerivedInfo,
+    vPCDerivedInfo_securityGroupIds,
+    vPCDerivedInfo_availabilityZones,
+    vPCDerivedInfo_subnetIds,
+    vPCDerivedInfo_vPCId,
 
     -- * VPCDerivedInfoStatus
-    , VPCDerivedInfoStatus
-    , vpcDerivedInfoStatus
-    , vdisOptions
-    , vdisStatus
+    VPCDerivedInfoStatus (..),
+    newVPCDerivedInfoStatus,
+    vPCDerivedInfoStatus_options,
+    vPCDerivedInfoStatus_status,
 
     -- * VPCOptions
-    , VPCOptions
-    , vpcOptions
-    , voSecurityGroupIds
-    , voSubnetIds
-    ) where
+    VPCOptions (..),
+    newVPCOptions,
+    vPCOptions_securityGroupIds,
+    vPCOptions_subnetIds,
 
-import Network.AWS.ElasticSearch.Types.Product
-import Network.AWS.ElasticSearch.Types.Sum
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Sign.V4
+    -- * ZoneAwarenessConfig
+    ZoneAwarenessConfig (..),
+    newZoneAwarenessConfig,
+    zoneAwarenessConfig_availabilityZoneCount,
+  )
+where
+
+import Network.AWS.ElasticSearch.Types.AccessPoliciesStatus
+import Network.AWS.ElasticSearch.Types.AdditionalLimit
+import Network.AWS.ElasticSearch.Types.AdvancedOptionsStatus
+import Network.AWS.ElasticSearch.Types.AdvancedSecurityOptions
+import Network.AWS.ElasticSearch.Types.AdvancedSecurityOptionsInput
+import Network.AWS.ElasticSearch.Types.AdvancedSecurityOptionsStatus
+import Network.AWS.ElasticSearch.Types.AutoTune
+import Network.AWS.ElasticSearch.Types.AutoTuneDesiredState
+import Network.AWS.ElasticSearch.Types.AutoTuneDetails
+import Network.AWS.ElasticSearch.Types.AutoTuneMaintenanceSchedule
+import Network.AWS.ElasticSearch.Types.AutoTuneOptions
+import Network.AWS.ElasticSearch.Types.AutoTuneOptionsInput
+import Network.AWS.ElasticSearch.Types.AutoTuneOptionsOutput
+import Network.AWS.ElasticSearch.Types.AutoTuneOptionsStatus
+import Network.AWS.ElasticSearch.Types.AutoTuneState
+import Network.AWS.ElasticSearch.Types.AutoTuneStatus
+import Network.AWS.ElasticSearch.Types.AutoTuneType
+import Network.AWS.ElasticSearch.Types.CognitoOptions
+import Network.AWS.ElasticSearch.Types.CognitoOptionsStatus
+import Network.AWS.ElasticSearch.Types.CompatibleVersionsMap
+import Network.AWS.ElasticSearch.Types.DeploymentStatus
+import Network.AWS.ElasticSearch.Types.DescribePackagesFilter
+import Network.AWS.ElasticSearch.Types.DescribePackagesFilterName
+import Network.AWS.ElasticSearch.Types.DomainEndpointOptions
+import Network.AWS.ElasticSearch.Types.DomainEndpointOptionsStatus
+import Network.AWS.ElasticSearch.Types.DomainInfo
+import Network.AWS.ElasticSearch.Types.DomainInformation
+import Network.AWS.ElasticSearch.Types.DomainPackageDetails
+import Network.AWS.ElasticSearch.Types.DomainPackageStatus
+import Network.AWS.ElasticSearch.Types.Duration
+import Network.AWS.ElasticSearch.Types.EBSOptions
+import Network.AWS.ElasticSearch.Types.EBSOptionsStatus
+import Network.AWS.ElasticSearch.Types.ESPartitionInstanceType
+import Network.AWS.ElasticSearch.Types.ESWarmPartitionInstanceType
+import Network.AWS.ElasticSearch.Types.ElasticsearchClusterConfig
+import Network.AWS.ElasticSearch.Types.ElasticsearchClusterConfigStatus
+import Network.AWS.ElasticSearch.Types.ElasticsearchDomainConfig
+import Network.AWS.ElasticSearch.Types.ElasticsearchDomainStatus
+import Network.AWS.ElasticSearch.Types.ElasticsearchVersionStatus
+import Network.AWS.ElasticSearch.Types.EncryptionAtRestOptions
+import Network.AWS.ElasticSearch.Types.EncryptionAtRestOptionsStatus
+import Network.AWS.ElasticSearch.Types.ErrorDetails
+import Network.AWS.ElasticSearch.Types.Filter
+import Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnection
+import Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatus
+import Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatusCode
+import Network.AWS.ElasticSearch.Types.InstanceCountLimits
+import Network.AWS.ElasticSearch.Types.InstanceLimits
+import Network.AWS.ElasticSearch.Types.Limits
+import Network.AWS.ElasticSearch.Types.LogPublishingOption
+import Network.AWS.ElasticSearch.Types.LogPublishingOptionsStatus
+import Network.AWS.ElasticSearch.Types.LogType
+import Network.AWS.ElasticSearch.Types.MasterUserOptions
+import Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptions
+import Network.AWS.ElasticSearch.Types.NodeToNodeEncryptionOptionsStatus
+import Network.AWS.ElasticSearch.Types.OptionState
+import Network.AWS.ElasticSearch.Types.OptionStatus
+import Network.AWS.ElasticSearch.Types.OutboundCrossClusterSearchConnection
+import Network.AWS.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatus
+import Network.AWS.ElasticSearch.Types.OutboundCrossClusterSearchConnectionStatusCode
+import Network.AWS.ElasticSearch.Types.PackageDetails
+import Network.AWS.ElasticSearch.Types.PackageSource
+import Network.AWS.ElasticSearch.Types.PackageStatus
+import Network.AWS.ElasticSearch.Types.PackageType
+import Network.AWS.ElasticSearch.Types.PackageVersionHistory
+import Network.AWS.ElasticSearch.Types.RecurringCharge
+import Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstance
+import Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstanceOffering
+import Network.AWS.ElasticSearch.Types.ReservedElasticsearchInstancePaymentOption
+import Network.AWS.ElasticSearch.Types.RollbackOnDisable
+import Network.AWS.ElasticSearch.Types.SAMLIdp
+import Network.AWS.ElasticSearch.Types.SAMLOptionsInput
+import Network.AWS.ElasticSearch.Types.SAMLOptionsOutput
+import Network.AWS.ElasticSearch.Types.ScheduledAutoTuneActionType
+import Network.AWS.ElasticSearch.Types.ScheduledAutoTuneDetails
+import Network.AWS.ElasticSearch.Types.ScheduledAutoTuneSeverityType
+import Network.AWS.ElasticSearch.Types.ServiceSoftwareOptions
+import Network.AWS.ElasticSearch.Types.SnapshotOptions
+import Network.AWS.ElasticSearch.Types.SnapshotOptionsStatus
+import Network.AWS.ElasticSearch.Types.StorageType
+import Network.AWS.ElasticSearch.Types.StorageTypeLimit
+import Network.AWS.ElasticSearch.Types.TLSSecurityPolicy
+import Network.AWS.ElasticSearch.Types.Tag
+import Network.AWS.ElasticSearch.Types.TimeUnit
+import Network.AWS.ElasticSearch.Types.UpgradeHistory
+import Network.AWS.ElasticSearch.Types.UpgradeStatus
+import Network.AWS.ElasticSearch.Types.UpgradeStep
+import Network.AWS.ElasticSearch.Types.UpgradeStepItem
+import Network.AWS.ElasticSearch.Types.VPCDerivedInfo
+import Network.AWS.ElasticSearch.Types.VPCDerivedInfoStatus
+import Network.AWS.ElasticSearch.Types.VPCOptions
+import Network.AWS.ElasticSearch.Types.VolumeType
+import Network.AWS.ElasticSearch.Types.ZoneAwarenessConfig
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-01-01@ of the Amazon Elasticsearch Service SDK configuration.
-elasticSearch :: Service
-elasticSearch =
-  Service
-    { _svcAbbrev = "ElasticSearch"
-    , _svcSigner = v4
-    , _svcPrefix = "es"
-    , _svcVersion = "2015-01-01"
-    , _svcEndpoint = defaultEndpoint elasticSearch
-    , _svcTimeout = Just 70
-    , _svcCheck = statusSuccess
-    , _svcError = parseJSONError "ElasticSearch"
-    , _svcRetry = retry
+defaultService :: Prelude.Service
+defaultService =
+  Prelude.Service
+    { Prelude._svcAbbrev =
+        "ElasticSearch",
+      Prelude._svcSigner = Sign.v4,
+      Prelude._svcPrefix = "es",
+      Prelude._svcVersion = "2015-01-01",
+      Prelude._svcEndpoint =
+        Prelude.defaultEndpoint defaultService,
+      Prelude._svcTimeout = Prelude.Just 70,
+      Prelude._svcCheck = Prelude.statusSuccess,
+      Prelude._svcError =
+        Prelude.parseJSONError "ElasticSearch",
+      Prelude._svcRetry = retry
     }
   where
     retry =
-      Exponential
-        { _retryBase = 5.0e-2
-        , _retryGrowth = 2
-        , _retryAttempts = 5
-        , _retryCheck = check
+      Prelude.Exponential
+        { Prelude._retryBase = 5.0e-2,
+          Prelude._retryGrowth = 2,
+          Prelude._retryAttempts = 5,
+          Prelude._retryCheck = check
         }
     check e
-      | has (hasCode "ThrottledException" . hasStatus 400) e =
-        Just "throttled_exception"
-      | has (hasStatus 429) e = Just "too_many_requests"
-      | has (hasCode "ThrottlingException" . hasStatus 400) e =
-        Just "throttling_exception"
-      | has (hasCode "Throttling" . hasStatus 400) e = Just "throttling"
-      | has (hasStatus 504) e = Just "gateway_timeout"
-      | has (hasCode "RequestThrottledException" . hasStatus 400) e =
-        Just "request_throttled_exception"
-      | has (hasStatus 502) e = Just "bad_gateway"
-      | has (hasStatus 503) e = Just "service_unavailable"
-      | has (hasStatus 500) e = Just "general_server_error"
-      | has (hasStatus 509) e = Just "limit_exceeded"
-      | otherwise = Nothing
+      | Lens.has (Prelude.hasStatus 504) e =
+        Prelude.Just "gateway_timeout"
+      | Lens.has
+          ( Prelude.hasCode
+              "ProvisionedThroughputExceededException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throughput_exceeded"
+      | Lens.has (Prelude.hasStatus 503) e =
+        Prelude.Just "service_unavailable"
+      | Lens.has (Prelude.hasStatus 502) e =
+        Prelude.Just "bad_gateway"
+      | Lens.has (Prelude.hasStatus 429) e =
+        Prelude.Just "too_many_requests"
+      | Lens.has
+          ( Prelude.hasCode "RequestThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "request_throttled_exception"
+      | Lens.has
+          ( Prelude.hasCode "ThrottledException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttled_exception"
+      | Lens.has (Prelude.hasStatus 509) e =
+        Prelude.Just "limit_exceeded"
+      | Lens.has (Prelude.hasStatus 500) e =
+        Prelude.Just "general_server_error"
+      | Lens.has
+          ( Prelude.hasCode "ThrottlingException"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling_exception"
+      | Lens.has
+          ( Prelude.hasCode "Throttling"
+              Prelude.. Prelude.hasStatus 400
+          )
+          e =
+        Prelude.Just "throttling"
+      | Prelude.otherwise = Prelude.Nothing
 
+-- | The request processing has failed because of invalid pagination token
+-- provided by customer. Returns an HTTP status code of 400.
+_InvalidPaginationTokenException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidPaginationTokenException =
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidPaginationTokenException"
+    Prelude.. Prelude.hasStatus 400
 
--- | An exception for missing / invalid input fields. Gives http status code of 400.
---
---
-_ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
-_ValidationException =
-  _MatchServiceError elasticSearch "ValidationException" . hasStatus 400
+-- | An exception for trying to create or access sub-resource that is either
+-- invalid or not supported. Gives http status code of 409.
+_InvalidTypeException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InvalidTypeException =
+  Prelude._MatchServiceError
+    defaultService
+    "InvalidTypeException"
+    Prelude.. Prelude.hasStatus 409
 
-
--- | An exception for creating a resource that already exists. Gives http status code of 400.
---
---
-_ResourceAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | An exception for creating a resource that already exists. Gives http
+-- status code of 400.
+_ResourceAlreadyExistsException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
 _ResourceAlreadyExistsException =
-  _MatchServiceError elasticSearch "ResourceAlreadyExistsException" .
-  hasStatus 409
+  Prelude._MatchServiceError
+    defaultService
+    "ResourceAlreadyExistsException"
+    Prelude.. Prelude.hasStatus 409
 
+-- | The request processing has failed because of an unknown error, exception
+-- or failure (the failure is internal to the service) . Gives http status
+-- code of 500.
+_InternalException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_InternalException =
+  Prelude._MatchServiceError
+    defaultService
+    "InternalException"
+    Prelude.. Prelude.hasStatus 500
 
 -- | An error occurred while processing the request.
---
---
-_BaseException :: AsError a => Getting (First ServiceError) a ServiceError
-_BaseException = _MatchServiceError elasticSearch "BaseException"
+_BaseException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_BaseException =
+  Prelude._MatchServiceError
+    defaultService
+    "BaseException"
 
+-- | An error occurred because user does not have permissions to access the
+-- resource. Returns HTTP status code 403.
+_AccessDeniedException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_AccessDeniedException =
+  Prelude._MatchServiceError
+    defaultService
+    "AccessDeniedException"
+    Prelude.. Prelude.hasStatus 403
 
--- | An error occured because the client wanted to access a not supported operation. Gives http status code of 409.
---
---
-_DisabledOperationException :: AsError a => Getting (First ServiceError) a ServiceError
-_DisabledOperationException =
-  _MatchServiceError elasticSearch "DisabledOperationException" . hasStatus 409
+-- | An exception for missing \/ invalid input fields. Gives http status code
+-- of 400.
+_ValidationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ValidationException =
+  Prelude._MatchServiceError
+    defaultService
+    "ValidationException"
+    Prelude.. Prelude.hasStatus 400
 
-
--- | The request processing has failed because of an unknown error, exception or failure (the failure is internal to the service) . Gives http status code of 500.
---
---
-_InternalException :: AsError a => Getting (First ServiceError) a ServiceError
-_InternalException =
-  _MatchServiceError elasticSearch "InternalException" . hasStatus 500
-
-
--- | An exception for trying to create or access sub-resource that is either invalid or not supported. Gives http status code of 409.
---
---
-_InvalidTypeException :: AsError a => Getting (First ServiceError) a ServiceError
-_InvalidTypeException =
-  _MatchServiceError elasticSearch "InvalidTypeException" . hasStatus 409
-
-
--- | An exception for accessing or deleting a resource that does not exist. Gives http status code of 400.
---
---
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-_ResourceNotFoundException =
-  _MatchServiceError elasticSearch "ResourceNotFoundException" . hasStatus 409
-
-
--- | An exception for trying to create more than allowed resources or sub-resources. Gives http status code of 409.
---
---
-_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | An exception for trying to create more than allowed resources or
+-- sub-resources. Gives http status code of 409.
+_LimitExceededException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
 _LimitExceededException =
-  _MatchServiceError elasticSearch "LimitExceededException" . hasStatus 409
+  Prelude._MatchServiceError
+    defaultService
+    "LimitExceededException"
+    Prelude.. Prelude.hasStatus 409
 
+-- | An error occurred because the client attempts to remove a resource that
+-- is currently in use. Returns HTTP status code 409.
+_ConflictException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ConflictException =
+  Prelude._MatchServiceError
+    defaultService
+    "ConflictException"
+    Prelude.. Prelude.hasStatus 409
+
+-- | An exception for accessing or deleting a resource that does not exist.
+-- Gives http status code of 400.
+_ResourceNotFoundException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_ResourceNotFoundException =
+  Prelude._MatchServiceError
+    defaultService
+    "ResourceNotFoundException"
+    Prelude.. Prelude.hasStatus 409
+
+-- | An error occured because the client wanted to access a not supported
+-- operation. Gives http status code of 409.
+_DisabledOperationException :: Prelude.AsError a => Lens.Getting (Prelude.First Prelude.ServiceError) a Prelude.ServiceError
+_DisabledOperationException =
+  Prelude._MatchServiceError
+    defaultService
+    "DisabledOperationException"
+    Prelude.. Prelude.hasStatus 409

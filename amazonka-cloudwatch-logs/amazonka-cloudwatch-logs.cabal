@@ -1,118 +1,150 @@
-name:                  amazonka-cloudwatch-logs
-version:               1.6.1
-synopsis:              Amazon CloudWatch Logs SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-cloudwatch-logs
+version:            1.6.1
+synopsis:           Amazon CloudWatch Logs SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.CloudWatchLogs" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.CloudWatchLogs.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.CloudWatchLogs" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-cloudwatch-logs
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-cloudwatch-logs
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.CloudWatchLogs
+    Network.AWS.CloudWatchLogs.AssociateKmsKey
+    Network.AWS.CloudWatchLogs.CancelExportTask
+    Network.AWS.CloudWatchLogs.CreateExportTask
+    Network.AWS.CloudWatchLogs.CreateLogGroup
+    Network.AWS.CloudWatchLogs.CreateLogStream
+    Network.AWS.CloudWatchLogs.DeleteDestination
+    Network.AWS.CloudWatchLogs.DeleteLogGroup
+    Network.AWS.CloudWatchLogs.DeleteLogStream
+    Network.AWS.CloudWatchLogs.DeleteMetricFilter
+    Network.AWS.CloudWatchLogs.DeleteQueryDefinition
+    Network.AWS.CloudWatchLogs.DeleteResourcePolicy
+    Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
+    Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
+    Network.AWS.CloudWatchLogs.DescribeDestinations
+    Network.AWS.CloudWatchLogs.DescribeExportTasks
+    Network.AWS.CloudWatchLogs.DescribeLogGroups
+    Network.AWS.CloudWatchLogs.DescribeLogStreams
+    Network.AWS.CloudWatchLogs.DescribeMetricFilters
+    Network.AWS.CloudWatchLogs.DescribeQueries
+    Network.AWS.CloudWatchLogs.DescribeQueryDefinitions
+    Network.AWS.CloudWatchLogs.DescribeResourcePolicies
+    Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
+    Network.AWS.CloudWatchLogs.DisassociateKmsKey
+    Network.AWS.CloudWatchLogs.FilterLogEvents
+    Network.AWS.CloudWatchLogs.GetLogEvents
+    Network.AWS.CloudWatchLogs.GetLogGroupFields
+    Network.AWS.CloudWatchLogs.GetLogRecord
+    Network.AWS.CloudWatchLogs.GetQueryResults
+    Network.AWS.CloudWatchLogs.Lens
+    Network.AWS.CloudWatchLogs.ListTagsLogGroup
+    Network.AWS.CloudWatchLogs.PutDestination
+    Network.AWS.CloudWatchLogs.PutDestinationPolicy
+    Network.AWS.CloudWatchLogs.PutLogEvents
+    Network.AWS.CloudWatchLogs.PutMetricFilter
+    Network.AWS.CloudWatchLogs.PutQueryDefinition
+    Network.AWS.CloudWatchLogs.PutResourcePolicy
+    Network.AWS.CloudWatchLogs.PutRetentionPolicy
+    Network.AWS.CloudWatchLogs.PutSubscriptionFilter
+    Network.AWS.CloudWatchLogs.StartQuery
+    Network.AWS.CloudWatchLogs.StopQuery
+    Network.AWS.CloudWatchLogs.TagLogGroup
+    Network.AWS.CloudWatchLogs.TestMetricFilter
+    Network.AWS.CloudWatchLogs.Types
+    Network.AWS.CloudWatchLogs.Types.Destination
+    Network.AWS.CloudWatchLogs.Types.Distribution
+    Network.AWS.CloudWatchLogs.Types.ExportTask
+    Network.AWS.CloudWatchLogs.Types.ExportTaskExecutionInfo
+    Network.AWS.CloudWatchLogs.Types.ExportTaskStatus
+    Network.AWS.CloudWatchLogs.Types.ExportTaskStatusCode
+    Network.AWS.CloudWatchLogs.Types.FilteredLogEvent
+    Network.AWS.CloudWatchLogs.Types.InputLogEvent
+    Network.AWS.CloudWatchLogs.Types.LogGroup
+    Network.AWS.CloudWatchLogs.Types.LogGroupField
+    Network.AWS.CloudWatchLogs.Types.LogStream
+    Network.AWS.CloudWatchLogs.Types.MetricFilter
+    Network.AWS.CloudWatchLogs.Types.MetricFilterMatchRecord
+    Network.AWS.CloudWatchLogs.Types.MetricTransformation
+    Network.AWS.CloudWatchLogs.Types.OrderBy
+    Network.AWS.CloudWatchLogs.Types.OutputLogEvent
+    Network.AWS.CloudWatchLogs.Types.QueryDefinition
+    Network.AWS.CloudWatchLogs.Types.QueryInfo
+    Network.AWS.CloudWatchLogs.Types.QueryStatistics
+    Network.AWS.CloudWatchLogs.Types.QueryStatus
+    Network.AWS.CloudWatchLogs.Types.RejectedLogEventsInfo
+    Network.AWS.CloudWatchLogs.Types.ResourcePolicy
+    Network.AWS.CloudWatchLogs.Types.ResultField
+    Network.AWS.CloudWatchLogs.Types.SearchedLogStream
+    Network.AWS.CloudWatchLogs.Types.SubscriptionFilter
+    Network.AWS.CloudWatchLogs.UntagLogGroup
+    Network.AWS.CloudWatchLogs.Waiters
 
-    exposed-modules:
-          Network.AWS.CloudWatchLogs
-        , Network.AWS.CloudWatchLogs.AssociateKMSKey
-        , Network.AWS.CloudWatchLogs.CancelExportTask
-        , Network.AWS.CloudWatchLogs.CreateExportTask
-        , Network.AWS.CloudWatchLogs.CreateLogGroup
-        , Network.AWS.CloudWatchLogs.CreateLogStream
-        , Network.AWS.CloudWatchLogs.DeleteDestination
-        , Network.AWS.CloudWatchLogs.DeleteLogGroup
-        , Network.AWS.CloudWatchLogs.DeleteLogStream
-        , Network.AWS.CloudWatchLogs.DeleteMetricFilter
-        , Network.AWS.CloudWatchLogs.DeleteResourcePolicy
-        , Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
-        , Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
-        , Network.AWS.CloudWatchLogs.DescribeDestinations
-        , Network.AWS.CloudWatchLogs.DescribeExportTasks
-        , Network.AWS.CloudWatchLogs.DescribeLogGroups
-        , Network.AWS.CloudWatchLogs.DescribeLogStreams
-        , Network.AWS.CloudWatchLogs.DescribeMetricFilters
-        , Network.AWS.CloudWatchLogs.DescribeResourcePolicies
-        , Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
-        , Network.AWS.CloudWatchLogs.DisassociateKMSKey
-        , Network.AWS.CloudWatchLogs.FilterLogEvents
-        , Network.AWS.CloudWatchLogs.GetLogEvents
-        , Network.AWS.CloudWatchLogs.ListTagsLogGroup
-        , Network.AWS.CloudWatchLogs.PutDestination
-        , Network.AWS.CloudWatchLogs.PutDestinationPolicy
-        , Network.AWS.CloudWatchLogs.PutLogEvents
-        , Network.AWS.CloudWatchLogs.PutMetricFilter
-        , Network.AWS.CloudWatchLogs.PutResourcePolicy
-        , Network.AWS.CloudWatchLogs.PutRetentionPolicy
-        , Network.AWS.CloudWatchLogs.PutSubscriptionFilter
-        , Network.AWS.CloudWatchLogs.TagLogGroup
-        , Network.AWS.CloudWatchLogs.TestMetricFilter
-        , Network.AWS.CloudWatchLogs.Types
-        , Network.AWS.CloudWatchLogs.UntagLogGroup
-        , Network.AWS.CloudWatchLogs.Waiters
-
-    other-modules:
-          Network.AWS.CloudWatchLogs.Types.Product
-        , Network.AWS.CloudWatchLogs.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS.Prelude
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.13  && <5
 
 test-suite amazonka-cloudwatch-logs-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.CloudWatchLogs
+    Test.AWS.CloudWatchLogs.Internal
+    Test.AWS.Gen.CloudWatchLogs
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.CloudWatchLogs
-        , Test.AWS.Gen.CloudWatchLogs
-        , Test.AWS.CloudWatchLogs.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-cloudwatch-logs
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-cloudwatch-logs
+    , amazonka-core             >=1.6.1 && <1.6.2
+    , amazonka-test             >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

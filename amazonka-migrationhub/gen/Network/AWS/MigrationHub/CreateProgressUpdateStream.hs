@@ -1,141 +1,185 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MigrationHub.CreateProgressUpdateStream
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a progress update stream which is an AWS resource used for access control as well as a namespace for migration task names that is implicitly linked to your AWS account. It must uniquely identify the migration tool as it is used for all updates made by the tool; however, it does not need to be unique for each AWS account because it is scoped to the AWS account.
---
---
+-- Creates a progress update stream which is an AWS resource used for
+-- access control as well as a namespace for migration task names that is
+-- implicitly linked to your AWS account. It must uniquely identify the
+-- migration tool as it is used for all updates made by the tool; however,
+-- it does not need to be unique for each AWS account because it is scoped
+-- to the AWS account.
 module Network.AWS.MigrationHub.CreateProgressUpdateStream
-    (
-    -- * Creating a Request
-      createProgressUpdateStream
-    , CreateProgressUpdateStream
+  ( -- * Creating a Request
+    CreateProgressUpdateStream (..),
+    newCreateProgressUpdateStream,
+
     -- * Request Lenses
-    , cpusDryRun
-    , cpusProgressUpdateStreamName
+    createProgressUpdateStream_dryRun,
+    createProgressUpdateStream_progressUpdateStreamName,
 
     -- * Destructuring the Response
-    , createProgressUpdateStreamResponse
-    , CreateProgressUpdateStreamResponse
+    CreateProgressUpdateStreamResponse (..),
+    newCreateProgressUpdateStreamResponse,
+
     -- * Response Lenses
-    , cpusrsResponseStatus
-    ) where
+    createProgressUpdateStreamResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MigrationHub.Types
-import Network.AWS.MigrationHub.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createProgressUpdateStream' smart constructor.
+-- | /See:/ 'newCreateProgressUpdateStream' smart constructor.
 data CreateProgressUpdateStream = CreateProgressUpdateStream'
-  { _cpusDryRun                   :: !(Maybe Bool)
-  , _cpusProgressUpdateStreamName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Optional boolean flag to indicate whether any effect should take place.
+    -- Used to test if the caller has permission to make the call.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The name of the ProgressUpdateStream. /Do not store personal data in
+    -- this field./
+    progressUpdateStreamName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateProgressUpdateStream' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'dryRun', 'createProgressUpdateStream_dryRun' - Optional boolean flag to indicate whether any effect should take place.
+-- Used to test if the caller has permission to make the call.
+--
+-- 'progressUpdateStreamName', 'createProgressUpdateStream_progressUpdateStreamName' - The name of the ProgressUpdateStream. /Do not store personal data in
+-- this field./
+newCreateProgressUpdateStream ::
+  -- | 'progressUpdateStreamName'
+  Prelude.Text ->
+  CreateProgressUpdateStream
+newCreateProgressUpdateStream
+  pProgressUpdateStreamName_ =
+    CreateProgressUpdateStream'
+      { dryRun =
+          Prelude.Nothing,
+        progressUpdateStreamName =
+          pProgressUpdateStreamName_
+      }
 
--- | Creates a value of 'CreateProgressUpdateStream' with the minimum fields required to make a request.
+-- | Optional boolean flag to indicate whether any effect should take place.
+-- Used to test if the caller has permission to make the call.
+createProgressUpdateStream_dryRun :: Lens.Lens' CreateProgressUpdateStream (Prelude.Maybe Prelude.Bool)
+createProgressUpdateStream_dryRun = Lens.lens (\CreateProgressUpdateStream' {dryRun} -> dryRun) (\s@CreateProgressUpdateStream' {} a -> s {dryRun = a} :: CreateProgressUpdateStream)
+
+-- | The name of the ProgressUpdateStream. /Do not store personal data in
+-- this field./
+createProgressUpdateStream_progressUpdateStreamName :: Lens.Lens' CreateProgressUpdateStream Prelude.Text
+createProgressUpdateStream_progressUpdateStreamName = Lens.lens (\CreateProgressUpdateStream' {progressUpdateStreamName} -> progressUpdateStreamName) (\s@CreateProgressUpdateStream' {} a -> s {progressUpdateStreamName = a} :: CreateProgressUpdateStream)
+
+instance
+  Prelude.AWSRequest
+    CreateProgressUpdateStream
+  where
+  type
+    Rs CreateProgressUpdateStream =
+      CreateProgressUpdateStreamResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          CreateProgressUpdateStreamResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable CreateProgressUpdateStream
+
+instance Prelude.NFData CreateProgressUpdateStream
+
+instance Prelude.ToHeaders CreateProgressUpdateStream where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSMigrationHub.CreateProgressUpdateStream" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON CreateProgressUpdateStream where
+  toJSON CreateProgressUpdateStream' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("DryRun" Prelude..=) Prelude.<$> dryRun,
+            Prelude.Just
+              ( "ProgressUpdateStreamName"
+                  Prelude..= progressUpdateStreamName
+              )
+          ]
+      )
+
+instance Prelude.ToPath CreateProgressUpdateStream where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery CreateProgressUpdateStream where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newCreateProgressUpdateStreamResponse' smart constructor.
+data CreateProgressUpdateStreamResponse = CreateProgressUpdateStreamResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreateProgressUpdateStreamResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cpusDryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cpusProgressUpdateStreamName' - The name of the ProgressUpdateStream.
-createProgressUpdateStream
-    :: Text -- ^ 'cpusProgressUpdateStreamName'
-    -> CreateProgressUpdateStream
-createProgressUpdateStream pProgressUpdateStreamName_ =
-  CreateProgressUpdateStream'
-    { _cpusDryRun = Nothing
-    , _cpusProgressUpdateStreamName = pProgressUpdateStreamName_
+-- 'httpStatus', 'createProgressUpdateStreamResponse_httpStatus' - The response's http status code.
+newCreateProgressUpdateStreamResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateProgressUpdateStreamResponse
+newCreateProgressUpdateStreamResponse pHttpStatus_ =
+  CreateProgressUpdateStreamResponse'
+    { httpStatus =
+        pHttpStatus_
     }
 
+-- | The response's http status code.
+createProgressUpdateStreamResponse_httpStatus :: Lens.Lens' CreateProgressUpdateStreamResponse Prelude.Int
+createProgressUpdateStreamResponse_httpStatus = Lens.lens (\CreateProgressUpdateStreamResponse' {httpStatus} -> httpStatus) (\s@CreateProgressUpdateStreamResponse' {} a -> s {httpStatus = a} :: CreateProgressUpdateStreamResponse)
 
--- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
-cpusDryRun :: Lens' CreateProgressUpdateStream (Maybe Bool)
-cpusDryRun = lens _cpusDryRun (\ s a -> s{_cpusDryRun = a})
-
--- | The name of the ProgressUpdateStream.
-cpusProgressUpdateStreamName :: Lens' CreateProgressUpdateStream Text
-cpusProgressUpdateStreamName = lens _cpusProgressUpdateStreamName (\ s a -> s{_cpusProgressUpdateStreamName = a})
-
-instance AWSRequest CreateProgressUpdateStream where
-        type Rs CreateProgressUpdateStream =
-             CreateProgressUpdateStreamResponse
-        request = postJSON migrationHub
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 CreateProgressUpdateStreamResponse' <$>
-                   (pure (fromEnum s)))
-
-instance Hashable CreateProgressUpdateStream where
-
-instance NFData CreateProgressUpdateStream where
-
-instance ToHeaders CreateProgressUpdateStream where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSMigrationHub.CreateProgressUpdateStream" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON CreateProgressUpdateStream where
-        toJSON CreateProgressUpdateStream'{..}
-          = object
-              (catMaybes
-                 [("DryRun" .=) <$> _cpusDryRun,
-                  Just
-                    ("ProgressUpdateStreamName" .=
-                       _cpusProgressUpdateStreamName)])
-
-instance ToPath CreateProgressUpdateStream where
-        toPath = const "/"
-
-instance ToQuery CreateProgressUpdateStream where
-        toQuery = const mempty
-
--- | /See:/ 'createProgressUpdateStreamResponse' smart constructor.
-newtype CreateProgressUpdateStreamResponse = CreateProgressUpdateStreamResponse'
-  { _cpusrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateProgressUpdateStreamResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cpusrsResponseStatus' - -- | The response status code.
-createProgressUpdateStreamResponse
-    :: Int -- ^ 'cpusrsResponseStatus'
-    -> CreateProgressUpdateStreamResponse
-createProgressUpdateStreamResponse pResponseStatus_ =
-  CreateProgressUpdateStreamResponse' {_cpusrsResponseStatus = pResponseStatus_}
-
-
--- | -- | The response status code.
-cpusrsResponseStatus :: Lens' CreateProgressUpdateStreamResponse Int
-cpusrsResponseStatus = lens _cpusrsResponseStatus (\ s a -> s{_cpusrsResponseStatus = a})
-
-instance NFData CreateProgressUpdateStreamResponse
-         where
+instance
+  Prelude.NFData
+    CreateProgressUpdateStreamResponse

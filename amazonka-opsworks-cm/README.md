@@ -1,4 +1,4 @@
-# Amazon OpsWorks for Chef Automate SDK
+# Amazon OpsWorks CM SDK
 
 * [Version](#version)
 * [Description](#description)

@@ -1,131 +1,163 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.WorkSpaces.DescribeTags
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified tags for the specified WorkSpace.
---
---
+-- Describes the specified tags for the specified WorkSpaces resource.
 module Network.AWS.WorkSpaces.DescribeTags
-    (
-    -- * Creating a Request
-      describeTags
-    , DescribeTags
+  ( -- * Creating a Request
+    DescribeTags (..),
+    newDescribeTags,
+
     -- * Request Lenses
-    , dtResourceId
+    describeTags_resourceId,
 
     -- * Destructuring the Response
-    , describeTagsResponse
-    , DescribeTagsResponse
+    DescribeTagsResponse (..),
+    newDescribeTagsResponse,
+
     -- * Response Lenses
-    , dtrsTagList
-    , dtrsResponseStatus
-    ) where
+    describeTagsResponse_tagList,
+    describeTagsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.WorkSpaces.Types
-import Network.AWS.WorkSpaces.Types.Product
 
--- | /See:/ 'describeTags' smart constructor.
-newtype DescribeTags = DescribeTags'
-  { _dtResourceId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeTags' smart constructor.
+data DescribeTags = DescribeTags'
+  { -- | The identifier of the WorkSpaces resource. The supported resource types
+    -- are WorkSpaces, registered directories, images, custom bundles, IP
+    -- access control groups, and connection aliases.
+    resourceId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeTags' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtResourceId' - The ID of the WorkSpace. To find this ID, use 'DescribeWorkspaces' .
-describeTags
-    :: Text -- ^ 'dtResourceId'
-    -> DescribeTags
-describeTags pResourceId_ = DescribeTags' {_dtResourceId = pResourceId_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'resourceId', 'describeTags_resourceId' - The identifier of the WorkSpaces resource. The supported resource types
+-- are WorkSpaces, registered directories, images, custom bundles, IP
+-- access control groups, and connection aliases.
+newDescribeTags ::
+  -- | 'resourceId'
+  Prelude.Text ->
+  DescribeTags
+newDescribeTags pResourceId_ =
+  DescribeTags' {resourceId = pResourceId_}
 
+-- | The identifier of the WorkSpaces resource. The supported resource types
+-- are WorkSpaces, registered directories, images, custom bundles, IP
+-- access control groups, and connection aliases.
+describeTags_resourceId :: Lens.Lens' DescribeTags Prelude.Text
+describeTags_resourceId = Lens.lens (\DescribeTags' {resourceId} -> resourceId) (\s@DescribeTags' {} a -> s {resourceId = a} :: DescribeTags)
 
--- | The ID of the WorkSpace. To find this ID, use 'DescribeWorkspaces' .
-dtResourceId :: Lens' DescribeTags Text
-dtResourceId = lens _dtResourceId (\ s a -> s{_dtResourceId = a})
+instance Prelude.AWSRequest DescribeTags where
+  type Rs DescribeTags = DescribeTagsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeTagsResponse'
+            Prelude.<$> (x Prelude..?> "TagList" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeTags where
-        type Rs DescribeTags = DescribeTagsResponse
-        request = postJSON workSpaces
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeTagsResponse' <$>
-                   (x .?> "TagList" .!@ mempty) <*> (pure (fromEnum s)))
+instance Prelude.Hashable DescribeTags
 
-instance Hashable DescribeTags where
+instance Prelude.NFData DescribeTags
 
-instance NFData DescribeTags where
+instance Prelude.ToHeaders DescribeTags where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "WorkspacesService.DescribeTags" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders DescribeTags where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("WorkspacesService.DescribeTags" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToJSON DescribeTags where
+  toJSON DescribeTags' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("ResourceId" Prelude..= resourceId)]
+      )
 
-instance ToJSON DescribeTags where
-        toJSON DescribeTags'{..}
-          = object
-              (catMaybes [Just ("ResourceId" .= _dtResourceId)])
+instance Prelude.ToPath DescribeTags where
+  toPath = Prelude.const "/"
 
-instance ToPath DescribeTags where
-        toPath = const "/"
+instance Prelude.ToQuery DescribeTags where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DescribeTags where
-        toQuery = const mempty
-
--- | /See:/ 'describeTagsResponse' smart constructor.
+-- | /See:/ 'newDescribeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
-  { _dtrsTagList        :: !(Maybe [Tag])
-  , _dtrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The tags.
+    tagList :: Prelude.Maybe [Tag],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeTagsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dtrsTagList' - The tags.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dtrsResponseStatus' - -- | The response status code.
-describeTagsResponse
-    :: Int -- ^ 'dtrsResponseStatus'
-    -> DescribeTagsResponse
-describeTagsResponse pResponseStatus_ =
+-- 'tagList', 'describeTagsResponse_tagList' - The tags.
+--
+-- 'httpStatus', 'describeTagsResponse_httpStatus' - The response's http status code.
+newDescribeTagsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeTagsResponse
+newDescribeTagsResponse pHttpStatus_ =
   DescribeTagsResponse'
-    {_dtrsTagList = Nothing, _dtrsResponseStatus = pResponseStatus_}
-
+    { tagList = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The tags.
-dtrsTagList :: Lens' DescribeTagsResponse [Tag]
-dtrsTagList = lens _dtrsTagList (\ s a -> s{_dtrsTagList = a}) . _Default . _Coerce
+describeTagsResponse_tagList :: Lens.Lens' DescribeTagsResponse (Prelude.Maybe [Tag])
+describeTagsResponse_tagList = Lens.lens (\DescribeTagsResponse' {tagList} -> tagList) (\s@DescribeTagsResponse' {} a -> s {tagList = a} :: DescribeTagsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-dtrsResponseStatus :: Lens' DescribeTagsResponse Int
-dtrsResponseStatus = lens _dtrsResponseStatus (\ s a -> s{_dtrsResponseStatus = a})
+-- | The response's http status code.
+describeTagsResponse_httpStatus :: Lens.Lens' DescribeTagsResponse Prelude.Int
+describeTagsResponse_httpStatus = Lens.lens (\DescribeTagsResponse' {httpStatus} -> httpStatus) (\s@DescribeTagsResponse' {} a -> s {httpStatus = a} :: DescribeTagsResponse)
 
-instance NFData DescribeTagsResponse where
+instance Prelude.NFData DescribeTagsResponse

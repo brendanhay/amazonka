@@ -1,144 +1,174 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.UnmonitorInstances
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disables detailed monitoring for a running instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes> in the /Amazon Elastic Compute Cloud User Guide/ .
---
---
+-- Disables detailed monitoring for a running instance. For more
+-- information, see
+-- <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring your instances and volumes>
+-- in the /Amazon EC2 User Guide/.
 module Network.AWS.EC2.UnmonitorInstances
-    (
-    -- * Creating a Request
-      unmonitorInstances
-    , UnmonitorInstances
+  ( -- * Creating a Request
+    UnmonitorInstances (..),
+    newUnmonitorInstances,
+
     -- * Request Lenses
-    , uiDryRun
-    , uiInstanceIds
+    unmonitorInstances_dryRun,
+    unmonitorInstances_instanceIds,
 
     -- * Destructuring the Response
-    , unmonitorInstancesResponse
-    , UnmonitorInstancesResponse
+    UnmonitorInstancesResponse (..),
+    newUnmonitorInstancesResponse,
+
     -- * Response Lenses
-    , uirsInstanceMonitorings
-    , uirsResponseStatus
-    ) where
+    unmonitorInstancesResponse_instanceMonitorings,
+    unmonitorInstancesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Contains the parameters for UnmonitorInstances.
---
---
---
--- /See:/ 'unmonitorInstances' smart constructor.
+-- | /See:/ 'newUnmonitorInstances' smart constructor.
 data UnmonitorInstances = UnmonitorInstances'
-  { _uiDryRun      :: !(Maybe Bool)
-  , _uiInstanceIds :: ![Text]
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The IDs of the instances.
+    instanceIds :: [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UnmonitorInstances' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UnmonitorInstances' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uiDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'uiInstanceIds' - One or more instance IDs.
-unmonitorInstances
-    :: UnmonitorInstances
-unmonitorInstances =
-  UnmonitorInstances' {_uiDryRun = Nothing, _uiInstanceIds = mempty}
-
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-uiDryRun :: Lens' UnmonitorInstances (Maybe Bool)
-uiDryRun = lens _uiDryRun (\ s a -> s{_uiDryRun = a})
-
--- | One or more instance IDs.
-uiInstanceIds :: Lens' UnmonitorInstances [Text]
-uiInstanceIds = lens _uiInstanceIds (\ s a -> s{_uiInstanceIds = a}) . _Coerce
-
-instance AWSRequest UnmonitorInstances where
-        type Rs UnmonitorInstances =
-             UnmonitorInstancesResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 UnmonitorInstancesResponse' <$>
-                   (x .@? "instancesSet" .!@ mempty >>=
-                      may (parseXMLList "item"))
-                     <*> (pure (fromEnum s)))
-
-instance Hashable UnmonitorInstances where
-
-instance NFData UnmonitorInstances where
-
-instance ToHeaders UnmonitorInstances where
-        toHeaders = const mempty
-
-instance ToPath UnmonitorInstances where
-        toPath = const "/"
-
-instance ToQuery UnmonitorInstances where
-        toQuery UnmonitorInstances'{..}
-          = mconcat
-              ["Action" =: ("UnmonitorInstances" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "DryRun" =: _uiDryRun,
-               toQueryList "InstanceId" _uiInstanceIds]
-
--- | Contains the output of UnmonitorInstances.
+-- 'dryRun', 'unmonitorInstances_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
---
---
--- /See:/ 'unmonitorInstancesResponse' smart constructor.
+-- 'instanceIds', 'unmonitorInstances_instanceIds' - The IDs of the instances.
+newUnmonitorInstances ::
+  UnmonitorInstances
+newUnmonitorInstances =
+  UnmonitorInstances'
+    { dryRun = Prelude.Nothing,
+      instanceIds = Prelude.mempty
+    }
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+unmonitorInstances_dryRun :: Lens.Lens' UnmonitorInstances (Prelude.Maybe Prelude.Bool)
+unmonitorInstances_dryRun = Lens.lens (\UnmonitorInstances' {dryRun} -> dryRun) (\s@UnmonitorInstances' {} a -> s {dryRun = a} :: UnmonitorInstances)
+
+-- | The IDs of the instances.
+unmonitorInstances_instanceIds :: Lens.Lens' UnmonitorInstances [Prelude.Text]
+unmonitorInstances_instanceIds = Lens.lens (\UnmonitorInstances' {instanceIds} -> instanceIds) (\s@UnmonitorInstances' {} a -> s {instanceIds = a} :: UnmonitorInstances) Prelude.. Prelude._Coerce
+
+instance Prelude.AWSRequest UnmonitorInstances where
+  type
+    Rs UnmonitorInstances =
+      UnmonitorInstancesResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          UnmonitorInstancesResponse'
+            Prelude.<$> ( x Prelude..@? "instancesSet"
+                            Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable UnmonitorInstances
+
+instance Prelude.NFData UnmonitorInstances
+
+instance Prelude.ToHeaders UnmonitorInstances where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToPath UnmonitorInstances where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery UnmonitorInstances where
+  toQuery UnmonitorInstances' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("UnmonitorInstances" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Prelude.=: dryRun,
+        Prelude.toQueryList "InstanceId" instanceIds
+      ]
+
+-- | /See:/ 'newUnmonitorInstancesResponse' smart constructor.
 data UnmonitorInstancesResponse = UnmonitorInstancesResponse'
-  { _uirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
-  , _uirsResponseStatus      :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The monitoring information.
+    instanceMonitorings :: Prelude.Maybe [InstanceMonitoring],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UnmonitorInstancesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UnmonitorInstancesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uirsInstanceMonitorings' - The monitoring information.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'uirsResponseStatus' - -- | The response status code.
-unmonitorInstancesResponse
-    :: Int -- ^ 'uirsResponseStatus'
-    -> UnmonitorInstancesResponse
-unmonitorInstancesResponse pResponseStatus_ =
+-- 'instanceMonitorings', 'unmonitorInstancesResponse_instanceMonitorings' - The monitoring information.
+--
+-- 'httpStatus', 'unmonitorInstancesResponse_httpStatus' - The response's http status code.
+newUnmonitorInstancesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UnmonitorInstancesResponse
+newUnmonitorInstancesResponse pHttpStatus_ =
   UnmonitorInstancesResponse'
-    {_uirsInstanceMonitorings = Nothing, _uirsResponseStatus = pResponseStatus_}
-
+    { instanceMonitorings =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The monitoring information.
-uirsInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
-uirsInstanceMonitorings = lens _uirsInstanceMonitorings (\ s a -> s{_uirsInstanceMonitorings = a}) . _Default . _Coerce
+unmonitorInstancesResponse_instanceMonitorings :: Lens.Lens' UnmonitorInstancesResponse (Prelude.Maybe [InstanceMonitoring])
+unmonitorInstancesResponse_instanceMonitorings = Lens.lens (\UnmonitorInstancesResponse' {instanceMonitorings} -> instanceMonitorings) (\s@UnmonitorInstancesResponse' {} a -> s {instanceMonitorings = a} :: UnmonitorInstancesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-uirsResponseStatus :: Lens' UnmonitorInstancesResponse Int
-uirsResponseStatus = lens _uirsResponseStatus (\ s a -> s{_uirsResponseStatus = a})
+-- | The response's http status code.
+unmonitorInstancesResponse_httpStatus :: Lens.Lens' UnmonitorInstancesResponse Prelude.Int
+unmonitorInstancesResponse_httpStatus = Lens.lens (\UnmonitorInstancesResponse' {httpStatus} -> httpStatus) (\s@UnmonitorInstancesResponse' {} a -> s {httpStatus = a} :: UnmonitorInstancesResponse)
 
-instance NFData UnmonitorInstancesResponse where
+instance Prelude.NFData UnmonitorInstancesResponse

@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ServiceCatalog.CreateConstraint
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,203 +23,472 @@
 --
 -- Creates a constraint.
 --
---
+-- A delegated admin is authorized to invoke this command.
 module Network.AWS.ServiceCatalog.CreateConstraint
-    (
-    -- * Creating a Request
-      createConstraint
-    , CreateConstraint
+  ( -- * Creating a Request
+    CreateConstraint (..),
+    newCreateConstraint,
+
     -- * Request Lenses
-    , ccAcceptLanguage
-    , ccDescription
-    , ccPortfolioId
-    , ccProductId
-    , ccParameters
-    , ccType
-    , ccIdempotencyToken
+    createConstraint_description,
+    createConstraint_acceptLanguage,
+    createConstraint_portfolioId,
+    createConstraint_productId,
+    createConstraint_parameters,
+    createConstraint_type,
+    createConstraint_idempotencyToken,
 
     -- * Destructuring the Response
-    , createConstraintResponse
-    , CreateConstraintResponse
+    CreateConstraintResponse (..),
+    newCreateConstraintResponse,
+
     -- * Response Lenses
-    , ccrsStatus
-    , ccrsConstraintDetail
-    , ccrsConstraintParameters
-    , ccrsResponseStatus
-    ) where
+    createConstraintResponse_constraintParameters,
+    createConstraintResponse_status,
+    createConstraintResponse_constraintDetail,
+    createConstraintResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.ServiceCatalog.Types
-import Network.AWS.ServiceCatalog.Types.Product
 
--- | /See:/ 'createConstraint' smart constructor.
+-- | /See:/ 'newCreateConstraint' smart constructor.
 data CreateConstraint = CreateConstraint'
-  { _ccAcceptLanguage   :: !(Maybe Text)
-  , _ccDescription      :: !(Maybe Text)
-  , _ccPortfolioId      :: !Text
-  , _ccProductId        :: !Text
-  , _ccParameters       :: !Text
-  , _ccType             :: !Text
-  , _ccIdempotencyToken :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The description of the constraint.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The language code.
+    --
+    -- -   @en@ - English (default)
+    --
+    -- -   @jp@ - Japanese
+    --
+    -- -   @zh@ - Chinese
+    acceptLanguage :: Prelude.Maybe Prelude.Text,
+    -- | The portfolio identifier.
+    portfolioId :: Prelude.Text,
+    -- | The product identifier.
+    productId :: Prelude.Text,
+    -- | The constraint parameters, in JSON format. The syntax depends on the
+    -- constraint type as follows:
+    --
+    -- [LAUNCH]
+    --     You are required to specify either the @RoleArn@ or the
+    --     @LocalRoleName@ but can\'t use both.
+    --
+    --     Specify the @RoleArn@ property as follows:
+    --
+    --     @{\"RoleArn\" : \"arn:aws:iam::123456789012:role\/LaunchRole\"}@
+    --
+    --     Specify the @LocalRoleName@ property as follows:
+    --
+    --     @{\"LocalRoleName\": \"SCBasicLaunchRole\"}@
+    --
+    --     If you specify the @LocalRoleName@ property, when an account uses
+    --     the launch constraint, the IAM role with that name in the account
+    --     will be used. This allows launch-role constraints to be
+    --     account-agnostic so the administrator can create fewer resources per
+    --     shared account.
+    --
+    --     The given role name must exist in the account used to create the
+    --     launch constraint and the account of the user who launches a product
+    --     with this launch constraint.
+    --
+    --     You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
+    --
+    --     You also cannot have more than one @LAUNCH@ constraint on a product
+    --     and portfolio.
+    --
+    -- [NOTIFICATION]
+    --     Specify the @NotificationArns@ property as follows:
+    --
+    --     @{\"NotificationArns\" : [\"arn:aws:sns:us-east-1:123456789012:Topic\"]}@
+    --
+    -- [RESOURCE_UPDATE]
+    --     Specify the @TagUpdatesOnProvisionedProduct@ property as follows:
+    --
+    --     @{\"Version\":\"2.0\",\"Properties\":{\"TagUpdateOnProvisionedProduct\":\"String\"}}@
+    --
+    --     The @TagUpdatesOnProvisionedProduct@ property accepts a string value
+    --     of @ALLOWED@ or @NOT_ALLOWED@.
+    --
+    -- [STACKSET]
+    --     Specify the @Parameters@ property as follows:
+    --
+    --     @{\"Version\": \"String\", \"Properties\": {\"AccountList\": [ \"String\" ], \"RegionList\": [ \"String\" ], \"AdminRole\": \"String\", \"ExecutionRole\": \"String\"}}@
+    --
+    --     You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
+    --
+    --     You also cannot have more than one @STACKSET@ constraint on a
+    --     product and portfolio.
+    --
+    --     Products with a @STACKSET@ constraint will launch an AWS
+    --     CloudFormation stack set.
+    --
+    -- [TEMPLATE]
+    --     Specify the @Rules@ property. For more information, see
+    --     <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules>.
+    parameters :: Prelude.Text,
+    -- | The type of constraint.
+    --
+    -- -   @LAUNCH@
+    --
+    -- -   @NOTIFICATION@
+    --
+    -- -   @RESOURCE_UPDATE@
+    --
+    -- -   @STACKSET@
+    --
+    -- -   @TEMPLATE@
+    type' :: Prelude.Text,
+    -- | A unique identifier that you provide to ensure idempotency. If multiple
+    -- requests differ only by the idempotency token, the same response is
+    -- returned for each repeated request.
+    idempotencyToken :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateConstraint' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateConstraint' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ccAcceptLanguage' - The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ccDescription' - The description of the constraint.
+-- 'description', 'createConstraint_description' - The description of the constraint.
 --
--- * 'ccPortfolioId' - The portfolio identifier.
+-- 'acceptLanguage', 'createConstraint_acceptLanguage' - The language code.
 --
--- * 'ccProductId' - The product identifier.
+-- -   @en@ - English (default)
 --
--- * 'ccParameters' - The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:     * LAUNCH    * Specify the @RoleArn@ property as follows: \"RoleArn\" : \"arn:aws:iam::123456789012:role/LaunchRole\"     * NOTIFICATION    * Specify the @NotificationArns@ property as follows: \"NotificationArns\" : [\"arn:aws:sns:us-east-1:123456789012:Topic\"]     * TEMPLATE    * Specify the @Rules@ property. For more information, see <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules> .
+-- -   @jp@ - Japanese
 --
--- * 'ccType' - The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * @TEMPLATE@
+-- -   @zh@ - Chinese
 --
--- * 'ccIdempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
-createConstraint
-    :: Text -- ^ 'ccPortfolioId'
-    -> Text -- ^ 'ccProductId'
-    -> Text -- ^ 'ccParameters'
-    -> Text -- ^ 'ccType'
-    -> Text -- ^ 'ccIdempotencyToken'
-    -> CreateConstraint
-createConstraint pPortfolioId_ pProductId_ pParameters_ pType_ pIdempotencyToken_ =
-  CreateConstraint'
-    { _ccAcceptLanguage = Nothing
-    , _ccDescription = Nothing
-    , _ccPortfolioId = pPortfolioId_
-    , _ccProductId = pProductId_
-    , _ccParameters = pParameters_
-    , _ccType = pType_
-    , _ccIdempotencyToken = pIdempotencyToken_
-    }
-
-
--- | The language code.     * @en@ - English (default)     * @jp@ - Japanese     * @zh@ - Chinese
-ccAcceptLanguage :: Lens' CreateConstraint (Maybe Text)
-ccAcceptLanguage = lens _ccAcceptLanguage (\ s a -> s{_ccAcceptLanguage = a})
+-- 'portfolioId', 'createConstraint_portfolioId' - The portfolio identifier.
+--
+-- 'productId', 'createConstraint_productId' - The product identifier.
+--
+-- 'parameters', 'createConstraint_parameters' - The constraint parameters, in JSON format. The syntax depends on the
+-- constraint type as follows:
+--
+-- [LAUNCH]
+--     You are required to specify either the @RoleArn@ or the
+--     @LocalRoleName@ but can\'t use both.
+--
+--     Specify the @RoleArn@ property as follows:
+--
+--     @{\"RoleArn\" : \"arn:aws:iam::123456789012:role\/LaunchRole\"}@
+--
+--     Specify the @LocalRoleName@ property as follows:
+--
+--     @{\"LocalRoleName\": \"SCBasicLaunchRole\"}@
+--
+--     If you specify the @LocalRoleName@ property, when an account uses
+--     the launch constraint, the IAM role with that name in the account
+--     will be used. This allows launch-role constraints to be
+--     account-agnostic so the administrator can create fewer resources per
+--     shared account.
+--
+--     The given role name must exist in the account used to create the
+--     launch constraint and the account of the user who launches a product
+--     with this launch constraint.
+--
+--     You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
+--
+--     You also cannot have more than one @LAUNCH@ constraint on a product
+--     and portfolio.
+--
+-- [NOTIFICATION]
+--     Specify the @NotificationArns@ property as follows:
+--
+--     @{\"NotificationArns\" : [\"arn:aws:sns:us-east-1:123456789012:Topic\"]}@
+--
+-- [RESOURCE_UPDATE]
+--     Specify the @TagUpdatesOnProvisionedProduct@ property as follows:
+--
+--     @{\"Version\":\"2.0\",\"Properties\":{\"TagUpdateOnProvisionedProduct\":\"String\"}}@
+--
+--     The @TagUpdatesOnProvisionedProduct@ property accepts a string value
+--     of @ALLOWED@ or @NOT_ALLOWED@.
+--
+-- [STACKSET]
+--     Specify the @Parameters@ property as follows:
+--
+--     @{\"Version\": \"String\", \"Properties\": {\"AccountList\": [ \"String\" ], \"RegionList\": [ \"String\" ], \"AdminRole\": \"String\", \"ExecutionRole\": \"String\"}}@
+--
+--     You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
+--
+--     You also cannot have more than one @STACKSET@ constraint on a
+--     product and portfolio.
+--
+--     Products with a @STACKSET@ constraint will launch an AWS
+--     CloudFormation stack set.
+--
+-- [TEMPLATE]
+--     Specify the @Rules@ property. For more information, see
+--     <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules>.
+--
+-- 'type'', 'createConstraint_type' - The type of constraint.
+--
+-- -   @LAUNCH@
+--
+-- -   @NOTIFICATION@
+--
+-- -   @RESOURCE_UPDATE@
+--
+-- -   @STACKSET@
+--
+-- -   @TEMPLATE@
+--
+-- 'idempotencyToken', 'createConstraint_idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple
+-- requests differ only by the idempotency token, the same response is
+-- returned for each repeated request.
+newCreateConstraint ::
+  -- | 'portfolioId'
+  Prelude.Text ->
+  -- | 'productId'
+  Prelude.Text ->
+  -- | 'parameters'
+  Prelude.Text ->
+  -- | 'type''
+  Prelude.Text ->
+  -- | 'idempotencyToken'
+  Prelude.Text ->
+  CreateConstraint
+newCreateConstraint
+  pPortfolioId_
+  pProductId_
+  pParameters_
+  pType_
+  pIdempotencyToken_ =
+    CreateConstraint'
+      { description = Prelude.Nothing,
+        acceptLanguage = Prelude.Nothing,
+        portfolioId = pPortfolioId_,
+        productId = pProductId_,
+        parameters = pParameters_,
+        type' = pType_,
+        idempotencyToken = pIdempotencyToken_
+      }
 
 -- | The description of the constraint.
-ccDescription :: Lens' CreateConstraint (Maybe Text)
-ccDescription = lens _ccDescription (\ s a -> s{_ccDescription = a})
+createConstraint_description :: Lens.Lens' CreateConstraint (Prelude.Maybe Prelude.Text)
+createConstraint_description = Lens.lens (\CreateConstraint' {description} -> description) (\s@CreateConstraint' {} a -> s {description = a} :: CreateConstraint)
+
+-- | The language code.
+--
+-- -   @en@ - English (default)
+--
+-- -   @jp@ - Japanese
+--
+-- -   @zh@ - Chinese
+createConstraint_acceptLanguage :: Lens.Lens' CreateConstraint (Prelude.Maybe Prelude.Text)
+createConstraint_acceptLanguage = Lens.lens (\CreateConstraint' {acceptLanguage} -> acceptLanguage) (\s@CreateConstraint' {} a -> s {acceptLanguage = a} :: CreateConstraint)
 
 -- | The portfolio identifier.
-ccPortfolioId :: Lens' CreateConstraint Text
-ccPortfolioId = lens _ccPortfolioId (\ s a -> s{_ccPortfolioId = a})
+createConstraint_portfolioId :: Lens.Lens' CreateConstraint Prelude.Text
+createConstraint_portfolioId = Lens.lens (\CreateConstraint' {portfolioId} -> portfolioId) (\s@CreateConstraint' {} a -> s {portfolioId = a} :: CreateConstraint)
 
 -- | The product identifier.
-ccProductId :: Lens' CreateConstraint Text
-ccProductId = lens _ccProductId (\ s a -> s{_ccProductId = a})
+createConstraint_productId :: Lens.Lens' CreateConstraint Prelude.Text
+createConstraint_productId = Lens.lens (\CreateConstraint' {productId} -> productId) (\s@CreateConstraint' {} a -> s {productId = a} :: CreateConstraint)
 
--- | The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:     * LAUNCH    * Specify the @RoleArn@ property as follows: \"RoleArn\" : \"arn:aws:iam::123456789012:role/LaunchRole\"     * NOTIFICATION    * Specify the @NotificationArns@ property as follows: \"NotificationArns\" : [\"arn:aws:sns:us-east-1:123456789012:Topic\"]     * TEMPLATE    * Specify the @Rules@ property. For more information, see <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules> .
-ccParameters :: Lens' CreateConstraint Text
-ccParameters = lens _ccParameters (\ s a -> s{_ccParameters = a})
+-- | The constraint parameters, in JSON format. The syntax depends on the
+-- constraint type as follows:
+--
+-- [LAUNCH]
+--     You are required to specify either the @RoleArn@ or the
+--     @LocalRoleName@ but can\'t use both.
+--
+--     Specify the @RoleArn@ property as follows:
+--
+--     @{\"RoleArn\" : \"arn:aws:iam::123456789012:role\/LaunchRole\"}@
+--
+--     Specify the @LocalRoleName@ property as follows:
+--
+--     @{\"LocalRoleName\": \"SCBasicLaunchRole\"}@
+--
+--     If you specify the @LocalRoleName@ property, when an account uses
+--     the launch constraint, the IAM role with that name in the account
+--     will be used. This allows launch-role constraints to be
+--     account-agnostic so the administrator can create fewer resources per
+--     shared account.
+--
+--     The given role name must exist in the account used to create the
+--     launch constraint and the account of the user who launches a product
+--     with this launch constraint.
+--
+--     You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
+--
+--     You also cannot have more than one @LAUNCH@ constraint on a product
+--     and portfolio.
+--
+-- [NOTIFICATION]
+--     Specify the @NotificationArns@ property as follows:
+--
+--     @{\"NotificationArns\" : [\"arn:aws:sns:us-east-1:123456789012:Topic\"]}@
+--
+-- [RESOURCE_UPDATE]
+--     Specify the @TagUpdatesOnProvisionedProduct@ property as follows:
+--
+--     @{\"Version\":\"2.0\",\"Properties\":{\"TagUpdateOnProvisionedProduct\":\"String\"}}@
+--
+--     The @TagUpdatesOnProvisionedProduct@ property accepts a string value
+--     of @ALLOWED@ or @NOT_ALLOWED@.
+--
+-- [STACKSET]
+--     Specify the @Parameters@ property as follows:
+--
+--     @{\"Version\": \"String\", \"Properties\": {\"AccountList\": [ \"String\" ], \"RegionList\": [ \"String\" ], \"AdminRole\": \"String\", \"ExecutionRole\": \"String\"}}@
+--
+--     You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
+--
+--     You also cannot have more than one @STACKSET@ constraint on a
+--     product and portfolio.
+--
+--     Products with a @STACKSET@ constraint will launch an AWS
+--     CloudFormation stack set.
+--
+-- [TEMPLATE]
+--     Specify the @Rules@ property. For more information, see
+--     <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules>.
+createConstraint_parameters :: Lens.Lens' CreateConstraint Prelude.Text
+createConstraint_parameters = Lens.lens (\CreateConstraint' {parameters} -> parameters) (\s@CreateConstraint' {} a -> s {parameters = a} :: CreateConstraint)
 
--- | The type of constraint.     * @LAUNCH@      * @NOTIFICATION@      * @TEMPLATE@
-ccType :: Lens' CreateConstraint Text
-ccType = lens _ccType (\ s a -> s{_ccType = a})
+-- | The type of constraint.
+--
+-- -   @LAUNCH@
+--
+-- -   @NOTIFICATION@
+--
+-- -   @RESOURCE_UPDATE@
+--
+-- -   @STACKSET@
+--
+-- -   @TEMPLATE@
+createConstraint_type :: Lens.Lens' CreateConstraint Prelude.Text
+createConstraint_type = Lens.lens (\CreateConstraint' {type'} -> type') (\s@CreateConstraint' {} a -> s {type' = a} :: CreateConstraint)
 
--- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
-ccIdempotencyToken :: Lens' CreateConstraint Text
-ccIdempotencyToken = lens _ccIdempotencyToken (\ s a -> s{_ccIdempotencyToken = a})
+-- | A unique identifier that you provide to ensure idempotency. If multiple
+-- requests differ only by the idempotency token, the same response is
+-- returned for each repeated request.
+createConstraint_idempotencyToken :: Lens.Lens' CreateConstraint Prelude.Text
+createConstraint_idempotencyToken = Lens.lens (\CreateConstraint' {idempotencyToken} -> idempotencyToken) (\s@CreateConstraint' {} a -> s {idempotencyToken = a} :: CreateConstraint)
 
-instance AWSRequest CreateConstraint where
-        type Rs CreateConstraint = CreateConstraintResponse
-        request = postJSON serviceCatalog
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateConstraintResponse' <$>
-                   (x .?> "Status") <*> (x .?> "ConstraintDetail") <*>
-                     (x .?> "ConstraintParameters")
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest CreateConstraint where
+  type Rs CreateConstraint = CreateConstraintResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateConstraintResponse'
+            Prelude.<$> (x Prelude..?> "ConstraintParameters")
+            Prelude.<*> (x Prelude..?> "Status")
+            Prelude.<*> (x Prelude..?> "ConstraintDetail")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateConstraint where
+instance Prelude.Hashable CreateConstraint
 
-instance NFData CreateConstraint where
+instance Prelude.NFData CreateConstraint
 
-instance ToHeaders CreateConstraint where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWS242ServiceCatalogService.CreateConstraint" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders CreateConstraint where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWS242ServiceCatalogService.CreateConstraint" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON CreateConstraint where
-        toJSON CreateConstraint'{..}
-          = object
-              (catMaybes
-                 [("AcceptLanguage" .=) <$> _ccAcceptLanguage,
-                  ("Description" .=) <$> _ccDescription,
-                  Just ("PortfolioId" .= _ccPortfolioId),
-                  Just ("ProductId" .= _ccProductId),
-                  Just ("Parameters" .= _ccParameters),
-                  Just ("Type" .= _ccType),
-                  Just ("IdempotencyToken" .= _ccIdempotencyToken)])
+instance Prelude.ToJSON CreateConstraint where
+  toJSON CreateConstraint' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("Description" Prelude..=) Prelude.<$> description,
+            ("AcceptLanguage" Prelude..=)
+              Prelude.<$> acceptLanguage,
+            Prelude.Just ("PortfolioId" Prelude..= portfolioId),
+            Prelude.Just ("ProductId" Prelude..= productId),
+            Prelude.Just ("Parameters" Prelude..= parameters),
+            Prelude.Just ("Type" Prelude..= type'),
+            Prelude.Just
+              ("IdempotencyToken" Prelude..= idempotencyToken)
+          ]
+      )
 
-instance ToPath CreateConstraint where
-        toPath = const "/"
+instance Prelude.ToPath CreateConstraint where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateConstraint where
-        toQuery = const mempty
+instance Prelude.ToQuery CreateConstraint where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createConstraintResponse' smart constructor.
+-- | /See:/ 'newCreateConstraintResponse' smart constructor.
 data CreateConstraintResponse = CreateConstraintResponse'
-  { _ccrsStatus               :: !(Maybe RequestStatus)
-  , _ccrsConstraintDetail     :: !(Maybe ConstraintDetail)
-  , _ccrsConstraintParameters :: !(Maybe Text)
-  , _ccrsResponseStatus       :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The constraint parameters.
+    constraintParameters :: Prelude.Maybe Prelude.Text,
+    -- | The status of the current request.
+    status :: Prelude.Maybe RequestStatus,
+    -- | Information about the constraint.
+    constraintDetail :: Prelude.Maybe ConstraintDetail,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateConstraintResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateConstraintResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ccrsStatus' - The status of the current request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ccrsConstraintDetail' - Information about the constraint.
+-- 'constraintParameters', 'createConstraintResponse_constraintParameters' - The constraint parameters.
 --
--- * 'ccrsConstraintParameters' - The constraint parameters.
+-- 'status', 'createConstraintResponse_status' - The status of the current request.
 --
--- * 'ccrsResponseStatus' - -- | The response status code.
-createConstraintResponse
-    :: Int -- ^ 'ccrsResponseStatus'
-    -> CreateConstraintResponse
-createConstraintResponse pResponseStatus_ =
+-- 'constraintDetail', 'createConstraintResponse_constraintDetail' - Information about the constraint.
+--
+-- 'httpStatus', 'createConstraintResponse_httpStatus' - The response's http status code.
+newCreateConstraintResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateConstraintResponse
+newCreateConstraintResponse pHttpStatus_ =
   CreateConstraintResponse'
-    { _ccrsStatus = Nothing
-    , _ccrsConstraintDetail = Nothing
-    , _ccrsConstraintParameters = Nothing
-    , _ccrsResponseStatus = pResponseStatus_
+    { constraintParameters =
+        Prelude.Nothing,
+      status = Prelude.Nothing,
+      constraintDetail = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The constraint parameters.
+createConstraintResponse_constraintParameters :: Lens.Lens' CreateConstraintResponse (Prelude.Maybe Prelude.Text)
+createConstraintResponse_constraintParameters = Lens.lens (\CreateConstraintResponse' {constraintParameters} -> constraintParameters) (\s@CreateConstraintResponse' {} a -> s {constraintParameters = a} :: CreateConstraintResponse)
 
 -- | The status of the current request.
-ccrsStatus :: Lens' CreateConstraintResponse (Maybe RequestStatus)
-ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a})
+createConstraintResponse_status :: Lens.Lens' CreateConstraintResponse (Prelude.Maybe RequestStatus)
+createConstraintResponse_status = Lens.lens (\CreateConstraintResponse' {status} -> status) (\s@CreateConstraintResponse' {} a -> s {status = a} :: CreateConstraintResponse)
 
 -- | Information about the constraint.
-ccrsConstraintDetail :: Lens' CreateConstraintResponse (Maybe ConstraintDetail)
-ccrsConstraintDetail = lens _ccrsConstraintDetail (\ s a -> s{_ccrsConstraintDetail = a})
+createConstraintResponse_constraintDetail :: Lens.Lens' CreateConstraintResponse (Prelude.Maybe ConstraintDetail)
+createConstraintResponse_constraintDetail = Lens.lens (\CreateConstraintResponse' {constraintDetail} -> constraintDetail) (\s@CreateConstraintResponse' {} a -> s {constraintDetail = a} :: CreateConstraintResponse)
 
--- | The constraint parameters.
-ccrsConstraintParameters :: Lens' CreateConstraintResponse (Maybe Text)
-ccrsConstraintParameters = lens _ccrsConstraintParameters (\ s a -> s{_ccrsConstraintParameters = a})
+-- | The response's http status code.
+createConstraintResponse_httpStatus :: Lens.Lens' CreateConstraintResponse Prelude.Int
+createConstraintResponse_httpStatus = Lens.lens (\CreateConstraintResponse' {httpStatus} -> httpStatus) (\s@CreateConstraintResponse' {} a -> s {httpStatus = a} :: CreateConstraintResponse)
 
--- | -- | The response status code.
-ccrsResponseStatus :: Lens' CreateConstraintResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a})
-
-instance NFData CreateConstraintResponse where
+instance Prelude.NFData CreateConstraintResponse

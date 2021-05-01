@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DMS.CreateEventSubscription
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,191 +23,295 @@
 --
 -- Creates an AWS DMS event notification subscription.
 --
+-- You can specify the type of source (@SourceType@) you want to be
+-- notified of, provide a list of AWS DMS source IDs (@SourceIds@) that
+-- triggers the events, and provide a list of event categories
+-- (@EventCategories@) for events you want to be notified of. If you
+-- specify both the @SourceType@ and @SourceIds@, such as
+-- @SourceType = replication-instance@ and
+-- @SourceIdentifier = my-replinstance@, you will be notified of all the
+-- replication instance events for the specified source. If you specify a
+-- @SourceType@ but don\'t specify a @SourceIdentifier@, you receive notice
+-- of the events for that source type for all your AWS DMS sources. If you
+-- don\'t specify either @SourceType@ nor @SourceIdentifier@, you will be
+-- notified of events generated from all AWS DMS sources belonging to your
+-- customer account.
 --
--- You can specify the type of source (@SourceType@ ) you want to be notified of, provide a list of AWS DMS source IDs (@SourceIds@ ) that triggers the events, and provide a list of event categories (@EventCategories@ ) for events you want to be notified of. If you specify both the @SourceType@ and @SourceIds@ , such as @SourceType = replication-instance@ and @SourceIdentifier = my-replinstance@ , you will be notified of all the replication instance events for the specified source. If you specify a @SourceType@ but don't specify a @SourceIdentifier@ , you receive notice of the events for that source type for all your AWS DMS sources. If you don't specify either @SourceType@ nor @SourceIdentifier@ , you will be notified of events generated from all AWS DMS sources belonging to your customer account.
---
--- For more information about AWS DMS events, see <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html Working with Events and Notifications > in the AWS Database MIgration Service User Guide.
---
+-- For more information about AWS DMS events, see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html Working with Events and Notifications>
+-- in the /AWS Database Migration Service User Guide./
 module Network.AWS.DMS.CreateEventSubscription
-    (
-    -- * Creating a Request
-      createEventSubscription
-    , CreateEventSubscription
+  ( -- * Creating a Request
+    CreateEventSubscription (..),
+    newCreateEventSubscription,
+
     -- * Request Lenses
-    , cesEnabled
-    , cesSourceType
-    , cesEventCategories
-    , cesSourceIds
-    , cesTags
-    , cesSubscriptionName
-    , cesSNSTopicARN
+    createEventSubscription_sourceIds,
+    createEventSubscription_enabled,
+    createEventSubscription_eventCategories,
+    createEventSubscription_tags,
+    createEventSubscription_sourceType,
+    createEventSubscription_subscriptionName,
+    createEventSubscription_snsTopicArn,
 
     -- * Destructuring the Response
-    , createEventSubscriptionResponse
-    , CreateEventSubscriptionResponse
+    CreateEventSubscriptionResponse (..),
+    newCreateEventSubscriptionResponse,
+
     -- * Response Lenses
-    , cesrsEventSubscription
-    , cesrsResponseStatus
-    ) where
+    createEventSubscriptionResponse_eventSubscription,
+    createEventSubscriptionResponse_httpStatus,
+  )
+where
 
 import Network.AWS.DMS.Types
-import Network.AWS.DMS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'createEventSubscription' smart constructor.
+-- /See:/ 'newCreateEventSubscription' smart constructor.
 data CreateEventSubscription = CreateEventSubscription'
-  { _cesEnabled          :: !(Maybe Bool)
-  , _cesSourceType       :: !(Maybe Text)
-  , _cesEventCategories  :: !(Maybe [Text])
-  , _cesSourceIds        :: !(Maybe [Text])
-  , _cesTags             :: !(Maybe [Tag])
-  , _cesSubscriptionName :: !Text
-  , _cesSNSTopicARN      :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of identifiers for which AWS DMS provides notification events.
+    --
+    -- If you don\'t specify a value, notifications are provided for all
+    -- sources.
+    --
+    -- If you specify multiple values, they must be of the same type. For
+    -- example, if you specify a database instance ID, then all of the other
+    -- values must be database instance IDs.
+    sourceIds :: Prelude.Maybe [Prelude.Text],
+    -- | A Boolean value; set to @true@ to activate the subscription, or set to
+    -- @false@ to create the subscription but not activate it.
+    enabled :: Prelude.Maybe Prelude.Bool,
+    -- | A list of event categories for a source type that you want to subscribe
+    -- to. For more information, see
+    -- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html Working with Events and Notifications>
+    -- in the /AWS Database Migration Service User Guide./
+    eventCategories :: Prelude.Maybe [Prelude.Text],
+    -- | One or more tags to be assigned to the event subscription.
+    tags :: Prelude.Maybe [Tag],
+    -- | The type of AWS DMS resource that generates the events. For example, if
+    -- you want to be notified of events generated by a replication instance,
+    -- you set this parameter to @replication-instance@. If this value isn\'t
+    -- specified, all events are returned.
+    --
+    -- Valid values: @replication-instance@ | @replication-task@
+    sourceType :: Prelude.Maybe Prelude.Text,
+    -- | The name of the AWS DMS event notification subscription. This name must
+    -- be less than 255 characters.
+    subscriptionName :: Prelude.Text,
+    -- | The Amazon Resource Name (ARN) of the Amazon SNS topic created for event
+    -- notification. The ARN is created by Amazon SNS when you create a topic
+    -- and subscribe to it.
+    snsTopicArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateEventSubscription' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'sourceIds', 'createEventSubscription_sourceIds' - A list of identifiers for which AWS DMS provides notification events.
+--
+-- If you don\'t specify a value, notifications are provided for all
+-- sources.
+--
+-- If you specify multiple values, they must be of the same type. For
+-- example, if you specify a database instance ID, then all of the other
+-- values must be database instance IDs.
+--
+-- 'enabled', 'createEventSubscription_enabled' - A Boolean value; set to @true@ to activate the subscription, or set to
+-- @false@ to create the subscription but not activate it.
+--
+-- 'eventCategories', 'createEventSubscription_eventCategories' - A list of event categories for a source type that you want to subscribe
+-- to. For more information, see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html Working with Events and Notifications>
+-- in the /AWS Database Migration Service User Guide./
+--
+-- 'tags', 'createEventSubscription_tags' - One or more tags to be assigned to the event subscription.
+--
+-- 'sourceType', 'createEventSubscription_sourceType' - The type of AWS DMS resource that generates the events. For example, if
+-- you want to be notified of events generated by a replication instance,
+-- you set this parameter to @replication-instance@. If this value isn\'t
+-- specified, all events are returned.
+--
+-- Valid values: @replication-instance@ | @replication-task@
+--
+-- 'subscriptionName', 'createEventSubscription_subscriptionName' - The name of the AWS DMS event notification subscription. This name must
+-- be less than 255 characters.
+--
+-- 'snsTopicArn', 'createEventSubscription_snsTopicArn' - The Amazon Resource Name (ARN) of the Amazon SNS topic created for event
+-- notification. The ARN is created by Amazon SNS when you create a topic
+-- and subscribe to it.
+newCreateEventSubscription ::
+  -- | 'subscriptionName'
+  Prelude.Text ->
+  -- | 'snsTopicArn'
+  Prelude.Text ->
+  CreateEventSubscription
+newCreateEventSubscription
+  pSubscriptionName_
+  pSnsTopicArn_ =
+    CreateEventSubscription'
+      { sourceIds =
+          Prelude.Nothing,
+        enabled = Prelude.Nothing,
+        eventCategories = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        sourceType = Prelude.Nothing,
+        subscriptionName = pSubscriptionName_,
+        snsTopicArn = pSnsTopicArn_
+      }
 
--- | Creates a value of 'CreateEventSubscription' with the minimum fields required to make a request.
+-- | A list of identifiers for which AWS DMS provides notification events.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- If you don\'t specify a value, notifications are provided for all
+-- sources.
 --
--- * 'cesEnabled' - A Boolean value; set to __true__ to activate the subscription, or set to __false__ to create the subscription but not activate it.
+-- If you specify multiple values, they must be of the same type. For
+-- example, if you specify a database instance ID, then all of the other
+-- values must be database instance IDs.
+createEventSubscription_sourceIds :: Lens.Lens' CreateEventSubscription (Prelude.Maybe [Prelude.Text])
+createEventSubscription_sourceIds = Lens.lens (\CreateEventSubscription' {sourceIds} -> sourceIds) (\s@CreateEventSubscription' {} a -> s {sourceIds = a} :: CreateEventSubscription) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | A Boolean value; set to @true@ to activate the subscription, or set to
+-- @false@ to create the subscription but not activate it.
+createEventSubscription_enabled :: Lens.Lens' CreateEventSubscription (Prelude.Maybe Prelude.Bool)
+createEventSubscription_enabled = Lens.lens (\CreateEventSubscription' {enabled} -> enabled) (\s@CreateEventSubscription' {} a -> s {enabled = a} :: CreateEventSubscription)
+
+-- | A list of event categories for a source type that you want to subscribe
+-- to. For more information, see
+-- <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html Working with Events and Notifications>
+-- in the /AWS Database Migration Service User Guide./
+createEventSubscription_eventCategories :: Lens.Lens' CreateEventSubscription (Prelude.Maybe [Prelude.Text])
+createEventSubscription_eventCategories = Lens.lens (\CreateEventSubscription' {eventCategories} -> eventCategories) (\s@CreateEventSubscription' {} a -> s {eventCategories = a} :: CreateEventSubscription) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | One or more tags to be assigned to the event subscription.
+createEventSubscription_tags :: Lens.Lens' CreateEventSubscription (Prelude.Maybe [Tag])
+createEventSubscription_tags = Lens.lens (\CreateEventSubscription' {tags} -> tags) (\s@CreateEventSubscription' {} a -> s {tags = a} :: CreateEventSubscription) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The type of AWS DMS resource that generates the events. For example, if
+-- you want to be notified of events generated by a replication instance,
+-- you set this parameter to @replication-instance@. If this value isn\'t
+-- specified, all events are returned.
 --
--- * 'cesSourceType' - The type of AWS DMS resource that generates the events. For example, if you want to be notified of events generated by a replication instance, you set this parameter to @replication-instance@ . If this value is not specified, all events are returned.  Valid values: replication-instance | migration-task
+-- Valid values: @replication-instance@ | @replication-task@
+createEventSubscription_sourceType :: Lens.Lens' CreateEventSubscription (Prelude.Maybe Prelude.Text)
+createEventSubscription_sourceType = Lens.lens (\CreateEventSubscription' {sourceType} -> sourceType) (\s@CreateEventSubscription' {} a -> s {sourceType = a} :: CreateEventSubscription)
+
+-- | The name of the AWS DMS event notification subscription. This name must
+-- be less than 255 characters.
+createEventSubscription_subscriptionName :: Lens.Lens' CreateEventSubscription Prelude.Text
+createEventSubscription_subscriptionName = Lens.lens (\CreateEventSubscription' {subscriptionName} -> subscriptionName) (\s@CreateEventSubscription' {} a -> s {subscriptionName = a} :: CreateEventSubscription)
+
+-- | The Amazon Resource Name (ARN) of the Amazon SNS topic created for event
+-- notification. The ARN is created by Amazon SNS when you create a topic
+-- and subscribe to it.
+createEventSubscription_snsTopicArn :: Lens.Lens' CreateEventSubscription Prelude.Text
+createEventSubscription_snsTopicArn = Lens.lens (\CreateEventSubscription' {snsTopicArn} -> snsTopicArn) (\s@CreateEventSubscription' {} a -> s {snsTopicArn = a} :: CreateEventSubscription)
+
+instance Prelude.AWSRequest CreateEventSubscription where
+  type
+    Rs CreateEventSubscription =
+      CreateEventSubscriptionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateEventSubscriptionResponse'
+            Prelude.<$> (x Prelude..?> "EventSubscription")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable CreateEventSubscription
+
+instance Prelude.NFData CreateEventSubscription
+
+instance Prelude.ToHeaders CreateEventSubscription where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AmazonDMSv20160101.CreateEventSubscription" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON CreateEventSubscription where
+  toJSON CreateEventSubscription' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("SourceIds" Prelude..=) Prelude.<$> sourceIds,
+            ("Enabled" Prelude..=) Prelude.<$> enabled,
+            ("EventCategories" Prelude..=)
+              Prelude.<$> eventCategories,
+            ("Tags" Prelude..=) Prelude.<$> tags,
+            ("SourceType" Prelude..=) Prelude.<$> sourceType,
+            Prelude.Just
+              ("SubscriptionName" Prelude..= subscriptionName),
+            Prelude.Just ("SnsTopicArn" Prelude..= snsTopicArn)
+          ]
+      )
+
+instance Prelude.ToPath CreateEventSubscription where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery CreateEventSubscription where
+  toQuery = Prelude.const Prelude.mempty
+
+-- |
 --
--- * 'cesEventCategories' - A list of event categories for a source type that you want to subscribe to. You can see a list of the categories for a given source type by calling the __DescribeEventCategories__ action or in the topic <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html Working with Events and Notifications> in the AWS Database Migration Service User Guide.
+-- /See:/ 'newCreateEventSubscriptionResponse' smart constructor.
+data CreateEventSubscriptionResponse = CreateEventSubscriptionResponse'
+  { -- | The event subscription that was created.
+    eventSubscription :: Prelude.Maybe EventSubscription,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'CreateEventSubscriptionResponse' with all optional fields omitted.
 --
--- * 'cesSourceIds' - The list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it cannot end with a hyphen or contain two consecutive hyphens.
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cesTags' - A tag to be attached to the event subscription.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cesSubscriptionName' - The name of the AWS DMS event notification subscription.  Constraints: The name must be less than 255 characters.
+-- 'eventSubscription', 'createEventSubscriptionResponse_eventSubscription' - The event subscription that was created.
 --
--- * 'cesSNSTopicARN' - The Amazon Resource Name (ARN) of the Amazon SNS topic created for event notification. The ARN is created by Amazon SNS when you create a topic and subscribe to it.
-createEventSubscription
-    :: Text -- ^ 'cesSubscriptionName'
-    -> Text -- ^ 'cesSNSTopicARN'
-    -> CreateEventSubscription
-createEventSubscription pSubscriptionName_ pSNSTopicARN_ =
-  CreateEventSubscription'
-    { _cesEnabled = Nothing
-    , _cesSourceType = Nothing
-    , _cesEventCategories = Nothing
-    , _cesSourceIds = Nothing
-    , _cesTags = Nothing
-    , _cesSubscriptionName = pSubscriptionName_
-    , _cesSNSTopicARN = pSNSTopicARN_
+-- 'httpStatus', 'createEventSubscriptionResponse_httpStatus' - The response's http status code.
+newCreateEventSubscriptionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateEventSubscriptionResponse
+newCreateEventSubscriptionResponse pHttpStatus_ =
+  CreateEventSubscriptionResponse'
+    { eventSubscription =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | A Boolean value; set to __true__ to activate the subscription, or set to __false__ to create the subscription but not activate it.
-cesEnabled :: Lens' CreateEventSubscription (Maybe Bool)
-cesEnabled = lens _cesEnabled (\ s a -> s{_cesEnabled = a})
-
--- | The type of AWS DMS resource that generates the events. For example, if you want to be notified of events generated by a replication instance, you set this parameter to @replication-instance@ . If this value is not specified, all events are returned.  Valid values: replication-instance | migration-task
-cesSourceType :: Lens' CreateEventSubscription (Maybe Text)
-cesSourceType = lens _cesSourceType (\ s a -> s{_cesSourceType = a})
-
--- | A list of event categories for a source type that you want to subscribe to. You can see a list of the categories for a given source type by calling the __DescribeEventCategories__ action or in the topic <http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html Working with Events and Notifications> in the AWS Database Migration Service User Guide.
-cesEventCategories :: Lens' CreateEventSubscription [Text]
-cesEventCategories = lens _cesEventCategories (\ s a -> s{_cesEventCategories = a}) . _Default . _Coerce
-
--- | The list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it cannot end with a hyphen or contain two consecutive hyphens.
-cesSourceIds :: Lens' CreateEventSubscription [Text]
-cesSourceIds = lens _cesSourceIds (\ s a -> s{_cesSourceIds = a}) . _Default . _Coerce
-
--- | A tag to be attached to the event subscription.
-cesTags :: Lens' CreateEventSubscription [Tag]
-cesTags = lens _cesTags (\ s a -> s{_cesTags = a}) . _Default . _Coerce
-
--- | The name of the AWS DMS event notification subscription.  Constraints: The name must be less than 255 characters.
-cesSubscriptionName :: Lens' CreateEventSubscription Text
-cesSubscriptionName = lens _cesSubscriptionName (\ s a -> s{_cesSubscriptionName = a})
-
--- | The Amazon Resource Name (ARN) of the Amazon SNS topic created for event notification. The ARN is created by Amazon SNS when you create a topic and subscribe to it.
-cesSNSTopicARN :: Lens' CreateEventSubscription Text
-cesSNSTopicARN = lens _cesSNSTopicARN (\ s a -> s{_cesSNSTopicARN = a})
-
-instance AWSRequest CreateEventSubscription where
-        type Rs CreateEventSubscription =
-             CreateEventSubscriptionResponse
-        request = postJSON dms
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateEventSubscriptionResponse' <$>
-                   (x .?> "EventSubscription") <*> (pure (fromEnum s)))
-
-instance Hashable CreateEventSubscription where
-
-instance NFData CreateEventSubscription where
-
-instance ToHeaders CreateEventSubscription where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonDMSv20160101.CreateEventSubscription" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON CreateEventSubscription where
-        toJSON CreateEventSubscription'{..}
-          = object
-              (catMaybes
-                 [("Enabled" .=) <$> _cesEnabled,
-                  ("SourceType" .=) <$> _cesSourceType,
-                  ("EventCategories" .=) <$> _cesEventCategories,
-                  ("SourceIds" .=) <$> _cesSourceIds,
-                  ("Tags" .=) <$> _cesTags,
-                  Just ("SubscriptionName" .= _cesSubscriptionName),
-                  Just ("SnsTopicArn" .= _cesSNSTopicARN)])
-
-instance ToPath CreateEventSubscription where
-        toPath = const "/"
-
-instance ToQuery CreateEventSubscription where
-        toQuery = const mempty
-
--- |
---
---
---
--- /See:/ 'createEventSubscriptionResponse' smart constructor.
-data CreateEventSubscriptionResponse = CreateEventSubscriptionResponse'
-  { _cesrsEventSubscription :: !(Maybe EventSubscription)
-  , _cesrsResponseStatus    :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'CreateEventSubscriptionResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'cesrsEventSubscription' - The event subscription that was created.
---
--- * 'cesrsResponseStatus' - -- | The response status code.
-createEventSubscriptionResponse
-    :: Int -- ^ 'cesrsResponseStatus'
-    -> CreateEventSubscriptionResponse
-createEventSubscriptionResponse pResponseStatus_ =
-  CreateEventSubscriptionResponse'
-    {_cesrsEventSubscription = Nothing, _cesrsResponseStatus = pResponseStatus_}
-
-
 -- | The event subscription that was created.
-cesrsEventSubscription :: Lens' CreateEventSubscriptionResponse (Maybe EventSubscription)
-cesrsEventSubscription = lens _cesrsEventSubscription (\ s a -> s{_cesrsEventSubscription = a})
+createEventSubscriptionResponse_eventSubscription :: Lens.Lens' CreateEventSubscriptionResponse (Prelude.Maybe EventSubscription)
+createEventSubscriptionResponse_eventSubscription = Lens.lens (\CreateEventSubscriptionResponse' {eventSubscription} -> eventSubscription) (\s@CreateEventSubscriptionResponse' {} a -> s {eventSubscription = a} :: CreateEventSubscriptionResponse)
 
--- | -- | The response status code.
-cesrsResponseStatus :: Lens' CreateEventSubscriptionResponse Int
-cesrsResponseStatus = lens _cesrsResponseStatus (\ s a -> s{_cesrsResponseStatus = a})
+-- | The response's http status code.
+createEventSubscriptionResponse_httpStatus :: Lens.Lens' CreateEventSubscriptionResponse Prelude.Int
+createEventSubscriptionResponse_httpStatus = Lens.lens (\CreateEventSubscriptionResponse' {httpStatus} -> httpStatus) (\s@CreateEventSubscriptionResponse' {} a -> s {httpStatus = a} :: CreateEventSubscriptionResponse)
 
-instance NFData CreateEventSubscriptionResponse where
+instance
+  Prelude.NFData
+    CreateEventSubscriptionResponse

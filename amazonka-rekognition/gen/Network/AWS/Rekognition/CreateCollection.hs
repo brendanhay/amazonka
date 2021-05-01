@@ -1,161 +1,202 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Rekognition.CreateCollection
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a collection in an AWS Region. You can add faces to the collection using the operation.
+-- Creates a collection in an AWS Region. You can add faces to the
+-- collection using the IndexFaces operation.
 --
+-- For example, you might create collections, one for each of your
+-- application users. A user can then index faces using the @IndexFaces@
+-- operation and persist results in a specific collection. Then, a user can
+-- search the collection for faces in the user-specific container.
 --
--- For example, you might create collections, one for each of your application users. A user can then index faces using the @IndexFaces@ operation and persist results in a specific collection. Then, a user can search the collection for faces in the user-specific container.
+-- When you create a collection, it is associated with the latest version
+-- of the face model version.
 --
--- This operation requires permissions to perform the @rekognition:CreateCollection@ action.
+-- Collection names are case-sensitive.
 --
+-- This operation requires permissions to perform the
+-- @rekognition:CreateCollection@ action.
 module Network.AWS.Rekognition.CreateCollection
-    (
-    -- * Creating a Request
-      createCollection
-    , CreateCollection
+  ( -- * Creating a Request
+    CreateCollection (..),
+    newCreateCollection,
+
     -- * Request Lenses
-    , ccCollectionId
+    createCollection_collectionId,
 
     -- * Destructuring the Response
-    , createCollectionResponse
-    , CreateCollectionResponse
+    CreateCollectionResponse (..),
+    newCreateCollectionResponse,
+
     -- * Response Lenses
-    , ccrsFaceModelVersion
-    , ccrsCollectionARN
-    , ccrsStatusCode
-    , ccrsResponseStatus
-    ) where
+    createCollectionResponse_faceModelVersion,
+    createCollectionResponse_collectionArn,
+    createCollectionResponse_statusCode,
+    createCollectionResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Rekognition.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createCollection' smart constructor.
-newtype CreateCollection = CreateCollection'
-  { _ccCollectionId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCreateCollection' smart constructor.
+data CreateCollection = CreateCollection'
+  { -- | ID for the collection that you are creating.
+    collectionId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateCollection' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateCollection' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ccCollectionId' - ID for the collection that you are creating.
-createCollection
-    :: Text -- ^ 'ccCollectionId'
-    -> CreateCollection
-createCollection pCollectionId_ =
-  CreateCollection' {_ccCollectionId = pCollectionId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'collectionId', 'createCollection_collectionId' - ID for the collection that you are creating.
+newCreateCollection ::
+  -- | 'collectionId'
+  Prelude.Text ->
+  CreateCollection
+newCreateCollection pCollectionId_ =
+  CreateCollection' {collectionId = pCollectionId_}
 
 -- | ID for the collection that you are creating.
-ccCollectionId :: Lens' CreateCollection Text
-ccCollectionId = lens _ccCollectionId (\ s a -> s{_ccCollectionId = a})
+createCollection_collectionId :: Lens.Lens' CreateCollection Prelude.Text
+createCollection_collectionId = Lens.lens (\CreateCollection' {collectionId} -> collectionId) (\s@CreateCollection' {} a -> s {collectionId = a} :: CreateCollection)
 
-instance AWSRequest CreateCollection where
-        type Rs CreateCollection = CreateCollectionResponse
-        request = postJSON rekognition
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateCollectionResponse' <$>
-                   (x .?> "FaceModelVersion") <*>
-                     (x .?> "CollectionArn")
-                     <*> (x .?> "StatusCode")
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest CreateCollection where
+  type Rs CreateCollection = CreateCollectionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateCollectionResponse'
+            Prelude.<$> (x Prelude..?> "FaceModelVersion")
+            Prelude.<*> (x Prelude..?> "CollectionArn")
+            Prelude.<*> (x Prelude..?> "StatusCode")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateCollection where
+instance Prelude.Hashable CreateCollection
 
-instance NFData CreateCollection where
+instance Prelude.NFData CreateCollection
 
-instance ToHeaders CreateCollection where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("RekognitionService.CreateCollection" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders CreateCollection where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "RekognitionService.CreateCollection" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON CreateCollection where
-        toJSON CreateCollection'{..}
-          = object
-              (catMaybes
-                 [Just ("CollectionId" .= _ccCollectionId)])
+instance Prelude.ToJSON CreateCollection where
+  toJSON CreateCollection' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("CollectionId" Prelude..= collectionId)
+          ]
+      )
 
-instance ToPath CreateCollection where
-        toPath = const "/"
+instance Prelude.ToPath CreateCollection where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateCollection where
-        toQuery = const mempty
+instance Prelude.ToQuery CreateCollection where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createCollectionResponse' smart constructor.
+-- | /See:/ 'newCreateCollectionResponse' smart constructor.
 data CreateCollectionResponse = CreateCollectionResponse'
-  { _ccrsFaceModelVersion :: !(Maybe Text)
-  , _ccrsCollectionARN    :: !(Maybe Text)
-  , _ccrsStatusCode       :: !(Maybe Nat)
-  , _ccrsResponseStatus   :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Version number of the face detection model associated with the
+    -- collection you are creating.
+    faceModelVersion :: Prelude.Maybe Prelude.Text,
+    -- | Amazon Resource Name (ARN) of the collection. You can use this to manage
+    -- permissions on your resources.
+    collectionArn :: Prelude.Maybe Prelude.Text,
+    -- | HTTP status code indicating the result of the operation.
+    statusCode :: Prelude.Maybe Prelude.Natural,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateCollectionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateCollectionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ccrsFaceModelVersion' - Version number of the face detection model associated with the collection you are creating.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ccrsCollectionARN' - Amazon Resource Name (ARN) of the collection. You can use this to manage permissions on your resources.
+-- 'faceModelVersion', 'createCollectionResponse_faceModelVersion' - Version number of the face detection model associated with the
+-- collection you are creating.
 --
--- * 'ccrsStatusCode' - HTTP status code indicating the result of the operation.
+-- 'collectionArn', 'createCollectionResponse_collectionArn' - Amazon Resource Name (ARN) of the collection. You can use this to manage
+-- permissions on your resources.
 --
--- * 'ccrsResponseStatus' - -- | The response status code.
-createCollectionResponse
-    :: Int -- ^ 'ccrsResponseStatus'
-    -> CreateCollectionResponse
-createCollectionResponse pResponseStatus_ =
+-- 'statusCode', 'createCollectionResponse_statusCode' - HTTP status code indicating the result of the operation.
+--
+-- 'httpStatus', 'createCollectionResponse_httpStatus' - The response's http status code.
+newCreateCollectionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateCollectionResponse
+newCreateCollectionResponse pHttpStatus_ =
   CreateCollectionResponse'
-    { _ccrsFaceModelVersion = Nothing
-    , _ccrsCollectionARN = Nothing
-    , _ccrsStatusCode = Nothing
-    , _ccrsResponseStatus = pResponseStatus_
+    { faceModelVersion =
+        Prelude.Nothing,
+      collectionArn = Prelude.Nothing,
+      statusCode = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | Version number of the face detection model associated with the
+-- collection you are creating.
+createCollectionResponse_faceModelVersion :: Lens.Lens' CreateCollectionResponse (Prelude.Maybe Prelude.Text)
+createCollectionResponse_faceModelVersion = Lens.lens (\CreateCollectionResponse' {faceModelVersion} -> faceModelVersion) (\s@CreateCollectionResponse' {} a -> s {faceModelVersion = a} :: CreateCollectionResponse)
 
--- | Version number of the face detection model associated with the collection you are creating.
-ccrsFaceModelVersion :: Lens' CreateCollectionResponse (Maybe Text)
-ccrsFaceModelVersion = lens _ccrsFaceModelVersion (\ s a -> s{_ccrsFaceModelVersion = a})
-
--- | Amazon Resource Name (ARN) of the collection. You can use this to manage permissions on your resources.
-ccrsCollectionARN :: Lens' CreateCollectionResponse (Maybe Text)
-ccrsCollectionARN = lens _ccrsCollectionARN (\ s a -> s{_ccrsCollectionARN = a})
+-- | Amazon Resource Name (ARN) of the collection. You can use this to manage
+-- permissions on your resources.
+createCollectionResponse_collectionArn :: Lens.Lens' CreateCollectionResponse (Prelude.Maybe Prelude.Text)
+createCollectionResponse_collectionArn = Lens.lens (\CreateCollectionResponse' {collectionArn} -> collectionArn) (\s@CreateCollectionResponse' {} a -> s {collectionArn = a} :: CreateCollectionResponse)
 
 -- | HTTP status code indicating the result of the operation.
-ccrsStatusCode :: Lens' CreateCollectionResponse (Maybe Natural)
-ccrsStatusCode = lens _ccrsStatusCode (\ s a -> s{_ccrsStatusCode = a}) . mapping _Nat
+createCollectionResponse_statusCode :: Lens.Lens' CreateCollectionResponse (Prelude.Maybe Prelude.Natural)
+createCollectionResponse_statusCode = Lens.lens (\CreateCollectionResponse' {statusCode} -> statusCode) (\s@CreateCollectionResponse' {} a -> s {statusCode = a} :: CreateCollectionResponse)
 
--- | -- | The response status code.
-ccrsResponseStatus :: Lens' CreateCollectionResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a})
+-- | The response's http status code.
+createCollectionResponse_httpStatus :: Lens.Lens' CreateCollectionResponse Prelude.Int
+createCollectionResponse_httpStatus = Lens.lens (\CreateCollectionResponse' {httpStatus} -> httpStatus) (\s@CreateCollectionResponse' {} a -> s {httpStatus = a} :: CreateCollectionResponse)
 
-instance NFData CreateCollectionResponse where
+instance Prelude.NFData CreateCollectionResponse

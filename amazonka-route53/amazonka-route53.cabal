@@ -1,143 +1,198 @@
-name:                  amazonka-route53
-version:               1.6.1
-synopsis:              Amazon Route 53 SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-route53
+version:            1.6.1
+synopsis:           Amazon Route 53 SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.Route53" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.Route53.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.Route53" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-route53
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-route53
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.Route53
+    Network.AWS.Route53.ActivateKeySigningKey
+    Network.AWS.Route53.AssociateVPCWithHostedZone
+    Network.AWS.Route53.ChangeResourceRecordSets
+    Network.AWS.Route53.ChangeTagsForResource
+    Network.AWS.Route53.CreateHealthCheck
+    Network.AWS.Route53.CreateHostedZone
+    Network.AWS.Route53.CreateKeySigningKey
+    Network.AWS.Route53.CreateQueryLoggingConfig
+    Network.AWS.Route53.CreateReusableDelegationSet
+    Network.AWS.Route53.CreateTrafficPolicy
+    Network.AWS.Route53.CreateTrafficPolicyInstance
+    Network.AWS.Route53.CreateTrafficPolicyVersion
+    Network.AWS.Route53.CreateVPCAssociationAuthorization
+    Network.AWS.Route53.DeactivateKeySigningKey
+    Network.AWS.Route53.DeleteHealthCheck
+    Network.AWS.Route53.DeleteHostedZone
+    Network.AWS.Route53.DeleteKeySigningKey
+    Network.AWS.Route53.DeleteQueryLoggingConfig
+    Network.AWS.Route53.DeleteReusableDelegationSet
+    Network.AWS.Route53.DeleteTrafficPolicy
+    Network.AWS.Route53.DeleteTrafficPolicyInstance
+    Network.AWS.Route53.DeleteVPCAssociationAuthorization
+    Network.AWS.Route53.DisableHostedZoneDNSSEC
+    Network.AWS.Route53.DisassociateVPCFromHostedZone
+    Network.AWS.Route53.EnableHostedZoneDNSSEC
+    Network.AWS.Route53.GetAccountLimit
+    Network.AWS.Route53.GetChange
+    Network.AWS.Route53.GetCheckerIpRanges
+    Network.AWS.Route53.GetDNSSEC
+    Network.AWS.Route53.GetGeoLocation
+    Network.AWS.Route53.GetHealthCheck
+    Network.AWS.Route53.GetHealthCheckCount
+    Network.AWS.Route53.GetHealthCheckLastFailureReason
+    Network.AWS.Route53.GetHealthCheckStatus
+    Network.AWS.Route53.GetHostedZone
+    Network.AWS.Route53.GetHostedZoneCount
+    Network.AWS.Route53.GetHostedZoneLimit
+    Network.AWS.Route53.GetQueryLoggingConfig
+    Network.AWS.Route53.GetReusableDelegationSet
+    Network.AWS.Route53.GetReusableDelegationSetLimit
+    Network.AWS.Route53.GetTrafficPolicy
+    Network.AWS.Route53.GetTrafficPolicyInstance
+    Network.AWS.Route53.GetTrafficPolicyInstanceCount
+    Network.AWS.Route53.Internal
+    Network.AWS.Route53.Lens
+    Network.AWS.Route53.ListGeoLocations
+    Network.AWS.Route53.ListHealthChecks
+    Network.AWS.Route53.ListHostedZones
+    Network.AWS.Route53.ListHostedZonesByName
+    Network.AWS.Route53.ListHostedZonesByVPC
+    Network.AWS.Route53.ListQueryLoggingConfigs
+    Network.AWS.Route53.ListResourceRecordSets
+    Network.AWS.Route53.ListReusableDelegationSets
+    Network.AWS.Route53.ListTagsForResource
+    Network.AWS.Route53.ListTagsForResources
+    Network.AWS.Route53.ListTrafficPolicies
+    Network.AWS.Route53.ListTrafficPolicyInstances
+    Network.AWS.Route53.ListTrafficPolicyInstancesByHostedZone
+    Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
+    Network.AWS.Route53.ListTrafficPolicyVersions
+    Network.AWS.Route53.ListVPCAssociationAuthorizations
+    Network.AWS.Route53.TestDNSAnswer
+    Network.AWS.Route53.Types
+    Network.AWS.Route53.Types.AccountLimit
+    Network.AWS.Route53.Types.AccountLimitType
+    Network.AWS.Route53.Types.AlarmIdentifier
+    Network.AWS.Route53.Types.AliasTarget
+    Network.AWS.Route53.Types.Change
+    Network.AWS.Route53.Types.ChangeAction
+    Network.AWS.Route53.Types.ChangeBatch
+    Network.AWS.Route53.Types.ChangeInfo
+    Network.AWS.Route53.Types.ChangeStatus
+    Network.AWS.Route53.Types.CloudWatchAlarmConfiguration
+    Network.AWS.Route53.Types.CloudWatchRegion
+    Network.AWS.Route53.Types.ComparisonOperator
+    Network.AWS.Route53.Types.DelegationSet
+    Network.AWS.Route53.Types.Dimension
+    Network.AWS.Route53.Types.DNSSECStatus
+    Network.AWS.Route53.Types.GeoLocation
+    Network.AWS.Route53.Types.GeoLocationDetails
+    Network.AWS.Route53.Types.HealthCheck
+    Network.AWS.Route53.Types.HealthCheckConfig
+    Network.AWS.Route53.Types.HealthCheckObservation
+    Network.AWS.Route53.Types.HealthCheckRegion
+    Network.AWS.Route53.Types.HealthCheckType
+    Network.AWS.Route53.Types.HostedZone
+    Network.AWS.Route53.Types.HostedZoneConfig
+    Network.AWS.Route53.Types.HostedZoneLimit
+    Network.AWS.Route53.Types.HostedZoneLimitType
+    Network.AWS.Route53.Types.HostedZoneOwner
+    Network.AWS.Route53.Types.HostedZoneSummary
+    Network.AWS.Route53.Types.InsufficientDataHealthStatus
+    Network.AWS.Route53.Types.KeySigningKey
+    Network.AWS.Route53.Types.LinkedService
+    Network.AWS.Route53.Types.QueryLoggingConfig
+    Network.AWS.Route53.Types.ResettableElementName
+    Network.AWS.Route53.Types.ResourceRecord
+    Network.AWS.Route53.Types.ResourceRecordSet
+    Network.AWS.Route53.Types.ResourceRecordSetFailover
+    Network.AWS.Route53.Types.ResourceTagSet
+    Network.AWS.Route53.Types.ReusableDelegationSetLimit
+    Network.AWS.Route53.Types.ReusableDelegationSetLimitType
+    Network.AWS.Route53.Types.RRType
+    Network.AWS.Route53.Types.Statistic
+    Network.AWS.Route53.Types.StatusReport
+    Network.AWS.Route53.Types.Tag
+    Network.AWS.Route53.Types.TagResourceType
+    Network.AWS.Route53.Types.TrafficPolicy
+    Network.AWS.Route53.Types.TrafficPolicyInstance
+    Network.AWS.Route53.Types.TrafficPolicySummary
+    Network.AWS.Route53.Types.VPC
+    Network.AWS.Route53.Types.VPCRegion
+    Network.AWS.Route53.UpdateHealthCheck
+    Network.AWS.Route53.UpdateHostedZoneComment
+    Network.AWS.Route53.UpdateTrafficPolicyComment
+    Network.AWS.Route53.UpdateTrafficPolicyInstance
+    Network.AWS.Route53.Waiters
 
-    exposed-modules:
-          Network.AWS.Route53
-        , Network.AWS.Route53.AssociateVPCWithHostedZone
-        , Network.AWS.Route53.ChangeResourceRecordSets
-        , Network.AWS.Route53.ChangeTagsForResource
-        , Network.AWS.Route53.CreateHealthCheck
-        , Network.AWS.Route53.CreateHostedZone
-        , Network.AWS.Route53.CreateQueryLoggingConfig
-        , Network.AWS.Route53.CreateReusableDelegationSet
-        , Network.AWS.Route53.CreateTrafficPolicy
-        , Network.AWS.Route53.CreateTrafficPolicyInstance
-        , Network.AWS.Route53.CreateTrafficPolicyVersion
-        , Network.AWS.Route53.CreateVPCAssociationAuthorization
-        , Network.AWS.Route53.DeleteHealthCheck
-        , Network.AWS.Route53.DeleteHostedZone
-        , Network.AWS.Route53.DeleteQueryLoggingConfig
-        , Network.AWS.Route53.DeleteReusableDelegationSet
-        , Network.AWS.Route53.DeleteTrafficPolicy
-        , Network.AWS.Route53.DeleteTrafficPolicyInstance
-        , Network.AWS.Route53.DeleteVPCAssociationAuthorization
-        , Network.AWS.Route53.DisassociateVPCFromHostedZone
-        , Network.AWS.Route53.GetAccountLimit
-        , Network.AWS.Route53.GetChange
-        , Network.AWS.Route53.GetCheckerIPRanges
-        , Network.AWS.Route53.GetGeoLocation
-        , Network.AWS.Route53.GetHealthCheck
-        , Network.AWS.Route53.GetHealthCheckCount
-        , Network.AWS.Route53.GetHealthCheckLastFailureReason
-        , Network.AWS.Route53.GetHealthCheckStatus
-        , Network.AWS.Route53.GetHostedZone
-        , Network.AWS.Route53.GetHostedZoneCount
-        , Network.AWS.Route53.GetHostedZoneLimit
-        , Network.AWS.Route53.GetQueryLoggingConfig
-        , Network.AWS.Route53.GetReusableDelegationSet
-        , Network.AWS.Route53.GetReusableDelegationSetLimit
-        , Network.AWS.Route53.GetTrafficPolicy
-        , Network.AWS.Route53.GetTrafficPolicyInstance
-        , Network.AWS.Route53.GetTrafficPolicyInstanceCount
-        , Network.AWS.Route53.ListGeoLocations
-        , Network.AWS.Route53.ListHealthChecks
-        , Network.AWS.Route53.ListHostedZones
-        , Network.AWS.Route53.ListHostedZonesByName
-        , Network.AWS.Route53.ListQueryLoggingConfigs
-        , Network.AWS.Route53.ListResourceRecordSets
-        , Network.AWS.Route53.ListReusableDelegationSets
-        , Network.AWS.Route53.ListTagsForResource
-        , Network.AWS.Route53.ListTagsForResources
-        , Network.AWS.Route53.ListTrafficPolicies
-        , Network.AWS.Route53.ListTrafficPolicyInstances
-        , Network.AWS.Route53.ListTrafficPolicyInstancesByHostedZone
-        , Network.AWS.Route53.ListTrafficPolicyInstancesByPolicy
-        , Network.AWS.Route53.ListTrafficPolicyVersions
-        , Network.AWS.Route53.ListVPCAssociationAuthorizations
-        , Network.AWS.Route53.TestDNSAnswer
-        , Network.AWS.Route53.Types
-        , Network.AWS.Route53.UpdateHealthCheck
-        , Network.AWS.Route53.UpdateHostedZoneComment
-        , Network.AWS.Route53.UpdateTrafficPolicyComment
-        , Network.AWS.Route53.UpdateTrafficPolicyInstance
-        , Network.AWS.Route53.Waiters
-
-    other-modules:
-          Network.AWS.Route53.Internal
-        , Network.AWS.Route53.Types.Product
-        , Network.AWS.Route53.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
-        , text >= 1.1
+  reexported-modules: Network.AWS.Prelude
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.13  && <5
+    , text           >=1.1
 
 test-suite amazonka-route53-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.Route53
+    Test.AWS.Route53
+    Test.AWS.Route53.Internal
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.Route53
-        , Test.AWS.Gen.Route53
-        , Test.AWS.Route53.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-route53
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka-route53
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

@@ -1,191 +1,298 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lambda.ListEventSourceMappings
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns a list of event source mappings you created using the @CreateEventSourceMapping@ (see 'CreateEventSourceMapping' ).
---
---
--- For each mapping, the API returns configuration information. You can optionally specify filters to retrieve specific event source mappings.
---
--- If you are using the versioning feature, you can get list of event source mappings for a specific Lambda function version or an alias as described in the @FunctionName@ parameter. For information about the versioning feature, see <http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html AWS Lambda Function Versioning and Aliases> .
---
--- This operation requires permission for the @lambda:ListEventSourceMappings@ action.
---
+-- Lists event source mappings. Specify an @EventSourceArn@ to only show
+-- event source mappings for a single event source.
 --
 -- This operation returns paginated results.
 module Network.AWS.Lambda.ListEventSourceMappings
-    (
-    -- * Creating a Request
-      listEventSourceMappings
-    , ListEventSourceMappings
+  ( -- * Creating a Request
+    ListEventSourceMappings (..),
+    newListEventSourceMappings,
+
     -- * Request Lenses
-    , lesmEventSourceARN
-    , lesmMarker
-    , lesmMaxItems
-    , lesmFunctionName
+    listEventSourceMappings_eventSourceArn,
+    listEventSourceMappings_functionName,
+    listEventSourceMappings_maxItems,
+    listEventSourceMappings_marker,
 
     -- * Destructuring the Response
-    , listEventSourceMappingsResponse
-    , ListEventSourceMappingsResponse
+    ListEventSourceMappingsResponse (..),
+    newListEventSourceMappingsResponse,
+
     -- * Response Lenses
-    , lesmrsEventSourceMappings
-    , lesmrsNextMarker
-    , lesmrsResponseStatus
-    ) where
+    listEventSourceMappingsResponse_eventSourceMappings,
+    listEventSourceMappingsResponse_nextMarker,
+    listEventSourceMappingsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Lambda.Types
-import Network.AWS.Lambda.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+
+-- | /See:/ 'newListEventSourceMappings' smart constructor.
+data ListEventSourceMappings = ListEventSourceMappings'
+  { -- | The Amazon Resource Name (ARN) of the event source.
+    --
+    -- -   __Amazon Kinesis__ - The ARN of the data stream or a stream
+    --     consumer.
+    --
+    -- -   __Amazon DynamoDB Streams__ - The ARN of the stream.
+    --
+    -- -   __Amazon Simple Queue Service__ - The ARN of the queue.
+    --
+    -- -   __Amazon Managed Streaming for Apache Kafka__ - The ARN of the
+    --     cluster.
+    eventSourceArn :: Prelude.Maybe Prelude.Text,
+    -- | The name of the Lambda function.
+    --
+    -- __Name formats__
+    --
+    -- -   __Function name__ - @MyFunction@.
+    --
+    -- -   __Function ARN__ -
+    --     @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@.
+    --
+    -- -   __Version or Alias ARN__ -
+    --     @arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD@.
+    --
+    -- -   __Partial ARN__ - @123456789012:function:MyFunction@.
+    --
+    -- The length constraint applies only to the full ARN. If you specify only
+    -- the function name, it\'s limited to 64 characters in length.
+    functionName :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of event source mappings to return.
+    maxItems :: Prelude.Maybe Prelude.Natural,
+    -- | A pagination token returned by a previous call.
+    marker :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
 -- |
+-- Create a value of 'ListEventSourceMappings' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- /See:/ 'listEventSourceMappings' smart constructor.
-data ListEventSourceMappings = ListEventSourceMappings'
-  { _lesmEventSourceARN :: !(Maybe Text)
-  , _lesmMarker         :: !(Maybe Text)
-  , _lesmMaxItems       :: !(Maybe Nat)
-  , _lesmFunctionName   :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'ListEventSourceMappings' with the minimum fields required to make a request.
+-- 'eventSourceArn', 'listEventSourceMappings_eventSourceArn' - The Amazon Resource Name (ARN) of the event source.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- -   __Amazon Kinesis__ - The ARN of the data stream or a stream
+--     consumer.
 --
--- * 'lesmEventSourceARN' - The Amazon Resource Name (ARN) of the Amazon Kinesis stream. (This parameter is optional.)
+-- -   __Amazon DynamoDB Streams__ - The ARN of the stream.
 --
--- * 'lesmMarker' - Optional string. An opaque pagination token returned from a previous @ListEventSourceMappings@ operation. If present, specifies to continue the list from where the returning call left off.
+-- -   __Amazon Simple Queue Service__ - The ARN of the queue.
 --
--- * 'lesmMaxItems' - Optional integer. Specifies the maximum number of event sources to return in response. This value must be greater than 0.
+-- -   __Amazon Managed Streaming for Apache Kafka__ - The ARN of the
+--     cluster.
 --
--- * 'lesmFunctionName' - The name of the Lambda function. You can specify the function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
-listEventSourceMappings
-    :: ListEventSourceMappings
-listEventSourceMappings =
+-- 'functionName', 'listEventSourceMappings_functionName' - The name of the Lambda function.
+--
+-- __Name formats__
+--
+-- -   __Function name__ - @MyFunction@.
+--
+-- -   __Function ARN__ -
+--     @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@.
+--
+-- -   __Version or Alias ARN__ -
+--     @arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD@.
+--
+-- -   __Partial ARN__ - @123456789012:function:MyFunction@.
+--
+-- The length constraint applies only to the full ARN. If you specify only
+-- the function name, it\'s limited to 64 characters in length.
+--
+-- 'maxItems', 'listEventSourceMappings_maxItems' - The maximum number of event source mappings to return.
+--
+-- 'marker', 'listEventSourceMappings_marker' - A pagination token returned by a previous call.
+newListEventSourceMappings ::
+  ListEventSourceMappings
+newListEventSourceMappings =
   ListEventSourceMappings'
-    { _lesmEventSourceARN = Nothing
-    , _lesmMarker = Nothing
-    , _lesmMaxItems = Nothing
-    , _lesmFunctionName = Nothing
+    { eventSourceArn =
+        Prelude.Nothing,
+      functionName = Prelude.Nothing,
+      maxItems = Prelude.Nothing,
+      marker = Prelude.Nothing
     }
 
-
--- | The Amazon Resource Name (ARN) of the Amazon Kinesis stream. (This parameter is optional.)
-lesmEventSourceARN :: Lens' ListEventSourceMappings (Maybe Text)
-lesmEventSourceARN = lens _lesmEventSourceARN (\ s a -> s{_lesmEventSourceARN = a})
-
--- | Optional string. An opaque pagination token returned from a previous @ListEventSourceMappings@ operation. If present, specifies to continue the list from where the returning call left off.
-lesmMarker :: Lens' ListEventSourceMappings (Maybe Text)
-lesmMarker = lens _lesmMarker (\ s a -> s{_lesmMarker = a})
-
--- | Optional integer. Specifies the maximum number of event sources to return in response. This value must be greater than 0.
-lesmMaxItems :: Lens' ListEventSourceMappings (Maybe Natural)
-lesmMaxItems = lens _lesmMaxItems (\ s a -> s{_lesmMaxItems = a}) . mapping _Nat
-
--- | The name of the Lambda function. You can specify the function name (for example, @Thumbnail@ ) or you can specify Amazon Resource Name (ARN) of the function (for example, @arn:aws:lambda:us-west-2:account-id:function:ThumbNail@ ). If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example, @account-id:Thumbnail@ ). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.
-lesmFunctionName :: Lens' ListEventSourceMappings (Maybe Text)
-lesmFunctionName = lens _lesmFunctionName (\ s a -> s{_lesmFunctionName = a})
-
-instance AWSPager ListEventSourceMappings where
-        page rq rs
-          | stop (rs ^. lesmrsNextMarker) = Nothing
-          | stop (rs ^. lesmrsEventSourceMappings) = Nothing
-          | otherwise =
-            Just $ rq & lesmMarker .~ rs ^. lesmrsNextMarker
-
-instance AWSRequest ListEventSourceMappings where
-        type Rs ListEventSourceMappings =
-             ListEventSourceMappingsResponse
-        request = get lambda
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListEventSourceMappingsResponse' <$>
-                   (x .?> "EventSourceMappings" .!@ mempty) <*>
-                     (x .?> "NextMarker")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable ListEventSourceMappings where
-
-instance NFData ListEventSourceMappings where
-
-instance ToHeaders ListEventSourceMappings where
-        toHeaders = const mempty
-
-instance ToPath ListEventSourceMappings where
-        toPath = const "/2015-03-31/event-source-mappings/"
-
-instance ToQuery ListEventSourceMappings where
-        toQuery ListEventSourceMappings'{..}
-          = mconcat
-              ["EventSourceArn" =: _lesmEventSourceARN,
-               "Marker" =: _lesmMarker, "MaxItems" =: _lesmMaxItems,
-               "FunctionName" =: _lesmFunctionName]
-
--- | Contains a list of event sources (see 'EventSourceMappingConfiguration' )
+-- | The Amazon Resource Name (ARN) of the event source.
 --
+-- -   __Amazon Kinesis__ - The ARN of the data stream or a stream
+--     consumer.
 --
+-- -   __Amazon DynamoDB Streams__ - The ARN of the stream.
 --
--- /See:/ 'listEventSourceMappingsResponse' smart constructor.
+-- -   __Amazon Simple Queue Service__ - The ARN of the queue.
+--
+-- -   __Amazon Managed Streaming for Apache Kafka__ - The ARN of the
+--     cluster.
+listEventSourceMappings_eventSourceArn :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Text)
+listEventSourceMappings_eventSourceArn = Lens.lens (\ListEventSourceMappings' {eventSourceArn} -> eventSourceArn) (\s@ListEventSourceMappings' {} a -> s {eventSourceArn = a} :: ListEventSourceMappings)
+
+-- | The name of the Lambda function.
+--
+-- __Name formats__
+--
+-- -   __Function name__ - @MyFunction@.
+--
+-- -   __Function ARN__ -
+--     @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@.
+--
+-- -   __Version or Alias ARN__ -
+--     @arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD@.
+--
+-- -   __Partial ARN__ - @123456789012:function:MyFunction@.
+--
+-- The length constraint applies only to the full ARN. If you specify only
+-- the function name, it\'s limited to 64 characters in length.
+listEventSourceMappings_functionName :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Text)
+listEventSourceMappings_functionName = Lens.lens (\ListEventSourceMappings' {functionName} -> functionName) (\s@ListEventSourceMappings' {} a -> s {functionName = a} :: ListEventSourceMappings)
+
+-- | The maximum number of event source mappings to return.
+listEventSourceMappings_maxItems :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Natural)
+listEventSourceMappings_maxItems = Lens.lens (\ListEventSourceMappings' {maxItems} -> maxItems) (\s@ListEventSourceMappings' {} a -> s {maxItems = a} :: ListEventSourceMappings)
+
+-- | A pagination token returned by a previous call.
+listEventSourceMappings_marker :: Lens.Lens' ListEventSourceMappings (Prelude.Maybe Prelude.Text)
+listEventSourceMappings_marker = Lens.lens (\ListEventSourceMappings' {marker} -> marker) (\s@ListEventSourceMappings' {} a -> s {marker = a} :: ListEventSourceMappings)
+
+instance Pager.AWSPager ListEventSourceMappings where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listEventSourceMappingsResponse_nextMarker
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listEventSourceMappingsResponse_eventSourceMappings
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listEventSourceMappings_marker
+          Lens..~ rs
+          Lens.^? listEventSourceMappingsResponse_nextMarker
+            Prelude.. Lens._Just
+
+instance Prelude.AWSRequest ListEventSourceMappings where
+  type
+    Rs ListEventSourceMappings =
+      ListEventSourceMappingsResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListEventSourceMappingsResponse'
+            Prelude.<$> ( x Prelude..?> "EventSourceMappings"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Prelude..?> "NextMarker")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable ListEventSourceMappings
+
+instance Prelude.NFData ListEventSourceMappings
+
+instance Prelude.ToHeaders ListEventSourceMappings where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToPath ListEventSourceMappings where
+  toPath =
+    Prelude.const "/2015-03-31/event-source-mappings/"
+
+instance Prelude.ToQuery ListEventSourceMappings where
+  toQuery ListEventSourceMappings' {..} =
+    Prelude.mconcat
+      [ "EventSourceArn" Prelude.=: eventSourceArn,
+        "FunctionName" Prelude.=: functionName,
+        "MaxItems" Prelude.=: maxItems,
+        "Marker" Prelude.=: marker
+      ]
+
+-- | /See:/ 'newListEventSourceMappingsResponse' smart constructor.
 data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'
-  { _lesmrsEventSourceMappings :: !(Maybe [EventSourceMappingConfiguration])
-  , _lesmrsNextMarker          :: !(Maybe Text)
-  , _lesmrsResponseStatus      :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A list of event source mappings.
+    eventSourceMappings :: Prelude.Maybe [EventSourceMappingConfiguration],
+    -- | A pagination token that\'s returned when the response doesn\'t contain
+    -- all event source mappings.
+    nextMarker :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListEventSourceMappingsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListEventSourceMappingsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lesmrsEventSourceMappings' - An array of @EventSourceMappingConfiguration@ objects.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lesmrsNextMarker' - A string, present if there are more event source mappings.
+-- 'eventSourceMappings', 'listEventSourceMappingsResponse_eventSourceMappings' - A list of event source mappings.
 --
--- * 'lesmrsResponseStatus' - -- | The response status code.
-listEventSourceMappingsResponse
-    :: Int -- ^ 'lesmrsResponseStatus'
-    -> ListEventSourceMappingsResponse
-listEventSourceMappingsResponse pResponseStatus_ =
+-- 'nextMarker', 'listEventSourceMappingsResponse_nextMarker' - A pagination token that\'s returned when the response doesn\'t contain
+-- all event source mappings.
+--
+-- 'httpStatus', 'listEventSourceMappingsResponse_httpStatus' - The response's http status code.
+newListEventSourceMappingsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListEventSourceMappingsResponse
+newListEventSourceMappingsResponse pHttpStatus_ =
   ListEventSourceMappingsResponse'
-    { _lesmrsEventSourceMappings = Nothing
-    , _lesmrsNextMarker = Nothing
-    , _lesmrsResponseStatus = pResponseStatus_
+    { eventSourceMappings =
+        Prelude.Nothing,
+      nextMarker = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | A list of event source mappings.
+listEventSourceMappingsResponse_eventSourceMappings :: Lens.Lens' ListEventSourceMappingsResponse (Prelude.Maybe [EventSourceMappingConfiguration])
+listEventSourceMappingsResponse_eventSourceMappings = Lens.lens (\ListEventSourceMappingsResponse' {eventSourceMappings} -> eventSourceMappings) (\s@ListEventSourceMappingsResponse' {} a -> s {eventSourceMappings = a} :: ListEventSourceMappingsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | An array of @EventSourceMappingConfiguration@ objects.
-lesmrsEventSourceMappings :: Lens' ListEventSourceMappingsResponse [EventSourceMappingConfiguration]
-lesmrsEventSourceMappings = lens _lesmrsEventSourceMappings (\ s a -> s{_lesmrsEventSourceMappings = a}) . _Default . _Coerce
+-- | A pagination token that\'s returned when the response doesn\'t contain
+-- all event source mappings.
+listEventSourceMappingsResponse_nextMarker :: Lens.Lens' ListEventSourceMappingsResponse (Prelude.Maybe Prelude.Text)
+listEventSourceMappingsResponse_nextMarker = Lens.lens (\ListEventSourceMappingsResponse' {nextMarker} -> nextMarker) (\s@ListEventSourceMappingsResponse' {} a -> s {nextMarker = a} :: ListEventSourceMappingsResponse)
 
--- | A string, present if there are more event source mappings.
-lesmrsNextMarker :: Lens' ListEventSourceMappingsResponse (Maybe Text)
-lesmrsNextMarker = lens _lesmrsNextMarker (\ s a -> s{_lesmrsNextMarker = a})
+-- | The response's http status code.
+listEventSourceMappingsResponse_httpStatus :: Lens.Lens' ListEventSourceMappingsResponse Prelude.Int
+listEventSourceMappingsResponse_httpStatus = Lens.lens (\ListEventSourceMappingsResponse' {httpStatus} -> httpStatus) (\s@ListEventSourceMappingsResponse' {} a -> s {httpStatus = a} :: ListEventSourceMappingsResponse)
 
--- | -- | The response status code.
-lesmrsResponseStatus :: Lens' ListEventSourceMappingsResponse Int
-lesmrsResponseStatus = lens _lesmrsResponseStatus (\ s a -> s{_lesmrsResponseStatus = a})
-
-instance NFData ListEventSourceMappingsResponse where
+instance
+  Prelude.NFData
+    ListEventSourceMappingsResponse

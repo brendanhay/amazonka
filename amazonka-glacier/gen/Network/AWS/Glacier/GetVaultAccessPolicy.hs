@@ -1,143 +1,184 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glacier.GetVaultAccessPolicy
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation retrieves the @access-policy@ subresource set on the vault; for more information on setting this subresource, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html Set Vault Access Policy (PUT access-policy)> . If there is no access policy set on the vault, the operation returns a @404 Not found@ error. For more information about vault access policies, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html Amazon Glacier Access Control with Vault Access Policies> .
---
---
+-- This operation retrieves the @access-policy@ subresource set on the
+-- vault; for more information on setting this subresource, see
+-- <https://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html Set Vault Access Policy (PUT access-policy)>.
+-- If there is no access policy set on the vault, the operation returns a
+-- @404 Not found@ error. For more information about vault access policies,
+-- see
+-- <https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html Amazon Glacier Access Control with Vault Access Policies>.
 module Network.AWS.Glacier.GetVaultAccessPolicy
-    (
-    -- * Creating a Request
-      getVaultAccessPolicy
-    , GetVaultAccessPolicy
+  ( -- * Creating a Request
+    GetVaultAccessPolicy (..),
+    newGetVaultAccessPolicy,
+
     -- * Request Lenses
-    , gvapAccountId
-    , gvapVaultName
+    getVaultAccessPolicy_accountId,
+    getVaultAccessPolicy_vaultName,
 
     -- * Destructuring the Response
-    , getVaultAccessPolicyResponse
-    , GetVaultAccessPolicyResponse
+    GetVaultAccessPolicyResponse (..),
+    newGetVaultAccessPolicyResponse,
+
     -- * Response Lenses
-    , gvaprsPolicy
-    , gvaprsResponseStatus
-    ) where
+    getVaultAccessPolicyResponse_policy,
+    getVaultAccessPolicyResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Input for GetVaultAccessPolicy.
 --
---
---
--- /See:/ 'getVaultAccessPolicy' smart constructor.
+-- /See:/ 'newGetVaultAccessPolicy' smart constructor.
 data GetVaultAccessPolicy = GetVaultAccessPolicy'
-  { _gvapAccountId :: !Text
-  , _gvapVaultName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The @AccountId@ value is the AWS account ID of the account that owns the
+    -- vault. You can either specify an AWS account ID or optionally a single
+    -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+    -- ID associated with the credentials used to sign the request. If you use
+    -- an account ID, do not include any hyphens (\'-\') in the ID.
+    accountId :: Prelude.Text,
+    -- | The name of the vault.
+    vaultName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetVaultAccessPolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetVaultAccessPolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gvapAccountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gvapVaultName' - The name of the vault.
-getVaultAccessPolicy
-    :: Text -- ^ 'gvapAccountId'
-    -> Text -- ^ 'gvapVaultName'
-    -> GetVaultAccessPolicy
-getVaultAccessPolicy pAccountId_ pVaultName_ =
+-- 'accountId', 'getVaultAccessPolicy_accountId' - The @AccountId@ value is the AWS account ID of the account that owns the
+-- vault. You can either specify an AWS account ID or optionally a single
+-- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+-- ID associated with the credentials used to sign the request. If you use
+-- an account ID, do not include any hyphens (\'-\') in the ID.
+--
+-- 'vaultName', 'getVaultAccessPolicy_vaultName' - The name of the vault.
+newGetVaultAccessPolicy ::
+  -- | 'accountId'
+  Prelude.Text ->
+  -- | 'vaultName'
+  Prelude.Text ->
+  GetVaultAccessPolicy
+newGetVaultAccessPolicy pAccountId_ pVaultName_ =
   GetVaultAccessPolicy'
-    {_gvapAccountId = pAccountId_, _gvapVaultName = pVaultName_}
+    { accountId = pAccountId_,
+      vaultName = pVaultName_
+    }
 
-
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-gvapAccountId :: Lens' GetVaultAccessPolicy Text
-gvapAccountId = lens _gvapAccountId (\ s a -> s{_gvapAccountId = a})
+-- | The @AccountId@ value is the AWS account ID of the account that owns the
+-- vault. You can either specify an AWS account ID or optionally a single
+-- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
+-- ID associated with the credentials used to sign the request. If you use
+-- an account ID, do not include any hyphens (\'-\') in the ID.
+getVaultAccessPolicy_accountId :: Lens.Lens' GetVaultAccessPolicy Prelude.Text
+getVaultAccessPolicy_accountId = Lens.lens (\GetVaultAccessPolicy' {accountId} -> accountId) (\s@GetVaultAccessPolicy' {} a -> s {accountId = a} :: GetVaultAccessPolicy)
 
 -- | The name of the vault.
-gvapVaultName :: Lens' GetVaultAccessPolicy Text
-gvapVaultName = lens _gvapVaultName (\ s a -> s{_gvapVaultName = a})
+getVaultAccessPolicy_vaultName :: Lens.Lens' GetVaultAccessPolicy Prelude.Text
+getVaultAccessPolicy_vaultName = Lens.lens (\GetVaultAccessPolicy' {vaultName} -> vaultName) (\s@GetVaultAccessPolicy' {} a -> s {vaultName = a} :: GetVaultAccessPolicy)
 
-instance AWSRequest GetVaultAccessPolicy where
-        type Rs GetVaultAccessPolicy =
-             GetVaultAccessPolicyResponse
-        request = get glacier
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetVaultAccessPolicyResponse' <$>
-                   (eitherParseJSON x) <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest GetVaultAccessPolicy where
+  type
+    Rs GetVaultAccessPolicy =
+      GetVaultAccessPolicyResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetVaultAccessPolicyResponse'
+            Prelude.<$> (Prelude.eitherParseJSON x)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetVaultAccessPolicy where
+instance Prelude.Hashable GetVaultAccessPolicy
 
-instance NFData GetVaultAccessPolicy where
+instance Prelude.NFData GetVaultAccessPolicy
 
-instance ToHeaders GetVaultAccessPolicy where
-        toHeaders = const mempty
+instance Prelude.ToHeaders GetVaultAccessPolicy where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath GetVaultAccessPolicy where
-        toPath GetVaultAccessPolicy'{..}
-          = mconcat
-              ["/", toBS _gvapAccountId, "/vaults/",
-               toBS _gvapVaultName, "/access-policy"]
+instance Prelude.ToPath GetVaultAccessPolicy where
+  toPath GetVaultAccessPolicy' {..} =
+    Prelude.mconcat
+      [ "/",
+        Prelude.toBS accountId,
+        "/vaults/",
+        Prelude.toBS vaultName,
+        "/access-policy"
+      ]
 
-instance ToQuery GetVaultAccessPolicy where
-        toQuery = const mempty
+instance Prelude.ToQuery GetVaultAccessPolicy where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Output for GetVaultAccessPolicy.
 --
---
---
--- /See:/ 'getVaultAccessPolicyResponse' smart constructor.
+-- /See:/ 'newGetVaultAccessPolicyResponse' smart constructor.
 data GetVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'
-  { _gvaprsPolicy         :: !(Maybe VaultAccessPolicy)
-  , _gvaprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Contains the returned vault access policy as a JSON string.
+    policy :: Prelude.Maybe VaultAccessPolicy,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetVaultAccessPolicyResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetVaultAccessPolicyResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gvaprsPolicy' - Contains the returned vault access policy as a JSON string.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gvaprsResponseStatus' - -- | The response status code.
-getVaultAccessPolicyResponse
-    :: Int -- ^ 'gvaprsResponseStatus'
-    -> GetVaultAccessPolicyResponse
-getVaultAccessPolicyResponse pResponseStatus_ =
+-- 'policy', 'getVaultAccessPolicyResponse_policy' - Contains the returned vault access policy as a JSON string.
+--
+-- 'httpStatus', 'getVaultAccessPolicyResponse_httpStatus' - The response's http status code.
+newGetVaultAccessPolicyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetVaultAccessPolicyResponse
+newGetVaultAccessPolicyResponse pHttpStatus_ =
   GetVaultAccessPolicyResponse'
-    {_gvaprsPolicy = Nothing, _gvaprsResponseStatus = pResponseStatus_}
-
+    { policy =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Contains the returned vault access policy as a JSON string.
-gvaprsPolicy :: Lens' GetVaultAccessPolicyResponse (Maybe VaultAccessPolicy)
-gvaprsPolicy = lens _gvaprsPolicy (\ s a -> s{_gvaprsPolicy = a})
+getVaultAccessPolicyResponse_policy :: Lens.Lens' GetVaultAccessPolicyResponse (Prelude.Maybe VaultAccessPolicy)
+getVaultAccessPolicyResponse_policy = Lens.lens (\GetVaultAccessPolicyResponse' {policy} -> policy) (\s@GetVaultAccessPolicyResponse' {} a -> s {policy = a} :: GetVaultAccessPolicyResponse)
 
--- | -- | The response status code.
-gvaprsResponseStatus :: Lens' GetVaultAccessPolicyResponse Int
-gvaprsResponseStatus = lens _gvaprsResponseStatus (\ s a -> s{_gvaprsResponseStatus = a})
+-- | The response's http status code.
+getVaultAccessPolicyResponse_httpStatus :: Lens.Lens' GetVaultAccessPolicyResponse Prelude.Int
+getVaultAccessPolicyResponse_httpStatus = Lens.lens (\GetVaultAccessPolicyResponse' {httpStatus} -> httpStatus) (\s@GetVaultAccessPolicyResponse' {} a -> s {httpStatus = a} :: GetVaultAccessPolicyResponse)
 
-instance NFData GetVaultAccessPolicyResponse where
+instance Prelude.NFData GetVaultAccessPolicyResponse

@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SSM.DescribePatchGroups
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,145 +23,269 @@
 --
 -- Lists all patch groups that have been registered with patch baselines.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.SSM.DescribePatchGroups
-    (
-    -- * Creating a Request
-      describePatchGroups
-    , DescribePatchGroups
+  ( -- * Creating a Request
+    DescribePatchGroups (..),
+    newDescribePatchGroups,
+
     -- * Request Lenses
-    , dpgFilters
-    , dpgNextToken
-    , dpgMaxResults
+    describePatchGroups_nextToken,
+    describePatchGroups_maxResults,
+    describePatchGroups_filters,
 
     -- * Destructuring the Response
-    , describePatchGroupsResponse
-    , DescribePatchGroupsResponse
+    DescribePatchGroupsResponse (..),
+    newDescribePatchGroupsResponse,
+
     -- * Response Lenses
-    , dpgrsMappings
-    , dpgrsNextToken
-    , dpgrsResponseStatus
-    ) where
+    describePatchGroupsResponse_mappings,
+    describePatchGroupsResponse_nextToken,
+    describePatchGroupsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SSM.Types
-import Network.AWS.SSM.Types.Product
 
--- | /See:/ 'describePatchGroups' smart constructor.
+-- | /See:/ 'newDescribePatchGroups' smart constructor.
 data DescribePatchGroups = DescribePatchGroups'
-  { _dpgFilters    :: !(Maybe [PatchOrchestratorFilter])
-  , _dpgNextToken  :: !(Maybe Text)
-  , _dpgMaxResults :: !(Maybe Nat)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token for the next set of items to return. (You received this token
+    -- from a previous call.)
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of patch groups to return (per page).
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | One or more filters. Use a filter to return a more specific list of
+    -- results.
+    --
+    -- For @DescribePatchGroups@,valid filter keys include the following:
+    --
+    -- -   @NAME_PREFIX@: The name of the patch group. Wildcards (*) are
+    --     accepted.
+    --
+    -- -   @OPERATING_SYSTEM@: The supported operating system type to return
+    --     results for. For valid operating system values, see
+    --     GetDefaultPatchBaselineRequest$OperatingSystem in
+    --     CreatePatchBaseline.
+    --
+    --     Examples:
+    --
+    --     -   @--filters Key=NAME_PREFIX,Values=MyPatchGroup*@
+    --
+    --     -   @--filters Key=OPERATING_SYSTEM,Values=AMAZON_LINUX_2@
+    filters :: Prelude.Maybe [PatchOrchestratorFilter]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribePatchGroups' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribePatchGroups' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dpgFilters' - One or more filters. Use a filter to return a more specific list of results.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dpgNextToken' - The token for the next set of items to return. (You received this token from a previous call.)
+-- 'nextToken', 'describePatchGroups_nextToken' - The token for the next set of items to return. (You received this token
+-- from a previous call.)
 --
--- * 'dpgMaxResults' - The maximum number of patch groups to return (per page).
-describePatchGroups
-    :: DescribePatchGroups
-describePatchGroups =
+-- 'maxResults', 'describePatchGroups_maxResults' - The maximum number of patch groups to return (per page).
+--
+-- 'filters', 'describePatchGroups_filters' - One or more filters. Use a filter to return a more specific list of
+-- results.
+--
+-- For @DescribePatchGroups@,valid filter keys include the following:
+--
+-- -   @NAME_PREFIX@: The name of the patch group. Wildcards (*) are
+--     accepted.
+--
+-- -   @OPERATING_SYSTEM@: The supported operating system type to return
+--     results for. For valid operating system values, see
+--     GetDefaultPatchBaselineRequest$OperatingSystem in
+--     CreatePatchBaseline.
+--
+--     Examples:
+--
+--     -   @--filters Key=NAME_PREFIX,Values=MyPatchGroup*@
+--
+--     -   @--filters Key=OPERATING_SYSTEM,Values=AMAZON_LINUX_2@
+newDescribePatchGroups ::
+  DescribePatchGroups
+newDescribePatchGroups =
   DescribePatchGroups'
-    {_dpgFilters = Nothing, _dpgNextToken = Nothing, _dpgMaxResults = Nothing}
-
-
--- | One or more filters. Use a filter to return a more specific list of results.
-dpgFilters :: Lens' DescribePatchGroups [PatchOrchestratorFilter]
-dpgFilters = lens _dpgFilters (\ s a -> s{_dpgFilters = a}) . _Default . _Coerce
-
--- | The token for the next set of items to return. (You received this token from a previous call.)
-dpgNextToken :: Lens' DescribePatchGroups (Maybe Text)
-dpgNextToken = lens _dpgNextToken (\ s a -> s{_dpgNextToken = a})
-
--- | The maximum number of patch groups to return (per page).
-dpgMaxResults :: Lens' DescribePatchGroups (Maybe Natural)
-dpgMaxResults = lens _dpgMaxResults (\ s a -> s{_dpgMaxResults = a}) . mapping _Nat
-
-instance AWSRequest DescribePatchGroups where
-        type Rs DescribePatchGroups =
-             DescribePatchGroupsResponse
-        request = postJSON ssm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribePatchGroupsResponse' <$>
-                   (x .?> "Mappings" .!@ mempty) <*> (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribePatchGroups where
-
-instance NFData DescribePatchGroups where
-
-instance ToHeaders DescribePatchGroups where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonSSM.DescribePatchGroups" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DescribePatchGroups where
-        toJSON DescribePatchGroups'{..}
-          = object
-              (catMaybes
-                 [("Filters" .=) <$> _dpgFilters,
-                  ("NextToken" .=) <$> _dpgNextToken,
-                  ("MaxResults" .=) <$> _dpgMaxResults])
-
-instance ToPath DescribePatchGroups where
-        toPath = const "/"
-
-instance ToQuery DescribePatchGroups where
-        toQuery = const mempty
-
--- | /See:/ 'describePatchGroupsResponse' smart constructor.
-data DescribePatchGroupsResponse = DescribePatchGroupsResponse'
-  { _dpgrsMappings       :: !(Maybe [PatchGroupPatchBaselineMapping])
-  , _dpgrsNextToken      :: !(Maybe Text)
-  , _dpgrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribePatchGroupsResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dpgrsMappings' - Each entry in the array contains: PatchGroup: string (between 1 and 256 characters, Regex: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$) PatchBaselineIdentity: A PatchBaselineIdentity element.
---
--- * 'dpgrsNextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
---
--- * 'dpgrsResponseStatus' - -- | The response status code.
-describePatchGroupsResponse
-    :: Int -- ^ 'dpgrsResponseStatus'
-    -> DescribePatchGroupsResponse
-describePatchGroupsResponse pResponseStatus_ =
-  DescribePatchGroupsResponse'
-    { _dpgrsMappings = Nothing
-    , _dpgrsNextToken = Nothing
-    , _dpgrsResponseStatus = pResponseStatus_
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      filters = Prelude.Nothing
     }
 
+-- | The token for the next set of items to return. (You received this token
+-- from a previous call.)
+describePatchGroups_nextToken :: Lens.Lens' DescribePatchGroups (Prelude.Maybe Prelude.Text)
+describePatchGroups_nextToken = Lens.lens (\DescribePatchGroups' {nextToken} -> nextToken) (\s@DescribePatchGroups' {} a -> s {nextToken = a} :: DescribePatchGroups)
 
--- | Each entry in the array contains: PatchGroup: string (between 1 and 256 characters, Regex: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$) PatchBaselineIdentity: A PatchBaselineIdentity element.
-dpgrsMappings :: Lens' DescribePatchGroupsResponse [PatchGroupPatchBaselineMapping]
-dpgrsMappings = lens _dpgrsMappings (\ s a -> s{_dpgrsMappings = a}) . _Default . _Coerce
+-- | The maximum number of patch groups to return (per page).
+describePatchGroups_maxResults :: Lens.Lens' DescribePatchGroups (Prelude.Maybe Prelude.Natural)
+describePatchGroups_maxResults = Lens.lens (\DescribePatchGroups' {maxResults} -> maxResults) (\s@DescribePatchGroups' {} a -> s {maxResults = a} :: DescribePatchGroups)
 
--- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-dpgrsNextToken :: Lens' DescribePatchGroupsResponse (Maybe Text)
-dpgrsNextToken = lens _dpgrsNextToken (\ s a -> s{_dpgrsNextToken = a})
+-- | One or more filters. Use a filter to return a more specific list of
+-- results.
+--
+-- For @DescribePatchGroups@,valid filter keys include the following:
+--
+-- -   @NAME_PREFIX@: The name of the patch group. Wildcards (*) are
+--     accepted.
+--
+-- -   @OPERATING_SYSTEM@: The supported operating system type to return
+--     results for. For valid operating system values, see
+--     GetDefaultPatchBaselineRequest$OperatingSystem in
+--     CreatePatchBaseline.
+--
+--     Examples:
+--
+--     -   @--filters Key=NAME_PREFIX,Values=MyPatchGroup*@
+--
+--     -   @--filters Key=OPERATING_SYSTEM,Values=AMAZON_LINUX_2@
+describePatchGroups_filters :: Lens.Lens' DescribePatchGroups (Prelude.Maybe [PatchOrchestratorFilter])
+describePatchGroups_filters = Lens.lens (\DescribePatchGroups' {filters} -> filters) (\s@DescribePatchGroups' {} a -> s {filters = a} :: DescribePatchGroups) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-dpgrsResponseStatus :: Lens' DescribePatchGroupsResponse Int
-dpgrsResponseStatus = lens _dpgrsResponseStatus (\ s a -> s{_dpgrsResponseStatus = a})
+instance Pager.AWSPager DescribePatchGroups where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describePatchGroupsResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describePatchGroupsResponse_mappings
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describePatchGroups_nextToken
+          Lens..~ rs
+          Lens.^? describePatchGroupsResponse_nextToken
+            Prelude.. Lens._Just
 
-instance NFData DescribePatchGroupsResponse where
+instance Prelude.AWSRequest DescribePatchGroups where
+  type
+    Rs DescribePatchGroups =
+      DescribePatchGroupsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribePatchGroupsResponse'
+            Prelude.<$> (x Prelude..?> "Mappings" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (x Prelude..?> "NextToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribePatchGroups
+
+instance Prelude.NFData DescribePatchGroups
+
+instance Prelude.ToHeaders DescribePatchGroups where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AmazonSSM.DescribePatchGroups" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON DescribePatchGroups where
+  toJSON DescribePatchGroups' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
+            ("Filters" Prelude..=) Prelude.<$> filters
+          ]
+      )
+
+instance Prelude.ToPath DescribePatchGroups where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery DescribePatchGroups where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribePatchGroupsResponse' smart constructor.
+data DescribePatchGroupsResponse = DescribePatchGroupsResponse'
+  { -- | Each entry in the array contains:
+    --
+    -- PatchGroup: string (between 1 and 256 characters, Regex:
+    -- ^([\\p{L}\\p{Z}\\p{N}_.:\/=+\\-\@]*)$)
+    --
+    -- PatchBaselineIdentity: A PatchBaselineIdentity element.
+    mappings :: Prelude.Maybe [PatchGroupPatchBaselineMapping],
+    -- | The token to use when requesting the next set of items. If there are no
+    -- additional items to return, the string is empty.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribePatchGroupsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'mappings', 'describePatchGroupsResponse_mappings' - Each entry in the array contains:
+--
+-- PatchGroup: string (between 1 and 256 characters, Regex:
+-- ^([\\p{L}\\p{Z}\\p{N}_.:\/=+\\-\@]*)$)
+--
+-- PatchBaselineIdentity: A PatchBaselineIdentity element.
+--
+-- 'nextToken', 'describePatchGroupsResponse_nextToken' - The token to use when requesting the next set of items. If there are no
+-- additional items to return, the string is empty.
+--
+-- 'httpStatus', 'describePatchGroupsResponse_httpStatus' - The response's http status code.
+newDescribePatchGroupsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribePatchGroupsResponse
+newDescribePatchGroupsResponse pHttpStatus_ =
+  DescribePatchGroupsResponse'
+    { mappings =
+        Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | Each entry in the array contains:
+--
+-- PatchGroup: string (between 1 and 256 characters, Regex:
+-- ^([\\p{L}\\p{Z}\\p{N}_.:\/=+\\-\@]*)$)
+--
+-- PatchBaselineIdentity: A PatchBaselineIdentity element.
+describePatchGroupsResponse_mappings :: Lens.Lens' DescribePatchGroupsResponse (Prelude.Maybe [PatchGroupPatchBaselineMapping])
+describePatchGroupsResponse_mappings = Lens.lens (\DescribePatchGroupsResponse' {mappings} -> mappings) (\s@DescribePatchGroupsResponse' {} a -> s {mappings = a} :: DescribePatchGroupsResponse) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The token to use when requesting the next set of items. If there are no
+-- additional items to return, the string is empty.
+describePatchGroupsResponse_nextToken :: Lens.Lens' DescribePatchGroupsResponse (Prelude.Maybe Prelude.Text)
+describePatchGroupsResponse_nextToken = Lens.lens (\DescribePatchGroupsResponse' {nextToken} -> nextToken) (\s@DescribePatchGroupsResponse' {} a -> s {nextToken = a} :: DescribePatchGroupsResponse)
+
+-- | The response's http status code.
+describePatchGroupsResponse_httpStatus :: Lens.Lens' DescribePatchGroupsResponse Prelude.Int
+describePatchGroupsResponse_httpStatus = Lens.lens (\DescribePatchGroupsResponse' {httpStatus} -> httpStatus) (\s@DescribePatchGroupsResponse' {} a -> s {httpStatus = a} :: DescribePatchGroupsResponse)
+
+instance Prelude.NFData DescribePatchGroupsResponse

@@ -1,155 +1,274 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ECS.DescribeClusters
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Describes one or more of your clusters.
---
---
 module Network.AWS.ECS.DescribeClusters
-    (
-    -- * Creating a Request
-      describeClusters
-    , DescribeClusters
+  ( -- * Creating a Request
+    DescribeClusters (..),
+    newDescribeClusters,
+
     -- * Request Lenses
-    , dcInclude
-    , dcClusters
+    describeClusters_include,
+    describeClusters_clusters,
 
     -- * Destructuring the Response
-    , describeClustersResponse
-    , DescribeClustersResponse
+    DescribeClustersResponse (..),
+    newDescribeClustersResponse,
+
     -- * Response Lenses
-    , dcrsFailures
-    , dcrsClusters
-    , dcrsResponseStatus
-    ) where
+    describeClustersResponse_failures,
+    describeClustersResponse_clusters,
+    describeClustersResponse_httpStatus,
+  )
+where
 
 import Network.AWS.ECS.Types
-import Network.AWS.ECS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeClusters' smart constructor.
+-- | /See:/ 'newDescribeClusters' smart constructor.
 data DescribeClusters = DescribeClusters'
-  { _dcInclude  :: !(Maybe [ClusterField])
-  , _dcClusters :: !(Maybe [Text])
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Whether to include additional information about your clusters in the
+    -- response. If this field is omitted, the attachments, statistics, and
+    -- tags are not included.
+    --
+    -- If @ATTACHMENTS@ is specified, the attachments for the container
+    -- instances or tasks within the cluster are included.
+    --
+    -- If @SETTINGS@ is specified, the settings for the cluster are included.
+    --
+    -- If @STATISTICS@ is specified, the following additional information,
+    -- separated by launch type, is included:
+    --
+    -- -   runningEC2TasksCount
+    --
+    -- -   runningFargateTasksCount
+    --
+    -- -   pendingEC2TasksCount
+    --
+    -- -   pendingFargateTasksCount
+    --
+    -- -   activeEC2ServiceCount
+    --
+    -- -   activeFargateServiceCount
+    --
+    -- -   drainingEC2ServiceCount
+    --
+    -- -   drainingFargateServiceCount
+    --
+    -- If @TAGS@ is specified, the metadata tags associated with the cluster
+    -- are included.
+    include :: Prelude.Maybe [ClusterField],
+    -- | A list of up to 100 cluster names or full cluster Amazon Resource Name
+    -- (ARN) entries. If you do not specify a cluster, the default cluster is
+    -- assumed.
+    clusters :: Prelude.Maybe [Prelude.Text]
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeClusters' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeClusters' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dcInclude' - Additional information about your clusters to be separated by launch type, including:     * runningEC2TasksCount     * runningFargateTasksCount     * pendingEC2TasksCount     * pendingFargateTasksCount     * activeEC2ServiceCount     * activeFargateServiceCount     * drainingEC2ServiceCount     * drainingFargateServiceCount
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dcClusters' - A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.
-describeClusters
-    :: DescribeClusters
-describeClusters =
-  DescribeClusters' {_dcInclude = Nothing, _dcClusters = Nothing}
-
-
--- | Additional information about your clusters to be separated by launch type, including:     * runningEC2TasksCount     * runningFargateTasksCount     * pendingEC2TasksCount     * pendingFargateTasksCount     * activeEC2ServiceCount     * activeFargateServiceCount     * drainingEC2ServiceCount     * drainingFargateServiceCount
-dcInclude :: Lens' DescribeClusters [ClusterField]
-dcInclude = lens _dcInclude (\ s a -> s{_dcInclude = a}) . _Default . _Coerce
-
--- | A list of up to 100 cluster names or full cluster Amazon Resource Name (ARN) entries. If you do not specify a cluster, the default cluster is assumed.
-dcClusters :: Lens' DescribeClusters [Text]
-dcClusters = lens _dcClusters (\ s a -> s{_dcClusters = a}) . _Default . _Coerce
-
-instance AWSRequest DescribeClusters where
-        type Rs DescribeClusters = DescribeClustersResponse
-        request = postJSON ecs
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeClustersResponse' <$>
-                   (x .?> "failures" .!@ mempty) <*>
-                     (x .?> "clusters" .!@ mempty)
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeClusters where
-
-instance NFData DescribeClusters where
-
-instance ToHeaders DescribeClusters where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AmazonEC2ContainerServiceV20141113.DescribeClusters"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DescribeClusters where
-        toJSON DescribeClusters'{..}
-          = object
-              (catMaybes
-                 [("include" .=) <$> _dcInclude,
-                  ("clusters" .=) <$> _dcClusters])
-
-instance ToPath DescribeClusters where
-        toPath = const "/"
-
-instance ToQuery DescribeClusters where
-        toQuery = const mempty
-
--- | /See:/ 'describeClustersResponse' smart constructor.
-data DescribeClustersResponse = DescribeClustersResponse'
-  { _dcrsFailures       :: !(Maybe [Failure])
-  , _dcrsClusters       :: !(Maybe [Cluster])
-  , _dcrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeClustersResponse' with the minimum fields required to make a request.
+-- 'include', 'describeClusters_include' - Whether to include additional information about your clusters in the
+-- response. If this field is omitted, the attachments, statistics, and
+-- tags are not included.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- If @ATTACHMENTS@ is specified, the attachments for the container
+-- instances or tasks within the cluster are included.
 --
--- * 'dcrsFailures' - Any failures associated with the call.
+-- If @SETTINGS@ is specified, the settings for the cluster are included.
 --
--- * 'dcrsClusters' - The list of clusters.
+-- If @STATISTICS@ is specified, the following additional information,
+-- separated by launch type, is included:
 --
--- * 'dcrsResponseStatus' - -- | The response status code.
-describeClustersResponse
-    :: Int -- ^ 'dcrsResponseStatus'
-    -> DescribeClustersResponse
-describeClustersResponse pResponseStatus_ =
-  DescribeClustersResponse'
-    { _dcrsFailures = Nothing
-    , _dcrsClusters = Nothing
-    , _dcrsResponseStatus = pResponseStatus_
+-- -   runningEC2TasksCount
+--
+-- -   runningFargateTasksCount
+--
+-- -   pendingEC2TasksCount
+--
+-- -   pendingFargateTasksCount
+--
+-- -   activeEC2ServiceCount
+--
+-- -   activeFargateServiceCount
+--
+-- -   drainingEC2ServiceCount
+--
+-- -   drainingFargateServiceCount
+--
+-- If @TAGS@ is specified, the metadata tags associated with the cluster
+-- are included.
+--
+-- 'clusters', 'describeClusters_clusters' - A list of up to 100 cluster names or full cluster Amazon Resource Name
+-- (ARN) entries. If you do not specify a cluster, the default cluster is
+-- assumed.
+newDescribeClusters ::
+  DescribeClusters
+newDescribeClusters =
+  DescribeClusters'
+    { include = Prelude.Nothing,
+      clusters = Prelude.Nothing
     }
 
+-- | Whether to include additional information about your clusters in the
+-- response. If this field is omitted, the attachments, statistics, and
+-- tags are not included.
+--
+-- If @ATTACHMENTS@ is specified, the attachments for the container
+-- instances or tasks within the cluster are included.
+--
+-- If @SETTINGS@ is specified, the settings for the cluster are included.
+--
+-- If @STATISTICS@ is specified, the following additional information,
+-- separated by launch type, is included:
+--
+-- -   runningEC2TasksCount
+--
+-- -   runningFargateTasksCount
+--
+-- -   pendingEC2TasksCount
+--
+-- -   pendingFargateTasksCount
+--
+-- -   activeEC2ServiceCount
+--
+-- -   activeFargateServiceCount
+--
+-- -   drainingEC2ServiceCount
+--
+-- -   drainingFargateServiceCount
+--
+-- If @TAGS@ is specified, the metadata tags associated with the cluster
+-- are included.
+describeClusters_include :: Lens.Lens' DescribeClusters (Prelude.Maybe [ClusterField])
+describeClusters_include = Lens.lens (\DescribeClusters' {include} -> include) (\s@DescribeClusters' {} a -> s {include = a} :: DescribeClusters) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | A list of up to 100 cluster names or full cluster Amazon Resource Name
+-- (ARN) entries. If you do not specify a cluster, the default cluster is
+-- assumed.
+describeClusters_clusters :: Lens.Lens' DescribeClusters (Prelude.Maybe [Prelude.Text])
+describeClusters_clusters = Lens.lens (\DescribeClusters' {clusters} -> clusters) (\s@DescribeClusters' {} a -> s {clusters = a} :: DescribeClusters) Prelude.. Lens.mapping Prelude._Coerce
+
+instance Prelude.AWSRequest DescribeClusters where
+  type Rs DescribeClusters = DescribeClustersResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeClustersResponse'
+            Prelude.<$> (x Prelude..?> "failures" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (x Prelude..?> "clusters" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeClusters
+
+instance Prelude.NFData DescribeClusters
+
+instance Prelude.ToHeaders DescribeClusters where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AmazonEC2ContainerServiceV20141113.DescribeClusters" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON DescribeClusters where
+  toJSON DescribeClusters' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("include" Prelude..=) Prelude.<$> include,
+            ("clusters" Prelude..=) Prelude.<$> clusters
+          ]
+      )
+
+instance Prelude.ToPath DescribeClusters where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery DescribeClusters where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeClustersResponse' smart constructor.
+data DescribeClustersResponse = DescribeClustersResponse'
+  { -- | Any failures associated with the call.
+    failures :: Prelude.Maybe [Failure],
+    -- | The list of clusters.
+    clusters :: Prelude.Maybe [Cluster],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeClustersResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'failures', 'describeClustersResponse_failures' - Any failures associated with the call.
+--
+-- 'clusters', 'describeClustersResponse_clusters' - The list of clusters.
+--
+-- 'httpStatus', 'describeClustersResponse_httpStatus' - The response's http status code.
+newDescribeClustersResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeClustersResponse
+newDescribeClustersResponse pHttpStatus_ =
+  DescribeClustersResponse'
+    { failures =
+        Prelude.Nothing,
+      clusters = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Any failures associated with the call.
-dcrsFailures :: Lens' DescribeClustersResponse [Failure]
-dcrsFailures = lens _dcrsFailures (\ s a -> s{_dcrsFailures = a}) . _Default . _Coerce
+describeClustersResponse_failures :: Lens.Lens' DescribeClustersResponse (Prelude.Maybe [Failure])
+describeClustersResponse_failures = Lens.lens (\DescribeClustersResponse' {failures} -> failures) (\s@DescribeClustersResponse' {} a -> s {failures = a} :: DescribeClustersResponse) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | The list of clusters.
-dcrsClusters :: Lens' DescribeClustersResponse [Cluster]
-dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default . _Coerce
+describeClustersResponse_clusters :: Lens.Lens' DescribeClustersResponse (Prelude.Maybe [Cluster])
+describeClustersResponse_clusters = Lens.lens (\DescribeClustersResponse' {clusters} -> clusters) (\s@DescribeClustersResponse' {} a -> s {clusters = a} :: DescribeClustersResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-dcrsResponseStatus :: Lens' DescribeClustersResponse Int
-dcrsResponseStatus = lens _dcrsResponseStatus (\ s a -> s{_dcrsResponseStatus = a})
+-- | The response's http status code.
+describeClustersResponse_httpStatus :: Lens.Lens' DescribeClustersResponse Prelude.Int
+describeClustersResponse_httpStatus = Lens.lens (\DescribeClustersResponse' {httpStatus} -> httpStatus) (\s@DescribeClustersResponse' {} a -> s {httpStatus = a} :: DescribeClustersResponse)
 
-instance NFData DescribeClustersResponse where
+instance Prelude.NFData DescribeClustersResponse

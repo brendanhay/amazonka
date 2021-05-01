@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeCommit.ListBranches
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,153 +23,187 @@
 --
 -- Gets information about one or more branches in a repository.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CodeCommit.ListBranches
-    (
-    -- * Creating a Request
-      listBranches
-    , ListBranches
+  ( -- * Creating a Request
+    ListBranches (..),
+    newListBranches,
+
     -- * Request Lenses
-    , lbNextToken
-    , lbRepositoryName
+    listBranches_nextToken,
+    listBranches_repositoryName,
 
     -- * Destructuring the Response
-    , listBranchesResponse
-    , ListBranchesResponse
+    ListBranchesResponse (..),
+    newListBranchesResponse,
+
     -- * Response Lenses
-    , lbrsBranches
-    , lbrsNextToken
-    , lbrsResponseStatus
-    ) where
+    listBranchesResponse_nextToken,
+    listBranchesResponse_branches,
+    listBranchesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CodeCommit.Types
-import Network.AWS.CodeCommit.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a list branches operation.
 --
---
---
--- /See:/ 'listBranches' smart constructor.
+-- /See:/ 'newListBranches' smart constructor.
 data ListBranches = ListBranches'
-  { _lbNextToken      :: !(Maybe Text)
-  , _lbRepositoryName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An enumeration token that allows the operation to batch the results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The name of the repository that contains the branches.
+    repositoryName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListBranches' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListBranches' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lbNextToken' - An enumeration token that allows the operation to batch the results.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lbRepositoryName' - The name of the repository that contains the branches.
-listBranches
-    :: Text -- ^ 'lbRepositoryName'
-    -> ListBranches
-listBranches pRepositoryName_ =
-  ListBranches' {_lbNextToken = Nothing, _lbRepositoryName = pRepositoryName_}
-
+-- 'nextToken', 'listBranches_nextToken' - An enumeration token that allows the operation to batch the results.
+--
+-- 'repositoryName', 'listBranches_repositoryName' - The name of the repository that contains the branches.
+newListBranches ::
+  -- | 'repositoryName'
+  Prelude.Text ->
+  ListBranches
+newListBranches pRepositoryName_ =
+  ListBranches'
+    { nextToken = Prelude.Nothing,
+      repositoryName = pRepositoryName_
+    }
 
 -- | An enumeration token that allows the operation to batch the results.
-lbNextToken :: Lens' ListBranches (Maybe Text)
-lbNextToken = lens _lbNextToken (\ s a -> s{_lbNextToken = a})
+listBranches_nextToken :: Lens.Lens' ListBranches (Prelude.Maybe Prelude.Text)
+listBranches_nextToken = Lens.lens (\ListBranches' {nextToken} -> nextToken) (\s@ListBranches' {} a -> s {nextToken = a} :: ListBranches)
 
 -- | The name of the repository that contains the branches.
-lbRepositoryName :: Lens' ListBranches Text
-lbRepositoryName = lens _lbRepositoryName (\ s a -> s{_lbRepositoryName = a})
+listBranches_repositoryName :: Lens.Lens' ListBranches Prelude.Text
+listBranches_repositoryName = Lens.lens (\ListBranches' {repositoryName} -> repositoryName) (\s@ListBranches' {} a -> s {repositoryName = a} :: ListBranches)
 
-instance AWSPager ListBranches where
-        page rq rs
-          | stop (rs ^. lbrsNextToken) = Nothing
-          | stop (rs ^. lbrsBranches) = Nothing
-          | otherwise =
-            Just $ rq & lbNextToken .~ rs ^. lbrsNextToken
+instance Pager.AWSPager ListBranches where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listBranchesResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listBranchesResponse_branches Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listBranches_nextToken
+          Lens..~ rs
+          Lens.^? listBranchesResponse_nextToken Prelude.. Lens._Just
 
-instance AWSRequest ListBranches where
-        type Rs ListBranches = ListBranchesResponse
-        request = postJSON codeCommit
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListBranchesResponse' <$>
-                   (x .?> "branches" .!@ mempty) <*> (x .?> "nextToken")
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest ListBranches where
+  type Rs ListBranches = ListBranchesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListBranchesResponse'
+            Prelude.<$> (x Prelude..?> "nextToken")
+            Prelude.<*> (x Prelude..?> "branches" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListBranches where
+instance Prelude.Hashable ListBranches
 
-instance NFData ListBranches where
+instance Prelude.NFData ListBranches
 
-instance ToHeaders ListBranches where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeCommit_20150413.ListBranches" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders ListBranches where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "CodeCommit_20150413.ListBranches" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON ListBranches where
-        toJSON ListBranches'{..}
-          = object
-              (catMaybes
-                 [("nextToken" .=) <$> _lbNextToken,
-                  Just ("repositoryName" .= _lbRepositoryName)])
+instance Prelude.ToJSON ListBranches where
+  toJSON ListBranches' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
+            Prelude.Just
+              ("repositoryName" Prelude..= repositoryName)
+          ]
+      )
 
-instance ToPath ListBranches where
-        toPath = const "/"
+instance Prelude.ToPath ListBranches where
+  toPath = Prelude.const "/"
 
-instance ToQuery ListBranches where
-        toQuery = const mempty
+instance Prelude.ToQuery ListBranches where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Represents the output of a list branches operation.
 --
---
---
--- /See:/ 'listBranchesResponse' smart constructor.
+-- /See:/ 'newListBranchesResponse' smart constructor.
 data ListBranchesResponse = ListBranchesResponse'
-  { _lbrsBranches       :: !(Maybe [Text])
-  , _lbrsNextToken      :: !(Maybe Text)
-  , _lbrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An enumeration token that returns the batch of the results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The list of branch names.
+    branches :: Prelude.Maybe [Prelude.Text],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListBranchesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListBranchesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lbrsBranches' - The list of branch names.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lbrsNextToken' - An enumeration token that returns the batch of the results.
+-- 'nextToken', 'listBranchesResponse_nextToken' - An enumeration token that returns the batch of the results.
 --
--- * 'lbrsResponseStatus' - -- | The response status code.
-listBranchesResponse
-    :: Int -- ^ 'lbrsResponseStatus'
-    -> ListBranchesResponse
-listBranchesResponse pResponseStatus_ =
+-- 'branches', 'listBranchesResponse_branches' - The list of branch names.
+--
+-- 'httpStatus', 'listBranchesResponse_httpStatus' - The response's http status code.
+newListBranchesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListBranchesResponse
+newListBranchesResponse pHttpStatus_ =
   ListBranchesResponse'
-    { _lbrsBranches = Nothing
-    , _lbrsNextToken = Nothing
-    , _lbrsResponseStatus = pResponseStatus_
+    { nextToken = Prelude.Nothing,
+      branches = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | An enumeration token that returns the batch of the results.
+listBranchesResponse_nextToken :: Lens.Lens' ListBranchesResponse (Prelude.Maybe Prelude.Text)
+listBranchesResponse_nextToken = Lens.lens (\ListBranchesResponse' {nextToken} -> nextToken) (\s@ListBranchesResponse' {} a -> s {nextToken = a} :: ListBranchesResponse)
 
 -- | The list of branch names.
-lbrsBranches :: Lens' ListBranchesResponse [Text]
-lbrsBranches = lens _lbrsBranches (\ s a -> s{_lbrsBranches = a}) . _Default . _Coerce
+listBranchesResponse_branches :: Lens.Lens' ListBranchesResponse (Prelude.Maybe [Prelude.Text])
+listBranchesResponse_branches = Lens.lens (\ListBranchesResponse' {branches} -> branches) (\s@ListBranchesResponse' {} a -> s {branches = a} :: ListBranchesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | An enumeration token that returns the batch of the results.
-lbrsNextToken :: Lens' ListBranchesResponse (Maybe Text)
-lbrsNextToken = lens _lbrsNextToken (\ s a -> s{_lbrsNextToken = a})
+-- | The response's http status code.
+listBranchesResponse_httpStatus :: Lens.Lens' ListBranchesResponse Prelude.Int
+listBranchesResponse_httpStatus = Lens.lens (\ListBranchesResponse' {httpStatus} -> httpStatus) (\s@ListBranchesResponse' {} a -> s {httpStatus = a} :: ListBranchesResponse)
 
--- | -- | The response status code.
-lbrsResponseStatus :: Lens' ListBranchesResponse Int
-lbrsResponseStatus = lens _lbrsResponseStatus (\ s a -> s{_lbrsResponseStatus = a})
-
-instance NFData ListBranchesResponse where
+instance Prelude.NFData ListBranchesResponse

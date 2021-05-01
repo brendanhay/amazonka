@@ -1,160 +1,213 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaConvert.CreatePreset
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Create a new preset. For information about job templates see the User Guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+-- Create a new preset. For information about job templates see the User
+-- Guide at
+-- http:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/what-is.html
 module Network.AWS.MediaConvert.CreatePreset
-    (
-    -- * Creating a Request
-      createPreset
-    , CreatePreset
+  ( -- * Creating a Request
+    CreatePreset (..),
+    newCreatePreset,
+
     -- * Request Lenses
-    , cpSettings
-    , cpCategory
-    , cpName
-    , cpDescription
+    createPreset_category,
+    createPreset_tags,
+    createPreset_description,
+    createPreset_settings,
+    createPreset_name,
 
     -- * Destructuring the Response
-    , createPresetResponse
-    , CreatePresetResponse
+    CreatePresetResponse (..),
+    newCreatePresetResponse,
+
     -- * Response Lenses
-    , cprsPreset
-    , cprsResponseStatus
-    ) where
+    createPresetResponse_preset,
+    createPresetResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaConvert.Types
-import Network.AWS.MediaConvert.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createPreset' smart constructor.
+-- | /See:/ 'newCreatePreset' smart constructor.
 data CreatePreset = CreatePreset'
-  { _cpSettings    :: !(Maybe PresetSettings)
-  , _cpCategory    :: !(Maybe Text)
-  , _cpName        :: !(Maybe Text)
-  , _cpDescription :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Optional. A category for the preset you are creating.
+    category :: Prelude.Maybe Prelude.Text,
+    -- | The tags that you want to add to the resource. You can tag resources
+    -- with a key-value pair or with only a key.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | Optional. A description of the preset you are creating.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | Settings for preset
+    settings :: PresetSettings,
+    -- | The name of the preset you are creating.
+    name :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreatePreset' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreatePreset' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cpSettings' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cpCategory' - Optional. A category for the preset you are creating.
+-- 'category', 'createPreset_category' - Optional. A category for the preset you are creating.
 --
--- * 'cpName' - The name of the preset you are creating.
+-- 'tags', 'createPreset_tags' - The tags that you want to add to the resource. You can tag resources
+-- with a key-value pair or with only a key.
 --
--- * 'cpDescription' - Optional. A description of the preset you are creating.
-createPreset
-    :: CreatePreset
-createPreset =
+-- 'description', 'createPreset_description' - Optional. A description of the preset you are creating.
+--
+-- 'settings', 'createPreset_settings' - Settings for preset
+--
+-- 'name', 'createPreset_name' - The name of the preset you are creating.
+newCreatePreset ::
+  -- | 'settings'
+  PresetSettings ->
+  -- | 'name'
+  Prelude.Text ->
+  CreatePreset
+newCreatePreset pSettings_ pName_ =
   CreatePreset'
-    { _cpSettings = Nothing
-    , _cpCategory = Nothing
-    , _cpName = Nothing
-    , _cpDescription = Nothing
+    { category = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      description = Prelude.Nothing,
+      settings = pSettings_,
+      name = pName_
     }
 
-
--- | Undocumented member.
-cpSettings :: Lens' CreatePreset (Maybe PresetSettings)
-cpSettings = lens _cpSettings (\ s a -> s{_cpSettings = a})
-
 -- | Optional. A category for the preset you are creating.
-cpCategory :: Lens' CreatePreset (Maybe Text)
-cpCategory = lens _cpCategory (\ s a -> s{_cpCategory = a})
+createPreset_category :: Lens.Lens' CreatePreset (Prelude.Maybe Prelude.Text)
+createPreset_category = Lens.lens (\CreatePreset' {category} -> category) (\s@CreatePreset' {} a -> s {category = a} :: CreatePreset)
 
--- | The name of the preset you are creating.
-cpName :: Lens' CreatePreset (Maybe Text)
-cpName = lens _cpName (\ s a -> s{_cpName = a})
+-- | The tags that you want to add to the resource. You can tag resources
+-- with a key-value pair or with only a key.
+createPreset_tags :: Lens.Lens' CreatePreset (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createPreset_tags = Lens.lens (\CreatePreset' {tags} -> tags) (\s@CreatePreset' {} a -> s {tags = a} :: CreatePreset) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | Optional. A description of the preset you are creating.
-cpDescription :: Lens' CreatePreset (Maybe Text)
-cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a})
+createPreset_description :: Lens.Lens' CreatePreset (Prelude.Maybe Prelude.Text)
+createPreset_description = Lens.lens (\CreatePreset' {description} -> description) (\s@CreatePreset' {} a -> s {description = a} :: CreatePreset)
 
-instance AWSRequest CreatePreset where
-        type Rs CreatePreset = CreatePresetResponse
-        request = postJSON mediaConvert
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreatePresetResponse' <$>
-                   (x .?> "preset") <*> (pure (fromEnum s)))
+-- | Settings for preset
+createPreset_settings :: Lens.Lens' CreatePreset PresetSettings
+createPreset_settings = Lens.lens (\CreatePreset' {settings} -> settings) (\s@CreatePreset' {} a -> s {settings = a} :: CreatePreset)
 
-instance Hashable CreatePreset where
+-- | The name of the preset you are creating.
+createPreset_name :: Lens.Lens' CreatePreset Prelude.Text
+createPreset_name = Lens.lens (\CreatePreset' {name} -> name) (\s@CreatePreset' {} a -> s {name = a} :: CreatePreset)
 
-instance NFData CreatePreset where
+instance Prelude.AWSRequest CreatePreset where
+  type Rs CreatePreset = CreatePresetResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreatePresetResponse'
+            Prelude.<$> (x Prelude..?> "preset")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToHeaders CreatePreset where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.Hashable CreatePreset
 
-instance ToJSON CreatePreset where
-        toJSON CreatePreset'{..}
-          = object
-              (catMaybes
-                 [("settings" .=) <$> _cpSettings,
-                  ("category" .=) <$> _cpCategory,
-                  ("name" .=) <$> _cpName,
-                  ("description" .=) <$> _cpDescription])
+instance Prelude.NFData CreatePreset
 
-instance ToPath CreatePreset where
-        toPath = const "/2017-08-29/presets"
+instance Prelude.ToHeaders CreatePreset where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToQuery CreatePreset where
-        toQuery = const mempty
+instance Prelude.ToJSON CreatePreset where
+  toJSON CreatePreset' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("category" Prelude..=) Prelude.<$> category,
+            ("tags" Prelude..=) Prelude.<$> tags,
+            ("description" Prelude..=) Prelude.<$> description,
+            Prelude.Just ("settings" Prelude..= settings),
+            Prelude.Just ("name" Prelude..= name)
+          ]
+      )
 
--- | /See:/ 'createPresetResponse' smart constructor.
+instance Prelude.ToPath CreatePreset where
+  toPath = Prelude.const "/2017-08-29/presets"
+
+instance Prelude.ToQuery CreatePreset where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newCreatePresetResponse' smart constructor.
 data CreatePresetResponse = CreatePresetResponse'
-  { _cprsPreset         :: !(Maybe Preset)
-  , _cprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A preset is a collection of preconfigured media conversion settings that
+    -- you want MediaConvert to apply to the output during the conversion
+    -- process.
+    preset :: Prelude.Maybe Preset,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreatePresetResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreatePresetResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cprsPreset' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cprsResponseStatus' - -- | The response status code.
-createPresetResponse
-    :: Int -- ^ 'cprsResponseStatus'
-    -> CreatePresetResponse
-createPresetResponse pResponseStatus_ =
+-- 'preset', 'createPresetResponse_preset' - A preset is a collection of preconfigured media conversion settings that
+-- you want MediaConvert to apply to the output during the conversion
+-- process.
+--
+-- 'httpStatus', 'createPresetResponse_httpStatus' - The response's http status code.
+newCreatePresetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreatePresetResponse
+newCreatePresetResponse pHttpStatus_ =
   CreatePresetResponse'
-    {_cprsPreset = Nothing, _cprsResponseStatus = pResponseStatus_}
+    { preset = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | A preset is a collection of preconfigured media conversion settings that
+-- you want MediaConvert to apply to the output during the conversion
+-- process.
+createPresetResponse_preset :: Lens.Lens' CreatePresetResponse (Prelude.Maybe Preset)
+createPresetResponse_preset = Lens.lens (\CreatePresetResponse' {preset} -> preset) (\s@CreatePresetResponse' {} a -> s {preset = a} :: CreatePresetResponse)
 
--- | Undocumented member.
-cprsPreset :: Lens' CreatePresetResponse (Maybe Preset)
-cprsPreset = lens _cprsPreset (\ s a -> s{_cprsPreset = a})
+-- | The response's http status code.
+createPresetResponse_httpStatus :: Lens.Lens' CreatePresetResponse Prelude.Int
+createPresetResponse_httpStatus = Lens.lens (\CreatePresetResponse' {httpStatus} -> httpStatus) (\s@CreatePresetResponse' {} a -> s {httpStatus = a} :: CreatePresetResponse)
 
--- | -- | The response status code.
-cprsResponseStatus :: Lens' CreatePresetResponse Int
-cprsResponseStatus = lens _cprsResponseStatus (\ s a -> s{_cprsResponseStatus = a})
-
-instance NFData CreatePresetResponse where
+instance Prelude.NFData CreatePresetResponse

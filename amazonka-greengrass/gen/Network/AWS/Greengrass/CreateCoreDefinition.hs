@@ -1,214 +1,264 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Greengrass.CreateCoreDefinition
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a core definition. You may provide the initial version of the core definition now or use ''CreateCoreDefinitionVersion'' at a later time. AWS Greengrass groups must each contain exactly one AWS Greengrass core.
+-- Creates a core definition. You may provide the initial version of the
+-- core definition now or use \'\'CreateCoreDefinitionVersion\'\' at a
+-- later time. Greengrass groups must each contain exactly one Greengrass
+-- core.
 module Network.AWS.Greengrass.CreateCoreDefinition
-    (
-    -- * Creating a Request
-      createCoreDefinition
-    , CreateCoreDefinition
+  ( -- * Creating a Request
+    CreateCoreDefinition (..),
+    newCreateCoreDefinition,
+
     -- * Request Lenses
-    , ccdAmznClientToken
-    , ccdInitialVersion
-    , ccdName
+    createCoreDefinition_name,
+    createCoreDefinition_initialVersion,
+    createCoreDefinition_tags,
+    createCoreDefinition_amznClientToken,
 
     -- * Destructuring the Response
-    , createCoreDefinitionResponse
-    , CreateCoreDefinitionResponse
+    CreateCoreDefinitionResponse (..),
+    newCreateCoreDefinitionResponse,
+
     -- * Response Lenses
-    , ccdrsLatestVersionARN
-    , ccdrsARN
-    , ccdrsName
-    , ccdrsCreationTimestamp
-    , ccdrsId
-    , ccdrsLatestVersion
-    , ccdrsLastUpdatedTimestamp
-    , ccdrsResponseStatus
-    ) where
+    createCoreDefinitionResponse_creationTimestamp,
+    createCoreDefinitionResponse_latestVersionArn,
+    createCoreDefinitionResponse_latestVersion,
+    createCoreDefinitionResponse_arn,
+    createCoreDefinitionResponse_id,
+    createCoreDefinitionResponse_name,
+    createCoreDefinitionResponse_lastUpdatedTimestamp,
+    createCoreDefinitionResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Greengrass.Types
-import Network.AWS.Greengrass.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Information needed to create a core definition.
 --
--- /See:/ 'createCoreDefinition' smart constructor.
+-- /See:/ 'newCreateCoreDefinition' smart constructor.
 data CreateCoreDefinition = CreateCoreDefinition'
-  { _ccdAmznClientToken :: !(Maybe Text)
-  , _ccdInitialVersion  :: !(Maybe CoreDefinitionVersion)
-  , _ccdName            :: !(Maybe Text)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The name of the core definition.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | Information about the initial version of the core definition.
+    initialVersion :: Prelude.Maybe CoreDefinitionVersion,
+    -- | Tag(s) to add to the new resource.
+    tags :: Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text),
+    -- | A client token used to correlate requests and responses.
+    amznClientToken :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateCoreDefinition' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateCoreDefinition' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ccdAmznClientToken' - A client token used to correlate requests and responses.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ccdInitialVersion' - Information about the initial version of the core definition.
+-- 'name', 'createCoreDefinition_name' - The name of the core definition.
 --
--- * 'ccdName' - The name of the core definition.
-createCoreDefinition
-    :: CreateCoreDefinition
-createCoreDefinition =
+-- 'initialVersion', 'createCoreDefinition_initialVersion' - Information about the initial version of the core definition.
+--
+-- 'tags', 'createCoreDefinition_tags' - Tag(s) to add to the new resource.
+--
+-- 'amznClientToken', 'createCoreDefinition_amznClientToken' - A client token used to correlate requests and responses.
+newCreateCoreDefinition ::
+  CreateCoreDefinition
+newCreateCoreDefinition =
   CreateCoreDefinition'
-    { _ccdAmznClientToken = Nothing
-    , _ccdInitialVersion = Nothing
-    , _ccdName = Nothing
+    { name = Prelude.Nothing,
+      initialVersion = Prelude.Nothing,
+      tags = Prelude.Nothing,
+      amznClientToken = Prelude.Nothing
     }
-
-
--- | A client token used to correlate requests and responses.
-ccdAmznClientToken :: Lens' CreateCoreDefinition (Maybe Text)
-ccdAmznClientToken = lens _ccdAmznClientToken (\ s a -> s{_ccdAmznClientToken = a})
-
--- | Information about the initial version of the core definition.
-ccdInitialVersion :: Lens' CreateCoreDefinition (Maybe CoreDefinitionVersion)
-ccdInitialVersion = lens _ccdInitialVersion (\ s a -> s{_ccdInitialVersion = a})
 
 -- | The name of the core definition.
-ccdName :: Lens' CreateCoreDefinition (Maybe Text)
-ccdName = lens _ccdName (\ s a -> s{_ccdName = a})
+createCoreDefinition_name :: Lens.Lens' CreateCoreDefinition (Prelude.Maybe Prelude.Text)
+createCoreDefinition_name = Lens.lens (\CreateCoreDefinition' {name} -> name) (\s@CreateCoreDefinition' {} a -> s {name = a} :: CreateCoreDefinition)
 
-instance AWSRequest CreateCoreDefinition where
-        type Rs CreateCoreDefinition =
-             CreateCoreDefinitionResponse
-        request = postJSON greengrass
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateCoreDefinitionResponse' <$>
-                   (x .?> "LatestVersionArn") <*> (x .?> "Arn") <*>
-                     (x .?> "Name")
-                     <*> (x .?> "CreationTimestamp")
-                     <*> (x .?> "Id")
-                     <*> (x .?> "LatestVersion")
-                     <*> (x .?> "LastUpdatedTimestamp")
-                     <*> (pure (fromEnum s)))
+-- | Information about the initial version of the core definition.
+createCoreDefinition_initialVersion :: Lens.Lens' CreateCoreDefinition (Prelude.Maybe CoreDefinitionVersion)
+createCoreDefinition_initialVersion = Lens.lens (\CreateCoreDefinition' {initialVersion} -> initialVersion) (\s@CreateCoreDefinition' {} a -> s {initialVersion = a} :: CreateCoreDefinition)
 
-instance Hashable CreateCoreDefinition where
+-- | Tag(s) to add to the new resource.
+createCoreDefinition_tags :: Lens.Lens' CreateCoreDefinition (Prelude.Maybe (Prelude.HashMap Prelude.Text Prelude.Text))
+createCoreDefinition_tags = Lens.lens (\CreateCoreDefinition' {tags} -> tags) (\s@CreateCoreDefinition' {} a -> s {tags = a} :: CreateCoreDefinition) Prelude.. Lens.mapping Prelude._Coerce
 
-instance NFData CreateCoreDefinition where
+-- | A client token used to correlate requests and responses.
+createCoreDefinition_amznClientToken :: Lens.Lens' CreateCoreDefinition (Prelude.Maybe Prelude.Text)
+createCoreDefinition_amznClientToken = Lens.lens (\CreateCoreDefinition' {amznClientToken} -> amznClientToken) (\s@CreateCoreDefinition' {} a -> s {amznClientToken = a} :: CreateCoreDefinition)
 
-instance ToHeaders CreateCoreDefinition where
-        toHeaders CreateCoreDefinition'{..}
-          = mconcat
-              ["X-Amzn-Client-Token" =# _ccdAmznClientToken,
-               "Content-Type" =#
-                 ("application/x-amz-json-1.1" :: ByteString)]
+instance Prelude.AWSRequest CreateCoreDefinition where
+  type
+    Rs CreateCoreDefinition =
+      CreateCoreDefinitionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateCoreDefinitionResponse'
+            Prelude.<$> (x Prelude..?> "CreationTimestamp")
+            Prelude.<*> (x Prelude..?> "LatestVersionArn")
+            Prelude.<*> (x Prelude..?> "LatestVersion")
+            Prelude.<*> (x Prelude..?> "Arn")
+            Prelude.<*> (x Prelude..?> "Id")
+            Prelude.<*> (x Prelude..?> "Name")
+            Prelude.<*> (x Prelude..?> "LastUpdatedTimestamp")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance ToJSON CreateCoreDefinition where
-        toJSON CreateCoreDefinition'{..}
-          = object
-              (catMaybes
-                 [("InitialVersion" .=) <$> _ccdInitialVersion,
-                  ("Name" .=) <$> _ccdName])
+instance Prelude.Hashable CreateCoreDefinition
 
-instance ToPath CreateCoreDefinition where
-        toPath = const "/greengrass/definition/cores"
+instance Prelude.NFData CreateCoreDefinition
 
-instance ToQuery CreateCoreDefinition where
-        toQuery = const mempty
+instance Prelude.ToHeaders CreateCoreDefinition where
+  toHeaders CreateCoreDefinition' {..} =
+    Prelude.mconcat
+      [ "X-Amzn-Client-Token" Prelude.=# amznClientToken,
+        "Content-Type"
+          Prelude.=# ("application/x-amz-json-1.1" :: Prelude.ByteString)
+      ]
 
--- | /See:/ 'createCoreDefinitionResponse' smart constructor.
+instance Prelude.ToJSON CreateCoreDefinition where
+  toJSON CreateCoreDefinition' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("Name" Prelude..=) Prelude.<$> name,
+            ("InitialVersion" Prelude..=)
+              Prelude.<$> initialVersion,
+            ("tags" Prelude..=) Prelude.<$> tags
+          ]
+      )
+
+instance Prelude.ToPath CreateCoreDefinition where
+  toPath = Prelude.const "/greengrass/definition/cores"
+
+instance Prelude.ToQuery CreateCoreDefinition where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newCreateCoreDefinitionResponse' smart constructor.
 data CreateCoreDefinitionResponse = CreateCoreDefinitionResponse'
-  { _ccdrsLatestVersionARN     :: !(Maybe Text)
-  , _ccdrsARN                  :: !(Maybe Text)
-  , _ccdrsName                 :: !(Maybe Text)
-  , _ccdrsCreationTimestamp    :: !(Maybe Text)
-  , _ccdrsId                   :: !(Maybe Text)
-  , _ccdrsLatestVersion        :: !(Maybe Text)
-  , _ccdrsLastUpdatedTimestamp :: !(Maybe Text)
-  , _ccdrsResponseStatus       :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The time, in milliseconds since the epoch, when the definition was
+    -- created.
+    creationTimestamp :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the latest version associated with the definition.
+    latestVersionArn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the latest version associated with the definition.
+    latestVersion :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the definition.
+    arn :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the definition.
+    id :: Prelude.Maybe Prelude.Text,
+    -- | The name of the definition.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The time, in milliseconds since the epoch, when the definition was last
+    -- updated.
+    lastUpdatedTimestamp :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateCoreDefinitionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateCoreDefinitionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ccdrsLatestVersionARN' - The ARN of the latest version of the definition.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ccdrsARN' - The ARN of the definition.
+-- 'creationTimestamp', 'createCoreDefinitionResponse_creationTimestamp' - The time, in milliseconds since the epoch, when the definition was
+-- created.
 --
--- * 'ccdrsName' - The name of the definition.
+-- 'latestVersionArn', 'createCoreDefinitionResponse_latestVersionArn' - The ARN of the latest version associated with the definition.
 --
--- * 'ccdrsCreationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
+-- 'latestVersion', 'createCoreDefinitionResponse_latestVersion' - The ID of the latest version associated with the definition.
 --
--- * 'ccdrsId' - The ID of the definition.
+-- 'arn', 'createCoreDefinitionResponse_arn' - The ARN of the definition.
 --
--- * 'ccdrsLatestVersion' - The latest version of the definition.
+-- 'id', 'createCoreDefinitionResponse_id' - The ID of the definition.
 --
--- * 'ccdrsLastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
+-- 'name', 'createCoreDefinitionResponse_name' - The name of the definition.
 --
--- * 'ccdrsResponseStatus' - -- | The response status code.
-createCoreDefinitionResponse
-    :: Int -- ^ 'ccdrsResponseStatus'
-    -> CreateCoreDefinitionResponse
-createCoreDefinitionResponse pResponseStatus_ =
+-- 'lastUpdatedTimestamp', 'createCoreDefinitionResponse_lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last
+-- updated.
+--
+-- 'httpStatus', 'createCoreDefinitionResponse_httpStatus' - The response's http status code.
+newCreateCoreDefinitionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateCoreDefinitionResponse
+newCreateCoreDefinitionResponse pHttpStatus_ =
   CreateCoreDefinitionResponse'
-    { _ccdrsLatestVersionARN = Nothing
-    , _ccdrsARN = Nothing
-    , _ccdrsName = Nothing
-    , _ccdrsCreationTimestamp = Nothing
-    , _ccdrsId = Nothing
-    , _ccdrsLatestVersion = Nothing
-    , _ccdrsLastUpdatedTimestamp = Nothing
-    , _ccdrsResponseStatus = pResponseStatus_
+    { creationTimestamp =
+        Prelude.Nothing,
+      latestVersionArn = Prelude.Nothing,
+      latestVersion = Prelude.Nothing,
+      arn = Prelude.Nothing,
+      id = Prelude.Nothing,
+      name = Prelude.Nothing,
+      lastUpdatedTimestamp = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | The time, in milliseconds since the epoch, when the definition was
+-- created.
+createCoreDefinitionResponse_creationTimestamp :: Lens.Lens' CreateCoreDefinitionResponse (Prelude.Maybe Prelude.Text)
+createCoreDefinitionResponse_creationTimestamp = Lens.lens (\CreateCoreDefinitionResponse' {creationTimestamp} -> creationTimestamp) (\s@CreateCoreDefinitionResponse' {} a -> s {creationTimestamp = a} :: CreateCoreDefinitionResponse)
 
--- | The ARN of the latest version of the definition.
-ccdrsLatestVersionARN :: Lens' CreateCoreDefinitionResponse (Maybe Text)
-ccdrsLatestVersionARN = lens _ccdrsLatestVersionARN (\ s a -> s{_ccdrsLatestVersionARN = a})
+-- | The ARN of the latest version associated with the definition.
+createCoreDefinitionResponse_latestVersionArn :: Lens.Lens' CreateCoreDefinitionResponse (Prelude.Maybe Prelude.Text)
+createCoreDefinitionResponse_latestVersionArn = Lens.lens (\CreateCoreDefinitionResponse' {latestVersionArn} -> latestVersionArn) (\s@CreateCoreDefinitionResponse' {} a -> s {latestVersionArn = a} :: CreateCoreDefinitionResponse)
+
+-- | The ID of the latest version associated with the definition.
+createCoreDefinitionResponse_latestVersion :: Lens.Lens' CreateCoreDefinitionResponse (Prelude.Maybe Prelude.Text)
+createCoreDefinitionResponse_latestVersion = Lens.lens (\CreateCoreDefinitionResponse' {latestVersion} -> latestVersion) (\s@CreateCoreDefinitionResponse' {} a -> s {latestVersion = a} :: CreateCoreDefinitionResponse)
 
 -- | The ARN of the definition.
-ccdrsARN :: Lens' CreateCoreDefinitionResponse (Maybe Text)
-ccdrsARN = lens _ccdrsARN (\ s a -> s{_ccdrsARN = a})
-
--- | The name of the definition.
-ccdrsName :: Lens' CreateCoreDefinitionResponse (Maybe Text)
-ccdrsName = lens _ccdrsName (\ s a -> s{_ccdrsName = a})
-
--- | The time, in milliseconds since the epoch, when the definition was created.
-ccdrsCreationTimestamp :: Lens' CreateCoreDefinitionResponse (Maybe Text)
-ccdrsCreationTimestamp = lens _ccdrsCreationTimestamp (\ s a -> s{_ccdrsCreationTimestamp = a})
+createCoreDefinitionResponse_arn :: Lens.Lens' CreateCoreDefinitionResponse (Prelude.Maybe Prelude.Text)
+createCoreDefinitionResponse_arn = Lens.lens (\CreateCoreDefinitionResponse' {arn} -> arn) (\s@CreateCoreDefinitionResponse' {} a -> s {arn = a} :: CreateCoreDefinitionResponse)
 
 -- | The ID of the definition.
-ccdrsId :: Lens' CreateCoreDefinitionResponse (Maybe Text)
-ccdrsId = lens _ccdrsId (\ s a -> s{_ccdrsId = a})
+createCoreDefinitionResponse_id :: Lens.Lens' CreateCoreDefinitionResponse (Prelude.Maybe Prelude.Text)
+createCoreDefinitionResponse_id = Lens.lens (\CreateCoreDefinitionResponse' {id} -> id) (\s@CreateCoreDefinitionResponse' {} a -> s {id = a} :: CreateCoreDefinitionResponse)
 
--- | The latest version of the definition.
-ccdrsLatestVersion :: Lens' CreateCoreDefinitionResponse (Maybe Text)
-ccdrsLatestVersion = lens _ccdrsLatestVersion (\ s a -> s{_ccdrsLatestVersion = a})
+-- | The name of the definition.
+createCoreDefinitionResponse_name :: Lens.Lens' CreateCoreDefinitionResponse (Prelude.Maybe Prelude.Text)
+createCoreDefinitionResponse_name = Lens.lens (\CreateCoreDefinitionResponse' {name} -> name) (\s@CreateCoreDefinitionResponse' {} a -> s {name = a} :: CreateCoreDefinitionResponse)
 
--- | The time, in milliseconds since the epoch, when the definition was last updated.
-ccdrsLastUpdatedTimestamp :: Lens' CreateCoreDefinitionResponse (Maybe Text)
-ccdrsLastUpdatedTimestamp = lens _ccdrsLastUpdatedTimestamp (\ s a -> s{_ccdrsLastUpdatedTimestamp = a})
+-- | The time, in milliseconds since the epoch, when the definition was last
+-- updated.
+createCoreDefinitionResponse_lastUpdatedTimestamp :: Lens.Lens' CreateCoreDefinitionResponse (Prelude.Maybe Prelude.Text)
+createCoreDefinitionResponse_lastUpdatedTimestamp = Lens.lens (\CreateCoreDefinitionResponse' {lastUpdatedTimestamp} -> lastUpdatedTimestamp) (\s@CreateCoreDefinitionResponse' {} a -> s {lastUpdatedTimestamp = a} :: CreateCoreDefinitionResponse)
 
--- | -- | The response status code.
-ccdrsResponseStatus :: Lens' CreateCoreDefinitionResponse Int
-ccdrsResponseStatus = lens _ccdrsResponseStatus (\ s a -> s{_ccdrsResponseStatus = a})
+-- | The response's http status code.
+createCoreDefinitionResponse_httpStatus :: Lens.Lens' CreateCoreDefinitionResponse Prelude.Int
+createCoreDefinitionResponse_httpStatus = Lens.lens (\CreateCoreDefinitionResponse' {httpStatus} -> httpStatus) (\s@CreateCoreDefinitionResponse' {} a -> s {httpStatus = a} :: CreateCoreDefinitionResponse)
 
-instance NFData CreateCoreDefinitionResponse where
+instance Prelude.NFData CreateCoreDefinitionResponse

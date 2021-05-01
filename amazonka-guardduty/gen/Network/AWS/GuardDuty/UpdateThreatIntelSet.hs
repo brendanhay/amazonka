@@ -1,167 +1,206 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.GuardDuty.UpdateThreatIntelSet
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the ThreatIntelSet specified by ThreatIntelSet ID.
+-- Updates the ThreatIntelSet specified by the ThreatIntelSet ID.
 module Network.AWS.GuardDuty.UpdateThreatIntelSet
-    (
-    -- * Creating a Request
-      updateThreatIntelSet
-    , UpdateThreatIntelSet
+  ( -- * Creating a Request
+    UpdateThreatIntelSet (..),
+    newUpdateThreatIntelSet,
+
     -- * Request Lenses
-    , utisLocation
-    , utisActivate
-    , utisName
-    , utisThreatIntelSetId
-    , utisDetectorId
+    updateThreatIntelSet_activate,
+    updateThreatIntelSet_name,
+    updateThreatIntelSet_location,
+    updateThreatIntelSet_detectorId,
+    updateThreatIntelSet_threatIntelSetId,
 
     -- * Destructuring the Response
-    , updateThreatIntelSetResponse
-    , UpdateThreatIntelSetResponse
+    UpdateThreatIntelSetResponse (..),
+    newUpdateThreatIntelSetResponse,
+
     -- * Response Lenses
-    , utisrsResponseStatus
-    ) where
+    updateThreatIntelSetResponse_httpStatus,
+  )
+where
 
 import Network.AWS.GuardDuty.Types
-import Network.AWS.GuardDuty.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | UpdateThreatIntelSet request body.
---
--- /See:/ 'updateThreatIntelSet' smart constructor.
+-- | /See:/ 'newUpdateThreatIntelSet' smart constructor.
 data UpdateThreatIntelSet = UpdateThreatIntelSet'
-  { _utisLocation         :: !(Maybe Text)
-  , _utisActivate         :: !(Maybe Bool)
-  , _utisName             :: !(Maybe Text)
-  , _utisThreatIntelSetId :: !Text
-  , _utisDetectorId       :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The updated Boolean value that specifies whether the ThreateIntelSet is
+    -- active or not.
+    activate :: Prelude.Maybe Prelude.Bool,
+    -- | The unique ID that specifies the ThreatIntelSet that you want to update.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The updated URI of the file that contains the ThreateIntelSet.
+    location :: Prelude.Maybe Prelude.Text,
+    -- | The detectorID that specifies the GuardDuty service whose ThreatIntelSet
+    -- you want to update.
+    detectorId :: Prelude.Text,
+    -- | The unique ID that specifies the ThreatIntelSet that you want to update.
+    threatIntelSetId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
+-- |
+-- Create a value of 'UpdateThreatIntelSet' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'activate', 'updateThreatIntelSet_activate' - The updated Boolean value that specifies whether the ThreateIntelSet is
+-- active or not.
+--
+-- 'name', 'updateThreatIntelSet_name' - The unique ID that specifies the ThreatIntelSet that you want to update.
+--
+-- 'location', 'updateThreatIntelSet_location' - The updated URI of the file that contains the ThreateIntelSet.
+--
+-- 'detectorId', 'updateThreatIntelSet_detectorId' - The detectorID that specifies the GuardDuty service whose ThreatIntelSet
+-- you want to update.
+--
+-- 'threatIntelSetId', 'updateThreatIntelSet_threatIntelSetId' - The unique ID that specifies the ThreatIntelSet that you want to update.
+newUpdateThreatIntelSet ::
+  -- | 'detectorId'
+  Prelude.Text ->
+  -- | 'threatIntelSetId'
+  Prelude.Text ->
+  UpdateThreatIntelSet
+newUpdateThreatIntelSet
+  pDetectorId_
+  pThreatIntelSetId_ =
+    UpdateThreatIntelSet'
+      { activate = Prelude.Nothing,
+        name = Prelude.Nothing,
+        location = Prelude.Nothing,
+        detectorId = pDetectorId_,
+        threatIntelSetId = pThreatIntelSetId_
+      }
 
--- | Creates a value of 'UpdateThreatIntelSet' with the minimum fields required to make a request.
+-- | The updated Boolean value that specifies whether the ThreateIntelSet is
+-- active or not.
+updateThreatIntelSet_activate :: Lens.Lens' UpdateThreatIntelSet (Prelude.Maybe Prelude.Bool)
+updateThreatIntelSet_activate = Lens.lens (\UpdateThreatIntelSet' {activate} -> activate) (\s@UpdateThreatIntelSet' {} a -> s {activate = a} :: UpdateThreatIntelSet)
+
+-- | The unique ID that specifies the ThreatIntelSet that you want to update.
+updateThreatIntelSet_name :: Lens.Lens' UpdateThreatIntelSet (Prelude.Maybe Prelude.Text)
+updateThreatIntelSet_name = Lens.lens (\UpdateThreatIntelSet' {name} -> name) (\s@UpdateThreatIntelSet' {} a -> s {name = a} :: UpdateThreatIntelSet)
+
+-- | The updated URI of the file that contains the ThreateIntelSet.
+updateThreatIntelSet_location :: Lens.Lens' UpdateThreatIntelSet (Prelude.Maybe Prelude.Text)
+updateThreatIntelSet_location = Lens.lens (\UpdateThreatIntelSet' {location} -> location) (\s@UpdateThreatIntelSet' {} a -> s {location = a} :: UpdateThreatIntelSet)
+
+-- | The detectorID that specifies the GuardDuty service whose ThreatIntelSet
+-- you want to update.
+updateThreatIntelSet_detectorId :: Lens.Lens' UpdateThreatIntelSet Prelude.Text
+updateThreatIntelSet_detectorId = Lens.lens (\UpdateThreatIntelSet' {detectorId} -> detectorId) (\s@UpdateThreatIntelSet' {} a -> s {detectorId = a} :: UpdateThreatIntelSet)
+
+-- | The unique ID that specifies the ThreatIntelSet that you want to update.
+updateThreatIntelSet_threatIntelSetId :: Lens.Lens' UpdateThreatIntelSet Prelude.Text
+updateThreatIntelSet_threatIntelSetId = Lens.lens (\UpdateThreatIntelSet' {threatIntelSetId} -> threatIntelSetId) (\s@UpdateThreatIntelSet' {} a -> s {threatIntelSetId = a} :: UpdateThreatIntelSet)
+
+instance Prelude.AWSRequest UpdateThreatIntelSet where
+  type
+    Rs UpdateThreatIntelSet =
+      UpdateThreatIntelSetResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateThreatIntelSetResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable UpdateThreatIntelSet
+
+instance Prelude.NFData UpdateThreatIntelSet
+
+instance Prelude.ToHeaders UpdateThreatIntelSet where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON UpdateThreatIntelSet where
+  toJSON UpdateThreatIntelSet' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("activate" Prelude..=) Prelude.<$> activate,
+            ("name" Prelude..=) Prelude.<$> name,
+            ("location" Prelude..=) Prelude.<$> location
+          ]
+      )
+
+instance Prelude.ToPath UpdateThreatIntelSet where
+  toPath UpdateThreatIntelSet' {..} =
+    Prelude.mconcat
+      [ "/detector/",
+        Prelude.toBS detectorId,
+        "/threatintelset/",
+        Prelude.toBS threatIntelSetId
+      ]
+
+instance Prelude.ToQuery UpdateThreatIntelSet where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newUpdateThreatIntelSetResponse' smart constructor.
+data UpdateThreatIntelSetResponse = UpdateThreatIntelSetResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'UpdateThreatIntelSetResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'utisLocation' - The updated URI of the file that contains the ThreateIntelSet. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key)
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'utisActivate' - The updated boolean value that specifies whether the ThreateIntelSet is active or not.
---
--- * 'utisName' - The unique ID that specifies the ThreatIntelSet that you want to update.
---
--- * 'utisThreatIntelSetId' - The unique ID that specifies the ThreatIntelSet that you want to update.
---
--- * 'utisDetectorId' - The detectorID that specifies the GuardDuty service whose ThreatIntelSet you want to update.
-updateThreatIntelSet
-    :: Text -- ^ 'utisThreatIntelSetId'
-    -> Text -- ^ 'utisDetectorId'
-    -> UpdateThreatIntelSet
-updateThreatIntelSet pThreatIntelSetId_ pDetectorId_ =
-  UpdateThreatIntelSet'
-    { _utisLocation = Nothing
-    , _utisActivate = Nothing
-    , _utisName = Nothing
-    , _utisThreatIntelSetId = pThreatIntelSetId_
-    , _utisDetectorId = pDetectorId_
+-- 'httpStatus', 'updateThreatIntelSetResponse_httpStatus' - The response's http status code.
+newUpdateThreatIntelSetResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateThreatIntelSetResponse
+newUpdateThreatIntelSetResponse pHttpStatus_ =
+  UpdateThreatIntelSetResponse'
+    { httpStatus =
+        pHttpStatus_
     }
 
+-- | The response's http status code.
+updateThreatIntelSetResponse_httpStatus :: Lens.Lens' UpdateThreatIntelSetResponse Prelude.Int
+updateThreatIntelSetResponse_httpStatus = Lens.lens (\UpdateThreatIntelSetResponse' {httpStatus} -> httpStatus) (\s@UpdateThreatIntelSetResponse' {} a -> s {httpStatus = a} :: UpdateThreatIntelSetResponse)
 
--- | The updated URI of the file that contains the ThreateIntelSet. For example (https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key)
-utisLocation :: Lens' UpdateThreatIntelSet (Maybe Text)
-utisLocation = lens _utisLocation (\ s a -> s{_utisLocation = a})
-
--- | The updated boolean value that specifies whether the ThreateIntelSet is active or not.
-utisActivate :: Lens' UpdateThreatIntelSet (Maybe Bool)
-utisActivate = lens _utisActivate (\ s a -> s{_utisActivate = a})
-
--- | The unique ID that specifies the ThreatIntelSet that you want to update.
-utisName :: Lens' UpdateThreatIntelSet (Maybe Text)
-utisName = lens _utisName (\ s a -> s{_utisName = a})
-
--- | The unique ID that specifies the ThreatIntelSet that you want to update.
-utisThreatIntelSetId :: Lens' UpdateThreatIntelSet Text
-utisThreatIntelSetId = lens _utisThreatIntelSetId (\ s a -> s{_utisThreatIntelSetId = a})
-
--- | The detectorID that specifies the GuardDuty service whose ThreatIntelSet you want to update.
-utisDetectorId :: Lens' UpdateThreatIntelSet Text
-utisDetectorId = lens _utisDetectorId (\ s a -> s{_utisDetectorId = a})
-
-instance AWSRequest UpdateThreatIntelSet where
-        type Rs UpdateThreatIntelSet =
-             UpdateThreatIntelSetResponse
-        request = postJSON guardDuty
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 UpdateThreatIntelSetResponse' <$>
-                   (pure (fromEnum s)))
-
-instance Hashable UpdateThreatIntelSet where
-
-instance NFData UpdateThreatIntelSet where
-
-instance ToHeaders UpdateThreatIntelSet where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON UpdateThreatIntelSet where
-        toJSON UpdateThreatIntelSet'{..}
-          = object
-              (catMaybes
-                 [("location" .=) <$> _utisLocation,
-                  ("activate" .=) <$> _utisActivate,
-                  ("name" .=) <$> _utisName])
-
-instance ToPath UpdateThreatIntelSet where
-        toPath UpdateThreatIntelSet'{..}
-          = mconcat
-              ["/detector/", toBS _utisDetectorId,
-               "/threatintelset/", toBS _utisThreatIntelSetId]
-
-instance ToQuery UpdateThreatIntelSet where
-        toQuery = const mempty
-
--- | /See:/ 'updateThreatIntelSetResponse' smart constructor.
-newtype UpdateThreatIntelSetResponse = UpdateThreatIntelSetResponse'
-  { _utisrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'UpdateThreatIntelSetResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'utisrsResponseStatus' - -- | The response status code.
-updateThreatIntelSetResponse
-    :: Int -- ^ 'utisrsResponseStatus'
-    -> UpdateThreatIntelSetResponse
-updateThreatIntelSetResponse pResponseStatus_ =
-  UpdateThreatIntelSetResponse' {_utisrsResponseStatus = pResponseStatus_}
-
-
--- | -- | The response status code.
-utisrsResponseStatus :: Lens' UpdateThreatIntelSetResponse Int
-utisrsResponseStatus = lens _utisrsResponseStatus (\ s a -> s{_utisrsResponseStatus = a})
-
-instance NFData UpdateThreatIntelSetResponse where
+instance Prelude.NFData UpdateThreatIntelSetResponse

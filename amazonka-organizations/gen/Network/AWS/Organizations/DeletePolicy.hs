@@ -1,110 +1,146 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Organizations.DeletePolicy
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes the specified policy from your organization. Before you perform this operation, you must first detach the policy from all OUs, roots, and accounts.
+-- Deletes the specified policy from your organization. Before you perform
+-- this operation, you must first detach the policy from all organizational
+-- units (OUs), roots, and accounts.
 --
---
--- This operation can be called only from the organization's master account.
---
+-- This operation can be called only from the organization\'s management
+-- account.
 module Network.AWS.Organizations.DeletePolicy
-    (
-    -- * Creating a Request
-      deletePolicy
-    , DeletePolicy
+  ( -- * Creating a Request
+    DeletePolicy (..),
+    newDeletePolicy,
+
     -- * Request Lenses
-    , dPolicyId
+    deletePolicy_policyId,
 
     -- * Destructuring the Response
-    , deletePolicyResponse
-    , DeletePolicyResponse
-    ) where
+    DeletePolicyResponse (..),
+    newDeletePolicyResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Organizations.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deletePolicy' smart constructor.
-newtype DeletePolicy = DeletePolicy'
-  { _dPolicyId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeletePolicy' smart constructor.
+data DeletePolicy = DeletePolicy'
+  { -- | The unique identifier (ID) of the policy that you want to delete. You
+    -- can get the ID from the ListPolicies or ListPoliciesForTarget
+    -- operations.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
+    -- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
+    -- letters, digits, or the underscore character (_).
+    policyId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeletePolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeletePolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dPolicyId' - The unique identifier (ID) of the policy that you want to delete. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
-deletePolicy
-    :: Text -- ^ 'dPolicyId'
-    -> DeletePolicy
-deletePolicy pPolicyId_ = DeletePolicy' {_dPolicyId = pPolicyId_}
-
-
--- | The unique identifier (ID) of the policy that you want to delete. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
-dPolicyId :: Lens' DeletePolicy Text
-dPolicyId = lens _dPolicyId (\ s a -> s{_dPolicyId = a})
-
-instance AWSRequest DeletePolicy where
-        type Rs DeletePolicy = DeletePolicyResponse
-        request = postJSON organizations
-        response = receiveNull DeletePolicyResponse'
-
-instance Hashable DeletePolicy where
-
-instance NFData DeletePolicy where
-
-instance ToHeaders DeletePolicy where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSOrganizationsV20161128.DeletePolicy" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DeletePolicy where
-        toJSON DeletePolicy'{..}
-          = object
-              (catMaybes [Just ("PolicyId" .= _dPolicyId)])
-
-instance ToPath DeletePolicy where
-        toPath = const "/"
-
-instance ToQuery DeletePolicy where
-        toQuery = const mempty
-
--- | /See:/ 'deletePolicyResponse' smart constructor.
-data DeletePolicyResponse =
-  DeletePolicyResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeletePolicyResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
-deletePolicyResponse
-    :: DeletePolicyResponse
-deletePolicyResponse = DeletePolicyResponse'
+-- 'policyId', 'deletePolicy_policyId' - The unique identifier (ID) of the policy that you want to delete. You
+-- can get the ID from the ListPolicies or ListPoliciesForTarget
+-- operations.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
+-- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
+-- letters, digits, or the underscore character (_).
+newDeletePolicy ::
+  -- | 'policyId'
+  Prelude.Text ->
+  DeletePolicy
+newDeletePolicy pPolicyId_ =
+  DeletePolicy' {policyId = pPolicyId_}
 
+-- | The unique identifier (ID) of the policy that you want to delete. You
+-- can get the ID from the ListPolicies or ListPoliciesForTarget
+-- operations.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
+-- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
+-- letters, digits, or the underscore character (_).
+deletePolicy_policyId :: Lens.Lens' DeletePolicy Prelude.Text
+deletePolicy_policyId = Lens.lens (\DeletePolicy' {policyId} -> policyId) (\s@DeletePolicy' {} a -> s {policyId = a} :: DeletePolicy)
 
-instance NFData DeletePolicyResponse where
+instance Prelude.AWSRequest DeletePolicy where
+  type Rs DeletePolicy = DeletePolicyResponse
+  request = Request.postJSON defaultService
+  response = Response.receiveNull DeletePolicyResponse'
+
+instance Prelude.Hashable DeletePolicy
+
+instance Prelude.NFData DeletePolicy
+
+instance Prelude.ToHeaders DeletePolicy where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSOrganizationsV20161128.DeletePolicy" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON DeletePolicy where
+  toJSON DeletePolicy' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("PolicyId" Prelude..= policyId)]
+      )
+
+instance Prelude.ToPath DeletePolicy where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery DeletePolicy where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDeletePolicyResponse' smart constructor.
+data DeletePolicyResponse = DeletePolicyResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DeletePolicyResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeletePolicyResponse ::
+  DeletePolicyResponse
+newDeletePolicyResponse = DeletePolicyResponse'
+
+instance Prelude.NFData DeletePolicyResponse

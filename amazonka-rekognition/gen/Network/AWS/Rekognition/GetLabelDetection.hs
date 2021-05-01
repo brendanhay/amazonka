@@ -1,216 +1,333 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Rekognition.GetLabelDetection
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Gets the label detection results of a Rekognition Video analysis started by .
+-- Gets the label detection results of a Amazon Rekognition Video analysis
+-- started by StartLabelDetection.
 --
+-- The label detection operation is started by a call to
+-- StartLabelDetection which returns a job identifier (@JobId@). When the
+-- label detection operation finishes, Amazon Rekognition publishes a
+-- completion status to the Amazon Simple Notification Service topic
+-- registered in the initial call to @StartlabelDetection@. To get the
+-- results of the label detection operation, first check that the status
+-- value published to the Amazon SNS topic is @SUCCEEDED@. If so, call
+-- GetLabelDetection and pass the job identifier (@JobId@) from the initial
+-- call to @StartLabelDetection@.
 --
--- The label detection operation is started by a call to which returns a job identifier (@JobId@ ). When the label detection operation finishes, Amazon Rekognition publishes a completion status to the Amazon Simple Notification Service topic registered in the initial call to @StartlabelDetection@ . To get the results of the label detection operation, first check that the status value published to the Amazon SNS topic is @SUCCEEDED@ . If so, call and pass the job identifier (@JobId@ ) from the initial call to @StartLabelDetection@ .
+-- @GetLabelDetection@ returns an array of detected labels (@Labels@)
+-- sorted by the time the labels were detected. You can also sort by the
+-- label name by specifying @NAME@ for the @SortBy@ input parameter.
 --
--- @GetLabelDetection@ returns an array of detected labels (@Labels@ ) sorted by the time the labels were detected. You can also sort by the label name by specifying @NAME@ for the @SortBy@ input parameter.
+-- The labels returned include the label name, the percentage confidence in
+-- the accuracy of the detected label, and the time the label was detected
+-- in the video.
 --
--- The labels returned include the label name, the percentage confidence in the accuracy of the detected label, and the time the label was detected in the video.
+-- The returned labels also include bounding box information for common
+-- objects, a hierarchical taxonomy of detected labels, and the version of
+-- the label model used for detection.
 --
--- Use MaxResults parameter to limit the number of labels returned. If there are more results than specified in @MaxResults@ , the value of @NextToken@ in the operation response contains a pagination token for getting the next set of results. To get the next page of results, call @GetlabelDetection@ and populate the @NextToken@ request parameter with the token value returned from the previous call to @GetLabelDetection@ .
---
+-- Use MaxResults parameter to limit the number of labels returned. If
+-- there are more results than specified in @MaxResults@, the value of
+-- @NextToken@ in the operation response contains a pagination token for
+-- getting the next set of results. To get the next page of results, call
+-- @GetlabelDetection@ and populate the @NextToken@ request parameter with
+-- the token value returned from the previous call to @GetLabelDetection@.
 module Network.AWS.Rekognition.GetLabelDetection
-    (
-    -- * Creating a Request
-      getLabelDetection
-    , GetLabelDetection
+  ( -- * Creating a Request
+    GetLabelDetection (..),
+    newGetLabelDetection,
+
     -- * Request Lenses
-    , gldNextToken
-    , gldMaxResults
-    , gldSortBy
-    , gldJobId
+    getLabelDetection_nextToken,
+    getLabelDetection_maxResults,
+    getLabelDetection_sortBy,
+    getLabelDetection_jobId,
 
     -- * Destructuring the Response
-    , getLabelDetectionResponse
-    , GetLabelDetectionResponse
+    GetLabelDetectionResponse (..),
+    newGetLabelDetectionResponse,
+
     -- * Response Lenses
-    , gldrsNextToken
-    , gldrsVideoMetadata
-    , gldrsStatusMessage
-    , gldrsLabels
-    , gldrsJobStatus
-    , gldrsResponseStatus
-    ) where
+    getLabelDetectionResponse_statusMessage,
+    getLabelDetectionResponse_videoMetadata,
+    getLabelDetectionResponse_nextToken,
+    getLabelDetectionResponse_labelModelVersion,
+    getLabelDetectionResponse_jobStatus,
+    getLabelDetectionResponse_labels,
+    getLabelDetectionResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Rekognition.Types
-import Network.AWS.Rekognition.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getLabelDetection' smart constructor.
+-- | /See:/ 'newGetLabelDetection' smart constructor.
 data GetLabelDetection = GetLabelDetection'
-  { _gldNextToken  :: !(Maybe Text)
-  , _gldMaxResults :: !(Maybe Nat)
-  , _gldSortBy     :: !(Maybe LabelDetectionSortBy)
-  , _gldJobId      :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | If the previous response was incomplete (because there are more labels
+    -- to retrieve), Amazon Rekognition Video returns a pagination token in the
+    -- response. You can use this pagination token to retrieve the next set of
+    -- labels.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Maximum number of results to return per paginated call. The largest
+    -- value you can specify is 1000. If you specify a value greater than 1000,
+    -- a maximum of 1000 results is returned. The default value is 1000.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | Sort to use for elements in the @Labels@ array. Use @TIMESTAMP@ to sort
+    -- array elements by the time labels are detected. Use @NAME@ to
+    -- alphabetically group elements for a label together. Within each label
+    -- group, the array element are sorted by detection confidence. The default
+    -- sort is by @TIMESTAMP@.
+    sortBy :: Prelude.Maybe LabelDetectionSortBy,
+    -- | Job identifier for the label detection operation for which you want
+    -- results returned. You get the job identifer from an initial call to
+    -- @StartlabelDetection@.
+    jobId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetLabelDetection' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetLabelDetection' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gldNextToken' - If the previous response was incomplete (because there are more labels to retrieve), Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of labels.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gldMaxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
+-- 'nextToken', 'getLabelDetection_nextToken' - If the previous response was incomplete (because there are more labels
+-- to retrieve), Amazon Rekognition Video returns a pagination token in the
+-- response. You can use this pagination token to retrieve the next set of
+-- labels.
 --
--- * 'gldSortBy' - Sort to use for elements in the @Labels@ array. Use @TIMESTAMP@ to sort array elements by the time labels are detected. Use @NAME@ to alphabetically group elements for a label together. Within each label group, the array element are sorted by detection confidence. The default sort is by @TIMESTAMP@ .
+-- 'maxResults', 'getLabelDetection_maxResults' - Maximum number of results to return per paginated call. The largest
+-- value you can specify is 1000. If you specify a value greater than 1000,
+-- a maximum of 1000 results is returned. The default value is 1000.
 --
--- * 'gldJobId' - Job identifier for the label detection operation for which you want results returned. You get the job identifer from an initial call to @StartlabelDetection@ .
-getLabelDetection
-    :: Text -- ^ 'gldJobId'
-    -> GetLabelDetection
-getLabelDetection pJobId_ =
+-- 'sortBy', 'getLabelDetection_sortBy' - Sort to use for elements in the @Labels@ array. Use @TIMESTAMP@ to sort
+-- array elements by the time labels are detected. Use @NAME@ to
+-- alphabetically group elements for a label together. Within each label
+-- group, the array element are sorted by detection confidence. The default
+-- sort is by @TIMESTAMP@.
+--
+-- 'jobId', 'getLabelDetection_jobId' - Job identifier for the label detection operation for which you want
+-- results returned. You get the job identifer from an initial call to
+-- @StartlabelDetection@.
+newGetLabelDetection ::
+  -- | 'jobId'
+  Prelude.Text ->
+  GetLabelDetection
+newGetLabelDetection pJobId_ =
   GetLabelDetection'
-    { _gldNextToken = Nothing
-    , _gldMaxResults = Nothing
-    , _gldSortBy = Nothing
-    , _gldJobId = pJobId_
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      sortBy = Prelude.Nothing,
+      jobId = pJobId_
     }
 
+-- | If the previous response was incomplete (because there are more labels
+-- to retrieve), Amazon Rekognition Video returns a pagination token in the
+-- response. You can use this pagination token to retrieve the next set of
+-- labels.
+getLabelDetection_nextToken :: Lens.Lens' GetLabelDetection (Prelude.Maybe Prelude.Text)
+getLabelDetection_nextToken = Lens.lens (\GetLabelDetection' {nextToken} -> nextToken) (\s@GetLabelDetection' {} a -> s {nextToken = a} :: GetLabelDetection)
 
--- | If the previous response was incomplete (because there are more labels to retrieve), Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of labels.
-gldNextToken :: Lens' GetLabelDetection (Maybe Text)
-gldNextToken = lens _gldNextToken (\ s a -> s{_gldNextToken = a})
+-- | Maximum number of results to return per paginated call. The largest
+-- value you can specify is 1000. If you specify a value greater than 1000,
+-- a maximum of 1000 results is returned. The default value is 1000.
+getLabelDetection_maxResults :: Lens.Lens' GetLabelDetection (Prelude.Maybe Prelude.Natural)
+getLabelDetection_maxResults = Lens.lens (\GetLabelDetection' {maxResults} -> maxResults) (\s@GetLabelDetection' {} a -> s {maxResults = a} :: GetLabelDetection)
 
--- | Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
-gldMaxResults :: Lens' GetLabelDetection (Maybe Natural)
-gldMaxResults = lens _gldMaxResults (\ s a -> s{_gldMaxResults = a}) . mapping _Nat
+-- | Sort to use for elements in the @Labels@ array. Use @TIMESTAMP@ to sort
+-- array elements by the time labels are detected. Use @NAME@ to
+-- alphabetically group elements for a label together. Within each label
+-- group, the array element are sorted by detection confidence. The default
+-- sort is by @TIMESTAMP@.
+getLabelDetection_sortBy :: Lens.Lens' GetLabelDetection (Prelude.Maybe LabelDetectionSortBy)
+getLabelDetection_sortBy = Lens.lens (\GetLabelDetection' {sortBy} -> sortBy) (\s@GetLabelDetection' {} a -> s {sortBy = a} :: GetLabelDetection)
 
--- | Sort to use for elements in the @Labels@ array. Use @TIMESTAMP@ to sort array elements by the time labels are detected. Use @NAME@ to alphabetically group elements for a label together. Within each label group, the array element are sorted by detection confidence. The default sort is by @TIMESTAMP@ .
-gldSortBy :: Lens' GetLabelDetection (Maybe LabelDetectionSortBy)
-gldSortBy = lens _gldSortBy (\ s a -> s{_gldSortBy = a})
+-- | Job identifier for the label detection operation for which you want
+-- results returned. You get the job identifer from an initial call to
+-- @StartlabelDetection@.
+getLabelDetection_jobId :: Lens.Lens' GetLabelDetection Prelude.Text
+getLabelDetection_jobId = Lens.lens (\GetLabelDetection' {jobId} -> jobId) (\s@GetLabelDetection' {} a -> s {jobId = a} :: GetLabelDetection)
 
--- | Job identifier for the label detection operation for which you want results returned. You get the job identifer from an initial call to @StartlabelDetection@ .
-gldJobId :: Lens' GetLabelDetection Text
-gldJobId = lens _gldJobId (\ s a -> s{_gldJobId = a})
+instance Prelude.AWSRequest GetLabelDetection where
+  type Rs GetLabelDetection = GetLabelDetectionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetLabelDetectionResponse'
+            Prelude.<$> (x Prelude..?> "StatusMessage")
+            Prelude.<*> (x Prelude..?> "VideoMetadata")
+            Prelude.<*> (x Prelude..?> "NextToken")
+            Prelude.<*> (x Prelude..?> "LabelModelVersion")
+            Prelude.<*> (x Prelude..?> "JobStatus")
+            Prelude.<*> (x Prelude..?> "Labels" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetLabelDetection where
-        type Rs GetLabelDetection = GetLabelDetectionResponse
-        request = postJSON rekognition
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetLabelDetectionResponse' <$>
-                   (x .?> "NextToken") <*> (x .?> "VideoMetadata") <*>
-                     (x .?> "StatusMessage")
-                     <*> (x .?> "Labels" .!@ mempty)
-                     <*> (x .?> "JobStatus")
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetLabelDetection
 
-instance Hashable GetLabelDetection where
+instance Prelude.NFData GetLabelDetection
 
-instance NFData GetLabelDetection where
+instance Prelude.ToHeaders GetLabelDetection where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "RekognitionService.GetLabelDetection" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders GetLabelDetection where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("RekognitionService.GetLabelDetection" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToJSON GetLabelDetection where
+  toJSON GetLabelDetection' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("MaxResults" Prelude..=) Prelude.<$> maxResults,
+            ("SortBy" Prelude..=) Prelude.<$> sortBy,
+            Prelude.Just ("JobId" Prelude..= jobId)
+          ]
+      )
 
-instance ToJSON GetLabelDetection where
-        toJSON GetLabelDetection'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _gldNextToken,
-                  ("MaxResults" .=) <$> _gldMaxResults,
-                  ("SortBy" .=) <$> _gldSortBy,
-                  Just ("JobId" .= _gldJobId)])
+instance Prelude.ToPath GetLabelDetection where
+  toPath = Prelude.const "/"
 
-instance ToPath GetLabelDetection where
-        toPath = const "/"
+instance Prelude.ToQuery GetLabelDetection where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery GetLabelDetection where
-        toQuery = const mempty
-
--- | /See:/ 'getLabelDetectionResponse' smart constructor.
+-- | /See:/ 'newGetLabelDetectionResponse' smart constructor.
 data GetLabelDetectionResponse = GetLabelDetectionResponse'
-  { _gldrsNextToken      :: !(Maybe Text)
-  , _gldrsVideoMetadata  :: !(Maybe VideoMetadata)
-  , _gldrsStatusMessage  :: !(Maybe Text)
-  , _gldrsLabels         :: !(Maybe [LabelDetection])
-  , _gldrsJobStatus      :: !(Maybe VideoJobStatus)
-  , _gldrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | If the job fails, @StatusMessage@ provides a descriptive error message.
+    statusMessage :: Prelude.Maybe Prelude.Text,
+    -- | Information about a video that Amazon Rekognition Video analyzed.
+    -- @Videometadata@ is returned in every page of paginated responses from a
+    -- Amazon Rekognition video operation.
+    videoMetadata :: Prelude.Maybe VideoMetadata,
+    -- | If the response is truncated, Amazon Rekognition Video returns this
+    -- token that you can use in the subsequent request to retrieve the next
+    -- set of labels.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Version number of the label detection model that was used to detect
+    -- labels.
+    labelModelVersion :: Prelude.Maybe Prelude.Text,
+    -- | The current status of the label detection job.
+    jobStatus :: Prelude.Maybe VideoJobStatus,
+    -- | An array of labels detected in the video. Each element contains the
+    -- detected label and the time, in milliseconds from the start of the
+    -- video, that the label was detected.
+    labels :: Prelude.Maybe [LabelDetection],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetLabelDetectionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetLabelDetectionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gldrsNextToken' - If the response is truncated, Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of labels.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gldrsVideoMetadata' - Information about a video that Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition video operation.
+-- 'statusMessage', 'getLabelDetectionResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
 --
--- * 'gldrsStatusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
+-- 'videoMetadata', 'getLabelDetectionResponse_videoMetadata' - Information about a video that Amazon Rekognition Video analyzed.
+-- @Videometadata@ is returned in every page of paginated responses from a
+-- Amazon Rekognition video operation.
 --
--- * 'gldrsLabels' - An array of labels detected in the video. Each element contains the detected label and the time, in milliseconds from the start of the video, that the label was detected.
+-- 'nextToken', 'getLabelDetectionResponse_nextToken' - If the response is truncated, Amazon Rekognition Video returns this
+-- token that you can use in the subsequent request to retrieve the next
+-- set of labels.
 --
--- * 'gldrsJobStatus' - The current status of the label detection job.
+-- 'labelModelVersion', 'getLabelDetectionResponse_labelModelVersion' - Version number of the label detection model that was used to detect
+-- labels.
 --
--- * 'gldrsResponseStatus' - -- | The response status code.
-getLabelDetectionResponse
-    :: Int -- ^ 'gldrsResponseStatus'
-    -> GetLabelDetectionResponse
-getLabelDetectionResponse pResponseStatus_ =
+-- 'jobStatus', 'getLabelDetectionResponse_jobStatus' - The current status of the label detection job.
+--
+-- 'labels', 'getLabelDetectionResponse_labels' - An array of labels detected in the video. Each element contains the
+-- detected label and the time, in milliseconds from the start of the
+-- video, that the label was detected.
+--
+-- 'httpStatus', 'getLabelDetectionResponse_httpStatus' - The response's http status code.
+newGetLabelDetectionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetLabelDetectionResponse
+newGetLabelDetectionResponse pHttpStatus_ =
   GetLabelDetectionResponse'
-    { _gldrsNextToken = Nothing
-    , _gldrsVideoMetadata = Nothing
-    , _gldrsStatusMessage = Nothing
-    , _gldrsLabels = Nothing
-    , _gldrsJobStatus = Nothing
-    , _gldrsResponseStatus = pResponseStatus_
+    { statusMessage =
+        Prelude.Nothing,
+      videoMetadata = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      labelModelVersion = Prelude.Nothing,
+      jobStatus = Prelude.Nothing,
+      labels = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
-
-
--- | If the response is truncated, Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of labels.
-gldrsNextToken :: Lens' GetLabelDetectionResponse (Maybe Text)
-gldrsNextToken = lens _gldrsNextToken (\ s a -> s{_gldrsNextToken = a})
-
--- | Information about a video that Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition video operation.
-gldrsVideoMetadata :: Lens' GetLabelDetectionResponse (Maybe VideoMetadata)
-gldrsVideoMetadata = lens _gldrsVideoMetadata (\ s a -> s{_gldrsVideoMetadata = a})
 
 -- | If the job fails, @StatusMessage@ provides a descriptive error message.
-gldrsStatusMessage :: Lens' GetLabelDetectionResponse (Maybe Text)
-gldrsStatusMessage = lens _gldrsStatusMessage (\ s a -> s{_gldrsStatusMessage = a})
+getLabelDetectionResponse_statusMessage :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe Prelude.Text)
+getLabelDetectionResponse_statusMessage = Lens.lens (\GetLabelDetectionResponse' {statusMessage} -> statusMessage) (\s@GetLabelDetectionResponse' {} a -> s {statusMessage = a} :: GetLabelDetectionResponse)
 
--- | An array of labels detected in the video. Each element contains the detected label and the time, in milliseconds from the start of the video, that the label was detected.
-gldrsLabels :: Lens' GetLabelDetectionResponse [LabelDetection]
-gldrsLabels = lens _gldrsLabels (\ s a -> s{_gldrsLabels = a}) . _Default . _Coerce
+-- | Information about a video that Amazon Rekognition Video analyzed.
+-- @Videometadata@ is returned in every page of paginated responses from a
+-- Amazon Rekognition video operation.
+getLabelDetectionResponse_videoMetadata :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe VideoMetadata)
+getLabelDetectionResponse_videoMetadata = Lens.lens (\GetLabelDetectionResponse' {videoMetadata} -> videoMetadata) (\s@GetLabelDetectionResponse' {} a -> s {videoMetadata = a} :: GetLabelDetectionResponse)
+
+-- | If the response is truncated, Amazon Rekognition Video returns this
+-- token that you can use in the subsequent request to retrieve the next
+-- set of labels.
+getLabelDetectionResponse_nextToken :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe Prelude.Text)
+getLabelDetectionResponse_nextToken = Lens.lens (\GetLabelDetectionResponse' {nextToken} -> nextToken) (\s@GetLabelDetectionResponse' {} a -> s {nextToken = a} :: GetLabelDetectionResponse)
+
+-- | Version number of the label detection model that was used to detect
+-- labels.
+getLabelDetectionResponse_labelModelVersion :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe Prelude.Text)
+getLabelDetectionResponse_labelModelVersion = Lens.lens (\GetLabelDetectionResponse' {labelModelVersion} -> labelModelVersion) (\s@GetLabelDetectionResponse' {} a -> s {labelModelVersion = a} :: GetLabelDetectionResponse)
 
 -- | The current status of the label detection job.
-gldrsJobStatus :: Lens' GetLabelDetectionResponse (Maybe VideoJobStatus)
-gldrsJobStatus = lens _gldrsJobStatus (\ s a -> s{_gldrsJobStatus = a})
+getLabelDetectionResponse_jobStatus :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe VideoJobStatus)
+getLabelDetectionResponse_jobStatus = Lens.lens (\GetLabelDetectionResponse' {jobStatus} -> jobStatus) (\s@GetLabelDetectionResponse' {} a -> s {jobStatus = a} :: GetLabelDetectionResponse)
 
--- | -- | The response status code.
-gldrsResponseStatus :: Lens' GetLabelDetectionResponse Int
-gldrsResponseStatus = lens _gldrsResponseStatus (\ s a -> s{_gldrsResponseStatus = a})
+-- | An array of labels detected in the video. Each element contains the
+-- detected label and the time, in milliseconds from the start of the
+-- video, that the label was detected.
+getLabelDetectionResponse_labels :: Lens.Lens' GetLabelDetectionResponse (Prelude.Maybe [LabelDetection])
+getLabelDetectionResponse_labels = Lens.lens (\GetLabelDetectionResponse' {labels} -> labels) (\s@GetLabelDetectionResponse' {} a -> s {labels = a} :: GetLabelDetectionResponse) Prelude.. Lens.mapping Prelude._Coerce
 
-instance NFData GetLabelDetectionResponse where
+-- | The response's http status code.
+getLabelDetectionResponse_httpStatus :: Lens.Lens' GetLabelDetectionResponse Prelude.Int
+getLabelDetectionResponse_httpStatus = Lens.lens (\GetLabelDetectionResponse' {httpStatus} -> httpStatus) (\s@GetLabelDetectionResponse' {} a -> s {httpStatus = a} :: GetLabelDetectionResponse)
+
+instance Prelude.NFData GetLabelDetectionResponse

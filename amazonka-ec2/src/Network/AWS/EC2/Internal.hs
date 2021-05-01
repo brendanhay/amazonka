@@ -5,7 +5,7 @@
 
 -- |
 -- Module      : Network.AWS.EC2.Internal
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
@@ -24,8 +24,9 @@ data DeleteTag = DeleteTag
     , _deleteTagValue :: !(Maybe Text)
     } deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-deleteTag :: Text -- ^ 'deleteTagKey'
-          -> DeleteTag
+deleteTag
+  :: Text -- ^ 'deleteTagKey'
+  -> DeleteTag
 deleteTag k = DeleteTag k Nothing
 
 -- | The key of the tag to delete.

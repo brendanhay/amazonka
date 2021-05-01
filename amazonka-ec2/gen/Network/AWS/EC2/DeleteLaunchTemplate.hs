@@ -1,147 +1,186 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.DeleteLaunchTemplate
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a launch template. Deleting a launch template deletes all of its versions.
---
---
+-- Deletes a launch template. Deleting a launch template deletes all of its
+-- versions.
 module Network.AWS.EC2.DeleteLaunchTemplate
-    (
-    -- * Creating a Request
-      deleteLaunchTemplate
-    , DeleteLaunchTemplate
+  ( -- * Creating a Request
+    DeleteLaunchTemplate (..),
+    newDeleteLaunchTemplate,
+
     -- * Request Lenses
-    , dltLaunchTemplateName
-    , dltLaunchTemplateId
-    , dltDryRun
+    deleteLaunchTemplate_dryRun,
+    deleteLaunchTemplate_launchTemplateId,
+    deleteLaunchTemplate_launchTemplateName,
 
     -- * Destructuring the Response
-    , deleteLaunchTemplateResponse
-    , DeleteLaunchTemplateResponse
+    DeleteLaunchTemplateResponse (..),
+    newDeleteLaunchTemplateResponse,
+
     -- * Response Lenses
-    , dltrsLaunchTemplate
-    , dltrsResponseStatus
-    ) where
+    deleteLaunchTemplateResponse_launchTemplate,
+    deleteLaunchTemplateResponse_httpStatus,
+  )
+where
 
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteLaunchTemplate' smart constructor.
+-- | /See:/ 'newDeleteLaunchTemplate' smart constructor.
 data DeleteLaunchTemplate = DeleteLaunchTemplate'
-  { _dltLaunchTemplateName :: !(Maybe Text)
-  , _dltLaunchTemplateId   :: !(Maybe Text)
-  , _dltDryRun             :: !(Maybe Bool)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool,
+    -- | The ID of the launch template. You must specify either the launch
+    -- template ID or launch template name in the request.
+    launchTemplateId :: Prelude.Maybe Prelude.Text,
+    -- | The name of the launch template. You must specify either the launch
+    -- template ID or launch template name in the request.
+    launchTemplateName :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteLaunchTemplate' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteLaunchTemplate' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dltLaunchTemplateName' - The name of the launch template. You must specify either the launch template ID or launch template name in the request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dltLaunchTemplateId' - The ID of the launch template. You must specify either the launch template ID or launch template name in the request.
+-- 'dryRun', 'deleteLaunchTemplate_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
 --
--- * 'dltDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-deleteLaunchTemplate
-    :: DeleteLaunchTemplate
-deleteLaunchTemplate =
+-- 'launchTemplateId', 'deleteLaunchTemplate_launchTemplateId' - The ID of the launch template. You must specify either the launch
+-- template ID or launch template name in the request.
+--
+-- 'launchTemplateName', 'deleteLaunchTemplate_launchTemplateName' - The name of the launch template. You must specify either the launch
+-- template ID or launch template name in the request.
+newDeleteLaunchTemplate ::
+  DeleteLaunchTemplate
+newDeleteLaunchTemplate =
   DeleteLaunchTemplate'
-    { _dltLaunchTemplateName = Nothing
-    , _dltLaunchTemplateId = Nothing
-    , _dltDryRun = Nothing
+    { dryRun = Prelude.Nothing,
+      launchTemplateId = Prelude.Nothing,
+      launchTemplateName = Prelude.Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+deleteLaunchTemplate_dryRun :: Lens.Lens' DeleteLaunchTemplate (Prelude.Maybe Prelude.Bool)
+deleteLaunchTemplate_dryRun = Lens.lens (\DeleteLaunchTemplate' {dryRun} -> dryRun) (\s@DeleteLaunchTemplate' {} a -> s {dryRun = a} :: DeleteLaunchTemplate)
 
--- | The name of the launch template. You must specify either the launch template ID or launch template name in the request.
-dltLaunchTemplateName :: Lens' DeleteLaunchTemplate (Maybe Text)
-dltLaunchTemplateName = lens _dltLaunchTemplateName (\ s a -> s{_dltLaunchTemplateName = a})
+-- | The ID of the launch template. You must specify either the launch
+-- template ID or launch template name in the request.
+deleteLaunchTemplate_launchTemplateId :: Lens.Lens' DeleteLaunchTemplate (Prelude.Maybe Prelude.Text)
+deleteLaunchTemplate_launchTemplateId = Lens.lens (\DeleteLaunchTemplate' {launchTemplateId} -> launchTemplateId) (\s@DeleteLaunchTemplate' {} a -> s {launchTemplateId = a} :: DeleteLaunchTemplate)
 
--- | The ID of the launch template. You must specify either the launch template ID or launch template name in the request.
-dltLaunchTemplateId :: Lens' DeleteLaunchTemplate (Maybe Text)
-dltLaunchTemplateId = lens _dltLaunchTemplateId (\ s a -> s{_dltLaunchTemplateId = a})
+-- | The name of the launch template. You must specify either the launch
+-- template ID or launch template name in the request.
+deleteLaunchTemplate_launchTemplateName :: Lens.Lens' DeleteLaunchTemplate (Prelude.Maybe Prelude.Text)
+deleteLaunchTemplate_launchTemplateName = Lens.lens (\DeleteLaunchTemplate' {launchTemplateName} -> launchTemplateName) (\s@DeleteLaunchTemplate' {} a -> s {launchTemplateName = a} :: DeleteLaunchTemplate)
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-dltDryRun :: Lens' DeleteLaunchTemplate (Maybe Bool)
-dltDryRun = lens _dltDryRun (\ s a -> s{_dltDryRun = a})
+instance Prelude.AWSRequest DeleteLaunchTemplate where
+  type
+    Rs DeleteLaunchTemplate =
+      DeleteLaunchTemplateResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          DeleteLaunchTemplateResponse'
+            Prelude.<$> (x Prelude..@? "launchTemplate")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DeleteLaunchTemplate where
-        type Rs DeleteLaunchTemplate =
-             DeleteLaunchTemplateResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 DeleteLaunchTemplateResponse' <$>
-                   (x .@? "launchTemplate") <*> (pure (fromEnum s)))
+instance Prelude.Hashable DeleteLaunchTemplate
 
-instance Hashable DeleteLaunchTemplate where
+instance Prelude.NFData DeleteLaunchTemplate
 
-instance NFData DeleteLaunchTemplate where
+instance Prelude.ToHeaders DeleteLaunchTemplate where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders DeleteLaunchTemplate where
-        toHeaders = const mempty
+instance Prelude.ToPath DeleteLaunchTemplate where
+  toPath = Prelude.const "/"
 
-instance ToPath DeleteLaunchTemplate where
-        toPath = const "/"
+instance Prelude.ToQuery DeleteLaunchTemplate where
+  toQuery DeleteLaunchTemplate' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DeleteLaunchTemplate" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Prelude.=: dryRun,
+        "LaunchTemplateId" Prelude.=: launchTemplateId,
+        "LaunchTemplateName" Prelude.=: launchTemplateName
+      ]
 
-instance ToQuery DeleteLaunchTemplate where
-        toQuery DeleteLaunchTemplate'{..}
-          = mconcat
-              ["Action" =: ("DeleteLaunchTemplate" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "LaunchTemplateName" =: _dltLaunchTemplateName,
-               "LaunchTemplateId" =: _dltLaunchTemplateId,
-               "DryRun" =: _dltDryRun]
-
--- | /See:/ 'deleteLaunchTemplateResponse' smart constructor.
+-- | /See:/ 'newDeleteLaunchTemplateResponse' smart constructor.
 data DeleteLaunchTemplateResponse = DeleteLaunchTemplateResponse'
-  { _dltrsLaunchTemplate :: !(Maybe LaunchTemplate)
-  , _dltrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the launch template.
+    launchTemplate :: Prelude.Maybe LaunchTemplate,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteLaunchTemplateResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteLaunchTemplateResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dltrsLaunchTemplate' - Information about the launch template.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dltrsResponseStatus' - -- | The response status code.
-deleteLaunchTemplateResponse
-    :: Int -- ^ 'dltrsResponseStatus'
-    -> DeleteLaunchTemplateResponse
-deleteLaunchTemplateResponse pResponseStatus_ =
+-- 'launchTemplate', 'deleteLaunchTemplateResponse_launchTemplate' - Information about the launch template.
+--
+-- 'httpStatus', 'deleteLaunchTemplateResponse_httpStatus' - The response's http status code.
+newDeleteLaunchTemplateResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DeleteLaunchTemplateResponse
+newDeleteLaunchTemplateResponse pHttpStatus_ =
   DeleteLaunchTemplateResponse'
-    {_dltrsLaunchTemplate = Nothing, _dltrsResponseStatus = pResponseStatus_}
-
+    { launchTemplate =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Information about the launch template.
-dltrsLaunchTemplate :: Lens' DeleteLaunchTemplateResponse (Maybe LaunchTemplate)
-dltrsLaunchTemplate = lens _dltrsLaunchTemplate (\ s a -> s{_dltrsLaunchTemplate = a})
+deleteLaunchTemplateResponse_launchTemplate :: Lens.Lens' DeleteLaunchTemplateResponse (Prelude.Maybe LaunchTemplate)
+deleteLaunchTemplateResponse_launchTemplate = Lens.lens (\DeleteLaunchTemplateResponse' {launchTemplate} -> launchTemplate) (\s@DeleteLaunchTemplateResponse' {} a -> s {launchTemplate = a} :: DeleteLaunchTemplateResponse)
 
--- | -- | The response status code.
-dltrsResponseStatus :: Lens' DeleteLaunchTemplateResponse Int
-dltrsResponseStatus = lens _dltrsResponseStatus (\ s a -> s{_dltrsResponseStatus = a})
+-- | The response's http status code.
+deleteLaunchTemplateResponse_httpStatus :: Lens.Lens' DeleteLaunchTemplateResponse Prelude.Int
+deleteLaunchTemplateResponse_httpStatus = Lens.lens (\DeleteLaunchTemplateResponse' {httpStatus} -> httpStatus) (\s@DeleteLaunchTemplateResponse' {} a -> s {httpStatus = a} :: DeleteLaunchTemplateResponse)
 
-instance NFData DeleteLaunchTemplateResponse where
+instance Prelude.NFData DeleteLaunchTemplateResponse

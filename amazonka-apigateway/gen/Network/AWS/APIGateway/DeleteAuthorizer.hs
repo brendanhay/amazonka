@@ -1,118 +1,136 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.DeleteAuthorizer
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes an existing 'Authorizer' resource.
+-- Deletes an existing Authorizer resource.
 --
---
--- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/delete-authorizer.html AWS CLI>
+-- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/delete-authorizer.html AWS CLI>
 module Network.AWS.APIGateway.DeleteAuthorizer
-    (
-    -- * Creating a Request
-      deleteAuthorizer
-    , DeleteAuthorizer
+  ( -- * Creating a Request
+    DeleteAuthorizer (..),
+    newDeleteAuthorizer,
+
     -- * Request Lenses
-    , daRestAPIId
-    , daAuthorizerId
+    deleteAuthorizer_restApiId,
+    deleteAuthorizer_authorizerId,
 
     -- * Destructuring the Response
-    , deleteAuthorizerResponse
-    , DeleteAuthorizerResponse
-    ) where
+    DeleteAuthorizerResponse (..),
+    newDeleteAuthorizerResponse,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Request to delete an existing 'Authorizer' resource.
+-- | Request to delete an existing Authorizer resource.
 --
---
---
--- /See:/ 'deleteAuthorizer' smart constructor.
+-- /See:/ 'newDeleteAuthorizer' smart constructor.
 data DeleteAuthorizer = DeleteAuthorizer'
-  { _daRestAPIId    :: !Text
-  , _daAuthorizerId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | [Required] The string identifier of the associated RestApi.
+    restApiId :: Prelude.Text,
+    -- | [Required] The identifier of the Authorizer resource.
+    authorizerId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteAuthorizer' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteAuthorizer' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'daRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'daAuthorizerId' - [Required] The identifier of the 'Authorizer' resource.
-deleteAuthorizer
-    :: Text -- ^ 'daRestAPIId'
-    -> Text -- ^ 'daAuthorizerId'
-    -> DeleteAuthorizer
-deleteAuthorizer pRestAPIId_ pAuthorizerId_ =
+-- 'restApiId', 'deleteAuthorizer_restApiId' - [Required] The string identifier of the associated RestApi.
+--
+-- 'authorizerId', 'deleteAuthorizer_authorizerId' - [Required] The identifier of the Authorizer resource.
+newDeleteAuthorizer ::
+  -- | 'restApiId'
+  Prelude.Text ->
+  -- | 'authorizerId'
+  Prelude.Text ->
+  DeleteAuthorizer
+newDeleteAuthorizer pRestApiId_ pAuthorizerId_ =
   DeleteAuthorizer'
-    {_daRestAPIId = pRestAPIId_, _daAuthorizerId = pAuthorizerId_}
+    { restApiId = pRestApiId_,
+      authorizerId = pAuthorizerId_
+    }
 
+-- | [Required] The string identifier of the associated RestApi.
+deleteAuthorizer_restApiId :: Lens.Lens' DeleteAuthorizer Prelude.Text
+deleteAuthorizer_restApiId = Lens.lens (\DeleteAuthorizer' {restApiId} -> restApiId) (\s@DeleteAuthorizer' {} a -> s {restApiId = a} :: DeleteAuthorizer)
 
--- | [Required] The string identifier of the associated 'RestApi' .
-daRestAPIId :: Lens' DeleteAuthorizer Text
-daRestAPIId = lens _daRestAPIId (\ s a -> s{_daRestAPIId = a})
+-- | [Required] The identifier of the Authorizer resource.
+deleteAuthorizer_authorizerId :: Lens.Lens' DeleteAuthorizer Prelude.Text
+deleteAuthorizer_authorizerId = Lens.lens (\DeleteAuthorizer' {authorizerId} -> authorizerId) (\s@DeleteAuthorizer' {} a -> s {authorizerId = a} :: DeleteAuthorizer)
 
--- | [Required] The identifier of the 'Authorizer' resource.
-daAuthorizerId :: Lens' DeleteAuthorizer Text
-daAuthorizerId = lens _daAuthorizerId (\ s a -> s{_daAuthorizerId = a})
+instance Prelude.AWSRequest DeleteAuthorizer where
+  type Rs DeleteAuthorizer = DeleteAuthorizerResponse
+  request = Request.delete defaultService
+  response =
+    Response.receiveNull DeleteAuthorizerResponse'
 
-instance AWSRequest DeleteAuthorizer where
-        type Rs DeleteAuthorizer = DeleteAuthorizerResponse
-        request = delete apiGateway
-        response = receiveNull DeleteAuthorizerResponse'
+instance Prelude.Hashable DeleteAuthorizer
 
-instance Hashable DeleteAuthorizer where
+instance Prelude.NFData DeleteAuthorizer
 
-instance NFData DeleteAuthorizer where
+instance Prelude.ToHeaders DeleteAuthorizer where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Prelude.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
 
-instance ToHeaders DeleteAuthorizer where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
+instance Prelude.ToPath DeleteAuthorizer where
+  toPath DeleteAuthorizer' {..} =
+    Prelude.mconcat
+      [ "/restapis/",
+        Prelude.toBS restApiId,
+        "/authorizers/",
+        Prelude.toBS authorizerId
+      ]
 
-instance ToPath DeleteAuthorizer where
-        toPath DeleteAuthorizer'{..}
-          = mconcat
-              ["/restapis/", toBS _daRestAPIId, "/authorizers/",
-               toBS _daAuthorizerId]
+instance Prelude.ToQuery DeleteAuthorizer where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DeleteAuthorizer where
-        toQuery = const mempty
+-- | /See:/ 'newDeleteAuthorizerResponse' smart constructor.
+data DeleteAuthorizerResponse = DeleteAuthorizerResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
--- | /See:/ 'deleteAuthorizerResponse' smart constructor.
-data DeleteAuthorizerResponse =
-  DeleteAuthorizerResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DeleteAuthorizerResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteAuthorizerResponse' with all optional fields omitted.
 --
-deleteAuthorizerResponse
-    :: DeleteAuthorizerResponse
-deleteAuthorizerResponse = DeleteAuthorizerResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteAuthorizerResponse ::
+  DeleteAuthorizerResponse
+newDeleteAuthorizerResponse =
+  DeleteAuthorizerResponse'
 
-
-instance NFData DeleteAuthorizerResponse where
+instance Prelude.NFData DeleteAuthorizerResponse

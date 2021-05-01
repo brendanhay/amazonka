@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Organizations.DescribePolicy
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,115 +23,157 @@
 --
 -- Retrieves information about a policy.
 --
---
--- This operation can be called only from the organization's master account.
---
+-- This operation can be called only from the organization\'s management
+-- account or by a member account that is a delegated administrator for an
+-- AWS service.
 module Network.AWS.Organizations.DescribePolicy
-    (
-    -- * Creating a Request
-      describePolicy
-    , DescribePolicy
+  ( -- * Creating a Request
+    DescribePolicy (..),
+    newDescribePolicy,
+
     -- * Request Lenses
-    , dpPolicyId
+    describePolicy_policyId,
 
     -- * Destructuring the Response
-    , describePolicyResponse
-    , DescribePolicyResponse
+    DescribePolicyResponse (..),
+    newDescribePolicyResponse,
+
     -- * Response Lenses
-    , dprsPolicy
-    , dprsResponseStatus
-    ) where
+    describePolicyResponse_policy,
+    describePolicyResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Organizations.Types
-import Network.AWS.Organizations.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describePolicy' smart constructor.
-newtype DescribePolicy = DescribePolicy'
-  { _dpPolicyId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribePolicy' smart constructor.
+data DescribePolicy = DescribePolicy'
+  { -- | The unique identifier (ID) of the policy that you want details about.
+    -- You can get the ID from the ListPolicies or ListPoliciesForTarget
+    -- operations.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
+    -- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
+    -- letters, digits, or the underscore character (_).
+    policyId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribePolicy' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribePolicy' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dpPolicyId' - The unique identifier (ID) of the policy that you want details about. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
-describePolicy
-    :: Text -- ^ 'dpPolicyId'
-    -> DescribePolicy
-describePolicy pPolicyId_ = DescribePolicy' {_dpPolicyId = pPolicyId_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'policyId', 'describePolicy_policyId' - The unique identifier (ID) of the policy that you want details about.
+-- You can get the ID from the ListPolicies or ListPoliciesForTarget
+-- operations.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
+-- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
+-- letters, digits, or the underscore character (_).
+newDescribePolicy ::
+  -- | 'policyId'
+  Prelude.Text ->
+  DescribePolicy
+newDescribePolicy pPolicyId_ =
+  DescribePolicy' {policyId = pPolicyId_}
 
+-- | The unique identifier (ID) of the policy that you want details about.
+-- You can get the ID from the ListPolicies or ListPoliciesForTarget
+-- operations.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID
+-- string requires \"p-\" followed by from 8 to 128 lowercase or uppercase
+-- letters, digits, or the underscore character (_).
+describePolicy_policyId :: Lens.Lens' DescribePolicy Prelude.Text
+describePolicy_policyId = Lens.lens (\DescribePolicy' {policyId} -> policyId) (\s@DescribePolicy' {} a -> s {policyId = a} :: DescribePolicy)
 
--- | The unique identifier (ID) of the policy that you want details about. You can get the ID from the 'ListPolicies' or 'ListPoliciesForTarget' operations. The <http://wikipedia.org/wiki/regex regex pattern> for a policy ID string requires "p-" followed by from 8 to 128 lower-case letters or digits.
-dpPolicyId :: Lens' DescribePolicy Text
-dpPolicyId = lens _dpPolicyId (\ s a -> s{_dpPolicyId = a})
+instance Prelude.AWSRequest DescribePolicy where
+  type Rs DescribePolicy = DescribePolicyResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribePolicyResponse'
+            Prelude.<$> (x Prelude..?> "Policy")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribePolicy where
-        type Rs DescribePolicy = DescribePolicyResponse
-        request = postJSON organizations
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribePolicyResponse' <$>
-                   (x .?> "Policy") <*> (pure (fromEnum s)))
+instance Prelude.Hashable DescribePolicy
 
-instance Hashable DescribePolicy where
+instance Prelude.NFData DescribePolicy
 
-instance NFData DescribePolicy where
+instance Prelude.ToHeaders DescribePolicy where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSOrganizationsV20161128.DescribePolicy" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders DescribePolicy where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSOrganizationsV20161128.DescribePolicy" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToJSON DescribePolicy where
+  toJSON DescribePolicy' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("PolicyId" Prelude..= policyId)]
+      )
 
-instance ToJSON DescribePolicy where
-        toJSON DescribePolicy'{..}
-          = object
-              (catMaybes [Just ("PolicyId" .= _dpPolicyId)])
+instance Prelude.ToPath DescribePolicy where
+  toPath = Prelude.const "/"
 
-instance ToPath DescribePolicy where
-        toPath = const "/"
+instance Prelude.ToQuery DescribePolicy where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DescribePolicy where
-        toQuery = const mempty
-
--- | /See:/ 'describePolicyResponse' smart constructor.
+-- | /See:/ 'newDescribePolicyResponse' smart constructor.
 data DescribePolicyResponse = DescribePolicyResponse'
-  { _dprsPolicy         :: !(Maybe Policy)
-  , _dprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A structure that contains details about the specified policy.
+    policy :: Prelude.Maybe Policy,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribePolicyResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribePolicyResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dprsPolicy' - A structure that contains details about the specified policy.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dprsResponseStatus' - -- | The response status code.
-describePolicyResponse
-    :: Int -- ^ 'dprsResponseStatus'
-    -> DescribePolicyResponse
-describePolicyResponse pResponseStatus_ =
+-- 'policy', 'describePolicyResponse_policy' - A structure that contains details about the specified policy.
+--
+-- 'httpStatus', 'describePolicyResponse_httpStatus' - The response's http status code.
+newDescribePolicyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribePolicyResponse
+newDescribePolicyResponse pHttpStatus_ =
   DescribePolicyResponse'
-    {_dprsPolicy = Nothing, _dprsResponseStatus = pResponseStatus_}
-
+    { policy = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | A structure that contains details about the specified policy.
-dprsPolicy :: Lens' DescribePolicyResponse (Maybe Policy)
-dprsPolicy = lens _dprsPolicy (\ s a -> s{_dprsPolicy = a})
+describePolicyResponse_policy :: Lens.Lens' DescribePolicyResponse (Prelude.Maybe Policy)
+describePolicyResponse_policy = Lens.lens (\DescribePolicyResponse' {policy} -> policy) (\s@DescribePolicyResponse' {} a -> s {policy = a} :: DescribePolicyResponse)
 
--- | -- | The response status code.
-dprsResponseStatus :: Lens' DescribePolicyResponse Int
-dprsResponseStatus = lens _dprsResponseStatus (\ s a -> s{_dprsResponseStatus = a})
+-- | The response's http status code.
+describePolicyResponse_httpStatus :: Lens.Lens' DescribePolicyResponse Prelude.Int
+describePolicyResponse_httpStatus = Lens.lens (\DescribePolicyResponse' {httpStatus} -> httpStatus) (\s@DescribePolicyResponse' {} a -> s {httpStatus = a} :: DescribePolicyResponse)
 
-instance NFData DescribePolicyResponse where
+instance Prelude.NFData DescribePolicyResponse

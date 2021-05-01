@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Lightsail.GetOperations
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,136 +23,213 @@
 --
 -- Returns information about all operations.
 --
---
--- Results are returned from oldest to newest, up to a maximum of 200. Results can be paged by making each subsequent call to @GetOperations@ use the maximum (last) @statusChangedAt@ value from the previous request.
---
+-- Results are returned from oldest to newest, up to a maximum of 200.
+-- Results can be paged by making each subsequent call to @GetOperations@
+-- use the maximum (last) @statusChangedAt@ value from the previous
+-- request.
 --
 -- This operation returns paginated results.
 module Network.AWS.Lightsail.GetOperations
-    (
-    -- * Creating a Request
-      getOperations
-    , GetOperations
+  ( -- * Creating a Request
+    GetOperations (..),
+    newGetOperations,
+
     -- * Request Lenses
-    , goPageToken
+    getOperations_pageToken,
 
     -- * Destructuring the Response
-    , getOperationsResponse
-    , GetOperationsResponse
+    GetOperationsResponse (..),
+    newGetOperationsResponse,
+
     -- * Response Lenses
-    , gosrsNextPageToken
-    , gosrsOperations
-    , gosrsResponseStatus
-    ) where
+    getOperationsResponse_operations,
+    getOperationsResponse_nextPageToken,
+    getOperationsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Lightsail.Types
-import Network.AWS.Lightsail.Types.Product
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'getOperations' smart constructor.
-newtype GetOperations = GetOperations'
-  { _goPageToken :: Maybe Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetOperations' smart constructor.
+data GetOperations = GetOperations'
+  { -- | The token to advance to the next page of results from your request.
+    --
+    -- To get a page token, perform an initial @GetOperations@ request. If your
+    -- results are paginated, the response will return a next page token that
+    -- you can specify as the page token in a subsequent request.
+    pageToken :: Prelude.Maybe Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetOperations' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetOperations' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'goPageToken' - A token used for advancing to the next page of results from your get operations request.
-getOperations
-    :: GetOperations
-getOperations = GetOperations' {_goPageToken = Nothing}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'pageToken', 'getOperations_pageToken' - The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetOperations@ request. If your
+-- results are paginated, the response will return a next page token that
+-- you can specify as the page token in a subsequent request.
+newGetOperations ::
+  GetOperations
+newGetOperations =
+  GetOperations' {pageToken = Prelude.Nothing}
 
+-- | The token to advance to the next page of results from your request.
+--
+-- To get a page token, perform an initial @GetOperations@ request. If your
+-- results are paginated, the response will return a next page token that
+-- you can specify as the page token in a subsequent request.
+getOperations_pageToken :: Lens.Lens' GetOperations (Prelude.Maybe Prelude.Text)
+getOperations_pageToken = Lens.lens (\GetOperations' {pageToken} -> pageToken) (\s@GetOperations' {} a -> s {pageToken = a} :: GetOperations)
 
--- | A token used for advancing to the next page of results from your get operations request.
-goPageToken :: Lens' GetOperations (Maybe Text)
-goPageToken = lens _goPageToken (\ s a -> s{_goPageToken = a})
+instance Pager.AWSPager GetOperations where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? getOperationsResponse_nextPageToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? getOperationsResponse_operations
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& getOperations_pageToken
+          Lens..~ rs
+          Lens.^? getOperationsResponse_nextPageToken
+            Prelude.. Lens._Just
 
-instance AWSPager GetOperations where
-        page rq rs
-          | stop (rs ^. gosrsNextPageToken) = Nothing
-          | stop (rs ^. gosrsOperations) = Nothing
-          | otherwise =
-            Just $ rq & goPageToken .~ rs ^. gosrsNextPageToken
+instance Prelude.AWSRequest GetOperations where
+  type Rs GetOperations = GetOperationsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetOperationsResponse'
+            Prelude.<$> ( x Prelude..?> "operations"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (x Prelude..?> "nextPageToken")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest GetOperations where
-        type Rs GetOperations = GetOperationsResponse
-        request = postJSON lightsail
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetOperationsResponse' <$>
-                   (x .?> "nextPageToken") <*>
-                     (x .?> "operations" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Prelude.Hashable GetOperations
 
-instance Hashable GetOperations where
+instance Prelude.NFData GetOperations
 
-instance NFData GetOperations where
+instance Prelude.ToHeaders GetOperations where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "Lightsail_20161128.GetOperations" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders GetOperations where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("Lightsail_20161128.GetOperations" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToJSON GetOperations where
+  toJSON GetOperations' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [("pageToken" Prelude..=) Prelude.<$> pageToken]
+      )
 
-instance ToJSON GetOperations where
-        toJSON GetOperations'{..}
-          = object
-              (catMaybes [("pageToken" .=) <$> _goPageToken])
+instance Prelude.ToPath GetOperations where
+  toPath = Prelude.const "/"
 
-instance ToPath GetOperations where
-        toPath = const "/"
+instance Prelude.ToQuery GetOperations where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery GetOperations where
-        toQuery = const mempty
-
--- | /See:/ 'getOperationsResponse' smart constructor.
+-- | /See:/ 'newGetOperationsResponse' smart constructor.
 data GetOperationsResponse = GetOperationsResponse'
-  { _gosrsNextPageToken  :: !(Maybe Text)
-  , _gosrsOperations     :: !(Maybe [Operation])
-  , _gosrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An array of objects that describe the result of the action, such as the
+    -- status of the request, the timestamp of the request, and the resources
+    -- affected by the request.
+    operations :: Prelude.Maybe [Operation],
+    -- | The token to advance to the next page of results from your request.
+    --
+    -- A next page token is not returned if there are no more results to
+    -- display.
+    --
+    -- To get the next page of results, perform another @GetOperations@ request
+    -- and specify the next page token using the @pageToken@ parameter.
+    nextPageToken :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetOperationsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetOperationsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gosrsNextPageToken' - A token used for advancing to the next page of results from your get operations request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gosrsOperations' - An array of key-value pairs containing information about the results of your get operations request.
+-- 'operations', 'getOperationsResponse_operations' - An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
 --
--- * 'gosrsResponseStatus' - -- | The response status code.
-getOperationsResponse
-    :: Int -- ^ 'gosrsResponseStatus'
-    -> GetOperationsResponse
-getOperationsResponse pResponseStatus_ =
+-- 'nextPageToken', 'getOperationsResponse_nextPageToken' - The token to advance to the next page of results from your request.
+--
+-- A next page token is not returned if there are no more results to
+-- display.
+--
+-- To get the next page of results, perform another @GetOperations@ request
+-- and specify the next page token using the @pageToken@ parameter.
+--
+-- 'httpStatus', 'getOperationsResponse_httpStatus' - The response's http status code.
+newGetOperationsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetOperationsResponse
+newGetOperationsResponse pHttpStatus_ =
   GetOperationsResponse'
-    { _gosrsNextPageToken = Nothing
-    , _gosrsOperations = Nothing
-    , _gosrsResponseStatus = pResponseStatus_
+    { operations =
+        Prelude.Nothing,
+      nextPageToken = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | An array of objects that describe the result of the action, such as the
+-- status of the request, the timestamp of the request, and the resources
+-- affected by the request.
+getOperationsResponse_operations :: Lens.Lens' GetOperationsResponse (Prelude.Maybe [Operation])
+getOperationsResponse_operations = Lens.lens (\GetOperationsResponse' {operations} -> operations) (\s@GetOperationsResponse' {} a -> s {operations = a} :: GetOperationsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | A token used for advancing to the next page of results from your get operations request.
-gosrsNextPageToken :: Lens' GetOperationsResponse (Maybe Text)
-gosrsNextPageToken = lens _gosrsNextPageToken (\ s a -> s{_gosrsNextPageToken = a})
+-- | The token to advance to the next page of results from your request.
+--
+-- A next page token is not returned if there are no more results to
+-- display.
+--
+-- To get the next page of results, perform another @GetOperations@ request
+-- and specify the next page token using the @pageToken@ parameter.
+getOperationsResponse_nextPageToken :: Lens.Lens' GetOperationsResponse (Prelude.Maybe Prelude.Text)
+getOperationsResponse_nextPageToken = Lens.lens (\GetOperationsResponse' {nextPageToken} -> nextPageToken) (\s@GetOperationsResponse' {} a -> s {nextPageToken = a} :: GetOperationsResponse)
 
--- | An array of key-value pairs containing information about the results of your get operations request.
-gosrsOperations :: Lens' GetOperationsResponse [Operation]
-gosrsOperations = lens _gosrsOperations (\ s a -> s{_gosrsOperations = a}) . _Default . _Coerce
+-- | The response's http status code.
+getOperationsResponse_httpStatus :: Lens.Lens' GetOperationsResponse Prelude.Int
+getOperationsResponse_httpStatus = Lens.lens (\GetOperationsResponse' {httpStatus} -> httpStatus) (\s@GetOperationsResponse' {} a -> s {httpStatus = a} :: GetOperationsResponse)
 
--- | -- | The response status code.
-gosrsResponseStatus :: Lens' GetOperationsResponse Int
-gosrsResponseStatus = lens _gosrsResponseStatus (\ s a -> s{_gosrsResponseStatus = a})
-
-instance NFData GetOperationsResponse where
+instance Prelude.NFData GetOperationsResponse

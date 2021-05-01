@@ -1,132 +1,160 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53.GetHealthCheck
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Gets information about a specified health check.
---
---
 module Network.AWS.Route53.GetHealthCheck
-    (
-    -- * Creating a Request
-      getHealthCheck
-    , GetHealthCheck
+  ( -- * Creating a Request
+    GetHealthCheck (..),
+    newGetHealthCheck,
+
     -- * Request Lenses
-    , ghcHealthCheckId
+    getHealthCheck_healthCheckId,
 
     -- * Destructuring the Response
-    , getHealthCheckResponse
-    , GetHealthCheckResponse
-    -- * Response Lenses
-    , ghcrsResponseStatus
-    , ghcrsHealthCheck
-    ) where
+    GetHealthCheckResponse (..),
+    newGetHealthCheckResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+    -- * Response Lenses
+    getHealthCheckResponse_httpStatus,
+    getHealthCheckResponse_healthCheck,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
-import Network.AWS.Route53.Types.Product
 
 -- | A request to get information about a specified health check.
 --
+-- /See:/ 'newGetHealthCheck' smart constructor.
+data GetHealthCheck = GetHealthCheck'
+  { -- | The identifier that Amazon Route 53 assigned to the health check when
+    -- you created it. When you add or update a resource record set, you use
+    -- this value to specify which health check to use. The value can be up to
+    -- 64 characters long.
+    healthCheckId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetHealthCheck' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'getHealthCheck' smart constructor.
-newtype GetHealthCheck = GetHealthCheck'
-  { _ghcHealthCheckId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetHealthCheck' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ghcHealthCheckId' - The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
-getHealthCheck
-    :: Text -- ^ 'ghcHealthCheckId'
-    -> GetHealthCheck
-getHealthCheck pHealthCheckId_ =
-  GetHealthCheck' {_ghcHealthCheckId = pHealthCheckId_}
+-- 'healthCheckId', 'getHealthCheck_healthCheckId' - The identifier that Amazon Route 53 assigned to the health check when
+-- you created it. When you add or update a resource record set, you use
+-- this value to specify which health check to use. The value can be up to
+-- 64 characters long.
+newGetHealthCheck ::
+  -- | 'healthCheckId'
+  Prelude.Text ->
+  GetHealthCheck
+newGetHealthCheck pHealthCheckId_ =
+  GetHealthCheck' {healthCheckId = pHealthCheckId_}
 
+-- | The identifier that Amazon Route 53 assigned to the health check when
+-- you created it. When you add or update a resource record set, you use
+-- this value to specify which health check to use. The value can be up to
+-- 64 characters long.
+getHealthCheck_healthCheckId :: Lens.Lens' GetHealthCheck Prelude.Text
+getHealthCheck_healthCheckId = Lens.lens (\GetHealthCheck' {healthCheckId} -> healthCheckId) (\s@GetHealthCheck' {} a -> s {healthCheckId = a} :: GetHealthCheck)
 
--- | The identifier that Amazon Route 53 assigned to the health check when you created it. When you add or update a resource record set, you use this value to specify which health check to use. The value can be up to 64 characters long.
-ghcHealthCheckId :: Lens' GetHealthCheck Text
-ghcHealthCheckId = lens _ghcHealthCheckId (\ s a -> s{_ghcHealthCheckId = a})
+instance Prelude.AWSRequest GetHealthCheck where
+  type Rs GetHealthCheck = GetHealthCheckResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          GetHealthCheckResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Prelude..@ "HealthCheck")
+      )
 
-instance AWSRequest GetHealthCheck where
-        type Rs GetHealthCheck = GetHealthCheckResponse
-        request = get route53
-        response
-          = receiveXML
-              (\ s h x ->
-                 GetHealthCheckResponse' <$>
-                   (pure (fromEnum s)) <*> (x .@ "HealthCheck"))
+instance Prelude.Hashable GetHealthCheck
 
-instance Hashable GetHealthCheck where
+instance Prelude.NFData GetHealthCheck
 
-instance NFData GetHealthCheck where
+instance Prelude.ToHeaders GetHealthCheck where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToHeaders GetHealthCheck where
-        toHeaders = const mempty
+instance Prelude.ToPath GetHealthCheck where
+  toPath GetHealthCheck' {..} =
+    Prelude.mconcat
+      [ "/2013-04-01/healthcheck/",
+        Prelude.toBS healthCheckId
+      ]
 
-instance ToPath GetHealthCheck where
-        toPath GetHealthCheck'{..}
-          = mconcat
-              ["/2013-04-01/healthcheck/", toBS _ghcHealthCheckId]
-
-instance ToQuery GetHealthCheck where
-        toQuery = const mempty
+instance Prelude.ToQuery GetHealthCheck where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | A complex type that contains the response to a @GetHealthCheck@ request.
 --
---
---
--- /See:/ 'getHealthCheckResponse' smart constructor.
+-- /See:/ 'newGetHealthCheckResponse' smart constructor.
 data GetHealthCheckResponse = GetHealthCheckResponse'
-  { _ghcrsResponseStatus :: !Int
-  , _ghcrsHealthCheck    :: !HealthCheck
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A complex type that contains information about one health check that is
+    -- associated with the current AWS account.
+    healthCheck :: HealthCheck
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetHealthCheckResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetHealthCheckResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ghcrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ghcrsHealthCheck' - A complex type that contains information about one health check that is associated with the current AWS account.
-getHealthCheckResponse
-    :: Int -- ^ 'ghcrsResponseStatus'
-    -> HealthCheck -- ^ 'ghcrsHealthCheck'
-    -> GetHealthCheckResponse
-getHealthCheckResponse pResponseStatus_ pHealthCheck_ =
+-- 'httpStatus', 'getHealthCheckResponse_httpStatus' - The response's http status code.
+--
+-- 'healthCheck', 'getHealthCheckResponse_healthCheck' - A complex type that contains information about one health check that is
+-- associated with the current AWS account.
+newGetHealthCheckResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'healthCheck'
+  HealthCheck ->
+  GetHealthCheckResponse
+newGetHealthCheckResponse pHttpStatus_ pHealthCheck_ =
   GetHealthCheckResponse'
-    {_ghcrsResponseStatus = pResponseStatus_, _ghcrsHealthCheck = pHealthCheck_}
+    { httpStatus = pHttpStatus_,
+      healthCheck = pHealthCheck_
+    }
 
+-- | The response's http status code.
+getHealthCheckResponse_httpStatus :: Lens.Lens' GetHealthCheckResponse Prelude.Int
+getHealthCheckResponse_httpStatus = Lens.lens (\GetHealthCheckResponse' {httpStatus} -> httpStatus) (\s@GetHealthCheckResponse' {} a -> s {httpStatus = a} :: GetHealthCheckResponse)
 
--- | -- | The response status code.
-ghcrsResponseStatus :: Lens' GetHealthCheckResponse Int
-ghcrsResponseStatus = lens _ghcrsResponseStatus (\ s a -> s{_ghcrsResponseStatus = a})
+-- | A complex type that contains information about one health check that is
+-- associated with the current AWS account.
+getHealthCheckResponse_healthCheck :: Lens.Lens' GetHealthCheckResponse HealthCheck
+getHealthCheckResponse_healthCheck = Lens.lens (\GetHealthCheckResponse' {healthCheck} -> healthCheck) (\s@GetHealthCheckResponse' {} a -> s {healthCheck = a} :: GetHealthCheckResponse)
 
--- | A complex type that contains information about one health check that is associated with the current AWS account.
-ghcrsHealthCheck :: Lens' GetHealthCheckResponse HealthCheck
-ghcrsHealthCheck = lens _ghcrsHealthCheck (\ s a -> s{_ghcrsHealthCheck = a})
-
-instance NFData GetHealthCheckResponse where
+instance Prelude.NFData GetHealthCheckResponse

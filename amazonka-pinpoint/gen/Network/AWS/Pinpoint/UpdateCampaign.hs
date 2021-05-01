@@ -1,158 +1,197 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Pinpoint.UpdateCampaign
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Use to update a campaign.
+-- Updates the configuration and other settings for a campaign.
 module Network.AWS.Pinpoint.UpdateCampaign
-    (
-    -- * Creating a Request
-      updateCampaign
-    , UpdateCampaign
+  ( -- * Creating a Request
+    UpdateCampaign (..),
+    newUpdateCampaign,
+
     -- * Request Lenses
-    , ucCampaignId
-    , ucApplicationId
-    , ucWriteCampaignRequest
+    updateCampaign_campaignId,
+    updateCampaign_applicationId,
+    updateCampaign_writeCampaignRequest,
 
     -- * Destructuring the Response
-    , updateCampaignResponse
-    , UpdateCampaignResponse
+    UpdateCampaignResponse (..),
+    newUpdateCampaignResponse,
+
     -- * Response Lenses
-    , ucrsResponseStatus
-    , ucrsCampaignResponse
-    ) where
+    updateCampaignResponse_httpStatus,
+    updateCampaignResponse_campaignResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.Pinpoint.Types
-import Network.AWS.Pinpoint.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateCampaign' smart constructor.
+-- | /See:/ 'newUpdateCampaign' smart constructor.
 data UpdateCampaign = UpdateCampaign'
-  { _ucCampaignId           :: !Text
-  , _ucApplicationId        :: !Text
-  , _ucWriteCampaignRequest :: !WriteCampaignRequest
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The unique identifier for the campaign.
+    campaignId :: Prelude.Text,
+    -- | The unique identifier for the application. This identifier is displayed
+    -- as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Prelude.Text,
+    writeCampaignRequest :: WriteCampaignRequest
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
+-- |
+-- Create a value of 'UpdateCampaign' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'campaignId', 'updateCampaign_campaignId' - The unique identifier for the campaign.
+--
+-- 'applicationId', 'updateCampaign_applicationId' - The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+--
+-- 'writeCampaignRequest', 'updateCampaign_writeCampaignRequest' - Undocumented member.
+newUpdateCampaign ::
+  -- | 'campaignId'
+  Prelude.Text ->
+  -- | 'applicationId'
+  Prelude.Text ->
+  -- | 'writeCampaignRequest'
+  WriteCampaignRequest ->
+  UpdateCampaign
+newUpdateCampaign
+  pCampaignId_
+  pApplicationId_
+  pWriteCampaignRequest_ =
+    UpdateCampaign'
+      { campaignId = pCampaignId_,
+        applicationId = pApplicationId_,
+        writeCampaignRequest = pWriteCampaignRequest_
+      }
 
--- | Creates a value of 'UpdateCampaign' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'ucCampaignId' - Undocumented member.
---
--- * 'ucApplicationId' - Undocumented member.
---
--- * 'ucWriteCampaignRequest' - Undocumented member.
-updateCampaign
-    :: Text -- ^ 'ucCampaignId'
-    -> Text -- ^ 'ucApplicationId'
-    -> WriteCampaignRequest -- ^ 'ucWriteCampaignRequest'
-    -> UpdateCampaign
-updateCampaign pCampaignId_ pApplicationId_ pWriteCampaignRequest_ =
-  UpdateCampaign'
-    { _ucCampaignId = pCampaignId_
-    , _ucApplicationId = pApplicationId_
-    , _ucWriteCampaignRequest = pWriteCampaignRequest_
-    }
+-- | The unique identifier for the campaign.
+updateCampaign_campaignId :: Lens.Lens' UpdateCampaign Prelude.Text
+updateCampaign_campaignId = Lens.lens (\UpdateCampaign' {campaignId} -> campaignId) (\s@UpdateCampaign' {} a -> s {campaignId = a} :: UpdateCampaign)
 
+-- | The unique identifier for the application. This identifier is displayed
+-- as the __Project ID__ on the Amazon Pinpoint console.
+updateCampaign_applicationId :: Lens.Lens' UpdateCampaign Prelude.Text
+updateCampaign_applicationId = Lens.lens (\UpdateCampaign' {applicationId} -> applicationId) (\s@UpdateCampaign' {} a -> s {applicationId = a} :: UpdateCampaign)
 
 -- | Undocumented member.
-ucCampaignId :: Lens' UpdateCampaign Text
-ucCampaignId = lens _ucCampaignId (\ s a -> s{_ucCampaignId = a})
+updateCampaign_writeCampaignRequest :: Lens.Lens' UpdateCampaign WriteCampaignRequest
+updateCampaign_writeCampaignRequest = Lens.lens (\UpdateCampaign' {writeCampaignRequest} -> writeCampaignRequest) (\s@UpdateCampaign' {} a -> s {writeCampaignRequest = a} :: UpdateCampaign)
 
--- | Undocumented member.
-ucApplicationId :: Lens' UpdateCampaign Text
-ucApplicationId = lens _ucApplicationId (\ s a -> s{_ucApplicationId = a})
+instance Prelude.AWSRequest UpdateCampaign where
+  type Rs UpdateCampaign = UpdateCampaignResponse
+  request = Request.putJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateCampaignResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (Prelude.eitherParseJSON x)
+      )
 
--- | Undocumented member.
-ucWriteCampaignRequest :: Lens' UpdateCampaign WriteCampaignRequest
-ucWriteCampaignRequest = lens _ucWriteCampaignRequest (\ s a -> s{_ucWriteCampaignRequest = a})
+instance Prelude.Hashable UpdateCampaign
 
-instance AWSRequest UpdateCampaign where
-        type Rs UpdateCampaign = UpdateCampaignResponse
-        request = putJSON pinpoint
-        response
-          = receiveJSON
-              (\ s h x ->
-                 UpdateCampaignResponse' <$>
-                   (pure (fromEnum s)) <*> (eitherParseJSON x))
+instance Prelude.NFData UpdateCampaign
 
-instance Hashable UpdateCampaign where
+instance Prelude.ToHeaders UpdateCampaign where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance NFData UpdateCampaign where
+instance Prelude.ToJSON UpdateCampaign where
+  toJSON UpdateCampaign' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ( "WriteCampaignRequest"
+                  Prelude..= writeCampaignRequest
+              )
+          ]
+      )
 
-instance ToHeaders UpdateCampaign where
-        toHeaders
-          = const
-              (mconcat
-                 ["Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToPath UpdateCampaign where
+  toPath UpdateCampaign' {..} =
+    Prelude.mconcat
+      [ "/v1/apps/",
+        Prelude.toBS applicationId,
+        "/campaigns/",
+        Prelude.toBS campaignId
+      ]
 
-instance ToJSON UpdateCampaign where
-        toJSON UpdateCampaign'{..}
-          = object
-              (catMaybes
-                 [Just
-                    ("WriteCampaignRequest" .= _ucWriteCampaignRequest)])
+instance Prelude.ToQuery UpdateCampaign where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToPath UpdateCampaign where
-        toPath UpdateCampaign'{..}
-          = mconcat
-              ["/v1/apps/", toBS _ucApplicationId, "/campaigns/",
-               toBS _ucCampaignId]
-
-instance ToQuery UpdateCampaign where
-        toQuery = const mempty
-
--- | /See:/ 'updateCampaignResponse' smart constructor.
+-- | /See:/ 'newUpdateCampaignResponse' smart constructor.
 data UpdateCampaignResponse = UpdateCampaignResponse'
-  { _ucrsResponseStatus   :: !Int
-  , _ucrsCampaignResponse :: !CampaignResponse
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    campaignResponse :: CampaignResponse
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateCampaignResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateCampaignResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ucrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ucrsCampaignResponse' - Undocumented member.
-updateCampaignResponse
-    :: Int -- ^ 'ucrsResponseStatus'
-    -> CampaignResponse -- ^ 'ucrsCampaignResponse'
-    -> UpdateCampaignResponse
-updateCampaignResponse pResponseStatus_ pCampaignResponse_ =
-  UpdateCampaignResponse'
-    { _ucrsResponseStatus = pResponseStatus_
-    , _ucrsCampaignResponse = pCampaignResponse_
-    }
+-- 'httpStatus', 'updateCampaignResponse_httpStatus' - The response's http status code.
+--
+-- 'campaignResponse', 'updateCampaignResponse_campaignResponse' - Undocumented member.
+newUpdateCampaignResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'campaignResponse'
+  CampaignResponse ->
+  UpdateCampaignResponse
+newUpdateCampaignResponse
+  pHttpStatus_
+  pCampaignResponse_ =
+    UpdateCampaignResponse'
+      { httpStatus = pHttpStatus_,
+        campaignResponse = pCampaignResponse_
+      }
 
-
--- | -- | The response status code.
-ucrsResponseStatus :: Lens' UpdateCampaignResponse Int
-ucrsResponseStatus = lens _ucrsResponseStatus (\ s a -> s{_ucrsResponseStatus = a})
+-- | The response's http status code.
+updateCampaignResponse_httpStatus :: Lens.Lens' UpdateCampaignResponse Prelude.Int
+updateCampaignResponse_httpStatus = Lens.lens (\UpdateCampaignResponse' {httpStatus} -> httpStatus) (\s@UpdateCampaignResponse' {} a -> s {httpStatus = a} :: UpdateCampaignResponse)
 
 -- | Undocumented member.
-ucrsCampaignResponse :: Lens' UpdateCampaignResponse CampaignResponse
-ucrsCampaignResponse = lens _ucrsCampaignResponse (\ s a -> s{_ucrsCampaignResponse = a})
+updateCampaignResponse_campaignResponse :: Lens.Lens' UpdateCampaignResponse CampaignResponse
+updateCampaignResponse_campaignResponse = Lens.lens (\UpdateCampaignResponse' {campaignResponse} -> campaignResponse) (\s@UpdateCampaignResponse' {} a -> s {campaignResponse = a} :: UpdateCampaignResponse)
 
-instance NFData UpdateCampaignResponse where
+instance Prelude.NFData UpdateCampaignResponse

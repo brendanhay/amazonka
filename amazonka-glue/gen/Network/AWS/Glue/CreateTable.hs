@@ -1,146 +1,194 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glue.CreateTable
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Creates a new table definition in the Data Catalog.
---
---
 module Network.AWS.Glue.CreateTable
-    (
-    -- * Creating a Request
-      createTable
-    , CreateTable
+  ( -- * Creating a Request
+    CreateTable (..),
+    newCreateTable,
+
     -- * Request Lenses
-    , ctCatalogId
-    , ctDatabaseName
-    , ctTableInput
+    createTable_catalogId,
+    createTable_partitionIndexes,
+    createTable_databaseName,
+    createTable_tableInput,
 
     -- * Destructuring the Response
-    , createTableResponse
-    , CreateTableResponse
+    CreateTableResponse (..),
+    newCreateTableResponse,
+
     -- * Response Lenses
-    , cttrsResponseStatus
-    ) where
+    createTableResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Glue.Types
-import Network.AWS.Glue.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createTable' smart constructor.
+-- | /See:/ 'newCreateTable' smart constructor.
 data CreateTable = CreateTable'
-  { _ctCatalogId    :: !(Maybe Text)
-  , _ctDatabaseName :: !Text
-  , _ctTableInput   :: !TableInput
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The ID of the Data Catalog in which to create the @Table@. If none is
+    -- supplied, the AWS account ID is used by default.
+    catalogId :: Prelude.Maybe Prelude.Text,
+    -- | A list of partition indexes, @PartitionIndex@ structures, to create in
+    -- the table.
+    partitionIndexes :: Prelude.Maybe [PartitionIndex],
+    -- | The catalog database in which to create the new table. For Hive
+    -- compatibility, this name is entirely lowercase.
+    databaseName :: Prelude.Text,
+    -- | The @TableInput@ object that defines the metadata table to create in the
+    -- catalog.
+    tableInput :: TableInput
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateTable' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateTable' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ctCatalogId' - The ID of the Data Catalog in which to create the @Table@ . If none is supplied, the AWS account ID is used by default.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ctDatabaseName' - The catalog database in which to create the new table. For Hive compatibility, this name is entirely lowercase.
+-- 'catalogId', 'createTable_catalogId' - The ID of the Data Catalog in which to create the @Table@. If none is
+-- supplied, the AWS account ID is used by default.
 --
--- * 'ctTableInput' - The @TableInput@ object that defines the metadata table to create in the catalog.
-createTable
-    :: Text -- ^ 'ctDatabaseName'
-    -> TableInput -- ^ 'ctTableInput'
-    -> CreateTable
-createTable pDatabaseName_ pTableInput_ =
+-- 'partitionIndexes', 'createTable_partitionIndexes' - A list of partition indexes, @PartitionIndex@ structures, to create in
+-- the table.
+--
+-- 'databaseName', 'createTable_databaseName' - The catalog database in which to create the new table. For Hive
+-- compatibility, this name is entirely lowercase.
+--
+-- 'tableInput', 'createTable_tableInput' - The @TableInput@ object that defines the metadata table to create in the
+-- catalog.
+newCreateTable ::
+  -- | 'databaseName'
+  Prelude.Text ->
+  -- | 'tableInput'
+  TableInput ->
+  CreateTable
+newCreateTable pDatabaseName_ pTableInput_ =
   CreateTable'
-    { _ctCatalogId = Nothing
-    , _ctDatabaseName = pDatabaseName_
-    , _ctTableInput = pTableInput_
+    { catalogId = Prelude.Nothing,
+      partitionIndexes = Prelude.Nothing,
+      databaseName = pDatabaseName_,
+      tableInput = pTableInput_
     }
 
+-- | The ID of the Data Catalog in which to create the @Table@. If none is
+-- supplied, the AWS account ID is used by default.
+createTable_catalogId :: Lens.Lens' CreateTable (Prelude.Maybe Prelude.Text)
+createTable_catalogId = Lens.lens (\CreateTable' {catalogId} -> catalogId) (\s@CreateTable' {} a -> s {catalogId = a} :: CreateTable)
 
--- | The ID of the Data Catalog in which to create the @Table@ . If none is supplied, the AWS account ID is used by default.
-ctCatalogId :: Lens' CreateTable (Maybe Text)
-ctCatalogId = lens _ctCatalogId (\ s a -> s{_ctCatalogId = a})
+-- | A list of partition indexes, @PartitionIndex@ structures, to create in
+-- the table.
+createTable_partitionIndexes :: Lens.Lens' CreateTable (Prelude.Maybe [PartitionIndex])
+createTable_partitionIndexes = Lens.lens (\CreateTable' {partitionIndexes} -> partitionIndexes) (\s@CreateTable' {} a -> s {partitionIndexes = a} :: CreateTable) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The catalog database in which to create the new table. For Hive compatibility, this name is entirely lowercase.
-ctDatabaseName :: Lens' CreateTable Text
-ctDatabaseName = lens _ctDatabaseName (\ s a -> s{_ctDatabaseName = a})
+-- | The catalog database in which to create the new table. For Hive
+-- compatibility, this name is entirely lowercase.
+createTable_databaseName :: Lens.Lens' CreateTable Prelude.Text
+createTable_databaseName = Lens.lens (\CreateTable' {databaseName} -> databaseName) (\s@CreateTable' {} a -> s {databaseName = a} :: CreateTable)
 
--- | The @TableInput@ object that defines the metadata table to create in the catalog.
-ctTableInput :: Lens' CreateTable TableInput
-ctTableInput = lens _ctTableInput (\ s a -> s{_ctTableInput = a})
+-- | The @TableInput@ object that defines the metadata table to create in the
+-- catalog.
+createTable_tableInput :: Lens.Lens' CreateTable TableInput
+createTable_tableInput = Lens.lens (\CreateTable' {tableInput} -> tableInput) (\s@CreateTable' {} a -> s {tableInput = a} :: CreateTable)
 
-instance AWSRequest CreateTable where
-        type Rs CreateTable = CreateTableResponse
-        request = postJSON glue
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 CreateTableResponse' <$> (pure (fromEnum s)))
+instance Prelude.AWSRequest CreateTable where
+  type Rs CreateTable = CreateTableResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          CreateTableResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateTable where
+instance Prelude.Hashable CreateTable
 
-instance NFData CreateTable where
+instance Prelude.NFData CreateTable
 
-instance ToHeaders CreateTable where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSGlue.CreateTable" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders CreateTable where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ("AWSGlue.CreateTable" :: Prelude.ByteString),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON CreateTable where
-        toJSON CreateTable'{..}
-          = object
-              (catMaybes
-                 [("CatalogId" .=) <$> _ctCatalogId,
-                  Just ("DatabaseName" .= _ctDatabaseName),
-                  Just ("TableInput" .= _ctTableInput)])
+instance Prelude.ToJSON CreateTable where
+  toJSON CreateTable' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("CatalogId" Prelude..=) Prelude.<$> catalogId,
+            ("PartitionIndexes" Prelude..=)
+              Prelude.<$> partitionIndexes,
+            Prelude.Just
+              ("DatabaseName" Prelude..= databaseName),
+            Prelude.Just ("TableInput" Prelude..= tableInput)
+          ]
+      )
 
-instance ToPath CreateTable where
-        toPath = const "/"
+instance Prelude.ToPath CreateTable where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateTable where
-        toQuery = const mempty
+instance Prelude.ToQuery CreateTable where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createTableResponse' smart constructor.
-newtype CreateTableResponse = CreateTableResponse'
-  { _cttrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCreateTableResponse' smart constructor.
+data CreateTableResponse = CreateTableResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateTableResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateTableResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cttrsResponseStatus' - -- | The response status code.
-createTableResponse
-    :: Int -- ^ 'cttrsResponseStatus'
-    -> CreateTableResponse
-createTableResponse pResponseStatus_ =
-  CreateTableResponse' {_cttrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'createTableResponse_httpStatus' - The response's http status code.
+newCreateTableResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateTableResponse
+newCreateTableResponse pHttpStatus_ =
+  CreateTableResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+createTableResponse_httpStatus :: Lens.Lens' CreateTableResponse Prelude.Int
+createTableResponse_httpStatus = Lens.lens (\CreateTableResponse' {httpStatus} -> httpStatus) (\s@CreateTableResponse' {} a -> s {httpStatus = a} :: CreateTableResponse)
 
--- | -- | The response status code.
-cttrsResponseStatus :: Lens' CreateTableResponse Int
-cttrsResponseStatus = lens _cttrsResponseStatus (\ s a -> s{_cttrsResponseStatus = a})
-
-instance NFData CreateTableResponse where
+instance Prelude.NFData CreateTableResponse

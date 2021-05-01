@@ -1,173 +1,239 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Route53.DisassociateVPCFromHostedZone
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Disassociates a VPC from a Amazon Route 53 private hosted zone.
+-- Disassociates an Amazon Virtual Private Cloud (Amazon VPC) from an
+-- Amazon Route 53 private hosted zone. Note the following:
 --
+-- -   You can\'t disassociate the last Amazon VPC from a private hosted
+--     zone.
 --
--- /Important:/ You can't disassociate a VPC from a private hosted zone when only one VPC is associated with the hosted zone. You also can't convert a private hosted zone into a public hosted zone.
+-- -   You can\'t convert a private hosted zone into a public hosted zone.
 --
+-- -   You can submit a @DisassociateVPCFromHostedZone@ request using
+--     either the account that created the hosted zone or the account that
+--     created the Amazon VPC.
+--
+-- -   Some services, such as AWS Cloud Map and Amazon Elastic File System
+--     (Amazon EFS) automatically create hosted zones and associate VPCs
+--     with the hosted zones. A service can create a hosted zone using your
+--     account or using its own account. You can disassociate a VPC from a
+--     hosted zone only if the service created the hosted zone using your
+--     account.
+--
+--     When you run
+--     <https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListHostedZonesByVPC.html DisassociateVPCFromHostedZone>,
+--     if the hosted zone has a value for @OwningAccount@, you can use
+--     @DisassociateVPCFromHostedZone@. If the hosted zone has a value for
+--     @OwningService@, you can\'t use @DisassociateVPCFromHostedZone@.
 module Network.AWS.Route53.DisassociateVPCFromHostedZone
-    (
-    -- * Creating a Request
-      disassociateVPCFromHostedZone
-    , DisassociateVPCFromHostedZone
+  ( -- * Creating a Request
+    DisassociateVPCFromHostedZone (..),
+    newDisassociateVPCFromHostedZone,
+
     -- * Request Lenses
-    , dvfhzComment
-    , dvfhzHostedZoneId
-    , dvfhzVPC
+    disassociateVPCFromHostedZone_comment,
+    disassociateVPCFromHostedZone_hostedZoneId,
+    disassociateVPCFromHostedZone_vpc,
 
     -- * Destructuring the Response
-    , disassociateVPCFromHostedZoneResponse
-    , DisassociateVPCFromHostedZoneResponse
+    DisassociateVPCFromHostedZoneResponse (..),
+    newDisassociateVPCFromHostedZoneResponse,
+
     -- * Response Lenses
-    , dvfhzrsResponseStatus
-    , dvfhzrsChangeInfo
-    ) where
+    disassociateVPCFromHostedZoneResponse_httpStatus,
+    disassociateVPCFromHostedZoneResponse_changeInfo,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.Route53.Types
-import Network.AWS.Route53.Types.Product
 
--- | A complex type that contains information about the VPC that you want to disassociate from a specified private hosted zone.
+-- | A complex type that contains information about the VPC that you want to
+-- disassociate from a specified private hosted zone.
 --
---
---
--- /See:/ 'disassociateVPCFromHostedZone' smart constructor.
+-- /See:/ 'newDisassociateVPCFromHostedZone' smart constructor.
 data DisassociateVPCFromHostedZone = DisassociateVPCFromHostedZone'
-  { _dvfhzComment      :: !(Maybe Text)
-  , _dvfhzHostedZoneId :: !ResourceId
-  , _dvfhzVPC          :: !VPC
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | /Optional:/ A comment about the disassociation request.
+    comment :: Prelude.Maybe Prelude.Text,
+    -- | The ID of the private hosted zone that you want to disassociate a VPC
+    -- from.
+    hostedZoneId :: ResourceId,
+    -- | A complex type that contains information about the VPC that you\'re
+    -- disassociating from the specified hosted zone.
+    vpc :: VPC
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DisassociateVPCFromHostedZone' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DisassociateVPCFromHostedZone' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dvfhzComment' - /Optional:/ A comment about the disassociation request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dvfhzHostedZoneId' - The ID of the private hosted zone that you want to disassociate a VPC from.
+-- 'comment', 'disassociateVPCFromHostedZone_comment' - /Optional:/ A comment about the disassociation request.
 --
--- * 'dvfhzVPC' - A complex type that contains information about the VPC that you're disassociating from the specified hosted zone.
-disassociateVPCFromHostedZone
-    :: ResourceId -- ^ 'dvfhzHostedZoneId'
-    -> VPC -- ^ 'dvfhzVPC'
-    -> DisassociateVPCFromHostedZone
-disassociateVPCFromHostedZone pHostedZoneId_ pVPC_ =
+-- 'hostedZoneId', 'disassociateVPCFromHostedZone_hostedZoneId' - The ID of the private hosted zone that you want to disassociate a VPC
+-- from.
+--
+-- 'vpc', 'disassociateVPCFromHostedZone_vpc' - A complex type that contains information about the VPC that you\'re
+-- disassociating from the specified hosted zone.
+newDisassociateVPCFromHostedZone ::
+  -- | 'hostedZoneId'
+  ResourceId ->
+  -- | 'vpc'
+  VPC ->
+  DisassociateVPCFromHostedZone
+newDisassociateVPCFromHostedZone pHostedZoneId_ pVPC_ =
   DisassociateVPCFromHostedZone'
-    { _dvfhzComment = Nothing
-    , _dvfhzHostedZoneId = pHostedZoneId_
-    , _dvfhzVPC = pVPC_
+    { comment =
+        Prelude.Nothing,
+      hostedZoneId = pHostedZoneId_,
+      vpc = pVPC_
     }
-
 
 -- | /Optional:/ A comment about the disassociation request.
-dvfhzComment :: Lens' DisassociateVPCFromHostedZone (Maybe Text)
-dvfhzComment = lens _dvfhzComment (\ s a -> s{_dvfhzComment = a})
+disassociateVPCFromHostedZone_comment :: Lens.Lens' DisassociateVPCFromHostedZone (Prelude.Maybe Prelude.Text)
+disassociateVPCFromHostedZone_comment = Lens.lens (\DisassociateVPCFromHostedZone' {comment} -> comment) (\s@DisassociateVPCFromHostedZone' {} a -> s {comment = a} :: DisassociateVPCFromHostedZone)
 
--- | The ID of the private hosted zone that you want to disassociate a VPC from.
-dvfhzHostedZoneId :: Lens' DisassociateVPCFromHostedZone ResourceId
-dvfhzHostedZoneId = lens _dvfhzHostedZoneId (\ s a -> s{_dvfhzHostedZoneId = a})
+-- | The ID of the private hosted zone that you want to disassociate a VPC
+-- from.
+disassociateVPCFromHostedZone_hostedZoneId :: Lens.Lens' DisassociateVPCFromHostedZone ResourceId
+disassociateVPCFromHostedZone_hostedZoneId = Lens.lens (\DisassociateVPCFromHostedZone' {hostedZoneId} -> hostedZoneId) (\s@DisassociateVPCFromHostedZone' {} a -> s {hostedZoneId = a} :: DisassociateVPCFromHostedZone)
 
--- | A complex type that contains information about the VPC that you're disassociating from the specified hosted zone.
-dvfhzVPC :: Lens' DisassociateVPCFromHostedZone VPC
-dvfhzVPC = lens _dvfhzVPC (\ s a -> s{_dvfhzVPC = a})
+-- | A complex type that contains information about the VPC that you\'re
+-- disassociating from the specified hosted zone.
+disassociateVPCFromHostedZone_vpc :: Lens.Lens' DisassociateVPCFromHostedZone VPC
+disassociateVPCFromHostedZone_vpc = Lens.lens (\DisassociateVPCFromHostedZone' {vpc} -> vpc) (\s@DisassociateVPCFromHostedZone' {} a -> s {vpc = a} :: DisassociateVPCFromHostedZone)
 
-instance AWSRequest DisassociateVPCFromHostedZone
-         where
-        type Rs DisassociateVPCFromHostedZone =
-             DisassociateVPCFromHostedZoneResponse
-        request = postXML route53
-        response
-          = receiveXML
-              (\ s h x ->
-                 DisassociateVPCFromHostedZoneResponse' <$>
-                   (pure (fromEnum s)) <*> (x .@ "ChangeInfo"))
+instance
+  Prelude.AWSRequest
+    DisassociateVPCFromHostedZone
+  where
+  type
+    Rs DisassociateVPCFromHostedZone =
+      DisassociateVPCFromHostedZoneResponse
+  request = Request.postXML defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          DisassociateVPCFromHostedZoneResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Prelude..@ "ChangeInfo")
+      )
 
-instance Hashable DisassociateVPCFromHostedZone where
+instance
+  Prelude.Hashable
+    DisassociateVPCFromHostedZone
 
-instance NFData DisassociateVPCFromHostedZone where
+instance Prelude.NFData DisassociateVPCFromHostedZone
 
-instance ToElement DisassociateVPCFromHostedZone
-         where
-        toElement
-          = mkElement
-              "{https://route53.amazonaws.com/doc/2013-04-01/}DisassociateVPCFromHostedZoneRequest"
+instance
+  Prelude.ToElement
+    DisassociateVPCFromHostedZone
+  where
+  toElement =
+    Prelude.mkElement
+      "{https://route53.amazonaws.com/doc/2013-04-01/}DisassociateVPCFromHostedZoneRequest"
 
-instance ToHeaders DisassociateVPCFromHostedZone
-         where
-        toHeaders = const mempty
+instance
+  Prelude.ToHeaders
+    DisassociateVPCFromHostedZone
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath DisassociateVPCFromHostedZone where
-        toPath DisassociateVPCFromHostedZone'{..}
-          = mconcat
-              ["/2013-04-01/hostedzone/", toBS _dvfhzHostedZoneId,
-               "/disassociatevpc"]
+instance Prelude.ToPath DisassociateVPCFromHostedZone where
+  toPath DisassociateVPCFromHostedZone' {..} =
+    Prelude.mconcat
+      [ "/2013-04-01/hostedzone/",
+        Prelude.toBS hostedZoneId,
+        "/disassociatevpc"
+      ]
 
-instance ToQuery DisassociateVPCFromHostedZone where
-        toQuery = const mempty
+instance
+  Prelude.ToQuery
+    DisassociateVPCFromHostedZone
+  where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToXML DisassociateVPCFromHostedZone where
-        toXML DisassociateVPCFromHostedZone'{..}
-          = mconcat
-              ["Comment" @= _dvfhzComment, "VPC" @= _dvfhzVPC]
+instance Prelude.ToXML DisassociateVPCFromHostedZone where
+  toXML DisassociateVPCFromHostedZone' {..} =
+    Prelude.mconcat
+      ["Comment" Prelude.@= comment, "VPC" Prelude.@= vpc]
 
--- | A complex type that contains the response information for the disassociate request.
+-- | A complex type that contains the response information for the
+-- disassociate request.
 --
---
---
--- /See:/ 'disassociateVPCFromHostedZoneResponse' smart constructor.
+-- /See:/ 'newDisassociateVPCFromHostedZoneResponse' smart constructor.
 data DisassociateVPCFromHostedZoneResponse = DisassociateVPCFromHostedZoneResponse'
-  { _dvfhzrsResponseStatus :: !Int
-  , _dvfhzrsChangeInfo     :: !ChangeInfo
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | A complex type that describes the changes made to the specified private
+    -- hosted zone.
+    changeInfo :: ChangeInfo
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DisassociateVPCFromHostedZoneResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DisassociateVPCFromHostedZoneResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dvfhzrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dvfhzrsChangeInfo' - A complex type that describes the changes made to the specified private hosted zone.
-disassociateVPCFromHostedZoneResponse
-    :: Int -- ^ 'dvfhzrsResponseStatus'
-    -> ChangeInfo -- ^ 'dvfhzrsChangeInfo'
-    -> DisassociateVPCFromHostedZoneResponse
-disassociateVPCFromHostedZoneResponse pResponseStatus_ pChangeInfo_ =
-  DisassociateVPCFromHostedZoneResponse'
-    { _dvfhzrsResponseStatus = pResponseStatus_
-    , _dvfhzrsChangeInfo = pChangeInfo_
-    }
+-- 'httpStatus', 'disassociateVPCFromHostedZoneResponse_httpStatus' - The response's http status code.
+--
+-- 'changeInfo', 'disassociateVPCFromHostedZoneResponse_changeInfo' - A complex type that describes the changes made to the specified private
+-- hosted zone.
+newDisassociateVPCFromHostedZoneResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'changeInfo'
+  ChangeInfo ->
+  DisassociateVPCFromHostedZoneResponse
+newDisassociateVPCFromHostedZoneResponse
+  pHttpStatus_
+  pChangeInfo_ =
+    DisassociateVPCFromHostedZoneResponse'
+      { httpStatus =
+          pHttpStatus_,
+        changeInfo = pChangeInfo_
+      }
 
+-- | The response's http status code.
+disassociateVPCFromHostedZoneResponse_httpStatus :: Lens.Lens' DisassociateVPCFromHostedZoneResponse Prelude.Int
+disassociateVPCFromHostedZoneResponse_httpStatus = Lens.lens (\DisassociateVPCFromHostedZoneResponse' {httpStatus} -> httpStatus) (\s@DisassociateVPCFromHostedZoneResponse' {} a -> s {httpStatus = a} :: DisassociateVPCFromHostedZoneResponse)
 
--- | -- | The response status code.
-dvfhzrsResponseStatus :: Lens' DisassociateVPCFromHostedZoneResponse Int
-dvfhzrsResponseStatus = lens _dvfhzrsResponseStatus (\ s a -> s{_dvfhzrsResponseStatus = a})
+-- | A complex type that describes the changes made to the specified private
+-- hosted zone.
+disassociateVPCFromHostedZoneResponse_changeInfo :: Lens.Lens' DisassociateVPCFromHostedZoneResponse ChangeInfo
+disassociateVPCFromHostedZoneResponse_changeInfo = Lens.lens (\DisassociateVPCFromHostedZoneResponse' {changeInfo} -> changeInfo) (\s@DisassociateVPCFromHostedZoneResponse' {} a -> s {changeInfo = a} :: DisassociateVPCFromHostedZoneResponse)
 
--- | A complex type that describes the changes made to the specified private hosted zone.
-dvfhzrsChangeInfo :: Lens' DisassociateVPCFromHostedZoneResponse ChangeInfo
-dvfhzrsChangeInfo = lens _dvfhzrsChangeInfo (\ s a -> s{_dvfhzrsChangeInfo = a})
-
-instance NFData DisassociateVPCFromHostedZoneResponse
-         where
+instance
+  Prelude.NFData
+    DisassociateVPCFromHostedZoneResponse

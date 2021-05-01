@@ -1,208 +1,314 @@
-name:                  amazonka-iam
-version:               1.6.1
-synopsis:              Amazon Identity and Access Management SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-iam
+version:            1.6.1
+synopsis:           Amazon Identity and Access Management SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.IAM" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.IAM.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.IAM" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-iam
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-iam
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.IAM
+    Network.AWS.IAM.AddClientIDToOpenIDConnectProvider
+    Network.AWS.IAM.AddRoleToInstanceProfile
+    Network.AWS.IAM.AddUserToGroup
+    Network.AWS.IAM.AttachGroupPolicy
+    Network.AWS.IAM.AttachRolePolicy
+    Network.AWS.IAM.AttachUserPolicy
+    Network.AWS.IAM.ChangePassword
+    Network.AWS.IAM.CreateAccessKey
+    Network.AWS.IAM.CreateAccountAlias
+    Network.AWS.IAM.CreateGroup
+    Network.AWS.IAM.CreateInstanceProfile
+    Network.AWS.IAM.CreateLoginProfile
+    Network.AWS.IAM.CreateOpenIDConnectProvider
+    Network.AWS.IAM.CreatePolicy
+    Network.AWS.IAM.CreatePolicyVersion
+    Network.AWS.IAM.CreateRole
+    Network.AWS.IAM.CreateSAMLProvider
+    Network.AWS.IAM.CreateServiceLinkedRole
+    Network.AWS.IAM.CreateServiceSpecificCredential
+    Network.AWS.IAM.CreateUser
+    Network.AWS.IAM.CreateVirtualMFADevice
+    Network.AWS.IAM.DeactivateMFADevice
+    Network.AWS.IAM.DeleteAccessKey
+    Network.AWS.IAM.DeleteAccountAlias
+    Network.AWS.IAM.DeleteAccountPasswordPolicy
+    Network.AWS.IAM.DeleteGroup
+    Network.AWS.IAM.DeleteGroupPolicy
+    Network.AWS.IAM.DeleteInstanceProfile
+    Network.AWS.IAM.DeleteLoginProfile
+    Network.AWS.IAM.DeleteOpenIDConnectProvider
+    Network.AWS.IAM.DeletePolicy
+    Network.AWS.IAM.DeletePolicyVersion
+    Network.AWS.IAM.DeleteRole
+    Network.AWS.IAM.DeleteRolePermissionsBoundary
+    Network.AWS.IAM.DeleteRolePolicy
+    Network.AWS.IAM.DeleteSAMLProvider
+    Network.AWS.IAM.DeleteServerCertificate
+    Network.AWS.IAM.DeleteServiceLinkedRole
+    Network.AWS.IAM.DeleteServiceSpecificCredential
+    Network.AWS.IAM.DeleteSigningCertificate
+    Network.AWS.IAM.DeleteSSHPublicKey
+    Network.AWS.IAM.DeleteUser
+    Network.AWS.IAM.DeleteUserPermissionsBoundary
+    Network.AWS.IAM.DeleteUserPolicy
+    Network.AWS.IAM.DeleteVirtualMFADevice
+    Network.AWS.IAM.DetachGroupPolicy
+    Network.AWS.IAM.DetachRolePolicy
+    Network.AWS.IAM.DetachUserPolicy
+    Network.AWS.IAM.EnableMFADevice
+    Network.AWS.IAM.GenerateCredentialReport
+    Network.AWS.IAM.GenerateOrganizationsAccessReport
+    Network.AWS.IAM.GenerateServiceLastAccessedDetails
+    Network.AWS.IAM.GetAccessKeyLastUsed
+    Network.AWS.IAM.GetAccountAuthorizationDetails
+    Network.AWS.IAM.GetAccountPasswordPolicy
+    Network.AWS.IAM.GetAccountSummary
+    Network.AWS.IAM.GetContextKeysForCustomPolicy
+    Network.AWS.IAM.GetContextKeysForPrincipalPolicy
+    Network.AWS.IAM.GetCredentialReport
+    Network.AWS.IAM.GetGroup
+    Network.AWS.IAM.GetGroupPolicy
+    Network.AWS.IAM.GetInstanceProfile
+    Network.AWS.IAM.GetLoginProfile
+    Network.AWS.IAM.GetOpenIDConnectProvider
+    Network.AWS.IAM.GetOrganizationsAccessReport
+    Network.AWS.IAM.GetPolicy
+    Network.AWS.IAM.GetPolicyVersion
+    Network.AWS.IAM.GetRole
+    Network.AWS.IAM.GetRolePolicy
+    Network.AWS.IAM.GetSAMLProvider
+    Network.AWS.IAM.GetServerCertificate
+    Network.AWS.IAM.GetServiceLastAccessedDetails
+    Network.AWS.IAM.GetServiceLastAccessedDetailsWithEntities
+    Network.AWS.IAM.GetServiceLinkedRoleDeletionStatus
+    Network.AWS.IAM.GetSSHPublicKey
+    Network.AWS.IAM.GetUser
+    Network.AWS.IAM.GetUserPolicy
+    Network.AWS.IAM.Lens
+    Network.AWS.IAM.ListAccessKeys
+    Network.AWS.IAM.ListAccountAliases
+    Network.AWS.IAM.ListAttachedGroupPolicies
+    Network.AWS.IAM.ListAttachedRolePolicies
+    Network.AWS.IAM.ListAttachedUserPolicies
+    Network.AWS.IAM.ListEntitiesForPolicy
+    Network.AWS.IAM.ListGroupPolicies
+    Network.AWS.IAM.ListGroups
+    Network.AWS.IAM.ListGroupsForUser
+    Network.AWS.IAM.ListInstanceProfiles
+    Network.AWS.IAM.ListInstanceProfilesForRole
+    Network.AWS.IAM.ListInstanceProfileTags
+    Network.AWS.IAM.ListMFADevices
+    Network.AWS.IAM.ListMFADeviceTags
+    Network.AWS.IAM.ListOpenIDConnectProviders
+    Network.AWS.IAM.ListOpenIDConnectProviderTags
+    Network.AWS.IAM.ListPolicies
+    Network.AWS.IAM.ListPoliciesGrantingServiceAccess
+    Network.AWS.IAM.ListPolicyTags
+    Network.AWS.IAM.ListPolicyVersions
+    Network.AWS.IAM.ListRolePolicies
+    Network.AWS.IAM.ListRoles
+    Network.AWS.IAM.ListRoleTags
+    Network.AWS.IAM.ListSAMLProviders
+    Network.AWS.IAM.ListSAMLProviderTags
+    Network.AWS.IAM.ListServerCertificates
+    Network.AWS.IAM.ListServerCertificateTags
+    Network.AWS.IAM.ListServiceSpecificCredentials
+    Network.AWS.IAM.ListSigningCertificates
+    Network.AWS.IAM.ListSSHPublicKeys
+    Network.AWS.IAM.ListUserPolicies
+    Network.AWS.IAM.ListUsers
+    Network.AWS.IAM.ListUserTags
+    Network.AWS.IAM.ListVirtualMFADevices
+    Network.AWS.IAM.PutGroupPolicy
+    Network.AWS.IAM.PutRolePermissionsBoundary
+    Network.AWS.IAM.PutRolePolicy
+    Network.AWS.IAM.PutUserPermissionsBoundary
+    Network.AWS.IAM.PutUserPolicy
+    Network.AWS.IAM.RemoveClientIDFromOpenIDConnectProvider
+    Network.AWS.IAM.RemoveRoleFromInstanceProfile
+    Network.AWS.IAM.RemoveUserFromGroup
+    Network.AWS.IAM.ResetServiceSpecificCredential
+    Network.AWS.IAM.ResyncMFADevice
+    Network.AWS.IAM.SetDefaultPolicyVersion
+    Network.AWS.IAM.SetSecurityTokenServicePreferences
+    Network.AWS.IAM.SimulateCustomPolicy
+    Network.AWS.IAM.SimulatePrincipalPolicy
+    Network.AWS.IAM.TagInstanceProfile
+    Network.AWS.IAM.TagMFADevice
+    Network.AWS.IAM.TagOpenIDConnectProvider
+    Network.AWS.IAM.TagPolicy
+    Network.AWS.IAM.TagRole
+    Network.AWS.IAM.TagSAMLProvider
+    Network.AWS.IAM.TagServerCertificate
+    Network.AWS.IAM.TagUser
+    Network.AWS.IAM.Types
+    Network.AWS.IAM.Types.AccessAdvisorUsageGranularityType
+    Network.AWS.IAM.Types.AccessDetail
+    Network.AWS.IAM.Types.AccessKeyInfo
+    Network.AWS.IAM.Types.AccessKeyLastUsed
+    Network.AWS.IAM.Types.AccessKeyMetadata
+    Network.AWS.IAM.Types.AssignmentStatusType
+    Network.AWS.IAM.Types.AttachedPermissionsBoundary
+    Network.AWS.IAM.Types.AttachedPolicy
+    Network.AWS.IAM.Types.ContextEntry
+    Network.AWS.IAM.Types.ContextKeyTypeEnum
+    Network.AWS.IAM.Types.DeletionTaskFailureReasonType
+    Network.AWS.IAM.Types.DeletionTaskStatusType
+    Network.AWS.IAM.Types.EncodingType
+    Network.AWS.IAM.Types.EntityDetails
+    Network.AWS.IAM.Types.EntityInfo
+    Network.AWS.IAM.Types.EntityType
+    Network.AWS.IAM.Types.ErrorDetails
+    Network.AWS.IAM.Types.EvaluationResult
+    Network.AWS.IAM.Types.GetContextKeysForPolicyResponse
+    Network.AWS.IAM.Types.GlobalEndpointTokenVersion
+    Network.AWS.IAM.Types.Group
+    Network.AWS.IAM.Types.GroupDetail
+    Network.AWS.IAM.Types.InstanceProfile
+    Network.AWS.IAM.Types.JobStatusType
+    Network.AWS.IAM.Types.ListPoliciesGrantingServiceAccessEntry
+    Network.AWS.IAM.Types.LoginProfile
+    Network.AWS.IAM.Types.ManagedPolicyDetail
+    Network.AWS.IAM.Types.MFADevice
+    Network.AWS.IAM.Types.OpenIDConnectProviderListEntry
+    Network.AWS.IAM.Types.OrganizationsDecisionDetail
+    Network.AWS.IAM.Types.PasswordPolicy
+    Network.AWS.IAM.Types.PermissionsBoundaryAttachmentType
+    Network.AWS.IAM.Types.PermissionsBoundaryDecisionDetail
+    Network.AWS.IAM.Types.Policy
+    Network.AWS.IAM.Types.PolicyDetail
+    Network.AWS.IAM.Types.PolicyEvaluationDecisionType
+    Network.AWS.IAM.Types.PolicyGrantingServiceAccess
+    Network.AWS.IAM.Types.PolicyGroup
+    Network.AWS.IAM.Types.PolicyOwnerEntityType
+    Network.AWS.IAM.Types.PolicyRole
+    Network.AWS.IAM.Types.PolicyScopeType
+    Network.AWS.IAM.Types.PolicySourceType
+    Network.AWS.IAM.Types.PolicyType
+    Network.AWS.IAM.Types.PolicyUsageType
+    Network.AWS.IAM.Types.PolicyUser
+    Network.AWS.IAM.Types.PolicyVersion
+    Network.AWS.IAM.Types.Position
+    Network.AWS.IAM.Types.ReportFormatType
+    Network.AWS.IAM.Types.ReportStateType
+    Network.AWS.IAM.Types.ResourceSpecificResult
+    Network.AWS.IAM.Types.Role
+    Network.AWS.IAM.Types.RoleDetail
+    Network.AWS.IAM.Types.RoleLastUsed
+    Network.AWS.IAM.Types.RoleUsageType
+    Network.AWS.IAM.Types.SAMLProviderListEntry
+    Network.AWS.IAM.Types.ServerCertificate
+    Network.AWS.IAM.Types.ServerCertificateMetadata
+    Network.AWS.IAM.Types.ServiceLastAccessed
+    Network.AWS.IAM.Types.ServiceSpecificCredential
+    Network.AWS.IAM.Types.ServiceSpecificCredentialMetadata
+    Network.AWS.IAM.Types.SigningCertificate
+    Network.AWS.IAM.Types.SimulatePolicyResponse
+    Network.AWS.IAM.Types.SortKeyType
+    Network.AWS.IAM.Types.SSHPublicKey
+    Network.AWS.IAM.Types.SSHPublicKeyMetadata
+    Network.AWS.IAM.Types.Statement
+    Network.AWS.IAM.Types.StatusType
+    Network.AWS.IAM.Types.SummaryKeyType
+    Network.AWS.IAM.Types.Tag
+    Network.AWS.IAM.Types.TrackedActionLastAccessed
+    Network.AWS.IAM.Types.User
+    Network.AWS.IAM.Types.UserDetail
+    Network.AWS.IAM.Types.VirtualMFADevice
+    Network.AWS.IAM.UntagInstanceProfile
+    Network.AWS.IAM.UntagMFADevice
+    Network.AWS.IAM.UntagOpenIDConnectProvider
+    Network.AWS.IAM.UntagPolicy
+    Network.AWS.IAM.UntagRole
+    Network.AWS.IAM.UntagSAMLProvider
+    Network.AWS.IAM.UntagServerCertificate
+    Network.AWS.IAM.UntagUser
+    Network.AWS.IAM.UpdateAccessKey
+    Network.AWS.IAM.UpdateAccountPasswordPolicy
+    Network.AWS.IAM.UpdateAssumeRolePolicy
+    Network.AWS.IAM.UpdateGroup
+    Network.AWS.IAM.UpdateLoginProfile
+    Network.AWS.IAM.UpdateOpenIDConnectProviderThumbprint
+    Network.AWS.IAM.UpdateRole
+    Network.AWS.IAM.UpdateRoleDescription
+    Network.AWS.IAM.UpdateSAMLProvider
+    Network.AWS.IAM.UpdateServerCertificate
+    Network.AWS.IAM.UpdateServiceSpecificCredential
+    Network.AWS.IAM.UpdateSigningCertificate
+    Network.AWS.IAM.UpdateSSHPublicKey
+    Network.AWS.IAM.UpdateUser
+    Network.AWS.IAM.UploadServerCertificate
+    Network.AWS.IAM.UploadSigningCertificate
+    Network.AWS.IAM.UploadSSHPublicKey
+    Network.AWS.IAM.Waiters
 
-    exposed-modules:
-          Network.AWS.IAM
-        , Network.AWS.IAM.AddClientIdToOpenIdConnectProvider
-        , Network.AWS.IAM.AddRoleToInstanceProfile
-        , Network.AWS.IAM.AddUserToGroup
-        , Network.AWS.IAM.AttachGroupPolicy
-        , Network.AWS.IAM.AttachRolePolicy
-        , Network.AWS.IAM.AttachUserPolicy
-        , Network.AWS.IAM.ChangePassword
-        , Network.AWS.IAM.CreateAccessKey
-        , Network.AWS.IAM.CreateAccountAlias
-        , Network.AWS.IAM.CreateGroup
-        , Network.AWS.IAM.CreateInstanceProfile
-        , Network.AWS.IAM.CreateLoginProfile
-        , Network.AWS.IAM.CreateOpenIdConnectProvider
-        , Network.AWS.IAM.CreatePolicy
-        , Network.AWS.IAM.CreatePolicyVersion
-        , Network.AWS.IAM.CreateRole
-        , Network.AWS.IAM.CreateSAMLProvider
-        , Network.AWS.IAM.CreateServiceLinkedRole
-        , Network.AWS.IAM.CreateServiceSpecificCredential
-        , Network.AWS.IAM.CreateUser
-        , Network.AWS.IAM.CreateVirtualMFADevice
-        , Network.AWS.IAM.DeactivateMFADevice
-        , Network.AWS.IAM.DeleteAccessKey
-        , Network.AWS.IAM.DeleteAccountAlias
-        , Network.AWS.IAM.DeleteAccountPasswordPolicy
-        , Network.AWS.IAM.DeleteGroup
-        , Network.AWS.IAM.DeleteGroupPolicy
-        , Network.AWS.IAM.DeleteInstanceProfile
-        , Network.AWS.IAM.DeleteLoginProfile
-        , Network.AWS.IAM.DeleteOpenIdConnectProvider
-        , Network.AWS.IAM.DeletePolicy
-        , Network.AWS.IAM.DeletePolicyVersion
-        , Network.AWS.IAM.DeleteRole
-        , Network.AWS.IAM.DeleteRolePolicy
-        , Network.AWS.IAM.DeleteSAMLProvider
-        , Network.AWS.IAM.DeleteSSHPublicKey
-        , Network.AWS.IAM.DeleteServerCertificate
-        , Network.AWS.IAM.DeleteServiceLinkedRole
-        , Network.AWS.IAM.DeleteServiceSpecificCredential
-        , Network.AWS.IAM.DeleteSigningCertificate
-        , Network.AWS.IAM.DeleteUser
-        , Network.AWS.IAM.DeleteUserPolicy
-        , Network.AWS.IAM.DeleteVirtualMFADevice
-        , Network.AWS.IAM.DetachGroupPolicy
-        , Network.AWS.IAM.DetachRolePolicy
-        , Network.AWS.IAM.DetachUserPolicy
-        , Network.AWS.IAM.EnableMFADevice
-        , Network.AWS.IAM.GenerateCredentialReport
-        , Network.AWS.IAM.GetAccessKeyLastUsed
-        , Network.AWS.IAM.GetAccountAuthorizationDetails
-        , Network.AWS.IAM.GetAccountPasswordPolicy
-        , Network.AWS.IAM.GetAccountSummary
-        , Network.AWS.IAM.GetContextKeysForCustomPolicy
-        , Network.AWS.IAM.GetContextKeysForPrincipalPolicy
-        , Network.AWS.IAM.GetCredentialReport
-        , Network.AWS.IAM.GetGroup
-        , Network.AWS.IAM.GetGroupPolicy
-        , Network.AWS.IAM.GetInstanceProfile
-        , Network.AWS.IAM.GetLoginProfile
-        , Network.AWS.IAM.GetOpenIdConnectProvider
-        , Network.AWS.IAM.GetPolicy
-        , Network.AWS.IAM.GetPolicyVersion
-        , Network.AWS.IAM.GetRole
-        , Network.AWS.IAM.GetRolePolicy
-        , Network.AWS.IAM.GetSAMLProvider
-        , Network.AWS.IAM.GetSSHPublicKey
-        , Network.AWS.IAM.GetServerCertificate
-        , Network.AWS.IAM.GetServiceLinkedRoleDeletionStatus
-        , Network.AWS.IAM.GetUser
-        , Network.AWS.IAM.GetUserPolicy
-        , Network.AWS.IAM.ListAccessKeys
-        , Network.AWS.IAM.ListAccountAliases
-        , Network.AWS.IAM.ListAttachedGroupPolicies
-        , Network.AWS.IAM.ListAttachedRolePolicies
-        , Network.AWS.IAM.ListAttachedUserPolicies
-        , Network.AWS.IAM.ListEntitiesForPolicy
-        , Network.AWS.IAM.ListGroupPolicies
-        , Network.AWS.IAM.ListGroups
-        , Network.AWS.IAM.ListGroupsForUser
-        , Network.AWS.IAM.ListInstanceProfiles
-        , Network.AWS.IAM.ListInstanceProfilesForRole
-        , Network.AWS.IAM.ListMFADevices
-        , Network.AWS.IAM.ListOpenIdConnectProviders
-        , Network.AWS.IAM.ListPolicies
-        , Network.AWS.IAM.ListPolicyVersions
-        , Network.AWS.IAM.ListRolePolicies
-        , Network.AWS.IAM.ListRoles
-        , Network.AWS.IAM.ListSAMLProviders
-        , Network.AWS.IAM.ListSSHPublicKeys
-        , Network.AWS.IAM.ListServerCertificates
-        , Network.AWS.IAM.ListServiceSpecificCredentials
-        , Network.AWS.IAM.ListSigningCertificates
-        , Network.AWS.IAM.ListUserPolicies
-        , Network.AWS.IAM.ListUsers
-        , Network.AWS.IAM.ListVirtualMFADevices
-        , Network.AWS.IAM.PutGroupPolicy
-        , Network.AWS.IAM.PutRolePolicy
-        , Network.AWS.IAM.PutUserPolicy
-        , Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider
-        , Network.AWS.IAM.RemoveRoleFromInstanceProfile
-        , Network.AWS.IAM.RemoveUserFromGroup
-        , Network.AWS.IAM.ResetServiceSpecificCredential
-        , Network.AWS.IAM.ResyncMFADevice
-        , Network.AWS.IAM.SetDefaultPolicyVersion
-        , Network.AWS.IAM.SimulateCustomPolicy
-        , Network.AWS.IAM.SimulatePrincipalPolicy
-        , Network.AWS.IAM.Types
-        , Network.AWS.IAM.UpdateAccessKey
-        , Network.AWS.IAM.UpdateAccountPasswordPolicy
-        , Network.AWS.IAM.UpdateAssumeRolePolicy
-        , Network.AWS.IAM.UpdateGroup
-        , Network.AWS.IAM.UpdateLoginProfile
-        , Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
-        , Network.AWS.IAM.UpdateRole
-        , Network.AWS.IAM.UpdateRoleDescription
-        , Network.AWS.IAM.UpdateSAMLProvider
-        , Network.AWS.IAM.UpdateSSHPublicKey
-        , Network.AWS.IAM.UpdateServerCertificate
-        , Network.AWS.IAM.UpdateServiceSpecificCredential
-        , Network.AWS.IAM.UpdateSigningCertificate
-        , Network.AWS.IAM.UpdateUser
-        , Network.AWS.IAM.UploadSSHPublicKey
-        , Network.AWS.IAM.UploadServerCertificate
-        , Network.AWS.IAM.UploadSigningCertificate
-        , Network.AWS.IAM.Waiters
-
-    other-modules:
-          Network.AWS.IAM.Types.Product
-        , Network.AWS.IAM.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS.Prelude
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.13  && <5
 
 test-suite amazonka-iam-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.IAM
+    Test.AWS.IAM
+    Test.AWS.IAM.Internal
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.IAM
-        , Test.AWS.Gen.IAM
-        , Test.AWS.IAM.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-iam
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka-iam
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

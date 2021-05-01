@@ -1,11 +1,11 @@
-{-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaConvert
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -13,30 +13,29 @@
 --
 -- AWS Elemental MediaConvert
 module Network.AWS.MediaConvert
-    (
-    -- * Service Configuration
-      mediaConvert
+  ( -- * Service Configuration
+    defaultService,
 
     -- * Errors
     -- $errors
 
-    -- ** ConflictException
-    , _ConflictException
-
-    -- ** ForbiddenException
-    , _ForbiddenException
-
     -- ** NotFoundException
-    , _NotFoundException
-
-    -- ** TooManyRequestsException
-    , _TooManyRequestsException
-
-    -- ** InternalServerErrorException
-    , _InternalServerErrorException
+    _NotFoundException,
 
     -- ** BadRequestException
-    , _BadRequestException
+    _BadRequestException,
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** ForbiddenException
+    _ForbiddenException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
 
     -- * Waiters
     -- $waiters
@@ -44,1631 +43,1691 @@ module Network.AWS.MediaConvert
     -- * Operations
     -- $operations
 
-    -- ** DeletePreset
-    , module Network.AWS.MediaConvert.DeletePreset
+    -- ** DisassociateCertificate
+    DisassociateCertificate (DisassociateCertificate'),
+    newDisassociateCertificate,
+    DisassociateCertificateResponse (DisassociateCertificateResponse'),
+    newDisassociateCertificateResponse,
 
     -- ** UpdatePreset
-    , module Network.AWS.MediaConvert.UpdatePreset
+    UpdatePreset (UpdatePreset'),
+    newUpdatePreset,
+    UpdatePresetResponse (UpdatePresetResponse'),
+    newUpdatePresetResponse,
 
-    -- ** ListQueues
-    , module Network.AWS.MediaConvert.ListQueues
+    -- ** ListPresets (Paginated)
+    ListPresets (ListPresets'),
+    newListPresets,
+    ListPresetsResponse (ListPresetsResponse'),
+    newListPresetsResponse,
 
-    -- ** DeleteQueue
-    , module Network.AWS.MediaConvert.DeleteQueue
-
-    -- ** UpdateQueue
-    , module Network.AWS.MediaConvert.UpdateQueue
-
-    -- ** GetPreset
-    , module Network.AWS.MediaConvert.GetPreset
-
-    -- ** CreateJob
-    , module Network.AWS.MediaConvert.CreateJob
-
-    -- ** ListJobs
-    , module Network.AWS.MediaConvert.ListJobs
-
-    -- ** GetJob
-    , module Network.AWS.MediaConvert.GetJob
-
-    -- ** CreatePreset
-    , module Network.AWS.MediaConvert.CreatePreset
-
-    -- ** ListPresets
-    , module Network.AWS.MediaConvert.ListPresets
-
-    -- ** GetQueue
-    , module Network.AWS.MediaConvert.GetQueue
-
-    -- ** DescribeEndpoints
-    , module Network.AWS.MediaConvert.DescribeEndpoints
-
-    -- ** CreateQueue
-    , module Network.AWS.MediaConvert.CreateQueue
-
-    -- ** CreateJobTemplate
-    , module Network.AWS.MediaConvert.CreateJobTemplate
-
-    -- ** DeleteJobTemplate
-    , module Network.AWS.MediaConvert.DeleteJobTemplate
-
-    -- ** UpdateJobTemplate
-    , module Network.AWS.MediaConvert.UpdateJobTemplate
-
-    -- ** ListJobTemplates
-    , module Network.AWS.MediaConvert.ListJobTemplates
-
-    -- ** GetJobTemplate
-    , module Network.AWS.MediaConvert.GetJobTemplate
+    -- ** DeletePreset
+    DeletePreset (DeletePreset'),
+    newDeletePreset,
+    DeletePresetResponse (DeletePresetResponse'),
+    newDeletePresetResponse,
 
     -- ** CancelJob
-    , module Network.AWS.MediaConvert.CancelJob
+    CancelJob (CancelJob'),
+    newCancelJob,
+    CancelJobResponse (CancelJobResponse'),
+    newCancelJobResponse,
+
+    -- ** CreatePreset
+    CreatePreset (CreatePreset'),
+    newCreatePreset,
+    CreatePresetResponse (CreatePresetResponse'),
+    newCreatePresetResponse,
+
+    -- ** GetJob
+    GetJob (GetJob'),
+    newGetJob,
+    GetJobResponse (GetJobResponse'),
+    newGetJobResponse,
+
+    -- ** ListJobTemplates (Paginated)
+    ListJobTemplates (ListJobTemplates'),
+    newListJobTemplates,
+    ListJobTemplatesResponse (ListJobTemplatesResponse'),
+    newListJobTemplatesResponse,
+
+    -- ** UntagResource
+    UntagResource (UntagResource'),
+    newUntagResource,
+    UntagResourceResponse (UntagResourceResponse'),
+    newUntagResourceResponse,
+
+    -- ** CreateJobTemplate
+    CreateJobTemplate (CreateJobTemplate'),
+    newCreateJobTemplate,
+    CreateJobTemplateResponse (CreateJobTemplateResponse'),
+    newCreateJobTemplateResponse,
+
+    -- ** ListQueues (Paginated)
+    ListQueues (ListQueues'),
+    newListQueues,
+    ListQueuesResponse (ListQueuesResponse'),
+    newListQueuesResponse,
+
+    -- ** TagResource
+    TagResource (TagResource'),
+    newTagResource,
+    TagResourceResponse (TagResourceResponse'),
+    newTagResourceResponse,
+
+    -- ** GetQueue
+    GetQueue (GetQueue'),
+    newGetQueue,
+    GetQueueResponse (GetQueueResponse'),
+    newGetQueueResponse,
+
+    -- ** GetJobTemplate
+    GetJobTemplate (GetJobTemplate'),
+    newGetJobTemplate,
+    GetJobTemplateResponse (GetJobTemplateResponse'),
+    newGetJobTemplateResponse,
+
+    -- ** AssociateCertificate
+    AssociateCertificate (AssociateCertificate'),
+    newAssociateCertificate,
+    AssociateCertificateResponse (AssociateCertificateResponse'),
+    newAssociateCertificateResponse,
+
+    -- ** ListJobs (Paginated)
+    ListJobs (ListJobs'),
+    newListJobs,
+    ListJobsResponse (ListJobsResponse'),
+    newListJobsResponse,
+
+    -- ** UpdateJobTemplate
+    UpdateJobTemplate (UpdateJobTemplate'),
+    newUpdateJobTemplate,
+    UpdateJobTemplateResponse (UpdateJobTemplateResponse'),
+    newUpdateJobTemplateResponse,
+
+    -- ** DeleteJobTemplate
+    DeleteJobTemplate (DeleteJobTemplate'),
+    newDeleteJobTemplate,
+    DeleteJobTemplateResponse (DeleteJobTemplateResponse'),
+    newDeleteJobTemplateResponse,
+
+    -- ** CreateJob
+    CreateJob (CreateJob'),
+    newCreateJob,
+    CreateJobResponse (CreateJobResponse'),
+    newCreateJobResponse,
+
+    -- ** GetPreset
+    GetPreset (GetPreset'),
+    newGetPreset,
+    GetPresetResponse (GetPresetResponse'),
+    newGetPresetResponse,
+
+    -- ** UpdateQueue
+    UpdateQueue (UpdateQueue'),
+    newUpdateQueue,
+    UpdateQueueResponse (UpdateQueueResponse'),
+    newUpdateQueueResponse,
+
+    -- ** DeleteQueue
+    DeleteQueue (DeleteQueue'),
+    newDeleteQueue,
+    DeleteQueueResponse (DeleteQueueResponse'),
+    newDeleteQueueResponse,
+
+    -- ** CreateQueue
+    CreateQueue (CreateQueue'),
+    newCreateQueue,
+    CreateQueueResponse (CreateQueueResponse'),
+    newCreateQueueResponse,
+
+    -- ** DescribeEndpoints (Paginated)
+    DescribeEndpoints (DescribeEndpoints'),
+    newDescribeEndpoints,
+    DescribeEndpointsResponse (DescribeEndpointsResponse'),
+    newDescribeEndpointsResponse,
+
+    -- ** ListTagsForResource
+    ListTagsForResource (ListTagsForResource'),
+    newListTagsForResource,
+    ListTagsForResourceResponse (ListTagsForResourceResponse'),
+    newListTagsForResourceResponse,
 
     -- * Types
 
     -- ** AacAudioDescriptionBroadcasterMix
-    , AacAudioDescriptionBroadcasterMix (..)
+    AacAudioDescriptionBroadcasterMix (..),
 
     -- ** AacCodecProfile
-    , AacCodecProfile (..)
+    AacCodecProfile (..),
 
     -- ** AacCodingMode
-    , AacCodingMode (..)
+    AacCodingMode (..),
 
     -- ** AacRateControlMode
-    , AacRateControlMode (..)
+    AacRateControlMode (..),
 
     -- ** AacRawFormat
-    , AacRawFormat (..)
+    AacRawFormat (..),
 
     -- ** AacSpecification
-    , AacSpecification (..)
+    AacSpecification (..),
 
     -- ** AacVbrQuality
-    , AacVbrQuality (..)
+    AacVbrQuality (..),
 
     -- ** Ac3BitstreamMode
-    , Ac3BitstreamMode (..)
+    Ac3BitstreamMode (..),
 
     -- ** Ac3CodingMode
-    , Ac3CodingMode (..)
+    Ac3CodingMode (..),
 
     -- ** Ac3DynamicRangeCompressionProfile
-    , Ac3DynamicRangeCompressionProfile (..)
+    Ac3DynamicRangeCompressionProfile (..),
 
     -- ** Ac3LfeFilter
-    , Ac3LfeFilter (..)
+    Ac3LfeFilter (..),
 
     -- ** Ac3MetadataControl
-    , Ac3MetadataControl (..)
+    Ac3MetadataControl (..),
+
+    -- ** AccelerationMode
+    AccelerationMode (..),
+
+    -- ** AccelerationStatus
+    AccelerationStatus (..),
 
     -- ** AfdSignaling
-    , AfdSignaling (..)
+    AfdSignaling (..),
+
+    -- ** AlphaBehavior
+    AlphaBehavior (..),
+
+    -- ** AncillaryConvert608To708
+    AncillaryConvert608To708 (..),
+
+    -- ** AncillaryTerminateCaptions
+    AncillaryTerminateCaptions (..),
 
     -- ** AntiAlias
-    , AntiAlias (..)
+    AntiAlias (..),
+
+    -- ** AudioChannelTag
+    AudioChannelTag (..),
 
     -- ** AudioCodec
-    , AudioCodec (..)
+    AudioCodec (..),
 
     -- ** AudioDefaultSelection
-    , AudioDefaultSelection (..)
+    AudioDefaultSelection (..),
 
     -- ** AudioLanguageCodeControl
-    , AudioLanguageCodeControl (..)
+    AudioLanguageCodeControl (..),
 
     -- ** AudioNormalizationAlgorithm
-    , AudioNormalizationAlgorithm (..)
+    AudioNormalizationAlgorithm (..),
 
     -- ** AudioNormalizationAlgorithmControl
-    , AudioNormalizationAlgorithmControl (..)
+    AudioNormalizationAlgorithmControl (..),
 
     -- ** AudioNormalizationLoudnessLogging
-    , AudioNormalizationLoudnessLogging (..)
+    AudioNormalizationLoudnessLogging (..),
 
     -- ** AudioNormalizationPeakCalculation
-    , AudioNormalizationPeakCalculation (..)
+    AudioNormalizationPeakCalculation (..),
 
     -- ** AudioSelectorType
-    , AudioSelectorType (..)
+    AudioSelectorType (..),
 
     -- ** AudioTypeControl
-    , AudioTypeControl (..)
+    AudioTypeControl (..),
+
+    -- ** Av1AdaptiveQuantization
+    Av1AdaptiveQuantization (..),
+
+    -- ** Av1FramerateControl
+    Av1FramerateControl (..),
+
+    -- ** Av1FramerateConversionAlgorithm
+    Av1FramerateConversionAlgorithm (..),
+
+    -- ** Av1RateControlMode
+    Av1RateControlMode (..),
+
+    -- ** Av1SpatialAdaptiveQuantization
+    Av1SpatialAdaptiveQuantization (..),
+
+    -- ** AvcIntraClass
+    AvcIntraClass (..),
+
+    -- ** AvcIntraFramerateControl
+    AvcIntraFramerateControl (..),
+
+    -- ** AvcIntraFramerateConversionAlgorithm
+    AvcIntraFramerateConversionAlgorithm (..),
+
+    -- ** AvcIntraInterlaceMode
+    AvcIntraInterlaceMode (..),
+
+    -- ** AvcIntraScanTypeConversionMode
+    AvcIntraScanTypeConversionMode (..),
+
+    -- ** AvcIntraSlowPal
+    AvcIntraSlowPal (..),
+
+    -- ** AvcIntraTelecine
+    AvcIntraTelecine (..),
+
+    -- ** AvcIntraUhdQualityTuningLevel
+    AvcIntraUhdQualityTuningLevel (..),
+
+    -- ** BillingTagsSource
+    BillingTagsSource (..),
 
     -- ** BurninSubtitleAlignment
-    , BurninSubtitleAlignment (..)
+    BurninSubtitleAlignment (..),
 
     -- ** BurninSubtitleBackgroundColor
-    , BurninSubtitleBackgroundColor (..)
+    BurninSubtitleBackgroundColor (..),
 
     -- ** BurninSubtitleFontColor
-    , BurninSubtitleFontColor (..)
+    BurninSubtitleFontColor (..),
 
     -- ** BurninSubtitleOutlineColor
-    , BurninSubtitleOutlineColor (..)
+    BurninSubtitleOutlineColor (..),
 
     -- ** BurninSubtitleShadowColor
-    , BurninSubtitleShadowColor (..)
+    BurninSubtitleShadowColor (..),
 
     -- ** BurninSubtitleTeletextSpacing
-    , BurninSubtitleTeletextSpacing (..)
+    BurninSubtitleTeletextSpacing (..),
 
     -- ** CaptionDestinationType
-    , CaptionDestinationType (..)
+    CaptionDestinationType (..),
 
     -- ** CaptionSourceType
-    , CaptionSourceType (..)
+    CaptionSourceType (..),
+
+    -- ** CmafClientCache
+    CmafClientCache (..),
+
+    -- ** CmafCodecSpecification
+    CmafCodecSpecification (..),
+
+    -- ** CmafEncryptionType
+    CmafEncryptionType (..),
+
+    -- ** CmafInitializationVectorInManifest
+    CmafInitializationVectorInManifest (..),
+
+    -- ** CmafKeyProviderType
+    CmafKeyProviderType (..),
+
+    -- ** CmafManifestCompression
+    CmafManifestCompression (..),
+
+    -- ** CmafManifestDurationFormat
+    CmafManifestDurationFormat (..),
+
+    -- ** CmafMpdProfile
+    CmafMpdProfile (..),
+
+    -- ** CmafSegmentControl
+    CmafSegmentControl (..),
+
+    -- ** CmafStreamInfResolution
+    CmafStreamInfResolution (..),
+
+    -- ** CmafWriteDASHManifest
+    CmafWriteDASHManifest (..),
+
+    -- ** CmafWriteHLSManifest
+    CmafWriteHLSManifest (..),
+
+    -- ** CmafWriteSegmentTimelineInRepresentation
+    CmafWriteSegmentTimelineInRepresentation (..),
+
+    -- ** CmfcAudioDuration
+    CmfcAudioDuration (..),
+
+    -- ** CmfcIFrameOnlyManifest
+    CmfcIFrameOnlyManifest (..),
+
+    -- ** CmfcScte35Esam
+    CmfcScte35Esam (..),
+
+    -- ** CmfcScte35Source
+    CmfcScte35Source (..),
 
     -- ** ColorMetadata
-    , ColorMetadata (..)
+    ColorMetadata (..),
 
     -- ** ColorSpace
-    , ColorSpace (..)
+    ColorSpace (..),
 
     -- ** ColorSpaceConversion
-    , ColorSpaceConversion (..)
+    ColorSpaceConversion (..),
 
     -- ** ColorSpaceUsage
-    , ColorSpaceUsage (..)
+    ColorSpaceUsage (..),
+
+    -- ** Commitment
+    Commitment (..),
 
     -- ** ContainerType
-    , ContainerType (..)
+    ContainerType (..),
 
     -- ** DashIsoHbbtvCompliance
-    , DashIsoHbbtvCompliance (..)
+    DashIsoHbbtvCompliance (..),
+
+    -- ** DashIsoMpdProfile
+    DashIsoMpdProfile (..),
+
+    -- ** DashIsoPlaybackDeviceCompatibility
+    DashIsoPlaybackDeviceCompatibility (..),
 
     -- ** DashIsoSegmentControl
-    , DashIsoSegmentControl (..)
+    DashIsoSegmentControl (..),
+
+    -- ** DashIsoWriteSegmentTimelineInRepresentation
+    DashIsoWriteSegmentTimelineInRepresentation (..),
+
+    -- ** DecryptionMode
+    DecryptionMode (..),
 
     -- ** DeinterlaceAlgorithm
-    , DeinterlaceAlgorithm (..)
+    DeinterlaceAlgorithm (..),
 
     -- ** DeinterlacerControl
-    , DeinterlacerControl (..)
+    DeinterlacerControl (..),
 
     -- ** DeinterlacerMode
-    , DeinterlacerMode (..)
+    DeinterlacerMode (..),
+
+    -- ** DescribeEndpointsMode
+    DescribeEndpointsMode (..),
+
+    -- ** DolbyVisionLevel6Mode
+    DolbyVisionLevel6Mode (..),
+
+    -- ** DolbyVisionProfile
+    DolbyVisionProfile (..),
 
     -- ** DropFrameTimecode
-    , DropFrameTimecode (..)
+    DropFrameTimecode (..),
 
     -- ** DvbSubtitleAlignment
-    , DvbSubtitleAlignment (..)
+    DvbSubtitleAlignment (..),
 
     -- ** DvbSubtitleBackgroundColor
-    , DvbSubtitleBackgroundColor (..)
+    DvbSubtitleBackgroundColor (..),
 
     -- ** DvbSubtitleFontColor
-    , DvbSubtitleFontColor (..)
+    DvbSubtitleFontColor (..),
 
     -- ** DvbSubtitleOutlineColor
-    , DvbSubtitleOutlineColor (..)
+    DvbSubtitleOutlineColor (..),
 
     -- ** DvbSubtitleShadowColor
-    , DvbSubtitleShadowColor (..)
+    DvbSubtitleShadowColor (..),
 
     -- ** DvbSubtitleTeletextSpacing
-    , DvbSubtitleTeletextSpacing (..)
+    DvbSubtitleTeletextSpacing (..),
+
+    -- ** DvbSubtitlingType
+    DvbSubtitlingType (..),
+
+    -- ** Eac3AtmosBitstreamMode
+    Eac3AtmosBitstreamMode (..),
+
+    -- ** Eac3AtmosCodingMode
+    Eac3AtmosCodingMode (..),
+
+    -- ** Eac3AtmosDialogueIntelligence
+    Eac3AtmosDialogueIntelligence (..),
+
+    -- ** Eac3AtmosDynamicRangeCompressionLine
+    Eac3AtmosDynamicRangeCompressionLine (..),
+
+    -- ** Eac3AtmosDynamicRangeCompressionRf
+    Eac3AtmosDynamicRangeCompressionRf (..),
+
+    -- ** Eac3AtmosMeteringMode
+    Eac3AtmosMeteringMode (..),
+
+    -- ** Eac3AtmosStereoDownmix
+    Eac3AtmosStereoDownmix (..),
+
+    -- ** Eac3AtmosSurroundExMode
+    Eac3AtmosSurroundExMode (..),
 
     -- ** Eac3AttenuationControl
-    , Eac3AttenuationControl (..)
+    Eac3AttenuationControl (..),
 
     -- ** Eac3BitstreamMode
-    , Eac3BitstreamMode (..)
+    Eac3BitstreamMode (..),
 
     -- ** Eac3CodingMode
-    , Eac3CodingMode (..)
+    Eac3CodingMode (..),
 
     -- ** Eac3DcFilter
-    , Eac3DcFilter (..)
+    Eac3DcFilter (..),
 
     -- ** Eac3DynamicRangeCompressionLine
-    , Eac3DynamicRangeCompressionLine (..)
+    Eac3DynamicRangeCompressionLine (..),
 
     -- ** Eac3DynamicRangeCompressionRf
-    , Eac3DynamicRangeCompressionRf (..)
+    Eac3DynamicRangeCompressionRf (..),
 
     -- ** Eac3LfeControl
-    , Eac3LfeControl (..)
+    Eac3LfeControl (..),
 
     -- ** Eac3LfeFilter
-    , Eac3LfeFilter (..)
+    Eac3LfeFilter (..),
 
     -- ** Eac3MetadataControl
-    , Eac3MetadataControl (..)
+    Eac3MetadataControl (..),
 
     -- ** Eac3PassthroughControl
-    , Eac3PassthroughControl (..)
+    Eac3PassthroughControl (..),
 
     -- ** Eac3PhaseControl
-    , Eac3PhaseControl (..)
+    Eac3PhaseControl (..),
 
     -- ** Eac3StereoDownmix
-    , Eac3StereoDownmix (..)
+    Eac3StereoDownmix (..),
 
     -- ** Eac3SurroundExMode
-    , Eac3SurroundExMode (..)
+    Eac3SurroundExMode (..),
 
     -- ** Eac3SurroundMode
-    , Eac3SurroundMode (..)
+    Eac3SurroundMode (..),
 
     -- ** EmbeddedConvert608To708
-    , EmbeddedConvert608To708 (..)
+    EmbeddedConvert608To708 (..),
+
+    -- ** EmbeddedTerminateCaptions
+    EmbeddedTerminateCaptions (..),
 
     -- ** F4vMoovPlacement
-    , F4vMoovPlacement (..)
+    F4vMoovPlacement (..),
 
     -- ** FileSourceConvert608To708
-    , FileSourceConvert608To708 (..)
+    FileSourceConvert608To708 (..),
+
+    -- ** FontScript
+    FontScript (..),
 
     -- ** H264AdaptiveQuantization
-    , H264AdaptiveQuantization (..)
+    H264AdaptiveQuantization (..),
 
     -- ** H264CodecLevel
-    , H264CodecLevel (..)
+    H264CodecLevel (..),
 
     -- ** H264CodecProfile
-    , H264CodecProfile (..)
+    H264CodecProfile (..),
+
+    -- ** H264DynamicSubGop
+    H264DynamicSubGop (..),
 
     -- ** H264EntropyEncoding
-    , H264EntropyEncoding (..)
+    H264EntropyEncoding (..),
 
     -- ** H264FieldEncoding
-    , H264FieldEncoding (..)
+    H264FieldEncoding (..),
 
     -- ** H264FlickerAdaptiveQuantization
-    , H264FlickerAdaptiveQuantization (..)
+    H264FlickerAdaptiveQuantization (..),
 
     -- ** H264FramerateControl
-    , H264FramerateControl (..)
+    H264FramerateControl (..),
 
     -- ** H264FramerateConversionAlgorithm
-    , H264FramerateConversionAlgorithm (..)
+    H264FramerateConversionAlgorithm (..),
 
     -- ** H264GopBReference
-    , H264GopBReference (..)
+    H264GopBReference (..),
 
     -- ** H264GopSizeUnits
-    , H264GopSizeUnits (..)
+    H264GopSizeUnits (..),
 
     -- ** H264InterlaceMode
-    , H264InterlaceMode (..)
+    H264InterlaceMode (..),
 
     -- ** H264ParControl
-    , H264ParControl (..)
+    H264ParControl (..),
 
     -- ** H264QualityTuningLevel
-    , H264QualityTuningLevel (..)
+    H264QualityTuningLevel (..),
 
     -- ** H264RateControlMode
-    , H264RateControlMode (..)
+    H264RateControlMode (..),
 
     -- ** H264RepeatPps
-    , H264RepeatPps (..)
+    H264RepeatPps (..),
+
+    -- ** H264ScanTypeConversionMode
+    H264ScanTypeConversionMode (..),
 
     -- ** H264SceneChangeDetect
-    , H264SceneChangeDetect (..)
+    H264SceneChangeDetect (..),
 
     -- ** H264SlowPal
-    , H264SlowPal (..)
+    H264SlowPal (..),
 
     -- ** H264SpatialAdaptiveQuantization
-    , H264SpatialAdaptiveQuantization (..)
+    H264SpatialAdaptiveQuantization (..),
 
     -- ** H264Syntax
-    , H264Syntax (..)
+    H264Syntax (..),
 
     -- ** H264Telecine
-    , H264Telecine (..)
+    H264Telecine (..),
 
     -- ** H264TemporalAdaptiveQuantization
-    , H264TemporalAdaptiveQuantization (..)
+    H264TemporalAdaptiveQuantization (..),
 
     -- ** H264UnregisteredSeiTimecode
-    , H264UnregisteredSeiTimecode (..)
+    H264UnregisteredSeiTimecode (..),
 
     -- ** H265AdaptiveQuantization
-    , H265AdaptiveQuantization (..)
+    H265AdaptiveQuantization (..),
 
     -- ** H265AlternateTransferFunctionSei
-    , H265AlternateTransferFunctionSei (..)
+    H265AlternateTransferFunctionSei (..),
 
     -- ** H265CodecLevel
-    , H265CodecLevel (..)
+    H265CodecLevel (..),
 
     -- ** H265CodecProfile
-    , H265CodecProfile (..)
+    H265CodecProfile (..),
+
+    -- ** H265DynamicSubGop
+    H265DynamicSubGop (..),
 
     -- ** H265FlickerAdaptiveQuantization
-    , H265FlickerAdaptiveQuantization (..)
+    H265FlickerAdaptiveQuantization (..),
 
     -- ** H265FramerateControl
-    , H265FramerateControl (..)
+    H265FramerateControl (..),
 
     -- ** H265FramerateConversionAlgorithm
-    , H265FramerateConversionAlgorithm (..)
+    H265FramerateConversionAlgorithm (..),
 
     -- ** H265GopBReference
-    , H265GopBReference (..)
+    H265GopBReference (..),
 
     -- ** H265GopSizeUnits
-    , H265GopSizeUnits (..)
+    H265GopSizeUnits (..),
 
     -- ** H265InterlaceMode
-    , H265InterlaceMode (..)
+    H265InterlaceMode (..),
 
     -- ** H265ParControl
-    , H265ParControl (..)
+    H265ParControl (..),
 
     -- ** H265QualityTuningLevel
-    , H265QualityTuningLevel (..)
+    H265QualityTuningLevel (..),
 
     -- ** H265RateControlMode
-    , H265RateControlMode (..)
+    H265RateControlMode (..),
 
     -- ** H265SampleAdaptiveOffsetFilterMode
-    , H265SampleAdaptiveOffsetFilterMode (..)
+    H265SampleAdaptiveOffsetFilterMode (..),
+
+    -- ** H265ScanTypeConversionMode
+    H265ScanTypeConversionMode (..),
 
     -- ** H265SceneChangeDetect
-    , H265SceneChangeDetect (..)
+    H265SceneChangeDetect (..),
 
     -- ** H265SlowPal
-    , H265SlowPal (..)
+    H265SlowPal (..),
 
     -- ** H265SpatialAdaptiveQuantization
-    , H265SpatialAdaptiveQuantization (..)
+    H265SpatialAdaptiveQuantization (..),
 
     -- ** H265Telecine
-    , H265Telecine (..)
+    H265Telecine (..),
 
     -- ** H265TemporalAdaptiveQuantization
-    , H265TemporalAdaptiveQuantization (..)
+    H265TemporalAdaptiveQuantization (..),
 
     -- ** H265TemporalIds
-    , H265TemporalIds (..)
+    H265TemporalIds (..),
 
     -- ** H265Tiles
-    , H265Tiles (..)
+    H265Tiles (..),
 
     -- ** H265UnregisteredSeiTimecode
-    , H265UnregisteredSeiTimecode (..)
+    H265UnregisteredSeiTimecode (..),
+
+    -- ** H265WriteMp4PackagingType
+    H265WriteMp4PackagingType (..),
 
     -- ** HlsAdMarkers
-    , HlsAdMarkers (..)
+    HlsAdMarkers (..),
+
+    -- ** HlsAudioOnlyContainer
+    HlsAudioOnlyContainer (..),
+
+    -- ** HlsAudioOnlyHeader
+    HlsAudioOnlyHeader (..),
 
     -- ** HlsAudioTrackType
-    , HlsAudioTrackType (..)
+    HlsAudioTrackType (..),
 
     -- ** HlsCaptionLanguageSetting
-    , HlsCaptionLanguageSetting (..)
+    HlsCaptionLanguageSetting (..),
 
     -- ** HlsClientCache
-    , HlsClientCache (..)
+    HlsClientCache (..),
 
     -- ** HlsCodecSpecification
-    , HlsCodecSpecification (..)
+    HlsCodecSpecification (..),
 
     -- ** HlsDirectoryStructure
-    , HlsDirectoryStructure (..)
+    HlsDirectoryStructure (..),
 
     -- ** HlsEncryptionType
-    , HlsEncryptionType (..)
+    HlsEncryptionType (..),
 
     -- ** HlsIFrameOnlyManifest
-    , HlsIFrameOnlyManifest (..)
+    HlsIFrameOnlyManifest (..),
 
     -- ** HlsInitializationVectorInManifest
-    , HlsInitializationVectorInManifest (..)
+    HlsInitializationVectorInManifest (..),
 
     -- ** HlsKeyProviderType
-    , HlsKeyProviderType (..)
+    HlsKeyProviderType (..),
 
     -- ** HlsManifestCompression
-    , HlsManifestCompression (..)
+    HlsManifestCompression (..),
 
     -- ** HlsManifestDurationFormat
-    , HlsManifestDurationFormat (..)
+    HlsManifestDurationFormat (..),
+
+    -- ** HlsOfflineEncrypted
+    HlsOfflineEncrypted (..),
 
     -- ** HlsOutputSelection
-    , HlsOutputSelection (..)
+    HlsOutputSelection (..),
 
     -- ** HlsProgramDateTime
-    , HlsProgramDateTime (..)
+    HlsProgramDateTime (..),
 
     -- ** HlsSegmentControl
-    , HlsSegmentControl (..)
+    HlsSegmentControl (..),
 
     -- ** HlsStreamInfResolution
-    , HlsStreamInfResolution (..)
+    HlsStreamInfResolution (..),
 
     -- ** HlsTimedMetadataId3Frame
-    , HlsTimedMetadataId3Frame (..)
+    HlsTimedMetadataId3Frame (..),
+
+    -- ** ImscStylePassthrough
+    ImscStylePassthrough (..),
 
     -- ** InputDeblockFilter
-    , InputDeblockFilter (..)
+    InputDeblockFilter (..),
 
     -- ** InputDenoiseFilter
-    , InputDenoiseFilter (..)
+    InputDenoiseFilter (..),
 
     -- ** InputFilterEnable
-    , InputFilterEnable (..)
+    InputFilterEnable (..),
 
     -- ** InputPsiControl
-    , InputPsiControl (..)
+    InputPsiControl (..),
+
+    -- ** InputRotate
+    InputRotate (..),
+
+    -- ** InputScanType
+    InputScanType (..),
 
     -- ** InputTimecodeSource
-    , InputTimecodeSource (..)
+    InputTimecodeSource (..),
+
+    -- ** JobPhase
+    JobPhase (..),
 
     -- ** JobStatus
-    , JobStatus (..)
+    JobStatus (..),
 
     -- ** JobTemplateListBy
-    , JobTemplateListBy (..)
+    JobTemplateListBy (..),
 
     -- ** LanguageCode
-    , LanguageCode (..)
+    LanguageCode (..),
 
     -- ** M2tsAudioBufferModel
-    , M2tsAudioBufferModel (..)
+    M2tsAudioBufferModel (..),
+
+    -- ** M2tsAudioDuration
+    M2tsAudioDuration (..),
 
     -- ** M2tsBufferModel
-    , M2tsBufferModel (..)
+    M2tsBufferModel (..),
 
     -- ** M2tsEbpAudioInterval
-    , M2tsEbpAudioInterval (..)
+    M2tsEbpAudioInterval (..),
 
     -- ** M2tsEbpPlacement
-    , M2tsEbpPlacement (..)
+    M2tsEbpPlacement (..),
 
     -- ** M2tsEsRateInPes
-    , M2tsEsRateInPes (..)
+    M2tsEsRateInPes (..),
+
+    -- ** M2tsForceTsVideoEbpOrder
+    M2tsForceTsVideoEbpOrder (..),
 
     -- ** M2tsNielsenId3
-    , M2tsNielsenId3 (..)
+    M2tsNielsenId3 (..),
 
     -- ** M2tsPcrControl
-    , M2tsPcrControl (..)
+    M2tsPcrControl (..),
 
     -- ** M2tsRateMode
-    , M2tsRateMode (..)
+    M2tsRateMode (..),
 
     -- ** M2tsScte35Source
-    , M2tsScte35Source (..)
+    M2tsScte35Source (..),
 
     -- ** M2tsSegmentationMarkers
-    , M2tsSegmentationMarkers (..)
+    M2tsSegmentationMarkers (..),
 
     -- ** M2tsSegmentationStyle
-    , M2tsSegmentationStyle (..)
+    M2tsSegmentationStyle (..),
+
+    -- ** M3u8AudioDuration
+    M3u8AudioDuration (..),
 
     -- ** M3u8NielsenId3
-    , M3u8NielsenId3 (..)
+    M3u8NielsenId3 (..),
 
     -- ** M3u8PcrControl
-    , M3u8PcrControl (..)
+    M3u8PcrControl (..),
 
     -- ** M3u8Scte35Source
-    , M3u8Scte35Source (..)
+    M3u8Scte35Source (..),
+
+    -- ** MotionImageInsertionMode
+    MotionImageInsertionMode (..),
+
+    -- ** MotionImagePlayback
+    MotionImagePlayback (..),
 
     -- ** MovClapAtom
-    , MovClapAtom (..)
+    MovClapAtom (..),
 
     -- ** MovCslgAtom
-    , MovCslgAtom (..)
+    MovCslgAtom (..),
 
     -- ** MovMpeg2FourCCControl
-    , MovMpeg2FourCCControl (..)
+    MovMpeg2FourCCControl (..),
 
     -- ** MovPaddingControl
-    , MovPaddingControl (..)
+    MovPaddingControl (..),
 
     -- ** MovReference
-    , MovReference (..)
+    MovReference (..),
+
+    -- ** Mp3RateControlMode
+    Mp3RateControlMode (..),
 
     -- ** Mp4CslgAtom
-    , Mp4CslgAtom (..)
+    Mp4CslgAtom (..),
 
     -- ** Mp4FreeSpaceBox
-    , Mp4FreeSpaceBox (..)
+    Mp4FreeSpaceBox (..),
 
     -- ** Mp4MoovPlacement
-    , Mp4MoovPlacement (..)
+    Mp4MoovPlacement (..),
+
+    -- ** MpdAccessibilityCaptionHints
+    MpdAccessibilityCaptionHints (..),
+
+    -- ** MpdAudioDuration
+    MpdAudioDuration (..),
+
+    -- ** MpdCaptionContainerType
+    MpdCaptionContainerType (..),
+
+    -- ** MpdScte35Esam
+    MpdScte35Esam (..),
+
+    -- ** MpdScte35Source
+    MpdScte35Source (..),
 
     -- ** Mpeg2AdaptiveQuantization
-    , Mpeg2AdaptiveQuantization (..)
+    Mpeg2AdaptiveQuantization (..),
 
     -- ** Mpeg2CodecLevel
-    , Mpeg2CodecLevel (..)
+    Mpeg2CodecLevel (..),
 
     -- ** Mpeg2CodecProfile
-    , Mpeg2CodecProfile (..)
+    Mpeg2CodecProfile (..),
+
+    -- ** Mpeg2DynamicSubGop
+    Mpeg2DynamicSubGop (..),
 
     -- ** Mpeg2FramerateControl
-    , Mpeg2FramerateControl (..)
+    Mpeg2FramerateControl (..),
 
     -- ** Mpeg2FramerateConversionAlgorithm
-    , Mpeg2FramerateConversionAlgorithm (..)
+    Mpeg2FramerateConversionAlgorithm (..),
 
     -- ** Mpeg2GopSizeUnits
-    , Mpeg2GopSizeUnits (..)
+    Mpeg2GopSizeUnits (..),
 
     -- ** Mpeg2InterlaceMode
-    , Mpeg2InterlaceMode (..)
+    Mpeg2InterlaceMode (..),
 
     -- ** Mpeg2IntraDcPrecision
-    , Mpeg2IntraDcPrecision (..)
+    Mpeg2IntraDcPrecision (..),
 
     -- ** Mpeg2ParControl
-    , Mpeg2ParControl (..)
+    Mpeg2ParControl (..),
 
     -- ** Mpeg2QualityTuningLevel
-    , Mpeg2QualityTuningLevel (..)
+    Mpeg2QualityTuningLevel (..),
 
     -- ** Mpeg2RateControlMode
-    , Mpeg2RateControlMode (..)
+    Mpeg2RateControlMode (..),
+
+    -- ** Mpeg2ScanTypeConversionMode
+    Mpeg2ScanTypeConversionMode (..),
 
     -- ** Mpeg2SceneChangeDetect
-    , Mpeg2SceneChangeDetect (..)
+    Mpeg2SceneChangeDetect (..),
 
     -- ** Mpeg2SlowPal
-    , Mpeg2SlowPal (..)
+    Mpeg2SlowPal (..),
 
     -- ** Mpeg2SpatialAdaptiveQuantization
-    , Mpeg2SpatialAdaptiveQuantization (..)
+    Mpeg2SpatialAdaptiveQuantization (..),
 
     -- ** Mpeg2Syntax
-    , Mpeg2Syntax (..)
+    Mpeg2Syntax (..),
 
     -- ** Mpeg2Telecine
-    , Mpeg2Telecine (..)
+    Mpeg2Telecine (..),
 
     -- ** Mpeg2TemporalAdaptiveQuantization
-    , Mpeg2TemporalAdaptiveQuantization (..)
+    Mpeg2TemporalAdaptiveQuantization (..),
 
     -- ** MsSmoothAudioDeduplication
-    , MsSmoothAudioDeduplication (..)
+    MsSmoothAudioDeduplication (..),
 
     -- ** MsSmoothManifestEncoding
-    , MsSmoothManifestEncoding (..)
+    MsSmoothManifestEncoding (..),
+
+    -- ** MxfAfdSignaling
+    MxfAfdSignaling (..),
+
+    -- ** MxfProfile
+    MxfProfile (..),
+
+    -- ** NielsenActiveWatermarkProcessType
+    NielsenActiveWatermarkProcessType (..),
+
+    -- ** NielsenSourceWatermarkStatusType
+    NielsenSourceWatermarkStatusType (..),
+
+    -- ** NielsenUniqueTicPerAudioTrackType
+    NielsenUniqueTicPerAudioTrackType (..),
+
+    -- ** NoiseFilterPostTemporalSharpening
+    NoiseFilterPostTemporalSharpening (..),
 
     -- ** NoiseReducerFilter
-    , NoiseReducerFilter (..)
+    NoiseReducerFilter (..),
 
     -- ** Order
-    , Order (..)
+    Order (..),
 
     -- ** OutputGroupType
-    , OutputGroupType (..)
+    OutputGroupType (..),
 
     -- ** OutputSdt
-    , OutputSdt (..)
+    OutputSdt (..),
 
     -- ** PresetListBy
-    , PresetListBy (..)
+    PresetListBy (..),
+
+    -- ** PricingPlan
+    PricingPlan (..),
 
     -- ** ProresCodecProfile
-    , ProresCodecProfile (..)
+    ProresCodecProfile (..),
 
     -- ** ProresFramerateControl
-    , ProresFramerateControl (..)
+    ProresFramerateControl (..),
 
     -- ** ProresFramerateConversionAlgorithm
-    , ProresFramerateConversionAlgorithm (..)
+    ProresFramerateConversionAlgorithm (..),
 
     -- ** ProresInterlaceMode
-    , ProresInterlaceMode (..)
+    ProresInterlaceMode (..),
 
     -- ** ProresParControl
-    , ProresParControl (..)
+    ProresParControl (..),
+
+    -- ** ProresScanTypeConversionMode
+    ProresScanTypeConversionMode (..),
 
     -- ** ProresSlowPal
-    , ProresSlowPal (..)
+    ProresSlowPal (..),
 
     -- ** ProresTelecine
-    , ProresTelecine (..)
+    ProresTelecine (..),
 
     -- ** QueueListBy
-    , QueueListBy (..)
+    QueueListBy (..),
 
     -- ** QueueStatus
-    , QueueStatus (..)
+    QueueStatus (..),
+
+    -- ** RenewalType
+    RenewalType (..),
+
+    -- ** ReservationPlanStatus
+    ReservationPlanStatus (..),
 
     -- ** RespondToAfd
-    , RespondToAfd (..)
+    RespondToAfd (..),
+
+    -- ** S3ObjectCannedAcl
+    S3ObjectCannedAcl (..),
+
+    -- ** S3ServerSideEncryptionType
+    S3ServerSideEncryptionType (..),
 
     -- ** ScalingBehavior
-    , ScalingBehavior (..)
+    ScalingBehavior (..),
 
     -- ** SccDestinationFramerate
-    , SccDestinationFramerate (..)
+    SccDestinationFramerate (..),
+
+    -- ** SimulateReservedQueue
+    SimulateReservedQueue (..),
+
+    -- ** StatusUpdateInterval
+    StatusUpdateInterval (..),
+
+    -- ** TeletextPageType
+    TeletextPageType (..),
 
     -- ** TimecodeBurninPosition
-    , TimecodeBurninPosition (..)
+    TimecodeBurninPosition (..),
 
     -- ** TimecodeSource
-    , TimecodeSource (..)
+    TimecodeSource (..),
 
     -- ** TimedMetadata
-    , TimedMetadata (..)
+    TimedMetadata (..),
 
     -- ** TtmlStylePassthrough
-    , TtmlStylePassthrough (..)
+    TtmlStylePassthrough (..),
 
     -- ** Type
-    , Type (..)
+    Type (..),
+
+    -- ** Vc3Class
+    Vc3Class (..),
+
+    -- ** Vc3FramerateControl
+    Vc3FramerateControl (..),
+
+    -- ** Vc3FramerateConversionAlgorithm
+    Vc3FramerateConversionAlgorithm (..),
+
+    -- ** Vc3InterlaceMode
+    Vc3InterlaceMode (..),
+
+    -- ** Vc3ScanTypeConversionMode
+    Vc3ScanTypeConversionMode (..),
+
+    -- ** Vc3SlowPal
+    Vc3SlowPal (..),
+
+    -- ** Vc3Telecine
+    Vc3Telecine (..),
 
     -- ** VideoCodec
-    , VideoCodec (..)
+    VideoCodec (..),
 
     -- ** VideoTimecodeInsertion
-    , VideoTimecodeInsertion (..)
+    VideoTimecodeInsertion (..),
+
+    -- ** Vp8FramerateControl
+    Vp8FramerateControl (..),
+
+    -- ** Vp8FramerateConversionAlgorithm
+    Vp8FramerateConversionAlgorithm (..),
+
+    -- ** Vp8ParControl
+    Vp8ParControl (..),
+
+    -- ** Vp8QualityTuningLevel
+    Vp8QualityTuningLevel (..),
+
+    -- ** Vp8RateControlMode
+    Vp8RateControlMode (..),
+
+    -- ** Vp9FramerateControl
+    Vp9FramerateControl (..),
+
+    -- ** Vp9FramerateConversionAlgorithm
+    Vp9FramerateConversionAlgorithm (..),
+
+    -- ** Vp9ParControl
+    Vp9ParControl (..),
+
+    -- ** Vp9QualityTuningLevel
+    Vp9QualityTuningLevel (..),
+
+    -- ** Vp9RateControlMode
+    Vp9RateControlMode (..),
+
+    -- ** WatermarkingStrength
+    WatermarkingStrength (..),
+
+    -- ** WavFormat
+    WavFormat (..),
 
     -- ** AacSettings
-    , AacSettings
-    , aacSettings
-    , assAudioDescriptionBroadcasterMix
-    , assRawFormat
-    , assCodingMode
-    , assRateControlMode
-    , assSampleRate
-    , assSpecification
-    , assCodecProfile
-    , assBitrate
-    , assVbrQuality
+    AacSettings (AacSettings'),
+    newAacSettings,
 
     -- ** Ac3Settings
-    , Ac3Settings
-    , ac3Settings
-    , aLfeFilter
-    , aMetadataControl
-    , aBitstreamMode
-    , aCodingMode
-    , aSampleRate
-    , aDynamicRangeCompressionProfile
-    , aBitrate
-    , aDialnorm
+    Ac3Settings (Ac3Settings'),
+    newAc3Settings,
+
+    -- ** AccelerationSettings
+    AccelerationSettings (AccelerationSettings'),
+    newAccelerationSettings,
 
     -- ** AiffSettings
-    , AiffSettings
-    , aiffSettings
-    , asBitDepth
-    , asChannels
-    , asSampleRate
+    AiffSettings (AiffSettings'),
+    newAiffSettings,
 
     -- ** AncillarySourceSettings
-    , AncillarySourceSettings
-    , ancillarySourceSettings
-    , assSourceAncillaryChannelNumber
+    AncillarySourceSettings (AncillarySourceSettings'),
+    newAncillarySourceSettings,
+
+    -- ** AudioChannelTaggingSettings
+    AudioChannelTaggingSettings (AudioChannelTaggingSettings'),
+    newAudioChannelTaggingSettings,
 
     -- ** AudioCodecSettings
-    , AudioCodecSettings
-    , audioCodecSettings
-    , acsAiffSettings
-    , acsCodec
-    , acsAc3Settings
-    , acsMp2Settings
-    , acsWavSettings
-    , acsAacSettings
-    , acsEac3Settings
+    AudioCodecSettings (AudioCodecSettings'),
+    newAudioCodecSettings,
 
     -- ** AudioDescription
-    , AudioDescription
-    , audioDescription
-    , adAudioSourceName
-    , adLanguageCode
-    , adAudioType
-    , adAudioNormalizationSettings
-    , adLanguageCodeControl
-    , adCodecSettings
-    , adStreamName
-    , adRemixSettings
-    , adAudioTypeControl
+    AudioDescription (AudioDescription'),
+    newAudioDescription,
 
     -- ** AudioNormalizationSettings
-    , AudioNormalizationSettings
-    , audioNormalizationSettings
-    , ansAlgorithmControl
-    , ansTargetLkfs
-    , ansPeakCalculation
-    , ansCorrectionGateLevel
-    , ansAlgorithm
-    , ansLoudnessLogging
+    AudioNormalizationSettings (AudioNormalizationSettings'),
+    newAudioNormalizationSettings,
 
     -- ** AudioSelector
-    , AudioSelector
-    , audioSelector
-    , asTracks
-    , asProgramSelection
-    , asLanguageCode
-    , asOffset
-    , asDefaultSelection
-    , asPids
-    , asSelectorType
-    , asExternalAudioFileInput
-    , asRemixSettings
+    AudioSelector (AudioSelector'),
+    newAudioSelector,
 
     -- ** AudioSelectorGroup
-    , AudioSelectorGroup
-    , audioSelectorGroup
-    , asgAudioSelectorNames
+    AudioSelectorGroup (AudioSelectorGroup'),
+    newAudioSelectorGroup,
+
+    -- ** AutomatedAbrSettings
+    AutomatedAbrSettings (AutomatedAbrSettings'),
+    newAutomatedAbrSettings,
+
+    -- ** AutomatedEncodingSettings
+    AutomatedEncodingSettings (AutomatedEncodingSettings'),
+    newAutomatedEncodingSettings,
+
+    -- ** Av1QvbrSettings
+    Av1QvbrSettings (Av1QvbrSettings'),
+    newAv1QvbrSettings,
+
+    -- ** Av1Settings
+    Av1Settings (Av1Settings'),
+    newAv1Settings,
 
     -- ** AvailBlanking
-    , AvailBlanking
-    , availBlanking
-    , abAvailBlankingImage
+    AvailBlanking (AvailBlanking'),
+    newAvailBlanking,
+
+    -- ** AvcIntraSettings
+    AvcIntraSettings (AvcIntraSettings'),
+    newAvcIntraSettings,
+
+    -- ** AvcIntraUhdSettings
+    AvcIntraUhdSettings (AvcIntraUhdSettings'),
+    newAvcIntraUhdSettings,
 
     -- ** BurninDestinationSettings
-    , BurninDestinationSettings
-    , burninDestinationSettings
-    , bdsBackgroundOpacity
-    , bdsFontOpacity
-    , bdsShadowYOffset
-    , bdsFontResolution
-    , bdsYPosition
-    , bdsBackgroundColor
-    , bdsShadowXOffset
-    , bdsFontSize
-    , bdsXPosition
-    , bdsTeletextSpacing
-    , bdsAlignment
-    , bdsShadowOpacity
-    , bdsOutlineColor
-    , bdsOutlineSize
-    , bdsShadowColor
-    , bdsFontColor
+    BurninDestinationSettings (BurninDestinationSettings'),
+    newBurninDestinationSettings,
 
     -- ** CaptionDescription
-    , CaptionDescription
-    , captionDescription
-    , cdCaptionSelectorName
-    , cdLanguageCode
-    , cdDestinationSettings
-    , cdLanguageDescription
+    CaptionDescription (CaptionDescription'),
+    newCaptionDescription,
 
     -- ** CaptionDescriptionPreset
-    , CaptionDescriptionPreset
-    , captionDescriptionPreset
-    , cdpLanguageCode
-    , cdpDestinationSettings
-    , cdpLanguageDescription
+    CaptionDescriptionPreset (CaptionDescriptionPreset'),
+    newCaptionDescriptionPreset,
 
     -- ** CaptionDestinationSettings
-    , CaptionDestinationSettings
-    , captionDestinationSettings
-    , cdsTeletextDestinationSettings
-    , cdsDvbSubDestinationSettings
-    , cdsTtmlDestinationSettings
-    , cdsDestinationType
-    , cdsSccDestinationSettings
-    , cdsBurninDestinationSettings
+    CaptionDestinationSettings (CaptionDestinationSettings'),
+    newCaptionDestinationSettings,
 
     -- ** CaptionSelector
-    , CaptionSelector
-    , captionSelector
-    , csLanguageCode
-    , csSourceSettings
+    CaptionSelector (CaptionSelector'),
+    newCaptionSelector,
+
+    -- ** CaptionSourceFramerate
+    CaptionSourceFramerate (CaptionSourceFramerate'),
+    newCaptionSourceFramerate,
 
     -- ** CaptionSourceSettings
-    , CaptionSourceSettings
-    , captionSourceSettings
-    , cssTeletextSourceSettings
-    , cssSourceType
-    , cssFileSourceSettings
-    , cssDvbSubSourceSettings
-    , cssAncillarySourceSettings
-    , cssEmbeddedSourceSettings
+    CaptionSourceSettings (CaptionSourceSettings'),
+    newCaptionSourceSettings,
 
     -- ** ChannelMapping
-    , ChannelMapping
-    , channelMapping
-    , cmOutputChannels
+    ChannelMapping (ChannelMapping'),
+    newChannelMapping,
+
+    -- ** CmafAdditionalManifest
+    CmafAdditionalManifest (CmafAdditionalManifest'),
+    newCmafAdditionalManifest,
+
+    -- ** CmafEncryptionSettings
+    CmafEncryptionSettings (CmafEncryptionSettings'),
+    newCmafEncryptionSettings,
+
+    -- ** CmafGroupSettings
+    CmafGroupSettings (CmafGroupSettings'),
+    newCmafGroupSettings,
+
+    -- ** CmfcSettings
+    CmfcSettings (CmfcSettings'),
+    newCmfcSettings,
 
     -- ** ColorCorrector
-    , ColorCorrector
-    , colorCorrector
-    , ccSaturation
-    , ccHue
-    , ccColorSpaceConversion
-    , ccHdr10Metadata
-    , ccContrast
-    , ccBrightness
+    ColorCorrector (ColorCorrector'),
+    newColorCorrector,
 
     -- ** ContainerSettings
-    , ContainerSettings
-    , containerSettings
-    , csM2tsSettings
-    , csM3u8Settings
-    , csMovSettings
-    , csMp4Settings
-    , csContainer
-    , csF4vSettings
+    ContainerSettings (ContainerSettings'),
+    newContainerSettings,
+
+    -- ** DashAdditionalManifest
+    DashAdditionalManifest (DashAdditionalManifest'),
+    newDashAdditionalManifest,
 
     -- ** DashIsoEncryptionSettings
-    , DashIsoEncryptionSettings
-    , dashIsoEncryptionSettings
-    , diesSpekeKeyProvider
+    DashIsoEncryptionSettings (DashIsoEncryptionSettings'),
+    newDashIsoEncryptionSettings,
 
     -- ** DashIsoGroupSettings
-    , DashIsoGroupSettings
-    , dashIsoGroupSettings
-    , digsFragmentLength
-    , digsSegmentControl
-    , digsDestination
-    , digsHbbtvCompliance
-    , digsMinBufferTime
-    , digsBaseURL
-    , digsEncryption
-    , digsSegmentLength
+    DashIsoGroupSettings (DashIsoGroupSettings'),
+    newDashIsoGroupSettings,
 
     -- ** Deinterlacer
-    , Deinterlacer
-    , deinterlacer
-    , dControl
-    , dMode
-    , dAlgorithm
+    Deinterlacer (Deinterlacer'),
+    newDeinterlacer,
+
+    -- ** DestinationSettings
+    DestinationSettings (DestinationSettings'),
+    newDestinationSettings,
+
+    -- ** DolbyVision
+    DolbyVision (DolbyVision'),
+    newDolbyVision,
+
+    -- ** DolbyVisionLevel6Metadata
+    DolbyVisionLevel6Metadata (DolbyVisionLevel6Metadata'),
+    newDolbyVisionLevel6Metadata,
 
     -- ** DvbNitSettings
-    , DvbNitSettings
-    , dvbNitSettings
-    , dnsNetworkId
-    , dnsNetworkName
-    , dnsNitInterval
+    DvbNitSettings (DvbNitSettings'),
+    newDvbNitSettings,
 
     -- ** DvbSdtSettings
-    , DvbSdtSettings
-    , dvbSdtSettings
-    , dssSdtInterval
-    , dssServiceProviderName
-    , dssOutputSdt
-    , dssServiceName
+    DvbSdtSettings (DvbSdtSettings'),
+    newDvbSdtSettings,
 
     -- ** DvbSubDestinationSettings
-    , DvbSubDestinationSettings
-    , dvbSubDestinationSettings
-    , dsdsBackgroundOpacity
-    , dsdsFontOpacity
-    , dsdsShadowYOffset
-    , dsdsFontResolution
-    , dsdsYPosition
-    , dsdsBackgroundColor
-    , dsdsShadowXOffset
-    , dsdsFontSize
-    , dsdsXPosition
-    , dsdsTeletextSpacing
-    , dsdsAlignment
-    , dsdsShadowOpacity
-    , dsdsOutlineColor
-    , dsdsOutlineSize
-    , dsdsShadowColor
-    , dsdsFontColor
+    DvbSubDestinationSettings (DvbSubDestinationSettings'),
+    newDvbSubDestinationSettings,
 
     -- ** DvbSubSourceSettings
-    , DvbSubSourceSettings
-    , dvbSubSourceSettings
-    , dsssPid
+    DvbSubSourceSettings (DvbSubSourceSettings'),
+    newDvbSubSourceSettings,
 
     -- ** DvbTdtSettings
-    , DvbTdtSettings
-    , dvbTdtSettings
-    , dtsTdtInterval
+    DvbTdtSettings (DvbTdtSettings'),
+    newDvbTdtSettings,
+
+    -- ** Eac3AtmosSettings
+    Eac3AtmosSettings (Eac3AtmosSettings'),
+    newEac3AtmosSettings,
 
     -- ** Eac3Settings
-    , Eac3Settings
-    , eac3Settings
-    , esStereoDownmix
-    , esLoRoCenterMixLevel
-    , esLtRtCenterMixLevel
-    , esLfeFilter
-    , esDynamicRangeCompressionLine
-    , esLtRtSurroundMixLevel
-    , esMetadataControl
-    , esLoRoSurroundMixLevel
-    , esSurroundMode
-    , esAttenuationControl
-    , esPassthroughControl
-    , esBitstreamMode
-    , esLfeControl
-    , esDynamicRangeCompressionRf
-    , esCodingMode
-    , esSampleRate
-    , esDcFilter
-    , esBitrate
-    , esPhaseControl
-    , esSurroundExMode
-    , esDialnorm
+    Eac3Settings (Eac3Settings'),
+    newEac3Settings,
+
+    -- ** EmbeddedDestinationSettings
+    EmbeddedDestinationSettings (EmbeddedDestinationSettings'),
+    newEmbeddedDestinationSettings,
 
     -- ** EmbeddedSourceSettings
-    , EmbeddedSourceSettings
-    , embeddedSourceSettings
-    , essConvert608To708
-    , essSource608TrackNumber
-    , essSource608ChannelNumber
+    EmbeddedSourceSettings (EmbeddedSourceSettings'),
+    newEmbeddedSourceSettings,
 
     -- ** Endpoint
-    , Endpoint
-    , endpoint
-    , eURL
+    Endpoint (Endpoint'),
+    newEndpoint,
+
+    -- ** EsamManifestConfirmConditionNotification
+    EsamManifestConfirmConditionNotification (EsamManifestConfirmConditionNotification'),
+    newEsamManifestConfirmConditionNotification,
+
+    -- ** EsamSettings
+    EsamSettings (EsamSettings'),
+    newEsamSettings,
+
+    -- ** EsamSignalProcessingNotification
+    EsamSignalProcessingNotification (EsamSignalProcessingNotification'),
+    newEsamSignalProcessingNotification,
 
     -- ** F4vSettings
-    , F4vSettings
-    , f4vSettings
-    , fsMoovPlacement
+    F4vSettings (F4vSettings'),
+    newF4vSettings,
 
     -- ** FileGroupSettings
-    , FileGroupSettings
-    , fileGroupSettings
-    , fgsDestination
+    FileGroupSettings (FileGroupSettings'),
+    newFileGroupSettings,
 
     -- ** FileSourceSettings
-    , FileSourceSettings
-    , fileSourceSettings
-    , fssConvert608To708
-    , fssTimeDelta
-    , fssSourceFile
+    FileSourceSettings (FileSourceSettings'),
+    newFileSourceSettings,
 
     -- ** FrameCaptureSettings
-    , FrameCaptureSettings
-    , frameCaptureSettings
-    , fcsQuality
-    , fcsFramerateDenominator
-    , fcsMaxCaptures
-    , fcsFramerateNumerator
+    FrameCaptureSettings (FrameCaptureSettings'),
+    newFrameCaptureSettings,
+
+    -- ** H264QvbrSettings
+    H264QvbrSettings (H264QvbrSettings'),
+    newH264QvbrSettings,
 
     -- ** H264Settings
-    , H264Settings
-    , h264Settings
-    , hUnregisteredSeiTimecode
-    , hQualityTuningLevel
-    , hTemporalAdaptiveQuantization
-    , hSceneChangeDetect
-    , hHrdBufferInitialFillPercentage
-    , hSlowPal
-    , hParNumerator
-    , hGopSize
-    , hNumberBFramesBetweenReferenceFrames
-    , hGopSizeUnits
-    , hHrdBufferSize
-    , hSlices
-    , hRateControlMode
-    , hNumberReferenceFrames
-    , hTelecine
-    , hMinIInterval
-    , hInterlaceMode
-    , hParControl
-    , hRepeatPps
-    , hFlickerAdaptiveQuantization
-    , hSoftness
-    , hCodecProfile
-    , hBitrate
-    , hFramerateDenominator
-    , hFramerateConversionAlgorithm
-    , hCodecLevel
-    , hEntropyEncoding
-    , hFramerateControl
-    , hAdaptiveQuantization
-    , hFramerateNumerator
-    , hGopBReference
-    , hMaxBitrate
-    , hSyntax
-    , hFieldEncoding
-    , hGopClosedCadence
-    , hParDenominator
-    , hSpatialAdaptiveQuantization
+    H264Settings (H264Settings'),
+    newH264Settings,
+
+    -- ** H265QvbrSettings
+    H265QvbrSettings (H265QvbrSettings'),
+    newH265QvbrSettings,
 
     -- ** H265Settings
-    , H265Settings
-    , h265Settings
-    , hsUnregisteredSeiTimecode
-    , hsQualityTuningLevel
-    , hsTemporalAdaptiveQuantization
-    , hsSceneChangeDetect
-    , hsHrdBufferInitialFillPercentage
-    , hsTiles
-    , hsSlowPal
-    , hsTemporalIds
-    , hsParNumerator
-    , hsGopSize
-    , hsNumberBFramesBetweenReferenceFrames
-    , hsGopSizeUnits
-    , hsHrdBufferSize
-    , hsSlices
-    , hsAlternateTransferFunctionSei
-    , hsRateControlMode
-    , hsNumberReferenceFrames
-    , hsTelecine
-    , hsMinIInterval
-    , hsInterlaceMode
-    , hsParControl
-    , hsFlickerAdaptiveQuantization
-    , hsSampleAdaptiveOffsetFilterMode
-    , hsCodecProfile
-    , hsBitrate
-    , hsFramerateDenominator
-    , hsFramerateConversionAlgorithm
-    , hsCodecLevel
-    , hsFramerateControl
-    , hsAdaptiveQuantization
-    , hsFramerateNumerator
-    , hsGopBReference
-    , hsMaxBitrate
-    , hsGopClosedCadence
-    , hsParDenominator
-    , hsSpatialAdaptiveQuantization
+    H265Settings (H265Settings'),
+    newH265Settings,
 
     -- ** Hdr10Metadata
-    , Hdr10Metadata
-    , hdr10Metadata
-    , hmRedPrimaryX
-    , hmBluePrimaryX
-    , hmMaxFrameAverageLightLevel
-    , hmWhitePointY
-    , hmMaxContentLightLevel
-    , hmWhitePointX
-    , hmBluePrimaryY
-    , hmGreenPrimaryY
-    , hmGreenPrimaryX
-    , hmMinLuminance
-    , hmRedPrimaryY
-    , hmMaxLuminance
+    Hdr10Metadata (Hdr10Metadata'),
+    newHdr10Metadata,
+
+    -- ** HlsAdditionalManifest
+    HlsAdditionalManifest (HlsAdditionalManifest'),
+    newHlsAdditionalManifest,
 
     -- ** HlsCaptionLanguageMapping
-    , HlsCaptionLanguageMapping
-    , hlsCaptionLanguageMapping
-    , hclmLanguageCode
-    , hclmLanguageDescription
-    , hclmCaptionChannel
+    HlsCaptionLanguageMapping (HlsCaptionLanguageMapping'),
+    newHlsCaptionLanguageMapping,
 
     -- ** HlsEncryptionSettings
-    , HlsEncryptionSettings
-    , hlsEncryptionSettings
-    , hesEncryptionMethod
-    , hesConstantInitializationVector
-    , hesType
-    , hesStaticKeyProvider
-    , hesSpekeKeyProvider
-    , hesInitializationVectorInManifest
+    HlsEncryptionSettings (HlsEncryptionSettings'),
+    newHlsEncryptionSettings,
 
     -- ** HlsGroupSettings
-    , HlsGroupSettings
-    , hlsGroupSettings
-    , hgsDirectoryStructure
-    , hgsSegmentControl
-    , hgsDestination
-    , hgsTimedMetadataId3Period
-    , hgsMinSegmentLength
-    , hgsProgramDateTime
-    , hgsProgramDateTimePeriod
-    , hgsCodecSpecification
-    , hgsCaptionLanguageMappings
-    , hgsBaseURL
-    , hgsAdMarkers
-    , hgsEncryption
-    , hgsSegmentLength
-    , hgsTimedMetadataId3Frame
-    , hgsOutputSelection
-    , hgsCaptionLanguageSetting
-    , hgsSegmentsPerSubdirectory
-    , hgsManifestDurationFormat
-    , hgsClientCache
-    , hgsTimestampDeltaMilliseconds
-    , hgsStreamInfResolution
-    , hgsManifestCompression
+    HlsGroupSettings (HlsGroupSettings'),
+    newHlsGroupSettings,
 
     -- ** HlsSettings
-    , HlsSettings
-    , hlsSettings
-    , hsAudioRenditionSets
-    , hsIFrameOnlyManifest
-    , hsAudioGroupId
-    , hsSegmentModifier
-    , hsAudioTrackType
+    HlsSettings (HlsSettings'),
+    newHlsSettings,
+
+    -- ** HopDestination
+    HopDestination (HopDestination'),
+    newHopDestination,
 
     -- ** Id3Insertion
-    , Id3Insertion
-    , id3Insertion
-    , iiId3
-    , iiTimecode
+    Id3Insertion (Id3Insertion'),
+    newId3Insertion,
 
     -- ** ImageInserter
-    , ImageInserter
-    , imageInserter
-    , iiInsertableImages
+    ImageInserter (ImageInserter'),
+    newImageInserter,
+
+    -- ** ImscDestinationSettings
+    ImscDestinationSettings (ImscDestinationSettings'),
+    newImscDestinationSettings,
 
     -- ** Input
-    , Input
-    , input
-    , iVideoSelector
-    , iProgramNumber
-    , iAudioSelectorGroups
-    , iTimecodeSource
-    , iAudioSelectors
-    , iDeblockFilter
-    , iInputClippings
-    , iDenoiseFilter
-    , iFilterStrength
-    , iPsiControl
-    , iCaptionSelectors
-    , iFileInput
-    , iFilterEnable
+    Input (Input'),
+    newInput,
 
     -- ** InputClipping
-    , InputClipping
-    , inputClipping
-    , icEndTimecode
-    , icStartTimecode
+    InputClipping (InputClipping'),
+    newInputClipping,
+
+    -- ** InputDecryptionSettings
+    InputDecryptionSettings (InputDecryptionSettings'),
+    newInputDecryptionSettings,
 
     -- ** InputTemplate
-    , InputTemplate
-    , inputTemplate
-    , itVideoSelector
-    , itProgramNumber
-    , itAudioSelectorGroups
-    , itTimecodeSource
-    , itAudioSelectors
-    , itDeblockFilter
-    , itInputClippings
-    , itDenoiseFilter
-    , itFilterStrength
-    , itPsiControl
-    , itCaptionSelectors
-    , itFilterEnable
+    InputTemplate (InputTemplate'),
+    newInputTemplate,
 
     -- ** InsertableImage
-    , InsertableImage
-    , insertableImage
-    , iiImageX
-    , iiHeight
-    , iiStartTime
-    , iiFadeOut
-    , iiWidth
-    , iiOpacity
-    , iiLayer
-    , iiDuration
-    , iiImageY
-    , iiImageInserterInput
-    , iiFadeIn
+    InsertableImage (InsertableImage'),
+    newInsertableImage,
 
     -- ** Job
-    , Job
-    , job
-    , jStatus
-    , jJobTemplate
-    , jSettings
-    , jARN
-    , jCreatedAt
-    , jQueue
-    , jUserMetadata
-    , jRole
-    , jOutputGroupDetails
-    , jErrorCode
-    , jId
-    , jTiming
-    , jErrorMessage
+    Job (Job'),
+    newJob,
+
+    -- ** JobMessages
+    JobMessages (JobMessages'),
+    newJobMessages,
 
     -- ** JobSettings
-    , JobSettings
-    , jobSettings
-    , jsInputs
-    , jsTimedMetadataInsertion
-    , jsNielsenConfiguration
-    , jsAvailBlanking
-    , jsTimecodeConfig
-    , jsOutputGroups
-    , jsAdAvailOffset
+    JobSettings (JobSettings'),
+    newJobSettings,
 
     -- ** JobTemplate
-    , JobTemplate
-    , jobTemplate
-    , jtLastUpdated
-    , jtSettings
-    , jtARN
-    , jtCreatedAt
-    , jtCategory
-    , jtQueue
-    , jtName
-    , jtType
-    , jtDescription
+    JobTemplate (JobTemplate'),
+    newJobTemplate,
 
     -- ** JobTemplateSettings
-    , JobTemplateSettings
-    , jobTemplateSettings
-    , jtsInputs
-    , jtsTimedMetadataInsertion
-    , jtsNielsenConfiguration
-    , jtsAvailBlanking
-    , jtsTimecodeConfig
-    , jtsOutputGroups
-    , jtsAdAvailOffset
+    JobTemplateSettings (JobTemplateSettings'),
+    newJobTemplateSettings,
+
+    -- ** M2tsScte35Esam
+    M2tsScte35Esam (M2tsScte35Esam'),
+    newM2tsScte35Esam,
 
     -- ** M2tsSettings
-    , M2tsSettings
-    , m2tsSettings
-    , mPmtPid
-    , mVideoPid
-    , mBufferModel
-    , mProgramNumber
-    , mScte35Pid
-    , mMinEbpInterval
-    , mTransportStreamId
-    , mMaxPcrInterval
-    , mFragmentTime
-    , mPrivateMetadataPid
-    , mPmtInterval
-    , mDvbSdtSettings
-    , mNullPacketBitrate
-    , mAudioBufferModel
-    , mTimedMetadataPid
-    , mAudioFramesPerPes
-    , mPcrPid
-    , mSegmentationMarkers
-    , mDvbSubPids
-    , mScte35Source
-    , mPatInterval
-    , mEsRateInPes
-    , mBitrate
-    , mAudioPids
-    , mDvbTeletextPid
-    , mNielsenId3
-    , mSegmentationTime
-    , mEbpAudioInterval
-    , mDvbNitSettings
-    , mPcrControl
-    , mEbpPlacement
-    , mRateMode
-    , mSegmentationStyle
-    , mDvbTdtSettings
+    M2tsSettings (M2tsSettings'),
+    newM2tsSettings,
 
     -- ** M3u8Settings
-    , M3u8Settings
-    , m3u8Settings
-    , msPmtPid
-    , msVideoPid
-    , msProgramNumber
-    , msScte35Pid
-    , msTransportStreamId
-    , msPrivateMetadataPid
-    , msPmtInterval
-    , msTimedMetadataPid
-    , msAudioFramesPerPes
-    , msPcrPid
-    , msTimedMetadata
-    , msScte35Source
-    , msPatInterval
-    , msAudioPids
-    , msNielsenId3
-    , msPcrControl
+    M3u8Settings (M3u8Settings'),
+    newM3u8Settings,
+
+    -- ** MotionImageInserter
+    MotionImageInserter (MotionImageInserter'),
+    newMotionImageInserter,
+
+    -- ** MotionImageInsertionFramerate
+    MotionImageInsertionFramerate (MotionImageInsertionFramerate'),
+    newMotionImageInsertionFramerate,
+
+    -- ** MotionImageInsertionOffset
+    MotionImageInsertionOffset (MotionImageInsertionOffset'),
+    newMotionImageInsertionOffset,
 
     -- ** MovSettings
-    , MovSettings
-    , movSettings
-    , msReference
-    , msCslgAtom
-    , msMpeg2FourCCControl
-    , msPaddingControl
-    , msClapAtom
+    MovSettings (MovSettings'),
+    newMovSettings,
 
     -- ** Mp2Settings
-    , Mp2Settings
-    , mp2Settings
-    , mssChannels
-    , mssSampleRate
-    , mssBitrate
+    Mp2Settings (Mp2Settings'),
+    newMp2Settings,
+
+    -- ** Mp3Settings
+    Mp3Settings (Mp3Settings'),
+    newMp3Settings,
 
     -- ** Mp4Settings
-    , Mp4Settings
-    , mp4Settings
-    , mMoovPlacement
-    , mFreeSpaceBox
-    , mMp4MajorBrand
-    , mCslgAtom
+    Mp4Settings (Mp4Settings'),
+    newMp4Settings,
+
+    -- ** MpdSettings
+    MpdSettings (MpdSettings'),
+    newMpdSettings,
 
     -- ** Mpeg2Settings
-    , Mpeg2Settings
-    , mpeg2Settings
-    , msQualityTuningLevel
-    , msTemporalAdaptiveQuantization
-    , msSceneChangeDetect
-    , msHrdBufferInitialFillPercentage
-    , msSlowPal
-    , msParNumerator
-    , msGopSize
-    , msNumberBFramesBetweenReferenceFrames
-    , msGopSizeUnits
-    , msHrdBufferSize
-    , msRateControlMode
-    , msTelecine
-    , msIntraDcPrecision
-    , msMinIInterval
-    , msInterlaceMode
-    , msParControl
-    , msSoftness
-    , msCodecProfile
-    , msBitrate
-    , msFramerateDenominator
-    , msFramerateConversionAlgorithm
-    , msCodecLevel
-    , msFramerateControl
-    , msAdaptiveQuantization
-    , msFramerateNumerator
-    , msMaxBitrate
-    , msSyntax
-    , msGopClosedCadence
-    , msParDenominator
-    , msSpatialAdaptiveQuantization
+    Mpeg2Settings (Mpeg2Settings'),
+    newMpeg2Settings,
+
+    -- ** MsSmoothAdditionalManifest
+    MsSmoothAdditionalManifest (MsSmoothAdditionalManifest'),
+    newMsSmoothAdditionalManifest,
 
     -- ** MsSmoothEncryptionSettings
-    , MsSmoothEncryptionSettings
-    , msSmoothEncryptionSettings
-    , msesSpekeKeyProvider
+    MsSmoothEncryptionSettings (MsSmoothEncryptionSettings'),
+    newMsSmoothEncryptionSettings,
 
     -- ** MsSmoothGroupSettings
-    , MsSmoothGroupSettings
-    , msSmoothGroupSettings
-    , msgsFragmentLength
-    , msgsManifestEncoding
-    , msgsDestination
-    , msgsAudioDeduplication
-    , msgsEncryption
+    MsSmoothGroupSettings (MsSmoothGroupSettings'),
+    newMsSmoothGroupSettings,
+
+    -- ** MxfSettings
+    MxfSettings (MxfSettings'),
+    newMxfSettings,
+
+    -- ** NexGuardFileMarkerSettings
+    NexGuardFileMarkerSettings (NexGuardFileMarkerSettings'),
+    newNexGuardFileMarkerSettings,
 
     -- ** NielsenConfiguration
-    , NielsenConfiguration
-    , nielsenConfiguration
-    , ncBreakoutCode
-    , ncDistributorId
+    NielsenConfiguration (NielsenConfiguration'),
+    newNielsenConfiguration,
+
+    -- ** NielsenNonLinearWatermarkSettings
+    NielsenNonLinearWatermarkSettings (NielsenNonLinearWatermarkSettings'),
+    newNielsenNonLinearWatermarkSettings,
 
     -- ** NoiseReducer
-    , NoiseReducer
-    , noiseReducer
-    , nrSpatialFilterSettings
-    , nrFilterSettings
-    , nrFilter
+    NoiseReducer (NoiseReducer'),
+    newNoiseReducer,
 
     -- ** NoiseReducerFilterSettings
-    , NoiseReducerFilterSettings
-    , noiseReducerFilterSettings
-    , nrfsStrength
+    NoiseReducerFilterSettings (NoiseReducerFilterSettings'),
+    newNoiseReducerFilterSettings,
 
     -- ** NoiseReducerSpatialFilterSettings
-    , NoiseReducerSpatialFilterSettings
-    , noiseReducerSpatialFilterSettings
-    , nrsfsStrength
-    , nrsfsPostFilterSharpenStrength
-    , nrsfsSpeed
+    NoiseReducerSpatialFilterSettings (NoiseReducerSpatialFilterSettings'),
+    newNoiseReducerSpatialFilterSettings,
+
+    -- ** NoiseReducerTemporalFilterSettings
+    NoiseReducerTemporalFilterSettings (NoiseReducerTemporalFilterSettings'),
+    newNoiseReducerTemporalFilterSettings,
+
+    -- ** OpusSettings
+    OpusSettings (OpusSettings'),
+    newOpusSettings,
 
     -- ** Output
-    , Output
-    , output
-    , oCaptionDescriptions
-    , oExtension
-    , oVideoDescription
-    , oContainerSettings
-    , oOutputSettings
-    , oPreset
-    , oNameModifier
-    , oAudioDescriptions
+    Output (Output'),
+    newOutput,
 
     -- ** OutputChannelMapping
-    , OutputChannelMapping
-    , outputChannelMapping
-    , ocmInputChannels
+    OutputChannelMapping (OutputChannelMapping'),
+    newOutputChannelMapping,
 
     -- ** OutputDetail
-    , OutputDetail
-    , outputDetail
-    , odVideoDetails
-    , odDurationInMs
+    OutputDetail (OutputDetail'),
+    newOutputDetail,
 
     -- ** OutputGroup
-    , OutputGroup
-    , outputGroup
-    , ogOutputGroupSettings
-    , ogOutputs
-    , ogCustomName
-    , ogName
+    OutputGroup (OutputGroup'),
+    newOutputGroup,
 
     -- ** OutputGroupDetail
-    , OutputGroupDetail
-    , outputGroupDetail
-    , ogdOutputDetails
+    OutputGroupDetail (OutputGroupDetail'),
+    newOutputGroupDetail,
 
     -- ** OutputGroupSettings
-    , OutputGroupSettings
-    , outputGroupSettings
-    , ogsFileGroupSettings
-    , ogsMsSmoothGroupSettings
-    , ogsHlsGroupSettings
-    , ogsType
-    , ogsDashIsoGroupSettings
+    OutputGroupSettings (OutputGroupSettings'),
+    newOutputGroupSettings,
 
     -- ** OutputSettings
-    , OutputSettings
-    , outputSettings
-    , osHlsSettings
+    OutputSettings (OutputSettings'),
+    newOutputSettings,
+
+    -- ** PartnerWatermarking
+    PartnerWatermarking (PartnerWatermarking'),
+    newPartnerWatermarking,
 
     -- ** Preset
-    , Preset
-    , preset
-    , pLastUpdated
-    , pSettings
-    , pARN
-    , pCreatedAt
-    , pCategory
-    , pName
-    , pType
-    , pDescription
+    Preset (Preset'),
+    newPreset,
 
     -- ** PresetSettings
-    , PresetSettings
-    , presetSettings
-    , psCaptionDescriptions
-    , psVideoDescription
-    , psContainerSettings
-    , psAudioDescriptions
+    PresetSettings (PresetSettings'),
+    newPresetSettings,
 
     -- ** ProresSettings
-    , ProresSettings
-    , proresSettings
-    , psSlowPal
-    , psParNumerator
-    , psTelecine
-    , psInterlaceMode
-    , psParControl
-    , psCodecProfile
-    , psFramerateDenominator
-    , psFramerateConversionAlgorithm
-    , psFramerateControl
-    , psFramerateNumerator
-    , psParDenominator
+    ProresSettings (ProresSettings'),
+    newProresSettings,
 
     -- ** Queue
-    , Queue
-    , queue
-    , qStatus
-    , qLastUpdated
-    , qARN
-    , qCreatedAt
-    , qName
-    , qType
-    , qDescription
+    Queue (Queue'),
+    newQueue,
+
+    -- ** QueueTransition
+    QueueTransition (QueueTransition'),
+    newQueueTransition,
 
     -- ** Rectangle
-    , Rectangle
-    , rectangle
-    , rHeight
-    , rWidth
-    , rX
-    , rY
+    Rectangle (Rectangle'),
+    newRectangle,
 
     -- ** RemixSettings
-    , RemixSettings
-    , remixSettings
-    , rsChannelMapping
-    , rsChannelsIn
-    , rsChannelsOut
+    RemixSettings (RemixSettings'),
+    newRemixSettings,
+
+    -- ** ReservationPlan
+    ReservationPlan (ReservationPlan'),
+    newReservationPlan,
+
+    -- ** ReservationPlanSettings
+    ReservationPlanSettings (ReservationPlanSettings'),
+    newReservationPlanSettings,
+
+    -- ** ResourceTags
+    ResourceTags (ResourceTags'),
+    newResourceTags,
+
+    -- ** S3DestinationAccessControl
+    S3DestinationAccessControl (S3DestinationAccessControl'),
+    newS3DestinationAccessControl,
+
+    -- ** S3DestinationSettings
+    S3DestinationSettings (S3DestinationSettings'),
+    newS3DestinationSettings,
+
+    -- ** S3EncryptionSettings
+    S3EncryptionSettings (S3EncryptionSettings'),
+    newS3EncryptionSettings,
 
     -- ** SccDestinationSettings
-    , SccDestinationSettings
-    , sccDestinationSettings
-    , sdsFramerate
+    SccDestinationSettings (SccDestinationSettings'),
+    newSccDestinationSettings,
 
     -- ** SpekeKeyProvider
-    , SpekeKeyProvider
-    , spekeKeyProvider
-    , skpResourceId
-    , skpURL
-    , skpSystemIds
+    SpekeKeyProvider (SpekeKeyProvider'),
+    newSpekeKeyProvider,
+
+    -- ** SpekeKeyProviderCmaf
+    SpekeKeyProviderCmaf (SpekeKeyProviderCmaf'),
+    newSpekeKeyProviderCmaf,
 
     -- ** StaticKeyProvider
-    , StaticKeyProvider
-    , staticKeyProvider
-    , sStaticKeyValue
-    , sURL
-    , sKeyFormat
-    , sKeyFormatVersions
+    StaticKeyProvider (StaticKeyProvider'),
+    newStaticKeyProvider,
 
     -- ** TeletextDestinationSettings
-    , TeletextDestinationSettings
-    , teletextDestinationSettings
-    , tdsPageNumber
+    TeletextDestinationSettings (TeletextDestinationSettings'),
+    newTeletextDestinationSettings,
 
     -- ** TeletextSourceSettings
-    , TeletextSourceSettings
-    , teletextSourceSettings
-    , tssPageNumber
+    TeletextSourceSettings (TeletextSourceSettings'),
+    newTeletextSourceSettings,
 
     -- ** TimecodeBurnin
-    , TimecodeBurnin
-    , timecodeBurnin
-    , tbPrefix
-    , tbFontSize
-    , tbPosition
+    TimecodeBurnin (TimecodeBurnin'),
+    newTimecodeBurnin,
 
     -- ** TimecodeConfig
-    , TimecodeConfig
-    , timecodeConfig
-    , tcStart
-    , tcTimestampOffset
-    , tcAnchor
-    , tcSource
+    TimecodeConfig (TimecodeConfig'),
+    newTimecodeConfig,
 
     -- ** TimedMetadataInsertion
-    , TimedMetadataInsertion
-    , timedMetadataInsertion
-    , tmiId3Insertions
+    TimedMetadataInsertion (TimedMetadataInsertion'),
+    newTimedMetadataInsertion,
 
     -- ** Timing
-    , Timing
-    , timing
-    , tStartTime
-    , tFinishTime
-    , tSubmitTime
+    Timing (Timing'),
+    newTiming,
+
+    -- ** TrackSourceSettings
+    TrackSourceSettings (TrackSourceSettings'),
+    newTrackSourceSettings,
 
     -- ** TtmlDestinationSettings
-    , TtmlDestinationSettings
-    , ttmlDestinationSettings
-    , tdsStylePassthrough
+    TtmlDestinationSettings (TtmlDestinationSettings'),
+    newTtmlDestinationSettings,
+
+    -- ** Vc3Settings
+    Vc3Settings (Vc3Settings'),
+    newVc3Settings,
 
     -- ** VideoCodecSettings
-    , VideoCodecSettings
-    , videoCodecSettings
-    , vcsFrameCaptureSettings
-    , vcsCodec
-    , vcsH265Settings
-    , vcsProresSettings
-    , vcsH264Settings
-    , vcsMpeg2Settings
+    VideoCodecSettings (VideoCodecSettings'),
+    newVideoCodecSettings,
 
     -- ** VideoDescription
-    , VideoDescription
-    , videoDescription
-    , vdTimecodeInsertion
-    , vdHeight
-    , vdAfdSignaling
-    , vdSharpness
-    , vdCrop
-    , vdWidth
-    , vdScalingBehavior
-    , vdRespondToAfd
-    , vdDropFrameTimecode
-    , vdAntiAlias
-    , vdFixedAfd
-    , vdColorMetadata
-    , vdCodecSettings
-    , vdVideoPreprocessors
-    , vdPosition
+    VideoDescription (VideoDescription'),
+    newVideoDescription,
 
     -- ** VideoDetail
-    , VideoDetail
-    , videoDetail
-    , vdHeightInPx
-    , vdWidthInPx
+    VideoDetail (VideoDetail'),
+    newVideoDetail,
 
     -- ** VideoPreprocessor
-    , VideoPreprocessor
-    , videoPreprocessor
-    , vpTimecodeBurnin
-    , vpColorCorrector
-    , vpDeinterlacer
-    , vpNoiseReducer
-    , vpImageInserter
+    VideoPreprocessor (VideoPreprocessor'),
+    newVideoPreprocessor,
 
     -- ** VideoSelector
-    , VideoSelector
-    , videoSelector
-    , vsProgramNumber
-    , vsColorSpaceUsage
-    , vsHdr10Metadata
-    , vsPid
-    , vsColorSpace
+    VideoSelector (VideoSelector'),
+    newVideoSelector,
+
+    -- ** VorbisSettings
+    VorbisSettings (VorbisSettings'),
+    newVorbisSettings,
+
+    -- ** Vp8Settings
+    Vp8Settings (Vp8Settings'),
+    newVp8Settings,
+
+    -- ** Vp9Settings
+    Vp9Settings (Vp9Settings'),
+    newVp9Settings,
 
     -- ** WavSettings
-    , WavSettings
-    , wavSettings
-    , wsBitDepth
-    , wsChannels
-    , wsSampleRate
-    ) where
+    WavSettings (WavSettings'),
+    newWavSettings,
+  )
+where
 
+import Network.AWS.MediaConvert.AssociateCertificate
 import Network.AWS.MediaConvert.CancelJob
 import Network.AWS.MediaConvert.CreateJob
 import Network.AWS.MediaConvert.CreateJobTemplate
@@ -1678,46 +1737,48 @@ import Network.AWS.MediaConvert.DeleteJobTemplate
 import Network.AWS.MediaConvert.DeletePreset
 import Network.AWS.MediaConvert.DeleteQueue
 import Network.AWS.MediaConvert.DescribeEndpoints
+import Network.AWS.MediaConvert.DisassociateCertificate
 import Network.AWS.MediaConvert.GetJob
 import Network.AWS.MediaConvert.GetJobTemplate
 import Network.AWS.MediaConvert.GetPreset
 import Network.AWS.MediaConvert.GetQueue
-import Network.AWS.MediaConvert.ListJobs
+import Network.AWS.MediaConvert.Lens
 import Network.AWS.MediaConvert.ListJobTemplates
+import Network.AWS.MediaConvert.ListJobs
 import Network.AWS.MediaConvert.ListPresets
 import Network.AWS.MediaConvert.ListQueues
+import Network.AWS.MediaConvert.ListTagsForResource
+import Network.AWS.MediaConvert.TagResource
 import Network.AWS.MediaConvert.Types
+import Network.AWS.MediaConvert.UntagResource
 import Network.AWS.MediaConvert.UpdateJobTemplate
 import Network.AWS.MediaConvert.UpdatePreset
 import Network.AWS.MediaConvert.UpdateQueue
 import Network.AWS.MediaConvert.Waiters
 
-{- $errors
-Error matchers are designed for use with the functions provided by
-<http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
-This allows catching (and rethrowing) service specific errors returned
-by 'MediaConvert'.
--}
+-- $errors
+-- Error matchers are designed for use with the functions provided by
+-- <http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens>.
+-- This allows catching (and rethrowing) service specific errors returned
+-- by 'MediaConvert'.
 
-{- $operations
-Some AWS operations return results that are incomplete and require subsequent
-requests in order to obtain the entire result set. The process of sending
-subsequent requests to continue where a previous request left off is called
-pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
-1000 objects at a time, and you must send subsequent requests with the
-appropriate Marker in order to retrieve the next page of results.
+-- $operations
+-- Some AWS operations return results that are incomplete and require subsequent
+-- requests in order to obtain the entire result set. The process of sending
+-- subsequent requests to continue where a previous request left off is called
+-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to
+-- 1000 objects at a time, and you must send subsequent requests with the
+-- appropriate Marker in order to retrieve the next page of results.
+--
+-- Operations that have an 'AWSPager' instance can transparently perform subsequent
+-- requests, correctly setting Markers and other request facets to iterate through
+-- the entire result set of a truncated API operation. Operations which support
+-- this have an additional note in the documentation.
+--
+-- Many operations have the ability to filter results on the server side. See the
+-- individual operation parameters for details.
 
-Operations that have an 'AWSPager' instance can transparently perform subsequent
-requests, correctly setting Markers and other request facets to iterate through
-the entire result set of a truncated API operation. Operations which support
-this have an additional note in the documentation.
-
-Many operations have the ability to filter results on the server side. See the
-individual operation parameters for details.
--}
-
-{- $waiters
-Waiters poll by repeatedly sending a request until some remote success condition
-configured by the 'Wait' specification is fulfilled. The 'Wait' specification
-determines how many attempts should be made, in addition to delay and retry strategies.
--}
+-- $waiters
+-- Waiters poll by repeatedly sending a request until some remote success condition
+-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification
+-- determines how many attempts should be made, in addition to delay and retry strategies.

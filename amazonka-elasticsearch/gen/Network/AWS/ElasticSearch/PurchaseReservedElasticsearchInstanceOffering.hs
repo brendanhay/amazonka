@@ -1,196 +1,229 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.ElasticSearch.PurchaseReservedElasticsearchInstanceOffering
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Allows you to purchase reserved Elasticsearch instances.
---
---
 module Network.AWS.ElasticSearch.PurchaseReservedElasticsearchInstanceOffering
-    (
-    -- * Creating a Request
-      purchaseReservedElasticsearchInstanceOffering
-    , PurchaseReservedElasticsearchInstanceOffering
+  ( -- * Creating a Request
+    PurchaseReservedElasticsearchInstanceOffering (..),
+    newPurchaseReservedElasticsearchInstanceOffering,
+
     -- * Request Lenses
-    , preioInstanceCount
-    , preioReservedElasticsearchInstanceOfferingId
-    , preioReservationName
+    purchaseReservedElasticsearchInstanceOffering_instanceCount,
+    purchaseReservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId,
+    purchaseReservedElasticsearchInstanceOffering_reservationName,
 
     -- * Destructuring the Response
-    , purchaseReservedElasticsearchInstanceOfferingResponse
-    , PurchaseReservedElasticsearchInstanceOfferingResponse
+    PurchaseReservedElasticsearchInstanceOfferingResponse (..),
+    newPurchaseReservedElasticsearchInstanceOfferingResponse,
+
     -- * Response Lenses
-    , preiorsReservedElasticsearchInstanceId
-    , preiorsReservationName
-    , preiorsResponseStatus
-    ) where
+    purchaseReservedElasticsearchInstanceOfferingResponse_reservationName,
+    purchaseReservedElasticsearchInstanceOfferingResponse_reservedElasticsearchInstanceId,
+    purchaseReservedElasticsearchInstanceOfferingResponse_httpStatus,
+  )
+where
 
 import Network.AWS.ElasticSearch.Types
-import Network.AWS.ElasticSearch.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Container for parameters to @PurchaseReservedElasticsearchInstanceOffering@
+-- | Container for parameters to
+-- @PurchaseReservedElasticsearchInstanceOffering@
 --
---
---
--- /See:/ 'purchaseReservedElasticsearchInstanceOffering' smart constructor.
+-- /See:/ 'newPurchaseReservedElasticsearchInstanceOffering' smart constructor.
 data PurchaseReservedElasticsearchInstanceOffering = PurchaseReservedElasticsearchInstanceOffering'
-  { _preioInstanceCount                           :: !(Maybe Nat)
-  , _preioReservedElasticsearchInstanceOfferingId :: !Text
-  , _preioReservationName                         :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The number of Elasticsearch instances to reserve.
+    instanceCount :: Prelude.Maybe Prelude.Natural,
+    -- | The ID of the reserved Elasticsearch instance offering to purchase.
+    reservedElasticsearchInstanceOfferingId :: Prelude.Text,
+    -- | A customer-specified identifier to track this reservation.
+    reservationName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'PurchaseReservedElasticsearchInstanceOffering' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PurchaseReservedElasticsearchInstanceOffering' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'preioInstanceCount' - The number of Elasticsearch instances to reserve.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'preioReservedElasticsearchInstanceOfferingId' - The ID of the reserved Elasticsearch instance offering to purchase.
+-- 'instanceCount', 'purchaseReservedElasticsearchInstanceOffering_instanceCount' - The number of Elasticsearch instances to reserve.
 --
--- * 'preioReservationName' - A customer-specified identifier to track this reservation.
-purchaseReservedElasticsearchInstanceOffering
-    :: Text -- ^ 'preioReservedElasticsearchInstanceOfferingId'
-    -> Text -- ^ 'preioReservationName'
-    -> PurchaseReservedElasticsearchInstanceOffering
-purchaseReservedElasticsearchInstanceOffering pReservedElasticsearchInstanceOfferingId_ pReservationName_ =
-  PurchaseReservedElasticsearchInstanceOffering'
-    { _preioInstanceCount = Nothing
-    , _preioReservedElasticsearchInstanceOfferingId =
-        pReservedElasticsearchInstanceOfferingId_
-    , _preioReservationName = pReservationName_
-    }
-
+-- 'reservedElasticsearchInstanceOfferingId', 'purchaseReservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId' - The ID of the reserved Elasticsearch instance offering to purchase.
+--
+-- 'reservationName', 'purchaseReservedElasticsearchInstanceOffering_reservationName' - A customer-specified identifier to track this reservation.
+newPurchaseReservedElasticsearchInstanceOffering ::
+  -- | 'reservedElasticsearchInstanceOfferingId'
+  Prelude.Text ->
+  -- | 'reservationName'
+  Prelude.Text ->
+  PurchaseReservedElasticsearchInstanceOffering
+newPurchaseReservedElasticsearchInstanceOffering
+  pReservedElasticsearchInstanceOfferingId_
+  pReservationName_ =
+    PurchaseReservedElasticsearchInstanceOffering'
+      { instanceCount =
+          Prelude.Nothing,
+        reservedElasticsearchInstanceOfferingId =
+          pReservedElasticsearchInstanceOfferingId_,
+        reservationName =
+          pReservationName_
+      }
 
 -- | The number of Elasticsearch instances to reserve.
-preioInstanceCount :: Lens' PurchaseReservedElasticsearchInstanceOffering (Maybe Natural)
-preioInstanceCount = lens _preioInstanceCount (\ s a -> s{_preioInstanceCount = a}) . mapping _Nat
+purchaseReservedElasticsearchInstanceOffering_instanceCount :: Lens.Lens' PurchaseReservedElasticsearchInstanceOffering (Prelude.Maybe Prelude.Natural)
+purchaseReservedElasticsearchInstanceOffering_instanceCount = Lens.lens (\PurchaseReservedElasticsearchInstanceOffering' {instanceCount} -> instanceCount) (\s@PurchaseReservedElasticsearchInstanceOffering' {} a -> s {instanceCount = a} :: PurchaseReservedElasticsearchInstanceOffering)
 
 -- | The ID of the reserved Elasticsearch instance offering to purchase.
-preioReservedElasticsearchInstanceOfferingId :: Lens' PurchaseReservedElasticsearchInstanceOffering Text
-preioReservedElasticsearchInstanceOfferingId = lens _preioReservedElasticsearchInstanceOfferingId (\ s a -> s{_preioReservedElasticsearchInstanceOfferingId = a})
+purchaseReservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId :: Lens.Lens' PurchaseReservedElasticsearchInstanceOffering Prelude.Text
+purchaseReservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId = Lens.lens (\PurchaseReservedElasticsearchInstanceOffering' {reservedElasticsearchInstanceOfferingId} -> reservedElasticsearchInstanceOfferingId) (\s@PurchaseReservedElasticsearchInstanceOffering' {} a -> s {reservedElasticsearchInstanceOfferingId = a} :: PurchaseReservedElasticsearchInstanceOffering)
 
 -- | A customer-specified identifier to track this reservation.
-preioReservationName :: Lens' PurchaseReservedElasticsearchInstanceOffering Text
-preioReservationName = lens _preioReservationName (\ s a -> s{_preioReservationName = a})
+purchaseReservedElasticsearchInstanceOffering_reservationName :: Lens.Lens' PurchaseReservedElasticsearchInstanceOffering Prelude.Text
+purchaseReservedElasticsearchInstanceOffering_reservationName = Lens.lens (\PurchaseReservedElasticsearchInstanceOffering' {reservationName} -> reservationName) (\s@PurchaseReservedElasticsearchInstanceOffering' {} a -> s {reservationName = a} :: PurchaseReservedElasticsearchInstanceOffering)
 
-instance AWSRequest
-           PurchaseReservedElasticsearchInstanceOffering
-         where
-        type Rs PurchaseReservedElasticsearchInstanceOffering
-             =
-             PurchaseReservedElasticsearchInstanceOfferingResponse
-        request = postJSON elasticSearch
-        response
-          = receiveJSON
-              (\ s h x ->
-                 PurchaseReservedElasticsearchInstanceOfferingResponse'
-                   <$>
-                   (x .?> "ReservedElasticsearchInstanceId") <*>
-                     (x .?> "ReservationName")
-                     <*> (pure (fromEnum s)))
+instance
+  Prelude.AWSRequest
+    PurchaseReservedElasticsearchInstanceOffering
+  where
+  type
+    Rs PurchaseReservedElasticsearchInstanceOffering =
+      PurchaseReservedElasticsearchInstanceOfferingResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          PurchaseReservedElasticsearchInstanceOfferingResponse'
+            Prelude.<$> (x Prelude..?> "ReservationName")
+              Prelude.<*> (x Prelude..?> "ReservedElasticsearchInstanceId")
+              Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable
-           PurchaseReservedElasticsearchInstanceOffering
-         where
+instance
+  Prelude.Hashable
+    PurchaseReservedElasticsearchInstanceOffering
 
-instance NFData
-           PurchaseReservedElasticsearchInstanceOffering
-         where
+instance
+  Prelude.NFData
+    PurchaseReservedElasticsearchInstanceOffering
 
-instance ToHeaders
-           PurchaseReservedElasticsearchInstanceOffering
-         where
-        toHeaders = const mempty
+instance
+  Prelude.ToHeaders
+    PurchaseReservedElasticsearchInstanceOffering
+  where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToJSON
-           PurchaseReservedElasticsearchInstanceOffering
-         where
-        toJSON
-          PurchaseReservedElasticsearchInstanceOffering'{..}
-          = object
-              (catMaybes
-                 [("InstanceCount" .=) <$> _preioInstanceCount,
-                  Just
-                    ("ReservedElasticsearchInstanceOfferingId" .=
-                       _preioReservedElasticsearchInstanceOfferingId),
-                  Just ("ReservationName" .= _preioReservationName)])
+instance
+  Prelude.ToJSON
+    PurchaseReservedElasticsearchInstanceOffering
+  where
+  toJSON
+    PurchaseReservedElasticsearchInstanceOffering' {..} =
+      Prelude.object
+        ( Prelude.catMaybes
+            [ ("InstanceCount" Prelude..=)
+                Prelude.<$> instanceCount,
+              Prelude.Just
+                ( "ReservedElasticsearchInstanceOfferingId"
+                    Prelude..= reservedElasticsearchInstanceOfferingId
+                ),
+              Prelude.Just
+                ("ReservationName" Prelude..= reservationName)
+            ]
+        )
 
-instance ToPath
-           PurchaseReservedElasticsearchInstanceOffering
-         where
-        toPath
-          = const
-              "/2015-01-01/es/purchaseReservedInstanceOffering"
+instance
+  Prelude.ToPath
+    PurchaseReservedElasticsearchInstanceOffering
+  where
+  toPath =
+    Prelude.const
+      "/2015-01-01/es/purchaseReservedInstanceOffering"
 
-instance ToQuery
-           PurchaseReservedElasticsearchInstanceOffering
-         where
-        toQuery = const mempty
+instance
+  Prelude.ToQuery
+    PurchaseReservedElasticsearchInstanceOffering
+  where
+  toQuery = Prelude.const Prelude.mempty
 
--- | Represents the output of a @PurchaseReservedElasticsearchInstanceOffering@ operation.
+-- | Represents the output of a
+-- @PurchaseReservedElasticsearchInstanceOffering@ operation.
 --
---
---
--- /See:/ 'purchaseReservedElasticsearchInstanceOfferingResponse' smart constructor.
+-- /See:/ 'newPurchaseReservedElasticsearchInstanceOfferingResponse' smart constructor.
 data PurchaseReservedElasticsearchInstanceOfferingResponse = PurchaseReservedElasticsearchInstanceOfferingResponse'
-  { _preiorsReservedElasticsearchInstanceId :: !(Maybe Text)
-  , _preiorsReservationName                 :: !(Maybe Text)
-  , _preiorsResponseStatus                  :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The customer-specified identifier used to track this reservation.
+    reservationName :: Prelude.Maybe Prelude.Text,
+    -- | Details of the reserved Elasticsearch instance which was purchased.
+    reservedElasticsearchInstanceId :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'PurchaseReservedElasticsearchInstanceOfferingResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PurchaseReservedElasticsearchInstanceOfferingResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'preiorsReservedElasticsearchInstanceId' - Details of the reserved Elasticsearch instance which was purchased.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'preiorsReservationName' - The customer-specified identifier used to track this reservation.
+-- 'reservationName', 'purchaseReservedElasticsearchInstanceOfferingResponse_reservationName' - The customer-specified identifier used to track this reservation.
 --
--- * 'preiorsResponseStatus' - -- | The response status code.
-purchaseReservedElasticsearchInstanceOfferingResponse
-    :: Int -- ^ 'preiorsResponseStatus'
-    -> PurchaseReservedElasticsearchInstanceOfferingResponse
-purchaseReservedElasticsearchInstanceOfferingResponse pResponseStatus_ =
-  PurchaseReservedElasticsearchInstanceOfferingResponse'
-    { _preiorsReservedElasticsearchInstanceId = Nothing
-    , _preiorsReservationName = Nothing
-    , _preiorsResponseStatus = pResponseStatus_
-    }
-
-
--- | Details of the reserved Elasticsearch instance which was purchased.
-preiorsReservedElasticsearchInstanceId :: Lens' PurchaseReservedElasticsearchInstanceOfferingResponse (Maybe Text)
-preiorsReservedElasticsearchInstanceId = lens _preiorsReservedElasticsearchInstanceId (\ s a -> s{_preiorsReservedElasticsearchInstanceId = a})
+-- 'reservedElasticsearchInstanceId', 'purchaseReservedElasticsearchInstanceOfferingResponse_reservedElasticsearchInstanceId' - Details of the reserved Elasticsearch instance which was purchased.
+--
+-- 'httpStatus', 'purchaseReservedElasticsearchInstanceOfferingResponse_httpStatus' - The response's http status code.
+newPurchaseReservedElasticsearchInstanceOfferingResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  PurchaseReservedElasticsearchInstanceOfferingResponse
+newPurchaseReservedElasticsearchInstanceOfferingResponse
+  pHttpStatus_ =
+    PurchaseReservedElasticsearchInstanceOfferingResponse'
+      { reservationName =
+          Prelude.Nothing,
+        reservedElasticsearchInstanceId =
+          Prelude.Nothing,
+        httpStatus =
+          pHttpStatus_
+      }
 
 -- | The customer-specified identifier used to track this reservation.
-preiorsReservationName :: Lens' PurchaseReservedElasticsearchInstanceOfferingResponse (Maybe Text)
-preiorsReservationName = lens _preiorsReservationName (\ s a -> s{_preiorsReservationName = a})
+purchaseReservedElasticsearchInstanceOfferingResponse_reservationName :: Lens.Lens' PurchaseReservedElasticsearchInstanceOfferingResponse (Prelude.Maybe Prelude.Text)
+purchaseReservedElasticsearchInstanceOfferingResponse_reservationName = Lens.lens (\PurchaseReservedElasticsearchInstanceOfferingResponse' {reservationName} -> reservationName) (\s@PurchaseReservedElasticsearchInstanceOfferingResponse' {} a -> s {reservationName = a} :: PurchaseReservedElasticsearchInstanceOfferingResponse)
 
--- | -- | The response status code.
-preiorsResponseStatus :: Lens' PurchaseReservedElasticsearchInstanceOfferingResponse Int
-preiorsResponseStatus = lens _preiorsResponseStatus (\ s a -> s{_preiorsResponseStatus = a})
+-- | Details of the reserved Elasticsearch instance which was purchased.
+purchaseReservedElasticsearchInstanceOfferingResponse_reservedElasticsearchInstanceId :: Lens.Lens' PurchaseReservedElasticsearchInstanceOfferingResponse (Prelude.Maybe Prelude.Text)
+purchaseReservedElasticsearchInstanceOfferingResponse_reservedElasticsearchInstanceId = Lens.lens (\PurchaseReservedElasticsearchInstanceOfferingResponse' {reservedElasticsearchInstanceId} -> reservedElasticsearchInstanceId) (\s@PurchaseReservedElasticsearchInstanceOfferingResponse' {} a -> s {reservedElasticsearchInstanceId = a} :: PurchaseReservedElasticsearchInstanceOfferingResponse)
 
-instance NFData
-           PurchaseReservedElasticsearchInstanceOfferingResponse
-         where
+-- | The response's http status code.
+purchaseReservedElasticsearchInstanceOfferingResponse_httpStatus :: Lens.Lens' PurchaseReservedElasticsearchInstanceOfferingResponse Prelude.Int
+purchaseReservedElasticsearchInstanceOfferingResponse_httpStatus = Lens.lens (\PurchaseReservedElasticsearchInstanceOfferingResponse' {httpStatus} -> httpStatus) (\s@PurchaseReservedElasticsearchInstanceOfferingResponse' {} a -> s {httpStatus = a} :: PurchaseReservedElasticsearchInstanceOfferingResponse)
+
+instance
+  Prelude.NFData
+    PurchaseReservedElasticsearchInstanceOfferingResponse

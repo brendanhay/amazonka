@@ -1,143 +1,170 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DeviceFarm.StopRemoteAccessSession
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Ends a specified remote access session.
---
---
 module Network.AWS.DeviceFarm.StopRemoteAccessSession
-    (
-    -- * Creating a Request
-      stopRemoteAccessSession
-    , StopRemoteAccessSession
+  ( -- * Creating a Request
+    StopRemoteAccessSession (..),
+    newStopRemoteAccessSession,
+
     -- * Request Lenses
-    , srasArn
+    stopRemoteAccessSession_arn,
 
     -- * Destructuring the Response
-    , stopRemoteAccessSessionResponse
-    , StopRemoteAccessSessionResponse
+    StopRemoteAccessSessionResponse (..),
+    newStopRemoteAccessSessionResponse,
+
     -- * Response Lenses
-    , srasrsRemoteAccessSession
-    , srasrsResponseStatus
-    ) where
+    stopRemoteAccessSessionResponse_remoteAccessSession,
+    stopRemoteAccessSessionResponse_httpStatus,
+  )
+where
 
 import Network.AWS.DeviceFarm.Types
-import Network.AWS.DeviceFarm.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the request to stop the remote access session.
 --
+-- /See:/ 'newStopRemoteAccessSession' smart constructor.
+data StopRemoteAccessSession = StopRemoteAccessSession'
+  { -- | The Amazon Resource Name (ARN) of the remote access session to stop.
+    arn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'StopRemoteAccessSession' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'stopRemoteAccessSession' smart constructor.
-newtype StopRemoteAccessSession = StopRemoteAccessSession'
-  { _srasArn :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'StopRemoteAccessSession' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'arn', 'stopRemoteAccessSession_arn' - The Amazon Resource Name (ARN) of the remote access session to stop.
+newStopRemoteAccessSession ::
+  -- | 'arn'
+  Prelude.Text ->
+  StopRemoteAccessSession
+newStopRemoteAccessSession pArn_ =
+  StopRemoteAccessSession' {arn = pArn_}
+
+-- | The Amazon Resource Name (ARN) of the remote access session to stop.
+stopRemoteAccessSession_arn :: Lens.Lens' StopRemoteAccessSession Prelude.Text
+stopRemoteAccessSession_arn = Lens.lens (\StopRemoteAccessSession' {arn} -> arn) (\s@StopRemoteAccessSession' {} a -> s {arn = a} :: StopRemoteAccessSession)
+
+instance Prelude.AWSRequest StopRemoteAccessSession where
+  type
+    Rs StopRemoteAccessSession =
+      StopRemoteAccessSessionResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          StopRemoteAccessSessionResponse'
+            Prelude.<$> (x Prelude..?> "remoteAccessSession")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable StopRemoteAccessSession
+
+instance Prelude.NFData StopRemoteAccessSession
+
+instance Prelude.ToHeaders StopRemoteAccessSession where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "DeviceFarm_20150623.StopRemoteAccessSession" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON StopRemoteAccessSession where
+  toJSON StopRemoteAccessSession' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("arn" Prelude..= arn)]
+      )
+
+instance Prelude.ToPath StopRemoteAccessSession where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery StopRemoteAccessSession where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | Represents the response from the server that describes the remote access
+-- session when AWS Device Farm stops the session.
 --
--- * 'srasArn' - The Amazon Resource Name (ARN) of the remote access session you wish to stop.
-stopRemoteAccessSession
-    :: Text -- ^ 'srasArn'
-    -> StopRemoteAccessSession
-stopRemoteAccessSession pArn_ = StopRemoteAccessSession' {_srasArn = pArn_}
-
-
--- | The Amazon Resource Name (ARN) of the remote access session you wish to stop.
-srasArn :: Lens' StopRemoteAccessSession Text
-srasArn = lens _srasArn (\ s a -> s{_srasArn = a})
-
-instance AWSRequest StopRemoteAccessSession where
-        type Rs StopRemoteAccessSession =
-             StopRemoteAccessSessionResponse
-        request = postJSON deviceFarm
-        response
-          = receiveJSON
-              (\ s h x ->
-                 StopRemoteAccessSessionResponse' <$>
-                   (x .?> "remoteAccessSession") <*>
-                     (pure (fromEnum s)))
-
-instance Hashable StopRemoteAccessSession where
-
-instance NFData StopRemoteAccessSession where
-
-instance ToHeaders StopRemoteAccessSession where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("DeviceFarm_20150623.StopRemoteAccessSession" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON StopRemoteAccessSession where
-        toJSON StopRemoteAccessSession'{..}
-          = object (catMaybes [Just ("arn" .= _srasArn)])
-
-instance ToPath StopRemoteAccessSession where
-        toPath = const "/"
-
-instance ToQuery StopRemoteAccessSession where
-        toQuery = const mempty
-
--- | Represents the response from the server that describes the remote access session when AWS Device Farm stops the session.
---
---
---
--- /See:/ 'stopRemoteAccessSessionResponse' smart constructor.
+-- /See:/ 'newStopRemoteAccessSessionResponse' smart constructor.
 data StopRemoteAccessSessionResponse = StopRemoteAccessSessionResponse'
-  { _srasrsRemoteAccessSession :: !(Maybe RemoteAccessSession)
-  , _srasrsResponseStatus      :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A container that represents the metadata from the service about the
+    -- remote access session you are stopping.
+    remoteAccessSession :: Prelude.Maybe RemoteAccessSession,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'StopRemoteAccessSessionResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StopRemoteAccessSessionResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'srasrsRemoteAccessSession' - A container representing the metadata from the service about the remote access session you are stopping.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'srasrsResponseStatus' - -- | The response status code.
-stopRemoteAccessSessionResponse
-    :: Int -- ^ 'srasrsResponseStatus'
-    -> StopRemoteAccessSessionResponse
-stopRemoteAccessSessionResponse pResponseStatus_ =
+-- 'remoteAccessSession', 'stopRemoteAccessSessionResponse_remoteAccessSession' - A container that represents the metadata from the service about the
+-- remote access session you are stopping.
+--
+-- 'httpStatus', 'stopRemoteAccessSessionResponse_httpStatus' - The response's http status code.
+newStopRemoteAccessSessionResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  StopRemoteAccessSessionResponse
+newStopRemoteAccessSessionResponse pHttpStatus_ =
   StopRemoteAccessSessionResponse'
-    { _srasrsRemoteAccessSession = Nothing
-    , _srasrsResponseStatus = pResponseStatus_
+    { remoteAccessSession =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
+-- | A container that represents the metadata from the service about the
+-- remote access session you are stopping.
+stopRemoteAccessSessionResponse_remoteAccessSession :: Lens.Lens' StopRemoteAccessSessionResponse (Prelude.Maybe RemoteAccessSession)
+stopRemoteAccessSessionResponse_remoteAccessSession = Lens.lens (\StopRemoteAccessSessionResponse' {remoteAccessSession} -> remoteAccessSession) (\s@StopRemoteAccessSessionResponse' {} a -> s {remoteAccessSession = a} :: StopRemoteAccessSessionResponse)
 
--- | A container representing the metadata from the service about the remote access session you are stopping.
-srasrsRemoteAccessSession :: Lens' StopRemoteAccessSessionResponse (Maybe RemoteAccessSession)
-srasrsRemoteAccessSession = lens _srasrsRemoteAccessSession (\ s a -> s{_srasrsRemoteAccessSession = a})
+-- | The response's http status code.
+stopRemoteAccessSessionResponse_httpStatus :: Lens.Lens' StopRemoteAccessSessionResponse Prelude.Int
+stopRemoteAccessSessionResponse_httpStatus = Lens.lens (\StopRemoteAccessSessionResponse' {httpStatus} -> httpStatus) (\s@StopRemoteAccessSessionResponse' {} a -> s {httpStatus = a} :: StopRemoteAccessSessionResponse)
 
--- | -- | The response status code.
-srasrsResponseStatus :: Lens' StopRemoteAccessSessionResponse Int
-srasrsResponseStatus = lens _srasrsResponseStatus (\ s a -> s{_srasrsResponseStatus = a})
-
-instance NFData StopRemoteAccessSessionResponse where
+instance
+  Prelude.NFData
+    StopRemoteAccessSessionResponse

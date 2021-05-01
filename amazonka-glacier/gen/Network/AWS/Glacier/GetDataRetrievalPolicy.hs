@@ -1,133 +1,171 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Glacier.GetDataRetrievalPolicy
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- This operation returns the current data retrieval policy for the account and region specified in the GET request. For more information about data retrieval policies, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html Amazon Glacier Data Retrieval Policies> .
---
---
+-- This operation returns the current data retrieval policy for the account
+-- and region specified in the GET request. For more information about data
+-- retrieval policies, see
+-- <https://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html Amazon Glacier Data Retrieval Policies>.
 module Network.AWS.Glacier.GetDataRetrievalPolicy
-    (
-    -- * Creating a Request
-      getDataRetrievalPolicy
-    , GetDataRetrievalPolicy
+  ( -- * Creating a Request
+    GetDataRetrievalPolicy (..),
+    newGetDataRetrievalPolicy,
+
     -- * Request Lenses
-    , gdrpAccountId
+    getDataRetrievalPolicy_accountId,
 
     -- * Destructuring the Response
-    , getDataRetrievalPolicyResponse
-    , GetDataRetrievalPolicyResponse
+    GetDataRetrievalPolicyResponse (..),
+    newGetDataRetrievalPolicyResponse,
+
     -- * Response Lenses
-    , gdrprsPolicy
-    , gdrprsResponseStatus
-    ) where
+    getDataRetrievalPolicyResponse_policy,
+    getDataRetrievalPolicyResponse_httpStatus,
+  )
+where
 
 import Network.AWS.Glacier.Types
-import Network.AWS.Glacier.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Input for GetDataRetrievalPolicy.
 --
+-- /See:/ 'newGetDataRetrievalPolicy' smart constructor.
+data GetDataRetrievalPolicy = GetDataRetrievalPolicy'
+  { -- | The @AccountId@ value is the AWS account ID. This value must match the
+    -- AWS account ID associated with the credentials used to sign the request.
+    -- You can either specify an AWS account ID or optionally a single \'@-@\'
+    -- (hyphen), in which case Amazon Glacier uses the AWS account ID
+    -- associated with the credentials used to sign the request. If you specify
+    -- your account ID, do not include any hyphens (\'-\') in the ID.
+    accountId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetDataRetrievalPolicy' with all optional fields omitted.
 --
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- /See:/ 'getDataRetrievalPolicy' smart constructor.
-newtype GetDataRetrievalPolicy = GetDataRetrievalPolicy'
-  { _gdrpAccountId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetDataRetrievalPolicy' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
+-- 'accountId', 'getDataRetrievalPolicy_accountId' - The @AccountId@ value is the AWS account ID. This value must match the
+-- AWS account ID associated with the credentials used to sign the request.
+-- You can either specify an AWS account ID or optionally a single \'@-@\'
+-- (hyphen), in which case Amazon Glacier uses the AWS account ID
+-- associated with the credentials used to sign the request. If you specify
+-- your account ID, do not include any hyphens (\'-\') in the ID.
+newGetDataRetrievalPolicy ::
+  -- | 'accountId'
+  Prelude.Text ->
+  GetDataRetrievalPolicy
+newGetDataRetrievalPolicy pAccountId_ =
+  GetDataRetrievalPolicy' {accountId = pAccountId_}
+
+-- | The @AccountId@ value is the AWS account ID. This value must match the
+-- AWS account ID associated with the credentials used to sign the request.
+-- You can either specify an AWS account ID or optionally a single \'@-@\'
+-- (hyphen), in which case Amazon Glacier uses the AWS account ID
+-- associated with the credentials used to sign the request. If you specify
+-- your account ID, do not include any hyphens (\'-\') in the ID.
+getDataRetrievalPolicy_accountId :: Lens.Lens' GetDataRetrievalPolicy Prelude.Text
+getDataRetrievalPolicy_accountId = Lens.lens (\GetDataRetrievalPolicy' {accountId} -> accountId) (\s@GetDataRetrievalPolicy' {} a -> s {accountId = a} :: GetDataRetrievalPolicy)
+
+instance Prelude.AWSRequest GetDataRetrievalPolicy where
+  type
+    Rs GetDataRetrievalPolicy =
+      GetDataRetrievalPolicyResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetDataRetrievalPolicyResponse'
+            Prelude.<$> (x Prelude..?> "Policy")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable GetDataRetrievalPolicy
+
+instance Prelude.NFData GetDataRetrievalPolicy
+
+instance Prelude.ToHeaders GetDataRetrievalPolicy where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToPath GetDataRetrievalPolicy where
+  toPath GetDataRetrievalPolicy' {..} =
+    Prelude.mconcat
+      [ "/",
+        Prelude.toBS accountId,
+        "/policies/data-retrieval"
+      ]
+
+instance Prelude.ToQuery GetDataRetrievalPolicy where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | Contains the Amazon S3 Glacier response to the @GetDataRetrievalPolicy@
+-- request.
 --
--- * 'gdrpAccountId' - The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
-getDataRetrievalPolicy
-    :: Text -- ^ 'gdrpAccountId'
-    -> GetDataRetrievalPolicy
-getDataRetrievalPolicy pAccountId_ =
-  GetDataRetrievalPolicy' {_gdrpAccountId = pAccountId_}
-
-
--- | The @AccountId@ value is the AWS account ID. This value must match the AWS account ID associated with the credentials used to sign the request. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon Glacier uses the AWS account ID associated with the credentials used to sign the request. If you specify your account ID, do not include any hyphens ('-') in the ID.
-gdrpAccountId :: Lens' GetDataRetrievalPolicy Text
-gdrpAccountId = lens _gdrpAccountId (\ s a -> s{_gdrpAccountId = a})
-
-instance AWSRequest GetDataRetrievalPolicy where
-        type Rs GetDataRetrievalPolicy =
-             GetDataRetrievalPolicyResponse
-        request = get glacier
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetDataRetrievalPolicyResponse' <$>
-                   (x .?> "Policy") <*> (pure (fromEnum s)))
-
-instance Hashable GetDataRetrievalPolicy where
-
-instance NFData GetDataRetrievalPolicy where
-
-instance ToHeaders GetDataRetrievalPolicy where
-        toHeaders = const mempty
-
-instance ToPath GetDataRetrievalPolicy where
-        toPath GetDataRetrievalPolicy'{..}
-          = mconcat
-              ["/", toBS _gdrpAccountId,
-               "/policies/data-retrieval"]
-
-instance ToQuery GetDataRetrievalPolicy where
-        toQuery = const mempty
-
--- | Contains the Amazon Glacier response to the @GetDataRetrievalPolicy@ request.
---
---
---
--- /See:/ 'getDataRetrievalPolicyResponse' smart constructor.
+-- /See:/ 'newGetDataRetrievalPolicyResponse' smart constructor.
 data GetDataRetrievalPolicyResponse = GetDataRetrievalPolicyResponse'
-  { _gdrprsPolicy         :: !(Maybe DataRetrievalPolicy)
-  , _gdrprsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Contains the returned data retrieval policy in JSON format.
+    policy :: Prelude.Maybe DataRetrievalPolicy,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetDataRetrievalPolicyResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetDataRetrievalPolicyResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gdrprsPolicy' - Contains the returned data retrieval policy in JSON format.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gdrprsResponseStatus' - -- | The response status code.
-getDataRetrievalPolicyResponse
-    :: Int -- ^ 'gdrprsResponseStatus'
-    -> GetDataRetrievalPolicyResponse
-getDataRetrievalPolicyResponse pResponseStatus_ =
+-- 'policy', 'getDataRetrievalPolicyResponse_policy' - Contains the returned data retrieval policy in JSON format.
+--
+-- 'httpStatus', 'getDataRetrievalPolicyResponse_httpStatus' - The response's http status code.
+newGetDataRetrievalPolicyResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetDataRetrievalPolicyResponse
+newGetDataRetrievalPolicyResponse pHttpStatus_ =
   GetDataRetrievalPolicyResponse'
-    {_gdrprsPolicy = Nothing, _gdrprsResponseStatus = pResponseStatus_}
-
+    { policy =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Contains the returned data retrieval policy in JSON format.
-gdrprsPolicy :: Lens' GetDataRetrievalPolicyResponse (Maybe DataRetrievalPolicy)
-gdrprsPolicy = lens _gdrprsPolicy (\ s a -> s{_gdrprsPolicy = a})
+getDataRetrievalPolicyResponse_policy :: Lens.Lens' GetDataRetrievalPolicyResponse (Prelude.Maybe DataRetrievalPolicy)
+getDataRetrievalPolicyResponse_policy = Lens.lens (\GetDataRetrievalPolicyResponse' {policy} -> policy) (\s@GetDataRetrievalPolicyResponse' {} a -> s {policy = a} :: GetDataRetrievalPolicyResponse)
 
--- | -- | The response status code.
-gdrprsResponseStatus :: Lens' GetDataRetrievalPolicyResponse Int
-gdrprsResponseStatus = lens _gdrprsResponseStatus (\ s a -> s{_gdrprsResponseStatus = a})
+-- | The response's http status code.
+getDataRetrievalPolicyResponse_httpStatus :: Lens.Lens' GetDataRetrievalPolicyResponse Prelude.Int
+getDataRetrievalPolicyResponse_httpStatus = Lens.lens (\GetDataRetrievalPolicyResponse' {httpStatus} -> httpStatus) (\s@GetDataRetrievalPolicyResponse' {} a -> s {httpStatus = a} :: GetDataRetrievalPolicyResponse)
 
-instance NFData GetDataRetrievalPolicyResponse where
+instance
+  Prelude.NFData
+    GetDataRetrievalPolicyResponse

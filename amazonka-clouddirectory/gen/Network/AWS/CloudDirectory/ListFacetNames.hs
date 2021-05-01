@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CloudDirectory.ListFacetNames
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,154 +23,189 @@
 --
 -- Retrieves the names of facets that exist in a schema.
 --
---
---
 -- This operation returns paginated results.
 module Network.AWS.CloudDirectory.ListFacetNames
-    (
-    -- * Creating a Request
-      listFacetNames
-    , ListFacetNames
+  ( -- * Creating a Request
+    ListFacetNames (..),
+    newListFacetNames,
+
     -- * Request Lenses
-    , lfnNextToken
-    , lfnMaxResults
-    , lfnSchemaARN
+    listFacetNames_nextToken,
+    listFacetNames_maxResults,
+    listFacetNames_schemaArn,
 
     -- * Destructuring the Response
-    , listFacetNamesResponse
-    , ListFacetNamesResponse
+    ListFacetNamesResponse (..),
+    newListFacetNamesResponse,
+
     -- * Response Lenses
-    , lfnrsNextToken
-    , lfnrsFacetNames
-    , lfnrsResponseStatus
-    ) where
+    listFacetNamesResponse_nextToken,
+    listFacetNamesResponse_facetNames,
+    listFacetNamesResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CloudDirectory.Types
-import Network.AWS.CloudDirectory.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listFacetNames' smart constructor.
+-- | /See:/ 'newListFacetNames' smart constructor.
 data ListFacetNames = ListFacetNames'
-  { _lfnNextToken  :: !(Maybe Text)
-  , _lfnMaxResults :: !(Maybe Nat)
-  , _lfnSchemaARN  :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to retrieve.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | The Amazon Resource Name (ARN) to retrieve facet names from.
+    schemaArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListFacetNames' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListFacetNames' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lfnNextToken' - The pagination token.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lfnMaxResults' - The maximum number of results to retrieve.
+-- 'nextToken', 'listFacetNames_nextToken' - The pagination token.
 --
--- * 'lfnSchemaARN' - The Amazon Resource Name (ARN) to retrieve facet names from.
-listFacetNames
-    :: Text -- ^ 'lfnSchemaARN'
-    -> ListFacetNames
-listFacetNames pSchemaARN_ =
+-- 'maxResults', 'listFacetNames_maxResults' - The maximum number of results to retrieve.
+--
+-- 'schemaArn', 'listFacetNames_schemaArn' - The Amazon Resource Name (ARN) to retrieve facet names from.
+newListFacetNames ::
+  -- | 'schemaArn'
+  Prelude.Text ->
+  ListFacetNames
+newListFacetNames pSchemaArn_ =
   ListFacetNames'
-    { _lfnNextToken = Nothing
-    , _lfnMaxResults = Nothing
-    , _lfnSchemaARN = pSchemaARN_
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      schemaArn = pSchemaArn_
     }
 
-
 -- | The pagination token.
-lfnNextToken :: Lens' ListFacetNames (Maybe Text)
-lfnNextToken = lens _lfnNextToken (\ s a -> s{_lfnNextToken = a})
+listFacetNames_nextToken :: Lens.Lens' ListFacetNames (Prelude.Maybe Prelude.Text)
+listFacetNames_nextToken = Lens.lens (\ListFacetNames' {nextToken} -> nextToken) (\s@ListFacetNames' {} a -> s {nextToken = a} :: ListFacetNames)
 
 -- | The maximum number of results to retrieve.
-lfnMaxResults :: Lens' ListFacetNames (Maybe Natural)
-lfnMaxResults = lens _lfnMaxResults (\ s a -> s{_lfnMaxResults = a}) . mapping _Nat
+listFacetNames_maxResults :: Lens.Lens' ListFacetNames (Prelude.Maybe Prelude.Natural)
+listFacetNames_maxResults = Lens.lens (\ListFacetNames' {maxResults} -> maxResults) (\s@ListFacetNames' {} a -> s {maxResults = a} :: ListFacetNames)
 
 -- | The Amazon Resource Name (ARN) to retrieve facet names from.
-lfnSchemaARN :: Lens' ListFacetNames Text
-lfnSchemaARN = lens _lfnSchemaARN (\ s a -> s{_lfnSchemaARN = a})
+listFacetNames_schemaArn :: Lens.Lens' ListFacetNames Prelude.Text
+listFacetNames_schemaArn = Lens.lens (\ListFacetNames' {schemaArn} -> schemaArn) (\s@ListFacetNames' {} a -> s {schemaArn = a} :: ListFacetNames)
 
-instance AWSPager ListFacetNames where
-        page rq rs
-          | stop (rs ^. lfnrsNextToken) = Nothing
-          | stop (rs ^. lfnrsFacetNames) = Nothing
-          | otherwise =
-            Just $ rq & lfnNextToken .~ rs ^. lfnrsNextToken
+instance Pager.AWSPager ListFacetNames where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listFacetNamesResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listFacetNamesResponse_facetNames
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listFacetNames_nextToken
+          Lens..~ rs
+          Lens.^? listFacetNamesResponse_nextToken Prelude.. Lens._Just
 
-instance AWSRequest ListFacetNames where
-        type Rs ListFacetNames = ListFacetNamesResponse
-        request = postJSON cloudDirectory
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListFacetNamesResponse' <$>
-                   (x .?> "NextToken") <*>
-                     (x .?> "FacetNames" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest ListFacetNames where
+  type Rs ListFacetNames = ListFacetNamesResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListFacetNamesResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> ( x Prelude..?> "FacetNames"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable ListFacetNames where
+instance Prelude.Hashable ListFacetNames
 
-instance NFData ListFacetNames where
+instance Prelude.NFData ListFacetNames
 
-instance ToHeaders ListFacetNames where
-        toHeaders ListFacetNames'{..}
-          = mconcat ["x-amz-data-partition" =# _lfnSchemaARN]
+instance Prelude.ToHeaders ListFacetNames where
+  toHeaders ListFacetNames' {..} =
+    Prelude.mconcat
+      ["x-amz-data-partition" Prelude.=# schemaArn]
 
-instance ToJSON ListFacetNames where
-        toJSON ListFacetNames'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _lfnNextToken,
-                  ("MaxResults" .=) <$> _lfnMaxResults])
+instance Prelude.ToJSON ListFacetNames where
+  toJSON ListFacetNames' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("MaxResults" Prelude..=) Prelude.<$> maxResults
+          ]
+      )
 
-instance ToPath ListFacetNames where
-        toPath
-          = const "/amazonclouddirectory/2017-01-11/facet/list"
+instance Prelude.ToPath ListFacetNames where
+  toPath =
+    Prelude.const
+      "/amazonclouddirectory/2017-01-11/facet/list"
 
-instance ToQuery ListFacetNames where
-        toQuery = const mempty
+instance Prelude.ToQuery ListFacetNames where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'listFacetNamesResponse' smart constructor.
+-- | /See:/ 'newListFacetNamesResponse' smart constructor.
 data ListFacetNamesResponse = ListFacetNamesResponse'
-  { _lfnrsNextToken      :: !(Maybe Text)
-  , _lfnrsFacetNames     :: !(Maybe [Text])
-  , _lfnrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The pagination token.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The names of facets that exist within the schema.
+    facetNames :: Prelude.Maybe [Prelude.Text],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListFacetNamesResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListFacetNamesResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'lfnrsNextToken' - The pagination token.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'lfnrsFacetNames' - The names of facets that exist within the schema.
+-- 'nextToken', 'listFacetNamesResponse_nextToken' - The pagination token.
 --
--- * 'lfnrsResponseStatus' - -- | The response status code.
-listFacetNamesResponse
-    :: Int -- ^ 'lfnrsResponseStatus'
-    -> ListFacetNamesResponse
-listFacetNamesResponse pResponseStatus_ =
+-- 'facetNames', 'listFacetNamesResponse_facetNames' - The names of facets that exist within the schema.
+--
+-- 'httpStatus', 'listFacetNamesResponse_httpStatus' - The response's http status code.
+newListFacetNamesResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListFacetNamesResponse
+newListFacetNamesResponse pHttpStatus_ =
   ListFacetNamesResponse'
-    { _lfnrsNextToken = Nothing
-    , _lfnrsFacetNames = Nothing
-    , _lfnrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      facetNames = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
 -- | The pagination token.
-lfnrsNextToken :: Lens' ListFacetNamesResponse (Maybe Text)
-lfnrsNextToken = lens _lfnrsNextToken (\ s a -> s{_lfnrsNextToken = a})
+listFacetNamesResponse_nextToken :: Lens.Lens' ListFacetNamesResponse (Prelude.Maybe Prelude.Text)
+listFacetNamesResponse_nextToken = Lens.lens (\ListFacetNamesResponse' {nextToken} -> nextToken) (\s@ListFacetNamesResponse' {} a -> s {nextToken = a} :: ListFacetNamesResponse)
 
 -- | The names of facets that exist within the schema.
-lfnrsFacetNames :: Lens' ListFacetNamesResponse [Text]
-lfnrsFacetNames = lens _lfnrsFacetNames (\ s a -> s{_lfnrsFacetNames = a}) . _Default . _Coerce
+listFacetNamesResponse_facetNames :: Lens.Lens' ListFacetNamesResponse (Prelude.Maybe [Prelude.Text])
+listFacetNamesResponse_facetNames = Lens.lens (\ListFacetNamesResponse' {facetNames} -> facetNames) (\s@ListFacetNamesResponse' {} a -> s {facetNames = a} :: ListFacetNamesResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-lfnrsResponseStatus :: Lens' ListFacetNamesResponse Int
-lfnrsResponseStatus = lens _lfnrsResponseStatus (\ s a -> s{_lfnrsResponseStatus = a})
+-- | The response's http status code.
+listFacetNamesResponse_httpStatus :: Lens.Lens' ListFacetNamesResponse Prelude.Int
+listFacetNamesResponse_httpStatus = Lens.lens (\ListFacetNamesResponse' {httpStatus} -> httpStatus) (\s@ListFacetNamesResponse' {} a -> s {httpStatus = a} :: ListFacetNamesResponse)
 
-instance NFData ListFacetNamesResponse where
+instance Prelude.NFData ListFacetNamesResponse

@@ -1,8 +1,21 @@
 # Amazonka
 
-[![Build Status](https://img.shields.io/travis/brendanhay/amazonka/develop.svg?maxAge=2592000)](https://travis-ci.org/brendanhay/amazonka)
-[![Hackage Version](https://img.shields.io/hackage/v/amazonka.svg)](http://hackage.haskell.org/package/amazonka)
-[![Gitter Chat](https://img.shields.io/gitter/room/brendanhay/amazonka.js.svg?maxAge=2592000)](https://gitter.im/brendanhay/amazonka)
+[![MPL2][license-badge]][license]
+[![Build][build-badge]][build]
+[![Hackage][hackage-badge]][hackage]
+[![Nix][nix-badge]][nix]
+[![Cachix][cachix-badge]][cachix]
+
+[license]: https://opensource.org/licenses/MPL-2.0
+[license-badge]: https://img.shields.io/badge/license-MPL%202.0-blue.svg
+[build]: https://github.com/brendanhay/amazonka/actions
+[build-badge]: https://github.com/brendanhay/amazonka/workflows/build/badge.svg
+[hackage]: http://hackage.haskell.org/package/amazonka
+[hackage-badge]: https://img.shields.io/hackage/v/amazonka.svg
+[nix]: https://nixos.org
+[nix-badge]: https://img.shields.io/badge/builtwith-nix-purple.svg
+[cachix]: https://amazonka.cachix.org
+[cachix-badge]: https://img.shields.io/badge/cachix-amazonka-purple.svg
 
 * [Description](#description)
 * [Documentation](#documentation)
@@ -24,13 +37,11 @@ automatically kept up to date with Amazon's latest service APIs.
 An introductory blog post detailing some of the motivation and design decisions
 can be found [here](http://brendanhay.nz/amazonka-comprehensive-haskell-aws-client).
 
+
 ## Documentation
 
 You can find the latest stable release documentation for each respective library
 on Hackage under the [AWS section](http://hackage.haskell.org/packages/#cat:AWS).
-
-Haddock documentation which is built by CI from the `develop` branch
-can be found [here](http://brendanhay.nz/amazonka-doc).
 
 
 ## Organisation
@@ -57,15 +68,11 @@ A change log for the entire project can be found under [`amazonka/CHANGELOG.md`]
 
 For any problems, comments, or feedback please create an issue [here on GitHub](https://github.com/brendanhay/amazonka/issues).
 
-### Package Names
+## Package Naming
 
-It is often desirable to provide supplemental functionality to `amazonka` as
-an additional library, for example providing S3 encryption via a package such
-as `amazonka-s3-encryption`.
+It is often desirable to provide supplemental functionality to `amazonka` as an additional library, for example providing S3 encryption via a package such as `amazonka-s3-encryption`.
 
-I ask that authors of these packages carefully consider package naming
-and preferably do not prefix the package with `amazonka-*` to avoid potential
-collisions with generated package names.
+I ask that authors of these packages carefully consider package naming and preferably do not prefix the package with `amazonka-*` to avoid potential collisions with generated package names.
 
 
 ## Licence

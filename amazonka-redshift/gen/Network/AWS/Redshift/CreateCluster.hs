@@ -1,408 +1,1109 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.Redshift.CreateCluster
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a new cluster.
+-- Creates a new cluster with the specified parameters.
 --
---
--- To create the cluster in Virtual Private Cloud (VPC), you must provide a cluster subnet group name. The cluster subnet group identifies the subnets of your VPC that Amazon Redshift uses when creating the cluster. For more information about managing clusters, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/ .
---
+-- To create a cluster in Virtual Private Cloud (VPC), you must provide a
+-- cluster subnet group name. The cluster subnet group identifies the
+-- subnets of your VPC that Amazon Redshift uses when creating the cluster.
+-- For more information about managing clusters, go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters>
+-- in the /Amazon Redshift Cluster Management Guide/.
 module Network.AWS.Redshift.CreateCluster
-    (
-    -- * Creating a Request
-      createCluster
-    , CreateCluster
+  ( -- * Creating a Request
+    CreateCluster (..),
+    newCreateCluster,
+
     -- * Request Lenses
-    , ccEnhancedVPCRouting
-    , ccAdditionalInfo
-    , ccPubliclyAccessible
-    , ccHSMConfigurationIdentifier
-    , ccClusterSecurityGroups
-    , ccAutomatedSnapshotRetentionPeriod
-    , ccEncrypted
-    , ccClusterSubnetGroupName
-    , ccHSMClientCertificateIdentifier
-    , ccNumberOfNodes
-    , ccElasticIP
-    , ccPreferredMaintenanceWindow
-    , ccKMSKeyId
-    , ccAvailabilityZone
-    , ccVPCSecurityGroupIds
-    , ccIAMRoles
-    , ccClusterType
-    , ccClusterVersion
-    , ccAllowVersionUpgrade
-    , ccClusterParameterGroupName
-    , ccTags
-    , ccPort
-    , ccDBName
-    , ccClusterIdentifier
-    , ccNodeType
-    , ccMasterUsername
-    , ccMasterUserPassword
+    createCluster_enhancedVpcRouting,
+    createCluster_additionalInfo,
+    createCluster_elasticIp,
+    createCluster_clusterSubnetGroupName,
+    createCluster_hsmClientCertificateIdentifier,
+    createCluster_encrypted,
+    createCluster_allowVersionUpgrade,
+    createCluster_automatedSnapshotRetentionPeriod,
+    createCluster_clusterParameterGroupName,
+    createCluster_availabilityZoneRelocation,
+    createCluster_snapshotScheduleIdentifier,
+    createCluster_publiclyAccessible,
+    createCluster_vpcSecurityGroupIds,
+    createCluster_clusterType,
+    createCluster_manualSnapshotRetentionPeriod,
+    createCluster_kmsKeyId,
+    createCluster_availabilityZone,
+    createCluster_preferredMaintenanceWindow,
+    createCluster_tags,
+    createCluster_numberOfNodes,
+    createCluster_port,
+    createCluster_dbName,
+    createCluster_clusterVersion,
+    createCluster_clusterSecurityGroups,
+    createCluster_maintenanceTrackName,
+    createCluster_hsmConfigurationIdentifier,
+    createCluster_iamRoles,
+    createCluster_clusterIdentifier,
+    createCluster_nodeType,
+    createCluster_masterUsername,
+    createCluster_masterUserPassword,
 
     -- * Destructuring the Response
-    , createClusterResponse
-    , CreateClusterResponse
-    -- * Response Lenses
-    , ccrsCluster
-    , ccrsResponseStatus
-    ) where
+    CreateClusterResponse (..),
+    newCreateClusterResponse,
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
+    -- * Response Lenses
+    createClusterResponse_cluster,
+    createClusterResponse_httpStatus,
+  )
+where
+
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
 import Network.AWS.Redshift.Types
-import Network.AWS.Redshift.Types.Product
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
---
---
--- /See:/ 'createCluster' smart constructor.
+-- /See:/ 'newCreateCluster' smart constructor.
 data CreateCluster = CreateCluster'
-  { _ccEnhancedVPCRouting               :: !(Maybe Bool)
-  , _ccAdditionalInfo                   :: !(Maybe Text)
-  , _ccPubliclyAccessible               :: !(Maybe Bool)
-  , _ccHSMConfigurationIdentifier       :: !(Maybe Text)
-  , _ccClusterSecurityGroups            :: !(Maybe [Text])
-  , _ccAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
-  , _ccEncrypted                        :: !(Maybe Bool)
-  , _ccClusterSubnetGroupName           :: !(Maybe Text)
-  , _ccHSMClientCertificateIdentifier   :: !(Maybe Text)
-  , _ccNumberOfNodes                    :: !(Maybe Int)
-  , _ccElasticIP                        :: !(Maybe Text)
-  , _ccPreferredMaintenanceWindow       :: !(Maybe Text)
-  , _ccKMSKeyId                         :: !(Maybe Text)
-  , _ccAvailabilityZone                 :: !(Maybe Text)
-  , _ccVPCSecurityGroupIds              :: !(Maybe [Text])
-  , _ccIAMRoles                         :: !(Maybe [Text])
-  , _ccClusterType                      :: !(Maybe Text)
-  , _ccClusterVersion                   :: !(Maybe Text)
-  , _ccAllowVersionUpgrade              :: !(Maybe Bool)
-  , _ccClusterParameterGroupName        :: !(Maybe Text)
-  , _ccTags                             :: !(Maybe [Tag])
-  , _ccPort                             :: !(Maybe Int)
-  , _ccDBName                           :: !(Maybe Text)
-  , _ccClusterIdentifier                :: !Text
-  , _ccNodeType                         :: !Text
-  , _ccMasterUsername                   :: !Text
-  , _ccMasterUserPassword               :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An option that specifies whether to create the cluster with enhanced VPC
+    -- routing enabled. To create a cluster that uses enhanced VPC routing, the
+    -- cluster must be in a VPC. For more information, see
+    -- <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing>
+    -- in the Amazon Redshift Cluster Management Guide.
+    --
+    -- If this option is @true@, enhanced VPC routing is enabled.
+    --
+    -- Default: false
+    enhancedVpcRouting :: Prelude.Maybe Prelude.Bool,
+    -- | Reserved.
+    additionalInfo :: Prelude.Maybe Prelude.Text,
+    -- | The Elastic IP (EIP) address for the cluster.
+    --
+    -- Constraints: The cluster must be provisioned in EC2-VPC and
+    -- publicly-accessible through an Internet gateway. For more information
+    -- about provisioning clusters in EC2-VPC, go to
+    -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch Your Cluster>
+    -- in the Amazon Redshift Cluster Management Guide.
+    elasticIp :: Prelude.Maybe Prelude.Text,
+    -- | The name of a cluster subnet group to be associated with this cluster.
+    --
+    -- If this parameter is not provided the resulting cluster will be deployed
+    -- outside virtual private cloud (VPC).
+    clusterSubnetGroupName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the name of the HSM client certificate the Amazon Redshift
+    -- cluster uses to retrieve the data encryption keys stored in an HSM.
+    hsmClientCertificateIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | If @true@, the data in the cluster is encrypted at rest.
+    --
+    -- Default: false
+    encrypted :: Prelude.Maybe Prelude.Bool,
+    -- | If @true@, major version upgrades can be applied during the maintenance
+    -- window to the Amazon Redshift engine that is running on the cluster.
+    --
+    -- When a new major version of the Amazon Redshift engine is released, you
+    -- can request that the service automatically apply upgrades during the
+    -- maintenance window to the Amazon Redshift engine that is running on your
+    -- cluster.
+    --
+    -- Default: @true@
+    allowVersionUpgrade :: Prelude.Maybe Prelude.Bool,
+    -- | The number of days that automated snapshots are retained. If the value
+    -- is 0, automated snapshots are disabled. Even if automated snapshots are
+    -- disabled, you can still create manual snapshots when you want with
+    -- CreateClusterSnapshot.
+    --
+    -- Default: @1@
+    --
+    -- Constraints: Must be a value from 0 to 35.
+    automatedSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | The name of the parameter group to be associated with this cluster.
+    --
+    -- Default: The default Amazon Redshift cluster parameter group. For
+    -- information about the default parameter group, go to
+    -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with Amazon Redshift Parameter Groups>
+    --
+    -- Constraints:
+    --
+    -- -   Must be 1 to 255 alphanumeric characters or hyphens.
+    --
+    -- -   First character must be a letter.
+    --
+    -- -   Cannot end with a hyphen or contain two consecutive hyphens.
+    clusterParameterGroupName :: Prelude.Maybe Prelude.Text,
+    -- | The option to enable relocation for an Amazon Redshift cluster between
+    -- Availability Zones after the cluster is created.
+    availabilityZoneRelocation :: Prelude.Maybe Prelude.Bool,
+    -- | A unique identifier for the snapshot schedule.
+    snapshotScheduleIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | If @true@, the cluster can be accessed from a public network.
+    publiclyAccessible :: Prelude.Maybe Prelude.Bool,
+    -- | A list of Virtual Private Cloud (VPC) security groups to be associated
+    -- with the cluster.
+    --
+    -- Default: The default VPC security group is associated with the cluster.
+    vpcSecurityGroupIds :: Prelude.Maybe [Prelude.Text],
+    -- | The type of the cluster. When cluster type is specified as
+    --
+    -- -   @single-node@, the __NumberOfNodes__ parameter is not required.
+    --
+    -- -   @multi-node@, the __NumberOfNodes__ parameter is required.
+    --
+    -- Valid Values: @multi-node@ | @single-node@
+    --
+    -- Default: @multi-node@
+    clusterType :: Prelude.Maybe Prelude.Text,
+    -- | The default number of days to retain a manual snapshot. If the value is
+    -- -1, the snapshot is retained indefinitely. This setting doesn\'t change
+    -- the retention period of existing snapshots.
+    --
+    -- The value must be either -1 or an integer between 1 and 3,653.
+    manualSnapshotRetentionPeriod :: Prelude.Maybe Prelude.Int,
+    -- | The AWS Key Management Service (KMS) key ID of the encryption key that
+    -- you want to use to encrypt data in the cluster.
+    kmsKeyId :: Prelude.Maybe Prelude.Text,
+    -- | The EC2 Availability Zone (AZ) in which you want Amazon Redshift to
+    -- provision the cluster. For example, if you have several EC2 instances
+    -- running in a specific Availability Zone, then you might want the cluster
+    -- to be provisioned in the same zone in order to decrease network latency.
+    --
+    -- Default: A random, system-chosen Availability Zone in the region that is
+    -- specified by the endpoint.
+    --
+    -- Example: @us-east-2d@
+    --
+    -- Constraint: The specified Availability Zone must be in the same region
+    -- as the current endpoint.
+    availabilityZone :: Prelude.Maybe Prelude.Text,
+    -- | The weekly time range (in UTC) during which automated cluster
+    -- maintenance can occur.
+    --
+    -- Format: @ddd:hh24:mi-ddd:hh24:mi@
+    --
+    -- Default: A 30-minute window selected at random from an 8-hour block of
+    -- time per region, occurring on a random day of the week. For more
+    -- information about the time blocks for each region, see
+    -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows>
+    -- in Amazon Redshift Cluster Management Guide.
+    --
+    -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
+    --
+    -- Constraints: Minimum 30-minute window.
+    preferredMaintenanceWindow :: Prelude.Maybe Prelude.Text,
+    -- | A list of tag instances.
+    tags :: Prelude.Maybe [Tag],
+    -- | The number of compute nodes in the cluster. This parameter is required
+    -- when the __ClusterType__ parameter is specified as @multi-node@.
+    --
+    -- For information about determining how many nodes you need, go to
+    -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters>
+    -- in the /Amazon Redshift Cluster Management Guide/.
+    --
+    -- If you don\'t specify this parameter, you get a single-node cluster.
+    -- When requesting a multi-node cluster, you must specify the number of
+    -- nodes that you want in the cluster.
+    --
+    -- Default: @1@
+    --
+    -- Constraints: Value must be at least 1 and no more than 100.
+    numberOfNodes :: Prelude.Maybe Prelude.Int,
+    -- | The port number on which the cluster accepts incoming connections.
+    --
+    -- The cluster is accessible only via the JDBC and ODBC connection strings.
+    -- Part of the connection string requires the port on which the cluster
+    -- will listen for incoming connections.
+    --
+    -- Default: @5439@
+    --
+    -- Valid Values: @1150-65535@
+    port :: Prelude.Maybe Prelude.Int,
+    -- | The name of the first database to be created when the cluster is
+    -- created.
+    --
+    -- To create additional databases after the cluster is created, connect to
+    -- the cluster with a SQL client and use SQL commands to create a database.
+    -- For more information, go to
+    -- <https://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html Create a Database>
+    -- in the Amazon Redshift Database Developer Guide.
+    --
+    -- Default: @dev@
+    --
+    -- Constraints:
+    --
+    -- -   Must contain 1 to 64 alphanumeric characters.
+    --
+    -- -   Must contain only lowercase letters.
+    --
+    -- -   Cannot be a word that is reserved by the service. A list of reserved
+    --     words can be found in
+    --     <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
+    --     in the Amazon Redshift Database Developer Guide.
+    dbName :: Prelude.Maybe Prelude.Text,
+    -- | The version of the Amazon Redshift engine software that you want to
+    -- deploy on the cluster.
+    --
+    -- The version selected runs on all the nodes in the cluster.
+    --
+    -- Constraints: Only version 1.0 is currently available.
+    --
+    -- Example: @1.0@
+    clusterVersion :: Prelude.Maybe Prelude.Text,
+    -- | A list of security groups to be associated with this cluster.
+    --
+    -- Default: The default cluster security group for Amazon Redshift.
+    clusterSecurityGroups :: Prelude.Maybe [Prelude.Text],
+    -- | An optional parameter for the name of the maintenance track for the
+    -- cluster. If you don\'t provide a maintenance track name, the cluster is
+    -- assigned to the @current@ track.
+    maintenanceTrackName :: Prelude.Maybe Prelude.Text,
+    -- | Specifies the name of the HSM configuration that contains the
+    -- information the Amazon Redshift cluster can use to retrieve and store
+    -- keys in an HSM.
+    hsmConfigurationIdentifier :: Prelude.Maybe Prelude.Text,
+    -- | A list of AWS Identity and Access Management (IAM) roles that can be
+    -- used by the cluster to access other AWS services. You must supply the
+    -- IAM roles in their Amazon Resource Name (ARN) format. You can supply up
+    -- to 10 IAM roles in a single request.
+    --
+    -- A cluster can have up to 10 IAM roles associated with it at any time.
+    iamRoles :: Prelude.Maybe [Prelude.Text],
+    -- | A unique identifier for the cluster. You use this identifier to refer to
+    -- the cluster for any subsequent cluster operations such as deleting or
+    -- modifying. The identifier also appears in the Amazon Redshift console.
+    --
+    -- Constraints:
+    --
+    -- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
+    --
+    -- -   Alphabetic characters must be lowercase.
+    --
+    -- -   First character must be a letter.
+    --
+    -- -   Cannot end with a hyphen or contain two consecutive hyphens.
+    --
+    -- -   Must be unique for all clusters within an AWS account.
+    --
+    -- Example: @myexamplecluster@
+    clusterIdentifier :: Prelude.Text,
+    -- | The node type to be provisioned for the cluster. For information about
+    -- node types, go to
+    -- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters>
+    -- in the /Amazon Redshift Cluster Management Guide/.
+    --
+    -- Valid Values: @ds2.xlarge@ | @ds2.8xlarge@ | @dc1.large@ | @dc1.8xlarge@
+    -- | @dc2.large@ | @dc2.8xlarge@ | @ra3.xlplus@ | @ra3.4xlarge@ |
+    -- @ra3.16xlarge@
+    nodeType :: Prelude.Text,
+    -- | The user name associated with the master user account for the cluster
+    -- that is being created.
+    --
+    -- Constraints:
+    --
+    -- -   Must be 1 - 128 alphanumeric characters. The user name can\'t be
+    --     @PUBLIC@.
+    --
+    -- -   First character must be a letter.
+    --
+    -- -   Cannot be a reserved word. A list of reserved words can be found in
+    --     <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
+    --     in the Amazon Redshift Database Developer Guide.
+    masterUsername :: Prelude.Text,
+    -- | The password associated with the master user account for the cluster
+    -- that is being created.
+    --
+    -- Constraints:
+    --
+    -- -   Must be between 8 and 64 characters in length.
+    --
+    -- -   Must contain at least one uppercase letter.
+    --
+    -- -   Must contain at least one lowercase letter.
+    --
+    -- -   Must contain one number.
+    --
+    -- -   Can be any printable ASCII character (ASCII code 33 to 126) except
+    --     \' (single quote), \" (double quote), \\, \/, \@, or space.
+    masterUserPassword :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
+-- |
+-- Create a value of 'CreateCluster' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'enhancedVpcRouting', 'createCluster_enhancedVpcRouting' - An option that specifies whether to create the cluster with enhanced VPC
+-- routing enabled. To create a cluster that uses enhanced VPC routing, the
+-- cluster must be in a VPC. For more information, see
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing>
+-- in the Amazon Redshift Cluster Management Guide.
+--
+-- If this option is @true@, enhanced VPC routing is enabled.
+--
+-- Default: false
+--
+-- 'additionalInfo', 'createCluster_additionalInfo' - Reserved.
+--
+-- 'elasticIp', 'createCluster_elasticIp' - The Elastic IP (EIP) address for the cluster.
+--
+-- Constraints: The cluster must be provisioned in EC2-VPC and
+-- publicly-accessible through an Internet gateway. For more information
+-- about provisioning clusters in EC2-VPC, go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch Your Cluster>
+-- in the Amazon Redshift Cluster Management Guide.
+--
+-- 'clusterSubnetGroupName', 'createCluster_clusterSubnetGroupName' - The name of a cluster subnet group to be associated with this cluster.
+--
+-- If this parameter is not provided the resulting cluster will be deployed
+-- outside virtual private cloud (VPC).
+--
+-- 'hsmClientCertificateIdentifier', 'createCluster_hsmClientCertificateIdentifier' - Specifies the name of the HSM client certificate the Amazon Redshift
+-- cluster uses to retrieve the data encryption keys stored in an HSM.
+--
+-- 'encrypted', 'createCluster_encrypted' - If @true@, the data in the cluster is encrypted at rest.
+--
+-- Default: false
+--
+-- 'allowVersionUpgrade', 'createCluster_allowVersionUpgrade' - If @true@, major version upgrades can be applied during the maintenance
+-- window to the Amazon Redshift engine that is running on the cluster.
+--
+-- When a new major version of the Amazon Redshift engine is released, you
+-- can request that the service automatically apply upgrades during the
+-- maintenance window to the Amazon Redshift engine that is running on your
+-- cluster.
+--
+-- Default: @true@
+--
+-- 'automatedSnapshotRetentionPeriod', 'createCluster_automatedSnapshotRetentionPeriod' - The number of days that automated snapshots are retained. If the value
+-- is 0, automated snapshots are disabled. Even if automated snapshots are
+-- disabled, you can still create manual snapshots when you want with
+-- CreateClusterSnapshot.
+--
+-- Default: @1@
+--
+-- Constraints: Must be a value from 0 to 35.
+--
+-- 'clusterParameterGroupName', 'createCluster_clusterParameterGroupName' - The name of the parameter group to be associated with this cluster.
+--
+-- Default: The default Amazon Redshift cluster parameter group. For
+-- information about the default parameter group, go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with Amazon Redshift Parameter Groups>
+--
+-- Constraints:
+--
+-- -   Must be 1 to 255 alphanumeric characters or hyphens.
+--
+-- -   First character must be a letter.
+--
+-- -   Cannot end with a hyphen or contain two consecutive hyphens.
+--
+-- 'availabilityZoneRelocation', 'createCluster_availabilityZoneRelocation' - The option to enable relocation for an Amazon Redshift cluster between
+-- Availability Zones after the cluster is created.
+--
+-- 'snapshotScheduleIdentifier', 'createCluster_snapshotScheduleIdentifier' - A unique identifier for the snapshot schedule.
+--
+-- 'publiclyAccessible', 'createCluster_publiclyAccessible' - If @true@, the cluster can be accessed from a public network.
+--
+-- 'vpcSecurityGroupIds', 'createCluster_vpcSecurityGroupIds' - A list of Virtual Private Cloud (VPC) security groups to be associated
+-- with the cluster.
+--
+-- Default: The default VPC security group is associated with the cluster.
+--
+-- 'clusterType', 'createCluster_clusterType' - The type of the cluster. When cluster type is specified as
+--
+-- -   @single-node@, the __NumberOfNodes__ parameter is not required.
+--
+-- -   @multi-node@, the __NumberOfNodes__ parameter is required.
+--
+-- Valid Values: @multi-node@ | @single-node@
+--
+-- Default: @multi-node@
+--
+-- 'manualSnapshotRetentionPeriod', 'createCluster_manualSnapshotRetentionPeriod' - The default number of days to retain a manual snapshot. If the value is
+-- -1, the snapshot is retained indefinitely. This setting doesn\'t change
+-- the retention period of existing snapshots.
+--
+-- The value must be either -1 or an integer between 1 and 3,653.
+--
+-- 'kmsKeyId', 'createCluster_kmsKeyId' - The AWS Key Management Service (KMS) key ID of the encryption key that
+-- you want to use to encrypt data in the cluster.
+--
+-- 'availabilityZone', 'createCluster_availabilityZone' - The EC2 Availability Zone (AZ) in which you want Amazon Redshift to
+-- provision the cluster. For example, if you have several EC2 instances
+-- running in a specific Availability Zone, then you might want the cluster
+-- to be provisioned in the same zone in order to decrease network latency.
+--
+-- Default: A random, system-chosen Availability Zone in the region that is
+-- specified by the endpoint.
+--
+-- Example: @us-east-2d@
+--
+-- Constraint: The specified Availability Zone must be in the same region
+-- as the current endpoint.
+--
+-- 'preferredMaintenanceWindow', 'createCluster_preferredMaintenanceWindow' - The weekly time range (in UTC) during which automated cluster
+-- maintenance can occur.
+--
+-- Format: @ddd:hh24:mi-ddd:hh24:mi@
+--
+-- Default: A 30-minute window selected at random from an 8-hour block of
+-- time per region, occurring on a random day of the week. For more
+-- information about the time blocks for each region, see
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows>
+-- in Amazon Redshift Cluster Management Guide.
+--
+-- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
+--
+-- Constraints: Minimum 30-minute window.
+--
+-- 'tags', 'createCluster_tags' - A list of tag instances.
+--
+-- 'numberOfNodes', 'createCluster_numberOfNodes' - The number of compute nodes in the cluster. This parameter is required
+-- when the __ClusterType__ parameter is specified as @multi-node@.
+--
+-- For information about determining how many nodes you need, go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters>
+-- in the /Amazon Redshift Cluster Management Guide/.
+--
+-- If you don\'t specify this parameter, you get a single-node cluster.
+-- When requesting a multi-node cluster, you must specify the number of
+-- nodes that you want in the cluster.
+--
+-- Default: @1@
+--
+-- Constraints: Value must be at least 1 and no more than 100.
+--
+-- 'port', 'createCluster_port' - The port number on which the cluster accepts incoming connections.
+--
+-- The cluster is accessible only via the JDBC and ODBC connection strings.
+-- Part of the connection string requires the port on which the cluster
+-- will listen for incoming connections.
+--
+-- Default: @5439@
+--
+-- Valid Values: @1150-65535@
+--
+-- 'dbName', 'createCluster_dbName' - The name of the first database to be created when the cluster is
+-- created.
+--
+-- To create additional databases after the cluster is created, connect to
+-- the cluster with a SQL client and use SQL commands to create a database.
+-- For more information, go to
+-- <https://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html Create a Database>
+-- in the Amazon Redshift Database Developer Guide.
+--
+-- Default: @dev@
+--
+-- Constraints:
+--
+-- -   Must contain 1 to 64 alphanumeric characters.
+--
+-- -   Must contain only lowercase letters.
+--
+-- -   Cannot be a word that is reserved by the service. A list of reserved
+--     words can be found in
+--     <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
+--     in the Amazon Redshift Database Developer Guide.
+--
+-- 'clusterVersion', 'createCluster_clusterVersion' - The version of the Amazon Redshift engine software that you want to
+-- deploy on the cluster.
+--
+-- The version selected runs on all the nodes in the cluster.
+--
+-- Constraints: Only version 1.0 is currently available.
+--
+-- Example: @1.0@
+--
+-- 'clusterSecurityGroups', 'createCluster_clusterSecurityGroups' - A list of security groups to be associated with this cluster.
+--
+-- Default: The default cluster security group for Amazon Redshift.
+--
+-- 'maintenanceTrackName', 'createCluster_maintenanceTrackName' - An optional parameter for the name of the maintenance track for the
+-- cluster. If you don\'t provide a maintenance track name, the cluster is
+-- assigned to the @current@ track.
+--
+-- 'hsmConfigurationIdentifier', 'createCluster_hsmConfigurationIdentifier' - Specifies the name of the HSM configuration that contains the
+-- information the Amazon Redshift cluster can use to retrieve and store
+-- keys in an HSM.
+--
+-- 'iamRoles', 'createCluster_iamRoles' - A list of AWS Identity and Access Management (IAM) roles that can be
+-- used by the cluster to access other AWS services. You must supply the
+-- IAM roles in their Amazon Resource Name (ARN) format. You can supply up
+-- to 10 IAM roles in a single request.
+--
+-- A cluster can have up to 10 IAM roles associated with it at any time.
+--
+-- 'clusterIdentifier', 'createCluster_clusterIdentifier' - A unique identifier for the cluster. You use this identifier to refer to
+-- the cluster for any subsequent cluster operations such as deleting or
+-- modifying. The identifier also appears in the Amazon Redshift console.
+--
+-- Constraints:
+--
+-- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
+--
+-- -   Alphabetic characters must be lowercase.
+--
+-- -   First character must be a letter.
+--
+-- -   Cannot end with a hyphen or contain two consecutive hyphens.
+--
+-- -   Must be unique for all clusters within an AWS account.
+--
+-- Example: @myexamplecluster@
+--
+-- 'nodeType', 'createCluster_nodeType' - The node type to be provisioned for the cluster. For information about
+-- node types, go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters>
+-- in the /Amazon Redshift Cluster Management Guide/.
+--
+-- Valid Values: @ds2.xlarge@ | @ds2.8xlarge@ | @dc1.large@ | @dc1.8xlarge@
+-- | @dc2.large@ | @dc2.8xlarge@ | @ra3.xlplus@ | @ra3.4xlarge@ |
+-- @ra3.16xlarge@
+--
+-- 'masterUsername', 'createCluster_masterUsername' - The user name associated with the master user account for the cluster
+-- that is being created.
+--
+-- Constraints:
+--
+-- -   Must be 1 - 128 alphanumeric characters. The user name can\'t be
+--     @PUBLIC@.
+--
+-- -   First character must be a letter.
+--
+-- -   Cannot be a reserved word. A list of reserved words can be found in
+--     <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
+--     in the Amazon Redshift Database Developer Guide.
+--
+-- 'masterUserPassword', 'createCluster_masterUserPassword' - The password associated with the master user account for the cluster
+-- that is being created.
+--
+-- Constraints:
+--
+-- -   Must be between 8 and 64 characters in length.
+--
+-- -   Must contain at least one uppercase letter.
+--
+-- -   Must contain at least one lowercase letter.
+--
+-- -   Must contain one number.
+--
+-- -   Can be any printable ASCII character (ASCII code 33 to 126) except
+--     \' (single quote), \" (double quote), \\, \/, \@, or space.
+newCreateCluster ::
+  -- | 'clusterIdentifier'
+  Prelude.Text ->
+  -- | 'nodeType'
+  Prelude.Text ->
+  -- | 'masterUsername'
+  Prelude.Text ->
+  -- | 'masterUserPassword'
+  Prelude.Text ->
+  CreateCluster
+newCreateCluster
+  pClusterIdentifier_
+  pNodeType_
+  pMasterUsername_
+  pMasterUserPassword_ =
+    CreateCluster'
+      { enhancedVpcRouting =
+          Prelude.Nothing,
+        additionalInfo = Prelude.Nothing,
+        elasticIp = Prelude.Nothing,
+        clusterSubnetGroupName = Prelude.Nothing,
+        hsmClientCertificateIdentifier = Prelude.Nothing,
+        encrypted = Prelude.Nothing,
+        allowVersionUpgrade = Prelude.Nothing,
+        automatedSnapshotRetentionPeriod = Prelude.Nothing,
+        clusterParameterGroupName = Prelude.Nothing,
+        availabilityZoneRelocation = Prelude.Nothing,
+        snapshotScheduleIdentifier = Prelude.Nothing,
+        publiclyAccessible = Prelude.Nothing,
+        vpcSecurityGroupIds = Prelude.Nothing,
+        clusterType = Prelude.Nothing,
+        manualSnapshotRetentionPeriod = Prelude.Nothing,
+        kmsKeyId = Prelude.Nothing,
+        availabilityZone = Prelude.Nothing,
+        preferredMaintenanceWindow = Prelude.Nothing,
+        tags = Prelude.Nothing,
+        numberOfNodes = Prelude.Nothing,
+        port = Prelude.Nothing,
+        dbName = Prelude.Nothing,
+        clusterVersion = Prelude.Nothing,
+        clusterSecurityGroups = Prelude.Nothing,
+        maintenanceTrackName = Prelude.Nothing,
+        hsmConfigurationIdentifier = Prelude.Nothing,
+        iamRoles = Prelude.Nothing,
+        clusterIdentifier = pClusterIdentifier_,
+        nodeType = pNodeType_,
+        masterUsername = pMasterUsername_,
+        masterUserPassword = pMasterUserPassword_
+      }
 
--- | Creates a value of 'CreateCluster' with the minimum fields required to make a request.
+-- | An option that specifies whether to create the cluster with enhanced VPC
+-- routing enabled. To create a cluster that uses enhanced VPC routing, the
+-- cluster must be in a VPC. For more information, see
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing>
+-- in the Amazon Redshift Cluster Management Guide.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- If this option is @true@, enhanced VPC routing is enabled.
 --
--- * 'ccEnhancedVPCRouting' - An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
---
--- * 'ccAdditionalInfo' - Reserved.
---
--- * 'ccPubliclyAccessible' - If @true@ , the cluster can be accessed from a public network.
---
--- * 'ccHSMConfigurationIdentifier' - Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
---
--- * 'ccClusterSecurityGroups' - A list of security groups to be associated with this cluster. Default: The default cluster security group for Amazon Redshift.
---
--- * 'ccAutomatedSnapshotRetentionPeriod' - The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with 'CreateClusterSnapshot' .  Default: @1@  Constraints: Must be a value from 0 to 35.
---
--- * 'ccEncrypted' - If @true@ , the data in the cluster is encrypted at rest.  Default: false
---
--- * 'ccClusterSubnetGroupName' - The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
---
--- * 'ccHSMClientCertificateIdentifier' - Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
---
--- * 'ccNumberOfNodes' - The number of compute nodes in the cluster. This parameter is required when the __ClusterType__ parameter is specified as @multi-node@ .  For information about determining how many nodes you need, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters> in the /Amazon Redshift Cluster Management Guide/ .  If you don't specify this parameter, you get a single-node cluster. When requesting a multi-node cluster, you must specify the number of nodes that you want in the cluster. Default: @1@  Constraints: Value must be at least 1 and no more than 100.
---
--- * 'ccElasticIP' - The Elastic IP (EIP) address for the cluster. Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. For more information about provisioning clusters in EC2-VPC, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch Your Cluster> in the Amazon Redshift Cluster Management Guide.
---
--- * 'ccPreferredMaintenanceWindow' - The weekly time range (in UTC) during which automated cluster maintenance can occur. Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. For more information about the time blocks for each region, see <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows> in Amazon Redshift Cluster Management Guide. Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun Constraints: Minimum 30-minute window.
---
--- * 'ccKMSKeyId' - The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
---
--- * 'ccAvailabilityZone' - The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Default: A random, system-chosen Availability Zone in the region that is specified by the endpoint. Example: @us-east-1d@  Constraint: The specified Availability Zone must be in the same region as the current endpoint.
---
--- * 'ccVPCSecurityGroupIds' - A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster. Default: The default VPC security group is associated with the cluster.
---
--- * 'ccIAMRoles' - A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request. A cluster can have up to 10 IAM roles associated with it at any time.
---
--- * 'ccClusterType' - The type of the cluster. When cluster type is specified as     * @single-node@ , the __NumberOfNodes__ parameter is not required.     * @multi-node@ , the __NumberOfNodes__ parameter is required. Valid Values: @multi-node@ | @single-node@  Default: @multi-node@
---
--- * 'ccClusterVersion' - The version of the Amazon Redshift engine software that you want to deploy on the cluster. The version selected runs on all the nodes in the cluster. Constraints: Only version 1.0 is currently available. Example: @1.0@
---
--- * 'ccAllowVersionUpgrade' - If @true@ , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. When a new major version of the Amazon Redshift engine is released, you can request that the service automatically apply upgrades during the maintenance window to the Amazon Redshift engine that is running on your cluster. Default: @true@
---
--- * 'ccClusterParameterGroupName' - The name of the parameter group to be associated with this cluster. Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with Amazon Redshift Parameter Groups>  Constraints:     * Must be 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
---
--- * 'ccTags' - A list of tag instances.
---
--- * 'ccPort' - The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default: @5439@  Valid Values: @1150-65535@
---
--- * 'ccDBName' - The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database. For more information, go to <http://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html Create a Database> in the Amazon Redshift Database Developer Guide.  Default: @dev@  Constraints:     * Must contain 1 to 64 alphanumeric characters.     * Must contain only lowercase letters.     * Cannot be a word that is reserved by the service. A list of reserved words can be found in <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database Developer Guide.
---
--- * 'ccClusterIdentifier' - A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. The identifier also appears in the Amazon Redshift console. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * Alphabetic characters must be lowercase.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique for all clusters within an AWS account. Example: @myexamplecluster@
---
--- * 'ccNodeType' - The node type to be provisioned for the cluster. For information about node types, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters> in the /Amazon Redshift Cluster Management Guide/ .  Valid Values: @ds2.xlarge@ | @ds2.8xlarge@ | @ds2.xlarge@ | @ds2.8xlarge@ | @dc1.large@ | @dc1.8xlarge@ | @dc2.large@ | @dc2.8xlarge@
---
--- * 'ccMasterUsername' - The user name associated with the master user account for the cluster that is being created. Constraints:     * Must be 1 - 128 alphanumeric characters. The user name can't be @PUBLIC@ .     * First character must be a letter.     * Cannot be a reserved word. A list of reserved words can be found in <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database Developer Guide.
---
--- * 'ccMasterUserPassword' - The password associated with the master user account for the cluster that is being created. Constraints:     * Must be between 8 and 64 characters in length.     * Must contain at least one uppercase letter.     * Must contain at least one lowercase letter.     * Must contain one number.     * Can be any printable ASCII character (ASCII code 33 to 126) except ' (single quote), " (double quote), \, /, @, or space.
-createCluster
-    :: Text -- ^ 'ccClusterIdentifier'
-    -> Text -- ^ 'ccNodeType'
-    -> Text -- ^ 'ccMasterUsername'
-    -> Text -- ^ 'ccMasterUserPassword'
-    -> CreateCluster
-createCluster pClusterIdentifier_ pNodeType_ pMasterUsername_ pMasterUserPassword_ =
-  CreateCluster'
-    { _ccEnhancedVPCRouting = Nothing
-    , _ccAdditionalInfo = Nothing
-    , _ccPubliclyAccessible = Nothing
-    , _ccHSMConfigurationIdentifier = Nothing
-    , _ccClusterSecurityGroups = Nothing
-    , _ccAutomatedSnapshotRetentionPeriod = Nothing
-    , _ccEncrypted = Nothing
-    , _ccClusterSubnetGroupName = Nothing
-    , _ccHSMClientCertificateIdentifier = Nothing
-    , _ccNumberOfNodes = Nothing
-    , _ccElasticIP = Nothing
-    , _ccPreferredMaintenanceWindow = Nothing
-    , _ccKMSKeyId = Nothing
-    , _ccAvailabilityZone = Nothing
-    , _ccVPCSecurityGroupIds = Nothing
-    , _ccIAMRoles = Nothing
-    , _ccClusterType = Nothing
-    , _ccClusterVersion = Nothing
-    , _ccAllowVersionUpgrade = Nothing
-    , _ccClusterParameterGroupName = Nothing
-    , _ccTags = Nothing
-    , _ccPort = Nothing
-    , _ccDBName = Nothing
-    , _ccClusterIdentifier = pClusterIdentifier_
-    , _ccNodeType = pNodeType_
-    , _ccMasterUsername = pMasterUsername_
-    , _ccMasterUserPassword = pMasterUserPassword_
-    }
-
-
--- | An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see <http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html Enhanced VPC Routing> in the Amazon Redshift Cluster Management Guide. If this option is @true@ , enhanced VPC routing is enabled.  Default: false
-ccEnhancedVPCRouting :: Lens' CreateCluster (Maybe Bool)
-ccEnhancedVPCRouting = lens _ccEnhancedVPCRouting (\ s a -> s{_ccEnhancedVPCRouting = a})
+-- Default: false
+createCluster_enhancedVpcRouting :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Bool)
+createCluster_enhancedVpcRouting = Lens.lens (\CreateCluster' {enhancedVpcRouting} -> enhancedVpcRouting) (\s@CreateCluster' {} a -> s {enhancedVpcRouting = a} :: CreateCluster)
 
 -- | Reserved.
-ccAdditionalInfo :: Lens' CreateCluster (Maybe Text)
-ccAdditionalInfo = lens _ccAdditionalInfo (\ s a -> s{_ccAdditionalInfo = a})
+createCluster_additionalInfo :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_additionalInfo = Lens.lens (\CreateCluster' {additionalInfo} -> additionalInfo) (\s@CreateCluster' {} a -> s {additionalInfo = a} :: CreateCluster)
 
--- | If @true@ , the cluster can be accessed from a public network.
-ccPubliclyAccessible :: Lens' CreateCluster (Maybe Bool)
-ccPubliclyAccessible = lens _ccPubliclyAccessible (\ s a -> s{_ccPubliclyAccessible = a})
+-- | The Elastic IP (EIP) address for the cluster.
+--
+-- Constraints: The cluster must be provisioned in EC2-VPC and
+-- publicly-accessible through an Internet gateway. For more information
+-- about provisioning clusters in EC2-VPC, go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch Your Cluster>
+-- in the Amazon Redshift Cluster Management Guide.
+createCluster_elasticIp :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_elasticIp = Lens.lens (\CreateCluster' {elasticIp} -> elasticIp) (\s@CreateCluster' {} a -> s {elasticIp = a} :: CreateCluster)
 
--- | Specifies the name of the HSM configuration that contains the information the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
-ccHSMConfigurationIdentifier :: Lens' CreateCluster (Maybe Text)
-ccHSMConfigurationIdentifier = lens _ccHSMConfigurationIdentifier (\ s a -> s{_ccHSMConfigurationIdentifier = a})
+-- | The name of a cluster subnet group to be associated with this cluster.
+--
+-- If this parameter is not provided the resulting cluster will be deployed
+-- outside virtual private cloud (VPC).
+createCluster_clusterSubnetGroupName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_clusterSubnetGroupName = Lens.lens (\CreateCluster' {clusterSubnetGroupName} -> clusterSubnetGroupName) (\s@CreateCluster' {} a -> s {clusterSubnetGroupName = a} :: CreateCluster)
 
--- | A list of security groups to be associated with this cluster. Default: The default cluster security group for Amazon Redshift.
-ccClusterSecurityGroups :: Lens' CreateCluster [Text]
-ccClusterSecurityGroups = lens _ccClusterSecurityGroups (\ s a -> s{_ccClusterSecurityGroups = a}) . _Default . _Coerce
+-- | Specifies the name of the HSM client certificate the Amazon Redshift
+-- cluster uses to retrieve the data encryption keys stored in an HSM.
+createCluster_hsmClientCertificateIdentifier :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_hsmClientCertificateIdentifier = Lens.lens (\CreateCluster' {hsmClientCertificateIdentifier} -> hsmClientCertificateIdentifier) (\s@CreateCluster' {} a -> s {hsmClientCertificateIdentifier = a} :: CreateCluster)
 
--- | The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with 'CreateClusterSnapshot' .  Default: @1@  Constraints: Must be a value from 0 to 35.
-ccAutomatedSnapshotRetentionPeriod :: Lens' CreateCluster (Maybe Int)
-ccAutomatedSnapshotRetentionPeriod = lens _ccAutomatedSnapshotRetentionPeriod (\ s a -> s{_ccAutomatedSnapshotRetentionPeriod = a})
+-- | If @true@, the data in the cluster is encrypted at rest.
+--
+-- Default: false
+createCluster_encrypted :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Bool)
+createCluster_encrypted = Lens.lens (\CreateCluster' {encrypted} -> encrypted) (\s@CreateCluster' {} a -> s {encrypted = a} :: CreateCluster)
 
--- | If @true@ , the data in the cluster is encrypted at rest.  Default: false
-ccEncrypted :: Lens' CreateCluster (Maybe Bool)
-ccEncrypted = lens _ccEncrypted (\ s a -> s{_ccEncrypted = a})
+-- | If @true@, major version upgrades can be applied during the maintenance
+-- window to the Amazon Redshift engine that is running on the cluster.
+--
+-- When a new major version of the Amazon Redshift engine is released, you
+-- can request that the service automatically apply upgrades during the
+-- maintenance window to the Amazon Redshift engine that is running on your
+-- cluster.
+--
+-- Default: @true@
+createCluster_allowVersionUpgrade :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Bool)
+createCluster_allowVersionUpgrade = Lens.lens (\CreateCluster' {allowVersionUpgrade} -> allowVersionUpgrade) (\s@CreateCluster' {} a -> s {allowVersionUpgrade = a} :: CreateCluster)
 
--- | The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
-ccClusterSubnetGroupName :: Lens' CreateCluster (Maybe Text)
-ccClusterSubnetGroupName = lens _ccClusterSubnetGroupName (\ s a -> s{_ccClusterSubnetGroupName = a})
+-- | The number of days that automated snapshots are retained. If the value
+-- is 0, automated snapshots are disabled. Even if automated snapshots are
+-- disabled, you can still create manual snapshots when you want with
+-- CreateClusterSnapshot.
+--
+-- Default: @1@
+--
+-- Constraints: Must be a value from 0 to 35.
+createCluster_automatedSnapshotRetentionPeriod :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
+createCluster_automatedSnapshotRetentionPeriod = Lens.lens (\CreateCluster' {automatedSnapshotRetentionPeriod} -> automatedSnapshotRetentionPeriod) (\s@CreateCluster' {} a -> s {automatedSnapshotRetentionPeriod = a} :: CreateCluster)
 
--- | Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to retrieve the data encryption keys stored in an HSM.
-ccHSMClientCertificateIdentifier :: Lens' CreateCluster (Maybe Text)
-ccHSMClientCertificateIdentifier = lens _ccHSMClientCertificateIdentifier (\ s a -> s{_ccHSMClientCertificateIdentifier = a})
+-- | The name of the parameter group to be associated with this cluster.
+--
+-- Default: The default Amazon Redshift cluster parameter group. For
+-- information about the default parameter group, go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with Amazon Redshift Parameter Groups>
+--
+-- Constraints:
+--
+-- -   Must be 1 to 255 alphanumeric characters or hyphens.
+--
+-- -   First character must be a letter.
+--
+-- -   Cannot end with a hyphen or contain two consecutive hyphens.
+createCluster_clusterParameterGroupName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_clusterParameterGroupName = Lens.lens (\CreateCluster' {clusterParameterGroupName} -> clusterParameterGroupName) (\s@CreateCluster' {} a -> s {clusterParameterGroupName = a} :: CreateCluster)
 
--- | The number of compute nodes in the cluster. This parameter is required when the __ClusterType__ parameter is specified as @multi-node@ .  For information about determining how many nodes you need, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters> in the /Amazon Redshift Cluster Management Guide/ .  If you don't specify this parameter, you get a single-node cluster. When requesting a multi-node cluster, you must specify the number of nodes that you want in the cluster. Default: @1@  Constraints: Value must be at least 1 and no more than 100.
-ccNumberOfNodes :: Lens' CreateCluster (Maybe Int)
-ccNumberOfNodes = lens _ccNumberOfNodes (\ s a -> s{_ccNumberOfNodes = a})
+-- | The option to enable relocation for an Amazon Redshift cluster between
+-- Availability Zones after the cluster is created.
+createCluster_availabilityZoneRelocation :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Bool)
+createCluster_availabilityZoneRelocation = Lens.lens (\CreateCluster' {availabilityZoneRelocation} -> availabilityZoneRelocation) (\s@CreateCluster' {} a -> s {availabilityZoneRelocation = a} :: CreateCluster)
 
--- | The Elastic IP (EIP) address for the cluster. Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through an Internet gateway. For more information about provisioning clusters in EC2-VPC, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch Your Cluster> in the Amazon Redshift Cluster Management Guide.
-ccElasticIP :: Lens' CreateCluster (Maybe Text)
-ccElasticIP = lens _ccElasticIP (\ s a -> s{_ccElasticIP = a})
+-- | A unique identifier for the snapshot schedule.
+createCluster_snapshotScheduleIdentifier :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_snapshotScheduleIdentifier = Lens.lens (\CreateCluster' {snapshotScheduleIdentifier} -> snapshotScheduleIdentifier) (\s@CreateCluster' {} a -> s {snapshotScheduleIdentifier = a} :: CreateCluster)
 
--- | The weekly time range (in UTC) during which automated cluster maintenance can occur. Format: @ddd:hh24:mi-ddd:hh24:mi@  Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week. For more information about the time blocks for each region, see <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows> in Amazon Redshift Cluster Management Guide. Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun Constraints: Minimum 30-minute window.
-ccPreferredMaintenanceWindow :: Lens' CreateCluster (Maybe Text)
-ccPreferredMaintenanceWindow = lens _ccPreferredMaintenanceWindow (\ s a -> s{_ccPreferredMaintenanceWindow = a})
+-- | If @true@, the cluster can be accessed from a public network.
+createCluster_publiclyAccessible :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Bool)
+createCluster_publiclyAccessible = Lens.lens (\CreateCluster' {publiclyAccessible} -> publiclyAccessible) (\s@CreateCluster' {} a -> s {publiclyAccessible = a} :: CreateCluster)
 
--- | The AWS Key Management Service (KMS) key ID of the encryption key that you want to use to encrypt data in the cluster.
-ccKMSKeyId :: Lens' CreateCluster (Maybe Text)
-ccKMSKeyId = lens _ccKMSKeyId (\ s a -> s{_ccKMSKeyId = a})
+-- | A list of Virtual Private Cloud (VPC) security groups to be associated
+-- with the cluster.
+--
+-- Default: The default VPC security group is associated with the cluster.
+createCluster_vpcSecurityGroupIds :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
+createCluster_vpcSecurityGroupIds = Lens.lens (\CreateCluster' {vpcSecurityGroupIds} -> vpcSecurityGroupIds) (\s@CreateCluster' {} a -> s {vpcSecurityGroupIds = a} :: CreateCluster) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Default: A random, system-chosen Availability Zone in the region that is specified by the endpoint. Example: @us-east-1d@  Constraint: The specified Availability Zone must be in the same region as the current endpoint.
-ccAvailabilityZone :: Lens' CreateCluster (Maybe Text)
-ccAvailabilityZone = lens _ccAvailabilityZone (\ s a -> s{_ccAvailabilityZone = a})
+-- | The type of the cluster. When cluster type is specified as
+--
+-- -   @single-node@, the __NumberOfNodes__ parameter is not required.
+--
+-- -   @multi-node@, the __NumberOfNodes__ parameter is required.
+--
+-- Valid Values: @multi-node@ | @single-node@
+--
+-- Default: @multi-node@
+createCluster_clusterType :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_clusterType = Lens.lens (\CreateCluster' {clusterType} -> clusterType) (\s@CreateCluster' {} a -> s {clusterType = a} :: CreateCluster)
 
--- | A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster. Default: The default VPC security group is associated with the cluster.
-ccVPCSecurityGroupIds :: Lens' CreateCluster [Text]
-ccVPCSecurityGroupIds = lens _ccVPCSecurityGroupIds (\ s a -> s{_ccVPCSecurityGroupIds = a}) . _Default . _Coerce
+-- | The default number of days to retain a manual snapshot. If the value is
+-- -1, the snapshot is retained indefinitely. This setting doesn\'t change
+-- the retention period of existing snapshots.
+--
+-- The value must be either -1 or an integer between 1 and 3,653.
+createCluster_manualSnapshotRetentionPeriod :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
+createCluster_manualSnapshotRetentionPeriod = Lens.lens (\CreateCluster' {manualSnapshotRetentionPeriod} -> manualSnapshotRetentionPeriod) (\s@CreateCluster' {} a -> s {manualSnapshotRetentionPeriod = a} :: CreateCluster)
 
--- | A list of AWS Identity and Access Management (IAM) roles that can be used by the cluster to access other AWS services. You must supply the IAM roles in their Amazon Resource Name (ARN) format. You can supply up to 10 IAM roles in a single request. A cluster can have up to 10 IAM roles associated with it at any time.
-ccIAMRoles :: Lens' CreateCluster [Text]
-ccIAMRoles = lens _ccIAMRoles (\ s a -> s{_ccIAMRoles = a}) . _Default . _Coerce
+-- | The AWS Key Management Service (KMS) key ID of the encryption key that
+-- you want to use to encrypt data in the cluster.
+createCluster_kmsKeyId :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_kmsKeyId = Lens.lens (\CreateCluster' {kmsKeyId} -> kmsKeyId) (\s@CreateCluster' {} a -> s {kmsKeyId = a} :: CreateCluster)
 
--- | The type of the cluster. When cluster type is specified as     * @single-node@ , the __NumberOfNodes__ parameter is not required.     * @multi-node@ , the __NumberOfNodes__ parameter is required. Valid Values: @multi-node@ | @single-node@  Default: @multi-node@
-ccClusterType :: Lens' CreateCluster (Maybe Text)
-ccClusterType = lens _ccClusterType (\ s a -> s{_ccClusterType = a})
+-- | The EC2 Availability Zone (AZ) in which you want Amazon Redshift to
+-- provision the cluster. For example, if you have several EC2 instances
+-- running in a specific Availability Zone, then you might want the cluster
+-- to be provisioned in the same zone in order to decrease network latency.
+--
+-- Default: A random, system-chosen Availability Zone in the region that is
+-- specified by the endpoint.
+--
+-- Example: @us-east-2d@
+--
+-- Constraint: The specified Availability Zone must be in the same region
+-- as the current endpoint.
+createCluster_availabilityZone :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_availabilityZone = Lens.lens (\CreateCluster' {availabilityZone} -> availabilityZone) (\s@CreateCluster' {} a -> s {availabilityZone = a} :: CreateCluster)
 
--- | The version of the Amazon Redshift engine software that you want to deploy on the cluster. The version selected runs on all the nodes in the cluster. Constraints: Only version 1.0 is currently available. Example: @1.0@
-ccClusterVersion :: Lens' CreateCluster (Maybe Text)
-ccClusterVersion = lens _ccClusterVersion (\ s a -> s{_ccClusterVersion = a})
-
--- | If @true@ , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. When a new major version of the Amazon Redshift engine is released, you can request that the service automatically apply upgrades during the maintenance window to the Amazon Redshift engine that is running on your cluster. Default: @true@
-ccAllowVersionUpgrade :: Lens' CreateCluster (Maybe Bool)
-ccAllowVersionUpgrade = lens _ccAllowVersionUpgrade (\ s a -> s{_ccAllowVersionUpgrade = a})
-
--- | The name of the parameter group to be associated with this cluster. Default: The default Amazon Redshift cluster parameter group. For information about the default parameter group, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with Amazon Redshift Parameter Groups>  Constraints:     * Must be 1 to 255 alphanumeric characters or hyphens.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.
-ccClusterParameterGroupName :: Lens' CreateCluster (Maybe Text)
-ccClusterParameterGroupName = lens _ccClusterParameterGroupName (\ s a -> s{_ccClusterParameterGroupName = a})
+-- | The weekly time range (in UTC) during which automated cluster
+-- maintenance can occur.
+--
+-- Format: @ddd:hh24:mi-ddd:hh24:mi@
+--
+-- Default: A 30-minute window selected at random from an 8-hour block of
+-- time per region, occurring on a random day of the week. For more
+-- information about the time blocks for each region, see
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows>
+-- in Amazon Redshift Cluster Management Guide.
+--
+-- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
+--
+-- Constraints: Minimum 30-minute window.
+createCluster_preferredMaintenanceWindow :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_preferredMaintenanceWindow = Lens.lens (\CreateCluster' {preferredMaintenanceWindow} -> preferredMaintenanceWindow) (\s@CreateCluster' {} a -> s {preferredMaintenanceWindow = a} :: CreateCluster)
 
 -- | A list of tag instances.
-ccTags :: Lens' CreateCluster [Tag]
-ccTags = lens _ccTags (\ s a -> s{_ccTags = a}) . _Default . _Coerce
+createCluster_tags :: Lens.Lens' CreateCluster (Prelude.Maybe [Tag])
+createCluster_tags = Lens.lens (\CreateCluster' {tags} -> tags) (\s@CreateCluster' {} a -> s {tags = a} :: CreateCluster) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The port number on which the cluster accepts incoming connections. The cluster is accessible only via the JDBC and ODBC connection strings. Part of the connection string requires the port on which the cluster will listen for incoming connections. Default: @5439@  Valid Values: @1150-65535@
-ccPort :: Lens' CreateCluster (Maybe Int)
-ccPort = lens _ccPort (\ s a -> s{_ccPort = a})
+-- | The number of compute nodes in the cluster. This parameter is required
+-- when the __ClusterType__ parameter is specified as @multi-node@.
+--
+-- For information about determining how many nodes you need, go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters>
+-- in the /Amazon Redshift Cluster Management Guide/.
+--
+-- If you don\'t specify this parameter, you get a single-node cluster.
+-- When requesting a multi-node cluster, you must specify the number of
+-- nodes that you want in the cluster.
+--
+-- Default: @1@
+--
+-- Constraints: Value must be at least 1 and no more than 100.
+createCluster_numberOfNodes :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
+createCluster_numberOfNodes = Lens.lens (\CreateCluster' {numberOfNodes} -> numberOfNodes) (\s@CreateCluster' {} a -> s {numberOfNodes = a} :: CreateCluster)
 
--- | The name of the first database to be created when the cluster is created. To create additional databases after the cluster is created, connect to the cluster with a SQL client and use SQL commands to create a database. For more information, go to <http://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html Create a Database> in the Amazon Redshift Database Developer Guide.  Default: @dev@  Constraints:     * Must contain 1 to 64 alphanumeric characters.     * Must contain only lowercase letters.     * Cannot be a word that is reserved by the service. A list of reserved words can be found in <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database Developer Guide.
-ccDBName :: Lens' CreateCluster (Maybe Text)
-ccDBName = lens _ccDBName (\ s a -> s{_ccDBName = a})
+-- | The port number on which the cluster accepts incoming connections.
+--
+-- The cluster is accessible only via the JDBC and ODBC connection strings.
+-- Part of the connection string requires the port on which the cluster
+-- will listen for incoming connections.
+--
+-- Default: @5439@
+--
+-- Valid Values: @1150-65535@
+createCluster_port :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Int)
+createCluster_port = Lens.lens (\CreateCluster' {port} -> port) (\s@CreateCluster' {} a -> s {port = a} :: CreateCluster)
 
--- | A unique identifier for the cluster. You use this identifier to refer to the cluster for any subsequent cluster operations such as deleting or modifying. The identifier also appears in the Amazon Redshift console. Constraints:     * Must contain from 1 to 63 alphanumeric characters or hyphens.     * Alphabetic characters must be lowercase.     * First character must be a letter.     * Cannot end with a hyphen or contain two consecutive hyphens.     * Must be unique for all clusters within an AWS account. Example: @myexamplecluster@
-ccClusterIdentifier :: Lens' CreateCluster Text
-ccClusterIdentifier = lens _ccClusterIdentifier (\ s a -> s{_ccClusterIdentifier = a})
+-- | The name of the first database to be created when the cluster is
+-- created.
+--
+-- To create additional databases after the cluster is created, connect to
+-- the cluster with a SQL client and use SQL commands to create a database.
+-- For more information, go to
+-- <https://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html Create a Database>
+-- in the Amazon Redshift Database Developer Guide.
+--
+-- Default: @dev@
+--
+-- Constraints:
+--
+-- -   Must contain 1 to 64 alphanumeric characters.
+--
+-- -   Must contain only lowercase letters.
+--
+-- -   Cannot be a word that is reserved by the service. A list of reserved
+--     words can be found in
+--     <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
+--     in the Amazon Redshift Database Developer Guide.
+createCluster_dbName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_dbName = Lens.lens (\CreateCluster' {dbName} -> dbName) (\s@CreateCluster' {} a -> s {dbName = a} :: CreateCluster)
 
--- | The node type to be provisioned for the cluster. For information about node types, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters> in the /Amazon Redshift Cluster Management Guide/ .  Valid Values: @ds2.xlarge@ | @ds2.8xlarge@ | @ds2.xlarge@ | @ds2.8xlarge@ | @dc1.large@ | @dc1.8xlarge@ | @dc2.large@ | @dc2.8xlarge@
-ccNodeType :: Lens' CreateCluster Text
-ccNodeType = lens _ccNodeType (\ s a -> s{_ccNodeType = a})
+-- | The version of the Amazon Redshift engine software that you want to
+-- deploy on the cluster.
+--
+-- The version selected runs on all the nodes in the cluster.
+--
+-- Constraints: Only version 1.0 is currently available.
+--
+-- Example: @1.0@
+createCluster_clusterVersion :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_clusterVersion = Lens.lens (\CreateCluster' {clusterVersion} -> clusterVersion) (\s@CreateCluster' {} a -> s {clusterVersion = a} :: CreateCluster)
 
--- | The user name associated with the master user account for the cluster that is being created. Constraints:     * Must be 1 - 128 alphanumeric characters. The user name can't be @PUBLIC@ .     * First character must be a letter.     * Cannot be a reserved word. A list of reserved words can be found in <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database Developer Guide.
-ccMasterUsername :: Lens' CreateCluster Text
-ccMasterUsername = lens _ccMasterUsername (\ s a -> s{_ccMasterUsername = a})
+-- | A list of security groups to be associated with this cluster.
+--
+-- Default: The default cluster security group for Amazon Redshift.
+createCluster_clusterSecurityGroups :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
+createCluster_clusterSecurityGroups = Lens.lens (\CreateCluster' {clusterSecurityGroups} -> clusterSecurityGroups) (\s@CreateCluster' {} a -> s {clusterSecurityGroups = a} :: CreateCluster) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The password associated with the master user account for the cluster that is being created. Constraints:     * Must be between 8 and 64 characters in length.     * Must contain at least one uppercase letter.     * Must contain at least one lowercase letter.     * Must contain one number.     * Can be any printable ASCII character (ASCII code 33 to 126) except ' (single quote), " (double quote), \, /, @, or space.
-ccMasterUserPassword :: Lens' CreateCluster Text
-ccMasterUserPassword = lens _ccMasterUserPassword (\ s a -> s{_ccMasterUserPassword = a})
+-- | An optional parameter for the name of the maintenance track for the
+-- cluster. If you don\'t provide a maintenance track name, the cluster is
+-- assigned to the @current@ track.
+createCluster_maintenanceTrackName :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_maintenanceTrackName = Lens.lens (\CreateCluster' {maintenanceTrackName} -> maintenanceTrackName) (\s@CreateCluster' {} a -> s {maintenanceTrackName = a} :: CreateCluster)
 
-instance AWSRequest CreateCluster where
-        type Rs CreateCluster = CreateClusterResponse
-        request = postQuery redshift
-        response
-          = receiveXMLWrapper "CreateClusterResult"
-              (\ s h x ->
-                 CreateClusterResponse' <$>
-                   (x .@? "Cluster") <*> (pure (fromEnum s)))
+-- | Specifies the name of the HSM configuration that contains the
+-- information the Amazon Redshift cluster can use to retrieve and store
+-- keys in an HSM.
+createCluster_hsmConfigurationIdentifier :: Lens.Lens' CreateCluster (Prelude.Maybe Prelude.Text)
+createCluster_hsmConfigurationIdentifier = Lens.lens (\CreateCluster' {hsmConfigurationIdentifier} -> hsmConfigurationIdentifier) (\s@CreateCluster' {} a -> s {hsmConfigurationIdentifier = a} :: CreateCluster)
 
-instance Hashable CreateCluster where
+-- | A list of AWS Identity and Access Management (IAM) roles that can be
+-- used by the cluster to access other AWS services. You must supply the
+-- IAM roles in their Amazon Resource Name (ARN) format. You can supply up
+-- to 10 IAM roles in a single request.
+--
+-- A cluster can have up to 10 IAM roles associated with it at any time.
+createCluster_iamRoles :: Lens.Lens' CreateCluster (Prelude.Maybe [Prelude.Text])
+createCluster_iamRoles = Lens.lens (\CreateCluster' {iamRoles} -> iamRoles) (\s@CreateCluster' {} a -> s {iamRoles = a} :: CreateCluster) Prelude.. Lens.mapping Prelude._Coerce
 
-instance NFData CreateCluster where
+-- | A unique identifier for the cluster. You use this identifier to refer to
+-- the cluster for any subsequent cluster operations such as deleting or
+-- modifying. The identifier also appears in the Amazon Redshift console.
+--
+-- Constraints:
+--
+-- -   Must contain from 1 to 63 alphanumeric characters or hyphens.
+--
+-- -   Alphabetic characters must be lowercase.
+--
+-- -   First character must be a letter.
+--
+-- -   Cannot end with a hyphen or contain two consecutive hyphens.
+--
+-- -   Must be unique for all clusters within an AWS account.
+--
+-- Example: @myexamplecluster@
+createCluster_clusterIdentifier :: Lens.Lens' CreateCluster Prelude.Text
+createCluster_clusterIdentifier = Lens.lens (\CreateCluster' {clusterIdentifier} -> clusterIdentifier) (\s@CreateCluster' {} a -> s {clusterIdentifier = a} :: CreateCluster)
 
-instance ToHeaders CreateCluster where
-        toHeaders = const mempty
+-- | The node type to be provisioned for the cluster. For information about
+-- node types, go to
+-- <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes Working with Clusters>
+-- in the /Amazon Redshift Cluster Management Guide/.
+--
+-- Valid Values: @ds2.xlarge@ | @ds2.8xlarge@ | @dc1.large@ | @dc1.8xlarge@
+-- | @dc2.large@ | @dc2.8xlarge@ | @ra3.xlplus@ | @ra3.4xlarge@ |
+-- @ra3.16xlarge@
+createCluster_nodeType :: Lens.Lens' CreateCluster Prelude.Text
+createCluster_nodeType = Lens.lens (\CreateCluster' {nodeType} -> nodeType) (\s@CreateCluster' {} a -> s {nodeType = a} :: CreateCluster)
 
-instance ToPath CreateCluster where
-        toPath = const "/"
+-- | The user name associated with the master user account for the cluster
+-- that is being created.
+--
+-- Constraints:
+--
+-- -   Must be 1 - 128 alphanumeric characters. The user name can\'t be
+--     @PUBLIC@.
+--
+-- -   First character must be a letter.
+--
+-- -   Cannot be a reserved word. A list of reserved words can be found in
+--     <https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
+--     in the Amazon Redshift Database Developer Guide.
+createCluster_masterUsername :: Lens.Lens' CreateCluster Prelude.Text
+createCluster_masterUsername = Lens.lens (\CreateCluster' {masterUsername} -> masterUsername) (\s@CreateCluster' {} a -> s {masterUsername = a} :: CreateCluster)
 
-instance ToQuery CreateCluster where
-        toQuery CreateCluster'{..}
-          = mconcat
-              ["Action" =: ("CreateCluster" :: ByteString),
-               "Version" =: ("2012-12-01" :: ByteString),
-               "EnhancedVpcRouting" =: _ccEnhancedVPCRouting,
-               "AdditionalInfo" =: _ccAdditionalInfo,
-               "PubliclyAccessible" =: _ccPubliclyAccessible,
-               "HsmConfigurationIdentifier" =:
-                 _ccHSMConfigurationIdentifier,
-               "ClusterSecurityGroups" =:
-                 toQuery
-                   (toQueryList "ClusterSecurityGroupName" <$>
-                      _ccClusterSecurityGroups),
-               "AutomatedSnapshotRetentionPeriod" =:
-                 _ccAutomatedSnapshotRetentionPeriod,
-               "Encrypted" =: _ccEncrypted,
-               "ClusterSubnetGroupName" =:
-                 _ccClusterSubnetGroupName,
-               "HsmClientCertificateIdentifier" =:
-                 _ccHSMClientCertificateIdentifier,
-               "NumberOfNodes" =: _ccNumberOfNodes,
-               "ElasticIp" =: _ccElasticIP,
-               "PreferredMaintenanceWindow" =:
-                 _ccPreferredMaintenanceWindow,
-               "KmsKeyId" =: _ccKMSKeyId,
-               "AvailabilityZone" =: _ccAvailabilityZone,
-               "VpcSecurityGroupIds" =:
-                 toQuery
-                   (toQueryList "VpcSecurityGroupId" <$>
-                      _ccVPCSecurityGroupIds),
-               "IamRoles" =:
-                 toQuery (toQueryList "IamRoleArn" <$> _ccIAMRoles),
-               "ClusterType" =: _ccClusterType,
-               "ClusterVersion" =: _ccClusterVersion,
-               "AllowVersionUpgrade" =: _ccAllowVersionUpgrade,
-               "ClusterParameterGroupName" =:
-                 _ccClusterParameterGroupName,
-               "Tags" =: toQuery (toQueryList "Tag" <$> _ccTags),
-               "Port" =: _ccPort, "DBName" =: _ccDBName,
-               "ClusterIdentifier" =: _ccClusterIdentifier,
-               "NodeType" =: _ccNodeType,
-               "MasterUsername" =: _ccMasterUsername,
-               "MasterUserPassword" =: _ccMasterUserPassword]
+-- | The password associated with the master user account for the cluster
+-- that is being created.
+--
+-- Constraints:
+--
+-- -   Must be between 8 and 64 characters in length.
+--
+-- -   Must contain at least one uppercase letter.
+--
+-- -   Must contain at least one lowercase letter.
+--
+-- -   Must contain one number.
+--
+-- -   Can be any printable ASCII character (ASCII code 33 to 126) except
+--     \' (single quote), \" (double quote), \\, \/, \@, or space.
+createCluster_masterUserPassword :: Lens.Lens' CreateCluster Prelude.Text
+createCluster_masterUserPassword = Lens.lens (\CreateCluster' {masterUserPassword} -> masterUserPassword) (\s@CreateCluster' {} a -> s {masterUserPassword = a} :: CreateCluster)
 
--- | /See:/ 'createClusterResponse' smart constructor.
+instance Prelude.AWSRequest CreateCluster where
+  type Rs CreateCluster = CreateClusterResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "CreateClusterResult"
+      ( \s h x ->
+          CreateClusterResponse'
+            Prelude.<$> (x Prelude..@? "Cluster")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable CreateCluster
+
+instance Prelude.NFData CreateCluster
+
+instance Prelude.ToHeaders CreateCluster where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToPath CreateCluster where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery CreateCluster where
+  toQuery CreateCluster' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("CreateCluster" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2012-12-01" :: Prelude.ByteString),
+        "EnhancedVpcRouting" Prelude.=: enhancedVpcRouting,
+        "AdditionalInfo" Prelude.=: additionalInfo,
+        "ElasticIp" Prelude.=: elasticIp,
+        "ClusterSubnetGroupName"
+          Prelude.=: clusterSubnetGroupName,
+        "HsmClientCertificateIdentifier"
+          Prelude.=: hsmClientCertificateIdentifier,
+        "Encrypted" Prelude.=: encrypted,
+        "AllowVersionUpgrade" Prelude.=: allowVersionUpgrade,
+        "AutomatedSnapshotRetentionPeriod"
+          Prelude.=: automatedSnapshotRetentionPeriod,
+        "ClusterParameterGroupName"
+          Prelude.=: clusterParameterGroupName,
+        "AvailabilityZoneRelocation"
+          Prelude.=: availabilityZoneRelocation,
+        "SnapshotScheduleIdentifier"
+          Prelude.=: snapshotScheduleIdentifier,
+        "PubliclyAccessible" Prelude.=: publiclyAccessible,
+        "VpcSecurityGroupIds"
+          Prelude.=: Prelude.toQuery
+            ( Prelude.toQueryList "VpcSecurityGroupId"
+                Prelude.<$> vpcSecurityGroupIds
+            ),
+        "ClusterType" Prelude.=: clusterType,
+        "ManualSnapshotRetentionPeriod"
+          Prelude.=: manualSnapshotRetentionPeriod,
+        "KmsKeyId" Prelude.=: kmsKeyId,
+        "AvailabilityZone" Prelude.=: availabilityZone,
+        "PreferredMaintenanceWindow"
+          Prelude.=: preferredMaintenanceWindow,
+        "Tags"
+          Prelude.=: Prelude.toQuery
+            (Prelude.toQueryList "Tag" Prelude.<$> tags),
+        "NumberOfNodes" Prelude.=: numberOfNodes,
+        "Port" Prelude.=: port,
+        "DBName" Prelude.=: dbName,
+        "ClusterVersion" Prelude.=: clusterVersion,
+        "ClusterSecurityGroups"
+          Prelude.=: Prelude.toQuery
+            ( Prelude.toQueryList "ClusterSecurityGroupName"
+                Prelude.<$> clusterSecurityGroups
+            ),
+        "MaintenanceTrackName"
+          Prelude.=: maintenanceTrackName,
+        "HsmConfigurationIdentifier"
+          Prelude.=: hsmConfigurationIdentifier,
+        "IamRoles"
+          Prelude.=: Prelude.toQuery
+            ( Prelude.toQueryList "IamRoleArn"
+                Prelude.<$> iamRoles
+            ),
+        "ClusterIdentifier" Prelude.=: clusterIdentifier,
+        "NodeType" Prelude.=: nodeType,
+        "MasterUsername" Prelude.=: masterUsername,
+        "MasterUserPassword" Prelude.=: masterUserPassword
+      ]
+
+-- | /See:/ 'newCreateClusterResponse' smart constructor.
 data CreateClusterResponse = CreateClusterResponse'
-  { _ccrsCluster        :: !(Maybe Cluster)
-  , _ccrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { cluster :: Prelude.Maybe Cluster,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateClusterResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateClusterResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ccrsCluster' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ccrsResponseStatus' - -- | The response status code.
-createClusterResponse
-    :: Int -- ^ 'ccrsResponseStatus'
-    -> CreateClusterResponse
-createClusterResponse pResponseStatus_ =
+-- 'cluster', 'createClusterResponse_cluster' - Undocumented member.
+--
+-- 'httpStatus', 'createClusterResponse_httpStatus' - The response's http status code.
+newCreateClusterResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateClusterResponse
+newCreateClusterResponse pHttpStatus_ =
   CreateClusterResponse'
-    {_ccrsCluster = Nothing, _ccrsResponseStatus = pResponseStatus_}
-
+    { cluster = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-ccrsCluster :: Lens' CreateClusterResponse (Maybe Cluster)
-ccrsCluster = lens _ccrsCluster (\ s a -> s{_ccrsCluster = a})
+createClusterResponse_cluster :: Lens.Lens' CreateClusterResponse (Prelude.Maybe Cluster)
+createClusterResponse_cluster = Lens.lens (\CreateClusterResponse' {cluster} -> cluster) (\s@CreateClusterResponse' {} a -> s {cluster = a} :: CreateClusterResponse)
 
--- | -- | The response status code.
-ccrsResponseStatus :: Lens' CreateClusterResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a})
+-- | The response's http status code.
+createClusterResponse_httpStatus :: Lens.Lens' CreateClusterResponse Prelude.Int
+createClusterResponse_httpStatus = Lens.lens (\CreateClusterResponse' {httpStatus} -> httpStatus) (\s@CreateClusterResponse' {} a -> s {httpStatus = a} :: CreateClusterResponse)
 
-instance NFData CreateClusterResponse where
+instance Prelude.NFData CreateClusterResponse

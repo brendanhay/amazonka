@@ -1,162 +1,214 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.SMS.GetConnectors
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- The GetConnectors API returns a list of connectors that are registered with the Server Migration Service.
+-- Describes the connectors registered with the AWS SMS.
 --
 -- This operation returns paginated results.
 module Network.AWS.SMS.GetConnectors
-    (
-    -- * Creating a Request
-      getConnectors
-    , GetConnectors
+  ( -- * Creating a Request
+    GetConnectors (..),
+    newGetConnectors,
+
     -- * Request Lenses
-    , gcNextToken
-    , gcMaxResults
+    getConnectors_nextToken,
+    getConnectors_maxResults,
 
     -- * Destructuring the Response
-    , getConnectorsResponse
-    , GetConnectorsResponse
+    GetConnectorsResponse (..),
+    newGetConnectorsResponse,
+
     -- * Response Lenses
-    , gcrsConnectorList
-    , gcrsNextToken
-    , gcrsResponseStatus
-    ) where
+    getConnectorsResponse_nextToken,
+    getConnectorsResponse_connectorList,
+    getConnectorsResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Pager
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.SMS.Types
-import Network.AWS.SMS.Types.Product
 
--- | /See:/ 'getConnectors' smart constructor.
+-- | /See:/ 'newGetConnectors' smart constructor.
 data GetConnectors = GetConnectors'
-  { _gcNextToken  :: !(Maybe Text)
-  , _gcMaxResults :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token for the next set of results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return in a single call. The default
+    -- value is 50. To retrieve the remaining results, make another call with
+    -- the returned @NextToken@ value.
+    maxResults :: Prelude.Maybe Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetConnectors' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetConnectors' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gcNextToken' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gcMaxResults' - Undocumented member.
-getConnectors
-    :: GetConnectors
-getConnectors = GetConnectors' {_gcNextToken = Nothing, _gcMaxResults = Nothing}
-
-
--- | Undocumented member.
-gcNextToken :: Lens' GetConnectors (Maybe Text)
-gcNextToken = lens _gcNextToken (\ s a -> s{_gcNextToken = a})
-
--- | Undocumented member.
-gcMaxResults :: Lens' GetConnectors (Maybe Int)
-gcMaxResults = lens _gcMaxResults (\ s a -> s{_gcMaxResults = a})
-
-instance AWSPager GetConnectors where
-        page rq rs
-          | stop (rs ^. gcrsNextToken) = Nothing
-          | stop (rs ^. gcrsConnectorList) = Nothing
-          | otherwise =
-            Just $ rq & gcNextToken .~ rs ^. gcrsNextToken
-
-instance AWSRequest GetConnectors where
-        type Rs GetConnectors = GetConnectorsResponse
-        request = postJSON sms
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetConnectorsResponse' <$>
-                   (x .?> "connectorList" .!@ mempty) <*>
-                     (x .?> "nextToken")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable GetConnectors where
-
-instance NFData GetConnectors where
-
-instance ToHeaders GetConnectors where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AWSServerMigrationService_V2016_10_24.GetConnectors"
-                       :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON GetConnectors where
-        toJSON GetConnectors'{..}
-          = object
-              (catMaybes
-                 [("nextToken" .=) <$> _gcNextToken,
-                  ("maxResults" .=) <$> _gcMaxResults])
-
-instance ToPath GetConnectors where
-        toPath = const "/"
-
-instance ToQuery GetConnectors where
-        toQuery = const mempty
-
--- | /See:/ 'getConnectorsResponse' smart constructor.
-data GetConnectorsResponse = GetConnectorsResponse'
-  { _gcrsConnectorList  :: !(Maybe [Connector])
-  , _gcrsNextToken      :: !(Maybe Text)
-  , _gcrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetConnectorsResponse' with the minimum fields required to make a request.
+-- 'nextToken', 'getConnectors_nextToken' - The token for the next set of results.
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'gcrsConnectorList' - Undocumented member.
---
--- * 'gcrsNextToken' - Undocumented member.
---
--- * 'gcrsResponseStatus' - -- | The response status code.
-getConnectorsResponse
-    :: Int -- ^ 'gcrsResponseStatus'
-    -> GetConnectorsResponse
-getConnectorsResponse pResponseStatus_ =
-  GetConnectorsResponse'
-    { _gcrsConnectorList = Nothing
-    , _gcrsNextToken = Nothing
-    , _gcrsResponseStatus = pResponseStatus_
+-- 'maxResults', 'getConnectors_maxResults' - The maximum number of results to return in a single call. The default
+-- value is 50. To retrieve the remaining results, make another call with
+-- the returned @NextToken@ value.
+newGetConnectors ::
+  GetConnectors
+newGetConnectors =
+  GetConnectors'
+    { nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
+-- | The token for the next set of results.
+getConnectors_nextToken :: Lens.Lens' GetConnectors (Prelude.Maybe Prelude.Text)
+getConnectors_nextToken = Lens.lens (\GetConnectors' {nextToken} -> nextToken) (\s@GetConnectors' {} a -> s {nextToken = a} :: GetConnectors)
 
--- | Undocumented member.
-gcrsConnectorList :: Lens' GetConnectorsResponse [Connector]
-gcrsConnectorList = lens _gcrsConnectorList (\ s a -> s{_gcrsConnectorList = a}) . _Default . _Coerce
+-- | The maximum number of results to return in a single call. The default
+-- value is 50. To retrieve the remaining results, make another call with
+-- the returned @NextToken@ value.
+getConnectors_maxResults :: Lens.Lens' GetConnectors (Prelude.Maybe Prelude.Int)
+getConnectors_maxResults = Lens.lens (\GetConnectors' {maxResults} -> maxResults) (\s@GetConnectors' {} a -> s {maxResults = a} :: GetConnectors)
 
--- | Undocumented member.
-gcrsNextToken :: Lens' GetConnectorsResponse (Maybe Text)
-gcrsNextToken = lens _gcrsNextToken (\ s a -> s{_gcrsNextToken = a})
+instance Pager.AWSPager GetConnectors where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? getConnectorsResponse_nextToken Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? getConnectorsResponse_connectorList
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& getConnectors_nextToken
+          Lens..~ rs
+          Lens.^? getConnectorsResponse_nextToken Prelude.. Lens._Just
 
--- | -- | The response status code.
-gcrsResponseStatus :: Lens' GetConnectorsResponse Int
-gcrsResponseStatus = lens _gcrsResponseStatus (\ s a -> s{_gcrsResponseStatus = a})
+instance Prelude.AWSRequest GetConnectors where
+  type Rs GetConnectors = GetConnectorsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetConnectorsResponse'
+            Prelude.<$> (x Prelude..?> "nextToken")
+            Prelude.<*> ( x Prelude..?> "connectorList"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData GetConnectorsResponse where
+instance Prelude.Hashable GetConnectors
+
+instance Prelude.NFData GetConnectors
+
+instance Prelude.ToHeaders GetConnectors where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AWSServerMigrationService_V2016_10_24.GetConnectors" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON GetConnectors where
+  toJSON GetConnectors' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("nextToken" Prelude..=) Prelude.<$> nextToken,
+            ("maxResults" Prelude..=) Prelude.<$> maxResults
+          ]
+      )
+
+instance Prelude.ToPath GetConnectors where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery GetConnectors where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newGetConnectorsResponse' smart constructor.
+data GetConnectorsResponse = GetConnectorsResponse'
+  { -- | The token required to retrieve the next set of results. This value is
+    -- null when there are no more results to return.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the registered connectors.
+    connectorList :: Prelude.Maybe [Connector],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetConnectorsResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'getConnectorsResponse_nextToken' - The token required to retrieve the next set of results. This value is
+-- null when there are no more results to return.
+--
+-- 'connectorList', 'getConnectorsResponse_connectorList' - Information about the registered connectors.
+--
+-- 'httpStatus', 'getConnectorsResponse_httpStatus' - The response's http status code.
+newGetConnectorsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetConnectorsResponse
+newGetConnectorsResponse pHttpStatus_ =
+  GetConnectorsResponse'
+    { nextToken = Prelude.Nothing,
+      connectorList = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The token required to retrieve the next set of results. This value is
+-- null when there are no more results to return.
+getConnectorsResponse_nextToken :: Lens.Lens' GetConnectorsResponse (Prelude.Maybe Prelude.Text)
+getConnectorsResponse_nextToken = Lens.lens (\GetConnectorsResponse' {nextToken} -> nextToken) (\s@GetConnectorsResponse' {} a -> s {nextToken = a} :: GetConnectorsResponse)
+
+-- | Information about the registered connectors.
+getConnectorsResponse_connectorList :: Lens.Lens' GetConnectorsResponse (Prelude.Maybe [Connector])
+getConnectorsResponse_connectorList = Lens.lens (\GetConnectorsResponse' {connectorList} -> connectorList) (\s@GetConnectorsResponse' {} a -> s {connectorList = a} :: GetConnectorsResponse) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The response's http status code.
+getConnectorsResponse_httpStatus :: Lens.Lens' GetConnectorsResponse Prelude.Int
+getConnectorsResponse_httpStatus = Lens.lens (\GetConnectorsResponse' {httpStatus} -> httpStatus) (\s@GetConnectorsResponse' {} a -> s {httpStatus = a} :: GetConnectorsResponse)
+
+instance Prelude.NFData GetConnectorsResponse

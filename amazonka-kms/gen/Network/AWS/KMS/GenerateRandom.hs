@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.KMS.GenerateRandom
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,114 +23,186 @@
 --
 -- Returns a random byte string that is cryptographically secure.
 --
+-- By default, the random byte string is generated in AWS KMS. To generate
+-- the byte string in the AWS CloudHSM cluster that is associated with a
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>,
+-- specify the custom key store ID.
 --
--- For more information about entropy and random number generation, see the <https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf AWS Key Management Service Cryptographic Details> whitepaper.
+-- For more information about entropy and random number generation, see the
+-- <https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf AWS Key Management Service Cryptographic Details>
+-- whitepaper.
 --
+-- __Required permissions__:
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html kms:GenerateRandom>
+-- (IAM policy)
 module Network.AWS.KMS.GenerateRandom
-    (
-    -- * Creating a Request
-      generateRandom
-    , GenerateRandom
+  ( -- * Creating a Request
+    GenerateRandom (..),
+    newGenerateRandom,
+
     -- * Request Lenses
-    , grNumberOfBytes
+    generateRandom_customKeyStoreId,
+    generateRandom_numberOfBytes,
 
     -- * Destructuring the Response
-    , generateRandomResponse
-    , GenerateRandomResponse
+    GenerateRandomResponse (..),
+    newGenerateRandomResponse,
+
     -- * Response Lenses
-    , grrsPlaintext
-    , grrsResponseStatus
-    ) where
+    generateRandomResponse_plaintext,
+    generateRandomResponse_httpStatus,
+  )
+where
 
 import Network.AWS.KMS.Types
-import Network.AWS.KMS.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'generateRandom' smart constructor.
-newtype GenerateRandom = GenerateRandom'
-  { _grNumberOfBytes :: Maybe Nat
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGenerateRandom' smart constructor.
+data GenerateRandom = GenerateRandom'
+  { -- | Generates the random byte string in the AWS CloudHSM cluster that is
+    -- associated with the specified
+    -- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>.
+    -- To find the ID of a custom key store, use the DescribeCustomKeyStores
+    -- operation.
+    customKeyStoreId :: Prelude.Maybe Prelude.Text,
+    -- | The length of the byte string.
+    numberOfBytes :: Prelude.Maybe Prelude.Natural
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GenerateRandom' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GenerateRandom' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'grNumberOfBytes' - The length of the byte string.
-generateRandom
-    :: GenerateRandom
-generateRandom = GenerateRandom' {_grNumberOfBytes = Nothing}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'customKeyStoreId', 'generateRandom_customKeyStoreId' - Generates the random byte string in the AWS CloudHSM cluster that is
+-- associated with the specified
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>.
+-- To find the ID of a custom key store, use the DescribeCustomKeyStores
+-- operation.
+--
+-- 'numberOfBytes', 'generateRandom_numberOfBytes' - The length of the byte string.
+newGenerateRandom ::
+  GenerateRandom
+newGenerateRandom =
+  GenerateRandom'
+    { customKeyStoreId = Prelude.Nothing,
+      numberOfBytes = Prelude.Nothing
+    }
 
+-- | Generates the random byte string in the AWS CloudHSM cluster that is
+-- associated with the specified
+-- <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store>.
+-- To find the ID of a custom key store, use the DescribeCustomKeyStores
+-- operation.
+generateRandom_customKeyStoreId :: Lens.Lens' GenerateRandom (Prelude.Maybe Prelude.Text)
+generateRandom_customKeyStoreId = Lens.lens (\GenerateRandom' {customKeyStoreId} -> customKeyStoreId) (\s@GenerateRandom' {} a -> s {customKeyStoreId = a} :: GenerateRandom)
 
 -- | The length of the byte string.
-grNumberOfBytes :: Lens' GenerateRandom (Maybe Natural)
-grNumberOfBytes = lens _grNumberOfBytes (\ s a -> s{_grNumberOfBytes = a}) . mapping _Nat
+generateRandom_numberOfBytes :: Lens.Lens' GenerateRandom (Prelude.Maybe Prelude.Natural)
+generateRandom_numberOfBytes = Lens.lens (\GenerateRandom' {numberOfBytes} -> numberOfBytes) (\s@GenerateRandom' {} a -> s {numberOfBytes = a} :: GenerateRandom)
 
-instance AWSRequest GenerateRandom where
-        type Rs GenerateRandom = GenerateRandomResponse
-        request = postJSON kms
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GenerateRandomResponse' <$>
-                   (x .?> "Plaintext") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest GenerateRandom where
+  type Rs GenerateRandom = GenerateRandomResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GenerateRandomResponse'
+            Prelude.<$> (x Prelude..?> "Plaintext")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GenerateRandom where
+instance Prelude.Hashable GenerateRandom
 
-instance NFData GenerateRandom where
+instance Prelude.NFData GenerateRandom
 
-instance ToHeaders GenerateRandom where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("TrentService.GenerateRandom" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders GenerateRandom where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "TrentService.GenerateRandom" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON GenerateRandom where
-        toJSON GenerateRandom'{..}
-          = object
-              (catMaybes
-                 [("NumberOfBytes" .=) <$> _grNumberOfBytes])
+instance Prelude.ToJSON GenerateRandom where
+  toJSON GenerateRandom' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("CustomKeyStoreId" Prelude..=)
+              Prelude.<$> customKeyStoreId,
+            ("NumberOfBytes" Prelude..=)
+              Prelude.<$> numberOfBytes
+          ]
+      )
 
-instance ToPath GenerateRandom where
-        toPath = const "/"
+instance Prelude.ToPath GenerateRandom where
+  toPath = Prelude.const "/"
 
-instance ToQuery GenerateRandom where
-        toQuery = const mempty
+instance Prelude.ToQuery GenerateRandom where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'generateRandomResponse' smart constructor.
+-- | /See:/ 'newGenerateRandomResponse' smart constructor.
 data GenerateRandomResponse = GenerateRandomResponse'
-  { _grrsPlaintext      :: !(Maybe (Sensitive Base64))
-  , _grrsResponseStatus :: !Int
-  } deriving (Eq, Show, Data, Typeable, Generic)
+  { -- | The random byte string. When you use the HTTP API or the AWS CLI, the
+    -- value is Base64-encoded. Otherwise, it is not Base64-encoded.
+    plaintext :: Prelude.Maybe (Prelude.Sensitive Prelude.Base64),
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GenerateRandomResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GenerateRandomResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'grrsPlaintext' - The random byte string. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'grrsResponseStatus' - -- | The response status code.
-generateRandomResponse
-    :: Int -- ^ 'grrsResponseStatus'
-    -> GenerateRandomResponse
-generateRandomResponse pResponseStatus_ =
+-- 'plaintext', 'generateRandomResponse_plaintext' - The random byte string. When you use the HTTP API or the AWS CLI, the
+-- value is Base64-encoded. Otherwise, it is not Base64-encoded.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+--
+-- 'httpStatus', 'generateRandomResponse_httpStatus' - The response's http status code.
+newGenerateRandomResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GenerateRandomResponse
+newGenerateRandomResponse pHttpStatus_ =
   GenerateRandomResponse'
-    {_grrsPlaintext = Nothing, _grrsResponseStatus = pResponseStatus_}
+    { plaintext =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The random byte string. When you use the HTTP API or the AWS CLI, the
+-- value is Base64-encoded. Otherwise, it is not Base64-encoded.--
+-- -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
+-- -- The underlying isomorphism will encode to Base64 representation during
+-- -- serialisation, and decode from Base64 representation during deserialisation.
+-- -- This 'Lens' accepts and returns only raw unencoded data.
+generateRandomResponse_plaintext :: Lens.Lens' GenerateRandomResponse (Prelude.Maybe Prelude.ByteString)
+generateRandomResponse_plaintext = Lens.lens (\GenerateRandomResponse' {plaintext} -> plaintext) (\s@GenerateRandomResponse' {} a -> s {plaintext = a} :: GenerateRandomResponse) Prelude.. Lens.mapping (Prelude._Sensitive Prelude.. Prelude._Base64)
 
--- | The random byte string. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.-- /Note:/ This 'Lens' automatically encodes and decodes Base64 data. The underlying isomorphism will encode to Base64 representation during serialisation, and decode from Base64 representation during deserialisation. This 'Lens' accepts and returns only raw unencoded data.
-grrsPlaintext :: Lens' GenerateRandomResponse (Maybe ByteString)
-grrsPlaintext = lens _grrsPlaintext (\ s a -> s{_grrsPlaintext = a}) . mapping (_Sensitive . _Base64)
+-- | The response's http status code.
+generateRandomResponse_httpStatus :: Lens.Lens' GenerateRandomResponse Prelude.Int
+generateRandomResponse_httpStatus = Lens.lens (\GenerateRandomResponse' {httpStatus} -> httpStatus) (\s@GenerateRandomResponse' {} a -> s {httpStatus = a} :: GenerateRandomResponse)
 
--- | -- | The response status code.
-grrsResponseStatus :: Lens' GenerateRandomResponse Int
-grrsResponseStatus = lens _grrsResponseStatus (\ s a -> s{_grrsResponseStatus = a})
-
-instance NFData GenerateRandomResponse where
+instance Prelude.NFData GenerateRandomResponse

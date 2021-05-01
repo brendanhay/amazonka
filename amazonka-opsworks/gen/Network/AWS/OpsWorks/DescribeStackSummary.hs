@@ -1,139 +1,169 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.OpsWorks.DescribeStackSummary
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the number of layers and apps in a specified stack, and the number of instances in each state, such as @running_setup@ or @online@ .
+-- Describes the number of layers and apps in a specified stack, and the
+-- number of instances in each state, such as @running_setup@ or @online@.
 --
---
--- __Required Permissions__ : To use this action, an IAM user must have a Show, Deploy, or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
---
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Show, Deploy, or Manage permissions level for the stack, or an attached
+-- policy that explicitly grants permissions. For more information about
+-- user permissions, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.DescribeStackSummary
-    (
-    -- * Creating a Request
-      describeStackSummary
-    , DescribeStackSummary
+  ( -- * Creating a Request
+    DescribeStackSummary (..),
+    newDescribeStackSummary,
+
     -- * Request Lenses
-    , dssStackId
+    describeStackSummary_stackId,
 
     -- * Destructuring the Response
-    , describeStackSummaryResponse
-    , DescribeStackSummaryResponse
+    DescribeStackSummaryResponse (..),
+    newDescribeStackSummaryResponse,
+
     -- * Response Lenses
-    , dssrsStackSummary
-    , dssrsResponseStatus
-    ) where
+    describeStackSummaryResponse_stackSummary,
+    describeStackSummaryResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeStackSummary' smart constructor.
-newtype DescribeStackSummary = DescribeStackSummary'
-  { _dssStackId :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeStackSummary' smart constructor.
+data DescribeStackSummary = DescribeStackSummary'
+  { -- | The stack ID.
+    stackId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeStackSummary' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeStackSummary' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dssStackId' - The stack ID.
-describeStackSummary
-    :: Text -- ^ 'dssStackId'
-    -> DescribeStackSummary
-describeStackSummary pStackId_ = DescribeStackSummary' {_dssStackId = pStackId_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'stackId', 'describeStackSummary_stackId' - The stack ID.
+newDescribeStackSummary ::
+  -- | 'stackId'
+  Prelude.Text ->
+  DescribeStackSummary
+newDescribeStackSummary pStackId_ =
+  DescribeStackSummary' {stackId = pStackId_}
 
 -- | The stack ID.
-dssStackId :: Lens' DescribeStackSummary Text
-dssStackId = lens _dssStackId (\ s a -> s{_dssStackId = a})
+describeStackSummary_stackId :: Lens.Lens' DescribeStackSummary Prelude.Text
+describeStackSummary_stackId = Lens.lens (\DescribeStackSummary' {stackId} -> stackId) (\s@DescribeStackSummary' {} a -> s {stackId = a} :: DescribeStackSummary)
 
-instance AWSRequest DescribeStackSummary where
-        type Rs DescribeStackSummary =
-             DescribeStackSummaryResponse
-        request = postJSON opsWorks
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeStackSummaryResponse' <$>
-                   (x .?> "StackSummary") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest DescribeStackSummary where
+  type
+    Rs DescribeStackSummary =
+      DescribeStackSummaryResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeStackSummaryResponse'
+            Prelude.<$> (x Prelude..?> "StackSummary")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable DescribeStackSummary where
+instance Prelude.Hashable DescribeStackSummary
 
-instance NFData DescribeStackSummary where
+instance Prelude.NFData DescribeStackSummary
 
-instance ToHeaders DescribeStackSummary where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.DescribeStackSummary" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders DescribeStackSummary where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "OpsWorks_20130218.DescribeStackSummary" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON DescribeStackSummary where
-        toJSON DescribeStackSummary'{..}
-          = object
-              (catMaybes [Just ("StackId" .= _dssStackId)])
+instance Prelude.ToJSON DescribeStackSummary where
+  toJSON DescribeStackSummary' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("StackId" Prelude..= stackId)]
+      )
 
-instance ToPath DescribeStackSummary where
-        toPath = const "/"
+instance Prelude.ToPath DescribeStackSummary where
+  toPath = Prelude.const "/"
 
-instance ToQuery DescribeStackSummary where
-        toQuery = const mempty
+instance Prelude.ToQuery DescribeStackSummary where
+  toQuery = Prelude.const Prelude.mempty
 
 -- | Contains the response to a @DescribeStackSummary@ request.
 --
---
---
--- /See:/ 'describeStackSummaryResponse' smart constructor.
+-- /See:/ 'newDescribeStackSummaryResponse' smart constructor.
 data DescribeStackSummaryResponse = DescribeStackSummaryResponse'
-  { _dssrsStackSummary   :: !(Maybe StackSummary)
-  , _dssrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A @StackSummary@ object that contains the results.
+    stackSummary :: Prelude.Maybe StackSummary,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeStackSummaryResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeStackSummaryResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dssrsStackSummary' - A @StackSummary@ object that contains the results.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dssrsResponseStatus' - -- | The response status code.
-describeStackSummaryResponse
-    :: Int -- ^ 'dssrsResponseStatus'
-    -> DescribeStackSummaryResponse
-describeStackSummaryResponse pResponseStatus_ =
+-- 'stackSummary', 'describeStackSummaryResponse_stackSummary' - A @StackSummary@ object that contains the results.
+--
+-- 'httpStatus', 'describeStackSummaryResponse_httpStatus' - The response's http status code.
+newDescribeStackSummaryResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeStackSummaryResponse
+newDescribeStackSummaryResponse pHttpStatus_ =
   DescribeStackSummaryResponse'
-    {_dssrsStackSummary = Nothing, _dssrsResponseStatus = pResponseStatus_}
-
+    { stackSummary =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | A @StackSummary@ object that contains the results.
-dssrsStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
-dssrsStackSummary = lens _dssrsStackSummary (\ s a -> s{_dssrsStackSummary = a})
+describeStackSummaryResponse_stackSummary :: Lens.Lens' DescribeStackSummaryResponse (Prelude.Maybe StackSummary)
+describeStackSummaryResponse_stackSummary = Lens.lens (\DescribeStackSummaryResponse' {stackSummary} -> stackSummary) (\s@DescribeStackSummaryResponse' {} a -> s {stackSummary = a} :: DescribeStackSummaryResponse)
 
--- | -- | The response status code.
-dssrsResponseStatus :: Lens' DescribeStackSummaryResponse Int
-dssrsResponseStatus = lens _dssrsResponseStatus (\ s a -> s{_dssrsResponseStatus = a})
+-- | The response's http status code.
+describeStackSummaryResponse_httpStatus :: Lens.Lens' DescribeStackSummaryResponse Prelude.Int
+describeStackSummaryResponse_httpStatus = Lens.lens (\DescribeStackSummaryResponse' {httpStatus} -> httpStatus) (\s@DescribeStackSummaryResponse' {} a -> s {httpStatus = a} :: DescribeStackSummaryResponse)
 
-instance NFData DescribeStackSummaryResponse where
+instance Prelude.NFData DescribeStackSummaryResponse

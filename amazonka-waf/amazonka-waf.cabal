@@ -1,154 +1,229 @@
-name:                  amazonka-waf
-version:               1.6.1
-synopsis:              Amazon WAF SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-waf
+version:            1.6.1
+synopsis:           Amazon WAF SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.WAF" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.WAF.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.WAF" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-waf
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-waf
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.WAF
+    Network.AWS.WAF.CreateByteMatchSet
+    Network.AWS.WAF.CreateGeoMatchSet
+    Network.AWS.WAF.CreateIPSet
+    Network.AWS.WAF.CreateRateBasedRule
+    Network.AWS.WAF.CreateRegexMatchSet
+    Network.AWS.WAF.CreateRegexPatternSet
+    Network.AWS.WAF.CreateRule
+    Network.AWS.WAF.CreateRuleGroup
+    Network.AWS.WAF.CreateSizeConstraintSet
+    Network.AWS.WAF.CreateSqlInjectionMatchSet
+    Network.AWS.WAF.CreateWebACL
+    Network.AWS.WAF.CreateWebACLMigrationStack
+    Network.AWS.WAF.CreateXssMatchSet
+    Network.AWS.WAF.DeleteByteMatchSet
+    Network.AWS.WAF.DeleteGeoMatchSet
+    Network.AWS.WAF.DeleteIPSet
+    Network.AWS.WAF.DeleteLoggingConfiguration
+    Network.AWS.WAF.DeletePermissionPolicy
+    Network.AWS.WAF.DeleteRateBasedRule
+    Network.AWS.WAF.DeleteRegexMatchSet
+    Network.AWS.WAF.DeleteRegexPatternSet
+    Network.AWS.WAF.DeleteRule
+    Network.AWS.WAF.DeleteRuleGroup
+    Network.AWS.WAF.DeleteSizeConstraintSet
+    Network.AWS.WAF.DeleteSqlInjectionMatchSet
+    Network.AWS.WAF.DeleteWebACL
+    Network.AWS.WAF.DeleteXssMatchSet
+    Network.AWS.WAF.GetByteMatchSet
+    Network.AWS.WAF.GetChangeToken
+    Network.AWS.WAF.GetChangeTokenStatus
+    Network.AWS.WAF.GetGeoMatchSet
+    Network.AWS.WAF.GetIPSet
+    Network.AWS.WAF.GetLoggingConfiguration
+    Network.AWS.WAF.GetPermissionPolicy
+    Network.AWS.WAF.GetRateBasedRule
+    Network.AWS.WAF.GetRateBasedRuleManagedKeys
+    Network.AWS.WAF.GetRegexMatchSet
+    Network.AWS.WAF.GetRegexPatternSet
+    Network.AWS.WAF.GetRule
+    Network.AWS.WAF.GetRuleGroup
+    Network.AWS.WAF.GetSampledRequests
+    Network.AWS.WAF.GetSizeConstraintSet
+    Network.AWS.WAF.GetSqlInjectionMatchSet
+    Network.AWS.WAF.GetWebACL
+    Network.AWS.WAF.GetXssMatchSet
+    Network.AWS.WAF.Lens
+    Network.AWS.WAF.ListActivatedRulesInRuleGroup
+    Network.AWS.WAF.ListByteMatchSets
+    Network.AWS.WAF.ListGeoMatchSets
+    Network.AWS.WAF.ListIPSets
+    Network.AWS.WAF.ListLoggingConfigurations
+    Network.AWS.WAF.ListRateBasedRules
+    Network.AWS.WAF.ListRegexMatchSets
+    Network.AWS.WAF.ListRegexPatternSets
+    Network.AWS.WAF.ListRuleGroups
+    Network.AWS.WAF.ListRules
+    Network.AWS.WAF.ListSizeConstraintSets
+    Network.AWS.WAF.ListSqlInjectionMatchSets
+    Network.AWS.WAF.ListSubscribedRuleGroups
+    Network.AWS.WAF.ListTagsForResource
+    Network.AWS.WAF.ListWebACLs
+    Network.AWS.WAF.ListXssMatchSets
+    Network.AWS.WAF.PutLoggingConfiguration
+    Network.AWS.WAF.PutPermissionPolicy
+    Network.AWS.WAF.TagResource
+    Network.AWS.WAF.Types
+    Network.AWS.WAF.Types.ActivatedRule
+    Network.AWS.WAF.Types.ByteMatchSet
+    Network.AWS.WAF.Types.ByteMatchSetSummary
+    Network.AWS.WAF.Types.ByteMatchSetUpdate
+    Network.AWS.WAF.Types.ByteMatchTuple
+    Network.AWS.WAF.Types.ChangeAction
+    Network.AWS.WAF.Types.ChangeTokenStatus
+    Network.AWS.WAF.Types.ComparisonOperator
+    Network.AWS.WAF.Types.ExcludedRule
+    Network.AWS.WAF.Types.FieldToMatch
+    Network.AWS.WAF.Types.GeoMatchConstraint
+    Network.AWS.WAF.Types.GeoMatchConstraintType
+    Network.AWS.WAF.Types.GeoMatchConstraintValue
+    Network.AWS.WAF.Types.GeoMatchSet
+    Network.AWS.WAF.Types.GeoMatchSetSummary
+    Network.AWS.WAF.Types.GeoMatchSetUpdate
+    Network.AWS.WAF.Types.HTTPHeader
+    Network.AWS.WAF.Types.HTTPRequest
+    Network.AWS.WAF.Types.IPSet
+    Network.AWS.WAF.Types.IPSetDescriptor
+    Network.AWS.WAF.Types.IPSetDescriptorType
+    Network.AWS.WAF.Types.IPSetSummary
+    Network.AWS.WAF.Types.IPSetUpdate
+    Network.AWS.WAF.Types.LoggingConfiguration
+    Network.AWS.WAF.Types.MatchFieldType
+    Network.AWS.WAF.Types.PositionalConstraint
+    Network.AWS.WAF.Types.Predicate
+    Network.AWS.WAF.Types.PredicateType
+    Network.AWS.WAF.Types.RateBasedRule
+    Network.AWS.WAF.Types.RateKey
+    Network.AWS.WAF.Types.RegexMatchSet
+    Network.AWS.WAF.Types.RegexMatchSetSummary
+    Network.AWS.WAF.Types.RegexMatchSetUpdate
+    Network.AWS.WAF.Types.RegexMatchTuple
+    Network.AWS.WAF.Types.RegexPatternSet
+    Network.AWS.WAF.Types.RegexPatternSetSummary
+    Network.AWS.WAF.Types.RegexPatternSetUpdate
+    Network.AWS.WAF.Types.Rule
+    Network.AWS.WAF.Types.RuleGroup
+    Network.AWS.WAF.Types.RuleGroupSummary
+    Network.AWS.WAF.Types.RuleGroupUpdate
+    Network.AWS.WAF.Types.RuleSummary
+    Network.AWS.WAF.Types.RuleUpdate
+    Network.AWS.WAF.Types.SampledHTTPRequest
+    Network.AWS.WAF.Types.SizeConstraint
+    Network.AWS.WAF.Types.SizeConstraintSet
+    Network.AWS.WAF.Types.SizeConstraintSetSummary
+    Network.AWS.WAF.Types.SizeConstraintSetUpdate
+    Network.AWS.WAF.Types.SqlInjectionMatchSet
+    Network.AWS.WAF.Types.SqlInjectionMatchSetSummary
+    Network.AWS.WAF.Types.SqlInjectionMatchSetUpdate
+    Network.AWS.WAF.Types.SqlInjectionMatchTuple
+    Network.AWS.WAF.Types.SubscribedRuleGroupSummary
+    Network.AWS.WAF.Types.Tag
+    Network.AWS.WAF.Types.TagInfoForResource
+    Network.AWS.WAF.Types.TextTransformation
+    Network.AWS.WAF.Types.TimeWindow
+    Network.AWS.WAF.Types.WafAction
+    Network.AWS.WAF.Types.WafActionType
+    Network.AWS.WAF.Types.WafOverrideAction
+    Network.AWS.WAF.Types.WafOverrideActionType
+    Network.AWS.WAF.Types.WafRuleType
+    Network.AWS.WAF.Types.WebACL
+    Network.AWS.WAF.Types.WebACLSummary
+    Network.AWS.WAF.Types.WebACLUpdate
+    Network.AWS.WAF.Types.XssMatchSet
+    Network.AWS.WAF.Types.XssMatchSetSummary
+    Network.AWS.WAF.Types.XssMatchSetUpdate
+    Network.AWS.WAF.Types.XssMatchTuple
+    Network.AWS.WAF.UntagResource
+    Network.AWS.WAF.UpdateByteMatchSet
+    Network.AWS.WAF.UpdateGeoMatchSet
+    Network.AWS.WAF.UpdateIPSet
+    Network.AWS.WAF.UpdateRateBasedRule
+    Network.AWS.WAF.UpdateRegexMatchSet
+    Network.AWS.WAF.UpdateRegexPatternSet
+    Network.AWS.WAF.UpdateRule
+    Network.AWS.WAF.UpdateRuleGroup
+    Network.AWS.WAF.UpdateSizeConstraintSet
+    Network.AWS.WAF.UpdateSqlInjectionMatchSet
+    Network.AWS.WAF.UpdateWebACL
+    Network.AWS.WAF.UpdateXssMatchSet
+    Network.AWS.WAF.Waiters
 
-    exposed-modules:
-          Network.AWS.WAF
-        , Network.AWS.WAF.CreateByteMatchSet
-        , Network.AWS.WAF.CreateGeoMatchSet
-        , Network.AWS.WAF.CreateIPSet
-        , Network.AWS.WAF.CreateRateBasedRule
-        , Network.AWS.WAF.CreateRegexMatchSet
-        , Network.AWS.WAF.CreateRegexPatternSet
-        , Network.AWS.WAF.CreateRule
-        , Network.AWS.WAF.CreateRuleGroup
-        , Network.AWS.WAF.CreateSizeConstraintSet
-        , Network.AWS.WAF.CreateSqlInjectionMatchSet
-        , Network.AWS.WAF.CreateWebACL
-        , Network.AWS.WAF.CreateXSSMatchSet
-        , Network.AWS.WAF.DeleteByteMatchSet
-        , Network.AWS.WAF.DeleteGeoMatchSet
-        , Network.AWS.WAF.DeleteIPSet
-        , Network.AWS.WAF.DeletePermissionPolicy
-        , Network.AWS.WAF.DeleteRateBasedRule
-        , Network.AWS.WAF.DeleteRegexMatchSet
-        , Network.AWS.WAF.DeleteRegexPatternSet
-        , Network.AWS.WAF.DeleteRule
-        , Network.AWS.WAF.DeleteRuleGroup
-        , Network.AWS.WAF.DeleteSizeConstraintSet
-        , Network.AWS.WAF.DeleteSqlInjectionMatchSet
-        , Network.AWS.WAF.DeleteWebACL
-        , Network.AWS.WAF.DeleteXSSMatchSet
-        , Network.AWS.WAF.GetByteMatchSet
-        , Network.AWS.WAF.GetChangeToken
-        , Network.AWS.WAF.GetChangeTokenStatus
-        , Network.AWS.WAF.GetGeoMatchSet
-        , Network.AWS.WAF.GetIPSet
-        , Network.AWS.WAF.GetPermissionPolicy
-        , Network.AWS.WAF.GetRateBasedRule
-        , Network.AWS.WAF.GetRateBasedRuleManagedKeys
-        , Network.AWS.WAF.GetRegexMatchSet
-        , Network.AWS.WAF.GetRegexPatternSet
-        , Network.AWS.WAF.GetRule
-        , Network.AWS.WAF.GetRuleGroup
-        , Network.AWS.WAF.GetSampledRequests
-        , Network.AWS.WAF.GetSizeConstraintSet
-        , Network.AWS.WAF.GetSqlInjectionMatchSet
-        , Network.AWS.WAF.GetWebACL
-        , Network.AWS.WAF.GetXSSMatchSet
-        , Network.AWS.WAF.ListActivatedRulesInRuleGroup
-        , Network.AWS.WAF.ListByteMatchSets
-        , Network.AWS.WAF.ListGeoMatchSets
-        , Network.AWS.WAF.ListIPSets
-        , Network.AWS.WAF.ListRateBasedRules
-        , Network.AWS.WAF.ListRegexMatchSets
-        , Network.AWS.WAF.ListRegexPatternSets
-        , Network.AWS.WAF.ListRuleGroups
-        , Network.AWS.WAF.ListRules
-        , Network.AWS.WAF.ListSizeConstraintSets
-        , Network.AWS.WAF.ListSqlInjectionMatchSets
-        , Network.AWS.WAF.ListSubscribedRuleGroups
-        , Network.AWS.WAF.ListWebACLs
-        , Network.AWS.WAF.ListXSSMatchSets
-        , Network.AWS.WAF.PutPermissionPolicy
-        , Network.AWS.WAF.Types
-        , Network.AWS.WAF.UpdateByteMatchSet
-        , Network.AWS.WAF.UpdateGeoMatchSet
-        , Network.AWS.WAF.UpdateIPSet
-        , Network.AWS.WAF.UpdateRateBasedRule
-        , Network.AWS.WAF.UpdateRegexMatchSet
-        , Network.AWS.WAF.UpdateRegexPatternSet
-        , Network.AWS.WAF.UpdateRule
-        , Network.AWS.WAF.UpdateRuleGroup
-        , Network.AWS.WAF.UpdateSizeConstraintSet
-        , Network.AWS.WAF.UpdateSqlInjectionMatchSet
-        , Network.AWS.WAF.UpdateWebACL
-        , Network.AWS.WAF.UpdateXSSMatchSet
-        , Network.AWS.WAF.Waiters
-
-    other-modules:
-          Network.AWS.WAF.Types.Product
-        , Network.AWS.WAF.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS.Prelude
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.13  && <5
 
 test-suite amazonka-waf-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.Gen.WAF
+    Test.AWS.WAF
+    Test.AWS.WAF.Internal
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.WAF
-        , Test.AWS.Gen.WAF
-        , Test.AWS.WAF.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-waf
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , amazonka-waf
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

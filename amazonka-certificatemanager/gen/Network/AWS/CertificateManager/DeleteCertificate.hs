@@ -1,110 +1,156 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CertificateManager.DeleteCertificate
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Deletes a certificate and its associated private key. If this action succeeds, the certificate no longer appears in the list that can be displayed by calling the 'ListCertificates' action or be retrieved by calling the 'GetCertificate' action. The certificate will not be available for use by AWS services integrated with ACM.
+-- Deletes a certificate and its associated private key. If this action
+-- succeeds, the certificate no longer appears in the list that can be
+-- displayed by calling the ListCertificates action or be retrieved by
+-- calling the GetCertificate action. The certificate will not be available
+-- for use by AWS services integrated with ACM.
 --
---
+-- You cannot delete an ACM certificate that is being used by another AWS
+-- service. To delete a certificate that is in use, the certificate
+-- association must first be removed.
 module Network.AWS.CertificateManager.DeleteCertificate
-    (
-    -- * Creating a Request
-      deleteCertificate
-    , DeleteCertificate
+  ( -- * Creating a Request
+    DeleteCertificate (..),
+    newDeleteCertificate,
+
     -- * Request Lenses
-    , dcCertificateARN
+    deleteCertificate_certificateArn,
 
     -- * Destructuring the Response
-    , deleteCertificateResponse
-    , DeleteCertificateResponse
-    ) where
+    DeleteCertificateResponse (..),
+    newDeleteCertificateResponse,
+  )
+where
 
 import Network.AWS.CertificateManager.Types
-import Network.AWS.CertificateManager.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'deleteCertificate' smart constructor.
-newtype DeleteCertificate = DeleteCertificate'
-  { _dcCertificateARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDeleteCertificate' smart constructor.
+data DeleteCertificate = DeleteCertificate'
+  { -- | String that contains the ARN of the ACM certificate to be deleted. This
+    -- must be of the form:
+    --
+    -- @arn:aws:acm:region:123456789012:certificate\/12345678-1234-1234-1234-123456789012@
+    --
+    -- For more information about ARNs, see
+    -- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
+    certificateArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DeleteCertificate' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DeleteCertificate' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dcCertificateARN' - String that contains the ARN of the ACM certificate to be deleted. This must be of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-deleteCertificate
-    :: Text -- ^ 'dcCertificateARN'
-    -> DeleteCertificate
-deleteCertificate pCertificateARN_ =
-  DeleteCertificate' {_dcCertificateARN = pCertificateARN_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'certificateArn', 'deleteCertificate_certificateArn' - String that contains the ARN of the ACM certificate to be deleted. This
+-- must be of the form:
+--
+-- @arn:aws:acm:region:123456789012:certificate\/12345678-1234-1234-1234-123456789012@
+--
+-- For more information about ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
+newDeleteCertificate ::
+  -- | 'certificateArn'
+  Prelude.Text ->
+  DeleteCertificate
+newDeleteCertificate pCertificateArn_ =
+  DeleteCertificate'
+    { certificateArn =
+        pCertificateArn_
+    }
 
+-- | String that contains the ARN of the ACM certificate to be deleted. This
+-- must be of the form:
+--
+-- @arn:aws:acm:region:123456789012:certificate\/12345678-1234-1234-1234-123456789012@
+--
+-- For more information about ARNs, see
+-- <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs)>.
+deleteCertificate_certificateArn :: Lens.Lens' DeleteCertificate Prelude.Text
+deleteCertificate_certificateArn = Lens.lens (\DeleteCertificate' {certificateArn} -> certificateArn) (\s@DeleteCertificate' {} a -> s {certificateArn = a} :: DeleteCertificate)
 
--- | String that contains the ARN of the ACM certificate to be deleted. This must be of the form: @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@  For more information about ARNs, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-dcCertificateARN :: Lens' DeleteCertificate Text
-dcCertificateARN = lens _dcCertificateARN (\ s a -> s{_dcCertificateARN = a})
+instance Prelude.AWSRequest DeleteCertificate where
+  type Rs DeleteCertificate = DeleteCertificateResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveNull DeleteCertificateResponse'
 
-instance AWSRequest DeleteCertificate where
-        type Rs DeleteCertificate = DeleteCertificateResponse
-        request = postJSON certificateManager
-        response = receiveNull DeleteCertificateResponse'
+instance Prelude.Hashable DeleteCertificate
 
-instance Hashable DeleteCertificate where
+instance Prelude.NFData DeleteCertificate
 
-instance NFData DeleteCertificate where
+instance Prelude.ToHeaders DeleteCertificate where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "CertificateManager.DeleteCertificate" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders DeleteCertificate where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CertificateManager.DeleteCertificate" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToJSON DeleteCertificate where
+  toJSON DeleteCertificate' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ Prelude.Just
+              ("CertificateArn" Prelude..= certificateArn)
+          ]
+      )
 
-instance ToJSON DeleteCertificate where
-        toJSON DeleteCertificate'{..}
-          = object
-              (catMaybes
-                 [Just ("CertificateArn" .= _dcCertificateARN)])
+instance Prelude.ToPath DeleteCertificate where
+  toPath = Prelude.const "/"
 
-instance ToPath DeleteCertificate where
-        toPath = const "/"
+instance Prelude.ToQuery DeleteCertificate where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DeleteCertificate where
-        toQuery = const mempty
+-- | /See:/ 'newDeleteCertificateResponse' smart constructor.
+data DeleteCertificateResponse = DeleteCertificateResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
--- | /See:/ 'deleteCertificateResponse' smart constructor.
-data DeleteCertificateResponse =
+-- |
+-- Create a value of 'DeleteCertificateResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDeleteCertificateResponse ::
+  DeleteCertificateResponse
+newDeleteCertificateResponse =
   DeleteCertificateResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
 
-
--- | Creates a value of 'DeleteCertificateResponse' with the minimum fields required to make a request.
---
-deleteCertificateResponse
-    :: DeleteCertificateResponse
-deleteCertificateResponse = DeleteCertificateResponse'
-
-
-instance NFData DeleteCertificateResponse where
+instance Prelude.NFData DeleteCertificateResponse

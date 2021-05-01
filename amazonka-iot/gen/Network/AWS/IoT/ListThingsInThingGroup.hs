@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IoT.ListThingsInThingGroup
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,151 +23,212 @@
 --
 -- Lists the things in the specified group.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.IoT.ListThingsInThingGroup
-    (
-    -- * Creating a Request
-      listThingsInThingGroup
-    , ListThingsInThingGroup
+  ( -- * Creating a Request
+    ListThingsInThingGroup (..),
+    newListThingsInThingGroup,
+
     -- * Request Lenses
-    , ltitgNextToken
-    , ltitgRecursive
-    , ltitgMaxResults
-    , ltitgThingGroupName
+    listThingsInThingGroup_nextToken,
+    listThingsInThingGroup_maxResults,
+    listThingsInThingGroup_recursive,
+    listThingsInThingGroup_thingGroupName,
 
     -- * Destructuring the Response
-    , listThingsInThingGroupResponse
-    , ListThingsInThingGroupResponse
+    ListThingsInThingGroupResponse (..),
+    newListThingsInThingGroupResponse,
+
     -- * Response Lenses
-    , ltitgrsNextToken
-    , ltitgrsThings
-    , ltitgrsResponseStatus
-    ) where
+    listThingsInThingGroupResponse_nextToken,
+    listThingsInThingGroupResponse_things,
+    listThingsInThingGroupResponse_httpStatus,
+  )
+where
 
 import Network.AWS.IoT.Types
-import Network.AWS.IoT.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'listThingsInThingGroup' smart constructor.
+-- | /See:/ 'newListThingsInThingGroup' smart constructor.
 data ListThingsInThingGroup = ListThingsInThingGroup'
-  { _ltitgNextToken      :: !(Maybe Text)
-  , _ltitgRecursive      :: !(Maybe Bool)
-  , _ltitgMaxResults     :: !(Maybe Nat)
-  , _ltitgThingGroupName :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | To retrieve the next set of results, the @nextToken@ value from a
+    -- previous response; otherwise __null__ to receive the first set of
+    -- results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of results to return at one time.
+    maxResults :: Prelude.Maybe Prelude.Natural,
+    -- | When true, list things in this thing group and in all child groups as
+    -- well.
+    recursive :: Prelude.Maybe Prelude.Bool,
+    -- | The thing group name.
+    thingGroupName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListThingsInThingGroup' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListThingsInThingGroup' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ltitgNextToken' - The token used to get the next set of results, or __null__ if there are no additional results.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ltitgRecursive' - When true, list things in this thing group and in all child groups as well.
+-- 'nextToken', 'listThingsInThingGroup_nextToken' - To retrieve the next set of results, the @nextToken@ value from a
+-- previous response; otherwise __null__ to receive the first set of
+-- results.
 --
--- * 'ltitgMaxResults' - The maximum number of results to return at one time.
+-- 'maxResults', 'listThingsInThingGroup_maxResults' - The maximum number of results to return at one time.
 --
--- * 'ltitgThingGroupName' - The thing group name.
-listThingsInThingGroup
-    :: Text -- ^ 'ltitgThingGroupName'
-    -> ListThingsInThingGroup
-listThingsInThingGroup pThingGroupName_ =
+-- 'recursive', 'listThingsInThingGroup_recursive' - When true, list things in this thing group and in all child groups as
+-- well.
+--
+-- 'thingGroupName', 'listThingsInThingGroup_thingGroupName' - The thing group name.
+newListThingsInThingGroup ::
+  -- | 'thingGroupName'
+  Prelude.Text ->
+  ListThingsInThingGroup
+newListThingsInThingGroup pThingGroupName_ =
   ListThingsInThingGroup'
-    { _ltitgNextToken = Nothing
-    , _ltitgRecursive = Nothing
-    , _ltitgMaxResults = Nothing
-    , _ltitgThingGroupName = pThingGroupName_
+    { nextToken =
+        Prelude.Nothing,
+      maxResults = Prelude.Nothing,
+      recursive = Prelude.Nothing,
+      thingGroupName = pThingGroupName_
     }
 
-
--- | The token used to get the next set of results, or __null__ if there are no additional results.
-ltitgNextToken :: Lens' ListThingsInThingGroup (Maybe Text)
-ltitgNextToken = lens _ltitgNextToken (\ s a -> s{_ltitgNextToken = a})
-
--- | When true, list things in this thing group and in all child groups as well.
-ltitgRecursive :: Lens' ListThingsInThingGroup (Maybe Bool)
-ltitgRecursive = lens _ltitgRecursive (\ s a -> s{_ltitgRecursive = a})
+-- | To retrieve the next set of results, the @nextToken@ value from a
+-- previous response; otherwise __null__ to receive the first set of
+-- results.
+listThingsInThingGroup_nextToken :: Lens.Lens' ListThingsInThingGroup (Prelude.Maybe Prelude.Text)
+listThingsInThingGroup_nextToken = Lens.lens (\ListThingsInThingGroup' {nextToken} -> nextToken) (\s@ListThingsInThingGroup' {} a -> s {nextToken = a} :: ListThingsInThingGroup)
 
 -- | The maximum number of results to return at one time.
-ltitgMaxResults :: Lens' ListThingsInThingGroup (Maybe Natural)
-ltitgMaxResults = lens _ltitgMaxResults (\ s a -> s{_ltitgMaxResults = a}) . mapping _Nat
+listThingsInThingGroup_maxResults :: Lens.Lens' ListThingsInThingGroup (Prelude.Maybe Prelude.Natural)
+listThingsInThingGroup_maxResults = Lens.lens (\ListThingsInThingGroup' {maxResults} -> maxResults) (\s@ListThingsInThingGroup' {} a -> s {maxResults = a} :: ListThingsInThingGroup)
+
+-- | When true, list things in this thing group and in all child groups as
+-- well.
+listThingsInThingGroup_recursive :: Lens.Lens' ListThingsInThingGroup (Prelude.Maybe Prelude.Bool)
+listThingsInThingGroup_recursive = Lens.lens (\ListThingsInThingGroup' {recursive} -> recursive) (\s@ListThingsInThingGroup' {} a -> s {recursive = a} :: ListThingsInThingGroup)
 
 -- | The thing group name.
-ltitgThingGroupName :: Lens' ListThingsInThingGroup Text
-ltitgThingGroupName = lens _ltitgThingGroupName (\ s a -> s{_ltitgThingGroupName = a})
+listThingsInThingGroup_thingGroupName :: Lens.Lens' ListThingsInThingGroup Prelude.Text
+listThingsInThingGroup_thingGroupName = Lens.lens (\ListThingsInThingGroup' {thingGroupName} -> thingGroupName) (\s@ListThingsInThingGroup' {} a -> s {thingGroupName = a} :: ListThingsInThingGroup)
 
-instance AWSRequest ListThingsInThingGroup where
-        type Rs ListThingsInThingGroup =
-             ListThingsInThingGroupResponse
-        request = get ioT
-        response
-          = receiveJSON
-              (\ s h x ->
-                 ListThingsInThingGroupResponse' <$>
-                   (x .?> "nextToken") <*> (x .?> "things" .!@ mempty)
-                     <*> (pure (fromEnum s)))
+instance Pager.AWSPager ListThingsInThingGroup where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? listThingsInThingGroupResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? listThingsInThingGroupResponse_things
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& listThingsInThingGroup_nextToken
+          Lens..~ rs
+          Lens.^? listThingsInThingGroupResponse_nextToken
+            Prelude.. Lens._Just
 
-instance Hashable ListThingsInThingGroup where
+instance Prelude.AWSRequest ListThingsInThingGroup where
+  type
+    Rs ListThingsInThingGroup =
+      ListThingsInThingGroupResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListThingsInThingGroupResponse'
+            Prelude.<$> (x Prelude..?> "nextToken")
+            Prelude.<*> (x Prelude..?> "things" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance NFData ListThingsInThingGroup where
+instance Prelude.Hashable ListThingsInThingGroup
 
-instance ToHeaders ListThingsInThingGroup where
-        toHeaders = const mempty
+instance Prelude.NFData ListThingsInThingGroup
 
-instance ToPath ListThingsInThingGroup where
-        toPath ListThingsInThingGroup'{..}
-          = mconcat
-              ["/thing-groups/", toBS _ltitgThingGroupName,
-               "/things"]
+instance Prelude.ToHeaders ListThingsInThingGroup where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToQuery ListThingsInThingGroup where
-        toQuery ListThingsInThingGroup'{..}
-          = mconcat
-              ["nextToken" =: _ltitgNextToken,
-               "recursive" =: _ltitgRecursive,
-               "maxResults" =: _ltitgMaxResults]
+instance Prelude.ToPath ListThingsInThingGroup where
+  toPath ListThingsInThingGroup' {..} =
+    Prelude.mconcat
+      [ "/thing-groups/",
+        Prelude.toBS thingGroupName,
+        "/things"
+      ]
 
--- | /See:/ 'listThingsInThingGroupResponse' smart constructor.
+instance Prelude.ToQuery ListThingsInThingGroup where
+  toQuery ListThingsInThingGroup' {..} =
+    Prelude.mconcat
+      [ "nextToken" Prelude.=: nextToken,
+        "maxResults" Prelude.=: maxResults,
+        "recursive" Prelude.=: recursive
+      ]
+
+-- | /See:/ 'newListThingsInThingGroupResponse' smart constructor.
 data ListThingsInThingGroupResponse = ListThingsInThingGroupResponse'
-  { _ltitgrsNextToken      :: !(Maybe Text)
-  , _ltitgrsThings         :: !(Maybe [Text])
-  , _ltitgrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The token to use to get the next set of results, or __null__ if there
+    -- are no additional results.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The things in the specified thing group.
+    things :: Prelude.Maybe [Prelude.Text],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'ListThingsInThingGroupResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'ListThingsInThingGroupResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ltitgrsNextToken' - The token used to get the next set of results, or __null__ if there are no additional results.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ltitgrsThings' - The things in the specified thing group.
+-- 'nextToken', 'listThingsInThingGroupResponse_nextToken' - The token to use to get the next set of results, or __null__ if there
+-- are no additional results.
 --
--- * 'ltitgrsResponseStatus' - -- | The response status code.
-listThingsInThingGroupResponse
-    :: Int -- ^ 'ltitgrsResponseStatus'
-    -> ListThingsInThingGroupResponse
-listThingsInThingGroupResponse pResponseStatus_ =
+-- 'things', 'listThingsInThingGroupResponse_things' - The things in the specified thing group.
+--
+-- 'httpStatus', 'listThingsInThingGroupResponse_httpStatus' - The response's http status code.
+newListThingsInThingGroupResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  ListThingsInThingGroupResponse
+newListThingsInThingGroupResponse pHttpStatus_ =
   ListThingsInThingGroupResponse'
-    { _ltitgrsNextToken = Nothing
-    , _ltitgrsThings = Nothing
-    , _ltitgrsResponseStatus = pResponseStatus_
+    { nextToken =
+        Prelude.Nothing,
+      things = Prelude.Nothing,
+      httpStatus = pHttpStatus_
     }
 
-
--- | The token used to get the next set of results, or __null__ if there are no additional results.
-ltitgrsNextToken :: Lens' ListThingsInThingGroupResponse (Maybe Text)
-ltitgrsNextToken = lens _ltitgrsNextToken (\ s a -> s{_ltitgrsNextToken = a})
+-- | The token to use to get the next set of results, or __null__ if there
+-- are no additional results.
+listThingsInThingGroupResponse_nextToken :: Lens.Lens' ListThingsInThingGroupResponse (Prelude.Maybe Prelude.Text)
+listThingsInThingGroupResponse_nextToken = Lens.lens (\ListThingsInThingGroupResponse' {nextToken} -> nextToken) (\s@ListThingsInThingGroupResponse' {} a -> s {nextToken = a} :: ListThingsInThingGroupResponse)
 
 -- | The things in the specified thing group.
-ltitgrsThings :: Lens' ListThingsInThingGroupResponse [Text]
-ltitgrsThings = lens _ltitgrsThings (\ s a -> s{_ltitgrsThings = a}) . _Default . _Coerce
+listThingsInThingGroupResponse_things :: Lens.Lens' ListThingsInThingGroupResponse (Prelude.Maybe [Prelude.Text])
+listThingsInThingGroupResponse_things = Lens.lens (\ListThingsInThingGroupResponse' {things} -> things) (\s@ListThingsInThingGroupResponse' {} a -> s {things = a} :: ListThingsInThingGroupResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-ltitgrsResponseStatus :: Lens' ListThingsInThingGroupResponse Int
-ltitgrsResponseStatus = lens _ltitgrsResponseStatus (\ s a -> s{_ltitgrsResponseStatus = a})
+-- | The response's http status code.
+listThingsInThingGroupResponse_httpStatus :: Lens.Lens' ListThingsInThingGroupResponse Prelude.Int
+listThingsInThingGroupResponse_httpStatus = Lens.lens (\ListThingsInThingGroupResponse' {httpStatus} -> httpStatus) (\s@ListThingsInThingGroupResponse' {} a -> s {httpStatus = a} :: ListThingsInThingGroupResponse)
 
-instance NFData ListThingsInThingGroupResponse where
+instance
+  Prelude.NFData
+    ListThingsInThingGroupResponse

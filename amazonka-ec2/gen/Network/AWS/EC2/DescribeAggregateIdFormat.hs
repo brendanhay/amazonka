@@ -1,144 +1,196 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.EC2.DescribeAggregateIdFormat
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the longer ID format settings for all resource types in a specific region. This request is useful for performing a quick audit to determine whether a specific region is fully opted in for longer IDs (17-character IDs).
+-- Describes the longer ID format settings for all resource types in a
+-- specific Region. This request is useful for performing a quick audit to
+-- determine whether a specific Region is fully opted in for longer IDs
+-- (17-character IDs).
 --
+-- This request only returns information about resource types that support
+-- longer IDs.
 --
--- This request only returns information about resource types that support longer IDs.
---
--- The following resource types support longer IDs: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @reservation@ | @route-table@ | @route-table-association@ | @security-group@ | @snapshot@ | @subnet@ | @subnet-cidr-block-association@ | @volume@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@ .
---
+-- The following resource types support longer IDs: @bundle@ |
+-- @conversion-task@ | @customer-gateway@ | @dhcp-options@ |
+-- @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ |
+-- @flow-log@ | @image@ | @import-task@ | @instance@ | @internet-gateway@ |
+-- @network-acl@ | @network-acl-association@ | @network-interface@ |
+-- @network-interface-attachment@ | @prefix-list@ | @reservation@ |
+-- @route-table@ | @route-table-association@ | @security-group@ |
+-- @snapshot@ | @subnet@ | @subnet-cidr-block-association@ | @volume@ |
+-- @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ |
+-- @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@.
 module Network.AWS.EC2.DescribeAggregateIdFormat
-    (
-    -- * Creating a Request
-      describeAggregateIdFormat
-    , DescribeAggregateIdFormat
+  ( -- * Creating a Request
+    DescribeAggregateIdFormat (..),
+    newDescribeAggregateIdFormat,
+
     -- * Request Lenses
-    , daifDryRun
+    describeAggregateIdFormat_dryRun,
 
     -- * Destructuring the Response
-    , describeAggregateIdFormatResponse
-    , DescribeAggregateIdFormatResponse
+    DescribeAggregateIdFormatResponse (..),
+    newDescribeAggregateIdFormatResponse,
+
     -- * Response Lenses
-    , daifrsUseLongIdsAggregated
-    , daifrsStatuses
-    , daifrsResponseStatus
-    ) where
+    describeAggregateIdFormatResponse_useLongIdsAggregated,
+    describeAggregateIdFormatResponse_statuses,
+    describeAggregateIdFormatResponse_httpStatus,
+  )
+where
 
 import Network.AWS.EC2.Types
-import Network.AWS.EC2.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeAggregateIdFormat' smart constructor.
-newtype DescribeAggregateIdFormat = DescribeAggregateIdFormat'
-  { _daifDryRun :: Maybe Bool
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeAggregateIdFormat' smart constructor.
+data DescribeAggregateIdFormat = DescribeAggregateIdFormat'
+  { -- | Checks whether you have the required permissions for the action, without
+    -- actually making the request, and provides an error response. If you have
+    -- the required permissions, the error response is @DryRunOperation@.
+    -- Otherwise, it is @UnauthorizedOperation@.
+    dryRun :: Prelude.Maybe Prelude.Bool
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeAggregateIdFormat' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeAggregateIdFormat' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'daifDryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-describeAggregateIdFormat
-    :: DescribeAggregateIdFormat
-describeAggregateIdFormat = DescribeAggregateIdFormat' {_daifDryRun = Nothing}
-
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-daifDryRun :: Lens' DescribeAggregateIdFormat (Maybe Bool)
-daifDryRun = lens _daifDryRun (\ s a -> s{_daifDryRun = a})
-
-instance AWSRequest DescribeAggregateIdFormat where
-        type Rs DescribeAggregateIdFormat =
-             DescribeAggregateIdFormatResponse
-        request = postQuery ec2
-        response
-          = receiveXML
-              (\ s h x ->
-                 DescribeAggregateIdFormatResponse' <$>
-                   (x .@? "useLongIdsAggregated") <*>
-                     (x .@? "statusSet" .!@ mempty >>=
-                        may (parseXMLList "item"))
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeAggregateIdFormat where
-
-instance NFData DescribeAggregateIdFormat where
-
-instance ToHeaders DescribeAggregateIdFormat where
-        toHeaders = const mempty
-
-instance ToPath DescribeAggregateIdFormat where
-        toPath = const "/"
-
-instance ToQuery DescribeAggregateIdFormat where
-        toQuery DescribeAggregateIdFormat'{..}
-          = mconcat
-              ["Action" =:
-                 ("DescribeAggregateIdFormat" :: ByteString),
-               "Version" =: ("2016-11-15" :: ByteString),
-               "DryRun" =: _daifDryRun]
-
--- | /See:/ 'describeAggregateIdFormatResponse' smart constructor.
-data DescribeAggregateIdFormatResponse = DescribeAggregateIdFormatResponse'
-  { _daifrsUseLongIdsAggregated :: !(Maybe Bool)
-  , _daifrsStatuses             :: !(Maybe [IdFormat])
-  , _daifrsResponseStatus       :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeAggregateIdFormatResponse' with the minimum fields required to make a request.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'daifrsUseLongIdsAggregated' - Indicates whether all resource types in the region are configured to use longer IDs. This value is only @true@ if all users are configured to use longer IDs for all resources types in the region.
---
--- * 'daifrsStatuses' - Information about each resource's ID format.
---
--- * 'daifrsResponseStatus' - -- | The response status code.
-describeAggregateIdFormatResponse
-    :: Int -- ^ 'daifrsResponseStatus'
-    -> DescribeAggregateIdFormatResponse
-describeAggregateIdFormatResponse pResponseStatus_ =
-  DescribeAggregateIdFormatResponse'
-    { _daifrsUseLongIdsAggregated = Nothing
-    , _daifrsStatuses = Nothing
-    , _daifrsResponseStatus = pResponseStatus_
+-- 'dryRun', 'describeAggregateIdFormat_dryRun' - Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+newDescribeAggregateIdFormat ::
+  DescribeAggregateIdFormat
+newDescribeAggregateIdFormat =
+  DescribeAggregateIdFormat'
+    { dryRun =
+        Prelude.Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+describeAggregateIdFormat_dryRun :: Lens.Lens' DescribeAggregateIdFormat (Prelude.Maybe Prelude.Bool)
+describeAggregateIdFormat_dryRun = Lens.lens (\DescribeAggregateIdFormat' {dryRun} -> dryRun) (\s@DescribeAggregateIdFormat' {} a -> s {dryRun = a} :: DescribeAggregateIdFormat)
 
--- | Indicates whether all resource types in the region are configured to use longer IDs. This value is only @true@ if all users are configured to use longer IDs for all resources types in the region.
-daifrsUseLongIdsAggregated :: Lens' DescribeAggregateIdFormatResponse (Maybe Bool)
-daifrsUseLongIdsAggregated = lens _daifrsUseLongIdsAggregated (\ s a -> s{_daifrsUseLongIdsAggregated = a})
+instance Prelude.AWSRequest DescribeAggregateIdFormat where
+  type
+    Rs DescribeAggregateIdFormat =
+      DescribeAggregateIdFormatResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          DescribeAggregateIdFormatResponse'
+            Prelude.<$> (x Prelude..@? "useLongIdsAggregated")
+            Prelude.<*> ( x Prelude..@? "statusSet" Prelude..!@ Prelude.mempty
+                            Prelude.>>= Prelude.may (Prelude.parseXMLList "item")
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
--- | Information about each resource's ID format.
-daifrsStatuses :: Lens' DescribeAggregateIdFormatResponse [IdFormat]
-daifrsStatuses = lens _daifrsStatuses (\ s a -> s{_daifrsStatuses = a}) . _Default . _Coerce
+instance Prelude.Hashable DescribeAggregateIdFormat
 
--- | -- | The response status code.
-daifrsResponseStatus :: Lens' DescribeAggregateIdFormatResponse Int
-daifrsResponseStatus = lens _daifrsResponseStatus (\ s a -> s{_daifrsResponseStatus = a})
+instance Prelude.NFData DescribeAggregateIdFormat
 
-instance NFData DescribeAggregateIdFormatResponse
-         where
+instance Prelude.ToHeaders DescribeAggregateIdFormat where
+  toHeaders = Prelude.const Prelude.mempty
+
+instance Prelude.ToPath DescribeAggregateIdFormat where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery DescribeAggregateIdFormat where
+  toQuery DescribeAggregateIdFormat' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("DescribeAggregateIdFormat" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2016-11-15" :: Prelude.ByteString),
+        "DryRun" Prelude.=: dryRun
+      ]
+
+-- | /See:/ 'newDescribeAggregateIdFormatResponse' smart constructor.
+data DescribeAggregateIdFormatResponse = DescribeAggregateIdFormatResponse'
+  { -- | Indicates whether all resource types in the Region are configured to use
+    -- longer IDs. This value is only @true@ if all users are configured to use
+    -- longer IDs for all resources types in the Region.
+    useLongIdsAggregated :: Prelude.Maybe Prelude.Bool,
+    -- | Information about each resource\'s ID format.
+    statuses :: Prelude.Maybe [IdFormat],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeAggregateIdFormatResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'useLongIdsAggregated', 'describeAggregateIdFormatResponse_useLongIdsAggregated' - Indicates whether all resource types in the Region are configured to use
+-- longer IDs. This value is only @true@ if all users are configured to use
+-- longer IDs for all resources types in the Region.
+--
+-- 'statuses', 'describeAggregateIdFormatResponse_statuses' - Information about each resource\'s ID format.
+--
+-- 'httpStatus', 'describeAggregateIdFormatResponse_httpStatus' - The response's http status code.
+newDescribeAggregateIdFormatResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeAggregateIdFormatResponse
+newDescribeAggregateIdFormatResponse pHttpStatus_ =
+  DescribeAggregateIdFormatResponse'
+    { useLongIdsAggregated =
+        Prelude.Nothing,
+      statuses = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | Indicates whether all resource types in the Region are configured to use
+-- longer IDs. This value is only @true@ if all users are configured to use
+-- longer IDs for all resources types in the Region.
+describeAggregateIdFormatResponse_useLongIdsAggregated :: Lens.Lens' DescribeAggregateIdFormatResponse (Prelude.Maybe Prelude.Bool)
+describeAggregateIdFormatResponse_useLongIdsAggregated = Lens.lens (\DescribeAggregateIdFormatResponse' {useLongIdsAggregated} -> useLongIdsAggregated) (\s@DescribeAggregateIdFormatResponse' {} a -> s {useLongIdsAggregated = a} :: DescribeAggregateIdFormatResponse)
+
+-- | Information about each resource\'s ID format.
+describeAggregateIdFormatResponse_statuses :: Lens.Lens' DescribeAggregateIdFormatResponse (Prelude.Maybe [IdFormat])
+describeAggregateIdFormatResponse_statuses = Lens.lens (\DescribeAggregateIdFormatResponse' {statuses} -> statuses) (\s@DescribeAggregateIdFormatResponse' {} a -> s {statuses = a} :: DescribeAggregateIdFormatResponse) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The response's http status code.
+describeAggregateIdFormatResponse_httpStatus :: Lens.Lens' DescribeAggregateIdFormatResponse Prelude.Int
+describeAggregateIdFormatResponse_httpStatus = Lens.lens (\DescribeAggregateIdFormatResponse' {httpStatus} -> httpStatus) (\s@DescribeAggregateIdFormatResponse' {} a -> s {httpStatus = a} :: DescribeAggregateIdFormatResponse)
+
+instance
+  Prelude.NFData
+    DescribeAggregateIdFormatResponse

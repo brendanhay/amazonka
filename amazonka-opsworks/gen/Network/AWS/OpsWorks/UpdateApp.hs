@@ -1,18 +1,21 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.OpsWorks.UpdateApp
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
@@ -20,193 +23,269 @@
 --
 -- Updates a specified app.
 --
---
--- __Required Permissions__ : To use this action, an IAM user must have a Deploy or Manage permissions level for the stack, or an attached policy that explicitly grants permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions> .
---
+-- __Required Permissions__: To use this action, an IAM user must have a
+-- Deploy or Manage permissions level for the stack, or an attached policy
+-- that explicitly grants permissions. For more information on user
+-- permissions, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 module Network.AWS.OpsWorks.UpdateApp
-    (
-    -- * Creating a Request
-      updateApp
-    , UpdateApp
+  ( -- * Creating a Request
+    UpdateApp (..),
+    newUpdateApp,
+
     -- * Request Lenses
-    , uaSSLConfiguration
-    , uaEnvironment
-    , uaEnableSSL
-    , uaDataSources
-    , uaAppSource
-    , uaAttributes
-    , uaName
-    , uaType
-    , uaDomains
-    , uaDescription
-    , uaAppId
+    updateApp_sslConfiguration,
+    updateApp_appSource,
+    updateApp_dataSources,
+    updateApp_domains,
+    updateApp_enableSsl,
+    updateApp_environment,
+    updateApp_attributes,
+    updateApp_name,
+    updateApp_description,
+    updateApp_type,
+    updateApp_appId,
 
     -- * Destructuring the Response
-    , updateAppResponse
-    , UpdateAppResponse
-    ) where
+    UpdateAppResponse (..),
+    newUpdateAppResponse,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.Types
-import Network.AWS.OpsWorks.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateApp' smart constructor.
+-- | /See:/ 'newUpdateApp' smart constructor.
 data UpdateApp = UpdateApp'
-  { _uaSSLConfiguration :: !(Maybe SSLConfiguration)
-  , _uaEnvironment      :: !(Maybe [EnvironmentVariable])
-  , _uaEnableSSL        :: !(Maybe Bool)
-  , _uaDataSources      :: !(Maybe [DataSource])
-  , _uaAppSource        :: !(Maybe Source)
-  , _uaAttributes       :: !(Maybe (Map AppAttributesKeys Text))
-  , _uaName             :: !(Maybe Text)
-  , _uaType             :: !(Maybe AppType)
-  , _uaDomains          :: !(Maybe [Text])
-  , _uaDescription      :: !(Maybe Text)
-  , _uaAppId            :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | An @SslConfiguration@ object with the SSL configuration.
+    sslConfiguration :: Prelude.Maybe SslConfiguration,
+    -- | A @Source@ object that specifies the app repository.
+    appSource :: Prelude.Maybe Source,
+    -- | The app\'s data sources.
+    dataSources :: Prelude.Maybe [DataSource],
+    -- | The app\'s virtual host settings, with multiple domains separated by
+    -- commas. For example: @\'www.example.com, example.com\'@
+    domains :: Prelude.Maybe [Prelude.Text],
+    -- | Whether SSL is enabled for the app.
+    enableSsl :: Prelude.Maybe Prelude.Bool,
+    -- | An array of @EnvironmentVariable@ objects that specify environment
+    -- variables to be associated with the app. After you deploy the app, these
+    -- variables are defined on the associated app server instances.For more
+    -- information, see
+    -- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables>.
+    --
+    -- There is no specific limit on the number of environment variables.
+    -- However, the size of the associated data structure - which includes the
+    -- variables\' names, values, and protected flag values - cannot exceed 20
+    -- KB. This limit should accommodate most if not all use cases. Exceeding
+    -- it will cause an exception with the message, \"Environment: is too large
+    -- (maximum is 20 KB).\"
+    --
+    -- If you have specified one or more environment variables, you cannot
+    -- modify the stack\'s Chef version.
+    environment :: Prelude.Maybe [EnvironmentVariable],
+    -- | One or more user-defined key\/value pairs to be added to the stack
+    -- attributes.
+    attributes :: Prelude.Maybe (Prelude.HashMap AppAttributesKeys Prelude.Text),
+    -- | The app name.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | A description of the app.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The app type.
+    type' :: Prelude.Maybe AppType,
+    -- | The app ID.
+    appId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateApp' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateApp' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uaSSLConfiguration' - An @SslConfiguration@ object with the SSL configuration.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'uaEnvironment' - An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances.For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> . There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 10KB)."
+-- 'sslConfiguration', 'updateApp_sslConfiguration' - An @SslConfiguration@ object with the SSL configuration.
 --
--- * 'uaEnableSSL' - Whether SSL is enabled for the app.
+-- 'appSource', 'updateApp_appSource' - A @Source@ object that specifies the app repository.
 --
--- * 'uaDataSources' - The app's data sources.
+-- 'dataSources', 'updateApp_dataSources' - The app\'s data sources.
 --
--- * 'uaAppSource' - A @Source@ object that specifies the app repository.
+-- 'domains', 'updateApp_domains' - The app\'s virtual host settings, with multiple domains separated by
+-- commas. For example: @\'www.example.com, example.com\'@
 --
--- * 'uaAttributes' - One or more user-defined key/value pairs to be added to the stack attributes.
+-- 'enableSsl', 'updateApp_enableSsl' - Whether SSL is enabled for the app.
 --
--- * 'uaName' - The app name.
+-- 'environment', 'updateApp_environment' - An array of @EnvironmentVariable@ objects that specify environment
+-- variables to be associated with the app. After you deploy the app, these
+-- variables are defined on the associated app server instances.For more
+-- information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables>.
 --
--- * 'uaType' - The app type.
+-- There is no specific limit on the number of environment variables.
+-- However, the size of the associated data structure - which includes the
+-- variables\' names, values, and protected flag values - cannot exceed 20
+-- KB. This limit should accommodate most if not all use cases. Exceeding
+-- it will cause an exception with the message, \"Environment: is too large
+-- (maximum is 20 KB).\"
 --
--- * 'uaDomains' - The app's virtual host settings, with multiple domains separated by commas. For example: @'www.example.com, example.com'@
+-- If you have specified one or more environment variables, you cannot
+-- modify the stack\'s Chef version.
 --
--- * 'uaDescription' - A description of the app.
+-- 'attributes', 'updateApp_attributes' - One or more user-defined key\/value pairs to be added to the stack
+-- attributes.
 --
--- * 'uaAppId' - The app ID.
-updateApp
-    :: Text -- ^ 'uaAppId'
-    -> UpdateApp
-updateApp pAppId_ =
+-- 'name', 'updateApp_name' - The app name.
+--
+-- 'description', 'updateApp_description' - A description of the app.
+--
+-- 'type'', 'updateApp_type' - The app type.
+--
+-- 'appId', 'updateApp_appId' - The app ID.
+newUpdateApp ::
+  -- | 'appId'
+  Prelude.Text ->
+  UpdateApp
+newUpdateApp pAppId_ =
   UpdateApp'
-    { _uaSSLConfiguration = Nothing
-    , _uaEnvironment = Nothing
-    , _uaEnableSSL = Nothing
-    , _uaDataSources = Nothing
-    , _uaAppSource = Nothing
-    , _uaAttributes = Nothing
-    , _uaName = Nothing
-    , _uaType = Nothing
-    , _uaDomains = Nothing
-    , _uaDescription = Nothing
-    , _uaAppId = pAppId_
+    { sslConfiguration = Prelude.Nothing,
+      appSource = Prelude.Nothing,
+      dataSources = Prelude.Nothing,
+      domains = Prelude.Nothing,
+      enableSsl = Prelude.Nothing,
+      environment = Prelude.Nothing,
+      attributes = Prelude.Nothing,
+      name = Prelude.Nothing,
+      description = Prelude.Nothing,
+      type' = Prelude.Nothing,
+      appId = pAppId_
     }
 
-
 -- | An @SslConfiguration@ object with the SSL configuration.
-uaSSLConfiguration :: Lens' UpdateApp (Maybe SSLConfiguration)
-uaSSLConfiguration = lens _uaSSLConfiguration (\ s a -> s{_uaSSLConfiguration = a})
-
--- | An array of @EnvironmentVariable@ objects that specify environment variables to be associated with the app. After you deploy the app, these variables are defined on the associated app server instances.For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables> . There is no specific limit on the number of environment variables. However, the size of the associated data structure - which includes the variables' names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes). This limit should accommodate most if not all use cases. Exceeding it will cause an exception with the message, "Environment: is too large (maximum is 10KB)."
-uaEnvironment :: Lens' UpdateApp [EnvironmentVariable]
-uaEnvironment = lens _uaEnvironment (\ s a -> s{_uaEnvironment = a}) . _Default . _Coerce
-
--- | Whether SSL is enabled for the app.
-uaEnableSSL :: Lens' UpdateApp (Maybe Bool)
-uaEnableSSL = lens _uaEnableSSL (\ s a -> s{_uaEnableSSL = a})
-
--- | The app's data sources.
-uaDataSources :: Lens' UpdateApp [DataSource]
-uaDataSources = lens _uaDataSources (\ s a -> s{_uaDataSources = a}) . _Default . _Coerce
+updateApp_sslConfiguration :: Lens.Lens' UpdateApp (Prelude.Maybe SslConfiguration)
+updateApp_sslConfiguration = Lens.lens (\UpdateApp' {sslConfiguration} -> sslConfiguration) (\s@UpdateApp' {} a -> s {sslConfiguration = a} :: UpdateApp)
 
 -- | A @Source@ object that specifies the app repository.
-uaAppSource :: Lens' UpdateApp (Maybe Source)
-uaAppSource = lens _uaAppSource (\ s a -> s{_uaAppSource = a})
+updateApp_appSource :: Lens.Lens' UpdateApp (Prelude.Maybe Source)
+updateApp_appSource = Lens.lens (\UpdateApp' {appSource} -> appSource) (\s@UpdateApp' {} a -> s {appSource = a} :: UpdateApp)
 
--- | One or more user-defined key/value pairs to be added to the stack attributes.
-uaAttributes :: Lens' UpdateApp (HashMap AppAttributesKeys Text)
-uaAttributes = lens _uaAttributes (\ s a -> s{_uaAttributes = a}) . _Default . _Map
+-- | The app\'s data sources.
+updateApp_dataSources :: Lens.Lens' UpdateApp (Prelude.Maybe [DataSource])
+updateApp_dataSources = Lens.lens (\UpdateApp' {dataSources} -> dataSources) (\s@UpdateApp' {} a -> s {dataSources = a} :: UpdateApp) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The app\'s virtual host settings, with multiple domains separated by
+-- commas. For example: @\'www.example.com, example.com\'@
+updateApp_domains :: Lens.Lens' UpdateApp (Prelude.Maybe [Prelude.Text])
+updateApp_domains = Lens.lens (\UpdateApp' {domains} -> domains) (\s@UpdateApp' {} a -> s {domains = a} :: UpdateApp) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | Whether SSL is enabled for the app.
+updateApp_enableSsl :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Bool)
+updateApp_enableSsl = Lens.lens (\UpdateApp' {enableSsl} -> enableSsl) (\s@UpdateApp' {} a -> s {enableSsl = a} :: UpdateApp)
+
+-- | An array of @EnvironmentVariable@ objects that specify environment
+-- variables to be associated with the app. After you deploy the app, these
+-- variables are defined on the associated app server instances.For more
+-- information, see
+-- <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables>.
+--
+-- There is no specific limit on the number of environment variables.
+-- However, the size of the associated data structure - which includes the
+-- variables\' names, values, and protected flag values - cannot exceed 20
+-- KB. This limit should accommodate most if not all use cases. Exceeding
+-- it will cause an exception with the message, \"Environment: is too large
+-- (maximum is 20 KB).\"
+--
+-- If you have specified one or more environment variables, you cannot
+-- modify the stack\'s Chef version.
+updateApp_environment :: Lens.Lens' UpdateApp (Prelude.Maybe [EnvironmentVariable])
+updateApp_environment = Lens.lens (\UpdateApp' {environment} -> environment) (\s@UpdateApp' {} a -> s {environment = a} :: UpdateApp) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | One or more user-defined key\/value pairs to be added to the stack
+-- attributes.
+updateApp_attributes :: Lens.Lens' UpdateApp (Prelude.Maybe (Prelude.HashMap AppAttributesKeys Prelude.Text))
+updateApp_attributes = Lens.lens (\UpdateApp' {attributes} -> attributes) (\s@UpdateApp' {} a -> s {attributes = a} :: UpdateApp) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | The app name.
-uaName :: Lens' UpdateApp (Maybe Text)
-uaName = lens _uaName (\ s a -> s{_uaName = a})
-
--- | The app type.
-uaType :: Lens' UpdateApp (Maybe AppType)
-uaType = lens _uaType (\ s a -> s{_uaType = a})
-
--- | The app's virtual host settings, with multiple domains separated by commas. For example: @'www.example.com, example.com'@
-uaDomains :: Lens' UpdateApp [Text]
-uaDomains = lens _uaDomains (\ s a -> s{_uaDomains = a}) . _Default . _Coerce
+updateApp_name :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
+updateApp_name = Lens.lens (\UpdateApp' {name} -> name) (\s@UpdateApp' {} a -> s {name = a} :: UpdateApp)
 
 -- | A description of the app.
-uaDescription :: Lens' UpdateApp (Maybe Text)
-uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a})
+updateApp_description :: Lens.Lens' UpdateApp (Prelude.Maybe Prelude.Text)
+updateApp_description = Lens.lens (\UpdateApp' {description} -> description) (\s@UpdateApp' {} a -> s {description = a} :: UpdateApp)
+
+-- | The app type.
+updateApp_type :: Lens.Lens' UpdateApp (Prelude.Maybe AppType)
+updateApp_type = Lens.lens (\UpdateApp' {type'} -> type') (\s@UpdateApp' {} a -> s {type' = a} :: UpdateApp)
 
 -- | The app ID.
-uaAppId :: Lens' UpdateApp Text
-uaAppId = lens _uaAppId (\ s a -> s{_uaAppId = a})
+updateApp_appId :: Lens.Lens' UpdateApp Prelude.Text
+updateApp_appId = Lens.lens (\UpdateApp' {appId} -> appId) (\s@UpdateApp' {} a -> s {appId = a} :: UpdateApp)
 
-instance AWSRequest UpdateApp where
-        type Rs UpdateApp = UpdateAppResponse
-        request = postJSON opsWorks
-        response = receiveNull UpdateAppResponse'
+instance Prelude.AWSRequest UpdateApp where
+  type Rs UpdateApp = UpdateAppResponse
+  request = Request.postJSON defaultService
+  response = Response.receiveNull UpdateAppResponse'
 
-instance Hashable UpdateApp where
+instance Prelude.Hashable UpdateApp
 
-instance NFData UpdateApp where
+instance Prelude.NFData UpdateApp
 
-instance ToHeaders UpdateApp where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OpsWorks_20130218.UpdateApp" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders UpdateApp where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "OpsWorks_20130218.UpdateApp" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON UpdateApp where
-        toJSON UpdateApp'{..}
-          = object
-              (catMaybes
-                 [("SslConfiguration" .=) <$> _uaSSLConfiguration,
-                  ("Environment" .=) <$> _uaEnvironment,
-                  ("EnableSsl" .=) <$> _uaEnableSSL,
-                  ("DataSources" .=) <$> _uaDataSources,
-                  ("AppSource" .=) <$> _uaAppSource,
-                  ("Attributes" .=) <$> _uaAttributes,
-                  ("Name" .=) <$> _uaName, ("Type" .=) <$> _uaType,
-                  ("Domains" .=) <$> _uaDomains,
-                  ("Description" .=) <$> _uaDescription,
-                  Just ("AppId" .= _uaAppId)])
+instance Prelude.ToJSON UpdateApp where
+  toJSON UpdateApp' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("SslConfiguration" Prelude..=)
+              Prelude.<$> sslConfiguration,
+            ("AppSource" Prelude..=) Prelude.<$> appSource,
+            ("DataSources" Prelude..=) Prelude.<$> dataSources,
+            ("Domains" Prelude..=) Prelude.<$> domains,
+            ("EnableSsl" Prelude..=) Prelude.<$> enableSsl,
+            ("Environment" Prelude..=) Prelude.<$> environment,
+            ("Attributes" Prelude..=) Prelude.<$> attributes,
+            ("Name" Prelude..=) Prelude.<$> name,
+            ("Description" Prelude..=) Prelude.<$> description,
+            ("Type" Prelude..=) Prelude.<$> type',
+            Prelude.Just ("AppId" Prelude..= appId)
+          ]
+      )
 
-instance ToPath UpdateApp where
-        toPath = const "/"
+instance Prelude.ToPath UpdateApp where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateApp where
-        toQuery = const mempty
+instance Prelude.ToQuery UpdateApp where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateAppResponse' smart constructor.
-data UpdateAppResponse =
-  UpdateAppResponse'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUpdateAppResponse' smart constructor.
+data UpdateAppResponse = UpdateAppResponse'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateAppResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateAppResponse' with all optional fields omitted.
 --
-updateAppResponse
-    :: UpdateAppResponse
-updateAppResponse = UpdateAppResponse'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newUpdateAppResponse ::
+  UpdateAppResponse
+newUpdateAppResponse = UpdateAppResponse'
 
-
-instance NFData UpdateAppResponse where
+instance Prelude.NFData UpdateAppResponse

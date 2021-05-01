@@ -1,142 +1,173 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.StorageGateway.StartGateway
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Starts a gateway that you previously shut down (see 'ShutdownGateway' ). After the gateway starts, you can then make other API calls, your applications can read from or write to the gateway's storage volumes and you will be able to take snapshot backups.
+-- Starts a gateway that you previously shut down (see ShutdownGateway).
+-- After the gateway starts, you can then make other API calls, your
+-- applications can read from or write to the gateway\'s storage volumes
+-- and you will be able to take snapshot backups.
 --
+-- When you make a request, you will get a 200 OK success response
+-- immediately. However, it might take some time for the gateway to be
+-- ready. You should call DescribeGatewayInformation and check the status
+-- before making any additional API calls. For more information, see
+-- ActivateGateway.
 --
--- To specify which gateway to start, use the Amazon Resource Name (ARN) of the gateway in your request.
---
+-- To specify which gateway to start, use the Amazon Resource Name (ARN) of
+-- the gateway in your request.
 module Network.AWS.StorageGateway.StartGateway
-    (
-    -- * Creating a Request
-      startGateway
-    , StartGateway
+  ( -- * Creating a Request
+    StartGateway (..),
+    newStartGateway,
+
     -- * Request Lenses
-    , sgGatewayARN
+    startGateway_gatewayARN,
 
     -- * Destructuring the Response
-    , startGatewayResponse
-    , StartGatewayResponse
+    StartGatewayResponse (..),
+    newStartGatewayResponse,
+
     -- * Response Lenses
-    , sgrsGatewayARN
-    , sgrsResponseStatus
-    ) where
+    startGatewayResponse_gatewayARN,
+    startGatewayResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.StorageGateway.Types
-import Network.AWS.StorageGateway.Types.Product
 
--- | A JSON object containing the of the gateway to start.
+-- | A JSON object containing the Amazon Resource Name (ARN) of the gateway
+-- to start.
 --
---
---
--- /See:/ 'startGateway' smart constructor.
-newtype StartGateway = StartGateway'
-  { _sgGatewayARN :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- /See:/ 'newStartGateway' smart constructor.
+data StartGateway = StartGateway'
+  { gatewayARN :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'StartGateway' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StartGateway' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'sgGatewayARN' - Undocumented member.
-startGateway
-    :: Text -- ^ 'sgGatewayARN'
-    -> StartGateway
-startGateway pGatewayARN_ = StartGateway' {_sgGatewayARN = pGatewayARN_}
-
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'gatewayARN', 'startGateway_gatewayARN' - Undocumented member.
+newStartGateway ::
+  -- | 'gatewayARN'
+  Prelude.Text ->
+  StartGateway
+newStartGateway pGatewayARN_ =
+  StartGateway' {gatewayARN = pGatewayARN_}
 
 -- | Undocumented member.
-sgGatewayARN :: Lens' StartGateway Text
-sgGatewayARN = lens _sgGatewayARN (\ s a -> s{_sgGatewayARN = a})
+startGateway_gatewayARN :: Lens.Lens' StartGateway Prelude.Text
+startGateway_gatewayARN = Lens.lens (\StartGateway' {gatewayARN} -> gatewayARN) (\s@StartGateway' {} a -> s {gatewayARN = a} :: StartGateway)
 
-instance AWSRequest StartGateway where
-        type Rs StartGateway = StartGatewayResponse
-        request = postJSON storageGateway
-        response
-          = receiveJSON
-              (\ s h x ->
-                 StartGatewayResponse' <$>
-                   (x .?> "GatewayARN") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest StartGateway where
+  type Rs StartGateway = StartGatewayResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          StartGatewayResponse'
+            Prelude.<$> (x Prelude..?> "GatewayARN")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable StartGateway where
+instance Prelude.Hashable StartGateway
 
-instance NFData StartGateway where
+instance Prelude.NFData StartGateway
 
-instance ToHeaders StartGateway where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("StorageGateway_20130630.StartGateway" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders StartGateway where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "StorageGateway_20130630.StartGateway" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON StartGateway where
-        toJSON StartGateway'{..}
-          = object
-              (catMaybes [Just ("GatewayARN" .= _sgGatewayARN)])
+instance Prelude.ToJSON StartGateway where
+  toJSON StartGateway' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [Prelude.Just ("GatewayARN" Prelude..= gatewayARN)]
+      )
 
-instance ToPath StartGateway where
-        toPath = const "/"
+instance Prelude.ToPath StartGateway where
+  toPath = Prelude.const "/"
 
-instance ToQuery StartGateway where
-        toQuery = const mempty
+instance Prelude.ToQuery StartGateway where
+  toQuery = Prelude.const Prelude.mempty
 
--- | A JSON object containing the of the gateway that was restarted.
+-- | A JSON object containing the Amazon Resource Name (ARN) of the gateway
+-- that was restarted.
 --
---
---
--- /See:/ 'startGatewayResponse' smart constructor.
+-- /See:/ 'newStartGatewayResponse' smart constructor.
 data StartGatewayResponse = StartGatewayResponse'
-  { _sgrsGatewayARN     :: !(Maybe Text)
-  , _sgrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { gatewayARN :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'StartGatewayResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'StartGatewayResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'sgrsGatewayARN' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'sgrsResponseStatus' - -- | The response status code.
-startGatewayResponse
-    :: Int -- ^ 'sgrsResponseStatus'
-    -> StartGatewayResponse
-startGatewayResponse pResponseStatus_ =
+-- 'gatewayARN', 'startGatewayResponse_gatewayARN' - Undocumented member.
+--
+-- 'httpStatus', 'startGatewayResponse_httpStatus' - The response's http status code.
+newStartGatewayResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  StartGatewayResponse
+newStartGatewayResponse pHttpStatus_ =
   StartGatewayResponse'
-    {_sgrsGatewayARN = Nothing, _sgrsResponseStatus = pResponseStatus_}
-
+    { gatewayARN = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-sgrsGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
-sgrsGatewayARN = lens _sgrsGatewayARN (\ s a -> s{_sgrsGatewayARN = a})
+startGatewayResponse_gatewayARN :: Lens.Lens' StartGatewayResponse (Prelude.Maybe Prelude.Text)
+startGatewayResponse_gatewayARN = Lens.lens (\StartGatewayResponse' {gatewayARN} -> gatewayARN) (\s@StartGatewayResponse' {} a -> s {gatewayARN = a} :: StartGatewayResponse)
 
--- | -- | The response status code.
-sgrsResponseStatus :: Lens' StartGatewayResponse Int
-sgrsResponseStatus = lens _sgrsResponseStatus (\ s a -> s{_sgrsResponseStatus = a})
+-- | The response's http status code.
+startGatewayResponse_httpStatus :: Lens.Lens' StartGatewayResponse Prelude.Int
+startGatewayResponse_httpStatus = Lens.lens (\StartGatewayResponse' {httpStatus} -> httpStatus) (\s@StartGatewayResponse' {} a -> s {httpStatus = a} :: StartGatewayResponse)
 
-instance NFData StartGatewayResponse where
+instance Prelude.NFData StartGatewayResponse

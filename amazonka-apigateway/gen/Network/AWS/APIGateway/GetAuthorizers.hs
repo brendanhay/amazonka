@@ -1,167 +1,219 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.APIGateway.GetAuthorizers
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describe an existing 'Authorizers' resource.
+-- Describe an existing Authorizers resource.
 --
+-- <https://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html AWS CLI>
 --
--- <http://docs.aws.amazon.com/cli/latest/reference/apigateway/get-authorizers.html AWS CLI>
+-- This operation returns paginated results.
 module Network.AWS.APIGateway.GetAuthorizers
-    (
-    -- * Creating a Request
-      getAuthorizers
-    , GetAuthorizers
+  ( -- * Creating a Request
+    GetAuthorizers (..),
+    newGetAuthorizers,
+
     -- * Request Lenses
-    , gaLimit
-    , gaPosition
-    , gaRestAPIId
+    getAuthorizers_position,
+    getAuthorizers_limit,
+    getAuthorizers_restApiId,
 
     -- * Destructuring the Response
-    , getAuthorizersResponse
-    , GetAuthorizersResponse
+    GetAuthorizersResponse (..),
+    newGetAuthorizersResponse,
+
     -- * Response Lenses
-    , garsItems
-    , garsPosition
-    , garsResponseStatus
-    ) where
+    getAuthorizersResponse_items,
+    getAuthorizersResponse_position,
+    getAuthorizersResponse_httpStatus,
+  )
+where
 
 import Network.AWS.APIGateway.Types
-import Network.AWS.APIGateway.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Request to describe an existing 'Authorizers' resource.
+-- | Request to describe an existing Authorizers resource.
 --
---
---
--- /See:/ 'getAuthorizers' smart constructor.
+-- /See:/ 'newGetAuthorizers' smart constructor.
 data GetAuthorizers = GetAuthorizers'
-  { _gaLimit     :: !(Maybe Int)
-  , _gaPosition  :: !(Maybe Text)
-  , _gaRestAPIId :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The current pagination position in the paged result set.
+    position :: Prelude.Maybe Prelude.Text,
+    -- | The maximum number of returned results per page. The default value is 25
+    -- and the maximum value is 500.
+    limit :: Prelude.Maybe Prelude.Int,
+    -- | [Required] The string identifier of the associated RestApi.
+    restApiId :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetAuthorizers' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetAuthorizers' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gaLimit' - The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gaPosition' - The current pagination position in the paged result set.
+-- 'position', 'getAuthorizers_position' - The current pagination position in the paged result set.
 --
--- * 'gaRestAPIId' - [Required] The string identifier of the associated 'RestApi' .
-getAuthorizers
-    :: Text -- ^ 'gaRestAPIId'
-    -> GetAuthorizers
-getAuthorizers pRestAPIId_ =
+-- 'limit', 'getAuthorizers_limit' - The maximum number of returned results per page. The default value is 25
+-- and the maximum value is 500.
+--
+-- 'restApiId', 'getAuthorizers_restApiId' - [Required] The string identifier of the associated RestApi.
+newGetAuthorizers ::
+  -- | 'restApiId'
+  Prelude.Text ->
+  GetAuthorizers
+newGetAuthorizers pRestApiId_ =
   GetAuthorizers'
-    {_gaLimit = Nothing, _gaPosition = Nothing, _gaRestAPIId = pRestAPIId_}
-
-
--- | The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
-gaLimit :: Lens' GetAuthorizers (Maybe Int)
-gaLimit = lens _gaLimit (\ s a -> s{_gaLimit = a})
-
--- | The current pagination position in the paged result set.
-gaPosition :: Lens' GetAuthorizers (Maybe Text)
-gaPosition = lens _gaPosition (\ s a -> s{_gaPosition = a})
-
--- | [Required] The string identifier of the associated 'RestApi' .
-gaRestAPIId :: Lens' GetAuthorizers Text
-gaRestAPIId = lens _gaRestAPIId (\ s a -> s{_gaRestAPIId = a})
-
-instance AWSRequest GetAuthorizers where
-        type Rs GetAuthorizers = GetAuthorizersResponse
-        request = get apiGateway
-        response
-          = receiveJSON
-              (\ s h x ->
-                 GetAuthorizersResponse' <$>
-                   (x .?> "item" .!@ mempty) <*> (x .?> "position") <*>
-                     (pure (fromEnum s)))
-
-instance Hashable GetAuthorizers where
-
-instance NFData GetAuthorizers where
-
-instance ToHeaders GetAuthorizers where
-        toHeaders
-          = const
-              (mconcat
-                 ["Accept" =# ("application/json" :: ByteString)])
-
-instance ToPath GetAuthorizers where
-        toPath GetAuthorizers'{..}
-          = mconcat
-              ["/restapis/", toBS _gaRestAPIId, "/authorizers"]
-
-instance ToQuery GetAuthorizers where
-        toQuery GetAuthorizers'{..}
-          = mconcat
-              ["limit" =: _gaLimit, "position" =: _gaPosition]
-
--- | Represents a collection of 'Authorizer' resources.
---
---
--- <http://docs.aws.amazon.com/apigateway/latest/developerguide/use-custom-authorizer.html Enable custom authorization>
---
--- /See:/ 'getAuthorizersResponse' smart constructor.
-data GetAuthorizersResponse = GetAuthorizersResponse'
-  { _garsItems          :: !(Maybe [Authorizer])
-  , _garsPosition       :: !(Maybe Text)
-  , _garsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'GetAuthorizersResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'garsItems' - The current page of elements from this collection.
---
--- * 'garsPosition' - Undocumented member.
---
--- * 'garsResponseStatus' - -- | The response status code.
-getAuthorizersResponse
-    :: Int -- ^ 'garsResponseStatus'
-    -> GetAuthorizersResponse
-getAuthorizersResponse pResponseStatus_ =
-  GetAuthorizersResponse'
-    { _garsItems = Nothing
-    , _garsPosition = Nothing
-    , _garsResponseStatus = pResponseStatus_
+    { position = Prelude.Nothing,
+      limit = Prelude.Nothing,
+      restApiId = pRestApiId_
     }
 
+-- | The current pagination position in the paged result set.
+getAuthorizers_position :: Lens.Lens' GetAuthorizers (Prelude.Maybe Prelude.Text)
+getAuthorizers_position = Lens.lens (\GetAuthorizers' {position} -> position) (\s@GetAuthorizers' {} a -> s {position = a} :: GetAuthorizers)
+
+-- | The maximum number of returned results per page. The default value is 25
+-- and the maximum value is 500.
+getAuthorizers_limit :: Lens.Lens' GetAuthorizers (Prelude.Maybe Prelude.Int)
+getAuthorizers_limit = Lens.lens (\GetAuthorizers' {limit} -> limit) (\s@GetAuthorizers' {} a -> s {limit = a} :: GetAuthorizers)
+
+-- | [Required] The string identifier of the associated RestApi.
+getAuthorizers_restApiId :: Lens.Lens' GetAuthorizers Prelude.Text
+getAuthorizers_restApiId = Lens.lens (\GetAuthorizers' {restApiId} -> restApiId) (\s@GetAuthorizers' {} a -> s {restApiId = a} :: GetAuthorizers)
+
+instance Pager.AWSPager GetAuthorizers where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? getAuthorizersResponse_position Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? getAuthorizersResponse_items Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& getAuthorizers_position
+          Lens..~ rs
+          Lens.^? getAuthorizersResponse_position Prelude.. Lens._Just
+
+instance Prelude.AWSRequest GetAuthorizers where
+  type Rs GetAuthorizers = GetAuthorizersResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetAuthorizersResponse'
+            Prelude.<$> (x Prelude..?> "item" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (x Prelude..?> "position")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable GetAuthorizers
+
+instance Prelude.NFData GetAuthorizers
+
+instance Prelude.ToHeaders GetAuthorizers where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "Accept"
+              Prelude.=# ("application/json" :: Prelude.ByteString)
+          ]
+      )
+
+instance Prelude.ToPath GetAuthorizers where
+  toPath GetAuthorizers' {..} =
+    Prelude.mconcat
+      [ "/restapis/",
+        Prelude.toBS restApiId,
+        "/authorizers"
+      ]
+
+instance Prelude.ToQuery GetAuthorizers where
+  toQuery GetAuthorizers' {..} =
+    Prelude.mconcat
+      [ "position" Prelude.=: position,
+        "limit" Prelude.=: limit
+      ]
+
+-- | Represents a collection of Authorizer resources.
+--
+-- <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html Use Lambda Function as Authorizer>
+-- <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html Use Cognito User Pool as Authorizer>
+--
+-- /See:/ 'newGetAuthorizersResponse' smart constructor.
+data GetAuthorizersResponse = GetAuthorizersResponse'
+  { -- | The current page of elements from this collection.
+    items :: Prelude.Maybe [Authorizer],
+    position :: Prelude.Maybe Prelude.Text,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'GetAuthorizersResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'items', 'getAuthorizersResponse_items' - The current page of elements from this collection.
+--
+-- 'position', 'getAuthorizersResponse_position' - Undocumented member.
+--
+-- 'httpStatus', 'getAuthorizersResponse_httpStatus' - The response's http status code.
+newGetAuthorizersResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetAuthorizersResponse
+newGetAuthorizersResponse pHttpStatus_ =
+  GetAuthorizersResponse'
+    { items = Prelude.Nothing,
+      position = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | The current page of elements from this collection.
-garsItems :: Lens' GetAuthorizersResponse [Authorizer]
-garsItems = lens _garsItems (\ s a -> s{_garsItems = a}) . _Default . _Coerce
+getAuthorizersResponse_items :: Lens.Lens' GetAuthorizersResponse (Prelude.Maybe [Authorizer])
+getAuthorizersResponse_items = Lens.lens (\GetAuthorizersResponse' {items} -> items) (\s@GetAuthorizersResponse' {} a -> s {items = a} :: GetAuthorizersResponse) Prelude.. Lens.mapping Prelude._Coerce
 
 -- | Undocumented member.
-garsPosition :: Lens' GetAuthorizersResponse (Maybe Text)
-garsPosition = lens _garsPosition (\ s a -> s{_garsPosition = a})
+getAuthorizersResponse_position :: Lens.Lens' GetAuthorizersResponse (Prelude.Maybe Prelude.Text)
+getAuthorizersResponse_position = Lens.lens (\GetAuthorizersResponse' {position} -> position) (\s@GetAuthorizersResponse' {} a -> s {position = a} :: GetAuthorizersResponse)
 
--- | -- | The response status code.
-garsResponseStatus :: Lens' GetAuthorizersResponse Int
-garsResponseStatus = lens _garsResponseStatus (\ s a -> s{_garsResponseStatus = a})
+-- | The response's http status code.
+getAuthorizersResponse_httpStatus :: Lens.Lens' GetAuthorizersResponse Prelude.Int
+getAuthorizersResponse_httpStatus = Lens.lens (\GetAuthorizersResponse' {httpStatus} -> httpStatus) (\s@GetAuthorizersResponse' {} a -> s {httpStatus = a} :: GetAuthorizersResponse)
 
-instance NFData GetAuthorizersResponse where
+instance Prelude.NFData GetAuthorizersResponse

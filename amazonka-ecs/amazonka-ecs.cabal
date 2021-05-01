@@ -1,116 +1,254 @@
-name:                  amazonka-ecs
-version:               1.6.1
-synopsis:              Amazon EC2 Container Service SDK.
-homepage:              https://github.com/brendanhay/amazonka
-bug-reports:           https://github.com/brendanhay/amazonka/issues
-license:               MPL-2.0
-license-file:          LICENSE
-author:                Brendan Hay
-maintainer:            Brendan Hay <brendan.g.hay+amazonka@gmail.com>
-copyright:             Copyright (c) 2013-2018 Brendan Hay
-category:              Network, AWS, Cloud, Distributed Computing
-build-type:            Simple
-cabal-version:         >= 1.10
-extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
+name:               amazonka-ecs
+version:            1.6.1
+synopsis:           Amazon EC2 Container Service SDK.
+homepage:           https://github.com/brendanhay/amazonka
+bug-reports:        https://github.com/brendanhay/amazonka/issues
+license:            MPL-2.0
+license-file:       LICENSE
+author:             Brendan Hay
+maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
+copyright:          Copyright (c) 2013-2021 Brendan Hay
+category:           Network, AWS, Cloud, Distributed Computing
+build-type:         Simple
+cabal-version:      >=1.10
+extra-source-files:
+  fixture/*.proto
+  fixture/*.yaml
+  README.md
+  src/.gitkeep
+
 description:
-    The types from this library are intended to be used with
-    <http://hackage.haskell.org/package/amazonka amazonka>, which provides
-    mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
-    .
-    Lenses are used for constructing and manipulating types,
-    due to the depth of nesting of AWS types and transparency regarding
-    de/serialisation into more palatable Haskell values.
-    The provided lenses should be compatible with any of the major lens libraries
-    such as <http://hackage.haskell.org/package/lens lens> or
-    <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
-    .
-    See "Network.AWS.ECS" or <https://aws.amazon.com/documentation/ the AWS documentation>
-    to get started.
+  The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests,
+  and receiving responses.
+  .
+  It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
+  .
+  Generated lenses for legacy behaviour can be found in "Network.AWS.ECS.Lens"
+  and are suitable for use with a lens package such as <http://hackage.haskell.org/package/lens lens> or <http://hackage.haskell.org/package/lens-family-core lens-family-core>.
+  .
+  Additional types and functions from <https://hackage.haskell.org/package/amazonka-core amazonka-core> are re-exported by the "Network.AWS.Prelude" module in this package.
+  .
+  See "Network.AWS.ECS" and the <https://aws.amazon.com/documentation/ AWS documentation> to get started.
 
 source-repository head
-    type:              git
-    location:          git://github.com/brendanhay/amazonka.git
-    subdir:            amazonka-ecs
+  type:     git
+  location: git://github.com/brendanhay/amazonka.git
+  subdir:   amazonka-ecs
 
 library
-    default-language:  Haskell2010
-    hs-source-dirs:    src gen
+  default-language:   Haskell2010
+  hs-source-dirs:     src gen
+  ghc-options:
+    -Wall -fwarn-incomplete-uni-patterns
+    -fwarn-incomplete-record-updates -funbox-strict-fields
 
-    ghc-options:
-        -Wall
-        -fwarn-incomplete-uni-patterns
-        -fwarn-incomplete-record-updates
-        -funbox-strict-fields
+  exposed-modules:
+    Network.AWS.ECS
+    Network.AWS.ECS.CreateCapacityProvider
+    Network.AWS.ECS.CreateCluster
+    Network.AWS.ECS.CreateService
+    Network.AWS.ECS.CreateTaskSet
+    Network.AWS.ECS.DeleteAccountSetting
+    Network.AWS.ECS.DeleteAttributes
+    Network.AWS.ECS.DeleteCapacityProvider
+    Network.AWS.ECS.DeleteCluster
+    Network.AWS.ECS.DeleteService
+    Network.AWS.ECS.DeleteTaskSet
+    Network.AWS.ECS.DeregisterContainerInstance
+    Network.AWS.ECS.DeregisterTaskDefinition
+    Network.AWS.ECS.DescribeCapacityProviders
+    Network.AWS.ECS.DescribeClusters
+    Network.AWS.ECS.DescribeContainerInstances
+    Network.AWS.ECS.DescribeServices
+    Network.AWS.ECS.DescribeTaskDefinition
+    Network.AWS.ECS.DescribeTasks
+    Network.AWS.ECS.DescribeTaskSets
+    Network.AWS.ECS.DiscoverPollEndpoint
+    Network.AWS.ECS.Lens
+    Network.AWS.ECS.ListAccountSettings
+    Network.AWS.ECS.ListAttributes
+    Network.AWS.ECS.ListClusters
+    Network.AWS.ECS.ListContainerInstances
+    Network.AWS.ECS.ListServices
+    Network.AWS.ECS.ListTagsForResource
+    Network.AWS.ECS.ListTaskDefinitionFamilies
+    Network.AWS.ECS.ListTaskDefinitions
+    Network.AWS.ECS.ListTasks
+    Network.AWS.ECS.PutAccountSetting
+    Network.AWS.ECS.PutAccountSettingDefault
+    Network.AWS.ECS.PutAttributes
+    Network.AWS.ECS.PutClusterCapacityProviders
+    Network.AWS.ECS.RegisterContainerInstance
+    Network.AWS.ECS.RegisterTaskDefinition
+    Network.AWS.ECS.RunTask
+    Network.AWS.ECS.StartTask
+    Network.AWS.ECS.StopTask
+    Network.AWS.ECS.SubmitAttachmentStateChanges
+    Network.AWS.ECS.SubmitContainerStateChange
+    Network.AWS.ECS.SubmitTaskStateChange
+    Network.AWS.ECS.TagResource
+    Network.AWS.ECS.Types
+    Network.AWS.ECS.Types.AgentUpdateStatus
+    Network.AWS.ECS.Types.AssignPublicIp
+    Network.AWS.ECS.Types.Attachment
+    Network.AWS.ECS.Types.AttachmentStateChange
+    Network.AWS.ECS.Types.Attribute
+    Network.AWS.ECS.Types.AutoScalingGroupProvider
+    Network.AWS.ECS.Types.AutoScalingGroupProviderUpdate
+    Network.AWS.ECS.Types.AwsVpcConfiguration
+    Network.AWS.ECS.Types.CapacityProvider
+    Network.AWS.ECS.Types.CapacityProviderField
+    Network.AWS.ECS.Types.CapacityProviderStatus
+    Network.AWS.ECS.Types.CapacityProviderStrategyItem
+    Network.AWS.ECS.Types.CapacityProviderUpdateStatus
+    Network.AWS.ECS.Types.Cluster
+    Network.AWS.ECS.Types.ClusterField
+    Network.AWS.ECS.Types.ClusterSetting
+    Network.AWS.ECS.Types.ClusterSettingName
+    Network.AWS.ECS.Types.Compatibility
+    Network.AWS.ECS.Types.Connectivity
+    Network.AWS.ECS.Types.Container
+    Network.AWS.ECS.Types.ContainerCondition
+    Network.AWS.ECS.Types.ContainerDefinition
+    Network.AWS.ECS.Types.ContainerDependency
+    Network.AWS.ECS.Types.ContainerInstance
+    Network.AWS.ECS.Types.ContainerInstanceField
+    Network.AWS.ECS.Types.ContainerInstanceStatus
+    Network.AWS.ECS.Types.ContainerOverride
+    Network.AWS.ECS.Types.ContainerService
+    Network.AWS.ECS.Types.ContainerStateChange
+    Network.AWS.ECS.Types.Deployment
+    Network.AWS.ECS.Types.DeploymentCircuitBreaker
+    Network.AWS.ECS.Types.DeploymentConfiguration
+    Network.AWS.ECS.Types.DeploymentController
+    Network.AWS.ECS.Types.DeploymentControllerType
+    Network.AWS.ECS.Types.DeploymentRolloutState
+    Network.AWS.ECS.Types.DesiredStatus
+    Network.AWS.ECS.Types.Device
+    Network.AWS.ECS.Types.DeviceCgroupPermission
+    Network.AWS.ECS.Types.DockerVolumeConfiguration
+    Network.AWS.ECS.Types.EFSAuthorizationConfig
+    Network.AWS.ECS.Types.EFSAuthorizationConfigIAM
+    Network.AWS.ECS.Types.EFSTransitEncryption
+    Network.AWS.ECS.Types.EFSVolumeConfiguration
+    Network.AWS.ECS.Types.EnvironmentFile
+    Network.AWS.ECS.Types.EnvironmentFileType
+    Network.AWS.ECS.Types.Failure
+    Network.AWS.ECS.Types.FirelensConfiguration
+    Network.AWS.ECS.Types.FirelensConfigurationType
+    Network.AWS.ECS.Types.FSxWindowsFileServerAuthorizationConfig
+    Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration
+    Network.AWS.ECS.Types.HealthCheck
+    Network.AWS.ECS.Types.HealthStatus
+    Network.AWS.ECS.Types.HostEntry
+    Network.AWS.ECS.Types.HostVolumeProperties
+    Network.AWS.ECS.Types.InferenceAccelerator
+    Network.AWS.ECS.Types.InferenceAcceleratorOverride
+    Network.AWS.ECS.Types.IpcMode
+    Network.AWS.ECS.Types.KernelCapabilities
+    Network.AWS.ECS.Types.KeyValuePair
+    Network.AWS.ECS.Types.LaunchType
+    Network.AWS.ECS.Types.LinuxParameters
+    Network.AWS.ECS.Types.LoadBalancer
+    Network.AWS.ECS.Types.LogConfiguration
+    Network.AWS.ECS.Types.LogDriver
+    Network.AWS.ECS.Types.ManagedScaling
+    Network.AWS.ECS.Types.ManagedScalingStatus
+    Network.AWS.ECS.Types.ManagedTerminationProtection
+    Network.AWS.ECS.Types.MountPoint
+    Network.AWS.ECS.Types.NetworkBinding
+    Network.AWS.ECS.Types.NetworkConfiguration
+    Network.AWS.ECS.Types.NetworkInterface
+    Network.AWS.ECS.Types.NetworkMode
+    Network.AWS.ECS.Types.PidMode
+    Network.AWS.ECS.Types.PlacementConstraint
+    Network.AWS.ECS.Types.PlacementConstraintType
+    Network.AWS.ECS.Types.PlacementStrategy
+    Network.AWS.ECS.Types.PlacementStrategyType
+    Network.AWS.ECS.Types.PlatformDevice
+    Network.AWS.ECS.Types.PlatformDeviceType
+    Network.AWS.ECS.Types.PortMapping
+    Network.AWS.ECS.Types.PropagateTags
+    Network.AWS.ECS.Types.ProxyConfiguration
+    Network.AWS.ECS.Types.ProxyConfigurationType
+    Network.AWS.ECS.Types.RepositoryCredentials
+    Network.AWS.ECS.Types.Resource
+    Network.AWS.ECS.Types.ResourceRequirement
+    Network.AWS.ECS.Types.ResourceType
+    Network.AWS.ECS.Types.Scale
+    Network.AWS.ECS.Types.ScaleUnit
+    Network.AWS.ECS.Types.SchedulingStrategy
+    Network.AWS.ECS.Types.Scope
+    Network.AWS.ECS.Types.Secret
+    Network.AWS.ECS.Types.ServiceEvent
+    Network.AWS.ECS.Types.ServiceField
+    Network.AWS.ECS.Types.ServiceRegistry
+    Network.AWS.ECS.Types.Setting
+    Network.AWS.ECS.Types.SettingName
+    Network.AWS.ECS.Types.SortOrder
+    Network.AWS.ECS.Types.StabilityStatus
+    Network.AWS.ECS.Types.SystemControl
+    Network.AWS.ECS.Types.Tag
+    Network.AWS.ECS.Types.TargetType
+    Network.AWS.ECS.Types.Task
+    Network.AWS.ECS.Types.TaskDefinition
+    Network.AWS.ECS.Types.TaskDefinitionFamilyStatus
+    Network.AWS.ECS.Types.TaskDefinitionField
+    Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint
+    Network.AWS.ECS.Types.TaskDefinitionPlacementConstraintType
+    Network.AWS.ECS.Types.TaskDefinitionStatus
+    Network.AWS.ECS.Types.TaskField
+    Network.AWS.ECS.Types.TaskOverride
+    Network.AWS.ECS.Types.TaskSet
+    Network.AWS.ECS.Types.TaskSetField
+    Network.AWS.ECS.Types.TaskStopCode
+    Network.AWS.ECS.Types.Tmpfs
+    Network.AWS.ECS.Types.TransportProtocol
+    Network.AWS.ECS.Types.Ulimit
+    Network.AWS.ECS.Types.UlimitName
+    Network.AWS.ECS.Types.VersionInfo
+    Network.AWS.ECS.Types.Volume
+    Network.AWS.ECS.Types.VolumeFrom
+    Network.AWS.ECS.UntagResource
+    Network.AWS.ECS.UpdateCapacityProvider
+    Network.AWS.ECS.UpdateClusterSettings
+    Network.AWS.ECS.UpdateContainerAgent
+    Network.AWS.ECS.UpdateContainerInstancesState
+    Network.AWS.ECS.UpdateService
+    Network.AWS.ECS.UpdateServicePrimaryTaskSet
+    Network.AWS.ECS.UpdateTaskSet
+    Network.AWS.ECS.Waiters
 
-    exposed-modules:
-          Network.AWS.ECS
-        , Network.AWS.ECS.CreateCluster
-        , Network.AWS.ECS.CreateService
-        , Network.AWS.ECS.DeleteAttributes
-        , Network.AWS.ECS.DeleteCluster
-        , Network.AWS.ECS.DeleteService
-        , Network.AWS.ECS.DeregisterContainerInstance
-        , Network.AWS.ECS.DeregisterTaskDefinition
-        , Network.AWS.ECS.DescribeClusters
-        , Network.AWS.ECS.DescribeContainerInstances
-        , Network.AWS.ECS.DescribeServices
-        , Network.AWS.ECS.DescribeTaskDefinition
-        , Network.AWS.ECS.DescribeTasks
-        , Network.AWS.ECS.DiscoverPollEndpoint
-        , Network.AWS.ECS.ListAttributes
-        , Network.AWS.ECS.ListClusters
-        , Network.AWS.ECS.ListContainerInstances
-        , Network.AWS.ECS.ListServices
-        , Network.AWS.ECS.ListTaskDefinitionFamilies
-        , Network.AWS.ECS.ListTaskDefinitions
-        , Network.AWS.ECS.ListTasks
-        , Network.AWS.ECS.PutAttributes
-        , Network.AWS.ECS.RegisterContainerInstance
-        , Network.AWS.ECS.RegisterTaskDefinition
-        , Network.AWS.ECS.RunTask
-        , Network.AWS.ECS.StartTask
-        , Network.AWS.ECS.StopTask
-        , Network.AWS.ECS.SubmitContainerStateChange
-        , Network.AWS.ECS.SubmitTaskStateChange
-        , Network.AWS.ECS.Types
-        , Network.AWS.ECS.UpdateContainerAgent
-        , Network.AWS.ECS.UpdateContainerInstancesState
-        , Network.AWS.ECS.UpdateService
-        , Network.AWS.ECS.Waiters
-
-    other-modules:
-          Network.AWS.ECS.Types.Product
-        , Network.AWS.ECS.Types.Sum
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , base          >= 4.7     && < 5
+  reexported-modules: Network.AWS.Prelude
+  build-depends:
+      amazonka-core  >=1.6.1 && <1.6.2
+    , base           >=4.13  && <5
 
 test-suite amazonka-ecs-test
-    type:              exitcode-stdio-1.0
-    default-language:  Haskell2010
-    hs-source-dirs:    test
-    main-is:           Main.hs
+  type:             exitcode-stdio-1.0
+  default-language: Haskell2010
+  hs-source-dirs:   test
+  main-is:          Main.hs
+  ghc-options:      -Wall -threaded
 
-    ghc-options:       -Wall -threaded
+  -- This section is encoded by the template and any modules added by
+  -- hand outside these namespaces will not correctly be added to the
+  -- distribution package.
+  other-modules:
+    Test.AWS.ECS
+    Test.AWS.ECS.Internal
+    Test.AWS.Gen.ECS
 
-    -- This section is encoded by the template and any modules added by
-    -- hand outside these namespaces will not correctly be added to the
-    -- distribution package.
-    other-modules:
-          Test.AWS.ECS
-        , Test.AWS.Gen.ECS
-        , Test.AWS.ECS.Internal
-
-    build-depends:
-          amazonka-core == 1.6.1.*
-        , amazonka-test == 1.6.1.*
-        , amazonka-ecs
-        , base
-        , bytestring
-        , tasty
-        , tasty-hunit
-        , text
-        , time
-        , unordered-containers
+  build-depends:
+      amazonka-core         >=1.6.1 && <1.6.2
+    , amazonka-ecs
+    , amazonka-test         >=1.6.1 && <1.6.2
+    , base
+    , bytestring
+    , case-insensitive
+    , tasty
+    , tasty-hunit
+    , text
+    , time
+    , unordered-containers

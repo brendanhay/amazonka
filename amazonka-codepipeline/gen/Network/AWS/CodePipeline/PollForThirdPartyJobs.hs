@@ -1,155 +1,186 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodePipeline.PollForThirdPartyJobs
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Determines whether there are any third party jobs for a job worker to act on. Only used for partner actions.
+-- Determines whether there are any third party jobs for a job worker to
+-- act on. Used for partner actions only.
 --
---
--- /Important:/ When this API is called, AWS CodePipeline returns temporary credentials for the Amazon S3 bucket used to store artifacts for the pipeline, if the action requires access to that Amazon S3 bucket for input or output artifacts.
---
+-- When this API is called, AWS CodePipeline returns temporary credentials
+-- for the S3 bucket used to store artifacts for the pipeline, if the
+-- action requires access to that S3 bucket for input or output artifacts.
 module Network.AWS.CodePipeline.PollForThirdPartyJobs
-    (
-    -- * Creating a Request
-      pollForThirdPartyJobs
-    , PollForThirdPartyJobs
+  ( -- * Creating a Request
+    PollForThirdPartyJobs (..),
+    newPollForThirdPartyJobs,
+
     -- * Request Lenses
-    , pftpjMaxBatchSize
-    , pftpjActionTypeId
+    pollForThirdPartyJobs_maxBatchSize,
+    pollForThirdPartyJobs_actionTypeId,
 
     -- * Destructuring the Response
-    , pollForThirdPartyJobsResponse
-    , PollForThirdPartyJobsResponse
+    PollForThirdPartyJobsResponse (..),
+    newPollForThirdPartyJobsResponse,
+
     -- * Response Lenses
-    , pftpjrsJobs
-    , pftpjrsResponseStatus
-    ) where
+    pollForThirdPartyJobsResponse_jobs,
+    pollForThirdPartyJobsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CodePipeline.Types
-import Network.AWS.CodePipeline.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | Represents the input of a PollForThirdPartyJobs action.
+-- | Represents the input of a @PollForThirdPartyJobs@ action.
 --
---
---
--- /See:/ 'pollForThirdPartyJobs' smart constructor.
+-- /See:/ 'newPollForThirdPartyJobs' smart constructor.
 data PollForThirdPartyJobs = PollForThirdPartyJobs'
-  { _pftpjMaxBatchSize :: !(Maybe Nat)
-  , _pftpjActionTypeId :: !ActionTypeId
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The maximum number of jobs to return in a poll for jobs call.
+    maxBatchSize :: Prelude.Maybe Prelude.Natural,
+    -- | Represents information about an action type.
+    actionTypeId :: ActionTypeId
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'PollForThirdPartyJobs' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PollForThirdPartyJobs' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'pftpjMaxBatchSize' - The maximum number of jobs to return in a poll for jobs call.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'pftpjActionTypeId' - Represents information about an action type.
-pollForThirdPartyJobs
-    :: ActionTypeId -- ^ 'pftpjActionTypeId'
-    -> PollForThirdPartyJobs
-pollForThirdPartyJobs pActionTypeId_ =
+-- 'maxBatchSize', 'pollForThirdPartyJobs_maxBatchSize' - The maximum number of jobs to return in a poll for jobs call.
+--
+-- 'actionTypeId', 'pollForThirdPartyJobs_actionTypeId' - Represents information about an action type.
+newPollForThirdPartyJobs ::
+  -- | 'actionTypeId'
+  ActionTypeId ->
+  PollForThirdPartyJobs
+newPollForThirdPartyJobs pActionTypeId_ =
   PollForThirdPartyJobs'
-    {_pftpjMaxBatchSize = Nothing, _pftpjActionTypeId = pActionTypeId_}
-
+    { maxBatchSize =
+        Prelude.Nothing,
+      actionTypeId = pActionTypeId_
+    }
 
 -- | The maximum number of jobs to return in a poll for jobs call.
-pftpjMaxBatchSize :: Lens' PollForThirdPartyJobs (Maybe Natural)
-pftpjMaxBatchSize = lens _pftpjMaxBatchSize (\ s a -> s{_pftpjMaxBatchSize = a}) . mapping _Nat
+pollForThirdPartyJobs_maxBatchSize :: Lens.Lens' PollForThirdPartyJobs (Prelude.Maybe Prelude.Natural)
+pollForThirdPartyJobs_maxBatchSize = Lens.lens (\PollForThirdPartyJobs' {maxBatchSize} -> maxBatchSize) (\s@PollForThirdPartyJobs' {} a -> s {maxBatchSize = a} :: PollForThirdPartyJobs)
 
 -- | Represents information about an action type.
-pftpjActionTypeId :: Lens' PollForThirdPartyJobs ActionTypeId
-pftpjActionTypeId = lens _pftpjActionTypeId (\ s a -> s{_pftpjActionTypeId = a})
+pollForThirdPartyJobs_actionTypeId :: Lens.Lens' PollForThirdPartyJobs ActionTypeId
+pollForThirdPartyJobs_actionTypeId = Lens.lens (\PollForThirdPartyJobs' {actionTypeId} -> actionTypeId) (\s@PollForThirdPartyJobs' {} a -> s {actionTypeId = a} :: PollForThirdPartyJobs)
 
-instance AWSRequest PollForThirdPartyJobs where
-        type Rs PollForThirdPartyJobs =
-             PollForThirdPartyJobsResponse
-        request = postJSON codePipeline
-        response
-          = receiveJSON
-              (\ s h x ->
-                 PollForThirdPartyJobsResponse' <$>
-                   (x .?> "jobs" .!@ mempty) <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest PollForThirdPartyJobs where
+  type
+    Rs PollForThirdPartyJobs =
+      PollForThirdPartyJobsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          PollForThirdPartyJobsResponse'
+            Prelude.<$> (x Prelude..?> "jobs" Prelude..!@ Prelude.mempty)
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable PollForThirdPartyJobs where
+instance Prelude.Hashable PollForThirdPartyJobs
 
-instance NFData PollForThirdPartyJobs where
+instance Prelude.NFData PollForThirdPartyJobs
 
-instance ToHeaders PollForThirdPartyJobs where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodePipeline_20150709.PollForThirdPartyJobs" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders PollForThirdPartyJobs where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "CodePipeline_20150709.PollForThirdPartyJobs" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON PollForThirdPartyJobs where
-        toJSON PollForThirdPartyJobs'{..}
-          = object
-              (catMaybes
-                 [("maxBatchSize" .=) <$> _pftpjMaxBatchSize,
-                  Just ("actionTypeId" .= _pftpjActionTypeId)])
+instance Prelude.ToJSON PollForThirdPartyJobs where
+  toJSON PollForThirdPartyJobs' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("maxBatchSize" Prelude..=)
+              Prelude.<$> maxBatchSize,
+            Prelude.Just
+              ("actionTypeId" Prelude..= actionTypeId)
+          ]
+      )
 
-instance ToPath PollForThirdPartyJobs where
-        toPath = const "/"
+instance Prelude.ToPath PollForThirdPartyJobs where
+  toPath = Prelude.const "/"
 
-instance ToQuery PollForThirdPartyJobs where
-        toQuery = const mempty
+instance Prelude.ToQuery PollForThirdPartyJobs where
+  toQuery = Prelude.const Prelude.mempty
 
--- | Represents the output of a PollForThirdPartyJobs action.
+-- | Represents the output of a @PollForThirdPartyJobs@ action.
 --
---
---
--- /See:/ 'pollForThirdPartyJobsResponse' smart constructor.
+-- /See:/ 'newPollForThirdPartyJobsResponse' smart constructor.
 data PollForThirdPartyJobsResponse = PollForThirdPartyJobsResponse'
-  { _pftpjrsJobs           :: !(Maybe [ThirdPartyJob])
-  , _pftpjrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about the jobs to take action on.
+    jobs :: Prelude.Maybe [ThirdPartyJob],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'PollForThirdPartyJobsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'PollForThirdPartyJobsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'pftpjrsJobs' - Information about the jobs to take action on.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'pftpjrsResponseStatus' - -- | The response status code.
-pollForThirdPartyJobsResponse
-    :: Int -- ^ 'pftpjrsResponseStatus'
-    -> PollForThirdPartyJobsResponse
-pollForThirdPartyJobsResponse pResponseStatus_ =
+-- 'jobs', 'pollForThirdPartyJobsResponse_jobs' - Information about the jobs to take action on.
+--
+-- 'httpStatus', 'pollForThirdPartyJobsResponse_httpStatus' - The response's http status code.
+newPollForThirdPartyJobsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  PollForThirdPartyJobsResponse
+newPollForThirdPartyJobsResponse pHttpStatus_ =
   PollForThirdPartyJobsResponse'
-    {_pftpjrsJobs = Nothing, _pftpjrsResponseStatus = pResponseStatus_}
-
+    { jobs =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Information about the jobs to take action on.
-pftpjrsJobs :: Lens' PollForThirdPartyJobsResponse [ThirdPartyJob]
-pftpjrsJobs = lens _pftpjrsJobs (\ s a -> s{_pftpjrsJobs = a}) . _Default . _Coerce
+pollForThirdPartyJobsResponse_jobs :: Lens.Lens' PollForThirdPartyJobsResponse (Prelude.Maybe [ThirdPartyJob])
+pollForThirdPartyJobsResponse_jobs = Lens.lens (\PollForThirdPartyJobsResponse' {jobs} -> jobs) (\s@PollForThirdPartyJobsResponse' {} a -> s {jobs = a} :: PollForThirdPartyJobsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | -- | The response status code.
-pftpjrsResponseStatus :: Lens' PollForThirdPartyJobsResponse Int
-pftpjrsResponseStatus = lens _pftpjrsResponseStatus (\ s a -> s{_pftpjrsResponseStatus = a})
+-- | The response's http status code.
+pollForThirdPartyJobsResponse_httpStatus :: Lens.Lens' PollForThirdPartyJobsResponse Prelude.Int
+pollForThirdPartyJobsResponse_httpStatus = Lens.lens (\PollForThirdPartyJobsResponse' {httpStatus} -> httpStatus) (\s@PollForThirdPartyJobsResponse' {} a -> s {httpStatus = a} :: PollForThirdPartyJobsResponse)
 
-instance NFData PollForThirdPartyJobsResponse where
+instance Prelude.NFData PollForThirdPartyJobsResponse

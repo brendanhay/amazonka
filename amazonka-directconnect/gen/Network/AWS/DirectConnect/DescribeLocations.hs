@@ -1,124 +1,143 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.DirectConnect.DescribeLocations
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the list of AWS Direct Connect locations in the current AWS region. These are the locations that may be selected when calling 'CreateConnection' or 'CreateInterconnect' .
---
---
+-- Lists the AWS Direct Connect locations in the current AWS Region. These
+-- are the locations that can be selected when calling CreateConnection or
+-- CreateInterconnect.
 module Network.AWS.DirectConnect.DescribeLocations
-    (
-    -- * Creating a Request
-      describeLocations
-    , DescribeLocations
+  ( -- * Creating a Request
+    DescribeLocations (..),
+    newDescribeLocations,
 
     -- * Destructuring the Response
-    , describeLocationsResponse
-    , DescribeLocationsResponse
+    DescribeLocationsResponse (..),
+    newDescribeLocationsResponse,
+
     -- * Response Lenses
-    , dlsrsLocations
-    , dlsrsResponseStatus
-    ) where
+    describeLocationsResponse_locations,
+    describeLocationsResponse_httpStatus,
+  )
+where
 
 import Network.AWS.DirectConnect.Types
-import Network.AWS.DirectConnect.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeLocations' smart constructor.
-data DescribeLocations =
-  DescribeLocations'
-  deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newDescribeLocations' smart constructor.
+data DescribeLocations = DescribeLocations'
+  {
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeLocations' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeLocations' with all optional fields omitted.
 --
-describeLocations
-    :: DescribeLocations
-describeLocations = DescribeLocations'
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+newDescribeLocations ::
+  DescribeLocations
+newDescribeLocations = DescribeLocations'
 
+instance Prelude.AWSRequest DescribeLocations where
+  type Rs DescribeLocations = DescribeLocationsResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeLocationsResponse'
+            Prelude.<$> ( x Prelude..?> "locations"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance AWSRequest DescribeLocations where
-        type Rs DescribeLocations = DescribeLocationsResponse
-        request = postJSON directConnect
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeLocationsResponse' <$>
-                   (x .?> "locations" .!@ mempty) <*>
-                     (pure (fromEnum s)))
+instance Prelude.Hashable DescribeLocations
 
-instance Hashable DescribeLocations where
+instance Prelude.NFData DescribeLocations
 
-instance NFData DescribeLocations where
+instance Prelude.ToHeaders DescribeLocations where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "OvertureService.DescribeLocations" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToHeaders DescribeLocations where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("OvertureService.DescribeLocations" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToJSON DescribeLocations where
+  toJSON =
+    Prelude.const (Prelude.Object Prelude.mempty)
 
-instance ToJSON DescribeLocations where
-        toJSON = const (Object mempty)
+instance Prelude.ToPath DescribeLocations where
+  toPath = Prelude.const "/"
 
-instance ToPath DescribeLocations where
-        toPath = const "/"
+instance Prelude.ToQuery DescribeLocations where
+  toQuery = Prelude.const Prelude.mempty
 
-instance ToQuery DescribeLocations where
-        toQuery = const mempty
-
--- | A location is a network facility where AWS Direct Connect routers are available to be connected. Generally, these are colocation hubs where many network providers have equipment, and where cross connects can be delivered. Locations include a name and facility code, and must be provided when creating a connection.
---
---
---
--- /See:/ 'describeLocationsResponse' smart constructor.
+-- | /See:/ 'newDescribeLocationsResponse' smart constructor.
 data DescribeLocationsResponse = DescribeLocationsResponse'
-  { _dlsrsLocations      :: !(Maybe [Location])
-  , _dlsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The locations.
+    locations :: Prelude.Maybe [Location],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeLocationsResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeLocationsResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dlsrsLocations' - A list of colocation hubs where network providers have equipment. Most regions have multiple locations available.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dlsrsResponseStatus' - -- | The response status code.
-describeLocationsResponse
-    :: Int -- ^ 'dlsrsResponseStatus'
-    -> DescribeLocationsResponse
-describeLocationsResponse pResponseStatus_ =
+-- 'locations', 'describeLocationsResponse_locations' - The locations.
+--
+-- 'httpStatus', 'describeLocationsResponse_httpStatus' - The response's http status code.
+newDescribeLocationsResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeLocationsResponse
+newDescribeLocationsResponse pHttpStatus_ =
   DescribeLocationsResponse'
-    {_dlsrsLocations = Nothing, _dlsrsResponseStatus = pResponseStatus_}
+    { locations =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | The locations.
+describeLocationsResponse_locations :: Lens.Lens' DescribeLocationsResponse (Prelude.Maybe [Location])
+describeLocationsResponse_locations = Lens.lens (\DescribeLocationsResponse' {locations} -> locations) (\s@DescribeLocationsResponse' {} a -> s {locations = a} :: DescribeLocationsResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | A list of colocation hubs where network providers have equipment. Most regions have multiple locations available.
-dlsrsLocations :: Lens' DescribeLocationsResponse [Location]
-dlsrsLocations = lens _dlsrsLocations (\ s a -> s{_dlsrsLocations = a}) . _Default . _Coerce
+-- | The response's http status code.
+describeLocationsResponse_httpStatus :: Lens.Lens' DescribeLocationsResponse Prelude.Int
+describeLocationsResponse_httpStatus = Lens.lens (\DescribeLocationsResponse' {httpStatus} -> httpStatus) (\s@DescribeLocationsResponse' {} a -> s {httpStatus = a} :: DescribeLocationsResponse)
 
--- | -- | The response status code.
-dlsrsResponseStatus :: Lens' DescribeLocationsResponse Int
-dlsrsResponseStatus = lens _dlsrsResponseStatus (\ s a -> s{_dlsrsResponseStatus = a})
-
-instance NFData DescribeLocationsResponse where
+instance Prelude.NFData DescribeLocationsResponse

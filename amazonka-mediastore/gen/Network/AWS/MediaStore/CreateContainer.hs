@@ -1,135 +1,253 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.MediaStore.CreateContainer
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Creates a storage container to hold objects. A container is similar to a bucket in the Amazon S3 service.
---
---
+-- Creates a storage container to hold objects. A container is similar to a
+-- bucket in the Amazon S3 service.
 module Network.AWS.MediaStore.CreateContainer
-    (
-    -- * Creating a Request
-      createContainer
-    , CreateContainer
+  ( -- * Creating a Request
+    CreateContainer (..),
+    newCreateContainer,
+
     -- * Request Lenses
-    , ccContainerName
+    createContainer_tags,
+    createContainer_containerName,
 
     -- * Destructuring the Response
-    , createContainerResponse
-    , CreateContainerResponse
+    CreateContainerResponse (..),
+    newCreateContainerResponse,
+
     -- * Response Lenses
-    , ccrsResponseStatus
-    , ccrsContainer
-    ) where
+    createContainerResponse_httpStatus,
+    createContainerResponse_container,
+  )
+where
 
-import Network.AWS.Lens
+import qualified Network.AWS.Lens as Lens
 import Network.AWS.MediaStore.Types
-import Network.AWS.MediaStore.Types.Product
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createContainer' smart constructor.
-newtype CreateContainer = CreateContainer'
-  { _ccContainerName :: Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newCreateContainer' smart constructor.
+data CreateContainer = CreateContainer'
+  { -- | An array of key:value pairs that you define. These values can be
+    -- anything that you want. Typically, the tag key represents a category
+    -- (such as \"environment\") and the tag value represents a specific value
+    -- within that category (such as \"test,\" \"development,\" or
+    -- \"production\"). You can add up to 50 tags to each container. For more
+    -- information about tagging, including naming and usage conventions, see
+    -- <https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html Tagging Resources in MediaStore>.
+    tags :: Prelude.Maybe (Prelude.NonEmpty Tag),
+    -- | The name for the container. The name must be from 1 to 255 characters.
+    -- Container names must be unique to your AWS account within a specific
+    -- region. As an example, you could create a container named @movies@ in
+    -- every region, as long as you don’t have an existing container with that
+    -- name.
+    containerName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateContainer' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateContainer' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ccContainerName' - The name for the container. The name must be from 1 to 255 characters. Container names must be unique to your AWS account within a specific region. As an example, you could create a container named @movies@ in every region, as long as you don’t have an existing container with that name.
-createContainer
-    :: Text -- ^ 'ccContainerName'
-    -> CreateContainer
-createContainer pContainerName_ =
-  CreateContainer' {_ccContainerName = pContainerName_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'tags', 'createContainer_tags' - An array of key:value pairs that you define. These values can be
+-- anything that you want. Typically, the tag key represents a category
+-- (such as \"environment\") and the tag value represents a specific value
+-- within that category (such as \"test,\" \"development,\" or
+-- \"production\"). You can add up to 50 tags to each container. For more
+-- information about tagging, including naming and usage conventions, see
+-- <https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html Tagging Resources in MediaStore>.
+--
+-- 'containerName', 'createContainer_containerName' - The name for the container. The name must be from 1 to 255 characters.
+-- Container names must be unique to your AWS account within a specific
+-- region. As an example, you could create a container named @movies@ in
+-- every region, as long as you don’t have an existing container with that
+-- name.
+newCreateContainer ::
+  -- | 'containerName'
+  Prelude.Text ->
+  CreateContainer
+newCreateContainer pContainerName_ =
+  CreateContainer'
+    { tags = Prelude.Nothing,
+      containerName = pContainerName_
+    }
 
+-- | An array of key:value pairs that you define. These values can be
+-- anything that you want. Typically, the tag key represents a category
+-- (such as \"environment\") and the tag value represents a specific value
+-- within that category (such as \"test,\" \"development,\" or
+-- \"production\"). You can add up to 50 tags to each container. For more
+-- information about tagging, including naming and usage conventions, see
+-- <https://docs.aws.amazon.com/mediastore/latest/ug/tagging.html Tagging Resources in MediaStore>.
+createContainer_tags :: Lens.Lens' CreateContainer (Prelude.Maybe (Prelude.NonEmpty Tag))
+createContainer_tags = Lens.lens (\CreateContainer' {tags} -> tags) (\s@CreateContainer' {} a -> s {tags = a} :: CreateContainer) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The name for the container. The name must be from 1 to 255 characters. Container names must be unique to your AWS account within a specific region. As an example, you could create a container named @movies@ in every region, as long as you don’t have an existing container with that name.
-ccContainerName :: Lens' CreateContainer Text
-ccContainerName = lens _ccContainerName (\ s a -> s{_ccContainerName = a})
+-- | The name for the container. The name must be from 1 to 255 characters.
+-- Container names must be unique to your AWS account within a specific
+-- region. As an example, you could create a container named @movies@ in
+-- every region, as long as you don’t have an existing container with that
+-- name.
+createContainer_containerName :: Lens.Lens' CreateContainer Prelude.Text
+createContainer_containerName = Lens.lens (\CreateContainer' {containerName} -> containerName) (\s@CreateContainer' {} a -> s {containerName = a} :: CreateContainer)
 
-instance AWSRequest CreateContainer where
-        type Rs CreateContainer = CreateContainerResponse
-        request = postJSON mediaStore
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateContainerResponse' <$>
-                   (pure (fromEnum s)) <*> (x .:> "Container"))
+instance Prelude.AWSRequest CreateContainer where
+  type Rs CreateContainer = CreateContainerResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateContainerResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+            Prelude.<*> (x Prelude..:> "Container")
+      )
 
-instance Hashable CreateContainer where
+instance Prelude.Hashable CreateContainer
 
-instance NFData CreateContainer where
+instance Prelude.NFData CreateContainer
 
-instance ToHeaders CreateContainer where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("MediaStore_20170901.CreateContainer" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders CreateContainer where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "MediaStore_20170901.CreateContainer" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON CreateContainer where
-        toJSON CreateContainer'{..}
-          = object
-              (catMaybes
-                 [Just ("ContainerName" .= _ccContainerName)])
+instance Prelude.ToJSON CreateContainer where
+  toJSON CreateContainer' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("Tags" Prelude..=) Prelude.<$> tags,
+            Prelude.Just
+              ("ContainerName" Prelude..= containerName)
+          ]
+      )
 
-instance ToPath CreateContainer where
-        toPath = const "/"
+instance Prelude.ToPath CreateContainer where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateContainer where
-        toQuery = const mempty
+instance Prelude.ToQuery CreateContainer where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createContainerResponse' smart constructor.
+-- | /See:/ 'newCreateContainerResponse' smart constructor.
 data CreateContainerResponse = CreateContainerResponse'
-  { _ccrsResponseStatus :: !Int
-  , _ccrsContainer      :: !Container
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int,
+    -- | ContainerARN: The Amazon Resource Name (ARN) of the newly created
+    -- container. The ARN has the following format: arn:aws:\<region>:\<account
+    -- that owns this container>:container\/\<name of container>. For example:
+    -- arn:aws:mediastore:us-west-2:111122223333:container\/movies
+    --
+    -- ContainerName: The container name as specified in the request.
+    --
+    -- CreationTime: Unix time stamp.
+    --
+    -- Status: The status of container creation or deletion. The status is one
+    -- of the following: @CREATING@, @ACTIVE@, or @DELETING@. While the service
+    -- is creating the container, the status is @CREATING@. When an endpoint is
+    -- available, the status changes to @ACTIVE@.
+    --
+    -- The return value does not include the container\'s endpoint. To make
+    -- downstream requests, you must obtain this value by using
+    -- DescribeContainer or ListContainers.
+    container :: Container
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateContainerResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateContainerResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'ccrsResponseStatus' - -- | The response status code.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'ccrsContainer' - ContainerARN: The Amazon Resource Name (ARN) of the newly created container. The ARN has the following format: arn:aws:<region>:<account that owns this container>:container/<name of container>. For example: arn:aws:mediastore:us-west-2:111122223333:container/movies  ContainerName: The container name as specified in the request. CreationTime: Unix time stamp. Status: The status of container creation or deletion. The status is one of the following: @CREATING@ , @ACTIVE@ , or @DELETING@ . While the service is creating the container, the status is @CREATING@ . When an endpoint is available, the status changes to @ACTIVE@ . The return value does not include the container's endpoint. To make downstream requests, you must obtain this value by using 'DescribeContainer' or 'ListContainers' .
-createContainerResponse
-    :: Int -- ^ 'ccrsResponseStatus'
-    -> Container -- ^ 'ccrsContainer'
-    -> CreateContainerResponse
-createContainerResponse pResponseStatus_ pContainer_ =
+-- 'httpStatus', 'createContainerResponse_httpStatus' - The response's http status code.
+--
+-- 'container', 'createContainerResponse_container' - ContainerARN: The Amazon Resource Name (ARN) of the newly created
+-- container. The ARN has the following format: arn:aws:\<region>:\<account
+-- that owns this container>:container\/\<name of container>. For example:
+-- arn:aws:mediastore:us-west-2:111122223333:container\/movies
+--
+-- ContainerName: The container name as specified in the request.
+--
+-- CreationTime: Unix time stamp.
+--
+-- Status: The status of container creation or deletion. The status is one
+-- of the following: @CREATING@, @ACTIVE@, or @DELETING@. While the service
+-- is creating the container, the status is @CREATING@. When an endpoint is
+-- available, the status changes to @ACTIVE@.
+--
+-- The return value does not include the container\'s endpoint. To make
+-- downstream requests, you must obtain this value by using
+-- DescribeContainer or ListContainers.
+newCreateContainerResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  -- | 'container'
+  Container ->
+  CreateContainerResponse
+newCreateContainerResponse pHttpStatus_ pContainer_ =
   CreateContainerResponse'
-    {_ccrsResponseStatus = pResponseStatus_, _ccrsContainer = pContainer_}
+    { httpStatus = pHttpStatus_,
+      container = pContainer_
+    }
 
+-- | The response's http status code.
+createContainerResponse_httpStatus :: Lens.Lens' CreateContainerResponse Prelude.Int
+createContainerResponse_httpStatus = Lens.lens (\CreateContainerResponse' {httpStatus} -> httpStatus) (\s@CreateContainerResponse' {} a -> s {httpStatus = a} :: CreateContainerResponse)
 
--- | -- | The response status code.
-ccrsResponseStatus :: Lens' CreateContainerResponse Int
-ccrsResponseStatus = lens _ccrsResponseStatus (\ s a -> s{_ccrsResponseStatus = a})
+-- | ContainerARN: The Amazon Resource Name (ARN) of the newly created
+-- container. The ARN has the following format: arn:aws:\<region>:\<account
+-- that owns this container>:container\/\<name of container>. For example:
+-- arn:aws:mediastore:us-west-2:111122223333:container\/movies
+--
+-- ContainerName: The container name as specified in the request.
+--
+-- CreationTime: Unix time stamp.
+--
+-- Status: The status of container creation or deletion. The status is one
+-- of the following: @CREATING@, @ACTIVE@, or @DELETING@. While the service
+-- is creating the container, the status is @CREATING@. When an endpoint is
+-- available, the status changes to @ACTIVE@.
+--
+-- The return value does not include the container\'s endpoint. To make
+-- downstream requests, you must obtain this value by using
+-- DescribeContainer or ListContainers.
+createContainerResponse_container :: Lens.Lens' CreateContainerResponse Container
+createContainerResponse_container = Lens.lens (\CreateContainerResponse' {container} -> container) (\s@CreateContainerResponse' {} a -> s {container = a} :: CreateContainerResponse)
 
--- | ContainerARN: The Amazon Resource Name (ARN) of the newly created container. The ARN has the following format: arn:aws:<region>:<account that owns this container>:container/<name of container>. For example: arn:aws:mediastore:us-west-2:111122223333:container/movies  ContainerName: The container name as specified in the request. CreationTime: Unix time stamp. Status: The status of container creation or deletion. The status is one of the following: @CREATING@ , @ACTIVE@ , or @DELETING@ . While the service is creating the container, the status is @CREATING@ . When an endpoint is available, the status changes to @ACTIVE@ . The return value does not include the container's endpoint. To make downstream requests, you must obtain this value by using 'DescribeContainer' or 'ListContainers' .
-ccrsContainer :: Lens' CreateContainerResponse Container
-ccrsContainer = lens _ccrsContainer (\ s a -> s{_ccrsContainer = a})
-
-instance NFData CreateContainerResponse where
+instance Prelude.NFData CreateContainerResponse

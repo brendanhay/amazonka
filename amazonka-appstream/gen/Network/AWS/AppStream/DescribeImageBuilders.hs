@@ -1,166 +1,229 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AppStream.DescribeImageBuilders
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Describes the specified image builders or all image builders in the account.
+-- Retrieves a list that describes one or more specified image builders, if
+-- the image builder names are provided. Otherwise, all image builders in
+-- the account are described.
 --
---
+-- This operation returns paginated results.
 module Network.AWS.AppStream.DescribeImageBuilders
-    (
-    -- * Creating a Request
-      describeImageBuilders
-    , DescribeImageBuilders
+  ( -- * Creating a Request
+    DescribeImageBuilders (..),
+    newDescribeImageBuilders,
+
     -- * Request Lenses
-    , dibNextToken
-    , dibNames
-    , dibMaxResults
+    describeImageBuilders_names,
+    describeImageBuilders_nextToken,
+    describeImageBuilders_maxResults,
 
     -- * Destructuring the Response
-    , describeImageBuildersResponse
-    , DescribeImageBuildersResponse
+    DescribeImageBuildersResponse (..),
+    newDescribeImageBuildersResponse,
+
     -- * Response Lenses
-    , dibsrsImageBuilders
-    , dibsrsNextToken
-    , dibsrsResponseStatus
-    ) where
+    describeImageBuildersResponse_nextToken,
+    describeImageBuildersResponse_imageBuilders,
+    describeImageBuildersResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AppStream.Types
-import Network.AWS.AppStream.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'describeImageBuilders' smart constructor.
+-- | /See:/ 'newDescribeImageBuilders' smart constructor.
 data DescribeImageBuilders = DescribeImageBuilders'
-  { _dibNextToken  :: !(Maybe Text)
-  , _dibNames      :: !(Maybe [Text])
-  , _dibMaxResults :: !(Maybe Int)
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The names of the image builders to describe.
+    names :: Prelude.Maybe [Prelude.Text],
+    -- | The pagination token to use to retrieve the next page of results for
+    -- this operation. If this value is null, it retrieves the first page.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | The maximum size of each page of results.
+    maxResults :: Prelude.Maybe Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'DescribeImageBuilders' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'DescribeImageBuilders' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'dibNextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'dibNames' - The names of the image builders to describe.
+-- 'names', 'describeImageBuilders_names' - The names of the image builders to describe.
 --
--- * 'dibMaxResults' - The maximum size of each page of results.
-describeImageBuilders
-    :: DescribeImageBuilders
-describeImageBuilders =
+-- 'nextToken', 'describeImageBuilders_nextToken' - The pagination token to use to retrieve the next page of results for
+-- this operation. If this value is null, it retrieves the first page.
+--
+-- 'maxResults', 'describeImageBuilders_maxResults' - The maximum size of each page of results.
+newDescribeImageBuilders ::
+  DescribeImageBuilders
+newDescribeImageBuilders =
   DescribeImageBuilders'
-    {_dibNextToken = Nothing, _dibNames = Nothing, _dibMaxResults = Nothing}
-
-
--- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
-dibNextToken :: Lens' DescribeImageBuilders (Maybe Text)
-dibNextToken = lens _dibNextToken (\ s a -> s{_dibNextToken = a})
-
--- | The names of the image builders to describe.
-dibNames :: Lens' DescribeImageBuilders [Text]
-dibNames = lens _dibNames (\ s a -> s{_dibNames = a}) . _Default . _Coerce
-
--- | The maximum size of each page of results.
-dibMaxResults :: Lens' DescribeImageBuilders (Maybe Int)
-dibMaxResults = lens _dibMaxResults (\ s a -> s{_dibMaxResults = a})
-
-instance AWSRequest DescribeImageBuilders where
-        type Rs DescribeImageBuilders =
-             DescribeImageBuildersResponse
-        request = postJSON appStream
-        response
-          = receiveJSON
-              (\ s h x ->
-                 DescribeImageBuildersResponse' <$>
-                   (x .?> "ImageBuilders" .!@ mempty) <*>
-                     (x .?> "NextToken")
-                     <*> (pure (fromEnum s)))
-
-instance Hashable DescribeImageBuilders where
-
-instance NFData DescribeImageBuilders where
-
-instance ToHeaders DescribeImageBuilders where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("PhotonAdminProxyService.DescribeImageBuilders" ::
-                       ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
-
-instance ToJSON DescribeImageBuilders where
-        toJSON DescribeImageBuilders'{..}
-          = object
-              (catMaybes
-                 [("NextToken" .=) <$> _dibNextToken,
-                  ("Names" .=) <$> _dibNames,
-                  ("MaxResults" .=) <$> _dibMaxResults])
-
-instance ToPath DescribeImageBuilders where
-        toPath = const "/"
-
-instance ToQuery DescribeImageBuilders where
-        toQuery = const mempty
-
--- | /See:/ 'describeImageBuildersResponse' smart constructor.
-data DescribeImageBuildersResponse = DescribeImageBuildersResponse'
-  { _dibsrsImageBuilders  :: !(Maybe [ImageBuilder])
-  , _dibsrsNextToken      :: !(Maybe Text)
-  , _dibsrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
-
-
--- | Creates a value of 'DescribeImageBuildersResponse' with the minimum fields required to make a request.
---
--- Use one of the following lenses to modify other fields as desired:
---
--- * 'dibsrsImageBuilders' - Information about the image builders.
---
--- * 'dibsrsNextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
---
--- * 'dibsrsResponseStatus' - -- | The response status code.
-describeImageBuildersResponse
-    :: Int -- ^ 'dibsrsResponseStatus'
-    -> DescribeImageBuildersResponse
-describeImageBuildersResponse pResponseStatus_ =
-  DescribeImageBuildersResponse'
-    { _dibsrsImageBuilders = Nothing
-    , _dibsrsNextToken = Nothing
-    , _dibsrsResponseStatus = pResponseStatus_
+    { names = Prelude.Nothing,
+      nextToken = Prelude.Nothing,
+      maxResults = Prelude.Nothing
     }
 
+-- | The names of the image builders to describe.
+describeImageBuilders_names :: Lens.Lens' DescribeImageBuilders (Prelude.Maybe [Prelude.Text])
+describeImageBuilders_names = Lens.lens (\DescribeImageBuilders' {names} -> names) (\s@DescribeImageBuilders' {} a -> s {names = a} :: DescribeImageBuilders) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | The pagination token to use to retrieve the next page of results for
+-- this operation. If this value is null, it retrieves the first page.
+describeImageBuilders_nextToken :: Lens.Lens' DescribeImageBuilders (Prelude.Maybe Prelude.Text)
+describeImageBuilders_nextToken = Lens.lens (\DescribeImageBuilders' {nextToken} -> nextToken) (\s@DescribeImageBuilders' {} a -> s {nextToken = a} :: DescribeImageBuilders)
+
+-- | The maximum size of each page of results.
+describeImageBuilders_maxResults :: Lens.Lens' DescribeImageBuilders (Prelude.Maybe Prelude.Int)
+describeImageBuilders_maxResults = Lens.lens (\DescribeImageBuilders' {maxResults} -> maxResults) (\s@DescribeImageBuilders' {} a -> s {maxResults = a} :: DescribeImageBuilders)
+
+instance Pager.AWSPager DescribeImageBuilders where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^? describeImageBuildersResponse_nextToken
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? describeImageBuildersResponse_imageBuilders
+              Prelude.. Lens._Just
+        ) =
+      Prelude.Nothing
+    | Prelude.otherwise =
+      Prelude.Just Prelude.$
+        rq
+          Lens.& describeImageBuilders_nextToken
+          Lens..~ rs
+          Lens.^? describeImageBuildersResponse_nextToken
+            Prelude.. Lens._Just
+
+instance Prelude.AWSRequest DescribeImageBuilders where
+  type
+    Rs DescribeImageBuilders =
+      DescribeImageBuildersResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeImageBuildersResponse'
+            Prelude.<$> (x Prelude..?> "NextToken")
+            Prelude.<*> ( x Prelude..?> "ImageBuilders"
+                            Prelude..!@ Prelude.mempty
+                        )
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
+
+instance Prelude.Hashable DescribeImageBuilders
+
+instance Prelude.NFData DescribeImageBuilders
+
+instance Prelude.ToHeaders DescribeImageBuilders where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "PhotonAdminProxyService.DescribeImageBuilders" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
+
+instance Prelude.ToJSON DescribeImageBuilders where
+  toJSON DescribeImageBuilders' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("Names" Prelude..=) Prelude.<$> names,
+            ("NextToken" Prelude..=) Prelude.<$> nextToken,
+            ("MaxResults" Prelude..=) Prelude.<$> maxResults
+          ]
+      )
+
+instance Prelude.ToPath DescribeImageBuilders where
+  toPath = Prelude.const "/"
+
+instance Prelude.ToQuery DescribeImageBuilders where
+  toQuery = Prelude.const Prelude.mempty
+
+-- | /See:/ 'newDescribeImageBuildersResponse' smart constructor.
+data DescribeImageBuildersResponse = DescribeImageBuildersResponse'
+  { -- | The pagination token to use to retrieve the next page of results for
+    -- this operation. If there are no more pages, this value is null.
+    nextToken :: Prelude.Maybe Prelude.Text,
+    -- | Information about the image builders.
+    imageBuilders :: Prelude.Maybe [ImageBuilder],
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
+
+-- |
+-- Create a value of 'DescribeImageBuildersResponse' with all optional fields omitted.
+--
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
+--
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'nextToken', 'describeImageBuildersResponse_nextToken' - The pagination token to use to retrieve the next page of results for
+-- this operation. If there are no more pages, this value is null.
+--
+-- 'imageBuilders', 'describeImageBuildersResponse_imageBuilders' - Information about the image builders.
+--
+-- 'httpStatus', 'describeImageBuildersResponse_httpStatus' - The response's http status code.
+newDescribeImageBuildersResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  DescribeImageBuildersResponse
+newDescribeImageBuildersResponse pHttpStatus_ =
+  DescribeImageBuildersResponse'
+    { nextToken =
+        Prelude.Nothing,
+      imageBuilders = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
+
+-- | The pagination token to use to retrieve the next page of results for
+-- this operation. If there are no more pages, this value is null.
+describeImageBuildersResponse_nextToken :: Lens.Lens' DescribeImageBuildersResponse (Prelude.Maybe Prelude.Text)
+describeImageBuildersResponse_nextToken = Lens.lens (\DescribeImageBuildersResponse' {nextToken} -> nextToken) (\s@DescribeImageBuildersResponse' {} a -> s {nextToken = a} :: DescribeImageBuildersResponse)
 
 -- | Information about the image builders.
-dibsrsImageBuilders :: Lens' DescribeImageBuildersResponse [ImageBuilder]
-dibsrsImageBuilders = lens _dibsrsImageBuilders (\ s a -> s{_dibsrsImageBuilders = a}) . _Default . _Coerce
+describeImageBuildersResponse_imageBuilders :: Lens.Lens' DescribeImageBuildersResponse (Prelude.Maybe [ImageBuilder])
+describeImageBuildersResponse_imageBuilders = Lens.lens (\DescribeImageBuildersResponse' {imageBuilders} -> imageBuilders) (\s@DescribeImageBuildersResponse' {} a -> s {imageBuilders = a} :: DescribeImageBuildersResponse) Prelude.. Lens.mapping Prelude._Coerce
 
--- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
-dibsrsNextToken :: Lens' DescribeImageBuildersResponse (Maybe Text)
-dibsrsNextToken = lens _dibsrsNextToken (\ s a -> s{_dibsrsNextToken = a})
+-- | The response's http status code.
+describeImageBuildersResponse_httpStatus :: Lens.Lens' DescribeImageBuildersResponse Prelude.Int
+describeImageBuildersResponse_httpStatus = Lens.lens (\DescribeImageBuildersResponse' {httpStatus} -> httpStatus) (\s@DescribeImageBuildersResponse' {} a -> s {httpStatus = a} :: DescribeImageBuildersResponse)
 
--- | -- | The response status code.
-dibsrsResponseStatus :: Lens' DescribeImageBuildersResponse Int
-dibsrsResponseStatus = lens _dibsrsResponseStatus (\ s a -> s{_dibsrsResponseStatus = a})
-
-instance NFData DescribeImageBuildersResponse where
+instance Prelude.NFData DescribeImageBuildersResponse

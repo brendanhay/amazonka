@@ -1,144 +1,243 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.CodeBuild.CreateWebhook
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- For an existing AWS CodeBuild build project that has its source code stored in a GitHub repository, enables AWS CodeBuild to begin automatically rebuilding the source code every time a code change is pushed to the repository.
+-- For an existing AWS CodeBuild build project that has its source code
+-- stored in a GitHub or Bitbucket repository, enables AWS CodeBuild to
+-- start rebuilding the source code every time a code change is pushed to
+-- the repository.
 --
---
--- /Important:/ If you enable webhooks for an AWS CodeBuild project, and the project is used as a build step in AWS CodePipeline, then two identical builds will be created for each commit. One build is triggered through webhooks, and one through AWS CodePipeline. Because billing is on a per-build basis, you will be billed for both builds. Therefore, if you are using AWS CodePipeline, we recommend that you disable webhooks in CodeBuild. In the AWS CodeBuild console, clear the Webhook box. For more information, see step 9 in <http://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console Change a Build Project's Settings> .
---
+-- If you enable webhooks for an AWS CodeBuild project, and the project is
+-- used as a build step in AWS CodePipeline, then two identical builds are
+-- created for each commit. One build is triggered through webhooks, and
+-- one through AWS CodePipeline. Because billing is on a per-build basis,
+-- you are billed for both builds. Therefore, if you are using AWS
+-- CodePipeline, we recommend that you disable webhooks in AWS CodeBuild.
+-- In the AWS CodeBuild console, clear the Webhook box. For more
+-- information, see step 5 in
+-- <https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console Change a Build Project\'s Settings>.
 module Network.AWS.CodeBuild.CreateWebhook
-    (
-    -- * Creating a Request
-      createWebhook
-    , CreateWebhook
+  ( -- * Creating a Request
+    CreateWebhook (..),
+    newCreateWebhook,
+
     -- * Request Lenses
-    , cwBranchFilter
-    , cwProjectName
+    createWebhook_branchFilter,
+    createWebhook_filterGroups,
+    createWebhook_buildType,
+    createWebhook_projectName,
 
     -- * Destructuring the Response
-    , createWebhookResponse
-    , CreateWebhookResponse
+    CreateWebhookResponse (..),
+    newCreateWebhookResponse,
+
     -- * Response Lenses
-    , cwrsWebhook
-    , cwrsResponseStatus
-    ) where
+    createWebhookResponse_webhook,
+    createWebhookResponse_httpStatus,
+  )
+where
 
 import Network.AWS.CodeBuild.Types
-import Network.AWS.CodeBuild.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'createWebhook' smart constructor.
+-- | /See:/ 'newCreateWebhook' smart constructor.
 data CreateWebhook = CreateWebhook'
-  { _cwBranchFilter :: !(Maybe Text)
-  , _cwProjectName  :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | A regular expression used to determine which repository branches are
+    -- built when a webhook is triggered. If the name of a branch matches the
+    -- regular expression, then it is built. If @branchFilter@ is empty, then
+    -- all branches are built.
+    --
+    -- It is recommended that you use @filterGroups@ instead of @branchFilter@.
+    branchFilter :: Prelude.Maybe Prelude.Text,
+    -- | An array of arrays of @WebhookFilter@ objects used to determine which
+    -- webhooks are triggered. At least one @WebhookFilter@ in the array must
+    -- specify @EVENT@ as its @type@.
+    --
+    -- For a build to be triggered, at least one filter group in the
+    -- @filterGroups@ array must pass. For a filter group to pass, each of its
+    -- filters must pass.
+    filterGroups :: Prelude.Maybe [[WebhookFilter]],
+    -- | Specifies the type of build this webhook will trigger.
+    buildType :: Prelude.Maybe WebhookBuildType,
+    -- | The name of the AWS CodeBuild project.
+    projectName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateWebhook' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateWebhook' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cwBranchFilter' - A regular expression used to determine which branches in a repository are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If it doesn't match, then it is not. If branchFilter is empty, then all branches are built.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cwProjectName' - The name of the AWS CodeBuild project.
-createWebhook
-    :: Text -- ^ 'cwProjectName'
-    -> CreateWebhook
-createWebhook pProjectName_ =
-  CreateWebhook' {_cwBranchFilter = Nothing, _cwProjectName = pProjectName_}
+-- 'branchFilter', 'createWebhook_branchFilter' - A regular expression used to determine which repository branches are
+-- built when a webhook is triggered. If the name of a branch matches the
+-- regular expression, then it is built. If @branchFilter@ is empty, then
+-- all branches are built.
+--
+-- It is recommended that you use @filterGroups@ instead of @branchFilter@.
+--
+-- 'filterGroups', 'createWebhook_filterGroups' - An array of arrays of @WebhookFilter@ objects used to determine which
+-- webhooks are triggered. At least one @WebhookFilter@ in the array must
+-- specify @EVENT@ as its @type@.
+--
+-- For a build to be triggered, at least one filter group in the
+-- @filterGroups@ array must pass. For a filter group to pass, each of its
+-- filters must pass.
+--
+-- 'buildType', 'createWebhook_buildType' - Specifies the type of build this webhook will trigger.
+--
+-- 'projectName', 'createWebhook_projectName' - The name of the AWS CodeBuild project.
+newCreateWebhook ::
+  -- | 'projectName'
+  Prelude.Text ->
+  CreateWebhook
+newCreateWebhook pProjectName_ =
+  CreateWebhook'
+    { branchFilter = Prelude.Nothing,
+      filterGroups = Prelude.Nothing,
+      buildType = Prelude.Nothing,
+      projectName = pProjectName_
+    }
 
+-- | A regular expression used to determine which repository branches are
+-- built when a webhook is triggered. If the name of a branch matches the
+-- regular expression, then it is built. If @branchFilter@ is empty, then
+-- all branches are built.
+--
+-- It is recommended that you use @filterGroups@ instead of @branchFilter@.
+createWebhook_branchFilter :: Lens.Lens' CreateWebhook (Prelude.Maybe Prelude.Text)
+createWebhook_branchFilter = Lens.lens (\CreateWebhook' {branchFilter} -> branchFilter) (\s@CreateWebhook' {} a -> s {branchFilter = a} :: CreateWebhook)
 
--- | A regular expression used to determine which branches in a repository are built when a webhook is triggered. If the name of a branch matches the regular expression, then it is built. If it doesn't match, then it is not. If branchFilter is empty, then all branches are built.
-cwBranchFilter :: Lens' CreateWebhook (Maybe Text)
-cwBranchFilter = lens _cwBranchFilter (\ s a -> s{_cwBranchFilter = a})
+-- | An array of arrays of @WebhookFilter@ objects used to determine which
+-- webhooks are triggered. At least one @WebhookFilter@ in the array must
+-- specify @EVENT@ as its @type@.
+--
+-- For a build to be triggered, at least one filter group in the
+-- @filterGroups@ array must pass. For a filter group to pass, each of its
+-- filters must pass.
+createWebhook_filterGroups :: Lens.Lens' CreateWebhook (Prelude.Maybe [[WebhookFilter]])
+createWebhook_filterGroups = Lens.lens (\CreateWebhook' {filterGroups} -> filterGroups) (\s@CreateWebhook' {} a -> s {filterGroups = a} :: CreateWebhook) Prelude.. Lens.mapping Prelude._Coerce
+
+-- | Specifies the type of build this webhook will trigger.
+createWebhook_buildType :: Lens.Lens' CreateWebhook (Prelude.Maybe WebhookBuildType)
+createWebhook_buildType = Lens.lens (\CreateWebhook' {buildType} -> buildType) (\s@CreateWebhook' {} a -> s {buildType = a} :: CreateWebhook)
 
 -- | The name of the AWS CodeBuild project.
-cwProjectName :: Lens' CreateWebhook Text
-cwProjectName = lens _cwProjectName (\ s a -> s{_cwProjectName = a})
+createWebhook_projectName :: Lens.Lens' CreateWebhook Prelude.Text
+createWebhook_projectName = Lens.lens (\CreateWebhook' {projectName} -> projectName) (\s@CreateWebhook' {} a -> s {projectName = a} :: CreateWebhook)
 
-instance AWSRequest CreateWebhook where
-        type Rs CreateWebhook = CreateWebhookResponse
-        request = postJSON codeBuild
-        response
-          = receiveJSON
-              (\ s h x ->
-                 CreateWebhookResponse' <$>
-                   (x .?> "webhook") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest CreateWebhook where
+  type Rs CreateWebhook = CreateWebhookResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateWebhookResponse'
+            Prelude.<$> (x Prelude..?> "webhook")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable CreateWebhook where
+instance Prelude.Hashable CreateWebhook
 
-instance NFData CreateWebhook where
+instance Prelude.NFData CreateWebhook
 
-instance ToHeaders CreateWebhook where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("CodeBuild_20161006.CreateWebhook" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders CreateWebhook where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "CodeBuild_20161006.CreateWebhook" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON CreateWebhook where
-        toJSON CreateWebhook'{..}
-          = object
-              (catMaybes
-                 [("branchFilter" .=) <$> _cwBranchFilter,
-                  Just ("projectName" .= _cwProjectName)])
+instance Prelude.ToJSON CreateWebhook where
+  toJSON CreateWebhook' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("branchFilter" Prelude..=)
+              Prelude.<$> branchFilter,
+            ("filterGroups" Prelude..=) Prelude.<$> filterGroups,
+            ("buildType" Prelude..=) Prelude.<$> buildType,
+            Prelude.Just ("projectName" Prelude..= projectName)
+          ]
+      )
 
-instance ToPath CreateWebhook where
-        toPath = const "/"
+instance Prelude.ToPath CreateWebhook where
+  toPath = Prelude.const "/"
 
-instance ToQuery CreateWebhook where
-        toQuery = const mempty
+instance Prelude.ToQuery CreateWebhook where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'createWebhookResponse' smart constructor.
+-- | /See:/ 'newCreateWebhookResponse' smart constructor.
 data CreateWebhookResponse = CreateWebhookResponse'
-  { _cwrsWebhook        :: !(Maybe Webhook)
-  , _cwrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | Information about a webhook that connects repository events to a build
+    -- project in AWS CodeBuild.
+    webhook :: Prelude.Maybe Webhook,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'CreateWebhookResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'CreateWebhookResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'cwrsWebhook' - Information about a webhook in GitHub that connects repository events to a build project in AWS CodeBuild.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'cwrsResponseStatus' - -- | The response status code.
-createWebhookResponse
-    :: Int -- ^ 'cwrsResponseStatus'
-    -> CreateWebhookResponse
-createWebhookResponse pResponseStatus_ =
+-- 'webhook', 'createWebhookResponse_webhook' - Information about a webhook that connects repository events to a build
+-- project in AWS CodeBuild.
+--
+-- 'httpStatus', 'createWebhookResponse_httpStatus' - The response's http status code.
+newCreateWebhookResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  CreateWebhookResponse
+newCreateWebhookResponse pHttpStatus_ =
   CreateWebhookResponse'
-    {_cwrsWebhook = Nothing, _cwrsResponseStatus = pResponseStatus_}
+    { webhook = Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
+-- | Information about a webhook that connects repository events to a build
+-- project in AWS CodeBuild.
+createWebhookResponse_webhook :: Lens.Lens' CreateWebhookResponse (Prelude.Maybe Webhook)
+createWebhookResponse_webhook = Lens.lens (\CreateWebhookResponse' {webhook} -> webhook) (\s@CreateWebhookResponse' {} a -> s {webhook = a} :: CreateWebhookResponse)
 
--- | Information about a webhook in GitHub that connects repository events to a build project in AWS CodeBuild.
-cwrsWebhook :: Lens' CreateWebhookResponse (Maybe Webhook)
-cwrsWebhook = lens _cwrsWebhook (\ s a -> s{_cwrsWebhook = a})
+-- | The response's http status code.
+createWebhookResponse_httpStatus :: Lens.Lens' CreateWebhookResponse Prelude.Int
+createWebhookResponse_httpStatus = Lens.lens (\CreateWebhookResponse' {httpStatus} -> httpStatus) (\s@CreateWebhookResponse' {} a -> s {httpStatus = a} :: CreateWebhookResponse)
 
--- | -- | The response status code.
-cwrsResponseStatus :: Lens' CreateWebhookResponse Int
-cwrsResponseStatus = lens _cwrsResponseStatus (\ s a -> s{_cwrsResponseStatus = a})
-
-instance NFData CreateWebhookResponse where
+instance Prelude.NFData CreateWebhookResponse

@@ -1,137 +1,202 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.IAM.UpdateRole
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates the description or maximum session duration setting of a role.
---
---
 module Network.AWS.IAM.UpdateRole
-    (
-    -- * Creating a Request
-      updateRole
-    , UpdateRole
+  ( -- * Creating a Request
+    UpdateRole (..),
+    newUpdateRole,
+
     -- * Request Lenses
-    , urMaxSessionDuration
-    , urDescription
-    , urRoleName
+    updateRole_maxSessionDuration,
+    updateRole_description,
+    updateRole_roleName,
 
     -- * Destructuring the Response
-    , updateRoleResponse
-    , UpdateRoleResponse
+    UpdateRoleResponse (..),
+    newUpdateRoleResponse,
+
     -- * Response Lenses
-    , urrsResponseStatus
-    ) where
+    updateRoleResponse_httpStatus,
+  )
+where
 
 import Network.AWS.IAM.Types
-import Network.AWS.IAM.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateRole' smart constructor.
+-- | /See:/ 'newUpdateRole' smart constructor.
 data UpdateRole = UpdateRole'
-  { _urMaxSessionDuration :: !(Maybe Nat)
-  , _urDescription        :: !(Maybe Text)
-  , _urRoleName           :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The maximum session duration (in seconds) that you want to set for the
+    -- specified role. If you do not specify a value for this setting, the
+    -- default maximum of one hour is applied. This setting can have a value
+    -- from 1 hour to 12 hours.
+    --
+    -- Anyone who assumes the role from the AWS CLI or API can use the
+    -- @DurationSeconds@ API parameter or the @duration-seconds@ CLI parameter
+    -- to request a longer session. The @MaxSessionDuration@ setting determines
+    -- the maximum duration that can be requested using the @DurationSeconds@
+    -- parameter. If users don\'t specify a value for the @DurationSeconds@
+    -- parameter, their security credentials are valid for one hour by default.
+    -- This applies when you use the @AssumeRole*@ API operations or the
+    -- @assume-role*@ CLI operations but does not apply when you use those
+    -- operations to create a console URL. For more information, see
+    -- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html Using IAM roles>
+    -- in the /IAM User Guide/.
+    maxSessionDuration :: Prelude.Maybe Prelude.Natural,
+    -- | The new description that you want to apply to the specified role.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The name of the role that you want to modify.
+    roleName :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateRole' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateRole' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'urMaxSessionDuration' - The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours. Anyone who assumes the role from the AWS CLI or API can use the @DurationSeconds@ API parameter or the @duration-seconds@ CLI parameter to request a longer session. The @MaxSessionDuration@ setting determines the maximum duration that can be requested using the @DurationSeconds@ parameter. If users don't specify a value for the @DurationSeconds@ parameter, their security credentials are valid for one hour by default. This applies when you use the @AssumeRole*@ API operations or the @assume-role*@ CLI operations but does not apply when you use those operations to create a console URL. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html Using IAM Roles> in the /IAM User Guide/ .
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'urDescription' - The new description that you want to apply to the specified role.
+-- 'maxSessionDuration', 'updateRole_maxSessionDuration' - The maximum session duration (in seconds) that you want to set for the
+-- specified role. If you do not specify a value for this setting, the
+-- default maximum of one hour is applied. This setting can have a value
+-- from 1 hour to 12 hours.
 --
--- * 'urRoleName' - The name of the role that you want to modify.
-updateRole
-    :: Text -- ^ 'urRoleName'
-    -> UpdateRole
-updateRole pRoleName_ =
+-- Anyone who assumes the role from the AWS CLI or API can use the
+-- @DurationSeconds@ API parameter or the @duration-seconds@ CLI parameter
+-- to request a longer session. The @MaxSessionDuration@ setting determines
+-- the maximum duration that can be requested using the @DurationSeconds@
+-- parameter. If users don\'t specify a value for the @DurationSeconds@
+-- parameter, their security credentials are valid for one hour by default.
+-- This applies when you use the @AssumeRole*@ API operations or the
+-- @assume-role*@ CLI operations but does not apply when you use those
+-- operations to create a console URL. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html Using IAM roles>
+-- in the /IAM User Guide/.
+--
+-- 'description', 'updateRole_description' - The new description that you want to apply to the specified role.
+--
+-- 'roleName', 'updateRole_roleName' - The name of the role that you want to modify.
+newUpdateRole ::
+  -- | 'roleName'
+  Prelude.Text ->
+  UpdateRole
+newUpdateRole pRoleName_ =
   UpdateRole'
-    { _urMaxSessionDuration = Nothing
-    , _urDescription = Nothing
-    , _urRoleName = pRoleName_
+    { maxSessionDuration = Prelude.Nothing,
+      description = Prelude.Nothing,
+      roleName = pRoleName_
     }
 
-
--- | The maximum session duration (in seconds) that you want to set for the specified role. If you do not specify a value for this setting, the default maximum of one hour is applied. This setting can have a value from 1 hour to 12 hours. Anyone who assumes the role from the AWS CLI or API can use the @DurationSeconds@ API parameter or the @duration-seconds@ CLI parameter to request a longer session. The @MaxSessionDuration@ setting determines the maximum duration that can be requested using the @DurationSeconds@ parameter. If users don't specify a value for the @DurationSeconds@ parameter, their security credentials are valid for one hour by default. This applies when you use the @AssumeRole*@ API operations or the @assume-role*@ CLI operations but does not apply when you use those operations to create a console URL. For more information, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html Using IAM Roles> in the /IAM User Guide/ .
-urMaxSessionDuration :: Lens' UpdateRole (Maybe Natural)
-urMaxSessionDuration = lens _urMaxSessionDuration (\ s a -> s{_urMaxSessionDuration = a}) . mapping _Nat
+-- | The maximum session duration (in seconds) that you want to set for the
+-- specified role. If you do not specify a value for this setting, the
+-- default maximum of one hour is applied. This setting can have a value
+-- from 1 hour to 12 hours.
+--
+-- Anyone who assumes the role from the AWS CLI or API can use the
+-- @DurationSeconds@ API parameter or the @duration-seconds@ CLI parameter
+-- to request a longer session. The @MaxSessionDuration@ setting determines
+-- the maximum duration that can be requested using the @DurationSeconds@
+-- parameter. If users don\'t specify a value for the @DurationSeconds@
+-- parameter, their security credentials are valid for one hour by default.
+-- This applies when you use the @AssumeRole*@ API operations or the
+-- @assume-role*@ CLI operations but does not apply when you use those
+-- operations to create a console URL. For more information, see
+-- <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html Using IAM roles>
+-- in the /IAM User Guide/.
+updateRole_maxSessionDuration :: Lens.Lens' UpdateRole (Prelude.Maybe Prelude.Natural)
+updateRole_maxSessionDuration = Lens.lens (\UpdateRole' {maxSessionDuration} -> maxSessionDuration) (\s@UpdateRole' {} a -> s {maxSessionDuration = a} :: UpdateRole)
 
 -- | The new description that you want to apply to the specified role.
-urDescription :: Lens' UpdateRole (Maybe Text)
-urDescription = lens _urDescription (\ s a -> s{_urDescription = a})
+updateRole_description :: Lens.Lens' UpdateRole (Prelude.Maybe Prelude.Text)
+updateRole_description = Lens.lens (\UpdateRole' {description} -> description) (\s@UpdateRole' {} a -> s {description = a} :: UpdateRole)
 
 -- | The name of the role that you want to modify.
-urRoleName :: Lens' UpdateRole Text
-urRoleName = lens _urRoleName (\ s a -> s{_urRoleName = a})
+updateRole_roleName :: Lens.Lens' UpdateRole Prelude.Text
+updateRole_roleName = Lens.lens (\UpdateRole' {roleName} -> roleName) (\s@UpdateRole' {} a -> s {roleName = a} :: UpdateRole)
 
-instance AWSRequest UpdateRole where
-        type Rs UpdateRole = UpdateRoleResponse
-        request = postQuery iam
-        response
-          = receiveXMLWrapper "UpdateRoleResult"
-              (\ s h x ->
-                 UpdateRoleResponse' <$> (pure (fromEnum s)))
+instance Prelude.AWSRequest UpdateRole where
+  type Rs UpdateRole = UpdateRoleResponse
+  request = Request.postQuery defaultService
+  response =
+    Response.receiveXMLWrapper
+      "UpdateRoleResult"
+      ( \s h x ->
+          UpdateRoleResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateRole where
+instance Prelude.Hashable UpdateRole
 
-instance NFData UpdateRole where
+instance Prelude.NFData UpdateRole
 
-instance ToHeaders UpdateRole where
-        toHeaders = const mempty
+instance Prelude.ToHeaders UpdateRole where
+  toHeaders = Prelude.const Prelude.mempty
 
-instance ToPath UpdateRole where
-        toPath = const "/"
+instance Prelude.ToPath UpdateRole where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateRole where
-        toQuery UpdateRole'{..}
-          = mconcat
-              ["Action" =: ("UpdateRole" :: ByteString),
-               "Version" =: ("2010-05-08" :: ByteString),
-               "MaxSessionDuration" =: _urMaxSessionDuration,
-               "Description" =: _urDescription,
-               "RoleName" =: _urRoleName]
+instance Prelude.ToQuery UpdateRole where
+  toQuery UpdateRole' {..} =
+    Prelude.mconcat
+      [ "Action"
+          Prelude.=: ("UpdateRole" :: Prelude.ByteString),
+        "Version"
+          Prelude.=: ("2010-05-08" :: Prelude.ByteString),
+        "MaxSessionDuration" Prelude.=: maxSessionDuration,
+        "Description" Prelude.=: description,
+        "RoleName" Prelude.=: roleName
+      ]
 
--- | /See:/ 'updateRoleResponse' smart constructor.
-newtype UpdateRoleResponse = UpdateRoleResponse'
-  { _urrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUpdateRoleResponse' smart constructor.
+data UpdateRoleResponse = UpdateRoleResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateRoleResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateRoleResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'urrsResponseStatus' - -- | The response status code.
-updateRoleResponse
-    :: Int -- ^ 'urrsResponseStatus'
-    -> UpdateRoleResponse
-updateRoleResponse pResponseStatus_ =
-  UpdateRoleResponse' {_urrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'updateRoleResponse_httpStatus' - The response's http status code.
+newUpdateRoleResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateRoleResponse
+newUpdateRoleResponse pHttpStatus_ =
+  UpdateRoleResponse' {httpStatus = pHttpStatus_}
 
+-- | The response's http status code.
+updateRoleResponse_httpStatus :: Lens.Lens' UpdateRoleResponse Prelude.Int
+updateRoleResponse_httpStatus = Lens.lens (\UpdateRoleResponse' {httpStatus} -> httpStatus) (\s@UpdateRoleResponse' {} a -> s {httpStatus = a} :: UpdateRoleResponse)
 
--- | -- | The response status code.
-urrsResponseStatus :: Lens' UpdateRoleResponse Int
-urrsResponseStatus = lens _urrsResponseStatus (\ s a -> s{_urrsResponseStatus = a})
-
-instance NFData UpdateRoleResponse where
+instance Prelude.NFData UpdateRoleResponse

@@ -1,119 +1,169 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.S3.GetBucketLogging
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
--- Returns the logging status of a bucket and the permissions users have to view and modify that status. To use GET, you must be the bucket owner.
+-- Returns the logging status of a bucket and the permissions users have to
+-- view and modify that status. To use GET, you must be the bucket owner.
+--
+-- The following operations are related to @GetBucketLogging@:
+--
+-- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html CreateBucket>
+--
+-- -   <https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLogging.html PutBucketLogging>
 module Network.AWS.S3.GetBucketLogging
-    (
-    -- * Creating a Request
-      getBucketLogging
-    , GetBucketLogging
+  ( -- * Creating a Request
+    GetBucketLogging (..),
+    newGetBucketLogging,
+
     -- * Request Lenses
-    , gBucket
+    getBucketLogging_expectedBucketOwner,
+    getBucketLogging_bucket,
 
     -- * Destructuring the Response
-    , getBucketLoggingResponse
-    , GetBucketLoggingResponse
+    GetBucketLoggingResponse (..),
+    newGetBucketLoggingResponse,
+
     -- * Response Lenses
-    , gblrsLoggingEnabled
-    , gblrsResponseStatus
-    ) where
+    getBucketLoggingResponse_loggingEnabled,
+    getBucketLoggingResponse_httpStatus,
+  )
+where
 
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 import Network.AWS.S3.Types
-import Network.AWS.S3.Types.Product
 
--- | /See:/ 'getBucketLogging' smart constructor.
-newtype GetBucketLogging = GetBucketLogging'
-  { _gBucket :: BucketName
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newGetBucketLogging' smart constructor.
+data GetBucketLogging = GetBucketLogging'
+  { -- | The account id of the expected bucket owner. If the bucket is owned by a
+    -- different account, the request will fail with an HTTP
+    -- @403 (Access Denied)@ error.
+    expectedBucketOwner :: Prelude.Maybe Prelude.Text,
+    -- | The bucket name for which to get the logging information.
+    bucket :: BucketName
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetBucketLogging' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetBucketLogging' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gBucket' - Undocumented member.
-getBucketLogging
-    :: BucketName -- ^ 'gBucket'
-    -> GetBucketLogging
-getBucketLogging pBucket_ = GetBucketLogging' {_gBucket = pBucket_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'expectedBucketOwner', 'getBucketLogging_expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+--
+-- 'bucket', 'getBucketLogging_bucket' - The bucket name for which to get the logging information.
+newGetBucketLogging ::
+  -- | 'bucket'
+  BucketName ->
+  GetBucketLogging
+newGetBucketLogging pBucket_ =
+  GetBucketLogging'
+    { expectedBucketOwner =
+        Prelude.Nothing,
+      bucket = pBucket_
+    }
 
+-- | The account id of the expected bucket owner. If the bucket is owned by a
+-- different account, the request will fail with an HTTP
+-- @403 (Access Denied)@ error.
+getBucketLogging_expectedBucketOwner :: Lens.Lens' GetBucketLogging (Prelude.Maybe Prelude.Text)
+getBucketLogging_expectedBucketOwner = Lens.lens (\GetBucketLogging' {expectedBucketOwner} -> expectedBucketOwner) (\s@GetBucketLogging' {} a -> s {expectedBucketOwner = a} :: GetBucketLogging)
 
--- | Undocumented member.
-gBucket :: Lens' GetBucketLogging BucketName
-gBucket = lens _gBucket (\ s a -> s{_gBucket = a})
+-- | The bucket name for which to get the logging information.
+getBucketLogging_bucket :: Lens.Lens' GetBucketLogging BucketName
+getBucketLogging_bucket = Lens.lens (\GetBucketLogging' {bucket} -> bucket) (\s@GetBucketLogging' {} a -> s {bucket = a} :: GetBucketLogging)
 
-instance AWSRequest GetBucketLogging where
-        type Rs GetBucketLogging = GetBucketLoggingResponse
-        request = get s3
-        response
-          = receiveXML
-              (\ s h x ->
-                 GetBucketLoggingResponse' <$>
-                   (x .@? "LoggingEnabled") <*> (pure (fromEnum s)))
+instance Prelude.AWSRequest GetBucketLogging where
+  type Rs GetBucketLogging = GetBucketLoggingResponse
+  request = Request.get defaultService
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          GetBucketLoggingResponse'
+            Prelude.<$> (x Prelude..@? "LoggingEnabled")
+            Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable GetBucketLogging where
+instance Prelude.Hashable GetBucketLogging
 
-instance NFData GetBucketLogging where
+instance Prelude.NFData GetBucketLogging
 
-instance ToHeaders GetBucketLogging where
-        toHeaders = const mempty
+instance Prelude.ToHeaders GetBucketLogging where
+  toHeaders GetBucketLogging' {..} =
+    Prelude.mconcat
+      [ "x-amz-expected-bucket-owner"
+          Prelude.=# expectedBucketOwner
+      ]
 
-instance ToPath GetBucketLogging where
-        toPath GetBucketLogging'{..}
-          = mconcat ["/", toBS _gBucket]
+instance Prelude.ToPath GetBucketLogging where
+  toPath GetBucketLogging' {..} =
+    Prelude.mconcat ["/", Prelude.toBS bucket]
 
-instance ToQuery GetBucketLogging where
-        toQuery = const (mconcat ["logging"])
+instance Prelude.ToQuery GetBucketLogging where
+  toQuery = Prelude.const (Prelude.mconcat ["logging"])
 
--- | /See:/ 'getBucketLoggingResponse' smart constructor.
+-- | /See:/ 'newGetBucketLoggingResponse' smart constructor.
 data GetBucketLoggingResponse = GetBucketLoggingResponse'
-  { _gblrsLoggingEnabled :: !(Maybe LoggingEnabled)
-  , _gblrsResponseStatus :: !Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { loggingEnabled :: Prelude.Maybe LoggingEnabled,
+    -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'GetBucketLoggingResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'GetBucketLoggingResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'gblrsLoggingEnabled' - Undocumented member.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'gblrsResponseStatus' - -- | The response status code.
-getBucketLoggingResponse
-    :: Int -- ^ 'gblrsResponseStatus'
-    -> GetBucketLoggingResponse
-getBucketLoggingResponse pResponseStatus_ =
+-- 'loggingEnabled', 'getBucketLoggingResponse_loggingEnabled' - Undocumented member.
+--
+-- 'httpStatus', 'getBucketLoggingResponse_httpStatus' - The response's http status code.
+newGetBucketLoggingResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  GetBucketLoggingResponse
+newGetBucketLoggingResponse pHttpStatus_ =
   GetBucketLoggingResponse'
-    {_gblrsLoggingEnabled = Nothing, _gblrsResponseStatus = pResponseStatus_}
-
+    { loggingEnabled =
+        Prelude.Nothing,
+      httpStatus = pHttpStatus_
+    }
 
 -- | Undocumented member.
-gblrsLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
-gblrsLoggingEnabled = lens _gblrsLoggingEnabled (\ s a -> s{_gblrsLoggingEnabled = a})
+getBucketLoggingResponse_loggingEnabled :: Lens.Lens' GetBucketLoggingResponse (Prelude.Maybe LoggingEnabled)
+getBucketLoggingResponse_loggingEnabled = Lens.lens (\GetBucketLoggingResponse' {loggingEnabled} -> loggingEnabled) (\s@GetBucketLoggingResponse' {} a -> s {loggingEnabled = a} :: GetBucketLoggingResponse)
 
--- | -- | The response status code.
-gblrsResponseStatus :: Lens' GetBucketLoggingResponse Int
-gblrsResponseStatus = lens _gblrsResponseStatus (\ s a -> s{_gblrsResponseStatus = a})
+-- | The response's http status code.
+getBucketLoggingResponse_httpStatus :: Lens.Lens' GetBucketLoggingResponse Prelude.Int
+getBucketLoggingResponse_httpStatus = Lens.lens (\GetBucketLoggingResponse' {httpStatus} -> httpStatus) (\s@GetBucketLoggingResponse' {} a -> s {httpStatus = a} :: GetBucketLoggingResponse)
 
-instance NFData GetBucketLoggingResponse where
+instance Prelude.NFData GetBucketLoggingResponse

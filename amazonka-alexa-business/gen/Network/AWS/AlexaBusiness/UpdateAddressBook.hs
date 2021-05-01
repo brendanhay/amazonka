@@ -1,145 +1,173 @@
 {-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
-{-# LANGUAGE TypeFamilies       #-}
-
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DuplicateRecordFields #-}
+{-# LANGUAGE NamedFieldPuns #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE NoImplicitPrelude #-}
+{-# OPTIONS_GHC -fno-warn-unused-binds #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
 -- Module      : Network.AWS.AlexaBusiness.UpdateAddressBook
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
 --
 -- Updates address book details by the address book ARN.
---
---
 module Network.AWS.AlexaBusiness.UpdateAddressBook
-    (
-    -- * Creating a Request
-      updateAddressBook
-    , UpdateAddressBook
+  ( -- * Creating a Request
+    UpdateAddressBook (..),
+    newUpdateAddressBook,
+
     -- * Request Lenses
-    , uabName
-    , uabDescription
-    , uabAddressBookARN
+    updateAddressBook_name,
+    updateAddressBook_description,
+    updateAddressBook_addressBookArn,
 
     -- * Destructuring the Response
-    , updateAddressBookResponse
-    , UpdateAddressBookResponse
+    UpdateAddressBookResponse (..),
+    newUpdateAddressBookResponse,
+
     -- * Response Lenses
-    , uabrsResponseStatus
-    ) where
+    updateAddressBookResponse_httpStatus,
+  )
+where
 
 import Network.AWS.AlexaBusiness.Types
-import Network.AWS.AlexaBusiness.Types.Product
-import Network.AWS.Lens
-import Network.AWS.Prelude
-import Network.AWS.Request
-import Network.AWS.Response
+import qualified Network.AWS.Lens as Lens
+import qualified Network.AWS.Prelude as Prelude
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
--- | /See:/ 'updateAddressBook' smart constructor.
+-- | /See:/ 'newUpdateAddressBook' smart constructor.
 data UpdateAddressBook = UpdateAddressBook'
-  { _uabName           :: !(Maybe Text)
-  , _uabDescription    :: !(Maybe Text)
-  , _uabAddressBookARN :: !Text
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+  { -- | The updated name of the room.
+    name :: Prelude.Maybe Prelude.Text,
+    -- | The updated description of the room.
+    description :: Prelude.Maybe Prelude.Text,
+    -- | The ARN of the room to update.
+    addressBookArn :: Prelude.Text
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateAddressBook' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateAddressBook' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uabName' - The updated name of the room.
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
 --
--- * 'uabDescription' - The updated description of the room.
+-- 'name', 'updateAddressBook_name' - The updated name of the room.
 --
--- * 'uabAddressBookARN' - The ARN of the room to update.
-updateAddressBook
-    :: Text -- ^ 'uabAddressBookARN'
-    -> UpdateAddressBook
-updateAddressBook pAddressBookARN_ =
+-- 'description', 'updateAddressBook_description' - The updated description of the room.
+--
+-- 'addressBookArn', 'updateAddressBook_addressBookArn' - The ARN of the room to update.
+newUpdateAddressBook ::
+  -- | 'addressBookArn'
+  Prelude.Text ->
+  UpdateAddressBook
+newUpdateAddressBook pAddressBookArn_ =
   UpdateAddressBook'
-    { _uabName = Nothing
-    , _uabDescription = Nothing
-    , _uabAddressBookARN = pAddressBookARN_
+    { name = Prelude.Nothing,
+      description = Prelude.Nothing,
+      addressBookArn = pAddressBookArn_
     }
 
-
 -- | The updated name of the room.
-uabName :: Lens' UpdateAddressBook (Maybe Text)
-uabName = lens _uabName (\ s a -> s{_uabName = a})
+updateAddressBook_name :: Lens.Lens' UpdateAddressBook (Prelude.Maybe Prelude.Text)
+updateAddressBook_name = Lens.lens (\UpdateAddressBook' {name} -> name) (\s@UpdateAddressBook' {} a -> s {name = a} :: UpdateAddressBook)
 
 -- | The updated description of the room.
-uabDescription :: Lens' UpdateAddressBook (Maybe Text)
-uabDescription = lens _uabDescription (\ s a -> s{_uabDescription = a})
+updateAddressBook_description :: Lens.Lens' UpdateAddressBook (Prelude.Maybe Prelude.Text)
+updateAddressBook_description = Lens.lens (\UpdateAddressBook' {description} -> description) (\s@UpdateAddressBook' {} a -> s {description = a} :: UpdateAddressBook)
 
 -- | The ARN of the room to update.
-uabAddressBookARN :: Lens' UpdateAddressBook Text
-uabAddressBookARN = lens _uabAddressBookARN (\ s a -> s{_uabAddressBookARN = a})
+updateAddressBook_addressBookArn :: Lens.Lens' UpdateAddressBook Prelude.Text
+updateAddressBook_addressBookArn = Lens.lens (\UpdateAddressBook' {addressBookArn} -> addressBookArn) (\s@UpdateAddressBook' {} a -> s {addressBookArn = a} :: UpdateAddressBook)
 
-instance AWSRequest UpdateAddressBook where
-        type Rs UpdateAddressBook = UpdateAddressBookResponse
-        request = postJSON alexaBusiness
-        response
-          = receiveEmpty
-              (\ s h x ->
-                 UpdateAddressBookResponse' <$> (pure (fromEnum s)))
+instance Prelude.AWSRequest UpdateAddressBook where
+  type Rs UpdateAddressBook = UpdateAddressBookResponse
+  request = Request.postJSON defaultService
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateAddressBookResponse'
+            Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
+      )
 
-instance Hashable UpdateAddressBook where
+instance Prelude.Hashable UpdateAddressBook
 
-instance NFData UpdateAddressBook where
+instance Prelude.NFData UpdateAddressBook
 
-instance ToHeaders UpdateAddressBook where
-        toHeaders
-          = const
-              (mconcat
-                 ["X-Amz-Target" =#
-                    ("AlexaForBusiness.UpdateAddressBook" :: ByteString),
-                  "Content-Type" =#
-                    ("application/x-amz-json-1.1" :: ByteString)])
+instance Prelude.ToHeaders UpdateAddressBook where
+  toHeaders =
+    Prelude.const
+      ( Prelude.mconcat
+          [ "X-Amz-Target"
+              Prelude.=# ( "AlexaForBusiness.UpdateAddressBook" ::
+                             Prelude.ByteString
+                         ),
+            "Content-Type"
+              Prelude.=# ( "application/x-amz-json-1.1" ::
+                             Prelude.ByteString
+                         )
+          ]
+      )
 
-instance ToJSON UpdateAddressBook where
-        toJSON UpdateAddressBook'{..}
-          = object
-              (catMaybes
-                 [("Name" .=) <$> _uabName,
-                  ("Description" .=) <$> _uabDescription,
-                  Just ("AddressBookArn" .= _uabAddressBookARN)])
+instance Prelude.ToJSON UpdateAddressBook where
+  toJSON UpdateAddressBook' {..} =
+    Prelude.object
+      ( Prelude.catMaybes
+          [ ("Name" Prelude..=) Prelude.<$> name,
+            ("Description" Prelude..=) Prelude.<$> description,
+            Prelude.Just
+              ("AddressBookArn" Prelude..= addressBookArn)
+          ]
+      )
 
-instance ToPath UpdateAddressBook where
-        toPath = const "/"
+instance Prelude.ToPath UpdateAddressBook where
+  toPath = Prelude.const "/"
 
-instance ToQuery UpdateAddressBook where
-        toQuery = const mempty
+instance Prelude.ToQuery UpdateAddressBook where
+  toQuery = Prelude.const Prelude.mempty
 
--- | /See:/ 'updateAddressBookResponse' smart constructor.
-newtype UpdateAddressBookResponse = UpdateAddressBookResponse'
-  { _uabrsResponseStatus :: Int
-  } deriving (Eq, Read, Show, Data, Typeable, Generic)
+-- | /See:/ 'newUpdateAddressBookResponse' smart constructor.
+data UpdateAddressBookResponse = UpdateAddressBookResponse'
+  { -- | The response's http status code.
+    httpStatus :: Prelude.Int
+  }
+  deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
-
--- | Creates a value of 'UpdateAddressBookResponse' with the minimum fields required to make a request.
+-- |
+-- Create a value of 'UpdateAddressBookResponse' with all optional fields omitted.
 --
--- Use one of the following lenses to modify other fields as desired:
+-- Use <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify other optional fields.
 --
--- * 'uabrsResponseStatus' - -- | The response status code.
-updateAddressBookResponse
-    :: Int -- ^ 'uabrsResponseStatus'
-    -> UpdateAddressBookResponse
-updateAddressBookResponse pResponseStatus_ =
-  UpdateAddressBookResponse' {_uabrsResponseStatus = pResponseStatus_}
+-- The following record fields are available, with the corresponding lenses provided
+-- for backwards compatibility:
+--
+-- 'httpStatus', 'updateAddressBookResponse_httpStatus' - The response's http status code.
+newUpdateAddressBookResponse ::
+  -- | 'httpStatus'
+  Prelude.Int ->
+  UpdateAddressBookResponse
+newUpdateAddressBookResponse pHttpStatus_ =
+  UpdateAddressBookResponse'
+    { httpStatus =
+        pHttpStatus_
+    }
 
+-- | The response's http status code.
+updateAddressBookResponse_httpStatus :: Lens.Lens' UpdateAddressBookResponse Prelude.Int
+updateAddressBookResponse_httpStatus = Lens.lens (\UpdateAddressBookResponse' {httpStatus} -> httpStatus) (\s@UpdateAddressBookResponse' {} a -> s {httpStatus = a} :: UpdateAddressBookResponse)
 
--- | -- | The response status code.
-uabrsResponseStatus :: Lens' UpdateAddressBookResponse Int
-uabrsResponseStatus = lens _uabrsResponseStatus (\ s a -> s{_uabrsResponseStatus = a})
-
-instance NFData UpdateAddressBookResponse where
+instance Prelude.NFData UpdateAddressBookResponse

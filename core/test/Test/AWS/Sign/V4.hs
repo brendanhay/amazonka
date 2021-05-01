@@ -1,19 +1,17 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE TypeFamilies #-}
 
 -- |
 -- Module      : Test.AWS.Sign.V$
--- Copyright   : (c) 2013-2018 Brendan Hay
+-- Copyright   : (c) 2013-2021 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
---
 module Test.AWS.Sign.V4 (tests) where
 
-import Test.Tasty (TestTree, testGroup)
-
 import qualified Test.AWS.Sign.V4.Chunked as Chunked
+import Test.Tasty (TestTree, testGroup)
 
 -- Write some V4 signing properties:
 --  test canonical query
@@ -27,8 +25,10 @@ import qualified Test.AWS.Sign.V4.Chunked as Chunked
 
 tests :: TestTree
 tests =
-    testGroup "v4"
-        [ testGroup "chunked"
-            [ Chunked.tests
-            ]
+  testGroup
+    "v4"
+    [ testGroup
+        "chunked"
+        [ Chunked.tests
         ]
+    ]

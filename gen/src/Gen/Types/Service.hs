@@ -12,6 +12,7 @@
 
 module Gen.Types.Service where
 
+import Control.Applicative ((<|>))
 import Control.Comonad
 import Control.Comonad.Cofree
 import Control.Lens ((%~), (&), (.~), (<&>), (?~), (^.))
@@ -424,6 +425,7 @@ data Metadata f = Metadata
     _serviceAbbrev :: Text,
     _serviceConfig :: Text,
     _serviceFullName :: Text,
+    _signingName :: Text,
     _apiVersion :: Text,
     _signatureVersion :: !Signature,
     _endpointPrefix :: Text,
@@ -448,6 +450,7 @@ instance FromJSON (Metadata Maybe) where
       <*> o .: "serviceAbbreviation"
       <*> (o .: "serviceAbbreviation" <&> renameServiceFunction)
       <*> (o .: "serviceFullName" <&> renameService)
+      <*> (o .: "signingName" <|> o .: "endpointPrefix")
       <*> o .: "apiVersion"
       <*> o .: "signatureVersion"
       <*> o .: "endpointPrefix"

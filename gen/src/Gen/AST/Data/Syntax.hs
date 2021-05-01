@@ -225,7 +225,8 @@ serviceD m r = Exts.patBindWhere (pvar n) rhs bs
         (unqual "Prelude.Service")
         [ field (unqual "Prelude._svcAbbrev") (str abbrev),
           field (unqual "Prelude._svcSigner") (var sig),
-          field (unqual "Prelude._svcPrefix") (m ^. endpointPrefix . to str),
+          field (unqual "Prelude._svcEndpointPrefix") (m ^. endpointPrefix . to str),
+          field (unqual "Prelude._svcSigningName") (m ^. signingName . to str),
           field (unqual "Prelude._svcVersion") (m ^. apiVersion . to str),
           field (unqual "Prelude._svcEndpoint") (Exts.app (var "Prelude.defaultEndpoint") (var n)),
           field (unqual "Prelude._svcTimeout") (Exts.app justE (Exts.intE 70)),

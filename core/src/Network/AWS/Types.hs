@@ -477,7 +477,8 @@ data Signer = Signer
 data Service = Service
   { _svcAbbrev :: !Abbrev,
     _svcSigner :: !Signer,
-    _svcPrefix :: !ByteString,
+    _svcEndpointPrefix :: !ByteString,
+    _svcSigningName :: !ByteString,
     _svcVersion :: !ByteString,
     _svcEndpoint :: !(Region -> Endpoint),
     _svcTimeout :: !(Maybe Seconds),

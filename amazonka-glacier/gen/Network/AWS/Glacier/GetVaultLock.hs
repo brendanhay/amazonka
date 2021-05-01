@@ -129,7 +129,9 @@ getVaultLock_vaultName = Lens.lens (\GetVaultLock' {vaultName} -> vaultName) (\s
 
 instance Prelude.AWSRequest GetVaultLock where
   type Rs GetVaultLock = GetVaultLockResponse
-  request = Request.get defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->

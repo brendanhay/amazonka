@@ -64,10 +64,10 @@ module Network.AWS.Glacier.InitiateMultipartUpload
     newInitiateMultipartUpload,
 
     -- * Request Lenses
-    initiateMultipartUpload_partSize,
     initiateMultipartUpload_archiveDescription,
     initiateMultipartUpload_accountId,
     initiateMultipartUpload_vaultName,
+    initiateMultipartUpload_partSize,
 
     -- * Destructuring the Response
     InitiateMultipartUploadResponse (..),
@@ -91,10 +91,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newInitiateMultipartUpload' smart constructor.
 data InitiateMultipartUpload = InitiateMultipartUpload'
-  { -- | The size of each part except the last, in bytes. The last part can be
-    -- smaller than this part size.
-    partSize :: Prelude.Maybe Prelude.Text,
-    -- | The archive description that you are uploading in parts.
+  { -- | The archive description that you are uploading in parts.
     --
     -- The part size must be a megabyte (1024 KB) multiplied by a power of 2,
     -- for example 1048576 (1 MB), 2097152 (2 MB), 4194304 (4 MB), 8388608 (8
@@ -108,7 +105,10 @@ data InitiateMultipartUpload = InitiateMultipartUpload'
     -- an account ID, do not include any hyphens (\'-\') in the ID.
     accountId :: Prelude.Text,
     -- | The name of the vault.
-    vaultName :: Prelude.Text
+    vaultName :: Prelude.Text,
+    -- | The size of each part except the last, in bytes. The last part can be
+    -- smaller than this part size.
+    partSize :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
@@ -119,9 +119,6 @@ data InitiateMultipartUpload = InitiateMultipartUpload'
 --
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
---
--- 'partSize', 'initiateMultipartUpload_partSize' - The size of each part except the last, in bytes. The last part can be
--- smaller than this part size.
 --
 -- 'archiveDescription', 'initiateMultipartUpload_archiveDescription' - The archive description that you are uploading in parts.
 --
@@ -137,25 +134,28 @@ data InitiateMultipartUpload = InitiateMultipartUpload'
 -- an account ID, do not include any hyphens (\'-\') in the ID.
 --
 -- 'vaultName', 'initiateMultipartUpload_vaultName' - The name of the vault.
+--
+-- 'partSize', 'initiateMultipartUpload_partSize' - The size of each part except the last, in bytes. The last part can be
+-- smaller than this part size.
 newInitiateMultipartUpload ::
   -- | 'accountId'
   Prelude.Text ->
   -- | 'vaultName'
   Prelude.Text ->
+  -- | 'partSize'
+  Prelude.Text ->
   InitiateMultipartUpload
-newInitiateMultipartUpload pAccountId_ pVaultName_ =
-  InitiateMultipartUpload'
-    { partSize =
-        Prelude.Nothing,
-      archiveDescription = Prelude.Nothing,
-      accountId = pAccountId_,
-      vaultName = pVaultName_
-    }
-
--- | The size of each part except the last, in bytes. The last part can be
--- smaller than this part size.
-initiateMultipartUpload_partSize :: Lens.Lens' InitiateMultipartUpload (Prelude.Maybe Prelude.Text)
-initiateMultipartUpload_partSize = Lens.lens (\InitiateMultipartUpload' {partSize} -> partSize) (\s@InitiateMultipartUpload' {} a -> s {partSize = a} :: InitiateMultipartUpload)
+newInitiateMultipartUpload
+  pAccountId_
+  pVaultName_
+  pPartSize_ =
+    InitiateMultipartUpload'
+      { archiveDescription =
+          Prelude.Nothing,
+        accountId = pAccountId_,
+        vaultName = pVaultName_,
+        partSize = pPartSize_
+      }
 
 -- | The archive description that you are uploading in parts.
 --
@@ -178,11 +178,18 @@ initiateMultipartUpload_accountId = Lens.lens (\InitiateMultipartUpload' {accoun
 initiateMultipartUpload_vaultName :: Lens.Lens' InitiateMultipartUpload Prelude.Text
 initiateMultipartUpload_vaultName = Lens.lens (\InitiateMultipartUpload' {vaultName} -> vaultName) (\s@InitiateMultipartUpload' {} a -> s {vaultName = a} :: InitiateMultipartUpload)
 
+-- | The size of each part except the last, in bytes. The last part can be
+-- smaller than this part size.
+initiateMultipartUpload_partSize :: Lens.Lens' InitiateMultipartUpload Prelude.Text
+initiateMultipartUpload_partSize = Lens.lens (\InitiateMultipartUpload' {partSize} -> partSize) (\s@InitiateMultipartUpload' {} a -> s {partSize = a} :: InitiateMultipartUpload)
+
 instance Prelude.AWSRequest InitiateMultipartUpload where
   type
     Rs InitiateMultipartUpload =
       InitiateMultipartUploadResponse
-  request = Request.postJSON defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -199,9 +206,9 @@ instance Prelude.NFData InitiateMultipartUpload
 instance Prelude.ToHeaders InitiateMultipartUpload where
   toHeaders InitiateMultipartUpload' {..} =
     Prelude.mconcat
-      [ "x-amz-part-size" Prelude.=# partSize,
-        "x-amz-archive-description"
-          Prelude.=# archiveDescription
+      [ "x-amz-archive-description"
+          Prelude.=# archiveDescription,
+        "x-amz-part-size" Prelude.=# partSize
       ]
 
 instance Prelude.ToJSON InitiateMultipartUpload where

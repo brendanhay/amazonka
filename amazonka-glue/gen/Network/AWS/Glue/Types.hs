@@ -1678,7 +1678,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "Glue",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "glue",
+      Prelude._svcEndpointPrefix = "glue",
+      Prelude._svcSigningName = "glue",
       Prelude._svcVersion = "2017-03-31",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

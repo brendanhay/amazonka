@@ -437,7 +437,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "AppStream",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "appstream2",
+      Prelude._svcEndpointPrefix = "appstream2",
+      Prelude._svcSigningName = "appstream",
       Prelude._svcVersion = "2016-12-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

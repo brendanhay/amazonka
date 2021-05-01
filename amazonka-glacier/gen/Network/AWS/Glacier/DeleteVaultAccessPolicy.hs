@@ -110,7 +110,9 @@ instance Prelude.AWSRequest DeleteVaultAccessPolicy where
   type
     Rs DeleteVaultAccessPolicy =
       DeleteVaultAccessPolicyResponse
-  request = Request.delete defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.delete defaultService
   response =
     Response.receiveNull
       DeleteVaultAccessPolicyResponse'

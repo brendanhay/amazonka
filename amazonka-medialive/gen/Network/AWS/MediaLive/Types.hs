@@ -2950,7 +2950,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "MediaLive",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "medialive",
+      Prelude._svcEndpointPrefix = "medialive",
+      Prelude._svcSigningName = "medialive",
       Prelude._svcVersion = "2017-10-14",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

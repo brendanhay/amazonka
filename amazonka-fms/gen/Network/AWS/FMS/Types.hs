@@ -337,7 +337,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "FMS",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "fms",
+      Prelude._svcEndpointPrefix = "fms",
+      Prelude._svcSigningName = "fms",
       Prelude._svcVersion = "2018-01-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

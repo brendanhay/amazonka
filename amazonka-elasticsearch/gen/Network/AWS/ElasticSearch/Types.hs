@@ -742,7 +742,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "ElasticSearch",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "es",
+      Prelude._svcEndpointPrefix = "es",
+      Prelude._svcSigningName = "es",
       Prelude._svcVersion = "2015-01-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

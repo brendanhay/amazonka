@@ -130,7 +130,9 @@ describeVault_vaultName = Lens.lens (\DescribeVault' {vaultName} -> vaultName) (
 
 instance Prelude.AWSRequest DescribeVault where
   type Rs DescribeVault = DescribeVaultOutput
-  request = Request.get defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.get defaultService
   response =
     Response.receiveJSON
       (\s h x -> Prelude.eitherParseJSON x)

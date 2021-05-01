@@ -202,7 +202,9 @@ instance Prelude.AWSRequest ListMultipartUploads where
   type
     Rs ListMultipartUploads =
       ListMultipartUploadsResponse
-  request = Request.get defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -1004,7 +1004,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "ECS",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "ecs",
+      Prelude._svcEndpointPrefix = "ecs",
+      Prelude._svcSigningName = "ecs",
       Prelude._svcVersion = "2014-11-13",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

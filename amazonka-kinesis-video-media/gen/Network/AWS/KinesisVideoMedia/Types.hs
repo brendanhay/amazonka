@@ -50,7 +50,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "KinesisVideoMedia",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "kinesisvideo",
+      Prelude._svcEndpointPrefix = "kinesisvideo",
+      Prelude._svcSigningName = "kinesisvideo",
       Prelude._svcVersion = "2017-09-30",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

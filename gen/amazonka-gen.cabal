@@ -1,5 +1,4 @@
 cabal-version:      2.2
-
 name:               amazonka-gen
 version:            1.6.1
 synopsis:           Amazonka Code Generator

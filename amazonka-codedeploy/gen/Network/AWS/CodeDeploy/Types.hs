@@ -740,7 +740,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "CodeDeploy",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "codedeploy",
+      Prelude._svcEndpointPrefix = "codedeploy",
+      Prelude._svcSigningName = "codedeploy",
       Prelude._svcVersion = "2014-10-06",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

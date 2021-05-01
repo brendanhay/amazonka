@@ -733,7 +733,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "CodePipeline",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "codepipeline",
+      Prelude._svcEndpointPrefix = "codepipeline",
+      Prelude._svcSigningName = "codepipeline",
       Prelude._svcVersion = "2015-07-09",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

@@ -148,7 +148,9 @@ instance Prelude.AWSRequest SetVaultNotifications where
   type
     Rs SetVaultNotifications =
       SetVaultNotificationsResponse
-  request = Request.putJSON defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.putJSON defaultService
   response =
     Response.receiveNull SetVaultNotificationsResponse'
 

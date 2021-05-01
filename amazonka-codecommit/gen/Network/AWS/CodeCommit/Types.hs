@@ -783,7 +783,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "CodeCommit",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "codecommit",
+      Prelude._svcEndpointPrefix = "codecommit",
+      Prelude._svcSigningName = "codecommit",
       Prelude._svcVersion = "2015-04-13",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

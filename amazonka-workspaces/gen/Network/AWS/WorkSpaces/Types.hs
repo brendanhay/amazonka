@@ -444,7 +444,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "WorkSpaces",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "workspaces",
+      Prelude._svcEndpointPrefix = "workspaces",
+      Prelude._svcSigningName = "workspaces",
       Prelude._svcVersion = "2015-04-08",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

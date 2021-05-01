@@ -525,7 +525,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "WAF",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "waf",
+      Prelude._svcEndpointPrefix = "waf",
+      Prelude._svcSigningName = "waf",
       Prelude._svcVersion = "2015-08-24",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

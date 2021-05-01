@@ -98,7 +98,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "ResourceGroupsTagging",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "tagging",
+      Prelude._svcEndpointPrefix = "tagging",
+      Prelude._svcSigningName = "tagging",
       Prelude._svcVersion = "2017-01-26",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

@@ -90,7 +90,9 @@ instance Prelude.AWSRequest ListProvisionedCapacity where
   type
     Rs ListProvisionedCapacity =
       ListProvisionedCapacityResponse
-  request = Request.get defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->

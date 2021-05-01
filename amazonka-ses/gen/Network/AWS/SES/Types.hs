@@ -456,7 +456,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "SES",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "email",
+      Prelude._svcEndpointPrefix = "email",
+      Prelude._svcSigningName = "ses",
       Prelude._svcVersion = "2010-12-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

@@ -169,7 +169,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "ResourceGroups",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "resource-groups",
+      Prelude._svcEndpointPrefix = "resource-groups",
+      Prelude._svcSigningName = "resource-groups",
       Prelude._svcVersion = "2017-11-27",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

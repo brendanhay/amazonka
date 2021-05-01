@@ -150,7 +150,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "Route53Domains",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "route53domains",
+      Prelude._svcEndpointPrefix = "route53domains",
+      Prelude._svcSigningName = "route53domains",
       Prelude._svcVersion = "2014-05-15",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

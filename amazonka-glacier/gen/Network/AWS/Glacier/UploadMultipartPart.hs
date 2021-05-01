@@ -75,11 +75,11 @@ module Network.AWS.Glacier.UploadMultipartPart
     newUploadMultipartPart,
 
     -- * Request Lenses
-    uploadMultipartPart_range,
-    uploadMultipartPart_checksum,
     uploadMultipartPart_accountId,
     uploadMultipartPart_vaultName,
     uploadMultipartPart_uploadId,
+    uploadMultipartPart_range,
+    uploadMultipartPart_checksum,
     uploadMultipartPart_body,
 
     -- * Destructuring the Response
@@ -103,14 +103,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newUploadMultipartPart' smart constructor.
 data UploadMultipartPart = UploadMultipartPart'
-  { -- | Identifies the range of bytes in the assembled archive that will be
-    -- uploaded in this part. Amazon S3 Glacier uses this information to
-    -- assemble the archive in the proper sequence. The format of this header
-    -- follows RFC 2616. An example header is Content-Range:bytes 0-4194303\/*.
-    range :: Prelude.Maybe Prelude.Text,
-    -- | The SHA256 tree hash of the data being uploaded.
-    checksum :: Prelude.Maybe Prelude.Text,
-    -- | The @AccountId@ value is the AWS account ID of the account that owns the
+  { -- | The @AccountId@ value is the AWS account ID of the account that owns the
     -- vault. You can either specify an AWS account ID or optionally a single
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
@@ -120,6 +113,13 @@ data UploadMultipartPart = UploadMultipartPart'
     vaultName :: Prelude.Text,
     -- | The upload ID of the multipart upload.
     uploadId :: Prelude.Text,
+    -- | Identifies the range of bytes in the assembled archive that will be
+    -- uploaded in this part. Amazon S3 Glacier uses this information to
+    -- assemble the archive in the proper sequence. The format of this header
+    -- follows RFC 2616. An example header is Content-Range:bytes 0-4194303\/*.
+    range :: Prelude.Text,
+    -- | The SHA256 tree hash of the data being uploaded.
+    checksum :: Prelude.Text,
     -- | The data to upload.
     body :: Prelude.HashedBody
   }
@@ -133,13 +133,6 @@ data UploadMultipartPart = UploadMultipartPart'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'range', 'uploadMultipartPart_range' - Identifies the range of bytes in the assembled archive that will be
--- uploaded in this part. Amazon S3 Glacier uses this information to
--- assemble the archive in the proper sequence. The format of this header
--- follows RFC 2616. An example header is Content-Range:bytes 0-4194303\/*.
---
--- 'checksum', 'uploadMultipartPart_checksum' - The SHA256 tree hash of the data being uploaded.
---
 -- 'accountId', 'uploadMultipartPart_accountId' - The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
@@ -150,6 +143,13 @@ data UploadMultipartPart = UploadMultipartPart'
 --
 -- 'uploadId', 'uploadMultipartPart_uploadId' - The upload ID of the multipart upload.
 --
+-- 'range', 'uploadMultipartPart_range' - Identifies the range of bytes in the assembled archive that will be
+-- uploaded in this part. Amazon S3 Glacier uses this information to
+-- assemble the archive in the proper sequence. The format of this header
+-- follows RFC 2616. An example header is Content-Range:bytes 0-4194303\/*.
+--
+-- 'checksum', 'uploadMultipartPart_checksum' - The SHA256 tree hash of the data being uploaded.
+--
 -- 'body', 'uploadMultipartPart_body' - The data to upload.
 newUploadMultipartPart ::
   -- | 'accountId'
@@ -158,6 +158,10 @@ newUploadMultipartPart ::
   Prelude.Text ->
   -- | 'uploadId'
   Prelude.Text ->
+  -- | 'range'
+  Prelude.Text ->
+  -- | 'checksum'
+  Prelude.Text ->
   -- | 'body'
   Prelude.HashedBody ->
   UploadMultipartPart
@@ -165,26 +169,17 @@ newUploadMultipartPart
   pAccountId_
   pVaultName_
   pUploadId_
+  pRange_
+  pChecksum_
   pBody_ =
     UploadMultipartPart'
-      { range = Prelude.Nothing,
-        checksum = Prelude.Nothing,
-        accountId = pAccountId_,
+      { accountId = pAccountId_,
         vaultName = pVaultName_,
         uploadId = pUploadId_,
+        range = pRange_,
+        checksum = pChecksum_,
         body = pBody_
       }
-
--- | Identifies the range of bytes in the assembled archive that will be
--- uploaded in this part. Amazon S3 Glacier uses this information to
--- assemble the archive in the proper sequence. The format of this header
--- follows RFC 2616. An example header is Content-Range:bytes 0-4194303\/*.
-uploadMultipartPart_range :: Lens.Lens' UploadMultipartPart (Prelude.Maybe Prelude.Text)
-uploadMultipartPart_range = Lens.lens (\UploadMultipartPart' {range} -> range) (\s@UploadMultipartPart' {} a -> s {range = a} :: UploadMultipartPart)
-
--- | The SHA256 tree hash of the data being uploaded.
-uploadMultipartPart_checksum :: Lens.Lens' UploadMultipartPart (Prelude.Maybe Prelude.Text)
-uploadMultipartPart_checksum = Lens.lens (\UploadMultipartPart' {checksum} -> checksum) (\s@UploadMultipartPart' {} a -> s {checksum = a} :: UploadMultipartPart)
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
@@ -202,6 +197,17 @@ uploadMultipartPart_vaultName = Lens.lens (\UploadMultipartPart' {vaultName} -> 
 uploadMultipartPart_uploadId :: Lens.Lens' UploadMultipartPart Prelude.Text
 uploadMultipartPart_uploadId = Lens.lens (\UploadMultipartPart' {uploadId} -> uploadId) (\s@UploadMultipartPart' {} a -> s {uploadId = a} :: UploadMultipartPart)
 
+-- | Identifies the range of bytes in the assembled archive that will be
+-- uploaded in this part. Amazon S3 Glacier uses this information to
+-- assemble the archive in the proper sequence. The format of this header
+-- follows RFC 2616. An example header is Content-Range:bytes 0-4194303\/*.
+uploadMultipartPart_range :: Lens.Lens' UploadMultipartPart Prelude.Text
+uploadMultipartPart_range = Lens.lens (\UploadMultipartPart' {range} -> range) (\s@UploadMultipartPart' {} a -> s {range = a} :: UploadMultipartPart)
+
+-- | The SHA256 tree hash of the data being uploaded.
+uploadMultipartPart_checksum :: Lens.Lens' UploadMultipartPart Prelude.Text
+uploadMultipartPart_checksum = Lens.lens (\UploadMultipartPart' {checksum} -> checksum) (\s@UploadMultipartPart' {} a -> s {checksum = a} :: UploadMultipartPart)
+
 -- | The data to upload.
 uploadMultipartPart_body :: Lens.Lens' UploadMultipartPart Prelude.HashedBody
 uploadMultipartPart_body = Lens.lens (\UploadMultipartPart' {body} -> body) (\s@UploadMultipartPart' {} a -> s {body = a} :: UploadMultipartPart)
@@ -210,7 +216,9 @@ instance Prelude.AWSRequest UploadMultipartPart where
   type
     Rs UploadMultipartPart =
       UploadMultipartPartResponse
-  request = Request.putBody defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.putBody defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->

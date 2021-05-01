@@ -712,7 +712,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "AlexaBusiness",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "a4b",
+      Prelude._svcEndpointPrefix = "a4b",
+      Prelude._svcSigningName = "a4b",
       Prelude._svcVersion = "2017-11-09",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

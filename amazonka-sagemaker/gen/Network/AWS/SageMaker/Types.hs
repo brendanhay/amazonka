@@ -3537,7 +3537,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "SageMaker",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "api.sagemaker",
+      Prelude._svcEndpointPrefix = "api.sagemaker",
+      Prelude._svcSigningName = "sagemaker",
       Prelude._svcVersion = "2017-07-24",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

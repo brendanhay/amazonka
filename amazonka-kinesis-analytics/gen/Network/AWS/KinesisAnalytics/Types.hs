@@ -473,7 +473,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "KinesisAnalytics",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "kinesisanalytics",
+      Prelude._svcEndpointPrefix = "kinesisanalytics",
+      Prelude._svcSigningName = "kinesisanalytics",
       Prelude._svcVersion = "2015-08-14",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

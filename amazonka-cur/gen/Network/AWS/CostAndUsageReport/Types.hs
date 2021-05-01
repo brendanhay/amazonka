@@ -79,7 +79,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "CostAndUsageReport",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "cur",
+      Prelude._svcEndpointPrefix = "cur",
+      Prelude._svcSigningName = "cur",
       Prelude._svcVersion = "2017-01-06",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

@@ -87,7 +87,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "Mobile",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "mobile",
+      Prelude._svcEndpointPrefix = "mobile",
+      Prelude._svcSigningName = "AWSMobileHubService",
       Prelude._svcVersion = "2017-07-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

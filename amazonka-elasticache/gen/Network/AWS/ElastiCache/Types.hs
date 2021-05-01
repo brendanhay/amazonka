@@ -802,7 +802,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "ElastiCache",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "elasticache",
+      Prelude._svcEndpointPrefix = "elasticache",
+      Prelude._svcSigningName = "elasticache",
       Prelude._svcVersion = "2015-02-02",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

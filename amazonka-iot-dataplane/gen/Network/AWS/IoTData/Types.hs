@@ -40,7 +40,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "IoTData",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "data.iot",
+      Prelude._svcEndpointPrefix = "data.iot",
+      Prelude._svcSigningName = "iotdata",
       Prelude._svcVersion = "2015-05-28",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

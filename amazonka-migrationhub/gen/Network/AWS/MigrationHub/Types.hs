@@ -117,7 +117,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "MigrationHub",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "mgh",
+      Prelude._svcEndpointPrefix = "mgh",
+      Prelude._svcSigningName = "mgh",
       Prelude._svcVersion = "2017-05-31",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

@@ -487,7 +487,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "DirectoryService",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "ds",
+      Prelude._svcEndpointPrefix = "ds",
+      Prelude._svcSigningName = "ds",
       Prelude._svcVersion = "2015-04-16",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

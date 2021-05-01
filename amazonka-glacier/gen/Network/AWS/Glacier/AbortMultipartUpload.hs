@@ -143,7 +143,9 @@ instance Prelude.AWSRequest AbortMultipartUpload where
   type
     Rs AbortMultipartUpload =
       AbortMultipartUploadResponse
-  request = Request.delete defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.delete defaultService
   response =
     Response.receiveNull AbortMultipartUploadResponse'
 

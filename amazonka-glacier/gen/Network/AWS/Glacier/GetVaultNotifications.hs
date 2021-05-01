@@ -125,7 +125,9 @@ instance Prelude.AWSRequest GetVaultNotifications where
   type
     Rs GetVaultNotifications =
       GetVaultNotificationsResponse
-  request = Request.get defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -155,7 +155,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "DataPipeline",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "datapipeline",
+      Prelude._svcEndpointPrefix = "datapipeline",
+      Prelude._svcSigningName = "datapipeline",
       Prelude._svcVersion = "2012-10-29",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

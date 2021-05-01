@@ -631,7 +631,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "IoTAnalytics",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "iotanalytics",
+      Prelude._svcEndpointPrefix = "iotanalytics",
+      Prelude._svcSigningName = "iotanalytics",
       Prelude._svcVersion = "2017-11-27",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

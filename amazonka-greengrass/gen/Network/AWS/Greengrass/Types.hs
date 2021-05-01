@@ -436,7 +436,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "Greengrass",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "greengrass",
+      Prelude._svcEndpointPrefix = "greengrass",
+      Prelude._svcSigningName = "greengrass",
       Prelude._svcVersion = "2017-06-07",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

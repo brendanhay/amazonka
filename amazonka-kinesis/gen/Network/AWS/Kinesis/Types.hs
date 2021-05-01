@@ -226,7 +226,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "Kinesis",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "kinesis",
+      Prelude._svcEndpointPrefix = "kinesis",
+      Prelude._svcSigningName = "kinesis",
       Prelude._svcVersion = "2013-12-02",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

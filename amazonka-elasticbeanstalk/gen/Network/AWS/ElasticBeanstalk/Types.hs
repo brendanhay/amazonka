@@ -677,7 +677,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "ElasticBeanstalk",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "elasticbeanstalk",
+      Prelude._svcEndpointPrefix = "elasticbeanstalk",
+      Prelude._svcSigningName = "elasticbeanstalk",
       Prelude._svcVersion = "2010-12-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

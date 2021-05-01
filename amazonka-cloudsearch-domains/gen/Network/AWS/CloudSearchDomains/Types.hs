@@ -121,7 +121,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "CloudSearchDomains",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "cloudsearchdomain",
+      Prelude._svcEndpointPrefix = "cloudsearchdomain",
+      Prelude._svcSigningName = "cloudsearch",
       Prelude._svcVersion = "2013-01-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

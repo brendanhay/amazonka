@@ -280,7 +280,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "MechanicalTurk",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "mturk-requester",
+      Prelude._svcEndpointPrefix = "mturk-requester",
+      Prelude._svcSigningName = "mturk-requester",
       Prelude._svcVersion = "2017-01-17",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

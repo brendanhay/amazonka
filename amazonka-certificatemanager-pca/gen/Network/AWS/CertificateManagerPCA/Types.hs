@@ -297,7 +297,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "CertificateManagerPCA",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "acm-pca",
+      Prelude._svcEndpointPrefix = "acm-pca",
+      Prelude._svcSigningName = "acm-pca",
       Prelude._svcVersion = "2017-08-22",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

@@ -1212,7 +1212,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "CloudFront",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "cloudfront",
+      Prelude._svcEndpointPrefix = "cloudfront",
+      Prelude._svcSigningName = "cloudfront",
       Prelude._svcVersion = "2020-05-31",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

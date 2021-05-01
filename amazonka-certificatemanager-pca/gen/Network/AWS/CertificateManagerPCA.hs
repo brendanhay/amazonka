@@ -1,8 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
 -- |
 -- Module      : Network.AWS.CertificateManagerPCA
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -10,6 +8,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from API version @2017-08-22@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- This is the /ACM Private CA API Reference/. It provides descriptions,
 -- syntax, and usage examples for each of the actions and data types

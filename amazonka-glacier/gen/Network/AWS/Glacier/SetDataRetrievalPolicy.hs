@@ -110,7 +110,9 @@ instance Prelude.AWSRequest SetDataRetrievalPolicy where
   type
     Rs SetDataRetrievalPolicy =
       SetDataRetrievalPolicyResponse
-  request = Request.putJSON defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.putJSON defaultService
   response =
     Response.receiveNull
       SetDataRetrievalPolicyResponse'

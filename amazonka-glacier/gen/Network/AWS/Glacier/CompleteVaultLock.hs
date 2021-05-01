@@ -133,7 +133,9 @@ completeVaultLock_lockId = Lens.lens (\CompleteVaultLock' {lockId} -> lockId) (\
 
 instance Prelude.AWSRequest CompleteVaultLock where
   type Rs CompleteVaultLock = CompleteVaultLockResponse
-  request = Request.postJSON defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.postJSON defaultService
   response =
     Response.receiveNull CompleteVaultLockResponse'
 

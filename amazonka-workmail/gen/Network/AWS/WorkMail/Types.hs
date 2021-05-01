@@ -218,7 +218,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "WorkMail",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "workmail",
+      Prelude._svcEndpointPrefix = "workmail",
+      Prelude._svcSigningName = "workmail",
       Prelude._svcVersion = "2017-10-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

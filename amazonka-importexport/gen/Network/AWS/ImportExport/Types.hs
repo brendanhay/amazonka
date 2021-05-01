@@ -71,7 +71,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "ImportExport",
       Prelude._svcSigner = Sign.v2,
-      Prelude._svcPrefix = "importexport",
+      Prelude._svcEndpointPrefix = "importexport",
+      Prelude._svcSigningName = "importexport",
       Prelude._svcVersion = "2010-06-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

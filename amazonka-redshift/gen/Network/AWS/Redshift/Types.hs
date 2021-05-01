@@ -912,7 +912,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "Redshift",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "redshift",
+      Prelude._svcEndpointPrefix = "redshift",
+      Prelude._svcSigningName = "redshift",
       Prelude._svcVersion = "2012-12-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

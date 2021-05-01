@@ -97,7 +97,9 @@ instance Prelude.AWSRequest GetDataRetrievalPolicy where
   type
     Rs GetDataRetrievalPolicy =
       GetDataRetrievalPolicyResponse
-  request = Request.get defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->

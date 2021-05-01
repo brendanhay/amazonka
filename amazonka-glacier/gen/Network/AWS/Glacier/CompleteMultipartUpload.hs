@@ -74,11 +74,11 @@ module Network.AWS.Glacier.CompleteMultipartUpload
     newCompleteMultipartUpload,
 
     -- * Request Lenses
-    completeMultipartUpload_archiveSize,
-    completeMultipartUpload_checksum,
     completeMultipartUpload_accountId,
     completeMultipartUpload_vaultName,
     completeMultipartUpload_uploadId,
+    completeMultipartUpload_archiveSize,
+    completeMultipartUpload_checksum,
 
     -- * Destructuring the Response
     ArchiveCreationOutput (..),
@@ -105,16 +105,7 @@ import qualified Network.AWS.Response as Response
 --
 -- /See:/ 'newCompleteMultipartUpload' smart constructor.
 data CompleteMultipartUpload = CompleteMultipartUpload'
-  { -- | The total size, in bytes, of the entire archive. This value should be
-    -- the sum of all the sizes of the individual parts that you uploaded.
-    archiveSize :: Prelude.Maybe Prelude.Text,
-    -- | The SHA256 tree hash of the entire archive. It is the tree hash of
-    -- SHA256 tree hash of the individual parts. If the value you specify in
-    -- the request does not match the SHA256 tree hash of the final assembled
-    -- archive as computed by Amazon S3 Glacier (Glacier), Glacier returns an
-    -- error and the request fails.
-    checksum :: Prelude.Maybe Prelude.Text,
-    -- | The @AccountId@ value is the AWS account ID of the account that owns the
+  { -- | The @AccountId@ value is the AWS account ID of the account that owns the
     -- vault. You can either specify an AWS account ID or optionally a single
     -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
     -- ID associated with the credentials used to sign the request. If you use
@@ -123,7 +114,16 @@ data CompleteMultipartUpload = CompleteMultipartUpload'
     -- | The name of the vault.
     vaultName :: Prelude.Text,
     -- | The upload ID of the multipart upload.
-    uploadId :: Prelude.Text
+    uploadId :: Prelude.Text,
+    -- | The total size, in bytes, of the entire archive. This value should be
+    -- the sum of all the sizes of the individual parts that you uploaded.
+    archiveSize :: Prelude.Text,
+    -- | The SHA256 tree hash of the entire archive. It is the tree hash of
+    -- SHA256 tree hash of the individual parts. If the value you specify in
+    -- the request does not match the SHA256 tree hash of the final assembled
+    -- archive as computed by Amazon S3 Glacier (Glacier), Glacier returns an
+    -- error and the request fails.
+    checksum :: Prelude.Text
   }
   deriving (Prelude.Eq, Prelude.Read, Prelude.Show, Prelude.Data, Prelude.Typeable, Prelude.Generic)
 
@@ -135,15 +135,6 @@ data CompleteMultipartUpload = CompleteMultipartUpload'
 -- The following record fields are available, with the corresponding lenses provided
 -- for backwards compatibility:
 --
--- 'archiveSize', 'completeMultipartUpload_archiveSize' - The total size, in bytes, of the entire archive. This value should be
--- the sum of all the sizes of the individual parts that you uploaded.
---
--- 'checksum', 'completeMultipartUpload_checksum' - The SHA256 tree hash of the entire archive. It is the tree hash of
--- SHA256 tree hash of the individual parts. If the value you specify in
--- the request does not match the SHA256 tree hash of the final assembled
--- archive as computed by Amazon S3 Glacier (Glacier), Glacier returns an
--- error and the request fails.
---
 -- 'accountId', 'completeMultipartUpload_accountId' - The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
 -- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account
@@ -153,6 +144,15 @@ data CompleteMultipartUpload = CompleteMultipartUpload'
 -- 'vaultName', 'completeMultipartUpload_vaultName' - The name of the vault.
 --
 -- 'uploadId', 'completeMultipartUpload_uploadId' - The upload ID of the multipart upload.
+--
+-- 'archiveSize', 'completeMultipartUpload_archiveSize' - The total size, in bytes, of the entire archive. This value should be
+-- the sum of all the sizes of the individual parts that you uploaded.
+--
+-- 'checksum', 'completeMultipartUpload_checksum' - The SHA256 tree hash of the entire archive. It is the tree hash of
+-- SHA256 tree hash of the individual parts. If the value you specify in
+-- the request does not match the SHA256 tree hash of the final assembled
+-- archive as computed by Amazon S3 Glacier (Glacier), Glacier returns an
+-- error and the request fails.
 newCompleteMultipartUpload ::
   -- | 'accountId'
   Prelude.Text ->
@@ -160,32 +160,24 @@ newCompleteMultipartUpload ::
   Prelude.Text ->
   -- | 'uploadId'
   Prelude.Text ->
+  -- | 'archiveSize'
+  Prelude.Text ->
+  -- | 'checksum'
+  Prelude.Text ->
   CompleteMultipartUpload
 newCompleteMultipartUpload
   pAccountId_
   pVaultName_
-  pUploadId_ =
+  pUploadId_
+  pArchiveSize_
+  pChecksum_ =
     CompleteMultipartUpload'
-      { archiveSize =
-          Prelude.Nothing,
-        checksum = Prelude.Nothing,
-        accountId = pAccountId_,
+      { accountId = pAccountId_,
         vaultName = pVaultName_,
-        uploadId = pUploadId_
+        uploadId = pUploadId_,
+        archiveSize = pArchiveSize_,
+        checksum = pChecksum_
       }
-
--- | The total size, in bytes, of the entire archive. This value should be
--- the sum of all the sizes of the individual parts that you uploaded.
-completeMultipartUpload_archiveSize :: Lens.Lens' CompleteMultipartUpload (Prelude.Maybe Prelude.Text)
-completeMultipartUpload_archiveSize = Lens.lens (\CompleteMultipartUpload' {archiveSize} -> archiveSize) (\s@CompleteMultipartUpload' {} a -> s {archiveSize = a} :: CompleteMultipartUpload)
-
--- | The SHA256 tree hash of the entire archive. It is the tree hash of
--- SHA256 tree hash of the individual parts. If the value you specify in
--- the request does not match the SHA256 tree hash of the final assembled
--- archive as computed by Amazon S3 Glacier (Glacier), Glacier returns an
--- error and the request fails.
-completeMultipartUpload_checksum :: Lens.Lens' CompleteMultipartUpload (Prelude.Maybe Prelude.Text)
-completeMultipartUpload_checksum = Lens.lens (\CompleteMultipartUpload' {checksum} -> checksum) (\s@CompleteMultipartUpload' {} a -> s {checksum = a} :: CompleteMultipartUpload)
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
@@ -203,11 +195,26 @@ completeMultipartUpload_vaultName = Lens.lens (\CompleteMultipartUpload' {vaultN
 completeMultipartUpload_uploadId :: Lens.Lens' CompleteMultipartUpload Prelude.Text
 completeMultipartUpload_uploadId = Lens.lens (\CompleteMultipartUpload' {uploadId} -> uploadId) (\s@CompleteMultipartUpload' {} a -> s {uploadId = a} :: CompleteMultipartUpload)
 
+-- | The total size, in bytes, of the entire archive. This value should be
+-- the sum of all the sizes of the individual parts that you uploaded.
+completeMultipartUpload_archiveSize :: Lens.Lens' CompleteMultipartUpload Prelude.Text
+completeMultipartUpload_archiveSize = Lens.lens (\CompleteMultipartUpload' {archiveSize} -> archiveSize) (\s@CompleteMultipartUpload' {} a -> s {archiveSize = a} :: CompleteMultipartUpload)
+
+-- | The SHA256 tree hash of the entire archive. It is the tree hash of
+-- SHA256 tree hash of the individual parts. If the value you specify in
+-- the request does not match the SHA256 tree hash of the final assembled
+-- archive as computed by Amazon S3 Glacier (Glacier), Glacier returns an
+-- error and the request fails.
+completeMultipartUpload_checksum :: Lens.Lens' CompleteMultipartUpload Prelude.Text
+completeMultipartUpload_checksum = Lens.lens (\CompleteMultipartUpload' {checksum} -> checksum) (\s@CompleteMultipartUpload' {} a -> s {checksum = a} :: CompleteMultipartUpload)
+
 instance Prelude.AWSRequest CompleteMultipartUpload where
   type
     Rs CompleteMultipartUpload =
       ArchiveCreationOutput
-  request = Request.postJSON defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->

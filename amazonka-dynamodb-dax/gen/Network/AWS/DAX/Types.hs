@@ -218,7 +218,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "DAX",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "dax",
+      Prelude._svcEndpointPrefix = "dax",
+      Prelude._svcSigningName = "dax",
       Prelude._svcVersion = "2017-04-19",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

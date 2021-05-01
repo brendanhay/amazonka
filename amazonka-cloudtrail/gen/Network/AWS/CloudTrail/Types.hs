@@ -211,7 +211,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "CloudTrail",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "cloudtrail",
+      Prelude._svcEndpointPrefix = "cloudtrail",
+      Prelude._svcSigningName = "cloudtrail",
       Prelude._svcVersion = "2013-11-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

@@ -405,7 +405,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "SMS",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "sms",
+      Prelude._svcEndpointPrefix = "sms",
+      Prelude._svcSigningName = "sms",
       Prelude._svcVersion = "2016-10-24",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

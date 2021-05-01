@@ -934,7 +934,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "EMR",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "elasticmapreduce",
+      Prelude._svcEndpointPrefix = "elasticmapreduce",
+      Prelude._svcSigningName = "elasticmapreduce",
       Prelude._svcVersion = "2009-03-31",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

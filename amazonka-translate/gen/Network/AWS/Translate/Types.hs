@@ -202,7 +202,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "Translate",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "translate",
+      Prelude._svcEndpointPrefix = "translate",
+      Prelude._svcSigningName = "translate",
       Prelude._svcVersion = "2017-07-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

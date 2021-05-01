@@ -536,7 +536,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "APIGateway",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "apigateway",
+      Prelude._svcEndpointPrefix = "apigateway",
+      Prelude._svcSigningName = "apigateway",
       Prelude._svcVersion = "2015-07-09",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

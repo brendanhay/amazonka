@@ -1210,7 +1210,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "S3",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "s3",
+      Prelude._svcEndpointPrefix = "s3",
+      Prelude._svcSigningName = "s3",
       Prelude._svcVersion = "2006-03-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

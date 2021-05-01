@@ -146,7 +146,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "DynamoDBStreams",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "streams.dynamodb",
+      Prelude._svcEndpointPrefix = "streams.dynamodb",
+      Prelude._svcSigningName = "dynamodb",
       Prelude._svcVersion = "2012-08-10",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

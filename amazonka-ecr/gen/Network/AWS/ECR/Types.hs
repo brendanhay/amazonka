@@ -298,7 +298,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "ECR",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "api.ecr",
+      Prelude._svcEndpointPrefix = "api.ecr",
+      Prelude._svcSigningName = "ecr",
       Prelude._svcVersion = "2015-09-21",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

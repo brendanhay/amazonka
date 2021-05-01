@@ -119,7 +119,9 @@ initiateJob_vaultName = Lens.lens (\InitiateJob' {vaultName} -> vaultName) (\s@I
 
 instance Prelude.AWSRequest InitiateJob where
   type Rs InitiateJob = InitiateJobResponse
-  request = Request.postJSON defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->

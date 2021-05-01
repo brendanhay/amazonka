@@ -150,7 +150,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "LexRuntime",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "runtime.lex",
+      Prelude._svcEndpointPrefix = "runtime.lex",
+      Prelude._svcSigningName = "lex",
       Prelude._svcVersion = "2016-11-28",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

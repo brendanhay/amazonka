@@ -35,7 +35,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "SageMakerRuntime",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "runtime.sagemaker",
+      Prelude._svcEndpointPrefix = "runtime.sagemaker",
+      Prelude._svcSigningName = "sagemaker",
       Prelude._svcVersion = "2017-05-13",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

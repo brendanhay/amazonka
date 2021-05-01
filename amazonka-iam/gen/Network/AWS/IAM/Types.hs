@@ -649,7 +649,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "IAM",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "iam",
+      Prelude._svcEndpointPrefix = "iam",
+      Prelude._svcSigningName = "iam",
       Prelude._svcVersion = "2010-05-08",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

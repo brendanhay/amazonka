@@ -94,7 +94,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "SDB",
       Prelude._svcSigner = Sign.v2,
-      Prelude._svcPrefix = "sdb",
+      Prelude._svcEndpointPrefix = "sdb",
+      Prelude._svcSigningName = "sdb",
       Prelude._svcVersion = "2009-04-15",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

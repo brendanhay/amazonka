@@ -1,8 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
 -- |
 -- Module      : Network.AWS.CloudWatchLogs
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -10,6 +8,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from API version @2014-03-28@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- You can use Amazon CloudWatch Logs to monitor, store, and access your
 -- log files from EC2 instances, AWS CloudTrail, or other sources. You can

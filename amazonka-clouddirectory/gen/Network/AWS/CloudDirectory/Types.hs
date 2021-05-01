@@ -843,7 +843,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "CloudDirectory",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "clouddirectory",
+      Prelude._svcEndpointPrefix = "clouddirectory",
+      Prelude._svcSigningName = "clouddirectory",
       Prelude._svcVersion = "2017-01-11",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

@@ -98,7 +98,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "SNS",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "sns",
+      Prelude._svcEndpointPrefix = "sns",
+      Prelude._svcSigningName = "sns",
       Prelude._svcVersion = "2010-03-31",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

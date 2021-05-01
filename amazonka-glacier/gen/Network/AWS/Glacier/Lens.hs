@@ -35,11 +35,11 @@ module Network.AWS.Glacier.Lens
     setVaultAccessPolicy_vaultName,
 
     -- ** CompleteMultipartUpload
-    completeMultipartUpload_archiveSize,
-    completeMultipartUpload_checksum,
     completeMultipartUpload_accountId,
     completeMultipartUpload_vaultName,
     completeMultipartUpload_uploadId,
+    completeMultipartUpload_archiveSize,
+    completeMultipartUpload_checksum,
     archiveCreationOutput_archiveId,
     archiveCreationOutput_location,
     archiveCreationOutput_checksum,
@@ -175,10 +175,10 @@ module Network.AWS.Glacier.Lens
     addTagsToVault_vaultName,
 
     -- ** InitiateMultipartUpload
-    initiateMultipartUpload_partSize,
     initiateMultipartUpload_archiveDescription,
     initiateMultipartUpload_accountId,
     initiateMultipartUpload_vaultName,
+    initiateMultipartUpload_partSize,
     initiateMultipartUploadResponse_uploadId,
     initiateMultipartUploadResponse_location,
     initiateMultipartUploadResponse_httpStatus,
@@ -249,11 +249,11 @@ module Network.AWS.Glacier.Lens
     deleteVaultNotifications_vaultName,
 
     -- ** UploadMultipartPart
-    uploadMultipartPart_range,
-    uploadMultipartPart_checksum,
     uploadMultipartPart_accountId,
     uploadMultipartPart_vaultName,
     uploadMultipartPart_uploadId,
+    uploadMultipartPart_range,
+    uploadMultipartPart_checksum,
     uploadMultipartPart_body,
     uploadMultipartPartResponse_checksum,
     uploadMultipartPartResponse_httpStatus,

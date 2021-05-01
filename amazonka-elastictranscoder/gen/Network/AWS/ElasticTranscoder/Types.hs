@@ -386,7 +386,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "ElasticTranscoder",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "elastictranscoder",
+      Prelude._svcEndpointPrefix = "elastictranscoder",
+      Prelude._svcSigningName = "elastictranscoder",
       Prelude._svcVersion = "2012-09-25",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

@@ -1,3 +1,4 @@
+cabal-version:      2.2
 name:               amazonka-marketplace-entitlement
 version:            1.6.1
 synopsis:           Amazon Marketplace Entitlement Service SDK.
@@ -8,9 +9,8 @@ license-file:       LICENSE
 author:             Brendan Hay
 maintainer:         Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 copyright:          Copyright (c) 2013-2021 Brendan Hay
-category:           Network, AWS, Cloud, Distributed Computing
+category:           AWS
 build-type:         Simple
-cabal-version:      >=1.10
 extra-source-files:
   fixture/*.proto
   fixture/*.yaml
@@ -18,9 +18,10 @@ extra-source-files:
   src/.gitkeep
 
 description:
+  Derived from API version @2017-01-11@ of the AWS service descriptions, licensed under Apache 2.0.
+  .
   The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
-  which provides mechanisms for specifying AuthN/AuthZ information, sending requests,
-  and receiving responses.
+  which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
   .
   It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
   .
@@ -55,7 +56,7 @@ library
 
   reexported-modules: Network.AWS.Prelude
   build-depends:
-      amazonka-core  >=1.6.1 && <1.6.2
+    , amazonka-core  >=1.6.1 && <1.6.2
     , base           >=4.13  && <5
 
 test-suite amazonka-marketplace-entitlement-test
@@ -74,7 +75,7 @@ test-suite amazonka-marketplace-entitlement-test
     Test.AWS.MarketplaceEntitlement.Internal
 
   build-depends:
-      amazonka-core                     >=1.6.1 && <1.6.2
+    , amazonka-core                     >=1.6.1 && <1.6.2
     , amazonka-marketplace-entitlement
     , amazonka-test                     >=1.6.1 && <1.6.2
     , base

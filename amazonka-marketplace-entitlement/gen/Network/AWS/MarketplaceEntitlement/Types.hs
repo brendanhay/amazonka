@@ -57,7 +57,9 @@ defaultService =
     { Prelude._svcAbbrev =
         "MarketplaceEntitlement",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "entitlement.marketplace",
+      Prelude._svcEndpointPrefix =
+        "entitlement.marketplace",
+      Prelude._svcSigningName = "aws-marketplace",
       Prelude._svcVersion = "2017-01-11",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

@@ -177,7 +177,9 @@ uploadArchive_body = Lens.lens (\UploadArchive' {body} -> body) (\s@UploadArchiv
 
 instance Prelude.AWSRequest UploadArchive where
   type Rs UploadArchive = ArchiveCreationOutput
-  request = Request.postBody defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.postBody defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->

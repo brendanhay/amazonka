@@ -575,7 +575,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "XRay",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "xray",
+      Prelude._svcEndpointPrefix = "xray",
+      Prelude._svcSigningName = "xray",
       Prelude._svcVersion = "2016-04-12",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

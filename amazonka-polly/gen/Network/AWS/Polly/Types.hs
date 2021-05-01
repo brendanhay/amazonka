@@ -140,7 +140,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "Polly",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "polly",
+      Prelude._svcEndpointPrefix = "polly",
+      Prelude._svcSigningName = "polly",
       Prelude._svcVersion = "2016-06-10",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

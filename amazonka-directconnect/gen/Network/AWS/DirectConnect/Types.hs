@@ -413,7 +413,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "DirectConnect",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "directconnect",
+      Prelude._svcEndpointPrefix = "directconnect",
+      Prelude._svcSigningName = "directconnect",
       Prelude._svcVersion = "2012-10-25",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

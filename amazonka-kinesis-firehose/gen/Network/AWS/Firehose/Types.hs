@@ -715,7 +715,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "Firehose",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "firehose",
+      Prelude._svcEndpointPrefix = "firehose",
+      Prelude._svcSigningName = "firehose",
       Prelude._svcVersion = "2015-08-04",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

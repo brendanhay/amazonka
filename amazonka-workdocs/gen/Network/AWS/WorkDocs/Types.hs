@@ -383,7 +383,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "WorkDocs",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "workdocs",
+      Prelude._svcEndpointPrefix = "workdocs",
+      Prelude._svcSigningName = "workdocs",
       Prelude._svcVersion = "2016-05-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

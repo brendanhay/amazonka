@@ -795,7 +795,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "Rekognition",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "rekognition",
+      Prelude._svcEndpointPrefix = "rekognition",
+      Prelude._svcSigningName = "rekognition",
       Prelude._svcVersion = "2016-06-27",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

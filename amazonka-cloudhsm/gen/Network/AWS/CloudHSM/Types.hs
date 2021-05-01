@@ -56,7 +56,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "CloudHSM",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "cloudhsm",
+      Prelude._svcEndpointPrefix = "cloudhsm",
+      Prelude._svcSigningName = "cloudhsm",
       Prelude._svcVersion = "2014-05-30",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

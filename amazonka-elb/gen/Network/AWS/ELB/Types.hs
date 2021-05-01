@@ -267,7 +267,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "ELB",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "elasticloadbalancing",
+      Prelude._svcEndpointPrefix = "elasticloadbalancing",
+      Prelude._svcSigningName = "elasticloadbalancing",
       Prelude._svcVersion = "2012-06-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

@@ -157,7 +157,9 @@ describeJob_jobId = Lens.lens (\DescribeJob' {jobId} -> jobId) (\s@DescribeJob' 
 
 instance Prelude.AWSRequest DescribeJob where
   type Rs DescribeJob = GlacierJobDescription
-  request = Request.get defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.get defaultService
   response =
     Response.receiveJSON
       (\s h x -> Prelude.eitherParseJSON x)

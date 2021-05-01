@@ -789,7 +789,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "DMS",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "dms",
+      Prelude._svcEndpointPrefix = "dms",
+      Prelude._svcSigningName = "dms",
       Prelude._svcVersion = "2016-01-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

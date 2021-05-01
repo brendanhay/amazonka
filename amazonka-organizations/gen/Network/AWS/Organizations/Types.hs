@@ -319,7 +319,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "Organizations",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "organizations",
+      Prelude._svcEndpointPrefix = "organizations",
+      Prelude._svcSigningName = "organizations",
       Prelude._svcVersion = "2016-11-28",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

@@ -115,7 +115,9 @@ instance Prelude.AWSRequest RemoveTagsFromVault where
   type
     Rs RemoveTagsFromVault =
       RemoveTagsFromVaultResponse
-  request = Request.postJSON defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.postJSON defaultService
   response =
     Response.receiveNull RemoveTagsFromVaultResponse'
 

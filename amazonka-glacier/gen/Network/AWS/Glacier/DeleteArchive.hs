@@ -138,7 +138,9 @@ deleteArchive_archiveId = Lens.lens (\DeleteArchive' {archiveId} -> archiveId) (
 
 instance Prelude.AWSRequest DeleteArchive where
   type Rs DeleteArchive = DeleteArchiveResponse
-  request = Request.delete defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.delete defaultService
   response =
     Response.receiveNull DeleteArchiveResponse'
 

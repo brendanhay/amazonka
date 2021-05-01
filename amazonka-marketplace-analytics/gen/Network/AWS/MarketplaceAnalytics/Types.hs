@@ -40,7 +40,10 @@ defaultService =
     { Prelude._svcAbbrev =
         "MarketplaceAnalytics",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "marketplacecommerceanalytics",
+      Prelude._svcEndpointPrefix =
+        "marketplacecommerceanalytics",
+      Prelude._svcSigningName =
+        "marketplacecommerceanalytics",
       Prelude._svcVersion = "2015-07-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

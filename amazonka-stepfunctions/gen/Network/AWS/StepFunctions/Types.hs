@@ -425,7 +425,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "StepFunctions",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "states",
+      Prelude._svcEndpointPrefix = "states",
+      Prelude._svcSigningName = "states",
       Prelude._svcVersion = "2016-11-23",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

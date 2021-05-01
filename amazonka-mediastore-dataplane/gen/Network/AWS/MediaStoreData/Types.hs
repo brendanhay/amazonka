@@ -58,7 +58,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "MediaStoreData",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "data.mediastore",
+      Prelude._svcEndpointPrefix = "data.mediastore",
+      Prelude._svcSigningName = "mediastore",
       Prelude._svcVersion = "2017-09-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

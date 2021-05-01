@@ -1311,7 +1311,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "RDS",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "rds",
+      Prelude._svcEndpointPrefix = "rds",
+      Prelude._svcSigningName = "rds",
       Prelude._svcVersion = "2014-10-31",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

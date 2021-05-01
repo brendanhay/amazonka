@@ -1009,7 +1009,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "SWF",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "swf",
+      Prelude._svcEndpointPrefix = "swf",
+      Prelude._svcSigningName = "swf",
       Prelude._svcVersion = "2012-01-25",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

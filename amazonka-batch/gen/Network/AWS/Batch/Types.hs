@@ -532,7 +532,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "Batch",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "batch",
+      Prelude._svcEndpointPrefix = "batch",
+      Prelude._svcSigningName = "batch",
       Prelude._svcVersion = "2016-08-10",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

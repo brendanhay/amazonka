@@ -266,7 +266,9 @@ getJobOutput_jobId = Lens.lens (\GetJobOutput' {jobId} -> jobId) (\s@GetJobOutpu
 
 instance Prelude.AWSRequest GetJobOutput where
   type Rs GetJobOutput = GetJobOutputResponse
-  request = Request.get defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.get defaultService
   response =
     Response.receiveBody
       ( \s h x ->

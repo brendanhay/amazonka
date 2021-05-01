@@ -391,7 +391,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "StorageGateway",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "storagegateway",
+      Prelude._svcEndpointPrefix = "storagegateway",
+      Prelude._svcSigningName = "storagegateway",
       Prelude._svcVersion = "2013-06-30",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

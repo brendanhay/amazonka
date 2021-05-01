@@ -130,7 +130,9 @@ createVault_vaultName = Lens.lens (\CreateVault' {vaultName} -> vaultName) (\s@C
 
 instance Prelude.AWSRequest CreateVault where
   type Rs CreateVault = CreateVaultResponse
-  request = Request.putJSON defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.putJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->

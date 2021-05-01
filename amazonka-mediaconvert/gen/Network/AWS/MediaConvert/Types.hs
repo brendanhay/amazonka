@@ -2957,7 +2957,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "MediaConvert",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "mediaconvert",
+      Prelude._svcEndpointPrefix = "mediaconvert",
+      Prelude._svcSigningName = "mediaconvert",
       Prelude._svcVersion = "2017-08-29",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

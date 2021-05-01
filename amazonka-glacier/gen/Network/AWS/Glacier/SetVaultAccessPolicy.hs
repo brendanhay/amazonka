@@ -117,7 +117,9 @@ instance Prelude.AWSRequest SetVaultAccessPolicy where
   type
     Rs SetVaultAccessPolicy =
       SetVaultAccessPolicyResponse
-  request = Request.putJSON defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.putJSON defaultService
   response =
     Response.receiveNull SetVaultAccessPolicyResponse'
 

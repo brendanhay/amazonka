@@ -263,7 +263,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "Transcribe",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "transcribe",
+      Prelude._svcEndpointPrefix = "transcribe",
+      Prelude._svcSigningName = "transcribe",
       Prelude._svcVersion = "2017-10-26",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

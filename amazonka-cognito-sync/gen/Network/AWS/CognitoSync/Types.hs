@@ -126,7 +126,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "CognitoSync",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "cognito-sync",
+      Prelude._svcEndpointPrefix = "cognito-sync",
+      Prelude._svcSigningName = "cognito-sync",
       Prelude._svcVersion = "2014-06-30",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

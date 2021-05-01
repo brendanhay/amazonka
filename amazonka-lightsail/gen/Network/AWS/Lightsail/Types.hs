@@ -1274,7 +1274,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "Lightsail",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "lightsail",
+      Prelude._svcEndpointPrefix = "lightsail",
+      Prelude._svcSigningName = "lightsail",
       Prelude._svcVersion = "2016-11-28",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

@@ -15,7 +15,6 @@ extra-source-files:
   CHANGELOG.md
   README.md
 
-
 description:
   This client library contains request and response logic to communicate
   with Amazon Web Service compatible APIs using the types supplied by the
@@ -60,7 +59,7 @@ library
 
   reexported-modules: Network.AWS.Prelude
   build-depends:
-      amazonka-core        >=1.6.1   && <1.6.2
+    , amazonka-core        >=1.6.1   && <1.6.2
     , base                 >=4.13    && <5
     , bytestring           >=0.9
     , conduit              >=1.3
@@ -93,7 +92,7 @@ test-suite tests
   ghc-options:      -Wall -threaded
   other-modules:
   build-depends:
-      amazonka
+    , amazonka
     , base
     , tasty
     , tasty-hunit

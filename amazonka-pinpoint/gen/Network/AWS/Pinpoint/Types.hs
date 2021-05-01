@@ -2034,7 +2034,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "Pinpoint",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "pinpoint",
+      Prelude._svcEndpointPrefix = "pinpoint",
+      Prelude._svcSigningName = "mobiletargeting",
       Prelude._svcVersion = "2016-12-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

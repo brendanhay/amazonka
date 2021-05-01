@@ -84,7 +84,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "MarketplaceMetering",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "metering.marketplace",
+      Prelude._svcEndpointPrefix = "metering.marketplace",
+      Prelude._svcSigningName = "aws-marketplace",
       Prelude._svcVersion = "2016-01-14",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

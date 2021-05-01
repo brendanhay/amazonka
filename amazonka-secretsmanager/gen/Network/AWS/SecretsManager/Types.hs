@@ -129,7 +129,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "SecretsManager",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "secretsmanager",
+      Prelude._svcEndpointPrefix = "secretsmanager",
+      Prelude._svcSigningName = "secretsmanager",
       Prelude._svcVersion = "2017-10-17",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

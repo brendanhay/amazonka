@@ -100,7 +100,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "Cloud9",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "cloud9",
+      Prelude._svcEndpointPrefix = "cloud9",
+      Prelude._svcSigningName = "cloud9",
       Prelude._svcVersion = "2017-09-23",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

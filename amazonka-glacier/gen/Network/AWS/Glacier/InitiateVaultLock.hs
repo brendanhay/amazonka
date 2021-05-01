@@ -151,7 +151,9 @@ initiateVaultLock_vaultName = Lens.lens (\InitiateVaultLock' {vaultName} -> vaul
 
 instance Prelude.AWSRequest InitiateVaultLock where
   type Rs InitiateVaultLock = InitiateVaultLockResponse
-  request = Request.postJSON defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->

@@ -1,8 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
 -- |
 -- Module      : Network.AWS.XRay
 -- Copyright   : (c) 2013-2021 Brendan Hay
@@ -10,6 +8,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay+amazonka@gmail.com>
 -- Stability   : auto-generated
 -- Portability : non-portable (GHC extensions)
+--
+-- Derived from API version @2016-04-12@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- AWS X-Ray provides APIs for managing debug traces and retrieving service
 -- maps and other data created by processing those traces.

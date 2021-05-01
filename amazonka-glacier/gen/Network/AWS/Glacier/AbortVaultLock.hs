@@ -119,7 +119,9 @@ abortVaultLock_vaultName = Lens.lens (\AbortVaultLock' {vaultName} -> vaultName)
 
 instance Prelude.AWSRequest AbortVaultLock where
   type Rs AbortVaultLock = AbortVaultLockResponse
-  request = Request.delete defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.delete defaultService
   response =
     Response.receiveNull AbortVaultLockResponse'
 

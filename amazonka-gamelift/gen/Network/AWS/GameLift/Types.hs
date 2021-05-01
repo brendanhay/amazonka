@@ -732,7 +732,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "GameLift",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "gamelift",
+      Prelude._svcEndpointPrefix = "gamelift",
+      Prelude._svcSigningName = "gamelift",
       Prelude._svcVersion = "2015-10-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

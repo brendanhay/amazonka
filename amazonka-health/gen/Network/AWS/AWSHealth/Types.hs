@@ -235,7 +235,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "AWSHealth",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "health",
+      Prelude._svcEndpointPrefix = "health",
+      Prelude._svcSigningName = "health",
       Prelude._svcVersion = "2016-08-04",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

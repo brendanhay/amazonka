@@ -330,7 +330,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "AppSync",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "appsync",
+      Prelude._svcEndpointPrefix = "appsync",
+      Prelude._svcSigningName = "appsync",
       Prelude._svcVersion = "2017-07-25",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

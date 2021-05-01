@@ -42,7 +42,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "APIGatewayManagementAPI",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "execute-api",
+      Prelude._svcEndpointPrefix = "execute-api",
+      Prelude._svcSigningName = "execute-api",
       Prelude._svcVersion = "2018-11-29",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

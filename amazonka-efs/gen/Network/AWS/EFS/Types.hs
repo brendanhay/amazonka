@@ -197,7 +197,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "EFS",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "elasticfilesystem",
+      Prelude._svcEndpointPrefix = "elasticfilesystem",
+      Prelude._svcSigningName = "elasticfilesystem",
       Prelude._svcVersion = "2015-02-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

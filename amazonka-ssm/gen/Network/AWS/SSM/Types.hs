@@ -2043,7 +2043,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "SSM",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "ssm",
+      Prelude._svcEndpointPrefix = "ssm",
+      Prelude._svcSigningName = "ssm",
       Prelude._svcVersion = "2014-11-06",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

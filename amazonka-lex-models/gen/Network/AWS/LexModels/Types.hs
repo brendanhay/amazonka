@@ -364,7 +364,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "LexModels",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "models.lex",
+      Prelude._svcEndpointPrefix = "models.lex",
+      Prelude._svcSigningName = "lex",
       Prelude._svcVersion = "2017-04-19",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

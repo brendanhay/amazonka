@@ -833,7 +833,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "CostExplorer",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "ce",
+      Prelude._svcEndpointPrefix = "ce",
+      Prelude._svcSigningName = "ce",
       Prelude._svcVersion = "2017-10-25",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

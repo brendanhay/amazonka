@@ -215,7 +215,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "KMS",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "kms",
+      Prelude._svcEndpointPrefix = "kms",
+      Prelude._svcSigningName = "kms",
       Prelude._svcVersion = "2014-11-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

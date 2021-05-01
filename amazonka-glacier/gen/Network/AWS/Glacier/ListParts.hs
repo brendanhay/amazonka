@@ -208,7 +208,9 @@ instance Pager.AWSPager ListParts where
 
 instance Prelude.AWSRequest ListParts where
   type Rs ListParts = ListPartsResponse
-  request = Request.get defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->

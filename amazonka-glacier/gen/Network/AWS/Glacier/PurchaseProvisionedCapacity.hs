@@ -95,7 +95,9 @@ instance
   type
     Rs PurchaseProvisionedCapacity =
       PurchaseProvisionedCapacityResponse
-  request = Request.postJSON defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.postJSON defaultService
   response =
     Response.receiveEmpty
       ( \s h x ->

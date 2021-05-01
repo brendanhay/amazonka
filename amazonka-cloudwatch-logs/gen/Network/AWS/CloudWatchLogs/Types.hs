@@ -251,7 +251,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "CloudWatchLogs",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "logs",
+      Prelude._svcEndpointPrefix = "logs",
+      Prelude._svcSigningName = "logs",
       Prelude._svcVersion = "2014-03-28",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

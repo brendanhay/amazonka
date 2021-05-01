@@ -683,7 +683,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "DeviceFarm",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "devicefarm",
+      Prelude._svcEndpointPrefix = "devicefarm",
+      Prelude._svcSigningName = "devicefarm",
       Prelude._svcVersion = "2015-06-23",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

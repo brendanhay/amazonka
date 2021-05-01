@@ -492,7 +492,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "AutoScaling",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "autoscaling",
+      Prelude._svcEndpointPrefix = "autoscaling",
+      Prelude._svcSigningName = "autoscaling",
       Prelude._svcVersion = "2011-01-01",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

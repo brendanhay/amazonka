@@ -169,7 +169,9 @@ instance Pager.AWSPager ListVaults where
 
 instance Prelude.AWSRequest ListVaults where
   type Rs ListVaults = ListVaultsResponse
-  request = Request.get defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->

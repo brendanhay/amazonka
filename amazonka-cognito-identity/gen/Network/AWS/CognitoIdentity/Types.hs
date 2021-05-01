@@ -136,7 +136,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "CognitoIdentity",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "cognito-identity",
+      Prelude._svcEndpointPrefix = "cognito-identity",
+      Prelude._svcSigningName = "cognito-identity",
       Prelude._svcVersion = "2014-06-30",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

@@ -719,7 +719,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "CloudFormation",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "cloudformation",
+      Prelude._svcEndpointPrefix = "cloudformation",
+      Prelude._svcSigningName = "cloudformation",
       Prelude._svcVersion = "2010-05-15",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

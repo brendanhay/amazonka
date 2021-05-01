@@ -118,7 +118,9 @@ addTagsToVault_vaultName = Lens.lens (\AddTagsToVault' {vaultName} -> vaultName)
 
 instance Prelude.AWSRequest AddTagsToVault where
   type Rs AddTagsToVault = AddTagsToVaultResponse
-  request = Request.postJSON defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.postJSON defaultService
   response =
     Response.receiveNull AddTagsToVaultResponse'
 

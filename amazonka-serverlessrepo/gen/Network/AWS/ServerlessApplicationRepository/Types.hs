@@ -143,7 +143,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "ServerlessApplicationRepository",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "serverlessrepo",
+      Prelude._svcEndpointPrefix = "serverlessrepo",
+      Prelude._svcSigningName = "serverlessrepo",
       Prelude._svcVersion = "2017-09-08",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

@@ -1021,7 +1021,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "DynamoDB",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "dynamodb",
+      Prelude._svcEndpointPrefix = "dynamodb",
+      Prelude._svcSigningName = "dynamodb",
       Prelude._svcVersion = "2012-08-10",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

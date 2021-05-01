@@ -292,7 +292,8 @@ defaultService =
   Prelude.Service
     { Prelude._svcAbbrev = "Athena",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "athena",
+      Prelude._svcEndpointPrefix = "athena",
+      Prelude._svcSigningName = "athena",
       Prelude._svcVersion = "2017-05-18",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

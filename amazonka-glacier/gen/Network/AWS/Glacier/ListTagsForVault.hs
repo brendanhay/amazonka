@@ -106,7 +106,9 @@ listTagsForVault_vaultName = Lens.lens (\ListTagsForVault' {vaultName} -> vaultN
 
 instance Prelude.AWSRequest ListTagsForVault where
   type Rs ListTagsForVault = ListTagsForVaultResponse
-  request = Request.get defaultService
+  request =
+    Request.glacierVersionHeader (Prelude._svcVersion defaultService)
+      Prelude.. Request.get defaultService
   response =
     Response.receiveJSON
       ( \s h x ->

@@ -285,7 +285,8 @@ defaultService =
     { Prelude._svcAbbrev =
         "MachineLearning",
       Prelude._svcSigner = Sign.v4,
-      Prelude._svcPrefix = "machinelearning",
+      Prelude._svcEndpointPrefix = "machinelearning",
+      Prelude._svcSigningName = "machinelearning",
       Prelude._svcVersion = "2014-12-12",
       Prelude._svcEndpoint =
         Prelude.defaultEndpoint defaultService,

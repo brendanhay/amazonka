@@ -13,9 +13,10 @@ build-type:            Simple
 cabal-version:         >= 1.10
 extra-source-files:    README.md fixture/*.yaml fixture/*.proto src/.gitkeep
 description:
+    Derived from API version @{{ apiVersion }}@ of the AWS service descriptions, licensed under Apache 2.0.
+    .
     The types from this library are intended to be used with <http://hackage.haskell.org/package/amazonka amazonka>,
-    which provides mechanisms for specifying AuthN/AuthZ information, sending requests,
-    and receiving responses.
+    which provides mechanisms for specifying AuthN/AuthZ information, sending requests, and receiving responses.
     .
     It is recommended to use generic lenses or optics from packages such as <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/optics optics> to modify optional fields and deconstruct responses.
     .

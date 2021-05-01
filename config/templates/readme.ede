@@ -7,9 +7,8 @@
 
 
 ## Version
-
-`{{ libraryVersion }}`
-
+ 
+`{{ libraryVersion }}` - Derived from API version @{{ apiVersion }}@ of the AWS service descriptions, licensed under Apache 2.0.
 
 ## Description
 

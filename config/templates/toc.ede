@@ -1,9 +1,9 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports    #-}
 {-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
 {% include "_include/license.ede" %}
+--
+-- Derived from API version @{{ apiVersion }}@ of the AWS service descriptions, licensed under Apache 2.0.
 --
 -- {{ documentation }}
 module {{ moduleName }}

@@ -2,5 +2,24 @@
     "libraryName": "amazonka-glacier",
     "operationPlugins": {
         "*": ["Request.glacierVersionHeader (Prelude._svcVersion defaultService)"]
+    },
+    "typeOverrides": {
+        "InitiateMultipartUploadInput": {
+            "requiredFields": [
+                "partSize"
+            ]
+        },
+        "UploadMultipartPartInput": {
+            "requiredFields": [
+                "range",
+                "checksum"
+            ]
+        },
+        "CompleteMultipartUploadInput": {
+            "requiredFields": [
+                "archiveSize",
+                "checksum"
+            ]
+        }
     }
 }

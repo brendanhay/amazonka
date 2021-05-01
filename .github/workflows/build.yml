@@ -2,9 +2,9 @@ name: build
 
 on:
   push:
-    branches: bh/release
+    branches: null
   pull_request:
-    branches: bh/release
+    branches: null
 
 jobs:
   build:

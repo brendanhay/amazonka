@@ -17,8 +17,12 @@ module Network.AWS.S3.Encryption.Instructions where
 import Control.Arrow ((&&&))
 import Control.Lens (Lens', (%~), (&))
 import qualified Control.Lens as Lens
+import Control.Monad.Except (ExceptT (ExceptT))
+import qualified Control.Monad.Except as Except
 import Control.Monad.Trans.AWS
+import Control.Monad.Trans.Resource (ResourceT)
 import qualified Data.Aeson.Types as Aeson
+import Data.Bifunctor (first)
 import Data.Coerce (coerce)
 import Data.Proxy (Proxy (Proxy))
 import Network.AWS.Prelude
@@ -29,7 +33,10 @@ import Network.AWS.S3.Encryption.Types
 import qualified Network.AWS.S3.Lens as S3
 
 newtype Instructions = Instructions
-  { runInstructions :: forall m r. (AWSConstraint r m, HasKeyEnv r) => m Envelope
+  { runInstructions ::
+      Env ->
+      Key ->
+      ResourceT IO (Either EncryptionError Envelope)
   }
 
 class AWSRequest a => AddInstructions a where
@@ -102,15 +109,13 @@ instance AWSRequest GetInstructions where
 
   response =
     Response.receiveJSON $ \_ _ o ->
-      pure $
-        Instructions $ do
-          k <- Lens.view envKey
-          e <- Lens.view environment
+      pure . Instructions $ \env key ->
+        Except.runExceptT $ do
+          meta <-
+            Except.liftEither . first (EnvelopeInvalid "Instructions") $
+              Aeson.parseEither Aeson.parseJSON (Aeson.Object o)
 
-          hoistError
-            (EnvelopeInvalid "Instructions")
-            (Aeson.parseEither Aeson.parseJSON (Aeson.Object o))
-            >>= fromMetadata k e
+          ExceptT (fromMetadata env key meta)
 
 class AWSRequest a => RemoveInstructions a where
   -- | Determine the bucket and key an instructions file is adjacent to.

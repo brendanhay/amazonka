@@ -16,10 +16,11 @@ module Network.AWS.S3.Encryption.Encrypt where
 
 import Control.Lens (Setter', (%~), (&), (<>~), (^.))
 import qualified Control.Lens as Lens
-import qualified Control.Monad as Monad
 import Control.Monad.Trans.AWS
+import Control.Monad.Trans.Resource (MonadResource)
 import Data.Coerce (coerce)
 import Data.Proxy (Proxy (Proxy))
+import qualified Data.Traversable as Traversable
 import Network.AWS.Prelude
 import qualified Network.AWS.S3 as S3
 import Network.AWS.S3.Encryption.Envelope
@@ -32,16 +33,19 @@ import qualified Network.AWS.S3.Lens as S3
 -- | Note about how it doesn't attach metadata by default.
 -- You can re-set the location and then discard the PutInstructions request.
 encrypted ::
-  (AWSConstraint r m, HasKeyEnv r, ToEncrypted a) =>
+  (MonadResource m, ToEncrypted a) =>
+  Env ->
+  Key ->
   a ->
-  m (Encrypted a, PutInstructions)
-encrypted x = do
-  e <- Monad.join (newEnvelope <$> Lens.view envKey <*> Lens.view environment)
+  m (Either EncryptionError (Encrypted a, PutInstructions))
+encrypted env key x = do
+  result <- newEnvelope env key
 
-  return
-    ( encryptWith x Discard e,
-      putInstructions x e
-    )
+  Traversable.for result $ \e ->
+    pure
+      ( encryptWith x Discard e,
+        putInstructions x e
+      )
 
 encryptPart ::
   Encrypted S3.CreateMultipartUpload ->
@@ -78,7 +82,8 @@ instance AWSRequest a => AWSRequest (Encrypted a) where
         | l == Metadata = xs <> toHeaders e
         | otherwise = xs
 
-  response l s p = response l s (proxy p)
+  response l s p =
+    response l s (proxy p)
 
 proxy :: forall a. Proxy (Encrypted a) -> Proxy a
 proxy = const Proxy

@@ -1,4 +1,5 @@
 {-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
@@ -33,7 +34,7 @@ module Network.AWS.Response
   )
 where
 
-import Control.Monad.Catch
+import qualified Control.Exception as Exception
 import Control.Monad.IO.Class
 import Control.Monad.Trans.Resource
 import Data.Aeson
@@ -53,7 +54,7 @@ import Network.HTTP.Types
 import Text.XML (Node)
 
 receiveNull ::
-  (MonadResource m, MonadThrow m) =>
+  MonadResource m =>
   Rs a ->
   Logger ->
   Service ->
@@ -64,7 +65,7 @@ receiveNull rs _ = stream $ \r _ _ _ ->
   responseClose r *> pure (Right rs)
 
 receiveEmpty ::
-  (MonadResource m, MonadThrow m) =>
+  MonadResource m =>
   (Int -> ResponseHeaders -> () -> Either String (Rs a)) ->
   Logger ->
   Service ->
@@ -75,7 +76,7 @@ receiveEmpty f _ = stream $ \r s h _ ->
   responseClose r *> pure (f s h ())
 
 receiveXMLWrapper ::
-  (MonadResource m, MonadThrow m) =>
+  MonadResource m =>
   Text ->
   (Int -> ResponseHeaders -> [Node] -> Either String (Rs a)) ->
   Logger ->
@@ -86,7 +87,7 @@ receiveXMLWrapper ::
 receiveXMLWrapper n f = receiveXML (\s h x -> x .@ n >>= f s h)
 
 receiveXML ::
-  (MonadResource m, MonadThrow m) =>
+  MonadResource m =>
   (Int -> ResponseHeaders -> [Node] -> Either String (Rs a)) ->
   Logger ->
   Service ->
@@ -96,7 +97,7 @@ receiveXML ::
 receiveXML = deserialise decodeXML
 
 receiveJSON ::
-  (MonadResource m, MonadThrow m) =>
+  MonadResource m =>
   (Int -> ResponseHeaders -> Object -> Either String (Rs a)) ->
   Logger ->
   Service ->
@@ -106,7 +107,7 @@ receiveJSON ::
 receiveJSON = deserialise eitherDecode'
 
 receiveBytes ::
-  (MonadResource m, MonadThrow m) =>
+  MonadResource m =>
   (Int -> ResponseHeaders -> ByteString -> Either String (Rs a)) ->
   Logger ->
   Service ->
@@ -116,7 +117,7 @@ receiveBytes ::
 receiveBytes = deserialise (Right . LBS.toStrict)
 
 receiveBody ::
-  (MonadResource m, MonadThrow m) =>
+  MonadResource m =>
   (Int -> ResponseHeaders -> RsBody -> Either String (Rs a)) ->
   Logger ->
   Service ->
@@ -127,7 +128,7 @@ receiveBody f _ = stream $ \_ s h x -> pure (f s h (RsBody x))
 
 -- | Deserialise an entire response body, such as an XML or JSON payload.
 deserialise ::
-  (MonadResource m, MonadThrow m) =>
+  MonadResource m =>
   (LazyByteString -> Either String b) ->
   (Int -> ResponseHeaders -> b -> Either String (Rs a)) ->
   Logger ->
@@ -141,18 +142,18 @@ deserialise g f l Service {..} _ rs = do
       x = responseBody rs
   b <- sinkLBS x
   if not (_svcCheck s)
-    then throwM (_svcError s h b)
+    then liftIO $ Exception.throwIO (_svcError s h b)
     else do
       liftIO . l Debug . build $ "[Raw Response Body] {\n" <> b <> "\n}"
       case g b >>= f (fromEnum s) h of
         Right r -> pure (s, r)
         Left e ->
-          throwM . SerializeError $
+          liftIO . Exception.throwIO . SerializeError $
             SerializeError' _svcAbbrev s (Just b) e
 
 -- | Stream a raw response body, such as an S3 object payload.
 stream ::
-  (MonadResource m, MonadThrow m) =>
+  MonadResource m =>
   ( ClientResponse ->
     Int ->
     ResponseHeaders ->
@@ -168,13 +169,12 @@ stream f Service {..} _ rs = do
       h = responseHeaders rs
       x = responseBody rs
   if not (_svcCheck s)
-    then sinkLBS x >>= throwM . _svcError s h
-    else do
-      e <- f rs (fromEnum s) h x
-      either
-        (throwM . SerializeError . SerializeError' _svcAbbrev s Nothing)
-        (pure . (s,))
-        e
+    then sinkLBS x >>= liftIO . Exception.throwIO . _svcError s h
+    else
+      f rs (fromEnum s) h x >>= \case
+        Right ok -> pure (s, ok)
+        Left err ->
+          liftIO $ Exception.throwIO $ SerializeError (SerializeError' _svcAbbrev s Nothing err)
 
 sinkLBS :: MonadResource m => ResponseBody -> m LazyByteString
 sinkLBS bdy = liftResourceT (bdy `connect` Conduit.sinkLbs)

@@ -144,7 +144,6 @@ module Network.AWS
   )
 where
 
-import Control.Monad.Catch (MonadCatch)
 import Control.Monad.IO.Class (MonadIO)
 import qualified Control.Monad.RWS.Lazy as LRW
 import qualified Control.Monad.RWS.Strict as RW
@@ -182,18 +181,15 @@ class
   ( Functor m,
     Applicative m,
     Monad m,
-    MonadIO m,
-    MonadCatch m
+    MonadIO m
   ) =>
   MonadAWS m
   where
   -- | Lift a computation to the 'AWS' monad.
   liftAWS :: AWS a -> m a
 
-instance (MonadResource m, MonadCatch m) => MonadAWS (AWST m) where
-  liftAWS action = do
-    env <- AWST.askEnv
-    liftResourceT (AWST.runAWST env action)
+instance MonadAWS AWS where
+  liftAWS = id
 
 instance MonadAWS m => MonadAWS (IdentityT m) where liftAWS = lift . liftAWS
 

@@ -57,14 +57,11 @@ module Network.AWS.S3.Encryption
 
     -- * Specifying Master Keys
     -- $master-key
-    KeyEnv,
     Key,
     kmsKey,
     asymmetricKey,
     symmetricKey,
     newSecret,
-    master,
-    material,
 
     -- * Request Encryption/Decryption
     -- $requests
@@ -90,10 +87,11 @@ module Network.AWS.S3.Encryption
   )
 where
 
-import Control.Lens
-import Control.Monad.Catch
-import Control.Monad.Reader
-import Control.Monad.Trans.AWS as AWST
+import qualified Control.Lens as Lens
+import Control.Monad.Except (ExceptT (ExceptT))
+import qualified Control.Monad.Except as Except
+import qualified Control.Monad.Trans.AWS as AWS
+import qualified Control.Monad.Trans.Resource as Resource
 import Crypto.PubKey.RSA.Types as RSA
 import Crypto.Random
 import Data.ByteString (ByteString)
@@ -104,21 +102,6 @@ import Network.AWS.S3.Encryption.Encrypt
 import Network.AWS.S3.Encryption.Envelope
 import Network.AWS.S3.Encryption.Instructions
 import Network.AWS.S3.Encryption.Types
-
--- | Set (using 'local') the client-side master key used to encrypt/decrypt
--- a block of actions.
-master :: (MonadReader r m, HasKeyEnv r) => Key -> m a -> m a
-master k = local (envKey .~ k)
-
--- | Set (using 'local') any additional material description to be used.
---
--- For encryption, this provides audit and logging information and is logged
--- by CloudTrail, if enabled.
---
--- For decryption when using KMS, this is merged with whatever material description
--- is stored on the envelope and supplied to KMS as a decryption context.
-material :: (MonadReader r m, HasKeyEnv r) => Description -> m a -> m a
-material d = local (envKey . description .~ d)
 
 -- | Specify a KMS master key to use, with an initially empty material description.
 --
@@ -138,13 +121,13 @@ asymmetricKey k = Asymmetric (KeyPair k) mempty
 -- Throws 'EncryptionError', specifically 'CipherFailure'.
 --
 -- /See:/ 'newSecret', 'description', 'material'.
-symmetricKey :: MonadThrow m => ByteString -> m Key
+symmetricKey :: ByteString -> Either EncryptionError Key
 symmetricKey = fmap (`Symmetric` mempty) . createCipher
 
 -- | Generate a random shared secret that is of the correct length to use with
 -- 'symmetricKey'. This will need to be stored securely to enable decryption
 -- of any requests that are encrypted using this secret.
-newSecret :: (MonadThrow m, MonadRandom m) => m ByteString
+newSecret :: MonadRandom m => m ByteString
 newSecret = getRandomBytes aesKeySize
 
 -- | Encrypt an object, storing the encryption envelope in @x-amz-meta-*@
@@ -152,12 +135,16 @@ newSecret = getRandomBytes aesKeySize
 --
 -- Throws 'EncryptionError', 'AWST.Error'.
 encrypt ::
-  (AWSConstraint r m, HasKeyEnv r) =>
+  AWS.AWSConstraint r m =>
+  Key ->
   PutObject ->
-  m PutObjectResponse
-encrypt x = do
-  (a, _) <- encrypted x
-  send (set location Metadata a)
+  m (Either EncryptionError PutObjectResponse)
+encrypt key x =
+  Except.runExceptT $ do
+    env <- Lens.view AWS.environment
+    (a, _) <- ExceptT (encrypted env key x)
+
+    AWS.send (Lens.set location Metadata a)
 
 -- | Encrypt an object, storing the encryption envelope in an adjacent instruction
 -- file with the same 'ObjectKey' and 'defaultExtension'.
@@ -166,13 +153,16 @@ encrypt x = do
 --
 -- Throws 'EncryptionError', 'AWST.Error'.
 encryptInstructions ::
-  (AWSConstraint r m, HasKeyEnv r) =>
+  AWS.AWSConstraint r m =>
+  Key ->
   PutObject ->
-  m PutObjectResponse
-encryptInstructions x = do
-  (a, b) <- encrypted x
-  _ <- send b
-  send a
+  m (Either EncryptionError PutObjectResponse)
+encryptInstructions key x =
+  Except.runExceptT $ do
+    env <- Lens.view AWS.environment
+    (a, b) <- ExceptT (encrypted env key x)
+    _ <- AWS.send b
+    AWS.send a
 
 -- | Initiate an encrypted multipart upload, storing the encryption envelope
 -- in the @x-amz-meta-*@ headers.
@@ -191,16 +181,23 @@ encryptInstructions x = do
 --
 -- Throws 'EncryptionError', 'AWST.Error'.
 initiate ::
-  (AWSConstraint r m, HasKeyEnv r) =>
+  AWS.AWSConstraint r m =>
+  Key ->
   CreateMultipartUpload ->
   m
-    ( CreateMultipartUploadResponse,
-      UploadPart -> Encrypted UploadPart
+    ( Either
+        EncryptionError
+        ( CreateMultipartUploadResponse,
+          UploadPart -> Encrypted UploadPart
+        )
     )
-initiate x = do
-  (a, _) <- encrypted x
-  rs <- send (set location Metadata a)
-  return (rs, encryptPart a)
+initiate key x =
+  Except.runExceptT $ do
+    env <- Lens.view AWS.environment
+    (a, _) <- ExceptT (encrypted env key x)
+    rs <- AWS.send (Lens.set location Metadata a)
+
+    return (rs, encryptPart a)
 
 -- | Initiate an encrypted multipart upload, storing the encryption envelope
 -- in an adjacent instruction file with the same 'ObjectKey' and 'defaultExtension'.
@@ -212,30 +209,41 @@ initiate x = do
 --
 -- Throws 'EncryptionError', 'AWST.Error'.
 initiateInstructions ::
-  (AWSConstraint r m, HasKeyEnv r) =>
+  AWS.AWSConstraint r m =>
+  Key ->
   CreateMultipartUpload ->
   m
-    ( CreateMultipartUploadResponse,
-      UploadPart -> Encrypted UploadPart
+    ( Either
+        EncryptionError
+        ( CreateMultipartUploadResponse,
+          UploadPart -> Encrypted UploadPart
+        )
     )
-initiateInstructions x = do
-  (a, b) <- encrypted x
-  rs <- send a
-  _ <- send b
-  return (rs, encryptPart a)
+initiateInstructions key x =
+  Except.runExceptT $ do
+    env <- Lens.view AWS.environment
+    (a, b) <- ExceptT (encrypted env key x)
+    rs <- AWS.send a
+    _ <- AWS.send b
+
+    return (rs, encryptPart a)
 
 -- | Retrieve an object, parsing the envelope from any @x-amz-meta-*@ headers
 -- and decrypting the response body.
 --
 -- Throws 'EncryptionError', 'AWST.Error'.
 decrypt ::
-  (AWSConstraint r m, HasKeyEnv r) =>
+  AWS.AWSConstraint r m =>
+  Key ->
   GetObject ->
-  m GetObjectResponse
-decrypt x = do
+  m (Either EncryptionError GetObjectResponse)
+decrypt key x = do
   let (a, _) = decrypted x
-  Decrypted f <- send a
-  f Nothing
+
+  env <- Lens.view AWS.environment
+  Decrypted f <- AWS.send a
+
+  Resource.liftResourceT (f env key Nothing)
 
 -- | Retrieve an object and its adjacent instruction file. The instruction
 -- are retrieved and parsed first.
@@ -243,14 +251,20 @@ decrypt x = do
 --
 -- Throws 'EncryptionError', 'AWST.Error'.
 decryptInstructions ::
-  (AWSConstraint r m, HasKeyEnv r) =>
+  AWS.AWSConstraint r m =>
+  Key ->
   GetObject ->
-  m GetObjectResponse
-decryptInstructions x = do
+  m (Either EncryptionError GetObjectResponse)
+decryptInstructions key x = do
   let (a, b) = decrypted x
-  Instructions g <- send b
-  Decrypted f <- send a
-  g >>= f . Just
+
+  env <- Lens.view AWS.environment
+  Instructions g <- AWS.send b
+  Decrypted f <- AWS.send a
+
+  Resource.liftResourceT . Except.runExceptT $ do
+    e <- ExceptT (g env key)
+    ExceptT (f env key (Just e))
 
 -- | Given a request to execute, such as 'AbortMultipartUpload' or 'DeleteObject',
 -- remove the adjacent instruction file, if it exists with the 'defaultExtension'.
@@ -258,12 +272,12 @@ decryptInstructions x = do
 --
 -- Throws 'EncryptionError', 'AWST.Error'.
 cleanupInstructions ::
-  (AWSConstraint r m, RemoveInstructions a) =>
+  (AWS.AWSConstraint r m, RemoveInstructions a) =>
   a ->
-  m (Rs a)
+  m (AWS.Rs a)
 cleanupInstructions x = do
-  rs <- send x
-  _ <- send (deleteInstructions x)
+  rs <- AWS.send x
+  _ <- AWS.send (deleteInstructions x)
   return rs
 
 -- $usage

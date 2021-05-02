@@ -312,28 +312,30 @@ isEC2 m = liftIO (req `catch` err)
 -- | Retrieve the specified 'Dynamic' data.
 --
 -- Throws 'HttpException' if HTTP communication fails.
-dynamic :: (MonadIO m, MonadThrow m) => Manager -> Dynamic -> m ByteString
+dynamic :: MonadIO m => Manager -> Dynamic -> m ByteString
 dynamic m = get m . mappend latest . toText
 
 -- | Retrieve the specified 'Metadata'.
 --
 -- Throws 'HttpException' if HTTP communication fails.
-metadata :: (MonadIO m, MonadThrow m) => Manager -> Metadata -> m ByteString
+metadata :: MonadIO m => Manager -> Metadata -> m ByteString
 metadata m = get m . mappend latest . toText
 
 -- | Retrieve the user data. Returns 'Nothing' if no user data is assigned
 -- to the instance.
 --
 -- Throws 'HttpException' if HTTP communication fails.
-userdata :: (MonadIO m, MonadCatch m) => Manager -> m (Maybe ByteString)
-userdata m = do
-  x <- try $ get m (latest <> "user-data")
-  case x of
-    Left (HttpExceptionRequest _ (StatusCodeException rs _))
-      | fromEnum (responseStatus rs) == 404 ->
-        return Nothing
-    Left e -> throwM e
-    Right b -> return (Just b)
+userdata :: MonadIO m => Manager -> m (Maybe ByteString)
+userdata m =
+  liftIO $ do
+    x <- try $ get m (latest <> "user-data")
+
+    case x of
+      Left (HttpExceptionRequest _ (StatusCodeException rs _))
+        | fromEnum (responseStatus rs) == 404 ->
+          return Nothing
+      Left e -> throwM e
+      Right b -> return (Just b)
 
 -- | Represents an instance's identity document.
 --
@@ -443,12 +445,12 @@ instance ToJSON IdentityDocument where
 --
 -- /See:/ <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-identity-documents.html AWS Instance Identity Documents>.
 identity ::
-  (MonadIO m, MonadThrow m) =>
+  MonadIO m =>
   Manager ->
   m (Either String IdentityDocument)
 identity m = (eitherDecode . LBS.fromStrict) `liftM` dynamic m Document
 
-get :: (MonadIO m, MonadThrow m) => Manager -> Text -> m ByteString
+get :: MonadIO m => Manager -> Text -> m ByteString
 get m url = liftIO (strip `liftM` request m url)
   where
     strip bs

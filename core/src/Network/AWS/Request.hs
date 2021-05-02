@@ -52,7 +52,7 @@ import Network.AWS.Data.JSON
 import Network.AWS.Data.Path
 import Network.AWS.Data.Query
 import Network.AWS.Data.XML
-import Network.AWS.Lens (Lens', (%~), (&), (.~), (<&>))
+import Network.AWS.Lens (Lens', (&), (.~), (<&>))
 import Network.AWS.Types
 import qualified Network.HTTP.Conduit as Client
 import Network.HTTP.Types (StdMethod (..))

@@ -560,7 +560,7 @@ class AWSRequest a where
 
   request :: a -> Request a
   response ::
-    (MonadResource m, MonadThrow m) =>
+    MonadResource m =>
     Logger ->
     Service ->
     Proxy a -> -- For injectivity reasons.

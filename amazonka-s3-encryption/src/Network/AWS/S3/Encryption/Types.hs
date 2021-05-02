@@ -25,7 +25,6 @@ import Data.CaseInsensitive (CI)
 import Data.String (IsString)
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text
-import qualified Network.AWS as AWS
 import Network.AWS.Prelude
 import qualified Network.AWS.S3 as S3
 import Prelude
@@ -106,7 +105,7 @@ instance ToByteString Description where
 instance FromText Description where
   fromText = Aeson.eitherDecodeStrict' . Text.encodeUtf8
 
--- | Master key used for encryption and decryption.
+-- | The key used for encryption and decryption.
 data Key
   = Symmetric AES.AES256 Description
   | Asymmetric RSA.KeyPair Description
@@ -127,26 +126,3 @@ description = Lens.lens f (flip g)
       Symmetric c _ -> Symmetric c a
       Asymmetric k _ -> Asymmetric k a
       KMS k _ -> KMS k a
-
--- | An 'AWS' environment composed with the master key used to encrypt/decrypt
--- requests. This environment is used in place of 'AWST.Env' when
--- running AWS actions.
-data KeyEnv = KeyEnv
-  { -- | The underlying 'AWS' environment.
-    _envExtended :: !AWS.Env,
-    -- | The master 'Key' used for encryption.
-    _envKey :: !Key
-  }
-
-instance AWS.HasEnv KeyEnv where
-  environment = Lens.lens _envExtended (\s a -> s {_envExtended = a})
-
-class HasKeyEnv a where
-  keyed :: Lens' a KeyEnv
-
-  -- | Key material used to encrypt/decrypt request envelopes.
-  envKey :: Lens' a Key
-  envKey = keyed . Lens.lens _envKey (\s a -> s {_envKey = a})
-
-instance HasKeyEnv KeyEnv where
-  keyed = id

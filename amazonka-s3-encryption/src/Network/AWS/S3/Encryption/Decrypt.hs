@@ -14,8 +14,10 @@
 module Network.AWS.S3.Encryption.Decrypt where
 
 import Control.Lens ((%~), (&), (^.))
-import qualified Control.Lens as Lens
+import Control.Monad.Except (ExceptT (ExceptT))
+import qualified Control.Monad.Except as Except
 import Control.Monad.Trans.AWS
+import Control.Monad.Trans.Resource (ResourceT)
 import Data.Coerce (coerce)
 import Data.Proxy (Proxy (Proxy))
 import Network.AWS.Prelude
@@ -31,7 +33,11 @@ decrypted x = (Decrypt x, getInstructions x)
 newtype Decrypt a = Decrypt a
 
 newtype Decrypted a = Decrypted
-  { runDecrypted :: forall m r. (AWSConstraint r m, HasKeyEnv r) => Maybe Envelope -> m a
+  { runDecrypted ::
+      Env ->
+      Key ->
+      Maybe Envelope ->
+      ResourceT IO (Either EncryptionError a)
   }
 
 instance AWSRequest (Decrypt S3.GetObject) where
@@ -40,20 +46,18 @@ instance AWSRequest (Decrypt S3.GetObject) where
   request (Decrypt x) = coerce (request x)
 
   response l s p r = do
-    (n, rs) <- response l s (proxy p) r
+    (status, rs) <- response l s (proxy p) r
 
     pure
-      ( n,
-        Decrypted $ \m -> do
-          key <- Lens.view envKey
-          env <- Lens.view environment
+      ( status,
+        Decrypted $ \env key m ->
+          Except.runExceptT $ do
+            encrypted <-
+              case m of
+                Nothing -> ExceptT (fromMetadata env key (rs ^. S3.getObjectResponse_metadata))
+                Just x -> pure x
 
-          enc <-
-            case m of
-              Nothing -> fromMetadata key env (rs ^. S3.getObjectResponse_metadata)
-              Just e' -> pure e'
-
-          pure (rs & S3.getObjectResponse_body %~ bodyDecrypt enc)
+            pure (rs & S3.getObjectResponse_body %~ bodyDecrypt encrypted)
       )
 
 proxy :: forall a. Proxy (Decrypt a) -> Proxy a
